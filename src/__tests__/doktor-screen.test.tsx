@@ -234,4 +234,28 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
 
     expect(mockPush).toHaveBeenCalledWith('/(tabs)/harmonogram');
   });
+
+  it('copies diagnosis to clipboard when copy button is pressed', async () => {
+    const diagnosisFormatter = require('../lib/diagnosis-formatter');
+    const copySpy = jest.spyOn(diagnosisFormatter, 'copyDiagnosisToClipboard').mockResolvedValue(true);
+
+    await act(async () => {
+      tree = renderer.create(<DoctorScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+    const copyBtn = root.findByProps({ testID: 'copy-diagnosis-btn' });
+    expect(copyBtn).toBeDefined();
+
+    await act(async () => {
+      await copyBtn.props.onPress();
+    });
+
+    expect(copySpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        defectCode: 'UNDER_PROOFED',
+      })
+    );
+  });
 });

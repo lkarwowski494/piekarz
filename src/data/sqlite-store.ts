@@ -169,6 +169,18 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   }
 }
 
+export async function deleteBakeLog(id: string): Promise<void> {
+  memLogs = memLogs.filter((l) => l.id !== id);
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.runAsync('DELETE FROM bakes WHERE id = ?;', id);
+    } catch {
+      // Memory state preserved
+    }
+  }
+}
+
 export function getActiveBake(): ActiveBakeState | null {
   return memActiveBake;
 }

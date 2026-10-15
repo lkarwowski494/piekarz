@@ -6,6 +6,7 @@ import {
   confirm,
   confirmDiscardBake,
   confirmResetStarter,
+  confirmDeleteBakeLog,
 } from '../confirm';
 import { setLang } from '../i18n';
 
@@ -79,6 +80,17 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
     const [title, , buttons] = (Alert.alert as jest.Mock).mock.calls[0];
     expect(title).toBe('Zresetować profil zakwasu?');
     expect(buttons[1].text).toBe('Resetuj profil');
+    expect(buttons[1].style).toBe('destructive');
+  });
+
+  it('confirmDeleteBakeLog uses destructive action and exact warning copy', () => {
+    const onConfirm = jest.fn();
+    confirmDeleteBakeLog(onConfirm);
+
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+    const [title, , buttons] = (Alert.alert as jest.Mock).mock.calls[0];
+    expect(title).toBe('Usunąć wpis z historii?');
+    expect(buttons[1].text).toBe('Usuń wpis');
     expect(buttons[1].style).toBe('destructive');
   });
 });

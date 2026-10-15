@@ -7,6 +7,7 @@ import {
   saveStarter,
   getBakeLogs,
   saveBakeLog,
+  deleteBakeLog,
   setActiveBake,
   getActiveBake,
 } from '../sqlite-store';
@@ -82,10 +83,14 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
     };
 
     await saveBakeLog(bakeLog);
-    const logs = await getBakeLogs();
+    let logs = await getBakeLogs();
     const found = logs.find((l) => l.id === 'bake_test_1');
     expect(found).toBeDefined();
     expect(found?.ratingStars).toBe(5);
+
+    await deleteBakeLog('bake_test_1');
+    logs = await getBakeLogs();
+    expect(logs.find((l) => l.id === 'bake_test_1')).toBeUndefined();
   });
 
   it('deletes custom recipe from store', async () => {

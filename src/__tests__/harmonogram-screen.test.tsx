@@ -229,4 +229,27 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
     // Check navigation
     expect(mockPush).toHaveBeenCalledWith('/(tabs)/stolnica');
   });
+
+  it('copies schedule to clipboard when copy button is pressed', async () => {
+    const scheduleFormatter = require('../lib/schedule-formatter');
+    const copySpy = jest.spyOn(scheduleFormatter, 'copyScheduleToClipboard').mockResolvedValue(true);
+
+    await act(async () => {
+      tree = renderer.create(<HarmonogramScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+    const copyBtn = root.findByProps({ testID: 'copy-schedule-btn' });
+    expect(copyBtn).toBeDefined();
+
+    await act(async () => {
+      await copyBtn.props.onPress();
+    });
+
+    expect(copySpy).toHaveBeenCalledWith(
+      expect.any(Object),
+      expect.objectContaining({ ambientTempC: 23 })
+    );
+  });
 });

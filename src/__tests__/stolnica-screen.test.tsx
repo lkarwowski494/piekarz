@@ -35,9 +35,10 @@ jest.mock('react-native-safe-area-context', () => {
   };
 });
 
-// Mock confirmDiscardBake to immediately execute onConfirm
+// Mock confirmDiscardBake and confirmDeleteBakeLog to immediately execute onConfirm
 jest.mock('../lib/confirm', () => ({
   confirmDiscardBake: (onConfirm: () => void) => onConfirm(),
+  confirmDeleteBakeLog: (onConfirm: () => void) => onConfirm(),
 }));
 
 function extractCleanText(node: any): string {
@@ -242,5 +243,31 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
 
     expect(extractCleanText(tree?.toJSON())).toContain('Brak aktywnego wypieku');
     expect(getActiveBake()).toBeNull();
+  });
+
+  it('deletes bake log from history when delete button is pressed', async () => {
+    const { saveBakeLog } = require('../data/sqlite-store');
+    await saveBakeLog({
+      id: 'bake_to_remove',
+      recipeName: 'Chleb do skasowania',
+      startedAt: Date.now() - 3600000,
+      finishedAt: Date.now(),
+      ratingStars: 4,
+      notes: 'Zaraz zniknie',
+    });
+
+    await renderScreen();
+    expect(extractCleanText(tree?.toJSON())).toContain('Chleb do skasowania');
+
+    const deleteBtn = tree!.root.findByProps({ testID: 'delete-bake-log-bake_to_remove' });
+    expect(deleteBtn).toBeDefined();
+
+    await act(async () => {
+      await deleteBtn.props.onPress();
+    });
+
+    expect(extractCleanText(tree?.toJSON())).not.toContain('Chleb do skasowania');
+    const logs = await getBakeLogs();
+    expect(logs.find((l: any) => l.id === 'bake_to_remove')).toBeUndefined();
   });
 });

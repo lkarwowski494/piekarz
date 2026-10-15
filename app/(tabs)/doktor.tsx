@@ -14,6 +14,7 @@ import {
   diagnoseBreadDefect,
   BreadInspectionCriteria,
 } from '../../src/doctor/diagnostics';
+import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
 
 interface DiagnosticPreset {
   id: string;
@@ -93,6 +94,12 @@ export default function DoctorScreen() {
 
   const handleClear = () => {
     setSymptoms({});
+  };
+
+  const handleCopyDiagnosis = async () => {
+    if (diagnosis) {
+      await copyDiagnosisToClipboard(diagnosis);
+    }
   };
 
   const getSeverityBadge = (severity: 'mild' | 'moderate' | 'critical') => {
@@ -204,6 +211,17 @@ export default function DoctorScreen() {
                 </Text>
               </Pressable>
             )}
+
+            {/* Copy Diagnosis to Clipboard Button */}
+            <Pressable
+              testID="copy-diagnosis-btn"
+              style={styles.copyDiagnosisBtn}
+              onPress={handleCopyDiagnosis}
+            >
+              <Text style={styles.copyDiagnosisBtnText}>
+                📋 {t('Kopiuj diagnozę')}
+              </Text>
+            </Pressable>
           </View>
         ) : (
           <View style={styles.emptyCard}>
@@ -796,5 +814,21 @@ const styles = StyleSheet.create({
   guideBold: {
     fontWeight: '700',
     color: theme.colors.textPrimary,
+  },
+  copyDiagnosisBtn: {
+    marginTop: theme.spacing.sm,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.border,
+    borderWidth: 1,
+    paddingVertical: 10,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 44,
+  },
+  copyDiagnosisBtnText: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
   },
 });

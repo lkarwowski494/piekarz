@@ -13,10 +13,11 @@ import { useKeepAwake } from 'expo-keep-awake';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
-import { confirmDiscardBake } from '../../src/lib/confirm';
+import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
 import {
   saveBakeLog,
   getBakeLogs,
+  deleteBakeLog,
   getActiveBake,
   setActiveBake,
   ActiveBakeState,
@@ -239,6 +240,13 @@ export default function StolnicaScreen() {
     });
   };
 
+  const handleDeleteBakeLog = (id: string) => {
+    confirmDeleteBakeLog(async () => {
+      await deleteBakeLog(id);
+      await loadHistory();
+    });
+  };
+
   // Format time remaining
   const formattedTime = useMemo(() => {
     const hours = Math.floor(timeLeftSec / 3600);
@@ -280,7 +288,7 @@ export default function StolnicaScreen() {
                 <Text style={styles.emptyHistoryText}>{t('Brak wcześniejszych wypieków')}</Text>
               </View>
             ) : (
-              bakeHistory.slice(0, 5).map((log) => {
+              bakeHistory.slice(0, 10).map((log) => {
                 const dateStr = new Date(log.startedAt).toLocaleDateString('pl-PL', {
                   day: 'numeric',
                   month: 'short',
@@ -290,9 +298,19 @@ export default function StolnicaScreen() {
                   <View key={log.id} style={styles.historyCard}>
                     <View style={styles.historyCardHeader}>
                       <Text style={styles.historyRecipeName}>{log.recipeName}</Text>
-                      <Text style={styles.historyStars}>
-                        {'⭐'.repeat(log.ratingStars ?? 5)}
-                      </Text>
+                      <View style={styles.historyActionsRow}>
+                        <Text style={styles.historyStars}>
+                          {'⭐'.repeat(log.ratingStars ?? 5)}
+                        </Text>
+                        <Pressable
+                          testID={`delete-bake-log-${log.id}`}
+                          onPress={() => handleDeleteBakeLog(log.id)}
+                          style={styles.deleteHistoryBtn}
+                          accessibilityLabel={t('Usuń wpis')}
+                        >
+                          <Text style={styles.deleteHistoryBtnText}>🗑️</Text>
+                        </Pressable>
+                      </View>
                     </View>
                     <Text style={styles.historyDate}>{dateStr}</Text>
                     {log.notes && <Text style={styles.historyNotes}>{log.notes}</Text>}
@@ -806,6 +824,18 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
   },
   historyStars: {
+    fontSize: 14,
+  },
+  historyActionsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  deleteHistoryBtn: {
+    padding: 4,
+    borderRadius: theme.radius.sm,
+  },
+  deleteHistoryBtnText: {
     fontSize: 14,
   },
   historyDate: {

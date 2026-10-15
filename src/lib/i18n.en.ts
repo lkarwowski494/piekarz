@@ -223,5 +223,21 @@ export const EN: Record<string, string> = {
   'Zatwierdź import': 'Confirm import',
   'Zaimportowano pomyślnie!': 'Imported successfully!',
   'Nieprawidłowy format JSON': 'Invalid JSON format',
+
+  // Schedule & Diagnosis Clipboard & History Management
+  'Kopiuj harmonogram': 'Copy schedule',
+  'Skopiowano harmonogram do schowka': 'Schedule copied to clipboard',
+  'Łączny czas': 'Total time',
+  'Garowanie chłodnicze': 'Cold retard',
+  'Kolizja ze snem (Sleep Guard)': 'Sleep collision (Sleep Guard)',
+  'Etapy wypieku': 'Baking stages',
+  'Kopiuj diagnozę': 'Copy diagnosis',
+  'Skopiowano diagnozę do schowka': 'Diagnosis copied to clipboard',
+  'Przyczyna biologiczna / fizyczna': 'Biological / physical cause',
+  'Kroki naprawcze na kolejny wypiek': 'Corrective steps for next bake',
+  'Usunąć wpis z historii?': 'Delete history entry?',
+  'Wpis z historii wypieku zostanie trwale usunięty.': 'The bake log entry will be permanently deleted.',
+  'Usuń wpis': 'Delete entry',
+  'Wczoraj': 'Yesterday',
 };
 

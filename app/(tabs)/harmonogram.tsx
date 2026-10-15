@@ -16,6 +16,7 @@ import {
   ScheduledStage,
 } from '../../src/scheduler/reverse-scheduler';
 import { setActiveBake } from '../../src/data/sqlite-store';
+import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -133,6 +134,13 @@ export default function HarmonogramScreen() {
       actualDdtC: 25.0,
     });
     router.push('/(tabs)/stolnica');
+  };
+
+  const handleCopySchedule = async () => {
+    await copyScheduleToClipboard(schedule, {
+      ambientTempC: ambientTemp,
+      coldRetardHours,
+    });
   };
 
   // Total journey time
@@ -341,6 +349,17 @@ export default function HarmonogramScreen() {
             >
               <Text style={styles.transferBtnText}>
                 🥖 {t('Rozpocznij wypiek na Stolnicy')}
+              </Text>
+            </Pressable>
+
+            {/* Copy Schedule Action Button */}
+            <Pressable
+              testID="copy-schedule-btn"
+              style={styles.copyScheduleBtn}
+              onPress={handleCopySchedule}
+            >
+              <Text style={styles.copyScheduleBtnText}>
+                📋 {t('Kopiuj harmonogram')}
               </Text>
             </Pressable>
           </View>
@@ -864,5 +883,21 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 16,
     marginTop: 2,
+  },
+  copyScheduleBtn: {
+    marginTop: theme.spacing.sm,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.border,
+    borderWidth: 1,
+    paddingVertical: 12,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 44,
+  },
+  copyScheduleBtnText: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
   },
 });

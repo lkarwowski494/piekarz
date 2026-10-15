@@ -77,3 +77,16 @@ export function confirmResetStarter(onConfirm: () => void) {
     onConfirm,
   });
 }
+
+/**
+ * Potwierdzenie usunięcia wpisu z historii wypieków.
+ */
+export function confirmDeleteBakeLog(onConfirm: () => void) {
+  confirm({
+    title: t('Usunąć wpis z historii?'),
+    message: t('Wpis z historii wypieku zostanie trwale usunięty.'),
+    action: t('Usuń wpis'),
+    destructive: true,
+    onConfirm,
+  });
+}
