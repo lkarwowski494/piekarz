@@ -5,6 +5,7 @@ import {
   stampOf,
   SCHEMA_VERSION,
   PiekarzBackupData,
+  parseAndValidateBackup,
 } from '../backup';
 
 describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => {
@@ -47,5 +48,64 @@ describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => 
     const fixedDate = new Date(2026, 9, 15, 14, 5, 9); // Oct 15, 2026 14:05:09
     const stamp = stampOf(fixedDate);
     expect(stamp).toBe('2026-10-15-140509');
+  });
+
+  describe('parseAndValidateBackup validation rules', () => {
+    it('successfully parses and validates valid backup JSON', () => {
+      const backup = buildBackup({
+        bakes: [{ id: 'b1', recipeName: 'Pain de Campagne', startedAt: 123456789, ratingStars: 5 }],
+        starters: [{ id: 's1', name: 'Stefan', flourType: 'rye', hydration: 100, birthDate: 1700000000000, storageState: 'FRIDGE' }],
+        customRecipes: [{ id: 'r1', name: 'Custom Boule', formula: {} as any, targetDDT: 24, isBuiltIn: false, createdAt: 123456 }],
+      });
+      const jsonStr = JSON.stringify(backup);
+      const parsed = parseAndValidateBackup(jsonStr);
+
+      expect(parsed.format).toBe('piekarz-backup');
+      expect(parsed.schemaVersion).toBe(SCHEMA_VERSION);
+      expect(parsed.state.bakes).toHaveLength(1);
+      expect(parsed.state.starters).toHaveLength(1);
+      expect(parsed.state.customRecipes).toHaveLength(1);
+    });
+
+    it('rejects invalid JSON syntax', () => {
+      expect(() => parseAndValidateBackup('{ not valid json')).toThrow('Nieprawidłowy format JSON');
+    });
+
+    it('rejects primitive JSON values or null', () => {
+      expect(() => parseAndValidateBackup('"just a string"')).toThrow('Plik kopii musi być obiektem JSON');
+      expect(() => parseAndValidateBackup('123')).toThrow('Plik kopii musi być obiektem JSON');
+      expect(() => parseAndValidateBackup('null')).toThrow('Plik kopii musi być obiektem JSON');
+    });
+
+    it('rejects unknown format envelope', () => {
+      const invalid = { format: 'other-app', schemaVersion: 1, state: { bakes: [], starters: [], customRecipes: [] } };
+      expect(() => parseAndValidateBackup(JSON.stringify(invalid))).toThrow('Nieznany format pliku');
+    });
+
+    it('rejects missing or invalid schema version', () => {
+      const invalid = { format: 'piekarz-backup', schemaVersion: -1, state: { bakes: [], starters: [], customRecipes: [] } };
+      expect(() => parseAndValidateBackup(JSON.stringify(invalid))).toThrow('Nieprawidłowa wersja schematu');
+    });
+
+    it('rejects backup from future schema version', () => {
+      const future = { format: 'piekarz-backup', schemaVersion: SCHEMA_VERSION + 1, state: { bakes: [], starters: [], customRecipes: [] } };
+      expect(() => parseAndValidateBackup(JSON.stringify(future))).toThrow('Kopia pochodzi z nowszej wersji aplikacji');
+    });
+
+    it('rejects missing state object', () => {
+      const noState = { format: 'piekarz-backup', schemaVersion: 1 };
+      expect(() => parseAndValidateBackup(JSON.stringify(noState))).toThrow('Brak danych stanu');
+    });
+
+    it('rejects non-array bakes, starters, or customRecipes', () => {
+      const badBakes = { format: 'piekarz-backup', schemaVersion: 1, state: { bakes: 'not-array', starters: [], customRecipes: [] } };
+      expect(() => parseAndValidateBackup(JSON.stringify(badBakes))).toThrow('Nieprawidłowa struktura wypieków');
+
+      const badStarters = { format: 'piekarz-backup', schemaVersion: 1, state: { bakes: [], starters: null, customRecipes: [] } };
+      expect(() => parseAndValidateBackup(JSON.stringify(badStarters))).toThrow('Nieprawidłowa struktura zakwasów');
+
+      const badRecipes = { format: 'piekarz-backup', schemaVersion: 1, state: { bakes: [], starters: [], customRecipes: {} } };
+      expect(() => parseAndValidateBackup(JSON.stringify(badRecipes))).toThrow('Nieprawidłowa struktura przepisów');
+    });
   });
 });

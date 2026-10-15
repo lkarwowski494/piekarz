@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { autoBackup } from '../lib/backup';
+import { autoBackup, PiekarzBackupData } from '../lib/backup';
 import { StoredRecipe, StoredStarter, StoredBakeLog } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
@@ -297,4 +297,75 @@ export async function deleteRecipe(id: string): Promise<void> {
     }
   }
 }
+
+/**
+ * Restores entire state from a validated backup dataset.
+ */
+export async function restoreFromBackupData(data: PiekarzBackupData): Promise<void> {
+  // Always update memory store
+  memLogs = [...data.bakes];
+  memStarters = [...data.starters];
+  memRecipes = [
+    ...MASTER_RECIPES.map((preset) => ({
+      id: preset.id,
+      name: preset.namePl,
+      formula: preset.formula,
+      targetDDT: preset.targetDDT,
+      notes: preset.notesPl,
+      isBuiltIn: true,
+      createdAt: Date.now(),
+    })),
+    ...data.customRecipes,
+  ];
+
+  const db = await getDb();
+  if (!db) return;
+
+  await db.withTransactionAsync(async () => {
+    await db.execAsync('DELETE FROM bakes;');
+    await db.execAsync('DELETE FROM starters;');
+    await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
+
+    for (const s of data.starters) {
+      await db.runAsync(
+        'INSERT OR REPLACE INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
+        s.id,
+        s.name,
+        s.flourType,
+        s.hydration,
+        s.birthDate,
+        s.storageState,
+        s.lastFedAt ?? null
+      );
+    }
+
+    for (const r of data.customRecipes) {
+      await db.runAsync(
+        'INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
+        r.id,
+        r.name,
+        JSON.stringify(r.formula),
+        r.targetDDT,
+        r.notes ?? null,
+        0,
+        r.createdAt
+      );
+    }
+
+    for (const b of data.bakes) {
+      await db.runAsync(
+        'INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+        b.id,
+        b.recipeName,
+        b.startedAt,
+        b.finishedAt ?? null,
+        b.ambientTemp ?? null,
+        b.actualDDT ?? null,
+        b.ratingStars ?? null,
+        b.notes ?? null
+      );
+    }
+  });
+}
+
 

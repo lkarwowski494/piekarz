@@ -169,3 +169,58 @@ export async function safetyBackup(
   const prefix = kind === 'import' ? 'piekarz-przed-importem-' : 'piekarz-przed-czyszczeniem-';
   return await writeBackupFile(prefix, SAFETY_RE, state);
 }
+
+export interface BackupImportStats {
+  bakesCount: number;
+  startersCount: number;
+  recipesCount: number;
+  exportedAt: string;
+}
+
+/**
+ * Waliduje poprawność schematu pliku kopii zapasowej (Apps4Brew envelope).
+ */
+export function parseAndValidateBackup(rawJson: string): PiekarzBackupEnvelope {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(rawJson);
+  } catch {
+    throw new Error('Nieprawidłowy format JSON');
+  }
+
+  if (!parsed || typeof parsed !== 'object') {
+    throw new Error('Plik kopii musi być obiektem JSON');
+  }
+
+  const envelope = parsed as Partial<PiekarzBackupEnvelope>;
+
+  if (envelope.format !== 'piekarz-backup') {
+    throw new Error('Nieznany format pliku (oczekiwano "piekarz-backup")');
+  }
+
+  if (typeof envelope.schemaVersion !== 'number' || envelope.schemaVersion <= 0) {
+    throw new Error('Nieprawidłowa wersja schematu kopii');
+  }
+
+  if (envelope.schemaVersion > SCHEMA_VERSION) {
+    throw new Error(`Kopia pochodzi z nowszej wersji aplikacji (v${envelope.schemaVersion}). Zaktualizuj aplikację.`);
+  }
+
+  if (!envelope.state || typeof envelope.state !== 'object') {
+    throw new Error('Brak danych stanu (sekcja "state") w pliku kopii');
+  }
+
+  const state = envelope.state;
+  if (!Array.isArray(state.bakes)) {
+    throw new Error('Nieprawidłowa struktura wypieków ("bakes" musi być tablicą)');
+  }
+  if (!Array.isArray(state.starters)) {
+    throw new Error('Nieprawidłowa struktura zakwasów ("starters" musi być tablicą)');
+  }
+  if (!Array.isArray(state.customRecipes)) {
+    throw new Error('Nieprawidłowa struktura przepisów ("customRecipes" musi być tablicą)');
+  }
+
+  return envelope as PiekarzBackupEnvelope;
+}
+

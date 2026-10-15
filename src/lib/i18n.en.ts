@@ -219,5 +219,9 @@ export const EN: Record<string, string> = {
   'Kopiuj recepturę': 'Copy recipe',
   'Skopiowano przepis do schowka': 'Recipe copied to clipboard',
   'Etap ukończony! Czas na kolejny krok.': 'Stage completed! Time for the next step.',
+  'Wklej zawartość pliku JSON kopii zapasowej:': 'Paste JSON backup file content:',
+  'Zatwierdź import': 'Confirm import',
+  'Zaimportowano pomyślnie!': 'Imported successfully!',
+  'Nieprawidłowy format JSON': 'Invalid JSON format',
 };
 
