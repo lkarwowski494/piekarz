@@ -7,6 +7,7 @@ import {
   Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import {
@@ -14,16 +15,71 @@ import {
   BreadInspectionCriteria,
 } from '../../src/doctor/diagnostics';
 
+interface DiagnosticPreset {
+  id: string;
+  name: string;
+  icon: string;
+  symptoms: BreadInspectionCriteria;
+}
+
+const PRESETS: DiagnosticPreset[] = [
+  {
+    id: 'preset_under',
+    name: 'Jaskinie (Niedofermentowany)',
+    icon: '🏔️',
+    symptoms: { crumbHasHugeTopHolesWithDenseBottom: true },
+  },
+  {
+    id: 'preset_over',
+    name: 'Płaski dysk (Przerośnięty)',
+    icon: '🥞',
+    symptoms: { loafIsFlatLikeDisk: true, loafCollapsedAfterScoring: true },
+  },
+  {
+    id: 'preset_gummy',
+    name: 'Gumowaty (Gorący nóż)',
+    icon: '🔪',
+    symptoms: { cutImmediatelyWhileSteamingHot: true },
+  },
+  {
+    id: 'preset_blowout',
+    name: 'Pęknięty bok (Blowout)',
+    icon: '🌋',
+    symptoms: { loafBurstAtBottomSide: true },
+  },
+  {
+    id: 'preset_sour',
+    name: 'Zbyt kwaśny (Octowy)',
+    icon: '🍋',
+    symptoms: { breadIsExcessivelySour: true },
+  },
+  {
+    id: 'preset_bland',
+    name: 'Płaski smak (Jałowy)',
+    icon: '🥖',
+    symptoms: { breadIsBlandNoFlavor: true },
+  },
+];
+
 export default function DoctorScreen() {
+  const router = useRouter();
   const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({
-    crumbHasHugeTopHolesWithDenseBottom: true, // Default example
+    crumbHasHugeTopHolesWithDenseBottom: true, // Default initial example
   });
+
+  // Expandable kitchen test guides
+  const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
+  const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
       ...prev,
       [key]: !prev[key],
     }));
+  };
+
+  const applyPreset = (preset: DiagnosticPreset) => {
+    setSymptoms({ ...preset.symptoms });
   };
 
   const hasAnySymptom = useMemo(() => {
@@ -39,17 +95,41 @@ export default function DoctorScreen() {
     setSymptoms({});
   };
 
+  const getSeverityBadge = (severity: 'mild' | 'moderate' | 'critical') => {
+    switch (severity) {
+      case 'critical':
+        return {
+          label: t('Krytyczny błąd struktury'),
+          badgeStyle: styles.badgeCritical,
+          textStyle: styles.badgeTextCritical,
+        };
+      case 'moderate':
+        return {
+          label: t('Umiarkowana wada'),
+          badgeStyle: styles.badgeModerate,
+          textStyle: styles.badgeTextModerate,
+        };
+      case 'mild':
+      default:
+        return {
+          label: t('Drobna niedoskonałość'),
+          badgeStyle: styles.badgeMild,
+          textStyle: styles.badgeTextMild,
+        };
+    }
+  };
+
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>{t('Doktor Chleba')}</Text>
           <Text style={styles.subtitle}>
-            Diagnostyka błędów wypieku i ratowanie bochenka
+            {t('Diagnostyka błędów wypieku i ratowanie bochenka')}
           </Text>
         </View>
 
-        {/* Diagnosis Result Card (Top Focus) */}
+        {/* Diagnosis Result Card (Primary Focus) */}
         {diagnosis ? (
           <View
             style={[
@@ -61,36 +141,102 @@ export default function DoctorScreen() {
                 : styles.severityMild,
             ]}
           >
+            <View style={styles.severityRow}>
+              {(() => {
+                const s = getSeverityBadge(diagnosis.severity);
+                return (
+                  <View style={[styles.severityBadge, s.badgeStyle]}>
+                    <Text style={[styles.severityBadgeText, s.textStyle]}>{s.label}</Text>
+                  </View>
+                );
+              })()}
+              <Text style={styles.defectCodeTag}>{diagnosis.defectCode}</Text>
+            </View>
+
             <View style={styles.diagnosisHeader}>
               <Text style={styles.diagnosisTitle}>{diagnosis.titlePl}</Text>
               <Text style={styles.diagnosisSubtitle}>{diagnosis.subtitlePl}</Text>
             </View>
 
             <View style={styles.causeBox}>
-              <Text style={styles.causeLabel}>Przyczyna biologiczno-chemiczna:</Text>
+              <Text style={styles.causeLabel}>{t('Przyczyna biologiczno-chemiczna:')}</Text>
               <Text style={styles.causeText}>{diagnosis.biologicalCausePl}</Text>
             </View>
 
-            <Text style={styles.checklistTitle}>Co zrobić przy następnym wypieku:</Text>
+            <Text style={styles.checklistTitle}>{t('Co zrobić przy następnym wypieku:')}</Text>
             {diagnosis.actionChecklistPl.map((action, idx) => (
               <View key={idx} style={styles.checklistItem}>
                 <Text style={styles.bulletCheck}>✓</Text>
                 <Text style={styles.checklistText}>{action}</Text>
               </View>
             ))}
+
+            {/* Smart Navigation Link */}
+            {(diagnosis.defectCode === 'UNDER_PROOFED' || diagnosis.defectCode === 'OVER_PROOFED') && (
+              <Pressable
+                style={styles.navActionBtn}
+                onPress={() => router.push('/(tabs)/harmonogram')}
+              >
+                <Text style={styles.navActionBtnText}>
+                  ⏱️ {t('Przejdź do Harmonogramu (Sleep Guard)')}
+                </Text>
+              </Pressable>
+            )}
+
+            {diagnosis.defectCode === 'DENSE_CRUMB' && (
+              <Pressable
+                style={styles.navActionBtn}
+                onPress={() => router.push('/(tabs)')}
+              >
+                <Text style={styles.navActionBtnText}>
+                  ⚖️ {t('Dostosuj hydratację w Kalkulatorze')}
+                </Text>
+              </Pressable>
+            )}
+
+            {diagnosis.defectCode === 'GUMMY_CRUMB' && (
+              <Pressable
+                style={styles.navActionBtn}
+                onPress={() => router.push('/(tabs)/stolnica')}
+              >
+                <Text style={styles.navActionBtnText}>
+                  🥖 {t('Przejdź do Stolnicy')}
+                </Text>
+              </Pressable>
+            )}
           </View>
         ) : (
           <View style={styles.emptyCard}>
-            <Text style={styles.emptyTitle}>Wybierz objawy bochenka</Text>
+            <Text style={styles.emptyTitle}>{t('Wybierz objawy bochenka')}</Text>
             <Text style={styles.emptyText}>
-              Zaznacz poniżej cechy miękiszu lub skórki, które Cię niepokoją, aby
-              Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.
+              {t(
+                'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.'
+              )}
             </Text>
           </View>
         )}
 
+        {/* Quick Presets */}
+        <Text style={styles.sectionHeading}>{t('Szybkie szablony typowych problemów')}</Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.presetsRow}
+        >
+          {PRESETS.map((preset) => (
+            <Pressable
+              key={preset.id}
+              style={styles.presetChip}
+              onPress={() => applyPreset(preset)}
+            >
+              <Text style={styles.presetIcon}>{preset.icon}</Text>
+              <Text style={styles.presetName}>{preset.name}</Text>
+            </Pressable>
+          ))}
+        </ScrollView>
+
         {/* Symptoms Section: Miękisz */}
-        <Text style={styles.sectionHeading}>Miękisz (Wnętrze bochenka)</Text>
+        <Text style={styles.sectionHeading}>{t('Miękisz (Wnętrze bochenka)')}</Text>
         <View style={styles.chipsContainer}>
           <Pressable
             style={[
@@ -105,7 +251,7 @@ export default function DoctorScreen() {
                 symptoms.crumbHasHugeTopHolesWithDenseBottom && styles.symptomChipTextActive,
               ]}
             >
-              Wielkie dziury pod skórką i zbity dół (Jaskinie)
+              {t('Wielkie dziury pod skórką i zbity dół (Jaskinie)')}
             </Text>
           </Pressable>
 
@@ -122,7 +268,7 @@ export default function DoctorScreen() {
                 symptoms.crumbHasSmallUniformFoamLikeHoles && styles.symptomChipTextActive,
               ]}
             >
-              Drobne, jednolite pęcherzyki jak gąbka/pianka
+              {t('Drobne, jednolite pęcherzyki jak gąbka/pianka')}
             </Text>
           </Pressable>
 
@@ -139,7 +285,7 @@ export default function DoctorScreen() {
                 symptoms.crumbIsWetGummyToKnife && styles.symptomChipTextActive,
               ]}
             >
-              Mokry, lepki miękisz, brudzi nóż
+              {t('Mokry, lepki miękisz, brudzi nóż')}
             </Text>
           </Pressable>
 
@@ -156,13 +302,13 @@ export default function DoctorScreen() {
                 symptoms.crumbIsUniformlyDenseAllOver && styles.symptomChipTextActive,
               ]}
             >
-              Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)
+              {t('Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)')}
             </Text>
           </Pressable>
         </View>
 
         {/* Symptoms Section: Skórka i Kształt */}
-        <Text style={styles.sectionHeading}>Skórka i Kształt bochenka</Text>
+        <Text style={styles.sectionHeading}>{t('Skórka i Kształt bochenka')}</Text>
         <View style={styles.chipsContainer}>
           <Pressable
             style={[
@@ -177,7 +323,7 @@ export default function DoctorScreen() {
                 symptoms.loafIsFlatLikeDisk && styles.symptomChipTextActive,
               ]}
             >
-              Chleb płaski jak dysk (rozlał się na boki)
+              {t('Chleb płaski jak dysk (rozlał się na boki)')}
             </Text>
           </Pressable>
 
@@ -194,7 +340,7 @@ export default function DoctorScreen() {
                 symptoms.loafCollapsedAfterScoring && styles.symptomChipTextActive,
               ]}
             >
-              Opadł / zapadł się natychmiast po nacięciu żyletką
+              {t('Opadł / zapadł się natychmiast po nacięciu żyletką')}
             </Text>
           </Pressable>
 
@@ -211,7 +357,7 @@ export default function DoctorScreen() {
                 symptoms.loafBurstAtBottomSide && styles.symptomChipTextActive,
               ]}
             >
-              Rozerwanie boku przy spodzie (Blowout)
+              {t('Rozerwanie boku przy spodzie (Blowout)')}
             </Text>
           </Pressable>
 
@@ -228,7 +374,7 @@ export default function DoctorScreen() {
                 symptoms.crustIsPaleLackColor && styles.symptomChipTextActive,
               ]}
             >
-              Blada skórka, brak złocisto-karmelowego rumienia
+              {t('Blada skórka, brak złocisto-karmelowego rumienia')}
             </Text>
           </Pressable>
 
@@ -245,7 +391,7 @@ export default function DoctorScreen() {
                 symptoms.crustLacksEarCutDidNotOpen && styles.symptomChipTextActive,
               ]}
             >
-              Brak otwartego ucha (nacięcie się zasklepiło)
+              {t('Brak otwartego ucha (nacięcie się zasklepiło)')}
             </Text>
           </Pressable>
 
@@ -262,16 +408,114 @@ export default function DoctorScreen() {
                 symptoms.cutImmediatelyWhileSteamingHot && styles.symptomChipTextActive,
               ]}
             >
-              Krojony gorący, prosto po wyjęciu z piekarnika
+              {t('Krojony gorący, prosto po wyjęciu z piekarnika')}
             </Text>
           </Pressable>
         </View>
 
+        {/* Symptoms Section: Smak i Aromat */}
+        <Text style={styles.sectionHeading}>{t('Smak i Aromat')}</Text>
+        <View style={styles.chipsContainer}>
+          <Pressable
+            style={[
+              styles.symptomChip,
+              symptoms.breadIsExcessivelySour && styles.symptomChipActive,
+            ]}
+            onPress={() => toggleSymptom('breadIsExcessivelySour')}
+          >
+            <Text
+              style={[
+                styles.symptomChipText,
+                symptoms.breadIsExcessivelySour && styles.symptomChipTextActive,
+              ]}
+            >
+              {t('Zbyt kwaśny, octowy smak')}
+            </Text>
+          </Pressable>
+
+          <Pressable
+            style={[
+              styles.symptomChip,
+              symptoms.breadIsBlandNoFlavor && styles.symptomChipActive,
+            ]}
+            onPress={() => toggleSymptom('breadIsBlandNoFlavor')}
+          >
+            <Text
+              style={[
+                styles.symptomChipText,
+                symptoms.breadIsBlandNoFlavor && styles.symptomChipTextActive,
+              ]}
+            >
+              {t('Płaski smak bez głębi (jałowy)')}
+            </Text>
+          </Pressable>
+        </View>
+
+        {/* Clear Button */}
         {hasAnySymptom && (
           <Pressable style={styles.clearBtn} onPress={handleClear}>
-            <Text style={styles.clearBtnText}>Wyczyść zaznaczone objawy</Text>
+            <Text style={styles.clearBtnText}>{t('Wyczyść zaznaczone objawy')}</Text>
           </Pressable>
         )}
+
+        {/* Interactive Kitchen Tests Guide */}
+        <Text style={styles.sectionHeading}>{t('Kuchenne testy piekarskie')}</Text>
+
+        {/* Poke Test Card */}
+        <Pressable
+          style={styles.guideCard}
+          onPress={() => setShowPokeTest((prev) => !prev)}
+        >
+          <View style={styles.guideHeader}>
+            <Text style={styles.guideTitle}>👆 {t('Test palca (Poke Test)')}</Text>
+            <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>
+          </View>
+          <Text style={styles.guideSummary}>
+            {t('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia')}
+          </Text>
+          {showPokeTest && (
+            <View style={styles.guideDetails}>
+              <Text style={styles.guideStep}>
+                • <Text style={styles.guideBold}>{t('Szybko odskakuje:')}</Text>{' '}
+                {t('Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.')}
+              </Text>
+              <Text style={styles.guideStep}>
+                • <Text style={styles.guideBold}>{t('Wraca powoli do połowy:')}</Text>{' '}
+                {t('Optymalny moment! Rozgrzewaj piec i szykuj żyletkę.')}
+              </Text>
+              <Text style={styles.guideStep}>
+                • <Text style={styles.guideBold}>{t('Zostaje wgłębienie i ciasto siada:')}</Text>{' '}
+                {t('Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.')}
+              </Text>
+            </View>
+          )}
+        </Pressable>
+
+        {/* Windowpane Test Card */}
+        <Pressable
+          style={styles.guideCard}
+          onPress={() => setShowWindowpaneTest((prev) => !prev)}
+        >
+          <View style={styles.guideHeader}>
+            <Text style={styles.guideTitle}>🪟 {t('Test okna glutenowego (Windowpane)')}</Text>
+            <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>
+          </View>
+          <Text style={styles.guideSummary}>
+            {t('Ocena rozwoju siatki glutenowej po autolizie i składaniach')}
+          </Text>
+          {showWindowpaneTest && (
+            <View style={styles.guideDetails}>
+              <Text style={styles.guideStep}>
+                • <Text style={styles.guideBold}>{t('Ciasto rwie się przy rozciąganiu:')}</Text>{' '}
+                {t('Słaby gluten. Wykonaj dodatkową serię składań coil fold.')}
+              </Text>
+              <Text style={styles.guideStep}>
+                • <Text style={styles.guideBold}>{t('Cienka, przezroczysta membrana:')}</Text>{' '}
+                {t('Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.')}
+              </Text>
+            </View>
+          )}
+        </Pressable>
       </ScrollView>
     </SafeAreaView>
   );
@@ -336,6 +580,44 @@ const styles = StyleSheet.create({
   severityCritical: {
     borderColor: theme.colors.statusDanger,
   },
+  severityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  severityBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: theme.radius.sm,
+  },
+  badgeCritical: {
+    backgroundColor: '#FEE2E2',
+  },
+  badgeModerate: {
+    backgroundColor: '#FEF3C7',
+  },
+  badgeMild: {
+    backgroundColor: '#ECFDF5',
+  },
+  severityBadgeText: {
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  badgeTextCritical: {
+    color: theme.colors.statusDanger,
+  },
+  badgeTextModerate: {
+    color: theme.colors.accentDark,
+  },
+  badgeTextMild: {
+    color: theme.colors.statusSuccess,
+  },
+  defectCodeTag: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    fontWeight: '600',
+  },
   diagnosisHeader: {
     marginBottom: 10,
   },
@@ -391,16 +673,54 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     lineHeight: 17,
   },
+  navActionBtn: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+    borderRadius: theme.radius.md,
+    paddingVertical: 10,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  navActionBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+  },
+  presetsRow: {
+    gap: 8,
+    paddingVertical: 4,
+    marginBottom: 12,
+  },
+  presetChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.colors.surfaceCard,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: theme.radius.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    gap: 6,
+  },
+  presetIcon: {
+    fontSize: 14,
+  },
+  presetName: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
   sectionHeading: {
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.textPrimary,
-    marginTop: 8,
+    marginTop: 10,
     marginBottom: 8,
   },
   chipsContainer: {
     gap: 6,
-    marginBottom: 14,
+    marginBottom: 12,
   },
   symptomChip: {
     paddingVertical: 10,
@@ -425,13 +745,56 @@ const styles = StyleSheet.create({
   },
   clearBtn: {
     alignSelf: 'center',
-    paddingVertical: 10,
+    paddingVertical: 8,
     paddingHorizontal: 16,
-    marginTop: 4,
+    marginVertical: 4,
   },
   clearBtnText: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.statusDanger,
     fontWeight: '600',
+  },
+  guideCard: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    marginBottom: 10,
+  },
+  guideHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  guideTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  guideToggle: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+  },
+  guideSummary: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+    marginTop: 2,
+  },
+  guideDetails: {
+    marginTop: 10,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: theme.colors.border,
+    gap: 6,
+  },
+  guideStep: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 17,
+  },
+  guideBold: {
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
   },
 });

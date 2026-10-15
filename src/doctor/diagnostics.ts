@@ -11,7 +11,9 @@ export type BreadDefectCode =
   | 'GUMMY_CRUMB'
   | 'PALE_CRUST'
   | 'LACK_OF_EAR'
-  | 'DENSE_CRUMB';
+  | 'DENSE_CRUMB'
+  | 'EXCESSIVELY_SOUR'
+  | 'BLAND_FLAVOR';
 
 export interface DiagnosticResult {
   defectCode: BreadDefectCode;
@@ -36,6 +38,10 @@ export interface BreadInspectionCriteria {
   crustIsPaleLackColor?: boolean;                // low sugars (over-fermented) or low bake temp
   crustLacksEarCutDidNotOpen?: boolean;          // bad scoring angle or lack of steam
   cutImmediatelyWhileSteamingHot?: boolean;      // user cut hot bread
+
+  // Flavor & Acidity
+  breadIsExcessivelySour?: boolean;              // too acidic / acetic
+  breadIsBlandNoFlavor?: boolean;                // under-fermented flavor
 }
 
 /**
@@ -140,6 +146,40 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Dopiekaj w temperaturze min. 210–220°C bez pokrywki.',
         'Skróć czas fermentacji, aby pozostawić cukry resztkowe w cieście.',
+      ],
+      severity: 'mild',
+    };
+  }
+
+  // Case 7: Excessively Sour
+  if (symptoms.breadIsExcessivelySour) {
+    return {
+      defectCode: 'EXCESSIVELY_SOUR',
+      titlePl: 'Zbyt kwaśny, octowy smak (Excessively Sour)',
+      subtitlePl: 'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna',
+      biologicalCausePl:
+        'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Przyczyną jest stary, rzadko dokarmiany zakwas, zbyt niska hydratacja zakwasu lub fermentacja w temperaturze 15–20°C.',
+      actionChecklistPl: [
+        'Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.',
+        'Zastosuj zimną fermentację w lodówce (4°C) – niska temperatura faworyzuje łagodniejszy kwas mlekowy.',
+        'Skróć fermentację burzliwą i pilnuj temperatury ciasta (DDT 24–26°C).',
+      ],
+      severity: 'moderate',
+    };
+  }
+
+  // Case 8: Bland Flavor
+  if (symptoms.breadIsBlandNoFlavor) {
+    return {
+      defectCode: 'BLAND_FLAVOR',
+      titlePl: 'Płaski smak bez głębi (Bland Flavor)',
+      subtitlePl: 'Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu',
+      biologicalCausePl:
+        'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.',
+      actionChecklistPl: [
+        'Wprowadź garowanie chłodnicze w lodówce (Cold Retard, 12–16 godzin w 4°C).',
+        'Zwiększ udział zakwasu w recepturze do 20%.',
+        'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.',
       ],
       severity: 'mild',
     };
