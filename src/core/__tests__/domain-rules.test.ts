@@ -8,6 +8,7 @@ import {
   calculateFermentationAdaptation,
   convertYeast,
   calculateStarterFeeding,
+  calculateStarterPhase,
   calculateBakedWeight,
   evaluateSourdoughSafety,
 } from '../domain-rules';
@@ -288,5 +289,42 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(getHydrationDifficulty(85).level).toBe('expert_sticky');
     });
   });
+
+  describe('RD-19: Sourdough Metabolic Phase and Peak Activity', () => {
+    const now = 1700000000000;
+
+    it('identifies peak phase for starter fed 6 hours ago at room temp', () => {
+      const fed6hAgo = now - 6 * 3600 * 1000;
+      const result = calculateStarterPhase(fed6hAgo, 'ROOM_TEMP', now);
+      expect(result.phase).toBe('peak');
+      expect(result.labelPl).toContain('Szczyt aktywności (PEAK)');
+    });
+
+    it('identifies lag adaptation phase for starter fed 1 hour ago', () => {
+      const fed1hAgo = now - 1 * 3600 * 1000;
+      const result = calculateStarterPhase(fed1hAgo, 'ROOM_TEMP', now);
+      expect(result.phase).toBe('lag');
+      expect(result.labelPl).toContain('Faza adaptacji');
+    });
+
+    it('identifies hungry phase for starter fed 18 hours ago at room temp', () => {
+      const fed18hAgo = now - 18 * 3600 * 1000;
+      const result = calculateStarterPhase(fed18hAgo, 'ROOM_TEMP', now);
+      expect(result.phase).toBe('hungry');
+      expect(result.labelPl).toContain('Głód');
+    });
+
+    it('correctly evaluates fridge storage', () => {
+      const fed2DaysAgo = now - 2 * 24 * 3600 * 1000;
+      const result = calculateStarterPhase(fed2DaysAgo, 'FRIDGE', now);
+      expect(result.phase).toBe('lag');
+      expect(result.labelPl).toContain('Uśpiony w lodówce');
+
+      const fed7DaysAgo = now - 7 * 24 * 3600 * 1000;
+      const hungryResult = calculateStarterPhase(fed7DaysAgo, 'FRIDGE', now);
+      expect(hungryResult.phase).toBe('hungry');
+    });
+  });
 });
+
 
