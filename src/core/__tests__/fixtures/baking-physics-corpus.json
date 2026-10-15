@@ -1,0 +1,3994 @@
+{
+  "meta": {
+    "generator": "scripts/gen-baking-physics-corpus.py",
+    "version": "1.0.0",
+    "standard": "Apps4Brew Independent Physics Reference"
+  },
+  "ddtCases": [
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 31.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 30.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 27.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 25.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 26.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 22.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 23.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 21.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 17.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 18.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 16.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 17.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 27.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 26.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 27.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 23.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 23.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 19.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 20.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 18.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 19.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 14.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 15.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 13.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 14.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 23.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 23.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 19.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 20.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 18.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 19.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 15.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 16.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 14.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 15.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 10.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 11.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 9.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 23.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 10.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 35.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 37.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 33.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 36.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 33.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 32.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 27.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 29.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 25.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 28.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 20.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 23.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 34.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 33.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 25.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 19.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 21.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 17.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 20.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 25.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 20.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 22.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 18.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 21.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 15.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 17.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 13.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.5,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 16.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 39.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 43.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 38.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 42.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 35.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 39.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 34.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 38.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 31.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 35.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 30.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 34.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 26.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 25.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 36.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 40.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 35.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 39.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 36.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 35.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 27.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 23.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 27.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 26.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 36.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 35.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 27.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 24.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 28.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 23.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 27.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 19.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 23.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 18.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 26.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 22.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 45.5,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 51.5,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 44.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 50.0,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 41.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 47.5,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 40.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 46.0,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 37.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 43.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 36.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 42.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 32.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 38.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 31.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 18.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 37.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 42.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 48.5,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 41.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 47.0,
+      "expectedStatus": "too_hot_danger"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 38.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 44.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 37.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 43.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 34.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 40.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 33.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 39.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 29.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 35.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 28.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 21.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 34.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 38.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 44.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 37.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 19.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 43.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 34.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 40.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 33.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 23.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 39.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 30.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 36.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 29.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 27.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 35.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 25.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 1.5,
+      "expectedWaterTemp": 31.5,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": null,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 24.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 25.0,
+      "roomTemp": 32.0,
+      "starterTemp": 22.0,
+      "frictionFactor": 3.0,
+      "expectedWaterTemp": 30.0,
+      "expectedStatus": "normal"
+    },
+    {
+      "targetDDT": 24.0,
+      "flourTemp": 30.0,
+      "roomTemp": 32.0,
+      "starterTemp": 28.0,
+      "frictionFactor": 5.0,
+      "expectedWaterTemp": 1.0,
+      "expectedStatus": "requires_ice"
+    },
+    {
+      "targetDDT": 28.0,
+      "flourTemp": 15.0,
+      "roomTemp": 16.0,
+      "starterTemp": null,
+      "frictionFactor": 1.0,
+      "expectedWaterTemp": 52.0,
+      "expectedStatus": "too_hot_danger"
+    }
+  ],
+  "iceCases": [
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 50,
+      "expectedWaterGrams": 250
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 41,
+      "expectedWaterGrams": 259
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 34,
+      "expectedWaterGrams": 266
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 25,
+      "expectedWaterGrams": 275
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 13,
+      "expectedWaterGrams": 287
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 300
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 300
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 58,
+      "expectedWaterGrams": 242
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 48,
+      "expectedWaterGrams": 252
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 42,
+      "expectedWaterGrams": 258
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 33,
+      "expectedWaterGrams": 267
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 21,
+      "expectedWaterGrams": 279
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 3,
+      "expectedWaterGrams": 297
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 300
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 65,
+      "expectedWaterGrams": 235
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 56,
+      "expectedWaterGrams": 244
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 50,
+      "expectedWaterGrams": 250
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 41,
+      "expectedWaterGrams": 259
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 29,
+      "expectedWaterGrams": 271
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 12,
+      "expectedWaterGrams": 288
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 300
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 71,
+      "expectedWaterGrams": 229
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 63,
+      "expectedWaterGrams": 237
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 57,
+      "expectedWaterGrams": 243
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 49,
+      "expectedWaterGrams": 251
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 37,
+      "expectedWaterGrams": 263
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 20,
+      "expectedWaterGrams": 280
+    },
+    {
+      "totalWaterGrams": 300,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 3,
+      "expectedWaterGrams": 297
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 75,
+      "expectedWaterGrams": 375
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 61,
+      "expectedWaterGrams": 389
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 52,
+      "expectedWaterGrams": 398
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 38,
+      "expectedWaterGrams": 412
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 19,
+      "expectedWaterGrams": 431
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 450
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 450
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 86,
+      "expectedWaterGrams": 364
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 73,
+      "expectedWaterGrams": 377
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 64,
+      "expectedWaterGrams": 386
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 50,
+      "expectedWaterGrams": 400
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 32,
+      "expectedWaterGrams": 418
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 5,
+      "expectedWaterGrams": 445
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 450
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 97,
+      "expectedWaterGrams": 353
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 84,
+      "expectedWaterGrams": 366
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 75,
+      "expectedWaterGrams": 375
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 62,
+      "expectedWaterGrams": 388
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 44,
+      "expectedWaterGrams": 406
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 18,
+      "expectedWaterGrams": 432
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 450
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 107,
+      "expectedWaterGrams": 343
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 94,
+      "expectedWaterGrams": 356
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 86,
+      "expectedWaterGrams": 364
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 73,
+      "expectedWaterGrams": 377
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 56,
+      "expectedWaterGrams": 394
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 30,
+      "expectedWaterGrams": 420
+    },
+    {
+      "totalWaterGrams": 450,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 4,
+      "expectedWaterGrams": 446
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 117,
+      "expectedWaterGrams": 583
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 95,
+      "expectedWaterGrams": 605
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 80,
+      "expectedWaterGrams": 620
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 58,
+      "expectedWaterGrams": 642
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 29,
+      "expectedWaterGrams": 671
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 700
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 700
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 134,
+      "expectedWaterGrams": 566
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 113,
+      "expectedWaterGrams": 587
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 99,
+      "expectedWaterGrams": 601
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 78,
+      "expectedWaterGrams": 622
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 49,
+      "expectedWaterGrams": 651
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 7,
+      "expectedWaterGrams": 693
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 700
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 151,
+      "expectedWaterGrams": 549
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 130,
+      "expectedWaterGrams": 570
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 117,
+      "expectedWaterGrams": 583
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 96,
+      "expectedWaterGrams": 604
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 69,
+      "expectedWaterGrams": 631
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 27,
+      "expectedWaterGrams": 673
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 700
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 167,
+      "expectedWaterGrams": 533
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 147,
+      "expectedWaterGrams": 553
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 133,
+      "expectedWaterGrams": 567
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 113,
+      "expectedWaterGrams": 587
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 87,
+      "expectedWaterGrams": 613
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 47,
+      "expectedWaterGrams": 653
+    },
+    {
+      "totalWaterGrams": 700,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 7,
+      "expectedWaterGrams": 693
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 200,
+      "expectedWaterGrams": 1000
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 163,
+      "expectedWaterGrams": 1037
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 138,
+      "expectedWaterGrams": 1062
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 100,
+      "expectedWaterGrams": 1100
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 50,
+      "expectedWaterGrams": 1150
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 1200
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 1200
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 230,
+      "expectedWaterGrams": 970
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 194,
+      "expectedWaterGrams": 1006
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 170,
+      "expectedWaterGrams": 1030
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 133,
+      "expectedWaterGrams": 1067
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 85,
+      "expectedWaterGrams": 1115
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 12,
+      "expectedWaterGrams": 1188
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 1200
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 259,
+      "expectedWaterGrams": 941
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 224,
+      "expectedWaterGrams": 976
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 200,
+      "expectedWaterGrams": 1000
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 165,
+      "expectedWaterGrams": 1035
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 118,
+      "expectedWaterGrams": 1082
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 47,
+      "expectedWaterGrams": 1153
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 1200
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 286,
+      "expectedWaterGrams": 914
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 251,
+      "expectedWaterGrams": 949
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 229,
+      "expectedWaterGrams": 971
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 194,
+      "expectedWaterGrams": 1006
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 149,
+      "expectedWaterGrams": 1051
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 80,
+      "expectedWaterGrams": 1120
+    },
+    {
+      "totalWaterGrams": 1200,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 11,
+      "expectedWaterGrams": 1189
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 417,
+      "expectedWaterGrams": 2083
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 339,
+      "expectedWaterGrams": 2161
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 286,
+      "expectedWaterGrams": 2214
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 208,
+      "expectedWaterGrams": 2292
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 104,
+      "expectedWaterGrams": 2396
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 2500
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 2500
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 480,
+      "expectedWaterGrams": 2020
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 404,
+      "expectedWaterGrams": 2096
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 354,
+      "expectedWaterGrams": 2146
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 278,
+      "expectedWaterGrams": 2222
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 177,
+      "expectedWaterGrams": 2323
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 25,
+      "expectedWaterGrams": 2475
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 2500
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 539,
+      "expectedWaterGrams": 1961
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 466,
+      "expectedWaterGrams": 2034
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 417,
+      "expectedWaterGrams": 2083
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 343,
+      "expectedWaterGrams": 2157
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 245,
+      "expectedWaterGrams": 2255
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 98,
+      "expectedWaterGrams": 2402
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 2500
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 595,
+      "expectedWaterGrams": 1905
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 524,
+      "expectedWaterGrams": 1976
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 476,
+      "expectedWaterGrams": 2024
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 405,
+      "expectedWaterGrams": 2095
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 310,
+      "expectedWaterGrams": 2190
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 167,
+      "expectedWaterGrams": 2333
+    },
+    {
+      "totalWaterGrams": 2500,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 24,
+      "expectedWaterGrams": 2476
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 833,
+      "expectedWaterGrams": 4167
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 677,
+      "expectedWaterGrams": 4323
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 573,
+      "expectedWaterGrams": 4427
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 417,
+      "expectedWaterGrams": 4583
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 208,
+      "expectedWaterGrams": 4792
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 5000
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 16.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 5000
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 960,
+      "expectedWaterGrams": 4040
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 808,
+      "expectedWaterGrams": 4192
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 707,
+      "expectedWaterGrams": 4293
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 556,
+      "expectedWaterGrams": 4444
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 354,
+      "expectedWaterGrams": 4646
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 51,
+      "expectedWaterGrams": 4949
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 19.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 5000
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 1078,
+      "expectedWaterGrams": 3922
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 931,
+      "expectedWaterGrams": 4069
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 833,
+      "expectedWaterGrams": 4167
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 686,
+      "expectedWaterGrams": 4314
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 490,
+      "expectedWaterGrams": 4510
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 196,
+      "expectedWaterGrams": 4804
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 22.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 0,
+      "expectedWaterGrams": 5000
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 0.0,
+      "expectedIceGrams": 1190,
+      "expectedWaterGrams": 3810
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 3.0,
+      "expectedIceGrams": 1048,
+      "expectedWaterGrams": 3952
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 5.0,
+      "expectedIceGrams": 952,
+      "expectedWaterGrams": 4048
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 8.0,
+      "expectedIceGrams": 810,
+      "expectedWaterGrams": 4190
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 12.0,
+      "expectedIceGrams": 619,
+      "expectedWaterGrams": 4381
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 18.0,
+      "expectedIceGrams": 333,
+      "expectedWaterGrams": 4667
+    },
+    {
+      "totalWaterGrams": 5000,
+      "tapWaterTempC": 25.0,
+      "targetWaterTempC": 24.0,
+      "expectedIceGrams": 48,
+      "expectedWaterGrams": 4952
+    }
+  ],
+  "q10Cases": [
+    {
+      "baseHours": 1.5,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.0,
+      "expectedDiffMinutes": 90
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.27,
+      "expectedDiffMinutes": 46
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.98,
+      "expectedDiffMinutes": 29
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.72,
+      "expectedDiffMinutes": 13
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.5,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.31,
+      "expectedDiffMinutes": -12
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.14,
+      "expectedDiffMinutes": -22
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 0.99,
+      "expectedDiffMinutes": -31
+    },
+    {
+      "baseHours": 1.5,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 0.75,
+      "expectedDiffMinutes": -45
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.0,
+      "expectedDiffMinutes": 180
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.55,
+      "expectedDiffMinutes": 93
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.96,
+      "expectedDiffMinutes": 58
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.45,
+      "expectedDiffMinutes": 27
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.61,
+      "expectedDiffMinutes": -23
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.27,
+      "expectedDiffMinutes": -44
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.98,
+      "expectedDiffMinutes": -61
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.5,
+      "expectedDiffMinutes": -90
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 8.0,
+      "expectedDiffMinutes": 240
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.06,
+      "expectedDiffMinutes": 124
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 5.28,
+      "expectedDiffMinutes": 77
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.59,
+      "expectedDiffMinutes": 36
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.48,
+      "expectedDiffMinutes": -31
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.03,
+      "expectedDiffMinutes": -58
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.64,
+      "expectedDiffMinutes": -82
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.0,
+      "expectedDiffMinutes": -120
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 12.0,
+      "expectedDiffMinutes": 360
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 9.09,
+      "expectedDiffMinutes": 186
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 7.92,
+      "expectedDiffMinutes": 115
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.89,
+      "expectedDiffMinutes": 54
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 5.22,
+      "expectedDiffMinutes": -47
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.55,
+      "expectedDiffMinutes": -87
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.96,
+      "expectedDiffMinutes": -122
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.0,
+      "expectedDiffMinutes": -180
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 16.0,
+      "expectedDiffMinutes": 480
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 12.13,
+      "expectedDiffMinutes": 248
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 10.56,
+      "expectedDiffMinutes": 153
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 9.19,
+      "expectedDiffMinutes": 71
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 8.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.96,
+      "expectedDiffMinutes": -62
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.06,
+      "expectedDiffMinutes": -116
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 5.28,
+      "expectedDiffMinutes": -163
+    },
+    {
+      "baseHours": 8.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.0,
+      "expectedDiffMinutes": -240
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 24.0,
+      "expectedDiffMinutes": 720
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 18.19,
+      "expectedDiffMinutes": 371
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 15.83,
+      "expectedDiffMinutes": 230
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 13.78,
+      "expectedDiffMinutes": 107
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 12.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 10.45,
+      "expectedDiffMinutes": -93
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 9.09,
+      "expectedDiffMinutes": -174
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 7.92,
+      "expectedDiffMinutes": -245
+    },
+    {
+      "baseHours": 12.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.0,
+      "expectedDiffMinutes": -360
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 32.0,
+      "expectedDiffMinutes": 960
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 24.25,
+      "expectedDiffMinutes": 495
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 21.11,
+      "expectedDiffMinutes": 307
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 18.38,
+      "expectedDiffMinutes": 143
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 16.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 13.93,
+      "expectedDiffMinutes": -124
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 12.13,
+      "expectedDiffMinutes": -232
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 10.56,
+      "expectedDiffMinutes": -327
+    },
+    {
+      "baseHours": 16.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 8.0,
+      "expectedDiffMinutes": -480
+    }
+  ],
+  "feedingCases": [
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 17,
+      "expectedFlourGrams": 17,
+      "expectedWaterGrams": 17
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 10,
+      "expectedFlourGrams": 20,
+      "expectedWaterGrams": 20
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 7,
+      "expectedFlourGrams": 21,
+      "expectedWaterGrams": 21
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 6,
+      "expectedFlourGrams": 22,
+      "expectedWaterGrams": 22
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 5,
+      "expectedFlourGrams": 23,
+      "expectedWaterGrams": 23
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 2,
+      "expectedFlourGrams": 24,
+      "expectedWaterGrams": 24
+    },
+    {
+      "targetYieldGrams": 50,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 8,
+      "expectedFlourGrams": 21,
+      "expectedWaterGrams": 21
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 33,
+      "expectedFlourGrams": 33,
+      "expectedWaterGrams": 33
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 20,
+      "expectedFlourGrams": 40,
+      "expectedWaterGrams": 40
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 14,
+      "expectedFlourGrams": 43,
+      "expectedWaterGrams": 43
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 11,
+      "expectedFlourGrams": 44,
+      "expectedWaterGrams": 44
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 9,
+      "expectedFlourGrams": 45,
+      "expectedWaterGrams": 45
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 5,
+      "expectedFlourGrams": 48,
+      "expectedWaterGrams": 48
+    },
+    {
+      "targetYieldGrams": 100,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 17,
+      "expectedFlourGrams": 42,
+      "expectedWaterGrams": 42
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 50,
+      "expectedFlourGrams": 50,
+      "expectedWaterGrams": 50
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 30,
+      "expectedFlourGrams": 60,
+      "expectedWaterGrams": 60
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 21,
+      "expectedFlourGrams": 64,
+      "expectedWaterGrams": 64
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 17,
+      "expectedFlourGrams": 67,
+      "expectedWaterGrams": 67
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 14,
+      "expectedFlourGrams": 68,
+      "expectedWaterGrams": 68
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 7,
+      "expectedFlourGrams": 71,
+      "expectedWaterGrams": 71
+    },
+    {
+      "targetYieldGrams": 150,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 25,
+      "expectedFlourGrams": 63,
+      "expectedWaterGrams": 63
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 67,
+      "expectedFlourGrams": 67,
+      "expectedWaterGrams": 67
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 40,
+      "expectedFlourGrams": 80,
+      "expectedWaterGrams": 80
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 29,
+      "expectedFlourGrams": 86,
+      "expectedWaterGrams": 86
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 22,
+      "expectedFlourGrams": 89,
+      "expectedWaterGrams": 89
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 18,
+      "expectedFlourGrams": 91,
+      "expectedWaterGrams": 91
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 10,
+      "expectedFlourGrams": 95,
+      "expectedWaterGrams": 95
+    },
+    {
+      "targetYieldGrams": 200,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 33,
+      "expectedFlourGrams": 83,
+      "expectedWaterGrams": 83
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 100,
+      "expectedFlourGrams": 100,
+      "expectedWaterGrams": 100
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 60,
+      "expectedFlourGrams": 120,
+      "expectedWaterGrams": 120
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 43,
+      "expectedFlourGrams": 129,
+      "expectedWaterGrams": 129
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 33,
+      "expectedFlourGrams": 133,
+      "expectedWaterGrams": 133
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 27,
+      "expectedFlourGrams": 136,
+      "expectedWaterGrams": 136
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 14,
+      "expectedFlourGrams": 143,
+      "expectedWaterGrams": 143
+    },
+    {
+      "targetYieldGrams": 300,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 50,
+      "expectedFlourGrams": 125,
+      "expectedWaterGrams": 125
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 167,
+      "expectedFlourGrams": 167,
+      "expectedWaterGrams": 167
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 100,
+      "expectedFlourGrams": 200,
+      "expectedWaterGrams": 200
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 71,
+      "expectedFlourGrams": 214,
+      "expectedWaterGrams": 214
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 56,
+      "expectedFlourGrams": 222,
+      "expectedWaterGrams": 222
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 45,
+      "expectedFlourGrams": 227,
+      "expectedWaterGrams": 227
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 24,
+      "expectedFlourGrams": 238,
+      "expectedWaterGrams": 238
+    },
+    {
+      "targetYieldGrams": 500,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 83,
+      "expectedFlourGrams": 208,
+      "expectedWaterGrams": 208
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 267,
+      "expectedFlourGrams": 267,
+      "expectedWaterGrams": 267
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 160,
+      "expectedFlourGrams": 320,
+      "expectedWaterGrams": 320
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 114,
+      "expectedFlourGrams": 343,
+      "expectedWaterGrams": 343
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 89,
+      "expectedFlourGrams": 356,
+      "expectedWaterGrams": 356
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 73,
+      "expectedFlourGrams": 364,
+      "expectedWaterGrams": 364
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 38,
+      "expectedFlourGrams": 381,
+      "expectedWaterGrams": 381
+    },
+    {
+      "targetYieldGrams": 800,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 133,
+      "expectedFlourGrams": 333,
+      "expectedWaterGrams": 333
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        1,
+        1
+      ],
+      "expectedStarterGrams": 400,
+      "expectedFlourGrams": 400,
+      "expectedWaterGrams": 400
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        2,
+        2
+      ],
+      "expectedStarterGrams": 240,
+      "expectedFlourGrams": 480,
+      "expectedWaterGrams": 480
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        3,
+        3
+      ],
+      "expectedStarterGrams": 171,
+      "expectedFlourGrams": 514,
+      "expectedWaterGrams": 514
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        4,
+        4
+      ],
+      "expectedStarterGrams": 133,
+      "expectedFlourGrams": 533,
+      "expectedWaterGrams": 533
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 109,
+      "expectedFlourGrams": 545,
+      "expectedWaterGrams": 545
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        1,
+        10,
+        10
+      ],
+      "expectedStarterGrams": 57,
+      "expectedFlourGrams": 571,
+      "expectedWaterGrams": 571
+    },
+    {
+      "targetYieldGrams": 1200,
+      "ratio": [
+        2,
+        5,
+        5
+      ],
+      "expectedStarterGrams": 200,
+      "expectedFlourGrams": 500,
+      "expectedWaterGrams": 500
+    }
+  ]
+}

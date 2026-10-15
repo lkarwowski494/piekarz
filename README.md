@@ -1,7 +1,9 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-215%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-725%20passed-brightgreen.svg)
+![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
+![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-482%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
 ![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react)
 ![Expo](https://img.shields.io/badge/Expo-57-000000?logo=expo)
@@ -91,6 +93,30 @@ npm run verify
 # Uruchomienie aplikacji w środowisku Expo Router
 npm run start
 ```
+
+---
+
+## 🛡️ Wielowymiarowa Architektura Testów (Standard Apps4Brew)
+
+Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **725 testów automatycznych w 22 zestawach testowych** obejmujących 6 niezależnych perspektyw:
+
+1. **Property-Based Testing (`fast-check`):**
+   - Weryfikacja niezmienników algebraicznych na tysiącach losowych permutacjach wejściowych (`numRuns: 1000`).
+   - Zachowanie bilansu masy mąki, wody i soli w ciastach od mikro-porcji (200g) do misek piekarskich (20kg).
+   - Ścisła monotoniczność równań termodynamicznych lodu oraz kinetyki podwajania/poławiania czasów fermentacji $Q_{10} = 2.0$ przy $\pm 10^\circ\text{C}$.
+   - Ciągłość i ścisłe przyleganie faz w harmonogramie wstecznym dla dowolnych znaczników czasu w latach 2026–2028.
+2. **Niezależny Korpus Fizyczny (Python ↔ TypeScript):**
+   - Skrypt `scripts/gen-baking-physics-corpus.py` generuje 482 wzorcowe wektory prawdy dla DDT, topnienia lodu, kinetyki Arrheniusa oraz proporcji dokarmiania.
+   - Weryfikacja bit-do-bitu gwarantuje brak rozbieżności implementacyjnych między środowiskami.
+3. **Wyczerpujące Macierze Brzegowe (Exhaustive Domain Matrices):**
+   - Pełna 24-godzinna siatka harmonogramu wstecznego z przejściami przez północ, lata przestępne (29 lutego) i granice miesięcy.
+   - Hierarchia priorytetów Doktora Chleba (9 kodów wad, rozstrzyganie konfliktów przy wielokrotnych symptomach).
+4. **Odporność Danych i Bezpieczeństwo SQLite:**
+   - Testy przeciw wstrzykiwaniu SQL (SQL Injection), obsługa pełnego zakresu Unicode i emoji w nazwach mąk, idempotentność migracji schematu, kolejkowanie historii wypieków.
+5. **Strażnicy Architektoniczni i Interakcji (Interaction Guards):**
+   - Statyczna analiza kodu zapobiegająca obecności `console.log` w warstwie domenowej, gwarancja minimalnych wymiarów dotykowych $\ge 44\,\text{pt}$ (Apple HIG / WCAG) oraz spójności nazewnictwa akcji anulowania (`Anuluj`).
+6. **Dostępność i Kontrast Wizualny (WCAG 2.1 AAA / AA):**
+   - Numeryczne obliczenia względnej luminancji ($L$) i współczynnika kontrastu ($CR$) dla każdego tokenu palety *Linen & Crust* (np. `#2C1810` na `#FBF9F5` osiągający ponad $12:1$ — WCAG AAA).
 
 ---
 

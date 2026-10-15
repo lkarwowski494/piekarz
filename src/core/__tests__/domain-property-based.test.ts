@@ -1,0 +1,263 @@
+import * as fc from 'fast-check';
+import {
+  calculateDoughRecipe,
+  calculateIceRequirement,
+  calculateFermentationAdaptation,
+  convertYeast,
+  calculateStarterFeeding,
+  calculateDDTWaterTemp,
+} from '../domain-rules';
+import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
+
+describe('Property-Based Invariant Verification (fast-check)', () => {
+  describe('Dough Scaling & True Baker\'s % Invariants', () => {
+    it('preserves mass balance across 1000 randomized dough formulations', () => {
+      fc.assert(
+        fc.property(
+          fc.integer({ min: 200, max: 20000 }), // target dough weight in grams
+          fc.double({ min: 50.0, max: 100.0, noNaN: true }), // hydration %
+          fc.double({ min: 0.5, max: 3.5, noNaN: true }), // salt %
+          fc.double({ min: 5.0, max: 40.0, noNaN: true }), // starter %
+          fc.double({ min: 60.0, max: 160.0, noNaN: true }), // starter hydration %
+          fc.double({ min: 0.0, max: 2.0, noNaN: true }), // extra yeast %
+          fc.integer({ min: 10, max: 90 }), // flour 1 % (flour 2 will be 100 - flour 1)
+          (weight, hydr, salt, starter, starterHydr, yeast, f1Pct) => {
+            const f2Pct = 100 - f1Pct;
+            const result = calculateDoughRecipe({
+              targetDoughWeightGrams: weight,
+              flours: [
+                { name: 'Flour A', percentage: f1Pct },
+                { name: 'Flour B', percentage: f2Pct },
+              ],
+              waterPercentage: hydr,
+              saltPercentage: salt,
+              starterPercentage: starter,
+              starterHydration: starterHydr,
+              extraYeastPercentage: yeast,
+            });
+
+            // 1. Total batch sum conservation (within +/- 3g due to independent Math.round on 5 items)
+            expect(Math.abs(result.sumCheckGrams - weight)).toBeLessThanOrEqual(3);
+
+            // 2. Base flour split conservation
+            const sumFlours = result.flours.reduce((acc, f) => acc + f.weightGrams, 0);
+            expect(Math.abs(sumFlours - result.baseFlourWeightGrams)).toBeLessThanOrEqual(2);
+
+            // 3. Starter component conservation
+            expect(
+              Math.abs(result.starterFlourGrams + result.starterWaterGrams - result.starterGrams)
+            ).toBeLessThanOrEqual(2);
+
+            // 4. Total flour and total water consistency
+            expect(
+              Math.abs(result.totalFlourGrams - (result.baseFlourWeightGrams + result.starterFlourGrams))
+            ).toBeLessThanOrEqual(2);
+            expect(
+              Math.abs(result.totalWaterGrams - (result.waterGrams + result.starterWaterGrams))
+            ).toBeLessThanOrEqual(2);
+
+            // 5. True Baker's hydration consistency (accounting for integer rounding on small batches)
+            const computedOverallHydr = (result.totalWaterGrams / result.totalFlourGrams) * 100;
+            expect(Math.abs(result.overallHydrationPercent - computedOverallHydr)).toBeLessThanOrEqual(1.5);
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+  });
+
+  describe('Ice & DDT Thermodynamics Invariants', () => {
+    it('preserves ice + water mass balance and exhibits strict monotonicity', () => {
+      fc.assert(
+        fc.property(
+          fc.integer({ min: 100, max: 8000 }), // total water grams
+          fc.double({ min: 10.0, max: 35.0, noNaN: true }), // tap water temp °C
+          fc.double({ min: -5.0, max: 30.0, noNaN: true }), // target water temp °C
+          (waterGrams, tapTemp, targetTemp) => {
+            const result = calculateIceRequirement(waterGrams, tapTemp, targetTemp);
+
+            // Conservation of water mass: ice + liquid water === total
+            expect(result.iceGrams + result.waterGrams).toBe(waterGrams);
+            expect(result.totalWaterGrams).toBe(waterGrams);
+            expect(result.iceGrams).toBeGreaterThanOrEqual(0);
+            expect(result.waterGrams).toBeGreaterThanOrEqual(0);
+
+            if (targetTemp >= tapTemp) {
+              expect(result.iceGrams).toBe(0);
+              expect(result.waterGrams).toBe(waterGrams);
+            } else {
+              expect(result.iceGrams).toBeGreaterThanOrEqual(0);
+
+              // Colder target temp requires greater or equal ice
+              const colderTarget = targetTemp - 2.0;
+              const resultColder = calculateIceRequirement(waterGrams, tapTemp, colderTarget);
+              expect(resultColder.iceGrams).toBeGreaterThanOrEqual(result.iceGrams);
+            }
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+
+    it('DDT water temperature is strictly linear and responds inversely to ambient / flour temperature', () => {
+      fc.assert(
+        fc.property(
+          fc.double({ min: 20.0, max: 30.0, noNaN: true }), // target DDT
+          fc.double({ min: 15.0, max: 30.0, noNaN: true }), // flour temp
+          fc.double({ min: 15.0, max: 35.0, noNaN: true }), // room temp
+          fc.double({ min: 15.0, max: 30.0, noNaN: true }), // starter temp
+          fc.double({ min: 0.0, max: 6.0, noNaN: true }), // friction factor
+          (ddt, flour, room, starter, friction) => {
+            const res1 = calculateDDTWaterTemp({
+              targetDDT: ddt,
+              flourTemp: flour,
+              roomTemp: room,
+              starterTemp: starter,
+              frictionFactor: friction,
+            });
+
+            // As kitchen gets 1°C hotter, water must be 1°C colder
+            const resWarmerRoom = calculateDDTWaterTemp({
+              targetDDT: ddt,
+              flourTemp: flour,
+              roomTemp: room + 1.0,
+              starterTemp: starter,
+              frictionFactor: friction,
+            });
+
+            expect(Number((res1.waterTempTarget - resWarmerRoom.waterTempTarget).toFixed(1))).toBe(1.0);
+          }
+        ),
+        { numRuns: 500 }
+      );
+    });
+  });
+
+  describe('Fermentation Kinetics (Q10 = 2.0) Invariants', () => {
+    it('fermentation duration decreases monotonically with rising temperature', () => {
+      fc.assert(
+        fc.property(
+          fc.double({ min: 1.0, max: 24.0, noNaN: true }), // base hours
+          fc.double({ min: 10.0, max: 22.0, noNaN: true }), // temp cool
+          fc.double({ min: 25.0, max: 38.0, noNaN: true }), // temp warm
+          (baseHours, tempCool, tempWarm) => {
+            const coolRes = calculateFermentationAdaptation(baseHours, tempCool, 24.0);
+            const baseRes = calculateFermentationAdaptation(baseHours, 24.0, 24.0);
+            const warmRes = calculateFermentationAdaptation(baseHours, tempWarm, 24.0);
+
+            // Monotonicity: T_cool < 24 < T_warm => Time_cool > Time_base > Time_warm
+            expect(coolRes.adaptedHours).toBeGreaterThan(baseRes.adaptedHours);
+            expect(baseRes.adaptedHours).toBeGreaterThan(warmRes.adaptedHours);
+
+            // Invariant: At calibrated temp (24.0°C), diffMinutes is 0
+            expect(baseRes.diffMinutes).toBe(0);
+            expect(baseRes.adaptedHours).toBe(Number(baseHours.toFixed(2)));
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+
+    it('satisfies exact Q10 halving and doubling properties at +10°C and -10°C deltas', () => {
+      fc.assert(
+        fc.property(
+          fc.double({ min: 2.0, max: 30.0, noNaN: true }), // base hours
+          (baseHours) => {
+            const resBase = calculateFermentationAdaptation(baseHours, 24.0, 24.0);
+            const resPlus10 = calculateFermentationAdaptation(baseHours, 34.0, 24.0);
+            const resMinus10 = calculateFermentationAdaptation(baseHours, 14.0, 24.0);
+
+            // +10°C should halve the duration
+            expect(Math.abs(resPlus10.adaptedHours - baseHours / 2.0)).toBeLessThanOrEqual(0.05);
+
+            // -10°C should double the duration
+            expect(Math.abs(resMinus10.adaptedHours - baseHours * 2.0)).toBeLessThanOrEqual(0.05);
+          }
+        ),
+        { numRuns: 500 }
+      );
+    });
+  });
+
+  describe('Yeast & Starter Feeding Invariants', () => {
+    it('yeast conversions are round-trip isomorphic within rounding precision', () => {
+      fc.assert(
+        fc.property(
+          fc.double({ min: 0.1, max: 200.0, noNaN: true }),
+          (freshGrams) => {
+            const instant = convertYeast(freshGrams, 'fresh').instantGrams;
+            const roundTrip = convertYeast(instant, 'instant').freshGrams;
+
+            // 3:1 ratio round trip with 0.15g rounding delta
+            expect(Math.abs(roundTrip - freshGrams)).toBeLessThanOrEqual(0.15);
+          }
+        ),
+        { numRuns: 500 }
+      );
+    });
+
+    it('starter feeding preserves total yield across arbitrary feeding ratios', () => {
+      fc.assert(
+        fc.property(
+          fc.integer({ min: 30, max: 3000 }), // target yield
+          fc.integer({ min: 1, max: 10 }), // starter parts
+          fc.integer({ min: 1, max: 10 }), // flour parts
+          fc.integer({ min: 1, max: 10 }), // water parts
+          (yieldGrams, s, f, w) => {
+            const res = calculateStarterFeeding(yieldGrams, [s, f, w]);
+            const sumParts = res.starterGrams + res.flourGrams + res.waterGrams;
+
+            // Invariant: sum of parts equals target yield +/- 2g due to integer roundings
+            expect(Math.abs(sumParts - yieldGrams)).toBeLessThanOrEqual(2);
+            expect(res.starterGrams).toBeGreaterThan(0);
+            expect(res.flourGrams).toBeGreaterThan(0);
+            expect(res.waterGrams).toBeGreaterThan(0);
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+  });
+
+  describe('Reverse Scheduler Process Continuity Invariants', () => {
+    it('guarantees chronological stage adjacency and terminal alignment', () => {
+      fc.assert(
+        fc.property(
+          fc.date({
+            min: new Date(2026, 0, 1),
+            max: new Date(2028, 11, 31),
+            noInvalidDate: true,
+          }), // target ready date
+          fc.double({ min: 8.0, max: 24.0, noNaN: true }), // cold retard hours
+          (targetDate, retardHours) => {
+            const sched = calculateReverseSchedule(targetDate, {
+              coldRetardHours: retardHours,
+            });
+
+            expect(sched.stages.length).toBeGreaterThan(0);
+
+            // 1. Terminal stage ends exactly at target ready time
+            const lastStage = sched.stages[sched.stages.length - 1];
+            expect(lastStage.endTime.getTime()).toBe(targetDate.getTime());
+
+            // 2. Strict chronological order and perfect boundary adjacency (stage[i].endTime === stage[i+1].startTime)
+            for (let i = 0; i < sched.stages.length; i++) {
+              const stage = sched.stages[i];
+              expect(stage.startTime.getTime()).toBeLessThan(stage.endTime.getTime());
+
+              if (i < sched.stages.length - 1) {
+                const nextStage = sched.stages[i + 1];
+                expect(stage.endTime.getTime()).toBe(nextStage.startTime.getTime());
+              }
+            }
+
+            // 3. Process duration is positive and initial feed is before target
+            const firstStage = sched.stages[0];
+            expect(firstStage.startTime.getTime()).toBeLessThan(targetDate.getTime());
+          }
+        ),
+        { numRuns: 500 }
+      );
+    });
+  });
+});
