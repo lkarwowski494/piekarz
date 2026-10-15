@@ -1,5 +1,12 @@
 # Piekarz (Crust) 🥖🌾
 
+[![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
+![Tests](https://img.shields.io/badge/tests-50%20passed-brightgreen.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
+![React Native](https://img.shields.io/badge/React_Native-0.86-61DAFB?logo=react)
+![Expo](https://img.shields.io/badge/Expo-57-000000?logo=expo)
+![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android-lightgrey.svg)
+
 > **„Mąka, woda, sól i czas — rzemieślnicza precyzja w Twojej domowej piekarni.”**
 
 Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek i pizzy, stworzona w bezkompromisowym standardzie ekosystemu **Apps4Brew**.
