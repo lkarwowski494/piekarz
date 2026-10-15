@@ -22,7 +22,7 @@ const walk = (d) => {
   }
 };
 
-['src'].forEach((d) => walk(join(root, d)));
+['src', 'app'].forEach((d) => walk(join(root, d)));
 if (existsSync(join(root, 'App.tsx'))) files.push(join(root, 'App.tsx'));
 
 const unq = (s) => s.replace(/\\'/g, "'").replace(/\\\\/g, '\\');

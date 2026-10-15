@@ -3,6 +3,7 @@
     "name": "Piekarz",
     "slug": "piekarz",
     "version": "0.1.0",
+    "scheme": "piekarz",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -30,6 +31,7 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      "expo-router",
       [
         "expo-sqlite",
         {
