@@ -22,6 +22,7 @@ import {
   ActiveBakeState,
 } from '../../src/data/sqlite-store';
 import { StoredBakeLog } from '../../src/data/db';
+import { notifyTimerFinished } from '../../src/lib/timer-audio';
 
 export interface BakeStep {
   id: string;
@@ -130,11 +131,7 @@ export default function StolnicaScreen() {
           if (prev <= 1) {
             setIsRunning(false);
             setIsCompleted(true);
-            try {
-              void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-            } catch {
-              // Non-native fallback
-            }
+            void notifyTimerFinished(BAKE_STEPS[currentStepIdx].name);
             return 0;
           }
           return prev - 1;

@@ -35,6 +35,8 @@ import {
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirm } from '../../src/lib/confirm';
+import { SettingsModal } from '../../src/components/SettingsModal';
+import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 
 type CalculationMode = 'loaves' | 'flour';
 
@@ -75,10 +77,11 @@ export default function CalculatorScreen() {
   const [selectedBakeLossPresetId, setSelectedBakeLossPresetId] = useState<BakeTypePresetId>('batard_boule');
   const [customBakeLossPercent, setCustomBakeLossPercent] = useState<number>(14.0);
 
-  // Custom recipes state
+  // Custom recipes & Settings state
   const [customRecipes, setCustomRecipes] = useState<StoredRecipe[]>([]);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
 
   const loadRecipesFromStore = useCallback(async () => {
     const all = await getRecipes();
@@ -239,6 +242,24 @@ export default function CalculatorScreen() {
     Alert.alert(t('Zapisano przepis'), t('Przepis „{name}” został zapisany w Twojej bibliotece.', { name: trimmed }));
   };
 
+  // Copy Recipe to Clipboard
+  const handleCopyRecipe = async () => {
+    const text = formatRecipeText({
+      recipeName,
+      calc: calculations,
+      bakeLoss: bakeLossMetrics,
+      targetDdt,
+      waterTempTarget: ddtResult.waterTempTarget,
+      iceGrams: iceResult?.iceGrams,
+      tapWaterTemp,
+      loavesCount: calcMode === 'loaves' ? loavesCount : 1,
+    });
+    const copied = await copyRecipeToClipboard(text);
+    if (copied) {
+      Alert.alert(t('Kopiuj recepturę'), t('Skopiowano przepis do schowka'));
+    }
+  };
+
   // Transfer to Workbench (Stolnica)
   const handleStartBakeOnWorkbench = () => {
     setActiveBake({
@@ -267,8 +288,19 @@ export default function CalculatorScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>{t('Kalkulator')}</Text>
-          <Text style={styles.subtitle}>True Baker’s % & DDT (Apps4Brew)</Text>
+          <View style={styles.flex1}>
+            <Text style={styles.title}>{t('Kalkulator')}</Text>
+            <Text style={styles.subtitle}>True Baker’s % & DDT (Apps4Brew)</Text>
+          </View>
+          <Pressable
+            testID="open-settings-btn"
+            accessibilityRole="button"
+            accessibilityLabel={t('Ustawienia')}
+            style={styles.settingsHeaderBtn}
+            onPress={() => setIsSettingsOpen(true)}
+          >
+            <Text style={styles.settingsHeaderBtnText}>⚙️</Text>
+          </Pressable>
         </View>
 
         {/* Master & Custom Recipes Selector */}
@@ -789,9 +821,18 @@ export default function CalculatorScreen() {
           </View>
         </View>
 
-        {/* Action Buttons: Save Custom Recipe & Start Bake on Workbench */}
+        {/* Action Buttons: Save Custom Recipe, Copy Recipe & Start Bake on Workbench */}
         <View style={styles.actionButtonsContainer}>
           <Pressable
+            testID="copy-recipe-btn"
+            style={styles.copyRecipeBtn}
+            onPress={handleCopyRecipe}
+          >
+            <Text style={styles.copyRecipeBtnText}>📋 {t('Kopiuj recepturę')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="save-custom-recipe-btn"
             style={styles.secondaryBtn}
             onPress={() => {
               setSaveRecipeNameInput(recipeName);
@@ -802,6 +843,7 @@ export default function CalculatorScreen() {
           </Pressable>
 
           <Pressable
+            testID="start-bake-btn"
             style={styles.primaryBtn}
             onPress={handleStartBakeOnWorkbench}
           >
@@ -844,6 +886,12 @@ export default function CalculatorScreen() {
             </View>
           </View>
         </Modal>
+
+        {/* Settings & Backup Modal */}
+        <SettingsModal
+          visible={isSettingsOpen}
+          onClose={() => setIsSettingsOpen(false)}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -1445,5 +1493,34 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: theme.colors.textSecondary,
     lineHeight: 17,
+  },
+  settingsHeaderBtn: {
+    width: 44,
+    height: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  settingsHeaderBtnText: {
+    fontSize: 20,
+  },
+  copyRecipeBtn: {
+    minHeight: 44,
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: theme.spacing.md,
+  },
+  copyRecipeBtnText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
   },
 });

@@ -211,5 +211,13 @@ export const EN: Record<string, string> = {
   'Mocno wilgotny / kremowy (Custardy Crumb)': 'Very moist / custardy (Custardy Crumb)',
   'Równomierny / rzemieślniczy (Balanced)': 'Balanced / artisanal (Balanced)',
   'Suchy / chrupki (Crisp Dry)': 'Dry / crisp (Crisp Dry)',
+
+  // Settings & Recipe Formatting & Audio
+  'Język': 'Language',
+  'Masa ciasta': 'Dough mass',
+  'w tym lód': 'of which ice',
+  'Kopiuj recepturę': 'Copy recipe',
+  'Skopiowano przepis do schowka': 'Recipe copied to clipboard',
+  'Etap ukończony! Czas na kolejny krok.': 'Stage completed! Time for the next step.',
 };
 

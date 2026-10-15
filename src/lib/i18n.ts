@@ -1,22 +1,31 @@
+import { useState, useEffect } from 'react';
 import { EN } from './i18n.en';
-
-/**
- * System lokalizacji Piekarz (Apps4Brew standard).
- * Kluczem słownika jest polski tekst źródłowy — czytelny wprost w kodzie TSX.
- * Przy braku tłumaczenia zwracany jest tekst polski (zamiast technicznego pustego klucza).
- */
 
 export const LANGS = ['pl', 'en'] as const;
 export type Lang = typeof LANGS[number];
 
 let currentLang: Lang = 'pl';
+type LangListener = (l: Lang) => void;
+const listeners = new Set<LangListener>();
 
 export function setLang(lang: Lang) {
   currentLang = lang;
+  listeners.forEach((fn) => fn(lang));
 }
 
 export function lang(): Lang {
   return currentLang;
+}
+
+export function useLang(): Lang {
+  const [l, setL] = useState<Lang>(currentLang);
+  useEffect(() => {
+    listeners.add(setL);
+    return () => {
+      listeners.delete(setL);
+    };
+  }, []);
+  return l;
 }
 
 const own = (dict: Record<string, string>, key: string): string | undefined => {

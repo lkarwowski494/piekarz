@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-823%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-834%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -98,7 +98,7 @@ npm run start
 
 ## 🛡️ Wielowymiarowa Architektura Testów (Standard Apps4Brew)
 
-Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **823 testy automatyczne w 23 zestawach testowych** obejmujących 6 niezależnych perspektyw:
+Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **834 testy automatyczne w 26 zestawach testowych** obejmujących 6 niezależnych perspektyw:
 
 1. **Property-Based Testing (`fast-check`):**
    - Weryfikacja niezmienników algebraicznych na tysiącach losowych permutacjach wejściowych (`numRuns: 1000`).

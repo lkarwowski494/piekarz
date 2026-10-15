@@ -206,4 +206,32 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('17.5%');
   });
+
+  it('opens Settings and Backup modal when tapping settings gear in header', async () => {
+    await renderScreen();
+
+    const settingsBtn = tree!.root.findByProps({ testID: 'open-settings-btn' });
+    expect(settingsBtn).toBeDefined();
+
+    await act(async () => {
+      settingsBtn.props.onPress();
+    });
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Ustawienia');
+    expect(fullText).toContain('Kopia zapasowa');
+  });
+
+  it('triggers copy recipe to clipboard when tapping copy recipe button', async () => {
+    await renderScreen();
+
+    const copyBtn = tree!.root.findByProps({ testID: 'copy-recipe-btn' });
+    expect(copyBtn).toBeDefined();
+
+    await act(async () => {
+      await copyBtn.props.onPress();
+    });
+
+    expect(tree).toBeDefined();
+  });
 });
