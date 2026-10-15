@@ -54,6 +54,13 @@ export interface ScheduleOptions {
   sleepEndHour?: number;     // default 6.5 (06:30)
   customStageDurations?: Record<string, number>;
   ambientTemperatureC?: number; // default 24.0°C
+  coldRetardHours?: number;     // default 14.0 (14h in fridge)
+}
+
+export interface AutoResolveResult {
+  resolvedSchedule: ReverseScheduleResult;
+  adjustedColdRetardHours: number;
+  originalColdRetardHours: number;
 }
 
 export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
@@ -184,6 +191,14 @@ export function calculateReverseSchedule(
 
   const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
 
+  // Adjust cold retard if specified
+  if (options.coldRetardHours && options.coldRetardHours > 0) {
+    const retard = templates.find((t) => t.id === 'final_proof');
+    if (retard) {
+      retard.durationMinutes = Math.round(options.coldRetardHours * 60);
+    }
+  }
+
   // Adjust bulk ferment if temperature is given
   if (options.ambientTemperatureC && options.ambientTemperatureC !== 24.0) {
     const exponent = (24.0 - options.ambientTemperatureC) / 10.0;
@@ -257,4 +272,41 @@ export function calculateReverseSchedule(
     collisionDetailsPl: collisionMessages.length > 0 ? collisionMessages.join('; ') : undefined,
     suggestedActionPl: suggestion,
   };
+}
+
+/**
+ * Automatically adjusts cold retard duration (8h to 24h) to avoid any sleep collision.
+ */
+export function autoResolveSleepCollision(
+  targetReadyTime: Date,
+  options: ScheduleOptions = {}
+): AutoResolveResult | null {
+  const initialSchedule = calculateReverseSchedule(targetReadyTime, options);
+  if (!initialSchedule.hasSleepCollision) {
+    return null;
+  }
+
+  const initialRetard = options.coldRetardHours ?? 14.0;
+  // Try candidate durations from 8h to 24h with 0.5h step, sorting by proximity to initialRetard
+  const candidates: number[] = [];
+  for (let h = 8; h <= 24; h += 0.5) {
+    if (Math.abs(h - initialRetard) > 0.1) candidates.push(h);
+  }
+  candidates.sort((a, b) => Math.abs(a - initialRetard) - Math.abs(b - initialRetard));
+
+  for (const candidateHours of candidates) {
+    const testSchedule = calculateReverseSchedule(targetReadyTime, {
+      ...options,
+      coldRetardHours: candidateHours,
+    });
+    if (!testSchedule.hasSleepCollision) {
+      return {
+        resolvedSchedule: testSchedule,
+        adjustedColdRetardHours: candidateHours,
+        originalColdRetardHours: initialRetard,
+      };
+    }
+  }
+
+  return null;
 }

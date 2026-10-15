@@ -7,29 +7,101 @@ import {
   Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
-import { calculateReverseSchedule } from '../../src/scheduler/reverse-scheduler';
+import {
+  calculateReverseSchedule,
+  autoResolveSleepCollision,
+  ScheduledStage,
+} from '../../src/scheduler/reverse-scheduler';
+import { setActiveBake } from '../../src/data/sqlite-store';
+
+const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
+const POLISH_MONTHS = [
+  'sty', 'lut', 'mar', 'kwi', 'maj', 'cze',
+  'lip', 'sie', 'wrz', 'paź', 'lis', 'gru',
+];
+
+function getStageIcon(category: string): string {
+  switch (category) {
+    case 'starter_feed':
+      return '🥣';
+    case 'autolyse':
+      return '🌾';
+    case 'mix':
+      return '🧂';
+    case 'bulk_ferment':
+      return '👐';
+    case 'pre_shape':
+      return '🥯';
+    case 'bench_rest':
+      return '⏳';
+    case 'final_shape':
+      return '🧺';
+    case 'final_proof':
+      return '❄️';
+    case 'preheat_oven':
+      return '🔥';
+    case 'bake':
+      return '♨️';
+    case 'cool':
+      return '🍞';
+    default:
+      return '🥖';
+  }
+}
 
 export default function HarmonogramScreen() {
-  // Target ready time: default tomorrow at 10:00 AM
-  const [targetHour, setTargetHour] = useState(10);
-  const [ambientTemp, setAmbientTemp] = useState(23.0);
+  const router = useRouter();
 
+  // Target ready settings:
+  // targetDayOffset: 0 = Today, 1 = Tomorrow, 2 = Day after tomorrow
+  const [targetDayOffset, setTargetDayOffset] = useState<number>(1);
+  const [targetHour, setTargetHour] = useState<number>(10);
+  const [targetMinute, setTargetMinute] = useState<number>(0);
+
+  // Baking environment
+  const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
+  const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
+
+  // Target Date object
   const targetDate = useMemo(() => {
     const d = new Date();
-    d.setDate(d.getDate() + 1);
-    d.setHours(targetHour, 0, 0, 0);
+    d.setDate(d.getDate() + targetDayOffset);
+    d.setHours(targetHour, targetMinute, 0, 0);
     return d;
-  }, [targetHour]);
+  }, [targetDayOffset, targetHour, targetMinute]);
 
+  // Reverse schedule calculation
   const schedule = useMemo(() => {
     return calculateReverseSchedule(targetDate, {
       ambientTemperatureC: ambientTemp,
+      coldRetardHours,
       sleepStartHour: 23.0,
       sleepEndHour: 6.5,
     });
-  }, [targetDate, ambientTemp]);
+  }, [targetDate, ambientTemp, coldRetardHours]);
+
+  // Automatic sleep collision resolution helper
+  const autoResolved = useMemo(() => {
+    if (!schedule.hasSleepCollision) return null;
+    return autoResolveSleepCollision(targetDate, {
+      ambientTemperatureC: ambientTemp,
+      coldRetardHours,
+      sleepStartHour: 23.0,
+      sleepEndHour: 6.5,
+    });
+  }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours]);
+
+  // Adjust time by minutes
+  const adjustTargetTime = (deltaMinutes: number) => {
+    let total = targetHour * 60 + targetMinute + deltaMinutes;
+    if (total < 0) total += 24 * 60;
+    total = total % (24 * 60);
+    setTargetHour(Math.floor(total / 60));
+    setTargetMinute(total % 60);
+  };
 
   const formatTime = (d: Date) => {
     const h = String(d.getHours()).padStart(2, '0');
@@ -37,31 +109,92 @@ export default function HarmonogramScreen() {
     return `${h}:${m}`;
   };
 
-  const formatDateLabel = (d: Date) => {
-    const days = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
-    return `${days[d.getDay()]}, ${d.getDate()} paź`;
+  const formatDayBadge = (d: Date) => {
+    const today = new Date();
+    const dDay = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+    const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+    const diffDays = Math.round((dDay - todayDay) / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return 'Dziś';
+    if (diffDays === 1) return 'Jutro';
+    if (diffDays === 2) return 'Pojutrze';
+    if (diffDays === -1) return 'Wczoraj';
+    return `${POLISH_DAYS[d.getDay()]}, ${d.getDate()} ${POLISH_MONTHS[d.getMonth()]}`;
   };
+
+  // Transfer to Stolnica
+  const handleStartBakeOnWorkbench = () => {
+    setActiveBake({
+      id: `bake_${Date.now()}`,
+      recipeName: 'Klasyczny chleb rzemieślniczy (Harmonogram)',
+      startedAt: Date.now(),
+      currentStageId: 'step_1',
+      ambientTempC: ambientTemp,
+      actualDdtC: 25.0,
+    });
+    router.push('/(tabs)/stolnica');
+  };
+
+  // Total journey time
+  const journeyDurationHours = useMemo(() => {
+    if (schedule.stages.length === 0) return 0;
+    const start = schedule.stages[0].startTime.getTime();
+    const end = schedule.stages[schedule.stages.length - 1].endTime.getTime();
+    return Math.round(((end - start) / (1000 * 60 * 60)) * 10) / 10;
+  }, [schedule.stages]);
+
+  const firstStage = schedule.stages[0];
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>{t('Harmonogram')}</Text>
-          <Text style={styles.subtitle}>Harmonogram wsteczny z ochroną snu (Sleep Guard)</Text>
+          <Text style={styles.subtitle}>{t('Harmonogram wsteczny z ochroną snu (Sleep Guard)')}</Text>
         </View>
 
         {/* Target Ready Selector Card */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Godzina gotowości chleba do krojenia</Text>
-          <Text style={styles.cardSubtitle}>Wyznacz kroki wstecz, aby nie zarywać nocy</Text>
+          <Text style={styles.cardTitle}>{t('Godzina gotowości chleba do krojenia')}</Text>
+          <Text style={styles.cardSubtitle}>
+            {t('Wyznacz kroki wstecz, aby nie zarywać nocy')}
+          </Text>
 
+          {/* Day Selector */}
+          <Text style={styles.inputGroupLabel}>{t('Dzień gotowości:')}</Text>
+          <View style={styles.daySelector}>
+            {[
+              { label: t('Dziś'), offset: 0 },
+              { label: t('Jutro'), offset: 1 },
+              { label: t('Pojutrze'), offset: 2 },
+            ].map((item) => {
+              const isSelected = item.offset === targetDayOffset;
+              return (
+                <Pressable
+                  key={item.offset}
+                  onPress={() => setTargetDayOffset(item.offset)}
+                  style={[styles.dayChip, isSelected && styles.dayChipActive]}
+                >
+                  <Text style={[styles.dayChipText, isSelected && styles.dayChipTextActive]}>
+                    {item.label}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
+
+          {/* Hour Selector Quick Chips */}
+          <Text style={styles.inputGroupLabel}>{t('Godzina podania na stół:')}</Text>
           <View style={styles.hourSelector}>
             {[8, 10, 13, 18, 20].map((h) => {
-              const isSelected = h === targetHour;
+              const isSelected = h === targetHour && targetMinute === 0;
               return (
                 <Pressable
                   key={h}
-                  onPress={() => setTargetHour(h)}
+                  onPress={() => {
+                    setTargetHour(h);
+                    setTargetMinute(0);
+                  }}
                   style={[styles.hourChip, isSelected && styles.hourChipActive]}
                 >
                   <Text style={[styles.hourChipText, isSelected && styles.hourChipTextActive]}>
@@ -72,46 +205,162 @@ export default function HarmonogramScreen() {
             })}
           </View>
 
+          {/* Fine Tuning Controls */}
+          <View style={styles.fineTuneRow}>
+            <Pressable
+              style={styles.fineTuneBtn}
+              onPress={() => adjustTargetTime(-30)}
+            >
+              <Text style={styles.fineTuneBtnText}>-30 min</Text>
+            </Pressable>
+
+            <View style={styles.timeDisplayBox}>
+              <Text style={styles.timeDisplayText}>
+                {String(targetHour).padStart(2, '0')}:{String(targetMinute).padStart(2, '0')}
+              </Text>
+              <Text style={styles.timeDisplayDay}>{formatDayBadge(targetDate)}</Text>
+            </View>
+
+            <Pressable
+              style={styles.fineTuneBtn}
+              onPress={() => adjustTargetTime(30)}
+            >
+              <Text style={styles.fineTuneBtnText}>+30 min</Text>
+            </Pressable>
+          </View>
+
           {/* Temperature Adaptation */}
-          <View style={styles.tempRow}>
-            <Text style={styles.tempLabel}>Temperatura w kuchni:</Text>
-            <View style={styles.tempChips}>
-              {[20, 23, 26].map((temp) => (
+          <View style={styles.paramSection}>
+            <View style={styles.paramHeader}>
+              <Text style={styles.paramLabel}>{t('Temperatura w kuchni:')}</Text>
+              <Text style={styles.paramValue}>{ambientTemp}°C</Text>
+            </View>
+            <View style={styles.paramChips}>
+              {[20, 22, 24, 26].map((temp) => (
                 <Pressable
                   key={temp}
                   onPress={() => setAmbientTemp(temp)}
-                  style={[styles.tempChip, ambientTemp === temp && styles.tempChipActive]}
+                  style={[styles.paramChip, ambientTemp === temp && styles.paramChipActive]}
                 >
-                  <Text style={[styles.tempChipText, ambientTemp === temp && styles.tempChipTextActive]}>
+                  <Text
+                    style={[styles.paramChipText, ambientTemp === temp && styles.paramChipTextActive]}
+                  >
                     {temp}°C
                   </Text>
                 </Pressable>
               ))}
             </View>
+            <Text style={styles.paramHint}>
+              {t('Wpływa na tempo fermentacji burzliwej (Q10 = 2.0)')}
+            </Text>
+          </View>
+
+          {/* Cold Retard (Garowanie chłodnicze w lodówce) */}
+          <View style={styles.paramSection}>
+            <View style={styles.paramHeader}>
+              <Text style={styles.paramLabel}>{t('Czas w lodówce (Cold Retard):')}</Text>
+              <Text style={styles.paramValue}>{coldRetardHours}h</Text>
+            </View>
+            <View style={styles.paramChips}>
+              {[10, 12, 14, 16, 18].map((hours) => (
+                <Pressable
+                  key={hours}
+                  onPress={() => setColdRetardHours(hours)}
+                  style={[styles.paramChip, coldRetardHours === hours && styles.paramChipActive]}
+                >
+                  <Text
+                    style={[styles.paramChipText, coldRetardHours === hours && styles.paramChipTextActive]}
+                  >
+                    {hours}h
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+            <Text style={styles.paramHint}>
+              {t('Elastyczny bufor regulujący porę formowania i pieczenia')}
+            </Text>
           </View>
         </View>
 
-        {/* Sleep Guard Warning */}
-        {schedule.hasSleepCollision && (
+        {/* Sleep Guard Banner */}
+        {schedule.hasSleepCollision ? (
           <View style={styles.sleepGuardAlert}>
-            <Text style={styles.sleepGuardTitle}>🌙 Uwaga: Kolizja ze snem!</Text>
+            <Text style={styles.sleepGuardTitle}>🌙 {t('Uwaga: Kolizja ze snem!')}</Text>
             <Text style={styles.sleepGuardBody}>{schedule.collisionDetailsPl}</Text>
+            {autoResolved && (
+              <Pressable
+                style={styles.autoFixBtn}
+                onPress={() => setColdRetardHours(autoResolved.adjustedColdRetardHours)}
+              >
+                <Text style={styles.autoFixBtnText}>
+                  ⚡ {t('Rozwiąż kolizję')} ({t('lodówka')}: {autoResolved.adjustedColdRetardHours}h)
+                </Text>
+              </Pressable>
+            )}
             {schedule.suggestedActionPl && (
               <Text style={styles.sleepGuardAction}>{schedule.suggestedActionPl}</Text>
             )}
           </View>
+        ) : (
+          <View style={styles.sleepGuardSafe}>
+            <Text style={styles.sleepGuardSafeTitle}>
+              ✓ {t('Ochrona snu aktywna (Sleep Guard)')}
+            </Text>
+            <Text style={styles.sleepGuardSafeBody}>
+              {t(
+                'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).'
+              )}
+            </Text>
+          </View>
         )}
 
-        {/* Timeline Stages */}
-        <Text style={styles.sectionHeading}>Oś czasu przygotowania (Timeline)</Text>
+        {/* Summary Card */}
+        {firstStage && (
+          <View style={styles.summaryCard}>
+            <View style={styles.summaryRow}>
+              <View style={styles.summaryItem}>
+                <Text style={styles.summaryLabel}>{t('Rozpoczęcie dokarmiania')}</Text>
+                <Text style={styles.summaryTime}>{formatTime(firstStage.startTime)}</Text>
+                <Text style={styles.summaryDate}>{formatDayBadge(firstStage.startTime)}</Text>
+              </View>
+              <View style={styles.summaryDivider}>
+                <Text style={styles.summaryArrow}>➔</Text>
+                <Text style={styles.summaryHours}>{journeyDurationHours}h</Text>
+              </View>
+              <View style={styles.summaryItem}>
+                <Text style={styles.summaryLabel}>{t('Gotowy do krojenia')}</Text>
+                <Text style={styles.summaryTime}>{formatTime(targetDate)}</Text>
+                <Text style={styles.summaryDate}>{formatDayBadge(targetDate)}</Text>
+              </View>
+            </View>
+
+            {/* Transfer to Stolnica Action Button */}
+            <Pressable
+              style={styles.transferBtn}
+              onPress={handleStartBakeOnWorkbench}
+            >
+              <Text style={styles.transferBtnText}>
+                🥖 {t('Rozpocznij wypiek na Stolnicy')}
+              </Text>
+            </Pressable>
+          </View>
+        )}
+
+        {/* Timeline Stages Heading */}
+        <Text style={styles.sectionHeading}>{t('Oś czasu przygotowania (Timeline)')}</Text>
+
+        {/* Timeline Stages List */}
         <View style={styles.timeline}>
-          {schedule.stages.map((stage, idx) => {
+          {schedule.stages.map((stage: ScheduledStage, idx: number) => {
             const isColliding = stage.isSleepCollision;
             return (
               <View key={stage.id} style={styles.timelineItem}>
                 <View style={styles.timeColumn}>
-                  <Text style={styles.startTimeText}>{formatTime(stage.startTime)}</Text>
-                  <Text style={styles.dateText}>{formatDateLabel(stage.startTime)}</Text>
+                  <Text style={[styles.startTimeText, isColliding && styles.timeCollision]}>
+                    {formatTime(stage.startTime)}
+                  </Text>
+                  <Text style={styles.endTimeText}>– {formatTime(stage.endTime)}</Text>
+                  <Text style={styles.dateText}>{formatDayBadge(stage.startTime)}</Text>
                 </View>
 
                 <View style={styles.bulletColumn}>
@@ -124,19 +373,47 @@ export default function HarmonogramScreen() {
                         ? styles.bulletPassive
                         : styles.bulletActive,
                     ]}
-                  />
+                  >
+                    <Text style={styles.bulletIcon}>{getStageIcon(stage.category)}</Text>
+                  </View>
                   {idx < schedule.stages.length - 1 && <View style={styles.verticalLine} />}
                 </View>
 
                 <View style={styles.contentColumn}>
-                  <Text style={styles.stageName}>{stage.namePl}</Text>
-                  <Text style={styles.stageDuration}>
-                    {stage.durationMinutes >= 60
-                      ? `${Math.floor(stage.durationMinutes / 60)}h ${stage.durationMinutes % 60 > 0 ? (stage.durationMinutes % 60) + 'min' : ''}`
-                      : `${stage.durationMinutes} min`}
-                    {' · '}
-                    {stage.isPassive ? 'Pasywne' : 'Wymaga obecności'}
-                  </Text>
+                  <View style={styles.stageTitleRow}>
+                    <Text style={styles.stageName}>{stage.namePl}</Text>
+                  </View>
+
+                  <View style={styles.stageMetaRow}>
+                    <Text style={styles.stageDuration}>
+                      {stage.durationMinutes >= 60
+                        ? `${Math.floor(stage.durationMinutes / 60)}h ${
+                            stage.durationMinutes % 60 > 0 ? (stage.durationMinutes % 60) + 'min' : ''
+                          }`
+                        : `${stage.durationMinutes} min`}
+                    </Text>
+                    <View
+                      style={[
+                        styles.typeBadge,
+                        stage.isPassive ? styles.typeBadgePassive : styles.typeBadgeActive,
+                      ]}
+                    >
+                      <Text
+                        style={[
+                          styles.typeBadgeText,
+                          stage.isPassive ? styles.typeBadgeTextPassive : styles.typeBadgeTextActive,
+                        ]}
+                      >
+                        {stage.isPassive ? t('Pasywne') : t('Wymaga obecności')}
+                      </Text>
+                    </View>
+                    {isColliding && (
+                      <View style={styles.collisionBadge}>
+                        <Text style={styles.collisionBadgeText}>⚠️ {t('Kolizja nocna!')}</Text>
+                      </View>
+                    )}
+                  </View>
+
                   <Text style={styles.stageInstructions}>{stage.instructionsPl}</Text>
                 </View>
               </View>
@@ -187,16 +464,49 @@ const styles = StyleSheet.create({
   cardSubtitle: {
     fontSize: 12,
     color: theme.colors.textMuted,
-    marginBottom: 12,
+    marginBottom: 14,
   },
-  hourSelector: {
+  inputGroupLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    marginBottom: 6,
+  },
+  daySelector: {
     flexDirection: 'row',
     gap: 8,
     marginBottom: 14,
   },
+  dayChip: {
+    flex: 1,
+    paddingVertical: 8,
+    borderRadius: theme.radius.md,
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    alignItems: 'center',
+  },
+  dayChipActive: {
+    backgroundColor: theme.colors.accent,
+    borderColor: theme.colors.accentDark,
+  },
+  dayChipText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  dayChipTextActive: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  hourSelector: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 12,
+  },
   hourChip: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: 8,
     borderRadius: theme.radius.md,
     backgroundColor: theme.colors.backgroundSecondary,
     borderWidth: 1,
@@ -208,50 +518,103 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.accentDark,
   },
   hourChipText: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     color: theme.colors.textSecondary,
   },
   hourChipTextActive: {
     color: '#FFFFFF',
   },
-  tempRow: {
+  fineTuneRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingTop: 8,
+    backgroundColor: theme.colors.surfaceCard,
+    padding: 8,
+    borderRadius: theme.radius.md,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  fineTuneBtn: {
+    backgroundColor: theme.colors.surface,
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  fineTuneBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  timeDisplayBox: {
+    alignItems: 'center',
+  },
+  timeDisplayText: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: theme.colors.accentDark,
+  },
+  timeDisplayDay: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    fontWeight: '600',
+  },
+  paramSection: {
+    paddingTop: 10,
     borderTopWidth: 1,
     borderTopColor: theme.colors.border,
+    marginTop: 8,
   },
-  tempLabel: {
+  paramHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  paramLabel: {
     fontSize: 13,
+    fontWeight: '600',
     color: theme.colors.textSecondary,
-    fontWeight: '500',
   },
-  tempChips: {
+  paramValue: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+  },
+  paramChips: {
     flexDirection: 'row',
     gap: 6,
+    marginBottom: 4,
   },
-  tempChip: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
+  paramChip: {
+    flex: 1,
+    paddingVertical: 6,
     borderRadius: theme.radius.sm,
     backgroundColor: theme.colors.backgroundSecondary,
     borderWidth: 1,
     borderColor: theme.colors.border,
+    alignItems: 'center',
   },
-  tempChipActive: {
+  paramChipActive: {
     backgroundColor: theme.colors.accentLight,
     borderColor: theme.colors.accent,
   },
-  tempChipText: {
+  paramChipText: {
     fontSize: 12,
     color: theme.colors.textSecondary,
     fontWeight: '600',
   },
-  tempChipTextActive: {
+  paramChipTextActive: {
     color: theme.colors.accentDark,
     fontWeight: '700',
+  },
+  paramHint: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    marginTop: 2,
   },
   sleepGuardAlert: {
     backgroundColor: '#FEF3C7',
@@ -262,7 +625,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sleepGuardTitle: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '700',
     color: theme.colors.accentDark,
     marginBottom: 4,
@@ -272,17 +635,110 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     lineHeight: 18,
   },
+  autoFixBtn: {
+    backgroundColor: theme.colors.accent,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  autoFixBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
   sleepGuardAction: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.statusSuccess,
+    color: theme.colors.accentDark,
     marginTop: 6,
+    lineHeight: 16,
+  },
+  sleepGuardSafe: {
+    backgroundColor: '#F0FDF4',
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    borderWidth: 1,
+    borderColor: theme.colors.statusSuccess,
+    marginBottom: theme.spacing.md,
+  },
+  sleepGuardSafeTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.statusSuccess,
+    marginBottom: 2,
+  },
+  sleepGuardSafeBody: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 16,
+  },
+  summaryCard: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    marginBottom: theme.spacing.md,
+  },
+  summaryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  },
+  summaryItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  summaryLabel: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    fontWeight: '600',
+    marginBottom: 2,
+    textAlign: 'center',
+  },
+  summaryTime: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+  },
+  summaryDate: {
+    fontSize: 11,
+    color: theme.colors.accentDark,
+    fontWeight: '700',
+  },
+  summaryDivider: {
+    paddingHorizontal: 8,
+    alignItems: 'center',
+  },
+  summaryArrow: {
+    fontSize: 16,
+    color: theme.colors.textMuted,
+  },
+  summaryHours: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.accent,
+  },
+  transferBtn: {
+    backgroundColor: theme.colors.accent,
+    paddingVertical: 12,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+  },
+  transferBtnText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#FFFFFF',
   },
   sectionHeading: {
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.textPrimary,
     marginBottom: 12,
+    marginTop: 4,
   },
   timeline: {
     paddingLeft: 4,
@@ -292,37 +748,52 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   timeColumn: {
-    width: 65,
+    width: 76,
     paddingRight: 6,
     alignItems: 'flex-end',
   },
   startTimeText: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     color: theme.colors.textPrimary,
+  },
+  endTimeText: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+  },
+  timeCollision: {
+    color: theme.colors.statusDanger,
   },
   dateText: {
     fontSize: 10,
     color: theme.colors.textMuted,
+    marginTop: 2,
   },
   bulletColumn: {
-    width: 24,
+    width: 28,
     alignItems: 'center',
   },
   bullet: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    marginTop: 4,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 2,
   },
   bulletActive: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.accentLight,
   },
   bulletPassive: {
-    backgroundColor: theme.colors.passiveStageBadge,
+    backgroundColor: theme.colors.backgroundSecondary,
   },
   bulletCollision: {
-    backgroundColor: theme.colors.statusDanger,
+    backgroundColor: '#FEE2E2',
+    borderWidth: 1,
+    borderColor: theme.colors.statusDanger,
+  },
+  bulletIcon: {
+    fontSize: 12,
   },
   verticalLine: {
     flex: 1,
@@ -334,19 +805,64 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 8,
   },
+  stageTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
   stageName: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '700',
     color: theme.colors.textPrimary,
+    flex: 1,
+  },
+  stageMetaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginVertical: 3,
   },
   stageDuration: {
     fontSize: 12,
+    fontWeight: '600',
     color: theme.colors.textMuted,
-    marginVertical: 2,
+  },
+  typeBadge: {
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: theme.radius.sm,
+  },
+  typeBadgeActive: {
+    backgroundColor: theme.colors.accentLight,
+  },
+  typeBadgePassive: {
+    backgroundColor: theme.colors.backgroundSecondary,
+  },
+  typeBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  typeBadgeTextActive: {
+    color: theme.colors.accentDark,
+  },
+  typeBadgeTextPassive: {
+    color: theme.colors.textMuted,
+  },
+  collisionBadge: {
+    backgroundColor: '#FEE2E2',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: theme.radius.sm,
+  },
+  collisionBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: theme.colors.statusDanger,
   },
   stageInstructions: {
-    fontSize: 13,
+    fontSize: 12,
     color: theme.colors.textSecondary,
-    lineHeight: 17,
+    lineHeight: 16,
+    marginTop: 2,
   },
 });

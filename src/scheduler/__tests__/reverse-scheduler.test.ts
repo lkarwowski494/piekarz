@@ -1,4 +1,4 @@
-import { calculateReverseSchedule } from '../reverse-scheduler';
+import { calculateReverseSchedule, autoResolveSleepCollision } from '../reverse-scheduler';
 
 describe('Piekarz Reverse Scheduler (BR-HARMO-001…004)', () => {
   it('Calculates complete timeline backwards from Sunday 09:00 AM', () => {
@@ -53,5 +53,34 @@ describe('Piekarz Reverse Scheduler (BR-HARMO-001…004)', () => {
     const normalBulk = normalSchedule.stages.find((s) => s.category === 'bulk_ferment')!;
 
     expect(hotBulk.durationMinutes).toBeLessThan(normalBulk.durationMinutes);
+  });
+
+  it('Adjusts cold retard duration when coldRetardHours option is specified', () => {
+    const target = new Date(2026, 9, 18, 12, 0, 0);
+    const schedule10h = calculateReverseSchedule(target, { coldRetardHours: 10 });
+    const schedule16h = calculateReverseSchedule(target, { coldRetardHours: 16 });
+
+    const proof10 = schedule10h.stages.find((s) => s.category === 'final_proof')!;
+    const proof16 = schedule16h.stages.find((s) => s.category === 'final_proof')!;
+
+    expect(proof10.durationMinutes).toBe(600); // 10h
+    expect(proof16.durationMinutes).toBe(960); // 16h
+  });
+
+  it('autoResolveSleepCollision automatically finds an adjusted cold retard duration that clears collisions', () => {
+    // 18:00 (6:00 PM) target ready time with standard 14h retard causes shaping & folding to fall around midnight (00:15 AM)
+    const target = new Date(2026, 9, 18, 18, 0, 0);
+    const initial = calculateReverseSchedule(target, { sleepStartHour: 23.0, sleepEndHour: 6.5, coldRetardHours: 14 });
+
+    expect(initial.hasSleepCollision).toBe(true);
+    expect(initial.collisionDetailsPl).toContain('Formowanie');
+
+    // autoResolveSleepCollision should lengthen the cold retard (e.g. to 16h) so shaping happens before 23:00
+    const resolved = autoResolveSleepCollision(target, { sleepStartHour: 23.0, sleepEndHour: 6.5, coldRetardHours: 14 });
+    expect(resolved).not.toBeNull();
+    if (resolved) {
+      expect(resolved.resolvedSchedule.hasSleepCollision).toBe(false);
+      expect(resolved.adjustedColdRetardHours).toBeGreaterThan(14);
+    }
   });
 });
