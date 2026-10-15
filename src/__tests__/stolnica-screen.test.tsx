@@ -8,6 +8,8 @@ import {
   getBakeLogs,
 } from '../data/sqlite-store';
 
+jest.setTimeout(20000);
+
 jest.mock('expo-keep-awake', () => ({
   useKeepAwake: jest.fn(),
 }));

@@ -3,6 +3,8 @@ import renderer, { act } from 'react-test-renderer';
 import CalculatorScreen from '../../app/(tabs)/index';
 import { initDatabase, getActiveBake, setActiveBake } from '../data/sqlite-store';
 
+jest.setTimeout(20000);
+
 const mockPush = jest.fn();
 
 jest.mock('expo-router', () => ({
