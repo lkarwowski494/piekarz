@@ -1,5 +1,8 @@
 import {
   calculateDoughRecipe,
+  calculateDoughRecipeFromFlour,
+  calculateDoughRecipeForLoaves,
+  getHydrationDifficulty,
   calculateDDTWaterTemp,
   calculateIceRequirement,
   calculateFermentationAdaptation,
@@ -241,4 +244,49 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(safety.titlePl).toContain('Płyn głodowy');
     });
   });
+
+  describe('RD-16 & RD-17: Scaling from Base Flour & Loaves', () => {
+    it('scales recipe from base flour weight 500g', () => {
+      const recipe = calculateDoughRecipeFromFlour(500, {
+        flours: [{ name: 'Mąka pszenna', percentage: 100.0 }],
+        waterPercentage: 70.0,
+        saltPercentage: 2.0,
+        starterPercentage: 20.0,
+        starterHydration: 100.0,
+      });
+
+      // 500g flour * 1.92 = 960g target dough
+      expect(recipe.baseFlourWeightGrams).toBe(500);
+      expect(recipe.waterGrams).toBe(350);
+      expect(recipe.saltGrams).toBe(10);
+      expect(recipe.starterGrams).toBe(100);
+      expect(recipe.targetDoughWeightGrams).toBe(960);
+    });
+
+    it('scales recipe for 2 loaves of 800g each', () => {
+      const recipe = calculateDoughRecipeForLoaves(2, 800, {
+        flours: [{ name: 'Mąka pszenna', percentage: 100.0 }],
+        waterPercentage: 70.0,
+        saltPercentage: 2.0,
+        starterPercentage: 20.0,
+        starterHydration: 100.0,
+      });
+
+      expect(recipe.targetDoughWeightGrams).toBe(1600);
+      expect(recipe.baseFlourWeightGrams).toBe(833);
+      expect(recipe.waterGrams).toBe(583);
+      expect(recipe.starterGrams).toBe(167);
+      expect(recipe.saltGrams).toBe(16.7);
+    });
+  });
+
+  describe('RD-18: Hydration Difficulty Classification', () => {
+    it('correctly maps hydration percentage to artisan difficulty tiers', () => {
+      expect(getHydrationDifficulty(65).level).toBe('easy');
+      expect(getHydrationDifficulty(72).level).toBe('artisan_standard');
+      expect(getHydrationDifficulty(78).level).toBe('high_open_crumb');
+      expect(getHydrationDifficulty(85).level).toBe('expert_sticky');
+    });
+  });
 });
+

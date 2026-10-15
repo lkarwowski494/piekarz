@@ -10,7 +10,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { confirmDiscardBake } from '../../src/lib/confirm';
-import { saveBakeLog } from '../../src/data/sqlite-store';
+import {
+  saveBakeLog,
+  getActiveBake,
+  setActiveBake,
+  ActiveBakeState,
+} from '../../src/data/sqlite-store';
 
 const BAKE_STEPS = [
   { id: 'step_1', name: 'Autoliza', desc: 'Mąka + woda, odpoczynek 45 min.', timerMin: 45 },
@@ -28,6 +33,17 @@ export default function StolnicaScreen() {
   const [currentStepIdx, setCurrentStepIdx] = useState(0);
   const [recipeName, setRecipeName] = useState('Country Loaf 72%');
   const [startedAt, setStartedAt] = useState<number>(Date.now());
+  const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
+
+  React.useEffect(() => {
+    const existing = getActiveBake();
+    if (existing) {
+      setIsActive(true);
+      setRecipeName(existing.recipeName);
+      setStartedAt(existing.startedAt);
+      setActiveBakeData(existing);
+    }
+  }, []);
 
   const handleStartBake = () => {
     setIsActive(true);
@@ -52,12 +68,16 @@ export default function StolnicaScreen() {
       ratingStars: 5,
       notes: 'Udany wypiek z chrupiącą skórką i otwartym uchem.',
     });
+    setActiveBake(null);
+    setActiveBakeData(null);
     setIsActive(false);
     setCurrentStepIdx(0);
   };
 
   const handleDiscard = () => {
     confirmDiscardBake(() => {
+      setActiveBake(null);
+      setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);
     });
@@ -114,6 +134,42 @@ export default function StolnicaScreen() {
                 <Text style={styles.discardBtnText}>Odrzuć wypiek</Text>
               </Pressable>
             </View>
+
+            {/* Active Recipe Ingredients Card */}
+            {activeBakeData?.calculatedRecipe && (
+              <View style={styles.ingredientsCard}>
+                <Text style={styles.ingredientsTitle}>⚖️ Składniki do odważenia</Text>
+                <View style={styles.ingredientsGrid}>
+                  <View style={styles.ingredientPill}>
+                    <Text style={styles.ingredientLabel}>Mąki</Text>
+                    <Text style={styles.ingredientValue}>
+                      {activeBakeData.calculatedRecipe.baseFlourWeightGrams} g
+                    </Text>
+                  </View>
+                  <View style={styles.ingredientPill}>
+                    <Text style={styles.ingredientLabel}>Woda</Text>
+                    <Text style={styles.ingredientValue}>
+                      {activeBakeData.calculatedRecipe.waterGrams} g
+                    </Text>
+                  </View>
+                  <View style={styles.ingredientPill}>
+                    <Text style={styles.ingredientLabel}>Zakwas</Text>
+                    <Text style={styles.ingredientValue}>
+                      {activeBakeData.calculatedRecipe.starterGrams} g
+                    </Text>
+                  </View>
+                  <View style={styles.ingredientPill}>
+                    <Text style={styles.ingredientLabel}>Sól</Text>
+                    <Text style={styles.ingredientValue}>
+                      {activeBakeData.calculatedRecipe.saltGrams} g
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.ingredientsCaption}>
+                  Masa ciasta: {activeBakeData.calculatedRecipe.targetDoughWeightGrams} g · Hydratacja całkowita: {activeBakeData.calculatedRecipe.overallHydrationPercent.toFixed(1)}% (True Baker's %)
+                </Text>
+              </View>
+            )}
 
             {/* Steps Overview */}
             <Text style={styles.sectionHeading}>Wszystkie etapy wypieku</Text>
@@ -330,4 +386,51 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: theme.colors.textMuted,
   },
+  ingredientsCard: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+    borderWidth: 1,
+    borderColor: theme.colors.accentLight,
+  },
+  ingredientsTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+    marginBottom: 8,
+  },
+  ingredientsGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 6,
+    marginBottom: 8,
+  },
+  ingredientPill: {
+    flex: 1,
+    backgroundColor: theme.colors.surface,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  ingredientLabel: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    marginBottom: 2,
+  },
+  ingredientValue: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+  },
+  ingredientsCaption: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    textAlign: 'center',
+  },
 });
+

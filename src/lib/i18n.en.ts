@@ -55,6 +55,22 @@ export const EN: Record<string, string> = {
   'Wymagana temperatura wody': 'Required water temperature',
   'Wymagany lód do schłodzenia wody': 'Required ice for cooling water',
   'Waga bochenka po wypieku': 'Baked loaf weight',
+  'Zapisz jako mój przepis': 'Save as custom recipe',
+  'Zapisz przepis': 'Save recipe',
+  'Nazwa przepisu': 'Recipe name',
+  'Rozpocznij wypiek na Stolnicy': 'Start bake on Workbench',
+  'Bochenki': 'Loaves',
+  'Masa mąki': 'Flour weight',
+  'Liczba bochenków': 'Number of loaves',
+  'Waga bochenka': 'Loaf weight',
+  'Mieszanka mąk': 'Flour blend',
+  'Do miski na wagę': 'Into the bowl on scale',
+  'Moje przepisy': 'My recipes',
+  'Receptury mistrzowskie': 'Master recipes',
+  'Usunąć przepis?': 'Delete recipe?',
+  'Przepis zostanie trwale usunięty.': 'The recipe will be permanently deleted.',
+  'Wpisz nazwę przepisu': 'Enter recipe name',
+  'Zapisano przepis': 'Recipe saved',
 
   // Sourdough safety
   'Bezpieczny kożuch drożdżowy (Kahm Yeast)': 'Harmless yeast film (Kahm Yeast)',
@@ -68,4 +84,6 @@ export const EN: Record<string, string> = {
   'Wypiek gotowy na: {time}': 'Bake ready at: {time}',
   'Temperatura wody: {temp}°C': 'Water temperature: {temp}°C',
   'Dodaj {object}': 'Add {object}',
+  'Przepis „{name}” został zapisany w Twojej bibliotece.': 'Recipe "{name}" was saved to your library.',
 };
+

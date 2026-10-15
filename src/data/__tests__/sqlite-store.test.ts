@@ -2,10 +2,13 @@ import {
   initDatabase,
   getRecipes,
   saveRecipe,
+  deleteRecipe,
   getStarters,
   saveStarter,
   getBakeLogs,
   saveBakeLog,
+  setActiveBake,
+  getActiveBake,
 } from '../sqlite-store';
 
 describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
@@ -84,4 +87,47 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
     expect(found).toBeDefined();
     expect(found?.ratingStars).toBe(5);
   });
+
+  it('deletes custom recipe from store', async () => {
+    const toDelete = {
+      id: 'recipe_to_delete',
+      name: 'Chleb do usunięcia',
+      formula: {
+        flours: [{ name: 'Mąka', percentage: 100.0 }],
+        waterPercentage: 70.0,
+        saltPercentage: 2.0,
+        starterPercentage: 20.0,
+        targetDoughWeightGrams: 900,
+      },
+      targetDDT: 25.0,
+      isBuiltIn: false,
+      createdAt: Date.now(),
+    };
+    await saveRecipe(toDelete);
+    let recipes = await getRecipes();
+    expect(recipes.some((r) => r.id === 'recipe_to_delete')).toBe(true);
+
+    await deleteRecipe('recipe_to_delete');
+    recipes = await getRecipes();
+    expect(recipes.some((r) => r.id === 'recipe_to_delete')).toBe(false);
+  });
+
+  it('sets and retrieves active kitchen bake state', () => {
+    setActiveBake({
+      id: 'active_session_1',
+      recipeName: 'Country Loaf 72%',
+      startedAt: Date.now(),
+      currentStageId: 'autolyse',
+      ambientTempC: 22.5,
+      actualDdtC: 25.0,
+    });
+
+    const active = getActiveBake();
+    expect(active).not.toBeNull();
+    expect(active?.recipeName).toBe('Country Loaf 72%');
+
+    setActiveBake(null);
+    expect(getActiveBake()).toBeNull();
+  });
 });
+

@@ -3,6 +3,7 @@ import { dbDirectory } from '../lib/db-path';
 import { autoBackup } from '../lib/backup';
 import { StoredRecipe, StoredStarter, StoredBakeLog } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
+import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 
 const DB_NAME = 'piekarz.db';
 
@@ -13,6 +14,8 @@ export interface ActiveBakeState {
   currentStageId: string;
   ambientTempC: number;
   actualDdtC: number;
+  calculatedRecipe?: DoughRecipeResult;
+  recipeFormula?: DoughRecipeInput;
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
@@ -282,3 +285,16 @@ export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
     }
   }
 }
+
+export async function deleteRecipe(id: string): Promise<void> {
+  memRecipes = memRecipes.filter((r) => r.id !== id);
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.runAsync('DELETE FROM recipes WHERE id = ?;', id);
+    } catch {
+      // Memory state preserved
+    }
+  }
+}
+

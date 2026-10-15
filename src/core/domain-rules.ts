@@ -388,3 +388,131 @@ export function evaluateSourdoughSafety(observations: {
     isEdible: true,
   };
 }
+
+/**
+ * RD-16: Calculate recipe scaling from given base flour weight
+ */
+export function calculateDoughRecipeFromFlour(
+  flourGrams: number,
+  input: Omit<DoughRecipeInput, 'targetDoughWeightGrams'>
+): DoughRecipeResult {
+  if (flourGrams <= 0) {
+    throw new Error('Waga mąki musi być większa od zera');
+  }
+  const yeastPct = input.extraYeastPercentage ?? 0.0;
+  const totalFormulaPercentage = 100.0 + input.waterPercentage + input.saltPercentage + input.starterPercentage + yeastPct;
+  const targetDoughWeightGrams = Math.round(flourGrams * (totalFormulaPercentage / 100.0));
+  return calculateDoughRecipe({
+    ...input,
+    targetDoughWeightGrams,
+  });
+}
+
+/**
+ * RD-17: Calculate recipe scaling from target number and weight of loaves
+ */
+export function calculateDoughRecipeForLoaves(
+  loavesCount: number,
+  loafWeightGrams: number,
+  input: Omit<DoughRecipeInput, 'targetDoughWeightGrams'>
+): DoughRecipeResult {
+  if (loavesCount <= 0 || loafWeightGrams <= 0) {
+    throw new Error('Liczba bochenków i gramatura muszą być większe od zera');
+  }
+  const targetDoughWeightGrams = Math.round(loavesCount * loafWeightGrams);
+  return calculateDoughRecipe({
+    ...input,
+    targetDoughWeightGrams,
+  });
+}
+
+export type HydrationDifficulty = 'easy' | 'artisan_standard' | 'high_open_crumb' | 'expert_sticky';
+
+/**
+ * RD-18: Practical handling difficulty classification based on water percentage
+ */
+export function getHydrationDifficulty(waterPercentage: number): {
+  level: HydrationDifficulty;
+  labelPl: string;
+  badgeColor: string;
+  tipPl: string;
+} {
+  if (waterPercentage < 68) {
+    return {
+      level: 'easy',
+      labelPl: 'Łatwe w prowadzeniu',
+      badgeColor: '#10B981',
+      tipPl: 'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.',
+    };
+  }
+  if (waterPercentage <= 75) {
+    return {
+      level: 'artisan_standard',
+      labelPl: 'Klasyk rzemieślniczy',
+      badgeColor: '#3B82F6',
+      tipPl: 'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.',
+    };
+  }
+  if (waterPercentage <= 82) {
+    return {
+      level: 'high_open_crumb',
+      labelPl: 'Wysoka hydratacja (Otwarty miękisz)',
+      badgeColor: '#F59E0B',
+      tipPl: 'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.',
+    };
+  }
+  return {
+    level: 'expert_sticky',
+    labelPl: 'Ekstremalna hydratacja (Ekspert)',
+    badgeColor: '#EF4444',
+    tipPl: 'Bardzo lejące ciasto. Wymaga mocnej mąki (np. Manitoba) i precyzyjnego budowania siły ciasta.',
+  };
+}
+
+export interface FlourBlendPreset {
+  id: string;
+  namePl: string;
+  flours: FlourItemInput[];
+}
+
+export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
+  {
+    id: 'blend_100_wheat',
+    namePl: '100% Pszenna chlebowa',
+    flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+  },
+  {
+    id: 'blend_classic_rye_touch',
+    namePl: '80% Pszenna + 20% Żytnia (Klasyk)',
+    flours: [
+      { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+      { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
+    ],
+  },
+  {
+    id: 'blend_artisan_three_flours',
+    namePl: '70% Pszenna + 20% Orkisz + 10% Żytnia',
+    flours: [
+      { name: 'Mąka pszenna chlebowa typ 750', percentage: 70.0, type: 'pszenna_750' },
+      { name: 'Mąka orkiszowa jasna typ 630', percentage: 20.0, type: 'orkiszowa' },
+      { name: 'Mąka żytnia razowa typ 2000', percentage: 10.0, type: 'zytnia_2000' },
+    ],
+  },
+  {
+    id: 'blend_wheat_graham',
+    namePl: '80% Pszenna + 20% Graham (Pełne ziarno)',
+    flours: [
+      { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+      { name: 'Mąka pszenna graham typ 1850', percentage: 20.0, type: 'graham' },
+    ],
+  },
+  {
+    id: 'blend_half_half',
+    namePl: '50% Pszenna + 50% Żytnia (Pół na pół)',
+    flours: [
+      { name: 'Mąka pszenna chlebowa typ 750', percentage: 50.0, type: 'pszenna_750' },
+      { name: 'Mąka żytnia typ 720', percentage: 50.0, type: 'zytnia_720' },
+    ],
+  },
+];
+
