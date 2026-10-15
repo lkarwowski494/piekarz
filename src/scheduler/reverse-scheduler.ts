@@ -1,0 +1,260 @@
+// ============================================================================
+// Piekarz (Crust) — Reverse Scheduler & Sleep Guard (BR-HARMO-001…004)
+// Calculates backward timeline from target bread serving hour with sleep guard.
+// Apps4Brew Studio — 100% Offline-First.
+// ============================================================================
+
+export type StageCategory =
+  | 'starter_feed'
+  | 'autolyse'
+  | 'mix'
+  | 'bulk_ferment'
+  | 'pre_shape'
+  | 'bench_rest'
+  | 'final_shape'
+  | 'final_proof'
+  | 'preheat_oven'
+  | 'bake'
+  | 'cool';
+
+export interface StageTemplate {
+  id: string;
+  namePl: string;
+  category: StageCategory;
+  durationMinutes: number;
+  isPassive: boolean; // True if step does not require user presence (e.g. cold retard, cooling)
+  canStretch: boolean;
+  minDurationMinutes?: number;
+  maxDurationMinutes?: number;
+  instructionsPl: string;
+}
+
+export interface ScheduledStage {
+  id: string;
+  namePl: string;
+  category: StageCategory;
+  startTime: Date;
+  endTime: Date;
+  durationMinutes: number;
+  isPassive: boolean;
+  isSleepCollision: boolean;
+  instructionsPl: string;
+}
+
+export interface ReverseScheduleResult {
+  targetReadyTime: Date;
+  stages: ScheduledStage[];
+  hasSleepCollision: boolean;
+  collisionDetailsPl?: string;
+  suggestedActionPl?: string;
+}
+
+export interface ScheduleOptions {
+  sleepStartHour?: number;   // default 23 (23:00)
+  sleepEndHour?: number;     // default 6.5 (06:30)
+  customStageDurations?: Record<string, number>;
+  ambientTemperatureC?: number; // default 24.0°C
+}
+
+export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
+  {
+    id: 'starter_feed',
+    namePl: 'Dokarmienie zakwasu (osiągnięcie szczytu)',
+    category: 'starter_feed',
+    durationMinutes: 360, // 6h
+    isPassive: true,
+    canStretch: false,
+    instructionsPl: 'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.',
+  },
+  {
+    id: 'autolyse',
+    namePl: 'Autoliza (mąka + woda)',
+    category: 'autolyse',
+    durationMinutes: 45,
+    isPassive: true,
+    canStretch: true,
+    instructionsPl: 'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.',
+  },
+  {
+    id: 'mix',
+    namePl: 'Wymieszanie z solą i zakwasem (Bassinage)',
+    category: 'mix',
+    durationMinutes: 15,
+    isPassive: false,
+    canStretch: false,
+    instructionsPl: 'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury.',
+  },
+  {
+    id: 'bulk_ferment',
+    namePl: 'Fermentacja burzliwa ze składaniami',
+    category: 'bulk_ferment',
+    durationMinutes: 240, // 4h
+    isPassive: false,
+    canStretch: false,
+    instructionsPl: 'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.',
+  },
+  {
+    id: 'pre_shape',
+    namePl: 'Formowanie wstępne (Pre-shape)',
+    category: 'pre_shape',
+    durationMinutes: 10,
+    isPassive: false,
+    canStretch: false,
+    instructionsPl: 'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.',
+  },
+  {
+    id: 'bench_rest',
+    namePl: 'Odpoczynek na desce (Bench Rest)',
+    category: 'bench_rest',
+    durationMinutes: 20,
+    isPassive: true,
+    canStretch: true,
+    instructionsPl: 'Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.',
+  },
+  {
+    id: 'final_shape',
+    namePl: 'Formowanie ostateczne i koszyk',
+    category: 'final_shape',
+    durationMinutes: 15,
+    isPassive: false,
+    canStretch: false,
+    instructionsPl: 'Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.',
+  },
+  {
+    id: 'final_proof',
+    namePl: 'Garowanie chłodnicze w lodówce (Cold Retard)',
+    category: 'final_proof',
+    durationMinutes: 840, // 14h
+    isPassive: true,
+    canStretch: true,
+    minDurationMinutes: 480,  // 8h
+    maxDurationMinutes: 1440, // 24h
+    instructionsPl: 'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.',
+  },
+  {
+    id: 'preheat_oven',
+    namePl: 'Nagrzewanie pieca i garnka żeliwnego',
+    category: 'preheat_oven',
+    durationMinutes: 45,
+    isPassive: true,
+    canStretch: true,
+    instructionsPl: 'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.',
+  },
+  {
+    id: 'bake',
+    namePl: 'Wypiek z parą i rumienienie',
+    category: 'bake',
+    durationMinutes: 45,
+    isPassive: false,
+    canStretch: false,
+    instructionsPl: 'Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).',
+  },
+  {
+    id: 'cool',
+    namePl: 'Studzenie na kratce (nie krój gorącego!)',
+    category: 'cool',
+    durationMinutes: 120, // 2h
+    isPassive: true,
+    canStretch: false,
+    instructionsPl: 'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.',
+  },
+];
+
+/**
+ * Checks if a date time falls into sleeping window
+ */
+function isDuringSleep(date: Date, sleepStartHour: number, sleepEndHour: number): boolean {
+  const hours = date.getHours() + date.getMinutes() / 60.0;
+  if (sleepStartHour > sleepEndHour) {
+    // e.g. 23:00 to 06:30
+    return hours >= sleepStartHour || hours < sleepEndHour;
+  }
+  return hours >= sleepStartHour && hours < sleepEndHour;
+}
+
+/**
+ * Calculates backward timeline from target serving hour.
+ */
+export function calculateReverseSchedule(
+  targetReadyTime: Date,
+  options: ScheduleOptions = {}
+): ReverseScheduleResult {
+  const sleepStart = options.sleepStartHour ?? 23.0;
+  const sleepEnd = options.sleepEndHour ?? 6.5;
+
+  const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
+
+  // Adjust bulk ferment if temperature is given
+  if (options.ambientTemperatureC && options.ambientTemperatureC !== 24.0) {
+    const exponent = (24.0 - options.ambientTemperatureC) / 10.0;
+    const factor = Math.pow(2.0, exponent);
+    const bulk = templates.find((t) => t.id === 'bulk_ferment');
+    if (bulk) {
+      bulk.durationMinutes = Math.round(bulk.durationMinutes * factor);
+    }
+  }
+
+  // Override custom durations if provided
+  if (options.customStageDurations) {
+    for (const t of templates) {
+      if (options.customStageDurations[t.id]) {
+        t.durationMinutes = options.customStageDurations[t.id];
+      }
+    }
+  }
+
+  // Work backwards from targetReadyTime
+  let currentTime = new Date(targetReadyTime.getTime());
+  const scheduledStagesReversed: ScheduledStage[] = [];
+  let hasCollision = false;
+  const collisionMessages: string[] = [];
+
+  // Reverse iterate
+  for (let i = templates.length - 1; i >= 0; i--) {
+    const t = templates[i];
+    const endTime = new Date(currentTime.getTime());
+    const startTime = new Date(currentTime.getTime() - t.durationMinutes * 60 * 1000);
+
+    // Sleep collision check for active steps (steps that require user hands)
+    const startInSleep = isDuringSleep(startTime, sleepStart, sleepEnd);
+    const endInSleep = isDuringSleep(endTime, sleepStart, sleepEnd);
+    const isCollision = !t.isPassive && (startInSleep || endInSleep);
+
+    if (isCollision) {
+      hasCollision = true;
+      const timeStr = startTime.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
+      collisionMessages.push(`Etap "${t.namePl}" wypada w nocy o ${timeStr}`);
+    }
+
+    scheduledStagesReversed.push({
+      id: t.id,
+      namePl: t.namePl,
+      category: t.category,
+      startTime,
+      endTime,
+      durationMinutes: t.durationMinutes,
+      isPassive: t.isPassive,
+      isSleepCollision: isCollision,
+      instructionsPl: t.instructionsPl,
+    });
+
+    currentTime = startTime;
+  }
+
+  // Order chronologically
+  const chronologicalStages = scheduledStagesReversed.reverse();
+
+  let suggestion: string | undefined;
+  if (hasCollision) {
+    suggestion =
+      'Sugerowana korekta: wydłuż czas garowania w lodówce (Cold Retard) o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.';
+  }
+
+  return {
+    targetReadyTime,
+    stages: chronologicalStages,
+    hasSleepCollision: hasCollision,
+    collisionDetailsPl: collisionMessages.length > 0 ? collisionMessages.join('; ') : undefined,
+    suggestedActionPl: suggestion,
+  };
+}
