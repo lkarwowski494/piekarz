@@ -1,0 +1,71 @@
+/**
+ * English translation dictionary for Piekarz (Crust).
+ * Polish text is the primary key.
+ */
+export const EN: Record<string, string> = {
+  // Common Navigation & Actions
+  'Anuluj': 'Cancel',
+  'Zapisz': 'Save',
+  'Wróć do edycji': 'Back to editing',
+  'Odrzuć zmiany': 'Discard changes',
+  'Odrzucić zmiany?': 'Discard changes?',
+  'Zmiany w recepturze nie zostaną zapisane.': 'Recipe changes will not be saved.',
+  'OK': 'OK',
+  'Edytuj': 'Edit',
+  'Usuń': 'Delete',
+  'Gotowe': 'Done',
+  'Start': 'Start',
+  'Wstrzymaj': 'Pause',
+  'Wznów': 'Resume',
+  'Zakończ': 'Finish',
+  'Kalkulator': 'Calculator',
+  'Harmonogram': 'Schedule',
+  'Stolnica': 'Workbench',
+  'Zakwas': 'Sourdough',
+  'Doktor Chleba': 'Bread Doctor',
+  'Więcej': 'More',
+  'Ustawienia': 'Settings',
+  'Kopia zapasowa': 'Backup',
+  'Eksportuj kopię': 'Export backup',
+  'Importuj kopię': 'Import backup',
+
+  // Alerts & Confirmations
+  'Odrzucić trwający wypiek?': 'Discard active bake?',
+  'Przerwiesz bieżący harmonogram i pomiary czasu.': 'This will stop the active schedule and timers.',
+  'Odrzuć wypiek': 'Discard bake',
+  'Zresetować profil zakwasu?': 'Reset sourdough starter profile?',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Current feeding log will be reset.',
+  'Resetuj profil': 'Reset profile',
+  'Nie udało się wyeksportować kopii': 'Failed to export backup',
+  'Nie udało się zapisać wypieku': 'Failed to save bake',
+  'Nie udało się zaimportować kopii': 'Failed to import backup',
+
+  // Calculator & Domain
+  'Mąka': 'Flour',
+  'Woda': 'Water',
+  'Sól': 'Salt',
+  'Zakwas (Levain)': 'Sourdough starter (Levain)',
+  'Drożdże': 'Yeast',
+  'Hydratacja całkowita': 'Total hydration',
+  'True Baker’s %': 'True Baker’s %',
+  'Docelowa temperatura ciasta (DDT)': 'Desired Dough Temperature (DDT)',
+  'Temperatura mąki': 'Flour temperature',
+  'Temperatura otoczenia': 'Ambient temperature',
+  'Ciepło tarcia': 'Friction factor',
+  'Wymagana temperatura wody': 'Required water temperature',
+  'Wymagany lód do schłodzenia wody': 'Required ice for cooling water',
+  'Waga bochenka po wypieku': 'Baked loaf weight',
+
+  // Sourdough safety
+  'Bezpieczny kożuch drożdżowy (Kahm Yeast)': 'Harmless yeast film (Kahm Yeast)',
+  'Płyn głodowy (Hooch) — zakwas jest zdrowy, ale głodny': 'Hunger liquid (Hooch) — starter is safe but hungry',
+  'ALARM: Wykryto niebezpieczną pleśń lub zgniliznę': 'CRITICAL ALERT: Toxic mold detected',
+
+  // Interpolated strings
+  'Mąka: {amount} g': 'Flour: {amount} g',
+  'Woda: {amount} g': 'Water: {amount} g',
+  'Zakwas: {amount} g': 'Starter: {amount} g',
+  'Wypiek gotowy na: {time}': 'Bake ready at: {time}',
+  'Temperatura wody: {temp}°C': 'Water temperature: {temp}°C',
+  'Dodaj {object}': 'Add {object}',
+};

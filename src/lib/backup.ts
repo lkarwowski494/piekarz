@@ -1,0 +1,171 @@
+import * as FileSystem from 'expo-file-system/legacy';
+import * as Sharing from 'expo-sharing';
+import { t } from './i18n';
+import { StoredRecipe, StoredStarter, StoredBakeLog } from '../data/db';
+
+export const SCHEMA_VERSION = 1;
+export const AUTO_DIR = 'Backup/';
+export const AUTO_KEEP = 10;
+
+/**
+ * Wzorzec nazw kopii automatycznych: piekarz-RRRR-MM-DD-GGMMSS[-N].json
+ */
+export const AUTO_RE = /^piekarz-(\d{4}-\d{2}-\d{2}-\d{6})(?:-(\d{1,3}))?\.json$/;
+
+/**
+ * Wzorzec nazw kopii bezpieczeństwa: piekarz-przed-(importem|czyszczeniem)-RRRR-MM-DD-GGMMSS[-N].json
+ */
+export const SAFETY_RE = /^piekarz-przed-(?:importem|czyszczeniem)-(\d{4}-\d{2}-\d{2}-\d{6})(?:-(\d{1,3}))?\.json$/;
+
+export interface PiekarzBackupData {
+  bakes: StoredBakeLog[];
+  starters: StoredStarter[];
+  customRecipes: StoredRecipe[];
+  settings?: Record<string, unknown>;
+}
+
+export interface PiekarzBackupEnvelope {
+  format: 'piekarz-backup';
+  schemaVersion: number;
+  exportedAt: string;
+  state: PiekarzBackupData;
+}
+
+export function buildBackup(state: PiekarzBackupData): PiekarzBackupEnvelope {
+  return {
+    format: 'piekarz-backup',
+    schemaVersion: SCHEMA_VERSION,
+    exportedAt: new Date().toISOString(),
+    state,
+  };
+}
+
+export function localISODate(d: Date = new Date()): string {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+export function stampOf(d: Date = new Date()): string {
+  const iso = localISODate(d);
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+  const seconds = String(d.getSeconds()).padStart(2, '0');
+  return `${iso}-${hours}${minutes}${seconds}`;
+}
+
+const poolKey = (m: RegExpExecArray) => `${m[1]}-${(m[2] ?? '1').padStart(3, '0')}`;
+
+/**
+ * Udostępnienie pliku tymczasowego w Caches z gwarantowanym usunięciem w bloku finally (Apps4Brew SEC-09).
+ */
+async function shareTemp(
+  name: string,
+  body: string,
+  opts: { mimeType: string; dialogTitle: string }
+): Promise<boolean> {
+  const path = `${FileSystem.cacheDirectory}${name}`;
+  try {
+    await FileSystem.writeAsStringAsync(path, body);
+    if (!(await Sharing.isAvailableAsync())) {
+      return false;
+    }
+    await Sharing.shareAsync(path, opts);
+    return true;
+  } finally {
+    await FileSystem.deleteAsync(path, { idempotent: true }).catch(() => {});
+  }
+}
+
+/**
+ * Eksport kopii zapasowej do pliku JSON.
+ */
+export async function exportBackup(state: PiekarzBackupData): Promise<boolean> {
+  const envelope = buildBackup(state);
+  const fileName = `piekarz-backup-${localISODate()}.json`;
+  return await shareTemp(fileName, JSON.stringify(envelope, null, 2), {
+    mimeType: 'application/json',
+    dialogTitle: t('Kopia zapasowa'),
+  });
+}
+
+/**
+ * Zapis kopii zapasowej w katalogu Dokumentów (Backup/...) z rotacją do AUTO_KEEP.
+ */
+async function writeBackupFile(
+  prefix: string,
+  re: RegExp,
+  state: PiekarzBackupData
+): Promise<string> {
+  if (!FileSystem.documentDirectory) {
+    throw new Error('Brak katalogu dokumentów aplikacji');
+  }
+
+  const dir = `${FileSystem.documentDirectory}${AUTO_DIR}`;
+  const dirInfo = await FileSystem.getInfoAsync(dir);
+  if (!dirInfo.exists) {
+    await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
+  }
+
+  const stamp = stampOf(new Date());
+  let name = `${prefix}${stamp}.json`;
+
+  for (let n = 2; n < 1000 && (await FileSystem.getInfoAsync(`${dir}${name}`)).exists; n++) {
+    name = `${prefix}${stamp}-${n}.json`;
+  }
+
+  const envelope = buildBackup(state);
+  const targetPath = `${dir}${name}`;
+
+  try {
+    await FileSystem.writeAsStringAsync(targetPath, JSON.stringify(envelope, null, 2));
+  } catch (e) {
+    await FileSystem.deleteAsync(targetPath, { idempotent: true }).catch(() => {});
+    throw e;
+  }
+
+  // Rotacja puli
+  try {
+    const files = await FileSystem.readDirectoryAsync(dir);
+    const pool = files
+      .map((f) => [f, re.exec(f)] as const)
+      .filter((x): x is readonly [string, RegExpExecArray] => !!x[1]);
+
+    const oldFiles = pool
+      .map(([f, m]) => [f, poolKey(m)] as const)
+      .sort((a, b) => (a[1] < b[1] ? 1 : a[1] > b[1] ? -1 : 0))
+      .slice(AUTO_KEEP);
+
+    for (const [f] of oldFiles) {
+      await FileSystem.deleteAsync(`${dir}${f}`, { idempotent: true });
+    }
+  } catch {
+    // Nieprzerwana praca przy błędzie sprzątania
+  }
+
+  return targetPath;
+}
+
+/**
+ * Automatyczna kopia po zakończonym wypieku (Apps4Brew T-012).
+ */
+export async function autoBackup(state: PiekarzBackupData): Promise<string | null> {
+  try {
+    return await writeBackupFile('piekarz-', AUTO_RE, state);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Kopia bezpieczeństwa przed operacjami niszczącymi (import, reset).
+ * Bezwzględnie wymagana: nieudany zapis rzuca błąd i blokuje niszczącą akcję.
+ */
+export async function safetyBackup(
+  kind: 'import' | 'reset',
+  state: PiekarzBackupData
+): Promise<string> {
+  const prefix = kind === 'import' ? 'piekarz-przed-importem-' : 'piekarz-przed-czyszczeniem-';
+  return await writeBackupFile(prefix, SAFETY_RE, state);
+}
