@@ -9,6 +9,7 @@ import {
   calculateBakeLossMetrics,
   calculateRequiredRawDoughWeight,
 } from '../domain-rules';
+import { analyzeFlourBlendAbsorption } from '../flour-atlas';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 
 describe('Property-Based Invariant Verification (fast-check)', () => {
@@ -293,6 +294,64 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             // Invariant 5: Round-trip reversibility with calculateRequiredRawDoughWeight
             const recoveredRaw = calculateRequiredRawDoughWeight(metrics.bakedWeightGrams, lossPct, 1);
             expect(Math.abs(recoveredRaw - doughGrams)).toBeLessThanOrEqual(2);
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+  });
+
+  describe('Flour Blend Absorption Invariants (Flour Atlas)', () => {
+    it('preserves weighted absorption bounds and monotonic bounds across 1000 randomized flour blends', () => {
+      const flourNames = [
+        'Mąka pszenna typ 450 (Tortowa)',
+        'Mąka pszenna typ 500',
+        'Mąka pszenna typ 650',
+        'Mąka pszenna chlebowa typ 750',
+        'Mąka pszenna typ 850',
+        'Mąka pszenna typ 1050',
+        'Mąka pszenna typ 1850 (Graham)',
+        'Mąka pszenna razowa typ 2000',
+        'Mąka żytnia chlebowa typ 720',
+        'Mąka żytnia razowa typ 2000',
+        'Mąka Manitoba Forte',
+        'Mąka orkiszowa typ 630',
+        'Mąka orkiszowa razowa typ 2000',
+      ];
+
+      fc.assert(
+        fc.property(
+          fc.integer({ min: 0, max: flourNames.length - 1 }),
+          fc.integer({ min: 0, max: flourNames.length - 1 }),
+          fc.integer({ min: 1, max: 99 }),
+          fc.double({ min: 50.0, max: 95.0, noNaN: true }),
+          (idx1, idx2, pct1, hydr) => {
+            const blend = [
+              { name: flourNames[idx1], percentage: pct1 },
+              { name: flourNames[idx2], percentage: 100 - pct1 },
+            ];
+
+            const analysis = analyzeFlourBlendAbsorption(blend, hydr);
+
+            // Invariant 1: Weighted absorption is strictly between 58% and 82%
+            expect(analysis.weightedAbsorptionPercent).toBeGreaterThanOrEqual(58.0);
+            expect(analysis.weightedAbsorptionPercent).toBeLessThanOrEqual(82.0);
+
+            // Invariant 2: Recommended range is well-ordered
+            expect(analysis.recommendedHydrationRange[0]).toBeLessThanOrEqual(
+              analysis.recommendedHydrationRange[1]
+            );
+
+            // Invariant 3: Protein and grain percentages within [0, 100]
+            expect(analysis.ryePercentage).toBeGreaterThanOrEqual(0);
+            expect(analysis.ryePercentage).toBeLessThanOrEqual(100);
+            expect(analysis.wholeGrainPercentage).toBeGreaterThanOrEqual(0);
+            expect(analysis.wholeGrainPercentage).toBeLessThanOrEqual(100);
+            expect(analysis.estimatedProteinPercent).toBeGreaterThanOrEqual(8.5);
+            expect(analysis.estimatedProteinPercent).toBeLessThanOrEqual(14.5);
+
+            // Invariant 4: Non-empty informative advice string
+            expect(analysis.doughFeelAdvicePl.length).toBeGreaterThan(10);
           }
         ),
         { numRuns: 1000 }

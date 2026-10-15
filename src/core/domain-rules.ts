@@ -78,6 +78,7 @@ export interface StarterFeedingResult {
   flourGrams: number;
   waterGrams: number;
   ratioDescription: string;
+  tipPl?: string;
 }
 
 export type SourdoughSafetyStatus = 'healthy' | 'kahm_yeast_safe' | 'toxic_mold_danger';
@@ -326,12 +327,20 @@ export function calculateStarterFeeding(
   const flour = Math.round(onePart * fPart);
   const water = Math.round(onePart * wPart);
 
+  let tipPl = 'Standardowe dokarmienie przed pieczeniem (4–6h w 24–26°C do szczytu objętości).';
+  if (ratio[1] >= 5) {
+    tipPl = 'Wysokie rozcieńczenie (1:5:5 lub 1:10:10) — dłuższy czas wyrastania (8–12h), idealne na noc.';
+  } else if (ratio[1] === 1) {
+    tipPl = 'Szybkie odświeżenie 1:1:1 — krótki czas wyrastania (2–4h), wysoka kwasowość.';
+  }
+
   return {
     targetYieldGrams,
     starterGrams: starter,
     flourGrams: flour,
     waterGrams: water,
     ratioDescription: `${sPart}:${fPart}:${wPart}`,
+    tipPl,
   };
 }
 

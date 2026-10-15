@@ -17,11 +17,14 @@ import {
   evaluateSourdoughSafety,
   calculateStarterPhase,
 } from '../../src/core/domain-rules';
-import { confirmResetStarter } from '../../src/lib/confirm';
-import { getStarters, saveStarter } from '../../src/data/sqlite-store';
+import { confirmResetStarter, confirmDeleteStarter } from '../../src/lib/confirm';
+import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-store';
 import { StoredStarter } from '../../src/data/db';
+import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
 
 export default function ZakwasScreen() {
+  const [startersList, setStartersList] = useState<StoredStarter[]>([]);
+  const [selectedStarterId, setSelectedStarterId] = useState<string>('starter_default');
   const [starter, setStarter] = useState<StoredStarter>({
     id: 'starter_default',
     name: 'Bolesław',
@@ -46,12 +49,22 @@ export default function ZakwasScreen() {
   const [editFlourType, setEditFlourType] = useState<string>('');
   const [editStorageState, setEditStorageState] = useState<'ROOM_TEMP' | 'FRIDGE'>('FRIDGE');
 
-  const loadStarterData = useCallback(async () => {
-    const starters = await getStarters();
-    if (starters.length > 0) {
-      setStarter(starters[0]);
+  // Add New Starter Modal
+  const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
+  const [newStarterName, setNewStarterName] = useState<string>('');
+  const [newStarterFlour, setNewStarterFlour] = useState<string>('Mąka pszenna chlebowa t750');
+  const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
+
+  const loadStarterData = useCallback(async (preferredId?: string) => {
+    const list = await getStarters();
+    setStartersList(list);
+    if (list.length > 0) {
+      const targetId = preferredId !== undefined ? preferredId : selectedStarterId;
+      const current = list.find((s) => s.id === targetId) || list[0];
+      setStarter(current);
+      setSelectedStarterId(current.id);
     }
-  }, []);
+  }, [selectedStarterId]);
 
   useEffect(() => {
     loadStarterData();
@@ -130,6 +143,42 @@ export default function ZakwasScreen() {
     await saveStarter(updated);
     setStarter(updated);
     setIsEditModalOpen(false);
+    await loadStarterData();
+  };
+
+  const handleCopyFeeding = async () => {
+    await copyFeedingToClipboard(starter, feeding, selectedRatio);
+  };
+
+  const handleAddStarter = async () => {
+    const trimmed = newStarterName.trim();
+    if (!trimmed) return;
+    const created: StoredStarter = {
+      id: `starter_${Date.now()}`,
+      name: trimmed,
+      flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa t750',
+      hydration: 100,
+      birthDate: Date.now(),
+      storageState: newStarterStorage,
+      lastFedAt: Date.now(),
+    };
+    await saveStarter(created);
+    setSelectedStarterId(created.id);
+    setStarter(created);
+    setIsAddModalOpen(false);
+    setNewStarterName('');
+    await loadStarterData(created.id);
+  };
+
+  const handleDeleteCurrentStarter = () => {
+    if (startersList.length <= 1) return;
+    confirmDeleteStarter(starter.name, async () => {
+      await deleteStarter(starter.id);
+      setIsEditModalOpen(false);
+      const remaining = startersList.filter((s) => s.id !== starter.id);
+      const nextId = remaining.length > 0 ? remaining[0].id : undefined;
+      await loadStarterData(nextId);
+    });
   };
 
   const handleReset = () => {
@@ -151,6 +200,48 @@ export default function ZakwasScreen() {
           </Text>
         </View>
 
+        {/* Starters Carousel / Selector */}
+        {startersList.length > 0 && (
+          <View style={styles.startersSelectorRow}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.startersScroll}
+            >
+              {startersList.map((s) => {
+                const isSelected = s.id === starter.id;
+                return (
+                  <Pressable
+                    key={s.id}
+                    testID={`select-starter-${s.id}`}
+                    style={[styles.starterPill, isSelected && styles.starterPillActive]}
+                    onPress={() => {
+                      setStarter(s);
+                      setSelectedStarterId(s.id);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.starterPillText,
+                        isSelected && styles.starterPillTextActive,
+                      ]}
+                    >
+                      {isSelected ? '🥣 ' : ''}{s.name}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+              <Pressable
+                testID="add-starter-btn"
+                style={styles.addStarterBtn}
+                onPress={() => setIsAddModalOpen(true)}
+              >
+                <Text style={styles.addStarterBtnText}>+ {t('Dodaj nowy zakwas')}</Text>
+              </Pressable>
+            </ScrollView>
+          </View>
+        )}
+
         {/* Profile Card */}
         <View style={styles.card}>
           <View style={styles.cardHeaderRow}>
@@ -158,7 +249,11 @@ export default function ZakwasScreen() {
               <Text style={styles.starterName}>{starter.name}</Text>
               <Text style={styles.starterType}>{starter.flourType} · Hydratacja {starter.hydration}%</Text>
             </View>
-            <Pressable style={styles.editProfileBtn} onPress={handleOpenEditModal}>
+            <Pressable
+              testID="edit-profile-btn"
+              style={styles.editProfileBtn}
+              onPress={handleOpenEditModal}
+            >
               <Text style={styles.editProfileBtnText}>✏️ {t('Edytuj profil')}</Text>
             </Pressable>
           </View>
@@ -277,6 +372,16 @@ export default function ZakwasScreen() {
             💡 Wskazówka: Z powstałych {targetYield} g pobierz wymaganą ilość do ciasta, a resztkę (~20–25 g)
             schowaj do lodówki jako matkę na kolejny wypiek.
           </Text>
+
+          <Pressable
+            testID="copy-feeding-btn"
+            style={styles.copyFeedingBtn}
+            onPress={handleCopyFeeding}
+          >
+            <Text style={styles.copyFeedingBtnText}>
+              📋 {t('Kopiuj dokarmienie')}
+            </Text>
+          </Pressable>
         </View>
 
         {/* Biological Safety Checker */}
@@ -382,17 +487,98 @@ export default function ZakwasScreen() {
               </View>
 
               <View style={styles.modalButtonsRow}>
+                {startersList.length > 1 && (
+                  <Pressable
+                    testID="delete-starter-btn"
+                    style={styles.modalDeleteBtn}
+                    onPress={handleDeleteCurrentStarter}
+                  >
+                    <Text style={styles.modalDeleteBtnText}>🗑️ {t('Usuń zakwas')}</Text>
+                  </Pressable>
+                )}
+                <View style={styles.modalRightButtons}>
+                  <Pressable
+                    style={styles.modalCancelBtn}
+                    onPress={() => setIsEditModalOpen(false)}
+                  >
+                    <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
+                  </Pressable>
+                  <Pressable
+                    style={styles.modalConfirmBtn}
+                    onPress={handleSaveProfile}
+                  >
+                    <Text style={styles.modalConfirmBtnText}>{t('Zapisz profil')}</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </View>
+          </View>
+        </Modal>
+
+        {/* Modal: Add New Starter */}
+        <Modal visible={isAddModalOpen} transparent animationType="slide">
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalCard}>
+              <Text style={styles.modalTitle}>🥣 {t('Dodaj nowy zakwas')}</Text>
+              <Text style={styles.modalSubtitle}>Utwórz profil dla nowej kultury zakwasu</Text>
+
+              {/* Name input */}
+              <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
+              <TextInput
+                testID="new-starter-name-input"
+                style={styles.modalInput}
+                value={newStarterName}
+                onChangeText={setNewStarterName}
+                placeholder="np. San Francisco White, Lievito..."
+                placeholderTextColor={theme.colors.textMuted}
+              />
+
+              {/* Flour type input */}
+              <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
+              <TextInput
+                testID="new-starter-flour-input"
+                style={styles.modalInput}
+                value={newStarterFlour}
+                onChangeText={setNewStarterFlour}
+                placeholder="np. Mąka pszenna chlebowa t750"
+                placeholderTextColor={theme.colors.textMuted}
+              />
+
+              {/* Storage toggle */}
+              <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
+              <View style={styles.storageToggleRow}>
                 <Pressable
+                  style={[styles.storageBtn, newStarterStorage === 'ROOM_TEMP' && styles.storageBtnActive]}
+                  onPress={() => setNewStarterStorage('ROOM_TEMP')}
+                >
+                  <Text style={[styles.storageBtnText, newStarterStorage === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
+                    🏠 {t('Temperatura pokojowa')}
+                  </Text>
+                </Pressable>
+                <Pressable
+                  style={[styles.storageBtn, newStarterStorage === 'FRIDGE' && styles.storageBtnActive]}
+                  onPress={() => setNewStarterStorage('FRIDGE')}
+                >
+                  <Text style={[styles.storageBtnText, newStarterStorage === 'FRIDGE' && styles.storageBtnTextActive]}>
+                    ❄️ {t('W lodówce (4°C)')}
+                  </Text>
+                </Pressable>
+              </View>
+
+              <View style={styles.modalButtonsRow}>
+                <Pressable
+                  testID="cancel-add-starter-btn"
                   style={styles.modalCancelBtn}
-                  onPress={() => setIsEditModalOpen(false)}
+                  onPress={() => setIsAddModalOpen(false)}
                 >
                   <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
                 </Pressable>
                 <Pressable
+                  testID="save-new-starter-btn"
                   style={styles.modalConfirmBtn}
-                  onPress={handleSaveProfile}
+                  onPress={handleAddStarter}
                 >
-                  <Text style={styles.modalConfirmBtnText}>{t('Zapisz profil')}</Text>
+                  <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
                 </Pressable>
               </View>
             </View>
@@ -763,10 +949,83 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: '700',
   },
+  startersSelectorRow: {
+    marginBottom: 12,
+  },
+  startersScroll: {
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+  },
+  starterPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  starterPillActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  starterPillText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  starterPillTextActive: {
+    color: theme.colors.accentDark,
+    fontWeight: '700',
+  },
+  addStarterBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+    borderStyle: 'dashed',
+  },
+  addStarterBtnText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: theme.colors.accent,
+  },
+  copyFeedingBtn: {
+    marginTop: 10,
+    minHeight: 40,
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  copyFeedingBtnText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
   modalButtonsRow: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     gap: 10,
+  },
+  modalRightButtons: {
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+    marginLeft: 'auto',
+  },
+  modalDeleteBtn: {
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+  },
+  modalDeleteBtnText: {
+    color: theme.colors.statusDanger,
+    fontSize: 13,
+    fontWeight: '700',
   },
   modalCancelBtn: {
     paddingHorizontal: 14,

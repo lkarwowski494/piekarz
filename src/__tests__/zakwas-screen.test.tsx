@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ZakwasScreen from '../../app/(tabs)/zakwas';
-import { initDatabase, getStarters, saveStarter } from '../data/sqlite-store';
+import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/sqlite-store';
 
 jest.setTimeout(20000);
 
@@ -15,6 +15,7 @@ jest.mock('react-native-safe-area-context', () => {
 
 jest.mock('../lib/confirm', () => ({
   confirmResetStarter: (onConfirm: () => void) => onConfirm(),
+  confirmDeleteStarter: (_name: string, onConfirm: () => void) => onConfirm(),
 }));
 
 function extractCleanText(node: any): string {
@@ -42,6 +43,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    _resetMemStore();
     await initDatabase();
   });
 
@@ -161,5 +163,141 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
 
     text = extractCleanText(tree?.toJSON());
     expect(text).toContain('Zakwas jest zdrowy i aktywny');
+  });
+
+  it('copies feeding details to clipboard when copy button is pressed', async () => {
+    const Clipboard = require('expo-clipboard');
+    await renderScreen();
+
+    const copyBtn = tree!.root.findByProps({ testID: 'copy-feeding-btn' });
+    expect(copyBtn).toBeDefined();
+
+    await act(async () => {
+      copyBtn.props.onPress();
+    });
+
+    expect(Clipboard.setStringAsync).toHaveBeenCalled();
+    const copiedText = (Clipboard.setStringAsync as jest.Mock).mock.calls[0][0];
+    expect(copiedText).toContain('Bolesław');
+    expect(copiedText).toContain('1. 🫙 Zakwas matka: 30 g');
+    expect(copiedText).toContain('2. 🌾 Mąka (Żytnia razowa typ 2000): 60 g');
+    expect(copiedText).toContain('3. 💧 Woda: 60 g');
+  });
+
+  it('allows adding a new starter via modal and switches active starter', async () => {
+    await renderScreen();
+
+    const addBtn = tree!.root.findByProps({ testID: 'add-starter-btn' });
+    expect(addBtn).toBeDefined();
+
+    await act(async () => {
+      addBtn.props.onPress();
+    });
+
+    const nameInput = tree!.root.findByProps({ testID: 'new-starter-name-input' });
+    const flourInput = tree!.root.findByProps({ testID: 'new-starter-flour-input' });
+    const saveBtn = tree!.root.findByProps({ testID: 'save-new-starter-btn' });
+
+    await act(async () => {
+      nameInput.props.onChangeText('San Francisco White');
+      flourInput.props.onChangeText('Mąka pszenna chlebowa t750');
+    });
+
+    await act(async () => {
+      saveBtn.props.onPress();
+    });
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('San Francisco White');
+    expect(fullText).toContain('Mąka pszenna chlebowa t750');
+
+    const starters = await getStarters();
+    expect(starters.length).toBe(2);
+    expect(starters.some((s) => s.name === 'San Francisco White')).toBe(true);
+  });
+
+  it('switches active starter when clicking a starter pill', async () => {
+    // Add second starter first
+    await saveStarter({
+      id: 'starter_francisco',
+      name: 'San Francisco White',
+      flourType: 'Pszenna t750',
+      hydration: 100,
+      birthDate: Date.now(),
+      storageState: 'ROOM_TEMP',
+      lastFedAt: Date.now(),
+    });
+
+    await renderScreen();
+
+    // Select second starter
+    const secondPill = tree!.root.findByProps({ testID: 'select-starter-starter_francisco' });
+    expect(secondPill).toBeDefined();
+
+    await act(async () => {
+      secondPill.props.onPress();
+    });
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('San Francisco White');
+
+    // Switch back to Bolesław
+    const boleslawPill = tree!.root.findByProps({ testID: 'select-starter-starter_default' });
+    expect(boleslawPill).toBeDefined();
+
+    await act(async () => {
+      boleslawPill.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Bolesław');
+  });
+
+  it('allows deleting a starter when multiple exist, but prevents deletion when only one remains', async () => {
+    // Add second starter
+    await saveStarter({
+      id: 'starter_extra',
+      name: 'Zakwas Tymczasowy',
+      flourType: 'Orkiszowa',
+      hydration: 100,
+      birthDate: Date.now(),
+      storageState: 'ROOM_TEMP',
+      lastFedAt: Date.now(),
+    });
+
+    await renderScreen();
+
+    // Select the temporary starter
+    const tempPill = tree!.root.findByProps({ testID: 'select-starter-starter_extra' });
+    await act(async () => {
+      tempPill.props.onPress();
+    });
+
+    // Open edit modal
+    const editBtn = tree!.root.findByProps({ testID: 'edit-profile-btn' });
+    await act(async () => {
+      editBtn.props.onPress();
+    });
+
+    // Delete button should be visible because startersList.length > 1
+    const deleteBtn = tree!.root.findByProps({ testID: 'delete-starter-btn' });
+    expect(deleteBtn).toBeDefined();
+
+    await act(async () => {
+      deleteBtn.props.onPress();
+    });
+
+    const starters = await getStarters();
+    expect(starters.length).toBe(1);
+    expect(starters[0].name).toContain('Bolesław');
+
+    // Re-open edit modal on the last remaining starter
+    await act(async () => {
+      editBtn.props.onPress();
+    });
+
+    // Delete button should NOT exist when only 1 starter remains
+    const deleteBtnAfter = tree!.root.findAll((n) => n.props?.testID === 'delete-starter-btn');
+    expect(deleteBtnAfter.length).toBe(0);
   });
 });

@@ -26,6 +26,7 @@ import {
   POPULAR_FLOUR_BLENDS,
   FlourItemInput,
 } from '../../src/core/domain-rules';
+import { analyzeFlourBlendAbsorption } from '../../src/core/flour-atlas';
 import { MASTER_RECIPES } from '../../src/recipes/presets';
 import {
   getRecipes,
@@ -211,6 +212,10 @@ export default function CalculatorScreen() {
   const hydrationDifficulty = useMemo(() => {
     return getHydrationDifficulty(waterPct);
   }, [waterPct]);
+
+  const blendAbsorption = useMemo(() => {
+    return analyzeFlourBlendAbsorption(flourBlend, waterPct);
+  }, [flourBlend, waterPct]);
 
   // Save Custom Recipe Handler
   const handleSaveCustomRecipe = async () => {
@@ -544,6 +549,21 @@ export default function CalculatorScreen() {
               >
                 <Text style={styles.paramStepText}>+5%</Text>
               </Pressable>
+            </View>
+
+            {/* Flour Atlas Absorption Analysis Badge */}
+            <View style={styles.absorptionBadge} testID="flour-absorption-badge">
+              <View style={styles.absorptionHeaderRow}>
+                <Text style={styles.absorptionLabel}>
+                  🌾 {t('Chłonność mąk:')} {blendAbsorption.weightedAbsorptionPercent}% ({t('zalecana')}: {blendAbsorption.recommendedHydrationRange[0]}–{blendAbsorption.recommendedHydrationRange[1]}%)
+                </Text>
+                <Text style={styles.proteinTag}>
+                  {t('Białko')}: ~{blendAbsorption.estimatedProteinPercent}%
+                </Text>
+              </View>
+              <Text style={styles.absorptionAdviceText}>
+                💡 {blendAbsorption.doughFeelAdvicePl}
+              </Text>
             </View>
           </View>
 
@@ -1522,5 +1542,34 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.textPrimary,
+  },
+  absorptionBadge: {
+    marginTop: 8,
+    backgroundColor: theme.colors.backgroundSecondary,
+    padding: theme.spacing.sm,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  absorptionHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  absorptionLabel: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  proteinTag: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.accentDark,
+  },
+  absorptionAdviceText: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    lineHeight: 15,
   },
 });

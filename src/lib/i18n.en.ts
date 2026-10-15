@@ -239,5 +239,24 @@ export const EN: Record<string, string> = {
   'Wpis z historii wypieku zostanie trwale usunięty.': 'The bake log entry will be permanently deleted.',
   'Usuń wpis': 'Delete entry',
   'Wczoraj': 'Yesterday',
+
+  // Flour Atlas & Starter Feeding & Multi-starter Management
+  'Chłonność mąk:': 'Flour absorption:',
+  'zalecana': 'recommended',
+  'Białko': 'Protein',
+  'Dokarmienie zakwasu': 'Starter feeding',
+  'Proporcja': 'Ratio',
+  'Docelowa masa zaczynu': 'Target levain yield',
+  'Składniki do słoika': 'Ingredients into jar',
+  'Zakwas matka': 'Mother starter',
+  'Kopiuj dokarmienie': 'Copy feeding',
+  'Skopiowano dokarmienie do schowka': 'Feeding copied to clipboard',
+  'Usunąć profil zakwasu?': 'Delete starter profile?',
+  'Profil zakwasu': 'Starter profile',
+  'zostanie trwale usunięty wraz z całą historią dokarmiania.': 'will be permanently deleted along with all feeding history.',
+  'Usuń zakwas': 'Delete starter',
+  'Dodaj nowy zakwas': 'Add new starter',
+  'Nowy zakwas': 'New starter',
+  'Przełącz zakwas': 'Switch starter',
 };
 

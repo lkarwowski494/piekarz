@@ -5,6 +5,7 @@ import {
   deleteRecipe,
   getStarters,
   saveStarter,
+  deleteStarter,
   getBakeLogs,
   saveBakeLog,
   deleteBakeLog,
@@ -64,10 +65,14 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
     };
 
     await saveStarter(newStarter);
-    const updatedStarters = await getStarters();
+    let updatedStarters = await getStarters();
     const found = updatedStarters.find((s) => s.id === 'starter_wheat_san_francisco');
     expect(found).toBeDefined();
     expect(found?.storageState).toBe('ROOM_TEMP');
+
+    await deleteStarter('starter_wheat_san_francisco');
+    updatedStarters = await getStarters();
+    expect(updatedStarters.find((s) => s.id === 'starter_wheat_san_francisco')).toBeUndefined();
   });
 
   it('records bake log and completes bake session', async () => {

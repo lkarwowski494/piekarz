@@ -90,3 +90,16 @@ export function confirmDeleteBakeLog(onConfirm: () => void) {
     onConfirm,
   });
 }
+
+/**
+ * Potwierdzenie usunięcia profilu zakwasu.
+ */
+export function confirmDeleteStarter(name: string, onConfirm: () => void) {
+  confirm({
+    title: t('Usunąć profil zakwasu?'),
+    message: `${t('Profil zakwasu')} „${name}” ${t('zostanie trwale usunięty wraz z całą historią dokarmiania.')}`,
+    action: t('Usuń zakwas'),
+    destructive: true,
+    onConfirm,
+  });
+}

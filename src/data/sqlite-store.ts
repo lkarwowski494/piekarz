@@ -26,6 +26,13 @@ let memRecipes: StoredRecipe[] = [];
 let memLogs: StoredBakeLog[] = [];
 let memActiveBake: ActiveBakeState | null = null;
 
+export function _resetMemStore(): void {
+  memStarters = [];
+  memRecipes = [];
+  memLogs = [];
+  memActiveBake = null;
+}
+
 export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
   if (dbInstance) return dbInstance;
   try {
@@ -229,6 +236,18 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
         starter.storageState,
         starter.lastFedAt ?? null
       );
+    } catch {
+      // Memory fallback holds state
+    }
+  }
+}
+
+export async function deleteStarter(id: string): Promise<void> {
+  memStarters = memStarters.filter((s) => s.id !== id);
+  const db = await getDb();
+  if (db) {
+    try {
+      await db.runAsync('DELETE FROM starters WHERE id = ?;', id);
     } catch {
       // Memory fallback holds state
     }

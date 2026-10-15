@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-861%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-880%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -137,7 +137,8 @@ piekarz/
 │   ├── components/             # Reużywalne komponenty HIG (DraftHeader, CloseButton, AddButton, TabIcon)
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
-│   │   └── __tests__/          # Wektory testowe TV-01…TV-08
+│   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
+│   │   └── __tests__/          # Wektory testowe TV-01…TV-08 & Property-Based Testing
 │   ├── data/                   # Warstwa danych i SQLite
 │   │   ├── db.ts               # Interfejsy encji
 │   │   ├── schema.ts           # DDL schematu SQLite
@@ -153,6 +154,10 @@ piekarz/
 │   │   ├── backup.ts           # Eksport, autoBackup (rotacja 10) i safetyBackup
 │   │   ├── confirm.ts          # Znormalizowane dialogi HIG
 │   │   ├── db-path.ts          # Ochrona bazy w /Library/SQLite
+│   │   ├── feeding-formatter.ts# Formatowanie i schowek dokarmiania zakwasu
+│   │   ├── schedule-formatter.ts # Udostępnianie harmonogramu wstecznego
+│   │   ├── diagnosis-formatter.ts # Udostępnianie diagnozy Doktora Chleba
+│   │   ├── recipe-formatter.ts # Udostępnianie receptury
 │   │   ├── i18n.ts             # Silnik tłumaczeń z polskim kluczem źródłowym
 │   │   ├── i18n.en.ts          # Słownik języka angielskiego
 │   │   └── __tests__/          # Testy narzędzi

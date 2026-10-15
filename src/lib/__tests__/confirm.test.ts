@@ -7,6 +7,7 @@ import {
   confirmDiscardBake,
   confirmResetStarter,
   confirmDeleteBakeLog,
+  confirmDeleteStarter,
 } from '../confirm';
 import { setLang } from '../i18n';
 
@@ -91,6 +92,18 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
     const [title, , buttons] = (Alert.alert as jest.Mock).mock.calls[0];
     expect(title).toBe('Usunąć wpis z historii?');
     expect(buttons[1].text).toBe('Usuń wpis');
+    expect(buttons[1].style).toBe('destructive');
+  });
+
+  it('confirmDeleteStarter uses destructive action and mentions starter name', () => {
+    const onConfirm = jest.fn();
+    confirmDeleteStarter('Bolesław', onConfirm);
+
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+    const [title, message, buttons] = (Alert.alert as jest.Mock).mock.calls[0];
+    expect(title).toBe('Usunąć profil zakwasu?');
+    expect(message).toContain('Bolesław');
+    expect(buttons[1].text).toBe('Usuń zakwas');
     expect(buttons[1].style).toBe('destructive');
   });
 });
