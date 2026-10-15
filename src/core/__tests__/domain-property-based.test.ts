@@ -6,6 +6,8 @@ import {
   convertYeast,
   calculateStarterFeeding,
   calculateDDTWaterTemp,
+  calculateBakeLossMetrics,
+  calculateRequiredRawDoughWeight,
 } from '../domain-rules';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 
@@ -260,4 +262,42 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
       );
     });
   });
+
+  describe('Bake Loss & Evaporation Mechanics Invariants', () => {
+    it('preserves dough mass as sum of baked mass and evaporated steam across 1000 configurations', () => {
+      fc.assert(
+        fc.property(
+          fc.integer({ min: 100, max: 25000 }), // dough weight in grams
+          fc.double({ min: 5.0, max: 35.0, noNaN: true }), // bake loss percent
+          fc.integer({ min: 1, max: 12 }), // loaves count
+          (doughGrams, lossPct, loaves) => {
+            const metrics = calculateBakeLossMetrics(doughGrams, lossPct, undefined, loaves);
+
+            // Invariant 1: Mass conservation (dough === baked + evaporated)
+            expect(metrics.bakedWeightGrams + metrics.evaporatedWaterGrams).toBe(doughGrams);
+
+            // Invariant 2: Baked weight is strictly smaller than raw dough
+            expect(metrics.bakedWeightGrams).toBeLessThan(doughGrams);
+            expect(metrics.evaporatedWaterGrams).toBeGreaterThan(0);
+
+            // Invariant 3: Single loaf mass times loaves count equals total baked mass (+/- loaves delta)
+            if (loaves > 1 && metrics.singleLoafBakedGrams) {
+              const multiLoafSum = metrics.singleLoafBakedGrams * loaves;
+              expect(Math.abs(multiLoafSum - metrics.bakedWeightGrams)).toBeLessThanOrEqual(loaves);
+            }
+
+            // Invariant 4: Monotonicity: Higher loss % always results in smaller or equal baked weight
+            const higherLossMetrics = calculateBakeLossMetrics(doughGrams, lossPct + 1.0);
+            expect(higherLossMetrics.bakedWeightGrams).toBeLessThanOrEqual(metrics.bakedWeightGrams);
+
+            // Invariant 5: Round-trip reversibility with calculateRequiredRawDoughWeight
+            const recoveredRaw = calculateRequiredRawDoughWeight(metrics.bakedWeightGrams, lossPct, 1);
+            expect(Math.abs(recoveredRaw - doughGrams)).toBeLessThanOrEqual(2);
+          }
+        ),
+        { numRuns: 1000 }
+      );
+    });
+  });
 });
+

@@ -169,4 +169,41 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(active?.calculatedRecipe).toBeDefined();
     expect(active?.calculatedRecipe?.targetDoughWeightGrams).toBeGreaterThan(0);
   });
+
+  it('renders Bake Loss & Crumb Moisture card and displays live metrics', async () => {
+    await renderScreen();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Strata wypiekowa i wilgotność miękiszu');
+    expect(fullText).toContain('Upieczony bochenek');
+    expect(fullText).toContain('Odparowana woda');
+    expect(fullText).toContain('Szacowana wilgotność miękiszu');
+    expect(fullText).toContain('14.0%');
+  });
+
+  it('updates baked weight when switching bake loss preset and stepping percentage', async () => {
+    await renderScreen();
+
+    // Find Baguettes preset (18%)
+    const baguetteBtn = tree!.root.findByProps({ testID: 'bake-loss-preset-baguette_roll' });
+    expect(baguetteBtn).toBeDefined();
+
+    await act(async () => {
+      baguetteBtn.props.onPress();
+    });
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('18.0%');
+
+    // Step down by 0.5% with minus button
+    const minusBtn = tree!.root.findByProps({ testID: 'bake-loss-minus' });
+    expect(minusBtn).toBeDefined();
+
+    await act(async () => {
+      minusBtn.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('17.5%');
+  });
 });

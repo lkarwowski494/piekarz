@@ -18,6 +18,10 @@ import {
   calculateDDTWaterTemp,
   calculateIceRequirement,
   calculateBakedWeight,
+  calculateBakeLossMetrics,
+  calculateRequiredRawDoughWeight,
+  BAKE_LOSS_PRESETS,
+  BakeTypePresetId,
   getHydrationDifficulty,
   POPULAR_FLOUR_BLENDS,
   FlourItemInput,
@@ -66,6 +70,10 @@ export default function CalculatorScreen() {
   const [starterTemp, setStarterTemp] = useState<number>(21.0);
   const [frictionFactor, setFrictionFactor] = useState<number>(2.0);
   const [tapWaterTemp, setTapWaterTemp] = useState<number>(16.0);
+
+  // Bake Loss & Crumb Moisture state
+  const [selectedBakeLossPresetId, setSelectedBakeLossPresetId] = useState<BakeTypePresetId>('batard_boule');
+  const [customBakeLossPercent, setCustomBakeLossPercent] = useState<number>(14.0);
 
   // Custom recipes state
   const [customRecipes, setCustomRecipes] = useState<StoredRecipe[]>([]);
@@ -171,16 +179,31 @@ export default function CalculatorScreen() {
     return null;
   }, [ddtResult, calculations.waterGrams, tapWaterTemp]);
 
-  const bakedTotalWeight = useMemo(() => {
-    return calculateBakedWeight(calculations.targetDoughWeightGrams, 14.0);
-  }, [calculations.targetDoughWeightGrams]);
+  const bakeLossMetrics = useMemo(() => {
+    return calculateBakeLossMetrics(
+      calculations.targetDoughWeightGrams,
+      customBakeLossPercent,
+      calculations.totalWaterGrams,
+      calcMode === 'loaves' ? loavesCount : 1
+    );
+  }, [
+    calculations.targetDoughWeightGrams,
+    customBakeLossPercent,
+    calculations.totalWaterGrams,
+    calcMode,
+    loavesCount,
+  ]);
 
-  const bakedSingleLoafWeight = useMemo(() => {
-    if (calcMode === 'loaves' && loavesCount > 0) {
-      return Math.round(bakedTotalWeight / loavesCount);
+  const bakedTotalWeight = bakeLossMetrics.bakedWeightGrams;
+  const bakedSingleLoafWeight = bakeLossMetrics.singleLoafBakedGrams ?? bakeLossMetrics.bakedWeightGrams;
+
+  const handleSelectBakeLossPreset = (presetId: BakeTypePresetId) => {
+    setSelectedBakeLossPresetId(presetId);
+    const p = BAKE_LOSS_PRESETS.find((item) => item.id === presetId);
+    if (p) {
+      setCustomBakeLossPercent(p.defaultLossPercent);
     }
-    return bakedTotalWeight;
-  }, [calcMode, loavesCount, bakedTotalWeight]);
+  };
 
   const hydrationDifficulty = useMemo(() => {
     return getHydrationDifficulty(waterPct);
@@ -657,6 +680,112 @@ export default function CalculatorScreen() {
                 </Text>
               </View>
             )}
+          </View>
+        </View>
+
+        {/* Bake Loss & Crumb Moisture Card */}
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{t('Strata wypiekowa i wilgotność miękiszu')}</Text>
+          <Text style={styles.cardSubtitle}>
+            {t('Typ wypieku i odparowanie')} (10% – 22%)
+          </Text>
+
+          {/* Preset Chips */}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
+            {BAKE_LOSS_PRESETS.map((preset) => {
+              const isSelected = selectedBakeLossPresetId === preset.id;
+              return (
+                <Pressable
+                  key={preset.id}
+                  testID={`bake-loss-preset-${preset.id}`}
+                  style={[styles.presetChip, isSelected && styles.presetChipActive]}
+                  onPress={() => handleSelectBakeLossPreset(preset.id)}
+                >
+                  <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
+                    {t(preset.namePl)} ({preset.defaultLossPercent}%)
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+
+          {/* Loss % Adjuster */}
+          <View style={styles.row}>
+            <View style={styles.flex1}>
+              <Text style={styles.label}>{t('Strata piecowa')}</Text>
+              <Text style={styles.sublabel}>
+                {BAKE_LOSS_PRESETS.find((p) => p.id === selectedBakeLossPresetId)?.descriptionPl}
+              </Text>
+            </View>
+            <View style={styles.inputGroup}>
+              <Pressable
+                style={styles.stepBtn}
+                testID="bake-loss-minus"
+                onPress={() => setCustomBakeLossPercent((prev) => Math.max(5.0, Number((prev - 0.5).toFixed(1))))}
+              >
+                <Text style={styles.stepBtnText}>-0.5%</Text>
+              </Pressable>
+              <Text style={styles.valueHighlight} testID="bake-loss-percent-value">
+                {customBakeLossPercent.toFixed(1)}%
+              </Text>
+              <Pressable
+                style={styles.stepBtn}
+                testID="bake-loss-plus"
+                onPress={() => setCustomBakeLossPercent((prev) => Math.min(30.0, Number((prev + 0.5).toFixed(1))))}
+              >
+                <Text style={styles.stepBtnText}>+0.5%</Text>
+              </Pressable>
+            </View>
+          </View>
+
+          {/* Results Grid */}
+          <View style={styles.bakeLossGrid}>
+            <View style={styles.bakeLossMetricCol}>
+              <Text style={styles.bakeLossMetricLabel}>{t('Upieczony bochenek')}</Text>
+              <Text style={styles.bakeLossMetricValue} testID="bake-loss-baked-grams">
+                {bakeLossMetrics.bakedWeightGrams} g
+              </Text>
+              <Text style={styles.bakeLossMetricSub}>
+                {calcMode === 'loaves' && loavesCount > 1
+                  ? `(${loavesCount}x ~${bakeLossMetrics.singleLoafBakedGrams} g)`
+                  : `~${bakeLossMetrics.bakedWeightGrams} g`}
+              </Text>
+            </View>
+
+            <View style={styles.bakeLossMetricDivider} />
+
+            <View style={styles.bakeLossMetricCol}>
+              <Text style={styles.bakeLossMetricLabel}>{t('Odparowana woda')}</Text>
+              <Text style={styles.bakeLossMetricValue} testID="bake-loss-evaporated-grams">
+                -{bakeLossMetrics.evaporatedWaterGrams} g
+              </Text>
+              <Text style={styles.bakeLossMetricSub}>para w piecu</Text>
+            </View>
+
+            <View style={styles.bakeLossMetricDivider} />
+
+            <View style={styles.bakeLossMetricCol}>
+              <Text style={styles.bakeLossMetricLabel}>{t('Szacowana wilgotność miękiszu')}</Text>
+              <Text style={[styles.bakeLossMetricValue, { color: theme.colors.accentDark }]} testID="bake-loss-moisture-value">
+                {bakeLossMetrics.retainedMoisturePercent}%
+              </Text>
+              <Text style={styles.bakeLossMetricSub}>retencja wody</Text>
+            </View>
+          </View>
+
+          {/* Category & Cooling Advice */}
+          <View style={styles.crumbMoistureBox}>
+            <View style={styles.crumbMoistureHeader}>
+              <Text style={styles.crumbMoistureTitle} testID="bake-loss-category-label">
+                {bakeLossMetrics.crumbMoistureCategory === 'custardy_wet' && '💧 '}
+                {bakeLossMetrics.crumbMoistureCategory === 'balanced' && '🥖 '}
+                {bakeLossMetrics.crumbMoistureCategory === 'dry' && '🌾 '}
+                {t(bakeLossMetrics.categoryLabelPl)}
+              </Text>
+            </View>
+            <Text style={styles.crumbMoistureAdvice}>
+              {bakeLossMetrics.coolingAdvicePl}
+            </Text>
           </View>
         </View>
 
@@ -1255,5 +1384,66 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FFFFFF',
     fontWeight: '700',
+  },
+  bakeLossGrid: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.sm,
+    marginBottom: theme.spacing.sm,
+  },
+  bakeLossMetricCol: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  bakeLossMetricLabel: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textMuted,
+    textTransform: 'uppercase',
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  bakeLossMetricValue: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+  },
+  bakeLossMetricSub: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    marginTop: 2,
+  },
+  bakeLossMetricDivider: {
+    width: 1,
+    height: 36,
+    backgroundColor: theme.colors.border,
+    marginHorizontal: 4,
+  },
+  crumbMoistureBox: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    padding: theme.spacing.sm,
+    marginTop: 4,
+  },
+  crumbMoistureHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  crumbMoistureTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  crumbMoistureAdvice: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 17,
   },
 });

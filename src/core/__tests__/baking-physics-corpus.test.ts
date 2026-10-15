@@ -4,6 +4,7 @@ import {
   calculateIceRequirement,
   calculateFermentationAdaptation,
   calculateStarterFeeding,
+  calculateBakeLossMetrics,
 } from '../domain-rules';
 
 describe('Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript Cross-Validation)', () => {
@@ -13,6 +14,7 @@ describe('Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript 
     expect(corpusFixture.iceCases.length).toBeGreaterThan(100);
     expect(corpusFixture.q10Cases.length).toBeGreaterThan(50);
     expect(corpusFixture.feedingCases.length).toBeGreaterThan(50);
+    expect(corpusFixture.bakeLossCases.length).toBeGreaterThan(80);
   });
 
   describe('DDT 3-Factor & 4-Factor Matrix (194 cases)', () => {
@@ -64,6 +66,20 @@ describe('Apps4Brew Independent Physics Reference Corpus (Python ↔ TypeScript 
         expect(res.flourGrams).toBe(c.expectedFlourGrams);
         expect(res.waterGrams).toBe(c.expectedWaterGrams);
         expect(res.targetYieldGrams).toBe(c.targetYieldGrams);
+      });
+    });
+  });
+
+  describe('Bake Loss & Crumb Moisture Matrix (84 cases)', () => {
+    corpusFixture.bakeLossCases.forEach((c, idx) => {
+      it(`Bake loss case #${idx + 1} (${c.doughWeightGrams}g, loss ${c.bakeLossPercent}%, loaves ${c.loavesCount}) matches Python reference`, () => {
+        const res = calculateBakeLossMetrics(c.doughWeightGrams, c.bakeLossPercent, c.totalWaterGrams, c.loavesCount);
+
+        expect(res.bakedWeightGrams).toBe(c.expectedBakedWeightGrams);
+        expect(res.evaporatedWaterGrams).toBe(c.expectedEvaporatedWaterGrams);
+        expect(res.retainedMoisturePercent).toBe(c.expectedRetainedMoisturePercent);
+        expect(res.crumbMoistureCategory).toBe(c.expectedCrumbMoistureCategory);
+        expect(res.singleLoafBakedGrams).toBe(c.expectedSingleLoafBakedGrams);
       });
     });
   });

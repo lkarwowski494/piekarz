@@ -85,17 +85,45 @@ def calculate_feeding(yield_grams, ratio):
         "expectedWaterGrams": w,
     }
 
+def calculate_bake_loss(dough_grams, loss_pct, total_water=None, loaves=1):
+    baked = js_round(dough_grams * (1.0 - loss_pct / 100.0))
+    evaporated = dough_grams - baked
+    water = total_water if (total_water is not None and total_water > 0) else (dough_grams * 0.42)
+    retained_water = max(0.0, water - evaporated)
+    retained_moisture = round((retained_water / (baked if baked > 0 else 1)) * 100.0, 1)
+
+    if retained_moisture >= 46.0:
+        cat = "custardy_wet"
+    elif retained_moisture >= 38.0:
+        cat = "balanced"
+    else:
+        cat = "dry"
+
+    single_baked = js_round(baked / loaves) if loaves > 1 else baked
+    return {
+        "doughWeightGrams": dough_grams,
+        "bakeLossPercent": loss_pct,
+        "totalWaterGrams": total_water,
+        "loavesCount": loaves,
+        "expectedBakedWeightGrams": baked,
+        "expectedEvaporatedWaterGrams": evaporated,
+        "expectedRetainedMoisturePercent": retained_moisture,
+        "expectedCrumbMoistureCategory": cat,
+        "expectedSingleLoafBakedGrams": single_baked,
+    }
+
 def generate_corpus():
     corpus = {
         "meta": {
             "generator": "scripts/gen-baking-physics-corpus.py",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "standard": "Apps4Brew Independent Physics Reference"
         },
         "ddtCases": [],
         "iceCases": [],
         "q10Cases": [],
-        "feedingCases": []
+        "feedingCases": [],
+        "bakeLossCases": []
     }
 
     # 1. DDT cases (3-factor and 4-factor matrix)
@@ -126,6 +154,13 @@ def generate_corpus():
         for r in [[1, 1, 1], [1, 2, 2], [1, 3, 3], [1, 4, 4], [1, 5, 5], [1, 10, 10], [2, 5, 5]]:
             corpus["feedingCases"].append(calculate_feeding(y, r))
 
+    # 5. Bake loss and crumb moisture cases
+    for dough in [300, 600, 850, 1000, 1500, 2400]:
+        for loss in [10.0, 11.0, 13.0, 14.0, 16.0, 18.0, 22.0]:
+            for loaves in [1, 2]:
+                total_water = round(dough * 0.43)
+                corpus["bakeLossCases"].append(calculate_bake_loss(dough, loss, total_water, loaves))
+
     return corpus
 
 if __name__ == "__main__":
@@ -135,5 +170,5 @@ if __name__ == "__main__":
     corpus = generate_corpus()
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump(corpus, f, indent=2)
-    print(f"Generated {len(corpus['ddtCases'])} DDT cases, {len(corpus['iceCases'])} ice cases, {len(corpus['q10Cases'])} Q10 cases, {len(corpus['feedingCases'])} feeding cases.")
+    print(f"Generated {len(corpus['ddtCases'])} DDT cases, {len(corpus['iceCases'])} ice cases, {len(corpus['q10Cases'])} Q10 cases, {len(corpus['feedingCases'])} feeding cases, {len(corpus['bakeLossCases'])} bake loss cases.")
     print(f"Written to {out_file}")

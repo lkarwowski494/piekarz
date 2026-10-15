@@ -192,5 +192,24 @@ export const EN: Record<string, string> = {
   'Temperatura wody: {temp}°C': 'Water temperature: {temp}°C',
   'Dodaj {object}': 'Add {object}',
   'Przepis „{name}” został zapisany w Twojej bibliotece.': 'Recipe "{name}" was saved to your library.',
+
+  // Bake loss & Crumb moisture
+  'Strata wypiekowa i wilgotność miękiszu': 'Bake loss & crumb moisture',
+  'Typ wypieku i odparowanie': 'Bake type & evaporation',
+  'Strata piecowa': 'Bake loss',
+  'Upieczony bochenek': 'Baked loaf',
+  'Odparowana woda': 'Evaporated water',
+  'Szacowana wilgotność miękiszu': 'Estimated crumb moisture',
+  'Zalecenie studzenia na kratce': 'Rack cooling advice',
+  'Docelowa waga po upieczeniu': 'Target baked weight',
+  'Masa surowego ciasta do misy': 'Raw dough mass to bowl',
+  'Chleb wiejski / Batard / Boule (garnek/kamień)': 'Country loaf / Batard / Boule (pot/stone)',
+  'Chleb żytni / foremkowy': 'Rye / tin loaf',
+  'Bagietki / Bułki (duża powierzchnia odparowania)': 'Baguettes / Rolls (high evaporation surface)',
+  'Focaccia / Pizza na blasze': 'Focaccia / Pan pizza',
+  'Własna strata piecowa': 'Custom bake loss',
+  'Mocno wilgotny / kremowy (Custardy Crumb)': 'Very moist / custardy (Custardy Crumb)',
+  'Równomierny / rzemieślniczy (Balanced)': 'Balanced / artisanal (Balanced)',
+  'Suchy / chrupki (Crisp Dry)': 'Dry / crisp (Crisp Dry)',
 };
 
