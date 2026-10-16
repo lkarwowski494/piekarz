@@ -37,6 +37,7 @@ import {
 import { StoredRecipe } from '../../src/data/db';
 import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
 import { SettingsModal } from '../../src/components/SettingsModal';
+import { FlourBlendModal } from '../../src/components/FlourBlendModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 import {
   calculatePrefermentBreakdown,
@@ -88,6 +89,7 @@ export default function CalculatorScreen() {
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
 
   // Artisan Preferments state
   const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
@@ -539,6 +541,14 @@ export default function CalculatorScreen() {
               </Pressable>
             ))}
           </ScrollView>
+
+          <Pressable
+            testID="open-blend-builder-btn"
+            style={styles.customBlendBtn}
+            onPress={() => setIsBlendModalOpen(true)}
+          >
+            <Text style={styles.customBlendBtnText}>⚙️ {t('Skomponuj własną mieszankę mąk')}</Text>
+          </Pressable>
 
           {/* Breakdown per flour */}
           {calculations.flours.map((flour, idx) => (
@@ -1061,6 +1071,16 @@ export default function CalculatorScreen() {
         <SettingsModal
           visible={isSettingsOpen}
           onClose={() => setIsSettingsOpen(false)}
+        />
+
+        {/* Modal: Custom Flour Blend Builder */}
+        <FlourBlendModal
+          visible={isBlendModalOpen}
+          initialBlend={flourBlend}
+          onApply={(newBlend) => {
+            setFlourBlend(newBlend);
+          }}
+          onClose={() => setIsBlendModalOpen(false)}
         />
       </ScrollView>
     </SafeAreaView>
@@ -1768,5 +1788,21 @@ const styles = StyleSheet.create({
     color: theme.colors.textMuted,
     fontStyle: 'italic',
     marginTop: 4,
+  },
+  customBlendBtn: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.borderActive,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 10,
+    paddingHorizontal: theme.spacing.md,
+    alignItems: 'center',
+    marginTop: 8,
+    marginBottom: 6,
+  },
+  customBlendBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
   },
 });

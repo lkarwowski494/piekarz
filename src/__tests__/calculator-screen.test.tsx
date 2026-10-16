@@ -337,5 +337,45 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Biga');
   });
+
+  it('opens custom flour blend builder, adjusts proportions, and applies custom blend', async () => {
+    await renderScreen();
+
+    // Find and open custom blend builder
+    const openBtn = tree!.root.findByProps({ testID: 'open-blend-builder-btn' });
+    expect(openBtn).toBeDefined();
+
+    await act(async () => {
+      openBtn.props.onPress();
+    });
+
+    // Check modal rendered
+    const modal = tree!.root.findByProps({ testID: 'flour-blend-modal' });
+    expect(modal).toBeDefined();
+
+    // Adjust first flour percentage: -10%
+    const minusBtn = tree!.root.findByProps({ testID: 'flour-minus-10-0' });
+    await act(async () => {
+      minusBtn.props.onPress();
+    });
+
+    // Rebalance with normalize
+    const normalizeBtn = tree!.root.findByProps({ testID: 'normalize-blend-btn' });
+    await act(async () => {
+      normalizeBtn.props.onPress();
+    });
+
+    // Apply blend
+    const applyBtn = tree!.root.findByProps({ testID: 'apply-blend-btn' });
+    expect(applyBtn.props.disabled).toBe(false);
+
+    await act(async () => {
+      applyBtn.props.onPress();
+    });
+
+    // Verify calculator updated
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Mieszanka mąk');
+  });
 });
 

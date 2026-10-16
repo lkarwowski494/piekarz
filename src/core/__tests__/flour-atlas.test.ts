@@ -1,6 +1,8 @@
 import {
   matchFlourProfile,
   analyzeFlourBlendAbsorption,
+  validateFlourBlend,
+  normalizeFlourBlend,
   FLOUR_PROFILES,
 } from '../flour-atlas';
 
@@ -99,4 +101,73 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       expect(analysis.recommendedHydrationRange).toEqual([66.0, 74.0]);
     });
   });
+
+  describe('validateFlourBlend', () => {
+    it('approves blend that sums exactly to 100%', () => {
+      const res = validateFlourBlend([
+        { name: 'Mąka T750', percentage: 70 },
+        { name: 'Mąka T2000', percentage: 30 },
+      ]);
+      expect(res.isValid).toBe(true);
+      expect(res.sumPercentage).toBe(100.0);
+      expect(res.remainingPercentage).toBe(0);
+      expect(res.errorPl).toBeUndefined();
+    });
+
+    it('rejects blend summing to less than 100% and calculates remaining', () => {
+      const res = validateFlourBlend([
+        { name: 'Mąka T750', percentage: 60 },
+        { name: 'Mąka T2000', percentage: 20 },
+      ]);
+      expect(res.isValid).toBe(false);
+      expect(res.sumPercentage).toBe(80.0);
+      expect(res.remainingPercentage).toBe(20.0);
+      expect(res.errorPl).toContain('brakuje jeszcze 20%');
+    });
+
+    it('rejects blend exceeding 100%', () => {
+      const res = validateFlourBlend([
+        { name: 'Mąka T750', percentage: 80 },
+        { name: 'Mąka T2000', percentage: 30 },
+      ]);
+      expect(res.isValid).toBe(false);
+      expect(res.sumPercentage).toBe(110.0);
+      expect(res.errorPl).toContain('przekracza 100% o 10%');
+    });
+
+    it('rejects empty blend', () => {
+      const res = validateFlourBlend([]);
+      expect(res.isValid).toBe(false);
+      expect(res.errorPl).toContain('co najmniej jedną mąkę');
+    });
+  });
+
+  describe('normalizeFlourBlend', () => {
+    it('normalizes arbitrary percentages to exact 100%', () => {
+      const normalized = normalizeFlourBlend([
+        { name: 'Mąka A', percentage: 50 },
+        { name: 'Mąka B', percentage: 25 },
+        { name: 'Mąka C', percentage: 25 },
+      ]);
+      const sum = normalized.reduce((acc, f) => acc + f.percentage, 0);
+      expect(sum).toBe(100.0);
+      expect(normalized[0].percentage).toBe(50.0);
+      expect(normalized[1].percentage).toBe(25.0);
+      expect(normalized[2].percentage).toBe(25.0);
+    });
+
+    it('handles uneven proportions and absorbs rounding residual in last item', () => {
+      const normalized = normalizeFlourBlend([
+        { name: 'Mąka A', percentage: 1 },
+        { name: 'Mąka B', percentage: 1 },
+        { name: 'Mąka C', percentage: 1 },
+      ]);
+      const sum = normalized.reduce((acc, f) => acc + f.percentage, 0);
+      expect(sum).toBe(100.0);
+      expect(normalized[0].percentage).toBe(33.3);
+      expect(normalized[1].percentage).toBe(33.3);
+      expect(normalized[2].percentage).toBe(33.4);
+    });
+  });
 });
+

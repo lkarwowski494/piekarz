@@ -303,3 +303,68 @@ export function analyzeFlourBlendAbsorption(
     doughFeelAdvicePl,
   };
 }
+
+export interface FlourBlendValidationResult {
+  isValid: boolean;
+  sumPercentage: number;
+  remainingPercentage: number;
+  errorPl?: string;
+}
+
+/**
+ * Validates that flour percentages sum strictly to 100% (within 0.05% tolerance).
+ */
+export function validateFlourBlend(flours: FlourBlendEntry[]): FlourBlendValidationResult {
+  if (!flours || flours.length === 0) {
+    return {
+      isValid: false,
+      sumPercentage: 0,
+      remainingPercentage: 100.0,
+      errorPl: 'Mieszanka musi zawierać co najmniej jedną mąkę.',
+    };
+  }
+
+  const sum = Math.round(flours.reduce((acc, f) => acc + (Number(f.percentage) || 0), 0) * 10) / 10;
+  const remaining = Math.round((100.0 - sum) * 10) / 10;
+  const isValid = Math.abs(sum - 100.0) <= 0.05;
+
+  let errorPl: string | undefined;
+  if (!isValid) {
+    if (sum < 100.0) {
+      errorPl = `Suma procentów wynosi ${sum}% — brakuje jeszcze ${remaining}%.`;
+    } else {
+      errorPl = `Suma procentów wynosi ${sum}% — przekracza 100% o ${Math.abs(remaining)}%.`;
+    }
+  }
+
+  return {
+    isValid,
+    sumPercentage: sum,
+    remainingPercentage: remaining,
+    errorPl,
+  };
+}
+
+/**
+ * Normalizes flour blend percentages proportionally so they sum to exactly 100%.
+ */
+export function normalizeFlourBlend(flours: FlourBlendEntry[]): FlourBlendEntry[] {
+  if (!flours || flours.length === 0) return [];
+  const sum = flours.reduce((acc, f) => acc + (Number(f.percentage) || 0), 0);
+  if (sum <= 0) return flours.map((f) => ({ ...f, percentage: 0 }));
+
+  const factor = 100.0 / sum;
+  let runningSum = 0;
+  const result = flours.map((f, idx) => {
+    if (idx === flours.length - 1) {
+      const lastPct = Math.round((100.0 - runningSum) * 10) / 10;
+      return { ...f, percentage: lastPct };
+    }
+    const normalized = Math.round(f.percentage * factor * 10) / 10;
+    runningSum += normalized;
+    return { ...f, percentage: normalized };
+  });
+
+  return result;
+}
+

@@ -280,5 +280,14 @@ export const EN: Record<string, string> = {
   'Udział mąki w zaczynie': 'Flour in preferment',
   'Mąka w zaczynie': 'Preferment flour',
   'Woda w zaczynie': 'Preferment water',
+
+  // Flour Blend Builder
+  'Kreator mieszanki mąk': 'Flour blend builder',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Adjust flour proportions. The sum must equal exactly 100%.',
+  'Skomponuj własną mieszankę mąk': 'Build custom flour blend',
+  'Proporcje poprawne (100%)': 'Proportions valid (100%)',
+  'Wyrównaj do 100%': 'Balance to 100%',
+  'Dodaj mąkę z Atlasu': 'Add flour from Atlas',
+  'Zastosuj mieszankę': 'Apply blend',
 };
 
