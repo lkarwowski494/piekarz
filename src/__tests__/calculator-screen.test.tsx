@@ -377,5 +377,31 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Mieszanka mąk');
   });
+
+  it('opens cost and yield batch calculator modal and displays cost metrics', async () => {
+    await renderScreen();
+
+    // Open cost modal
+    const openCostBtn = tree!.root.findByProps({ testID: 'open-cost-modal-btn' });
+    expect(openCostBtn).toBeDefined();
+
+    await act(async () => {
+      openCostBtn.props.onPress();
+    });
+
+    // Check modal rendered
+    const modal = tree!.root.findByProps({ testID: 'cost-calculator-modal' });
+    expect(modal).toBeDefined();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Kalkulator kosztów wypieku');
+    expect(fullText).toContain('Koszt za bochenek');
+
+    // Close modal
+    const closeBtn = tree!.root.findByProps({ testID: 'close-cost-modal-btn' });
+    await act(async () => {
+      closeBtn.props.onPress();
+    });
+  });
 });
 

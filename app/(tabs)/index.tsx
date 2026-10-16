@@ -38,6 +38,7 @@ import { StoredRecipe } from '../../src/data/db';
 import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
 import { SettingsModal } from '../../src/components/SettingsModal';
 import { FlourBlendModal } from '../../src/components/FlourBlendModal';
+import { CostCalculatorModal } from '../../src/components/CostCalculatorModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 import {
   calculatePrefermentBreakdown,
@@ -90,6 +91,7 @@ export default function CalculatorScreen() {
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
+  const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
 
   // Artisan Preferments state
   const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
@@ -1012,6 +1014,14 @@ export default function CalculatorScreen() {
           </Pressable>
 
           <Pressable
+            testID="open-cost-modal-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={() => setIsCostModalOpen(true)}
+          >
+            <Text style={styles.cloneRecipeBtnText}>💰 {t('Kalkulator kosztów')}</Text>
+          </Pressable>
+
+          <Pressable
             testID="save-custom-recipe-btn"
             style={styles.secondaryBtn}
             onPress={() => {
@@ -1081,6 +1091,17 @@ export default function CalculatorScreen() {
             setFlourBlend(newBlend);
           }}
           onClose={() => setIsBlendModalOpen(false)}
+        />
+
+        {/* Modal: Cost & Yield Batch Calculator */}
+        <CostCalculatorModal
+          visible={isCostModalOpen}
+          onClose={() => setIsCostModalOpen(false)}
+          totalFlourGrams={calculations.baseFlourWeightGrams}
+          totalWaterGrams={calculations.waterGrams}
+          totalSaltGrams={calculations.saltGrams}
+          loavesCount={calcMode === 'loaves' ? loavesCount : 1}
+          bakedLoafWeightGrams={bakedSingleLoafWeight}
         />
       </ScrollView>
     </SafeAreaView>

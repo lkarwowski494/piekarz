@@ -298,5 +298,19 @@ export const EN: Record<string, string> = {
   'Zdejmij pokrywkę!': 'Remove lid!',
   'Rozpocznij Fazę 2': 'Start Phase 2',
   'Temperatura docelowa:': 'Target temperature:',
+
+  // Cost & Yield Calculator
+  'Kalkulator kosztów wypieku': 'Bake cost calculator',
+  'Szacunkowy koszt składników i energii pieca': 'Estimated cost of ingredients and oven energy',
+  'Koszt za bochenek': 'Cost per loaf',
+  'Koszt całego wypieku': 'Total batch cost',
+  'Składniki': 'Ingredients',
+  'Energia pieca': 'Oven energy',
+  'Koszt na 100g': 'Cost per 100g',
+  'Cena mąki': 'Flour price',
+  'Cena energii': 'Electricity price',
+  'Dodatki (orzechy, ziarna)': 'Add-ins (nuts, seeds)',
+  'Kalkulator kosztów': 'Cost calculator',
+  'Zamknij': 'Close',
 };
 
