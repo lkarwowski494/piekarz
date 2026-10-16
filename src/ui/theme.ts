@@ -27,6 +27,9 @@ export const theme = {
 
     activeStageBadge: '#D97724',
     passiveStageBadge: '#78716C',
+
+    card: '#F7F2EB',             // Alias dla surfaceCard
+    crustGold: '#D97724',        // Alias dla accent (Amber Crust)
   },
   typography: {
     fontFamilyHeading: 'System',

@@ -429,5 +429,73 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
       closeBtn.props.onPress();
     });
   });
+
+  it('filters master recipes by category and displays artisan details card', async () => {
+    await renderScreen();
+
+    // Check default info card for initial master recipe (country loaf)
+    const infoCard = tree!.root.findByProps({ testID: 'master-recipe-info-card' });
+    expect(infoCard).toBeDefined();
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Na zakwasie');
+    expect(fullText).toContain('Pieczenie');
+    expect(fullText).toContain('garnek żeliwny');
+
+    // Switch category filter to Rye (Żytnie)
+    const ryeFilterBtn = tree!.root.findByProps({ testID: 'category-filter-rye' });
+    await act(async () => {
+      ryeFilterBtn.props.onPress();
+    });
+
+    // Check that rye recipe chip is present
+    const ryeChip = tree!.root.findByProps({ testID: 'preset-chip-rye_100_pan' });
+    expect(ryeChip).toBeDefined();
+
+    // Select Borodinsky rye recipe
+    const borodinskyChip = tree!.root.findByProps({ testID: 'preset-chip-borodinsky_rye' });
+    expect(borodinskyChip).toBeDefined();
+
+    await act(async () => {
+      borodinskyChip.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Chleb Borodyński');
+    expect(fullText).toContain('foremka keksówka');
+  });
+
+  it('copies recipe JSON to clipboard and opens import modal', async () => {
+    await renderScreen();
+
+    // Export JSON button
+    const exportJsonBtn = tree!.root.findByProps({ testID: 'export-recipe-json-btn' });
+    expect(exportJsonBtn).toBeDefined();
+
+    await act(async () => {
+      exportJsonBtn.props.onPress();
+    });
+
+    // Open import modal
+    const openImportBtn = tree!.root.findByProps({ testID: 'open-import-recipe-btn' });
+    expect(openImportBtn).toBeDefined();
+
+    await act(async () => {
+      openImportBtn.props.onPress();
+    });
+
+    const importModal = tree!.root.findByProps({ testID: 'import-recipe-modal' });
+    expect(importModal).toBeDefined();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Importuj recepturę');
+
+    // Close import modal
+    const closeImportBtn = tree!.root.findByProps({ testID: 'close-import-btn' });
+    await act(async () => {
+      closeImportBtn.props.onPress();
+    });
+  });
 });
+
 

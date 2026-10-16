@@ -19,7 +19,10 @@ export interface RecipePreset {
   bakeTempBrowningC: number;
   recommendedVessel: 'dutch_oven' | 'bread_pan' | 'baking_steel' | 'baking_sheet';
   notesPl: string;
+  difficulty?: 'easy' | 'medium' | 'hard' | 'artisan';
 }
+
+export type MasterRecipe = RecipePreset;
 
 export const MASTER_RECIPES: RecipePreset[] = [
   {

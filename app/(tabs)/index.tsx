@@ -36,11 +36,14 @@ import {
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
+import * as Clipboard from 'expo-clipboard';
 import { SettingsModal } from '../../src/components/SettingsModal';
 import { FlourBlendModal } from '../../src/components/FlourBlendModal';
 import { CostCalculatorModal } from '../../src/components/CostCalculatorModal';
 import { FlourInventoryModal } from '../../src/components/FlourInventoryModal';
+import { ImportRecipeModal } from '../../src/components/ImportRecipeModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
+import { exportRecipeToJson } from '../../src/lib/recipe-sharing';
 import {
   calculatePrefermentBreakdown,
   PREFERMENT_DEFINITIONS,
@@ -94,6 +97,10 @@ export default function CalculatorScreen() {
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
   const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
+  const [masterCategoryFilter, setMasterCategoryFilter] = useState<
+    'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet'
+  >('all');
 
   // Artisan Preferments state
   const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
@@ -107,6 +114,51 @@ export default function CalculatorScreen() {
   useEffect(() => {
     loadRecipesFromStore();
   }, [loadRecipesFromStore]);
+
+  const filteredMasterRecipes = useMemo(() => {
+    if (masterCategoryFilter === 'all') return MASTER_RECIPES;
+    if (masterCategoryFilter === 'pizza_sweet') {
+      return MASTER_RECIPES.filter((p) => p.category === 'pizza' || p.category === 'sweet');
+    }
+    return MASTER_RECIPES.filter((p) => p.category === masterCategoryFilter);
+  }, [masterCategoryFilter]);
+
+  const currentMasterPreset = useMemo(() => {
+    return MASTER_RECIPES.find((p) => p.id === selectedPresetId);
+  }, [selectedPresetId]);
+
+  const handleExportRecipeJson = async () => {
+    const payload = {
+      id: selectedPresetId,
+      name: recipeName,
+      targetDDT: targetDdt,
+      formula: {
+        flours: flourBlend,
+        waterPercentage: waterPct,
+        saltPercentage: saltPct,
+        starterPercentage: starterPct,
+        starterHydration,
+        targetDoughWeightGrams,
+      },
+      isBuiltIn: false,
+      createdAt: Date.now(),
+    };
+    const json = exportRecipeToJson(payload as any);
+    await Clipboard.setStringAsync(json);
+    Alert.alert(t('Eksport JSON'), t('Skopiowano kod JSON receptury do schowka.'));
+  };
+
+  const handleImportSuccess = (imported: StoredRecipe) => {
+    setSelectedPresetId(imported.id);
+    setRecipeName(imported.name);
+    setFlourBlend(imported.formula.flours);
+    setWaterPct(imported.formula.waterPercentage);
+    setStarterPct(imported.formula.starterPercentage);
+    setSaltPct(imported.formula.saltPercentage);
+    setStarterHydration(imported.formula.starterHydration ?? 100.0);
+    setTargetDdt(imported.targetDDT);
+    loadRecipesFromStore();
+  };
 
   // Select Master Preset
   const handleSelectMasterPreset = (presetId: string) => {
@@ -365,13 +417,73 @@ export default function CalculatorScreen() {
         {/* Master & Custom Recipes Selector */}
         <View style={styles.sectionHeaderRow}>
           <Text style={styles.sectionHeading}>{t('Receptury mistrzowskie')}</Text>
+          <Pressable
+            testID="open-import-recipe-btn"
+            accessibilityRole="button"
+            accessibilityLabel={t('Importuj JSON')}
+            style={styles.headerActionPill}
+            onPress={() => setIsImportModalOpen(true)}
+          >
+            <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
+          </Pressable>
         </View>
+
+        {/* Master Recipes Category Filters */}
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoryFilterScroll}>
+          <Pressable
+            testID="category-filter-all"
+            onPress={() => setMasterCategoryFilter('all')}
+            style={[styles.categoryFilterChip, masterCategoryFilter === 'all' && styles.categoryFilterChipActive]}
+          >
+            <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'all' && styles.categoryFilterChipTextActive]}>
+              {t('Wszystkie')} ({MASTER_RECIPES.length})
+            </Text>
+          </Pressable>
+          <Pressable
+            testID="category-filter-sourdough"
+            onPress={() => setMasterCategoryFilter('sourdough')}
+            style={[styles.categoryFilterChip, masterCategoryFilter === 'sourdough' && styles.categoryFilterChipActive]}
+          >
+            <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'sourdough' && styles.categoryFilterChipTextActive]}>
+              🌾 {t('Na zakwasie')}
+            </Text>
+          </Pressable>
+          <Pressable
+            testID="category-filter-rye"
+            onPress={() => setMasterCategoryFilter('rye')}
+            style={[styles.categoryFilterChip, masterCategoryFilter === 'rye' && styles.categoryFilterChipActive]}
+          >
+            <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'rye' && styles.categoryFilterChipTextActive]}>
+              🍞 {t('Żytnie')}
+            </Text>
+          </Pressable>
+          <Pressable
+            testID="category-filter-yeast"
+            onPress={() => setMasterCategoryFilter('yeast')}
+            style={[styles.categoryFilterChip, masterCategoryFilter === 'yeast' && styles.categoryFilterChipActive]}
+          >
+            <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'yeast' && styles.categoryFilterChipTextActive]}>
+              🥖 {t('Drożdżowe')}
+            </Text>
+          </Pressable>
+          <Pressable
+            testID="category-filter-pizza-sweet"
+            onPress={() => setMasterCategoryFilter('pizza_sweet')}
+            style={[styles.categoryFilterChip, masterCategoryFilter === 'pizza_sweet' && styles.categoryFilterChipActive]}
+          >
+            <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'pizza_sweet' && styles.categoryFilterChipTextActive]}>
+              🍕 {t('Pizza i słodkie')}
+            </Text>
+          </Pressable>
+        </ScrollView>
+
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
-          {MASTER_RECIPES.map((preset) => {
+          {filteredMasterRecipes.map((preset) => {
             const isSelected = preset.id === selectedPresetId;
             return (
               <Pressable
                 key={preset.id}
+                testID={`preset-chip-${preset.id}`}
                 onPress={() => handleSelectMasterPreset(preset.id)}
                 style={[styles.presetChip, isSelected && styles.presetChipActive]}
               >
@@ -382,6 +494,65 @@ export default function CalculatorScreen() {
             );
           })}
         </ScrollView>
+
+        {/* Master Recipe Details Card */}
+        {currentMasterPreset && (
+          <View style={styles.masterRecipeInfoCard} testID="master-recipe-info-card">
+            <View style={styles.masterInfoPillsRow}>
+              <View style={styles.categoryPill}>
+                <Text style={styles.categoryPillText}>
+                  {currentMasterPreset.category === 'sourdough' && `🌾 ${t('Na zakwasie')}`}
+                  {currentMasterPreset.category === 'rye' && `🍞 ${t('Żytni')}`}
+                  {currentMasterPreset.category === 'yeast' && `🥖 ${t('Drożdżowy')}`}
+                  {currentMasterPreset.category === 'pizza' && `🍕 ${t('Pizza')}`}
+                  {currentMasterPreset.category === 'sweet' && `🥐 ${t('Słodkie')}`}
+                </Text>
+              </View>
+              <View
+                style={[
+                  styles.difficultyPill,
+                  currentMasterPreset.difficulty === 'easy' && styles.difficultyEasy,
+                  currentMasterPreset.difficulty === 'medium' && styles.difficultyMedium,
+                  currentMasterPreset.difficulty === 'hard' && styles.difficultyHard,
+                  currentMasterPreset.difficulty === 'artisan' && styles.difficultyArtisan,
+                ]}
+              >
+                <Text style={styles.difficultyPillText}>
+                  {currentMasterPreset.difficulty === 'easy' && `🟢 ${t('Łatwy')}`}
+                  {currentMasterPreset.difficulty === 'medium' && `🟡 ${t('Średni')}`}
+                  {currentMasterPreset.difficulty === 'hard' && `🟠 ${t('Wymagający')}`}
+                  {currentMasterPreset.difficulty === 'artisan' && `🔴 ${t('Mistrzowski')}`}
+                </Text>
+              </View>
+            </View>
+
+            <Text style={styles.masterDescriptionText}>{currentMasterPreset.descriptionPl}</Text>
+
+            <View style={styles.masterTechniqueBox}>
+              <Text style={styles.masterTechniqueItem}>
+                ♨️ <Text style={styles.boldText}>{t('Pieczenie')}:</Text>{' '}
+                {currentMasterPreset.bakeTempSteamC}°C (
+                {currentMasterPreset.bakeTimeSteamMinutes}m {t('para')} +{' '}
+                {currentMasterPreset.bakeTimeBrowningMinutes}m w {currentMasterPreset.bakeTempBrowningC}°C)
+              </Text>
+              <Text style={styles.masterTechniqueItem}>
+                🥖 <Text style={styles.boldText}>{t('Naczynie')}:</Text>{' '}
+                {currentMasterPreset.recommendedVessel === 'dutch_oven'
+                  ? 'garnek żeliwny'
+                  : currentMasterPreset.recommendedVessel === 'bread_pan'
+                  ? 'foremka keksówka'
+                  : currentMasterPreset.recommendedVessel === 'baking_steel'
+                  ? 'stal piekarska'
+                  : 'blacha piekarnika'}
+              </Text>
+              {currentMasterPreset.notesPl ? (
+                <Text style={styles.masterTechniqueItem}>
+                  📝 <Text style={styles.boldText}>{t('Wskazówki')}:</Text> {currentMasterPreset.notesPl}
+                </Text>
+              ) : null}
+            </View>
+          </View>
+        )}
 
         {customRecipes.length > 0 && (
           <View>
@@ -1024,6 +1195,22 @@ export default function CalculatorScreen() {
           </Pressable>
 
           <Pressable
+            testID="export-recipe-json-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={handleExportRecipeJson}
+          >
+            <Text style={styles.cloneRecipeBtnText}>📦 {t('Eksportuj JSON')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="import-recipe-json-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={() => setIsImportModalOpen(true)}
+          >
+            <Text style={styles.cloneRecipeBtnText}>📥 {t('Importuj JSON')}</Text>
+          </Pressable>
+
+          <Pressable
             testID="open-cost-modal-btn"
             style={styles.cloneRecipeBtn}
             onPress={() => setIsCostModalOpen(true)}
@@ -1119,6 +1306,13 @@ export default function CalculatorScreen() {
           visible={isInventoryOpen}
           onClose={() => setIsInventoryOpen(false)}
           recipeFlours={calculations.flours}
+        />
+
+        {/* Modal: Import Recipe JSON */}
+        <ImportRecipeModal
+          visible={isImportModalOpen}
+          onClose={() => setIsImportModalOpen(false)}
+          onImportSuccess={handleImportSuccess}
         />
       </ScrollView>
     </SafeAreaView>
@@ -1856,5 +2050,120 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.accentDark,
+  },
+  headerActionPill: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.borderActive,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 14,
+  },
+  headerActionPillText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+  },
+  categoryFilterScroll: {
+    marginBottom: 8,
+  },
+  categoryFilterChip: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    marginRight: 8,
+  },
+  categoryFilterChipActive: {
+    backgroundColor: theme.colors.crustGold,
+    borderColor: theme.colors.crustGold,
+  },
+  categoryFilterChipText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  categoryFilterChipTextActive: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  masterRecipeInfoCard: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.borderActive,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    marginTop: 8,
+    marginBottom: 12,
+  },
+  masterInfoPillsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 8,
+  },
+  categoryPill: {
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+  },
+  categoryPillText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  difficultyPill: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  difficultyEasy: {
+    backgroundColor: '#E8F5E9',
+    borderColor: '#A5D6A7',
+  },
+  difficultyMedium: {
+    backgroundColor: '#FFF8E1',
+    borderColor: '#FFE082',
+  },
+  difficultyHard: {
+    backgroundColor: '#FFF3E0',
+    borderColor: '#FFCC80',
+  },
+  difficultyArtisan: {
+    backgroundColor: '#FBE9E7',
+    borderColor: '#FFAB91',
+  },
+  difficultyPillText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  masterDescriptionText: {
+    fontSize: 13,
+    color: theme.colors.textSecondary,
+    lineHeight: 18,
+    marginBottom: 10,
+  },
+  masterTechniqueBox: {
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: 8,
+    padding: 10,
+    gap: 5,
+  },
+  masterTechniqueItem: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 17,
+  },
+  boldText: {
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
   },
 });

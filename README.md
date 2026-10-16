@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-1018%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-1037%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -39,6 +39,8 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
    - Magazyn mąk i ostrzeżenia o brakach magazynowych w spiżarni (`FlourInventoryModal`).
    - Kalkulator kosztu surowcowego bochenka (`CostCalculatorModal`).
    - Mieszalnik mąk i kalkulator wypadkowego białka/W (`FlourBlendModal`).
+   - Filtrowanie receptur mistrzowskich według 4 kategorii rzemieślniczych i karty zaleceń wypiekowych.
+   - Eksport i bezpieczny import formuł w formacie JSON (`ImportRecipeModal`, `recipe-sharing.ts`).
 2. **⏱️ Harmonogram Wsteczny z Ochroną Snu (Sleep Guard):**
    - Planowanie wstecz od docelowej godziny podania lub krojenia chleba.
    - Adaptacja długości fermentacji burzliwej do temperatury otoczenia ($Q_{10}$).
@@ -155,13 +157,14 @@ npm run start
 
 ## 🛡️ Wielowymiarowa Architektura Testów (Standard Apps4Brew)
 
-Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **1018 testów automatycznych w 43 zestawach testowych** obejmujących 6 niezależnych perspektyw:
+Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **1037 testów automatycznych w 45 zestawach testowych** obejmujących 6 niezależnych perspektyw:
 
 1. **Property-Based Testing (`fast-check`):**
    - Weryfikacja niezmienników algebraicznych na tysiącach losowych permutacjach wejściowych (`numRuns: 1000`).
    - Zachowanie bilansu masy mąki, wody i soli w ciastach od mikro-porcji (200g) do misek piekarskich (20kg).
    - Ścisła monotoniczność równań termodynamicznych lodu, parowania piecowego (Bake Loss) oraz kinetyki podwajania/poławiania czasów fermentacji $Q_{10} = 2.0$ przy $\pm 10^\circ\text{C}$.
    - Ciągłość i ścisłe przyleganie faz w harmonogramie wstecznym dla dowolnych znaczników czasu w latach 2026–2028.
+   - Niezmiennik odwracalności serializacji JSON (round-trip export/import) oraz odporność na losowe zniekształcenia tekstu Unicode.
 2. **Niezależny Korpus Fizyczny (Python ↔ TypeScript):**
    - Skrypt `scripts/gen-baking-physics-corpus.py` generuje 566 wzorcowych wektorów prawdy dla DDT, topnienia lodu, kinetyki Arrheniusa, proporcji dokarmiania oraz bilansu strat piecowych i wilgotności miękiszu.
    - Weryfikacja bit-do-bitu gwarantuje brak rozbieżności implementacyjnych między środowiskami.
@@ -192,6 +195,11 @@ piekarz/
 │       └── doktor.tsx          # Doktor Chleba — diagnostyka problemów
 ├── src/
 │   ├── components/             # Reużywalne komponenty HIG i modale funkcyjne
+│   │   ├── ImportRecipeModal.tsx # Bezpieczny import i podgląd receptur z formatu JSON
+│   │   ├── FlourBlendModal.tsx   # Wieloskładnikowy mieszalnik mąk i normalizator
+│   │   ├── FlourInventoryModal.tsx # Magazyn mąk i spiżarnia
+│   │   ├── CostCalculatorModal.tsx # Kalkulator kosztów surowcowych
+│   │   └── StarterConverterModal.tsx # Konwerter hydratacji i Lievito Madre
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
 │   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
@@ -221,6 +229,7 @@ piekarz/
 │   │   ├── schedule-formatter.ts # Udostępnianie harmonogramu wstecznego
 │   │   ├── diagnosis-formatter.ts # Udostępnianie diagnozy Doktora Chleba
 │   │   ├── recipe-formatter.ts # Udostępnianie receptury
+│   │   ├── recipe-sharing.ts   # Bezpieczna serializacja JSON i walidacja formuł
 │   │   ├── i18n.ts             # Silnik tłumaczeń z polskim kluczem źródłowym
 │   │   ├── i18n.en.ts          # Słownik języka angielskiego
 │   │   └── __tests__/          # Testy narzędzi

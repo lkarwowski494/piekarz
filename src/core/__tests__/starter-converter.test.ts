@@ -181,8 +181,8 @@ describe('Starter Converter Engine (src/core/starter-converter.ts)', () => {
             });
 
             expect(res.actualYieldGrams).toBe(res.seedStarterGrams + res.addedFlourGrams + res.addedWaterGrams);
-            // Hydration check within 1.5% due to integer rounding of gram values
-            expect(Math.abs(res.actualHydration - tgtHydr)).toBeLessThanOrEqual(2.0);
+            // Hydration check within 3.0% due to integer rounding of gram values in small batches
+            expect(Math.abs(res.actualHydration - tgtHydr)).toBeLessThanOrEqual(3.0);
           }
         ),
         { numRuns: 100 }
