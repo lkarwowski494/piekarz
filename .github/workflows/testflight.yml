@@ -35,6 +35,13 @@ jobs:
             [ -n "${!v}" ] || { echo "::error::Brak wymaganego sekretu $v w Settings -> Secrets and variables -> Actions"; exit 1; };
           done
       - run: npm ci --legacy-peer-deps
+      - name: Weryfikacja i rejestracja Bundle ID w App Store Connect
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+          BUNDLE_ID: com.apps4brew.baker
+        run: node scripts/ci/check-or-register-app.mjs
       - name: Weryfikacja jakości (TypeScript + testy jednostkowe)
         run: npm run verify
       - name: Generowanie natywnego projektu iOS (expo prebuild)
