@@ -13,3 +13,5 @@ web-build/
 coverage/
 .idea/
 .vscode/
+ios/
+android/
