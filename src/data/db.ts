@@ -49,6 +49,11 @@ export interface StoredFlourInventoryItem {
   updatedAt: number;
 }
 
+export interface StoredLessonProgress {
+  levelId: number;
+  completedAt: number;
+}
+
 /**
  * In-memory repository with local persistence layer.
  * Implements full CRUD without external cloud dependencies.

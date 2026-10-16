@@ -36,19 +36,19 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | Moduł / Obszar | Ref. BRD | Opis | Status |
 | :--- | :--- | :--- | :--- |
 | **Kalkulator True Baker’s %** | `Z-001`–`Z-012` | Bilans hydratacji z zakwasem, DDT 4-składnikowe, lód, tarcie, blend mąk | ✅ Wdrożone |
-| **Przelicznik Objętość ↔ Waga** | `Z-013` | Szklanki/łyżki na gramy (mąka, woda, sól, drożdże) z ostrzeżeniem | ⏳ Do wdrożenia |
+| **Przelicznik Objętość ↔ Waga** | `Z-013` | Szklanki/łyżki na gramy (mąka, woda, sól, drożdże) z ostrzeżeniem | ✅ Wdrożone |
 | **Magazyn Mąk & Koszty** | `Z-051`, `Z-053` | Spiżarnia mąk, białko %, popiół, chłonność, kalkulator kosztów, odpis z magazynu | ✅ Wdrożone |
-| **Słownik Odpowiedników Mąk** | `Z-052` | Międzynarodowe typy mąk (PL ↔ FR ↔ IT ↔ DE ↔ US/UK) | ⏳ Do wdrożenia |
+| **Słownik Odpowiedników Mąk** | `Z-052` | Międzynarodowe typy mąk (PL ↔ FR ↔ IT ↔ DE ↔ US/UK) | ✅ Wdrożone |
 | **Harmonogram Wsteczny** | `Z-015`–`Z-023` | Reverse scheduling, Sleep Guard, kinetyka Q10, garowanie chłodnicze, piec | ✅ Wdrożone |
 | **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, prowadzenie krok po kroku, składania, wyłączenie żyta, wypiek | ✅ Wdrożone |
 | **Galeria & Oceny Wypieków** | `Z-049`, `Z-050` | 1–5 gwiazdek, scoring miękiszu/skórki, profile smakowe, statystyki | ✅ Wdrożone |
 | **Zakwas & Bezpieczeństwo** | `Z-038`–`Z-042`, `Z-045` | Profil, dokarmianie 1:2:2, predyktor peak, hooch, kahm, alarm pleśni | ✅ Wdrożone |
 | **Lievito Madre 50%** | `Z-044` | Protokół konwersji 100% ↔ 50% LM, schemat 3 odświeżeń | ✅ Wdrożone |
-| **Przepisy na Odrzut (Discard)** | `Z-043` | Baza przepisów na odrzut zakwasu (krakersy, naleśniki, gofry, ciasteczka) | ⏳ Do wdrożenia |
+| **Przepisy na Odrzut (Discard)** | `Z-043` | Baza przepisów na odrzut zakwasu (krakersy, naleśniki, gofry, ciasteczka) | ✅ Wdrożone |
 | **Doktor Chleba & Ratunek** | `Z-099`–`Z-100` | Drzewo symptomów, 9 kodów wad, procedury ratowania ciasta (Dough Recovery) | ✅ Wdrożone |
-| **Szkoła Chleba (Ścieżka SCI)** | `Z-084`–`Z-090` | 6 stopni wtajemniczenia: No-knead, wiejski, Tartine, 100% żytni, bagietka, pizza | ⏳ Do wdrożenia |
-| **Biblioteka Technik (BIB)** | `Z-091`–`Z-098` | 12 kart technik: autoliza, coil fold, slap&fold, laminacja, pre-shape, scoring | ⏳ Do wdrożenia |
-| **Trener Rachunku & Fiszki (TRE)** | `BR-TRE-001/002` | Mental Baker Drill (60s), poziomy 1–3, fiszki biochemiczne z systemem Leitnera | ⏳ Do wdrożenia |
+| **Szkoła Chleba (Ścieżka SCI)** | `Z-084`–`Z-090` | 6 stopni wtajemniczenia: No-knead, wiejski, Tartine, 100% żytni, bagietka, pizza | ✅ Wdrożone |
+| **Biblioteka Technik (BIB)** | `Z-091`–`Z-098` | 12 kart technik: autoliza, coil fold, slap&fold, laminacja, pre-shape, scoring | ✅ Wdrożone |
+| **Trener Rachunku & Fiszki (TRE)** | `BR-TRE-001/002` | Mental Baker Drill (60s), poziomy 1–3, fiszki biochemiczne z systemem Leitnera | ✅ Wdrożone |
 | **Persystencja SQLite & Backup** | `Z-073`–`Z-076` | Baza w `/Library/SQLite`, auto-backup 10 kopii, JSON export/import, sharing | ✅ Wdrożone |
 | **Zegary kuchenne & Alarmy** | `Z-054`–`Z-056` | Timery wielobieżne, głośne alarmy, integracja dźwiękowa i wibracyjna | ✅ Wdrożone |
 | **Ustawienia & Pro** | `Z-078`–`Z-080` | Model etyczny, brak lock-in, Pro Lifetime, Family Sharing info | ✅ Wdrożone |

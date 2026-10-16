@@ -25,6 +25,7 @@ let memStarters: StoredStarter[] = [];
 let memRecipes: StoredRecipe[] = [];
 let memLogs: StoredBakeLog[] = [];
 let memFlourInventory: StoredFlourInventoryItem[] = [];
+let memCompletedLessons: number[] = [];
 let memActiveBake: ActiveBakeState | null = null;
 
 export function _resetMemStore(): void {
@@ -32,6 +33,7 @@ export function _resetMemStore(): void {
   memRecipes = [];
   memLogs = [];
   memFlourInventory = [];
+  memCompletedLessons = [];
   memActiveBake = null;
 }
 
@@ -540,5 +542,63 @@ export async function deductFlourStock(flourName: string, amountGrams: number): 
   }
 }
 
+// ----------------------------------------------------------------------------
+// Bread School Lesson Progress (Z-084…090 / SCI)
+// ----------------------------------------------------------------------------
 
+export async function getCompletedLessons(): Promise<number[]> {
+  const db = await getDb();
+  if (!db) {
+    return [...memCompletedLessons];
+  }
 
+  try {
+    const rows = (await db.getAllAsync(
+      'SELECT level_id FROM lesson_progress ORDER BY level_id ASC;'
+    )) as Array<{ level_id: number }>;
+    return rows.map((r) => r.level_id);
+  } catch {
+    return [...memCompletedLessons];
+  }
+}
+
+export async function toggleLessonProgress(levelId: number): Promise<boolean> {
+  const current = await getCompletedLessons();
+  const isCurrentlyCompleted = current.includes(levelId);
+
+  const db = await getDb();
+  if (!db) {
+    if (isCurrentlyCompleted) {
+      memCompletedLessons = memCompletedLessons.filter((l) => l !== levelId);
+      return false;
+    } else {
+      memCompletedLessons.push(levelId);
+      return true;
+    }
+  }
+
+  try {
+    if (isCurrentlyCompleted) {
+      await db.runAsync('DELETE FROM lesson_progress WHERE level_id = ?;', levelId);
+      memCompletedLessons = memCompletedLessons.filter((l) => l !== levelId);
+      return false;
+    } else {
+      await db.runAsync(
+        'INSERT OR REPLACE INTO lesson_progress (level_id, completed_at) VALUES (?, ?);',
+        levelId,
+        Date.now()
+      );
+      if (!memCompletedLessons.includes(levelId)) {
+        memCompletedLessons.push(levelId);
+      }
+      return true;
+    }
+  } catch {
+    return !isCurrentlyCompleted;
+  }
+}
+
+export async function isLessonCompleted(levelId: number): Promise<boolean> {
+  const list = await getCompletedLessons();
+  return list.includes(levelId);
+}

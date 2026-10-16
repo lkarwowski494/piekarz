@@ -20,6 +20,7 @@ import {
   getDoughRecoveryProtocol,
 } from '../../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
+import { BreadAcademyModal } from '../../src/components/BreadAcademyModal';
 
 interface DiagnosticPreset {
   id: string;
@@ -77,6 +78,7 @@ export default function DoctorScreen() {
   const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
   const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
   const [selectedRecoveryId, setSelectedRecoveryId] = useState<EmergencyCode | null>(null);
+  const [isAcademyOpen, setIsAcademyOpen] = useState<boolean>(false);
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
@@ -136,11 +138,41 @@ export default function DoctorScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>{t('Doktor Chleba')}</Text>
-          <Text style={styles.subtitle}>
-            {t('Diagnostyka błędów wypieku i ratowanie bochenka')}
-          </Text>
+          <View style={styles.headerRow}>
+            <View style={styles.flex1}>
+              <Text style={styles.title}>{t('Doktor Chleba')}</Text>
+              <Text style={styles.subtitle}>
+                {t('Diagnostyka błędów wypieku i ratowanie bochenka')}
+              </Text>
+            </View>
+            <Pressable
+              testID="open-academy-btn"
+              style={styles.academyHeaderPill}
+              onPress={() => setIsAcademyOpen(true)}
+              accessibilityLabel={t('Akademia Piekarza')}
+            >
+              <Text style={styles.academyHeaderPillText}>🎓 {t('Akademia')}</Text>
+            </Pressable>
+          </View>
         </View>
+
+        {/* Bread Academy Promotion Banner */}
+        <Pressable
+          testID="open-academy-banner"
+          style={styles.academyBanner}
+          onPress={() => setIsAcademyOpen(true)}
+        >
+          <View style={styles.academyBannerIcon}>
+            <Text style={styles.academyBannerIconText}>🎓</Text>
+          </View>
+          <View style={styles.academyBannerContent}>
+            <Text style={styles.academyBannerTitle}>{t('Akademia Piekarza')}</Text>
+            <Text style={styles.academyBannerSubtitle}>
+              {t('Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu')}
+            </Text>
+          </View>
+          <Text style={styles.academyBannerArrow}>→</Text>
+        </Pressable>
 
         {/* Diagnosis Result Card (Primary Focus) */}
         {diagnosis ? (
@@ -627,6 +659,12 @@ export default function DoctorScreen() {
             </View>
           )}
         </Pressable>
+
+        {/* Modal: Bread Academy (SCI, BIB, TRE) */}
+        <BreadAcademyModal
+          visible={isAcademyOpen}
+          onClose={() => setIsAcademyOpen(false)}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -642,7 +680,70 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   header: {
+    marginBottom: theme.spacing.sm,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  flex1: {
+    flex: 1,
+  },
+  academyHeaderPill: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 14,
+  },
+  academyHeaderPillText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+  },
+  academyBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.accentLight,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.sm,
     marginBottom: theme.spacing.md,
+  },
+  academyBannerIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: theme.colors.surface,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  academyBannerIconText: {
+    fontSize: 18,
+  },
+  academyBannerContent: {
+    flex: 1,
+  },
+  academyBannerTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  academyBannerSubtitle: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    lineHeight: 14,
+    marginTop: 1,
+  },
+  academyBannerArrow: {
+    fontSize: 16,
+    color: theme.colors.accent,
+    fontWeight: '700',
+    marginLeft: 6,
   },
   title: {
     fontSize: 28,

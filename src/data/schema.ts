@@ -64,5 +64,10 @@ export const SQLITE_INIT_QUERIES = [
     rating_stars INTEGER,
     notes TEXT,
     image_paths TEXT
+  );`,
+
+  `CREATE TABLE IF NOT EXISTS lesson_progress (
+    level_id INTEGER PRIMARY KEY NOT NULL,
+    completed_at INTEGER NOT NULL
   );`
 ];
