@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-1139%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-1161%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -20,6 +20,16 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
 - **100% Offline-First:** Pełna funkcjonalność bez połączenia z internetem. Działa w wiejskiej chacie, piwnicy i kuchni bez zasięgu.
 - **Zero Login & Bez Kont:** Brak ekranów rejestracji, formularzy logowania czy uciążliwego onboardingu. Po otwarciu aplikacji od razu przechodzisz do receptury i ważenia składników.
 - **Prywatność „Data Not Collected”:** Zero trackerów, zero zewnętrznych bibliotek telemetrycznych (brak Firebase, Meta, Google Analytics). Twoje receptury, harmonogramy i notatki należą wyłącznie do Ciebie.
+- **Kuchenny UX „Kitchen-Proof” & Progressive Disclosure:**
+  - **Poziom 1 (1-Tap, < 30s do miski):** Karta `DoMiskiScaleCard` z natychmiastowym wyborem chleba, stepperem liczby bochenków i checklistą składników na wadze kuchennej (mąka, woda, zakwas, sól).
+  - **Poziom 2 (Akordeon PRO):** Zwijany panel `ArtisanAccordionPro` kryjący 4-DDT (temperatura wody, tarcie miksera, bilansowanie lodu), atlas mąk (popiół, chłonność), prefermenty (Poolish, Biga, Levain) i stratę piecową.
+  - **Zasada Brudnego Kciuka:** Pola dotykowe $\ge 52\,\text{pt}$, haptyka przy każdym odważonym składniku, dźwięk dzwonka kuchennego oraz blokada wygaszania ekranu (`KeepAwake`).
+- **Model Monetyzacji „Cheaper than Espresso”:**
+  - **$0.99 USD / miesiąc** (~4,49 zł)
+  - **$4.99 USD / rok** (~22,99 zł) — *Oferta główna (~1,91 zł/msc)*
+  - **$14.99 USD Lifetime** (~69,99 zł) — *Zakup jednorazowy na zawsze*
+  - **Zero podziału na funkcje Free i Pro:** W okresie próbnym (7 dni lub pierwsze 3 pełne wypieki) użytkownik ma dostęp do **100% możliwości aplikacji** bez sztucznych ograniczeń.
+  - **Zasada Historii Zawsze Czytelnej (Read-Only):** Po wygaśnięciu okresu próbnego archiwalne wypieki, notatki i radary sensoryczne pozostają w 100% bezpłatne do wglądu. Blokowane są wyłącznie akcje tworzenia nowych wypieków, otwierające estetyczny Paywall.
 - **Własność Danych & Bezpieczna Persystencja:** Baza danych SQLite zabezpieczona w katalogu `/Library/SQLite` (chroniona przed przypadkowym skasowaniem w aplikacji *Pliki*). Automatyczna rotacja 10 najnowszych kopii po każdym wypieku (`Documents/Backup/`) oraz nielimitowany eksport/import JSON.
 - **Deterministyczna Fizyka i Matematyka Piekarska:**
   - **True Baker’s %:** Woda i mąka zawarte w zakwasie (Levain) są wliczane w bilans całkowitej hydratacji ciasta.
@@ -250,7 +260,11 @@ piekarz/
 │   │   ├── SensoryRadarChart.tsx # Wektorowy wykres pajęczynowy oceniania sensorycznego SVG
 │   │   ├── QrCodeSvg.tsx         # Wektorowy renderer kodów QR SVG
 │   │   ├── ShareRecipeQrModal.tsx# Udostępnianie receptur przez kody QR SVG i deep links
-│   │   └── QrScannerModal.tsx    # Offline skaner kodów kreskowych/QR aparatem
+│   │   ├── QrScannerModal.tsx    # Offline skaner kodów kreskowych/QR aparatem
+│   │   ├── PaywallModal.tsx      # Modal monetyzacji Cheaper than Espresso ($0.99 / $4.99 / $14.99)
+│   │   └── calculator/           # Komponenty kuchennego Progressive Disclosure
+│   │       ├── DoMiskiScaleCard.tsx    # Poziom 1: 1-Tap waga kuchenna, odhaczanie, haptyka
+│   │       └── ArtisanAccordionPro.tsx # Poziom 2: Zwijany panel 4-DDT, lód, prefermenty
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
 │   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
@@ -273,6 +287,7 @@ piekarz/
 │   │   └── __tests__/          # Testy reguł HIG S1, S5, S14
 │   ├── lib/                    # Narzędzia i adaptery Apps4Brew
 │   │   ├── announce.ts         # Asysta VoiceOver
+│   │   ├── app-access.ts       # Silnik uprawnień useAppAccess() i model Cheaper than espresso
 │   │   ├── backup.ts           # Eksport, autoBackup (rotacja 10) i safetyBackup
 │   │   ├── confirm.ts          # Znormalizowane dialogi HIG
 │   │   ├── db-path.ts          # Ochrona bazy w /Library/SQLite

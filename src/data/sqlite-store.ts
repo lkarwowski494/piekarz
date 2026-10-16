@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
 import { autoBackup, PiekarzBackupData } from '../lib/backup';
-import { StoredRecipe, StoredStarter, StoredBakeLog, StoredFlourInventoryItem } from './db';
+import { StoredRecipe, StoredStarter, StoredBakeLog, StoredFlourInventoryItem, StoredAppAccess, SubscriptionTier } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 
@@ -27,6 +27,14 @@ let memLogs: StoredBakeLog[] = [];
 let memFlourInventory: StoredFlourInventoryItem[] = [];
 let memCompletedLessons: number[] = [];
 let memActiveBake: ActiveBakeState | null = null;
+let memAppAccess: StoredAppAccess = {
+  id: 'current_user',
+  trialStartedAt: Date.now(),
+  trialDays: 7,
+  subscriptionTier: 'none',
+  subscriptionExpiresAt: null,
+  completedBakesCount: 0,
+};
 
 export function _resetMemStore(): void {
   memStarters = [];
@@ -35,6 +43,14 @@ export function _resetMemStore(): void {
   memFlourInventory = [];
   memCompletedLessons = [];
   memActiveBake = null;
+  memAppAccess = {
+    id: 'current_user',
+    trialStartedAt: Date.now(),
+    trialDays: 7,
+    subscriptionTier: 'none',
+    subscriptionExpiresAt: null,
+    completedBakesCount: 0,
+  };
 }
 
 export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
@@ -156,7 +172,25 @@ export async function initDatabase(): Promise<void> {
         protein_pct REAL,
         updated_at INTEGER NOT NULL
       );
+
+      CREATE TABLE IF NOT EXISTS app_access (
+        id TEXT PRIMARY KEY NOT NULL,
+        trial_started_at INTEGER NOT NULL,
+        trial_days INTEGER NOT NULL DEFAULT 7,
+        subscription_tier TEXT NOT NULL DEFAULT 'none',
+        subscription_expires_at INTEGER,
+        completed_bakes_count INTEGER NOT NULL DEFAULT 0
+      );
     `);
+
+    try {
+      await db.runAsync(
+        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
+         VALUES ('current_user', ?, 7, 'none', NULL, 0);`,
+        Date.now()
+      );
+    } catch {}
+
 
     try {
       await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
@@ -602,3 +636,120 @@ export async function isLessonCompleted(levelId: number): Promise<boolean> {
   const list = await getCompletedLessons();
   return list.includes(levelId);
 }
+
+// ----------------------------------------------------------------------------
+// Apps4Brew App Access & Monetization Store (Cheaper than espresso)
+// ----------------------------------------------------------------------------
+
+export async function getAppAccess(): Promise<StoredAppAccess> {
+  const db = await getDb();
+  if (!db) {
+    return { ...memAppAccess };
+  }
+  try {
+    const row = (await db.getFirstAsync(
+      'SELECT id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count FROM app_access WHERE id = ?;',
+      'current_user'
+    )) as {
+      id: string;
+      trial_started_at: number;
+      trial_days: number;
+      subscription_tier: string;
+      subscription_expires_at: number | null;
+      completed_bakes_count: number;
+    } | null;
+
+    if (!row) {
+      const now = Date.now();
+      await db.runAsync(
+        `INSERT OR REPLACE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
+         VALUES ('current_user', ?, 7, 'none', NULL, 0);`,
+        now
+      );
+      memAppAccess = {
+        id: 'current_user',
+        trialStartedAt: now,
+        trialDays: 7,
+        subscriptionTier: 'none',
+        subscriptionExpiresAt: null,
+        completedBakesCount: 0,
+      };
+      return { ...memAppAccess };
+    }
+
+    const data: StoredAppAccess = {
+      id: row.id,
+      trialStartedAt: row.trial_started_at,
+      trialDays: row.trial_days,
+      subscriptionTier: (row.subscription_tier as SubscriptionTier) || 'none',
+      subscriptionExpiresAt: row.subscription_expires_at,
+      completedBakesCount: row.completed_bakes_count || 0,
+    };
+    memAppAccess = { ...data };
+    return data;
+  } catch {
+    return { ...memAppAccess };
+  }
+}
+
+export async function setSubscriptionTier(tier: SubscriptionTier, expiresAt?: number | null): Promise<void> {
+  memAppAccess = {
+    ...memAppAccess,
+    subscriptionTier: tier,
+    subscriptionExpiresAt: expiresAt ?? null,
+  };
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.runAsync(
+      `UPDATE app_access SET subscription_tier = ?, subscription_expires_at = ? WHERE id = 'current_user';`,
+      tier,
+      expiresAt ?? null
+    );
+  } catch {}
+}
+
+export async function incrementCompletedBakes(): Promise<number> {
+  const current = await getAppAccess();
+  const nextCount = current.completedBakesCount + 1;
+  memAppAccess = {
+    ...memAppAccess,
+    completedBakesCount: nextCount,
+  };
+  const db = await getDb();
+  if (!db) return nextCount;
+  try {
+    await db.runAsync(
+      `UPDATE app_access SET completed_bakes_count = ? WHERE id = 'current_user';`,
+      nextCount
+    );
+  } catch {}
+  return nextCount;
+}
+
+export async function resetAppAccess(custom?: Partial<StoredAppAccess>): Promise<StoredAppAccess> {
+  const resetData: StoredAppAccess = {
+    id: 'current_user',
+    trialStartedAt: custom?.trialStartedAt ?? Date.now(),
+    trialDays: custom?.trialDays ?? 7,
+    subscriptionTier: custom?.subscriptionTier ?? 'none',
+    subscriptionExpiresAt: custom?.subscriptionExpiresAt ?? null,
+    completedBakesCount: custom?.completedBakesCount ?? 0,
+  };
+  memAppAccess = { ...resetData };
+  const db = await getDb();
+  if (!db) return resetData;
+  try {
+    await db.runAsync(
+      `INSERT OR REPLACE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
+       VALUES ('current_user', ?, ?, ?, ?, ?);`,
+      resetData.trialStartedAt,
+      resetData.trialDays,
+      resetData.subscriptionTier,
+      resetData.subscriptionExpiresAt ?? null,
+      resetData.completedBakesCount
+    );
+  } catch {}
+  return resetData;
+}
+

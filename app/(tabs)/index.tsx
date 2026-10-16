@@ -66,11 +66,28 @@ import {
   PREFERMENT_DEFINITIONS,
   PrefermentType,
 } from '../../src/core/preferments';
+import { useAppAccess } from '../../src/lib/app-access';
+import { PaywallModal } from '../../src/components/PaywallModal';
+import { DoMiskiScaleCard } from '../../src/components/calculator/DoMiskiScaleCard';
+import { ArtisanAccordionPro } from '../../src/components/calculator/ArtisanAccordionPro';
 
 type CalculationMode = 'loaves' | 'flour';
 
 export default function CalculatorScreen() {
   const router = useRouter();
+
+  // Apps4Brew Monetization & Access (Cheaper than espresso)
+  const {
+    access,
+    isPaywallVisible,
+    setPaywallVisible,
+    requireActionAccess,
+    subscribe,
+    restorePurchases,
+  } = useAppAccess();
+
+  // Progressive Disclosure: Artisan Accordion State
+  const [isArtisanAccordionOpen, setIsArtisanAccordionOpen] = useState<boolean>(false);
 
   // Mode: Bochenki (loaves) vs Masa mąki (flour)
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
@@ -441,32 +458,34 @@ export default function CalculatorScreen() {
 
   // Save Custom Recipe Handler
   const handleSaveCustomRecipe = async () => {
-    const trimmed = saveRecipeNameInput.trim();
-    if (!trimmed) return;
+    requireActionAccess(async () => {
+      const trimmed = saveRecipeNameInput.trim();
+      if (!trimmed) return;
 
-    const newCustom: StoredRecipe = {
-      id: `recipe_${Date.now()}`,
-      name: trimmed,
-      formula: {
-        flours: flourBlend,
-        waterPercentage: waterPct,
-        saltPercentage: saltPct,
-        starterPercentage: starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-      },
-      targetDDT: targetDdt,
-      isBuiltIn: false,
-      createdAt: Date.now(),
-    };
+      const newCustom: StoredRecipe = {
+        id: `recipe_${Date.now()}`,
+        name: trimmed,
+        formula: {
+          flours: flourBlend,
+          waterPercentage: waterPct,
+          saltPercentage: saltPct,
+          starterPercentage: starterPct,
+          starterHydration,
+          targetDoughWeightGrams,
+        },
+        targetDDT: targetDdt,
+        isBuiltIn: false,
+        createdAt: Date.now(),
+      };
 
-    await saveRecipe(newCustom);
-    await loadRecipesFromStore();
-    setSelectedPresetId(newCustom.id);
-    setRecipeName(newCustom.name);
-    setIsSaveModalOpen(false);
-    setSaveRecipeNameInput('');
-    Alert.alert(t('Zapisano przepis'), t('Przepis „{name}” został zapisany w Twojej bibliotece.', { name: trimmed }));
+      await saveRecipe(newCustom);
+      await loadRecipesFromStore();
+      setSelectedPresetId(newCustom.id);
+      setRecipeName(newCustom.name);
+      setIsSaveModalOpen(false);
+      setSaveRecipeNameInput('');
+      Alert.alert(t('Zapisano przepis'), t('Przepis „{name}” został zapisany w Twojej bibliotece.', { name: trimmed }));
+    });
   };
 
   // Copy Recipe to Clipboard
@@ -489,25 +508,27 @@ export default function CalculatorScreen() {
 
   // Transfer to Workbench (Stolnica)
   const handleStartBakeOnWorkbench = () => {
-    setActiveBake({
-      id: `bake_${Date.now()}`,
-      recipeName,
-      startedAt: Date.now(),
-      currentStageId: 'step_1',
-      ambientTempC: roomTemp,
-      actualDdtC: targetDdt,
-      calculatedRecipe: calculations,
-      recipeFormula: {
-        flours: flourBlend,
-        waterPercentage: waterPct,
-        saltPercentage: saltPct,
-        starterPercentage: starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-      },
-    });
+    requireActionAccess(() => {
+      setActiveBake({
+        id: `bake_${Date.now()}`,
+        recipeName,
+        startedAt: Date.now(),
+        currentStageId: 'step_1',
+        ambientTempC: roomTemp,
+        actualDdtC: targetDdt,
+        calculatedRecipe: calculations,
+        recipeFormula: {
+          flours: flourBlend,
+          waterPercentage: waterPct,
+          saltPercentage: saltPct,
+          starterPercentage: starterPct,
+          starterHydration,
+          targetDoughWeightGrams,
+        },
+      });
 
-    router.push('/(tabs)/stolnica');
+      router.push('/(tabs)/stolnica');
+    });
   };
 
   return (
@@ -529,6 +550,58 @@ export default function CalculatorScreen() {
             <Text style={styles.settingsHeaderBtnText}>⚙️</Text>
           </Pressable>
         </View>
+
+        {/* Progressive Disclosure Level 1: 1-Tap Scale Card (< 30s to bowl) */}
+        <DoMiskiScaleCard
+          calculations={calculations}
+          recipeName={recipeName}
+          loavesCount={calcMode === 'loaves' ? loavesCount : 1}
+          onLoavesChange={(count) => {
+            setCalcMode('loaves');
+            setLoavesCount(count);
+          }}
+          presets={MASTER_RECIPES.map((r) => ({ id: r.id, name: r.namePl }))}
+          selectedPresetId={selectedPresetId}
+          onSelectPreset={(id) => {
+            setSelectedPresetId(id);
+            const found = MASTER_RECIPES.find((r) => r.id === id);
+            if (found) {
+              setRecipeName(found.namePl);
+              setFlourBlend(found.formula.flours);
+              setWaterPct(found.formula.waterPercentage);
+              setStarterPct(found.formula.starterPercentage);
+              setSaltPct(found.formula.saltPercentage);
+              if (found.formula.starterHydration !== undefined) {
+                setStarterHydration(found.formula.starterHydration);
+              }
+              if (found.targetDDT !== undefined) {
+                setTargetDdt(found.targetDDT);
+              }
+            }
+          }}
+          onStartBake={handleStartBakeOnWorkbench}
+        />
+
+        {/* Progressive Disclosure Level 2: Artisan Collapsible Drawer */}
+        <ArtisanAccordionPro
+          isOpen={isArtisanAccordionOpen}
+          onToggle={() => setIsArtisanAccordionOpen((prev) => !prev)}
+          targetDdt={targetDdt}
+          onTargetDdtChange={setTargetDdt}
+          waterTempTarget={ddtResult.waterTempTarget}
+          iceGrams={iceResult?.iceGrams}
+          ambientTemp={roomTemp}
+          flourTemp={flourTemp}
+          frictionFactor={frictionFactor}
+          flourBlend={flourBlend}
+          onOpenBlendModal={() => setIsBlendModalOpen(true)}
+          waterPct={waterPct}
+          onWaterPctChange={setWaterPct}
+          prefermentType={prefermentType}
+          onPrefermentTypeChange={setPrefermentType}
+          bakeLossPercent={customBakeLossPercent}
+          bakedTotalWeightGrams={bakedTotalWeight}
+        />
 
         {/* Master & Custom Recipes Selector */}
         <View style={styles.sectionHeaderRow}>
@@ -1512,6 +1585,16 @@ export default function CalculatorScreen() {
         <VolumeConverterModal
           visible={isVolumeModalOpen}
           onClose={() => setIsVolumeModalOpen(false)}
+        />
+
+        {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+          trialDaysRemaining={access.trialDaysRemaining}
+          completedBakesCount={access.completedBakesCount}
         />
       </ScrollView>
     </SafeAreaView>

@@ -69,5 +69,15 @@ export const SQLITE_INIT_QUERIES = [
   `CREATE TABLE IF NOT EXISTS lesson_progress (
     level_id INTEGER PRIMARY KEY NOT NULL,
     completed_at INTEGER NOT NULL
+  );`,
+
+  `CREATE TABLE IF NOT EXISTS app_access (
+    id TEXT PRIMARY KEY NOT NULL,
+    trial_started_at INTEGER NOT NULL,
+    trial_days INTEGER NOT NULL DEFAULT 7,
+    subscription_tier TEXT NOT NULL DEFAULT 'none',
+    subscription_expires_at INTEGER,
+    completed_bakes_count INTEGER NOT NULL DEFAULT 0
   );`
 ];
+

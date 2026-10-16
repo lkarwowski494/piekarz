@@ -37,6 +37,8 @@ import {
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
+import { useAppAccess } from '../../src/lib/app-access';
+import { PaywallModal } from '../../src/components/PaywallModal';
 
 export interface BakeStep {
   id: string;
@@ -124,57 +126,69 @@ export default function StolnicaScreen() {
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
   const [selectedTasteFilter, setSelectedTasteFilter] = useState<'all' | 'mild' | 'balanced' | 'sour' | 'tangy'>('all');
 
+  // Apps4Brew Monetization & Access (Cheaper than espresso)
+  const {
+    access,
+    isPaywallVisible,
+    setPaywallVisible,
+    requireActionAccess,
+    subscribe,
+    restorePurchases,
+  } = useAppAccess();
+
   const bakeStats = useMemo(() => calculateBakeStatistics(bakeHistory), [bakeHistory]);
   const filteredHistory = useMemo(() => {
     return filterBakeLogs(bakeHistory, { tasteProfile: selectedTasteFilter });
   }, [bakeHistory, selectedTasteFilter]);
 
   const handleBakeAgain = async (log: StoredBakeLog) => {
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {
-      // ignore
-    }
-
-    try {
-      const custom = await getRecipes();
-      const allPresets = [...custom, ...MASTER_RECIPES];
-      const match = allPresets.find(
-        (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()
-      );
-
-      if (match) {
-        setPendingRecipeToLoad({
-          id: match.id,
-          name: 'namePl' in match ? match.namePl : match.name,
-          targetDDT: match.targetDDT,
-          formula: match.formula,
-        });
-      } else {
-        setPendingRecipeToLoad({
-          name: log.recipeName,
-          targetDDT: log.actualDDT ?? 25.0,
-          formula: {
-            flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
-            waterPercentage: 70.0,
-            saltPercentage: 2.0,
-            starterPercentage: 20.0,
-            starterHydration: 100.0,
-            targetDoughWeightGrams: 850,
-          },
-        });
+    requireActionAccess(async () => {
+      try {
+        void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      } catch {
+        // ignore
       }
 
-      router.navigate('/(tabs)');
-      Alert.alert(
-        t('Załadowano recepturę'),
-        t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
-          name: log.recipeName,
-        })
-      );
-    } catch {
-      router.navigate('/(tabs)');
-    }
+      try {
+        const custom = await getRecipes();
+        const allPresets = [...custom, ...MASTER_RECIPES];
+        const match = allPresets.find(
+          (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()
+        );
+
+        if (match) {
+          setPendingRecipeToLoad({
+            id: match.id,
+            name: 'namePl' in match ? match.namePl : match.name,
+            targetDDT: match.targetDDT,
+            formula: match.formula,
+          });
+        } else {
+          setPendingRecipeToLoad({
+            name: log.recipeName,
+            targetDDT: log.actualDDT ?? 25.0,
+            formula: {
+              flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+              waterPercentage: 70.0,
+              saltPercentage: 2.0,
+              starterPercentage: 20.0,
+              starterHydration: 100.0,
+              targetDoughWeightGrams: 850,
+            },
+          });
+        }
+
+        router.navigate('/(tabs)');
+        Alert.alert(
+          t('Załadowano recepturę'),
+          t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
+            name: log.recipeName,
+          })
+        );
+      } catch {
+        router.navigate('/(tabs)');
+      }
+    });
   };
 
   const loadHistory = useCallback(async () => {
@@ -227,12 +241,14 @@ export default function StolnicaScreen() {
 
   // Start new bake from idle
   const handleStartBake = () => {
-    setIsActive(true);
-    setCurrentStepIdx(0);
-    setStartedAt(Date.now());
-    setTimeLeftSec(BAKE_STEPS[0].timerMin * 60);
-    setIsRunning(false);
-    setIsCompleted(false);
+    requireActionAccess(() => {
+      setIsActive(true);
+      setCurrentStepIdx(0);
+      setStartedAt(Date.now());
+      setTimeLeftSec(BAKE_STEPS[0].timerMin * 60);
+      setIsRunning(false);
+      setIsCompleted(false);
+    });
   };
 
   // Jump to or advance step
@@ -963,6 +979,16 @@ export default function StolnicaScreen() {
             </View>
           </View>
         </Modal>
+
+        {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+          trialDaysRemaining={access.trialDaysRemaining}
+          completedBakesCount={access.completedBakesCount}
+        />
       </ScrollView>
     </SafeAreaView>
   );
