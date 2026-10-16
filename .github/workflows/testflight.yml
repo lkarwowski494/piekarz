@@ -34,7 +34,7 @@ jobs:
           for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_P8; do
             [ -n "${!v}" ] || { echo "::error::Brak wymaganego sekretu $v w Settings -> Secrets and variables -> Actions"; exit 1; };
           done
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       - name: Weryfikacja jakości (TypeScript + testy jednostkowe)
         run: npm run verify
       - name: Generowanie natywnego projektu iOS (expo prebuild)
