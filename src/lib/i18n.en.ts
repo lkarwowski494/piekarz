@@ -258,5 +258,27 @@ export const EN: Record<string, string> = {
   'Dodaj nowy zakwas': 'Add new starter',
   'Nowy zakwas': 'New starter',
   'Przełącz zakwas': 'Switch starter',
+
+  // Recipe Confirmation & Management
+  'Usunąć recepturę?': 'Delete recipe?',
+  'Receptura': 'Recipe',
+  'zostanie trwale usunięta z bazy.': 'will be permanently deleted from the database.',
+  'Usuń recepturę': 'Delete recipe',
+  'Klonuj recepturę': 'Clone recipe',
+  'Sklonowano przepis': 'Recipe cloned',
+  'Kopia': 'Copy',
+  'Utworzono edytowalną kopię w Twojej bibliotece.': 'Created an editable copy in your library.',
+
+  // Sensory Scoring (Stolnica)
+  'Struktura miękiszu': 'Crumb structure',
+  'Jakość skórki': 'Crust quality',
+  'Profil smakowy': 'Flavor profile',
+
+  // Artisan Preferments (Kalkulator)
+  'Zaczyny rzemieślnicze (Preferments)': 'Artisan Preferments',
+  'Typ zaczynu': 'Preferment type',
+  'Udział mąki w zaczynie': 'Flour in preferment',
+  'Mąka w zaczynie': 'Preferment flour',
+  'Woda w zaczynie': 'Preferment water',
 };
 

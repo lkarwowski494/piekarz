@@ -270,4 +270,68 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     const logs = await getBakeLogs();
     expect(logs.find((l: any) => l.id === 'bake_to_remove')).toBeUndefined();
   });
+
+  it('completes bake with sensory evaluation (crumb, crust, taste) and persists to SQLite', async () => {
+    await renderScreen();
+
+    // Start bake
+    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    await act(async () => {
+      startBtn?.props.onPress();
+    });
+
+    // Jump directly to last step (step 8)
+    const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
+      return extractCleanText(p.props.children).includes('Wypiek w garnku z parą');
+    });
+    expect(step8Btn).toBeDefined();
+
+    await act(async () => {
+      step8Btn?.props.onPress();
+    });
+
+    // Tap Zakończ wypiek button on last step to open Finish Modal
+    const finishTriggerBtn = tree!.root.findByProps({ testID: 'next-or-finish-step-btn' });
+    await act(async () => {
+      finishTriggerBtn.props.onPress();
+    });
+
+    const fullModalText = extractCleanText(tree?.toJSON());
+    expect(fullModalText).toContain('Zakończ wypiek');
+    expect(fullModalText).toContain('Struktura miękiszu');
+    expect(fullModalText).toContain('Jakość skórki');
+    expect(fullModalText).toContain('Profil smakowy');
+
+    // Select crumb score 5
+    const crumb5 = tree!.root.findByProps({ testID: 'crumb-score-5' });
+    await act(async () => {
+      crumb5.props.onPress();
+    });
+
+    // Select crust score 4
+    const crust4 = tree!.root.findByProps({ testID: 'crust-score-4' });
+    await act(async () => {
+      crust4.props.onPress();
+    });
+
+    // Select taste profile 'sour'
+    const tasteSour = tree!.root.findByProps({ testID: 'taste-sour' });
+    await act(async () => {
+      tasteSour.props.onPress();
+    });
+
+    // Save bake
+    const saveHistoryBtn = findButtonByText(tree!.root, 'Zapisz w historii');
+    await act(async () => {
+      await saveHistoryBtn?.props.onPress();
+    });
+
+    const logs = await getBakeLogs();
+    expect(logs.length).toBeGreaterThanOrEqual(1);
+    const latest = logs[0];
+    expect(latest.crumbScore).toBe(5);
+    expect(latest.crustScore).toBe(4);
+    expect(latest.tasteProfile).toBe('sour');
+  });
 });
+

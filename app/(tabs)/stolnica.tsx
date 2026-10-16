@@ -102,6 +102,9 @@ export default function StolnicaScreen() {
   const [isFinishModalOpen, setIsFinishModalOpen] = useState<boolean>(false);
   const [finishRating, setFinishRating] = useState<number>(5);
   const [finishNotes, setFinishNotes] = useState<string>('Chrupiąca skórka, otwarty miękisz i potężne ucho.');
+  const [finishCrumbScore, setFinishCrumbScore] = useState<number>(3);
+  const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
+  const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
 
   const loadHistory = useCallback(async () => {
@@ -220,6 +223,9 @@ export default function StolnicaScreen() {
       actualDDT: activeBakeData?.actualDdtC ?? 25.0,
       ratingStars: finishRating,
       notes: finishNotes.trim() || undefined,
+      crumbScore: finishCrumbScore,
+      crustScore: finishCrustScore,
+      tasteProfile: finishTasteProfile,
     });
 
     setActiveBake(null);
@@ -227,6 +233,9 @@ export default function StolnicaScreen() {
     setIsActive(false);
     setCurrentStepIdx(0);
     setIsFinishModalOpen(false);
+    setFinishCrumbScore(3);
+    setFinishCrustScore(3);
+    setFinishTasteProfile('balanced');
     await loadHistory();
   };
 
@@ -371,7 +380,11 @@ export default function StolnicaScreen() {
 
               {/* Step Navigation Controls */}
               <View style={styles.controlsRow}>
-                <Pressable style={styles.actionBtnNext} onPress={handleNextStep}>
+                <Pressable
+                  testID="next-or-finish-step-btn"
+                  style={styles.actionBtnNext}
+                  onPress={handleNextStep}
+                >
                   <Text style={styles.actionBtnNextText}>
                     {currentStepIdx === BAKE_STEPS.length - 1
                       ? `🏆 ${t('Zakończ wypiek')}`
@@ -483,6 +496,67 @@ export default function StolnicaScreen() {
                 multiline
                 numberOfLines={3}
               />
+
+              {/* Crumb Score */}
+              <Text style={styles.modalSectionLabel}>🍞 {t('Struktura miękiszu')} (1–5)</Text>
+              <View style={styles.scoreRow}>
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Pressable
+                    key={s}
+                    testID={`crumb-score-${s}`}
+                    style={[styles.scoreBtn, finishCrumbScore === s && styles.scoreBtnActive]}
+                    onPress={() => setFinishCrumbScore(s)}
+                  >
+                    <Text style={[styles.scoreBtnText, finishCrumbScore === s && styles.scoreBtnTextActive]}>{s}</Text>
+                  </Pressable>
+                ))}
+              </View>
+              <Text style={styles.scoreHint}>
+                {finishCrumbScore <= 2 ? '🧱 Zbity, gęsty miękisz — rozważaj dłuższy bulk' : finishCrumbScore >= 5 ? '🌟 Dzika, otwarta struktura rzemieślnicza!' : '✅ Ładna równomierna alweolatura'}
+              </Text>
+
+              {/* Crust Score */}
+              <Text style={styles.modalSectionLabel}>🔥 {t('Jakość skórki')} (1–5)</Text>
+              <View style={styles.scoreRow}>
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Pressable
+                    key={s}
+                    testID={`crust-score-${s}`}
+                    style={[styles.scoreBtn, finishCrustScore === s && styles.scoreBtnActive]}
+                    onPress={() => setFinishCrustScore(s)}
+                  >
+                    <Text style={[styles.scoreBtnText, finishCrustScore === s && styles.scoreBtnTextActive]}>{s}</Text>
+                  </Pressable>
+                ))}
+              </View>
+              <Text style={styles.scoreHint}>
+                {finishCrustScore <= 2 ? '🫧 Blada, miękka skórka — zwiększ parę lub temperaturę' : finishCrustScore >= 5 ? '💎 Perfekcyjna chrupiąca skórka z pęcherzykami' : '✅ Dobra skórka z lekkim połyskiem'}
+              </Text>
+
+              {/* Taste Profile */}
+              <Text style={styles.modalSectionLabel}>👅 {t('Profil smakowy')}</Text>
+              <View style={styles.tasteRow}>
+                {(['mild', 'balanced', 'sour', 'tangy'] as const).map((profile) => {
+                  const labels: Record<string, string> = {
+                    mild: '🍞 Łagodny',
+                    balanced: '⚖️ Zbalansowany',
+                    sour: '🍋 Kwaśny',
+                    tangy: '🔥 Bardzo kwaśny',
+                  };
+                  return (
+                    <Pressable
+                      key={profile}
+                      testID={`taste-${profile}`}
+                      style={[styles.tasteChip, finishTasteProfile === profile && styles.tasteChipActive]}
+                      onPress={() => setFinishTasteProfile(profile)}
+                    >
+                      <Text style={[styles.tasteChipText, finishTasteProfile === profile && styles.tasteChipTextActive]}>
+                        {labels[profile]}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
 
               <View style={styles.modalButtonsRow}>
                 <Pressable
@@ -940,6 +1014,65 @@ const styles = StyleSheet.create({
   modalConfirmBtnText: {
     fontSize: 14,
     color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  scoreRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 6,
+  },
+  scoreBtn: {
+    flex: 1,
+    paddingVertical: 8,
+    alignItems: 'center',
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  scoreBtnActive: {
+    backgroundColor: theme.colors.accent,
+    borderColor: theme.colors.accentDark,
+  },
+  scoreBtnText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.textSecondary,
+  },
+  scoreBtnTextActive: {
+    color: '#FFFFFF',
+  },
+  scoreHint: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    marginBottom: 14,
+    lineHeight: 16,
+  },
+  tasteRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginBottom: 18,
+  },
+  tasteChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  tasteChipActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  tasteChipText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  tasteChipTextActive: {
+    color: theme.colors.accentDark,
     fontWeight: '700',
   },
 });

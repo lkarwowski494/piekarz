@@ -35,9 +35,14 @@ import {
   setActiveBake,
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
-import { confirm } from '../../src/lib/confirm';
+import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
 import { SettingsModal } from '../../src/components/SettingsModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
+import {
+  calculatePrefermentBreakdown,
+  PREFERMENT_DEFINITIONS,
+  PrefermentType,
+} from '../../src/core/preferments';
 
 type CalculationMode = 'loaves' | 'flour';
 
@@ -84,6 +89,10 @@ export default function CalculatorScreen() {
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
 
+  // Artisan Preferments state
+  const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
+  const [prefermentFlourPct, setPrefermentFlourPct] = useState<number>(20.0);
+
   const loadRecipesFromStore = useCallback(async () => {
     const all = await getRecipes();
     setCustomRecipes(all.filter((r) => !r.isBuiltIn));
@@ -121,19 +130,39 @@ export default function CalculatorScreen() {
 
   // Delete Custom Recipe
   const handleDeleteCustomRecipe = (recipe: StoredRecipe) => {
-    confirm({
-      title: t('Usunąć przepis?'),
-      message: `${recipe.name} — ${t('Przepis zostanie trwale usunięty.')}`,
-      action: t('Usuń'),
-      destructive: true,
-      onConfirm: async () => {
-        await deleteRecipe(recipe.id);
-        if (selectedPresetId === recipe.id) {
-          handleSelectMasterPreset(MASTER_RECIPES[0].id);
-        }
-        await loadRecipesFromStore();
-      },
+    confirmDeleteRecipe(recipe.name, async () => {
+      await deleteRecipe(recipe.id);
+      if (selectedPresetId === recipe.id) {
+        handleSelectMasterPreset(MASTER_RECIPES[0].id);
+      }
+      await loadRecipesFromStore();
     });
+  };
+
+  // Clone Recipe as Custom
+  const handleCloneAsCustomRecipe = async () => {
+    const cloneName = `${recipeName} (${t('Kopia')})`;
+    const cloned: StoredRecipe = {
+      id: `recipe_${Date.now()}`,
+      name: cloneName,
+      formula: {
+        flours: [...flourBlend],
+        waterPercentage: waterPct,
+        saltPercentage: saltPct,
+        starterPercentage: starterPct,
+        starterHydration,
+        targetDoughWeightGrams,
+      },
+      targetDDT: targetDdt,
+      isBuiltIn: false,
+      createdAt: Date.now(),
+    };
+
+    await saveRecipe(cloned);
+    await loadRecipesFromStore();
+    setSelectedPresetId(cloned.id);
+    setRecipeName(cloned.name);
+    Alert.alert(t('Sklonowano przepis'), t('Utworzono edytowalną kopię w Twojej bibliotece.'));
   };
 
   // Apply Flour Blend Preset
@@ -216,6 +245,25 @@ export default function CalculatorScreen() {
   const blendAbsorption = useMemo(() => {
     return analyzeFlourBlendAbsorption(flourBlend, waterPct);
   }, [flourBlend, waterPct]);
+
+  const prefermentBreakdown = useMemo(() => {
+    if (prefermentType === 'direct') return null;
+    return calculatePrefermentBreakdown({
+      prefermentType,
+      prefermentFlourPercentage: prefermentFlourPct,
+      totalFlourGrams: calculations.totalFlourGrams,
+      totalTargetHydration: calculations.overallHydrationPercent,
+      saltPercentage: saltPct,
+      customPrefermentHydration: prefermentType === 'levain' ? starterHydration : undefined,
+    });
+  }, [
+    prefermentType,
+    prefermentFlourPct,
+    calculations.totalFlourGrams,
+    calculations.overallHydrationPercent,
+    saltPct,
+    starterHydration,
+  ]);
 
   // Save Custom Recipe Handler
   const handleSaveCustomRecipe = async () => {
@@ -624,6 +672,100 @@ export default function CalculatorScreen() {
           </View>
         </View>
 
+        {/* Artisan Preferments (Zaczyny rzemieślnicze) */}
+        <View style={styles.card}>
+          <Text style={styles.cardTitle}>{t('Zaczyny rzemieślnicze (Preferments)')}</Text>
+          <Text style={styles.cardSubtitle}>
+            Kalkulator Poolish, Biga, Pâte Fermentée z zachowaniem True Baker's %
+          </Text>
+
+          {/* Preferment Type Selector */}
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
+            {(['direct', 'poolish', 'biga', 'pate_fermentee', 'levain'] as const).map((type) => {
+              const def = PREFERMENT_DEFINITIONS[type];
+              const isSelected = prefermentType === type;
+              return (
+                <Pressable
+                  key={type}
+                  testID={`preferment-type-${type}`}
+                  style={[styles.presetChip, isSelected && styles.presetChipActive]}
+                  onPress={() => {
+                    setPrefermentType(type);
+                    if (type !== 'direct') {
+                      setPrefermentFlourPct(def.defaultPrefermentFlourPct);
+                    }
+                  }}
+                >
+                  <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
+                    {type === 'direct' && '🌾 '}
+                    {type === 'poolish' && '🥣 '}
+                    {type === 'biga' && '🥖 '}
+                    {type === 'pate_fermentee' && '🥐 '}
+                    {type === 'levain' && '🫙 '}
+                    {def.namePl.split(' (')[0]}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </ScrollView>
+
+          {prefermentBreakdown && (
+            <View style={styles.prefermentDetailsBlock} testID="preferment-details-block">
+              <View style={styles.row}>
+                <View style={styles.flex1}>
+                  <Text style={styles.label}>{t('Udział mąki w zaczynie')}</Text>
+                  <Text style={styles.sublabel}>
+                    {prefermentBreakdown.prefermentFlourGrams} g z {calculations.totalFlourGrams} g łącznej mąki
+                  </Text>
+                </View>
+                <View style={styles.chipRow}>
+                  {[15, 20, 25, 30, 40].map((pct) => (
+                    <Pressable
+                      key={pct}
+                      testID={`preferment-pct-${pct}`}
+                      style={[styles.smallChip, prefermentFlourPct === pct && styles.smallChipActive]}
+                      onPress={() => setPrefermentFlourPct(pct)}
+                    >
+                      <Text style={[styles.smallChipText, prefermentFlourPct === pct && styles.smallChipTextActive]}>
+                        {pct}%
+                      </Text>
+                    </Pressable>
+                  ))}
+                </View>
+              </View>
+
+              <View style={styles.divider} />
+
+              <View style={styles.prefermentGrid}>
+                <View style={styles.prefermentCol}>
+                  <Text style={styles.prefermentColHeader}>🥣 Zaczyn ({prefermentBreakdown.prefermentTotalWeightGrams} g)</Text>
+                  <Text style={styles.prefermentItemText}>🌾 {t('Mąka w zaczynie')}: {prefermentBreakdown.prefermentFlourGrams} g</Text>
+                  <Text style={styles.prefermentItemText}>💧 {t('Woda w zaczynie')}: {prefermentBreakdown.prefermentWaterGrams} g</Text>
+                  {prefermentBreakdown.prefermentYeastGrams > 0 && (
+                    <Text style={styles.prefermentItemText}>🧪 Drożdże: {prefermentBreakdown.prefermentYeastGrams} g</Text>
+                  )}
+                  {prefermentBreakdown.prefermentSaltGrams > 0 && (
+                    <Text style={styles.prefermentItemText}>🧂 Sól w starym cieście: {prefermentBreakdown.prefermentSaltGrams} g</Text>
+                  )}
+                </View>
+
+                <View style={styles.bakeLossMetricDivider} />
+
+                <View style={styles.prefermentCol}>
+                  <Text style={styles.prefermentColHeader}>🥖 Do miski (Ciasto właściwe)</Text>
+                  <Text style={styles.prefermentItemText}>🌾 Pozostała mąka: {prefermentBreakdown.doughAddedFlourGrams} g</Text>
+                  <Text style={styles.prefermentItemText}>💧 Pozostała woda: {prefermentBreakdown.doughAddedWaterGrams} g</Text>
+                  <Text style={styles.prefermentItemText}>🧂 Sól: {prefermentBreakdown.doughAddedSaltGrams} g</Text>
+                </View>
+              </View>
+
+              <Text style={styles.prefermentTipText}>
+                💡 {prefermentBreakdown.fermentationTipPl}
+              </Text>
+            </View>
+          )}
+        </View>
+
         {/* Big Scale Card: "Do miski na wagę" */}
         <View style={styles.scaleCard}>
           <View style={styles.scaleCardHeader}>
@@ -849,6 +991,14 @@ export default function CalculatorScreen() {
             onPress={handleCopyRecipe}
           >
             <Text style={styles.copyRecipeBtnText}>📋 {t('Kopiuj recepturę')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="clone-recipe-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={handleCloneAsCustomRecipe}
+          >
+            <Text style={styles.cloneRecipeBtnText}>✨ {t('Klonuj recepturę')}</Text>
           </Pressable>
 
           <Pressable
@@ -1571,5 +1721,52 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: theme.colors.textSecondary,
     lineHeight: 15,
+  },
+  cloneRecipeBtn: {
+    backgroundColor: theme.colors.surface,
+    paddingVertical: 12,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  cloneRecipeBtnText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: theme.colors.textPrimary,
+  },
+  prefermentDetailsBlock: {
+    marginTop: 12,
+    backgroundColor: theme.colors.surfaceCard,
+    padding: theme.spacing.md,
+    borderRadius: theme.radius.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  prefermentGrid: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 10,
+  },
+  prefermentCol: {
+    flex: 1,
+  },
+  prefermentColHeader: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    marginBottom: 6,
+  },
+  prefermentItemText: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    marginBottom: 3,
+  },
+  prefermentTipText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: theme.colors.textMuted,
+    fontStyle: 'italic',
+    marginTop: 4,
   },
 });

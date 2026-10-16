@@ -85,6 +85,9 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
       actualDDT: 26.0,
       ratingStars: 5,
       notes: 'Idealne ucho i chrupiąca skórka',
+      crumbScore: 5,
+      crustScore: 4,
+      tasteProfile: 'balanced' as const,
     };
 
     await saveBakeLog(bakeLog);
@@ -92,6 +95,9 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
     const found = logs.find((l) => l.id === 'bake_test_1');
     expect(found).toBeDefined();
     expect(found?.ratingStars).toBe(5);
+    expect(found?.crumbScore).toBe(5);
+    expect(found?.crustScore).toBe(4);
+    expect(found?.tasteProfile).toBe('balanced');
 
     await deleteBakeLog('bake_test_1');
     logs = await getBakeLogs();

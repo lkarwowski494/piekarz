@@ -1,7 +1,14 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import CalculatorScreen from '../../app/(tabs)/index';
-import { initDatabase, getActiveBake, setActiveBake } from '../data/sqlite-store';
+import {
+  initDatabase,
+  getActiveBake,
+  setActiveBake,
+  _resetMemStore,
+  getRecipes,
+  saveRecipe,
+} from '../data/sqlite-store';
 
 jest.setTimeout(20000);
 
@@ -11,6 +18,11 @@ jest.mock('expo-router', () => ({
   useRouter: () => ({
     push: mockPush,
   }),
+}));
+
+jest.mock('../lib/confirm', () => ({
+  confirm: ({ onConfirm }: any) => onConfirm(),
+  confirmDeleteRecipe: (_name: string, onConfirm: () => void) => onConfirm(),
 }));
 
 jest.mock('react-native-safe-area-context', () => {
@@ -46,6 +58,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    _resetMemStore();
     setActiveBake(null);
     await initDatabase();
   });
@@ -234,4 +247,95 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
     expect(tree).toBeDefined();
   });
+
+  it('clones active master recipe into an editable custom recipe', async () => {
+    await renderScreen();
+
+    const cloneBtn = tree!.root.findByProps({ testID: 'clone-recipe-btn' });
+    expect(cloneBtn).toBeDefined();
+
+    await act(async () => {
+      await cloneBtn.props.onPress();
+    });
+
+    const recipes = await getRecipes();
+    const cloned = recipes.find((r) => r.name.includes('(Kopia)'));
+    expect(cloned).toBeDefined();
+    expect(cloned?.isBuiltIn).toBe(false);
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('(Kopia)');
+  });
+
+  it('deletes custom recipe upon confirmation and selects default preset', async () => {
+    await saveRecipe({
+      id: 'custom_to_delete',
+      name: 'Chleb do skasowania',
+      formula: {
+        flours: [{ name: 'Mąka T650', percentage: 100 }],
+        waterPercentage: 70,
+        saltPercentage: 2,
+        starterPercentage: 20,
+        targetDoughWeightGrams: 800,
+      },
+      targetDDT: 25,
+      isBuiltIn: false,
+      createdAt: Date.now(),
+    });
+
+    await renderScreen();
+
+    let text = extractCleanText(tree?.toJSON());
+    expect(text).toContain('Chleb do skasowania');
+
+    // Find delete button
+    const deleteButtons = tree!.root.findAll((n) => typeof n.props?.onPress === 'function' && extractCleanText(n.props.children) === '✕');
+    expect(deleteButtons.length).toBeGreaterThanOrEqual(1);
+
+    await act(async () => {
+      await deleteButtons[0].props.onPress();
+    });
+
+    const recipes = await getRecipes();
+    expect(recipes.find((r) => r.id === 'custom_to_delete')).toBeUndefined();
+  });
+
+  it('switches preferment mode and displays artisan decomposition (Poolish / Biga)', async () => {
+    await renderScreen();
+
+    // Default mode is direct
+    expect(tree!.root.findAll((n) => n.props?.testID === 'preferment-details-block')).toHaveLength(0);
+
+    // Switch to Poolish
+    const poolishChip = tree!.root.findByProps({ testID: 'preferment-type-poolish' });
+    expect(poolishChip).toBeDefined();
+
+    await act(async () => {
+      poolishChip.props.onPress();
+    });
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Poolish');
+    expect(fullText).toContain('Mąka w zaczynie');
+    expect(fullText).toContain('Woda w zaczynie');
+
+    // Change preferment % to 30%
+    const thirtyPct = tree!.root.findByProps({ testID: 'preferment-pct-30' });
+    await act(async () => {
+      thirtyPct.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('30%');
+
+    // Switch to Biga
+    const bigaChip = tree!.root.findByProps({ testID: 'preferment-type-biga' });
+    await act(async () => {
+      bigaChip.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Biga');
+  });
 });
+

@@ -92,7 +92,10 @@ export async function initDatabase(): Promise<void> {
         ambient_temp REAL,
         actual_ddt REAL,
         rating_stars INTEGER,
-        notes TEXT
+        notes TEXT,
+        crumb_score INTEGER,
+        crust_score INTEGER,
+        taste_profile TEXT
       );
 
       CREATE TABLE IF NOT EXISTS starters (
@@ -115,6 +118,16 @@ export async function initDatabase(): Promise<void> {
         created_at INTEGER NOT NULL
       );
     `);
+
+    try {
+      await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
+    } catch {}
+    try {
+      await db.execAsync('ALTER TABLE bakes ADD COLUMN crust_score INTEGER;');
+    } catch {}
+    try {
+      await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
+    } catch {}
   } catch {
     // Memory fallback handles errors in non-native contexts
   }
@@ -130,7 +143,7 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
 
   try {
     const rows = await db.getAllAsync<StoredBakeLog>(
-      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes FROM bakes ORDER BY started_at DESC;'
+      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes, crumb_score as crumbScore, crust_score as crustScore, taste_profile as tasteProfile FROM bakes ORDER BY started_at DESC;'
     );
     return rows;
   } catch {
@@ -150,8 +163,8 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   if (db) {
     try {
       await db.runAsync(
-        `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?);`,
+        `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
         log.id,
         log.recipeName,
         log.startedAt,
@@ -159,7 +172,10 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
         log.ambientTemp ?? null,
         log.actualDDT ?? null,
         log.ratingStars ?? null,
-        log.notes ?? null
+        log.notes ?? null,
+        log.crumbScore ?? null,
+        log.crustScore ?? null,
+        log.tasteProfile ?? null
       );
     } catch {
       // Memory store preserved
@@ -385,7 +401,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 
     for (const b of data.bakes) {
       await db.runAsync(
-        'INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+        'INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
         b.id,
         b.recipeName,
         b.startedAt,
@@ -393,7 +409,10 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
         b.ambientTemp ?? null,
         b.actualDDT ?? null,
         b.ratingStars ?? null,
-        b.notes ?? null
+        b.notes ?? null,
+        b.crumbScore ?? null,
+        b.crustScore ?? null,
+        b.tasteProfile ?? null
       );
     }
   });

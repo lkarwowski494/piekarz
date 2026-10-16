@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-880%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-893%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -138,6 +138,7 @@ piekarz/
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
 │   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
+│   │   ├── preferments.ts      # Kalkulator zaczynów: Poolish, Biga, Pâte Fermentée, Levain
 │   │   └── __tests__/          # Wektory testowe TV-01…TV-08 & Property-Based Testing
 │   ├── data/                   # Warstwa danych i SQLite
 │   │   ├── db.ts               # Interfejsy encji

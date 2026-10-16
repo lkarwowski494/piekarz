@@ -35,6 +35,9 @@ export interface StoredBakeLog {
   actualDDT?: number;
   ratingStars?: number;
   notes?: string;
+  crumbScore?: number; // 1-5 (1: gęsty/zbity, 5: dzika otwarta struktura / open crumb)
+  crustScore?: number; // 1-5 (1: blada/miękka, 5: chrupiąca, pęcherzykowata)
+  tasteProfile?: 'mild' | 'balanced' | 'sour' | 'tangy';
 }
 
 /**

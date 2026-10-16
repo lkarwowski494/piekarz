@@ -103,3 +103,17 @@ export function confirmDeleteStarter(name: string, onConfirm: () => void) {
     onConfirm,
   });
 }
+
+/**
+ * Potwierdzenie usunięcia autorskiej receptury.
+ */
+export function confirmDeleteRecipe(name: string, onConfirm: () => void) {
+  confirm({
+    title: t('Usunąć recepturę?'),
+    message: `${t('Receptura')} „${name}” ${t('zostanie trwale usunięta z bazy.')}`,
+    action: t('Usuń recepturę'),
+    destructive: true,
+    onConfirm,
+  });
+}
+
