@@ -1,0 +1,80 @@
+# **Piekarz BRD 0.1 — Część A2: Rynek, model przychodu, zakres (rozdz. 4–6.1)**
+
+**Autor:** analityk biznesowy studia Apps4Brew, 15.10.2026.  
+**Rozdziały:** 4 (Rynek i konkurencja), 5 (Model przychodu i koszty), 6.1 (Założenia zakresu produktu).
+
+---
+
+## **4\. Rynek, konkurencja i nisza**
+
+### **4.1 Analiza konkurencyjnych aplikacji w App Store**
+
+| Aplikacja | Model cenowy | Główne funkcje | Najczęstsze skargi w recenzjach (1–3★) | Przewaga Piekarza |
+| :---- | :---- | :---- | :---- | :---- |
+| **Rise: Sourdough Baking** | Subskrypcja (4,99 \$/mies. lub 39,99 \$/rok) | Harmonogram etapów, dziennik wypieków, zdjęcia | „Zbyt droga subskrypcja na prosty timer”, błędy synchronizacji, aplikacja zawiesza się w tle, brak aplikacji na Apple Watch | **Cena 0,99 €**, zakup dożywotni 14,99 €, pełna aplikacja watchOS z gestem, zero serwerów |
+| **Sourdough Baker / Calculator** | Jednorazowo 2,99 \$ lub darmowa z reklamami | Prosty kalkulator procentu piekarskiego | Reklamy pełnoekranowe zasłaniające ekran w trakcie ważenia mąki, brak uwzględniania mąki/wody z zakwasu w hydratacji całkowitej | Brak reklam, rygorystyczny True Baker's %, kalkulator DDT, harmonogram wsteczny |
+| **The Sourdough Club** | Drogi abonament klubowy (9,99 \$/mies.) | Baza przepisów wideo, społeczność | Konieczność stałego połączenia z internetem, wolne ładowanie wideo, skomplikowany interfejs | **100% offline**, czyste narzędzie stolnicowe, natychmiastowe działanie |
+| **PizzApp+** | Darmowa / Donate | Kalkulator ciasta na pizzę neapolitańską | Ograniczenie tylko do pizzy, brak harmonogramu etapów, archaiczny wygląd, brak wsparcia dla zegarków | Wszechstronność (chleb, pizza, bułki), nowoczesne Live Activity, Dynamic Island |
+
+---
+
+### **4.2 Analiza ryzyka odrzucenia przez Apple (Wytyczna 4.3 App Store)**
+
+* **Zagrożenie 4.3(b) („Too Simple App / Spam / Simple Timers”):**  
+  Apple masowo odrzuca aplikacje będące prostymi timerami kuchennymi lub jednorazowymi kalkulatorami.  
+  * **Tarcza obronna Piekarza:** Aplikacja zawiera zintegrowany, głęboki ekosystem technologiczny: kalkulator DDT z termiką tarcia miksera, rygorystyczny bilans masowy zakwasu, adaptacyjny harmonogram wsteczny skorelowany z temperaturą, niezależną aplikację na Apple Watch, interaktywnego „Doktora Chleba” oraz bibliotekę technik fermentacyjnych. Do zgłoszenia dołączane jest wideo prezentujące sterowanie gestem w mące oraz szczegółowa notatka techniczna dla recenzenta.  
+* **Zagrożenie 4.3(a) („Repackaging / Duplication”):**  
+  Ryzyko rozbicia pomysłów „Piekarz” (pozycja 91\) i „Fermentacja i zakwas” (pozycja 35\) na dwie osobne aplikacje.  
+  * **Tarcza obronna:** Całkowite połączenie w jeden spójny produkt pod marką Piekarz. Zakwas jest integralnym modułem aplikacji, a nie osobnym bytem w App Store.
+
+---
+
+## **5\. Model przychodu i ekonomia projektu**
+
+### **5.1 Struktura cenowa**
+
+Zgodnie ze standardem marki Apps4Brew („tańsze niż jedno dobre espresso w kawiarni rzemieślniczej”):
+
+| Poziom cenowy | Euro (€) | PLN (Polska) | USD (Stany Zjednoczone) | Typ zakupu |
+| :---- | :---- | :---- | :---- | :---- |
+| **Miesięczny** | **0,99 €** | **3,99 zł** | **0,99 \$** | Subskrypcja autoodnawialna z 14-dniowym okresem próbnym |
+| **Roczny** | **4,99 €** | **19,99 zł** | **4,99 \$** | Subskrypcja roczna (oszczędność \>58%) |
+| **Dożywotni (Lifetime)** | **14,99 €** | **59,99 zł** | **14,99 \$** | Jednorazowy zakup bezterminowy (Non-Consumable IAP) |
+
+* **Darmowy rdzeń (Free Tier):**  
+  * Zawsze bezpłatny kalkulator procentu piekarskiego na 1 bochenek.  
+  * 1 aktywny profil zakwasu z podstawowym rejestrem dokarmiania.  
+  * Prosty stoper/timer jednofazowy.  
+  * Zawsze bezpłatna kopia zapasowa i eksport danych (zgodnie z ZP-07).  
+* **Wersja Płatna (Piekarz Pro):**  
+  * Nielimitowana liczba bochenków i przeliczanie na formy/blachy.  
+  * Inteligentny harmonogram wsteczny (Reverse Scheduling).  
+  * Kalkulator DDT z uwzględnieniem temperatury mąki, otoczenia i tarcia misy.  
+  * Pełna aplikacja na Apple Watch z gestem Double Tap oraz integracja z Garminem.  
+  * Live Activity, Dynamic Island i kontrolki Control Center.  
+  * Dostęp do modułu diagnostycznego „Doktor Chleba” oraz pełnej ścieżki edukacyjnej.  
+  * Family Sharing w standardzie bez dodatkowych opłat.
+
+---
+
+### **5.2 Rachunek rentowności i koszty krańcowe**
+
+* **Koszt infrastruktury chmurowej:** **0,00 zł / 0,00 USD** (brak serwerów bazodanowych, brak chmurowych LLM, brak płatnych zewnętrznych SDK).  
+* **Roczna opłata Apple Developer Program:** 99 USD / ok. 400 zł rocznie.  
+* **Próg rentowności (Break-Even Point):**  
+  * Koszt 99 USD zwraca się przy sprzedaży zaledwie **10 licencji dożywotnich (59,99 zł)** lub **29 subskrypcji rocznych (19,99 zł)** rocznie (uwzględniając prowizję Apple 15% w programie Small Business).  
+  * Każda kolejna subskrypcja stanowi niemal 100% czystej marży operacyjnej dla studia Apps4Brew.
+
+---
+
+## **6.1 Założenia zakresu produktu (Scope Governance)**
+
+1. **Zasada górnej granicy:** Specyfikacja BRD definiuje pełny docelowy model funkcjonalny (wersje 1.0, 1.1, 1.2, 2.x). Wersja MVP (1.0) jest zoptymalizowanym wycinkiem oznaczonym priorytetem MUST w wariancie (b+).  
+2. **Kryterium wejścia do MVP:** Funkcja wchodzi do wersji 1.0 wyłącznie wtedy, gdy:  
+   * Bezpośrednio realizuje obietnicę „ręce w mące” lub „precyzyjna matematyka piekarska”;  
+   * Posiada zero zależności od infrastruktury serwerowej;  
+   * Została przetestowana na fizycznym urządzeniu (Apple Watch / iPhone).  
+3. **Niezmienniki architektoniczne:**  
+   * Architektura offline-first;  
+   * Wzorce bazy danych SQLite zoptymalizowane pod szybki odczyt parametrów receptur;  
+   * Identyfikatory zakupowe IAP z prefiksem `piekarz_` / `crust_` dla zachowania pełnej przenośności (ZP-15).

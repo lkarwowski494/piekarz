@@ -42,6 +42,8 @@ import { FlourBlendModal } from '../../src/components/FlourBlendModal';
 import { CostCalculatorModal } from '../../src/components/CostCalculatorModal';
 import { FlourInventoryModal } from '../../src/components/FlourInventoryModal';
 import { ImportRecipeModal } from '../../src/components/ImportRecipeModal';
+import { FlourEquivalentsModal } from '../../src/components/FlourEquivalentsModal';
+import { VolumeConverterModal } from '../../src/components/VolumeConverterModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 import { exportRecipeToJson } from '../../src/lib/recipe-sharing';
 import {
@@ -98,6 +100,8 @@ export default function CalculatorScreen() {
   const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
+  const [isEquivModalOpen, setIsEquivModalOpen] = useState<boolean>(false);
+  const [isVolumeModalOpen, setIsVolumeModalOpen] = useState<boolean>(false);
   const [masterCategoryFilter, setMasterCategoryFilter] = useState<
     'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet'
   >('all');
@@ -417,15 +421,26 @@ export default function CalculatorScreen() {
         {/* Master & Custom Recipes Selector */}
         <View style={styles.sectionHeaderRow}>
           <Text style={styles.sectionHeading}>{t('Receptury mistrzowskie')}</Text>
-          <Pressable
-            testID="open-import-recipe-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Importuj JSON')}
-            style={styles.headerActionPill}
-            onPress={() => setIsImportModalOpen(true)}
-          >
-            <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
-          </Pressable>
+          <View style={styles.headerPillsRow}>
+            <Pressable
+              testID="open-volume-converter-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Przelicznik objętości')}
+              style={styles.headerActionPill}
+              onPress={() => setIsVolumeModalOpen(true)}
+            >
+              <Text style={styles.headerActionPillText}>⚖️ {t('Przelicznik objętości')}</Text>
+            </Pressable>
+            <Pressable
+              testID="open-import-recipe-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Importuj JSON')}
+              style={styles.headerActionPill}
+              onPress={() => setIsImportModalOpen(true)}
+            >
+              <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
+            </Pressable>
+          </View>
         </View>
 
         {/* Master Recipes Category Filters */}
@@ -731,6 +746,14 @@ export default function CalculatorScreen() {
             onPress={() => setIsInventoryOpen(true)}
           >
             <Text style={styles.flourInventoryBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="open-flour-equivalents-btn"
+            style={styles.flourInventoryBtn}
+            onPress={() => setIsEquivModalOpen(true)}
+          >
+            <Text style={styles.flourInventoryBtnText}>🌍 {t('Słownik Odpowiedników Mąk')}</Text>
           </Pressable>
 
           {/* Breakdown per flour */}
@@ -1313,6 +1336,18 @@ export default function CalculatorScreen() {
           visible={isImportModalOpen}
           onClose={() => setIsImportModalOpen(false)}
           onImportSuccess={handleImportSuccess}
+        />
+
+        {/* Modal: Flour Equivalents Dictionary (Z-052) */}
+        <FlourEquivalentsModal
+          visible={isEquivModalOpen}
+          onClose={() => setIsEquivModalOpen(false)}
+        />
+
+        {/* Modal: Volume to Weight Converter (Z-013) */}
+        <VolumeConverterModal
+          visible={isVolumeModalOpen}
+          onClose={() => setIsVolumeModalOpen(false)}
         />
       </ScrollView>
     </SafeAreaView>
@@ -2050,6 +2085,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.accentDark,
+  },
+  headerPillsRow: {
+    flexDirection: 'row',
+    gap: 8,
   },
   headerActionPill: {
     backgroundColor: theme.colors.surfaceCard,

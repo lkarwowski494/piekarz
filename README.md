@@ -29,9 +29,33 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
 
 ---
 
-## 📱 Moduły i Ekrany
+## 📱 Moduły i Ekrany (Weryfikacja z BRD)
 
-1. **🧮 Kalkulator Piekarski & True Baker’s %:**
+Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
+
+| Moduł / Obszar | Ref. BRD | Opis | Status |
+| :--- | :--- | :--- | :--- |
+| **Kalkulator True Baker’s %** | `Z-001`–`Z-012` | Bilans hydratacji z zakwasem, DDT 4-składnikowe, lód, tarcie, blend mąk | ✅ Wdrożone |
+| **Przelicznik Objętość ↔ Waga** | `Z-013` | Szklanki/łyżki na gramy (mąka, woda, sól, drożdże) z ostrzeżeniem | ⏳ Do wdrożenia |
+| **Magazyn Mąk & Koszty** | `Z-051`, `Z-053` | Spiżarnia mąk, białko %, popiół, chłonność, kalkulator kosztów, odpis z magazynu | ✅ Wdrożone |
+| **Słownik Odpowiedników Mąk** | `Z-052` | Międzynarodowe typy mąk (PL ↔ FR ↔ IT ↔ DE ↔ US/UK) | ⏳ Do wdrożenia |
+| **Harmonogram Wsteczny** | `Z-015`–`Z-023` | Reverse scheduling, Sleep Guard, kinetyka Q10, garowanie chłodnicze, piec | ✅ Wdrożone |
+| **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, prowadzenie krok po kroku, składania, wyłączenie żyta, wypiek | ✅ Wdrożone |
+| **Galeria & Oceny Wypieków** | `Z-049`, `Z-050` | 1–5 gwiazdek, scoring miękiszu/skórki, profile smakowe, statystyki | ✅ Wdrożone |
+| **Zakwas & Bezpieczeństwo** | `Z-038`–`Z-042`, `Z-045` | Profil, dokarmianie 1:2:2, predyktor peak, hooch, kahm, alarm pleśni | ✅ Wdrożone |
+| **Lievito Madre 50%** | `Z-044` | Protokół konwersji 100% ↔ 50% LM, schemat 3 odświeżeń | ✅ Wdrożone |
+| **Przepisy na Odrzut (Discard)** | `Z-043` | Baza przepisów na odrzut zakwasu (krakersy, naleśniki, gofry, ciasteczka) | ⏳ Do wdrożenia |
+| **Doktor Chleba & Ratunek** | `Z-099`–`Z-100` | Drzewo symptomów, 9 kodów wad, procedury ratowania ciasta (Dough Recovery) | ✅ Wdrożone |
+| **Szkoła Chleba (Ścieżka SCI)** | `Z-084`–`Z-090` | 6 stopni wtajemniczenia: No-knead, wiejski, Tartine, 100% żytni, bagietka, pizza | ⏳ Do wdrożenia |
+| **Biblioteka Technik (BIB)** | `Z-091`–`Z-098` | 12 kart technik: autoliza, coil fold, slap&fold, laminacja, pre-shape, scoring | ⏳ Do wdrożenia |
+| **Trener Rachunku & Fiszki (TRE)** | `BR-TRE-001/002` | Mental Baker Drill (60s), poziomy 1–3, fiszki biochemiczne z systemem Leitnera | ⏳ Do wdrożenia |
+| **Persystencja SQLite & Backup** | `Z-073`–`Z-076` | Baza w `/Library/SQLite`, auto-backup 10 kopii, JSON export/import, sharing | ✅ Wdrożone |
+| **Zegary kuchenne & Alarmy** | `Z-054`–`Z-056` | Timery wielobieżne, głośne alarmy, integracja dźwiękowa i wibracyjna | ✅ Wdrożone |
+| **Ustawienia & Pro** | `Z-078`–`Z-080` | Model etyczny, brak lock-in, Pro Lifetime, Family Sharing info | ✅ Wdrożone |
+
+### 🧭 Szczegółowy opis modułów
+
+1. **🧮 Kalkulator Piekarski & True Baker’s % (`Z-001`–`Z-012`):**
    - Obliczanie proporcji piekarskich z uwzględnieniem hydratacji zakwasu.
    - 4-składnikowe równanie DDT z ostrzeżeniem termicznym ($>45^\circ\text{C}$ zabija drożdże).
    - Precyzyjny kalkulator topnienia lodu w wodzie kranowej.
@@ -41,32 +65,47 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
    - Mieszalnik mąk i kalkulator wypadkowego białka/W (`FlourBlendModal`).
    - Filtrowanie receptur mistrzowskich według 4 kategorii rzemieślniczych i karty zaleceń wypiekowych.
    - Eksport i bezpieczny import formuł w formacie JSON (`ImportRecipeModal`, `recipe-sharing.ts`).
-2. **⏱️ Harmonogram Wsteczny z Ochroną Snu (Sleep Guard):**
+2. **⚖️ Przelicznik Objętościowy na Wagowy (`Z-013`):**
+   - Przeliczanie szklanek (US cup, Metric cup), łyżek i łyżeczek na gramy dla mąki, wody, soli, drożdży i zakwasu.
+   - Wyraziste ostrzeżenie o ryzyku wahań gęstości nasypowej mąki do 30% i rekomendacji wagi jubilerskiej/kuchennej.
+3. **🌍 Międzynarodowy Słownik Odpowiedników Mąk (`Z-052`):**
+   - Zestawienie standardów przemiału: Polska (Typ 450–2000), Francja (T45–T150), Włochy (Tipo 00–Integrale), Niemcy (Type 405–1600), USA/UK (Pastry, All-Purpose, Bread, High Gluten, Whole Wheat).
+   - Wskaźniki popiołu (Ash %), orientacyjna zawartość białka i chłonność cieczy.
+4. **⏱️ Harmonogram Wsteczny z Ochroną Snu (Sleep Guard, `Z-015`–`Z-023`):**
    - Planowanie wstecz od docelowej godziny podania lub krojenia chleba.
    - Adaptacja długości fermentacji burzliwej do temperatury otoczenia ($Q_{10}$).
    - **Sleep Guard:** Automatyczne wykrywanie kolizji czynności wymagających obecności (składania, formowanie, pieczenie) ze snem (23:00–06:30) z propozycją wydłużenia garowania chłodniczego (*cold retard*).
    - Profile scenariuszy wypieku: ekspresowy, klasyczny nocny, 24-godzinny weekendowy.
-3. **🥣 Stolnica (Asystent Wypieku Hands-in-Flour & Galeria Wypieków):**
+5. **🥣 Stolnica (Asystent Wypieku Hands-in-Flour & Galeria Wypieków, `Z-024`–`Z-037`, `Z-049`–`Z-050`):**
    - Interfejs przystosowany do obsługi oprószonymi mąką dłońmi (duże elementy dotykowe $\ge 48\,\text{pt}$, wysoki kontrast).
    - Przewodnik krok po kroku: Autoliza $\rightarrow$ Wymieszanie $\rightarrow$ Składania (Stretch & Fold / Coil Fold) $\rightarrow$ Formowanie wstępne i ostateczne $\rightarrow$ Wypiek z parą.
    - Bezpieczne porzucenie wypieku przez `confirmDiscardBake` i automatyczny zapis historii po upieczeniu.
    - Automatyczny odpis zużytej mąki z magazynu spiżarni po ukończeniu bochenka.
    - Karta statystyk wypieków (łączna liczba, średnia ocena ogólna, ocena miękiszu i skórki, najczęstszy profil smakowy).
    - Filtrowanie historii wypieków według profilu smakowego (łagodny, zbalansowany, kwaśny, głęboki).
-4. **🫙 Zakwas (Profil, Konwerter & Bezpieczeństwo Biologiczne):**
+6. **🫙 Zakwas (Profil, Konwerter & Bezpieczeństwo Biologiczne, `Z-038`–`Z-045`):**
    - Karta zakwasu (wiek, hydratacja, rytm dokarmiania, stan przechowywania).
    - Kalkulator dokarmiania w proporcji 1:2:2 lub dowolnej na żądaną masę zaczynu.
    - Silnik konwersji hydratacji i Lievito Madre (konwersja między 100% a 50% ze schematem 3 odświeżeń co 4h).
    - Predyktor szczytu aktywności metabolicznej zakwasu.
    - Diagnostyka wizualna: odróżnianie głodu (*hooch*) i kożucha drożdży tlenowych (*kahm*) od groźnej pleśni.
-5. **🩺 Doktor Chleba (Bread Doctor):**
+   - Baza przepisów na wykorzystanie odrzutu zakwasu (*Sourdough Discard*).
+7. **🩺 Doktor Chleba (Bread Doctor, `Z-099`–`Z-100`):**
    - Drzewo decyzyjne do analizy nieudanych bochenków.
    - Diagnoza przyczyn: niedofermentowanie (*under-proofed* / *flying crust*), przefermentowanie (*over-proofed*), zakalec (*gummy crumb*), rozerwanie boku (*blowout*), brak ucha (*ear*), blada skórka.
    - Biologiczno-chemiczne wyjaśnienie zjawiska i checklista konkretnych kroków naprawczych na kolejny wypiek.
    - Procedury ratunkowe dla ciasta (*Dough Recovery*).
-6. **⚙️ Ustawienia, Kopia Zapasowa i Pro:**
-   - Eksport i import bazy w formacie JSON (`exportBackup`).
-   - Etyczny model monetyzacji (Darmowy rdzeń + opcjonalny Pro Lifetime lub 0,99 €/mc bez blokowania podstawowych funkcji).
+8. **🎓 Szkoła Chleba & Ścieżka Wtajemniczenia (`Z-084`–`Z-090`):**
+   - 6 uszeregowanych lekcji rzemiosła: od No-Knead pot bread do Pizza Napoletana Verace.
+   - Rejestracja postępu ucznia w bezpiecznej bazie SQLite.
+9. **📖 Biblioteka Technik Rzemieślniczych (`Z-091`–`Z-098`):**
+   - 12 kart technologii piekarskich z precyzyjnymi zasadami fizycznymi, checklistą wykonania i typowymi błędami.
+10. **🧠 Trener Procentu Piekarskiego & Fiszki Biochemiczne (`BR-TRE-001`, `BR-TRE-002`):**
+    - Szybki 60-sekundowy trening rachunku pamięciowego (poziomy 1, 2, 3) z natychmiastowym wyjaśnieniem.
+    - Fiszki wiedzy biochemicznej (bielmo, glutenina, gliadyna, enzymy, kwas mlekowy/octowy) oparte na algorytmie Leitnera.
+11. **⚙️ Ustawienia, Kopia Zapasowa i Pro:**
+    - Eksport i import bazy w formacie JSON (`exportBackup`).
+    - Etyczny model monetyzacji (Darmowy rdzeń + opcjonalny Pro Lifetime lub 0,99 €/mc bez blokowania podstawowych funkcji).
 
 ---
 

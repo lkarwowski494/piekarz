@@ -455,5 +455,34 @@ export const EN: Record<string, string> = {
   'para': 'steam',
   'Naczynie': 'Baking vessel',
   'Wskazówki': 'Tips',
+
+  // Flour Equivalents Dictionary (Z-052)
+  'Słownik Odpowiedników Mąk': 'Flour Equivalents Dictionary',
+  'Zamknij słownik mąk': 'Close flour dictionary',
+  'Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK': 'Grading standards comparison: Poland, France, Italy, Germany and US/UK',
+  'Szukaj np. T65, Tipo 00, 550, Bread Flour...': 'Search e.g. T65, Tipo 00, 550, Bread Flour...',
+  'Nie znaleziono odpowiednika dla podanej frazy.': 'No equivalent found for the given search query.',
+  'wody': 'water',
+  'Popiół:': 'Ash:',
+  'Białko:': 'Protein:',
+  'Zastosowanie:': 'Best for:',
+  'Wskazówka rzemieślnicza:': 'Artisan tip:',
+  'Słownik mąk': 'Flour dictionary',
+
+  // Volume to Weight Converter (Z-013)
+  'Przelicznik Objętość ↔ Waga': 'Volume ↔ Weight Converter',
+  'Zamknij przelicznik': 'Close converter',
+  'Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)': 'Convert cups, tablespoons and teaspoons to grams (DEC-14 / Z-013)',
+  'Standard szklanki:': 'Cup standard:',
+  'Metryczna': 'Metric',
+  'Szklanki': 'Cups',
+  'Łyżki': 'Tablespoons',
+  'Łyżeczki': 'Teaspoons',
+  'Wybierz składnik:': 'Select ingredient:',
+  'Ilość objętościowa:': 'Volume amount:',
+  'szklanek': 'cups',
+  'łyżek': 'tbsp',
+  'łyżeczek': 'tsp',
+  'Przelicznik objętości': 'Volume converter',
 };
 
