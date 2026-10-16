@@ -1,0 +1,54 @@
+// ============================================================================
+// Piekarz (Crust) — Dutch Oven Two-Phase Baking Physics & Steam Management
+// Standard: 20 min @ 240°C (Lid On / Steam) -> 25 min @ 210°C (Lid Off / Maillard)
+// Apps4Brew Studio — 100% Offline-First.
+// ============================================================================
+
+export type DutchOvenBakePhase = 'lid_on' | 'lid_off';
+
+export interface DutchOvenPhaseConfig {
+  id: DutchOvenBakePhase;
+  phaseNumber: 1 | 2;
+  namePl: string;
+  durationMin: number;
+  temperatureC: number;
+  descriptionPl: string;
+  tipPl: string;
+  alertHeadlinePl?: string;
+}
+
+export const DUTCH_OVEN_PHASES: Record<DutchOvenBakePhase, DutchOvenPhaseConfig> = {
+  lid_on: {
+    id: 'lid_on',
+    phaseNumber: 1,
+    namePl: 'Faza 1: Pod pokrywką (Para)',
+    durationMin: 20,
+    temperatureC: 240,
+    descriptionPl: 'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu (Oven Spring).',
+    tipPl: 'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).',
+  },
+  lid_off: {
+    id: 'lid_off',
+    phaseNumber: 2,
+    namePl: 'Faza 2: Bez pokrywki (Karmelizacja)',
+    durationMin: 25,
+    temperatureC: 210,
+    descriptionPl: 'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.',
+    tipPl: 'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.',
+    alertHeadlinePl: 'Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.',
+  },
+};
+
+export function getDutchOvenPhase(phase: DutchOvenBakePhase): DutchOvenPhaseConfig {
+  return DUTCH_OVEN_PHASES[phase] || DUTCH_OVEN_PHASES.lid_on;
+}
+
+export function getNextBakePhase(current: DutchOvenBakePhase): DutchOvenBakePhase | null {
+  if (current === 'lid_on') return 'lid_off';
+  return null;
+}
+
+export function calculateTotalDutchOvenTimeMin(phases?: DutchOvenBakePhase[]): number {
+  const list = phases || (['lid_on', 'lid_off'] as DutchOvenBakePhase[]);
+  return list.reduce((acc, p) => acc + DUTCH_OVEN_PHASES[p].durationMin, 0);
+}

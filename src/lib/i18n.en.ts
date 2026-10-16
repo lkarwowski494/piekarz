@@ -289,5 +289,14 @@ export const EN: Record<string, string> = {
   'Wyrównaj do 100%': 'Balance to 100%',
   'Dodaj mąkę z Atlasu': 'Add flour from Atlas',
   'Zastosuj mieszankę': 'Apply blend',
+
+  // Dutch Oven Two-Phase Baking (Stolnica)
+  'Zdejmij pokrywkę garnka! Wypuść parę.': 'Remove Dutch oven lid! Release steam.',
+  'Wypiek w garnku zakończony! Wyjmij chleb na kratkę.': 'Dutch oven baking finished! Place bread on wire rack.',
+  'Faza 1: Pod pokrywką (Para)': 'Phase 1: Lid on (Steam)',
+  'Faza 2: Bez pokrywki (Karmelizacja)': 'Phase 2: Lid off (Caramelization)',
+  'Zdejmij pokrywkę!': 'Remove lid!',
+  'Rozpocznij Fazę 2': 'Start Phase 2',
+  'Temperatura docelowa:': 'Target temperature:',
 };
 

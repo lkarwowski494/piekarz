@@ -23,7 +23,8 @@ import {
   ActiveBakeState,
 } from '../../src/data/sqlite-store';
 import { StoredBakeLog } from '../../src/data/db';
-import { notifyTimerFinished } from '../../src/lib/timer-audio';
+import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
+import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
 
 export interface BakeStep {
   id: string;
@@ -97,6 +98,7 @@ export default function StolnicaScreen() {
   const [timeLeftSec, setTimeLeftSec] = useState<number>(BAKE_STEPS[0].timerMin * 60);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
+  const [dutchOvenPhase, setDutchOvenPhase] = useState<DutchOvenBakePhase>('lid_on');
 
   // Finish Bake Modal & History
   const [isFinishModalOpen, setIsFinishModalOpen] = useState<boolean>(false);
@@ -135,7 +137,13 @@ export default function StolnicaScreen() {
           if (prev <= 1) {
             setIsRunning(false);
             setIsCompleted(true);
-            void notifyTimerFinished(BAKE_STEPS[currentStepIdx].name);
+            if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_on') {
+              void notifySteamReleaseAlert();
+            } else if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_off') {
+              void notifyTimerFinished(t('Wypiek w garnku zakończony! Wyjmij chleb na kratkę.'));
+            } else {
+              void notifyTimerFinished(BAKE_STEPS[currentStepIdx].name);
+            }
             return 0;
           }
           return prev - 1;
@@ -145,7 +153,7 @@ export default function StolnicaScreen() {
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isRunning, timeLeftSec]);
+  }, [isRunning, timeLeftSec, currentStepIdx, dutchOvenPhase]);
 
   const currentStep = BAKE_STEPS[currentStepIdx];
 
@@ -163,11 +171,40 @@ export default function StolnicaScreen() {
   const goToStep = (idx: number) => {
     if (idx < 0 || idx >= BAKE_STEPS.length) return;
     setCurrentStepIdx(idx);
-    setTimeLeftSec(BAKE_STEPS[idx].timerMin * 60);
+    if (BAKE_STEPS[idx].id === 'step_8') {
+      setDutchOvenPhase('lid_on');
+      setTimeLeftSec(DUTCH_OVEN_PHASES.lid_on.durationMin * 60);
+    } else {
+      setTimeLeftSec(BAKE_STEPS[idx].timerMin * 60);
+    }
     setIsRunning(false);
     setIsCompleted(false);
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    } catch {
+      // Ignored
+    }
+  };
+
+  const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
+    setDutchOvenPhase(phase);
+    setTimeLeftSec(DUTCH_OVEN_PHASES[phase].durationMin * 60);
+    setIsRunning(false);
+    setIsCompleted(false);
+    try {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    } catch {
+      // Ignored
+    }
+  };
+
+  const handleStartPhase2AfterSteamAlert = () => {
+    setDutchOvenPhase('lid_off');
+    setTimeLeftSec(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
+    setIsCompleted(false);
+    setIsRunning(true);
+    try {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     } catch {
       // Ignored
     }
@@ -209,7 +246,11 @@ export default function StolnicaScreen() {
     }
     setIsRunning(false);
     setIsCompleted(false);
-    setTimeLeftSec(currentStep.timerMin * 60);
+    if (currentStep.id === 'step_8') {
+      setTimeLeftSec(DUTCH_OVEN_PHASES[dutchOvenPhase].durationMin * 60);
+    } else {
+      setTimeLeftSec(currentStep.timerMin * 60);
+    }
   };
 
   // Finish bake & save to SQLite
@@ -343,6 +384,93 @@ export default function StolnicaScreen() {
 
               <Text style={styles.activeStepTitle}>{currentStep.name}</Text>
               <Text style={styles.activeStepDesc}>{currentStep.desc}</Text>
+
+              {/* Dutch Oven Two-Phase Controller for Step 8 */}
+              {currentStep.id === 'step_8' && (
+                <View style={styles.dutchOvenContainer} testID="dutch-oven-phase-card">
+                  {/* Phase selector tabs */}
+                  <View style={styles.phaseTabsRow}>
+                    <Pressable
+                      testID="phase-tab-lid-on"
+                      style={[
+                        styles.phaseTabBtn,
+                        dutchOvenPhase === 'lid_on' && styles.phaseTabBtnActive,
+                      ]}
+                      onPress={() => handleSwitchDutchOvenPhase('lid_on')}
+                    >
+                      <Text
+                        style={[
+                          styles.phaseTabBtnText,
+                          dutchOvenPhase === 'lid_on' && styles.phaseTabBtnTextActive,
+                        ]}
+                      >
+                        🍲 {t('Faza 1: Pod pokrywką (Para)')}
+                      </Text>
+                    </Pressable>
+
+                    <Pressable
+                      testID="phase-tab-lid-off"
+                      style={[
+                        styles.phaseTabBtn,
+                        dutchOvenPhase === 'lid_off' && styles.phaseTabBtnActive,
+                      ]}
+                      onPress={() => handleSwitchDutchOvenPhase('lid_off')}
+                    >
+                      <Text
+                        style={[
+                          styles.phaseTabBtnText,
+                          dutchOvenPhase === 'lid_off' && styles.phaseTabBtnTextActive,
+                        ]}
+                      >
+                        🔥 {t('Faza 2: Bez pokrywki (Karmelizacja)')}
+                      </Text>
+                    </Pressable>
+                  </View>
+
+                  {/* Phase Info Card */}
+                  <View style={styles.phaseInfoCard}>
+                    <View style={styles.phaseHeaderRow}>
+                      <Text style={styles.phaseTitle}>
+                        {dutchOvenPhase === 'lid_on'
+                          ? t('Faza 1: Pod pokrywką (Para)')
+                          : t('Faza 2: Bez pokrywki (Karmelizacja)')}
+                      </Text>
+                      <View style={styles.phaseTempBadge}>
+                        <Text style={styles.phaseTempBadgeText}>
+                          {DUTCH_OVEN_PHASES[dutchOvenPhase].temperatureC}°C
+                        </Text>
+                      </View>
+                    </View>
+                    <Text style={styles.phaseDesc}>
+                      {DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl}
+                    </Text>
+                    <Text style={styles.phaseTip}>
+                      💡 {DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl}
+                    </Text>
+                  </View>
+
+                  {/* Steam Release Alert Gate (if lid_on finished) */}
+                  {dutchOvenPhase === 'lid_on' && isCompleted && (
+                    <View style={styles.steamAlertBanner} testID="steam-gate-alert">
+                      <Text style={styles.steamAlertTitle}>
+                        🔥 {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
+                      </Text>
+                      <Text style={styles.steamAlertDesc}>
+                        Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.
+                      </Text>
+                      <Pressable
+                        testID="start-phase-2-btn"
+                        style={styles.steamAlertActionBtn}
+                        onPress={handleStartPhase2AfterSteamAlert}
+                      >
+                        <Text style={styles.steamAlertActionBtnText}>
+                          ▶ {t('Rozpocznij Fazę 2')} (25 min @ 210°C)
+                        </Text>
+                      </Pressable>
+                    </View>
+                  )}
+                </View>
+              )}
 
               {/* Big Digital Kitchen Timer Display */}
               <View style={[styles.timerContainer, isCompleted && styles.timerContainerCompleted]}>
@@ -1074,5 +1202,111 @@ const styles = StyleSheet.create({
   tasteChipTextActive: {
     color: theme.colors.accentDark,
     fontWeight: '700',
+  },
+  dutchOvenContainer: {
+    marginVertical: 12,
+  },
+  phaseTabsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 10,
+  },
+  phaseTabBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  phaseTabBtnActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  phaseTabBtnText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    textAlign: 'center',
+  },
+  phaseTabBtnTextActive: {
+    color: theme.colors.accentDark,
+    fontWeight: '800',
+  },
+  phaseInfoCard: {
+    backgroundColor: theme.colors.surfaceCard,
+    padding: theme.spacing.sm,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    marginBottom: 8,
+  },
+  phaseHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  phaseTitle: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  phaseTempBadge: {
+    backgroundColor: theme.colors.accent,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: theme.radius.sm,
+  },
+  phaseTempBadgeText: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#FFFFFF',
+  },
+  phaseDesc: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 16,
+    marginBottom: 4,
+  },
+  phaseTip: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    lineHeight: 15,
+    fontStyle: 'italic',
+  },
+  steamAlertBanner: {
+    backgroundColor: '#FEF2F2',
+    borderWidth: 1.5,
+    borderColor: theme.colors.statusDanger,
+    borderRadius: theme.radius.md,
+    padding: theme.spacing.md,
+    marginTop: 8,
+  },
+  steamAlertTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: theme.colors.statusDanger,
+    marginBottom: 4,
+  },
+  steamAlertDesc: {
+    fontSize: 12,
+    color: theme.colors.textPrimary,
+    lineHeight: 17,
+    marginBottom: 10,
+  },
+  steamAlertActionBtn: {
+    backgroundColor: theme.colors.statusDanger,
+    paddingVertical: 10,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+  },
+  steamAlertActionBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFFFFF',
   },
 });

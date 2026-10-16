@@ -333,5 +333,83 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     expect(latest.crustScore).toBe(4);
     expect(latest.tasteProfile).toBe('sour');
   });
+
+  it('manages Two-Phase Dutch Oven baking with steam release alert and phase transition', async () => {
+    jest.useFakeTimers();
+    try {
+      await renderScreen();
+
+      // Start bake
+      const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+      await act(async () => {
+        startBtn?.props.onPress();
+      });
+
+      // Jump to Step 8 (Wypiek w garnku z parą)
+      const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
+        return extractCleanText(p.props.children).includes('Wypiek w garnku z parą');
+      });
+      await act(async () => {
+        step8Btn?.props.onPress();
+      });
+
+      // Verify Dutch oven phase card is visible with Phase 1 default (20 min)
+      const phaseCard = tree!.root.findByProps({ testID: 'dutch-oven-phase-card' });
+      expect(phaseCard).toBeDefined();
+
+      let fullText = extractCleanText(tree?.toJSON());
+      expect(fullText).toContain('Faza 1: Pod pokrywką');
+      expect(fullText).toContain('240°C');
+      expect(fullText).toContain('20:00');
+
+      // Switch manually to Phase 2 (Bez pokrywki)
+      const phase2Tab = tree!.root.findByProps({ testID: 'phase-tab-lid-off' });
+      await act(async () => {
+        phase2Tab.props.onPress();
+      });
+
+      fullText = extractCleanText(tree?.toJSON());
+      expect(fullText).toContain('Faza 2: Bez pokrywki');
+      expect(fullText).toContain('210°C');
+      expect(fullText).toContain('25:00');
+
+      // Switch back to Phase 1
+      const phase1Tab = tree!.root.findByProps({ testID: 'phase-tab-lid-on' });
+      await act(async () => {
+        phase1Tab.props.onPress();
+      });
+
+      expect(extractCleanText(tree?.toJSON())).toContain('20:00');
+
+      // Start timer in Phase 1
+      const timerToggleBtn = findButtonByText(tree!.root, 'Start');
+      await act(async () => {
+        timerToggleBtn?.props.onPress();
+      });
+
+      // Advance timers by 20 minutes (1201 seconds)
+      await act(async () => {
+        jest.advanceTimersByTime(1201 * 1000);
+      });
+
+      // Steam gate alert banner appears
+      const steamAlert = tree!.root.findByProps({ testID: 'steam-gate-alert' });
+      expect(steamAlert).toBeDefined();
+      expect(extractCleanText(tree?.toJSON())).toContain('Zdejmij pokrywkę');
+
+      // Tap Rozpocznij Fazę 2
+      const startPhase2Btn = tree!.root.findByProps({ testID: 'start-phase-2-btn' });
+      await act(async () => {
+        startPhase2Btn.props.onPress();
+      });
+
+      // Phase 2 is now active with 25:00
+      fullText = extractCleanText(tree?.toJSON());
+      expect(fullText).toContain('Faza 2: Bez pokrywki');
+      expect(fullText).toContain('25:00');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
 });
 

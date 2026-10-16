@@ -41,3 +41,20 @@ export async function notifyTimerFinished(stepName?: string): Promise<boolean> {
     return false;
   }
 }
+
+/**
+ * Triggers audio, haptic, and VoiceOver announcement specifically for Dutch oven steam release gate.
+ */
+export async function notifySteamReleaseAlert(): Promise<boolean> {
+  const message = t('Zdejmij pokrywkę garnka! Wypuść parę.');
+  announce(message);
+
+  try {
+    await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+  } catch {
+    // Ignore in non-native / test environments
+  }
+
+  return notifyTimerFinished(message);
+}
+

@@ -1,4 +1,4 @@
-import { notifyTimerFinished } from '../timer-audio';
+import { notifyTimerFinished, notifySteamReleaseAlert } from '../timer-audio';
 import { Audio } from 'expo-av';
 import * as Haptics from 'expo-haptics';
 import * as announceModule from '../announce';
@@ -44,5 +44,15 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
     expect(success).toBe(true);
     expect(announceSpy).toHaveBeenCalledWith('Etap ukończony!');
     expect(Audio.Sound.createAsync).toHaveBeenCalled();
+  });
+
+  it('triggers steam release notification with warning haptics and steam alert message', async () => {
+    const announceSpy = jest.spyOn(announceModule, 'announce').mockImplementation(() => {});
+
+    const success = await notifySteamReleaseAlert();
+
+    expect(success).toBe(true);
+    expect(announceSpy).toHaveBeenCalledWith(expect.stringContaining('pokrywkę'));
+    expect(Haptics.notificationAsync).toHaveBeenCalled();
   });
 });
