@@ -682,15 +682,17 @@ export function calculateDoughRecipeForLoaves(
 
 export type HydrationDifficulty = 'easy' | 'artisan_standard' | 'high_open_crumb' | 'expert_sticky';
 
-/**
- * RD-18: Practical handling difficulty classification based on water percentage
- */
-export function getHydrationDifficulty(waterPercentage: number): {
+export interface HydrationDifficultyInfo {
   level: HydrationDifficulty;
   labelPl: string;
   badgeColor: string;
   tipPl: string;
-} {
+}
+
+/**
+ * RD-18: Practical handling difficulty classification based on water percentage
+ */
+export function getHydrationDifficulty(waterPercentage: number): HydrationDifficultyInfo {
   if (waterPercentage < 68) {
     return {
       level: 'easy',

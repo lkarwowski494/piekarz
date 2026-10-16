@@ -36,6 +36,8 @@ let memAppAccess: StoredAppAccess = {
   completedBakesCount: 0,
 };
 
+let memSettings: Record<string, string> = {};
+
 export function _resetMemStore(): void {
   memStarters = [];
   memRecipes = [];
@@ -43,6 +45,7 @@ export function _resetMemStore(): void {
   memFlourInventory = [];
   memCompletedLessons = [];
   memActiveBake = null;
+  memSettings = {};
   memAppAccess = {
     id: 'current_user',
     trialStartedAt: Date.now(),
@@ -141,7 +144,8 @@ export async function initDatabase(): Promise<void> {
         notes TEXT,
         crumb_score INTEGER,
         crust_score INTEGER,
-        taste_profile TEXT
+        taste_profile TEXT,
+        sensory_profile TEXT
       );
 
       CREATE TABLE IF NOT EXISTS starters (
@@ -181,6 +185,11 @@ export async function initDatabase(): Promise<void> {
         subscription_expires_at INTEGER,
         completed_bakes_count INTEGER NOT NULL DEFAULT 0
       );
+
+      CREATE TABLE IF NOT EXISTS app_settings (
+        key TEXT PRIMARY KEY NOT NULL,
+        value TEXT NOT NULL
+      );
     `);
 
     try {
@@ -191,7 +200,6 @@ export async function initDatabase(): Promise<void> {
       );
     } catch {}
 
-
     try {
       await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
     } catch {}
@@ -200,6 +208,9 @@ export async function initDatabase(): Promise<void> {
     } catch {}
     try {
       await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
+    } catch {}
+    try {
+      await db.execAsync('ALTER TABLE bakes ADD COLUMN sensory_profile TEXT;');
     } catch {}
 
     // Populate built-in master recipes into SQLite table
@@ -232,10 +243,44 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
   if (!db) return [...memLogs];
 
   try {
-    const rows = await db.getAllAsync<StoredBakeLog>(
-      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes, crumb_score as crumbScore, crust_score as crustScore, taste_profile as tasteProfile FROM bakes ORDER BY started_at DESC;'
+    const rows = await db.getAllAsync<{
+      id: string;
+      recipeName: string;
+      startedAt: number;
+      finishedAt: number | null;
+      ambientTemp: number | null;
+      actualDDT: number | null;
+      ratingStars: number | null;
+      notes: string | null;
+      crumbScore: number | null;
+      crustScore: number | null;
+      tasteProfile: string | null;
+      sensoryProfileRaw: string | null;
+    }>(
+      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes, crumb_score as crumbScore, crust_score as crustScore, taste_profile as tasteProfile, sensory_profile as sensoryProfileRaw FROM bakes ORDER BY started_at DESC;'
     );
-    return rows;
+    return rows.map((r) => {
+      let sensoryProfile: StoredBakeLog['sensoryProfile'] = undefined;
+      if (r.sensoryProfileRaw) {
+        try {
+          sensoryProfile = JSON.parse(r.sensoryProfileRaw);
+        } catch {}
+      }
+      return {
+        id: r.id,
+        recipeName: r.recipeName,
+        startedAt: r.startedAt,
+        finishedAt: r.finishedAt ?? undefined,
+        ambientTemp: r.ambientTemp ?? undefined,
+        actualDDT: r.actualDDT ?? undefined,
+        ratingStars: r.ratingStars ?? undefined,
+        notes: r.notes ?? undefined,
+        crumbScore: r.crumbScore ?? undefined,
+        crustScore: r.crustScore ?? undefined,
+        tasteProfile: (r.tasteProfile as any) ?? undefined,
+        sensoryProfile,
+      };
+    });
   } catch {
     return [...memLogs];
   }
@@ -252,9 +297,10 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   const db = await getDb();
   if (db) {
     try {
+      const sensoryStr = log.sensoryProfile ? JSON.stringify(log.sensoryProfile) : null;
       await db.runAsync(
-        `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+        `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile, sensory_profile)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
         log.id,
         log.recipeName,
         log.startedAt,
@@ -265,7 +311,8 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
         log.notes ?? null,
         log.crumbScore ?? null,
         log.crustScore ?? null,
-        log.tasteProfile ?? null
+        log.tasteProfile ?? null,
+        sensoryStr
       );
     } catch {
       // Memory store preserved
@@ -751,5 +798,36 @@ export async function resetAppAccess(custom?: Partial<StoredAppAccess>): Promise
     );
   } catch {}
   return resetData;
+}
+
+// ==========================================
+// Generic App Settings (Key-Value)
+// ==========================================
+
+export async function getAppSetting(key: string, defaultValue?: string): Promise<string | undefined> {
+  const db = await getDb();
+  if (!db) return memSettings[key] ?? defaultValue;
+  try {
+    const row = await db.getFirstAsync<{ value: string }>(
+      'SELECT value FROM app_settings WHERE key = ?;',
+      key
+    );
+    return row?.value ?? memSettings[key] ?? defaultValue;
+  } catch {
+    return memSettings[key] ?? defaultValue;
+  }
+}
+
+export async function setAppSetting(key: string, value: string): Promise<void> {
+  memSettings[key] = value;
+  const db = await getDb();
+  if (!db) return;
+  try {
+    await db.runAsync(
+      'INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?);',
+      key,
+      value
+    );
+  } catch {}
 }
 

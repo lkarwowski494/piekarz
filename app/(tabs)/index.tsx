@@ -248,15 +248,17 @@ export default function CalculatorScreen() {
   };
 
   const handleImportSuccess = (imported: StoredRecipe) => {
-    setSelectedPresetId(imported.id);
-    setRecipeName(imported.name);
-    setFlourBlend(imported.formula.flours);
-    setWaterPct(imported.formula.waterPercentage);
-    setStarterPct(imported.formula.starterPercentage);
-    setSaltPct(imported.formula.saltPercentage);
-    setStarterHydration(imported.formula.starterHydration ?? 100.0);
-    setTargetDdt(imported.targetDDT);
-    loadRecipesFromStore();
+    requireActionAccess(() => {
+      setSelectedPresetId(imported.id);
+      setRecipeName(imported.name);
+      setFlourBlend(imported.formula.flours);
+      setWaterPct(imported.formula.waterPercentage);
+      setStarterPct(imported.formula.starterPercentage);
+      setSaltPct(imported.formula.saltPercentage);
+      setStarterHydration(imported.formula.starterHydration ?? 100.0);
+      setTargetDdt(imported.targetDDT);
+      loadRecipesFromStore();
+    });
   };
 
   const handleScanRecipe = (scannedData: string) => {
@@ -293,39 +295,43 @@ export default function CalculatorScreen() {
 
   // Delete Custom Recipe
   const handleDeleteCustomRecipe = (recipe: StoredRecipe) => {
-    confirmDeleteRecipe(recipe.name, async () => {
-      await deleteRecipe(recipe.id);
-      if (selectedPresetId === recipe.id) {
-        handleSelectMasterPreset(MASTER_RECIPES[0].id);
-      }
-      await loadRecipesFromStore();
+    requireActionAccess(() => {
+      confirmDeleteRecipe(recipe.name, async () => {
+        await deleteRecipe(recipe.id);
+        if (selectedPresetId === recipe.id) {
+          handleSelectMasterPreset(MASTER_RECIPES[0].id);
+        }
+        await loadRecipesFromStore();
+      });
     });
   };
 
   // Clone Recipe as Custom
   const handleCloneAsCustomRecipe = async () => {
-    const cloneName = `${recipeName} (${t('Kopia')})`;
-    const cloned: StoredRecipe = {
-      id: `recipe_${Date.now()}`,
-      name: cloneName,
-      formula: {
-        flours: [...flourBlend],
-        waterPercentage: waterPct,
-        saltPercentage: saltPct,
-        starterPercentage: starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-      },
-      targetDDT: targetDdt,
-      isBuiltIn: false,
-      createdAt: Date.now(),
-    };
+    requireActionAccess(async () => {
+      const cloneName = `${recipeName} (${t('Kopia')})`;
+      const cloned: StoredRecipe = {
+        id: `recipe_${Date.now()}`,
+        name: cloneName,
+        formula: {
+          flours: [...flourBlend],
+          waterPercentage: waterPct,
+          saltPercentage: saltPct,
+          starterPercentage: starterPct,
+          starterHydration,
+          targetDoughWeightGrams,
+        },
+        targetDDT: targetDdt,
+        isBuiltIn: false,
+        createdAt: Date.now(),
+      };
 
-    await saveRecipe(cloned);
-    await loadRecipesFromStore();
-    setSelectedPresetId(cloned.id);
-    setRecipeName(cloned.name);
-    Alert.alert(t('Sklonowano przepis'), t('Utworzono edytowalną kopię w Twojej bibliotece.'));
+      await saveRecipe(cloned);
+      await loadRecipesFromStore();
+      setSelectedPresetId(cloned.id);
+      setRecipeName(cloned.name);
+      Alert.alert(t('Sklonowano przepis'), t('Utworzono edytowalną kopię w Twojej bibliotece.'));
+    });
   };
 
   // Apply Flour Blend Preset
@@ -562,24 +568,14 @@ export default function CalculatorScreen() {
           }}
           presets={MASTER_RECIPES.map((r) => ({ id: r.id, name: r.namePl }))}
           selectedPresetId={selectedPresetId}
-          onSelectPreset={(id) => {
-            setSelectedPresetId(id);
-            const found = MASTER_RECIPES.find((r) => r.id === id);
-            if (found) {
-              setRecipeName(found.namePl);
-              setFlourBlend(found.formula.flours);
-              setWaterPct(found.formula.waterPercentage);
-              setStarterPct(found.formula.starterPercentage);
-              setSaltPct(found.formula.saltPercentage);
-              if (found.formula.starterHydration !== undefined) {
-                setStarterHydration(found.formula.starterHydration);
-              }
-              if (found.targetDDT !== undefined) {
-                setTargetDdt(found.targetDDT);
-              }
-            }
-          }}
+          onSelectPreset={handleSelectMasterPreset}
           onStartBake={handleStartBakeOnWorkbench}
+          calcMode={calcMode}
+          onCalcModeChange={setCalcMode}
+          flourGrams={flourGrams}
+          onFlourGramsChange={setFlourGrams}
+          loafWeightGrams={loafWeightGrams}
+          onLoafWeightGramsChange={setLoafWeightGrams}
         />
 
         {/* Progressive Disclosure Level 2: Artisan Collapsible Drawer */}
@@ -595,12 +591,24 @@ export default function CalculatorScreen() {
           frictionFactor={frictionFactor}
           flourBlend={flourBlend}
           onOpenBlendModal={() => setIsBlendModalOpen(true)}
+          onSelectFlourBlend={handleSelectFlourBlend}
+          onOpenInventory={() => setIsInventoryOpen(true)}
+          onOpenEquivalents={() => setIsEquivModalOpen(true)}
           waterPct={waterPct}
           onWaterPctChange={setWaterPct}
+          hydrationDifficulty={hydrationDifficulty}
+          blendAbsorption={blendAbsorption}
           prefermentType={prefermentType}
           onPrefermentTypeChange={setPrefermentType}
+          prefermentFlourPct={prefermentFlourPct}
+          onPrefermentFlourPctChange={setPrefermentFlourPct}
+          prefermentBreakdown={prefermentBreakdown}
           bakeLossPercent={customBakeLossPercent}
+          onBakeLossPercentChange={setCustomBakeLossPercent}
           bakedTotalWeightGrams={bakedTotalWeight}
+          bakeLossMetrics={bakeLossMetrics}
+          selectedBakeLossPresetId={selectedBakeLossPresetId}
+          onSelectBakeLossPreset={handleSelectBakeLossPreset}
         />
 
         {/* Master & Custom Recipes Selector */}
@@ -802,606 +810,6 @@ export default function CalculatorScreen() {
           </View>
         )}
 
-        {/* Calculation Mode Switcher */}
-        <View style={styles.modeSwitcherContainer}>
-          <Pressable
-            style={[styles.modeTab, calcMode === 'loaves' && styles.modeTabActive]}
-            onPress={() => setCalcMode('loaves')}
-          >
-            <Text style={[styles.modeTabText, calcMode === 'loaves' && styles.modeTabTextActive]}>
-              🥖 {t('Bochenki')} ({loavesCount} × {loafWeightGrams}g)
-            </Text>
-          </Pressable>
-          <Pressable
-            style={[styles.modeTab, calcMode === 'flour' && styles.modeTabActive]}
-            onPress={() => setCalcMode('flour')}
-          >
-            <Text style={[styles.modeTabText, calcMode === 'flour' && styles.modeTabTextActive]}>
-              🌾 {t('Masa mąki')} ({flourGrams}g)
-            </Text>
-          </Pressable>
-        </View>
-
-        {/* Mode-Specific Input Card */}
-        {calcMode === 'loaves' ? (
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>{t('Liczba bochenków')} i gramatura</Text>
-            <Text style={styles.cardSubtitle}>
-              Zaplanuj ile chlebów chcesz upiec — kalkulator przeliczy składniki
-            </Text>
-
-            {/* Loaves Count Selector */}
-            <View style={styles.row}>
-              <Text style={styles.label}>{t('Liczba bochenków')}</Text>
-              <View style={styles.chipRow}>
-                {[1, 2, 3, 4].map((count) => (
-                  <Pressable
-                    key={count}
-                    onPress={() => setLoavesCount(count)}
-                    style={[styles.smallChip, loavesCount === count && styles.smallChipActive]}
-                  >
-                    <Text style={[styles.smallChipText, loavesCount === count && styles.smallChipTextActive]}>
-                      {count} szt.
-                    </Text>
-                  </Pressable>
-                ))}
-              </View>
-            </View>
-
-            <View style={styles.divider} />
-
-            {/* Single Loaf Raw Weight Selector */}
-            <View style={styles.row}>
-              <View style={styles.flex1}>
-                <Text style={styles.label}>{t('Waga bochenka')}</Text>
-                <Text style={styles.sublabel}>
-                  Masa surowego ciasta (po upieczeniu ~{bakedSingleLoafWeight} g)
-                </Text>
-              </View>
-              <View style={styles.inputGroup}>
-                <Pressable
-                  style={styles.stepBtn}
-                  onPress={() => setLoafWeightGrams((prev) => Math.max(300, prev - 50))}
-                >
-                  <Text style={styles.stepBtnText}>-50</Text>
-                </Pressable>
-                <TextInput
-                  keyboardType="numeric"
-                  value={String(loafWeightGrams)}
-                  onChangeText={(val) => setLoafWeightGrams(Math.max(100, Number(val) || 0))}
-                  style={styles.numberInput}
-                />
-                <Text style={styles.unitText}>g</Text>
-                <Pressable
-                  style={styles.stepBtn}
-                  onPress={() => setLoafWeightGrams((prev) => prev + 50)}
-                >
-                  <Text style={styles.stepBtnText}>+50</Text>
-                </Pressable>
-              </View>
-            </View>
-          </View>
-        ) : (
-          <View style={styles.card}>
-            <Text style={styles.cardTitle}>{t('Masa mąki')} bazowej</Text>
-            <Text style={styles.cardSubtitle}>Mąka stanowi 100% bazy w procentach piekarskich</Text>
-
-            <View style={styles.row}>
-              <View style={styles.flex1}>
-                <Text style={styles.label}>{t('Mąka')} łącznie</Text>
-                <Text style={styles.sublabel}>Podstawa zasypu do miski</Text>
-              </View>
-              <View style={styles.inputGroup}>
-                <Pressable
-                  style={styles.stepBtn}
-                  onPress={() => setFlourGrams((prev) => Math.max(100, prev - 50))}
-                >
-                  <Text style={styles.stepBtnText}>-50</Text>
-                </Pressable>
-                <TextInput
-                  keyboardType="numeric"
-                  value={String(flourGrams)}
-                  onChangeText={(val) => setFlourGrams(Math.max(50, Number(val) || 0))}
-                  style={styles.numberInput}
-                />
-                <Text style={styles.unitText}>g</Text>
-                <Pressable
-                  style={styles.stepBtn}
-                  onPress={() => setFlourGrams((prev) => prev + 50)}
-                >
-                  <Text style={styles.stepBtnText}>+50</Text>
-                </Pressable>
-              </View>
-            </View>
-          </View>
-        )}
-
-        {/* Flour Blend Card */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Mieszanka mąk')}</Text>
-          <Text style={styles.cardSubtitle}>
-            Połącz mąkę chlebową z pełnoziarnistą lub żytnią dla smaku i chrupkości
-          </Text>
-
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.blendScroll}>
-            {POPULAR_FLOUR_BLENDS.map((blend) => (
-              <Pressable
-                key={blend.id}
-                onPress={() => handleSelectFlourBlend(blend)}
-                style={styles.blendPresetChip}
-              >
-                <Text style={styles.blendPresetText}>{blend.namePl}</Text>
-              </Pressable>
-            ))}
-          </ScrollView>
-
-          <Pressable
-            testID="open-blend-builder-btn"
-            style={styles.customBlendBtn}
-            onPress={() => setIsBlendModalOpen(true)}
-          >
-            <Text style={styles.customBlendBtnText}>⚙️ {t('Skomponuj własną mieszankę mąk')}</Text>
-          </Pressable>
-
-          <Pressable
-            testID="open-flour-inventory-btn"
-            style={styles.flourInventoryBtn}
-            onPress={() => setIsInventoryOpen(true)}
-          >
-            <Text style={styles.flourInventoryBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
-          </Pressable>
-
-          <Pressable
-            testID="open-flour-equivalents-btn"
-            style={styles.flourInventoryBtn}
-            onPress={() => setIsEquivModalOpen(true)}
-          >
-            <Text style={styles.flourInventoryBtnText}>🌍 {t('Słownik Odpowiedników Mąk')}</Text>
-          </Pressable>
-
-          {/* Breakdown per flour */}
-          {calculations.flours.map((flour, idx) => (
-            <View key={idx} style={styles.flourItemRow}>
-              <View style={styles.flex1}>
-                <Text style={styles.flourItemName}>{flour.name}</Text>
-                <Text style={styles.flourItemPct}>{flour.percentage.toFixed(0)}% mąki bazowej</Text>
-              </View>
-              <Text style={styles.flourItemGrams}>{flour.weightGrams} g</Text>
-            </View>
-          ))}
-        </View>
-
-        {/* Hydration & Artisan Parameters */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Parametry rzemieślnicze</Text>
-          <Text style={styles.cardSubtitle}>True Baker’s % — proporcje względem mąki</Text>
-
-          {/* Water / Hydration */}
-          <View style={styles.paramBlock}>
-            <View style={styles.paramHeaderRow}>
-              <View>
-                <Text style={styles.label}>{t('Woda')} (Hydratacja)</Text>
-                <View style={[styles.diffBadge, { backgroundColor: hydrationDifficulty.badgeColor + '20' }]}>
-                  <Text style={[styles.diffBadgeText, { color: hydrationDifficulty.badgeColor }]}>
-                    ● {hydrationDifficulty.labelPl}
-                  </Text>
-                </View>
-              </View>
-              <Text style={styles.paramBigValue}>{waterPct.toFixed(1)}%</Text>
-            </View>
-            <Text style={styles.paramTip}>{hydrationDifficulty.tipPl}</Text>
-
-            <View style={styles.stepperRow}>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setWaterPct((prev) => Math.max(50, Number((prev - 5).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>-5%</Text>
-              </Pressable>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setWaterPct((prev) => Math.max(50, Number((prev - 1).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>-1%</Text>
-              </Pressable>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setWaterPct((prev) => Math.min(100, Number((prev + 1).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>+1%</Text>
-              </Pressable>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setWaterPct((prev) => Math.min(100, Number((prev + 5).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>+5%</Text>
-              </Pressable>
-            </View>
-
-            {/* Flour Atlas Absorption Analysis Badge */}
-            <View style={styles.absorptionBadge} testID="flour-absorption-badge">
-              <View style={styles.absorptionHeaderRow}>
-                <Text style={styles.absorptionLabel}>
-                  🌾 {t('Chłonność mąk:')} {blendAbsorption.weightedAbsorptionPercent}% ({t('zalecana')}: {blendAbsorption.recommendedHydrationRange[0]}–{blendAbsorption.recommendedHydrationRange[1]}%)
-                </Text>
-                <Text style={styles.proteinTag}>
-                  {t('Białko')}: ~{blendAbsorption.estimatedProteinPercent}%
-                </Text>
-              </View>
-              <Text style={styles.absorptionAdviceText}>
-                💡 {blendAbsorption.doughFeelAdvicePl}
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.divider} />
-
-          {/* Starter */}
-          <View style={styles.paramBlock}>
-            <View style={styles.paramHeaderRow}>
-              <View>
-                <Text style={styles.label}>{t('Zakwas (Levain)')}</Text>
-                <Text style={styles.sublabel}>Aktywny zaczyn o hydratacji {starterHydration}%</Text>
-              </View>
-              <Text style={styles.paramBigValue}>{starterPct.toFixed(1)}%</Text>
-            </View>
-
-            <View style={styles.stepperRow}>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setStarterPct((prev) => Math.max(5, Number((prev - 2).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>-2%</Text>
-              </Pressable>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setStarterPct((prev) => Math.min(40, Number((prev + 2).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>+2%</Text>
-              </Pressable>
-            </View>
-          </View>
-
-          <View style={styles.divider} />
-
-          {/* Salt */}
-          <View style={styles.paramBlock}>
-            <View style={styles.paramHeaderRow}>
-              <View>
-                <Text style={styles.label}>{t('Sól')}</Text>
-                <Text style={styles.sublabel}>Kłodawska, morska lub niejodowana</Text>
-              </View>
-              <Text style={styles.paramBigValue}>{saltPct.toFixed(1)}%</Text>
-            </View>
-
-            <View style={styles.stepperRow}>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setSaltPct((prev) => Math.max(1.0, Number((prev - 0.2).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>-0.2%</Text>
-              </Pressable>
-              <Pressable
-                style={styles.paramStepBtn}
-                onPress={() => setSaltPct((prev) => Math.min(3.5, Number((prev + 0.2).toFixed(1))))}
-              >
-                <Text style={styles.paramStepText}>+0.2%</Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-
-        {/* Artisan Preferments (Zaczyny rzemieślnicze) */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Zaczyny rzemieślnicze (Preferments)')}</Text>
-          <Text style={styles.cardSubtitle}>
-            Kalkulator Poolish, Biga, Pâte Fermentée z zachowaniem True Baker's %
-          </Text>
-
-          {/* Preferment Type Selector */}
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
-            {(['direct', 'poolish', 'biga', 'pate_fermentee', 'levain'] as const).map((type) => {
-              const def = PREFERMENT_DEFINITIONS[type];
-              const isSelected = prefermentType === type;
-              return (
-                <Pressable
-                  key={type}
-                  testID={`preferment-type-${type}`}
-                  style={[styles.presetChip, isSelected && styles.presetChipActive]}
-                  onPress={() => {
-                    setPrefermentType(type);
-                    if (type !== 'direct') {
-                      setPrefermentFlourPct(def.defaultPrefermentFlourPct);
-                    }
-                  }}
-                >
-                  <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
-                    {type === 'direct' && '🌾 '}
-                    {type === 'poolish' && '🥣 '}
-                    {type === 'biga' && '🥖 '}
-                    {type === 'pate_fermentee' && '🥐 '}
-                    {type === 'levain' && '🫙 '}
-                    {def.namePl.split(' (')[0]}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </ScrollView>
-
-          {prefermentBreakdown && (
-            <View style={styles.prefermentDetailsBlock} testID="preferment-details-block">
-              <View style={styles.row}>
-                <View style={styles.flex1}>
-                  <Text style={styles.label}>{t('Udział mąki w zaczynie')}</Text>
-                  <Text style={styles.sublabel}>
-                    {prefermentBreakdown.prefermentFlourGrams} g z {calculations.totalFlourGrams} g łącznej mąki
-                  </Text>
-                </View>
-                <View style={styles.chipRow}>
-                  {[15, 20, 25, 30, 40].map((pct) => (
-                    <Pressable
-                      key={pct}
-                      testID={`preferment-pct-${pct}`}
-                      style={[styles.smallChip, prefermentFlourPct === pct && styles.smallChipActive]}
-                      onPress={() => setPrefermentFlourPct(pct)}
-                    >
-                      <Text style={[styles.smallChipText, prefermentFlourPct === pct && styles.smallChipTextActive]}>
-                        {pct}%
-                      </Text>
-                    </Pressable>
-                  ))}
-                </View>
-              </View>
-
-              <View style={styles.divider} />
-
-              <View style={styles.prefermentGrid}>
-                <View style={styles.prefermentCol}>
-                  <Text style={styles.prefermentColHeader}>🥣 Zaczyn ({prefermentBreakdown.prefermentTotalWeightGrams} g)</Text>
-                  <Text style={styles.prefermentItemText}>🌾 {t('Mąka w zaczynie')}: {prefermentBreakdown.prefermentFlourGrams} g</Text>
-                  <Text style={styles.prefermentItemText}>💧 {t('Woda w zaczynie')}: {prefermentBreakdown.prefermentWaterGrams} g</Text>
-                  {prefermentBreakdown.prefermentYeastGrams > 0 && (
-                    <Text style={styles.prefermentItemText}>🧪 Drożdże: {prefermentBreakdown.prefermentYeastGrams} g</Text>
-                  )}
-                  {prefermentBreakdown.prefermentSaltGrams > 0 && (
-                    <Text style={styles.prefermentItemText}>🧂 Sól w starym cieście: {prefermentBreakdown.prefermentSaltGrams} g</Text>
-                  )}
-                </View>
-
-                <View style={styles.bakeLossMetricDivider} />
-
-                <View style={styles.prefermentCol}>
-                  <Text style={styles.prefermentColHeader}>🥖 Do miski (Ciasto właściwe)</Text>
-                  <Text style={styles.prefermentItemText}>🌾 Pozostała mąka: {prefermentBreakdown.doughAddedFlourGrams} g</Text>
-                  <Text style={styles.prefermentItemText}>💧 Pozostała woda: {prefermentBreakdown.doughAddedWaterGrams} g</Text>
-                  <Text style={styles.prefermentItemText}>🧂 Sól: {prefermentBreakdown.doughAddedSaltGrams} g</Text>
-                </View>
-              </View>
-
-              <Text style={styles.prefermentTipText}>
-                💡 {prefermentBreakdown.fermentationTipPl}
-              </Text>
-            </View>
-          )}
-        </View>
-
-        {/* Big Scale Card: "Do miski na wagę" */}
-        <View style={styles.scaleCard}>
-          <View style={styles.scaleCardHeader}>
-            <Text style={styles.scaleCardTitle}>⚖️ {t('Do miski na wagę')}</Text>
-            <Text style={styles.scaleCardSubtitle}>
-              Kolejność dodawania składników i dokładne gramatury
-            </Text>
-          </View>
-
-          <View style={styles.scaleGrid}>
-            {/* Flours */}
-            <View style={styles.scaleItem}>
-              <Text style={styles.scaleItemLabel}>🌾 Mąki łącznie</Text>
-              <Text style={styles.scaleItemValue}>{formatWeight(calculations.baseFlourWeightGrams, unitSystem)}</Text>
-              <Text style={styles.scaleItemSub}>
-                {calculations.flours.map((f) => `${f.weightGrams}g`).join(' + ')}
-              </Text>
-            </View>
-
-            {/* Water */}
-            <View style={styles.scaleItem}>
-              <Text style={styles.scaleItemLabel}>💧 Woda</Text>
-              <Text style={styles.scaleItemValue}>{formatWeight(calculations.waterGrams, unitSystem)}</Text>
-              <Text style={styles.scaleItemSub}>
-                {ddtResult.waterTempTarget > 0 ? `DDT: ${formatTemperature(ddtResult.waterTempTarget, unitSystem)}` : 'Woda chłodna'}
-              </Text>
-            </View>
-
-            {/* Sourdough */}
-            <View style={styles.scaleItem}>
-              <Text style={styles.scaleItemLabel}>🏺 Zakwas (Levain)</Text>
-              <Text style={styles.scaleItemValue}>{formatWeight(calculations.starterGrams, unitSystem)}</Text>
-              <Text style={styles.scaleItemSub}>
-                {calculations.starterFlourGrams}g mąki + {calculations.starterWaterGrams}g wody
-              </Text>
-            </View>
-
-            {/* Salt */}
-            <View style={styles.scaleItem}>
-              <Text style={styles.scaleItemLabel}>🧂 Sól</Text>
-              <Text style={styles.scaleItemValue}>{formatDoseWeight(calculations.saltGrams, unitSystem)}</Text>
-              <Text style={styles.scaleItemSub}>2.0% mąki</Text>
-            </View>
-          </View>
-
-          {/* Mass & Hydration Balance Footer */}
-          <View style={styles.scaleFooter}>
-            <View style={styles.scaleFooterCol}>
-              <Text style={styles.scaleFooterLabel}>{t('Hydratacja całkowita')}</Text>
-              <Text style={styles.scaleFooterHighlight}>
-                {calculations.overallHydrationPercent.toFixed(1)}%
-              </Text>
-              <Text style={styles.scaleFooterCaption}>True Baker’s %</Text>
-            </View>
-            <View style={styles.scaleFooterDivider} />
-            <View style={styles.scaleFooterCol}>
-              <Text style={styles.scaleFooterLabel}>Masa surowego ciasta</Text>
-              <Text style={styles.scaleFooterHighlight}>
-                {formatWeight(calculations.targetDoughWeightGrams, unitSystem)}
-              </Text>
-              <Text style={styles.scaleFooterCaption}>
-                {calcMode === 'loaves' ? `${loavesCount} bochenki po ~${bakedSingleLoafWeight}g` : `Chleb: ~${bakedTotalWeight}g`}
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        {/* DDT & Water Temp */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Docelowa temperatura ciasta (DDT)')}</Text>
-          <Text style={styles.cardSubtitle}>
-            4-składnikowa formuła Mathonsa z uwzględnieniem zakwasu
-          </Text>
-
-          <View style={styles.row}>
-            <Text style={styles.label}>Cel DDT</Text>
-            <Text style={styles.valueHighlight}>{formatTemperature(targetDdt, unitSystem)}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>{t('Temperatura mąki')}</Text>
-            <Text style={styles.labelSmall}>{formatTemperature(flourTemp, unitSystem)}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>{t('Temperatura otoczenia')}</Text>
-            <Text style={styles.labelSmall}>{formatTemperature(roomTemp, unitSystem)}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.label}>{t('Ciepło tarcia')}</Text>
-            <Text style={styles.labelSmall}>{frictionFactor.toFixed(1)}°C (ręcznie)</Text>
-          </View>
-
-          <View style={styles.ddtResultBox}>
-            <Text style={styles.ddtResultLabel}>{t('Wymagana temperatura wody')}</Text>
-            <Text style={styles.ddtResultValue}>{formatTemperature(ddtResult.waterTempTarget, unitSystem)}</Text>
-
-            {ddtResult.status === 'too_hot_danger' && (
-              <View style={styles.alertDanger}>
-                <Text style={styles.alertText}>{ddtResult.warningMessagePl}</Text>
-              </View>
-            )}
-
-            {ddtResult.status === 'requires_ice' && iceResult && (
-              <View style={styles.alertWarning}>
-                <Text style={styles.alertText}>
-                  Woda poniżej 4°C! Dodaj {iceResult.iceGrams} g lodu do {iceResult.waterGrams} g wody z kranu ({tapWaterTemp}°C).
-                </Text>
-              </View>
-            )}
-          </View>
-        </View>
-
-        {/* Bake Loss & Crumb Moisture Card */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Strata wypiekowa i wilgotność miękiszu')}</Text>
-          <Text style={styles.cardSubtitle}>
-            {t('Typ wypieku i odparowanie')} (10% – 22%)
-          </Text>
-
-          {/* Preset Chips */}
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
-            {BAKE_LOSS_PRESETS.map((preset) => {
-              const isSelected = selectedBakeLossPresetId === preset.id;
-              return (
-                <Pressable
-                  key={preset.id}
-                  testID={`bake-loss-preset-${preset.id}`}
-                  style={[styles.presetChip, isSelected && styles.presetChipActive]}
-                  onPress={() => handleSelectBakeLossPreset(preset.id)}
-                >
-                  <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
-                    {t(preset.namePl)} ({preset.defaultLossPercent}%)
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </ScrollView>
-
-          {/* Loss % Adjuster */}
-          <View style={styles.row}>
-            <View style={styles.flex1}>
-              <Text style={styles.label}>{t('Strata piecowa')}</Text>
-              <Text style={styles.sublabel}>
-                {BAKE_LOSS_PRESETS.find((p) => p.id === selectedBakeLossPresetId)?.descriptionPl}
-              </Text>
-            </View>
-            <View style={styles.inputGroup}>
-              <Pressable
-                style={styles.stepBtn}
-                testID="bake-loss-minus"
-                onPress={() => setCustomBakeLossPercent((prev) => Math.max(5.0, Number((prev - 0.5).toFixed(1))))}
-              >
-                <Text style={styles.stepBtnText}>-0.5%</Text>
-              </Pressable>
-              <Text style={styles.valueHighlight} testID="bake-loss-percent-value">
-                {customBakeLossPercent.toFixed(1)}%
-              </Text>
-              <Pressable
-                style={styles.stepBtn}
-                testID="bake-loss-plus"
-                onPress={() => setCustomBakeLossPercent((prev) => Math.min(30.0, Number((prev + 0.5).toFixed(1))))}
-              >
-                <Text style={styles.stepBtnText}>+0.5%</Text>
-              </Pressable>
-            </View>
-          </View>
-
-          {/* Results Grid */}
-          <View style={styles.bakeLossGrid}>
-            <View style={styles.bakeLossMetricCol}>
-              <Text style={styles.bakeLossMetricLabel}>{t('Upieczony bochenek')}</Text>
-              <Text style={styles.bakeLossMetricValue} testID="bake-loss-baked-grams">
-                {bakeLossMetrics.bakedWeightGrams} g
-              </Text>
-              <Text style={styles.bakeLossMetricSub}>
-                {calcMode === 'loaves' && loavesCount > 1
-                  ? `(${loavesCount}x ~${bakeLossMetrics.singleLoafBakedGrams} g)`
-                  : `~${bakeLossMetrics.bakedWeightGrams} g`}
-              </Text>
-            </View>
-
-            <View style={styles.bakeLossMetricDivider} />
-
-            <View style={styles.bakeLossMetricCol}>
-              <Text style={styles.bakeLossMetricLabel}>{t('Odparowana woda')}</Text>
-              <Text style={styles.bakeLossMetricValue} testID="bake-loss-evaporated-grams">
-                -{bakeLossMetrics.evaporatedWaterGrams} g
-              </Text>
-              <Text style={styles.bakeLossMetricSub}>para w piecu</Text>
-            </View>
-
-            <View style={styles.bakeLossMetricDivider} />
-
-            <View style={styles.bakeLossMetricCol}>
-              <Text style={styles.bakeLossMetricLabel}>{t('Szacowana wilgotność miękiszu')}</Text>
-              <Text style={[styles.bakeLossMetricValue, { color: theme.colors.accentDark }]} testID="bake-loss-moisture-value">
-                {bakeLossMetrics.retainedMoisturePercent}%
-              </Text>
-              <Text style={styles.bakeLossMetricSub}>retencja wody</Text>
-            </View>
-          </View>
-
-          {/* Category & Cooling Advice */}
-          <View style={styles.crumbMoistureBox}>
-            <View style={styles.crumbMoistureHeader}>
-              <Text style={styles.crumbMoistureTitle} testID="bake-loss-category-label">
-                {bakeLossMetrics.crumbMoistureCategory === 'custardy_wet' && '💧 '}
-                {bakeLossMetrics.crumbMoistureCategory === 'balanced' && '🥖 '}
-                {bakeLossMetrics.crumbMoistureCategory === 'dry' && '🌾 '}
-                {t(bakeLossMetrics.categoryLabelPl)}
-              </Text>
-            </View>
-            <Text style={styles.crumbMoistureAdvice}>
-              {bakeLossMetrics.coolingAdvicePl}
-            </Text>
-          </View>
-        </View>
-
         {/* Action Buttons: Save Custom Recipe, Copy Recipe & Start Bake on Workbench */}
         <View style={styles.actionButtonsContainer}>
           <Pressable
@@ -1458,6 +866,14 @@ export default function CalculatorScreen() {
             onPress={() => setIsCostModalOpen(true)}
           >
             <Text style={styles.cloneRecipeBtnText}>💰 {t('Kalkulator kosztów')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="open-flour-inventory-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={() => setIsInventoryOpen(true)}
+          >
+            <Text style={styles.cloneRecipeBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
           </Pressable>
 
           <Pressable

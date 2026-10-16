@@ -172,16 +172,18 @@ export default function ZakwasScreen() {
 
   // Save edit modal
   const handleSaveProfile = async () => {
-    const updated: StoredStarter = {
-      ...starter,
-      name: editName.trim() || starter.name,
-      flourType: editFlourType.trim() || starter.flourType,
-      storageState: editStorageState,
-    };
-    await saveStarter(updated);
-    setStarter(updated);
-    setIsEditModalOpen(false);
-    await loadStarterData();
+    requireActionAccess(async () => {
+      const updated: StoredStarter = {
+        ...starter,
+        name: editName.trim() || starter.name,
+        flourType: editFlourType.trim() || starter.flourType,
+        storageState: editStorageState,
+      };
+      await saveStarter(updated);
+      setStarter(updated);
+      setIsEditModalOpen(false);
+      await loadStarterData();
+    });
   };
 
   const handleCopyFeeding = async () => {
@@ -211,13 +213,15 @@ export default function ZakwasScreen() {
   };
 
   const handleDeleteCurrentStarter = () => {
-    if (startersList.length <= 1) return;
-    confirmDeleteStarter(starter.name, async () => {
-      await deleteStarter(starter.id);
-      setIsEditModalOpen(false);
-      const remaining = startersList.filter((s) => s.id !== starter.id);
-      const nextId = remaining.length > 0 ? remaining[0].id : undefined;
-      await loadStarterData(nextId);
+    requireActionAccess(() => {
+      if (startersList.length <= 1) return;
+      confirmDeleteStarter(starter.name, async () => {
+        await deleteStarter(starter.id);
+        setIsEditModalOpen(false);
+        const remaining = startersList.filter((s) => s.id !== starter.id);
+        const nextId = remaining.length > 0 ? remaining[0].id : undefined;
+        await loadStarterData(nextId);
+      });
     });
   };
 

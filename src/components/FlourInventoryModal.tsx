@@ -28,6 +28,8 @@ import {
   InventoryCheckResult,
 } from '../core/inventory';
 import { FLOUR_PROFILES } from '../core/flour-atlas';
+import { useAppAccess } from '../lib/app-access';
+import { PaywallModal } from './PaywallModal';
 
 export interface FlourInventoryModalProps {
   visible: boolean;
@@ -42,6 +44,14 @@ export function FlourInventoryModal({
   recipeFlours,
   onInventoryUpdated,
 }: FlourInventoryModalProps) {
+  const {
+    access,
+    isPaywallVisible,
+    setPaywallVisible,
+    requireActionAccess,
+    subscribe,
+    restorePurchases,
+  } = useAppAccess();
   const [inventory, setInventory] = useState<StoredFlourInventoryItem[]>([]);
   const [newFlourName, setNewFlourName] = useState<string>('');
   const [newFlourStock, setNewFlourStock] = useState<string>('1000');
@@ -65,53 +75,61 @@ export function FlourInventoryModal({
   }, [recipeFlours, inventory]);
 
   const handleAdjustStock = async (item: StoredFlourInventoryItem, deltaGrams: number) => {
-    const newStock = Math.max(0, Math.round(item.stockGrams + deltaGrams));
-    const updated: StoredFlourInventoryItem = {
-      ...item,
-      stockGrams: newStock,
-      updatedAt: Date.now(),
-    };
-    await saveFlourInventoryItem(updated);
-    await loadData();
-    onInventoryUpdated?.();
+    requireActionAccess(async () => {
+      const newStock = Math.max(0, Math.round(item.stockGrams + deltaGrams));
+      const updated: StoredFlourInventoryItem = {
+        ...item,
+        stockGrams: newStock,
+        updatedAt: Date.now(),
+      };
+      await saveFlourInventoryItem(updated);
+      await loadData();
+      onInventoryUpdated?.();
+    });
   };
 
   const handleDeleteItem = async (id: string) => {
-    await deleteFlourInventoryItem(id);
-    await loadData();
-    onInventoryUpdated?.();
+    requireActionAccess(async () => {
+      await deleteFlourInventoryItem(id);
+      await loadData();
+      onInventoryUpdated?.();
+    });
   };
 
   const handleAddNewFlour = async () => {
-    const trimmed = newFlourName.trim();
-    if (!trimmed) {
-      Alert.alert(t('Błąd'), t('Podaj nazwę mąki'));
-      return;
-    }
-    const stock = parseFloat(newFlourStock) || 1000;
-    const item: StoredFlourInventoryItem = {
-      id: `flour_inv_${Date.now()}`,
-      name: trimmed,
-      stockGrams: Math.max(0, stock),
-      updatedAt: Date.now(),
-    };
-    await saveFlourInventoryItem(item);
-    setNewFlourName('');
-    setNewFlourStock('1000');
-    setIsAddingNew(false);
-    await loadData();
-    onInventoryUpdated?.();
+    requireActionAccess(async () => {
+      const trimmed = newFlourName.trim();
+      if (!trimmed) {
+        Alert.alert(t('Błąd'), t('Podaj nazwę mąki'));
+        return;
+      }
+      const stock = parseFloat(newFlourStock) || 1000;
+      const item: StoredFlourInventoryItem = {
+        id: `flour_inv_${Date.now()}`,
+        name: trimmed,
+        stockGrams: Math.max(0, stock),
+        updatedAt: Date.now(),
+      };
+      await saveFlourInventoryItem(item);
+      setNewFlourName('');
+      setNewFlourStock('1000');
+      setIsAddingNew(false);
+      await loadData();
+      onInventoryUpdated?.();
+    });
   };
 
   const handleDeductRecipeStocks = async () => {
-    if (!recipeFlours || recipeFlours.length === 0) return;
-    const updatedList = deductFlourStocks(recipeFlours, inventory);
-    for (const item of updatedList) {
-      await saveFlourInventoryItem(item);
-    }
-    await loadData();
-    onInventoryUpdated?.();
-    Alert.alert(t('Pomyślnie odliczono'), t('Zasoby mąki w spiżarni zostały zaktualizowane.'));
+    requireActionAccess(async () => {
+      if (!recipeFlours || recipeFlours.length === 0) return;
+      const updatedList = deductFlourStocks(recipeFlours, inventory);
+      for (const item of updatedList) {
+        await saveFlourInventoryItem(item);
+      }
+      await loadData();
+      onInventoryUpdated?.();
+      Alert.alert(t('Pomyślnie odliczono'), t('Zasoby mąki w spiżarni zostały zaktualizowane.'));
+    });
   };
 
   return (
@@ -287,6 +305,14 @@ export function FlourInventoryModal({
             <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
           </Pressable>
         </View>
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+          trialDaysRemaining={access.trialDaysRemaining}
+          completedBakesCount={access.completedBakesCount}
+        />
       </View>
     </Modal>
   );

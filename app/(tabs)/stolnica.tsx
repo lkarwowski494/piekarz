@@ -25,7 +25,9 @@ import {
   ActiveBakeState,
   deductFlourStock,
   getRecipes,
+  incrementCompletedBakes,
 } from '../../src/data/sqlite-store';
+import { useUnitSystem, formatTemperature, formatWeight } from '../../src/lib/unit-converter';
 import { StoredBakeLog } from '../../src/data/db';
 import { MASTER_RECIPES } from '../../src/recipes/presets';
 import { setPendingRecipeToLoad } from '../../src/lib/recipe-navigation';
@@ -367,6 +369,9 @@ export default function StolnicaScreen() {
         crustCrispness: finishCrustScore,
       },
     });
+
+    // Real increments for monetization trial counter (Apps4Brew Gold Standard)
+    await incrementCompletedBakes();
 
     // Deduct flour inventory if calculated recipe is present
     if (activeBakeData?.calculatedRecipe?.flours) {

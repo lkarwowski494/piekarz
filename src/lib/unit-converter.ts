@@ -5,12 +5,28 @@
 // ============================================================================
 
 import { useState, useEffect } from 'react';
+import { getAppSetting, setAppSetting } from '../data/sqlite-store';
 
 export type UnitSystem = 'metric' | 'imperial';
 
-// In-memory preference with subscribers
+// In-memory preference with subscribers and SQLite persistence
 let currentUnitSystem: UnitSystem = 'metric';
 const unitListeners = new Set<(system: UnitSystem) => void>();
+
+/**
+ * Inicjalizuje układ jednostek z bazy SQLite
+ */
+export async function initUnitSystem(): Promise<UnitSystem> {
+  try {
+    const saved = await getAppSetting('unit_system');
+    if (saved === 'imperial' || saved === 'metric') {
+      currentUnitSystem = saved;
+      unitListeners.forEach((fn) => fn(saved));
+      return saved;
+    }
+  } catch {}
+  return currentUnitSystem;
+}
 
 /**
  * Zwraca aktualny globalny układ jednostek
@@ -20,11 +36,12 @@ export function getUnitSystem(): UnitSystem {
 }
 
 /**
- * Ustawia globalny układ jednostek i powiadamia subskrybentów
+ * Ustawia globalny układ jednostek, zapisuje w SQLite i powiadamia subskrybentów
  */
 export function setUnitSystem(system: UnitSystem): void {
   if (currentUnitSystem !== system) {
     currentUnitSystem = system;
+    void setAppSetting('unit_system', system);
     unitListeners.forEach((fn) => fn(system));
   }
 }
@@ -46,10 +63,17 @@ export function useUnitSystem(): UnitSystem {
   const [unitSystem, setLocalUnitSystem] = useState<UnitSystem>(currentUnitSystem);
 
   useEffect(() => {
-    const unsubscribe = subscribeUnitSystem((newSystem) => {
-      setLocalUnitSystem(newSystem);
+    let isMounted = true;
+    void initUnitSystem().then((sys) => {
+      if (isMounted) setLocalUnitSystem(sys);
     });
-    return unsubscribe;
+    const unsubscribe = subscribeUnitSystem((newSystem) => {
+      if (isMounted) setLocalUnitSystem(newSystem);
+    });
+    return () => {
+      isMounted = false;
+      unsubscribe();
+    };
   }, []);
 
   return unitSystem;

@@ -159,11 +159,13 @@ export function useAppAccess() {
     [refresh]
   );
 
-  const restorePurchases = useCallback(async () => {
+  const restorePurchases = useCallback(async (): Promise<boolean> => {
     // In offline-first environment, refresh from local SQLite
-    await refresh();
-    return true;
-  }, [refresh]);
+    const stored = await getAppAccess();
+    const evaluated = evaluateAppAccess(stored);
+    setAccess(evaluated);
+    return evaluated.isSubscribed;
+  }, []);
 
   return {
     access,

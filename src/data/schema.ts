@@ -63,7 +63,8 @@ export const SQLITE_INIT_QUERIES = [
     actual_ddt REAL,
     rating_stars INTEGER,
     notes TEXT,
-    image_paths TEXT
+    image_paths TEXT,
+    sensory_profile TEXT
   );`,
 
   `CREATE TABLE IF NOT EXISTS lesson_progress (
@@ -78,6 +79,11 @@ export const SQLITE_INIT_QUERIES = [
     subscription_tier TEXT NOT NULL DEFAULT 'none',
     subscription_expires_at INTEGER,
     completed_bakes_count INTEGER NOT NULL DEFAULT 0
+  );`,
+
+  `CREATE TABLE IF NOT EXISTS app_settings (
+    key TEXT PRIMARY KEY NOT NULL,
+    value TEXT NOT NULL
   );`
 ];
 

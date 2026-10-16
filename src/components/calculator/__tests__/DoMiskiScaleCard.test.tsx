@@ -65,8 +65,8 @@ describe('DoMiskiScaleCard Component', () => {
     expect(fullText).toContain('Co dzisiaj pieczemy?');
     expect(fullText).toContain('Klasyczny pszenno-żytni');
     expect(fullText).toContain('Liczba bochenków');
-    expect(fullText).toContain('Wsyp do miski na wagę');
-    expect(fullText).toContain('550 g'); // Total flour: 550g
+    expect(fullText).toContain('Do miski na wagę');
+    expect(fullText).toContain('500 g'); // Base flour added to bowl: 500g (fixing double-counted starter flour)
     expect(fullText).toContain('350 g'); // Water: 350g
     expect(fullText).toContain('100 g'); // Starter: 100g
     expect(fullText).toContain('10 g');  // Salt: 10g

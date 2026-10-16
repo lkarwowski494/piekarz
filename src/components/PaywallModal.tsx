@@ -57,9 +57,13 @@ export function PaywallModal({
     if (!onRestore) return;
     setIsProcessing(true);
     try {
-      await onRestore();
-      Alert.alert(t('Przywróć zakupy'), t('Zakupy zostały pomyślnie przywrócone'));
-      onClose();
+      const restored = await onRestore();
+      if (restored) {
+        Alert.alert(t('Przywróć zakupy'), t('Zakupy zostały pomyślnie przywrócone'));
+        onClose();
+      } else {
+        Alert.alert(t('Przywróć zakupy'), t('Nie znaleziono aktywnych zakupów'));
+      }
     } catch {
       Alert.alert(t('Przywróć zakupy'), t('Nie znaleziono aktywnych zakupów'));
     } finally {

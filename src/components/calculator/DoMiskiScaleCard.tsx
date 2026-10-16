@@ -9,6 +9,7 @@ import * as Haptics from 'expo-haptics';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { DoughRecipeResult } from '../../core/domain-rules';
+import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 
 export interface DoMiskiPreset {
   id: string;
@@ -26,6 +27,12 @@ export interface DoMiskiScaleCardProps {
   onSelectPreset: (id: string) => void;
   onStartBake: () => void;
   singleLoafWeightGrams?: number;
+  calcMode?: 'loaves' | 'flour';
+  onCalcModeChange?: (mode: 'loaves' | 'flour') => void;
+  flourGrams?: number;
+  onFlourGramsChange?: (grams: number) => void;
+  loafWeightGrams?: number;
+  onLoafWeightGramsChange?: (grams: number) => void;
 }
 
 export function DoMiskiScaleCard({
@@ -37,7 +44,13 @@ export function DoMiskiScaleCard({
   selectedPresetId,
   onSelectPreset,
   onStartBake,
+  calcMode = 'loaves',
+  onCalcModeChange,
+  flourGrams = 500,
+  onFlourGramsChange,
+  loafWeightGrams = 850,
 }: DoMiskiScaleCardProps) {
+  const unitSystem = useUnitSystem();
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
 
   const toggleCheck = (key: string) => {
@@ -60,6 +73,26 @@ export function DoMiskiScaleCard({
 
   return (
     <View style={styles.cardContainer} testID="do-miski-scale-card">
+      {/* Calculation Mode Switcher */}
+      <View style={styles.modeSwitcherContainer}>
+        <Pressable
+          style={[styles.modeTab, calcMode === 'loaves' && styles.modeTabActive]}
+          onPress={() => onCalcModeChange?.('loaves')}
+        >
+          <Text style={[styles.modeTabText, calcMode === 'loaves' && styles.modeTabTextActive]}>
+            🥖 {t('Bochenki')} ({loavesCount} × {loafWeightGrams}g)
+          </Text>
+        </Pressable>
+        <Pressable
+          style={[styles.modeTab, calcMode === 'flour' && styles.modeTabActive]}
+          onPress={() => onCalcModeChange?.('flour')}
+        >
+          <Text style={[styles.modeTabText, calcMode === 'flour' && styles.modeTabTextActive]}>
+            🌾 {t('Masa mąki')} ({flourGrams}g)
+          </Text>
+        </Pressable>
+      </View>
+
       {/* Level 1: Quick Bread Selection Chipy */}
       <Text style={styles.sectionLabel}>{t('Co dzisiaj pieczemy?')}</Text>
       <View style={styles.presetsRow}>
@@ -91,49 +124,90 @@ export function DoMiskiScaleCard({
         })}
       </View>
 
-      {/* Stepper liczby bochenków min. 52pt */}
-      <View style={styles.loavesRow}>
-        <View style={styles.loavesInfo}>
-          <Text style={styles.loavesTitle}>{t('Liczba bochenków')}</Text>
-          <Text style={styles.loavesSubtitle}>
-            {recipeName} • {Math.round(calculations.targetDoughWeightGrams / loavesCount)} g / szt.
-          </Text>
-        </View>
-
-        <View style={styles.stepperContainer}>
-          <Pressable
-            testID="loaves-decrement-btn"
-            accessibilityLabel={t('Mniej')}
-            style={styles.stepperBtn}
-            disabled={loavesCount <= 1}
-            onPress={() => handleLoafChange(-1)}
-          >
-            <Text style={[styles.stepperBtnText, loavesCount <= 1 && styles.stepperDisabled]}>
-              −
-            </Text>
-          </Pressable>
-
-          <View style={styles.stepperValueBox}>
-            <Text style={styles.stepperValueText} testID="loaves-count-display">
-              {loavesCount}
+      {/* Mode-Specific Input Card */}
+      {calcMode === 'flour' ? (
+        <View style={styles.loavesRow}>
+          <View style={styles.loavesInfo}>
+            <Text style={styles.loavesTitle}>{t('Masa mąki')} bazowej</Text>
+            <Text style={styles.loavesSubtitle}>
+              Mąka stanowi 100% bazy w procentach piekarskich
             </Text>
           </View>
-
-          <Pressable
-            testID="loaves-increment-btn"
-            accessibilityLabel={t('Więcej')}
-            style={styles.stepperBtn}
-            onPress={() => handleLoafChange(1)}
-          >
-            <Text style={styles.stepperBtnText}>+</Text>
-          </Pressable>
+          <View style={styles.stepperContainer}>
+            <Pressable
+              style={styles.stepperBtn}
+              onPress={() => onFlourGramsChange?.(Math.max(100, flourGrams - 50))}
+            >
+              <Text style={styles.stepperBtnText}>-50</Text>
+            </Pressable>
+            <View style={styles.stepperValueBox}>
+              <Text style={styles.stepperValueText}>{flourGrams}g</Text>
+            </View>
+            <Pressable
+              style={styles.stepperBtn}
+              onPress={() => onFlourGramsChange?.(flourGrams + 50)}
+            >
+              <Text style={styles.stepperBtnText}>+50</Text>
+            </Pressable>
+          </View>
         </View>
-      </View>
+      ) : (
+        <View style={styles.loavesRow}>
+          <View style={styles.loavesInfo}>
+            <Text style={styles.loavesTitle}>{t('Liczba bochenków')} i gramatura</Text>
+            <Text style={styles.loavesSubtitle}>
+              {recipeName} • {formatWeight(calculations.targetDoughWeightGrams / loavesCount, unitSystem)} / szt.
+            </Text>
+            <View style={styles.chipRow}>
+              {[1, 2, 3, 4].map((count) => (
+                <Pressable
+                  key={count}
+                  onPress={() => onLoavesChange(count)}
+                  style={[styles.smallChip, loavesCount === count && styles.smallChipActive]}
+                >
+                  <Text style={[styles.smallChipText, loavesCount === count && styles.smallChipTextActive]}>
+                    {count} szt.
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </View>
 
-      {/* ⚖️ Wsyp do miski na wagę */}
+          <View style={styles.stepperContainer}>
+            <Pressable
+              testID="loaves-decrement-btn"
+              accessibilityLabel={t('Mniej')}
+              style={styles.stepperBtn}
+              disabled={loavesCount <= 1}
+              onPress={() => handleLoafChange(-1)}
+            >
+              <Text style={[styles.stepperBtnText, loavesCount <= 1 && styles.stepperDisabled]}>
+                −
+              </Text>
+            </Pressable>
+
+            <View style={styles.stepperValueBox}>
+              <Text style={styles.stepperValueText} testID="loaves-count-display">
+                {loavesCount}
+              </Text>
+            </View>
+
+            <Pressable
+              testID="loaves-increment-btn"
+              accessibilityLabel={t('Więcej')}
+              style={styles.stepperBtn}
+              onPress={() => handleLoafChange(1)}
+            >
+              <Text style={styles.stepperBtnText}>+</Text>
+            </Pressable>
+          </View>
+        </View>
+      )}
+
+      {/* ⚖️ Do miski na wagę */}
       <View style={styles.scaleCard}>
         <View style={styles.scaleHeader}>
-          <Text style={styles.scaleHeaderTitle}>⚖️ {t('Wsyp do miski na wagę')}</Text>
+          <Text style={styles.scaleHeaderTitle}>⚖️ {t('Do miski na wagę')}</Text>
           <Text style={styles.scaleHeaderSubtitle}>
             {t('Odhaczaj składniki w miarę wsypywania')}
           </Text>
@@ -161,7 +235,7 @@ export function DoMiskiScaleCard({
                   checkedIngredients['flour'] && styles.ingredientNameChecked,
                 ]}
               >
-                🌾 {t('Mąka razem')}
+                🌾 {t('Mąka dodana')}
               </Text>
               <Text style={styles.ingredientSubtext}>100% bazy</Text>
             </View>
@@ -171,7 +245,7 @@ export function DoMiskiScaleCard({
                 checkedIngredients['flour'] && styles.ingredientWeightChecked,
               ]}
             >
-              {Math.round(calculations.totalFlourGrams)} g
+              {formatWeight(calculations.baseFlourWeightGrams, unitSystem)}
             </Text>
           </Pressable>
 
@@ -208,7 +282,7 @@ export function DoMiskiScaleCard({
                 checkedIngredients['water'] && styles.ingredientWeightChecked,
               ]}
             >
-              {Math.round(calculations.waterGrams)} g
+              {formatWeight(calculations.waterGrams, unitSystem)}
             </Text>
           </Pressable>
 
@@ -243,7 +317,7 @@ export function DoMiskiScaleCard({
                 checkedIngredients['starter'] && styles.ingredientWeightChecked,
               ]}
             >
-              {Math.round(calculations.starterGrams)} g
+              {formatWeight(calculations.starterGrams, unitSystem)}
             </Text>
           </Pressable>
 
@@ -278,7 +352,7 @@ export function DoMiskiScaleCard({
                 checkedIngredients['salt'] && styles.ingredientWeightChecked,
               ]}
             >
-              {Math.round(calculations.saltGrams)} g
+              {formatDoseWeight(calculations.saltGrams, unitSystem)}
             </Text>
           </Pressable>
         </View>
@@ -287,7 +361,7 @@ export function DoMiskiScaleCard({
         <View style={styles.totalDoughRow}>
           <Text style={styles.totalDoughLabel}>{t('Całkowita masa ciasta:')}</Text>
           <Text style={styles.totalDoughValue}>
-            {Math.round(calculations.targetDoughWeightGrams)} g
+            {formatWeight(calculations.targetDoughWeightGrams, unitSystem)}
           </Text>
         </View>
       </View>
@@ -298,9 +372,11 @@ export function DoMiskiScaleCard({
         style={styles.fastStartBtn}
         onPress={onStartBake}
       >
-        <Text style={styles.fastStartBtnText}>
-          🚀 {t('Rozpocznij wypiek z asystentem')}
-        </Text>
+        <Pressable testID="start-bake-btn" onPress={onStartBake}>
+          <Text style={styles.fastStartBtnText}>
+            🥖 {t('Rozpocznij wypiek na Stolnicy')}
+          </Text>
+        </Pressable>
       </Pressable>
     </View>
   );
@@ -517,5 +593,62 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '800',
+  },
+  modeSwitcherContainer: {
+    flexDirection: 'row',
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: theme.radius.md,
+    padding: 4,
+    marginBottom: theme.spacing.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  modeTab: {
+    flex: 1,
+    paddingVertical: 10,
+    alignItems: 'center',
+    borderRadius: theme.radius.sm,
+  },
+  modeTabActive: {
+    backgroundColor: theme.colors.surface,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  modeTabText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  modeTabTextActive: {
+    color: theme.colors.textPrimary,
+    fontWeight: '700',
+  },
+  chipRow: {
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 8,
+  },
+  smallChip: {
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.full,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  smallChipActive: {
+    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.accentLight,
+  },
+  smallChipText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  smallChipTextActive: {
+    color: theme.colors.textPrimary,
+    fontWeight: '700',
   },
 });

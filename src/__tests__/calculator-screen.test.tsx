@@ -86,6 +86,13 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     });
   };
 
+  const openArtisanAccordion = async () => {
+    const toggle = tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' });
+    await act(async () => {
+      toggle.props.onPress();
+    });
+  };
+
   it('renders correctly with master recipes and scale card', async () => {
     await renderScreen();
 
@@ -140,6 +147,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('adjusts hydration percentage and difficulty badge when pressing +5%', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     expect(extractCleanText(tree?.toJSON())).toContain('68.0%');
 
@@ -157,6 +165,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('applies popular flour blend preset upon tapping', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     const blendPreset = findButtonByText(tree!.root, '70% Pszenna + 20% Orkisz + 10% Żytnia');
     expect(blendPreset).toBeDefined();
@@ -190,6 +199,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('renders Bake Loss & Crumb Moisture card and displays live metrics', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Strata wypiekowa i wilgotność miękiszu');
@@ -201,6 +211,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('updates baked weight when switching bake loss preset and stepping percentage', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     // Find Baguettes preset (18%)
     const baguetteBtn = tree!.root.findByProps({ testID: 'bake-loss-preset-baguette_roll' });
@@ -307,6 +318,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('switches preferment mode and displays artisan decomposition (Poolish / Biga)', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     // Default mode is direct
     expect(tree!.root.findAll((n) => n.props?.testID === 'preferment-details-block')).toHaveLength(0);
@@ -345,6 +357,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
 
   it('opens custom flour blend builder, adjusts proportions, and applies custom blend', async () => {
     await renderScreen();
+    await openArtisanAccordion();
 
     // Find and open custom blend builder
     const openBtn = tree!.root.findByProps({ testID: 'open-blend-builder-btn' });
@@ -536,6 +549,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     setUnitSystem('imperial');
 
     await renderScreen();
+    await openArtisanAccordion();
     const fullText = extractCleanText(tree?.toJSON());
 
     // In imperial mode, temperature is in °F and weights are in oz / lb
