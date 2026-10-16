@@ -1,6 +1,6 @@
 {
   "name": "piekarz",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "expo-router/entry",
   "private": true,
   "description": "Piekarz (Crust) — Apps4Brew: asystent domowego piekarza, procent piekarski, DDT, harmonogram wsteczny i profil zakwasu",

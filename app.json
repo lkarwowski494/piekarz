@@ -2,7 +2,9 @@
   "expo": {
     "name": "Piekarz",
     "slug": "piekarz",
-    "version": "0.1.0",
+    "version": "1.0.0",
+    "description": "Piekarz (Crust) — asystent domowego piekarza, procent piekarski, 4-DDT, harmonogram wsteczny, baza zakwasu i radar sensoryczny. 100% Offline-First.",
+    "primaryColor": "#B35E24",
     "scheme": "piekarz",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
