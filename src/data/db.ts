@@ -40,6 +40,15 @@ export interface StoredBakeLog {
   tasteProfile?: 'mild' | 'balanced' | 'sour' | 'tangy';
 }
 
+export interface StoredFlourInventoryItem {
+  id: string;
+  name: string;
+  stockGrams: number;
+  brand?: string;
+  proteinPct?: number;
+  updatedAt: number;
+}
+
 /**
  * In-memory repository with local persistence layer.
  * Implements full CRUD without external cloud dependencies.
@@ -48,6 +57,7 @@ class LocalDatabaseStore {
   private recipes: StoredRecipe[] = [];
   private starters: StoredStarter[] = [];
   private logs: StoredBakeLog[] = [];
+  private flourInventory: StoredFlourInventoryItem[] = [];
   private initialized = false;
 
   public init(): void {
@@ -74,6 +84,31 @@ class LocalDatabaseStore {
         birthDate: Date.now() - 1000 * 60 * 60 * 24 * 120, // 120 days ago
         storageState: 'FRIDGE',
         lastFedAt: Date.now() - 1000 * 60 * 60 * 24 * 3,  // 3 days ago
+      },
+    ];
+
+    // Default pantry flour inventory
+    this.flourInventory = [
+      {
+        id: 'flour_inv_wheat_750',
+        name: 'Mąka pszenna chlebowa typ 750',
+        stockGrams: 2000,
+        proteinPct: 12.0,
+        updatedAt: Date.now(),
+      },
+      {
+        id: 'flour_inv_rye_2000',
+        name: 'Mąka żytnia razowa typ 2000',
+        stockGrams: 1500,
+        proteinPct: 10.0,
+        updatedAt: Date.now(),
+      },
+      {
+        id: 'flour_inv_manitoba',
+        name: 'Mąka Manitoba / Forte (W > 350)',
+        stockGrams: 1000,
+        proteinPct: 14.5,
+        updatedAt: Date.now(),
       },
     ];
 
@@ -131,6 +166,26 @@ class LocalDatabaseStore {
   public addBakeLog(log: StoredBakeLog): void {
     this.init();
     this.logs.unshift(log);
+  }
+
+  public getFlourInventory(): StoredFlourInventoryItem[] {
+    this.init();
+    return [...this.flourInventory];
+  }
+
+  public saveFlourInventoryItem(item: StoredFlourInventoryItem): void {
+    this.init();
+    const index = this.flourInventory.findIndex((f) => f.id === item.id);
+    if (index >= 0) {
+      this.flourInventory[index] = item;
+    } else {
+      this.flourInventory.push(item);
+    }
+  }
+
+  public deleteFlourInventoryItem(id: string): void {
+    this.init();
+    this.flourInventory = this.flourInventory.filter((f) => f.id !== id);
   }
 
   public exportBackupJson(): string {

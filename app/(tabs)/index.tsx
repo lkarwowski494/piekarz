@@ -39,6 +39,7 @@ import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
 import { SettingsModal } from '../../src/components/SettingsModal';
 import { FlourBlendModal } from '../../src/components/FlourBlendModal';
 import { CostCalculatorModal } from '../../src/components/CostCalculatorModal';
+import { FlourInventoryModal } from '../../src/components/FlourInventoryModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 import {
   calculatePrefermentBreakdown,
@@ -92,6 +93,7 @@ export default function CalculatorScreen() {
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
   const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
+  const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
 
   // Artisan Preferments state
   const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
@@ -550,6 +552,14 @@ export default function CalculatorScreen() {
             onPress={() => setIsBlendModalOpen(true)}
           >
             <Text style={styles.customBlendBtnText}>⚙️ {t('Skomponuj własną mieszankę mąk')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="open-flour-inventory-btn"
+            style={styles.flourInventoryBtn}
+            onPress={() => setIsInventoryOpen(true)}
+          >
+            <Text style={styles.flourInventoryBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
           </Pressable>
 
           {/* Breakdown per flour */}
@@ -1102,6 +1112,13 @@ export default function CalculatorScreen() {
           totalSaltGrams={calculations.saltGrams}
           loavesCount={calcMode === 'loaves' ? loavesCount : 1}
           bakedLoafWeightGrams={bakedSingleLoafWeight}
+        />
+
+        {/* Modal: Flour Inventory (Magazyn Mąk) */}
+        <FlourInventoryModal
+          visible={isInventoryOpen}
+          onClose={() => setIsInventoryOpen(false)}
+          recipeFlours={calculations.flours}
         />
       </ScrollView>
     </SafeAreaView>
@@ -1823,6 +1840,20 @@ const styles = StyleSheet.create({
   },
   customBlendBtnText: {
     fontSize: 13,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+  },
+  flourInventoryBtn: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 8,
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  flourInventoryBtnText: {
+    fontSize: 12,
     fontWeight: '700',
     color: theme.colors.accentDark,
   },

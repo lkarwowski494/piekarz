@@ -1,7 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
 import { autoBackup, PiekarzBackupData } from '../lib/backup';
-import { StoredRecipe, StoredStarter, StoredBakeLog } from './db';
+import { StoredRecipe, StoredStarter, StoredBakeLog, StoredFlourInventoryItem } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 
@@ -24,12 +24,14 @@ let dbInstance: SQLite.SQLiteDatabase | null = null;
 let memStarters: StoredStarter[] = [];
 let memRecipes: StoredRecipe[] = [];
 let memLogs: StoredBakeLog[] = [];
+let memFlourInventory: StoredFlourInventoryItem[] = [];
 let memActiveBake: ActiveBakeState | null = null;
 
 export function _resetMemStore(): void {
   memStarters = [];
   memRecipes = [];
   memLogs = [];
+  memFlourInventory = [];
   memActiveBake = null;
 }
 
@@ -77,6 +79,32 @@ export async function initDatabase(): Promise<void> {
     ];
   }
 
+  if (memFlourInventory.length === 0) {
+    memFlourInventory = [
+      {
+        id: 'flour_inv_wheat_750',
+        name: 'Mąka pszenna chlebowa typ 750',
+        stockGrams: 2000,
+        proteinPct: 12.0,
+        updatedAt: Date.now(),
+      },
+      {
+        id: 'flour_inv_rye_2000',
+        name: 'Mąka żytnia razowa typ 2000',
+        stockGrams: 1500,
+        proteinPct: 10.0,
+        updatedAt: Date.now(),
+      },
+      {
+        id: 'flour_inv_manitoba',
+        name: 'Mąka Manitoba / Forte (W > 350)',
+        stockGrams: 1000,
+        proteinPct: 14.5,
+        updatedAt: Date.now(),
+      },
+    ];
+  }
+
   if (!db) return;
 
   try {
@@ -116,6 +144,15 @@ export async function initDatabase(): Promise<void> {
         notes TEXT,
         is_built_in INTEGER NOT NULL DEFAULT 0,
         created_at INTEGER NOT NULL
+      );
+
+      CREATE TABLE IF NOT EXISTS flour_inventory (
+        id TEXT PRIMARY KEY NOT NULL,
+        name TEXT NOT NULL,
+        stock_grams REAL NOT NULL DEFAULT 0.0,
+        brand TEXT,
+        protein_pct REAL,
+        updated_at INTEGER NOT NULL
       );
     `);
 
@@ -417,5 +454,74 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     }
   });
 }
+
+// ==========================================
+// Flour Inventory (Magazyn Mąk)
+// ==========================================
+
+export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
+  const db = await getDb();
+  if (!db) return [...memFlourInventory];
+
+  try {
+    const rows = await db.getAllAsync<any>(
+      'SELECT id, name, stock_grams as stockGrams, brand, protein_pct as proteinPct, updated_at as updatedAt FROM flour_inventory ORDER BY name ASC;'
+    );
+    return rows;
+  } catch {
+    return [...memFlourInventory];
+  }
+}
+
+export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
+  const existingIdx = memFlourInventory.findIndex((f) => f.id === item.id);
+  if (existingIdx >= 0) {
+    memFlourInventory[existingIdx] = item;
+  } else {
+    memFlourInventory.push(item);
+  }
+
+  const db = await getDb();
+  if (!db) return;
+
+  try {
+    await db.runAsync(
+      'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
+      item.id,
+      item.name,
+      item.stockGrams,
+      item.brand ?? null,
+      item.proteinPct ?? null,
+      item.updatedAt
+    );
+  } catch {}
+}
+
+export async function deleteFlourInventoryItem(id: string): Promise<void> {
+  memFlourInventory = memFlourInventory.filter((f) => f.id !== id);
+
+  const db = await getDb();
+  if (!db) return;
+
+  try {
+    await db.runAsync('DELETE FROM flour_inventory WHERE id = ?;', id);
+  } catch {}
+}
+
+export async function deductFlourStock(flourName: string, amountGrams: number): Promise<void> {
+  const inventory = await getFlourInventory();
+  const matched = inventory.find(
+    (inv) => inv.name.trim().toLowerCase() === flourName.trim().toLowerCase()
+  );
+  if (matched) {
+    const updated = {
+      ...matched,
+      stockGrams: Math.max(0, Math.round(matched.stockGrams - amountGrams)),
+      updatedAt: Date.now(),
+    };
+    await saveFlourInventoryItem(updated);
+  }
+}
+
 
 

@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-948%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-961%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)

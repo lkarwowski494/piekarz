@@ -360,5 +360,23 @@ export const EN: Record<string, string> = {
   'Mąka dodana': 'Flour added',
   'Woda dodana': 'Water added',
   'Uzyskana masa i hydratacja': 'Resulting weight and hydration',
+
+  // Flour Inventory (Magazyn Mąk)
+  'Spiżarnia mąk (Magazyn)': 'Flour pantry (Stock)',
+  'Kontrola zapasów mąk i powiadomienia o brakach': 'Flour stock control and shortage alerts',
+  'Wszystkie mąki są dostępne w spiżarni!': 'All flours are available in the pantry!',
+  'Odlicz zużycie z magazynu': 'Deduct batch usage from pantry',
+  'Twoje zapasy mąk': 'Your flour stocks',
+  'Dodaj mąkę do spiżarni': 'Add flour to pantry',
+  'Wybierz z Atlasu lub wpisz własną': 'Choose from Atlas or enter custom',
+  'Nazwa mąki (np. Pszenna typ 750)': 'Flour name (e.g. Bread Wheat type 750)',
+  'Początkowy stan zapasów (g)': 'Initial stock (g)',
+  'Zapisz w spiżarni': 'Save in pantry',
+  'Dodaj nową mąkę': 'Add new flour',
+  'Pomyślnie odliczono': 'Successfully deducted',
+  'Zasoby mąki w spiżarni zostały zaktualizowane.': 'Flour pantry stocks have been updated.',
+  'Podaj nazwę mąki': 'Enter flour name',
+  'Błąd': 'Error',
+  'Spiżarnia mąk & Stan zapasów': 'Flour pantry & Stock status',
 };
 

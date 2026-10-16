@@ -403,5 +403,31 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
       closeBtn.props.onPress();
     });
   });
+
+  it('opens flour pantry inventory modal and checks recipe stock status', async () => {
+    await renderScreen();
+
+    // Open inventory modal
+    const openInvBtn = tree!.root.findByProps({ testID: 'open-flour-inventory-btn' });
+    expect(openInvBtn).toBeDefined();
+
+    await act(async () => {
+      openInvBtn.props.onPress();
+    });
+
+    // Check modal rendered
+    const modal = tree!.root.findByProps({ testID: 'flour-inventory-modal' });
+    expect(modal).toBeDefined();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Spiżarnia mąk (Magazyn)');
+    expect(fullText).toContain('Twoje zapasy mąk');
+
+    // Close modal
+    const closeBtn = tree!.root.findByProps({ testID: 'close-inventory-btn' });
+    await act(async () => {
+      closeBtn.props.onPress();
+    });
+  });
 });
 
