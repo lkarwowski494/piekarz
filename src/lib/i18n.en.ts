@@ -338,5 +338,27 @@ export const EN: Record<string, string> = {
   'Ranny ptaszek': 'Early bird',
   'Nocny marek': 'Night owl',
   'Standard': 'Standard',
+
+  // Sourdough & Lievito Madre Converter (Zakwas)
+  'Konwerter zakwasu & Lievito Madre': 'Sourdough & Lievito Madre converter',
+  'Przelicznik hydratacji i zamiennik w recepturze': 'Hydration converter and recipe substitute',
+  'Zamiennik w przepisie': 'Recipe substitute',
+  'Przygotowanie (Odrost)': 'Preparation (Offshoot)',
+  'Masa zakwasu w przepisie': 'Starter weight in recipe',
+  'Hydratacja w przepisie': 'Hydration in recipe',
+  'Hydratacja Twojego zakwasu': 'Your starter hydration',
+  'Wynik przeliczenia': 'Conversion result',
+  'Użyj Twojego zakwasu': 'Use of your starter',
+  'Korekta wody w cieście': 'Dough water adjustment',
+  '0g (brak zmian)': '0g (no change)',
+  'Mąka ze sfermentowanego zaczynu': 'Flour from fermented preferment',
+  'Docelowa masa nowego zakwasu': 'Target weight of new starter',
+  'Hydratacja zakwasu matki (Seed)': 'Seed mother starter hydration',
+  'Docelowa hydratacja nowego zakwasu': 'Target hydration of new starter',
+  'Receptura odrostu': 'Offshoot formula',
+  'Zakwas matka (Seed)': 'Mother starter (Seed)',
+  'Mąka dodana': 'Flour added',
+  'Woda dodana': 'Water added',
+  'Uzyskana masa i hydratacja': 'Resulting weight and hydration',
 };
 

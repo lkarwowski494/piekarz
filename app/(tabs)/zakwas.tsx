@@ -22,6 +22,7 @@ import { confirmResetStarter, confirmDeleteStarter } from '../../src/lib/confirm
 import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-store';
 import { StoredStarter } from '../../src/data/db';
 import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
+import { StarterConverterModal } from '../../src/components/StarterConverterModal';
 
 export default function ZakwasScreen() {
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
@@ -56,6 +57,7 @@ export default function ZakwasScreen() {
   const [newStarterName, setNewStarterName] = useState<string>('');
   const [newStarterFlour, setNewStarterFlour] = useState<string>('Mąka pszenna chlebowa t750');
   const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
+  const [isConverterOpen, setIsConverterOpen] = useState<boolean>(false);
 
   const loadStarterData = useCallback(async (preferredId?: string) => {
     const list = await getStarters();
@@ -466,6 +468,16 @@ export default function ZakwasScreen() {
               📋 {t('Kopiuj dokarmienie')}
             </Text>
           </Pressable>
+
+          <Pressable
+            testID="open-converter-btn"
+            style={styles.openConverterBtn}
+            onPress={() => setIsConverterOpen(true)}
+          >
+            <Text style={styles.openConverterBtnText}>
+              ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
+            </Text>
+          </Pressable>
         </View>
 
         {/* Biological Safety Checker */}
@@ -668,6 +680,13 @@ export default function ZakwasScreen() {
             </View>
           </View>
         </Modal>
+
+        <StarterConverterModal
+          visible={isConverterOpen}
+          onClose={() => setIsConverterOpen(false)}
+          currentStarterHydration={starter.hydration}
+          currentStarterName={starter.name}
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -1216,6 +1235,20 @@ const styles = StyleSheet.create({
   },
   tempChipTextActive: {
     color: theme.colors.accentDark,
+    fontWeight: '700',
+  },
+  openConverterBtn: {
+    marginTop: 10,
+    paddingVertical: 10,
+    backgroundColor: theme.colors.accentLight,
+    borderRadius: theme.radius.md,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+  },
+  openConverterBtnText: {
+    color: theme.colors.accentDark,
+    fontSize: 13,
     fontWeight: '700',
   },
 });

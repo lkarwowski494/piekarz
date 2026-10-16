@@ -323,4 +323,33 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Temperatura otoczenia: 28°C');
   });
+
+  it('opens and closes Starter & Lievito Madre Converter modal', async () => {
+    await renderScreen();
+
+    const openConverterBtn = tree!.root.findByProps({ testID: 'open-converter-btn' });
+    expect(openConverterBtn).toBeDefined();
+
+    // Tap open converter
+    await act(async () => {
+      openConverterBtn.props.onPress();
+    });
+
+    const modal = tree!.root.findByProps({ testID: 'starter-converter-modal' });
+    expect(modal).toBeDefined();
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Konwerter zakwasu & Lievito Madre');
+    expect(fullText).toContain('Zamiennik w przepisie');
+
+    // Tap close
+    const closeBtn = tree!.root.findByProps({ testID: 'close-converter-btn' });
+    await act(async () => {
+      closeBtn.props.onPress();
+    });
+
+    // Modal should now be closed (visible: false)
+    const modalAfter = tree!.root.findAll((n) => n.props?.testID === 'starter-converter-modal');
+    expect(modalAfter.length).toBe(0);
+  });
 });
