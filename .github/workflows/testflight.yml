@@ -84,8 +84,8 @@ jobs:
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
           <plist version="1.0"><dict>
-            <key>method</key><string>app-store-connect</string>
-            <key>destination</key><string>upload</string>
+            <key>method</key><string>app-store</string>
+            <key>destination</key><string>export</string>
             <key>teamID</key><string>$TEAM</string>
             <key>signingStyle</key><string>automatic</string>
             <key>manageAppVersionAndBuildNumber</key><false/>
@@ -94,11 +94,26 @@ jobs:
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/${SCHEME_NAME}.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" \
             -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tee export.log
+
+          mkdir -p ~/.appstoreconnect/private_keys ~/.private_keys
+          cp "$RUNNER_TEMP/AuthKey.p8" ~/.appstoreconnect/private_keys/AuthKey_${KID}.p8
+          cp "$RUNNER_TEMP/AuthKey.p8" ~/.private_keys/AuthKey_${KID}.p8
+
+          IPA_PATH=$(find "$RUNNER_TEMP/export" -name "*.ipa" | head -1)
+          if [ -z "$IPA_PATH" ]; then
+            echo "::error::Nie znaleziono wyeksportowanego pliku .ipa w $RUNNER_TEMP/export"
+            exit 1
+          fi
+          echo "Znaleziono IPA: $IPA_PATH, wysyłanie do TestFlight przez xcrun altool..."
+          xcrun altool --upload-app -f "$IPA_PATH" -t ios --apiKey "$KID" --apiIssuer "$ISS" 2>&1 | tee -a export.log
+
           echo "## TestFlight: build $BUILD_NUMBER został wysłany do App Store Connect" >> "$GITHUB_STEP_SUMMARY"
           echo "Po przetworzeniu przez Apple (zwykle 10–25 minut) pojawi się w Twojej aplikacji TestFlight." >> "$GITHUB_STEP_SUMMARY"
       - name: Bezpieczne usunięcie klucza prywatnego z maszyny
         if: always()
-        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+        run: |
+          rm -f "$RUNNER_TEMP/AuthKey.p8"
+          rm -rf ~/.appstoreconnect/private_keys ~/.private_keys
       - name: Maskowanie identyfikatorów klucza przed uploadem logów
         if: failure()
         env:
@@ -106,6 +121,7 @@ jobs:
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
         run: |
           [ -n "$ASC_KEY_ID" ] && [ -n "$ASC_ISSUER_ID" ] || exit 0
+          find /var/folders -name "*.xcdistributionlogs" -exec cp -r {} "$RUNNER_TEMP/xcdistributionlogs" \; 2>/dev/null || true
           for f in ios/xcodebuild.log export.log; do
             [ -f "$f" ] || continue
             sed -i '' -e "s/${ASC_KEY_ID}/<KEY_ID>/g" -e "s/${ASC_ISSUER_ID}/<ISSUER_ID>/g" "$f"
@@ -119,6 +135,7 @@ jobs:
           path: |
             ios/xcodebuild.log
             export.log
+            ${{ runner.temp }}/xcdistributionlogs
   tag:
     needs: build
     runs-on: ubuntu-latest
