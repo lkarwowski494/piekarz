@@ -258,4 +258,43 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
       })
     );
   });
+
+  it('interactively expands and collapses Emergency Dough Recovery Protocols', async () => {
+    await act(async () => {
+      tree = renderer.create(<DoctorScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+
+    // Initially no expanded protocol card
+    expect(root.findAllByProps({ testID: 'recovery-protocol-card' })).toHaveLength(0);
+
+    // Tap Overproofed / Focaccia Pivot chip
+    const focacciaChip = root.findByProps({ testID: 'recovery-chip-OVERPROOFED_COLLAPSE' });
+    expect(focacciaChip).toBeDefined();
+
+    await act(async () => {
+      focacciaChip.props.onPress();
+    });
+
+    // Protocol card appears
+    const card = root.findByProps({ testID: 'recovery-protocol-card' });
+    expect(card).toBeDefined();
+
+    const fullText = extractCleanText(root);
+    expect(fullText).toContain('Pivot na Focaccię');
+    expect(fullText).toContain('Akcja natychmiastowa:');
+    expect(fullText).toContain('Receptura awaryjna:');
+    expect(fullText).toContain('Focaccia');
+    expect(fullText).toContain('Fizjologia ciasta:');
+
+    // Close protocol card
+    const closeBtn = root.findByProps({ testID: 'close-recovery-card-btn' });
+    await act(async () => {
+      closeBtn.props.onPress();
+    });
+
+    expect(root.findAllByProps({ testID: 'recovery-protocol-card' })).toHaveLength(0);
+  });
 });

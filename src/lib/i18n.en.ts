@@ -312,5 +312,14 @@ export const EN: Record<string, string> = {
   'Dodatki (orzechy, ziarna)': 'Add-ins (nuts, seeds)',
   'Kalkulator kosztów': 'Cost calculator',
   'Zamknij': 'Close',
+
+  // Emergency Dough Recovery (Doktor)
+  'Protokoły ratunkowe (Pogotowie ciasta)': 'Emergency dough recovery protocols',
+  'Szybkie interwencje w trakcie fermentacji': 'Quick interventions during fermentation',
+  'Akcja natychmiastowa:': 'Immediate action:',
+  'Receptura awaryjna:': 'Emergency pivot recipe:',
+  'Kroki ratunkowe:': 'Recovery steps:',
+  'Fizjologia ciasta:': 'Dough physiology:',
+  'Zwiń protokół': 'Collapse protocol',
 };
 

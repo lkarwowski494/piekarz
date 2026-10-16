@@ -14,6 +14,11 @@ import {
   diagnoseBreadDefect,
   BreadInspectionCriteria,
 } from '../../src/doctor/diagnostics';
+import {
+  DOUGH_RECOVERY_PROTOCOLS,
+  EmergencyCode,
+  getDoughRecoveryProtocol,
+} from '../../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
 
 interface DiagnosticPreset {
@@ -71,6 +76,7 @@ export default function DoctorScreen() {
   // Expandable kitchen test guides
   const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
   const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
+  const [selectedRecoveryId, setSelectedRecoveryId] = useState<EmergencyCode | null>(null);
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
@@ -231,6 +237,93 @@ export default function DoctorScreen() {
                 'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.'
               )}
             </Text>
+          </View>
+        )}
+
+        {/* Emergency Dough Recovery Protocols */}
+        <Text style={styles.sectionHeading}>🚨 {t('Protokoły ratunkowe (Pogotowie ciasta)')}</Text>
+        <Text style={styles.sectionSubheading}>
+          {t('Szybkie interwencje w trakcie fermentacji')}
+        </Text>
+
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.presetsRow}
+        >
+          {DOUGH_RECOVERY_PROTOCOLS.map((proto) => {
+            const isSelected = selectedRecoveryId === proto.id;
+            return (
+              <Pressable
+                key={proto.id}
+                testID={`recovery-chip-${proto.id}`}
+                style={[styles.presetChip, isSelected && styles.recoveryChipActive]}
+                onPress={() => setSelectedRecoveryId((prev) => (prev === proto.id ? null : proto.id))}
+              >
+                <Text style={styles.presetIcon}>{proto.icon}</Text>
+                <Text style={[styles.presetName, isSelected && styles.recoveryChipTextActive]}>
+                  {proto.titlePl}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </ScrollView>
+
+        {/* Selected Protocol Expanded Card */}
+        {selectedRecoveryId && (
+          <View style={styles.recoveryCard} testID="recovery-protocol-card">
+            {(() => {
+              const proto = getDoughRecoveryProtocol(selectedRecoveryId);
+              return (
+                <View>
+                  <View style={styles.recoveryHeaderRow}>
+                    <Text style={styles.recoveryCardTitle}>
+                      {proto.icon} {proto.titlePl}
+                    </Text>
+                    <Pressable
+                      testID="close-recovery-card-btn"
+                      onPress={() => setSelectedRecoveryId(null)}
+                      style={styles.closeRecoveryBtn}
+                    >
+                      <Text style={styles.closeRecoveryBtnText}>✕</Text>
+                    </Pressable>
+                  </View>
+
+                  <Text style={styles.recoveryTriggerText}>
+                    🔍 {proto.triggerSummaryPl}
+                  </Text>
+
+                  {/* Immediate Action Alert */}
+                  <View style={styles.immediateAlertBox}>
+                    <Text style={styles.immediateAlertLabel}>{t('Akcja natychmiastowa:')}</Text>
+                    <Text style={styles.immediateAlertText}>{proto.immediateActionPl}</Text>
+                  </View>
+
+                  {/* Target Pivot Recipe */}
+                  <View style={styles.pivotRecipeBox}>
+                    <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
+                    <Text style={styles.pivotRecipeName}>{proto.pivotRecipeNamePl}</Text>
+                  </View>
+
+                  {/* Steps */}
+                  <Text style={styles.recoveryStepsHeading}>{t('Kroki ratunkowe:')}</Text>
+                  {proto.stepByStepPl.map((step, idx) => (
+                    <View key={idx} style={styles.recoveryStepRow}>
+                      <View style={styles.recoveryStepIndexPill}>
+                        <Text style={styles.recoveryStepIndexText}>{idx + 1}</Text>
+                      </View>
+                      <Text style={styles.recoveryStepText}>{step}</Text>
+                    </View>
+                  ))}
+
+                  {/* Scientific Reasoning */}
+                  <View style={styles.scienceBox}>
+                    <Text style={styles.scienceLabel}>🔬 {t('Fizjologia ciasta:')}</Text>
+                    <Text style={styles.scienceText}>{proto.scientificReasoningPl}</Text>
+                  </View>
+                </View>
+              );
+            })()}
           </View>
         )}
 
@@ -830,5 +923,149 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     fontSize: 14,
     fontWeight: '700',
+  },
+  sectionSubheading: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+    marginBottom: 8,
+  },
+  recoveryChipActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  recoveryChipTextActive: {
+    color: theme.colors.accentDark,
+    fontWeight: '700',
+  },
+  recoveryCard: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: theme.radius.md,
+    borderWidth: 1.5,
+    borderColor: theme.colors.borderActive,
+    padding: theme.spacing.md,
+    marginBottom: 16,
+  },
+  recoveryHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  recoveryCardTitle: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+    flex: 1,
+  },
+  closeRecoveryBtn: {
+    padding: 6,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  closeRecoveryBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textMuted,
+  },
+  recoveryTriggerText: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 16,
+    marginBottom: 10,
+  },
+  immediateAlertBox: {
+    backgroundColor: '#FEF2F2',
+    borderWidth: 1,
+    borderColor: theme.colors.statusDanger,
+    borderRadius: theme.radius.sm,
+    padding: theme.spacing.sm,
+    marginBottom: 8,
+  },
+  immediateAlertLabel: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: theme.colors.statusDanger,
+    textTransform: 'uppercase',
+    marginBottom: 2,
+  },
+  immediateAlertText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textPrimary,
+    lineHeight: 16,
+  },
+  pivotRecipeBox: {
+    backgroundColor: theme.colors.accentLight,
+    borderWidth: 1,
+    borderColor: theme.colors.accent,
+    borderRadius: theme.radius.sm,
+    padding: theme.spacing.sm,
+    marginBottom: 10,
+  },
+  pivotRecipeLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.accentDark,
+    textTransform: 'uppercase',
+    marginBottom: 2,
+  },
+  pivotRecipeName: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+  },
+  recoveryStepsHeading: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+    marginBottom: 6,
+  },
+  recoveryStepRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 6,
+    gap: 8,
+  },
+  recoveryStepIndexPill: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: theme.colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
+  },
+  recoveryStepIndexText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#FFFFFF',
+  },
+  recoveryStepText: {
+    flex: 1,
+    fontSize: 12,
+    color: theme.colors.textPrimary,
+    lineHeight: 17,
+  },
+  scienceBox: {
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    padding: theme.spacing.sm,
+    marginTop: 6,
+  },
+  scienceLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.textSecondary,
+    marginBottom: 2,
+  },
+  scienceText: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    lineHeight: 15,
+    fontStyle: 'italic',
   },
 });
