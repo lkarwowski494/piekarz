@@ -18,10 +18,10 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
       - name: Select Xcode 26.x
         run: bash scripts/ci/select-xcode.sh 26
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -39,17 +39,26 @@ jobs:
         run: npm run verify
       - name: Generowanie natywnego projektu iOS (expo prebuild)
         run: npx expo prebuild --platform ios --no-install --clean
-      - name: Ustalenie numeru buildu (BUILD_BASE + GITHUB_RUN_NUMBER)
+      - name: Instalacja CocoaPods
+        run: cd ios && pod install
+      - name: Platforma iOS zgodna z SDK wybranego Xcode
+        run: bash scripts/ci/ensure-ios-platform.sh
+      - name: Ustalenie numeru buildu i schematu (BUILD_BASE + GITHUB_RUN_NUMBER)
         env:
           BUILD_BASE: ${{ vars.BUILD_BASE || '1000' }}
         run: |
           BUILD_NUM=$((BUILD_BASE + GITHUB_RUN_NUMBER))
           echo "BUILD_NUMBER=$BUILD_NUM" >> "$GITHUB_ENV"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUM" ios/Piekarz/Info.plist
-      - name: Instalacja CocoaPods
-        run: cd ios && pod install
-      - name: Platforma iOS zgodna z SDK wybranego Xcode
-        run: bash scripts/ci/ensure-ios-platform.sh
+          WORKSPACE_PATH=$(find ios -maxdepth 1 -name "*.xcworkspace" | head -1)
+          if [ -n "$WORKSPACE_PATH" ]; then
+            SCHEME_NAME=$(basename "$WORKSPACE_PATH" .xcworkspace)
+          else
+            PROJECT_PATH=$(find ios -maxdepth 1 -name "*.xcodeproj" | head -1)
+            SCHEME_NAME=$(basename "$PROJECT_PATH" .xcodeproj)
+          fi
+          echo "SCHEME_NAME=$SCHEME_NAME" >> "$GITHUB_ENV"
+          echo "Wykryto workspace: $WORKSPACE_PATH, schemat: $SCHEME_NAME, numer buildu: $BUILD_NUM"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUM" "ios/$SCHEME_NAME/Info.plist" || true
       - name: Zapisanie klucza API do bezpiecznego pliku tymczasowego
         env:
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
@@ -59,8 +68,8 @@ jobs:
           set -o pipefail
           TEAM=$(node -p "require('./app.json').expo.ios.appleTeamId")
           cd ios
-          xcodebuild -workspace Piekarz.xcworkspace -scheme Piekarz -configuration Release -destination 'generic/platform=iOS' \
-            -archivePath "$RUNNER_TEMP/Piekarz.xcarchive" archive \
+          xcodebuild -workspace "${SCHEME_NAME}.xcworkspace" -scheme "$SCHEME_NAME" -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/${SCHEME_NAME}.xcarchive" archive \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO DEVELOPMENT_TEAM="$TEAM" CURRENT_PROJECT_VERSION=$BUILD_NUMBER \
             2>&1 | tee xcodebuild.log
       - name: Eksport i wysyłka do App Store Connect
@@ -82,7 +91,7 @@ jobs:
             <key>manageAppVersionAndBuildNumber</key><false/>
           </dict></plist>
           EOF
-          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Piekarz.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/${SCHEME_NAME}.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" \
             -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tee export.log
           echo "## TestFlight: build $BUILD_NUMBER został wysłany do App Store Connect" >> "$GITHUB_STEP_SUMMARY"
@@ -116,7 +125,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
       - name: Tagowanie wydania
         env:
           BUILD_BASE: ${{ vars.BUILD_BASE || '1000' }}

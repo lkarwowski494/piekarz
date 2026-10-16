@@ -1,18 +1,16 @@
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../timer-audio';
-import { Audio } from 'expo-av';
+import { createAudioPlayer } from 'expo-audio';
 import * as Haptics from 'expo-haptics';
 import * as announceModule from '../announce';
 
-jest.mock('expo-av', () => ({
-  Audio: {
-    Sound: {
-      createAsync: jest.fn().mockResolvedValue({
-        sound: {
-          unloadAsync: jest.fn().mockResolvedValue(undefined),
-        },
-      }),
-    },
-  },
+const mockPlay = jest.fn();
+const mockRemove = jest.fn();
+
+jest.mock('expo-audio', () => ({
+  createAudioPlayer: jest.fn(() => ({
+    play: mockPlay,
+    remove: mockRemove,
+  })),
 }));
 
 jest.mock('expo-haptics', () => ({
@@ -33,7 +31,8 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
     expect(success).toBe(true);
     expect(announceSpy).toHaveBeenCalledWith(expect.stringContaining('Autoliza'));
     expect(Haptics.notificationAsync).toHaveBeenCalledWith('success');
-    expect(Audio.Sound.createAsync).toHaveBeenCalled();
+    expect(createAudioPlayer).toHaveBeenCalled();
+    expect(mockPlay).toHaveBeenCalled();
   });
 
   it('handles step completion without specific step name gracefully', async () => {
@@ -43,7 +42,8 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
 
     expect(success).toBe(true);
     expect(announceSpy).toHaveBeenCalledWith('Etap ukończony!');
-    expect(Audio.Sound.createAsync).toHaveBeenCalled();
+    expect(createAudioPlayer).toHaveBeenCalled();
+    expect(mockPlay).toHaveBeenCalled();
   });
 
   it('triggers steam release notification with warning haptics and steam alert message', async () => {
