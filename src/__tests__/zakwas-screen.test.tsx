@@ -300,4 +300,27 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     const deleteBtnAfter = tree!.root.findAll((n) => n.props?.testID === 'delete-starter-btn');
     expect(deleteBtnAfter.length).toBe(0);
   });
+
+  it('calculates and updates metabolic peak prediction when adjusting ambient temperature chips', async () => {
+    await renderScreen();
+
+    // Verify peak prediction box is rendered
+    const predBox = tree!.root.findByProps({ testID: 'peak-prediction-box' });
+    expect(predBox).toBeDefined();
+
+    let fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Szacowane okno szczytu:');
+    expect(fullText).toContain('Temperatura otoczenia: 22°C');
+
+    // Switch temperature to 28°C
+    const chip28 = tree!.root.findByProps({ testID: 'temp-chip-28' });
+    expect(chip28).toBeDefined();
+
+    await act(async () => {
+      chip28.props.onPress();
+    });
+
+    fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Temperatura otoczenia: 28°C');
+  });
 });

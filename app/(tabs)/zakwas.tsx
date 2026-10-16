@@ -17,6 +17,7 @@ import {
   evaluateSourdoughSafety,
   calculateStarterPhase,
 } from '../../src/core/domain-rules';
+import { predictStarterPeak } from '../../src/core/starter-peak-predictor';
 import { confirmResetStarter, confirmDeleteStarter } from '../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-store';
 import { StoredStarter } from '../../src/data/db';
@@ -37,6 +38,7 @@ export default function ZakwasScreen() {
 
   const [targetYield, setTargetYield] = useState<number>(150);
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
+  const [ambientTempC, setAmbientTempC] = useState<number>(22.0);
 
   // Biological safety toggles
   const [hasHooch, setHasHooch] = useState<boolean>(false);
@@ -80,6 +82,23 @@ export default function ZakwasScreen() {
   const phaseResult = useMemo(() => {
     return calculateStarterPhase(starter.lastFedAt, starter.storageState);
   }, [starter.lastFedAt, starter.storageState]);
+
+  const flourGrain = useMemo(() => {
+    const lower = (starter.flourType || '').toLowerCase();
+    if (lower.includes('żytn') || lower.includes('rye')) return 'rye' as const;
+    if (lower.includes('orkisz') || lower.includes('spelt')) return 'spelt' as const;
+    return 'wheat' as const;
+  }, [starter.flourType]);
+
+  const peakPrediction = useMemo(() => {
+    return predictStarterPeak({
+      lastFedAt: starter.lastFedAt || Date.now(),
+      currentTempC: ambientTempC,
+      ratio: selectedRatio,
+      flourGrain,
+      hydration: starter.hydration,
+    });
+  }, [starter.lastFedAt, ambientTempC, selectedRatio, flourGrain, starter.hydration]);
 
   // Last fed formatted
   const lastFedLabel = useMemo(() => {
@@ -279,7 +298,7 @@ export default function ZakwasScreen() {
         </View>
 
         {/* Peak Activity Timer Card */}
-        <View style={styles.card}>
+        <View style={styles.card} testID="peak-activity-card">
           <View style={styles.peakHeaderRow}>
             <Text style={styles.cardTitle}>🕒 {t('Szczyt aktywności (Peak Timer)')}</Text>
             <View style={[styles.phaseBadge, { backgroundColor: phaseResult.badgeColor + '20' }]}>
@@ -290,6 +309,71 @@ export default function ZakwasScreen() {
           </View>
 
           <Text style={styles.phaseAdvice}>{phaseResult.advicePl}</Text>
+
+          {/* Metabolic Peak Window Prediction */}
+          <View style={styles.predictionBox} testID="peak-prediction-box">
+            <View style={styles.predictionRow}>
+              <Text style={styles.predictionLabel}>{t('Szacowane okno szczytu:')}</Text>
+              <Text style={styles.predictionWindowText}>{peakPrediction.formattedWindowPl}</Text>
+            </View>
+
+            {/* Progress bar */}
+            <View style={styles.progressBarBackground}>
+              <View
+                style={[
+                  styles.progressBarFill,
+                  {
+                    width: `${peakPrediction.progressPercent}%`,
+                    backgroundColor: peakPrediction.isCurrentlyInPeak
+                      ? theme.colors.statusSuccess
+                      : peakPrediction.hasPassedPeak
+                      ? theme.colors.statusWarning
+                      : theme.colors.accent,
+                  },
+                ]}
+              />
+            </View>
+            <View style={styles.progressLabelRow}>
+              <Text style={styles.progressSubtext}>
+                {t('Postęp do szczytu:')} {peakPrediction.progressPercent}%
+              </Text>
+              <Text style={styles.progressSubtext}>
+                {peakPrediction.isCurrentlyInPeak ? `✓ ${t('W szczycie')}` : ''}
+              </Text>
+            </View>
+
+            <Text style={styles.predictionStatusText}>{peakPrediction.statusMessagePl}</Text>
+
+            {/* Ambient Temperature Selector */}
+            <Text style={styles.tempSelectorHeading}>{t('Temperatura otoczenia')}: {ambientTempC}°C</Text>
+            <View style={styles.tempChipsRow}>
+              {[
+                { temp: 19, label: '❄️ 19°C', id: 'temp-19' },
+                { temp: 22, label: '🏠 22°C', id: 'temp-22' },
+                { temp: 25, label: '☀️ 25°C', id: 'temp-25' },
+                { temp: 28, label: '♨️ 28°C', id: 'temp-28' },
+              ].map((item) => (
+                <Pressable
+                  key={item.id}
+                  testID={`temp-chip-${item.temp}`}
+                  style={[
+                    styles.tempChip,
+                    ambientTempC === item.temp && styles.tempChipActive,
+                  ]}
+                  onPress={() => setAmbientTempC(item.temp)}
+                >
+                  <Text
+                    style={[
+                      styles.tempChipText,
+                      ambientTempC === item.temp && styles.tempChipTextActive,
+                    ]}
+                  >
+                    {item.label}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </View>
 
           <Pressable style={styles.feedNowBtn} onPress={handleLogFeeding}>
             <Text style={styles.feedNowBtnText}>🥣 {t('Zarejestruj dokarmienie')}</Text>
@@ -1046,6 +1130,92 @@ const styles = StyleSheet.create({
   modalConfirmBtnText: {
     fontSize: 14,
     color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  predictionBox: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    padding: theme.spacing.sm,
+    marginTop: 8,
+    marginBottom: 10,
+  },
+  predictionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  predictionLabel: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  predictionWindowText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: theme.colors.accentDark,
+  },
+  progressBarBackground: {
+    height: 8,
+    backgroundColor: theme.colors.border,
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginVertical: 4,
+  },
+  progressBarFill: {
+    height: '100%',
+    borderRadius: 4,
+  },
+  progressLabelRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  progressSubtext: {
+    fontSize: 11,
+    color: theme.colors.textSecondary,
+    fontWeight: '600',
+  },
+  predictionStatusText: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    lineHeight: 16,
+    marginBottom: 8,
+  },
+  tempSelectorHeading: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: theme.colors.textMuted,
+    marginBottom: 4,
+  },
+  tempChipsRow: {
+    flexDirection: 'row',
+    gap: 6,
+  },
+  tempChip: {
+    flex: 1,
+    paddingVertical: 6,
+    paddingHorizontal: 4,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    alignItems: 'center',
+  },
+  tempChipActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  tempChipText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  tempChipTextActive: {
+    color: theme.colors.accentDark,
     fontWeight: '700',
   },
 });

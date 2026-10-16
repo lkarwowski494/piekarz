@@ -321,5 +321,11 @@ export const EN: Record<string, string> = {
   'Kroki ratunkowe:': 'Recovery steps:',
   'Fizjologia ciasta:': 'Dough physiology:',
   'Zwiń protokół': 'Collapse protocol',
+
+  // Sourdough Metabolic Peak Predictor (Zakwas)
+  'Odliczanie do szczytu (Peak Countdown)': 'Peak countdown',
+  'Szacowane okno szczytu:': 'Estimated peak window:',
+  'Postęp do szczytu:': 'Progress to peak:',
+  'W szczycie': 'At peak',
 };
 
