@@ -27,8 +27,10 @@ import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
+import { useUnitSystem, formatTemperature, formatWeight, formatTextUnits } from '../../src/lib/unit-converter';
 
 export default function ZakwasScreen() {
+  const unitSystem = useUnitSystem();
   // Apps4Brew Monetization & Access (Cheaper than espresso)
   const {
     access,
@@ -344,7 +346,7 @@ export default function ZakwasScreen() {
             <View style={styles.metaItem}>
               <Text style={styles.metaLabel}>{t('Miejsce przechowywania')}</Text>
               <Text style={styles.metaValue}>
-                {starter.storageState === 'FRIDGE' ? t('W lodówce (4°C)') : t('Temperatura pokojowa')}
+                {starter.storageState === 'FRIDGE' ? formatTextUnits(t('W lodówce (4°C)'), unitSystem) : t('Temperatura pokojowa')}
               </Text>
             </View>
           </View>
@@ -398,13 +400,13 @@ export default function ZakwasScreen() {
             <Text style={styles.predictionStatusText}>{peakPrediction.statusMessagePl}</Text>
 
             {/* Ambient Temperature Selector */}
-            <Text style={styles.tempSelectorHeading}>{t('Temperatura otoczenia')}: {ambientTempC}°C</Text>
+            <Text style={styles.tempSelectorHeading}>{t('Temperatura otoczenia')}: {formatTemperature(ambientTempC, unitSystem)}</Text>
             <View style={styles.tempChipsRow}>
               {[
-                { temp: 19, label: '❄️ 19°C', id: 'temp-19' },
-                { temp: 22, label: '🏠 22°C', id: 'temp-22' },
-                { temp: 25, label: '☀️ 25°C', id: 'temp-25' },
-                { temp: 28, label: '♨️ 28°C', id: 'temp-28' },
+                { temp: 19, label: `❄️ ${formatTemperature(19, unitSystem)}`, id: 'temp-19' },
+                { temp: 22, label: `🏠 ${formatTemperature(22, unitSystem)}`, id: 'temp-22' },
+                { temp: 25, label: `☀️ ${formatTemperature(25, unitSystem)}`, id: 'temp-25' },
+                { temp: 28, label: `♨️ ${formatTemperature(28, unitSystem)}`, id: 'temp-28' },
               ].map((item) => (
                 <Pressable
                   key={item.id}
@@ -469,7 +471,7 @@ export default function ZakwasScreen() {
 
           {/* Yield Amount Selector */}
           <Text style={styles.subHeading}>
-            {t('Potrzebny zaczyn (Levain)')}: {targetYield} g
+            {t('Potrzebny zaczyn (Levain)')}: {formatWeight(targetYield, unitSystem)}
           </Text>
           <View style={styles.yieldButtons}>
             {[100, 150, 200, 250, 300].map((y) => (
@@ -479,7 +481,7 @@ export default function ZakwasScreen() {
                 style={[styles.yieldChip, targetYield === y && styles.yieldChipActive]}
               >
                 <Text style={[styles.yieldChipText, targetYield === y && styles.yieldChipTextActive]}>
-                  {y} g
+                  {formatWeight(y, unitSystem)}
                 </Text>
               </Pressable>
             ))}
@@ -489,24 +491,24 @@ export default function ZakwasScreen() {
           <View style={styles.feedingResultGrid}>
             <View style={styles.feedingItem}>
               <Text style={styles.feedingItemLabel}>{t('Stary zakwas')}</Text>
-              <Text style={styles.feedingItemValue}>{feeding.starterGrams} g</Text>
+              <Text style={styles.feedingItemValue}>{formatWeight(feeding.starterGrams, unitSystem)}</Text>
               <Text style={styles.feedingItemRatio}>{selectedRatio[0]} cz.</Text>
             </View>
             <Text style={styles.plusSign}>+</Text>
             <View style={styles.feedingItem}>
               <Text style={styles.feedingItemLabel}>{t('Mąka')}</Text>
-              <Text style={styles.feedingItemValue}>{feeding.flourGrams} g</Text>
+              <Text style={styles.feedingItemValue}>{formatWeight(feeding.flourGrams, unitSystem)}</Text>
               <Text style={styles.feedingItemRatio}>{selectedRatio[1]} cz.</Text>
             </View>
             <Text style={styles.plusSign}>+</Text>
             <View style={styles.feedingItem}>
-              <Text style={styles.feedingItemLabel}>{t('Woda')} (~28°C)</Text>
-              <Text style={styles.feedingItemValue}>{feeding.waterGrams} g</Text>
+              <Text style={styles.feedingItemLabel}>{t('Woda')} (~{formatTemperature(28, unitSystem)})</Text>
+              <Text style={styles.feedingItemValue}>{formatWeight(feeding.waterGrams, unitSystem)}</Text>
               <Text style={styles.feedingItemRatio}>{selectedRatio[2]} cz.</Text>
             </View>
           </View>
           <Text style={styles.feedingReserveTip}>
-            💡 Wskazówka: Z powstałych {targetYield} g pobierz wymaganą ilość do ciasta, a resztkę (~20–25 g)
+            💡 Wskazówka: Z powstałych {formatWeight(targetYield, unitSystem)} pobierz wymaganą ilość do ciasta, a resztkę (~{formatWeight(20, unitSystem)}–{formatWeight(25, unitSystem)})
             schowaj do lodówki jako matkę na kolejny wypiek.
           </Text>
 

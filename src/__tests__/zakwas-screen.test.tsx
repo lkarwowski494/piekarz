@@ -378,4 +378,18 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
       true
     );
   });
+
+  it('renders imperial units when unitSystem is set to imperial', async () => {
+    const { setUnitSystem, _resetUnitSystemForTests } = require('../lib/unit-converter');
+    setUnitSystem('imperial');
+
+    await renderScreen();
+    const fullText = extractCleanText(tree?.toJSON());
+
+    // In imperial mode, ambient temperature is in °F and feeding weights in oz
+    expect(fullText).toContain('°F');
+    expect(fullText).toContain('oz');
+
+    _resetUnitSystemForTests();
+  });
 });

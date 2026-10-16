@@ -583,5 +583,44 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     });
     expect(extractCleanText(tree?.toJSON())).toContain('45:00');
   });
+
+  it('renders imperial units when unitSystem is set to imperial', async () => {
+    const { setUnitSystem, _resetUnitSystemForTests } = require('../lib/unit-converter');
+    setUnitSystem('imperial');
+
+    setActiveBake({
+      id: 'bake_test_imperial',
+      recipeName: 'Mistrzowski Wiejski 80%',
+      startedAt: Date.now(),
+      currentStageId: 'step_1',
+      ambientTempC: 22,
+      actualDdtC: 25,
+      calculatedRecipe: {
+        targetDoughWeightGrams: 900,
+        baseFlourWeightGrams: 500,
+        flours: [{ name: 'Mąka pszenna chlebowa', percentage: 100, weightGrams: 500 }],
+        waterGrams: 400,
+        saltGrams: 10,
+        starterGrams: 100,
+        starterFlourGrams: 50,
+        starterWaterGrams: 50,
+        totalFlourGrams: 550,
+        totalWaterGrams: 450,
+        overallHydrationPercent: 81.82,
+        sumCheckGrams: 910,
+        isHighRye: false,
+        yeastGrams: 0,
+      },
+    });
+
+    await renderScreen();
+    const fullText = extractCleanText(tree?.toJSON());
+
+    // In imperial mode, temperatures are in °F and weights in oz / lb
+    expect(fullText).toContain('lb');
+    expect(fullText).toContain('oz');
+
+    _resetUnitSystemForTests();
+  });
 });
 

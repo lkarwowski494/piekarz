@@ -297,4 +297,26 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
 
     expect(root.findAllByProps({ testID: 'recovery-protocol-card' })).toHaveLength(0);
   });
+
+  it('renders imperial units when unitSystem is set to imperial', async () => {
+    const { setUnitSystem, _resetUnitSystemForTests } = require('../lib/unit-converter');
+    setUnitSystem('imperial');
+
+    await act(async () => {
+      tree = renderer.create(<DoctorScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+    // Tap Overproofed Collapse recovery protocol (has 220°C -> 428°F)
+    const chip = root.findByProps({ testID: 'recovery-chip-OVERPROOFED_COLLAPSE' });
+    await act(async () => {
+      chip.props.onPress();
+    });
+
+    const fullText = extractCleanText(root);
+    expect(fullText).toContain('°F');
+
+    _resetUnitSystemForTests();
+  });
 });

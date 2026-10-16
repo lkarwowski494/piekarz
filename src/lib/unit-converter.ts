@@ -171,3 +171,15 @@ export function formatDoseWeight(grams: number, unitSystem: UnitSystem = current
   }
   return `${Number(grams.toFixed(1))} g`;
 }
+
+/**
+ * Konwertuje wystąpienia temperatur w tekście na jednostki wybranego systemu
+ */
+export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUnitSystem): string {
+  if (unitSystem !== 'imperial' || !text) return text;
+  return text.replace(/(\d+(?:[.,]\d+)?)\s*°C/g, (_, numStr) => {
+    const val = parseFloat(numStr.replace(',', '.'));
+    return formatTemperature(val, 'imperial');
+  });
+}
+

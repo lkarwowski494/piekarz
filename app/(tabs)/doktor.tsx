@@ -21,6 +21,7 @@ import {
 } from '../../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
 import { BreadAcademyModal } from '../../src/components/BreadAcademyModal';
+import { useUnitSystem, formatTextUnits } from '../../src/lib/unit-converter';
 
 interface DiagnosticPreset {
   id: string;
@@ -70,6 +71,7 @@ const PRESETS: DiagnosticPreset[] = [
 
 export default function DoctorScreen() {
   const router = useRouter();
+  const unitSystem = useUnitSystem();
   const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({
     crumbHasHugeTopHolesWithDenseBottom: true, // Default initial example
   });
@@ -205,14 +207,14 @@ export default function DoctorScreen() {
 
             <View style={styles.causeBox}>
               <Text style={styles.causeLabel}>{t('Przyczyna biologiczno-chemiczna:')}</Text>
-              <Text style={styles.causeText}>{diagnosis.biologicalCausePl}</Text>
+              <Text style={styles.causeText}>{formatTextUnits(diagnosis.biologicalCausePl, unitSystem)}</Text>
             </View>
 
             <Text style={styles.checklistTitle}>{t('Co zrobić przy następnym wypieku:')}</Text>
             {diagnosis.actionChecklistPl.map((action, idx) => (
               <View key={idx} style={styles.checklistItem}>
                 <Text style={styles.bulletCheck}>✓</Text>
-                <Text style={styles.checklistText}>{action}</Text>
+                <Text style={styles.checklistText}>{formatTextUnits(action, unitSystem)}</Text>
               </View>
             ))}
 
@@ -322,13 +324,13 @@ export default function DoctorScreen() {
                   </View>
 
                   <Text style={styles.recoveryTriggerText}>
-                    🔍 {proto.triggerSummaryPl}
+                    🔍 {formatTextUnits(proto.triggerSummaryPl, unitSystem)}
                   </Text>
 
                   {/* Immediate Action Alert */}
                   <View style={styles.immediateAlertBox}>
                     <Text style={styles.immediateAlertLabel}>{t('Akcja natychmiastowa:')}</Text>
-                    <Text style={styles.immediateAlertText}>{proto.immediateActionPl}</Text>
+                    <Text style={styles.immediateAlertText}>{formatTextUnits(proto.immediateActionPl, unitSystem)}</Text>
                   </View>
 
                   {/* Target Pivot Recipe */}
@@ -344,14 +346,14 @@ export default function DoctorScreen() {
                       <View style={styles.recoveryStepIndexPill}>
                         <Text style={styles.recoveryStepIndexText}>{idx + 1}</Text>
                       </View>
-                      <Text style={styles.recoveryStepText}>{step}</Text>
+                      <Text style={styles.recoveryStepText}>{formatTextUnits(step, unitSystem)}</Text>
                     </View>
                   ))}
 
                   {/* Scientific Reasoning */}
                   <View style={styles.scienceBox}>
                     <Text style={styles.scienceLabel}>🔬 {t('Fizjologia ciasta:')}</Text>
-                    <Text style={styles.scienceText}>{proto.scientificReasoningPl}</Text>
+                    <Text style={styles.scienceText}>{formatTextUnits(proto.scientificReasoningPl, unitSystem)}</Text>
                   </View>
                 </View>
               );

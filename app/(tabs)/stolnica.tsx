@@ -27,7 +27,7 @@ import {
   getRecipes,
   incrementCompletedBakes,
 } from '../../src/data/sqlite-store';
-import { useUnitSystem, formatTemperature, formatWeight } from '../../src/lib/unit-converter';
+import { useUnitSystem, formatTemperature, formatWeight, formatDoseWeight, formatTextUnits } from '../../src/lib/unit-converter';
 import { StoredBakeLog } from '../../src/data/db';
 import { MASTER_RECIPES } from '../../src/recipes/presets';
 import { setPendingRecipeToLoad } from '../../src/lib/recipe-navigation';
@@ -137,6 +137,7 @@ export default function StolnicaScreen() {
     subscribe,
     restorePurchases,
   } = useAppAccess();
+  const unitSystem = useUnitSystem();
 
   const bakeStats = useMemo(() => calculateBakeStatistics(bakeHistory), [bakeHistory]);
   const filteredHistory = useMemo(() => {
@@ -611,7 +612,7 @@ export default function StolnicaScreen() {
               </View>
 
               <Text style={styles.activeStepTitle}>{currentStep.name}</Text>
-              <Text style={styles.activeStepDesc}>{currentStep.desc}</Text>
+              <Text style={styles.activeStepDesc}>{formatTextUnits(currentStep.desc, unitSystem)}</Text>
 
               {/* Dutch Oven Two-Phase Controller for Step 8 */}
               {currentStep.id === 'step_8' && (
@@ -665,15 +666,15 @@ export default function StolnicaScreen() {
                       </Text>
                       <View style={styles.phaseTempBadge}>
                         <Text style={styles.phaseTempBadgeText}>
-                          {DUTCH_OVEN_PHASES[dutchOvenPhase].temperatureC}°C
+                          {formatTemperature(DUTCH_OVEN_PHASES[dutchOvenPhase].temperatureC, unitSystem)}
                         </Text>
                       </View>
                     </View>
                     <Text style={styles.phaseDesc}>
-                      {DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl}
+                      {formatTextUnits(DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl, unitSystem)}
                     </Text>
                     <Text style={styles.phaseTip}>
-                      💡 {DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl}
+                      💡 {formatTextUnits(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl, unitSystem)}
                     </Text>
                   </View>
 
@@ -684,7 +685,7 @@ export default function StolnicaScreen() {
                         🔥 {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
                       </Text>
                       <Text style={styles.steamAlertDesc}>
-                        Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.
+                        {formatTextUnits('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.', unitSystem)}
                       </Text>
                       <Pressable
                         testID="start-phase-2-btn"
@@ -692,7 +693,7 @@ export default function StolnicaScreen() {
                         onPress={handleStartPhase2AfterSteamAlert}
                       >
                         <Text style={styles.steamAlertActionBtnText}>
-                          ▶ {t('Rozpocznij Fazę 2')} (25 min @ 210°C)
+                          ▶ {t('Rozpocznij Fazę 2')} (25 min @ {formatTemperature(210, unitSystem)})
                         </Text>
                       </Pressable>
                     </View>
@@ -802,30 +803,30 @@ export default function StolnicaScreen() {
                   <View style={styles.ingredientPill}>
                     <Text style={styles.ingredientLabel}>Mąki</Text>
                     <Text style={styles.ingredientValue}>
-                      {activeBakeData.calculatedRecipe.baseFlourWeightGrams} g
+                      {formatWeight(activeBakeData.calculatedRecipe.baseFlourWeightGrams, unitSystem)}
                     </Text>
                   </View>
                   <View style={styles.ingredientPill}>
                     <Text style={styles.ingredientLabel}>Woda</Text>
                     <Text style={styles.ingredientValue}>
-                      {activeBakeData.calculatedRecipe.waterGrams} g
+                      {formatWeight(activeBakeData.calculatedRecipe.waterGrams, unitSystem)}
                     </Text>
                   </View>
                   <View style={styles.ingredientPill}>
                     <Text style={styles.ingredientLabel}>Zakwas</Text>
                     <Text style={styles.ingredientValue}>
-                      {activeBakeData.calculatedRecipe.starterGrams} g
+                      {formatWeight(activeBakeData.calculatedRecipe.starterGrams, unitSystem)}
                     </Text>
                   </View>
                   <View style={styles.ingredientPill}>
                     <Text style={styles.ingredientLabel}>Sól</Text>
                     <Text style={styles.ingredientValue}>
-                      {activeBakeData.calculatedRecipe.saltGrams} g
+                      {formatDoseWeight(activeBakeData.calculatedRecipe.saltGrams, unitSystem)}
                     </Text>
                   </View>
                 </View>
                 <Text style={styles.ingredientsCaption}>
-                  Masa ciasta: {activeBakeData.calculatedRecipe.targetDoughWeightGrams} g · Hydratacja całkowita: {activeBakeData.calculatedRecipe.overallHydrationPercent.toFixed(1)}% (True Baker's %)
+                  Masa ciasta: {formatWeight(activeBakeData.calculatedRecipe.targetDoughWeightGrams, unitSystem)} · Hydratacja całkowita: {activeBakeData.calculatedRecipe.overallHydrationPercent.toFixed(1)}% (True Baker's %)
                 </Text>
               </View>
             )}

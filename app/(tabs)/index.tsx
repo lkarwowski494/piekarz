@@ -757,9 +757,9 @@ export default function CalculatorScreen() {
             <View style={styles.masterTechniqueBox}>
               <Text style={styles.masterTechniqueItem}>
                 ♨️ <Text style={styles.boldText}>{t('Pieczenie')}:</Text>{' '}
-                {currentMasterPreset.bakeTempSteamC}°C (
+                {formatTemperature(currentMasterPreset.bakeTempSteamC, unitSystem)} (
                 {currentMasterPreset.bakeTimeSteamMinutes}m {t('para')} +{' '}
-                {currentMasterPreset.bakeTimeBrowningMinutes}m w {currentMasterPreset.bakeTempBrowningC}°C)
+                {currentMasterPreset.bakeTimeBrowningMinutes}m w {formatTemperature(currentMasterPreset.bakeTempBrowningC, unitSystem)})
               </Text>
               <Text style={styles.masterTechniqueItem}>
                 🥖 <Text style={styles.boldText}>{t('Naczynie')}:</Text>{' '}
