@@ -18,6 +18,8 @@ import {
 import { setActiveBake } from '../../src/data/sqlite-store';
 import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
 import { useUnitSystem, formatTemperature } from '../../src/lib/unit-converter';
+import { useAppAccess } from '../../src/lib/app-access';
+import { PaywallModal } from '../../src/components/PaywallModal';
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -125,6 +127,16 @@ export default function HarmonogramScreen() {
     return d;
   }, [targetDayOffset, targetHour, targetMinute]);
 
+  // Apps4Brew Monetization & Access (Cheaper than espresso)
+  const {
+    access,
+    isPaywallVisible,
+    setPaywallVisible,
+    requireActionAccess,
+    subscribe,
+    restorePurchases,
+  } = useAppAccess();
+
   // Reverse schedule calculation
   const schedule = useMemo(() => {
     return calculateReverseSchedule(targetDate, {
@@ -176,15 +188,17 @@ export default function HarmonogramScreen() {
 
   // Transfer to Stolnica
   const handleStartBakeOnWorkbench = () => {
-    setActiveBake({
-      id: `bake_${Date.now()}`,
-      recipeName: 'Klasyczny chleb rzemieślniczy (Harmonogram)',
-      startedAt: Date.now(),
-      currentStageId: 'step_1',
-      ambientTempC: ambientTemp,
-      actualDdtC: 25.0,
+    requireActionAccess(() => {
+      setActiveBake({
+        id: `bake_${Date.now()}`,
+        recipeName: 'Klasyczny chleb rzemieślniczy (Harmonogram)',
+        startedAt: Date.now(),
+        currentStageId: 'step_1',
+        ambientTempC: ambientTemp,
+        actualDdtC: 25.0,
+      });
+      router.push('/(tabs)/stolnica');
     });
-    router.push('/(tabs)/stolnica');
   };
 
   const handleCopySchedule = async () => {
@@ -547,6 +561,16 @@ export default function HarmonogramScreen() {
             );
           })}
         </View>
+
+        {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+          trialDaysRemaining={access.trialDaysRemaining}
+          completedBakesCount={access.completedBakesCount}
+        />
       </ScrollView>
     </SafeAreaView>
   );

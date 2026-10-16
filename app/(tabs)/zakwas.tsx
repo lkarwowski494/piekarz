@@ -25,8 +25,20 @@ import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../src/components/StarterConverterModal';
 import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
+import { useAppAccess } from '../../src/lib/app-access';
+import { PaywallModal } from '../../src/components/PaywallModal';
 
 export default function ZakwasScreen() {
+  // Apps4Brew Monetization & Access (Cheaper than espresso)
+  const {
+    access,
+    isPaywallVisible,
+    setPaywallVisible,
+    requireActionAccess,
+    subscribe,
+    restorePurchases,
+  } = useAppAccess();
+
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
   const [selectedStarterId, setSelectedStarterId] = useState<string>('starter_default');
   const [starter, setStarter] = useState<StoredStarter>({
@@ -139,13 +151,15 @@ export default function ZakwasScreen() {
 
   // Log feeding action
   const handleLogFeeding = async () => {
-    const updated: StoredStarter = {
-      ...starter,
-      lastFedAt: Date.now(),
-    };
-    await saveStarter(updated);
-    setStarter(updated);
-    Alert.alert(t('Zarejestrowano dokarmienie!'), `Zakwas ${starter.name} został nakarmiony.`);
+    requireActionAccess(async () => {
+      const updated: StoredStarter = {
+        ...starter,
+        lastFedAt: Date.now(),
+      };
+      await saveStarter(updated);
+      setStarter(updated);
+      Alert.alert(t('Zarejestrowano dokarmienie!'), `Zakwas ${starter.name} został nakarmiony.`);
+    });
   };
 
   // Open edit modal
@@ -175,23 +189,25 @@ export default function ZakwasScreen() {
   };
 
   const handleAddStarter = async () => {
-    const trimmed = newStarterName.trim();
-    if (!trimmed) return;
-    const created: StoredStarter = {
-      id: `starter_${Date.now()}`,
-      name: trimmed,
-      flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa t750',
-      hydration: 100,
-      birthDate: Date.now(),
-      storageState: newStarterStorage,
-      lastFedAt: Date.now(),
-    };
-    await saveStarter(created);
-    setSelectedStarterId(created.id);
-    setStarter(created);
-    setIsAddModalOpen(false);
-    setNewStarterName('');
-    await loadStarterData(created.id);
+    requireActionAccess(async () => {
+      const trimmed = newStarterName.trim();
+      if (!trimmed) return;
+      const created: StoredStarter = {
+        id: `starter_${Date.now()}`,
+        name: trimmed,
+        flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa t750',
+        hydration: 100,
+        birthDate: Date.now(),
+        storageState: newStarterStorage,
+        lastFedAt: Date.now(),
+      };
+      await saveStarter(created);
+      setSelectedStarterId(created.id);
+      setStarter(created);
+      setIsAddModalOpen(false);
+      setNewStarterName('');
+      await loadStarterData(created.id);
+    });
   };
 
   const handleDeleteCurrentStarter = () => {
@@ -732,6 +748,16 @@ export default function ZakwasScreen() {
         <DiscardRecipesModal
           visible={isDiscardModalOpen}
           onClose={() => setIsDiscardModalOpen(false)}
+        />
+
+        {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+          trialDaysRemaining={access.trialDaysRemaining}
+          completedBakesCount={access.completedBakesCount}
         />
       </ScrollView>
     </SafeAreaView>
