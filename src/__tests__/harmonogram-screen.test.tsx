@@ -252,4 +252,76 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
       expect.objectContaining({ ambientTempC: 23 })
     );
   });
+
+  it('allows selecting baking scenarios to preconfigure target time and cold retard', async () => {
+    await act(async () => {
+      tree = renderer.create(<HarmonogramScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+
+    // Click Saturday breakfast scenario
+    const satScen = root.findByProps({ testID: 'scenario-saturday_breakfast' });
+    expect(satScen).toBeDefined();
+
+    await act(async () => {
+      satScen.props.onPress();
+      await Promise.resolve();
+    });
+
+    let allText = extractCleanText(root);
+    expect(allText).toContain('08:30');
+    expect(allText).toContain('14h');
+
+    // Click Same-day direct scenario (Direct)
+    const directScen = root.findByProps({ testID: 'scenario-same_day_direct' });
+    expect(directScen).toBeDefined();
+
+    await act(async () => {
+      directScen.props.onPress();
+      await Promise.resolve();
+    });
+
+    allText = extractCleanText(root);
+    expect(allText).toContain('19:00');
+    expect(allText).toContain('0h');
+  });
+
+  it('allows customizing Sleep Guard hours via sleep profiles', async () => {
+    await act(async () => {
+      tree = renderer.create(<HarmonogramScreen />);
+      await Promise.resolve();
+    });
+
+    const root = tree!.root;
+
+    // Initially standard profile: 23:00 - 06:30
+    let allText = extractCleanText(root);
+    expect(allText).toContain('23:00 – 06:30');
+
+    // Select early bird profile (22:00 - 06:00)
+    const earlyBird = root.findByProps({ testID: 'sleep-profile-early_bird' });
+    expect(earlyBird).toBeDefined();
+
+    await act(async () => {
+      earlyBird.props.onPress();
+      await Promise.resolve();
+    });
+
+    allText = extractCleanText(root);
+    expect(allText).toContain('22:00 – 06:00');
+
+    // Select night owl profile (00:00 - 08:00)
+    const nightOwl = root.findByProps({ testID: 'sleep-profile-night_owl' });
+    expect(nightOwl).toBeDefined();
+
+    await act(async () => {
+      nightOwl.props.onPress();
+      await Promise.resolve();
+    });
+
+    allText = extractCleanText(root);
+    expect(allText).toContain('00:00 – 08:00');
+  });
 });

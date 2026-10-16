@@ -327,5 +327,16 @@ export const EN: Record<string, string> = {
   'Szacowane okno szczytu:': 'Estimated peak window:',
   'Postęp do szczytu:': 'Progress to peak:',
   'W szczycie': 'At peak',
+
+  // Baking Scenarios & Sleep Guard Profiles (Harmonogram)
+  'Scenariusze wypieku': 'Baking scenarios',
+  'Sobotnie śniadanie': 'Saturday breakfast',
+  'Niedzielny obiad': 'Sunday dinner',
+  'Świeży po pracy': 'Fresh after work',
+  'Wypiek jednodniowy (Direct)': 'Same-day bake (Direct)',
+  'Godziny snu (Sleep Guard):': 'Sleep hours (Sleep Guard):',
+  'Ranny ptaszek': 'Early bird',
+  'Nocny marek': 'Night owl',
+  'Standard': 'Standard',
 };
 

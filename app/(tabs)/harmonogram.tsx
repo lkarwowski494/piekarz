@@ -53,6 +53,51 @@ function getStageIcon(category: string): string {
   }
 }
 
+const BAKING_SCENARIOS = [
+  {
+    id: 'saturday_breakfast',
+    namePl: 'Sobotnie śniadanie',
+    icon: '☕',
+    targetDayOffset: 1,
+    targetHour: 8,
+    targetMinute: 30,
+    coldRetardHours: 14,
+  },
+  {
+    id: 'sunday_dinner',
+    namePl: 'Niedzielny obiad',
+    icon: '🍲',
+    targetDayOffset: 1,
+    targetHour: 13,
+    targetMinute: 0,
+    coldRetardHours: 16,
+  },
+  {
+    id: 'after_work',
+    namePl: 'Świeży po pracy',
+    icon: '🌆',
+    targetDayOffset: 0,
+    targetHour: 18,
+    targetMinute: 30,
+    coldRetardHours: 10,
+  },
+  {
+    id: 'same_day_direct',
+    namePl: 'Wypiek jednodniowy (Direct)',
+    icon: '⚡',
+    targetDayOffset: 0,
+    targetHour: 19,
+    targetMinute: 0,
+    coldRetardHours: 0,
+  },
+];
+
+const SLEEP_PROFILES = [
+  { id: 'standard', namePl: 'Standard', label: '23:00 – 06:30', start: 23.0, end: 6.5, icon: '⚖️' },
+  { id: 'early_bird', namePl: 'Ranny ptaszek', label: '22:00 – 06:00', start: 22.0, end: 6.0, icon: '🌅' },
+  { id: 'night_owl', namePl: 'Nocny marek', label: '00:00 – 08:00', start: 24.0, end: 8.0, icon: '🌙' },
+];
+
 export default function HarmonogramScreen() {
   const router = useRouter();
 
@@ -65,6 +110,10 @@ export default function HarmonogramScreen() {
   // Baking environment
   const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
+
+  // Sleep Guard settings
+  const [sleepStartHour, setSleepStartHour] = useState<number>(23.0);
+  const [sleepEndHour, setSleepEndHour] = useState<number>(6.5);
 
   // Target Date object
   const targetDate = useMemo(() => {
@@ -79,10 +128,10 @@ export default function HarmonogramScreen() {
     return calculateReverseSchedule(targetDate, {
       ambientTemperatureC: ambientTemp,
       coldRetardHours,
-      sleepStartHour: 23.0,
-      sleepEndHour: 6.5,
+      sleepStartHour,
+      sleepEndHour,
     });
-  }, [targetDate, ambientTemp, coldRetardHours]);
+  }, [targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
 
   // Automatic sleep collision resolution helper
   const autoResolved = useMemo(() => {
@@ -90,10 +139,10 @@ export default function HarmonogramScreen() {
     return autoResolveSleepCollision(targetDate, {
       ambientTemperatureC: ambientTemp,
       coldRetardHours,
-      sleepStartHour: 23.0,
-      sleepEndHour: 6.5,
+      sleepStartHour,
+      sleepEndHour,
     });
-  }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours]);
+  }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
 
   // Adjust time by minutes
   const adjustTargetTime = (deltaMinutes: number) => {
@@ -168,6 +217,31 @@ export default function HarmonogramScreen() {
             {t('Wyznacz kroki wstecz, aby nie zarywać nocy')}
           </Text>
 
+          {/* Baking Scenarios */}
+          <Text style={styles.inputGroupLabel}>{t('Scenariusze wypieku')}:</Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.scenariosScroll}
+          >
+            {BAKING_SCENARIOS.map((scen) => (
+              <Pressable
+                key={scen.id}
+                testID={`scenario-${scen.id}`}
+                style={styles.scenarioChip}
+                onPress={() => {
+                  setTargetDayOffset(scen.targetDayOffset);
+                  setTargetHour(scen.targetHour);
+                  setTargetMinute(scen.targetMinute);
+                  setColdRetardHours(scen.coldRetardHours);
+                }}
+              >
+                <Text style={styles.scenarioIcon}>{scen.icon}</Text>
+                <Text style={styles.scenarioText}>{scen.namePl}</Text>
+              </Pressable>
+            ))}
+          </ScrollView>
+
           {/* Day Selector */}
           <Text style={styles.inputGroupLabel}>{t('Dzień gotowości:')}</Text>
           <View style={styles.daySelector}>
@@ -235,6 +309,38 @@ export default function HarmonogramScreen() {
             >
               <Text style={styles.fineTuneBtnText}>+30 min</Text>
             </Pressable>
+          </View>
+
+          {/* Sleep Guard Profile Selector */}
+          <Text style={styles.inputGroupLabel}>
+            🌙 {t('Godziny snu (Sleep Guard):')}{' '}
+            {sleepStartHour === 24 ? '00' : Math.floor(sleepStartHour)}:00 –{' '}
+            {String(Math.floor(sleepEndHour)).padStart(2, '0')}:{sleepEndHour % 1 !== 0 ? '30' : '00'}
+          </Text>
+          <View style={styles.sleepProfilesRow}>
+            {SLEEP_PROFILES.map((p) => {
+              const isSelected = sleepStartHour === p.start && sleepEndHour === p.end;
+              return (
+                <Pressable
+                  key={p.id}
+                  testID={`sleep-profile-${p.id}`}
+                  style={[styles.sleepProfileChip, isSelected && styles.sleepProfileChipActive]}
+                  onPress={() => {
+                    setSleepStartHour(p.start);
+                    setSleepEndHour(p.end);
+                  }}
+                >
+                  <Text
+                    style={[
+                      styles.sleepProfileText,
+                      isSelected && styles.sleepProfileTextActive,
+                    ]}
+                  >
+                    {p.icon} {p.namePl} ({p.label})
+                  </Text>
+                </Pressable>
+              );
+            })}
           </View>
 
           {/* Temperature Adaptation */}
@@ -898,6 +1004,60 @@ const styles = StyleSheet.create({
   copyScheduleBtnText: {
     color: theme.colors.textPrimary,
     fontSize: 14,
+    fontWeight: '700',
+  },
+  scenariosScroll: {
+    flexDirection: 'row',
+    marginBottom: 12,
+  },
+  scenarioChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    marginRight: 8,
+    gap: 6,
+  },
+  scenarioIcon: {
+    fontSize: 14,
+  },
+  scenarioText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  sleepProfilesRow: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 14,
+  },
+  sleepProfileChip: {
+    flex: 1,
+    backgroundColor: theme.colors.surface,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sleepProfileChipActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  sleepProfileText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    textAlign: 'center',
+  },
+  sleepProfileTextActive: {
+    color: theme.colors.accentDark,
     fontWeight: '700',
   },
 });
