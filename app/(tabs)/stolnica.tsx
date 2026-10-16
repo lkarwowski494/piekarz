@@ -21,10 +21,12 @@ import {
   getActiveBake,
   setActiveBake,
   ActiveBakeState,
+  deductFlourStock,
 } from '../../src/data/sqlite-store';
 import { StoredBakeLog } from '../../src/data/db';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
+import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
 
 export interface BakeStep {
   id: string;
@@ -108,6 +110,12 @@ export default function StolnicaScreen() {
   const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
   const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
+  const [selectedTasteFilter, setSelectedTasteFilter] = useState<'all' | 'mild' | 'balanced' | 'sour' | 'tangy'>('all');
+
+  const bakeStats = useMemo(() => calculateBakeStatistics(bakeHistory), [bakeHistory]);
+  const filteredHistory = useMemo(() => {
+    return filterBakeLogs(bakeHistory, { tasteProfile: selectedTasteFilter });
+  }, [bakeHistory, selectedTasteFilter]);
 
   const loadHistory = useCallback(async () => {
     const logs = await getBakeLogs();
@@ -269,6 +277,13 @@ export default function StolnicaScreen() {
       tasteProfile: finishTasteProfile,
     });
 
+    // Deduct flour inventory if calculated recipe is present
+    if (activeBakeData?.calculatedRecipe?.flours) {
+      for (const f of activeBakeData.calculatedRecipe.flours) {
+        await deductFlourStock(f.name, f.weightGrams);
+      }
+    }
+
     setActiveBake(null);
     setActiveBakeData(null);
     setIsActive(false);
@@ -333,19 +348,80 @@ export default function StolnicaScreen() {
 
             {/* History of Bakes */}
             <Text style={styles.sectionHeading}>{t('Historia wypieków')}</Text>
+
+            {/* Artisan Statistics Card */}
+            {bakeHistory.length > 0 && (
+              <View style={styles.statsCard} testID="bake-stats-card">
+                <Text style={styles.statsCardTitle}>📊 {t('Statystyki piekarni domowej')}</Text>
+                <View style={styles.statsGrid}>
+                  <View style={styles.statsItem}>
+                    <Text style={styles.statsLabel}>{t('Łącznie wypieków')}</Text>
+                    <Text style={styles.statsValue}>{bakeStats.totalBakes}</Text>
+                  </View>
+                  <View style={styles.statsItem}>
+                    <Text style={styles.statsLabel}>{t('Średnia ocena')}</Text>
+                    <Text style={styles.statsValue}>⭐ {bakeStats.averageRating}</Text>
+                  </View>
+                  <View style={styles.statsItem}>
+                    <Text style={styles.statsLabel}>{t('Śr. miękisz')}</Text>
+                    <Text style={styles.statsValue}>🍞 {bakeStats.averageCrumbScore}/5</Text>
+                  </View>
+                  <View style={styles.statsItem}>
+                    <Text style={styles.statsLabel}>{t('Śr. skórka')}</Text>
+                    <Text style={styles.statsValue}>🔥 {bakeStats.averageCrustScore}/5</Text>
+                  </View>
+                </View>
+              </View>
+            )}
+
+            {/* Taste Profile Filter */}
+            {bakeHistory.length > 0 && (
+              <View style={styles.tasteFilterContainer}>
+                <Text style={styles.filterLabel}>{t('Filtruj profil smakowy:')}</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tasteFilterScroll}>
+                  {[
+                    { id: 'all' as const, label: t('Wszystkie') },
+                    { id: 'mild' as const, label: t('Łagodny') },
+                    { id: 'balanced' as const, label: t('Zbalansowany') },
+                    { id: 'sour' as const, label: t('Kwaśny') },
+                    { id: 'tangy' as const, label: t('Bardzo kwaśny') },
+                  ].map((p) => (
+                    <Pressable
+                      key={p.id}
+                      testID={`filter-taste-${p.id}`}
+                      style={[
+                        styles.tasteFilterChip,
+                        selectedTasteFilter === p.id && styles.tasteFilterChipActive,
+                      ]}
+                      onPress={() => setSelectedTasteFilter(p.id)}
+                    >
+                      <Text
+                        style={[
+                          styles.tasteFilterText,
+                          selectedTasteFilter === p.id && styles.tasteFilterTextActive,
+                        ]}
+                      >
+                        {p.label}
+                      </Text>
+                    </Pressable>
+                  ))}
+                </ScrollView>
+              </View>
+            )}
+
             {bakeHistory.length === 0 ? (
               <View style={styles.emptyHistoryBox}>
                 <Text style={styles.emptyHistoryText}>{t('Brak wcześniejszych wypieków')}</Text>
               </View>
             ) : (
-              bakeHistory.slice(0, 10).map((log) => {
+              filteredHistory.slice(0, 15).map((log) => {
                 const dateStr = new Date(log.startedAt).toLocaleDateString('pl-PL', {
                   day: 'numeric',
                   month: 'short',
                   year: 'numeric',
                 });
                 return (
-                  <View key={log.id} style={styles.historyCard}>
+                  <View key={log.id} style={styles.historyCard} testID={`bake-log-card-${log.id}`}>
                     <View style={styles.historyCardHeader}>
                       <Text style={styles.historyRecipeName}>{log.recipeName}</Text>
                       <View style={styles.historyActionsRow}>
@@ -363,6 +439,32 @@ export default function StolnicaScreen() {
                       </View>
                     </View>
                     <Text style={styles.historyDate}>{dateStr}</Text>
+
+                    {/* Crumb, crust & taste pills */}
+                    <View style={styles.historyPillsRow}>
+                      {log.crumbScore !== undefined && (
+                        <View style={styles.historyPill}>
+                          <Text style={styles.historyPillText}>
+                            🍞 {t('Miękisz:')} {log.crumbScore}/5
+                          </Text>
+                        </View>
+                      )}
+                      {log.crustScore !== undefined && (
+                        <View style={styles.historyPill}>
+                          <Text style={styles.historyPillText}>
+                            🔥 {t('Skórka:')} {log.crustScore}/5
+                          </Text>
+                        </View>
+                      )}
+                      {log.tasteProfile && (
+                        <View style={styles.historyPill}>
+                          <Text style={styles.historyPillText}>
+                            👅 {log.tasteProfile === 'sour' ? t('Kwaśny') : log.tasteProfile === 'mild' ? t('Łagodny') : log.tasteProfile === 'tangy' ? t('Bardzo kwaśny') : t('Zbalansowany')}
+                          </Text>
+                        </View>
+                      )}
+                    </View>
+
                     {log.notes && <Text style={styles.historyNotes}>{log.notes}</Text>}
                   </View>
                 );
@@ -1308,5 +1410,93 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700',
     color: '#FFFFFF',
+  },
+  statsCard: {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.md,
+    padding: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  statsCardTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: theme.colors.textPrimary,
+    marginBottom: 8,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  statsItem: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  statsLabel: {
+    fontSize: 10,
+    color: theme.colors.textSecondary,
+    marginBottom: 2,
+    textAlign: 'center',
+  },
+  statsValue: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: theme.colors.accentDark,
+    textAlign: 'center',
+  },
+  tasteFilterContainer: {
+    marginBottom: 12,
+  },
+  filterLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+    marginBottom: 6,
+  },
+  tasteFilterScroll: {
+    flexDirection: 'row',
+  },
+  tasteFilterChip: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    marginRight: 6,
+  },
+  tasteFilterChipActive: {
+    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.accent,
+  },
+  tasteFilterText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textSecondary,
+  },
+  tasteFilterTextActive: {
+    color: theme.colors.accentDark,
+    fontWeight: '700',
+  },
+  historyPillsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: 6,
+    marginBottom: 4,
+  },
+  historyPill: {
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 3,
+    paddingHorizontal: 7,
+    borderWidth: 1,
+    borderColor: theme.colors.border + '60',
+  },
+  historyPillText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: theme.colors.textPrimary,
   },
 });

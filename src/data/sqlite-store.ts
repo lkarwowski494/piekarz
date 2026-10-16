@@ -165,6 +165,23 @@ export async function initDatabase(): Promise<void> {
     try {
       await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
     } catch {}
+
+    // Populate built-in master recipes into SQLite table
+    for (const preset of MASTER_RECIPES) {
+      try {
+        await db.runAsync(
+          `INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?);`,
+          preset.id,
+          preset.namePl,
+          JSON.stringify(preset.formula),
+          preset.targetDDT,
+          preset.notesPl,
+          1,
+          0
+        );
+      } catch {}
+    }
   } catch {
     // Memory fallback handles errors in non-native contexts
   }

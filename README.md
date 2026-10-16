@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-961%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-1018%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -36,22 +36,32 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
    - 4-składnikowe równanie DDT z ostrzeżeniem termicznym ($>45^\circ\text{C}$ zabija drożdże).
    - Precyzyjny kalkulator topnienia lodu w wodzie kranowej.
    - Szacowanie wagi upieczonego bochenka (strata wypiekowa 14%).
+   - Magazyn mąk i ostrzeżenia o brakach magazynowych w spiżarni (`FlourInventoryModal`).
+   - Kalkulator kosztu surowcowego bochenka (`CostCalculatorModal`).
+   - Mieszalnik mąk i kalkulator wypadkowego białka/W (`FlourBlendModal`).
 2. **⏱️ Harmonogram Wsteczny z Ochroną Snu (Sleep Guard):**
    - Planowanie wstecz od docelowej godziny podania lub krojenia chleba.
    - Adaptacja długości fermentacji burzliwej do temperatury otoczenia ($Q_{10}$).
    - **Sleep Guard:** Automatyczne wykrywanie kolizji czynności wymagających obecności (składania, formowanie, pieczenie) ze snem (23:00–06:30) z propozycją wydłużenia garowania chłodniczego (*cold retard*).
-3. **🥣 Stolnica (Asystent Wypieku Hands-in-Flour):**
+   - Profile scenariuszy wypieku: ekspresowy, klasyczny nocny, 24-godzinny weekendowy.
+3. **🥣 Stolnica (Asystent Wypieku Hands-in-Flour & Galeria Wypieków):**
    - Interfejs przystosowany do obsługi oprószonymi mąką dłońmi (duże elementy dotykowe $\ge 48\,\text{pt}$, wysoki kontrast).
    - Przewodnik krok po kroku: Autoliza $\rightarrow$ Wymieszanie $\rightarrow$ Składania (Stretch & Fold / Coil Fold) $\rightarrow$ Formowanie wstępne i ostateczne $\rightarrow$ Wypiek z parą.
    - Bezpieczne porzucenie wypieku przez `confirmDiscardBake` i automatyczny zapis historii po upieczeniu.
-4. **🫙 Zakwas (Profil & Bezpieczeństwo Biologiczne):**
+   - Automatyczny odpis zużytej mąki z magazynu spiżarni po ukończeniu bochenka.
+   - Karta statystyk wypieków (łączna liczba, średnia ocena ogólna, ocena miękiszu i skórki, najczęstszy profil smakowy).
+   - Filtrowanie historii wypieków według profilu smakowego (łagodny, zbalansowany, kwaśny, głęboki).
+4. **🫙 Zakwas (Profil, Konwerter & Bezpieczeństwo Biologiczne):**
    - Karta zakwasu (wiek, hydratacja, rytm dokarmiania, stan przechowywania).
    - Kalkulator dokarmiania w proporcji 1:2:2 lub dowolnej na żądaną masę zaczynu.
+   - Silnik konwersji hydratacji i Lievito Madre (konwersja między 100% a 50% ze schematem 3 odświeżeń co 4h).
+   - Predyktor szczytu aktywności metabolicznej zakwasu.
    - Diagnostyka wizualna: odróżnianie głodu (*hooch*) i kożucha drożdży tlenowych (*kahm*) od groźnej pleśni.
 5. **🩺 Doktor Chleba (Bread Doctor):**
    - Drzewo decyzyjne do analizy nieudanych bochenków.
    - Diagnoza przyczyn: niedofermentowanie (*under-proofed* / *flying crust*), przefermentowanie (*over-proofed*), zakalec (*gummy crumb*), rozerwanie boku (*blowout*), brak ucha (*ear*), blada skórka.
    - Biologiczno-chemiczne wyjaśnienie zjawiska i checklista konkretnych kroków naprawczych na kolejny wypiek.
+   - Procedury ratunkowe dla ciasta (*Dough Recovery*).
 6. **⚙️ Ustawienia, Kopia Zapasowa i Pro:**
    - Eksport i import bazy w formacie JSON (`exportBackup`).
    - Etyczny model monetyzacji (Darmowy rdzeń + opcjonalny Pro Lifetime lub 0,99 €/mc bez blokowania podstawowych funkcji).
@@ -60,13 +70,60 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
 
 ## 🧪 Wzorcowe Receptury w Bazie (Master Recipes)
 
-Aplikacja zawiera 6 fabrycznych, zweryfikowanych receptur rzemieślniczych:
-- **Wiejski chleb codzienny na zakwasie** (Country Loaf 72%, pszenno-żytni)
-- **Mistrzowski wiejski Tartine Style 80%** (wysoka hydratacja, dziki otwarty miękisz)
-- **Tradycyjny chleb 100% żytni razowy** (forma keksówka, trójfazowy profil kwasowy)
-- **Chleb nocny bez wyrabiania (No-Knead)** (minimalny nakład pracy, fermentacja 18h)
-- **Klasyczna pizza napoletana 48h** (długa fermentacja w bloku i kulkach)
-- **Słodka chałka maślana na zakwasie i drożdżach** (bogate ciasto maślane)
+Aplikacja zawiera 15 fabrycznych, laboratoryjnie zbilansowanych receptur mistrzowskich podzielonych na 4 rzemieślnicze kategorie:
+
+### 🌾 Chleby na zakwasie (Sourdough):
+1. **Wiejski chleb codzienny na zakwasie (Country Loaf 72%):**
+   - Uniwersalny bochenek pszenno-żytni (85% pszenna chlebowa T650, 15% żytnia T720).
+   - Zrównoważony czas fermentacji, chrupiąca skórka i sprężysty miękisz.
+2. **Mistrzowski wiejski Tartine Style 80%:**
+   - Wysoka hydratacja z dzikim, otwartym miękiszem (*open crumb*).
+   - Mieszanka mąki chlebowej wysokobiałkowej i pełnoziarnistego orkiszu T1050.
+3. **San Francisco Sourdough 70%:**
+   - Wyrazisty, octowo-mlekowy profil smakowy osiągany przez 24-godzinną retardację chłodniczą w 4°C.
+   - Wybitne ucho (*ear*) i głęboko karmelizowana skórka z pęcherzykami (*blisters*).
+4. **Pain de Campagne 75%:**
+   - Klasyczny francuski bochenek wiejski na mące chlebowej T80, żytniej T1150 oraz 5% mąki razowej.
+   - Aksamitny, lekko szary miękisz o tradycyjnym rustykalnym aromacie.
+5. **Chleb orkiszowy z prażonymi ziarnami 74%:**
+   - 100% orkisz (jasny T630 i pełnoziarnisty T1050) z prażonym słonecznikiem, siemieniem lnianym i sezamem.
+   - Głęboki orzechowy smak i doskonała wilgotność.
+6. **Chleb Graham z miodem i siemieniem 75%:**
+   - Tradycyjny chleb na mące graham T1850 z dodatkiem naturalnego miodu i namoczonego siemienia lnianego.
+   - Bogaty w błonnik, miękki i długo zachowujący świeżość.
+
+### 🍞 Chleby żytnie (Rye):
+7. **Tradycyjny chleb 100% żytni razowy 78%:**
+   - Klasyczny bochenek z foremki keksówki oparty na mące żytniej razowej T2000.
+   - Głęboki, trójfazowy profil kwasowy zabezpieczający skrobię żytnią przed atakiem amylaz.
+8. **Chleb Borodiński na czerwonym słodzie 80%:**
+   - Legendarny chleb żytnio-pszenny zaparzany wrzątkiem ze słodem żytnim fermentowanym (czerwonym) i miodem.
+   - Posypany prażonymi ziarnami kolendry o niepowtarzalnym korzennym bukiecie.
+
+### 🥖 Pieczywo drożdżowe i z prefermentami (Yeast & Preferments):
+9. **Bagietka tradycyjna de Tradition z Poolish 70%:**
+   - Tradycyjna francuska bagietka na 12-godzinnym zaczynie płynnym Poolish (100% hydratacji).
+   - Cieniutka, szklista skórka i duże, nieregularne pory.
+10. **Ciabatta con Biga 82%:**
+    - Wybitnie napowietrzony włoski chleb kapciowaty na sztywnym zaczynie Biga (50% hydratacji).
+    - Ekstremalnie delikatny, poduszkowy miękisz.
+11. **Focaccia Genovese z emulsją solankową 80%:**
+    - Puszysty placek z obfitą ilością oliwy z oliwek extra virgin i tradycyjną emulsją wodno-olejową (*salamoia*).
+    - Charakterystyczne wgłębienia palcowe, rozmaryn i płatki soli morskiej.
+12. **Chleb nocny bez wyrabiania (No-Knead) 75%:**
+    - Minimalistyczna formuła z mikrodawką drożdży (0.2%) i powolną 18-godzinną fermentacją pokojową.
+    - Wypiekany w rozgrzanym żeliwnym garnku.
+
+### 🍕 Pizza i wypieki słodkie (Pizza & Sweet):
+13. **Klasyczna pizza napoletana 48h 65%:**
+    - Oryginalna receptura neapolitańska z mąki Tipo 00 o przedłużonej fermentacji chłodniczej.
+    - Napompowane, lamparcie brzegi (*cornicione*) i idealna elastyczność.
+14. **Maślana brioszka na Lievito Madre 55%:**
+    - Luksusowe ciasto maślane (25% masła wiejskiego) na 50% sztywnym zakwasie Lievito Madre.
+    - Całkowity brak kwaśnego posmaku, jedwabisty maślany miękisz i złocista glazura.
+15. **Słodka chałka maślana na zakwasie i drożdżach 50%:**
+    - Bogate ciasto wzbogacone mlekiem, masłem i żółtkami, zaplatane w tradycyjny warkocz.
+    - Posypana kruchą maślaną kruszonką.
 
 ---
 
@@ -98,7 +155,7 @@ npm run start
 
 ## 🛡️ Wielowymiarowa Architektura Testów (Standard Apps4Brew)
 
-Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **834 testy automatyczne w 26 zestawach testowych** obejmujących 6 niezależnych perspektyw:
+Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą ze standardu ekosystemu `organizer` — **1018 testów automatycznych w 43 zestawach testowych** obejmujących 6 niezależnych perspektyw:
 
 1. **Property-Based Testing (`fast-check`):**
    - Weryfikacja niezmienników algebraicznych na tysiącach losowych permutacjach wejściowych (`numRuns: 1000`).
@@ -130,15 +187,19 @@ piekarz/
 │       ├── _layout.tsx         # Dolny pasek 5 zakładek rzemieślniczych
 │       ├── index.tsx           # Kalkulator piekarski & True Baker's % & DDT
 │       ├── harmonogram.tsx     # Harmonogram wsteczny i Sleep Guard
-│       ├── stolnica.tsx        # Asystent wypieku na żywo (Hands-in-Flour)
-│       ├── zakwas.tsx          # Profil zakwasu i kalkulator dokarmiania 1:2:2
+│       ├── stolnica.tsx        # Asystent wypieku na żywo & Galeria i Statystyki
+│       ├── zakwas.tsx          # Profil zakwasu, Lievito Madre i konwerter
 │       └── doktor.tsx          # Doktor Chleba — diagnostyka problemów
 ├── src/
-│   ├── components/             # Reużywalne komponenty HIG (DraftHeader, CloseButton, AddButton, TabIcon)
+│   ├── components/             # Reużywalne komponenty HIG i modale funkcyjne
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
 │   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
 │   │   ├── preferments.ts      # Kalkulator zaczynów: Poolish, Biga, Pâte Fermentée, Levain
+│   │   ├── starter-converter.ts# Konwerter hydratacji zakwasu i protokół Lievito Madre
+│   │   ├── inventory.ts        # Magazyn spiżarni i kalkulator braków surowcowych
+│   │   ├── cost-calculator.ts  # Wycena kosztów składników bochenka
+│   │   ├── bake-statistics.ts  # Agregacja statystyk i filtracja historii wypieków
 │   │   └── __tests__/          # Wektory testowe TV-01…TV-08 & Property-Based Testing
 │   ├── data/                   # Warstwa danych i SQLite
 │   │   ├── db.ts               # Interfejsy encji
@@ -147,6 +208,7 @@ piekarz/
 │   │   └── __tests__/          # Testy persystencji
 │   ├── doctor/                 # Silnik diagnostyczny Doktora Chleba
 │   │   ├── diagnostics.ts      # Drzewo symptomów i rozwiązań
+│   │   ├── dough-recovery.ts   # Procedury ratowania ciasta
 │   │   └── __tests__/          # Testy diagnostyki
 │   ├── guards/                 # Strażnicy architektoniczni i wzorce interakcji
 │   │   └── __tests__/          # Testy reguł HIG S1, S5, S14
@@ -163,7 +225,8 @@ piekarz/
 │   │   ├── i18n.en.ts          # Słownik języka angielskiego
 │   │   └── __tests__/          # Testy narzędzi
 │   ├── recipes/                # Baza receptur mistrzowskich
-│   │   └── presets.ts          # 6 wzorcowych receptur
+│   │   ├── presets.ts          # 15 wzorcowych receptur we wszystkich kategoriach
+│   │   └── __tests__/          # Testy poprawności i niezmienników receptur
 │   └── ui/                     # Paleta stylistyczna Linen & Crust
 │       └── theme.ts            # Tokeny kolorów, odstępów i promieni
 ├── scripts/

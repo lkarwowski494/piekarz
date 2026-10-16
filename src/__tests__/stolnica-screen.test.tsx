@@ -6,6 +6,9 @@ import {
   getActiveBake,
   setActiveBake,
   getBakeLogs,
+  saveBakeLog,
+  getFlourInventory,
+  _resetMemStore,
 } from '../data/sqlite-store';
 
 jest.setTimeout(20000);
@@ -66,6 +69,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+    _resetMemStore();
     setActiveBake(null);
     await initDatabase();
   });
@@ -410,6 +414,101 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     } finally {
       jest.useRealTimers();
     }
+  });
+
+  it('displays artisan bake statistics card when history contains logs', async () => {
+    // Seed sample bakes
+    await saveBakeLog({
+      id: 'bake_test_1',
+      recipeName: 'Chleb Wiejski 72%',
+      startedAt: Date.now() - 1000 * 60 * 60 * 24,
+      finishedAt: Date.now() - 1000 * 60 * 60 * 22,
+      ratingStars: 5,
+      crumbScore: 5,
+      crustScore: 4,
+      tasteProfile: 'balanced',
+    });
+    await saveBakeLog({
+      id: 'bake_test_2',
+      recipeName: 'San Francisco Sourdough',
+      startedAt: Date.now() - 1000 * 60 * 60 * 48,
+      finishedAt: Date.now() - 1000 * 60 * 60 * 46,
+      ratingStars: 4,
+      crumbScore: 4,
+      crustScore: 5,
+      tasteProfile: 'sour',
+    });
+
+    await renderScreen();
+
+    const statsCard = tree!.root.findByProps({ testID: 'bake-stats-card' });
+    expect(statsCard).toBeDefined();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Statystyki piekarni domowej');
+    expect(fullText).toContain('Łącznie wypieków');
+    expect(fullText).toContain('Średnia ocena');
+    expect(fullText).toContain('Śr. miękisz');
+    expect(fullText).toContain('Śr. skórka');
+    expect(fullText).toContain('4.5'); // (5+4)/2 = 4.5
+  });
+
+  it('filters history logs when tapping taste profile chip', async () => {
+    await saveBakeLog({
+      id: 'bake_sour_1',
+      recipeName: 'San Francisco Sourdough',
+      startedAt: Date.now() - 1000 * 60 * 60 * 10,
+      ratingStars: 5,
+      crumbScore: 5,
+      crustScore: 5,
+      tasteProfile: 'sour',
+    });
+    await saveBakeLog({
+      id: 'bake_mild_1',
+      recipeName: 'Bagietka z Poolishem',
+      startedAt: Date.now() - 1000 * 60 * 60 * 20,
+      ratingStars: 4,
+      crumbScore: 4,
+      crustScore: 4,
+      tasteProfile: 'mild',
+    });
+
+    await renderScreen();
+
+    // Both logs are initially visible
+    expect(extractCleanText(tree?.toJSON())).toContain('San Francisco Sourdough');
+    expect(extractCleanText(tree?.toJSON())).toContain('Bagietka z Poolishem');
+
+    // Tap sour taste filter chip
+    const sourFilter = tree!.root.findByProps({ testID: 'filter-taste-sour' });
+    expect(sourFilter).toBeDefined();
+
+    await act(async () => {
+      sourFilter.props.onPress();
+    });
+
+    const filteredText = extractCleanText(tree?.toJSON());
+    expect(filteredText).toContain('San Francisco Sourdough');
+    expect(filteredText).not.toContain('Bagietka z Poolishem');
+  });
+
+  it('renders crumb, crust and taste badges in history card', async () => {
+    await saveBakeLog({
+      id: 'bake_badge_test',
+      recipeName: 'Tartine Style 80%',
+      startedAt: Date.now() - 1000 * 60 * 60 * 5,
+      ratingStars: 5,
+      crumbScore: 5,
+      crustScore: 5,
+      tasteProfile: 'balanced',
+    });
+
+    await renderScreen();
+
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).toContain('Miękisz: 5/5');
+    expect(fullText).toContain('Skórka: 5/5');
+    expect(fullText).toContain('Zbalansowany');
   });
 });
 

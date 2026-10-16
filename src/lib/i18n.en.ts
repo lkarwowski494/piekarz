@@ -378,5 +378,20 @@ export const EN: Record<string, string> = {
   'Podaj nazwę mąki': 'Enter flour name',
   'Błąd': 'Error',
   'Spiżarnia mąk & Stan zapasów': 'Flour pantry & Stock status',
+
+  // Bake History Gallery & Statistics (Stolnica)
+  'Statystyki piekarni domowej': 'Home bakery statistics',
+  'Łącznie wypieków': 'Total bakes',
+  'Średnia ocena': 'Average rating',
+  'Śr. miękisz': 'Avg. crumb',
+  'Śr. skórka': 'Avg. crust',
+  'Filtruj profil smakowy:': 'Filter taste profile:',
+  'Wszystkie': 'All',
+  'Łagodny': 'Mild',
+  'Zbalansowany': 'Balanced',
+  'Kwaśny': 'Sour',
+  'Bardzo kwaśny': 'Tangy',
+  'Miękisz:': 'Crumb:',
+  'Skórka:': 'Crust:',
 };
 
