@@ -23,6 +23,7 @@ import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-s
 import { StoredStarter } from '../../src/data/db';
 import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../src/components/StarterConverterModal';
+import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 
 export default function ZakwasScreen() {
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
@@ -58,6 +59,7 @@ export default function ZakwasScreen() {
   const [newStarterFlour, setNewStarterFlour] = useState<string>('Mąka pszenna chlebowa t750');
   const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
   const [isConverterOpen, setIsConverterOpen] = useState<boolean>(false);
+  const [isDiscardModalOpen, setIsDiscardModalOpen] = useState<boolean>(false);
 
   const loadStarterData = useCallback(async (preferredId?: string) => {
     const list = await getStarters();
@@ -478,6 +480,16 @@ export default function ZakwasScreen() {
               ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
             </Text>
           </Pressable>
+
+          <Pressable
+            testID="open-discard-recipes-btn"
+            style={styles.openConverterBtn}
+            onPress={() => setIsDiscardModalOpen(true)}
+          >
+            <Text style={styles.openConverterBtnText}>
+              🥞 {t('Przepisy na Odrzut Zakwasu')}
+            </Text>
+          </Pressable>
         </View>
 
         {/* Biological Safety Checker */}
@@ -686,6 +698,11 @@ export default function ZakwasScreen() {
           onClose={() => setIsConverterOpen(false)}
           currentStarterHydration={starter.hydration}
           currentStarterName={starter.name}
+        />
+
+        <DiscardRecipesModal
+          visible={isDiscardModalOpen}
+          onClose={() => setIsDiscardModalOpen(false)}
         />
       </ScrollView>
     </SafeAreaView>

@@ -484,5 +484,19 @@ export const EN: Record<string, string> = {
   'łyżek': 'tbsp',
   'łyżeczek': 'tsp',
   'Przelicznik objętości': 'Volume converter',
+
+  // Sourdough Discard Recipes (Z-043)
+  'Przepisy na Odrzut Zakwasu': 'Sourdough Discard Recipes',
+  'Zamknij przepisy na odrzut': 'Close discard recipes',
+  'Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu': 'Zero-waste kitchen: crackers, pancakes, waffles, and cookies with zero discard waste',
+  'Krakersy': 'Crackers',
+  'Naleśniki': 'Pancakes',
+  'Gofry': 'Waffles',
+  'Ciasteczka': 'Cookies',
+  'Podpłomyki': 'Flatbreads',
+  'odrzutu': 'discard',
+  'Składniki:': 'Ingredients:',
+  'Przygotowanie krok po kroku:': 'Step-by-step instructions:',
+  'Przepisy na odrzut': 'Discard recipes',
 };
 
