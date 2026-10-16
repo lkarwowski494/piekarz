@@ -24,6 +24,7 @@ import { StoredStarter } from '../../src/data/db';
 import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../src/components/StarterConverterModal';
 import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
+import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 
 export default function ZakwasScreen() {
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
@@ -204,6 +205,25 @@ export default function ZakwasScreen() {
     });
   };
 
+  const handlePrintStarterLabel = async () => {
+    try {
+      await exportStarterLabelAsPdf(
+        {
+          starterName: starter.name,
+          flourType: starter.flourType,
+          hydration: starter.hydration,
+          feedingRatio: `${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`,
+          storageState: starter.storageState,
+          ageDays,
+          lastFedDate: lastFedLabel,
+        },
+        true
+      );
+    } catch {
+      Alert.alert(t('Etykieta zakwasu'), t('Nie udało się wygenerować etykiety PDF'));
+    }
+  };
+
   const handleReset = () => {
     confirmResetStarter(() => {
       setHasHooch(false);
@@ -268,17 +288,26 @@ export default function ZakwasScreen() {
         {/* Profile Card */}
         <View style={styles.card}>
           <View style={styles.cardHeaderRow}>
-            <View>
+            <View style={styles.flex1}>
               <Text style={styles.starterName}>{starter.name}</Text>
               <Text style={styles.starterType}>{starter.flourType} · Hydratacja {starter.hydration}%</Text>
             </View>
-            <Pressable
-              testID="edit-profile-btn"
-              style={styles.editProfileBtn}
-              onPress={handleOpenEditModal}
-            >
-              <Text style={styles.editProfileBtnText}>✏️ {t('Edytuj profil')}</Text>
-            </Pressable>
+            <View style={styles.cardHeaderActions}>
+              <Pressable
+                testID="print-starter-label-btn"
+                style={styles.printLabelBtn}
+                onPress={handlePrintStarterLabel}
+              >
+                <Text style={styles.printLabelBtnText}>🖨️ {t('Etykieta PDF')}</Text>
+              </Pressable>
+              <Pressable
+                testID="edit-profile-btn"
+                style={styles.editProfileBtn}
+                onPress={handleOpenEditModal}
+              >
+                <Text style={styles.editProfileBtnText}>✏️ {t('Edytuj')}</Text>
+              </Pressable>
+            </View>
           </View>
 
           <View style={styles.divider} />
@@ -714,6 +743,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
   },
+  flex1: {
+    flex: 1,
+  },
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
@@ -753,6 +785,24 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.textSecondary,
     marginTop: 2,
+  },
+  cardHeaderActions: {
+    flexDirection: 'row',
+    gap: 8,
+    alignItems: 'center',
+  },
+  printLabelBtn: {
+    backgroundColor: theme.colors.surfaceCard,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  printLabelBtnText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: theme.colors.textPrimary,
   },
   editProfileBtn: {
     backgroundColor: theme.colors.surfaceCard,

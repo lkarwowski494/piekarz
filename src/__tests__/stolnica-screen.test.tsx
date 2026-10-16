@@ -10,6 +10,7 @@ import {
   getFlourInventory,
   _resetMemStore,
 } from '../data/sqlite-store';
+import { getPendingRecipeToLoad } from '../lib/recipe-navigation';
 
 jest.setTimeout(20000);
 
@@ -509,6 +510,78 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     expect(fullText).toContain('Miękisz: 5/5');
     expect(fullText).toContain('Skórka: 5/5');
     expect(fullText).toContain('Zbalansowany');
+  });
+
+  it('triggers Bake Again when tapping Piecz ponownie button on a history card', async () => {
+    await saveBakeLog({
+      id: 'bake_again_test_id',
+      recipeName: 'Wiejski chleb codzienny na zakwasie',
+      startedAt: Date.now() - 1000 * 60 * 60 * 24,
+      ratingStars: 5,
+      crumbScore: 4,
+      crustScore: 4,
+    });
+
+    await renderScreen();
+
+    const bakeAgainBtn = tree!.root.findByProps({ testID: 'bake-again-btn-bake_again_test_id' });
+    expect(bakeAgainBtn).toBeDefined();
+
+    await act(async () => {
+      await bakeAgainBtn.props.onPress();
+    });
+
+    const pending = getPendingRecipeToLoad();
+    expect(pending).not.toBeNull();
+    expect(pending?.name).toBe('Wiejski chleb codzienny na zakwasie');
+    expect(pending?.formula.waterPercentage).toBe(68.0);
+  });
+
+  it('adjusts active timer in-flight (-10s, +10s, +5m, -5m)', async () => {
+    setActiveBake({
+      id: 'bake_timer_adjust',
+      recipeName: 'Tartine 75%',
+      startedAt: Date.now(),
+      currentStageId: 'step_1',
+      ambientTempC: 22,
+      actualDdtC: 25,
+    });
+
+    await renderScreen();
+
+    const plus10s = tree!.root.findByProps({ testID: 'adjust-time-plus-10s' });
+    const minus10s = tree!.root.findByProps({ testID: 'adjust-time-minus-10s' });
+    const plus5m = tree!.root.findByProps({ testID: 'adjust-time-plus-5m' });
+    const minus5m = tree!.root.findByProps({ testID: 'adjust-time-minus-5m' });
+
+    expect(plus10s).toBeDefined();
+    expect(minus10s).toBeDefined();
+    expect(plus5m).toBeDefined();
+    expect(minus5m).toBeDefined();
+
+    // 45 min = 45:00. +10s -> 45:10
+    await act(async () => {
+      plus10s.props.onPress();
+    });
+    expect(extractCleanText(tree?.toJSON())).toContain('45:10');
+
+    // -10s -> 45:00
+    await act(async () => {
+      minus10s.props.onPress();
+    });
+    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
+
+    // +5m -> 50:00
+    await act(async () => {
+      plus5m.props.onPress();
+    });
+    expect(extractCleanText(tree?.toJSON())).toContain('50:00');
+
+    // -5m -> 45:00
+    await act(async () => {
+      minus5m.props.onPress();
+    });
+    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
   });
 });
 

@@ -17,6 +17,7 @@ import {
 } from '../../src/scheduler/reverse-scheduler';
 import { setActiveBake } from '../../src/data/sqlite-store';
 import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
+import { useUnitSystem, formatTemperature } from '../../src/lib/unit-converter';
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -108,6 +109,7 @@ export default function HarmonogramScreen() {
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
   // Baking environment
+  const unitSystem = useUnitSystem();
   const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
@@ -347,7 +349,7 @@ export default function HarmonogramScreen() {
           <View style={styles.paramSection}>
             <View style={styles.paramHeader}>
               <Text style={styles.paramLabel}>{t('Temperatura w kuchni:')}</Text>
-              <Text style={styles.paramValue}>{ambientTemp}°C</Text>
+              <Text style={styles.paramValue}>{formatTemperature(ambientTemp, unitSystem)}</Text>
             </View>
             <View style={styles.paramChips}>
               {[20, 22, 24, 26].map((temp) => (
@@ -359,7 +361,7 @@ export default function HarmonogramScreen() {
                   <Text
                     style={[styles.paramChipText, ambientTemp === temp && styles.paramChipTextActive]}
                   >
-                    {temp}°C
+                    {formatTemperature(temp, unitSystem)}
                   </Text>
                 </Pressable>
               ))}

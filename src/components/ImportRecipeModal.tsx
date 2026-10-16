@@ -20,25 +20,33 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
-import { parseAndValidateRecipeJson } from '../lib/recipe-sharing';
+import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
 
 export interface ImportRecipeModalProps {
   visible: boolean;
   onClose: () => void;
   onImportSuccess: (importedRecipe: StoredRecipe) => void;
+  initialInput?: string;
 }
 
 export function ImportRecipeModal({
   visible,
   onClose,
   onImportSuccess,
+  initialInput,
 }: ImportRecipeModalProps) {
-  const [jsonInput, setJsonInput] = useState<string>('');
+  const [jsonInput, setJsonInput] = useState<string>(initialInput || '');
+
+  React.useEffect(() => {
+    if (initialInput) {
+      setJsonInput(initialInput);
+    }
+  }, [initialInput, visible]);
 
   const validation = useMemo(() => {
     const trimmed = jsonInput.trim();
     if (!trimmed) return null;
-    return parseAndValidateRecipeJson(trimmed);
+    return decodeRecipeFromShareUrl(trimmed);
   }, [jsonInput]);
 
   const handlePasteClipboard = async () => {

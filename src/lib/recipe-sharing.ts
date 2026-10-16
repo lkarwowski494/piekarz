@@ -260,3 +260,98 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
 
   return { success: true, recipe: validStoredRecipe };
 }
+
+export const RECIPE_SHARE_PROTOCOL = 'piekarz://recipe';
+export const RECIPE_SHARE_WEB_URL = 'https://piekarz.app/recipe';
+
+/**
+ * Encodes string to Base64 in UTF-8 safely for Hermes, Node, and browser
+ */
+export function utf8ToBase64(str: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(str, 'utf-8').toString('base64');
+  }
+  return btoa(
+    encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) =>
+      String.fromCharCode(parseInt(p1, 16))
+    )
+  );
+}
+
+/**
+ * Decodes Base64 to UTF-8 safely
+ */
+export function base64ToUtf8(b64: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(b64, 'base64').toString('utf-8');
+  }
+  const binary = atob(b64);
+  return decodeURIComponent(
+    binary
+      .split('')
+      .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+      .join('')
+  );
+}
+
+/**
+ * Exports recipe into deep link (piekarz://recipe?v=1&d=<base64>) or web url
+ */
+export function encodeRecipeToShareUrl(
+  recipe: StoredRecipe | MasterRecipe,
+  useWebScheme = false
+): string {
+  const jsonStr = exportRecipeToJson(recipe);
+  let minified = jsonStr;
+  try {
+    minified = JSON.stringify(JSON.parse(jsonStr));
+  } catch {
+    // fallback
+  }
+  const base64Str = utf8ToBase64(minified);
+  const base = useWebScheme ? RECIPE_SHARE_WEB_URL : RECIPE_SHARE_PROTOCOL;
+  return `${base}?v=1&d=${encodeURIComponent(base64Str)}`;
+}
+
+/**
+ * Decodes recipe from deep link, universal link, base64 payload, or raw JSON
+ */
+export function decodeRecipeFromShareUrl(urlOrRawData: string): RecipeValidationResult {
+  if (!urlOrRawData || typeof urlOrRawData !== 'string') {
+    return { success: false, error: t('Pusty lub nieprawidłowy link') };
+  }
+
+  const trimmed = urlOrRawData.trim();
+  let candidate = trimmed;
+
+  if (trimmed.includes('d=')) {
+    try {
+      const match = trimmed.match(/[?&]d=([^&#]+)/);
+      if (match && match[1]) {
+        candidate = decodeURIComponent(match[1]);
+      }
+    } catch {
+      // fallback
+    }
+  }
+
+  // If candidate is base64
+  try {
+    const decoded = base64ToUtf8(candidate);
+    if (decoded.trim().startsWith('{')) {
+      return parseAndValidateRecipeJson(decoded);
+    }
+  } catch {
+    // Not valid base64
+  }
+
+  // Fallback: try candidate or original trimmed as raw JSON
+  if (candidate.startsWith('{')) {
+    return parseAndValidateRecipeJson(candidate);
+  }
+  if (trimmed.startsWith('{')) {
+    return parseAndValidateRecipeJson(trimmed);
+  }
+
+  return { success: false, error: t('Nie udało się odczytać receptury z linku lub kodu QR') };
+}

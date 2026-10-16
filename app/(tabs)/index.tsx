@@ -44,8 +44,23 @@ import { FlourInventoryModal } from '../../src/components/FlourInventoryModal';
 import { ImportRecipeModal } from '../../src/components/ImportRecipeModal';
 import { FlourEquivalentsModal } from '../../src/components/FlourEquivalentsModal';
 import { VolumeConverterModal } from '../../src/components/VolumeConverterModal';
+import { ShareRecipeQrModal } from '../../src/components/ShareRecipeQrModal';
+import { QrScannerModal } from '../../src/components/QrScannerModal';
 import { formatRecipeText, copyRecipeToClipboard } from '../../src/lib/recipe-formatter';
 import { exportRecipeToJson } from '../../src/lib/recipe-sharing';
+import {
+  useUnitSystem,
+  formatTemperature,
+  formatWeight,
+  formatDoseWeight,
+} from '../../src/lib/unit-converter';
+import { exportRecipeSheetAsPdf } from '../../src/lib/pdf-sheet-generator';
+import {
+  getPendingRecipeToLoad,
+  clearPendingRecipeToLoad,
+  subscribePendingRecipe,
+  PendingRecipeToLoad,
+} from '../../src/lib/recipe-navigation';
 import {
   calculatePrefermentBreakdown,
   PREFERMENT_DEFINITIONS,
@@ -100,11 +115,41 @@ export default function CalculatorScreen() {
   const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
+  const [isShareQrOpen, setIsShareQrOpen] = useState<boolean>(false);
+  const [isScannerOpen, setIsScannerOpen] = useState<boolean>(false);
+  const [importInitialInput, setImportInitialInput] = useState<string>('');
   const [isEquivModalOpen, setIsEquivModalOpen] = useState<boolean>(false);
   const [isVolumeModalOpen, setIsVolumeModalOpen] = useState<boolean>(false);
   const [masterCategoryFilter, setMasterCategoryFilter] = useState<
     'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet'
   >('all');
+
+  const unitSystem = useUnitSystem();
+
+  const handlePrintRecipePdf = async () => {
+    try {
+      await exportRecipeSheetAsPdf({
+        recipeName,
+        totalFlourGrams: calculations.totalFlourGrams,
+        overallHydrationPercent: calculations.overallHydrationPercent,
+        flours: calculations.flours,
+        waterGrams: calculations.waterGrams,
+        starterGrams: calculations.starterGrams,
+        starterHydration,
+        saltGrams: calculations.saltGrams,
+        saltPercent: saltPct,
+        targetDDT: targetDdt,
+        waterTempTarget: ddtResult.waterTempTarget,
+        ambientTemp: roomTemp,
+        targetDoughWeightGrams: calculations.targetDoughWeightGrams,
+        loavesCount: calcMode === 'loaves' ? loavesCount : 1,
+        bakedSingleLoafWeight,
+        notes: MASTER_RECIPES.find((r) => r.id === selectedPresetId)?.notesPl,
+      });
+    } catch {
+      Alert.alert(t('Karta receptury'), t('Nie udało się wygenerować pliku PDF'));
+    }
+  };
 
   // Artisan Preferments state
   const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
@@ -117,6 +162,39 @@ export default function CalculatorScreen() {
 
   useEffect(() => {
     loadRecipesFromStore();
+
+    const applyPending = (pending: PendingRecipeToLoad) => {
+      if (pending.id) setSelectedPresetId(pending.id);
+      setRecipeName(pending.name);
+      setFlourBlend(pending.formula.flours);
+      setWaterPct(pending.formula.waterPercentage);
+      setStarterPct(pending.formula.starterPercentage);
+      setSaltPct(pending.formula.saltPercentage);
+      if (pending.formula.starterHydration !== undefined) {
+        setStarterHydration(pending.formula.starterHydration);
+      }
+      if (pending.targetDDT !== undefined) {
+        setTargetDdt(pending.targetDDT);
+      }
+      if (pending.formula.targetDoughWeightGrams !== undefined) {
+        setCalcMode('loaves');
+        setLoavesCount(1);
+        setLoafWeightGrams(pending.formula.targetDoughWeightGrams);
+      }
+    };
+
+    const initialPending = getPendingRecipeToLoad();
+    if (initialPending) {
+      applyPending(initialPending);
+      clearPendingRecipeToLoad();
+    }
+
+    const unsubscribe = subscribePendingRecipe((pending) => {
+      applyPending(pending);
+      clearPendingRecipeToLoad();
+    });
+
+    return unsubscribe;
   }, [loadRecipesFromStore]);
 
   const filteredMasterRecipes = useMemo(() => {
@@ -162,6 +240,12 @@ export default function CalculatorScreen() {
     setStarterHydration(imported.formula.starterHydration ?? 100.0);
     setTargetDdt(imported.targetDDT);
     loadRecipesFromStore();
+  };
+
+  const handleScanRecipe = (scannedData: string) => {
+    setImportInitialInput(scannedData);
+    setIsScannerOpen(false);
+    setIsImportModalOpen(true);
   };
 
   // Select Master Preset
@@ -252,6 +336,34 @@ export default function CalculatorScreen() {
       targetDoughWeightGrams,
     });
   }, [flourBlend, waterPct, starterPct, saltPct, starterHydration, targetDoughWeightGrams]);
+
+  const currentRecipeForShare = useMemo(() => {
+    return {
+      id: selectedPresetId,
+      name: recipeName,
+      targetDDT: targetDdt,
+      formula: {
+        flours: flourBlend,
+        waterPercentage: waterPct,
+        saltPercentage: saltPct,
+        starterPercentage: starterPct,
+        starterHydration,
+        targetDoughWeightGrams,
+      },
+      isBuiltIn: false,
+      createdAt: Date.now(),
+    };
+  }, [
+    selectedPresetId,
+    recipeName,
+    targetDdt,
+    flourBlend,
+    waterPct,
+    saltPct,
+    starterPct,
+    starterHydration,
+    targetDoughWeightGrams,
+  ]);
 
   const ddtResult = useMemo(() => {
     return calculateDDTWaterTemp({
@@ -439,6 +551,24 @@ export default function CalculatorScreen() {
               onPress={() => setIsImportModalOpen(true)}
             >
               <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
+            </Pressable>
+            <Pressable
+              testID="open-scan-qr-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Skanuj QR')}
+              style={styles.headerActionPill}
+              onPress={() => setIsScannerOpen(true)}
+            >
+              <Text style={styles.headerActionPillText}>📷 {t('Skanuj QR')}</Text>
+            </Pressable>
+            <Pressable
+              testID="header-print-pdf-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Drukuj PDF')}
+              style={styles.headerActionPill}
+              onPress={handlePrintRecipePdf}
+            >
+              <Text style={styles.headerActionPillText}>🖨️ {t('Drukuj PDF')}</Text>
             </Pressable>
           </View>
         </View>
@@ -995,7 +1125,7 @@ export default function CalculatorScreen() {
             {/* Flours */}
             <View style={styles.scaleItem}>
               <Text style={styles.scaleItemLabel}>🌾 Mąki łącznie</Text>
-              <Text style={styles.scaleItemValue}>{calculations.baseFlourWeightGrams} g</Text>
+              <Text style={styles.scaleItemValue}>{formatWeight(calculations.baseFlourWeightGrams, unitSystem)}</Text>
               <Text style={styles.scaleItemSub}>
                 {calculations.flours.map((f) => `${f.weightGrams}g`).join(' + ')}
               </Text>
@@ -1004,16 +1134,16 @@ export default function CalculatorScreen() {
             {/* Water */}
             <View style={styles.scaleItem}>
               <Text style={styles.scaleItemLabel}>💧 Woda</Text>
-              <Text style={styles.scaleItemValue}>{calculations.waterGrams} g</Text>
+              <Text style={styles.scaleItemValue}>{formatWeight(calculations.waterGrams, unitSystem)}</Text>
               <Text style={styles.scaleItemSub}>
-                {ddtResult.waterTempTarget > 0 ? `DDT: ${ddtResult.waterTempTarget.toFixed(1)}°C` : 'Woda chłodna'}
+                {ddtResult.waterTempTarget > 0 ? `DDT: ${formatTemperature(ddtResult.waterTempTarget, unitSystem)}` : 'Woda chłodna'}
               </Text>
             </View>
 
             {/* Sourdough */}
             <View style={styles.scaleItem}>
               <Text style={styles.scaleItemLabel}>🏺 Zakwas (Levain)</Text>
-              <Text style={styles.scaleItemValue}>{calculations.starterGrams} g</Text>
+              <Text style={styles.scaleItemValue}>{formatWeight(calculations.starterGrams, unitSystem)}</Text>
               <Text style={styles.scaleItemSub}>
                 {calculations.starterFlourGrams}g mąki + {calculations.starterWaterGrams}g wody
               </Text>
@@ -1022,7 +1152,7 @@ export default function CalculatorScreen() {
             {/* Salt */}
             <View style={styles.scaleItem}>
               <Text style={styles.scaleItemLabel}>🧂 Sól</Text>
-              <Text style={styles.scaleItemValue}>{calculations.saltGrams} g</Text>
+              <Text style={styles.scaleItemValue}>{formatDoseWeight(calculations.saltGrams, unitSystem)}</Text>
               <Text style={styles.scaleItemSub}>2.0% mąki</Text>
             </View>
           </View>
@@ -1040,7 +1170,7 @@ export default function CalculatorScreen() {
             <View style={styles.scaleFooterCol}>
               <Text style={styles.scaleFooterLabel}>Masa surowego ciasta</Text>
               <Text style={styles.scaleFooterHighlight}>
-                {calculations.targetDoughWeightGrams} g
+                {formatWeight(calculations.targetDoughWeightGrams, unitSystem)}
               </Text>
               <Text style={styles.scaleFooterCaption}>
                 {calcMode === 'loaves' ? `${loavesCount} bochenki po ~${bakedSingleLoafWeight}g` : `Chleb: ~${bakedTotalWeight}g`}
@@ -1058,15 +1188,15 @@ export default function CalculatorScreen() {
 
           <View style={styles.row}>
             <Text style={styles.label}>Cel DDT</Text>
-            <Text style={styles.valueHighlight}>{targetDdt.toFixed(1)}°C</Text>
+            <Text style={styles.valueHighlight}>{formatTemperature(targetDdt, unitSystem)}</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t('Temperatura mąki')}</Text>
-            <Text style={styles.labelSmall}>{flourTemp.toFixed(1)}°C</Text>
+            <Text style={styles.labelSmall}>{formatTemperature(flourTemp, unitSystem)}</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t('Temperatura otoczenia')}</Text>
-            <Text style={styles.labelSmall}>{roomTemp.toFixed(1)}°C</Text>
+            <Text style={styles.labelSmall}>{formatTemperature(roomTemp, unitSystem)}</Text>
           </View>
           <View style={styles.row}>
             <Text style={styles.label}>{t('Ciepło tarcia')}</Text>
@@ -1075,7 +1205,7 @@ export default function CalculatorScreen() {
 
           <View style={styles.ddtResultBox}>
             <Text style={styles.ddtResultLabel}>{t('Wymagana temperatura wody')}</Text>
-            <Text style={styles.ddtResultValue}>{ddtResult.waterTempTarget.toFixed(1)}°C</Text>
+            <Text style={styles.ddtResultValue}>{formatTemperature(ddtResult.waterTempTarget, unitSystem)}</Text>
 
             {ddtResult.status === 'too_hot_danger' && (
               <View style={styles.alertDanger}>
@@ -1226,6 +1356,22 @@ export default function CalculatorScreen() {
           </Pressable>
 
           <Pressable
+            testID="share-recipe-qr-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={() => setIsShareQrOpen(true)}
+          >
+            <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
+          </Pressable>
+
+          <Pressable
+            testID="print-recipe-pdf-btn"
+            style={styles.cloneRecipeBtn}
+            onPress={handlePrintRecipePdf}
+          >
+            <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj kartę A4 (PDF)')}</Text>
+          </Pressable>
+
+          <Pressable
             testID="import-recipe-json-btn"
             style={styles.cloneRecipeBtn}
             onPress={() => setIsImportModalOpen(true)}
@@ -1331,11 +1477,29 @@ export default function CalculatorScreen() {
           recipeFlours={calculations.flours}
         />
 
-        {/* Modal: Import Recipe JSON */}
+        {/* Modal: Import Recipe JSON / QR Link */}
         <ImportRecipeModal
           visible={isImportModalOpen}
-          onClose={() => setIsImportModalOpen(false)}
+          initialInput={importInitialInput}
+          onClose={() => {
+            setIsImportModalOpen(false);
+            setImportInitialInput('');
+          }}
           onImportSuccess={handleImportSuccess}
+        />
+
+        {/* Modal: Share Recipe via Vector QR Code & Deep Link */}
+        <ShareRecipeQrModal
+          visible={isShareQrOpen}
+          recipe={currentRecipeForShare as any}
+          onClose={() => setIsShareQrOpen(false)}
+        />
+
+        {/* Modal: Scan Recipe QR Code with Camera */}
+        <QrScannerModal
+          visible={isScannerOpen}
+          onClose={() => setIsScannerOpen(false)}
+          onScanRecipe={handleScanRecipe}
         />
 
         {/* Modal: Flour Equivalents Dictionary (Z-052) */}

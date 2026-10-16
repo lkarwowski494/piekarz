@@ -7,8 +7,10 @@ import {
   Pressable,
   TextInput,
   Modal,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import { useKeepAwake } from 'expo-keep-awake';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
@@ -22,8 +24,16 @@ import {
   setActiveBake,
   ActiveBakeState,
   deductFlourStock,
+  getRecipes,
 } from '../../src/data/sqlite-store';
 import { StoredBakeLog } from '../../src/data/db';
+import { MASTER_RECIPES } from '../../src/recipes/presets';
+import { setPendingRecipeToLoad } from '../../src/lib/recipe-navigation';
+import {
+  SensoryRadarChart,
+  BreadSensoryProfile,
+  DEFAULT_BREAD_SENSORY_PROFILE,
+} from '../../src/components/SensoryRadarChart';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
@@ -89,6 +99,7 @@ const BAKE_STEPS: BakeStep[] = [
 export default function StolnicaScreen() {
   // Prevent screen sleep while in Stolnica
   useKeepAwake();
+  const router = useRouter();
 
   const [isActive, setIsActive] = useState<boolean>(false);
   const [currentStepIdx, setCurrentStepIdx] = useState<number>(0);
@@ -109,6 +120,7 @@ export default function StolnicaScreen() {
   const [finishCrumbScore, setFinishCrumbScore] = useState<number>(3);
   const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
   const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
+  const [finishSensoryProfile, setFinishSensoryProfile] = useState<BreadSensoryProfile>(DEFAULT_BREAD_SENSORY_PROFILE);
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
   const [selectedTasteFilter, setSelectedTasteFilter] = useState<'all' | 'mild' | 'balanced' | 'sour' | 'tangy'>('all');
 
@@ -116,6 +128,54 @@ export default function StolnicaScreen() {
   const filteredHistory = useMemo(() => {
     return filterBakeLogs(bakeHistory, { tasteProfile: selectedTasteFilter });
   }, [bakeHistory, selectedTasteFilter]);
+
+  const handleBakeAgain = async (log: StoredBakeLog) => {
+    try {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    } catch {
+      // ignore
+    }
+
+    try {
+      const custom = await getRecipes();
+      const allPresets = [...custom, ...MASTER_RECIPES];
+      const match = allPresets.find(
+        (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()
+      );
+
+      if (match) {
+        setPendingRecipeToLoad({
+          id: match.id,
+          name: 'namePl' in match ? match.namePl : match.name,
+          targetDDT: match.targetDDT,
+          formula: match.formula,
+        });
+      } else {
+        setPendingRecipeToLoad({
+          name: log.recipeName,
+          targetDDT: log.actualDDT ?? 25.0,
+          formula: {
+            flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+            waterPercentage: 70.0,
+            saltPercentage: 2.0,
+            starterPercentage: 20.0,
+            starterHydration: 100.0,
+            targetDoughWeightGrams: 850,
+          },
+        });
+      }
+
+      router.navigate('/(tabs)');
+      Alert.alert(
+        t('Załadowano recepturę'),
+        t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
+          name: log.recipeName,
+        })
+      );
+    } catch {
+      router.navigate('/(tabs)');
+    }
+  };
 
   const loadHistory = useCallback(async () => {
     const logs = await getBakeLogs();
@@ -246,6 +306,16 @@ export default function StolnicaScreen() {
     setIsCompleted(false);
   };
 
+  const adjustTimerSeconds = (deltaSeconds: number) => {
+    try {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    } catch {
+      // Ignored
+    }
+    setTimeLeftSec((prev) => Math.max(0, prev + deltaSeconds));
+    setIsCompleted(false);
+  };
+
   const resetCurrentStepTimer = () => {
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -275,6 +345,11 @@ export default function StolnicaScreen() {
       crumbScore: finishCrumbScore,
       crustScore: finishCrustScore,
       tasteProfile: finishTasteProfile,
+      sensoryProfile: {
+        ...finishSensoryProfile,
+        openCrumb: finishCrumbScore,
+        crustCrispness: finishCrustScore,
+      },
     });
 
     // Deduct flour inventory if calculated recipe is present
@@ -292,6 +367,7 @@ export default function StolnicaScreen() {
     setFinishCrumbScore(3);
     setFinishCrustScore(3);
     setFinishTasteProfile('balanced');
+    setFinishSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
     await loadHistory();
   };
 
@@ -465,7 +541,36 @@ export default function StolnicaScreen() {
                       )}
                     </View>
 
+                    {/* Sensory Radar Chart (Zadanie P4) */}
+                    <View style={styles.historyRadarBox}>
+                      <SensoryRadarChart
+                        profile={
+                          log.sensoryProfile ?? {
+                            crustCrispness: log.crustScore ?? 3,
+                            crumbElasticity: 4,
+                            acidity: log.tasteProfile === 'sour' ? 4 : log.tasteProfile === 'tangy' ? 5 : log.tasteProfile === 'mild' ? 2 : 3,
+                            openCrumb: log.crumbScore ?? 3,
+                            caramelization: log.ratingStars ?? 4,
+                          }
+                        }
+                        size={170}
+                        showLabels={true}
+                        testID={`history-radar-${log.id}`}
+                      />
+                    </View>
+
                     {log.notes && <Text style={styles.historyNotes}>{log.notes}</Text>}
+
+                    {/* Bake Again Button (Zadanie P3) */}
+                    <Pressable
+                      testID={`bake-again-btn-${log.id}`}
+                      accessibilityRole="button"
+                      accessibilityLabel={`${t('Piecz ponownie')}: ${log.recipeName}`}
+                      style={styles.bakeAgainBtn}
+                      onPress={() => handleBakeAgain(log)}
+                    >
+                      <Text style={styles.bakeAgainBtnText}>🔁 {t('Piecz ponownie')}</Text>
+                    </Pressable>
                   </View>
                 );
               })
@@ -586,6 +691,46 @@ export default function StolnicaScreen() {
                 <Text style={[styles.digitalClock, isCompleted && styles.digitalClockCompleted]}>
                   {formattedTime}
                 </Text>
+
+                {/* In-Flight Time Adjustment Pills (Zadanie P8) */}
+                <View style={styles.timeAdjustmentRow} testID="timer-in-flight-adjustments">
+                  <Pressable
+                    testID="adjust-time-minus-5m"
+                    accessibilityRole="button"
+                    accessibilityLabel={t('-5 min')}
+                    style={styles.timePillBtn}
+                    onPress={() => adjustTimerSeconds(-300)}
+                  >
+                    <Text style={styles.timePillText}>-5m</Text>
+                  </Pressable>
+                  <Pressable
+                    testID="adjust-time-minus-10s"
+                    accessibilityRole="button"
+                    accessibilityLabel={t('-10 sek')}
+                    style={styles.timePillBtn}
+                    onPress={() => adjustTimerSeconds(-10)}
+                  >
+                    <Text style={styles.timePillText}>-10s</Text>
+                  </Pressable>
+                  <Pressable
+                    testID="adjust-time-plus-10s"
+                    accessibilityRole="button"
+                    accessibilityLabel={t('+10 sek')}
+                    style={styles.timePillBtn}
+                    onPress={() => adjustTimerSeconds(10)}
+                  >
+                    <Text style={styles.timePillText}>+10s</Text>
+                  </Pressable>
+                  <Pressable
+                    testID="adjust-time-plus-5m"
+                    accessibilityRole="button"
+                    accessibilityLabel={t('+5 min')}
+                    style={styles.timePillBtn}
+                    onPress={() => adjustTimerSeconds(300)}
+                  >
+                    <Text style={styles.timePillText}>+5m</Text>
+                  </Pressable>
+                </View>
 
                 {/* Big Hands-in-Flour Timer Action Controls */}
                 <View style={styles.timerControlsRow}>
@@ -786,6 +931,19 @@ export default function StolnicaScreen() {
                     </Pressable>
                   );
                 })}
+              </View>
+
+              {/* Sensory Radar Profile (5 Osi Rzemieślniczych - Zadanie P4) */}
+              <Text style={styles.modalSectionLabel}>🕸️ {t('Wektorowy radar sensoryczny')}</Text>
+              <View style={styles.modalRadarBox}>
+                <SensoryRadarChart
+                  profile={finishSensoryProfile}
+                  size={190}
+                  showLabels={true}
+                  interactive={true}
+                  onChangeProfile={setFinishSensoryProfile}
+                  testID="finish-sensory-radar"
+                />
               </View>
 
               <View style={styles.modalButtonsRow}>
@@ -1497,6 +1655,57 @@ const styles = StyleSheet.create({
   historyPillText: {
     fontSize: 11,
     fontWeight: '600',
+    color: theme.colors.textPrimary,
+  },
+  bakeAgainBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.borderActive,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 10,
+    marginTop: 10,
+    minHeight: 44,
+  },
+  bakeAgainBtnText: {
+    color: theme.colors.accentDark,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  historyRadarBox: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+  },
+  modalRadarBox: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 10,
+  },
+  timeAdjustmentRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginVertical: 10,
+  },
+  timePillBtn: {
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.radius.sm,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    minHeight: 40,
+    minWidth: 54,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  timePillText: {
+    fontSize: 13,
+    fontWeight: '700',
     color: theme.colors.textPrimary,
   },
 });

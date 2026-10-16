@@ -8,6 +8,10 @@ import * as fc from 'fast-check';
 import {
   exportRecipeToJson,
   parseAndValidateRecipeJson,
+  encodeRecipeToShareUrl,
+  decodeRecipeFromShareUrl,
+  RECIPE_SHARE_PROTOCOL,
+  RECIPE_SHARE_WEB_URL,
   PIEKARZ_RECIPE_SCHEMA_V1,
 } from '../recipe-sharing';
 import { MASTER_RECIPES } from '../../recipes/presets';
@@ -263,6 +267,63 @@ describe('Recipe Sharing & JSON Serialization', () => {
         }),
         { numRuns: 200 }
       );
+    });
+  });
+
+  describe('Deep Link Sharing (piekarz://recipe)', () => {
+    it('encodes a MasterRecipe into deep link URL', () => {
+      const master = MASTER_RECIPES[0];
+      const url = encodeRecipeToShareUrl(master, false);
+
+      expect(url.startsWith(`${RECIPE_SHARE_PROTOCOL}?v=1&d=`)).toBe(true);
+      expect(url.length).toBeGreaterThan(50);
+    });
+
+    it('encodes into universal web link when requested', () => {
+      const master = MASTER_RECIPES[1];
+      const webUrl = encodeRecipeToShareUrl(master, true);
+
+      expect(webUrl.startsWith(`${RECIPE_SHARE_WEB_URL}?v=1&d=`)).toBe(true);
+    });
+
+    it('round-trips encode and decode from deep link correctly', () => {
+      const master = MASTER_RECIPES[2];
+      const url = encodeRecipeToShareUrl(master, false);
+      const decoded = decodeRecipeFromShareUrl(url);
+
+      expect(decoded.success).toBe(true);
+      if (decoded.success) {
+        expect(decoded.recipe.name).toBe(master.namePl);
+        expect(decoded.recipe.formula.waterPercentage).toBe(master.formula.waterPercentage);
+        expect(decoded.recipe.formula.saltPercentage).toBe(master.formula.saltPercentage);
+      }
+    });
+
+    it('round-trips encode and decode from web link correctly', () => {
+      const master = MASTER_RECIPES[3];
+      const url = encodeRecipeToShareUrl(master, true);
+      const decoded = decodeRecipeFromShareUrl(url);
+
+      expect(decoded.success).toBe(true);
+      if (decoded.success) {
+        expect(decoded.recipe.name).toBe(master.namePl);
+      }
+    });
+
+    it('decodes raw JSON string as fallback', () => {
+      const json = exportRecipeToJson(MASTER_RECIPES[0]);
+      const decoded = decodeRecipeFromShareUrl(json);
+
+      expect(decoded.success).toBe(true);
+      if (decoded.success) {
+        expect(decoded.recipe.name).toBe(MASTER_RECIPES[0].namePl);
+      }
+    });
+
+    it('handles empty or corrupted input safely', () => {
+      expect(decodeRecipeFromShareUrl('').success).toBe(false);
+      expect(decodeRecipeFromShareUrl('not_a_valid_url').success).toBe(false);
+      expect(decodeRecipeFromShareUrl('piekarz://recipe?v=1&d=corrupted_data').success).toBe(false);
     });
   });
 });

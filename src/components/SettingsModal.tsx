@@ -18,8 +18,15 @@ import {
   getBakeLogs,
   getStarters,
   getRecipes,
+  getFlourInventory,
   restoreFromBackupData,
 } from '../data/sqlite-store';
+import { useUnitSystem, setUnitSystem } from '../lib/unit-converter';
+import {
+  exportBakeLogsCsv,
+  exportFlourInventoryCsv,
+  exportAndShareCsv,
+} from '../lib/csv-exporter';
 
 export interface SettingsModalProps {
   visible: boolean;
@@ -28,7 +35,9 @@ export interface SettingsModalProps {
 
 export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const currentLang = useLang();
+  const unitSystem = useUnitSystem();
   const [isExporting, setIsExporting] = useState<boolean>(false);
+  const [isExportingCsv, setIsExportingCsv] = useState<boolean>(false);
   const [showImportInput, setShowImportInput] = useState<boolean>(false);
   const [importJsonText, setImportJsonText] = useState<string>('');
   const [isImporting, setIsImporting] = useState<boolean>(false);
@@ -53,6 +62,40 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
       Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
     } finally {
       setIsExporting(false);
+    }
+  };
+
+  const handleExportBakesCsv = async () => {
+    setIsExportingCsv(true);
+    try {
+      const bakes = await getBakeLogs();
+      const csv = exportBakeLogsCsv(bakes);
+      const filename = `piekarz-historia-wypiekow-${new Date().toISOString().slice(0, 10)}.csv`;
+      const success = await exportAndShareCsv(filename, csv, t('Eksportuj historię wypieków (CSV)'));
+      if (!success) {
+        Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+      }
+    } catch {
+      Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+    } finally {
+      setIsExportingCsv(false);
+    }
+  };
+
+  const handleExportInventoryCsv = async () => {
+    setIsExportingCsv(true);
+    try {
+      const inventory = await getFlourInventory();
+      const csv = exportFlourInventoryCsv(inventory);
+      const filename = `piekarz-spizarnia-mak-${new Date().toISOString().slice(0, 10)}.csv`;
+      const success = await exportAndShareCsv(filename, csv, t('Eksportuj spiżarnię mąk (CSV)'));
+      if (!success) {
+        Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+      }
+    } catch {
+      Alert.alert(t('Eksport CSV'), t('Nie udało się wyeksportować pliku CSV'));
+    } finally {
+      setIsExportingCsv(false);
     }
   };
 
@@ -126,6 +169,31 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
               >
                 <Text style={[styles.langBtnText, currentLang === 'en' && styles.langBtnTextActive]}>
                   🇬🇧 English
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+
+          {/* Unit System Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>{t('Jednostki miar')}</Text>
+            <View style={styles.langRow}>
+              <Pressable
+                testID="unit-metric"
+                style={[styles.langBtn, unitSystem === 'metric' && styles.langBtnActive]}
+                onPress={() => setUnitSystem('metric')}
+              >
+                <Text style={[styles.langBtnText, unitSystem === 'metric' && styles.langBtnTextActive]}>
+                  ⚖️ {t('Metryczne (°C, g)')}
+                </Text>
+              </Pressable>
+              <Pressable
+                testID="unit-imperial"
+                style={[styles.langBtn, unitSystem === 'imperial' && styles.langBtnActive]}
+                onPress={() => setUnitSystem('imperial')}
+              >
+                <Text style={[styles.langBtnText, unitSystem === 'imperial' && styles.langBtnTextActive]}>
+                  🌡️ {t('Imperialne (°F, oz)')}
                 </Text>
               </Pressable>
             </View>
@@ -206,6 +274,36 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
               <Text style={styles.infoBadgeText}>
                 🛡️ Automatyczna rotacja: 10 ostatnich kopii w katalogu Documents/Backup/
               </Text>
+            </View>
+          </View>
+
+          {/* CSV Export Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>{t('Eksport arkuszy CSV')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('Eksportuj swoje dane do otwartego formatu CSV (zgodnego z Excel i arkuszami kalkulacyjnymi).')}
+            </Text>
+            <View style={styles.csvButtonsCol}>
+              <Pressable
+                testID="export-bakes-csv-btn"
+                style={styles.csvBtn}
+                onPress={handleExportBakesCsv}
+                disabled={isExportingCsv}
+              >
+                <Text style={styles.csvBtnText}>
+                  {isExportingCsv ? '⏳ Eksportowanie...' : `📊 ${t('Eksportuj historię wypieków (CSV)')}`}
+                </Text>
+              </Pressable>
+              <Pressable
+                testID="export-inventory-csv-btn"
+                style={styles.csvBtn}
+                onPress={handleExportInventoryCsv}
+                disabled={isExportingCsv}
+              >
+                <Text style={styles.csvBtnText}>
+                  {isExportingCsv ? '⏳ Eksportowanie...' : `🌾 ${t('Eksportuj spiżarnię mąk (CSV)')}`}
+                </Text>
+              </Pressable>
             </View>
           </View>
 
@@ -330,6 +428,24 @@ const styles = StyleSheet.create({
   },
   exportBtnText: {
     color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  csvButtonsCol: {
+    gap: theme.spacing.sm,
+  },
+  csvBtn: {
+    minHeight: 44,
+    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.border,
+    borderWidth: 1,
+    borderRadius: theme.radius.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: theme.spacing.sm,
+  },
+  csvBtnText: {
+    color: theme.colors.textPrimary,
     fontSize: 14,
     fontWeight: '700',
   },

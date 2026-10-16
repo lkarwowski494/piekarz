@@ -16,7 +16,14 @@ jest.mock('../../data/sqlite-store', () => ({
   getBakeLogs: jest.fn().mockResolvedValue([]),
   getStarters: jest.fn().mockResolvedValue([]),
   getRecipes: jest.fn().mockResolvedValue([]),
+  getFlourInventory: jest.fn().mockResolvedValue([]),
   restoreFromBackupData: jest.fn().mockResolvedValue(undefined),
+}));
+
+jest.mock('../../lib/csv-exporter', () => ({
+  exportBakeLogsCsv: jest.fn().mockReturnValue('mock-bake-csv'),
+  exportFlourInventoryCsv: jest.fn().mockReturnValue('mock-inventory-csv'),
+  exportAndShareCsv: jest.fn().mockResolvedValue(true),
 }));
 
 describe('SettingsModal Component', () => {
@@ -89,6 +96,58 @@ describe('SettingsModal Component', () => {
     });
 
     expect(backupModule.exportBackup).toHaveBeenCalled();
+  });
+
+  it('switches measurement units between metric and imperial', async () => {
+    const unitConverter = require('../../lib/unit-converter');
+    await act(async () => {
+      tree = renderer.create(<SettingsModal visible={true} onClose={mockOnClose} />);
+    });
+
+    const root = tree!.root;
+    const imperialBtn = root.findByProps({ testID: 'unit-imperial' });
+    const metricBtn = root.findByProps({ testID: 'unit-metric' });
+
+    await act(async () => {
+      imperialBtn.props.onPress();
+    });
+    expect(unitConverter.getUnitSystem()).toBe('imperial');
+
+    await act(async () => {
+      metricBtn.props.onPress();
+    });
+    expect(unitConverter.getUnitSystem()).toBe('metric');
+  });
+
+  it('triggers CSV exports for bakes and inventory', async () => {
+    const csvModule = require('../../lib/csv-exporter');
+    await act(async () => {
+      tree = renderer.create(<SettingsModal visible={true} onClose={mockOnClose} />);
+    });
+
+    const root = tree!.root;
+    const bakesCsvBtn = root.findByProps({ testID: 'export-bakes-csv-btn' });
+    const inventoryCsvBtn = root.findByProps({ testID: 'export-inventory-csv-btn' });
+
+    await act(async () => {
+      await bakesCsvBtn.props.onPress();
+    });
+    expect(csvModule.exportBakeLogsCsv).toHaveBeenCalled();
+    expect(csvModule.exportAndShareCsv).toHaveBeenCalledWith(
+      expect.stringContaining('piekarz-historia-wypiekow-'),
+      'mock-bake-csv',
+      expect.any(String)
+    );
+
+    await act(async () => {
+      await inventoryCsvBtn.props.onPress();
+    });
+    expect(csvModule.exportFlourInventoryCsv).toHaveBeenCalled();
+    expect(csvModule.exportAndShareCsv).toHaveBeenCalledWith(
+      expect.stringContaining('piekarz-spizarnia-mak-'),
+      'mock-inventory-csv',
+      expect.any(String)
+    );
   });
 
   it('opens and cancels JSON import input box', async () => {

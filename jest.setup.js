@@ -4,6 +4,11 @@ jest.mock('expo-clipboard', () => ({
   getStringAsync: jest.fn().mockResolvedValue(''),
 }));
 
+jest.mock('expo-sharing', () => ({
+  isAvailableAsync: jest.fn().mockResolvedValue(true),
+  shareAsync: jest.fn().mockResolvedValue(undefined),
+}));
+
 jest.mock('expo-av', () => ({
   Audio: {
     Sound: {
@@ -14,5 +19,41 @@ jest.mock('expo-av', () => ({
         },
       }),
     },
+  },
+}));
+
+jest.mock('expo-camera', () => {
+  const React = require('react');
+  const { View } = require('react-native');
+  return {
+    CameraView: (props) => React.createElement(View, { ...props, testID: props.testID || 'camera-view' }),
+    useCameraPermissions: () => [
+      { granted: true, canAskAgain: true },
+      jest.fn().mockResolvedValue({ granted: true }),
+    ],
+  };
+});
+
+jest.mock('expo-print', () => ({
+  printAsync: jest.fn().mockResolvedValue(undefined),
+  printToFileAsync: jest.fn().mockResolvedValue({ uri: 'file:///mock/print.pdf' }),
+}));
+
+jest.mock('expo-router', () => ({
+  useRouter: () => ({
+    push: jest.fn(),
+    navigate: jest.fn(),
+    replace: jest.fn(),
+    back: jest.fn(),
+  }),
+  useLocalSearchParams: () => ({}),
+  useFocusEffect: (cb) => {
+    const React = require('react');
+    React.useEffect(cb, []);
+  },
+  Link: (props) => {
+    const React = require('react');
+    const { Text } = require('react-native');
+    return React.createElement(Text, props, props.children);
   },
 }));

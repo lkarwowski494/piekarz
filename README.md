@@ -1,7 +1,7 @@
 # Piekarz (Crust) 🥖🌾
 
 [![CI](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml/badge.svg)](https://github.com/lkarwowski494/piekarz/actions/workflows/ci.yml)
-![Tests](https://img.shields.io/badge/tests-1037%20passed-brightgreen.svg)
+![Tests](https://img.shields.io/badge/tests-1139%20passed-brightgreen.svg)
 ![fast-check](https://img.shields.io/badge/Property--Based-fast--check-blueviolet.svg)
 ![Python Corpus](https://img.shields.io/badge/Physics%20Corpus-566%20cases-darkblue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)
@@ -52,6 +52,14 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | **Persystencja SQLite & Backup** | `Z-073`–`Z-076` | Baza w `/Library/SQLite`, auto-backup 10 kopii, JSON export/import, sharing | ✅ Wdrożone |
 | **Zegary kuchenne & Alarmy** | `Z-054`–`Z-056` | Timery wielobieżne, głośne alarmy, integracja dźwiękowa i wibracyjna | ✅ Wdrożone |
 | **Ustawienia & Pro** | `Z-078`–`Z-080` | Model etyczny, brak lock-in, Pro Lifetime, Family Sharing info | ✅ Wdrożone |
+| **Kody QR SVG & Deep Links** | `P1`, `Z-150` | Wektorowe generowanie kodów QR SVG, schemat `piekarz://recipe?v=1&d=...` | ✅ Wdrożone |
+| **Skaner Kodów QR Aparatem** | `P2`, `Z-151` | Offline skaner kodów kreskowych/QR z wizjerem (`expo-camera`) | ✅ Wdrożone |
+| **Piecz Ponownie (1-Tap)** | `P3`, `Z-037` | Jedno kliknięcie na Stolnicy przenosi historyczną recepturę i DDT do kalkulatora | ✅ Wdrożone |
+| **Wektorowy Radar Sensoryczny** | `P4`, `Z-049` | 5-osiowy wykres pajęczynowy SVG oceniania miękiszu, skórki i kwasowości | ✅ Wdrożone |
+| **Jednostki Imperialne** | `P5`, `Z-014` | Globalny przełącznik Metric/Imperial (°C/°F, g/oz/lbs) z pełną persystencją | ✅ Wdrożone |
+| **Eksport Arkuszy CSV** | `P6`, `Z-152` | Eksport historii wypieków oraz spiżarni mąk do otwartego formatu CSV | ✅ Wdrożone |
+| **Druk Kart Receptur & Etykiet PDF** | `P7`, `Z-153` | Zalaminowane karty A4 na blat mączny i etykiety 50x80mm na słoiki zakwasu (`expo-print`) | ✅ Wdrożone |
+| **Korekta Timera w Locie** | `P8`, `Z-028` | Przyciski korekty czasu w locie (-10s / +10s / -5m / +5m) na aktywnej Stolnicy | ✅ Wdrożone |
 
 ### 🧭 Szczegółowy opis modułów
 
@@ -238,7 +246,11 @@ piekarz/
 │   │   ├── FlourBlendModal.tsx   # Wieloskładnikowy mieszalnik mąk i normalizator
 │   │   ├── FlourInventoryModal.tsx # Magazyn mąk i spiżarnia
 │   │   ├── CostCalculatorModal.tsx # Kalkulator kosztów surowcowych
-│   │   └── StarterConverterModal.tsx # Konwerter hydratacji i Lievito Madre
+│   │   ├── StarterConverterModal.tsx # Konwerter hydratacji i Lievito Madre
+│   │   ├── SensoryRadarChart.tsx # Wektorowy wykres pajęczynowy oceniania sensorycznego SVG
+│   │   ├── QrCodeSvg.tsx         # Wektorowy renderer kodów QR SVG
+│   │   ├── ShareRecipeQrModal.tsx# Udostępnianie receptur przez kody QR SVG i deep links
+│   │   └── QrScannerModal.tsx    # Offline skaner kodów kreskowych/QR aparatem
 │   ├── core/                   # Deterministyczne reguły domenowe RD-00…RD-15
 │   │   ├── domain-rules.ts     # True Baker's %, 4-DDT, lód, kinetyka Q10, bezpieczeństwo
 │   │   ├── flour-atlas.ts      # Atlas mąk europejskich i silnik chłonności wody
@@ -268,7 +280,11 @@ piekarz/
 │   │   ├── schedule-formatter.ts # Udostępnianie harmonogramu wstecznego
 │   │   ├── diagnosis-formatter.ts # Udostępnianie diagnozy Doktora Chleba
 │   │   ├── recipe-formatter.ts # Udostępnianie receptury
-│   │   ├── recipe-sharing.ts   # Bezpieczna serializacja JSON i walidacja formuł
+│   │   ├── recipe-sharing.ts   # Bezpieczna serializacja JSON, linki piekarz:// i QR
+│   │   ├── recipe-navigation.ts# Bezstanowe przekazywanie parametrów między zakładkami
+│   │   ├── unit-converter.ts   # Konwerter Metric / Imperial (°C/°F, g/oz/lbs)
+│   │   ├── csv-exporter.ts     # Generator arkuszy CSV (bake logs i flour inventory)
+│   │   ├── pdf-sheet-generator.ts # Drukowanie kart A4 i etykiet słoika 50x80mm (expo-print)
 │   │   ├── i18n.ts             # Silnik tłumaczeń z polskim kluczem źródłowym
 │   │   ├── i18n.en.ts          # Słownik języka angielskiego
 │   │   └── __tests__/          # Testy narzędzi

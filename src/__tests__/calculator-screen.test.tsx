@@ -25,6 +25,11 @@ jest.mock('../lib/confirm', () => ({
   confirmDeleteRecipe: (_name: string, onConfirm: () => void) => onConfirm(),
 }));
 
+jest.mock('../lib/pdf-sheet-generator', () => ({
+  exportRecipeSheetAsPdf: jest.fn().mockResolvedValue('file:///mock/recipe.pdf'),
+  printRecipeSheetDirectly: jest.fn().mockResolvedValue(undefined),
+}));
+
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {
@@ -495,6 +500,49 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     await act(async () => {
       closeImportBtn.props.onPress();
     });
+  });
+
+  it('triggers exportRecipeSheetAsPdf when tapping print recipe PDF buttons', async () => {
+    const pdfModule = require('../lib/pdf-sheet-generator');
+    await renderScreen();
+
+    const headerPrintBtn = tree!.root.findByProps({ testID: 'header-print-pdf-btn' });
+    expect(headerPrintBtn).toBeDefined();
+
+    await act(async () => {
+      await headerPrintBtn.props.onPress();
+    });
+
+    expect(pdfModule.exportRecipeSheetAsPdf).toHaveBeenCalledWith(
+      expect.objectContaining({
+        recipeName: expect.any(String),
+        totalFlourGrams: expect.any(Number),
+        waterGrams: expect.any(Number),
+      })
+    );
+
+    const bottomPrintBtn = tree!.root.findByProps({ testID: 'print-recipe-pdf-btn' });
+    expect(bottomPrintBtn).toBeDefined();
+
+    await act(async () => {
+      await bottomPrintBtn.props.onPress();
+    });
+
+    expect(pdfModule.exportRecipeSheetAsPdf).toHaveBeenCalledTimes(2);
+  });
+
+  it('renders imperial units when unitSystem is set to imperial', async () => {
+    const { setUnitSystem, _resetUnitSystemForTests } = require('../lib/unit-converter');
+    setUnitSystem('imperial');
+
+    await renderScreen();
+    const fullText = extractCleanText(tree?.toJSON());
+
+    // In imperial mode, temperature is in °F and weights are in oz / lb
+    expect(fullText).toContain('°F');
+    expect(fullText).toContain('oz');
+
+    _resetUnitSystemForTests();
   });
 });
 

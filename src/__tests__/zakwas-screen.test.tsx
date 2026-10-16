@@ -18,6 +18,11 @@ jest.mock('../lib/confirm', () => ({
   confirmDeleteStarter: (_name: string, onConfirm: () => void) => onConfirm(),
 }));
 
+jest.mock('../lib/pdf-sheet-generator', () => ({
+  exportStarterLabelAsPdf: jest.fn().mockResolvedValue('file:///mock/label.pdf'),
+  printStarterLabelDirectly: jest.fn().mockResolvedValue(undefined),
+}));
+
 function extractCleanText(node: any): string {
   function walk(n: any): string {
     if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -351,5 +356,26 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     // Modal should now be closed (visible: false)
     const modalAfter = tree!.root.findAll((n) => n.props?.testID === 'starter-converter-modal');
     expect(modalAfter.length).toBe(0);
+  });
+
+  it('triggers exportStarterLabelAsPdf when tapping print starter label button', async () => {
+    const pdfModule = require('../lib/pdf-sheet-generator');
+    await renderScreen();
+
+    const printLabelBtn = tree!.root.findByProps({ testID: 'print-starter-label-btn' });
+    expect(printLabelBtn).toBeDefined();
+
+    await act(async () => {
+      await printLabelBtn.props.onPress();
+    });
+
+    expect(pdfModule.exportStarterLabelAsPdf).toHaveBeenCalledWith(
+      expect.objectContaining({
+        starterName: expect.stringContaining('Bolesław'),
+        flourType: expect.any(String),
+        hydration: 100,
+      }),
+      true
+    );
   });
 });
