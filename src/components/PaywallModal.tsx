@@ -76,7 +76,7 @@ export function PaywallModal({
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.header}>
           <View style={styles.badgeRow}>
-            <Text style={styles.passBadge}>APPS4BREW PASS</Text>
+            <Text style={styles.passBadge}>APPS4CRAFT PASS</Text>
           </View>
           <CloseButton
             onPress={onClose}
