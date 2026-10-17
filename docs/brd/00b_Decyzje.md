@@ -124,3 +124,24 @@
   - *Opcja A (Rekomendowana):* Dodanie parametru `feedingRatio` do `calculateStarterPhase` i zapisanie go w profilu zakwasu (1:1:1 szczyt w 3–4h, 1:2:2 w 5–7h, 1:5:5 w 10–12h).
   - *Opcja B:* Pozostawienie sztywnego okna czasowego.
 - **Rekomendacja:** **Opcja A** (eliminuje fałszywe powiadomienia i chroni przed przekwaszeniem zaczynu). Status: **ZATWIERDZONA**.
+
+### **DEC-47: Zasada Praw Nabytych (Grandfathering) dla Użytkowników v1.x**
+- **Kontekst:** Wprowadzenie twardej bramki monetyzacyjnej w v2.0 nie może zablokować funkcji użytkownikom wczesnych wersji v1.x (Aksjomat 11).
+- **Opcje:**
+  - *Opcja A (Rekomendowana):* Użytkownicy posiadający zainstalowaną wersję v1.x przed aktualizacją do v2.0-craft otrzymują automatyczny, trwały status `subscriptionTier = 'lifetime'` w SQLite.
+  - *Opcja B:* Reset wszystkich kont do 7-dniowego trialu bez względu na historię.
+- **Rekomendacja:** **Opcja A** (ochrona reputacji studia i wdzięczność dla early adopters). Status: **ZATWIERDZONA**.
+
+### **DEC-48: Odblokowanie operacji usuwania danych po wygaśnięciu trialu**
+- **Kontekst:** W kodzie `app/(tabs)/index.tsx:271` i `app/(tabs)/zakwas.tsx:218` strażnik `requireActionAccess` blokował usuwanie własnych receptur i zakwasu po wygaśnięciu trialu.
+- **Opcje:**
+  - *Opcja A (Rekomendowana):* Wyłączenie operacji usuwania (`deleteRecipe`, `deleteStarter`) spod blokady paywalla. Użytkownik w trybie Read-Only ma niezbywalne prawo wyczyścić swoje dane (wymóg RODO/GDPR i etyki ZP-07).
+  - *Opcja B:* Pozostawienie blokady zapisu na wszystkich mutacjach bazy danych.
+- **Rekomendacja:** **Opcja A**. Status: **ZATWIERDZONA**.
+
+### **DEC-49: Zgodność Paywalla z Wytyczną Apple Guideline 3.1.2**
+- **Kontekst:** Brak linków do Regulaminu (Terms of Use / EULA) i Polityki Prywatności w stopce `PaywallModal.tsx` grozi natychmiastowym odrzuceniem w procesie App Store Review.
+- **Opcje:**
+  - *Opcja A (Rekomendowana):* Dodanie w stopce modala płatności bezpośrednich linków do Standardowych Warunków Apple (EULA) i Polityki Prywatności Apps4Craft oraz przycisku natywnego StoreKit 2 Restore.
+  - *Opcja B:* Pozostawienie samych przycisków zakupu.
+- **Rekomendacja:** **Opcja A** (bezwzględny wymóg zgodności ze sklepem Apple). Status: **ZATWIERDZONA**.
