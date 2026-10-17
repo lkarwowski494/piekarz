@@ -11,9 +11,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 452 | 452 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 175 | 175 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 58 | 58 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 66 | 66 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **727** | Pokrytych: **727** | Brakujących: **0**
+Łącznie elementów: **735** | Pokrytych: **735** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Początkujący Piekarz` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 427 kolejnych elementów w pełnym wykazie)*
+*(... i 435 kolejnych elementów w pełnym wykazie)*

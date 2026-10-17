@@ -142,6 +142,13 @@ export async function initDatabase(): Promise<void> {
     await db.execAsync(`
       PRAGMA journal_mode = WAL;
       PRAGMA foreign_keys = ON;
+      PRAGMA busy_timeout = 5000;
+
+      CREATE TABLE IF NOT EXISTS schema_migrations (
+        version INTEGER PRIMARY KEY NOT NULL,
+        applied_at TEXT NOT NULL,
+        description TEXT NOT NULL
+      );
 
       CREATE TABLE IF NOT EXISTS bakes (
         id TEXT PRIMARY KEY NOT NULL,
@@ -165,7 +172,8 @@ export async function initDatabase(): Promise<void> {
         hydration REAL NOT NULL DEFAULT 100.0,
         birth_date INTEGER NOT NULL,
         storage_state TEXT NOT NULL DEFAULT 'ROOM_TEMP',
-        last_fed_at INTEGER
+        last_fed_at INTEGER,
+        feeding_ratio TEXT NOT NULL DEFAULT '1:1:1'
       );
 
       CREATE TABLE IF NOT EXISTS recipes (
@@ -205,6 +213,21 @@ export async function initDatabase(): Promise<void> {
         key TEXT PRIMARY KEY NOT NULL,
         value TEXT NOT NULL
       );
+
+      CREATE TABLE IF NOT EXISTS pending_ops (
+        id TEXT PRIMARY KEY NOT NULL,
+        op_type TEXT NOT NULL,
+        payload TEXT NOT NULL,
+        created_at INTEGER NOT NULL,
+        status TEXT NOT NULL DEFAULT 'PENDING'
+      );
+
+      -- Indeksy B-Tree pod zapytania < 5ms
+      CREATE INDEX IF NOT EXISTS idx_bakes_started_at ON bakes(started_at DESC);
+      CREATE INDEX IF NOT EXISTS idx_starters_last_fed_at ON starters(last_fed_at DESC);
+      CREATE INDEX IF NOT EXISTS idx_recipes_is_built_in ON recipes(is_built_in, created_at DESC);
+      CREATE INDEX IF NOT EXISTS idx_flour_inventory_name ON flour_inventory(name);
+      CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created_at ASC);
     `);
 
     try {
@@ -226,6 +249,9 @@ export async function initDatabase(): Promise<void> {
     } catch {}
     try {
       await db.execAsync('ALTER TABLE bakes ADD COLUMN sensory_profile TEXT;');
+    } catch {}
+    try {
+      await db.execAsync("ALTER TABLE starters ADD COLUMN feeding_ratio TEXT DEFAULT '1:1:1';");
     } catch {}
 
     // Populate built-in master recipes into SQLite table

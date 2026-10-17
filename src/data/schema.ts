@@ -84,6 +84,23 @@ export const SQLITE_INIT_QUERIES = [
   `CREATE TABLE IF NOT EXISTS app_settings (
     key TEXT PRIMARY KEY NOT NULL,
     value TEXT NOT NULL
-  );`
+  );`,
+
+  `CREATE TABLE IF NOT EXISTS schema_migrations (
+    version INTEGER PRIMARY KEY NOT NULL,
+    applied_at TEXT NOT NULL,
+    description TEXT NOT NULL
+  );`,
+
+  `CREATE TABLE IF NOT EXISTS pending_ops (
+    id TEXT PRIMARY KEY NOT NULL,
+    op_type TEXT NOT NULL,
+    payload TEXT NOT NULL,
+    created_at INTEGER NOT NULL,
+    status TEXT NOT NULL DEFAULT 'PENDING'
+  );`,
+
+  `CREATE INDEX IF NOT EXISTS idx_bake_logs_started_at ON bake_logs(started_at DESC);`,
+  `CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created_at ASC);`
 ];
 
