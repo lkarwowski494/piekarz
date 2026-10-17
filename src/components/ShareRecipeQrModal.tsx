@@ -15,6 +15,8 @@ import {
   Alert,
   Share,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
@@ -93,7 +95,7 @@ export function ShareRecipeQrModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
-      <View style={styles.overlay}>
+      <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="share-recipe-qr-modal">
           {/* Header */}
           <View style={styles.header}>
@@ -102,6 +104,7 @@ export function ShareRecipeQrModal({
               accessibilityRole="button"
               accessibilityLabel={t('Anuluj')}
               onPress={onClose}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
               style={styles.cancelBtn}
             >
               <Text style={styles.cancelBtnText}>{t('Anuluj')}</Text>
@@ -176,7 +179,7 @@ export function ShareRecipeQrModal({
             </View>
           </ScrollView>
         </View>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }

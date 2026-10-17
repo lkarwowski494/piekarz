@@ -11,6 +11,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import {
+  CraftHeader,
+  CraftStatDisplay,
+  CraftCard,
+  sharedCraftTokens,
+} from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import {
@@ -33,13 +39,16 @@ import {
   saveRecipe,
   deleteRecipe,
   setActiveBake,
+  hasCompletedOnboarding,
+  getBakerRitualProfile,
+  BakerRitualProfile,
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirm, confirmDeleteRecipe } from '../../src/lib/confirm';
 import * as Clipboard from 'expo-clipboard';
 import { SettingsModal } from '../../src/components/SettingsModal';
 import { FlourBlendModal } from '../../src/components/FlourBlendModal';
-import { CostCalculatorModal } from '../../src/components/CostCalculatorModal';
+import { OnboardingModal } from '../../src/components/OnboardingModal';
 import { FlourInventoryModal } from '../../src/components/FlourInventoryModal';
 import { ImportRecipeModal } from '../../src/components/ImportRecipeModal';
 import { FlourEquivalentsModal } from '../../src/components/FlourEquivalentsModal';
@@ -129,7 +138,8 @@ export default function CalculatorScreen() {
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
-  const [isCostModalOpen, setIsCostModalOpen] = useState<boolean>(false);
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(false);
+  const [ritualProfile, setRitualProfile] = useState<BakerRitualProfile>('artisan_hybrid');
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
   const [isShareQrOpen, setIsShareQrOpen] = useState<boolean>(false);
@@ -214,13 +224,28 @@ export default function CalculatorScreen() {
     return unsubscribe;
   }, [loadRecipesFromStore]);
 
+  useEffect(() => {
+    void hasCompletedOnboarding().then((completed) => {
+      if (!completed) setIsOnboardingOpen(true);
+    });
+    void getBakerRitualProfile().then(setRitualProfile);
+  }, []);
+
   const filteredMasterRecipes = useMemo(() => {
-    if (masterCategoryFilter === 'all') return MASTER_RECIPES;
-    if (masterCategoryFilter === 'pizza_sweet') {
-      return MASTER_RECIPES.filter((p) => p.category === 'pizza' || p.category === 'sweet');
+    let list = MASTER_RECIPES;
+    if (ritualProfile === 'sourdough_purist') {
+      list = list.filter((p) => p.category === 'sourdough' || p.category === 'rye');
+    } else if (ritualProfile === 'beginner') {
+      list = list.filter(
+        (p) => p.difficulty === 'easy' || p.difficulty === 'medium' || p.formula.waterPercentage <= 70
+      );
     }
-    return MASTER_RECIPES.filter((p) => p.category === masterCategoryFilter);
-  }, [masterCategoryFilter]);
+    if (masterCategoryFilter === 'all') return list;
+    if (masterCategoryFilter === 'pizza_sweet') {
+      return list.filter((p) => p.category === 'pizza' || p.category === 'sweet');
+    }
+    return list.filter((p) => p.category === masterCategoryFilter);
+  }, [masterCategoryFilter, ritualProfile]);
 
   const currentMasterPreset = useMemo(() => {
     return MASTER_RECIPES.find((p) => p.id === selectedPresetId);
@@ -540,22 +565,64 @@ export default function CalculatorScreen() {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <ScrollView contentContainerStyle={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <View style={styles.flex1}>
-            <Text style={styles.title}>{t('Kalkulator')}</Text>
-            <Text style={styles.subtitle}>True Baker’s % & DDT (Apps4Brew)</Text>
+        {/* CraftHeader */}
+        <CraftHeader
+          title={t('Kalkulator')}
+          subtitle={t('True Baker’s % & DDT')}
+          testID="calculator-header"
+          rightAction={
+            <Pressable
+              testID="open-settings-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Ustawienia')}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
+              style={styles.settingsHeaderBtn}
+              onPress={() => setIsSettingsOpen(true)}
+            >
+              <Text style={styles.settingsHeaderBtnText}>⚙️</Text>
+            </Pressable>
+          }
+        />
+
+        {/* Sacred Numbers Glanceable Countertop Card */}
+        <CraftCard
+          testID="sacred-numbers-panel"
+          style={styles.sacredNumbersCard}
+          accentBorder={theme.colors.borderActive}
+        >
+          <View style={styles.sacredGrid}>
+            <CraftStatDisplay
+              testID="stat-hydration"
+              label={t('Hydratacja')}
+              value={calculations.overallHydrationPercent.toFixed(1)}
+              unit="%"
+              accentColor={theme.colors.accent}
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-dough-weight"
+              label={t('Masa')}
+              value={calculations.targetDoughWeightGrams}
+              unit="g"
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-total-flour"
+              label={t('Mąka')}
+              value={calculations.totalFlourGrams}
+              unit="g"
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-target-ddt"
+              label={t('DDT')}
+              value={targetDdt}
+              unit="°C"
+              size="md"
+              accentColor={theme.colors.accentLight}
+            />
           </View>
-          <Pressable
-            testID="open-settings-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Ustawienia')}
-            style={styles.settingsHeaderBtn}
-            onPress={() => setIsSettingsOpen(true)}
-          >
-            <Text style={styles.settingsHeaderBtnText}>⚙️</Text>
-          </Pressable>
-        </View>
+        </CraftCard>
 
         {/* Progressive Disclosure Level 1: 1-Tap Scale Card (< 30s to bowl) */}
         <DoMiskiScaleCard
@@ -860,13 +927,6 @@ export default function CalculatorScreen() {
             <Text style={styles.cloneRecipeBtnText}>📥 {t('Importuj JSON')}</Text>
           </Pressable>
 
-          <Pressable
-            testID="open-cost-modal-btn"
-            style={styles.cloneRecipeBtn}
-            onPress={() => setIsCostModalOpen(true)}
-          >
-            <Text style={styles.cloneRecipeBtnText}>💰 {t('Kalkulator kosztów')}</Text>
-          </Pressable>
 
           <Pressable
             testID="open-flour-inventory-btn"
@@ -898,7 +958,7 @@ export default function CalculatorScreen() {
 
         {/* Modal: Save Recipe */}
         <Modal visible={isSaveModalOpen} transparent animationType="fade">
-          <View style={styles.modalOverlay}>
+          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
             <View style={styles.modalCard}>
               <Text style={styles.modalTitle}>{t('Zapisz przepis')}</Text>
               <Text style={styles.modalSubtitle}>
@@ -918,24 +978,38 @@ export default function CalculatorScreen() {
                 <Pressable
                   style={styles.modalCancelBtn}
                   onPress={() => setIsSaveModalOpen(false)}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
                 </Pressable>
                 <Pressable
                   style={styles.modalConfirmBtn}
                   onPress={handleSaveCustomRecipe}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
                 </Pressable>
               </View>
             </View>
-          </View>
+          </SafeAreaView>
         </Modal>
 
         {/* Settings & Backup Modal */}
         <SettingsModal
           visible={isSettingsOpen}
-          onClose={() => setIsSettingsOpen(false)}
+          onClose={() => {
+            setIsSettingsOpen(false);
+            void getBakerRitualProfile().then(setRitualProfile);
+          }}
+        />
+
+        {/* Modal: First Launch Onboarding Ritual Personalization */}
+        <OnboardingModal
+          visible={isOnboardingOpen}
+          onComplete={(profile) => {
+            setIsOnboardingOpen(false);
+            setRitualProfile(profile);
+          }}
         />
 
         {/* Modal: Custom Flour Blend Builder */}
@@ -946,17 +1020,6 @@ export default function CalculatorScreen() {
             setFlourBlend(newBlend);
           }}
           onClose={() => setIsBlendModalOpen(false)}
-        />
-
-        {/* Modal: Cost & Yield Batch Calculator */}
-        <CostCalculatorModal
-          visible={isCostModalOpen}
-          onClose={() => setIsCostModalOpen(false)}
-          totalFlourGrams={calculations.baseFlourWeightGrams}
-          totalWaterGrams={calculations.waterGrams}
-          totalSaltGrams={calculations.saltGrams}
-          loavesCount={calcMode === 'loaves' ? loavesCount : 1}
-          bakedLoafWeightGrams={bakedSingleLoafWeight}
         />
 
         {/* Modal: Flour Inventory (Magazyn Mąk) */}
@@ -1028,6 +1091,15 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: theme.spacing.md,
+  },
+  sacredNumbersCard: {
+    marginVertical: theme.spacing.md,
+    paddingVertical: theme.spacing.sm,
+  },
+  sacredGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   title: {
     fontSize: 28,

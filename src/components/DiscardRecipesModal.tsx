@@ -7,6 +7,8 @@ import {
   StyleSheet,
   Pressable,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import {
@@ -40,7 +42,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
             <Text style={styles.title}>🥞 {t('Przepisy na Odrzut Zakwasu')}</Text>
@@ -48,9 +50,10 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               testID="close-discard-modal-btn"
               style={styles.closeBtn}
               onPress={onClose}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij przepisy na odrzut')}
             >
-              <Text style={styles.closeBtnText}>✕</Text>
+              <CloseIcon size={20} color={theme.colors.textPrimary} />
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -237,7 +240,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
             );
           })}
         </ScrollView>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -270,9 +273,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   closeBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    minWidth: 44,
+    minHeight: 44,
+    borderRadius: 22,
     backgroundColor: theme.colors.surfaceCard,
     justifyContent: 'center',
     alignItems: 'center',

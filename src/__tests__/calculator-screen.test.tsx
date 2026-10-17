@@ -396,29 +396,19 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(fullText).toContain('Mieszanka mąk');
   });
 
-  it('opens cost and yield batch calculator modal and displays cost metrics', async () => {
+  it('displays onboarding modal when user has not completed onboarding and allows selecting ritual', async () => {
     await renderScreen();
 
-    // Open cost modal
-    const openCostBtn = tree!.root.findByProps({ testID: 'open-cost-modal-btn' });
-    expect(openCostBtn).toBeDefined();
+    const puristBtn = tree!.root.findByProps({ testID: 'onboarding-pref-purist' });
+    expect(puristBtn).toBeDefined();
 
     await act(async () => {
-      openCostBtn.props.onPress();
+      puristBtn.props.onPress();
     });
 
-    // Check modal rendered
-    const modal = tree!.root.findByProps({ testID: 'cost-calculator-modal' });
-    expect(modal).toBeDefined();
-
-    const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Kalkulator kosztów wypieku');
-    expect(fullText).toContain('Koszt za bochenek');
-
-    // Close modal
-    const closeBtn = tree!.root.findByProps({ testID: 'close-cost-modal-btn' });
+    const startBtn = tree!.root.findByProps({ testID: 'onboarding-start-btn' });
     await act(async () => {
-      closeBtn.props.onPress();
+      await startBtn.props.onPress();
     });
   });
 

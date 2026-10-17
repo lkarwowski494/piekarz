@@ -32,7 +32,6 @@ describe('BreadAcademyModal Component (SCI, BIB, TRE)', () => {
     expect(root.findByProps({ testID: 'close-academy-modal-btn' })).toBeDefined();
     expect(root.findByProps({ testID: 'academy-tab-school' })).toBeDefined();
     expect(root.findByProps({ testID: 'academy-tab-techniques' })).toBeDefined();
-    expect(root.findByProps({ testID: 'academy-tab-drill' })).toBeDefined();
   });
 
   it('allows toggling lesson completion in Bread School tab', async () => {
@@ -77,32 +76,6 @@ describe('BreadAcademyModal Component (SCI, BIB, TRE)', () => {
 
     const autolyseCard = root.findByProps({ testID: 'tech-card-BIB-01' });
     expect(autolyseCard).toBeDefined();
-  });
-
-  it('switches to Drill tab and allows answering a question and revealing a flashcard', async () => {
-    await act(async () => {
-      tree = renderer.create(
-        <BreadAcademyModal visible={true} onClose={mockOnClose} />
-      );
-    });
-
-    const root = tree!.root;
-    const drillTab = root.findByProps({ testID: 'academy-tab-drill' });
-
-    await act(async () => {
-      drillTab.props.onPress();
-    });
-
-    const questionText = root.findByProps({ testID: 'drill-question-text' });
-    expect(questionText).toBeDefined();
-
-    // Reveal flashcard
-    const revealBtn = root.findByProps({ testID: 'reveal-card-flash_01_grain_anatomy' });
-    await act(async () => {
-      revealBtn.props.onPress();
-    });
-
-    expect(root.findByProps({ testID: 'flashcard-flash_01_grain_anatomy' })).toBeDefined();
   });
 
   it('calls onClose when close button is pressed', async () => {

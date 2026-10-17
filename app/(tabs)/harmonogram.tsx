@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import { CraftHeader } from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import {
@@ -220,11 +221,12 @@ export default function HarmonogramScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <CraftHeader
+        title={t('Harmonogram')}
+        subtitle={t('Harmonogram wsteczny z ochroną snu (Sleep Guard)')}
+        testID="harmonogram-header"
+      />
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>{t('Harmonogram')}</Text>
-          <Text style={styles.subtitle}>{t('Harmonogram wsteczny z ochroną snu (Sleep Guard)')}</Text>
-        </View>
 
         {/* Target Ready Selector Card */}
         <View style={styles.card}>

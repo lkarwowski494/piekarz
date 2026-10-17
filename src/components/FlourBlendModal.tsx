@@ -14,6 +14,8 @@ import {
   Pressable,
   StyleSheet,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { FlourItemInput } from '../core/domain-rules';
@@ -98,7 +100,7 @@ export function FlourBlendModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
-      <View style={styles.modalOverlay}>
+      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-blend-modal">
           {/* Header */}
           <Text style={styles.modalTitle}>{t('Kreator mieszanki mąk')}</Text>
@@ -222,6 +224,7 @@ export function FlourBlendModal({
               testID="close-blend-modal-btn"
               style={styles.modalCancelBtn}
               onPress={onClose}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
             >
               <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
             </Pressable>
@@ -233,12 +236,13 @@ export function FlourBlendModal({
                 !validation.isValid && styles.modalConfirmBtnDisabled,
               ]}
               onPress={handleApply}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
             >
               <Text style={styles.modalConfirmBtnText}>{t('Zastosuj mieszankę')}</Text>
             </Pressable>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }

@@ -14,6 +14,8 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { StoredFlourInventoryItem } from '../data/db';
@@ -134,7 +136,7 @@ export function FlourInventoryModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
-      <View style={styles.modalOverlay}>
+      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-inventory-modal">
           {/* Header */}
           <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')}</Text>
@@ -301,7 +303,12 @@ export function FlourInventoryModal({
           </ScrollView>
 
           {/* Close button */}
-          <Pressable testID="close-inventory-btn" style={styles.closeButton} onPress={onClose}>
+          <Pressable
+            testID="close-inventory-btn"
+            style={styles.closeButton}
+            onPress={onClose}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+          >
             <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
           </Pressable>
         </View>
@@ -313,7 +320,7 @@ export function FlourInventoryModal({
           trialDaysRemaining={access.trialDaysRemaining}
           completedBakesCount={access.completedBakesCount}
         />
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -535,7 +542,8 @@ const styles = StyleSheet.create({
   closeButton: {
     backgroundColor: theme.colors.accent,
     borderRadius: theme.radius.md,
-    paddingVertical: 10,
+    minHeight: 52,
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 14,
   },

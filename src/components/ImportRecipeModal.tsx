@@ -15,6 +15,8 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
@@ -85,7 +87,7 @@ export function ImportRecipeModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
-      <View style={styles.overlay}>
+      <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="import-recipe-modal">
           {/* Header */}
           <View style={styles.header}>
@@ -98,9 +100,10 @@ export function ImportRecipeModal({
               accessibilityRole="button"
               accessibilityLabel={t('Zamknij')}
               onPress={onClose}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
               style={styles.closeBtn}
             >
-              <Text style={styles.closeBtnText}>✕</Text>
+              <CloseIcon size={20} color={theme.colors.textPrimary} />
             </Pressable>
           </View>
 
@@ -241,7 +244,7 @@ export function ImportRecipeModal({
             </Pressable>
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -280,9 +283,9 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   closeBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    minWidth: 44,
+    minHeight: 44,
+    borderRadius: 22,
     backgroundColor: theme.colors.border,
     alignItems: 'center',
     justifyContent: 'center',

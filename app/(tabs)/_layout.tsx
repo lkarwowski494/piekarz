@@ -56,8 +56,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="doktor"
         options={{
-          title: t('Doktor Chleba'),
-          tabBarIcon: ({ color }) => <TabIcon name="doctor" color={color} />,
+          href: null,
         }}
       />
     </Tabs>

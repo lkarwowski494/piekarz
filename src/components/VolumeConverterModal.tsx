@@ -8,6 +8,8 @@ import {
   StyleSheet,
   Pressable,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import {
@@ -58,7 +60,7 @@ export function VolumeConverterModal({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
             <Text style={styles.title}>⚖️ {t('Przelicznik Objętość ↔ Waga')}</Text>
@@ -66,9 +68,10 @@ export function VolumeConverterModal({
               testID="close-volume-modal-btn"
               style={styles.closeBtn}
               onPress={onClose}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij przelicznik')}
             >
-              <Text style={styles.closeBtnText}>✕</Text>
+              <CloseIcon size={20} color={theme.colors.textPrimary} />
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -232,7 +235,7 @@ export function VolumeConverterModal({
             <Text style={styles.resultItemName}>{result.ingredient.namePl}</Text>
           </View>
         </ScrollView>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -264,9 +267,9 @@ const styles = StyleSheet.create({
     color: theme.colors.textMuted,
   },
   closeBtn: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    minWidth: 44,
+    minHeight: 44,
+    borderRadius: 22,
     backgroundColor: theme.colors.surfaceCard,
     justifyContent: 'center',
     alignItems: 'center',

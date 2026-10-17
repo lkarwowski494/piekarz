@@ -13,6 +13,8 @@ import {
   Pressable,
   StyleSheet,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import {
@@ -74,7 +76,7 @@ export function StarterConverterModal({
 
   return (
     <Modal visible={visible} transparent animationType="slide">
-      <View style={styles.modalOverlay}>
+      <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="starter-converter-modal">
           {/* Header */}
           <Text style={styles.modalTitle}>⚖️ {t('Konwerter zakwasu & Lievito Madre')}</Text>
@@ -322,11 +324,16 @@ export function StarterConverterModal({
           </ScrollView>
 
           {/* Close button */}
-          <Pressable testID="close-converter-btn" style={styles.closeButton} onPress={onClose}>
+          <Pressable
+            testID="close-converter-btn"
+            style={styles.closeButton}
+            onPress={onClose}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+          >
             <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
           </Pressable>
         </View>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -516,7 +523,8 @@ const styles = StyleSheet.create({
   closeButton: {
     backgroundColor: theme.colors.accent,
     borderRadius: theme.radius.md,
-    paddingVertical: 10,
+    minHeight: 52,
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 14,
   },

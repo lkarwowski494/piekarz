@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import { CraftHeader, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import {
@@ -138,25 +139,23 @@ export default function DoctorScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <CraftHeader
+        title={t('Doktor Chleba')}
+        subtitle={t('Diagnostyka błędów wypieku i ratowanie bochenka')}
+        testID="doktor-header"
+        rightAction={
+          <Pressable
+            testID="open-academy-btn"
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+            style={styles.academyHeaderPill}
+            onPress={() => setIsAcademyOpen(true)}
+            accessibilityLabel={t('Akademia Piekarza')}
+          >
+            <Text style={styles.academyHeaderPillText}>🎓 {t('Akademia')}</Text>
+          </Pressable>
+        }
+      />
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.headerRow}>
-            <View style={styles.flex1}>
-              <Text style={styles.title}>{t('Doktor Chleba')}</Text>
-              <Text style={styles.subtitle}>
-                {t('Diagnostyka błędów wypieku i ratowanie bochenka')}
-              </Text>
-            </View>
-            <Pressable
-              testID="open-academy-btn"
-              style={styles.academyHeaderPill}
-              onPress={() => setIsAcademyOpen(true)}
-              accessibilityLabel={t('Akademia Piekarza')}
-            >
-              <Text style={styles.academyHeaderPillText}>🎓 {t('Akademia')}</Text>
-            </Pressable>
-          </View>
-        </View>
 
         {/* Bread Academy Promotion Banner */}
         <Pressable

@@ -26,7 +26,17 @@ import {
   deductFlourStock,
   getRecipes,
   incrementCompletedBakes,
+  getBakingVessel,
+  setBakingVessel,
+  BakingVessel,
 } from '../../src/data/sqlite-store';
+import {
+  CraftHeader,
+  CraftStatDisplay,
+  CraftCard,
+  CraftButton,
+  sharedCraftTokens,
+} from '@apps4craft/ui';
 import { useUnitSystem, formatTemperature, formatWeight, formatDoseWeight, formatTextUnits } from '../../src/lib/unit-converter';
 import { StoredBakeLog } from '../../src/data/db';
 import { MASTER_RECIPES } from '../../src/recipes/presets';
@@ -110,6 +120,17 @@ export default function StolnicaScreen() {
   const [recipeName, setRecipeName] = useState<string>('Wiejski chleb 72%');
   const [startedAt, setStartedAt] = useState<number>(Date.now());
   const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
+  const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
+
+  const handleSelectVessel = (vessel: BakingVessel) => {
+    void setBakingVessel(vessel);
+    setBakingVesselState(vessel);
+    try {
+      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    } catch {
+      // Ignored
+    }
+  };
 
   // Timer states
   const [timeLeftSec, setTimeLeftSec] = useState<number>(BAKE_STEPS[0].timerMin * 60);
@@ -201,6 +222,9 @@ export default function StolnicaScreen() {
 
   useEffect(() => {
     loadHistory();
+    void getBakingVessel().then((v) => {
+      setBakingVesselState(v);
+    });
     const existing = getActiveBake();
     if (existing) {
       setIsActive(true);
@@ -424,12 +448,24 @@ export default function StolnicaScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <CraftHeader
+        title={t('Stolnica')}
+        subtitle={t('Asystent wypieku na żywo (Hands-in-flour)')}
+        testID="stolnica-header"
+        rightAction={
+          <Pressable
+            testID="stolnica-doctor-shortcut-btn"
+            accessibilityRole="button"
+            accessibilityLabel={t('Doktor Chleba')}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+            style={styles.headerDoctorBtn}
+            onPress={() => router.push('/(tabs)/doktor')}
+          >
+            <Text style={styles.headerDoctorBtnText}>🩺 {t('Doktor')}</Text>
+          </Pressable>
+        }
+      />
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>{t('Stolnica')}</Text>
-          <Text style={styles.subtitle}>Asystent wypieku na żywo (Hands-in-flour)</Text>
-        </View>
-
         {!isActive ? (
           <View>
             <View style={styles.idleCard}>
@@ -438,6 +474,38 @@ export default function StolnicaScreen() {
                 Wybierz recepturę w Kalkulatorze i kliknij „Rozpocznij wypiek na Stolnicy”, lub
                 uruchom standardowy harmonogram rzemieślniczy poniżej.
               </Text>
+
+              {/* Baking Vessel Selector */}
+              <View style={styles.vesselSelectorContainer} testID="baking-vessel-selector">
+                <Text style={styles.vesselSelectorTitle}>🔥 {t('Naczynie wypiekowe')}</Text>
+                <View style={styles.vesselChipsRow}>
+                  {[
+                    { id: 'dutch_oven' as const, label: `🍲 ${t('Garnek')}` },
+                    { id: 'cloche' as const, label: `🏺 ${t('Klosz')}` },
+                    { id: 'baking_steel' as const, label: `⬛ ${t('Stal')}` },
+                    { id: 'pullman_pan' as const, label: `🔲 ${t('Forma')}` },
+                  ].map((v) => (
+                    <Pressable
+                      key={v.id}
+                      testID={`vessel-chip-${v.id}`}
+                      style={[
+                        styles.vesselChip,
+                        bakingVessel === v.id && styles.vesselChipActive,
+                      ]}
+                      onPress={() => handleSelectVessel(v.id)}
+                    >
+                      <Text
+                        style={[
+                          styles.vesselChipText,
+                          bakingVessel === v.id && styles.vesselChipTextActive,
+                        ]}
+                      >
+                        {v.label}
+                      </Text>
+                    </Pressable>
+                  ))}
+                </View>
+              </View>
 
               <Pressable style={styles.startBtn} onPress={handleStartBake}>
                 <Text style={styles.startBtnText}>🥖 Rozpocznij wypiek</Text>
@@ -600,6 +668,53 @@ export default function StolnicaScreen() {
           </View>
         ) : (
           <View>
+            {/* Sacred Numbers Glanceable Countertop Card */}
+            <CraftCard
+              testID="stolnica-sacred-card"
+              style={styles.sacredNumbersCard}
+              accentBorder={theme.colors.borderActive}
+            >
+              <View style={styles.sacredGrid}>
+                <CraftStatDisplay
+                  testID="stat-stolnica-step"
+                  label={t('Etap')}
+                  value={`${currentStepIdx + 1}/${BAKE_STEPS.length}`}
+                  accentColor={theme.colors.accent}
+                  size="md"
+                />
+                <CraftStatDisplay
+                  testID="stat-stolnica-time"
+                  label={t('Pozostało')}
+                  value={formattedTime}
+                  size="md"
+                />
+                <CraftStatDisplay
+                  testID="stat-stolnica-ddt"
+                  label={t('DDT')}
+                  value={activeBakeData?.actualDdtC ?? 25.0}
+                  unit="°C"
+                  size="md"
+                />
+                {activeBakeData?.calculatedRecipe ? (
+                  <CraftStatDisplay
+                    testID="stat-stolnica-hydration"
+                    label={t('Hydratacja')}
+                    value={activeBakeData.calculatedRecipe.overallHydrationPercent.toFixed(1)}
+                    unit="%"
+                    size="md"
+                  />
+                ) : (
+                  <CraftStatDisplay
+                    testID="stat-stolnica-temp"
+                    label={t('Otoczenie')}
+                    value={activeBakeData?.ambientTempC ?? 22.0}
+                    unit="°C"
+                    size="md"
+                  />
+                )}
+              </View>
+            </CraftCard>
+
             {/* Active Header & Recipe Badge */}
             <View style={styles.activeCard}>
               <View style={styles.badgeRow}>
@@ -863,7 +978,7 @@ export default function StolnicaScreen() {
 
         {/* Modal: Finish Bake Evaluation */}
         <Modal visible={isFinishModalOpen} transparent animationType="fade">
-          <View style={styles.modalOverlay}>
+          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
             <View style={styles.modalCard}>
               <Text style={styles.modalTitle}>🎉 {t('Zakończ wypiek')}</Text>
               <Text style={styles.modalSubtitle}>
@@ -972,18 +1087,20 @@ export default function StolnicaScreen() {
                 <Pressable
                   style={styles.modalCancelBtn}
                   onPress={() => setIsFinishModalOpen(false)}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
                 </Pressable>
                 <Pressable
                   style={styles.modalConfirmBtn}
                   onPress={handleSaveFinishBake}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalConfirmBtnText}>{t('Zapisz w historii')}</Text>
                 </Pressable>
               </View>
             </View>
-          </View>
+          </SafeAreaView>
         </Modal>
 
         {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
@@ -1011,6 +1128,67 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: theme.spacing.md,
+  },
+  headerDoctorBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: sharedCraftTokens.borderRadius.full,
+    backgroundColor: sharedCraftTokens.colors.bgCardSecondary,
+    borderWidth: 1,
+    borderColor: sharedCraftTokens.colors.border,
+  },
+  headerDoctorBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.accent,
+  },
+  vesselSelectorContainer: {
+    width: '100%',
+    marginTop: 16,
+    marginBottom: 8,
+    alignItems: 'center',
+  },
+  vesselSelectorTitle: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textSecondary,
+    marginBottom: 8,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  vesselChipsRow: {
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
+  },
+  vesselChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.backgroundSecondary,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  vesselChipActive: {
+    backgroundColor: theme.colors.accent,
+    borderColor: theme.colors.accentDark,
+  },
+  vesselChipText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textSecondary,
+  },
+  vesselChipTextActive: {
+    color: '#FFFFFF',
+  },
+  sacredNumbersCard: {
+    marginBottom: theme.spacing.md,
+    backgroundColor: sharedCraftTokens.colors.bgCard,
+  },
+  sacredGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   title: {
     fontSize: 28,

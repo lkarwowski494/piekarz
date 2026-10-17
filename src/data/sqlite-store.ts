@@ -831,3 +831,36 @@ export async function setAppSetting(key: string, value: string): Promise<void> {
   } catch {}
 }
 
+export type BakerRitualProfile = 'sourdough_purist' | 'artisan_hybrid' | 'beginner';
+export type BakingVessel = 'dutch_oven' | 'cloche' | 'baking_steel' | 'pullman_pan';
+
+export async function hasCompletedOnboarding(): Promise<boolean> {
+  const val = await getAppSetting('has_completed_onboarding', 'false');
+  return val === 'true';
+}
+
+export async function setOnboardingCompleted(completed = true): Promise<void> {
+  await setAppSetting('has_completed_onboarding', completed ? 'true' : 'false');
+}
+
+export async function getBakerRitualProfile(): Promise<BakerRitualProfile> {
+  const val = await getAppSetting('baker_ritual_profile', 'artisan_hybrid');
+  if (val === 'sourdough_purist' || val === 'beginner') return val;
+  return 'artisan_hybrid';
+}
+
+export async function setBakerRitualProfile(profile: BakerRitualProfile): Promise<void> {
+  await setAppSetting('baker_ritual_profile', profile);
+}
+
+export async function getBakingVessel(): Promise<BakingVessel> {
+  const val = await getAppSetting('selected_baking_vessel', 'dutch_oven');
+  if (val === 'cloche' || val === 'baking_steel' || val === 'pullman_pan') return val;
+  return 'dutch_oven';
+}
+
+export async function setBakingVessel(vessel: BakingVessel): Promise<void> {
+  await setAppSetting('selected_baking_vessel', vessel);
+}
+
+

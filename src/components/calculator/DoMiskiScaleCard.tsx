@@ -416,7 +416,7 @@ const styles = StyleSheet.create({
   },
   presetChipSelected: {
     borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentLight,
+    backgroundColor: theme.colors.accentMuted,
   },
   presetChipText: {
     fontSize: 13,
@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
   },
   presetChipTextSelected: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.accent,
     fontWeight: '700',
   },
   loavesRow: {
@@ -520,9 +520,9 @@ const styles = StyleSheet.create({
     minHeight: 52, // Zasada Brudnego Kciuka
   },
   ingredientRowChecked: {
-    backgroundColor: '#F3F4F6',
-    borderColor: '#E5E7EB',
-    opacity: 0.7,
+    backgroundColor: theme.colors.background,
+    borderColor: theme.colors.borderLight,
+    opacity: 0.5,
   },
   checkbox: {
     marginRight: theme.spacing.sm,
@@ -550,9 +550,9 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   ingredientWeight: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.accent,
   },
   ingredientWeightChecked: {
     textDecorationLine: 'line-through',

@@ -4,7 +4,7 @@
     "slug": "piekarz",
     "version": "1.0.0",
     "description": "Piekarz (Crust) — asystent domowego piekarza, procent piekarski, 4-DDT, harmonogram wsteczny, baza zakwasu i radar sensoryczny. 100% Offline-First.",
-    "primaryColor": "#B35E24",
+    "primaryColor": "#D49B42",
     "scheme": "piekarz",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FBF9F5"
+      "backgroundColor": "#121214"
     },
     "ios": {
       "supportsTablet": true,
@@ -32,7 +32,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FBF9F5"
+        "backgroundColor": "#121214"
       },
       "package": "com.apps4brew.baker",
       "permissions": [

@@ -10,6 +10,13 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import {
+  CraftHeader,
+  CraftStatDisplay,
+  CraftCard,
+  sharedCraftTokens,
+} from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import {
@@ -30,6 +37,7 @@ import { PaywallModal } from '../../src/components/PaywallModal';
 import { useUnitSystem, formatTemperature, formatWeight, formatTextUnits } from '../../src/lib/unit-converter';
 
 export default function ZakwasScreen() {
+  const router = useRouter();
   const unitSystem = useUnitSystem();
   // Apps4Brew Monetization & Access (Cheaper than espresso)
   const {
@@ -256,14 +264,61 @@ export default function ZakwasScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <CraftHeader
+        title={t('Zakwas')}
+        subtitle={t('Profil, cykl dokarmiania i szczyt aktywności (Peak Timer)')}
+        testID="zakwas-header"
+        rightAction={
+          <Pressable
+            testID="zakwas-doctor-shortcut-btn"
+            accessibilityRole="button"
+            accessibilityLabel={t('Doktor Chleba')}
+            hitSlop={sharedCraftTokens.hitSlopStandard}
+            style={styles.headerDoctorBtn}
+            onPress={() => router.push('/(tabs)/doktor')}
+          >
+            <Text style={styles.headerDoctorBtnText}>🩺 {t('Doktor')}</Text>
+          </Pressable>
+        }
+      />
       <ScrollView contentContainerStyle={styles.container}>
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.title}>{t('Zakwas')}</Text>
-          <Text style={styles.subtitle}>
-            Profil, cykl dokarmiania i wskaźnik szczytu aktywności (Peak Timer)
-          </Text>
-        </View>
+        {/* Sacred Numbers Glanceable Countertop Card */}
+        <CraftCard
+          testID="zakwas-sacred-card"
+          style={styles.sacredNumbersCard}
+          accentBorder={theme.colors.borderActive}
+        >
+          <View style={styles.sacredGrid}>
+            <CraftStatDisplay
+              testID="stat-zakwas-age"
+              label={t('Wiek')}
+              value={ageDays}
+              unit="d"
+              accentColor={theme.colors.accent}
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-zakwas-hydration"
+              label={t('Hydratacja')}
+              value={starter.hydration}
+              unit="%"
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-zakwas-ratio"
+              label={t('Proporcja')}
+              value={`${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`}
+              size="md"
+            />
+            <CraftStatDisplay
+              testID="stat-zakwas-temp"
+              label={t('Temp')}
+              value={ambientTempC}
+              unit="°C"
+              size="md"
+            />
+          </View>
+        </CraftCard>
 
         {/* Starters Carousel / Selector */}
         {startersList.length > 0 && (
@@ -601,7 +656,7 @@ export default function ZakwasScreen() {
 
         {/* Modal: Edit Starter Profile */}
         <Modal visible={isEditModalOpen} transparent animationType="fade">
-          <View style={styles.modalOverlay}>
+          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
             <View style={styles.modalCard}>
               <Text style={styles.modalTitle}>{t('Edytuj zakwas')}</Text>
               <Text style={styles.modalSubtitle}>Zmień parametry swojego zakwasu</Text>
@@ -651,6 +706,7 @@ export default function ZakwasScreen() {
                     testID="delete-starter-btn"
                     style={styles.modalDeleteBtn}
                     onPress={handleDeleteCurrentStarter}
+                    hitSlop={sharedCraftTokens.hitSlopStandard}
                   >
                     <Text style={styles.modalDeleteBtnText}>🗑️ {t('Usuń zakwas')}</Text>
                   </Pressable>
@@ -659,24 +715,26 @@ export default function ZakwasScreen() {
                   <Pressable
                     style={styles.modalCancelBtn}
                     onPress={() => setIsEditModalOpen(false)}
+                    hitSlop={sharedCraftTokens.hitSlopStandard}
                   >
                     <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
                   </Pressable>
                   <Pressable
                     style={styles.modalConfirmBtn}
                     onPress={handleSaveProfile}
+                    hitSlop={sharedCraftTokens.hitSlopStandard}
                   >
                     <Text style={styles.modalConfirmBtnText}>{t('Zapisz profil')}</Text>
                   </Pressable>
                 </View>
               </View>
             </View>
-          </View>
+          </SafeAreaView>
         </Modal>
 
         {/* Modal: Add New Starter */}
         <Modal visible={isAddModalOpen} transparent animationType="slide">
-          <View style={styles.modalOverlay}>
+          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
             <View style={styles.modalCard}>
               <Text style={styles.modalTitle}>🥣 {t('Dodaj nowy zakwas')}</Text>
               <Text style={styles.modalSubtitle}>Utwórz profil dla nowej kultury zakwasu</Text>
@@ -729,6 +787,7 @@ export default function ZakwasScreen() {
                   testID="cancel-add-starter-btn"
                   style={styles.modalCancelBtn}
                   onPress={() => setIsAddModalOpen(false)}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
                 </Pressable>
@@ -736,12 +795,13 @@ export default function ZakwasScreen() {
                   testID="save-new-starter-btn"
                   style={styles.modalConfirmBtn}
                   onPress={handleAddStarter}
+                  hitSlop={sharedCraftTokens.hitSlopStandard}
                 >
                   <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
                 </Pressable>
               </View>
             </View>
-          </View>
+          </SafeAreaView>
         </Modal>
 
         <StarterConverterModal
@@ -784,6 +844,28 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: theme.spacing.md,
+  },
+  headerDoctorBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: sharedCraftTokens.borderRadius.full,
+    backgroundColor: sharedCraftTokens.colors.bgCardSecondary,
+    borderWidth: 1,
+    borderColor: sharedCraftTokens.colors.border,
+  },
+  headerDoctorBtnText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.accent,
+  },
+  sacredNumbersCard: {
+    marginBottom: theme.spacing.md,
+    backgroundColor: sharedCraftTokens.colors.bgCard,
+  },
+  sacredGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   title: {
     fontSize: 28,

@@ -20,6 +20,10 @@ jest.mock('../../data/sqlite-store', () => ({
   restoreFromBackupData: jest.fn().mockResolvedValue(undefined),
   getAppSetting: jest.fn().mockResolvedValue(null),
   setAppSetting: jest.fn().mockResolvedValue(undefined),
+  getBakerRitualProfile: jest.fn().mockResolvedValue('artisan_hybrid'),
+  setBakerRitualProfile: jest.fn().mockResolvedValue(undefined),
+  getBakingVessel: jest.fn().mockResolvedValue('dutch_oven'),
+  setBakingVessel: jest.fn().mockResolvedValue(undefined),
 }));
 
 jest.mock('../../lib/csv-exporter', () => ({

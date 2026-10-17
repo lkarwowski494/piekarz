@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Pressable,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import {
@@ -21,18 +22,11 @@ import {
   TechniqueCard,
 } from '../core/baking-techniques';
 import {
-  generateDrillQuestion,
-  getBiochemicalFlashcards,
-  DrillQuestion,
-  BiochemicalFlashcard,
-  DrillLevel,
-} from '../core/baker-drill';
-import {
   getCompletedLessons,
   toggleLessonProgress,
 } from '../data/sqlite-store';
 
-type AcademyTab = 'school' | 'techniques' | 'drill';
+type AcademyTab = 'school' | 'techniques';
 
 interface BreadAcademyModalProps {
   visible: boolean;
@@ -50,13 +44,6 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
   const [techCategory, setTechCategory] = useState<TechniqueCategory | 'all'>('all');
   const [expandedTechId, setExpandedTechId] = useState<string | null>(null);
 
-  // Drill & Flashcards state
-  const [drillLevel, setDrillLevel] = useState<DrillLevel>(1);
-  const [currentQuestion, setCurrentQuestion] = useState<DrillQuestion>(() => generateDrillQuestion(1));
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
-  const [score, setScore] = useState<{ correct: number; total: number }>({ correct: 0, total: 0 });
-  const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
-
   const loadProgress = useCallback(async () => {
     const list = await getCompletedLessons();
     setCompletedLevels(list);
@@ -70,33 +57,11 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
 
   const lessons = useMemo(() => getBreadSchoolLessons(), []);
   const techniques = useMemo(() => filterTechniques(techCategory), [techCategory]);
-  const flashcards = useMemo(() => getBiochemicalFlashcards(), []);
   const rankInfo = useMemo(() => calculateBakerRank(completedLevels), [completedLevels]);
 
   const handleToggleLesson = async (level: number) => {
     await toggleLessonProgress(level);
     await loadProgress();
-  };
-
-  const handleAnswerDrill = (option: number) => {
-    if (selectedAnswer !== null) return; // Already answered
-    setSelectedAnswer(option);
-    const isCorrect = option === currentQuestion.correctAnswer;
-    setScore((prev) => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      total: prev.total + 1,
-    }));
-  };
-
-  const handleNextQuestion = () => {
-    setSelectedAnswer(null);
-    setCurrentQuestion(generateDrillQuestion(drillLevel));
-  };
-
-  const handleChangeDrillLevel = (lvl: DrillLevel) => {
-    setDrillLevel(lvl);
-    setSelectedAnswer(null);
-    setCurrentQuestion(generateDrillQuestion(lvl));
   };
 
   return (
@@ -106,7 +71,7 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
@@ -116,6 +81,7 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
               style={styles.closeBtn}
               onPress={onClose}
               accessibilityLabel={t('Zamknij Akademię')}
+              hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
             >
               <Text style={styles.closeBtnText}>✕</Text>
             </Pressable>
@@ -151,15 +117,6 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
             >
               <Text style={[styles.navTabText, activeTab === 'techniques' && styles.navTabTextActive]}>
                 📖 {t('Techniki')}
-              </Text>
-            </Pressable>
-            <Pressable
-              testID="academy-tab-drill"
-              style={[styles.navTab, activeTab === 'drill' && styles.navTabActive]}
-              onPress={() => setActiveTab('drill')}
-            >
-              <Text style={[styles.navTabText, activeTab === 'drill' && styles.navTabTextActive]}>
-                🧠 {t('Trener i Fiszki')}
               </Text>
             </Pressable>
           </View>
@@ -383,148 +340,8 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
               })}
             </View>
           )}
-
-          {/* TAB 3: TRENER PROCENTU & FISZKI (TRE) */}
-          {activeTab === 'drill' && (
-            <View>
-              {/* Mental Baker Drill Game */}
-              <View style={styles.drillBox}>
-                <View style={styles.drillHeaderRow}>
-                  <Text style={styles.drillTitle}>🧠 {t('Trener Szybkiego Rachunku')}</Text>
-                  <Text style={styles.drillScore}>
-                    🏆 {score.correct}/{score.total} ({score.total > 0 ? Math.round((score.correct / score.total) * 100) : 0}%)
-                  </Text>
-                </View>
-                <Text style={styles.drillSubtitle}>
-                  {t('Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)')}
-                </Text>
-
-                {/* Level selector */}
-                <View style={styles.drillLevelRow}>
-                  {[1, 2, 3].map((lvl) => (
-                    <Pressable
-                      key={lvl}
-                      testID={`drill-level-${lvl}`}
-                      style={[styles.smallChip, drillLevel === lvl && styles.smallChipActive]}
-                      onPress={() => handleChangeDrillLevel(lvl as DrillLevel)}
-                    >
-                      <Text
-                        style={[
-                          styles.smallChipText,
-                          drillLevel === lvl && styles.smallChipTextActive,
-                        ]}
-                      >
-                        {t('Poziom')} {lvl} {lvl === 1 ? '(Woda & Sól)' : lvl === 2 ? '(Mieszanki mąk)' : '(True Baker %)'}
-                      </Text>
-                    </Pressable>
-                  ))}
-                </View>
-
-                {/* Question */}
-                <View style={styles.questionCard}>
-                  <Text style={styles.questionText} testID="drill-question-text">
-                    {currentQuestion.questionPl}
-                  </Text>
-
-                  {/* 4 Clickable Options */}
-                  <View style={styles.optionsGrid}>
-                    {currentQuestion.options.map((opt, idx) => {
-                      const isSelected = selectedAnswer === opt;
-                      const isCorrect = opt === currentQuestion.correctAnswer;
-                      let btnStyle = styles.optionBtn;
-                      if (selectedAnswer !== null) {
-                        if (isCorrect) btnStyle = styles.optionBtnCorrect;
-                        else if (isSelected) btnStyle = styles.optionBtnWrong;
-                      }
-                      return (
-                        <Pressable
-                          key={idx}
-                          testID={`drill-option-${opt}`}
-                          style={btnStyle}
-                          onPress={() => handleAnswerDrill(opt)}
-                          disabled={selectedAnswer !== null}
-                        >
-                          <Text
-                            style={[
-                              styles.optionBtnText,
-                              selectedAnswer !== null && isCorrect && styles.optionBtnTextCorrect,
-                            ]}
-                          >
-                            {opt} {currentQuestion.unit}
-                          </Text>
-                        </Pressable>
-                      );
-                    })}
-                  </View>
-
-                  {/* Immediate Explanation */}
-                  {selectedAnswer !== null && (
-                    <View style={styles.explanationBox} testID="drill-explanation-box">
-                      <Text style={styles.explanationTitle}>
-                        {selectedAnswer === currentQuestion.correctAnswer
-                          ? `🎉 ${t('Świetnie! Prawidłowa odpowiedź!')}`
-                          : `💡 ${t('Krok obliczeniowy:')}`}
-                      </Text>
-                      <Text style={styles.explanationText}>{currentQuestion.explanationPl}</Text>
-                      <Pressable
-                        testID="drill-next-question-btn"
-                        style={styles.nextQuestionBtn}
-                        onPress={handleNextQuestion}
-                      >
-                        <Text style={styles.nextQuestionBtnText}>➡️ {t('Następne pytanie')}</Text>
-                      </Pressable>
-                    </View>
-                  )}
-                </View>
-              </View>
-
-              {/* Biochemical Flashcards Section */}
-              <Text style={styles.sectionHeading}>🔬 {t('Baza Fiszek Biochemicznych')}</Text>
-              <Text style={styles.sectionSubheading}>
-                {t('Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu')}
-              </Text>
-
-              {flashcards.map((card) => {
-                const isRevealed = expandedCardId === card.id;
-                return (
-                  <View key={card.id} style={styles.card} testID={`flashcard-${card.id}`}>
-                    <View style={styles.cardHeader}>
-                      <Text style={styles.cardTitle}>{card.titlePl}</Text>
-                      <View style={styles.leitnerBadge}>
-                        <Text style={styles.leitnerBadgeText}>📚 Box {card.box}</Text>
-                      </View>
-                    </View>
-                    <Text style={styles.cardPromptText}>❓ {card.frontSummaryPl}</Text>
-
-                    <Pressable
-                      testID={`reveal-card-${card.id}`}
-                      style={styles.revealBtn}
-                      onPress={() =>
-                        setExpandedCardId((prev) => (prev === card.id ? null : card.id))
-                      }
-                    >
-                      <Text style={styles.revealBtnText}>
-                        {isRevealed ? `▲ ${t('Zwiń wyjaśnienie')}` : `▼ ${t('Odkryj wiedzę naukową')}`}
-                      </Text>
-                    </Pressable>
-
-                    {isRevealed && (
-                      <View style={styles.revealedContent}>
-                        <Text style={styles.backDeepDiveText}>{card.backDeepDivePl}</Text>
-                        <View style={styles.takeawayBox}>
-                          <Text style={styles.takeawayTitle}>🎯 {t('Wniosek do wypieku:')}</Text>
-                          <Text style={styles.takeawayText}>{card.keyTakeawayPl}</Text>
-                        </View>
-                        <Text style={styles.citationText}>📖 {card.citation}</Text>
-                      </View>
-                    )}
-                  </View>
-                );
-              })}
-            </View>
-          )}
         </ScrollView>
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }

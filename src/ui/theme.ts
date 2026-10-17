@@ -1,50 +1,56 @@
 // ============================================================================
-// Piekarz (Crust) — UI Theme Tokens (WYG-002 & DEC-39)
-// Warm linen, toasted crust amber, dark roasted espresso typography.
-// Apps4Brew Studio.
+// Piekarz (Crust) — UI Theme Tokens
+// Apps4Craft Studio: Dark Basalt Ceramic (#121214) with Warm Crust Gold (#D49B42)
+// Official integration with @apps4craft/ui
 // ============================================================================
+
+import { getCraftTheme, sharedCraftTokens } from '@apps4craft/ui';
+
+export const craftTheme = getCraftTheme('piekarz');
 
 export const theme = {
   colors: {
-    background: '#FBF9F5',       // Jasny len / mąka
-    backgroundSecondary: '#F3ECE2', // Ciepły pergamin
-    surface: '#FFFFFF',          // Biały blat
-    surfaceCard: '#F7F2EB',      // Karta receptury
-    border: '#E6DCcf',           // Delikatny zarys formy
-    borderActive: '#D97724',     // Złocista skórka
+    // Ceramic Basalt surfaces
+    background: sharedCraftTokens.colors.bgBasalt,          // #121214
+    backgroundSecondary: sharedCraftTokens.colors.bgCard, // #1C1C1F
+    surface: sharedCraftTokens.colors.bgCard,             // #1C1C1F
+    surfaceCard: sharedCraftTokens.colors.bgCardSecondary, // #242428
+    card: sharedCraftTokens.colors.bgCardSecondary,        // #242428
 
-    textPrimary: '#2C1810',      // Ciemna przypieczona skórka / espresso
-    textSecondary: '#6B584C',    // Otręby / ciepły brąz
-    textMuted: '#9C8878',        // Pył mączny
+    // Borders & dividers
+    border: sharedCraftTokens.colors.border,              // #2E2E34
+    borderLight: sharedCraftTokens.colors.borderLight,    // #3E3E46
+    borderActive: craftTheme.accent,                     // #D49B42
 
-    accent: '#D97724',           // Złoty bochenek (Amber Crust)
-    accentDark: '#B45309',       // Głęboki mahoń
-    accentLight: '#FEF3C7',      // Młody kwas
+    // Swiss typography (High readability in flour-dusted kitchen)
+    textPrimary: sharedCraftTokens.colors.textPrimary,   // #F4EFEA
+    textSecondary: sharedCraftTokens.colors.textSecondary, // #A09C96
+    textMuted: sharedCraftTokens.colors.textMuted,       // #686561
 
-    statusSuccess: '#15803D',    // Prawidłowa fermentacja
-    statusWarning: '#B45309',    // Uwaga termiczna
-    statusDanger: '#B91C1C',     // Alarm pleśni / wysoka temperatura
+    // Metallic Crust Gold accents (Piekarz)
+    accent: craftTheme.accent,                          // #D49B42
+    accentDark: '#B45309',
+    accentLight: craftTheme.accentLight,                // #EDE4D0
+    accentMuted: craftTheme.accentMuted,                // rgba(212, 155, 66, 0.15)
+    crustGold: craftTheme.accent,                       // #D49B42
+    secondaryAccent: craftTheme.secondaryAccent,        // #8C6239
 
-    activeStageBadge: '#D97724',
-    passiveStageBadge: '#78716C',
+    // Status & biological alerts
+    statusSuccess: sharedCraftTokens.colors.statusSuccess,
+    statusWarning: craftTheme.accent,
+    statusDanger: sharedCraftTokens.colors.danger,
 
-    card: '#F7F2EB',             // Alias dla surfaceCard
-    crustGold: '#D97724',        // Alias dla accent (Amber Crust)
+    activeStageBadge: craftTheme.accent,
+    passiveStageBadge: sharedCraftTokens.colors.borderLight,
   },
   typography: {
     fontFamilyHeading: 'System',
     fontFamilyBody: 'System',
   },
-  spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  },
+  spacing: sharedCraftTokens.spacing,
   radius: {
-    sm: 6,
-    md: 12,
+    sm: sharedCraftTokens.borderRadius.sm,
+    md: sharedCraftTokens.borderRadius.md,
     lg: 16,
     full: 9999,
   },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   View,
@@ -20,6 +20,12 @@ import {
   getRecipes,
   getFlourInventory,
   restoreFromBackupData,
+  getBakerRitualProfile,
+  setBakerRitualProfile,
+  BakerRitualProfile,
+  getBakingVessel,
+  setBakingVessel,
+  BakingVessel,
 } from '../data/sqlite-store';
 import { useUnitSystem, setUnitSystem } from '../lib/unit-converter';
 import {
@@ -27,6 +33,14 @@ import {
   exportFlourInventoryCsv,
   exportAndShareCsv,
 } from '../lib/csv-exporter';
+import {
+  CRAFT_APPS,
+  NaparAppIcon,
+  PiekarzAppIcon,
+  SloikAppIcon,
+  MasazAppIcon,
+  FermentAppIcon,
+} from '@apps4craft/ui';
 
 export interface SettingsModalProps {
   visible: boolean;
@@ -41,6 +55,27 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const [showImportInput, setShowImportInput] = useState<boolean>(false);
   const [importJsonText, setImportJsonText] = useState<string>('');
   const [isImporting, setIsImporting] = useState<boolean>(false);
+
+  // Craft Ritual Profile & Equipment
+  const [ritualProfile, setRitualProfileState] = useState<BakerRitualProfile>('artisan_hybrid');
+  const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
+
+  useEffect(() => {
+    if (visible) {
+      void getBakerRitualProfile().then(setRitualProfileState);
+      void getBakingVessel().then(setBakingVesselState);
+    }
+  }, [visible]);
+
+  const handleProfileChange = async (p: BakerRitualProfile) => {
+    setRitualProfileState(p);
+    await setBakerRitualProfile(p);
+  };
+
+  const handleVesselChange = async (v: BakingVessel) => {
+    setBakingVesselState(v);
+    await setBakingVessel(v);
+  };
 
   const handleExport = async () => {
     setIsExporting(true);
@@ -140,7 +175,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
           <CloseButton onPress={onClose} />
@@ -149,6 +184,131 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
         </View>
 
         <ScrollView contentContainerStyle={styles.content}>
+          {/* Baking Ritual Profile Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>{t('Rytuał piekarski')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('Wybierz styl prowadzenia ciasta i filozofię wypieku:')}
+            </Text>
+            <View style={styles.optionsCol}>
+              <Pressable
+                testID="ritual-purist-btn"
+                style={[styles.optionCard, ritualProfile === 'sourdough_purist' && styles.optionCardActive]}
+                onPress={() => handleProfileChange('sourdough_purist')}
+              >
+                <Text style={styles.optionEmoji}>🌾</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, ritualProfile === 'sourdough_purist' && styles.optionTitleActive]}>
+                    {t('Klasyczny Zakwasowiec')}
+                  </Text>
+                  <Text style={styles.optionSubtitle}>
+                    {t('Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.')}
+                  </Text>
+                </View>
+                {ritualProfile === 'sourdough_purist' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+
+              <Pressable
+                testID="ritual-hybrid-btn"
+                style={[styles.optionCard, ritualProfile === 'artisan_hybrid' && styles.optionCardActive]}
+                onPress={() => handleProfileChange('artisan_hybrid')}
+              >
+                <Text style={styles.optionEmoji}>🥖</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, ritualProfile === 'artisan_hybrid' && styles.optionTitleActive]}>
+                    {t('Nowoczesny Rzemieślnik')}
+                  </Text>
+                  <Text style={styles.optionSubtitle}>
+                    {t('Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.')}
+                  </Text>
+                </View>
+                {ritualProfile === 'artisan_hybrid' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+
+              <Pressable
+                testID="ritual-beginner-btn"
+                style={[styles.optionCard, ritualProfile === 'beginner' && styles.optionCardActive]}
+                onPress={() => handleProfileChange('beginner')}
+              >
+                <Text style={styles.optionEmoji}>🍞</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, ritualProfile === 'beginner' && styles.optionTitleActive]}>
+                    {t('Początkujący Piekarz')}
+                  </Text>
+                  <Text style={styles.optionSubtitle}>
+                    {t('Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.')}
+                  </Text>
+                </View>
+                {ritualProfile === 'beginner' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+            </View>
+          </View>
+
+          {/* Baking Equipment Section */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>{t('Sprzęt i naczynie do wypieku')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('Wybierz domyślne naczynie piecowe dla procedury Stolnicy:')}
+            </Text>
+            <View style={styles.optionsCol}>
+              <Pressable
+                testID="vessel-dutch-oven-btn"
+                style={[styles.optionCard, bakingVessel === 'dutch_oven' && styles.optionCardActive]}
+                onPress={() => handleVesselChange('dutch_oven')}
+              >
+                <Text style={styles.optionEmoji}>🍲</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, bakingVessel === 'dutch_oven' && styles.optionTitleActive]}>
+                    {t('Garnek żeliwny (Dutch Oven)')}
+                  </Text>
+                </View>
+                {bakingVessel === 'dutch_oven' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+
+              <Pressable
+                testID="vessel-cloche-btn"
+                style={[styles.optionCard, bakingVessel === 'cloche' && styles.optionCardActive]}
+                onPress={() => handleVesselChange('cloche')}
+              >
+                <Text style={styles.optionEmoji}>🏺</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, bakingVessel === 'cloche' && styles.optionTitleActive]}>
+                    {t('Klosz ceramiczny (Cloche)')}
+                  </Text>
+                </View>
+                {bakingVessel === 'cloche' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+
+              <Pressable
+                testID="vessel-steel-btn"
+                style={[styles.optionCard, bakingVessel === 'baking_steel' && styles.optionCardActive]}
+                onPress={() => handleVesselChange('baking_steel')}
+              >
+                <Text style={styles.optionEmoji}>🛡️</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, bakingVessel === 'baking_steel' && styles.optionTitleActive]}>
+                    {t('Stal / Kamień szamotowy')}
+                  </Text>
+                </View>
+                {bakingVessel === 'baking_steel' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+
+              <Pressable
+                testID="vessel-pullman-btn"
+                style={[styles.optionCard, bakingVessel === 'pullman_pan' && styles.optionCardActive]}
+                onPress={() => handleVesselChange('pullman_pan')}
+              >
+                <Text style={styles.optionEmoji}>🍞</Text>
+                <View style={styles.optionContent}>
+                  <Text style={[styles.optionTitle, bakingVessel === 'pullman_pan' && styles.optionTitleActive]}>
+                    {t('Foremka z pokrywą (Pullman)')}
+                  </Text>
+                </View>
+                {bakingVessel === 'pullman_pan' && <Text style={styles.checkMark}>✓</Text>}
+              </Pressable>
+            </View>
+          </View>
+
           {/* Language Section */}
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>{t('Język')}</Text>
@@ -203,7 +363,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>{t('Kopia zapasowa')}</Text>
             <Text style={styles.cardDescription}>
-              Twoje receptury i historia wypieków są zapisywane w lokalnej bazie danych SQLite.
+              {t('Twoje receptury i historia wypieków są zapisywane w lokalnej bazie danych SQLite.')}
             </Text>
 
             <View style={styles.backupButtonsRow}>
@@ -272,7 +432,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 
             <View style={styles.infoBadge}>
               <Text style={styles.infoBadgeText}>
-                🛡️ Automatyczna rotacja: 10 ostatnich kopii w katalogu Documents/Backup/
+                🛡️ {t('Automatyczna rotacja: 10 ostatnich kopii w katalogu Documents/Backup/')}
               </Text>
             </View>
           </View>
@@ -307,31 +467,72 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
             </View>
           </View>
 
-          {/* Security & Database Location */}
+          {/* Apps4Craft Studio Family Section */}
           <View style={styles.card}>
-            <Text style={styles.sectionTitle}>Baza danych i bezpieczeństwo</Text>
-            <View style={styles.row}>
-              <Text style={styles.label}>Lokalizacja bazy:</Text>
-              <Text style={styles.codeText}>/Library/SQLite/piekarz.db</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.label}>Tryb transakcji:</Text>
-              <Text style={styles.valueText}>ACID / WAL mode</Text>
-            </View>
-            <View style={styles.row}>
-              <Text style={styles.label}>Telemetria i chmura:</Text>
-              <Text style={styles.statusOffText}>0% (Brak trackerów)</Text>
+            <Text style={styles.sectionTitle}>{t('Rodzina Apps4Craft Studio')}</Text>
+            <Text style={styles.cardDescription}>
+              {t('Rzemieślnicze aplikacje kulinarne offline-first. Zero chmury, zero telemetrii, 100% pasji:')}
+            </Text>
+            <View style={styles.appsList}>
+              {Object.values(CRAFT_APPS).map((app) => (
+                <View
+                  key={app.id}
+                  style={[
+                    styles.appItem,
+                    app.id === 'piekarz' && styles.appItemCurrent,
+                  ]}
+                >
+                  <View style={styles.appItemIconWrapper}>
+                    {app.id === 'napar' && <NaparAppIcon size={28} color={app.accent} />}
+                    {app.id === 'piekarz' && <PiekarzAppIcon size={28} color={app.accent} />}
+                    {app.id === 'sloik' && <SloikAppIcon size={28} color={app.accent} />}
+                    {app.id === 'masaz' && <MasazAppIcon size={28} color={app.accent} />}
+                    {app.id === 'ferment' && <FermentAppIcon size={28} color={app.accent} />}
+                  </View>
+                  <View style={styles.appItemMeta}>
+                    <View style={styles.appItemTitleRow}>
+                      <Text style={[styles.appItemName, { color: app.accent }]}>
+                        {app.name}
+                      </Text>
+                      {app.id === 'piekarz' && (
+                        <View style={styles.currentBadge}>
+                          <Text style={styles.currentBadgeText}>{t('Ta aplikacja')}</Text>
+                        </View>
+                      )}
+                    </View>
+                    <Text style={styles.appItemDomain}>{t(app.domain)}</Text>
+                    <Text style={styles.appItemDesc}>{t(app.heroDescriptor)}</Text>
+                  </View>
+                </View>
+              ))}
             </View>
           </View>
 
-          {/* Apps4Brew Manifesto & Version */}
+          {/* Security & Database Location */}
+          <View style={styles.card}>
+            <Text style={styles.sectionTitle}>{t('Baza danych i bezpieczeństwo')}</Text>
+            <View style={styles.row}>
+              <Text style={styles.label}>{t('Lokalizacja bazy:')}</Text>
+              <Text style={styles.codeText}>/Library/SQLite/piekarz.db</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.label}>{t('Tryb transakcji:')}</Text>
+              <Text style={styles.valueText}>ACID / WAL mode</Text>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.label}>{t('Telemetria i chmura:')}</Text>
+              <Text style={styles.statusOffText}>{t('0% (Brak trackerów)')}</Text>
+            </View>
+          </View>
+
+          {/* Apps4Craft Manifesto & Version */}
           <View style={styles.manifestoCard}>
-            <Text style={styles.manifestoTitle}>Apps4Brew Studio</Text>
+            <Text style={styles.manifestoTitle}>Apps4Craft Studio</Text>
             <Text style={styles.manifestoText}>
-              „Mąka, woda, sól i czas — rzemieślnicza precyzja bez kompromisów.”
+              „{t('Mąka, woda, sól i czas — rzemieślnicza precyzja bez kompromisów.')}”
             </Text>
             <Text style={styles.manifestoDetails}>
-              Piekarz (Crust) v0.1.0 • 100% Offline-First • Data Not Collected • Licencja GPLv3
+              Piekarz (Crust) v1.0.0 • 100% Offline-First • Data Not Collected
             </Text>
           </View>
         </ScrollView>
@@ -346,7 +547,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
   },
   header: {
-    height: 48,
+    height: 52,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -386,6 +587,49 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     marginBottom: theme.spacing.md,
   },
+  optionsCol: {
+    gap: 8,
+  },
+  optionCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+    borderRadius: 12,
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  optionCardActive: {
+    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.accentMuted,
+  },
+  optionEmoji: {
+    fontSize: 22,
+    marginRight: 12,
+  },
+  optionContent: {
+    flex: 1,
+  },
+  optionTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
+  },
+  optionTitleActive: {
+    color: theme.colors.accent,
+  },
+  optionSubtitle: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+    marginTop: 2,
+    lineHeight: 16,
+  },
+  checkMark: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: theme.colors.accent,
+    marginLeft: 8,
+  },
   langRow: {
     flexDirection: 'row',
     gap: theme.spacing.sm,
@@ -398,11 +642,11 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.surfaceCard,
   },
   langBtnActive: {
     borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentLight,
+    backgroundColor: theme.colors.accentMuted,
   },
   langBtnText: {
     fontSize: 14,
@@ -410,7 +654,7 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
   },
   langBtnTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.accent,
     fontWeight: '700',
   },
   backupButtonsRow: {
@@ -427,34 +671,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.sm,
   },
   exportBtnText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  csvButtonsCol: {
-    gap: theme.spacing.sm,
-  },
-  csvBtn: {
-    minHeight: 44,
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.border,
-    borderWidth: 1,
-    borderRadius: theme.radius.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing.sm,
-  },
-  csvBtnText: {
-    color: theme.colors.textPrimary,
+    color: '#121214',
     fontSize: 14,
     fontWeight: '700',
   },
   importBtn: {
     flex: 1,
     minHeight: 44,
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.border,
+    backgroundColor: theme.colors.surfaceCard,
     borderWidth: 1,
+    borderColor: theme.colors.border,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
@@ -467,75 +693,146 @@ const styles = StyleSheet.create({
   },
   importBox: {
     marginTop: theme.spacing.md,
-    backgroundColor: theme.colors.backgroundSecondary,
-    borderRadius: theme.radius.sm,
     padding: theme.spacing.sm,
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: theme.radius.sm,
     borderWidth: 1,
     borderColor: theme.colors.border,
   },
   importLabel: {
     fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textPrimary,
-    marginBottom: 6,
+    color: theme.colors.textSecondary,
+    marginBottom: theme.spacing.xs,
   },
   importInput: {
-    height: 100,
-    backgroundColor: theme.colors.surface,
-    borderColor: theme.colors.border,
+    minHeight: 80,
+    backgroundColor: theme.colors.background,
     borderWidth: 1,
+    borderColor: theme.colors.border,
     borderRadius: theme.radius.sm,
-    padding: 8,
+    padding: theme.spacing.sm,
     fontSize: 12,
-    fontFamily: 'System',
     color: theme.colors.textPrimary,
     textAlignVertical: 'top',
   },
   importActions: {
     flexDirection: 'row',
     gap: theme.spacing.sm,
-    marginTop: 8,
+    marginTop: theme.spacing.sm,
   },
   confirmImportBtn: {
     flex: 1,
-    minHeight: 40,
-    backgroundColor: theme.colors.accentDark,
+    minHeight: 44,
+    backgroundColor: theme.colors.accent,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },
   confirmImportBtnText: {
-    color: '#FFFFFF',
+    color: '#121214',
     fontSize: 13,
     fontWeight: '700',
   },
   cancelImportBtn: {
-    minHeight: 40,
-    paddingHorizontal: 12,
+    flex: 1,
+    minHeight: 44,
+    backgroundColor: theme.colors.surfaceCard,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },
   cancelImportBtnText: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.textPrimary,
     fontSize: 13,
-    fontWeight: '600',
   },
   infoBadge: {
     marginTop: theme.spacing.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
     padding: theme.spacing.sm,
+    backgroundColor: theme.colors.surfaceCard,
     borderRadius: theme.radius.sm,
   },
   infoBadgeText: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+  },
+  csvButtonsCol: {
+    gap: theme.spacing.sm,
+  },
+  csvBtn: {
+    minHeight: 44,
+    backgroundColor: theme.colors.surfaceCard,
+    borderColor: theme.colors.border,
+    borderWidth: 1,
+    borderRadius: theme.radius.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: theme.spacing.sm,
+  },
+  csvBtnText: {
+    color: theme.colors.textPrimary,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  appsList: {
+    gap: 8,
+  },
+  appItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+  },
+  appItemCurrent: {
+    borderColor: theme.colors.accent,
+  },
+  appItemIconWrapper: {
+    width: 36,
+    height: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  appItemMeta: {
+    flex: 1,
+  },
+  appItemTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  appItemName: {
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  currentBadge: {
+    backgroundColor: theme.colors.accent,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
+  currentBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#121214',
+  },
+  appItemDomain: {
+    fontSize: 12,
+    color: theme.colors.textPrimary,
+    marginTop: 1,
+  },
+  appItemDesc: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
-    lineHeight: 15,
+    color: theme.colors.textMuted,
+    marginTop: 2,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     paddingVertical: 4,
   },
   label: {
@@ -545,8 +842,7 @@ const styles = StyleSheet.create({
   codeText: {
     fontSize: 12,
     fontFamily: 'System',
-    color: theme.colors.accentDark,
-    fontWeight: '600',
+    color: theme.colors.accent,
   },
   valueText: {
     fontSize: 13,
@@ -559,16 +855,17 @@ const styles = StyleSheet.create({
     color: theme.colors.statusSuccess,
   },
   manifestoCard: {
+    padding: theme.spacing.md,
+    backgroundColor: theme.colors.surfaceCard,
+    borderRadius: theme.radius.md,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
     alignItems: 'center',
-    paddingVertical: theme.spacing.lg,
-    paddingHorizontal: theme.spacing.md,
   },
   manifestoTitle: {
     fontSize: 15,
     fontWeight: '800',
     color: theme.colors.accent,
-    textTransform: 'uppercase',
-    letterSpacing: 1,
     marginBottom: 4,
   },
   manifestoText: {
