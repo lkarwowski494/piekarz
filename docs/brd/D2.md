@@ -1,0 +1,43 @@
+# **Piekarz BRD 0.1 — Część D2: Wymagania niefunkcjonalne (2) (rozdz. 9\)**
+
+Specyfikacja wymagań niefunkcjonalnych dla obszarów: bezpieczeństwo i higiena danych (BEZP), magazyn SQLite (DANE), wzorce interakcji kuchennych (INT), rygor testowy (TEST) oraz wytyczne Apple App Store.
+
+---
+
+## **9.6 Obszar NFR-BEZP: Bezpieczeństwo i higiena danych**
+
+* **NFR-BEZP-001 (Szyfrowanie lokalne Data Protection):** Wszystkie pliki bazy danych w piaskownicy aplikacji są zabezpieczone atrybutem `FileProtectionType.completeUntilFirstUserAuthentication`.  
+* **NFR-BEZP-002 (Brak zewnętrznych SDK):** W projekcie nie występuje ani jedna zewnętrzna binarka SDK analitycznego, reklamowego czy śledzącego awarie (zero Crashlytics, zero Facebook SDK, zero AppsFlyer).  
+* **NFR-BEZP-003 (Ochrona przed wyciekiem do logów systemowych):** Dane receptur i notatek użytkownika nie są wypisywane do konsoli systemowej (`os_log` / `print`) w wersjach produkcyjnych Release.
+
+---
+
+## **9.7 Obszar NFR-DANE: Integralność bazy danych SQLite**
+
+* **NFR-DANE-001 (Tryb WAL \- Write-Ahead Logging):** Baza SQLite działa w trybie WAL z automatycznym punktem kontrolnym (checkpoint), co zapobiega uszkodzeniu pliku w przypadku nagłego rozładowania baterii telefonu w kuchni.  
+* **NFR-DANE-002 (Transakcyjność ACID):** Każda modyfikacja receptury, dodanie wpisu dokarmienia zakwasu i odhaczenie etapu odbywa się w ramach transakcji atomowej.  
+* **NFR-DANE-003 (Testowane migracje schematu):** Każda zmiana struktury bazy danych w kolejnych wersjach aplikacji posiada zautomatyzowany test migracji danych z wersji poprzednich (brak utraty receptur przy aktualizacji).
+
+---
+
+## **9.8 Obszar NFR-INT: Wzorce interakcji w trudnych warunkach kuchennych**
+
+* **NFR-INT-001 (Strefy dotykowe 64x64 pt):** Główne przyciski stolnicowe („Kolejny krok”, „+10 min”, „Pauza”) mają fizyczny wymiar dotykowy co najmniej 64x64 punkty z marginesem separacji 16 pt.  
+* **NFR-INT-002 (Ochrona przed przypadkowym zresetowaniem):** Resetowanie aktywnego wypieku lub usunięcie receptury wymaga dwustopniowego potwierdzenia (brak możliwości skasowania bochenka jednym przypadkowym stuknięciem).  
+* **NFR-INT-003 (Feedback haptyczny i dźwiękowy):** Każda kluczowa interakcja na stolnicy generuje wyrazistą odpowiedź haptyczną silnika Taptic Engine (`UIImpactFeedbackGenerator.style = .heavy`) oraz krótki dźwięk potwierdzenia.
+
+---
+
+## **9.9 Obszar NFR-TEST: Rygor testowy i jakość kodu**
+
+* **NFR-TEST-001 (Pokrycie silnika matematycznego):** Kod modułów KALK, DDT, HARMO i RD posiada pokrycie testami jednostkowymi (Unit Test Coverage) na poziomie \$\\ge 95%\$.  
+* **NFR-TEST-002 (Testy wektorów reguł):** Wszystkie 8 wektorów testowych zdefiniowanych w rozdziale C4a (TV-01…TV-08) są uruchamiane przy każdym commicie w potoku ciągłej integracji (CI).  
+* **NFR-TEST-003 (Testy UI na różnych urządzeniach):** Weryfikacja interfejsu na symulatorach iPhone SE (mały ekran), iPhone 16 Pro Max (duży ekran z Dynamic Island) oraz Apple Watch 41 mm i 49 mm (Ultra).
+
+---
+
+## **9.10 Obszar NFR-APP: Zgodność z wytycznymi Apple App Store Review Guidelines**
+
+* **NFR-APP-001 (Zgodność z 4.3b):** Zapewnienie bogatej funkcjonalności merytorycznej wykraczającej poza prosty timer (DDT, profil zakwasu, Live Activity, diagnostyka, watchOS).  
+* **NFR-APP-002 (Zgodność z 3.1.1 i 3.1.2):** Czyste zakupy IAP bez wymuszania zewnętrznych bramek płatności, pełna obsługa Restore Purchases.  
+* **NFR-APP-003 (Zgodność z 5.1.1):** Rejestracja i logowanie nie są wymagane w żadnym miejscu aplikacji.

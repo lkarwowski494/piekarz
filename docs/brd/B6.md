@@ -1,0 +1,40 @@
+# **Piekarz BRD 0.1 — Część B6: Podsumowanie liczb części B (rozdz. 7\)**
+
+Zestawienie metryczne wymagań funkcjonalnych narzędzi stolnicowych (część B specyfikacji).
+
+---
+
+## **1\. Statystyka wymagań części B według obszarów**
+
+| Kod | Nazwa obszaru funkcjonalnego | MUST | SHOULD | COULD | RAZEM | Etap MVP | Etap 1.1 | Etap 1.2 / 2.x |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| **KALK** | Kalkulator % i DDT | 10 | 3 | 1 | **14** | 11 | 2 | 1 |
+| **HARMO** | Harmonogram wsteczny i adaptacja | 8 | 2 | 0 | **10** | 9 | 1 | 0 |
+| **ETAP** | Asystent etapów i procedur | 14 | 1 | 0 | **15** | 15 | 0 | 0 |
+| **ZAKW** | Profil i dokarmianie zakwasu | 6 | 2 | 0 | **8** | 6 | 2 | 0 |
+| **RECP** | Baza receptur i dziennik | 4 | 1 | 0 | **5** | 4 | 1 | 0 |
+| **SPIZ** | Spiżarnia mąk i surowców | 0 | 2 | 1 | **3** | 0 | 2 | 1 |
+| **CZAS** | Timery i alarmy kuchenne | 3 | 0 | 0 | **3** | 3 | 0 | 0 |
+| **ZEG** | Aplikacja Apple Watch (watchOS) | 3 | 2 | 0 | **5** | 4 | 1 | 0 |
+| **GAR** | Zegarki sportowe Garmin | 1 | 1 | 0 | **2** | 1 | 1 | 0 |
+| **LIVE** | Live Activity i Dynamic Island | 3 | 0 | 0 | **3** | 3 | 0 | 0 |
+| **REKA** | Ergonomia „ręce w mące” | 2 | 1 | 0 | **3** | 3 | 0 | 0 |
+| **SYS** | Integracja systemowa iOS | 0 | 2 | 0 | **2** | 1 | 1 | 0 |
+| **DANE** | Magazyn danych SQLite i backup | 3 | 0 | 0 | **3** | 3 | 0 | 0 |
+| **WSP** | Wymiana receptur `.piekarz` | 1 | 1 | 0 | **2** | 1 | 1 | 0 |
+| **ZAK** | Model zakupowy StoreKit 2 | 3 | 0 | 0 | **3** | 3 | 0 | 0 |
+| **UST** | Ustawienia jednostek i motywy | 1 | 1 | 0 | **2** | 1 | 1 | 0 |
+| **PRYW** | Prywatność i brak śledzenia | 1 | 0 | 0 | **1** | 1 | 0 | 0 |
+| **DOST** | Dostępność i VoiceOver | 2 | 0 | 0 | **2** | 2 | 0 | 0 |
+| **SUMA** | **Część B (Narzędzia stolnicowe)** | **65** | **19** | **2** | **86** | **71** | **13** | **2** |
+
+---
+
+## **2\. Pokrycie założeń portfela Apps4Brew**
+
+1. **Pomysł 91 („Piekarz: procent piekarski i harmonogram wypieku”, scoring 81):**  
+   * Pokrycie w 100%: Receptura w procentach piekarskich (obszar KALK), skalowanie na wagę ciasta, harmonogram wsteczny (obszar HARMO), prowadzenie etapami z timerem i Live Activity (obszary ETAP, LIVE).  
+2. **Pomysł 35 („Fermentacja i zakwas”, scoring 70):**  
+   * Pokrycie w 100%: Połączone w jedną aplikację (zgodnie z wytyczną 4.3a); obszar ZAKW w pełni pokrywa rejestr partii, etapy fermentacji, przypomnienia lodówkowe, weryfikację bezpieczeństwa i bazę przepisów na odrzut zakwasu (discard).  
+3. **Synergia klastra K1 („Ręce i rytuały”):**  
+   * Ponowne użycie sprawdzonych wzorców z Oczka i Treningu: silnik etapów i wielotimerów, model zdarzeń zegarkowych watchOS, obsługa koronki i gestów, architektura SQLite offline-first.

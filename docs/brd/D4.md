@@ -1,0 +1,48 @@
+# **Piekarz BRD 0.1 — Część D4: Rejestr ryzyk i pytania otwarte (rozdz. 14, 16\)**
+
+Rejestr 50 ryzyk projektowych (RYZ-01…50), pytania otwarte (OP-01…OP-40) oraz kryteria gotowości wdrożeniowej (Go/No-Go).
+
+---
+
+## **14\. Rejestr 50 ryzyk projektowych (RYZ-01…RYZ-50)**
+
+Wybór kluczowych ryzyk z pełnego rejestru projektowego:
+
+| Kod | Obszar | Prawd. | Skutek | Opis ryzyka | Działanie mitygujące / Tarcza obronna |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| **RYZ-01** | Apple | Średnie | Krytyczny | Odrzucenie z wytycznej 4.3(b) jako „prosty timer piekarski” | Wdrożenie modułu nauki, kalkulatora DDT, bilansu zakwasu, integracji zegarkowej i „Doktora Chleba”; notatka wideo dla App Review |
+| **RYZ-02** | Apple | Niskie | Wysoki | Zarzut duplikacji 4.3(a) w stosunku do pomysłu „Zakwas” | Pełna fuzja Piekarza i Zakwasu w jedną spójną aplikację |
+| **RYZ-03** | Dane | Niskie | Krytyczny | Utrata bazy ulubionych receptur użytkownika przy aktualizacji | SQLite z transakcjami WAL, automatyczna kopia w iCloud Drive przed każdą migracją schematu |
+| **RYZ-04** | Merytoryka | Niskie | Wysoki | Błąd w formule DDT powodujący zaparzenie i śmierć drożdży | Rygorystyczne testy automatyczne z wektorami TV-05 i TV-06, blokada wydań |
+| **RYZ-05** | Ergonomia | Średnie | Średni | Brak reakcji gestu Double Tap przy dłoni oprószonej mąką | Alternatywne sterowanie koronką Digital Crown oraz fizycznymi przyciskami Garmina |
+| **RYZ-06** | Zdrowie | Niskie | Krytyczny | Zarzut zatrucia pleśnią z zaniedbanego zakwasu | Jasne instrukcje sanitarne (RD-13), bezwzględny nakaz wyrzucenia zapleśniałego zakwasu, klauzula w regulaminie |
+| **RYZ-07** | Biznes | Średnie | Średni | Zbyt niska konwersja do płatnej wersji przy cenie 0,99 € | 14-dniowy bezpłatny okres próbny pozwalający upiec co najmniej 3 bochenki chleba i docenić wartość Pro |
+| **RYZ-08** | Zegarki | Średnie | Średni | Opóźnienia w certyfikacji aplikacji Garmin Connect IQ | Rozbicie wydań: premiera iOS/watchOS w MVP (1.0), pełny Garmin w 1.1 z gotowym mostkiem |
+| **RYZ-09** | Bateria | Niskie | Średni | Nadmierne zużycie energii przez tryb kuchenny Stay-Awake | Automatyczne przywracanie wygaszania ekranu natychmiast po opuszczeniu ekranu aktywnego etapu |
+| **RYZ-10** | Dostępność | Niskie | Wysoki | Odrzucenie z powodu brakujących etykiet VoiceOver | 100% audyt dostępności z narzędziem Accessibility Inspector jako warunek wydania |
+
+*(Pełna lista ryzyk RYZ-11…RYZ-50 obejmuje m.in. błędy przeliczania jednostek imperialnych, przegrzanie telefonu w pobliżu piekarnika, zakłócenia Bluetooth przez blachy kuchenne, różnice w normach mąk międzynarodowych, kolizje powiadomień z trybem nocnym).*
+
+---
+
+## **16\. Rejestr pytań otwartych i warunki wstępne**
+
+### **16.1 Pytania otwarte dla właściciela produktu (OP-01…OP-40)**
+
+* **OP-01 (Formalność):** Czy zatwierdzasz wariant (b+) jako ostateczny zakres MVP? (Rekomendacja: TAK, DEC-01).  
+* **OP-02:** Czy oficjalna nazwa międzynarodowa to „Crust”? (Rekomendacja: TAK, DEC-05).  
+* **OP-03:** Czy zgadzasz się na przesunięcie pełnej certyfikacji Garmina do wersji 1.1 z zachowaniem prototypu w 1.0? (Rekomendacja: TAK, DEC-02).  
+* **OP-04:** Czy potwierdzasz brak jakichkolwiek oświadczeń medycznych dotyczących glutenu? (Rekomendacja: TAK, DEC-28).
+
+---
+
+## **16.2 Kryteria gotowości do wydania (Go/No-Go Checklist)**
+
+Przed wysłaniem aplikacji Piekarz do weryfikacji Apple App Review, zespół musi odhaczyć 100% poniższych kryteriów:
+
+- [ ] Wszystkie testy jednostkowe kalkulatora % i DDT (TV-01…TV-08) przechodzą ze statusem zielonym.  
+- [ ] Nagrano 60-sekundowe wideo prezentujące obsługę aplikacji w kuchni gestem na Apple Watch.  
+- [ ] Przygotowano plik `PrivacyInfo.xcprivacy` z deklaracją zerowego zbierania danych.  
+- [ ] Zweryfikowano działanie Live Activity na ekranie blokady oraz Dynamic Island na fizycznym iPhonie.  
+- [ ] Przeprowadzono test VoiceOver na wszystkich ekranach z zawiązanymi oczami.  
+- [ ] Skonfigurowano produkty IAP i Family Sharing w App Store Connect.

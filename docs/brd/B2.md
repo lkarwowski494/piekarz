@@ -1,0 +1,117 @@
+# **Piekarz BRD 0.1 — Część B2: Narzędzia ETAP, ZAKW, RECP, SPIZ (rozdz. 7\)**
+
+Specyfikacja wymagań dla asystenta etapów stolnicowych, zarządzania zakwasem, bazy receptur oraz spiżarni surowców.
+
+---
+
+## **7.3 Obszar ETAP: Asystent etapów i procedur stolnicowych**
+
+### **BR-ETAP-001: Tryb aktywnego wypieku (Live Baking Session)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2, P3  
+* **Opis:** Interfejs pełnoekranowy prowadzący piekarza krok po kroku przez bieżący proces z wielkim licznikiem czasu, nazwą etapu i wskazówkami technologicznymi.  
+* **Kryteria akceptacji:**  
+  1. Ekran nie wygasza się automatycznie podczas trwania aktywnego etapu stolnicowego (Stay Awake Mode).  
+  2. Wyraźny wskaźnik postępu (np. „Etap 4 z 9: Trzecie składanie coil fold”).
+
+### **BR-ETAP-002: Pętla interwałów składania ciasta (Folds Loop)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2  
+* **Opis:** Zarządza serią powtarzalnych składań ciasta w fazie fermentacji burzliwej (np. 4 składania co 30 minut).  
+* **Kryteria akceptacji:**  
+  1. Po odhaczeniu złożenia (na telefonie, zegarku lub Live Activity) system automatycznie uruchamia timer kolejnego interwału (np. 30 minut) i aktualizuje licznik: „Złożenie 2 z 4 ukończone”.  
+  2. Możliwość dodania dodatkowego złożenia lub wcześniejszego zakończenia pętli, jeśli siatka glutenowa jest już zadowalająca.
+
+### **BR-ETAP-003: Weryfikacja gotowości ciasta przed pieczeniem (Poke Test Guide)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2  
+* **Opis:** Instrukcja interaktywna oceny rozrostu ciasta w koszyku metodą próby palca (odbicie natychmiastowe \= niedorośnięte; powolne sprężyste wracanie z lekkim zagłębieniem \= gotowe; brak odbicia/zapadanie \= przekwaszone).  
+* **Kryteria akceptacji:**  
+  1. Wybór wyniku testu wpływa na rekomendację: „Wkładaj natychmiast do pieca” lub „Daj jeszcze 20 minut rozrostu”.
+
+---
+
+## **7.4 Obszar ZAKW: Zarządzanie profilem i dokarmianiem zakwasu**
+
+### **BR-ZAKW-001: Karta tożsamości zakwasu**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2, P3  
+* **Opis:** Profil zakwasu zawierający: imię zakwasu, datę założenia, rodzaj mąki bazowej (żytnia, pszenna, orkiszowa), typową hydratację (domyślnie 100%) oraz historię witalności.  
+* **Kryteria akceptacji:**  
+  1. Aplikacja przechowuje wskaźnik wieku zakwasu (np. „Twój zakwas 'Bolesław' ma już 320 dni”).  
+  2. Możliwość prowadzenia wielu profili zakwasów w wersji Pro (np. osobny żytni i osobny pszenny biały).
+
+### **BR-ZAKW-002: Asystent dokarmiania z kalkulatorem proporcji**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2  
+* **Opis:** Oblicza ilość starego zakwasu (startera), świeżej mąki i wody na podstawie wybranego stosunku dokarmienia (1:1:1, 1:2:2, 1:5:5) oraz potrzebnej masy zakwasu do przepisu.  
+* **Kryteria akceptacji:**  
+  1. Użytkownik wpisuje: „potrzebuję 160 g zakwasu do jutrzejszego chleba \+ 20 g na pozostawienie matki”. System wylicza dokładne wagi mąki i wody przy zadanym stosunku dokarmiania.
+
+### **BR-ZAKW-003: Wykrywanie i prognozowanie szczytu aktywności (Peak Forecast)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1  
+* **Opis:** Na podstawie wcześniejszych wpisów czasu podwojenia objętości system szacuje, o której godzinie dokarmiony zakwas osiągnie optymalny stan do rozpoczęcia wypieku.  
+* **Kryteria akceptacji:**  
+  1. Prezentacja przewidywanego okna szczytu: „Optymalny moment użycia: 13:30 – 15:00 (szczyt objętości)”.
+
+### **BR-ZAKW-004: Przypomnienia lodówkowe i alert bezpieczeństwa**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P2, P3  
+* **Opis:** Powiadomienia lokalne przypominające o dokarmieniu zakwasu przechowywanego w lodówce (domyślnie co 7 dni) oraz przewodnik postępowania przy pojawieniu się płynu głodowego (hooch).  
+* **Kryteria akceptacji:**  
+  1. Nienachalne powiadomienie po 6 i 7 dniach braku aktywności w profilu zakwasu.  
+  2. Baza wiedzy ze zdjęciami: jak odróżnić bezpieczny płyn alkoholowy od śmiertelnie groźnej pleśni.
+
+---
+
+## **7.5 Obszar RECP: Baza receptur i dziennik wypieków**
+
+### **BR-RECP-001: Biblioteka receptur bazowych Apps4Brew**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2, P3, P4  
+* **Opis:** Preinstalowany zestaw 6 dopracowanych technologicznie receptur mistrzowskich:  
+  1. Codzienny chleb wiejski na zakwasie (72% hydratacji, pszenno-żytni).  
+  2. Chleb 100% żytni razowy na kwasie (w foremce).  
+  3. Prosty chleb nocny bez wyrabiania (drożdżowy, 75% hydratacji).  
+  4. Bochenek o wysokiej hydratacji (80% hydratacji, zaawansowany).  
+  5. Pizza Napoletana (65% hydratacji, fermentacja 48h).  
+  6. Drożdżowa maślana chałka świąteczna.  
+* **Kryteria akceptacji:**  
+  1. Wszystkie receptury bazowe są zablokowane przed przypadkowym nadpisaniem, ale mogą być klonowane do edytowalnych kopii użytkownika.
+
+### **BR-RECP-002: Edytor autorskich receptur piekarskich**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P4  
+* **Opis:** Narzędzie do tworzenia własnych przepisów z dowolną listą mąk, dodatków (ziarna, orzechy, miód, oliwa), definiowaniem etapów i czasów składania.  
+* **Kryteria akceptacji:**  
+  1. Automatyczna walidacja spójności bilansu masowego podczas zapisu.
+
+### **BR-RECP-003: Dziennik wypieków ze zdjęciami i historią (Bake Log)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P4  
+* **Opis:** Po zakończeniu wypieku sesja jest zapisywana w historii z możliwością dodania oceny (1–5 gwiazdek), tagów miękiszu, notatki o smaku oraz 3 zdjęć (cały bochenek, nacięcie z uchem, przekrój miękiszu).  
+* **Kryteria akceptacji:**  
+  1. Zdjęcia są kompresowane lokalnie do formatu HEIC w celu oszczędności pamięci masowej urządzenia.
+
+---
+
+## **7.6 Obszar SPIZ: Spiżarnia mąk i surowców**
+
+### **BR-SPIZ-001: Rejestr parametrów mąki w spiżarni**
+
+* **Priorytet:** SHOULD · **Etap:** 1.1  
+* **Persona:** P1, P4  
+* **Opis:** Użytkownik może zdefiniować używane mąki, podając zawartość białka (np. 13,5 g/100 g), siłę mąki W (jeśli znana) oraz zawartość popiołu (Typ).  
+* **Kryteria akceptacji:**  
+  1. Podpowiedź sugerowanego bezpiecznego limitu hydratacji w zależności od zawartości białka (RD-14).

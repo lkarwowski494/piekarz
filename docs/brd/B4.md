@@ -1,0 +1,104 @@
+# **Piekarz BRD 0.1 — Część B4: Narzędzia REKA, SYS, DANE, WSP (rozdz. 7\)**
+
+Specyfikacja wymagań dla interakcji bezdotykowej, integracji systemowej iOS, magazynu danych i wymiany receptur.
+
+---
+
+## **7.11 Obszar REKA: Ergonomia pracy z dłońmi w mące i cieście**
+
+### **BR-REKA-001: Tryb kuchenny — blokada wygaszania ekranu (Kitchen Stay-Awake)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2, P3  
+* **Opis:** Zapobieganie automatycznemu usypianiu i blokowaniu ekranu iPhone'a podczas aktywnego etapu stolnicowego (mieszanie, składanie, formowanie).  
+* **Kryteria akceptacji:**  
+  1. Aplikacja ustawia `isIdleTimerDisabled = true` wyłącznie na ekranie aktywnego wypieku.  
+  2. Po zakończeniu sesji wypiekowej lub ręcznym wyjściu do menu głównego, wygaszanie ekranu powraca do standardowych ustawień systemowych iOS w celu ochrony baterii.
+
+### **BR-REKA-002: Obsługa przycisku czynności (Action Button) w nowszych iPhone'ach**
+
+* **Priorytet:** SHOULD · **Etap:** MVP  
+* **Persona:** P1  
+* **Opis:** Przypisanie skrótu sprzętowego przycisku Action Button do natychmiastowego odhaczenia bieżącego kroku bez konieczności dotykania powierzchni ekranu.  
+* **Kryteria akceptacji:**  
+  1. Jedno naciśnięcie Action Button odhacza bieżące składanie lub wycisza dzwonek pieca.  
+  2. Potwierdzenie haptyczne oraz głosowe (krótki komunikat audio: „Składanie zapisane”).
+
+### **BR-REKA-003: Wielkie strefy dotykowe w interfejsie stolnicy (Dough-Friendly Tap Targets)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P2, P3  
+* **Opis:** Wszystkie przyciski akcji na ekranie stolnicowym mają wymiary co najmniej 64x64 pt i wyraźne odstępy, umożliwiając trafienie w nie łokciem, nadgarstkiem lub czystym fragmentem dłoni.  
+* **Kryteria akceptacji:**  
+  1. Spełnienie standardu ergonomii kuchennej potwierdzone testami laboratoryjnymi z ubrudzonymi dłońmi.
+
+---
+
+## **7.12 Obszar SYS: Integracja z ekosystemem iOS / watchOS**
+
+### **BR-SYS-001: Kontrolki systemowe Control Center (iOS 18\)**
+
+* **Priorytet:** SHOULD · **Etap:** MVP  
+* **Persona:** P1  
+* **Opis:** Dedykowane kontrolki do umieszczenia w systemowym Centrum Sterowania oraz na ekranie blokady: „Szybki kalkulator ciasta”, „Stan zakwasu”, „Zatrzymaj timer”.  
+* **Kryteria akceptacji:**  
+  1. Zbudowane w oparciu o WidgetKit / App Intents API z natychmiastowym czasem reakcji.
+
+### **BR-SYS-002: Skróty i komendy głosowe Siri (Siri Shortcuts)**
+
+* **Priorytet:** SHOULD · **Etap:** 1.1  
+* **Persona:** P1, P2  
+* **Opis:** Obsługa komend głosowych w kuchni: „Hej Siri, ile zostało do kolejnego składania w Piekarzu?”, „Hej Siri, odhacz składanie w Piekarzu”.  
+* **Kryteria akceptacji:**  
+  1. Predefiniowane szablony App Shortcuts dostępne w aplikacji Skróty bez konieczności manualnej konfiguracji przez użytkownika.
+
+---
+
+## **7.13 Obszar DANE: Baza lokalna, kopia zapasowa i bezpieczeństwo**
+
+### **BR-DANE-001: Niezawodny magazyn lokalny SQLite / SwiftData**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** Wszyscy  
+* **Opis:** Zapis wszystkich receptur, historii wypieków i parametrów zakwasu w lokalnej, transakcyjnej bazie danych na urządzeniu.  
+* **Kryteria akceptacji:**  
+  1. 100% odporność na nagłe wyłączenie aplikacji lub rozładowanie baterii (transakcje ACID z natychmiastowym zapisem stanu kroków).  
+  2. Baza danych nie wymaga żadnego logowania ani połączenia z serwerem zewnętrznym.
+
+### **BR-DANE-002: Automatyczna kopia zapasowa w prywatnym iCloud Drive**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** Wszyscy  
+* **Opis:** System automatycznie wykonuje kopię migawkową bazy danych w prywatnym kontenerze iCloud Drive użytkownika po każdej zmianie receptury lub ukończeniu wypieku.  
+* **Kryteria akceptacji:**  
+  1. Kopia jest przechowywana w chmurze użytkownika bez dostępu twórców aplikacji (pełna prywatność).  
+  2. Funkcja jest zawsze bezpłatna (zgodnie z ZP-07).
+
+### **BR-DANE-003: Otwarty eksport i import bazy w formacie JSON**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1  
+* **Opis:** Użytkownik może w dowolnym momencie wyeksportować całą swoją historię, zakwasy i przepisy do czytelnego pliku `.json`.  
+* **Kryteria akceptacji:**  
+  1. Plik eksportu jest w pełni udokumentowany, czytelny dla człowieka i umożliwia import na innym urządzeniu.
+
+---
+
+## **7.14 Obszar WSP: Wymiana receptur i rzemieślnicza współpraca**
+
+### **BR-WSP-001: Format pliku receptury `.piekarz` (Baker File)**
+
+* **Priorytet:** MUST · **Etap:** MVP  
+* **Persona:** P1, P4  
+* **Opis:** Lekki, ustandaryzowany plik zawierający kompletny bilans składników, procenty piekarskie, parametry DDT oraz harmonogram etapów.  
+* **Kryteria akceptacji:**  
+  1. Kliknięcie pliku `.piekarz` w systemie iOS (AirDrop, Załącznik iMessage/Mail, Pliki) automatycznie otwiera aplikację Piekarz z podglądem i pytaniem: „Czy chcesz dodać recepturę do swojej księgi?”.  
+  2. Receptura importowana zachowuje pełne autorstwo oryginalnego twórcy.
+
+### **BR-WSP-002: Generowanie estetycznej karty graficznej bochenka (Recipe Card PNG)**
+
+* **Priorytet:** SHOULD · **Etap:** 1.1  
+* **Persona:** P1, P4  
+* **Opis:** Eksport przepisu w formie minimalistycznej karty graficznej o proporcjach 9:16 (Stories) lub 1:1 z tabelą procentów, hydratacją i zdjęciem przekroju.  
+* **Kryteria akceptacji:**  
+  1. Czysty, elegancki design rzemieślniczy z logo Piekarz / Apps4Brew jako organiczny motor poleceń.

@@ -1,0 +1,167 @@
+# **Piekarz BRD 0.1 — Część A1: Wizja, problem, persony (rozdz. 1–3)**
+
+**Autor:** analityk biznesowy studia Apps4Brew, 15.10.2026.  
+**Skróty źródeł:** R1–R6 \= research portfela Apps4Brew; ZP \= Zasady Produktu; KON \= kontekst marki; DEC \= decyzje właściciela.
+
+---
+
+## **1\. Wizja i obietnica**
+
+### **1.1 Wizja (jeden akapit)**
+
+Piekarz to kieszonkowy mistrz piekarski i asystent stolnicy dla każdego, kto piecze chleb na zakwasie, pizzę neapolitańską i bułki rzemieślnicze. Uwalnia ręce oblepione ciastem i mąką dzięki intuicyjnej obsłudze z poziomu Apple Watch (gesty, koronka), zegarka Garmin i ekranu blokady (Live Activity). Zamienia skomplikowaną matematykę procentów piekarskich i bilansu hydratacji w intuicyjny, automatyczny rachunek. Prowadzi piekarza przez cały proces harmonogramem liczonym wstecz od godziny wyjęcia gorącego bochenka z pieca, kontrolując temperaturę wody (DDT), interwały składania ciasta i witalność zakwasu. Działa w 100% offline, bez logowania, bez konta i bez reklam, w 35 językach, a dane pozostają bezpieczne na urządzeniu użytkownika.
+
+**Obietnica w jednym zdaniu:**  
+*„Piecz chleb, nie licz — receptura przelicza się sama, a harmonogram pilnuje każdego złożenia bez dotykania telefonu.”*
+
+---
+
+### **1.2 Marka, nazwa i pozycjonowanie**
+
+| Element | Ustalenie | Status |
+| :---- | :---- | :---- |
+| **Studio** | Apps4Brew („tańsze niż espresso”; aplikacje rzemieślnicze, zero serwerów, etyczny model) | Obowiązuje |
+| **Klaster** | K1 „Ręce i rytuały” (wspólny silnik z Oczkiem i Naparem: etapy, sesje, timery zegarkowe) | Obowiązuje |
+| **Półka cenowa** | Półka 1 (0,99 € miesięcznie / 4,99 € rocznie / 14,99 € dożywotnio; w Polsce: 3,99 zł / 19,99 zł / 59,99 zł) | Obowiązuje |
+| **Nazwa PL** | „Piekarz” (z podtytułem: „procent piekarski i zakwas”) | Ustalone roboczo |
+| **Nazwa międzynarodowa** | „Crust” (podtytuł: „Sourdough & Bread Baking Assistant”) | Do zatwierdzenia (DEC-05) |
+| **Bundle ID** | `com.apps4brew.baker` | Rekomendacja (DEC-04) |
+
+---
+
+### **1.3 Zasady produktu (nienegocjowalne w każdym etapie)**
+
+| \# | Zasada | Uzasadnienie i źródło |
+| :---- | :---- | :---- |
+| **ZP-01** | **Ręce w mące ponad wszystko.** Kluczowe akcje (następny krok, pauza timera, odhaczenie złożenia) muszą być dostępne bezdotykowo lub jedną ręką: Apple Watch (gest podwójnego stuknięcia, koronka), Garmin (fizyczne przyciski), Action Button na iPhonie, wielkie przyciski Live Activity. | Ręce ubrudzone kleistym ciastem lub pokryte mąką uniemożliwiają tradycyjne dotykanie smartfona. Skarga \#1 domowych piekarzy na aplikacje z przepisami. |
+| **ZP-02** | **Bez konta i bez logowania.** Żadnego rejestrowania się e-mailem, zero haseł, zero quizów wprowadzających. Pierwszy ekran po uruchomieniu to gotowy kalkulator ciasta. | Zgodność ze standardem Apps4Brew; skargi użytkowników na zmuszanie do zakupu i zakładania profilu przed użyciem narzędzia. |
+| **ZP-03** | **Bez serwera i bez chmurowego AI.** Wszystkie obliczenia procentu piekarskiego, DDT, adaptacji czasów i algorytmów diagnostycznych odbywają się lokalnie na procesorze urządzenia (Swift / CoreData). Koszt krańcowy \= 0\. | Niezawodność w kuchniach, piwnicach i domkach letniskowych bez zasięgu sieci; zero kosztów stałych dla studia. |
+| **ZP-04** | **Bez reklam i bez śledzenia.** Zero banerów, zero wideo z nagrodami, pełne „Data Not Collected” w App Store Privacy Label. | Reklamy w aplikacjach kulinarnych budzą wściekłość, zasłaniając recepturę w trakcie odliczania czasu. |
+| **ZP-05** | **Rygorystyczny bilans masowy (True Baker's %).** Mąka i woda z zakwasu są bezwzględnie wliczane do całkowitej hydratacji ciasta. Brak zaokrągleń pośrednich. | Podstawowy błąd amatorskich kalkulatorów, fałszujący gęstość ciasta o 3–8% i prowadzący do rozlania bochenka. |
+| **ZP-06** | **Dane nie znikają.** Zapis lokalny do bazy SQLite z automatycznym backupem do prywatnego iCloud Drive użytkownika. Eksport bazy receptur do pliku otwartego JSON. | Utrata ulubionych, dopracowywanych miesiącami receptur to trauma piekarza. |
+| **ZP-07** | **Kopia i eksport zawsze bezpłatne.** Użytkownik ma pełne prawo wyeksportować swoje receptury i historię wypieków bez konieczności płacenia abonamentu. | Zasada etyczna Apps4Brew i wytyczna Apple 4.10. |
+| **ZP-08** | **Uczciwy model cenowy.** Darmowy rdzeń bez ograniczeń czasowych (kalkulator na 1 bochenek, podstawowy timer, 1 profil zakwasu). Wersja pełna z transparentną ceną przed zakupem. Nigdy nie odbieramy kupionych funkcji. | Budowanie długoterminowego zaufania niszowych społeczności kulinarnych. |
+| **ZP-09** | **Szacunek dla własności receptur.** Import receptur z notatek i plików użytkownika; brak scrapowania cudzych płatnych e-booków kulinarnych, brak publikowania cudzych materiałów bez zgody. | Ochrona prawna i etyka rzemieślnicza (wytyczne Apple 5.2.1). |
+| **ZP-10** | **Dostępność i czytelność w kuchni.** Dynamic Type, tryb wysokiego kontrastu, pełne wsparcie VoiceOver (udźwiękowienie timerów i składników), obsługa w trudnych warunkach oświetleniowych. | Gotowanie i pieczenie wymaga czytelności ekranu z odległości 1–1,5 metra na blacie kuchennym. |
+| **ZP-11** | **Wiedza oparta wyłącznie na źródłach mistrzowskich.** Żadnych halucynacji AI w poradach technologicznych; każda porada, temperatura DDT i profil kwasowości oparty na literaturze naukowej i podręcznikach (Calvel, Hamelman, Robertson). | Błędna technologia piekarska niszczy wielogodzinny proces i marnuje składniki. |
+| **ZP-12** | **Kompensacja temperatury otoczenia.** Harmonogram nie może być sztywną tabelą zegarową – musi dynamicznie ostrzegać o spowolnieniu fermentacji w chłodnej kuchni (np. 19°C) lub jej gwałtownym przyspieszeniu latem (28°C). | Zastosowanie współczynnika termiki biologicznej \$Q\_{10}\$. |
+| **ZP-13** | **Spokój i skupienie (Slow Food).** Neutralny, ciepły język rzemieślniczy. Brak gamifikacji zmuszającej do codziennych „serii”, brak presji powiadomień marketingowych. | Pieczenie to hobby relaksujące i medytacyjne. |
+| **ZP-14** | **Połączenie Piekarza i Zakwasu.** Zakwas i wypiek chleba stanowią nierozerwalną całość jednego cyklu technologicznego. | Spełnienie wytycznej Apple 4.3(a) o zakazie sztucznego mnożenia mikroskopijnych aplikacji. |
+| **ZP-15** | **Architektura przenośna od pierwszego dnia.** Czysty kod Swift bez powiązań z prywatnymi danymi programisty, możliwość przeniesienia projektu do organizacji Apps4Brew na GitHubie. | Wymóg standardu architektonicznego Apps4Brew. |
+| **ZP-16** | **Zero kosztów infrastruktury.** 0 zł wydatków stałych na serwery AWS/Firebase. Całość działa na urządzeniach użytkownika. | Gwarancja rentowności przy cenie 0,99 € / mies. |
+
+---
+
+## **2\. Problem i dowody rynkowe**
+
+### **2.1 Wielkość grupy docelowej i boom na chleb rzemieślniczy**
+
+Pieczenie chleba w domu przeszło ewolucję od zrywu pandemicznego do trwałego, dynamicznie rosnącego hobby rzemieślniczego o charakterze „craft lifestyle”.
+
+* **Społeczność r/Sourdough (Reddit):** ponad 520 000 zarejestrowanych członków, setki postów dziennie z prośbami o diagnozę miękiszu i obliczenia hydratacji.  
+* **Stany Zjednoczone:** Szacuje się, że ponad 14 milionów gospodarstw domowych w USA piecze pieczywo rzemieślnicze co najmniej raz w miesiącu (dane stowarzyszeń młynarskich i producentów żeliwa kuchennego).  
+* **Polska:** Rynek domowego pieczywa i pizzy domowej (zwłaszcza z piecyków Effeuno/Ooni) notuje stały wzrost; grupy facebookowe poświęcone zakwasowi skupiają po 80–150 tysięcy aktywnych członków.
+
+---
+
+### **2.2 Problem 1: Kleiste dłonie i zniszczone ekrany smartfonów**
+
+Podczas mieszania ciasta o hydratacji 75–80% dłonie piekarza są pokryte gęstą, lepką mazią.
+
+* W recenzjach aplikacji z przepisami kulinarnymi aż **38% skarg 1–3★** dotyczy konieczności ciągłego odblokowywania telefonu i dotykania ekranu brudnymi rękami w celu włączenia kolejnego timera.  
+* Telefony spadają z blatów, brudzą się mąką, a rozpoznawanie twarzy FaceID często nie działa przy pochyleniu nad stolnicą pod ostrym kątem.  
+* **Dowód z recenzji użytkowników:**  
+  * *„I love baking sourdough, but touching my iPhone with wet dough hands every 30 minutes for coil folds is a nightmare. I ruined my screen protector.”* (App Store US, 2★).  
+  * *„Potrzebuję aplikacji na Apple Watch, która pozwoli mi jednym kliknięciem zacząć odliczanie kolejnego składania bez podchodzenia do telefonu.”* (Forum piekarskie, 2025).
+
+---
+
+### **2.3 Problem 2: Błędy w matematyce procentu piekarskiego i oszukana hydratacja**
+
+Większość domowych piekarzy ma problem z właściwym skalowaniem receptur.
+
+* Tradycyjne przepisy w książkach operują gramami na 1 bochenek (np. 450 g mąki, 310 g wody, 100 g zakwasu). Gdy piekarz chce upiec 3 bochenki lub dopasować ciasto do formy o określonej objętości, musi przeliczać ułamki ręcznie.  
+* Powszechny błąd: ignorowanie składu zakwasu (50 g mąki i 50 g wody) w całkowitym bilansie wody, co prowadzi do zbyt lepkiego ciasta, niemożliwego do uformowania w bochenek.  
+* **Dowód:** Pytania typu *„Dlaczego moje ciasto 70% rozlało się jak naleśnik?”* stanowią 42% wszystkich postów początkujących piekarzy na grupach dyskusyjnych.
+
+---
+
+### **2.4 Problem 3: Chaotyczny harmonogram i rozjechane czasy wypieku**
+
+Cykl pieczenia chleba na zakwasie trwa od 18 do 36 godzin (dokarmienie zakwasu → autoliza → fermentacja burzliwa ze składaniami co 30–45 min → formowanie → garowanie chłodnicze w lodówce 12–18h → nagrzanie pieca → pieczenie).
+
+* Piekarze regularnie spóźniają się z wyjściem do pracy, idą spać o 2:00 w nocy, bo ciasto jeszcze nie wyrosło, lub wyjmują przekwaszony chleb (over-proofed).  
+* Brak narzędzia, które liczy czas **wstecz**: wpisujesz „chcę ciepły chleb w niedzielę o 09:00 rano”, a system mówi: „dokarm zakwas w piątek o 21:30, zacznij autolizę w sobotę o 11:00”.
+
+---
+
+### **2.5 Problem 4: Model biznesowy konkurencji i zawodne aplikacje**
+
+Analiza konkurencyjnych aplikacji piekarskich w App Store (Rise, Sourdough Bread App, The Sourdough Club):
+
+* **Agresywne paywalle:** wymuszanie drogich subskrypcji (np. 39,99 USD rocznie) za prosty przelicznik gramów.  
+* **Zawodność timerów:** aplikacje usypiane w tle przez iOS, brak wsparcia dla Live Activity i Dynamic Island.  
+* **Brak integracji z zegarkami:** niemal całkowity brak dedykowanych aplikacji na watchOS i Garmin Connect IQ w tej niszy.
+
+---
+
+## **3\. Persony i sytuacje użytkowników**
+
+### **3.1 Persony główne**
+
+#### **P1: Piotr (36 lat) — Domowy Rzemieślnik i Entuzjasta Precyzji**
+
+* **Profil:** Pracownik branży technologicznej, piecze chleb w każdy weekend dla rodziny i przyjaciół. Posiada żeliwny garnek, koszyki rozrostowe, żyletkę UFO do nacinania oraz Apple Watch Ultra.  
+* **Cel:** Uzyskanie powtarzalnego, otwartego miękiszu (open crumb) i spektakularnego „ucha” (ear).  
+* **Ból:** Notatki w papierowym zeszycie brudzą się mąką; gubi rachubę, które to było złożenie (trzecie czy czwarte?); zapomina sprawdzić temperatury wody do DDT.  
+* **Kluczowa funkcja:** Kalkulator DDT z termiką tarcia, obsługa gestem na Apple Watch, szczegółowy dziennik wypieków.
+
+#### **P2: Kasia (29 lat) — Zapracowana Mama Piekąca dla Zdrowia**
+
+* **Profil:** Piecze prosty chleb codzienny, unikając chemii i polepszaczy ze sklepu. Piecze między pracą zdalną a opieką nad dziećmi.  
+* **Cel:** Upieczenie zdrowego, smacznego chleba bez konieczności ciągłego śledzenia zegarka i stresu.  
+* **Ból:** Często zapomina o cieście stojącym w misce – ciasto przekwasza się na blacie, bo pochłonęły ją spotkania w pracy.  
+* **Kluczowa funkcja:** Głośne powiadomienia Time-Sensitive, asystent harmonogramu wstecznego dopasowany do godzin pracy.
+
+#### **P3: Pan Janusz (67 lat) — Tradycyjny Mistrz Żyta**
+
+* **Profil:** Emerytowany majsterkowicz. Od 15 lat piecze ciężkie, tradycyjne chleby 100% żytnie razowe w foremkach keksowych na własnym, starym kwasie.  
+* **Cel:** Niezawodny chleb o głębokim smaku, który zachowuje świeżość przez tydzień.  
+* **Ból:** Słabszy wzrok, trudności w odczytywaniu małych cyfr na smartfonie, nowoczesne aplikacje są przeładowane skomplikowanym slangiem w języku angielskim.  
+* **Kluczowa funkcja:** Wielki kontrast, Dynamic Type, prosty tryb foremkowego chleba żytniego (bez składania ciasta).
+
+#### **P4: Ania (21 lat) — Pasjonatka Pizzy Neapolitańskiej i Focacci**
+
+* **Profil:** Studentka, piecze pizzę w domowym piecyku wysokotemperaturowym. Eksperymentuje z mąkami Caputo, długą fermentacją w lodówce (do 72h) i różnymi rodzajami drożdży.  
+* **Cel:** Idealne wyliczenie ilości drożdży (np. 0,4 g świeżych drożdży na 6 kulek pizzy) oraz hydratacji 65–70%.  
+* **Ból:** Wagi kuchenne nie mierzą dobrze poniżej 1 grama, a przeliczanie z drożdży suchych na świeże sprawia trudność.  
+* **Kluczowa funkcja:** Precyzyjny kalkulator drożdży z uwzględnieniem temperatury i czasu fermentacji (pizza calculator).
+
+#### **P5: Marek — Persona Dostępności (VoiceOver / Słabowidzący)**
+
+* **Profil:** Osoba słabowidząca, dla której pieczenie jest pasją zmysłową (zapach, dotyk struktury ciasta, dźwięk chrupiącej skórki).  
+* **Ból:** Aplikacje kulinarne z nieoznaczonymi przyciskami graficznymi, brak etykiet dostępności przy polach timerów.  
+* **Kluczowa funkcja:** 100% wsparcie dla VoiceOver, czytelne komunikaty audio o upływie czasu poszczególnych etapów.
+
+---
+
+### **3.2 Kluczowe sytuacje użytkowe (SYT-01…SYT-15)**
+
+| Kod | Nazwa sytuacji | Opis przebiegu i potrzeba w aplikacji |
+| :---- | :---- | :---- |
+| **SYT-01** | Składanie ciasta z lepkimi rękami | Użytkownik wykonuje coil fold oburącz. Kończy etap, ma mokre dłonie. Spogląda na Apple Watch, wykonuje gest podwójnego stuknięcia kciukiem i palcem wskazującym — timer kolejnego składania (30 min) rusza natychmiast. |
+| **SYT-02** | Planowanie niedzielnego śniadania | Piątek, 18:00. Użytkownik wybiera recepturę „Wiejski pszenny”, klika „Harmonogram wsteczny” i wpisuje: Niedziela 08:30. Aplikacja natychmiast generuje plan: dokarm zakwas dzisiaj o 22:00, zacznij autolizę w sobotę o 10:00, wstaw do lodówki o 15:30. |
+| **SYT-03** | Upalny dzień w kuchni (28°C) | Temperatura w kuchni wzrosła. Użytkownik wpisuje aktualną temperaturę otoczenia. Aplikacja przelicza czas fermentacji burzliwej z 4,5h na 2h 45 min, ostrzegając przed przekwaszeniem ciasta. |
+| **SYT-04** | Zimna mąka z piwnicy i gorąca woda | Mąka stała w spiżarni o temp. 14°C. Piekarz chce uzyskać ciasto o temperaturze DDT 25°C. Kalkulator wylicza, że woda do autolizy musi mieć dokładnie 38°C, aby skompensować chłód mąki. |
+| **SYT-05** | Zapomniany zakwas w lodówce | Zakwas stoi w lodówce od 6 dni. Aplikacja wysyła spokojne, nienachalne powiadomienie z przypomnieniem o dokarmieniu, podając dokładne proporcje 1:2:2. |
+| **SYT-06** | Skalowanie receptury na 3 keksówki | Receptura ze strony WWW jest na 1 bochenek (750 g). Użytkownik ma 3 keksówki mieszczące po 600 g ciasta. Wpisuje masę całkowitą 1800 g — aplikacja automatycznie przelicza gramatury wszystkich mąk, wody i soli. |
+| **SYT-07** | Rozpoznawanie problemu z bochenkiem | Chleb po upieczeniu jest płaski, a w środku ma zbity dół i ogromne dziury pod skórką. Użytkownik otwiera „Doktora Chleba”, wybiera zdjęcie pasujące do jego przekroju i natychmiast dowiaduje się: „Znaczne niedofermentowanie (under-proofed). Skróć autolizę, wydłuż fermentację burzliwą o 1 godzinę”. |
+| **SYT-08** | Nocne pieczenie w ciemności | Godzina 05:00 rano, domownicy śpią. Piekarz wchodzi do kuchni nagrzać piec. Włącza aplikację w trybie bursztynowego kontrastu OLED, który nie oślepia oczu i pozwala sprawdzić kolejny krok. |
+| **SYT-09** | Wypiek w garnku żeliwnym (faza pary) | Timer piekarnika dzwoni po 20 minutach. Live Activity na ekranie blokady pokazuje komunikat z wibracją: „Zdejmij pokrywkę garnka, obniż temperaturę do 210°C, dopiekaj 22 minuty”. |
+| **SYT-10** | Dzielenie się recepturą z przyjacielem | Użytkownik dopracował własny chleb z dodatkiem prażonych ziaren słonecznika. Jednym kliknięciem eksportuje plik `.piekarz` i przesyła go przez AirDrop znajomemu piekarzowi. |
+| **SYT-11** | Brak zasięgu w domku w górach | Użytkownik piecze chleb na wakacjach bez dostępu do Internetu. Aplikacja działa bez zająknięcia: przelicza receptury, odlicza czasy, nie wyświetla błędów sieciowych. |
+| **SYT-12** | Zastąpienie mąki chlebowej mąką pełnoziarnistą | Piekarzowi skończyła się mąka typ 750, dodaje 30% mąki razowej typ 2000\. Aplikacja podpowiada: „Mąka razowa wchłania więcej wody. Sugerujemy zwiększenie hydratacji o 3% i skrócenie autolizy”. |
+| **SYT-13** | Praca z zegarkiem Garmin na nadgarstku | Użytkownik podczas wyrabiania ciasta na stolnicy zerka na zegarek Garmin Fēnix. Naciska fizyczny boczny przycisk START/STOP, resetując timer interwału bez brudzenia dotykowego ekranu. |
+| **SYT-14** | Pytanie o bezpieczeństwo: czy ten zakwas żyje? | Na powierzchni zakwasu pojawił się płyn o zapachu alkoholu (hooch). Użytkownik sprawdza przewodnik zakwasu: „To płyn głodowy, zakwas jest zdrowy, odlej płyn i dokarm w proporcji 1:2:2”. |
+| **SYT-15** | Wypiek chleba 100% żytniego | Pan Janusz piecze żytni razowiec. Aplikacja wyłącza procedurę składania ciasta, prowadząc go bezpośrednio przez etap mieszania, przekładania do formy i jednorazowego rozrostu końcowego. |
+
