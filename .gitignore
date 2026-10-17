@@ -17,3 +17,5 @@ ios/
 android/
 .env
 .env.*
+.stryker-tmp/
+reports/

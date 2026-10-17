@@ -95,11 +95,16 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
   });
 
   // --------------------------------------------------------------------------
-  // SEC-02: Deklaracja Privacy Manifests w app.json (BR-REL-010, ITMS-91053)
+  // SEC-02: Deklaracja Privacy Manifests, brak audio w tle i supportsTablet: false (BR-REL-009, 010, 013)
   // --------------------------------------------------------------------------
-  test('SEC-02: app.json includes privacyManifests with 4 Required Reason API categories', () => {
+  test('SEC-02: app.json enforces iPhone single-hand model, privacy manifests, and no background audio', () => {
     const appJsonPath = path.resolve(__dirname, '../app.json');
     const appJson = JSON.parse(fs.readFileSync(appJsonPath, 'utf-8'));
+    
+    // Apple HIG & Guideline 2.5.4
+    expect(appJson.expo?.ios?.supportsTablet).toBe(false);
+    expect(appJson.expo?.ios?.infoPlist?.UIBackgroundModes).toBeUndefined();
+
     const manifests = appJson.expo?.ios?.privacyManifests;
     expect(manifests).toBeDefined();
     expect(Array.isArray(manifests.NSPrivacyAccessedAPITypes)).toBe(true);
@@ -274,5 +279,26 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/testflight.yml'))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/tests-tz.yml'))).toBe(true);
     expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/e2e-ios.yml'))).toBe(true);
+    expect(fs.existsSync(path.resolve(__dirname, '../.github/workflows/nightly.yml'))).toBe(true);
+
+    // TestFlight ancestor gate (BR-REL-005)
+    const tfContent = fs.readFileSync(path.resolve(__dirname, '../.github/workflows/testflight.yml'), 'utf-8');
+    expect(tfContent).toContain('git merge-base --is-ancestor "$GITHUB_SHA" origin/master');
+
+    // Mutation Testing Stryker (BR-TEST-032, RD-ENG-08)
+    expect(fs.existsSync(path.resolve(__dirname, '../stryker.config.json'))).toBe(true);
+    expect(fs.existsSync(path.resolve(__dirname, '../jest.mutation.config.js'))).toBe(true);
+  });
+
+  // --------------------------------------------------------------------------
+  // RD-ENG-09: Polska odmiana liczebników (pluralPl)
+  // --------------------------------------------------------------------------
+  test('RD-ENG-09: pluralPl correctly inflects Polish nouns', () => {
+    const { pluralPl } = require('../src/lib/i18n');
+    expect(pluralPl(1, 'seria', 'serie', 'serii')).toBe('1 seria');
+    expect(pluralPl(2, 'seria', 'serie', 'serii')).toBe('2 serie');
+    expect(pluralPl(5, 'seria', 'serie', 'serii')).toBe('5 serii');
+    expect(pluralPl(12, 'seria', 'serie', 'serii')).toBe('12 serii');
+    expect(pluralPl(22, 'seria', 'serie', 'serii')).toBe('22 serie');
   });
 });

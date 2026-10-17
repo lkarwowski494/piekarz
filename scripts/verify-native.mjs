@@ -32,6 +32,14 @@ check(
   infoPlist.ITSAppUsesNonExemptEncryption === false,
   'app.json (ios.infoPlist) musi mieć ITSAppUsesNonExemptEncryption = false'
 );
+check(
+  appJson.ios?.supportsTablet === false,
+  'app.json (ios.supportsTablet) musi wynosić false dla jednoręcznej aplikacji iPhone (BR-REL-009)'
+);
+check(
+  !infoPlist.UIBackgroundModes || !infoPlist.UIBackgroundModes.includes('audio'),
+  'app.json nie może zawierać UIBackgroundModes: ["audio"] (Apple Guideline 2.5.4)'
+);
 
 // 4. Zakaz niechcianych uprawnień śledzących i zbędnych
 const forbiddenPermissions = [

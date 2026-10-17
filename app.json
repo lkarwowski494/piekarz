@@ -16,12 +16,11 @@
       "backgroundColor": "#121214"
     },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.apps4brew.baker",
       "appleTeamId": "8NQ9GHY8GF",
       "buildNumber": "1",
       "infoPlist": {
-        "UIBackgroundModes": ["audio"],
         "UIFileSharingEnabled": true,
         "LSSupportsOpeningDocumentsInPlace": true,
         "ITSAppUsesNonExemptEncryption": false,

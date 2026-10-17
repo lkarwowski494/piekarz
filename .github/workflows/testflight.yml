@@ -42,6 +42,13 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Verify commit is ancestor of master (BR-REL-005)
+        run: |
+          git merge-base --is-ancestor "$GITHUB_SHA" origin/master || {
+            echo "::error::Błąd BR-REL-005: Wydawany commit $GITHUB_SHA nie pochodzi z gałęzi master!"
+            exit 1
+          }
+
       - name: Setup Node 22
         uses: actions/setup-node@v4
         with:

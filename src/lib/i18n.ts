@@ -44,3 +44,31 @@ export function t(pl: string, params?: Record<string, string | number>): string 
   }
   return text;
 }
+
+/**
+ * RD-ENG-09: Polska odmiana liczebników (pluralPl).
+ * Dla n = |x| mod 100, n10 = n mod 10:
+ * jeśli |x| === 1 -> one (np. 1 minuta, 1 seria)
+ * inaczej jeśli n10 in {2, 3, 4} and n not in {12, 13, 14} -> few (np. 2 minuty, 22 minuty, 2 serie)
+ * inaczej -> many (np. 0 minut, 5 minut, 12 minut, 112 minut, 5 serii)
+ */
+export function pluralPl(
+  count: number,
+  one: string,
+  few: string,
+  many: string,
+  includeNumber = true
+): string {
+  const abs = Math.abs(Math.round(count));
+  const n = abs % 100;
+  const n10 = n % 10;
+  let word: string;
+  if (abs === 1) {
+    word = one;
+  } else if (n10 >= 2 && n10 <= 4 && !(n >= 12 && n <= 14)) {
+    word = few;
+  } else {
+    word = many;
+  }
+  return includeNumber ? `${count} ${word}` : word;
+}
