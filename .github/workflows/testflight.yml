@@ -160,8 +160,7 @@ jobs:
             CODE_SIGN_STYLE=Automatic \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            COMPILER_INDEX_STORE_ENABLE=NO \
-            2>&1 | tee /tmp/xcodebuild-archive.log | grep -E "^(===|CompileC|Ld |Touch |RegisterExecutionPolicyException|*\* ARCHIVE|error:|warning:.*\berror\b)" || true
+            2>&1 | tee /tmp/xcodebuild-archive.log
 
           if [ ! -d "$RUNNER_TEMP/$APP_SCHEME.xcarchive/Products/Applications/$APP_SCHEME.app" ]; then
             echo "::error::Archiwum .xcarchive nie powstało — ostatnie 80 linii logu:"
