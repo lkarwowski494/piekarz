@@ -10,7 +10,7 @@ export const AUTO_KEEP = 10;
 /**
  * Wzorzec nazw kopii automatycznych: piekarz-RRRR-MM-DD-GGMMSS[-N].json
  */
-export const AUTO_RE = /^piekarz-(\d{4}-\d{2}-\d{2}-\d{6})(?:-(\d{1,3}))?\.json$/;
+export const AUTO_RE = /^piekarz-(?:kopia-)?(\d{4}-\d{2}-\d{2}-\d{6})(?:-(\d{1,3}))?\.json$/;
 
 /**
  * Wzorzec nazw kopii bezpieczeństwa: piekarz-przed-(importem|czyszczeniem)-RRRR-MM-DD-GGMMSS[-N].json
@@ -152,7 +152,7 @@ async function writeBackupFile(
  */
 export async function autoBackup(state: PiekarzBackupData): Promise<string | null> {
   try {
-    return await writeBackupFile('piekarz-', AUTO_RE, state);
+    return await writeBackupFile('piekarz-kopia-', AUTO_RE, state);
   } catch {
     return null;
   }
@@ -222,5 +222,77 @@ export function parseAndValidateBackup(rawJson: string): PiekarzBackupEnvelope {
   }
 
   return envelope as PiekarzBackupEnvelope;
+}
+
+export interface CorruptStateRecovery {
+  corruptFile: string;
+  timestamp: string;
+  rawSnippet: string;
+}
+
+/**
+ * BR-TEST-023: Zapis uszkodzonego stanu do pliku ratunkowego state_corrupt_<timestamp>.json
+ */
+export async function saveCorruptState(rawPayload: string, reason: string): Promise<string> {
+  const docDir = FileSystem.documentDirectory;
+  if (!docDir) throw new Error('Brak katalogu dokumentów aplikacji');
+  const dir = `${docDir}${AUTO_DIR}`;
+  const dirInfo = await FileSystem.getInfoAsync(dir);
+  if (!dirInfo.exists) {
+    await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
+  }
+
+  const stamp = stampOf(new Date());
+  const name = `state_corrupt_${stamp}.json`;
+  const filePath = `${dir}${name}`;
+  const envelope = {
+    format: 'piekarz-corrupt-state',
+    timestamp: new Date().toISOString(),
+    reason,
+    recovery: {
+      rawPayload,
+    },
+  };
+  await FileSystem.writeAsStringAsync(filePath, JSON.stringify(envelope, null, 2));
+  return filePath;
+}
+
+/**
+ * BR-TEST-023: Sprawdzenie czy istnieje zapisany uszkodzony stan po awarii
+ */
+export async function checkCorruptState(): Promise<CorruptStateRecovery | null> {
+  try {
+    const docDir = FileSystem.documentDirectory;
+    if (!docDir) return null;
+    const dir = `${docDir}${AUTO_DIR}`;
+    const dirInfo = await FileSystem.getInfoAsync(dir);
+    if (!dirInfo.exists) return null;
+    const files = await FileSystem.readDirectoryAsync(dir);
+    const corruptFiles = files.filter((f) => f.startsWith('state_corrupt_')).sort().reverse();
+    if (corruptFiles.length === 0) return null;
+
+    const latest = corruptFiles[0];
+    const content = await FileSystem.readAsStringAsync(`${dir}${latest}`);
+    const parsed = JSON.parse(content);
+    return {
+      corruptFile: latest,
+      timestamp: parsed.timestamp || '',
+      rawSnippet: (parsed.recovery?.rawPayload || '').slice(0, 100),
+    };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * BR-TEST-023: Odrzucenie / wyczyszczenie banera uszkodzonego stanu
+ */
+export async function dismissCorruptState(fileName: string): Promise<void> {
+  try {
+    const docDir = FileSystem.documentDirectory;
+    if (!docDir) return;
+    const filePath = `${docDir}${AUTO_DIR}${fileName}`;
+    await FileSystem.deleteAsync(filePath, { idempotent: true });
+  } catch {}
 }
 

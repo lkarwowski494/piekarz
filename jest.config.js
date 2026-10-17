@@ -5,6 +5,9 @@ module.exports = {
     'node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@apps4craft)',
   ],
   setupFiles: ['./jest.setup.js'],
-  setupFilesAfterEnv: [],
-  testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
+  setupFilesAfterEnv: ['./jest.app-after-env.js'],
+  testMatch: [
+    '**/__tests__/**/*.test.[jt]s?(x)',
+    '<rootDir>/tests/**/*.test.[jt]s?(x)',
+  ],
 };

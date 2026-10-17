@@ -85,7 +85,7 @@ export default function DoctorScreen() {
           </Pressable>
         }
       />
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {/* Bread Academy Promotion Banner */}
         <Pressable
           testID="open-academy-banner"

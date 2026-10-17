@@ -1,0 +1,6210 @@
+{
+  "meta": {
+    "generator": "scripts/gen-bakers-corpus.py",
+    "version": "1.0.0",
+    "description": "True Baker's % & Mass Balance Truth Table (Python Reference Oracle)",
+    "caseCount": 200
+  },
+  "cases": [
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 175,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 10,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 184,
+      "totalWater": 113,
+      "overallHydration": 61.05,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 175,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 61.9,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 175,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 10,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 184,
+      "totalWater": 113,
+      "overallHydration": 61.54,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 25,
+      "starterFlour": 13,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 115,
+      "overallHydration": 62.79,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 116,
+      "overallHydration": 63.83,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.0,
+      "starterWeight": 33,
+      "starterFlour": 18,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.0,
+      "starterWeight": 33,
+      "starterFlour": 17,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 116,
+      "overallHydration": 63.64,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.0,
+      "starterWeight": 33,
+      "starterFlour": 15,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 180,
+      "totalWater": 117,
+      "overallHydration": 65.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 96,
+      "saltWeight": 2.9,
+      "starterWeight": 40,
+      "starterFlour": 22,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 96,
+      "saltWeight": 2.9,
+      "starterWeight": 40,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 116,
+      "overallHydration": 64.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 96,
+      "saltWeight": 2.9,
+      "starterWeight": 40,
+      "starterFlour": 18,
+      "starterWater": 22,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 66.12,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.5,
+      "starterWeight": 17,
+      "starterFlour": 10,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 184,
+      "totalWater": 112,
+      "overallHydration": 61.05,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.5,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 113,
+      "overallHydration": 61.9,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.5,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 10,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 114,
+      "overallHydration": 62.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 140,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.4,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 184,
+      "totalWater": 113,
+      "overallHydration": 61.54,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.4,
+      "starterWeight": 25,
+      "starterFlour": 13,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 114,
+      "overallHydration": 62.79,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.4,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 116,
+      "overallHydration": 63.83,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.3,
+      "starterWeight": 33,
+      "starterFlour": 18,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.3,
+      "starterWeight": 33,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 115,
+      "overallHydration": 63.64,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.3,
+      "starterWeight": 33,
+      "starterFlour": 15,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 180,
+      "totalWater": 117,
+      "overallHydration": 65.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.2,
+      "starterWeight": 40,
+      "starterFlour": 22,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.44,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.2,
+      "starterWeight": 40,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 180,
+      "totalWater": 116,
+      "overallHydration": 64.44,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.2,
+      "starterWeight": 40,
+      "starterFlour": 18,
+      "starterWater": 22,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 66.12,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.8,
+      "starterWeight": 17,
+      "starterFlour": 10,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 184,
+      "totalWater": 112,
+      "overallHydration": 61.05,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 139,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.8,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 113,
+      "overallHydration": 61.9,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 139,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 174,
+      "recipeWater": 105,
+      "saltWeight": 3.8,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 10,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 114,
+      "overallHydration": 62.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 139,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 35,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.7,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 113,
+      "overallHydration": 61.54,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.7,
+      "starterWeight": 25,
+      "starterFlour": 13,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 182,
+      "totalWater": 114,
+      "overallHydration": 62.79,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 102,
+      "saltWeight": 3.7,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 115,
+      "overallHydration": 63.83,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.6,
+      "starterWeight": 33,
+      "starterFlour": 18,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 113,
+      "overallHydration": 62.0,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.6,
+      "starterWeight": 33,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 181,
+      "totalWater": 115,
+      "overallHydration": 63.64,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 99,
+      "saltWeight": 3.6,
+      "starterWeight": 33,
+      "starterFlour": 15,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 180,
+      "totalWater": 117,
+      "overallHydration": 65.0,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.5,
+      "starterWeight": 40,
+      "starterFlour": 22,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 183,
+      "totalWater": 114,
+      "overallHydration": 62.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.5,
+      "starterWeight": 40,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 180,
+      "totalWater": 116,
+      "overallHydration": 64.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 60.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 96,
+      "saltWeight": 3.5,
+      "starterWeight": 40,
+      "starterFlour": 18,
+      "starterWater": 22,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 118,
+      "overallHydration": 66.12,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 110,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 65.79,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 110,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.67,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 170,
+      "recipeWater": 110,
+      "saltWeight": 3.1,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 120,
+      "overallHydration": 67.39,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 66.15,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 120,
+      "overallHydration": 67.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 25,
+      "starterFlour": 11,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.51,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 104,
+      "saltWeight": 2.9,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.5,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 104,
+      "saltWeight": 2.9,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 120,
+      "overallHydration": 68.18,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 104,
+      "saltWeight": 2.9,
+      "starterWeight": 32,
+      "starterFlour": 15,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.58,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 22,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.83,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.89,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 18,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.4,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 65.79,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.4,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.67,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.4,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 119,
+      "overallHydration": 67.39,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 136,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.3,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 66.15,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.3,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 120,
+      "overallHydration": 67.44,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.3,
+      "starterWeight": 25,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.51,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.5,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 120,
+      "overallHydration": 68.18,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 15,
+      "starterWater": 18,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.58,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 39,
+      "starterFlour": 22,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.83,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 39,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.89,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 102,
+      "saltWeight": 3.1,
+      "starterWeight": 39,
+      "starterFlour": 18,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 179,
+      "totalWater": 118,
+      "overallHydration": 65.79,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.67,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 169,
+      "recipeWater": 110,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 119,
+      "overallHydration": 67.39,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 135,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 34,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.6,
+      "starterWeight": 25,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 118,
+      "overallHydration": 66.15,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.6,
+      "starterWeight": 25,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 177,
+      "totalWater": 119,
+      "overallHydration": 67.44,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 107,
+      "saltWeight": 3.6,
+      "starterWeight": 25,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 120,
+      "overallHydration": 68.51,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 118,
+      "overallHydration": 66.5,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 120,
+      "overallHydration": 68.18,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 104,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 15,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.58,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 101,
+      "saltWeight": 3.4,
+      "starterWeight": 39,
+      "starterFlour": 22,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 178,
+      "totalWater": 119,
+      "overallHydration": 66.83,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 101,
+      "saltWeight": 3.4,
+      "starterWeight": 39,
+      "starterFlour": 20,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.89,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 65.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 101,
+      "saltWeight": 3.4,
+      "starterWeight": 39,
+      "starterFlour": 18,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.61,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.63,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.52,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.26,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.92,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 123,
+      "overallHydration": 70.23,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.32,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 2.8,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 122,
+      "overallHydration": 69.2,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 2.8,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.91,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 2.8,
+      "starterWeight": 32,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.46,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.56,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 2.8,
+      "starterWeight": 39,
+      "starterFlour": 18,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 126,
+      "overallHydration": 73.31,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.3,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.63,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.3,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.52,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 167,
+      "recipeWater": 113,
+      "saltWeight": 3.3,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 122,
+      "overallHydration": 70.26,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 14,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.92,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 122,
+      "overallHydration": 70.23,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.32,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 121,
+      "overallHydration": 69.2,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.91,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.2,
+      "starterWeight": 32,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.46,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.56,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.1,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.31,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 166,
+      "recipeWater": 113,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 176,
+      "totalWater": 121,
+      "overallHydration": 68.63,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 166,
+      "recipeWater": 113,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.52,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 166,
+      "recipeWater": 113,
+      "saltWeight": 3.7,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 122,
+      "overallHydration": 70.26,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 133,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.6,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 121,
+      "overallHydration": 68.92,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.6,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 122,
+      "overallHydration": 70.23,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 162,
+      "recipeWater": 110,
+      "saltWeight": 3.6,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 123,
+      "overallHydration": 71.32,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 18,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 121,
+      "overallHydration": 69.2,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.91,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 158,
+      "recipeWater": 107,
+      "saltWeight": 3.5,
+      "starterWeight": 32,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 124,
+      "overallHydration": 72.33,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 126,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.4,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 175,
+      "totalWater": 122,
+      "overallHydration": 69.46,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.4,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.56,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 68.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 105,
+      "saltWeight": 3.4,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 125,
+      "overallHydration": 73.31,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 123,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 116,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.53,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 116,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.43,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 116,
+      "saltWeight": 3.0,
+      "starterWeight": 17,
+      "starterFlour": 8,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 125,
+      "overallHydration": 72.17,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 112,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.77,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 112,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 72.09,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 112,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 126,
+      "overallHydration": 73.19,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 71.0,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.73,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 127,
+      "overallHydration": 74.17,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 124,
+      "overallHydration": 71.22,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 75.1,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.53,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.43,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 124,
+      "overallHydration": 72.17,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.77,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 124,
+      "overallHydration": 72.09,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 125,
+      "overallHydration": 73.19,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 71.0,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.73,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 126,
+      "overallHydration": 74.17,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 124,
+      "overallHydration": 71.22,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 107,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 75.1,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.53,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 123,
+      "overallHydration": 71.43,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 165,
+      "recipeWater": 115,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 124,
+      "overallHydration": 72.17,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 132,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 174,
+      "totalWater": 123,
+      "overallHydration": 70.77,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 124,
+      "overallHydration": 72.09,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 112,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 125,
+      "overallHydration": 73.19,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 123,
+      "overallHydration": 71.0,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 16,
+      "starterWater": 16,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.73,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 109,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 126,
+      "overallHydration": 74.17,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 106,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 173,
+      "totalWater": 123,
+      "overallHydration": 71.22,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 106,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.33,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 70.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 106,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 127,
+      "overallHydration": 75.1,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 118,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.42,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 131,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 118,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 131,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 118,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 74.09,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 131,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.62,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.95,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 2.9,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 75.06,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.8,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 15,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 74.55,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 2.8,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 76.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.98,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 128,
+      "overallHydration": 75.11,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 2.7,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.9,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.42,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.33,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.3,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 126,
+      "overallHydration": 74.09,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.62,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 126,
+      "overallHydration": 73.95,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.2,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 75.06,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.8,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 15,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 74.55,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 155,
+      "recipeWater": 111,
+      "saltWeight": 3.1,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 76.0,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.98,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 75.11,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.0,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 109,
+      "saltWeight": 3.0,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.9,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 121,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.42,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 171,
+      "totalWater": 125,
+      "overallHydration": 73.33,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 163,
+      "recipeWater": 117,
+      "saltWeight": 3.6,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 126,
+      "overallHydration": 74.09,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 130,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 33,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 13,
+      "starterWater": 11,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.62,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 126,
+      "overallHydration": 73.95,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 159,
+      "recipeWater": 114,
+      "saltWeight": 3.5,
+      "starterWeight": 24,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 127,
+      "overallHydration": 75.06,
+      "sumCheck": 301,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 127,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 111,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.8,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 111,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 15,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 127,
+      "overallHydration": 74.55,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 154,
+      "recipeWater": 111,
+      "saltWeight": 3.4,
+      "starterWeight": 31,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 76.0,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 124,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 108,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 172,
+      "totalWater": 125,
+      "overallHydration": 72.98,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 120,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 108,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 127,
+      "overallHydration": 75.11,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 120,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 72.0,
+      "saltPct": 2.2,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 151,
+      "recipeWater": 108,
+      "saltWeight": 3.3,
+      "starterWeight": 38,
+      "starterFlour": 17,
+      "starterWater": 21,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.9,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 120,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 120,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 170,
+      "totalWater": 128,
+      "overallHydration": 75.26,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 120,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 76.19,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 161,
+      "recipeWater": 120,
+      "saltWeight": 2.9,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.96,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 2.8,
+      "starterWeight": 23,
+      "starterFlour": 13,
+      "starterWater": 10,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 75.38,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 2.8,
+      "starterWeight": 23,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.74,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 2.8,
+      "starterWeight": 23,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 167,
+      "totalWater": 130,
+      "overallHydration": 77.87,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 114,
+      "saltWeight": 2.7,
+      "starterWeight": 30,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 75.5,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 114,
+      "saltWeight": 2.7,
+      "starterWeight": 30,
+      "starterFlour": 15,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 130,
+      "overallHydration": 77.27,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 20.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 114,
+      "saltWeight": 2.7,
+      "starterWeight": 30,
+      "starterFlour": 14,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 166,
+      "totalWater": 131,
+      "overallHydration": 78.75,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 149,
+      "recipeWater": 111,
+      "saltWeight": 2.7,
+      "starterWeight": 37,
+      "starterFlour": 21,
+      "starterWater": 17,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 75.61,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 119,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 149,
+      "recipeWater": 111,
+      "saltWeight": 2.7,
+      "starterWeight": 37,
+      "starterFlour": 19,
+      "starterWater": 19,
+      "yeastWeight": 0.0,
+      "totalFlour": 167,
+      "totalWater": 130,
+      "overallHydration": 77.78,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 119,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 1.8,
+      "starterPct": 25.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 149,
+      "recipeWater": 111,
+      "saltWeight": 2.7,
+      "starterWeight": 37,
+      "starterFlour": 17,
+      "starterWater": 20,
+      "yeastWeight": 0.0,
+      "totalFlour": 166,
+      "totalWater": 132,
+      "overallHydration": 79.59,
+      "sumCheck": 300,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 119,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 120,
+      "saltWeight": 3.2,
+      "starterWeight": 16,
+      "starterFlour": 9,
+      "starterWater": 7,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 127,
+      "overallHydration": 75.26,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 120,
+      "saltWeight": 3.2,
+      "starterWeight": 16,
+      "starterFlour": 8,
+      "starterWater": 8,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 128,
+      "overallHydration": 76.19,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 10.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 160,
+      "recipeWater": 120,
+      "saltWeight": 3.2,
+      "starterWeight": 16,
+      "starterFlour": 7,
+      "starterWater": 9,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.96,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 128,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 32,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 3.1,
+      "starterWeight": 23,
+      "starterFlour": 13,
+      "starterWater": 10,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 75.38,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 3.1,
+      "starterWeight": 23,
+      "starterFlour": 12,
+      "starterWater": 12,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 76.74,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 15.0,
+      "starterHydration": 120.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 156,
+      "recipeWater": 117,
+      "saltWeight": 3.1,
+      "starterWeight": 23,
+      "starterFlour": 11,
+      "starterWater": 13,
+      "yeastWeight": 0.0,
+      "totalFlour": 167,
+      "totalWater": 130,
+      "overallHydration": 77.87,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 125,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 31,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 80.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 114,
+      "saltWeight": 3.0,
+      "starterWeight": 30,
+      "starterFlour": 17,
+      "starterWater": 14,
+      "yeastWeight": 0.0,
+      "totalFlour": 169,
+      "totalWater": 128,
+      "overallHydration": 75.5,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    },
+    {
+      "targetWeight": 300,
+      "waterPct": 75.0,
+      "saltPct": 2.0,
+      "starterPct": 20.0,
+      "starterHydration": 100.0,
+      "extraYeastPct": 0.0,
+      "baseFlourWeight": 152,
+      "recipeWater": 114,
+      "saltWeight": 3.0,
+      "starterWeight": 30,
+      "starterFlour": 15,
+      "starterWater": 15,
+      "yeastWeight": 0.0,
+      "totalFlour": 168,
+      "totalWater": 129,
+      "overallHydration": 77.27,
+      "sumCheck": 299,
+      "flours": [
+        {
+          "name": "Flour A",
+          "weight": 122,
+          "pct": 80
+        },
+        {
+          "name": "Flour B",
+          "weight": 30,
+          "pct": 20
+        }
+      ]
+    }
+  ]
+}

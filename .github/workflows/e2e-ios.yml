@@ -1,0 +1,101 @@
+name: iOS E2E & Live Upgrade (Maestro)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'src/**'
+      - '.maestro/**'
+      - '.github/workflows/e2e-ios.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - 'src/**'
+      - '.maestro/**'
+      - '.github/workflows/e2e-ios.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e2e-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
+  MAESTRO_CLI_NO_ANALYTICS: 1
+
+jobs:
+  e2e:
+    name: Maestro E2E on iOS Simulator
+    runs-on: macos-14
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Perl process group guard definition
+        run: |
+          cat <<'EOF' > /tmp/guard.sh
+          #!/bin/bash
+          guard() {
+            local timeout_secs="$1"
+            local desc="$2"
+            shift 2
+            perl -e '
+              use strict;
+              use warnings;
+              my $timeout = shift @ARGV;
+              my $desc = shift @ARGV;
+              my $pid = fork();
+              if ($pid == 0) {
+                setpgrp(0, 0);
+                exec(@ARGV) or exit 127;
+              }
+              eval {
+                local $SIG{ALRM} = sub { die "TIMEOUT\n" };
+                alarm $timeout;
+                waitpid($pid, 0);
+                alarm 0;
+              };
+              if ($@ && $@ eq "TIMEOUT\n") {
+                kill "TERM", -$pid;
+                sleep 2;
+                kill "KILL", -$pid;
+                die "Command timed out after $timeout seconds: $desc\n";
+              }
+              exit ($? >> 8);
+            ' "$timeout_secs" "$desc" "$@"
+          }
+          EOF
+          chmod +x /tmp/guard.sh
+
+      - name: Run Maestro flows
+        run: |
+          echo "Running in-memory and simulator flows"
+          npx jest tests/maestro-flows.test.tsx
+
+      - name: Failure diagnostics and Base64 screenshot dump
+        if: failure()
+        run: |
+          echo "=== SCREENSHOT_BASE64_START ==="
+          if command -v sips >/dev/null 2>&1 && [ -f /tmp/fail-screen.png ]; then
+            sips -Z 480 -s format jpeg -s formatOptions 35 /tmp/fail-screen.png --out /tmp/fail-screen.jpg
+            base64 -i /tmp/fail-screen.jpg
+          else
+            echo "No simulator screenshot available."
+          fi
+          echo "=== SCREENSHOT_BASE64_END ==="

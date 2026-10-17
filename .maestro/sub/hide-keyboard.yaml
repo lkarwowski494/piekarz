@@ -1,0 +1,5 @@
+appId: com.apps4craft.piekarz
+---
+- swipe:
+    start: 50%, 35%
+    end: 50%, 70%

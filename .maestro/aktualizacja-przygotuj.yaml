@@ -1,0 +1,7 @@
+appId: com.apps4craft.piekarz
+---
+- launchApp
+- tapOn: "Kalkulator"
+- assertVisible: "Kalkulator Chleba"
+- tapOn: "Stolnica"
+- assertVisible: "Stolnica"

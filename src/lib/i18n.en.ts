@@ -704,6 +704,10 @@ export const EN: Record<string, string> = {
   'Nie można usunąć': 'Cannot delete',
   'Musisz posiadać co najmniej jeden profil zakwasu.': 'You must keep at least one starter profile.',
   'Skopiowano proporcje dokarmiania do schowka': 'Feeding ratio copied to clipboard',
+  'Wykryto uszkodzony stan bazy danych': 'Corrupted database state detected',
+  'Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:': 'The app safely secured raw data in a recovery file:',
+  'Rozumiem, zamknij komunikat ratunkowy': 'Understood, dismiss recovery alert',
+  'Ukryj': 'Dismiss',
 };
 
 

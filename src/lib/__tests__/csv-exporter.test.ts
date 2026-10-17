@@ -25,6 +25,13 @@ describe('csv-exporter', () => {
       expect(escapeCsvValue('Opis "mistrzowski"')).toBe('"Opis ""mistrzowski"""');
       expect(escapeCsvValue("Linia 1\nLinia 2")).toBe('"Linia 1\nLinia 2"');
     });
+
+    it('satisfies RD-ENG-10 Formula Injection prevention vectors', () => {
+      expect(escapeCsvValue('=SUM(A1:A5)')).toBe("\"'=SUM(A1:A5)\"");
+      expect(escapeCsvValue("+cmd|' /C calc'!A0")).toBe("\"'+cmd|' /C calc'!A0\"");
+      expect(escapeCsvValue('-12.5')).toBe('-12.5');
+      expect(escapeCsvValue('Notatka z "cudzysłowem", przecinkiem')).toBe('"Notatka z ""cudzysłowem"", przecinkiem"');
+    });
   });
 
   describe('exportBakeLogsCsv', () => {

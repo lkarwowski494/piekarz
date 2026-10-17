@@ -1,0 +1,42 @@
+name: Tests across Timezones (TZ Matrix)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tz-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test-tz:
+    name: Jest (${{ matrix.tz }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        tz:
+          - UTC
+          - Europe/Warsaw
+          - America/New_York
+          - America/Los_Angeles
+          - Asia/Tokyo
+          - Australia/Sydney
+          - Pacific/Auckland
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --legacy-peer-deps
+      - name: Run Jest in ${{ matrix.tz }}
+        env:
+          TZ: ${{ matrix.tz }}
+        run: npm test

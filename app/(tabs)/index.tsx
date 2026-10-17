@@ -54,6 +54,7 @@ import {
   executeCloneRecipe,
   executeSaveCustomRecipe,
 } from '../../src/lib/calculator-actions';
+import { CorruptStateRecoveryBanner } from '../../src/components/CorruptStateRecoveryBanner';
 
 type CalculationMode = 'loaves' | 'flour';
 
@@ -354,7 +355,7 @@ export default function CalculatorScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {/* CraftHeader */}
         <CraftHeader
           title={t('Kalkulator')}
@@ -373,6 +374,8 @@ export default function CalculatorScreen() {
             </Pressable>
           }
         />
+
+        <CorruptStateRecoveryBanner />
 
         {/* Sacred Numbers Glanceable Countertop Card */}
         <CalculatorSacredCard

@@ -1,4 +1,50 @@
 // jest.setup.js — Global mocks for native Expo modules in Jest
+
+const mockFiles = new Map();
+
+const mockFileSystem = {
+  documentDirectory: 'file:///mock/documents/',
+  cacheDirectory: 'file:///mock/cache/',
+  writeAsStringAsync: jest.fn(async (uri, content) => {
+    mockFiles.set(uri, content);
+  }),
+  readAsStringAsync: jest.fn(async (uri) => {
+    if (mockFiles.has(uri)) {
+      return mockFiles.get(uri);
+    }
+    return '';
+  }),
+  getInfoAsync: jest.fn(async (uri) => {
+    const exists = mockFiles.has(uri) || Array.from(mockFiles.keys()).some((k) => k.startsWith(uri));
+    return { exists, isDirectory: uri.endsWith('/') };
+  }),
+  readDirectoryAsync: jest.fn(async (dirUri) => {
+    const dir = dirUri.endsWith('/') ? dirUri : dirUri + '/';
+    const filenames = new Set();
+    for (const key of mockFiles.keys()) {
+      if (key.startsWith(dir)) {
+        const rest = key.slice(dir.length);
+        const name = rest.split('/')[0];
+        if (name) filenames.add(name);
+      }
+    }
+    return Array.from(filenames);
+  }),
+  deleteAsync: jest.fn(async (uri) => {
+    mockFiles.delete(uri);
+    for (const key of Array.from(mockFiles.keys())) {
+      if (key.startsWith(uri)) {
+        mockFiles.delete(key);
+      }
+    }
+  }),
+  makeDirectoryAsync: jest.fn(async () => {}),
+  __mockFiles: mockFiles,
+};
+
+jest.mock('expo-file-system', () => mockFileSystem);
+jest.mock('expo-file-system/legacy', () => mockFileSystem);
+
 jest.mock('expo-clipboard', () => ({
   setStringAsync: jest.fn().mockResolvedValue(true),
   getStringAsync: jest.fn().mockResolvedValue(''),

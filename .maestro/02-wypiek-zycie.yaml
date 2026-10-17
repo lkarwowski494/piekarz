@@ -1,0 +1,11 @@
+appId: com.apps4craft.piekarz
+---
+- launchApp
+- tapOn: "Stolnica"
+- assertVisible: "Stolnica"
+- tapOn: "Harmonogram"
+- assertVisible: "Harmonogram"
+- tapOn: "Doktor"
+- assertVisible: "Doktor Ciasta"
+- tapOn: "Akademia"
+- assertVisible: "Akademia Piekarza"

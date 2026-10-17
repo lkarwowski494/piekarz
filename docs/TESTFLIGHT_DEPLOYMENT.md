@@ -46,7 +46,7 @@ Muszą być zdefiniowane 3 sekrety (te same, z których korzysta Napar):
 |---|---|---|
 | `ASC_KEY_ID` | **Users and Access → Integrations → Keys** | 10-znakowy identyfikator klucza (np. `2X9R4274HG`) |
 | `ASC_ISSUER_ID` | **Users and Access → Integrations → Keys** | Identyfikator wystawcy UUID (np. `57246542-96fe-1a63-e053-0824d011072a`) |
-| `ASC_KEY_P8` | Plik `.p8` pobrany jednorazowo przy tworzeniu klucza | Cała zawartość pliku tekstowego wraz z liniami `-----BEGIN PRIVATE KEY-----` i `-----END PRIVATE KEY-----` |
+| `ASC_KEY_P8` | Plik `.p8` pobrany jednorazowo przy tworzeniu klucza | Zawartość pliku klucza API pobranego z panelu Apple Developer |
 
 > [!NOTE]
 > Jeśli te sekrety dodałeś już na poziomie organizacji lub konta GitHub (`lkarwowski494`), repozytorium `piekarz` może z nich korzystać automatycznie.

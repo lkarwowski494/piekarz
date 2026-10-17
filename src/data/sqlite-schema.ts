@@ -1,5 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
+import { saveCorruptState } from '../lib/backup';
 import {
   StoredRecipe,
   StoredStarter,
@@ -71,7 +72,10 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
       ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
       : await SQLite.openDatabaseAsync(DB_NAME);
     return dbInstance;
-  } catch {
+  } catch (err: any) {
+    try {
+      void saveCorruptState(JSON.stringify({ error: err?.message || String(err) }), 'SQLite open failed');
+    } catch {}
     return null; // Fallback to memory store
   }
 }

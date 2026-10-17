@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "generator": "scripts/gen-theme-contrast-corpus.py",
+    "version": "1.0.0",
+    "description": "WCAG 2.1 Contrast Ratios (Python Reference Oracle)",
+    "pairCount": 7
+  },
+  "pairs": [
+    {
+      "foregroundToken": "textPrimary",
+      "foregroundHex": "#F4EFEA",
+      "backgroundToken": "background",
+      "backgroundHex": "#121214",
+      "expectedContrastRatio": 16.38,
+      "wcagTarget": "AAA",
+      "minRequiredRatio": 7.0,
+      "passes": true
+    },
+    {
+      "foregroundToken": "textPrimary",
+      "foregroundHex": "#F4EFEA",
+      "backgroundToken": "surface",
+      "backgroundHex": "#1C1C1F",
+      "expectedContrastRatio": 14.88,
+      "wcagTarget": "AAA",
+      "minRequiredRatio": 7.0,
+      "passes": true
+    },
+    {
+      "foregroundToken": "textPrimary",
+      "foregroundHex": "#F4EFEA",
+      "backgroundToken": "surfaceCard",
+      "backgroundHex": "#242428",
+      "expectedContrastRatio": 13.54,
+      "wcagTarget": "AAA",
+      "minRequiredRatio": 7.0,
+      "passes": true
+    },
+    {
+      "foregroundToken": "textPrimary",
+      "foregroundHex": "#F4EFEA",
+      "backgroundToken": "backgroundSecondary",
+      "backgroundHex": "#1C1C1F",
+      "expectedContrastRatio": 14.88,
+      "wcagTarget": "AAA",
+      "minRequiredRatio": 7.0,
+      "passes": true
+    },
+    {
+      "foregroundToken": "textSecondary",
+      "foregroundHex": "#A09C96",
+      "backgroundToken": "background",
+      "backgroundHex": "#121214",
+      "expectedContrastRatio": 6.85,
+      "wcagTarget": "AA",
+      "minRequiredRatio": 4.5,
+      "passes": true
+    },
+    {
+      "foregroundToken": "textSecondary",
+      "foregroundHex": "#A09C96",
+      "backgroundToken": "surfaceCard",
+      "backgroundHex": "#242428",
+      "expectedContrastRatio": 5.66,
+      "wcagTarget": "AA",
+      "minRequiredRatio": 4.5,
+      "passes": true
+    },
+    {
+      "foregroundToken": "accent",
+      "foregroundHex": "#D49B42",
+      "backgroundToken": "background",
+      "backgroundHex": "#121214",
+      "expectedContrastRatio": 7.63,
+      "wcagTarget": "AA_Large_or_UI",
+      "minRequiredRatio": 3.0,
+      "passes": true
+    }
+  ]
+}

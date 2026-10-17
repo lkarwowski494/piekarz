@@ -29,7 +29,7 @@ describe('BreadAcademyModal Component (SCI, BIB, TRE)', () => {
     });
 
     const root = tree!.root;
-    expect(root.findByProps({ testID: 'close-academy-modal-btn' })).toBeDefined();
+    expect(root.findByProps({ testID: 'close-modal' })).toBeDefined();
     expect(root.findByProps({ testID: 'academy-tab-school' })).toBeDefined();
     expect(root.findByProps({ testID: 'academy-tab-techniques' })).toBeDefined();
   });
@@ -86,7 +86,7 @@ describe('BreadAcademyModal Component (SCI, BIB, TRE)', () => {
     });
 
     const root = tree!.root;
-    const closeBtn = root.findByProps({ testID: 'close-academy-modal-btn' });
+    const closeBtn = root.findByProps({ testID: 'close-modal' });
 
     await act(async () => {
       closeBtn.props.onPress();

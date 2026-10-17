@@ -1,0 +1,9 @@
+appId: com.apps4craft.piekarz
+---
+- launchApp
+- assertVisible: "Kalkulator Chleba"
+- tapOn: "Kalkulator"
+- assertVisible: "Mąka całkowita"
+- assertVisible: "Hydratacja"
+- tapOn: "Stolnica"
+- assertVisible: "Stolnica"

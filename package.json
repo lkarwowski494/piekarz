@@ -9,7 +9,10 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "check:i18n": "node scripts/check-i18n.mjs",
-    "verify": "npm run typecheck && npm run check:i18n && npm test"
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "verify:native": "node scripts/verify-native.mjs",
+    "verify:matrix": "node scripts/test-matrix.mjs --check",
+    "verify": "npm run typecheck && npm run check:i18n && npm run check:licenses && npm run verify:native && npm run verify:matrix && npm test"
   },
   "dependencies": {
     "@apps4craft/ui": "github:lkarwowski494/apps4craft-ui",

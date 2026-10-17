@@ -24,7 +24,7 @@ export function AcademyHeader({
       <View style={styles.headerTitleRow}>
         <Text style={styles.title}>🎓 {t('Akademia Piekarza')}</Text>
         <Pressable
-          testID="close-academy-modal-btn"
+          testID="close-modal"
           style={styles.closeBtn}
           onPress={onClose}
           accessibilityLabel={t('Zamknij Akademię')}

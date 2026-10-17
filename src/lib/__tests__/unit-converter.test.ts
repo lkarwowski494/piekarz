@@ -12,6 +12,7 @@ import {
   setUnitSystem,
   subscribeUnitSystem,
   _resetUnitSystemForTests,
+  wInKeep,
 } from '../unit-converter';
 
 describe('unit-converter', () => {
@@ -102,4 +103,26 @@ describe('unit-converter', () => {
       expect(formatWeight(300)).toContain('oz');
     });
   });
+
+  describe('RD-ENG-01 & BR-TEST-005: wInKeep drift-free conversion', () => {
+    it('satisfies exact RD-ENG-01 test vectors', () => {
+      expect(wInKeep('135', 'lb', 61.23)).toBe(61.23);
+      expect(wInKeep('135,0', 'lb', 61.23)).toBe(61.23);
+      expect(wInKeep('140', 'lb', 61.23)).toBe(63.5);
+      expect(wInKeep('80,5', 'kg', 80)).toBe(80.5);
+    });
+
+    it('handles temperature conversion without drift', () => {
+      expect(wInKeep('75.2', '°F', 24)).toBe(24);
+      expect(wInKeep('75,2', '°F', 24)).toBe(24);
+      expect(wInKeep('80', '°F', 24)).toBe(26.67);
+    });
+
+    it('returns prevBase when input is empty or invalid', () => {
+      expect(wInKeep('', 'lb', 50)).toBe(50);
+      expect(wInKeep('invalid', 'lb', 50)).toBe(50);
+      expect(wInKeep(null as any, 'lb', 50)).toBe(50);
+    });
+  });
 });
+

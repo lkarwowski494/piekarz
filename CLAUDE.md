@@ -1,59 +1,54 @@
-# Piekarz (Crust) — Instrukcje dla zespołu i agentów AI
+# Piekarz (Crust) — Instrukcja Projektowa i Standard Jakości
 
-Aplikacja mobilna (Expo / React Native, TypeScript, watchOS, Garmin) dla domowych piekarzy rzemieślniczych, pasjonatów chleba na zakwasie i pizzy neapolitańskiej.
-Studio: **Apps4Brew** („tańsze niż dobre espresso”, rzemiosło, offline-first, zero serwerów, zero analityki szpiegującej).
-Właściciel produktu: Łukasz.
+Piekarz to rzemieślniczy asystent domowego wypieku chleba stworzony w Apps4Brew Studio. Aplikacja spełnia najwyższy standard jakości **Role-Model (trening + organizer)** zgodnie ze specyfikacją `BRD-QA-REL 1.0`.
 
 ---
 
-## 1. Dokumentacja referencyjna projektu (Google Drive)
+## 1. Kluczowe Zasady Architektoniczne
 
-* 📁 Folder główny projektu: [Piekarz](https://drive.google.com/drive/folders/1qxFVHz1z1iEMOIpZBDOALImag5-Rkr3M)
-* 📁 Dokumenty wymagań biznesowych (26 dokumentów): [Piekarz / 02 BRD](https://drive.google.com/drive/folders/1lcPSW4U3_TiPBQJChfspPByQsMu21tLp)
-  * [00 START — Streszczenie i warianty MVP](https://docs.google.com/document/d/1tzwhPdJrmuN_PyGgedUUapsiYoma3yB_8qbKfkukAlY/edit)
-  * [00b Jedna lista decyzji (DEC-01…DEC-40)](https://docs.google.com/document/d/1iL_jE4p1EJNs41Zjdmim50knvvO7Ha_dVTQn3J0n--0/edit)
-  * [A1 Wizja, zasady ZP-01…16, persony i sytuacje](https://docs.google.com/document/d/1PY1nRACJTecqC8PEhE2qsRWwCjNApXz_k3Q7qoG1gqo/edit)
-  * [A2 Rynek, wytyczne Apple 4.3 i model przychodu](https://docs.google.com/document/d/1MtSWy5Z5c7uoEA7-TMyoaKnz0MfyO-mTXtHLgXkF2GU/edit)
-  * [B1…B6 Wymagania narzędziowe (Kalkulator %, DDT, Harmonogram, Stolnica, Zakwas)](https://docs.google.com/document/d/11KfF9InfQTLyW_3u4vDxJILbJ37fvmnt8f9LIegbGb4/edit)
-  * [C1…C4b Nauka, reguły dziedzinowe RD-00…RD-15, wektory testowe TV-01…08](https://docs.google.com/document/d/1sKyozeG07SJB_idvOPIejdOAXM9gdJJloCphnosvNmE/edit)
-  * [D1…D4 Wymagania NFR, model SQLite, architektura zegarkowa i 50 ryzyk](https://docs.google.com/document/d/1Bx3xuKIrg0RW8gF_y3CSHVh6086jt4gEXh6D46Ccx-Y/edit)
-
----
-
-## 2. Nienegocjowalne zasady produktu (Duch Apps4Brew)
-
-1. **ZP-01 Ręce w mące:** Sterowanie etapami stolnicowymi bez brudzenia ekranu (Apple Watch Double Tap, Digital Crown, Garmin, Live Activity, Action Button, duże cele dotykowe 64x64 pt).
-2. **ZP-02 Bez konta:** Zero ekranów rejestracji, brak logowania, pierwszy widok to działające narzędzie.
-3. **ZP-03 Bez serwera i bez chmurowego AI:** Cała matematyka, algorytmy DDT i diagnostyka działają w 100% lokalnie na procesorze urządzenia.
-4. **ZP-04 Bez reklam i śledzenia:** Czyste „Data Not Collected” w App Store Privacy Label.
-5. **ZP-05 True Baker's Percentage:** Mąka i woda z zakwasu bezwzględnie wliczane do całkowitej hydratacji ciasta ($H_c$). Brak zaokrągleń pośrednich (RD-00).
-6. **ZP-06 Dane nie znikają:** Lokalna baza SQLite (WAL mode) z transakcjami ACID i automatyczną kopią w prywatnym iCloud Drive użytkownika.
-7. **ZP-08 Uczciwy model:** 0,99 € miesięcznie, 4,99 € rocznie, 14,99 € dożywotnio. 14 dni pełnego trialu. Family Sharing włączone.
-8. **ZP-11 Rygor merytoryczny:** Każda formuła poparta literaturą mistrzowską (Hamelman, Calvel, Robertson).
+1. **100% Offline-First i Zero Telemetrii:**
+   Wszystkie obliczenia (True Baker's %, 4-DDT, harmonogram wsteczny ze Sleep Guard, baza mąk, profil zakwasu) działają lokalnie na urządzeniu. Bezwzględny zakaz wywołań sieciowych (`fetch`, `axios`, `WebSocket`, `XMLHttpRequest`) i instalacji analityki śledzącej.
+2. **Limit Rozmiaru Pliku (Modularność):**
+   Każdy plik produkcyjny `.ts` oraz `.tsx` w katalogach `app/` oraz `src/` musi bezwzględnie mieścić się w limicie **20 480 bajtów** (20 KB). W razie rozbudowy funkcji należy wydzielać podkomponenty lub moduły logiczne.
+3. **Trwałość i Odzyskiwanie Danych:**
+   - Dwie rozdzielne pule po 10 kopii zapasowych: `piekarz-kopia-*` dla kopii po wypieku oraz `piekarz-przed-importem-*`/`piekarz-przed-czyszczeniem-*` dla kopii bezpieczeństwa przed operacjami niszczącymi.
+   - Ochrona stanu `state_corrupt_*` zapobiega utracie danych użytkownika w przypadku błędu bazy lub uszkodzenia pliku JSON.
+4. **Niezmienniki Interfejsu i Dostępności:**
+   - Wszystkie elementy klikalne posiadają pole dotyku minimum 44×44 pt (`RD-ENG-03`).
+   - Kontrast kolorów spełnia wymogi WCAG 2.1 AA (`theme.ts`).
+   - Odporność interfejsu na szerokość 320 pt (iPhone SE) oraz powiększenie czcionki Dynamic Type AX5 (`NFR-A11Y-004`).
+   - Wszystkie formularze z klawiaturą numeryczną korzystają z `NumInput` (`wInKeep`) z obsługą przecinka i kropki.
+   - Formularze i listy posiadają `keyboardShouldPersistTaps="handled"`.
 
 ---
 
-## 3. Architektura kodu
+## 2. Podstawowe Komendy
 
-* `src/core/`:
-  * `domain-rules.ts` — Czyste, deterministyczne funkcje matematyczne dla procentów piekarskich, True Overall Hydration, kalkulatora DDT 4-składnikowego, przeliczników drożdży, tarcia misy i współczynnika $Q_{10}$.
-  * `__tests__/domain-rules.test.ts` — Testy jednostkowe weryfikujące wektory testowe TV-01…TV-08.
-* `src/scheduler/`:
-  * `reverse-scheduler.ts` — Silnik harmonogramu wstecznego (Reverse Timeline) i Sleep Guard (ochrona przed pobudkami w nocy).
-  * `__tests__/reverse-scheduler.test.ts` — Testy algorytmu planowania.
-* `src/doctor/`:
-  * `diagnostics.ts` — Interaktywne drzewo decyzyjne „Doktora Chleba” (under-proofed, over-proofed, blow-out, gummy crumb, pale crust).
-* `src/recipes/`:
-  * `presets.ts` — 6 receptur wzorcowych Apps4Brew (Country Loaf, Żytni razowiec, No-Knead, Tartine 80%, Pizza Napoletana, Chałka).
-* `src/data/`:
-  * `schema.ts`, `db.ts` — Schemat SQLite/SwiftData, migracje, obsługa transakcyjna.
-* `src/ui/`:
-  * Komponenty, motyw kolorystyczny (Linen & Crust #FBF9F5, #2C1810, #D97724, #F59E0B) oraz ekrany (Kalkulator, Harmonogram, Stolnica, Zakwas, Diagnoza).
+```bash
+# Uruchomienie aplikacji w trybie deweloperskim
+npm start
+
+# Pełna weryfikacja wszystkich bramek jakościowych (Typecheck, i18n, Licencje, Niezmienniki iOS, Macierz AST, Testy)
+npm run verify
+
+# Pojedyncze bramki:
+npm run typecheck       # Kontrola typów TypeScript (--noEmit)
+npm run check:i18n      # Kompletność tłumaczeń PL i EN
+npm run check:licenses  # Weryfikacja braku wirusowych licencji GPL/AGPL
+npm run verify:native   # Weryfikacja 20 niezmienników natywnego projektu iOS
+npm run verify:matrix   # Kontrola 100% pokrycia macierzy testów AST
+npm test                # Uruchomienie zestawu testów Jest
+```
 
 ---
 
-## 4. Standardy jakości i testów
+## 3. Testowanie i Macierz AST
 
-* Przed zatwierdzeniem zmian: `npm run verify` (`npm run typecheck && npm test`) musi przejść ze statusem zielonym.
-* Pokrycie testami logiki dziedzinowej (`src/core`, `src/scheduler`, `src/doctor`) $\ge 95\%$.
-* Zero tolerancji dla błędów bilansu masowego (odchyłka sumy składników $>1\text{ g}$ to błąd krytyczny).
+- Nigdy nie używaj `@ts-ignore`, `istanbul ignore` ani `test.skip`.
+- Macierz testów AST (`scripts/test-matrix.mjs`) generuje raport `docs/22-macierz-testow.md` i egzekwuje 100% pokrycia we wszystkich 5 kategoriach:
+  - `EKRAN` (trasy widoków w `app/`)
+  - `UI` (przyciski, przełączniki, pola wejściowe)
+  - `TEKST` (klucze językowe i komunikaty domenowe)
+  - `LOGIKA` (eksportowane funkcje obliczeniowe)
+  - `WYMIAR` (typy wyliczeniowe i stałe tablicowe)
+- Scenariusze E2E w `.maestro/*.yaml` są weryfikowane w pamięci w Jest przez `tests/maestro-runner.ts` dla poniedziałku, niedzieli oraz godziny 23:55 UTC.

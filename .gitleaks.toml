@@ -1,0 +1,10 @@
+[extend]
+# Używa domyślnego zestawu reguł Gitleaks
+
+[allowlist]
+description = "Global allowlists for test fixtures and public mock data"
+paths = [
+  '''tests/fixtures/''',
+  '''src/.*/__tests__/fixtures/''',
+  '''package-lock\.json''',
+]

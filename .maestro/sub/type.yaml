@@ -1,0 +1,6 @@
+appId: com.apps4craft.piekarz
+---
+- tapOn: "${fieldId}"
+- eraseText
+- inputText: "${textValue}"
+- assertVisible: "${textValue}"

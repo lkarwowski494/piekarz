@@ -9,16 +9,25 @@ import * as Sharing from 'expo-sharing';
 import { StoredBakeLog, StoredFlourInventoryItem } from '../data/db';
 
 /**
- * Zabezpiecza wartość w formacie RFC 4180 CSV
+ * RD-ENG-10 & NFR-SEC-015: Zabezpiecza wartość przed CSV Formula Injection i formatuje do RFC 4180
  */
-export function escapeCsvValue(val: any): string {
+export function escapeCsvCell(val: any): string {
   if (val === null || val === undefined) return '';
-  const str = String(val);
-  if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r')) {
+  let str = String(val);
+
+  // Jeśli nie jest czystą liczbą ujemną i zaczyna się od znaku formuły, poprzedź apostrofem
+  if (!/^-\d+(\.\d+)?$/.test(str) && /^[=+\-@\t\r]/.test(str)) {
+    str = "'" + str;
+  }
+
+  // Jeśli zawiera znak specjalny, opakuj w cudzysłów z podwojeniem
+  if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\r') || str.includes("'")) {
     return `"${str.replace(/"/g, '""')}"`;
   }
   return str;
 }
+
+export const escapeCsvValue = escapeCsvCell;
 
 /**
  * Generuje zawartość CSV dla historii wypieków (bake logs)

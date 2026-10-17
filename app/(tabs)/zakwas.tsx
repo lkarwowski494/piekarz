@@ -283,7 +283,7 @@ export default function ZakwasScreen() {
           </Pressable>
         }
       />
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {/* Sacred Numbers Glanceable Countertop Card */}
         <ZakwasSacredCard
           ageDays={ageDays}

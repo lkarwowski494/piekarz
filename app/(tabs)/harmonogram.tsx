@@ -152,7 +152,7 @@ export default function HarmonogramScreen() {
         subtitle={t('Harmonogram wsteczny z ochroną snu (Sleep Guard)')}
         testID="harmonogram-header"
       />
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {/* Target Ready Selector Card */}
         <TargetReadyCard
           targetDayOffset={targetDayOffset}

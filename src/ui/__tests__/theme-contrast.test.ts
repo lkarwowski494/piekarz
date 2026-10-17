@@ -112,4 +112,22 @@ describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (Apps4Craft Basalt)'
       expect(theme.radius.full).toBe(9999);
     });
   });
+
+  describe('Python Contrast Oracle Verification (fixtures/theme-contrast-corpus.json)', () => {
+    const fixture = require('./fixtures/theme-contrast-corpus.json');
+
+    it('validates python contrast fixture meta header', () => {
+      expect(fixture.meta.generator).toContain('gen-theme-contrast-corpus.py');
+      expect(fixture.pairs.length).toBeGreaterThanOrEqual(7);
+    });
+
+    fixture.pairs.forEach((p: any) => {
+      it(`pair ${p.foregroundToken} on ${p.backgroundToken} passes ${p.wcagTarget} (expected ${p.expectedContrastRatio}:1 >= ${p.minRequiredRatio}:1)`, () => {
+        expect(p.passes).toBe(true);
+        const actual = contrastRatio(p.foregroundHex, p.backgroundHex);
+        expect(Math.abs(actual - p.expectedContrastRatio)).toBeLessThanOrEqual(0.05);
+      });
+    });
+  });
 });
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Pressable,
   Alert,
+  AppState,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -153,32 +154,45 @@ export default function StolnicaScreen() {
     }
   }, [loadHistory]);
 
-  // Timer countdown tick
+  const endAtMsRef = useRef<number | null>(null);
+
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | null = null;
-    if (isRunning && timeLeftSec > 0) {
-      interval = setInterval(() => {
-        setTimeLeftSec((prev) => {
-          if (prev <= 1) {
-            setIsRunning(false);
-            setIsCompleted(true);
-            if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_on') {
-              void notifySteamReleaseAlert();
-            } else if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_off') {
-              void notifyTimerFinished(t('Wypiek w garnku zakończony! Wyjmij chleb na kratkę.'));
-            } else {
-              void notifyTimerFinished(BAKE_STEPS[currentStepIdx].name);
-            }
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
+    if (isRunning && endAtMsRef.current === null) {
+      endAtMsRef.current = Date.now() + timeLeftSec * 1000;
+    } else if (!isRunning) {
+      endAtMsRef.current = null;
     }
-    return () => {
-      if (interval) clearInterval(interval);
+  }, [isRunning, timeLeftSec]);
+
+  // Timer countdown tick & background resilience (RD-ENG-06, NFR-PERF-004)
+  useEffect(() => {
+    if (!isRunning) return;
+    const tick = () => {
+      if (!endAtMsRef.current) return;
+      const left = Math.max(0, Math.ceil((endAtMsRef.current - Date.now()) / 1000));
+      setTimeLeftSec(left);
+      if (left <= 0) {
+        endAtMsRef.current = null;
+        setIsRunning(false);
+        setIsCompleted(true);
+        if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_on') {
+          void notifySteamReleaseAlert();
+        } else if (BAKE_STEPS[currentStepIdx].id === 'step_8' && dutchOvenPhase === 'lid_off') {
+          void notifyTimerFinished(t('Wypiek w garnku zakończony! Wyjmij chleb na kratkę.'));
+        } else {
+          void notifyTimerFinished(BAKE_STEPS[currentStepIdx].name);
+        }
+      }
     };
-  }, [isRunning, timeLeftSec, currentStepIdx, dutchOvenPhase]);
+    const interval = setInterval(tick, 1000);
+    const sub = AppState.addEventListener('change', (st) => {
+      if (st === 'active') tick();
+    });
+    return () => {
+      clearInterval(interval);
+      sub.remove();
+    };
+  }, [isRunning, currentStepIdx, dutchOvenPhase]);
 
   const currentStep = BAKE_STEPS[currentStepIdx];
 
@@ -258,9 +272,8 @@ export default function StolnicaScreen() {
   const addFiveMinutes = () => {
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {
-      // Ignored
-    }
+    } catch {}
+    if (endAtMsRef.current) endAtMsRef.current += 300000;
     setTimeLeftSec((prev) => prev + 300);
     setIsCompleted(false);
   };
@@ -268,9 +281,8 @@ export default function StolnicaScreen() {
   const adjustTimerSeconds = (deltaSeconds: number) => {
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {
-      // Ignored
-    }
+    } catch {}
+    if (endAtMsRef.current) endAtMsRef.current += deltaSeconds * 1000;
     setTimeLeftSec((prev) => Math.max(0, prev + deltaSeconds));
     setIsCompleted(false);
   };
@@ -381,7 +393,7 @@ export default function StolnicaScreen() {
           </Pressable>
         }
       />
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {!isActive ? (
           <View>
             <IdleBakeCard

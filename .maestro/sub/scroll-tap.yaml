@@ -1,0 +1,8 @@
+appId: com.apps4craft.piekarz
+---
+- scrollUntilVisible:
+    element:
+      text: "${elementText}"
+    direction: DOWN
+    visibilityPercentage: 10
+- tapOn: "${elementText}"
