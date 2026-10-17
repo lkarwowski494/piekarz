@@ -19,12 +19,14 @@ export interface EmergencyRecoverySectionProps {
   selectedRecoveryId: EmergencyCode | null;
   onSelectRecoveryId: (id: EmergencyCode | null) => void;
   unitSystem: any;
+  onPivotToRecipe?: (protocolId: EmergencyCode) => void;
 }
 
 export function EmergencyRecoverySection({
   selectedRecoveryId,
   onSelectRecoveryId,
   unitSystem,
+  onPivotToRecipe,
 }: EmergencyRecoverySectionProps) {
   const selectedProto = selectedRecoveryId
     ? getDoughRecoveryProtocol(selectedRecoveryId)
@@ -90,8 +92,21 @@ export function EmergencyRecoverySection({
 
           {/* Target Pivot Recipe */}
           <View style={styles.pivotRecipeBox}>
-            <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
-            <Text style={styles.pivotRecipeName}>{selectedProto.pivotRecipeNamePl}</Text>
+            <View style={styles.pivotTextCol}>
+              <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
+              <Text style={styles.pivotRecipeName}>{selectedProto.pivotRecipeNamePl}</Text>
+            </View>
+            {onPivotToRecipe && (
+              <Pressable
+                testID="pivot-recipe-btn"
+                accessibilityRole="button"
+                accessibilityLabel={`${t('Załaduj do Kalkulatora')}: ${selectedProto.pivotRecipeNamePl}`}
+                style={styles.pivotActionBtn}
+                onPress={() => onPivotToRecipe(selectedProto.id)}
+              >
+                <Text style={styles.pivotActionBtnText}>⚡ {t('Załaduj do Kalkulatora')}</Text>
+              </Pressable>
+            )}
           </View>
 
           {/* Steps */}
@@ -235,6 +250,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderColor: theme.colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  pivotTextCol: {
+    flex: 1,
   },
   pivotRecipeLabel: {
     fontSize: 11,
@@ -246,6 +268,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.accentDark,
     marginTop: 2,
+  },
+  pivotActionBtn: {
+    backgroundColor: theme.colors.accent,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pivotActionBtnText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700',
   },
   recoveryStepsHeading: {
     fontSize: 13,

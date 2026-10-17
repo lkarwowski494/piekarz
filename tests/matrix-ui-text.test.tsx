@@ -458,6 +458,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Zastosuj mieszankę",
     "Zastąp część wody lodem:",
     "Zatwierdź import",
+    "Załaduj do Kalkulatora",
     "Załadowano recepturę",
     "Zbalansowany",
     "Zbyt kwaśny, octowy smak",

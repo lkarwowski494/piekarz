@@ -183,6 +183,7 @@ export const EN: Record<string, string> = {
   'Smak i Aromat': 'Flavor & Aroma',
   'Zbyt kwaśny, octowy smak': 'Excessively sour, vinegar-like taste',
   'Płaski smak bez głębi (jałowy)': 'Bland, flat flavor without depth',
+  'Załaduj do Kalkulatora': 'Load into Calculator',
   'Wyczyść zaznaczone objawy': 'Clear selected symptoms',
   'Kuchenne testy piekarskie': 'Kitchen baking tests',
   'Test palca (Poke Test)': 'Poke Test',

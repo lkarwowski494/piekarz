@@ -19,6 +19,8 @@ import { EmergencyCode } from '../../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
 import { BreadAcademyModal } from '../../src/components/BreadAcademyModal';
 import { useUnitSystem } from '../../src/lib/unit-converter';
+import { setPendingRecipeToLoad } from '../../src/lib/recipe-navigation';
+import { MASTER_RECIPES } from '../../src/recipes/presets';
 import { DiagnosisResultCard } from '../../src/components/doktor/DiagnosisResultCard';
 import { EmergencyRecoverySection } from '../../src/components/doktor/EmergencyRecoverySection';
 import {
@@ -64,6 +66,28 @@ export default function DoctorScreen() {
   const handleCopyDiagnosis = async () => {
     if (diagnosis) {
       await copyDiagnosisToClipboard(diagnosis);
+    }
+  };
+
+  const handlePivotToRecipe = (protocolId: EmergencyCode) => {
+    let presetId = 'focaccia_genovese';
+    if (protocolId === 'SLACK_HIGH_HYDRATION') {
+      presetId = 'rye_100_pan';
+    } else if (protocolId === 'OVERPROOFED_COLLAPSE') {
+      presetId = 'focaccia_genovese';
+    } else {
+      presetId = 'country_loaf_72';
+    }
+
+    const preset = MASTER_RECIPES.find((p) => p.id === presetId);
+    if (preset) {
+      setPendingRecipeToLoad({
+        id: preset.id,
+        name: preset.namePl,
+        targetDDT: preset.targetDDT,
+        formula: preset.formula,
+      });
+      router.push('/(tabs)');
     }
   };
 
@@ -119,6 +143,7 @@ export default function DoctorScreen() {
           selectedRecoveryId={selectedRecoveryId}
           onSelectRecoveryId={setSelectedRecoveryId}
           unitSystem={unitSystem}
+          onPivotToRecipe={handlePivotToRecipe}
         />
 
         {/* Symptoms Selector (Miękisz, Skórka, Smak) */}
