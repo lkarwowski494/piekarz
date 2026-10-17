@@ -97,7 +97,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
       expect(formatted).toContain('14h');
       expect(formatted).toContain('1. 🥣 11:00 (Dziś) — Dokarmienie zakwasu (5h)');
       expect(formatted).toContain('2. ♨️ 11:15 (Jutro) — Wypiek z parą (45 min)');
-      expect(formatted).toContain('Apps4Brew Studio');
+      expect(formatted).toContain('Apps4Craft Studio');
     });
 
     it('includes sleep collision alert when collision is detected', () => {

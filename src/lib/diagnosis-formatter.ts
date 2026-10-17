@@ -20,7 +20,7 @@ export function formatDiagnosisToText(diag: DiagnosticResult): string {
     lines.push(`${idx + 1}. ${item}`);
   });
   lines.push('');
-  lines.push('— Apps4Brew Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz 🥖');
   return lines.join('\n');
 }
 

@@ -380,3 +380,23 @@ export const MASTER_RECIPES: RecipePreset[] = [
     notesPl: 'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.',
   },
 ];
+
+export function filterMasterRecipes(
+  ritualProfile: string,
+  categoryFilter: string
+): RecipePreset[] {
+  let list = MASTER_RECIPES;
+  if (ritualProfile === 'sourdough_purist') {
+    list = list.filter((p) => p.category === 'sourdough' || p.category === 'rye');
+  } else if (ritualProfile === 'beginner') {
+    list = list.filter(
+      (p) => p.difficulty === 'easy' || p.difficulty === 'medium' || p.formula.waterPercentage <= 70
+    );
+  }
+  if (categoryFilter === 'all') return list;
+  if (categoryFilter === 'pizza_sweet') {
+    return list.filter((p) => p.category === 'pizza' || p.category === 'sweet');
+  }
+  return list.filter((p) => p.category === categoryFilter);
+}
+

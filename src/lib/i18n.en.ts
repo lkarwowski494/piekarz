@@ -693,5 +693,17 @@ export const EN: Record<string, string> = {
   'Profil, cykl dokarmiania i szczyt aktywności (Peak Timer)': 'Profile, feeding cycle, and activity peak (Peak Timer)',
   'Wiek': 'Age',
   'Temp': 'Temp',
+  'przed chwilą': 'just now',
+  '{hours}h temu': '{hours}h ago',
+  '{days}d temu': '{days}d ago',
+  'Dokarmiono zakwas': 'Starter fed',
+  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Logged feeding for starter "{name}".',
+  'Zapisano zaktualizowany profil': 'Updated profile saved',
+  'Dodano zakwas': 'Starter added',
+  'Kultura „{name}” została utworzona.': 'Culture "{name}" has been created.',
+  'Nie można usunąć': 'Cannot delete',
+  'Musisz posiadać co najmniej jeden profil zakwasu.': 'You must keep at least one starter profile.',
+  'Skopiowano proporcje dokarmiania do schowka': 'Feeding ratio copied to clipboard',
 };
+
 

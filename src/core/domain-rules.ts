@@ -1,8 +1,13 @@
 // ============================================================================
 // Piekarz (Crust) — Core Domain Rules (RD-00…RD-15)
 // Deterministic baking math, True Baker's %, DDT, and fermentation physics.
-// Apps4Brew Studio — 100% Offline-First, Zero Cloud Dependencies.
+// Apps4Craft Studio — 100% Offline-First, Zero Cloud Dependencies.
+// Scientific & Artisanal Literature Citations: docs/BAKING_PHYSICS_BIBLIOGRAPHY.md
+// References: Hamelman (2012), Calvel (2001), DiMuzio (2009), Buehler (2006).
 // ============================================================================
+
+export * from './bake-loss';
+export * from './sourdough-physics';
 
 export interface FlourItemInput {
   name: string;
@@ -70,24 +75,6 @@ export interface FermentationAdaptationResult {
   diffMinutes: number;
   temperatureCelsius: number;
   messagePl: string;
-}
-
-export interface StarterFeedingResult {
-  targetYieldGrams: number;
-  starterGrams: number;
-  flourGrams: number;
-  waterGrams: number;
-  ratioDescription: string;
-  tipPl?: string;
-}
-
-export type SourdoughSafetyStatus = 'healthy' | 'kahm_yeast_safe' | 'toxic_mold_danger';
-
-export interface SourdoughSafetyCheck {
-  status: SourdoughSafetyStatus;
-  titlePl: string;
-  actionPl: string;
-  isEdible: boolean;
 }
 
 /**
@@ -212,6 +199,8 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
   };
 }
 
+export const calculateDDT = calculateDDTWaterTemp;
+
 /**
  * RD-07: Ice Calculation for Cold Water Requirement
  * Calculates grams of ice to melt in tap water to reach target low water temperature.
@@ -241,6 +230,8 @@ export function calculateIceRequirement(
     totalWaterGrams,
   };
 }
+
+export const calculateIceWaterMath = calculateIceRequirement;
 
 /**
  * RD-08: Temperature-Dependent Fermentation Time Adaptation (Q10 = 2.0)
@@ -287,6 +278,8 @@ export function calculateFermentationAdaptation(
   };
 }
 
+export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
+
 /**
  * RD-04: Yeast Conversion (Fresh Compressed vs Instant Dry Yeast 3:1)
  */
@@ -305,342 +298,6 @@ export function convertYeast(
     const fresh = Number((amountGrams * 3.0).toFixed(1));
     return { freshGrams: fresh, instantGrams: amountGrams };
   }
-}
-
-/**
- * RD-11: Sourdough Starter Feeding Calculator
- * Calculates starter, flour, and water quantities for a given ratio (e.g. 1:1:1, 1:2:2, 1:5:5).
- */
-export function calculateStarterFeeding(
-  targetYieldGrams: number,
-  ratio: [number, number, number] = [1, 2, 2]
-): StarterFeedingResult {
-  const [sPart, fPart, wPart] = ratio;
-  const totalParts = sPart + fPart + wPart;
-
-  if (totalParts <= 0 || targetYieldGrams <= 0) {
-    throw new Error('Parametry dokarmiania muszą być większe od zera');
-  }
-
-  const onePart = targetYieldGrams / totalParts;
-  const starter = Math.round(onePart * sPart);
-  const flour = Math.round(onePart * fPart);
-  const water = Math.round(onePart * wPart);
-
-  let tipPl = 'Standardowe dokarmienie przed pieczeniem (4–6h w 24–26°C do szczytu objętości).';
-  if (ratio[1] >= 5) {
-    tipPl = 'Wysokie rozcieńczenie (1:5:5 lub 1:10:10) — dłuższy czas wyrastania (8–12h), idealne na noc.';
-  } else if (ratio[1] === 1) {
-    tipPl = 'Szybkie odświeżenie 1:1:1 — krótki czas wyrastania (2–4h), wysoka kwasowość.';
-  }
-
-  return {
-    targetYieldGrams,
-    starterGrams: starter,
-    flourGrams: flour,
-    waterGrams: water,
-    ratioDescription: `${sPart}:${fPart}:${wPart}`,
-    tipPl,
-  };
-}
-
-export type SourdoughPhase = 'lag' | 'rising' | 'peak' | 'declining' | 'hungry';
-
-export interface SourdoughPhaseResult {
-  phase: SourdoughPhase;
-  elapsedHours: number;
-  labelPl: string;
-  badgeColor: string;
-  advicePl: string;
-}
-
-/**
- * RD-19: Sourdough Metabolic Phase and Peak Activity Indicator
- */
-export function calculateStarterPhase(
-  lastFedAt: number | undefined,
-  storageState: 'ROOM_TEMP' | 'FRIDGE' = 'ROOM_TEMP',
-  now: number = Date.now()
-): SourdoughPhaseResult {
-  if (!lastFedAt) {
-    return {
-      phase: 'hungry',
-      elapsedHours: 999,
-      labelPl: 'Brak danych o karmieniu',
-      badgeColor: '#EF4444',
-      advicePl: 'Zarejestruj dokarmienie, aby uruchomić śledzenie szczytu aktywności.',
-    };
-  }
-
-  const diffMs = Math.max(0, now - lastFedAt);
-  const elapsedHours = Number((diffMs / (1000 * 60 * 60)).toFixed(1));
-
-  if (storageState === 'FRIDGE') {
-    const elapsedDays = Math.floor(elapsedHours / 24);
-    if (elapsedDays < 5) {
-      return {
-        phase: 'lag',
-        elapsedHours,
-        labelPl: `Uśpiony w lodówce (${elapsedDays} dni)`,
-        badgeColor: '#3B82F6',
-        advicePl: 'W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.',
-      };
-    }
-    return {
-      phase: 'hungry',
-      elapsedHours,
-      labelPl: `Wymaga odświeżenia (${elapsedDays} dni w chłodzie)`,
-      badgeColor: '#F59E0B',
-      advicePl: 'Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.',
-    };
-  }
-
-  // Room temperature kinetics (21 - 24°C)
-  if (elapsedHours < 2.0) {
-    return {
-      phase: 'lag',
-      elapsedHours,
-      labelPl: 'Faza adaptacji (Uśpienie)',
-      badgeColor: '#6B7280',
-      advicePl: 'Drożdże i bakterie mlekowe adaptują się do świeżej mąki. Brak widocznego wzrostu jest normalny.',
-    };
-  }
-  if (elapsedHours < 5.0) {
-    return {
-      phase: 'rising',
-      elapsedHours,
-      labelPl: 'Aktywny rozrost (Wzrost objętości)',
-      badgeColor: '#3B82F6',
-      advicePl: 'Ciasto podwaja objętość, widać pierwsze pęcherze gazu i wypukłą kopułę.',
-    };
-  }
-  if (elapsedHours <= 9.0) {
-    return {
-      phase: 'peak',
-      elapsedHours,
-      labelPl: 'Szczyt aktywności (PEAK) — Idealny moment!',
-      badgeColor: '#10B981',
-      advicePl: 'Maksymalna objętość i siła pędna drożdży. Najlepszy moment na dodanie do ciasta chlebowego!',
-    };
-  }
-  if (elapsedHours <= 14.0) {
-    return {
-      phase: 'declining',
-      elapsedHours,
-      labelPl: 'Wypłaszczenie / Lekki spadek',
-      badgeColor: '#F59E0B',
-      advicePl: 'Kopuła zaczyna się zapadać, rośnie kwasowość octowa. Chleb będzie wyraźniej kwaskowaty.',
-    };
-  }
-  return {
-    phase: 'hungry',
-    elapsedHours,
-    labelPl: 'Głód / Opadnięcie',
-    badgeColor: '#EF4444',
-    advicePl: 'Pożywka zużyta. Zlej ewentualny płyn głodowy (Hooch) i dokarm zakwas w proporcji 1:2:2.',
-  };
-}
-
-export type BakeTypePresetId = 'batard_boule' | 'tin_rye' | 'baguette_roll' | 'pan_focaccia' | 'custom';
-
-export interface BakeLossPreset {
-  id: BakeTypePresetId;
-  namePl: string;
-  defaultLossPercent: number;
-  minLossPercent: number;
-  maxLossPercent: number;
-  descriptionPl: string;
-}
-
-export const BAKE_LOSS_PRESETS: BakeLossPreset[] = [
-  {
-    id: 'batard_boule',
-    namePl: 'Chleb wiejski / Batard / Boule (garnek/kamień)',
-    defaultLossPercent: 14.0,
-    minLossPercent: 12.0,
-    maxLossPercent: 16.0,
-    descriptionPl: 'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.',
-  },
-  {
-    id: 'tin_rye',
-    namePl: 'Chleb żytni / foremkowy',
-    defaultLossPercent: 11.0,
-    minLossPercent: 9.0,
-    maxLossPercent: 13.0,
-    descriptionPl: 'Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.',
-  },
-  {
-    id: 'baguette_roll',
-    namePl: 'Bagietki / Bułki (duża powierzchnia odparowania)',
-    defaultLossPercent: 18.0,
-    minLossPercent: 15.0,
-    maxLossPercent: 22.0,
-    descriptionPl: 'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.',
-  },
-  {
-    id: 'pan_focaccia',
-    namePl: 'Focaccia / Pizza na blasze',
-    defaultLossPercent: 13.0,
-    minLossPercent: 10.0,
-    maxLossPercent: 15.0,
-    descriptionPl: 'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.',
-  },
-  {
-    id: 'custom',
-    namePl: 'Własna strata piecowa',
-    defaultLossPercent: 14.0,
-    minLossPercent: 5.0,
-    maxLossPercent: 30.0,
-    descriptionPl: 'Ręcznie zdefiniowany procent utraty masy po pieczeniu i pełnym wystudzeniu.',
-  },
-];
-
-export type CrumbMoistureCategory = 'dry' | 'balanced' | 'custardy_wet';
-
-export interface BakeLossMetricsResult {
-  doughWeightGrams: number;
-  bakedWeightGrams: number;
-  evaporatedWaterGrams: number;
-  bakeLossPercent: number;
-  retainedMoisturePercent: number;
-  crumbMoistureCategory: CrumbMoistureCategory;
-  categoryLabelPl: string;
-  coolingAdvicePl: string;
-  singleLoafBakedGrams?: number;
-}
-
-/**
- * RD-10: Bake Loss Estimation (typically 12% - 18%)
- */
-export function calculateBakedWeight(doughWeightGrams: number, bakeLossPercent = 14.0): number {
-  if (doughWeightGrams <= 0) return 0;
-  return Math.round(doughWeightGrams * (1.0 - bakeLossPercent / 100.0));
-}
-
-/**
- * RD-10b: Comprehensive Bake Loss & Crumb Moisture Calculator
- * Calculates weight loss, evaporated water, retained crumb moisture percentage, and cooling recommendations.
- */
-export function calculateBakeLossMetrics(
-  doughWeightGrams: number,
-  bakeLossPercent = 14.0,
-  totalWaterGrams?: number,
-  loavesCount = 1
-): BakeLossMetricsResult {
-  if (doughWeightGrams <= 0) {
-    throw new Error('Masa ciasta musi być większa od zera');
-  }
-  if (bakeLossPercent <= 0 || bakeLossPercent >= 50) {
-    throw new Error('Strata piecowa musi mieścić się w przedziale 1% - 49%');
-  }
-
-  const bakedWeight = Math.round(doughWeightGrams * (1.0 - bakeLossPercent / 100.0));
-  const evaporated = doughWeightGrams - bakedWeight;
-
-  // Total water in dough (if provided, otherwise estimated at 42% of dough weight ~ 70% hydration)
-  const totalWater = totalWaterGrams !== undefined && totalWaterGrams > 0
-    ? totalWaterGrams
-    : doughWeightGrams * 0.42;
-
-  const retainedWater = Math.max(0, totalWater - evaporated);
-  const retainedMoisturePercent = Number(((retainedWater / (bakedWeight > 0 ? bakedWeight : 1)) * 100).toFixed(1));
-
-  let crumbMoistureCategory: CrumbMoistureCategory;
-  let categoryLabelPl: string;
-  let coolingAdvicePl: string;
-
-  if (retainedMoisturePercent >= 46.0) {
-    crumbMoistureCategory = 'custardy_wet';
-    categoryLabelPl = 'Mocno wilgotny / kremowy (Custardy Crumb)';
-    coolingAdvicePl = 'Wysoka retencja wilgoci. Odczekaj min. 4–6 godzin na kratce przed krojeniem, by uniknąć kleistości noża i zakalca.';
-  } else if (retainedMoisturePercent >= 38.0) {
-    crumbMoistureCategory = 'balanced';
-    categoryLabelPl = 'Równomierny / rzemieślniczy (Balanced)';
-    coolingAdvicePl = 'Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.';
-  } else {
-    crumbMoistureCategory = 'dry';
-    categoryLabelPl = 'Suchy / chrupki (Crisp Dry)';
-    coolingAdvicePl = 'Niska wilgotność miękiszu (styl bagietkowy). Skórka bardzo krucha, krótszy czas zachowania świeżości.';
-  }
-
-  const singleLoafBakedGrams = loavesCount > 1 ? Math.round(bakedWeight / loavesCount) : bakedWeight;
-
-  return {
-    doughWeightGrams,
-    bakedWeightGrams: bakedWeight,
-    evaporatedWaterGrams: evaporated,
-    bakeLossPercent,
-    retainedMoisturePercent,
-    crumbMoistureCategory,
-    categoryLabelPl,
-    coolingAdvicePl,
-    singleLoafBakedGrams,
-  };
-}
-
-/**
- * RD-10c: Required Raw Dough Mass given Desired Final Baked Loaf Mass
- * Computes exact raw dough mass to scale in the divider/bowl to yield target baked loaves after bake loss.
- */
-export function calculateRequiredRawDoughWeight(
-  targetBakedLoafGrams: number,
-  bakeLossPercent = 14.0,
-  loavesCount = 1
-): number {
-  if (targetBakedLoafGrams <= 0) {
-    throw new Error('Docelowa waga upieczonego chleba musi być większa od zera');
-  }
-  if (bakeLossPercent <= 0 || bakeLossPercent >= 50) {
-    throw new Error('Strata piecowa musi mieścić się w przedziale 1% - 49%');
-  }
-  const singleRaw = targetBakedLoafGrams / (1.0 - bakeLossPercent / 100.0);
-  return Math.round(singleRaw * loavesCount);
-}
-
-/**
- * RD-13: Sourdough Safety Evaluation
- * Distinguishes harmless kahm yeast / hooch from hazardous mold.
- */
-export function evaluateSourdoughSafety(observations: {
-  hasHoochLiquid?: boolean;
-  hasWhiteWrinkledFilm?: boolean;
-  hasFuzzySpots?: boolean;
-  hasColoredSpots?: boolean; // Pink, orange, green, black
-  hasRottenSmell?: boolean;
-}): SourdoughSafetyCheck {
-  if (observations.hasFuzzySpots || observations.hasColoredSpots || observations.hasRottenSmell) {
-    return {
-      status: 'toxic_mold_danger',
-      titlePl: 'ALARM: Wykryto niebezpieczną pleśń lub zgniliznę',
-      actionPl: 'BEZWZGLĘDNIE WYRZUĆ ZAKWAS DO KOSZA. Słoik wygotuj we wrzątku lub wyrzuć. Pleśń wnika mikroskopijnymi strzępkami w całą masę — tego zakwasu NIE wolno ratować.',
-      isEdible: false,
-    };
-  }
-
-  if (observations.hasWhiteWrinkledFilm) {
-    return {
-      status: 'kahm_yeast_safe',
-      titlePl: 'Bezpieczny kożuch drożdżowy (Kahm Yeast)',
-      actionPl: 'To nieszkodliwy kożuch drożdży tlenowych (Kahm Yeast). Zdejmij czystą łyżką wierzchnią warstwę, pobierz 15 g zdrowego zakwasu ze spodu słoika i dokarm w nowym, czystym naczyniu.',
-      isEdible: true,
-    };
-  }
-
-  if (observations.hasHoochLiquid) {
-    return {
-      status: 'healthy',
-      titlePl: 'Płyn głodowy (Hooch) — zakwas jest zdrowy, ale głodny',
-      actionPl: 'Ciemny płyn na powierzchni o zapachu alkoholu to naturalny efekt głodu. Zlej płyn lub wymieszaj go, po czym niezwłocznie dokarm zakwas w proporcji 1:2:2.',
-      isEdible: true,
-    };
-  }
-
-  return {
-    status: 'healthy',
-    titlePl: 'Zakwas jest zdrowy i aktywny',
-    actionPl: 'Prawidłowy zapach owocowo-kwasowy i równomierne napowietrzenie.',
-    isEdible: true,
-  };
 }
 
 /**
@@ -771,4 +428,3 @@ export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
     ],
   },
 ];
-

@@ -50,7 +50,7 @@ describe('Recipe Formatter & Clipboard Sharing (Apps4Brew Format Standard)', () 
     expect(formatted).toContain('Zakwas');
     expect(formatted).toContain('Sól');
     expect(formatted).toContain('Docelowa temperatura ciasta (DDT): 25.0°C');
-    expect(formatted).toContain('Apps4Brew');
+    expect(formatted).toContain('Apps4Craft');
   });
 
   it('includes ice requirements note when ice is specified', () => {

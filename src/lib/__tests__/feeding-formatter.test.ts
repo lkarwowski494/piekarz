@@ -39,7 +39,7 @@ describe('Feeding Formatter & Clipboard Specification (lib/feeding-formatter)', 
       expect(text).toContain('2. 🌾 Mąka (Żytnia razowa typ 2000): 60 g');
       expect(text).toContain('3. 💧 Woda: 60 g');
       expect(text).toContain('Standardowe dokarmienie przed pieczeniem');
-      expect(text).toContain('Apps4Brew Studio');
+      expect(text).toContain('Apps4Craft Studio');
     });
   });
 

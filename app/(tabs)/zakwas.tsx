@@ -1,20 +1,15 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
-  View,
-  Text,
   ScrollView,
   StyleSheet,
   Pressable,
-  TextInput,
-  Modal,
+  Text,
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import {
   CraftHeader,
-  CraftStatDisplay,
-  CraftCard,
   sharedCraftTokens,
 } from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
@@ -34,12 +29,20 @@ import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
-import { useUnitSystem, formatTemperature, formatWeight, formatTextUnits } from '../../src/lib/unit-converter';
+import { useUnitSystem } from '../../src/lib/unit-converter';
+import { ZakwasSacredCard } from '../../src/components/zakwas/ZakwasSacredCard';
+import { StartersSelectorRow } from '../../src/components/zakwas/StartersSelectorRow';
+import { StarterProfileCard } from '../../src/components/zakwas/StarterProfileCard';
+import { StarterPeakActivityCard } from '../../src/components/zakwas/StarterPeakActivityCard';
+import { StarterFeedingCard } from '../../src/components/zakwas/StarterFeedingCard';
+import { StarterSafetyCard } from '../../src/components/zakwas/StarterSafetyCard';
+import { EditStarterModal } from '../../src/components/zakwas/EditStarterModal';
+import { AddStarterModal } from '../../src/components/zakwas/AddStarterModal';
 
 export default function ZakwasScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
-  // Apps4Brew Monetization & Access (Cheaper than espresso)
+  // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     access,
     isPaywallVisible,
@@ -119,60 +122,52 @@ export default function ZakwasScreen() {
 
   const peakPrediction = useMemo(() => {
     return predictStarterPeak({
-      lastFedAt: starter.lastFedAt || Date.now(),
+      lastFedAt: starter.lastFedAt ?? Date.now(),
       currentTempC: ambientTempC,
       ratio: selectedRatio,
       flourGrain,
       hydration: starter.hydration,
+      now: Date.now(),
     });
   }, [starter.lastFedAt, ambientTempC, selectedRatio, flourGrain, starter.hydration]);
 
-  // Last fed formatted
-  const lastFedLabel = useMemo(() => {
-    if (!starter.lastFedAt) return 'Brak danych';
-    const diffHours = (Date.now() - starter.lastFedAt) / (1000 * 60 * 60);
-    if (diffHours < 1) {
-      const mins = Math.max(1, Math.round(diffHours * 60));
-      return `${mins} min temu`;
-    }
-    if (diffHours < 24) {
-      const h = Math.floor(diffHours);
-      const m = Math.round((diffHours - h) * 60);
-      return `${h}h ${m}m temu`;
-    }
-    const days = Math.floor(diffHours / 24);
-    return `${days} ${days === 1 ? 'dzień' : 'dni'} temu`;
-  }, [starter.lastFedAt]);
-
-  // Feeding amounts
+  // Feeding calculation
   const feeding = useMemo(() => {
     return calculateStarterFeeding(targetYield, selectedRatio);
   }, [targetYield, selectedRatio]);
 
-  // Biological safety check
+  // Biological safety assessment
   const safetyResult = useMemo(() => {
     return evaluateSourdoughSafety({
       hasHoochLiquid: hasHooch,
       hasWhiteWrinkledFilm: hasKahm,
       hasFuzzySpots: hasMold,
-      hasColoredSpots: hasMold,
     });
   }, [hasHooch, hasKahm, hasMold]);
 
-  // Log feeding action
+  // Time since last feeding label
+  const lastFedLabel = useMemo(() => {
+    const diffHours = Math.floor((Date.now() - (starter.lastFedAt ?? Date.now())) / (1000 * 60 * 60));
+    if (diffHours < 1) return t('przed chwilą');
+    if (diffHours < 24) return t('{hours}h temu', { hours: diffHours });
+    const diffDays = Math.floor(diffHours / 24);
+    return t('{days}d temu', { days: diffDays });
+  }, [starter.lastFedAt]);
+
   const handleLogFeeding = async () => {
     requireActionAccess(async () => {
+      const now = Date.now();
       const updated: StoredStarter = {
         ...starter,
-        lastFedAt: Date.now(),
+        lastFedAt: now,
       };
       await saveStarter(updated);
       setStarter(updated);
-      Alert.alert(t('Zarejestrowano dokarmienie!'), `Zakwas ${starter.name} został nakarmiony.`);
+      setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
+      Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
     });
   };
 
-  // Open edit modal
   const handleOpenEditModal = () => {
     setEditName(starter.name);
     setEditFlourType(starter.flourType);
@@ -180,59 +175,67 @@ export default function ZakwasScreen() {
     setIsEditModalOpen(true);
   };
 
-  // Save edit modal
   const handleSaveProfile = async () => {
     requireActionAccess(async () => {
+      const trimmed = editName.trim();
+      if (!trimmed) return;
       const updated: StoredStarter = {
         ...starter,
-        name: editName.trim() || starter.name,
+        name: trimmed,
         flourType: editFlourType.trim() || starter.flourType,
         storageState: editStorageState,
       };
       await saveStarter(updated);
       setStarter(updated);
+      setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       setIsEditModalOpen(false);
-      await loadStarterData();
+      Alert.alert(t('Profil zakwasu'), t('Zapisano zaktualizowany profil'));
     });
-  };
-
-  const handleCopyFeeding = async () => {
-    await copyFeedingToClipboard(starter, feeding, selectedRatio);
   };
 
   const handleAddStarter = async () => {
     requireActionAccess(async () => {
-      const trimmed = newStarterName.trim();
-      if (!trimmed) return;
-      const created: StoredStarter = {
+      const trimmedName = newStarterName.trim();
+      if (!trimmedName) return;
+      const newStarter: StoredStarter = {
         id: `starter_${Date.now()}`,
-        name: trimmed,
-        flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa t750',
-        hydration: 100,
+        name: trimmedName,
+        flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa',
+        hydration: 100.0,
         birthDate: Date.now(),
         storageState: newStarterStorage,
         lastFedAt: Date.now(),
       };
-      await saveStarter(created);
-      setSelectedStarterId(created.id);
-      setStarter(created);
+      await saveStarter(newStarter);
+      await loadStarterData(newStarter.id);
       setIsAddModalOpen(false);
       setNewStarterName('');
-      await loadStarterData(created.id);
+      Alert.alert(t('Dodano zakwas'), t('Kultura „{name}” została utworzona.', { name: trimmedName }));
     });
   };
 
   const handleDeleteCurrentStarter = () => {
     requireActionAccess(() => {
-      if (startersList.length <= 1) return;
+      if (startersList.length <= 1) {
+        Alert.alert(t('Nie można usunąć'), t('Musisz posiadać co najmniej jeden profil zakwasu.'));
+        return;
+      }
       confirmDeleteStarter(starter.name, async () => {
         await deleteStarter(starter.id);
         setIsEditModalOpen(false);
         const remaining = startersList.filter((s) => s.id !== starter.id);
-        const nextId = remaining.length > 0 ? remaining[0].id : undefined;
-        await loadStarterData(nextId);
+        if (remaining.length > 0) {
+          await loadStarterData(remaining[0].id);
+        }
       });
     });
+  };
+
+  const handleCopyFeeding = async () => {
+    const copied = await copyFeedingToClipboard(starter, feeding, selectedRatio);
+    if (copied) {
+      Alert.alert(t('Kopiuj dokarmienie'), t('Skopiowano proporcje dokarmiania do schowka'));
+    }
   };
 
   const handlePrintStarterLabel = async () => {
@@ -242,10 +245,9 @@ export default function ZakwasScreen() {
           starterName: starter.name,
           flourType: starter.flourType,
           hydration: starter.hydration,
-          feedingRatio: `${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`,
-          storageState: starter.storageState,
           ageDays,
-          lastFedDate: lastFedLabel,
+          storageState: starter.storageState,
+          feedingRatio: `${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`,
         },
         true
       );
@@ -283,526 +285,96 @@ export default function ZakwasScreen() {
       />
       <ScrollView contentContainerStyle={styles.container}>
         {/* Sacred Numbers Glanceable Countertop Card */}
-        <CraftCard
-          testID="zakwas-sacred-card"
-          style={styles.sacredNumbersCard}
-          accentBorder={theme.colors.borderActive}
-        >
-          <View style={styles.sacredGrid}>
-            <CraftStatDisplay
-              testID="stat-zakwas-age"
-              label={t('Wiek')}
-              value={ageDays}
-              unit="d"
-              accentColor={theme.colors.accent}
-              size="md"
-            />
-            <CraftStatDisplay
-              testID="stat-zakwas-hydration"
-              label={t('Hydratacja')}
-              value={starter.hydration}
-              unit="%"
-              size="md"
-            />
-            <CraftStatDisplay
-              testID="stat-zakwas-ratio"
-              label={t('Proporcja')}
-              value={`${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`}
-              size="md"
-            />
-            <CraftStatDisplay
-              testID="stat-zakwas-temp"
-              label={t('Temp')}
-              value={ambientTempC}
-              unit="°C"
-              size="md"
-            />
-          </View>
-        </CraftCard>
+        <ZakwasSacredCard
+          ageDays={ageDays}
+          hydration={starter.hydration}
+          selectedRatio={selectedRatio}
+          ambientTempC={ambientTempC}
+        />
 
         {/* Starters Carousel / Selector */}
-        {startersList.length > 0 && (
-          <View style={styles.startersSelectorRow}>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.startersScroll}
-            >
-              {startersList.map((s) => {
-                const isSelected = s.id === starter.id;
-                return (
-                  <Pressable
-                    key={s.id}
-                    testID={`select-starter-${s.id}`}
-                    style={[styles.starterPill, isSelected && styles.starterPillActive]}
-                    onPress={() => {
-                      setStarter(s);
-                      setSelectedStarterId(s.id);
-                    }}
-                  >
-                    <Text
-                      style={[
-                        styles.starterPillText,
-                        isSelected && styles.starterPillTextActive,
-                      ]}
-                    >
-                      {isSelected ? '🥣 ' : ''}{s.name}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-              <Pressable
-                testID="add-starter-btn"
-                style={styles.addStarterBtn}
-                onPress={() => setIsAddModalOpen(true)}
-              >
-                <Text style={styles.addStarterBtnText}>+ {t('Dodaj nowy zakwas')}</Text>
-              </Pressable>
-            </ScrollView>
-          </View>
-        )}
+        <StartersSelectorRow
+          startersList={startersList}
+          activeStarterId={starter.id}
+          onSelectStarter={(s) => {
+            setStarter(s);
+            setSelectedStarterId(s.id);
+          }}
+          onOpenAddModal={() => setIsAddModalOpen(true)}
+        />
 
         {/* Profile Card */}
-        <View style={styles.card}>
-          <View style={styles.cardHeaderRow}>
-            <View style={styles.flex1}>
-              <Text style={styles.starterName}>{starter.name}</Text>
-              <Text style={styles.starterType}>{starter.flourType} · Hydratacja {starter.hydration}%</Text>
-            </View>
-            <View style={styles.cardHeaderActions}>
-              <Pressable
-                testID="print-starter-label-btn"
-                style={styles.printLabelBtn}
-                onPress={handlePrintStarterLabel}
-              >
-                <Text style={styles.printLabelBtnText}>🖨️ {t('Etykieta PDF')}</Text>
-              </Pressable>
-              <Pressable
-                testID="edit-profile-btn"
-                style={styles.editProfileBtn}
-                onPress={handleOpenEditModal}
-              >
-                <Text style={styles.editProfileBtnText}>✏️ {t('Edytuj')}</Text>
-              </Pressable>
-            </View>
-          </View>
-
-          <View style={styles.divider} />
-
-          <View style={styles.metaRow}>
-            <View style={styles.metaItem}>
-              <Text style={styles.metaLabel}>{t('Wiek zakwasu')}</Text>
-              <Text style={styles.metaValue}>{ageDays} dni</Text>
-            </View>
-            <View style={styles.metaItem}>
-              <Text style={styles.metaLabel}>{t('Ostatnie dokarmienie')}</Text>
-              <Text style={styles.metaValue}>{lastFedLabel}</Text>
-            </View>
-            <View style={styles.metaItem}>
-              <Text style={styles.metaLabel}>{t('Miejsce przechowywania')}</Text>
-              <Text style={styles.metaValue}>
-                {starter.storageState === 'FRIDGE' ? formatTextUnits(t('W lodówce (4°C)'), unitSystem) : t('Temperatura pokojowa')}
-              </Text>
-            </View>
-          </View>
-        </View>
+        <StarterProfileCard
+          starter={starter}
+          ageDays={ageDays}
+          lastFedLabel={lastFedLabel}
+          unitSystem={unitSystem}
+          onPrintLabel={handlePrintStarterLabel}
+          onOpenEditModal={handleOpenEditModal}
+        />
 
         {/* Peak Activity Timer Card */}
-        <View style={styles.card} testID="peak-activity-card">
-          <View style={styles.peakHeaderRow}>
-            <Text style={styles.cardTitle}>🕒 {t('Szczyt aktywności (Peak Timer)')}</Text>
-            <View style={[styles.phaseBadge, { backgroundColor: phaseResult.badgeColor + '20' }]}>
-              <Text style={[styles.phaseBadgeText, { color: phaseResult.badgeColor }]}>
-                ● {phaseResult.labelPl}
-              </Text>
-            </View>
-          </View>
-
-          <Text style={styles.phaseAdvice}>{phaseResult.advicePl}</Text>
-
-          {/* Metabolic Peak Window Prediction */}
-          <View style={styles.predictionBox} testID="peak-prediction-box">
-            <View style={styles.predictionRow}>
-              <Text style={styles.predictionLabel}>{t('Szacowane okno szczytu:')}</Text>
-              <Text style={styles.predictionWindowText}>{peakPrediction.formattedWindowPl}</Text>
-            </View>
-
-            {/* Progress bar */}
-            <View style={styles.progressBarBackground}>
-              <View
-                style={[
-                  styles.progressBarFill,
-                  {
-                    width: `${peakPrediction.progressPercent}%`,
-                    backgroundColor: peakPrediction.isCurrentlyInPeak
-                      ? theme.colors.statusSuccess
-                      : peakPrediction.hasPassedPeak
-                      ? theme.colors.statusWarning
-                      : theme.colors.accent,
-                  },
-                ]}
-              />
-            </View>
-            <View style={styles.progressLabelRow}>
-              <Text style={styles.progressSubtext}>
-                {t('Postęp do szczytu:')} {peakPrediction.progressPercent}%
-              </Text>
-              <Text style={styles.progressSubtext}>
-                {peakPrediction.isCurrentlyInPeak ? `✓ ${t('W szczycie')}` : ''}
-              </Text>
-            </View>
-
-            <Text style={styles.predictionStatusText}>{peakPrediction.statusMessagePl}</Text>
-
-            {/* Ambient Temperature Selector */}
-            <Text style={styles.tempSelectorHeading}>{t('Temperatura otoczenia')}: {formatTemperature(ambientTempC, unitSystem)}</Text>
-            <View style={styles.tempChipsRow}>
-              {[
-                { temp: 19, label: `❄️ ${formatTemperature(19, unitSystem)}`, id: 'temp-19' },
-                { temp: 22, label: `🏠 ${formatTemperature(22, unitSystem)}`, id: 'temp-22' },
-                { temp: 25, label: `☀️ ${formatTemperature(25, unitSystem)}`, id: 'temp-25' },
-                { temp: 28, label: `♨️ ${formatTemperature(28, unitSystem)}`, id: 'temp-28' },
-              ].map((item) => (
-                <Pressable
-                  key={item.id}
-                  testID={`temp-chip-${item.temp}`}
-                  style={[
-                    styles.tempChip,
-                    ambientTempC === item.temp && styles.tempChipActive,
-                  ]}
-                  onPress={() => setAmbientTempC(item.temp)}
-                >
-                  <Text
-                    style={[
-                      styles.tempChipText,
-                      ambientTempC === item.temp && styles.tempChipTextActive,
-                    ]}
-                  >
-                    {item.label}
-                  </Text>
-                </Pressable>
-              ))}
-            </View>
-          </View>
-
-          <Pressable style={styles.feedNowBtn} onPress={handleLogFeeding}>
-            <Text style={styles.feedNowBtnText}>🥣 {t('Zarejestruj dokarmienie')}</Text>
-          </Pressable>
-        </View>
+        <StarterPeakActivityCard
+          phaseResult={phaseResult}
+          peakPrediction={peakPrediction}
+          ambientTempC={ambientTempC}
+          onAmbientTempChange={setAmbientTempC}
+          unitSystem={unitSystem}
+          onLogFeeding={handleLogFeeding}
+        />
 
         {/* Feeding Calculator */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Kalkulator dokarmiania')}</Text>
-          <Text style={styles.cardSubtitle}>
-            Dobierz proporcje i potrzebną masę zaczynu (Levain) do wypieku
-          </Text>
-
-          {/* Ratio Selector */}
-          <Text style={styles.subHeading}>{t('Cykl dokarmiania')} (Proporcja)</Text>
-          <View style={styles.ratioChipsRow}>
-            {[
-              { ratio: [1, 1, 1] as [number, number, number], label: '1:1:1 (Szybki 3-4h)' },
-              { ratio: [1, 2, 2] as [number, number, number], label: '1:2:2 (Klasyk 6-8h)' },
-              { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8-10h)' },
-              { ratio: [1, 5, 5] as [number, number, number], label: '1:5:5 (Na noc 12h)' },
-            ].map((item, idx) => {
-              const isSelected =
-                selectedRatio[0] === item.ratio[0] &&
-                selectedRatio[1] === item.ratio[1] &&
-                selectedRatio[2] === item.ratio[2];
-              return (
-                <Pressable
-                  key={idx}
-                  onPress={() => setSelectedRatio(item.ratio)}
-                  style={[styles.ratioChip, isSelected && styles.ratioChipActive]}
-                >
-                  <Text style={[styles.ratioChipText, isSelected && styles.ratioChipTextActive]}>
-                    {item.label}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </View>
-
-          {/* Yield Amount Selector */}
-          <Text style={styles.subHeading}>
-            {t('Potrzebny zaczyn (Levain)')}: {formatWeight(targetYield, unitSystem)}
-          </Text>
-          <View style={styles.yieldButtons}>
-            {[100, 150, 200, 250, 300].map((y) => (
-              <Pressable
-                key={y}
-                onPress={() => setTargetYield(y)}
-                style={[styles.yieldChip, targetYield === y && styles.yieldChipActive]}
-              >
-                <Text style={[styles.yieldChipText, targetYield === y && styles.yieldChipTextActive]}>
-                  {formatWeight(y, unitSystem)}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-
-          {/* Result Calculation Breakdown */}
-          <View style={styles.feedingResultGrid}>
-            <View style={styles.feedingItem}>
-              <Text style={styles.feedingItemLabel}>{t('Stary zakwas')}</Text>
-              <Text style={styles.feedingItemValue}>{formatWeight(feeding.starterGrams, unitSystem)}</Text>
-              <Text style={styles.feedingItemRatio}>{selectedRatio[0]} cz.</Text>
-            </View>
-            <Text style={styles.plusSign}>+</Text>
-            <View style={styles.feedingItem}>
-              <Text style={styles.feedingItemLabel}>{t('Mąka')}</Text>
-              <Text style={styles.feedingItemValue}>{formatWeight(feeding.flourGrams, unitSystem)}</Text>
-              <Text style={styles.feedingItemRatio}>{selectedRatio[1]} cz.</Text>
-            </View>
-            <Text style={styles.plusSign}>+</Text>
-            <View style={styles.feedingItem}>
-              <Text style={styles.feedingItemLabel}>{t('Woda')} (~{formatTemperature(28, unitSystem)})</Text>
-              <Text style={styles.feedingItemValue}>{formatWeight(feeding.waterGrams, unitSystem)}</Text>
-              <Text style={styles.feedingItemRatio}>{selectedRatio[2]} cz.</Text>
-            </View>
-          </View>
-          <Text style={styles.feedingReserveTip}>
-            💡 Wskazówka: Z powstałych {formatWeight(targetYield, unitSystem)} pobierz wymaganą ilość do ciasta, a resztkę (~{formatWeight(20, unitSystem)}–{formatWeight(25, unitSystem)})
-            schowaj do lodówki jako matkę na kolejny wypiek.
-          </Text>
-
-          <Pressable
-            testID="copy-feeding-btn"
-            style={styles.copyFeedingBtn}
-            onPress={handleCopyFeeding}
-          >
-            <Text style={styles.copyFeedingBtnText}>
-              📋 {t('Kopiuj dokarmienie')}
-            </Text>
-          </Pressable>
-
-          <Pressable
-            testID="open-converter-btn"
-            style={styles.openConverterBtn}
-            onPress={() => setIsConverterOpen(true)}
-          >
-            <Text style={styles.openConverterBtnText}>
-              ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
-            </Text>
-          </Pressable>
-
-          <Pressable
-            testID="open-discard-recipes-btn"
-            style={styles.openConverterBtn}
-            onPress={() => setIsDiscardModalOpen(true)}
-          >
-            <Text style={styles.openConverterBtnText}>
-              🥞 {t('Przepisy na Odrzut Zakwasu')}
-            </Text>
-          </Pressable>
-        </View>
+        <StarterFeedingCard
+          selectedRatio={selectedRatio}
+          onSelectRatio={setSelectedRatio}
+          targetYield={targetYield}
+          onTargetYieldChange={setTargetYield}
+          feeding={feeding}
+          unitSystem={unitSystem}
+          onCopyFeeding={handleCopyFeeding}
+          onOpenConverter={() => setIsConverterOpen(true)}
+          onOpenDiscardRecipes={() => setIsDiscardModalOpen(true)}
+        />
 
         {/* Biological Safety Checker */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>{t('Kontrola biologiczna (Bezpieczeństwo)')}</Text>
-          <Text style={styles.cardSubtitle}>
-            Sprawdź nietypowe zjawiska na powierzchni zakwasu
-          </Text>
-
-          <View style={styles.checkRow}>
-            <Pressable
-              style={[styles.checkBtn, hasHooch && styles.checkBtnActive]}
-              onPress={() => setHasHooch((prev) => !prev)}
-            >
-              <Text style={[styles.checkBtnText, hasHooch && styles.checkBtnTextActive]}>
-                {t('Ciemny płyn / zapach alkoholu (Hooch)')}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={[styles.checkBtn, hasKahm && styles.checkBtnActive]}
-              onPress={() => setHasKahm((prev) => !prev)}
-            >
-              <Text style={[styles.checkBtnText, hasKahm && styles.checkBtnTextActive]}>
-                {t('Biały matowy kożuch (Kahm Yeast)')}
-              </Text>
-            </Pressable>
-
-            <Pressable
-              style={[styles.checkBtn, hasMold && styles.checkBtnDangerActive]}
-              onPress={() => setHasMold((prev) => !prev)}
-            >
-              <Text style={[styles.checkBtnText, hasMold && styles.checkBtnDangerTextActive]}>
-                {t('Puszyste kolorowe plamy (Pleśń / Zgnilizna)')}
-              </Text>
-            </Pressable>
-          </View>
-
-          {/* Diagnostic Result */}
-          <View
-            style={[
-              styles.safetyBox,
-              safetyResult.status === 'toxic_mold_danger'
-                ? styles.safetyDanger
-                : safetyResult.status === 'kahm_yeast_safe'
-                ? styles.safetyWarning
-                : styles.safetyHealthy,
-            ]}
-          >
-            <Text style={styles.safetyTitle}>{safetyResult.titlePl}</Text>
-            <Text style={styles.safetyAction}>{safetyResult.actionPl}</Text>
-          </View>
-
-          <Pressable style={styles.resetBtn} onPress={handleReset}>
-            <Text style={styles.resetBtnText}>{t('Resetuj profil zakwasu')}</Text>
-          </Pressable>
-        </View>
+        <StarterSafetyCard
+          hasHooch={hasHooch}
+          onToggleHooch={() => setHasHooch((prev) => !prev)}
+          hasKahm={hasKahm}
+          onToggleKahm={() => setHasKahm((prev) => !prev)}
+          hasMold={hasMold}
+          onToggleMold={() => setHasMold((prev) => !prev)}
+          safetyResult={safetyResult}
+          onReset={handleReset}
+        />
 
         {/* Modal: Edit Starter Profile */}
-        <Modal visible={isEditModalOpen} transparent animationType="fade">
-          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-            <View style={styles.modalCard}>
-              <Text style={styles.modalTitle}>{t('Edytuj zakwas')}</Text>
-              <Text style={styles.modalSubtitle}>Zmień parametry swojego zakwasu</Text>
-
-              {/* Name input */}
-              <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
-              <TextInput
-                style={styles.modalInput}
-                value={editName}
-                onChangeText={setEditName}
-                placeholder={t('Imię zakwasu')}
-              />
-
-              {/* Flour type input */}
-              <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
-              <TextInput
-                style={styles.modalInput}
-                value={editFlourType}
-                onChangeText={setEditFlourType}
-                placeholder={t('Typ mąki')}
-              />
-
-              {/* Storage state toggle */}
-              <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
-              <View style={styles.storageToggleRow}>
-                <Pressable
-                  style={[styles.storageBtn, editStorageState === 'FRIDGE' && styles.storageBtnActive]}
-                  onPress={() => setEditStorageState('FRIDGE')}
-                >
-                  <Text style={[styles.storageBtnText, editStorageState === 'FRIDGE' && styles.storageBtnTextActive]}>
-                    ❄️ {t('W lodówce (4°C)')}
-                  </Text>
-                </Pressable>
-                <Pressable
-                  style={[styles.storageBtn, editStorageState === 'ROOM_TEMP' && styles.storageBtnActive]}
-                  onPress={() => setEditStorageState('ROOM_TEMP')}
-                >
-                  <Text style={[styles.storageBtnText, editStorageState === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                    🏠 {t('Temperatura pokojowa')}
-                  </Text>
-                </Pressable>
-              </View>
-
-              <View style={styles.modalButtonsRow}>
-                {startersList.length > 1 && (
-                  <Pressable
-                    testID="delete-starter-btn"
-                    style={styles.modalDeleteBtn}
-                    onPress={handleDeleteCurrentStarter}
-                    hitSlop={sharedCraftTokens.hitSlopStandard}
-                  >
-                    <Text style={styles.modalDeleteBtnText}>🗑️ {t('Usuń zakwas')}</Text>
-                  </Pressable>
-                )}
-                <View style={styles.modalRightButtons}>
-                  <Pressable
-                    style={styles.modalCancelBtn}
-                    onPress={() => setIsEditModalOpen(false)}
-                    hitSlop={sharedCraftTokens.hitSlopStandard}
-                  >
-                    <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-                  </Pressable>
-                  <Pressable
-                    style={styles.modalConfirmBtn}
-                    onPress={handleSaveProfile}
-                    hitSlop={sharedCraftTokens.hitSlopStandard}
-                  >
-                    <Text style={styles.modalConfirmBtnText}>{t('Zapisz profil')}</Text>
-                  </Pressable>
-                </View>
-              </View>
-            </View>
-          </SafeAreaView>
-        </Modal>
+        <EditStarterModal
+          visible={isEditModalOpen}
+          name={editName}
+          onNameChange={setEditName}
+          flourType={editFlourType}
+          onFlourTypeChange={setEditFlourType}
+          storageState={editStorageState}
+          onStorageStateChange={setEditStorageState}
+          canDelete={startersList.length > 1}
+          onDelete={handleDeleteCurrentStarter}
+          onClose={() => setIsEditModalOpen(false)}
+          onSave={handleSaveProfile}
+        />
 
         {/* Modal: Add New Starter */}
-        <Modal visible={isAddModalOpen} transparent animationType="slide">
-          <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
-            <View style={styles.modalCard}>
-              <Text style={styles.modalTitle}>🥣 {t('Dodaj nowy zakwas')}</Text>
-              <Text style={styles.modalSubtitle}>Utwórz profil dla nowej kultury zakwasu</Text>
-
-              {/* Name input */}
-              <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
-              <TextInput
-                testID="new-starter-name-input"
-                style={styles.modalInput}
-                value={newStarterName}
-                onChangeText={setNewStarterName}
-                placeholder="np. San Francisco White, Lievito..."
-                placeholderTextColor={theme.colors.textMuted}
-              />
-
-              {/* Flour type input */}
-              <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
-              <TextInput
-                testID="new-starter-flour-input"
-                style={styles.modalInput}
-                value={newStarterFlour}
-                onChangeText={setNewStarterFlour}
-                placeholder="np. Mąka pszenna chlebowa t750"
-                placeholderTextColor={theme.colors.textMuted}
-              />
-
-              {/* Storage toggle */}
-              <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
-              <View style={styles.storageToggleRow}>
-                <Pressable
-                  style={[styles.storageBtn, newStarterStorage === 'ROOM_TEMP' && styles.storageBtnActive]}
-                  onPress={() => setNewStarterStorage('ROOM_TEMP')}
-                >
-                  <Text style={[styles.storageBtnText, newStarterStorage === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                    🏠 {t('Temperatura pokojowa')}
-                  </Text>
-                </Pressable>
-                <Pressable
-                  style={[styles.storageBtn, newStarterStorage === 'FRIDGE' && styles.storageBtnActive]}
-                  onPress={() => setNewStarterStorage('FRIDGE')}
-                >
-                  <Text style={[styles.storageBtnText, newStarterStorage === 'FRIDGE' && styles.storageBtnTextActive]}>
-                    ❄️ {t('W lodówce (4°C)')}
-                  </Text>
-                </Pressable>
-              </View>
-
-              <View style={styles.modalButtonsRow}>
-                <Pressable
-                  testID="cancel-add-starter-btn"
-                  style={styles.modalCancelBtn}
-                  onPress={() => setIsAddModalOpen(false)}
-                  hitSlop={sharedCraftTokens.hitSlopStandard}
-                >
-                  <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
-                </Pressable>
-                <Pressable
-                  testID="save-new-starter-btn"
-                  style={styles.modalConfirmBtn}
-                  onPress={handleAddStarter}
-                  hitSlop={sharedCraftTokens.hitSlopStandard}
-                >
-                  <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
-                </Pressable>
-              </View>
-            </View>
-          </SafeAreaView>
-        </Modal>
+        <AddStarterModal
+          visible={isAddModalOpen}
+          name={newStarterName}
+          onNameChange={setNewStarterName}
+          flour={newStarterFlour}
+          onFlourChange={setNewStarterFlour}
+          storage={newStarterStorage}
+          onStorageChange={setNewStarterStorage}
+          onClose={() => setIsAddModalOpen(false)}
+          onSave={handleAddStarter}
+        />
 
         <StarterConverterModal
           visible={isConverterOpen}
@@ -816,7 +388,7 @@ export default function ZakwasScreen() {
           onClose={() => setIsDiscardModalOpen(false)}
         />
 
-        {/* Apps4Brew Pass Paywall Modal ($0.99 / $4.99 / $14.99) */}
+        {/* Apps4Craft Pass Paywall Modal */}
         <PaywallModal
           visible={isPaywallVisible}
           onClose={() => setPaywallVisible(false)}
@@ -835,601 +407,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.background,
   },
-  flex1: {
-    flex: 1,
-  },
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
   },
-  header: {
-    marginBottom: theme.spacing.md,
-  },
   headerDoctorBtn: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: sharedCraftTokens.borderRadius.full,
-    backgroundColor: sharedCraftTokens.colors.bgCardSecondary,
+    borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.surfaceCard,
     borderWidth: 1,
-    borderColor: sharedCraftTokens.colors.border,
+    borderColor: theme.colors.borderActive,
   },
   headerDoctorBtnText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accent,
-  },
-  sacredNumbersCard: {
-    marginBottom: theme.spacing.md,
-    backgroundColor: sharedCraftTokens.colors.bgCard,
-  },
-  sacredGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: theme.colors.textMuted,
-    marginTop: 2,
-  },
-  card: {
-    backgroundColor: theme.colors.surface,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    marginBottom: theme.spacing.md,
-  },
-  cardHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  starterName: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: theme.colors.textPrimary,
-  },
-  starterType: {
-    fontSize: 13,
-    color: theme.colors.textSecondary,
-    marginTop: 2,
-  },
-  cardHeaderActions: {
-    flexDirection: 'row',
-    gap: 8,
-    alignItems: 'center',
-  },
-  printLabelBtn: {
-    backgroundColor: theme.colors.surfaceCard,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  printLabelBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textPrimary,
-  },
-  editProfileBtn: {
-    backgroundColor: theme.colors.surfaceCard,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  editProfileBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textPrimary,
-  },
-  divider: {
-    height: 1,
-    backgroundColor: theme.colors.border,
-    marginVertical: 12,
-  },
-  metaRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  metaItem: {
-    flex: 1,
-  },
-  metaLabel: {
-    fontSize: 11,
-    color: theme.colors.textMuted,
-    marginBottom: 4,
-  },
-  metaValue: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  peakHeaderRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  cardTitle: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  cardSubtitle: {
-    fontSize: 12,
-    color: theme.colors.textMuted,
-    marginTop: 2,
-    marginBottom: 12,
-  },
-  phaseBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: theme.radius.sm,
-  },
-  phaseBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  phaseAdvice: {
-    fontSize: 13,
-    color: theme.colors.textSecondary,
-    lineHeight: 18,
-    marginBottom: 14,
-  },
-  feedNowBtn: {
-    backgroundColor: theme.colors.accent,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-  },
-  feedNowBtnText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: '#FFFFFF',
-  },
-  subHeading: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-    marginBottom: 8,
-    marginTop: 4,
-  },
-  ratioChipsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    marginBottom: 14,
-  },
-  ratioChip: {
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  ratioChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
-  },
-  ratioChipText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-  },
-  ratioChipTextActive: {
-    color: '#FFFFFF',
-  },
-  yieldButtons: {
-    flexDirection: 'row',
-    gap: 6,
-    marginBottom: 14,
-  },
-  yieldChip: {
-    flex: 1,
-    paddingVertical: 8,
-    alignItems: 'center',
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  yieldChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
-  },
-  yieldChipText: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: theme.colors.textSecondary,
-  },
-  yieldChipTextActive: {
-    color: '#FFFFFF',
-  },
-  feedingResultGrid: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: theme.colors.surfaceCard,
-    padding: theme.spacing.md,
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  feedingItem: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  feedingItemLabel: {
-    fontSize: 12,
-    color: theme.colors.textMuted,
-    marginBottom: 4,
-  },
-  feedingItemValue: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: theme.colors.textPrimary,
-  },
-  feedingItemRatio: {
-    fontSize: 11,
-    color: theme.colors.textSecondary,
-    marginTop: 2,
-  },
-  plusSign: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: theme.colors.textMuted,
-    paddingHorizontal: 4,
-  },
-  feedingReserveTip: {
-    fontSize: 11,
-    color: theme.colors.textMuted,
-    marginTop: 10,
-    lineHeight: 16,
-  },
-  checkRow: {
-    gap: 8,
-    marginBottom: 14,
-  },
-  checkBtn: {
-    padding: 12,
-    borderRadius: theme.radius.md,
-    backgroundColor: theme.colors.backgroundSecondary,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  checkBtnActive: {
-    backgroundColor: '#FEF3C7',
-    borderColor: theme.colors.statusWarning,
-  },
-  checkBtnDangerActive: {
-    backgroundColor: '#FEE2E2',
-    borderColor: theme.colors.statusDanger,
-  },
-  checkBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.textPrimary,
-  },
-  checkBtnTextActive: {
-    color: '#92400E',
-  },
-  checkBtnDangerTextActive: {
-    color: '#991B1B',
-  },
-  safetyBox: {
-    padding: 12,
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    marginBottom: 12,
-  },
-  safetyHealthy: {
-    backgroundColor: '#F0FDF4',
-    borderColor: theme.colors.statusSuccess,
-  },
-  safetyWarning: {
-    backgroundColor: '#FEF3C7',
-    borderColor: theme.colors.statusWarning,
-  },
-  safetyDanger: {
-    backgroundColor: '#FEE2E2',
-    borderColor: theme.colors.statusDanger,
-  },
-  safetyTitle: {
-    fontSize: 14,
-    fontWeight: '700',
-    marginBottom: 4,
-    color: theme.colors.textPrimary,
-  },
-  safetyAction: {
-    fontSize: 12,
-    lineHeight: 17,
-    color: theme.colors.textSecondary,
-  },
-  resetBtn: {
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-  resetBtnText: {
-    fontSize: 13,
-    color: theme.colors.textMuted,
-    fontWeight: '600',
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 24,
-  },
-  modalCard: {
-    backgroundColor: theme.colors.surface,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.lg,
-    width: '100%',
-    maxWidth: 400,
-  },
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-    marginBottom: 4,
-  },
-  modalSubtitle: {
-    fontSize: 13,
-    color: theme.colors.textMuted,
-    marginBottom: 16,
-  },
-  modalInputLabel: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-    marginBottom: 4,
-  },
-  modalInput: {
-    backgroundColor: theme.colors.background,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.sm,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    fontSize: 14,
-    color: theme.colors.textPrimary,
-    marginBottom: 14,
-  },
-  storageToggleRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 20,
-  },
-  storageBtn: {
-    flex: 1,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    backgroundColor: theme.colors.backgroundSecondary,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  storageBtnActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
-  },
-  storageBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-  },
-  storageBtnTextActive: {
-    color: '#FFFFFF',
-    fontWeight: '700',
-  },
-  startersSelectorRow: {
-    marginBottom: 12,
-  },
-  startersScroll: {
-    flexDirection: 'row',
-    gap: 8,
-    alignItems: 'center',
-  },
-  starterPill: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  starterPillActive: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
-  },
-  starterPillText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-  },
-  starterPillTextActive: {
     color: theme.colors.accentDark,
-    fontWeight: '700',
-  },
-  addStarterBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.accent,
-    borderStyle: 'dashed',
-  },
-  addStarterBtnText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.accent,
-  },
-  copyFeedingBtn: {
-    marginTop: 10,
-    minHeight: 40,
-    backgroundColor: theme.colors.surface,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.sm,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  copyFeedingBtnText: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  modalButtonsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: 10,
-  },
-  modalRightButtons: {
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-    marginLeft: 'auto',
-  },
-  modalDeleteBtn: {
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-  },
-  modalDeleteBtnText: {
-    color: theme.colors.statusDanger,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  modalCancelBtn: {
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalCancelBtnText: {
-    fontSize: 14,
-    color: theme.colors.textMuted,
-    fontWeight: '600',
-  },
-  modalConfirmBtn: {
-    backgroundColor: theme.colors.accent,
-    paddingHorizontal: 18,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-  },
-  modalConfirmBtnText: {
-    fontSize: 14,
-    color: '#FFFFFF',
-    fontWeight: '700',
-  },
-  predictionBox: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    borderRadius: theme.radius.sm,
-    padding: theme.spacing.sm,
-    marginTop: 8,
-    marginBottom: 10,
-  },
-  predictionRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 6,
-  },
-  predictionLabel: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  predictionWindowText: {
-    fontSize: 13,
-    fontWeight: '800',
-    color: theme.colors.accentDark,
-  },
-  progressBarBackground: {
-    height: 8,
-    backgroundColor: theme.colors.border,
-    borderRadius: 4,
-    overflow: 'hidden',
-    marginVertical: 4,
-  },
-  progressBarFill: {
-    height: '100%',
-    borderRadius: 4,
-  },
-  progressLabelRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  progressSubtext: {
-    fontSize: 11,
-    color: theme.colors.textSecondary,
-    fontWeight: '600',
-  },
-  predictionStatusText: {
-    fontSize: 12,
-    color: theme.colors.textSecondary,
-    lineHeight: 16,
-    marginBottom: 8,
-  },
-  tempSelectorHeading: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: theme.colors.textMuted,
-    marginBottom: 4,
-  },
-  tempChipsRow: {
-    flexDirection: 'row',
-    gap: 6,
-  },
-  tempChip: {
-    flex: 1,
-    paddingVertical: 6,
-    paddingHorizontal: 4,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    alignItems: 'center',
-  },
-  tempChipActive: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
-  },
-  tempChipText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: theme.colors.textSecondary,
-  },
-  tempChipTextActive: {
-    color: theme.colors.accentDark,
-    fontWeight: '700',
-  },
-  openConverterBtn: {
-    marginTop: 10,
-    paddingVertical: 10,
-    backgroundColor: theme.colors.accentLight,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.accent,
-  },
-  openConverterBtnText: {
-    color: theme.colors.accentDark,
-    fontSize: 13,
-    fontWeight: '700',
   },
 });

@@ -32,3 +32,35 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
   3. **Znalezisko 3 (Monetyzacja vs TestFlight):** Wybrano Opcję 3.A — publikacja na TestFlight w obecnej formie z symulowanym paszportem (optymalne do testów beta limitu bochenków), wdrożenie StoreKit zaplanowane jako osobny krok przed publicznym wydaniem w App Store.
   4. **Znalezisko 4 (Rozmiar modułów > 20 KB):** Wybrano Opcję 4.A — zachowanie stabilnej, w 100% przetestowanej struktury ekranów przed wysyłką buildu na TestFlight; dekompozycja na mniejsze subkomponenty po zatwierdzeniu buildu na urządzeniu fizycznym.
 
+---
+
+### [DEC-004] 17.10.2026 — Sfinalizowanie Pełnego Porządkowania Architektury (Opcja B)
+- **Status:** WYKONANE i ZWERYFIKOWANE (Dowód: `npm run verify` — 100% GREEN)
+- **Osiągnięte rezultaty:**
+  1. **Reguła Modułowości ≤ 20 KB (100% sukcesu):**
+     - Wszystkie ekrany w `app/(tabs)/` zostały zdekomponowane na moduły poniżej 20 KB:
+       - `index.tsx`: 20,009 B (z 59,708 B) + subkomponenty w `src/components/calculator/` (każdy < 16 KB).
+       - `stolnica.tsx`: 19,787 B (z 62,800 B) + subkomponenty w `src/components/stolnica/` (każdy < 12 KB).
+       - `zakwas.tsx`: 15,122 B (z 46,110 B) + subkomponenty w `src/components/zakwas/` (każdy < 10 KB).
+       - `doktor.tsx`: 6,447 B (z 35,270 B) + subkomponenty w `src/components/doktor/` (każdy < 12 KB).
+       - `harmonogram.tsx`: 7,959 B (z 32,149 B) + subkomponenty w `src/components/harmonogram/` (każdy < 15 KB).
+     - Wszystkie duże komponenty i modale zdekomponowane:
+       - `ArtisanAccordionPro.tsx`: 6,977 B (z 30,077 B) + subkomponenty w `src/components/calculator/accordion/` (każdy < 10 KB).
+       - `SettingsModal.tsx`: 3,809 B (z 29,704 B) + subkomponenty w `src/components/settings/` (każdy < 12 KB).
+       - `BreadAcademyModal.tsx`: 3,095 B (z 27,291 B) + subkomponenty w `src/components/academy/` (każdy < 10 KB).
+     - Rdzeń logiki i bazy danych:
+       - `baking-techniques.ts`: 2,052 B (z 28,708 B) + `prep-ferment-techniques.ts` (13 KB), `shaping-baking-techniques.ts` (14 KB).
+       - `domain-rules.ts`: 14,472 B (z 26,706 B) + `bake-loss.ts` (5.9 KB), `sourdough-physics.ts` (6.8 KB).
+       - `sqlite-store.ts`: 19,634 B (z 25,533 B) + `sqlite-schema.ts` (6.8 KB).
+     - Zero plików z logiką/UI powyżej 20,480 bajtów w całym projekcie (jedyny większy plik to statyczny słownik tłumaczeń `src/lib/i18n.en.ts` wymagany przez skrypt `check:i18n.mjs`).
+  2. **Spójność Brandingu:**
+     - 100% unifikacja marki `Apps4Craft Studio` w całym kodzie, komentarzach, nagłówkach, modalu paszportu (`APPS4CRAFT PASS`) i manifestach.
+  3. **Bibliografia i Fizyka Rzemiosła:**
+     - Utworzono [docs/BAKING_PHYSICS_BIBLIOGRAPHY.md](file:///c:/Users/lukas/Documents/antigravity/noble-pasteur/docs/BAKING_PHYSICS_BIBLIOGRAPHY.md) z cytowaniami naukowymi (Hamelman, Calvel, DiMuzio, Buehler, Gänzle).
+  4. **Weryfikacja Końcowa:**
+     - `TypeScript`: 0 błędów (`tsc --noEmit`).
+     - `i18n`: 100% symetrii (554/554 kluczy w kodzie przetłumaczonych na EN).
+     - `Testy`: 67 test suites, 1162 testy zaliczone (100% green).
+
+
+

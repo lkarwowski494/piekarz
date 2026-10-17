@@ -103,7 +103,7 @@ export function formatScheduleToText(
   });
 
   lines.push('');
-  lines.push('— Apps4Brew Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz 🥖');
   return lines.join('\n');
 }
 

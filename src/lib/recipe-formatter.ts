@@ -99,7 +99,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   }
 
   lines.push('');
-  lines.push('— Apps4Brew Piekarz (Crust) • 100% Offline-First');
+  lines.push('— Apps4Craft Studio • Piekarz 🥖 • 100% Offline-First');
 
   return lines.join('\n');
 }

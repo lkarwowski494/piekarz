@@ -327,7 +327,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
   </div>
 
   <div class="footer-note">
-    Wygenerowano w 100% Offline przez Piekarz (Crust) • Apps4Brew Studio • Mąka, woda, sól i czas.
+    Wygenerowano w 100% Offline przez Piekarz (Crust) • Apps4Craft Studio • Mąka, woda, sól i czas.
   </div>
 </body>
 </html>
@@ -357,7 +357,7 @@ export function generateStarterJarLabelSvg(options: StarterJarLabelOptions): str
   <rect x="8" y="8" width="284" height="164" rx="5" fill="none" stroke="#8C8072" stroke-width="1" stroke-dasharray="4 2" />
 
   <!-- Ozdobny nagłówek -->
-  <text x="150" y="26" font-family="Georgia, serif" font-size="9" font-weight="bold" text-anchor="middle" letter-spacing="1.5" fill="#7D7061">APPS4BREW • ZAKWAS PIEKARSKI</text>
+  <text x="150" y="26" font-family="Georgia, serif" font-size="9" font-weight="bold" text-anchor="middle" letter-spacing="1.5" fill="#7D7061">APPS4CRAFT • ZAKWAS PIEKARSKI</text>
 
   <!-- Nazwa Zakwasu -->
   <text x="150" y="52" font-family="Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1C1A17">${escapeXml(starterName)}</text>

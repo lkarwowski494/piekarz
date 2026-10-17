@@ -1,238 +1,27 @@
-import * as SQLite from 'expo-sqlite';
-import { dbDirectory } from '../lib/db-path';
 import { autoBackup, PiekarzBackupData } from '../lib/backup';
-import { StoredRecipe, StoredStarter, StoredBakeLog, StoredFlourInventoryItem, StoredAppAccess, SubscriptionTier } from './db';
+import {
+  StoredRecipe,
+  StoredStarter,
+  StoredBakeLog,
+  StoredFlourInventoryItem,
+  StoredAppAccess,
+  SubscriptionTier,
+} from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
-import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
+import {
+  getDb,
+  memStore,
+  ActiveBakeState,
+  initDatabase,
+  _resetMemStore,
+} from './sqlite-schema';
 
-const DB_NAME = 'piekarz.db';
-
-export interface ActiveBakeState {
-  id: string;
-  recipeName: string;
-  startedAt: number;
-  currentStageId: string;
-  ambientTempC: number;
-  actualDdtC: number;
-  calculatedRecipe?: DoughRecipeResult;
-  recipeFormula?: DoughRecipeInput;
-}
-
-let dbInstance: SQLite.SQLiteDatabase | null = null;
-
-// In-memory fallback for test and non-native environments
-let memStarters: StoredStarter[] = [];
-let memRecipes: StoredRecipe[] = [];
-let memLogs: StoredBakeLog[] = [];
-let memFlourInventory: StoredFlourInventoryItem[] = [];
-let memCompletedLessons: number[] = [];
-let memActiveBake: ActiveBakeState | null = null;
-let memAppAccess: StoredAppAccess = {
-  id: 'current_user',
-  trialStartedAt: Date.now(),
-  trialDays: 7,
-  subscriptionTier: 'none',
-  subscriptionExpiresAt: null,
-  completedBakesCount: 0,
+export {
+  getDb,
+  initDatabase,
+  _resetMemStore,
+  ActiveBakeState,
 };
-
-let memSettings: Record<string, string> = {};
-
-export function _resetMemStore(): void {
-  memStarters = [];
-  memRecipes = [];
-  memLogs = [];
-  memFlourInventory = [];
-  memCompletedLessons = [];
-  memActiveBake = null;
-  memSettings = {};
-  memAppAccess = {
-    id: 'current_user',
-    trialStartedAt: Date.now(),
-    trialDays: 7,
-    subscriptionTier: 'none',
-    subscriptionExpiresAt: null,
-    completedBakesCount: 0,
-  };
-}
-
-export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
-  if (dbInstance) return dbInstance;
-  try {
-    const defaultDir = SQLite.defaultDatabaseDirectory;
-    const safeDir = dbDirectory(defaultDir);
-    dbInstance = safeDir
-      ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
-      : await SQLite.openDatabaseAsync(DB_NAME);
-    return dbInstance;
-  } catch {
-    return null; // Fallback to memory store
-  }
-}
-
-export async function initDatabase(): Promise<void> {
-  const db = await getDb();
-
-  // Populate memory store defaults regardless
-  if (memRecipes.length === 0) {
-    memRecipes = MASTER_RECIPES.map((preset) => ({
-      id: preset.id,
-      name: preset.namePl,
-      formula: preset.formula,
-      targetDDT: preset.targetDDT,
-      notes: preset.notesPl,
-      isBuiltIn: true,
-      createdAt: Date.now(),
-    }));
-  }
-
-  if (memStarters.length === 0) {
-    memStarters = [
-      {
-        id: 'starter_default',
-        name: 'Zakwas żytni (Bolesław)',
-        flourType: 'Żytnia razowa typ 2000',
-        hydration: 100.0,
-        birthDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
-        storageState: 'FRIDGE',
-        lastFedAt: Date.now() - 1000 * 60 * 60 * 24 * 2,
-      },
-    ];
-  }
-
-  if (memFlourInventory.length === 0) {
-    memFlourInventory = [
-      {
-        id: 'flour_inv_wheat_750',
-        name: 'Mąka pszenna chlebowa typ 750',
-        stockGrams: 2000,
-        proteinPct: 12.0,
-        updatedAt: Date.now(),
-      },
-      {
-        id: 'flour_inv_rye_2000',
-        name: 'Mąka żytnia razowa typ 2000',
-        stockGrams: 1500,
-        proteinPct: 10.0,
-        updatedAt: Date.now(),
-      },
-      {
-        id: 'flour_inv_manitoba',
-        name: 'Mąka Manitoba / Forte (W > 350)',
-        stockGrams: 1000,
-        proteinPct: 14.5,
-        updatedAt: Date.now(),
-      },
-    ];
-  }
-
-  if (!db) return;
-
-  try {
-    await db.execAsync(`
-      PRAGMA journal_mode = WAL;
-      PRAGMA foreign_keys = ON;
-
-      CREATE TABLE IF NOT EXISTS bakes (
-        id TEXT PRIMARY KEY NOT NULL,
-        recipe_name TEXT NOT NULL,
-        started_at INTEGER NOT NULL,
-        finished_at INTEGER,
-        ambient_temp REAL,
-        actual_ddt REAL,
-        rating_stars INTEGER,
-        notes TEXT,
-        crumb_score INTEGER,
-        crust_score INTEGER,
-        taste_profile TEXT,
-        sensory_profile TEXT
-      );
-
-      CREATE TABLE IF NOT EXISTS starters (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        flour_type TEXT NOT NULL,
-        hydration REAL NOT NULL DEFAULT 100.0,
-        birth_date INTEGER NOT NULL,
-        storage_state TEXT NOT NULL DEFAULT 'ROOM_TEMP',
-        last_fed_at INTEGER
-      );
-
-      CREATE TABLE IF NOT EXISTS recipes (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        formula_json TEXT NOT NULL,
-        target_ddt REAL NOT NULL DEFAULT 25.0,
-        notes TEXT,
-        is_built_in INTEGER NOT NULL DEFAULT 0,
-        created_at INTEGER NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS flour_inventory (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        stock_grams REAL NOT NULL DEFAULT 0.0,
-        brand TEXT,
-        protein_pct REAL,
-        updated_at INTEGER NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS app_access (
-        id TEXT PRIMARY KEY NOT NULL,
-        trial_started_at INTEGER NOT NULL,
-        trial_days INTEGER NOT NULL DEFAULT 7,
-        subscription_tier TEXT NOT NULL DEFAULT 'none',
-        subscription_expires_at INTEGER,
-        completed_bakes_count INTEGER NOT NULL DEFAULT 0
-      );
-
-      CREATE TABLE IF NOT EXISTS app_settings (
-        key TEXT PRIMARY KEY NOT NULL,
-        value TEXT NOT NULL
-      );
-    `);
-
-    try {
-      await db.runAsync(
-        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
-         VALUES ('current_user', ?, 7, 'none', NULL, 0);`,
-        Date.now()
-      );
-    } catch {}
-
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN crust_score INTEGER;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN sensory_profile TEXT;');
-    } catch {}
-
-    // Populate built-in master recipes into SQLite table
-    for (const preset of MASTER_RECIPES) {
-      try {
-        await db.runAsync(
-          `INSERT OR IGNORE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?);`,
-          preset.id,
-          preset.namePl,
-          JSON.stringify(preset.formula),
-          preset.targetDDT,
-          preset.notesPl,
-          1,
-          0
-        );
-      } catch {}
-    }
-  } catch {
-    // Memory fallback handles errors in non-native contexts
-  }
-}
 
 // ==========================================
 // Bakes & Stolnica
@@ -240,7 +29,7 @@ export async function initDatabase(): Promise<void> {
 
 export async function getBakeLogs(): Promise<StoredBakeLog[]> {
   const db = await getDb();
-  if (!db) return [...memLogs];
+  if (!db) return [...memStore.logs];
 
   try {
     const rows = await db.getAllAsync<{
@@ -282,16 +71,16 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
       };
     });
   } catch {
-    return [...memLogs];
+    return [...memStore.logs];
   }
 }
 
 export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
-  const existingIdx = memLogs.findIndex((l) => l.id === log.id);
+  const existingIdx = memStore.logs.findIndex((l) => l.id === log.id);
   if (existingIdx >= 0) {
-    memLogs[existingIdx] = log;
+    memStore.logs[existingIdx] = log;
   } else {
-    memLogs.unshift(log);
+    memStore.logs.unshift(log);
   }
 
   const db = await getDb();
@@ -319,18 +108,18 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
     }
   }
 
-  // Auto-backup triggered upon finished bake (Apps4Brew T-012 standard)
+  // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
   if (log.finishedAt) {
     void autoBackup({
-      bakes: memLogs,
-      starters: memStarters,
-      customRecipes: memRecipes,
+      bakes: memStore.logs,
+      starters: memStore.starters,
+      customRecipes: memStore.recipes,
     });
   }
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
-  memLogs = memLogs.filter((l) => l.id !== id);
+  memStore.logs = memStore.logs.filter((l) => l.id !== id);
   const db = await getDb();
   if (db) {
     try {
@@ -342,11 +131,11 @@ export async function deleteBakeLog(id: string): Promise<void> {
 }
 
 export function getActiveBake(): ActiveBakeState | null {
-  return memActiveBake;
+  return memStore.activeBake;
 }
 
 export function setActiveBake(bake: ActiveBakeState | null): void {
-  memActiveBake = bake;
+  memStore.activeBake = bake;
 }
 
 // ==========================================
@@ -355,24 +144,24 @@ export function setActiveBake(bake: ActiveBakeState | null): void {
 
 export async function getStarters(): Promise<StoredStarter[]> {
   const db = await getDb();
-  if (!db) return [...memStarters];
+  if (!db) return [...memStore.starters];
 
   try {
     const rows = await db.getAllAsync<StoredStarter>(
       'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt FROM starters;'
     );
-    return rows.length > 0 ? rows : [...memStarters];
+    return rows.length > 0 ? rows : [...memStore.starters];
   } catch {
-    return [...memStarters];
+    return [...memStore.starters];
   }
 }
 
 export async function saveStarter(starter: StoredStarter): Promise<void> {
-  const idx = memStarters.findIndex((s) => s.id === starter.id);
+  const idx = memStore.starters.findIndex((s) => s.id === starter.id);
   if (idx >= 0) {
-    memStarters[idx] = starter;
+    memStore.starters[idx] = starter;
   } else {
-    memStarters.push(starter);
+    memStore.starters.push(starter);
   }
 
   const db = await getDb();
@@ -396,7 +185,7 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
 }
 
 export async function deleteStarter(id: string): Promise<void> {
-  memStarters = memStarters.filter((s) => s.id !== id);
+  memStore.starters = memStore.starters.filter((s) => s.id !== id);
   const db = await getDb();
   if (db) {
     try {
@@ -413,7 +202,7 @@ export async function deleteStarter(id: string): Promise<void> {
 
 export async function getRecipes(): Promise<StoredRecipe[]> {
   const db = await getDb();
-  if (!db) return [...memRecipes];
+  if (!db) return [...memStore.recipes];
 
   try {
     const rows = await db.getAllAsync<{
@@ -426,7 +215,7 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
       created_at: number;
     }>('SELECT * FROM recipes ORDER BY created_at ASC;');
 
-    if (rows.length === 0) return [...memRecipes];
+    if (rows.length === 0) return [...memStore.recipes];
 
     return rows.map((r) => ({
       id: r.id,
@@ -438,16 +227,16 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
       createdAt: r.created_at,
     }));
   } catch {
-    return [...memRecipes];
+    return [...memStore.recipes];
   }
 }
 
 export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
-  const idx = memRecipes.findIndex((r) => r.id === recipe.id);
+  const idx = memStore.recipes.findIndex((r) => r.id === recipe.id);
   if (idx >= 0) {
-    memRecipes[idx] = recipe;
+    memStore.recipes[idx] = recipe;
   } else {
-    memRecipes.push(recipe);
+    memStore.recipes.push(recipe);
   }
 
   const db = await getDb();
@@ -471,7 +260,7 @@ export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
 }
 
 export async function deleteRecipe(id: string): Promise<void> {
-  memRecipes = memRecipes.filter((r) => r.id !== id);
+  memStore.recipes = memStore.recipes.filter((r) => r.id !== id);
   const db = await getDb();
   if (db) {
     try {
@@ -487,9 +276,9 @@ export async function deleteRecipe(id: string): Promise<void> {
  */
 export async function restoreFromBackupData(data: PiekarzBackupData): Promise<void> {
   // Always update memory store
-  memLogs = [...data.bakes];
-  memStarters = [...data.starters];
-  memRecipes = [
+  memStore.logs = [...data.bakes];
+  memStore.starters = [...data.starters];
+  memStore.recipes = [
     ...MASTER_RECIPES.map((preset) => ({
       id: preset.id,
       name: preset.namePl,
@@ -561,7 +350,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 
 export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
   const db = await getDb();
-  if (!db) return [...memFlourInventory];
+  if (!db) return [...memStore.flourInventory];
 
   try {
     const rows = await db.getAllAsync<any>(
@@ -569,16 +358,16 @@ export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
     );
     return rows;
   } catch {
-    return [...memFlourInventory];
+    return [...memStore.flourInventory];
   }
 }
 
 export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
-  const existingIdx = memFlourInventory.findIndex((f) => f.id === item.id);
+  const existingIdx = memStore.flourInventory.findIndex((f) => f.id === item.id);
   if (existingIdx >= 0) {
-    memFlourInventory[existingIdx] = item;
+    memStore.flourInventory[existingIdx] = item;
   } else {
-    memFlourInventory.push(item);
+    memStore.flourInventory.push(item);
   }
 
   const db = await getDb();
@@ -598,7 +387,7 @@ export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Pr
 }
 
 export async function deleteFlourInventoryItem(id: string): Promise<void> {
-  memFlourInventory = memFlourInventory.filter((f) => f.id !== id);
+  memStore.flourInventory = memStore.flourInventory.filter((f) => f.id !== id);
 
   const db = await getDb();
   if (!db) return;
@@ -630,7 +419,7 @@ export async function deductFlourStock(flourName: string, amountGrams: number): 
 export async function getCompletedLessons(): Promise<number[]> {
   const db = await getDb();
   if (!db) {
-    return [...memCompletedLessons];
+    return [...memStore.completedLessons];
   }
 
   try {
@@ -639,7 +428,7 @@ export async function getCompletedLessons(): Promise<number[]> {
     )) as Array<{ level_id: number }>;
     return rows.map((r) => r.level_id);
   } catch {
-    return [...memCompletedLessons];
+    return [...memStore.completedLessons];
   }
 }
 
@@ -650,10 +439,10 @@ export async function toggleLessonProgress(levelId: number): Promise<boolean> {
   const db = await getDb();
   if (!db) {
     if (isCurrentlyCompleted) {
-      memCompletedLessons = memCompletedLessons.filter((l) => l !== levelId);
+      memStore.completedLessons = memStore.completedLessons.filter((l) => l !== levelId);
       return false;
     } else {
-      memCompletedLessons.push(levelId);
+      memStore.completedLessons.push(levelId);
       return true;
     }
   }
@@ -661,7 +450,7 @@ export async function toggleLessonProgress(levelId: number): Promise<boolean> {
   try {
     if (isCurrentlyCompleted) {
       await db.runAsync('DELETE FROM lesson_progress WHERE level_id = ?;', levelId);
-      memCompletedLessons = memCompletedLessons.filter((l) => l !== levelId);
+      memStore.completedLessons = memStore.completedLessons.filter((l) => l !== levelId);
       return false;
     } else {
       await db.runAsync(
@@ -669,8 +458,8 @@ export async function toggleLessonProgress(levelId: number): Promise<boolean> {
         levelId,
         Date.now()
       );
-      if (!memCompletedLessons.includes(levelId)) {
-        memCompletedLessons.push(levelId);
+      if (!memStore.completedLessons.includes(levelId)) {
+        memStore.completedLessons.push(levelId);
       }
       return true;
     }
@@ -685,13 +474,13 @@ export async function isLessonCompleted(levelId: number): Promise<boolean> {
 }
 
 // ----------------------------------------------------------------------------
-// Apps4Brew App Access & Monetization Store (Cheaper than espresso)
+// Apps4Craft App Access & Monetization Store (Cheaper than espresso)
 // ----------------------------------------------------------------------------
 
 export async function getAppAccess(): Promise<StoredAppAccess> {
   const db = await getDb();
   if (!db) {
-    return { ...memAppAccess };
+    return { ...memStore.appAccess };
   }
   try {
     const row = (await db.getFirstAsync(
@@ -713,7 +502,7 @@ export async function getAppAccess(): Promise<StoredAppAccess> {
          VALUES ('current_user', ?, 7, 'none', NULL, 0);`,
         now
       );
-      memAppAccess = {
+      memStore.appAccess = {
         id: 'current_user',
         trialStartedAt: now,
         trialDays: 7,
@@ -721,7 +510,7 @@ export async function getAppAccess(): Promise<StoredAppAccess> {
         subscriptionExpiresAt: null,
         completedBakesCount: 0,
       };
-      return { ...memAppAccess };
+      return { ...memStore.appAccess };
     }
 
     const data: StoredAppAccess = {
@@ -732,16 +521,16 @@ export async function getAppAccess(): Promise<StoredAppAccess> {
       subscriptionExpiresAt: row.subscription_expires_at,
       completedBakesCount: row.completed_bakes_count || 0,
     };
-    memAppAccess = { ...data };
+    memStore.appAccess = { ...data };
     return data;
   } catch {
-    return { ...memAppAccess };
+    return { ...memStore.appAccess };
   }
 }
 
 export async function setSubscriptionTier(tier: SubscriptionTier, expiresAt?: number | null): Promise<void> {
-  memAppAccess = {
-    ...memAppAccess,
+  memStore.appAccess = {
+    ...memStore.appAccess,
     subscriptionTier: tier,
     subscriptionExpiresAt: expiresAt ?? null,
   };
@@ -759,8 +548,8 @@ export async function setSubscriptionTier(tier: SubscriptionTier, expiresAt?: nu
 export async function incrementCompletedBakes(): Promise<number> {
   const current = await getAppAccess();
   const nextCount = current.completedBakesCount + 1;
-  memAppAccess = {
-    ...memAppAccess,
+  memStore.appAccess = {
+    ...memStore.appAccess,
     completedBakesCount: nextCount,
   };
   const db = await getDb();
@@ -783,7 +572,7 @@ export async function resetAppAccess(custom?: Partial<StoredAppAccess>): Promise
     subscriptionExpiresAt: custom?.subscriptionExpiresAt ?? null,
     completedBakesCount: custom?.completedBakesCount ?? 0,
   };
-  memAppAccess = { ...resetData };
+  memStore.appAccess = { ...resetData };
   const db = await getDb();
   if (!db) return resetData;
   try {
@@ -806,20 +595,20 @@ export async function resetAppAccess(custom?: Partial<StoredAppAccess>): Promise
 
 export async function getAppSetting(key: string, defaultValue?: string): Promise<string | undefined> {
   const db = await getDb();
-  if (!db) return memSettings[key] ?? defaultValue;
+  if (!db) return memStore.settings[key] ?? defaultValue;
   try {
     const row = await db.getFirstAsync<{ value: string }>(
       'SELECT value FROM app_settings WHERE key = ?;',
       key
     );
-    return row?.value ?? memSettings[key] ?? defaultValue;
+    return row?.value ?? memStore.settings[key] ?? defaultValue;
   } catch {
-    return memSettings[key] ?? defaultValue;
+    return memStore.settings[key] ?? defaultValue;
   }
 }
 
 export async function setAppSetting(key: string, value: string): Promise<void> {
-  memSettings[key] = value;
+  memStore.settings[key] = value;
   const db = await getDb();
   if (!db) return;
   try {
@@ -862,5 +651,3 @@ export async function getBakingVessel(): Promise<BakingVessel> {
 export async function setBakingVessel(vessel: BakingVessel): Promise<void> {
   await setAppSetting('selected_baking_vessel', vessel);
 }
-
-

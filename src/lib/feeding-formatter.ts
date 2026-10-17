@@ -23,7 +23,7 @@ export function formatFeedingToText(
   if (feeding.tipPl) {
     lines.push(`💡 ${feeding.tipPl}`);
   }
-  lines.push('— Apps4Brew Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz 🥖');
   return lines.join('\n');
 }
 

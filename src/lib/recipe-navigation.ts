@@ -1,10 +1,12 @@
 // ============================================================================
 // Piekarz (Crust) — Recipe Cross-Tab Navigation Service (Zadanie P3 / HIG)
 // Allows 1-tap "Piecz Ponownie" (Bake Again) from Stolnica history to Kalkulator.
-// Apps4Brew Studio — 100% Offline-First.
+// Apps4Craft Studio — 100% Offline-First.
 // ============================================================================
 
 import { FlourItemInput } from '../core/domain-rules';
+import { MASTER_RECIPES } from '../recipes/presets';
+import { StoredBakeLog } from '../data/db';
 
 export interface PendingRecipeFormula {
   flours: FlourItemInput[];
@@ -46,3 +48,32 @@ export function subscribePendingRecipe(listener: PendingRecipeListener): () => v
     listeners.delete(listener);
   };
 }
+
+export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: any[]): PendingRecipeToLoad {
+  const allPresets = [...customRecipes, ...MASTER_RECIPES];
+  const match = allPresets.find(
+    (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()
+  );
+
+  if (match) {
+    return {
+      id: match.id,
+      name: 'namePl' in match ? match.namePl : match.name,
+      targetDDT: match.targetDDT,
+      formula: match.formula,
+    };
+  }
+
+  return {
+    name: log.recipeName,
+    targetDDT: log.actualDDT ?? 25.0,
+    formula: {
+      flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
+      waterPercentage: 70.0,
+      saltPercentage: 2.0,
+      starterPercentage: 20.0,
+      targetDoughWeightGrams: 900,
+    },
+  };
+}
+

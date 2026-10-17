@@ -1,0 +1,120 @@
+// ============================================================================
+// Apps4Craft Studio — SleepGuardBanner Component
+// Alert or reassurance banner for nighttime fermentation & sleep collisions.
+// 100% Offline-First.
+// ============================================================================
+
+import React from 'react';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { theme } from '../../ui/theme';
+import { t } from '../../lib/i18n';
+
+export interface SleepGuardBannerProps {
+  hasSleepCollision: boolean;
+  collisionDetailsPl?: string;
+  suggestedActionPl?: string;
+  autoResolved: { adjustedColdRetardHours: number } | null;
+  onApplyAutoResolution: (hours: number) => void;
+}
+
+export function SleepGuardBanner({
+  hasSleepCollision,
+  collisionDetailsPl,
+  suggestedActionPl,
+  autoResolved,
+  onApplyAutoResolution,
+}: SleepGuardBannerProps) {
+  if (hasSleepCollision) {
+    return (
+      <View style={styles.sleepGuardAlert}>
+        <Text style={styles.sleepGuardTitle}>🌙 {t('Uwaga: Kolizja ze snem!')}</Text>
+        <Text style={styles.sleepGuardBody}>{collisionDetailsPl}</Text>
+        {autoResolved && (
+          <Pressable
+            style={styles.autoFixBtn}
+            onPress={() => onApplyAutoResolution(autoResolved.adjustedColdRetardHours)}
+          >
+            <Text style={styles.autoFixBtnText}>
+              ⚡ {t('Rozwiąż kolizję')} ({t('lodówka')}: {autoResolved.adjustedColdRetardHours}h)
+            </Text>
+          </Pressable>
+        )}
+        {suggestedActionPl && (
+          <Text style={styles.sleepGuardAction}>{suggestedActionPl}</Text>
+        )}
+      </View>
+    );
+  }
+
+  return (
+    <View style={styles.sleepGuardSafe}>
+      <Text style={styles.sleepGuardSafeTitle}>
+        ✓ {t('Ochrona snu aktywna (Sleep Guard)')}
+      </Text>
+      <Text style={styles.sleepGuardSafeBody}>
+        {t(
+          'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).'
+        )}
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  sleepGuardAlert: {
+    backgroundColor: '#FEF2F2',
+    borderWidth: 2,
+    borderColor: theme.colors.statusDanger,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+  },
+  sleepGuardTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: '#991B1B',
+    marginBottom: 4,
+  },
+  sleepGuardBody: {
+    fontSize: 13,
+    color: '#7F1D1D',
+    lineHeight: 18,
+    marginBottom: 10,
+  },
+  autoFixBtn: {
+    backgroundColor: theme.colors.accent,
+    paddingVertical: 10,
+    borderRadius: theme.radius.sm,
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  autoFixBtnText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#FFFFFF',
+  },
+  sleepGuardAction: {
+    fontSize: 12,
+    color: theme.colors.textSecondary,
+    fontStyle: 'italic',
+  },
+  sleepGuardSafe: {
+    backgroundColor: '#ECFDF5',
+    borderWidth: 1,
+    borderColor: theme.colors.statusSuccess,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+  },
+  sleepGuardSafeTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#065F46',
+    marginBottom: 2,
+  },
+  sleepGuardSafeBody: {
+    fontSize: 12,
+    color: '#047857',
+    lineHeight: 16,
+  },
+});

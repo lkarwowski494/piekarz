@@ -279,10 +279,7 @@ export function getBreadSchoolLessons(): BreadSchoolLesson[] {
   return BREAD_SCHOOL_LESSONS;
 }
 
-/**
- * Calculates current baker rank based on number of completed lessons.
- */
-export function calculateBakerRank(completedLevelIds: number[]): {
+export type BakerRankInfo = {
   completedCount: number;
   totalLessons: number;
   progressPercent: number;
@@ -290,7 +287,12 @@ export function calculateBakerRank(completedLevelIds: number[]): {
   currentRankEn: string;
   nextRankPl?: string;
   nextRankEn?: string;
-} {
+};
+
+/**
+ * Calculates current baker rank based on number of completed lessons.
+ */
+export function calculateBakerRank(completedLevelIds: number[]): BakerRankInfo {
   const total = BREAD_SCHOOL_LESSONS.length;
   const count = completedLevelIds.length;
   const percent = Math.round((count / total) * 100);

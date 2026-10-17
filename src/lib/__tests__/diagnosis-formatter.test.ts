@@ -32,7 +32,7 @@ describe('Diagnosis Formatter & Clipboard Specification (lib/diagnosis-formatter
       expect(text).toContain('🛠️ Kroki naprawcze na kolejny wypiek:');
       expect(text).toContain('1. Wydłuż fermentację burzliwą');
       expect(text).toContain('2. Pilnuj temperatury ciasta');
-      expect(text).toContain('Apps4Brew Studio');
+      expect(text).toContain('Apps4Craft Studio');
     });
 
     it('uses correct severity emoji based on severity level', () => {

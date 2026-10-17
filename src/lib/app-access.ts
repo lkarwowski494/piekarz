@@ -1,5 +1,5 @@
 // ============================================================================
-// Apps4Brew Studio — App Access & Monetization Module
+// Apps4Craft Studio — App Access & Monetization Module
 // Model: „Cheaper than Espresso” (100% Offline-First, Zero Telemetry)
 // ============================================================================
 
