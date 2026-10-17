@@ -23,6 +23,7 @@ import {
 } from '../src/lib/unit-converter';
 import { useAppAccess } from '../src/lib/app-access';
 import { useLang } from '../src/lib/i18n';
+import { getLocaleMetadata } from '../src/lib/i18n-locales';
 import {
   executePrintRecipePdf,
   executeExportRecipeJson,
@@ -232,5 +233,13 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
     expect(typeof useAppAccess).toBe('function');
     expect(typeof useLang).toBe('function');
     expect(typeof useUnitSystem).toBe('function');
+  });
+
+  it('getLocaleMetadata retrieves locale configuration', () => {
+    const plMeta = getLocaleMetadata('pl');
+    expect(plMeta?.name).toBe('Polski');
+    expect(plMeta?.tier).toBe(1);
+    const unknown = getLocaleMetadata('unknown');
+    expect(unknown).toBeUndefined();
   });
 });

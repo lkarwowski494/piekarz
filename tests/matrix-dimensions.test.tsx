@@ -40,6 +40,7 @@ import {
   BakeEvent,
   PendingOpStatus,
 } from '../src/core/domain/types';
+import { PluralRuleCategory } from '../src/lib/i18n-locales';
 
 describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
   describe('Compact Width 320pt Constraints (iPhone SE 1st gen)', () => {
@@ -281,6 +282,16 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
 
       const pendingStatuses: PendingOpStatus[] = ['PENDING', 'PROCESSING', 'SYNCED', 'FAILED'];
       expect(pendingStatuses.length).toBe(4);
+
+      const pluralCategories: PluralRuleCategory[] = [
+        'slavic',
+        'germanic',
+        'romance',
+        'asian',
+        'arabic',
+        'semitic',
+      ];
+      expect(pluralCategories.length).toBe(6);
     });
   });
 });
