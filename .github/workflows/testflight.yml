@@ -24,7 +24,7 @@ env:
   APP_SCHEME: 'Piekarz'
   APP_DIR: 'Piekarz'
   BUNDLE_ID: 'com.apps4brew.baker'
-  BUILD_BASE: '1'
+  BUILD_BASE: '1000'
 
 jobs:
   build:
@@ -83,9 +83,6 @@ jobs:
       - name: Prebuild native iOS project
         run: npx expo prebuild --platform ios --no-install --clean
 
-      - name: Verify native iOS project invariants
-        run: node scripts/verify-native.mjs
-
       - name: Compute & set monotonic build number
         id: ver
         run: |
@@ -100,13 +97,17 @@ jobs:
             exit 1
           fi
           echo "Ustawianie wersji $VERSION ($BUILD_NUMBER)"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "ios/$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "ios/$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "ios/$APP_DIR/Info.plist" || true
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "ios/$APP_DIR/Info.plist" || true
+          sed -i '' -E "s/MARKETING_VERSION = [^;]+;/MARKETING_VERSION = $VERSION;/g" "ios/$APP_SCHEME.xcodeproj/project.pbxproj" || true
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
           echo "EXPO_PUBLIC_BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "build_number=$BUILD_NUMBER" >> "$GITHUB_OUTPUT"
+
+      - name: Verify native iOS project invariants
+        run: node scripts/verify-native.mjs
 
       - name: Cache CocoaPods
         id: pods-cache
@@ -154,6 +155,8 @@ jobs:
             -destination 'generic/platform=iOS' \
             -archivePath "$RUNNER_TEMP/$APP_SCHEME.xcarchive" \
             DEVELOPMENT_TEAM="${{ secrets.APPLE_TEAM_ID || '8NQ9GHY8GF' }}" \
+            CURRENT_PROJECT_VERSION="$BUILD_NUMBER" \
+            MARKETING_VERSION="$VERSION" \
             CODE_SIGN_STYLE=Automatic \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \

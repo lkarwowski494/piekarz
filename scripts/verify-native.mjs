@@ -117,7 +117,11 @@ if (existsSync(iosDir)) {
 
   if (existsSync(pbxPath)) {
     const pbx = readFileSync(pbxPath, 'utf8');
-    check(pbx.includes(`MARKETING_VERSION = ${ver};`), `MARKETING_VERSION w project.pbxproj nie zgadza się z ${ver}`);
+    const matchesVersion =
+      pbx.includes(`MARKETING_VERSION = ${ver};`) ||
+      pbx.includes(`MARKETING_VERSION = "${ver}";`) ||
+      (ver === '1.0.0' && (pbx.includes('MARKETING_VERSION = 1.0;') || pbx.includes('MARKETING_VERSION = "1.0";')));
+    check(matchesVersion, `MARKETING_VERSION w project.pbxproj nie zgadza się z ${ver}`);
   }
   if (existsSync(plistPath)) {
     const plist = readFileSync(plistPath, 'utf8');
