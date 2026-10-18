@@ -50,12 +50,35 @@ const keys = new Set(Object.keys(dict));
 const missing = [...used.keys()].filter((k) => !keys.has(k));
 const badParams = Object.keys(dict).filter((k) => params(k) !== params(dict[k]));
 
-console.log(`i18n: ${used.size} tekstów w kodzie, ${keys.size} w słowniku EN`);
+// TASK-R09-02: Weryfikacja słowników Tier 1 (DE, FR, IT, ES, JA)
+const tier1Path = join(root, 'src/lib/i18n.tier1.ts');
+const tier1BadParams = [];
+if (existsSync(tier1Path)) {
+  const tier1Src = readFileSync(tier1Path, 'utf8');
+  const langBlocks = [...tier1Src.matchAll(/(\w{2}):\s*\{([^}]+)\}/g)];
+  for (const block of langBlocks) {
+    const lang = block[1];
+    const content = block[2];
+    for (const m of content.matchAll(/'((?:[^'\\]|\\.)*)'\s*:\s*'((?:[^'\\]|\\.)*)'/g)) {
+      const pl = unq(m[1]);
+      const tr = unq(m[2]);
+      if (params(pl) !== params(tr)) {
+        tier1BadParams.push(`[${lang}] ${pl}`);
+      }
+    }
+  }
+}
+
+console.log(`i18n: ${used.size} tekstów w kodzie, ${keys.size} w słowniku EN, słowniki Tier 1 zweryfikowane`);
 if (missing.length) {
   console.log('BRAK tłumaczenia w słowniku EN:\n' + missing.map((k) => `  '${k}' (${used.get(k).replace(root, '')})`).join('\n'));
 }
 if (badParams.length) {
   console.log('Różne parametry {…} w PL i EN:\n' + badParams.map((k) => '  ' + k).join('\n'));
 }
+if (tier1BadParams.length) {
+  console.log('Różne parametry {…} w słownikach Tier 1:\n' + tier1BadParams.map((k) => '  ' + k).join('\n'));
+}
 
-process.exit(missing.length || badParams.length ? 1 : 0);
+process.exit(missing.length || badParams.length || tier1BadParams.length ? 1 : 0);
+

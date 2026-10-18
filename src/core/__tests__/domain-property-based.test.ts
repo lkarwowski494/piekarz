@@ -12,10 +12,31 @@ import {
 import { analyzeFlourBlendAbsorption } from '../flour-atlas';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 
+const PBT_SEED = process.env.PROP_SEED ? Number(process.env.PROP_SEED) : undefined;
+
+function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
+  property: fc.IProperty<Ts>,
+  params?: fc.Parameters<Ts>
+) {
+  try {
+    fc.assert(property, {
+      ...params,
+      ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}),
+    });
+  } catch (error: unknown) {
+    if (PBT_SEED !== undefined) {
+      console.warn(`[PBT FAILURE] Seed configured: ${PBT_SEED}`);
+    } else {
+      console.warn(`[PBT FAILURE] To reproduce, set PROP_SEED=<seed> from fast-check report.`);
+    }
+    throw error;
+  }
+}
+
 describe('Property-Based Invariant Verification (fast-check)', () => {
   describe('Dough Scaling & True Baker\'s % Invariants', () => {
     it('preserves mass balance across 1000 randomized dough formulations', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.integer({ min: 200, max: 20000 }), // target dough weight in grams
           fc.double({ min: 50.0, max: 100.0, noNaN: true }), // hydration %
@@ -71,7 +92,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
 
   describe('Ice & DDT Thermodynamics Invariants', () => {
     it('preserves ice + water mass balance and exhibits strict monotonicity', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.integer({ min: 100, max: 8000 }), // total water grams
           fc.double({ min: 10.0, max: 35.0, noNaN: true }), // tap water temp °C
@@ -103,7 +124,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
     });
 
     it('DDT water temperature is strictly linear and responds inversely to ambient / flour temperature', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.double({ min: 20.0, max: 30.0, noNaN: true }), // target DDT
           fc.double({ min: 15.0, max: 30.0, noNaN: true }), // flour temp
@@ -138,7 +159,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
 
   describe('Fermentation Kinetics (Q10 = 2.0) Invariants', () => {
     it('fermentation duration decreases monotonically with rising temperature', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.double({ min: 1.0, max: 24.0, noNaN: true }), // base hours
           fc.double({ min: 10.0, max: 22.0, noNaN: true }), // temp cool
@@ -162,7 +183,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
     });
 
     it('satisfies exact Q10 halving and doubling properties at +10°C and -10°C deltas', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.double({ min: 2.0, max: 30.0, noNaN: true }), // base hours
           (baseHours) => {
@@ -184,7 +205,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
 
   describe('Yeast & Starter Feeding Invariants', () => {
     it('yeast conversions are round-trip isomorphic within rounding precision', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.double({ min: 0.1, max: 200.0, noNaN: true }),
           (freshGrams) => {
@@ -200,7 +221,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
     });
 
     it('starter feeding preserves total yield across arbitrary feeding ratios', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.integer({ min: 30, max: 3000 }), // target yield
           fc.integer({ min: 1, max: 10 }), // starter parts
@@ -224,7 +245,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
 
   describe('Reverse Scheduler Process Continuity Invariants', () => {
     it('guarantees chronological stage adjacency and terminal alignment', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.date({
             min: new Date(2026, 0, 1),
@@ -266,7 +287,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
 
   describe('Bake Loss & Evaporation Mechanics Invariants', () => {
     it('preserves dough mass as sum of baked mass and evaporated steam across 1000 configurations', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.integer({ min: 100, max: 25000 }), // dough weight in grams
           fc.double({ min: 5.0, max: 35.0, noNaN: true }), // bake loss percent
@@ -319,7 +340,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
         'Mąka orkiszowa razowa typ 2000',
       ];
 
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.integer({ min: 0, max: flourNames.length - 1 }),
           fc.integer({ min: 0, max: flourNames.length - 1 }),

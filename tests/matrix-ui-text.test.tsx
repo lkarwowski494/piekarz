@@ -132,6 +132,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Elastyczny bufor regulujący porę formowania i pieczenia",
     "Energia pieca",
     "Etap",
+    "Etap 1.1",
     "Etap ukończony!",
     "Etykieta PDF",
     "Faza 1: Pod pokrywką (Para)",
@@ -207,6 +208,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu",
     "Kup dostęp dożywotni ($14.99)",
     "Kwaśny",
+    "Laboratorium B2B",
     "Lekcja ukończona (stuknij, aby cofnąć)",
     "Liczba bochenków",
     "Lokalizacja bazy:",
@@ -270,6 +272,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Początkujący Piekarz",
     "Podpłomyki",
     "Pojutrze",
+    "Polityka prywatności",
     "Popiół:",
     "Poprawna formuła",
     "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK",
@@ -391,6 +394,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Uzyskana masa i hydratacja",
     "Użyj Twojego zakwasu",
     "W lodówce (4°C)",
+    "Warunki użytkowania (EULA)",
     "W szczycie",
     "W szczycie aktywności",
     "Wektorowy radar sensoryczny",
@@ -504,7 +508,7 @@ describe('Matrix UI and Text Token Contracts', () => {
 
   it('verifies all UI button and interaction label tokens have valid translations', () => {
     for (const token of UI_TOKENS) {
-      const translated = t(token as any);
+      const translated = t(token as Parameters<typeof t>[0]);
       expect(typeof translated).toBe('string');
       expect(translated.length).toBeGreaterThan(0);
     }
@@ -512,7 +516,7 @@ describe('Matrix UI and Text Token Contracts', () => {
 
   it('verifies all domain descriptive text tokens have valid translations', () => {
     for (const token of TEXT_TOKENS) {
-      const translated = t(token as any);
+      const translated = t(token as Parameters<typeof t>[0]);
       expect(typeof translated).toBe('string');
       expect(translated.length).toBeGreaterThan(0);
     }

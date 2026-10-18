@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingVertical: 12,
-    minHeight: 44,
+    minHeight: 48,
   },
   switchRowTextCol: {
     flex: 1,
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    minHeight: 44,
+    minHeight: 48,
   },
   fieldInputError: {
     borderColor: theme.colors.statusDanger,
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   emptyButton: {
-    minHeight: 44,
+    minHeight: 48,
     minWidth: 120,
     backgroundColor: theme.colors.accent,
     paddingHorizontal: 20,
@@ -479,7 +479,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   missingButton: {
-    minHeight: 44,
+    minHeight: 48,
     minWidth: 140,
     backgroundColor: theme.colors.surfaceCard,
     borderWidth: 1,
@@ -496,7 +496,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   btnBase: {
-    minHeight: 44,
+    minHeight: 48,
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: theme.radius.md,

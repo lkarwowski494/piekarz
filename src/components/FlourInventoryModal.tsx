@@ -139,9 +139,9 @@ export function FlourInventoryModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-inventory-modal">
           {/* Header */}
-          <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')}</Text>
+          <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')} [v1.1 Preview]</Text>
           <Text style={styles.modalSubtitle}>
-            {t('Kontrola zapasów mąk i powiadomienia o brakach')}
+            {t('Kontrola zapasów mąk i powiadomienia o brakach')} • {t('Etap 1.1')}
           </Text>
 
           {/* Recipe Stock Check Status Banner */}

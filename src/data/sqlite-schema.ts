@@ -1,6 +1,10 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { saveCorruptState } from '../lib/backup';
+import {
+  saveCorruptState,
+  createPreMigrationBackup,
+  restorePreMigrationBackup,
+} from '../lib/backup';
 import {
   StoredRecipe,
   StoredStarter,
@@ -10,6 +14,7 @@ import {
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
+import { signAppAccessRecord } from '../lib/app-access-crypto';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -34,10 +39,17 @@ export const memStore = {
   flourInventory: [] as StoredFlourInventoryItem[],
   completedLessons: [] as number[],
   activeBake: null as ActiveBakeState | null,
+  pendingOps: [] as Array<{
+    id: string;
+    opType: 'DOUBLE_TAP_FOLD' | 'BAKE_LOG_UPDATE' | 'FEEDING_LOGGED' | 'INVENTORY_DEDUCTED';
+    payload: string;
+    createdAt: number;
+    status: 'PENDING' | 'PROCESSING' | 'SYNCED' | 'FAILED';
+  }>,
   appAccess: {
     id: 'current_user',
     trialStartedAt: Date.now(),
-    trialDays: 7,
+    trialDays: 14,
     subscriptionTier: 'none' as const,
     subscriptionExpiresAt: null,
     completedBakesCount: 0,
@@ -52,11 +64,12 @@ export function _resetMemStore(): void {
   memStore.flourInventory = [];
   memStore.completedLessons = [];
   memStore.activeBake = null;
+  memStore.pendingOps = [];
   memStore.settings = {};
   memStore.appAccess = {
     id: 'current_user',
     trialStartedAt: Date.now(),
-    trialDays: 7,
+    trialDays: 14,
     subscriptionTier: 'none',
     subscriptionExpiresAt: null,
     completedBakesCount: 0,
@@ -72,11 +85,179 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
       ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
       : await SQLite.openDatabaseAsync(DB_NAME);
     return dbInstance;
-  } catch (err: any) {
+  } catch (err: unknown) {
     try {
-      void saveCorruptState(JSON.stringify({ error: err?.message || String(err) }), 'SQLite open failed');
+      const msg = err instanceof Error ? err.message : String(err);
+      void saveCorruptState(JSON.stringify({ error: msg }), 'SQLite open failed');
     } catch {}
     return null; // Fallback to memory store
+  }
+}
+
+export interface SchemaMigration {
+  version: number;
+  description: string;
+  run: (db: SQLite.SQLiteDatabase) => Promise<void>;
+}
+
+export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
+  {
+    version: 1,
+    description: 'Initial artisan bread schema v1.0',
+    run: async (db) => {
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS bakes (
+          id TEXT PRIMARY KEY NOT NULL,
+          recipe_name TEXT NOT NULL,
+          started_at INTEGER NOT NULL,
+          finished_at INTEGER,
+          ambient_temp REAL,
+          actual_ddt REAL,
+          rating_stars INTEGER,
+          notes TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS starters (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          flour_type TEXT NOT NULL,
+          hydration REAL NOT NULL DEFAULT 100.0,
+          birth_date INTEGER NOT NULL,
+          storage_state TEXT NOT NULL DEFAULT 'ROOM_TEMP',
+          last_fed_at INTEGER
+        );
+
+        CREATE TABLE IF NOT EXISTS recipes (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          formula_json TEXT NOT NULL,
+          target_ddt REAL NOT NULL DEFAULT 25.0,
+          notes TEXT,
+          is_built_in INTEGER NOT NULL DEFAULT 0,
+          created_at INTEGER NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS flour_inventory (
+          id TEXT PRIMARY KEY NOT NULL,
+          name TEXT NOT NULL,
+          stock_grams REAL NOT NULL DEFAULT 0.0,
+          brand TEXT,
+          protein_pct REAL,
+          updated_at INTEGER NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS lesson_progress (
+          level_id INTEGER PRIMARY KEY NOT NULL,
+          completed_at INTEGER NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS app_access (
+          id TEXT PRIMARY KEY NOT NULL,
+          trial_started_at INTEGER NOT NULL,
+          trial_days INTEGER NOT NULL DEFAULT 14,
+          subscription_tier TEXT NOT NULL DEFAULT 'none',
+          subscription_expires_at INTEGER,
+          completed_bakes_count INTEGER NOT NULL DEFAULT 0,
+          signature TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS app_settings (
+          key TEXT PRIMARY KEY NOT NULL,
+          value TEXT NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS pending_ops (
+          id TEXT PRIMARY KEY NOT NULL,
+          op_type TEXT NOT NULL,
+          payload TEXT NOT NULL,
+          created_at INTEGER NOT NULL,
+          status TEXT NOT NULL DEFAULT 'PENDING'
+        );
+
+        CREATE INDEX IF NOT EXISTS idx_bakes_started_at ON bakes(started_at DESC);
+        CREATE INDEX IF NOT EXISTS idx_starters_last_fed_at ON starters(last_fed_at DESC);
+        CREATE INDEX IF NOT EXISTS idx_recipes_is_built_in ON recipes(is_built_in, created_at DESC);
+        CREATE INDEX IF NOT EXISTS idx_flour_inventory_name ON flour_inventory(name);
+        CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created_at ASC);
+      `);
+    },
+  },
+  {
+    version: 2,
+    description: 'Sensory crumb scores and starter feeding ratio v1.1',
+    run: async (db) => {
+      const bakesCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
+      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+
+      if (!bakesCols.some((c) => c.name === 'crumb_score')) {
+        await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
+      }
+      if (!bakesCols.some((c) => c.name === 'crust_score')) {
+        await db.execAsync('ALTER TABLE bakes ADD COLUMN crust_score INTEGER;');
+      }
+      if (!bakesCols.some((c) => c.name === 'taste_profile')) {
+        await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
+      }
+      if (!bakesCols.some((c) => c.name === 'sensory_profile')) {
+        await db.execAsync('ALTER TABLE bakes ADD COLUMN sensory_profile TEXT;');
+      }
+      if (!startersCols.some((c) => c.name === 'feeding_ratio')) {
+        await db.execAsync("ALTER TABLE starters ADD COLUMN feeding_ratio TEXT DEFAULT '1:1:1';");
+      }
+    },
+  },
+  {
+    version: 3,
+    description: 'Cryptographic tamper seal signature for app_access v2.0',
+    run: async (db) => {
+      const accessCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(app_access);');
+      if (!accessCols.some((c) => c.name === 'signature')) {
+        await db.execAsync('ALTER TABLE app_access ADD COLUMN signature TEXT;');
+      }
+    },
+  },
+];
+
+export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
+  await db.execAsync(`
+    PRAGMA journal_mode = WAL;
+    PRAGMA foreign_keys = ON;
+    PRAGMA busy_timeout = 5000;
+
+    CREATE TABLE IF NOT EXISTS schema_migrations (
+      version INTEGER PRIMARY KEY NOT NULL,
+      applied_at TEXT NOT NULL,
+      description TEXT NOT NULL
+    );
+  `);
+
+  const versionResult = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;');
+  const currentVersion = versionResult?.user_version ?? 0;
+
+  const pendingMigrations = SCHEMA_MIGRATIONS.filter((m) => m.version > currentVersion);
+  if (pendingMigrations.length === 0) return;
+
+  const defaultDir = SQLite.defaultDatabaseDirectory;
+  const safeDir = dbDirectory(defaultDir);
+  await createPreMigrationBackup(DB_NAME, safeDir);
+
+  for (const m of pendingMigrations) {
+    try {
+      await db.execAsync('BEGIN TRANSACTION;');
+      await m.run(db);
+      await db.runAsync(
+        'INSERT INTO schema_migrations (version, applied_at, description) VALUES (?, ?, ?);',
+        m.version,
+        new Date().toISOString(),
+        m.description
+      );
+      await db.execAsync(`PRAGMA user_version = ${m.version};`);
+      await db.execAsync('COMMIT;');
+    } catch (err: unknown) {
+      await db.execAsync('ROLLBACK;').catch(() => {});
+      await restorePreMigrationBackup(DB_NAME, safeDir);
+      throw err;
+    }
   }
 }
 
@@ -139,119 +320,24 @@ export async function initDatabase(): Promise<void> {
   if (!db) return;
 
   try {
-    await db.execAsync(`
-      PRAGMA journal_mode = WAL;
-      PRAGMA foreign_keys = ON;
-      PRAGMA busy_timeout = 5000;
-
-      CREATE TABLE IF NOT EXISTS schema_migrations (
-        version INTEGER PRIMARY KEY NOT NULL,
-        applied_at TEXT NOT NULL,
-        description TEXT NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS bakes (
-        id TEXT PRIMARY KEY NOT NULL,
-        recipe_name TEXT NOT NULL,
-        started_at INTEGER NOT NULL,
-        finished_at INTEGER,
-        ambient_temp REAL,
-        actual_ddt REAL,
-        rating_stars INTEGER,
-        notes TEXT,
-        crumb_score INTEGER,
-        crust_score INTEGER,
-        taste_profile TEXT,
-        sensory_profile TEXT
-      );
-
-      CREATE TABLE IF NOT EXISTS starters (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        flour_type TEXT NOT NULL,
-        hydration REAL NOT NULL DEFAULT 100.0,
-        birth_date INTEGER NOT NULL,
-        storage_state TEXT NOT NULL DEFAULT 'ROOM_TEMP',
-        last_fed_at INTEGER,
-        feeding_ratio TEXT NOT NULL DEFAULT '1:1:1'
-      );
-
-      CREATE TABLE IF NOT EXISTS recipes (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        formula_json TEXT NOT NULL,
-        target_ddt REAL NOT NULL DEFAULT 25.0,
-        notes TEXT,
-        is_built_in INTEGER NOT NULL DEFAULT 0,
-        created_at INTEGER NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS flour_inventory (
-        id TEXT PRIMARY KEY NOT NULL,
-        name TEXT NOT NULL,
-        stock_grams REAL NOT NULL DEFAULT 0.0,
-        brand TEXT,
-        protein_pct REAL,
-        updated_at INTEGER NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS lesson_progress (
-        level_id INTEGER PRIMARY KEY NOT NULL,
-        completed_at INTEGER NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS app_access (
-        id TEXT PRIMARY KEY NOT NULL,
-        trial_started_at INTEGER NOT NULL,
-        trial_days INTEGER NOT NULL DEFAULT 7,
-        subscription_tier TEXT NOT NULL DEFAULT 'none',
-        subscription_expires_at INTEGER,
-        completed_bakes_count INTEGER NOT NULL DEFAULT 0
-      );
-
-      CREATE TABLE IF NOT EXISTS app_settings (
-        key TEXT PRIMARY KEY NOT NULL,
-        value TEXT NOT NULL
-      );
-
-      CREATE TABLE IF NOT EXISTS pending_ops (
-        id TEXT PRIMARY KEY NOT NULL,
-        op_type TEXT NOT NULL,
-        payload TEXT NOT NULL,
-        created_at INTEGER NOT NULL,
-        status TEXT NOT NULL DEFAULT 'PENDING'
-      );
-
-      -- Indeksy B-Tree pod zapytania < 5ms
-      CREATE INDEX IF NOT EXISTS idx_bakes_started_at ON bakes(started_at DESC);
-      CREATE INDEX IF NOT EXISTS idx_starters_last_fed_at ON starters(last_fed_at DESC);
-      CREATE INDEX IF NOT EXISTS idx_recipes_is_built_in ON recipes(is_built_in, created_at DESC);
-      CREATE INDEX IF NOT EXISTS idx_flour_inventory_name ON flour_inventory(name);
-      CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created_at ASC);
-    `);
+    await applySchemaMigrations(db);
 
     try {
+      const initialAccess = {
+        id: 'current_user',
+        trialStartedAt: Date.now(),
+        trialDays: 14,
+        subscriptionTier: 'none' as const,
+        subscriptionExpiresAt: null,
+        completedBakesCount: 0,
+      };
+      const signature = signAppAccessRecord(initialAccess);
       await db.runAsync(
-        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
-         VALUES ('current_user', ?, 7, 'none', NULL, 0);`,
-        Date.now()
+        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count, signature)
+         VALUES ('current_user', ?, 14, 'none', NULL, 0, ?);`,
+        initialAccess.trialStartedAt,
+        signature
       );
-    } catch {}
-
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN crumb_score INTEGER;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN crust_score INTEGER;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN taste_profile TEXT;');
-    } catch {}
-    try {
-      await db.execAsync('ALTER TABLE bakes ADD COLUMN sensory_profile TEXT;');
-    } catch {}
-    try {
-      await db.execAsync("ALTER TABLE starters ADD COLUMN feeding_ratio TEXT DEFAULT '1:1:1';");
     } catch {}
 
     // Populate built-in master recipes into SQLite table

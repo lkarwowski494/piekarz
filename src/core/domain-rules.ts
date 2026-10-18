@@ -240,19 +240,22 @@ export const calculateIceWaterMath = calculateIceRequirement;
 export function calculateFermentationAdaptation(
   baseHours: number,
   actualTempC: number,
-  baseCalibrationTempC = 24.0
+  baseCalibrationTempC = 24.0,
+  q10Factor = 2.0
 ): FermentationAdaptationResult {
   if (baseHours <= 0 || actualTempC <= 0) {
     throw new Error('Czas bazowy i temperatura muszą być większe od zera');
   }
 
-  // Q10 factor formula: time(T) = baseTime * 2^((baseT - actualT) / 10)
+  // Q10 factor formula: time(T) = baseTime * q10Factor^((baseT - actualT) / 10)
   const exponent = (baseCalibrationTempC - actualTempC) / 10.0;
-  const factor = Math.pow(2.0, exponent);
-  const adaptedHours = baseHours * factor;
+  const factor = Math.pow(q10Factor, exponent);
+  const adaptedUnrounded = baseHours * factor;
+  const adaptedHours = Number(adaptedUnrounded.toFixed(2));
 
-  const diffHours = adaptedHours - baseHours;
-  const diffMinutes = Math.round(diffHours * 60);
+  const diffHours = adaptedUnrounded - baseHours;
+  const rawDiffMinutes = Math.round(diffHours * 60);
+  const diffMinutes = rawDiffMinutes === 0 ? 0 : rawDiffMinutes;
 
   const totalMinutes = Math.round(adaptedHours * 60);
   const h = Math.floor(totalMinutes / 60);

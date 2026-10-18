@@ -709,6 +709,10 @@ export const EN: Record<string, string> = {
   'Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:': 'The app safely secured raw data in a recovery file:',
   'Rozumiem, zamknij komunikat ratunkowy': 'Understood, dismiss recovery alert',
   'Ukryj': 'Dismiss',
+  'Warunki użytkowania (EULA)': 'Terms of Use (EULA)',
+  'Polityka prywatności': 'Privacy Policy',
+  'Laboratorium B2B': 'B2B Laboratory',
+  'Etap 1.1': 'Stage 1.1',
 };
 
 

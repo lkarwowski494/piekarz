@@ -136,4 +136,24 @@ describe('PaywallModal Component', () => {
     });
     expect(mockOnClose).toHaveBeenCalled();
   });
+
+  it('renders EULA and Privacy Policy legal links complying with Apple Guideline 3.1.2', async () => {
+    await act(async () => {
+      tree = renderer.create(
+        <PaywallModal
+          visible={true}
+          onClose={mockOnClose}
+          onSubscribe={mockOnSubscribe}
+          onRestore={mockOnRestore}
+        />
+      );
+    });
+
+    const eulaBtn = tree!.root.findByProps({ testID: 'terms-of-use-btn' });
+    const privacyBtn = tree!.root.findByProps({ testID: 'privacy-policy-btn' });
+    expect(eulaBtn).toBeTruthy();
+    expect(privacyBtn).toBeTruthy();
+    expect(eulaBtn.props.accessibilityRole).toBe('link');
+    expect(privacyBtn.props.accessibilityRole).toBe('link');
+  });
 });

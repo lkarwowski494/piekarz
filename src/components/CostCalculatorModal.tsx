@@ -74,7 +74,7 @@ export function CostCalculatorModal({
           {/* Header */}
           <Text style={styles.modalTitle}>💰 {t('Kalkulator kosztów wypieku')}</Text>
           <Text style={styles.modalSubtitle}>
-            {t('Szacunkowy koszt składników i energii pieca')}
+            {t('Szacunkowy koszt składników i energii pieca')} • {t('Laboratorium B2B')} (KL-01)
           </Text>
 
           <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollArea}>
@@ -98,7 +98,7 @@ export function CostCalculatorModal({
                 <Text style={styles.metricValue}>{metrics.ingredientsTotalCost.toFixed(2)} zł</Text>
               </View>
               <View style={styles.metricItem}>
-                <Text style={styles.metricLabel}>{t('Energia pieca')}</Text>
+                <Text style={styles.metricLabel}>{t('Energia pieca')} (B2B Lab)</Text>
                 <Text style={styles.metricValue}>
                   {metrics.energyTotalCost.toFixed(2)} zł ({metrics.ovenKwhConsumed} kWh)
                 </Text>

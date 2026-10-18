@@ -10,18 +10,18 @@ import { Field, Btn, SearchField, SwipeRow, SwitchRow } from '../src/components/
 import { CloseButton } from '../src/components/CloseButton';
 
 describe('Accessibility Contracts (NFR-A11Y-001..008 & RD-ENG-03)', () => {
-  describe('Touch Targets >= 44pt (RD-ENG-03)', () => {
-    it('NumInput has minimum height of 44pt', () => {
+  describe('Touch Targets >= 48pt (RD-ENG-03 & Apps4Craft 48pt Mandate)', () => {
+    it('NumInput has minimum height of 48pt', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(<NumInput value={500} testID="a11y-num-input" />);
       });
       const input = tree.root.findByType(require('react-native').TextInput);
       const flat = require('react-native').StyleSheet.flatten(input.props.style);
-      expect(flat.minHeight).toBeGreaterThanOrEqual(44);
+      expect(flat.minHeight).toBeGreaterThanOrEqual(48);
     });
 
-    it('Btn has minimum height of 44pt', () => {
+    it('Btn has minimum height of 48pt', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(<Btn title="Zapisz" testID="a11y-btn" />);
@@ -29,10 +29,10 @@ describe('Accessibility Contracts (NFR-A11Y-001..008 & RD-ENG-03)', () => {
       const btnNode = tree.root.findByProps({ accessibilityRole: 'button' });
       const rawStyle = typeof btnNode.props.style === 'function' ? btnNode.props.style({ pressed: false }) : btnNode.props.style;
       const flat = require('react-native').StyleSheet.flatten(rawStyle);
-      expect(flat.minHeight).toBeGreaterThanOrEqual(44);
+      expect(flat.minHeight).toBeGreaterThanOrEqual(48);
     });
 
-    it('SwitchRow has minimum height of 44pt', () => {
+    it('SwitchRow has minimum height of 48pt', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(
@@ -41,7 +41,7 @@ describe('Accessibility Contracts (NFR-A11Y-001..008 & RD-ENG-03)', () => {
       });
       const switchNode = tree.root.findByProps({ accessibilityRole: 'switch' });
       const flat = require('react-native').StyleSheet.flatten(switchNode.props.style);
-      expect(flat.minHeight).toBeGreaterThanOrEqual(44);
+      expect(flat.minHeight).toBeGreaterThanOrEqual(48);
     });
 
     it('CloseButton uses header touch area of 44pt', () => {

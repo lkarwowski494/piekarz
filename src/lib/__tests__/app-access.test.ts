@@ -36,16 +36,16 @@ describe('App Access & Monetization Engine (Cheaper than espresso)', () => {
       expect(result.canCreateNewBake).toBe(true);
       expect(result.canEditRecipes).toBe(true);
       expect(result.isHistoryReadOnly).toBe(true);
-      expect(result.trialDaysRemaining).toBe(7);
-      expect(result.bakesRemainingInTrial).toBe(3);
+      expect(result.trialDaysRemaining).toBe(14);
+      expect(TRIAL_MAX_COMPLETED_BAKES).toBe(999);
     });
 
     it('expires trial when days limit is exceeded', () => {
-      const eightDaysMs = 8 * 24 * 60 * 60 * 1000;
+      const fifteenDaysMs = 15 * 24 * 60 * 60 * 1000;
       const stored: StoredAppAccess = {
         id: 'current_user',
-        trialStartedAt: now - eightDaysMs,
-        trialDays: 7,
+        trialStartedAt: now - fifteenDaysMs,
+        trialDays: 14,
         subscriptionTier: 'none',
         subscriptionExpiresAt: null,
         completedBakesCount: 1,
@@ -58,19 +58,19 @@ describe('App Access & Monetization Engine (Cheaper than espresso)', () => {
       expect(result.isHistoryReadOnly).toBe(true); // History remains accessible Read-Only!
     });
 
-    it('expires trial when 3 bakes are completed even within 7 days', () => {
+    it('remains active in trial for multiple bakes within 14 days', () => {
       const stored: StoredAppAccess = {
         id: 'current_user',
         trialStartedAt: now - 1000 * 60 * 60 * 24, // 1 day ago
-        trialDays: 7,
+        trialDays: 14,
         subscriptionTier: 'none',
         subscriptionExpiresAt: null,
-        completedBakesCount: TRIAL_MAX_COMPLETED_BAKES,
+        completedBakesCount: 5,
       };
 
       const result = evaluateAppAccess(stored, now);
-      expect(result.status).toBe('trial_expired');
-      expect(result.canCreateNewBake).toBe(false);
+      expect(result.status).toBe('trial_active');
+      expect(result.canCreateNewBake).toBe(true);
       expect(result.isHistoryReadOnly).toBe(true);
     });
 

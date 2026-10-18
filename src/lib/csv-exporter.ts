@@ -11,7 +11,7 @@ import { StoredBakeLog, StoredFlourInventoryItem } from '../data/db';
 /**
  * RD-ENG-10 & NFR-SEC-015: Zabezpiecza wartość przed CSV Formula Injection i formatuje do RFC 4180
  */
-export function escapeCsvCell(val: any): string {
+export function escapeCsvCell(val: unknown): string {
   if (val === null || val === undefined) return '';
   let str = String(val);
 

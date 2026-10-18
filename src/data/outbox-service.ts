@@ -35,7 +35,7 @@ export class OutboxService {
   }
 
   async recordBakeLogUpdate(log: StoredBakeLog): Promise<PendingOp> {
-    return this.queue.enqueue('BAKE_LOG_UPDATE', log as any);
+    return this.queue.enqueue('BAKE_LOG_UPDATE', log as unknown as Record<string, unknown>);
   }
 
   async getPendingOperations(): Promise<PendingOp[]> {

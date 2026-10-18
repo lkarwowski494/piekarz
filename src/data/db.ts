@@ -24,6 +24,7 @@ export interface StoredStarter {
   birthDate: number;
   storageState: 'ROOM_TEMP' | 'FRIDGE';
   lastFedAt?: number;
+  feedingRatio?: string;
 }
 
 export interface StoredBakeLog {
@@ -70,6 +71,7 @@ export interface StoredAppAccess {
   subscriptionTier: SubscriptionTier;
   subscriptionExpiresAt?: number | null;
   completedBakesCount: number;
+  signature?: string;
 }
 
 /**

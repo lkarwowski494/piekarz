@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 453 | 453 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 193 | 193 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 78 | 78 | **100.0%** | ✅ POKRYTE |
+| **UI** | 36 | 36 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 458 | 458 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 201 | 201 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 80 | 80 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **766** | Pokrytych: **766** | Brakujących: **0**
+Łącznie elementów: **780** | Pokrytych: **780** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -154,7 +154,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wymagający` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mistrzowski` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
 | `TEKST` | `Pieczenie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/pdf-sheet-generator.test.ts |
-| `TEKST` | `para` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `para` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/core/__tests__/domain-property-based.test.ts |
 | `TEKST` | `Naczynie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wskazówki` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Moje przepisy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -168,6 +168,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Ukryj` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kalkulator kosztów wypieku` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szacunkowy koszt składników i energii pieca` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Laboratorium B2B` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Koszt za bochenek` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
 | `TEKST` | `Koszt na 100g` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Koszt całego wypieku` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
@@ -260,6 +261,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Zasoby mąki w spiżarni zostały zaktualizowane.` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Spiżarnia mąk (Magazyn)` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/flour-inventory-modal.test.tsx |
 | `TEKST` | `Kontrola zapasów mąk i powiadomienia o brakach` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Etap 1.1` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wszystkie mąki są dostępne w spiżarni!` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/flour-inventory-modal.test.tsx |
 | `TEKST` | `Odlicz zużycie z magazynu` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Twoje zapasy mąk` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
@@ -317,7 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Początkujący Piekarz` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 466 kolejnych elementów w pełnym wykazie)*
+*(... i 480 kolejnych elementów w pełnym wykazie)*

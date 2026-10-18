@@ -1,0 +1,448 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "project": "Piekarz (Crust)",
+  "version": "2.0-craft",
+  "standard": "Apps4Craft / Apps4Brew Tier 1-3",
+  "generatedAt": "2026-10-18T00:26:00Z",
+  "leadRole": "Role 1: Lead Business Analyst & Product Discovery Architect",
+  "description": "Deterministic test vectors for Property-Based Testing and Unit Test suites covering baking math, thermal physics, microbiology, preferments, and economics.",
+  "vectors": {
+    "RD_00_RD_02_bakers_percentage_and_mass_balance": [
+      {
+        "id": "VEC-MATH-01-country-loaf",
+        "description": "Standard rustic sourdough 900g with 20% starter (100% hydration)",
+        "input": {
+          "flours": [
+            {
+              "name": "Mąka pszenna typ 750",
+              "percentage": 80
+            },
+            {
+              "name": "Mąka żytnia typ 720",
+              "percentage": 20
+            }
+          ],
+          "waterPercentage": 68,
+          "saltPercentage": 2,
+          "starterPercentage": 20,
+          "starterHydration": 100,
+          "extraYeastPercentage": 0,
+          "targetDoughWeightGrams": 900
+        },
+        "expected": {
+          "baseFlourWeightGrams": 474,
+          "flours": [
+            {
+              "name": "Mąka pszenna typ 750",
+              "percentage": 80,
+              "weightGrams": 379
+            },
+            {
+              "name": "Mąka żytnia typ 720",
+              "percentage": 20,
+              "weightGrams": 95
+            }
+          ],
+          "waterGrams": 322,
+          "saltGrams": 9.5,
+          "starterGrams": 95,
+          "starterFlourGrams": 47,
+          "starterWaterGrams": 47,
+          "yeastGrams": 0,
+          "totalFlourGrams": 521,
+          "totalWaterGrams": 369,
+          "overallHydrationPercent": 70.83,
+          "sumCheckGrams": 900,
+          "isHighRye": false
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Hamelman (2012) Bread: A Baker's Book of Techniques and Recipes, s. 14"
+      },
+      {
+        "id": "VEC-MATH-02-tartine-high-hydration",
+        "description": "Tartine style 80% hydration, 950g batch, 20% starter at 100% hydration",
+        "input": {
+          "flours": [
+            {
+              "name": "Mąka pszenna chlebowa typ 750",
+              "percentage": 90
+            },
+            {
+              "name": "Mąka pszenna razowa typ 2000",
+              "percentage": 10
+            }
+          ],
+          "waterPercentage": 76,
+          "saltPercentage": 2,
+          "starterPercentage": 20,
+          "starterHydration": 100,
+          "targetDoughWeightGrams": 950
+        },
+        "expected": {
+          "baseFlourWeightGrams": 480,
+          "waterGrams": 365,
+          "saltGrams": 9.6,
+          "starterGrams": 96,
+          "starterFlourGrams": 48,
+          "starterWaterGrams": 48,
+          "totalFlourGrams": 528,
+          "totalWaterGrams": 413,
+          "overallHydrationPercent": 78.22,
+          "isHighRye": false
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Hamelman (2012) Bread: A Baker's Book of Techniques and Recipes, s. 14"
+      },
+      {
+        "id": "VEC-MATH-03-stiff-starter-panettone",
+        "description": "Pasta Madre (50% hydration stiff starter) 30% ratio",
+        "input": {
+          "flours": [
+            {
+              "name": "Manitoba",
+              "percentage": 100
+            }
+          ],
+          "waterPercentage": 55,
+          "saltPercentage": 1.8,
+          "starterPercentage": 30,
+          "starterHydration": 50,
+          "targetDoughWeightGrams": 1000
+        },
+        "expected": {
+          "baseFlourWeightGrams": 535,
+          "waterGrams": 294,
+          "saltGrams": 9.6,
+          "starterGrams": 161,
+          "starterFlourGrams": 107,
+          "starterWaterGrams": 54,
+          "totalFlourGrams": 642,
+          "totalWaterGrams": 348,
+          "overallHydrationPercent": 54.21
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Hamelman (2012) Bread: A Baker's Book of Techniques and Recipes, s. 14"
+      }
+    ],
+    "RD_05_ddt_water_temperature": [
+      {
+        "id": "VEC-DDT-01-standard-sourdough-4-factor",
+        "description": "Standard 4-factor DDT calculation (ambient 22°C, flour 20°C, starter 21°C, friction 3°C, target 26°C)",
+        "input": {
+          "targetDDT": 26,
+          "flourTemp": 20,
+          "roomTemp": 22,
+          "starterTemp": 21,
+          "frictionFactor": 3
+        },
+        "expected": {
+          "waterTempTarget": 38,
+          "status": "normal"
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Calvel (2001) The Taste of Bread, rozdz. 4 DDT Water Temperature"
+      },
+      {
+        "id": "VEC-DDT-02-hot-kitchen-ice-requirement",
+        "description": "Hot summer kitchen (ambient 30°C, flour 28°C, starter 28°C, spiral mixer friction 8°C, target 24°C)",
+        "input": {
+          "targetDDT": 24,
+          "flourTemp": 28,
+          "roomTemp": 30,
+          "starterTemp": 28,
+          "frictionFactor": 8
+        },
+        "expected": {
+          "waterTempTarget": 2,
+          "status": "requires_ice"
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Calvel (2001) The Taste of Bread, rozdz. 4 DDT Water Temperature"
+      },
+      {
+        "id": "VEC-DDT-03-yeast-boil-danger",
+        "description": "Extreme cold cellar requiring water >45°C (danger status)",
+        "input": {
+          "targetDDT": 28,
+          "flourTemp": 12,
+          "roomTemp": 14,
+          "starterTemp": 12,
+          "frictionFactor": 0
+        },
+        "expected": {
+          "waterTempTarget": 74,
+          "status": "too_hot_danger"
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Calvel (2001) The Taste of Bread, rozdz. 4 DDT Water Temperature"
+      }
+    ],
+    "RD_07_ice_mass_requirement": [
+      {
+        "id": "VEC-ICE-01-summer-batch",
+        "description": "350g water target 2°C with tap water at 20°C",
+        "input": {
+          "totalWaterGrams": 350,
+          "tapWaterTempC": 20,
+          "targetWaterTempC": 2
+        },
+        "expected": {
+          "iceGrams": 63,
+          "waterGrams": 287,
+          "totalWaterGrams": 350
+        },
+        "tier": "Tier 1",
+        "sourceCitation": "Podręcznik Fizyki Cieplnej (Lf = 334 J/g); Hamelman (2012) s. 385"
+      },
+      {
+        "id": "VEC-ICE-02-no-ice-needed",
+        "description": "Target water temp higher than or equal to tap water",
+        "input": {
+          "totalWaterGrams": 400,
+          "tapWaterTempC": 18,
+          "targetWaterTempC": 22
+        },
+        "expected": {
+          "iceGrams": 0,
+          "waterGrams": 400,
+          "totalWaterGrams": 400
+        },
+        "tier": "Tier 1",
+        "sourceCitation": "Podręcznik Fizyki Cieplnej (Lf = 334 J/g); Hamelman (2012) s. 385"
+      }
+    ],
+    "RD_08_fermentation_temperature_adaptation": [
+      {
+        "id": "VEC-FERM-01-cold-kitchen-slowdown",
+        "description": "Base 4.0h at 24°C in a 19°C room (Q10 = 2.15)",
+        "input": {
+          "baseHours": 4,
+          "actualTempC": 19,
+          "baseCalibrationTempC": 24,
+          "q10Factor": 2.15
+        },
+        "expected": {
+          "adaptedHours": 5.87,
+          "diffMinutes": 112,
+          "adaptedMinutesFormatted": "5h 52m"
+        },
+        "tier": "Tier 2",
+        "sourceCitation": "Gänzle & Ripari (2016) Int. J. Food Microbiol.; Arrhenius Q10 = 2.15"
+      },
+      {
+        "id": "VEC-FERM-02-warm-kitchen-speedup",
+        "description": "Base 4.0h at 24°C in a 28°C room (Q10 = 2.15)",
+        "input": {
+          "baseHours": 4,
+          "actualTempC": 28,
+          "baseCalibrationTempC": 24,
+          "q10Factor": 2.15
+        },
+        "expected": {
+          "adaptedHours": 2.94,
+          "diffMinutes": -63,
+          "adaptedMinutesFormatted": "2h 56m"
+        },
+        "tier": "Tier 2",
+        "sourceCitation": "Gänzle & Ripari (2016) Int. J. Food Microbiol.; Arrhenius Q10 = 2.15"
+      }
+    ],
+    "RD_04_yeast_conversion": [
+      {
+        "id": "VEC-YEAST-01-fresh-to-instant",
+        "description": "15g fresh compressed yeast to instant dry (3:1 ratio)",
+        "input": {
+          "amountGrams": 15,
+          "from": "fresh"
+        },
+        "expected": {
+          "freshGrams": 15,
+          "instantGrams": 5
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "DiMuzio (2009) Bread Baking: An Artisan's Perspective, s. 35"
+      },
+      {
+        "id": "VEC-YEAST-02-instant-to-fresh",
+        "description": "3.5g instant dry yeast to fresh compressed",
+        "input": {
+          "amountGrams": 3.5,
+          "from": "instant"
+        },
+        "expected": {
+          "freshGrams": 10.5,
+          "instantGrams": 3.5
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "DiMuzio (2009) Bread Baking: An Artisan's Perspective, s. 35"
+      }
+    ],
+    "RD_PREF_01_preferments_breakdown": [
+      {
+        "id": "VEC-PREF-01-poolish-20-pct",
+        "description": "500g total flour, 70% total hydration, 20% poolish (100% hydration)",
+        "input": {
+          "prefermentType": "poolish",
+          "prefermentFlourPercentage": 20,
+          "totalFlourGrams": 500,
+          "totalTargetHydration": 70,
+          "saltPercentage": 2
+        },
+        "expected": {
+          "prefermentFlourGrams": 100,
+          "prefermentWaterGrams": 100,
+          "doughAddedFlourGrams": 400,
+          "doughAddedWaterGrams": 250,
+          "doughAddedSaltGrams": 10,
+          "totalFlourGrams": 500,
+          "totalWaterGrams": 350,
+          "totalDoughWeightGrams": 860
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Suas (2008) Advanced Bread and Pastry, s. 72; Hamelman (2012) s. 55"
+      },
+      {
+        "id": "VEC-PREF-02-biga-30-pct",
+        "description": "1000g total flour, 65% total hydration, 30% biga (50% hydration)",
+        "input": {
+          "prefermentType": "biga",
+          "prefermentFlourPercentage": 30,
+          "totalFlourGrams": 1000,
+          "totalTargetHydration": 65,
+          "saltPercentage": 2
+        },
+        "expected": {
+          "prefermentFlourGrams": 300,
+          "prefermentWaterGrams": 150,
+          "doughAddedFlourGrams": 700,
+          "doughAddedWaterGrams": 500,
+          "doughAddedSaltGrams": 20,
+          "totalFlourGrams": 1000,
+          "totalWaterGrams": 650,
+          "totalDoughWeightGrams": 1670
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Suas (2008) Advanced Bread and Pastry, s. 72; Hamelman (2012) s. 55"
+      },
+      {
+        "id": "VEC-PREF-03-tangzhong-water-roux",
+        "description": "500g flour, 72% hydration, 7% flour in Tangzhong (1:5 ratio at 65°C)",
+        "input": {
+          "prefermentType": "tangzhong",
+          "prefermentFlourPercentage": 7,
+          "totalFlourGrams": 500,
+          "totalTargetHydration": 72,
+          "saltPercentage": 1.8
+        },
+        "expected": {
+          "prefermentFlourGrams": 35,
+          "prefermentWaterGrams": 175,
+          "doughAddedFlourGrams": 465,
+          "doughAddedWaterGrams": 185,
+          "totalFlourGrams": 500,
+          "totalWaterGrams": 360,
+          "totalDoughWeightGrams": 869
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Suas (2008) Advanced Bread and Pastry, s. 72; Hamelman (2012) s. 55"
+      }
+    ],
+    "RD_10_bake_loss_and_moisture": [
+      {
+        "id": "VEC-LOSS-01-country-boule-14pct",
+        "description": "900g raw dough boule baked in dutch oven (14% bake loss)",
+        "input": {
+          "doughWeightGrams": 900,
+          "bakeLossPercent": 14,
+          "totalWaterGrams": 369
+        },
+        "expected": {
+          "bakedWeightGrams": 774,
+          "evaporatedWaterGrams": 126,
+          "crumbMoistureCategory": "dry"
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Hamelman (2012) Bread, s. 42 (Oven bake loss 11-16%)"
+      },
+      {
+        "id": "VEC-LOSS-02-baguettes-18pct",
+        "description": "350g baguette with high surface evaporation (18% bake loss)",
+        "input": {
+          "doughWeightGrams": 350,
+          "bakeLossPercent": 18
+        },
+        "expected": {
+          "bakedWeightGrams": 287,
+          "evaporatedWaterGrams": 63
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Hamelman (2012) Bread, s. 42 (Oven bake loss 11-16%)"
+      }
+    ],
+    "RD_11_starter_feeding": [
+      {
+        "id": "VEC-FEED-01-standard-1-2-2",
+        "description": "150g target yield in 1:2:2 ratio",
+        "input": {
+          "targetYieldGrams": 150,
+          "ratio": [
+            1,
+            2,
+            2
+          ]
+        },
+        "expected": {
+          "starterGrams": 30,
+          "flourGrams": 60,
+          "waterGrams": 60
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "DiMuzio (2009) rozdz. 6; Sourdough feeding mass balance"
+      },
+      {
+        "id": "VEC-FEED-02-overnight-1-5-5",
+        "description": "220g target yield in 1:5:5 ratio for slow 12h overnight proof",
+        "input": {
+          "targetYieldGrams": 220,
+          "ratio": [
+            1,
+            5,
+            5
+          ]
+        },
+        "expected": {
+          "starterGrams": 20,
+          "flourGrams": 100,
+          "waterGrams": 100
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "DiMuzio (2009) rozdz. 6; Sourdough feeding mass balance"
+      }
+    ],
+    "RD_COST_batch_economics": [
+      {
+        "id": "VEC-COST-01-single-country-loaf",
+        "description": "500g flour (4.50 PLN/kg), 350g water, 10g salt, 2.5kW oven preheated 45m + 45m bake (1.15 PLN/kWh, duty 0.65)",
+        "input": {
+          "totalFlourGrams": 500,
+          "totalWaterGrams": 350,
+          "totalSaltGrams": 10,
+          "loavesCount": 1,
+          "bakedLoafWeightGrams": 750
+        },
+        "expected": {
+          "flourCost": 2.25,
+          "waterCost": 0,
+          "saltCost": 0.03,
+          "ovenKwhConsumed": 2.44,
+          "energyTotalCost": 2.81,
+          "totalBatchCost": 5.09,
+          "costPerLoaf": 5.09,
+          "costPer100g": 0.68
+        },
+        "tier": "Tier 3",
+        "sourceCitation": "Artisan Baking Economics Standard 2026"
+      }
+    ]
+  }
+}

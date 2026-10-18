@@ -6,7 +6,7 @@
 
 import { FlourItemInput } from '../core/domain-rules';
 import { MASTER_RECIPES } from '../recipes/presets';
-import { StoredBakeLog } from '../data/db';
+import { StoredBakeLog, StoredRecipe } from '../data/db';
 
 export interface PendingRecipeFormula {
   flours: FlourItemInput[];
@@ -49,7 +49,7 @@ export function subscribePendingRecipe(listener: PendingRecipeListener): () => v
   };
 }
 
-export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: any[]): PendingRecipeToLoad {
+export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad {
   const allPresets = [...customRecipes, ...MASTER_RECIPES];
   const match = allPresets.find(
     (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()

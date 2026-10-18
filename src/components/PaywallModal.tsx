@@ -12,6 +12,7 @@ import {
   Pressable,
   ScrollView,
   Alert,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
@@ -24,7 +25,7 @@ export interface PaywallModalProps {
   visible: boolean;
   onClose: () => void;
   onSubscribe: (tier: PlanOption) => Promise<void> | void;
-  onRestore?: () => Promise<any> | any;
+  onRestore?: () => Promise<boolean | void> | boolean | void;
   trialDaysRemaining?: number;
   completedBakesCount?: number;
 }
@@ -247,6 +248,29 @@ export function PaywallModal({
               </Text>
             </Pressable>
           </View>
+
+          {/* Legal Links (Apple Review Guideline 3.1.2 & DEC-49) */}
+          <View style={styles.legalLinksRow}>
+            <Pressable
+              testID="terms-of-use-btn"
+              onPress={() => Linking.openURL('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/')}
+              style={styles.legalBtn}
+              accessibilityRole="link"
+              accessibilityLabel={t('Warunki użytkowania (EULA)')}
+            >
+              <Text style={styles.legalLinkText}>{t('Warunki użytkowania (EULA)')}</Text>
+            </Pressable>
+            <Text style={styles.legalDividerText}>•</Text>
+            <Pressable
+              testID="privacy-policy-btn"
+              onPress={() => Linking.openURL('https://apps4craft.com/privacy/piekarz')}
+              style={styles.legalBtn}
+              accessibilityRole="link"
+              accessibilityLabel={t('Polityka prywatności')}
+            >
+              <Text style={styles.legalLinkText}>{t('Polityka prywatności')}</Text>
+            </Pressable>
+          </View>
         </ScrollView>
       </SafeAreaView>
     </Modal>
@@ -456,5 +480,28 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.textSecondary,
     textDecorationLine: 'underline',
+  },
+  legalLinksRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 16,
+    marginBottom: 8,
+    gap: 8,
+  },
+  legalBtn: {
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    minHeight: 48,
+    justifyContent: 'center',
+  },
+  legalLinkText: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
+    textDecorationLine: 'underline',
+  },
+  legalDividerText: {
+    fontSize: 12,
+    color: theme.colors.textMuted,
   },
 });

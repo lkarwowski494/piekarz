@@ -38,6 +38,11 @@ const mockFileSystem = {
       }
     }
   }),
+  copyAsync: jest.fn(async ({ from, to }) => {
+    if (mockFiles.has(from)) {
+      mockFiles.set(to, mockFiles.get(from));
+    }
+  }),
   makeDirectoryAsync: jest.fn(async () => {}),
   __mockFiles: mockFiles,
 };
@@ -103,3 +108,23 @@ jest.mock('expo-router', () => ({
     return React.createElement(Text, props, props.children);
   },
 }));
+
+jest.mock('expo-crypto', () => {
+  const crypto = require('crypto');
+  return {
+    CryptoDigestAlgorithm: {
+      SHA256: 'SHA-256',
+      SHA512: 'SHA-512',
+    },
+    CryptoEncoding: {
+      HEX: 'HEX',
+      BASE64: 'BASE64',
+    },
+    digestStringAsync: jest.fn(async (algo, data) => {
+      return crypto.createHash('sha256').update(data).digest('hex');
+    }),
+    getRandomBytes: jest.fn((n) => new Uint8Array(crypto.randomBytes(n))),
+    getRandomBytesAsync: jest.fn(async (n) => new Uint8Array(crypto.randomBytes(n))),
+  };
+});
+

@@ -15,8 +15,10 @@ import { VolumeConverterModal } from '../VolumeConverterModal';
 import { ShareRecipeQrModal } from '../ShareRecipeQrModal';
 import { QrScannerModal } from '../QrScannerModal';
 import { PaywallModal } from '../PaywallModal';
-import { FlourItemInput } from '../../core/domain-rules';
+import { FlourItemInput, FlourItemCalculated } from '../../core/domain-rules';
 import { BakerRitualProfile } from '../../data/sqlite-store';
+import { StoredRecipe } from '../../data/db';
+import { PlanOption } from '../PaywallModal';
 
 export interface CalculatorModalsProviderProps {
   isSettingsOpen: boolean;
@@ -29,13 +31,13 @@ export interface CalculatorModalsProviderProps {
   onCloseBlend: () => void;
   isInventoryOpen: boolean;
   onCloseInventory: () => void;
-  recipeFlours: any[];
+  recipeFlours: FlourItemCalculated[];
   isImportModalOpen: boolean;
   importInitialInput: string;
   onCloseImport: () => void;
-  onImportSuccess: (imported: any) => void;
+  onImportSuccess: (imported: StoredRecipe) => void;
   isShareQrOpen: boolean;
-  currentRecipeForShare: any;
+  currentRecipeForShare: StoredRecipe | null;
   onCloseShareQr: () => void;
   isScannerOpen: boolean;
   onCloseScanner: () => void;
@@ -46,8 +48,8 @@ export interface CalculatorModalsProviderProps {
   onCloseVolume: () => void;
   isPaywallVisible: boolean;
   onClosePaywall: () => void;
-  onSubscribe: (tier: any) => void | Promise<void>;
-  onRestorePurchases: () => any;
+  onSubscribe: (tier: PlanOption) => void | Promise<void>;
+  onRestorePurchases: () => Promise<boolean> | boolean | void;
   trialDaysRemaining: number;
   completedBakesCount: number;
 }

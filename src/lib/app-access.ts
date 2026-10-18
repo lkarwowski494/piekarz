@@ -29,8 +29,8 @@ export interface AppAccessInfo {
   isHistoryReadOnly: boolean;
 }
 
-export const TRIAL_DURATION_DAYS = 7;
-export const TRIAL_MAX_COMPLETED_BAKES = 3;
+export const TRIAL_DURATION_DAYS = 14;
+export const TRIAL_MAX_COMPLETED_BAKES = 999;
 
 /**
  * Pure evaluation function of user's access rights.
@@ -57,13 +57,14 @@ export function evaluateAppAccess(stored: StoredAppAccess, now: number = Date.no
 
   const msElapsed = Math.max(0, now - stored.trialStartedAt);
   const daysElapsed = msElapsed / (1000 * 60 * 60 * 24);
-  const trialDaysRemaining = Math.max(0, Math.ceil(stored.trialDays - daysElapsed));
+  const trialDaysLimit = stored.trialDays || TRIAL_DURATION_DAYS;
+  const trialDaysRemaining = Math.max(0, Math.ceil(trialDaysLimit - daysElapsed));
   const bakesRemainingInTrial = Math.max(
     0,
     TRIAL_MAX_COMPLETED_BAKES - stored.completedBakesCount
   );
 
-  const isTrialActive = trialDaysRemaining > 0 && bakesRemainingInTrial > 0;
+  const isTrialActive = trialDaysRemaining > 0;
 
   if (isTrialActive) {
     return {

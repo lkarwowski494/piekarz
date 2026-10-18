@@ -46,7 +46,7 @@ export interface IFlourInventoryRepository {
 }
 
 export interface IPendingOpsQueue {
-  enqueue(opType: PendingOp['opType'], payload: Record<string, any>): Promise<PendingOp>;
+  enqueue(opType: PendingOp['opType'], payload: Record<string, unknown> | string): Promise<PendingOp>;
   getPending(): Promise<PendingOp[]>;
   updateStatus(id: string, status: PendingOpStatus): Promise<void>;
   purgeSynced(): Promise<void>;

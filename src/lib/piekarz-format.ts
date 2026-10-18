@@ -106,10 +106,11 @@ export function parsePiekarzPackage(jsonString: string): PiekarzValidationResult
       isValid: true,
       package: raw as PiekarzPackage,
     };
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
     return {
       isValid: false,
-      error: `Błąd parsowania JSON: ${err.message || String(err)}`,
+      error: `Błąd parsowania JSON: ${msg}`,
     };
   }
 }

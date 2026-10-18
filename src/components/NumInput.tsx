@@ -66,7 +66,7 @@ export const NumInput: React.FC<NumInputProps> = ({
     setIsEditing(true);
   };
 
-  const handleBlur = (e?: any) => {
+  const handleBlur: NonNullable<TextInputProps['onBlur']> = (e) => {
     setIsEditing(false);
     const trimmed = rawText.trim();
     if (trimmed === '') {
@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    minHeight: 44,
+    minHeight: 48,
+    fontVariant: ['tabular-nums'],
   },
 });

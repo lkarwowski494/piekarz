@@ -47,5 +47,15 @@ if (!process.env.PROP_SEED) {
   process.env.PROP_SEED = seed;
 }
 
+try {
+  const fc = require('fast-check');
+  if (process.env.PROP_SEED) {
+    fc.configureGlobal({ seed: Number(process.env.PROP_SEED) });
+  }
+} catch {
+  // fast-check optional
+}
+
 // Globalny timeout dla testów
 jest.setTimeout(30_000);
+

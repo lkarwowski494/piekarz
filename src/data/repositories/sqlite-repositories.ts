@@ -14,6 +14,11 @@ import {
   FlavourProfile,
 } from '../../core/domain/types';
 import {
+  StoredBakeLog as DbBakeLog,
+  StoredStarter as DbStarter,
+  StoredRecipe as DbRecipe,
+} from '../db';
+import {
   IBakeRepository,
   IStarterRepository,
   IRecipeRepository,
@@ -36,17 +41,6 @@ import {
   deductFlourStock as storeDeductFlourStock,
 } from '../sqlite-store';
 
-// Extend memStore for pending operations in test/memory mode
-declare module '../sqlite-schema' {
-  interface MemStoreExtension {
-    pendingOps?: PendingOp[];
-  }
-}
-
-if (!(memStore as any).pendingOps) {
-  (memStore as any).pendingOps = [] as PendingOp[];
-}
-
 function toDomainTaste(taste?: string): FlavourProfile | undefined {
   if (!taste) return undefined;
   if (taste === 'mild' || taste === 'mild_sweet') return 'mild_sweet';
@@ -64,37 +58,57 @@ function toDbTaste(taste?: FlavourProfile): 'mild' | 'balanced' | 'sour' | 'tang
   return 'balanced';
 }
 
-function mapDbBakeLogToDomain(log: any): StoredBakeLog {
+function mapDbBakeLogToDomain(log: DbBakeLog): StoredBakeLog {
   return {
     ...log,
-    actualDdt: log.actualDDT ?? log.actualDdt,
+    actualDdt: log.actualDDT,
     tasteProfile: toDomainTaste(log.tasteProfile),
+    sensoryProfile: log.sensoryProfile
+      ? {
+          openCrumb: log.sensoryProfile.openCrumb,
+          crustCrispness: log.sensoryProfile.crustCrispness,
+          lacticSourness: log.sensoryProfile.acidity,
+          aceticSourness: log.sensoryProfile.acidity,
+          crumbElasticity: log.sensoryProfile.crumbElasticity,
+          aromaIntensity: log.sensoryProfile.caramelization,
+        }
+      : undefined,
   };
 }
 
-function mapDomainBakeLogToDb(log: StoredBakeLog): any {
+function mapDomainBakeLogToDb(log: StoredBakeLog): DbBakeLog {
   return {
     ...log,
     actualDDT: log.actualDdt,
     tasteProfile: toDbTaste(log.tasteProfile),
+    sensoryProfile: log.sensoryProfile
+      ? {
+          openCrumb: log.sensoryProfile.openCrumb,
+          crustCrispness: log.sensoryProfile.crustCrispness,
+          acidity: Math.round((log.sensoryProfile.lacticSourness + log.sensoryProfile.aceticSourness) / 2),
+          crumbElasticity: log.sensoryProfile.crumbElasticity,
+          caramelization: log.sensoryProfile.aromaIntensity,
+        }
+      : undefined,
   };
 }
 
-function mapDbStarterToDomain(s: any): StoredStarter {
+function mapDbStarterToDomain(s: DbStarter): StoredStarter {
   return {
     ...s,
     storageState: s.storageState ?? 'ROOM_TEMP',
+    feedingRatio: s.feedingRatio as StoredStarter['feedingRatio'],
   };
 }
 
-function mapDomainStarterToDb(s: StoredStarter): any {
+function mapDomainStarterToDb(s: StoredStarter): DbStarter {
   return {
     ...s,
     storageState: s.storageState === 'FREEZER' || s.storageState === 'DRIED' ? 'FRIDGE' : s.storageState,
   };
 }
 
-function mapDbRecipeToDomain(r: any): StoredRecipe {
+function mapDbRecipeToDomain(r: DbRecipe): StoredRecipe {
   return {
     ...r,
     targetDDT: r.targetDDT,
@@ -102,7 +116,7 @@ function mapDbRecipeToDomain(r: any): StoredRecipe {
   };
 }
 
-function mapDomainRecipeToDb(r: StoredRecipe): any {
+function mapDomainRecipeToDb(r: StoredRecipe): DbRecipe {
   return {
     ...r,
     targetDDT: r.targetDDT ?? 26,
@@ -210,17 +224,17 @@ export class SQLiteFlourInventoryRepository implements IFlourInventoryRepository
 export class SQLitePendingOpsQueue implements IPendingOpsQueue {
   async enqueue(
     opType: PendingOp['opType'],
-    payload: Record<string, any>
+    payload: Record<string, unknown> | string
   ): Promise<PendingOp> {
     const op: PendingOp = {
       id: `op_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
       opType,
-      payload: JSON.stringify(payload),
+      payload: typeof payload === 'string' ? payload : JSON.stringify(payload),
       createdAt: Date.now(),
       status: 'PENDING',
     };
 
-    const inMem = (memStore as any).pendingOps as PendingOp[];
+    const inMem = memStore.pendingOps as PendingOp[];
     inMem.push(op);
 
     const db = await getDb();
@@ -244,7 +258,7 @@ export class SQLitePendingOpsQueue implements IPendingOpsQueue {
   }
 
   async getPending(): Promise<PendingOp[]> {
-    const inMem = (memStore as any).pendingOps as PendingOp[];
+    const inMem = memStore.pendingOps as PendingOp[];
     const db = await getDb();
     if (!db) {
       return inMem.filter((o) => o.status === 'PENDING');
@@ -277,7 +291,7 @@ export class SQLitePendingOpsQueue implements IPendingOpsQueue {
   }
 
   async updateStatus(id: string, status: PendingOpStatus): Promise<void> {
-    const inMem = (memStore as any).pendingOps as PendingOp[];
+    const inMem = memStore.pendingOps as PendingOp[];
     const found = inMem.find((o) => o.id === id);
     if (found) {
       found.status = status;
@@ -298,8 +312,8 @@ export class SQLitePendingOpsQueue implements IPendingOpsQueue {
   }
 
   async purgeSynced(): Promise<void> {
-    const inMem = (memStore as any).pendingOps as PendingOp[];
-    (memStore as any).pendingOps = inMem.filter((o) => o.status !== 'SYNCED');
+    const inMem = memStore.pendingOps as PendingOp[];
+    memStore.pendingOps = inMem.filter((o) => o.status !== 'SYNCED');
 
     const db = await getDb();
     if (db) {

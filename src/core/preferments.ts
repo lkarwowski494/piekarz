@@ -4,7 +4,7 @@
 // 100% Offline-First, Zero Cloud Dependencies.
 // ============================================================================
 
-export type PrefermentType = 'direct' | 'levain' | 'poolish' | 'biga' | 'pate_fermentee';
+export type PrefermentType = 'direct' | 'levain' | 'poolish' | 'biga' | 'pate_fermentee' | 'tangzhong' | 'yudane';
 
 export interface PrefermentDefinition {
   type: PrefermentType;
@@ -67,6 +67,26 @@ export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition
     yeastPctOfPrefermentFlour: 0, // Dzikie drożdże z matki
     saltPctOfPrefermentFlour: 0,
     flavorProfilePl: 'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.',
+  },
+  tangzhong: {
+    type: 'tangzhong',
+    namePl: 'Tangzhong (Zaparzana mąka 1:5 w 65°C)',
+    defaultHydration: 500.0,
+    defaultPrefermentFlourPct: 7.0,
+    fermentationTimeHours: 'Do ostygnięcia do temp. pokojowej',
+    yeastPctOfPrefermentFlour: 0,
+    saltPctOfPrefermentFlour: 0,
+    flavorProfilePl: 'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.',
+  },
+  yudane: {
+    type: 'yudane',
+    namePl: 'Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)',
+    defaultHydration: 100.0,
+    defaultPrefermentFlourPct: 10.0,
+    fermentationTimeHours: 'Min. 4h lub przez noc w lodówce',
+    yeastPctOfPrefermentFlour: 0,
+    saltPctOfPrefermentFlour: 0,
+    flavorProfilePl: 'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.',
   },
 };
 

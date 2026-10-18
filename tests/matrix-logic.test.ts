@@ -4,6 +4,7 @@
 // ============================================================================
 
 import { localISODate, autoBackup } from '../src/lib/backup';
+import { DoughRecipeResult } from '../src/core/domain-rules';
 import {
   setPendingRecipeToLoad,
   getPendingRecipeToLoad,
@@ -196,7 +197,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
         overallHydrationPercent: 70,
         waterGrams: 350,
         flours: [{ name: 'Mąka', weightGrams: 500, percentage: 100 }],
-      },
+      } as unknown as DoughRecipeResult,
       bakeLossMetrics: undefined,
       targetDdt: 24,
       waterTempTarget: 22,
@@ -218,7 +219,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
         starterGrams: 100,
         saltGrams: 10,
         targetDoughWeightGrams: 960,
-      },
+      } as unknown as DoughRecipeResult,
       starterHydration: 100,
       saltPct: 2.0,
       targetDdt: 24,

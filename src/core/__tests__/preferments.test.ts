@@ -122,11 +122,32 @@ describe('Artisan Preferment Engine (src/core/preferments.ts)', () => {
     });
   });
 
+const PBT_SEED = process.env.PROP_SEED ? Number(process.env.PROP_SEED) : undefined;
+
+function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
+  property: fc.IProperty<Ts>,
+  params?: fc.Parameters<Ts>
+) {
+  try {
+    fc.assert(property, {
+      ...params,
+      ...(PBT_SEED !== undefined ? { seed: PBT_SEED } : {}),
+    });
+  } catch (error: unknown) {
+    if (PBT_SEED !== undefined) {
+      console.warn(`[PBT FAILURE] Seed configured: ${PBT_SEED}`);
+    } else {
+      console.warn(`[PBT FAILURE] To reproduce, set PROP_SEED=<seed> from fast-check report.`);
+    }
+    throw error;
+  }
+}
+
   describe('Property-Based Invariants (fast-check)', () => {
     const types: PrefermentType[] = ['direct', 'poolish', 'biga', 'pate_fermentee', 'levain'];
 
     it('conserves total flour mass strictly: prefFlour + doughAddedFlour === totalFlour', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.constantFrom(...types),
           fc.integer({ min: 100, max: 5000 }),
@@ -149,7 +170,7 @@ describe('Artisan Preferment Engine (src/core/preferments.ts)', () => {
     });
 
     it('conserves water mass strictly: prefWater + doughAddedWater === totalWater', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.constantFrom(...types),
           fc.integer({ min: 200, max: 3000 }),
@@ -173,7 +194,7 @@ describe('Artisan Preferment Engine (src/core/preferments.ts)', () => {
     });
 
     it('ensures salt conservation without negative dough salt', () => {
-      fc.assert(
+      assertWithSeed(
         fc.property(
           fc.constantFrom(...types),
           fc.integer({ min: 250, max: 2000 }),

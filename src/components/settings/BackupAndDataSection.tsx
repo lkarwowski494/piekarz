@@ -108,8 +108,9 @@ export function BackupAndDataSection() {
       Alert.alert(t('Kopia zapasowa'), t('Zaimportowano pomyślnie!'));
       setShowImportInput(false);
       setImportJsonText('');
-    } catch (err: any) {
-      Alert.alert(t('Kopia zapasowa'), err?.message || t('Nie udało się zaimportować kopii'));
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : t('Nie udało się zaimportować kopii');
+      Alert.alert(t('Kopia zapasowa'), msg);
     } finally {
       setIsImporting(false);
     }

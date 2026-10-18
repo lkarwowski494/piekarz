@@ -13,10 +13,11 @@ import { formatRecipeText, copyRecipeToClipboard } from './recipe-formatter';
 import { saveRecipe } from '../data/sqlite-store';
 import { StoredRecipe } from '../data/db';
 import { MASTER_RECIPES } from '../recipes/presets';
+import { DoughRecipeResult, BakeLossMetricsResult, FlourItemInput } from '../core/domain-rules';
 
 export interface PrintRecipePdfParams {
   recipeName: string;
-  calculations: any;
+  calculations: DoughRecipeResult;
   starterHydration: number;
   saltPct: number;
   targetDdt: number;
@@ -64,15 +65,15 @@ export async function executePrintRecipePdf({
 }
 
 export async function executeExportRecipeJson(payload: StoredRecipe): Promise<void> {
-  const json = exportRecipeToJson(payload as any);
+  const json = exportRecipeToJson(payload);
   await Clipboard.setStringAsync(json);
   Alert.alert(t('Eksport JSON'), t('Skopiowano kod JSON receptury do schowka.'));
 }
 
 export async function executeCopyRecipe(params: {
   recipeName: string;
-  calculations: any;
-  bakeLossMetrics: any;
+  calculations: DoughRecipeResult;
+  bakeLossMetrics?: BakeLossMetricsResult;
   targetDdt: number;
   waterTempTarget: number;
   iceGrams?: number;
@@ -97,7 +98,7 @@ export async function executeCopyRecipe(params: {
 
 export async function executeCloneRecipe(
   recipeName: string,
-  flourBlend: any[],
+  flourBlend: FlourItemInput[],
   waterPct: number,
   saltPct: number,
   starterPct: number,
@@ -129,7 +130,7 @@ export async function executeCloneRecipe(
 
 export async function executeSaveCustomRecipe(
   name: string,
-  flourBlend: any[],
+  flourBlend: FlourItemInput[],
   waterPct: number,
   saltPct: number,
   starterPct: number,
