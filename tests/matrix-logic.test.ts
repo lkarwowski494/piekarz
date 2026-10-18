@@ -24,6 +24,7 @@ import {
 import { useAppAccess } from '../src/lib/app-access';
 import { useLang } from '../src/lib/i18n';
 import { getLocaleMetadata } from '../src/lib/i18n-locales';
+import { getTargetCoreTemperature } from '../src/core/thermal-probe';
 import {
   executePrintRecipePdf,
   executeExportRecipeJson,
@@ -241,5 +242,11 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
     expect(plMeta?.tier).toBe(1);
     const unknown = getLocaleMetadata('unknown');
     expect(unknown).toBeUndefined();
+  });
+
+  it('getTargetCoreTemperature returns target thresholds', () => {
+    const wheatCfg = getTargetCoreTemperature('wheat');
+    expect(wheatCfg.targetC).toBe(95);
+    expect(wheatCfg.minC).toBe(94);
   });
 });

@@ -1,0 +1,6 @@
+<strings>
+    <string id="AppName">Piekarz</string>
+    <string id="FoldPrompt">Naciśnij START aby złożyć ciasto</string>
+    <string id="LidOffPrompt">Zdejmij pokrywkę garnka!</string>
+    <string id="BakeComplete">Chleb upieczony!</string>
+</strings>

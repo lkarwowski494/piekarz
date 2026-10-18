@@ -1,0 +1,21 @@
+<!-- Garmin Connect IQ App Manifest for Piekarz (Crust) -->
+<iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
+    <iq:application entry="PiekarzApp" id="e94c8612-4cf3-4889-8d8a-82110c73e1cb" launcherIcon="@Drawables.LauncherIcon" name="@Strings.AppName" type="watch-app" minSdkVersion="3.2.0">
+        <iq:products>
+            <iq:product id="fenix7"/>
+            <iq:product id="fenix7pro"/>
+            <iq:product id="forerunner965"/>
+            <iq:product id="forerunner265"/>
+            <iq:product id="epix2"/>
+            <iq:product id="venu3"/>
+        </iq:products>
+        <iq:permissions>
+            <iq:uses-permission id="Attention"/>
+            <iq:uses-permission id="Sensor"/>
+        </iq:permissions>
+        <iq:languages>
+            <iq:language>pol</iq:language>
+            <iq:language>eng</iq:language>
+        </iq:languages>
+    </iq:application>
+</iq:manifest>

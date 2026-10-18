@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 453 | 453 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 182 | 182 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 71 | 71 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 193 | 193 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 78 | 78 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **748** | Pokrytych: **748** | Brakujących: **0**
+Łącznie elementów: **766** | Pokrytych: **766** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Początkujący Piekarz` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 448 kolejnych elementów w pełnym wykazie)*
+*(... i 466 kolejnych elementów w pełnym wykazie)*

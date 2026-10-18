@@ -41,6 +41,8 @@ import {
   PendingOpStatus,
 } from '../src/core/domain/types';
 import { PluralRuleCategory } from '../src/lib/i18n-locales';
+import { BreadCrumbTarget, ThermalProbeStatus } from '../src/core/thermal-probe';
+import { LiveActivityBakePhase } from '../src/lib/live-activity';
 
 describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
   describe('Compact Width 320pt Constraints (iPhone SE 1st gen)', () => {
@@ -292,6 +294,28 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
         'semitic',
       ];
       expect(pluralCategories.length).toBe(6);
+
+      const breadCrumbTargets: BreadCrumbTarget[] = ['wheat', 'rye', 'enriched'];
+      expect(breadCrumbTargets.length).toBe(3);
+
+      const probeStatuses: ThermalProbeStatus[] = [
+        'warming',
+        'gelatinizing',
+        'nearing_done',
+        'done',
+        'overbaked',
+      ];
+      expect(probeStatuses.length).toBe(5);
+
+      const livePhases: LiveActivityBakePhase[] = [
+        'autolyse',
+        'bulk_fold',
+        'cold_retard',
+        'dutch_oven_steam',
+        'dutch_oven_vent',
+        'cooling',
+      ];
+      expect(livePhases.length).toBe(6);
     });
   });
 });
