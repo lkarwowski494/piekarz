@@ -64,6 +64,22 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 
 ---
 
+### [D-032] 2026-10-19 — Kontrakt zakresu przebudowany na poprawionym BRD: tabela F-nn i decyzja dla każdego BR
+- **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-14, opcja a); zadanie M1-audytor-generalny-032 (rola 03, tryb fix).
+- **Słowa właściciela:** „Przebudować kontrakt trybem 03-zakres build na podstawie poprawionego BRD”.
+- **Odrzucona opcja:** (b) „Poprawić istniejący kontrakt punktowo” — zostają fikcyjne zakresy BR i brak F-nn.
+- **Powód:** kontrakt wskazywał 124 BR i zakresy ID nieistniejące w BRD; 38 z 52 BR nie miało decyzji, w tym BR-CZAS (audyt M1: 03-zakres-006; errata ER-18, ER-19).
+- **Skutek:** `docs/scope-contract.md` sekcja 7: F-09…F-52 obok F-01…F-08; każde z 52 BR w jednym wierszu. Decyzje wpisane z rejestru właściciela (plan napraw M1, wybory z 2026-10-19), dosłownie w kontrakcie przy funkcjach:
+  - DEC-02 = (a) „Powiadomienia lokalne dla każdego kroku i karmienia, poziom Time Sensitive dla kroków krytycznych, prośba o zgodę przy pierwszym timerze; bez Live Activity w 1.0” → F-16 MVP;
+  - DEC-15 = (a) „≥ 48 pt w Stolnicy i akcjach głównego przepływu, ≥ 44 pt w pozostałych; tekst sklepu bez liczby” → F-20 MVP;
+  - DEC-01 = (a) StoreKit, jeden zakup dożywotni, bez lokalnego okresu próbnego → F-35 MVP; podział darmowe/płatne wstrzymany przez właściciela do wyniku rozszerzonej bramki roli 02 (kolumna WTP: „wg DEC-01, w toku”);
+  - DEC-10 = (a) zasada ostrożności dla zakwasu → F-25; DEC-06 = (b) języki → F-38; DEC-07 = (a) jeden motyw ciemny → F-39 TEST.
+- **Zasada 18 (D-014 właściciela, biblioteka zasad):** BR bez dowodu wartości, których nie ma w kodzie (BR-KALK-006, BR-REKA-002, BR-SYS-001, BR-WSP-002, BR-ZAK-002, BR-UST-002), dostały TEST z „Test:” zamiast MVP z BRD; nic nie jest budowane przed wynikiem, nic nie jest usuwane. Właściciel może to zawetować (ZM-04).
+- **Nie rozstrzygnięte tu:** funkcje działające w kodzie bez dowodu albo bez BR oraz pominięcia z linii bazowej — wiersze „DO DECYZJI WŁAŚCICIELA” (F-17, F-29, F-30, F-43…F-52) z opcjami w ZM-07…ZM-14; do wyboru stan w kodzie bez zmian.
+- **Zależy od:** wyboru właściciela w ZM-04 i ZM-07…ZM-14; BR dla funkcji bez wymagania (ER do roli 01).
+
+---
+
 ### [D-031] 2026-10-19 — Wycięcie Apple Watch, Live Activity i modułów podłączonych tylko w testach
 - **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-03, opcja a); zadanie M1-audytor-generalny-031.
 - **Słowa właściciela:** „Wyciąć z kontraktu MVP i z kodu; zapisać na liście odcięć z warunkiem powrotu”.
