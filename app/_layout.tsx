@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Stack, type ErrorBoundaryProps } from 'expo-router';
-import { StatusBar } from 'react-native';
+import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
+import { StatusBar, AppState } from 'react-native';
+import * as Notifications from 'expo-notifications';
+import { configureNotificationHandler, resyncNotifications } from '../src/lib/notifications';
 import { initDatabase } from '../src/data/sqlite-store';
 import { resetStorageState } from '../src/data/storage-status';
 import { StorageGate } from '../src/components/StorageGate';
@@ -33,9 +35,27 @@ export default function RootLayout() {
         return;
       }
       await initDatabase();
+      void resyncNotifications();
       milestone = setTimeout(() => void markStartupSucceeded(), STARTUP_MILESTONE_MS);
     })();
     return () => clearTimeout(milestone);
+  }, []);
+
+  // Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: pokazywanie na pierwszym planie,
+  // uzgodnienie po powrocie z tła i otwarcie ekranu z dotkniętego powiadomienia.
+  useEffect(() => {
+    configureNotificationHandler();
+    const appState = AppState.addEventListener('change', (s) => {
+      if (s === 'active') void resyncNotifications();
+    });
+    const tap = Notifications.addNotificationResponseReceivedListener((r) => {
+      const route: unknown = Reflect.get(r.notification.request.content.data ?? {}, 'route');
+      if (route === '/(tabs)/stolnica' || route === '/(tabs)/zakwas') router.push(route);
+    });
+    return () => {
+      appState.remove();
+      tap.remove();
+    };
   }, []);
 
   if (rescue) {

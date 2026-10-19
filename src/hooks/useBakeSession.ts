@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { restoreTimerState, TimerState } from '../core/bake-session';
 import { BakeSession, loadBakeSession, pickBakeSession, saveBakeSession } from '../data/bake-session-store';
 import { getActiveBake } from '../data/sqlite-store';
+import { resyncNotifications } from '../lib/notifications';
 
 /**
  * Przy montowaniu przywraca sesję (wypiek z Kalkulatora albo zapis sprzed zabicia procesu),
@@ -38,7 +39,10 @@ export function useBakeSession(
   useEffect(() => {
     if (!ready || key === null || !snapRef.current) return;
     // Nieudany zapis postępu nie przerywa wypieku; zegar w pamięci działa dalej.
-    void saveBakeSession(snapRef.current).catch(() => {});
+    // Po zapisie uzgodnienie powiadomień z bazą (ADR-006) [M1-audytor-generalny-006]
+    void saveBakeSession(snapRef.current)
+      .then(() => resyncNotifications())
+      .catch(() => {});
   }, [ready, key]);
 
   return ready;

@@ -16,6 +16,8 @@ import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
 import { useBakeSession } from '../../src/hooks/useBakeSession';
 import { saveBakeSession } from '../../src/data/bake-session-store';
+import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
+import { NotificationsOffBanner } from '../../src/components/NotificationsOffBanner';
 import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
 import {
   finishBake,
@@ -255,6 +257,7 @@ export default function StolnicaScreen() {
     setTimeLeftSec(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
     setIsCompleted(false);
     setIsRunning(true);
+    void ensureNotificationPermission();
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     } catch {
@@ -277,6 +280,7 @@ export default function StolnicaScreen() {
     } catch {
       // Ignored
     }
+    if (!isRunning) void ensureNotificationPermission(); // zgoda przy pierwszym zegarze (ADR-006)
     setIsRunning((prev) => !prev);
   };
 
@@ -336,6 +340,7 @@ export default function StolnicaScreen() {
 
     setActiveBake(null);
     await saveBakeSession(null);
+    void resyncNotifications();
     setActiveBakeData(null);
     setIsActive(false);
     setCurrentStepIdx(0);
@@ -351,7 +356,7 @@ export default function StolnicaScreen() {
   const handleDiscard = () => {
     confirmDiscardBake(() => {
       setActiveBake(null);
-      void saveBakeSession(null).catch(() => {});
+      void saveBakeSession(null).then(() => resyncNotifications()).catch(() => {});
       setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);
@@ -419,6 +424,7 @@ export default function StolnicaScreen() {
           </View>
         ) : (
           <View>
+            <NotificationsOffBanner />
             {/* Sacred Numbers Glanceable Countertop Card */}
             <StolnicaSacredCard
               currentStepIdx={currentStepIdx}

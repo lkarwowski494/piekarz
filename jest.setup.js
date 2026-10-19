@@ -47,6 +47,39 @@ const mockFileSystem = {
   __mockFiles: mockFiles,
 };
 
+// expo-notifications: lista oczekujących i sterowana zgoda (ADR-006) [M1-audytor-generalny-006]
+const mockNotif = {
+  pending: new Map(),
+  iosStatus: 0, // 0 NOT_DETERMINED, 1 DENIED, 2 AUTHORIZED
+  grantOnRequest: true,
+};
+jest.mock('expo-notifications', () => ({
+  IosAuthorizationStatus: { NOT_DETERMINED: 0, DENIED: 1, AUTHORIZED: 2, PROVISIONAL: 3, EPHEMERAL: 4 },
+  SchedulableTriggerInputTypes: { DATE: 'date' },
+  getPermissionsAsync: jest.fn(async () => ({
+    granted: mockNotif.iosStatus >= 2,
+    canAskAgain: mockNotif.iosStatus === 0,
+    status: mockNotif.iosStatus >= 2 ? 'granted' : mockNotif.iosStatus === 0 ? 'undetermined' : 'denied',
+    ios: { status: mockNotif.iosStatus },
+  })),
+  requestPermissionsAsync: jest.fn(async () => {
+    if (mockNotif.iosStatus === 0) mockNotif.iosStatus = mockNotif.grantOnRequest ? 2 : 1;
+    return { granted: mockNotif.iosStatus >= 2, ios: { status: mockNotif.iosStatus } };
+  }),
+  getAllScheduledNotificationsAsync: jest.fn(async () => Array.from(mockNotif.pending.values())),
+  scheduleNotificationAsync: jest.fn(async (req) => {
+    const id = req.identifier || `n${mockNotif.pending.size}`;
+    mockNotif.pending.set(id, { identifier: id, content: req.content, trigger: req.trigger });
+    return id;
+  }),
+  cancelScheduledNotificationAsync: jest.fn(async (id) => {
+    mockNotif.pending.delete(id);
+  }),
+  setNotificationHandler: jest.fn(),
+  addNotificationResponseReceivedListener: jest.fn(() => ({ remove: jest.fn() })),
+  __mock: mockNotif,
+}));
+
 jest.mock('expo-file-system', () => mockFileSystem);
 jest.mock('expo-file-system/legacy', () => mockFileSystem);
 

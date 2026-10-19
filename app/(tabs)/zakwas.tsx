@@ -15,6 +15,8 @@ import {
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
+import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
+import { NotificationsOffBanner } from '../../src/components/NotificationsOffBanner';
 import {
   calculateStarterFeeding,
   evaluateSourdoughSafety,
@@ -163,6 +165,7 @@ export default function ZakwasScreen() {
         lastFedAt: now,
       };
       await saveStarter(updated);
+      void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)
       setStarter(updated);
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
@@ -187,6 +190,7 @@ export default function ZakwasScreen() {
         storageState: editStorageState,
       };
       await saveStarter(updated);
+      void resyncNotifications();
       setStarter(updated);
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       setIsEditModalOpen(false);
@@ -208,6 +212,7 @@ export default function ZakwasScreen() {
         lastFedAt: Date.now(),
       };
       await saveStarter(newStarter);
+      void resyncNotifications();
       await loadStarterData(newStarter.id);
       setIsAddModalOpen(false);
       setNewStarterName('');
@@ -223,6 +228,7 @@ export default function ZakwasScreen() {
     }
     confirmDeleteStarter(starter.name, guardSave(async () => {
       await deleteStarter(starter.id);
+      void resyncNotifications();
       setIsEditModalOpen(false);
       const remaining = startersList.filter((s) => s.id !== starter.id);
       if (remaining.length > 0) {
@@ -285,6 +291,7 @@ export default function ZakwasScreen() {
       />
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {/* Sacred Numbers Glanceable Countertop Card */}
+        <NotificationsOffBanner />
         <ZakwasSacredCard
           ageDays={ageDays}
           hydration={starter.hydration}

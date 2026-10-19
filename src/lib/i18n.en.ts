@@ -741,6 +741,23 @@ export const EN: Record<string, string> = {
   'Eksportuj kopię danych': 'Export a copy of your data',
   // Wypiek bez receptury z Kalkulatora [M1-audytor-generalny-017]
   'Wypiek bez receptury': 'Bake without a recipe',
+  // Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]
+  'Koniec kroku': 'Step finished',
+  'Krok „{step}” dobiegł końca.': 'The step “{step}” has finished.',
+  'Zdejmij pokrywkę': 'Take the lid off',
+  'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Time to take the lid off the pot and keep baking without steam.',
+  'Chleb upieczony': 'Bread is baked',
+  'Wyjmij chleb z garnka na kratkę.': 'Take the bread out of the pot onto a rack.',
+  'Pora nakarmić zakwas': 'Time to feed your starter',
+  'Zakwas „{name}” stoi na blacie od doby bez karmienia.': 'Starter “{name}” has been on the counter for a day without feeding.',
+  'Zakwas w lodówce': 'Starter in the fridge',
+  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Starter “{name}” has been waiting for a feeding for 6 days.',
+  'Nakarm zakwas dziś': 'Feed your starter today',
+  'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Starter “{name}” has been waiting for a feeding for 7 days.',
+  'Powiadomienia wyłączone': 'Notifications are off',
+  'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.':
+    'The timer works in the app, but with your phone locked it will not remind you when a step ends or when to feed.',
+  'Otwórz Ustawienia': 'Open Settings',
 };
 
 

@@ -4,6 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { exportBackup, parseAndValidateBackup, safetyBackup } from '../../lib/backup';
 import { StorageWriteError } from '../../data/storage-status';
+import { resyncNotifications } from '../../lib/notifications';
 import {
   getBakeLogs,
   getStarters,
@@ -105,6 +106,7 @@ export function BackupAndDataSection() {
 
       // Restore data inside transaction
       await restoreFromBackupData(envelope.state);
+      void resyncNotifications(); // przypomnienia dla zaimportowanych zakwasów (ADR-006)
 
       Alert.alert(
         t('Kopia zapasowa'),

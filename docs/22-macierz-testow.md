@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 470 | 470 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 233 | 233 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 88 | 88 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 473 | 473 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 244 | 244 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 99 | 99 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **833** | Pokrytych: **833** | Brakujących: **0**
+Łącznie elementów: **858** | Pokrytych: **858** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -33,7 +33,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Harmonogram wsteczny z ochroną snu (Sleep Guard)` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kalkulator` | `app/(tabs)/index.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `True Baker’s % & DDT` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Ustawienia` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `Ustawienia` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `Wypiek bez receptury` | `app/(tabs)/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
 | `TEKST` | `Załadowano recepturę` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Parametry bochenka „{name}” zostały załadowane do kalkulatora.` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -42,7 +42,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Asystent wypieku na żywo (Hands-in-flour)` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Doktor` | `app/(tabs)/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zakończ wypiek` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
-| `TEKST` | `Następny krok` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-restart.test.tsx |
+| `TEKST` | `Następny krok` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/notifications-pending.test.tsx |
 | `TEKST` | `Odrzuć wypiek` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/confirm.test.ts |
 | `TEKST` | `przed chwilą` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{hours}h temu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -314,10 +314,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Mieszanka mąk (100%):` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Sól` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `Zaimportuj przepis` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
+| `TEKST` | `Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
+| `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `APPS4CRAFT STUDIO · 100% OFFLINE` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Witaj w Piekarzu` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Jaki jest Twój styl wypieku?` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 533 kolejnych elementów w pełnym wykazie)*
+*(... i 558 kolejnych elementów w pełnym wykazie)*

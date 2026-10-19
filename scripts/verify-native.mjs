@@ -55,6 +55,21 @@ for (const perm of forbiddenPermissions) {
   check(!infoPlist[perm], `app.json zawiera niedozwolone uprawnienie: ${perm}`);
 }
 
+// 4b. Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: wtyczka, Time Sensitive, bez trybu tła push
+const plugins = appJson.plugins || [];
+check(
+  plugins.some((p) => p === 'expo-notifications' || (Array.isArray(p) && p[0] === 'expo-notifications')),
+  'app.json musi zawierać wtyczkę expo-notifications (ADR-006)'
+);
+check(
+  appJson.ios?.entitlements?.['com.apple.developer.usernotifications.time-sensitive'] === true,
+  'app.json musi mieć ios.entitlements com.apple.developer.usernotifications.time-sensitive = true (ADR-006)'
+);
+check(
+  !(Array.isArray(infoPlist.UIBackgroundModes) && infoPlist.UIBackgroundModes.includes('remote-notification')),
+  'app.json nie może zawierać UIBackgroundModes: ["remote-notification"] (powiadomienia tylko lokalne, ADR-006)'
+);
+
 // 5. Ciemny ekran powitalny (Splash Screen)
 const splashBg = appJson.splash?.backgroundColor;
 check(
