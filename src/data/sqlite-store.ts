@@ -22,6 +22,7 @@ export {
 };
 export * from './app-access-store';
 export * from './settings-store';
+import { writeOrThrow } from './storage-status';
 
 // ==========================================
 // Bakes & Stolnica
@@ -98,20 +99,14 @@ async function writeBakeRow(db: Db, log: StoredBakeLog): Promise<void> {
 }
 
 export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
+  const db = await getDb();
+  if (db) await writeOrThrow(() => writeBakeRow(db, log));
+
   const existingIdx = memStore.logs.findIndex((l) => l.id === log.id);
   if (existingIdx >= 0) {
     memStore.logs[existingIdx] = log;
   } else {
     memStore.logs.unshift(log);
-  }
-
-  const db = await getDb();
-  if (db) {
-    try {
-      await writeBakeRow(db, log);
-    } catch {
-      // Memory store preserved
-    }
   }
 
   // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
@@ -144,15 +139,9 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
-  memStore.logs = memStore.logs.filter((l) => l.id !== id);
   const db = await getDb();
-  if (db) {
-    try {
-      await db.runAsync('DELETE FROM bakes WHERE id = ?;', id);
-    } catch {
-      // Memory state preserved
-    }
-  }
+  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM bakes WHERE id = ?;', id));
+  memStore.logs = memStore.logs.filter((l) => l.id !== id);
 }
 
 export function getActiveBake(): ActiveBakeState | null {
@@ -183,17 +172,10 @@ export async function getStarters(): Promise<StoredStarter[]> {
 }
 
 export async function saveStarter(starter: StoredStarter): Promise<void> {
-  const idx = memStore.starters.findIndex((s) => s.id === starter.id);
-  if (idx >= 0) {
-    memStore.starters[idx] = starter;
-  } else {
-    memStore.starters.push(starter);
-  }
-
   const db = await getDb();
   if (db) {
-    try {
-      await db.runAsync(
+    await writeOrThrow(() =>
+      db.runAsync(
         `INSERT OR REPLACE INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at)
          VALUES (?, ?, ?, ?, ?, ?, ?);`,
         starter.id,
@@ -203,23 +185,22 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
         starter.birthDate,
         starter.storageState,
         starter.lastFedAt ?? null
-      );
-    } catch {
-      // Memory fallback holds state
-    }
+      )
+    );
+  }
+
+  const idx = memStore.starters.findIndex((s) => s.id === starter.id);
+  if (idx >= 0) {
+    memStore.starters[idx] = starter;
+  } else {
+    memStore.starters.push(starter);
   }
 }
 
 export async function deleteStarter(id: string): Promise<void> {
-  memStore.starters = memStore.starters.filter((s) => s.id !== id);
   const db = await getDb();
-  if (db) {
-    try {
-      await db.runAsync('DELETE FROM starters WHERE id = ?;', id);
-    } catch {
-      // Memory fallback holds state
-    }
-  }
+  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM starters WHERE id = ?;', id));
+  memStore.starters = memStore.starters.filter((s) => s.id !== id);
 }
 
 // ==========================================
@@ -258,17 +239,10 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
 }
 
 export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
-  const idx = memStore.recipes.findIndex((r) => r.id === recipe.id);
-  if (idx >= 0) {
-    memStore.recipes[idx] = recipe;
-  } else {
-    memStore.recipes.push(recipe);
-  }
-
   const db = await getDb();
   if (db) {
-    try {
-      await db.runAsync(
+    await writeOrThrow(() =>
+      db.runAsync(
         `INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?);`,
         recipe.id,
@@ -278,23 +252,22 @@ export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
         recipe.notes ?? null,
         recipe.isBuiltIn ? 1 : 0,
         recipe.createdAt
-      );
-    } catch {
-      // Memory state preserved
-    }
+      )
+    );
+  }
+
+  const idx = memStore.recipes.findIndex((r) => r.id === recipe.id);
+  if (idx >= 0) {
+    memStore.recipes[idx] = recipe;
+  } else {
+    memStore.recipes.push(recipe);
   }
 }
 
 export async function deleteRecipe(id: string): Promise<void> {
-  memStore.recipes = memStore.recipes.filter((r) => r.id !== id);
   const db = await getDb();
-  if (db) {
-    try {
-      await db.runAsync('DELETE FROM recipes WHERE id = ?;', id);
-    } catch {
-      // Memory state preserved
-    }
-  }
+  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM recipes WHERE id = ?;', id));
+  memStore.recipes = memStore.recipes.filter((r) => r.id !== id);
 }
 
 /**
@@ -320,7 +293,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
   const db = await getDb();
   if (!db) return;
 
-  await db.withTransactionAsync(async () => {
+  await writeOrThrow(() => db.withTransactionAsync(async () => {
     await db.execAsync('DELETE FROM bakes;');
     await db.execAsync('DELETE FROM starters;');
     await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
@@ -354,7 +327,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     for (const b of data.bakes) {
       await writeBakeRow(db, b);
     }
-  });
+  }));
 }
 
 // ==========================================
@@ -376,38 +349,33 @@ export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
 }
 
 export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
+  const db = await getDb();
+  if (db) {
+    await writeOrThrow(() =>
+      db.runAsync(
+        'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
+        item.id,
+        item.name,
+        item.stockGrams,
+        item.brand ?? null,
+        item.proteinPct ?? null,
+        item.updatedAt
+      )
+    );
+  }
+
   const existingIdx = memStore.flourInventory.findIndex((f) => f.id === item.id);
   if (existingIdx >= 0) {
     memStore.flourInventory[existingIdx] = item;
   } else {
     memStore.flourInventory.push(item);
   }
-
-  const db = await getDb();
-  if (!db) return;
-
-  try {
-    await db.runAsync(
-      'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
-      item.id,
-      item.name,
-      item.stockGrams,
-      item.brand ?? null,
-      item.proteinPct ?? null,
-      item.updatedAt
-    );
-  } catch {}
 }
 
 export async function deleteFlourInventoryItem(id: string): Promise<void> {
-  memStore.flourInventory = memStore.flourInventory.filter((f) => f.id !== id);
-
   const db = await getDb();
-  if (!db) return;
-
-  try {
-    await db.runAsync('DELETE FROM flour_inventory WHERE id = ?;', id);
-  } catch {}
+  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM flour_inventory WHERE id = ?;', id));
+  memStore.flourInventory = memStore.flourInventory.filter((f) => f.id !== id);
 }
 
 export async function deductFlourStock(flourName: string, amountGrams: number): Promise<void> {

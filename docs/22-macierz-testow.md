@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 36 | 36 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 458 | 458 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 202 | 202 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 80 | 80 | **100.0%** | ✅ POKRYTE |
+| **UI** | 38 | 38 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 461 | 461 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 209 | 209 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 81 | 81 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **781** | Pokrytych: **781** | Brakujących: **0**
+Łącznie elementów: **794** | Pokrytych: **794** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -46,7 +46,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `przed chwilą` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{hours}h temu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{days}d temu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Dokarmiono zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Dokarmiono zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/storage-write-failure-screen.test.tsx |
 | `UI` | `Zarejestrowano dokarmienie zakwasu „{name}”.` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Profil zakwasu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Zapisano zaktualizowany profil` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 481 kolejnych elementów w pełnym wykazie)*
+*(... i 494 kolejnych elementów w pełnym wykazie)*

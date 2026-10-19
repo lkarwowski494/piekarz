@@ -14,6 +14,7 @@ import {
 } from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
+import { guardSave } from '../../src/lib/save-guard';
 import {
   calculateStarterFeeding,
   evaluateSourdoughSafety,
@@ -155,7 +156,7 @@ export default function ZakwasScreen() {
   }, [starter.lastFedAt]);
 
   const handleLogFeeding = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const now = Date.now();
       const updated: StoredStarter = {
         ...starter,
@@ -165,7 +166,7 @@ export default function ZakwasScreen() {
       setStarter(updated);
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
-    });
+    }));
   };
 
   const handleOpenEditModal = () => {
@@ -176,7 +177,7 @@ export default function ZakwasScreen() {
   };
 
   const handleSaveProfile = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const trimmed = editName.trim();
       if (!trimmed) return;
       const updated: StoredStarter = {
@@ -190,11 +191,11 @@ export default function ZakwasScreen() {
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       setIsEditModalOpen(false);
       Alert.alert(t('Profil zakwasu'), t('Zapisano zaktualizowany profil'));
-    });
+    }));
   };
 
   const handleAddStarter = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const trimmedName = newStarterName.trim();
       if (!trimmedName) return;
       const newStarter: StoredStarter = {
@@ -211,7 +212,7 @@ export default function ZakwasScreen() {
       setIsAddModalOpen(false);
       setNewStarterName('');
       Alert.alert(t('Dodano zakwas'), t('Kultura „{name}” została utworzona.', { name: trimmedName }));
-    });
+    }));
   };
 
   const handleDeleteCurrentStarter = () => {
@@ -220,14 +221,14 @@ export default function ZakwasScreen() {
         Alert.alert(t('Nie można usunąć'), t('Musisz posiadać co najmniej jeden profil zakwasu.'));
         return;
       }
-      confirmDeleteStarter(starter.name, async () => {
+      confirmDeleteStarter(starter.name, guardSave(async () => {
         await deleteStarter(starter.id);
         setIsEditModalOpen(false);
         const remaining = startersList.filter((s) => s.id !== starter.id);
         if (remaining.length > 0) {
           await loadStarterData(remaining[0].id);
         }
-      });
+      }));
     });
   };
 

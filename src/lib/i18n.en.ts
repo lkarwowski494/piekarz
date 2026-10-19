@@ -713,6 +713,15 @@ export const EN: Record<string, string> = {
   'Polityka prywatności': 'Privacy Policy',
   'Laboratorium B2B': 'B2B Laboratory',
   'Etap 1.1': 'Stage 1.1',
+
+  // Błędy zapisu i bazy danych [M1-audytor-generalny-003]
+  'Nie zapisano': 'Not saved',
+  'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.':
+    'The change was not saved to your phone. Check free storage and try again.',
+  'Nie można otworzyć bazy danych': 'Cannot open the database',
+  'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.':
+    'Your data has not been changed, but the app cannot read or save it right now. Restart the app. If the problem returns, free up storage on your phone.',
+  'Spróbuj ponownie': 'Try again',
 };
 
 

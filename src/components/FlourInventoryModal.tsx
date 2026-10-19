@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { guardSave } from '../lib/save-guard';
 import { StoredFlourInventoryItem } from '../data/db';
 import {
   getFlourInventory,
@@ -77,7 +78,7 @@ export function FlourInventoryModal({
   }, [recipeFlours, inventory]);
 
   const handleAdjustStock = async (item: StoredFlourInventoryItem, deltaGrams: number) => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const newStock = Math.max(0, Math.round(item.stockGrams + deltaGrams));
       const updated: StoredFlourInventoryItem = {
         ...item,
@@ -87,19 +88,19 @@ export function FlourInventoryModal({
       await saveFlourInventoryItem(updated);
       await loadData();
       onInventoryUpdated?.();
-    });
+    }));
   };
 
   const handleDeleteItem = async (id: string) => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       await deleteFlourInventoryItem(id);
       await loadData();
       onInventoryUpdated?.();
-    });
+    }));
   };
 
   const handleAddNewFlour = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const trimmed = newFlourName.trim();
       if (!trimmed) {
         Alert.alert(t('Błąd'), t('Podaj nazwę mąki'));
@@ -118,11 +119,11 @@ export function FlourInventoryModal({
       setIsAddingNew(false);
       await loadData();
       onInventoryUpdated?.();
-    });
+    }));
   };
 
   const handleDeductRecipeStocks = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       if (!recipeFlours || recipeFlours.length === 0) return;
       const updatedList = deductFlourStocks(recipeFlours, inventory);
       for (const item of updatedList) {
@@ -131,7 +132,7 @@ export function FlourInventoryModal({
       await loadData();
       onInventoryUpdated?.();
       Alert.alert(t('Pomyślnie odliczono'), t('Zasoby mąki w spiżarni zostały zaktualizowane.'));
-    });
+    }));
   };
 
   return (

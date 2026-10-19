@@ -164,5 +164,6 @@ export function restartApp() {
     store: require('../../sqlite-store') as typeof import('../../sqlite-store'),
     schema: require('../../sqlite-schema') as typeof import('../../sqlite-schema'),
     backup: require('../../../lib/backup') as typeof import('../../../lib/backup'),
+    status: require('../../storage-status') as typeof import('../../storage-status'),
   };
 }

@@ -13,6 +13,7 @@ import { useKeepAwake } from 'expo-keep-awake';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
+import { guardSave } from '../../src/lib/save-guard';
 import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
 import {
   saveBakeLog,
@@ -303,7 +304,7 @@ export default function StolnicaScreen() {
   };
 
   // Finish bake & save to SQLite
-  const handleSaveFinishBake = async () => {
+  const handleSaveFinishBake = guardSave(async () => {
     await saveBakeLog({
       id: `bake_${Date.now()}`,
       recipeName,
@@ -343,7 +344,7 @@ export default function StolnicaScreen() {
     setFinishTasteProfile('balanced');
     setFinishSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
     await loadHistory();
-  };
+  });
 
   const handleDiscard = () => {
     confirmDiscardBake(() => {
@@ -356,10 +357,10 @@ export default function StolnicaScreen() {
   };
 
   const handleDeleteBakeLog = (id: string) => {
-    confirmDeleteBakeLog(async () => {
+    confirmDeleteBakeLog(guardSave(async () => {
       await deleteBakeLog(id);
       await loadHistory();
-    });
+    }));
   };
 
   // Format time remaining

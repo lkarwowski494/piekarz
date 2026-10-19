@@ -15,6 +15,7 @@ import {
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import { signAppAccessRecord } from '../lib/app-access-crypto';
+import { markStorageUnavailable } from './storage-status';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -86,11 +87,13 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
       : await SQLite.openDatabaseAsync(DB_NAME);
     return dbInstance;
   } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    // Brak bazy nie jest cichym trybem pamięci: StorageGate pokazuje ekran błędu [M1-audytor-generalny-003]
+    markStorageUnavailable(msg);
     try {
-      const msg = err instanceof Error ? err.message : String(err);
       void saveCorruptState(JSON.stringify({ error: msg }), 'SQLite open failed');
     } catch {}
-    return null; // Fallback to memory store
+    return null; // Pamięć tylko dla testów bez natywnego SQLite
   }
 }
 

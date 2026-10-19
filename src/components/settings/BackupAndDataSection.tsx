@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Pressable, TextInput, Alert } from 'react-nativ
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { exportBackup, parseAndValidateBackup, safetyBackup } from '../../lib/backup';
+import { StorageWriteError } from '../../data/storage-status';
 import {
   getBakeLogs,
   getStarters,
@@ -109,6 +110,10 @@ export function BackupAndDataSection() {
       setShowImportInput(false);
       setImportJsonText('');
     } catch (err: unknown) {
+      if (err instanceof StorageWriteError) {
+        Alert.alert(t('Nie zapisano'), t('Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.'));
+        return;
+      }
       const msg = err instanceof Error ? err.message : t('Nie udało się zaimportować kopii');
       Alert.alert(t('Kopia zapasowa'), msg);
     } finally {

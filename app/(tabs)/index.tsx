@@ -12,6 +12,7 @@ import {
 } from '@apps4craft/ui';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
+import { guardSave } from '../../src/lib/save-guard';
 import {
   BAKE_LOSS_PRESETS,
   BakeTypePresetId,
@@ -269,18 +270,18 @@ export default function CalculatorScreen() {
 
   const handleDeleteCustomRecipe = (recipe: StoredRecipe) => {
     requireActionAccess(() => {
-      confirmDeleteRecipe(recipe.name, async () => {
+      confirmDeleteRecipe(recipe.name, guardSave(async () => {
         await deleteRecipe(recipe.id);
         if (selectedPresetId === recipe.id) {
           handleSelectMasterPreset(MASTER_RECIPES[0].id);
         }
         await loadRecipesFromStore();
-      });
+      }));
     });
   };
 
   const handleCloneAsCustomRecipe = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const cloned = await executeCloneRecipe(
         recipeName,
         flourBlend,
@@ -294,7 +295,7 @@ export default function CalculatorScreen() {
       await loadRecipesFromStore();
       setSelectedPresetId(cloned.id);
       setRecipeName(cloned.name);
-    });
+    }));
   };
 
   const handleSelectFlourBlend = (blend: typeof POPULAR_FLOUR_BLENDS[number]) => {
@@ -308,7 +309,7 @@ export default function CalculatorScreen() {
   };
 
   const handleSaveCustomRecipe = async () => {
-    requireActionAccess(async () => {
+    requireActionAccess(guardSave(async () => {
       const saved = await executeSaveCustomRecipe(
         saveRecipeNameInput,
         flourBlend,
@@ -326,7 +327,7 @@ export default function CalculatorScreen() {
         setIsSaveModalOpen(false);
         setSaveRecipeNameInput('');
       }
-    });
+    }));
   };
 
   const handleStartBakeOnWorkbench = () => {
