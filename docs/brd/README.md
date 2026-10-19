@@ -1,18 +1,26 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E2 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
-Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). Pliki BRD 2.0-craft w tym katalogu (`00_START.md`, `00b_Decyzje.md`, `00c_Errata.md`, `A1.md`…`D4.md`, `S.md`, `W.md`) są do E3 inwentarzem i nie są wejściem dla innych ról; w E3 trafią do `archiwum/2.0-craft/` z mapą ID w `errata.md`.
+Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-43). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
+
+Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu, P-7 regularny piekarz, P-8 pizza i pieczywo drożdżowe) przez 11 prac J: liczenie z zakwasem i zaczynami, plan wsteczny z sygnałem przy uśpionym telefonie, zakwas od zera i jego prowadzenie, dziennik z poprawą następnego wypieku, naukę i Doktora Chleba, dane bez ryzyka utraty. Zakres pierwszej wersji, podział i cena nie są tu rozstrzygane: hipotezy H-03…H-14 dla ról 02 i 03.
 
 ## Spis
 
 | Plik | Zawartość | Stan |
 |---|---|---|
-| `README.md` | stan, spis, otwarte pytania, blokery wydania | E1 |
+| `README.md` | stan, spis, streszczenie, otwarte pytania, blokery wydania | E3 |
 | `odkrywanie.md` | wywiad, prace J, persony P, kontekst użycia, zasady ZP, rynek, ograniczenia OG, hipotezy H, ryzyka RYZ | E2 |
 | `zrodla.md` | źródła S | E2 |
 | `reguly.md` | reguły RD-14…RD-27 z wektorami | E2 |
-| `wymagania-*.md`, `errata.md` | przepływy PR, BR, NFR; errata ER | E3 |
+| `wymagania.md` | przepływy PR-01…PR-17, wymagania NFR | E3 |
+| `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 |
+| `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 |
+| `wymagania-zakwas.md` | BR-ZAKW | E3 |
+| `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK | E3 |
+| `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW | E3 |
+| `errata.md` | errata ER-34…ER-43 | E3 |
 
 ## Otwarte pytania
 
@@ -30,6 +38,25 @@ Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). Pliki BRD 2.0
 | OP-38 | [DO WYJAŚNIENIA] domyślny odstęp przypomnienia o dokarmianiu na blacie: 12 h (S-44) czy dłuższy w granicach źródeł | właściciel z rolą 03 | RD-25 |
 | OP-39 | [DO USTALENIA] progi faz zakwasu w godzinach po dokarmieniu (kod: do 2 h, do 5 h, szczyt 5–9 h, głodny po 14 h) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
 | OP-40 | [DO USTALENIA] czas zimnej fermentacji ciasta na pizzę ze źródła szczebla 1–3 (przewodnik S-60: 24–48 h) | źródła, rola 06 | J-11 |
+| OP-41 | [DO WYJAŚNIENIA] jak kopia przetrwa utratę telefonu: kopia urządzenia (iCloud systemu), plik w iCloud Drive (wyjątek od zakazu sieci, H-11) czy tylko ręczny eksport | właściciel z rolami 03 i 05 | BR-DANE-002 |
+| OP-42 | [DO WYJAŚNIENIA] dopuszczalne opóźnienie sygnału kroku przy zablokowanym ekranie | właściciel z rolą 05 | NFR-CZAS-001 |
+| OP-43 | [DO WYJAŚNIENIA] budżet czasu startu i reakcji kalkulatora | rola 05 | NFR-WYD-001 |
+| OP-44 | [DO USTALENIA] masy składników w przeliczniku objętości (g na szklankę, łyżkę) ze źródła szczebla 1–3 | rola 06 | BR-KALK-007 |
+| OP-45 | [DO WYJAŚNIENIA] domyślne godziny snu w planie (stare BRD: 23:00–06:30 i 22:00–08:00 bez decyzji) | właściciel z rolą 04 | BR-HARMO-002 |
+| OP-46 | [DO USTALENIA] opis próby gotowości ciasta przed pieczeniem ze źródła | rola 06 | BR-ETAP-003 |
+| OP-47 | [DO WYJAŚNIENIA] ile dni przed końcem próby aplikacja uprzedza | właściciel z rolą 02 | BR-ZAK-004 |
+| OP-48 | [DO WYJAŚNIENIA] czy wypiek trwający w chwili końca próby prowadzi się do końca | właściciel z rolą 02 | BR-ZAK-004 |
+
 ## Blokery wydania
 
-Lista powstaje w E3.
+Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuje wydanie.
+
+- BR-DANE-001, BR-DANE-003, BR-DANE-004, NFR-DANE-003, NFR-DANE-004: utrata danych użytkownika.
+- BR-ETAP-005: główny przepływ (trwający wypiek ginie po zamknięciu aplikacji).
+- BR-CZAS-002, BR-CZAS-003: główny przepływ i obietnica celu („pilnuje czasu, gdy telefon śpi”, OG-05).
+- BR-HARMO-001, BR-ETAP-001, BR-KALK-001, BR-KALK-002: główny przepływ.
+- BR-ZAKW-004, BR-ZAKW-005, BR-DIAG-002 w części RD-21: reguła krytyczna (pleśń).
+- BR-ETAP-004: bezpieczeństwo w kontekście użycia (RD-22, RD-23).
+- BR-ZAK-001, BR-ZAK-003, BR-ZAK-004, BR-ZAK-005: polityka sklepu (OG-01, OG-02, OG-03) i obietnica DEC-01 d.
+- BR-UST-003: polityka sklepu (OG-04).
+- BR-PRYW-001, NFR-OFF-001, NFR-PRYW-001: obietnica prywatności.

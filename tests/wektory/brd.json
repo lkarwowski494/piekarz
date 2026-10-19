@@ -1,1457 +1,1172 @@
 [
   {
-    "regula": "RD-00",
-    "id": "RD-00-W1",
+    "regula": "RD-14",
+    "id": "RD-14-W1",
     "wejscie": {
-      "Wartość dokładna [g]": 1184.2105,
-      "Krok prezentacji [g]": 1
+      "Mc [g]": 900,
+      "Wc [g]": 630,
+      "Z [g]": 200,
+      "hz [%]": 100
     },
     "oczekiwane": {
-      "prezentacja [g]": 1184
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: mąka z RD-09-W2 (2250 / 1,90), zaokrąglenie do 1 g",
-    "miejsce": "docs/brd/C3.md:32"
-  },
-  {
-    "regula": "RD-00",
-    "id": "RD-00-W2",
-    "wejscie": {
-      "Wartość dokładna [g]": 805.2632,
-      "Krok prezentacji [g]": 1
-    },
-    "oczekiwane": {
-      "prezentacja [g]": 805
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: woda z RD-09-W2 (1184,2105 × 0,68)",
-    "miejsce": "docs/brd/C3.md:33"
-  },
-  {
-    "regula": "RD-00",
-    "id": "RD-00-W3",
-    "wejscie": {
-      "Wartość dokładna [g]": 23.6842,
-      "Krok prezentacji [g]": 0.1
-    },
-    "oczekiwane": {
-      "prezentacja [g]": 23.7
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: sól z RD-09-W2 (1184,2105 × 0,02), krok 0,1 g z BR-KALK-001; TV-07 (C4a) podaje 24 g — ER-10",
-    "miejsce": "docs/brd/C3.md:34"
-  },
-  {
-    "regula": "RD-00",
-    "id": "RD-00-W4",
-    "wejscie": {
-      "Wartość dokładna [g]": "abc",
-      "Krok prezentacji [g]": 1
-    },
-    "oczekiwane": {
-      "prezentacja [g]": "błąd: brak liczby do zaokrąglenia, brak prezentacji"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: zaokrąglić można tylko liczbę",
-    "miejsce": "docs/brd/C3.md:35"
-  },
-  {
-    "regula": "RD-01",
-    "id": "RD-01-W1",
-    "wejscie": {
-      "Masa [oz]": 16
-    },
-    "oczekiwane": {
-      "masa [g]": 453.59
+      "H [%]": 73
     },
     "tolerancja": 0.01,
     "rodzaj": "typowy",
-    "pochodzenie": "dawny W-01.1 (pokaz 454 g); rachunek 16 × 28,349523125",
-    "miejsce": "docs/brd/C3.md:54"
+    "pochodzenie": "rachunek: mz = 100, M = 1000, W = 730",
+    "miejsce": "docs\\brd\\reguly.md:17"
   },
   {
-    "regula": "RD-01",
-    "id": "RD-01-W3",
+    "regula": "RD-14",
+    "id": "RD-14-W2",
     "wejscie": {
-      "Masa [oz]": 32
+      "Mc [g]": 1000,
+      "Wc [g]": 700,
+      "Z [g]": 0,
+      "hz [%]": 100
     },
     "oczekiwane": {
-      "masa [g]": 907.18
+      "H [%]": 70
     },
     "tolerancja": 0.01,
     "rodzaj": "typowy",
-    "pochodzenie": "TV-08 (C4a, 907 g); rachunek 32 × 28,349523125",
-    "miejsce": "docs/brd/C3.md:55"
+    "pochodzenie": "rachunek: bez zaczynu",
+    "miejsce": "docs\\brd\\reguly.md:18"
   },
   {
-    "regula": "RD-01",
-    "id": "RD-01-W4",
+    "regula": "RD-14",
+    "id": "RD-14-W3",
     "wejscie": {
-      "Masa [oz]": 22.4
+      "Mc [g]": 900,
+      "Wc [g]": 700,
+      "Z [g]": 100,
+      "hz [%]": 0
     },
     "oczekiwane": {
-      "masa [g]": 635.03
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-08 (C4a, 635 g); rachunek 22,4 × 28,349523125",
-    "miejsce": "docs/brd/C3.md:56"
-  },
-  {
-    "regula": "RD-01",
-    "id": "RD-01-W5",
-    "wejscie": {
-      "Masa [oz]": "abc"
-    },
-    "oczekiwane": {
-      "masa [g]": "błąd: brak przeliczenia, komunikat o błędnej wartości"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: wartość nieliczbowa nie ma przeliczenia",
-    "miejsce": "docs/brd/C3.md:57"
-  },
-  {
-    "regula": "RD-01",
-    "id": "RD-01-W2",
-    "wejscie": {
-      "Temperatura [°F]": 78
-    },
-    "oczekiwane": {
-      "temperatura [°C]": 25.56
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-01.2 (pokaz 25,6 °C); rachunek (78 − 32) × 5/9",
-    "miejsce": "docs/brd/C3.md:61"
-  },
-  {
-    "regula": "RD-01",
-    "id": "RD-01-W6",
-    "wejscie": {
-      "Temperatura [°F]": 32
-    },
-    "oczekiwane": {
-      "temperatura [°C]": 0
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek (32 − 32) × 5/9",
-    "miejsce": "docs/brd/C3.md:62"
-  },
-  {
-    "regula": "RD-02",
-    "id": "RD-02-W1",
-    "wejscie": {
-      "Mąka zasypowa [g]": 500,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": 100,
-      "Hydratacja zakwasu [%]": 100
-    },
-    "oczekiwane": {
-      "hydratacja całkowita [%]": 72.73
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-02.1; BR-KALK-002; rachunek 400 / 550 × 100",
-    "miejsce": "docs/brd/C3.md:78"
-  },
-  {
-    "regula": "RD-02",
-    "id": "RD-02-W2",
-    "wejscie": {
-      "Mąka zasypowa [g]": 1000,
-      "Woda dolana [g]": 700,
-      "Zakwas [g]": 200,
-      "Hydratacja zakwasu [%]": 100
-    },
-    "oczekiwane": {
-      "hydratacja całkowita [%]": 72.73
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-01 (C4a); rachunek 800 / 1100 × 100",
-    "miejsce": "docs/brd/C3.md:79"
-  },
-  {
-    "regula": "RD-02",
-    "id": "RD-02-W3",
-    "wejscie": {
-      "Mąka zasypowa [g]": 500,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": 100,
-      "Hydratacja zakwasu [%]": 50
-    },
-    "oczekiwane": {
-      "hydratacja całkowita [%]": 67.65
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-02 (C4a); rachunek: Mz = 100 / 1,5 = 66,67, Hc = 383,33 / 566,67 × 100",
-    "miejsce": "docs/brd/C3.md:80"
-  },
-  {
-    "regula": "RD-02",
-    "id": "RD-02-W4",
-    "wejscie": {
-      "Mąka zasypowa [g]": 500,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": 0,
-      "Hydratacja zakwasu [%]": 100
-    },
-    "oczekiwane": {
-      "hydratacja całkowita [%]": 70
+      "H [%]": 70
     },
     "tolerancja": 0.01,
     "rodzaj": "granica",
-    "pochodzenie": "rachunek 350 / 500 × 100",
-    "miejsce": "docs/brd/C3.md:81"
+    "pochodzenie": "rachunek: zaczyn z samej mąki, mz = 100",
+    "miejsce": "docs\\brd\\reguly.md:19"
   },
   {
-    "regula": "RD-02",
-    "id": "RD-02-W5",
+    "regula": "RD-14",
+    "id": "RD-14-W4",
     "wejscie": {
-      "Mąka zasypowa [g]": 500,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": 1,
-      "Hydratacja zakwasu [%]": 100
+      "Mc [g]": 900,
+      "Wc [g]": 700,
+      "Z [g]": 100,
+      "hz [%]": -1
     },
     "oczekiwane": {
-      "hydratacja całkowita [%]": 70.03
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 350,5 / 500,5 × 100",
-    "miejsce": "docs/brd/C3.md:82"
-  },
-  {
-    "regula": "RD-02",
-    "id": "RD-02-W6",
-    "wejscie": {
-      "Mąka zasypowa [g]": 500,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": -1,
-      "Hydratacja zakwasu [%]": 100
-    },
-    "oczekiwane": {
-      "hydratacja całkowita [%]": "błąd: masa ujemna, brak wyniku"
+      "H [%]": "błąd danych"
     },
     "tolerancja": null,
     "rodzaj": "poniżej",
-    "pochodzenie": "rachunek: masa ujemna nie ma sensu fizycznego",
-    "miejsce": "docs/brd/C3.md:83"
+    "pochodzenie": "rachunek: poza granicą hz ≥ 0",
+    "miejsce": "docs\\brd\\reguly.md:20"
   },
   {
-    "regula": "RD-02",
-    "id": "RD-02-W7",
+    "regula": "RD-14",
+    "id": "RD-14-W5",
     "wejscie": {
-      "Mąka zasypowa [g]": 0,
-      "Woda dolana [g]": 350,
-      "Zakwas [g]": 0,
-      "Hydratacja zakwasu [%]": 100
+      "Mc [g]": 900,
+      "Wc [g]": 699,
+      "Z [g]": 101,
+      "hz [%]": 1
     },
     "oczekiwane": {
-      "hydratacja całkowita [%]": "błąd: brak mąki, brak wyniku"
+      "H [%]": 70
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: mz = 100, wz = 1",
+    "miejsce": "docs\\brd\\reguly.md:21"
+  },
+  {
+    "regula": "RD-14",
+    "id": "RD-14-W6",
+    "wejscie": {
+      "Mc [g]": 0,
+      "Wc [g]": 700,
+      "Z [g]": 0,
+      "hz [%]": 100
+    },
+    "oczekiwane": {
+      "H [%]": "błąd danych"
     },
     "tolerancja": null,
     "rodzaj": "błąd",
-    "pochodzenie": "rachunek: dzielenie przez Mcałkowita = 0",
-    "miejsce": "docs/brd/C3.md:84"
+    "pochodzenie": "rachunek: M = 0",
+    "miejsce": "docs\\brd\\reguly.md:22"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W1",
+    "regula": "RD-15",
+    "id": "RD-15-W1",
     "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 2
+      "masa [g]": 1720,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 11,
-      "w zakresie 1,8–2,2% [-]": "tak"
+      "mąka / woda / sól [g]": "1000 / 700 / 20"
     },
-    "tolerancja": 0.1,
+    "tolerancja": 0,
     "rodzaj": "typowy",
-    "pochodzenie": "dawny W-03.1; rachunek 550 × 0,02",
-    "miejsce": "docs/brd/C3.md:100"
+    "pochodzenie": "rachunek: 1720 / 1,72 = 1000",
+    "miejsce": "docs\\brd\\reguly.md:33"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W2",
+    "regula": "RD-15",
+    "id": "RD-15-W2",
     "wejscie": {
-      "Mąka całkowita [g]": 850,
-      "Sól [%]": 2
+      "masa [g]": 1000,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 17,
-      "w zakresie 1,8–2,2% [-]": "tak"
+      "mąka / woda / sól [g]": "581 / 407 / 12"
     },
-    "tolerancja": 0.1,
+    "tolerancja": 0,
     "rodzaj": "typowy",
-    "pochodzenie": "TV-03 (C4a); rachunek 850 × 0,02",
-    "miejsce": "docs/brd/C3.md:101"
+    "pochodzenie": "rachunek: 581,40; 406,98; 11,63",
+    "miejsce": "docs\\brd\\reguly.md:34"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W3",
+    "regula": "RD-15",
+    "id": "RD-15-W3",
     "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 1.8
+      "masa [g]": 999,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 9.9,
-      "w zakresie 1,8–2,2% [-]": "tak"
+      "mąka / woda / sól [g]": "581 / 407 / 11"
     },
-    "tolerancja": 0.1,
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: zaokrąglenia dają 1000, sól skorygowana o −1",
+    "miejsce": "docs\\brd\\reguly.md:35"
+  },
+  {
+    "regula": "RD-15",
+    "id": "RD-15-W4",
+    "wejscie": {
+      "masa [g]": 1,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
+    },
+    "oczekiwane": {
+      "mąka / woda / sól [g]": "1 / 0 / 0"
+    },
+    "tolerancja": 0,
     "rodzaj": "granica",
-    "pochodzenie": "rachunek 550 × 0,018",
-    "miejsce": "docs/brd/C3.md:102"
+    "pochodzenie": "rachunek: najmniejsza dodatnia masa w gramach",
+    "miejsce": "docs\\brd\\reguly.md:36"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W4",
+    "regula": "RD-15",
+    "id": "RD-15-W5",
     "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 1.7
+      "masa [g]": 0,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 9.35,
-      "w zakresie 1,8–2,2% [-]": "nie"
+      "mąka / woda / sól [g]": "błąd danych"
     },
-    "tolerancja": 0.1,
+    "tolerancja": null,
     "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 550 × 0,017",
-    "miejsce": "docs/brd/C3.md:103"
+    "pochodzenie": "rachunek: poza granicą masa > 0",
+    "miejsce": "docs\\brd\\reguly.md:37"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W5",
+    "regula": "RD-15",
+    "id": "RD-15-W6",
     "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 1.9
+      "masa [g]": 2,
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 10.45,
-      "w zakresie 1,8–2,2% [-]": "tak"
+      "mąka / woda / sól [g]": "1 / 1 / 0"
     },
-    "tolerancja": 0.1,
+    "tolerancja": 0,
     "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 550 × 0,019",
-    "miejsce": "docs/brd/C3.md:104"
+    "pochodzenie": "rachunek: 1,16; 0,81; 0,02",
+    "miejsce": "docs\\brd\\reguly.md:38"
   },
   {
-    "regula": "RD-03",
-    "id": "RD-03-W6",
+    "regula": "RD-15",
+    "id": "RD-15-W7",
     "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 2.2
+      "masa [g]": "brak",
+      "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "sól [g]": 12.1,
-      "w zakresie 1,8–2,2% [-]": "tak"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 550 × 0,022",
-    "miejsce": "docs/brd/C3.md:105"
-  },
-  {
-    "regula": "RD-03",
-    "id": "RD-03-W7",
-    "wejscie": {
-      "Mąka całkowita [g]": 550,
-      "Sól [%]": 2.3
-    },
-    "oczekiwane": {
-      "sól [g]": 12.65,
-      "w zakresie 1,8–2,2% [-]": "nie"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 550 × 0,023",
-    "miejsce": "docs/brd/C3.md:106"
-  },
-  {
-    "regula": "RD-03",
-    "id": "RD-03-W8",
-    "wejscie": {
-      "Mąka całkowita [g]": 0,
-      "Sól [%]": 2
-    },
-    "oczekiwane": {
-      "sól [g]": "błąd: brak mąki, brak wyniku",
-      "w zakresie 1,8–2,2% [-]": null
+      "mąka / woda / sól [g]": "błąd danych"
     },
     "tolerancja": null,
     "rodzaj": "błąd",
-    "pochodzenie": "rachunek: receptura bez mąki nie ma bazy",
-    "miejsce": "docs/brd/C3.md:107"
+    "pochodzenie": "rachunek: brak masy",
+    "miejsce": "docs\\brd\\reguly.md:39"
   },
   {
-    "regula": "RD-04",
-    "id": "RD-04-W1",
-    "wejscie": {
-      "Masa drożdży [g]": 15,
-      "Rodzaj wejścia [-]": "świeże"
-    },
-    "oczekiwane": {
-      "masa po przeliczeniu [g]": 5
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-04.1; VEC-YEAST-01; rachunek 15 / 3",
-    "miejsce": "docs/brd/C3.md:123"
-  },
-  {
-    "regula": "RD-04",
-    "id": "RD-04-W2",
-    "wejscie": {
-      "Masa drożdży [g]": 7,
-      "Rodzaj wejścia [-]": "instant"
-    },
-    "oczekiwane": {
-      "masa po przeliczeniu [g]": 21
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-04.2; rachunek 7 × 3",
-    "miejsce": "docs/brd/C3.md:124"
-  },
-  {
-    "regula": "RD-04",
-    "id": "RD-04-W3",
-    "wejscie": {
-      "Masa drożdży [g]": 42,
-      "Rodzaj wejścia [-]": "świeże"
-    },
-    "oczekiwane": {
-      "masa po przeliczeniu [g]": 14
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-04 (C4a); rachunek 42 / 3",
-    "miejsce": "docs/brd/C3.md:125"
-  },
-  {
-    "regula": "RD-04",
-    "id": "RD-04-W4",
-    "wejscie": {
-      "Masa drożdży [g]": 3.5,
-      "Rodzaj wejścia [-]": "instant"
-    },
-    "oczekiwane": {
-      "masa po przeliczeniu [g]": 10.5
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-YEAST-02 (`test-vectors.json`); rachunek 3,5 × 3",
-    "miejsce": "docs/brd/C3.md:126"
-  },
-  {
-    "regula": "RD-04",
-    "id": "RD-04-W5",
-    "wejscie": {
-      "Masa drożdży [g]": -15,
-      "Rodzaj wejścia [-]": "świeże"
-    },
-    "oczekiwane": {
-      "masa po przeliczeniu [g]": "błąd: masa ujemna, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: masa ujemna nie ma sensu fizycznego",
-    "miejsce": "docs/brd/C3.md:127"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W1",
+    "regula": "RD-16",
+    "id": "RD-16-W1",
     "wejscie": {
       "DDT [°C]": 25,
-      "Mąka [°C]": 20,
-      "Otoczenie [°C]": 22,
-      "Zakwas [°C]": 22,
-      "Tarcie [°C]": 2
+      "Tm [°C]": 20,
+      "Tp [°C]": 22,
+      "Tz [°C]": null,
+      "Tt [°C]": 10
     },
     "oczekiwane": {
-      "woda [°C]": 34,
-      "status [-]": "normal"
+      "Tw [°C]": 23
     },
-    "tolerancja": 0.1,
+    "tolerancja": 0.01,
     "rodzaj": "typowy",
-    "pochodzenie": "dawny W-05.1; rachunek 100 − 66",
-    "miejsce": "docs/brd/C3.md:143"
+    "pochodzenie": "rachunek: 3 × 25 − 52",
+    "miejsce": "docs\\brd\\reguly.md:51"
   },
   {
-    "regula": "RD-05",
-    "id": "RD-05-W2",
-    "wejscie": {
-      "DDT [°C]": 26,
-      "Mąka [°C]": 21,
-      "Otoczenie [°C]": 23,
-      "Zakwas [°C]": 22,
-      "Tarcie [°C]": 4
-    },
-    "oczekiwane": {
-      "woda [°C]": 34,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-05 (C4a); rachunek 104 − 70",
-    "miejsce": "docs/brd/C3.md:144"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W3",
-    "wejscie": {
-      "DDT [°C]": 26,
-      "Mąka [°C]": 20,
-      "Otoczenie [°C]": 22,
-      "Zakwas [°C]": 21,
-      "Tarcie [°C]": 3
-    },
-    "oczekiwane": {
-      "woda [°C]": 38,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-DDT-01 (`test-vectors.json`); rachunek 104 − 66",
-    "miejsce": "docs/brd/C3.md:145"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W4",
-    "wejscie": {
-      "DDT [°C]": 24,
-      "Mąka [°C]": 28,
-      "Otoczenie [°C]": 30,
-      "Zakwas [°C]": 28,
-      "Tarcie [°C]": 8
-    },
-    "oczekiwane": {
-      "woda [°C]": 2,
-      "status [-]": "requires_ice"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "poniżej",
-    "pochodzenie": "VEC-DDT-02; rachunek 96 − 94",
-    "miejsce": "docs/brd/C3.md:146"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W5",
-    "wejscie": {
-      "DDT [°C]": 28,
-      "Mąka [°C]": 12,
-      "Otoczenie [°C]": 14,
-      "Zakwas [°C]": 12,
-      "Tarcie [°C]": 0
-    },
-    "oczekiwane": {
-      "woda [°C]": 74,
-      "status [-]": "too_hot_danger"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "powyżej",
-    "pochodzenie": "VEC-DDT-03; rachunek 112 − 38",
-    "miejsce": "docs/brd/C3.md:147"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W6",
-    "wejscie": {
-      "DDT [°C]": 26,
-      "Mąka [°C]": 18,
-      "Otoczenie [°C]": 20,
-      "Zakwas [°C]": 20,
-      "Tarcie [°C]": 1
-    },
-    "oczekiwane": {
-      "woda [°C]": 45,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 104 − 59; próg „> 45 °C” z BR-KALK-004",
-    "miejsce": "docs/brd/C3.md:148"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W7",
-    "wejscie": {
-      "DDT [°C]": 26,
-      "Mąka [°C]": 18,
-      "Otoczenie [°C]": 20,
-      "Zakwas [°C]": 20,
-      "Tarcie [°C]": 2
-    },
-    "oczekiwane": {
-      "woda [°C]": 44,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 104 − 60",
-    "miejsce": "docs/brd/C3.md:149"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W8",
-    "wejscie": {
-      "DDT [°C]": 26,
-      "Mąka [°C]": 18,
-      "Otoczenie [°C]": 20,
-      "Zakwas [°C]": 20,
-      "Tarcie [°C]": 0
-    },
-    "oczekiwane": {
-      "woda [°C]": 46,
-      "status [-]": "too_hot_danger"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 104 − 58",
-    "miejsce": "docs/brd/C3.md:150"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W9",
-    "wejscie": {
-      "DDT [°C]": 24,
-      "Mąka [°C]": 28,
-      "Otoczenie [°C]": 30,
-      "Zakwas [°C]": 28,
-      "Tarcie [°C]": 6
-    },
-    "oczekiwane": {
-      "woda [°C]": 4,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 96 − 92; próg „< 4 °C” z BR-KALK-004",
-    "miejsce": "docs/brd/C3.md:151"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W10",
-    "wejscie": {
-      "DDT [°C]": 24,
-      "Mąka [°C]": 28,
-      "Otoczenie [°C]": 30,
-      "Zakwas [°C]": 28,
-      "Tarcie [°C]": 7
-    },
-    "oczekiwane": {
-      "woda [°C]": 3,
-      "status [-]": "requires_ice"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 96 − 93",
-    "miejsce": "docs/brd/C3.md:152"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W12",
-    "wejscie": {
-      "DDT [°C]": 24,
-      "Mąka [°C]": 28,
-      "Otoczenie [°C]": 30,
-      "Zakwas [°C]": 28,
-      "Tarcie [°C]": 5
-    },
-    "oczekiwane": {
-      "woda [°C]": 5,
-      "status [-]": "normal"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 96 − 91",
-    "miejsce": "docs/brd/C3.md:153"
-  },
-  {
-    "regula": "RD-05",
-    "id": "RD-05-W11",
+    "regula": "RD-16",
+    "id": "RD-16-W2",
     "wejscie": {
       "DDT [°C]": 25,
-      "Mąka [°C]": null,
-      "Otoczenie [°C]": 22,
-      "Zakwas [°C]": 22,
-      "Tarcie [°C]": 2
+      "Tm [°C]": 20,
+      "Tp [°C]": 22,
+      "Tz [°C]": 24,
+      "Tt [°C]": 10
     },
     "oczekiwane": {
-      "woda [°C]": "błąd: brak temperatury mąki, brak wyniku",
-      "status [-]": null
+      "Tw [°C]": 24
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 4 × 25 − 76",
+    "miejsce": "docs\\brd\\reguly.md:52"
+  },
+  {
+    "regula": "RD-16",
+    "id": "RD-16-W3",
+    "wejscie": {
+      "DDT [°C]": 24.44,
+      "Tm [°C]": 22.22,
+      "Tp [°C]": 23.33,
+      "Tz [°C]": null,
+      "Tt [°C]": 13.33
+    },
+    "oczekiwane": {
+      "Tw [°C]": 14.44
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-02: przykład 76 × 3 − 72 − 74 − 24 = 58 °F, rachunek przeliczenia na °C",
+    "miejsce": "docs\\brd\\reguly.md:53"
+  },
+  {
+    "regula": "RD-16",
+    "id": "RD-16-W4",
+    "wejscie": {
+      "DDT [°C]": 25,
+      "Tm [°C]": "brak",
+      "Tp [°C]": 22,
+      "Tz [°C]": null,
+      "Tt [°C]": 10
+    },
+    "oczekiwane": {
+      "Tw [°C]": "błąd danych"
     },
     "tolerancja": null,
     "rodzaj": "błąd",
-    "pochodzenie": "rachunek: wzór wymaga wszystkich składników",
-    "miejsce": "docs/brd/C3.md:154"
+    "pochodzenie": "rachunek: brak temperatury mąki",
+    "miejsce": "docs\\brd\\reguly.md:54"
   },
   {
-    "regula": "RD-06",
-    "id": "RD-06-W1",
+    "regula": "RD-17",
+    "id": "RD-17-W1",
     "wejscie": {
-      "Metoda mieszania [-]": "ręcznie"
+      "t24 [min]": 240,
+      "T [°C]": 21
     },
     "oczekiwane": {
-      "tarcie [°C]": 1
+      "t [min]": 333.69
     },
-    "tolerancja": 0,
+    "tolerancja": 0.01,
     "rodzaj": "typowy",
-    "pochodzenie": "rachunek: odczyt tabeli reguły (wartość [DO USTALENIA] (OP-09))",
-    "miejsce": "docs/brd/C3.md:174"
+    "pochodzenie": "rachunek: 240 × 3^0,3",
+    "miejsce": "docs\\brd\\reguly.md:66"
   },
   {
-    "regula": "RD-06",
-    "id": "RD-06-W2",
+    "regula": "RD-17",
+    "id": "RD-17-W2",
     "wejscie": {
-      "Metoda mieszania [-]": "spiralny, bieg wolny"
+      "t24 [min]": 240,
+      "T [°C]": 20
     },
     "oczekiwane": {
-      "tarcie [°C]": 3
+      "t [min]": 372.44
     },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: odczyt tabeli reguły",
-    "miejsce": "docs/brd/C3.md:175"
-  },
-  {
-    "regula": "RD-06",
-    "id": "RD-06-W3",
-    "wejscie": {
-      "Metoda mieszania [-]": "spiralny, bieg szybki"
-    },
-    "oczekiwane": {
-      "tarcie [°C]": 6
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: odczyt tabeli reguły",
-    "miejsce": "docs/brd/C3.md:176"
-  },
-  {
-    "regula": "RD-06",
-    "id": "RD-06-W4",
-    "wejscie": {
-      "Metoda mieszania [-]": "planetarny (hak)"
-    },
-    "oczekiwane": {
-      "tarcie [°C]": 4
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: odczyt tabeli reguły",
-    "miejsce": "docs/brd/C3.md:177"
-  },
-  {
-    "regula": "RD-06",
-    "id": "RD-06-W5",
-    "wejscie": {
-      "Metoda mieszania [-]": "metoda spoza tabeli"
-    },
-    "oczekiwane": {
-      "tarcie [°C]": "błąd: brak wartości domyślnej, tarcie wpisuje użytkownik"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: tabela reguły nie ma tej metody; wartości są edytowalne (Poziom reguły)",
-    "miejsce": "docs/brd/C3.md:178"
-  },
-  {
-    "regula": "RD-07",
-    "id": "RD-07-W1",
-    "wejscie": {
-      "Woda całkowita [g]": 350,
-      "Woda z kranu [°C]": 18,
-      "Woda docelowa [°C]": 4
-    },
-    "oczekiwane": {
-      "lód [g]": 50
-    },
-    "tolerancja": 0.5,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-07.1; rachunek 350 × 14 / 98",
-    "miejsce": "docs/brd/C3.md:194"
-  },
-  {
-    "regula": "RD-07",
-    "id": "RD-07-W2",
-    "wejscie": {
-      "Woda całkowita [g]": 400,
-      "Woda z kranu [°C]": 20,
-      "Woda docelowa [°C]": 5
-    },
-    "oczekiwane": {
-      "lód [g]": 60
-    },
-    "tolerancja": 0.5,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-06 (C4a); rachunek 400 × 15 / 100",
-    "miejsce": "docs/brd/C3.md:195"
-  },
-  {
-    "regula": "RD-07",
-    "id": "RD-07-W3",
-    "wejscie": {
-      "Woda całkowita [g]": 350,
-      "Woda z kranu [°C]": 20,
-      "Woda docelowa [°C]": 2
-    },
-    "oczekiwane": {
-      "lód [g]": 63
-    },
-    "tolerancja": 0.5,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-ICE-01 (`test-vectors.json`); rachunek 350 × 18 / 100",
-    "miejsce": "docs/brd/C3.md:196"
-  },
-  {
-    "regula": "RD-07",
-    "id": "RD-07-W4",
-    "wejscie": {
-      "Woda całkowita [g]": 400,
-      "Woda z kranu [°C]": 18,
-      "Woda docelowa [°C]": 18
-    },
-    "oczekiwane": {
-      "lód [g]": 0
-    },
-    "tolerancja": 0.5,
+    "tolerancja": 0.01,
     "rodzaj": "granica",
-    "pochodzenie": "rachunek: Td = Tk",
-    "miejsce": "docs/brd/C3.md:197"
+    "pochodzenie": "rachunek: 240 × 3^0,4",
+    "miejsce": "docs\\brd\\reguly.md:67"
   },
   {
-    "regula": "RD-07",
-    "id": "RD-07-W5",
+    "regula": "RD-17",
+    "id": "RD-17-W3",
     "wejscie": {
-      "Woda całkowita [g]": 400,
-      "Woda z kranu [°C]": 18,
-      "Woda docelowa [°C]": 22
+      "t24 [min]": 240,
+      "T [°C]": 26
     },
     "oczekiwane": {
-      "lód [g]": 0
+      "t [min]": 192.66
     },
-    "tolerancja": 0.5,
-    "rodzaj": "powyżej",
-    "pochodzenie": "VEC-ICE-02; rachunek: Td > Tk, lód zbędny",
-    "miejsce": "docs/brd/C3.md:198"
+    "tolerancja": 0.01,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: 240 × 3^−0,2",
+    "miejsce": "docs\\brd\\reguly.md:68"
   },
   {
-    "regula": "RD-07",
-    "id": "RD-07-W6",
+    "regula": "RD-17",
+    "id": "RD-17-W4",
     "wejscie": {
-      "Woda całkowita [g]": 400,
-      "Woda z kranu [°C]": 18,
-      "Woda docelowa [°C]": 17
+      "t24 [min]": 240,
+      "T [°C]": 24
     },
     "oczekiwane": {
-      "lód [g]": 4.08
+      "t [min]": 240
     },
-    "tolerancja": 0.5,
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: wykładnik 0",
+    "miejsce": "docs\\brd\\reguly.md:69"
+  },
+  {
+    "regula": "RD-17",
+    "id": "RD-17-W5",
+    "wejscie": {
+      "t24 [min]": 240,
+      "T [°C]": 19.9
+    },
+    "oczekiwane": {
+      "t [min]": "poza zakresem"
+    },
+    "tolerancja": null,
     "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 400 × 1 / 98",
-    "miejsce": "docs/brd/C3.md:199"
+    "pochodzenie": "rachunek: T < 20",
+    "miejsce": "docs\\brd\\reguly.md:70"
   },
   {
-    "regula": "RD-07",
-    "id": "RD-07-W7",
+    "regula": "RD-17",
+    "id": "RD-17-W6",
     "wejscie": {
-      "Woda całkowita [g]": -350,
-      "Woda z kranu [°C]": 18,
-      "Woda docelowa [°C]": 4
+      "t24 [min]": 240,
+      "T [°C]": 26.1
     },
     "oczekiwane": {
-      "lód [g]": "błąd: masa ujemna, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: masa ujemna nie ma sensu fizycznego",
-    "miejsce": "docs/brd/C3.md:200"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W1",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 19
-    },
-    "oczekiwane": {
-      "czas [h]": 5.66
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-08.1; rachunek 4 × 2^0,5",
-    "miejsce": "docs/brd/C3.md:216"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W2",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2.15,
-      "Temperatura ciasta [°C]": 19
-    },
-    "oczekiwane": {
-      "czas [h]": 5.87
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-FERM-01 (`test-vectors.json`); rachunek 4 × 2,15^0,5",
-    "miejsce": "docs/brd/C3.md:217"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W3",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2.15,
-      "Temperatura ciasta [°C]": 28
-    },
-    "oczekiwane": {
-      "czas [h]": 2.94
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "granica",
-    "pochodzenie": "VEC-FERM-02; rachunek 4 × 2,15^-0,4",
-    "miejsce": "docs/brd/C3.md:218"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W4",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 28
-    },
-    "oczekiwane": {
-      "czas [h]": 3.03
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 4 × 2^-0,4",
-    "miejsce": "docs/brd/C3.md:219"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W5",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 18
-    },
-    "oczekiwane": {
-      "czas [h]": 6.06
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 4 × 2^0,6",
-    "miejsce": "docs/brd/C3.md:220"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W6",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 29
-    },
-    "oczekiwane": {
-      "czas [h]": 2.83
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "powyżej",
-    "pochodzenie": "dawny W-08.1 (poza zakresem 18–28 °C, ER-12); rachunek 4 × 2^-0,5",
-    "miejsce": "docs/brd/C3.md:221"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W7",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 17
-    },
-    "oczekiwane": {
-      "czas [h]": 6.5
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 4 × 2^0,7 (poza zakresem, OP-14)",
-    "miejsce": "docs/brd/C3.md:222"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W8",
-    "wejscie": {
-      "Czas przy 24 °C [h]": 4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 24
-    },
-    "oczekiwane": {
-      "czas [h]": 4
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: T = 24 °C, wykładnik 0",
-    "miejsce": "docs/brd/C3.md:223"
-  },
-  {
-    "regula": "RD-08",
-    "id": "RD-08-W9",
-    "wejscie": {
-      "Czas przy 24 °C [h]": -4,
-      "Q10 [-]": 2,
-      "Temperatura ciasta [°C]": 24
-    },
-    "oczekiwane": {
-      "czas [h]": "błąd: czas ujemny, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: czas ujemny nie ma sensu",
-    "miejsce": "docs/brd/C3.md:224"
-  },
-  {
-    "regula": "RD-09",
-    "id": "RD-09-W1",
-    "wejscie": {
-      "Masa ciasta [g]": 960,
-      "Suma procentów [%]": 192
-    },
-    "oczekiwane": {
-      "mąka zasypowa [g]": 500
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-09.1 (woda 350, zakwas 100, sól 10 g); rachunek 960 / 1,92",
-    "miejsce": "docs/brd/C3.md:240"
-  },
-  {
-    "regula": "RD-09",
-    "id": "RD-09-W2",
-    "wejscie": {
-      "Masa ciasta [g]": 2250,
-      "Suma procentów [%]": 190
-    },
-    "oczekiwane": {
-      "mąka zasypowa [g]": 1184.21
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "TV-07 (C4a: 1184 / 805 / 237 / 24 g); rachunek 2250 / 1,90",
-    "miejsce": "docs/brd/C3.md:241"
-  },
-  {
-    "regula": "RD-09",
-    "id": "RD-09-W3",
-    "wejscie": {
-      "Masa ciasta [g]": 900,
-      "Suma procentów [%]": 190
-    },
-    "oczekiwane": {
-      "mąka zasypowa [g]": 473.68
-    },
-    "tolerancja": 0.01,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-MATH-01 (`test-vectors.json`, 474 g po zaokrągleniu); rachunek 900 / 1,90",
-    "miejsce": "docs/brd/C3.md:242"
-  },
-  {
-    "regula": "RD-09",
-    "id": "RD-09-W4",
-    "wejscie": {
-      "Masa ciasta [g]": 0,
-      "Suma procentów [%]": 192
-    },
-    "oczekiwane": {
-      "mąka zasypowa [g]": "błąd: masa ciasta 0 g, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: 0 bochenków daje masę 0 g",
-    "miejsce": "docs/brd/C3.md:243"
-  },
-  {
-    "regula": "RD-09",
-    "id": "RD-09-W5",
-    "wejscie": {
-      "Masa ciasta [g]": 960,
-      "Suma procentów [%]": 90
-    },
-    "oczekiwane": {
-      "mąka zasypowa [g]": "błąd: suma procentów poniżej 100%, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: mąka sama ma 100%",
-    "miejsce": "docs/brd/C3.md:244"
-  },
-  {
-    "regula": "RD-10",
-    "id": "RD-10-W1",
-    "wejscie": {
-      "Masa ciasta [g]": 900,
-      "Strata [%]": 14
-    },
-    "oczekiwane": {
-      "masa bochenka [g]": 774
-    },
-    "tolerancja": 1,
-    "rodzaj": "typowy",
-    "pochodzenie": "dawny W-10.1; VEC-LOSS-01; rachunek 900 × 0,86",
-    "miejsce": "docs/brd/C3.md:260"
-  },
-  {
-    "regula": "RD-10",
-    "id": "RD-10-W2",
-    "wejscie": {
-      "Masa ciasta [g]": 350,
-      "Strata [%]": 18
-    },
-    "oczekiwane": {
-      "masa bochenka [g]": 287
-    },
-    "tolerancja": 1,
-    "rodzaj": "typowy",
-    "pochodzenie": "VEC-LOSS-02 (`test-vectors.json`); rachunek 350 × 0,82",
-    "miejsce": "docs/brd/C3.md:261"
-  },
-  {
-    "regula": "RD-10",
-    "id": "RD-10-W3",
-    "wejscie": {
-      "Masa ciasta [g]": 900,
-      "Strata [%]": 12
-    },
-    "oczekiwane": {
-      "masa bochenka [g]": 792
-    },
-    "tolerancja": 1,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek 900 × 0,88",
-    "miejsce": "docs/brd/C3.md:262"
-  },
-  {
-    "regula": "RD-10",
-    "id": "RD-10-W4",
-    "wejscie": {
-      "Masa ciasta [g]": 900,
-      "Strata [%]": 18
-    },
-    "oczekiwane": {
-      "masa bochenka [g]": 738
-    },
-    "tolerancja": 1,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek 900 × 0,82",
-    "miejsce": "docs/brd/C3.md:263"
-  },
-  {
-    "regula": "RD-10",
-    "id": "RD-10-W5",
-    "wejscie": {
-      "Masa ciasta [g]": 900,
-      "Strata [%]": -5
-    },
-    "oczekiwane": {
-      "masa bochenka [g]": "błąd: strata ujemna, brak wyniku"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: bochenek nie przybiera masy w piecu",
-    "miejsce": "docs/brd/C3.md:264"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W1",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 500,
-      "Mąka w zasypie [g]": 500
-    },
-    "oczekiwane": {
-      "udział żyta [%]": 100,
-      "składania [-]": "nie"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek 500 / 500; persona P3 (chleb 100% żytni)",
-    "miejsce": "docs/brd/C3.md:281"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W2",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 100,
-      "Mąka w zasypie [g]": 500
-    },
-    "oczekiwane": {
-      "udział żyta [%]": 20,
-      "składania [-]": "tak"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek 100 / 500; VEC-MATH-01 (`isHighRye: false` przy 20%)",
-    "miejsce": "docs/brd/C3.md:282"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W3",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 250,
-      "Mąka w zasypie [g]": 500
-    },
-    "oczekiwane": {
-      "udział żyta [%]": 50,
-      "składania [-]": "nie"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek 250 / 500 według RD-11 („≥ 50%”); Z-030 („> 50%”) dałby „tak” — ER-09",
-    "miejsce": "docs/brd/C3.md:283"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W4",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 249,
-      "Mąka w zasypie [g]": 500
-    },
-    "oczekiwane": {
-      "udział żyta [%]": 49.8,
-      "składania [-]": "tak"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek 249 / 500",
-    "miejsce": "docs/brd/C3.md:284"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W5",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 251,
-      "Mąka w zasypie [g]": 500
-    },
-    "oczekiwane": {
-      "udział żyta [%]": 50.2,
-      "składania [-]": "nie"
-    },
-    "tolerancja": 0.1,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek 251 / 500",
-    "miejsce": "docs/brd/C3.md:285"
-  },
-  {
-    "regula": "RD-11",
-    "id": "RD-11-W6",
-    "wejscie": {
-      "Mąka żytnia w zasypie [g]": 0,
-      "Mąka w zasypie [g]": 0
-    },
-    "oczekiwane": {
-      "udział żyta [%]": "błąd: brak mąki, brak wyniku",
-      "składania [-]": null
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: dzielenie przez 0",
-    "miejsce": "docs/brd/C3.md:286"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W1",
-    "wejscie": {
-      "Rodzaj chleba [-]": "pszenny",
-      "Temperatura w środku [°C]": 96
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "tak"
-    },
-    "tolerancja": 0,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek: 96 ≥ 94",
-    "miejsce": "docs/brd/C3.md:305"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W2",
-    "wejscie": {
-      "Rodzaj chleba [-]": "pszenny",
-      "Temperatura w środku [°C]": 94
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "tak"
-    },
-    "tolerancja": 0,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek: 94 ≥ 94",
-    "miejsce": "docs/brd/C3.md:306"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W3",
-    "wejscie": {
-      "Rodzaj chleba [-]": "pszenny",
-      "Temperatura w środku [°C]": 93
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "nie"
-    },
-    "tolerancja": 0,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek: 93 < 94",
-    "miejsce": "docs/brd/C3.md:307"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W4",
-    "wejscie": {
-      "Rodzaj chleba [-]": "pszenny",
-      "Temperatura w środku [°C]": 95
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "tak"
-    },
-    "tolerancja": 0,
-    "rodzaj": "powyżej",
-    "pochodzenie": "rachunek: 95 ≥ 94",
-    "miejsce": "docs/brd/C3.md:308"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W5",
-    "wejscie": {
-      "Rodzaj chleba [-]": "żytni razowy",
-      "Temperatura w środku [°C]": 98
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "tak"
-    },
-    "tolerancja": 0,
-    "rodzaj": "granica",
-    "pochodzenie": "rachunek: 98 ≥ 98",
-    "miejsce": "docs/brd/C3.md:309"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W6",
-    "wejscie": {
-      "Rodzaj chleba [-]": "żytni razowy",
-      "Temperatura w środku [°C]": 97
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "nie"
-    },
-    "tolerancja": 0,
-    "rodzaj": "poniżej",
-    "pochodzenie": "rachunek: 97 < 98",
-    "miejsce": "docs/brd/C3.md:310"
-  },
-  {
-    "regula": "RD-12",
-    "id": "RD-12-W7",
-    "wejscie": {
-      "Rodzaj chleba [-]": "pszenny",
-      "Temperatura w środku [°C]": null
-    },
-    "oczekiwane": {
-      "dopieczony [-]": "błąd: brak pomiaru, brak oceny"
-    },
-    "tolerancja": null,
-    "rodzaj": "błąd",
-    "pochodzenie": "rachunek: brak danych wejściowych",
-    "miejsce": "docs/brd/C3.md:311"
-  },
-  {
-    "regula": "RD-13",
-    "id": "RD-13-W1",
-    "wejscie": {
-      "Obserwacja [-]": "biały, matowy kożuch"
-    },
-    "oczekiwane": {
-      "zalecenie [-]": "wyrzuć zakwas, umyj naczynie; bez werdyktu „jadalny”"
-    },
-    "tolerancja": null,
-    "rodzaj": "granica",
-    "pochodzenie": "S-05 (pleśń bywa biała); zasada ostrożności, decyzja 10 (a) planu M1",
-    "miejsce": "docs/brd/C3.md:329"
-  },
-  {
-    "regula": "RD-13",
-    "id": "RD-13-W2",
-    "wejscie": {
-      "Obserwacja [-]": "puszysta albo kolorowa pleśń"
-    },
-    "oczekiwane": {
-      "zalecenie [-]": "wyrzuć zakwas, umyj naczynie"
+      "t [min]": "poza zakresem"
     },
     "tolerancja": null,
     "rodzaj": "powyżej",
-    "pochodzenie": "S-04 („any sign of mold … should NOT be used”)",
-    "miejsce": "docs/brd/C3.md:330"
+    "pochodzenie": "rachunek: T > 26",
+    "miejsce": "docs\\brd\\reguly.md:71"
   },
   {
-    "regula": "RD-13",
-    "id": "RD-13-W3",
+    "regula": "RD-17",
+    "id": "RD-17-W7",
     "wejscie": {
-      "Obserwacja [-]": "płyn o zapachu alkoholu, bez nalotu"
+      "t24 [min]": "brak",
+      "T [°C]": 22
     },
     "oczekiwane": {
-      "zalecenie [-]": "płyn można zlać albo wmieszać (według S-04)"
-    },
-    "tolerancja": null,
-    "rodzaj": "poniżej",
-    "pochodzenie": "S-04 („liquid layer that smells of alcohol, and this is fine”)",
-    "miejsce": "docs/brd/C3.md:331"
-  },
-  {
-    "regula": "RD-13",
-    "id": "RD-13-W4",
-    "wejscie": {
-      "Obserwacja [-]": "zielone, różowe albo pomarańczowe plamy"
-    },
-    "oczekiwane": {
-      "zalecenie [-]": "wyrzuć zakwas, umyj naczynie"
-    },
-    "tolerancja": null,
-    "rodzaj": "typowy",
-    "pochodzenie": "S-04 (oznaka pleśni); zasada ostrożności",
-    "miejsce": "docs/brd/C3.md:332"
-  },
-  {
-    "regula": "RD-13",
-    "id": "RD-13-W5",
-    "wejscie": {
-      "Obserwacja [-]": "brak zaznaczonych objawów"
-    },
-    "oczekiwane": {
-      "zalecenie [-]": "brak werdyktu (aplikacja nie mówi „zdrowy”)"
-    },
-    "tolerancja": null,
-    "rodzaj": "typowy",
-    "pochodzenie": "rachunek logiczny: brak obserwacji nie jest podstawą oceny (rejestr treści ZAK-ZDR-900, wycofane)",
-    "miejsce": "docs/brd/C3.md:333"
-  },
-  {
-    "regula": "RD-13",
-    "id": "RD-13-W6",
-    "wejscie": {
-      "Obserwacja [-]": "wartość nieznana (uszkodzony zapis)"
-    },
-    "oczekiwane": {
-      "zalecenie [-]": "brak werdyktu, komunikat o błędnych danych"
+      "t [min]": "błąd danych"
     },
     "tolerancja": null,
     "rodzaj": "błąd",
-    "pochodzenie": "rachunek logiczny: bez rozpoznanej obserwacji nie ma zalecenia",
-    "miejsce": "docs/brd/C3.md:334"
+    "pochodzenie": "rachunek: brak czasu z receptury",
+    "miejsce": "docs\\brd\\reguly.md:72"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W1",
+    "wejscie": {
+      "W [g]": 700,
+      "Tk [°C]": 20,
+      "Tc [°C]": 10
+    },
+    "oczekiwane": {
+      "L [g]": 70.22
+    },
+    "tolerancja": 0.5,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 7000 / 99,68",
+    "miejsce": "docs\\brd\\reguly.md:84"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W2",
+    "wejscie": {
+      "W [g]": 700,
+      "Tk [°C]": 20,
+      "Tc [°C]": 20
+    },
+    "oczekiwane": {
+      "L [g]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: Tc = Tk",
+    "miejsce": "docs\\brd\\reguly.md:85"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W3",
+    "wejscie": {
+      "W [g]": 700,
+      "Tk [°C]": 20,
+      "Tc [°C]": 19.9
+    },
+    "oczekiwane": {
+      "L [g]": 0.7
+    },
+    "tolerancja": 0.05,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: 70 / 99,68",
+    "miejsce": "docs\\brd\\reguly.md:86"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W4",
+    "wejscie": {
+      "W [g]": 700,
+      "Tk [°C]": 20,
+      "Tc [°C]": 20.1
+    },
+    "oczekiwane": {
+      "L [g]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: Tc > Tk, lód niepotrzebny",
+    "miejsce": "docs\\brd\\reguly.md:87"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W5",
+    "wejscie": {
+      "W [g]": 500,
+      "Tk [°C]": 25,
+      "Tc [°C]": 4
+    },
+    "oczekiwane": {
+      "L [g]": 100.3
+    },
+    "tolerancja": 0.5,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 10 500 / 104,68",
+    "miejsce": "docs\\brd\\reguly.md:88"
+  },
+  {
+    "regula": "RD-18",
+    "id": "RD-18-W6",
+    "wejscie": {
+      "W [g]": 700,
+      "Tk [°C]": 20,
+      "Tc [°C]": -1
+    },
+    "oczekiwane": {
+      "L [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: Tc < 0",
+    "miejsce": "docs\\brd\\reguly.md:89"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W1",
+    "wejscie": {
+      "mświeże [g]": 10
+    },
+    "oczekiwane": {
+      "msuche [g]": 4
+    },
+    "tolerancja": 0.1,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 10 × 0,4",
+    "miejsce": "docs\\brd\\reguly.md:101"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W2",
+    "wejscie": {
+      "mświeże [g]": 25
+    },
+    "oczekiwane": {
+      "msuche [g]": 10
+    },
+    "tolerancja": 0.1,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 25 × 0,4",
+    "miejsce": "docs\\brd\\reguly.md:102"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W3",
+    "wejscie": {
+      "mświeże [g]": 0
+    },
+    "oczekiwane": {
+      "msuche [g]": 0
+    },
+    "tolerancja": 0,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:103"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W4",
+    "wejscie": {
+      "mświeże [g]": -1
+    },
+    "oczekiwane": {
+      "msuche [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: poza granicą m ≥ 0",
+    "miejsce": "docs\\brd\\reguly.md:104"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W5",
+    "wejscie": {
+      "mświeże [g]": 0.1
+    },
+    "oczekiwane": {
+      "msuche [g]": 0.04
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 0,1 × 0,4",
+    "miejsce": "docs\\brd\\reguly.md:105"
+  },
+  {
+    "regula": "RD-19",
+    "id": "RD-19-W6",
+    "wejscie": {
+      "mświeże [g]": "brak"
+    },
+    "oczekiwane": {
+      "msuche [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak masy",
+    "miejsce": "docs\\brd\\reguly.md:106"
+  },
+  {
+    "regula": "RD-20",
+    "id": "RD-20-W1",
+    "wejscie": {
+      "mżytnia [g]": 600,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "U [%] / wariant": "60 / żytni"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek; D-030",
+    "miejsce": "docs\\brd\\reguly.md:118"
+  },
+  {
+    "regula": "RD-20",
+    "id": "RD-20-W2",
+    "wejscie": {
+      "mżytnia [g]": 500,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "U [%] / wariant": "50 / pszenny"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: granica ostra (D-030)",
+    "miejsce": "docs\\brd\\reguly.md:119"
+  },
+  {
+    "regula": "RD-20",
+    "id": "RD-20-W3",
+    "wejscie": {
+      "mżytnia [g]": 501,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "U [%] / wariant": "50,1 / żytni"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:120"
+  },
+  {
+    "regula": "RD-20",
+    "id": "RD-20-W4",
+    "wejscie": {
+      "mżytnia [g]": 499,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "U [%] / wariant": "49,9 / pszenny"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:121"
+  },
+  {
+    "regula": "RD-20",
+    "id": "RD-20-W5",
+    "wejscie": {
+      "mżytnia [g]": 0,
+      "M [g]": 0
+    },
+    "oczekiwane": {
+      "U [%] / wariant": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: M = 0",
+    "miejsce": "docs\\brd\\reguly.md:122"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W1",
+    "wejscie": {
+      "Objawy [-]": "kolorowe plamy"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "wyrzuć, nie wąchaj, umyj naczynie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-44, S-43, S-45",
+    "miejsce": "docs\\brd\\reguly.md:134"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W2",
+    "wejscie": {
+      "Objawy [-]": "biały nalot"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "wyrzuć, nie wąchaj, umyj naczynie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-45 (pleśń bywa biała); decyzja DEC-10",
+    "miejsce": "docs\\brd\\reguly.md:135"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W3",
+    "wejscie": {
+      "Objawy [-]": "płyn o zapachu alkoholu"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "nie wyrzucaj z tego powodu; zlej albo wmieszaj i dokarm"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-43",
+    "miejsce": "docs\\brd\\reguly.md:136"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W4",
+    "wejscie": {
+      "Objawy [-]": "płyn o zapachu alkoholu i kolorowa plama"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "wyrzuć, nie wąchaj, umyj naczynie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-43, S-44: pleśń przeważa",
+    "miejsce": "docs\\brd\\reguly.md:137"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W5",
+    "wejscie": {
+      "Objawy [-]": "brak zaznaczeń"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "brak werdyktu „zdrowy” ani „bezpieczny”"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-45 (strzępki pleśni bywają trudne do zauważenia); decyzja DEC-10; rejestr 06 wycofał ZAK-ZDR-900",
+    "miejsce": "docs\\brd\\reguly.md:138"
+  },
+  {
+    "regula": "RD-21",
+    "id": "RD-21-W6",
+    "wejscie": {
+      "Objawy [-]": "niepełny formularz"
+    },
+    "oczekiwane": {
+      "komunikat [-]": "brak werdyktu „bezpieczny”; prośba o uzupełnienie"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "S-45; decyzja DEC-10",
+    "miejsce": "docs\\brd\\reguly.md:139"
+  },
+  {
+    "regula": "RD-22",
+    "id": "RD-22-W1",
+    "wejscie": {
+      "Krok [-]": "mieszanie ciasta"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "tak"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-46",
+    "miejsce": "docs\\brd\\reguly.md:150"
+  },
+  {
+    "regula": "RD-22",
+    "id": "RD-22-W2",
+    "wejscie": {
+      "Krok [-]": "dokarmianie zakwasu"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "tak"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-43, S-46",
+    "miejsce": "docs\\brd\\reguly.md:151"
+  },
+  {
+    "regula": "RD-22",
+    "id": "RD-22-W3",
+    "wejscie": {
+      "Krok [-]": "studzenie upieczonego bochenka"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "nie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-43: „The baking step will kill any bacteria present”",
+    "miejsce": "docs\\brd\\reguly.md:152"
+  },
+  {
+    "regula": "RD-22",
+    "id": "RD-22-W4",
+    "wejscie": {
+      "Krok [-]": "krok nieznanego rodzaju"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "tak"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: bezpieczna wartość domyślna",
+    "miejsce": "docs\\brd\\reguly.md:153"
+  },
+  {
+    "regula": "RD-23",
+    "id": "RD-23-W1",
+    "wejscie": {
+      "Krok [-]": "zdejmij pokrywę garnka"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "rękawice i para: pokrywa od siebie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-47, S-48",
+    "miejsce": "docs\\brd\\reguly.md:165"
+  },
+  {
+    "regula": "RD-23",
+    "id": "RD-23-W2",
+    "wejscie": {
+      "Krok [-]": "wstaw bochenek do rozgrzanego garnka"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "rękawice; dzieci z dala"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-47, S-50",
+    "miejsce": "docs\\brd\\reguly.md:166"
+  },
+  {
+    "regula": "RD-23",
+    "id": "RD-23-W3",
+    "wejscie": {
+      "Krok [-]": "dokarmianie zakwasu"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "brak"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: krok bez gorącego naczynia",
+    "miejsce": "docs\\brd\\reguly.md:167"
+  },
+  {
+    "regula": "RD-23",
+    "id": "RD-23-W4",
+    "wejscie": {
+      "Krok [-]": "krok nieznanego rodzaju w trakcie wypieku"
+    },
+    "oczekiwane": {
+      "ostrzeżenie [-]": "rękawice"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: bezpieczna wartość domyślna",
+    "miejsce": "docs\\brd\\reguly.md:168"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W1",
+    "wejscie": {
+      "dzień [d]": 6,
+      "t2 [h]": 6
+    },
+    "oczekiwane": {
+      "stan [-]": "gotowy"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-53, S-43",
+    "miejsce": "docs\\brd\\reguly.md:180"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W2",
+    "wejscie": {
+      "dzień [d]": 7,
+      "t2 [h]": 8
+    },
+    "oczekiwane": {
+      "stan [-]": "gotowy"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "S-53",
+    "miejsce": "docs\\brd\\reguly.md:181"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W3",
+    "wejscie": {
+      "dzień [d]": 7,
+      "t2 [h]": 8.5
+    },
+    "oczekiwane": {
+      "stan [-]": "karm dalej co 12 h"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "S-53",
+    "miejsce": "docs\\brd\\reguly.md:182"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W4",
+    "wejscie": {
+      "dzień [d]": 5,
+      "t2 [h]": 7.5
+    },
+    "oczekiwane": {
+      "stan [-]": "gotowy"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "S-53",
+    "miejsce": "docs\\brd\\reguly.md:183"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W5",
+    "wejscie": {
+      "dzień [d]": 1,
+      "t2 [h]": "brak podwojenia"
+    },
+    "oczekiwane": {
+      "stan [-]": "to normalne, karm dalej"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-53",
+    "miejsce": "docs\\brd\\reguly.md:184"
+  },
+  {
+    "regula": "RD-24",
+    "id": "RD-24-W6",
+    "wejscie": {
+      "dzień [d]": "brak",
+      "t2 [h]": "brak"
+    },
+    "oczekiwane": {
+      "stan [-]": "brak oceny; prośba o datę dokarmienia"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:185"
+  },
+  {
+    "regula": "RD-25",
+    "id": "RD-25-W1",
+    "wejscie": {
+      "Miejsce [-]": "blat",
+      "Ostatnie dokarmienie [czas]": "2026-10-19 08:00",
+      "Teraz [czas]": "2026-10-19 20:00"
+    },
+    "oczekiwane": {
+      "przypomnienie [-]": "tak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: 08:00 + 12 h (S-44)",
+    "miejsce": "docs\\brd\\reguly.md:197"
+  },
+  {
+    "regula": "RD-25",
+    "id": "RD-25-W2",
+    "wejscie": {
+      "Miejsce [-]": "blat",
+      "Ostatnie dokarmienie [czas]": "2026-10-19 08:00",
+      "Teraz [czas]": "2026-10-19 19:59"
+    },
+    "oczekiwane": {
+      "przypomnienie [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:198"
+  },
+  {
+    "regula": "RD-25",
+    "id": "RD-25-W3",
+    "wejscie": {
+      "Miejsce [-]": "blat",
+      "Ostatnie dokarmienie [czas]": "2026-10-19 08:00",
+      "Teraz [czas]": "2026-10-19 20:01"
+    },
+    "oczekiwane": {
+      "przypomnienie [-]": "tak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:199"
+  },
+  {
+    "regula": "RD-25",
+    "id": "RD-25-W4",
+    "wejscie": {
+      "Miejsce [-]": "lodówka",
+      "Ostatnie dokarmienie [czas]": "2026-10-01 10:00",
+      "Teraz [czas]": "2026-10-08 10:00"
+    },
+    "oczekiwane": {
+      "przypomnienie [-]": "tak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: + 7 d (S-44)",
+    "miejsce": "docs\\brd\\reguly.md:200"
+  },
+  {
+    "regula": "RD-25",
+    "id": "RD-25-W5",
+    "wejscie": {
+      "Miejsce [-]": "blat",
+      "Ostatnie dokarmienie [czas]": "brak",
+      "Teraz [czas]": "2026-10-19 20:00"
+    },
+    "oczekiwane": {
+      "przypomnienie [-]": "brak przypomnienia; prośba o wpis dokarmienia"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:201"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W1",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "hz [%]": null
+    },
+    "oczekiwane": {
+      "wynik [-]": 100
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-36",
+    "miejsce": "docs\\brd\\reguly.md:213"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W2",
+    "wejscie": {
+      "Zaczyn [-]": "biga",
+      "hz [%]": null
+    },
+    "oczekiwane": {
+      "wynik [-]": 50
+    },
+    "tolerancja": 0,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-61",
+    "miejsce": "docs\\brd\\reguly.md:214"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W3",
+    "wejscie": {
+      "Zaczyn [-]": "levain",
+      "hz [%]": 50
+    },
+    "oczekiwane": {
+      "wynik [-]": "typowa"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "S-36",
+    "miejsce": "docs\\brd\\reguly.md:215"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W4",
+    "wejscie": {
+      "Zaczyn [-]": "levain",
+      "hz [%]": 49
+    },
+    "oczekiwane": {
+      "wynik [-]": "nietypowa hydratacja"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "S-36",
+    "miejsce": "docs\\brd\\reguly.md:216"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W5",
+    "wejscie": {
+      "Zaczyn [-]": "levain",
+      "hz [%]": 126
+    },
+    "oczekiwane": {
+      "wynik [-]": "nietypowa hydratacja"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "S-36",
+    "miejsce": "docs\\brd\\reguly.md:217"
+  },
+  {
+    "regula": "RD-26",
+    "id": "RD-26-W6",
+    "wejscie": {
+      "Zaczyn [-]": "levain",
+      "hz [%]": "brak"
+    },
+    "oczekiwane": {
+      "wynik [-]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:218"
+  },
+  {
+    "regula": "RD-27",
+    "id": "RD-27-W1",
+    "wejscie": {
+      "msól [g]": 19,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "s [%] / ocena": "1,9 / typowy"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek; S-37",
+    "miejsce": "docs\\brd\\reguly.md:229"
+  },
+  {
+    "regula": "RD-27",
+    "id": "RD-27-W2",
+    "wejscie": {
+      "msól [g]": 20,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "s [%] / ocena": "2,0 / typowy"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek; S-37",
+    "miejsce": "docs\\brd\\reguly.md:230"
+  },
+  {
+    "regula": "RD-27",
+    "id": "RD-27-W3",
+    "wejscie": {
+      "msól [g]": 20.1,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "s [%] / ocena": "2,01 / poza typowym"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:231"
+  },
+  {
+    "regula": "RD-27",
+    "id": "RD-27-W4",
+    "wejscie": {
+      "msól [g]": 17.9,
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "s [%] / ocena": "1,79 / poza typowym"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\reguly.md:232"
+  },
+  {
+    "regula": "RD-27",
+    "id": "RD-27-W5",
+    "wejscie": {
+      "msól [g]": 20,
+      "M [g]": 0
+    },
+    "oczekiwane": {
+      "s [%] / ocena": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: M = 0",
+    "miejsce": "docs\\brd\\reguly.md:233"
   }
 ]
