@@ -187,7 +187,7 @@ piekarz/
 │   │   └── __tests__/          # Wektory testowe i Property-Based Testing
 │   ├── data/                   # Warstwa danych i SQLite
 │   │   ├── db.ts               # Interfejsy encji
-│   │   ├── schema.ts           # DDL schematu SQLite
+│   │   ├── sqlite-schema.ts    # Jedyny schemat SQLite: migracje SCHEMA_MIGRATIONS
 │   │   ├── sqlite-store.ts     # Repozytorium SQLite z pamięciowym fallbackiem
 │   │   └── __tests__/          # Testy persystencji
 │   ├── doctor/                 # Silnik diagnostyczny Doktora Chleba
