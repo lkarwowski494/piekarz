@@ -8,6 +8,11 @@ Kontrola biologiczna (Bezpieczeństwo) [T:-]
 ## card.subtitle
 Zaznacz, co widzisz albo czujesz w słoiku. [T:-]
 
+## card.granica (nowe, pod podtytułem; widoczne zawsze, przy każdym wyniku — 06-tresci-004)
+Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. [T:-]
+W razie wątpliwości wyrzuć zakwas. [T:ZAK-NAL-001]
+Nie próbuj surowego zakwasu przed upieczeniem. [T:ZAK-SUR-001]
+
 ## przycisk.hooch (hasHoochLiquid)
 Płyn na powierzchni o zapachu alkoholu (hooch) [T:-]
 

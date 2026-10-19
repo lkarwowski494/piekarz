@@ -53,7 +53,13 @@
     "status": "potwierdzone",
     "uproszczenie": "FSIS nie wymienia zakwasu; regułę dla zakwasu daje CSU (szczebel 3), FSIS potwierdza kierunek dla żywności o dużej wilgotności.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -71,7 +77,13 @@
     "status": "potwierdzone",
     "uproszczenie": "FSIS nie wymienia zakwasu; zakwas traktujemy jak żywność o dużej wilgotności (kierunek bezpieczny).",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -155,7 +167,13 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -181,7 +199,13 @@
     "decyzja": "DEC-10 (a), plan M2 2026-10-19",
     "uproszczenie": "Ostrożniej niż źródło 3: CSU Extension uznaje za bezpieczne drożdże „whitish clumps on the surface of the liquid layer” w zakwasie trzymanym w lodówce bez regularnego dokarmiania. Aplikacja tego nie rozróżnia, bo pleśń bywa biała (FSIS, szczebel 1), a użytkownik ocenia wzrokiem; kierunek bezpieczny (więcej wyrzuceń, żadnego przepuszczenia pleśni). Powrót do rozróżnienia = decyzja produktowa właściciela po przeglądzie człowieka.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -200,7 +224,13 @@
     "jedno_zrodlo": true,
     "uproszczenie": "Źródło łączy objawy spójnikiem „and”; aplikacja traktuje każdy objaw osobno jako powód do wyrzucenia (kierunek bezpieczny).",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -218,7 +248,13 @@
     "status": "potwierdzone",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -237,7 +273,13 @@
     "jedno_zrodlo": true,
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   },
   {
@@ -256,7 +298,38 @@
     "jedno_zrodlo": true,
     "uproszczenie": "Bez koloru płynu, bez „głodu” i bez werdyktu „zdrowy” (źródło tego nie mówi). Atrybucja w treści, bo jedno źródło szczebla 3.",
     "krytyczne": true,
-    "przeglad": null,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-SUR-001",
+    "twierdzenie": "Surowego zakwasu nie należy próbować przed upieczeniem.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, Sourdough Starter Best Practices, lista best practices (Reviewed: October 2025)",
+        "cytat": "Do not taste raw sourdough starter before baking",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+    },
     "wazne_do": "2027-10-19"
   }
 ]

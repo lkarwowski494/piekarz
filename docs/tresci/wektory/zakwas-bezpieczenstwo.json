@@ -5,6 +5,7 @@
     "Żaden wektor nie zwraca isEdible: true (pole usunąć albo zawsze false).",
     "Tekst wyniku (titlePl, actionPl i ich EN) nie pasuje do /zdrow|bezpieczn|jadaln|nieszkodliw/i ani /healthy|harmless|\\bsafe\\b|edible/i.",
     "Status discard ma pierwszeństwo przed hooch (hooch + dowolny inny objaw = discard).",
+    "Zdanie granicy (card.granica, trzy zdania z docs/tresci/pl|en) jest widoczne na karcie przy każdym statusie, także no_observation (06-tresci-004).",
     "Etykieta przycisku hasFuzzySpots nie zawiera słowa „kolorowe” / „colored” bez „także biały” / „including white”."
   ],
   "wektory": [

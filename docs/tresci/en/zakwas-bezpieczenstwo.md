@@ -8,6 +8,11 @@ Biological safety check [T:-]
 ## card.subtitle
 Mark what you see or smell in the jar. [T:-]
 
+## card.granica (new, below the subtitle; always visible with every result — 06-tresci-004)
+This app cannot judge whether a starter is safe with certainty. [T:-]
+When in doubt, throw the starter out. [T:ZAK-NAL-001]
+Do not taste raw starter before baking. [T:ZAK-SUR-001]
+
 ## przycisk.hooch (hasHoochLiquid)
 Liquid layer that smells of alcohol (hooch) [T:-]
 
