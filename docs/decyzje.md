@@ -54,3 +54,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) ok. 20 h — sama pętla i podłogi; (b) ok. 40 h — pętla i najlepsze z rankingu (rekomendacja roli 03).
 - **Dlaczego:** właściciel chce eksperymentu na pełnej aplikacji („Nie zawężaj planu napraw. Chcę zobaczyć, co wyjdzie z pełnego eksperymentu.”, plan napraw M1).
 - **Zależy od:** D-038 (eksperyment); zasada wspólna 18 obowiązuje dalej: apetyt nie wpuszcza funkcji bez dowodu wartości.
+
+### [D-041] 2026-10-20 — Pominięcia ER-44…ER-46 najpierw w BRD, potem cięcie (rola 03 build, STOP E1)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Zatrzymaj się; najpierw rola 01 dopisze BR dla ER-44…46.” (2026-10-20).
+- **Decyzja:** rola 03 zatrzymuje się po E1; E2 zaczyna się dopiero, gdy rola 01 dopisze BR z kryteriami dla ER-44 (pętla opinii), ER-45 (PR-12 „co dziś robię”) i ER-46 (cofnięcie i wcześniejsze zakończenie kroku), a `kontrola-brd.mjs` da kod 0.
+- **Odrzucone:** prowadzenie ER-44…ER-46 w E2 jako decyzji warunkowych (rekomendacja roli 03).
+- **Dlaczego:** decyzja zakresu ma stać na BR z kryteriami, a nie na wpisie ER.
+- **Zależy od:** wyniku roli 01; nowe BR trafiają do roli 03 przez scalenie gałęzi roli 01 z gałęzią `claude/03-zakres-2026-10-19-7a0b8a` (za zgodą właściciela).
