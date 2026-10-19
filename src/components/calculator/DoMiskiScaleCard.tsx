@@ -20,6 +20,8 @@ export interface DoMiskiPreset {
 
 export interface DoMiskiScaleCardProps {
   calculations: DoughRecipeResult;
+  /** Procent soli z receptury (True Baker's %); bez stałej w karcie [M1-audytor-generalny-059]. */
+  saltPercent: number;
   recipeName: string;
   loavesCount: number;
   onLoavesChange: (count: number) => void;
@@ -38,6 +40,7 @@ export interface DoMiskiScaleCardProps {
 
 export function DoMiskiScaleCard({
   calculations,
+  saltPercent,
   recipeName,
   loavesCount,
   onLoavesChange,
@@ -231,18 +234,20 @@ export function DoMiskiScaleCard({
             checked={!!checkedIngredients['water']}
             onPress={() => toggleCheck('water')}
           />
-          <ScaleIngredientRow
-            testID="scale-item-starter"
-            label={`🏺 ${t('Aktywny zakwas')}`}
-            subtext={t('W szczycie aktywności')}
-            weight={formatWeight(calculations.starterGrams, unitSystem)}
-            checked={!!checkedIngredients['starter']}
-            onPress={() => toggleCheck('starter')}
-          />
+          {calculations.starterGrams > 0 && (
+            <ScaleIngredientRow
+              testID="scale-item-starter"
+              label={`🏺 ${t('Aktywny zakwas')}`}
+              subtext={t('W szczycie aktywności')}
+              weight={formatWeight(calculations.starterGrams, unitSystem)}
+              checked={!!checkedIngredients['starter']}
+              onPress={() => toggleCheck('starter')}
+            />
+          )}
           <ScaleIngredientRow
             testID="scale-item-salt"
             label={`🧂 ${t('Sól kłodawska / morska')}`}
-            subtext="2.0%"
+            subtext={`${saltPercent.toFixed(1)}%`}
             weight={formatDoseWeight(calculations.saltGrams, unitSystem)}
             checked={!!checkedIngredients['salt']}
             onPress={() => toggleCheck('salt')}

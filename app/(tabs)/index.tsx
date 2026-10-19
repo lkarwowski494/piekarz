@@ -357,6 +357,7 @@ export default function CalculatorScreen() {
         <BlokadaFunkcji {...blokada('kalkulator')}>
         <DoMiskiScaleCard
           calculations={calculations}
+          saltPercent={saltPct}
           recipeName={recipeName}
           loavesCount={calcMode === 'loaves' ? loavesCount : 1}
           onLoavesChange={(count) => {

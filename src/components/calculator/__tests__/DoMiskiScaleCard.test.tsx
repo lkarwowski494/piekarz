@@ -50,6 +50,7 @@ describe('DoMiskiScaleCard Component', () => {
       tree = renderer.create(
         <DoMiskiScaleCard
           calculations={sampleCalc}
+          saltPercent={2}
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
@@ -77,6 +78,7 @@ describe('DoMiskiScaleCard Component', () => {
       tree = renderer.create(
         <DoMiskiScaleCard
           calculations={sampleCalc}
+          saltPercent={2}
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
@@ -101,6 +103,7 @@ describe('DoMiskiScaleCard Component', () => {
       tree = renderer.create(
         <DoMiskiScaleCard
           calculations={sampleCalc}
+          saltPercent={2}
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
@@ -126,6 +129,7 @@ describe('DoMiskiScaleCard Component', () => {
       tree = renderer.create(
         <DoMiskiScaleCard
           calculations={sampleCalc}
+          saltPercent={2}
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
@@ -150,6 +154,7 @@ describe('DoMiskiScaleCard Component', () => {
       tree = renderer.create(
         <DoMiskiScaleCard
           calculations={sampleCalc}
+          saltPercent={2}
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
