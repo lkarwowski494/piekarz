@@ -2,6 +2,7 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import * as Iap from 'expo-iap';
 import { PaywallModal } from '../PaywallModal';
+import { t } from '../../lib/i18n';
 
 const mockIap = (Iap as unknown as { __mock: any }).__mock;
 
@@ -176,4 +177,40 @@ describe('PaywallModal Component', () => {
     expect(eulaBtn.props.accessibilityRole).toBe('link');
     expect(privacyBtn.props.accessibilityRole).toBe('link');
   });
-});
+
+  // Okres próbny tylko jako oferta wprowadzająca App Store, pokazywana uprawnionym [M1-audytor-generalny-009]
+  const withIntroOffer = (unit: string, value: number) => {
+    mockIap.products = [
+      { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '4,99 zł', type: 'subs', subscriptionGroupIdIOS: 'g1',
+        subscriptionOffers: [{ id: 'i1', type: 'introductory', paymentMode: 'free-trial', period: { unit, value }, periodCount: 1, displayPrice: '0 zł', price: 0 }] },
+      { id: 'com.apps4brew.baker.pro.yearly', displayPrice: '29,99 zł', type: 'subs', subscriptionGroupIdIOS: 'g1',
+        subscriptionOffers: [{ id: 'i2', type: 'introductory', paymentMode: 'free-trial', period: { unit, value }, periodCount: 1, displayPrice: '0 zł', price: 0 }] },
+      { id: 'com.apps4brew.baker.pro.lifetime', displayPrice: '79,99 zł', type: 'in-app' },
+    ];
+  };
+
+  it('eligible user sees the store trial length and the price after it; lifetime has no trial', async () => {
+    withIntroOffer('week', 2);
+    await act(async () => {
+      tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
+    });
+    const text = extractCleanText(tree?.toJSON());
+    expect(text).toContain(t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni: 14, cena: '29,99 zł' }));
+    expect(text).toContain('Pierwsze 14 dni bezpłatnie, potem 4,99 zł');
+    expect(text).toContain(t('Wypróbuj {dni} dni', { dni: 14 }));
+    await act(async () => {
+      tree!.root.findByProps({ testID: 'plan-lifetime-btn' }).props.onPress();
+    });
+    expect(extractCleanText(tree?.toJSON())).toContain('Kup dostęp dożywotni');
+  });
+
+  it('user not eligible for the introductory offer sees no free trial', async () => {
+    withIntroOffer('day', 14);
+    mockIap.eligible = false;
+    await act(async () => {
+      tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
+    });
+    const text = extractCleanText(tree?.toJSON());
+    expect(text).not.toMatch(/bezpłatnie|Wypróbuj/);
+    expect(text).toContain('Aktywuj plan roczny');
+  });});

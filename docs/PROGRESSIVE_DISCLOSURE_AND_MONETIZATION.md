@@ -27,6 +27,8 @@ Aplikacje kuchenne Apps4Brew podlegają restrykcyjnemu standardowi ergonomii:
 Zgodnie z manifestem Apps4Brew Studio:
 > *„Kupujesz aplikację za mniej niż koszt jednego espresso w modnej kawiarni — z gwarancją 100% Offline-First, brakiem reklam i wieczną własnością swoich notatek.”*
 
+> **Zastąpione 2026-10-19 (D-033, DEC-01 d, ADR-007):** siatka cenowa, okres próbny „7 dni lub 3 wypieki” i sekcja 3 poniżej opisują dawny kod z symulacją zakupu. Obowiązuje: zakupy przez StoreKit, ceny z App Store (`displayPrice`), okres próbny 14 dni wyłącznie jako oferta wprowadzająca App Store, bez uprawnienia tylko historia i własne dane (`src/lib/platnosci`). Tekst niżej zostaje jako historia.
+
 ### Siatka Cenowa
 - **$0.99 USD / miesiąc** (~4,49 zł) — nielimitowany dostęp z możliwością rezygnacji w dowolnym momencie.
 - **$4.99 USD / rok** (~22,99 zł) — **Główna oferta ekosystemowa (~1,91 zł / miesiąc)**.

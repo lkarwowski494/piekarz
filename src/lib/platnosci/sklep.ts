@@ -75,16 +75,50 @@ export interface Oferta {
   plan: Plan;
   /** Cena sformatowana przez App Store (waluta i region użytkownika). */
   cena: string;
+  /** Dni bezpłatnej oferty wprowadzającej z App Store Connect; null = brak albo użytkownik nieuprawniony. */
+  probaDni: number | null;
 }
 
-/** Produkty z App Store Connect; ceny wyłącznie z displayPrice. */
+/**
+ * Długość bezpłatnej oferty wprowadzającej produktu w dniach (StoreKit SubscriptionOffer).
+ * Okresy liczone w miesiącach i latach nie mają stałej liczby dni: zwraca null [M1-audytor-generalny-009].
+ */
+export function dniOkresuProbnego(produkt: unknown): number | null {
+  const oferty: unknown = typeof produkt === 'object' && produkt !== null ? Reflect.get(produkt, 'subscriptionOffers') : null;
+  if (!Array.isArray(oferty)) return null;
+  for (const o of oferty) {
+    if (!o || o.type !== 'introductory' || o.paymentMode !== 'free-trial') continue;
+    const wartosc = liczba(o.period?.value);
+    const ile = liczba(o.periodCount) ?? 1;
+    if (wartosc === null) return null;
+    if (o.period.unit === 'day') return wartosc * ile;
+    if (o.period.unit === 'week') return 7 * wartosc * ile;
+    return null;
+  }
+  return null;
+}
+
+/** Uprawnienie do oferty wprowadzającej dotyczy całej grupy subskrypcji; błąd = nie pokazujemy oferty. */
+async function uprawnionyDoProby(grupa: unknown): Promise<boolean> {
+  if (typeof grupa !== 'string' || !grupa) return false;
+  try {
+    return await Iap.isEligibleForIntroOfferIOS(grupa);
+  } catch {
+    return false;
+  }
+}
+
+/** Produkty z App Store Connect; ceny wyłącznie z displayPrice, okres próbny tylko dla uprawnionych. */
 export async function pobierzOferte(): Promise<Oferta[]> {
   await polacz();
   const produkty = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
+  const sub = produkty.find((p) => SUBSKRYPCJE.includes(p.id));
+  const uprawniony = sub ? await uprawnionyDoProby(Reflect.get(sub, 'subscriptionGroupIdIOS')) : false;
   const wynik: Oferta[] = [];
   for (const p of produkty) {
     const plan = planProduktu(p.id);
-    if (plan) wynik.push({ plan, cena: p.displayPrice });
+    const probaDni = uprawniony && SUBSKRYPCJE.includes(p.id) ? dniOkresuProbnego(p) : null;
+    if (plan) wynik.push({ plan, cena: p.displayPrice, probaDni });
   }
   return wynik;
 }

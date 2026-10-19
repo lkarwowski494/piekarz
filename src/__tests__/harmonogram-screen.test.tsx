@@ -2,7 +2,8 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import HarmonogramScreen from '../../app/(tabs)/harmonogram';
 import { getActiveBake, setActiveBake, initDatabase } from '../data/sqlite-store';
-
+
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 
 const mockPush = jest.fn();
@@ -53,6 +54,7 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     setActiveBake(null);
     await initDatabase();

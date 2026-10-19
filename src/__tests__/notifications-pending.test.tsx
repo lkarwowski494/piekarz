@@ -39,6 +39,7 @@ import { initDatabase, setActiveBake, saveStarter, restoreFromBackupData } from 
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { resyncNotifications } from '../lib/notifications';
 
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 type Mock = { pending: Map<string, { identifier: string; trigger: { date: number } }>; iosStatus: number; grantOnRequest: boolean };
 const mock = (Notifications as unknown as { __mock: Mock }).__mock;
 const ids = () => [...mock.pending.keys()].sort();
@@ -76,6 +77,7 @@ describe('Pending notifications follow the saved state (006)', () => {
     useTempDbDir();
   });
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     mock.pending.clear();
     mock.iosStatus = 2;
     mock.grantOnRequest = true;

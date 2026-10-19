@@ -11,7 +11,8 @@ import {
   _resetMemStore,
 } from '../data/sqlite-store';
 import { getPendingRecipeToLoad } from '../lib/recipe-navigation';
-
+
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 
 jest.mock('expo-keep-awake', () => ({
@@ -69,6 +70,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     _resetMemStore();
     setActiveBake(null);

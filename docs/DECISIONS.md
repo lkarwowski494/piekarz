@@ -29,7 +29,7 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Postanowienia:**
   1. **Znalezisko 1 (.gitignore):** Wybrano Opcję 1.A — dopisano `.env` oraz `.env.*` do `.gitignore` w celu prewencji wycieku sekretów.
   2. **Znalezisko 2 (Branding Paywall):** Wybrano Opcję 2.A — zmieniono badge w `PaywallModal.tsx` na `APPS4CRAFT PASS` dla 100% spójności ze standardem Apps4Craft Studio.
-  3. **Znalezisko 3 (Monetyzacja vs TestFlight):** Wybrano Opcję 3.A — publikacja na TestFlight w obecnej formie z symulowanym paszportem (optymalne do testów beta limitu bochenków), wdrożenie StoreKit zaplanowane jako osobny krok przed publicznym wydaniem w App Store.
+  3. **Znalezisko 3 (Monetyzacja vs TestFlight):** Wybrano Opcję 3.A — publikacja na TestFlight w obecnej formie z symulowanym paszportem (optymalne do testów beta limitu bochenków), wdrożenie StoreKit zaplanowane jako osobny krok przed publicznym wydaniem w App Store. *Zastąpione 2026-10-19 (D-033): symulacja usunięta, zakupy przez StoreKit.*
   4. **Znalezisko 4 (Rozmiar modułów > 20 KB):** Wybrano Opcję 4.A — zachowanie stabilnej, w 100% przetestowanej struktury ekranów przed wysyłką buildu na TestFlight; dekompozycja na mniejsze subkomponenty po zatwierdzeniu buildu na urządzeniu fizycznym.
 
 ---
@@ -64,6 +64,14 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 
 ---
 
+### [D-033] 2026-10-19 — Model płatności: StoreKit, subskrypcje i dożywotni, okres próbny tylko jako oferta App Store
+- **Status:** wybór właściciela 2026-10-19 (plan napraw M1: DEC-01 = (d) z podziałem DEC-01.podzial); zadania M1-audytor-generalny-008, -009, -027 (rola 02, tryb fix). Zastępuje: DEC-002 pkt 3 (symulowany paszport), DEC-01 = (a) z D-032, DEC-09, DEC-10 (mechanizm) i DEC-11 w `docs/brd/00b_Decyzje.md`.
+- **Słowa właściciela:** „Właśnie o to chodzi. My dojeżdżamy konkurencję ceną i przejmujemy wolumen.” (DEC-01 d); o okresie próbnym: „W robieniu chleba najtrudniejsze jest prowadzenie zakwasu. Więc bez rejestrowania wypieku mamy tu neverending free.” i „Kalkulator też idzie do próby.”
+- **Decyzja:** subskrypcja miesięczna i roczna (jedna grupa) oraz zakup dożywotni przez StoreKit (`expo-iap`, ADR-007); ceny 0,99 / 6,99 / 14,99 USD i regionalne ustawia właściciel w App Store Connect, aplikacja pokazuje tylko `displayPrice`. Okres próbny 14 dni na obu subskrypcjach wyłącznie jako oferta wprowadzająca App Store (aplikacja nie liczy dni). Bez uprawnienia: tylko przegląd historii oraz odczyt, eksport i usunięcie własnych danych; lista w jednej konfiguracji (`src/lib/platnosci/konfiguracja.ts`).
+- **Odrzucone:** (a) jeden zakup dożywotni z darmowym rdzeniem; (b) trzy plany bez podziału; (c) wersja 1.0 bez płatności; okres próbny liczony w aplikacji albo produkt „14-day Trial” za 0 zł (3.1.1 opisuje go dla aplikacji bez subskrypcji — ryzyko odrzucenia); RevenueCat (dane o zakupach do usługi zewnętrznej).
+- **Dlaczego:** 3.1.1 wymaga zakupu w aplikacji do odblokowania funkcji; 3.1.2(a) każe ustawiać okres próbny subskrypcji w App Store Connect; dostęp z transakcji wraca po ponownej instalacji.
+- **Zależy od:** konfiguracji produktów i ofert w App Store Connect (krok właściciela); czasy cyklu wypieku i zakwasu [DO USTALENIA] dla roli 06; DEC-12 (prawa nabyte) bez wdrożenia — w App Store nie było płatnego wydania, do potwierdzenia przez właściciela.
+
 ### [D-032] 2026-10-19 — Kontrakt zakresu przebudowany na poprawionym BRD: tabela F-nn i decyzja dla każdego BR
 - **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-14, opcja a); zadanie M1-audytor-generalny-032 (rola 03, tryb fix).
 - **Słowa właściciela:** „Przebudować kontrakt trybem 03-zakres build na podstawie poprawionego BRD”.
@@ -72,7 +80,7 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Skutek:** `docs/scope-contract.md` sekcja 7: F-09…F-52 obok F-01…F-08; każde z 52 BR w jednym wierszu. Decyzje wpisane z rejestru właściciela (plan napraw M1, wybory z 2026-10-19), dosłownie w kontrakcie przy funkcjach:
   - DEC-02 = (a) „Powiadomienia lokalne dla każdego kroku i karmienia, poziom Time Sensitive dla kroków krytycznych, prośba o zgodę przy pierwszym timerze; bez Live Activity w 1.0” → F-16 MVP;
   - DEC-15 = (a) „≥ 48 pt w Stolnicy i akcjach głównego przepływu, ≥ 44 pt w pozostałych; tekst sklepu bez liczby” → F-20 MVP;
-  - DEC-01 = (a) StoreKit, jeden zakup dożywotni, bez lokalnego okresu próbnego → F-35 MVP; podział darmowe/płatne wstrzymany przez właściciela do wyniku rozszerzonej bramki roli 02 (kolumna WTP: „wg DEC-01, w toku”);
+  - DEC-01 = (a) StoreKit, jeden zakup dożywotni, bez lokalnego okresu próbnego → F-35 MVP; podział darmowe/płatne wstrzymany przez właściciela do wyniku rozszerzonej bramki roli 02 (kolumna WTP: „wg DEC-01, w toku”); *zastąpione 2026-10-19 przez DEC-01 (d), zob. D-033;*
   - DEC-10 = (a) zasada ostrożności dla zakwasu → F-25; DEC-06 = (b) języki → F-38; DEC-07 = (a) jeden motyw ciemny → F-39 TEST.
 - **Zasada 18 (D-014 właściciela, biblioteka zasad):** BR bez dowodu wartości, których nie ma w kodzie (BR-KALK-006, BR-REKA-002, BR-SYS-001, BR-WSP-002, BR-ZAK-002, BR-UST-002), dostały TEST z „Test:” zamiast MVP z BRD; nic nie jest budowane przed wynikiem, nic nie jest usuwane. Właściciel może to zawetować (ZM-04).
 - **Nie rozstrzygnięte tu:** funkcje działające w kodzie bez dowodu albo bez BR oraz pominięcia z linii bazowej — wiersze „DO DECYZJI WŁAŚCICIELA” (F-17, F-29, F-30, F-43…F-52) z opcjami w ZM-07…ZM-14; do wyboru stan w kodzie bez zmian.

@@ -23,6 +23,7 @@ import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/(tabs)/stolnica';
 import { initDatabase, getBakeLogs, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
   if (Array.isArray(n)) return n.map(textOf).join('');
@@ -61,6 +62,7 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
 
 describe('Bake journal keeps missing values missing (017)', () => {
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     _resetMemStore();
     setActiveBake(null);
     await initDatabase();

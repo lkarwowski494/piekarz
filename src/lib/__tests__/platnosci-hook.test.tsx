@@ -8,7 +8,7 @@ import renderer, { act } from 'react-test-renderer';
 import * as Iap from 'expo-iap';
 import { useAppAccess } from '../app-access';
 import { _resetStanu } from '../platnosci/stan';
-import { _resetMemStore, resetAppAccess, setAppSetting } from '../../data/sqlite-store';
+import { _resetMemStore, setAppSetting } from '../../data/sqlite-store';
 
 const mockIap = (Iap as unknown as { __mock: any }).__mock;
 const DAY = 24 * 60 * 60 * 1000;
@@ -47,12 +47,10 @@ function canRun(): boolean {
 }
 
 describe('Access comes only from StoreKit transactions (008)', () => {
-  beforeEach(async () => {
+  beforeEach(() => {
     _resetMemStore();
     mockIap.reset();
     _resetStanu();
-    // Lokalny okres próbny już minął: dostęp może dać tylko sklep.
-    await resetAppAccess({ trialStartedAt: Date.now() - 60 * DAY, trialDays: 14 });
   });
 
   it('subscribe without a store transaction does not grant access', async () => {
@@ -78,12 +76,8 @@ describe('Access comes only from StoreKit transactions (008)', () => {
     act(() => tree.unmount());
   });
 
-  it('a database tier written by the old simulation does not grant access', async () => {
-    await resetAppAccess({ trialStartedAt: Date.now() - 60 * DAY, trialDays: 14, subscriptionTier: 'lifetime' });
-    const tree = await mount();
-    expect(canRun()).toBe(false);
-    act(() => tree.unmount());
-  });
+  // Usunięty (009) test „a database tier written by the old simulation”: aplikacja nie czyta już app_access;
+  // zastępuje go platnosci-pamiec.sqlite („editing subscription_tier does not grant access”) na prawdziwej bazie.
 
   it('reinstall: empty database and a lifetime entitlement in the store gives access', async () => {
     mockIap.entitlements = [
@@ -120,4 +114,11 @@ describe('Access comes only from StoreKit transactions (008)', () => {
     expect(canRun()).toBe(false);
     act(() => tree.unmount());
   });
-});
+
+  // Bez lokalnego licznika dni: nowa instalacja bez zakupu nie dostaje dostępu z bazy [M1-audytor-generalny-009]
+  it('fresh install without a purchase has no access from a local trial', async () => {
+    _resetMemStore();
+    const tree = await mount();
+    expect(canRun()).toBe(false);
+    act(() => tree.unmount());
+  });});

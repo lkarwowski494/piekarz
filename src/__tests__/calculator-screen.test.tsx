@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
+import CalculatorScreen from '../../app/(tabs)/index';
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import {
   initDatabase,
   getActiveBake,
@@ -62,6 +63,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     _resetMemStore();
     setActiveBake(null);

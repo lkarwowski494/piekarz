@@ -74,7 +74,9 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194'])('TestFlight database from build
     expect(logs.find((b) => b.id === 'bake_2')).toEqual(
       expect.objectContaining({ recipeName: 'Chleb 2', ambientTemp: 22.5, actualDDT: 25.5, notes: 'notatka 2', crumbScore: 4, tasteProfile: 'sour' })
     );
-    const access = await app.store.getAppAccess();
-    expect(access.completedBakesCount).toBe(3);
+    // app_access zostaje w bazie bez migracji; aplikacja go nie czyta (009), wartości przeżywają w pliku.
+    const rawAfter = openRaw(APP_DB());
+    expect(rawAfter.prepare("SELECT completed_bakes_count AS c FROM app_access WHERE id = 'current_user'").get()).toEqual({ c: 3 });
+    rawAfter.close();
   });
 });

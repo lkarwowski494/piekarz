@@ -3,7 +3,7 @@
  * [M1-audytor-generalny-008; 02-monetyzacja-001].
  */
 import { decyzja, odczytajPamiec, zapisPamieci, Uprawnienie, Pamiec, Odczyt, Powod, Decyzja } from '../platnosci/dostep';
-import { uprawnienieZTransakcji, uprawnieniaKarencji } from '../platnosci/sklep';
+import { uprawnienieZTransakcji, uprawnieniaKarencji, dniOkresuProbnego } from '../platnosci/sklep';
 import { PRODUKTY, PLANY, SUBSKRYPCJE, ODBLOKOWUJA, KLUCZ_PAMIECI, planProduktu, Plan } from '../platnosci/konfiguracja';
 import type { Purchase } from 'expo-iap';
 
@@ -74,6 +74,19 @@ describe('adapter: StoreKit transaction → entitlement', () => {
     const d = decyzja(sklep(...uprawnieniaKarencji(statusy as never)), null, T, ODBLOKOWUJA);
     expect(d.dostep).toBe(true);
     expect(decyzja(sklep(...uprawnieniaKarencji(statusy as never)), null, T + 4, ODBLOKOWUJA).dostep).toBe(false);
+  });
+});
+
+describe('introductory offer length comes from the StoreKit product (009)', () => {
+  const offer = (o: Record<string, unknown>) => ({ subscriptionOffers: [{ type: 'introductory', paymentMode: 'free-trial', periodCount: 1, ...o }] });
+  it('days and weeks give days; months, paid intro and missing offer give null', () => {
+    expect(dniOkresuProbnego(offer({ period: { unit: 'day', value: 14 } }))).toBe(14);
+    expect(dniOkresuProbnego(offer({ period: { unit: 'week', value: 2 } }))).toBe(14);
+    expect(dniOkresuProbnego(offer({ period: { unit: 'week', value: 1 }, periodCount: 2 }))).toBe(14);
+    expect(dniOkresuProbnego(offer({ period: { unit: 'month', value: 1 } }))).toBeNull();
+    expect(dniOkresuProbnego(offer({ period: { unit: 'day', value: 14 }, paymentMode: 'pay-as-you-go' }))).toBeNull();
+    expect(dniOkresuProbnego({ subscriptionOffers: null })).toBeNull();
+    expect(dniOkresuProbnego(null)).toBeNull();
   });
 });
 

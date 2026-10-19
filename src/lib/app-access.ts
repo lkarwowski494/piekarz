@@ -1,38 +1,28 @@
 // ============================================================================
-// Piekarz — dostęp do płatnej części (useAppAccess) [M1-audytor-generalny-008; 02-monetyzacja-001]
-// Źródłem prawdy są transakcje StoreKit (src/lib/platnosci). Baza aplikacji nie nadaje dostępu:
-// kolumny subscription_tier / subscription_expires_at z dawnej symulacji nie są czytane.
+// Piekarz — dostęp do płatnej części (useAppAccess) [M1-audytor-generalny-008, -009; 02-monetyzacja-001, -002]
+// Źródłem prawdy są transakcje StoreKit (src/lib/platnosci). Okres próbny to wyłącznie oferta
+// wprowadzająca App Store (aktywna subskrypcja w currentEntitlements); aplikacja nie liczy dni.
+// Baza aplikacji nie nadaje dostępu: kolumny app_access z dawnej symulacji i triala nie są czytane.
 // ============================================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import { getAppAccess } from '../data/sqlite-store';
-import { StoredAppAccess } from '../data/db';
 import type { Plan } from './platnosci/konfiguracja';
 import type { Decyzja } from './platnosci/dostep';
 import { pobierzStan, subskrybujStan, odswiezDostep, ustalDostep, StanDostepu } from './platnosci/stan';
 import { kup, przywroc } from './platnosci/sklep';
 
-export type AccessStatus = 'trial_active' | 'trial_expired' | 'subscribed';
+export type AccessStatus = 'dostep' | 'bez_uprawnienia';
 
 export interface AppAccessInfo {
   status: AccessStatus;
-  /** Dostęp ze sklepu albo z pamięci ostatniego udanego odczytu. */
+  /** Decyzja ze sklepu albo z pamięci ostatniego udanego odczytu. */
   zakup: Decyzja;
   canCreateNewBake: boolean;
 }
 
-export const TRIAL_DURATION_DAYS = 14;
-
-/** Czysta ocena: uprawnienie ze sklepu albo (do zadania 009) lokalny okres próbny. */
-export function evaluateAppAccess(
-  stored: StoredAppAccess | null,
-  zakup: Decyzja,
-  now: number = Date.now()
-): AppAccessInfo {
-  if (zakup.dostep) return { status: 'subscribed', zakup, canCreateNewBake: true };
-  const days = stored ? (now - stored.trialStartedAt) / (1000 * 60 * 60 * 24) : 0;
-  const active = stored !== null && days < (stored.trialDays || TRIAL_DURATION_DAYS);
-  return { status: active ? 'trial_active' : 'trial_expired', zakup, canCreateNewBake: active };
+/** Czysta ocena: dostęp wyłącznie z uprawnienia App Store (subskrypcja, oferta wprowadzająca, dożywotni). */
+export function evaluateAppAccess(zakup: Decyzja): AppAccessInfo {
+  return { status: zakup.dostep ? 'dostep' : 'bez_uprawnienia', zakup, canCreateNewBake: zakup.dostep };
 }
 
 /**
@@ -41,22 +31,20 @@ export function evaluateAppAccess(
  */
 export function useAppAccess() {
   const [zakup, setZakup] = useState<StanDostepu>(pobierzStan);
-  const [stored, setStored] = useState<StoredAppAccess | null>(null);
   const [isPaywallVisible, setPaywallVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const off = subskrybujStan(setZakup);
     if (!pobierzStan().gotowe) void odswiezDostep();
-    void getAppAccess().then(setStored);
     return off;
   }, []);
 
-  const access = evaluateAppAccess(stored, zakup.decyzja);
+  const access = evaluateAppAccess(zakup.decyzja);
 
   // Zakup przychodzi przez nasłuch transakcji: po nadaniu dostępu ekran zakupu się zamyka.
   useEffect(() => {
-    if (access.zakup.dostep) setPaywallVisible(false);
-  }, [access.zakup.dostep]);
+    if (access.canCreateNewBake) setPaywallVisible(false);
+  }, [access.canCreateNewBake]);
 
   /** Jedyny strażnik akcji: bez dostępu otwiera ekran zakupu i nie wykonuje akcji. */
   const requireActionAccess = useCallback(

@@ -2,7 +2,8 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ZakwasScreen from '../../app/(tabs)/zakwas';
 import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/sqlite-store';
-
+
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 
 jest.mock('react-native-safe-area-context', () => {
@@ -47,6 +48,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     _resetMemStore();
     await initDatabase();

@@ -62,17 +62,6 @@ export interface StoredLessonProgress {
   completedAt: number;
 }
 
-export type SubscriptionTier = 'none' | 'monthly' | 'yearly' | 'lifetime';
-
-export interface StoredAppAccess {
-  id: string;
-  trialStartedAt: number;
-  trialDays: number;
-  subscriptionTier: SubscriptionTier;
-  subscriptionExpiresAt?: number | null;
-  completedBakesCount: number;
-}
-
 /**
  * In-memory repository with local persistence layer.
  * Implements full CRUD without external cloud dependencies.

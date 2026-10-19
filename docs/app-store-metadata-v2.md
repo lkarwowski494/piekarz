@@ -154,16 +154,17 @@ Zgodnie z wytycznymi App Store, przygotowano specyfikację 5 kluczowych ramek pr
 - **Oficjalna Kwalifikacja:** **„Data Not Collected”** (Najwyższa możliwa ocena prywatności Apple).
 
 ### 4.2. In-App Purchases (IAP) & Monetyzacja
-- **Darmowy dostęp bazowy (Free Tier):**
-  - Kalkulator True Baker's % z nielimitowanymi obliczeniami,
-  - 3 pełne bochenki w historii wypieków na stałe,
-  - Podstawowy słownik wiedzy i atlas mąk,
-  - 7-dniowy nielimitowany okres próbny (Craft Trial) uruchamiany lokalnie.
-- **Produkty Płatne (Opcjonalne):**
-  1. `Monthly Pass` — 4,99 zł / $0.99 miesięcznie.
-  2. `Yearly Craft Pass` — 24,99 zł / $4.99 rocznie z 7-dniowym darmowym okresem próbnym.
-  3. `Lifetime Baker Pass` — 59,99 zł / $14.99 jednorazowo (wieczna licencja).
-- **Mechanizm Restore Purchases:** Formularz paywalla (`src/components/PaywallModal.tsx`) posiada jawny, działający przycisk *Przywróć zakupy* spełniający wytyczną 3.1.1 Apple Review Guidelines.
+
+> Zastąpione 2026-10-19 (DEC-01 d, M1-audytor-generalny-009): dawny „Free Tier” z okresem próbnym liczonym przez aplikację i dawne ceny w tym miejscu nie obowiązują; historia zmian w git. Identyfikatory produktów są w `src/lib/platnosci/konfiguracja.ts` (test `tests/oferta-dokumenty.test.ts`).
+
+- **Bez zakupu:** przegląd historii wypieków oraz odczyt, eksport i usunięcie własnych danych. Każda inna funkcja otwiera ekran zakupu.
+- **Produkty (App Store Connect, jedna grupa subskrypcji dla dwóch pierwszych):**
+  1. `com.apps4brew.baker.pro.monthly` — subskrypcja miesięczna, oferta wprowadzająca: bezpłatny okres próbny 14 dni.
+  2. `com.apps4brew.baker.pro.yearly` — subskrypcja roczna, oferta wprowadzająca: bezpłatny okres próbny 14 dni.
+  3. `com.apps4brew.baker.pro.lifetime` — zakup dożywotni (Non-Consumable), bez okresu próbnego.
+- **Ceny:** ustawia właściciel w App Store Connect (DEC-01 d: 0,99 / 6,99 / 14,99 USD; ceny regionalne według bramki wariantów, np. PL 4,99 / 29,99 / 79,99 zł). Aplikacja pokazuje wyłącznie `displayPrice` z App Store.
+- **Okres próbny:** tylko oferta wprowadzająca App Store (jedna na grupę subskrypcji, dla uprawnionych); aplikacja nie liczy dni i pokazuje ofertę tylko uprawnionym (`isEligibleForIntroOfferIOS`).
+- **Przywracanie zakupów:** przycisk *Przywróć zakupy* na ekranie zakupu (`src/components/PaywallModal.tsx`) wywołuje synchronizację App Store.
 
 ### 4.3. Instrukcja dla Apple App Review Team (Review Notes)
 
@@ -175,8 +176,10 @@ Piekarz (Crust) to aplikacja 100% Offline-First dla pasjonatów wypieku chleba n
 1. LOGOWANIE I KONTA:
 Aplikacja NIE WYMAGA logowania, podawania adresu e-mail ani numeru telefonu. Wszystkie funkcje działają od razu po otwarciu aplikacji w trybie lokalnym.
 
-2. PŁATNOŚCI IAP / SUBIEKTYWNY TEST:
-Aplikacja oferuje 7-dniowy bezpłatny okres próbny aktywowany lokalnie oraz opcjonalne produkty In-App Purchase. Przycisk „Przywróć zakupy” (Restore Purchases) znajduje się w prawym górnym rogu ekranu Ustawienia oraz na dole modala subskrypcji.
+2. ZAKUPY W APLIKACJI (IAP):
+Dostęp do funkcji daje subskrypcja miesięczna lub roczna (jedna grupa; oferta wprowadzająca: 14 dni bezpłatnie) albo zakup dożywotni. Bez zakupu działa tylko przegląd historii wypieków oraz odczyt, eksport i usunięcie własnych danych.
+Nowy użytkownik nie ma historii, więc bez okresu próbnego nie zobaczy funkcji aplikacji. Prosimy: zaloguj się kontem sandbox, dotknij dowolnej funkcji (np. Kalkulator), na ekranie zakupu wybierz plan roczny i dotknij „Wypróbuj 14 dni”.
+Przycisk „Przywróć zakupy” (Restore Purchases) jest na dole ekranu zakupu.
 
 3. UPRAWNIENIA:
 Aplikacja prosi wyłącznie o dostęp do aparatu w momencie, gdy użytkownik jawnie kliknie „Skanuj kod QR receptury” (Camera Permission). Brak jakichkolwiek uprawnień do mikrofonu, lokalizacji czy śledzenia ATT.

@@ -35,6 +35,7 @@ import { setLang, t } from '../lib/i18n';
 import legacyFixture from '../../tests/fixtures/bake-session-v1-1c38b28.json';
 import ryeFixture from '../../tests/fixtures/bake-session-v2-rye.json';
 
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 /** Komunikat blokady z 6e120aa: po wariancie żytnim (a) roli 06 nie może się pokazać. */
 const RYE_MSG =
   'Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.';
@@ -103,6 +104,7 @@ const LEGACY_8 = [
 describe('Stolnica z receptury i planu (030)', () => {
   let now = 1_800_000_000_000;
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     useTempDbDir();
     _resetMemStore();
     setActiveBake(null);

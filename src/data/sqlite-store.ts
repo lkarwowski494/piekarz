@@ -4,7 +4,6 @@ import {
   StoredStarter,
   StoredBakeLog,
   StoredFlourInventoryItem,
-  StoredAppAccess,
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import {
@@ -21,10 +20,8 @@ export {
   _resetMemStore,
   ActiveBakeState,
 };
-export * from './app-access-store';
 export * from './settings-store';
 import { writeOrThrow } from './storage-status';
-import { getAppAccess, incrementCompletedBakes } from './app-access-store';
 import { isRecipeInput } from './row-parsers';
 
 // ==========================================
@@ -397,20 +394,17 @@ export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Pr
 }
 
 /**
- * Zakończenie wypieku w jednej transakcji: wpis do historii, licznik wypieków i odliczenie mąki
+ * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
  */
 export async function finishBake(log: StoredBakeLog, flours: Array<{ name: string; weightGrams: number }>): Promise<void> {
   const db = await getDb();
   if (!db) {
     await saveBakeLog(log);
-    await incrementCompletedBakes();
     for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
     return;
   }
 
-  const current = await getAppAccess();
-  const access: StoredAppAccess = { ...current, completedBakesCount: current.completedBakesCount + 1 };
   const inventory = (await getFlourInventory()).map((i) => ({ ...i }));
   const changed = new Map<string, StoredFlourInventoryItem>();
   for (const f of flours) {
@@ -425,17 +419,12 @@ export async function finishBake(log: StoredBakeLog, flours: Array<{ name: strin
   await writeOrThrow(() =>
     db.withTransactionAsync(async () => {
       await writeBakeRow(db, log);
-      await db.runAsync(
-        `UPDATE app_access SET completed_bakes_count = ? WHERE id = 'current_user';`,
-        access.completedBakesCount
-      );
       for (const item of changed.values()) await writeFlourRow(db, item);
     })
   );
 
   // Pamięć dopiero po zatwierdzeniu transakcji
   memStore.logs = [log, ...memStore.logs.filter((l) => l.id !== log.id)];
-  memStore.appAccess = { ...access };
   changed.forEach(rememberFlour);
   if (log.finishedAt) {
     void collectBackupData()

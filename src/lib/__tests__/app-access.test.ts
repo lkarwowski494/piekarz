@@ -1,51 +1,23 @@
-import { evaluateAppAccess, TRIAL_DURATION_DAYS } from '../app-access';
-import { getAppAccess, incrementCompletedBakes, resetAppAccess, _resetMemStore } from '../../data/sqlite-store';
-import { StoredAppAccess } from '../../data/db';
+import { evaluateAppAccess } from '../app-access';
 import type { Decyzja } from '../platnosci/dostep';
 
-// Ocena dostępu: zakup tylko z decyzji sklepu (platnosci/dostep.ts) [M1-audytor-generalny-008].
-// Usunięte: testy „subscribed to yearly / lifetime” i „updates subscription tier”, które utrwalały
-// symulację (poziom w SQLite = dostęp); zastępują je src/lib/__tests__/platnosci-*.test.ts.
+// Ocena dostępu wyłącznie z decyzji sklepu (platnosci/dostep.ts) [M1-audytor-generalny-008, -009].
+// Usunięte (009): testy lokalnego okresu próbnego liczonego od trialStartedAt i licznika wypieków;
+// okres próbny to oferta wprowadzająca App Store — zastępują je platnosci-hook („fresh install…”)
+// i paywall-modal („eligible user sees the store trial length…”).
 describe('App access evaluation', () => {
-  beforeEach(() => {
-    _resetMemStore();
+  it('store entitlement (subscription, introductory offer or lifetime) grants access', () => {
+    const d: Decyzja = { dostep: true, powod: 'sklep', pamiec: { produkty: ['x'], wygasa: null } };
+    expect(evaluateAppAccess(d)).toEqual({ status: 'dostep', zakup: d, canCreateNewBake: true });
   });
 
-  const now = 1700000000000;
-  const brak: Decyzja = { dostep: false, powod: 'brak', pamiec: null };
-  const sklep: Decyzja = { dostep: true, powod: 'sklep', pamiec: { produkty: ['x'], wygasa: null } };
-  const stored = (over: Partial<StoredAppAccess>): StoredAppAccess => ({
-    id: 'current_user',
-    trialStartedAt: now,
-    trialDays: TRIAL_DURATION_DAYS,
-    subscriptionTier: 'none',
-    subscriptionExpiresAt: null,
-    completedBakesCount: 0,
-    ...over,
+  it('memory of the last store read grants access while the store is unreachable', () => {
+    const d: Decyzja = { dostep: true, powod: 'pamiec', pamiec: { produkty: ['x'], wygasa: 5 } };
+    expect(evaluateAppAccess(d).status).toBe('dostep');
   });
 
-  it('a store entitlement grants access', () => {
-    const r = evaluateAppAccess(stored({ trialStartedAt: now - 100 * 86400000 }), sklep, now);
-    expect(r.status).toBe('subscribed');
-    expect(r.canCreateNewBake).toBe(true);
-  });
-
-  it('a tier written to the database without a store transaction grants nothing', () => {
-    const r = evaluateAppAccess(stored({ trialStartedAt: now - 100 * 86400000, subscriptionTier: 'lifetime' }), brak, now);
-    expect(r.status).toBe('trial_expired');
-    expect(r.canCreateNewBake).toBe(false);
-  });
-
-  it('local trial (until task 009) and missing record', () => {
-    expect(evaluateAppAccess(stored({}), brak, now).status).toBe('trial_active');
-    expect(evaluateAppAccess(stored({ trialStartedAt: now - 15 * 86400000, trialDays: 14 }), brak, now).status).toBe('trial_expired');
-    expect(evaluateAppAccess(null, brak, now).canCreateNewBake).toBe(false);
-  });
-
-  it('retrieves default record, increments bakes and resets for tests', async () => {
-    expect((await getAppAccess()).completedBakesCount).toBe(0);
-    expect(await incrementCompletedBakes()).toBe(1);
-    await resetAppAccess({ completedBakesCount: 5 });
-    expect((await getAppAccess()).completedBakesCount).toBe(5);
+  it('no entitlement means no access', () => {
+    const d: Decyzja = { dostep: false, powod: 'brak', pamiec: null };
+    expect(evaluateAppAccess(d)).toEqual({ status: 'bez_uprawnienia', zakup: d, canCreateNewBake: false });
   });
 });

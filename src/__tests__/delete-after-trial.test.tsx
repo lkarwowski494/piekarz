@@ -30,13 +30,16 @@ import { PaywallModal } from '../components/PaywallModal';
 import {
   initDatabase,
   _resetMemStore,
-  resetAppAccess,
   saveRecipe,
   getRecipes,
   saveStarter,
   getStarters,
   getFlourInventory,
 } from '../data/sqlite-store';
+import * as Iap from 'expo-iap';
+import { _resetStanu } from '../lib/platnosci/stan';
+
+const mockIap = (Iap as unknown as { __mock: { reset: () => void } }).__mock;
 
 const flush = async () => {
   await act(async () => {
@@ -45,11 +48,14 @@ const flush = async () => {
 };
 const paywallShown = (root: renderer.ReactTestInstance) => root.findAllByType(PaywallModal).some((p) => p.props.visible === true);
 
-describe('Deleting own data after the trial ended (007)', () => {
+// Stan „bez uprawnienia” (009): sklep bez subskrypcji, oferty wprowadzającej ani zakupu dożywotniego;
+// zastępuje dawny lokalny „trial_expired” (resetAppAccess z datą sprzed 60 dni).
+describe('Deleting own data without an entitlement (007)', () => {
   beforeEach(async () => {
     _resetMemStore();
+    mockIap.reset();
+    _resetStanu();
     await initDatabase();
-    await resetAppAccess({ trialStartedAt: Date.now() - 1000 * 60 * 60 * 24 * 60, trialDays: 14 });
   });
 
   it('recipe: deletes without the purchase screen', async () => {

@@ -89,6 +89,7 @@ Aplikacja wykorzystuje sprawdzone klocki ekosystemu Apps4Craft:
 1. **ZAKAZ** wprowadzania ekranów logowania, rejestracji, formularzy e-mail czy tworzenia kont w chmurze (Zasada ZP-02).
 2. **ZAKAZ** blokowania ekranu głównego paywallem przy pierwszym uruchomieniu aplikacji. Nowicjusz musi zobaczyć wynik w < 6 sekund.
 3. **ZAKAZ** odcinania użytkownika od jego archiwalnych wypieków i notatek po wygaśnięciu trialu. Historia jest zawsze bezpłatna (Read-Only Archive).
+   *Uzupełnienie 2026-10-19 (DEC-01 d właściciela, D-033; zastępuje darmowy rdzeń DEC-09 i lokalny trial):* bez subskrypcji, oferty wprowadzającej App Store (14 dni na planie miesięcznym i rocznym) ani zakupu dożywotniego działa tylko przegląd historii oraz odczyt, eksport i usunięcie własnych danych; pozostałe funkcje, także kalkulator, otwierają ekran zakupu przy pierwszym użyciu, nie przy uruchomieniu (pkt 2 nadal obowiązuje). Lista: `src/lib/platnosci/konfiguracja.ts` [M1-audytor-generalny-009, -027].
 4. **ZAKAZ** używania trybu audio w tle (`UIBackgroundModes: ["audio"]`), co gwarantuje odrzucenie przez recenzentów Apple z Guideline 2.5.4.
 5. **ZAKAZ** projektowania celów dotykowych mniejszych niż 48x48pt na ekranach kuchennych (zalecane 56–64pt w strefie kciuka).
 

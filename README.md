@@ -24,12 +24,10 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
   - **Poziom 1 (1-Tap, < 30s do miski):** Karta `DoMiskiScaleCard` z natychmiastowym wyborem chleba, stepperem liczby bochenków i checklistą składników na wadze kuchennej (mąka, woda, zakwas, sól).
   - **Poziom 2 (Akordeon PRO):** Zwijany panel `ArtisanAccordionPro` kryjący 4-DDT (temperatura wody, tarcie miksera, bilansowanie lodu), atlas mąk (popiół, chłonność), prefermenty (Poolish, Biga, Levain) i stratę piecową.
   - **Zasada Brudnego Kciuka:** Pola dotykowe $\ge 52\,\text{pt}$, haptyka przy każdym odważonym składniku, dźwięk dzwonka kuchennego oraz blokada wygaszania ekranu (`KeepAwake`).
-- **Model Monetyzacji „Cheaper than Espresso”:**
-  - **$0.99 USD / miesiąc** (~4,49 zł)
-  - **$4.99 USD / rok** (~22,99 zł) — *Oferta główna (~1,91 zł/msc)*
-  - **$14.99 USD Lifetime** (~69,99 zł) — *Zakup jednorazowy na zawsze*
-  - **Zero podziału na funkcje Free i Pro:** W okresie próbnym (7 dni lub pierwsze 3 pełne wypieki) użytkownik ma dostęp do **100% możliwości aplikacji** bez sztucznych ograniczeń.
-  - **Zasada Historii Zawsze Czytelnej (Read-Only):** Po wygaśnięciu okresu próbnego archiwalne wypieki, notatki i radary sensoryczne pozostają w 100% bezpłatne do wglądu. Blokowane są wyłącznie akcje tworzenia nowych wypieków, otwierające estetyczny Paywall.
+- **Model płatności (DEC-01 d, decyzja właściciela z 2026-10-19; zastępuje „Cheaper than Espresso” i darmowy rdzeń DEC-09):**
+  - Zakupy wyłącznie przez App Store (StoreKit, `expo-iap`, ADR-007): subskrypcja miesięczna i roczna w jednej grupie oraz zakup dożywotni. Ceny i waluty pokazuje aplikacja z App Store (`displayPrice`); ustawia je właściciel w App Store Connect.
+  - **Okres próbny 14 dni** na planie miesięcznym i rocznym, wyłącznie jako oferta wprowadzająca App Store (jedna na grupę subskrypcji, dla uprawnionych). Aplikacja nie liczy dni. Zakup dożywotni nie ma okresu próbnego.
+  - Bez subskrypcji, oferty wprowadzającej ani zakupu dożywotniego działa tylko przegląd historii wypieków oraz odczyt, eksport i usunięcie własnych danych. Każda inna funkcja otwiera ekran zakupu.
 - **Własność Danych & Bezpieczna Persystencja:** Baza danych SQLite zabezpieczona w katalogu `/Library/SQLite` (chroniona przed przypadkowym skasowaniem w aplikacji *Pliki*). Automatyczna rotacja 10 najnowszych kopii po każdym wypieku (`Documents/Backup/`) oraz nielimitowany eksport/import JSON.
 - **Deterministyczna Fizyka i Matematyka Piekarska:**
   - **True Baker’s %:** Woda i mąka zawarte w zakwasie (Levain) są wliczane w bilans całkowitej hydratacji ciasta.
@@ -120,7 +118,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 10. **✂️ Lista odcięć (D-031, 2026-10-19):** Apple Watch, Live Activity, skróty Siri, eksport do kalendarza, plik `.piekarz`, trener rachunku i fiszki, sonda temperatury, kalkulator kosztu, Garmin i stary korzeń `App.tsx` usunięte z kodu; powody i warunki powrotu w `docs/scope-contract.md` (sekcja 3a, KL-06…KL-17).
 11. **⚙️ Ustawienia, Kopia Zapasowa i Pro:**
     - Eksport i import bazy w formacie JSON (`exportBackup`).
-    - Etyczny model monetyzacji (Darmowy rdzeń + opcjonalny Pro Lifetime lub 0,99 €/mc bez blokowania podstawowych funkcji).
+    - Zakupy przez App Store: subskrypcja miesięczna lub roczna (oferta wprowadzająca: 14 dni bezpłatnie) albo zakup dożywotni; historia i własne dane dostępne bez zakupu (zob. „Model płatności” wyżej).
 
 ---
 
@@ -257,7 +255,7 @@ piekarz/
 │   │   ├── QrCodeSvg.tsx         # Wektorowy renderer kodów QR SVG
 │   │   ├── ShareRecipeQrModal.tsx# Udostępnianie receptur przez kody QR SVG i deep links
 │   │   ├── QrScannerModal.tsx    # Offline skaner kodów kreskowych/QR aparatem
-│   │   ├── PaywallModal.tsx      # Modal monetyzacji Cheaper than Espresso ($0.99 / $4.99 / $14.99)
+│   │   ├── PaywallModal.tsx      # Ekran zakupu: ceny z App Store (displayPrice), oferta wprowadzająca dla uprawnionych
 │   │   └── calculator/           # Komponenty kuchennego Progressive Disclosure
 │   │       ├── DoMiskiScaleCard.tsx    # Poziom 1: 1-Tap waga kuchenna, odhaczanie, haptyka
 │   │       └── ArtisanAccordionPro.tsx # Poziom 2: Zwijany panel 4-DDT, lód, prefermenty
@@ -282,7 +280,7 @@ piekarz/
 │   │   └── __tests__/          # Testy reguł HIG S1, S5, S14
 │   ├── lib/                    # Narzędzia i adaptery Apps4Brew
 │   │   ├── announce.ts         # Asysta VoiceOver
-│   │   ├── app-access.ts       # Silnik uprawnień useAppAccess() i model Cheaper than espresso
+│   │   ├── app-access.ts       # useAppAccess(): dostęp z transakcji StoreKit (src/lib/platnosci, ADR-007)
 │   │   ├── backup.ts           # Eksport, autoBackup (rotacja 10) i safetyBackup
 │   │   ├── confirm.ts          # Znormalizowane dialogi HIG
 │   │   ├── db-path.ts          # Ochrona bazy w /Library/SQLite

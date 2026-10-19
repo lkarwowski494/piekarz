@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { FlourInventoryModal } from '../FlourInventoryModal';
+import { FlourInventoryModal } from '../FlourInventoryModal';
+import { zUprawnieniem } from '../../../tests/helpers/platnosci';
 import {
   initDatabase,
   getFlourInventory,
@@ -14,6 +15,7 @@ describe('FlourInventoryModal Component (src/components/FlourInventoryModal.tsx)
   const mockOnInventoryUpdated = jest.fn();
 
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     _resetMemStore();
     await initDatabase();

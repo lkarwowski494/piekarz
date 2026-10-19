@@ -28,7 +28,7 @@ import { AUTO_DIR, AUTO_KEEP } from '../src/lib/backup';
 import { LANGS } from '../src/lib/i18n';
 import { RecipeValidationResult } from '../src/lib/recipe-sharing';
 import { UnitSystem } from '../src/lib/unit-converter';
-import { SubscriptionTier } from '../src/data/db';
+import { Plan } from '../src/lib/platnosci/konfiguracja';
 import { SQLITE_INIT_QUERIES } from '../src/data/schema';
 import { DB_NAME } from '../src/data/sqlite-schema';
 import { BakerRitualProfile, BakingVessel } from '../src/data/sqlite-store';
@@ -213,8 +213,8 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       ];
       expect(stageCats.length).toBe(11);
 
-      const accessStatuses: AccessStatus[] = ['trial_active', 'trial_expired', 'subscribed'];
-      expect(accessStatuses.length).toBe(3);
+      const accessStatuses: AccessStatus[] = ['dostep', 'bez_uprawnienia'];
+      expect(accessStatuses.length).toBe(2);
 
       const validationResults: RecipeValidationResult[] = [
         { success: true, recipe: {} as any },
@@ -225,8 +225,8 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       const unitSystems: UnitSystem[] = ['metric', 'imperial'];
       expect(unitSystems.length).toBe(2);
 
-      const subTiers: SubscriptionTier[] = ['none', 'monthly', 'yearly', 'lifetime'];
-      expect(subTiers.length).toBe(4);
+      const plans: Plan[] = ['monthly', 'yearly', 'lifetime'];
+      expect(plans.length).toBe(3);
 
       const ritualProfiles: BakerRitualProfile[] = ['sourdough_purist', 'artisan_hybrid', 'beginner'];
       expect(ritualProfiles.length).toBe(3);

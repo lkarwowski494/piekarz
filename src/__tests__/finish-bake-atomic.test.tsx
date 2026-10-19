@@ -27,6 +27,7 @@ import { initDatabase, setActiveBake, saveFlourInventoryItem } from '../data/sql
 import { useTempDbDir, control, openRaw, dbFilePath } from '../data/__tests__/helpers/node-sqlite-adapter';
 import type { DoughRecipeResult } from '../core/domain-rules';
 
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
   if (Array.isArray(n)) return n.map(textOf).join('');
@@ -57,10 +58,9 @@ const recipe: DoughRecipeResult = {
 const dbState = () => {
   const raw = openRaw(dbFilePath('piekarz.db', '/Library/SQLite'));
   const bakes = (raw.prepare('SELECT count(*) AS c FROM bakes').get() as { c: number }).c;
-  const count = (raw.prepare("SELECT completed_bakes_count AS c FROM app_access WHERE id = 'current_user'").get() as { c: number }).c;
   const stock = (raw.prepare("SELECT stock_grams AS s FROM flour_inventory WHERE id = 'flour_user'").get() as { s: number }).s;
   raw.close();
-  return { bakes, count, stock };
+  return { bakes, stock };
 };
 
 async function finishOnScreen(): Promise<void> {
@@ -90,6 +90,7 @@ describe('Finishing a bake is atomic (021)', () => {
     useTempDbDir();
   });
   beforeEach(async () => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     await initDatabase();
     await saveFlourInventoryItem({ id: 'flour_user', name: 'Mąka pszenna 750', stockGrams: 2000, updatedAt: 1 });
     setActiveBake({
@@ -107,7 +108,7 @@ describe('Finishing a bake is atomic (021)', () => {
     jest.restoreAllMocks();
   });
 
-  it('a write error while deducting flour leaves no bake, no counter change and the same stock', async () => {
+  it('a write error while deducting flour leaves no bake and the same stock', async () => {
     const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
     const before = dbState();
     control().failWritesMatching = /flour_inventory/;
@@ -121,7 +122,8 @@ describe('Finishing a bake is atomic (021)', () => {
     const { StorageWriteError } = require('../data/storage-status');
     const before = dbState();
     const historyBefore = (await getBakeLogs()).length;
-    control().failWritesMatching = /app_access/;
+    // Licznik wypieków w app_access usunięty (009): błąd w środku transakcji wymusza zapis mąki po wpisie wypieku.
+    control().failWritesMatching = /flour_inventory/;
     await expect(
       finishBake({ id: 'bake_direct', recipeName: 'Chleb', startedAt: 1, finishedAt: 2 }, [{ name: 'Mąka pszenna 750', weightGrams: 100 }])
     ).rejects.toBeInstanceOf(StorageWriteError);
@@ -129,9 +131,9 @@ describe('Finishing a bake is atomic (021)', () => {
     expect((await getBakeLogs()).length).toBe(historyBefore);
   });
 
-  it('without errors the bake, the counter and the flour deduction are all saved', async () => {
+  it('without errors the bake and the flour deduction are both saved', async () => {
     const before = dbState();
     await finishOnScreen();
-    expect(dbState()).toEqual({ bakes: before.bakes + 1, count: before.count + 1, stock: 2000 - 550 });
+    expect(dbState()).toEqual({ bakes: before.bakes + 1, stock: 2000 - 550 });
   });
 });

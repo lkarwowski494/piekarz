@@ -22,6 +22,7 @@ import { useTempDbDir, control } from '../data/__tests__/helpers/node-sqlite-ada
 import { StorageGate, shareRescueFile } from '../components/StorageGate';
 import { markStorageUnavailable, resetStorageState } from '../data/storage-status';
 import { guardSave } from '../lib/save-guard';
+import { zUprawnieniem } from '../../tests/helpers/platnosci';
 
 const textOf = (node: renderer.ReactTestRendererJSON | renderer.ReactTestRendererJSON[] | null): string => {
   const walk = (n: unknown): string => {
@@ -38,6 +39,10 @@ const textOf = (node: renderer.ReactTestRendererJSON | renderer.ReactTestRendere
 describe('Write failure is visible on screen (003)', () => {
   beforeAll(() => {
     useTempDbDir();
+  });
+
+  beforeEach(() => {
+    zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
   });
 
   afterEach(() => {

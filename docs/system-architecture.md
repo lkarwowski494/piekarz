@@ -80,6 +80,8 @@ CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created
 
 ## 3. Architektura Stanu, Reaktywność i Likwidacja Wady M8
 
+> **Zastąpione 2026-10-19 (ADR-007):** krok 2 poniżej („Zapis w SQLite: setSubscriptionTier”) nie istnieje. Dostęp pochodzi z `Transaction.currentEntitlements` (adapter `src/lib/platnosci/sklep.ts`), pamięć ostatniego odczytu jest w `app_settings`, stan wspólny w `src/lib/platnosci/stan.ts`, nasłuch transakcji od startu w `app/_layout.tsx`.
+
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                   PRZEPŁYW REAKTYWNYCH UPRAWNIEŃ                       │

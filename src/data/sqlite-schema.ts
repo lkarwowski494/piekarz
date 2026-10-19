@@ -6,7 +6,6 @@ import {
   StoredStarter,
   StoredBakeLog,
   StoredFlourInventoryItem,
-  StoredAppAccess,
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
@@ -49,14 +48,6 @@ export const memStore = {
     createdAt: number;
     status: 'PENDING' | 'PROCESSING' | 'SYNCED' | 'FAILED';
   }>,
-  appAccess: {
-    id: 'current_user',
-    trialStartedAt: Date.now(),
-    trialDays: 14,
-    subscriptionTier: 'none' as const,
-    subscriptionExpiresAt: null,
-    completedBakesCount: 0,
-  } as StoredAppAccess,
   settings: {} as Record<string, string>,
 };
 
@@ -69,14 +60,6 @@ export function _resetMemStore(): void {
   memStore.activeBake = null;
   memStore.pendingOps = [];
   memStore.settings = {};
-  memStore.appAccess = {
-    id: 'current_user',
-    trialStartedAt: Date.now(),
-    trialDays: 14,
-    subscriptionTier: 'none',
-    subscriptionExpiresAt: null,
-    completedBakesCount: 0,
-  };
 }
 
 export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
@@ -349,14 +332,6 @@ export async function initDatabase(): Promise<void> {
   }
 
   try {
-    try {
-      await db.runAsync(
-        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
-         VALUES ('current_user', ?, 14, 'none', NULL, 0);`,
-        Date.now()
-      );
-    } catch {}
-
     // Populate built-in master recipes into SQLite table
     for (const preset of MASTER_RECIPES) {
       try {

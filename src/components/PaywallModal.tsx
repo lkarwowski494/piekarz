@@ -20,7 +20,7 @@ import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 import type { Plan } from '../lib/platnosci/konfiguracja';
-import { pobierzOferte } from '../lib/platnosci/sklep';
+import { pobierzOferte, Oferta } from '../lib/platnosci/sklep';
 
 export type PlanOption = Plan;
 
@@ -39,7 +39,7 @@ export function PaywallModal({
 }: PaywallModalProps) {
   const [selectedPlan, setSelectedPlan] = useState<PlanOption>('yearly');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
-  const [ceny, setCeny] = useState<Partial<Record<PlanOption, string>>>({});
+  const [oferta, setOferta] = useState<Partial<Record<PlanOption, Oferta>>>({});
 
   // Ceny z produktów App Store Connect; bez odczytu sklepu ekran nie pokazuje żadnej kwoty.
   useEffect(() => {
@@ -47,14 +47,21 @@ export function PaywallModal({
     let aktywny = true;
     pobierzOferte()
       .then((oferta) => {
-        if (aktywny) setCeny(Object.fromEntries(oferta.map((o) => [o.plan, o.cena])));
+        if (aktywny) setOferta(Object.fromEntries(oferta.map((o) => [o.plan, o])));
       })
       .catch(() => undefined);
     return () => {
       aktywny = false;
     };
   }, [visible]);
-  const cena = (plan: PlanOption) => ceny[plan] ?? '—';
+  const cena = (plan: PlanOption) => oferta[plan]?.cena ?? '—';
+  // Oferta wprowadzająca tylko dla uprawnionych; długość z App Store Connect [M1-audytor-generalny-009]
+  const proba = (plan: PlanOption) => oferta[plan]?.probaDni ?? null;
+  const probaTekst = (plan: PlanOption) => {
+    const dni = proba(plan);
+    return dni ? ` • ${t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni, cena: cena(plan) })}` : '';
+  };
+  const wybranaProba = proba(selectedPlan);
 
   const handleSelectPlan = (plan: PlanOption) => {
     setSelectedPlan(plan);
@@ -107,7 +114,7 @@ export function PaywallModal({
           <Text style={styles.title}>{t('Taniej niż espresso w kawiarni')}</Text>
           <Text style={styles.subtitle}>
             {t(
-              'Twój okres próbny dobiegł końca. Odblokuj nielimitowane wypieki i pełnego asystenta kuchennego bez reklam i bez subskrypcyjnych pułapek.'
+              'Odblokuj kalkulator, zakwas, Stolnicę, harmonogram i Doktora Chleba. Historia wypieków i Twoje dane są dostępne bez zakupu.'
             )}
           </Text>
 
@@ -147,7 +154,7 @@ export function PaywallModal({
                 <View style={styles.planInfo}>
                   <Text style={styles.planName}>{t('Roczny')}</Text>
                   <Text style={styles.planSubtext}>
-                    {t('12 miesięcy')}
+                    {t('12 miesięcy')}{probaTekst('yearly')}
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
@@ -170,7 +177,7 @@ export function PaywallModal({
                 <View style={styles.planInfo}>
                   <Text style={styles.planName}>{t('Miesięczny')}</Text>
                   <Text style={styles.planSubtext}>
-                    {t('Cena jednego espresso • Anuluj kiedy chcesz')}
+                    {t('Cena jednego espresso • Anuluj kiedy chcesz')}{probaTekst('monthly')}
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
@@ -236,6 +243,8 @@ export function PaywallModal({
             <Text style={styles.primaryCtaBtnText}>
               {isProcessing
                 ? t('Przetwarzanie...')
+                : wybranaProba
+                ? t('Wypróbuj {dni} dni', { dni: wybranaProba })
                 : selectedPlan === 'yearly'
                 ? t('Aktywuj plan roczny')
                 : selectedPlan === 'monthly'

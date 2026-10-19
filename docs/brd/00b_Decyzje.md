@@ -68,10 +68,12 @@
   - *Opcja B:* Całkowity paywall przed wejściem.
   - *Opcja C:* Darmowy kalkulator, płatny harmonogram i DDT.
 - **Rekomendacja:** **Opcja A** (generuje organiczne rekomendacje w społecznościach). Status: **ZATWIERDZONA**.
+- **Status od 2026-10-19: ZASTĄPIONA** decyzją właściciela DEC-01 (d) z podziałem (plan napraw M1, DEC-01.podzial): bez subskrypcji, oferty wprowadzającej ani zakupu dożywotniego działa tylko przegląd historii oraz odczyt, eksport i usunięcie własnych danych; kalkulator i pozostałe funkcje wymagają uprawnienia App Store [M1-audytor-generalny-009, -027].
 
 ### DEC-10: Czas trwania okresu próbnego (Free Trial)
 - **Opcje:** A) 14 dni pełnego dostępu; B) 7 dni; C) brak trialu.
 - **Rekomendacja:** **Opcja A** (cykl wypieku chleba trwa 2–3 dni; użytkownik musi upiec min. 2 bochenki, by docenić wartość). Status: **ZATWIERDZONA**.
+- **Status od 2026-10-19: ZASTĄPIONA co do mechanizmu:** 14 dni zostaje, ale wyłącznie jako oferta wprowadzająca App Store (bezpłatny okres próbny) na subskrypcji miesięcznej i rocznej, ustawiana w App Store Connect; aplikacja nie liczy dni (3.1.1, 3.1.2(a)); zakup dożywotni bez okresu próbnego. Uzasadnienie „cykl trwa 2–3 dni” jest [DO USTALENIA] dla roli 06 [M1-audytor-generalny-009].
 
 ---
 
@@ -79,6 +81,7 @@
 
 ### DEC-11: Cennik subskrypcji i zakupu dożywotniego
 - **Rekomendacja:** 0,99 €/mc, 4,99 €/rok, 14,99 € Lifetime (w Polsce: 3,99 zł / 19,99 zł / 59,99 zł). Status: **ZATWIERDZONA**.
+- **Status od 2026-10-19: ZASTĄPIONA** przez DEC-01 (d) właściciela: 0,99 / 6,99 / 14,99 USD, ceny regionalne z bramki wariantów roli 02 (np. PL 4,99 / 29,99 / 79,99 zł) ustawiane w App Store Connect; aplikacja pokazuje wyłącznie `displayPrice` [M1-audytor-generalny-008].
 
 ### DEC-12: Zasada Praw Nabytych (Grandfathering)
 - **Rekomendacja:** Dotychczasowi posiadacze aplikacji z wczesnych wydań zachowują pełny dostęp do wszystkich dotychczasowych funkcji bez żadnych opłat na zawsze. Status: **ZATWIERDZONA**.
