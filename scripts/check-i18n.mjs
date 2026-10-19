@@ -35,8 +35,12 @@ for (const f of files) {
   }
 }
 
-const dictPath = join(root, 'src/lib/i18n.en.ts');
-const dictSrc = readFileSync(dictPath, 'utf8');
+// Słownik EN jest podzielony na części (limit 20 KB, CLAUDE.md): src/lib/i18n-en/czesc-*.ts
+const dictPartsDir = join(root, 'src/lib/i18n-en');
+const dictSrc = readdirSync(dictPartsDir)
+  .filter((f) => /^czesc-\d+\.ts$/.test(f))
+  .map((f) => readFileSync(join(dictPartsDir, f), 'utf8'))
+  .join('\n');
 const params = (k) => [...k.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort().join(',');
 
 const dict = Object.fromEntries(

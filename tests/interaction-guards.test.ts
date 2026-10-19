@@ -120,7 +120,11 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
   // S9 & NFR-INT-009
   describe('S9: Canonical Terminology (Piekarz)', () => {
     it('uses canonical domain term "wypiek" and does not confuse with cross-domain terms', () => {
-      const i18nEn = fs.readFileSync(path.join(srcDir, 'lib', 'i18n.en.ts'), 'utf-8');
+      const partsDir = path.join(srcDir, 'lib', 'i18n-en');
+      const i18nEn = fs
+        .readdirSync(partsDir)
+        .map((f) => fs.readFileSync(path.join(partsDir, f), 'utf-8'))
+        .join('\n');
       expect(i18nEn.toLowerCase()).toContain('wypiek');
       expect(i18nEn.toLowerCase()).not.toContain('trening');
       expect(i18nEn.toLowerCase()).not.toContain('kawa');

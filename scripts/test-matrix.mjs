@@ -36,7 +36,7 @@ const srcDomainFiles = [
   ...getFiles(join(root, 'src', 'core')),
   ...getFiles(join(root, 'src', 'doctor')),
   ...getFiles(join(root, 'src', 'scheduler')),
-  ...getFiles(join(root, 'src', 'lib')).filter((f) => !f.includes('i18n.en')),
+  ...getFiles(join(root, 'src', 'lib')).filter((f) => !f.includes('i18n.en') && !f.includes('i18n-en')),
   ...getFiles(join(root, 'src', 'recipes')),
   ...getFiles(join(root, 'src', 'data')),
 ].filter((f) => !f.includes('__tests__') && !f.endsWith('.d.ts'));
