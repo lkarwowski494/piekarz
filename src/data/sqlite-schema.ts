@@ -207,6 +207,18 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
       }
     },
   },
+  {
+    // Proporcja ostatniego dokarmiania; pusta = nieznana (predyktor: 1:2:2). Stara feeding_ratio ma u każdego
+    // domyślne '1:1:1', którego aplikacja nigdy nie zapisała, więc zostaje nieczytana [M1-audytor-generalny-023].
+    version: 4,
+    description: 'Last feeding ratio of a starter',
+    run: async (db) => {
+      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+      if (!startersCols.some((c) => c.name === 'last_feed_ratio')) {
+        await db.execAsync('ALTER TABLE starters ADD COLUMN last_feed_ratio TEXT;');
+      }
+    },
+  },
 ];
 
 export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {

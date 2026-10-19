@@ -121,10 +121,12 @@ Zgodnie z decyzjami `DEC-03`, `DEC-45` oraz `ADR-005`:
 
 ## 5. Strategia Bezpiecznej Migracji (Aksjomat Zerowej Utraty Danych)
 
-Migracja ze schematu v1.0 do v2.0 realizowana jest przez atomowy skrypt [`db/migrations/002_retrofit_to_standard_v2.sql`](file:///c:/Users/lukas/Documents/antigravity/noble-pasteur/db/migrations/002_retrofit_to_standard_v2.sql):
-- Tabela `schema_migrations` rejestruje wykonane wersje schematu.
-- Wszelkie rozszerzenia istniejących tabel (np. `feeding_ratio` w `starters`) wykonywane są z domyślnymi wartościami wstecznymi (`DEFAULT '1:1:1'`).
-- Przed wykonaniem migracji mechanizm rotacyjny generuje snapshot JSON całej bazy danych w `backup_pre_migration.json`.
+Źródłem prawdy o schemacie jest lista `SCHEMA_MIGRATIONS` w `src/data/sqlite-schema.ts` (stan 19.10.2026: wersje 1–4, `PRAGMA user_version` = 4):
+- Każda migracja działa we własnej transakcji i zapisuje wiersz w tabeli `schema_migrations`; wydanych migracji się nie zmienia, poprawka to nowa migracja.
+- Przed migracją powstaje kopia `VACUUM INTO` obok pliku bazy (`backup_pre_migration-v<wersja>-<czas>.db`); nieudana migracja wycofuje transakcję.
+- Migracja 4 dodaje pustą kolumnę `starters.last_feed_ratio` (proporcja ostatniego dokarmiania, np. `1:5:5`; pusta = nieznana, predyktor przyjmuje 1:2:2) [M1-audytor-generalny-023]. Kolumna `feeding_ratio` z migracji 2 (`DEFAULT '1:1:1'`) nigdy nie była zapisywana przez aplikację i pozostaje nieczytana.
+- Zapis zakwasu to UPSERT (`ON CONFLICT(id) DO UPDATE`), nie `INSERT OR REPLACE`, żeby pominięta kolumna nie wracała do wartości domyślnej.
+- Test na bazach każdej wydanej wersji: `src/data/__tests__/starter-feeding-ratio.sqlite.test.ts` i `testflight-migration.sqlite.test.ts` (fikstury `fixtures/schema-<commit>.sql`).
 
 ---
 

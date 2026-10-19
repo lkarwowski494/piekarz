@@ -23,6 +23,7 @@ import {
   calculateStarterPhase,
 } from '../../src/core/domain-rules';
 import { predictStarterPeak } from '../../src/core/starter-peak-predictor';
+import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../src/core/feeding-ratio';
 import { confirmResetStarter, confirmDeleteStarter } from '../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-store';
 import { StoredStarter } from '../../src/data/db';
@@ -96,6 +97,7 @@ export default function ZakwasScreen() {
       const current = list.find((s) => s.id === targetId) || list[0];
       setStarter(current);
       setSelectedStarterId(current.id);
+      setSelectedRatio(parseFeedingRatio(current.feedingRatio) ?? DEFAULT_FEEDING_RATIO);
     }
   }, [selectedStarterId]);
 
@@ -121,16 +123,17 @@ export default function ZakwasScreen() {
     return 'wheat' as const;
   }, [starter.flourType]);
 
+  // Szczyt bieżącego cyklu liczony z proporcji zapisanej przy ostatnim dokarmieniu, nie z wyboru na następne [023]
   const peakPrediction = useMemo(() => {
     return predictStarterPeak({
       lastFedAt: starter.lastFedAt ?? Date.now(),
       currentTempC: ambientTempC,
-      ratio: selectedRatio,
+      ratio: parseFeedingRatio(starter.feedingRatio) ?? DEFAULT_FEEDING_RATIO,
       flourGrain,
       hydration: starter.hydration,
       now: Date.now(),
     });
-  }, [starter.lastFedAt, ambientTempC, selectedRatio, flourGrain, starter.hydration]);
+  }, [starter.lastFedAt, ambientTempC, starter.feedingRatio, flourGrain, starter.hydration]);
 
   // Feeding calculation
   const feeding = useMemo(() => {
@@ -163,6 +166,7 @@ export default function ZakwasScreen() {
       const updated: StoredStarter = {
         ...starter,
         lastFedAt: now,
+        feedingRatio: formatFeedingRatio(selectedRatio),
       };
       await saveStarter(updated);
       void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)

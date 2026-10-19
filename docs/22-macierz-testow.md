@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 32 | 32 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 471 | 471 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 268 | 268 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 95 | 95 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 270 | 270 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 96 | 96 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **871** | Pokrytych: **871** | Brakujących: **0**
+Łącznie elementów: **874** | Pokrytych: **874** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 571 kolejnych elementów w pełnym wykazie)*
+*(... i 574 kolejnych elementów w pełnym wykazie)*

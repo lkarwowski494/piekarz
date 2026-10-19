@@ -157,15 +157,28 @@ export function setActiveBake(bake: ActiveBakeState | null): void {
 // ==========================================
 
 const STARTERS_SELECT =
-  'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt FROM starters;';
+  'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt, last_feed_ratio as feedingRatio FROM starters;';
+
+// UPSERT zamiast INSERT OR REPLACE: REPLACE zerował kolumny pominięte w zapisie (zasada 10) [M1-audytor-generalny-023]
+const STARTER_UPSERT = `INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at, last_feed_ratio)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  ON CONFLICT(id) DO UPDATE SET name = excluded.name, flour_type = excluded.flour_type, hydration = excluded.hydration,
+    birth_date = excluded.birth_date, storage_state = excluded.storage_state, last_fed_at = excluded.last_fed_at,
+    last_feed_ratio = excluded.last_feed_ratio;`;
+
+const starterParams = (s: StoredStarter) =>
+  [s.id, s.name, s.flourType, s.hydration, s.birthDate, s.storageState, s.lastFedAt ?? null, s.feedingRatio ?? null] as const;
 
 export async function getStarters(): Promise<StoredStarter[]> {
   const db = await getDb();
   if (!db) return [...memStore.starters];
 
   try {
-    const rows = await db.getAllAsync<StoredStarter>(STARTERS_SELECT);
-    return rows.length > 0 ? rows : [...memStore.starters];
+    const rows = await db.getAllAsync<Omit<StoredStarter, 'feedingRatio'> & { feedingRatio: string | null }>(STARTERS_SELECT);
+    // Brak zapisanej proporcji zostaje brakiem (undefined), bez zgadywania wartości
+    return rows.length > 0
+      ? rows.map(({ feedingRatio, ...s }) => (feedingRatio === null ? s : { ...s, feedingRatio }))
+      : [...memStore.starters];
   } catch {
     return [...memStore.starters];
   }
@@ -174,19 +187,7 @@ export async function getStarters(): Promise<StoredStarter[]> {
 export async function saveStarter(starter: StoredStarter): Promise<void> {
   const db = await getDb();
   if (db) {
-    await writeOrThrow(() =>
-      db.runAsync(
-        `INSERT OR REPLACE INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?);`,
-        starter.id,
-        starter.name,
-        starter.flourType,
-        starter.hydration,
-        starter.birthDate,
-        starter.storageState,
-        starter.lastFedAt ?? null
-      )
-    );
+    await writeOrThrow(() => db.runAsync(STARTER_UPSERT, ...starterParams(starter)));
   }
 
   const idx = memStore.starters.findIndex((s) => s.id === starter.id);
@@ -316,16 +317,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
 
     for (const s of data.starters) {
-      await db.runAsync(
-        'INSERT OR REPLACE INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at) VALUES (?, ?, ?, ?, ?, ?, ?);',
-        s.id,
-        s.name,
-        s.flourType,
-        s.hydration,
-        s.birthDate,
-        s.storageState,
-        s.lastFedAt ?? null
-      );
+      await db.runAsync(STARTER_UPSERT, ...starterParams(s));
     }
 
     for (const r of data.customRecipes) {

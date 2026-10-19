@@ -59,11 +59,12 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     useTempDbDir();
   });
 
-  it('defines 3 atomic forward migrations with monotonically increasing versions', () => {
-    expect(SCHEMA_MIGRATIONS.length).toBe(3);
+  it('defines 4 atomic forward migrations with monotonically increasing versions', () => {
+    expect(SCHEMA_MIGRATIONS.length).toBe(4);
     expect(SCHEMA_MIGRATIONS[0].version).toBe(1);
     expect(SCHEMA_MIGRATIONS[1].version).toBe(2);
     expect(SCHEMA_MIGRATIONS[2].version).toBe(3);
+    expect(SCHEMA_MIGRATIONS[3].version).toBe(4);
   });
 
   it('getDb opens a real SQLite file in Library/SQLite (not the memory fallback)', async () => {
@@ -75,20 +76,20 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     expect(control().opened).toEqual([APP_DB()]);
   });
 
-  it('initDatabase on a new install migrates to user_version 3 with every column of migrations 2 and 3', async () => {
+  it('initDatabase on a new install migrates to user_version 4 with every column of migrations 2, 3 and 4', async () => {
     const { schema } = restartApp();
     await schema.initDatabase();
 
     const raw = openRaw(APP_DB());
     const v = raw.prepare('PRAGMA user_version').get() as { user_version: number };
-    expect(v.user_version).toBe(3);
+    expect(v.user_version).toBe(4);
     const applied = raw.prepare('SELECT version FROM schema_migrations ORDER BY version').all() as Array<{ version: number }>;
-    expect(applied.map((r) => r.version)).toEqual([1, 2, 3]);
+    expect(applied.map((r) => r.version)).toEqual([1, 2, 3, 4]);
 
     const cols = (table: string) =>
       (raw.prepare(`PRAGMA table_info(${table})`).all() as Array<{ name: string }>).map((c) => c.name);
     expect(cols('bakes')).toEqual(expect.arrayContaining(['crumb_score', 'crust_score', 'taste_profile', 'sensory_profile']));
-    expect(cols('starters')).toContain('feeding_ratio');
+    expect(cols('starters')).toEqual(expect.arrayContaining(['feeding_ratio', 'last_feed_ratio']));
     expect(cols('app_access')).toContain('signature');
     raw.close();
   });
@@ -100,7 +101,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     expect(db).not.toBeNull();
     await schema.applySchemaMigrations(db as NonNullable<typeof db>);
     const raw = openRaw(APP_DB());
-    expect(raw.prepare('SELECT count(*) AS c FROM schema_migrations').get()).toEqual({ c: 3 });
+    expect(raw.prepare('SELECT count(*) AS c FROM schema_migrations').get()).toEqual({ c: 4 });
     raw.close();
   });
 
@@ -127,7 +128,7 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     await schema.initDatabase();
 
     const after = openRaw(APP_DB());
-    expect((after.prepare('PRAGMA user_version').get() as { user_version: number }).user_version).toBe(3);
+    expect((after.prepare('PRAGMA user_version').get() as { user_version: number }).user_version).toBe(4);
     const counts = tableCounts(after);
     expect(counts.starters).toBe(1);
     expect(counts.bakes).toBe(1);
