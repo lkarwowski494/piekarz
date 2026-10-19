@@ -1,0 +1,4 @@
+{
+  "_opis": "Wyjatki skanu tekstow na sztywno (node scripts/check-i18n.mjs --kod src,app). Kazdy wpis: tekst dokladnie jak w kodzie (po przycieciu) i powod. Tylko nazwy wlasne, symbole i jednostki [M1-audytor-generalny-047].",
+  "wartosci": []
+}
