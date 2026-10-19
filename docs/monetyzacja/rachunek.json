@@ -1,0 +1,17 @@
+{
+  "data": "2026-10-19",
+  "waluta": "PLN",
+  "opis": "DEC-01 d, storefront PL: 4,99 zł/mies., 29,99 zł/rok, 79,99 zł dożywotni; rok 1 po wydaniu",
+  "vat": { "stawka": 0.23, "zrodlo": "europa.eu/youreurope, tabela stawek VAT, PL 23% („Last checked: 13/07/2026”), odczyt roli 02 2026-10-19" },
+  "prowizja": { "stawka": 0.15, "zrodlo": "developer.apple.com/app-store/small-business-program („reduced commission rate of 15%”), odczyt 2026-10-19 (MS-20); warunek: zapis do programu (OP-M01)" },
+  "kursy": { "USD": { "kurs": 3.8974, "zrodlo": "NBP tabela 203/A/NBP/2026 z 2026-10-19 (MS-21)" } },
+  "koszty_roczne": [
+    { "nazwa": "Apple Developer Program", "kwota": 99, "waluta": "USD", "zrodlo": "developer.apple.com/programs/enroll („99 USD per membership year”), odczyt 2026-10-19" }
+  ],
+  "produkty": [
+    { "id": "mies-PL", "cena_brutto": 4.99, "platnosci_w_roku": 4.26, "platnosci_zrodlo": "[OCENA] płatności miesięcznego w 1. roku z modelu retencji bramki wariantów (RevenueCat 2026: pierwsza odnowa 53–75%, po roku 6–14%), audit/02-warianty-2026-10-19, 2026-10-19" },
+    { "id": "rok-PL", "cena_brutto": 29.99, "platnosci_w_roku": 1, "platnosci_zrodlo": "1 płatność w 1. roku (plan roczny)" },
+    { "id": "dozywotni-PL", "cena_brutto": 79.99 },
+    { "id": "rok-PL-bez-programu", "cena_brutto": 29.99, "prowizja": { "stawka": 0.30, "zrodlo": "DPLA Schedule 2 pkt 3.4(a): 30% bez programu (w UE wg Attachment 14: 26%), stawki z polecenia roli 02 odczytane 2026-10-18, sprawdzone przez rolę 02 2026-10-19" }, "platnosci_w_roku": 1, "platnosci_zrodlo": "1 płatność w 1. roku" }
+  ]
+}

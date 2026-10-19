@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E1 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
+Stan: E2 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
 
 Jedyny dokument monetyzacji. `docs/monetyzacja-audyt.md` i `docs/PROGRESSIVE_DISCLOSURE_AND_MONETIZATION.md` to historia bez źródeł (D-033). Bramka opłacalności i macierz wariantów z 2026-10-19 leżą poza repo (`audit/02-oplacalnosc-2026-10-19/`, `audit/02-warianty-2026-10-19/`); tu trafiają tylko wyniki, stawki i [OCENA]. Surowe odczyty tej sesji: scratchpad sesji (poza repo).
 
@@ -122,6 +122,63 @@ Podsumowanie: WTP-0: 2, WTP-1: 14, WTP-2: 19, WTP-X: 2, warunki i prawa do danyc
 - **Bramka jako hipoteza:** wynik 345 USD/rok (wariant a) liczono dla freemium; konwersja przy twardej ścianie i wolumen z niskiej ceny to nowe ZAL-049, ZAL-050 (status „hipoteza”). Przeliczenie kryterium eksperymentu: E2.
 - **Sprzeczności z wejściem roli 01:** brak (ER nie są potrzebne). OP-33 zmienia status na rozstrzygnięty w rejestrze założeń (ZAL-038).
 
+## E2: model i rachunek
+
+### Opcje modelu
+Model jest stały (D-038). Opcja B to zapis historyczny wymagany przez kontrakt roli (co najmniej dwa modele z regułą i rachunkiem), **nie do ponownego rozpatrzenia**.
+
+#### Opcja A (wybrana, stała): subskrypcja mies. + rok w jednej grupie i dożywotni, 0,99 / 6,99 / 14,99 USD, 14 dni pełnej wersji, potem tylko historia i dane
+- Reguła sklepu: subskrypcja „must provide ongoing value … at least seven days … available across all of the user’s devices” (MS-05); okres próbny „by providing the relevant information set forth in App Store Connect” (MS-06), czyli oferta wprowadzająca „Free Trial”, 2 tygodnie (MS-18); jedna oferta na grupę (MS-18), więc kto wypróbował miesięczny, nie dostanie drugiej próby na rocznym. Dożywotni: Non-Consumable z przywracaniem (MS-03).
+- Rachunek: niżej; bramka wariantów 345 USD/rok, scen. norm. (freemium), werdykt „przerobić”, ryzyko nazwane w D-038.
+- Ryzyko etyczne: twarda ściana po próbie przypomina wzorzec skarg Loaflo (MS-26). Ochrona: jawność przed startem próby (MS-09, MS-14, MS-15), brak odliczania i wyskakiwania w głównej pracy, dane zawsze dostępne (D-039). Druga strona: kto chce tylko dożywotniego, a zaczął próbę subskrypcji, musi ją anulować, bo inaczej po 14 dniach zapłaci także za subskrypcję. Ujawnienie dla 04 w kontrakcie (U-D3).
+- Koszt utrzymania: 3.1.2(a) wymaga stałej wartości, więc subskrypcja to zobowiązanie do regularnych aktualizacji z treścią (receptury, profile, mapy mąk z 35 języków, narzędzia z dowodem wartości). Zakres i rytm ustala rola 03; to warunek sklepu, nie zmiana modelu.
+
+#### Opcja B (odrzucona 2026-10-19, historia): ten sam układ planów w medianach konkurencji 4,49 / 24,99 / 39,99 USD z darmowym rdzeniem
+- Reguła sklepu jak w A. Bramka: 682 USD/rok (scen. norm.). Właściciel wybrał A (D-038, DEC-01 d).
+
+Rekomendacja: A (wybór właściciela, stały) · Decyzja właściciela: D-038, D-039 (2026-10-19).
+
+### Decyzje wykonawcze (D-039, słowa właściciela: „1. zgodnie z rekomendacja 2. 3 dni 3. Mozemy dopuscic 4. Tak.”)
+| Sprawa | Decyzja |
+|---|---|
+| Import pliku po próbie (OP-M02) | działa zawsze, jak eksport i usunięcie |
+| Uprzedzenie przed końcem próby (OP-47) | 3 dni |
+| Wypiek trwający w chwili wygaśnięcia (OP-48) | prowadzi się do końca; nowego wypieku nie da się zacząć |
+| Family Sharing | włączony dla obu subskrypcji i dożywotniego (nieodwracalne, MS-19) |
+| Komunikat „co zostaje po próbie” (H-04) | tak, w uprzedzeniu 3 dni przed końcem i w chwili wygaśnięcia, z jednym zdaniem, że przypomnienia o dokarmianiu ustaną (rekomendacja roli 01, BR-ZAK-004) |
+| Czas założenia zakwasu przy starcie próby (H-07) | na ekranie oferty jedno zdanie, że założenie zakwasu zwykle trwa 7–10 dni (RD-24, S-44), więc mieści się w 14 dniach (rekomendacja roli 01; tekst ustala 04, treść 06) |
+
+## Opłacalność (2026-10-19, próg: 500 USD netto/rok globalnie, D-024)
+Bramka z 2026-10-19 jako hipoteza (sesja 2, bez nowego przebiegu `oplacalnosc.mjs`): wariant a (ceny DEC-01 d) 3,45 / 344,77 / 26 381 USD pes./norm./opt., sam iOS 218 USD, 46,4 płacących/rok przy ok. 2 200 pobraniach/rok (iOS + Google Play; `audit/02-warianty-2026-10-19/dowody/porownanie-wariantow.txt`, kod 0). Liczono z darmowym rdzeniem (freemium); DEC-01 d to twarda ściana z próbą (ZAL-050), której bramka nie liczyła. Standard marki: wysoki (bez reklam, bez sieci; `CLAUDE.md`). Werdyktu się nie zmienia; kryterium eksperymentu niżej mierzy, czy model osiąga próg.
+
+### Kryterium eksperymentu dla DEC-01 d (przeliczone, `eksperyment.kryterium_do_przeliczenia`)
+Rachunek `rachunek-us.json` (lejek „kryterium iOS”), rok 1, sam iOS, prowizja 15%:
+- wpływ na płacącego w 1. roku: miesięczny 0,84 USD × 4,26 płatności = 3,58; roczny 5,94; dożywotni 12,74; średnio przy udziałach 0,486 / 0,346 / 0,168 [OCENA, RevenueCat przez bramkę] **5,94 USD**;
+- do 500 USD netto potrzeba **ok. 84 płacących/rok, czyli ok. 7 nowych płacących miesięcznie**, albo **ok. 42 USD wpływu miesięcznie** (App Store Connect, „proceeds”);
+- przy tempie pobrań z bramki (993 iOS/rok, ok. 83/mies.) to **konwersja pobranie → płacący ok. 8,5%**. Dla porównania: mediana twardej ściany 10,7%, freemium 2,1% (MS-27); bramka zakładała 4,66% (freemium), przy której potrzeba ok. 150 pobrań iOS/mies.
+
+**Kryterium po 90 dniach od wydania (zastępuje „~245/mies. przy 3%”):** w dniach 30–90 średnio ≥ 7 nowych płacących miesięcznie na iOS (zdarzenia „Paid Subscription from Introductory Price” + zakupy dożywotniego, MS-24) albo wpływ ≥ 42 USD/mies.; poniżej połowy (≤ 3,5 płacących albo ≤ 21 USD/mies.) — zamrożenie rozwoju, jak w kryterium M1. Dane: tylko App Store Connect, bez telemetrii (ZAL-038). Przy samym roku 1 z odnowieniami miesięcznymi w toku wynik dnia 90 zaniża przychód roczny; kryterium liczy więc płacących, nie przychód skumulowany. Kryterium mierzy model, nie otwiera go (D-038).
+
+## Rachunek
+`docs/monetyzacja/rachunek.mjs` (skrypt roli 02) na `docs/monetyzacja/rachunek.json` (PL) i `docs/monetyzacja/rachunek-us.json` (US, kryterium); 2026-10-19, kod wyjścia 0 dla obu:
+
+```
+Rachunek z 2026-10-19 (PLN); VAT 23%; prowizja 15% (Small Business Program, OP-M01)
+Koszt roczny: Apple Developer Program 99 USD × 3,8974 (NBP 203/A/NBP/2026) = 385,84 PLN
+mies-PL: cena 4,99 → bez VAT 4,06 → prowizja 15% → wpływ 3,45; rocznie na płacącego 14,69; próg: 27 płacących/rok
+rok-PL: cena 29,99 → bez VAT 24,38 → wpływ 20,72; próg: 19 płacących/rok
+dozywotni-PL: cena 79,99 → bez VAT 65,03 → wpływ 55,28; próg: 7 płacących/rok
+rok-PL-bez-programu: prowizja 30% → wpływ 17,07; próg: 23 płacących/rok
+```
+```
+Rachunek z 2026-10-19 (USD); VAT 0% [OCENA]; prowizja 15%; próg 500 USD netto zamiast kosztów
+mies-US: 0,99 → wpływ 0,84; rocznie 3,58; próg 140 płacących/rok
+rok-US: 6,99 → wpływ 5,94; próg 85
+dozywotni-US: 14,99 → wpływ 12,74; próg 40
+Lejek „kryterium iOS”: mies. 41,0 płacących → 147,02 USD (29%); rok 29,2 → 173,46 (35%); dożywotni 14,2 → 180,93 (36%); razem 84,4 płacących, ok. 100% progu
+```
+Wpływ to szacunek: po ustawieniu cen w App Store Connect wpisz `wplyw_z_asc` (proceeds progu) i uruchom ponownie. Podatek dochodowy i składki poza rachunkiem.
+
 ## Źródła
 | ID | Adres | Miejsce | Cytat | Odczyt | Szczebel | Przegląd |
 |---|---|---|---|---|---|---|
@@ -166,4 +223,4 @@ Z odczytu innej sesji roli 02 z tego samego dnia (nie czytane ponownie, wyjątek
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
 | OP-M01 | [DO WYJAŚNIENIA] czy umowa Paid Apps jest podpisana, a konto zapisane do Small Business Program (15% zamiast 30%/26%); właściciel uzupełni (STOP E0) | właściciel | rachunek, E3 |
-| OP-M02 | [DO WYJAŚNIENIA] czy import pliku (BR-DANE-003) działa po próbie bez zakupu, skoro DEC-01 d zostawia „eksport i usunięcie” | właściciel w E2, w granicach DEC-01 d | BR-DANE-003, BR-ZAK-004 |
+| OP-M02 | Rozstrzygnięte 2026-10-19 (D-039): import działa zawsze | właściciel | BR-DANE-003, BR-ZAK-004 |
