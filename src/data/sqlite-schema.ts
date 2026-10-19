@@ -20,8 +20,10 @@ export interface ActiveBakeState {
   recipeName: string;
   startedAt: number;
   currentStageId: string;
-  ambientTempC: number;
-  actualDdtC: number;
+  /** Temperatura otoczenia podana przez użytkownika; brak = nie podano [M1-audytor-generalny-017]. */
+  ambientTempC?: number;
+  /** Zmierzone DDT ciasta; brak = nie zmierzono (nie DDT docelowe) [M1-audytor-generalny-017]. */
+  actualDdtC?: number;
   calculatedRecipe?: DoughRecipeResult;
   recipeFormula?: DoughRecipeInput;
 }

@@ -58,7 +58,7 @@ export default function StolnicaScreen() {
 
   const [isActive, setIsActive] = useState<boolean>(false);
   const [currentStepIdx, setCurrentStepIdx] = useState<number>(0);
-  const [recipeName, setRecipeName] = useState<string>('Wiejski chleb 72%');
+  const [recipeName, setRecipeName] = useState<string>(t('Wypiek bez receptury'));
   const [startedAt, setStartedAt] = useState<number>(Date.now());
   const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
@@ -82,7 +82,7 @@ export default function StolnicaScreen() {
   // Finish Bake Modal & History
   const [isFinishModalOpen, setIsFinishModalOpen] = useState<boolean>(false);
   const [finishRating, setFinishRating] = useState<number>(5);
-  const [finishNotes, setFinishNotes] = useState<string>('Chrupiąca skórka, otwarty miękisz i potężne ucho.');
+  const [finishNotes, setFinishNotes] = useState<string>('');
   const [finishCrumbScore, setFinishCrumbScore] = useState<number>(3);
   const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
   const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
@@ -320,8 +320,8 @@ export default function StolnicaScreen() {
       recipeName,
       startedAt,
       finishedAt: Date.now(),
-      ambientTemp: activeBakeData?.ambientTempC ?? 22.0,
-      actualDDT: activeBakeData?.actualDdtC ?? 25.0,
+      ambientTemp: activeBakeData?.ambientTempC,
+      actualDDT: activeBakeData?.actualDdtC,
       ratingStars: finishRating,
       notes: finishNotes.trim() || undefined,
       crumbScore: finishCrumbScore,
@@ -344,6 +344,7 @@ export default function StolnicaScreen() {
     setFinishCrustScore(3);
     setFinishTasteProfile('balanced');
     setFinishSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
+    setFinishNotes('');
     await loadHistory();
   });
 

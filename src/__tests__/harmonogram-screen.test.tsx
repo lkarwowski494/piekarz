@@ -225,6 +225,8 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
     expect(activeBake).not.toBeNull();
     expect(activeBake?.recipeName).toContain('Harmonogram');
     expect(activeBake?.ambientTempC).toBe(23.0);
+    // [M1-audytor-generalny-017] bez pomiaru nie ma DDT (wcześniej stałe 25.0)
+    expect(activeBake?.actualDdtC).toBeUndefined();
 
     // Check navigation
     expect(mockPush).toHaveBeenCalledWith('/(tabs)/stolnica');

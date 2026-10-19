@@ -6,7 +6,7 @@
 import { BakeProgress, validStepIdx } from '../core/bake-session';
 import { ActiveBakeState } from './sqlite-schema';
 import { getAppSetting, setAppSetting } from './settings-store';
-import { isObj, isNum, isStr, numOrNull, isRecipeInput, isRecipeResult } from './row-parsers';
+import { isObj, isNum, isStr, numOrNull, optNum, isRecipeInput, isRecipeResult } from './row-parsers';
 
 export const BAKE_SESSION_KEY = 'active_bake_session';
 
@@ -18,7 +18,7 @@ export interface BakeSession extends BakeProgress {
 
 export function isActiveBakeState(v: unknown): v is ActiveBakeState {
   return isObj(v) && isStr(v.id) && isStr(v.recipeName) && isNum(v.startedAt) && isStr(v.currentStageId) &&
-    isNum(v.ambientTempC) && isNum(v.actualDdtC) &&
+    optNum(v.ambientTempC) && optNum(v.actualDdtC) &&
     (v.calculatedRecipe === undefined || isRecipeResult(v.calculatedRecipe)) &&
     (v.recipeFormula === undefined || isRecipeInput(v.recipeFormula));
 }

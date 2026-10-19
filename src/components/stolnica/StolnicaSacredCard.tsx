@@ -47,8 +47,8 @@ export function StolnicaSacredCard({
         <CraftStatDisplay
           testID="stat-stolnica-ddt"
           label={t('DDT')}
-          value={activeBakeData?.actualDdtC ?? 25.0}
-          unit="°C"
+          value={activeBakeData?.actualDdtC ?? '—'}
+          unit={activeBakeData?.actualDdtC === undefined ? undefined : '°C'}
           size="md"
         />
         {activeBakeData?.calculatedRecipe ? (
@@ -63,8 +63,8 @@ export function StolnicaSacredCard({
           <CraftStatDisplay
             testID="stat-stolnica-temp"
             label={t('Otoczenie')}
-            value={activeBakeData?.ambientTempC ?? 22.0}
-            unit="°C"
+            value={activeBakeData?.ambientTempC ?? '—'}
+            unit={activeBakeData?.ambientTempC === undefined ? undefined : '°C'}
             size="md"
           />
         )}

@@ -739,6 +739,8 @@ export const EN: Record<string, string> = {
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.':
     'Your data is saved on your phone. Before you try again, you can export a copy.',
   'Eksportuj kopię danych': 'Export a copy of your data',
+  // Wypiek bez receptury z Kalkulatora [M1-audytor-generalny-017]
+  'Wypiek bez receptury': 'Bake without a recipe',
 };
 
 

@@ -338,7 +338,6 @@ export default function CalculatorScreen() {
         startedAt: Date.now(),
         currentStageId: 'step_1',
         ambientTempC: roomTemp,
-        actualDdtC: targetDdt,
         calculatedRecipe: calculations,
         recipeFormula: {
           flours: flourBlend,

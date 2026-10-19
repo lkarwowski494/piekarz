@@ -122,7 +122,6 @@ export default function HarmonogramScreen() {
         startedAt: Date.now(),
         currentStageId: 'step_1',
         ambientTempC: ambientTemp,
-        actualDdtC: 25.0,
       });
       router.push('/(tabs)/stolnica');
     });

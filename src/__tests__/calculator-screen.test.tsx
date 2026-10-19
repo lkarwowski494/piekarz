@@ -195,6 +195,8 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(active).not.toBeNull();
     expect(active?.calculatedRecipe).toBeDefined();
     expect(active?.calculatedRecipe?.targetDoughWeightGrams).toBeGreaterThan(0);
+    // [M1-audytor-generalny-017] DDT docelowe nie jest zapisywane jako zmierzone
+    expect(active?.actualDdtC).toBeUndefined();
   });
 
   it('renders Bake Loss & Crumb Moisture card and displays live metrics', async () => {
