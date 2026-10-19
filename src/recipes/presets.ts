@@ -95,7 +95,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 240,
     bakeTempBrowningC: 210,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Zmniejszona ilość zakwasu (15%) i wydłużona fermentacja w chłodzie (18–24h w 4°C) sprzyja namnażaniu bakterii octowych. Wypiek z mocnym zaparowaniem.',
+    notesPl: 'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.',
   },
   {
     id: 'pain_de_campagne',

@@ -158,10 +158,10 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       titlePl: 'Zbyt kwaśny, octowy smak (Excessively Sour)',
       subtitlePl: 'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna',
       biologicalCausePl:
-        'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Przyczyną jest stary, rzadko dokarmiany zakwas, zbyt niska hydratacja zakwasu lub fermentacja w temperaturze 15–20°C.',
+        'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.',
       actionChecklistPl: [
         'Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.',
-        'Zastosuj zimną fermentację w lodówce (4°C) – niska temperatura faworyzuje łagodniejszy kwas mlekowy.',
+        'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.',
         'Skróć fermentację burzliwą i pilnuj temperatury ciasta (DDT 24–26°C).',
       ],
       severity: 'moderate',
