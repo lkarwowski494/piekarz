@@ -5,5 +5,13 @@
  */
 export const PRIVACY_URL = 'https://lkarwowski494.github.io/piekarz/privacy.html';
 export const SUPPORT_URL = 'https://lkarwowski494.github.io/piekarz/support.html';
-/** Standardowa licencja użytkownika Apple (EULA). */
+/**
+ * Standardowa licencja użytkownika Apple (EULA): „Licensed Application End User License Agreement”
+ * (odczyt strony 2026-10-19) [M1-audytor-generalny-011].
+ */
 export const APPLE_EULA_URL = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
+/**
+ * Strona subskrypcji konta Apple: rezerwa, gdy systemowy arkusz zarządzania się nie otworzy
+ * (ten sam adres expo-iap 6.1.1 używa w deepLinkToSubscriptionsIOS bez arkusza StoreKit).
+ */
+export const APPLE_SUBSCRIPTIONS_URL = 'https://apps.apple.com/account/subscriptions';

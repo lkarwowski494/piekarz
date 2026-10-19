@@ -127,6 +127,7 @@ jest.mock('expo-iap', () => ({
     return { remove: () => mockIap.listeners.delete(fn) };
   }),
   isUserCancelledError: jest.fn((e) => !!e && e.code === 'user-cancelled'),
+  deepLinkToSubscriptions: jest.fn(async () => undefined),
   __mock: mockIap,
 }));
 

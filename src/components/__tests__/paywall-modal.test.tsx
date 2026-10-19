@@ -57,7 +57,8 @@ describe('PaywallModal Component', () => {
     });
 
     const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Taniej niż espresso');
+    // Tytuł bez porównania z espresso (MON-11) [M1-audytor-generalny-011]
+    expect(fullText).toContain('Odblokuj pełny dostęp');
     expect(fullText).toContain('$0.99');
     expect(fullText).toContain('$6.99');
     expect(fullText).toContain('$14.99');

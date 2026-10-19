@@ -10,6 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { przywrocZakupy } from '../../lib/app-access';
 import { przywrocZKomunikatem } from '../przywroc-zakupy';
+import { zarzadzajSubskrypcja } from '../../lib/platnosci/sklep';
 
 export function ZakupySection() {
   const [trwa, setTrwa] = useState(false);
@@ -36,6 +37,16 @@ export function ZakupySection() {
         testID="settings-restore-purchases-btn"
       >
         <Text style={styles.linkText}>{trwa ? t('Przetwarzanie...') : t('Przywróć zakupy')}</Text>
+      </Pressable>
+      {/* Systemowe zarządzanie i anulowanie subskrypcji [M1-audytor-generalny-011; 02-monetyzacja-008] */}
+      <Pressable
+        style={styles.linkRow}
+        onPress={() => zarzadzajSubskrypcja()}
+        accessibilityRole="button"
+        accessibilityLabel={t('Zarządzaj subskrypcją')}
+        testID="settings-manage-subscriptions-btn"
+      >
+        <Text style={styles.linkText}>{t('Zarządzaj subskrypcją')}</Text>
       </Pressable>
     </View>
   );

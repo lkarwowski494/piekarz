@@ -9,6 +9,8 @@ import * as Iap from 'expo-iap';
 import type { Purchase, SubscriptionStatusIOS } from 'expo-iap';
 import { PRODUKTY, SUBSKRYPCJE, ODBLOKOWUJA, Plan, planProduktu } from './konfiguracja';
 import type { Odczyt, Uprawnienie } from './dostep';
+import { Linking } from 'react-native';
+import { APPLE_SUBSCRIPTIONS_URL } from '../links';
 
 let polaczenie: Promise<unknown> | null = null;
 
@@ -144,6 +146,18 @@ export async function przywroc(): Promise<Odczyt> {
   await polacz();
   await Iap.restorePurchases();
   return odczytajSklep();
+}
+
+/**
+ * Systemowe zarządzanie subskrypcją (arkusz App Store przez expo-iap deepLinkToSubscriptions)
+ * [M1-audytor-generalny-011; 02-monetyzacja-008]. Gdy arkusz się nie otworzy: strona subskrypcji konta Apple.
+ */
+export async function zarzadzajSubskrypcja(): Promise<void> {
+  try {
+    await Iap.deepLinkToSubscriptions();
+  } catch {
+    await Linking.openURL(APPLE_SUBSCRIPTIONS_URL);
+  }
 }
 
 export function nasluchujZakupow(fn: (p: Purchase) => void): { remove: () => void } {

@@ -12,17 +12,12 @@ export const EN_3: Record<string, string> = {
   '+10 sek': '+10 sec',
   'Wektorowy radar sensoryczny': 'Vector sensory radar',
 
-  // Apps4Brew Pass & Monetization ("Cheaper than espresso")
-  'Taniej niż espresso w kawiarni': 'Cheaper than coffee shop espresso',
-  'Twój okres próbny dobiegł końca. Odblokuj nielimitowane wypieki i pełnego asystenta kuchennego bez reklam i bez subskrypcyjnych pułapek.': 'Your trial has ended. Unlock unlimited baking and your full kitchen assistant with no ads and no subscription traps.',
+  // Apps4Brew Pass & Monetization
   'Twoja historia jest bezpieczna': 'Your history is safe',
   'Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).': 'Even without purchase, your logs, archival loaves, and recipes remain permanently free to view (Read-Only mode).',
-  'NAJPOPULARNIEJSZY • NAJLEPSZA CENA': 'MOST POPULAR • BEST VALUE',
   'Roczny': 'Yearly',
-  'Tylko ~1,91 zł / miesiąc • 12 miesięcy': 'Only ~$0.42 / month • 12 months',
   'rok': 'year',
   'Miesięczny': 'Monthly',
-  'Cena jednego espresso • Anuluj kiedy chcesz': 'Price of one espresso • Cancel anytime',
   'miesiąc': 'month',
   'Dożywotni (Lifetime)': 'Lifetime',
   'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'One-time purchase forever • All future updates',
@@ -31,9 +26,6 @@ export const EN_3: Record<string, string> = {
   'Zero reklam, zero śledzenia telemetrycznego': 'Zero ads, zero telemetry tracking',
   'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'All advanced tools and workbench assistant without limits',
   'Przetwarzanie...': 'Processing...',
-  'Aktywuj plan roczny ($4.99)': 'Activate yearly plan ($4.99)',
-  'Aktywuj plan miesięczny ($0.99)': 'Activate monthly plan ($0.99)',
-  'Kup dostęp dożywotni ($14.99)': 'Buy lifetime access ($14.99)',
   'Przywróć zakupy': 'Restore purchases',
   'Przeglądaj historię (Read-Only)': 'Browse history (Read-Only)',
   'Zakup': 'Purchase',

@@ -21,7 +21,7 @@ import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 import { przywrocZKomunikatem } from './przywroc-zakupy';
 import type { Plan } from '../lib/platnosci/konfiguracja';
-import { pobierzOferte, Oferta } from '../lib/platnosci/sklep';
+import { pobierzOferte, zarzadzajSubskrypcja, Oferta } from '../lib/platnosci/sklep';
 
 export type PlanOption = Plan;
 
@@ -103,8 +103,8 @@ export function PaywallModal({
         </View>
 
         <ScrollView contentContainerStyle={styles.scrollContent}>
-          <Text style={styles.heroEmoji}>☕🥖</Text>
-          <Text style={styles.title}>{t('Taniej niż espresso w kawiarni')}</Text>
+          <Text style={styles.heroEmoji}>🥖</Text>
+          <Text style={styles.title}>{t('Odblokuj pełny dostęp')}</Text>
           <Text style={styles.subtitle}>
             {t(
               'Odblokuj kalkulator, zakwas, Stolnicę, harmonogram i Doktora Chleba. Historia wypieków i Twoje dane są dostępne bez zakupu.'
@@ -128,26 +128,20 @@ export function PaywallModal({
 
           {/* Pricing Options */}
           <View style={styles.plansContainer}>
-            {/* Yearly: Recommended */}
+            {/* Yearly: kwota rozliczenia jako najważniejszy element ceny; bez etykiet bez danych [M1-audytor-generalny-011] */}
             <Pressable
               testID="plan-yearly-btn"
               style={[
                 styles.planCard,
                 selectedPlan === 'yearly' && styles.planCardSelected,
-                styles.planCardFeatured,
               ]}
               onPress={() => handleSelectPlan('yearly')}
             >
-              <View style={styles.featuredTag}>
-                <Text style={styles.featuredTagText}>
-                  {t('NAJPOPULARNIEJSZY • NAJLEPSZA CENA')}
-                </Text>
-              </View>
               <View style={styles.planRow}>
                 <View style={styles.planInfo}>
                   <Text style={styles.planName}>{t('Roczny')}</Text>
                   <Text style={styles.planSubtext}>
-                    {t('12 miesięcy')}{probaTekst('yearly')}
+                    {t('12 miesięcy')} • {t('Odnawia się automatycznie co rok')}{probaTekst('yearly')}
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
@@ -170,7 +164,7 @@ export function PaywallModal({
                 <View style={styles.planInfo}>
                   <Text style={styles.planName}>{t('Miesięczny')}</Text>
                   <Text style={styles.planSubtext}>
-                    {t('Cena jednego espresso • Anuluj kiedy chcesz')}{probaTekst('monthly')}
+                    {t('1 miesiąc')} • {t('Odnawia się automatycznie co miesiąc')}{probaTekst('monthly')}
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
@@ -246,8 +240,23 @@ export function PaywallModal({
             </Text>
           </Pressable>
 
+          {/* Warunki odnawiania i anulowania (3.1.2; developer.apple.com/app-store/subscriptions, odczyt 2026-10-19) */}
+          <Text style={styles.termsText} testID="subscription-terms">
+            {t('Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.')}{' '}
+            {t('Dostęp dożywotni to jednorazowy zakup bez odnawiania.')}
+          </Text>
+
           {/* Footer Actions */}
           <View style={styles.footerRow}>
+            <Pressable
+              testID="manage-subscriptions-btn"
+              onPress={() => zarzadzajSubskrypcja()}
+              style={styles.textBtn}
+              accessibilityRole="button"
+              accessibilityLabel={t('Zarządzaj subskrypcją')}
+            >
+              <Text style={styles.textBtnLabel}>{t('Zarządzaj subskrypcją')}</Text>
+            </Pressable>
             {onRestore && (
               <Pressable
                 testID="restore-purchases-btn"
@@ -389,26 +398,16 @@ const styles = StyleSheet.create({
     minHeight: 64,
     justifyContent: 'center',
   },
-  planCardFeatured: {
-    borderColor: theme.colors.accent,
-  },
   planCardSelected: {
     borderColor: theme.colors.accentDark,
     backgroundColor: theme.colors.accentLight,
   },
-  featuredTag: {
-    alignSelf: 'flex-start',
-    backgroundColor: theme.colors.accent,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    borderRadius: 4,
-    marginBottom: 6,
-  },
-  featuredTagText: {
-    color: '#FFFFFF',
-    fontSize: 10,
-    fontWeight: '800',
-    letterSpacing: 0.8,
+  termsText: {
+    fontSize: 12,
+    lineHeight: 17,
+    color: theme.colors.textSecondary,
+    textAlign: 'center',
+    marginBottom: theme.spacing.sm,
   },
   planRow: {
     flexDirection: 'row',
