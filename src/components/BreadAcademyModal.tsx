@@ -6,10 +6,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
-import {
-  getBreadSchoolLessons,
-  calculateBakerRank,
-} from '../core/bread-school';
+import { getBreadSchoolLessons } from '../core/bread-school';
 import {
   filterTechniques,
   TechniqueCategory,
@@ -49,7 +46,6 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
 
   const lessons = useMemo(() => getBreadSchoolLessons(), []);
   const techniques = useMemo(() => filterTechniques(techCategory), [techCategory]);
-  const rankInfo = useMemo(() => calculateBakerRank(completedLevels), [completedLevels]);
 
   const handleToggleLesson = async (level: number) => {
     await toggleLessonProgress(level);
@@ -64,10 +60,9 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
       onRequestClose={onClose}
     >
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
-        {/* Header with Title, Close, Rank, Tab Nav */}
+        {/* Nagłówek: tytuł, zamknięcie, zakładki; bez rang (BR-NAUK-001) [M1-audytor-generalny-032] */}
         <AcademyHeader
           onClose={onClose}
-          rankInfo={rankInfo}
           activeTab={activeTab}
           onSelectTab={setActiveTab}
         />

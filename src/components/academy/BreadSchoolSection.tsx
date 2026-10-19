@@ -45,7 +45,7 @@ export function BreadSchoolSection({
                 <View style={styles.levelPillRow}>
                   <Text style={styles.lessonBadge}>{lesson.badge}</Text>
                   <Text style={styles.lessonLevelTag}>
-                    {t('POZIOM')} {lesson.level}: {lesson.rankTitlePl}
+                    {t('POZIOM')} {lesson.level}
                   </Text>
                   {isCompleted && (
                     <View style={styles.completedBadge}>

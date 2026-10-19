@@ -2,20 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { BakerRankInfo } from '../../core/bread-school';
 
 export type AcademyTab = 'school' | 'techniques';
 
 export interface AcademyHeaderProps {
   onClose: () => void;
-  rankInfo: BakerRankInfo;
   activeTab: AcademyTab;
   onSelectTab: (tab: AcademyTab) => void;
 }
 
 export function AcademyHeader({
   onClose,
-  rankInfo,
   activeTab,
   onSelectTab,
 }: AcademyHeaderProps) {
@@ -34,18 +31,7 @@ export function AcademyHeader({
         </Pressable>
       </View>
 
-      {/* Rank Summary Badge */}
-      <View style={styles.rankBadgeRow}>
-        <Text style={styles.rankText}>
-          🏅 {rankInfo.currentRankPl} ({rankInfo.completedCount}/{rankInfo.totalLessons} {t('lekcji')})
-        </Text>
-        <View style={styles.progressBarBg}>
-          <View
-            style={[styles.progressBarFill, { width: `${rankInfo.progressPercent}%` }]}
-          />
-        </View>
-      </View>
-
+      {/* Akademia bez rang, odznak i paska postępu rangi (BR-NAUK-001, D-034) [M1-audytor-generalny-032] */}
       {/* Navigation Tabs */}
       <View style={styles.tabNavRow}>
         <Pressable
@@ -101,30 +87,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: theme.colors.textPrimary,
-  },
-  rankBadgeRow: {
-    backgroundColor: theme.colors.surfaceCard,
-    padding: 8,
-    borderRadius: theme.radius.md,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  rankText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.accentDark,
-    marginBottom: 4,
-  },
-  progressBarBg: {
-    height: 6,
-    backgroundColor: theme.colors.border,
-    borderRadius: 3,
-    overflow: 'hidden',
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: theme.colors.accent,
   },
   tabNavRow: {
     flexDirection: 'row',
