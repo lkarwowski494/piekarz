@@ -58,7 +58,7 @@ def calculate_ice(total_water, tap_temp, target_temp):
 
 def calculate_q10(base_hours, actual_temp, base_temp=24.0):
     exponent = (base_temp - actual_temp) / 10.0
-    factor = 2.0 ** exponent
+    factor = 3.0 ** exponent  # Q10 = 3,0 w 20-26 C (FER-Q10-002, DEC-08 c) [M1-audytor-generalny-041]
     adapted_unrounded = base_hours * factor
     adapted_hours = round(adapted_unrounded, 2)
     diff_minutes = js_round((adapted_unrounded - base_hours) * 60)

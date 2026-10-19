@@ -32,7 +32,7 @@ Aplikacja mobilna dla pasjonatów rzemieślniczego chleba na zakwasie, bagietek 
 - **Deterministyczna Fizyka i Matematyka Piekarska:**
   - **True Baker’s %:** Woda i mąka zawarte w zakwasie (Levain) są wliczane w bilans całkowitej hydratacji ciasta.
   - **4-składnikowe DDT (Desired Dough Temperature):** Precyzyjne wyliczanie temperatury wody z uwzględnieniem ciepła tarcia i automatycznym bilansowaniem lodu przy temperaturach wody $<4^\circ\text{C}$.
-  - **Kinetyka Fermentacji $Q_{10} = 2.0$:** Dynamiczna adaptacja czasu fermentacji burzliwej do aktualnej temperatury w kuchni.
+  - **Kinetyka Fermentacji $Q_{10} = 3{,}0$ (20–26 °C, FER-Q10-002):** Dynamiczna adaptacja czasu fermentacji burzliwej do aktualnej temperatury w kuchni.
   - **Bezpieczeństwo Biologiczne:** Ścisłe reguły klasyfikujące zjawiska na zakwasie (płyn głodowy *hooch*, bezpieczny kożuch drożdżowy *kahm yeast* oraz bezwzględny alarm toksycznej pleśni).
 
 ---
@@ -214,7 +214,7 @@ Projekt `piekarz` stosuje rygorystyczną strategię weryfikacji zaczerpniętą z
 1. **Property-Based Testing (`fast-check`):**
    - Weryfikacja niezmienników algebraicznych na tysiącach losowych permutacjach wejściowych (`numRuns: 1000`).
    - Zachowanie bilansu masy mąki, wody i soli w ciastach od mikro-porcji (200g) do misek piekarskich (20kg).
-   - Ścisła monotoniczność równań termodynamicznych lodu, parowania piecowego (Bake Loss) oraz kinetyki podwajania/poławiania czasów fermentacji $Q_{10} = 2.0$ przy $\pm 10^\circ\text{C}$.
+   - Ścisła monotoniczność równań termodynamicznych lodu, parowania piecowego (Bake Loss) oraz kinetyki czasów fermentacji $Q_{10} = 3{,}0$ (mnożenie i dzielenie przez Q10 przy $\pm 10^\circ\text{C}$).
    - Ciągłość i ścisłe przyleganie faz w harmonogramie wstecznym dla dowolnych znaczników czasu w latach 2026–2028.
    - Niezmiennik odwracalności serializacji JSON (round-trip export/import) oraz odporność na losowe zniekształcenia tekstu Unicode.
 2. **Niezależny Korpus Fizyczny (Python ↔ TypeScript):**

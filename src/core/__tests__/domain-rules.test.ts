@@ -203,23 +203,22 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
     });
   });
 
-  describe('RD-08: Fermentation Temperature Adaptation (Q10 = 2.0)', () => {
-    it('Adapts time correctly for cooler environment (19°C vs 24°C baseline)', () => {
-      // Baseline 4.0h at 24°C. At 19°C (5°C cooler), rate drops by 2^(5/10) = sqrt(2) ≈ 1.414
-      // 4.0 * 1.414 = 5.66h (approx 5h 40m)
-      const result = calculateFermentationAdaptation(4.0, 19.0, 24.0);
+  // Q10 = 3,0 w 20–26 °C (FER-Q10-002, DEC-08 c); wektory z wyniku roli 06 [M1-audytor-generalny-041]
+  describe('RD-08: Fermentation Temperature Adaptation (Q10 = 3.0, FER-Q10-002)', () => {
+    it('Adapts time correctly for cooler environment (21°C vs 24°C baseline)', () => {
+      // 4.0 h * 3^(3/10) = 5.56 h
+      const result = calculateFermentationAdaptation(4.0, 21.0, 24.0);
 
-      expect(result.adaptedHours).toBeCloseTo(5.66, 1);
+      expect(result.adaptedHours).toBeCloseTo(5.56, 2);
       expect(result.diffMinutes).toBeGreaterThan(0);
       expect(result.messagePl).toContain('wydłużony');
     });
 
-    it('Adapts time correctly for warmer environment (29°C vs 24°C baseline)', () => {
-      // At 29°C (5°C warmer), rate accelerates by 2^(-0.5) ≈ 0.707
-      // 4.0 * 0.707 = 2.83h (approx 2h 50m)
-      const result = calculateFermentationAdaptation(4.0, 29.0, 24.0);
+    it('Adapts time correctly for warmer environment (26°C vs 24°C baseline)', () => {
+      // 4.0 h * 3^(-2/10) = 3.21 h
+      const result = calculateFermentationAdaptation(4.0, 26.0, 24.0);
 
-      expect(result.adaptedHours).toBeCloseTo(2.83, 1);
+      expect(result.adaptedHours).toBeCloseTo(3.21, 2);
       expect(result.diffMinutes).toBeLessThan(0);
       expect(result.messagePl).toContain('skrócony');
     });

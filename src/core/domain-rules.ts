@@ -9,6 +9,7 @@
 export * from './bake-loss';
 export * from './sourdough-physics';
 import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
+import { Q10_FERMENTATION } from './fermentation-q10';
 
 export interface FlourItemInput {
   name: string;
@@ -249,14 +250,14 @@ export function calculateIceRequirement(
 export const calculateIceWaterMath = calculateIceRequirement;
 
 /**
- * RD-08: Temperature-Dependent Fermentation Time Adaptation (Q10 = 2.0)
+ * RD-08: Temperature-Dependent Fermentation Time Adaptation (Q10 = 3,0 w 20–26 °C, FER-Q10-002)
  * Adapts fermentation duration based on actual dough/ambient temperature.
  */
 export function calculateFermentationAdaptation(
   baseHours: number,
   actualTempC: number,
   baseCalibrationTempC = 24.0,
-  q10Factor = 2.0
+  q10Factor = Q10_FERMENTATION
 ): FermentationAdaptationResult {
   if (baseHours <= 0 || actualTempC <= 0) {
     throw new Error('Czas bazowy i temperatura muszą być większe od zera');

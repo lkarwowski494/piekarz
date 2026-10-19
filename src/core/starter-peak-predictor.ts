@@ -1,3 +1,4 @@
+import { Q10_FERMENTATION } from './fermentation-q10';
 // ============================================================================
 // Piekarz (Crust) — Sourdough Metabolic Peak Predictor Engine
 // Biokinetical modeling of sourdough yeast & lactic acid bacteria activity,
@@ -37,8 +38,8 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
   const grain = input.flourGrain ?? 'rye';
   const ratio = input.ratio ?? [1, 2, 2];
 
-  // 1. Temperature factor via Arrhenius Q10 kinetics (baseline 22°C, Q10 ~ 2.0)
-  const tempFactor = Math.pow(2.0, (22.0 - temp) / 10.0);
+  // 1. Temperature factor via Q10 kinetics (baseline 22°C, Q10 = 3,0 w 20–26 °C, FER-Q10-002)
+  const tempFactor = Math.pow(Q10_FERMENTATION, (22.0 - temp) / 10.0);
 
   // 2. Ratio factor: food-to-inoculum ratio (flour / starter)
   const starterPortion = ratio[0] || 1;

@@ -129,7 +129,8 @@ export const EN_1: Record<string, string> = {
   'Pojutrze': 'Day after tomorrow',
   'Godzina podania na stół:': 'Ready time on table:',
   'Temperatura w kuchni:': 'Kitchen temperature:',
-  'Wpływa na tempo fermentacji burzliwej (Q10 = 2.0)': 'Affects bulk fermentation rate (Q10 = 2.0)',
+  'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).':
+    'Affects bulk fermentation rate: 10 °C cooler means about 3 times longer fermentation (approximation from a research model, valid at 20–26 °C).',
   'Czas w lodówce (Cold Retard):': 'Fridge cold retard time:',
   'Elastyczny bufor regulujący porę formowania i pieczenia': 'Flexible buffer controlling shaping and baking times',
   'Uwaga: Kolizja ze snem!': 'Warning: Sleep collision!',

@@ -11,9 +11,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **UI** | 32 | 32 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 472 | 472 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 270 | 270 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 96 | 96 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 97 | 97 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **875** | Pokrytych: **875** | Brakujących: **0**
+Łącznie elementów: **876** | Pokrytych: **876** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -278,7 +278,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Godzina podania na stół:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godziny snu (Sleep Guard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wpływa na tempo fermentacji burzliwej (Q10 = 2.0)` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Czas w lodówce (Cold Retard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Oś czasu przygotowania (Timeline)` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 
-*(... i 575 kolejnych elementów w pełnym wykazie)*
+*(... i 576 kolejnych elementów w pełnym wykazie)*

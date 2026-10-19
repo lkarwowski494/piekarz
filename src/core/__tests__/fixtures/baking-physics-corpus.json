@@ -2935,218 +2935,218 @@
       "baseHours": 1.5,
       "actualTempC": 14.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.0,
-      "expectedDiffMinutes": 90
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 18.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 2.27,
-      "expectedDiffMinutes": 46
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 20.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.98,
-      "expectedDiffMinutes": 29
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 22.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.72,
-      "expectedDiffMinutes": 13
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 24.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.5,
-      "expectedDiffMinutes": 0
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 26.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.31,
-      "expectedDiffMinutes": -12
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 28.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.14,
-      "expectedDiffMinutes": -22
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 30.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 0.99,
-      "expectedDiffMinutes": -31
-    },
-    {
-      "baseHours": 1.5,
-      "actualTempC": 34.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 0.75,
-      "expectedDiffMinutes": -45
-    },
-    {
-      "baseHours": 3.0,
-      "actualTempC": 14.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.0,
+      "expectedAdaptedHours": 4.5,
       "expectedDiffMinutes": 180
     },
     {
-      "baseHours": 3.0,
+      "baseHours": 1.5,
       "actualTempC": 18.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 4.55,
-      "expectedDiffMinutes": 93
+      "expectedAdaptedHours": 2.9,
+      "expectedDiffMinutes": 84
     },
     {
-      "baseHours": 3.0,
+      "baseHours": 1.5,
       "actualTempC": 20.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.96,
-      "expectedDiffMinutes": 58
+      "expectedAdaptedHours": 2.33,
+      "expectedDiffMinutes": 50
     },
     {
-      "baseHours": 3.0,
+      "baseHours": 1.5,
       "actualTempC": 22.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.45,
-      "expectedDiffMinutes": 27
+      "expectedAdaptedHours": 1.87,
+      "expectedDiffMinutes": 22
     },
     {
-      "baseHours": 3.0,
+      "baseHours": 1.5,
       "actualTempC": 24.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.0,
-      "expectedDiffMinutes": 0
-    },
-    {
-      "baseHours": 3.0,
-      "actualTempC": 26.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 2.61,
-      "expectedDiffMinutes": -23
-    },
-    {
-      "baseHours": 3.0,
-      "actualTempC": 28.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 2.27,
-      "expectedDiffMinutes": -44
-    },
-    {
-      "baseHours": 3.0,
-      "actualTempC": 30.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 1.98,
-      "expectedDiffMinutes": -61
-    },
-    {
-      "baseHours": 3.0,
-      "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
       "expectedAdaptedHours": 1.5,
-      "expectedDiffMinutes": -90
-    },
-    {
-      "baseHours": 4.0,
-      "actualTempC": 14.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 8.0,
-      "expectedDiffMinutes": 240
-    },
-    {
-      "baseHours": 4.0,
-      "actualTempC": 18.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.06,
-      "expectedDiffMinutes": 124
-    },
-    {
-      "baseHours": 4.0,
-      "actualTempC": 20.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 5.28,
-      "expectedDiffMinutes": 77
-    },
-    {
-      "baseHours": 4.0,
-      "actualTempC": 22.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 4.59,
-      "expectedDiffMinutes": 36
-    },
-    {
-      "baseHours": 4.0,
-      "actualTempC": 24.0,
-      "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 4.0,
       "expectedDiffMinutes": 0
     },
     {
-      "baseHours": 4.0,
+      "baseHours": 1.5,
       "actualTempC": 26.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.48,
-      "expectedDiffMinutes": -31
+      "expectedAdaptedHours": 1.2,
+      "expectedDiffMinutes": -18
     },
     {
-      "baseHours": 4.0,
+      "baseHours": 1.5,
       "actualTempC": 28.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.03,
-      "expectedDiffMinutes": -58
+      "expectedAdaptedHours": 0.97,
+      "expectedDiffMinutes": -32
     },
     {
-      "baseHours": 4.0,
+      "baseHours": 1.5,
       "actualTempC": 30.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 2.64,
-      "expectedDiffMinutes": -82
+      "expectedAdaptedHours": 0.78,
+      "expectedDiffMinutes": -43
     },
     {
-      "baseHours": 4.0,
+      "baseHours": 1.5,
       "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 2.0,
-      "expectedDiffMinutes": -120
+      "expectedAdaptedHours": 0.5,
+      "expectedDiffMinutes": -60
     },
     {
-      "baseHours": 6.0,
+      "baseHours": 3.0,
       "actualTempC": 14.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 12.0,
+      "expectedAdaptedHours": 9.0,
       "expectedDiffMinutes": 360
     },
     {
+      "baseHours": 3.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 5.8,
+      "expectedDiffMinutes": 168
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.66,
+      "expectedDiffMinutes": 99
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.74,
+      "expectedDiffMinutes": 44
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.41,
+      "expectedDiffMinutes": -36
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.93,
+      "expectedDiffMinutes": -64
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.55,
+      "expectedDiffMinutes": -87
+    },
+    {
+      "baseHours": 3.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.0,
+      "expectedDiffMinutes": -120
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 12.0,
+      "expectedDiffMinutes": 480
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 18.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 7.73,
+      "expectedDiffMinutes": 224
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 20.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 6.21,
+      "expectedDiffMinutes": 132
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 22.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.98,
+      "expectedDiffMinutes": 59
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 24.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 4.0,
+      "expectedDiffMinutes": 0
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 26.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 3.21,
+      "expectedDiffMinutes": -47
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 28.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.58,
+      "expectedDiffMinutes": -85
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 30.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 2.07,
+      "expectedDiffMinutes": -116
+    },
+    {
+      "baseHours": 4.0,
+      "actualTempC": 34.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 1.33,
+      "expectedDiffMinutes": -160
+    },
+    {
+      "baseHours": 6.0,
+      "actualTempC": 14.0,
+      "baseCalibrationTempC": 24.0,
+      "expectedAdaptedHours": 18.0,
+      "expectedDiffMinutes": 720
+    },
+    {
       "baseHours": 6.0,
       "actualTempC": 18.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 9.09,
-      "expectedDiffMinutes": 186
+      "expectedAdaptedHours": 11.6,
+      "expectedDiffMinutes": 336
     },
     {
       "baseHours": 6.0,
       "actualTempC": 20.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 7.92,
-      "expectedDiffMinutes": 115
+      "expectedAdaptedHours": 9.31,
+      "expectedDiffMinutes": 199
     },
     {
       "baseHours": 6.0,
       "actualTempC": 22.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.89,
-      "expectedDiffMinutes": 54
+      "expectedAdaptedHours": 7.47,
+      "expectedDiffMinutes": 88
     },
     {
       "baseHours": 6.0,
@@ -3159,57 +3159,57 @@
       "baseHours": 6.0,
       "actualTempC": 26.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 5.22,
-      "expectedDiffMinutes": -47
+      "expectedAdaptedHours": 4.82,
+      "expectedDiffMinutes": -71
     },
     {
       "baseHours": 6.0,
       "actualTempC": 28.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 4.55,
-      "expectedDiffMinutes": -87
+      "expectedAdaptedHours": 3.87,
+      "expectedDiffMinutes": -128
     },
     {
       "baseHours": 6.0,
       "actualTempC": 30.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.96,
-      "expectedDiffMinutes": -122
+      "expectedAdaptedHours": 3.1,
+      "expectedDiffMinutes": -174
     },
     {
       "baseHours": 6.0,
       "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 3.0,
-      "expectedDiffMinutes": -180
+      "expectedAdaptedHours": 2.0,
+      "expectedDiffMinutes": -240
     },
     {
       "baseHours": 8.0,
       "actualTempC": 14.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 16.0,
-      "expectedDiffMinutes": 480
+      "expectedAdaptedHours": 24.0,
+      "expectedDiffMinutes": 960
     },
     {
       "baseHours": 8.0,
       "actualTempC": 18.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 12.13,
-      "expectedDiffMinutes": 248
+      "expectedAdaptedHours": 15.47,
+      "expectedDiffMinutes": 448
     },
     {
       "baseHours": 8.0,
       "actualTempC": 20.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 10.56,
-      "expectedDiffMinutes": 153
+      "expectedAdaptedHours": 12.41,
+      "expectedDiffMinutes": 265
     },
     {
       "baseHours": 8.0,
       "actualTempC": 22.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 9.19,
-      "expectedDiffMinutes": 71
+      "expectedAdaptedHours": 9.97,
+      "expectedDiffMinutes": 118
     },
     {
       "baseHours": 8.0,
@@ -3222,57 +3222,57 @@
       "baseHours": 8.0,
       "actualTempC": 26.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.96,
-      "expectedDiffMinutes": -62
+      "expectedAdaptedHours": 6.42,
+      "expectedDiffMinutes": -95
     },
     {
       "baseHours": 8.0,
       "actualTempC": 28.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.06,
-      "expectedDiffMinutes": -116
+      "expectedAdaptedHours": 5.16,
+      "expectedDiffMinutes": -171
     },
     {
       "baseHours": 8.0,
       "actualTempC": 30.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 5.28,
-      "expectedDiffMinutes": -163
+      "expectedAdaptedHours": 4.14,
+      "expectedDiffMinutes": -232
     },
     {
       "baseHours": 8.0,
       "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 4.0,
-      "expectedDiffMinutes": -240
+      "expectedAdaptedHours": 2.67,
+      "expectedDiffMinutes": -320
     },
     {
       "baseHours": 12.0,
       "actualTempC": 14.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 24.0,
-      "expectedDiffMinutes": 720
+      "expectedAdaptedHours": 36.0,
+      "expectedDiffMinutes": 1440
     },
     {
       "baseHours": 12.0,
       "actualTempC": 18.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 18.19,
-      "expectedDiffMinutes": 371
+      "expectedAdaptedHours": 23.2,
+      "expectedDiffMinutes": 672
     },
     {
       "baseHours": 12.0,
       "actualTempC": 20.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 15.83,
-      "expectedDiffMinutes": 230
+      "expectedAdaptedHours": 18.62,
+      "expectedDiffMinutes": 397
     },
     {
       "baseHours": 12.0,
       "actualTempC": 22.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 13.78,
-      "expectedDiffMinutes": 107
+      "expectedAdaptedHours": 14.95,
+      "expectedDiffMinutes": 177
     },
     {
       "baseHours": 12.0,
@@ -3285,57 +3285,57 @@
       "baseHours": 12.0,
       "actualTempC": 26.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 10.45,
-      "expectedDiffMinutes": -93
+      "expectedAdaptedHours": 9.63,
+      "expectedDiffMinutes": -142
     },
     {
       "baseHours": 12.0,
       "actualTempC": 28.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 9.09,
-      "expectedDiffMinutes": -174
+      "expectedAdaptedHours": 7.73,
+      "expectedDiffMinutes": -256
     },
     {
       "baseHours": 12.0,
       "actualTempC": 30.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 7.92,
-      "expectedDiffMinutes": -245
+      "expectedAdaptedHours": 6.21,
+      "expectedDiffMinutes": -348
     },
     {
       "baseHours": 12.0,
       "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 6.0,
-      "expectedDiffMinutes": -360
+      "expectedAdaptedHours": 4.0,
+      "expectedDiffMinutes": -480
     },
     {
       "baseHours": 16.0,
       "actualTempC": 14.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 32.0,
-      "expectedDiffMinutes": 960
+      "expectedAdaptedHours": 48.0,
+      "expectedDiffMinutes": 1920
     },
     {
       "baseHours": 16.0,
       "actualTempC": 18.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 24.25,
-      "expectedDiffMinutes": 495
+      "expectedAdaptedHours": 30.93,
+      "expectedDiffMinutes": 896
     },
     {
       "baseHours": 16.0,
       "actualTempC": 20.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 21.11,
-      "expectedDiffMinutes": 307
+      "expectedAdaptedHours": 24.83,
+      "expectedDiffMinutes": 530
     },
     {
       "baseHours": 16.0,
       "actualTempC": 22.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 18.38,
-      "expectedDiffMinutes": 143
+      "expectedAdaptedHours": 19.93,
+      "expectedDiffMinutes": 236
     },
     {
       "baseHours": 16.0,
@@ -3348,29 +3348,29 @@
       "baseHours": 16.0,
       "actualTempC": 26.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 13.93,
-      "expectedDiffMinutes": -124
+      "expectedAdaptedHours": 12.84,
+      "expectedDiffMinutes": -189
     },
     {
       "baseHours": 16.0,
       "actualTempC": 28.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 12.13,
-      "expectedDiffMinutes": -232
+      "expectedAdaptedHours": 10.31,
+      "expectedDiffMinutes": -341
     },
     {
       "baseHours": 16.0,
       "actualTempC": 30.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 10.56,
-      "expectedDiffMinutes": -327
+      "expectedAdaptedHours": 8.28,
+      "expectedDiffMinutes": -463
     },
     {
       "baseHours": 16.0,
       "actualTempC": 34.0,
       "baseCalibrationTempC": 24.0,
-      "expectedAdaptedHours": 8.0,
-      "expectedDiffMinutes": -480
+      "expectedAdaptedHours": 5.33,
+      "expectedDiffMinutes": -640
     }
   ],
   "feedingCases": [

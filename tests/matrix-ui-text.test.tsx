@@ -395,7 +395,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Woda w zaczynie",
     "Wpisz nazwę przepisu",
     "Wpisz swoje uwagi (miękisz, skórka, czas pieca)...",
-    "Wpływa na tempo fermentacji burzliwej (Q10 = 2.0)",
+    "Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).",
     "Wraca powoli do połowy:",
     "Wskazówka rzemieślnicza:",
     "Wskazówki",

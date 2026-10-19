@@ -1,3 +1,4 @@
+import { Q10_FERMENTATION } from '../core/fermentation-q10';
 // ============================================================================
 // Piekarz (Crust) — Reverse Scheduler & Sleep Guard (BR-HARMO-001…004)
 // Calculates backward timeline from target bread serving hour with sleep guard.
@@ -202,7 +203,7 @@ export function calculateReverseSchedule(
   // Adjust bulk ferment if temperature is given
   if (options.ambientTemperatureC && options.ambientTemperatureC !== 24.0) {
     const exponent = (24.0 - options.ambientTemperatureC) / 10.0;
-    const factor = Math.pow(2.0, exponent);
+    const factor = Math.pow(Q10_FERMENTATION, exponent); // FER-Q10-002
     const bulk = templates.find((t) => t.id === 'bulk_ferment');
     if (bulk) {
       bulk.durationMinutes = Math.round(bulk.durationMinutes * factor);

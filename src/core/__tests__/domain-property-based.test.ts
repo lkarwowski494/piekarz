@@ -10,6 +10,7 @@ import {
   calculateRequiredRawDoughWeight,
 } from '../domain-rules';
 import { analyzeFlourBlendAbsorption } from '../flour-atlas';
+import { Q10_FERMENTATION } from '../fermentation-q10';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 
 const PBT_SEED = process.env.PROP_SEED ? Number(process.env.PROP_SEED) : undefined;
@@ -204,7 +205,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
     });
   });
 
-  describe('Fermentation Kinetics (Q10 = 2.0) Invariants', () => {
+  describe('Fermentation Kinetics (Q10 = Q10_FERMENTATION, FER-Q10-002) Invariants', () => {
     it('fermentation duration decreases monotonically with rising temperature', () => {
       assertWithSeed(
         fc.property(
@@ -229,7 +230,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
       );
     });
 
-    it('satisfies exact Q10 halving and doubling properties at +10°C and -10°C deltas', () => {
+    it('satisfies exact Q10 division and multiplication at +10°C and -10°C deltas [M1-audytor-generalny-041]', () => {
       assertWithSeed(
         fc.property(
           fc.double({ min: 2.0, max: 30.0, noNaN: true }), // base hours
@@ -238,11 +239,11 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             const resPlus10 = calculateFermentationAdaptation(baseHours, 34.0, 24.0);
             const resMinus10 = calculateFermentationAdaptation(baseHours, 14.0, 24.0);
 
-            // +10°C should halve the duration
-            expect(Math.abs(resPlus10.adaptedHours - baseHours / 2.0)).toBeLessThanOrEqual(0.05);
+            // +10°C divides the duration by Q10 (FER-Q10-002)
+            expect(Math.abs(resPlus10.adaptedHours - baseHours / Q10_FERMENTATION)).toBeLessThanOrEqual(0.05);
 
-            // -10°C should double the duration
-            expect(Math.abs(resMinus10.adaptedHours - baseHours * 2.0)).toBeLessThanOrEqual(0.05);
+            // -10°C multiplies the duration by Q10
+            expect(Math.abs(resMinus10.adaptedHours - baseHours * Q10_FERMENTATION)).toBeLessThanOrEqual(0.05);
           }
         ),
         { numRuns: 500 }

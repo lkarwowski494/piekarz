@@ -244,7 +244,7 @@ export function TargetReadyCard({
           ))}
         </View>
         <Text style={styles.paramHint}>
-          {t('Wpływa na tempo fermentacji burzliwej (Q10 = 2.0)')}
+          {t('Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).')}
         </Text>
       </View>
 
