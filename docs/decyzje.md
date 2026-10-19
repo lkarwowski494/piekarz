@@ -117,4 +117,4 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** kierunek A: element firmowy to spirala planu wypieku (zwoje koszyka do garowania od startu do godziny „gotowe”), paleta płótno, żeliwo, ratan, noc; karta stylu w `docs/design/02-kierunki.md`.
 - **Odrzucone:** B „Słoik z gumką” (najmocniejszy dla zakwasu; może wrócić jako element karty zakwasu przy łączeniu kierunków), C „Taśma z etykietą” (najtańszy i najbardziej odporny na AX5).
 - **Dlaczego (rekomendacja studia, ta sama):** główna praca J-02; tylko A pokazuje cały plan z nocą i godziną „gotowe” na jednym przedmiocie.
-- **Warunkowe:** potwierdzenie okiem na stronie porównania (STOP E2); krój tytułów wybiera właściciel po porównaniu ok. 5 krojów (następny krok).
+- **Potwierdzenie okiem (STOP E2):** „Potwierdzam koszyk spiralny po obejrzeniu porównania. Zrób porównanie krojów, gdy wróci sieć.” (2026-10-20). Krój tytułów wybiera właściciel po porównaniu ok. 5 krojów (następny krok).
