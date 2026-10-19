@@ -6,6 +6,8 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { QrScannerModal } from '../QrScannerModal';
+import { MASTER_RECIPES } from '../../recipes/presets';
+import { encodeRecipeToShareUrl, decodeRecipeFromShareUrl } from '../../lib/recipe-sharing';
 
 describe('QrScannerModal', () => {
   let tree: renderer.ReactTestRenderer | null = null;
@@ -73,5 +75,28 @@ describe('QrScannerModal', () => {
       closeBtn.props.onPress();
     });
     expect(handleClose).toHaveBeenCalled();
+  });
+
+  it('imports a scanned recipe payload without URL scheme (M1-audytor-generalny-029)', async () => {
+    const handleScanRecipe = jest.fn();
+    const recipe = MASTER_RECIPES[0];
+    const payload = encodeRecipeToShareUrl(recipe);
+    expect(payload).not.toContain('://');
+
+    await act(async () => {
+      tree = renderer.create(
+        <QrScannerModal visible onClose={jest.fn()} onScanRecipe={handleScanRecipe} />
+      );
+    });
+    act(() => {
+      tree!.root.findByProps({ testID: 'camera-view' }).props.onBarcodeScanned({ data: `  ${payload}\n` });
+    });
+
+    expect(handleScanRecipe).toHaveBeenCalledWith(payload);
+    const imported = decodeRecipeFromShareUrl(handleScanRecipe.mock.calls[0][0]);
+    expect(imported.success).toBe(true);
+    if (imported.success) {
+      expect(imported.recipe.name).toBe(recipe.namePl);
+    }
   });
 });

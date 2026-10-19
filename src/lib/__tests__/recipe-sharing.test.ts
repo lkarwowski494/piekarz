@@ -10,7 +10,8 @@ import {
   parseAndValidateRecipeJson,
   encodeRecipeToShareUrl,
   decodeRecipeFromShareUrl,
-  RECIPE_SHARE_PROTOCOL,
+  utf8ToBase64,
+  RECIPE_SHARE_PREFIX,
   PIEKARZ_RECIPE_SCHEMA_V1,
 } from '../recipe-sharing';
 import { MASTER_RECIPES } from '../../recipes/presets';
@@ -269,16 +270,44 @@ describe('Recipe Sharing & JSON Serialization', () => {
     });
   });
 
-  describe('Deep Link Sharing (piekarz://recipe)', () => {
-    it('encodes a MasterRecipe into deep link URL', () => {
-      const master = MASTER_RECIPES[0];
-      const url = encodeRecipeToShareUrl(master);
+  describe('Recipe share payload without URL scheme (M1-audytor-generalny-029)', () => {
+    // Aplikacja nie ma trasy `recipe`: udostępniany ładunek to tekst, nie link.
+    const legacyData = (recipe: (typeof MASTER_RECIPES)[number]) =>
+      encodeURIComponent(utf8ToBase64(JSON.stringify(JSON.parse(exportRecipeToJson(recipe)))));
 
-      expect(url.startsWith(`${RECIPE_SHARE_PROTOCOL}?v=1&d=`)).toBe(true);
-      expect(url.length).toBeGreaterThan(50);
+    it('encodes a MasterRecipe into a text payload without any URL scheme', () => {
+      for (const master of MASTER_RECIPES) {
+        const payload = encodeRecipeToShareUrl(master);
+        expect(payload).not.toContain('://');
+        expect(payload).not.toMatch(/https?:/i);
+        expect(payload.startsWith(RECIPE_SHARE_PREFIX)).toBe(true);
+        expect(RECIPE_SHARE_PREFIX).not.toContain('://');
+        expect(payload.length).toBeGreaterThan(50);
+      }
     });
 
-    it('round-trips encode and decode from deep link correctly', () => {
+    it('decodes the whole shared message (name, sentence, payload) pasted into import', () => {
+      const master = MASTER_RECIPES[1];
+      const message = `${master.namePl} — Receptura piekarska z aplikacji Piekarz:\n${encodeRecipeToShareUrl(master)}`;
+      const decoded = decodeRecipeFromShareUrl(message);
+
+      expect(decoded.success).toBe(true);
+      if (decoded.success) {
+        expect(decoded.recipe.name).toBe(master.namePl);
+      }
+    });
+
+    it('still decodes a piekarz://recipe link sent by an older version', () => {
+      const master = MASTER_RECIPES[2];
+      const decoded = decodeRecipeFromShareUrl(`piekarz://recipe?v=1&d=${legacyData(master)}`);
+
+      expect(decoded.success).toBe(true);
+      if (decoded.success) {
+        expect(decoded.recipe.name).toBe(master.namePl);
+      }
+    });
+
+    it('round-trips encode and decode from share payload correctly', () => {
       const master = MASTER_RECIPES[2];
       const url = encodeRecipeToShareUrl(master);
       const decoded = decodeRecipeFromShareUrl(url);
@@ -293,8 +322,7 @@ describe('Recipe Sharing & JSON Serialization', () => {
 
     it('still decodes a web link sent by an older version (M1-audytor-generalny-028)', () => {
       const master = MASTER_RECIPES[3];
-      const payload = encodeRecipeToShareUrl(master).split('?')[1];
-      const decoded = decodeRecipeFromShareUrl(`https://piekarz.app/recipe?${payload}`);
+      const decoded = decodeRecipeFromShareUrl(`https://piekarz.app/recipe?v=1&d=${legacyData(master)}`);
 
       expect(decoded.success).toBe(true);
       if (decoded.success) {

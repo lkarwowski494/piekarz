@@ -261,9 +261,12 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   return { success: true, recipe: validStoredRecipe };
 }
 
-// Tylko schemat aplikacji: link w domenie WWW wysyłałby recepturę do adresu,
-// którego studio nie kontroluje (DEC-05 a, M1-audytor-generalny-028).
-export const RECIPE_SHARE_PROTOCOL = 'piekarz://recipe';
+// Ładunek tekstowy bez schematu URL: aplikacja nie ma trasy `recipe`, więc link
+// nie prowadził do importu (M1-audytor-generalny-029, wariant b roli 03). Link w
+// domenie WWW wysyłałby recepturę do adresu spoza studia (DEC-05 a, -028).
+// Prefiks pozwala znaleźć ładunek w całej wklejonej wiadomości.
+export const RECIPE_SHARE_PREFIX = 'PIEKARZ-RECEPTURA-1:';
+const SHARE_PAYLOAD_PATTERN = /PIEKARZ-RECEPTURA-1:([A-Za-z0-9+/=]+)/i;
 
 /**
  * Encodes string to Base64 in UTF-8 safely for Hermes, Node, and browser
@@ -296,7 +299,8 @@ export function base64ToUtf8(b64: string): string {
 }
 
 /**
- * Exports recipe into deep link (piekarz://recipe?v=1&d=<base64>)
+ * Exports recipe into a text payload for QR and sharing (PIEKARZ-RECEPTURA-1:<base64>),
+ * without any URL scheme (M1-audytor-generalny-029).
  */
 export function encodeRecipeToShareUrl(recipe: StoredRecipe | MasterRecipe): string {
   const jsonStr = exportRecipeToJson(recipe);
@@ -306,12 +310,12 @@ export function encodeRecipeToShareUrl(recipe: StoredRecipe | MasterRecipe): str
   } catch {
     // fallback
   }
-  const base64Str = utf8ToBase64(minified);
-  return `${RECIPE_SHARE_PROTOCOL}?v=1&d=${encodeURIComponent(base64Str)}`;
+  return `${RECIPE_SHARE_PREFIX}${utf8ToBase64(minified)}`;
 }
 
 /**
- * Decodes recipe from deep link, universal link, base64 payload, or raw JSON
+ * Decodes recipe from a text payload (also inside a pasted message), an older
+ * piekarz://recipe or https link (?d=), a base64 payload, or raw JSON.
  */
 export function decodeRecipeFromShareUrl(urlOrRawData: string): RecipeValidationResult {
   if (!urlOrRawData || typeof urlOrRawData !== 'string') {
@@ -321,7 +325,10 @@ export function decodeRecipeFromShareUrl(urlOrRawData: string): RecipeValidation
   const trimmed = urlOrRawData.trim();
   let candidate = trimmed;
 
-  if (trimmed.includes('d=')) {
+  const payloadMatch = trimmed.match(SHARE_PAYLOAD_PATTERN);
+  if (payloadMatch) {
+    candidate = payloadMatch[1];
+  } else if (trimmed.includes('d=')) {
     try {
       const match = trimmed.match(/[?&]d=([^&#]+)/);
       if (match && match[1]) {

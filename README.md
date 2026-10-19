@@ -62,7 +62,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | **Persystencja SQLite & Backup** | `Z-073`–`Z-076` | Baza w `/Library/SQLite`, auto-backup 10 kopii, JSON export/import, sharing | ✅ Wdrożone |
 | **Zegary kuchenne & Alarmy** | `Z-054`–`Z-056` | Timery wielobieżne, głośne alarmy, integracja dźwiękowa i wibracyjna | ✅ Wdrożone |
 | **Ustawienia & Pro** | `Z-078`–`Z-080` | Model etyczny, brak lock-in, Pro Lifetime, Family Sharing info | ✅ Wdrożone |
-| **Kody QR SVG & Deep Links** | `P1`, `Z-150` | Wektorowe generowanie kodów QR SVG, schemat `piekarz://recipe?v=1&d=...` | ✅ Wdrożone |
+| **Kody QR SVG & udostępnianie tekstem** | `P1`, `Z-150` | Wektorowe generowanie kodów QR SVG; QR i „Udostępnij” niosą tekst receptury `PIEKARZ-RECEPTURA-1:...` bez schematu URL (import przez Skanuj QR lub Importuj JSON; stare linki `piekarz://recipe?...` nadal się importują) | ✅ Wdrożone |
 | **Skaner Kodów QR Aparatem** | `P2`, `Z-151` | Offline skaner kodów kreskowych/QR z wizjerem (`expo-camera`) | ✅ Wdrożone |
 | **Piecz Ponownie (1-Tap)** | `P3`, `Z-037` | Jedno kliknięcie na Stolnicy przenosi historyczną recepturę i DDT do kalkulatora | ✅ Wdrożone |
 | **Wektorowy Radar Sensoryczny** | `P4`, `Z-049` | 5-osiowy wykres pajęczynowy SVG oceniania miękiszu, skórki i kwasowości | ✅ Wdrożone |
@@ -290,7 +290,7 @@ piekarz/
 │   │   ├── schedule-formatter.ts # Udostępnianie harmonogramu wstecznego
 │   │   ├── diagnosis-formatter.ts # Udostępnianie diagnozy Doktora Chleba
 │   │   ├── recipe-formatter.ts # Udostępnianie receptury
-│   │   ├── recipe-sharing.ts   # Bezpieczna serializacja JSON, linki piekarz:// i QR
+│   │   ├── recipe-sharing.ts   # Bezpieczna serializacja JSON, ładunek tekstowy do QR i udostępniania
 │   │   ├── recipe-navigation.ts# Bezstanowe przekazywanie parametrów między zakładkami
 │   │   ├── unit-converter.ts   # Konwerter Metric / Imperial (°C/°F, g/oz/lbs)
 │   │   ├── csv-exporter.ts     # Generator arkuszy CSV (bake logs i flour inventory)

@@ -32,11 +32,13 @@ describe('udostępnianie receptury bez obcej domeny (M1-audytor-generalny-028)',
     jest.clearAllMocks();
   });
 
-  it('moduł udostępniania nie zna adresu WWW i zawsze koduje link piekarz://', () => {
+  it('moduł udostępniania nie zna adresu WWW i koduje ładunek bez schematu URL (M1-audytor-generalny-029)', () => {
     expect(Object.values(sharing).some((v) => typeof v === 'string' && WEB_ADDRESS.test(v))).toBe(false);
+    expect(Object.values(sharing).some((v) => typeof v === 'string' && v.includes('://'))).toBe(false);
     for (const recipe of MASTER_RECIPES.slice(0, 4)) {
-      const url = sharing.encodeRecipeToShareUrl(recipe);
-      expect(url.startsWith(`${sharing.RECIPE_SHARE_PROTOCOL}?v=1&d=`)).toBe(true);
+      const payload = sharing.encodeRecipeToShareUrl(recipe);
+      expect(payload).not.toContain('://');
+      expect(sharing.decodeRecipeFromShareUrl(payload).success).toBe(true);
     }
   });
 
@@ -69,7 +71,9 @@ describe('udostępnianie receptury bez obcej domeny (M1-audytor-generalny-028)',
     expect(sent.length).toBeGreaterThan(0);
     for (const payload of sent) {
       expect(payload).not.toMatch(WEB_ADDRESS);
+      expect(payload).not.toContain('://');
     }
-    expect(sent.some((p) => p.includes('piekarz://recipe?v=1&d='))).toBe(true);
+    const recipePayload = sharing.encodeRecipeToShareUrl(MASTER_RECIPES[0]);
+    expect(sent.some((p) => p.includes(recipePayload))).toBe(true);
   });
 });

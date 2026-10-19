@@ -1,10 +1,10 @@
 // ============================================================================
 // Piekarz (Crust) — Modal Udostępniania Receptury przez Kod QR (DEC-20 / HIG)
-// 100% offline, peer-to-peer transfer receptur piekarskich przez kody QR i Deep Links
+// 100% offline, peer-to-peer transfer receptur piekarskich przez kod QR i tekst (bez linku)
 // Apps4Brew Studio — 100% Offline-First.
 // ============================================================================
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -12,20 +12,15 @@ import {
   ScrollView,
   Pressable,
   StyleSheet,
-  Alert,
   Share,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
-import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { StoredRecipe } from '../data/db';
 import { MasterRecipe } from '../recipes/presets';
-import {
-  encodeRecipeToShareUrl,
-  RECIPE_SHARE_PROTOCOL,
-} from '../lib/recipe-sharing';
+import { encodeRecipeToShareUrl } from '../lib/recipe-sharing';
 import { QrCodeSvg } from './QrCodeSvg';
 
 export interface ShareRecipeQrModalProps {
@@ -39,39 +34,17 @@ export function ShareRecipeQrModal({
   onClose,
   recipe,
 }: ShareRecipeQrModalProps) {
-  const [copiedType, setCopiedType] = useState<'app' | null>(null);
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  React.useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-
   if (!visible || !recipe) return null;
 
   const isMaster = 'namePl' in recipe;
   const name = isMaster ? recipe.namePl : recipe.name;
-  const appUrl = encodeRecipeToShareUrl(recipe);
-
-  const handleCopyAppUrl = async () => {
-    try {
-      await Clipboard.setStringAsync(appUrl);
-      setCopiedType('app');
-      Alert.alert(t('Skopiowano link'), t('Link piekarz:// został skopiowany do schowka.'));
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(() => setCopiedType(null), 2500);
-    } catch {
-      Alert.alert(t('Błąd'), t('Nie udało się skopiować linku.'));
-    }
-  };
+  // Ładunek tekstowy bez schematu URL (M1-audytor-generalny-029)
+  const sharePayload = encodeRecipeToShareUrl(recipe);
 
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `${name} — ${t('Receptura piekarska z aplikacji Piekarz')}:\n${appUrl}`,
+        message: `${name} — ${t('Receptura piekarska z aplikacji Piekarz')}:\n${sharePayload}`,
         title: name,
       });
     } catch {
@@ -118,27 +91,15 @@ export function ShareRecipeQrModal({
 
             {/* QR Code Canvas */}
             <View style={styles.qrWrapper} testID="qr-code-wrapper">
-              <QrCodeSvg value={appUrl} size={220} testID="recipe-qr-svg" />
+              <QrCodeSvg value={sharePayload} size={220} testID="recipe-qr-svg" />
             </View>
 
             <Text style={styles.hintText}>
-              {t('Zeskanuj kod drugim telefonem za pomocą aparatu w aplikacji Piekarz lub przekaż link.')}
+              {t('Zeskanuj kod drugim telefonem w aplikacji Piekarz (Skanuj QR) albo udostępnij recepturę jako tekst i wklej go w oknie Importuj JSON.')}
             </Text>
 
             {/* Action Buttons */}
             <View style={styles.actionsBox}>
-              <Pressable
-                testID="copy-app-link-btn"
-                style={[styles.primaryBtn, copiedType === 'app' && styles.successBtn]}
-                onPress={handleCopyAppUrl}
-                accessibilityRole="button"
-                accessibilityLabel={t('Kopiuj link piekarz://')}
-              >
-                <Text style={styles.primaryBtnText}>
-                  {copiedType === 'app' ? `✓ ${t('Skopiowano link!')}` : `🔗 ${t('Kopiuj link piekarz://')}`}
-                </Text>
-              </Pressable>
-
               <Pressable
                 testID="share-system-btn"
                 style={styles.secondaryBtn}
@@ -250,22 +211,6 @@ const styles = StyleSheet.create({
   actionsBox: {
     width: '100%',
     gap: theme.spacing.sm,
-  },
-  primaryBtn: {
-    backgroundColor: theme.colors.accent,
-    borderRadius: theme.radius.md,
-    minHeight: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: theme.spacing.lg,
-  },
-  successBtn: {
-    backgroundColor: '#2E7D32',
-  },
-  primaryBtnText: {
-    color: '#FFFFFF',
-    fontSize: 15,
-    fontWeight: '700',
   },
   secondaryBtn: {
     backgroundColor: theme.colors.surfaceCard,

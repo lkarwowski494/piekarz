@@ -4,9 +4,11 @@
 // ============================================================================
 
 import React from 'react';
+import { Share } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import { ShareRecipeQrModal } from '../ShareRecipeQrModal';
 import { MASTER_RECIPES } from '../../recipes/presets';
+import { encodeRecipeToShareUrl } from '../../lib/recipe-sharing';
 import * as Clipboard from 'expo-clipboard';
 
 describe('ShareRecipeQrModal', () => {
@@ -60,14 +62,24 @@ describe('ShareRecipeQrModal', () => {
     expect(root.findByProps({ testID: 'share-recipe-qr-modal' })).toBeDefined();
     expect(root.findByProps({ testID: 'recipe-qr-svg' })).toBeDefined();
 
-    // Copy deep link button
-    const copyAppBtn = root.findByProps({ testID: 'copy-app-link-btn' });
+    // M1-audytor-generalny-029: aplikacja nie ma trasy `recipe`, więc nie ma
+    // przycisku kopiowania linku, a QR niesie ładunek tekstowy bez schematu URL.
+    expect(root.findAll((n) => n.props.testID === 'copy-app-link-btn')).toHaveLength(0);
+    const qr = root.findByProps({ testID: 'recipe-qr-svg' });
+    expect(qr.props.value).toBe(encodeRecipeToShareUrl(sampleRecipe));
+    expect(qr.props.value).not.toContain('://');
+
+    // Udostępnij: nazwa receptury i ładunek tekstowy
+    const shareSpy = jest.spyOn(Share, 'share').mockResolvedValue({ action: 'sharedAction' });
     await act(async () => {
-      copyAppBtn.props.onPress();
+      await root.findByProps({ testID: 'share-system-btn' }).props.onPress();
     });
-    expect(Clipboard.setStringAsync).toHaveBeenCalledWith(
-      expect.stringContaining('piekarz://recipe?v=1&d=')
-    );
+    const sentMessage = String(shareSpy.mock.calls[0][0].message);
+    expect(sentMessage).toContain(sampleRecipe.namePl);
+    expect(sentMessage).toContain(encodeRecipeToShareUrl(sampleRecipe));
+    expect(sentMessage).not.toContain('://');
+    expect(Clipboard.setStringAsync).not.toHaveBeenCalled();
+    shareSpy.mockRestore();
 
     // No web link to a domain the studio does not control (M1-audytor-generalny-028)
     expect(root.findAll((n) => n.props.testID === 'copy-web-link-btn')).toHaveLength(0);
