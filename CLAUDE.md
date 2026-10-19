@@ -2,6 +2,15 @@
 
 Piekarz to rzemieślniczy asystent domowego wypieku chleba stworzony w Apps4Brew Studio. Zasady niżej są regułami projektu; przy każdej znacznik „Sprawdza:” mówi, która komenda ją egzekwuje, albo że nie egzekwuje jej żaden automat (dowód zamiast deklaracji, M1-audytor-generalny-038). Stan kryteriów: `docs/20-definicja-ukonczenia.md`.
 
+## Stan projektu (aktualizacja: 2026-10-19)
+- Etap: TestFlight (beta); liczba testerów i to, czy mają dane w aplikacji: [DO USTALENIA].
+- Sklep (App Store Connect): częściowo — TestFlight; produkty i oferty StoreKit (D-033) to krok właściciela.
+- Rynek: globalny, 35 języków (DEC-06 planu napraw M1); udział rynków: bramka roli 02 (`audit/02-oplacalnosc-2026-10-19/`). Repo treści prywatnych: brak, treści w `docs/tresci/`.
+- Standard marki: [DO USTALENIA] (opłacalność obu wariantów pokazuje rola 02).
+- Próg opłacalności: 500 USD netto/rok globalnie (karta właściciela, 2026-10-19).
+- Cel: „Piekarz prowadzi domowego piekarza przez wypiek na zakwasie od receptury do bochenka: liczy ilości, pilnuje czasu, gdy telefon śpi, i pomaga poprawiać następny wypiek. Działa w pełni offline, bez konta i bez śledzenia.”
+- Hierarchia źródeł: D-035 (`docs/decyzje.md`). Dokumenty: BRD `docs/brd/` i założenia `docs/zalozenia.md` (rola 01), decyzje `docs/decyzje.md` (od D-035) i `docs/DECISIONS.md` (do D-034), stan sztafety `docs/sztafeta.md`.
+
 ---
 
 ## 1. Kluczowe Zasady Architektoniczne
