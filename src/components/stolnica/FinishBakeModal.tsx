@@ -70,7 +70,7 @@ export function FinishBakeModal({
           <Text style={styles.modalSectionLabel}>{t('Ocena wypieku')}</Text>
           <View style={styles.starRow}>
             {[1, 2, 3, 4, 5].map((star) => (
-              <Pressable key={star} onPress={() => onRatingChange(star)}>
+              <Pressable key={star} testID={`finish-rating-star-${star}`} onPress={() => onRatingChange(star)}>
                 <Text style={[styles.starIcon, rating >= star && styles.starIconActive]}>
                   ★
                 </Text>

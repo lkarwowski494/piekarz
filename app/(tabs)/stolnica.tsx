@@ -46,6 +46,7 @@ import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
 import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
+import { suggestDoctorAfterRating } from '../../src/lib/doctor-suggestion';
 import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
 import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
 import { ActiveTimerDisplay } from '../../src/components/stolnica/ActiveTimerDisplay';
@@ -97,6 +98,7 @@ export default function StolnicaScreen() {
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     blokada,
+    chron,
     requireActionAccess,
   } = useAppAccess();
   const unitSystem = useUnitSystem();
@@ -319,6 +321,8 @@ export default function StolnicaScreen() {
     setFinishSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
     setFinishNotes('');
     await loadHistory();
+    // Po zapisanym wpisie: propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032]
+    suggestDoctorAfterRating(finishRating, chron('doktor', () => router.push('/(tabs)/doktor')));
   });
 
   const handleDiscard = () => {
