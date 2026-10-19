@@ -2,7 +2,7 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import ZakwasScreen from '../../app/(tabs)/zakwas';
 import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/sqlite-store';
-
+
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 

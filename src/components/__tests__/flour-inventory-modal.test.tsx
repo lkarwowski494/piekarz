@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import { FlourInventoryModal } from '../FlourInventoryModal';
+import { FlourInventoryModal } from '../FlourInventoryModal';
 import { zUprawnieniem } from '../../../tests/helpers/platnosci';
 import {
   initDatabase,

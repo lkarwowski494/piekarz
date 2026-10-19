@@ -11,7 +11,7 @@ import {
   _resetMemStore,
 } from '../data/sqlite-store';
 import { getPendingRecipeToLoad } from '../lib/recipe-navigation';
-
+
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
+import CalculatorScreen from '../../app/(tabs)/index';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import {
   initDatabase,
