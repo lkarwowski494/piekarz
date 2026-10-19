@@ -728,6 +728,12 @@ export const EN: Record<string, string> = {
   'Udostępnij kopię bazy': 'Share database copy',
   // Import z pominiętymi wierszami [M1-audytor-generalny-022]
   'Zaimportowano. Pominięto uszkodzone wpisy: {count}.': 'Imported. Skipped damaged entries: {count}.',
+  // Baner pliku ratunkowego [M1-audytor-generalny-024]
+  'Baza danych nie otworzyła się przy poprzednim uruchomieniu': 'The database did not open the last time the app ran',
+  'Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.':
+    'A copy of the database files from that moment is in the Files app: Piekarz › Backup › kopie-ratunkowe.',
+  'Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.':
+    'The error was described in the file: {file}. The database files could not be copied.',
 };
 
 

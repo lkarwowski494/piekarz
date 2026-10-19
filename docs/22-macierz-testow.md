@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 465 | 465 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 229 | 229 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 82 | 82 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 466 | 466 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 231 | 231 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 83 | 83 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **818** | Pokrytych: **818** | Brakujących: **0**
+Łącznie elementów: **822** | Pokrytych: **822** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -162,8 +162,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Anuluj` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/close-button-guard.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
 | `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
-| `TEKST` | `Wykryto uszkodzony stan bazy danych` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Baza danych nie otworzyła się przy poprzednim uruchomieniu` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
+| `TEKST` | `Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
+| `TEKST` | `Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Rozumiem, zamknij komunikat ratunkowy` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Ukryj` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kalkulator kosztów wypieku` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Jaki jest Twój styl wypieku?` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 518 kolejnych elementów w pełnym wykazie)*
+*(... i 522 kolejnych elementów w pełnym wykazie)*

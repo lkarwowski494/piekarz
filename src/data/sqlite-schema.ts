@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { saveCorruptState, PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
+import { rescueAfterOpenFailure, PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
 import {
   StoredRecipe,
   StoredStarter,
@@ -86,9 +86,12 @@ export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
     const msg = err instanceof Error ? err.message : String(err);
     // Brak bazy nie jest cichym trybem pamięci: StorageGate pokazuje ekran błędu [M1-audytor-generalny-003]
     markStorageUnavailable(msg);
-    try {
-      void saveCorruptState(JSON.stringify({ error: msg }), 'SQLite open failed');
-    } catch {}
+    // Surowa kopia plików bazy i plik ratunkowy z ich listą [M1-audytor-generalny-024]
+    const dir = dbDirectory(SQLite.defaultDatabaseDirectory) ?? SQLite.defaultDatabaseDirectory;
+    if (typeof dir === 'string') {
+      const path = `${dir.replace(/\/+$/, '')}/${DB_NAME}`;
+      void rescueAfterOpenFailure(path.startsWith('file://') ? path : `file://${path}`, msg);
+    }
     return null; // Pamięć tylko dla testów bez natywnego SQLite
   }
 }

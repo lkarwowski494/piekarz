@@ -28,9 +28,11 @@ export const CorruptStateRecoveryBanner: React.FC = () => {
   return (
     <View style={styles.banner} testID="corrupt-state-recovery-banner">
       <View style={styles.textContainer}>
-        <Text style={styles.title}>{t('Wykryto uszkodzony stan bazy danych')}</Text>
+        <Text style={styles.title}>{t('Baza danych nie otworzyła się przy poprzednim uruchomieniu')}</Text>
         <Text style={styles.message}>
-          {t('Aplikacja bezpiecznie zabezpieczyła surowe dane w pliku ratunkowym:')} {corruptInfo.corruptFile}
+          {corruptInfo.rawFiles.length > 0
+            ? t('Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.')
+            : t('Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.', { file: corruptInfo.corruptFile })}
         </Text>
       </View>
       <Pressable

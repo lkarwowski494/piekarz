@@ -248,12 +248,53 @@ export interface CorruptStateRecovery {
   corruptFile: string;
   timestamp: string;
   rawSnippet: string;
+  /** Kopie surowych plików bazy (.db, -wal, -shm) zrobione po błędzie otwarcia [M1-audytor-generalny-024]. */
+  rawFiles: string[];
+}
+
+/** Podkatalog Backup/ z surowymi kopiami plików bazy (widoczny w aplikacji Pliki). */
+export const RESCUE_DIR = 'kopie-ratunkowe/';
+
+/**
+ * Surowa kopia plików bazy po błędzie otwarcia, bez otwierania bazy: komplet .db, -wal i -shm,
+ * bo sam plik .db przy WAL nie zawiera ostatnich zapisów [M1-audytor-generalny-024].
+ */
+export async function copyRawDatabaseFiles(dbUri: string): Promise<string[]> {
+  const docDir = FileSystem.documentDirectory;
+  if (!docDir) return [];
+  const target = `${docDir}${AUTO_DIR}${RESCUE_DIR}${stampOf(new Date())}/`;
+  await FileSystem.makeDirectoryAsync(target, { intermediates: true });
+  const name = dbUri.slice(dbUri.lastIndexOf('/') + 1);
+  const copies: string[] = [];
+  for (const suffix of ['', '-wal', '-shm']) {
+    const from = `${dbUri}${suffix}`;
+    if (!(await FileSystem.getInfoAsync(from)).exists) continue;
+    const to = `${target}${name}${suffix}`;
+    await FileSystem.copyAsync({ from, to });
+    copies.push(to);
+  }
+  return copies;
+}
+
+/** Po błędzie otwarcia: najpierw surowa kopia plików, potem plik ratunkowy z opisem błędu i listą kopii. */
+export async function rescueAfterOpenFailure(dbUri: string, message: string): Promise<string | null> {
+  let copies: string[] = [];
+  try {
+    copies = await copyRawDatabaseFiles(dbUri);
+  } catch {
+    copies = [];
+  }
+  try {
+    return await saveCorruptState(JSON.stringify({ error: message }), 'SQLite open failed', copies);
+  } catch {
+    return null;
+  }
 }
 
 /**
  * BR-TEST-023: Zapis uszkodzonego stanu do pliku ratunkowego state_corrupt_<timestamp>.json
  */
-export async function saveCorruptState(rawPayload: string, reason: string): Promise<string> {
+export async function saveCorruptState(rawPayload: string, reason: string, rawFiles: string[] = []): Promise<string> {
   const docDir = FileSystem.documentDirectory;
   if (!docDir) throw new Error('Brak katalogu dokumentów aplikacji');
   const dir = `${docDir}${AUTO_DIR}`;
@@ -271,6 +312,7 @@ export async function saveCorruptState(rawPayload: string, reason: string): Prom
     reason,
     recovery: {
       rawPayload,
+      rawFiles,
     },
   };
   await FileSystem.writeAsStringAsync(filePath, JSON.stringify(envelope, null, 2));
@@ -288,31 +330,40 @@ export async function checkCorruptState(): Promise<CorruptStateRecovery | null> 
     const dirInfo = await FileSystem.getInfoAsync(dir);
     if (!dirInfo.exists) return null;
     const files = await FileSystem.readDirectoryAsync(dir);
-    const corruptFiles = files.filter((f) => f.startsWith('state_corrupt_')).sort().reverse();
+    const dismissed = new Set(files.filter((f) => f.endsWith(DISMISSED_SUFFIX)).map((f) => f.slice(0, -DISMISSED_SUFFIX.length)));
+    const corruptFiles = files
+      .filter((f) => f.startsWith('state_corrupt_') && f.endsWith('.json') && !dismissed.has(f))
+      .sort()
+      .reverse();
     if (corruptFiles.length === 0) return null;
 
     const latest = corruptFiles[0];
     const content = await FileSystem.readAsStringAsync(`${dir}${latest}`);
-    const parsed = JSON.parse(content);
+    const parsed: unknown = JSON.parse(content);
+    const recovery = isObj(parsed) && isObj(parsed.recovery) ? parsed.recovery : {};
+    const rawFiles = Array.isArray(recovery.rawFiles) ? recovery.rawFiles.filter((f): f is string => typeof f === 'string') : [];
     return {
       corruptFile: latest,
-      timestamp: parsed.timestamp || '',
-      rawSnippet: (parsed.recovery?.rawPayload || '').slice(0, 100),
+      timestamp: isObj(parsed) && typeof parsed.timestamp === 'string' ? parsed.timestamp : '',
+      rawSnippet: (typeof recovery.rawPayload === 'string' ? recovery.rawPayload : '').slice(0, 100),
+      rawFiles,
     };
   } catch {
     return null;
   }
 }
 
+const DISMISSED_SUFFIX = '.ukryty';
+
 /**
- * BR-TEST-023: Odrzucenie / wyczyszczenie banera uszkodzonego stanu
+ * BR-TEST-023: ukrycie banera. Plik ratunkowy i kopie zostają — obok powstaje znacznik ukrycia
+ * [M1-audytor-generalny-024].
  */
 export async function dismissCorruptState(fileName: string): Promise<void> {
   try {
     const docDir = FileSystem.documentDirectory;
     if (!docDir) return;
-    const filePath = `${docDir}${AUTO_DIR}${fileName}`;
-    await FileSystem.deleteAsync(filePath, { idempotent: true });
+    await FileSystem.writeAsStringAsync(`${docDir}${AUTO_DIR}${fileName}${DISMISSED_SUFFIX}`, new Date().toISOString());
   } catch {}
 }
 
