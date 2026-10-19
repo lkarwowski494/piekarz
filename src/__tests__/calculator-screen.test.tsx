@@ -538,15 +538,24 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     });
   });
 
-  it('triggers exportRecipeSheetAsPdf when tapping print recipe PDF buttons', async () => {
+  // Jedno wejście „Drukuj” z wyborem karty (BR-DRUK-001): dawne dwa przyciski druku karty
+  // (nagłówek receptur i akcje) zastąpione jednym [M1-audytor-generalny-032]
+  it('triggers exportRecipeSheetAsPdf when choosing the A4 recipe card in the print menu', async () => {
     const pdfModule = require('../lib/pdf-sheet-generator');
+    const { Alert } = require('react-native');
+    const alertSpy = jest.spyOn(Alert, 'alert').mockImplementation(() => {});
     await renderScreen();
 
-    const headerPrintBtn = tree!.root.findByProps({ testID: 'header-print-pdf-btn' });
-    expect(headerPrintBtn).toBeDefined();
+    expect(tree!.root.findAllByProps({ testID: 'header-print-pdf-btn' })).toHaveLength(0);
+    const printBtn = tree!.root.findByProps({ testID: 'print-menu-btn' });
 
     await act(async () => {
-      await headerPrintBtn.props.onPress();
+      await printBtn.props.onPress();
+    });
+    const menu = alertSpy.mock.calls.find((c: unknown[]) => c[0] === 'Drukuj');
+    const card = (menu![2] as { text: string; onPress: () => void }[]).find((b) => b.text === 'Karta receptury A4');
+    await act(async () => {
+      await card!.onPress();
     });
 
     expect(pdfModule.exportRecipeSheetAsPdf).toHaveBeenCalledWith(
@@ -556,15 +565,8 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
         waterGrams: expect.any(Number),
       })
     );
-
-    const bottomPrintBtn = tree!.root.findByProps({ testID: 'print-recipe-pdf-btn' });
-    expect(bottomPrintBtn).toBeDefined();
-
-    await act(async () => {
-      await bottomPrintBtn.props.onPress();
-    });
-
-    expect(pdfModule.exportRecipeSheetAsPdf).toHaveBeenCalledTimes(2);
+    expect(pdfModule.exportRecipeSheetAsPdf).toHaveBeenCalledTimes(1);
+    alertSpy.mockRestore();
   });
 
   it('renders imperial units when unitSystem is set to imperial', async () => {

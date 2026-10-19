@@ -32,4 +32,11 @@ export const EN_4: Record<string, string> = {
   // Rytuał bez ukrywania receptur (F-26, ZM-14) [M1-audytor-generalny-032]
   'Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.':
     'Choose your baking style. It sets the starting recipe filter in the Calculator; all recipes stay available.',
+  // Jedno wejście druku w Kalkulatorze (BR-DRUK-001) [M1-audytor-generalny-032]
+  'Drukuj': 'Print',
+  'Co chcesz wydrukować?': 'What do you want to print?',
+  'Karta receptury A4': 'A4 recipe card',
+  'Etykieta słoika zakwasu': 'Starter jar label',
+  'Najpierw dodaj zakwas w zakładce Zakwas.': 'Add a starter in the Starter tab first.',
+  'Który zakwas?': 'Which starter?',
 };

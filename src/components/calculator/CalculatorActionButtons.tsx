@@ -14,7 +14,8 @@ export interface CalculatorActionButtonsProps {
   onCloneRecipe: () => void;
   onExportJson: () => void;
   onShareQr: () => void;
-  onPrintPdf: () => void;
+  /** Otwiera wybór druku (przez strażnika dostępu). */
+  onPrintMenu: () => void;
   onImportJson: () => void;
   onOpenInventory: () => void;
   onSaveCustomRecipe: () => void;
@@ -26,7 +27,7 @@ export function CalculatorActionButtons({
   onCloneRecipe,
   onExportJson,
   onShareQr,
-  onPrintPdf,
+  onPrintMenu,
   onImportJson,
   onOpenInventory,
   onSaveCustomRecipe,
@@ -66,12 +67,14 @@ export function CalculatorActionButtons({
         <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
       </Pressable>
 
+      {/* Jedyne wejście druku: karta A4 albo etykieta słoika (BR-DRUK-001) [M1-audytor-generalny-032] */}
       <Pressable
-        testID="print-recipe-pdf-btn"
+        testID="print-menu-btn"
+        accessibilityRole="button"
         style={styles.cloneRecipeBtn}
-        onPress={onPrintPdf}
+        onPress={onPrintMenu}
       >
-        <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj kartę A4 (PDF)')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj')}</Text>
       </Pressable>
 
       <Pressable

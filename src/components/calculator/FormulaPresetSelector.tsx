@@ -27,7 +27,6 @@ export interface FormulaPresetSelectorProps {
   onOpenVolumeConverter: () => void;
   onOpenImportRecipe: () => void;
   onOpenScanQr: () => void;
-  onPrintPdf: () => void;
   unitSystem: any;
 }
 
@@ -45,7 +44,6 @@ export function FormulaPresetSelector({
   onOpenVolumeConverter,
   onOpenImportRecipe,
   onOpenScanQr,
-  onPrintPdf,
   unitSystem,
 }: FormulaPresetSelectorProps) {
   return (
@@ -81,15 +79,7 @@ export function FormulaPresetSelector({
           >
             <Text style={styles.headerActionPillText}>📷 {t('Skanuj QR')}</Text>
           </Pressable>
-          <Pressable
-            testID="header-print-pdf-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Drukuj PDF')}
-            style={styles.headerActionPill}
-            onPress={onPrintPdf}
-          >
-            <Text style={styles.headerActionPillText}>🖨️ {t('Drukuj PDF')}</Text>
-          </Pressable>
+          {/* Druk tylko z akcji Kalkulatora: „Drukuj” (BR-DRUK-001) [M1-audytor-generalny-032] */}
         </View>
       </View>
 

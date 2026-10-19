@@ -95,7 +95,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
       locks(tree.root).find((n) => n.props.testID === 'blokada-kalkulator')!.props.onPress();
     });
     expect(paywallShown(tree.root)).toBe(true);
-    for (const id of ['save-custom-recipe-btn', 'open-import-recipe-btn', 'open-scan-qr-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'import-recipe-json-btn', 'open-volume-converter-btn', 'start-bake-btn']) {
+    for (const id of ['save-custom-recipe-btn', 'open-import-recipe-btn', 'open-scan-qr-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'import-recipe-json-btn', 'open-volume-converter-btn', 'start-bake-btn', 'print-menu-btn']) {
       await act(async () => {
         tree.root.findByType(PaywallModal).props.onClose();
       });
@@ -110,7 +110,8 @@ describe('Without an entitlement every screen opens the purchase screen except h
     act(() => tree.unmount());
   });
 
-  it('Zakwas: feeding, calculator, safety check and adding a starter open the purchase screen; label PDF stays free', async () => {
+  // Etykieta PDF przeniesiona do „Drukuj” w Kalkulatorze, płatne (BR-DRUK-001) [M1-audytor-generalny-032]
+  it('Zakwas: feeding, calculator, safety check and adding a starter open the purchase screen; no print entry here', async () => {
     const tree = await render(<ZakwasScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toContain('blokada-zakwas');
     await press(tree, 'blokada-zakwas');
@@ -123,8 +124,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     await act(async () => {
       tree.root.findByType(PaywallModal).props.onClose();
     });
-    await press(tree, 'print-starter-label-btn');
-    expect(paywallShown(tree.root)).toBe(false);
+    expect(tree.root.findAllByProps({ testID: 'print-starter-label-btn' })).toHaveLength(0);
     act(() => tree.unmount());
   });
 

@@ -16,7 +16,6 @@ export interface StarterProfileCardProps {
   ageDays: number;
   lastFedLabel: string;
   unitSystem: any;
-  onPrintLabel: () => void;
   onOpenEditModal: () => void;
 }
 
@@ -25,7 +24,6 @@ export function StarterProfileCard({
   ageDays,
   lastFedLabel,
   unitSystem,
-  onPrintLabel,
   onOpenEditModal,
 }: StarterProfileCardProps) {
   return (
@@ -38,13 +36,7 @@ export function StarterProfileCard({
           </Text>
         </View>
         <View style={styles.cardHeaderActions}>
-          <Pressable
-            testID="print-starter-label-btn"
-            style={styles.printLabelBtn}
-            onPress={onPrintLabel}
-          >
-            <Text style={styles.printLabelBtnText}>🖨️ {t('Etykieta PDF')}</Text>
-          </Pressable>
+          {/* Etykieta słoika drukowana z „Drukuj” w Kalkulatorze (BR-DRUK-001) [M1-audytor-generalny-032] */}
           <Pressable
             testID="edit-profile-btn"
             style={styles.editProfileBtn}
@@ -110,19 +102,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: theme.colors.textMuted,
     marginTop: 2,
-  },
-  printLabelBtn: {
-    backgroundColor: theme.colors.surfaceCard,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.borderActive,
-  },
-  printLabelBtnText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: theme.colors.accentDark,
   },
   editProfileBtn: {
     backgroundColor: theme.colors.surfaceCard,

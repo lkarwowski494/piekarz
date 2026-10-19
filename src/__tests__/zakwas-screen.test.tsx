@@ -382,15 +382,17 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     expect(modalAfter.length).toBe(0);
   });
 
-  it('triggers exportStarterLabelAsPdf when tapping print starter label button', async () => {
+  // Etykieta słoika drukowana z „Drukuj” w Kalkulatorze (BR-DRUK-001); asercje o danych etykiety
+  // zostają, wejście na tym ekranie zniknęło [M1-audytor-generalny-032]
+  it('prints the starter jar label of the saved starter through the Calculator print menu, not from this screen', async () => {
     const pdfModule = require('../lib/pdf-sheet-generator');
+    const { printStarterJarLabel } = require('../lib/print-menu');
     await renderScreen();
 
-    const printLabelBtn = tree!.root.findByProps({ testID: 'print-starter-label-btn' });
-    expect(printLabelBtn).toBeDefined();
+    expect(tree!.root.findAllByProps({ testID: 'print-starter-label-btn' })).toHaveLength(0);
 
     await act(async () => {
-      await printLabelBtn.props.onPress();
+      await printStarterJarLabel();
     });
 
     expect(pdfModule.exportStarterLabelAsPdf).toHaveBeenCalledWith(

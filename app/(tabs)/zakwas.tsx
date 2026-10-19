@@ -29,7 +29,6 @@ import { StoredStarter } from '../../src/data/db';
 import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../src/components/StarterConverterModal';
 import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
-import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { useUnitSystem } from '../../src/lib/unit-converter';
@@ -245,24 +244,6 @@ export default function ZakwasScreen() {
     }
   };
 
-  const handlePrintStarterLabel = async () => {
-    try {
-      await exportStarterLabelAsPdf(
-        {
-          starterName: starter.name,
-          flourType: starter.flourType,
-          hydration: starter.hydration,
-          ageDays,
-          storageState: starter.storageState,
-          feedingRatio: `${selectedRatio[0]}:${selectedRatio[1]}:${selectedRatio[2]}`,
-        },
-        true
-      );
-    } catch {
-      Alert.alert(t('Etykieta zakwasu'), t('Nie udało się wygenerować etykiety PDF'));
-    }
-  };
-
   const handleReset = () => {
     confirmResetStarter(() => {
       setHasHooch(false);
@@ -319,7 +300,6 @@ export default function ZakwasScreen() {
           ageDays={ageDays}
           lastFedLabel={lastFedLabel}
           unitSystem={unitSystem}
-          onPrintLabel={handlePrintStarterLabel}
           onOpenEditModal={handleOpenEditModal}
         />
 

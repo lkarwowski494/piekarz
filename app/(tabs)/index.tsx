@@ -54,6 +54,7 @@ import {
   executeCloneRecipe,
   executeSaveCustomRecipe,
 } from '../../src/lib/calculator-actions';
+import { openPrintMenu } from '../../src/lib/print-menu';
 import { CorruptStateRecoveryBanner } from '../../src/components/CorruptStateRecoveryBanner';
 import { styles } from '../../src/components/calculator/calculator-screen.styles';
 
@@ -448,7 +449,6 @@ export default function CalculatorScreen() {
           onOpenVolumeConverter={chron('kalkulator', () => setIsVolumeModalOpen(true))}
           onOpenImportRecipe={chron('import', () => setIsImportModalOpen(true))}
           onOpenScanQr={chron('import', () => setIsScannerOpen(true))}
-          onPrintPdf={handlePrintRecipePdf}
           unitSystem={unitSystem}
         />
 
@@ -469,7 +469,7 @@ export default function CalculatorScreen() {
           onCloneRecipe={handleCloneAsCustomRecipe}
           onExportJson={() => executeExportRecipeJson(currentRecipeForShare as any)}
           onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
-          onPrintPdf={handlePrintRecipePdf}
+          onPrintMenu={chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf))}
           onImportJson={chron('import', () => setIsImportModalOpen(true))}
           onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
           onSaveCustomRecipe={chron('receptury', () => {
