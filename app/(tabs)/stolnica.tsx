@@ -14,6 +14,7 @@ import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
+import { tapHaptic } from '../../src/lib/haptics';
 import { useBakeSession } from '../../src/hooks/useBakeSession';
 import { saveBakeSession } from '../../src/data/bake-session-store';
 import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
@@ -68,11 +69,7 @@ export default function StolnicaScreen() {
   const handleSelectVessel = (vessel: BakingVessel) => {
     void setBakingVessel(vessel);
     setBakingVesselState(vessel);
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
   // Timer states
@@ -110,11 +107,7 @@ export default function StolnicaScreen() {
 
   const handleBakeAgain = async (log: StoredBakeLog) => {
     requireActionAccess(async () => {
-      try {
-        void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-      } catch {
-        // ignore
-      }
+      tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
 
       try {
         const custom = await getRecipes();
@@ -233,11 +226,7 @@ export default function StolnicaScreen() {
     }
     setIsRunning(false);
     setIsCompleted(false);
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
   const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
@@ -245,11 +234,7 @@ export default function StolnicaScreen() {
     setTimeLeftSec(DUTCH_OVEN_PHASES[phase].durationMin * 60);
     setIsRunning(false);
     setIsCompleted(false);
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   const handleStartPhase2AfterSteamAlert = () => {
@@ -258,11 +243,7 @@ export default function StolnicaScreen() {
     setIsCompleted(false);
     setIsRunning(true);
     void ensureNotificationPermission();
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
 
   const handleNextStep = () => {
@@ -275,39 +256,27 @@ export default function StolnicaScreen() {
 
   // Timer Controls
   const toggleTimer = () => {
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
     if (!isRunning) void ensureNotificationPermission(); // zgoda przy pierwszym zegarze (ADR-006)
     setIsRunning((prev) => !prev);
   };
 
   const addFiveMinutes = () => {
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {}
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
     if (endAtMsRef.current) endAtMsRef.current += 300000;
     setTimeLeftSec((prev) => prev + 300);
     setIsCompleted(false);
   };
 
   const adjustTimerSeconds = (deltaSeconds: number) => {
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {}
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
     if (endAtMsRef.current) endAtMsRef.current += deltaSeconds * 1000;
     setTimeLeftSec((prev) => Math.max(0, prev + deltaSeconds));
     setIsCompleted(false);
   };
 
   const resetCurrentStepTimer = () => {
-    try {
-      void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {
-      // Ignored
-    }
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
     setIsRunning(false);
     setIsCompleted(false);
     if (currentStep.id === 'step_8') {

@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 36 | 36 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 467 | 467 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 229 | 229 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 230 | 230 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 79 | 79 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **816** | Pokrytych: **816** | Brakujących: **0**
+Łącznie elementów: **817** | Pokrytych: **817** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 516 kolejnych elementów w pełnym wykazie)*
+*(... i 517 kolejnych elementów w pełnym wykazie)*
