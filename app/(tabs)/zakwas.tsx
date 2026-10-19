@@ -411,8 +411,6 @@ export default function ZakwasScreen() {
           onClose={() => setPaywallVisible(false)}
           onSubscribe={subscribe}
           onRestore={restorePurchases}
-          trialDaysRemaining={access.trialDaysRemaining}
-          completedBakesCount={access.completedBakesCount}
         />
       </ScrollView>
     </SafeAreaView>

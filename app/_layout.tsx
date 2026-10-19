@@ -8,6 +8,7 @@ import { resetStorageState } from '../src/data/storage-status';
 import { StorageGate } from '../src/components/StorageGate';
 import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src/lib/startup-guard';
+import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -28,6 +29,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     let milestone: ReturnType<typeof setTimeout> | undefined;
+    let stopPlatnosci: (() => void) | undefined;
     void (async () => {
       // Dwa nieudane starty z rzędu: tryb awaryjny bez migracji [M1-audytor-generalny-018]
       if ((await beginStartup()).rescue) {
@@ -35,10 +37,15 @@ export default function RootLayout() {
         return;
       }
       await initDatabase();
+      // Nasłuch transakcji StoreKit od startu, zanim użytkownik otworzy ekran zakupu (MON-04) [M1-audytor-generalny-008]
+      stopPlatnosci = uruchomPlatnosci();
       void resyncNotifications();
       milestone = setTimeout(() => void markStartupSucceeded(), STARTUP_MILESTONE_MS);
     })();
-    return () => clearTimeout(milestone);
+    return () => {
+      clearTimeout(milestone);
+      stopPlatnosci?.();
+    };
   }, []);
 
   // Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: pokazywanie na pierwszym planie,

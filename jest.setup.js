@@ -80,6 +80,56 @@ jest.mock('expo-notifications', () => ({
   __mock: mockNotif,
 }));
 
+// expo-iap: atrapa sklepu sterowana przez testy (zakupy w aplikacji, ADR-007) [M1-audytor-generalny-008].
+// Kod aplikacji nie ma symulacji zakupu; ten stan istnieje tylko w Jest.
+const mockIap = {
+  reset() {
+    this.entitlements = [];
+    this.products = [];
+    this.eligible = true;
+    this.failRead = false;
+    this.statusIOS = [];
+    this.requests = [];
+    this.finished = [];
+    this.restoreCalls = 0;
+    this.readOptions = [];
+    this.purchaseError = null;
+    this.listeners = new Set();
+  },
+  emit(purchase) {
+    this.listeners.forEach((fn) => fn(purchase));
+  },
+};
+mockIap.reset();
+jest.mock('expo-iap', () => ({
+  initConnection: jest.fn(async () => true),
+  getAvailablePurchases: jest.fn(async (options) => {
+    mockIap.readOptions.push(options);
+    if (mockIap.failRead) throw new Error('network-error');
+    return mockIap.entitlements.map((p) => ({ ...p }));
+  }),
+  subscriptionStatusIOS: jest.fn(async () => mockIap.statusIOS),
+  fetchProducts: jest.fn(async ({ skus }) => mockIap.products.filter((p) => skus.includes(p.id))),
+  isEligibleForIntroOfferIOS: jest.fn(async () => mockIap.eligible),
+  requestPurchase: jest.fn(async (props) => {
+    mockIap.requests.push(props);
+    if (mockIap.purchaseError) throw mockIap.purchaseError;
+    return null;
+  }),
+  finishTransaction: jest.fn(async ({ purchase }) => {
+    mockIap.finished.push(purchase.transactionId ?? purchase.id);
+  }),
+  restorePurchases: jest.fn(async () => {
+    mockIap.restoreCalls += 1;
+  }),
+  purchaseUpdatedListener: jest.fn((fn) => {
+    mockIap.listeners.add(fn);
+    return { remove: () => mockIap.listeners.delete(fn) };
+  }),
+  isUserCancelledError: jest.fn((e) => !!e && e.code === 'user-cancelled'),
+  __mock: mockIap,
+}));
+
 jest.mock('expo-file-system', () => mockFileSystem);
 jest.mock('expo-file-system/legacy', () => mockFileSystem);
 

@@ -15,7 +15,6 @@ import {
 } from './helpers/node-sqlite-adapter';
 import { SCHEMA_MIGRATIONS } from '../sqlite-schema';
 import { PRE_MIGRATION_BACKUP_NAME } from '../../lib/backup';
-import { signAppAccessRecord } from '../../lib/app-access-crypto';
 import type { StoredBakeLog, StoredRecipe, StoredStarter } from '../db';
 
 const APP_DB = () => dbFilePath('piekarz.db', '/var/mobile/Containers/Data/Application/TEST/Library/SQLite');
@@ -182,22 +181,5 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     const copies = (require('node:fs').readdirSync(dir) as string[]).filter((f) => f.startsWith(PRE_MIGRATION_BACKUP_NAME));
     expect(copies).toHaveLength(1);
     expect(copies[0]).toMatch(/^backup_pre_migration-v0-\d+\.db$/);
-  });
-
-  it('detects tampering and reseals app_access record with valid signature', async () => {
-    const { schema, store } = restartApp();
-    await schema.initDatabase();
-    await store.setSubscriptionTier('yearly', Date.now() + 1000 * 60 * 60 * 24 * 365);
-    const validAccess = await store.getAppAccess();
-    expect(validAccess.subscriptionTier).toBe('yearly');
-    expect(validAccess.signature).toBe(signAppAccessRecord(validAccess));
-
-    // Ręczna zmiana poziomu w pliku bazy bez podpisu → reset do 'none'
-    const raw = openRaw(APP_DB());
-    raw.prepare("UPDATE app_access SET subscription_tier = 'lifetime' WHERE id = 'current_user'").run();
-    raw.close();
-    const again = restartApp();
-    const tampered = await again.store.getAppAccess();
-    expect(tampered.subscriptionTier).toBe('none');
   });
 });

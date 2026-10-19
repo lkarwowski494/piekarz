@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 465 | 465 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 241 | 241 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 82 | 82 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 255 | 255 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 90 | 90 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **826** | Pokrytych: **826** | Brakujących: **0**
+Łącznie elementów: **848** | Pokrytych: **848** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -318,6 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/platnosci-stan.test.ts |
 
-*(... i 526 kolejnych elementów w pełnym wykazie)*
+*(... i 548 kolejnych elementów w pełnym wykazie)*

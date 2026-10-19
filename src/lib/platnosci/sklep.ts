@@ -1,0 +1,121 @@
+// ============================================================================
+// Piekarz — adapter StoreKit przez expo-iap (ADR-007) [M1-audytor-generalny-008; 02-monetyzacja-001]
+// Jedyny plik, który importuje bibliotekę płatności. Zamienia zweryfikowane transakcje
+// (Transaction.currentEntitlements: getAvailablePurchases z onlyIncludeActiveItemsIOS) na Uprawnienie[].
+// Pusty wynik po błędzie połączenia to Odczyt „blad”, nie brak zakupu.
+// ============================================================================
+
+import * as Iap from 'expo-iap';
+import type { Purchase, SubscriptionStatusIOS } from 'expo-iap';
+import { PRODUKTY, SUBSKRYPCJE, ODBLOKOWUJA, Plan, planProduktu } from './konfiguracja';
+import type { Odczyt, Uprawnienie } from './dostep';
+
+let polaczenie: Promise<unknown> | null = null;
+
+/** initConnection raz na proces; nieudane połączenie można ponowić. */
+export function polacz(): Promise<unknown> {
+  if (!polaczenie) {
+    polaczenie = Iap.initConnection().catch((e: unknown) => {
+      polaczenie = null;
+      throw e;
+    });
+  }
+  return polaczenie;
+}
+
+function liczba(x: unknown): number | null {
+  return typeof x === 'number' && Number.isFinite(x) ? x : null;
+}
+
+/** Transakcja sklepu → uprawnienie. Oczekująca (Ask to Buy) nie jest uprawnieniem. */
+export function uprawnienieZTransakcji(p: Purchase): Uprawnienie | null {
+  if (p.purchaseState === 'pending') return null;
+  const wygasa = liczba(Reflect.get(p, 'expirationDateIOS'));
+  // Subskrypcja bez daty końca to dane, których nie rozumiemy: nie dajemy z niej dostępu „na zawsze”.
+  if (wygasa === null && SUBSKRYPCJE.includes(p.productId)) return null;
+  const odebrane = liczba(Reflect.get(p, 'revocationDateIOS')) !== null;
+  return { produkt: p.productId, wygasa, odebrane };
+}
+
+/** Subskrypcja w okresie karencji (billing grace period) jest uprawnieniem do końca karencji. */
+export function uprawnieniaKarencji(statusy: SubscriptionStatusIOS[]): Uprawnienie[] {
+  const wynik: Uprawnienie[] = [];
+  for (const s of statusy) {
+    const koniec = liczba(s.renewalInfo?.gracePeriodExpirationDate);
+    if (s.state !== 'inGracePeriod' || koniec === null) continue;
+    const pref = s.renewalInfo?.autoRenewPreference;
+    const produkt = pref && SUBSKRYPCJE.includes(pref) ? pref : SUBSKRYPCJE[0];
+    wynik.push({ produkt, wygasa: koniec, odebrane: false });
+  }
+  return wynik;
+}
+
+async function karencja(): Promise<Uprawnienie[]> {
+  try {
+    return uprawnieniaKarencji(await Iap.subscriptionStatusIOS(PRODUKTY.monthly));
+  } catch {
+    return [];
+  }
+}
+
+/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu to „blad”. */
+export async function odczytajSklep(): Promise<Odczyt> {
+  try {
+    await polacz();
+    const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
+    const uprawnienia = zakupy.map(uprawnienieZTransakcji).filter((u): u is Uprawnienie => u !== null);
+    if (!uprawnienia.some((u) => SUBSKRYPCJE.includes(u.produkt))) uprawnienia.push(...(await karencja()));
+    return { zrodlo: 'sklep', uprawnienia };
+  } catch {
+    return { zrodlo: 'blad' };
+  }
+}
+
+export interface Oferta {
+  plan: Plan;
+  /** Cena sformatowana przez App Store (waluta i region użytkownika). */
+  cena: string;
+}
+
+/** Produkty z App Store Connect; ceny wyłącznie z displayPrice. */
+export async function pobierzOferte(): Promise<Oferta[]> {
+  await polacz();
+  const produkty = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
+  const wynik: Oferta[] = [];
+  for (const p of produkty) {
+    const plan = planProduktu(p.id);
+    if (plan) wynik.push({ plan, cena: p.displayPrice });
+  }
+  return wynik;
+}
+
+/** Arkusz zakupu App Store. Wynik przychodzi przez nasłuch transakcji (stan.ts), nie z tej funkcji. */
+export async function kup(plan: Plan): Promise<void> {
+  await polacz();
+  const sku = PRODUKTY[plan];
+  try {
+    if (plan === 'lifetime') {
+      await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } });
+    } else {
+      await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
+    }
+  } catch (e: unknown) {
+    if (Iap.isUserCancelledError(e)) return; // anulowanie to nie błąd i nie sukces
+    throw e;
+  }
+}
+
+/** Przywracanie na wyraźne żądanie użytkownika (AppStore.sync), potem bieżące uprawnienia. */
+export async function przywroc(): Promise<Odczyt> {
+  await polacz();
+  await Iap.restorePurchases();
+  return odczytajSklep();
+}
+
+export function nasluchujZakupow(fn: (p: Purchase) => void): { remove: () => void } {
+  return Iap.purchaseUpdatedListener(fn);
+}
+
+export async function zakonczTransakcje(p: Purchase): Promise<void> {
+  await Iap.finishTransaction({ purchase: p, isConsumable: false });
+}

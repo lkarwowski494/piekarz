@@ -1,9 +1,9 @@
 // ============================================================================
-// Apps4Brew Studio — Paywall Modal: Cheaper than Espresso ($0.99 / $4.99 / $14.99)
+// Apps4Brew Studio — Paywall Modal: ceny wyłącznie z App Store (displayPrice) [M1-audytor-generalny-008]
 // Kitchen-Proof, 100% Offline-First, Zero Telemetry
 // ============================================================================
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Modal,
   View,
@@ -19,16 +19,16 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
+import type { Plan } from '../lib/platnosci/konfiguracja';
+import { pobierzOferte } from '../lib/platnosci/sklep';
 
-export type PlanOption = 'monthly' | 'yearly' | 'lifetime';
+export type PlanOption = Plan;
 
 export interface PaywallModalProps {
   visible: boolean;
   onClose: () => void;
   onSubscribe: (tier: PlanOption) => Promise<void> | void;
   onRestore?: () => Promise<boolean | void> | boolean | void;
-  trialDaysRemaining?: number;
-  completedBakesCount?: number;
 }
 
 export function PaywallModal({
@@ -39,6 +39,22 @@ export function PaywallModal({
 }: PaywallModalProps) {
   const [selectedPlan, setSelectedPlan] = useState<PlanOption>('yearly');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [ceny, setCeny] = useState<Partial<Record<PlanOption, string>>>({});
+
+  // Ceny z produktów App Store Connect; bez odczytu sklepu ekran nie pokazuje żadnej kwoty.
+  useEffect(() => {
+    if (!visible) return;
+    let aktywny = true;
+    pobierzOferte()
+      .then((oferta) => {
+        if (aktywny) setCeny(Object.fromEntries(oferta.map((o) => [o.plan, o.cena])));
+      })
+      .catch(() => undefined);
+    return () => {
+      aktywny = false;
+    };
+  }, [visible]);
+  const cena = (plan: PlanOption) => ceny[plan] ?? '—';
 
   const handleSelectPlan = (plan: PlanOption) => {
     setSelectedPlan(plan);
@@ -131,11 +147,11 @@ export function PaywallModal({
                 <View style={styles.planInfo}>
                   <Text style={styles.planName}>{t('Roczny')}</Text>
                   <Text style={styles.planSubtext}>
-                    {t('Tylko ~1,91 zł / miesiąc • 12 miesięcy')}
+                    {t('12 miesięcy')}
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>$4.99</Text>
+                  <Text style={styles.planPrice}>{cena('yearly')}</Text>
                   <Text style={styles.planPricePeriod}>/ {t('rok')}</Text>
                 </View>
               </View>
@@ -158,7 +174,7 @@ export function PaywallModal({
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>$0.99</Text>
+                  <Text style={styles.planPrice}>{cena('monthly')}</Text>
                   <Text style={styles.planPricePeriod}>/ {t('miesiąc')}</Text>
                 </View>
               </View>
@@ -181,7 +197,7 @@ export function PaywallModal({
                   </Text>
                 </View>
                 <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>$14.99</Text>
+                  <Text style={styles.planPrice}>{cena('lifetime')}</Text>
                   <Text style={styles.planPricePeriod}>{t('jednorazowo')}</Text>
                 </View>
               </View>
@@ -221,10 +237,10 @@ export function PaywallModal({
               {isProcessing
                 ? t('Przetwarzanie...')
                 : selectedPlan === 'yearly'
-                ? t('Aktywuj plan roczny ($4.99)')
+                ? t('Aktywuj plan roczny')
                 : selectedPlan === 'monthly'
-                ? t('Aktywuj plan miesięczny ($0.99)')
-                : t('Kup dostęp dożywotni ($14.99)')}
+                ? t('Aktywuj plan miesięczny')
+                : t('Kup dostęp dożywotni')}
             </Text>
           </Pressable>
 

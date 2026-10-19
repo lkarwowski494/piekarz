@@ -71,7 +71,6 @@ export interface StoredAppAccess {
   subscriptionTier: SubscriptionTier;
   subscriptionExpiresAt?: number | null;
   completedBakesCount: number;
-  signature?: string;
 }
 
 /**

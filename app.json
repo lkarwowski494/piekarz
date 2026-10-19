@@ -85,7 +85,8 @@
           "cameraPermission": "Piekarz wymaga dostępu do aparatu, aby natychmiast zeskanować kod QR receptury w 100% offline."
         }
       ],
-      "expo-notifications"
+      "expo-notifications",
+      "expo-iap"
     ]
   }
 }

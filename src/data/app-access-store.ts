@@ -1,136 +1,40 @@
-import { StoredAppAccess, SubscriptionTier } from './db';
+import { StoredAppAccess } from './db';
 import { getDb, memStore } from './sqlite-schema';
-import { signAppAccessRecord, verifyAppAccessRecord } from '../lib/app-access-crypto';
 
 // ----------------------------------------------------------------------------
-// Apps4Craft App Access & Monetization Store (Cheaper than espresso)
+// Tabela app_access: tylko lokalny okres próbny (do zadania 009). Dostępu płatnego tu nie ma —
+// pochodzi wyłącznie z transakcji StoreKit [M1-audytor-generalny-008; 08-programista-016].
 // ----------------------------------------------------------------------------
 
 export async function getAppAccess(): Promise<StoredAppAccess> {
   const db = await getDb();
-  if (!db) {
-    return { ...memStore.appAccess };
-  }
+  if (!db) return { ...memStore.appAccess };
   try {
-    const row = (await db.getFirstAsync(
-      'SELECT id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count, signature FROM app_access WHERE id = ?;',
+    const row = await db.getFirstAsync<{ trial_started_at: number; trial_days: number; completed_bakes_count: number }>(
+      'SELECT trial_started_at, trial_days, completed_bakes_count FROM app_access WHERE id = ?;',
       'current_user'
-    )) as {
-      id: string;
-      trial_started_at: number;
-      trial_days: number;
-      subscription_tier: string;
-      subscription_expires_at: number | null;
-      completed_bakes_count: number;
-      signature?: string | null;
-    } | null;
-
-    if (!row) {
-      const now = Date.now();
-      const initialData: StoredAppAccess = {
-        id: 'current_user',
-        trialStartedAt: now,
-        trialDays: 14,
-        subscriptionTier: 'none',
-        subscriptionExpiresAt: null,
-        completedBakesCount: 0,
-      };
-      const signature = signAppAccessRecord(initialData);
-      initialData.signature = signature;
-
-      await db.runAsync(
-        `INSERT OR REPLACE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count, signature)
-         VALUES ('current_user', ?, 14, 'none', NULL, 0, ?);`,
-        now,
-        signature
-      );
-      memStore.appAccess = { ...initialData };
-      return { ...memStore.appAccess };
-    }
-
-    const candidateData: StoredAppAccess = {
-      id: row.id,
+    );
+    if (!row) return { ...memStore.appAccess };
+    memStore.appAccess = {
+      ...memStore.appAccess,
       trialStartedAt: row.trial_started_at,
       trialDays: row.trial_days,
-      subscriptionTier: (row.subscription_tier as SubscriptionTier) || 'none',
-      subscriptionExpiresAt: row.subscription_expires_at,
       completedBakesCount: row.completed_bakes_count || 0,
     };
-
-    // TASK-R03-03: Cryptographic verification of subscription status
-    if (row.signature) {
-      const isValid = verifyAppAccessRecord(candidateData, row.signature);
-      if (!isValid) {
-        // Tamper detected! Reset illegitimate subscription rights
-        candidateData.subscriptionTier = 'none';
-        const resealed = signAppAccessRecord(candidateData);
-        await db.runAsync(
-          `UPDATE app_access SET subscription_tier = 'none', signature = ? WHERE id = 'current_user';`,
-          resealed
-        );
-        candidateData.signature = resealed;
-      } else {
-        candidateData.signature = row.signature;
-      }
-    } else {
-      // First boot or upgrade from v1: seal and persist signature
-      const newSignature = signAppAccessRecord(candidateData);
-      await db.runAsync(
-        `UPDATE app_access SET signature = ? WHERE id = 'current_user';`,
-        newSignature
-      );
-      candidateData.signature = newSignature;
-    }
-
-    memStore.appAccess = { ...candidateData };
-    return candidateData;
+    return { ...memStore.appAccess };
   } catch {
     return { ...memStore.appAccess };
   }
 }
 
-export async function setSubscriptionTier(tier: SubscriptionTier, expiresAt?: number | null): Promise<void> {
-  const current = await getAppAccess();
-  const updated: StoredAppAccess = {
-    ...current,
-    subscriptionTier: tier,
-    subscriptionExpiresAt: expiresAt ?? null,
-  };
-  const signature = signAppAccessRecord(updated);
-  updated.signature = signature;
-
-  memStore.appAccess = { ...updated };
-  const db = await getDb();
-  if (!db) return;
-  try {
-    await db.runAsync(
-      `UPDATE app_access SET subscription_tier = ?, subscription_expires_at = ?, signature = ? WHERE id = 'current_user';`,
-      tier,
-      expiresAt ?? null,
-      signature
-    );
-  } catch {}
-}
-
 export async function incrementCompletedBakes(): Promise<number> {
   const current = await getAppAccess();
   const nextCount = current.completedBakesCount + 1;
-  const updated: StoredAppAccess = {
-    ...current,
-    completedBakesCount: nextCount,
-  };
-  const signature = signAppAccessRecord(updated);
-  updated.signature = signature;
-
-  memStore.appAccess = { ...updated };
+  memStore.appAccess = { ...current, completedBakesCount: nextCount };
   const db = await getDb();
   if (!db) return nextCount;
   try {
-    await db.runAsync(
-      `UPDATE app_access SET completed_bakes_count = ?, signature = ? WHERE id = 'current_user';`,
-      nextCount,
-      signature
-    );
+    await db.runAsync(`UPDATE app_access SET completed_bakes_count = ? WHERE id = 'current_user';`, nextCount);
   } catch {}
   return nextCount;
 }
@@ -144,22 +48,21 @@ export async function resetAppAccess(custom?: Partial<StoredAppAccess>): Promise
     subscriptionExpiresAt: custom?.subscriptionExpiresAt ?? null,
     completedBakesCount: custom?.completedBakesCount ?? 0,
   };
-  const signature = signAppAccessRecord(resetData);
-  resetData.signature = signature;
-
   memStore.appAccess = { ...resetData };
   const db = await getDb();
   if (!db) return resetData;
   try {
     await db.runAsync(
-      `INSERT OR REPLACE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count, signature)
-       VALUES ('current_user', ?, ?, ?, ?, ?, ?);`,
+      `INSERT INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
+       VALUES ('current_user', ?, ?, ?, ?, ?)
+       ON CONFLICT(id) DO UPDATE SET trial_started_at = excluded.trial_started_at, trial_days = excluded.trial_days,
+         subscription_tier = excluded.subscription_tier, subscription_expires_at = excluded.subscription_expires_at,
+         completed_bakes_count = excluded.completed_bakes_count;`,
       resetData.trialStartedAt,
       resetData.trialDays,
       resetData.subscriptionTier,
       resetData.subscriptionExpiresAt ?? null,
-      resetData.completedBakesCount,
-      signature
+      resetData.completedBakesCount
     );
   } catch {}
   return resetData;

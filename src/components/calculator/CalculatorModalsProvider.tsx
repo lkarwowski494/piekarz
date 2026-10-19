@@ -50,8 +50,6 @@ export interface CalculatorModalsProviderProps {
   onClosePaywall: () => void;
   onSubscribe: (tier: PlanOption) => void | Promise<void>;
   onRestorePurchases: () => Promise<boolean> | boolean | void;
-  trialDaysRemaining: number;
-  completedBakesCount: number;
 }
 
 export function CalculatorModalsProvider({
@@ -84,8 +82,6 @@ export function CalculatorModalsProvider({
   onClosePaywall,
   onSubscribe,
   onRestorePurchases,
-  trialDaysRemaining,
-  completedBakesCount,
 }: CalculatorModalsProviderProps) {
   return (
     <>
@@ -146,8 +142,6 @@ export function CalculatorModalsProvider({
         onClose={onClosePaywall}
         onSubscribe={onSubscribe}
         onRestore={onRestorePurchases}
-        trialDaysRemaining={trialDaysRemaining}
-        completedBakesCount={completedBakesCount}
       />
     </>
   );

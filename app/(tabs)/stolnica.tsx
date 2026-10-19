@@ -497,8 +497,6 @@ export default function StolnicaScreen() {
           onClose={() => setPaywallVisible(false)}
           onSubscribe={subscribe}
           onRestore={restorePurchases}
-          trialDaysRemaining={access.trialDaysRemaining}
-          completedBakesCount={access.completedBakesCount}
         />
       </ScrollView>
     </SafeAreaView>

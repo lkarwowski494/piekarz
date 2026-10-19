@@ -1,6 +1,9 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import * as Iap from 'expo-iap';
 import { PaywallModal } from '../PaywallModal';
+
+const mockIap = (Iap as unknown as { __mock: any }).__mock;
 
 describe('PaywallModal Component', () => {
   let tree: renderer.ReactTestRenderer | null = null;
@@ -10,6 +13,7 @@ describe('PaywallModal Component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockIap.reset();
   });
 
   afterEach(() => {
@@ -33,7 +37,13 @@ describe('PaywallModal Component', () => {
     return walk(node).replace(/\s+/g, ' ').trim();
   }
 
-  it('renders all three pricing tiers ($0.99, $4.99, $14.99) and guarantees', async () => {
+  // Ceny tylko z produktów App Store (displayPrice), nigdy z kodu [M1-audytor-generalny-008]
+  it('renders the three store prices from displayPrice and guarantees', async () => {
+    mockIap.products = [
+      { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '$0.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.yearly', displayPrice: '$6.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.lifetime', displayPrice: '$14.99', type: 'in-app' },
+    ];
     await act(async () => {
       tree = renderer.create(
         <PaywallModal
@@ -48,10 +58,20 @@ describe('PaywallModal Component', () => {
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Taniej niż espresso');
     expect(fullText).toContain('$0.99');
-    expect(fullText).toContain('$4.99');
+    expect(fullText).toContain('$6.99');
     expect(fullText).toContain('$14.99');
     expect(fullText).toContain('Twoja historia jest bezpieczna');
     expect(fullText).toContain('100% Offline-First');
+  });
+
+  it('shows no price when the store returned no products', async () => {
+    await act(async () => {
+      tree = renderer.create(
+        <PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />
+      );
+    });
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).not.toMatch(/[$€]\s?\d|\d\s?zł/);
   });
 
   it('selects yearly by default and calls onSubscribe with yearly', async () => {

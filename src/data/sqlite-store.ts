@@ -25,7 +25,6 @@ export * from './app-access-store';
 export * from './settings-store';
 import { writeOrThrow } from './storage-status';
 import { getAppAccess, incrementCompletedBakes } from './app-access-store';
-import { signAppAccessRecord } from '../lib/app-access-crypto';
 import { isRecipeInput } from './row-parsers';
 
 // ==========================================
@@ -412,7 +411,6 @@ export async function finishBake(log: StoredBakeLog, flours: Array<{ name: strin
 
   const current = await getAppAccess();
   const access: StoredAppAccess = { ...current, completedBakesCount: current.completedBakesCount + 1 };
-  access.signature = signAppAccessRecord(access);
   const inventory = (await getFlourInventory()).map((i) => ({ ...i }));
   const changed = new Map<string, StoredFlourInventoryItem>();
   for (const f of flours) {
@@ -428,9 +426,8 @@ export async function finishBake(log: StoredBakeLog, flours: Array<{ name: strin
     db.withTransactionAsync(async () => {
       await writeBakeRow(db, log);
       await db.runAsync(
-        `UPDATE app_access SET completed_bakes_count = ?, signature = ? WHERE id = 'current_user';`,
-        access.completedBakesCount,
-        access.signature ?? null
+        `UPDATE app_access SET completed_bakes_count = ? WHERE id = 'current_user';`,
+        access.completedBakesCount
       );
       for (const item of changed.values()) await writeFlourRow(db, item);
     })

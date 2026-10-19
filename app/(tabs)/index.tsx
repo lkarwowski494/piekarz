@@ -533,8 +533,6 @@ export default function CalculatorScreen() {
           onClosePaywall={() => setPaywallVisible(false)}
           onSubscribe={subscribe}
           onRestorePurchases={restorePurchases}
-          trialDaysRemaining={access.trialDaysRemaining}
-          completedBakesCount={access.completedBakesCount}
         />
       </ScrollView>
     </SafeAreaView>

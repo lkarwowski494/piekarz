@@ -11,7 +11,6 @@ import {
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import type { SessionStep } from '../core/bake-steps';
-import { signAppAccessRecord } from '../lib/app-access-crypto';
 import { markStorageUnavailable } from './storage-status';
 
 export const DB_NAME = 'piekarz.db';
@@ -351,20 +350,10 @@ export async function initDatabase(): Promise<void> {
 
   try {
     try {
-      const initialAccess = {
-        id: 'current_user',
-        trialStartedAt: Date.now(),
-        trialDays: 14,
-        subscriptionTier: 'none' as const,
-        subscriptionExpiresAt: null,
-        completedBakesCount: 0,
-      };
-      const signature = signAppAccessRecord(initialAccess);
       await db.runAsync(
-        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count, signature)
-         VALUES ('current_user', ?, 14, 'none', NULL, 0, ?);`,
-        initialAccess.trialStartedAt,
-        signature
+        `INSERT OR IGNORE INTO app_access (id, trial_started_at, trial_days, subscription_tier, subscription_expires_at, completed_bakes_count)
+         VALUES ('current_user', ?, 14, 'none', NULL, 0);`,
+        Date.now()
       );
     } catch {}
 
