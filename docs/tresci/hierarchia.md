@@ -6,6 +6,7 @@ Zapis roli 06-tresci, 2026-10-19 (decyzja merytoryczna; właściciel może ją z
 
 - `docs/tresci/rejestr.json` — rejestr twierdzeń (jedno twierdzenie = jeden fakt, liczba albo reguła; źródło z adresem, cytatem, datą odczytu i szczeblem).
 - `docs/tresci/pl/`, `docs/tresci/en/` — treści wypisane z interfejsu, zdanie po zdaniu, ze znacznikiem `[T:ID]` (albo `[T:-]` dla zdania bez faktu). Nagłówek nad zdaniem wskazuje pole w kodzie, do którego tekst trafia. Kod aplikacji (`src/`, `app/`) bierze teksty z tych plików; zmianę w kodzie wdraża rola 08 pod ID twierdzenia.
+- `docs/tresci/wektory/` — wektory testowe dla ról 07 i 08 (wejście, oczekiwany wynik, ID twierdzeń).
 - `docs/tresci/przeglad/` — listy do przeglądu człowieka treści krytycznej (skrót wersji zdań z `--skroty`).
 - `scripts/kontrole-tresci.mjs` — kontrola mechaniczna (znaczniki, liczby, granice, źródła, przegląd).
 

@@ -1,24 +1,47 @@
 # Starter: biological safety check — EN
-<!-- Texts of StarterSafetyCard and evaluateSourdoughSafety results. Heading = field in code. -->
-<!-- State at commit e436074: copied verbatim from src/lib/i18n.en.ts:121-130. titlePl/actionPl are rendered without t(), so EN users see the PL result text. -->
+<!-- Texts of StarterSafetyCard and evaluateSourdoughSafety results. Heading = field in code; role 08 implements text verbatim (without the [T:...] marker) as EN values in src/lib/i18n.en.ts, keyed by the PL text. -->
+<!-- Decision DEC-10 (a), 2026-10-19. Version for 06-tresci-002/003 (M1-audytor-generalny-013). -->
 
-## card.title (i18n.en.ts:121)
+## card.title (unchanged)
 Biological safety check [T:-]
 
-## przycisk.hooch (i18n.en.ts:122)
-Dark liquid / alcohol smell (Hooch) [T:-]
+## card.subtitle
+Mark what you see or smell in the jar. [T:-]
 
-## przycisk.kozuch (i18n.en.ts:123)
-White matte film (Kahm Yeast) [T:ZAK-KAH-001]
+## przycisk.hooch (hasHoochLiquid)
+Liquid layer that smells of alcohol (hooch) [T:-]
 
-## przycisk.plesn (i18n.en.ts:124)
-Fuzzy colored spots (Mold / Rot) [T:ZAK-PLE-001]
+## przycisk.nalot (hasWhiteWrinkledFilm)
+White film or skin on the surface [T:-]
 
-## wynik.kahm_yeast_safe.titlePl (i18n.en.ts:128)
-Harmless yeast film (Kahm Yeast) [T:ZAK-KAH-001]
+## przycisk.plesn (hasFuzzySpots)
+Fuzzy growth of any colour, including white [T:ZAK-PLE-004]
 
-## wynik.healthy.hooch.titlePl (i18n.en.ts:129)
-Hunger liquid (Hooch) — starter is safe but hungry [T:ZAK-HOO-900]
+## przycisk.przebarwienie (hasColoredSpots, new button)
+Pink, orange or other discoloration, streaks or spots [T:-]
 
-## wynik.toxic_mold_danger.titlePl (i18n.en.ts:130)
-CRITICAL ALERT: Toxic mold detected [T:ZAK-PLE-002]
+## przycisk.zapach (hasRottenSmell, new button)
+Foul, rotten smell [T:-]
+
+## wynik.discard.titlePl
+Discard the starter [T:ZAK-NAL-001]
+
+## wynik.discard.actionPl
+Do not use this starter and do not try to rescue it. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Mold can reach deep into the starter, even when only a small patch shows on the surface. [T:ZAK-PLE-003]
+Do not sniff a starter with growth on it, as this can cause breathing problems. [T:ZAK-WAC-001]
+Wash and rinse the jar thoroughly before starting a new starter. [T:ZAK-NAC-001]
+
+## wynik.hooch.titlePl
+Liquid on the surface (hooch) [T:-]
+
+## wynik.hooch.actionPl
+According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. [T:ZAK-HOO-001]
+You can pour it off or stir it in. [T:ZAK-HOO-001]
+If you also see growth or discoloration, or notice a rotten smell, mark it above. [T:-]
+
+## wynik.no_observation.titlePl
+No signs marked [T:-]
+
+## wynik.no_observation.actionPl
+An assessment appears once you mark what you see or smell. [T:-]

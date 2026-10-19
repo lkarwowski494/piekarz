@@ -1,46 +1,47 @@
 # Zakwas: kontrola biologiczna — PL
-<!-- Teksty karty StarterSafetyCard i wyniki evaluateSourdoughSafety. Nagłówek = pole w kodzie. -->
-<!-- Stan na commit e436074: przepisane dosłownie z src/components/zakwas/StarterSafetyCard.tsx i src/core/sourdough-physics.ts:163-203. -->
+<!-- Teksty karty StarterSafetyCard i wyniki evaluateSourdoughSafety. Nagłówek = pole w kodzie; rola 08 wdraża tekst dosłownie (bez znacznika [T:...]). -->
+<!-- Decyzja DEC-10 (a), 2026-10-19: każdy nalot lub przebarwienie → wyrzuć; bez werdyktu „jadalny” i „zdrowy”. Wersja dla 06-tresci-002/003 (M1-audytor-generalny-013). -->
 
-## card.title (StarterSafetyCard.tsx:35)
+## card.title (bez zmian)
 Kontrola biologiczna (Bezpieczeństwo) [T:-]
 
-## card.subtitle (StarterSafetyCard.tsx:37)
-Sprawdź nietypowe zjawiska na powierzchni zakwasu [T:-]
+## card.subtitle
+Zaznacz, co widzisz albo czujesz w słoiku. [T:-]
 
-## przycisk.hooch (StarterSafetyCard.tsx:46)
-Ciemny płyn / zapach alkoholu (Hooch) [T:-]
+## przycisk.hooch (hasHoochLiquid)
+Płyn na powierzchni o zapachu alkoholu (hooch) [T:-]
 
-## przycisk.kozuch (StarterSafetyCard.tsx:55)
-Biały matowy kożuch (Kahm Yeast) [T:ZAK-KAH-001]
+## przycisk.nalot (hasWhiteWrinkledFilm)
+Biały nalot lub kożuch na powierzchni [T:-]
 
-## przycisk.plesn (StarterSafetyCard.tsx:64)
-Puszyste kolorowe plamy (Pleśń / Zgnilizna) [T:ZAK-PLE-001]
+## przycisk.plesn (hasFuzzySpots)
+Puszysty nalot w dowolnym kolorze, także biały [T:ZAK-PLE-004]
 
-## wynik.toxic_mold_danger.titlePl (sourdough-physics.ts:173)
-ALARM: Wykryto niebezpieczną pleśń lub zgniliznę [T:ZAK-PLE-002]
+## przycisk.przebarwienie (hasColoredSpots, nowy przycisk)
+Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy [T:-]
 
-## wynik.toxic_mold_danger.actionPl (sourdough-physics.ts:174)
-BEZWZGLĘDNIE WYRZUĆ ZAKWAS DO KOSZA. [T:ZAK-PLE-002]
-Słoik wygotuj we wrzątku lub wyrzuć. [T:ZAK-NAC-900]
-Pleśń wnika mikroskopijnymi strzępkami w całą masę — tego zakwasu NIE wolno ratować. [T:ZAK-PLE-003]
+## przycisk.zapach (hasRottenSmell, nowy przycisk)
+Nieprzyjemny, zgniły zapach [T:-]
 
-## wynik.kahm_yeast_safe.titlePl (sourdough-physics.ts:182)
-Bezpieczny kożuch drożdżowy (Kahm Yeast) [T:ZAK-KAH-001]
+## wynik.discard.titlePl (nalot, pleśń, przebarwienie albo zapach; także razem z płynem)
+Wyrzuć zakwas [T:ZAK-NAL-001]
 
-## wynik.kahm_yeast_safe.actionPl (sourdough-physics.ts:183)
-To nieszkodliwy kożuch drożdży tlenowych (Kahm Yeast). [T:ZAK-KAH-001]
-Zdejmij czystą łyżką wierzchnią warstwę, pobierz 15 g zdrowego zakwasu ze spodu słoika i dokarm w nowym, czystym naczyniu. [T:ZAK-KAH-001]
+## wynik.discard.actionPl
+Nie używaj tego zakwasu i nie próbuj go ratować. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. [T:ZAK-PLE-003]
+Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. [T:ZAK-WAC-001]
+Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik. [T:ZAK-NAC-001]
 
-## wynik.healthy.hooch.titlePl (sourdough-physics.ts:191)
-Płyn głodowy (Hooch) — zakwas jest zdrowy, ale głodny [T:ZAK-HOO-900]
+## wynik.hooch.titlePl (tylko płyn)
+Płyn na powierzchni (hooch) [T:-]
 
-## wynik.healthy.hooch.actionPl (sourdough-physics.ts:192)
-Ciemny płyn na powierzchni o zapachu alkoholu to naturalny efekt głodu. [T:ZAK-HOO-900]
-Zlej płyn lub wymieszaj go, po czym niezwłocznie dokarm zakwas w proporcji 1:2:2. [T:ZAK-HOO-900]
+## wynik.hooch.actionPl
+Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. [T:ZAK-HOO-001]
+Możesz ją zlać albo wmieszać. [T:ZAK-HOO-001]
+Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej. [T:-]
 
-## wynik.healthy.titlePl (sourdough-physics.ts:199)
-Zakwas jest zdrowy i aktywny [T:ZAK-ZDR-900]
+## wynik.no_observation.titlePl (nic nie zaznaczono)
+Nie zaznaczono żadnego objawu [T:-]
 
-## wynik.healthy.actionPl (sourdough-physics.ts:200)
-Prawidłowy zapach owocowo-kwasowy i równomierne napowietrzenie. [T:ZAK-ZDR-900]
+## wynik.no_observation.actionPl
+Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz. [T:-]

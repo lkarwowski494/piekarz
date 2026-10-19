@@ -1,0 +1,610 @@
+{
+  "opis": "Wektory dla evaluateSourdoughSafety (DEC-10 a). Pełna tablica 2^5 kombinacji obserwacji. Wartości tekstów: docs/tresci/pl|en/zakwas-bezpieczenstwo.md.",
+  "zrodlo": "rola 06-tresci, fix 2026-10-19, M1-audytor-generalny-013 / 014",
+  "niezmienniki": [
+    "Żaden wektor nie zwraca isEdible: true (pole usunąć albo zawsze false).",
+    "Tekst wyniku (titlePl, actionPl i ich EN) nie pasuje do /zdrow|bezpieczn|jadaln|nieszkodliw/i ani /healthy|harmless|\\bsafe\\b|edible/i.",
+    "Status discard ma pierwszeństwo przed hooch (hooch + dowolny inny objaw = discard).",
+    "Etykieta przycisku hasFuzzySpots nie zawiera słowa „kolorowe” / „colored” bez „także biały” / „including white”."
+  ],
+  "wektory": [
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "no_observation",
+      "twierdzenia": [
+        "K4: brak twierdzenia (stan neutralny)"
+      ],
+      "k": "K4"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "hooch",
+      "twierdzenia": [
+        "ZAK-HOO-001"
+      ],
+      "k": "K6"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K2/K3"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K2/K3"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K2/K3"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K2/K3"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": false
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": false,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K2/K3+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": false,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K2/K3+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": false,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K2/K3+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": false,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K1+K2/K3+K5+K5"
+    },
+    {
+      "wejscie": {
+        "hasHoochLiquid": true,
+        "hasWhiteWrinkledFilm": true,
+        "hasFuzzySpots": true,
+        "hasColoredSpots": true,
+        "hasRottenSmell": true
+      },
+      "oczekiwany_status": "discard",
+      "twierdzenia": [
+        "ZAK-NAL-001",
+        "ZAK-PLE-002",
+        "ZAK-KOL-001",
+        "ZAK-PLE-003",
+        "ZAK-WAC-001",
+        "ZAK-NAC-001"
+      ],
+      "k": "K6+K1+K2/K3+K5+K5"
+    }
+  ]
+}
