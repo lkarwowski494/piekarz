@@ -48,6 +48,7 @@ import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { suggestDoctorAfterRating } from '../../src/lib/doctor-suggestion';
 import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
+import { PokeTestEntry } from '../../src/components/stolnica/PokeTestEntry';
 import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
 import { ActiveTimerDisplay } from '../../src/components/stolnica/ActiveTimerDisplay';
 import { BakeStatsCard } from '../../src/components/stolnica/BakeStatsCard';
@@ -424,6 +425,7 @@ export default function StolnicaScreen() {
 
               <Text style={styles.activeStepTitle}>{t(currentStep.name)}</Text>
               <Text style={styles.activeStepDesc}>{formatTextUnits(t(currentStep.instructions), unitSystem)}</Text>
+              <PokeTestEntry step={currentStep} />
 
               {/* Dutch Oven Two-Phase Controller for the bake step */}
               {isDutchOvenStep(currentStep) && (

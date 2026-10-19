@@ -30,6 +30,7 @@ import { BAKE_SESSION_KEY, loadBakeSession, parseBakeSession, saveBakeSession } 
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { calculateReverseSchedule, StageCategory } from '../scheduler/reverse-scheduler';
 import { planBakeNotification } from '../core/notification-plan';
+import { showsPokeTestEntry } from '../core/bake-steps';
 import { notificationText } from '../lib/notifications';
 import { setLang, t } from '../lib/i18n';
 import legacyFixture from '../../tests/fixtures/bake-session-v1-1c38b28.json';
@@ -165,6 +166,55 @@ describe('Stolnica z receptury i planu (030)', () => {
     const plan = calculateReverseSchedule(new Date(now), { ambientTemperatureC: 22 }).stages;
     expect(saved?.steps?.map((s) => [s.id, s.durationMin])).toEqual(plan.map((st) => [st.id, st.durationMinutes]));
     expect(saved?.steps?.[0]?.plannedStart).toBe(now);
+  });
+
+  // F-15, BR-ETAP-003: przewodnik testu palca w Stolnicy przy garowaniu końcowym, przed pieczeniem
+  // [M1-audytor-generalny-032; D-032]
+  it('garowanie końcowe (krok przed pieczeniem) pokazuje wejście do testu palca, inne kroki nie', async () => {
+    setActiveBake({
+      id: 'bake_poke',
+      recipeName: 'Pszenny 75%',
+      startedAt: now,
+      currentStageId: 'step_1',
+      ambientTempC: 22,
+      calculatedRecipe: recipe(false),
+    });
+    const stol = await render(<StolnicaScreen />);
+    const steps = (await loadBakeSession())?.steps ?? [];
+    const proofIdx = steps.findIndex((s) => s.category === 'final_proof');
+    expect(proofIdx).toBeGreaterThan(0);
+    expect(steps.slice(proofIdx + 1).some((s) => s.category === 'bake')).toBe(true);
+    const entries = () => stol.root.findAll((n) => n.props.testID === 'stolnica-poke-test-btn');
+    for (let i = 0; i < steps.length; i++) {
+      if (i !== proofIdx) expect({ step: steps[i].category, entries: entries().length }).toEqual({ step: steps[i].category, entries: 0 });
+      else break;
+      await act(async () => {
+        button(stol.root, 'Następny krok').props.onPress();
+      });
+    }
+    expect(textOf(stol.toJSON())).toContain(`Krok ${proofIdx + 1} z ${steps.length}`);
+    expect(entries().length).toBeGreaterThan(0);
+    expect(textOf(stol.toJSON())).toContain('Sprawdź gotowość: test palca');
+    expect(textOf(stol.toJSON())).not.toContain('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia');
+    await act(async () => {
+      entries()[0].props.onPress();
+    });
+    const text = textOf(stol.toJSON());
+    expect(text).toContain('Test palca (Poke Test)');
+    expect(text).toContain('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia');
+    // Następny krok (nagrzewanie i pieczenie) już bez wejścia
+    await act(async () => {
+      button(stol.root, 'Następny krok').props.onPress();
+    });
+    expect(entries()).toHaveLength(0);
+    act(() => stol.unmount());
+  });
+
+  it('showsPokeTestEntry: tylko garowanie końcowe ciasta pszennego, nie rozrost żytni w formie', () => {
+    expect(showsPokeTestEntry({ id: 'final_proof', category: 'final_proof' })).toBe(true);
+    expect(showsPokeTestEntry({ id: 'preheat_oven', category: 'preheat_oven' })).toBe(false);
+    expect(showsPokeTestEntry({ id: 'bake', category: 'bake' })).toBe(false);
+    expect(showsPokeTestEntry({ id: 'rye_proof', category: 'final_proof' })).toBe(false);
   });
 
   const startRye = () =>

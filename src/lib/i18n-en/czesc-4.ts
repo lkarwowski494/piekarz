@@ -39,4 +39,6 @@ export const EN_4: Record<string, string> = {
   'Etykieta słoika zakwasu': 'Starter jar label',
   'Najpierw dodaj zakwas w zakładce Zakwas.': 'Add a starter in the Starter tab first.',
   'Który zakwas?': 'Which starter?',
+  // Test palca w Stolnicy przy garowaniu końcowym (F-15, BR-ETAP-003) [M1-audytor-generalny-032]
+  'Sprawdź gotowość: test palca': 'Check readiness: poke test',
 };

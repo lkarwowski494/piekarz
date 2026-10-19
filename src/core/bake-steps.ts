@@ -42,6 +42,15 @@ export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boo
   return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id);
 }
 
+/**
+ * Czy krok pokazuje wejście do testu palca (F-15, BR-ETAP-003: „trwa garowanie końcowe”)
+ * [M1-audytor-generalny-032]. Chleb żytni rośnie w formie i ma własny opis gotowości (ZYT-ETA-001),
+ * więc jego garowanie nie dostaje testu palca z koszyka.
+ */
+export function showsPokeTestEntry(step: Pick<SessionStep, 'id' | 'category'>): boolean {
+  return step.category === 'final_proof' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id);
+}
+
 /** Etapy planu jako kroki Stolnicy: ta sama kolejność, id, nazwy i czasy. */
 export function stepsFromSchedule(schedule: ReverseScheduleResult): SessionStep[] {
   return schedule.stages.map((st) => ({

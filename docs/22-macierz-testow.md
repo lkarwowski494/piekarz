@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 32 | 32 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 470 | 470 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 267 | 267 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 471 | 471 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 268 | 268 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 95 | 95 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **869** | Pokrytych: **869** | Brakujących: **0**
+Łącznie elementów: **871** | Pokrytych: **871** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -197,7 +197,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Fizjologia ciasta:` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Kuchenne testy piekarskie` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Test palca (Poke Test)` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
-| `TEKST` | `Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-plan-steps.test.tsx |
 | `TEKST` | `Szybko odskakuje:` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wraca powoli do połowy:` | `src/components/doktor/KitchenTestsGuideSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 569 kolejnych elementów w pełnym wykazie)*
+*(... i 571 kolejnych elementów w pełnym wykazie)*
