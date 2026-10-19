@@ -201,7 +201,8 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       const grades: FlourGradeCategory[] = ['pastry', 'all_purpose', 'bread_light', 'bread_standard', 'semi_whole', 'whole_grain'];
       expect(grades.length).toBe(6);
 
-      const safety: SourdoughSafetyStatus[] = ['healthy', 'kahm_yeast_safe', 'toxic_mold_danger'];
+      // [M1-audytor-generalny-013] statusy według DEC-10 (a)
+      const safety: SourdoughSafetyStatus[] = ['discard', 'hooch', 'no_observation'];
       expect(safety.length).toBe(3);
 
       const sPhases: SourdoughPhase[] = ['lag', 'rising', 'peak', 'declining', 'hungry'];

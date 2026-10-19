@@ -235,26 +235,26 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
     });
   });
 
+  // [M1-audytor-generalny-013] werdykty według DEC-10 (a) i rejestru treści (docs/tresci/rejestr.json);
+  // wcześniej test utrwalał wadę: kożuch „bezpieczny”, hooch „zdrowy”, isEdible: true.
   describe('RD-13: Sourdough Safety Evaluation', () => {
-    it('Detects toxic mold and raises critical alert', () => {
+    it('Mold or discoloration means discard', () => {
       const safety = evaluateSourdoughSafety({ hasFuzzySpots: true, hasColoredSpots: true });
-      expect(safety.status).toBe('toxic_mold_danger');
-      expect(safety.isEdible).toBe(false);
-      expect(safety.titlePl).toContain('ALARM');
+      expect(safety.status).toBe('discard');
+      expect(safety.titlePl).toBe('Wyrzuć zakwas');
     });
 
-    it('Recognizes harmless kahm yeast film', () => {
+    it('A white film is not judged harmless: discard (precaution, ZAK-NAL-001)', () => {
       const safety = evaluateSourdoughSafety({ hasWhiteWrinkledFilm: true });
-      expect(safety.status).toBe('kahm_yeast_safe');
-      expect(safety.isEdible).toBe(true);
-      expect(safety.actionPl).toContain('Kahm Yeast');
+      expect(safety.status).toBe('discard');
+      expect(safety.actionPl).not.toMatch(/nieszkodliw|bezpieczn/i);
     });
 
-    it('Identifies hooch liquid as safe but hungry', () => {
+    it('Hooch alone is described with attribution, without a "healthy" verdict', () => {
       const safety = evaluateSourdoughSafety({ hasHoochLiquid: true });
-      expect(safety.status).toBe('healthy');
-      expect(safety.isEdible).toBe(true);
-      expect(safety.titlePl).toContain('Płyn głodowy');
+      expect(safety.status).toBe('hooch');
+      expect(safety.actionPl).toContain('Według CSU Extension');
+      expect(`${safety.titlePl} ${safety.actionPl}`).not.toMatch(/zdrow/i);
     });
   });
 

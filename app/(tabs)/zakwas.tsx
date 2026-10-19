@@ -75,6 +75,8 @@ export default function ZakwasScreen() {
   const [hasHooch, setHasHooch] = useState<boolean>(false);
   const [hasKahm, setHasKahm] = useState<boolean>(false);
   const [hasMold, setHasMold] = useState<boolean>(false);
+  const [hasColoredSpots, setHasColoredSpots] = useState<boolean>(false);
+  const [hasRottenSmell, setHasRottenSmell] = useState<boolean>(false);
 
   // Edit Profile Modal
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
@@ -145,8 +147,10 @@ export default function ZakwasScreen() {
       hasHoochLiquid: hasHooch,
       hasWhiteWrinkledFilm: hasKahm,
       hasFuzzySpots: hasMold,
+      hasColoredSpots,
+      hasRottenSmell,
     });
-  }, [hasHooch, hasKahm, hasMold]);
+  }, [hasHooch, hasKahm, hasMold, hasColoredSpots, hasRottenSmell]);
 
   // Time since last feeding label
   const lastFedLabel = useMemo(() => {
@@ -267,6 +271,8 @@ export default function ZakwasScreen() {
       setHasHooch(false);
       setHasKahm(false);
       setHasMold(false);
+      setHasColoredSpots(false);
+      setHasRottenSmell(false);
     });
   };
 
@@ -351,6 +357,10 @@ export default function ZakwasScreen() {
           onToggleKahm={() => setHasKahm((prev) => !prev)}
           hasMold={hasMold}
           onToggleMold={() => setHasMold((prev) => !prev)}
+          hasColoredSpots={hasColoredSpots}
+          onToggleColoredSpots={() => setHasColoredSpots((prev) => !prev)}
+          hasRottenSmell={hasRottenSmell}
+          onToggleRottenSmell={() => setHasRottenSmell((prev) => !prev)}
           safetyResult={safetyResult}
           onReset={handleReset}
         />

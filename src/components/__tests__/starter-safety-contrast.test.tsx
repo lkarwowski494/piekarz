@@ -6,6 +6,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import { StarterSafetyCard } from '../zakwas/StarterSafetyCard';
+import type { SourdoughSafetyStatus } from '../../core/sourdough-physics';
 import { theme } from '../../ui/theme';
 import { amberTheme } from '../../ui/amber-theme';
 
@@ -20,14 +21,18 @@ const contrast = (a: string, b: string) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
-const renderStatus = async (status: string) => {
+const renderStatus = async (status: SourdoughSafetyStatus) => {
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
     tree = renderer.create(
       <StarterSafetyCard
         hasHooch={false}
-        hasKahm={status === 'kahm_yeast_safe'}
-        hasMold={status === 'toxic_mold_danger'}
+        hasKahm={false}
+        hasMold={status === 'discard'}
+        hasColoredSpots={false}
+        onToggleColoredSpots={() => {}}
+        hasRottenSmell={false}
+        onToggleRottenSmell={() => {}}
         onToggleHooch={() => {}}
         onToggleKahm={() => {}}
         onToggleMold={() => {}}
@@ -51,7 +56,7 @@ const renderStatus = async (status: string) => {
 };
 
 describe('Starter safety card text contrast (016)', () => {
-  it.each(['toxic_mold_danger', 'kahm_yeast_safe', 'healthy'])('%s: title and action text reach at least 4.5:1', async (status) => {
+  it.each<SourdoughSafetyStatus>(['discard', 'hooch', 'no_observation'])('%s: title and action text reach at least 4.5:1', async (status) => {
     const c = await renderStatus(status);
     expect(c.title).toBeGreaterThanOrEqual(4.5);
     expect(c.action).toBeGreaterThanOrEqual(4.5);

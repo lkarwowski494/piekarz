@@ -328,53 +328,49 @@ describe('Exhaustive Domain Math & Physics Invariants (BR-MATH-EXHAUSTIVE)', () 
   // 6. Biological Safety Priority Ordering
   // --------------------------------------------------------------------------
   describe('Sourdough Biological Safety Conflict Hierarchy', () => {
-    it('ensures mold (toxic hazard) strictly overrides harmless hooch and kahm yeast', () => {
+    // [M1-audytor-generalny-013] DEC-10 (a): każdy objaw poza samym płynem → discard; wcześniej test utrwalał
+    // werdykty „bezpieczny kożuch” i „zakwas zdrowy” bez źródła.
+    it('ensures mold strictly overrides hooch and film: discard', () => {
       const safety = evaluateSourdoughSafety({
         hasHoochLiquid: true,
         hasWhiteWrinkledFilm: true,
         hasFuzzySpots: true,
       });
 
-      expect(safety.status).toBe('toxic_mold_danger');
-      expect(safety.isEdible).toBe(false);
-      expect(safety.titlePl).toContain('ALARM');
-      expect(safety.actionPl).toContain('WYRZUĆ');
+      expect(safety.status).toBe('discard');
+      expect(safety.titlePl).toBe('Wyrzuć zakwas');
+      expect(safety.actionPl).toContain('nie próbuj go ratować');
     });
 
-    it('ensures rotten smell triggers toxic danger even without visible spots', () => {
+    it('ensures rotten smell means discard even without visible spots', () => {
       const safety = evaluateSourdoughSafety({
         hasRottenSmell: true,
       });
 
-      expect(safety.status).toBe('toxic_mold_danger');
-      expect(safety.isEdible).toBe(false);
+      expect(safety.status).toBe('discard');
     });
 
-    it('evaluates pure hooch as completely healthy hungry state', () => {
+    it('evaluates pure hooch as hooch, with attribution and no health verdict', () => {
       const safety = evaluateSourdoughSafety({
         hasHoochLiquid: true,
       });
 
-      expect(safety.status).toBe('healthy');
-      expect(safety.isEdible).toBe(true);
-      expect(safety.titlePl).toContain('Płyn głodowy (Hooch)');
+      expect(safety.status).toBe('hooch');
+      expect(safety.titlePl).toBe('Płyn na powierzchni (hooch)');
     });
 
-    it('evaluates pure kahm yeast as safe cosmetic state', () => {
+    it('evaluates a white film as discard (no "harmless" verdict)', () => {
       const safety = evaluateSourdoughSafety({
         hasWhiteWrinkledFilm: true,
       });
 
-      expect(safety.status).toBe('kahm_yeast_safe');
-      expect(safety.isEdible).toBe(true);
-      expect(safety.titlePl).toContain('Bezpieczny kożuch drożdżowy');
+      expect(safety.status).toBe('discard');
     });
 
-    it('evaluates healthy starter with no symptoms as completely safe', () => {
+    it('evaluates no marked symptoms as no observation, not as healthy', () => {
       const safety = evaluateSourdoughSafety({});
-      expect(safety.status).toBe('healthy');
-      expect(safety.isEdible).toBe(true);
-      expect(safety.titlePl).toContain('Zakwas jest zdrowy i aktywny');
+      expect(safety.status).toBe('no_observation');
+      expect(safety.titlePl).toBe('Nie zaznaczono żadnego objawu');
     });
   });
 

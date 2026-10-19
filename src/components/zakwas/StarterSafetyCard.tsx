@@ -1,13 +1,14 @@
 // ============================================================================
 // Apps4Craft Studio — StarterSafetyCard Component
-// Biological safety checker for sourdough starter (Hooch, Kahm, Toxic Mold).
-// 100% Offline-First.
+// Kontrola objawów zakwasu według zasady ostrożności DEC-10 (a) [M1-audytor-generalny-013, -014].
+// Teksty: docs/tresci/pl|en/zakwas-bezpieczenstwo.md (rola 06). 100% Offline-First.
 // ============================================================================
 
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { SourdoughSafetyCheck } from '../../core/sourdough-physics';
 
 export interface StarterSafetyCardProps {
   hasHooch: boolean;
@@ -16,8 +17,34 @@ export interface StarterSafetyCardProps {
   onToggleKahm: () => void;
   hasMold: boolean;
   onToggleMold: () => void;
-  safetyResult: any;
+  hasColoredSpots: boolean;
+  onToggleColoredSpots: () => void;
+  hasRottenSmell: boolean;
+  onToggleRottenSmell: () => void;
+  safetyResult: SourdoughSafetyCheck;
   onReset: () => void;
+}
+
+interface CheckProps {
+  active: boolean;
+  danger: boolean;
+  label: string;
+  onPress: () => void;
+  testID: string;
+}
+
+function CheckButton({ active, danger, label, onPress, testID }: CheckProps) {
+  return (
+    <Pressable
+      style={[styles.checkBtn, active && (danger ? styles.checkBtnDangerActive : styles.checkBtnActive)]}
+      onPress={onPress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: active }}
+      testID={testID}
+    >
+      <Text style={[styles.checkBtnText, active && styles.checkBtnTextActive]}>{label}</Text>
+    </Pressable>
+  );
 }
 
 export function StarterSafetyCard({
@@ -27,58 +54,39 @@ export function StarterSafetyCard({
   onToggleKahm,
   hasMold,
   onToggleMold,
+  hasColoredSpots,
+  onToggleColoredSpots,
+  hasRottenSmell,
+  onToggleRottenSmell,
   safetyResult,
   onReset,
 }: StarterSafetyCardProps) {
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Kontrola biologiczna (Bezpieczeństwo)')}</Text>
-      <Text style={styles.cardSubtitle}>
-        Sprawdź nietypowe zjawiska na powierzchni zakwasu
-      </Text>
+      <Text style={styles.cardSubtitle}>{t('Zaznacz, co widzisz albo czujesz w słoiku.')}</Text>
 
       <View style={styles.checkRow}>
-        <Pressable
-          style={[styles.checkBtn, hasHooch && styles.checkBtnActive]}
-          onPress={onToggleHooch}
-        >
-          <Text style={[styles.checkBtnText, hasHooch && styles.checkBtnTextActive]}>
-            {t('Ciemny płyn / zapach alkoholu (Hooch)')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={[styles.checkBtn, hasKahm && styles.checkBtnActive]}
-          onPress={onToggleKahm}
-        >
-          <Text style={[styles.checkBtnText, hasKahm && styles.checkBtnTextActive]}>
-            {t('Biały matowy kożuch (Kahm Yeast)')}
-          </Text>
-        </Pressable>
-
-        <Pressable
-          style={[styles.checkBtn, hasMold && styles.checkBtnDangerActive]}
-          onPress={onToggleMold}
-        >
-          <Text style={[styles.checkBtnText, hasMold && styles.checkBtnDangerTextActive]}>
-            {t('Puszyste kolorowe plamy (Pleśń / Zgnilizna)')}
-          </Text>
-        </Pressable>
+        <CheckButton active={hasHooch} danger={false} onPress={onToggleHooch} testID="check-hooch" label={t('Płyn na powierzchni o zapachu alkoholu (hooch)')} />
+        <CheckButton active={hasKahm} danger onPress={onToggleKahm} testID="check-film" label={t('Biały nalot lub kożuch na powierzchni')} />
+        <CheckButton active={hasMold} danger onPress={onToggleMold} testID="check-mold" label={t('Puszysty nalot w dowolnym kolorze, także biały')} />
+        <CheckButton active={hasColoredSpots} danger onPress={onToggleColoredSpots} testID="check-colored" label={t('Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy')} />
+        <CheckButton active={hasRottenSmell} danger onPress={onToggleRottenSmell} testID="check-smell" label={t('Nieprzyjemny, zgniły zapach')} />
       </View>
 
-      {/* Diagnostic Result */}
       <View
         style={[
           styles.safetyBox,
-          safetyResult.status === 'toxic_mold_danger'
+          safetyResult.status === 'discard'
             ? styles.safetyDanger
-            : safetyResult.status === 'kahm_yeast_safe'
+            : safetyResult.status === 'hooch'
             ? styles.safetyWarning
-            : styles.safetyHealthy,
+            : styles.safetyNeutral,
         ]}
+        testID={`starter-safety-${safetyResult.status}`}
       >
-        <Text style={styles.safetyTitle}>{safetyResult.titlePl}</Text>
-        <Text style={styles.safetyAction}>{safetyResult.actionPl}</Text>
+        <Text style={styles.safetyTitle}>{t(safetyResult.titlePl)}</Text>
+        <Text style={styles.safetyAction}>{t(safetyResult.actionPl)}</Text>
       </View>
 
       <Pressable style={styles.resetBtn} onPress={onReset}>
@@ -104,9 +112,9 @@ const styles = StyleSheet.create({
   },
   cardSubtitle: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.textSecondary,
     marginTop: 2,
-    marginBottom: 12,
+    marginBottom: 8,
   },
   checkRow: {
     gap: 8,
@@ -115,13 +123,20 @@ const styles = StyleSheet.create({
   checkBtn: {
     backgroundColor: theme.colors.backgroundSecondary,
     padding: 10,
+    minHeight: 44,
+    justifyContent: 'center',
     borderRadius: theme.radius.sm,
     borderWidth: 1,
     borderColor: theme.colors.border,
   },
+  // Zaznaczenie: ramka w kolorze stanu, tło i tekst z ciemnego motywu (kontrast jak w 016)
   checkBtnActive: {
-    backgroundColor: '#FEF3C7',
-    borderColor: '#F59E0B',
+    borderColor: theme.colors.statusWarning,
+    borderWidth: 2,
+  },
+  checkBtnDangerActive: {
+    borderColor: theme.colors.statusDanger,
+    borderWidth: 2,
   },
   checkBtnText: {
     fontSize: 13,
@@ -129,15 +144,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   checkBtnTextActive: {
-    color: '#B45309',
-    fontWeight: '700',
-  },
-  checkBtnDangerActive: {
-    backgroundColor: '#FEE2E2',
-    borderColor: '#EF4444',
-  },
-  checkBtnDangerTextActive: {
-    color: '#B91C1C',
+    color: theme.colors.textPrimary,
     fontWeight: '700',
   },
   safetyBox: {
@@ -148,9 +155,9 @@ const styles = StyleSheet.create({
   },
   // Ciemne tło karty i kolor stanu na ramce — tylko istniejące tokeny motywu; jasny tekst ≥ 4,5:1
   // (wcześniej pastelowe tła pod jasnym tekstem: 1,04:1) [M1-audytor-generalny-016]
-  safetyHealthy: {
+  safetyNeutral: {
     backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.statusSuccess,
+    borderColor: theme.colors.border,
   },
   safetyWarning: {
     backgroundColor: theme.colors.surfaceCard,
@@ -175,6 +182,8 @@ const styles = StyleSheet.create({
   resetBtn: {
     backgroundColor: theme.colors.surfaceCard,
     paddingVertical: 10,
+    minHeight: 44,
+    justifyContent: 'center',
     borderRadius: theme.radius.sm,
     borderWidth: 1,
     borderColor: theme.colors.border,
@@ -183,6 +192,6 @@ const styles = StyleSheet.create({
   resetBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textMuted,
+    color: theme.colors.textSecondary,
   },
 });

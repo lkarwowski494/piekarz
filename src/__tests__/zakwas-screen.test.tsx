@@ -136,27 +136,43 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
   it('evaluates biological safety flags and resets upon confirmation', async () => {
     await renderScreen();
 
-    // Tap Kahm Yeast check button
-    const kahmBtn = findButtonByText(tree!.root, 'Kahm Yeast');
-    expect(kahmBtn).toBeDefined();
-
-    await act(async () => {
-      kahmBtn?.props.onPress();
-    });
-
+    // [M1-audytor-generalny-013] DEC-10 (a): przyciski i werdykty z docs/tresci/pl/zakwas-bezpieczenstwo.md;
+    // wcześniej test oczekiwał werdyktu „Kahm Yeast” (bezpieczny kożuch) i „Zakwas jest zdrowy”.
     let text = extractCleanText(tree?.toJSON());
-    expect(text).toContain('Kahm Yeast');
+    expect(text).toContain('Nie zaznaczono żadnego objawu');
+    for (const label of [
+      'Zaznacz, co widzisz albo czujesz w słoiku.',
+      'Płyn na powierzchni o zapachu alkoholu (hooch)',
+      'Biały nalot lub kożuch na powierzchni',
+      'Puszysty nalot w dowolnym kolorze, także biały',
+      'Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy',
+      'Nieprzyjemny, zgniły zapach',
+    ]) {
+      expect(text).toContain(label);
+    }
 
-    // Tap Mold check button
-    const moldBtn = findButtonByText(tree!.root, 'Pleśń');
-    expect(moldBtn).toBeDefined();
+    // Tap white film check button
+    const filmBtn = findButtonByText(tree!.root, 'Biały nalot lub kożuch');
+    expect(filmBtn).toBeDefined();
 
     await act(async () => {
-      moldBtn?.props.onPress();
+      filmBtn?.props.onPress();
     });
 
     text = extractCleanText(tree?.toJSON());
-    expect(text).toContain('ALARM: Wykryto niebezpieczną pleśń');
+    expect(text).toContain('Wyrzuć zakwas');
+
+    // Tap colored spots and rotten smell (nowe przyciski)
+    for (const label of ['Różowe, pomarańczowe', 'zgniły zapach', 'Puszysty nalot']) {
+      const btn = findButtonByText(tree!.root, label);
+      expect(btn).toBeDefined();
+      await act(async () => {
+        btn?.props.onPress();
+      });
+    }
+
+    text = extractCleanText(tree?.toJSON());
+    expect(text).toContain('Pleśń może sięgać w głąb zakwasu');
 
     // Tap Resetuj profil zakwasu
     const resetBtn = findButtonByText(tree!.root, 'Resetuj profil zakwasu');
@@ -167,7 +183,8 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     });
 
     text = extractCleanText(tree?.toJSON());
-    expect(text).toContain('Zakwas jest zdrowy i aktywny');
+    expect(text).toContain('Nie zaznaczono żadnego objawu');
+    expect(text).not.toContain('zdrowy');
   });
 
   it('copies feeding details to clipboard when copy button is pressed', async () => {

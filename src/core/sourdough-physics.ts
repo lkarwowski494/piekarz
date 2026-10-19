@@ -13,13 +13,13 @@ export interface StarterFeedingResult {
   tipPl?: string;
 }
 
-export type SourdoughSafetyStatus = 'healthy' | 'kahm_yeast_safe' | 'toxic_mold_danger';
+/** discard = wyrzuć; hooch = sam płyn; no_observation = nic nie zaznaczono (bez werdyktu) [M1-audytor-generalny-013]. */
+export type SourdoughSafetyStatus = 'discard' | 'hooch' | 'no_observation';
 
 export interface SourdoughSafetyCheck {
   status: SourdoughSafetyStatus;
   titlePl: string;
   actionPl: string;
-  isEdible: boolean;
 }
 
 /**
@@ -157,47 +157,44 @@ export function calculateStarterPhase(
 }
 
 /**
- * RD-13: Sourdough Safety Evaluation
- * Distinguishes harmless kahm yeast / hooch from hazardous mold.
+ * RD-13: ocena objawów zakwasu według zasady ostrożności DEC-10 (a) [M1-audytor-generalny-013]:
+ * każdy nalot, pleśń, przebarwienie albo zgniły zapach → wyrzuć; bez werdyktu „jadalny” i „zdrowy”.
+ * Teksty dosłownie z docs/tresci/pl/zakwas-bezpieczenstwo.md (rejestr: ZAK-NAL-001, ZAK-PLE-002,
+ * ZAK-KOL-001, ZAK-PLE-003, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001); przegląd człowieka: krok właściciela.
  */
 export function evaluateSourdoughSafety(observations: {
   hasHoochLiquid?: boolean;
   hasWhiteWrinkledFilm?: boolean;
   hasFuzzySpots?: boolean;
-  hasColoredSpots?: boolean; // Pink, orange, green, black
+  hasColoredSpots?: boolean;
   hasRottenSmell?: boolean;
 }): SourdoughSafetyCheck {
-  if (observations.hasFuzzySpots || observations.hasColoredSpots || observations.hasRottenSmell) {
+  if (
+    observations.hasWhiteWrinkledFilm ||
+    observations.hasFuzzySpots ||
+    observations.hasColoredSpots ||
+    observations.hasRottenSmell
+  ) {
     return {
-      status: 'toxic_mold_danger',
-      titlePl: 'ALARM: Wykryto niebezpieczną pleśń lub zgniliznę',
-      actionPl: 'BEZWZGLĘDNIE WYRZUĆ ZAKWAS DO KOSZA. Słoik wygotuj we wrzątku lub wyrzuć. Pleśń wnika mikroskopijnymi strzępkami w całą masę — tego zakwasu NIE wolno ratować.',
-      isEdible: false,
-    };
-  }
-
-  if (observations.hasWhiteWrinkledFilm) {
-    return {
-      status: 'kahm_yeast_safe',
-      titlePl: 'Bezpieczny kożuch drożdżowy (Kahm Yeast)',
-      actionPl: 'To nieszkodliwy kożuch drożdży tlenowych (Kahm Yeast). Zdejmij czystą łyżką wierzchnią warstwę, pobierz 15 g zdrowego zakwasu ze spodu słoika i dokarm w nowym, czystym naczyniu.',
-      isEdible: true,
+      status: 'discard',
+      titlePl: 'Wyrzuć zakwas',
+      actionPl:
+        'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.',
     };
   }
 
   if (observations.hasHoochLiquid) {
     return {
-      status: 'healthy',
-      titlePl: 'Płyn głodowy (Hooch) — zakwas jest zdrowy, ale głodny',
-      actionPl: 'Ciemny płyn na powierzchni o zapachu alkoholu to naturalny efekt głodu. Zlej płyn lub wymieszaj go, po czym niezwłocznie dokarm zakwas w proporcji 1:2:2.',
-      isEdible: true,
+      status: 'hooch',
+      titlePl: 'Płyn na powierzchni (hooch)',
+      actionPl:
+        'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.',
     };
   }
 
   return {
-    status: 'healthy',
-    titlePl: 'Zakwas jest zdrowy i aktywny',
-    actionPl: 'Prawidłowy zapach owocowo-kwasowy i równomierne napowietrzenie.',
-    isEdible: true,
+    status: 'no_observation',
+    titlePl: 'Nie zaznaczono żadnego objawu',
+    actionPl: 'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.',
   };
 }

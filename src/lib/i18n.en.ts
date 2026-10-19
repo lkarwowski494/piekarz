@@ -758,6 +758,21 @@ export const EN: Record<string, string> = {
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.':
     'The timer works in the app, but with your phone locked it will not remind you when a step ends or when to feed.',
   'Otwórz Ustawienia': 'Open Settings',
+  // Karta bezpieczeństwa zakwasu, DEC-10 (a); teksty: docs/tresci/en/zakwas-bezpieczenstwo.md [M1-audytor-generalny-013, -014]
+  'Zaznacz, co widzisz albo czujesz w słoiku.': 'Mark what you see or smell in the jar.',
+  'Płyn na powierzchni o zapachu alkoholu (hooch)': 'Liquid layer that smells of alcohol (hooch)',
+  'Biały nalot lub kożuch na powierzchni': 'White film or skin on the surface',
+  'Puszysty nalot w dowolnym kolorze, także biały': 'Fuzzy growth of any colour, including white',
+  'Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy': 'Pink, orange or other discoloration, streaks or spots',
+  'Nieprzyjemny, zgniły zapach': 'Foul, rotten smell',
+  'Wyrzuć zakwas': 'Discard the starter',
+  'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.':
+    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
+  'Płyn na powierzchni (hooch)': 'Liquid on the surface (hooch)',
+  'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
+    'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
+  'Nie zaznaczono żadnego objawu': 'No signs marked',
+  'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
 };
 
 
