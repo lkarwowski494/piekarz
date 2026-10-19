@@ -68,3 +68,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** każdy zakończony wypiek bez progu; tylko 5★.
 - **Dlaczego:** DEC-13 (a) planu napraw M1 mówi o „udanym bochenku”; system i tak pokazuje prośbę najwyżej trzy razy w roku (S-63), więc próg chroni przed prośbą po nieudanym wypieku.
 - **Zależy od:** nic. Numer D-042, bo D-038…D-041 zajęły role 02 i 03 na swoich gałęziach.
+
+### [D-043] 2026-10-20 — Zakres wersji 1: wariant B, jedna aplikacja, aktualizacje co kwartał (rola 03 build, STOP E2)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „1. Wariant zakresu B 2. A 3. A 4. Zgodniez rekomendacja” (2026-10-20, odpowiedź na pytania 1–4 STOP E2).
+- **Decyzja:** (1) wariant B kontraktu zakresu: pętla, podłogi, zakwas, drożdże i pizza, start, pętla opinii, Doktor dla bochenka (F-43) i Akademia jako „po co ten krok” (F-44); PÓŹNIEJ: F-30 spiżarnia, F-63 porównanie, F-45 przelicznik objętości, F-08 QR, F-50 druk, F-70 synchronizacja; NIE: F-53 masa lodu; TEST: F-15 ocena gotowości ciasta; koszt [OCENA] ok. 67 h wobec apetytu 60 h (D-040), nadwyżkę przyjmuje właściciel; (2) jedna aplikacja, pizza i drożdże jako rodzaj receptury (H-09 a); (3) plan aktualizacji dla 3.1.2(a): co kwartał jedna aktualizacja z treścią (2–3 receptury bazowe albo wyjaśnienia „po co ten krok” ze źródłami roli 06) i poprawkami; (4) OP-38: domyślny odstęp przypomnienia na blacie 12 h (S-44, RD-25); OP-41: kopia urządzenia iCloud systemu i przypomnienie o eksporcie pliku, bez wyjątku od zakazu sieci (technika: rola 05). OP-49 rozstrzygnął D-042.
+- **Zmienia wcześniejsze decyzje:** D-029 i DEC-05 a (QR offline w MVP) oraz D-034 pyt. 6a i 7b (spiżarnia i druk w MVP) → PÓŹNIEJ; wejście ukryte, kod i dane użytkownika zostają (spiżarnia w bazie i eksporcie F-33), powrót przez bramkę ZM.
+- **Odrzucone:** wariant A (59 h; bez Doktora i Akademii, łamie ZP-20), wariant C (77,5 h; pięć funkcji o słabym dowodzie); podział (b) przełącznik pizzy, (c) osobna aplikacja; aktualizacje co 6–8 tygodni; kopia w iCloud Drive jako wyjątek od zakazu sieci.
+- **Otwarte:** domyślne jednostki (zadanie M1-audytor-generalny-096): pytanie na STOP E3, rekomendacja według regionu urządzenia.
+- **Zależy od:** D-038 (podział darmowe/płatne bez zmian), D-040 (apetyt); ZAL-040 (H-09), ZAL-046 (H-08), ZAL-048 (H-13).
