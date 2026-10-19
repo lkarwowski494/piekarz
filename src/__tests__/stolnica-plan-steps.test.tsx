@@ -10,7 +10,10 @@ jest.mock('expo-haptics', () => ({
   NotificationFeedbackType: { Success: 'success' },
   ImpactFeedbackStyle: { Light: 'light', Medium: 'medium', Heavy: 'heavy' },
 }));
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }) }));
+jest.mock('expo-router', () => ({
+  useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
+  useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+}));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {

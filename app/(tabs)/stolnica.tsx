@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { useKeepAwake } from 'expo-keep-awake';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
@@ -56,11 +55,10 @@ import { BakeHistorySection } from '../../src/components/stolnica/BakeHistorySec
 import { BakeStepsList } from '../../src/components/stolnica/BakeStepsList';
 import { StolnicaSacredCard } from '../../src/components/stolnica/StolnicaSacredCard';
 import { IdleBakeCard } from '../../src/components/stolnica/IdleBakeCard';
+import { StolnicaKeepAwake } from '../../src/components/stolnica/StolnicaKeepAwake';
 import { styles } from '../../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
-  // Prevent screen sleep while in Stolnica
-  useKeepAwake();
   const router = useRouter();
 
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -358,6 +356,7 @@ export default function StolnicaScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <StolnicaKeepAwake active={isActive} />
       <CraftHeader
         title={t('Stolnica')}
         subtitle={t('Asystent wypieku na żywo (Hands-in-flour)')}

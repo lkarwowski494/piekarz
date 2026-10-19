@@ -22,6 +22,7 @@ const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
   useRouter: () => ({ push: mockPush, navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
   useLocalSearchParams: () => ({}),
+  useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
 }));
 
 import React from 'react';
