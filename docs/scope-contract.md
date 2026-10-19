@@ -1,5 +1,5 @@
 # Kontrakt zakresu: Piekarz (Crust)
-Stan: E1 (rola 03 build, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, 50 BR, 17 PR, 11 J), `docs/monetyzacja.md` roli 02 (E3, D-038, D-039), `docs/zalozenia.md` · Poprzednia wersja (inwentarz, nie wzorzec): `docs/archiwum/scope-contract-2.0.md`
+Stan: E2, propozycja (rola 03 build, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, 50 BR, 17 PR, 11 J), `docs/monetyzacja.md` roli 02 (E3, D-038, D-039), `docs/zalozenia.md` · Poprzednia wersja (inwentarz, nie wzorzec): `docs/archiwum/scope-contract-2.0.md`
 
 Kontrakt budowany od nowa (DEC-14 = a planu napraw M1). Tabela funkcji, „NIE robimy”, ranking i przekazanie powstają w E2–E3; do tego czasu ten plik ma ramę (E0) i listę odcięć KL, którą czyta `tests/kontrakt-lista-odciec.test.ts`.
 
@@ -158,6 +158,163 @@ Wnioski [OCENA]: (1) Rise robi prawie całą naszą pętlę od lat i ma najwyżs
 
 ### Sprzeczności z wejściem
 - ZAL-045 (H-06) podważone w części: wpis w `docs/zalozenia.md` z dowodem; skutek dla zakresu: wyróżnik to sposób (offline, bez konta, uczciwa płatność, niezawodność, zakwas od zera), nie liczba funkcji. Do roli 01 przez przekazanie.
+
+Decyzja po E1: najpierw BR dla ER-44…ER-46 (D-041). Rola 01 dopisała je (gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 20f6179; scalone za zgodą właściciela 2026-10-20, 36d0d47): BR-OPIN-001…003 (J-12, PR-18, OG-07), BR-START-001 (PR-12), BR-HARMO-005; BRD ma 55 BR. Nowe funkcje: F-69 (pętla opinii), F-68 dostaje BR-START-001, F-13 dostaje BR-HARMO-005.
+
+## E2: cięcie (propozycja do wyboru właściciela)
+
+### Kolejność i metoda
+1. **Podłoga** (bezpieczeństwo, dane, prawo) i **podstawa WTP-0** — stałe, przed rankingiem (moduł `ciecie`).
+2. **Zasada 18:** WTP-X bez dowodu → NIE (F-53); wartość tylko jako hipoteza → TEST (F-15: H-13) albo PÓŹNIEJ (F-70: H-11).
+3. **Ranking RICE** reszty: R = odsetek użytkowników pętli, którzy skorzystają w miesiącu [OCENA, bez telemetrii]; I według skali McBride’a; C ≤ 50% bez dowodu R/W, 80% przy dowodzie R; koszt = godziny właściciela w wersji 1 [OCENA]: test na telefonie (TestFlight) + przegląd tekstów (PL i EN, wyrywkowo inne z 35) + decyzje i utrzymanie w roku 1. Skala: 0,5 h (logika bez ekranu), 1 h (jeden stan ekranu), 1,5–2 h (ekran z danymi), 3 h (kilka ekranów, powiadomienia, uprawnienia albo zakup), 4 h (treść ze źródłami roli 06 do przeglądu). Czas agenta nie liczy się (zasada wspólna 13).
+4. **Apetyt** 60 h (D-040): liczą się tylko funkcje MVP; TEST, PÓŹNIEJ i NIE nie zużywają apetytu.
+
+Wynik rankingu (`zakres.mjs`, niżej; stałe 37 h, potem malejąco): F-07 i F-16 (72) → F-26 (56) → F-23 (48) → F-13 (42,7) → F-11 (32) → F-24 (30) → F-14 (26,7) → F-18 (25) → F-10, F-38 (24) → F-55 (12) → F-44, F-61 (10) → F-62 (8) → F-56 (7,5) → F-43 (6,7) → F-63 (5) → F-30 (1,9) → F-45 (1,7) → F-08 (0,6) → F-50 (0,4). Linia 60 h przypada po F-55 (narastająco 59 h).
+
+### Warianty zakresu
+| | A: linia apetytu (59 h) | **B: zasady właściciela (rekomendacja, ok. 67 h)** | C: pełna aplikacja z dowodem (ok. 77,5 h) |
+|---|---|---|---|
+| MVP | podłogi i pętla; liczenie (F-09, F-10, F-11, F-38), plan (F-13, F-14), prowadzenie (F-07, F-16, F-18, F-57, F-58), zakwas (F-22…F-25, F-60, F-64), receptury i dziennik (F-26…F-28), drożdże i pizza (F-55), start (F-68), opinie (F-69) | A + obudzenie zakwasu z lodówki (F-61) + Doktor dla bochenka (F-43, ZP-20) + Akademia jako „po co ten krok” przy kroku (F-44; lekcje osobno później, H-13 a) + sól (F-56) + poprawa wpisu zakwasu (F-62) | B + spiżarnia (F-30), porównanie (F-63), przelicznik objętości (F-45), QR (F-08), druk (F-50) |
+| PÓŹNIEJ (wejście ukryte, kod i dane zostają) | F-61, F-43, F-44, F-56, F-62, F-30, F-63, F-45, F-08, F-50 | F-30, F-63, F-45, F-08, F-50 | — |
+| Wspólne | NIE: F-53 masa lodu (WTP-X); TEST: F-15 ocena gotowości ciasta; PÓŹNIEJ: F-70 synchronizacja iPhone–iPad (H-11) i F-46…F-49, F-52 bez zmian (D-034) | jw. | jw. |
+| Koszt właściciela [OCENA] | 59 h | 67 h (7 h ponad apetyt: decyzja właściciela; `zakres.mjs` daje uwagi, nie błędy) | 77,5 h (17,5 h ponad) |
+| Ryzyko | łamie ZP-20 („narzędzie i nauka: Akademia i Doktor”) i dotychczasowe wyjątki D-029 (QR), D-034 (spiżarnia, druk); słabsza nauka dla P-6 | zmienia wyjątki D-029 i D-034 pyt. 6a, 7b (QR, spiżarnia, druk → PÓŹNIEJ): użytkownicy TestFlight z zapisaną spiżarnią zachowują dane w bazie i w eksporcie (F-33), wejście wraca bramką ZM | najdłużej do wydania; 5 funkcji o słabym dowodzie (R słabe albo H) w 35 językach; więcej testów na telefonie (aparat, druk) |
+| Zgodność z „pełnym eksperymentem” | eksperyment na węższej aplikacji (pomiar zaburzony, plan napraw M1) | cała pętla i nauka; wypadają tylko dodatki spoza pętli o najsłabszym dowodzie | pełna |
+
+Rekomendacja: **B**. Najlepsza w klasie aplikacja robi pętlę lepiej, a nie ma więcej funkcji (wzorzec Rise, zasada wspólna 18); B zachowuje Twoje wybory ZP-20 i ZP-23, wycina z pierwszej wersji tylko dodatki o najsłabszym dowodzie za cenę ok. 7 h ponad apetyt (Doktor i Akademia: 5 h, to wybór ZP-20). Kombajn w kodzie (M1-audytor-generalny-057: 9 akcji Kalkulatora) zmniejsza się, bo z akcji znikają QR, druk i spiżarnia; DEC-09 a (3–4 akcje główne) staje się wykonalne.
+
+### Podział na aplikacje (H-09)
+- (a) **jedna aplikacja**, pizza i drożdże jako rodzaj receptury w tej samej pętli (F-55) — rekomendacja: ten sam piekarz piecze chleb i pizzę (BRD rec. 5769683066; Rise 12576631706), bramka opłacalności poniżej progu nie udźwignie drugiej aplikacji (wydania, recenzje App Review, opis w 35 językach), 4.3(a) przeciw wielu Bundle ID;
+- (b) jedna aplikacja z częścią pizzową włączaną w ustawieniach — dokłada przełącznik przed główną pracą (sygnał kombajnu), start BR-START-001 już rozdziela ścieżki;
+- (c) osobna aplikacja do pizzy — drugi koszt sklepu bez dowodu popytu; 4.3(b) i 4.2: musi się obronić sama.
+
+### Darmowe i płatne
+Bez zmian względem D-038 i kontraktu płatności roli 02 (zasada: nie proponuję zmian). Nowe funkcje mieszczą się w istniejącym podziale: F-68 (start) to nawigacja — oferta przy pierwszym użyciu funkcji (BR-ZAK-005); F-69 (ocena, kontakt) jest w ustawieniach, czyli zawsze dostępna. Uwaga dla 02: dopisać F-69 do listy „zawsze, bez zakupu” w kontrakcie płatności.
+
+### Plan aktualizacji dla 3.1.2(a) (prośba roli 02)
+- (a) **co kwartał** jedna aktualizacja z treścią: 2–3 receptury bazowe albo lekcje „po co ten krok” ze źródłami roli 06, w 35 językach, plus poprawki z recenzji; [OCENA] ok. 3 h właściciela na wydanie — rekomendacja;
+- (b) co 6–8 tygodni, to samo — ok. 6 h na kwartał, szybszy sygnał „stałej wartości”, ale wyższy koszt utrzymania.
+Uzasadnienie wartości subskrypcji leży głównie w narzędziach pętli używanych przy każdym wypieku (MS-05); treść jest uzupełnieniem, nie jedynym argumentem.
+
+### Pętla opinii (polecenie roli, E2 pkt 6)
+F-69 w wersji 1 we wszystkich wariantach (BR-OPIN-001…003, bloker OG-07). Próg „udanego wypieku” (OP-49): rekomendacja ≥ 4★ (2★ i mniej prowadzi do Doktora, BR-DIAG-001; 3★ bez prośby).
+
+### Drobne rozstrzygnięcia „właściciel z rolą 03”
+- OP-38 domyślny odstęp przypomnienia na blacie: **12 h** (S-44, RD-25) — rekomendacja; dłuższy odstęp wymaga źródła (rola 06).
+- OP-41 kopia poza telefonem: (a) kopia urządzenia iCloud systemu + przypomnienie o eksporcie pliku po N wypiekach, bez wyjątku od zakazu sieci — rekomendacja; (b) plik w iCloud Drive jako nazwany wyjątek; (c) tylko ręczny eksport. Technikę potwierdza rola 05.
+
+## Zakres (propozycja: wariant B)
+Główna praca, pętla i wzorzec: sekcja E1.
+- Pętla główna: start F-68 → receptura F-26 albo F-27 → ilości F-09 → plan F-13 z czasem F-14 → prowadzenie F-07 z sygnałem F-16 i powrotem F-58 → dziennik F-28; wejście zakwasu F-60, F-22, F-23, F-24, F-25; wejście drożdży i pizzy F-55.
+
+| ID | Funkcja | Wymagania | Decyzja | Dowód wartości | WTP | Intuicyjność | Podłoga | Zależy od | Uzasadnienie |
+|---|---|---|---|---|---|---|---|---|---|
+| F-68 | Start „co dziś robisz” (trzy czynności, powrót do trwającego wypieku) | BR-START-001 | MVP | B: ZP-22, ZP-23; M1-audytor-generalny-057, -087 | WTP-0 (B) · zawsze (nawigacja) | trzy czynności nazwane słowami pracy; wybór prowadzi do przepływu bez oferty; wynik: czeka na 04 | — | — | rdzeń pętli (pierwsze wejście); kształt ekranu H-08 (rola 04) |
+| F-09 | Kalkulator receptury: procent piekarski, hydratacja z zakwasu i zaczynu, skalowanie 1 g | BR-KALK-001, BR-KALK-002, BR-KALK-003 | MVP | B: J-01; R: S-17 rec. 6280671939, S-19 rec. 12569511193 | WTP-0 (B, R) · próba / płatna | po wyborze receptury wagi wszystkich składników bez wpisywania; zmiana masy ciasta od razu zmienia wagi; wynik: czeka na 04 | — | — | rdzeń pętli; bloker wydania |
+| F-56 | Informacja o nietypowej ilości soli | BR-KALK-011 | MVP | R: S-24 rec. 5681544617 (słaby) | WTP-2 (R) · próba / płatna | informacja przy polu soli, bez blokady; wynik: czeka na 04 | — | F-09 | D-042 (wariant B): kontrola liczb dla P-6, koszt 0,5 h |
+| F-11 | Kilka mąk w recepturze, wariant żytni | BR-KALK-005 | MVP | R: S-21 rec. 13060223498 | WTP-2 (R) · próba / płatna | dodanie drugiej mąki z udziałem w procentach; oznaczenie „żytni” widoczne; wynik: czeka na 04 | — | F-09 | D-042: wariant żytni steruje krokami F-07 (RD-20) |
+| F-38 | Jednostki: uncje i °F do wyświetlania | BR-UST-001 | MVP | R: 9 z 338 recenzji, 6 ≤ 3★ (ZAL-037) | WTP-2 (R) · próba / płatna (ustawienie zawsze) | dwa przełączniki z nazwami jednostek; zmiana widoczna od razu; wynik: czeka na 04 | — | F-09 | D-042: rynek US (H-12 a) |
+| F-10 | Temperatura wody dla docelowej temperatury ciasta | BR-KALK-004 | MVP | R: S-14 rec. 9331408199 | WTP-2 (R) · próba / płatna | pola temperatur nazwane słowami („mąka”, „kuchnia”), wynik w °C bez wzoru; wynik: czeka na 04 | — | F-09 | D-042; próg gorącej wody OP-34 (rola 06) |
+| F-55 | Ciasto drożdżowe i pizza: rodzaj drożdży, zaczyny poolish, biga, levain | BR-KALK-009, BR-KALK-010 | MVP | R: S-19 rec. 7107716082; S-24 rec. 7357117590; ZP-23 | WTP-1 (R) · próba / płatna | wybór „piekę na drożdżach albo pizzę” prowadzi do rodzaju drożdży i zaczynu bez nowych pojęć przed wyborem; wynik: czeka na 04 | — | F-09 | D-042: wybór właściciela ZP-23, jedna aplikacja (H-09 a) |
+| F-13 | Plan wstecz od godziny „gotowe”: sen, przesunięcie, wcześniejsze zakończenie, cofnięcie kroku | BR-HARMO-001, BR-HARMO-002, BR-HARMO-004, BR-HARMO-005 | MVP | B: J-02; R: 15 z 338; S-64 (Rise) | WTP-1 (R) · próba / płatna | godzina „gotowe” jako pierwsze pole; kolizja ze snem nazwana i z propozycją; „cofnij” przy potwierdzonym kroku; wynik: czeka na 04 | — | F-09 | rdzeń pętli; bloker wydania (BR-HARMO-001) |
+| F-14 | Czas fermentacji z temperatury (20–26 °C) | BR-HARMO-003 | MVP | R: S-14 rec. 8937437575 | WTP-2 (R) · próba / płatna | zmiana temperatury od razu zmienia czasy; poza zakresem komunikat zamiast liczby; wynik: czeka na 04 | — | F-13 | rdzeń pętli; model: rola 06 (DEC-08 c) |
+| F-07 | Prowadzenie krok po kroku; kroki z receptury, żyto bez składań | BR-ETAP-001, BR-ETAP-002 | MVP | R: S-14 rec. 13748164005; MS-25 (Yeasta Pro) | WTP-1 (R) · próba / płatna | bieżący krok, co zrobić i ile czasu na jednym ekranie; jedno „zrobione”; wynik: czeka na 04 | — | F-13 | rdzeń pętli; bloker wydania |
+| F-57 | Ostrzeżenia bezpieczeństwa w krokach | BR-ETAP-004 | MVP | B: RYZ-15, RYZ-16; M1-audytor-generalny-086 | warunek · zawsze w kroku | ostrzeżenie w kroku, którego dotyczy, tekst i ikona (NFR-DOST-005); wynik: czeka na 04 | bezpieczeństwo: RD-22, RD-23 → F-07 | F-07 | podłoga; bloker wydania |
+| F-58 | Wznowienie trwającego wypieku | BR-ETAP-005 | MVP | B: audyt M1 01-odkrywanie-005; R: S-14 rec. 13643687864 | warunek · jak wypiek | po otwarciu bieżący krok i czas od zapisanego terminu, bez akcji; wynik: czeka na 04 | dane: odczyt trwającego wypieku → F-07 | F-07 | podłoga; bloker wydania |
+| F-16 | Sygnał kroku przy zablokowanym telefonie; brak zgody na powiadomienia | BR-CZAS-002, BR-CZAS-003 | MVP | B: ZP-17; R: 15 z 338; MS-25 | WTP-1 (R) · próba / płatna | jedno zdanie przed prośbą o zgodę; przy odmowie stała informacja w kroku; wynik: czeka na 04 | — | F-07 | rdzeń pętli; obietnica celu (OG-05); bloker wydania |
+| F-18 | Ekran nie gaśnie w kroku czynnym | BR-REKA-001 | MVP | R: 2 z 338 (słaby, ZAL-031) | WTP-2 (R) · próba / płatna | bez akcji użytkownika; tylko w kroku czynnym; wynik: czeka na 04 | — | F-07 | D-042: koszt 0,5 h; M1-audytor-generalny-060 (dziś w całej aplikacji) |
+| F-22 | Karta zakwasu, kilka zakwasów | BR-ZAKW-001 | MVP | R: S-20 rec. 14638146092; MS-25 | WTP-1 (R) · próba / płatna; odczyt i usunięcie zawsze | lista zakwasów z datą dokarmienia i miejscem; dodanie jednym przyciskiem; wynik: czeka na 04 | dane: usunięcie zakwasu bez zakupu | — | wejście pętli na zakwasie |
+| F-23 | Dokarmianie z proporcją | BR-ZAKW-002 | MVP | R: S-20 rec. 13947658962 | WTP-2 (R) · próba / płatna | po wyborze proporcji gramy mąki i wody; zapis jednym przyciskiem; wynik: czeka na 04 | — | F-22 | wejście pętli na zakwasie |
+| F-24 | Gotowość zakwasu do ciasta | BR-ZAKW-003 | MVP | R: MS-25 (SST „rise timing”) | WTP-1 (R) · próba / płatna | zaznaczenie „podwoił się” daje „gotowy” z atrybucją; bez godziny szczytu do OP-39; wynik: czeka na 04 | — | F-23 | wejście pętli na zakwasie |
+| F-25 | Przypomnienie o dokarmieniu i zasada ostrożności | BR-ZAKW-004 | MVP | R: S-15 rec. 6706510871; MS-25 | WTP-1 (R) · próba / płatna; ostrzeżenie RD-21 zawsze | objawy do zaznaczenia słowami, jedno zalecenie; bez werdyktu „zdrowy”; wynik: czeka na 04 | bezpieczeństwo: RD-21 | F-22 | podłoga; bloker wydania |
+| F-60 | Założenie zakwasu dzień po dniu | BR-ZAKW-005 | MVP | R: MS-25 (Yeasta „day-by-day”); Loaflo rec. 13931423989; 6 z 338 | WTP-1 (R) · próba / płatna | „zakładam zakwas” na starcie; dzień N i co dziś zrobić; wynik: czeka na 04 | bezpieczeństwo: RD-21 | F-22 | wejście P-6 (ZP-22); bloker wydania |
+| F-61 | Obudzenie zakwasu z lodówki przed wypiekiem | BR-ZAKW-006 | MVP | R: MS-25 (Yeasta „Fridge Starter Planner”) | WTP-1 (R) · próba / płatna | plan sam dodaje dokarmienia, gdy zakwas jest w lodówce; wynik: czeka na 04 | — | F-22, F-13 | D-042: ranking w apetycie |
+| F-62 | Poprawa pomyłki we wpisie zakwasu | BR-ZAKW-007 | MVP | R: S-21 rec. 12986088850, 13060223498 | WTP-2 (R) · próba / płatna | „edytuj” przy wpisie; przypomnienie liczy się od poprawionej godziny; wynik: czeka na 04 | — | F-23 | D-042 (wariant B): pomyłka bez kasowania historii, 1 h |
+| F-26 | Receptury bazowe (zakwas, żyto, drożdże, pizza) | BR-RECP-001 | MVP | R: S-18 rec. 10702359464; MS-25 | WTP-1 (R) · próba / płatna | lista według rodzaju z „start”; żadna osobno zablokowana; wynik: czeka na 04 | — | — | rdzeń pętli; treść roli 06; plan aktualizacji 3.1.2(a) |
+| F-27 | Własne receptury | BR-RECP-002 | MVP | R: S-18 rec. 10719043217; MS-25 | WTP-1 (R) · próba / płatna; odczyt i usunięcie zawsze | „zapisz jako moją” pod wynikiem; od razu na liście; wynik: czeka na 04 | dane: odczyt i usunięcie bez zakupu | F-09 | rdzeń pętli |
+| F-28 | Dziennik wypieków z oceną i „piecz ponownie” | BR-RECP-003 | MVP | B: J-05, ZP-17; R: MS-25 | WTP-1 (R) · nowy wpis próba / płatna; przegląd zawsze | ocena otwiera się po „zakończ wypiek”; „piecz ponownie” w wpisie; wynik: czeka na 04 | dane: przegląd historii zawsze (DEC-01 d) | F-07 | rdzeń pętli |
+| F-69 | Pętla opinii: systemowa prośba o ocenę, „Oceń w App Store”, „napisz do nas” | BR-OPIN-001, BR-OPIN-002, BR-OPIN-003 | MVP | B: J-12; DEC-13 a; S-63 | warunek · zawsze (ustawienia) | prośba tylko systemowa po udanym wypieku (OP-49: ≥ 4★); dwa wpisy w ustawieniach; wynik: czeka na 04 | prawo: OG-07 | F-28 | domyślnie w wersji 1 (polecenie roli); bloker wydania |
+| F-43 | Doktor Chleba dla bochenka (treść) | BR-DIAG-001 | MVP | R: S-16 rec. 14104905527; MS-26; ZP-20 | WTP-1 (R) · próba / płatna | propozycja po ocenie ≤ 2★; objaw → pytania → jedna zmiana; wynik: czeka na 04 | — | F-28 | D-042 (wariant B): wybór właściciela ZP-20; bez zdjęcia (H-10 a) |
+| F-64 | Doktor Chleba dla zakwasu, który nie rośnie (treść) | BR-DIAG-002 | MVP | R: MS-25 (Yeasta, SST); S-21 rec. 12986088850 | WTP-1 (R) · próba / płatna; ostrzeżenie RD-21 zawsze | wejście z dnia N zakładania; przy pleśni polecenie zamiast listy; wynik: czeka na 04 | bezpieczeństwo: RD-21 | F-60 | podłoga; bloker wydania (RD-21) |
+| F-44 | Akademia: „po co ten krok” przy kroku (treść) | BR-NAUK-001 | MVP | R: 14 z 338 (ZAL-041); ZP-20 | WTP-2 (R) · próba / płatna | „po co ten krok” w kroku; powrót bez utraty stanu; lekcje osobno później; wynik: czeka na 04 | — | F-07 | D-042 (wariant B): ZP-20, H-13 a; zdania tylko ze źródłem (RYZ-21) |
+| F-15 | Ocena gotowości ciasta przed pieczeniem | BR-ETAP-003 | TEST | H-13 (ZAL-048, hipoteza) | WTP-X | wskazówka w kroku garowania; wynik: czeka na 04 | — | F-07 | WTP-X i treść bez źródła (OP-46). Test: przejście poznawcze roli 04 i pytanie do 3–5 testerów TestFlight, czy szukają oceny gotowości w kroku; bez budowy przed wynikiem |
+| F-31 | Trwały zapis, ochrona przed utratą | BR-DANE-001 | MVP | B: J-10; ZAL-035 | warunek · zawsze | bez akcji; przy błędzie komunikat i droga eksportu; wynik: czeka na 04 | dane: odczyt, migracja (NFR-DANE-003) | — | podłoga; bloker wydania |
+| F-32 | Kopia zapasowa, także poza telefonem | BR-DANE-002 | MVP | B: J-10; RYZ-12 | warunek · zawsze | bez akcji; kopie widoczne w ustawieniach; wynik: czeka na 04 | dane: kopia (NFR-DANE-004; OP-41) | F-31 | podłoga |
+| F-33 | Eksport i import do pliku | BR-DANE-003 | MVP | B: J-10; S-25 rec. 13533848767 | prawo do danych · zawsze (D-039) | „eksport” i „import” w ustawieniach z podglądem; wynik: czeka na 04 | dane: eksport, import | F-31 | podłoga; bloker wydania |
+| F-65 | Usunięcie wszystkich danych | BR-DANE-004 | MVP | B: DEC-01 d; audyt M1 01-odkrywanie-006 | prawo do danych · zawsze | „usuń wszystkie dane” z potwierdzeniem; wynik: czeka na 04 | dane: usunięcie | F-31 | podłoga; bloker wydania |
+| F-35 | Zakup i przywrócenie przez App Store | BR-ZAK-001 | MVP | B: D-033, D-038; S-21 rec. 14046463760 | warunek · zawsze | ceny ze sklepu; „przywróć zakupy” na ekranie zakupu i w ustawieniach; wynik: czeka na 04 | prawo: OG-01, OG-02, OG-03 | — | podłoga; bloker wydania |
+| F-37 | Oferta przy pierwszym użyciu, bez ukrytych warunków | BR-ZAK-003, BR-ZAK-005 | MVP | R: MS-26 (Loaflo 12 z 13 skarg); ZAL-042 | warunek · zawsze | długość próby, cena po próbie i anulowanie przed startem; zamknięcie bez wyboru; wynik: czeka na 04 | prawo: OG-01 | F-35 | podłoga; 8 ujawnień z `docs/monetyzacja.md` |
+| F-67 | Stan po próbie: uprzedzenie 3 dni, tryb „tylko historia” | BR-ZAK-004 | MVP | B: DEC-01 d, D-039; H-04 | warunek · zawsze | uprzedzenie jednym komunikatem; po końcu jasne, co działa; wynik: czeka na 04 | dane: odczyt, eksport, usunięcie (DEC-01 d) | F-35 | podłoga; bloker wydania |
+| F-40 | Bez konta, sieci i śledzenia; polityka prywatności | BR-PRYW-001, BR-UST-003 | MVP | B: ZP-17; R: 13 z 16 recenzji o reklamach ≤ 3★ | warunek · zawsze | „polityka prywatności” w ustawieniach; bez sieci streszczenie i adres; wynik: czeka na 04 | prawo: OG-04 (NFR-OFF-001, NFR-PRYW-001) | — | podłoga; bloker wydania |
+| F-30 | Spiżarnia mąk | BR-SPIZ-001 | PÓŹNIEJ | R: MS-26 (Gluten Morgen, 5★); D-034 pyt. 6a | WTP-2 (R) · próba / płatna | — | — | F-09 | wariant B: ranking 1,9 przy 2 h, poza pętlą; zmienia wyjątek D-034 pyt. 6a. Wejście ukryte, dane zostają w bazie i w eksporcie (F-33). Powrót: ≥ 3 prośby testerów lub recenzji o zapas mąk po wydaniu 1.0, nowy wpis ZM |
+| F-63 | Porównanie dwóch wypieków | BR-RECP-004 | PÓŹNIEJ | R: S-14 rec. 8937437575 (słaby) | WTP-2 (R) · próba / płatna | — | — | F-28 | wariant B: ranking 5 przy 2 h; nowa funkcja bez kodu. Powrót: użytkownicy z ≥ 10 wpisami jednej receptury proszą o porównanie (recenzje, kontakt F-69) |
+| F-45 | Przelicznik miar objętości na gramy | BR-KALK-007 | PÓŹNIEJ | R: 9 z 338 o jednostkach | WTP-2 (R) · próba / płatna | — | — | F-09 | wariant B: ranking 1,7 przy 3 h; masy bez źródła (OP-44). Powrót: rejestr mas roli 06 ze źródłem szczebla 1–3 i prośby o szklanki po wydaniu |
+| F-08 | Receptura w kodzie QR bez sieci | BR-WSP-003 | PÓŹNIEJ | H: ZAL-029 (3 z 338); D-029 | WTP-2 (H) · próba / płatna | — | — | F-27 | wariant B: tylko hipoteza, uprawnienie aparatu; zmienia wyjątek D-029 i DEC-05 a. Wymiana receptur plikiem (F-33) zostaje. Powrót: rozmowy z piekarzami (OP-30) potwierdzają przekazywanie receptur przy spotkaniu |
+| F-50 | Wydruk karty receptury i etykiety słoika | BR-DRUK-001 | PÓŹNIEJ | R: S-18 rec. 10632970976 (1 prośba); D-034 pyt. 7b | WTP-2 (R) · próba / płatna | — | — | F-27 | wariant B: ranking 0,4 przy 1,5 h; zmienia wyjątek D-034 pyt. 7b. Powrót: ≥ 3 prośby o druk po wydaniu |
+| F-70 | Synchronizacja iPhone i iPad | H-11 | PÓŹNIEJ | H-11 (ZAL-036, 4 z 338) | — | — | — | — | H-11 a: przeniesienie plikiem (F-33); sprzeczne z zakazem sieci (`CLAUDE.md`). Powrót: ≥ 3 prośby o iPad po wydaniu i decyzja właściciela o nazwanym wyjątku od zakazu sieci (rola 05) |
+
+## NIE robimy (propozycja)
+| ID | Funkcja | Wymagania | Decyzja | Dowód wartości | WTP | Intuicyjność | Podłoga | Zależy od | Uzasadnienie |
+|---|---|---|---|---|---|---|---|---|---|
+| F-53 | Masa lodu do schłodzenia wody | BR-KALK-008 | NIE | — | WTP-X | — | — | — | brak dowodu wartości (tylko [OCENA], rola 02); dziś część sekcji DDT w kodzie (rola 08 usuwa pole lodu). Powrót: ≥ 3 prośby o lód w upał (recenzje, kontakt F-69) |
+
+Poza tabelą (bez BR i bez H, wzorzec niszy z E1): społeczność i wyzwania (Gluten Morgen, Kneady) — inna praca, ZP-20 wybrało (b) bez społeczności; import receptur z sieci albo ze zdjęcia przez AI (Rise, BakeWay) i ocena zdjęcia bochenka lub zakwasu (Loaflo, BakeWay) — wymagają sieci lub serwera (ZP-17), ocena pleśni przez AI zawodna (S-16, H-10 a); sterowanie głosem (BakeWay) — ZAL-033: 0 z 338. Powrót każdej: BR od roli 01 z dowodem i bramka ZM.
+
+### Funkcje w kodzie bez BR (bez zmian, D-034)
+| Funkcja | Stan | Powrót |
+|---|---|---|
+| F-46 słownik odpowiedników mąk, F-47 przepisy na odrzut, F-48 strata piecowa, F-49 konwerter hydratacji zakwasu, F-52 sekcja „Rodzina Apps4Craft” | PÓŹNIEJ, wejście ukryte (`src/lib/wejscia-pozniej.ts`), kod i dane zostają | BR z dowodem od roli 01 i wpis ZM |
+| F-01…F-06 (zegarek, Live Activity, Siri, `.piekarz`, trener, Garmin) | NIE, kod usunięty (lista KL niżej, D-031) | jak w liście KL |
+| F-12 formy, F-17 kilka wypieków naraz, F-19 Action Button, F-21 Centrum sterowania, F-29 zdjęcia przekroju, F-34 karta PNG, F-39 motywy | bez BR w nowym BRD (ER-38): nie budować | BR z dowodem od roli 01 (ER-38) i wpis ZM |
+| F-20 pole dotyku, F-41 VoiceOver, F-42 Dynamic Type | nie funkcje: NFR-INT-001, NFR-DOST-001, NFR-DOST-002 (cechy całej aplikacji) | — |
+| F-36 Family Sharing | rozstrzygnięte w D-039 (ustawienie produktów) | — |
+
+## Ranking ([OCENA]: R = odsetek użytkowników pętli w miesiącu, koszt = godziny właściciela w wersji 1, metoda w E2)
+| ID | R | I | C | Koszt [h] | Metoda |
+|---|---|---|---|---|---|
+| F-68 | — | — | — | 2 | stała (WTP-0) |
+| F-09 | — | — | — | 3 | stała (WTP-0) |
+| F-57 | — | — | — | 1,5 | stała (podłoga) |
+| F-58 | — | — | — | 2 | stała (podłoga) |
+| F-25 | — | — | — | 2 | stała (podłoga) |
+| F-60 | — | — | — | 3 | stała (podłoga) |
+| F-64 | — | — | — | 2 | stała (podłoga; treść 06) |
+| F-22 | — | — | — | 1,5 | stała (podłoga) |
+| F-27 | — | — | — | 1,5 | stała (podłoga) |
+| F-28 | — | — | — | 2 | stała (podłoga) |
+| F-69 | — | — | — | 2 | stała (podłoga OG-07) |
+| F-31 | — | — | — | 2 | stała (podłoga) |
+| F-32 | — | — | — | 2 | stała (podłoga) |
+| F-33 | — | — | — | 2 | stała (podłoga) |
+| F-65 | — | — | — | 1 | stała (podłoga) |
+| F-35 | — | — | — | 3 | stała (podłoga; sandbox) |
+| F-37 | — | — | — | 1,5 | stała (podłoga) |
+| F-67 | — | — | — | 2 | stała (podłoga) |
+| F-40 | — | — | — | 1 | stała (podłoga) |
+| F-07 | 90 | 3 | 80 | 3 | R: każdy wypiek; C: R (MS-25, recenzje Rise) |
+| F-16 | 90 | 3 | 80 | 3 | R: każdy wypiek; C: 15 z 338; koszt: test na zablokowanym telefonie |
+| F-26 | 70 | 2 | 80 | 2 | R: każdy nowy i część stałych; C: R |
+| F-23 | 60 | 1 | 80 | 1 | R: użytkownicy zakwasu; C: R |
+| F-13 | 80 | 2 | 80 | 3 | R: plan przy wypieku; C: 15 z 338 |
+| F-11 | 40 | 1 | 80 | 1 | R: receptury z żytem i mieszanką |
+| F-24 | 60 | 1 | 50 | 1 | C: progi bez źródła (OP-39) |
+| F-38 | 30 | 1 | 80 | 1 | R: rynek US (ZAL-037) |
+| F-14 | 50 | 1 | 80 | 1,5 | R: zmienna temperatura [OCENA] |
+| F-18 | 50 | 0,5 | 50 | 0,5 | C: 2 z 338 |
+| F-10 | 30 | 1 | 80 | 1 | R: część P-7 i P-8 |
+| F-55 | 30 | 2 | 80 | 4 | R: P-8 (ZAL-040); koszt: zaczyny i rodzaje drożdży w 35 językach |
+| F-61 | 30 | 1 | 50 | 1,5 | R: zakwas w lodówce |
+| F-62 | 20 | 0,5 | 80 | 1 | R: S-21 dwie prośby |
+| F-56 | 30 | 0,25 | 50 | 0,5 | C: jedna recenzja |
+| F-43 | 20 | 2 | 50 | 3 | R: po słabym wypieku; koszt: treść 06 |
+| F-44 | 40 | 1 | 50 | 2 | R: P-6; koszt: treść 06 przy krokach (bez lekcji) |
+| F-15 | 30 | 0,5 | 50 | 1 | C: hipoteza (TEST, nie zużywa apetytu) |
+| F-63 | 20 | 1 | 50 | 2 | C: jedna recenzja |
+| F-30 | 15 | 0,5 | 50 | 2 | C: wyjątek właściciela, jedna recenzja |
+| F-45 | 10 | 1 | 50 | 3 | koszt: rejestr mas 06 |
+| F-08 | 5 | 0,5 | 50 | 2 | C: hipoteza; koszt: aparat na telefonie |
+| F-50 | 5 | 0,25 | 50 | 1,5 | C: jedna prośba |
+| F-70 | 10 | 1 | 50 | 6 | C: hipoteza; koszt: synchronizacja i wyjątek sieci |
 
 ## Lista odcięć z kodu (D-031, ZM-01; przeniesiona bez zmian)
 
