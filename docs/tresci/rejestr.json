@@ -331,5 +331,204 @@
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZYT-GRA-001",
+    "twierdzenie": "Według niemieckich wytycznych Leitsätze für Brot und Kleingebäck tradycyjny chleb żytni i żytnio-mieszany to chleb z więcej niż 50% mąki żytniej (stan opisany w publikacji z 2020 r.).",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods9121900",
+        "miejsce": "Oest M. i in., Rye Bread Defects…, Foods 2020, 9(12):1900, rozdz. 1 Introduction (CC BY); czytany pełny tekst Europe PMC PMC7765839 fullTextXML",
+        "cytat": "Traditional rye bread is the term used for rye and rye-containing mixed bread, which, according to the official German food guidelines (“ Leitsätze des Deutschen Lebensmittelbuchs für Brot und Kleingebäck ”), consist of more than 50% of rye flour fractions and are usually produced with sourdough […].",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      },
+      {
+        "adres": "https://umwelt-online.de/recht/lebensmt/lebensmb.ges/ybrot.htm",
+        "miejsce": "Leitsätze für Brot und Kleingebäck vom 19.10.1993, II. Besondere Beurteilungsmerkmale, 1.4 Roggenmischbrot (kopia tekstu w serwisie umwelt-online; wersja uchylona: „BAnz. vom 01.04.2021 B2 aufgehoben”)",
+        "cytat": "Roggenmischbrot wird aus mehr als 50, jedoch weniger als 90 Prozent Roggenmehl hergestellt.",
+        "odczyt": "2026-10-19",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Granica nazewnicza prawa niemieckiego (oznakowanie), nie granica reologiczna. Aplikacja używa jej jako progu wariantu żytniego (granica ostra: > 50%); żadne przeczytane źródło nie wiąże zmiany zachowania ciasta dokładnie z 50%. Brzmienia z Neufassung 2021 (BAnz AT 06.05.2021 B2) nie przeczytano: BMLEH zwrócił stronę HTML zamiast PDF, umwelt-online pokazuje wersję demo bez tego punktu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "prog_chleb_zytni_udzial_maki_zytniej",
+    "wartosc": 50,
+    "jednostka": "%",
+    "granica": ">",
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZYT-GRA-900",
+    "twierdzenie": "Przy udziale mąki żytniej w zasypie co najmniej 50% ciasto traci właściwości elastyczno-sprężyste siatki glutenowej na rzecz lepkiej struktury pentozanowej (RD-11).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] docs/brd/C3.md:145. Granicy 50% dla zmiany właściwości ciasta nie potwierdza żadne przeczytane źródło; źródła podają „więcej niż 50%” jako granicę nazewniczą (ZYT-GRA-001). Kod src/core/domain-rules.ts:134 używa >= 50.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-CIA-001",
+    "twierdzenie": "W cieście żytnim nie obserwuje się ciągłej, lepkosprężystej sieci białkowej opartej na białkach glutenowych, typowej dla ciasta pszennego.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods9121900",
+        "miejsce": "Oest M. i in., Rye Bread Defects…, Foods 2020, 9(12):1900, rozdz. 1 Introduction (CC BY); czytany pełny tekst Europe PMC PMC7765839 fullTextXML",
+        "cytat": "Thus, rye doughs differ fundamentally from wheat-based doughs, with the latter consisting of a continuous viscoelastic protein network based on typical gluten proteins […]. The formation of such a protein network cannot be observed in rye dough.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-001",
+    "twierdzenie": "W laboratoryjnej procedurze wypieku chleba z razowej mąki żytniej na zakwasie kolejne etapy to: zakwas, mieszanie ciasta do jednolitej masy, krótka fermentacja, podział i ręczne formowanie, rozrost w formach, wypiek z parą na początku i studzenie w temperaturze pokojowej; procedura nie ma etapu składania ciasta.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "After fermentation, the dough was divided into pieces (5 pieces, each with 350 g weight) and manually molded. The formed pieces were placed in tins and proofed in at 75% relative humidity and 35 °C until the dough surface reached the top of the tin.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Brak składania odczytany z pełnego opisu procedury (rozdz. 2.2.3 nie zawiera słowa „fold” ani żadnego etapu rozciągania; dowody/zrodla-wyciagi.txt), a nie ze zdania „nie składaj”. Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-002",
+    "twierdzenie": "W tej procedurze zakwas jednofazowy (wydajność 250) fermentował 20 h w 30 °C.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "SO with a yield of 250% was prepared with 350 g of each rye flour […]. SO fermentation was performed for 20 h at 30 °C and 75% RH.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-003",
+    "twierdzenie": "W tej procedurze ciasto mieszano na niskich obrotach do uzyskania jednolitej masy, około 10 min; temperatura ciasta po wymieszaniu wynosiła 30–32 °C.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "The dough was prepared in the spiral mixer (Turbo-mix-6,5, HOMMEL, Wülfrath, Germany) at a low speed to obtain a homogeneous mass (for approximately 10 min). Dough temperature after mixing was in the range of 30–32 °C.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-004",
+    "twierdzenie": "W tej procedurze ciasto po wymieszaniu fermentowało 10 min przed podziałem.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "The dough was placed, for 10 min, in the fermentation cabinet. After fermentation, the dough was divided into pieces (5 pieces, each with 350 g weight) and manually molded.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-005",
+    "twierdzenie": "W tej procedurze uformowane ciasto rosło w formach w 35 °C, aż jego powierzchnia doszła do brzegu formy; koniec rozrostu wyznacza ten stan, nie czas.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "The formed pieces were placed in tins and proofed in at 75% relative humidity and 35 °C until the dough surface reached the top of the tin.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-006",
+    "twierdzenie": "W tej procedurze kęsy 350 g piekły się 40 min: z parą na początku, przez pierwsze 10 min w 260 °C, potem w 220 °C; następnie chleb studzono w temperaturze pokojowej.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.3390/foods8080331",
+        "miejsce": "Stępniewska S. i in., Procedures for Breadmaking Quality Assessment of Rye Wholemeal Flour, Foods 2019, 8(8):331, rozdz. 2.2.3 Baking Test (CC BY); czytany pełny tekst Europe PMC PMC6722811 fullTextXML",
+        "cytat": "During the first 10 min of baking, the temperature was 260 °C, and the temperature was then decreased to 220 °C. After 40 min of baking, the breads were cooled at room temperature, and stored in polyethylene bags.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Zakres źródła: laboratoryjny test wypieku chleba z razowej mąki żytniej, zakwas jednofazowy plus 10 g drożdży na 1000 g mąki, kęsy 350 g, komora fermentacyjna 75% RH. Wartości czasu i temperatury nie są zaleceniem dla domowego chleba wyłącznie na zakwasie (TRE-03). Czas wypieku zależy od masy kęsa; bochenek domowy jest zwykle cięższy niż 350 g.",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-ETA-900",
+    "twierdzenie": "Czasy etapów domowego chleba żytniego wyłącznie na zakwasie (zakwas, fermentacja ciasta, rozrost w formie, wypiek bochenka domowej masy) i ich zależność od temperatury.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Przeczytane źródła szczebla 2 podają tylko protokół laboratoryjny z drożdżami (ZYT-ETA-002…006). Podręczniki szczebla 3 z DEC-07 (Hamelman, Calvel, Suas, DiMuzio) niedostępne do przeczytania online; strony szczebla 4–5 (blogi, fora) nieużyte. Do czasu źródła czasy biorą się z receptury użytkownika albo wariant żytni jest zablokowany.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZYT-STU-001",
+    "twierdzenie": "Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 h przed krojeniem, dla najlepszej jakości.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/sourdough-rye-bread-recipe",
+        "miejsce": "King Arthur Baking, Jeffrey’s Sourdough Rye Bread, instrukcja wypieku (ostatni krok)",
+        "cytat": "The baked bread should rest for 24 hours before slicing, for best quality.",
+        "odczyt": "2026-10-19",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Zakres: jeden przepis, ok. 65% mąki żytniej (rachunek: 152 g + 128 g mąki żytniej wobec 150 g mąki pszennej chlebowej, bez mąki z dodanego zakwasu), z dodatkiem drożdży; zalecenie jakościowe („for best quality”), nie minimum. Szczebel 4: atrybucja w treści.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "odpoczynek_chleba_zytniego_przed_krojeniem",
+    "wartosc": 24,
+    "jednostka": "h"
+  },
+  {
+    "id": "ZYT-STU-900",
+    "twierdzenie": "Chleb żytni trzeba studzić co najmniej 8 h przed krojeniem (RD-10c).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] docs/brd/00c_Errata.md:15 powołuje DiMuzio 2009 bez strony i cytatu; nieprzeczytane. Jedyne przeczytane źródło (ZYT-STU-001, szczebel 4) podaje 24 h jako zalecenie jakościowe, nie 8 h jako minimum.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
