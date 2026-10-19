@@ -28,6 +28,8 @@ export interface ImportRecipeModalProps {
   visible: boolean;
   onClose: () => void;
   onImportSuccess: (importedRecipe: StoredRecipe) => void;
+  /** Strażnik przed zapisem: true = wolno zapisać; false = strażnik otworzył ekran zakupu. */
+  canSave: () => boolean;
   initialInput?: string;
 }
 
@@ -35,6 +37,7 @@ export function ImportRecipeModal({
   visible,
   onClose,
   onImportSuccess,
+  canSave,
   initialInput,
 }: ImportRecipeModalProps) {
   const [jsonInput, setJsonInput] = useState<string>(initialInput || '');
@@ -68,6 +71,12 @@ export function ImportRecipeModal({
 
   const handleConfirmImport = async () => {
     if (!validation || !validation.success) return;
+    // Import jest płatny (DEC-01.podzial): bez uprawnienia nic nie trafia do bazy, zostaje tylko
+    // ekran zakupu; okno importu zamyka się, żeby nie zasłaniało ekranu zakupu [M1-audytor-generalny-026]
+    if (!canSave()) {
+      onClose();
+      return;
+    }
 
     try {
       await saveRecipe(validation.recipe);

@@ -64,7 +64,7 @@ export default function CalculatorScreen() {
   const router = useRouter();
 
   // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
-  const { chron, blokada, requireActionAccess } = useAppAccess();
+  const { chron, blokada, moze, requireActionAccess } = useAppAccess();
 
   const [isArtisanAccordionOpen, setIsArtisanAccordionOpen] = useState<boolean>(false);
 
@@ -246,9 +246,12 @@ export default function CalculatorScreen() {
   };
 
   const handleScanRecipe = (scannedData: string) => {
-    setImportInitialInput(scannedData);
     setIsScannerOpen(false);
-    setIsImportModalOpen(true);
+    // Skan QR jest płatny: bez uprawnienia tylko ekran zakupu, bez okna importu [M1-audytor-generalny-026]
+    chron('import', () => {
+      setImportInitialInput(scannedData);
+      setIsImportModalOpen(true);
+    })();
   };
 
   const handleSelectMasterPreset = (presetId: string) => {
@@ -511,6 +514,7 @@ export default function CalculatorScreen() {
             setImportInitialInput('');
           }}
           onImportSuccess={handleImportSuccess}
+          canSaveImport={() => moze('import') || requireActionAccess()}
           isShareQrOpen={isShareQrOpen}
           currentRecipeForShare={currentRecipeForShare}
           onCloseShareQr={() => setIsShareQrOpen(false)}

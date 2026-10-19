@@ -34,6 +34,7 @@ describe('ImportRecipeModal Component', () => {
           visible={true}
           onClose={mockOnClose}
           onImportSuccess={mockOnImportSuccess}
+          canSave={() => true}
         />
       );
     });
@@ -53,6 +54,7 @@ describe('ImportRecipeModal Component', () => {
           visible={true}
           onClose={mockOnClose}
           onImportSuccess={mockOnImportSuccess}
+          canSave={() => true}
         />
       );
     });
@@ -93,6 +95,7 @@ describe('ImportRecipeModal Component', () => {
           visible={true}
           onClose={mockOnClose}
           onImportSuccess={mockOnImportSuccess}
+          canSave={() => true}
         />
       );
     });
@@ -132,6 +135,7 @@ describe('ImportRecipeModal Component', () => {
           visible={true}
           onClose={mockOnClose}
           onImportSuccess={mockOnImportSuccess}
+          canSave={() => true}
         />
       );
     });
