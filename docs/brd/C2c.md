@@ -48,3 +48,19 @@ Narzędzie pozwalające zidentyfikować przyczynę nieudanego wypieku na podstaw
 * **Kryteria akceptacji:**  
   1. Zdjęcie zapisywane bezpośrednio w lokalnej bazie SQLite / katalogu piaskownicy w formacie skompresowanym.  
   2. Zero wysyłania zdjęć do chmury (ZP-03).
+* **Scenariusze akceptacji (Gherkin, 2026-10-19):**
+
+```gherkin
+# language: pl
+Scenariusz: Zdjęcie przekroju zapisane lokalnie
+  Zakładając, że użytkownik robi zdjęcie przekroju w dzienniku wypieku
+  Gdy zapisuje wpis
+  Wtedy widzi zdjęcie we wpisie
+  Oraz aplikacja nie wysyła zdjęcia poza urządzenie
+
+Scenariusz: Odmowa dostępu do aparatu
+  Zakładając, że użytkownik odmówił dostępu do aparatu
+  Gdy dotyka przycisku zdjęcia
+  Wtedy widzi informację o braku dostępu
+  Oraz może zapisać wpis bez zdjęcia
+```
