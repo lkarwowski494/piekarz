@@ -871,5 +871,27 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "LEK-TRA-900",
+    "twierdzenie": "48 godzin w 4 °C nadaje ciastu pizzy niezwykłą lekkostrawność i zerowe uczucie ciężkości w żołądku (EN: „supreme digestability and zero bloat”).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: twierdzenie zdrowotne (trawienie, samopoczucie) bez żadnego źródła; źródła szczebla 1–2 nie znaleziono. Usunięte z produktu (src/core/bread-school-lessons.ts, Lekcja 6, scientificInsightPl i scientificInsightEn). Aplikacja nie składa obietnic dotyczących trawienia (moduł tresci-krytyczne, zasada 5).",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null,
+    "nastepca": null,
+    "wycofane": "2026-10-19, M1-audytor-generalny-045"
+  },
+  {
+    "id": "LEK-PRO-900",
+    "twierdzenie": "48 godzin w 4 °C powoduje głęboki rozkład białek ciasta (glutenu) przez proteazy.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Pozostała część zdania Lekcji 6 (src/core/bread-school-lessons.ts) po usunięciu twierdzenia zdrowotnego; bez przeczytanego źródła. Nowe znalezisko partii 3, poza zakresem M1-audytor-generalny-045.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]

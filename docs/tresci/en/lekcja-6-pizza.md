@@ -1,0 +1,2 @@
+# Lesson 6: Pizza Napoletana (Academy) — EN
+<!-- M1-audytor-generalny-045 (06-tresci-008). scientificInsightEn: health claim "delivering supreme digestability and zero bloat" removed (LEK-TRA-900, withdrawn, no source); "predigests" replaced by "breaks down". Remaining clause ("48h cold proteolysis breaks down complex gluten proteins") is LEK-PRO-900 [DO USTALENIA]: stays in code until a source or decision, not listed here as verified content. No statements on digestion, bloating or well-being without a claim backed by a level 1–2 source. -->
