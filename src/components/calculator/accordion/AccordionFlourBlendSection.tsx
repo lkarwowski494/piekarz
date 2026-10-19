@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { wejscieWidoczne } from '../../../lib/wejscia-pozniej';
 import { FlourItemInput, POPULAR_FLOUR_BLENDS } from '../../../core/domain-rules';
 
 export interface AccordionFlourBlendSectionProps {
@@ -72,7 +73,8 @@ export function AccordionFlourBlendSection({
             <Text style={styles.flourActionBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
           </Pressable>
         )}
-        {onOpenEquivalents && (
+        {/* F-46 PÓŹNIEJ: wejście ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
+        {onOpenEquivalents && wejscieWidoczne('slownik-mak') && (
           <Pressable
             testID="open-flour-equivalents-btn"
             style={styles.flourActionBtn}

@@ -27,4 +27,6 @@ export const EN_4: Record<string, string> = {
     'The entry is in your history. The Bread Doctor will suggest what to change next bake.',
   'Nie teraz': 'Not now',
   'Otwórz Doktora': 'Open Doctor',
+  // Podtytuł akordeonu PRO bez ukrytej straty piecowej (F-48 PÓŹNIEJ) [M1-audytor-generalny-032]
+  '4-DDT, matematyka lodu, prefermenty': '4-DDT, ice math, preferments',
 };

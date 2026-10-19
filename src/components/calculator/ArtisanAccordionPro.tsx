@@ -23,6 +23,7 @@ import { AccordionDdtSection } from './accordion/AccordionDdtSection';
 import { AccordionFlourBlendSection } from './accordion/AccordionFlourBlendSection';
 import { AccordionPrefermentSection } from './accordion/AccordionPrefermentSection';
 import { AccordionBakeLossSection } from './accordion/AccordionBakeLossSection';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface ArtisanAccordionProProps {
   isOpen: boolean;
@@ -107,7 +108,9 @@ export function ArtisanAccordionPro({
               {t('Parametry Rzemieślnicze & Mąki')}
             </Text>
             <Text style={styles.toggleSubtitle}>
-              {t('4-DDT, matematyka lodu, prefermenty, strata piecowa')}
+              {wejscieWidoczne('strata-piecowa')
+                ? t('4-DDT, matematyka lodu, prefermenty, strata piecowa')
+                : t('4-DDT, matematyka lodu, prefermenty')}
             </Text>
           </View>
         </View>
@@ -149,15 +152,17 @@ export function ArtisanAccordionPro({
             prefermentBreakdown={prefermentBreakdown}
           />
 
-          {/* 4. Strata Piecowa */}
-          <AccordionBakeLossSection
-            bakeLossPercent={bakeLossPercent}
-            onBakeLossPercentChange={onBakeLossPercentChange}
-            bakedTotalWeightGrams={bakedTotalWeightGrams}
-            bakeLossMetrics={bakeLossMetrics}
-            selectedBakeLossPresetId={selectedBakeLossPresetId}
-            onSelectBakeLossPreset={onSelectBakeLossPreset}
-          />
+          {/* 4. Strata Piecowa — F-48 PÓŹNIEJ: sekcja ukryta (ZM-08, D-034) [M1-audytor-generalny-032] */}
+          {wejscieWidoczne('strata-piecowa') && (
+            <AccordionBakeLossSection
+              bakeLossPercent={bakeLossPercent}
+              onBakeLossPercentChange={onBakeLossPercentChange}
+              bakedTotalWeightGrams={bakedTotalWeightGrams}
+              bakeLossMetrics={bakeLossMetrics}
+              selectedBakeLossPresetId={selectedBakeLossPresetId}
+              onSelectBakeLossPreset={onSelectBakeLossPreset}
+            />
+          )}
         </View>
       )}
     </View>

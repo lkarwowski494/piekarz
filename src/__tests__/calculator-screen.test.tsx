@@ -13,6 +13,10 @@ import {
 
 jest.setTimeout(20000);
 
+// F-46 i F-48 PÓŹNIEJ: wejścia ukryte w aplikacji (D-034, test wejscia-pozniej); tu sprawdzamy kod, który
+// zostaje, z włączonymi wejściami [M1-audytor-generalny-032].
+jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
+
 const mockPush = jest.fn();
 
 jest.mock('expo-router', () => ({

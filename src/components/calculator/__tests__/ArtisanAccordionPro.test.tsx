@@ -2,6 +2,10 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { ArtisanAccordionPro } from '../ArtisanAccordionPro';
 
+// F-48 PÓŹNIEJ: sekcja ukryta w aplikacji (D-034, test wejscia-pozniej); tu sprawdzamy kod, który zostaje,
+// z włączonym wejściem [M1-audytor-generalny-032].
+jest.mock('../../../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
+
 describe('ArtisanAccordionPro Component', () => {
   let tree: renderer.ReactTestRenderer | null = null;
   const mockOnToggle = jest.fn();

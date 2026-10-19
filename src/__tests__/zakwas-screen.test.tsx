@@ -6,6 +6,10 @@ import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
 
+// F-47 i F-49 PÓŹNIEJ: wejścia ukryte w aplikacji (D-034, test wejscia-pozniej); tu sprawdzamy kod, który
+// zostaje, z włączonymi wejściami [M1-audytor-generalny-032].
+jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
+
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {

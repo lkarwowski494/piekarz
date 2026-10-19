@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { formatWeight, formatTemperature } from '../../lib/unit-converter';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface StarterFeedingCardProps {
   selectedRatio: [number, number, number];
@@ -124,25 +125,30 @@ export function StarterFeedingCard({
         </Text>
       </Pressable>
 
-      <Pressable
-        testID="open-converter-btn"
-        style={styles.openConverterBtn}
-        onPress={onOpenConverter}
-      >
-        <Text style={styles.openConverterBtnText}>
-          ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
-        </Text>
-      </Pressable>
+      {/* F-49 i F-47 PÓŹNIEJ: wejścia ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
+      {wejscieWidoczne('konwerter-zakwasu') && (
+        <Pressable
+          testID="open-converter-btn"
+          style={styles.openConverterBtn}
+          onPress={onOpenConverter}
+        >
+          <Text style={styles.openConverterBtnText}>
+            ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
+          </Text>
+        </Pressable>
+      )}
 
-      <Pressable
-        testID="open-discard-recipes-btn"
-        style={styles.openConverterBtn}
-        onPress={onOpenDiscardRecipes}
-      >
-        <Text style={styles.openConverterBtnText}>
-          🥞 {t('Przepisy na Odrzut Zakwasu')}
-        </Text>
-      </Pressable>
+      {wejscieWidoczne('odrzut-zakwasu') && (
+        <Pressable
+          testID="open-discard-recipes-btn"
+          style={styles.openConverterBtn}
+          onPress={onOpenDiscardRecipes}
+        >
+          <Text style={styles.openConverterBtnText}>
+            🥞 {t('Przepisy na Odrzut Zakwasu')}
+          </Text>
+        </Pressable>
+      )}
     </View>
   );
 }
