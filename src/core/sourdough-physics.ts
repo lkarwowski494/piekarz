@@ -152,7 +152,9 @@ export function calculateStarterPhase(
     elapsedHours,
     labelPl: 'Głód / Opadnięcie',
     badgeColor: '#EF4444',
-    advicePl: 'Pożywka zużyta. Zlej ewentualny płyn głodowy (Hooch) i dokarm zakwas w proporcji 1:2:2.',
+    // Zdania o płynie dosłownie z docs/tresci/pl/zakwas-bezpieczenstwo.md (ZAK-HOO-001, CSU Extension).
+    advicePl:
+      'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2. Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać.',
   };
 }
 

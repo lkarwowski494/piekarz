@@ -38,7 +38,7 @@ export function StarterPeakActivityCard({
         </View>
       </View>
 
-      <Text style={styles.phaseAdvice}>{phaseResult.advicePl}</Text>
+      <Text style={styles.phaseAdvice}>{t(phaseResult.advicePl)}</Text>
 
       {/* Metabolic Peak Window Prediction */}
       <View style={styles.predictionBox} testID="peak-prediction-box">
