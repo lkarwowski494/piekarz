@@ -136,21 +136,24 @@
     "id": "DOK-PIE-900",
     "twierdzenie": "Piekarnik z włączoną samą żarówką daje 26–27°C.",
     "zrodla": [],
-    "status": "otwarte",
-    "uwagi": "[DO USTALENIA] src/doctor/dough-recovery.ts:68 (06-tresci-012); brak ostrzeżenia o wyjęciu naczynia przed nagrzewaniem (ryzyko dla mienia).",
+    "status": "wycofane",
+    "uwagi": "06-tresci-012: jedyne przeczytane źródło (DOK-PIE-001, szczebel 4) podaje około 76 °F (24,4 °C) w jednym piekarniku i zastrzega, że wynik zależy od piekarnika i kuchni — liczba 26–27 °C NIEPOPARTA. Wycofane z src/doctor/dough-recovery.ts (COLD_SLUGGISH, krok 1).",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null
+    "przeglad": null,
+    "nastepca": "DOK-PIE-001",
+    "wycofane": "2026-10-20, M1-audytor-generalny-069"
   },
   {
     "id": "FIS-PAT-900",
     "twierdzenie": "Zakwas o pH około 4 natychmiast zabija bakterie chorobotwórcze (Salmonella, E. coli).",
     "zrodla": [],
-    "status": "otwarte",
-    "uwagi": "[DO USTALENIA] src/core/baker-drill.ts:88 (06-tresci-013), nieosiągalne z UI; De Vuyst & Neysens 2005 płatny, nie przeczytany.",
+    "status": "wycofane",
+    "uwagi": "06-tresci-013: zdanie usunięte z produktu razem z src/core/baker-drill.ts i jego testem w commicie a278214 (M1-audytor-generalny-031, KL-13). Wyszukanie 2026-10-20 w src/, app/, tests/ i słownikach (dowody/013-wyszukanie.txt): brak zdania o patogenach i błędnych opisów bibliograficznych; zostały tylko dwa klucze i18n bez treści dziedzinowej (nowe znalezisko). Twierdzenie bez źródła nie wraca do treści.",
     "uproszczenie": null,
     "krytyczne": true,
-    "przeglad": null
+    "przeglad": null,
+    "wycofane": "2026-10-20, M1-audytor-generalny-069 (usunięte z kodu w a278214)"
   },
   {
     "id": "ZAK-PLE-004",
@@ -893,5 +896,147 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "KOS-OPR-001",
+    "twierdzenie": "Według King Arthur Baking koszyk do garowania oprósza się lekką, ale dokładną warstwą mąki; nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2023/01/25/bannetons-brotforms-proofing-baskets",
+        "miejsce": "King Arthur Baking, „Bannetons, brotforms, and proofing baskets: a guide” (2023-01-25), część o przywieraniu ciasta; kopia dowody/zrodla/ka-bannetons.htm",
+        "cytat": "Martin also recommends dusting your proofing basket or banneton with a light but thorough layer of flour. Any flour will do, from all-purpose flour to bread flour to whole wheat flour.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„Uniwersalna” = all-purpose, „chlebowa” = bread flour, „pełnoziarnista” = whole wheat flour: nazwy kategorii USA, nie polskie typy mąki (MAK-EN-900). Szczebel 4: atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-069 (06-tresci-010). Zastępuje KOS-OPR-900 (tylko mąka bezglutenowa).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KOS-OPR-002",
+    "twierdzenie": "Według King Arthur Baking wielu piekarzy wybiera do oprószania koszyka grubszą mąkę, np. semolinę albo mąkę ryżową, bo tworzy wyraźniejszą barierę między ciastem a koszykiem i nie wchodzi w ciasto.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2023/01/25/bannetons-brotforms-proofing-baskets",
+        "miejsce": "jw., zdanie po KOS-OPR-001; kopia dowody/zrodla/ka-bannetons.htm",
+        "cytat": "many bread bakers like to choose a coarse flour that will create a more noticeable barrier between the dough and basket and won’t incorporate into the dough itself. Common choices include semolina flour or rice flour.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-069 (06-tresci-010). Zastępuje KOS-OPR-901 (mechanizm „brak glutenu = brak kleju”, bez źródła). Źródło nie podaje proporcji mieszanki z mąką pszenną; „50/50” w kodzie bez źródła.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KOS-OPR-900",
+    "twierdzenie": "Do oprószania koszyka używa się wyłącznie mąki bezglutenowej (ryżowej lub skrobi ziemniaczanej, 50/50 z mąką pszenną); zwykła mąka pszenna powoduje przywieranie ciasta.",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "06-tresci-010: zdanie przeczyło samo sobie (wyłącznie bezglutenowa i 50/50 z pszenną), EN mówiło o mieszance ryżu i skrobi. Jedyne przeczytane źródło (KOS-OPR-001, szczebel 4) mówi: „Any flour will do” — SPRZECZNE. Wycofane z src/core/techniques/shaping-baking-techniques.ts (kroki 1 PL/EN i błąd 1 PL/EN).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KOS-OPR-001",
+    "wycofane": "2026-10-20, M1-audytor-generalny-069"
+  },
+  {
+    "id": "KOS-OPR-901",
+    "twierdzenie": "Brak glutenu w mące ryżowej sprawia, że w kontakcie z wilgocią ciasta nie tworzy ona kleju.",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "06-tresci-010 (para zdań z KOS-OPR-900): mechanizm bez przeczytanego źródła (NIEPOPARTE). Źródło KOS-OPR-002 podaje inny powód: grubsza mąka tworzy barierę i nie wchodzi w ciasto.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KOS-OPR-002",
+    "wycofane": "2026-10-20, M1-audytor-generalny-069"
+  },
+  {
+    "id": "POL-SMA-001",
+    "twierdzenie": "Według King Arthur Baking poolish nadaje „orzechowy” smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2020/02/05/baking-with-preferments",
+        "miejsce": "King Arthur Baking, „Baking with preferments” (2020-02-05), akapit o zaczynach płynnych na drożdżach; kopia dowody/zrodla/ka-preferments.htm",
+        "cytat": "In addition to its \"nutty\" flavor, poolish can make baguette doughs easier to handle – the preferment boosts extensibility (the ability for dough to stretch).",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-069 (06-tresci-011). Zastępuje FIT-SLO-900. Źródło nie mówi o słodyczy, fitazie ani proteazach.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "FIT-SLO-900",
+    "twierdzenie": "Długie dojrzewanie poolish aktywuje enzymy fitazy (EN: fitazy i proteaz), uwalniając naturalną słodycz (EN: maltozy) i aromaty orzechowe.",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "06-tresci-011: NIEPOPARTE (brak przeczytanego źródła), PL i EN przypisywały słodycz różnym enzymom. Przeczytane źródło (POL-SMA-001) podaje tylko orzechowy smak i rozciągliwość. Wycofane z src/core/bread-school-lessons.ts (scientificInsightPl/En lekcji 5) i klucza w src/lib/i18n-en/czesc-6.ts.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "POL-SMA-001",
+    "wycofane": "2026-10-20, M1-audytor-generalny-069"
+  },
+  {
+    "id": "DOK-PIE-001",
+    "twierdzenie": "Według King Arthur Baking w wyłączonym piekarniku z włączoną samą żarówką temperatura stopniowo rośnie (u autorki po godzinie około 76 °F); inny piekarnik i inna kuchnia dadzą inny wynik.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "King Arthur Baking, P.J. Hamel, „Where to put dough to rise” (2019-03-12), „Where to put dough to rise: your turned-off oven”; kopia dowody/zrodla/ka-where-to-rise.htm",
+        "cytat": "I simply turn on the oven light, and the temperature within gradually rises. […] my oven temperature will be right around 76°F. […] Of course, your oven and your kitchen will yield different results.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Liczba 76 °F (rachunek: (76 − 32) × 5/9 = 24,4 °C) dotyczy jednego piekarnika zimą; w treści bez liczby.",
+    "uwagi": "M1-audytor-generalny-069 (06-tresci-012). Zastępuje DOK-PIE-900 (26–27 °C).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "DOK-PIE-002",
+    "twierdzenie": "Według King Arthur Baking ciasta w formie nie zostawia się w piekarniku, który trzeba będzie nagrzać, bo łatwo zapomnieć wyjąć je przed włączeniem piekarnika.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "jw., akapit o cieście uformowanym w formie; kopia dowody/zrodla/ka-where-to-rise.htm",
+        "cytat": "Since you'll want to preheat your oven well before the bread is ready to bake, you don't want your loaf pan inside — even though you swear you won't forget and will take it out before turning the oven on.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło mówi o formie z uformowanym ciastem; przypomnienie dotyczy każdego naczynia w piekarniku (strona bezpieczna: mienie). Źródła szczebla 1–3 nie znaleziono; zalecenie bez liczby i granicy.",
+    "uwagi": "M1-audytor-generalny-069 (06-tresci-012): ostrzeżenie o wyjęciu naczynia przed nagrzewaniem (ryzyko dla mienia: plastikowa miska, ściereczka).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-10-20"
   }
 ]
