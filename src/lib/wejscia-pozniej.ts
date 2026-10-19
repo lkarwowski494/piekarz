@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — wejścia funkcji z etapu PÓŹNIEJ (D-034; ZM-08) [M1-audytor-generalny-032]
+// Piekarz — wejścia funkcji z etapu PÓŹNIEJ (D-034; ZM-08, ZM-14) [M1-audytor-generalny-032]
 // Ukryte jest tylko wejście z interfejsu: kod, testy modułów i dane użytkownika zostają.
 // Powrót funkcji: BR z dowodem od roli 01 i nowy wpis ZM, potem `true` tutaj.
 // ============================================================================
@@ -9,7 +9,8 @@ export type WejsciePozniej =
   | 'slownik-mak' // F-46
   | 'odrzut-zakwasu' // F-47
   | 'strata-piecowa' // F-48
-  | 'konwerter-zakwasu'; // F-49
+  | 'konwerter-zakwasu' // F-49
+  | 'rodzina-apps4craft'; // F-52 (ZM-14)
 
 /** Jedno miejsce decyzji: czy wejście do funkcji jest widoczne. */
 export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
@@ -17,6 +18,7 @@ export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
   'odrzut-zakwasu': false,
   'strata-piecowa': false,
   'konwerter-zakwasu': false,
+  'rodzina-apps4craft': false,
 };
 
 export function wejscieWidoczne(wejscie: WejsciePozniej): boolean {

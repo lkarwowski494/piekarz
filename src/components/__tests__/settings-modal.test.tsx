@@ -68,6 +68,22 @@ describe('SettingsModal Component', () => {
     expect(importBtn).toBeDefined();
   });
 
+  // F-52 PÓŹNIEJ (ZM-14, D-034 wybór 8a); link prywatności należy do F-40 i zostaje [M1-audytor-generalny-032; 03-zakres-010]
+  it('hides the Apps4Craft family section and keeps the privacy policy link visible', async () => {
+    await act(async () => {
+      tree = renderer.create(<SettingsModal visible={true} onClose={mockOnClose} />);
+    });
+    const root = tree!.root;
+    const texts = root
+      .findAll((n) => (n.type as unknown) === 'Text')
+      .map((n) => (Array.isArray(n.props.children) ? n.props.children.join('') : String(n.props.children)));
+    expect(texts).not.toContain('Rodzina Apps4Craft Studio');
+    expect(texts).not.toContain('Ta aplikacja');
+    const privacy = root.findByProps({ testID: 'settings-privacy-link' });
+    expect(privacy.props.accessibilityRole).toBe('link');
+    expect(texts).toContain('Polityka prywatności');
+  });
+
   it('switches application language when tapping English and Polish buttons', async () => {
     await act(async () => {
       tree = renderer.create(<SettingsModal visible={true} onClose={mockOnClose} />);

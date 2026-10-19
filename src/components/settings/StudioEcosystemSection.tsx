@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Pressable, Linking } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { PRIVACY_URL } from '../../lib/links';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import {
   CRAFT_APPS,
   NaparAppIcon,
@@ -15,7 +16,9 @@ import {
 export function StudioEcosystemSection() {
   return (
     <>
-      {/* Apps4Craft Studio Family Section */}
+      {/* Rodzina Apps4Craft (F-52) PÓŹNIEJ: sekcja ukryta (ZM-14, D-034); karta bezpieczeństwa
+          z odnośnikiem prywatności (F-40) zostaje widoczna [M1-audytor-generalny-032] */}
+      {wejscieWidoczne('rodzina-apps4craft') && (
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>{t('Rodzina Apps4Craft Studio')}</Text>
         <Text style={styles.cardDescription}>
@@ -55,6 +58,7 @@ export function StudioEcosystemSection() {
           ))}
         </View>
       </View>
+      )}
 
       {/* Security & Database Location */}
       <View style={styles.card}>

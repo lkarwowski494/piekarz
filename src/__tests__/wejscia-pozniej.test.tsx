@@ -45,9 +45,9 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
   });
 
   it('every LATER entry is switched off in one place', () => {
-    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu'];
+    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'rodzina-apps4craft'];
     expect(Object.keys(WEJSCIA_WIDOCZNE).sort()).toEqual([...all].sort());
-    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false]);
+    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false]);
   });
 
   it('Calculator with the PRO accordion open has no flour dictionary entry (F-46) and no bake loss section (F-48)', async () => {
