@@ -12,7 +12,7 @@ Zgodnie ze standardem Apps4Craft (znanym z projektów *Oczko*, *Słoik* i *Napar
 docs/brd/
 ├── archiwum/                   # BRD 0.1 z Dysku (26 plików Piekarz_BRD_0.1___*), nieaktualne
 ├── fixtures/
-│   └── test-vectors.json       # Dawny korpus wektorów (czytany przez testy, ER-16)
+│   └── test-vectors.json       # Dawny korpus wektorów (kopia w tests/fixtures/ czytana przez testy, ER-16)
 ├── 00_START.md                 # (Ten plik) Stan, spis, streszczenie, warianty MVP, blokery wydania
 ├── 00b_Decyzje.md              # Decyzje BRD DEC-01…DEC-12 i DEC-41…DEC-49
 ├── 00c_Errata.md               # Errata ER-01…ER-23 ze statusem
