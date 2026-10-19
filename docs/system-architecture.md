@@ -4,7 +4,7 @@
 **Data wydania:** 18.10.2026  
 **Rola:** Principal System Architect, Lead Software Engineer & Data Modeling Strategist  
 **Status:** WIĄŻĄCY I ZATWIERDZONY  
-**Dokumenty nadrzędne:** `docs/brd/00_START.md`, `docs/scope-contract.md`, `docs/monetyzacja-audyt.md`, `docs/adr/ADR-001..005`  
+**Dokumenty nadrzędne:** `docs/brd/00_START.md`, `docs/scope-contract.md`, `docs/monetyzacja-audyt.md`, `docs/adr/ADR-001..006`  
 
 ---
 
@@ -111,7 +111,9 @@ Zgodnie z decyzjami `DEC-03`, `DEC-45` oraz `ADR-005`:
 2. **Gest Double Tap i Cyfrowa Koronka:**  
    Odliczanie interwałów składań ciasta i kontrola pieczenia w garnku żeliwnym (Dutch Oven) bez dotykania ekranu.
 3. **Całkowity Brak Background Audio:**  
-   Wyeliminowanie wpisu `"audio"` z `UIBackgroundModes` w `app.json`. Alerty w tle oparte wyłącznie na powiadomieniach systemowych `Time-Sensitive` przebijających tryb skupienia (Focus).
+   Wyeliminowanie wpisu `"audio"` z `UIBackgroundModes` w `app.json`. Alerty w tle oparte wyłącznie na powiadomieniach systemowych.
+4. **Powiadomienia lokalne kroków i karmienia (ADR-006, 19.10.2026, DEC-02 (a)):**  
+   Stan na 19.10.2026: w kodzie jeszcze ich nie ma (M1-audytor-generalny-006, wdrożenie: rola 08). Docelowo `expo-notifications ~57.0.23`, powiadomienie na bezwzględną datę `timerEndsAt` z zapisanej sesji wypieku oraz terminy karmienia z `lastFedAt`. Czysta funkcja `planNotifications` (`src/core/notification-plan.ts`) wylicza listę, adapter `resyncNotifications` (`src/lib/notifications.ts`) uzgadnia ją z oczekującymi po każdej zmianie zegara, zakwasu, importu i przy powrocie z tła. Poziom `timeSensitive` tylko dla kroków w garnku (`step_8`), uprawnienie `com.apple.developer.usernotifications.time-sensitive`. Zgoda proszona przy pierwszym starcie zegara; bez zgody zegar działa w aplikacji, a ekran pokazuje stan „Powiadomienia wyłączone”. Bez Live Activity w 1.0.
 
 ---
 
@@ -133,3 +135,4 @@ Migracja ze schematu v1.0 do v2.0 realizowana jest przez atomowy skrypt [`db/mig
 | **ADR-003** | Relacyjny Outbox `pending_ops` & T-012 | `DEC-45`, `NFR-DANE-002`, `ZP-06` |
 | **ADR-004** | Maszyna Stanów Wypieku FSM | `BR-ETAP-001..025`, `RD-01..15`, `ZP-10` |
 | **ADR-005** | watchOS Standalone & Brak Background Audio | `DEC-03`, `DEC-06`, `NFR-ZEG-001..010` |
+| **ADR-006** | Powiadomienia lokalne kroków i karmienia (uzgadnianie z zapisanym stanem) | `BR-CZAS-001`, `BR-CZAS-002` kryt. 1, `BR-ZAKW-004`, `Z-041`, `Z-056` |

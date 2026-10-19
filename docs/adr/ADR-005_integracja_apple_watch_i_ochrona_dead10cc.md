@@ -1,6 +1,6 @@
 # ADR-005: Architektura integracji z Apple Watch (watchOS 11 Standalone) i ochrona przed błędem iOS `0xDEAD10CC`
 
-**Status:** ACCEPTED  
+**Status:** ACCEPTED; w części „alarmy w tle” (opcja A, pkt 2) zastąpiona przez ADR-006 (19.10.2026): powiadomienia w tle nie istniały w kodzie, kontrakt i sposób sprawdzenia są w ADR-006  
 **Data:** 18.10.2026  
 **Autor:** Principal System Architect  
 **Kontekst:** Aplikacja na Apple Watch (watchOS 11) stanowi kluczowy wyróżnik rynkowy Piekarza (decyzja `DEC-03`), realizując obietnicę sterowania w kuchni bez dotykania telefonu (gest Double Tap, obrót cyfrową koronką Digital Crown). Jednocześnie w środowisku iOS / watchOS występuje krytyczne ryzyko awarii systemu `0xDEAD10CC`, gdy system zawiesza proces trzymający otwartą blokadę pliku bazy SQLite podczas przejścia w tło. Ponadto Apple rygorystycznie odrzuca aplikacje deklarujące tryb audio w tle (`UIBackgroundModes: ["audio"]`), jeśli aplikacja nie jest odtwarzaczem muzyki (wytyczna App Store Guideline 2.5.4).
