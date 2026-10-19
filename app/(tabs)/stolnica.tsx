@@ -14,12 +14,13 @@ import * as Haptics from 'expo-haptics';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
+import { useBakeSession } from '../../src/hooks/useBakeSession';
+import { saveBakeSession } from '../../src/data/bake-session-store';
 import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
 import {
   saveBakeLog,
   getBakeLogs,
   deleteBakeLog,
-  getActiveBake,
   setActiveBake,
   ActiveBakeState,
   deductFlourStock,
@@ -143,19 +144,30 @@ export default function StolnicaScreen() {
     void getBakingVessel().then((v) => {
       setBakingVesselState(v);
     });
-    const existing = getActiveBake();
-    if (existing) {
-      setIsActive(true);
-      setRecipeName(existing.recipeName);
-      setStartedAt(existing.startedAt);
-      setActiveBakeData(existing);
-      setTimeLeftSec(BAKE_STEPS[0].timerMin * 60);
-      setIsRunning(false);
-      setIsCompleted(false);
-    }
   }, [loadHistory]);
 
   const endAtMsRef = useRef<number | null>(null);
+
+  // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]
+  useBakeSession(
+    isActive
+      ? { stepIdx: currentStepIdx, dutchOvenPhase,
+          timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : null,
+          pausedLeftSec: isRunning ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
+      : null,
+    (s, timer) => {
+      setIsActive(true);
+      setRecipeName(s.recipeName);
+      setStartedAt(s.startedAt);
+      setActiveBakeData(s.bake);
+      setCurrentStepIdx(s.stepIdx);
+      setDutchOvenPhase(s.dutchOvenPhase);
+      endAtMsRef.current = timer.isRunning ? s.timerEndsAt : null;
+      setTimeLeftSec(timer.timeLeftSec);
+      setIsRunning(timer.isRunning);
+      setIsCompleted(timer.isCompleted);
+    }
+  );
 
   useEffect(() => {
     if (isRunning && endAtMsRef.current === null) {
@@ -335,6 +347,7 @@ export default function StolnicaScreen() {
     }
 
     setActiveBake(null);
+    await saveBakeSession(null);
     setActiveBakeData(null);
     setIsActive(false);
     setCurrentStepIdx(0);
@@ -349,6 +362,7 @@ export default function StolnicaScreen() {
   const handleDiscard = () => {
     confirmDiscardBake(() => {
       setActiveBake(null);
+      void saveBakeSession(null).catch(() => {});
       setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);
