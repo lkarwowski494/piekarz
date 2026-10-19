@@ -139,6 +139,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     // [M1-audytor-generalny-013] DEC-10 (a): przyciski i werdykty z docs/tresci/pl/zakwas-bezpieczenstwo.md;
     // wcześniej test oczekiwał werdyktu „Kahm Yeast” (bezpieczny kożuch) i „Zakwas jest zdrowy”.
     let text = extractCleanText(tree?.toJSON());
+    expect(text).toContain('W razie wątpliwości wyrzuć zakwas.');
     expect(text).toContain('Nie zaznaczono żadnego objawu');
     for (const label of [
       'Zaznacz, co widzisz albo czujesz w słoiku.',

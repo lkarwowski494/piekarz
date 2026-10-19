@@ -65,6 +65,10 @@ export function StarterSafetyCard({
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Kontrola biologiczna (Bezpieczeństwo)')}</Text>
       <Text style={styles.cardSubtitle}>{t('Zaznacz, co widzisz albo czujesz w słoiku.')}</Text>
+      {/* Granica zastosowania, widoczna przy każdym wyniku [M1-audytor-generalny-014; ZAK-NAL-001, ZAK-SUR-001] */}
+      <Text style={styles.boundary} testID="starter-safety-boundary">
+        {`${t('Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.')} ${t('W razie wątpliwości wyrzuć zakwas.')} ${t('Nie próbuj surowego zakwasu przed upieczeniem.')}`}
+      </Text>
 
       <View style={styles.checkRow}>
         <CheckButton active={hasHooch} danger={false} onPress={onToggleHooch} testID="check-hooch" label={t('Płyn na powierzchni o zapachu alkoholu (hooch)')} />
@@ -115,6 +119,12 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     marginTop: 2,
     marginBottom: 8,
+  },
+  boundary: {
+    fontSize: 12,
+    lineHeight: 16,
+    color: theme.colors.textPrimary,
+    marginBottom: 12,
   },
   checkRow: {
     gap: 8,

@@ -62,6 +62,24 @@ describe('Starter safety card text contrast (016)', () => {
     expect(c.action).toBeGreaterThanOrEqual(4.5);
   });
 
+  // [M1-audytor-generalny-014; ZAK-NAL-001, ZAK-SUR-001] granica zastosowania widoczna przy każdym statusie
+  it.each<SourdoughSafetyStatus>(['discard', 'hooch', 'no_observation'])('%s: the boundary sentence is shown', async (status) => {
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => {
+      tree = renderer.create(
+        <StarterSafetyCard
+          hasHooch={false} onToggleHooch={() => {}} hasKahm={false} onToggleKahm={() => {}} hasMold={false} onToggleMold={() => {}}
+          hasColoredSpots={false} onToggleColoredSpots={() => {}} hasRottenSmell={false} onToggleRottenSmell={() => {}}
+          safetyResult={{ status, titlePl: 'T', actionPl: 'A' }} onReset={() => {}}
+        />
+      );
+    });
+    expect(tree!.root.findByProps({ testID: 'starter-safety-boundary' }).props.children).toBe(
+      'Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością. W razie wątpliwości wyrzuć zakwas. Nie próbuj surowego zakwasu przed upieczeniem.'
+    );
+    act(() => tree!.unmount());
+  });
+
   it('the token pair used by the card (text on surfaceCard) also reaches 4.5:1 in the amber night theme', () => {
     expect(contrast(amberTheme.colors.textPrimary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
     expect(contrast(amberTheme.colors.textSecondary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);

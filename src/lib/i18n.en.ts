@@ -760,6 +760,9 @@ export const EN: Record<string, string> = {
   'Otwórz Ustawienia': 'Open Settings',
   // Karta bezpieczeństwa zakwasu, DEC-10 (a); teksty: docs/tresci/en/zakwas-bezpieczenstwo.md [M1-audytor-generalny-013, -014]
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Mark what you see or smell in the jar.',
+  'Aplikacja nie ocenia bezpieczeństwa zakwasu z pewnością.': 'This app cannot judge whether a starter is safe with certainty.',
+  'W razie wątpliwości wyrzuć zakwas.': 'When in doubt, throw the starter out.',
+  'Nie próbuj surowego zakwasu przed upieczeniem.': 'Do not taste raw starter before baking.',
   'Płyn na powierzchni o zapachu alkoholu (hooch)': 'Liquid layer that smells of alcohol (hooch)',
   'Biały nalot lub kożuch na powierzchni': 'White film or skin on the surface',
   'Puszysty nalot w dowolnym kolorze, także biały': 'Fuzzy growth of any colour, including white',
