@@ -25,7 +25,7 @@ Tabela definiuje precyzyjny podział funkcji na etapy wdrożeniowe: **MVP (wersj
 | **Z-019** | HARMO | Inteligentne przesuwanie etapów (Smart Shift): wydłużenie autolizy lub garowania chłodniczego | SHOULD | MVP | Elastyczność planu dnia domowego piekarza |
 | **Z-020** | HARMO | Dynamiczna adaptacja czasu fermentacji burzliwej do temperatury otoczenia (\$Q\_{10}\$) | MUST | MVP | ZP-12; ochrona przed przekwaszeniem |
 | **Z-021** | HARMO | Obsługa pauzy i przesunięcia startu kolejnego etapu | MUST | MVP | Życiowe sytuacje w domu (dzieci, zakupy) |
-| **Z-022** | HARMO | Eksport planu czasowego do kalendarza systemowego iOS (EventKit) | SHOULD | 1.1 | DEC-37 |
+| **Z-022** | HARMO | Eksport planu czasowego do kalendarza systemowego iOS (EventKit) | SHOULD | wycofane (D-031, KL-09) | DEC-37; wycięte z kodu i roadmapy 2026-10-19 (D-031) |
 | **Z-023** | HARMO | Szacowanie czasu nagrzewania naczynia żeliwnego (45–60 min) | MUST | MVP | Gwarancja odpowiedniej temperatury pieca |
 | **Z-024** | ETAP | Prowadzenie przez etapy wypieku krok po kroku | MUST | MVP | ZP-01; spokój i skupienie |
 | **Z-025** | ETAP | Etap 1: Dokarmienie zakwasu i osiągnięcie szczytu (Peak) | MUST | MVP | Rdzeń biologiczny wypieku |

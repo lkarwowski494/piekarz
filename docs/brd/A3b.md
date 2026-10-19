@@ -7,26 +7,26 @@ Druga część tabeli zakresu: integracja systemowa, zegarki, bezdotykowa praca 
 | **Z-054** | CZAS | Zegar kuchenny z wieloma timerami działającymi współbieżnie | MUST | MVP | Jednoczesne składanie ciasta i nagrzewanie pieca |
 | **Z-055** | CZAS | Głośne, dedykowane alarmy piekarskie (dzwonek pieca, gong) | MUST | MVP | Słyszalność w głośnej kuchni przy okapie; DEC-19 |
 | **Z-056** | CZAS | Powiadomienia Time-Sensitive przebijające tryby Focus | MUST | MVP | Zapobieganie przegapieniu momentu składania ciasta |
-| **Z-057** | ZEG | Dedykowana aplikacja na Apple Watch (watchOS 11\) | MUST | MVP | Kluczowy wyróżnik rynkowy; ZP-01 |
-| **Z-058** | ZEG | Obsługa gestu podwójnego stuknięcia (Double Tap) w Apple Watch | MUST | MVP | Odhaczanie złożenia ciasta bez dotykania zegarka |
-| **Z-059** | ZEG | Sterowanie timerem i etapami za pomocą koronki Digital Crown | MUST | MVP | Precyzja mokrymi dłońmi; ZP-01 |
-| **Z-060** | ZEG | Wyraziste wibracje Haptic Feedback informujące o końcu składania | MUST | MVP | Poczucie dotykowe podczas prac domowych |
-| **Z-061** | ZEG | Widżet Smart Stack z bieżącym etapem i przyciskiem akcji | SHOULD | MVP | Szybki wgląd bez wchodzenia do aplikacji |
-| **Z-062** | ZEG | Samodzielna praca zegarka bez obecności iPhone'a w zasięgu | SHOULD | 1.1 | Wyjście do ogrodu lub piwnicy w trakcie garowania |
-| **Z-063** | GAR | Prototyp modułu komunikacyjnego dla Garmin Connect IQ | SHOULD | MVP | DEC-02; przygotowanie architektury |
-| **Z-064** | GAR | Pełna aplikacja Garmin Connect IQ z obsługą fizycznych przycisków | MUST | 1.1 | DEC-02; kluczowy wyróżnik dla użytkowników Garmina |
-| **Z-065** | LIVE | Live Activity na zablokowanym ekranie iPhone'a z wielkim paskiem postępu | MUST | MVP | Czytelność z 2 metrów na blacie kuchennym |
-| **Z-066** | LIVE | Integracja z Dynamic Island (odliczanie do kolejnego coil fold) | MUST | MVP | Dyskretna kontrola podczas przeglądania telefonu |
-| **Z-067** | LIVE | Przyciski bezpośredniej akcji na Live Activity (Złożone / \+10 min) | MUST | MVP | Minimalizacja dotykania ekranu |
+| **Z-057** | ZEG | Dedykowana aplikacja na Apple Watch (watchOS 11\) | MUST | wycofane (D-031, KL-06) | Kluczowy wyróżnik rynkowy; ZP-01 |
+| **Z-058** | ZEG | Obsługa gestu podwójnego stuknięcia (Double Tap) w Apple Watch | MUST | wycofane (D-031, KL-06) | Odhaczanie złożenia ciasta bez dotykania zegarka |
+| **Z-059** | ZEG | Sterowanie timerem i etapami za pomocą koronki Digital Crown | MUST | wycofane (D-031, KL-06) | Precyzja mokrymi dłońmi; ZP-01 |
+| **Z-060** | ZEG | Wyraziste wibracje Haptic Feedback informujące o końcu składania | MUST | wycofane (D-031, KL-06) | Poczucie dotykowe podczas prac domowych |
+| **Z-061** | ZEG | Widżet Smart Stack z bieżącym etapem i przyciskiem akcji | SHOULD | wycofane (D-031, KL-06) | Szybki wgląd bez wchodzenia do aplikacji |
+| **Z-062** | ZEG | Samodzielna praca zegarka bez obecności iPhone'a w zasięgu | SHOULD | wycofane (D-031, KL-06) | Wyjście do ogrodu lub piwnicy w trakcie garowania |
+| **Z-063** | GAR | Prototyp modułu komunikacyjnego dla Garmin Connect IQ | SHOULD | wycofane (D-031, KL-16) | DEC-02; przygotowanie architektury |
+| **Z-064** | GAR | Pełna aplikacja Garmin Connect IQ z obsługą fizycznych przycisków | MUST | wycofane (D-031, KL-16) | DEC-02; kluczowy wyróżnik dla użytkowników Garmina |
+| **Z-065** | LIVE | Live Activity na zablokowanym ekranie iPhone'a z wielkim paskiem postępu | MUST | wycofane (D-031, KL-07) | Czytelność z 2 metrów na blacie kuchennym |
+| **Z-066** | LIVE | Integracja z Dynamic Island (odliczanie do kolejnego coil fold) | MUST | wycofane (D-031, KL-07) | Dyskretna kontrola podczas przeglądania telefonu |
+| **Z-067** | LIVE | Przyciski bezpośredniej akcji na Live Activity (Złożone / \+10 min) | MUST | wycofane (D-031, KL-07) | Minimalizacja dotykania ekranu |
 | **Z-068** | REKA | Tryb kuchenny: zapobieganie wygaszaniu ekranu podczas aktywnego etapu | MUST | MVP | Brak konieczności odblokowywania FaceID w mące |
 | **Z-069** | REKA | Integracja z przyciskiem czynności (Action Button) w iPhone 15 Pro / 16 | SHOULD | MVP | DEC-23; sprzętowe odhaczanie złożenia |
-| **Z-070** | REKA | Sterowanie komendami głosowymi Siri (Siri Shortcuts) | SHOULD | 1.1 | Głosowe odhaczanie kroków z drugiego końca kuchni |
+| **Z-070** | REKA | Sterowanie komendami głosowymi Siri (Siri Shortcuts) | SHOULD | wycofane (D-031, KL-08) | Głosowe odhaczanie kroków z drugiego końca kuchni |
 | **Z-071** | SYS | Widżety ekranu blokady i ekranu początkowego (stan zakwasu, odliczanie) | SHOULD | MVP | Szybki podgląd w systemie |
 | **Z-072** | SYS | Kontrolki Control Center (iOS 18\) do szybkiego startu kalkulatora | SHOULD | MVP | DEC-06 |
 | **Z-073** | DANE | Lokalna baza danych SQLite / SwiftData | MUST | MVP | ZP-03; 100% offline, zero awaryjności |
 | **Z-074** | DANE | Automatyczna kopia zapasowa do prywatnego folderu iCloud Drive | MUST | MVP | ZP-06; bezpieczeństwo danych użytkownika |
 | **Z-075** | DANE | Ręczny eksport i import bazy w formacie JSON | MUST | MVP | ZP-07; wolność od vendor lock-in |
-| **Z-076** | DANE | Udostępnianie receptury w pliku `.piekarz` (AirDrop, e-mail) | MUST | MVP | ZP-09; rzemieślnicza wymiana wiedzy |
+| **Z-076** | DANE | Udostępnianie receptury w pliku `.piekarz` (AirDrop, e-mail) | MUST | wycofane (D-031, KL-10) | ZP-09; rzemieślnicza wymiana wiedzy |
 | **Z-077** | DANE | Generowanie estetycznej karty graficznej receptury do wydruku / social media | SHOULD | 1.1 | Marketing organiczny; A4 |
 | **Z-078** | ZAK | Obsługa zakupu In-App Purchase (miesięczny, roczny, dożywotni) | MUST | MVP | ZP-08; transparentny model biznesowy |
 | **Z-079** | ZAK | 14-dniowy bezpłatny okres próbny (Free Trial) z pełnym zakresem | MUST | MVP | DEC-10; rzetelny test 2–3 cykli wypiekowych |

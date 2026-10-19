@@ -25,6 +25,7 @@
   - *Opcja C:* Całkowita rezygnacja z ekosystemu Garmina.
 - **Kompromis:** Opcja B pozwala na szybszą premierę w App Store i dopracowanie aplikacji watchOS.
 - **Rekomendacja:** **Opcja B**. Status: **ZATWIERDZONA**.
+- **Zmiana 2026-10-19:** zmieniona przez D-031 (`docs/DECISIONS.md`): prototyp mostka Garmin wycięty z MVP i z kodu (KL-16); BR-GAR-001 wycofane, Z-063 i Z-064 wycofane. Powrót tylko przez bramkę zmian ZM kontraktu zakresu.
 
 ### **DEC-03: Pełna aplikacja na Apple Watch w MVP?**
 - **Kontekst:** Obietnica „ręce w mące” (ZP-10) wymaga sterowania bez dotykania telefonu.
@@ -33,6 +34,7 @@
   - *Opcja B:* Wyłącznie powiadomienia i Live Activity w Smart Stack na zegarku.
 - **Kompromis:** Opcja A wymaga dodatkowego targetu watchOS w Xcode, ale stanowi kluczowy wyróżnik rynkowy i tarczę ochronną przed regułą Apple 4.3(b).
 - **Rekomendacja:** **Opcja A**. Status: **ZATWIERDZONA**.
+- **Zmiana 2026-10-19:** zmieniona przez D-031 (`docs/DECISIONS.md`, wybór właściciela „Wyciąć z kontraktu MVP i z kodu; zapisać na liście odcięć z warunkiem powrotu”): aplikacja Apple Watch i Live Activity poza MVP (KL-06, KL-07); BR-ZEG-001…004 i BR-LIVE-001…002 wycofane.
 
 ### **DEC-04: Identyfikator pakietu (Bundle ID)**
 - **Kontekst:** Wymóg suwerenności i unifikacji Apps4Craft.
@@ -117,6 +119,7 @@
   - *Opcja A (Rekomendowana):* Utworzenie tabeli `pending_ops` w `sqlite-schema.ts` w bezpiecznej migracji transakcyjnej v2.0.
   - *Opcja B:* Pominięcie tabeli do czasu wdrożenia modułu Garmin.
 - **Rekomendacja:** **Opcja A** (jednolita architektura od Dnia 1). Status: **ZATWIERDZONA**.
+- **Zmiana 2026-10-19:** zmieniona przez D-031 (`docs/DECISIONS.md`): kolejka `outbox-service` wycięta (KL-14), bo nie ma odbiorcy; tabela `pending_ops` zostaje w schemacie bez zapisu i bez migracji (decyzja 4 planu M2); usunięcie tabeli tylko osobną migracją w późniejszej wersji.
 
 ### **DEC-46: Dynamiczny predyktor szczytu zakwasu zależny od proporcji dokarmienia**
 - **Kontekst:** Wykryto błąd BŁĄD-01 w `sourdough-physics.ts` (sztywny czas szczytu 5–9h bez znajomości ratio).
