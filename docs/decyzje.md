@@ -47,3 +47,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (1) import tylko z dostępem; (2) 1, 2 albo 7 dni; (3) wypiek przerwany w chwili wygaśnięcia; (4) bez Family Sharing.
 - **Dlaczego:** dane nie są zakładnikiem (zasada roli 6); przerwany w połowie wypiek to utrata ciasta, nie danych, ale RYZ-17; Family Sharing — decyzja właściciela.
 - **Zależy od:** D-038. Skutek: OP-47, OP-48 w `docs/brd/README.md` rozstrzygnięte (wpis dla roli 01 przez `docs/sztafeta.md`).
+
+### [D-040] 2026-10-19 — Apetyt wersji 1: ok. 60 h czasu właściciela; praca na decyzji o pełnym eksperymencie (rola 03 build, STOP E0)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Apetyt c, ok. 60 h. Potwierdzam pracę na decyzji o pełnym eksperymencie mimo werdyktu „przerobić”.” (2026-10-19).
+- **Decyzja:** (1) linia cięcia kontraktu zakresu to ok. 60 h godzin właściciela w wersji 1 (przegląd, testy na telefonie, utrzymanie w 35 językach, recenzje), `zakres.mjs --apetyt 60`; (2) rola 03 pracuje dalej mimo werdyktu bramki opłacalności „przerobić” (345 USD/rok wobec progu 500), na decyzji o eksperymencie 90 dni z kryterium z `docs/monetyzacja.md`.
+- **Odrzucone:** (a) ok. 20 h — sama pętla i podłogi; (b) ok. 40 h — pętla i najlepsze z rankingu (rekomendacja roli 03).
+- **Dlaczego:** właściciel chce eksperymentu na pełnej aplikacji („Nie zawężaj planu napraw. Chcę zobaczyć, co wyjdzie z pełnego eksperymentu.”, plan napraw M1).
+- **Zależy od:** D-038 (eksperyment); zasada wspólna 18 obowiązuje dalej: apetyt nie wpuszcza funkcji bez dowodu wartości.
