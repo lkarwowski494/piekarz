@@ -748,5 +748,128 @@
     "przeglad": null,
     "nastepca": "ZYT-STU-001",
     "wycofane": "2026-10-19, M1-audytor-generalny-043"
+  },
+  {
+    "id": "ZAK-SZC-001",
+    "twierdzenie": "Według przeglądu literatury zakwas po szczycie staje się nadmiernie cierpki, kwaśny i ostry w zapachu oraz wytwarza mniej pęcherzyków gazu.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., A review of sourdough starters…, PeerJ 2021, 9:e11389, rozdz. o dojrzałości zakwasu (Rys. 1); Europe PMC PMC8117929 fullTextXML",
+        "cytat": "In practice, a mature Type I sourdough starter that is past its peak becomes overly tart, acidic, and pungent, and produces fewer air bubbles",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-SZC-002",
+    "twierdzenie": "W badaniu 40 zakwasów (ta sama jałowa mąka i woda, te same warunki) tempo rośnięcia ciasta zaszczepionego zakwasem wynosiło od 0,1 do 1,5 mm/h i różniło się wyraźnie między zakwasami.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7554/eLife.61644",
+        "miejsce": "Landis E.A. i in., The diversity and function of sourdough starter microbiomes, eLife 2021, 10:e61644, rozdz. Results „Microbial composition influences dough rise and aroma profiles”, Video 1 (CC BY); Europe PMC PMC7837699 fullTextXML",
+        "cytat": "This demonstrates wide variation in functional capacities across the 40 starters and low variation across experimental replicates within one starter. […] Dough rise rates ranged from 0.1 to 1.5 mm/hr.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Źródło mierzy tempo rośnięcia ciasta w probówkach, nie czas do szczytu zakwasu w słoiku; wniosek dla aplikacji: jedno okno czasowe dla wszystkich zakwasów jest tylko szacunkiem.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-SZC-003",
+    "twierdzenie": "Według przeglądu literatury więcej zakwasu przy dokarmianiu daje szybszą fermentację, a piekarze dokarmiają mniejszą ilością zakwasu względem świeżej mąki i wody, by zrównoważyć szybką fermentację w cieple.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., PeerJ 2021, 9:e11389, rozdz. o dokarmianiu (re-feeding) i o wpływie praktyk na smak; Europe PMC PMC8117929 fullTextXML",
+        "cytat": "Bakers may also re-feed their starter with a smaller ratio of starter to fresh flour and water in order to compensate for a rapidly-fermenting, warm environment […] Using more starter during re-feedings or in bread-baking will allow for a quicker fermentation",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Kierunek bez liczb: źródło nie podaje czasu do szczytu dla proporcji 1:1:1, 1:2:2 ani 1:5:5 (ZAK-SZC-900).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-SZC-004",
+    "twierdzenie": "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.",
+    "zrodla": [
+      {
+        "adres": "https://extension.sdstate.edu/sourdough-starters",
+        "miejsce": "SDSU Extension, Sourdough Starters, sekcja Temperature (Updated July 01, 2024)",
+        "cytat": "When starters are in a cooler temperature, the growth and fermentation is slowed.",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, Sourdough Starter Best Practices, sekcja Temperature (Reviewed: October 2025)",
+        "cytat": "Fermentation will slow at colder temperatures",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-SZC-900",
+    "twierdzenie": "Czas do szczytu zakwasu według proporcji, temperatury i mąki: okna DEC-46 (1:1:1 → 3–4 h, 1:2:2 → 5–7 h, 1:5:5 → 10–12 h), okno bazowe predyktora 6,0–8,5 h dla 1:2:2 w 22 °C z mnożnikami 0,72 / 1,45 / 1,9 (proporcja) i 0,88 / 0,95 (żyto, orkisz), wskazówki karmienia 4–6 h, 8–12 h i 2–4 h.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] OP-25. Żadne przeczytane źródło nie podaje czasu do szczytu dla proporcji dokarmienia; źródła dają tylko kierunek (ZAK-SZC-003, ZAK-SZC-004) i dużą zmienność między zakwasami (ZAK-SZC-002). Liczby predyktora zostają w kodzie bez zmian jako szacunek produktu (do czasu źródła albo decyzji właściciela), ale nie pojawiają się w tekstach jako fakt; kierunek zależności w kodzie zgodny z ZAK-SZC-003 i ZAK-SZC-004.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-SZC-901",
+    "twierdzenie": "W temperaturze pokojowej faza zakwasu wynika z samego czasu od dokarmienia: adaptacja do 2 h, wzrost do 5 h, szczyt do 9 h, opadanie do 14 h, potem głód (src/core/sourdough-physics.ts, calculateStarterPhase).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "SPRZECZNE z ZAK-SZC-003 i ZAK-SZC-004: czas do szczytu zależy od proporcji dokarmienia i temperatury, więc faza liczona samym czasem przeczy predyktorowi na tej samej karcie (sonda audytu: 5 sprzeczności na 6 przypadków). Liczby 2/5/9/14 h bez źródła. Zastąpione jednym modelem: faza z okna predyktora (raport roli 06, partia 3).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAK-SZC-003",
+    "wycofane": "2026-10-19, M1-audytor-generalny-044"
+  },
+  {
+    "id": "ZAK-SZC-902",
+    "twierdzenie": "Po szczycie kopuła zakwasu zaczyna się zapadać i rośnie kwasowość octowa, więc chleb będzie wyraźniej kwaskowaty (src/core/sourdough-physics.ts, faza declining).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) mówi o większej kwaśności i mniejszej liczbie pęcherzyków po szczycie (ZAK-SZC-001), nie o kwasie octowym ani o skutku dla chleba.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAK-SZC-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-044"
+  },
+  {
+    "id": "ZAK-SZC-903",
+    "twierdzenie": "Szczyt aktywności zakwasu to najlepszy (idealny) moment na dodanie go do ciasta chlebowego.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] NIEPOPARTE przeczytanymi źródłami: Calvert (szczebel 2) mówi tylko, że zakwas po szczycie wytwarza mniej pęcherzyków gazu (ZAK-SZC-001), nie wskazuje najlepszego momentu. Do czasu źródła teksty mówią „w oknie szczytu (szacunek)”, bez „idealny moment”.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
