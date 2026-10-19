@@ -146,8 +146,11 @@ jobs:
         env:
           CI: '1'
           NODE_ENV: production
+          # react-native-xcode.sh emituje mapę źródeł JS, gdy SOURCEMAP_FILE jest ustawione (M1-audytor-generalny-068)
+          SOURCEMAP_FILE: ${{ runner.temp }}/sourcemaps/main.jsbundle.map
         run: |
           set -o pipefail
+          mkdir -p "$(dirname "$SOURCEMAP_FILE")"
           xcodebuild archive \
             -workspace "ios/$APP_SCHEME.xcworkspace" \
             -scheme "$APP_SCHEME" \
@@ -167,6 +170,20 @@ jobs:
             tail -80 /tmp/xcodebuild-archive.log
             exit 1
           fi
+
+          if ! test -s "$SOURCEMAP_FILE"; then
+            echo "::error::Brak mapy źródeł JS: $SOURCEMAP_FILE"
+            exit 1
+          fi
+
+      - name: Upload JS source map (every build, retention 90 days)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: testflight-sourcemap-${{ env.VERSION }}-b${{ env.BUILD_NUMBER }}
+          path: ${{ runner.temp }}/sourcemaps/main.jsbundle.map
+          if-no-files-found: error
+          retention-days: 90
 
       - name: Prepare App Store Connect API Key (.p8) after pod install & archive
         env:
