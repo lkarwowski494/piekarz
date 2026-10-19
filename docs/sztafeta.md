@@ -3,7 +3,7 @@
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
-| 01 Odkrywanie | build | zakończona 2026-10-19 | gałąź `claude/01-odkrywanie-2026-10-19-279a7f` (E3: 3df4758; E4: commit z tym plikiem) | `docs/brd/`, `docs/zalozenia.md`, `docs/decyzje.md` (D-035…D-037), `tests/wektory/brd.json` | OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`; szkic sekcji „Stan projektu” w `CLAUDE.md` czeka na zgodę właściciela |
+| 01 Odkrywanie | build | zakończona 2026-10-19 | gałąź `claude/01-odkrywanie-2026-10-19-279a7f` (E3: 3df4758; E4: commit z tym plikiem) | `docs/brd/`, `docs/zalozenia.md`, `docs/decyzje.md` (D-035…D-037), `tests/wektory/brd.json` | OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`; sekcja „Stan projektu” w `CLAUDE.md` dodana za zgodą właściciela (f140e45), pola [DO USTALENIA]: liczba testerów, standard marki |
 | 02 Monetyzacja | build, sesja 2 | następna | — | — | — |
 
 ## Definicja ukończenia roli 01 (build), z dowodem
@@ -28,7 +28,7 @@
 - Dla 06 (później): reguły RD-14…RD-27 i źródła S-36…S-61 do rejestru twierdzeń; reguły krytyczne RD-21, RD-22, RD-23 do przeglądu człowieka; rozbieżności ER-42; OP-34, OP-36, OP-37, OP-39, OP-40, OP-44, OP-46. Po weryfikacji rejestr 06 ma pierwszeństwo, a rozbieżność poprawia ER w BRD.
 - Dla 05: OP-32, OP-41, OP-42, OP-43; RYZ-12 (kopie tylko na telefonie); H-11 (synchronizacja a zakaz sieci).
 - Dla 07 i 08: `tests/wektory/brd.json` tylko do odczytu (zmiana przez ER do roli 01); ER-35, ER-39 (ID w testach spoza BRD), ER-42; blokery wydania.
-- Dla właściciela: (1) zgoda na sekcję „Stan projektu” w `CLAUDE.md` (szkic w raporcie E4); (2) test na urządzeniu: sygnał kroku przy ekranie zablokowanym 30 min i powrót do trwającego wypieku po zamknięciu aplikacji (NFR-CZAS-001, BR-ETAP-005); (3) opcjonalnie 2–3 rozmowy z piekarzami jako sprawdzenie ZAL (D-036); (4) przy scalaniu: numery D-035…D-037 mogą się zderzyć z wpisami partii 3 w `docs/DECISIONS.md`.
+- Dla właściciela: (1) uzupełnić w `CLAUDE.md` liczbę testerów TestFlight i standard marki; (2) test na urządzeniu: sygnał kroku przy ekranie zablokowanym 30 min i powrót do trwającego wypieku po zamknięciu aplikacji (NFR-CZAS-001, BR-ETAP-005); (3) opcjonalnie 2–3 rozmowy z piekarzami jako sprawdzenie ZAL (D-036); (4) przy scalaniu: numery D-035…D-037 mogą się zderzyć z wpisami partii 3 w `docs/DECISIONS.md`.
 - Otwarte decyzje: OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`, każdy z rolą, która przyniesie opcje.
 
 ## Następny krok
