@@ -46,6 +46,7 @@ import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
+import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
 import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
 import { ActiveTimerDisplay } from '../../src/components/stolnica/ActiveTimerDisplay';
@@ -96,7 +97,7 @@ export default function StolnicaScreen() {
 
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
-    access,
+    blokada,
     isPaywallVisible,
     setPaywallVisible,
     requireActionAccess,
@@ -377,13 +378,17 @@ export default function StolnicaScreen() {
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
         {!isActive || !currentStep ? (
           <View>
+            {/* Bez uprawnienia: tylko przegląd historii (BEZ_UPRAWNIENIA) [M1-audytor-generalny-027] */}
+            <BlokadaFunkcji {...blokada('stolnica')}>
             <IdleBakeCard
               bakingVessel={bakingVessel}
               onSelectVessel={handleSelectVessel}
               onStartBake={handleStartBake}
             />
+            </BlokadaFunkcji>
 
             {/* History of Bakes & Artisan Statistics */}
+            <BlokadaFunkcji {...blokada('historia')}>
             {bakeHistory.length > 0 && <BakeStatsCard stats={bakeStats} />}
             <BakeHistorySection
               bakeHistory={bakeHistory}
@@ -393,8 +398,10 @@ export default function StolnicaScreen() {
               onDeleteBakeLog={handleDeleteBakeLog}
               onBakeAgain={handleBakeAgain}
             />
+            </BlokadaFunkcji>
           </View>
         ) : (
+          <BlokadaFunkcji {...blokada('stolnica')}>
           <View>
             <NotificationsOffBanner />
             {/* Sacred Numbers Glanceable Countertop Card */}
@@ -470,6 +477,7 @@ export default function StolnicaScreen() {
               unitSystem={unitSystem}
             />
           </View>
+          </BlokadaFunkcji>
         )}
 
         {/* Modal: Finish Bake Evaluation */}

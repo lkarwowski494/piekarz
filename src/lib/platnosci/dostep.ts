@@ -5,6 +5,8 @@
 // a pamięć ostatniego udanego odczytu jest JSON-em w app_settings.
 // ============================================================================
 
+import { BEZ_UPRAWNIENIA, Funkcja } from './konfiguracja';
+
 /** wygasa: ms; null = bez końca (zakup dożywotni). odebrane: zwrot albo odebranie z Family Sharing. */
 export type Uprawnienie = { produkt: string; wygasa: number | null; odebrane: boolean };
 /** blad: brak sieci albo sklep niedostępny — to nie jest brak zakupu. */
@@ -34,6 +36,11 @@ export function decyzja(odczyt: Odczyt, pamiec: Pamiec, teraz: number, odblokowu
     pamiec.produkty.some((p) => odblokowuja.includes(p)) &&
     (pamiec.wygasa === null || pamiec.wygasa > teraz);
   return { dostep: ok, powod: ok ? 'pamiec' : 'brak', pamiec };
+}
+
+/** Czy funkcja działa: z uprawnieniem zawsze, bez niego tylko z listy BEZ_UPRAWNIENIA [M1-audytor-generalny-027]. */
+export function dozwolona(funkcja: Funkcja, dostep: boolean, bez: readonly Funkcja[] = BEZ_UPRAWNIENIA): boolean {
+  return dostep || bez.includes(funkcja);
 }
 
 export function odczytajPamiec(tekst: unknown): Pamiec {

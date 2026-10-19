@@ -22,6 +22,26 @@ export const SUBSKRYPCJE: readonly string[] = [PRODUKTY.monthly, PRODUKTY.yearly
 /** Produkty, które odblokowują pełny dostęp. */
 export const ODBLOKOWUJA: readonly string[] = [PRODUKTY.monthly, PRODUKTY.yearly, PRODUKTY.lifetime];
 
+/** Funkcje aplikacji, o których decyduje strażnik dostępu [M1-audytor-generalny-027]. */
+export type Funkcja =
+  | 'historia'
+  | 'dane'
+  | 'kalkulator'
+  | 'zakwas'
+  | 'stolnica'
+  | 'harmonogram'
+  | 'doktor'
+  | 'spizarnia'
+  | 'receptury'
+  | 'import'
+  | 'udostepnianie';
+
+/**
+ * Jedyna lista funkcji dostępnych bez subskrypcji, oferty wprowadzającej i zakupu dożywotniego
+ * (decyzja właściciela 2026-10-19, DEC-01.podzial). „dane” = odczyt, eksport i usunięcie własnych danych.
+ */
+export const BEZ_UPRAWNIENIA: readonly Funkcja[] = ['historia', 'dane'];
+
 /** Klucz w app_settings: pamięć ostatniego udanego odczytu sklepu (nie jest w kopii zapasowej). */
 export const KLUCZ_PAMIECI = 'platnosci_pamiec';
 

@@ -6,8 +6,8 @@
 // ============================================================================
 
 import { useState, useEffect, useCallback } from 'react';
-import type { Plan } from './platnosci/konfiguracja';
-import type { Decyzja } from './platnosci/dostep';
+import type { Plan, Funkcja } from './platnosci/konfiguracja';
+import { dozwolona, Decyzja } from './platnosci/dostep';
 import { pobierzStan, subskrybujStan, odswiezDostep, ustalDostep, StanDostepu } from './platnosci/stan';
 import { kup, przywroc } from './platnosci/sklep';
 
@@ -59,6 +59,24 @@ export function useAppAccess() {
     [access.canCreateNewBake]
   );
 
+  /** Czy funkcja działa teraz (lista BEZ_UPRAWNIENIA w konfiguracji) [M1-audytor-generalny-027]. */
+  const moze = useCallback((funkcja: Funkcja) => dozwolona(funkcja, access.canCreateNewBake), [access.canCreateNewBake]);
+
+  /** Akcja przez strażnika: funkcja z listy bez uprawnienia działa, inna otwiera ekran zakupu. */
+  const chron = useCallback(
+    (funkcja: Funkcja, action: () => void | Promise<void>) => () => {
+      if (moze(funkcja)) void action();
+      else requireActionAccess();
+    },
+    [moze, requireActionAccess]
+  );
+
+  /** Właściwości BlokadaFunkcji dla obszaru ekranu. */
+  const blokada = useCallback(
+    (funkcja: Funkcja) => ({ funkcja, odblokowane: moze(funkcja), onZablokowane: () => requireActionAccess() }),
+    [moze, requireActionAccess]
+  );
+
   const subscribe = useCallback(async (plan: Plan) => {
     await kup(plan);
   }, []);
@@ -74,6 +92,9 @@ export function useAppAccess() {
     isPaywallVisible,
     setPaywallVisible,
     requireActionAccess,
+    moze,
+    chron,
+    blokada,
     subscribe,
     restorePurchases,
   };

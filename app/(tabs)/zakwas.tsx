@@ -32,6 +32,7 @@ import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
+import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { useUnitSystem } from '../../src/lib/unit-converter';
 import { ZakwasSacredCard } from '../../src/components/zakwas/ZakwasSacredCard';
 import { StartersSelectorRow } from '../../src/components/zakwas/StartersSelectorRow';
@@ -47,7 +48,8 @@ export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
-    access,
+    chron,
+    blokada,
     isPaywallVisible,
     setPaywallVisible,
     requireActionAccess,
@@ -313,7 +315,7 @@ export default function ZakwasScreen() {
             setStarter(s);
             setSelectedStarterId(s.id);
           }}
-          onOpenAddModal={() => setIsAddModalOpen(true)}
+          onOpenAddModal={chron('zakwas', () => setIsAddModalOpen(true))}
         />
 
         {/* Profile Card */}
@@ -326,7 +328,8 @@ export default function ZakwasScreen() {
           onOpenEditModal={handleOpenEditModal}
         />
 
-        {/* Peak Activity Timer Card */}
+        {/* Bez uprawnienia: profil do odczytu, etykieta i usunięcie wolne; reszta otwiera ekran zakupu (027) */}
+        <BlokadaFunkcji {...blokada('zakwas')}>
         <StarterPeakActivityCard
           phaseResult={phaseResult}
           peakPrediction={peakPrediction}
@@ -364,6 +367,7 @@ export default function ZakwasScreen() {
           safetyResult={safetyResult}
           onReset={handleReset}
         />
+        </BlokadaFunkcji>
 
         {/* Modal: Edit Starter Profile */}
         <EditStarterModal

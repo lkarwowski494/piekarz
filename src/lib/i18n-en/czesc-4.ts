@@ -7,6 +7,7 @@ export const EN_4: Record<string, string> = {
   'Kup dostęp dożywotni': 'Buy lifetime access',
   'Pierwsze {dni} dni bezpłatnie, potem {cena}': 'First {dni} days free, then {cena}',
   'Wypróbuj {dni} dni': 'Try {dni} days',
+  'Odblokuj pełny dostęp': 'Unlock full access',
   'Odblokuj kalkulator, zakwas, Stolnicę, harmonogram i Doktora Chleba. Historia wypieków i Twoje dane są dostępne bez zakupu.':
     'Unlock the calculator, starter, Workbench, schedule and Bread Doctor. Your bake history and your data stay available without a purchase.',
 };

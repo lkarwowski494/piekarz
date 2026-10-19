@@ -28,10 +28,15 @@ import {
   DiagnosticPreset,
 } from '../../src/components/doktor/SymptomSelectorSection';
 import { KitchenTestsGuideSection } from '../../src/components/doktor/KitchenTestsGuideSection';
+import { useAppAccess } from '../../src/lib/app-access';
+import { PaywallModal } from '../../src/components/PaywallModal';
+import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
+  // Bez uprawnienia Doktor i Akademia otwierają ekran zakupu [M1-audytor-generalny-027]
+  const { blokada, chron, isPaywallVisible, setPaywallVisible, subscribe, restorePurchases } = useAppAccess();
   const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({
     crumbHasHugeTopHolesWithDenseBottom: true, // Default initial example
   });
@@ -102,7 +107,7 @@ export default function DoctorScreen() {
             testID="open-academy-btn"
             hitSlop={sharedCraftTokens.hitSlopStandard}
             style={styles.academyHeaderPill}
-            onPress={() => setIsAcademyOpen(true)}
+            onPress={chron('doktor', () => setIsAcademyOpen(true))}
             accessibilityLabel={t('Akademia Piekarza')}
           >
             <Text style={styles.academyHeaderPillText}>🎓 {t('Akademia')}</Text>
@@ -110,6 +115,7 @@ export default function DoctorScreen() {
         }
       />
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+        <BlokadaFunkcji {...blokada('doktor')}>
         {/* Bread Academy Promotion Banner */}
         <Pressable
           testID="open-academy-banner"
@@ -157,6 +163,14 @@ export default function DoctorScreen() {
 
         {/* Interactive Kitchen Tests Guide (Poke Test, Windowpane) */}
         <KitchenTestsGuideSection />
+        </BlokadaFunkcji>
+
+        <PaywallModal
+          visible={isPaywallVisible}
+          onClose={() => setPaywallVisible(false)}
+          onSubscribe={subscribe}
+          onRestore={restorePurchases}
+        />
 
         {/* Modal: Bread Academy (SCI, BIB, TRE) */}
         <BreadAcademyModal

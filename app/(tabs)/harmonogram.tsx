@@ -18,6 +18,7 @@ import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
 import { useUnitSystem } from '../../src/lib/unit-converter';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
+import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../src/components/harmonogram/SleepGuardBanner';
 import { ScheduleSummaryCard } from '../../src/components/harmonogram/ScheduleSummaryCard';
@@ -57,7 +58,7 @@ export default function HarmonogramScreen() {
 
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
-    access,
+    blokada,
     isPaywallVisible,
     setPaywallVisible,
     requireActionAccess,
@@ -156,7 +157,8 @@ export default function HarmonogramScreen() {
         testID="harmonogram-header"
       />
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        {/* Target Ready Selector Card */}
+        {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027] */}
+        <BlokadaFunkcji {...blokada('harmonogram')}>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={setTargetDayOffset}
@@ -205,6 +207,7 @@ export default function HarmonogramScreen() {
           formatTime={formatTime}
           formatDayBadge={formatDayBadge}
         />
+        </BlokadaFunkcji>
 
         {/* Apps4Craft Pass Paywall Modal */}
         <PaywallModal

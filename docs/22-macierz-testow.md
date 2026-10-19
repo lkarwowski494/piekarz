@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 467 | 467 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 253 | 253 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 88 | 88 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 468 | 468 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 254 | 254 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 90 | 90 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **846** | Pokrytych: **846** | Brakujących: **0**
+Łącznie elementów: **850** | Pokrytych: **850** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -83,6 +83,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Prawidłowe wykonanie:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Czego unikać (typowe błędy):` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Złota rada rzemieślnika:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Odblokuj pełny dostęp` | `src/components/BlokadaFunkcji.tsx` | ✅ | src/__tests__/bramki-ekranow.test.tsx |
 | `TEKST` | `Strata wypiekowa i wilgotność miękiszu` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Strata Piecowa` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
 | `TEKST` | `Szacowany ubytek masy` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx |
 
-*(... i 546 kolejnych elementów w pełnym wykazie)*
+*(... i 550 kolejnych elementów w pełnym wykazie)*

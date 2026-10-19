@@ -38,6 +38,7 @@ import {
 } from '../../src/lib/recipe-navigation';
 import { PrefermentType } from '../../src/core/preferments';
 import { useAppAccess } from '../../src/lib/app-access';
+import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { DoMiskiScaleCard } from '../../src/components/calculator/DoMiskiScaleCard';
 import { ArtisanAccordionPro } from '../../src/components/calculator/ArtisanAccordionPro';
 import { SaveRecipeModal } from '../../src/components/calculator/SaveRecipeModal';
@@ -62,20 +63,11 @@ type CalculationMode = 'loaves' | 'flour';
 export default function CalculatorScreen() {
   const router = useRouter();
 
-  // Apps4Craft Monetization & Access (Cheaper than espresso)
-  const {
-    access,
-    isPaywallVisible,
-    setPaywallVisible,
-    requireActionAccess,
-    subscribe,
-    restorePurchases,
-  } = useAppAccess();
+  // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
+  const { chron, blokada, isPaywallVisible, setPaywallVisible, requireActionAccess, subscribe, restorePurchases } = useAppAccess();
 
-  // Progressive Disclosure: Artisan Accordion State
   const [isArtisanAccordionOpen, setIsArtisanAccordionOpen] = useState<boolean>(false);
 
-  // Mode: Bochenki (loaves) vs Masa mąki (flour)
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
 
   // Loaves mode parameters
@@ -384,7 +376,7 @@ export default function CalculatorScreen() {
           targetDdt={targetDdt}
         />
 
-        {/* Progressive Disclosure Level 1: 1-Tap Scale Card (< 30s to bowl) */}
+        <BlokadaFunkcji {...blokada('kalkulator')}>
         <DoMiskiScaleCard
           calculations={calculations}
           recipeName={recipeName}
@@ -405,7 +397,6 @@ export default function CalculatorScreen() {
           onLoafWeightGramsChange={setLoafWeightGrams}
         />
 
-        {/* Progressive Disclosure Level 2: Artisan Collapsible Drawer */}
         <ArtisanAccordionPro
           isOpen={isArtisanAccordionOpen}
           onToggle={() => setIsArtisanAccordionOpen((prev) => !prev)}
@@ -437,6 +428,7 @@ export default function CalculatorScreen() {
           selectedBakeLossPresetId={selectedBakeLossPresetId}
           onSelectBakeLossPreset={handleSelectBakeLossPreset}
         />
+        </BlokadaFunkcji>
 
         {/* Master & Custom Recipes Selector */}
         <FormulaPresetSelector
@@ -445,14 +437,14 @@ export default function CalculatorScreen() {
           masterCategoryFilter={masterCategoryFilter}
           onCategoryFilterChange={setMasterCategoryFilter}
           selectedPresetId={selectedPresetId}
-          onSelectMasterPreset={handleSelectMasterPreset}
+          onSelectMasterPreset={(id) => chron('kalkulator', () => handleSelectMasterPreset(id))()}
           currentMasterPreset={currentMasterPreset}
           customRecipes={customRecipes}
           onSelectCustomRecipe={handleSelectCustomRecipe}
           onDeleteCustomRecipe={handleDeleteCustomRecipe}
-          onOpenVolumeConverter={() => setIsVolumeModalOpen(true)}
-          onOpenImportRecipe={() => setIsImportModalOpen(true)}
-          onOpenScanQr={() => setIsScannerOpen(true)}
+          onOpenVolumeConverter={chron('kalkulator', () => setIsVolumeModalOpen(true))}
+          onOpenImportRecipe={chron('import', () => setIsImportModalOpen(true))}
+          onOpenScanQr={chron('import', () => setIsScannerOpen(true))}
           onPrintPdf={handlePrintRecipePdf}
           unitSystem={unitSystem}
         />
@@ -473,14 +465,14 @@ export default function CalculatorScreen() {
           }
           onCloneRecipe={handleCloneAsCustomRecipe}
           onExportJson={() => executeExportRecipeJson(currentRecipeForShare as any)}
-          onShareQr={() => setIsShareQrOpen(true)}
+          onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
           onPrintPdf={handlePrintRecipePdf}
-          onImportJson={() => setIsImportModalOpen(true)}
-          onOpenInventory={() => setIsInventoryOpen(true)}
-          onSaveCustomRecipe={() => {
+          onImportJson={chron('import', () => setIsImportModalOpen(true))}
+          onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
+          onSaveCustomRecipe={chron('receptury', () => {
             setSaveRecipeNameInput(recipeName);
             setIsSaveModalOpen(true);
-          }}
+          })}
           onStartBake={handleStartBakeOnWorkbench}
         />
 
