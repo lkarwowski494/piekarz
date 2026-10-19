@@ -5,7 +5,7 @@
 |---|---|---|---|---|---|
 | 01 Odkrywanie | build | zakończona 2026-10-19 | gałąź `claude/01-odkrywanie-2026-10-19-279a7f` (E3: 3df4758; E4: commit z tym plikiem) | `docs/brd/`, `docs/zalozenia.md`, `docs/decyzje.md` (D-035…D-037), `tests/wektory/brd.json` | OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`; sekcja „Stan projektu” w `CLAUDE.md` dodana za zgodą właściciela (f140e45), pola [DO USTALENIA]: liczba testerów, standard marki |
 | 02 Monetyzacja | build, sesja 2 | zakończona 2026-10-19 | gałąź `claude/wizardly-sammet-81a68b` (E0 f5a78cb, E1 cbba5aa, E2 47a5aac, E3 1f211bb; przekazanie: commit z tym wpisem) | `docs/monetyzacja.md`, `docs/monetyzacja/rachunek.mjs`, `rachunek.json`, `rachunek-us.json`, `docs/decyzje.md` (D-038, D-039), `docs/zalozenia.md` (ZAL-038, -042, -044, -049, -050) | OP-M01 (Paid Apps, Small Business Program: właściciel), OP-M03 (pola `expo-iap`: 05/08) |
-| 03 Zakres | build | następna | — | — | — |
+| 03 Zakres | build | zakończona 2026-10-20 | gałąź `claude/03-zakres-2026-10-19-7a0b8a` (E0 20d8083, E1 d4cebc5, E2 fff601c, b5cc7ee, E3 ffa162d, D-044 3b9da9d; scalenia roli 01: 36d0d47, b5d9b5d; przekazanie: commit z tym wpisem) | `docs/scope-contract.md`, `docs/zakres-wplyw-na-plan.md`, `docs/decyzje.md` (D-040, D-041, D-043, D-044), `docs/zalozenia.md` (ZAL-045), archiwum `docs/archiwum/scope-contract-2.0.md`, `docs/archiwum/scope-contract-2026-10-20-robocze.md` | ER-49 (rola 01); wyniki intuicyjności (rola 04) |
 
 ## Definicja ukończenia roli 01 (build), z dowodem
 
@@ -51,5 +51,27 @@ Punkt po punkcie z dowodem: `docs/monetyzacja.md`, sekcja „Definicja ukończen
   - **Właściciel, App Store Connect:** umowa Paid Apps, dane podatkowe i bank, zapis do Small Business Program (OP-M01); grupa „Piekarz Pro” z dwiema subskrypcjami i Non-Consumable o ID z `src/lib/platnosci/konfiguracja.ts`; ceny z D-038 (pozostałe kraje: `wariant-a-wlasciciel.json`); oferta wprowadzająca Free Trial 2 tygodnie na obu subskrypcjach we wszystkich krajach; Family Sharing na trzech produktach (nieodwracalne); opis sklepu i zrzuty mówią o subskrypcji z próbą; po ustawieniu cen wpis `wplyw_z_asc` w `rachunek.json`; konto testowe sandboksu.
 - Otwarte decyzje: OP-M01 (właściciel), OP-M03 (05/08). Ryzyko przy scalaniu: numery D-038, D-039 mogą zderzyć się z wpisami partii 3 (`docs/DECISIONS.md` na gałęzi p3); przy konflikcie przenumerować jawnie.
 
+## Rola 03 Zakres (build): definicja ukończenia
+Punkt po punkcie z dowodem: `docs/scope-contract.md`, sekcja „Definicja ukończenia (build), z dowodem”. `zakres.mjs docs/scope-contract.md --brd docs/brd --apetyt 60`: 44 funkcje (MVP 36, PÓŹNIEJ 6, TEST 1, NIE 1), 55 BR, 0 błędów, 5 uwag (MVP ponad 60 h, przyjęte w D-043), kod 0 (2026-10-20). Nie sprawdzone: `npm test` (worktree bez `node_modules`; zmiany tylko w `docs/`; 12 wierszy KL czytanych przez `tests/kontrakt-lista-odciec.test.ts` zachowane), przejście poznawcze na prototypie (rola 04).
+
+### Przekazanie do następnej roli
+- Zakończono: 03-zakres, tryb build, gałąź `claude/03-zakres-2026-10-19-7a0b8a` (od eb37122 roli 02, z gałęzią roli 01 do c5be86c); artefakty: `docs/scope-contract.md` (kontrakt, wariant B), `docs/zakres-wplyw-na-plan.md` (ID zadań M1), `docs/decyzje.md` (D-040 apetyt 60 h, D-041, D-043 zakres, D-044 jednostki), `docs/zalozenia.md` (ZAL-045 podważone w części).
+- Następny krok ścieżki: **04-studio-projektowe Studio Projektowe (UX, marka, przepływy)**, tryb `build`; nowa sesja w worktree z gałęzi `claude/03-zakres-2026-10-19-7a0b8a`; opus, wysiłek high.
+- Polecenie:
+  - `audit/M1-2026-10-19/M1-2026-10-19/prompty/04-studio-projektowe-build.md` (brief: `prompty/sztafeta-01-04-start.md`, sekcja 04)
+  - `node tools/assemble.mjs 04-studio-projektowe --tryb build`
+  - `.\Get-Prompt.ps1 04-studio-projektowe -Tryb build -CopyToClipboard`
+- Paczka wejściowa:
+  - **04:** `docs/scope-contract.md` — tabela „Zakres” (kolumna „Intuicyjność”: kryteria do przejścia poznawczego; wynik wraca jako `wynik: <pozytywny|negatywny>, <data, plik>` przez bramkę „Zmiany zakresu”), „NIE robimy” i funkcje PÓŹNIEJ (nie projektować: F-30, F-63, F-45, F-08, F-50, F-70, F-53, F-46…F-49, F-52; F-15 tylko prototyp do testu); przepływy PR-01…PR-18 bez PR-08 z `docs/brd/wymagania.md`; start F-68 (BR-START-001, kształt H-08), Kalkulator ≤ 4 akcje główne (DEC-09 a, zadanie 057), Akademia jako „po co ten krok” przy kroku (F-44), pętla opinii F-69 (OG-07), miary USA w każdym ekranie (F-38, zadanie 096, D-044); przepływ monetyzacji z `docs/monetyzacja.md`.
+  - **05:** dane, praca w tle i uprawnienia (sekcja „Kolejność i przekazanie” kontraktu); aparat znika z 1.0; OP-41 (kopia urządzenia iCloud, D-043), OP-42, OP-43.
+  - **06:** treść w F-26, F-43, F-44, F-60, F-64; reguły krytyczne RD-21, RD-22, RD-23; plan aktualizacji co kwartał (3.1.2(a), D-043); OP-34, OP-36, OP-37, OP-39, OP-40, OP-46.
+  - **07:** BR z kolumny „Wymagania” wierszy MVP (scenariusze w `docs/brd/wymagania-*.md`), blokery z `docs/brd/README.md`, kryteria intuicyjności do testu roli 04.
+  - **08:** kolejność budowy z wyniku skryptu; zadania kodu w `docs/zakres-wplyw-na-plan.md` (ukrycie wejść F-30, F-08, F-50, F-45; usunięcie pola lodu; F-68, F-69, BR-HARMO-005, BR-ETAP-004; pełne miary USA).
+  - **02:** podział bez zmian; dopisać F-68 (nawigacja) i F-69 do „zawsze, bez zakupu”; QR, druk i spiżarnia poza płatną częścią 1.0.
+  - **01:** ER-49 (BR-UST-001: wejście w °F i oz, eksporty, powiadomienia, zakres 68–79 °F, domyślne jednostki według regionu z D-044).
+  - **M1:** `docs/zakres-wplyw-na-plan.md` — przestawienie planu (zmienić: 026, 029, 035, 049, 066, 072, 078, 080, 081, 082, 083, 090, 093, 095, 096; nowe zadania dla 08).
+- Otwarte decyzje: w zakresie brak po stronie właściciela; ER-49 (rola 01); wyniki testu pierwszego użycia (rola 04, bramka zmian).
+- Ryzyko przy scalaniu: numery D-040…D-044 mogą zderzyć się z wpisami partii 3 w `docs/DECISIONS.md` na gałęzi p3; przy konflikcie przenumerować jawnie. D-043 zmienia D-029, DEC-05 a i D-034 pyt. 6a, 7b (QR, spiżarnia, druk → PÓŹNIEJ).
+
 ## Następny krok
-03-zakres, tryb build: polecenie `prompty/03-zakres-build.md`, baza: gałąź `claude/wizardly-sammet-81a68b`, paczka wejściowa jak wyżej.
+04-studio-projektowe, tryb build: polecenie `prompty/04-studio-projektowe-build.md`, baza: gałąź `claude/03-zakres-2026-10-19-7a0b8a`, paczka wejściowa jak wyżej.
