@@ -4,7 +4,8 @@
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
 | 01 Odkrywanie | build | zakończona 2026-10-19 | gałąź `claude/01-odkrywanie-2026-10-19-279a7f` (E3: 3df4758; E4: commit z tym plikiem) | `docs/brd/`, `docs/zalozenia.md`, `docs/decyzje.md` (D-035…D-037), `tests/wektory/brd.json` | OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`; sekcja „Stan projektu” w `CLAUDE.md` dodana za zgodą właściciela (f140e45), pola [DO USTALENIA]: liczba testerów, standard marki |
-| 02 Monetyzacja | build, sesja 2 | następna | — | — | — |
+| 02 Monetyzacja | build, sesja 2 | zakończona 2026-10-19 | gałąź `claude/wizardly-sammet-81a68b` (E0 f5a78cb, E1 cbba5aa, E2 47a5aac, E3 1f211bb; przekazanie: commit z tym wpisem) | `docs/monetyzacja.md`, `docs/monetyzacja/rachunek.mjs`, `rachunek.json`, `rachunek-us.json`, `docs/decyzje.md` (D-038, D-039), `docs/zalozenia.md` (ZAL-038, -042, -044, -049, -050) | OP-M01 (Paid Apps, Small Business Program: właściciel), OP-M03 (pola `expo-iap`: 05/08) |
+| 03 Zakres | build | następna | — | — | — |
 
 ## Definicja ukończenia roli 01 (build), z dowodem
 
@@ -31,5 +32,24 @@
 - Dla właściciela: (1) uzupełnić w `CLAUDE.md` liczbę testerów TestFlight i standard marki; (2) test na urządzeniu: sygnał kroku przy ekranie zablokowanym 30 min i powrót do trwającego wypieku po zamknięciu aplikacji (NFR-CZAS-001, BR-ETAP-005); (3) opcjonalnie 2–3 rozmowy z piekarzami jako sprawdzenie ZAL (D-036); (4) przy scalaniu: numery D-035…D-037 mogą się zderzyć z wpisami partii 3 w `docs/DECISIONS.md`.
 - Otwarte decyzje: OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`, każdy z rolą, która przyniesie opcje.
 
+## Rola 02 Monetyzacja (build, sesja 2): definicja ukończenia
+Punkt po punkcie z dowodem: `docs/monetyzacja.md`, sekcja „Definicja ukończenia”. `rachunek.mjs` z kodem 0 dla `rachunek.json` (PL) i `rachunek-us.json` (US). Nie sprawdzone: `npm test` (worktree bez `node_modules`, zmiana tylko w `docs/`), testy na urządzeniu (krok właściciela).
+
+### Przekazanie do następnej roli
+- Zakończono: 02-monetyzacja, tryb build, sesja 2 (model i kontrakt płatności), gałąź `claude/wizardly-sammet-81a68b` (od 0eefab1 roli 01); artefakty: `docs/monetyzacja.md`, `docs/monetyzacja/rachunek.mjs`, `docs/monetyzacja/rachunek.json`, `docs/monetyzacja/rachunek-us.json`, `docs/decyzje.md` (D-038, D-039), `docs/zalozenia.md`.
+- **Model jest stały (D-038).** Żadna rola ani audyt nie daje opcji ani rekomendacji zmiany cen (0,99 / 6,99 / 14,99 USD; 4,99 / 29,99 / 79,99 zł), modelu, 14 dni próby ani podziału „po próbie tylko historia i dane”. Ryzyka tylko do pomiaru w eksperymencie. *Dlaczego:* właściciel zatwierdza rekomendacje hurtowo.
+- Następny krok ścieżki: **03-zakres Zakres i kontrakt MVP**, tryb `build`; nowa sesja w worktree z gałęzi `claude/wizardly-sammet-81a68b`; opus, wysiłek high.
+  - Polecenie: `audit/M1-2026-10-19/M1-2026-10-19/prompty/03-zakres-build.md` (złożone `node tools/assemble.mjs 03-zakres --tryb build`, `.\Get-Prompt.ps1 03-zakres -Tryb build -CopyToClipboard` w repo prompts); brief: `prompty/sztafeta-01-04-start.md`, sekcja 03.
+- Paczka wejściowa:
+  - **03:** tabela „Wartość funkcji” (50 BR, WTP z poziomem dowodu); WTP-X: BR-KALK-008 (masa lodu), BR-ETAP-003 (ocena gotowości ciasta); podział darmowe/płatne = D-038 (bez zmian); warunek 3.1.2(a): plan regularnych aktualizacji z treścią (zakres i rytm ustala 03); BRD i H od roli 01 jak wyżej.
+  - **04:** sekcja „Kontrakt płatności”: tabela przepływów (co widzi użytkownik bez dostępu), 8 ujawnień, zakazane wzorce, uprzedzenie 3 dni i stan „tylko historia” (PR-16), oferta przy pierwszym użyciu funkcji (PR-12).
+  - **05:** „Szkic aneksu do ADR-007” (licencja MIT, Family Sharing, wymagania danych z D-039, prywatność), OP-M03.
+  - **07:** wektory dostępu, lista „Tylko na telefonie”, kryterium eksperymentu (≥ 7 nowych płacących albo ≥ 42 USD/mies. na iOS w dniach 30–90).
+  - **08:** kontrakt i `src/lib/platnosci/` jako wzorzec; rozbieżność: import tylko z dostępem (`app/(tabs)/index.tsx:497`) wobec D-039; dokończenie wypieku i uprzedzenie 3 dni do sprawdzenia w kodzie.
+  - **01 (errata):** OP-33 rozstrzygnięte (ZAL-038), OP-47 (3 dni) i OP-48 (wypiek do końca) rozstrzygnięte w D-039 — do wpisania w `docs/brd/README.md` i BR-ZAK-004.
+  - **M1 (plan napraw):** `eksperyment.kryterium_do_przeliczenia` → kryterium z `docs/monetyzacja.md` („Kryterium eksperymentu”); zadania M1-audytor-generalny-009, -026, -027 dotyka D-039.
+  - **Właściciel, App Store Connect:** umowa Paid Apps, dane podatkowe i bank, zapis do Small Business Program (OP-M01); grupa „Piekarz Pro” z dwiema subskrypcjami i Non-Consumable o ID z `src/lib/platnosci/konfiguracja.ts`; ceny z D-038 (pozostałe kraje: `wariant-a-wlasciciel.json`); oferta wprowadzająca Free Trial 2 tygodnie na obu subskrypcjach we wszystkich krajach; Family Sharing na trzech produktach (nieodwracalne); opis sklepu i zrzuty mówią o subskrypcji z próbą; po ustawieniu cen wpis `wplyw_z_asc` w `rachunek.json`; konto testowe sandboksu.
+- Otwarte decyzje: OP-M01 (właściciel), OP-M03 (05/08). Ryzyko przy scalaniu: numery D-038, D-039 mogą zderzyć się z wpisami partii 3 (`docs/DECISIONS.md` na gałęzi p3); przy konflikcie przenumerować jawnie.
+
 ## Następny krok
-02-monetyzacja, tryb build, sesja 2: polecenie `prompty/02-monetyzacja-build-sesja2.md`, baza: gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, paczka wejściowa jak wyżej.
+03-zakres, tryb build: polecenie `prompty/03-zakres-build.md`, baza: gałąź `claude/wizardly-sammet-81a68b`, paczka wejściowa jak wyżej.
