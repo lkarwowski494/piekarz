@@ -261,8 +261,9 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   return { success: true, recipe: validStoredRecipe };
 }
 
+// Tylko schemat aplikacji: link w domenie WWW wysyłałby recepturę do adresu,
+// którego studio nie kontroluje (DEC-05 a, M1-audytor-generalny-028).
 export const RECIPE_SHARE_PROTOCOL = 'piekarz://recipe';
-export const RECIPE_SHARE_WEB_URL = 'https://piekarz.app/recipe';
 
 /**
  * Encodes string to Base64 in UTF-8 safely for Hermes, Node, and browser
@@ -295,12 +296,9 @@ export function base64ToUtf8(b64: string): string {
 }
 
 /**
- * Exports recipe into deep link (piekarz://recipe?v=1&d=<base64>) or web url
+ * Exports recipe into deep link (piekarz://recipe?v=1&d=<base64>)
  */
-export function encodeRecipeToShareUrl(
-  recipe: StoredRecipe | MasterRecipe,
-  useWebScheme = false
-): string {
+export function encodeRecipeToShareUrl(recipe: StoredRecipe | MasterRecipe): string {
   const jsonStr = exportRecipeToJson(recipe);
   let minified = jsonStr;
   try {
@@ -309,8 +307,7 @@ export function encodeRecipeToShareUrl(
     // fallback
   }
   const base64Str = utf8ToBase64(minified);
-  const base = useWebScheme ? RECIPE_SHARE_WEB_URL : RECIPE_SHARE_PROTOCOL;
-  return `${base}?v=1&d=${encodeURIComponent(base64Str)}`;
+  return `${RECIPE_SHARE_PROTOCOL}?v=1&d=${encodeURIComponent(base64Str)}`;
 }
 
 /**

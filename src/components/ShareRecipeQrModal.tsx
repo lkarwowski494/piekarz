@@ -39,7 +39,7 @@ export function ShareRecipeQrModal({
   onClose,
   recipe,
 }: ShareRecipeQrModalProps) {
-  const [copiedType, setCopiedType] = useState<'app' | 'web' | null>(null);
+  const [copiedType, setCopiedType] = useState<'app' | null>(null);
   const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
@@ -54,8 +54,7 @@ export function ShareRecipeQrModal({
 
   const isMaster = 'namePl' in recipe;
   const name = isMaster ? recipe.namePl : recipe.name;
-  const appUrl = encodeRecipeToShareUrl(recipe, false);
-  const webUrl = encodeRecipeToShareUrl(recipe, true);
+  const appUrl = encodeRecipeToShareUrl(recipe);
 
   const handleCopyAppUrl = async () => {
     try {
@@ -69,23 +68,10 @@ export function ShareRecipeQrModal({
     }
   };
 
-  const handleCopyWebUrl = async () => {
-    try {
-      await Clipboard.setStringAsync(webUrl);
-      setCopiedType('web');
-      Alert.alert(t('Skopiowano link'), t('Link WWW został skopiowany do schowka.'));
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(() => setCopiedType(null), 2500);
-    } catch {
-      Alert.alert(t('Błąd'), t('Nie udało się skopiować linku.'));
-    }
-  };
-
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `${name} — ${t('Receptura piekarska z aplikacji Piekarz')}:\n${webUrl}`,
-        url: webUrl,
+        message: `${name} — ${t('Receptura piekarska z aplikacji Piekarz')}:\n${appUrl}`,
         title: name,
       });
     } catch {
@@ -150,18 +136,6 @@ export function ShareRecipeQrModal({
               >
                 <Text style={styles.primaryBtnText}>
                   {copiedType === 'app' ? `✓ ${t('Skopiowano link!')}` : `🔗 ${t('Kopiuj link piekarz://')}`}
-                </Text>
-              </Pressable>
-
-              <Pressable
-                testID="copy-web-link-btn"
-                style={styles.secondaryBtn}
-                onPress={handleCopyWebUrl}
-                accessibilityRole="button"
-                accessibilityLabel={t('Kopiuj link WWW')}
-              >
-                <Text style={styles.secondaryBtnText}>
-                  🌐 {t('Kopiuj link WWW')}
                 </Text>
               </Pressable>
 

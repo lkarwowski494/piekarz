@@ -11,7 +11,6 @@ import {
   encodeRecipeToShareUrl,
   decodeRecipeFromShareUrl,
   RECIPE_SHARE_PROTOCOL,
-  RECIPE_SHARE_WEB_URL,
   PIEKARZ_RECIPE_SCHEMA_V1,
 } from '../recipe-sharing';
 import { MASTER_RECIPES } from '../../recipes/presets';
@@ -273,22 +272,15 @@ describe('Recipe Sharing & JSON Serialization', () => {
   describe('Deep Link Sharing (piekarz://recipe)', () => {
     it('encodes a MasterRecipe into deep link URL', () => {
       const master = MASTER_RECIPES[0];
-      const url = encodeRecipeToShareUrl(master, false);
+      const url = encodeRecipeToShareUrl(master);
 
       expect(url.startsWith(`${RECIPE_SHARE_PROTOCOL}?v=1&d=`)).toBe(true);
       expect(url.length).toBeGreaterThan(50);
     });
 
-    it('encodes into universal web link when requested', () => {
-      const master = MASTER_RECIPES[1];
-      const webUrl = encodeRecipeToShareUrl(master, true);
-
-      expect(webUrl.startsWith(`${RECIPE_SHARE_WEB_URL}?v=1&d=`)).toBe(true);
-    });
-
     it('round-trips encode and decode from deep link correctly', () => {
       const master = MASTER_RECIPES[2];
-      const url = encodeRecipeToShareUrl(master, false);
+      const url = encodeRecipeToShareUrl(master);
       const decoded = decodeRecipeFromShareUrl(url);
 
       expect(decoded.success).toBe(true);
@@ -299,10 +291,10 @@ describe('Recipe Sharing & JSON Serialization', () => {
       }
     });
 
-    it('round-trips encode and decode from web link correctly', () => {
+    it('still decodes a web link sent by an older version (M1-audytor-generalny-028)', () => {
       const master = MASTER_RECIPES[3];
-      const url = encodeRecipeToShareUrl(master, true);
-      const decoded = decodeRecipeFromShareUrl(url);
+      const payload = encodeRecipeToShareUrl(master).split('?')[1];
+      const decoded = decodeRecipeFromShareUrl(`https://piekarz.app/recipe?${payload}`);
 
       expect(decoded.success).toBe(true);
       if (decoded.success) {

@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 479 | 479 | **100.0%** | ✅ POKRYTE |
+| **UI** | 36 | 36 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 478 | 478 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 244 | 244 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 99 | 99 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 98 | 98 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **864** | Pokrytych: **864** | Brakujących: **0**
+Łącznie elementów: **861** | Pokrytych: **861** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `APPS4CRAFT STUDIO · 100% OFFLINE` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Witaj w Piekarzu` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 564 kolejnych elementów w pełnym wykazie)*
+*(... i 561 kolejnych elementów w pełnym wykazie)*

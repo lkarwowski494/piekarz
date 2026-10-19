@@ -69,14 +69,8 @@ describe('ShareRecipeQrModal', () => {
       expect.stringContaining('piekarz://recipe?v=1&d=')
     );
 
-    // Copy web link button
-    const copyWebBtn = root.findByProps({ testID: 'copy-web-link-btn' });
-    await act(async () => {
-      copyWebBtn.props.onPress();
-    });
-    expect(Clipboard.setStringAsync).toHaveBeenCalledWith(
-      expect.stringContaining('https://piekarz.app/recipe?v=1&d=')
-    );
+    // No web link to a domain the studio does not control (M1-audytor-generalny-028)
+    expect(root.findAll((n) => n.props.testID === 'copy-web-link-btn')).toHaveLength(0);
 
     // Close button
     const closeBtn = root.findByProps({ testID: 'close-share-qr-btn' });
