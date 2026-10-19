@@ -215,21 +215,20 @@ export default function ZakwasScreen() {
     }));
   };
 
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]
   const handleDeleteCurrentStarter = () => {
-    requireActionAccess(() => {
-      if (startersList.length <= 1) {
-        Alert.alert(t('Nie można usunąć'), t('Musisz posiadać co najmniej jeden profil zakwasu.'));
-        return;
+    if (startersList.length <= 1) {
+      Alert.alert(t('Nie można usunąć'), t('Musisz posiadać co najmniej jeden profil zakwasu.'));
+      return;
+    }
+    confirmDeleteStarter(starter.name, guardSave(async () => {
+      await deleteStarter(starter.id);
+      setIsEditModalOpen(false);
+      const remaining = startersList.filter((s) => s.id !== starter.id);
+      if (remaining.length > 0) {
+        await loadStarterData(remaining[0].id);
       }
-      confirmDeleteStarter(starter.name, guardSave(async () => {
-        await deleteStarter(starter.id);
-        setIsEditModalOpen(false);
-        const remaining = startersList.filter((s) => s.id !== starter.id);
-        if (remaining.length > 0) {
-          await loadStarterData(remaining[0].id);
-        }
-      }));
-    });
+    }));
   };
 
   const handleCopyFeeding = async () => {

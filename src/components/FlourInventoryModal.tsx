@@ -91,13 +91,12 @@ export function FlourInventoryModal({
     }));
   };
 
-  const handleDeleteItem = async (id: string) => {
-    requireActionAccess(guardSave(async () => {
-      await deleteFlourInventoryItem(id);
-      await loadData();
-      onInventoryUpdated?.();
-    }));
-  };
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]
+  const handleDeleteItem = guardSave(async (id: string) => {
+    await deleteFlourInventoryItem(id);
+    await loadData();
+    onInventoryUpdated?.();
+  });
 
   const handleAddNewFlour = async () => {
     requireActionAccess(guardSave(async () => {

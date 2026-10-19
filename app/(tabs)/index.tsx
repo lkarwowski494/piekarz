@@ -268,16 +268,15 @@ export default function CalculatorScreen() {
     applyFormula(recipe.id, recipe.name, recipe.formula, recipe.targetDDT);
   };
 
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]
   const handleDeleteCustomRecipe = (recipe: StoredRecipe) => {
-    requireActionAccess(() => {
-      confirmDeleteRecipe(recipe.name, guardSave(async () => {
-        await deleteRecipe(recipe.id);
-        if (selectedPresetId === recipe.id) {
-          handleSelectMasterPreset(MASTER_RECIPES[0].id);
-        }
-        await loadRecipesFromStore();
-      }));
-    });
+    confirmDeleteRecipe(recipe.name, guardSave(async () => {
+      await deleteRecipe(recipe.id);
+      if (selectedPresetId === recipe.id) {
+        handleSelectMasterPreset(MASTER_RECIPES[0].id);
+      }
+      await loadRecipesFromStore();
+    }));
   };
 
   const handleCloneAsCustomRecipe = async () => {
