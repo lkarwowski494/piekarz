@@ -34,6 +34,17 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
   }, []);
 
   if (state === 'ok') return <>{children}</>;
+  // Baza nowsza niż aplikacja: dane do przeglądania, komunikat nad aplikacją [M1-audytor-generalny-061]
+  if (state === 'newer') {
+    return (
+      <View style={styles.screen}>
+        <View style={styles.notice} accessibilityRole="alert" testID="storage-newer-notice">
+          <Text style={styles.noticeText}>{t('Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.')}</Text>
+        </View>
+        {children}
+      </View>
+    );
+  }
   const rescue = getRescueFile();
 
   const handleRetry = async () => {
@@ -86,6 +97,19 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: theme.colors.background,
+  },
+  notice: {
+    borderColor: theme.colors.accent,
+    borderWidth: 1,
+    borderRadius: theme.radius.md,
+    margin: theme.spacing.md,
+    marginTop: theme.spacing.xl,
+    padding: theme.spacing.md,
+  },
+  noticeText: {
+    color: theme.colors.textPrimary,
+    fontSize: 16,
+    lineHeight: 22,
   },
   content: {
     flexGrow: 1,

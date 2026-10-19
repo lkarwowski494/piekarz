@@ -3,6 +3,7 @@ import * as Sharing from 'expo-sharing';
 import { t } from './i18n';
 import { StoredRecipe, StoredStarter, StoredBakeLog } from '../data/db';
 import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow } from '../data/row-parsers';
+import { assertWritable } from '../data/storage-status';
 
 export const SCHEMA_VERSION = 1;
 export const AUTO_DIR = 'Backup/';
@@ -99,6 +100,8 @@ async function writeBackupFile(
   re: RegExp,
   state: PiekarzBackupData
 ): Promise<string> {
+  // Baza nowsza niż aplikacja: kopia ze starszego odczytu nie wypiera z puli kopii nowszych danych [M1-audytor-generalny-061]
+  assertWritable();
   if (!FileSystem.documentDirectory) {
     throw new Error('Brak katalogu dokumentów aplikacji');
   }

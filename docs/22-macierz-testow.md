@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 32 | 32 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 537 | 537 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 276 | 276 | **100.0%** | ✅ POKRYTE |
+| **UI** | 31 | 31 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 538 | 538 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 279 | 279 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 98 | 98 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **948** | Pokrytych: **948** | Brakujących: **0**
+Łącznie elementów: **951** | Pokrytych: **951** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wklej kod JSON udostępniony przez innego piekarza` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wklej ze schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 648 kolejnych elementów w pełnym wykazie)*
+*(... i 651 kolejnych elementów w pełnym wykazie)*

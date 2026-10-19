@@ -6,6 +6,7 @@
 
 import type { Purchase } from 'expo-iap';
 import { getAppSetting, setAppSetting } from '../../data/settings-store';
+import { StorageReadOnlyError } from '../../data/storage-status';
 import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec } from './dostep';
 import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz } from './sklep';
@@ -45,7 +46,14 @@ async function wczytajPamiec(): Promise<Pamiec> {
 /** Decyzja z odczytu; udany odczyt sklepu nadpisuje pamięć (także pustą po zwrocie). */
 export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): Promise<Decyzja> {
   const d = decyzja(odczyt, await wczytajPamiec(), teraz, ODBLOKOWUJA);
-  if (odczyt.zrodlo === 'sklep') await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
+  if (odczyt.zrodlo === 'sklep') {
+    try {
+      await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
+    } catch (e) {
+      // Baza nowsza niż aplikacja: decyzja działa w tej sesji bez zapisu pamięci [M1-audytor-generalny-061]
+      if (!(e instanceof StorageReadOnlyError)) throw e;
+    }
+  }
   ustaw({ decyzja: d, gotowe: true });
   return d;
 }

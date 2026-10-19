@@ -4,6 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { exportBackup, parseAndValidateBackup, safetyBackup } from '../../lib/backup';
 import { StorageWriteError } from '../../data/storage-status';
+import { saveErrorText } from '../../lib/save-guard';
 import { resyncNotifications } from '../../lib/notifications';
 import {
   getBakeLogs,
@@ -118,7 +119,7 @@ export function BackupAndDataSection() {
       setImportJsonText('');
     } catch (err: unknown) {
       if (err instanceof StorageWriteError) {
-        Alert.alert(t('Nie zapisano'), t('Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.'));
+        Alert.alert(t('Nie zapisano'), saveErrorText(err));
         return;
       }
       const msg = err instanceof Error ? err.message : t('Nie udało się zaimportować kopii');

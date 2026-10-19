@@ -10,7 +10,7 @@ import {
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import type { SessionStep } from '../core/bake-steps';
-import { markStorageUnavailable } from './storage-status';
+import { markStorageUnavailable, markStorageNewer } from './storage-status';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -222,6 +222,11 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
 ];
 
 export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
+  // Wersja przed czymkolwiek innym: bazy nowszej niż aplikacja nie zmienia nawet PRAGMA journal_mode [M1-audytor-generalny-061]
+  const known = Math.max(...SCHEMA_MIGRATIONS.map((m) => m.version));
+  const found = (await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;'))?.user_version ?? 0;
+  if (found > known) throw new NewerDatabaseError(found, known);
+
   await db.execAsync(`
     PRAGMA journal_mode = WAL;
     PRAGMA foreign_keys = ON;
@@ -234,8 +239,7 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
     );
   `);
 
-  const versionResult = await db.getFirstAsync<{ user_version: number }>('PRAGMA user_version;');
-  const currentVersion = versionResult?.user_version ?? 0;
+  const currentVersion = found;
 
   const pendingMigrations = SCHEMA_MIGRATIONS.filter((m) => m.version > currentVersion);
   if (pendingMigrations.length === 0) return;
@@ -261,6 +265,14 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
       await db.execAsync('ROLLBACK;').catch(() => {});
       throw new MigrationError(err, backupPath);
     }
+  }
+}
+
+/** Baza zapisana przez nowszą wersję aplikacji (user_version > najwyższa znana migracja). */
+export class NewerDatabaseError extends Error {
+  constructor(readonly dbVersion: number, readonly appVersion: number) {
+    super(`Database version ${dbVersion} is newer than the app (${appVersion})`);
+    this.name = 'NewerDatabaseError';
   }
 }
 
@@ -338,6 +350,12 @@ export async function initDatabase(): Promise<void> {
   try {
     await applySchemaMigrations(db);
   } catch (err: unknown) {
+    if (err instanceof NewerDatabaseError) {
+      // Tylko odczyt: SQLite odrzuca zapisy na tym połączeniu, warstwa magazynu rzuca StorageReadOnlyError
+      await db.execAsync('PRAGMA query_only = ON;');
+      markStorageNewer(err.dbVersion, err.appVersion);
+      return;
+    }
     // Błąd migracji albo kopii nie jest przemilczany: ekran błędu z kopią do udostępnienia [M1-audytor-generalny-004]
     markStorageUnavailable(err instanceof Error ? err.message : String(err), err instanceof MigrationError ? err.backupPath : null);
     return;

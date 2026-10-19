@@ -141,6 +141,9 @@ export const EN_3: Record<string, string> = {
   'Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.':
     'A copy of your data from before the update is saved on your phone. You can share it, for example save it to Files.',
   'Udostępnij kopię bazy': 'Share database copy',
+  // Baza nowsza niż aplikacja [M1-audytor-generalny-061]
+  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.':
+    'Your data was saved by a newer version of Crust. Update the app to keep saving. Until then you can only view it.',
   // Import z pominiętymi wierszami [M1-audytor-generalny-022]
   'Zaimportowano. Pominięto uszkodzone wpisy: {count}.': 'Imported. Skipped damaged entries: {count}.',
   // Baner pliku ratunkowego [M1-audytor-generalny-024]

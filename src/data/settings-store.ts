@@ -1,4 +1,5 @@
 import { getDb, memStore } from './sqlite-schema';
+import { assertWritable } from './storage-status';
 
 // ----------------------------------------------------------------------------
 // Bread School Lesson Progress (Z-084…090 / SCI)
@@ -21,6 +22,7 @@ export async function getCompletedLessons(): Promise<number[]> {
 }
 
 export async function toggleLessonProgress(levelId: number): Promise<boolean> {
+  assertWritable();
   const current = await getCompletedLessons();
   const isCurrentlyCompleted = current.includes(levelId);
 
@@ -80,6 +82,8 @@ export async function getAppSetting(key: string, defaultValue?: string): Promise
 }
 
 export async function setAppSetting(key: string, value: string): Promise<void> {
+  // Baza nowsza niż aplikacja: ustawienie odrzucone typowanym błędem [M1-audytor-generalny-061]
+  assertWritable();
   memStore.settings[key] = value;
   const db = await getDb();
   if (!db) return;
