@@ -32,3 +32,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Wyjątek od standardu „przeczytanego źródła” (zasada wspólna 7):** cytaty wytycznych i ceny w BRD pochodzą z odczytu innej roli tego samego dnia; tańsza kontrola zamiast żadnej: każdy OG wskazuje plik odczytu i datę, a rola 10 sprawdza brzmienie wytycznych przed wysłaniem do sklepu.
 - **Dlaczego:** właściciel uznał rynek i polityki za ustalone decyzjami DEC-01 d i D-033 tego dnia.
 - **Zależy od:** aktualności odczytów z 2026-10-19 (ceny zmienne: przegląd 2027-01-19).
+
+### [D-042] 2026-10-20 — Udany wypiek dla prośby o ocenę aplikacji: co najmniej 4★
+- **Rodzaj:** produktowa. **Słowa właściciela:** „op49 zgodnie z rekomendacja” (2026-10-20, przyrost ER-44 roli 01).
+- **Decyzja:** systemowa prośba o ocenę aplikacji (BR-OPIN-001) może pojawić się po wypieku ocenionym przez użytkownika na co najmniej 4★.
+- **Odrzucone:** każdy zakończony wypiek bez progu; tylko 5★.
+- **Dlaczego:** DEC-13 (a) planu napraw M1 mówi o „udanym bochenku”; system i tak pokazuje prośbę najwyżej trzy razy w roku (S-63), więc próg chroni przed prośbą po nieudanym wypieku.
+- **Zależy od:** nic. Numer D-042, bo D-038…D-041 zajęły role 02 i 03 na swoich gałęziach.
