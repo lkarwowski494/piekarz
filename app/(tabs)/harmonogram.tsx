@@ -17,7 +17,6 @@ import { stepsFromSchedule } from '../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
 import { useUnitSystem } from '../../src/lib/unit-converter';
 import { useAppAccess } from '../../src/lib/app-access';
-import { PaywallModal } from '../../src/components/PaywallModal';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../src/components/harmonogram/SleepGuardBanner';
@@ -59,11 +58,7 @@ export default function HarmonogramScreen() {
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     blokada,
-    isPaywallVisible,
-    setPaywallVisible,
     requireActionAccess,
-    subscribe,
-    restorePurchases,
   } = useAppAccess();
 
   // Reverse schedule calculation
@@ -209,13 +204,6 @@ export default function HarmonogramScreen() {
         />
         </BlokadaFunkcji>
 
-        {/* Apps4Craft Pass Paywall Modal */}
-        <PaywallModal
-          visible={isPaywallVisible}
-          onClose={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestore={restorePurchases}
-        />
       </ScrollView>
     </SafeAreaView>
   );

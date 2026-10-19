@@ -9,6 +9,7 @@ import { StorageGate } from '../src/components/StorageGate';
 import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
+import { AppAccessProvider } from '../src/components/AppAccessProvider';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -81,9 +82,12 @@ export default function RootLayout() {
     <>
       <StatusBar barStyle="light-content" />
       <StorageGate onRetry={retryDatabase}>
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="(tabs)" />
-        </Stack>
+        {/* Jeden stan dostępu i jeden ekran zakupu dla wszystkich zakładek [M1-audytor-generalny-025] */}
+        <AppAccessProvider>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(tabs)" />
+          </Stack>
+        </AppAccessProvider>
       </StorageGate>
     </>
   );

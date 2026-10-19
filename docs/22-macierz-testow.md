@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 468 | 468 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 254 | 254 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 258 | 258 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 90 | 90 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **850** | Pokrytych: **850** | Brakujących: **0**
+Łącznie elementów: **854** | Pokrytych: **854** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 550 kolejnych elementów w pełnym wykazie)*
+*(... i 554 kolejnych elementów w pełnym wykazie)*

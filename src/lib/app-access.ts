@@ -10,6 +10,7 @@ import type { Plan, Funkcja } from './platnosci/konfiguracja';
 import { dozwolona, Decyzja } from './platnosci/dostep';
 import { pobierzStan, subskrybujStan, odswiezDostep, ustalDostep, StanDostepu } from './platnosci/stan';
 import { kup, przywroc } from './platnosci/sklep';
+import { czyEkranZakupu, subskrybujEkranZakupu, ustawEkranZakupu } from './platnosci/ekran';
 
 export type AccessStatus = 'dostep' | 'bez_uprawnienia';
 
@@ -31,19 +32,27 @@ export function evaluateAppAccess(zakup: Decyzja): AppAccessInfo {
  */
 export function useAppAccess() {
   const [zakup, setZakup] = useState<StanDostepu>(pobierzStan);
-  const [isPaywallVisible, setPaywallVisible] = useState<boolean>(false);
+  // Jeden ekran zakupu na aplikację (AppAccessProvider w app/_layout.tsx) [M1-audytor-generalny-025]
+  const [isPaywallVisible, setWidoczny] = useState<boolean>(czyEkranZakupu);
 
   useEffect(() => {
     const off = subskrybujStan(setZakup);
+    const offEkran = subskrybujEkranZakupu(setWidoczny);
+    setZakup(pobierzStan());
+    setWidoczny(czyEkranZakupu());
     if (!pobierzStan().gotowe) void odswiezDostep();
-    return off;
+    return () => {
+      off();
+      offEkran();
+    };
   }, []);
 
   const access = evaluateAppAccess(zakup.decyzja);
+  const setPaywallVisible = useCallback((v: boolean) => ustawEkranZakupu(v), []);
 
   // Zakup przychodzi przez nasłuch transakcji: po nadaniu dostępu ekran zakupu się zamyka.
   useEffect(() => {
-    if (access.canCreateNewBake) setPaywallVisible(false);
+    if (access.canCreateNewBake) ustawEkranZakupu(false);
   }, [access.canCreateNewBake]);
 
   /** Jedyny strażnik akcji: bez dostępu otwiera ekran zakupu i nie wykonuje akcji. */
@@ -53,7 +62,7 @@ export function useAppAccess() {
         if (action) void action();
         return true;
       }
-      setPaywallVisible(true);
+      ustawEkranZakupu(true);
       return false;
     },
     [access.canCreateNewBake]

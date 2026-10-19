@@ -31,7 +31,6 @@ import { StarterConverterModal } from '../../src/components/StarterConverterModa
 import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
 import { exportStarterLabelAsPdf } from '../../src/lib/pdf-sheet-generator';
 import { useAppAccess } from '../../src/lib/app-access';
-import { PaywallModal } from '../../src/components/PaywallModal';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { useUnitSystem } from '../../src/lib/unit-converter';
 import { ZakwasSacredCard } from '../../src/components/zakwas/ZakwasSacredCard';
@@ -50,11 +49,7 @@ export default function ZakwasScreen() {
   const {
     chron,
     blokada,
-    isPaywallVisible,
-    setPaywallVisible,
     requireActionAccess,
-    subscribe,
-    restorePurchases,
   } = useAppAccess();
 
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
@@ -409,13 +404,6 @@ export default function ZakwasScreen() {
           onClose={() => setIsDiscardModalOpen(false)}
         />
 
-        {/* Apps4Craft Pass Paywall Modal */}
-        <PaywallModal
-          visible={isPaywallVisible}
-          onClose={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestore={restorePurchases}
-        />
       </ScrollView>
     </SafeAreaView>
   );

@@ -27,6 +27,8 @@ import CalculatorScreen from '../../app/(tabs)/index';
 import ZakwasScreen from '../../app/(tabs)/zakwas';
 import { FlourInventoryModal } from '../components/FlourInventoryModal';
 import { PaywallModal } from '../components/PaywallModal';
+// Jedyny ekran zakupu aplikacji (app/_layout.tsx) [M1-audytor-generalny-025]
+import { AppAccessProvider } from '../components/AppAccessProvider';
 import {
   initDatabase,
   _resetMemStore,
@@ -69,7 +71,7 @@ describe('Deleting own data without an entitlement (007)', () => {
     });
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
-      tree = renderer.create(<CalculatorScreen />);
+      tree = renderer.create(<AppAccessProvider><CalculatorScreen /></AppAccessProvider>);
     });
     await flush();
     const selector = tree!.root.find((n) => typeof n.props?.onDeleteCustomRecipe === 'function');
@@ -88,7 +90,7 @@ describe('Deleting own data without an entitlement (007)', () => {
     const before = (await getStarters()).length;
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
-      tree = renderer.create(<ZakwasScreen />);
+      tree = renderer.create(<AppAccessProvider><ZakwasScreen /></AppAccessProvider>);
     });
     await flush();
     await act(async () => {
@@ -107,7 +109,7 @@ describe('Deleting own data without an entitlement (007)', () => {
     const [first] = await getFlourInventory();
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
-      tree = renderer.create(<FlourInventoryModal visible={true} onClose={() => {}} />);
+      tree = renderer.create(<AppAccessProvider><FlourInventoryModal visible={true} onClose={() => {}} /></AppAccessProvider>);
     });
     await flush();
     await act(async () => {

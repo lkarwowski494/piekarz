@@ -29,14 +29,13 @@ import {
 } from '../../src/components/doktor/SymptomSelectorSection';
 import { KitchenTestsGuideSection } from '../../src/components/doktor/KitchenTestsGuideSection';
 import { useAppAccess } from '../../src/lib/app-access';
-import { PaywallModal } from '../../src/components/PaywallModal';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
   // Bez uprawnienia Doktor i Akademia otwierają ekran zakupu [M1-audytor-generalny-027]
-  const { blokada, chron, isPaywallVisible, setPaywallVisible, subscribe, restorePurchases } = useAppAccess();
+  const { blokada, chron } = useAppAccess();
   const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({
     crumbHasHugeTopHolesWithDenseBottom: true, // Default initial example
   });
@@ -165,12 +164,6 @@ export default function DoctorScreen() {
         <KitchenTestsGuideSection />
         </BlokadaFunkcji>
 
-        <PaywallModal
-          visible={isPaywallVisible}
-          onClose={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestore={restorePurchases}
-        />
 
         {/* Modal: Bread Academy (SCI, BIB, TRE) */}
         <BreadAcademyModal

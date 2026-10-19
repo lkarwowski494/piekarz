@@ -64,7 +64,7 @@ export default function CalculatorScreen() {
   const router = useRouter();
 
   // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
-  const { chron, blokada, isPaywallVisible, setPaywallVisible, requireActionAccess, subscribe, restorePurchases } = useAppAccess();
+  const { chron, blokada, requireActionAccess } = useAppAccess();
 
   const [isArtisanAccordionOpen, setIsArtisanAccordionOpen] = useState<boolean>(false);
 
@@ -521,10 +521,6 @@ export default function CalculatorScreen() {
           onCloseEquiv={() => setIsEquivModalOpen(false)}
           isVolumeModalOpen={isVolumeModalOpen}
           onCloseVolume={() => setIsVolumeModalOpen(false)}
-          isPaywallVisible={isPaywallVisible}
-          onClosePaywall={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestorePurchases={restorePurchases}
         />
       </ScrollView>
     </SafeAreaView>

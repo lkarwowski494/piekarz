@@ -45,7 +45,6 @@ import { SessionStep, isDutchOvenStep, planBakeSteps } from '../../src/core/bake
 import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
 import { useAppAccess } from '../../src/lib/app-access';
-import { PaywallModal } from '../../src/components/PaywallModal';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
 import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
@@ -98,11 +97,7 @@ export default function StolnicaScreen() {
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     blokada,
-    isPaywallVisible,
-    setPaywallVisible,
     requireActionAccess,
-    subscribe,
-    restorePurchases,
   } = useAppAccess();
   const unitSystem = useUnitSystem();
 
@@ -499,13 +494,6 @@ export default function StolnicaScreen() {
           onSensoryProfileChange={setFinishSensoryProfile}
         />
 
-        {/* Apps4Craft Pass Paywall Modal */}
-        <PaywallModal
-          visible={isPaywallVisible}
-          onClose={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestore={restorePurchases}
-        />
       </ScrollView>
     </SafeAreaView>
   );

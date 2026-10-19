@@ -9,6 +9,7 @@ import { getAppSetting, setAppSetting } from '../../data/settings-store';
 import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec } from './dostep';
 import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz } from './sklep';
+import { _resetEkranu } from './ekran';
 
 export interface StanDostepu {
   decyzja: Decyzja;
@@ -89,8 +90,9 @@ export function uruchomPlatnosci(): () => void {
   return () => sub.remove();
 }
 
-/** Tylko testy: nowy proces bez stanu. */
+/** Tylko testy: nowy proces bez stanu (także zamknięty ekran zakupu). */
 export function _resetStanu(): void {
+  _resetEkranu();
   stan = POCZATEK;
   sluchacze.clear();
   biezacy = null;

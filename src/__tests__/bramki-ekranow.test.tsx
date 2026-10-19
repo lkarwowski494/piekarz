@@ -33,6 +33,7 @@ import StolnicaScreen from '../../app/(tabs)/stolnica';
 import HarmonogramScreen from '../../app/(tabs)/harmonogram';
 import DoctorScreen from '../../app/(tabs)/doktor';
 import { PaywallModal } from '../components/PaywallModal';
+import { AppAccessProvider } from '../components/AppAccessProvider';
 import { BlokadaFunkcji } from '../components/BlokadaFunkcji';
 import { initDatabase, _resetMemStore, saveBakeLog, getBakeLogs } from '../data/sqlite-store';
 import { BEZ_UPRAWNIENIA, Funkcja } from '../lib/platnosci/konfiguracja';
@@ -49,10 +50,11 @@ const paywallShown = (root: renderer.ReactTestInstance) => root.findAllByType(Pa
 const locks = (root: renderer.ReactTestInstance) =>
   root.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('blokada-') && typeof n.props.onPress === 'function');
 
+// Ekran zakupu jest jeden dla aplikacji i renderuje go AppAccessProvider z app/_layout.tsx [M1-audytor-generalny-025].
 async function render(el: React.ReactElement): Promise<renderer.ReactTestRenderer> {
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
-    tree = renderer.create(el);
+    tree = renderer.create(<AppAccessProvider>{el}</AppAccessProvider>);
   });
   await flush();
   return tree!;

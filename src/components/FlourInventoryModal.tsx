@@ -32,7 +32,6 @@ import {
 } from '../core/inventory';
 import { FLOUR_PROFILES } from '../core/flour-atlas';
 import { useAppAccess } from '../lib/app-access';
-import { PaywallModal } from './PaywallModal';
 
 export interface FlourInventoryModalProps {
   visible: boolean;
@@ -49,11 +48,7 @@ export function FlourInventoryModal({
 }: FlourInventoryModalProps) {
   const {
     access,
-    isPaywallVisible,
-    setPaywallVisible,
     requireActionAccess,
-    subscribe,
-    restorePurchases,
   } = useAppAccess();
   const [inventory, setInventory] = useState<StoredFlourInventoryItem[]>([]);
   const [newFlourName, setNewFlourName] = useState<string>('');
@@ -312,12 +307,6 @@ export function FlourInventoryModal({
             <Text style={styles.closeButtonText}>{t('Zamknij')}</Text>
           </Pressable>
         </View>
-        <PaywallModal
-          visible={isPaywallVisible}
-          onClose={() => setPaywallVisible(false)}
-          onSubscribe={subscribe}
-          onRestore={restorePurchases}
-        />
       </SafeAreaView>
     </Modal>
   );

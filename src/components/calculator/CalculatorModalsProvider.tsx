@@ -1,6 +1,7 @@
 // ============================================================================
 // Apps4Craft Studio — CalculatorModalsProvider Component
-// Container for calculator modals (Settings, Inventory, Flour Blend, QR, Paywall).
+// Container for calculator modals (Settings, Inventory, Flour Blend, QR).
+// Ekran zakupu jest jeden dla aplikacji: AppAccessProvider w app/_layout.tsx [M1-audytor-generalny-025].
 // 100% Offline-First.
 // ============================================================================
 
@@ -14,11 +15,9 @@ import { FlourEquivalentsModal } from '../FlourEquivalentsModal';
 import { VolumeConverterModal } from '../VolumeConverterModal';
 import { ShareRecipeQrModal } from '../ShareRecipeQrModal';
 import { QrScannerModal } from '../QrScannerModal';
-import { PaywallModal } from '../PaywallModal';
 import { FlourItemInput, FlourItemCalculated } from '../../core/domain-rules';
 import { BakerRitualProfile } from '../../data/sqlite-store';
 import { StoredRecipe } from '../../data/db';
-import { PlanOption } from '../PaywallModal';
 
 export interface CalculatorModalsProviderProps {
   isSettingsOpen: boolean;
@@ -46,10 +45,6 @@ export interface CalculatorModalsProviderProps {
   onCloseEquiv: () => void;
   isVolumeModalOpen: boolean;
   onCloseVolume: () => void;
-  isPaywallVisible: boolean;
-  onClosePaywall: () => void;
-  onSubscribe: (tier: PlanOption) => void | Promise<void>;
-  onRestorePurchases: () => Promise<boolean> | boolean | void;
 }
 
 export function CalculatorModalsProvider({
@@ -78,10 +73,6 @@ export function CalculatorModalsProvider({
   onCloseEquiv,
   isVolumeModalOpen,
   onCloseVolume,
-  isPaywallVisible,
-  onClosePaywall,
-  onSubscribe,
-  onRestorePurchases,
 }: CalculatorModalsProviderProps) {
   return (
     <>
@@ -135,13 +126,6 @@ export function CalculatorModalsProvider({
       <VolumeConverterModal
         visible={isVolumeModalOpen}
         onClose={onCloseVolume}
-      />
-
-      <PaywallModal
-        visible={isPaywallVisible}
-        onClose={onClosePaywall}
-        onSubscribe={onSubscribe}
-        onRestore={onRestorePurchases}
       />
     </>
   );
