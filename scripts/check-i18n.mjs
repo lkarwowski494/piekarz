@@ -5,9 +5,9 @@
 // Bez --kod: każde t('…') z literałem musi mieć wpis w słowniku EN (src/lib/i18n-en/czesc-*.ts)
 // z tymi samymi parametrami {…}; słowniki Tier 1 mają te same parametry.
 // Z --kod: skan składnią TypeScript (moduł roli 09 i18n-expo, `skanujKod`, format projektu: klucz = tekst PL):
-//   - tekst w JSX, literał w {…} w JSX, literał w propsie z listy PROPSY = BŁĄD;
+//   - tekst w JSX, literał w {…} w JSX, literał w propsie z listy PROPSY, literał w Alert.alert = BŁĄD;
 //   - pole danych `…Pl` wyświetlane w JSX bez t() = BŁĄD (dane domenowe po polsku w każdym języku);
-//   - literał w obiekcie pod kluczem z PROPSY i w Alert.alert = UWAGA; klucz dynamiczny t(x) = UWAGA;
+//   - literał w obiekcie pod kluczem z PROPSY = UWAGA; klucz dynamiczny t(x) = UWAGA;
 //   - sklejanie t() z tekstem przez + = UWAGA (użyj parametru {nazwa}).
 // Nazwy własne i symbole tylko przez scripts/i18n-wyjatki.json, z powodem przy każdym wpisie
 // [M1-audytor-generalny-047; 09-lokalizacja-001].
@@ -130,7 +130,8 @@ function scanCode(dirs, wyjatki) {
         if (ts.isJsxAttribute(n)) for (const f of plFields(n.initializer)) add(n, `${name}={…${f}} bez t()`, true);
       }
       if (ts.isCallExpression(n) && /Alert\.alert$/.test(n.expression.getText(sf))) {
-        for (const a of n.arguments) for (const s of st(a)) if (isText(s)) add(a, s, false);
+        // Alert.alert pokazuje tekst użytkownikowi jak JSX = BŁĄD [M1-audytor-generalny-075]
+        for (const a of n.arguments) for (const s of st(a)) if (isText(s)) add(a, s, true);
       }
       if (isT(n)) {
         const a = n.arguments[0];
