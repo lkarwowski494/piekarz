@@ -72,8 +72,8 @@ describe('Apps4Brew Localization Engine (lib/i18n)', () => {
 
 // Liczba mnoga przez mechanizm, bez sklejania [M1-audytor-generalny-047]
 describe('tPlural', () => {
-  const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni' };
-  const MIN = { one: '{n} minuta', few: '{n} minuty', many: '{n} minut' };
+  const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' };
+  const MIN = { one: '{n} minuta', few: '{n} minuty', many: '{n} minut', other: '{n} minuty' };
   afterEach(() => setLang('pl'));
 
   it('PL: one / few / many jak pluralPl', () => {
@@ -84,7 +84,7 @@ describe('tPlural', () => {
     expect(tPlural(120, DNI)).toBe('120 dni');
   });
 
-  it('EN: one / other ze słownika (forma many jako other)', () => {
+  it('EN: one / other ze słownika (forma other)', () => {
     setLang('en');
     expect([1, 2, 5, 120].map((n) => tPlural(n, DNI))).toEqual(['1 day', '2 days', '5 days', '120 days']);
   });

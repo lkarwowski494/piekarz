@@ -59,6 +59,7 @@ export const EN_5: Record<string, string> = {
     'Tip: from the resulting {masa}, take the amount the dough needs and keep the rest (~{od}–{do}) in the fridge as the mother starter for your next bake.',
   '{n} dzień': '{n} day',
   '{n} dni': '{n} days',
+  '{n} dnia': '{n} days',
   'Utwórz profil dla nowej kultury zakwasu': 'Create a profile for a new starter culture',
   'np. San Francisco White, Lievito...': 'e.g. San Francisco White, Lievito...',
   'np. Mąka pszenna chlebowa t750': 'e.g. Wheat bread flour t750',

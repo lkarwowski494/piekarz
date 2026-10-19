@@ -52,7 +52,7 @@ export function StarterProfileCard({
       <View style={styles.metaRow}>
         <View style={styles.metaItem}>
           <Text style={styles.metaLabel}>{t('Wiek zakwasu')}</Text>
-          <Text style={styles.metaValue}>{tPlural(ageDays, { one: '{n} dzień', few: '{n} dni', many: '{n} dni' })}</Text>
+          <Text style={styles.metaValue}>{tPlural(ageDays, { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' })}</Text>
         </View>
         <View style={styles.metaItem}>
           <Text style={styles.metaLabel}>{t('Ostatnie dokarmienie')}</Text>

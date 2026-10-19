@@ -110,24 +110,31 @@ export function t(pl: string, params?: Record<string, string | number>): string 
   return text;
 }
 
-/** Formy liczby mnogiej tekstu źródłowego (PL): klucze słownika dla każdej kategorii. */
+/**
+ * Formy liczby mnogiej tekstu źródłowego (PL): klucze słownika dla kategorii CLDR.
+ * `other` jest obowiązkowe (PL: ułamki, np. „1,5 dnia”; EN: wszystko poza `one`).
+ */
 export interface PluralForms {
-  one: string;
-  few: string;
-  many: string;
+  zero?: string;
+  one?: string;
+  two?: string;
+  few?: string;
+  many?: string;
+  other: string;
+}
+
+/** Forma dla kategorii CLDR liczby `count` w języku `locale`; brak formy w słowniku = `other`. */
+function pluralForm(locale: string, count: number, forms: PluralForms): string {
+  const cat = new Intl.PluralRules(locale).select(count);
+  return forms[cat] ?? forms.other;
 }
 
 /**
- * Liczba mnoga przez mechanizm, bez sklejania [M1-audytor-generalny-047]: kategoria według języka
- * (PL: one/few/many jak pluralPl; EN: one/other, gdzie other = klucz formy `many`), potem t() z {n}.
+ * Liczba mnoga przez mechanizm, bez sklejania [M1-audytor-generalny-047, -071]: kategoria CLDR
+ * z Intl.PluralRules dla języka aplikacji (polyfill w src/lib/intl-polyfills.ts), potem t() z {n}.
  */
 export function tPlural(count: number, forms: PluralForms, params?: Record<string, string | number>): string {
-  const abs = Math.abs(Math.round(count));
-  const n = abs % 100;
-  const n10 = n % 10;
-  const cat: keyof PluralForms =
-    abs === 1 ? 'one' : currentLang === SOURCE_LANG && n10 >= 2 && n10 <= 4 && !(n >= 12 && n <= 14) ? 'few' : 'many';
-  return t(forms[cat], { n: count, ...params });
+  return t(pluralForm(currentLang, count, forms), { n: count, ...params });
 }
 
 /**

@@ -1,3 +1,4 @@
+import '../src/lib/intl-polyfills';
 import React, { useEffect, useState } from 'react';
 import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar, AppState } from 'react-native';

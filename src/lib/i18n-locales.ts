@@ -82,7 +82,7 @@ export function getAllSupportedLocaleCodes(): string[] {
 }
 
 /**
- * Plural formatting helper supporting Slavic, Germanic, Romance, Asian and Semitic rules.
+ * Liczba mnoga dla dowolnego kodu języka według CLDR (Intl.PluralRules); forma `other` obowiązkowa.
  */
 export function formatPluralUniversal(
   localeCode: string,
@@ -95,48 +95,8 @@ export function formatPluralUniversal(
   },
   includeNumber = true
 ): string {
-  const meta = getLocaleMetadata(localeCode);
-  const rule = meta?.pluralRule ?? 'germanic';
-  const abs = Math.abs(Math.round(count));
-
-  let word: string;
-
-  switch (rule) {
-    case 'asian': {
-      word = forms.other;
-      break;
-    }
-    case 'slavic': {
-      const n = abs % 100;
-      const n10 = n % 10;
-      if (abs === 1) {
-        word = forms.one;
-      } else if (n10 >= 2 && n10 <= 4 && !(n >= 12 && n <= 14)) {
-        word = forms.few ?? forms.other;
-      } else {
-        word = forms.many ?? forms.other;
-      }
-      break;
-    }
-    case 'romance': {
-      word = abs <= 1 ? forms.one : forms.other;
-      break;
-    }
-    case 'arabic': {
-      if (abs === 0) word = forms.many ?? forms.other;
-      else if (abs === 1) word = forms.one;
-      else if (abs === 2) word = forms.few ?? forms.other;
-      else if (abs % 100 >= 3 && abs % 100 <= 10) word = forms.few ?? forms.other;
-      else word = forms.many ?? forms.other;
-      break;
-    }
-    case 'semitic':
-    case 'germanic':
-    default: {
-      word = abs === 1 ? forms.one : forms.other;
-      break;
-    }
-  }
-
+  // Kategoria CLDR z Intl.PluralRules [M1-audytor-generalny-071]; brak formy = other
+  const cat = new Intl.PluralRules(localeCode).select(count);
+  const word = (cat === 'one' || cat === 'few' || cat === 'many' ? forms[cat] : undefined) ?? forms.other;
   return includeNumber ? `${count} ${word}` : word;
 }
