@@ -16,6 +16,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) domyślna hierarchia z `zrodla.md` bez uzupełnień — nie nazywa urzędów żywności ani danych platformy, których BRD potrzebuje; (b) hierarchia z `docs/brd/W.md` (BRD 2.0-craft) — przeczyła hierarchii roli 06 (reguła „dwóch źródeł” zamiast szczebla).
 - **Dlaczego:** jedna hierarchia dla BRD (rola 01) i rejestru treści (rola 06) — inaczej ta sama reguła dostaje dwie podstawy.
 - **Zależy od:** nic; zmiana tylko jawnym wpisem.
+- **Uzupełnienie 2026-10-19 (E2 roli 01):** (1) dokumentacja producenta o jego własnym produkcie (drożdże, rękawice, naczynia) ma szczebel 1 tylko dla tego produktu; (2) kopia strony urzędu w archiwum (Wayback), gdy strona urzędu blokuje pobranie, ma szczebel oryginału, z datą kopii w polu „Miejsce”; (3) przepis albo wpis blogu instytucji (King Arthur Baking poza „Pro Reference”) ma szczebel 4 i w treści atrybucję. *Dlaczego:* bez tego te same źródła dostawałyby w BRD i w rejestrze roli 06 różne szczeble.
 
 ### [D-036] 2026-10-19 — Kontekst użycia bez rozmów z użytkownikami przed E3
 - **Rodzaj:** produktowa. **Słowa właściciela:** „a” (STOP E0 roli 01 build, 2026-10-19).

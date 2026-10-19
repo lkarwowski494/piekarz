@@ -11,7 +11,7 @@ Statusy: hipoteza · potwierdzone (dowód) · podważone · obalone. Recenzje (S
 | ZAL-031 | W kroku czynnym ekran nie powinien gasnąć | 01 | hipoteza | 2 z 338 recenzji (S-17 rec. 12712335936; S-19 rec. 11419881732), 2026-10-19 | J-02, kontekst |
 | ZAL-032 | Między krokami użytkownik odchodzi od telefonu i potrzebuje sygnału przy zablokowanym ekranie | 01 | potwierdzone (motyw) | cel właściciela ZP-17; 15 z 338 recenzji (S-14, S-15, S-25), 2026-10-19 | J-02, DEC-02 |
 | ZAL-033 | W krokach czynnych ręce są w cieście lub mące, więc dotyk ekranu jest utrudniony | 01 | hipoteza | 0 z 338 recenzji; audyt M1 01-odkrywanie-014 podważył je jako „skargę nr 1”; potrzeba fizyczna niezbadana | J-02, NFR dostępności (E3), DEC-15 |
-| ZAL-034 | Początkujący zakłada zakwas w około tydzień do dwóch | 01 | hipoteza | S-14 rec. 6268205554 („a week”); [DO USTALENIA] (OP-31) źródła szczebla 1–3 | J-07, P-6, DEC-01 d (14 dni próby) |
+| ZAL-034 | Początkujący zakłada zakwas w około tydzień do dwóch | 01 | potwierdzone (szczebel 3), z zastrzeżeniem | S-44: średnio 7–10 dni; S-43: kilka dni; S-53 (szczebel 4): gotowość od dnia 5; odczyt 2026-10-19. Zastrzeżenie: część prób się nie udaje (S-21) | J-07, P-6, DEC-01 d (14 dni próby) |
 | ZAL-035 | Utrata receptur i notatek to realny powód porzucenia aplikacji | 01 | potwierdzone (motyw) | 10 z 338 recenzji, 8 z nich ≤ 3★ (S-17, S-19, S-24, S-25), 2026-10-19 | J-10 |
 | ZAL-036 | Część użytkowników używa w kuchni iPada obok telefonu | 01 | hipoteza | 4 z 338 recenzji (S-14, S-25, S-20), 2026-10-19 | J-10, OP-32 |
 | ZAL-037 | Użytkownicy w US potrzebują jednostek imperialnych obok gramów | 01 | potwierdzone (motyw) | 9 z 338 recenzji, 6 z nich ≤ 3★ (S-27), 2026-10-19 | J-01 |
@@ -19,3 +19,10 @@ Statusy: hipoteza · potwierdzone (dowód) · podważone · obalone. Recenzje (S
 | ZAL-039 | Wśród użytkowników są osoby 60+, dla których liczy się czytelność | 01 | hipoteza | 3 z 338 recenzji podaje wiek 60+ (S-17, S-23), 2026-10-19 | NFR dostępności (E3) |
 | ZAL-040 | Domowi pizzaiole i piekarze drożdżowi to częściowo ci sami ludzie co piekarze na zakwasie | 01 | hipoteza | S-24 rec. 5769683066 i 13967439345 (zakwas do pizzy), 2026-10-19 | P-8, ZP-23, hipoteza podziału (E2) |
 | ZAL-041 | Początkujący potrzebuje instrukcji krok po kroku, a samo liczenie mu nie wystarcza | 01 | potwierdzone (motyw) | 14 z 338 recenzji (S-18, S-19, S-23, S-17), 2026-10-19 | J-08, P-6, ZP-20 |
+| ZAL-042 | O ocenie uczciwości modelu decyduje przejrzystość opłat (ujawnienie, anulowanie), nie tylko kwota | 01 | hipoteza | 28 z 338 recenzji o płatności, 23 ≤ 3★ (S-27), 2026-10-19 | H-03 |
+| ZAL-043 | Użytkownik po końcu próby odbiera „tylko historia” jako utratę dostępu do własnych danych, jeśli nie zostanie uprzedzony | 01 | hipoteza | S-17 rec. 10765274230; soczewka pasjonata (2026-10-19) | H-04 |
+| ZAL-044 | Użytkownicy płacą za prowadzenie w czasie i liczenie; część woli opłatę jednorazową | 01 | hipoteza | S-14 rec. 13671458068; S-19 rec. 7583820885, 7681506247; S-28 (ceny), 2026-10-19 | H-05 |
+| ZAL-045 | Połączenie matematyki z zakwasem, prowadzenia w czasie z powiadomieniami i dziennika z kopią, bez reklam i sieci, wyróżnia aplikację | 01 | hipoteza | tabela rynku (S-28, S-29, S-27), 2026-10-19 | H-06 |
+| ZAL-046 | Jeden start „co dziś robisz” ogranicza kombajn przy dwóch personach i trzech rodzajach pieczywa | 01 | hipoteza | soczewka początkującego (2026-10-19); M1-audytor-generalny-057 | H-08 |
+| ZAL-047 | Diagnoza oparta na pytaniach i regułach jest dla użytkownika wystarczająca bez oceny zdjęcia | 01 | hipoteza | S-16 (zawodna ocena AI), 2026-10-19 | H-10 |
+| ZAL-048 | Początkujący potrzebuje wiedzy o formowaniu, studzeniu, przechowywaniu i składnikach w chwili kroku | 01 | hipoteza | soczewka eksperta (2026-10-19); ZP-20 | H-13 |
