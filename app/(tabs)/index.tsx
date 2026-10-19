@@ -29,12 +29,8 @@ import {
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirmDeleteRecipe } from '../../src/lib/confirm';
-import {
-  getPendingRecipeToLoad,
-  clearPendingRecipeToLoad,
-  subscribePendingRecipe,
-  PendingRecipeToLoad,
-} from '../../src/lib/recipe-navigation';
+import type { PendingRecipeToLoad } from '../../src/lib/recipe-navigation';
+import { usePendingRecipeLoader } from '../../src/hooks/usePendingRecipeLoader';
 import { PrefermentType } from '../../src/core/preferments';
 import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
@@ -191,36 +187,14 @@ export default function CalculatorScreen() {
     setCustomRecipes(all.filter((r) => !r.isBuiltIn));
   }, []);
 
-  useEffect(() => {
-    loadRecipesFromStore();
-
-    const applyPending = (pending: PendingRecipeToLoad) => {
-      applyFormula(
-        pending.id ?? selectedPresetId,
-        pending.name,
-        pending.formula,
-        pending.targetDDT
-      );
-      if (pending.formula.targetDoughWeightGrams !== undefined) {
-        setCalcMode('loaves');
-        setLoavesCount(1);
-        setLoafWeightGrams(pending.formula.targetDoughWeightGrams);
-      }
-    };
-
-    const initialPending = getPendingRecipeToLoad();
-    if (initialPending) {
-      applyPending(initialPending);
-      clearPendingRecipeToLoad();
+  usePendingRecipeLoader((pending: PendingRecipeToLoad) => {
+    applyFormula(pending.id ?? selectedPresetId, pending.name, pending.formula, pending.targetDDT);
+    if (pending.formula.targetDoughWeightGrams !== undefined) {
+      setCalcMode('loaves');
+      setLoavesCount(1);
+      setLoafWeightGrams(pending.formula.targetDoughWeightGrams);
     }
-
-    const unsubscribe = subscribePendingRecipe((pending) => {
-      applyPending(pending);
-      clearPendingRecipeToLoad();
-    });
-
-    return unsubscribe;
-  }, [loadRecipesFromStore, applyFormula, selectedPresetId]);
+  }, loadRecipesFromStore, [loadRecipesFromStore, applyFormula, selectedPresetId]);
 
   useEffect(() => {
     void hasCompletedOnboarding().then((completed) => {
