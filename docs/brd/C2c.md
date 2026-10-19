@@ -42,6 +42,8 @@ Narzędzie pozwalające zidentyfikować przyczynę nieudanego wypieku na podstaw
 
 * **Priorytet:** SHOULD · **Etap:** 1.1  
 * **Persona:** P1, P4  
+* **Przepływ:** PR-06 (A5)  
+* **Dowód potrzeby:** J-05; linia bazowa audytu M1 z 2026-10-19, praca 5 („zdjęcia miękiszu”); etap 1.1.  
 * **Opis:** Moduł fotograficzny z nałożoną siatką ułatwiającą wykonanie prostopadłego zdjęcia przekroju bochenka oraz porównanie go z wzorcowymi profilami miękiszu (Open Crumb vs Sandwich Crumb).  
 * **Kryteria akceptacji:**  
   1. Zdjęcie zapisywane bezpośrednio w lokalnej bazie SQLite / katalogu piaskownicy w formacie skompresowanym.  
