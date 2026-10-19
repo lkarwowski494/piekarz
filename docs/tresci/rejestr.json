@@ -530,5 +530,79 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "FER-Q10-001",
+    "twierdzenie": "Według modelu 1a Gänzle i in. (1998) tempo wzrostu Lactobacillus sanfranciscensis i Candida milleri zależy od temperatury jak μ = a·x^b·e^(−c·x), gdzie x = Tmax − T; poniżej 26 °C oba gatunki reagują na zmianę temperatury tak samo, a fermentacje zakwasowe prowadzi się zwykle w 20–28 °C.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.1128/aem.64.7.2616-2623.1998",
+        "miejsce": "Gänzle M.G., Ehmann M., Hammes W.P., Modeling of Growth of Lactobacillus sanfranciscensis and Candida milleri in Response to Process Parameters of Sourdough Fermentation, Appl Environ Microbiol 1998, 64(7):2616–2623; Tabela 1 (model 1a), Tabela 2 (parametry b, c, Tmax), Rys. 1, rozdz. Results „Effect of temperature on growth”; czytany pełny tekst PMC106434 (pmc.ncbi.nlm.nih.gov)",
+        "cytat": "Sourdough fermentations are commonly performed at temperatures between 20 and 28°C. Remarkably, L. sanfranciscensis and C. milleri exhibit the same response to changes at temperatures of <26°C.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Model opisuje maksymalne tempo wzrostu (μmax) w pożywce mMRS (in vitro), nie czas rośnięcia ciasta; przejście do czasu fermentacji to FER-Q10-002.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "FER-Q10-002",
+    "twierdzenie": "Przybliżenie Piekarza z modelu 1a (FER-Q10-001): w zakresie 20–26 °C czas fermentacji w temperaturze T równa się czasowi w 24 °C pomnożonemu przez 3,0^((24 − T)/10), czyli Q10 = 3,0: 10 °C niżej to około 3 razy dłuższa fermentacja.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.1128/aem.64.7.2616-2623.1998",
+        "miejsce": "jak FER-Q10-001; parametry modelu 1a z Tabeli 2: LTH2581 b = 2,0, c = 0,22, Tmax = 41 °C; LTH1729 b = 1,5, c = 0,19, Tmax = 41 °C; C. milleri LTH H198 b = 3,0, c = 0,34, Tmax = 36 °C (Tmax z tekstu: „T max was 41°C for both strains of L. sanfranciscensis and 36°C for C. milleri”); rachunek: dowody/rachunek-q10.txt",
+        "cytat": "T max was 41°C for both strains of L. sanfranciscensis and 36°C for C. milleri.",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Rachunek, wynik jest przybliżeniem. Założenia: (1) w fazie wzrostu wykładniczego czas do tego samego przyrostu liczby komórek jest odwrotnie proporcjonalny do μmax, więc czas(T)/czas(24) = μ(24)/μ(T) (stała a się skraca); (2) koniec fermentacji burzliwej odpowiada temu samemu przyrostowi niezależnie od temperatury; (3) dane in vitro (mMRS) przeniesione na ciasto. Metoda: najmniejsze kwadraty na log(czas(T)/czas(24)) dla trzech szczepów i T = 20, 21, 22, 23, 25, 26 °C daje Q10 = 3,001, zaokrąglone do 3,0. Błąd względem modelu 1a: do 5,6% w 20–25 °C, w 26 °C −3,0% (LTH2581), −2,7% (LTH1729) i −8,3% (C. milleri). Powyżej 26 °C drożdże i pałeczki reagują różnie (źródło: ta sama reakcja tylko poniżej 26 °C), błąd rośnie do 25,6% w 28 °C, więc zakres kończy się na 26 °C. Kierunek zgodny ze źródłem 3 (SDSU, CSU: w chłodzie fermentacja zwalnia, ZAK-SZC-004).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "q10_fermentacji_zakwasowej",
+    "wartosc": 3,
+    "jednostka": null,
+    "zakres_waznosci": "20–26 °C (włącznie)",
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "FER-Q10-900",
+    "twierdzenie": "Zależność tempa fermentacji od temperatury opiera się na Q10 ≈ 2,0 w zakresie 18–28 °C (RD-08, README, src/core/domain-rules.ts, src/scheduler/reverse-scheduler.ts, src/core/starter-peak-predictor.ts).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "SPRZECZNE z modelem 1a Gänzle i in. 1998 (szczebel 2): Q10 = 2,0 zaniża wydłużenie czasu w 20 °C o 15,3–19,7% (dowody/rachunek-q10.txt). Brak przeczytanego źródła wartości 2,0.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "FER-Q10-002",
+    "wycofane": "2026-10-19, DEC-08 (c), M1-audytor-generalny-041"
+  },
+  {
+    "id": "FER-Q10-901",
+    "twierdzenie": "W symbiozie drożdży dzikich i bakterii kwasu mlekowego Q10 ≈ 2,15 w zakresie 18–28 °C (DEC-44, EV-05: Gänzle & Ripari 2016; De Vuyst & Neysens 2005).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "Źródła z W.md (EV-05) bez miejsca i cytatu, nieprzeczytane (płatne). Przeczytany model 1a (szczebel 2) daje w 20–26 °C Q10 ≈ 3,0; Q10 = 2,15 zaniża wydłużenie czasu w 20 °C o 12,8–17,4%. Decyzja DEC-44 oparta na nieprzeczytanym źródle wraca do sprawdzenia (zasada „Rozstrzyganie”): zmieniona jawnie, do weta właściciela.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "FER-Q10-002",
+    "wycofane": "2026-10-19, DEC-08 (c), M1-audytor-generalny-041"
+  },
+  {
+    "id": "FER-Q10-902",
+    "twierdzenie": "Czas fermentacji poniżej 20 °C i powyżej 26 °C (zachowanie aplikacji poza zakresem FER-Q10-002).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] OP-14. Model 1a ma dane i poza tym zakresem, ale drożdże i pałeczki reagują wtedy różnie, a przeczytane źródło nie mówi, który organizm wyznacza koniec fermentacji burzliwej. Komunikat poza zakresem: decyzja produktowa (rola 04 i właściciel).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
