@@ -65,7 +65,7 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
     immediateActionPl: 'Podnieś temperaturę fermentacji do optymalnych 26–28°C.',
     pivotRecipeNamePl: 'Przyspieszona fermentacja termiczna',
     stepByStepPl: [
-      'Wstaw naczynie z ciastem do wyłączonego piekarnika z włączoną samą żarówką (daje idealne 26–27°C).',
+      'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.',
       'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).',
       'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.',
       'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.',

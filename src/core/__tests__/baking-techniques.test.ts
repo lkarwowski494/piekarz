@@ -37,8 +37,10 @@ describe('Artisan Baking Techniques Library (Z-091…098 / BIB)', () => {
       expect(tech.physicalPrincipleEn.length).toBeGreaterThan(20);
       expect(tech.executionStepsPl.length).toBeGreaterThanOrEqual(4);
       expect(tech.executionStepsEn.length).toBeGreaterThanOrEqual(4);
-      expect(tech.commonMistakesPl.length).toBeGreaterThanOrEqual(2);
-      expect(tech.commonMistakesEn.length).toBeGreaterThanOrEqual(2);
+      // BIB-09: błąd „zwykła mąka pszenna” usunięty, bo przeczy KOS-OPR-001 [M1-audytor-generalny-069]
+      const minMistakes = tech.code === 'BIB-09' ? 1 : 2;
+      expect(tech.commonMistakesPl.length).toBeGreaterThanOrEqual(minMistakes);
+      expect(tech.commonMistakesEn.length).toBeGreaterThanOrEqual(minMistakes);
       expect(tech.proTipsPl.length).toBeGreaterThan(15);
       expect(tech.proTipsEn.length).toBeGreaterThan(15);
     }

@@ -154,8 +154,8 @@ export const EN_9: Record<string, string> = {
     'Raise the fermentation temperature to the optimal 26–28°C.',
   'Przyspieszona fermentacja termiczna':
     'Accelerated thermal fermentation',
-  'Wstaw naczynie z ciastem do wyłączonego piekarnika z włączoną samą żarówką (daje idealne 26–27°C).':
-    'Put the dough container in the switched-off oven with only the light on (gives an ideal 26–27°C).',
+  'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.':
+    'Put the bowl of dough in the switched-off oven and turn on only the light: according to King Arthur Baking, the temperature inside rises gradually, but every oven and every kitchen gives a different result.',
   'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).':
     'Alternatively: set the bowl over a pot of lukewarm water (water bath ~30°C).',
   'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.':

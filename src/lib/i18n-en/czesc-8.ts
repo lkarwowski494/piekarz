@@ -60,16 +60,14 @@ export const EN_8: Record<string, string> = {
     'Preparing the Proofing Basket (Banneton)',
   'Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.':
     'Drawing moisture away from the dough surface and preventing it from sticking to a rattan or wood pulp basket.',
-  'Do oprószania koszyka używaj WYŁĄCZNIE mąki bezglutenowej: mąki ryżowej lub skrobi ziemniaczanej (50/50 z mąką pszenną).':
-    'To dust the basket, use ONLY gluten-free flour: rice flour or potato starch (50/50 with wheat flour).',
-  'Brak glutenu w mące ryżowej sprawia, że w kontakcie z wilgocią ciasta nie tworzy kleju!':
-    'Because rice flour has no gluten, it does not turn into glue when it contacts the moist dough!',
+  'Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.':
+    'According to King Arthur Baking, dust the basket with a light but thorough layer of flour: any flour will do, from all-purpose and bread flour to whole wheat.',
+  'Według tego samego źródła wielu piekarzy wybiera grubszą mąkę, np. semolinę albo mąkę ryżową, bo tworzy wyraźniejszą barierę między ciastem a koszykiem i nie wchodzi w ciasto.':
+    'According to the same source, many bakers choose a coarser flour, such as semolina or rice flour, because it forms a clearer barrier between the dough and the basket and does not work into the dough.',
   'Rozprowadź mąkę dłonią dokładnie w rowkach wikliny koszyka.':
     'Spread the flour by hand thoroughly into the grooves of the wicker basket.',
   'Po wypieku wysusz koszyk w stygnącym piekarniku (max 50°C) i wyczyść suchą szczoteczką z twardym włosiem.':
     'After baking, dry the basket in the cooling oven (max 50°C) and clean it with a dry, stiff-bristled brush.',
-  'Użycie zwykłej mąki pszennej do oprószenia koszyka (ciasto przywiera i rwie się przy wyjmowaniu!).':
-    'Using regular wheat flour to dust the basket (the dough sticks and tears when you take it out!).',
   'Zamykanie wilgotnego koszyka w szczelnej szafce.':
     'Closing a damp basket in an airtight cupboard.',
   'Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.':

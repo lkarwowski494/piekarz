@@ -136,8 +136,8 @@ export const EN_6: Record<string, string> = {
     'Bake on a preheated fireclay stone at 250°C with heavy steam in the oven for the first 10 minutes.',
   'Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.':
     'A glassy, very thin crust with distinct scales and a cream-colored crumb with large, irregular holes.',
-  'Długi czas dojrzewania Poolish aktywuje enzymy fitazy, uwalniając naturalną słodycz i aromaty orzechowe.':
-    'The long maturation of the Poolish activates phytase enzymes, releasing natural sweetness and nutty aromas.',
+  'Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.':
+    'According to King Arthur Baking, poolish gives a nutty flavour and makes baguette dough easier to handle by boosting its extensibility.',
   'Mistrz Rzemiosła Piekarskiego':
     'Master of the Baking Craft',
   'Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)':

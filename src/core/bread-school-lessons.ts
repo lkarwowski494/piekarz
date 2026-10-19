@@ -221,8 +221,8 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
     ],
     passingCriteriaPl: 'Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.',
     passingCriteriaEn: 'Thin glass-like blistered crust and translucent creamy crumb with irregular aerodynamic alveoli.',
-    scientificInsightPl: 'Długi czas dojrzewania Poolish aktywuje enzymy fitazy, uwalniając naturalną słodycz i aromaty orzechowe.',
-    scientificInsightEn: 'Long poolish maturation activates phytase and proteases, releasing natural maltose sweetness and nutty aromas.',
+    scientificInsightPl: 'Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.',
+    scientificInsightEn: 'According to King Arthur Baking, poolish gives a nutty flavour and makes baguette dough easier to handle by boosting its extensibility.',
   },
   {
     level: 6,
