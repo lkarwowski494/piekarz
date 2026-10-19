@@ -27,6 +27,15 @@ export function evaluateAppAccess(zakup: Decyzja): AppAccessInfo {
 }
 
 /**
+ * „Przywróć zakupy” na żądanie użytkownika: synchronizacja ze sklepem, potem bieżące uprawnienia
+ * we wspólnym stanie. Zwraca, czy jest dostęp [M1-audytor-generalny-010].
+ */
+export async function przywrocZakupy(): Promise<boolean> {
+  const d = await ustalDostep(await przywroc());
+  return d.dostep;
+}
+
+/**
  * Stan dostępu dla ekranu. Stan zakupu jest wspólny dla całej aplikacji (platnosci/stan.ts),
  * więc zakup na jednym ekranie odblokowuje pozostałe bez restartu.
  */
@@ -90,10 +99,7 @@ export function useAppAccess() {
     await kup(plan);
   }, []);
 
-  const restorePurchases = useCallback(async (): Promise<boolean> => {
-    const d = await ustalDostep(await przywroc());
-    return d.dostep;
-  }, []);
+  const restorePurchases = useCallback(przywrocZakupy, []);
 
   return {
     access,

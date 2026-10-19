@@ -19,6 +19,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
+import { przywrocZKomunikatem } from './przywroc-zakupy';
 import type { Plan } from '../lib/platnosci/konfiguracja';
 import { pobierzOferte, Oferta } from '../lib/platnosci/sklep';
 
@@ -82,15 +83,7 @@ export function PaywallModal({
     if (!onRestore) return;
     setIsProcessing(true);
     try {
-      const restored = await onRestore();
-      if (restored) {
-        Alert.alert(t('Przywróć zakupy'), t('Zakupy zostały pomyślnie przywrócone'));
-        onClose();
-      } else {
-        Alert.alert(t('Przywróć zakupy'), t('Nie znaleziono aktywnych zakupów'));
-      }
-    } catch {
-      Alert.alert(t('Przywróć zakupy'), t('Nie znaleziono aktywnych zakupów'));
+      if (await przywrocZKomunikatem(onRestore)) onClose();
     } finally {
       setIsProcessing(false);
     }

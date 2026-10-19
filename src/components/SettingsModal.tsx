@@ -23,6 +23,7 @@ import { BakerRitualSection } from './settings/BakerRitualSection';
 import { PreferencesSection } from './settings/PreferencesSection';
 import { BackupAndDataSection } from './settings/BackupAndDataSection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
+import { ZakupySection } from './settings/ZakupySection';
 
 export interface SettingsModalProps {
   visible: boolean;
@@ -88,6 +89,9 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
             unitSystem={unitSystem}
             onUnitSystemChange={handleUnitSystemChange}
           />
+
+          {/* Zakupy: przywracanie bez ekranu zakupu [M1-audytor-generalny-010] */}
+          <ZakupySection />
 
           {/* Backup & CSV Exports */}
           <BackupAndDataSection />

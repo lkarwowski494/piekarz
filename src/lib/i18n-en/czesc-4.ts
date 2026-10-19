@@ -10,4 +10,7 @@ export const EN_4: Record<string, string> = {
   'Odblokuj pełny dostęp': 'Unlock full access',
   'Odblokuj kalkulator, zakwas, Stolnicę, harmonogram i Doktora Chleba. Historia wypieków i Twoje dane są dostępne bez zakupu.':
     'Unlock the calculator, starter, Workbench, schedule and Bread Doctor. Your bake history and your data stay available without a purchase.',
+  // Przywracanie zakupów [M1-audytor-generalny-010]
+  'Zakupy': 'Purchases',
+  'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Could not connect to the App Store. Please try again.',
 };
