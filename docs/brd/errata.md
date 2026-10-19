@@ -1,6 +1,6 @@
 # BRD Piekarz — errata (ER)
 
-Stan: E3 · Aktualizacja: 2026-10-19. Wpisy starego BRD o numerach 01–33 są w `archiwum/2.0-craft/00c_Errata.md`; nowe od ER-34. Identyfikatory wycofane podaję bez myślnika przed numerem (np. „ZEG 001”), żeby nie wyglądały jak żywe odwołania; nie wracają.
+Stan: E3 + przyrost · Aktualizacja: 2026-10-20. Wpisy starego BRD o numerach 01–33 są w `archiwum/2.0-craft/00c_Errata.md`; nowe od ER-34. Identyfikatory wycofane podaję bez myślnika przed numerem (np. „ZEG 001”), żeby nie wyglądały jak żywe odwołania; nie wracają.
 
 | ID | Data | Co | Skutek i kto | Status |
 |---|---|---|---|---|
@@ -14,3 +14,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Wpisy starego BRD o numerach 01–33 są w
 | ER-41 | 2026-10-19 | Wycofane: persony P1–P5, zasady ZP 01–16, hipotezy H 01–02, ryzyka RYZ 01–10, źródła S 03–13, otwarte pytania OP 01–28 starego BRD. Zachowane znaczenie: J-01…J-06, PR-01…PR-10, S-01, S-02 (ponowny odczyt) | Nowe ID: P-6…P-8, ZP-17…ZP-24, H-03…H-14, RYZ-11…RYZ-21, S-14…S-61, OP-29…OP-48 | zamknięte |
 | ER-42 | 2026-10-19 | Rozbieżności kodu z regułami: RD-17 (kod liczy poza 20–26 °C), RD-19 (kod 3:1 zamiast 0,4), RD-25 (kod 24 h na blacie i 6–7 dni w lodówce zamiast 12 h i 7 dni), RD-23 (krok „zdejmij pokrywkę” bez ostrzeżenia, `src/core/baking-phases.ts:41`), studzenie chleba żytniego (kod 2 h i 8 h, rejestr roli 06: 24 h), próg 45 °C i progi faz zakwasu bez źródła (OP-34, OP-39) | Rola 06: wpisy do rejestru twierdzeń; role 07 i 08: testy i poprawki | otwarte (role 06, 07, 08) |
 | ER-43 | 2026-10-19 | Skrót „DEC-nn” w nowym BRD oznacza decyzje planu napraw M1 (`audit/M1-2026-10-19/plan-napraw.json` → `decyzje`), a nie DEC-nn starego `00b_Decyzje.md` (np. DEC-11 to tu dokładność 1 g, w starym BRD ceny) | Każde odwołanie do DEC w nowym BRD podaje „planu napraw M1” | zamknięte |
+| ER-44 | 2026-10-20 | Prośba roli 03 (D-041 na gałęzi 03): pętla opinii bez wymagania — systemowa prośba o ocenę, link „Oceń”, kontakt i zgłoszenie problemu bez śledzenia (DEC-13 a planu napraw M1; zadania M1-audytor-generalny-082, -083) | Dodano J-12, PR-18, OG-07 (S-62, S-63), BR-OPIN-001…003, krok w PR-06, OP-49; blokery wydania: BR-OPIN-001, BR-OPIN-002 | zamknięte |
+| ER-45 | 2026-10-20 | Prośba roli 03: PR-12 „co dziś robię” bez wymagania, a od niego zależy pierwsza oferta próby (BR-ZAK-005); dowód: soczewka początkującego, M1-audytor-generalny-057, -087 | Dodano BR-START-001 (zależy od ZAL-046); kształt ekranu nadal hipoteza H-08 dla ról 03 i 04 | zamknięte |
+| ER-46 | 2026-10-20 | Prośba roli 03: zakończenie kroku wcześniej i cofnięcie pomyłkowo potwierdzonego kroku; BR-HARMO-004 obejmuje tylko spóźnienie; dowód: opis Rise (S-64) | Dodano BR-HARMO-005 | zamknięte |
+| ER-47 | 2026-10-20 | Rola 03 oznaczyła ZAL-045 (H-06) jako „podważone w części”: Rise łączy procent piekarski, plan z temperatury, powiadomienia o krokach i dziennik (wpis w `docs/zalozenia.md` na gałęzi roli 03) | H-06 traci część dowodu „nikt nie łączy”; przy scaleniu obowiązuje wiersz ZAL-045 z gałęzi roli 03; ta gałąź nie zmienia ZAL-045 | otwarte (rola 03) |

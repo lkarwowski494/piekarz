@@ -147,3 +147,50 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Zakładając, że telefon nie widzi drukarki
     - Gdy użytkownik wybiera wydruk
     - Wtedy może zapisać albo udostępnić plik PDF
+
+### BR-OPIN-001: Systemowa prośba o ocenę po udanym wypieku
+- Przepływ: PR-06 · Ograniczenie: OG-07
+- Dowód potrzeby: J-12; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku); zadanie M1-audytor-generalny-082; S-63 (prośba na końcu sekwencji, którą użytkownik zakończył sukcesem)
+- Kryteria akceptacji:
+  - Scenariusz: Udany wypiek
+    - Zakładając, że użytkownik zakończył wypiek i ocenił bochenek co najmniej na próg udanego wypieku [DO WYJAŚNIENIA] (OP-49)
+    - Gdy zapis oceny się kończy i użytkownik wraca do dziennika
+    - Wtedy aplikacja wywołuje systemową prośbę o ocenę, a system sam decyduje, czy ją pokazać (najwyżej trzy razy w ciągu 365 dni, S-63)
+  - Scenariusz: Słaba ocena
+    - Zakładając, że użytkownik ocenił bochenek na 2★
+    - Gdy zapisuje ocenę
+    - Wtedy aplikacja nie wywołuje prośby o ocenę, tylko propozycję Doktora Chleba (BR-DIAG-001)
+  - Scenariusz: Bez własnego okna
+    - Zakładając, że jakikolwiek warunek prośby jest spełniony
+    - Gdy aplikacja prosi o ocenę
+    - Wtedy używa tylko systemowego mechanizmu, bez własnego okna z gwiazdkami ani pytania „czy podoba ci się aplikacja” (OG-07)
+
+### BR-OPIN-002: Link „Oceń w App Store”
+- Przepływ: PR-18 · Ograniczenie: OG-07
+- Dowód potrzeby: J-12; zadanie M1-audytor-generalny-082; S-63 (link do strony aplikacji z parametrem `action=write-review` po działaniu użytkownika)
+- Kryteria akceptacji:
+  - Scenariusz: Ocena z ustawień
+    - Zakładając, że użytkownik jest w ustawieniach
+    - Gdy wybiera „oceń w App Store”
+    - Wtedy otwiera się strona aplikacji w App Store z formularzem recenzji
+  - Scenariusz: Brak sieci
+    - Zakładając, że telefon nie ma sieci
+    - Gdy użytkownik wybiera „oceń w App Store”
+    - Wtedy widzi, że ocena wymaga połączenia z App Store, a aplikacja działa dalej
+
+### BR-OPIN-003: Kontakt i zgłoszenie problemu bez śledzenia
+- Przepływ: PR-18
+- Dowód potrzeby: J-12; zadanie M1-audytor-generalny-083 (kontakt w Ustawieniach na działający adres wsparcia); brak kontaktu w aplikacji u konkurencji (S-16, rec. 13931423989); ZP-17 (bez śledzenia)
+- Kryteria akceptacji:
+  - Scenariusz: Wiadomość do autora
+    - Zakładając, że użytkownik jest w ustawieniach
+    - Gdy wybiera „napisz do nas”
+    - Wtedy otwiera się systemowa aplikacja poczty z adresem wsparcia i tematem, a treść (w tym wersja aplikacji i model telefonu) jest widoczna i do zmiany przed wysłaniem
+  - Scenariusz: Bez danych w tle
+    - Zakładając, że użytkownik zamyka wiadomość bez wysyłania
+    - Gdy wraca do aplikacji
+    - Wtedy nic nie zostało wysłane, a aplikacja nie wykonała żadnego połączenia (NFR-OFF-001)
+  - Scenariusz: Brak skonfigurowanej poczty
+    - Zakładając, że telefon nie ma skonfigurowanej aplikacji poczty
+    - Gdy użytkownik wybiera „napisz do nas”
+    - Wtedy widzi adres wsparcia do skopiowania

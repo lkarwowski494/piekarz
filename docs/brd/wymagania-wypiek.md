@@ -55,6 +55,27 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Gdy aplikacja przelicza plan
     - Wtedy oznacza kolizję jak w BR-HARMO-002
 
+### BR-HARMO-005: Zakończenie kroku wcześniej i cofnięcie pomyłkowo potwierdzonego kroku
+- Przepływ: PR-04, PR-15
+- Dowód potrzeby: J-02; S-64 (konkurent opisuje elastyczny plan: wcześniejsze zakończenie kroku, powrót do kroku, dodanie czasu); soczewka początkującego (pomyłka, przerwanie); BR-HARMO-004 obejmuje tylko spóźnienie
+- Kryteria akceptacji:
+  - Scenariusz: Krok skończony wcześniej
+    - Zakładając, że krok „garowanie” ma termin 14:00
+    - Gdy użytkownik kończy go o 13:30
+    - Wtedy dalsze kroki przesuwają się o 30 min wcześniej, a powiadomienia dostają nowe godziny (BR-CZAS-002)
+  - Scenariusz: Cofnięcie pomyłkowego potwierdzenia
+    - Zakładając, że użytkownik potwierdził krok 4 przez pomyłkę o 12:00, a krok miał termin 12:40
+    - Gdy cofa potwierdzenie o 12:05
+    - Wtedy wraca do kroku 4 z 35 min do końca, a plan i powiadomienia wracają do stanu sprzed potwierdzenia
+  - Scenariusz: Cofnięcie po terminie kroku
+    - Zakładając, że termin cofanego kroku już minął
+    - Gdy użytkownik cofa potwierdzenie
+    - Wtedy widzi, o ile termin minął, i może przesunąć dalsze kroki (BR-HARMO-004)
+  - Scenariusz: Brak kroku do cofnięcia
+    - Zakładając, że wypiek jest na pierwszym kroku
+    - Gdy użytkownik szuka cofnięcia
+    - Wtedy cofnięcie jest niedostępne
+
 ### BR-ETAP-001: Prowadzenie krok po kroku
 - Przepływ: PR-04, PR-17
 - Dowód potrzeby: J-02, J-08; tryb „jeden krok naraz” (S-23, rec. 6860807346); aplikacja wie, na którym jestem kroku (S-14, rec. 13748164005)

@@ -99,8 +99,14 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Częstotliwość: „roughly once a week” (S-24, rec. 8870010975).
 - Dowód: 10 z 338 recenzji; wybór właściciela ZP-23 (zakwas, drożdże i pizza).
 
-## Persony (P)
+### J-12: Zgłosić problem albo ocenić aplikację
+- Kiedy coś nie działa albo aplikacja mi pomogła, chcę bez szukania napisać do autora albo wystawić ocenę, żeby problem został naprawiony, a inni wiedzieli, czy warto.
+- Siły zmiany: pcha brak kontaktu w aplikacji i brak odpowiedzi przez stronę (S-16, rec. 13931423989); przyciąga szybka odpowiedź autora (S-20, rec. 14144596516, 13835278317); obawa: kontakt wymaga konta albo wysyła dane bez wiedzy; nawyk: recenzja w sklepie zamiast kontaktu.
+- Dziś: recenzja w App Store, strona autora.
+- Częstotliwość: rzadko.
+- Dowód: 3 recenzje wyżej; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku, kontakt w Ustawieniach); zadania M1-audytor-generalny-082, -083.
 
+## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
 
 ### P-6: Początkujący bez zakwasu
@@ -228,8 +234,10 @@ Cytaty wytycznych z odczytu 2026-10-19 innych ról (D-037); brzmienie przed wys�
 ### OG-06: Bez kopii tej samej aplikacji; prosty minutnik to kategoria nasycona
 - Wiele Bundle ID tej samej aplikacji jest zabronione, a „simple timers” to kategoria, w której nowa aplikacja musi dawać wyraźnie inne doświadczenie [FAKT S-34]. Dotyczy: H-09 (podział), RYZ-18.
 
-## Hipotezy dla ról 02 i 03 (H)
+### OG-07: Prośba o ocenę tylko systemowym mechanizmem
+- O ocenę wolno prosić tylko przez systemowy mechanizm, a własne okna z prośbą o ocenę są zabronione [FAKT S-62]; system pokazuje prośbę najwyżej trzy razy w ciągu 365 dni [FAKT S-63]. Dotyczy: BR-OPIN-001, BR-OPIN-002.
 
+## Hipotezy dla ról 02 i 03 (H)
 Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-014). Każda hipoteza ma wpis w `docs/zalozenia.md`. Bez cen i bez etykiety MVP.
 
 ### H-03: O uczciwości decyduje przejrzystość opłat, nie tylko kwota
