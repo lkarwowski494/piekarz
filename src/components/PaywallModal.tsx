@@ -107,7 +107,7 @@ export function PaywallModal({
           <Text style={styles.title}>{t('Odblokuj pełny dostęp')}</Text>
           <Text style={styles.subtitle}>
             {t(
-              'Odblokuj kalkulator, zakwas, Stolnicę, harmonogram i Doktora Chleba. Historia wypieków i Twoje dane są dostępne bez zakupu.'
+              'Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.'
             )}
           </Text>
 
