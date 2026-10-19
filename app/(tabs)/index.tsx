@@ -2,7 +2,6 @@ import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import {
   Text,
   ScrollView,
-  StyleSheet,
   Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -55,6 +54,7 @@ import {
   executeSaveCustomRecipe,
 } from '../../src/lib/calculator-actions';
 import { CorruptStateRecoveryBanner } from '../../src/components/CorruptStateRecoveryBanner';
+import { styles } from '../../src/components/calculator/calculator-screen.styles';
 
 type CalculationMode = 'loaves' | 'flour';
 
@@ -541,27 +541,3 @@ export default function CalculatorScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: theme.colors.background,
-  },
-  container: {
-    padding: theme.spacing.md,
-    paddingBottom: 40,
-  },
-  settingsHeaderBtn: {
-    width: 44,
-    height: 44,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-  },
-  settingsHeaderBtnText: {
-    fontSize: 20,
-  },
-});
