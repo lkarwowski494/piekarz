@@ -71,7 +71,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Wtedy usunięcie działa bez oferty zakupu
 
 ### BR-ZAK-001: Zakup i przywrócenie przez App Store
-- Przepływ: PR-09 · Ograniczenie: OG-01, OG-03
+- Przepływ: PR-09 · Ograniczenie: OG-01, OG-02 (subskrypcja dostępna na wszystkich urządzeniach użytkownika), OG-03
 - Dowód potrzeby: D-033; audyt M1 01-odkrywanie-001 (zakup odblokowywał funkcje bez płatności); zakup bez odblokowania u konkurencji (S-21, rec. 14046463760)
 - Kryteria akceptacji:
   - Scenariusz: Udany zakup

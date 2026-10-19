@@ -125,7 +125,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Wtedy wypiek wczytuje się bez utraty kroku i terminu (D-030)
 
 ### BR-CZAS-002: Sygnał kroku przy zablokowanym telefonie
-- Przepływ: PR-04, PR-05 · zależy od: ZAL-032
+- Przepływ: PR-04, PR-05 · Ograniczenie: OG-05 (opis w sklepie obiecuje sygnał tylko, jeśli działa) · zależy od: ZAL-032
 - Dowód potrzeby: cel właściciela ZP-17; 15 z 338 recenzji (S-14, S-15, S-25); decyzja DEC-02 (a) planu napraw M1 (powiadomienia lokalne, poziom pilny dla kroków krytycznych, bez Live Activity w 1.0)
 - Kryteria akceptacji:
   - Scenariusz: Koniec kroku przy zablokowanym ekranie
