@@ -32,6 +32,7 @@ export interface ArtisanAccordionProProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
+  waterTempWarning?: string;
   iceGrams?: number;
   ambientTemp: number;
   flourTemp: number;
@@ -68,6 +69,7 @@ export function ArtisanAccordionPro({
   targetDdt,
   onTargetDdtChange,
   waterTempTarget,
+  waterTempWarning,
   iceGrams,
   ambientTemp,
   flourTemp,
@@ -127,6 +129,7 @@ export function ArtisanAccordionPro({
             targetDdt={targetDdt}
             onTargetDdtChange={onTargetDdtChange}
             waterTempTarget={waterTempTarget}
+            waterTempWarning={waterTempWarning}
             iceGrams={iceGrams}
             waterPct={waterPct}
             onWaterPctChange={onWaterPctChange}

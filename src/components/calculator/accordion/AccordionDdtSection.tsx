@@ -10,6 +10,8 @@ export interface AccordionDdtSectionProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
+  /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
+  waterTempWarning?: string;
   iceGrams?: number;
   waterPct: number;
   onWaterPctChange: (pct: number) => void;
@@ -21,6 +23,7 @@ export function AccordionDdtSection({
   targetDdt,
   onTargetDdtChange,
   waterTempTarget,
+  waterTempWarning,
   iceGrams,
   waterPct,
   onWaterPctChange,
@@ -47,6 +50,12 @@ export function AccordionDdtSection({
             {waterTempTarget > 0 ? formatTemperature(waterTempTarget, unitSystem) : '0°C (Lód)'}
           </Text>
         </View>
+
+        {waterTempWarning !== undefined && (
+          <View style={styles.hotAlertRow} testID="ddt-too-hot-warning" accessibilityRole="alert">
+            <Text style={styles.hotAlertText}>⚠️ {t(waterTempWarning)}</Text>
+          </View>
+        )}
 
         {iceGrams !== undefined && iceGrams > 0 && (
           <View style={styles.iceAlertRow}>
@@ -207,6 +216,18 @@ const styles = StyleSheet.create({
     paddingTop: 6,
     borderTopWidth: 1,
     borderTopColor: theme.colors.border,
+  },
+  hotAlertRow: {
+    marginTop: 6,
+    padding: 8,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.statusDanger,
+  },
+  hotAlertText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: theme.colors.textPrimary,
   },
   iceIcon: {
     fontSize: 14,

@@ -41,4 +41,7 @@ export const EN_4: Record<string, string> = {
   'Który zakwas?': 'Which starter?',
   // Test palca w Stolnicy przy garowaniu końcowym (F-15, BR-ETAP-003) [M1-audytor-generalny-032]
   'Sprawdź gotowość: test palca': 'Check readiness: poke test',
+  // Ostrzeżenie RD-05 o wodzie > 45 °C w Kalkulatorze [M1-audytor-generalny-039]
+  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.':
+    'Warning: the calculated water temperature exceeds 45°C. Risk of killing the yeast and lactic acid bacteria! Cool the flour or lower the room temperature.',
 };
