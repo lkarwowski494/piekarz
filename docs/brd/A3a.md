@@ -1,17 +1,17 @@
-# **Piekarz BRD 0.1 — Część A3a: Tabela zakresu (1/2, pozycje Z-001…Z-100)**
+# Piekarz BRD 0.1 — Część A3a: Tabela zakresu (1/2, pozycje Z-001…Z-100)
 
 Tabela definiuje precyzyjny podział funkcji na etapy wdrożeniowe: **MVP (wersja 1.0)**, **1.1**, **1.2**, **2.x**, **badanie** oraz **nigdy (wykluczone)**.
 
 | ID | Obszar | Funkcja / Wymaganie | Priorytet | Etap | Uzasadnienie etapu i powiązanie z ZP |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| **Z-001** | KALK | Kalkulator procentu piekarskiego (baza: mąka \= 100%) | MUST | MVP | Fundament aplikacji; ZP-05 |
+| **Z-001** | KALK | Kalkulator procentu piekarskiego (baza: mąka = 100%) | MUST | MVP | Fundament aplikacji; ZP-05 |
 | **Z-002** | KALK | Rygorystyczny bilans masowy (wliczanie mąki i wody z zakwasu do hydratacji całkowitej) | MUST | MVP | Eliminacja błędu zafałszowania gęstości ciasta; ZP-05 |
 | **Z-003** | KALK | Skalowanie receptury na zadaną masę całkowitą ciasta | MUST | MVP | Podstawowa potrzeba dopasowania do foremek; SYT-06 |
 | **Z-004** | KALK | Skalowanie na liczbę bochenków / kęsów pizzy | MUST | MVP | Standard pracy w kuchni domowej; P1, P4 |
 | **Z-005** | KALK | Kalkulator docelowej temperatury ciasta (DDT) – wzór 4-składnikowy | MUST | MVP | Tarcza przed wytyczną 4.3(b); ZP-11 |
 | **Z-006** | KALK | Tabela współczynników tarcia miksera / wyrabiania ręcznego | MUST | MVP | Dokładność obliczeń temperatury wody; RD-06 |
-| **Z-007** | KALK | Ostrzeżenie o zbyt gorącej wodzie (\>45°C – ryzyko śmierci drożdży) | MUST | MVP | Bezpieczeństwo biologiczne ciasta; ZP-11 |
-| **Z-008** | KALK | Podpowiedź dodania lodu przy wyliczeniu temperatury wody \<4°C | SHOULD | MVP | Praktyka piekarska w upalne dni; SYT-04 |
+| **Z-007** | KALK | Ostrzeżenie o zbyt gorącej wodzie (>45°C – ryzyko śmierci drożdży) | MUST | MVP | Bezpieczeństwo biologiczne ciasta; ZP-11 |
+| **Z-008** | KALK | Podpowiedź dodania lodu przy wyliczeniu temperatury wody <4°C | SHOULD | MVP | Praktyka piekarska w upalne dni; SYT-04 |
 | **Z-009** | KALK | Obsługa wielu rodzajów mąki w zasypie (blend mąk z osobnymi % i wagami) | MUST | MVP | Chleby wielomączne, pszenno-żytnie |
 | **Z-010** | KALK | Automatyczne przeliczanie drożdży świeżych na drożdże instant (współczynnik 3:1) | MUST | MVP | Wygoda amatorów pieczenia pizzy i chałek; RD-04 |
 | **Z-011** | KALK | Kalkulator zasolenia z zakresem optymalnym (1,8% – 2,2%) | MUST | MVP | Kontrola smaku i pracy glutenu; RD-03 |
@@ -23,7 +23,7 @@ Tabela definiuje precyzyjny podział funkcji na etapy wdrożeniowe: **MVP (wersj
 | **Z-017** | HARMO | Automatyczne rozplanowanie nocy w lodówce (Cold Retardation 8–24h) | MUST | MVP | Standard rzemieślniczego wypieku chleba |
 | **Z-018** | HARMO | Wykrywanie kolizji z godzinami snu użytkownika (ostrzeżenie: „formowanie o 03:30 w nocy”) | MUST | MVP | Zapobieganie rujnowaniu nocy piekarzowi |
 | **Z-019** | HARMO | Inteligentne przesuwanie etapów (Smart Shift): wydłużenie autolizy lub garowania chłodniczego | SHOULD | MVP | Elastyczność planu dnia domowego piekarza |
-| **Z-020** | HARMO | Dynamiczna adaptacja czasu fermentacji burzliwej do temperatury otoczenia (\$Q\_{10}\$) | MUST | MVP | ZP-12; ochrona przed przekwaszeniem |
+| **Z-020** | HARMO | Dynamiczna adaptacja czasu fermentacji burzliwej do temperatury otoczenia ($Q_{10}$) | MUST | MVP | ZP-12; ochrona przed przekwaszeniem |
 | **Z-021** | HARMO | Obsługa pauzy i przesunięcia startu kolejnego etapu | MUST | MVP | Życiowe sytuacje w domu (dzieci, zakupy) |
 | **Z-022** | HARMO | Eksport planu czasowego do kalendarza systemowego iOS (EventKit) | SHOULD | wycofane (D-031, KL-09) | DEC-37; wycięte z kodu i roadmapy 2026-10-19 (D-031) |
 | **Z-023** | HARMO | Szacowanie czasu nagrzewania naczynia żeliwnego (45–60 min) | MUST | MVP | Gwarancja odpowiedniej temperatury pieca |
@@ -33,7 +33,7 @@ Tabela definiuje precyzyjny podział funkcji na etapy wdrożeniowe: **MVP (wersj
 | **Z-027** | ETAP | Etap 3: Mieszanie właściwe i dodanie soli (Bassinage) | MUST | MVP | Prawidłowe budowanie siatki glutenowej |
 | **Z-028** | ETAP | Etap 4: Fermentacja burzliwa z pętlą składań (np. 4x co 30 min) | MUST | MVP | Kluczowa faza budowania struktury |
 | **Z-029** | ETAP | Obsługa różnych technik składania: Stretch & Fold, Coil Fold, Laminacja | MUST | MVP | Elastyczność dla zaawansowanych |
-| **Z-030** | ETAP | Automatyczne wyłączenie składań przy ciastach \>50% mąki żytniej | MUST | MVP | Ochrona struktury żyta; S-04 |
+| **Z-030** | ETAP | Automatyczne wyłączenie składań przy ciastach >50% mąki żytniej | MUST | MVP | Ochrona struktury żyta; S-04 |
 | **Z-031** | ETAP | Etap 5: Formowanie wstępne (Pre-shape) i odpoczynek na desce (Bench Rest) | MUST | MVP | Standard technologiczny formowania bochenka |
 | **Z-032** | ETAP | Etap 6: Formowanie ostateczne (bochenek podłużny / batard vs okrągły / boule) | MUST | MVP | Różne techniki napinania skórki |
 | **Z-033** | ETAP | Etap 7: Garowanie końcowe (koszyk rozrostowy / lodówka) | MUST | MVP | Faza kumulacji gazu i kwasowości |

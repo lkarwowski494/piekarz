@@ -1,4 +1,4 @@
-# **Piekarz BRD — 00c Errata i Rozstrzygnięcia Dziedzinowe**
+# Piekarz BRD — 00c Errata i Rozstrzygnięcia Dziedzinowe
 ## Wersja: 2.0-craft (Modernizacja Retrofit Apps4Craft)
 
 ---

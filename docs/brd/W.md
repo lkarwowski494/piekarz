@@ -1,4 +1,4 @@
-# **Piekarz BRD — Raport Weryfikacji Źródeł Merytorycznych (W.md)**
+# Piekarz BRD — Raport Weryfikacji Źródeł Merytorycznych (W.md)
 ## Wersja: 2.0-craft (Modernizacja Retrofit Apps4Craft)
 **Standard:** Apps4Craft Tier 1–3 Evidence-Based Baking Science.
 

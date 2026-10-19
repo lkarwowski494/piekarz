@@ -1,4 +1,4 @@
-# **Piekarz BRD 0.1 — Część A3b: Tabela zakresu (2/2, pozycje Z-054…Z-120)**
+# Piekarz BRD 0.1 — Część A3b: Tabela zakresu (2/2, pozycje Z-054…Z-120)
 
 Druga część tabeli zakresu: integracja systemowa, zegarki, bezdotykowa praca w kuchni, moduł nauki, diagnostyka oraz NFR.
 
@@ -7,7 +7,7 @@ Druga część tabeli zakresu: integracja systemowa, zegarki, bezdotykowa praca 
 | **Z-054** | CZAS | Zegar kuchenny z wieloma timerami działającymi współbieżnie | MUST | MVP | Jednoczesne składanie ciasta i nagrzewanie pieca |
 | **Z-055** | CZAS | Głośne, dedykowane alarmy piekarskie (dzwonek pieca, gong) | MUST | MVP | Słyszalność w głośnej kuchni przy okapie; DEC-19 |
 | **Z-056** | CZAS | Powiadomienia Time-Sensitive przebijające tryby Focus | MUST | MVP | Zapobieganie przegapieniu momentu składania ciasta |
-| **Z-057** | ZEG | Dedykowana aplikacja na Apple Watch (watchOS 11\) | MUST | wycofane (D-031, KL-06) | Kluczowy wyróżnik rynkowy; ZP-01 |
+| **Z-057** | ZEG | Dedykowana aplikacja na Apple Watch (watchOS 11) | MUST | wycofane (D-031, KL-06) | Kluczowy wyróżnik rynkowy; ZP-01 |
 | **Z-058** | ZEG | Obsługa gestu podwójnego stuknięcia (Double Tap) w Apple Watch | MUST | wycofane (D-031, KL-06) | Odhaczanie złożenia ciasta bez dotykania zegarka |
 | **Z-059** | ZEG | Sterowanie timerem i etapami za pomocą koronki Digital Crown | MUST | wycofane (D-031, KL-06) | Precyzja mokrymi dłońmi; ZP-01 |
 | **Z-060** | ZEG | Wyraziste wibracje Haptic Feedback informujące o końcu składania | MUST | wycofane (D-031, KL-06) | Poczucie dotykowe podczas prac domowych |
@@ -17,12 +17,12 @@ Druga część tabeli zakresu: integracja systemowa, zegarki, bezdotykowa praca 
 | **Z-064** | GAR | Pełna aplikacja Garmin Connect IQ z obsługą fizycznych przycisków | MUST | wycofane (D-031, KL-16) | DEC-02; kluczowy wyróżnik dla użytkowników Garmina |
 | **Z-065** | LIVE | Live Activity na zablokowanym ekranie iPhone'a z wielkim paskiem postępu | MUST | wycofane (D-031, KL-07) | Czytelność z 2 metrów na blacie kuchennym |
 | **Z-066** | LIVE | Integracja z Dynamic Island (odliczanie do kolejnego coil fold) | MUST | wycofane (D-031, KL-07) | Dyskretna kontrola podczas przeglądania telefonu |
-| **Z-067** | LIVE | Przyciski bezpośredniej akcji na Live Activity (Złożone / \+10 min) | MUST | wycofane (D-031, KL-07) | Minimalizacja dotykania ekranu |
+| **Z-067** | LIVE | Przyciski bezpośredniej akcji na Live Activity (Złożone / +10 min) | MUST | wycofane (D-031, KL-07) | Minimalizacja dotykania ekranu |
 | **Z-068** | REKA | Tryb kuchenny: zapobieganie wygaszaniu ekranu podczas aktywnego etapu | MUST | MVP | Brak konieczności odblokowywania FaceID w mące |
 | **Z-069** | REKA | Integracja z przyciskiem czynności (Action Button) w iPhone 15 Pro / 16 | SHOULD | MVP | DEC-23; sprzętowe odhaczanie złożenia |
 | **Z-070** | REKA | Sterowanie komendami głosowymi Siri (Siri Shortcuts) | SHOULD | wycofane (D-031, KL-08) | Głosowe odhaczanie kroków z drugiego końca kuchni |
 | **Z-071** | SYS | Widżety ekranu blokady i ekranu początkowego (stan zakwasu, odliczanie) | SHOULD | MVP | Szybki podgląd w systemie |
-| **Z-072** | SYS | Kontrolki Control Center (iOS 18\) do szybkiego startu kalkulatora | SHOULD | MVP | DEC-06 |
+| **Z-072** | SYS | Kontrolki Control Center (iOS 18) do szybkiego startu kalkulatora | SHOULD | MVP | DEC-06 |
 | **Z-073** | DANE | Lokalna baza danych SQLite / SwiftData | MUST | MVP | ZP-03; 100% offline, zero awaryjności |
 | **Z-074** | DANE | Automatyczna kopia zapasowa do prywatnego folderu iCloud Drive | MUST | MVP | ZP-06; bezpieczeństwo danych użytkownika |
 | **Z-075** | DANE | Ręczny eksport i import bazy w formacie JSON | MUST | MVP | ZP-07; wolność od vendor lock-in |

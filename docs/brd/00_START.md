@@ -1,10 +1,10 @@
-# **Piekarz (Crust) — Wymagania Biznesowe (BRD v2.0-craft)**
+# Piekarz (Crust) — Wymagania Biznesowe (BRD v2.0-craft)
 ## Standard: Apps4Craft / Apps4Brew Studio 2026 (Retrofit Convergence)
 **Data wydania:** 18.10.2026 | **Faza Sztafety:** Rola 1 (Lead BA & Product Discovery Architect)
 
 ---
 
-## **1. Jak czytać ten dokument (Modularna Architektura BRD)**
+## 1. Jak czytać ten dokument (Modularna Architektura BRD)
 
 Zgodnie ze standardem Apps4Craft (znanym z projektów *Oczko*, *Słoik* i *Napar*), dokumentacja analityczna stanowi Single Source of Truth dla projektantów UX, audytorów monetyzacji, architektów systemowych oraz programistów.
 
@@ -24,7 +24,7 @@ docs/brd/
 
 ---
 
-## **2. Streszczenie Wykonawcze dla Właściciela Produktu**
+## 2. Streszczenie Wykonawcze dla Właściciela Produktu
 
 **Czym jest Piekarz (Crust):**
 Kieszonkowy mistrz i laboratoryjny asystent kuchenny dla domowych i rzemieślniczych piekarzy chleba na zakwasie, pieczywa drożdżowego, chałek i pizzy. Eliminuje trzy koszmary każdego piekarza:
@@ -34,7 +34,7 @@ Kieszonkowy mistrz i laboratoryjny asystent kuchenny dla domowych i rzemieślnic
 
 ---
 
-## **3. Status Sztafety Inżynierskiej (Apps4Craft Retrofit Playbook)**
+## 3. Status Sztafety Inżynierskiej (Apps4Craft Retrofit Playbook)
 
 Aplikacja przeszła procedurę **Czystej Rekonstrukcji i Trójstronnej Zbieżności (Clean-Room Synthesis & Triangulation)**:
 - **Krok 1 (Clean-Room Blueprint):** Zmapowano 100% uniwersum dziedzinowego bez ograniczeń historycznych (Raport: `ETAP_1_CZYSTA_SYNTEZA_WZORCOWA_PIEKARZ.md`).
@@ -44,7 +44,7 @@ Aplikacja przeszła procedurę **Czystej Rekonstrukcji i Trójstronnej Zbieżno�
 
 ---
 
-## **4. Co Blokuje Wydanie (Release Blockers — Bramka Jakościowa)**
+## 4. Co Blokuje Wydanie (Release Blockers — Bramka Jakościowa)
 
 Przed publikacją wersji v2.0 w App Store muszą zostać bezwzględnie spełnione poniższe warunki:
 1. **Zero Data Loss:** Pomyślne przejście zautomatyzowanego testu asekuracyjnego migracji bazy SQLite na zrzucie rzeczywistej bazy v1.0.
@@ -55,7 +55,7 @@ Przed publikacją wersji v2.0 w App Store muszą zostać bezwzględnie spełnion
 
 ---
 
-## **5. Wariant MVP — Decyzja DEC-01 (Wariant b+ Optymalny)**
+## 5. Wariant MVP — Decyzja DEC-01 (Wariant b+ Optymalny)
 
 | Wskaźnik | (b+) MVP Optymalne (Zatwierdzony Standard) |
 |---|---|
