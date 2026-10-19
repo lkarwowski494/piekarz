@@ -75,6 +75,28 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
   }
 }
 
+type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
+
+/** Jeden zapis wiersza wypieku dla zapisu i przywracania kopii — wszystkie kolumny [M1-audytor-generalny-002]. */
+async function writeBakeRow(db: Db, log: StoredBakeLog): Promise<void> {
+  await db.runAsync(
+    `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile, sensory_profile)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+    log.id,
+    log.recipeName,
+    log.startedAt,
+    log.finishedAt ?? null,
+    log.ambientTemp ?? null,
+    log.actualDDT ?? null,
+    log.ratingStars ?? null,
+    log.notes ?? null,
+    log.crumbScore ?? null,
+    log.crustScore ?? null,
+    log.tasteProfile ?? null,
+    log.sensoryProfile ? JSON.stringify(log.sensoryProfile) : null
+  );
+}
+
 export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   const existingIdx = memStore.logs.findIndex((l) => l.id === log.id);
   if (existingIdx >= 0) {
@@ -86,23 +108,7 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
   const db = await getDb();
   if (db) {
     try {
-      const sensoryStr = log.sensoryProfile ? JSON.stringify(log.sensoryProfile) : null;
-      await db.runAsync(
-        `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile, sensory_profile)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
-        log.id,
-        log.recipeName,
-        log.startedAt,
-        log.finishedAt ?? null,
-        log.ambientTemp ?? null,
-        log.actualDDT ?? null,
-        log.ratingStars ?? null,
-        log.notes ?? null,
-        log.crumbScore ?? null,
-        log.crustScore ?? null,
-        log.tasteProfile ?? null,
-        sensoryStr
-      );
+      await writeBakeRow(db, log);
     } catch {
       // Memory store preserved
     }
@@ -346,20 +352,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     }
 
     for (const b of data.bakes) {
-      await db.runAsync(
-        'INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-        b.id,
-        b.recipeName,
-        b.startedAt,
-        b.finishedAt ?? null,
-        b.ambientTemp ?? null,
-        b.actualDDT ?? null,
-        b.ratingStars ?? null,
-        b.notes ?? null,
-        b.crumbScore ?? null,
-        b.crustScore ?? null,
-        b.tasteProfile ?? null
-      );
+      await writeBakeRow(db, b);
     }
   });
 }
