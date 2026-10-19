@@ -10,6 +10,10 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "locales": {
+      "pl": "./languages/pl.json",
+      "en": "./languages/en.json"
+    },
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
