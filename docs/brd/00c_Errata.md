@@ -32,6 +32,7 @@ Wpisy ER-01…ER-05 to dawna tabela „Sprzeczności w literaturze piekarskiej�
 | ER-21 | 2026-10-19 | rola 01 | A3a (Z-026, Z-030) | Odwołania „S-02” i „S-04” w tabeli zakresu oznaczały sprzeczności z archiwalnej erraty BRD 0.1, nie źródła; przepisane, żeby nie kolidowały z ID źródeł S | zamknięte 2026-10-19 |
 | ER-22 | 2026-10-19 | audyt M1 (01-odkrywanie-010, ODK-08) | BRD | Brak ograniczeń OG z polityk App Store (zakupy, prywatność, tryby tła), od których zależą PR-04, PR-07 i PR-09 | otwarte: rola 01 (moduł rynek-i-polityki), OP-20 |
 | ER-23 | 2026-10-19 | audyt M1 (01-odkrywanie-009) | DEC-10, BR-ZAK-001, Z-079, RYZ-07 | Okres próbny 14 dni w DEC-10 i BR-ZAK-001, 7 dni albo 3 wypieki w README i w kodzie; ceny w DEC-11. BRD nie zmienia ceny, okresu próbnego ani podziału darmowe/płatne do decyzji DEC-01 | otwarte: rola 02 (DEC-01 w toku) |
+| ER-24 | 2026-10-19 | audyt M1 (01-odkrywanie-013, ODK-06) | A1 (2.1–2.3), W.md (EV-01…EV-10), DEC-46 | Fakty bez źródła S: statystyki rynku i skarg oraz cytaty recenzji w A1, rejestr EV bez adresu, cytatu i daty, okna szczytu zakwasu w DEC-46. Oznaczone znacznikiem „DO USTALENIA” z OP-21, OP-22, OP-24, OP-25 bez zmiany brzmienia; EV odesłane do reguł z S, do rejestru roli 06 albo do istniejących OP; fakty dziedzinowe rozstrzyga rola 06 | przyjęte 2026-10-19 (znaczniki); fakty: otwarte, rola 01 (OP-21, OP-22), rola 06 (OP-24, OP-25) |
 
 ---
 

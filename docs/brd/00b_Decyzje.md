@@ -129,6 +129,7 @@
   - *Opcja A (Rekomendowana):* Dodanie parametru `feedingRatio` do `calculateStarterPhase` i zapisanie go w profilu zakwasu (1:1:1 szczyt w 3–4h, 1:2:2 w 5–7h, 1:5:5 w 10–12h).
   - *Opcja B:* Pozostawienie sztywnego okna czasowego.
 - **Rekomendacja:** **Opcja A** (eliminuje fałszywe powiadomienia i chroni przed przekwaszeniem zaczynu). Status: **ZATWIERDZONA**.
+- **Zmiana 2026-10-19 (01-odkrywanie-013):** decyzja dotyczy tylko tego, że okno szczytu zależy od proporcji dokarmienia. Liczby okien (1:1:1 → 3–4 h, 1:2:2 → 5–7 h, 1:5:5 → 10–12 h) to fakt dziedzinowy bez przeczytanego źródła: [DO USTALENIA] (OP-25); rozstrzyga rola 06 (`docs/tresci/rejestr.json`: brak wpisu), nie ta decyzja.
 
 ### DEC-47: Zasada Praw Nabytych (Grandfathering) dla Użytkowników v1.x
 - **Kontekst:** Wprowadzenie twardej bramki monetyzacyjnej w v2.0 nie może zablokować funkcji użytkownikom wczesnych wersji v1.x (Aksjomat 11).

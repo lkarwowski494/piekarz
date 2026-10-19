@@ -15,14 +15,14 @@ docs/brd/
 │   └── test-vectors.json       # Dawny korpus wektorów (kopia w tests/fixtures/ czytana przez testy, ER-16)
 ├── 00_START.md                 # (Ten plik) Stan, spis, streszczenie, warianty MVP, blokery wydania
 ├── 00b_Decyzje.md              # Decyzje BRD DEC-01…DEC-12 i DEC-41…DEC-49
-├── 00c_Errata.md               # Errata ER-01…ER-23 ze statusem
+├── 00c_Errata.md               # Errata ER-01…ER-24 ze statusem
 ├── A1.md ... A4.md             # Wizja, persony, zasady ZP-01…ZP-16, rynek, zakres, KPI
 ├── A5.md                       # Prace J-01…J-06, przepływy PR-01…PR-10, macierz śladu
 ├── B1.md ... B6.md             # Wymagania BR narzędzi: KALK, HARMO, ETAP, ZAKW, RECP, SPIZ, CZAS, REKA, SYS, DANE, WSP, ZAK, UST, PRYW, DOST
 ├── C1.md ... C4b.md            # Nauka, Doktor Chleba, reguły RD-00…RD-13 z wektorami (C3)
-├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-20
+├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-25
 ├── S.md                        # Źródła S-01…S-05 (przeczytane, z cytatem i datą)
-└── W.md                        # Bibliografia i hierarchia źródeł z BRD 2.0-craft (pozycje bez wpisu S)
+└── W.md                        # Bibliografia i hierarchia źródeł z BRD 2.0-craft (pozycje bez wpisu S; rejestr EV z odesłaniem do RD, rejestru roli 06 albo OP)
 ```
 
 **Stan 2026-10-19 (rola 01, zadanie M1-audytor-generalny-033):** kanoniczny jest krótki zestaw plików z tego katalogu; druga kopia (eksport BRD 0.1 z Dysku) leży w `archiwum/` i nie jest wejściem dla żadnej roli (ER-17). Łańcuch śladu: persona → praca J → przepływ PR → wymaganie BR → reguła RD → wektor (A5, C3). Zdefiniowano 52 wymagania BR, z czego 11 wycofanych decyzją D-031 (ER-07); liczby „124 BR” w sekcji 5 i „86 BR” w B6 to liczby zakresu z BRD 0.1, niezgodne z treścią (ER-18, rola 03). Sprzeczności i prośby o zmianę: 00c (ER), pytania otwarte: D4 (OP). Kontrola mechaniczna: skrypt kontroli BRD roli 01 (wynik w raporcie roli 01 z 2026-10-19); wektory do testów: `tests/wektory/brd.json`.
