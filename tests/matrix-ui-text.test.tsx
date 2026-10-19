@@ -454,7 +454,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Zbyt kwaśny, octowy smak",
     "Zdejmij pokrywkę garnka! Wypuść parę.",
     "Zero reklam, zero śledzenia telemetrycznego",
-    "Zeskanuj kod drugim telefonem w aplikacji Piekarz (Skanuj QR) albo udostępnij recepturę jako tekst i wklej go w oknie Importuj JSON.",
+    "Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.",
     "Zezwól na dostęp do aparatu",
     "Zmniejsz",
     "Zostaje wgłębienie i ciasto siada:",

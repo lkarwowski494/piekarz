@@ -279,7 +279,7 @@ export const EN_2: Record<string, string> = {
   'Receptura piekarska z aplikacji Piekarz': 'Baking recipe from Crust (Piekarz)',
   'Kod QR Receptury': 'Recipe QR Code',
   'Hydratacja': 'Hydration',
-  'Zeskanuj kod drugim telefonem w aplikacji Piekarz (Skanuj QR) albo udostępnij recepturę jako tekst i wklej go w oknie Importuj JSON.': 'Scan the code with another phone in Crust (Scan QR), or share the recipe as text and paste it into Import JSON.',
+  'Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.': 'Scan the code with another phone in Crust (Piekarz) using Scan QR, or share the recipe as text and paste it after tapping Import JSON.',
   'Udostępnij recepturę': 'Share recipe',
   'Pusty lub nieprawidłowy link': 'Empty or invalid link',
   'Nie udało się odczytać receptury z linku lub kodu QR': 'Could not read recipe from link or QR code',

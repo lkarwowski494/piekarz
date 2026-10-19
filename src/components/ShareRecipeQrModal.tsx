@@ -95,7 +95,7 @@ export function ShareRecipeQrModal({
             </View>
 
             <Text style={styles.hintText}>
-              {t('Zeskanuj kod drugim telefonem w aplikacji Piekarz (Skanuj QR) albo udostępnij recepturę jako tekst i wklej go w oknie Importuj JSON.')}
+              {t('Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.')}
             </Text>
 
             {/* Action Buttons */}
