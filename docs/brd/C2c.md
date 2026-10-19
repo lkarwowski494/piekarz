@@ -34,6 +34,48 @@ Narzędzie pozwalające zidentyfikować przyczynę nieudanego wypieku na podstaw
   2. Zbyt niska temperatura wewnętrzna w środku bochenka (poniżej 94°C).  
 * **Rozwiązanie na przyszłość:** Odczekaj minimum 2 godziny przed pierwszym krojeniem; dopiekaj chleb 5 minut dłużej; użyj termometru szpilkowego.
 
+### BR-DIAG-001: Doktor Chleba — diagnoza wady bochenka i propozycja po słabej ocenie
+
+* **Priorytet:** SHOULD · **Etap:** MVP (wybór właściciela 2026-10-19, D-034, ZM-07; ER-26)  
+* **Persona:** P1, P4  
+* **Przepływ:** PR-06 (A5, krok 3)  
+* **Dowód potrzeby:** J-05; linia bazowa audytu M1 z 2026-10-19, praca J-B6 („Zdiagnozować wadę bochenka i wiedzieć, co zmienić”) i LB-25 (Doktor pamięta wcześniejsze zalecenia); tabela linii bazowej funkcji w raporcie audytu roli 03 z 2026-10-19, B6 (Loaflo, recenzja: „helped me figure out where, when, what I needed to adjust”).  
+* **Opis:** Po wypieku piekarz wybiera objaw wady (DIAG-01…DIAG-04), widzi prawdopodobną przyczynę i zalecenie na następny wypiek, może przenieść poprawkę do receptury („Przestaw recepturę”) i skopiować diagnozę. Po ocenie ≤ 2★ w formularzu zakończenia wypieku aplikacja proponuje przejście do Doktora. Próg ≤ 2★ to wybór produktowy właściciela (D-034), nie liczba dziedzinowa. Treść objawów, przyczyn i zaleceń (DIAG-01…DIAG-04) pochodzi z rejestru treści roli 06 (ER-14 dla DIAG-04).  
+* **Kryteria akceptacji:**  
+  1. Po zapisaniu oceny ≤ 2★ formularz zakończenia wypieku pokazuje propozycję przejścia do Doktora; przy ocenie 3★ i wyższej jej nie pokazuje.  
+  2. Wpis w dzienniku zapisuje się tak samo bez względu na to, czy użytkownik przyjmie propozycję.  
+  3. Doktor jest dostępny także z nagłówków Stolnicy i Zakwasu.  
+  4. „Przestaw recepturę” przenosi poprawkę do Kalkulatora i nie nadpisuje receptury bazowej (BR-RECP-001).  
+  5. Każde zalecenie ma wpis w rejestrze treści roli 06.  
+* **Płatność:** wg DEC-01.podzial: płatne po okresie próbnym (klucz `doktor` według kontraktu zakresu, F-43).
+* **Scenariusze akceptacji (Gherkin, 2026-10-19):**
+
+```gherkin
+# language: pl
+Scenariusz: Propozycja Doktora po słabej ocenie
+  Zakładając, że użytkownik kończy wypiek w Stolnicy
+  Gdy zapisuje ocenę 2★
+  Wtedy widzi propozycję sprawdzenia przyczyny w Doktorze
+  Oraz wpis z oceną 2★ jest w dzienniku
+
+Scenariusz: Granica: ocena 3★ bez propozycji
+  Zakładając, że użytkownik kończy wypiek w Stolnicy
+  Gdy zapisuje ocenę 3★
+  Wtedy nie widzi propozycji przejścia do Doktora
+  Oraz wpis z oceną 3★ jest w dzienniku
+
+Scenariusz: Odrzucenie propozycji nie zmienia wpisu
+  Zakładając, że użytkownik zapisał ocenę 1★ i widzi propozycję Doktora
+  Gdy zamyka propozycję
+  Wtedy widzi w historii wpis z oceną 1★ i swoją notatką
+
+Scenariusz: Diagnoza i przestawienie receptury
+  Zakładając, że użytkownik jest w Doktorze
+  Gdy wybiera objaw i dotyka „Przestaw recepturę”
+  Wtedy Kalkulator pokazuje recepturę z poprawką
+  Oraz receptura bazowa pozostaje bez zmian
+```
+
 ---
 
 ## 7.24 Obszar APA: Aparat i dokumentacja fotograficzna
