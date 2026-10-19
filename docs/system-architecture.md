@@ -40,7 +40,9 @@ System inżynieryjny aplikacji **Piekarz (Crust)** opiera się na 4 filarach arc
 
 ## 2. Model Danych Relacyjnych (SQLite DDL)
 
-Plikiem źródłowym schematu jest [`db/schema.sql`](file:///c:/Users/lukas/Documents/antigravity/noble-pasteur/db/schema.sql).
+Jedynym źródłem schematu jest lista `SCHEMA_MIGRATIONS` w `src/data/sqlite-schema.ts`, wykonywana przez `applySchemaMigrations` (sekcja 5). Innych plików schematu nie ma (M1-audytor-generalny-062).
+
+> **Uwaga (20.10.2026):** pragmy w 2.1 i kolumna „Kluczowe Ograniczenia CHECK” w 2.2 opisują dawny, niewykonywany projekt. Wykonywany schemat ustawia tylko `journal_mode = WAL`, `foreign_keys = ON` i `busy_timeout = 5000` i nie ma ograniczeń CHECK. Do uzgodnienia przez rolę 05.
 
 ### 2.1 Konfiguracja Pragmatyki SQLite
 ```sql
