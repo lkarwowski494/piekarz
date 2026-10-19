@@ -7,6 +7,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
+import { t } from '../../lib/i18n';
 import { BakingVessel } from '../../data/sqlite-store';
 import { BakeVesselSelector } from './BakeVesselSelector';
 
@@ -23,10 +24,11 @@ export function IdleBakeCard({
 }: IdleBakeCardProps) {
   return (
     <View style={styles.idleCard}>
-      <Text style={styles.idleTitle}>Brak aktywnego wypieku</Text>
+      <Text style={styles.idleTitle}>{t('Brak aktywnego wypieku')}</Text>
       <Text style={styles.idleText}>
-        Wybierz recepturę w Kalkulatorze i kliknij „Rozpocznij wypiek na Stolnicy”, lub
-        uruchom standardowy harmonogram rzemieślniczy poniżej.
+        {t('Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.', {
+          przycisk: t('Rozpocznij wypiek na Stolnicy'),
+        })}
       </Text>
 
       {/* Baking Vessel Selector */}
@@ -36,7 +38,7 @@ export function IdleBakeCard({
       />
 
       <Pressable style={styles.startBtn} onPress={onStartBake}>
-        <Text style={styles.startBtnText}>🥖 Rozpocznij wypiek</Text>
+        <Text style={styles.startBtnText}>🥖 {t('Rozpocznij wypiek')}</Text>
       </Pressable>
     </View>
   );

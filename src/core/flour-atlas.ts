@@ -309,6 +309,9 @@ export interface FlourBlendValidationResult {
   sumPercentage: number;
   remainingPercentage: number;
   errorPl?: string;
+  /** Szablon komunikatu + parametry do t() przy wyświetlaniu [M1-audytor-generalny-047] */
+  errorTemplatePl?: string;
+  errorParams?: Record<string, string>;
 }
 
 /**
@@ -321,6 +324,8 @@ export function validateFlourBlend(flours: FlourBlendEntry[]): FlourBlendValidat
       sumPercentage: 0,
       remainingPercentage: 100.0,
       errorPl: 'Mieszanka musi zawierać co najmniej jedną mąkę.',
+      errorTemplatePl: 'Mieszanka musi zawierać co najmniej jedną mąkę.',
+      errorParams: {},
     };
   }
 
@@ -328,20 +333,29 @@ export function validateFlourBlend(flours: FlourBlendEntry[]): FlourBlendValidat
   const remaining = Math.round((100.0 - sum) * 10) / 10;
   const isValid = Math.abs(sum - 100.0) <= 0.05;
 
-  let errorPl: string | undefined;
+  let errorTemplatePl: string | undefined;
+  let errorParams: Record<string, string> | undefined;
   if (!isValid) {
     if (sum < 100.0) {
-      errorPl = `Suma procentów wynosi ${sum}% — brakuje jeszcze ${remaining}%.`;
+      errorTemplatePl = 'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.';
+      errorParams = { suma: String(sum), reszta: String(remaining) };
     } else {
-      errorPl = `Suma procentów wynosi ${sum}% — przekracza 100% o ${Math.abs(remaining)}%.`;
+      errorTemplatePl = 'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.';
+      errorParams = { suma: String(sum), reszta: String(Math.abs(remaining)) };
     }
   }
+  const errorPl =
+    errorTemplatePl && errorParams
+      ? Object.entries(errorParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), errorTemplatePl)
+      : undefined;
 
   return {
     isValid,
     sumPercentage: sum,
     remainingPercentage: remaining,
     errorPl,
+    errorTemplatePl,
+    errorParams,
   };
 }
 

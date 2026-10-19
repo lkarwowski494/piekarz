@@ -135,8 +135,8 @@ export function StarterConverterModal({
                 <View style={styles.presetsRow}>
                   {[
                     { label: '50% (Lievito Madre)', value: 50 },
-                    { label: '60% (Żytni)', value: 60 },
-                    { label: '100% (Płynny)', value: 100 },
+                    { label: t('60% (Żytni)'), value: 60 },
+                    { label: t('100% (Płynny)'), value: 100 },
                   ].map((p) => (
                     <Pressable
                       key={p.value}
@@ -163,8 +163,8 @@ export function StarterConverterModal({
                 <View style={styles.presetsRow}>
                   {[
                     { label: '50% (Lievito Madre)', value: 50 },
-                    { label: '60% (Sztywny)', value: 60 },
-                    { label: '100% (Płynny Levain)', value: 100 },
+                    { label: t('60% (Sztywny)'), value: 60 },
+                    { label: t('100% (Płynny Levain)'), value: 100 },
                   ].map((p) => (
                     <Pressable
                       key={p.value}
@@ -207,8 +207,8 @@ export function StarterConverterModal({
                         ]}
                       >
                         <Text style={styles.badgeText}>
-                          {subResult.doughWaterAction === 'ADD' && `+${subResult.waterAdjustmentGrams}g wody`}
-                          {subResult.doughWaterAction === 'REDUCE' && `${subResult.waterAdjustmentGrams}g wody`}
+                          {subResult.doughWaterAction === 'ADD' && t('+{g}g wody', { g: subResult.waterAdjustmentGrams })}
+                          {subResult.doughWaterAction === 'REDUCE' && t('{g}g wody', { g: subResult.waterAdjustmentGrams })}
                           {subResult.doughWaterAction === 'NONE' && t('0g (brak zmian)')}
                         </Text>
                       </View>
@@ -219,7 +219,7 @@ export function StarterConverterModal({
                       <Text style={styles.metricValue}>{subResult.starterFlourGrams}g</Text>
                     </View>
 
-                    <Text style={styles.adviceText}>{subResult.advicePl}</Text>
+                    <Text style={styles.adviceText}>{t(subResult.adviceTemplatePl, subResult.adviceParams)}</Text>
                   </View>
                 )}
               </View>
@@ -247,7 +247,7 @@ export function StarterConverterModal({
                 <View style={styles.presetsRow}>
                   {[
                     { label: '50% Lievito Madre', value: 50 },
-                    { label: '100% Płynny Levain', value: 100 },
+                    { label: t('100% Płynny Levain'), value: 100 },
                   ].map((p) => (
                     <Pressable
                       key={p.value}
@@ -316,7 +316,7 @@ export function StarterConverterModal({
                       </Text>
                     </View>
 
-                    <Text style={styles.adviceText}>{shiftResult.tipPl}</Text>
+                    <Text style={styles.adviceText}>{`${t(shiftResult.tipTemplatePl, shiftResult.tipParams)}${shiftResult.tipConsistencyPl ? ` ${t(shiftResult.tipConsistencyPl)}` : ''}`}</Text>
                   </View>
                 )}
               </View>

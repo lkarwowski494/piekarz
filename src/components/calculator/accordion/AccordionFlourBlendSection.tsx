@@ -41,7 +41,7 @@ export function AccordionFlourBlendSection({
             onPress={() => onSelectFlourBlend?.(blend)}
             style={styles.blendPresetChip}
           >
-            <Text style={styles.blendPresetText}>{blend.namePl}</Text>
+            <Text style={styles.blendPresetText}>{t(blend.namePl)}</Text>
           </Pressable>
         ))}
       </ScrollView>

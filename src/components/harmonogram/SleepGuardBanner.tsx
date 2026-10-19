@@ -8,10 +8,11 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { SLEEP_COLLISION_TEMPLATE_PL, SleepCollision, sleepCollisionParams } from '../../scheduler/reverse-scheduler';
 
 export interface SleepGuardBannerProps {
   hasSleepCollision: boolean;
-  collisionDetailsPl?: string;
+  sleepCollisions: SleepCollision[];
   suggestedActionPl?: string;
   autoResolved: { adjustedColdRetardHours: number } | null;
   onApplyAutoResolution: (hours: number) => void;
@@ -19,7 +20,7 @@ export interface SleepGuardBannerProps {
 
 export function SleepGuardBanner({
   hasSleepCollision,
-  collisionDetailsPl,
+  sleepCollisions,
   suggestedActionPl,
   autoResolved,
   onApplyAutoResolution,
@@ -28,7 +29,11 @@ export function SleepGuardBanner({
     return (
       <View style={styles.sleepGuardAlert}>
         <Text style={styles.sleepGuardTitle}>🌙 {t('Uwaga: Kolizja ze snem!')}</Text>
-        <Text style={styles.sleepGuardBody}>{collisionDetailsPl}</Text>
+        <Text style={styles.sleepGuardBody}>
+          {sleepCollisions
+            .map((c) => t(SLEEP_COLLISION_TEMPLATE_PL, { ...sleepCollisionParams(c), etap: t(c.stageNamePl) }))
+            .join('; ')}
+        </Text>
         {autoResolved && (
           <Pressable
             style={styles.autoFixBtn}
@@ -40,7 +45,7 @@ export function SleepGuardBanner({
           </Pressable>
         )}
         {suggestedActionPl && (
-          <Text style={styles.sleepGuardAction}>{suggestedActionPl}</Text>
+          <Text style={styles.sleepGuardAction}>{t(suggestedActionPl)}</Text>
         )}
       </View>
     );

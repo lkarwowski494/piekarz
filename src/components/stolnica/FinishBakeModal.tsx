@@ -63,7 +63,7 @@ export function FinishBakeModal({
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>🎉 {t('Zakończ wypiek')}</Text>
           <Text style={styles.modalSubtitle}>
-            Oceń bochenek i zapisz notatki do historii piekarskiej
+            {t('Oceń bochenek i zapisz notatki do historii piekarskiej')}
           </Text>
 
           {/* Star Rating */}
@@ -105,7 +105,7 @@ export function FinishBakeModal({
             ))}
           </View>
           <Text style={styles.scoreHint}>
-            {crumbScore <= 2 ? '🧱 Zbity, gęsty miękisz — rozważaj dłuższy bulk' : crumbScore >= 5 ? '🌟 Dzika, otwarta struktura rzemieślnicza!' : '✅ Ładna równomierna alweolatura'}
+            {crumbScore <= 2 ? `🧱 ${t('Zbity, gęsty miękisz — rozważaj dłuższy bulk')}` : crumbScore >= 5 ? `🌟 ${t('Dzika, otwarta struktura rzemieślnicza!')}` : `✅ ${t('Ładna równomierna alweolatura')}`}
           </Text>
 
           {/* Crust Score */}
@@ -123,7 +123,7 @@ export function FinishBakeModal({
             ))}
           </View>
           <Text style={styles.scoreHint}>
-            {crustScore <= 2 ? '🫧 Blada, miękka skórka — zwiększ parę lub temperaturę' : crustScore >= 5 ? '💎 Perfekcyjna chrupiąca skórka z pęcherzykami' : '✅ Dobra skórka z lekkim połyskiem'}
+            {crustScore <= 2 ? `🫧 ${t('Blada, miękka skórka — zwiększ parę lub temperaturę')}` : crustScore >= 5 ? `💎 ${t('Perfekcyjna chrupiąca skórka z pęcherzykami')}` : `✅ ${t('Dobra skórka z lekkim połyskiem')}`}
           </Text>
 
           {/* Taste Profile */}
@@ -131,10 +131,10 @@ export function FinishBakeModal({
           <View style={styles.tasteRow}>
             {(['mild', 'balanced', 'sour', 'tangy'] as const).map((profile) => {
               const labels: Record<string, string> = {
-                mild: '🍞 Łagodny',
-                balanced: '⚖️ Zbalansowany',
-                sour: '🍋 Kwaśny',
-                tangy: '🔥 Bardzo kwaśny',
+                mild: `🍞 ${t('Łagodny')}`,
+                balanced: `⚖️ ${t('Zbalansowany')}`,
+                sour: `🍋 ${t('Kwaśny')}`,
+                tangy: `🔥 ${t('Bardzo kwaśny')}`,
               };
               return (
                 <Pressable

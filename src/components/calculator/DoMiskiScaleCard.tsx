@@ -132,9 +132,9 @@ export function DoMiskiScaleCard({
       {calcMode === 'flour' ? (
         <View style={styles.loavesRow}>
           <View style={styles.loavesInfo}>
-            <Text style={styles.loavesTitle}>{t('Masa mąki')} bazowej</Text>
+            <Text style={styles.loavesTitle}>{t('Masa mąki bazowej')}</Text>
             <Text style={styles.loavesSubtitle}>
-              Mąka stanowi 100% bazy w procentach piekarskich
+              {t('Mąka stanowi 100% bazy w procentach piekarskich')}
             </Text>
           </View>
           <View style={styles.stepperContainer}>
@@ -158,9 +158,9 @@ export function DoMiskiScaleCard({
       ) : (
         <View style={styles.loavesRow}>
           <View style={styles.loavesInfo}>
-            <Text style={styles.loavesTitle}>{t('Liczba bochenków')} i gramatura</Text>
+            <Text style={styles.loavesTitle}>{t('Liczba bochenków i gramatura')}</Text>
             <Text style={styles.loavesSubtitle}>
-              {recipeName} • {formatWeight(calculations.targetDoughWeightGrams / loavesCount, unitSystem)} / szt.
+              {recipeName} • {t('{masa} / szt.', { masa: formatWeight(calculations.targetDoughWeightGrams / loavesCount, unitSystem) })}
             </Text>
             <View style={styles.chipRow}>
               {[1, 2, 3, 4].map((count) => (
@@ -170,7 +170,7 @@ export function DoMiskiScaleCard({
                   style={[styles.smallChip, loavesCount === count && styles.smallChipActive]}
                 >
                   <Text style={[styles.smallChipText, loavesCount === count && styles.smallChipTextActive]}>
-                    {count} szt.
+                    {t('{n} szt.', { n: count })}
                   </Text>
                 </Pressable>
               ))}

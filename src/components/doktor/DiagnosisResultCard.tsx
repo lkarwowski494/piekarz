@@ -87,14 +87,14 @@ export function DiagnosisResultCard({
       </View>
 
       <View style={styles.diagnosisHeader}>
-        <Text style={styles.diagnosisTitle}>{diagnosis.titlePl}</Text>
-        <Text style={styles.diagnosisSubtitle}>{diagnosis.subtitlePl}</Text>
+        <Text style={styles.diagnosisTitle}>{t(diagnosis.titlePl)}</Text>
+        <Text style={styles.diagnosisSubtitle}>{t(diagnosis.subtitlePl)}</Text>
       </View>
 
       <View style={styles.causeBox}>
         <Text style={styles.causeLabel}>{t('Przyczyna biologiczno-chemiczna:')}</Text>
         <Text style={styles.causeText}>
-          {formatTextUnits(diagnosis.biologicalCausePl, unitSystem)}
+          {formatTextUnits(t(diagnosis.biologicalCausePl), unitSystem)}
         </Text>
       </View>
 
@@ -102,7 +102,7 @@ export function DiagnosisResultCard({
       {diagnosis.actionChecklistPl.map((action: string, idx: number) => (
         <View key={idx} style={styles.checklistItem}>
           <Text style={styles.bulletCheck}>✓</Text>
-          <Text style={styles.checklistText}>{formatTextUnits(action, unitSystem)}</Text>
+          <Text style={styles.checklistText}>{formatTextUnits(t(action), unitSystem)}</Text>
         </View>
       ))}
 

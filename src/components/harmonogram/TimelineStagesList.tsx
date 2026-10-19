@@ -85,16 +85,16 @@ export function TimelineStagesList({
 
               <View style={styles.contentColumn}>
                 <View style={styles.stageTitleRow}>
-                  <Text style={styles.stageName}>{stage.namePl}</Text>
+                  <Text style={styles.stageName}>{t(stage.namePl)}</Text>
                 </View>
 
                 <View style={styles.stageMetaRow}>
                   <Text style={styles.stageDuration}>
                     {stage.durationMinutes >= 60
-                      ? `${Math.floor(stage.durationMinutes / 60)}h ${
-                          stage.durationMinutes % 60 > 0 ? (stage.durationMinutes % 60) + 'min' : ''
-                        }`
-                      : `${stage.durationMinutes} min`}
+                      ? stage.durationMinutes % 60 > 0
+                        ? t('{h}h {m}min', { h: Math.floor(stage.durationMinutes / 60), m: stage.durationMinutes % 60 })
+                        : t('{h}h', { h: Math.floor(stage.durationMinutes / 60) })
+                      : t('{n} min', { n: stage.durationMinutes })}
                   </Text>
                   <View
                     style={[
@@ -118,7 +118,7 @@ export function TimelineStagesList({
                   )}
                 </View>
 
-                <Text style={styles.stageInstructions}>{stage.instructionsPl}</Text>
+                <Text style={styles.stageInstructions}>{t(stage.instructionsPl)}</Text>
               </View>
             </View>
           );

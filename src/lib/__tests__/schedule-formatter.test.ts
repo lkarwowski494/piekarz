@@ -58,6 +58,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
     const mockSchedule: ReverseScheduleResult = {
       targetReadyTime: new Date(2026, 9, 16, 12, 0),
       hasSleepCollision: false,
+      sleepCollisions: [],
       stages: [
         {
           id: 'starter_feed',
@@ -118,6 +119,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
       const mockSchedule: ReverseScheduleResult = {
         targetReadyTime: new Date(2026, 9, 16, 12, 0),
         hasSleepCollision: false,
+        sleepCollisions: [],
         stages: [],
       };
 

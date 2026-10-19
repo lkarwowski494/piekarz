@@ -47,7 +47,7 @@ export function AccordionDdtSection({
         <View style={styles.ddtResultRow}>
           <Text style={styles.ddtResultLabel}>{t('Docelowa temp. wody:')}</Text>
           <Text style={styles.ddtResultValue}>
-            {waterTempTarget > 0 ? formatTemperature(waterTempTarget, unitSystem) : '0°C (Lód)'}
+            {waterTempTarget > 0 ? formatTemperature(waterTempTarget, unitSystem) : t('0°C (Lód)')}
           </Text>
         </View>
 
@@ -144,10 +144,10 @@ export function AccordionDdtSection({
         <View style={styles.diffBadgeRow}>
           <View style={[styles.diffBadge, { backgroundColor: hydrationDifficulty.badgeColor + '20' }]}>
             <Text style={[styles.diffBadgeText, { color: hydrationDifficulty.badgeColor }]}>
-              ● {hydrationDifficulty.labelPl}
+              ● {t(hydrationDifficulty.labelPl)}
             </Text>
           </View>
-          <Text style={styles.diffTipText}>{hydrationDifficulty.tipPl}</Text>
+          <Text style={styles.diffTipText}>{t(hydrationDifficulty.tipPl)}</Text>
         </View>
       )}
 
@@ -158,7 +158,7 @@ export function AccordionDdtSection({
             🌾 {t('Chłonność mąk:')} {blendAbsorption.weightedAbsorptionPercent}% ({t('zalecana')}: {blendAbsorption.recommendedHydrationRange[0]}–{blendAbsorption.recommendedHydrationRange[1]}%) • {t('Białko')}: ~{blendAbsorption.estimatedProteinPercent}%
           </Text>
           <Text style={styles.absorptionAdviceText}>
-            💡 {blendAbsorption.doughFeelAdvicePl}
+            💡 {t(blendAbsorption.doughFeelAdvicePl)}
           </Text>
         </View>
       )}

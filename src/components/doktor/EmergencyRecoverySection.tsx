@@ -55,7 +55,7 @@ export function EmergencyRecoverySection({
             >
               <Text style={styles.presetIcon}>{proto.icon}</Text>
               <Text style={[styles.presetName, isSelected && styles.recoveryChipTextActive]}>
-                {proto.titlePl}
+                {t(proto.titlePl)}
               </Text>
             </Pressable>
           );
@@ -67,7 +67,7 @@ export function EmergencyRecoverySection({
         <View style={styles.recoveryCard} testID="recovery-protocol-card">
           <View style={styles.recoveryHeaderRow}>
             <Text style={styles.recoveryCardTitle}>
-              {selectedProto.icon} {selectedProto.titlePl}
+              {selectedProto.icon} {t(selectedProto.titlePl)}
             </Text>
             <Pressable
               testID="close-recovery-card-btn"
@@ -79,14 +79,14 @@ export function EmergencyRecoverySection({
           </View>
 
           <Text style={styles.recoveryTriggerText}>
-            🔍 {formatTextUnits(selectedProto.triggerSummaryPl, unitSystem)}
+            🔍 {formatTextUnits(t(selectedProto.triggerSummaryPl), unitSystem)}
           </Text>
 
           {/* Immediate Action Alert */}
           <View style={styles.immediateAlertBox}>
             <Text style={styles.immediateAlertLabel}>{t('Akcja natychmiastowa:')}</Text>
             <Text style={styles.immediateAlertText}>
-              {formatTextUnits(selectedProto.immediateActionPl, unitSystem)}
+              {formatTextUnits(t(selectedProto.immediateActionPl), unitSystem)}
             </Text>
           </View>
 
@@ -94,13 +94,13 @@ export function EmergencyRecoverySection({
           <View style={styles.pivotRecipeBox}>
             <View style={styles.pivotTextCol}>
               <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
-              <Text style={styles.pivotRecipeName}>{selectedProto.pivotRecipeNamePl}</Text>
+              <Text style={styles.pivotRecipeName}>{t(selectedProto.pivotRecipeNamePl)}</Text>
             </View>
             {onPivotToRecipe && (
               <Pressable
                 testID="pivot-recipe-btn"
                 accessibilityRole="button"
-                accessibilityLabel={`${t('Załaduj do Kalkulatora')}: ${selectedProto.pivotRecipeNamePl}`}
+                accessibilityLabel={`${t('Załaduj do Kalkulatora')}: ${t(selectedProto.pivotRecipeNamePl)}`}
                 style={styles.pivotActionBtn}
                 onPress={() => onPivotToRecipe(selectedProto.id)}
               >
@@ -116,7 +116,7 @@ export function EmergencyRecoverySection({
               <View style={styles.recoveryStepIndexPill}>
                 <Text style={styles.recoveryStepIndexText}>{idx + 1}</Text>
               </View>
-              <Text style={styles.recoveryStepText}>{formatTextUnits(step, unitSystem)}</Text>
+              <Text style={styles.recoveryStepText}>{formatTextUnits(t(step), unitSystem)}</Text>
             </View>
           ))}
 
@@ -124,7 +124,7 @@ export function EmergencyRecoverySection({
           <View style={styles.scienceBox}>
             <Text style={styles.scienceLabel}>🔬 {t('Fizjologia ciasta:')}</Text>
             <Text style={styles.scienceText}>
-              {formatTextUnits(selectedProto.scientificReasoningPl, unitSystem)}
+              {formatTextUnits(t(selectedProto.scientificReasoningPl), unitSystem)}
             </Text>
           </View>
         </View>

@@ -144,7 +144,7 @@ export function FormulaPresetSelector({
               style={[styles.presetChip, isSelected && styles.presetChipActive]}
             >
               <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
-                {preset.namePl}
+                {t(preset.namePl)}
               </Text>
             </Pressable>
           );
@@ -182,28 +182,28 @@ export function FormulaPresetSelector({
             </View>
           </View>
 
-          <Text style={styles.masterDescriptionText}>{currentMasterPreset.descriptionPl}</Text>
+          <Text style={styles.masterDescriptionText}>{t(currentMasterPreset.descriptionPl)}</Text>
 
           <View style={styles.masterTechniqueBox}>
             <Text style={styles.masterTechniqueItem}>
               ♨️ <Text style={styles.boldText}>{t('Pieczenie')}:</Text>{' '}
               {formatTemperature(currentMasterPreset.bakeTempSteamC, unitSystem)} (
               {currentMasterPreset.bakeTimeSteamMinutes}m {t('para')} +{' '}
-              {currentMasterPreset.bakeTimeBrowningMinutes}m w {formatTemperature(currentMasterPreset.bakeTempBrowningC, unitSystem)})
+              {t('{n}m w {temp}', { n: currentMasterPreset.bakeTimeBrowningMinutes, temp: formatTemperature(currentMasterPreset.bakeTempBrowningC, unitSystem) })})
             </Text>
             <Text style={styles.masterTechniqueItem}>
               🥖 <Text style={styles.boldText}>{t('Naczynie')}:</Text>{' '}
               {currentMasterPreset.recommendedVessel === 'dutch_oven'
-                ? 'garnek żeliwny'
+                ? t('garnek żeliwny')
                 : currentMasterPreset.recommendedVessel === 'bread_pan'
-                ? 'foremka keksówka'
+                ? t('foremka keksówka')
                 : currentMasterPreset.recommendedVessel === 'baking_steel'
-                ? 'stal piekarska'
-                : 'blacha piekarnika'}
+                ? t('stal piekarska')
+                : t('blacha piekarnika')}
             </Text>
             {currentMasterPreset.notesPl ? (
               <Text style={styles.masterTechniqueItem}>
-                📝 <Text style={styles.boldText}>{t('Wskazówki')}:</Text> {currentMasterPreset.notesPl}
+                📝 <Text style={styles.boldText}>{t('Wskazówki')}:</Text> {t(currentMasterPreset.notesPl)}
               </Text>
             ) : null}
           </View>

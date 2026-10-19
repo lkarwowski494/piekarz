@@ -416,7 +416,7 @@ export default function StolnicaScreen() {
               <View style={styles.badgeRow}>
                 <View style={styles.stepBadge}>
                   <Text style={styles.stepBadgeText}>
-                    Krok {currentStepIdx + 1} z {steps.length}
+                    {t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length })}
                   </Text>
                 </View>
                 <Text style={styles.recipeTag}>{recipeName}</Text>

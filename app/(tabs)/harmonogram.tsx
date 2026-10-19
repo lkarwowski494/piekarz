@@ -103,11 +103,11 @@ export default function HarmonogramScreen() {
     const todayDay = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
     const diffDays = Math.round((dDay - todayDay) / (1000 * 60 * 60 * 24));
 
-    if (diffDays === 0) return 'Dziś';
-    if (diffDays === 1) return 'Jutro';
-    if (diffDays === 2) return 'Pojutrze';
-    if (diffDays === -1) return 'Wczoraj';
-    return `${POLISH_DAYS[d.getDay()]}, ${d.getDate()} ${POLISH_MONTHS[d.getMonth()]}`;
+    if (diffDays === 0) return t('Dziś');
+    if (diffDays === 1) return t('Jutro');
+    if (diffDays === 2) return t('Pojutrze');
+    if (diffDays === -1) return t('Wczoraj');
+    return t('{dzien}, {d} {miesiac}', { dzien: t(POLISH_DAYS[d.getDay()]), d: d.getDate(), miesiac: t(POLISH_MONTHS[d.getMonth()]) });
   };
 
   // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030]
@@ -116,7 +116,7 @@ export default function HarmonogramScreen() {
       const steps = stepsFromSchedule(schedule);
       setActiveBake({
         id: `bake_${Date.now()}`,
-        recipeName: 'Klasyczny chleb rzemieślniczy (Harmonogram)',
+        recipeName: t('Klasyczny chleb rzemieślniczy (Harmonogram)'),
         startedAt: Date.now(),
         currentStageId: steps[0]?.id ?? '',
         ambientTempC: ambientTemp,
@@ -179,7 +179,7 @@ export default function HarmonogramScreen() {
         {/* Sleep Guard Banner */}
         <SleepGuardBanner
           hasSleepCollision={schedule.hasSleepCollision}
-          collisionDetailsPl={schedule.collisionDetailsPl}
+          sleepCollisions={schedule.sleepCollisions}
           suggestedActionPl={schedule.suggestedActionPl}
           autoResolved={autoResolved}
           onApplyAutoResolution={(hours) => setColdRetardHours(hours)}

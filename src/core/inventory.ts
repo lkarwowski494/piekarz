@@ -14,6 +14,9 @@ export interface FlourStockCheckItem {
   status: 'sufficient' | 'low_stock' | 'missing';
   matchedInventoryId?: string;
   substituteSuggestionPl?: string;
+  /** Szablon podpowiedzi + parametry ({nazwa} to nazwa mąki, tłumaczona przy wyświetlaniu) [M1-audytor-generalny-047] */
+  substituteTemplatePl?: string;
+  substituteParams?: Record<string, string>;
 }
 
 export interface InventoryCheckResult {
@@ -22,6 +25,9 @@ export interface InventoryCheckResult {
   totalDeficitGrams: number;
   items: FlourStockCheckItem[];
   warningMessagePl?: string;
+  /** Szablon ostrzeżenia + parametry do t() [M1-audytor-generalny-047] */
+  warningTemplatePl?: string;
+  warningParams?: Record<string, string>;
 }
 
 /**
@@ -71,7 +77,8 @@ export function checkFlourInventory(
       status = available > 0 ? 'low_stock' : 'missing';
     }
 
-    let substituteSuggestionPl: string | undefined;
+    let substituteTemplatePl: string | undefined;
+    let substituteParams: Record<string, string> | undefined;
     if (deficit > 0) {
       const rfProfile = matchFlourProfile(rf.name);
 
@@ -83,11 +90,13 @@ export function checkFlourInventory(
       });
 
       if (altInStock) {
-        substituteSuggestionPl = `W spiżarni posiadasz ${altInStock.name} (${Math.round(altInStock.stockGrams)}g) — możesz użyć jej jako zamiennika.`;
+        substituteTemplatePl = 'W spiżarni posiadasz {nazwa} ({g}g) — możesz użyć jej jako zamiennika.';
+        substituteParams = { nazwa: altInStock.name, g: String(Math.round(altInStock.stockGrams)) };
       } else {
         const closest = findClosestSubstituteProfile(rfProfile);
         if (closest) {
-          substituteSuggestionPl = `Sugerowany zamiennik ze Spiżarni: ${closest.namePl}.`;
+          substituteTemplatePl = 'Sugerowany zamiennik ze Spiżarni: {nazwa}.';
+          substituteParams = { nazwa: closest.namePl };
         }
       }
     }
@@ -99,14 +108,23 @@ export function checkFlourInventory(
       deficitGrams: deficit,
       status,
       matchedInventoryId: matched?.id,
-      substituteSuggestionPl,
+      substituteSuggestionPl:
+        substituteTemplatePl && substituteParams
+          ? Object.entries(substituteParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), substituteTemplatePl)
+          : undefined,
+      substituteTemplatePl,
+      substituteParams,
     };
   });
 
   let warningMessagePl: string | undefined;
+  let warningTemplatePl: string | undefined;
+  let warningParams: Record<string, string> | undefined;
   if (!allSufficient) {
     const deficitItems = items.filter((i) => i.deficitGrams > 0);
     const deficitNames = deficitItems.map((i) => `${i.recipeFlourName} (-${i.deficitGrams}g)`).join(', ');
+    warningTemplatePl = 'Uwaga: W spiżarni brakuje {g}g mąki ({lista}).';
+    warningParams = { g: String(totalDeficit), lista: deficitNames };
     warningMessagePl = `Uwaga: W spiżarni brakuje ${totalDeficit}g mąki (${deficitNames}).`;
   }
 
@@ -116,6 +134,8 @@ export function checkFlourInventory(
     totalDeficitGrams: totalDeficit,
     items,
     warningMessagePl,
+    warningTemplatePl,
+    warningParams,
   };
 }
 

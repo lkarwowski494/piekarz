@@ -186,7 +186,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   style={styles.cardHeaderPressable}
                 >
                   <View style={styles.cardTitleBlock}>
-                    <Text style={styles.cardTitle}>{recipe.titlePl}</Text>
+                    <Text style={styles.cardTitle}>{t(recipe.titlePl)}</Text>
                     <View style={styles.metaRow}>
                       <View style={styles.discardGramsPill}>
                         <Text style={styles.discardGramsText}>
@@ -194,9 +194,9 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                         </Text>
                       </View>
                       <Text style={styles.timeMeta}>
-                        ⏱️ {recipe.prepTimeMinutes + recipe.cookTimeMinutes} min
+                        ⏱️ {t('{n} min', { n: recipe.prepTimeMinutes + recipe.cookTimeMinutes })}
                       </Text>
-                      <Text style={styles.yieldMeta}>🍽️ {recipe.yieldPl}</Text>
+                      <Text style={styles.yieldMeta}>🍽️ {t(recipe.yieldPl)}</Text>
                     </View>
                   </View>
                   <Text style={styles.toggleIcon}>{isExpanded ? '▲' : '▼'}</Text>
@@ -210,7 +210,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                       {recipe.ingredients.map((ing, idx) => (
                         <View key={idx} style={styles.ingredientRow}>
                           <Text style={styles.ingredientBullet}>•</Text>
-                          <Text style={styles.ingredientName}>{ing.namePl}</Text>
+                          <Text style={styles.ingredientName}>{t(ing.namePl)}</Text>
                           <Text style={styles.ingredientAmount}>
                             {ing.amount} {ing.unit}
                           </Text>
@@ -225,14 +225,14 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                         <View style={styles.stepNumberBadge}>
                           <Text style={styles.stepNumberText}>{idx + 1}</Text>
                         </View>
-                        <Text style={styles.stepText}>{step}</Text>
+                        <Text style={styles.stepText}>{t(step)}</Text>
                       </View>
                     ))}
 
                     {/* Pro tip */}
                     <View style={styles.proTipBox}>
                       <Text style={styles.proTipTitle}>💡 {t('Wskazówka rzemieślnicza:')}</Text>
-                      <Text style={styles.proTipText}>{recipe.proTipPl}</Text>
+                      <Text style={styles.proTipText}>{t(recipe.proTipPl)}</Text>
                     </View>
                   </View>
                 )}

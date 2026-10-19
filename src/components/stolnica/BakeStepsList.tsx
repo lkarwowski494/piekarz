@@ -32,41 +32,44 @@ export function BakeStepsList({
       {/* Active Recipe Ingredients Card */}
       {calculatedRecipe && (
         <View style={styles.ingredientsCard}>
-          <Text style={styles.ingredientsTitle}>⚖️ Składniki do odważenia</Text>
+          <Text style={styles.ingredientsTitle}>⚖️ {t('Składniki do odważenia')}</Text>
           <View style={styles.ingredientsGrid}>
             <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>Mąki</Text>
+              <Text style={styles.ingredientLabel}>{t('Mąki')}</Text>
               <Text style={styles.ingredientValue}>
                 {formatWeight(calculatedRecipe.baseFlourWeightGrams, unitSystem)}
               </Text>
             </View>
             <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>Woda</Text>
+              <Text style={styles.ingredientLabel}>{t('Woda')}</Text>
               <Text style={styles.ingredientValue}>
                 {formatWeight(calculatedRecipe.waterGrams, unitSystem)}
               </Text>
             </View>
             <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>Zakwas</Text>
+              <Text style={styles.ingredientLabel}>{t('Zakwas')}</Text>
               <Text style={styles.ingredientValue}>
                 {formatWeight(calculatedRecipe.starterGrams, unitSystem)}
               </Text>
             </View>
             <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>Sól</Text>
+              <Text style={styles.ingredientLabel}>{t('Sól')}</Text>
               <Text style={styles.ingredientValue}>
                 {formatDoseWeight(calculatedRecipe.saltGrams, unitSystem)}
               </Text>
             </View>
           </View>
           <Text style={styles.ingredientsCaption}>
-            Masa ciasta: {formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem)} · Hydratacja całkowita: {calculatedRecipe.overallHydrationPercent.toFixed(1)}% (True Baker's %)
+            {t('Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}% (True Baker’s %)', {
+              masa: formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem),
+              hydratacja: calculatedRecipe.overallHydrationPercent.toFixed(1),
+            })}
           </Text>
         </View>
       )}
 
       {/* Steps Overview (Clickable) */}
-      <Text style={styles.sectionHeading}>Wszystkie etapy wypieku</Text>
+      <Text style={styles.sectionHeading}>{t('Wszystkie etapy wypieku')}</Text>
       {steps.map((step, idx) => {
         const isPast = idx < currentStepIdx;
         const isCurrent = idx === currentStepIdx;
@@ -87,7 +90,7 @@ export function BakeStepsList({
               <Text style={[styles.stepName, isCurrent && styles.stepNameCurrent]}>
                 {t(step.name)}
               </Text>
-              {step.durationMin !== null && <Text style={styles.stepTime}>{step.durationMin} min</Text>}
+              {step.durationMin !== null && <Text style={styles.stepTime}>{t('{n} min', { n: step.durationMin })}</Text>}
             </View>
           </Pressable>
         );

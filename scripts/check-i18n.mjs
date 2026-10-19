@@ -72,14 +72,16 @@ const isT = (n) =>
   (ts.isIdentifier(n.expression) ? n.expression.text === 't' : ts.isPropertyAccessExpression(n.expression) && n.expression.name.text === 't');
 
 function loadExceptions(path) {
-  if (!path) return { wartosci: [] };
+  if (!path) return { wartosci: [], pola: [] };
   const raw = JSON.parse(readFileSync(path, 'utf8'));
-  const bad = (raw.wartosci || []).filter((w) => typeof w !== 'object' || !w.tekst || !String(w.powod || '').trim());
+  const bad = [...(raw.wartosci || []), ...(raw.pola || [])].filter(
+    (w) => typeof w !== 'object' || !(w.tekst || w.nazwa) || !String(w.powod || '').trim()
+  );
   if (bad.length) {
     console.log(`BŁĄD konfiguracji: wpisy bez tekstu albo powodu w ${path}: ${JSON.stringify(bad)}`);
     process.exit(2);
   }
-  return { wartosci: (raw.wartosci || []).map((w) => w.tekst) };
+  return { wartosci: (raw.wartosci || []).map((w) => w.tekst), pola: (raw.pola || []).map((w) => w.nazwa) };
 }
 
 function scanCode(dirs, wyjatki) {
@@ -104,9 +106,14 @@ function scanCode(dirs, wyjatki) {
       // warunek (x.fooPl ? … : …, x.fooPl && …) nie jest wyświetlany
       if (ts.isConditionalExpression(n)) return plFields(n.whenFalse, plFields(n.whenTrue, out));
       if (ts.isBinaryExpression(n) && n.operatorToken.kind === ts.SyntaxKind.AmpersandAmpersandToken) return plFields(n.right, out);
-      if (ts.isPropertyAccessExpression(n) && POLE_PL.test(n.name.text)) out.push(n.name.text);
-      else if (ts.isIdentifier(n) && POLE_PL.test(n.text)) out.push(n.text);
-      if (ts.isCallExpression(n)) return out; // wynik funkcji (np. formatowanie) oceniamy po jej kodzie
+      const pole = (x) => POLE_PL.test(x) && !wyjatki.pola.includes(x);
+      if (ts.isPropertyAccessExpression(n) && pole(n.name.text)) out.push(n.name.text);
+      else if (ts.isIdentifier(n) && pole(n.text)) out.push(n.text);
+      // wywołanie innej funkcji (np. formatowanie jednostek): pole …Pl w argumencie też musi przejść przez t()
+      if (ts.isCallExpression(n)) {
+        n.arguments.forEach((a) => plFields(a, out));
+        return out;
+      }
       if (ts.isJsxElement(n) || ts.isJsxSelfClosingElement(n) || ts.isArrowFunction(n)) return out;
       ts.forEachChild(n, (c) => plFields(c, out));
       return out;

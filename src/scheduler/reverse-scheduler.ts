@@ -47,7 +47,22 @@ export interface ReverseScheduleResult {
   stages: ScheduledStage[];
   hasSleepCollision: boolean;
   collisionDetailsPl?: string;
+  /** Kolizje jako szablon + parametry (t() przy wyświetlaniu) [M1-audytor-generalny-047] */
+  sleepCollisions: SleepCollision[];
   suggestedActionPl?: string;
+}
+
+/** Etap aktywny w oknie snu: nazwa etapu (klucz PL) i godzina startu HH:MM. */
+export interface SleepCollision {
+  stageNamePl: string;
+  time: string;
+}
+
+/** Szablon komunikatu Sleep Guard; parametry {etap} i {godzina} (wzorzec statusTemplatePl). */
+export const SLEEP_COLLISION_TEMPLATE_PL = 'Etap "{etap}" wypada w nocy o {godzina}';
+
+export function sleepCollisionParams(c: SleepCollision): Record<string, string> {
+  return { etap: c.stageNamePl, godzina: c.time };
 }
 
 export interface ScheduleOptions {
@@ -223,7 +238,7 @@ export function calculateReverseSchedule(
   let currentTime = new Date(targetReadyTime.getTime());
   const scheduledStagesReversed: ScheduledStage[] = [];
   let hasCollision = false;
-  const collisionMessages: string[] = [];
+  const collisions: SleepCollision[] = [];
 
   // Reverse iterate
   for (let i = templates.length - 1; i >= 0; i--) {
@@ -239,7 +254,7 @@ export function calculateReverseSchedule(
     if (isCollision) {
       hasCollision = true;
       const timeStr = startTime.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
-      collisionMessages.push(`Etap "${t.namePl}" wypada w nocy o ${timeStr}`);
+      collisions.push({ stageNamePl: t.namePl, time: timeStr });
     }
 
     scheduledStagesReversed.push({
@@ -270,7 +285,13 @@ export function calculateReverseSchedule(
     targetReadyTime,
     stages: chronologicalStages,
     hasSleepCollision: hasCollision,
-    collisionDetailsPl: collisionMessages.length > 0 ? collisionMessages.join('; ') : undefined,
+    collisionDetailsPl:
+      collisions.length > 0
+        ? collisions
+            .map((c) => Object.entries(sleepCollisionParams(c)).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), SLEEP_COLLISION_TEMPLATE_PL))
+            .join('; ')
+        : undefined,
+    sleepCollisions: collisions,
     suggestedActionPl: suggestion,
   };
 }

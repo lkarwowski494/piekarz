@@ -110,6 +110,26 @@ export function t(pl: string, params?: Record<string, string | number>): string 
   return text;
 }
 
+/** Formy liczby mnogiej tekstu źródłowego (PL): klucze słownika dla każdej kategorii. */
+export interface PluralForms {
+  one: string;
+  few: string;
+  many: string;
+}
+
+/**
+ * Liczba mnoga przez mechanizm, bez sklejania [M1-audytor-generalny-047]: kategoria według języka
+ * (PL: one/few/many jak pluralPl; EN: one/other, gdzie other = klucz formy `many`), potem t() z {n}.
+ */
+export function tPlural(count: number, forms: PluralForms, params?: Record<string, string | number>): string {
+  const abs = Math.abs(Math.round(count));
+  const n = abs % 100;
+  const n10 = n % 10;
+  const cat: keyof PluralForms =
+    abs === 1 ? 'one' : currentLang === SOURCE_LANG && n10 >= 2 && n10 <= 4 && !(n >= 12 && n <= 14) ? 'few' : 'many';
+  return t(forms[cat], { n: count, ...params });
+}
+
 /**
  * RD-ENG-09: Polska odmiana liczebników (pluralPl).
  * Dla n = |x| mod 100, n10 = n mod 10:

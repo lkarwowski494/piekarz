@@ -125,7 +125,7 @@ export function FlourBlendModal({
               >
                 {validation.isValid
                   ? `✓ ${t('Proporcje poprawne (100%)')}`
-                  : `⚠️ ${validation.errorPl}`}
+                  : `⚠️ ${t(validation.errorTemplatePl ?? '', validation.errorParams)}`}
               </Text>
               {!validation.isValid && draftBlend.length > 0 && (
                 <Pressable
@@ -211,7 +211,7 @@ export function FlourBlendModal({
                     style={styles.profileChip}
                     onPress={() => addFlourProfile(profile)}
                   >
-                    <Text style={styles.profileChipText}>{profile.namePl}</Text>
+                    <Text style={styles.profileChipText}>{t(profile.namePl)}</Text>
                   </Pressable>
                 ))}
               </ScrollView>

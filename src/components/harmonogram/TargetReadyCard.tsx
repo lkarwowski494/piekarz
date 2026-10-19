@@ -119,7 +119,7 @@ export function TargetReadyCard({
             }}
           >
             <Text style={styles.scenarioIcon}>{scen.icon}</Text>
-            <Text style={styles.scenarioText}>{scen.namePl}</Text>
+            <Text style={styles.scenarioText}>{t(scen.namePl)}</Text>
           </Pressable>
         ))}
       </ScrollView>
@@ -175,7 +175,7 @@ export function TargetReadyCard({
           style={styles.fineTuneBtn}
           onPress={() => onAdjustTargetTime(-30)}
         >
-          <Text style={styles.fineTuneBtnText}>-30 min</Text>
+          <Text style={styles.fineTuneBtnText}>{t('{n} min', { n: -30 })}</Text>
         </Pressable>
 
         <View style={styles.timeDisplayBox}>
@@ -189,7 +189,7 @@ export function TargetReadyCard({
           style={styles.fineTuneBtn}
           onPress={() => onAdjustTargetTime(30)}
         >
-          <Text style={styles.fineTuneBtnText}>+30 min</Text>
+          <Text style={styles.fineTuneBtnText}>{t('{n} min', { n: '+30' })}</Text>
         </Pressable>
       </View>
 
@@ -215,7 +215,7 @@ export function TargetReadyCard({
                   isSelected && styles.sleepProfileTextActive,
                 ]}
               >
-                {p.icon} {p.namePl} ({p.label})
+                {p.icon} {t(p.namePl)} ({p.label})
               </Text>
             </Pressable>
           );

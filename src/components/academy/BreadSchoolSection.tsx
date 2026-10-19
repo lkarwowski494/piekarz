@@ -53,13 +53,13 @@ export function BreadSchoolSection({
                     </View>
                   )}
                 </View>
-                <Text style={styles.lessonTitle}>{lesson.titlePl}</Text>
+                <Text style={styles.lessonTitle}>{t(lesson.titlePl)}</Text>
               </View>
               <Text style={styles.toggleIcon}>{isExpanded ? '▲' : '▼'}</Text>
             </Pressable>
 
             {/* Didactic Goal summary */}
-            <Text style={styles.goalText}>🎯 {lesson.didacticGoalPl}</Text>
+            <Text style={styles.goalText}>🎯 {t(lesson.didacticGoalPl)}</Text>
 
             {/* Parameters Pill Grid */}
             <View style={styles.paramsGrid}>
@@ -69,13 +69,13 @@ export function BreadSchoolSection({
               <Text style={styles.paramChip}>
                 🧂 {lesson.saltPercent}% {t('soli')}
               </Text>
-              <Text style={styles.paramChip}>🌾 {lesson.flourBlendPl}</Text>
+              <Text style={styles.paramChip}>🌾 {t(lesson.flourBlendPl)}</Text>
             </View>
 
             {isExpanded && (
               <View style={styles.expandedLessonBox}>
                 <Text style={styles.subSectionTitle}>{t('Fermentacja i prowadzenie:')}</Text>
-                <Text style={styles.fermentTypeText}>⏱️ {lesson.fermentationTypePl}</Text>
+                <Text style={styles.fermentTypeText}>⏱️ {t(lesson.fermentationTypePl)}</Text>
 
                 <Text style={styles.subSectionTitle}>{t('Kroki technologiczne:')}</Text>
                 {lesson.stepsPl.map((step, idx) => (
@@ -83,18 +83,18 @@ export function BreadSchoolSection({
                     <View style={styles.stepNumBadge}>
                       <Text style={styles.stepNumText}>{idx + 1}</Text>
                     </View>
-                    <Text style={styles.stepItemText}>{step}</Text>
+                    <Text style={styles.stepItemText}>{t(step)}</Text>
                   </View>
                 ))}
 
                 <View style={styles.scienceCallout}>
                   <Text style={styles.scienceCalloutTitle}>🔬 {t('Fizjologia i chemia:')}</Text>
-                  <Text style={styles.scienceCalloutText}>{lesson.scientificInsightPl}</Text>
+                  <Text style={styles.scienceCalloutText}>{t(lesson.scientificInsightPl)}</Text>
                 </View>
 
                 <View style={styles.passingCallout}>
                   <Text style={styles.passingTitle}>🏅 {t('Kryterium zaliczenia:')}</Text>
-                  <Text style={styles.passingText}>{lesson.passingCriteriaPl}</Text>
+                  <Text style={styles.passingText}>{t(lesson.passingCriteriaPl)}</Text>
                 </View>
 
                 {/* Completion Toggle Button */}
@@ -114,7 +114,7 @@ export function BreadSchoolSection({
                   >
                     {isCompleted
                       ? `✓ ${t('Lekcja ukończona (stuknij, aby cofnąć)')}`
-                      : `Mark as done: ${t('Oznacz lekcję jako zaliczoną')} ✓`}
+                      : `${t('Oznacz lekcję jako zaliczoną')} ✓`}
                   </Text>
                 </Pressable>
               </View>

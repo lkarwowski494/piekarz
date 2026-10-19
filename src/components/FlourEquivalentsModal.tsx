@@ -81,7 +81,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                 testID={`flour-equiv-card-${entry.id}`}
               >
                 <View style={styles.cardHeader}>
-                  <Text style={styles.cardTitle}>{entry.namePl}</Text>
+                  <Text style={styles.cardTitle}>{t(entry.namePl)}</Text>
                   <View style={styles.absorptionBadge}>
                     <Text style={styles.absorptionBadgeText}>
                       💧 ~{entry.typicalAbsorptionPercent}% {t('wody')}
@@ -131,13 +131,13 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                 {/* Best for */}
                 <View style={styles.bestForBox}>
                   <Text style={styles.bestForLabel}>🎯 {t('Zastosowanie:')}</Text>
-                  <Text style={styles.bestForText}>{entry.bestForPl}</Text>
+                  <Text style={styles.bestForText}>{t(entry.bestForPl)}</Text>
                 </View>
 
                 {/* Substitution advice */}
                 <View style={styles.tipsBox}>
                   <Text style={styles.tipsLabel}>💡 {t('Wskazówka rzemieślnicza:')}</Text>
-                  <Text style={styles.tipsText}>{entry.substitutionTipsPl}</Text>
+                  <Text style={styles.tipsText}>{t(entry.substitutionTipsPl)}</Text>
                 </View>
               </View>
             ))

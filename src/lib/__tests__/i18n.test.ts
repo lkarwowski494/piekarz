@@ -1,4 +1,4 @@
-import { t, setLang, lang, pluralPl } from '../i18n';
+import { t, setLang, lang, pluralPl, tPlural } from '../i18n';
 
 describe('Apps4Brew Localization Engine (lib/i18n)', () => {
   afterEach(() => {
@@ -67,5 +67,25 @@ describe('Apps4Brew Localization Engine (lib/i18n)', () => {
       expect(pluralPl(2, 'minuta', 'minuty', 'minut', false)).toBe('minuty');
       expect(pluralPl(5, 'minuta', 'minuty', 'minut', false)).toBe('minut');
     });
+  });
+});
+
+// Liczba mnoga przez mechanizm, bez sklejania [M1-audytor-generalny-047]
+describe('tPlural', () => {
+  const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni' };
+  const MIN = { one: '{n} minuta', few: '{n} minuty', many: '{n} minut' };
+  afterEach(() => setLang('pl'));
+
+  it('PL: one / few / many jak pluralPl', () => {
+    setLang('pl');
+    expect([1, 2, 5, 12, 22, 112].map((n) => tPlural(n, MIN))).toEqual([
+      '1 minuta', '2 minuty', '5 minut', '12 minut', '22 minuty', '112 minut',
+    ]);
+    expect(tPlural(120, DNI)).toBe('120 dni');
+  });
+
+  it('EN: one / other ze słownika (forma many jako other)', () => {
+    setLang('en');
+    expect([1, 2, 5, 120].map((n) => tPlural(n, DNI))).toEqual(['1 day', '2 days', '5 days', '120 days']);
   });
 });

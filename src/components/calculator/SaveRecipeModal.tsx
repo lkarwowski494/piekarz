@@ -32,7 +32,7 @@ export function SaveRecipeModal({
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>{t('Zapisz przepis')}</Text>
           <Text style={styles.modalSubtitle}>
-            Wprowadź unikalną nazwę dla tej proporcji składników
+            {t('Wprowadź unikalną nazwę dla tej proporcji składników')}
           </Text>
 
           <TextInput

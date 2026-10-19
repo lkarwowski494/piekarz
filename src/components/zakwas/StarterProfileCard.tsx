@@ -7,7 +7,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { t } from '../../lib/i18n';
+import { t, tPlural } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
 import { formatTextUnits } from '../../lib/unit-converter';
 
@@ -32,7 +32,7 @@ export function StarterProfileCard({
         <View style={styles.flex1}>
           <Text style={styles.starterName}>{starter.name}</Text>
           <Text style={styles.starterType}>
-            {starter.flourType} · Hydratacja {starter.hydration}%
+            {starter.flourType} · {t('Hydratacja')} {starter.hydration}%
           </Text>
         </View>
         <View style={styles.cardHeaderActions}>
@@ -52,7 +52,7 @@ export function StarterProfileCard({
       <View style={styles.metaRow}>
         <View style={styles.metaItem}>
           <Text style={styles.metaLabel}>{t('Wiek zakwasu')}</Text>
-          <Text style={styles.metaValue}>{ageDays} dni</Text>
+          <Text style={styles.metaValue}>{tPlural(ageDays, { one: '{n} dzień', few: '{n} dni', many: '{n} dni' })}</Text>
         </View>
         <View style={styles.metaItem}>
           <Text style={styles.metaLabel}>{t('Ostatnie dokarmienie')}</Text>

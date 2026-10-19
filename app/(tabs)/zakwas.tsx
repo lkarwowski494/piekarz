@@ -84,7 +84,7 @@ export default function ZakwasScreen() {
   // Add New Starter Modal
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [newStarterName, setNewStarterName] = useState<string>('');
-  const [newStarterFlour, setNewStarterFlour] = useState<string>('Mąka pszenna chlebowa t750');
+  const [newStarterFlour, setNewStarterFlour] = useState<string>(() => t('Mąka pszenna chlebowa t750'));
   const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
   const [isConverterOpen, setIsConverterOpen] = useState<boolean>(false);
   const [isDiscardModalOpen, setIsDiscardModalOpen] = useState<boolean>(false);
@@ -212,7 +212,7 @@ export default function ZakwasScreen() {
       const newStarter: StoredStarter = {
         id: `starter_${Date.now()}`,
         name: trimmedName,
-        flourType: newStarterFlour.trim() || 'Mąka pszenna chlebowa',
+        flourType: newStarterFlour.trim() || t('Mąka pszenna chlebowa'),
         hydration: 100.0,
         birthDate: Date.now(),
         storageState: newStarterStorage,

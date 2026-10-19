@@ -1,4 +1,32 @@
 {
-  "_opis": "Wyjatki skanu tekstow na sztywno (node scripts/check-i18n.mjs --kod src,app). Kazdy wpis: tekst dokladnie jak w kodzie (po przycieciu) i powod. Tylko nazwy wlasne, symbole i jednostki [M1-audytor-generalny-047].",
-  "wartosci": []
+  "_opis": "Wyjatki skanu tekstow na sztywno (node scripts/check-i18n.mjs --kod src,app). Kazdy wpis: tekst dokladnie jak w kodzie (po przycieciu) albo nazwa pola *Pl, i powod. Tylko nazwy wlasne, symbole, jednostki i dane techniczne [M1-audytor-generalny-047].",
+  "wartosci": [
+    { "tekst": "Poolish", "powod": "nazwa wlasna zaczynu, taka sama w PL i EN" },
+    { "tekst": "Biga", "powod": "nazwa wlasna zaczynu, taka sama w PL i EN" },
+    { "tekst": "Pâte Fermentée", "powod": "francuska nazwa wlasna zaczynu, taka sama w PL i EN" },
+    { "tekst": "Levain", "powod": "nazwa wlasna zaczynu, taka sama w PL i EN" },
+    { "tekst": "APPS4CRAFT PASS", "powod": "nazwa produktu (marka), nie tlumaczona" },
+    { "tekst": "Apps4Craft Studio", "powod": "nazwa studia (marka), nie tlumaczona" },
+    { "tekst": "Piekarz (Crust) v1.0.0 • 100% Offline-First • Data Not Collected", "powod": "nazwa i wersja aplikacji z etykieta App Store 'Data Not Collected' (nazwa etykiety Apple); brzmienie do przegladu roli 04" },
+    { "tekst": "/Library/SQLite/piekarz.db", "powod": "sciezka pliku bazy (dane techniczne)" },
+    { "tekst": "ACID / WAL mode", "powod": "nazwa techniczna trybu SQLite" },
+    { "tekst": "{\"format\":\"piekarz-backup\",...}", "powod": "przyklad formatu JSON kopii (dane techniczne)" },
+    { "tekst": "🇵🇱 Polski", "powod": "nazwa jezyka w tym jezyku (przelacznik jezyka)" },
+    { "tekst": "🇬🇧 English", "powod": "nazwa jezyka w tym jezyku (przelacznik jezyka)" },
+    { "tekst": "🇵🇱 PL:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
+    { "tekst": "🇫🇷 FR:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
+    { "tekst": "🇮🇹 IT:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
+    { "tekst": "🇩🇪 DE:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
+    { "tekst": "🇺🇸 US:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
+    { "tekst": "DDT:", "powod": "skrot Desired Dough Temperature, taki sam w PL i EN" },
+    { "tekst": "% • DDT:", "powod": "symbol procentu i skrot DDT" },
+    { "tekst": "(250 ml)", "powod": "jednostka miary" },
+    { "tekst": "(15 ml)", "powod": "jednostka miary" },
+    { "tekst": "(5 ml)", "powod": "jednostka miary" },
+    { "tekst": "+1kg", "powod": "jednostka miary" },
+    { "tekst": "… kg (… g)", "powod": "jednostki miary z liczbami" }
+  ],
+  "pola": [
+    { "nazwa": "formattedWindowPl", "powod": "zakres godzin HH:MM – HH:MM, bez slow (starter-peak-predictor)" }
+  ]
 }

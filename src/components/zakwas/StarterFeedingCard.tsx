@@ -42,17 +42,17 @@ export function StarterFeedingCard({
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Kalkulator dokarmiania')}</Text>
       <Text style={styles.cardSubtitle}>
-        Dobierz proporcje i potrzebną masę zaczynu (Levain) do wypieku
+        {t('Dobierz proporcje i potrzebną masę zaczynu (Levain) do wypieku')}
       </Text>
 
       {/* Ratio Selector */}
-      <Text style={styles.subHeading}>{t('Cykl dokarmiania')} (Proporcja)</Text>
+      <Text style={styles.subHeading}>{t('Cykl dokarmiania')} ({t('Proporcja')})</Text>
       <View style={styles.ratioChipsRow}>
         {[
-          { ratio: [1, 1, 1] as [number, number, number], label: '1:1:1 (Szybki 3-4h)' },
-          { ratio: [1, 2, 2] as [number, number, number], label: '1:2:2 (Klasyk 6-8h)' },
+          { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (Szybki 3-4h)') },
+          { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (Klasyk 6-8h)') },
           { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8-10h)' },
-          { ratio: [1, 5, 5] as [number, number, number], label: '1:5:5 (Na noc 12h)' },
+          { ratio: [1, 5, 5] as [number, number, number], label: t('1:5:5 (Na noc 12h)') },
         ].map((item, idx) => {
           const isSelected =
             selectedRatio[0] === item.ratio[0] &&
@@ -95,24 +95,27 @@ export function StarterFeedingCard({
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Stary zakwas')}</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.starterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{selectedRatio[0]} cz.</Text>
+          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[0] })}</Text>
         </View>
         <Text style={styles.plusSign}>+</Text>
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Mąka')}</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.flourGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{selectedRatio[1]} cz.</Text>
+          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[1] })}</Text>
         </View>
         <Text style={styles.plusSign}>+</Text>
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Woda')} (~{formatTemperature(28, unitSystem)})</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.waterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{selectedRatio[2]} cz.</Text>
+          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[2] })}</Text>
         </View>
       </View>
       <Text style={styles.feedingReserveTip}>
-        💡 Wskazówka: Z powstałych {formatWeight(targetYield, unitSystem)} pobierz wymaganą ilość do ciasta, a resztkę (~{formatWeight(20, unitSystem)}–{formatWeight(25, unitSystem)})
-        schowaj do lodówki jako matkę na kolejny wypiek.
+        💡 {t('Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.', {
+          masa: formatWeight(targetYield, unitSystem),
+          od: formatWeight(20, unitSystem),
+          do: formatWeight(25, unitSystem),
+        })}
       </Text>
 
       <Pressable

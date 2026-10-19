@@ -134,7 +134,7 @@ export function FlourInventoryModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-inventory-modal">
           {/* Header */}
-          <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')} [v1.1 Preview]</Text>
+          <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')} [{t('Wersja 1.1, podgląd')}]</Text>
           <Text style={styles.modalSubtitle}>
             {t('Kontrola zapasów mąk i powiadomienia o brakach')} • {t('Etap 1.1')}
           </Text>
@@ -158,7 +158,7 @@ export function FlourInventoryModal({
               >
                 {stockCheck.allSufficient
                   ? `✓ ${t('Wszystkie mąki są dostępne w spiżarni!')}`
-                  : `⚠️ ${stockCheck.warningMessagePl}`}
+                  : `⚠️ ${t(stockCheck.warningTemplatePl ?? '', stockCheck.warningParams)}`}
               </Text>
 
               {!stockCheck.allSufficient &&
@@ -166,7 +166,7 @@ export function FlourInventoryModal({
                   .filter((i) => i.deficitGrams > 0 && i.substituteSuggestionPl)
                   .map((i, idx) => (
                     <Text key={idx} style={styles.substituteText}>
-                      💡 {i.substituteSuggestionPl}
+                      💡 {t(i.substituteTemplatePl ?? '', { ...i.substituteParams, nazwa: t(i.substituteParams?.nazwa ?? '') })}
                     </Text>
                   ))}
 

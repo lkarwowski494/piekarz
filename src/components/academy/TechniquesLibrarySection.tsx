@@ -91,12 +91,12 @@ export function TechniquesLibrarySection({
                   <Text style={styles.lessonBadge}>{tech.icon}</Text>
                   <Text style={styles.techCodeTag}>{tech.code}</Text>
                 </View>
-                <Text style={styles.cardTitle}>{tech.titlePl}</Text>
+                <Text style={styles.cardTitle}>{t(tech.titlePl)}</Text>
               </View>
               <Text style={styles.toggleIcon}>{isExpanded ? '▲' : '▼'}</Text>
             </Pressable>
 
-            <Text style={styles.techPrincipleText}>💡 {tech.physicalPrinciplePl}</Text>
+            <Text style={styles.techPrincipleText}>💡 {t(tech.physicalPrinciplePl)}</Text>
 
             {isExpanded && (
               <View style={styles.expandedLessonBox}>
@@ -104,7 +104,7 @@ export function TechniquesLibrarySection({
                 {tech.executionStepsPl.map((step, idx) => (
                   <View key={idx} style={styles.stepItemRow}>
                     <Text style={styles.checkBullet}>✓</Text>
-                    <Text style={styles.stepItemText}>{step}</Text>
+                    <Text style={styles.stepItemText}>{t(step)}</Text>
                   </View>
                 ))}
 
@@ -112,13 +112,13 @@ export function TechniquesLibrarySection({
                 {tech.commonMistakesPl.map((mistake, idx) => (
                   <View key={idx} style={styles.stepItemRow}>
                     <Text style={styles.crossBullet}>✕</Text>
-                    <Text style={styles.mistakeText}>{mistake}</Text>
+                    <Text style={styles.mistakeText}>{t(mistake)}</Text>
                   </View>
                 ))}
 
                 <View style={styles.techProTipBox}>
                   <Text style={styles.proTipTitle}>🌟 {t('Złota rada rzemieślnika:')}</Text>
-                  <Text style={styles.proTipText}>{tech.proTipsPl}</Text>
+                  <Text style={styles.proTipText}>{t(tech.proTipsPl)}</Text>
                 </View>
               </View>
             )}

@@ -43,7 +43,7 @@ export function EditStarterModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>{t('Edytuj zakwas')}</Text>
-          <Text style={styles.modalSubtitle}>Zmień parametry swojego zakwasu</Text>
+          <Text style={styles.modalSubtitle}>{t('Zmień parametry swojego zakwasu')}</Text>
 
           {/* Name input */}
           <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>

@@ -60,6 +60,9 @@ export interface RecipeStarterSubstitutionResult {
   starterFlourGrams: number;
   doughWaterAction: 'ADD' | 'REDUCE' | 'NONE';
   advicePl: string;
+  /** Szablon porady + parametry do t() przy wyświetlaniu [M1-audytor-generalny-047] */
+  adviceTemplatePl: string;
+  adviceParams: Record<string, string>;
 }
 
 export interface StarterHydrationConversionInput {
@@ -80,6 +83,10 @@ export interface StarterHydrationConversionResult {
   actualYieldGrams: number;
   actualHydration: number;
   tipPl: string;
+  /** Szablon wskazówki + parametry i opcjonalne zdanie o konsystencji (do t()) [M1-audytor-generalny-047] */
+  tipTemplatePl: string;
+  tipParams: Record<string, string>;
+  tipConsistencyPl?: string;
 }
 
 /**
@@ -113,15 +120,24 @@ export function calculateRecipeStarterSubstitution(
   const roundedUserStarter = Math.round(userStarterWeight);
 
   let action: 'ADD' | 'REDUCE' | 'NONE' = 'NONE';
-  let advicePl = 'Hydratacja zakwasu jest identyczna — brak konieczności korekty wody w cieście.';
+  let adviceTemplatePl = 'Hydratacja zakwasu jest identyczna — brak konieczności korekty wody w cieście.';
+  const adviceParams: Record<string, string> = {
+    twoj: String(userStarterHydration),
+    przepis: String(recipeStarterHydration),
+    zakwas: String(roundedUserStarter),
+    woda: String(Math.abs(waterAdjustment)),
+  };
 
   if (waterAdjustment > 0.4) {
     action = 'ADD';
-    advicePl = `Twój zakwas (${userStarterHydration}%) jest gęstszy niż w przepisie (${recipeStarterHydration}%). Użyj ${roundedUserStarter}g zakwasu i DODAJ ${Math.abs(waterAdjustment)}g wody do ciasta właściwego.`;
+    adviceTemplatePl =
+      'Twój zakwas ({twoj}%) jest gęstszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i DODAJ {woda}g wody do ciasta właściwego.';
   } else if (waterAdjustment < -0.4) {
     action = 'REDUCE';
-    advicePl = `Twój zakwas (${userStarterHydration}%) jest rzadszy niż w przepisie (${recipeStarterHydration}%). Użyj ${roundedUserStarter}g zakwasu i ODEJMIJ ${Math.abs(waterAdjustment)}g wody z ciasta właściwego.`;
+    adviceTemplatePl =
+      'Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.';
   }
+  const advicePl = Object.entries(adviceParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), adviceTemplatePl);
 
   return {
     recipeStarterGrams,
@@ -133,6 +149,8 @@ export function calculateRecipeStarterSubstitution(
     starterFlourGrams: Math.round(recipeFlour),
     doughWaterAction: action,
     advicePl,
+    adviceTemplatePl,
+    adviceParams,
   };
 }
 
@@ -185,12 +203,21 @@ export function convertStarterHydration(
   const totalWater = seedWater + addedWater;
   const actualHydration = Number(((totalWater / totalFlour) * 100.0).toFixed(1));
 
-  let tipPl = `Wymieszaj ${seedGrams}g zakwasu matki (${sourceHydration}%) z ${addedFlour}g mąki i ${addedWater}g wody.`;
+  const tipTemplatePl = 'Wymieszaj {matka}g zakwasu matki ({hydratacja}%) z {maka}g mąki i {woda}g wody.';
+  const tipParams: Record<string, string> = {
+    matka: String(seedGrams),
+    hydratacja: String(sourceHydration),
+    maka: String(addedFlour),
+    woda: String(addedWater),
+  };
+  let tipConsistencyPl: string | undefined;
   if (targetHydration <= 55) {
-    tipPl += ' Konsystencja będzie zwarta (Lievito Madre) — zagnieć kulę i nacinij krzyżem lub zroluj.';
+    tipConsistencyPl = 'Konsystencja będzie zwarta (Lievito Madre) — zagnieć kulę i nacinij krzyżem lub zroluj.';
   } else if (targetHydration >= 100) {
-    tipPl += ' Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.';
+    tipConsistencyPl = 'Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.';
   }
+  const tipMain = Object.entries(tipParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), tipTemplatePl);
+  const tipPl = tipConsistencyPl ? ` ${tipConsistencyPl}` : tipMain;
 
   return {
     targetYieldGrams,
@@ -202,5 +229,8 @@ export function convertStarterHydration(
     actualYieldGrams: actualYield,
     actualHydration,
     tipPl,
+    tipTemplatePl,
+    tipParams,
+    tipConsistencyPl,
   };
 }

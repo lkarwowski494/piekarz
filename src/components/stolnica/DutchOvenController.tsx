@@ -82,10 +82,10 @@ export function DutchOvenController({
           </View>
         </View>
         <Text style={styles.phaseDesc}>
-          {formatTextUnits(DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl, unitSystem)}
+          {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl), unitSystem)}
         </Text>
         <Text style={styles.phaseTip}>
-          💡 {formatTextUnits(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl, unitSystem)}
+          💡 {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl), unitSystem)}
         </Text>
       </View>
 
@@ -96,7 +96,7 @@ export function DutchOvenController({
             🔥 {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
           </Text>
           <Text style={styles.steamAlertDesc}>
-            {formatTextUnits('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.', unitSystem)}
+            {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}
           </Text>
           <Pressable
             testID="start-phase-2-btn"
@@ -104,7 +104,7 @@ export function DutchOvenController({
             onPress={onStartPhase2AfterSteamAlert}
           >
             <Text style={styles.steamAlertActionBtnText}>
-              ▶ {t('Rozpocznij Fazę 2')} (25 min @ {formatTemperature(210, unitSystem)})
+              ▶ {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: 25 })} @ {formatTemperature(210, unitSystem)})
             </Text>
           </Pressable>
         </View>

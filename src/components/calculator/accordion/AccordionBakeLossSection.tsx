@@ -47,7 +47,7 @@ export function AccordionBakeLossSection({
               style={[styles.presetChip, isSelected && styles.presetChipActive]}
             >
               <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
-                {p.namePl} ({p.defaultLossPercent}%)
+                {t(p.namePl)} ({p.defaultLossPercent}%)
               </Text>
             </Pressable>
           );
@@ -103,7 +103,7 @@ export function AccordionBakeLossSection({
           <Text style={styles.crumbMoistureTitle} testID="bake-loss-category-label">
             🥖 {t(bakeLossMetrics.categoryLabelPl)}
           </Text>
-          <Text style={styles.crumbMoistureAdvice}>{bakeLossMetrics.coolingAdvicePl}</Text>
+          <Text style={styles.crumbMoistureAdvice}>{t(bakeLossMetrics.coolingAdvicePl)}</Text>
         </View>
       )}
     </View>

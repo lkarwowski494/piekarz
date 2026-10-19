@@ -145,7 +145,7 @@ export function BackupAndDataSection() {
             disabled={isExporting}
           >
             <Text style={styles.exportBtnText}>
-              {isExporting ? '⏳ Eksportowanie...' : `📦 ${t('Eksportuj kopię')}`}
+              {isExporting ? `⏳ ${t('Eksportowanie...')}` : `📦 ${t('Eksportuj kopię')}`}
             </Text>
           </Pressable>
 
@@ -183,7 +183,7 @@ export function BackupAndDataSection() {
                 disabled={isImporting}
               >
                 <Text style={styles.confirmImportBtnText}>
-                  {isImporting ? '⏳ Importowanie...' : t('Zatwierdź import')}
+                  {isImporting ? `⏳ ${t('Importowanie...')}` : t('Zatwierdź import')}
                 </Text>
               </Pressable>
               <Pressable
@@ -222,7 +222,7 @@ export function BackupAndDataSection() {
             disabled={isExportingCsv}
           >
             <Text style={styles.csvBtnText}>
-              {isExportingCsv ? '⏳ Eksportowanie...' : `📊 ${t('Eksportuj historię wypieków (CSV)')}`}
+              {isExportingCsv ? `⏳ ${t('Eksportowanie...')}` : `📊 ${t('Eksportuj historię wypieków (CSV)')}`}
             </Text>
           </Pressable>
           <Pressable
@@ -232,7 +232,7 @@ export function BackupAndDataSection() {
             disabled={isExportingCsv}
           >
             <Text style={styles.csvBtnText}>
-              {isExportingCsv ? '⏳ Eksportowanie...' : `🌾 ${t('Eksportuj spiżarnię mąk (CSV)')}`}
+              {isExportingCsv ? `⏳ ${t('Eksportowanie...')}` : `🌾 ${t('Eksportuj spiżarnię mąk (CSV)')}`}
             </Text>
           </Pressable>
         </View>

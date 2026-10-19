@@ -83,7 +83,7 @@ export function VolumeConverterModal({
           {/* Baking Accuracy Warning Banner */}
           <View style={styles.warningBanner}>
             <Text style={styles.warningBannerText}>
-              {result.warningNoticePl || VOLUME_ACCURACY_WARNING_PL}
+              {t(result.warningNoticePl || VOLUME_ACCURACY_WARNING_PL)}
             </Text>
           </View>
 
@@ -117,7 +117,7 @@ export function VolumeConverterModal({
                       standard === 'us' && styles.smallChipTextActive,
                     ]}
                   >
-                    🇺🇸 US Cup (236,6 ml)
+                    🇺🇸 {t('US Cup (236,6 ml)')}
                   </Text>
                 </Pressable>
               </View>
@@ -183,7 +183,7 @@ export function VolumeConverterModal({
                       isSelected && styles.ingredientChipTextActive,
                     ]}
                   >
-                    {item.namePl}
+                    {t(item.namePl)}
                   </Text>
                 </Pressable>
               );
@@ -232,7 +232,7 @@ export function VolumeConverterModal({
             <Text style={styles.resultGrams} testID="volume-result-grams">
               {result.grams} g
             </Text>
-            <Text style={styles.resultItemName}>{result.ingredient.namePl}</Text>
+            <Text style={styles.resultItemName}>{t(result.ingredient.namePl)}</Text>
           </View>
         </ScrollView>
       </SafeAreaView>

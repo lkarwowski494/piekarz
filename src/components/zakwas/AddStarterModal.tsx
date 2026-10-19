@@ -39,7 +39,7 @@ export function AddStarterModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>🥣 {t('Dodaj nowy zakwas')}</Text>
-          <Text style={styles.modalSubtitle}>Utwórz profil dla nowej kultury zakwasu</Text>
+          <Text style={styles.modalSubtitle}>{t('Utwórz profil dla nowej kultury zakwasu')}</Text>
 
           {/* Name input */}
           <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
@@ -48,7 +48,7 @@ export function AddStarterModal({
             style={styles.modalInput}
             value={name}
             onChangeText={onNameChange}
-            placeholder="np. San Francisco White, Lievito..."
+            placeholder={t('np. San Francisco White, Lievito...')}
             placeholderTextColor={theme.colors.textMuted}
           />
 
@@ -59,7 +59,7 @@ export function AddStarterModal({
             style={styles.modalInput}
             value={flour}
             onChangeText={onFlourChange}
-            placeholder="np. Mąka pszenna chlebowa t750"
+            placeholder={t('np. Mąka pszenna chlebowa t750')}
             placeholderTextColor={theme.colors.textMuted}
           />
 

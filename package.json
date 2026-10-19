@@ -8,7 +8,7 @@
     "start": "expo start",
     "test": "jest",
     "typecheck": "tsc --noEmit",
-    "check:i18n": "node scripts/check-i18n.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs --kod src,app",
     "check:licenses": "node scripts/check-licenses.mjs",
     "check:size": "node scripts/check-file-size.mjs",
     "matrix:update": "node scripts/test-matrix.mjs",

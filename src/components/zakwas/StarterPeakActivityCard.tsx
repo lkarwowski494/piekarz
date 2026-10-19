@@ -77,9 +77,7 @@ export function StarterPeakActivityCard({
         </View>
 
         <Text style={styles.predictionStatusText}>
-          {peakPrediction.statusTemplatePl
-            ? t(peakPrediction.statusTemplatePl, peakPrediction.statusParams)
-            : peakPrediction.statusMessagePl}
+          {t(peakPrediction.statusTemplatePl, peakPrediction.statusParams)}
         </Text>
 
         {/* Ambient Temperature Selector */}
