@@ -37,7 +37,7 @@ export const EN_4: Record<string, string> = {
   'Co chcesz wydrukować?': 'What do you want to print?',
   'Karta receptury A4': 'A4 recipe card',
   'Etykieta słoika zakwasu': 'Starter jar label',
-  'Najpierw dodaj zakwas w zakładce Zakwas.': 'Add a starter in the Starter tab first.',
+  'Najpierw dodaj zakwas w zakładce Zakwas.': 'Add a starter in the Sourdough tab first.',
   'Który zakwas?': 'Which starter?',
   // Test palca w Stolnicy przy garowaniu końcowym (F-15, BR-ETAP-003) [M1-audytor-generalny-032]
   'Sprawdź gotowość: test palca': 'Check readiness: poke test',
