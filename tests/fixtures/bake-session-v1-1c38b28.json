@@ -1,0 +1,16 @@
+{
+  "stepIdx": 2,
+  "dutchOvenPhase": "lid_on",
+  "timerEndsAt": 1800001800000,
+  "pausedLeftSec": null,
+  "recipeName": "Chleb sprzed aktualizacji",
+  "startedAt": 1800000000000,
+  "bake": {
+    "id": "bake_v1",
+    "recipeName": "Chleb sprzed aktualizacji",
+    "startedAt": 1800000000000,
+    "currentStageId": "mix",
+    "ambientTempC": 22,
+    "actualDdtC": 25
+  }
+}

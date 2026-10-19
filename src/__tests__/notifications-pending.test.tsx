@@ -93,7 +93,8 @@ describe('Pending notifications follow the saved state (006)', () => {
     await press(tree.root, 'Start');
     expect(ids()).toEqual(['piekarz.krok']);
     const first = mock.pending.get('piekarz.krok')!.trigger.date;
-    expect(first).toBe(now + 45 * 60 * 1000);
+    // Pierwszy etap planu: dokarmienie zakwasu, 6 h [M1-audytor-generalny-030]
+    expect(first).toBe(now + 360 * 60 * 1000);
 
     await press(tree.root, 'Wstrzymaj');
     expect(ids()).toEqual([]);

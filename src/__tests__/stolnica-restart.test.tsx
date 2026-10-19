@@ -25,7 +25,7 @@ import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/(tabs)/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
-import { BAKE_STEPS } from '../core/baking-phases';
+import { planBakeSteps } from '../core/bake-steps';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -89,8 +89,10 @@ describe('Active bake survives a process kill (019)', () => {
     const second = await render();
     const text = textOf(second.toJSON());
     expect(text).toContain('Chleb na restart');
-    expect(text).toContain(BAKE_STEPS[2].name);
-    expect(text).toContain('29:00');
+    // Kroki z planu liczonego od startu wypieku [M1-audytor-generalny-030]
+    const step3 = planBakeSteps({ startAt: now - 60_000, isHighRye: false, ambientTempC: 22 })?.[2];
+    expect(text).toContain(step3?.name ?? '?');
+    expect(text).toContain(`${String((step3?.durationMin ?? 0) - 1).padStart(2, '0')}:00`);
     expect(button(second.root, 'Wstrzymaj')).toBeDefined();
     act(() => second.unmount());
   });

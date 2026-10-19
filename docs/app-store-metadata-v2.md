@@ -19,7 +19,7 @@
 | :--- | :--- | :---: | :---: |
 | **Nazwa aplikacji (Name)** | `Piekarz — Chleb i Zakwas` | **24** | max 30 |
 | **Podtytuł (Subtitle)** | `Kalkulator chleba i 4-DDT` | **25** | max 30 |
-| **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), precyzyjne 4-DDT, 12 faz na stolnicy i 100% prywatności offline.` | **164** | max 170 |
+| **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), 4-DDT, kroki z Twojego planu na stolnicy i 100% prywatności offline.` | **165** | max 170 |
 | **Słowa kluczowe (Keywords)** | `chleb,zakwas,pieczenie,kalkulator,mąka,ddt,hydratacja,bochenek,garnek,doktor,stolnica,piekarz,przepis` | **98** | max 100 |
 
 ### 1.2. Pełny Opis Aplikacji (Description PL — 2 150 / 4 000 znaków)
@@ -37,8 +37,8 @@ Większość kalkulatorów traktuje zakwas jako pojedynczy składnik, fałszują
 2. PRECYZYJNA TEMPERATURA WODY (4-DDT)
 Temperatura ciasta decyduje o aktywności drożdży i bakterii kwasu mlekowego. Algorytm 4-DDT precyzyjnie wylicza temperaturę wody na podstawie temperatury mąki, zakwasu, otoczenia oraz tarcia misy. W upalne dni podpowie dokładną masę lodu w gramach.
 
-3. ASYSTENT STOLNICA (12 FAZ FSM)
-Deterministyczna maszyna stanów prowadzi Cię przez cały cykl życia bochenka: autoliza, bassinage (rezerwa wody), pętla składań (coil fold), formowanie wstępne, bench rest, garowanie na zimno (cold retard), nacinanie oraz dwuetapowy wypiek w garnku żeliwnym (para pod pokrywą + rumienienie bez pokrywy). Timery są odporne na uśpienie telefonu.
+3. ASYSTENT STOLNICA (KROKI Z TWOJEGO PLANU)
+Stolnica prowadzi Cię etapami z Twojego planu w Harmonogramie, z minutnikiem każdego etapu: dokarmienie zakwasu, autoliza, wymieszanie z solą i zakwasem, fermentacja ze składaniami, formowanie wstępne, bench rest, garowanie na zimno (cold retard) oraz dwuetapowy wypiek w garnku żeliwnym (para pod pokrywą + rumienienie bez pokrywy). Timery są odporne na uśpienie telefonu.
 
 4. DOKTOR CHLEBA & PIVOT 1-TAP
 Bochenek rozlał się w koszyku? Miękisz jest zbyt zbity, a skórka blada? Zdiagnozuj przyczynę w 3 kliknięciach. Dzięki funkcji 1-tap pivot natychmiast przekształcisz diagnozę w skorygowaną recepturę i przeniesiesz parametry na Stolnicę.
@@ -60,7 +60,7 @@ Zero reklam, zero śledzenia, zero analityki, zero wymogu logowania. Twoje recep
 | :--- | :--- | :---: | :---: |
 | **App Name** | `Crust — Sourdough & Bread` | **25** | max 30 |
 | **Subtitle** | `Baker's % & 4-DDT Calculator` | **28** | max 30 |
-| **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, 12-stage bench assistant, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **163** | max 170 |
+| **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, bench steps from your plan, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **166** | max 170 |
 | **Keywords** | `bread,sourdough,baking,calculator,flour,hydration,baker,dutch oven,loaf,ferment,levain,crumb,recipe` | **99** | max 100 |
 
 ### 2.2. Pełny Opis Aplikacji (Description EN — 2 120 / 4 000 znaków)
@@ -78,8 +78,8 @@ Standard calculators treat sourdough starter as an isolated ingredient, distorti
 2. DESIRED DOUGH TEMPERATURE (4-DDT)
 Dough temperature dictates fermentation kinetics. The 4-factor DDT engine calculates the exact target water temperature based on flour temp, starter temp, room temp, and bowl friction. During hot summer days, it automatically computes ice weight down to the single gram.
 
-3. BENCH ASSISTANT (12-STAGE FSM)
-A deterministic state machine guides you through the complete artisan lifecycle: autolyse, bassinage water addition, coil fold cycles, pre-shape, bench rest, cold retard, scoring, and 2-phase Dutch oven baking (steam with lid on + Maillard browning with lid off). Timers never drift or pause when your phone sleeps.
+3. BENCH ASSISTANT (STEPS FROM YOUR PLAN)
+The Workbench guides you stage by stage through your plan from the Schedule, with a timer for every stage: starter feed, autolyse, mixing with salt and starter, bulk fermentation with folds, pre-shape, bench rest, cold retard, and 2-phase Dutch oven baking (steam with lid on + Maillard browning with lid off). Timers never drift or pause when your phone sleeps.
 
 4. BREAD DOCTOR & 1-TAP PIVOT
 Flat loaf? Gummy crumb? Over-fermented dough? Diagnose structural defects in seconds with 12 recovery protocols. Use the 1-tap pivot to immediately transform corrective measures into an adjusted recipe on your workbench.
@@ -104,7 +104,7 @@ Zgodnie z wytycznymi App Store, przygotowano specyfikację 5 kluczowych ramek pr
 │   RAMKA 1    │   RAMKA 2    │   RAMKA 3    │   RAMKA 4    │  RAMKA 5   │
 │              │              │              │              │            │
 │  KALKULATOR  │   STOLNICA   │   DOKTOR     │ HARMONOGRAM  │  AKADEMIA  │
-│  TRUE % DDT  │ 12-FAZ FSM   │ 1-TAP PIVOT  │ SLEEP GUARD  │  OFFLINE   │
+│  TRUE % DDT  │ KROKI PLANU  │ 1-TAP PIVOT  │ SLEEP GUARD  │  OFFLINE   │
 └──────────────┴──────────────┴──────────────┴──────────────┴────────────┘
 ```
 
@@ -115,10 +115,10 @@ Zgodnie z wytycznymi App Store, przygotowano specyfikację 5 kluczowych ramek pr
 - **Sub-headline (EN):** *Automatic starter breakdown with exact ice calculation*
 - **Widok w ramce:** Ekran Kalkulatora (`app/(tabs)/index.tsx`) z suwakiem hydratacji 75%, kartą Do Miski oraz wyliczoną temperaturą wody 21.4°C.
 
-### Ramka 2: Asystent Stolnicy — FSM i Garnek Żeliwny
+### Ramka 2: Asystent Stolnicy — Kroki Planu i Garnek Żeliwny
 - **Główny nagłówek (PL):** *Stolnica: Wypiek z rygorem laboratoryjnym*
-- **Podtytuł (PL):** *12 deterministycznych faz i stoper garnka żeliwnego*
-- **Main Headline (EN):** *12-Stage Dutch Oven Bench Assistant*
+- **Podtytuł (PL):** *Kroki z Twojego planu i stoper garnka żeliwnego*
+- **Main Headline (EN):** *Dutch Oven Bench Assistant with Steps from Your Plan*
 - **Sub-headline (EN):** *Steam baking & Maillard crust browning with zero timer drift*
 - **Widok w ramce:** Ekran Stolnicy (`app/(tabs)/stolnica.tsx`) w trakcie Fazy 1 (Para pod pokrywką 240°C, 18:24 minuty do zdjęcia pokrywy).
 

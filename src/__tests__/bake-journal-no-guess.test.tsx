@@ -47,7 +47,7 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
     });
   }
   await act(async () => {
-    pressables(tree!.root, 'Wypiek w garnku z parą')[0].props.onPress();
+    pressables(tree!.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)
   });
   await act(async () => {
     tree!.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
@@ -103,7 +103,7 @@ describe('Bake journal keeps missing values missing (017)', () => {
       pressables(tree.root, 'Rozpocznij wypiek')[0].props.onPress();
     });
     await act(async () => {
-      pressables(tree.root, 'Wypiek w garnku z parą')[0].props.onPress();
+      pressables(tree.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)
     });
     await act(async () => {
       tree.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();

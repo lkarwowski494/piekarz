@@ -9,15 +9,10 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 
-export interface BakeStep {
-  id: string;
-  name: string;
-  desc: string;
-  timerMin: number;
-}
+import type { SessionStep } from '../../core/bake-steps';
 
 export interface BakeStepsListProps {
-  steps: BakeStep[];
+  steps: readonly SessionStep[];
   currentStepIdx: number;
   onGoToStep: (idx: number) => void;
   calculatedRecipe?: any;
@@ -91,7 +86,7 @@ export function BakeStepsList({
               <Text style={[styles.stepName, isCurrent && styles.stepNameCurrent]}>
                 {step.name}
               </Text>
-              <Text style={styles.stepTime}>{step.timerMin} min</Text>
+              <Text style={styles.stepTime}>{step.durationMin} min</Text>
             </View>
           </Pressable>
         );

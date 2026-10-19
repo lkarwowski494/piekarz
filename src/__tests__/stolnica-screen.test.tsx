@@ -114,9 +114,11 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     });
 
     const activeText = extractCleanText(tree?.toJSON());
-    expect(activeText).toContain('Krok 1 z 8');
-    expect(activeText).toContain('Autoliza');
-    expect(activeText).toContain('45:00');
+    // Domyślny chleb pszenny: kroki z planu Harmonogramu liczonego od teraz [M1-audytor-generalny-030]
+    expect(activeText).toContain('Krok 1 z 11');
+    expect(activeText).toContain('Dokarmienie zakwasu (osiągnięcie szczytu)');
+    expect(activeText).toContain('6:00:00');
+    expect(activeText).not.toContain('Składanie 1 (Stretch & Fold)');
   });
 
   it('displays transferred recipe ingredients when active bake was set from Calculator', async () => {
@@ -164,8 +166,8 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       startBtn?.props.onPress();
     });
 
-    // Initial timer is 45:00 and paused
-    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
+    // Initial timer is the first plan stage (6 h) and paused
+    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
     expect(extractCleanText(tree?.toJSON())).toContain('Wstrzymano');
 
     // Tap Start timer
@@ -188,8 +190,8 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       addFiveBtn?.props.onPress();
     });
 
-    // 45 min + 5 min = 50:00
-    expect(extractCleanText(tree?.toJSON())).toContain('50:00');
+    // 6 h + 5 min = 6:05:00
+    expect(extractCleanText(tree?.toJSON())).toContain('6:05:00');
 
     // Tap Reset
     const resetBtn = findButtonByText(tree!.root, 'Resetuj');
@@ -199,8 +201,8 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       resetBtn?.props.onPress();
     });
 
-    // Back to 45:00
-    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
+    // Back to 6:00:00
+    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
   });
 
   it('advances to next step when tapping Następny krok', async () => {
@@ -211,7 +213,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       startBtn?.props.onPress();
     });
 
-    expect(extractCleanText(tree?.toJSON())).toContain('Autoliza');
+    expect(extractCleanText(tree?.toJSON())).toContain('Dokarmienie zakwasu');
 
     // Tap Następny krok
     const nextBtn = findButtonByText(tree!.root, 'Następny krok');
@@ -221,11 +223,11 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       nextBtn?.props.onPress();
     });
 
-    // Advanced to step 2: Mieszanie i zaszczepienie (15 min)
+    // Advanced to step 2 of the plan: Autoliza (45 min)
     const text = extractCleanText(tree?.toJSON());
-    expect(text).toContain('Krok 2 z 8');
-    expect(text).toContain('Mieszanie i zaszczepienie');
-    expect(text).toContain('15:00');
+    expect(text).toContain('Krok 2 z 11');
+    expect(text).toContain('Autoliza (mąka + woda)');
+    expect(text).toContain('45:00');
   });
 
   it('discards active bake cleanly and returns to idle state', async () => {
@@ -236,7 +238,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       startBtn?.props.onPress();
     });
 
-    expect(extractCleanText(tree?.toJSON())).toContain('Krok 1 z 8');
+    expect(extractCleanText(tree?.toJSON())).toContain('Krok 1 z 11');
 
     // Tap Odrzuć wypiek
     const discardBtn = findButtonByText(tree!.root, 'Odrzuć wypiek');
@@ -285,9 +287,9 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       startBtn?.props.onPress();
     });
 
-    // Jump directly to last step (step 8)
+    // Jump directly to the last plan step (cooling)
     const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
-      return extractCleanText(p.props.children).includes('Wypiek w garnku z parą');
+      return extractCleanText(p.props.children).includes('Studzenie na kratce');
     });
     expect(step8Btn).toBeDefined();
 
@@ -350,9 +352,9 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
         startBtn?.props.onPress();
       });
 
-      // Jump to Step 8 (Wypiek w garnku z parą)
+      // Jump to the plan's bake stage (Wypiek z parą i rumienienie)
       const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
-        return extractCleanText(p.props.children).includes('Wypiek w garnku z parą');
+        return extractCleanText(p.props.children).includes('Wypiek z parą i rumienienie');
       });
       await act(async () => {
         step8Btn?.props.onPress();
@@ -559,29 +561,29 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     expect(plus5m).toBeDefined();
     expect(minus5m).toBeDefined();
 
-    // 45 min = 45:00. +10s -> 45:10
+    // First plan stage 6 h = 6:00:00. +10s -> 6:00:10
     await act(async () => {
       plus10s.props.onPress();
     });
-    expect(extractCleanText(tree?.toJSON())).toContain('45:10');
+    expect(extractCleanText(tree?.toJSON())).toContain('6:00:10');
 
-    // -10s -> 45:00
+    // -10s -> 6:00:00
     await act(async () => {
       minus10s.props.onPress();
     });
-    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
+    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
 
-    // +5m -> 50:00
+    // +5m -> 6:05:00
     await act(async () => {
       plus5m.props.onPress();
     });
-    expect(extractCleanText(tree?.toJSON())).toContain('50:00');
+    expect(extractCleanText(tree?.toJSON())).toContain('6:05:00');
 
-    // -5m -> 45:00
+    // -5m -> 6:00:00
     await act(async () => {
       minus5m.props.onPress();
     });
-    expect(extractCleanText(tree?.toJSON())).toContain('45:00');
+    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
   });
 
   it('renders imperial units when unitSystem is set to imperial', async () => {

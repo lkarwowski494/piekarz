@@ -3,7 +3,7 @@
 // Adapter (src/lib/notifications.ts) porównuje plan z listą oczekujących i kasuje albo planuje różnicę.
 // ============================================================================
 
-import { BAKE_STEPS } from './baking-phases';
+import { SessionStep, isDutchOvenStep } from './bake-steps';
 import {
   NOTIF_PREFIX,
   NOTIF_ID_BAKE,
@@ -44,6 +44,8 @@ export interface PlanStarter {
   lastFedAt?: number;
 }
 export interface PlanBakeSession {
+  /** Kroki sesji: nazwa i rodzaj kroku z planu, nie ze stałej listy [M1-audytor-generalny-030]. */
+  steps: readonly Pick<SessionStep, 'id' | 'name' | 'category'>[];
   stepIdx: number;
   dutchOvenPhase: 'lid_on' | 'lid_off';
   timerEndsAt: number | null;
@@ -52,17 +54,17 @@ export interface PlanBakeSession {
 /** Powiadomienie o końcu bieżącego kroku; brak, gdy zegar stoi albo termin minął. */
 export function planBakeNotification(session: PlanBakeSession | null, now: number): PlannedNotification | null {
   if (!session || session.timerEndsAt === null || session.timerEndsAt <= now) return null;
-  const step = BAKE_STEPS[session.stepIdx];
+  const step = session.steps[session.stepIdx];
   if (!step) return null;
   const textKey: NotificationTextKey =
-    step.id === 'step_8' ? (session.dutchOvenPhase === 'lid_on' ? 'krok.zdejmijPokrywke' : 'krok.wypiekGotowy') : 'krok.koniec';
+    isDutchOvenStep(step) ? (session.dutchOvenPhase === 'lid_on' ? 'krok.zdejmijPokrywke' : 'krok.wypiekGotowy') : 'krok.koniec';
   return {
     id: NOTIF_ID_BAKE,
     kind: 'krok',
     triggerAt: session.timerEndsAt,
     level: TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active',
     textKey,
-    params: { stepId: step.id },
+    params: { stepId: step.id, stepName: step.name },
     route: '/(tabs)/stolnica',
   };
 }

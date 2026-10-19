@@ -4,6 +4,9 @@ jest.mock('expo-sqlite', () => require('./helpers/node-sqlite-adapter').createEx
 import { useTempDbDir, restartApp } from './helpers/node-sqlite-adapter';
 import type { BakeSession } from '../bake-session-store';
 import type { ActiveBakeState } from '../sqlite-schema';
+import { LEGACY_STEPS_V1 } from '../../core/legacy-steps-v1';
+import { planBakeSteps } from '../../core/bake-steps';
+import type { DoughRecipeResult } from '../../core/domain-rules';
 
 const bake: ActiveBakeState = {
   id: 'bake_live',
@@ -21,6 +24,8 @@ const bake: ActiveBakeState = {
   },
 };
 const session: BakeSession = {
+  version: 2,
+  steps: LEGACY_STEPS_V1,
   stepIdx: 3,
   dutchOvenPhase: 'lid_on',
   timerEndsAt: 123456,
@@ -77,5 +82,42 @@ describe('bake-session-store (019)', () => {
     const fresh = pickBakeSession({ ...bake, id: 'bake_new', recipeName: 'Nowy' }, session);
     expect(fresh).toEqual(expect.objectContaining({ stepIdx: 0, timerEndsAt: null, recipeName: 'Nowy' }));
     expect(pickBakeSession(null, null)).toBeNull();
+    // [M1-audytor-generalny-030] przekazany wypiek żytni bez listy etapów nie startuje; zostaje zapis
+    expect(pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, session)).toBe(session);
+    expect(pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, null)).toBeNull();
+  });
+
+  it('isSessionStep checks every field of a saved step (030)', () => {
+    const { isSessionStep } = require('../bake-session-store') as typeof import('../bake-session-store');
+    const ok = LEGACY_STEPS_V1[0];
+    expect(isSessionStep(ok)).toBe(true);
+    expect(isSessionStep({ ...ok, plannedStart: 5, plannedEnd: 10 })).toBe(true);
+    expect(isSessionStep({ ...ok, id: '' })).toBe(false);
+    expect(isSessionStep({ ...ok, category: 'fold' })).toBe(false);
+    expect(isSessionStep({ ...ok, durationMin: 0 })).toBe(false);
+    expect(isSessionStep({ ...ok, isPassive: 'nie' })).toBe(false);
+    expect(isSessionStep({ ...ok, plannedEnd: 'jutro' })).toBe(false);
+    expect(isSessionStep(null)).toBe(false);
+  });
+
+  it('isHighRyeBake and stepsForBake: Harmonogram snapshot, plan from the bake start, rye blocked (030)', () => {
+    const { isHighRyeBake, stepsForBake, isActiveBakeState } = require('../bake-session-store') as typeof import('../bake-session-store');
+    const rye: DoughRecipeResult = {
+      targetDoughWeightGrams: 1000, baseFlourWeightGrams: 520, flours: [{ name: 'Mąka żytnia 2000', percentage: 100, weightGrams: 520 }],
+      waterGrams: 390, saltGrams: 10, starterGrams: 80, starterFlourGrams: 40, starterWaterGrams: 40, yeastGrams: 0,
+      totalFlourGrams: 560, totalWaterGrams: 430, overallHydrationPercent: 76.8, sumCheckGrams: 1000, isHighRye: true,
+    };
+    expect(isHighRyeBake(bake)).toBe(false);
+    expect(isHighRyeBake({ ...bake, isHighRye: true })).toBe(true);
+    expect(isHighRyeBake({ ...bake, calculatedRecipe: rye })).toBe(true);
+    expect(isHighRyeBake({ ...bake, isHighRye: false, calculatedRecipe: rye })).toBe(false);
+    expect(stepsForBake({ ...bake, calculatedRecipe: rye })).toBeNull();
+    expect(stepsForBake({ ...bake, isHighRye: true })).toBeNull();
+    expect(stepsForBake(bake)).toEqual(planBakeSteps({ startAt: bake.startedAt, isHighRye: false, ambientTempC: 22 }));
+    const snap = LEGACY_STEPS_V1.slice(0, 2);
+    expect(stepsForBake({ ...bake, steps: snap })).toBe(snap);
+    expect(isActiveBakeState({ ...bake, steps: snap, isHighRye: false })).toBe(true);
+    expect(isActiveBakeState({ ...bake, steps: [] })).toBe(false);
+    expect(isActiveBakeState({ ...bake, isHighRye: 'tak' })).toBe(false);
   });
 });

@@ -199,4 +199,7 @@ export const EN_3: Record<string, string> = {
     'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
   'Nie zaznaczono żadnego objawu': 'No signs marked',
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
+  // Stolnica bez prowadzenia dla chleba żytniego (F-07, RD-11) [M1-audytor-generalny-030]; tekst do akceptacji
+  'Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.':
+    'The Workbench does not guide rye bread yet. Steps for rye dough are being prepared, so this bake was not started.',
 };

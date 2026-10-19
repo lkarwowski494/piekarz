@@ -10,7 +10,8 @@ import { NumInput } from '../src/components/NumInput';
 import { Field, Btn, Empty, Missing } from '../src/components/ui';
 
 import { BakeTypePresetId, CrumbMoistureCategory } from '../src/core/bake-loss';
-import { DutchOvenBakePhase, DUTCH_OVEN_PHASES, BAKE_STEPS } from '../src/core/baking-phases';
+import { DutchOvenBakePhase, DUTCH_OVEN_PHASES } from '../src/core/baking-phases';
+import { LEGACY_STEPS_V1 } from '../src/core/legacy-steps-v1';
 import { HydrationDifficulty, POPULAR_FLOUR_BLENDS } from '../src/core/domain-rules';
 import { FLOUR_PROFILES } from '../src/core/flour-atlas';
 import { FlourRegion, FlourGradeCategory } from '../src/core/flour-equivalents';
@@ -116,9 +117,9 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       // 1. Languages
       LANGS.forEach((l) => expect(['pl', 'en']).toContain(l));
 
-      // 2. Bake steps
-      expect(BAKE_STEPS.length).toBeGreaterThanOrEqual(5);
-      BAKE_STEPS.forEach((step) => {
+      // 2. Bake steps: dawna lista 8 kroków tylko dla starych zapisów (M1-audytor-generalny-030)
+      expect(LEGACY_STEPS_V1.length).toBe(8);
+      LEGACY_STEPS_V1.forEach((step) => {
         expect(step.id).toBeTruthy();
         expect(step.name).toBeTruthy();
       });

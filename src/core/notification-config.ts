@@ -16,5 +16,8 @@ export const FEED_FRIDGE_REMIND_AFTER_MS = 6 * DAY_MS;
 export const FEED_FRIDGE_DUE_AFTER_MS = 7 * DAY_MS;
 /** Górna granica oczekujących powiadomień aplikacji (limit iOS: [DO USTALENIA], ADR-006). */
 export const MAX_PENDING_NOTIFICATIONS = 20;
-/** Kroki, których przegapienie psuje chleb w minutach: poziom Time Sensitive (DEC-02 a). */
-export const TIME_SENSITIVE_STEPS: readonly string[] = ['step_8'];
+/**
+ * Kroki, których przegapienie psuje chleb w minutach: poziom Time Sensitive (DEC-02 a).
+ * Wypiek w garnku: `step_8` ze starego zapisu (LEGACY_STEPS_V1) i etap planu `bake` [M1-audytor-generalny-030].
+ */
+export const TIME_SENSITIVE_STEPS: readonly string[] = ['step_8', 'bake'];

@@ -4,7 +4,6 @@
 // ============================================================================
 
 import * as Notifications from 'expo-notifications';
-import { BAKE_STEPS } from '../core/baking-phases';
 import {
   planNotifications,
   diffNotifications,
@@ -61,8 +60,9 @@ export function notificationText(p: PlannedNotification): { title: string; body:
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
     default: {
-      const step = BAKE_STEPS.find((s) => s.id === p.params.stepId);
-      return { title: t('Koniec kroku'), body: t('Krok „{step}” dobiegł końca.', { step: step ? t(step.name) : '' }) };
+      // Nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
+      const step = p.params.stepName;
+      return { title: t('Koniec kroku'), body: t('Krok „{step}” dobiegł końca.', { step: step ? t(step) : '' }) };
     }
   }
 }

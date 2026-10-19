@@ -50,7 +50,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | **Magazyn Mąk & Koszty** | `Z-051`, `Z-053` | Spiżarnia mąk, białko %, popiół, chłonność, kalkulator kosztów, odpis z magazynu | ✅ Wdrożone |
 | **Słownik Odpowiedników Mąk** | `Z-052` | Międzynarodowe typy mąk (PL ↔ FR ↔ IT ↔ DE ↔ US/UK) | ✅ Wdrożone |
 | **Harmonogram Wsteczny** | `Z-015`–`Z-023` | Reverse scheduling, Sleep Guard, kinetyka Q10, garowanie chłodnicze, piec | ✅ Wdrożone |
-| **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, prowadzenie krok po kroku, składania, wyłączenie żyta, wypiek | ✅ Wdrożone |
+| **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, kroki z receptury i planu Harmonogramu (chleb pszenny), składania w fermentacji, wypiek w garnku | 🟡 Wdrożone bez żyta: chleb żytni czeka na etapy roli 06, Stolnica go nie prowadzi (F-07, D-030) |
 | **Galeria & Oceny Wypieków** | `Z-049`, `Z-050` | 1–5 gwiazdek, scoring miękiszu/skórki, profile smakowe, statystyki | ✅ Wdrożone |
 | **Zakwas & Bezpieczeństwo** | `Z-038`–`Z-042`, `Z-045` | Profil, dokarmianie 1:2:2, predyktor peak, hooch, kahm, alarm pleśni | ✅ Wdrożone |
 | **Lievito Madre 50%** | `Z-044` | Protokół konwersji 100% ↔ 50% LM, schemat 3 odświeżeń | ✅ Wdrożone |
@@ -95,7 +95,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
    - Profile scenariuszy wypieku: ekspresowy, klasyczny nocny, 24-godzinny weekendowy.
 5. **🥣 Stolnica (Asystent Wypieku Hands-in-Flour & Galeria Wypieków, `Z-024`–`Z-037`, `Z-049`–`Z-050`):**
    - Interfejs przystosowany do obsługi oprószonymi mąką dłońmi (duże elementy dotykowe $\ge 48\,\text{pt}$, wysoki kontrast).
-   - Przewodnik krok po kroku: Autoliza $\rightarrow$ Wymieszanie $\rightarrow$ Składania (Stretch & Fold / Coil Fold) $\rightarrow$ Formowanie wstępne i ostateczne $\rightarrow$ Wypiek z parą.
+   - Przewodnik krok po kroku z etapów planu Harmonogramu (start z Harmonogramu, z Kalkulatora albo bez receptury jako domyślny chleb pszenny): Dokarmienie zakwasu $\rightarrow$ Autoliza $\rightarrow$ Wymieszanie $\rightarrow$ Fermentacja ze składaniami $\rightarrow$ Formowanie wstępne i ostateczne $\rightarrow$ Garowanie chłodnicze $\rightarrow$ Wypiek z parą $\rightarrow$ Studzenie.
    - Bezpieczne porzucenie wypieku przez `confirmDiscardBake` i automatyczny zapis historii po upieczeniu.
    - Automatyczny odpis zużytej mąki z magazynu spiżarni po ukończeniu bochenka.
    - Karta statystyk wypieków (łączna liczba, średnia ocena ogólna, ocena miękiszu i skórki, najczęstszy profil smakowy).

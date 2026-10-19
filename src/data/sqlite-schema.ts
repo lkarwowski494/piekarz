@@ -10,6 +10,7 @@ import {
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
+import type { SessionStep } from '../core/bake-steps';
 import { signAppAccessRecord } from '../lib/app-access-crypto';
 import { markStorageUnavailable } from './storage-status';
 
@@ -26,6 +27,10 @@ export interface ActiveBakeState {
   actualDdtC?: number;
   calculatedRecipe?: DoughRecipeResult;
   recipeFormula?: DoughRecipeInput;
+  /** Wypiek żytni (Harmonogram: false dla domyślnego pszennego) [M1-audytor-generalny-030]. */
+  isHighRye?: boolean;
+  /** Migawka etapów planu z Harmonogramu; brak = plan liczony od startu wypieku [M1-audytor-generalny-030]. */
+  steps?: SessionStep[];
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;

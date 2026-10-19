@@ -13,6 +13,7 @@ import {
   autoResolveSleepCollision,
 } from '../../src/scheduler/reverse-scheduler';
 import { setActiveBake } from '../../src/data/sqlite-store';
+import { stepsFromSchedule } from '../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
 import { useUnitSystem } from '../../src/lib/unit-converter';
 import { useAppAccess } from '../../src/lib/app-access';
@@ -113,15 +114,18 @@ export default function HarmonogramScreen() {
     return `${POLISH_DAYS[d.getDay()]}, ${d.getDate()} ${POLISH_MONTHS[d.getMonth()]}`;
   };
 
-  // Transfer to Stolnica
+  // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030]
   const handleStartBakeOnWorkbench = () => {
     requireActionAccess(() => {
+      const steps = stepsFromSchedule(schedule);
       setActiveBake({
         id: `bake_${Date.now()}`,
         recipeName: 'Klasyczny chleb rzemieślniczy (Harmonogram)',
         startedAt: Date.now(),
-        currentStageId: 'step_1',
+        currentStageId: steps[0]?.id ?? '',
         ambientTempC: ambientTemp,
+        isHighRye: false,
+        steps,
       });
       router.push('/(tabs)/stolnica');
     });
