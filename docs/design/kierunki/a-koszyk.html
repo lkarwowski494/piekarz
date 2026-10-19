@@ -8,6 +8,11 @@
 <style>
 @font-face { font-family: "Alegreya Sans"; font-weight: 500; src: url(../fonty/AlegreyaSans-Medium.ttf); }
 @font-face { font-family: "Alegreya Sans"; font-weight: 700; src: url(../fonty/AlegreyaSans-Bold.ttf); }
+/* kandydaci na krój tytułów (porównanie po E2, kroje.html) */
+@font-face { font-family: "Sofia Sans Semi Condensed"; font-weight: 1 1000; src: url(../fonty/SofiaSansSemiCondensed-wght.ttf); }
+@font-face { font-family: "Bitter"; font-weight: 100 900; src: url(../fonty/Bitter-wght.ttf); }
+@font-face { font-family: "Big Shoulders Stencil"; font-weight: 100 900; src: url(../fonty/BigShouldersStencil-opsz-wght.ttf); }
+@font-face { font-family: "Rubik"; font-weight: 300 900; src: url(../fonty/Rubik-wght.ttf); }
 @font-face { font-family: "Noto Sans"; font-weight: 100 900; src: url(../fonty/NotoSans-wdth-wght.ttf); }
 :root {
   --dt-tytul: 1; --dt-tresc: 1;
@@ -39,8 +44,8 @@ main { overflow-wrap: break-word; width: var(--w, 390px); min-height: 844px; bac
 .legenda { display: flex; gap: 8px; align-items: center; }
 .leg { width: 22px; height: 6px; border-radius: 3px; flex: none; }
 .krok-nr { font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
-h1 { font-family: "Alegreya Sans"; font-weight: 700; font-size: calc(2rem * var(--dt-tytul)); line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
-.czas { font-family: "Alegreya Sans"; font-weight: 700; font-size: calc(3.25rem * var(--dt-tytul)); line-height: 1; font-variant-numeric: tabular-nums; }
+h1 { font-family: var(--kroj-tytul, "Alegreya Sans"); font-weight: 700; font-size: calc(2rem * var(--dt-tytul)); line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
+.czas { font-family: var(--kroj-tytul, "Alegreya Sans"); font-weight: 700; font-size: calc(3.25rem * var(--dt-tytul)); line-height: 1; font-variant-numeric: tabular-nums; }
 .czas small { font-family: "Noto Sans"; font-weight: 400; font-size: calc(1.0625rem * var(--dt-tresc)); color: var(--tusz-2); display: block; margin-top: 6px; line-height: 1.3; }
 .co { font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.4; margin: 0; }
 .info span { min-width: 0; } .info { display: flex; gap: 10px; align-items: flex-start; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
@@ -131,6 +136,8 @@ h1 { font-family: "Alegreya Sans"; font-weight: 700; font-size: calc(2rem * var(
 </div>
 
 <script>
+const krojP = new URLSearchParams(location.search).get('kroj');
+if (krojP) document.documentElement.style.setProperty('--kroj-tytul', '"' + krojP + '"');
 // Spirala koszyka: zwój od środka (start) do brzegu (gotowe); długość łuku ∝ czas kroku. Dane [PRZYKŁAD].
 const kroki = [
   ['Rozczyn', 240], ['Mieszanie', 15, 1], ['Składanie 1 z 4', 30, 1], ['Składanie 2 z 4', 30, 1], ['Składanie 3 z 4', 30, 1],
