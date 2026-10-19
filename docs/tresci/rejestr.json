@@ -604,5 +604,122 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "KWA-TEM-001",
+    "twierdzenie": "W przeglądzie literatury o zakwasach wyższą temperaturę fermentacji wiąże się z produkcją kwasu mlekowego, a niższą z kwasem octowym; źródło podaje to jako przypuszczenie („are thought to”, „have been linked”), nie jako regułę.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., A review of sourdough starters: ecology, practices, and sensory quality with applications for baking and recommendations for future research, PeerJ 2021, 9:e11389, rozdz. o wpływie temperatury, dokarmiania i hydratacji na smak (CC BY); czytany pełny tekst Europe PMC PMC8117929 fullTextXML",
+        "cytat": "Higher temperatures are thought to favor lactic acid production and are associated with more flower and fruit aromas, while lower temperatures have been linked to acetic acid, as well as rancid flavors from butanoic acid",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uwagi": "Źródło szczebla 3 (CORDIS AGRF0032, wyniki projektu UE) mówi: „The effect of temperature depended on the strain.” oraz „temperature had no significant influence on the quotient”. Przy sprzeczności wygrywa szczebel 2; brzmienie w treści zostaje ostrożne („wiąże się”), bez obietnicy skutku dla każdego zakwasu. Calvert to przegląd (oryginał: Siepmann i in. 2019, nieprzeczytany).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "KWA-CZA-001",
+    "twierdzenie": "W przeglądzie literatury o zakwasach dłuższy czas fermentacji wiąże się z nadmierną zawartością kwasów organicznych oraz z przypalonym, gorzkim lub nieprzyjemnym smakiem.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., PeerJ 2021, 9:e11389, ten sam akapit co KWA-TEM-001; Europe PMC PMC8117929 fullTextXML",
+        "cytat": "Comparatively, prolonged fermentation time has been connected to burnt, bitter, or unpleasant flavors and excessive organic acid content",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "KWA-GLO-001",
+    "twierdzenie": "Według przeglądu literatury niedokarmiony zakwas może być cierpki, octowy albo pachnieć alkoholem.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., PeerJ 2021, 9:e11389, ten sam akapit co KWA-TEM-001; Europe PMC PMC8117929 fullTextXML",
+        "cytat": "Similarly, yeasts produce more ethanol under acid stress, suggesting that under-fed starters may display themselves by being tart, vinegary, or alcohol-like",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "KWA-HYD-001",
+    "twierdzenie": "W badaniach projektu UE AGRF0032 u szczepów heterofermentatywnych produkcję kwasu octowego obniżała wyższa wydajność ciasta (więcej wody na mąkę), więc gęstszy zakwas wiąże się z większą ilością kwasu octowego.",
+    "zrodla": [
+      {
+        "adres": "https://cordis.europa.eu/project/id/AGRF0032/results",
+        "miejsce": "CORDIS, projekt AGRF0032, Results (streszczenie wyników)",
+        "cytat": "Dough yield had a minor, positive influence on TTA and lactic acid production and in the case of heterofermentative strains, acetic acid production was negatively affected by dough yield.",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://doi.org/10.7717/peerj.11389",
+        "miejsce": "Calvert M.D. i in., PeerJ 2021, definicja hydratacji i wydajności ciasta; Europe PMC PMC8117929 fullTextXML",
+        "cytat": "The water available in the starter is referred to as hydration (i.e., the percent of water to flour) or dough yield",
+        "odczyt": "2026-10-19",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Wynik (wpływ wydajności ciasta na kwas octowy) ma jedno źródło szczebla 3; Calvert (szczebel 2) daje tylko definicję, że hydratacja i wydajność ciasta opisują ilość wody w zakwasie. Tylko szczepy heterofermentatywne.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "KWA-TEM-900",
+    "twierdzenie": "Niska temperatura (zimna fermentacja w lodówce, 4 °C) faworyzuje łagodniejszy kwas mlekowy (src/doctor/diagnostics.ts, zalecenie przy zbyt kwaśnym chlebie).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "SPRZECZNE z KWA-TEM-001 (szczebel 2: niższą temperaturę wiąże się z kwasem octowym, wyższą z mlekowym). Żadne przeczytane źródło szczebla 1–3 nie popiera tej reguły.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KWA-TEM-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-042"
+  },
+  {
+    "id": "KWA-OCT-900",
+    "twierdzenie": "Zmniejszona ilość zakwasu (15%) i wydłużona fermentacja w chłodzie sprzyjają namnażaniu bakterii octowych (src/recipes/presets.ts, preset San Francisco).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) wiąże niższą temperaturę z kwasem octowym (KWA-TEM-001), nie z namnażaniem bakterii octowych; kwas octowy wytwarzają też heterofermentatywne bakterie mlekowe. Mniejsza ilość zakwasu: źródło mówi odwrotnie o kwasowości („using more starter in a bread recipe can yield more acidic bread doughs”), więc związek z ilością zakwasu usunięty.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KWA-TEM-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-042"
+  },
+  {
+    "id": "KWA-TEM-901",
+    "twierdzenie": "Przyczyną zbyt kwaśnego, octowego smaku jest fermentacja w temperaturze 15–20 °C (src/doctor/diagnostics.ts, przyczyna przy zbyt kwaśnym chlebie).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "Kierunek zgodny z KWA-TEM-001, ale przedział 15–20 °C i związek przyczynowy („przyczyną jest”) bez źródła; zastąpione brzmieniem bez liczb („wiąże się”).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KWA-TEM-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-042"
   }
 ]
