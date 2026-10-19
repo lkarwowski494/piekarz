@@ -2,7 +2,7 @@
 
 Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-20 (przyrost ER-44…ER-47) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
-Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-47). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
+Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
 Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu, P-7 regularny piekarz, P-8 pizza i pieczywo drożdżowe) przez 12 prac J: liczenie z zakwasem i zaczynami, plan wsteczny z sygnałem przy uśpionym telefonie, zakwas od zera i jego prowadzenie, dziennik z poprawą następnego wypieku, naukę i Doktora Chleba, dane bez ryzyka utraty. Zakres pierwszej wersji, podział i cena nie są tu rozstrzygane: hipotezy H-03…H-14 dla ról 02 i 03.
 
@@ -20,7 +20,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
-| `errata.md` | errata ER-34…ER-47 | E3 + 2026-10-20 |
+| `errata.md` | errata ER-34…ER-48 | E3 + 2026-10-20 |
 
 ## Otwarte pytania
 
@@ -44,9 +44,9 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-44 | [DO USTALENIA] masy składników w przeliczniku objętości (g na szklankę, łyżkę) ze źródła szczebla 1–3 | rola 06 | BR-KALK-007 |
 | OP-45 | [DO WYJAŚNIENIA] domyślne godziny snu w planie (stare BRD: 23:00–06:30 i 22:00–08:00 bez decyzji) | właściciel z rolą 04 | BR-HARMO-002 |
 | OP-46 | [DO USTALENIA] opis próby gotowości ciasta przed pieczeniem ze źródła | rola 06 | BR-ETAP-003 |
-| OP-47 | [DO WYJAŚNIENIA] ile dni przed końcem próby aplikacja uprzedza | właściciel z rolą 02 | BR-ZAK-004 |
-| OP-48 | [DO WYJAŚNIENIA] czy wypiek trwający w chwili końca próby prowadzi się do końca | właściciel z rolą 02 | BR-ZAK-004 |
-| OP-49 | [DO WYJAŚNIENIA] od jakiej oceny wypiek jest „udany” dla prośby o ocenę aplikacji (propozycja: 4★ i więcej) | właściciel z rolą 03 | BR-OPIN-001 |
+| OP-47 | Rozstrzygnięte 2026-10-19: 3 dni (D-039, rola 02) | właściciel | BR-ZAK-004 |
+| OP-48 | Rozstrzygnięte 2026-10-19: wypiek rozpoczęty w czasie dostępu prowadzi się do końca, bez nowego (D-039, rola 02) | właściciel | BR-ZAK-004 |
+| OP-49 | Rozstrzygnięte 2026-10-20: udany wypiek to ocena co najmniej 4★ (D-042) | właściciel | BR-OPIN-001 |
 
 ## Blokery wydania
 

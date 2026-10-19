@@ -56,6 +56,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Zakładając, że próba się skończyła bez zakupu
     - Gdy użytkownik eksportuje dane
     - Wtedy eksport działa bez oferty zakupu (DEC-01 d)
+  - Scenariusz: Import bez zakupu
+    - Zakładając, że próba się skończyła bez zakupu
+    - Gdy użytkownik importuje plik z własnymi danymi
+    - Wtedy import działa bez oferty zakupu (D-039)
 
 ### BR-DANE-004: Usunięcie wszystkich danych
 - Przepływ: PR-07, PR-16
@@ -109,7 +113,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
 - Dowód potrzeby: DEC-01 d (bez zakupu tylko przegląd historii oraz odczyt, eksport i usunięcie danych); H-04; RYZ-17
 - Kryteria akceptacji:
   - Scenariusz: Uprzedzenie przed końcem próby
-    - Zakładając, że do końca próby zostały 2 dni [DO WYJAŚNIENIA] (OP-47)
+    - Zakładając, że do końca próby zostały 3 dni (D-039)
     - Gdy użytkownik otwiera aplikację
     - Wtedy widzi, co zostanie bez zakupu, a co wymaga zakupu, oraz że przypomnienia o dokarmianiu zakwasu ustaną
   - Scenariusz: Po końcu próby
@@ -119,7 +123,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
   - Scenariusz: Trwający wypiek w chwili końca próby
     - Zakładając, że próba kończy się w trakcie wypieku
     - Gdy mija koniec próby
-    - Wtedy [DO WYJAŚNIENIA] (OP-48) czy bieżący wypiek prowadzi się do końca, a użytkownik wie o tym przed startem wypieku
+    - Wtedy bieżący wypiek prowadzi się do końca ze wszystkimi krokami i powiadomieniami, a nowego wypieku nie da się zacząć bez zakupu (D-039)
 
 ### BR-ZAK-005: Oferta próby przy pierwszym użyciu funkcji
 - Przepływ: PR-09, PR-12

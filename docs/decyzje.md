@@ -61,3 +61,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** prowadzenie ER-44…ER-46 w E2 jako decyzji warunkowych (rekomendacja roli 03).
 - **Dlaczego:** decyzja zakresu ma stać na BR z kryteriami, a nie na wpisie ER.
 - **Zależy od:** wyniku roli 01; nowe BR trafiają do roli 03 przez scalenie gałęzi roli 01 z gałęzią `claude/03-zakres-2026-10-19-7a0b8a` (za zgodą właściciela).
+
+### [D-042] 2026-10-20 — Udany wypiek dla prośby o ocenę aplikacji: co najmniej 4★
+- **Rodzaj:** produktowa. **Słowa właściciela:** „op49 zgodnie z rekomendacja” (2026-10-20, przyrost ER-44 roli 01).
+- **Decyzja:** systemowa prośba o ocenę aplikacji (BR-OPIN-001) może pojawić się po wypieku ocenionym przez użytkownika na co najmniej 4★.
+- **Odrzucone:** każdy zakończony wypiek bez progu; tylko 5★.
+- **Dlaczego:** DEC-13 (a) planu napraw M1 mówi o „udanym bochenku”; system i tak pokazuje prośbę najwyżej trzy razy w roku (S-63), więc próg chroni przed prośbą po nieudanym wypieku.
+- **Zależy od:** nic. Numer D-042, bo D-038…D-041 zajęły role 02 i 03 na swoich gałęziach.

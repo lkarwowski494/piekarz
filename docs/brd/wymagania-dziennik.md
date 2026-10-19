@@ -153,7 +153,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
 - Dowód potrzeby: J-12; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku); zadanie M1-audytor-generalny-082; S-63 (prośba na końcu sekwencji, którą użytkownik zakończył sukcesem)
 - Kryteria akceptacji:
   - Scenariusz: Udany wypiek
-    - Zakładając, że użytkownik zakończył wypiek i ocenił bochenek co najmniej na próg udanego wypieku [DO WYJAŚNIENIA] (OP-49)
+    - Zakładając, że użytkownik zakończył wypiek i ocenił bochenek co najmniej na 4★ (D-042)
     - Gdy zapis oceny się kończy i użytkownik wraca do dziennika
     - Wtedy aplikacja wywołuje systemową prośbę o ocenę, a system sam decyduje, czy ją pokazać (najwyżej trzy razy w ciągu 365 dni, S-63)
   - Scenariusz: Słaba ocena
