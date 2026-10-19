@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { formatFixed } from '../lib/format';
 import { FlourItemInput } from '../core/domain-rules';
 import {
   FLOUR_PROFILES,
@@ -147,7 +148,7 @@ export function FlourBlendModal({
                   <Text style={styles.flourName} numberOfLines={1}>
                     {flour.name}
                   </Text>
-                  <Text style={styles.flourPctText}>{flour.percentage.toFixed(1)}%</Text>
+                  <Text style={styles.flourPctText}>{formatFixed(flour.percentage, 1)}%</Text>
                 </View>
 
                 {/* Steppers */}

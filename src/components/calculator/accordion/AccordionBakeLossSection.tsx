@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { formatFixed, formatNumber } from '../../../lib/format';
 import {
   BAKE_LOSS_PRESETS,
   BakeTypePresetId,
@@ -32,7 +33,7 @@ export function AccordionBakeLossSection({
     <View style={styles.sectionBlock}>
       <Text style={styles.sectionHeaderTitle}>🔥 {t('Strata wypiekowa i wilgotność miękiszu')}</Text>
       <Text style={styles.sectionDesc}>
-        {t('Strata Piecowa')} • {t('Szacowany ubytek masy')} ({bakeLossPercent}%): ≈ {formatWeight(bakedTotalWeightGrams, unitSystem)} {t('upieczonego')}
+        {t('Strata Piecowa')} • {t('Szacowany ubytek masy')} ({formatNumber(bakeLossPercent)}%): ≈ {formatWeight(bakedTotalWeightGrams, unitSystem)} {t('upieczonego')}
       </Text>
 
       {/* Presets */}
@@ -64,7 +65,7 @@ export function AccordionBakeLossSection({
           >
             <Text style={styles.miniBtnText}>−</Text>
           </Pressable>
-          <Text style={styles.paramValue}>{bakeLossPercent.toFixed(1)}%</Text>
+          <Text style={styles.paramValue}>{formatFixed(bakeLossPercent, 1)}%</Text>
           <Pressable
             testID="bake-loss-plus"
             style={styles.miniBtn}

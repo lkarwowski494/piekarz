@@ -6,6 +6,7 @@
 
 import { useState, useEffect } from 'react';
 import { getAppSetting, setAppSetting } from '../data/sqlite-store';
+import { formatNumber } from './format';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -134,9 +135,10 @@ export function poundsToGrams(lbs: number): number {
  */
 export function formatTemperature(celsius: number, unitSystem: UnitSystem = currentUnitSystem): string {
   if (unitSystem === 'imperial') {
-    return `${celsiusToFahrenheit(celsius)}°F`;
+    return `${formatNumber(celsiusToFahrenheit(celsius))}°F`;
   }
-  return `${Number(celsius.toFixed(1))}°C`;
+  // Wyświetlanie przez Intl według języka (PL 26,5°C) [M1-audytor-generalny-070]
+  return `${formatNumber(celsius, undefined, { maximumFractionDigits: 1 })}°C`;
 }
 
 /**
@@ -149,17 +151,18 @@ export function formatWeight(grams: number, unitSystem: UnitSystem = currentUnit
       const totalOz = grams * 0.03527396195;
       const lbs = Math.floor(totalOz / 16);
       const remainingOz = parseFloat((totalOz % 16).toFixed(1));
+      const oz = formatNumber(remainingOz, undefined, { maximumFractionDigits: 1 });
       if (lbs > 0 && remainingOz > 0) {
-        return `${lbs} lb ${remainingOz} oz`;
+        return `${lbs} lb ${oz} oz`;
       }
       if (lbs > 0 && remainingOz === 0) {
         return `${lbs} lb`;
       }
-      return `${remainingOz} oz`;
+      return `${oz} oz`;
     }
-    return `${gramsToOunces(grams)} oz`;
+    return `${formatNumber(gramsToOunces(grams), undefined, { maximumFractionDigits: 2 })} oz`;
   }
-  return `${Math.round(grams)} g`;
+  return `${formatNumber(Math.round(grams), undefined, { maximumFractionDigits: 0 })} g`;
 }
 
 /**
@@ -167,9 +170,9 @@ export function formatWeight(grams: number, unitSystem: UnitSystem = currentUnit
  */
 export function formatDoseWeight(grams: number, unitSystem: UnitSystem = currentUnitSystem): string {
   if (unitSystem === 'imperial') {
-    return `${gramsToOunces(grams)} oz`;
+    return `${formatNumber(gramsToOunces(grams), undefined, { maximumFractionDigits: 2 })} oz`;
   }
-  return `${Number(grams.toFixed(1))} g`;
+  return `${formatNumber(grams, undefined, { maximumFractionDigits: 1 })} g`;
 }
 
 /**

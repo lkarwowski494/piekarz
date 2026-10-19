@@ -9,6 +9,7 @@ import { View, StyleSheet } from 'react-native';
 import { CraftCard, CraftStatDisplay, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { formatFixed } from '../../lib/format';
 import { ActiveBakeState } from '../../data/sqlite-store';
 
 export interface StolnicaSacredCardProps {
@@ -55,7 +56,7 @@ export function StolnicaSacredCard({
           <CraftStatDisplay
             testID="stat-stolnica-hydration"
             label={t('Hydratacja')}
-            value={activeBakeData.calculatedRecipe.overallHydrationPercent.toFixed(1)}
+            value={formatFixed(activeBakeData.calculatedRecipe.overallHydrationPercent, 1)}
             unit="%"
             size="md"
           />

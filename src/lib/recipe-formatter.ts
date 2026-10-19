@@ -3,6 +3,7 @@ import * as Haptics from 'expo-haptics';
 import { DoughRecipeResult } from '../core/domain-rules';
 import { BakeLossMetricsResult } from '../core/domain-rules';
 import { t } from './i18n';
+import { formatFixed } from './format';
 
 export interface RecipeFormatOptions {
   recipeName: string;
@@ -49,10 +50,10 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
     );
   }
 
-  lines.push(`${t('Hydratacja całkowita')}: ${calc.overallHydrationPercent.toFixed(1)}% (True Baker's %)`);
+  lines.push(`${t('Hydratacja całkowita')}: ${formatFixed(calc.overallHydrationPercent, 1)}% (True Baker's %)`);
 
   if (bakeLoss) {
-    lines.push(`${t('Strata piecowa')}: ${bakeLoss.bakeLossPercent.toFixed(1)}% (-${bakeLoss.evaporatedWaterGrams} g pary)`);
+    lines.push(`${t('Strata piecowa')}: ${formatFixed(bakeLoss.bakeLossPercent, 1)}% (-${bakeLoss.evaporatedWaterGrams} g pary)`);
     lines.push(`${t('Szacowana wilgotność miękiszu')}: ${bakeLoss.retainedMoisturePercent}% (${bakeLoss.categoryLabelPl})`);
   }
 
@@ -61,12 +62,12 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
 
   // Flour breakdown
   calc.flours.forEach((f) => {
-    lines.push(`  • ${f.name} (${f.percentage.toFixed(1)}%): ${f.weightGrams} g`);
+    lines.push(`  • ${f.name} (${formatFixed(f.percentage, 1)}%): ${f.weightGrams} g`);
   });
 
   // Water
   if (waterTempTarget !== undefined) {
-    lines.push(`  • ${t('Woda')} (${((calc.waterGrams / calc.baseFlourWeightGrams) * 100).toFixed(1)}%): ${calc.waterGrams} g [temp. ${waterTempTarget.toFixed(1)}°C]`);
+    lines.push(`  • ${t('Woda')} (${formatFixed(((calc.waterGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.waterGrams} g [temp. ${formatFixed(waterTempTarget, 1)}°C]`);
     if (iceGrams && iceGrams > 0) {
       lines.push(`    ↳ ${t('w tym lód')}: ${iceGrams} g + woda z kranu (${tapWaterTemp ?? 16}°C): ${calc.waterGrams - iceGrams} g`);
     }
@@ -75,10 +76,10 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   }
 
   // Sourdough starter
-  lines.push(`  • ${t('Zakwas')} (${((calc.starterGrams / calc.baseFlourWeightGrams) * 100).toFixed(1)}%): ${calc.starterGrams} g (${calc.starterFlourGrams} g mąki + ${calc.starterWaterGrams} g wody)`);
+  lines.push(`  • ${t('Zakwas')} (${formatFixed(((calc.starterGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.starterGrams} g (${calc.starterFlourGrams} g mąki + ${calc.starterWaterGrams} g wody)`);
 
   // Salt
-  lines.push(`  • ${t('Sól')} (${((calc.saltGrams / calc.baseFlourWeightGrams) * 100).toFixed(1)}%): ${calc.saltGrams} g`);
+  lines.push(`  • ${t('Sól')} (${formatFixed(((calc.saltGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.saltGrams} g`);
 
   // Yeast if present
   if (calc.yeastGrams && calc.yeastGrams > 0) {
@@ -88,7 +89,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   // DDT section
   if (targetDdt !== undefined) {
     lines.push('');
-    lines.push(`🌡️ ${t('Docelowa temperatura ciasta (DDT)')}: ${targetDdt.toFixed(1)}°C`);
+    lines.push(`🌡️ ${t('Docelowa temperatura ciasta (DDT)')}: ${formatFixed(targetDdt, 1)}°C`);
   }
 
   // Cooling advice

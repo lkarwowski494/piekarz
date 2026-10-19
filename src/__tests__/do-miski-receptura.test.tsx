@@ -52,8 +52,8 @@ describe('karta Do miski a dane receptury', () => {
   it('pizza: procent soli z receptury (2.8%), bez wiersza zakwasu przy 0 g', async () => {
     const tree = await renderWith('pizza_napoletana_48h');
     const [salt] = row(tree, 'scale-item-salt');
-    expect(text(salt)).toContain('2.8%');
-    expect(text(salt)).not.toContain('2.0%');
+    expect(text(salt)).toContain('2,8%'); // PL: przecinek dziesiętny [M1-audytor-generalny-070]
+    expect(text(salt)).not.toContain('2,0%');
     expect(row(tree, 'scale-item-starter')).toHaveLength(0);
     act(() => tree.unmount());
   });
@@ -78,7 +78,7 @@ describe('karta Do miski a dane receptury', () => {
     const preset = MASTER_RECIPES.find((p) => p.formula.starterPercentage > 0)!;
     const tree = await renderWith(preset.id);
     expect(row(tree, 'scale-item-starter')).toHaveLength(1);
-    expect(text(row(tree, 'scale-item-salt')[0])).toContain(`${preset.formula.saltPercentage.toFixed(1)}%`);
+    expect(text(row(tree, 'scale-item-salt')[0])).toContain(`${preset.formula.saltPercentage.toFixed(1).replace('.', ',')}%`);
     act(() => tree.unmount());
   });
 });

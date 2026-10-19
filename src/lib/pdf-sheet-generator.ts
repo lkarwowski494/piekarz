@@ -6,6 +6,7 @@
 
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
+import { formatDate, formatFixed } from './format';
 
 export interface RecipeBenchSheetOptions {
   recipeName: string;
@@ -70,7 +71,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
     bakedSingleLoafWeight,
     stages = [],
     notes,
-    preparedDate = new Date().toLocaleDateString('pl-PL'),
+    preparedDate = formatDate(new Date()),
   } = options;
 
   const flourRows = flours
@@ -78,7 +79,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
       (f) => `
     <tr>
       <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🌾 ${escapeXml(f.name)}</td>
-      <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: center; font-weight: bold;">${f.percentage.toFixed(0)}%</td>
+      <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: center; font-weight: bold;">${formatFixed(f.percentage, 0)}%</td>
       <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${f.weightGrams} g</td>
     </tr>
   `
@@ -262,7 +263,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
         <table>
           <tbody>
             <tr>
-              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">💧 Woda (Hydratacja ${overallHydrationPercent.toFixed(1)}%)</td>
+              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">💧 Woda (Hydratacja ${formatFixed(overallHydrationPercent, 1)}%)</td>
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${waterGrams} g</td>
             </tr>
             <tr>
@@ -270,7 +271,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${starterGrams} g</td>
             </tr>
             <tr>
-              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🧂 Sól (${saltPercent.toFixed(1)}%)</td>
+              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🧂 Sól (${formatFixed(saltPercent, 1)}%)</td>
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${saltGrams} g</td>
             </tr>
           </tbody>
@@ -283,9 +284,9 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
       <div class="card">
         <div class="card-title">Kontrola Temperatury (DDT)</div>
         <div style="font-size: 12px; margin-bottom: 6px;">
-          <span class="metric-badge">Cel DDT: ${targetDDT.toFixed(1)}°C</span>
-          ${waterTempTarget !== undefined ? `<span class="metric-badge">Woda: ${waterTempTarget.toFixed(1)}°C</span>` : ''}
-          ${ambientTemp !== undefined ? `<span class="metric-badge">Otoczenie: ${ambientTemp.toFixed(1)}°C</span>` : ''}
+          <span class="metric-badge">Cel DDT: ${formatFixed(targetDDT, 1)}°C</span>
+          ${waterTempTarget !== undefined ? `<span class="metric-badge">Woda: ${formatFixed(waterTempTarget, 1)}°C</span>` : ''}
+          ${ambientTemp !== undefined ? `<span class="metric-badge">Otoczenie: ${formatFixed(ambientTemp, 1)}°C</span>` : ''}
         </div>
         <div class="highlight-box">
           🌡️ <strong>Temperatura wody:</strong> Użyj wody o wyliczonej temperaturze, aby ciasto po wymieszaniu osiągnęło dokładnie docelowe DDT.
@@ -345,7 +346,7 @@ export function generateStarterJarLabelSvg(options: StarterJarLabelOptions): str
     feedingRatio = '1:2:2',
     storageState,
     ageDays,
-    lastFedDate = new Date().toLocaleDateString('pl-PL'),
+    lastFedDate = formatDate(new Date()),
   } = options;
 
   const storageLabel = storageState === 'FRIDGE' ? 'Lodówka (4°C)' : 'Temp. pokojowa (21°C)';

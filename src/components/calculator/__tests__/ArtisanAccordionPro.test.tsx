@@ -98,7 +98,7 @@ describe('ArtisanAccordionPro Component', () => {
 
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Kalkulator 4-DDT');
-    expect(fullText).toContain('3.5°C');
+    expect(fullText).toContain('3,5°C');
     expect(fullText).toContain('45 g lodu'); // Ice requirement alert
     expect(fullText).toContain('Mąka typ 750: 80%');
     expect(fullText).toContain('Strata Piecowa');

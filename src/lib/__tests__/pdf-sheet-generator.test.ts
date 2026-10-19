@@ -56,7 +56,7 @@ describe('pdf-sheet-generator', () => {
       expect(html).toContain('360 g');
       expect(html).toContain('100 g');
       expect(html).toContain('10 g');
-      expect(html).toContain('Cel DDT: 25.0°C');
+      expect(html).toContain('Cel DDT: 25,0°C');
       expect(html).toContain('970 g');
       expect(html).toContain('Pieczenie w żeliwnym garnku z parą');
     });

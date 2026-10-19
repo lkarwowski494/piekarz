@@ -8,6 +8,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { appLocale, formatDate } from '../../lib/format';
 import { StoredBakeLog } from '../../data/db';
 import { SensoryRadarChart } from '../SensoryRadarChart';
 
@@ -72,7 +73,7 @@ export function BakeHistorySection({
         </View>
       ) : (
         filteredHistory.slice(0, 15).map((log) => {
-          const dateStr = new Date(log.startedAt).toLocaleDateString('pl-PL', {
+          const dateStr = formatDate(log.startedAt, appLocale(), {
             day: 'numeric',
             month: 'short',
             year: 'numeric',

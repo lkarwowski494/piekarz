@@ -8,6 +8,7 @@ import { StoredRecipe } from '../data/db';
 import { MasterRecipe } from '../recipes/presets';
 import { FlourItemInput } from '../core/domain-rules';
 import { t } from './i18n';
+import { formatFixed } from './format';
 
 export const PIEKARZ_RECIPE_SCHEMA_V1 = 'piekarz/recipe/v1' as const;
 
@@ -161,7 +162,7 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
     return {
       success: false,
       error: t('Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)', {
-        sum: flourPercentageSum.toFixed(1),
+        sum: formatFixed(flourPercentageSum, 1),
       }),
     };
   }

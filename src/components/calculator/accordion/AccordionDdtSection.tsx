@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { formatFixed } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatWeight, formatTemperature } from '../../../lib/unit-converter';
@@ -99,7 +100,7 @@ export function AccordionDdtSection({
             >
               <Text style={styles.miniBtnText}>−</Text>
             </Pressable>
-            <Text style={styles.paramValue}>{waterPct.toFixed(1)}%</Text>
+            <Text style={styles.paramValue}>{formatFixed(waterPct, 1)}%</Text>
             <Pressable
               testID="water-pct-plus-btn"
               style={styles.miniBtn}

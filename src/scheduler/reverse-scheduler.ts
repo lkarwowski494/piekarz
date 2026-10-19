@@ -1,4 +1,5 @@
 import { Q10_FERMENTATION } from '../core/fermentation-q10';
+import { formatTime } from '../lib/format';
 // ============================================================================
 // Piekarz (Crust) — Reverse Scheduler & Sleep Guard (BR-HARMO-001…004)
 // Calculates backward timeline from target bread serving hour with sleep guard.
@@ -253,7 +254,7 @@ export function calculateReverseSchedule(
 
     if (isCollision) {
       hasCollision = true;
-      const timeStr = startTime.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
+      const timeStr = formatTime(startTime); // według języka aplikacji [M1-audytor-generalny-070]
       collisions.push({ stageNamePl: t.namePl, time: timeStr });
     }
 

@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 import { t } from '../../lib/i18n';
+import { formatFixed } from '../../lib/format';
 
 import type { SessionStep } from '../../core/bake-steps';
 
@@ -62,7 +63,7 @@ export function BakeStepsList({
           <Text style={styles.ingredientsCaption}>
             {t('Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}% (True Baker’s %)', {
               masa: formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem),
-              hydratacja: calculatedRecipe.overallHydrationPercent.toFixed(1),
+              hydratacja: formatFixed(calculatedRecipe.overallHydrationPercent, 1),
             })}
           </Text>
         </View>

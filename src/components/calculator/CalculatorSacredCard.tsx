@@ -9,6 +9,7 @@ import { View, StyleSheet } from 'react-native';
 import { CraftCard, CraftStatDisplay } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { formatFixed } from '../../lib/format';
 
 export interface CalculatorSacredCardProps {
   overallHydrationPercent: number;
@@ -33,7 +34,7 @@ export function CalculatorSacredCard({
         <CraftStatDisplay
           testID="stat-hydration"
           label={t('Hydratacja')}
-          value={overallHydrationPercent.toFixed(1)}
+          value={formatFixed(overallHydrationPercent, 1)}
           unit="%"
           accentColor={theme.colors.accent}
           size="md"

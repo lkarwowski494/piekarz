@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { formatFixed } from '../lib/format';
 import { guardSave } from '../lib/save-guard';
 import { StoredFlourInventoryItem } from '../data/db';
 import {
@@ -193,7 +194,7 @@ export function FlourInventoryModal({
                   <Text style={styles.itemName}>{item.name}</Text>
                   <Text style={styles.itemStock}>
                     {item.stockGrams >= 1000
-                      ? `${(item.stockGrams / 1000).toFixed(2)} kg (${Math.round(item.stockGrams)} g)`
+                      ? `${formatFixed((item.stockGrams / 1000), 2)} kg (${Math.round(item.stockGrams)} g)`
                       : `${Math.round(item.stockGrams)} g`}
                   </Text>
                 </View>

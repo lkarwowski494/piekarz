@@ -8,6 +8,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { formatFixed } from '../../lib/format';
 import { DoughRecipeResult } from '../../core/domain-rules';
 import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 import { ScaleIngredientRow } from './ScaleIngredientRow';
@@ -247,7 +248,7 @@ export function DoMiskiScaleCard({
           <ScaleIngredientRow
             testID="scale-item-salt"
             label={`🧂 ${t('Sól kłodawska / morska')}`}
-            subtext={`${saltPercent.toFixed(1)}%`}
+            subtext={`${formatFixed(saltPercent, 1)}%`}
             weight={formatDoseWeight(calculations.saltGrams, unitSystem)}
             checked={!!checkedIngredients['salt']}
             onPress={() => toggleCheck('salt')}

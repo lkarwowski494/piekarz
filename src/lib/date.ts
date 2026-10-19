@@ -1,23 +1,17 @@
 // ============================================================================
 // Piekarz (Crust) — Date and Duration Formatter (S14, NFR-INT-014)
 // Standaryzacja formatowania dat i czasów trwania z uwzględnieniem locale
+// Daty przez src/lib/format.ts (język aplikacji z regionem urządzenia) [M1-audytor-generalny-070]
 // ============================================================================
 
-import { lang } from './i18n';
-
-function getLocale(): string {
-  const current = lang();
-  return current === 'pl' ? 'pl-PL' : 'en-US';
-}
+import { appLocale, formatDate as formatDateIntl } from './format';
 
 export function formatDate(timestamp: number | Date, options?: Intl.DateTimeFormatOptions): string {
-  const d = typeof timestamp === 'number' ? new Date(timestamp) : timestamp;
-  return d.toLocaleDateString(getLocale(), options || { year: 'numeric', month: 'short', day: 'numeric' });
+  return formatDateIntl(timestamp, appLocale(), options || { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
 export function formatDateTime(timestamp: number | Date): string {
-  const d = typeof timestamp === 'number' ? new Date(timestamp) : timestamp;
-  return d.toLocaleDateString(getLocale(), {
+  return formatDateIntl(timestamp, appLocale(), {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

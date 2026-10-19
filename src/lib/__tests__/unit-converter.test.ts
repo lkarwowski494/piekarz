@@ -37,7 +37,7 @@ describe('unit-converter', () => {
 
     it('formats temperature in metric and imperial', () => {
       expect(formatTemperature(25, 'metric')).toBe('25°C');
-      expect(formatTemperature(25.5, 'metric')).toBe('25.5°C');
+      expect(formatTemperature(25.5, 'metric')).toBe('25,5°C');
       expect(formatTemperature(25, 'imperial')).toBe('77°F');
     });
   });
@@ -71,7 +71,7 @@ describe('unit-converter', () => {
 
     it('formats small dose weights', () => {
       expect(formatDoseWeight(10, 'metric')).toBe('10 g');
-      expect(formatDoseWeight(10, 'imperial')).toBe('0.35 oz');
+      expect(formatDoseWeight(10, 'imperial')).toBe('0,35 oz');
     });
   });
 

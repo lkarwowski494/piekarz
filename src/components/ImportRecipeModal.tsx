@@ -20,6 +20,7 @@ import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { formatFixed } from '../lib/format';
 import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
@@ -189,7 +190,7 @@ export function ImportRecipeModal({
                   <View key={idx} style={styles.flourRow}>
                     <Text style={styles.flourBullet}>•</Text>
                     <Text style={styles.flourName}>{f.name}</Text>
-                    <Text style={styles.flourPct}>{f.percentage.toFixed(1)}%</Text>
+                    <Text style={styles.flourPct}>{formatFixed(f.percentage, 1)}%</Text>
                   </View>
                 ))}
 
@@ -199,19 +200,19 @@ export function ImportRecipeModal({
                   <View style={styles.metricItem}>
                     <Text style={styles.metricLabel}>{t('Woda')}</Text>
                     <Text style={styles.metricValue}>
-                      {validation.recipe.formula.waterPercentage.toFixed(1)}%
+                      {formatFixed(validation.recipe.formula.waterPercentage, 1)}%
                     </Text>
                   </View>
                   <View style={styles.metricItem}>
                     <Text style={styles.metricLabel}>{t('Sól')}</Text>
                     <Text style={styles.metricValue}>
-                      {validation.recipe.formula.saltPercentage.toFixed(1)}%
+                      {formatFixed(validation.recipe.formula.saltPercentage, 1)}%
                     </Text>
                   </View>
                   <View style={styles.metricItem}>
                     <Text style={styles.metricLabel}>{t('Zakwas')}</Text>
                     <Text style={styles.metricValue}>
-                      {validation.recipe.formula.starterPercentage.toFixed(1)}%
+                      {formatFixed(validation.recipe.formula.starterPercentage, 1)}%
                     </Text>
                   </View>
                 </View>

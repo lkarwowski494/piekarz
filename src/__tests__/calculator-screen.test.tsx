@@ -180,7 +180,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     await renderScreen();
     await openArtisanAccordion();
 
-    expect(extractCleanText(tree?.toJSON())).toContain('68.0%');
+    expect(extractCleanText(tree?.toJSON())).toContain('68,0%');
 
     const plusFiveBtn = findButtonByText(tree!.root, '+5%');
     expect(plusFiveBtn).toBeDefined();
@@ -190,7 +190,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     });
 
     const updatedText = extractCleanText(tree?.toJSON());
-    expect(updatedText).toContain('73.0%');
+    expect(updatedText).toContain('73,0%');
     expect(updatedText).toContain('Klasyk rzemieślniczy');
   });
 
@@ -239,7 +239,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(fullText).toContain('Upieczony bochenek');
     expect(fullText).toContain('Odparowana woda');
     expect(fullText).toContain('Szacowana wilgotność miękiszu');
-    expect(fullText).toContain('14.0%');
+    expect(fullText).toContain('14,0%');
   });
 
   it('updates baked weight when switching bake loss preset and stepping percentage', async () => {
@@ -255,7 +255,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     });
 
     let fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('18.0%');
+    expect(fullText).toContain('18,0%');
 
     // Step down by 0.5% with minus button
     const minusBtn = tree!.root.findByProps({ testID: 'bake-loss-minus' });
@@ -266,7 +266,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     });
 
     fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('17.5%');
+    expect(fullText).toContain('17,5%');
   });
 
   it('opens Settings and Backup modal when tapping settings gear in header', async () => {
