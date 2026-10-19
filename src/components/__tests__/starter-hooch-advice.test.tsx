@@ -1,41 +1,34 @@
 /**
- * Porada fazy „hungry” mówi o płynie na zakwasie tylko tyle, ile źródło (ZAK-HOO-001, CSU Extension):
- * zdania dosłownie z docs/tresci/{pl,en}/zakwas-bezpieczenstwo.md, z atrybucją, bez przyczyny „głód”.
+ * Porada fazy „hungry” licznika szczytu (faza z samego czasu, bez obserwacji) nie mówi nic o płynie na zakwasie:
+ * twierdzenie ZAK-HOO-001 należy tylko do karty oceny objawów, gdzie stoi z ostrzeżeniem o nalocie i granicą
+ * „w razie wątpliwości wyrzuć”. Rejestr wyklucza związek płynu z „głodem” (docs/tresci/rejestr.json, ZAK-HOO-001).
  * Karta pokazuje poradę przez t(), więc w EN po angielsku [M1-audytor-generalny-013; ZAK-HOO-001; M2-koordynator-napraw-002].
  */
-import * as fs from 'fs';
-import * as path from 'path';
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { calculateStarterPhase } from '../../core/sourdough-physics';
 import { StarterPeakActivityCard } from '../zakwas/StarterPeakActivityCard';
 import { setLang, t } from '../../lib/i18n';
 
-const registerLines = (lang: 'pl' | 'en') => {
-  const md = fs.readFileSync(path.join(__dirname, '../../../docs/tresci', lang, 'zakwas-bezpieczenstwo.md'), 'utf8');
-  return md
-    .split('\n')
-    .filter((l) => l.includes('[T:ZAK-HOO-001]'))
-    .map((l) => l.replace('[T:ZAK-HOO-001]', '').trim());
-};
+const LIQUID_PL = /płyn|hooch|głodow/i;
+const LIQUID_EN = /liquid|hooch|hunger/i;
 
 const hungry = () => calculateStarterPhase(Date.now() - 20 * 3600 * 1000, 'ROOM_TEMP');
 
 describe('porada fazy hungry a ZAK-HOO-001', () => {
   afterEach(() => setLang('pl'));
 
-  it('PL: zawiera zdania rejestru z atrybucją i nie mówi o głodzie płynu', () => {
+  it('PL: porada fazy nie mówi o płynie ani o „płynie głodowym”', () => {
     const r = hungry();
     expect(r.phase).toBe('hungry');
-    for (const s of registerLines('pl')) expect(r.advicePl).toContain(s);
-    expect(r.advicePl).not.toMatch(/głodow/i);
+    expect(r.advicePl).not.toMatch(LIQUID_PL);
   });
 
-  it('EN: tłumaczenie zawiera zdania rejestru EN i nie mówi o głodzie płynu', () => {
+  it('EN: porada ma tłumaczenie i nie mówi o płynie', () => {
     setLang('en');
     const en = t(hungry().advicePl);
-    for (const s of registerLines('en')) expect(en).toContain(s);
-    expect(en).not.toMatch(/hunger|hungry/i);
+    expect(en).not.toBe(hungry().advicePl);
+    expect(en).not.toMatch(LIQUID_EN);
   });
 
   it('karta w EN pokazuje poradę po angielsku', async () => {
@@ -53,7 +46,8 @@ describe('porada fazy hungry a ZAK-HOO-001', () => {
         />,
       );
     });
-    const text = JSON.stringify(tree!.toJSON());
-    expect(text).toContain(registerLines('en')[0]);
+    expect(JSON.stringify(tree!.toJSON())).toContain(t(hungry().advicePl));
+    setLang('pl');
+    expect(t(hungry().advicePl)).toBe(hungry().advicePl);
   });
 });

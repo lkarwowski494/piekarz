@@ -189,8 +189,7 @@ export const EN_3: Record<string, string> = {
   'Płyn na powierzchni (hooch)': 'Liquid on the surface (hooch)',
   'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
     'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
-  'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2. Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać.':
-    'Food used up. Feed the starter at 1:2:2. According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in.',
+  'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2.': 'Food used up. Feed the starter at 1:2:2.',
   'Nie zaznaczono żadnego objawu': 'No signs marked',
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
   // Etapy chleba żytniego Stolnicy (src/core/rye-stages.ts) — dosłownie z docs/tresci/en/chleb-zytni-etapy.md

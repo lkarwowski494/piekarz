@@ -152,9 +152,9 @@ export function calculateStarterPhase(
     elapsedHours,
     labelPl: 'Głód / Opadnięcie',
     badgeColor: '#EF4444',
-    // Zdania o płynie dosłownie z docs/tresci/pl/zakwas-bezpieczenstwo.md (ZAK-HOO-001, CSU Extension).
-    advicePl:
-      'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2. Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać.',
+    // Bez zdań o płynie: faza wynika z samego czasu, a ZAK-HOO-001 należy do karty oceny objawów (z granicą
+    // „w razie wątpliwości wyrzuć”); rejestr wyklucza związek płynu z „głodem” [M1-audytor-generalny-013].
+    advicePl: 'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2.',
   };
 }
 
