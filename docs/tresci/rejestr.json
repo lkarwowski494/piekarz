@@ -1038,5 +1038,141 @@
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-001",
+    "twierdzenie": "Polska Norma PN-A-74022:2003 „Przetwory zbożowe — Mąka pszenna” określa typy mąki pszennej w zależności od zawartości popiołu.",
+    "zrodla": [
+      {
+        "adres": "https://sklep.pkn.pl/pn-a-74022-2003p.html",
+        "miejsce": "Polski Komitet Normalizacyjny, karta normy PN-A-74022:2003 (wersja polska, data publikacji 24-10-2003, zastępuje PN-A-74022:1991), pole „Zakres”; kopia dowody/zrodla/pkn-pn-a-74022-2003.htm",
+        "cytat": "Określono typy mąki pszennej w zależności od zawartości popiołu, przeznaczonej dla przemysłu piekarskiego i innych rodzajów przemysłu spożywczego oraz sprzedaży detalicznej.",
+        "odczyt": "2026-10-20",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Przeczytany jest zakres normy (karta PKN), nie jej treść: lista typów i granice popiołu są w płatnym tekście normy (MAK-TYP-900).",
+    "uwagi": "M1-audytor-generalny-091 (LB-19).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-002",
+    "twierdzenie": "Polska Norma PN-A-74032:2002 „Przetwory zbożowe — Mąka żytnia” określa typy mąki żytniej w zależności od zawartości popiołu.",
+    "zrodla": [
+      {
+        "adres": "https://sklep.pkn.pl/pn-a-74032-2002p.html",
+        "miejsce": "Polski Komitet Normalizacyjny, karta normy PN-A-74032:2002 (wersja polska, data publikacji 07-10-2002, zastępuje PN-A-74032:1986), pole „Zakres”; kopia dowody/zrodla/pkn-pn-a-74032-2002.htm",
+        "cytat": "Określono typy mąki żytniej w zależności od zawartości popiołu, przeznaczonej dla przemysłu piekarskiego i innych rodzajów przemysłu spożywczego oraz sprzedaży detalicznej.",
+        "odczyt": "2026-10-20",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Jak MAK-TYP-001: przeczytany zakres normy, nie tabela typów.",
+    "uwagi": "M1-audytor-generalny-091 (LB-19).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-003",
+    "twierdzenie": "Mąki pszenne typ 405 i typ 850 są produkowane według specyfikacji technicznej danego młyna i nie są wymienione w normie PN-A-74022:2003.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.31545/aagr0008",
+        "miejsce": "Szafrańska A., „Zróżnicowanie kwasowości tłuszczowej…”, Acta Agrophysica 2018, 25(1), 95–105, wyniki, akapit pod tab. 2; PDF z acta-agrophysica.org (dowody/zrodla/acta-agroph-2018-25-1-95.pdf, tekst dowody/zrodla/acta-agroph-2018-25-1-95.txt)",
+        "cytat": "pszenne typ 405 i typ 850 są produkowane zgodnie ze specyfikacją techniczną danego młyna i nie są wymienione w normie PN-A-74022:2003 Przetwory zbożowe",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-091. Atlas (src/core/flour-atlas.ts) podaje typ 850 jak typ normy; tekst atlasu dostaje dopisek z tego twierdzenia.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-004",
+    "twierdzenie": "W sprzedaży detalicznej w Polsce badano mąki pszenne typ 405, 450, 500, 550, 650, 750, 850 i 1850 oraz mąki żytnie typ 500, 720 i 2000.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.31545/aagr0008",
+        "miejsce": "Szafrańska A., Acta Agrophysica 2018, 25(1), 95–105: „Materiał i metody” (próbki z punktów sprzedaży detalicznej) i wyniki (odsetek próbek każdego typu spełniających wymaganie kwasowości); tekst dowody/zrodla/acta-agroph-2018-25-1-95.txt",
+        "cytat": "Próbki mąki oraz kaszy manny dostarczone zostały z punktów sprzedaży detalicznej z różnych rejonów Polski […] wyższe wymaganie spełniały wszystkie badane próbki mąki pszennej typ 405, 90% próbek mąki pszennej typ 450, 67% próbek mąki typ 500, 50% próbek mąki typ 550, 73% próbek mąki typ 650, 40% próbek mąki typ 750, 90% próbek mąki typ 850. Żadna próbka mąki typ 1850 nie spełniała powyższego wymagania. W przypadku mąki żytniej wymaganie to spełniało 60% badanych próbek mąki typ 500, 11% próbek mąki typ 720 i ani jedna próbka mąki typ 2000.",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Źródło potwierdza, że takie typy są w obrocie (próbki), nie podaje granic popiołu ani zastosowań.",
+    "uwagi": "M1-audytor-generalny-091 (LB-19). Nazwy handlowe z tego samego źródła: „typ 450 Krupczatka”, „typ 450 Tortowa”, „typ 550 Luksusowa”, „typ 1850 Graham”.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-005",
+    "twierdzenie": "Krajowe młyny przemysłowe produkują mąkę żytnią typ 1400 (próbki z 2014 i 2015 roku).",
+    "zrodla": [
+      {
+        "adres": "https://www.ibprs.pl/wp-content/uploads/2020/11/Sylwia_Stepniewska_streszczenie_rozprawy_doktorskiej.pdf",
+        "miejsce": "Instytut Biotechnologii Przemysłu Rolno-Spożywczego (IBPRS), S. Stępniewska, streszczenie rozprawy doktorskiej „Studia nad wartością wypiekową mąki żytniej z krajowych młynów przemysłowych…”, akapit o materiale; tekst dowody/zrodla/ibprs-stepniewska.txt",
+        "cytat": "Materiał do badań stanowiło 30 próbek mąki żytniej typ 720 i 21 próbek mąki żytniej typ 1400, wyprodukowanych w 2014 i 2015 roku.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-091 (LB-19): typ 1400 żytni, którego atlas nie ma.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-TYP-900",
+    "twierdzenie": "Numer typu mąki to zawartość popiołu w % suchej masy pomnożona przez 1000; granice popiołu poszczególnych typów (np. typ 650: 0,59–0,69% s.m.).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Reguła i granice są w tekście norm PN-A-74022:2003 i PN-A-74032:2002 (płatne: 65,00 zł i 51,50 zł netto wg kart PKN, odczyt 2026-10-20); źródła szczebla 1–3 z tabelą nie znalazłem (dostępne tylko blogi, sklepy i Wikipedia: szczebel 5, wartości między nimi się różnią). Krok właściciela: dostęp do norm (zakup albo czytelnia PKN/biblioteka) — decyzja kosztowa (zasada wspólna 13). Do tego czasu atlas nie podaje granic popiołu jako faktu; pole ashTyp w kodzie to numer typu z nazwy.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-TYP-901",
+    "twierdzenie": "W Polsce są mąki żytnie typ 1850 oraz mąka typ 3000.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] LB-19 wymienia zakres 450–3000; żadne przeczytane źródło szczebla 1–3 nie wymienia typu 3000 ani żytniego 1850 (tylko karty sklepów, szczebel 5). Do atlasu nie dodawać.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-TYP-902",
+    "twierdzenie": "W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Typy z atlasu (src/core/flour-atlas.ts) bez przeczytanego źródła szczebla 1–3; zostają w kodzie bez zmian do czasu źródła (MAK-TYP-004 i MAK-TYP-005 ich nie wymieniają). Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-EN-900",
+    "twierdzenie": "Polskim typom mąki odpowiadają typy francuskie (T45–T150), włoskie (Tipo 00–Integrale), niemieckie (Type 405–Vollkornmehl) i kategorie USA (Cake/Pastry, All-Purpose, Bread Flour, Whole Wheat), np. typ 650 ≈ T65 / Tipo 0 / Type 812 / French Style Bread Flour.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Mapowanie w src/core/flour-equivalents.ts (F-46 PÓŹNIEJ, wejście ukryte, D-034) bez przeczytanego źródła; systemy klasyfikacji różnią się podstawą (popiół w Polsce, kategorie USA według białka i zastosowania), więc „≈” to uproszczenie, którego kierunku nie potwierdziło żadne źródło szczebla 1–4. Zgodnie z DEC-06 w EN i innych językach bez sprawdzonej mapy: polska nazwa typu z rodzajem zboża („Wheat flour type 650”), bez odpowiednika lokalnego.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
