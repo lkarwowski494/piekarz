@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Linking } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { PRIVACY_URL } from '../../lib/links';
 import {
   CRAFT_APPS,
   NaparAppIcon,
@@ -70,6 +71,16 @@ export function StudioEcosystemSection() {
           <Text style={styles.label}>{t('Telemetria i chmura:')}</Text>
           <Text style={styles.statusOffText}>{t('0% (Brak trackerów)')}</Text>
         </View>
+        {/* Polityka prywatności dostępna także poza paywallem [M1-audytor-generalny-012] */}
+        <Pressable
+          style={styles.linkRow}
+          onPress={() => void Linking.openURL(PRIVACY_URL)}
+          accessibilityRole="link"
+          accessibilityLabel={t('Polityka prywatności')}
+          testID="settings-privacy-link"
+        >
+          <Text style={styles.linkText}>{t('Polityka prywatności')}</Text>
+        </Pressable>
       </View>
 
       {/* Apps4Craft Manifesto & Version */}
@@ -165,6 +176,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 4,
+  },
+  linkRow: {
+    minHeight: 44,
+    justifyContent: 'center',
+    marginTop: theme.spacing.sm,
+  },
+  linkText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: theme.colors.accent,
+    textDecorationLine: 'underline',
   },
   label: {
     fontSize: 13,

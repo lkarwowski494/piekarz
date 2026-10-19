@@ -17,6 +17,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 
 export type PlanOption = 'monthly' | 'yearly' | 'lifetime';
@@ -253,7 +254,7 @@ export function PaywallModal({
           <View style={styles.legalLinksRow}>
             <Pressable
               testID="terms-of-use-btn"
-              onPress={() => Linking.openURL('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/')}
+              onPress={() => Linking.openURL(APPLE_EULA_URL)}
               style={styles.legalBtn}
               accessibilityRole="link"
               accessibilityLabel={t('Warunki użytkowania (EULA)')}
@@ -263,7 +264,7 @@ export function PaywallModal({
             <Text style={styles.legalDividerText}>•</Text>
             <Pressable
               testID="privacy-policy-btn"
-              onPress={() => Linking.openURL('https://apps4craft.com/privacy/piekarz')}
+              onPress={() => Linking.openURL(PRIVACY_URL)}
               style={styles.legalBtn}
               accessibilityRole="link"
               accessibilityLabel={t('Polityka prywatności')}

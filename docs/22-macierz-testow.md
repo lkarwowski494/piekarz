@@ -11,9 +11,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 470 | 470 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 233 | 233 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 85 | 85 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 88 | 88 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **830** | Pokrytych: **830** | Brakujących: **0**
+Łącznie elementów: **833** | Pokrytych: **833** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Jaki jest Twój styl wypieku?` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 530 kolejnych elementów w pełnym wykazie)*
+*(... i 533 kolejnych elementów w pełnym wykazie)*

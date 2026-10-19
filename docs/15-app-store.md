@@ -50,8 +50,8 @@ Aplikacja działa w pełni lokalnie bez konieczności połączenia z internetem.
   - Tracking: `false`
   - Zbieranie danych: brak (Data Not Collected)
   - Required Reason APIs: `UserDefaults`, `FileTimestamp`, `SystemBootTime`, `DiskSpace`
-- **Adres URL Polityki Prywatności:** `https://apps4brew.github.io/piekarz/privacy.html`
-- **Adres URL Wsparcia:** `https://apps4brew.github.io/piekarz/support.html`
+- **Adres URL Polityki Prywatności:** `https://lkarwowski494.github.io/piekarz/privacy.html`
+- **Adres URL Wsparcia:** `https://lkarwowski494.github.io/piekarz/support.html`
 
 ---
 
