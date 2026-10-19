@@ -44,8 +44,8 @@ Muszą być zdefiniowane 3 sekrety (te same, z których korzysta Napar):
 
 | Nazwa Sekretu | Skąd pobrać w App Store Connect | Format |
 |---|---|---|
-| `ASC_KEY_ID` | **Users and Access → Integrations → Keys** | 10-znakowy identyfikator klucza (np. `2X9R4274HG`) |
-| `ASC_ISSUER_ID` | **Users and Access → Integrations → Keys** | Identyfikator wystawcy UUID (np. `57246542-96fe-1a63-e053-0824d011072a`) |
+| `ASC_KEY_ID` | **Users and Access → Integrations → Keys** | 10-znakowy identyfikator klucza (np. `<KEY_ID>`) |
+| `ASC_ISSUER_ID` | **Users and Access → Integrations → Keys** | Identyfikator wystawcy UUID (np. `<ISSUER_ID>`) |
 | `ASC_KEY_P8` | Plik `.p8` pobrany jednorazowo przy tworzeniu klucza | Zawartość pliku klucza API pobranego z panelu Apple Developer |
 
 > [!NOTE]
