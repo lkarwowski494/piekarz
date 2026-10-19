@@ -117,15 +117,7 @@ export const EN_1: Record<string, string> = {
   'Zapisz profil': 'Save profile',
   'Stary zakwas': 'Old starter',
   'Kontrola biologiczna (Bezpieczeństwo)': 'Biological safety check',
-  'Ciemny płyn / zapach alkoholu (Hooch)': 'Dark liquid / alcohol smell (Hooch)',
-  'Biały matowy kożuch (Kahm Yeast)': 'White matte film (Kahm Yeast)',
-  'Puszyste kolorowe plamy (Pleśń / Zgnilizna)': 'Fuzzy colored spots (Mold / Rot)',
   'Resetuj profil zakwasu': 'Reset starter profile',
-
-  // Sourdough safety
-  'Bezpieczny kożuch drożdżowy (Kahm Yeast)': 'Harmless yeast film (Kahm Yeast)',
-  'Płyn głodowy (Hooch) — zakwas jest zdrowy, ale głodny': 'Hunger liquid (Hooch) — starter is safe but hungry',
-  'ALARM: Wykryto niebezpieczną pleśń lub zgniliznę': 'CRITICAL ALERT: Toxic mold detected',
 
   // Harmonogram & Sleep Guard
   'Harmonogram wsteczny z ochroną snu (Sleep Guard)': 'Reverse schedule with Sleep Guard',
