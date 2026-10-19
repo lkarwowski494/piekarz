@@ -50,68 +50,27 @@ describe('Exhaustive Sourdough Metabolic & Feeding Invariants (BR-STARTER-EXHAUS
   });
 
   // --------------------------------------------------------------------------
-  // 2. Room Temperature Metabolic Phase Progression
+  // 2. Room Temperature: faza z okna predyktora (jeden model szczytu, M1-audytor-generalny-044).
+  //    Domyślne okno (22 °C, 1:2:2, żyto): 5,3–7,5 h. Progi 2/5/9/14 h wycofane (ZAK-SZC-901).
   // --------------------------------------------------------------------------
-  describe('Room Temperature Metabolic Phase Machine', () => {
+  describe('Room Temperature Phase from the Peak Window', () => {
     const fixedNow = 1700000000000;
+    const fedHoursAgo = (h: number) => calculateStarterPhase(fixedNow - h * 3600 * 1000, 'ROOM_TEMP', fixedNow);
 
-    it('identifies lag adaptation phase for elapsed time < 2.0 hours', () => {
-      const justFed = fixedNow;
-      const fed1hAgo = fixedNow - 1.0 * 3600 * 1000;
-      const fed1h50mAgo = fixedNow - 1.8 * 3600 * 1000;
-
-      expect(calculateStarterPhase(justFed, 'ROOM_TEMP', fixedNow).phase).toBe('lag');
-      expect(calculateStarterPhase(fed1hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('lag');
-      expect(calculateStarterPhase(fed1h50mAgo, 'ROOM_TEMP', fixedNow).phase).toBe('lag');
+    it('before the window: 0 to 5.2 hours', () => {
+      for (const h of [0, 1, 2, 4.5, 5.2]) expect(fedHoursAgo(h).phase).toBe('before');
     });
 
-    it('identifies rising exponential phase from 2.0 to 4.9 hours', () => {
-      const fed2hAgo = fixedNow - 2.0 * 3600 * 1000;
-      const fed3hAgo = fixedNow - 3.0 * 3600 * 1000;
-      const fed4hAgo = fixedNow - 4.5 * 3600 * 1000;
-
-      expect(calculateStarterPhase(fed2hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('rising');
-      expect(calculateStarterPhase(fed3hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('rising');
-      expect(calculateStarterPhase(fed4hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('rising');
+    it('in the window: 5.3 to 7.5 hours (estimate, without "ideal moment")', () => {
+      for (const h of [5.3, 6, 7, 7.5]) expect(fedHoursAgo(h).phase).toBe('peak');
+      expect(fedHoursAgo(6).labelPl).toBe('W szacowanym oknie szczytu');
+      expect(fedHoursAgo(6).advicePl).not.toMatch(/najlepszy moment|idealny moment/i);
     });
 
-    it('identifies peak plateau phase from 5.1 to 9.0 hours (ideal baking window)', () => {
-      const fed6hAgo = fixedNow - 6.0 * 3600 * 1000;
-      const fed7hAgo = fixedNow - 7.5 * 3600 * 1000;
-      const fed9hAgo = fixedNow - 9.0 * 3600 * 1000;
-
-      const p6 = calculateStarterPhase(fed6hAgo, 'ROOM_TEMP', fixedNow);
-      const p7 = calculateStarterPhase(fed7hAgo, 'ROOM_TEMP', fixedNow);
-      const p9 = calculateStarterPhase(fed9hAgo, 'ROOM_TEMP', fixedNow);
-
-      expect(p6.phase).toBe('peak');
-      expect(p7.phase).toBe('peak');
-      expect(p9.phase).toBe('peak');
-      expect(p6.labelPl).toContain('PEAK');
-      expect(p6.advicePl).toContain('Najlepszy moment');
-    });
-
-    it('identifies declining phase from 9.1 to 14.0 hours', () => {
-      const fed10hAgo = fixedNow - 10.0 * 3600 * 1000;
-      const fed12hAgo = fixedNow - 12.0 * 3600 * 1000;
-      const fed14hAgo = fixedNow - 14.0 * 3600 * 1000;
-
-      expect(calculateStarterPhase(fed10hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('declining');
-      expect(calculateStarterPhase(fed12hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('declining');
-      expect(calculateStarterPhase(fed14hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('declining');
-    });
-
-    it('identifies hungry starving phase beyond 14.0 hours', () => {
-      const fed15hAgo = fixedNow - 15.0 * 3600 * 1000;
-      const fed24hAgo = fixedNow - 24.0 * 3600 * 1000;
-      const fed48hAgo = fixedNow - 48.0 * 3600 * 1000;
-
-      expect(calculateStarterPhase(fed15hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('hungry');
-      expect(calculateStarterPhase(fed24hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('hungry');
-      expect(calculateStarterPhase(fed48hAgo, 'ROOM_TEMP', fixedNow).phase).toBe('hungry');
+    it('after the window: beyond 7.5 hours', () => {
+      for (const h of [7.6, 10, 14, 24, 48]) expect(fedHoursAgo(h).phase).toBe('after');
     });
   });
-
   // --------------------------------------------------------------------------
   // 3. Fridge Storage Kinetics (4°C)
   // --------------------------------------------------------------------------
@@ -156,7 +115,7 @@ describe('Exhaustive Sourdough Metabolic & Feeding Invariants (BR-STARTER-EXHAUS
       const result = calculateStarterPhase(futureFed, 'ROOM_TEMP', fixedNow);
 
       expect(result.elapsedHours).toBe(0);
-      expect(result.phase).toBe('lag');
+      expect(result.phase).toBe('before');
     });
   });
 });

@@ -325,25 +325,27 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
   describe('RD-19: Sourdough Metabolic Phase and Peak Activity', () => {
     const now = 1700000000000;
 
+    // Faza z okna predyktora (domyślnie 22 °C, 1:2:2, żyto: okno 5,3–7,5 h), nie z samego czasu
+    // (ZAK-SZC-901 wycofane) [M1-audytor-generalny-044]
     it('identifies peak phase for starter fed 6 hours ago at room temp', () => {
       const fed6hAgo = now - 6 * 3600 * 1000;
       const result = calculateStarterPhase(fed6hAgo, 'ROOM_TEMP', now);
       expect(result.phase).toBe('peak');
-      expect(result.labelPl).toContain('Szczyt aktywności (PEAK)');
+      expect(result.labelPl).toBe('W szacowanym oknie szczytu');
     });
 
-    it('identifies lag adaptation phase for starter fed 1 hour ago', () => {
+    it('identifies phase before the peak window for starter fed 1 hour ago', () => {
       const fed1hAgo = now - 1 * 3600 * 1000;
       const result = calculateStarterPhase(fed1hAgo, 'ROOM_TEMP', now);
-      expect(result.phase).toBe('lag');
-      expect(result.labelPl).toContain('Faza adaptacji');
+      expect(result.phase).toBe('before');
+      expect(result.labelPl).toBe('Przed szacowanym szczytem');
     });
 
-    it('identifies hungry phase for starter fed 18 hours ago at room temp', () => {
+    it('identifies phase after the peak window for starter fed 18 hours ago at room temp', () => {
       const fed18hAgo = now - 18 * 3600 * 1000;
       const result = calculateStarterPhase(fed18hAgo, 'ROOM_TEMP', now);
-      expect(result.phase).toBe('hungry');
-      expect(result.labelPl).toContain('Głód');
+      expect(result.phase).toBe('after');
+      expect(result.labelPl).toBe('Po szacowanym szczycie');
     });
 
     it('correctly evaluates fridge storage', () => {

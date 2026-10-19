@@ -13,6 +13,8 @@ import { formatTemperature } from '../../lib/unit-converter';
 export interface StarterPeakActivityCardProps {
   phaseResult: any;
   peakPrediction: any;
+  /** W lodówce okna szczytu nie liczymy (model temperatury 20–26 °C, FER-Q10-902) [M1-audytor-generalny-044]. */
+  showPeakWindow?: boolean;
   ambientTempC: number;
   onAmbientTempChange: (temp: number) => void;
   unitSystem: any;
@@ -22,6 +24,7 @@ export interface StarterPeakActivityCardProps {
 export function StarterPeakActivityCard({
   phaseResult,
   peakPrediction,
+  showPeakWindow = true,
   ambientTempC,
   onAmbientTempChange,
   unitSystem,
@@ -33,7 +36,7 @@ export function StarterPeakActivityCard({
         <Text style={styles.cardTitle}>🕒 {t('Szczyt aktywności (Peak Timer)')}</Text>
         <View style={[styles.phaseBadge, { backgroundColor: phaseResult.badgeColor + '20' }]}>
           <Text style={[styles.phaseBadgeText, { color: phaseResult.badgeColor }]}>
-            ● {phaseResult.labelPl}
+            ● {t(phaseResult.labelPl)}
           </Text>
         </View>
       </View>
@@ -41,6 +44,7 @@ export function StarterPeakActivityCard({
       <Text style={styles.phaseAdvice}>{t(phaseResult.advicePl)}</Text>
 
       {/* Metabolic Peak Window Prediction */}
+      {showPeakWindow && (
       <View style={styles.predictionBox} testID="peak-prediction-box">
         <View style={styles.predictionRow}>
           <Text style={styles.predictionLabel}>{t('Szacowane okno szczytu:')}</Text>
@@ -72,7 +76,11 @@ export function StarterPeakActivityCard({
           </Text>
         </View>
 
-        <Text style={styles.predictionStatusText}>{peakPrediction.statusMessagePl}</Text>
+        <Text style={styles.predictionStatusText}>
+          {peakPrediction.statusTemplatePl
+            ? t(peakPrediction.statusTemplatePl, peakPrediction.statusParams)
+            : peakPrediction.statusMessagePl}
+        </Text>
 
         {/* Ambient Temperature Selector */}
         <Text style={styles.tempSelectorHeading}>
@@ -106,6 +114,7 @@ export function StarterPeakActivityCard({
           ))}
         </View>
       </View>
+      )}
 
       <Pressable style={styles.feedNowBtn} onPress={onLogFeeding}>
         <Text style={styles.feedNowBtnText}>🥣 {t('Zarejestruj dokarmienie')}</Text>

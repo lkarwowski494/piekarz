@@ -111,11 +111,6 @@ export default function ZakwasScreen() {
     return Math.floor(diffMs / (1000 * 60 * 60 * 24));
   }, [starter.birthDate]);
 
-  // Metabolic Phase calculation
-  const phaseResult = useMemo(() => {
-    return calculateStarterPhase(starter.lastFedAt, starter.storageState);
-  }, [starter.lastFedAt, starter.storageState]);
-
   const flourGrain = useMemo(() => {
     const lower = (starter.flourType || '').toLowerCase();
     if (lower.includes('żytn') || lower.includes('rye')) return 'rye' as const;
@@ -134,6 +129,14 @@ export default function ZakwasScreen() {
       now: Date.now(),
     });
   }, [starter.lastFedAt, ambientTempC, starter.feedingRatio, flourGrain, starter.hydration]);
+
+  // Odznaka fazy z tego samego okna co predyktor: jeden model szczytu [M1-audytor-generalny-044]
+  const phaseResult = useMemo(() => {
+    return calculateStarterPhase(starter.lastFedAt, starter.storageState, Date.now(), {
+      start: peakPrediction.peakWindowStartTimestamp,
+      end: peakPrediction.peakWindowEndTimestamp,
+    });
+  }, [starter.lastFedAt, starter.storageState, peakPrediction]);
 
   // Feeding calculation
   const feeding = useMemo(() => {
@@ -312,6 +315,7 @@ export default function ZakwasScreen() {
         <StarterPeakActivityCard
           phaseResult={phaseResult}
           peakPrediction={peakPrediction}
+          showPeakWindow={starter.storageState !== 'FRIDGE'}
           ambientTempC={ambientTempC}
           onAmbientTempChange={setAmbientTempC}
           unitSystem={unitSystem}

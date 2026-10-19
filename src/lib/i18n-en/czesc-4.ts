@@ -41,6 +41,24 @@ export const EN_4: Record<string, string> = {
   'Który zakwas?': 'Which starter?',
   // Test palca w Stolnicy przy garowaniu końcowym (F-15, BR-ETAP-003) [M1-audytor-generalny-032]
   'Sprawdź gotowość: test palca': 'Check readiness: poke test',
+  // Jeden model szczytu zakwasu, teksty z docs/tresci/en/zakwas-szczyt.md [M1-audytor-generalny-044]
+  'Przed szacowanym szczytem': 'Before the estimated peak',
+  'W szacowanym oknie szczytu': 'In the estimated peak window',
+  'Po szacowanym szczycie': 'After the estimated peak',
+  'W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.': 'At lower temperatures starter growth and fermentation slow down.',
+  'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.':
+    'The peak window is an estimate: in a study of 40 starters, dough rise rates ranged from 0.1 to 1.5 mm/h.',
+  'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.':
+    'A starter past its peak becomes more sour and produces fewer gas bubbles.',
+  'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).':
+    'About {czas} left until the estimated peak window (window: {okno}).',
+  'Według szacunku zakwas jest teraz w oknie szczytu.': 'By estimate, the starter is now in its peak window.',
+  'Szacowane okno szczytu minęło ok. {czas} temu.': 'The estimated peak window ended about {czas} ago.',
+  'Standardowe dokarmienie przed pieczeniem.': 'Standard feeding before baking.',
+  'Wysokie rozcieńczenie: mniej zakwasu względem świeżej mąki i wody, więc dłuższy czas do szczytu.':
+    'High dilution: less starter relative to fresh flour and water, so a longer time to peak.',
+  'Szybkie odświeżenie: więcej zakwasu względem świeżej mąki i wody, więc krótszy czas do szczytu.':
+    'Quick refresh: more starter relative to fresh flour and water, so a shorter time to peak.',
   // Ostrzeżenie RD-05 o wodzie > 45 °C w Kalkulatorze [M1-audytor-generalny-039]
   'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.':
     'Warning: the calculated water temperature exceeds 45°C. Risk of killing the yeast and lactic acid bacteria! Cool the flour or lower the room temperature.',

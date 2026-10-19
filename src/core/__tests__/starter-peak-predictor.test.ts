@@ -73,7 +73,8 @@ describe('Sourdough Metabolic Peak Predictor (core/starter-peak-predictor)', () 
     expect(result.isCurrentlyInPeak).toBe(true);
     expect(result.hasPassedPeak).toBe(false);
     expect(result.progressPercent).toBe(100);
-    expect(result.statusMessagePl).toContain('optymalnym szczycie');
+    // Tekst z docs/tresci/pl/zakwas-szczyt.md, bez „idealny moment” (ZAK-SZC-903) [M1-audytor-generalny-044]
+    expect(result.statusMessagePl).toBe('Według szacunku zakwas jest teraz w oknie szczytu.');
   });
 
   it('detects when starter has passed its peak', () => {
@@ -89,7 +90,7 @@ describe('Sourdough Metabolic Peak Predictor (core/starter-peak-predictor)', () 
     expect(result.isCurrentlyInPeak).toBe(false);
     expect(result.hasPassedPeak).toBe(true);
     expect(result.progressPercent).toBe(100);
-    expect(result.statusMessagePl).toContain('Szczyt minął');
+    expect(result.statusMessagePl).toMatch(/^Szacowane okno szczytu minęło ok\. .+ temu\.$/);
   });
 
   describe('Property-Based Invariants (fast-check)', () => {

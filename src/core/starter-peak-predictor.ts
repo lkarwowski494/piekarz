@@ -1,10 +1,11 @@
-import { Q10_FERMENTATION } from './fermentation-q10';
 // ============================================================================
 // Piekarz (Crust) — Sourdough Metabolic Peak Predictor Engine
 // Biokinetical modeling of sourdough yeast & lactic acid bacteria activity,
 // taking into account temperature (Arrhenius), feeding ratios, and flour grains.
 // Apps4Brew Studio — 100% Offline-First.
 // ============================================================================
+
+import { Q10_FERMENTATION } from './fermentation-q10';
 
 export interface PeakPredictionInput {
   lastFedAt: number;
@@ -26,6 +27,9 @@ export interface PeakPredictionResult {
   remainingMinutesToPeakWindow: number; // 0 if currently in peak or past
   formattedWindowPl: string; // e.g. "14:15 – 16:45"
   statusMessagePl: string;
+  /** Szablon komunikatu (klucz t()) i parametry {czas}, {okno}, żeby tłumaczenie nie sklejało tekstu [044]. */
+  statusTemplatePl: string;
+  statusParams: Record<string, string>;
 }
 
 export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionResult {
@@ -106,18 +110,24 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
 
   const formattedWindowPl = `${formatHourMin(peakWindowStartTimestamp)} – ${formatHourMin(peakWindowEndTimestamp)}`;
 
-  let statusMessagePl = '';
+  // Komunikaty dosłownie z docs/tresci/pl/zakwas-szczyt.md; „idealny moment” bez źródła (ZAK-SZC-903) [044]
+  const fmtDuration = (minutes: number): string => {
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return h > 0 ? `${h}h ${m} min` : `${m} min`;
+  };
+  let statusTemplatePl: string;
+  let statusParams: Record<string, string> = {};
   if (isCurrentlyInPeak) {
-    statusMessagePl = 'Zakwas jest w optymalnym szczycie! Idealny moment na dodanie do ciasta.';
+    statusTemplatePl = 'Według szacunku zakwas jest teraz w oknie szczytu.';
   } else if (hasPassedPeak) {
-    const passedHours = Math.round(((now - peakWindowEndTimestamp) / (1000 * 60 * 60)) * 10) / 10;
-    statusMessagePl = `Szczyt minął ok. ${passedHours}h temu. Zakwas zaczyna opadać i zwiększać kwasowość.`;
+    statusTemplatePl = 'Szacowane okno szczytu minęło ok. {czas} temu.';
+    statusParams = { czas: fmtDuration(Math.round((now - peakWindowEndTimestamp) / (1000 * 60))) };
   } else {
-    const remH = Math.floor(remainingMinutesToPeakWindow / 60);
-    const remM = remainingMinutesToPeakWindow % 60;
-    const timeStr = remH > 0 ? `${remH}h ${remM} min` : `${remM} min`;
-    statusMessagePl = `Do szczytu pozostało ok. ${timeStr} (okno: ${formattedWindowPl}).`;
+    statusTemplatePl = 'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).';
+    statusParams = { czas: fmtDuration(remainingMinutesToPeakWindow), okno: formattedWindowPl };
   }
+  const statusMessagePl = Object.entries(statusParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), statusTemplatePl);
 
   return {
     estimatedPeakHoursMin,
@@ -130,5 +140,7 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
     remainingMinutesToPeakWindow,
     formattedWindowPl,
     statusMessagePl,
+    statusTemplatePl,
+    statusParams,
   };
 }

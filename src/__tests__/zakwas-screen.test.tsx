@@ -330,7 +330,15 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     expect(deleteBtnAfter.length).toBe(0);
   });
 
+  // W lodówce okna szczytu nie ma (M1-audytor-generalny-044); domyślny zakwas jest w lodówce
+  it('hides the peak window for a starter stored in the fridge', async () => {
+    await renderScreen();
+    expect(tree!.root.findAll((n) => n.props?.testID === 'peak-prediction-box')).toHaveLength(0);
+  });
+
   it('calculates and updates metabolic peak prediction when adjusting ambient temperature chips', async () => {
+    const [first] = await getStarters();
+    await saveStarter({ ...first, storageState: 'ROOM_TEMP' });
     await renderScreen();
 
     // Verify peak prediction box is rendered

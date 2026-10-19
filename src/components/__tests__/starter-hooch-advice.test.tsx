@@ -13,6 +13,7 @@ import { setLang, t } from '../../lib/i18n';
 const LIQUID_PL = /płyn|hooch|głodow/i;
 const LIQUID_EN = /liquid|hooch|hunger/i;
 
+// 20 h po dokarmieniu: faza po oknie szczytu (dawniej czasowa „hungry”) [M1-audytor-generalny-044]
 const hungry = () => calculateStarterPhase(Date.now() - 20 * 3600 * 1000, 'ROOM_TEMP');
 
 describe('porada fazy hungry a ZAK-HOO-001', () => {
@@ -20,7 +21,7 @@ describe('porada fazy hungry a ZAK-HOO-001', () => {
 
   it('PL: porada fazy nie mówi o płynie ani o „płynie głodowym”', () => {
     const r = hungry();
-    expect(r.phase).toBe('hungry');
+    expect(r.phase).toBe('after');
     expect(r.advicePl).not.toMatch(LIQUID_PL);
   });
 

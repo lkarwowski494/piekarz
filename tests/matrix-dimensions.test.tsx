@@ -192,7 +192,7 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       const safety: SourdoughSafetyStatus[] = ['discard', 'hooch', 'no_observation'];
       expect(safety.length).toBe(3);
 
-      const sPhases: SourdoughPhase[] = ['lag', 'rising', 'peak', 'declining', 'hungry'];
+      const sPhases: SourdoughPhase[] = ['lag', 'hungry', 'before', 'peak', 'after']; // [M1-audytor-generalny-044]
       expect(sPhases.length).toBe(5);
 
       const emergencies: EmergencyCode[] = ['OVERPROOFED_COLLAPSE', 'SLACK_HIGH_HYDRATION', 'COLD_SLUGGISH', 'FORGOTTEN_SALT'];
