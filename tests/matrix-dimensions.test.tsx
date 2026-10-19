@@ -29,8 +29,7 @@ import { LANGS } from '../src/lib/i18n';
 import { RecipeValidationResult } from '../src/lib/recipe-sharing';
 import { UnitSystem } from '../src/lib/unit-converter';
 import { Plan } from '../src/lib/platnosci/konfiguracja';
-import { SQLITE_INIT_QUERIES } from '../src/data/schema';
-import { DB_NAME } from '../src/data/sqlite-schema';
+import { DB_NAME, SCHEMA_MIGRATIONS } from '../src/data/sqlite-schema';
 import { BakerRitualProfile, BakingVessel } from '../src/data/sqlite-store';
 import { PluralRuleCategory } from '../src/lib/i18n-locales';
 import { StorageState } from '../src/data/storage-status';
@@ -167,7 +166,11 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
 
       // 10. Database constants
       expect(DB_NAME).toBe('piekarz.db');
-      expect(SQLITE_INIT_QUERIES.length).toBeGreaterThan(0);
+      expect(SCHEMA_MIGRATIONS.length).toBeGreaterThan(0);
+      SCHEMA_MIGRATIONS.forEach((m, i) => {
+        expect(m.version).toBe(i + 1);
+        expect(m.description).toBeTruthy();
+      });
 
       // 11. Type checking literal checks
       const bakeTypes: BakeTypePresetId[] = ['batard_boule', 'tin_rye', 'baguette_roll', 'pan_focaccia', 'custom'];
