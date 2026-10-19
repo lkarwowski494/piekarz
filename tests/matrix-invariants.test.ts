@@ -42,7 +42,8 @@ export function assertStateInvariants(state: AppBakeState): void {
     expect(batch.starterGrams).toBeGreaterThan(0);
     expect(Math.abs(batch.totalFlourGrams - (batch.baseFlourWeightGrams + batch.starterFlourGrams))).toBeLessThanOrEqual(1);
     expect(Math.abs(batch.totalWaterGrams - (batch.waterGrams + batch.starterWaterGrams))).toBeLessThanOrEqual(1);
-    expect(Math.abs(batch.sumCheckGrams - batch.targetDoughWeightGrams)).toBeLessThanOrEqual(3);
+    // ≤ 1 g: DEC-11 (a), bloker BRD C4a nr 1 [M1-audytor-generalny-040]
+    expect(Math.abs(batch.sumCheckGrams - batch.targetDoughWeightGrams)).toBeLessThanOrEqual(1);
   }
 }
 

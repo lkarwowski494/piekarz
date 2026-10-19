@@ -2339,7 +2339,7 @@
       "starterHydration": 80.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 162,
-      "recipeWater": 110,
+      "recipeWater": 111,
       "saltWeight": 2.9,
       "starterWeight": 24,
       "starterFlour": 14,
@@ -2348,7 +2348,7 @@
       "totalFlour": 176,
       "totalWater": 121,
       "overallHydration": 68.92,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -2370,7 +2370,7 @@
       "starterHydration": 100.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 162,
-      "recipeWater": 110,
+      "recipeWater": 111,
       "saltWeight": 2.9,
       "starterWeight": 24,
       "starterFlour": 12,
@@ -2379,7 +2379,7 @@
       "totalFlour": 175,
       "totalWater": 123,
       "overallHydration": 70.23,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -2401,7 +2401,7 @@
       "starterHydration": 120.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 162,
-      "recipeWater": 110,
+      "recipeWater": 111,
       "saltWeight": 2.9,
       "starterWeight": 24,
       "starterFlour": 11,
@@ -2410,7 +2410,7 @@
       "totalFlour": 173,
       "totalWater": 124,
       "overallHydration": 71.32,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -3548,7 +3548,7 @@
       "starterHydration": 80.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 156,
-      "recipeWater": 109,
+      "recipeWater": 110,
       "saltWeight": 2.8,
       "starterWeight": 31,
       "starterFlour": 17,
@@ -3557,7 +3557,7 @@
       "totalFlour": 174,
       "totalWater": 123,
       "overallHydration": 71.0,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -3579,7 +3579,7 @@
       "starterHydration": 100.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 156,
-      "recipeWater": 109,
+      "recipeWater": 110,
       "saltWeight": 2.8,
       "starterWeight": 31,
       "starterFlour": 16,
@@ -3588,7 +3588,7 @@
       "totalFlour": 172,
       "totalWater": 125,
       "overallHydration": 72.73,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -3610,7 +3610,7 @@
       "starterHydration": 120.0,
       "extraYeastPct": 0.0,
       "baseFlourWeight": 156,
-      "recipeWater": 109,
+      "recipeWater": 110,
       "saltWeight": 2.8,
       "starterWeight": 31,
       "starterFlour": 14,
@@ -3619,7 +3619,7 @@
       "totalFlour": 171,
       "totalWater": 127,
       "overallHydration": 74.17,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5689,14 +5689,14 @@
       "baseFlourWeight": 156,
       "recipeWater": 117,
       "saltWeight": 2.8,
-      "starterWeight": 23,
+      "starterWeight": 24,
       "starterFlour": 13,
       "starterWater": 10,
       "yeastWeight": 0.0,
       "totalFlour": 169,
       "totalWater": 128,
       "overallHydration": 75.38,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5720,14 +5720,14 @@
       "baseFlourWeight": 156,
       "recipeWater": 117,
       "saltWeight": 2.8,
-      "starterWeight": 23,
+      "starterWeight": 24,
       "starterFlour": 12,
       "starterWater": 12,
       "yeastWeight": 0.0,
       "totalFlour": 168,
       "totalWater": 129,
       "overallHydration": 76.74,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5751,14 +5751,14 @@
       "baseFlourWeight": 156,
       "recipeWater": 117,
       "saltWeight": 2.8,
-      "starterWeight": 23,
+      "starterWeight": 24,
       "starterFlour": 11,
       "starterWater": 13,
       "yeastWeight": 0.0,
       "totalFlour": 167,
       "totalWater": 130,
       "overallHydration": 77.87,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5782,14 +5782,14 @@
       "baseFlourWeight": 152,
       "recipeWater": 114,
       "saltWeight": 2.7,
-      "starterWeight": 30,
+      "starterWeight": 31,
       "starterFlour": 17,
       "starterWater": 14,
       "yeastWeight": 0.0,
       "totalFlour": 169,
       "totalWater": 128,
       "overallHydration": 75.5,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5813,14 +5813,14 @@
       "baseFlourWeight": 152,
       "recipeWater": 114,
       "saltWeight": 2.7,
-      "starterWeight": 30,
+      "starterWeight": 31,
       "starterFlour": 15,
       "starterWater": 15,
       "yeastWeight": 0.0,
       "totalFlour": 168,
       "totalWater": 130,
       "overallHydration": 77.27,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",
@@ -5844,14 +5844,14 @@
       "baseFlourWeight": 152,
       "recipeWater": 114,
       "saltWeight": 2.7,
-      "starterWeight": 30,
+      "starterWeight": 31,
       "starterFlour": 14,
       "starterWater": 17,
       "yeastWeight": 0.0,
       "totalFlour": 166,
       "totalWater": 131,
       "overallHydration": 78.75,
-      "sumCheck": 299,
+      "sumCheck": 300,
       "flours": [
         {
           "name": "Flour A",

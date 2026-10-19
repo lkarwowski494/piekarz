@@ -60,8 +60,8 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
               extraYeastPercentage: yeast,
             });
 
-            // 1. Total batch sum conservation (within +/- 3g due to independent Math.round on 5 items)
-            expect(Math.abs(result.sumCheckGrams - weight)).toBeLessThanOrEqual(3);
+            // 1. Total batch sum conservation: within 1 g (DEC-11 (a), BRD C4a blocker 1) [M1-audytor-generalny-040]
+            expect(Math.abs(result.sumCheckGrams - weight)).toBeLessThanOrEqual(1);
 
             // 2. Base flour split conservation
             const sumFlours = result.flours.reduce((acc, f) => acc + f.weightGrams, 0);
@@ -86,6 +86,53 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
           }
         ),
         { numRuns: 1000 }
+      );
+    });
+
+    // DEC-11 (a), bloker BRD C4a nr 1 [M1-audytor-generalny-040; 07-jakosc-004]:
+    // suma gramów pokazanych w karcie „Do miski” (mąka dodana + woda + zakwas w pełnych gramach,
+    // sól i drożdże z 1 miejscem po przecinku jak formatDoseWeight) różni się od masy docelowej o ≤ 1 g.
+    it('DEC-11: displayed ingredient sum stays within 1 g of target across 10 000 random recipes', () => {
+      const tenths = (g: number) => Math.round(g * 10);
+      assertWithSeed(
+        fc.property(
+          fc.integer({ min: 200, max: 20000 }),
+          fc.double({ min: 50.0, max: 100.0, noNaN: true }),
+          fc.double({ min: 0.5, max: 3.5, noNaN: true }),
+          fc.double({ min: 0.0, max: 40.0, noNaN: true }),
+          fc.double({ min: 60.0, max: 160.0, noNaN: true }),
+          fc.double({ min: 0.0, max: 2.0, noNaN: true }),
+          fc.integer({ min: 10, max: 90 }),
+          (weight, hydr, salt, starter, starterHydr, yeast, f1Pct) => {
+            const result = calculateDoughRecipe({
+              targetDoughWeightGrams: weight,
+              flours: [
+                { name: 'Flour A', percentage: f1Pct },
+                { name: 'Flour B', percentage: 100 - f1Pct },
+              ],
+              waterPercentage: hydr,
+              saltPercentage: salt,
+              starterPercentage: starter,
+              starterHydration: starterHydr,
+              extraYeastPercentage: yeast,
+            });
+            const displayedTenths =
+              tenths(result.baseFlourWeightGrams) +
+              tenths(result.waterGrams) +
+              tenths(result.starterGrams) +
+              tenths(result.saltGrams) +
+              tenths(result.yeastGrams);
+            expect(Math.abs(displayedTenths - weight * 10)).toBeLessThanOrEqual(10);
+            expect(Math.abs(result.sumCheckGrams - weight)).toBeLessThanOrEqual(1);
+
+            // Korekta nie przerzuca reszty na jeden składnik: każdy odbiega od wartości dokładnej o < 1 g.
+            const base = weight / ((100 + hydr + salt + starter + yeast) / 100);
+            expect(Math.abs(result.baseFlourWeightGrams - base)).toBeLessThan(1);
+            expect(Math.abs(result.waterGrams - (base * hydr) / 100)).toBeLessThan(1);
+            expect(Math.abs(result.starterGrams - (base * starter) / 100)).toBeLessThan(1);
+          }
+        ),
+        { numRuns: 10000 } // ziarno stałe: PROP_SEED z jest.app-after-env.js (domyślnie 17102026)
       );
     });
   });

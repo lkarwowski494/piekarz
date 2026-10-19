@@ -36,17 +36,28 @@ def calculate_dough_bakers_percent(target_weight, flours_spec, water_pct, salt_p
         w = js_round((base_flour_weight * f['pct']) / 100.0)
         flour_items.append({'name': f['name'], 'weight': w, 'pct': f['pct']})
 
-    water_rounded = js_round(water_weight)
     salt_rounded = round(salt_weight, 1)
-    starter_rounded = js_round(starter_weight)
     yeast_rounded = round(yeast_weight, 1)
-    base_flour_rounded = js_round(base_flour_weight)
+    exact = [base_flour_weight, water_weight, starter_weight]
+    grams = [js_round(g) for g in exact]
+
+    # DEC-11 (a), BRD C4a blocker 1 [M1-audytor-generalny-040]: shown grams (salt and yeast at 0.1 g)
+    # must sum to the target within 1 g; otherwise move one of base flour / water / starter by 1 g,
+    # the one whose rounding error points furthest the wrong way.
+    doses_tenths = js_round(salt_rounded * 10) + js_round(yeast_rounded * 10)
+    off_tenths = js_round(target_weight * 10) - (10 * sum(grams) + doses_tenths)
+    if abs(off_tenths) > 10:
+        direction = 1 if off_tenths > 0 else -1
+        errs = [(g - e) * direction for g, e in zip(grams, exact)]
+        grams[errs.index(min(errs))] += direction
+    base_flour_rounded, water_rounded, starter_rounded = grams
+
     starter_flour_rounded = js_round(starter_flour)
     starter_water_rounded = js_round(starter_water)
     total_flour_rounded = js_round(total_flour)
     total_water_rounded = js_round(total_water)
 
-    sum_check = base_flour_rounded + water_rounded + js_round(salt_rounded) + starter_rounded + js_round(yeast_rounded)
+    sum_check = js_round((10 * sum(grams) + doses_tenths) / 10)
 
     return {
         'targetWeight': target_weight,

@@ -135,13 +135,26 @@ export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult
   // Wariant żytni: więcej niż 50% mąki żytniej (ZYT-GRA-001; było >= 50) [M1-audytor-generalny-030]
   const isHighRye = ryePercentage > RYE_VARIANT_THRESHOLD_PCT;
 
-  const waterRounded = Math.round(waterWeight);
   const saltRounded = Number(saltWeight.toFixed(1));
-  const starterRounded = Math.round(starterWeight);
   const yeastRounded = Number(yeastWeight.toFixed(1));
-  const baseFlourRounded = Math.round(baseFlourWeight);
+  // [mąka bazowa, woda, zakwas]: wartość dokładna i zaokrąglona do 1 g
+  const exact = [baseFlourWeight, waterWeight, starterWeight];
+  const grams = exact.map((g) => Math.round(g));
 
-  const sumCheck = baseFlourRounded + waterRounded + Math.round(saltRounded) + starterRounded + Math.round(yeastRounded);
+  // DEC-11 (a), bloker BRD C4a nr 1 [M1-audytor-generalny-040]: suma pokazanych gramów (sól i drożdże
+  // z 0,1 g) ma się różnić od masy docelowej o ≤ 1 g. Gdy różnica jest większa, korekta ±1 g składnika
+  // o największej reszcie zaokrąglenia w potrzebnym kierunku; każdy składnik zostaje < 1 g od wartości dokładnej.
+  const dosesTenths = Math.round(saltRounded * 10) + Math.round(yeastRounded * 10);
+  const shownTenths = () => 10 * (grams[0] + grams[1] + grams[2]) + dosesTenths;
+  const offTenths = Math.round(input.targetDoughWeightGrams * 10) - shownTenths();
+  if (Math.abs(offTenths) > 10) {
+    const dir = Math.sign(offTenths);
+    const errs = grams.map((g, i) => (g - exact[i]) * dir);
+    grams[errs.indexOf(Math.min(...errs))] += dir;
+  }
+  const [baseFlourRounded, waterRounded, starterRounded] = grams;
+
+  const sumCheck = Math.round(shownTenths() / 10);
 
   return {
     targetDoughWeightGrams: input.targetDoughWeightGrams,
