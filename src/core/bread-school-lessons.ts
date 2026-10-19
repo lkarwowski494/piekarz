@@ -263,7 +263,7 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
     ],
     passingCriteriaPl: 'Wyrośnięty, napompowany brzeg (cornicione) z lamparcimi przypaleniami (leopard spots) i elastyczny spód dający się złożyć w trójkąt.',
     passingCriteriaEn: 'Pillowy cornicione with distinct leopard char spots, and pliable crust folding cleanly in a booklet (a libretto).',
-    scientificInsightPl: '48 godzin w 4°C powoduje głęboki rozkład białek przez proteazy, nadając ciastu niezwykłą lekkostrawność i zerowe uczucie ciężkości w żołądku.',
-    scientificInsightEn: '48h cold proteolysis predigests complex gluten proteins, delivering supreme digestability and zero bloat.',
+    scientificInsightPl: '48 godzin w 4°C powoduje głęboki rozkład białek przez proteazy.',
+    scientificInsightEn: '48h cold proteolysis breaks down complex gluten proteins.',
   },
 ];
