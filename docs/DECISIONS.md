@@ -99,6 +99,7 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Skutek:** `docs/scope-contract.md` F-07 = MVP z podłogą RD-11, ZM-02. Sekwencja etapów żytnich to fakt dziedzinowy: rozstrzyga rola 06 źródłami, nie ta decyzja; bez źródła część żytnia zostaje zablokowana.
 - **Dane użytkownika:** trwająca sesja w `app_settings.active_bake_session` zapisana w starym formacie wczytuje się bez utraty (test na zapisie starego formatu w zadaniu roli 08).
 - **Zależy od:** treści żytniej roli 06 (część żytnia warunkowa).
+- **Uzupełnienie 2026-10-19 (ZM-06):** po wyniku roli 06 (c348d15) wybór właściciela „1 i 2 - zgodnie z reko” = opcja (a) roli 06: czasy z receptury i planu użytkownika, aplikacja narzuca kolejność etapów żytnich, bez składań, próg udziału żyta > 50% (c854fb7). Odrzucona opcja (b): blokada startu wypieku żytniego. Czasy domowe żyta nadal `[DO USTALENIA]` u roli 06.
 
 ---
 
@@ -109,6 +110,7 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Powód:** skaner prosił o aparat bez BR i bez wiersza kontraktu (audyt M1: 01-odkrywanie-015, 03-zakres-007).
 - **Skutek:** `docs/scope-contract.md` F-08 = MVP jako wyjątek właściciela z dowodem tylko H (ZAL-029), ZM-03; BR-WSP-003 do wpisania przez rolę 01 (ER). Link do domeny WWW usunięty w zadaniu 028 (commit 1a79b09).
 - **Otwarte:** obsługa linku `piekarz://recipe` (aplikacja nie ma trasy `recipe`) — osobny wybór właściciela; podział darmowe/płatne wg DEC-01, w toku.
+- **Uzupełnienie 2026-10-19 (ZM-05):** wybór właściciela „1 i 2 - zgodnie z reko” = opcja (b) roli 03: kod QR i „Udostępnij” niosą tekst receptury bez schematu URL, bez przycisku „Kopiuj link”; stare linki nadal się importują (b8e165d). Odrzucona opcja (a): ekran podglądu i importu z linku — nowe wejście danych z zewnątrz. Link przestaje być otwarty; podział darmowe/płatne nadal wg DEC-01, w toku.
 - **Zależy od:** wyniku testu pierwszego użycia roli 04 i ZAL-029 (decyzja warunkowa: negatywny wynik wraca do bramki zmian).
 
 
