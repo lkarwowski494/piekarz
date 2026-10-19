@@ -76,3 +76,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** wariant A (59 h; bez Doktora i Akademii, łamie ZP-20), wariant C (77,5 h; pięć funkcji o słabym dowodzie); podział (b) przełącznik pizzy, (c) osobna aplikacja; aktualizacje co 6–8 tygodni; kopia w iCloud Drive jako wyjątek od zakazu sieci.
 - **Otwarte:** domyślne jednostki (zadanie M1-audytor-generalny-096): pytanie na STOP E3, rekomendacja według regionu urządzenia.
 - **Zależy od:** D-038 (podział darmowe/płatne bez zmian), D-040 (apetyt); ZAL-040 (H-09), ZAL-046 (H-08), ZAL-048 (H-13).
+
+### [D-044] 2026-10-20 — Domyślne jednostki według regionu telefonu (zadanie M1-audytor-generalny-096)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Przy jednostkach polecam ustawienie domyślne według regionu telefonu: w USA miary imperialne, gdzie indziej metryczne, z przełącznikiem w ustawieniach. Amerykanin dostaje wtedy °F od pierwszego ekranu i nie musi niczego szukać. - zgoda.” (2026-10-20, czat sesji audytu M1; cytat rekomendacji z dopiskiem właściciela „zgoda”, przekazany roli 03 przez tę sesję; ta sama opcja (a) była rekomendacją roli 03 na STOP E3).
+- **Decyzja:** ustawienie domyślne jednostek według regionu urządzenia: US → imperialne (°F, oz, lb), pozostałe regiony → metryczne; przełącznik w ustawieniach; baza zawsze metryczna (F-38, BR-UST-001, ER-49).
+- **Odrzucone:** zawsze metryczne, imperialne tylko po przełączeniu.
+- **Dlaczego:** użytkownik z USA widzi swoje miary od pierwszego ekranu, bez szukania ustawienia (ZAL-037).
+- **Zależy od:** D-043 (F-38 w MVP).

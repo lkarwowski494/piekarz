@@ -24,9 +24,9 @@ Lista dla M1: każda funkcja wycięta (NIE, PÓŹNIEJ, TEST), zmieniona albo now
 
 | ID zadania | Funkcja | Co się zmienia | Propozycja |
 |---|---|---|---|
-| M1-audytor-generalny-096 | F-38 miary USA | wymaganie w kontrakcie (kryteria w kolumnie „Intuicyjność” F-38); ustawienie domyślne jednostek: decyzja właściciela na STOP E3 roli 03 (rekomendacja: według regionu); BR-UST-001 do uzupełnienia przez rolę 01 (ER-49) | bez zmian (dopisać decyzję o domyślnych jednostkach po STOP E3) |
+| M1-audytor-generalny-096 | F-38 miary USA | wymaganie w kontrakcie (kryteria w kolumnie „Intuicyjność” F-38); ustawienie domyślne według regionu telefonu (D-044); BR-UST-001 do uzupełnienia przez rolę 01 (ER-49) | zmienić (dopisać D-044 do testu akceptacyjnego) |
 | M1-audytor-generalny-070, -072 | F-38 | formaty liczb i eksporty w jednostkach użytkownika — część pełnego pokrycia miar | bez zmian (072: patrz F-50) |
-| M1-audytor-generalny-090 | F-38 i inne | wybory domyślne z decyzją: OP-38 12 h, OP-49 4★, domyślne jednostki (STOP E3) zapisane w D-042, D-043 | zmienić (wskazać D-042, D-043) |
+| M1-audytor-generalny-090 | F-38 i inne | wybory domyślne z decyzją: OP-38 12 h, OP-49 4★, domyślne jednostki według regionu zapisane w D-042, D-043, D-044 | zmienić (wskazać D-042, D-043) |
 | nowe (08) | F-44 Akademia | wersja 1 to „po co ten krok” przy krokach (BR-NAUK-001, H-13 a); lekcje i biblioteka technik (`src/components/academy/`) bez osobnego wejścia w 1.0 (PÓŹNIEJ w ramach F-44); zdania tylko ze źródłem (RYZ-21) | nowe |
 | M1-audytor-generalny-045, -069 | F-44 | treści lekcji bez źródła: zostają naprawy treści, które trafiają do „po co ten krok” | bez zmian |
 | M1-audytor-generalny-057 | F-09 Kalkulator, F-68 | z akcji Kalkulatora znikają QR, druk i spiżarnia (PÓŹNIEJ); cel „najwyżej 4 akcje główne” łatwiejszy; pierwszy ekran po uruchomieniu to start F-68 | bez zmian (kryterium partii 5) |
