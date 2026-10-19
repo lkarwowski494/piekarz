@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 34 | 34 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 472 | 472 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 263 | 263 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 94 | 94 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 264 | 264 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 95 | 95 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **868** | Pokrytych: **868** | Brakujących: **0**
+Łącznie elementów: **870** | Pokrytych: **870** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -309,15 +309,15 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `APPS4CRAFT STUDIO · 100% OFFLINE` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Witaj w Piekarzu` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.` | `src/components/OnboardingModal.tsx` | ✅ | src/components/__tests__/onboarding-modal.test.tsx |
 | `TEKST` | `Jaki jest Twój styl wypieku?` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/onboarding-modal.test.tsx |
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Początkujący Piekarz` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/onboarding-modal.test.tsx |
 
-*(... i 568 kolejnych elementów w pełnym wykazie)*
+*(... i 570 kolejnych elementów w pełnym wykazie)*

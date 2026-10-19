@@ -91,14 +91,15 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
     expect(formatTextUnits('Temp 24°C', 'imperial')).toBe('Temp 75°F');
   });
 
-  it('filterMasterRecipes filters master presets by profile and category', () => {
-    const all = filterMasterRecipes('all', 'all');
+  // Rytuał nie filtruje receptur (F-26, ZM-14, D-034) [M1-audytor-generalny-032]: tylko kategoria
+  it('filterMasterRecipes filters master presets by category', () => {
+    const all = filterMasterRecipes('all');
     expect(all.length).toBe(MASTER_RECIPES.length);
 
-    const purist = filterMasterRecipes('sourdough_purist', 'all');
-    expect(purist.length).toBeGreaterThan(0);
+    const sourdough = filterMasterRecipes('sourdough');
+    expect(sourdough.length).toBeGreaterThan(0);
 
-    const pizza = filterMasterRecipes('all', 'pizza');
+    const pizza = filterMasterRecipes('pizza');
     expect(pizza.length).toBeGreaterThanOrEqual(1);
   });
 

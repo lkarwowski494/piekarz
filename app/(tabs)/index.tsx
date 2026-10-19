@@ -19,14 +19,13 @@ import {
   POPULAR_FLOUR_BLENDS,
   FlourItemInput,
 } from '../../src/core/domain-rules';
-import { MASTER_RECIPES, filterMasterRecipes } from '../../src/recipes/presets';
+import { MASTER_RECIPES, filterMasterRecipes, ritualCategoryFilter } from '../../src/recipes/presets';
 import {
   getRecipes,
   deleteRecipe,
   setActiveBake,
   hasCompletedOnboarding,
   getBakerRitualProfile,
-  BakerRitualProfile,
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirmDeleteRecipe } from '../../src/lib/confirm';
@@ -108,7 +107,6 @@ export default function CalculatorScreen() {
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(false);
-  const [ritualProfile, setRitualProfile] = useState<BakerRitualProfile>('artisan_hybrid');
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
   const [isShareQrOpen, setIsShareQrOpen] = useState<boolean>(false);
@@ -227,12 +225,14 @@ export default function CalculatorScreen() {
     void hasCompletedOnboarding().then((completed) => {
       if (!completed) setIsOnboardingOpen(true);
     });
-    void getBakerRitualProfile().then(setRitualProfile);
+    void getBakerRitualProfile().then(applyRitual);
   }, []);
 
-  const filteredMasterRecipes = useMemo(() => {
-    return filterMasterRecipes(ritualProfile, masterCategoryFilter);
-  }, [masterCategoryFilter, ritualProfile]);
+  // Rytuał ustawia widoczny filtr kategorii, nie ukrywa receptur (F-26, ZM-14) [M1-audytor-generalny-032]
+  function applyRitual(p: string) {
+    setMasterCategoryFilter(ritualCategoryFilter(p));
+  }
+  const filteredMasterRecipes = useMemo(() => filterMasterRecipes(masterCategoryFilter), [masterCategoryFilter]);
 
   const currentMasterPreset = useMemo(() => {
     return MASTER_RECIPES.find((p) => p.id === selectedPresetId);
@@ -493,12 +493,12 @@ export default function CalculatorScreen() {
           isSettingsOpen={isSettingsOpen}
           onCloseSettings={() => {
             setIsSettingsOpen(false);
-            void getBakerRitualProfile().then(setRitualProfile);
+            void getBakerRitualProfile().then(applyRitual);
           }}
           isOnboardingOpen={isOnboardingOpen}
           onCompleteOnboarding={(profile) => {
             setIsOnboardingOpen(false);
-            setRitualProfile(profile);
+            applyRitual(profile);
           }}
           isBlendModalOpen={isBlendModalOpen}
           flourBlend={flourBlend}

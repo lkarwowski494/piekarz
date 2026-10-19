@@ -1,6 +1,29 @@
 import * as fc from 'fast-check';
-import { MASTER_RECIPES, RecipePreset } from '../presets';
+import {
+  MASTER_RECIPES,
+  RecipePreset,
+  filterMasterRecipes,
+  ritualCategoryFilter,
+  RitualCategoryFilter,
+} from '../presets';
 import { calculateDoughRecipe } from '../../core/domain-rules';
+
+// F-26 (dawne F-51), ZM-14, D-034 wybór 8a: rytuał nie ukrywa receptur [M1-audytor-generalny-032; 03-zakres-010]
+describe('Ritual profile does not hide master recipes', () => {
+  const PROFILES = ['sourdough_purist', 'artisan_hybrid', 'beginner'] as const;
+
+  it.each(PROFILES)('profile %s: its start filter is a category and "all" returns every master recipe', (profile) => {
+    const start: RitualCategoryFilter = ritualCategoryFilter(profile);
+    expect(['all', 'sourdough']).toContain(start);
+    expect(filterMasterRecipes(start).length).toBeGreaterThan(0);
+    expect(filterMasterRecipes('all')).toEqual(MASTER_RECIPES);
+  });
+
+  it('sourdough purist starts on the sourdough category, other profiles on "all"', () => {
+    expect(PROFILES.map(ritualCategoryFilter)).toEqual(['sourdough', 'all', 'all']);
+    expect(filterMasterRecipes('sourdough').every((p) => p.category === 'sourdough')).toBe(true);
+  });
+});
 
 describe('Master Recipes Catalogue (src/recipes/presets.ts)', () => {
   it('contains 15 unique master recipes covering all artisan categories', () => {

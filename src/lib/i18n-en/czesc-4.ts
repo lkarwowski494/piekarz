@@ -29,4 +29,7 @@ export const EN_4: Record<string, string> = {
   'Otwórz Doktora': 'Open Doctor',
   // Podtytuł akordeonu PRO bez ukrytej straty piecowej (F-48 PÓŹNIEJ) [M1-audytor-generalny-032]
   '4-DDT, matematyka lodu, prefermenty': '4-DDT, ice math, preferments',
+  // Rytuał bez ukrywania receptur (F-26, ZM-14) [M1-audytor-generalny-032]
+  'Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.':
+    'Choose your baking style. It sets the starting recipe filter in the Calculator; all recipes stay available.',
 };

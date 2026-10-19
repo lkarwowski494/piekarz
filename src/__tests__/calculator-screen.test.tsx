@@ -9,7 +9,9 @@ import {
   _resetMemStore,
   getRecipes,
   saveRecipe,
+  setBakerRitualProfile,
 } from '../data/sqlite-store';
+import { MASTER_RECIPES } from '../recipes/presets';
 
 jest.setTimeout(20000);
 
@@ -98,6 +100,29 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
       toggle.props.onPress();
     });
   };
+
+  // F-26, ZM-14, D-034 wybór 8a: rytuał ustawia widoczny filtr, „Wszystkie” pokazuje każdą recepturę [M1-audytor-generalny-032]
+  it('sourdough purist ritual starts on the sourdough filter and "all" still shows every master recipe', async () => {
+    await setBakerRitualProfile('sourdough_purist');
+    await renderScreen();
+    await act(async () => {
+      await Promise.resolve();
+    });
+    // Ten sam testID ma element złożony i natywny: liczymy unikalne
+    const chips = () => [
+      ...new Set(
+        tree!.root
+          .findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('preset-chip-'))
+          .map((n) => String(n.props.testID))
+      ),
+    ];
+    const sourdoughIds = MASTER_RECIPES.filter((p) => p.category === 'sourdough').map((p) => `preset-chip-${p.id}`);
+    expect(chips().sort()).toEqual(sourdoughIds.sort());
+    await act(async () => {
+      tree!.root.findByProps({ testID: 'category-filter-all' }).props.onPress();
+    });
+    expect(chips()).toHaveLength(MASTER_RECIPES.length);
+  });
 
   it('renders correctly with master recipes and scale card', async () => {
     await renderScreen();

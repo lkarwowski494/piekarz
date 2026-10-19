@@ -381,18 +381,20 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
 ];
 
-export function filterMasterRecipes(
-  ritualProfile: string,
-  categoryFilter: string
-): RecipePreset[] {
-  let list = MASTER_RECIPES;
-  if (ritualProfile === 'sourdough_purist') {
-    list = list.filter((p) => p.category === 'sourdough' || p.category === 'rye');
-  } else if (ritualProfile === 'beginner') {
-    list = list.filter(
-      (p) => p.difficulty === 'easy' || p.difficulty === 'medium' || p.formula.waterPercentage <= 70
-    );
-  }
+/** Startowy filtr kategorii ustawiany przez rytuał (F-26, BR-RECP-001). */
+export type RitualCategoryFilter = 'all' | 'sourdough';
+
+/**
+ * Rytuał ustawia widoczny, startowy filtr kategorii i nie ukrywa receptur (ZM-14, D-034 wybór 8a)
+ * [M1-audytor-generalny-032]. Początkujący nie ma odpowiednika wśród kategorii: „Wszystkie”.
+ */
+export function ritualCategoryFilter(ritualProfile: string): RitualCategoryFilter {
+  return ritualProfile === 'sourdough_purist' ? 'sourdough' : 'all';
+}
+
+/** Receptury bazowe w wybranej kategorii; „all” zwraca każdą recepturę bazową. */
+export function filterMasterRecipes(categoryFilter: string): RecipePreset[] {
+  const list = MASTER_RECIPES;
   if (categoryFilter === 'all') return list;
   if (categoryFilter === 'pizza_sweet') {
     return list.filter((p) => p.category === 'pizza' || p.category === 'sweet');

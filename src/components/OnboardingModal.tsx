@@ -55,7 +55,7 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
             <Text style={styles.eyebrow}>{t('APPS4CRAFT STUDIO · 100% OFFLINE')}</Text>
             <Text style={styles.title}>{t('Witaj w Piekarzu')}</Text>
             <Text style={styles.subtitle}>
-              {t('Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.')}
+              {t('Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.')}
             </Text>
           </View>
 
