@@ -722,6 +722,10 @@ export const EN: Record<string, string> = {
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.':
     'Your data has not been changed, but the app cannot read or save it right now. Restart the app. If the problem returns, free up storage on your phone.',
   'Spróbuj ponownie': 'Try again',
+  // Kopia sprzed migracji [M1-audytor-generalny-004]
+  'Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.':
+    'A copy of your data from before the update is saved on your phone. You can share it, for example save it to Files.',
+  'Udostępnij kopię bazy': 'Share database copy',
 };
 
 

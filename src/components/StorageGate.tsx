@@ -6,9 +6,18 @@
 
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
-import { getStorageState, subscribeStorageState, StorageState } from '../data/storage-status';
+import * as Sharing from 'expo-sharing';
+import { getStorageState, getRescueFile, subscribeStorageState, StorageState } from '../data/storage-status';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+
+/** Udostępnia plik kopii bazy (np. do Plików) — droga eksportu po nieudanej migracji [M1-audytor-generalny-004]. */
+export async function shareRescueFile(filePath: string): Promise<boolean> {
+  if (!(await Sharing.isAvailableAsync())) return false;
+  const uri = filePath.startsWith('file://') ? filePath : `file://${filePath}`;
+  await Sharing.shareAsync(uri, { mimeType: 'application/x-sqlite3', dialogTitle: t('Udostępnij kopię bazy') });
+  return true;
+}
 
 interface StorageGateProps {
   children: React.ReactNode;
@@ -25,6 +34,7 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
   }, []);
 
   if (state === 'ok') return <>{children}</>;
+  const rescue = getRescueFile();
 
   const handleRetry = async () => {
     setBusy(true);
@@ -53,6 +63,21 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
       >
         <Text style={styles.buttonText}>{t('Spróbuj ponownie')}</Text>
       </Pressable>
+      {rescue ? (
+        <>
+          <Text style={[styles.body, styles.rescueText]}>
+            {t('Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.')}
+          </Text>
+          <Pressable
+            style={styles.secondaryButton}
+            onPress={() => void shareRescueFile(rescue)}
+            accessibilityRole="button"
+            testID="storage-share-rescue"
+          >
+            <Text style={styles.secondaryButtonText}>{t('Udostępnij kopię bazy')}</Text>
+          </Pressable>
+        </>
+      ) : null}
     </ScrollView>
   );
 };
@@ -91,6 +116,25 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: theme.colors.background,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  rescueText: {
+    marginTop: theme.spacing.lg,
+  },
+  secondaryButton: {
+    borderColor: theme.colors.accent,
+    borderWidth: 1,
+    borderRadius: theme.radius.md,
+    minHeight: 44,
+    minWidth: 44,
+    paddingHorizontal: theme.spacing.lg,
+    paddingVertical: theme.spacing.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  secondaryButtonText: {
+    color: theme.colors.accent,
     fontSize: 16,
     fontWeight: '700',
   },

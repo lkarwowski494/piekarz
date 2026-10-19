@@ -19,7 +19,7 @@ import renderer, { act } from 'react-test-renderer';
 import ZakwasScreen from '../../app/(tabs)/zakwas';
 import { initDatabase, saveStarter, getStarters } from '../data/sqlite-store';
 import { useTempDbDir, control } from '../data/__tests__/helpers/node-sqlite-adapter';
-import { StorageGate } from '../components/StorageGate';
+import { StorageGate, shareRescueFile } from '../components/StorageGate';
 import { markStorageUnavailable, resetStorageState } from '../data/storage-status';
 import { guardSave } from '../lib/save-guard';
 
@@ -125,6 +125,47 @@ describe('Write failure is visible on screen (003)', () => {
     });
     expect(onRetry).toHaveBeenCalledTimes(1);
     expect(textOf(tree!.toJSON())).toContain('APP');
+    act(() => tree!.unmount());
+  });
+
+  // [M1-audytor-generalny-004] po nieudanej migracji ekran daje drogę eksportu kopii bazy
+  it('StorageGate offers sharing the pre-migration copy when a migration failed', async () => {
+    const Sharing = require('expo-sharing');
+    markStorageUnavailable('SQLITE_FULL', '/var/mobile/X/Library/SQLite/backup_pre_migration-v2-1.db');
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => {
+      tree = renderer.create(
+        <StorageGate onRetry={async () => {}}>
+          <Text>APP</Text>
+        </StorageGate>
+      );
+    });
+    const text = textOf(tree!.toJSON());
+    expect(text).toContain('Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.');
+    expect(text).toContain('Udostępnij kopię bazy');
+    await act(async () => {
+      tree!.root.findByProps({ testID: 'storage-share-rescue' }).props.onPress();
+      await Promise.resolve();
+    });
+    expect(Sharing.shareAsync).toHaveBeenCalledWith(
+      'file:///var/mobile/X/Library/SQLite/backup_pre_migration-v2-1.db',
+      expect.objectContaining({ mimeType: 'application/x-sqlite3' })
+    );
+    expect(await shareRescueFile('file:///a.db')).toBe(true);
+    act(() => tree!.unmount());
+  });
+
+  it('StorageGate without a rescue copy (open failure) shows no share button', async () => {
+    markStorageUnavailable('unable to open database file');
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => {
+      tree = renderer.create(
+        <StorageGate onRetry={async () => {}}>
+          <Text>APP</Text>
+        </StorageGate>
+      );
+    });
+    expect(tree!.root.findAll((n) => n.props?.testID === 'storage-share-rescue')).toEqual([]);
     act(() => tree!.unmount());
   });
 

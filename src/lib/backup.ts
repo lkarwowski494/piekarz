@@ -296,56 +296,9 @@ export async function dismissCorruptState(fileName: string): Promise<void> {
   } catch {}
 }
 
-export const PRE_MIGRATION_BACKUP_NAME = 'backup_pre_migration.db';
-
 /**
- * TASK-R05-02 / Zero Data Loss Axiom:
- * Creates an exact binary snapshot of the database prior to applying schema migrations.
+ * TASK-R05-02 / Zero Data Loss Axiom: przedrostek kopii bazy sprzed migracji. Kopię robi `VACUUM INTO`
+ * obok pliku bazy (sqlite-schema.ts) — spójną przy WAL, bez podmiany otwartej bazy [M1-audytor-generalny-004].
  */
-export async function createPreMigrationBackup(
-  dbName: string = 'piekarz.db',
-  targetDir?: string
-): Promise<string | null> {
-  try {
-    const docDir = FileSystem.documentDirectory;
-    const baseDir = targetDir ?? (docDir ? `${docDir}SQLite/` : null);
-    if (!baseDir) return null;
-
-    const sourcePath = `${baseDir}${dbName}`;
-    const info = await FileSystem.getInfoAsync(sourcePath);
-    if (!info.exists) return null;
-
-    const backupPath = `${baseDir}${PRE_MIGRATION_BACKUP_NAME}`;
-    await FileSystem.copyAsync({ from: sourcePath, to: backupPath });
-    return backupPath;
-  } catch {
-    return null;
-  }
-}
-
-/**
- * TASK-R05-02 / Zero Data Loss Axiom:
- * Restores the pre-migration snapshot in the event of an unrecoverable migration error.
- */
-export async function restorePreMigrationBackup(
-  dbName: string = 'piekarz.db',
-  targetDir?: string
-): Promise<boolean> {
-  try {
-    const docDir = FileSystem.documentDirectory;
-    const baseDir = targetDir ?? (docDir ? `${docDir}SQLite/` : null);
-    if (!baseDir) return false;
-
-    const backupPath = `${baseDir}${PRE_MIGRATION_BACKUP_NAME}`;
-    const info = await FileSystem.getInfoAsync(backupPath);
-    if (!info.exists) return false;
-
-    const targetPath = `${baseDir}${dbName}`;
-    await FileSystem.copyAsync({ from: backupPath, to: targetPath });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
+export const PRE_MIGRATION_BACKUP_NAME = 'backup_pre_migration';
 

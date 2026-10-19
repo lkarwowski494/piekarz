@@ -14,11 +14,7 @@ import {
   IOS_DEFAULT_DIR,
 } from './helpers/node-sqlite-adapter';
 import { SCHEMA_MIGRATIONS } from '../sqlite-schema';
-import {
-  createPreMigrationBackup,
-  restorePreMigrationBackup,
-  PRE_MIGRATION_BACKUP_NAME,
-} from '../../lib/backup';
+import { PRE_MIGRATION_BACKUP_NAME } from '../../lib/backup';
 import { signAppAccessRecord } from '../../lib/app-access-crypto';
 import type { StoredBakeLog, StoredRecipe, StoredStarter } from '../db';
 
@@ -176,14 +172,16 @@ describe('SQLite Schema Migrations & Zero Data Loss Axiom (TASK-R05-01, TASK-R05
     expect((await second.store.getStarters()).map((s) => s.id)).toEqual([customStarter.id]);
   });
 
-  it('performs pre-migration backup before schema changes', async () => {
-    const backupPath = await createPreMigrationBackup('piekarz.db');
-    // If running in test with mock file system
-    if (backupPath) {
-      expect(backupPath).toContain(PRE_MIGRATION_BACKUP_NAME);
-      const restored = await restorePreMigrationBackup('piekarz.db');
-      expect(restored).toBe(true);
-    }
+  it('performs pre-migration backup before schema changes (copy next to the database file)', async () => {
+    const { schema } = restartApp();
+    expect(schema.preMigrationBackupPath('/var/mobile/X/Library/SQLite/piekarz.db', 2, 123)).toBe(
+      `/var/mobile/X/Library/SQLite/${PRE_MIGRATION_BACKUP_NAME}-v2-123.db`
+    );
+    await schema.initDatabase();
+    const dir = require('node:path').dirname(APP_DB());
+    const copies = (require('node:fs').readdirSync(dir) as string[]).filter((f) => f.startsWith(PRE_MIGRATION_BACKUP_NAME));
+    expect(copies).toHaveLength(1);
+    expect(copies[0]).toMatch(/^backup_pre_migration-v0-\d+\.db$/);
   });
 
   it('detects tampering and reseals app_access record with valid signature', async () => {

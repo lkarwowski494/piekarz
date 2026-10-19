@@ -1,10 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import {
-  saveCorruptState,
-  createPreMigrationBackup,
-  restorePreMigrationBackup,
-} from '../lib/backup';
+import { saveCorruptState, PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
 import {
   StoredRecipe,
   StoredStarter,
@@ -240,9 +236,10 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
   const pendingMigrations = SCHEMA_MIGRATIONS.filter((m) => m.version > currentVersion);
   if (pendingMigrations.length === 0) return;
 
-  const defaultDir = SQLite.defaultDatabaseDirectory;
-  const safeDir = dbDirectory(defaultDir);
-  await createPreMigrationBackup(DB_NAME, safeDir);
+  // Kopia przed migracją przez VACUUM INTO: spójna także z danymi z pliku -wal; bez kopii nie migrujemy
+  // [M1-audytor-generalny-004]. Nieudana migracja wycofuje swoją transakcję — plik bazy nie jest podmieniany.
+  const backupPath = preMigrationBackupPath(db.databasePath, currentVersion);
+  await db.runAsync('VACUUM INTO ?;', backupPath);
 
   for (const m of pendingMigrations) {
     try {
@@ -258,10 +255,22 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
       await db.execAsync('COMMIT;');
     } catch (err: unknown) {
       await db.execAsync('ROLLBACK;').catch(() => {});
-      await restorePreMigrationBackup(DB_NAME, safeDir);
-      throw err;
+      throw new MigrationError(err, backupPath);
     }
   }
+}
+
+export class MigrationError extends Error {
+  constructor(cause: unknown, readonly backupPath: string) {
+    super(cause instanceof Error ? cause.message : String(cause));
+    this.name = 'MigrationError';
+  }
+}
+
+/** Ścieżka kopii obok pliku bazy: backup_pre_migration-v<wersja>-<czas>.db. */
+export function preMigrationBackupPath(databasePath: string, fromVersion: number, now: number = Date.now()): string {
+  const cut = Math.max(databasePath.lastIndexOf('/'), databasePath.lastIndexOf('\\'));
+  return `${databasePath.slice(0, cut + 1)}${PRE_MIGRATION_BACKUP_NAME}-v${fromVersion}-${now}.db`;
 }
 
 export async function initDatabase(): Promise<void> {
@@ -324,7 +333,13 @@ export async function initDatabase(): Promise<void> {
 
   try {
     await applySchemaMigrations(db);
+  } catch (err: unknown) {
+    // Błąd migracji albo kopii nie jest przemilczany: ekran błędu z kopią do udostępnienia [M1-audytor-generalny-004]
+    markStorageUnavailable(err instanceof Error ? err.message : String(err), err instanceof MigrationError ? err.backupPath : null);
+    return;
+  }
 
+  try {
     try {
       const initialAccess = {
         id: 'current_user',

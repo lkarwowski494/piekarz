@@ -14,6 +14,7 @@ export class StorageWriteError extends Error {
 
 let state: StorageState = 'ok';
 let lastError: string | null = null;
+let rescueFile: string | null = null;
 const listeners = new Set<(s: StorageState) => void>();
 
 export function getStorageState(): StorageState {
@@ -24,15 +25,22 @@ export function getStorageError(): string | null {
   return lastError;
 }
 
-export function markStorageUnavailable(message: string): void {
+/** Plik kopii bazy sprzed nieudanej migracji, który użytkownik może udostępnić [M1-audytor-generalny-004]. */
+export function getRescueFile(): string | null {
+  return rescueFile;
+}
+
+export function markStorageUnavailable(message: string, rescue: string | null = null): void {
   state = 'unavailable';
   lastError = message;
+  rescueFile = rescue;
   listeners.forEach((fn) => fn(state));
 }
 
 export function resetStorageState(): void {
   state = 'ok';
   lastError = null;
+  rescueFile = null;
   listeners.forEach((fn) => fn(state));
 }
 
