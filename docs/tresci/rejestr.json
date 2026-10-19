@@ -1174,5 +1174,158 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "BEZ-SUR-001",
+    "twierdzenie": "Według FDA nie należy jeść ani próbować surowej mąki, surowego ciasta ani surowej masy (batter); przetwarzanie ziarna na mąkę nie zabija groźnych bakterii, a bezpieczeństwo daje dopiero obróbka cieplna.",
+    "zrodla": [
+      {
+        "adres": "https://www.fda.gov/food/buy-store-serve-safe-food/handling-flour-safely-what-you-need-know",
+        "miejsce": "FDA, „Handling Flour Safely: What You Need to Know” (Content current as of 03/05/2024), „5 Important Things to Know About Flour”; kopia dowody/zrodla/fda-flour.htm",
+        "cytat": "Processing raw grains into flour does not kill harmful bacteria. […] Cooking is the only way to be sure that foods made with flour and raw eggs are safe. Never eat or taste raw flour, dough, or batter.",
+        "odczyt": "2026-10-20",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Wytyczna urzędu USA (jurysdykcja USA); zalecenie „nie próbuj” jest kierunkowo ostrożne niezależnie od rynku. Treść mówi tylko „nie próbuj”, bez przyczyny.",
+    "uwagi": "M1-audytor-generalny-086 (01-odkrywanie-019; RD-22, S-46 roli 01, przeczytane ponownie przez 06).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-04-20"
+  },
+  {
+    "id": "BEZ-SUR-002",
+    "twierdzenie": "Według FDA po pracy z mąką albo surowym ciastem myje się dokładnie ręce mydłem pod bieżącą wodą, a przybory, miski i blaty ciepłą wodą z mydłem.",
+    "zrodla": [
+      {
+        "adres": "https://www.fda.gov/food/buy-store-serve-safe-food/handling-flour-safely-what-you-need-know",
+        "miejsce": "jw., „Dos and Don’ts of Handling Flour”; kopia dowody/zrodla/fda-flour.htm",
+        "cytat": "DO clean up carefully after working with flour or raw dough and eggs: Wash hands thoroughly with soap and running water, and, Wash utensils, bowls, baking pans and cutting boards, and countertops with warm, soapy water.",
+        "odczyt": "2026-10-20",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "W kroku mieszania tylko ręce; mycie przyborów i blatów pominięte dla zwięzłości (kierunek bez zmian).",
+    "uwagi": "M1-audytor-generalny-086 (RD-22-W1).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-04-20"
+  },
+  {
+    "id": "BEZ-SUR-003",
+    "twierdzenie": "Według FDA dzieci nie powinny jeść surowego ciasta ani bawić się nim, także jako masą plastyczną.",
+    "zrodla": [
+      {
+        "adres": "https://www.fda.gov/food/buy-store-serve-safe-food/handling-flour-safely-what-you-need-know",
+        "miejsce": "jw., „Dos and Don’ts of Handling Flour”; kopia dowody/zrodla/fda-flour.htm",
+        "cytat": "DO NOT eat, taste, or allow children to eat or play with raw dough products or baking mix before cooking. […] DO NOT let children use raw dough for crafts or play clay.",
+        "odczyt": "2026-10-20",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-086: w rejestrze dla RD-22 (dzieci); w tekstach kroku nieużyte (komunikat krótki), do decyzji roli 03/04.",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd (brak zdań w treści: przegląd tylko twierdzenia)",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-04-20"
+  },
+  {
+    "id": "BEZ-OPA-001",
+    "twierdzenie": "Przy zdejmowaniu gorących pokryw używa się odpowiedniego sprzętu ochronnego, np. rękawicy kuchennej.",
+    "zrodla": [
+      {
+        "adres": "https://www.brownhealth.org/centers-services/rhode-island-burn-center/avoiding-scalds",
+        "miejsce": "Rhode Island Burn Center (Brown University Health), „Avoiding Scalds”, „In the kitchen”; kopia dowody/zrodla/brown-scalds.htm",
+        "cytat": "Use appropriate protective equipment, such as an oven mitt, when removing hot pan lids.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-086 (RD-23-W1; S-47 roli 01, przeczytane ponownie przez 06).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "BEZ-OPA-002",
+    "twierdzenie": "Pokrywę z gorącego jedzenia unosi się od twarzy i ręki, żeby nagromadzona para nie poparzyła.",
+    "zrodla": [
+      {
+        "adres": "https://uoflhealth.org/articles/tips-to-help-avoid-scald-injuries/",
+        "miejsce": "UofL Health Burn Center, „Tips to help avoid scald injuries”; kopia dowody/zrodla/uofl-scald.htm",
+        "cytat": "When removing lids from hot foods, lift the lid or cover away from your face or arm to prevent burns from accumulated steam.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„Od siebie” w treści = od twarzy i ręki w źródle; garnek w piekarniku nie jest wymieniony (źródło: pokrywa z gorącego jedzenia).",
+    "uwagi": "M1-audytor-generalny-086 (RD-23-W1; S-48 roli 01, przeczytane ponownie przez 06).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "BEZ-OPA-003",
+    "twierdzenie": "Według badaczy Oklahoma State University mokra rękawica kuchenna albo mokra dłoń przy temperaturze piekarnika 350–400 °F może dać oparzenie trzeciego stopnia nawet w sekundę, zależnie od materiału.",
+    "zrodla": [
+      {
+        "adres": "https://news.okstate.edu/articles/education-human-sciences/2021/designing-safer-oven-mitts",
+        "miejsce": "Oklahoma State University News, „Designing safer oven mitts” (2021), wypowiedź dr Semry Peksoz; kopia dowody/zrodla/okstate-oven-mitts.htm",
+        "cytat": "If the oven mitt or your hand was wet and the oven mitt was exposed to oven temperatures of 350 degrees Fahrenheit or 400 degrees Fahrenheit, a third-degree burn could happen in as little as one second, depending on the material,",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Wniosek „używaj suchych rękawic” wynika z cytatu kierunkowo (mokra rękawica nie chroni); liczby (350–400 °F, sekunda) nie trafiają do treści. Rachunek: 350–400 °F = 177–204 °C; piekarnik w krokach Piekarza 210–240 °C jest gorętszy, więc kierunek tym bardziej obowiązuje.",
+    "uwagi": "M1-audytor-generalny-086: podstawa słowa „suche” w RD-23 (S-47 i S-48 go nie zawierają).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+    },
+    "wazne_do": "2027-10-20"
   }
 ]
