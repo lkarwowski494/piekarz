@@ -73,7 +73,7 @@
 ### DEC-10: Czas trwania okresu próbnego (Free Trial)
 - **Opcje:** A) 14 dni pełnego dostępu; B) 7 dni; C) brak trialu.
 - **Rekomendacja:** **Opcja A** (cykl wypieku chleba trwa 2–3 dni; użytkownik musi upiec min. 2 bochenki, by docenić wartość). Status: **ZATWIERDZONA**.
-- **Status od 2026-10-19: ZASTĄPIONA co do mechanizmu:** 14 dni zostaje, ale wyłącznie jako oferta wprowadzająca App Store (bezpłatny okres próbny) na subskrypcji miesięcznej i rocznej, ustawiana w App Store Connect; aplikacja nie liczy dni (3.1.1, 3.1.2(a)); zakup dożywotni bez okresu próbnego. Uzasadnienie „cykl trwa 2–3 dni” jest [DO USTALENIA] dla roli 06 [M1-audytor-generalny-009].
+- **Status od 2026-10-19: ZASTĄPIONA co do mechanizmu:** 14 dni zostaje, ale wyłącznie jako oferta wprowadzająca App Store (bezpłatny okres próbny) na subskrypcji miesięcznej i rocznej, ustawiana w App Store Connect; aplikacja nie liczy dni (3.1.1, 3.1.2(a)); zakup dożywotni bez okresu próbnego. Uzasadnienie „cykl trwa 2–3 dni” jest [DO USTALENIA] (OP-28) dla roli 06 [M1-audytor-generalny-009].
 
 ---
 

@@ -20,7 +20,7 @@ docs/brd/
 ├── A5.md                       # Prace J-01…J-06, przepływy PR-01…PR-10, macierz śladu
 ├── B1.md ... B6.md             # Wymagania BR narzędzi: KALK, HARMO, ETAP, ZAKW, RECP, SPIZ, CZAS, REKA, SYS, DANE, WSP, DRUK, ZAK, UST, PRYW, DOST
 ├── C1.md ... C4b.md            # Nauka (NAUK), Doktor Chleba (DIAG), aparat (APA), reguły RD-00…RD-13 z wektorami (C3)
-├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-27
+├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-28
 ├── S.md                        # Źródła S-01…S-13 (przeczytane, z cytatem i datą)
 └── W.md                        # Bibliografia i hierarchia źródeł z BRD 2.0-craft (pozycje bez wpisu S; rejestr EV z odesłaniem do RD, rejestru roli 06 albo OP)
 ```
