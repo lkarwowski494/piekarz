@@ -8,6 +8,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { formatWeight, formatDoseWeight } from '../../lib/unit-converter';
+import { t } from '../../lib/i18n';
 
 import type { SessionStep } from '../../core/bake-steps';
 
@@ -84,9 +85,9 @@ export function BakeStepsList({
             </Text>
             <View style={styles.stepInfo}>
               <Text style={[styles.stepName, isCurrent && styles.stepNameCurrent]}>
-                {step.name}
+                {t(step.name)}
               </Text>
-              <Text style={styles.stepTime}>{step.durationMin} min</Text>
+              {step.durationMin !== null && <Text style={styles.stepTime}>{step.durationMin} min</Text>}
             </View>
           </Pressable>
         );

@@ -1,4 +1,4 @@
-import { restoreTimerState, stepDurationSec, validStepIdx } from '../bake-session';
+import { restoreTimerState, stepDurationSec, stepHasTimer, validStepIdx } from '../bake-session';
 import { DUTCH_OVEN_PHASES } from '../baking-phases';
 import { LEGACY_STEPS_V1 } from '../legacy-steps-v1';
 
@@ -8,10 +8,20 @@ describe('bake-session timer restore (019)', () => {
   const base = { steps, stepIdx: 2, dutchOvenPhase: 'lid_on' as const };
 
   it('stepDurationSec uses the step timer, and the current phase for the Dutch oven step', () => {
-    expect(stepDurationSec(steps[2], 'lid_on')).toBe(steps[2].durationMin * 60);
+    expect(stepDurationSec(steps[2], 'lid_on')).toBe(30 * 60);
     const dutch = steps.find((s) => s.category === 'bake');
     expect(stepDurationSec(dutch, 'lid_off')).toBe(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
     expect(stepDurationSec(undefined, 'lid_on')).toBe(0);
+  });
+
+  it('a step with no time from the plan (rye, null) has no timer; a Dutch oven or timed step has one (030)', () => {
+    const untimed = { ...steps[2], id: 'rye_rest', durationMin: null };
+    expect(stepHasTimer(untimed)).toBe(false);
+    expect(stepDurationSec(untimed, 'lid_on')).toBe(0);
+    expect(restoreTimerState({ ...base, steps: [steps[0], steps[1], untimed], timerEndsAt: null, pausedLeftSec: null }, 0).timeLeftSec).toBe(0);
+    expect(stepHasTimer(steps[2])).toBe(true);
+    expect(stepHasTimer(steps.find((s) => s.category === 'bake'))).toBe(true);
+    expect(stepHasTimer(undefined)).toBe(false);
   });
 
   it('a running timer resumes with the time left until timerEndsAt', () => {
@@ -32,7 +42,7 @@ describe('bake-session timer restore (019)', () => {
 
   it('a paused timer keeps its remaining seconds; no saved value means the full step', () => {
     expect(restoreTimerState({ ...base, timerEndsAt: null, pausedLeftSec: 321 }, 0).timeLeftSec).toBe(321);
-    expect(restoreTimerState({ ...base, timerEndsAt: null, pausedLeftSec: null }, 0).timeLeftSec).toBe(steps[2].durationMin * 60);
+    expect(restoreTimerState({ ...base, timerEndsAt: null, pausedLeftSec: null }, 0).timeLeftSec).toBe(30 * 60);
   });
 
   it('validStepIdx accepts only integer indices inside the session step list', () => {

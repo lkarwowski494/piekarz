@@ -42,7 +42,7 @@ import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../../src/co
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../../src/core/bake-steps';
-import { stepDurationSec } from '../../src/core/bake-session';
+import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
 import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
 import { useAppAccess } from '../../src/lib/app-access';
 import { PaywallModal } from '../../src/components/PaywallModal';
@@ -74,9 +74,8 @@ export default function StolnicaScreen() {
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
-  // Kroki z planu sesji; żyto bez listy etapów nie startuje [M1-audytor-generalny-030]
+  // Kroki z planu sesji; żyto: etapy roli 06 z czasami planu [M1-audytor-generalny-030]
   const [steps, setSteps] = useState<readonly SessionStep[]>([]);
-  const [ryeBlocked, setRyeBlocked] = useState<boolean>(false);
 
   // Timer states
   const [timeLeftSec, setTimeLeftSec] = useState<number>(0);
@@ -166,8 +165,7 @@ export default function StolnicaScreen() {
       setTimeLeftSec(timer.timeLeftSec);
       setIsRunning(timer.isRunning);
       setIsCompleted(timer.isCompleted);
-    },
-    () => setRyeBlocked(true)
+    }
   );
 
   useEffect(() => {
@@ -195,7 +193,7 @@ export default function StolnicaScreen() {
         } else if (step && isDutchOvenStep(step)) {
           void notifyTimerFinished(t('Wypiek w garnku zakończony! Wyjmij chleb na kratkę.'));
         } else {
-          void notifyTimerFinished(step?.name ?? '');
+          void notifyTimerFinished(t(step?.name ?? ''));
         }
       }
     };
@@ -216,9 +214,7 @@ export default function StolnicaScreen() {
     requireActionAccess(() => {
       const now = Date.now();
       const planned = planBakeSteps({ startAt: now, isHighRye: false });
-      if (!planned) return;
       setSteps(planned);
-      setRyeBlocked(false);
       setIsActive(true);
       setCurrentStepIdx(0);
       setStartedAt(now);
@@ -379,13 +375,6 @@ export default function StolnicaScreen() {
         }
       />
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        {ryeBlocked && (
-          <View style={styles.activeCard} testID="stolnica-rye-blocked">
-            <Text style={styles.activeStepDesc}>
-              {t('Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.')}
-            </Text>
-          </View>
-        )}
         {!isActive || !currentStep ? (
           <View>
             <IdleBakeCard
@@ -412,7 +401,7 @@ export default function StolnicaScreen() {
             <StolnicaSacredCard
               currentStepIdx={currentStepIdx}
               totalSteps={steps.length}
-              formattedTime={formattedTime}
+              formattedTime={stepHasTimer(currentStep) ? formattedTime : '—'}
               activeBakeData={activeBakeData}
             />
 
@@ -427,8 +416,8 @@ export default function StolnicaScreen() {
                 <Text style={styles.recipeTag}>{recipeName}</Text>
               </View>
 
-              <Text style={styles.activeStepTitle}>{currentStep.name}</Text>
-              <Text style={styles.activeStepDesc}>{formatTextUnits(currentStep.instructions, unitSystem)}</Text>
+              <Text style={styles.activeStepTitle}>{t(currentStep.name)}</Text>
+              <Text style={styles.activeStepDesc}>{formatTextUnits(t(currentStep.instructions), unitSystem)}</Text>
 
               {/* Dutch Oven Two-Phase Controller for the bake step */}
               {isDutchOvenStep(currentStep) && (
@@ -441,8 +430,8 @@ export default function StolnicaScreen() {
                 />
               )}
 
-              {/* Big Digital Kitchen Timer Display */}
-              <ActiveTimerDisplay
+              {/* Zegar; etap żytni bez czasu w planie idzie bez minutnika (030) */}
+              {stepHasTimer(currentStep) && <ActiveTimerDisplay
                 formattedTime={formattedTime}
                 isRunning={isRunning}
                 isCompleted={isCompleted}
@@ -450,7 +439,7 @@ export default function StolnicaScreen() {
                 onToggleTimer={toggleTimer}
                 onAddFiveMinutes={addFiveMinutes}
                 onResetTimer={resetCurrentStepTimer}
-              />
+              />}
 
               {/* Step Navigation Controls */}
               <View style={styles.controlsRow}>
@@ -462,7 +451,7 @@ export default function StolnicaScreen() {
                   <Text style={styles.actionBtnNextText}>
                     {currentStepIdx === steps.length - 1
                       ? `🏆 ${t('Zakończ wypiek')}`
-                      : `${t('Następny krok')} (${steps[currentStepIdx + 1]?.name}) ✓`}
+                      : `${t('Następny krok')} (${t(steps[currentStepIdx + 1]?.name ?? '')}) ✓`}
                   </Text>
                 </Pressable>
               </View>

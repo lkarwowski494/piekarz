@@ -12,6 +12,7 @@ import {
   calculateBakedWeight,
   evaluateSourdoughSafety,
 } from '../domain-rules';
+import { RYE_VARIANT_THRESHOLD_PCT } from '../rye-stages';
 
 describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
   describe('RD-02: True Baker\'s Percentage & Mass Balance', () => {
@@ -88,7 +89,27 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(result.sumCheckGrams).toBe(2250);
     });
 
-    it('Detects high rye ratio (>=50%) and sets isHighRye flag', () => {
+    it('rye variant threshold: more than 50% rye flour (ZYT-GRA-001); 50% stays wheat, 50.1% and 51% are rye', () => {
+      const ryeFlag = (rye: number) =>
+        calculateDoughRecipe({
+          flours: [
+            { name: 'Mąka żytnia razowa typ 2000', percentage: rye },
+            { name: 'Mąka pszenna chlebowa', percentage: Math.round((100 - rye) * 10) / 10 },
+          ],
+          waterPercentage: 75.0,
+          saltPercentage: 2.0,
+          starterPercentage: 25.0,
+          targetDoughWeightGrams: 1000,
+        }).isHighRye;
+      expect(RYE_VARIANT_THRESHOLD_PCT).toBe(50);
+      expect(ryeFlag(49.8)).toBe(false);
+      expect(ryeFlag(50)).toBe(false);
+      expect(ryeFlag(50.1)).toBe(true);
+      expect(ryeFlag(51)).toBe(true);
+      expect(ryeFlag(100)).toBe(true);
+    });
+
+    it('Detects high rye ratio (>50%) and sets isHighRye flag', () => {
       const result = calculateDoughRecipe({
         flours: [
           { name: 'Mąka żytnia razowa typ 2000', percentage: 60.0 },

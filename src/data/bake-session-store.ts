@@ -5,7 +5,7 @@
 // ============================================================================
 
 import { BakeProgress, validStepIdx } from '../core/bake-session';
-import { SessionStep, isStageCategory, planBakeSteps } from '../core/bake-steps';
+import { SessionStep, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
 import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
 import { ActiveBakeState } from './sqlite-schema';
 import { getAppSetting, setAppSetting } from './settings-store';
@@ -23,7 +23,7 @@ export interface BakeSession extends BakeProgress {
 /** Krok z zapisu (dane z zewnątrz): każde pole sprawdzone, inaczej false. */
 export function isSessionStep(v: unknown): v is SessionStep {
   return isObj(v) && isStr(v.id) && v.id.length > 0 && isStr(v.name) && isStageCategory(v.category) &&
-    isNum(v.durationMin) && v.durationMin > 0 && typeof v.isPassive === 'boolean' && isStr(v.instructions) &&
+    (v.durationMin === null || (isNum(v.durationMin) && v.durationMin > 0)) && typeof v.isPassive === 'boolean' && isStr(v.instructions) &&
     numOrNull(v.plannedStart) && numOrNull(v.plannedEnd);
 }
 
@@ -83,20 +83,24 @@ export function isHighRyeBake(bake: ActiveBakeState): boolean {
   return bake.isHighRye ?? bake.calculatedRecipe?.isHighRye ?? false;
 }
 
-/** Kroki przekazanego wypieku: migawka planu albo plan od startu; null = brak prowadzenia (żyto). */
-export function stepsForBake(bake: ActiveBakeState): SessionStep[] | null {
-  if (bake.steps && bake.steps.length > 0) return bake.steps;
+/**
+ * Kroki przekazanego wypieku: migawka planu albo plan od startu. Żyto: etapy z rye-stages.ts z czasami
+ * etapów tej samej kategorii z migawki lub planu (wariant a roli 06) [M1-audytor-generalny-030].
+ */
+export function stepsForBake(bake: ActiveBakeState): SessionStep[] {
+  if (bake.steps && bake.steps.length > 0) {
+    return isHighRyeBake(bake) ? ryeStepsFromPlan(bake.steps, bake.startedAt) : bake.steps;
+  }
   return planBakeSteps({ startAt: bake.startedAt, isHighRye: isHighRyeBake(bake), ambientTempC: bake.ambientTempC });
 }
 
 /**
  * Sesja do pokazania na Stolnicy: nowy wypiek przekazany z Kalkulatora/Harmonogramu (w pamięci) wygrywa
- * z zapisem innego wypieku; po restarcie (pamięć pusta) wraca zapis. Wypiek bez kroków (żyto) nie startuje.
+ * z zapisem innego wypieku; po restarcie (pamięć pusta) wraca zapis.
  */
 export function pickBakeSession(inMemory: ActiveBakeState | null, saved: BakeSession | null): BakeSession | null {
   if (inMemory && (!saved || saved.bake?.id !== inMemory.id)) {
     const steps = stepsForBake(inMemory);
-    if (steps === null) return saved;
     return {
       version: 2,
       steps,

@@ -50,7 +50,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | **Magazyn Mąk & Koszty** | `Z-051`, `Z-053` | Spiżarnia mąk, białko %, popiół, chłonność, kalkulator kosztów, odpis z magazynu | ✅ Wdrożone |
 | **Słownik Odpowiedników Mąk** | `Z-052` | Międzynarodowe typy mąk (PL ↔ FR ↔ IT ↔ DE ↔ US/UK) | ✅ Wdrożone |
 | **Harmonogram Wsteczny** | `Z-015`–`Z-023` | Reverse scheduling, Sleep Guard, kinetyka Q10, garowanie chłodnicze, piec | ✅ Wdrożone |
-| **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, kroki z receptury i planu Harmonogramu (chleb pszenny), składania w fermentacji, wypiek w garnku | 🟡 Wdrożone bez żyta: chleb żytni czeka na etapy roli 06, Stolnica go nie prowadzi (F-07, D-030) |
+| **Stolnica (Asystent Wypieku)** | `Z-024`–`Z-037` | Hands-in-Flour, kroki z receptury i planu Harmonogramu, składania w fermentacji, wypiek w garnku; chleb żytni (> 50% mąki żytniej) bez składania: rośnie w formie i w niej się piecze, czasy etapów z planu użytkownika (F-07, D-030) | ✅ Wdrożone |
 | **Galeria & Oceny Wypieków** | `Z-049`, `Z-050` | 1–5 gwiazdek, scoring miękiszu/skórki, profile smakowe, statystyki | ✅ Wdrożone |
 | **Zakwas & Bezpieczeństwo** | `Z-038`–`Z-042`, `Z-045` | Profil, dokarmianie 1:2:2, predyktor peak, hooch, kahm, alarm pleśni | ✅ Wdrożone |
 | **Lievito Madre 50%** | `Z-044` | Protokół konwersji 100% ↔ 50% LM, schemat 3 odświeżeń | ✅ Wdrożone |

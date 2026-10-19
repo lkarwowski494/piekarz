@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 466 | 466 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 239 | 239 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 80 | 80 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 465 | 465 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 241 | 241 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 82 | 82 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **823** | Pokrytych: **823** | Brakujących: **0**
+Łącznie elementów: **826** | Pokrytych: **826** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -41,7 +41,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Asystent wypieku na żywo (Hands-in-flour)` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Doktor` | `app/(tabs)/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.` | `app/(tabs)/stolnica.tsx` | ✅ | src/__tests__/stolnica-plan-steps.test.tsx |
 | `TEKST` | `Zakończ wypiek` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
 | `TEKST` | `Następny krok` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/notifications-pending.test.tsx |
 | `TEKST` | `Odrzuć wypiek` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/confirm.test.ts |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 523 kolejnych elementów w pełnym wykazie)*
+*(... i 526 kolejnych elementów w pełnym wykazie)*

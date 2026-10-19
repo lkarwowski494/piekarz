@@ -22,7 +22,7 @@
 | **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), 4-DDT, kroki z Twojego planu na stolnicy i 100% prywatności offline.` | **165** | max 170 |
 | **Słowa kluczowe (Keywords)** | `chleb,zakwas,pieczenie,kalkulator,mąka,ddt,hydratacja,bochenek,garnek,doktor,stolnica,piekarz,przepis` | **98** | max 100 |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 2 150 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 2 484 / 4 000 znaków)
 
 ```text
 Piekarz (Crust) to profesjonalne, bezkompromisowe narzędzie stworzone dla pasjonatów rzemieślniczego wypieku chleba na zakwasie. Zaprojektowane według zasady „ręce w mące” – z wielkimi celami dotykowymi (≥56 pt), wyrazistymi kontrastami i stuprocentową pracą w trybie offline.
@@ -38,7 +38,7 @@ Większość kalkulatorów traktuje zakwas jako pojedynczy składnik, fałszują
 Temperatura ciasta decyduje o aktywności drożdży i bakterii kwasu mlekowego. Algorytm 4-DDT precyzyjnie wylicza temperaturę wody na podstawie temperatury mąki, zakwasu, otoczenia oraz tarcia misy. W upalne dni podpowie dokładną masę lodu w gramach.
 
 3. ASYSTENT STOLNICA (KROKI Z TWOJEGO PLANU)
-Stolnica prowadzi Cię etapami z Twojego planu w Harmonogramie, z minutnikiem każdego etapu: dokarmienie zakwasu, autoliza, wymieszanie z solą i zakwasem, fermentacja ze składaniami, formowanie wstępne, bench rest, garowanie na zimno (cold retard) oraz dwuetapowy wypiek w garnku żeliwnym (para pod pokrywą + rumienienie bez pokrywy). Timery są odporne na uśpienie telefonu.
+Stolnica prowadzi Cię etapami z Twojego planu w Harmonogramie, z minutnikiem każdego etapu: dokarmienie zakwasu, autoliza, wymieszanie z solą i zakwasem, fermentacja ze składaniami, formowanie wstępne, bench rest, garowanie na zimno (cold retard) oraz dwuetapowy wypiek w garnku żeliwnym (para pod pokrywą + rumienienie bez pokrywy). Timery są odporne na uśpienie telefonu. Dla ciasta, w którym mąka żytnia stanowi więcej niż 50% mąki, Stolnica prowadzi wariant żytni bez składania: ciasto po uformowaniu rośnie w formie i w niej się piecze, a czasy etapów pochodzą z Twojego planu.
 
 4. DOKTOR CHLEBA & PIVOT 1-TAP
 Bochenek rozlał się w koszyku? Miękisz jest zbyt zbity, a skórka blada? Zdiagnozuj przyczynę w 3 kliknięciach. Dzięki funkcji 1-tap pivot natychmiast przekształcisz diagnozę w skorygowaną recepturę i przeniesiesz parametry na Stolnicę.
@@ -63,7 +63,7 @@ Zero reklam, zero śledzenia, zero analityki, zero wymogu logowania. Twoje recep
 | **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, bench steps from your plan, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **166** | max 170 |
 | **Keywords** | `bread,sourdough,baking,calculator,flour,hydration,baker,dutch oven,loaf,ferment,levain,crumb,recipe` | **99** | max 100 |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 2 120 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 2 483 / 4 000 znaków)
 
 ```text
 Crust is a rugged, professional baking companion engineered for dedicated sourdough artisans. Designed specifically for flour-dusted hands: extra-large tactile buttons (≥56 pt), high-contrast tabular typography, and uncompromising 100% offline-first reliability.
@@ -79,7 +79,7 @@ Standard calculators treat sourdough starter as an isolated ingredient, distorti
 Dough temperature dictates fermentation kinetics. The 4-factor DDT engine calculates the exact target water temperature based on flour temp, starter temp, room temp, and bowl friction. During hot summer days, it automatically computes ice weight down to the single gram.
 
 3. BENCH ASSISTANT (STEPS FROM YOUR PLAN)
-The Workbench guides you stage by stage through your plan from the Schedule, with a timer for every stage: starter feed, autolyse, mixing with salt and starter, bulk fermentation with folds, pre-shape, bench rest, cold retard, and 2-phase Dutch oven baking (steam with lid on + Maillard browning with lid off). Timers never drift or pause when your phone sleeps.
+The Workbench guides you stage by stage through your plan from the Schedule, with a timer for every stage: starter feed, autolyse, mixing with salt and starter, bulk fermentation with folds, pre-shape, bench rest, cold retard, and 2-phase Dutch oven baking (steam with lid on + Maillard browning with lid off). Timers never drift or pause when your phone sleeps. For dough in which rye flour makes up more than 50% of the flour, the Workbench runs a rye variant with no folding: after shaping, the dough rises in a tin and is baked in it, with stage times taken from your plan.
 
 4. BREAD DOCTOR & 1-TAP PIVOT
 Flat loaf? Gummy crumb? Over-fermented dough? Diagnose structural defects in seconds with 12 recovery protocols. Use the 1-tap pivot to immediately transform corrective measures into an adjusted recipe on your workbench.

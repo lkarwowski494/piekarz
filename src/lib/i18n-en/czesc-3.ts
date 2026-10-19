@@ -199,7 +199,19 @@ export const EN_3: Record<string, string> = {
     'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
   'Nie zaznaczono żadnego objawu': 'No signs marked',
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
-  // Stolnica bez prowadzenia dla chleba żytniego (F-07, RD-11) [M1-audytor-generalny-030]; tekst do akceptacji
-  'Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.':
-    'The Workbench does not guide rye bread yet. Steps for rye dough are being prepared, so this bake was not started.',
+  // Etapy chleba żytniego Stolnicy (src/core/rye-stages.ts) — dosłownie z docs/tresci/en/chleb-zytni-etapy.md
+  // [M1-audytor-generalny-030; ZYT-ETA-001, ZYT-ETA-003..006, ZYT-STU-001]
+  'Zakwas żytni': 'Rye sourdough',
+  'Mieszanie ciasta': 'Mixing the dough',
+  'Wymieszaj składniki do uzyskania jednolitej masy.': 'Mix the ingredients into a uniform mass.',
+  'Krótka fermentacja ciasta': 'Short dough fermentation',
+  'Podział i formowanie': 'Dividing and shaping',
+  'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Divide the dough, shape it by hand and place it in a tin.',
+  'Rozrost w formie': 'Rise in the tin',
+  'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.': 'Leave the dough in the tin until its surface reaches the rim of the tin.',
+  'Wypiek w formie': 'Baking in the tin',
+  'Na początku wypieku zapewnij parę w piekarniku.': 'Provide steam in the oven at the start of baking.',
+  'Studzenie': 'Cooling',
+  'Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
+    'According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
 };

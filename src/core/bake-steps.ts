@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — kroki Stolnicy z planu Harmonogramu i receptury (F-07, ZM-02, D-030) [M1-audytor-generalny-030]
-// Jedno źródło kroków: calculateReverseSchedule. Chleb żytni (isHighRye) dostaje kroki tylko z modułu
-// rye-stages.ts; pusta lista = brak prowadzenia (RD-11: bez składań; pszenna lista nigdy nie jest podstawiana).
+// Jedno źródło kroków: calculateReverseSchedule. Chleb żytni (isHighRye, > 50% żyta, ZYT-GRA-001) dostaje
+// etapy z rye-stages.ts z czasami planu (wariant a roli 06): bez składań, pszenna lista nie jest podstawiana.
 // ============================================================================
 
 import {
@@ -18,7 +18,8 @@ export interface SessionStep {
   id: string;
   name: string;
   category: StageCategory;
-  durationMin: number;
+  /** Minuty z planu; null = etap żytni bez odpowiednika w planie, bez minutnika (ZYT-ETA-900). */
+  durationMin: number | null;
   isPassive: boolean;
   instructions: string;
   /** Planowany początek i koniec (ms od epoki); null = krok bez planu (stary zapis). */
@@ -36,9 +37,9 @@ export function isStageCategory(v: unknown): v is StageCategory {
   return CATEGORIES.some((c) => c === v);
 }
 
-/** Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). */
-export function isDutchOvenStep(step: Pick<SessionStep, 'category'>): boolean {
-  return step.category === 'bake';
+/** Krok wypieku w garnku: zegar dwóch faz (DUTCH_OVEN_PHASES). Chleb żytni piecze się w formie (ZYT-ETA-001). */
+export function isDutchOvenStep(step: Pick<SessionStep, 'id' | 'category'>): boolean {
+  return step.category === 'bake' && !RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id);
 }
 
 /** Etapy planu jako kroki Stolnicy: ta sama kolejność, id, nazwy i czasy. */
@@ -55,7 +56,7 @@ export function stepsFromSchedule(schedule: ReverseScheduleResult): SessionStep[
   }));
 }
 
-/** Szablony etapów ułożone kolejno od `startAt` (lista żytnia z rye-stages.ts). */
+/** Szablony etapów ułożone kolejno od `startAt`. */
 export function stepsFromTemplates(templates: readonly StageTemplate[], startAt: number): SessionStep[] {
   let at = startAt;
   return templates.map((tp) => {
@@ -74,6 +75,30 @@ export function stepsFromTemplates(templates: readonly StageTemplate[], startAt:
   });
 }
 
+/**
+ * Wariant żytni (wariant a roli 06): etapy z rye-stages.ts w ich kolejności; czas etapu = czas etapu planu
+ * tej samej kategorii (ZYT-ETA-900: brak czasów domowych w źródłach). Brak odpowiednika w planie = null
+ * (krok bez minutnika); od takiego etapu dalsze planowane godziny są nieznane. rye_cool: zalecenie ZYT-STU-001.
+ */
+export function ryeStepsFromPlan(plan: readonly Pick<SessionStep, 'category' | 'durationMin'>[], startAt: number): SessionStep[] {
+  let at: number | null = startAt;
+  return RYE_STAGE_TEMPLATES.map((tp) => {
+    const durationMin = tp.fixedDurationMin ?? plan.find((s) => s.category === tp.category)?.durationMin ?? null;
+    const start = at;
+    at = at !== null && durationMin !== null ? at + durationMin * 60_000 : null;
+    return {
+      id: tp.id,
+      name: tp.namePl,
+      category: tp.category,
+      durationMin,
+      isPassive: tp.isPassive,
+      instructions: tp.instructionsPl,
+      plannedStart: start,
+      plannedEnd: at,
+    };
+  });
+}
+
 /** Plan liczony od chwili `startAt`: harmonogram wsteczny przesunięty tak, by pierwszy etap zaczynał się teraz. */
 export function scheduleFromStart(startAt: number, options: ScheduleOptions = {}): ReverseScheduleResult {
   const probe = calculateReverseSchedule(new Date(startAt), options);
@@ -83,12 +108,10 @@ export function scheduleFromStart(startAt: number, options: ScheduleOptions = {}
 }
 
 /**
- * Kroki wypieku od `startAt`. Żyto: tylko lista z rye-stages.ts; pusta = null (Stolnica nie startuje).
- * Pszenica: plan z calculateReverseSchedule (kompensacja temperatury jak w Harmonogramie).
+ * Kroki wypieku od `startAt`: plan z calculateReverseSchedule (kompensacja temperatury jak w Harmonogramie).
+ * Żyto: etapy z rye-stages.ts z czasami tego planu (ryeStepsFromPlan); pszennej listy nie podstawiamy.
  */
-export function planBakeSteps(input: { startAt: number; isHighRye: boolean; ambientTempC?: number }): SessionStep[] | null {
-  if (input.isHighRye) {
-    return RYE_STAGE_TEMPLATES.length > 0 ? stepsFromTemplates(RYE_STAGE_TEMPLATES, input.startAt) : null;
-  }
-  return stepsFromSchedule(scheduleFromStart(input.startAt, { ambientTemperatureC: input.ambientTempC }));
+export function planBakeSteps(input: { startAt: number; isHighRye: boolean; ambientTempC?: number }): SessionStep[] {
+  const plan = stepsFromSchedule(scheduleFromStart(input.startAt, { ambientTemperatureC: input.ambientTempC }));
+  return input.isHighRye ? ryeStepsFromPlan(plan, input.startAt) : plan;
 }

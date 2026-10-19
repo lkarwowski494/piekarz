@@ -33,9 +33,22 @@ import { planBakeNotification } from '../core/notification-plan';
 import { notificationText } from '../lib/notifications';
 import { setLang, t } from '../lib/i18n';
 import legacyFixture from '../../tests/fixtures/bake-session-v1-1c38b28.json';
+import ryeFixture from '../../tests/fixtures/bake-session-v2-rye.json';
 
+/** Komunikat blokady z 6e120aa: po wariancie żytnim (a) roli 06 nie może się pokazać. */
 const RYE_MSG =
   'Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.';
+/** Etapy żytnie: id i nazwa z docs/tresci/pl/chleb-zytni-etapy.md (ZYT-ETA-001). */
+const RYE_STAGES = [
+  ['rye_starter', 'Zakwas żytni'],
+  ['rye_mix', 'Mieszanie ciasta'],
+  ['rye_rest', 'Krótka fermentacja ciasta'],
+  ['rye_shape', 'Podział i formowanie'],
+  ['rye_proof', 'Rozrost w formie'],
+  ['rye_bake', 'Wypiek w formie'],
+  ['rye_cool', 'Studzenie'],
+];
+const RYE_PROOF_TEXT = 'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -152,7 +165,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(saved?.steps?.[0]?.plannedStart).toBe(now);
   });
 
-  it('receptura żytnia (isHighRye): brak kroku składania, Stolnica nie startuje i pokazuje komunikat', async () => {
+  const startRye = () =>
     setActiveBake({
       id: 'bake_rye',
       recipeName: 'Razowiec żytni',
@@ -161,16 +174,89 @@ describe('Stolnica z receptury i planu (030)', () => {
       ambientTempC: 22,
       calculatedRecipe: recipe(true),
     });
+
+  it('receptura żytnia (> 50%): kroki w kolejności roli 06, bez składania, czasy z planu tej samej kategorii', async () => {
+    startRye();
     const stol = await render(<StolnicaScreen />);
     const text = textOf(stol.toJSON());
-    expect(text).toContain(RYE_MSG);
-    expect(text).not.toMatch(/Składanie|składaniami/);
-    expect(text).not.toContain('Krok 1 z');
-    expect(button(stol.root, 'Następny krok')).toBeUndefined();
+    expect(text).not.toContain(RYE_MSG);
+    expect(text).toContain('Krok 1 z 7');
+    for (const [, name] of RYE_STAGES) expect(text).toContain(name);
+    expect(text).not.toMatch(/Składanie|składaniami|Stretch|Coil/);
     act(() => stol.unmount());
-    expect(await loadBakeSession()).toBeNull();
+
+    const saved = await loadBakeSession();
+    expect(saved?.version).toBe(2);
+    expect(saved?.steps.map((s) => [s.id, s.name])).toEqual(RYE_STAGES);
+    const plan = calculateReverseSchedule(new Date(now), { ambientTemperatureC: 22 }).stages;
+    expect(saved?.steps.map((s) => s.durationMin)).toEqual(
+      saved?.steps.map((s) => (s.id === 'rye_cool' ? 1440 : plan.find((st) => st.category === s.category)?.durationMinutes))
+    );
+    expect(saved?.steps[0]?.plannedStart).toBe(now);
     setLang('en');
-    expect(t(RYE_MSG)).not.toBe(RYE_MSG);
+    expect(RYE_STAGES.map(([, name]) => t(name))).toEqual([
+      'Rye sourdough', 'Mixing the dough', 'Short dough fermentation', 'Dividing and shaping',
+      'Rise in the tin', 'Baking in the tin', 'Cooling',
+    ]);
+    expect(t(RYE_PROOF_TEXT)).toBe('Leave the dough in the tin until its surface reaches the rim of the tin.');
+  });
+
+  it('żyto: rozrost w formie kończy stan ciasta, nie zegar — po minutniku z planu krok trwa dalej', async () => {
+    startRye();
+    const stol = await render(<StolnicaScreen />);
+    for (let i = 0; i < 4; i++) {
+      await act(async () => {
+        button(stol.root, 'Następny krok').props.onPress();
+      });
+    }
+    expect(textOf(stol.toJSON())).toContain('Krok 5 z 7');
+    expect(textOf(stol.toJSON())).toContain(RYE_PROOF_TEXT);
+    await act(async () => {
+      button(stol.root, 'Start').props.onPress();
+    });
+    const later = Date.now() + 15 * 3600 * 1000;
+    jest.spyOn(Date, 'now').mockImplementation(() => later);
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 1100));
+    });
+    const text = textOf(stol.toJSON());
+    expect(text).toContain('00:00');
+    expect(text).toContain('Krok 5 z 7');
+    expect(text).toContain('Rozrost w formie');
+    // Wypiek żytni w formie (ZYT-ETA-001): bez dwóch faz garnka
+    await act(async () => {
+      button(stol.root, 'Następny krok').props.onPress();
+    });
+    expect(textOf(stol.toJSON())).toContain('Krok 6 z 7');
+    expect(stol.root.findAll((n) => n.props.testID === 'dutch-oven-phase-card')).toHaveLength(0);
+    act(() => stol.unmount());
+  });
+
+  it('sesja v2 z krokami żytnimi przeżywa restart; etap bez czasu w planie nie ma minutnika', async () => {
+    jest.spyOn(Date, 'now').mockImplementation(() => now + 60_000);
+    const raw = JSON.stringify(ryeFixture);
+    expect(parseBakeSession(raw)?.steps.map((s) => [s.id, s.durationMin])).toEqual([
+      ['rye_starter', 360], ['rye_mix', 15], ['rye_rest', null], ['rye_shape', 15],
+      ['rye_proof', 840], ['rye_bake', 45], ['rye_cool', 1440],
+    ]);
+    await setAppSetting(BAKE_SESSION_KEY, raw);
+    const stol = await render(<StolnicaScreen />);
+    let text = textOf(stol.toJSON());
+    expect(text).toContain('Razowiec po restarcie');
+    expect(text).toContain('Krok 5 z 7');
+    expect(text).toContain('29:00');
+    expect(button(stol.root, 'Wstrzymaj')).toBeDefined();
+    act(() => stol.unmount());
+
+    await setAppSetting(BAKE_SESSION_KEY, JSON.stringify({ ...ryeFixture, stepIdx: 2, timerEndsAt: null }));
+    const again = await render(<StolnicaScreen />);
+    text = textOf(again.toJSON());
+    expect(text).toContain('Krok 3 z 7');
+    expect(text).toContain('Krótka fermentacja ciasta');
+    expect(again.root.findAll((n) => n.props.testID === 'timer-in-flight-adjustments')).toHaveLength(0);
+    expect(button(again.root, 'Start')).toBeUndefined();
+    expect(button(again.root, 'Następny krok')).toBeDefined();
+    act(() => again.unmount());
   });
 
   it('zapis starego formatu (HEAD 1c38b28) wczytuje się w tym samym kroku i z tym samym pozostałym czasem', async () => {

@@ -8,6 +8,7 @@
 
 export * from './bake-loss';
 export * from './sourdough-physics';
+import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
 
 export interface FlourItemInput {
   name: string;
@@ -45,7 +46,7 @@ export interface DoughRecipeResult {
   totalWaterGrams: number;     // Including water in starter
   overallHydrationPercent: number; // True Baker's % (total water / total flour * 100)
   sumCheckGrams: number;
-  isHighRye: boolean;          // True if rye flours >= 50%
+  isHighRye: boolean;          // True if rye flours > 50% (ZYT-GRA-001)
 }
 
 export interface DDTSettings {
@@ -131,7 +132,8 @@ export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult
   const ryePercentage = input.flours
     .filter((f) => f.name.toLowerCase().includes('żyt') || (f.type && f.type.toLowerCase().includes('zytn')))
     .reduce((sum, f) => sum + f.percentage, 0);
-  const isHighRye = ryePercentage >= 50.0;
+  // Wariant żytni: więcej niż 50% mąki żytniej (ZYT-GRA-001; było >= 50) [M1-audytor-generalny-030]
+  const isHighRye = ryePercentage > RYE_VARIANT_THRESHOLD_PCT;
 
   const waterRounded = Math.round(waterWeight);
   const saltRounded = Number(saltWeight.toFixed(1));

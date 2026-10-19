@@ -6,6 +6,7 @@ import type { BakeSession } from '../bake-session-store';
 import type { ActiveBakeState } from '../sqlite-schema';
 import { LEGACY_STEPS_V1 } from '../../core/legacy-steps-v1';
 import { planBakeSteps } from '../../core/bake-steps';
+import { RYE_STAGE_TEMPLATES } from '../../core/rye-stages';
 import type { DoughRecipeResult } from '../../core/domain-rules';
 
 const bake: ActiveBakeState = {
@@ -82,9 +83,10 @@ describe('bake-session-store (019)', () => {
     const fresh = pickBakeSession({ ...bake, id: 'bake_new', recipeName: 'Nowy' }, session);
     expect(fresh).toEqual(expect.objectContaining({ stepIdx: 0, timerEndsAt: null, recipeName: 'Nowy' }));
     expect(pickBakeSession(null, null)).toBeNull();
-    // [M1-audytor-generalny-030] przekazany wypiek żytni bez listy etapów nie startuje; zostaje zapis
-    expect(pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, session)).toBe(session);
-    expect(pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, null)).toBeNull();
+    // [M1-audytor-generalny-030] przekazany wypiek żytni startuje z etapami roli 06
+    const rye = pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, session);
+    expect(rye?.steps.map((s) => s.id)).toEqual(RYE_STAGE_TEMPLATES.map((tp) => tp.id));
+    expect(pickBakeSession({ ...bake, id: 'bake_rye', isHighRye: true }, null)?.recipeName).toBe(bake.recipeName);
   });
 
   it('isSessionStep checks every field of a saved step (030)', () => {
@@ -95,12 +97,15 @@ describe('bake-session-store (019)', () => {
     expect(isSessionStep({ ...ok, id: '' })).toBe(false);
     expect(isSessionStep({ ...ok, category: 'fold' })).toBe(false);
     expect(isSessionStep({ ...ok, durationMin: 0 })).toBe(false);
+    // etap żytni bez odpowiednika w planie: brak czasu to null, nie zgadnięta liczba (030)
+    expect(isSessionStep({ ...ok, durationMin: null })).toBe(true);
+    expect(isSessionStep({ ...ok, durationMin: 'brak' })).toBe(false);
     expect(isSessionStep({ ...ok, isPassive: 'nie' })).toBe(false);
     expect(isSessionStep({ ...ok, plannedEnd: 'jutro' })).toBe(false);
     expect(isSessionStep(null)).toBe(false);
   });
 
-  it('isHighRyeBake and stepsForBake: Harmonogram snapshot, plan from the bake start, rye blocked (030)', () => {
+  it('isHighRyeBake and stepsForBake: Harmonogram snapshot, plan from the bake start, rye stages with plan times (030)', () => {
     const { isHighRyeBake, stepsForBake, isActiveBakeState } = require('../bake-session-store') as typeof import('../bake-session-store');
     const rye: DoughRecipeResult = {
       targetDoughWeightGrams: 1000, baseFlourWeightGrams: 520, flours: [{ name: 'Mąka żytnia 2000', percentage: 100, weightGrams: 520 }],
@@ -111,8 +116,12 @@ describe('bake-session-store (019)', () => {
     expect(isHighRyeBake({ ...bake, isHighRye: true })).toBe(true);
     expect(isHighRyeBake({ ...bake, calculatedRecipe: rye })).toBe(true);
     expect(isHighRyeBake({ ...bake, isHighRye: false, calculatedRecipe: rye })).toBe(false);
-    expect(stepsForBake({ ...bake, calculatedRecipe: rye })).toBeNull();
-    expect(stepsForBake({ ...bake, isHighRye: true })).toBeNull();
+    expect(stepsForBake({ ...bake, calculatedRecipe: rye })).toEqual(planBakeSteps({ startAt: bake.startedAt, isHighRye: true, ambientTempC: 22 }));
+    expect(stepsForBake({ ...bake, isHighRye: true }).map((s) => s.id)).toEqual(RYE_STAGE_TEMPLATES.map((tp) => tp.id));
+    // migawka Harmonogramu dla żyta: etapy roli 06 z czasami etapów tej samej kategorii z migawki
+    const wheatSnap = stepsForBake(bake);
+    const ryeFromSnap = stepsForBake({ ...bake, isHighRye: true, steps: wheatSnap });
+    expect(ryeFromSnap.find((s) => s.id === 'rye_proof')?.durationMin).toBe(wheatSnap.find((s) => s.category === 'final_proof')?.durationMin);
     expect(stepsForBake(bake)).toEqual(planBakeSteps({ startAt: bake.startedAt, isHighRye: false, ambientTempC: 22 }));
     const snap = LEGACY_STEPS_V1.slice(0, 2);
     expect(stepsForBake({ ...bake, steps: snap })).toBe(snap);

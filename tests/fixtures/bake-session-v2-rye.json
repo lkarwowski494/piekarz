@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "steps": [
+    { "id": "rye_starter", "name": "Zakwas żytni", "category": "starter_feed", "durationMin": 360, "isPassive": true, "instructions": "", "plannedStart": 1800000000000, "plannedEnd": 1800021600000 },
+    { "id": "rye_mix", "name": "Mieszanie ciasta", "category": "mix", "durationMin": 15, "isPassive": false, "instructions": "Wymieszaj składniki do uzyskania jednolitej masy.", "plannedStart": 1800021600000, "plannedEnd": 1800022500000 },
+    { "id": "rye_rest", "name": "Krótka fermentacja ciasta", "category": "bulk_ferment", "durationMin": null, "isPassive": true, "instructions": "", "plannedStart": 1800022500000, "plannedEnd": null },
+    { "id": "rye_shape", "name": "Podział i formowanie", "category": "final_shape", "durationMin": 15, "isPassive": false, "instructions": "Podziel ciasto, uformuj je ręcznie i włóż do formy.", "plannedStart": null, "plannedEnd": null },
+    { "id": "rye_proof", "name": "Rozrost w formie", "category": "final_proof", "durationMin": 840, "isPassive": true, "instructions": "Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.", "plannedStart": null, "plannedEnd": null },
+    { "id": "rye_bake", "name": "Wypiek w formie", "category": "bake", "durationMin": 45, "isPassive": true, "instructions": "Na początku wypieku zapewnij parę w piekarniku.", "plannedStart": null, "plannedEnd": null },
+    { "id": "rye_cool", "name": "Studzenie", "category": "cool", "durationMin": 1440, "isPassive": true, "instructions": "Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.", "plannedStart": null, "plannedEnd": null }
+  ],
+  "stepIdx": 4,
+  "dutchOvenPhase": "lid_on",
+  "timerEndsAt": 1800001800000,
+  "pausedLeftSec": null,
+  "recipeName": "Razowiec po restarcie",
+  "startedAt": 1800000000000,
+  "bake": {
+    "id": "bake_rye_v2",
+    "recipeName": "Razowiec po restarcie",
+    "startedAt": 1800000000000,
+    "currentStageId": "rye_starter",
+    "ambientTempC": 22,
+    "isHighRye": true
+  }
+}

@@ -25,10 +25,16 @@ export interface TimerState {
   isCompleted: boolean;
 }
 
-/** Pełny czas kroku w sekundach (krok w garnku: czas bieżącej fazy). */
+/** Pełny czas kroku w sekundach (krok w garnku: czas bieżącej fazy); krok bez czasu (null) = 0, bez minutnika. */
 export function stepDurationSec(step: SessionStep | undefined, phase: DutchOvenBakePhase): number {
   if (!step) return 0;
-  return isDutchOvenStep(step) ? DUTCH_OVEN_PHASES[phase].durationMin * 60 : step.durationMin * 60;
+  if (isDutchOvenStep(step)) return DUTCH_OVEN_PHASES[phase].durationMin * 60;
+  return step.durationMin === null ? 0 : step.durationMin * 60;
+}
+
+/** Czy krok ma minutnik: krok w garnku albo krok z czasem z planu [M1-audytor-generalny-030]. */
+export function stepHasTimer(step: SessionStep | undefined): boolean {
+  return !!step && (isDutchOvenStep(step) || step.durationMin !== null);
 }
 
 /** Stan zegara po wznowieniu aplikacji w chwili `now`. */
