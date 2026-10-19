@@ -1,18 +1,23 @@
 # Kontrakt Zakresu Produktowego (Scope Contract v2.0)
 ## Aplikacja Piekarz (Crust) — Apps4Craft Studio
-**Data zatwierdzenia:** 18.10.2026  
-**Rola:** Head of Product, Principal Product Owner & Scope Gatekeeper  
-**Status:** WIĄŻĄCY I ZATWIERDZONY (Single Source of Truth dla UX, Dev i QA)  
-**Dokumenty nadrzędne:** `docs/brd/00_START.md`, `docs/monetyzacja-audyt.md`, `docs/design-spec.md`  
+**Data zatwierdzenia:** 18.10.2026; przebudowa 2026-10-19 (D-032, DEC-14 = a)  
+**Rola:** 03-zakres (Zakres i kontrakt MVP)  
+**Status:** wiążący dla ról 04–08; wiersze „DO DECYZJI WŁAŚCICIELA” czekają na wybór właściciela (sekcja 8)  
+**Dokumenty nadrzędne:** `docs/brd/00_START.md` (BRD, prace J i przepływy PR w `docs/brd/A5.md`), `docs/DECISIONS.md`  
 
 ---
 
-## 1. Cel i Granice Produktu (Product Boundaries)
+## 1. Główna praca i pętla główna
 
-Aplikacja **Piekarz (Crust)** jest suwerennym, laboratoryjnym asystentem kuchennym dla domowych i rzemieślniczych piekarzy chleba, bułek, chałek i pizzy.
-Aplikacja rozwiązuje problem **„ręce w mące i lepkim cieście”**, eliminując błędy matematyki piekarskiej i chroniąc piekarza przed zrujnowanym snem (SleepGuard).
+Zdanie celu właściciela (2026-10-19): „Piekarz prowadzi domowego piekarza przez wypiek na zakwasie od receptury do bochenka: liczy ilości, pilnuje czasu, gdy telefon śpi, i pomaga poprawiać następny wypiek. Działa w pełni offline, bez konta i bez śledzenia.”
 
-### Niezmienniki Produktowe Gatekeepera:
+Prace z BRD, które to zdanie obejmuje: J-01 (policzyć ilości), J-02 (przeprowadzić wypiek na czas, także gdy telefon śpi), J-05 (zapisać wynik i poprawić następny wypiek); wspierają je J-03 (temperatura) i J-04 (zakwas). J-06 (przekazać recepturę) ma tylko hipotezę ZAL-029. Linia bazowa audytu M1 (2026-10-19, B1…B11): najlepsza aplikacja niszy (Rise) robi tę pracę pętlą receptura → plan z temperatury → kroki z powiadomieniami → dziennik, bez zegarka i bez magazynu mąk.
+
+- Pętla główna: receptura i ilości (F-26, F-27, F-09, F-10, F-11) → plan od godziny „chleb gotowy” skorygowany o temperaturę (F-13, F-14) → Stolnica prowadzi etapami planu (F-07) z sygnałem przy uśpionym telefonie i ekranem, który nie gaśnie (F-16, F-18, F-20), test palca przed pieczeniem (F-15) → wpis w dzienniku i „Piecz ponownie” z poprawką (F-28).
+
+Funkcja MVP spoza pętli ma podłogę albo decyzję D-nnn (sprawdza `zakres.mjs`). *Dlaczego:* funkcje ocenia się względem pętli, inaczej rozsądne kawałki składają się w kombajn (zasada roli 2). Pilnowanie czasu opiera się na powiadomieniach lokalnych (F-16, DEC-02 = a), nie na zegarku ani Live Activity (F-01, F-02 = NIE).
+
+### Niezmienniki produktowe
 1. **100% Offline-First:** Wszystkie obliczenia, timery i dane receptur działają bez dostępu do sieci (`SQLite` w `/Library/SQLite`).
 2. **Zero Telemetrii:** Żadnych zewnętrznych trackerów, banerów reklamowych ani kont chmurowych (*Data Not Collected*).
 3. **Zasada Słoika (Anti-Bloat):** Żadnych encyklopedii biologicznych i wykładów w głównym interfejsie. Wiedza inżynieryjna zaszyta pod maską w silniku obliczeniowym TypeScript (`src/core/domain-rules.ts`).
@@ -101,7 +106,7 @@ Zmiana 2026-10-19 (ZM-01, D-031): Apple Watch, Live Activity / Dynamic Island, G
 
 Pełna tabela od 2026-10-19 (zadanie M1-audytor-generalny-032, DEC-14 = a, rejestr D-032): każda funkcja osiągalna w kodzie ma wiersz F-nn, każde BR z `docs/brd/` jest w dokładnie jednym wierszu. F-01…F-08 z zadań 029–031 zachowane; ID usuniętych nie wracają. Sprawdzenie: `node zakres.mjs docs/scope-contract.md --brd docs/brd` (skrypt modułu `ciecie` roli 03). *Dlaczego:* role 04–08 pracują z jednego źródła zakresu, a brak decyzji widać mechanicznie.
 
-- Pętla główna: receptura w Kalkulatorze → plan w Harmonogramie → F-07 Stolnica (te same etapy) → wpis w dzienniku. Kalkulator, Harmonogram i dziennik dostaną numery F-nn w zadaniu 032.
+Pętla główna z numerami F-nn: sekcja 1 (od zadania 032).
 - Założenie zakresu ZAL-029 (status: hipoteza, 2026-10-19): piekarze przekazują sobie receptury przy spotkaniu i kod QR skraca to przekazanie względem pliku JSON. Sprawdzenie: test pierwszego użycia roli 04 i pytanie w rozmowach roli 01; obalone założenie wraca do bramki zmian.
 
 | ID | Funkcja | Decyzja | Wymagania | Dowód wartości | WTP | Intuicyjność | Podłoga | Zależy od | Uzasadnienie |
