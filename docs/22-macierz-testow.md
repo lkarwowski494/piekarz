@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 466 | 466 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 231 | 231 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 83 | 83 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 469 | 469 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 233 | 233 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 85 | 85 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **822** | Pokrytych: **822** | Brakujących: **0**
+Łącznie elementów: **829** | Pokrytych: **829** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 522 kolejnych elementów w pełnym wykazie)*
+*(... i 529 kolejnych elementów w pełnym wykazie)*

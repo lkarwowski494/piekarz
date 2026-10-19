@@ -734,6 +734,11 @@ export const EN: Record<string, string> = {
     'A copy of the database files from that moment is in the Files app: Piekarz › Backup › kopie-ratunkowe.',
   'Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.':
     'The error was described in the file: {file}. The database files could not be copied.',
+  // Ekran awaryjny [M1-audytor-generalny-018]
+  'Piekarz nie uruchomił się poprawnie': 'The app did not start correctly',
+  'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.':
+    'Your data is saved on your phone. Before you try again, you can export a copy.',
+  'Eksportuj kopię danych': 'Export a copy of your data',
 };
 
 
