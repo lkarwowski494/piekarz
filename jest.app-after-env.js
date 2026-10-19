@@ -49,11 +49,15 @@ if (!process.env.PROP_SEED) {
 
 try {
   const fc = require('fast-check');
-  if (process.env.PROP_SEED) {
-    fc.configureGlobal({ seed: Number(process.env.PROP_SEED) });
+  const { resolveFastCheckConfig } = require('./tests/helpers/fc-config');
+  const config = resolveFastCheckConfig(process.env);
+  if (String(config.seed) !== process.env.PROP_SEED) {
+    // Ziarno z zegara (np. nightly PROP_SEED=random): wypisane, żeby porażkę dało się powtórzyć.
+    console.log(`[fast-check] PROP_SEED=${process.env.PROP_SEED} → seed ${config.seed}`);
   }
-} catch {
-  // fast-check optional
+  fc.configureGlobal(config);
+} catch (e) {
+  if (e && e.code !== 'MODULE_NOT_FOUND') throw e;
 }
 
 // Globalny timeout dla testów

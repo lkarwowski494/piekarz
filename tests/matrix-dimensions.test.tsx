@@ -36,7 +36,7 @@ import { StorageState } from '../src/data/storage-status';
 
 describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
   describe('Compact Width 320pt Constraints (iPhone SE 1st gen)', () => {
-    it('NumInput renders cleanly inside a 320pt container without overflow', () => {
+    it('NumInput renders inside a 320pt-wide container (presence only; layout not measured)', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(
@@ -82,7 +82,7 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
   });
 
   describe('Dynamic Type AX5 Simulation (Large Font Scaling)', () => {
-    it('Field component respects custom text styles and scales without clipping', () => {
+    it('Field renders its label with custom text styles (presence only; AX5 clipping not measured)', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(
@@ -96,7 +96,7 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       expect(tree.root.findByProps({ children: 'Etykieta powiększona AX5' })).toBeTruthy();
     });
 
-    it('Missing state text wraps gracefully under large accessibility typography', () => {
+    it('Missing state renders its text (presence only; AX5 wrapping not measured)', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(

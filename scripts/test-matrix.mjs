@@ -325,10 +325,19 @@ if (results.length > 300) {
   md += `\n*(... i ${results.length - 300} kolejnych elementów w pełnym wykazie)*\n`;
 }
 
-const matrixDocPath = join(root, 'docs', '22-macierz-testow.md');
-writeFileSync(matrixDocPath, md, 'utf-8');
-
-console.log(`[test-matrix] Zaktualizowano ${matrixDocPath}`);
+// --check porównuje raport z wygenerowanym i nie zapisuje (M1-audytor-generalny-038);
+// aktualizacja raportu: npm run matrix:update. MATRIX_DOC pozwala testom wskazać kopię.
+const matrixDocPath = process.env.MATRIX_DOC || join(root, 'docs', '22-macierz-testow.md');
+const eol = (s) => s.replace(/\r\n/g, '\n');
+let docStale = false;
+if (isCheckMode) {
+  const current = existsSync(matrixDocPath) ? readFileSync(matrixDocPath, 'utf-8') : '';
+  docStale = eol(current) !== eol(md);
+  if (docStale) console.error(`[test-matrix] BŁĄD BRAMKI: ${matrixDocPath} jest nieaktualny; uruchom npm run matrix:update`);
+} else {
+  writeFileSync(matrixDocPath, md, 'utf-8');
+  console.log(`[test-matrix] Zaktualizowano ${matrixDocPath}`);
+}
 console.log(`[test-matrix] Wyniki: ${items.length - missingCount}/${items.length} elementów (${missingCount === 0 ? '100%' : 'Braki: ' + missingCount})`);
 
 const missingByCat = { EKRAN: [], UI: [], TEKST: [], LOGIKA: [], WYMIAR: [] };
@@ -349,3 +358,4 @@ if (isCheckMode && missingCount > 0) {
   console.error(`[test-matrix] BŁĄD BRAMKI: Wykryto ${missingCount} nieprzetestowanych elementów!`);
   process.exit(1);
 }
+if (docStale) process.exit(1);

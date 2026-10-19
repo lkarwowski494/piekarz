@@ -10,11 +10,13 @@
     "typecheck": "tsc --noEmit",
     "check:i18n": "node scripts/check-i18n.mjs",
     "check:licenses": "node scripts/check-licenses.mjs",
+    "check:size": "node scripts/check-file-size.mjs",
+    "matrix:update": "node scripts/test-matrix.mjs",
     "verify:native": "node scripts/verify-native.mjs",
     "verify:matrix": "node scripts/test-matrix.mjs --check",
     "test:mutation": "stryker run",
     "check:mutation": "stryker run",
-    "verify": "npm run typecheck && npm run check:i18n && npm run check:licenses && npm run verify:native && npm run verify:matrix && npm test"
+    "verify": "npm run typecheck && npm run check:i18n && npm run check:licenses && npm run check:size && npm run verify:native && npm run verify:matrix && npm test"
   },
   "dependencies": {
     "@apps4craft/ui": "github:lkarwowski494/apps4craft-ui",

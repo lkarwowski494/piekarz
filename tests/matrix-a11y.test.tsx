@@ -10,7 +10,7 @@ import { Field, Btn, SearchField, SwipeRow, SwitchRow } from '../src/components/
 import { CloseButton } from '../src/components/CloseButton';
 
 describe('Accessibility Contracts (NFR-A11Y-001..008 & RD-ENG-03)', () => {
-  describe('Touch Targets >= 48pt (RD-ENG-03 & Apps4Craft 48pt Mandate)', () => {
+  describe('Style minHeight >= 48 (RD-ENG-03; touch area on device not measured)', () => {
     it('NumInput has minimum height of 48pt', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
@@ -44,7 +44,7 @@ describe('Accessibility Contracts (NFR-A11Y-001..008 & RD-ENG-03)', () => {
       expect(flat.minHeight).toBeGreaterThanOrEqual(48);
     });
 
-    it('CloseButton uses header touch area of 44pt', () => {
+    it('CloseButton renders in the header (touch area not measured)', () => {
       let tree!: renderer.ReactTestRenderer;
       act(() => {
         tree = renderer.create(<CloseButton onPress={() => {}} />);

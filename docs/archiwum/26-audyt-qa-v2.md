@@ -1,3 +1,5 @@
+> **NIEAKTUALNY (2026-10-19, M1-audytor-generalny-038):** deklaracje tego raportu (m.in. status gotowości do produkcji, „14/14 scenariuszy Maestro”, wymiary 44 pt) nie mają dowodu z bieżącego commitu. Aktualne kryteria i komendy: `docs/20-definicja-ukonczenia.md`.
+
 # Raport z Audytu Śledczego Jakości QA v2.0 (Post-Retrofit): Piekarz (Crust)
 
 > **Dokument:** Apps4Craft Studio — Certyfikat Jakości i Odporności Systemowej v2.0  
