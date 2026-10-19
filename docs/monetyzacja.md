@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E2 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
+Stan: E3 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
 
 Jedyny dokument monetyzacji. `docs/monetyzacja-audyt.md` i `docs/PROGRESSIVE_DISCLOSURE_AND_MONETIZATION.md` to historia bez źródeł (D-033). Bramka opłacalności i macierz wariantów z 2026-10-19 leżą poza repo (`audit/02-oplacalnosc-2026-10-19/`, `audit/02-warianty-2026-10-19/`); tu trafiają tylko wyniki, stawki i [OCENA]. Surowe odczyty tej sesji: scratchpad sesji (poza repo).
 
@@ -179,6 +179,96 @@ Lejek „kryterium iOS”: mies. 41,0 płacących → 147,02 USD (29%); rok 29,2
 ```
 Wpływ to szacunek: po ustawieniu cen w App Store Connect wpisz `wplyw_z_asc` (proceeds progu) i uruchom ponownie. Podatek dochodowy i składki poza rachunkiem.
 
+## Kontrakt płatności
+Wzorzec dla ról 04, 05, 07, 08. Model: D-038 (stały), wykonanie: D-039. Identyfikatory z `src/lib/platnosci/konfiguracja.ts`.
+
+| Produkt (ID) | Typ | Cena (US / PL; reszta: `wariant-a-wlasciciel.json`) | Okres próbny | Family Sharing | Odblokowuje |
+|---|---|---|---|---|---|
+| `com.apps4brew.baker.pro.monthly` | subskrypcja odnawiana, grupa „Piekarz Pro” | 0,99 USD / 4,99 zł miesięcznie | oferta wprowadzająca Free Trial 2 tygodnie (MS-18) | tak (D-039) | wszystko |
+| `com.apps4brew.baker.pro.yearly` | subskrypcja odnawiana, ta sama grupa | 6,99 USD / 29,99 zł rocznie | jw.; jedna oferta na grupę | tak | wszystko |
+| `com.apps4brew.baker.pro.lifetime` | Non-Consumable | 14,99 USD / 79,99 zł jednorazowo | brak | tak | wszystko |
+
+Zawsze, bez zakupu, przed próbą i po niej (`BEZ_UPRAWNIENIA`): przegląd historii (odczyt receptur, zakwasów z ich wpisami i ostrzeżeniem RD-21 na karcie, dziennika), eksport, import, kopie, usunięcie danych, zakup, przywracanie, zarządzanie subskrypcją, ustawienia i polityka prywatności.
+
+| Przepływ (PR) | Akcja | Bez dostępu (co widzi użytkownik) | Dane zawsze dostępne |
+|---|---|---|---|
+| PR-12 | wybór „co dziś robię” | pierwsza akcja z wyborem prowadzi do oferty niżej | historia |
+| PR-01, PR-03, PR-17 | liczenie receptury, DDT, ciasto drożdżowe i pizza | oferta (przed próbą: „Wypróbuj 14 dni”, gdy `isEligibleForIntroOffer`; po próbie: ekran zakupu bez próby) | zapisane receptury do odczytu |
+| PR-02 | plan wstecz | jw. | zapisane plany do odczytu |
+| PR-04 | start wypieku | jw.; **wypiek rozpoczęty z dostępem prowadzi się do końca razem z zapisem wyniku** (D-039) | historia wypieków |
+| PR-15 | powrót do trwającego wypieku | zawsze, jeśli zaczęty z dostępem | jw. |
+| PR-05, PR-11 | dokarmianie, nowy zakwas, założenie od zera | oferta; po wygaśnięciu przypomnienia o dokarmianiu ustają (uprzedzone, BR-ZAK-004) | karta zakwasu, wpisy, ostrzeżenie RD-21 |
+| PR-06 | nowy wpis dziennika, porównanie | oferta (wyjątek: wynik wypieku dokończonego z D-039) | dziennik do odczytu |
+| PR-08 | QR, udostępnienie, druk | oferta | eksport pliku z danymi (PR-07) |
+| PR-13, PR-14 | Akademia, Doktor Chleba | oferta | — |
+| PR-07 | eksport, import, kopia, nowy telefon | zawsze | wszystko |
+| PR-09 | oferta, zakup, przywracanie, zarządzanie | zawsze | — |
+| PR-10 | ustawienia, polityka prywatności | zawsze | — |
+| PR-16 | koniec próby bez zakupu | 3 dni przed końcem i w chwili wygaśnięcia: co zostaje (historia i dane), co wymaga zakupu, że przypomnienia o dokarmianiu ustaną; potem tryb „tylko historia” | wszystko do odczytu, eksport, import, usunięcie |
+
+- **Oferta:** pojawia się przy pierwszym użyciu dowolnej funkcji płatnej (BR-ZAK-005), nigdy przy starcie aplikacji ani w trakcie kroku; zamknięta nie wraca sama w tej samej czynności i nie ma licznika czasu (BR-ZAK-003). Jeden ekran zakupu na proces (`src/lib/platnosci/ekran.ts`).
+- **Źródło dostępu:** transakcje sklepu, `Transaction.currentEntitlements` przez `getAvailablePurchases({ onlyIncludeActiveItemsIOS: true })` i status karencji (ADR-007). Pamięć podręczna: `{ produkty, wygasa }` w `app_settings` (`platnosci_pamiec`) z ostatniego udanego odczytu, ważna najwyżej do końca opłaconego okresu; dożywotni bez końca; poza kopią zapasową, więc import kopii nie daje dostępu.
+- **Bez sieci:** decyzja z pamięci; błąd odczytu nigdy nie znaczy „brak zakupu”; zakup i przywracanie pokazują, że wymagają połączenia z App Store, reszta działa według dostępu (BR-PRYW-001).
+- **Przywracanie:** przycisk na ekranie zakupu i w ustawieniach, tylko na żądanie użytkownika (`AppStore.sync()`); bez zakupów: komunikat, nigdy dostęp.
+- **Zarządzanie i anulowanie:** `showManageSubscriptionsIOS` w ustawieniach i na ekranie zakupu dla subskrybenta (MS-17).
+- **Zwrot i odebranie z Family Sharing:** `revocationDate` zabiera dostęp przy najbliższym udanym odczycie; dane zostają (tryb „tylko historia”).
+- **Karencja:** subskrypcja w karencji daje dostęp do `gracePeriodExpirationDate`.
+- **Okres próbny:** wyłącznie oferta wprowadzająca App Store (3.1.2(a), MS-06); żadnego lokalnego licznika dni ani użyć (MS-02). Długość z produktu StoreKit, nie z kodu.
+- **Uprzedzenie 3 dni (D-039):** data końca z bieżącej transakcji; tekst zależy od odnawiania: włączone — „za 3 dni pobierzemy <cena>/<okres>, anulujesz w ustawieniach App Store”; wyłączone — „za 3 dni zostanie tylko historia i Twoje dane”. Pole odnawiania i typu oferty w `expo-iap`: [DO USTALENIA] (OP-M03, rola 05/08).
+- **Zmiana modelu w przyszłości:** dawni nabywcy dożywotniego zachowują dostęp (MS-07).
+
+### Ujawnienia dla roli 04 (ekran oferty i zakupu)
+1. Długość próby (14 dni) i cena po próbie z okresem, z `displayPrice` sklepu (MS-14); kwota, która zostanie pobrana, jest największym elementem cenowym, a przeliczenie roczny/miesiąc mniejsze i niżej (MS-15).
+2. Odnawianie automatyczne i jak anulować (Ustawienia → Apple ID → Subskrypcje) przed startem próby (BR-ZAK-003, H-03).
+3. Co zostaje bez zakupu po próbie: tylko historia i dane (MS-04 wymaga tego dla prób 3.1.1; tu to warunek uczciwości H-03/H-04).
+4. Dożywotni: bez próby, jedna opłata; zdanie, że kto wybiera dożywotni, nie potrzebuje próby subskrypcji, a próbę zaczętą trzeba anulować, żeby nie płacić za subskrypcję.
+5. Jedna próba na grupę (MS-18): kto ją wykorzystał, widzi zakup bez próby.
+6. Przywracanie zakupów i logowanie dla obecnych subskrybentów (MS-16); linki do Warunków (EULA) i Polityki prywatności w aplikacji i metadanych (MS-16).
+7. Zdanie o czasie zakładania zakwasu 7–10 dni (H-07, D-039 tabela).
+8. Zakup wymaga połączenia z App Store (bez sieci).
+- **Zakazane wzorce** (wzorce roli, „Etyka”): odliczanie i „oferta tylko dziś”, „za darmo” bez dopowiedzenia o odnowieniu, „najpopularniejszy” bez danych, zawstydzanie przy odmowie, ekran zakupu wyskakujący w trakcie kroku, ukryte zamknięcie lub przywracanie, odblokowanie za ocenę (MS-10), dane tylko dla płacących.
+- **Metadane sklepu (rola 10):** opis i zrzuty mówią o subskrypcji z 14-dniową próbą i dożywotnim; lekcja z Loaflo (MS-26): „I hate when apps don’t advertise a subscription based service in the photos or descriptions”.
+
+### Wektory dostępu (dla 07 i 08; `odblokowuja` = trzy produkty)
+Wektory z modułu `storekit-expo` (są w `src/lib/__tests__/platnosci-dostep.test.ts`) plus nowe z D-039:
+
+| Scenariusz | Odczyt | Pamięć / stan | Oczekiwane |
+|---|---|---|---|
+| próba trwa | sklep: `yearly` (oferta), wygasa T+1 | — | dostęp, `sklep` |
+| próba minęła bez zakupu | sklep: pusto | `['yearly']`, wygasa T−1 | brak dostępu; historia i dane działają |
+| wypiek zaczęty z dostępem, dostęp wygasa w trakcie | sklep: pusto | wypiek oznaczony „zaczęty z dostępem” | kroki i zapis wyniku tego wypieku działają; nowy wypiek → oferta |
+| import po próbie | sklep: pusto | — | import działa bez oferty (D-039) |
+| dożywotni + próba subskrypcji | sklep: `lifetime` bez końca, `monthly` wygasa T+1 | — | dostęp, `sklep`; pamięć bez końca |
+| członek rodziny, odebranie | sklep: `yearly`, odebrane | `['yearly']` | brak dostępu, pamięć wyczyszczona |
+| uprzedzenie | próba wygasa za 3 dni | uprzedzenie niepokazane | jeden komunikat; drugi raz nie |
+
+### Tylko na telefonie (krok właściciela, wynik z datą i buildem do strategii 07)
+Sandbox albo TestFlight: zakup każdego planu, oferta 14 dni (tylko dla uprawnionych), ponowna instalacja, tryb samolotowy po zakupie, przywrócenie na drugim urządzeniu, zwrot, Family Sharing (członek rodziny), Ask to Buy (oczekujący), karencja, uprzedzenie 3 dni, wygaśnięcie w trakcie wypieku, `showManageSubscriptionsIOS`. Przyspieszony czas odnowień w sandboksie dla oferty 2 tygodnie: [DO USTALENIA].
+
+### Rozbieżności kodu z kontraktem (dla 08 i planu napraw M1; kodu nie zmieniam)
+- Import zapisuje się dziś tylko z dostępem (`app/(tabs)/index.tsx:497`, `canSaveImport={() => moze('import') || requireActionAccess()}`), a D-039 robi go zawsze dostępnym. Dotyczy M1-audytor-generalny-026, -027.
+- Dokończenie wypieku po wygaśnięciu (D-039) i uprzedzenie 3 dni (OP-47): nie sprawdzałem, czy kod je ma; [DO USTALENIA] dla 08 (M1-audytor-generalny-009, -027).
+
+## Szkic aneksu do ADR-007 (dla roli 05)
+ADR-007 (`docs/adr/ADR-007_zakupy_storekit_expo_iap.md`, przyjęta) zostaje; rola 05 dopisuje:
+- **Licencja (MON-14), 2026-10-19:** `expo-iap` 6.1.1 MIT (rejestr npm i `LICENSE` w paczce, MS-22), bez zależności npm; natywna zależność `openiap` 4.0.3 (podspec) MIT (MS-23, gałąź main — sprawdzić tag 4.0.3). Moduł `onside` (`OnsideKit`) włącza się tylko zmienną `EXPO_IAP_ONSIDE=1`; `app.json` ma wtyczkę `expo-iap` bez opcji, więc jest wyłączony. Peer `@amazon-devices/*` dotyczy tylko Amazon. `npm run check:licenses` w CI sprawdza GPL/AGPL. Wniosek: licencja zgodna.
+- **Family Sharing:** włączony (D-039); `revocationDate` obsługiwany w `uprawnienieZTransakcji`; wektor „członek rodziny, odebranie”.
+- **D-039:** znacznik „wypiek rozpoczęty z dostępem” na rekordzie trwającego wypieku (wymaganie danych, migracja w transakcji, zasada wspólna 10); data pokazania uprzedzenia 3 dni w `app_settings`; `dane` w `BEZ_UPRAWNIENIA` obejmuje import.
+- **Prywatność:** bez usługi zewnętrznej; dane o zakupach zostają w StoreKit; etykieta prywatności bez zmian (wpis do inwentarza prywatności roli 05: „zakupy: tylko StoreKit, lokalna pamięć uprawnień”).
+- **Otwarte:** OP-M03 (pole odnawiania i typu oferty w `expo-iap`), `.storekit` po `expo prebuild`, czy `currentEntitlements` zwraca niezakończoną transakcję (z ADR-007).
+
+## Definicja ukończenia (build), z dowodem
+| Punkt | Dowód |
+|---|---|
+| Cena, stawka, kurs, reguła z adresem, cytatem i datą | MS-01…MS-27 (odczyt 2026-10-19; MS-25…MS-27 i VAT z sesji bramki tego dnia, nazwane); ceny modelu z D-038 |
+| Co najmniej dwa modele z regułą, kompromisem, ryzykiem, rachunkiem; wybór słowami właściciela | Opcja A i B (B historyczna); D-038, D-039 ze słowami i datą |
+| Bramka (`oplacalnosc.mjs` kod 0) | sesja 2: wynik bramki z 2026-10-19 jako hipoteza (kod 0 w `porownanie-wariantow.txt`); bez nowego przebiegu |
+| `rachunek.mjs` z kodem 0, dane ze źródłem albo [OCENA] | `node docs/monetyzacja/rachunek.mjs docs/monetyzacja/rachunek.json` i `rachunek-us.json`: kod 0 (2026-10-19); udziały i płatności w roku jako [OCENA] z metodą |
+| Każda funkcja z wymagań ma klasę WTP z poziomem dowodu; WTP-X do 03 | tabela 50 BR; WTP-X: BR-KALK-008, BR-ETAP-003 |
+| Kontrakt: produkty, uprawnienia, bramki, przywracanie, bez sieci, próba 3.1.2(a), Family Sharing, ujawnienia | sekcja „Kontrakt płatności” |
+| H i ZAL ze statusem; ER do 01 | ZAL-038, ZAL-042, ZAL-044 zaktualizowane, ZAL-049, ZAL-050 nowe; ER: brak; OP-33, OP-47, OP-48 rozstrzygnięte (do wpisania przez 01) |
+| Nie sprawdzone | `npm test` (worktree bez `node_modules`; zmiana dotyka tylko `docs/`); testy na urządzeniu (krok właściciela) |
+
 ## Źródła
 | ID | Adres | Miejsce | Cytat | Odczyt | Szczebel | Przegląd |
 |---|---|---|---|---|---|---|
@@ -224,3 +314,4 @@ Z odczytu innej sesji roli 02 z tego samego dnia (nie czytane ponownie, wyjątek
 |---|---|---|---|
 | OP-M01 | [DO WYJAŚNIENIA] czy umowa Paid Apps jest podpisana, a konto zapisane do Small Business Program (15% zamiast 30%/26%); właściciel uzupełni (STOP E0) | właściciel | rachunek, E3 |
 | OP-M02 | Rozstrzygnięte 2026-10-19 (D-039): import działa zawsze | właściciel | BR-DANE-003, BR-ZAK-004 |
+| OP-M03 | [DO USTALENIA] które pola `expo-iap` 6.1.1 podają włączone odnawianie i typ oferty bieżącej transakcji (tekst uprzedzenia 3 dni) | rola 05 / 08 (dokumentacja openiap) | D-039, PR-16 |
