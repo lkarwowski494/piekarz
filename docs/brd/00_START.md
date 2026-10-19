@@ -15,13 +15,13 @@ docs/brd/
 │   └── test-vectors.json       # Dawny korpus wektorów (kopia w tests/fixtures/ czytana przez testy, ER-16)
 ├── 00_START.md                 # (Ten plik) Stan, spis, streszczenie, warianty MVP, blokery wydania
 ├── 00b_Decyzje.md              # Decyzje BRD DEC-01…DEC-12 i DEC-41…DEC-49
-├── 00c_Errata.md               # Errata ER-01…ER-24 ze statusem
-├── A1.md ... A4.md             # Wizja, persony, zasady ZP-01…ZP-16, rynek, zakres, KPI
+├── 00c_Errata.md               # Errata ER-01…ER-25 ze statusem
+├── A1.md ... A4.md             # Wizja, persony, zasady ZP-01…ZP-16, rynek, hipotezy H-01…H-02 (A2), zakres, KPI
 ├── A5.md                       # Prace J-01…J-06, przepływy PR-01…PR-10, macierz śladu
 ├── B1.md ... B6.md             # Wymagania BR narzędzi: KALK, HARMO, ETAP, ZAKW, RECP, SPIZ, CZAS, REKA, SYS, DANE, WSP, ZAK, UST, PRYW, DOST
 ├── C1.md ... C4b.md            # Nauka, Doktor Chleba, reguły RD-00…RD-13 z wektorami (C3)
 ├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-25
-├── S.md                        # Źródła S-01…S-05 (przeczytane, z cytatem i datą)
+├── S.md                        # Źródła S-01…S-13 (przeczytane, z cytatem i datą)
 └── W.md                        # Bibliografia i hierarchia źródeł z BRD 2.0-craft (pozycje bez wpisu S; rejestr EV z odesłaniem do RD, rejestru roli 06 albo OP)
 ```
 
