@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — kierunek C: Taśma z etykietą</title>
+<!-- Kierunek C (E2 roli 04, 2026-10-20). Metafora M3: papierowa taśma na słoiku i misce z godziną pisaną markerem (01-swiat.md, [OCENA] praktyka kuchenna).
+     Dane planu, receptura i godziny: [PRZYKŁAD]. Tekst ostrzeżenia: BR-ETAP-004 / RD-23-W1 (S-47, S-48). -->
+<style>
+@font-face { font-family: "Caveat"; font-weight: 400 700; src: url(../fonty/Caveat-wght.ttf); }
+@font-face { font-family: "Noto Sans"; font-weight: 100 900; src: url(../fonty/NotoSans-wdth-wght.ttf); }
+:root {
+  --dt-tytul: 1; --dt-tresc: 1;
+  --tlo: #FFFFFF; --tusz: #151515; --tusz-2: #555553; --linia: #DADAD6;
+  --tasma: #EAD9AE; --tasma-cien: #CDB985; --tasma-noc: #A9CBE3; --na-tasmie: #151515;
+  --przycisk: #151515; --na-przycisku: #FFFFFF;
+  --ostrz-tlo: #F7D117; --ostrz-tusz: #151515;
+}
+[data-theme="dark"] {
+  --tlo: #1E1F21; --tusz: #F2F2F0; --tusz-2: #B5B5B0; --linia: #6A6B6E;
+  --tasma: #D8C796; --tasma-cien: #A8996B; --tasma-noc: #8DB6D4; --na-tasmie: #151515;
+  --przycisk: #F2F2F0; --na-przycisku: #151515;
+  --ostrz-tlo: #F7D117; --ostrz-tusz: #151515;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: #8A8D88; font-family: "Noto Sans", sans-serif; display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+main { overflow-wrap: break-word; width: var(--w, 390px); min-height: 844px; background: var(--tlo); color: var(--tusz); display: flex; flex-direction: column; }
+.status { height: 47px; display: flex; justify-content: space-between; align-items: center; padding: 0 28px; font: 600 15px "Noto Sans"; }
+.nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 0 12px; min-height: 44px; }
+.nav a { color: var(--tusz); font-weight: 600; text-decoration: none; font-size: calc(1.0625rem * var(--dt-tresc)); min-height: 44px; display: flex; align-items: center; padding: 0 8px; }
+.tresc { padding: 4px calc(20px - 4px * (var(--dt-tresc) - 1)) 0; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.receptura { color: var(--tusz-2); font-size: calc(0.9375rem * var(--dt-tresc)); }
+.tasma { background: var(--tasma); color: var(--na-tasmie); padding: 10px 16px 12px; position: relative; clip-path: polygon(0 4%, 2% 0, 98% 3%, 100% 0, 99% 50%, 100% 100%, 97% 97%, 2% 100%, 0 96%, 1% 50%); }
+.tasma .godz { font: 700 calc(3.75rem * var(--dt-tytul)) / 0.95 "Caveat"; font-variant-numeric: tabular-nums; }
+.tasma .slowo { font: 600 calc(1.125rem * var(--dt-tytul)) "Noto Sans"; vertical-align: 0.6em; } .tasma .co-na { font: 600 calc(1.25rem * var(--dt-tytul)) / 1.2 "Noto Sans"; }
+h1 { font: 700 calc(1.75rem * var(--dt-tytul)) / 1.15 "Noto Sans"; margin: 0; }
+.zostalo { font-size: calc(1.0625rem * var(--dt-tresc)); color: var(--tusz-2); }
+.zostalo b { color: var(--tusz); font-size: calc(1.75rem * var(--dt-tresc)); }
+.co { font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.4; margin: 0; }
+.info { display: flex; gap: 10px; align-items: flex-start; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
+.info svg { flex: none; width: 20px; height: 20px; margin-top: 2px; } .info span { min-width: 0; }
+.ostrz { background: var(--ostrz-tlo); color: var(--ostrz-tusz); border: 2px solid var(--ostrz-tusz); padding: 12px 10px; display: flex; flex-wrap: wrap; gap: 8px 12px; font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.35; }
+.ostrz svg { flex: none; width: 30px; height: 30px; } .ostrz span { flex: 1 1 160px; min-width: 0; } .ostrz b { display: block; }
+.plan { display: flex; flex-direction: column; gap: 6px; }
+.plan .w { display: flex; align-items: baseline; gap: 10px; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); flex-wrap: wrap; }
+.plan .w i { font: 700 calc(1.5rem * var(--dt-tresc)) "Caveat"; font-style: normal; background: var(--tasma); color: var(--na-tasmie); padding: 0 8px; min-width: 64px; text-align: center; }
+.plan .w.noc i { background: var(--tasma-noc); }
+.kciuk { padding: 12px 20px 34px; display: flex; flex-direction: column; gap: 10px; }
+.glowny { min-height: 64px; border: 0; border-radius: 32px; background: var(--przycisk); color: var(--na-przycisku); font: 600 calc(1.1875rem * var(--dt-tresc)) "Noto Sans"; padding: 8px 4px; }
+.rzad { display: flex; gap: 10px; flex-wrap: wrap; }
+.drugi { flex: 1 1 140px; min-height: 48px; border-radius: 24px; border: 1.5px solid var(--linia); background: transparent; color: var(--tusz); font: 500 calc(1rem * var(--dt-tresc)) "Noto Sans"; padding: 8px; }
+.panel { width: 390px; background: #FFF; color: #151515; padding: 16px; font: 14px/1.4 "Noto Sans"; }
+.panel h2 { font: 700 18px "Noto Sans"; margin: 0 0 8px; }
+.ikony { display: flex; gap: 16px; align-items: flex-end; }
+.sw { display: inline-flex; flex-direction: column; width: 82px; margin: 0 6px 8px 0; font-size: 11px; }
+.sw i { height: 40px; border: 1px solid #0002; }
+</style>
+</head>
+<body>
+
+<main data-ekran="w-trakcie">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#">‹ Start</a><a href="#">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="receptura">Krok 4 z 13<br>Chleb pszenny na zakwasie [PRZYKŁAD]</div>
+    <div class="tasma" role="img" aria-label="Składanie 2 z 4 do 11:15, zostało 18 minut.">
+      <div class="godz"><span class="slowo">do</span> 11:15</div>
+      <div class="co-na">Składanie 2 z 4</div>
+    </div>
+    <div class="zostalo">Zostało <b>18 min</b></div>
+    <p class="co">Chwyć brzeg ciasta, rozciągnij w górę i złóż na środek. Obróć miskę i powtórz cztery razy. [PRZYKŁAD, treść roli 06]</p>
+    <div class="info"><svg viewBox="0 0 20 20"><rect x="5" y="1.5" width="10" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="7.5" r="2.2" fill="currentColor"/></svg><span>Ekran nie zgaśnie do końca kroku. Powiadomienie o 11:15.</span></div>
+    <div class="plan">
+      <div class="w"><i>11:45</i>składanie 3 z 4</div>
+      <div class="w"><i>12:15</i>składanie 4 z 4</div>
+      <div class="w"><i>14:45</i>koniec fermentacji, formowanie</div>
+      <div class="w noc"><i>15:05</i>do lodówki na noc</div>
+      <div class="w"><i>9:35</i>jutro: chleb gotowy</div>
+    </div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+
+<main data-ekran="koniec-kroku">
+  <div class="status"><span>8:12</span><span>LTE 64%</span></div>
+  <div class="nav"><a href="#">‹ Start</a><a href="#">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="receptura">Krok 12 z 13<br>Chleb pszenny na zakwasie [PRZYKŁAD]</div>
+    <div class="tasma" role="img" aria-label="Pieczenie pod pokrywą skończyło się o 8:10, 2 minuty temu. Teraz zdejmij pokrywę.">
+      <div class="godz">8:10 <span class="slowo">minęło 2 min</span></div>
+      <div class="co-na">Zdejmij pokrywę</div>
+    </div>
+    <div class="ostrz" role="alert"><svg viewBox="0 0 30 30"><path d="M15 2 L29 27 H1 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M10.5 22c1.5-2-1.5-3.5 0-5.5M15 22c1.5-2-1.5-3.5 0-5.5M19.5 22c1.5-2-1.5-3.5 0-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span><b>Gorąca para</b>Załóż suche rękawice. Pokrywę unoś od siebie.</span></div>
+    <div class="plan">
+      <div class="w"><i>8:37</i>koniec pieczenia bez pokrywy</div>
+      <div class="w"><i>9:35</i>chleb gotowy po studzeniu</div>
+    </div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+
+<div class="panel">
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"></svg>
+    <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"></svg>
+    <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"></svg>
+  </div>
+  <h2 style="margin-top:14px">Paleta</h2>
+  <span class="sw"><i style="background:#FFFFFF"></i>biel #FFFFFF</span><span class="sw"><i style="background:#151515"></i>marker #151515</span><span class="sw"><i style="background:#EAD9AE"></i>taśma #EAD9AE</span><span class="sw"><i style="background:#A9CBE3"></i>taśma lodówki #A9CBE3</span><span class="sw"><i style="background:#1E1F21"></i>noc #1E1F21</span><span class="sw"><i style="background:#F7D117"></i>ostrzeżenie #F7D117</span>
+  <h2 style="margin-top:8px">Kroje</h2>
+  <div style="font:700 40px 'Caveat'">do 11:15 — Ζύμη, Тесто</div>
+  <div>godziny na taśmie: Caveat 700 (łacinka, cyrylica; greka zastępczo); tytuły i treść: na iOS SF Pro, w makiecie zastępczo Noto Sans</div>
+  <h2 style="margin-top:8px">Głos</h2>
+  <div>Pusty: „Na blacie pusto. Co dziś robisz?”<br>Błąd: „Nie zapisałem nowej godziny. Plan został jak był; spróbuj jeszcze raz.”<br>Sukces: „Zapisane. Jak wyszedł bochenek?”</div>
+</div>
+
+<script>
+for (const svg of document.querySelectorAll('svg.ikona')) svg.innerHTML =
+  '<rect width="100" height="100" fill="#1E1F21"/>' +
+  '<g transform="rotate(-8 50 50)"><path d="M-4 28 L2 24 L98 27 L104 23 L102 50 L104 76 L98 72 L1 76 L-4 72 L-2 50 Z" fill="#EAD9AE"/>' +
+  '<text x="50" y="65" text-anchor="middle" font-family="Caveat" font-weight="700" font-size="44" fill="#151515">9:35</text></g>';
+</script>
+</body>
+</html>

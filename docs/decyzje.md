@@ -111,3 +111,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) przekład roboczy w sesji na ok. 8 kandydatów; (c) przyjęcie DE bez pomiaru (DE = 1,05× PL na 1385 tekstach pilota).
 - **Dlaczego:** pomiar zamiast założenia; zasada właściciela: przekład przez Batches, nie sesjami.
 - **Zależy od:** zgody na to jedno płatne wywołanie (dana tu, 2026-10-20; koszt rzędu centów do 1 USD).
+
+### [D-049] 2026-10-20 — Kierunek wizualny: A „Koszyk spiralny” (rola 04 build, E2)
+- **Rodzaj:** produktowa (wygląd). **Słowa właściciela:** „Dobra, juz z gory moge CI powiedziec ze idziemy w koszyk spiralny” (2026-10-20, w trakcie budowy E2, przed obejrzeniem `docs/design/porownanie.png`). Wcześniej na STOP E1: „Zgoda na metafory A, B, C. Rozwijaj E2.”
+- **Decyzja:** kierunek A: element firmowy to spirala planu wypieku (zwoje koszyka do garowania od startu do godziny „gotowe”), paleta płótno, żeliwo, ratan, noc; karta stylu w `docs/design/02-kierunki.md`.
+- **Odrzucone:** B „Słoik z gumką” (najmocniejszy dla zakwasu; może wrócić jako element karty zakwasu przy łączeniu kierunków), C „Taśma z etykietą” (najtańszy i najbardziej odporny na AX5).
+- **Dlaczego (rekomendacja studia, ta sama):** główna praca J-02; tylko A pokazuje cały plan z nocą i godziną „gotowe” na jednym przedmiocie.
+- **Warunkowe:** potwierdzenie okiem na stronie porównania (STOP E2); krój tytułów wybiera właściciel po porównaniu ok. 5 krojów (następny krok).

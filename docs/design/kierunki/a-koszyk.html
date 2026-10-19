@@ -1,0 +1,180 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — kierunek A: Koszyk</title>
+<!-- Kierunek A (E2 roli 04, 2026-10-20). Metafora M1: koszyk do garowania zwijany spiralnie (01-swiat.md, Z-04).
+     Dane planu, receptura i godziny: [PRZYKŁAD]. Tekst ostrzeżenia: BR-ETAP-004 / RD-23-W1 (S-47, S-48). -->
+<style>
+@font-face { font-family: "Alegreya Sans"; font-weight: 500; src: url(../fonty/AlegreyaSans-Medium.ttf); }
+@font-face { font-family: "Alegreya Sans"; font-weight: 700; src: url(../fonty/AlegreyaSans-Bold.ttf); }
+@font-face { font-family: "Noto Sans"; font-weight: 100 900; src: url(../fonty/NotoSans-wdth-wght.ttf); }
+:root {
+  --dt-tytul: 1; --dt-tresc: 1;
+  /* paleta A: ratan, noc, żeliwo; pochodzenie w karcie stylu */
+  --tlo: #F5F5F2; --tlo-2: #E8E8E3; --tusz: #1C1D1B; --tusz-2: #4B4D48;
+  --ratan: #9C6B2F; --ratan-jasny: #8A8273; --noc: #1E4954; --noc-jasna: #C9D7DA;
+  --akcent: #1E4954; --na-akcencie: #FFFFFF; --linia: #CFCFC8;
+  --ostrz-tlo: #F7D117; --ostrz-tusz: #1C1D1B;
+}
+[data-theme="dark"] {
+  --tlo: #141A1C; --tlo-2: #1F2729; --tusz: #F1F1EC; --tusz-2: #B9BDB8;
+  --ratan: #D3A464; --ratan-jasny: #7D7466; --noc: #8FB9C4; --noc-jasna: #24363B;
+  --akcent: #8FB9C4; --na-akcencie: #0F1517; --linia: #354044;
+  --ostrz-tlo: #F7D117; --ostrz-tusz: #1C1D1B;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; background: #8A8D88; font-family: "Noto Sans", sans-serif; display: flex; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+main { overflow-wrap: break-word; width: var(--w, 390px); min-height: 844px; background: var(--tlo); color: var(--tusz); display: flex; flex-direction: column; border-radius: 0; }
+.status { height: 47px; display: flex; justify-content: space-between; align-items: center; padding: 0 28px; font: 600 15px "Noto Sans"; }
+.nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 0 12px; min-height: 44px; }
+.nav a { color: var(--akcent); font-size: calc(1.0625rem * var(--dt-tresc)); text-decoration: none; min-height: 44px; display: flex; align-items: center; padding: 0 8px; }
+.nav .t { font-weight: 600; font-size: calc(1.0625rem * var(--dt-tresc)); }
+.tresc { padding: 4px calc(20px - 4px * (var(--dt-tresc) - 1)) 0; flex: 1; display: flex; flex-direction: column; gap: 14px; }
+.receptura { color: var(--tusz-2); font-size: calc(0.9375rem * var(--dt-tresc)); }
+.kosz { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.kosz > svg { width: max(150px, min(56%, 220px)); flex: none; }
+.kosz .opis { flex: 1 1 120px; display: flex; flex-direction: column; gap: 6px; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
+.kosz .opis b { color: var(--tusz); font-weight: 600; }
+.legenda { display: flex; gap: 8px; align-items: center; }
+.leg { width: 22px; height: 6px; border-radius: 3px; flex: none; }
+.krok-nr { font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
+h1 { font-family: "Alegreya Sans"; font-weight: 700; font-size: calc(2rem * var(--dt-tytul)); line-height: 1.1; margin: 0; overflow-wrap: anywhere; }
+.czas { font-family: "Alegreya Sans"; font-weight: 700; font-size: calc(3.25rem * var(--dt-tytul)); line-height: 1; font-variant-numeric: tabular-nums; }
+.czas small { font-family: "Noto Sans"; font-weight: 400; font-size: calc(1.0625rem * var(--dt-tresc)); color: var(--tusz-2); display: block; margin-top: 6px; line-height: 1.3; }
+.co { font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.4; margin: 0; }
+.info span { min-width: 0; } .info { display: flex; gap: 10px; align-items: flex-start; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
+.info svg { flex: none; width: 20px; height: 20px; margin-top: 2px; }
+.ostrz { background: var(--ostrz-tlo); color: var(--ostrz-tusz); border-radius: 12px; padding: 12px 10px; display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-start; font-size: calc(1.0625rem * var(--dt-tresc)); line-height: 1.35; }
+.ostrz svg { flex: none; width: 30px; height: 30px; }
+.ostrz b { display: block; } .ostrz span { flex: 1 1 160px; min-width: 0; }
+.dalej { border-top: 1px solid var(--linia); padding-top: 10px; font-size: calc(0.9375rem * var(--dt-tresc)); color: var(--tusz-2); }
+.dalej b { color: var(--tusz); font-weight: 600; }
+.kciuk { padding: 12px 20px 34px; display: flex; flex-direction: column; gap: 10px; }
+.glowny { min-height: 64px; border: 0; border-radius: 18px; background: var(--akcent); color: var(--na-akcencie); font: 600 calc(1.1875rem * var(--dt-tresc)) "Noto Sans"; padding: 8px 4px; }
+.rzad { display: flex; gap: 10px; flex-wrap: wrap; }
+.drugi { flex: 1 1 140px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--linia); background: transparent; color: var(--tusz); font: 500 calc(1rem * var(--dt-tresc)) "Noto Sans"; padding: 8px; }
+.panel { width: 390px; background: #FFF; color: #1C1D1B; padding: 16px; font: 14px/1.4 "Noto Sans"; }
+.panel h2 { font: 700 18px "Alegreya Sans"; margin: 0 0 8px; }
+.ikony { display: flex; gap: 16px; align-items: flex-end; }
+.sw { display: inline-flex; flex-direction: column; width: 82px; margin: 0 6px 8px 0; font-size: 11px; }
+.sw i { height: 40px; border-radius: 8px; border: 1px solid #0002; }
+</style>
+</head>
+<body>
+
+<main data-ekran="w-trakcie">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#">‹ Start</a><a href="#">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="receptura">Chleb pszenny na zakwasie, 2 × 850 g [PRZYKŁAD]</div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="297" viewBox="-110 -110 220 220" role="img"></svg>
+      <div class="opis">
+        <b>Krok 4 z 13</b>
+        <span>Gotowe jutro o 9:35</span>
+        <span class="legenda"><i class="leg" style="background:var(--ratan)"></i>zrobione</span>
+        <span class="legenda"><svg width="22" height="6"><line x1="1" y1="3" x2="21" y2="3" stroke="var(--noc)" stroke-width="3" stroke-dasharray="2 4" stroke-linecap="round"/></svg>noc w lodówce</span>
+      </div>
+    </div>
+    <div>
+      <h1>Składanie 2 z 4</h1>
+    </div>
+    <div class="czas">18 min<small>do 11:15, potem składanie 3 z 4</small></div>
+    <p class="co">Chwyć brzeg ciasta, rozciągnij w górę i złóż na środek. Obróć miskę i powtórz cztery razy. [PRZYKŁAD, treść roli 06]</p>
+    <div class="info"><svg viewBox="0 0 20 20"><rect x="5" y="1.5" width="10" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="10" cy="7.5" r="2.2" fill="currentColor"/></svg><span>Ekran nie zgaśnie do końca kroku. Powiadomienie o 11:15.</span></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+
+<main data-ekran="koniec-kroku">
+  <div class="status"><span>8:12</span><span>LTE 64%</span></div>
+  <div class="nav"><a href="#">‹ Start</a><a href="#">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="receptura">Chleb pszenny na zakwasie, 2 × 850 g [PRZYKŁAD]</div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="1572" viewBox="-110 -110 220 220" role="img"></svg>
+      <div class="opis">
+        <b>Krok 12 z 13</b>
+        <span>Gotowe dziś o 9:35</span>
+        <span class="legenda"><i class="leg" style="background:var(--ratan)"></i>zrobione</span>
+      </div>
+    </div>
+    <h1>Zdejmij pokrywę</h1>
+    <div class="ostrz" role="alert"><svg viewBox="0 0 30 30"><path d="M15 2 L29 27 H1 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M10.5 22c1.5-2-1.5-3.5 0-5.5M15 22c1.5-2-1.5-3.5 0-5.5M19.5 22c1.5-2-1.5-3.5 0-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span><b>Gorąca para</b>Załóż suche rękawice. Pokrywę unoś od siebie.</span></div>
+    <div class="czas">2 min po czasie<small>pieczenie pod pokrywą skończyło się o 8:10</small></div>
+    <div class="dalej">Potem: <b>pieczenie bez pokrywy, 25 min</b>, do 8:37</div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny">Zrobione</button>
+    <div class="rzad"><button class="drugi">Cofnij poprzedni</button><button class="drugi">Po co ten krok</button></div>
+  </div>
+</main>
+
+<div class="panel">
+  <h2>Ikona</h2>
+  <div class="ikony">
+    <svg class="ikona" width="180" height="180" viewBox="0 0 100 100"></svg>
+    <svg class="ikona" width="60" height="60" viewBox="0 0 100 100"></svg>
+    <svg class="ikona" width="29" height="29" viewBox="0 0 100 100"></svg>
+  </div>
+  <h2 style="margin-top:14px">Paleta</h2>
+  <span class="sw"><i style="background:#F5F5F2"></i>płótno #F5F5F2</span><span class="sw"><i style="background:#1C1D1B"></i>żeliwo #1C1D1B</span><span class="sw"><i style="background:#9C6B2F"></i>ratan #9C6B2F</span><span class="sw"><i style="background:#1E4954"></i>noc #1E4954</span><span class="sw"><i style="background:#141A1C"></i>noc ciemna #141A1C</span><span class="sw"><i style="background:#F7D117"></i>ostrzeżenie #F7D117</span>
+  <h2 style="margin-top:8px">Kroje</h2>
+  <div style="font:700 26px 'Alegreya Sans'">Składanie 2 z 4 — Ζύμη, Тесто</div>
+  <div>tytuły: Alegreya Sans 700; treść: na iOS SF Pro, w makiecie zastępczo Noto Sans</div>
+  <h2 style="margin-top:8px">Głos</h2>
+  <div>Pusty: „Nic się dziś nie piecze. Wybierz, co robisz, a ułożę plan.”<br>Błąd: „Nie zapisałem zmiany planu. Spróbuj jeszcze raz; poprzedni plan działa dalej.”<br>Sukces: „Wypiek zapisany. Jak wyszedł bochenek?”</div>
+</div>
+
+<script>
+// Spirala koszyka: zwój od środka (start) do brzegu (gotowe); długość łuku ∝ czas kroku. Dane [PRZYKŁAD].
+const kroki = [
+  ['Rozczyn', 240], ['Mieszanie', 15, 1], ['Składanie 1 z 4', 30, 1], ['Składanie 2 z 4', 30, 1], ['Składanie 3 z 4', 30, 1],
+  ['Składanie 4 z 4', 30, 1], ['Fermentacja', 150], ['Formowanie', 20, 1], ['Garowanie w lodówce', 960, 0, 'noc'],
+  ['Nagrzewanie pieca', 45], ['Pieczenie pod pokrywą', 20], ['Pieczenie bez pokrywy', 25], ['Studzenie', 60]];
+const suma = kroki.reduce((s, k) => s + k[1], 0);
+// Skala złamana: kroki bierne ponad 180 min rysowane jak 180 min (nazwane w legendzie), żeby kroki czynne były czytelne.
+const dl = (k) => Math.min(k[1], 180); const sumaR = kroki.reduce((s, k) => s + dl(k), 0);
+const pozycja = (min) => { let t = 0, r = 0; for (const k of kroki) { if (min < t + k[1]) return (r + dl(k) * (min - t) / k[1]) / sumaR; t += k[1]; r += dl(k); } return 1; };
+function punkty() {
+  const p = []; let L = 0, prev = null;
+  for (let t = 0.9 * Math.PI; t <= 9.2 * Math.PI; t += 0.01) {
+    const r = 10 + 3.35 * t; const x = r * Math.cos(t - Math.PI / 2), y = r * Math.sin(t - Math.PI / 2);
+    if (prev) L += Math.hypot(x - prev[0], y - prev[1]); p.push([x, y, L]); prev = [x, y];
+  }
+  return p;
+}
+const P = punkty(), LMAX = P[P.length - 1][2];
+const odcinek = (a, b) => P.filter((q) => q[2] >= a * LMAX && q[2] <= b * LMAX).map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+for (const svg of document.querySelectorAll('svg.spirala')) {
+  const teraz = +svg.dataset.teraz; let t0 = 0, html = '', bie = null;
+  kroki.forEach((k, i) => {
+    const a = pozycja(t0), b = pozycja(t0 + k[1] - 0.001); const g = 0.006;
+    const zrob = t0 + k[1] <= teraz, biez = t0 <= teraz && teraz < t0 + k[1];
+    const kol = zrob ? 'var(--ratan)' : k[3] ? 'var(--noc)' : 'var(--ratan-jasny)';
+    const w = biez ? 9 : zrob ? 7 : 3; // zrobione grube, przyszłe cienkie: różnica kształtem, nie tylko kolorem
+    html += `<path d="${odcinek(a + g, b - g)}" fill="none" stroke="${biez ? 'var(--ratan-jasny)' : kol}" stroke-width="${w}" stroke-linecap="round"${k[3] && !zrob ? ' stroke-dasharray="2 5"' : ''}/>`;
+    if (biez) { bie = [a, (teraz - t0) / k[1], b]; html += `<path d="${odcinek(a + g, a + (b - a) * bie[1])}" fill="none" stroke="var(--tusz)" stroke-width="9" stroke-linecap="round"/>`; }
+    t0 += k[1];
+  });
+  const q = P.find((x) => x[2] >= pozycja(teraz) * LMAX) || P[P.length - 1];
+  html += `<circle cx="${q[0]}" cy="${q[1]}" r="7" fill="var(--tlo)" stroke="var(--tusz)" stroke-width="3"/>`;
+  const e = P[P.length - 1]; html += `<circle cx="${e[0]}" cy="${e[1]}" r="4" fill="var(--tusz)"/>`;
+  svg.innerHTML = html;
+  const n = kroki.findIndex((k, i) => { const s = kroki.slice(0, i).reduce((x, y) => x + y[1], 0); return s <= teraz && teraz < s + k[1]; });
+  svg.setAttribute('aria-label', `Plan wypieku, krok ${n + 1} z ${kroki.length}: ${kroki[n][0]}. Gotowe o 9:35.`);
+}
+for (const svg of document.querySelectorAll('svg.ikona')) {
+  let h = '<rect width="100" height="100" fill="#1E4954"/>';
+  const pts = []; for (let t = 0.6 * Math.PI; t <= 7.4 * Math.PI; t += 0.05) { const r = 3 + 1.95 * t; pts.push((50 + r * Math.cos(t)).toFixed(1) + ' ' + (50 + r * Math.sin(t)).toFixed(1)); }
+  h += `<path d="M${pts.join(' L')}" fill="none" stroke="#D9C3A0" stroke-width="6" stroke-linecap="round" stroke-dasharray="38 7 22 7 60 7 30 7"/>`;
+  h += `<circle cx="${50 + (3 + 1.95 * 7.4 * Math.PI) * Math.cos(7.4 * Math.PI)}" cy="${50 + (3 + 1.95 * 7.4 * Math.PI) * Math.sin(7.4 * Math.PI)}" r="5" fill="#F5F5F2"/>`;
+  svg.innerHTML = h;
+}
+</script>
+</body>
+</html>

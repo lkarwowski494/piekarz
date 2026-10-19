@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — porównanie kierunków (E2)</title>
+<style>
+@font-face { font-family: "Noto Sans"; font-weight: 100 900; src: url(fonty/NotoSans-wdth-wght.ttf); }
+body { margin: 0; padding: 28px; font: 15px/1.45 "Noto Sans", sans-serif; background: #ECECE8; color: #1C1D1B; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+.pod { color: #4B4D48; margin: 0 0 20px; max-width: 1100px; }
+.kier { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.k { background: #FFF; padding: 16px; }
+.k h2 { margin: 0 0 4px; font-size: 20px; }
+.k .idea { margin: 0 0 10px; }
+.ekrany { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ekrany img { width: 100%; display: block; border: 1px solid #0001; }
+.ikona { display: flex; gap: 12px; align-items: center; margin: 12px 0 6px; }
+.ikona img { width: 96px; height: 96px; border-radius: 22px; }
+.arg { background: #F2F2EE; padding: 10px 12px; }
+table { border-collapse: collapse; background: #FFF; margin-top: 18px; width: 100%; font-size: 13.5px; }
+td, th { border: 1px solid #D5D5CF; padding: 6px 8px; text-align: left; vertical-align: top; }
+.rek { background: #FFF; padding: 14px 16px; margin-top: 18px; border-left: 6px solid #1E4954; }
+.wyb { background: #FFF; padding: 14px 16px; margin-top: 12px; }
+small { color: #4B4D48; }
+</style>
+</head>
+<body>
+<h1>Piekarz: trzy kierunki na tym samym ekranie</h1>
+<p class="pod">Ekran kluczowy: prowadzenie wypieku. Lewa para: krok w trakcie (składanie 2 z 4), prawa para: koniec kroku z ostrzeżeniem (zdejmij pokrywę). Górny rząd jasny, dolny ciemny. 390 pt. Dane planu: [PRZYKŁAD]. Treść: na iOS SF Pro; w makiecie zastępczo Noto Sans (kroju treści nie oceniamy na tym zrzucie). Szczegóły: <code>docs/design/02-kierunki.md</code>.</p>
+<div class="kier">
+  <div class="k">
+    <h2>A. Koszyk spiralny</h2>
+    <p class="idea">Cały wypiek to zwoje koszyka do garowania: od środka (start) do brzegu (gotowe).</p>
+    <div class="ekrany">
+      <img src="kierunki/zrzuty/a-w-trakcie-light.png" alt=""><img src="kierunki/zrzuty/a-koniec-kroku-light.png" alt="">
+      <img src="kierunki/zrzuty/a-w-trakcie-dark.png" alt=""><img src="kierunki/zrzuty/a-koniec-kroku-dark.png" alt="">
+    </div>
+    <div class="ikona"><img src="kierunki/zrzuty/a-ikona.png" alt=""><small>Tytuły: Alegreya Sans. Paleta: płótno, żeliwo, ratan, noc.</small></div>
+    <div class="arg"><b>Najmocniejszy argument:</b> jedyny kierunek, który na jednym przedmiocie z dziedziny pokazuje cały plan z nocą i godziną „gotowe”, przy spojrzeniu 1–3 s z rękami w cieście. Nikt w skanie 15 aplikacji nie ma takiego elementu.</div>
+  </div>
+  <div class="k">
+    <h2>B. Słoik z gumką</h2>
+    <p class="idea">Każdy proces to słoik z kreskami: gumka znaczy start, czerwona kreska koniec kroku.</p>
+    <div class="ekrany">
+      <img src="kierunki/zrzuty/b-w-trakcie-light.png" alt=""><img src="kierunki/zrzuty/b-koniec-kroku-light.png" alt="">
+      <img src="kierunki/zrzuty/b-w-trakcie-dark.png" alt=""><img src="kierunki/zrzuty/b-koniec-kroku-dark.png" alt="">
+    </div>
+    <div class="ikona"><img src="kierunki/zrzuty/b-ikona.png" alt=""><small>Tytuły: Fira Sans Condensed. Paleta: biel, szkło, tusz butelkowy, gumka.</small></div>
+    <div class="arg"><b>Najmocniejszy argument:</b> najlepszy dla zakwasu (najtrudniejsza część według właściciela); gumka i kreski to prawdziwa praktyka piekarzy, czytelna przy 320 pt.</div>
+  </div>
+  <div class="k">
+    <h2>C. Taśma z etykietą</h2>
+    <p class="idea">Każdy krok ma taśmę z godziną pisaną markerem, jak słoik i miska w kuchni.</p>
+    <div class="ekrany">
+      <img src="kierunki/zrzuty/c-w-trakcie-light.png" alt=""><img src="kierunki/zrzuty/c-koniec-kroku-light.png" alt="">
+      <img src="kierunki/zrzuty/c-w-trakcie-dark.png" alt=""><img src="kierunki/zrzuty/c-koniec-kroku-dark.png" alt="">
+    </div>
+    <div class="ikona"><img src="kierunki/zrzuty/c-ikona.png" alt=""><small>Godziny: Caveat. Paleta: biel, marker, taśma, taśma lodówki.</small></div>
+    <div class="arg"><b>Najmocniejszy argument:</b> najbardziej odporny na bardzo duży tekst i 35 języków (to cyfry i tekst), najtańszy w budowie; godzina zegarowa to język, którym piekarz planuje.</div>
+  </div>
+</div>
+
+<div class="rek"><b>Rekomendacja studia: A.</b> Powód funkcjonalny: główna praca to „kiedy zacząć każdy etap” (J-02), a tylko A pokazuje cały plan z nocą i godziną „gotowe” na jednym przedmiocie. Słoik z B może wrócić jako element karty zakwasu, jeśli zechcesz połączyć kierunki.</div>
+<div class="wyb"><b>Twój wybór (2026-10-20):</b> „Dobra, juz z gory moge CI powiedziec ze idziemy w koszyk spiralny” — do potwierdzenia okiem na tej stronie.</div>
+
+<table>
+<tr><th>Kierunek</th><th>Pole</th><th>Pokrywa się z kartą kontrolną albo kalibracją</th><th>Zmiana</th></tr>
+<tr><td>A</td><td>paleta</td><td>(a) brąz i krem</td><td>ratan tylko na zwojach z danymi; tło neutralne zamiast kremu; akcent „noc”</td></tr>
+<tr><td>A</td><td>element</td><td>(a) okrągły licznik czasu</td><td>spirala niesie kroki i ich długości, nie procent; minuty poza spiralą; zrobione grubsze, nie tylko inną barwą</td></tr>
+<tr><td>A</td><td>ruch</td><td>(a) postęp okręgu na żywo</td><td>ruch tylko po „Zrobione”</td></tr>
+<tr><td>A</td><td>układ</td><td>(b) przycisk na dole</td><td>zostaje: pasek kciuka z decyzji DEC-09 a i kontekstu rąk zajętych</td></tr>
+<tr><td>B</td><td>paleta (ciemny)</td><td>kalibracja: prawie czarne tło + cynobrowy akcent</td><td>tło zabarwione szkłem; czerwień tylko na kreskach danych, nigdy na przycisku</td></tr>
+<tr><td>B</td><td>układ</td><td>kalibracja: duża liczba + mała etykieta</td><td>liczba jako odczyt skali słoika, bez statystyk; ryzyko nazwane</td></tr>
+<tr><td>B</td><td>element</td><td>klisza kategorii: słoik</td><td>bez bąbelków i twarzy; słoik niesie czas, start i koniec kroku</td></tr>
+<tr><td>C</td><td>paleta (ciemny)</td><td>(b) grafit + bursztyn</td><td>bez akcentu: jedynym kolorem jest taśma</td></tr>
+<tr><td>C</td><td>układ</td><td>(b) pionowa oś z kropkami</td><td>godziny jako taśmy, bez osi</td></tr>
+<tr><td>A, B, C</td><td>„A · B”, wersaliki, emoji</td><td>kalibracja</td><td>usunięte</td></tr>
+</table>
+</body>
+</html>
