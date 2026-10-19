@@ -42,6 +42,29 @@ describe('Piekarz Reverse Scheduler (BR-HARMO-001…004)', () => {
     }
   });
 
+  // [M1-audytor-generalny-005; 07-jakosc-002 M1] granica końca snu: 06:30 to już nie noc, 06:29 jeszcze tak.
+  it('Sleep Guard boundary: an active step starting exactly at sleepEnd (06:30) is not a collision', () => {
+    const base = new Date(2026, 9, 18, 12, 0, 0);
+    const opts = { sleepStartHour: 23.0, sleepEndHour: 6.5 };
+    const ref = calculateReverseSchedule(base, opts);
+    const idx = ref.stages.findIndex((s) => !s.isPassive && s.durationMinutes < 120);
+    expect(idx).toBeGreaterThanOrEqual(0);
+
+    const shiftTo = (h: number, m: number) => {
+      const want = new Date(ref.stages[idx].startTime.getTime());
+      want.setHours(h, m, 0, 0);
+      const offset = want.getTime() - ref.stages[idx].startTime.getTime();
+      return calculateReverseSchedule(new Date(base.getTime() + offset), opts).stages[idx];
+    };
+
+    const atWake = shiftTo(6, 30);
+    expect(atWake.startTime.getHours() * 60 + atWake.startTime.getMinutes()).toBe(6 * 60 + 30);
+    expect(atWake.isSleepCollision).toBe(false);
+
+    const beforeWake = shiftTo(6, 29);
+    expect(beforeWake.isSleepCollision).toBe(true);
+  });
+
   it('Adapts bulk fermentation duration based on kitchen temperature', () => {
     const target = new Date(2026, 9, 18, 9, 0, 0);
 

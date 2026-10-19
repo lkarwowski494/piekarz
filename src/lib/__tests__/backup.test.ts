@@ -6,7 +6,12 @@ import {
   SCHEMA_VERSION,
   PiekarzBackupData,
   parseAndValidateBackup,
+  autoBackup,
+  safetyBackup,
+  AUTO_DIR,
+  AUTO_KEEP,
 } from '../backup';
+import * as FileSystem from 'expo-file-system/legacy';
 
 describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => {
   const sampleState: PiekarzBackupData = {
@@ -106,6 +111,36 @@ describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => 
 
       const badRecipes = { format: 'piekarz-backup', schemaVersion: 1, state: { bakes: [], starters: [], customRecipes: {} } };
       expect(() => parseAndValidateBackup(JSON.stringify(badRecipes))).toThrow('Nieprawidłowa struktura przepisów');
+    });
+  });
+
+  // [M1-audytor-generalny-005; 07-jakosc-002 M4] rotacja nie może skasować całej puli ani nowej kopii.
+  describe('autoBackup rotation keeps the newest AUTO_KEEP copies', () => {
+    const mockFiles = (FileSystem as unknown as { __mockFiles: Map<string, string> }).__mockFiles;
+    const dir = `${FileSystem.documentDirectory}${AUTO_DIR}`;
+    const poolFiles = () =>
+      [...mockFiles.keys()].filter((k) => k.startsWith(dir)).map((k) => k.slice(dir.length)).filter((f) => AUTO_RE.test(f));
+
+    beforeEach(() => mockFiles.clear());
+
+    it('eleven automatic copies leave exactly 10 files, including the newest one', async () => {
+      const paths: Array<string | null> = [];
+      for (let i = 0; i < AUTO_KEEP + 1; i++) {
+        paths.push(await autoBackup({ bakes: [{ id: `b${i}`, recipeName: 'Chleb', startedAt: i }], starters: [], customRecipes: [] }));
+      }
+      const files = poolFiles();
+      expect(files).toHaveLength(AUTO_KEEP);
+      const newest = paths[paths.length - 1];
+      expect(newest).not.toBeNull();
+      expect(files).toContain(String(newest).slice(dir.length));
+      expect(files).not.toContain(String(paths[0]).slice(dir.length));
+    });
+
+    it('safety copies (before import) are a separate pool and are not removed by automatic rotation', async () => {
+      const safety = await safetyBackup('import', sampleState);
+      for (let i = 0; i < AUTO_KEEP + 2; i++) await autoBackup(sampleState);
+      expect(mockFiles.has(safety)).toBe(true);
+      expect(poolFiles()).toHaveLength(AUTO_KEEP);
     });
   });
 });

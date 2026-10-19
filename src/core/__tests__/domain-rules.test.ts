@@ -150,6 +150,18 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(result.status).toBe('requires_ice');
       expect(result.waterTempTarget).toBe(-2.0);
     });
+
+    // [M1-audytor-generalny-005; 07-jakosc-002 M3] granica: dokładnie 4,0°C to jeszcze woda bez lodu.
+    it('Water at exactly 4.0°C is normal; 3.9°C requires ice (boundary)', () => {
+      // 3 * 20 - (20 + 34 + 2) = 4.0°C
+      const at = calculateDDTWaterTemp({ targetDDT: 20.0, flourTemp: 20.0, roomTemp: 34.0, frictionFactor: 2.0 });
+      expect(at.waterTempTarget).toBe(4.0);
+      expect(at.status).toBe('normal');
+      // 3 * 20 - (20 + 34.1 + 2) = 3.9°C
+      const below = calculateDDTWaterTemp({ targetDDT: 20.0, flourTemp: 20.0, roomTemp: 34.1, frictionFactor: 2.0 });
+      expect(below.waterTempTarget).toBe(3.9);
+      expect(below.status).toBe('requires_ice');
+    });
   });
 
   describe('RD-07: Ice Calculation', () => {
