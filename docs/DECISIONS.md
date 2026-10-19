@@ -62,5 +62,16 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
      - `i18n`: 100% symetrii (554/554 kluczy w kodzie przetłumaczonych na EN).
      - `Testy`: 67 test suites, 1162 testy zaliczone (100% green).
 
+---
+
+### [D-031] 2026-10-19 — Wycięcie Apple Watch, Live Activity i modułów podłączonych tylko w testach
+- **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-03, opcja a); zadanie M1-audytor-generalny-031.
+- **Słowa właściciela:** „Wyciąć z kontraktu MVP i z kodu; zapisać na liście odcięć z warunkiem powrotu”.
+- **Odrzucona opcja:** (b) „Zbudować i podłączyć w 1.0” — kilka tygodni pracy natywnej i testy wyłącznie na urządzeniu (macOS/Xcode).
+- **Powód:** kontrakt obiecywał w MVP aplikację watchOS i Live Activity, których w repo nie ma; moduły `live-activity`, `siri-shortcuts`, `calendar-export`, `piekarz-format`, `bake-fsm`, `thermal-probe`, `baker-drill`, `outbox-service`, `CostCalculatorModal`, `garmin/` i `App.tsx` nie mają wejścia z `app/` (audyt M1: 03-zakres-004, 05-architekt-014, 08-programista-021, 01-odkrywanie-021).
+- **Skutek:** `docs/scope-contract.md` F-01…F-06 = NIE, lista odcięć KL-06…KL-17, ZM-01. Zmienia decyzje BRD DEC-03 (pełna aplikacja watchOS, opcja A), DEC-02 (prototyp mostka Garmin w MVP) i DEC-45 (`pending_ops` dla zegarków) w `docs/brd/00b_Decyzje.md`; poprawka BRD należy do roli 01 (ER).
+- **Dane użytkownika:** tabela `pending_ops` zostaje w schemacie bez migracji i bez zapisu (decyzja 4 planu M2, wybór właściciela 2026-10-19); usunięcie tabeli tylko osobną migracją w późniejszej wersji.
+- **Zależy od:** nic; powrót każdej pozycji tylko przez nowy wpis ZM z dowodem wartości.
+
 
 
