@@ -23,7 +23,7 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.apps4brew.baker",
       "appleTeamId": "8NQ9GHY8GF",
-      "buildNumber": "1",
+      "deploymentTarget": "18.0",
       "infoPlist": {
         "UIFileSharingEnabled": true,
         "LSSupportsOpeningDocumentsInPlace": true,

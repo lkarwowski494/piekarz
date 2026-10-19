@@ -97,9 +97,10 @@ jobs:
             exit 1
           fi
           echo "Ustawianie wersji $VERSION ($BUILD_NUMBER)"
-          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "ios/$APP_DIR/Info.plist" || true
-          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "ios/$APP_DIR/Info.plist" || true
-          sed -i '' -E "s/MARKETING_VERSION = [^;]+;/MARKETING_VERSION = $VERSION;/g" "ios/$APP_SCHEME.xcodeproj/project.pbxproj" || true
+          # Jedyne źródło numeru buildu (app.json bez buildNumber, eas.json bez autoIncrement) [M1-audytor-generalny-077]
+          /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" "ios/$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "ios/$APP_DIR/Info.plist"
+          sed -i '' -E "s/MARKETING_VERSION = [^;]+;/MARKETING_VERSION = $VERSION;/g" "ios/$APP_SCHEME.xcodeproj/project.pbxproj"
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
           echo "BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"
           echo "EXPO_PUBLIC_BUILD_NUMBER=$BUILD_NUMBER" >> "$GITHUB_ENV"

@@ -8,7 +8,10 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
-const appJsonRaw = JSON.parse(readFileSync(join(root, 'app.json'), 'utf8'));
+// --app <ścieżka>: inny plik konfiguracji (test bramki na przykładzie) [M1-audytor-generalny-077]
+const appArg = process.argv.indexOf('--app');
+const appJsonPath = appArg >= 0 && process.argv[appArg + 1] ? process.argv[appArg + 1] : join(root, 'app.json');
+const appJsonRaw = JSON.parse(readFileSync(appJsonPath, 'utf8'));
 const appJson = appJsonRaw.expo;
 const errors = [];
 
@@ -25,6 +28,18 @@ check(/^\d+\.\d+(\.\d+)?$/.test(ver), `Wersja '${ver}' w app.json musi mieć for
 // 2. Identyfikator pakietu (Bundle Identifier)
 const bundleId = appJson.ios?.bundleIdentifier;
 check(!!bundleId && /^[a-zA-Z0-9_.-]+$/.test(bundleId), `Nieprawidłowy bundleIdentifier w app.json: ${bundleId}`);
+
+// 2b. Minimalny iOS z decyzji BRD 00b o minimalnym iOS (docs/brd/00b_Decyzje.md: iOS 18) i jedno
+// źródło numeru buildu: liczy go workflow testflight.yml, więc app.json nie ma buildNumber [M1-audytor-generalny-077]
+const IOS_DEPLOYMENT_TARGET = '18.0';
+check(
+  appJson.ios?.deploymentTarget === IOS_DEPLOYMENT_TARGET,
+  `app.json ios.deploymentTarget musi wynosić '${IOS_DEPLOYMENT_TARGET}' (decyzja BRD 00b o minimalnym iOS), obecnie: ${appJson.ios?.deploymentTarget}`
+);
+check(
+  appJson.ios?.buildNumber === undefined,
+  'app.json nie może mieć ios.buildNumber: numer buildu ustawia wyłącznie workflow testflight.yml'
+);
 
 // 3. ITSAppUsesNonExemptEncryption = false
 const infoPlist = appJson.ios?.infoPlist || {};
@@ -137,6 +152,20 @@ if (existsSync(iosDir)) {
       pbx.includes(`MARKETING_VERSION = "${ver}";`) ||
       (ver === '1.0.0' && (pbx.includes('MARKETING_VERSION = 1.0;') || pbx.includes('MARKETING_VERSION = "1.0";')));
     check(matchesVersion, `MARKETING_VERSION w project.pbxproj nie zgadza się z ${ver}`);
+    const targets = [...pbx.matchAll(/IPHONEOS_DEPLOYMENT_TARGET = "?([\d.]+)"?;/g)].map((m) => m[1]);
+    // Prebuild ustawia wartość w konfiguracjach głównego celu aplikacji (nadpisują poziom projektu)
+    check(
+      targets.includes(IOS_DEPLOYMENT_TARGET),
+      `IPHONEOS_DEPLOYMENT_TARGET ${IOS_DEPLOYMENT_TARGET} nie trafił do project.pbxproj (obecnie: ${[...new Set(targets)].join(', ') || 'brak'})`
+    );
+    const podProps = join(iosDir, 'Podfile.properties.json');
+    if (existsSync(podProps)) {
+      const props = JSON.parse(readFileSync(podProps, 'utf8'));
+      check(
+        props['ios.deploymentTarget'] === IOS_DEPLOYMENT_TARGET,
+        `ios/Podfile.properties.json ios.deploymentTarget musi wynosić ${IOS_DEPLOYMENT_TARGET} (obecnie: ${props['ios.deploymentTarget']})`
+      );
+    }
   }
   if (existsSync(plistPath)) {
     const plist = readFileSync(plistPath, 'utf8');
