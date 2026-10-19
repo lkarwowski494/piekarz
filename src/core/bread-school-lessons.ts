@@ -166,7 +166,7 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
       'Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.',
       'Wygładź wierzch mokrą łyżką, posyp ziarnami lub mąką i odstaw w ciepłe miejsce (26–28°C) do wyrośnięcia (ok. 3h).',
       'Gdy ciasto podwoi objętość i na wierzchu pojawią się małe kraterki, wstaw do pieca (240°C przez 15 min z parą, potem 200°C przez 45 min).',
-      'BEZWZGLĘDNY ZAKAZ KROJENIA: Odczekaj minimum 12–24h przed pierwszym ukrojeniem kromki!',
+      'Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
     ],
     stepsEn: [
       'Prepare a vigorous multi-stage rye sourdough with fragrant fruity-acetic notes.',
@@ -175,7 +175,7 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
       'Scoop the paste directly into a greased and bran-dusted loaf pan.',
       'Smooth surface with a wet spatula and ferment in a warm spot (26–28°C) for ~3 hours.',
       'Bake at 240°C with initial steam for 15 min, then reduce to 200°C for 45 min.',
-      'STRICT RULE: Do not cut warm rye bread! Wait at least 12–24 hours for starch retrogradation to stabilize.',
+      'According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
     ],
     passingCriteriaPl: 'Jednolity, sprężysty miękisz bez lepkiego zakalca pod skórką po 24 godzinach od wypieku.',
     passingCriteriaEn: 'Uniform elastic crumb without starch liquefaction (gumminess) sliced 24 hours post-bake.',

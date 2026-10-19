@@ -189,14 +189,14 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
       'Zapewnij swobodny przepływ powietrza od spodu bochenka (chleb pozostawiony na blacie lub desce zaparzy się i namoknie od spodu!).',
       'Posłuchaj chleba: w pierwszych minutach usłyszysz charakterystyczne „śpiewanie” (trzaskanie pękającej cieniutkiej skórki).',
       'Dla chlebów pszennych: odczekaj MINIMUM 2 godziny przed pierwszym krojeniem.',
-      'Dla chlebów żytnich (100% żyto): odczekaj MINIMUM 12–24 godziny! Gorące żyto po ukrojeniu ma postać lepkiej mazi.',
+      'Chleb żytni: według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. Gorące żyto po ukrojeniu ma postać lepkiej mazi.',
     ],
     executionStepsEn: [
       'Immediately transfer hot loaf onto an elevated wire rack post-bake.',
       'Ensure free airflow beneath the loaf (leaving bread on solid board causes trapped steam to turn base soggy).',
       'Listen closely: within the first 10 minutes you will hear the bread "sing" as the micro-crust crackles.',
       'For wheat sourdough: wait at LEAST 2 hours before the first cut.',
-      'For 100% rye loaves: wait at LEAST 12–24 hours! Warm rye sliced prematurely resembles raw paste.',
+      'Rye bread: according to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality. Warm rye sliced prematurely resembles raw paste.',
     ],
     commonMistakesPl: [
       'Krojenie gorącego chleba prosto z pieca — nóż miażdży niestabilną siatkę skrobi, tworząc trwały zakalec na ostrzu.',

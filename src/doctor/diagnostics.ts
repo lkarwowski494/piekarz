@@ -57,7 +57,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       biologicalCausePl:
         'Krojenie gorącego chleba niszczy strukturę skrobi, która potrzebuje ostygnięcia do min. 50°C, aby dokończyć proces żelowania. Inną przyczyną może być zbyt niska temperatura wewnątrz bochenka (<94°C).',
       actionChecklistPl: [
-        'Odczekaj minimum 2 godziny przed pierwszym krojeniem bochenka (dla chlebów żytnich min. 8h).',
+        'Odczekaj minimum 2 godziny przed pierwszym krojeniem bochenka. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
         'Zwiększ czas pieczenia o 5–8 minut.',
         'Sprawdź temperaturę wewnętrzną termometrem szpilkowym (docelowo: 95–98°C).',
       ],

@@ -213,7 +213,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 195,
     recommendedVessel: 'bread_pan',
-    notesPl: 'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Krój dopiero po 12 godzinach od upieczenia.',
+    notesPl: 'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
   },
   {
     id: 'borodinsky_rye',
