@@ -18,14 +18,12 @@ import { useBakeSession } from '../../src/hooks/useBakeSession';
 import { saveBakeSession } from '../../src/data/bake-session-store';
 import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
 import {
-  saveBakeLog,
+  finishBake,
   getBakeLogs,
   deleteBakeLog,
   setActiveBake,
   ActiveBakeState,
-  deductFlourStock,
   getRecipes,
-  incrementCompletedBakes,
   getBakingVessel,
   setBakingVessel,
   BakingVessel,
@@ -315,9 +313,9 @@ export default function StolnicaScreen() {
     }
   };
 
-  // Finish bake & save to SQLite
+  // Finish bake: wpis, licznik wypieków i odliczenie mąki w jednej transakcji [M1-audytor-generalny-021]
   const handleSaveFinishBake = guardSave(async () => {
-    await saveBakeLog({
+    await finishBake({
       id: `bake_${Date.now()}`,
       recipeName,
       startedAt,
@@ -334,17 +332,7 @@ export default function StolnicaScreen() {
         openCrumb: finishCrumbScore,
         crustCrispness: finishCrustScore,
       },
-    });
-
-    // Real increments for monetization trial counter (Apps4Craft Gold Standard)
-    await incrementCompletedBakes();
-
-    // Deduct flour inventory if calculated recipe is present
-    if (activeBakeData?.calculatedRecipe?.flours) {
-      for (const f of activeBakeData.calculatedRecipe.flours) {
-        await deductFlourStock(f.name, f.weightGrams);
-      }
-    }
+    }, activeBakeData?.calculatedRecipe?.flours ?? []);
 
     setActiveBake(null);
     await saveBakeSession(null);

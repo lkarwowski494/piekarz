@@ -4,6 +4,7 @@ import {
   StoredStarter,
   StoredBakeLog,
   StoredFlourInventoryItem,
+  StoredAppAccess,
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import {
@@ -23,6 +24,8 @@ export {
 export * from './app-access-store';
 export * from './settings-store';
 import { writeOrThrow } from './storage-status';
+import { getAppAccess, incrementCompletedBakes } from './app-access-store';
+import { signAppAccessRecord } from '../lib/app-access-crypto';
 
 // ==========================================
 // Bakes & Stolnica
@@ -348,27 +351,80 @@ export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
   }
 }
 
-export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
-  const db = await getDb();
-  if (db) {
-    await writeOrThrow(() =>
-      db.runAsync(
-        'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
-        item.id,
-        item.name,
-        item.stockGrams,
-        item.brand ?? null,
-        item.proteinPct ?? null,
-        item.updatedAt
-      )
-    );
-  }
+async function writeFlourRow(db: Db, item: StoredFlourInventoryItem): Promise<void> {
+  await db.runAsync(
+    'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
+    item.id,
+    item.name,
+    item.stockGrams,
+    item.brand ?? null,
+    item.proteinPct ?? null,
+    item.updatedAt
+  );
+}
 
+function rememberFlour(item: StoredFlourInventoryItem): void {
   const existingIdx = memStore.flourInventory.findIndex((f) => f.id === item.id);
   if (existingIdx >= 0) {
     memStore.flourInventory[existingIdx] = item;
   } else {
     memStore.flourInventory.push(item);
+  }
+}
+
+export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
+  const db = await getDb();
+  if (db) await writeOrThrow(() => writeFlourRow(db, item));
+  rememberFlour(item);
+}
+
+/**
+ * Zakończenie wypieku w jednej transakcji: wpis do historii, licznik wypieków i odliczenie mąki
+ * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
+ */
+export async function finishBake(log: StoredBakeLog, flours: Array<{ name: string; weightGrams: number }>): Promise<void> {
+  const db = await getDb();
+  if (!db) {
+    await saveBakeLog(log);
+    await incrementCompletedBakes();
+    for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
+    return;
+  }
+
+  const current = await getAppAccess();
+  const access: StoredAppAccess = { ...current, completedBakesCount: current.completedBakesCount + 1 };
+  access.signature = signAppAccessRecord(access);
+  const inventory = (await getFlourInventory()).map((i) => ({ ...i }));
+  const changed = new Map<string, StoredFlourInventoryItem>();
+  for (const f of flours) {
+    const matched = inventory.find((inv) => inv.name.trim().toLowerCase() === f.name.trim().toLowerCase());
+    if (matched) {
+      matched.stockGrams = Math.max(0, Math.round(matched.stockGrams - f.weightGrams));
+      matched.updatedAt = Date.now();
+      changed.set(matched.id, matched);
+    }
+  }
+
+  await writeOrThrow(() =>
+    db.withTransactionAsync(async () => {
+      await writeBakeRow(db, log);
+      await db.runAsync(
+        `UPDATE app_access SET completed_bakes_count = ?, signature = ? WHERE id = 'current_user';`,
+        access.completedBakesCount,
+        access.signature ?? null
+      );
+      for (const item of changed.values()) await writeFlourRow(db, item);
+    })
+  );
+
+  // Pamięć dopiero po zatwierdzeniu transakcji
+  memStore.logs = [log, ...memStore.logs.filter((l) => l.id !== log.id)];
+  memStore.appAccess = { ...access };
+  changed.forEach(rememberFlour);
+  if (log.finishedAt) {
+    void collectBackupData()
+      .then((data) => autoBackup(data))
+      .catch(() => null);
   }
 }
 
