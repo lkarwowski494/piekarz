@@ -1,0 +1,133 @@
+[
+  {
+    "id": "ZAK-KAH-001",
+    "twierdzenie": "Biały, matowy (pomarszczony) kożuch na zakwasie to nieszkodliwe drożdże tlenowe (kahm); po zdjęciu kożucha zakwas ze spodu słoika można dalej dokarmiać.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/understanding-and-making-sauerkraut/",
+        "miejsce": "CSU Extension, kiszona kapusta (zakres: kapusta w solance, nie zakwas chlebowy)",
+        "cytat": "A white or pink yeast scum can appear on the surface at any point in the sauerkraut fermentation process which can be removed and discarded.",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      }
+    ],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Werdykt audytu M1: CZĘŚCIOWO (TRE-03, inny produkt). FSIS (szczebel 1) podaje białe pleśnie (ZAK-PLE-004), więc wzrokowe rozróżnienie kożucha i pleśni przez użytkownika nie ma źródła 1-3. Docs/brd/W.md:38 powołuje 'FDA Bad Bug Book (2012); USDA Guidelines on Sourdough Safety' bez miejsca i cytatu; drugiego dokumentu nie zidentyfikowano.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-PLE-001",
+    "twierdzenie": "Pleśń na zakwasie ma postać puszystych, kolorowych plam.",
+    "zrodla": [],
+    "status": "sprzeczne",
+    "uwagi": "Sprzeczne z USDA FSIS (szczebel 1): 'white dust on Cheddar'; 'Cheeses such as Brie and Camembert have white surface molds.' Pleśń bywa biała (ZAK-PLE-004).",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-PLE-002",
+    "twierdzenie": "Zakwasu z jakąkolwiek oznaką pleśni (kolorową lub puszystą) nie należy używać; należy go wyrzucić.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, Sourdough Starter Best Practices, sekcja Troubleshooting (Reviewed: October 2025)",
+        "cytat": "Sourdough starter that shows any sign of mold (colored and/or fuzzy) should NOT be used, and the container should be thoroughly cleaned and rinsed before starting over.",
+        "odczyt": "2026-10-19",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/molds-food-are-they-dangerous",
+        "miejsce": "USDA FSIS, Molds on Food, sekcja How Should You Handle Food with Mold on It? (Last Updated: Aug 22, 2013; serwer 403, czytana kopia web.archive.org 20261004024430)",
+        "cytat": "If food is covered with mold, discard it.",
+        "odczyt": "2026-10-19",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "FSIS nie wymienia zakwasu; regułę dla zakwasu daje CSU (szczebel 3), FSIS potwierdza kierunek dla żywności o dużej wilgotności.",
+    "krytyczne": true,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-PLE-003",
+    "twierdzenie": "Strzępki pleśni mogą być trudne do zauważenia i sięgać głęboko w żywność; żywność o dużej wilgotności może być skażona pod powierzchnią.",
+    "zrodla": [
+      {
+        "adres": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/molds-food-are-they-dangerous",
+        "miejsce": "USDA FSIS, Molds on Food, sekcje What Are Molds? i tabela (Yogurt and sour cream, Cooked grain and pasta); kopia web.archive.org 20261004024430",
+        "cytat": "The roots may be difficult to see when the mold is growing on food and may be very deep in the food. […] Foods with high moisture content can be contaminated below the surface.",
+        "odczyt": "2026-10-19",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "FSIS nie wymienia zakwasu; zakwas traktujemy jak żywność o dużej wilgotności (kierunek bezpieczny).",
+    "krytyczne": true,
+    "przeglad": null,
+    "wazne_do": "2027-10-19"
+  },
+  {
+    "id": "ZAK-NAC-900",
+    "twierdzenie": "Słoik po spleśniałym zakwasie trzeba wygotować we wrzątku albo wyrzucić.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] NIEPOPARTE: CSU Extension mówi tylko 'the container should be thoroughly cleaned and rinsed before starting over'.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-HOO-900",
+    "twierdzenie": "Ciemny płyn o zapachu alkoholu na zakwasie to skutek głodu; zakwas jest zdrowy, ale głodny, i trzeba go niezwłocznie dokarmić.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] CZĘŚCIOWO względem CSU Extension (szczebel 3): 'Sourdough starter may develop a liquid layer that smells of alcohol, and this is fine.' Źródło nie mówi o kolorze płynu, o głodzie ani o tym, że zakwas jest zdrowy.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-ZDR-900",
+    "twierdzenie": "Zakwas, przy którym nie zaznaczono objawów, jest zdrowy i aktywny oraz ma prawidłowy zapach owocowo-kwasowy.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] NIEPOPARTE: brak obserwacji nie jest podstawą oceny; żadne źródło 1-3 nie daje werdyktu 'zdrowy' bez obserwacji.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-PH-900",
+    "twierdzenie": "Przy pH 4,0 lub niższym C. botulinum, E. coli i Salmonella ulegają całkowitej inaktywacji.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] docs/brd/C4b.md:33, bez źródła; nie występuje w produkcie.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "DOK-PIE-900",
+    "twierdzenie": "Piekarnik z włączoną samą żarówką daje 26–27°C.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] src/doctor/dough-recovery.ts:68 (06-tresci-012); brak ostrzeżenia o wyjęciu naczynia przed nagrzewaniem (ryzyko dla mienia).",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
+    "id": "FIS-PAT-900",
+    "twierdzenie": "Zakwas o pH około 4 natychmiast zabija bakterie chorobotwórcze (Salmonella, E. coli).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] src/core/baker-drill.ts:88 (06-tresci-013), nieosiągalne z UI; De Vuyst & Neysens 2005 płatny, nie przeczytany.",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  }
+]
