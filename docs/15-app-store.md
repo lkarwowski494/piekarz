@@ -14,18 +14,23 @@ Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wyt
 | **Słowa kluczowe** | `chleb,zakwas,pieczenie,kalkulator,mąka,ddt,hydratacja,bochenek,piekarz,garnek` | 100 zn. |
 
 ### Pełny Opis (PL)
-Piekarz (Crust) to profesjonalne, bezkompromisowe narzędzie stworzone dla pasjonatów rzemieślniczego wypieku chleba na zakwasie oraz drożdżach.
+> Pełny, aktualny opis sklepu (PL i EN) jest w `docs/app-store-metadata-v2.md` (sekcje 1.2 i 2.2); skrót niżej opisuje ten sam stan kodu (M1-audytor-generalny-035, 2026-10-19).
+
+Piekarz (Crust) prowadzi domowy wypiek chleba na zakwasie i na drożdżach od receptury do bochenka.
 
 NAJWAŻNIEJSZE FUNKCJE:
-• Prawdziwy Procent Piekarski (True Baker's %): Automatyczne rozbicie zakwasu i prefermentów na czystą mąkę i wodę – koniec z rozbieżnościami w hydratacji bochenka.
-• Precyzyjne 4-DDT: Wyliczanie dokładnej temperatury wody na podstawie temperatury mąki, otoczenia, zakwasu i tarcia misy.
-• Asystent Wypieku Stolnica: Prowadzenie przez fazy pieczenia w garnku żeliwnym (para + karmelizacja) z odpornymi na tło timerami.
-• Harmonogram Wsteczny ze Sleep Guard: Zaplanuj wypiek na konkretną godzinę. Algorytm chroni Twój sen, ostrzegając przed składaniem ciasta w środku nocy.
-• Doktor Ciasta: Błyskawiczna identyfikacja problemów (rozlewanie się bochenka, blada skórka, brak ucha) z gotowymi planami ratunkowymi.
-• Akademia Piekarza: 12 technik rzemieślniczych, atlas europejskich typów mąk i trening intuicji piekarskiej.
+• Prawdziwy Procent Piekarski (True Baker's %): rozbicie zakwasu i zaczynów (poolish, biga, pâte fermentée, levain) na mąkę i wodę oraz hydratacja całego ciasta.
+• 4-DDT: temperatura wody do docelowej temperatury ciasta; masa lodu, gdy woda musiałaby mieć mniej niż 4 °C.
+• Stolnica: etapy planu z Harmonogramu z minutnikiem każdego etapu, wypiek w garnku żeliwnym w dwóch fazach (pod pokrywką i bez pokrywki), wariant żytni bez składania; powiadomienie o końcu etapu, gdy zezwolisz na powiadomienia.
+• Harmonogram Wsteczny ze Sleep Guard: plan od godziny, o której chleb ma być gotowy; ostrzeżenie, gdy etap wymagający Twoich rąk wypada w godzinach snu.
+• Doktor Chleba: wybór objawów, diagnoza jednej z 9 wad (np. blada skórka, brak ucha) i 4 protokoły ratunkowe.
+• Akademia Piekarza: 6 lekcji Szkoły Chleba i 12 technik.
 
 100% OFFLINE-FIRST:
-Aplikacja działa w pełni lokalnie bez konieczności połączenia z internetem. Twoje receptury i notatki są zapisywane wyłącznie na Twoim urządzeniu. Zero reklam, zero śledzenia, zero telemetrii.
+Obliczenia, plan i minutniki działają bez połączenia z internetem. Twoje receptury i notatki są zapisywane wyłącznie na Twoim urządzeniu. Zero reklam, zero śledzenia, zero telemetrii.
+
+DOSTĘP:
+Pełny dostęp daje subskrypcja miesięczna lub roczna (z możliwym bezpłatnym okresem próbnym jako ofertą wprowadzającą App Store) albo zakup dożywotni. Bez zakupu: przegląd historii wypieków oraz eksport i usunięcie własnych danych.
 
 ---
 
@@ -59,7 +64,7 @@ Aplikacja działa w pełni lokalnie bez konieczności połączenia z internetem.
 
 ```text
 Wersja 1.0.0 (Crust):
-- Weryfikacja kalkulatora True Baker's % przy zmianie hydratacji (65%–85%).
+- Weryfikacja kalkulatora True Baker's % przy zmianie hydratacji.
 - Wyliczenie temperatury wody metodą 4-DDT.
 - Uruchomienie asystenta wypieku w garnku żeliwnym z timerem.
 - Zaplanowanie harmonogramu wstecznego z testem Sleep Guard.

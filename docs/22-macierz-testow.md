@@ -24,7 +24,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/(tabs)/index` | `app/(tabs)/index.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/brands.contract.test.ts |
 | `EKRAN` | `/(tabs)/stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
 | `EKRAN` | `/(tabs)/zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/i18n-starter-safety-langs.test.tsx |
-| `TEKST` | `Doktor Chleba` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/diagnosis-formatter.test.ts |
+| `TEKST` | `Doktor Chleba` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/teksty-sklepu.test.ts |
 | `TEKST` | `Diagnostyka błędów wypieku i ratowanie bochenka` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia Piekarza` | `app/(tabs)/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia` | `app/(tabs)/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
