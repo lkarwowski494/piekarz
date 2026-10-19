@@ -169,6 +169,11 @@ jest.mock('expo-camera', () => {
   };
 });
 
+// Język systemu w testach: polski, jak dotąd domyślny język aplikacji [M1-audytor-generalny-048]
+jest.mock('expo-localization', () => ({
+  getLocales: () => [{ languageTag: 'pl-PL', languageCode: 'pl', regionCode: 'PL' }],
+}));
+
 jest.mock('expo-print', () => ({
   printAsync: jest.fn().mockResolvedValue(undefined),
   printToFileAsync: jest.fn().mockResolvedValue({ uri: 'file:///mock/print.pdf' }),

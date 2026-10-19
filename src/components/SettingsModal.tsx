@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
-import { t, setLang, Lang, useLang } from '../lib/i18n';
+import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
 import { CloseButton } from './CloseButton';
 import {
   getBakerRitualProfile,
@@ -55,8 +55,9 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
     await setBakingVessel(v);
   };
 
+  // Zmiana od razu i zapis na kolejne uruchomienia [M1-audytor-generalny-048]
   const handleLanguageChange = (newLang: Lang) => {
-    setLang(newLang);
+    void chooseLanguage(newLang).catch(() => {});
   };
 
   const handleUnitSystemChange = (system: UnitSystem) => {

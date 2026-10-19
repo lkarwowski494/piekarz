@@ -1,10 +1,30 @@
 import { useState, useEffect } from 'react';
+import { getLocales } from 'expo-localization';
 import { EN } from './i18n.en';
 
-export const LANGS = ['pl', 'en'] as const;
-export type Lang = typeof LANGS[number];
+/**
+ * Mechanizm dla 35 języków z rejestru `SUPPORTED_LOCALES_35` (DEC-06 b, decyzja właściciela 2a):
+ * aktywne są języki, które mają słownik. Kolejny język = słownik w DICTIONARIES + kod w ACTIVE_LANGS
+ * + `languages/<kod>.json` (przekład 093, partia 4) [M1-audytor-generalny-048].
+ */
+export const ACTIVE_LANGS = ['pl', 'en'] as const;
+export type Lang = typeof ACTIVE_LANGS[number];
+/** Zgodność wstecz: dotychczasowa nazwa listy języków. */
+export const LANGS = ACTIVE_LANGS;
+/** Język źródłowy (klucze słowników) i język zastępczy dla systemu spoza aktywnych. */
+const SOURCE_LANG: Lang = 'pl';
+const FALLBACK_LANG: Lang = 'en';
+const SETTING_KEY = 'language';
 
-let currentLang: Lang = 'pl';
+const DICTIONARIES: Partial<Record<Lang, Record<string, string>>> = { en: EN };
+
+export function hasDictionary(l: string): boolean {
+  return Object.prototype.hasOwnProperty.call(DICTIONARIES, l);
+}
+
+const isActive = (l: string | null | undefined): l is Lang => !!l && (ACTIVE_LANGS as readonly string[]).includes(l);
+
+let currentLang: Lang = SOURCE_LANG;
 type LangListener = (l: Lang) => void;
 const listeners = new Set<LangListener>();
 
@@ -28,15 +48,60 @@ export function useLang(): Lang {
   return l;
 }
 
-const own = (dict: Record<string, string>, key: string): string | undefined => {
-  return Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : undefined;
+/** Zapisany wybór, potem pierwszy aktywny język z listy systemu (pełny tag, potem kod języka), potem angielski. */
+export function resolveLanguage(saved: string | null | undefined, deviceTags: readonly string[]): Lang {
+  if (isActive(saved)) return saved;
+  for (const tag of deviceTags) {
+    if (isActive(tag)) return tag;
+    const base = tag.split('-')[0]?.toLowerCase();
+    if (isActive(base)) return base;
+  }
+  return FALLBACK_LANG;
+}
+
+// Leniwy odczyt: settings-store przez backup.ts importuje i18n (cykl przy imporcie statycznym)
+const settingsStore = (): typeof import('../data/settings-store') => require('../data/settings-store');
+
+function deviceLanguageTags(): string[] {
+  try {
+    return getLocales().map((l) => l.languageTag);
+  } catch {
+    return [];
+  }
+}
+
+/** Start aplikacji: język z zapisu albo z systemu. Błąd odczytu zapisu nie blokuje startu. */
+export async function initLanguage(): Promise<void> {
+  let saved: string | undefined;
+  try {
+    const { getAppSetting } = settingsStore();
+    saved = await getAppSetting(SETTING_KEY);
+  } catch {
+    saved = undefined;
+  }
+  setLang(resolveLanguage(saved, deviceLanguageTags()));
+}
+
+/** Wybór użytkownika w Ustawieniach: zmiana od razu i zapis na kolejne uruchomienia. */
+export async function chooseLanguage(l: Lang): Promise<void> {
+  setLang(l);
+  const { setAppSetting } = settingsStore();
+  await setAppSetting(SETTING_KEY, l);
+}
+
+const own = (dict: Record<string, string> | undefined, key: string): string | undefined => {
+  return dict && Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : undefined;
 };
 
 /**
  * Tłumaczenie tekstu z opcjonalną interpolacją parametrów {klucz}.
+ * Brak wpisu: słownik zastępczy (EN), potem tekst źródłowy; nigdy pusty tekst.
  */
 export function t(pl: string, params?: Record<string, string | number>): string {
-  let text = currentLang === 'pl' ? pl : own(EN, pl) ?? pl;
+  let text =
+    currentLang === SOURCE_LANG
+      ? pl
+      : own(DICTIONARIES[currentLang], pl) ?? own(DICTIONARIES[FALLBACK_LANG], pl) ?? pl;
   if (params) {
     for (const k of Object.keys(params)) {
       text = text.split(`{${k}}`).join(String(params[k]));

@@ -10,6 +10,7 @@ import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
+import { initLanguage } from '../src/lib/i18n';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -38,6 +39,8 @@ export default function RootLayout() {
         return;
       }
       await initDatabase();
+      // Język z zapisu albo z systemu, po bazie (zapis w app_settings) [M1-audytor-generalny-048]
+      await initLanguage();
       // Nasłuch transakcji StoreKit od startu, zanim użytkownik otworzy ekran zakupu (MON-04) [M1-audytor-generalny-008]
       stopPlatnosci = uruchomPlatnosci();
       void resyncNotifications();
