@@ -110,12 +110,31 @@ export async function saveBakeLog(log: StoredBakeLog): Promise<void> {
 
   // Auto-backup triggered upon finished bake (Apps4Craft T-012 standard)
   if (log.finishedAt) {
-    void autoBackup({
-      bakes: memStore.logs,
-      starters: memStore.starters,
-      customRecipes: memStore.recipes,
-    });
+    void collectBackupData()
+      .then((data) => autoBackup(data))
+      .catch(() => null);
   }
+}
+
+/**
+ * Stan do kopii zapasowej czytany z bazy (cała historia użytkownika), bez receptur wbudowanych
+ * i bez danych demonstracyjnych, których nie ma w bazie [M1-audytor-generalny-001].
+ */
+export async function collectBackupData(): Promise<PiekarzBackupData> {
+  const db = await getDb();
+  if (!db) {
+    return {
+      bakes: [...memStore.logs],
+      starters: [...memStore.starters],
+      customRecipes: memStore.recipes.filter((r) => !r.isBuiltIn),
+    };
+  }
+  const [bakes, starters, recipes] = await Promise.all([
+    getBakeLogs(),
+    db.getAllAsync<StoredStarter>(STARTERS_SELECT),
+    getRecipes(),
+  ]);
+  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn) };
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
@@ -142,14 +161,15 @@ export function setActiveBake(bake: ActiveBakeState | null): void {
 // Starters (Zakwas)
 // ==========================================
 
+const STARTERS_SELECT =
+  'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt FROM starters;';
+
 export async function getStarters(): Promise<StoredStarter[]> {
   const db = await getDb();
   if (!db) return [...memStore.starters];
 
   try {
-    const rows = await db.getAllAsync<StoredStarter>(
-      'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt FROM starters;'
-    );
+    const rows = await db.getAllAsync<StoredStarter>(STARTERS_SELECT);
     return rows.length > 0 ? rows : [...memStore.starters];
   } catch {
     return [...memStore.starters];
