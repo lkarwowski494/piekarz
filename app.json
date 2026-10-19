@@ -92,7 +92,9 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Piekarz wymaga dostępu do aparatu, aby natychmiast zeskanować kod QR receptury w 100% offline."
+          "cameraPermission": "Piekarz wymaga dostępu do aparatu, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.",
+          "microphonePermission": false,
+          "recordAudioAndroid": false
         }
       ],
       "expo-notifications",

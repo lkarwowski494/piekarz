@@ -1,5 +1,6 @@
 {
   "ios": {
+    "CFBundleDisplayName": "Piekarz",
     "NSCameraUsageDescription": "Crust (Piekarz) uses the camera only to scan a recipe QR code from another baker. Scanning works fully offline and no image is saved."
   }
 }
