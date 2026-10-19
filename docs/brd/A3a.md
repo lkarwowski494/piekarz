@@ -29,11 +29,11 @@ Tabela definiuje precyzyjny podział funkcji na etapy wdrożeniowe: **MVP (wersj
 | **Z-023** | HARMO | Szacowanie czasu nagrzewania naczynia żeliwnego (45–60 min) | MUST | MVP | Gwarancja odpowiedniej temperatury pieca |
 | **Z-024** | ETAP | Prowadzenie przez etapy wypieku krok po kroku | MUST | MVP | ZP-01; spokój i skupienie |
 | **Z-025** | ETAP | Etap 1: Dokarmienie zakwasu i osiągnięcie szczytu (Peak) | MUST | MVP | Rdzeń biologiczny wypieku |
-| **Z-026** | ETAP | Etap 2: Autoliza klasyczna lub fermentoliza | MUST | MVP | Rozstrzygnięcie S-02 |
+| **Z-026** | ETAP | Etap 2: Autoliza klasyczna lub fermentoliza | MUST | MVP | Rozstrzygnięcie sprzeczności nr 2 z archiwalnej erraty BRD 0.1 (ER-21) |
 | **Z-027** | ETAP | Etap 3: Mieszanie właściwe i dodanie soli (Bassinage) | MUST | MVP | Prawidłowe budowanie siatki glutenowej |
 | **Z-028** | ETAP | Etap 4: Fermentacja burzliwa z pętlą składań (np. 4x co 30 min) | MUST | MVP | Kluczowa faza budowania struktury |
 | **Z-029** | ETAP | Obsługa różnych technik składania: Stretch & Fold, Coil Fold, Laminacja | MUST | MVP | Elastyczność dla zaawansowanych |
-| **Z-030** | ETAP | Automatyczne wyłączenie składań przy ciastach >50% mąki żytniej | MUST | MVP | Ochrona struktury żyta; S-04 |
+| **Z-030** | ETAP | Automatyczne wyłączenie składań przy ciastach >50% mąki żytniej | MUST | MVP | Ochrona struktury żyta; sprzeczność nr 4 z archiwalnej erraty BRD 0.1 (ER-21); próg „> 50%” różni się od RD-11 „≥ 50%” (ER-09) |
 | **Z-031** | ETAP | Etap 5: Formowanie wstępne (Pre-shape) i odpoczynek na desce (Bench Rest) | MUST | MVP | Standard technologiczny formowania bochenka |
 | **Z-032** | ETAP | Etap 6: Formowanie ostateczne (bochenek podłużny / batard vs okrągły / boule) | MUST | MVP | Różne techniki napinania skórki |
 | **Z-033** | ETAP | Etap 7: Garowanie końcowe (koszyk rozrostowy / lodówka) | MUST | MVP | Faza kumulacji gazu i kwasowości |

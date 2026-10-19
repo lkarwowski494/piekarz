@@ -1,4 +1,4 @@
-# Piekarz BRD 0.1 — Część A3b: Tabela zakresu (2/2, pozycje Z-054…Z-120)
+# Piekarz BRD 0.1 — Część A3b: Tabela zakresu (2/2, pozycje Z-054…Z-100; BRD 0.1 zapowiadał Z-120, ER-18)
 
 Druga część tabeli zakresu: integracja systemowa, zegarki, bezdotykowa praca w kuchni, moduł nauki, diagnostyka oraz NFR.
 

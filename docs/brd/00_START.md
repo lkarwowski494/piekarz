@@ -10,17 +10,22 @@ Zgodnie ze standardem Apps4Craft (znanym z projektów *Oczko*, *Słoik* i *Napar
 
 ```
 docs/brd/
+├── archiwum/                   # BRD 0.1 z Dysku (26 plików Piekarz_BRD_0.1___*), nieaktualne
 ├── fixtures/
-│   └── test-vectors.json       # Maszynowy korpus wektorów testowych dla PBT
-├── 00_START.md                 # (Ten plik) Streszczenie, warianty MVP, blokery wydania
-├── 00b_Decyzje.md              # Rejestr decyzji produktowych DEC-01…DEC-46
-├── 00c_Errata.md               # Errata sprzeczności w literaturze i dowody naukowe
-├── A1.md ... A4.md             # Wizja, Niezmienniki ZP-01..16, Rynek, Ceny, Zakres, KPI
-├── B1.md ... B6.md             # Narzędzia kuchenne: Kalkulator, Harmonogram, Zakwas, Timery, Watch
-├── C1.md ... C4b.md            # Nauka: Trener %, Atlas mąk, Doktor Chleba, Reguły RD-00..35
-├── D1.md ... D4.md             # Architektura: NFR, SQLite DDL, Rejestr ryzyk RYZ-01..50, Testy
-└── W.md                        # Niezależny raport weryfikacji ze źródłami Tier 1–3
+│   └── test-vectors.json       # Dawny korpus wektorów (czytany przez testy, ER-16)
+├── 00_START.md                 # (Ten plik) Stan, spis, streszczenie, warianty MVP, blokery wydania
+├── 00b_Decyzje.md              # Decyzje BRD DEC-01…DEC-12 i DEC-41…DEC-49
+├── 00c_Errata.md               # Errata ER-01…ER-23 ze statusem
+├── A1.md ... A4.md             # Wizja, persony, zasady ZP-01…ZP-16, rynek, zakres, KPI
+├── A5.md                       # Prace J-01…J-06, przepływy PR-01…PR-10, macierz śladu
+├── B1.md ... B6.md             # Wymagania BR narzędzi: KALK, HARMO, ETAP, ZAKW, RECP, SPIZ, CZAS, REKA, SYS, DANE, WSP, ZAK, UST, PRYW, DOST
+├── C1.md ... C4b.md            # Nauka, Doktor Chleba, reguły RD-00…RD-13 z wektorami (C3)
+├── D1.md ... D4.md             # NFR z miarą, progiem i metodą; ryzyka RYZ-01…RYZ-10; pytania OP-01…OP-20
+├── S.md                        # Źródła S-01…S-05 (przeczytane, z cytatem i datą)
+└── W.md                        # Bibliografia i hierarchia źródeł z BRD 2.0-craft (pozycje bez wpisu S)
 ```
+
+**Stan 2026-10-19 (rola 01, zadanie M1-audytor-generalny-033):** kanoniczny jest krótki zestaw plików z tego katalogu; druga kopia (eksport BRD 0.1 z Dysku) leży w `archiwum/` i nie jest wejściem dla żadnej roli (ER-17). Łańcuch śladu: persona → praca J → przepływ PR → wymaganie BR → reguła RD → wektor (A5, C3). Zdefiniowano 52 wymagania BR, z czego 11 wycofanych decyzją D-031 (ER-07); liczby „124 BR” w sekcji 5 i „86 BR” w B6 to liczby zakresu z BRD 0.1, niezgodne z treścią (ER-18, rola 03). Sprzeczności i prośby o zmianę: 00c (ER), pytania otwarte: D4 (OP). Kontrola mechaniczna: skrypt kontroli BRD roli 01 (wynik w raporcie roli 01 z 2026-10-19); wektory do testów: `tests/wektory/brd.json`.
 
 ---
 
@@ -51,7 +56,7 @@ Przed publikacją wersji v2.0 w App Store muszą zostać bezwzględnie spełnion
 2. **Kompilacja i Weryfikacja Testów:** 100% zielona nadrzędna bramka `npm run verify` (zero błędów TypeScript, 100% pass testów Jest).
 3. **Apple Privacy Manifest:** Certyfikat `PrivacyInfo.xcprivacy` zadeklarowany jako *Data Not Collected*.
 4. **Brak Trybu Audio w Tle:** Potwierdzenie braku `"UIBackgroundModes": ["audio"]` w `app.json` (wyeliminowanie ryzyka odrzucenia z Guideline 2.5.4).
-5. **Dostępność i Ergonomia:** 100% etykiet VoiceOver na kluczowych ekranach asystenta i kontrast WCAG AAA.
+5. **Dostępność i Ergonomia:** 100% etykiet VoiceOver na kluczowych ekranach asystenta i kontrast WCAG AA (NFR-DOST-003; BRD 2.0-craft podawał tu AAA, niezgodnie z D1 i CLAUDE.md projektu — ER-18).
 
 ---
 
@@ -63,3 +68,5 @@ Przed publikacją wersji v2.0 w App Store muszą zostać bezwzględnie spełnion
 | **Główny Zakres** | Kalkulator % z bilansowaniem zakwasu i Tangzhong, 4-DDT z tarciem i lodem, adaptacyjny harmonogram wsteczny, asystent składań z Live Activity i watchOS, predyktor szczytu zakwasu, 4 protokoły ratunkowe „Doktora Chleba”, bezpieczna migracja SQLite, eksport JSON/CSV. |
 | **Aplikacje Zegarkowe** | Dedykowana aplikacja **Apple Watch (watchOS 11)** w MVP; mostek i aplikacja **Garmin Connect IQ** w wersji 1.1. |
 | **Ryzyko Apple 4.3(b)** | **Minimalne** (głęboki, zintegrowany silnik mikrobiologiczno-fizyczny i interakcja polowa). |
+
+Zmiana 2026-10-19: Apple Watch, Live Activity i Garmin wycięte z MVP decyzją D-031 (`docs/DECISIONS.md`, ER-07); zakres MVP i liczba BR czekają na decyzję DEC-01 planu napraw M1 i przebudowę kontraktu zakresu (rola 03, zadanie 032). Ta sekcja nie rozstrzyga zakresu.

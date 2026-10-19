@@ -1,6 +1,8 @@
-# Piekarz BRD — 00b Jedna lista decyzji (DEC-01…DEC-46)
+# Piekarz BRD — 00b Lista decyzji BRD (DEC-01…DEC-12, DEC-41…DEC-49)
 ## Wersja: 2.0-craft (Modernizacja Retrofit Apps4Craft)
 **Status:** Skonsolidowany rejestr decyzji produktowych, technologicznych i architektonicznych studia Apps4Craft. Każda decyzja zawiera kontekst, rozważane opcje, analizę kompromisów i rekomendację analityka.
+
+**Stan 2026-10-19 (ER-18):** plik zawiera DEC-01…DEC-12 i DEC-41…DEC-49. Decyzje DEC-13…DEC-40 są tylko w archiwalnej kopii BRD 0.1 (`archiwum/Piekarz_BRD_0.1___00b_Jedna_lista_decyzji__DEC-01_40_.md`); tam prowadzą odwołania A3a, A3b i D4 do DEC-19, DEC-21, DEC-23, DEC-25, DEC-28, DEC-37 i DEC-39. Decyzje projektu z 2026-10-19 i późniejsze (D-nnn) prowadzi `docs/DECISIONS.md`; ten plik się do nich tylko odwołuje.
 
 ---
 
