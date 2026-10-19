@@ -506,7 +506,7 @@
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/recipes/sourdough-rye-bread-recipe",
-        "miejsce": "King Arthur Baking, Jeffrey’s Sourdough Rye Bread, instrukcja wypieku (ostatni krok)",
+        "miejsce": "King Arthur Baking, Jeffrey’s Sourdough Rye Bread, instrukcja wypieku (ostatni krok); ponowny odczyt w partii 3: dowody/zrodla/ka-sourdough-rye.htm",
         "cytat": "The baked bread should rest for 24 hours before slicing, for best quality.",
         "odczyt": "2026-10-19",
         "szczebel": 4
@@ -515,6 +515,7 @@
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Zakres: jeden przepis, ok. 65% mąki żytniej (rachunek: 152 g + 128 g mąki żytniej wobec 150 g mąki pszennej chlebowej, bez mąki z dodanego zakwasu), z dodatkiem drożdży; zalecenie jakościowe („for best quality”), nie minimum. Szczebel 4: atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-043 (partia 3): jedyna wartość czasu odpoczynku chleba żytniego w produkcie (Doktor, technika BIB-12, Lekcja 4, preset rye_100_pan, Stolnica rye_cool). Źródła szczebla 1–3 dla chleba żytniego nie znaleziono (Oest i in. 2020 i Stępniewska i in. 2019 nie podają czasu przed krojeniem; podręczniki DEC-07 niedostępne online). W treści tylko z atrybucją i jako zalecenie, bez słów „minimum” i „zakaz”; dla 100% żyta źródło nie mówi więcej.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "odpoczynek_chleba_zytniego_przed_krojeniem",
@@ -525,11 +526,13 @@
     "id": "ZYT-STU-900",
     "twierdzenie": "Chleb żytni trzeba studzić co najmniej 8 h przed krojeniem (RD-10c).",
     "zrodla": [],
-    "status": "otwarte",
-    "uwagi": "[DO USTALENIA] docs/brd/00c_Errata.md:15 powołuje DiMuzio 2009 bez strony i cytatu; nieprzeczytane. Jedyne przeczytane źródło (ZYT-STU-001, szczebel 4) podaje 24 h jako zalecenie jakościowe, nie 8 h jako minimum.",
+    "status": "wycofane",
+    "uwagi": "[DO USTALENIA] docs/brd/00c_Errata.md:15 powołuje DiMuzio 2009 bez strony i cytatu; nieprzeczytane. Jedyne przeczytane źródło (ZYT-STU-001, szczebel 4) podaje 24 h jako zalecenie jakościowe, nie 8 h jako minimum. Wycofane z produktu (src/doctor/diagnostics.ts) w M1-audytor-generalny-043.",
     "uproszczenie": null,
     "krytyczne": false,
-    "przeglad": null
+    "przeglad": null,
+    "nastepca": "ZYT-STU-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-043"
   },
   {
     "id": "FER-Q10-001",
@@ -721,5 +724,29 @@
     "przeglad": null,
     "nastepca": "KWA-TEM-001",
     "wycofane": "2026-10-19, M1-audytor-generalny-042"
+  },
+  {
+    "id": "ZYT-STU-901",
+    "twierdzenie": "Dla chlebów żytnich (100% żyto) trzeba odczekać minimum 12–24 h przed pierwszym ukrojeniem (bezwzględny zakaz wcześniejszego krojenia).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: żadne przeczytane źródło nie podaje 12 h ani minimum; jedyne źródło (ZYT-STU-001) mówi o 24 h jako zaleceniu jakościowym. Miejsca: src/core/techniques/shaping-baking-techniques.ts (BIB-12), src/core/bread-school-lessons.ts (Lekcja 4).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZYT-STU-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-043"
+  },
+  {
+    "id": "ZYT-STU-902",
+    "twierdzenie": "Chleb 100% żytni razowy kroi się dopiero po 12 h od upieczenia (preset rye_100_pan).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE (src/recipes/presets.ts, preset rye_100_pan): trzecia wartość tej samej wielkości, bez źródła; znaleziona przy partii 3 (grep), poza dowodem audytu.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZYT-STU-001",
+    "wycofane": "2026-10-19, M1-audytor-generalny-043"
   }
 ]
