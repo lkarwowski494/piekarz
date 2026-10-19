@@ -23,3 +23,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) 2–3 rozmowy przed E3 — dowód zamiast hipotezy, ale kilka dni oczekiwania.
 - **Dlaczego:** kierunek ustalają już DEC-01…DEC-16 planu napraw M1; rozmowy można zrobić później jako sprawdzenie ZAL.
 - **Zależy od:** nic. Skutek: wymagania oparte na kontekście użycia są warunkowe („zależy od: ZAL-nnn”).
+
+### [D-037] 2026-10-19 — E2 roli 01 bez nowego skanu rynku i polityk App Store (wyjątek nazwany)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Rynek i ceny konkurencji z odczytu z dzisiejszą datą. Polityki App Store. - Te dwa mozesz pominac. Mamy ustalone.” (STOP E1 roli 01 build, 2026-10-19).
+- **Decyzja:** w E2 rola 01 nie robi nowego skanu konkurencji ani ponownego odczytu App Review Guidelines. Ceny i modele konkurencji BRD bierze z odczytów z 2026-10-19 roli 02 (`audit/02-oplacalnosc-2026-10-19/`, `audit/02-warianty-2026-10-19/`) i audytu M1 roli 01; ograniczenia OG z wytycznych już przytoczonych w rejestrze (D-033: 3.1.1, 3.1.2(a); audyt M1: 2.3, 5.1.1), z odesłaniem do miejsca odczytu.
+- **Odrzucone:** pełny moduł `rynek-i-polityki` w E2 (odczyt listingów, zakupów w aplikacji i wytycznych w dniu pracy).
+- **Wyjątek od standardu „przeczytanego źródła” (zasada wspólna 7):** cytaty wytycznych i ceny w BRD pochodzą z odczytu innej roli tego samego dnia; tańsza kontrola zamiast żadnej: każdy OG wskazuje plik odczytu i datę, a rola 10 sprawdza brzmienie wytycznych przed wysłaniem do sklepu.
+- **Dlaczego:** właściciel uznał rynek i polityki za ustalone decyzjami DEC-01 d i D-033 tego dnia.
+- **Zależy od:** aktualności odczytów z 2026-10-19 (ceny zmienne: przegląd 2027-01-19).
