@@ -146,17 +146,20 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderWidth: 1,
   },
+  // Ciemne tło karty i kolor stanu na ramce — tylko istniejące tokeny motywu; jasny tekst ≥ 4,5:1
+  // (wcześniej pastelowe tła pod jasnym tekstem: 1,04:1) [M1-audytor-generalny-016]
   safetyHealthy: {
-    backgroundColor: '#ECFDF5',
-    borderColor: '#10B981',
+    backgroundColor: theme.colors.surfaceCard,
+    borderColor: theme.colors.statusSuccess,
   },
   safetyWarning: {
-    backgroundColor: '#FFFBEB',
-    borderColor: '#F59E0B',
+    backgroundColor: theme.colors.surfaceCard,
+    borderColor: theme.colors.statusWarning,
   },
   safetyDanger: {
-    backgroundColor: '#FEF2F2',
-    borderColor: '#EF4444',
+    backgroundColor: theme.colors.surfaceCard,
+    borderColor: theme.colors.statusDanger,
+    borderWidth: 2,
   },
   safetyTitle: {
     fontSize: 14,
