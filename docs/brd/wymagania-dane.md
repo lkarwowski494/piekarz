@@ -159,3 +159,24 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
     - Zakładając, że telefon nie ma sieci
     - Gdy użytkownik otwiera ofertę zakupu
     - Wtedy widzi, że zakup wymaga połączenia z App Store, a pozostałe funkcje zgodne z jego dostępem działają
+
+### BR-START-001: Start od tego, co dziś robię
+- Przepływ: PR-12 · zależy od: ZAL-046
+- Dowód potrzeby: ZP-22, ZP-23; soczewka początkującego (od czego zacząć przy kilku wejściach); M1-audytor-generalny-057 (kilkanaście akcji na pierwszym ekranie), M1-audytor-generalny-087 (pierwsze uruchomienie pokazuje przykładowe dane jako dane użytkownika); BR-ZAK-005 (pierwsza oferta przy pierwszym użyciu funkcji). Kształt ekranu: H-08, rola 04.
+- Kryteria akceptacji:
+  - Scenariusz: Pierwsze uruchomienie
+    - Zakładając, że użytkownik uruchamia aplikację pierwszy raz
+    - Gdy aplikacja się otwiera
+    - Wtedy użytkownik wybiera jedną z trzech czynności: zakładam zakwas, piekę na zakwasie, piekę na drożdżach albo pizzę
+  - Scenariusz: Wybór prowadzi do przepływu
+    - Zakładając, że użytkownik wybrał „zakładam zakwas”
+    - Gdy zatwierdza wybór
+    - Wtedy trafia do PR-11, a oferta próby pojawia się dopiero przy pierwszym użyciu funkcji (BR-ZAK-005)
+  - Scenariusz: Bez udawanych danych
+    - Zakładając, że użytkownik nie ma jeszcze danych
+    - Gdy aplikacja pokazuje receptury, zakwas albo historię
+    - Wtedy żaden przykład nie wygląda jak dane użytkownika: przykłady są oznaczone jako przykład (M1-audytor-generalny-087)
+  - Scenariusz: Powrót z trwającym wypiekiem
+    - Zakładając, że użytkownik ma trwający wypiek
+    - Gdy otwiera aplikację
+    - Wtedy widzi bieżący krok wypieku zamiast wyboru czynności (BR-ETAP-005)

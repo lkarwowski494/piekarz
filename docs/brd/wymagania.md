@@ -26,7 +26,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 
 ### PR-06: Zapisać wynik i poprawić następny wypiek
 - Kto: P-7, P-6 · Praca: J-05, J-09 · Częstotliwość: po każdym wypieku · Kontekst: przy bochenku, minuty.
-- Kroki: ocenia bochenek i dopisuje notatkę → przy słabej ocenie dostaje propozycję Doktora Chleba → przegląda historię i porównuje z wcześniejszym wypiekiem → zaczyna następny wypiek z poprzedniego zapisu.
+- Kroki: ocenia bochenek i dopisuje notatkę → przy słabej ocenie dostaje propozycję Doktora Chleba, a po udanym wypieku system może pokazać prośbę o ocenę aplikacji (BR-OPIN-001) → przegląda historię i porównuje z wcześniejszym wypiekiem → zaczyna następny wypiek z poprzedniego zapisu.
 
 ### PR-07: Zachować dane i przenieść je na nowy telefon
 - Kto: wszyscy · Praca: J-10 · Częstotliwość: ciągle (zapis), rzadko (przeniesienie) · Kontekst: aktualizacja aplikacji, nowy telefon, koniec subskrypcji.
@@ -50,7 +50,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 
 ### PR-12: Zacząć od tego, co dziś robię
 - Kto: P-6, P-7, P-8 · Praca: J-07, J-01, J-11 · Częstotliwość: pierwsze uruchomienie i każdy powrót · Kontekst: dowolny.
-- Kroki: przy pierwszym uruchomieniu wybiera, co robi: zakłada zakwas, piecze na zakwasie albo piecze na drożdżach lub pizzę → trafia do odpowiedniego przepływu (PR-11, PR-01, PR-17). Kształt ekranu: hipoteza H-08 dla ról 03 i 04.
+- Kroki: przy pierwszym uruchomieniu wybiera, co robi: zakłada zakwas, piecze na zakwasie albo piecze na drożdżach lub pizzę → trafia do odpowiedniego przepływu (PR-11, PR-01, PR-17). Kształt ekranu: hipoteza H-08 dla ról 03 i 04; wymaganie BR-START-001.
 
 ### PR-13: Nauczyć się przy kroku i w Akademii
 - Kto: P-6 · Praca: J-08 · Częstotliwość: na początku często · Kontekst: dowolny, czytanie.
@@ -72,8 +72,11 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Kto: P-8 · Praca: J-11 · Częstotliwość: około raz w tygodniu · Kontekst: blat, plan na wieczór albo na kolejny dzień.
 - Kroki: wybiera rodzaj (pizza, pieczywo drożdżowe), liczbę i masę sztuk → wybiera rodzaj drożdży i zaczyn (poolish, biga) → podaje godzinę i temperaturę → dostaje ilości i plan z chłodnią → prowadzi kroki jak w PR-04.
 
-## Wymagania niefunkcjonalne (NFR)
+### PR-18: Zgłosić problem albo ocenić aplikację
+- Kto: wszyscy · Praca: J-12 · Częstotliwość: rzadko · Kontekst: dowolny.
+- Kroki: w ustawieniach wybiera „napisz do nas” albo „oceń w App Store” → przy kontakcie widzi treść wiadomości (w tym wersję aplikacji) przed wysłaniem i wysyła ją własną aplikacją poczty → przy ocenie przechodzi do strony aplikacji w App Store.
 
+## Wymagania niefunkcjonalne (NFR)
 ### NFR-OFF-001: Działa w pełni offline
 - Miara: liczba wywołań sieciowych (`fetch`, `axios`, `WebSocket`, `XMLHttpRequest`) w kodzie produkcyjnym. Próg: 0 (ZP-17; `CLAUDE.md`, zasada 1). Metoda: `tests/public-repo.test.ts` (`npm test`).
 
