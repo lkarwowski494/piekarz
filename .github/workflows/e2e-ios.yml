@@ -1,12 +1,19 @@
-name: iOS E2E & Live Upgrade (Maestro)
+name: iOS E2E (Maestro na symulatorze)
+
+# Prawdziwe E2E (M1-audytor-generalny-037): build Release na symulator, Maestro CLI
+# dla scenariuszy głównego przepływu z .maestro/e2e/ i kontrola negatywna, która musi paść.
+# Interpreter scenariuszy w Jest (tests/maestro-flows.test.tsx) nie jest E2E i działa w ci.yml.
 
 on:
   push:
-    branches: [master, main]
+    branches: [master, main, 'naprawy/**']
     paths:
       - 'app/**'
       - 'src/**'
       - '.maestro/**'
+      - 'app.json'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/e2e-ios.yml'
   pull_request:
     branches: [master, main]
@@ -14,6 +21,9 @@ on:
       - 'app/**'
       - 'src/**'
       - '.maestro/**'
+      - 'app.json'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/e2e-ios.yml'
   workflow_dispatch:
 
@@ -25,14 +35,16 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
+  MAESTRO_VERSION: "2.11.0"
   MAESTRO_CLI_NO_ANALYTICS: 1
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
 
 jobs:
   e2e:
     name: Maestro E2E on iOS Simulator
-    runs-on: macos-14
-    timeout-minutes: 60
+    # macos-14 jest wycofywany (actions/runner-images, odczyt 2026-10-19); repo publiczne: standardowe runnery bez opłat.
+    runs-on: macos-26
+    timeout-minutes: 90
 
     steps:
       - name: Checkout
@@ -47,55 +59,56 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Perl process group guard definition
-        run: |
-          cat <<'EOF' > /tmp/guard.sh
-          #!/bin/bash
-          guard() {
-            local timeout_secs="$1"
-            local desc="$2"
-            shift 2
-            perl -e '
-              use strict;
-              use warnings;
-              my $timeout = shift @ARGV;
-              my $desc = shift @ARGV;
-              my $pid = fork();
-              if ($pid == 0) {
-                setpgrp(0, 0);
-                exec(@ARGV) or exit 127;
-              }
-              eval {
-                local $SIG{ALRM} = sub { die "TIMEOUT\n" };
-                alarm $timeout;
-                waitpid($pid, 0);
-                alarm 0;
-              };
-              if ($@ && $@ eq "TIMEOUT\n") {
-                kill "TERM", -$pid;
-                sleep 2;
-                kill "KILL", -$pid;
-                die "Command timed out after $timeout seconds: $desc\n";
-              }
-              exit ($? >> 8);
-            ' "$timeout_secs" "$desc" "$@"
-          }
-          EOF
-          chmod +x /tmp/guard.sh
+      - name: Expo prebuild (iOS)
+        run: npx expo prebuild --platform ios --clean
 
-      - name: Run Maestro flows
+      - name: Build Release for simulator
         run: |
-          echo "Running in-memory and simulator flows"
-          npx jest tests/maestro-flows.test.tsx
+          set -o pipefail
+          WORKSPACE=$(ls -d ios/*.xcworkspace | head -n 1)
+          SCHEME=$(basename "$WORKSPACE" .xcworkspace)
+          echo "SCHEME=$SCHEME" >> "$GITHUB_ENV"
+          xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -configuration Release \
+            -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -n 80
 
-      - name: Failure diagnostics and Base64 screenshot dump
-        if: failure()
+      - name: Boot simulator and install app
         run: |
-          echo "=== SCREENSHOT_BASE64_START ==="
-          if command -v sips >/dev/null 2>&1 && [ -f /tmp/fail-screen.png ]; then
-            sips -Z 480 -s format jpeg -s formatOptions 35 /tmp/fail-screen.png --out /tmp/fail-screen.jpg
-            base64 -i /tmp/fail-screen.jpg
+          UDID=$(xcrun simctl list devices available -j | node -e '
+            const d = JSON.parse(require("fs").readFileSync(0, "utf8")).devices;
+            const ios = Object.keys(d).filter((k) => k.includes("iOS")).sort().reverse();
+            for (const k of ios) { const p = d[k].find((x) => x.name.startsWith("iPhone")); if (p) { console.log(p.udid); process.exit(0); } }
+            process.exit(1);')
+          echo "UDID=$UDID" >> "$GITHUB_ENV"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
+          xcrun simctl install "$UDID" "$APP"
+
+      - name: Install Maestro CLI
+        run: |
+          curl -fsSL "https://get.maestro.mobile.dev" | bash
+          echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+
+      - name: Run E2E flows (.maestro/e2e)
+        run: maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e.xml
+
+      - name: Negative control must fail
+        run: |
+          if ! maestro --device "$UDID" test .maestro/kontrola-negatywna; then
+            echo "Kontrola negatywna padła zgodnie z oczekiwaniem."
           else
-            echo "No simulator screenshot available."
+            echo "::error::Kontrola negatywna przeszła — Maestro nie wykrywa brakującego elementu."
+            exit 1
           fi
-          echo "=== SCREENSHOT_BASE64_END ==="
+
+      - name: Upload Maestro report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-e2e
+          path: |
+            maestro-e2e.xml
+            ~/.maestro/tests
+          if-no-files-found: ignore
+          retention-days: 7

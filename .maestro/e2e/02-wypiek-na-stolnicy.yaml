@@ -1,0 +1,29 @@
+# Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
+# Główny przepływ: Stolnica -> start wypieku -> następny krok; zakładki Harmonogram i Zakwas.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: "onboarding-start-btn"
+    timeout: 60000
+- tapOn:
+    id: "onboarding-start-btn"
+- tapOn: "Stolnica"
+- assertVisible:
+    id: "stolnica-header"
+- assertVisible: "Brak aktywnego wypieku"
+- tapOn: "🥖 Rozpocznij wypiek"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- tapOn:
+    id: "next-or-finish-step-btn"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- tapOn: "Harmonogram"
+- assertVisible:
+    id: "harmonogram-header"
+- tapOn: "Zakwas"
+- assertVisible:
+    id: "zakwas-header"

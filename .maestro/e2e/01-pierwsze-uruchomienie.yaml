@@ -1,0 +1,15 @@
+# Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
+# Pierwsze uruchomienie: powitanie -> Kalkulator z proporcjami.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: "onboarding-start-btn"
+    timeout: 60000
+- tapOn:
+    id: "onboarding-start-btn"
+- assertVisible:
+    id: "calculator-header"
+- assertVisible: "Hydratacja"

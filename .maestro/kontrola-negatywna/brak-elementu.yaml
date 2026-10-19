@@ -1,0 +1,8 @@
+# Kontrola negatywna (M1-audytor-generalny-037): ten scenariusz MUSI paść.
+# Workflow sprawdza, że Maestro na tym buildzie zgłasza błąd przy brakującym elemencie.
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+- assertVisible:
+    id: "element-ktorego-nie-ma-w-aplikacji"
