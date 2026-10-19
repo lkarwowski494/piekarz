@@ -73,5 +73,16 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Dane użytkownika:** tabela `pending_ops` zostaje w schemacie bez migracji i bez zapisu (decyzja 4 planu M2, wybór właściciela 2026-10-19); usunięcie tabeli tylko osobną migracją w późniejszej wersji.
 - **Zależy od:** nic; powrót każdej pozycji tylko przez nowy wpis ZM z dowodem wartości.
 
+---
+
+### [D-030] 2026-10-19 — Kroki Stolnicy z receptury i planu Harmonogramu; wariant żytni bez składań
+- **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-04, opcja a); zadanie M1-audytor-generalny-030.
+- **Słowa właściciela:** „Kroki z receptury i planu Harmonogramu; osobny wariant żytni bez składań; teksty sklepu opisują stan faktyczny”.
+- **Odrzucona opcja:** (b) „Zostawić stałe 8 kroków; usunąć z tekstów „12 faz”, tryb żytni i przekazanie planu” — słabsza obsługa chleba żytniego.
+- **Powód:** start z Harmonogramu przekazywał tylko nazwę i temperaturę, Stolnica miała stałe 8 kroków ze składaniami także dla 100% żyta, wbrew RD-11 („Blokuje wydanie: TAK”) i Z-030 MUST MVP (audyt M1: 03-zakres-003, 01-odkrywanie-007).
+- **Skutek:** `docs/scope-contract.md` F-07 = MVP z podłogą RD-11, ZM-02. Sekwencja etapów żytnich to fakt dziedzinowy: rozstrzyga rola 06 źródłami, nie ta decyzja; bez źródła część żytnia zostaje zablokowana.
+- **Dane użytkownika:** trwająca sesja w `app_settings.active_bake_session` zapisana w starym formacie wczytuje się bez utraty (test na zapisie starego formatu w zadaniu roli 08).
+- **Zależy od:** treści żytniej roli 06 (część żytnia warunkowa).
+
 
 
