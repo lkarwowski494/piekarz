@@ -1,5 +1,5 @@
 # Monetyzacja: Piekarz (Crust)
-Stan: E0 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
+Stan: E1 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 · Wejście: BRD roli 01 (`docs/brd/`, gałąź `claude/01-odkrywanie-2026-10-19-279a7f`, 0eefab1), ZAL-034, ZAL-038, ZAL-042…ZAL-044 · Model: DEC-01 (d) planu napraw M1 (nie otwierany)
 
 Jedyny dokument monetyzacji. `docs/monetyzacja-audyt.md` i `docs/PROGRESSIVE_DISCLOSURE_AND_MONETIZATION.md` to historia bez źródeł (D-033). Bramka opłacalności i macierz wariantów z 2026-10-19 leżą poza repo (`audit/02-oplacalnosc-2026-10-19/`, `audit/02-warianty-2026-10-19/`); tu trafiają tylko wyniki, stawki i [OCENA]. Surowe odczyty tej sesji: scratchpad sesji (poza repo).
 
@@ -36,6 +36,92 @@ Próbka rynku dziś (karty `apps.apple.com`, adnotacja „In-App Purchases”, 2
 ### Reguły sklepu na dziś
 Odczyt surowego tekstu (`curl`, potem tekst bez znaczników) 2026-10-19 ok. 23:12. Tabela „Źródła” niżej.
 
+## E1: dowody (sesja 2: E1.3–E1.4)
+
+Model i podział są stałe (DEC-01 d; potwierdzenie właściciela w czacie 2026-10-19: „decyzja o monetyzacji jest stala i podjeta wczesniej. MIX sub + lifetime. 0.99USD/mies 6.99USD rok 14.99 USD lifetime. 14 dni triala full wersji. Pozniej jedynie historia i dane.”). Klasa WTP niżej to dowód dla roli 03 (zakres, WTP-X) i dla rachunku, nie propozycja zmiany podziału. Kolumna „Miejsce” podaje skutek DEC-01 d.
+
+### Rynek (odczyt 2026-10-19)
+Ceny i oceny: tabela rynku BRD (`docs/brd/odkrywanie.md`, S-28, S-29) i próbka z E0 (zgodna). Nowe tu: za co konkurenci każą płacić (opisy w sklepie, `itunes.apple.com/lookup`, odczyt roli 02 2026-10-19 18:35, MS-25) i motywy recenzji o cenie (MS-26).
+
+| Aplikacja | Model | Co jest płatne (opis w sklepie) | Motyw recenzji o cenie (MS-26) |
+|---|---|---|---|
+| Rise | darmowa + mies./kwartał/rok + jednorazowy | „Unlock all recipes with flexible purchase options.” | prowadzenie w czasie „well worth the purchase” (S-14, rec. 13671458068) |
+| Yeasta | mies./rok/dożywotni | Pro: „Fully guided bake sessions with live timers and lock screen updates - Unlimited starters - Advanced planning and revival tools - Full baking history…”; Levain Builder, Fridge Starter Planner, Starter Revival; eksport CSV „free” | zakup nie odblokował funkcji (Yeasta/us, 2026-05-09, 1★) |
+| Flourwise | mies./rok/dożywotni | „Some features and higher usage limits require Pro.” | brak recenzji |
+| Sourdough Starter Tracker | jednorazowy | „One-time purchase unlocks Smart Health Tips and removes ads”; wiele zakwasów | „Totally worth it if you do sourdough often to pay for the app” (SST/us, 2026-04-11, 5★) |
+| Kneady | darmowa + mies./rok | przepisy Pro; timery, tryb pieczenia i jednostki w darmowej części | skargi na przepisy za ścianą płatności (2 z 2 o cenie, 4★) |
+| Loaflo | tydz./mies./rok, twarda ściana poza przepisami | skan AI, plan zakwasu | 12 z 13 recenzji o subskrypcji ≤ 3★: nieujawniona subskrypcja, wyskakujący ekran z odliczaniem, brak próby, kłopot z anulowaniem |
+| Gluten Morgen | darmowa + reklamy + Premium 1,49 USD | dodatkowe przepisy | reklamy (4 z 5 o reklamach 1★); spiżarnia z kosztem chwalona (2026-06-28, 5★) |
+
+Liczby z próbki MS-26: 38 recenzji z filtrem ceny; 16 o ścianie płatności, subskrypcji, próbie lub anulowaniu, 13 z nich ≤ 3★ (12 z Loaflo); 5 o reklamach; 5 o „worth”/zakupie jednorazowym. To zliczenie motywów (szczebel 5), nie skala.
+
+### Wartość funkcji
+Poziom dowodu: R rynek (MS-25, MS-26, S-27 z adresem i datą), B dowód potrzeby z BRD, H hipoteza. „Warunek” = wymaganie sklepu, prawa albo jakości, nie funkcja do sprzedaży. Prawa do danych nigdy nie są płatne.
+
+| Wymaganie (BR) | Funkcja | WTP | Dowód | Miejsce (DEC-01 d) |
+|---|---|---|---|---|
+| BR-KALK-001 | procent piekarski | WTP-0 | B: J-01 główna praca; R: darmowe kalkulatory (Gluten Morgen, Pizza Pro) | próba / płatna |
+| BR-KALK-002 | hydratacja z zakwasu i zaczynu | WTP-0 | B: J-01; R: skarga S-17 rec. 6280671939 | próba / płatna |
+| BR-KALK-003 | skalowanie, 1 g | WTP-2 | R: S-19 rec. 12569511193 | próba / płatna |
+| BR-KALK-004 | temperatura wody (DDT) | WTP-2 | R: S-14 rec. 9331408199 | próba / płatna |
+| BR-KALK-005 | kilka mąk | WTP-2 | R: S-21 rec. 13060223498 | próba / płatna |
+| BR-KALK-007 | objętość → gramy | WTP-2 | R: 9 z 338 (S-27) | próba / płatna |
+| BR-KALK-008 | masa lodu | WTP-X | tylko [OCENA] w BRD, bez recenzji | do roli 03 |
+| BR-KALK-009 | rodzaj drożdży | WTP-2 | R: S-19 rec. 7107716082 | próba / płatna |
+| BR-KALK-010 | poolish, biga, levain | WTP-1 | R: Yeasta Pro „Levain Builder” (MS-25); S-24 rec. 7357117590 | próba / płatna |
+| BR-KALK-011 | nietypowa ilość soli | WTP-2 | R: S-24 rec. 5681544617 (słaby) | próba / płatna |
+| BR-UST-001 | jednostki | WTP-2 | R: 9 z 338, 6 ≤ 3★; u Kneady darmowe (MS-25) | próba / płatna |
+| BR-HARMO-001 | plan wstecz od godziny | WTP-1 | R: Yeasta Pro „Advanced planning”, „Fridge Starter Planner” (MS-25); 15 z 338 | próba / płatna |
+| BR-HARMO-002 | plan omija sen | WTP-2 | B: soczewka początkującego, kod | próba / płatna |
+| BR-HARMO-003 | czas fermentacji z temperatury | WTP-2 | R: S-14 rec. 8937437575 | próba / płatna |
+| BR-HARMO-004 | przesunięcie kroku | WTP-2 | R: S-14 rec. 7282073654 | próba / płatna |
+| BR-ETAP-001 | prowadzenie krok po kroku | WTP-1 | R: Yeasta Pro „Fully guided bake sessions”; Rise S-14 rec. 13671458068 | próba / płatna |
+| BR-ETAP-002 | kroki z receptury | WTP-2 | B: D-030, S-56, S-57 | próba / płatna |
+| BR-ETAP-003 | ocena gotowości ciasta | WTP-X | tylko soczewka eksperta i [OCENA], bez recenzji | do roli 03 |
+| BR-ETAP-004 | ostrzeżenia bezpieczeństwa | warunek | RD-22, RD-23 (bezpieczeństwo) | zawsze w kroku, którego dotyczy |
+| BR-ETAP-005 | wznowienie wypieku | warunek | jakość, bloker wydania | jak wypiek |
+| BR-CZAS-002 | sygnał przy zablokowanym telefonie | WTP-1 | R: Yeasta Pro „live timers and lock screen updates”; BreadMe płatna (2,99 USD) za przypomnienia; 15 z 338 | próba / płatna |
+| BR-CZAS-003 | brak zgody na powiadomienia | warunek | RYZ-13 | jak wypiek |
+| BR-REKA-001 | ekran nie gaśnie | WTP-2 | R: 2 z 338 (słaby) | próba / płatna |
+| BR-ZAKW-001 | karta zakwasu, kilka zakwasów | WTP-1 | R: Yeasta Pro „Unlimited starters”; SST wiele zakwasów (MS-25) | próba / płatna |
+| BR-ZAKW-002 | dokarmianie z proporcją | WTP-2 | R: S-20 rec. 13947658962; SST kalkulator chwalony przez płacącego (MS-26) | próba / płatna |
+| BR-ZAKW-003 | gotowość zakwasu | WTP-1 | R: SST Premium „rise timing” (MS-25) | próba / płatna |
+| BR-ZAKW-004 | przypomnienie o dokarmieniu, ostrożność | WTP-1 | R: BreadMe, SST (MS-25); S-15 rec. 6706510871. Zasada ostrożności RD-21 to warunek | próba / płatna; ostrzeżenie RD-21 zawsze |
+| BR-ZAKW-005 | założenie zakwasu dzień po dniu | WTP-1 | R: Yeasta Pro „Starter Revival … day-by-day feeding schedule”; Loaflo obiecuje płatnie (rec. 13931423989) | próba / płatna |
+| BR-ZAKW-006 | obudzenie zakwasu z lodówki | WTP-1 | R: Yeasta „Fridge Starter Planner” | próba / płatna |
+| BR-ZAKW-007 | poprawa wpisu | WTP-2 | R: S-21 rec. 12986088850 | próba / płatna |
+| BR-RECP-001 | receptury bazowe | WTP-1 | R: Rise „Unlock all recipes”, Kneady Pro (MS-25); skargi na przepisy za ścianą (MS-26) | próba / płatna |
+| BR-RECP-002 | własne receptury | WTP-1 | R: Yeasta Pro „Unlimited favorite and custom recipes”; limit 25 receptur w Gluten Morgen jako skarga (MS-26) | próba / płatna; odczyt zapisanych zawsze |
+| BR-RECP-003 | dziennik z oceną | WTP-1 | R: Yeasta Pro „Full baking history” | nowy wpis: próba / płatna; przegląd historii zawsze |
+| BR-RECP-004 | porównanie wypieków | WTP-2 | R: S-14 rec. 8937437575 (słaby) | próba / płatna |
+| BR-SPIZ-001 | spiżarnia mąk | WTP-2 | R: Gluten Morgen, spiżarnia z kosztem 5★ (MS-26); D-034 | próba / płatna |
+| BR-NAUK-001 | Akademia | WTP-2 | R: 14 z 338 o instrukcjach; ZP-20 | próba / płatna |
+| BR-DIAG-001 | Doktor dla bochenka | WTP-1 | R: Loaflo płatny skan (MS-26, także skargi na zawodność) | próba / płatna |
+| BR-DIAG-002 | Doktor dla zakwasu | WTP-1 | R: Yeasta „Starter Smell Guide”, SST Premium „smell diagnostics” (MS-25) | próba / płatna; ostrzeżenie RD-21 zawsze |
+| BR-WSP-003 | receptura w QR | WTP-2 | H: ZAL-029; prośby o import/eksport, nie o QR (3 z 338) | próba / płatna |
+| BR-DRUK-001 | wydruk karty i etykiety | WTP-2 | R: 1 prośba (S-18 rec. 10632970976), słaby | próba / płatna |
+| BR-DANE-001 | trwały zapis | warunek | zasada wspólna 10 | zawsze |
+| BR-DANE-002 | kopia poza telefonem | warunek (dane) | J-10, RYZ-12 | zawsze |
+| BR-DANE-003 | eksport i import | prawo do danych | DEC-01 d; Yeasta: eksport CSV „free” | eksport zawsze; import: OP-M02 |
+| BR-DANE-004 | usunięcie danych | prawo do danych | DEC-01 d | zawsze |
+| BR-ZAK-001 | zakup i przywrócenie | warunek | MS-02, MS-03 | zawsze |
+| BR-ZAK-003 | oferta bez ukrytych warunków | warunek | MS-14…MS-16; MS-26 (Loaflo) | zawsze |
+| BR-ZAK-004 | stan po próbie | warunek | DEC-01 d | zawsze |
+| BR-ZAK-005 | oferta przy pierwszym użyciu | warunek | DEC-01 d | zawsze |
+| BR-UST-003 | polityka prywatności | warunek | OG-04 | zawsze |
+| BR-PRYW-001 | bez konta, sieci, śledzenia | warunek | ZP-17; reklamy 1★ (MS-26) | zawsze |
+
+Podsumowanie: WTP-0: 2, WTP-1: 14, WTP-2: 19, WTP-X: 2, warunki i prawa do danych: 13 (razem 50).
+
+### Wnioski E1 (hipotezy)
+- **WTP-X dla roli 03 (zasada wspólna 18):** BR-KALK-008 (masa lodu), BR-ETAP-003 (ocena gotowości ciasta). Kandydaci na listę odcięć albo do sprawdzenia w rozmowach (D-036).
+- **Płatna część ma dowód płacenia.** 14 funkcji WTP-1 to te, które konkurenci sprzedają w Pro (prowadzenie z sygnałem, planowanie, kilka zakwasów, dziennik, receptury, diagnoza zakwasu). Model DEC-01 d sprzedaje więc rzeczy, za które rynek płaci; różnica to cena (22–28% median, bramka wariantów).
+- **WTP-0 za próbą to ryzyko do pomiaru, nie zmiana.** BR-KALK-001 i BR-KALK-002 są w kategorii darmowe, a w DEC-01 d wymagają próby. Za twardą ścianą: RevenueCat 2026 „Hard paywalls convert 5× better than freemium” (MS-27). Przeciw: 12 z 13 skarg o subskrypcji dotyczy Loaflo, czyli twardej ściany bez jawności (MS-26). Wniosek dla 04: jawność przed próbą (H-03) jest warunkiem tej ściany, a nie dodatkiem.
+- **H-14 / ZAL-038 potwierdzone (szczebel 1):** raport zdarzeń subskrypcji ma zdarzenia „Free Trial”, „Paid Subscription from Introductory Price”, „Renew”, „Cancel” z datą i krajem, a Sales and Trends ma strony „summary, retention, state, and event” (MS-24). ZP-21 da się mierzyć bez telemetrii. OP-33 rozstrzygnięte.
+- **Import po próbie (OP-M02):** DEC-01 d mówi „eksport i usunięcie”; import pliku (BR-DANE-003) to dodanie danych. Rozstrzygnięcie w E2 w granicach DEC-01 d.
+- **Bramka jako hipoteza:** wynik 345 USD/rok (wariant a) liczono dla freemium; konwersja przy twardej ścianie i wolumen z niskiej ceny to nowe ZAL-049, ZAL-050 (status „hipoteza”). Przeliczenie kryterium eksperymentu: E2.
+- **Sprzeczności z wejściem roli 01:** brak (ER nie są potrzebne). OP-33 zmienia status na rozstrzygnięty w rejestrze założeń (ZAL-038).
+
 ## Źródła
 | ID | Adres | Miejsce | Cytat | Odczyt | Szczebel | Przegląd |
 |---|---|---|---|---|---|---|
@@ -62,6 +148,10 @@ Odczyt surowego tekstu (`curl`, potem tekst bez znaczników) 2026-10-19 ok. 23:1
 | MS-21 | api.nbp.pl/api/exchangerates/rates/a/usd/ | tabela A | USD 3,8974; EUR 4,3702 (tabela 203/A/NBP/2026 z 2026-10-19) | 2026-10-19 | 1 | przy każdym rachunku |
 | MS-22 | registry.npmjs.org/expo-iap/6.1.1 i paczka `expo-iap-6.1.1.tgz` | `license`, `LICENSE`, `ios/ExpoIap.podspec` | „MIT License … Copyright (c) 2025 hyochan”; zależność natywna `openiap` 4.0.3; brak zależności npm | 2026-10-19 | 1 | przy aktualizacji biblioteki |
 | MS-23 | raw.githubusercontent.com/hyodotdev/openiap/main/LICENSE | plik | „MIT License … Copyright (c) 2025 hyo.dev” (gałąź main, nie tag 4.0.3) | 2026-10-19 | 1 | jw. |
+| MS-24 | developer.apple.com/help/app-store-connect/reference/reporting/subscription-event-report; …/measure-app-performance/overview-of-reporting-tools | przykład raportu; opis Sales and Trends | „8 subscriptions converted from a free trial to a paid subscription on 2016-09-01”; „view subscriptions data on the summary, retention, state, and event pages” | 2026-10-19 | 1 | przed wydaniem |
+| MS-25 | itunes.apple.com/lookup?id=<id>&country=us (opisy Rise, Kneady, Flourwise, Yeasta, SST) | pole `description` | cytaty w tabeli „Rynek” | 2026-10-19 (sesja bramki wariantów, 18:35) | 1 (dane platformy, D-035) | 2027-01-19 |
+| MS-26 | itunes.apple.com/<kraj>/rss/customerreviews/…/id=<id>/sortby=mostrecent/json | próbka 166 recenzji, filtr ceny: 38 wpisów | zliczenia w tekście; tytuły i daty w tabeli | 2026-10-19 (sesja bramki, 12:40) | 5 (tylko motywy) | 2027-01-19 |
+| MS-27 | revenuecat.com/state-of-subscription-apps (2026) | „Hard paywall” / „Freemium” | „Hard paywall median: 10.7% (top quartile above 20.0%). Freemium median: 2.1%” | 2026-10-19 (sesja bramki, 18:42) | 4 (raport branżowy) | przy kolejnym raporcie |
 
 Z odczytu innej sesji roli 02 z tego samego dnia (nie czytane ponownie, wyjątek jak D-037): VAT PL 23% (europa.eu/youreurope, „Last checked: 13/07/2026”), prowizja bez programu 30%, w UE 26% (DPLA Schedule 2 pkt 3.4(a), Attachment 14), RevenueCat „State of Subscription Apps 2026” (`audit/02-warianty-2026-10-19/dowody/revenuecat-2026.txt`).
 
@@ -75,4 +165,5 @@ Z odczytu innej sesji roli 02 z tego samego dnia (nie czytane ponownie, wyjątek
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
-| OP-M01 | [DO WYJAŚNIENIA] czy umowa Paid Apps jest podpisana, a konto zapisane do Small Business Program (15% zamiast 30%/26%) | właściciel | rachunek, E3 |
+| OP-M01 | [DO WYJAŚNIENIA] czy umowa Paid Apps jest podpisana, a konto zapisane do Small Business Program (15% zamiast 30%/26%); właściciel uzupełni (STOP E0) | właściciel | rachunek, E3 |
+| OP-M02 | [DO WYJAŚNIENIA] czy import pliku (BR-DANE-003) działa po próbie bez zakupu, skoro DEC-01 d zostawia „eksport i usunięcie” | właściciel w E2, w granicach DEC-01 d | BR-DANE-003, BR-ZAK-004 |
