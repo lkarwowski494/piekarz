@@ -10,6 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { DoughRecipeResult } from '../../core/domain-rules';
 import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
+import { ScaleIngredientRow } from './ScaleIngredientRow';
 
 export interface DoMiskiPreset {
   id: string;
@@ -214,147 +215,38 @@ export function DoMiskiScaleCard({
         </View>
 
         <View style={styles.ingredientsList}>
-          {/* Mąka */}
-          <Pressable
+          <ScaleIngredientRow
             testID="scale-item-flour"
-            style={[
-              styles.ingredientRow,
-              checkedIngredients['flour'] && styles.ingredientRowChecked,
-            ]}
+            label={`🌾 ${t('Mąka dodana')}`}
+            subtext="100% bazy"
+            weight={formatWeight(calculations.baseFlourWeightGrams, unitSystem)}
+            checked={!!checkedIngredients['flour']}
             onPress={() => toggleCheck('flour')}
-          >
-            <View style={styles.checkbox}>
-              <Text style={styles.checkboxMark}>
-                {checkedIngredients['flour'] ? '✓' : '○'}
-              </Text>
-            </View>
-            <View style={styles.ingredientDetails}>
-              <Text
-                style={[
-                  styles.ingredientName,
-                  checkedIngredients['flour'] && styles.ingredientNameChecked,
-                ]}
-              >
-                🌾 {t('Mąka dodana')}
-              </Text>
-              <Text style={styles.ingredientSubtext}>100% bazy</Text>
-            </View>
-            <Text
-              style={[
-                styles.ingredientWeight,
-                checkedIngredients['flour'] && styles.ingredientWeightChecked,
-              ]}
-            >
-              {formatWeight(calculations.baseFlourWeightGrams, unitSystem)}
-            </Text>
-          </Pressable>
-
-          {/* Woda */}
-          <Pressable
+          />
+          <ScaleIngredientRow
             testID="scale-item-water"
-            style={[
-              styles.ingredientRow,
-              checkedIngredients['water'] && styles.ingredientRowChecked,
-            ]}
+            label={`💧 ${t('Woda')}`}
+            subtext={`${calculations.overallHydrationPercent}% ${t('hydratacji')}`}
+            weight={formatWeight(calculations.waterGrams, unitSystem)}
+            checked={!!checkedIngredients['water']}
             onPress={() => toggleCheck('water')}
-          >
-            <View style={styles.checkbox}>
-              <Text style={styles.checkboxMark}>
-                {checkedIngredients['water'] ? '✓' : '○'}
-              </Text>
-            </View>
-            <View style={styles.ingredientDetails}>
-              <Text
-                style={[
-                  styles.ingredientName,
-                  checkedIngredients['water'] && styles.ingredientNameChecked,
-                ]}
-              >
-                💧 {t('Woda')}
-              </Text>
-              <Text style={styles.ingredientSubtext}>
-                {calculations.overallHydrationPercent}% {t('hydratacji')}
-              </Text>
-            </View>
-            <Text
-              style={[
-                styles.ingredientWeight,
-                checkedIngredients['water'] && styles.ingredientWeightChecked,
-              ]}
-            >
-              {formatWeight(calculations.waterGrams, unitSystem)}
-            </Text>
-          </Pressable>
-
-          {/* Zakwas */}
-          <Pressable
+          />
+          <ScaleIngredientRow
             testID="scale-item-starter"
-            style={[
-              styles.ingredientRow,
-              checkedIngredients['starter'] && styles.ingredientRowChecked,
-            ]}
+            label={`🏺 ${t('Aktywny zakwas')}`}
+            subtext={t('W szczycie aktywności')}
+            weight={formatWeight(calculations.starterGrams, unitSystem)}
+            checked={!!checkedIngredients['starter']}
             onPress={() => toggleCheck('starter')}
-          >
-            <View style={styles.checkbox}>
-              <Text style={styles.checkboxMark}>
-                {checkedIngredients['starter'] ? '✓' : '○'}
-              </Text>
-            </View>
-            <View style={styles.ingredientDetails}>
-              <Text
-                style={[
-                  styles.ingredientName,
-                  checkedIngredients['starter'] && styles.ingredientNameChecked,
-                ]}
-              >
-                🏺 {t('Aktywny zakwas')}
-              </Text>
-              <Text style={styles.ingredientSubtext}>{t('W szczycie aktywności')}</Text>
-            </View>
-            <Text
-              style={[
-                styles.ingredientWeight,
-                checkedIngredients['starter'] && styles.ingredientWeightChecked,
-              ]}
-            >
-              {formatWeight(calculations.starterGrams, unitSystem)}
-            </Text>
-          </Pressable>
-
-          {/* Sól */}
-          <Pressable
+          />
+          <ScaleIngredientRow
             testID="scale-item-salt"
-            style={[
-              styles.ingredientRow,
-              checkedIngredients['salt'] && styles.ingredientRowChecked,
-            ]}
+            label={`🧂 ${t('Sól kłodawska / morska')}`}
+            subtext="2.0%"
+            weight={formatDoseWeight(calculations.saltGrams, unitSystem)}
+            checked={!!checkedIngredients['salt']}
             onPress={() => toggleCheck('salt')}
-          >
-            <View style={styles.checkbox}>
-              <Text style={styles.checkboxMark}>
-                {checkedIngredients['salt'] ? '✓' : '○'}
-              </Text>
-            </View>
-            <View style={styles.ingredientDetails}>
-              <Text
-                style={[
-                  styles.ingredientName,
-                  checkedIngredients['salt'] && styles.ingredientNameChecked,
-                ]}
-              >
-                🧂 {t('Sól kłodawska / morska')}
-              </Text>
-              <Text style={styles.ingredientSubtext}>2.0%</Text>
-            </View>
-            <Text
-              style={[
-                styles.ingredientWeight,
-                checkedIngredients['salt'] && styles.ingredientWeightChecked,
-              ]}
-            >
-              {formatDoseWeight(calculations.saltGrams, unitSystem)}
-            </Text>
-          </Pressable>
+          />
         </View>
 
         {/* Podsumowanie masy ciasta surowego */}
@@ -507,56 +399,6 @@ const styles = StyleSheet.create({
   },
   ingredientsList: {
     gap: 8,
-  },
-  ingredientRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: theme.colors.surface,
-    paddingHorizontal: theme.spacing.md,
-    paddingVertical: 12,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.border,
-    minHeight: 52, // Zasada Brudnego Kciuka
-  },
-  ingredientRowChecked: {
-    backgroundColor: theme.colors.background,
-    borderColor: theme.colors.borderLight,
-    opacity: 0.5,
-  },
-  checkbox: {
-    marginRight: theme.spacing.sm,
-  },
-  checkboxMark: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: theme.colors.accent,
-  },
-  ingredientDetails: {
-    flex: 1,
-  },
-  ingredientName: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.textPrimary,
-  },
-  ingredientNameChecked: {
-    textDecorationLine: 'line-through',
-    color: theme.colors.textMuted,
-  },
-  ingredientSubtext: {
-    fontSize: 11,
-    color: theme.colors.textMuted,
-    marginTop: 1,
-  },
-  ingredientWeight: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: theme.colors.accent,
-  },
-  ingredientWeightChecked: {
-    textDecorationLine: 'line-through',
-    color: theme.colors.textMuted,
   },
   totalDoughRow: {
     flexDirection: 'row',
