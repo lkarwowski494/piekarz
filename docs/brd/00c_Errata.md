@@ -37,6 +37,7 @@ Wpisy ER-01…ER-05 to dawna tabela „Sprzeczności w literaturze piekarskiej�
 | ER-26 | 2026-10-19 | rola 03 (ER-03-032b-a, ER-03-032-a) | C2c, PR-06, F-43, D-034 | Doktor Chleba (DIAG-01…DIAG-04) bez wymagania BR; właściciel wybrał MVP z propozycją po ocenie ≤ 2★ (ZM-07, „3a”) | przyjęte 2026-10-19 (BR-DIAG-001 w C2c); wskazanie BR-DIAG-001 w wierszu F-43 kontraktu: otwarte, rola 03 |
 | ER-27 | 2026-10-19 | rola 03 (ER-03-032b-b, ER-03-032-c) | C1, PR-06, F-44, D-034 | Akademia (lekcje i biblioteka technik) bez wymagania BR; właściciel wybrał MVP bez rang (ZM-11, „4b”) | przyjęte 2026-10-19 (BR-NAUK-001 w C1); wskazanie BR-NAUK-001 w wierszu F-44 kontraktu: otwarte, rola 03 |
 | ER-28 | 2026-10-19 | rola 03 (ER-03-032b-c, ER-03-032-c) | B1, PR-01, F-45, D-034 | Przelicznik miar objętości na gramy (Z-013, dawniej etap 1.2) bez wymagania BR; właściciel wybrał MVP po BR (ZM-08, „5 zgodnie z rekomendacją”) | przyjęte 2026-10-19 (BR-KALK-007 w B1); masy na miarę: otwarte, rola 06, OP-26; wskazanie BR-KALK-007 w wierszu F-45 kontraktu: otwarte, rola 03 |
+| ER-29 | 2026-10-19 | rola 03 (ER-03-032b-d, ER-03-032-c) | B4, PR-01, PR-05, F-50, D-034 | Druk PDF karty receptury i etykiety słoika (Z-077, dawniej etap 1.1) bez wymagania BR; właściciel wybrał MVP po BR z jednym wejściem w menu (ZM-13, „7b”), wyjątek od zasady 18 bez dowodu B/R/W | przyjęte 2026-10-19 (BR-DRUK-001 w B4); dowód potrzeby: otwarte, rola 01, OP-27; wskazanie BR-DRUK-001 w wierszu F-50 kontraktu: otwarte, rola 03 |
 
 ---
 
