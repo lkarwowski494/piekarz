@@ -5,6 +5,8 @@
 **Rola:** Principal Monetization & Product Strategy Architect, Behavioral Pricing Economist, Forensic Revenue Auditor  
 **Klasyfikacja:** `docs/monetyzacja-audyt.md` (Krytyczny wsad do testów i QA)
 
+> **Zastąpione 2026-10-19 (D-033, DEC-01 d; 02-monetyzacja-012):** model, ceny, okres próbny i podział opisane niżej nie obowiązują. Konwersje, miks koszyka, retencja, scenariusze pobrań i cytaty konkurencji w tym dokumencie nie mają źródła z datą ani metody: **[BEZ ŹRÓDŁA — nie są podstawą żadnej decyzji]**. Podstawą DEC-01 (d) jest bramka wariantów roli 02 z 2026-10-19 (raport audytu poza repozytorium). Dokument `docs/monetyzacja.md` z rachunkiem na dzisiejszych stawkach jest otwarty (zadanie dla roli 02, tryb build). Tekst niżej zostaje jako historia.
+
 ---
 
 ## 1. Rekomendowana Architektura Monetyzacji i Cennik (Pricing & Packaging)
