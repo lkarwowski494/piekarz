@@ -252,6 +252,15 @@ export function DoMiskiScaleCard({
             checked={!!checkedIngredients['salt']}
             onPress={() => toggleCheck('salt')}
           />
+          {calculations.yeastGrams > 0 && (
+            <ScaleIngredientRow
+              testID="scale-item-yeast"
+              label={`🫧 ${t('Drożdże')}`}
+              weight={formatDoseWeight(calculations.yeastGrams, unitSystem)}
+              checked={!!checkedIngredients['yeast']}
+              onPress={() => toggleCheck('yeast')}
+            />
+          )}
         </View>
 
         {/* Podsumowanie masy ciasta surowego */}

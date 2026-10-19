@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 32 | 32 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 471 | 471 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 472 | 472 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 270 | 270 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 96 | 96 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **874** | Pokrytych: **874** | Brakujących: **0**
+Łącznie elementów: **875** | Pokrytych: **875** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -136,6 +136,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Aktywny zakwas` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `W szczycie aktywności` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Sól kłodawska / morska` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Drożdże` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
 | `TEKST` | `Całkowita masa ciasta:` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Receptury mistrzowskie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Przelicznik objętości` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/onboarding-modal.test.tsx |
 | `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 574 kolejnych elementów w pełnym wykazie)*
+*(... i 575 kolejnych elementów w pełnym wykazie)*

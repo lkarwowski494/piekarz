@@ -25,6 +25,8 @@ export interface UseRecipeCalculationsParams {
   waterPct: number;
   starterPct: number;
   saltPct: number;
+  /** Drożdże z receptury (% mąki); 0 = receptura bez drożdży [M1-audytor-generalny-092]. */
+  extraYeastPct?: number;
   starterHydration: number;
   targetDdt: number;
   flourTemp: number;
@@ -48,6 +50,7 @@ export function useRecipeCalculations({
   waterPct,
   starterPct,
   saltPct,
+  extraYeastPct = 0,
   starterHydration,
   targetDdt,
   flourTemp,
@@ -66,9 +69,9 @@ export function useRecipeCalculations({
     if (calcMode === 'loaves') {
       return Math.round(loavesCount * loafWeightGrams);
     }
-    const totalPercent = 100.0 + waterPct + starterPct + saltPct;
+    const totalPercent = 100.0 + waterPct + starterPct + saltPct + extraYeastPct;
     return Math.round(flourGrams * (totalPercent / 100.0));
-  }, [calcMode, loavesCount, loafWeightGrams, flourGrams, waterPct, starterPct, saltPct]);
+  }, [calcMode, loavesCount, loafWeightGrams, flourGrams, waterPct, starterPct, saltPct, extraYeastPct]);
 
   // Calculations
   const calculations = useMemo(() => {
@@ -77,10 +80,11 @@ export function useRecipeCalculations({
       waterPercentage: waterPct,
       starterPercentage: starterPct,
       saltPercentage: saltPct,
+      extraYeastPercentage: extraYeastPct,
       starterHydration,
       targetDoughWeightGrams,
     });
-  }, [flourBlend, waterPct, starterPct, saltPct, starterHydration, targetDoughWeightGrams]);
+  }, [flourBlend, waterPct, starterPct, saltPct, extraYeastPct, starterHydration, targetDoughWeightGrams]);
 
   const currentRecipeForShare = useMemo(() => {
     return {

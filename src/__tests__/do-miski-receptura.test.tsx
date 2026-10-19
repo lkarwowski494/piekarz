@@ -58,6 +58,22 @@ describe('karta Do miski a dane receptury', () => {
     act(() => tree.unmount());
   });
 
+  // [M1-audytor-generalny-092] drożdże z receptury trafiają do obliczeń i do listy ważenia
+  it('pizza: wiersz drożdży z masą z kalkulatora (0.08% → 0.5 g)', async () => {
+    const tree = await renderWith('pizza_napoletana_48h');
+    const yeast = row(tree, 'scale-item-yeast');
+    expect(yeast).toHaveLength(1);
+    expect(text(yeast[0])).toMatch(/0[.,]5 g/);
+    act(() => tree.unmount());
+  });
+
+  it('receptura bez drożdży nie ma wiersza drożdży', async () => {
+    const preset = MASTER_RECIPES.find((p) => !p.formula.extraYeastPercentage)!;
+    const tree = await renderWith(preset.id);
+    expect(row(tree, 'scale-item-yeast')).toHaveLength(0);
+    act(() => tree.unmount());
+  });
+
   it('receptura na zakwasie pokazuje wiersz zakwasu i swój procent soli', async () => {
     const preset = MASTER_RECIPES.find((p) => p.formula.starterPercentage > 0)!;
     const tree = await renderWith(preset.id);

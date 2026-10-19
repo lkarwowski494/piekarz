@@ -83,6 +83,7 @@ export default function CalculatorScreen() {
   const [waterPct, setWaterPct] = useState<number>(68.0);
   const [starterPct, setStarterPct] = useState<number>(20.0);
   const [saltPct, setSaltPct] = useState<number>(2.0);
+  const [yeastPct, setYeastPct] = useState<number>(0); // drożdże z receptury [M1-audytor-generalny-092]
   const [starterHydration, setStarterHydration] = useState<number>(100.0);
 
   // DDT parameters
@@ -127,6 +128,7 @@ export default function CalculatorScreen() {
     setWaterPct(formula.waterPercentage);
     setStarterPct(formula.starterPercentage);
     setSaltPct(formula.saltPercentage);
+    setYeastPct(formula.extraYeastPercentage ?? 0);
     setStarterHydration(formula.starterHydration ?? 100.0);
     if (ddt !== undefined) setTargetDdt(ddt);
   }, []);
@@ -153,6 +155,7 @@ export default function CalculatorScreen() {
     waterPct,
     starterPct,
     saltPct,
+    extraYeastPct: yeastPct,
     starterHydration,
     targetDdt,
     flourTemp,
@@ -313,6 +316,7 @@ export default function CalculatorScreen() {
           waterPercentage: waterPct,
           saltPercentage: saltPct,
           starterPercentage: starterPct,
+          extraYeastPercentage: yeastPct,
           starterHydration,
           targetDoughWeightGrams,
         },
