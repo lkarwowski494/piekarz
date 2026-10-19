@@ -8,6 +8,7 @@
 > **Kategoria Główna:** Food & Drink (Żywność i napoje)  
 > **Kategoria Poboczna:** Productivity (Produktywność)  
 > **Klasyfikacja Wiekowa:** 4+ (Brak ograniczeń wiekowych)  
+> **Jedyne źródło metadanych sklepu** (nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis — każdy język): ten plik. `docs/15-app-store.md` tylko odsyła tutaj; test `tests/store-metadata.test.ts` pilnuje limitu słów kluczowych (100 B) w każdym języku [M1-audytor-generalny-036]. Słowa kluczowe pozostałych języków: przekład 095 (partia 4).  
 
 ---
 
@@ -20,7 +21,7 @@
 | **Nazwa aplikacji (Name)** | `Piekarz — Chleb i Zakwas` | **24** | max 30 |
 | **Podtytuł (Subtitle)** | `Kalkulator chleba i 4-DDT` | **25** | max 30 |
 | **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), 4-DDT, kroki z Twojego planu na stolnicy i 100% prywatności offline.` | **165** | max 170 |
-| **Słowa kluczowe (Keywords)** | `chleb,zakwas,pieczenie,kalkulator,mąka,ddt,hydratacja,bochenek,garnek,doktor,stolnica,piekarz,przepis` | **98** | max 100 |
+| **Słowa kluczowe (Keywords)** | `pieczenie,mąka,hydratacja,bochenek,garnek,receptura,fermentacja,żytni,lewain,harmonogram,pizza` | **96** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
 ### 1.2. Pełny Opis Aplikacji (Description PL — 3 745 / 4 000 znaków)
 
@@ -70,7 +71,7 @@ Języki: polski i angielski.
 | **App Name** | `Crust — Sourdough & Bread` | **25** | max 30 |
 | **Subtitle** | `Baker's % & 4-DDT Calculator` | **28** | max 30 |
 | **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, bench steps from your plan, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **166** | max 170 |
-| **Keywords** | `bread,sourdough,baking,calculator,flour,hydration,baker,dutch oven,loaf,ferment,levain,crumb,recipe` | **99** | max 100 |
+| **Keywords** | `baking,flour,hydration,dutch oven,loaf,ferment,levain,crumb,recipe,rye,starter,schedule,pizza` | **93** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
 ### 2.2. Pełny Opis Aplikacji (Description EN — 3 879 / 4 000 znaków)
 
