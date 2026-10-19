@@ -26,6 +26,7 @@ export * from './settings-store';
 import { writeOrThrow } from './storage-status';
 import { getAppAccess, incrementCompletedBakes } from './app-access-store';
 import { signAppAccessRecord } from '../lib/app-access-crypto';
+import { isRecipeInput } from './row-parsers';
 
 // ==========================================
 // Bakes & Stolnica
@@ -227,15 +228,27 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
 
     if (rows.length === 0) return [...memStore.recipes];
 
-    return rows.map((r) => ({
-      id: r.id,
-      name: r.name,
-      formula: JSON.parse(r.formula_json),
-      targetDDT: r.target_ddt,
-      notes: r.notes ?? undefined,
-      isBuiltIn: r.is_built_in === 1,
-      createdAt: r.created_at,
-    }));
+    // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022]
+    const out: StoredRecipe[] = [];
+    for (const r of rows) {
+      let formula: unknown;
+      try {
+        formula = JSON.parse(r.formula_json);
+      } catch {
+        continue;
+      }
+      if (!isRecipeInput(formula)) continue;
+      out.push({
+        id: r.id,
+        name: r.name,
+        formula,
+        targetDDT: r.target_ddt,
+        notes: r.notes ?? undefined,
+        isBuiltIn: r.is_built_in === 1,
+        createdAt: r.created_at,
+      });
+    }
+    return out;
   } catch {
     return [...memStore.recipes];
   }
@@ -277,24 +290,29 @@ export async function deleteRecipe(id: string): Promise<void> {
  * Restores entire state from a validated backup dataset.
  */
 export async function restoreFromBackupData(data: PiekarzBackupData): Promise<void> {
-  // Always update memory store
-  memStore.logs = [...data.bakes];
-  memStore.starters = [...data.starters];
-  memStore.recipes = [
-    ...MASTER_RECIPES.map((preset) => ({
-      id: preset.id,
-      name: preset.namePl,
-      formula: preset.formula,
-      targetDDT: preset.targetDDT,
-      notes: preset.notesPl,
-      isBuiltIn: true,
-      createdAt: Date.now(),
-    })),
-    ...data.customRecipes,
-  ];
+  // Pamięć dopiero po zatwierdzeniu transakcji: nieudany import nie udaje sukcesu [M1-audytor-generalny-022]
+  const applyToMemory = () => {
+    memStore.logs = [...data.bakes];
+    memStore.starters = [...data.starters];
+    memStore.recipes = [
+      ...MASTER_RECIPES.map((preset) => ({
+        id: preset.id,
+        name: preset.namePl,
+        formula: preset.formula,
+        targetDDT: preset.targetDDT,
+        notes: preset.notesPl,
+        isBuiltIn: true,
+        createdAt: Date.now(),
+      })),
+      ...data.customRecipes,
+    ];
+  };
 
   const db = await getDb();
-  if (!db) return;
+  if (!db) {
+    applyToMemory();
+    return;
+  }
 
   await writeOrThrow(() => db.withTransactionAsync(async () => {
     await db.execAsync('DELETE FROM bakes;');
@@ -331,6 +349,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
       await writeBakeRow(db, b);
     }
   }));
+  applyToMemory();
 }
 
 // ==========================================

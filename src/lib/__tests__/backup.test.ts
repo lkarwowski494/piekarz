@@ -60,7 +60,15 @@ describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => 
       const backup = buildBackup({
         bakes: [{ id: 'b1', recipeName: 'Pain de Campagne', startedAt: 123456789, ratingStars: 5 }],
         starters: [{ id: 's1', name: 'Stefan', flourType: 'rye', hydration: 100, birthDate: 1700000000000, storageState: 'FRIDGE' }],
-        customRecipes: [{ id: 'r1', name: 'Custom Boule', formula: {} as any, targetDDT: 24, isBuiltIn: false, createdAt: 123456 }],
+        // [M1-audytor-generalny-022] poprawna formuła: wcześniej `{} as any`, czyli wiersz, który walidacja słusznie pomija
+        customRecipes: [{
+          id: 'r1',
+          name: 'Custom Boule',
+          formula: { flours: [{ name: 'Mąka 750', percentage: 100 }], waterPercentage: 70, saltPercentage: 2, starterPercentage: 20, targetDoughWeightGrams: 1000 },
+          targetDDT: 24,
+          isBuiltIn: false,
+          createdAt: 123456,
+        }],
       });
       const jsonStr = JSON.stringify(backup);
       const parsed = parseAndValidateBackup(jsonStr);

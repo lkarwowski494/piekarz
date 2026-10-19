@@ -2,6 +2,7 @@ import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { t } from './i18n';
 import { StoredRecipe, StoredStarter, StoredBakeLog } from '../data/db';
+import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow } from '../data/row-parsers';
 
 export const SCHEMA_VERSION = 1;
 export const AUTO_DIR = 'Backup/';
@@ -180,7 +181,12 @@ export interface BackupImportStats {
 /**
  * Waliduje poprawność schematu pliku kopii zapasowej (Apps4Brew envelope).
  */
-export function parseAndValidateBackup(rawJson: string): PiekarzBackupEnvelope {
+export interface ValidatedBackup extends PiekarzBackupEnvelope {
+  /** Liczba pominiętych uszkodzonych wierszy (wypieki, zakwasy, receptury). */
+  skippedRows: number;
+}
+
+export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
   let parsed: unknown;
   try {
     parsed = JSON.parse(rawJson);
@@ -210,8 +216,8 @@ export function parseAndValidateBackup(rawJson: string): PiekarzBackupEnvelope {
     throw new Error('Brak danych stanu (sekcja "state") w pliku kopii');
   }
 
-  const state = envelope.state;
-  if (!Array.isArray(state.bakes)) {
+  const state: unknown = envelope.state;
+  if (!isObj(state) || !Array.isArray(state.bakes)) {
     throw new Error('Nieprawidłowa struktura wypieków ("bakes" musi być tablicą)');
   }
   if (!Array.isArray(state.starters)) {
@@ -221,7 +227,21 @@ export function parseAndValidateBackup(rawJson: string): PiekarzBackupEnvelope {
     throw new Error('Nieprawidłowa struktura przepisów ("customRecipes" musi być tablicą)');
   }
 
-  return envelope as PiekarzBackupEnvelope;
+  // Każdy wiersz parsowany osobno: zły wiersz jest pomijany i liczony, reszta wchodzi [M1-audytor-generalny-022]
+  const bakes = parseRows(state.bakes, parseBakeRow);
+  const starters = parseRows(state.starters, parseStarterRow);
+  const recipes = parseRows(state.customRecipes, parseRecipeRow);
+  return {
+    format: 'piekarz-backup',
+    schemaVersion: envelope.schemaVersion,
+    exportedAt: typeof envelope.exportedAt === 'string' ? envelope.exportedAt : '',
+    state: {
+      bakes: bakes.rows,
+      starters: starters.rows,
+      customRecipes: recipes.rows.map((r) => ({ ...r, isBuiltIn: false })),
+    },
+    skippedRows: bakes.skipped + starters.skipped + recipes.skipped,
+  };
 }
 
 export interface CorruptStateRecovery {

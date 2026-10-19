@@ -726,6 +726,8 @@ export const EN: Record<string, string> = {
   'Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.':
     'A copy of your data from before the update is saved on your phone. You can share it, for example save it to Files.',
   'Udostępnij kopię bazy': 'Share database copy',
+  // Import z pominiętymi wierszami [M1-audytor-generalny-022]
+  'Zaimportowano. Pominięto uszkodzone wpisy: {count}.': 'Imported. Skipped damaged entries: {count}.',
 };
 
 

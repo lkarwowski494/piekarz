@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 38 | 38 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 463 | 463 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 225 | 225 | **100.0%** | ✅ POKRYTE |
+| **UI** | 37 | 37 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 465 | 465 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 229 | 229 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 82 | 82 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **813** | Pokrytych: **813** | Brakujących: **0**
+Łącznie elementów: **818** | Pokrytych: **818** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 513 kolejnych elementów w pełnym wykazie)*
+*(... i 518 kolejnych elementów w pełnym wykazie)*

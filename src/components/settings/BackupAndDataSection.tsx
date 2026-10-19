@@ -106,7 +106,12 @@ export function BackupAndDataSection() {
       // Restore data inside transaction
       await restoreFromBackupData(envelope.state);
 
-      Alert.alert(t('Kopia zapasowa'), t('Zaimportowano pomyślnie!'));
+      Alert.alert(
+        t('Kopia zapasowa'),
+        envelope.skippedRows > 0
+          ? t('Zaimportowano. Pominięto uszkodzone wpisy: {count}.', { count: envelope.skippedRows })
+          : t('Zaimportowano pomyślnie!')
+      );
       setShowImportInput(false);
       setImportJsonText('');
     } catch (err: unknown) {
