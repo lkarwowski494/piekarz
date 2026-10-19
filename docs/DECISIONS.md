@@ -64,6 +64,24 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 
 ---
 
+### [D-034] 2026-10-19 — Wybory właściciela do ZM-04 i ZM-07…ZM-14 kontraktu zakresu
+- **Status:** wybór właściciela 2026-10-19 (przekazany przez M1); zadanie M1-audytor-generalny-032 (rola 03, tryb fix, wpis wyborów). Rozstrzyga pytania 1–9 z wyniku roli 03 dla 032 i weto ZM-04 z D-032.
+- **Słowa właściciela:** „1a 2a 3a 4b 5 zgodnie z rekomendacją 6a 7b 8a 9a”.
+- **Decyzja (wpis w `docs/scope-contract.md`, sekcje 7 i 8):**
+  - 1a → F-17 kilka wypieków i minutników naraz PÓŹNIEJ (ZM-10); odrzucone (b) MVP.
+  - 2a → F-29 zdjęcia w dzienniku PÓŹNIEJ (ZM-09); odrzucone (b) jedno zdjęcie na wpis, (c) z porównaniem przekroju.
+  - 3a → F-43 Doktor Chleba MVP: propozycja Doktora po ocenie ≤ 2★, nagłówki i pivot zostają (ZM-07); odrzucone (b) szósta zakładka, (c) PÓŹNIEJ.
+  - 4b → F-44 Akademia MVP bez rang, z BR (ZM-11); odrzucone (a) TEST (rekomendacja roli 03), (c) PÓŹNIEJ.
+  - 5 zgodnie z rekomendacją → F-45 przelicznik objętości MVP po BR; F-46…F-49 PÓŹNIEJ, wejście ukryte, kod zostaje (ZM-08); odrzucone (c) NIE z usunięciem kodu.
+  - 6a → F-30 spiżarnia mąk MVP w części płatnej (ZM-12); odrzucone (b) PÓŹNIEJ (rekomendacja roli 03 bez dowodu wartości), (c) NIE.
+  - 7b → F-50 druk PDF i etykiety MVP po BR, jedno wejście w menu Kalkulatora (ZM-13); odrzucone (a) PÓŹNIEJ (rekomendacja roli 03).
+  - 8a → rytuał bez ukrywania receptur (dawne F-51 włączone do F-26, BR-RECP-001), „Rodzina Apps4Craft” PÓŹNIEJ (F-52, ZM-14); odrzucone (b) bez zmian, (c) usunięcie obu.
+  - 9a → TEST dla 6 BR bez dowodu (BR-KALK-006, BR-REKA-002, BR-SYS-001, BR-WSP-002, BR-ZAK-002, BR-UST-002; ZM-04); odrzucone (b) wyjątek MVP.
+- **Wyjątki nazwane od zasady 18 (D-014):** F-30 i F-50 wchodzą do MVP bez dowodu B/R/W, z woli właściciela; F-44 i F-45 z dowodem R tylko pośrednim albo słabym. Każdy z tych wierszy wraca do bramki zmian przy negatywnym wyniku przejścia poznawczego roli 04.
+- **Dlaczego wpis tutaj:** zasada roli 03 — wybór właściciela zapisany dosłownie z datą; bez tego role 04–08 nie wiedzą, które wejścia ukryć, a które zbudować.
+- **Dane użytkownika:** nic nie jest usuwane; ukrywane są tylko wejścia (F-46…F-49, F-52); postęp lekcji (`lesson_progress`), zapasy spiżarni i ustawienie `baker_ritual_profile` zostają w bazie, kopii i eksporcie.
+- **Zależy od:** BR od roli 01 dla F-43, F-44, F-45, F-50 (ER-03-032b-a…d); poprawka etapu BR-SPIZ-001 i zdjęć w BR-RECP-003 (ER-03-032b-e, -f); źródeł roli 06 dla treści Doktora, Akademii i mas w przeliczniku objętości; zadań kodu roli 08.
+
 ### [D-033] 2026-10-19 — Model płatności: StoreKit, subskrypcje i dożywotni, okres próbny tylko jako oferta App Store
 - **Status:** wybór właściciela 2026-10-19 (plan napraw M1: DEC-01 = (d) z podziałem DEC-01.podzial); zadania M1-audytor-generalny-008, -009, -027 (rola 02, tryb fix). Zastępuje: DEC-002 pkt 3 (symulowany paszport), DEC-01 = (a) z D-032, DEC-09, DEC-10 (mechanizm) i DEC-11 w `docs/brd/00b_Decyzje.md`.
 - **Słowa właściciela:** „Właśnie o to chodzi. My dojeżdżamy konkurencję ceną i przejmujemy wolumen.” (DEC-01 d); o okresie próbnym: „W robieniu chleba najtrudniejsze jest prowadzenie zakwasu. Więc bez rejestrowania wypieku mamy tu neverending free.” i „Kalkulator też idzie do próby.”
@@ -83,7 +101,7 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
   - DEC-01 = (a) StoreKit, jeden zakup dożywotni, bez lokalnego okresu próbnego → F-35 MVP; podział darmowe/płatne wstrzymany przez właściciela do wyniku rozszerzonej bramki roli 02 (kolumna WTP: „wg DEC-01, w toku”); *zastąpione 2026-10-19 przez DEC-01 (d), zob. D-033;*
   - DEC-10 = (a) zasada ostrożności dla zakwasu → F-25; DEC-06 = (b) języki → F-38; DEC-07 = (a) jeden motyw ciemny → F-39 TEST.
 - **Zasada 18 (D-014 właściciela, biblioteka zasad):** BR bez dowodu wartości, których nie ma w kodzie (BR-KALK-006, BR-REKA-002, BR-SYS-001, BR-WSP-002, BR-ZAK-002, BR-UST-002), dostały TEST z „Test:” zamiast MVP z BRD; nic nie jest budowane przed wynikiem, nic nie jest usuwane. Właściciel może to zawetować (ZM-04).
-- **Nie rozstrzygnięte tu:** funkcje działające w kodzie bez dowodu albo bez BR oraz pominięcia z linii bazowej — wiersze „DO DECYZJI WŁAŚCICIELA” (F-17, F-29, F-30, F-43…F-52) z opcjami w ZM-07…ZM-14; do wyboru stan w kodzie bez zmian.
+- **Nie rozstrzygnięte tu:** funkcje działające w kodzie bez dowodu albo bez BR oraz pominięcia z linii bazowej — wiersze „DO DECYZJI WŁAŚCICIELA” (F-17, F-29, F-30, F-43…F-52) z opcjami w ZM-07…ZM-14; do wyboru stan w kodzie bez zmian. *Rozstrzygnięte 2026-10-19 wyborem właściciela, zob. D-034 (także weto ZM-04: TEST przyjęty).*
 - **Zależy od:** wyboru właściciela w ZM-04 i ZM-07…ZM-14; BR dla funkcji bez wymagania (ER do roli 01).
 
 ---
