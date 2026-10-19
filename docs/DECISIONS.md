@@ -84,5 +84,16 @@ Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasa
 - **Dane użytkownika:** trwająca sesja w `app_settings.active_bake_session` zapisana w starym formacie wczytuje się bez utraty (test na zapisie starego formatu w zadaniu roli 08).
 - **Zależy od:** treści żytniej roli 06 (część żytnia warunkowa).
 
+---
+
+### [D-029] 2026-10-19 — Kod QR receptury zostaje w MVP jako funkcja offline
+- **Status:** wybór właściciela 2026-10-19 (plan napraw M1, decyzja DEC-05, opcja a); zadanie M1-audytor-generalny-029.
+- **Słowa właściciela:** „Zostawić QR offline z wierszem w BRD i kontrakcie; usunąć link do nieistniejącej domeny piekarz.app”.
+- **Odrzucona opcja:** (b) „Usunąć QR i uprawnienie aparatu z 1.0; udostępnianie tylko plikiem” — mniej wygodne przekazywanie receptur.
+- **Powód:** skaner prosił o aparat bez BR i bez wiersza kontraktu (audyt M1: 01-odkrywanie-015, 03-zakres-007).
+- **Skutek:** `docs/scope-contract.md` F-08 = MVP jako wyjątek właściciela z dowodem tylko H (ZAL-029), ZM-03; BR-WSP-003 do wpisania przez rolę 01 (ER). Link do domeny WWW usunięty w zadaniu 028 (commit 1a79b09).
+- **Otwarte:** obsługa linku `piekarz://recipe` (aplikacja nie ma trasy `recipe`) — osobny wybór właściciela; podział darmowe/płatne wg DEC-01, w toku.
+- **Zależy od:** wyniku testu pierwszego użycia roli 04 i ZAL-029 (decyzja warunkowa: negatywny wynik wraca do bramki zmian).
+
 
 
