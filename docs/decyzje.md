@@ -83,3 +83,31 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** zawsze metryczne, imperialne tylko po przełączeniu.
 - **Dlaczego:** użytkownik z USA widzi swoje miary od pierwszego ekranu, bez szukania ustawienia (ZAL-037).
 - **Zależy od:** D-043 (F-38 w MVP).
+
+### [D-045] 2026-10-20 — Nowa szata zastępuje DEC-07 (a): jasny i ciemny motyw według ustawienia iOS (rola 04 build, STOP E0)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „P1 a, P2 a, P3 a, P4 a. P5: zatrzymaj się po E1.” (2026-10-20, odpowiedź na pytania P1–P5 w `docs/design/00-rozpoznanie.md`).
+- **Decyzja:** (P1 a) projekt od zera z jasnym i ciemnym motywem według ustawienia systemu, bez przełącznika w aplikacji; zastępuje DEC-07 (a) planu napraw M1 („kod, ciemny motyw jako kanon”).
+- **Odrzucone:** (b) DEC-07 a zostaje, ciemny motyw jako baza.
+- **Dlaczego:** kuchnia w dzień to jasne światło (kontekst PR-01, PR-04); ciemny zostaje pełnym wariantem na noc i świt.
+- **Zależy od:** nic. Skutek dla M1: kryterium zadań 050 i 058 odnosi się do systemu z `docs/design/`, nie do motywu z kodu.
+
+### [D-046] 2026-10-20 — Własne tokeny Piekarza; `@apps4craft/ui` tylko dla komponentów technicznych (rola 04 build, STOP E0)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-045 („P2 a”).
+- **Decyzja:** Piekarz dostaje własne tokeny i element firmowy; z `@apps4craft/ui` zostają komponenty techniczne bez własnego wyglądu (np. `NumInput`, baner stanu uszkodzonego), malowane tokenami Piekarza.
+- **Odrzucone:** (b) wspólne tokeny rodziny, zmiana tylko akcentu i elementu (audyt M1 04-011: aplikacji nie da się rozpoznać po zakryciu nazwy).
+- **Dlaczego:** zasada studia 11 (wspólny poziom jakości, nie wygląd).
+- **Zależy od:** nic. Sposób wykonania (nadpisanie tokenów, kopia komponentów): decyzja techniczna ról 05 i 08.
+
+### [D-047] 2026-10-20 — Oferta przy pierwszej akcji w przepływie, nie zaraz po wyborze na starcie (rola 04 build, STOP E0)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-045 („P3 a”).
+- **Decyzja:** wybór czynności na starcie (F-68) otwiera pierwszy ekran przepływu bez oferty: lista receptur bazowych z nazwami albo dla „zakładam zakwas” opis, co nas czeka i ile to zwykle trwa. Oferta (BR-ZAK-005) pojawia się przy pierwszej akcji, która liczy, planuje albo zapisuje (otwarcie receptury w kalkulatorze, „zaczynam zakwas”).
+- **Odrzucone:** (b) oferta zaraz po wyborze czynności.
+- **Dlaczego:** usuwa sprzeczność między kontraktem zakresu (F-68: „wybór prowadzi do przepływu bez oferty”) a kontraktem płatności (wiersz PR-12); lista nazw to nawigacja, więc podział D-038 bez zmian.
+- **Zależy od:** D-038. Do zgodności tekstów: rola 02 (wiersz PR-12 kontraktu płatności) i rola 03 (F-68) — przekazanie w `docs/sztafeta.md` po E4.
+
+### [D-048] 2026-10-20 — Najdłuższy język z pomiaru: roboczy przekład tekstów makiet przez Message Batches (rola 04 build, STOP E0)
+- **Rodzaj:** produktowa (koszt). **Słowa właściciela:** jak D-045 („P4 a”).
+- **Decyzja:** przed zrzutami E3 ok. 80 tekstów kluczowych ekranów idzie roboczo na 34 języki przez Message Batches w `narzedzia-api`; język o największej długości (pomiar znaków i najdłuższych etykiet) trafia na zrzuty E3. Przekład tylko do pomiaru i makiet; przekład aplikacji to zadanie 093 (partia 6).
+- **Odrzucone:** (b) przekład roboczy w sesji na ok. 8 kandydatów; (c) przyjęcie DE bez pomiaru (DE = 1,05× PL na 1385 tekstach pilota).
+- **Dlaczego:** pomiar zamiast założenia; zasada właściciela: przekład przez Batches, nie sesjami.
+- **Zależy od:** zgody na to jedno płatne wywołanie (dana tu, 2026-10-20; koszt rzędu centów do 1 USD).
