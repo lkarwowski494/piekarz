@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 36 | 36 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 478 | 478 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 244 | 244 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 98 | 98 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 467 | 467 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 229 | 229 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 79 | 79 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **861** | Pokrytych: **861** | Brakujących: **0**
+Łącznie elementów: **816** | Pokrytych: **816** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -168,18 +168,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Rozumiem, zamknij komunikat ratunkowy` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Ukryj` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Kalkulator kosztów wypieku` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Szacunkowy koszt składników i energii pieca` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Laboratorium B2B` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Koszt za bochenek` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
-| `TEKST` | `Koszt na 100g` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Koszt całego wypieku` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
-| `TEKST` | `Składniki` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
-| `TEKST` | `Energia pieca` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
-| `TEKST` | `Cena mąki` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/cost-calculator-modal.test.tsx |
-| `TEKST` | `Cena energii` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Dodatki (orzechy, ziarna)` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zamknij` | `src/components/CostCalculatorModal.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przepisy na Odrzut Zakwasu` | `src/components/DiscardRecipesModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij przepisy na odrzut` | `src/components/DiscardRecipesModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu` | `src/components/DiscardRecipesModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -273,6 +261,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Początkowy stan zapasów (g)` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zapisz w spiżarni` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dodaj nową mąkę` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zamknij` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpoczęcie dokarmiania` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Gotowy do krojenia` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kopiuj harmonogram` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +308,16 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `APPS4CRAFT STUDIO · 100% OFFLINE` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Witaj w Piekarzu` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Jaki jest Twój styl wypieku?` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Klasyczny Zakwasowiec` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Nowoczesny Rzemieślnik` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Początkujący Piekarz` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Rozpocznij rytuał wypieku` | `src/components/OnboardingModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 561 kolejnych elementów w pełnym wykazie)*
+*(... i 516 kolejnych elementów w pełnym wykazie)*

@@ -58,7 +58,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
 | **Doktor Chleba & Ratunek** | `Z-099`–`Z-100` | Drzewo symptomów, 9 kodów wad, procedury ratowania ciasta (Dough Recovery) | ✅ Wdrożone |
 | **Szkoła Chleba (Ścieżka SCI)** | `Z-084`–`Z-090` | 6 stopni wtajemniczenia: No-knead, wiejski, Tartine, 100% żytni, bagietka, pizza | ✅ Wdrożone |
 | **Biblioteka Technik (BIB)** | `Z-091`–`Z-098` | 12 kart technik: autoliza, coil fold, slap&fold, laminacja, pre-shape, scoring | ✅ Wdrożone |
-| **Trener Rachunku & Fiszki (TRE)** | `BR-TRE-001/002` | Mental Baker Drill (60s), poziomy 1–3, fiszki biochemiczne z systemem Leitnera | ✅ Wdrożone |
+| **Trener Rachunku & Fiszki (TRE)** | `BR-TRE-001/002` | Mental Baker Drill (60s), poziomy 1–3, fiszki biochemiczne z systemem Leitnera | ✂️ Wycięte (D-031, lista odcięć KL-13 w `docs/scope-contract.md`) |
 | **Persystencja SQLite & Backup** | `Z-073`–`Z-076` | Baza w `/Library/SQLite`, auto-backup 10 kopii, JSON export/import, sharing | ✅ Wdrożone |
 | **Zegary kuchenne & Alarmy** | `Z-054`–`Z-056` | Timery wielobieżne, głośne alarmy, integracja dźwiękowa i wibracyjna | ✅ Wdrożone |
 | **Ustawienia & Pro** | `Z-078`–`Z-080` | Model etyczny, brak lock-in, Pro Lifetime, Family Sharing info | ✅ Wdrożone |
@@ -79,7 +79,6 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
    - Precyzyjny kalkulator topnienia lodu w wodzie kranowej.
    - Szacowanie wagi upieczonego bochenka (strata wypiekowa 14%).
    - Magazyn mąk i ostrzeżenia o brakach magazynowych w spiżarni (`FlourInventoryModal`).
-   - Kalkulator kosztu surowcowego bochenka (`CostCalculatorModal`).
    - Mieszalnik mąk i kalkulator wypadkowego białka/W (`FlourBlendModal`).
    - Filtrowanie receptur mistrzowskich według 4 kategorii rzemieślniczych i karty zaleceń wypiekowych.
    - Eksport i bezpieczny import formuł w formacie JSON (`ImportRecipeModal`, `recipe-sharing.ts`).
@@ -118,9 +117,7 @@ Status wdrożenia według specyfikacji wymagań biznesowych (BRD v0.1):
    - Rejestracja postępu ucznia w bezpiecznej bazie SQLite.
 9. **📖 Biblioteka Technik Rzemieślniczych (`Z-091`–`Z-098`):**
    - 12 kart technologii piekarskich z precyzyjnymi zasadami fizycznymi, checklistą wykonania i typowymi błędami.
-10. **🧠 Trener Procentu Piekarskiego & Fiszki Biochemiczne (`BR-TRE-001`, `BR-TRE-002`):**
-    - Szybki 60-sekundowy trening rachunku pamięciowego (poziomy 1, 2, 3) z natychmiastowym wyjaśnieniem.
-    - Fiszki wiedzy biochemicznej (bielmo, glutenina, gliadyna, enzymy, kwas mlekowy/octowy) oparte na algorytmie Leitnera.
+10. **✂️ Lista odcięć (D-031, 2026-10-19):** Apple Watch, Live Activity, skróty Siri, eksport do kalendarza, plik `.piekarz`, trener rachunku i fiszki, sonda temperatury, kalkulator kosztu, Garmin i stary korzeń `App.tsx` usunięte z kodu; powody i warunki powrotu w `docs/scope-contract.md` (sekcja 3a, KL-06…KL-17).
 11. **⚙️ Ustawienia, Kopia Zapasowa i Pro:**
     - Eksport i import bazy w formacie JSON (`exportBackup`).
     - Etyczny model monetyzacji (Darmowy rdzeń + opcjonalny Pro Lifetime lub 0,99 €/mc bez blokowania podstawowych funkcji).
@@ -255,7 +252,6 @@ piekarz/
 │   │   ├── ImportRecipeModal.tsx # Bezpieczny import i podgląd receptur z formatu JSON
 │   │   ├── FlourBlendModal.tsx   # Wieloskładnikowy mieszalnik mąk i normalizator
 │   │   ├── FlourInventoryModal.tsx # Magazyn mąk i spiżarnia
-│   │   ├── CostCalculatorModal.tsx # Kalkulator kosztów surowcowych
 │   │   ├── StarterConverterModal.tsx # Konwerter hydratacji i Lievito Madre
 │   │   ├── SensoryRadarChart.tsx # Wektorowy wykres pajęczynowy oceniania sensorycznego SVG
 │   │   ├── QrCodeSvg.tsx         # Wektorowy renderer kodów QR SVG
@@ -271,7 +267,6 @@ piekarz/
 │   │   ├── preferments.ts      # Kalkulator zaczynów: Poolish, Biga, Pâte Fermentée, Levain
 │   │   ├── starter-converter.ts# Konwerter hydratacji zakwasu i protokół Lievito Madre
 │   │   ├── inventory.ts        # Magazyn spiżarni i kalkulator braków surowcowych
-│   │   ├── cost-calculator.ts  # Wycena kosztów składników bochenka
 │   │   ├── bake-statistics.ts  # Agregacja statystyk i filtracja historii wypieków
 │   │   └── __tests__/          # Wektory testowe TV-01…TV-08 & Property-Based Testing
 │   ├── data/                   # Warstwa danych i SQLite

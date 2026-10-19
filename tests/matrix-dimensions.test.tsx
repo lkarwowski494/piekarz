@@ -11,7 +11,6 @@ import { Field, Btn, Empty, Missing } from '../src/components/ui';
 
 import { BakeTypePresetId, CrumbMoistureCategory } from '../src/core/bake-loss';
 import { DutchOvenBakePhase, DUTCH_OVEN_PHASES, BAKE_STEPS } from '../src/core/baking-phases';
-import { DEFAULT_COST_PARAMETERS } from '../src/core/cost-calculator';
 import { HydrationDifficulty, POPULAR_FLOUR_BLENDS } from '../src/core/domain-rules';
 import { FLOUR_PROFILES } from '../src/core/flour-atlas';
 import { FlourRegion, FlourGradeCategory } from '../src/core/flour-equivalents';
@@ -32,17 +31,8 @@ import { SubscriptionTier } from '../src/data/db';
 import { SQLITE_INIT_QUERIES } from '../src/data/schema';
 import { DB_NAME } from '../src/data/sqlite-schema';
 import { BakerRitualProfile, BakingVessel } from '../src/data/sqlite-store';
-import {
-  FlavourProfile,
-  StorageState,
-  FeedingRatio,
-  BakePhase,
-  BakeEvent,
-  PendingOpStatus,
-} from '../src/core/domain/types';
 import { PluralRuleCategory } from '../src/lib/i18n-locales';
-import { BreadCrumbTarget, ThermalProbeStatus } from '../src/core/thermal-probe';
-import { LiveActivityBakePhase } from '../src/lib/live-activity';
+import { StorageState } from '../src/data/storage-status';
 
 describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
   describe('Compact Width 320pt Constraints (iPhone SE 1st gen)', () => {
@@ -140,10 +130,6 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
         expect(p.id).toBeTruthy();
         expect(p.temperatureC).toBeGreaterThan(150);
       });
-
-      // 4. Default cost parameters
-      expect(DEFAULT_COST_PARAMETERS.flourPricePerKg).toBeGreaterThan(0);
-      expect(DEFAULT_COST_PARAMETERS.electricityPricePerKwh).toBeGreaterThan(0);
 
       // 5. Flour profiles & blends
       expect(FLOUR_PROFILES.length).toBeGreaterThanOrEqual(10);
@@ -247,44 +233,8 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       const vessels: BakingVessel[] = ['dutch_oven', 'cloche', 'baking_steel', 'pullman_pan'];
       expect(vessels.length).toBe(4);
 
-      const flavours: FlavourProfile[] = ['balanced', 'mild_sweet', 'tangy_lactic', 'sharp_acetic', 'earthy_malted'];
-      expect(flavours.length).toBe(5);
-
-      const storageStates: StorageState[] = ['ROOM_TEMP', 'FRIDGE', 'FREEZER', 'DRIED'];
-      expect(storageStates.length).toBe(4);
-
-      const feedingRatios: FeedingRatio[] = ['1:1:1', '1:2:2', '1:3:3', '1:4:4', '1:5:5'];
-      expect(feedingRatios.length).toBe(5);
-
-      const bakePhases: BakePhase[] = [
-        'IDLE',
-        'AUTOLYSE',
-        'MIXING_BASSINAGE',
-        'BULK_FERMENTATION',
-        'PRE_SHAPE',
-        'BENCH_REST',
-        'FINAL_SHAPE',
-        'COLD_RETARD',
-        'SCORING',
-        'BAKING_STEAM',
-        'BAKING_VENT',
-        'COOLING',
-        'COMPLETED',
-      ];
-      expect(bakePhases.length).toBe(13);
-
-      const bakeEvents: BakeEvent[] = [
-        { type: 'START_BAKE', recipeId: '1', ddt: 26, ambientTemp: 22 },
-        { type: 'NEXT_STEP' },
-        { type: 'RECORD_FOLD', foldIndex: 1 },
-        { type: 'DUTCH_OVEN_LID_OFF' },
-        { type: 'FINISH_BAKE', crumbScore: 5, crustScore: 5, taste: 'balanced' },
-        { type: 'ABORT_BAKE' },
-      ];
-      expect(bakeEvents.length).toBe(6);
-
-      const pendingStatuses: PendingOpStatus[] = ['PENDING', 'PROCESSING', 'SYNCED', 'FAILED'];
-      expect(pendingStatuses.length).toBe(4);
+      const storageStates: StorageState[] = ['ok', 'unavailable'];
+      expect(storageStates.length).toBe(2);
 
       const pluralCategories: PluralRuleCategory[] = [
         'slavic',
@@ -296,27 +246,6 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       ];
       expect(pluralCategories.length).toBe(6);
 
-      const breadCrumbTargets: BreadCrumbTarget[] = ['wheat', 'rye', 'enriched'];
-      expect(breadCrumbTargets.length).toBe(3);
-
-      const probeStatuses: ThermalProbeStatus[] = [
-        'warming',
-        'gelatinizing',
-        'nearing_done',
-        'done',
-        'overbaked',
-      ];
-      expect(probeStatuses.length).toBe(5);
-
-      const livePhases: LiveActivityBakePhase[] = [
-        'autolyse',
-        'bulk_fold',
-        'cold_retard',
-        'dutch_oven_steam',
-        'dutch_oven_vent',
-        'cooling',
-      ];
-      expect(livePhases.length).toBe(6);
     });
   });
 });

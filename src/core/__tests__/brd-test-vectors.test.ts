@@ -15,7 +15,6 @@ import {
   calculateStarterFeeding,
 } from '../domain-rules';
 import { calculatePrefermentBreakdown } from '../preferments';
-import { calculateBatchCost } from '../cost-calculator';
 
 describe('BRD Ground Truth Test Vectors (test-vectors.json)', () => {
   it('validates test vectors metadata and citation integrity', () => {
@@ -161,24 +160,4 @@ describe('BRD Ground Truth Test Vectors (test-vectors.json)', () => {
     });
   });
 
-  describe('RD_COST: Batch Economics', () => {
-    testVectorsFixture.vectors.RD_COST_batch_economics.forEach((v: any) => {
-      it(`vector ${v.id} calculates batch economics`, () => {
-        const res = calculateBatchCost({
-          totalFlourGrams: v.input.totalFlourGrams,
-          totalWaterGrams: v.input.totalWaterGrams,
-          totalSaltGrams: v.input.totalSaltGrams,
-          loavesCount: v.input.loavesCount,
-          bakedLoafWeightGrams: v.input.bakedLoafWeightGrams,
-        });
-
-        expect(res.flourCost).toBe(v.expected.flourCost);
-        expect(res.waterCost).toBe(v.expected.waterCost);
-        expect(res.saltCost).toBe(v.expected.saltCost);
-        expect(res.totalBatchCost).toBe(v.expected.totalBatchCost);
-        expect(res.costPerLoaf).toBe(v.expected.costPerLoaf);
-        expect(res.costPer100g).toBe(v.expected.costPer100g);
-      });
-    });
-  });
 });
