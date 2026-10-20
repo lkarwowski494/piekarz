@@ -1,4 +1,4 @@
-# Karta Produktu App Store Connect — Piekarz (Crust)
+# Karta Produktu App Store Connect — Piekarz (EN: Baker)
 
 Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wytycznymi App Store Review Guidelines.
 
@@ -28,7 +28,7 @@ Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wyt
 ## 4. Instrukcja dla Testerów TestFlight (What to Test)
 
 ```text
-Wersja 1.0.0 (Crust):
+Wersja 1.0.0:
 - Weryfikacja kalkulatora True Baker's % przy zmianie hydratacji.
 - Wyliczenie temperatury wody metodą 4-DDT.
 - Uruchomienie asystenta wypieku w garnku żeliwnym z timerem.

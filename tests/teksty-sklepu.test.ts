@@ -57,6 +57,42 @@ describe('Store, README and site texts claim only what this version does (035)',
     expect(found).toEqual([]);
   });
 
+  /**
+   * Kontrakt B (D-043, OG-05): opis sklepu, README, strona i podpisy zrzutów bez QR, druku PDF, spiżarni,
+   * przelicznika objętości i masy lodu; nazwa według D-053 bez „Crust”; bez deklaracji licencji, której
+   * repo nie ma (brak pliku licencji i pola `license`: decyzja właściciela) [M1-audytor-generalny-035].
+   * Linie listy odcięć (PÓŹNIEJ, wycięte, ukryte) mogą nazwać funkcję.
+   */
+  it.each(DOKUMENTY)('%s: bez funkcji PÓŹNIEJ i NIE (OG-05), bez „Crust” i bez „GPLv3”', (f) => {
+    const found = read(f)
+      .split('\n')
+      .flatMap((linia, i) => {
+        const why: string[] = [];
+        if (!LINIA_ODCIECIA.test(linia) && OG05.test(linia)) why.push('funkcja PÓŹNIEJ/NIE (OG-05)');
+        if (/\bCrust\b/.test(linia)) why.push('nazwa według D-053: Piekarz / Baker');
+        if (/GPL|Open Core/i.test(linia)) why.push('licencja bez pliku licencji (decyzja właściciela)');
+        return why.map((w) => `${f}:${i + 1} ${w}`);
+      });
+    expect(found).toEqual([]);
+  });
+
+  it('README: funkcje PÓŹNIEJ (F-08, F-30, F-45, F-50, lekcje Akademii F-44) nie są „Wdrożone”', () => {
+    const lines = read('README.md').split('\n');
+    expect(lines.filter((l) => /`F-(08|30|45|50)`/.test(l) && /Wdrożone/.test(l))).toEqual([]);
+    expect(lines.filter((l) => /Akademi|Szkoł[ay] Chleba|lekcj/i.test(l) && /Wdrożone/.test(l) && !/PÓŹNIEJ/.test(l))).toEqual([]);
+  });
+
+  it('podpisy zrzutów (§3) idą w kolejności D-055 i wskazują istniejące ekrany', () => {
+    const doc = read('docs/app-store-metadata-v2.md').replace(/\r\n/g, '\n');
+    const s3 = doc.split(/^## /m).find((s) => /^3\. /.test(s)) ?? '';
+    const ramki = [...s3.matchAll(/^### Ramka (\d): ([^\n]+)/gm)].map((m) => m[2]);
+    expect(ramki.length).toBe(7);
+    const kolejnosc = [/[Pp]lan/, /[Rr]eceptur|ilości/, /[Pp]rowadzenie/, /Doktor/, /[Zz]akwas/, /[Dd]ziennik/, /[Oo]ffline|[Pp]rywatno/];
+    ramki.forEach((r, i) => expect({ i, r, ok: kolejnosc[i].test(r) }).toEqual({ i, r, ok: true }));
+    for (const [, plik] of s3.matchAll(/`((?:app|src)\/[^`]+\.tsx)`/g)) expect({ plik, jest: fs.existsSync(path.join(root, plik)) }).toEqual({ plik, jest: true });
+    expect(s3).toMatch(/ciemn/);
+  });
+
   it('README does not list hidden (PÓŹNIEJ) features as implemented', () => {
     const lines = read('README.md').split('\n');
     const hidden = /Słownik Odpowiedników|Lievito Madre|Przepisy na Odrzut|Strata piecow|strata wypiekow|Rodzina Apps4Craft/i;

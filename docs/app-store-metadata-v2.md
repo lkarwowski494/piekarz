@@ -109,57 +109,60 @@ Languages: Polish and English.
 
 ---
 
-## 3. Specyfikacja 5 Zrzutów Ekranu (Screenshots Frame Spec)
+## 3. Specyfikacja 7 Zrzutów Ekranu (Screenshots Frame Spec)
 
-Zgodnie z wytycznymi App Store, przygotowano specyfikację 5 kluczowych ramek promocyjnych dla ekranów **iPhone 6.9" (1320 × 2868 px)** oraz **iPhone 6.5" / 6.7" (1290 × 2796 px)**:
+Kolejność i liczba ramek według D-055 (§5.2): 7 ramek, jedna w motywie ciemnym (Ramka 3). Klasy i wymiary zrzutów potwierdza zadanie 080 w dniu wykonania (moduł metadane-i-zrzuty roli 10); dawna specyfikacja podawała **iPhone 6.9" (1320 × 2868 px)** oraz **iPhone 6.5" / 6.7" (1290 × 2796 px)**. Zrzuty robi M2 w zadaniu 080 z `docs/design/wzorce-zrzuty/`; ten rozdział daje tylko podpisy PL i EN oraz ekran każdej ramki (przekład podpisów 34 lokalizacji: 093/095).
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        ARCHITEKTURA 5 ZRZUTÓW APP STORE                │
-├──────────────┬──────────────┬──────────────┬──────────────┬────────────┤
-│   RAMKA 1    │   RAMKA 2    │   RAMKA 3    │   RAMKA 4    │  RAMKA 5   │
-│              │              │              │              │            │
-│  KALKULATOR  │   STOLNICA   │   DOKTOR     │ HARMONOGRAM  │ USTAWIENIA │
-│  TRUE % DDT  │ KROKI PLANU  │ RATUNEK      │ SLEEP GUARD  │  OFFLINE   │
-└──────────────┴──────────────┴──────────────┴──────────────┴────────────┘
-```
+Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 a, 2026-10-19; partie 5–6); wartości na ekranie biorą się z danych przykładowych w chwili zrzutu, nie z tego dokumentu. Podpisy nie pokazują funkcji PÓŹNIEJ i NIE z kontraktu B (OG-05).
 
-Podpisy i widoki opisują wyłącznie ekrany tej wersji (DEC-04 a, 2026-10-19); wartości na ekranie biorą się z danych przykładowych w chwili zrzutu, nie z tego dokumentu.
+### Ramka 1: Plan od godziny „gotowe” z ochroną snu
+- **Główny nagłówek (PL):** *Chleb gotowy na twoją godzinę*
+- **Podtytuł (PL):** *Plan wstecz bez kroków w środku nocy*
+- **Main Headline (EN):** *Bread Ready When You Want It*
+- **Sub-headline (EN):** *A plan worked back from your time, with no steps at night*
+- **Widok w ramce:** ekran „Plan wypieku” (`app/(tabs)/receptury/harmonogram.tsx`) ze Spiralą planu, godziną „gotowe” i propozycją „Przesuń do lodówki” dla kroku, który wypada w nocy.
 
-### Ramka 1: Prawdziwy Procent Piekarski i Temperatura Wody 4-DDT
-- **Główny nagłówek (PL):** *Precyzyjna hydratacja i woda DDT*
-- **Podtytuł (PL):** *Automatyczne rozbicie zakwasu na mąkę i wodę netto*
-- **Main Headline (EN):** *True Baker's % & 4-DDT Water Temperature*
-- **Sub-headline (EN):** *Starter split into flour and water, ice weight in grams*
-- **Widok w ramce:** Ekran Kalkulatora (`app/(tabs)/index.tsx`) z kartą „Do miski na wagę” i otwartym panelem PRO z wyliczoną temperaturą wody.
+### Ramka 2: Receptura i ilości z procentem piekarskim
+- **Główny nagłówek (PL):** *Gramy każdego składnika od razu*
+- **Podtytuł (PL):** *Mąka i woda z zakwasu wliczone w procent piekarski*
+- **Main Headline (EN):** *Grams for Every Ingredient*
+- **Sub-headline (EN):** *Flour and water from your starter counted in the baker's percentage*
+- **Widok w ramce:** ekran receptury (`app/(tabs)/receptury/receptura.tsx`) z ilościami „Do miski” i przyciskiem „Ułóż plan”.
 
-### Ramka 2: Stolnica — Etapy Planu i Garnek Żeliwny
-- **Główny nagłówek (PL):** *Stolnica: etapy z Twojego planu*
-- **Podtytuł (PL):** *Kroki z Twojego planu i stoper garnka żeliwnego*
-- **Main Headline (EN):** *Workbench: Stages from Your Plan*
-- **Sub-headline (EN):** *Lid-on steam phase and lid-off browning in a Dutch oven*
-- **Widok w ramce:** Ekran Stolnicy (`app/(tabs)/stolnica.tsx`) w trakcie Fazy 1 (pod pokrywką, 240 °C, minutnik do zdjęcia pokrywy).
+### Ramka 3: Prowadzenie krok po kroku z minutnikiem (motyw ciemny)
+- **Główny nagłówek (PL):** *Jeden krok naraz*
+- **Podtytuł (PL):** *Co zrobić, ile to trwa i powiadomienie o końcu kroku*
+- **Main Headline (EN):** *One Step at a Time*
+- **Sub-headline (EN):** *What to do, how long it takes and a notification when it ends*
+- **Widok w ramce:** ekran prowadzenia (`app/stolnica.tsx`) w motywie ciemnym: bieżący krok z czasem, „Krok n z N” i informacją o powiadomieniu.
 
-### Ramka 3: Doktor Chleba i Receptura Awaryjna
-- **Główny nagłówek (PL):** *Doktor Chleba: objawy, przyczyna, ratunek*
-- **Podtytuł (PL):** *Receptura awaryjna jednym dotknięciem w Kalkulatorze*
-- **Main Headline (EN):** *Bread Doctor: Symptoms, Cause, Rescue*
-- **Sub-headline (EN):** *Diagnosis for over-proofing, pale crust and gummy crumb*
-- **Widok w ramce:** Ekran Doktora (`app/(tabs)/doktor.tsx`) z rozwiniętym protokołem ratunkowym „Przerośnięte ciasto” i przyciskiem „Załaduj do Kalkulatora”.
+### Ramka 4: Doktor Chleba
+- **Główny nagłówek (PL):** *Co poprawić w następnym bochenku*
+- **Podtytuł (PL):** *Objawy, przyczyna i jedna zmiana na następny wypiek*
+- **Main Headline (EN):** *Make Your Next Loaf Better*
+- **Sub-headline (EN):** *Symptoms, the cause and one change for your next bake*
+- **Widok w ramce:** ekran Doktora Chleba (`app/doktor.tsx`) z zaznaczonymi objawami i wynikiem diagnozy.
 
-### Ramka 4: Harmonogram Wsteczny ze Sleep Guard
-- **Główny nagłówek (PL):** *Harmonogram wsteczny ze Sleep Guard*
-- **Podtytuł (PL):** *Ciepły chleb na 08:30 rano bez zarywania nocy*
-- **Main Headline (EN):** *Reverse Scheduler with Sleep Guard*
-- **Sub-headline (EN):** *Warm bread at 08:30 AM without waking up at midnight*
-- **Widok w ramce:** Ekran Harmonogramu (`app/(tabs)/harmonogram.tsx`) z osią czasu etapów i zielonym banerem „Ochrona snu aktywna (Sleep Guard)” (okno snu 23:00 – 06:30).
+### Ramka 5: Zakwasy i dokarmianie
+- **Główny nagłówek (PL):** *Zakwas zawsze gotowy na czas*
+- **Podtytuł (PL):** *Ilości do dokarmienia i przypomnienie po 12 godzinach*
+- **Main Headline (EN):** *Your Starter, Ready on Time*
+- **Sub-headline (EN):** *Feeding amounts and a reminder after 12 hours*
+- **Widok w ramce:** zakładka Zakwasy (`app/(tabs)/zakwasy/index.tsx`) z kartą zakwasu, „Podwoił objętość” i ilościami do dokarmienia.
 
-### Ramka 5: Offline i Prywatność
-- **Główny nagłówek (PL):** *100% Offline-First. Twoja kuchnia, Twoje dane.*
-- **Podtytuł (PL):** *Zero reklam, zero telemetrii, dane tylko w telefonie*
-- **Main Headline (EN):** *100% Offline-First. Total Privacy.*
-- **Sub-headline (EN):** *No ads, zero telemetry, data only on your phone*
-- **Widok w ramce:** Ekran Ustawień: sekcja „Kopia zapasowa” (eksport, import, automatyczna rotacja 10 ostatnich kopii) i sekcja „Baza danych i bezpieczeństwo” (telemetria 0%).
+### Ramka 6: Dziennik wypieków
+- **Główny nagłówek (PL):** *Każdy wypiek zapisany*
+- **Podtytuł (PL):** *Ocena bochenka i „Piecz ponownie” jednym dotknięciem*
+- **Main Headline (EN):** *Every Bake on Record*
+- **Sub-headline (EN):** *Rate the loaf and tap "Bake Again"*
+- **Widok w ramce:** zakładka Dziennik (`app/(tabs)/dziennik/index.tsx`) ze statystykami i wpisem z oceną.
+
+### Ramka 7: Offline i prywatność
+- **Główny nagłówek (PL):** *Bez konta i bez internetu*
+- **Podtytuł (PL):** *Bez reklam i śledzenia; dane tylko w twoim telefonie*
+- **Main Headline (EN):** *No Account, No Internet*
+- **Sub-headline (EN):** *No ads or tracking; your data stays on your phone*
+- **Widok w ramce:** ekran „Co dziś robisz?” (`app/(tabs)/(dzis)/index.tsx`) przy pierwszym uruchomieniu, z tekstem „Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.”
 
 ---
 
@@ -306,4 +309,4 @@ Languages: Polish and English.
 
 ### 5.2. Kolejność zrzutów (D-055, wszystkie lokalizacje)
 
-1) plan od godziny „gotowe” z ochroną snu; 2) kalkulator ilości z procentem piekarskim; 3) prowadzenie kroków z minutnikiem; 4) Doktor Chleba; 5) zakwasy i dokarmianie; 6) dziennik wypieków; 7) offline i prywatność. Jeden zrzut w motywie ciemnym. Podpisy w języku lokalizacji. Zrzuty i podpisy: zadanie 080 z `docs/design/wzorce-zrzuty/`; §3 opisuje dawną kolejność do czasu 080.
+1) plan od godziny „gotowe” z ochroną snu; 2) kalkulator ilości z procentem piekarskim; 3) prowadzenie kroków z minutnikiem; 4) Doktor Chleba; 5) zakwasy i dokarmianie; 6) dziennik wypieków; 7) offline i prywatność. Jeden zrzut w motywie ciemnym. Podpisy w języku lokalizacji. Zrzuty i podpisy: zadanie 080 z `docs/design/wzorce-zrzuty/`; podpisy PL i EN w tej kolejności: §3 (M1-audytor-generalny-035, 2026-10-20).
