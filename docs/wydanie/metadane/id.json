@@ -1,0 +1,50 @@
+{
+  "lokalizacja": "id",
+  "jezyk": "id",
+  "status": "hipoteza",
+  "nazwa": "Tukang Roti: Sourdough",
+  "podtytul": "Kalkulator & Jadwal Adonan",
+  "slowaKluczowe": "resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread",
+  "tekstPromocyjny": "Tentukan jam roti harus siap: Tukang Roti menghitung takaran, menyusun jadwal mundur, dan memberi tahu saat tiap langkah selesai. Tanpa akun, tanpa internet, tanpa iklan.",
+  "opis": "Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.\n\nRESEP DAN TAKARAN\nPilih salah satu dari 15 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang. Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.\n\nRENCANA DARI JAM \"SIAP\"\nPilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 06:30), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.\n\nPANDUAN LANGKAH DEMI LANGKAH\nTukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Layar panduan tetap menyala selama memanggang. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan. Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.\n\nSTARTER\nKelola beberapa starter. Tukang Roti memberikan takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5. Saat volume starter berlipat dua, Tukang Roti menandainya siap untuk adonan. Setelah 12 jam di meja tanpa diberi makan, Tukang Roti mengingatkan lewat notifikasi. Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter.\n\nDOKTER ROTI\nSerat roti padat dan kulit roti pucat? Tandai gejalanya, dan Dokter Roti menunjukkan salah satu dari 9 cacat, menjelaskan penyebabnya, dan memberi tahu apa yang perlu diubah lain kali. Empat protokol penyelamatan membantu saat adonan bermasalah selama fermentasi. Dokter Starter membantu saat ada sesuatu pada starter yang membuat Anda khawatir.\n\nJURNAL\nNilai setiap bongkah roti: bintang, serat roti, kulit roti, dan profil rasa. Jurnal menampilkan statistik, dan \"Panggang lagi\" membuka resep yang sama.\n\nDATA ANDA\nTukang Roti menyimpan 10 cadangan otomatis terakhir di ponsel. Semua data dapat diekspor ke file dan diimpor dari file, dan riwayat pemanggangan dapat diekspor sebagai CSV. Satuan: gram dan °C atau auns dan °F.\n\nPERLU DIKETAHUI\nTukang Roti berjalan di iPhone dan tidak menyinkronkan data antarperangkat; data dipindahkan dengan file cadangan. Tanpa izin notifikasi, Tukang Roti menampilkan akhir langkah hanya pada layar yang terbuka.\n\nAKSES DAN PEMBELIAN\nAkses penuh tersedia lewat langganan bulanan atau tahunan, atau pembelian seumur hidup satu kali di App Store. Langganan dapat diawali uji coba gratis (penawaran perkenalan App Store bagi yang memenuhi syarat). Tanpa pembelian, Anda dapat melihat riwayat pemanggangan, mengimpor file, serta mengekspor dan menghapus data Anda.\n\nBahasa: 35.",
+  "ramki": [
+    {
+      "naglowek": "Roti siap tepat pada jam Anda",
+      "podtytul": "Jadwal mundur tanpa langkah di tengah malam"
+    },
+    {
+      "naglowek": "Gram setiap bahan seketika",
+      "podtytul": "Tepung dan air dari starter dihitung dalam persentase baker"
+    },
+    {
+      "naglowek": "Selangkah demi selangkah",
+      "podtytul": "Apa yang dilakukan, berapa lama, dan notifikasi saat langkah selesai"
+    },
+    {
+      "naglowek": "Perbaikan untuk roti berikutnya",
+      "podtytul": "Gejala, penyebab, dan satu perubahan untuk hasil panggangan berikutnya"
+    },
+    {
+      "naglowek": "Starter selalu siap tepat waktu",
+      "podtytul": "Takaran pemberian makan dan pengingat setelah 12 jam"
+    },
+    {
+      "naglowek": "Setiap hasil panggangan tercatat",
+      "podtytul": "Nilai bongkah roti dan “Panggang lagi” dengan satu ketukan"
+    },
+    {
+      "naglowek": "Tanpa akun dan tanpa internet",
+      "podtytul": "Tanpa iklan dan pelacakan; data hanya di ponsel Anda"
+    }
+  ],
+  "pochodzenie": [
+    "nazwa, podtytuł, słowa kluczowe, status: docs/app-store-metadata-v2.md §5 (M5, D-053…D-055)",
+    "opis, tekst promocyjny, ramki: przekład M1 093 (MT claude-opus-5-5 (Message Batches); plik narzedzia-api/przeklad/languages/id.json, źródło PL 1978237; przegląd natywny: brak, DEC-06), poprawki 095 niżej"
+  ],
+  "poprawki": [
+    "„Crust” → „Tukang Roti” (D-053, nazwa lokalna z §5)",
+    "ostatnie zdanie „Bahasa: Polandia dan Inggris.” → „Bahasa: 35.” (35 języków released po 093; przekład mówił „polski i angielski”)",
+    "tekst promocyjny: „saat setiap langkah” → „saat tiap langkah” (limit 170 znaków po wstawieniu nazwy lokalnej: 172 → 170)",
+    "podpisy ramek bez gwiazdek Markdown z przekładu"
+  ]
+}

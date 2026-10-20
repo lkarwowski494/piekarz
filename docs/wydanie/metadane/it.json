@@ -1,0 +1,49 @@
+{
+  "lokalizacja": "it",
+  "jezyk": "it",
+  "status": "częściowo",
+  "nazwa": "Fornaio: Pane e lievito madre",
+  "podtytul": "Calcolo impasto e timer",
+  "slowaKluczowe": "idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poolish,segale",
+  "tekstPromocyjny": "Imposta l'ora in cui vuoi il pane pronto: Fornaio calcola le dosi, pianifica a ritroso e ti avvisa alla fine di ogni passaggio. Senza account, internet e pubblicità.",
+  "opis": "Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.\n\nRICETTE E DOSI\nScegli una delle 15 ricette di base (a lievito madre, di segale, con lievito di birra, pizza e dolci) oppure una tua. Imposta il numero di pagnotte o il peso della farina e Fornaio ti indica i grammi di farina, acqua, lievito madre, sale e lievito di birra. La percentuale del fornaio tiene conto della farina e dell'acqua contenute nel lievito madre e nel lievitino. Fornaio ti indica anche la temperatura dell'acqua per ottenere la temperatura desiderata dell'impasto.\n\nUN PROGRAMMA A PARTIRE DALL'ORA «PRONTO»\nScegli quando vuoi il pane pronto e Fornaio calcola a ritroso l'orario d'inizio di ogni passaggio. Il tempo di fermentazione dipende dalla temperatura della tua cucina. Se un passaggio che richiede le tue mani cade di notte (per impostazione predefinita tra le 23:00 e le 06:30), Fornaio ti propone un tempo più lungo in frigo. Se il tempo non basta, ti indica l'orario più vicino possibile.\n\nGUIDA PASSO PASSO\nFornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Lo schermo della guida resta acceso durante la sfornata. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (più di metà della farina è farina di segale) ha passaggi propri, senza pieghe di rinforzo. Puoi annullare un passaggio confermato per errore e, quando riapri l'app, torni al passaggio in corso.\n\nLIEVITI MADRE\nGestisci più lieviti madre. Fornaio ti indica le dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Quando il lievito madre raddoppia di volume, Fornaio lo segna come pronto per l'impasto. Dopo 12 ore sul piano di lavoro senza rinfresco, te lo ricorda con una notifica. Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre.\n\nDOTTOR PANE\nMollica compatta e crosta pallida? Seleziona i sintomi e il Dottor Pane individua uno dei 9 difetti, ne spiega la causa e ti dice cosa cambiare la prossima volta. Quattro protocolli di soccorso ti aiutano quando l'impasto ha problemi durante la fermentazione. Il Dottor Lievito madre ti aiuta quando qualcosa nel tuo lievito madre ti preoccupa.\n\nDIARIO\nValuta ogni pagnotta: stelle, mollica, crosta e profilo di gusto. Il Diario mostra le statistiche e «Inforna di nuovo» apre la stessa ricetta.\n\nI TUOI DATI\nFornaio conserva sul telefono gli ultimi 10 backup automatici. Puoi esportare tutti i dati in un file e importarli da un file, ed esportare la cronologia delle sfornate in CSV. Unità: grammi e °C oppure once e °F.\n\nBUONO A SAPERSI\nFornaio funziona su iPhone e non sincronizza i dati tra dispositivi; i dati si trasferiscono con il file di backup. Senza il permesso per le notifiche, Fornaio mostra la fine di un passaggio solo a schermo aperto.\n\nACCESSO E ACQUISTO\nL'accesso completo si ottiene con un abbonamento mensile o annuale oppure con un acquisto a vita una tantum sull'App Store. L'abbonamento può iniziare con un periodo di prova gratuito (offerta introduttiva dell'App Store per gli utenti idonei). Senza acquisto puoi consultare la cronologia delle sfornate, importare un file ed esportare ed eliminare i tuoi dati.\n\nLingue: 35.",
+  "ramki": [
+    {
+      "naglowek": "Pane pronto quando vuoi tu",
+      "podtytul": "Programma a ritroso senza passaggi nel cuore della notte"
+    },
+    {
+      "naglowek": "I grammi di ogni ingrediente, subito",
+      "podtytul": "Farina e acqua del lievito madre incluse nella percentuale del fornaio"
+    },
+    {
+      "naglowek": "Un passaggio alla volta",
+      "podtytul": "Cosa fare, quanto dura e notifica a fine passaggio"
+    },
+    {
+      "naglowek": "Come migliorare la prossima pagnotta",
+      "podtytul": "Sintomi, causa e una modifica per la prossima sfornata"
+    },
+    {
+      "naglowek": "Lievito madre sempre pronto in tempo",
+      "podtytul": "Dosi per il rinfresco e promemoria dopo 12 ore"
+    },
+    {
+      "naglowek": "Ogni sfornata registrata",
+      "podtytul": "Valuta la pagnotta e «Inforna di nuovo» con un tocco"
+    },
+    {
+      "naglowek": "Senza account e senza internet",
+      "podtytul": "Niente pubblicità né tracciamento; dati solo sul tuo telefono"
+    }
+  ],
+  "pochodzenie": [
+    "nazwa, podtytuł, słowa kluczowe, status: docs/app-store-metadata-v2.md §5 (M5, D-053…D-055)",
+    "opis, tekst promocyjny, ramki: przekład M1 093 (MT claude-opus-5-5 (Message Batches); plik narzedzia-api/przeklad/languages/it.json, źródło PL 1978237; przegląd natywny: brak, DEC-06), poprawki 095 niżej"
+  ],
+  "poprawki": [
+    "„Crust” → „Fornaio” (D-053, nazwa lokalna z §5)",
+    "ostatnie zdanie „Lingue: polacco e inglese.” → „Lingue: 35.” (35 języków released po 093; przekład mówił „polski i angielski”)",
+    "podpisy ramek bez gwiazdek Markdown z przekładu"
+  ]
+}

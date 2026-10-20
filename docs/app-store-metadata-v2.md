@@ -8,7 +8,7 @@
 > **Kategoria Główna:** Food & Drink (Żywność i napoje)  
 > **Kategoria Poboczna:** Productivity (Produktywność)  
 > **Klasyfikacja Wiekowa:** 4+ (Brak ograniczeń wiekowych)  
-> **Jedyne źródło metadanych sklepu** (nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis — każdy język): ten plik. `docs/15-app-store.md` tylko odsyła tutaj; test `tests/store-metadata.test.ts` pilnuje limitu słów kluczowych (100 B) w każdym języku [M1-audytor-generalny-036]. Słowa kluczowe pozostałych języków: przekład 095 (partia 4).  
+> **Jedyne źródło metadanych sklepu** (nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis, podpisy ramek): teksty źródłowe PL i EN w tym pliku (§1–§3, §5.1); pełne metadane każdej z 34 lokalizacji strony do odczytu skryptem w `docs/wydanie/metadane/<kod ASC>.json` (095), kontrola `node scripts/sprawdz-metadane.mjs` (test `tests/metadane-sklepu.test.ts`). `docs/15-app-store.md` tylko odsyła tutaj; test `tests/store-metadata.test.ts` pilnuje limitu słów kluczowych (100 B) sekcji PL i EN [M1-audytor-generalny-036, M1-audytor-generalny-095].  
 > **Nazwy, podtytuły i słowa kluczowe wszystkich lokalizacji strony:** §5 (M5 widoczność w sklepie, D-053…D-055, 2026-10-20); mapa storefrontów i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.  
 
 ---
@@ -111,7 +111,7 @@ Baker is available in 35 languages, including English, Polish, German, French, S
 
 ## 3. Specyfikacja 7 Zrzutów Ekranu (Screenshots Frame Spec)
 
-Kolejność i liczba ramek według D-055 (§5.2): 7 ramek, jedna w motywie ciemnym (Ramka 3). Klasy i wymiary zrzutów potwierdza zadanie 080 w dniu wykonania (moduł metadane-i-zrzuty roli 10); dawna specyfikacja podawała **iPhone 6.9" (1320 × 2868 px)** oraz **iPhone 6.5" / 6.7" (1290 × 2796 px)**. Zrzuty robi M2 w zadaniu 080 z `docs/design/wzorce-zrzuty/`; ten rozdział daje tylko podpisy PL i EN oraz ekran każdej ramki (przekład podpisów 34 lokalizacji: 093/095).
+Kolejność i liczba ramek według D-055 (§5.2): 7 ramek, jedna w motywie ciemnym (Ramka 3). Klasy i wymiary zrzutów potwierdza zadanie 080 w dniu wykonania (moduł metadane-i-zrzuty roli 10); dawna specyfikacja podawała **iPhone 6.9" (1320 × 2868 px)** oraz **iPhone 6.5" / 6.7" (1290 × 2796 px)**. Zrzuty robi M2 w zadaniu 080 z `docs/design/wzorce-zrzuty/`; ten rozdział daje tylko podpisy PL i EN oraz ekran każdej ramki (podpisy 34 lokalizacji: pole `ramki` w `docs/wydanie/metadane/<kod ASC>.json`, 095).
 
 Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 a, 2026-10-19; partie 5–6); wartości na ekranie biorą się z danych przykładowych w chwili zrzutu, nie z tego dokumentu. Podpisy nie pokazują funkcji PÓŹNIEJ i NIE z kontraktu B (OG-05).
 
@@ -224,7 +224,7 @@ The app asks for permission to send local notifications only when you start the 
 
 Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<piekarz>: <fraza z zakwasem>” w każdym języku, po angielsku „Baker: Sourdough Bread Planner”; 34 lokalizacje strony; kategoria bez zmian. Wiersze `pl` i `en-US` są tymi samymi polami co §1.1 i §2.1. Limity: nazwa i podtytuł ≤ 30 znaków, słowa kluczowe ≤ 100 B UTF-8, każde słowo > 2 znaki, bez słów z nazwy, podtytułu i kategorii; kontrola: `sprawdz-wydanie.mjs metadane` kod 0 (raport M5). Frazy, źródła i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.
 
-**Reguła prawdy (D-054):** lokalizację strony w danym języku wysyła się dopiero z buildem, który ma ten język w interfejsie aplikacji; English (U.K.), English (Australia) i English (Canada) mogą iść od razu. Pełny opis i tekst promocyjny języków innych niż angielski: przekład M1 (zadania 093/095) z §1.2 i §2.2 po ich aktualizacji (081); pierwsze zdanie opisu niżej jest punktem wyjścia przekładu i przechodzi kontrolę roli 09. Status „hipoteza” = frazy bez sygnału z wyszukiwarki tego kraju; sprawdzenie po wydaniu w App Analytics.
+**Reguła prawdy (D-054):** lokalizację strony w danym języku wysyła się dopiero z buildem, który ma ten język w interfejsie aplikacji; English (U.K.), English (Australia) i English (Canada) mogą iść od razu. Pełny opis, tekst promocyjny i podpisy ramek języków innych niż polski i angielski: przekład M1 (093) z §1.2, §2.2 i §3 z poprawkami 095, w `docs/wydanie/metadane/<kod ASC>.json` (pole `poprawki` mówi, co zmieniono względem przekładu). Ta tabela jest przeglądowa: nazwa, podtytuł, słowa kluczowe i status są tu i w plikach JSON te same (test `tests/metadane-sklepu.test.ts`); kolumna „Pierwsze zdanie opisu” była punktem wyjścia przekładu, a obowiązuje opis z pliku JSON. Status „hipoteza” = frazy bez sygnału z wyszukiwarki tego kraju; sprawdzenie po wydaniu w App Analytics.
 
 | Lokalizacja | Kod ASC | Nazwa | Zn. | Podtytuł | Zn. | Słowa kluczowe | B | Pierwsze zdanie opisu | Zn. | Status |
 |---|---|---|---|---|---|---|---|---|---|---|

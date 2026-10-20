@@ -1,0 +1,49 @@
+{
+  "lokalizacja": "hu",
+  "jezyk": "hu",
+  "status": "hipoteza",
+  "nazwa": "Pék: Kovászos kenyér",
+  "podtytul": "Sütési terv és kalkulátor",
+  "slowaKluczowe": "cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjesztés,élesztő",
+  "tekstPromocyjny": "Állítsd be, mikorra legyen kész a kenyér: a Pék kiszámolja a mennyiségeket, visszafelé tervez, és szól minden lépés végén. Fiók, internet és reklám nélkül.",
+  "opis": "A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.\n\nRECEPTEK ÉS MENNYISÉGEK\nVálassz a 15 alaprecept közül (kovászos, rozs-, élesztős, pizza és édes), vagy használd a sajátodat. Add meg a cipók számát vagy a liszt tömegét, a Pék pedig grammra megadja a lisztet, a vizet, a kovászt, a sót és az élesztőt. A pékszázalék a kovászban és a kovászos előtésztában lévő lisztet és vizet is figyelembe veszi. A Pék azt is megmondja, milyen hőmérsékletű víz kell a kívánt tésztahőmérséklethez.\n\nTERV A „KÉSZ” IDŐPONTTÓL\nKiválasztod, mikorra legyen kész a kenyér, a Pék pedig visszafelé kiszámolja minden lépés kezdési idejét. Az erjedési idő a konyha hőmérsékletétől függ. Ha egy kézi munkát igénylő lépés éjszakára esik (alapértelmezés szerint 23:00 és 06:30 között), a Pék hosszabb időt javasol a hűtőben. Ha kevés az idő, megadja a legkorábbi lehetséges időpontot.\n\nLÉPÉSRŐL LÉPÉSRE\nA Pék mutatja az aktuális lépést: mit kell tenni, mennyi ideig tart, és mi jön utána. Ha engedélyezed az értesítéseket, zárolt telefonon is szól a lépés végén. A vezetett képernyő sütés közben nem kapcsol ki. A forró edénnyel vagy nyers tésztával járó lépéseknél figyelmeztetés jelenik meg. A rozskenyérnek (ha a liszt több mint fele rozsliszt) saját, hajtogatás nélküli lépései vannak. A tévedésből jóváhagyott lépést visszavonhatod, újranyitáskor pedig az alkalmazás az aktuális lépésre tér vissza.\n\nKOVÁSZOK\nTöbb kovászt is vezethetsz. A Pék megadja az etetési mennyiségeket 1:1:1, 1:2:2, 1:3:3 vagy 1:5:5 arányban. Amikor a kovász megduplázza a térfogatát, a Pék tésztához késznek jelöli. Ha 12 órája áll a pulton etetés nélkül, értesítéssel emlékeztet. Új kovászt napról napra indíthatsz el. A Pék az elővigyázatosság elvét követi: bevonat, elszíneződés vagy rothadt szag esetén azt tanácsolja, hogy dobd ki a kovászt.\n\nKENYÉRDOKTOR\nTömör a bélzet és sápadt a héj? Jelöld be a tüneteket, a Kenyérdoktor pedig megnevezi a 9 hiba egyikét, elmagyarázza az okát, és megmondja, mit változtass legközelebb. Négy mentőprotokoll segít, ha a tésztával gond van erjedés közben. A Kovászdoktor akkor segít, ha valami aggaszt a kovászoddal kapcsolatban.\n\nNAPLÓ\nÉrtékelj minden cipót: csillagok, bélzet, héj és ízprofil. A Napló statisztikákat mutat, a „Süsd újra” pedig megnyitja ugyanazt a receptet.\n\nAZ ADATAID\nA Pék az utolsó 10 automatikus biztonsági mentést a telefonon tárolja. Minden adatodat fájlba exportálhatod és fájlból importálhatod, a sütési előzményeket pedig CSV-be exportálhatod. Mértékegységek: gramm és °C vagy uncia és °F.\n\nJÓ TUDNI\nA Pék iPhone-on működik, és nem szinkronizál az eszközök között; az adatokat biztonsági mentési fájllal viheted át. Ha nem engedélyezed az értesítéseket, a Pék csak a nyitott képernyőn jelzi a lépés végét.\n\nHOZZÁFÉRÉS ÉS VÁSÁRLÁS\nA teljes hozzáférést havi vagy éves előfizetés, illetve egyszeri, élethosszig tartó vásárlás adja az App Store-ban. Az előfizetés ingyenes próbaidőszakkal kezdődhet (App Store bevezető ajánlat a jogosultaknak). Vásárlás nélkül böngészheted a sütési előzményeket, importálhatsz fájlt, valamint exportálhatod és törölheted az adataidat.\n\nNyelvek: 35.",
+  "ramki": [
+    {
+      "naglowek": "Kenyér pont akkorra, amikorra kell",
+      "podtytul": "Visszafelé ütemezés éjszakai lépések nélkül"
+    },
+    {
+      "naglowek": "Minden hozzávaló grammja azonnal",
+      "podtytul": "A kovász lisztje és vize is benne van a pékszázalékban"
+    },
+    {
+      "naglowek": "Egyszerre egy lépés",
+      "podtytul": "Mi a teendő, meddig tart, és értesítés a lépés végén"
+    },
+    {
+      "naglowek": "Mit javíts a következő cipón",
+      "podtytul": "Tünetek, ok és egy változtatás a következő sütésre"
+    },
+    {
+      "naglowek": "A kovász mindig időben kész",
+      "podtytul": "Etetési mennyiségek és emlékeztető 12 óra után"
+    },
+    {
+      "naglowek": "Minden sütés feljegyezve",
+      "podtytul": "Cipóértékelés és „Süsd újra” egy koppintással"
+    },
+    {
+      "naglowek": "Fiók és internet nélkül",
+      "podtytul": "Reklám és követés nélkül; az adatok csak a telefonodon"
+    }
+  ],
+  "pochodzenie": [
+    "nazwa, podtytuł, słowa kluczowe, status: docs/app-store-metadata-v2.md §5 (M5, D-053…D-055)",
+    "opis, tekst promocyjny, ramki: przekład M1 093 (MT claude-opus-5-5 (Message Batches); plik narzedzia-api/przeklad/languages/hu.json, źródło PL 1978237; przegląd natywny: brak, DEC-06), poprawki 095 niżej"
+  ],
+  "poprawki": [
+    "„Crust” → „Pék” (D-053, nazwa lokalna z §5)",
+    "ostatnie zdanie „Nyelvek: lengyel és angol.” → „Nyelvek: 35.” (35 języków released po 093; przekład mówił „polski i angielski”)",
+    "podpisy ramek bez gwiazdek Markdown z przekładu"
+  ]
+}

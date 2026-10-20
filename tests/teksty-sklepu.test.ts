@@ -126,6 +126,19 @@ describe('Store, README and site texts claim only what this version does (035)',
       }
     }
     expect(checked).toBe(6);
+    /** Źródło 34 lokalizacji (095): nazwa, podtytuł i tekst promocyjny każdej lokalizacji w tych samych limitach. */
+    const KAT = 'docs/wydanie/metadane';
+    const pliki = fs.readdirSync(path.join(root, KAT)).filter((f) => f.endsWith('.json'));
+    expect(pliki).toHaveLength(34);
+    let wJson = 0;
+    for (const f of pliki) {
+      const m = JSON.parse(read(`${KAT}/${f}`));
+      for (const [p, limit] of [['nazwa', 30], ['podtytul', 30], ['tekstPromocyjny', 170], ['opis', 4000]] as const) {
+        wJson += 1;
+        expect({ f, p, ok: znaki(m[p]) <= limit && znaki(m[p]) > 0 }).toEqual({ f, p, ok: true });
+      }
+    }
+    expect(wJson).toBe(34 * 4);
   });
 
   it('both store descriptions fit 4000 characters, state their length and disclose the paid access', () => {
