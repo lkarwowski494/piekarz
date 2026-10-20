@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import {
   ScrollView,
   StyleSheet,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -26,6 +27,9 @@ import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReady
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
+import { Spirala } from '../../../src/components/Spirala';
+import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
+import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -88,6 +92,14 @@ export default function HarmonogramScreen() {
     return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
   }, [schedule, zakwas]);
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
+  // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
+  const krokiSpirali = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
+  const koniecPlanu = steps[steps.length - 1]?.plannedEnd ?? null;
+  const etykietaSpirali = etykietaPlanuPrzedStartem({
+    liczbaKrokow: steps.length,
+    gotowe: koniecPlanu === null ? null : new Date(koniecPlanu),
+    teraz: new Date(),
+  });
 
   // Automatic sleep collision resolution helper
   const autoResolved = useMemo(() => {
@@ -199,6 +211,10 @@ export default function HarmonogramScreen() {
           onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
         />
 
+        <View style={styles.spirala}>
+          <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
+        </View>
+
         {/* Summary Card */}
         <ScheduleSummaryCard
           firstStage={firstStage}
@@ -231,5 +247,9 @@ const styles = StyleSheet.create({
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
+  },
+  spirala: {
+    alignItems: 'center',
+    marginBottom: theme.spacing.md,
   },
 });
