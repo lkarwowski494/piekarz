@@ -4,6 +4,7 @@ import { DoughRecipeResult } from '../core/domain-rules';
 import { BakeLossMetricsResult } from '../core/domain-rules';
 import { t } from './i18n';
 import { formatFixed, formatNumber } from './format';
+import { UnitSystem, getUnitSystem, formatWeight, formatDoseWeight, formatTemperature } from './unit-converter';
 
 export interface RecipeFormatOptions {
   recipeName: string;
@@ -14,11 +15,14 @@ export interface RecipeFormatOptions {
   iceGrams?: number;
   tapWaterTemp?: number;
   loavesCount?: number;
+  /** Jednostki użytkownika; domyślnie bieżące ustawienie aplikacji [M1-audytor-generalny-072]. */
+  unitSystem?: UnitSystem;
 }
 
 /**
  * Formats a dough recipe into a clean, human-readable text document
  * suitable for printing, sharing with fellow bakers, or baking notes.
+ * Teksty przez t(), masy i temperatury w jednostkach użytkownika [M1-audytor-generalny-072].
  */
 export function formatRecipeText(opts: RecipeFormatOptions): string {
   const {
@@ -31,6 +35,12 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
     tapWaterTemp,
     loavesCount = 1,
   } = opts;
+  const units = opts.unitSystem ?? getUnitSystem();
+  const w = (grams: number) => formatWeight(grams, units);
+  const dose = (grams: number) => formatDoseWeight(grams, units);
+  // Metrycznie jak dotąd: jedno miejsce po przecinku (25,0°C); imperialnie °F z unit-converter
+  const temp = (c: number) => (units === 'imperial' ? formatTemperature(c, units) : `${formatFixed(c, 1)}°C`);
+  const pct = (part: number) => formatFixed((part / calc.baseFlourWeightGrams) * 100, 1);
 
   const lines: string[] = [];
 
@@ -42,19 +52,18 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   if (loavesCount > 1) {
     const singleBaked = bakeLoss?.singleLoafBakedGrams ?? Math.round((bakeLoss?.bakedWeightGrams ?? calc.targetDoughWeightGrams * 0.86) / loavesCount);
     lines.push(
-      `${t('Masa ciasta')}: ${calc.targetDoughWeightGrams} g (${loavesCount}x ~${singleBaked} g ${t('Upieczony bochenek').toLowerCase()})`
+      `${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${loavesCount}x ~${w(singleBaked)} ${t('Upieczony bochenek').toLowerCase()})`
     );
   } else {
-    lines.push(
-      `${t('Masa ciasta')}: ${calc.targetDoughWeightGrams} g (po upieczeniu: ~${bakeLoss?.bakedWeightGrams ?? Math.round(calc.targetDoughWeightGrams * 0.86)} g)`
-    );
+    const baked = bakeLoss?.bakedWeightGrams ?? Math.round(calc.targetDoughWeightGrams * 0.86);
+    lines.push(`${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${t('po upieczeniu: ~{masa}', { masa: w(baked) })})`);
   }
 
   lines.push(`${t('Hydratacja całkowita')}: ${formatFixed(calc.overallHydrationPercent, 1)}% (True Baker's %)`);
 
   if (bakeLoss) {
-    lines.push(`${t('Strata piecowa')}: ${formatFixed(bakeLoss.bakeLossPercent, 1)}% (-${bakeLoss.evaporatedWaterGrams} g pary)`);
-    lines.push(`${t('Szacowana wilgotność miękiszu')}: ${formatNumber(bakeLoss.retainedMoisturePercent)}% (${bakeLoss.categoryLabelPl})`);
+    lines.push(`${t('Strata piecowa')}: ${formatFixed(bakeLoss.bakeLossPercent, 1)}% (${t('-{masa} pary', { masa: w(bakeLoss.evaporatedWaterGrams) })})`);
+    lines.push(`${t('Szacowana wilgotność miękiszu')}: ${formatNumber(bakeLoss.retainedMoisturePercent)}% (${t(bakeLoss.categoryLabelPl)})`);
   }
 
   lines.push('');
@@ -62,41 +71,44 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
 
   // Flour breakdown
   calc.flours.forEach((f) => {
-    lines.push(`  • ${f.name} (${formatFixed(f.percentage, 1)}%): ${f.weightGrams} g`);
+    lines.push(`  • ${f.name} (${formatFixed(f.percentage, 1)}%): ${w(f.weightGrams)}`);
   });
 
   // Water
   if (waterTempTarget !== undefined) {
-    lines.push(`  • ${t('Woda')} (${formatFixed(((calc.waterGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.waterGrams} g [temp. ${formatFixed(waterTempTarget, 1)}°C]`);
+    lines.push(`  • ${t('Woda')} (${pct(calc.waterGrams)}%): ${w(calc.waterGrams)} [temp. ${temp(waterTempTarget)}]`);
     if (iceGrams && iceGrams > 0) {
-      lines.push(`    ↳ ${t('w tym lód')}: ${iceGrams} g + woda z kranu (${tapWaterTemp ?? 16}°C): ${calc.waterGrams - iceGrams} g`);
+      const tap = formatTemperature(tapWaterTemp ?? 16, units);
+      lines.push(`    ↳ ${t('w tym lód')}: ${w(iceGrams)} + ${t('woda z kranu ({temp})', { temp: tap })}: ${w(calc.waterGrams - iceGrams)}`);
     }
   } else {
-    lines.push(`  • ${t('Woda')}: ${calc.waterGrams} g`);
+    lines.push(`  • ${t('Woda')}: ${w(calc.waterGrams)}`);
   }
 
   // Sourdough starter
-  lines.push(`  • ${t('Zakwas')} (${formatFixed(((calc.starterGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.starterGrams} g (${calc.starterFlourGrams} g mąki + ${calc.starterWaterGrams} g wody)`);
+  lines.push(
+    `  • ${t('Zakwas')} (${pct(calc.starterGrams)}%): ${w(calc.starterGrams)} (${t('{maka} mąki + {woda} wody', { maka: w(calc.starterFlourGrams), woda: w(calc.starterWaterGrams) })})`
+  );
 
   // Salt
-  lines.push(`  • ${t('Sól')} (${formatFixed(((calc.saltGrams / calc.baseFlourWeightGrams) * 100), 1)}%): ${calc.saltGrams} g`);
+  lines.push(`  • ${t('Sól')} (${pct(calc.saltGrams)}%): ${dose(calc.saltGrams)}`);
 
   // Yeast if present
   if (calc.yeastGrams && calc.yeastGrams > 0) {
-    lines.push(`  • ${t('Drożdże')}: ${calc.yeastGrams} g`);
+    lines.push(`  • ${t('Drożdże')}: ${dose(calc.yeastGrams)}`);
   }
 
   // DDT section
   if (targetDdt !== undefined) {
     lines.push('');
-    lines.push(`🌡️ ${t('Docelowa temperatura ciasta (DDT)')}: ${formatFixed(targetDdt, 1)}°C`);
+    lines.push(`🌡️ ${t('Docelowa temperatura ciasta (DDT)')}: ${temp(targetDdt)}`);
   }
 
   // Cooling advice
   if (bakeLoss?.coolingAdvicePl) {
     lines.push('');
     lines.push(`⏱️ ${t('Zalecenie studzenia na kratce')}:`);
-    lines.push(`  ${bakeLoss.coolingAdvicePl}`);
+    lines.push(`  ${t(bakeLoss.coolingAdvicePl)}`);
   }
 
   lines.push('');

@@ -14,6 +14,13 @@ import { openPrintMenu, starterLabelOptions } from '../lib/print-menu';
 
 jest.setTimeout(20000);
 
+// F-50 PÓŹNIEJ (D-043): wejście „Drukuj” ukryte w aplikacji (test wejscia-pozniej); tu sprawdzamy kod druku,
+// który zostaje, z włączonym wejściem [M1-audytor-generalny-072].
+jest.mock('../lib/wejscia-pozniej', () => {
+  const actual = jest.requireActual('../lib/wejscia-pozniej');
+  return { ...actual, wejscieWidoczne: (w: string) => w === 'druk' || actual.wejscieWidoczne(w) };
+});
+
 jest.mock('expo-router', () => ({
   useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
   useLocalSearchParams: () => ({}),

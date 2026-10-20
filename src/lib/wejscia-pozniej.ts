@@ -10,6 +10,7 @@ export type WejsciePozniej =
   | 'odrzut-zakwasu' // F-47
   | 'strata-piecowa' // F-48
   | 'konwerter-zakwasu' // F-49
+  | 'druk' // F-50: karta PDF i etykieta słoika poza 1.0 (D-043) [M1-audytor-generalny-072]
   | 'rodzina-apps4craft'; // F-52 (ZM-14)
 
 /** Jedno miejsce decyzji: czy wejście do funkcji jest widoczne. */
@@ -18,6 +19,7 @@ export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
   'odrzut-zakwasu': false,
   'strata-piecowa': false,
   'konwerter-zakwasu': false,
+  druk: false,
   'rodzina-apps4craft': false,
 };
 

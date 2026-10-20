@@ -8,6 +8,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface CalculatorActionButtonsProps {
   onCopyRecipe: () => void;
@@ -67,15 +68,18 @@ export function CalculatorActionButtons({
         <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
       </Pressable>
 
-      {/* Jedyne wejście druku: karta A4 albo etykieta słoika (BR-DRUK-001) [M1-audytor-generalny-032] */}
-      <Pressable
-        testID="print-menu-btn"
-        accessibilityRole="button"
-        style={styles.cloneRecipeBtn}
-        onPress={onPrintMenu}
-      >
-        <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj')}</Text>
-      </Pressable>
+      {/* Jedyne wejście druku: karta A4 albo etykieta słoika (BR-DRUK-001) [M1-audytor-generalny-032];
+          F-50 PÓŹNIEJ (D-043): wejście ukryte, kod druku zostaje [M1-audytor-generalny-072] */}
+      {wejscieWidoczne('druk') && (
+        <Pressable
+          testID="print-menu-btn"
+          accessibilityRole="button"
+          style={styles.cloneRecipeBtn}
+          onPress={onPrintMenu}
+        >
+          <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj')}</Text>
+        </Pressable>
+      )}
 
       <Pressable
         testID="import-recipe-json-btn"

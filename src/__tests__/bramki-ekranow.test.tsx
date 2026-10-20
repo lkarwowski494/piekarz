@@ -97,7 +97,9 @@ describe('Without an entitlement every screen opens the purchase screen except h
       locks(tree.root).find((n) => n.props.testID === 'blokada-kalkulator')!.props.onPress();
     });
     expect(paywallShown(tree.root)).toBe(true);
-    for (const id of ['save-custom-recipe-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'open-volume-converter-btn', 'start-bake-btn', 'print-menu-btn']) {
+    // Drukuj (F-50) poza 1.0, wejście ukryte (D-043) [M1-audytor-generalny-072]
+    expect(tree.root.findAll((n) => n.props?.testID === 'print-menu-btn')).toEqual([]);
+    for (const id of ['save-custom-recipe-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'open-volume-converter-btn', 'start-bake-btn']) {
       await act(async () => {
         tree.root.findByType(PaywallModal).props.onClose();
       });

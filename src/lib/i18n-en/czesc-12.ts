@@ -127,4 +127,9 @@ export const EN_12: Record<string, string> = {
     'Warm kitchen ({temp}°C). Fermentation shortened by {min} min (protects against over-souring).',
   'Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).':
     'Cool kitchen ({temp}°C). Fermentation extended by {min} min (yeast works more slowly).',
+  // Tekst receptury do schowka [M1-audytor-generalny-072]
+  'po upieczeniu: ~{masa}': 'after baking: ~{masa}',
+  '-{masa} pary': '-{masa} steam',
+  'woda z kranu ({temp})': 'tap water ({temp})',
+  '{maka} mąki + {woda} wody': '{maka} flour + {woda} water',
 };

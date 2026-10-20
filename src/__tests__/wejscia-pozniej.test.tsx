@@ -45,9 +45,23 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
   });
 
   it('every LATER entry is switched off in one place', () => {
-    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'rodzina-apps4craft'];
+    // F-50 druk PÓŹNIEJ (D-043) [M1-audytor-generalny-072]
+    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'rodzina-apps4craft'];
     expect(Object.keys(WEJSCIA_WIDOCZNE).sort()).toEqual([...all].sort());
-    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false]);
+    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false]);
+  });
+
+  it('Calculator has no print entry: recipe card PDF and jar label are outside 1.0 (F-50, D-043)', async () => {
+    await act(async () => {
+      tree = renderer.create(<CalculatorScreen />);
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    const ids = testIds(tree!.root);
+    expect(ids).toContain('copy-recipe-btn');
+    expect(ids).not.toContain('print-menu-btn');
+    expect(ids.filter((id) => /print|pdf|druk/i.test(id))).toEqual([]);
   });
 
   it('Calculator with the PRO accordion open has no flour dictionary entry (F-46) and no bake loss section (F-48)', async () => {
