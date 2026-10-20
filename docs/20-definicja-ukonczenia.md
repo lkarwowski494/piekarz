@@ -20,7 +20,7 @@ Każdy wiersz wskazuje komendę albo plik testu, który kryterium sprawdza i pad
 | **10** | 16 strażników interakcji `S1–S16` | `NFR-INT-001..16` | `tests/interaction-guards.test.ts` | |
 | **11** | Higiena i18n i brak polskich słów w EN | `NFR-I18N-001..08` | `npm run check:i18n`, `tests/i18n-no-polish-in-en.test.tsx` | 33 pozostałe języki: partia lokalizacyjna (DEC-06) |
 | **12** | Kontrast WCAG 2.1 AA | `NFR-A11Y-001..08` | `src/ui/__tests__/theme-contrast.test.ts` | |
-| **12a** | Pola dotyku ≥ 44 pt, szerokość 320 pt, Dynamic Type AX5 | `NFR-A11Y-004`, `RD-ENG-03` | nie sprawdzane automatem | testy w `tests/matrix-a11y.test.tsx` i `tests/matrix-dimensions.test.tsx` sprawdzają styl `minHeight`, rolę i obecność elementu, nie zmierzone pole ani układ |
+| **12a** | Pola dotyku ≥ 48 pt w prowadzeniu i akcjach głównych, ≥ 44 pt w pozostałych, 64 pt przycisk kciuka (DEC-15 a), szerokość 320 pt, Dynamic Type AX5 | `NFR-A11Y-004`, `RD-ENG-03` | nie sprawdzane automatem | testy w `tests/matrix-a11y.test.tsx` i `tests/matrix-dimensions.test.tsx` sprawdzają styl `minHeight`, rolę i obecność elementu, nie zmierzone pole ani układ |
 | **13** | Macierz AST 100% w 5 kategoriach i aktualny raport | `BR-TEST-028..31` | `npm run verify:matrix` (pada przy braku pokrycia i przy nieaktualnym `docs/22-macierz-testow.md`) | aktualizacja raportu: `npm run matrix:update` |
 | **14** | Scenariusze Maestro | `BR-TEST-037` | interpreter w Jest: `tests/maestro-flows.test.tsx` (nie jest E2E); prawdziwe E2E na symulatorze: `tests/e2e-ios-workflow.test.ts` pilnuje workflow `e2e-ios.yml`, sam przebieg na GitHub Actions | |
 | **15** | Niezmienniki natywnego projektu iOS | `BR-REL-009..13` | `npm run verify:native` | |

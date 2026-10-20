@@ -90,6 +90,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   guideCard: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,

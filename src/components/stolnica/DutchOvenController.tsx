@@ -139,6 +139,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   phaseTabBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 10,
     paddingHorizontal: 8,
@@ -220,6 +222,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   steamAlertActionBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     borderWidth: 1.5,
     borderColor: theme.colors.ostrzTusz,
     paddingVertical: 10,

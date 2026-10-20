@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   pillActionBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -128,6 +130,8 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   blendPresetChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -165,6 +169,8 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   flourActionBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,

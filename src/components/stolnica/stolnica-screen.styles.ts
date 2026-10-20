@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   headerDoctorBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.full,
@@ -72,6 +74,8 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   actionBtnNext: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.akcent,
@@ -85,6 +89,8 @@ export const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   discardBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 8,
   },

@@ -385,6 +385,8 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   deductBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginTop: 8,
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
@@ -436,6 +438,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   adjustBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -449,6 +453,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   deleteBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginLeft: 'auto',
     padding: 4,
   },
@@ -457,6 +463,8 @@ const styles = StyleSheet.create({
     color: theme.colors.blad,
   },
   openAddBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginTop: 8,
     paddingVertical: 8,
     backgroundColor: theme.colors.powierzchnia,
@@ -494,6 +502,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -523,6 +533,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   formCancelBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingVertical: 6,
     paddingHorizontal: 12,
   },
@@ -531,6 +543,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
   },
   formConfirmBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.sm,
     paddingVertical: 6,

@@ -196,6 +196,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   ratioChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -222,6 +224,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   yieldChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 6,
@@ -288,6 +292,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   copyFeedingBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
@@ -302,6 +308,8 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   openConverterBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,

@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,
@@ -203,6 +204,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   closeRecoveryBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     width: 28,
     height: 28,
     borderRadius: 14,
@@ -269,6 +272,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   pivotActionBtn: {
+    minHeight: theme.cele.pozostale,
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 12,
     paddingVertical: 8,

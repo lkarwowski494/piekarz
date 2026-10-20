@@ -389,6 +389,8 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   tabButton: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 8,
     paddingHorizontal: 8,
@@ -428,6 +430,8 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   chip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: theme.radius.sm,
@@ -455,6 +459,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingVertical: 6,
     paddingHorizontal: 8,
     borderRadius: theme.radius.sm,

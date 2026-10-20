@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   stepRow: {
+    minHeight: theme.cele.glownyPrzeplyw,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,

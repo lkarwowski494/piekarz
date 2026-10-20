@@ -6,7 +6,7 @@
 // ============================================================================
 
 import { koloryMotywu } from './motyw';
-import { odstepy, promienie } from './tokeny';
+import { cele, odstepy, promienie } from './tokeny';
 
 export const theme = {
   colors: koloryMotywu,
@@ -22,5 +22,11 @@ export const theme = {
     md: promienie.grupa, // 12
     lg: promienie.grupa, // 12: karty i arkusze (.grupa, .arkusz w docs/design/ekrany/wspolne.css); dawniej 16 spoza systemu
     full: 9999, // kształt koła lub kapsuły (kropka, znacznik wyboru), nie stopień hierarchii promieni
+  },
+  // Cele dotykowe (DEC-15 a): 48 prowadzenie i akcje główne, 44 pozostałe, 64 przycisk kciuka [M1-audytor-generalny-052]
+  cele: {
+    glownyPrzeplyw: cele.glownyPrzeplyw,
+    pozostale: cele.pozostale,
+    przyciskKciuka: cele.przyciskKciuka,
   },
 };

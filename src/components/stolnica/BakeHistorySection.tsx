@@ -183,6 +183,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   tasteFilterChip: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.full,
@@ -243,6 +245,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   deleteHistoryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     padding: 4,
   },
   deleteHistoryBtnText: {
@@ -288,6 +292,8 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   bakeAgainBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     marginTop: 8,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 8,

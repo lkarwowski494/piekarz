@@ -78,6 +78,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   vesselChip: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,

@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.full,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    minHeight: 40,
+    minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -479,6 +479,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   modeTab: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 10,
     alignItems: 'center',
@@ -502,6 +504,8 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   smallChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,

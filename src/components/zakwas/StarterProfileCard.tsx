@@ -105,6 +105,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   editProfileBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,

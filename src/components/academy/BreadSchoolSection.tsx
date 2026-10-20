@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   lessonHeaderPressable: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
@@ -297,6 +298,8 @@ const styles = StyleSheet.create({
     lineHeight: 15,
   },
   toggleCompleteBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginTop: 12,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,

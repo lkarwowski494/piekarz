@@ -352,6 +352,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,
@@ -372,6 +373,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   symptomChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 14,
     paddingVertical: 10,
@@ -393,6 +396,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   clearBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.md,

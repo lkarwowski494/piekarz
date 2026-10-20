@@ -141,6 +141,8 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -179,6 +181,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   miniBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     width: 32,
     height: 32,
     backgroundColor: theme.colors.powierzchnia,

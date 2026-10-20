@@ -273,6 +273,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   miniBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     width: 32,
     height: 32,
     backgroundColor: theme.colors.powierzchnia,
@@ -298,6 +300,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   paramStepBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 8,
     backgroundColor: theme.colors.powierzchnia,

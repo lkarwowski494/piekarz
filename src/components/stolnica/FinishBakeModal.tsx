@@ -75,6 +75,7 @@ export function FinishBakeModal({
                 accessibilityLabel={t('Oceń na {n} z 5', { n: star })}
                 accessibilityState={{ selected: rating === star }}
                 key={star}
+                style={styles.starBtn}
                 testID={`finish-rating-star-${star}`}
                 onPress={() => onRatingChange(star)}
               >
@@ -239,6 +240,12 @@ const styles = StyleSheet.create({
     gap: 8,
     marginBottom: 14,
   },
+  starBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    minWidth: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   starIcon: {
     fontSize: 28,
     color: theme.colors.tusz3,
@@ -264,6 +271,8 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   scoreBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
@@ -296,6 +305,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   tasteChip: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
@@ -332,6 +343,8 @@ const styles = StyleSheet.create({
     marginTop: 6,
   },
   modalCancelBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
@@ -344,6 +357,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   modalConfirmBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 2,
     paddingVertical: 12,
     borderRadius: theme.radius.md,

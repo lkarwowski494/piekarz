@@ -229,6 +229,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   tempChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
@@ -251,6 +253,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   feedNowBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
     borderRadius: theme.radius.md,

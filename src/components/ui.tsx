@@ -565,6 +565,8 @@ const styles = StyleSheet.create({
     minHeight: 44,
   },
   searchClearBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     position: 'absolute',
     right: 8,
     width: 32,

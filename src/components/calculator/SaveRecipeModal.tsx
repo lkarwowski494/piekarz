@@ -111,6 +111,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   modalCancelBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,
@@ -121,6 +123,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   modalConfirmBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 18,
     paddingVertical: 8,

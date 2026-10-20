@@ -174,6 +174,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   storageBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
@@ -201,6 +203,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalDeleteBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingVertical: 8,
     paddingHorizontal: 10,
   },
@@ -215,6 +219,8 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
   },
   modalCancelBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,
@@ -225,6 +231,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   modalConfirmBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 18,
     paddingVertical: 8,

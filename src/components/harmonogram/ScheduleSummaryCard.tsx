@@ -127,6 +127,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   transferBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
@@ -139,6 +141,8 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
   },
   copyScheduleBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,

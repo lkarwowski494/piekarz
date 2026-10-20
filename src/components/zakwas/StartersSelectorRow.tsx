@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   starterPill: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 14,
     paddingVertical: 8,
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   addStarterBtn: {
+    minHeight: theme.cele.pozostale,
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 12,
     paddingVertical: 8,

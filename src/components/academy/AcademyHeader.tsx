@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   closeBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     width: 36,
     height: 36,
     borderRadius: 18,
@@ -102,6 +104,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   navTab: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 8,
     alignItems: 'center',

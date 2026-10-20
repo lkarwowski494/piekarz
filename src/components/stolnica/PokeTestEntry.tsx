@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing.sm,
   },
   entryBtn: {
-    minHeight: 44,
+    minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 12,

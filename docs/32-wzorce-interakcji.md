@@ -15,7 +15,7 @@ Praca w kuchni piekarskiej diametralnie różni się od obsługi typowych aplika
 Z tego wynikają bezwzględne aksjomaty ergonomiczne:
 1. **Zakaz wymuszania pisania na klawiaturze w trakcie aktywnego wypieku:** Wszelkie korekty czasu i odznaczenia etapów odbywają się za pomocą pojedynczych, gigantycznych przycisków lub gestów.
 2. **Dolna Strefa Kciuka (Thumb Zone):** Wszystkie kluczowe akcje operacyjne umieszczane są w dolnych 30% ekranu.
-3. **Pola Dotykowe min. 48–64 pt:** Każdy element klikalny musi mieć rzeczywiste pole dotyku minimum 48×48 pt (dla głównych akcji 60–64 pt).
+3. **Pola dotykowe 48 / 44 / 64 pt (DEC-15 a, tokeny `cele`):** co najmniej 48 pt w prowadzeniu wypieku (Stolnica) i akcjach głównego przepływu, 44 pt w pozostałych, przycisk kciuka 64 pt. `hitSlop` nie dolicza się do progu.
 4. **Tabularne Cyfry (`tabular-nums`):** Żaden zegar, gramatura ani procent nie ma prawa drgać ani zmieniać szerokości przy odliczaniu.
 5. **Kontrast WCAG AAA (min. 7:1):** Pełna czytelność w ostrym słońcu oraz w półmroku piwnicy/chłodni.
 
@@ -31,13 +31,13 @@ Każdy deweloper, projektant i tester w projekcie Piekarz posługuje się ujedno
 
 ### 2. **Pasek Akcji Kciuka (Thumb Action Bar)**
 - **Definicja:** Przyklejona do dolnej krawędzi ekranu belka nawigacyjno-operacyjna z dominującym przyciskiem akcji.
-- **Wymiary:** Wysokość 60–64 pt, pełna szerokość ekranu z bezpiecznym marginesem `safeAreaInsets.bottom`.
+- **Wymiary:** przycisk główny 64 pt (`cele.przyciskKciuka`), pełna szerokość ekranu z bezpiecznym marginesem `safeAreaInsets.bottom`.
 - **Zastosowanie:** Przycisk „Zatwierdź złożenie (+30 min)” w Stolnicy, „Do miski (Start)” w Kalkulatorze.
 
 ### 3. **Pigułka Parametru (Metric Pill)**
 - **Definicja:** Zwarta, zaokrąglona kapsułka prezentująca wartość liczbową i jednostkę w stałej szerokości fontu (`tnum`).
 - **Przykłady:** `[ 72.0% H2O ]`, `[ 25.4°C DDT ]`, `[ -5 min ]`, `[ 14% Strata ]`.
-- **Wymiary:** Minimalna wysokość dotykowa 44 pt (poprzez `hitSlop: { top: 10, bottom: 10, left: 6, right: 6 }`).
+- **Wymiary:** widoczny cel co najmniej 44 pt (`cele.pozostale`), w prowadzeniu wypieku 48 pt; `hitSlop` nie zastępuje tej wysokości.
 
 ### 4. **Widok Skupiony (Focused Active Execution View)**
 - **Definicja:** Uproszczony, dedykowany tryb ekranu roboczego uruchamiany w trakcie trwania wypieku.

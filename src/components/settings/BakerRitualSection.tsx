@@ -178,6 +178,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   optionCard: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     alignItems: 'center',
     padding: 12,

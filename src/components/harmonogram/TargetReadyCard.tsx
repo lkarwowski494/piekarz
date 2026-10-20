@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   scenarioChip: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,
@@ -336,6 +337,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   dayChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 8,
     borderRadius: theme.radius.md,
@@ -363,6 +366,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   hourChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 8,
     borderRadius: theme.radius.md,
@@ -395,6 +400,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   fineTuneBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 8,
     paddingHorizontal: 14,
@@ -425,6 +432,8 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   sleepProfileChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -473,6 +482,8 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   paramChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     flex: 1,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,

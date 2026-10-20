@@ -407,6 +407,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   headerDoctorBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,

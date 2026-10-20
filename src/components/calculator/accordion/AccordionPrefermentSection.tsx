@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     alignItems: 'center',
-    minHeight: 40,
+    minHeight: theme.cele.pozostale,
     justifyContent: 'center',
   },
   prefBtnSelected: {
@@ -174,6 +174,8 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   smallChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,

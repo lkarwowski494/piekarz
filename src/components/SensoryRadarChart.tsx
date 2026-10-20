@@ -262,6 +262,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   stepperBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     width: 32,
     height: 32,
     borderRadius: theme.radius.sm,

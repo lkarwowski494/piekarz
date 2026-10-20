@@ -122,6 +122,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   copyRecipeBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.akcent,
@@ -135,6 +137,8 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   cloneRecipeBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -148,6 +152,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   secondaryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1.5,
     borderColor: theme.colors.akcent,
@@ -161,6 +167,8 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   primaryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingVertical: 16,
     borderRadius: theme.radius.md,

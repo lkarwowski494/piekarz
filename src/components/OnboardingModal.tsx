@@ -241,6 +241,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   prefCard: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     padding: 16,
     borderRadius: 16,

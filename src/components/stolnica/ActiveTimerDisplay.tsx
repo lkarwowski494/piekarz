@@ -140,6 +140,8 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   timePillBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.full,
@@ -159,6 +161,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   timerPrimaryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 2,
     backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
@@ -174,6 +178,8 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
   },
   timerSecondaryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     flex: 1,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 12,

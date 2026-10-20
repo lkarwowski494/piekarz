@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   lessonHeaderPressable: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
@@ -268,6 +269,8 @@ const styles = StyleSheet.create({
     lineHeight: 15,
   },
   smallChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingHorizontal: 8,
     paddingVertical: 5,
     borderRadius: theme.radius.sm,

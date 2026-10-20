@@ -271,6 +271,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navActionBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginTop: 12,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
@@ -285,6 +287,8 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   copyDiagnosisBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     marginTop: 10,
     backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,

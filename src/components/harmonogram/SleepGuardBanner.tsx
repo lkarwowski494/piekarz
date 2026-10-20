@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   autoFixBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,

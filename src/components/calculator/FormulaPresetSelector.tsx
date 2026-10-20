@@ -285,6 +285,8 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   headerActionPill: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.akcent,
@@ -301,6 +303,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   categoryFilterChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -326,6 +330,8 @@ const styles = StyleSheet.create({
     marginVertical: theme.spacing.sm,
   },
   presetChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -433,6 +439,8 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   deleteChipBtn: {
+    minHeight: theme.cele.pozostale,
+    minWidth: theme.cele.pozostale,
     marginLeft: -12,
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: 12,

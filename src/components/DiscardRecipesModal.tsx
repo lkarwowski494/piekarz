@@ -299,6 +299,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   categoryChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -333,6 +335,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   cardHeaderPressable: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

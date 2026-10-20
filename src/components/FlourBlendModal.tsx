@@ -333,6 +333,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   normalizeBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -379,6 +381,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   stepBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -394,6 +398,8 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   removeBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.blad,
@@ -428,6 +434,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   profileChip: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
@@ -453,6 +461,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   modalCancelBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
@@ -463,6 +473,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   modalConfirmBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 20,
     paddingVertical: 10,

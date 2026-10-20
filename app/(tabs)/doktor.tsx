@@ -184,6 +184,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   academyHeaderPill: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.akcent,
@@ -197,6 +199,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   academyBanner: {
+    minHeight: theme.cele.pozostale,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,

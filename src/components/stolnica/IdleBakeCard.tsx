@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   startBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    justifyContent: 'center',
     backgroundColor: theme.colors.akcent,
     paddingHorizontal: 24,
     paddingVertical: 14,
