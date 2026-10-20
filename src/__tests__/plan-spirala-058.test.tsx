@@ -55,8 +55,9 @@ describe('Plan wypieku: Spirala planu przed startem (058)', () => {
     expect(s).toHaveLength(1);
     expect(s[0].props.accessibilityRole).toBe('image');
     const etykieta: string = s[0].props.accessibilityLabel;
-    // domyślnie plan na jutro 10:00; liczba kroków w etykiecie = liczba odcinków spirali (kroki planu)
-    const m = /^Plan wypieku: (\d+) kroków\. Gotowe jutro o 10:00\.$/.exec(etykieta);
+    // przy otwarciu plan na najwcześniejszą godzinę, gdy domyślna „jutro 10:00” dałaby start w przeszłości (107);
+    // liczba kroków w etykiecie = liczba odcinków spirali (kroki planu)
+    const m = /^Plan wypieku: (\d+) kroków\. Gotowe .+ o \d\d:\d\d\.$/.exec(etykieta);
     expect(m).not.toBeNull();
     const n = Number(m![1]);
     expect(n).toBeGreaterThan(4);
@@ -75,6 +76,14 @@ describe('Plan wypieku: Spirala planu przed startem (058)', () => {
     const root = await renderPlan();
     const tekst = (n: renderer.ReactTestInstance): string =>
       n.children.map((c) => (typeof c === 'string' ? c : tekst(c))).join('');
+    const przycisk = (napis: string) => root.findAll((n) => typeof n.props.onPress === 'function' && tekst(n) === napis)[0];
+    // 107: godzina z pola zamiast domyślnej (przy otwarciu może być najwcześniejsza)
+    for (const napis of ['Jutro', '10:00']) {
+      await act(async () => {
+        przycisk(napis).props.onPress();
+        await Promise.resolve();
+      });
+    }
     const plus = root.findAll((n) => typeof n.props.onPress === 'function' && tekst(n).includes('+30 min'))[0];
     await act(async () => {
       plus.props.onPress();

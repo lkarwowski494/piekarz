@@ -18,6 +18,8 @@ export interface ScheduleSummaryCardProps {
   formatDayBadge: (d: Date) => string;
   onStartBakeOnWorkbench: () => void;
   onCopySchedule: () => void;
+  /** Powód, dla którego „Zacznij wypiek” jest nieaktywny (stan „za późno”); brak = aktywny. */
+  powodBlokady?: string | null;
 }
 
 export function ScheduleSummaryCard({
@@ -28,8 +30,10 @@ export function ScheduleSummaryCard({
   formatDayBadge,
   onStartBakeOnWorkbench,
   onCopySchedule,
+  powodBlokady = null,
 }: ScheduleSummaryCardProps) {
   if (!firstStage) return null;
+  const zablokowany = !!powodBlokady;
 
   return (
     <View style={styles.summaryCard}>
@@ -50,17 +54,23 @@ export function ScheduleSummaryCard({
         </View>
       </View>
 
-      {/* Transfer to Stolnica Action Button */}
+      {/* Transfer to Stolnica Action Button; w stanie „za późno” nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107] */}
       <Pressable
         accessibilityRole="button"
+        accessibilityState={{ disabled: zablokowany }}
+        accessibilityHint={powodBlokady ?? undefined}
+        disabled={zablokowany}
         testID="plan-start-bake-btn"
-        style={styles.transferBtn}
-        onPress={onStartBakeOnWorkbench}
+        style={[styles.transferBtn, zablokowany && styles.transferBtnZablokowany]}
+        onPress={() => {
+          if (!zablokowany) onStartBakeOnWorkbench();
+        }}
       >
-        <Text style={styles.transferBtnText}>
+        <Text style={[styles.transferBtnText, zablokowany && styles.transferBtnTextZablokowany]}>
           {t('Zacznij wypiek')}
         </Text>
       </Pressable>
+      {powodBlokady ? <Text style={styles.powod}>{powodBlokady}</Text> : null}
 
       {/* Copy Schedule Action Button */}
       <Pressable
@@ -140,6 +150,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
+  },
+  transferBtnZablokowany: {
+    backgroundColor: theme.colors.powierzchnia,
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
+  },
+  transferBtnTextZablokowany: {
+    color: theme.colors.zablokowane,
+  },
+  powod: {
+    fontSize: 13,
+    color: theme.colors.tusz2,
+    textAlign: 'center',
+    marginBottom: 8,
   },
   copyScheduleBtn: {
     minHeight: theme.cele.pozostale,

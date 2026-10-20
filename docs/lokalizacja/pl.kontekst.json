@@ -2852,6 +2852,11 @@
       "src/lib/print-menu.ts (Alert.alert)"
     ]
   },
+  "Najpierw ustaw godzinę, na którą zdążysz.": {
+    "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (powodBlokady)"
+    ]
+  },
   "Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
@@ -3049,6 +3054,11 @@
   "Nie zaznaczono żadnego objawu": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: titlePl)"
+    ]
+  },
+  "Nie zdążysz na tę godzinę": {
+    "gdzie": [
+      "src/lib/plan-za-pozno.ts (tytul)"
     ]
   },
   "Nie znaleziono aktywnych zakupów": {
@@ -3676,6 +3686,11 @@
   "Pizza i słodkie": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+    ]
+  },
+  "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
+    "gdzie": [
+      "src/lib/plan-za-pozno.ts (tresc)"
     ]
   },
   "Plan wypieku": {
@@ -5487,6 +5502,11 @@
   "Urósł od kreski": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (dane: rose)"
+    ]
+  },
+  "Ustaw tę godzinę": {
+    "gdzie": [
+      "src/components/harmonogram/PlanZaPozno.tsx (tekst w JSX)"
     ]
   },
   "Ustawienia": {
@@ -7411,6 +7431,7 @@
   },
   "dziś": {
     "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -7452,6 +7473,7 @@
   },
   "jutro": {
     "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -7563,6 +7585,7 @@
   },
   "pojutrze": {
     "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -7629,6 +7652,11 @@
   "w tym lód": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "wczoraj": {
+    "gdzie": [
+      "src/lib/plan-za-pozno.ts (kod)"
     ]
   },
   "wiadomość do autora": {

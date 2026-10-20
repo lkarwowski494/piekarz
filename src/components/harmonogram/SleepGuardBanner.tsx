@@ -27,7 +27,7 @@ export function SleepGuardBanner({
 }: SleepGuardBannerProps) {
   if (hasSleepCollision) {
     return (
-      <View style={styles.sleepGuardAlert}>
+      <View style={styles.sleepGuardAlert} testID="sleep-guard-banner">
         <Text style={styles.sleepGuardTitle}>{t('Uwaga: Kolizja ze snem!')}</Text>
         <Text style={styles.sleepGuardBody}>
           {sleepCollisions
@@ -53,7 +53,7 @@ export function SleepGuardBanner({
   }
 
   return (
-    <View style={styles.sleepGuardSafe}>
+    <View style={styles.sleepGuardSafe} testID="sleep-guard-banner">
       <Text style={styles.sleepGuardSafeTitle}>
         ✓ {t('Ochrona snu aktywna')}
       </Text>

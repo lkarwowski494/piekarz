@@ -109,4 +109,12 @@ export const EN_15: Record<string, string> = {
   '{n} sekunda': '{n} second',
   '{n} sekundy': '{n} seconds',
   '{n} sekund': '{n} seconds',
+  // Plan wypieku: stan „za późno” (design-spec §11c „107”, teksty.js pl.zaPozno*, pl.ustawTe, pl.zacznijPowod)
+  // [M1-audytor-generalny-107; 04-studio-projektowe-024]
+  'wczoraj': 'yesterday',
+  'Nie zdążysz na tę godzinę': 'Not enough time for this',
+  'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.':
+    'The plan would have to start {dzienStartu} at {godzinaStartu}. The earliest the bread can be ready is {dzienGotowe} at {godzinaGotowe}.',
+  'Ustaw tę godzinę': 'Use This Time',
+  'Najpierw ustaw godzinę, na którą zdążysz.': 'First set a time you can make.',
 };

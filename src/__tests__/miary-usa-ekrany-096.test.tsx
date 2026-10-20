@@ -195,6 +195,8 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
     tree = await render(<HarmonogramScreen />);
     const chip = tree.root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children) === '72°F')[0];
     await act(async () => chip.props.onPress());
+    // 107: chłodniejsza kuchnia wydłuża plan, więc godzina z otwarcia może dać stan „za późno”; naprawa jednym dotknięciem
+    if (tree.root.findAll((n) => n.props?.testID === 'plan-use-earliest-btn').length > 0) await press(tree, 'plan-use-earliest-btn');
     await press(tree, 'plan-start-bake-btn');
     expect(getActiveBake()?.ambientTempC).toBe(22);
     act(() => tree.unmount());

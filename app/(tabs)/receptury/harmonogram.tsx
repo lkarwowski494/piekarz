@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -30,6 +30,10 @@ import { TimelineStagesList } from '../../../src/components/harmonogram/Timeline
 import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
 import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
+import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-za-pozno';
+import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
+
+const MINUTA_MS = 60_000;
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -82,15 +86,46 @@ export default function HarmonogramScreen() {
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
   const [zakwas, setZakwas] = useState<StoredStarter | null>(null);
+  const [zakwasWczytany, setZakwasWczytany] = useState(false);
   useEffect(() => {
     let zywy = true;
-    void getStarters().then((lista) => { if (zywy) setZakwas(zakwasPlanu(lista)); }).catch(() => {});
+    void getStarters()
+      .then((lista) => { if (zywy) setZakwas(zakwasPlanu(lista)); })
+      .catch(() => {})
+      .finally(() => { if (zywy) setZakwasWczytany(true); });
     return () => { zywy = false; };
   }, []);
   const steps = useMemo(() => {
     const zPlanu = stepsFromSchedule(schedule);
     return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
   }, [schedule, zakwas]);
+
+  // Stan „za późno”: start pierwszego kroku przed teraz; liczony przy zmianach i co minutę (§11c 107) [M1-audytor-generalny-107]
+  const [teraz, setTeraz] = useState(() => Date.now());
+  useEffect(() => {
+    const id = setInterval(() => setTeraz(Date.now()), MINUTA_MS);
+    return () => clearInterval(id);
+  }, []);
+  const stanCzasu = useMemo(() => stanZaPozno(steps, teraz), [steps, teraz]);
+  const zaPozno = tekstZaPozno(stanCzasu, teraz);
+  const ustawGotowe = (ms: number) => {
+    const cel = celGotowosci(ms, Date.now());
+    setTargetDayOffset(cel.dayOffset);
+    setTargetHour(cel.hour);
+    setTargetMinute(cel.minute);
+  };
+  // Przy otwarciu planu domyślna godzina, która dałaby „za późno”, ustępuje najwcześniejszej (do wczytania zakwasu
+  // planu i do pierwszej zmiany godziny przez użytkownika)
+  const godzinaDomyslna = useRef(true);
+  const zmianaGodziny = <A extends unknown[]>(f: (...a: A) => void) => (...a: A) => {
+    godzinaDomyslna.current = false;
+    f(...a);
+  };
+  useEffect(() => {
+    if (!godzinaDomyslna.current) return;
+    if (stanCzasu.zaPozno && stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
+    if (zakwasWczytany) godzinaDomyslna.current = false;
+  }, [stanCzasu, zakwasWczytany]);
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
   // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
   const krokiSpirali = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
@@ -140,6 +175,7 @@ export default function HarmonogramScreen() {
   // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];
   // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
+    if (zaPozno) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
     requireActionAccess(() => {
       const receptura = recepturaPlanu();
       setActiveBake({
@@ -182,12 +218,12 @@ export default function HarmonogramScreen() {
         <BlokadaFunkcji {...blokada('harmonogram')}>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
-          onTargetDayOffsetChange={setTargetDayOffset}
+          onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}
           targetHour={targetHour}
-          onTargetHourChange={setTargetHour}
+          onTargetHourChange={zmianaGodziny(setTargetHour)}
           targetMinute={targetMinute}
-          onTargetMinuteChange={setTargetMinute}
-          onAdjustTargetTime={adjustTargetTime}
+          onTargetMinuteChange={zmianaGodziny(setTargetMinute)}
+          onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
           ambientTemp={ambientTemp}
           onAmbientTempChange={setAmbientTemp}
@@ -202,14 +238,24 @@ export default function HarmonogramScreen() {
           unitSystem={unitSystem}
         />
 
-        {/* Sleep Guard Banner */}
-        <SleepGuardBanner
-          hasSleepCollision={schedule.hasSleepCollision}
-          sleepCollisions={schedule.sleepCollisions}
-          suggestedActionPl={schedule.suggestedActionPl}
-          autoResolved={autoResolved}
-          onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
-        />
+        {zaPozno ? (
+          <PlanZaPozno
+            tytul={zaPozno.tytul}
+            tresc={zaPozno.tresc}
+            onUstawNajwczesniej={zmianaGodziny(() => {
+              if (stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
+            })}
+          />
+        ) : (
+          // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
+          <SleepGuardBanner
+            hasSleepCollision={schedule.hasSleepCollision}
+            sleepCollisions={schedule.sleepCollisions}
+            suggestedActionPl={schedule.suggestedActionPl}
+            autoResolved={autoResolved}
+            onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
+          />
+        )}
 
         <View style={styles.spirala}>
           <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
@@ -224,6 +270,7 @@ export default function HarmonogramScreen() {
           formatDayBadge={formatDayBadge}
           onStartBakeOnWorkbench={handleStartBakeOnWorkbench}
           onCopySchedule={handleCopySchedule}
+          powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}
         />
 
         {/* Timeline Stages List */}

@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — ikony Startu: słoik, bochenek, pizza (Wybór czynności), kłódka, ustawienia.
+// Piekarz — ikony Startu: słoik, bochenek, pizza (Wybór czynności), kłódka, ustawienia; zegar (plan „za późno”, §11c 107).
 // Kształty z makiety docs/design/ekrany/wspolne.js (IKONY), rysowane zastępczo za symbole SF (design-spec §4);
 // ikona jest ozdobą obok nazwy, poza drzewem dostępności. [M1-audytor-generalny-101]
 // ============================================================================
@@ -8,7 +8,7 @@ import React from 'react';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import type { ColorValue } from 'react-native';
 
-export type NazwaIkonyStartu = 'sloik' | 'bochenek' | 'pizza' | 'zamek' | 'ustawienia';
+export type NazwaIkonyStartu = 'sloik' | 'bochenek' | 'pizza' | 'zamek' | 'ustawienia' | 'zegar';
 
 export function IkonaStartu({ nazwa, kolor, rozmiar = 28 }: { nazwa: NazwaIkonyStartu; kolor: ColorValue; rozmiar?: number }) {
   const p = { fill: 'none', stroke: kolor, strokeWidth: 1.9, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -38,6 +38,12 @@ export function IkonaStartu({ nazwa, kolor, rozmiar = 28 }: { nazwa: NazwaIkonyS
         <>
           <Rect {...p} x={5} y={10.5} width={14} height={10} rx={2} />
           <Path {...p} d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+        </>
+      )}
+      {nazwa === 'zegar' && (
+        <>
+          <Circle {...p} cx={12} cy={12} r={8.5} />
+          <Path {...p} d="M12 7v5l3 2" />
         </>
       )}
       {nazwa === 'ustawienia' && (

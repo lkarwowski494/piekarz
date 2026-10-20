@@ -133,6 +133,7 @@ describe('Stolnica z receptury i planu (030)', () => {
   it('start z Harmonogramu: kroki Stolnicy mają te same id, kolejność i czasy co schedule.stages', async () => {
     // Plan bez zakwasu z lodówki (z nim pierwszy krok to dokarmienie z lodówki, 104 / D-052: plan-z-lodowki-104.test.tsx)
     for (const s of await getStarters()) await deleteStarter(s.id);
+    const przedOtwarciem = Math.floor(Date.now() / 60_000) * 60_000;
     const harm = await render(<HarmonogramScreen />);
     await act(async () => {
       button(harm.root, 'Zacznij wypiek').props.onPress();
@@ -142,7 +143,10 @@ describe('Stolnica z receptury i planu (030)', () => {
     const bake = getActiveBake();
     const steps = bake?.steps;
     const target = new Date(steps?.[steps.length - 1]?.plannedEnd ?? 0);
-    expect([target.getHours(), target.getMinutes()]).toEqual([10, 0]);
+    // 107 (§11c): domyślne „jutro 10:00” dałoby start planu w przeszłości, więc plan otwiera się na najwcześniejszej
+    // godzinie (teraz + długość planu, w górę do pełnych 5 minut)
+    expect(target.getMinutes() % 5).toBe(0);
+    expect(steps?.[0]?.plannedStart ?? 0).toBeGreaterThanOrEqual(przedOtwarciem);
     const schedule = calculateReverseSchedule(target, {
       ambientTemperatureC: 23,
       coldRetardHours: 14,

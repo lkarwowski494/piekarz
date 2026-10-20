@@ -121,7 +121,11 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
 
     const root = tree!.root;
 
-    // Default is 10:00
+    // 107: przy otwarciu pole może pokazać najwcześniejszą godzinę zamiast domyślnej, więc 10:00 z chipa godziny
+    await act(async () => {
+      findButtonByText(root, '10:00')!.props.onPress();
+      await Promise.resolve();
+    });
     expect(extractCleanText(root)).toContain('10:00');
 
     // Press +30 min
@@ -175,6 +179,12 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     });
 
     const root = tree!.root;
+
+    // 107: „pojutrze”, żeby cel nie dał stanu „za późno” (w nim baner snu jest ukryty) niezależnie od godziny testu
+    await act(async () => {
+      findButtonByText(root, 'Pojutrze')!.props.onPress();
+      await Promise.resolve();
+    });
 
     // Target 18:00 (with standard 14h retard) causes shaping to fall around 00:15 midnight
     const hour18Btn = findButtonByText(root, '18:00');
