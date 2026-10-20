@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — receptura i ilości (E3)</title>
+<!-- PR-01, F-09 (BR-KALK-001…003), F-11 (żytni), F-56 (sól, BR-KALK-011), F-10 (woda), F-27, F-38 (miary USA, 096).
+     Najwyżej 4 akcje główne (057, DEC-09 a): Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki. Bez QR, druku, spiżarni (PÓŹNIEJ), bez lodu (F-53 NIE).
+     Liczby: [PRZYKŁAD] rachunek procentu piekarskiego dla 2 × 850 g przy 75% wody i 20% zakwasu o hydratacji 100% (nie twierdzenie dziedzinowe). -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.mieszanka { display: flex; height: 16px; border-radius: 7px; overflow: hidden; border: 1.5px solid var(--obwodka); }
+.mieszanka i { display: block; }
+.stepper { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.stepper button { min-width: calc(48px + 30px * var(--ax)); min-height: calc(48px + 30px * var(--ax)); border-radius: 12px; border: 1.5px solid var(--obwodka); background: var(--powierzchnia); color: var(--tusz); font: 600 calc(22px + 30px * var(--ax)) var(--f-tr); }
+.stepper .w { min-width: 72px; text-align: center; }
+.checkbox { width: 28px; height: 28px; border-radius: 8px; border: 2px solid var(--obwodka); flex: none; display: inline-flex; align-items: center; justify-content: center; color: var(--naAkcencie); }
+.checkbox.on { background: var(--akcent); border-color: var(--akcent); }
+.wagi .waga { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--linia); } .wagi .waga:last-child { border-bottom: 0; } .wagi .nazwa { flex: 1 1 calc(120px + 400px * var(--ax)); min-width: 0; } .wagi .liczba { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.akcje { display: flex; flex-wrap: wrap; gap: 10px; }
+.akcje .drugi { flex: 1 1 calc(140px + 400px * var(--ax)); }
+</style>
+</head>
+<body>
+
+<main data-ekran="receptura">
+  <div class="status"><span>9:12</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.receptury">Receptury</span></a></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="kl.nazwa">Chleb pszenny na zakwasie</h1>
+    <span class="przyklad t-przyp" style="align-self:flex-start" data-t="kl.bazowa">receptura bazowa, przykład</span>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.bochenki">Bochenki</span><span class="stepper"><button aria-label="Mniej bochenków">−</button><span class="w t-2">2</span><button aria-label="Więcej bochenków">+</button></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.masaBochenka">Masa bochenka</span><span class="t-nagl" data-g="850"></span></div>
+    </div>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="kl.doMiski">Do miski (odhaczaj przy ważeniu)</h2>
+    <div class="grupa" style="padding:0 16px">
+      <div class="wagi t-tresc">
+        <div class="waga"><span class="checkbox on" data-ikona="sprawdz"></span><span class="nazwa"><span data-t="kl.maka">Mąka pszenna typ 750</span><br><span class="t-przyp p2">100%</span></span><span class="liczba t-nagl" data-g="863"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa"><span data-t="kl.woda">Woda</span><br><span class="t-przyp p2">75%</span></span><span class="liczba t-nagl" data-g="647"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa"><span data-t="kl.zakwas">Zakwas (100% wody)</span><br><span class="t-przyp p2">20%</span></span><span class="liczba t-nagl" data-g="173"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa"><span data-t="kl.sol">Sól</span><br><span class="t-przyp p2">2%</span></span><span class="liczba t-nagl" data-g="17"></span></div>
+      </div>
+    </div>
+    <div class="info t-obj"><span data-ikona="info"></span><span data-t="kl.hydratacja">Hydratacja całkowita 77%: woda z zakwasu jest wliczona.</span></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="kl.ulozPlan">Ułóż plan</button>
+    <div class="akcje"><button class="drugi t-obj" data-t="kl.zapisz">Zapisz jako moją</button><button class="drugi t-obj" data-t="kl.tempWody">Temperatura wody</button></div>
+    <button class="drugi t-obj" style="flex:none" data-t="kl.zmien">Zmień składniki</button>
+  </div>
+</main>
+
+<main data-ekran="mieszanka-i-sol">
+  <div class="status"><span>9:14</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="kl.recepturaWstecz">Receptura</span></a><button class="t-tresc" style="font-weight:600" data-t="kl.gotowe">Gotowe</button></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="kl.skladniki">Składniki</h1>
+    <h2 class="t-obj p2" data-t="kl.maki">Mąki (razem 100%)</h2>
+    <div class="mieszanka" role="img" aria-label="Mąka pszenna 40 procent, żytnia 60 procent"><i style="width:40%;background:var(--powierzchnia)"></i><i style="width:60%;background:var(--tusz2)"></i></div>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.makaPszenna">Mąka pszenna typ 750</span><span class="pole t-nagl" style="min-width:84px">40 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.makaZytnia">Mąka żytnia typ 2000</span><span class="pole t-nagl" style="min-width:84px">60 %</span></div>
+      <div class="kom"><span class="roz t-obj" style="color:var(--akcentTekst)"><span data-ikona="plus"></span> <span data-t="kl.dodajMake">Dodaj mąkę</span></span></div>
+    </div>
+    <div class="info t-obj" style="color:var(--tusz)"><span data-ikona="info"></span><span><b data-t="kl.zytniTyt">Wariant żytni.</b> <span data-t="kl.zytniOpis">Ponad połowa mąki to żyto: plan nie będzie miał składań.</span></span></div>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.sol">Sól</span><span class="pole t-nagl" style="min-width:84px">4,5 %</span></div>
+    </div>
+    <div class="info t-obj" style="color:var(--tusz)"><span data-ikona="info"></span><span data-t="kl.solInfo">To więcej soli niż w większości receptur na chleb. Sprawdź, czy to nie pomyłka; możesz zostawić tę ilość.</span></div>
+  </div>
+</main>
+
+<main data-ekran="temperatura-wody">
+  <div class="status"><span>9:16</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="kl.recepturaWstecz">Receptura</span></a></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="kl.tempWody">Temperatura wody</h1>
+    <p class="t-obj p2" data-t="kl.tempOpis">Podaj, co mierzysz termometrem. Policzę wodę, żeby ciasto miało tyle, ile chcesz.</p>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.tCiasta">Ciasto ma mieć</span><span class="pole t-nagl" data-c="25"></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.tMaki">Mąka</span><span class="pole t-nagl" data-c="21"></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.tKuchni">Kuchnia</span><span class="pole t-nagl" data-c="22"></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.tZakwasu">Zakwas</span><span class="pole t-nagl" data-c="22"></span></div>
+    </div>
+    <div><div class="t-obj p2" data-t="kl.wodaMa">Woda powinna mieć</div><div class="t-czas" data-c="35"></div></div>
+    <p class="t-przyp p2" data-t="kl.wodaPrzyklad">Wynik z rachunku temperatury ciasta; liczby na tym ekranie to przykład makiety.</p>
+  </div>
+</main>
+
+<script src="teksty.js"></script>
+<script src="teksty-najdluzszy.js" onerror="0"></script>
+<script src="wspolne.js"></script>
+</body>
+</html>

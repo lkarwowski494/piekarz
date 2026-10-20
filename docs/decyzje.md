@@ -111,6 +111,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) przekład roboczy w sesji na ok. 8 kandydatów; (c) przyjęcie DE bez pomiaru (DE = 1,05× PL na 1385 tekstach pilota).
 - **Dlaczego:** pomiar zamiast założenia; zasada właściciela: przekład przez Batches, nie sesjami.
 - **Zależy od:** zgody na to jedno płatne wywołanie (dana tu, 2026-10-20; koszt rzędu centów do 1 USD).
+- **Wykonanie 2026-10-20:** partia 80 tekstów × 34 języki (claude-opus-5-5, Message Batches) kosztowała **1,41 USD**, ponad szacunek; pierwsza próba odrzucona przez API bez kosztu (za duży schemat odpowiedzi). Wynik: najdłuższy **francuski** (1,20× znaków PL), dalej włoski 1,19, niemiecki 1,18, grecki 1,16; najdłuższe słowa: fiński 21 i niemiecki 20 znaków (`docs/design/pomiar-jezykow.md`). Zrzuty E3: FR. Dopłata na pełne teksty en-US i fr (107 tekstów × 2, ok. 0,2 USD): zgoda właściciela „Tak, puść (Recommended)” (2026-10-20).
 
 ### [D-049] 2026-10-20 — Kierunek wizualny: A „Koszyk spiralny” (rola 04 build, E2)
 - **Rodzaj:** produktowa (wygląd). **Słowa właściciela:** „Dobra, juz z gory moge CI powiedziec ze idziemy w koszyk spiralny” (2026-10-20, w trakcie budowy E2, przed obejrzeniem `docs/design/porownanie.png`). Wcześniej na STOP E1: „Zgoda na metafory A, B, C. Rozwijaj E2.”
@@ -118,3 +119,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** B „Słoik z gumką” (najmocniejszy dla zakwasu; może wrócić jako element karty zakwasu przy łączeniu kierunków), C „Taśma z etykietą” (najtańszy i najbardziej odporny na AX5).
 - **Dlaczego (rekomendacja studia, ta sama):** główna praca J-02; tylko A pokazuje cały plan z nocą i godziną „gotowe” na jednym przedmiocie.
 - **Potwierdzenie okiem (STOP E2):** „Potwierdzam koszyk spiralny po obejrzeniu porównania. Zrób porównanie krojów, gdy wróci sieć.” (2026-10-20). Krój tytułów wybiera właściciel po porównaniu ok. 5 krojów (następny krok).
+
+### [D-050] 2026-10-20 — Krój tytułów: Sofia Sans Semi Condensed (rola 04 build, po E2)
+- **Rodzaj:** produktowa (wygląd). **Słowa właściciela:** „Krój tytułów: 2. Sofia Sans Semi Condensed.” (2026-10-20, po obejrzeniu `docs/design/kroje.png`).
+- **Decyzja:** tytuły, czasy i liczby elementu firmowego: Sofia Sans Semi Condensed (OFL, `docs/design/fonty/`); treść: krój systemowy (SF Pro). Pisma kroju: łacinka, cyrylica, greka (METADATA Google Fonts, 2026-10-20); japoński, koreański, chiński, arabski, hebrajski, tajski i hindi dostają krój systemowy także w tytułach.
+- **Odrzucone:** Alegreya Sans, Bitter (bez greki), Big Shoulders Stencil (tylko łacinka), Rubik (bez greki).
+- **Dlaczego (rekomendacja studia):** wąski krój mieści długie nazwy kroków przy AX5 i w najdłuższym języku; pokrywa pisma europejskie z 35.
+- **Zależy od:** D-049.

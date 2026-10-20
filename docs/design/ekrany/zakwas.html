@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — zakwas (E3)</title>
+<!-- PR-05, PR-11; F-22, F-23, F-24 (bez godziny szczytu do OP-39), F-25 + RD-21 (DEC-10 a), F-60 (RD-24: zwykle 7–10 dni, S-44), F-62 (edycja wpisu), F-64.
+     Element firmowy: jeden zwój = czas od dokarmienia do następnego dokarmienia (OP-38: 12 h na blacie, D-043). Nazwy i godziny: [PRZYKŁAD]. Treść objawów i zaleceń: rola 06. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.cykl { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.cykl svg.spirala { width: calc(140px + 60px * var(--ax)); flex: none; }
+.cykl .roz { flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.objaw { display: flex; gap: 12px; align-items: center; min-height: 48px; padding: 8px 16px; border-bottom: 1px solid var(--linia); }
+.checkbox { width: 28px; height: 28px; border-radius: 8px; border: 2px solid var(--obwodka); flex: none; display: inline-flex; align-items: center; justify-content: center; color: var(--naAkcencie); }
+.checkbox.on { background: var(--akcent); border-color: var(--akcent); }
+.dni { display: flex; gap: 6px; flex-wrap: wrap; }
+.dni span { min-width: calc(40px + 50px * var(--ax)); min-height: calc(40px + 50px * var(--ax)); border-radius: 50px; display: inline-flex; align-items: center; justify-content: center; border: 1.5px solid var(--obwodka); }
+.dni span.zrob { background: var(--ratan); border-color: var(--ratan); color: #FFF; }
+.dni span.dzis { border: 3px solid var(--tusz); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<main data-ekran="karta">
+  <div class="status"><span>14:20</span><span>LTE 76%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.zakwasy">Zakwasy</span></a><button class="t-tresc" data-t="zk.edytuj">Edytuj</button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="st.zakwasZytni">Zakwas żytni</h1>
+    <span class="przyklad t-przyp" style="align-self:flex-start">przykład</span>
+    <div class="cykl">
+      <svg class="spirala" data-kroki='[["od dokarmienia",720]]' data-teraz="380" aria-label="Od dokarmienia minęło 6 godzin 20 minut z 12 godzin."></svg>
+      <div class="roz"><b class="t-2" data-t="zk.minelo">6 h 20 min od dokarmienia</b><span class="t-obj p2" data-t="zk.karmiony">dokarmiony o {h:8:00}, następne o {h:20:00}</span><span class="t-obj p2" data-t="zk.blat">na blacie, 1 : 1 : 1</span></div>
+    </div>
+    <button class="glowny t-nagl" data-t="zk.podwoil">Podwoił objętość</button>
+    <p class="t-przyp p2" data-t="zk.podwoilOpis">Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).</p>
+    <div class="rzad"><button class="drugi t-obj" data-t="zk.dokarm">Zapisz dokarmienie</button><button class="drugi t-obj" data-t="zk.coNiepokoi">Coś mnie niepokoi</button></div>
+    <h2 class="t-obj p2" data-t="zk.ostatnie">Ostatnie wpisy</h2>
+    <div class="grupa">
+      <div class="kom t-obj"><span class="roz" data-t="zk.wpis1">Dziś {h:8:00}: {g:50} mąki żytniej, {g:50} wody</span><span class="p2" data-t="zk.edytujKrotko">Edytuj</span></div>
+      <div class="kom t-obj"><span class="roz" data-t="zk.wpis2">Wczoraj {h:20:10}: {g:50} mąki żytniej, {g:50} wody</span><span class="p2" data-t="zk.edytujKrotko">Edytuj</span></div>
+    </div>
+  </div>
+  <nav class="zakladki"><a href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a class="wyb" href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<main data-ekran="zakladanie-dzien-3">
+  <div class="status"><span>8:05</span><span>LTE 92%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.zakwasy">Zakwasy</span></a></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="zk.dzien3">Dzień 3</h1>
+    <p class="t-tresc p2" data-t="zk.zwykle">Założenie zakwasu trwa zwykle 7–10 dni (SDSU Extension).</p>
+    <div class="dni t-obj" role="img" aria-label="Dzień 3, dni 1 i 2 zrobione"><span class="zrob">1</span><span class="zrob">2</span><span class="dzis">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+    <h2 class="t-2" data-t="zk.coDzis">Co dziś zrobić</h2>
+    <p class="t-tresc" data-t="zk.dzien3Opis">Odrzuć połowę, dodaj {g:50} mąki i {g:50} wody, zamieszaj i zaznacz poziom gumką. <span class="przyklad">treść roli 06</span></p>
+    <h2 class="t-2" data-t="zk.coWidzisz">Co widzisz?</h2>
+    <div class="grupa">
+      <div class="objaw t-tresc"><span class="checkbox on" data-ikona="sprawdz"></span><span data-t="zk.babelki">Bąbelki</span></div>
+      <div class="objaw t-tresc"><span class="checkbox"></span><span data-t="zk.urosl">Urósł od kreski</span></div>
+      <div class="objaw t-tresc"><span class="checkbox"></span><span data-t="zk.nierosnie">Nic się nie dzieje</span></div>
+      <div class="objaw t-tresc"><span class="checkbox"></span><span data-t="zk.plamy">Kolorowe plamy albo puszysty nalot</span></div>
+    </div>
+  </div>
+  <div class="kciuk"><button class="glowny t-nagl" data-t="zk.zapiszDzien">Zapisz dzień 3</button></div>
+</main>
+
+<main data-ekran="plesn">
+  <div class="status"><span>8:07</span><span>LTE 92%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="zk.dzien3">Dzień 3</span></a></div>
+  <div class="tresc">
+    <div class="ostrz t-tresc" role="alert"><span data-ikona="plesn"></span><span><b data-t="zk.wyrzucTyt">Wyrzuć ten zakwas</b><span data-t="zk.wyrzucOpis">Kolorowe plamy albo puszysty nalot mogą być pleśnią. Nie próbuj jej zbierać. Wyrzuć zawartość, umyj słoik i zacznij od nowa.</span></span></div>
+    <p class="t-przyp p2" data-t="zk.wyrzucZrodlo">Zasada ostrożności według USDA FSIS. <span class="przyklad">treść roli 06</span></p>
+    <button class="glowny t-nagl" data-t="zk.zacznijOdNowa">Zacznij od nowa</button>
+    <button class="drugi t-obj" style="flex:none" data-t="zk.zostaw">Zostaw zapis i wróć</button>
+  </div>
+</main>
+
+<script src="teksty.js"></script>
+<script src="teksty-najdluzszy.js" onerror="0"></script>
+<script src="wspolne.js"></script>
+</body>
+</html>
