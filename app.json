@@ -15,11 +15,16 @@
       "en": "./languages/en.json"
     },
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/splash-icon-dark.png",
       "resizeMode": "contain",
-      "backgroundColor": "#121214"
+      "backgroundColor": "#141A1C"
     },
     "ios": {
+      "icon": {
+        "light": "./assets/icon.png",
+        "dark": "./assets/icon-dark.png",
+        "tinted": "./assets/icon-tinted.png"
+      },
       "supportsTablet": false,
       "bundleIdentifier": "com.apps4brew.baker",
       "appleTeamId": "8NQ9GHY8GF",
