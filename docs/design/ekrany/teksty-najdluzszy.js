@@ -249,5 +249,8 @@ window.TEKSTY['fr'] = {
  "im.kopiaTyt": "Sauvegarde depuis un fichier",
  "im.kopiaZawartosc": "Sauvegarde du 18 octobre 2026 : 3 recettes, 1 levain, 12 entrées du journal.",
  "im.kopiaOpis": "L'import remplace toutes les données de l'application par celles de la sauvegarde. Avant l'import, j'enregistre une copie de vos données actuelles.",
- "im.zastap": "Remplacer les données"
+ "im.zastap": "Remplacer les données",
+ "dz.pustyTyt": "Vos cuissons apparaîtront ici",
+ "dz.pustyOpis": "Après chaque cuisson, j'enregistre la recette, la date et votre note. Commencez par une recette.",
+ "dz.wybierz": "Choisir une recette"
 };

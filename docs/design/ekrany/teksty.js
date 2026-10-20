@@ -251,5 +251,8 @@ window.TEKSTY['en-US'] = {
  "im.kopiaTyt": "Backup from File",
  "im.kopiaZawartosc": "Backup from October 18, 2026: 3 recipes, 1 starter, 12 journal entries.",
  "im.kopiaOpis": "Importing replaces all data in the app with the data from the backup. Before importing, I'll save a copy of your current data.",
- "im.zastap": "Replace Data"
+ "im.zastap": "Replace Data",
+ "dz.pustyTyt": "Your bakes will appear here",
+ "dz.pustyOpis": "After each bake, I'll save the recipe, the date, and your rating. Start with a recipe.",
+ "dz.wybierz": "Choose a Recipe"
 };
