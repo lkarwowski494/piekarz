@@ -18,7 +18,8 @@ import { StyleSheet, Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
-import RecepturyScreen from '../../app/(tabs)/receptury/index';
+// Po 106 treść receptury (z blokadą 'kalkulator') jest na ekranie receptura.tsx; index to lista receptur [M1-audytor-generalny-106]
+import RecepturyScreen from '../../app/(tabs)/receptury/receptura';
 import ZakwasyScreen from '../../app/(tabs)/zakwasy/index';
 import DoktorScreen from '../../app/doktor';
 import { AppAccessProvider } from '../components/AppAccessProvider';

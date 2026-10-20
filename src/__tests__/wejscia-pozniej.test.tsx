@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -66,7 +66,8 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     expect(testIds(tree!.root)).not.toContain('open-volume-converter-btn');
   });
 
-  it('Calculator has no flour pantry entry anywhere, accordion closed or open (F-30, D-043)', async () => {
+  // Akordeon zastąpił arkusz „Składniki” (§11c 106) [M1-audytor-generalny-106]
+  it('Calculator has no flour pantry entry anywhere, ingredients sheet closed or open (F-30, D-043)', async () => {
     await act(async () => {
       tree = renderer.create(<CalculatorScreen />);
     });
@@ -75,8 +76,9 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     });
     expect(testIds(tree!.root)).not.toContain('open-flour-inventory-btn');
     await act(async () => {
-      tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' }).props.onPress();
+      tree!.root.findAll((n) => n.props.testID === 'edit-ingredients-btn' && typeof n.props.onPress === 'function')[0].props.onPress();
     });
+    expect(testIds(tree!.root)).toContain('ingredients-sheet');
     expect(testIds(tree!.root)).not.toContain('open-flour-inventory-btn');
   });
 
@@ -111,7 +113,8 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     expect(ids.filter((id) => /print|pdf|druk/i.test(id))).toEqual([]);
   });
 
-  it('Calculator with the PRO accordion open has no flour dictionary entry (F-46) and no bake loss section (F-48)', async () => {
+  // Akordeon „PRO” zastąpił arkusz „Składniki” (§11c 106) [M1-audytor-generalny-106]
+  it('Calculator with the ingredients sheet open has no flour dictionary entry (F-46) and no bake loss section (F-48)', async () => {
     await act(async () => {
       tree = renderer.create(<CalculatorScreen />);
     });
@@ -119,21 +122,22 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
       await Promise.resolve();
     });
     await act(async () => {
-      tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' }).props.onPress();
+      tree!.root.findAll((n) => n.props.testID === 'edit-ingredients-btn' && typeof n.props.onPress === 'function')[0].props.onPress();
     });
     const ids = testIds(tree!.root);
-    // Akordeon jest otwarty: sekcja mieszanki mąk (ta sama co słownik) jest widoczna
-    expect(ids).toContain('artisan-accordion-body');
+    // Arkusz jest otwarty: grupa mąk (ta sama co słownik) jest widoczna
+    expect(ids).toContain('ingredients-sheet');
+    expect(ids).toContain('add-flour-btn');
     expect(ids).not.toContain('open-flour-inventory-btn');
     expect(ids).not.toContain('open-flour-equivalents-btn');
     expect(ids.filter((id) => id.startsWith('bake-loss-'))).toEqual([]);
-    // Podtytuł akordeonu nie obiecuje ukrytej sekcji
+    // Grupy arkusza nie obiecują ukrytej sekcji: mąki, proporcje, zaczyn, bez straty piecowej
     const texts = tree!.root
       .findAll((n) => (n.type as unknown) === 'Text')
       .map((n) => (Array.isArray(n.props.children) ? n.props.children.join('') : String(n.props.children)));
-    // Temperatura wody ma własną akcję i arkusz (057): podtytuł mówi o mieszance mąk i zaczynach
-    expect(texts).toContain('Mieszanka mąk i zaczyny');
-    expect(texts).not.toContain('Mieszanka mąk, zaczyny, strata piecowa');
+    expect(texts).toContain('Mąki (razem 100%)');
+    expect(texts).toContain('Zaczyn');
+    expect(texts.filter((x) => /strata|Strata/.test(x))).toEqual([]);
   });
 
   it('Starter screen has no discard recipes entry (F-47) and no starter converter entry (F-49)', async () => {

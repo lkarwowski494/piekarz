@@ -103,8 +103,9 @@ describe('087: pusta baza — bez danych zmyślonych jako dane użytkownika', ()
   it('Receptury: tylko receptury bazowe pod własnym nagłówkiem, bez sekcji „Moje przepisy”', async () => {
     const tree = await render(RecepturyScreen);
     const txt = teksty(tree.root);
-    expect(txt).toContain('Receptury mistrzowskie');
-    expect(txt).not.toContain('Moje przepisy');
+    // Nazwy grup według §11c 106: „Receptury bazowe” i „Moje receptury” [M1-audytor-generalny-106]
+    expect(txt).toContain('Receptury bazowe');
+    expect(txt).not.toContain('Moje receptury');
     act(() => tree.unmount());
   });
 });

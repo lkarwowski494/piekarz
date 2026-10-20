@@ -165,8 +165,6 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
       targetDdt: 25,
       onTargetDdtChange: () => {},
       waterTempTarget: 20,
-      waterPct: 70,
-      onWaterPctChange: () => {},
       blendAbsorption: {
         weightedAbsorptionPercent: 68.4,
         recommendedHydrationRange: [66.5, 72.5],

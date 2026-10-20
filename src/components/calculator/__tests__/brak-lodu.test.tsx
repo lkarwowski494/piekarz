@@ -26,7 +26,7 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(
-        <AccordionDdtSection targetDdt={18} onTargetDdtChange={() => undefined} waterTempTarget={-2} waterPct={70} onWaterPctChange={() => undefined} />
+        <AccordionDdtSection targetDdt={18} onTargetDdtChange={() => undefined} waterTempTarget={-2} />
       );
     });
     const txt = teksty(tree!);
@@ -44,8 +44,6 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
           onTargetDdtChange={() => undefined}
           waterTempTarget={48}
           waterTempWarning="Uwaga: Obliczona temperatura wody przekracza 45°C."
-          waterPct={70}
-          onWaterPctChange={() => undefined}
         />
       );
     });
@@ -59,6 +57,7 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
       'src/components/calculator/accordion/AccordionDdtSection.tsx',
       'src/components/calculator/ArtisanAccordionPro.tsx',
       'app/(tabs)/receptury/index.tsx',
+      'app/(tabs)/receptury/receptura.tsx',
       'src/hooks/useRecipeCalculations.ts',
     ]) {
       expect({ p, lod: /iceGrams|iceResult|calculateIceRequirement|\(Lód\)|lodu|lodem/.test(zrodlo(p)) }).toEqual({ p, lod: false });

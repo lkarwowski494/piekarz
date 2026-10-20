@@ -99,7 +99,7 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
   describe('S7: Keyboard Handling Contracts', () => {
     it('primary tab screens with inputs wrap or configure scrollviews with keyboard dismissal', () => {
       // Ekrany po D-051 2a: 4 zakładki, plan wypieku, prowadzenie i Doktor [M1-audytor-generalny-101]
-      const tabs = ['(tabs)/(dzis)/index.tsx', '(tabs)/receptury/index.tsx', '(tabs)/receptury/harmonogram.tsx', '(tabs)/zakwasy/index.tsx', '(tabs)/dziennik/index.tsx', 'stolnica.tsx', 'doktor.tsx'];
+      const tabs = ['(tabs)/(dzis)/index.tsx', '(tabs)/receptury/index.tsx', '(tabs)/receptury/receptura.tsx', '(tabs)/receptury/harmonogram.tsx', '(tabs)/zakwasy/index.tsx', '(tabs)/dziennik/index.tsx', 'stolnica.tsx', 'doktor.tsx'];
       for (const t of tabs) {
         const content = fs.readFileSync(path.join(appDir, t), 'utf-8');
         const hasScroll = content.includes('ScrollView') || content.includes('FlatList');

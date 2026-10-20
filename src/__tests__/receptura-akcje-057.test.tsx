@@ -10,7 +10,7 @@ import path from 'path';
 import React from 'react';
 import { ActionSheetIOS, StyleSheet } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import { initDatabase, setActiveBake, getActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -163,16 +163,19 @@ describe('057: recipe with 4 main actions and a "More" menu', () => {
     await act(async () => {
       tree!.root.findAll((n) => n.props.testID === 'edit-ingredients-btn' && typeof n.props.onPress === 'function')[0].props.onPress();
     });
-    expect(hostIds(tree!.root)).toContain('flour-blend-modal');
+    // Arkusz „Składniki” zamiast edytora mieszanki mąk (§11c 106) [M1-audytor-generalny-106]
+    expect(hostIds(tree!.root)).toContain('ingredients-sheet');
   });
 
-  it('numbers at the top are a grouped list, not CraftCard/CraftStatDisplay (mapa-rol §4)', () => {
-    const src = fs.readFileSync(path.join(ROOT, 'src/components/calculator/CalculatorSacredCard.tsx'), 'utf8');
-    expect(src).not.toMatch(/from '@apps4craft\/ui'|<Craft(Card|StatDisplay)\b/);
-    const panel = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'sacred-numbers-panel');
-    expect(panel).toHaveLength(1);
-    expect(hostIds(panel[0])).toEqual(['sacred-numbers-panel', 'stat-hydration', 'stat-dough-weight', 'stat-total-flour', 'stat-target-ddt']);
-    const wiersz = panel[0].findAll((n) => typeof n.type === 'string' && n.props.testID === 'stat-hydration')[0];
-    expect(StyleSheet.flatten(wiersz.props.style).minHeight).toBe(theme.cele.pozostale);
+  // Karty liczb (CalculatorSacredCard) usunięte bez zastępstwa w formie kart (§11c 106, §12a): liczby są w liście
+  // grupowanej — tryb, „Do miski”, zdanie o hydratacji, „Razem” [M1-audytor-generalny-106]
+  it('numbers are a grouped list, not CraftCard/CraftStatDisplay and not a card of numbers (mapa-rol §4)', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'app/(tabs)/receptury/receptura.tsx'), 'utf8');
+    expect(src).not.toMatch(/from '@apps4craft\/ui'|<Craft(Card|StatDisplay)\b|CalculatorSacredCard/);
+    const ids = hostIds(tree!.root);
+    expect(ids).not.toContain('sacred-numbers-panel');
+    for (const id of ['recipe-mode', 'do-miski', 'recipe-hydration', 'recipe-total']) expect(ids).toContain(id);
+    const wiersz = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'scale-item-water')[0];
+    expect(StyleSheet.flatten(wiersz.props.style).minHeight).toBe(theme.cele.glownyPrzeplyw);
   });
 });

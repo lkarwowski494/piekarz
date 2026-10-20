@@ -6,7 +6,7 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import * as Clipboard from 'expo-clipboard';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import StolnicaScreen from '../../app/stolnica';
@@ -108,7 +108,8 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
 
   it('Receptury: liczby, Do miski, Mieszanka mąk i zaczyny, arkusz Temperatura wody (BR-UST-001 Uncje i °F do wyświetlania)', async () => {
     const tree = await render(<CalculatorScreen />);
-    await press(tree, 'artisan-accordion-toggle-btn');
+    // Mieszanka mąk i zaczyny: arkusz „Składniki” zamiast akordeonu (§11c 106) [M1-audytor-generalny-106]
+    await press(tree, 'edit-ingredients-btn');
     await press(tree, 'water-temp-btn');
     expect(metryczne(textOf(tree.toJSON()))).toEqual([]);
     act(() => tree.unmount());
@@ -176,7 +177,7 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
 
   it('Wejście w °F i oz zapisuje °C i gramy: DDT o 1 °F, mąka o 2 oz, kuchnia z chipu °F (BR-UST-001: zapis w gramach i °C)', async () => {
     const ddt = jest.fn();
-    let tree = await render(<AccordionDdtSection targetDdt={25} onTargetDdtChange={ddt} waterTempTarget={20} waterPct={70} onWaterPctChange={() => {}} />);
+    let tree = await render(<AccordionDdtSection targetDdt={25} onTargetDdtChange={ddt} waterTempTarget={20} />);
     expect(textOf(tree.toJSON())).toContain('77°F');
     await press(tree, 'ddt-plus-btn');
     const c = ddt.mock.calls[0][0] as number;

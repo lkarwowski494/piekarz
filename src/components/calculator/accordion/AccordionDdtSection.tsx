@@ -2,19 +2,19 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
-import { formatFixed, formatNumber } from '../../../lib/format';
+import { formatNumber } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
 
+// Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
+// (design-spec §11c „106”, punkt 7) [M1-audytor-generalny-106]
 export interface AccordionDdtSectionProps {
   targetDdt: number;
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
   /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
   waterTempWarning?: string;
-  waterPct: number;
-  onWaterPctChange: (pct: number) => void;
   hydrationDifficulty?: HydrationDifficultyInfo;
   blendAbsorption?: BlendAbsorptionAnalysis;
 }
@@ -24,8 +24,6 @@ export function AccordionDdtSection({
   onTargetDdtChange,
   waterTempTarget,
   waterTempWarning,
-  waterPct,
-  onWaterPctChange,
   hydrationDifficulty,
   blendAbsorption,
 }: AccordionDdtSectionProps) {
@@ -84,67 +82,6 @@ export function AccordionDdtSection({
             </Pressable>
           </View>
         </View>
-
-        <View style={styles.paramBox}>
-          <Text style={styles.paramLabel}>{t('Hydratacja bazy')}</Text>
-          <View style={styles.stepperInline}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('Zmniejsz hydratację')}
-              testID="water-pct-minus-btn"
-              style={styles.miniBtn}
-              onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 1).toFixed(1))))}
-            >
-              <Text style={styles.miniBtnText}>−</Text>
-            </Pressable>
-            <Text style={styles.paramValue}>{formatFixed(waterPct, 1)}%</Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t('Zwiększ hydratację')}
-              testID="water-pct-plus-btn"
-              style={styles.miniBtn}
-              onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 1).toFixed(1))))}
-            >
-              <Text style={styles.miniBtnText}>+</Text>
-            </Pressable>
-          </View>
-        </View>
-      </View>
-
-      {/* Steppery -5%, -1%, +1%, +5% */}
-      <View style={styles.stepperRow}>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={t('Zmniejsz hydratację o {n}%', { n: 5 })}
-          style={styles.paramStepBtn}
-          onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 5).toFixed(1))))}
-        >
-          <Text style={styles.paramStepText}>-5%</Text>
-        </Pressable>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={t('Zmniejsz hydratację o {n}%', { n: 1 })}
-          style={styles.paramStepBtn}
-          onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 1).toFixed(1))))}
-        >
-          <Text style={styles.paramStepText}>-1%</Text>
-        </Pressable>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={t('Zwiększ hydratację o {n}%', { n: 1 })}
-          style={styles.paramStepBtn}
-          onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 1).toFixed(1))))}
-        >
-          <Text style={styles.paramStepText}>+1%</Text>
-        </Pressable>
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel={t('Zwiększ hydratację o {n}%', { n: 5 })}
-          style={styles.paramStepBtn}
-          onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 5).toFixed(1))))}
-        >
-          <Text style={styles.paramStepText}>+5%</Text>
-        </Pressable>
       </View>
 
       {/* Badge trudności hydratacji */}

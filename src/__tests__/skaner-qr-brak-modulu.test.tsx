@@ -19,7 +19,8 @@ jest.mock('../lib/qr-skaner', () => ({ ladujSkanerQr: () => null }));
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { Alert } from 'react-native';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+// Wejście skanu QR (PÓŹNIEJ) jest na liście receptur, z dawnego nagłówka receptur (§11c 106) [M1-audytor-generalny-106]
+import RecepturyLista from '../../app/(tabs)/receptury/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore } from '../data/sqlite-store';
 import { setLang } from '../lib/i18n';
@@ -47,7 +48,7 @@ describe('skaner QR bez modułu natywnego (049)', () => {
     await act(async () => {
       tree = renderer.create(
         <AppAccessProvider>
-          <CalculatorScreen />
+          <RecepturyLista />
         </AppAccessProvider>
       );
     });

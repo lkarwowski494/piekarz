@@ -2,6 +2,6 @@ appId: com.apps4craft.piekarz
 ---
 - launchApp
 - tapOn: "Receptury"
-- assertVisible: "Receptury mistrzowskie"
+- assertVisible: "Receptury bazowe"
 - tapOn: "Zakwasy"
 - assertVisible: "Zakwasy"

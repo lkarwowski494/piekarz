@@ -1,6 +1,9 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import { ActionSheetIOS } from 'react-native';
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
+// Lista receptur jest ekranem głównym zakładki, ekran receptury otwiera się z niej (§11c 106) [M1-audytor-generalny-106]
+import RecepturyLista from '../../app/(tabs)/receptury/index';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import {
   initDatabase,
@@ -95,20 +98,47 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     }
   });
 
-  const renderScreen = async () => {
+  const renderScreen = async (el: React.ReactElement = <CalculatorScreen />) => {
     await act(async () => {
-      tree = renderer.create(<CalculatorScreen />);
+      tree = renderer.create(el);
     });
     await act(async () => {
       await Promise.resolve();
     });
   };
 
-  const openArtisanAccordion = async () => {
-    const toggle = tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' });
+  // Mąki, proporcje, tryb i zaczyn: arkusz „Składniki” z akcji „Zmień składniki” (§11c 106) [M1-audytor-generalny-106]
+  const openIngredients = async () => {
+    const btn = tree!.root.findByProps({ testID: 'edit-ingredients-btn' });
     await act(async () => {
-      toggle.props.onPress();
+      btn.props.onPress();
     });
+  };
+  const press = async (testID: string) => {
+    const el = tree!.root.findAll((n) => n.props?.testID === testID && typeof n.props.onPress === 'function')[0];
+    await act(async () => {
+      el.props.onPress();
+    });
+  };
+  const typeInto = async (testID: string, value: string) => {
+    const pole = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === testID)[0];
+    await act(async () => {
+      pole.props.onFocus?.();
+      pole.props.onChangeText(value);
+    });
+    await act(async () => {
+      pole.props.onBlur?.({});
+    });
+  };
+  /** Wybór z menu systemowego (arkusz działań iOS) po naciśnięciu wiersza arkusza „Składniki”. */
+  const chooseFromMenu = async (testID: string, label: string) => {
+    const sheet = jest.spyOn(ActionSheetIOS, 'showActionSheetWithOptions').mockImplementation(() => undefined);
+    await press(testID);
+    const [opcje, wybor] = sheet.mock.calls[sheet.mock.calls.length - 1];
+    const i = (opcje.options as string[]).indexOf(label);
+    expect({ label, jest: i >= 0 }).toEqual({ label, jest: true });
+    await act(async () => wybor(i));
+    sheet.mockRestore();
   };
 
   // Temperatura wody i hydratacja: arkusz z akcji „Temperatura wody” (057) [M1-audytor-generalny-057]
@@ -123,15 +153,15 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
   // lista zaczyna od „Wszystkie” [M1-audytor-generalny-101; BR-START-001] (wcześniej filtr ze stylu, 032)
   it('a saved sourdough purist style no longer sets the filter: the list starts on "all"', async () => {
     await setBakerRitualProfile('sourdough_purist');
-    await renderScreen();
+    await renderScreen(<RecepturyLista />);
     await act(async () => {
       await Promise.resolve();
     });
-    // Ten sam testID ma element złożony i natywny: liczymy unikalne
+    // Ten sam testID ma element złożony i natywny: liczymy unikalne; wiersze listy zamiast chipów (§11c 106)
     const chips = () => [
       ...new Set(
         tree!.root
-          .findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('preset-chip-'))
+          .findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('recipe-row-'))
           .map((n) => String(n.props.testID))
       ),
     ];
@@ -146,36 +176,28 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     await renderScreen();
 
     const fullText = extractCleanText(tree?.toJSON());
-    // Tytuł 
-    expect(fullText).toContain('Do miski na wagę');
-    expect(fullText).toContain('Wiejski chleb');
+    // „Do miski” jako lista grupowana; nazwa receptury jest tytułem paska nawigacji (§11c 106)
+    expect(fullText).toContain('Do miski (odhaczaj przy ważeniu)');
+    expect(fullText).toContain('Razem 1700 g');
+    expect(fullText).toContain('O recepturze');
   });
 
+  // Tryb liczenia wybiera się w arkuszu „Składniki” („Ilości liczę od”), ekran pokazuje wiersze trybu (§11c 106)
   it('switches between Loaves and Flour mass mode', async () => {
     await renderScreen();
 
     // Default Loaves mode
-    expect(extractCleanText(tree?.toJSON())).toContain('Liczba bochenków i gramatura');
+    expect(tree!.root.findAllByProps({ testID: 'loaves-increment-btn' }).length).toBeGreaterThan(0);
 
-    // Tap Flour mass tab
-    const flourTab = findButtonByText(tree!.root, 'Masa mąki');
-    expect(flourTab).toBeDefined();
+    await openIngredients();
+    await press('calc-mode-flour');
+    expect(tree!.root.findAllByProps({ testID: 'flour-weight-input' }).length).toBeGreaterThan(0);
+    expect(tree!.root.findAllByProps({ testID: 'loaves-increment-btn' })).toHaveLength(0);
+    expect(extractCleanText(tree?.toJSON())).toContain('Masa mąki');
 
-    await act(async () => {
-      flourTab?.props.onPress();
-    });
-
-    expect(extractCleanText(tree?.toJSON())).toContain('Masa mąki bazowej');
-
-    // Tap back to Loaves tab
-    const loavesTab = findButtonByText(tree!.root, 'Bochenki');
-    expect(loavesTab).toBeDefined();
-
-    await act(async () => {
-      loavesTab?.props.onPress();
-    });
-
-    expect(extractCleanText(tree?.toJSON())).toContain('Liczba bochenków i gramatura');
+    await press('calc-mode-loaves');
+    expect(tree!.root.findAllByProps({ testID: 'loaves-increment-btn' }).length).toBeGreaterThan(0);
+    expect(extractCleanText(tree?.toJSON())).toContain('Masa bochenka');
   });
 
   it('updates dough weight when changing loaves count in Loaves mode', async () => {
@@ -183,44 +205,31 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
     expect(extractCleanText(tree?.toJSON())).toContain('1700 g');
 
-    const threeLoavesBtn = findButtonByText(tree!.root, '3 szt.');
-    expect(threeLoavesBtn).toBeDefined();
-
-    await act(async () => {
-      threeLoavesBtn?.props.onPress();
-    });
+    // Chipy „1–4 szt.” zniknęły: ta sama wartość co stepper (§11c 106)
+    await press('loaves-increment-btn');
 
     expect(extractCleanText(tree?.toJSON())).toContain('2550 g');
   });
 
-  it('adjusts hydration percentage and difficulty badge when pressing +5%', async () => {
+  // Woda % w arkuszu „Składniki”, „Proporcje (procent mąki)” (§11c 106); dawniej stepper w arkuszu temperatury
+  it('adjusts hydration percentage and difficulty badge when typing water 73%', async () => {
     await renderScreen();
-    await openWaterTemp();
+    await openIngredients();
 
-    expect(extractCleanText(tree?.toJSON())).toContain('68,0%');
+    expect(extractCleanText(tree?.toJSON())).toContain('68%');
 
-    const plusFiveBtn = findButtonByText(tree!.root, '+5%');
-    expect(plusFiveBtn).toBeDefined();
-
-    await act(async () => {
-      plusFiveBtn?.props.onPress();
-    });
+    await typeInto('water-pct-input', '73');
 
     const updatedText = extractCleanText(tree?.toJSON());
-    expect(updatedText).toContain('73,0%');
+    expect(updatedText).toContain('73%');
     expect(updatedText).toContain('Klasyk rzemieślniczy');
   });
 
-  it('applies popular flour blend preset upon tapping', async () => {
+  it('applies popular flour blend preset from the system menu', async () => {
     await renderScreen();
-    await openArtisanAccordion();
+    await openIngredients();
 
-    const blendPreset = findButtonByText(tree!.root, '70% Pszenna + 20% Orkisz + 10% Żytnia');
-    expect(blendPreset).toBeDefined();
-
-    await act(async () => {
-      blendPreset?.props.onPress();
-    });
+    await chooseFromMenu('flour-blend-menu-btn', '70% Pszenna + 20% Orkisz + 10% Żytnia');
 
     const updatedText = extractCleanText(tree?.toJSON());
     expect(updatedText).toContain('Mąka orkiszowa jasna typ 630');
@@ -248,43 +257,14 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     expect(plan?.calculatedRecipe.targetDoughWeightGrams).toBeGreaterThan(0);
   });
 
-  it('renders Bake Loss & Crumb Moisture card and displays live metrics', async () => {
+  // F-48 strata piecowa: bez miejsca w 1.0 (§11c 106: akordeon znika, wejście PÓŹNIEJ ukryte); nawet z widocznymi
+  // wejściami ani ekran receptury, ani arkusz „Składniki” nie mają sekcji straty [M1-audytor-generalny-106]
+  it('has no bake loss section on the recipe screen or in the ingredients sheet (F-48 LATER, no place in 1.0)', async () => {
     await renderScreen();
-    await openArtisanAccordion();
-
-    const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Strata wypiekowa i wilgotność miękiszu');
-    expect(fullText).toContain('Upieczony bochenek');
-    expect(fullText).toContain('Odparowana woda');
-    expect(fullText).toContain('Szacowana wilgotność miękiszu');
-    expect(fullText).toContain('14,0%');
-  });
-
-  it('updates baked weight when switching bake loss preset and stepping percentage', async () => {
-    await renderScreen();
-    await openArtisanAccordion();
-
-    // Find Baguettes preset (18%)
-    const baguetteBtn = tree!.root.findByProps({ testID: 'bake-loss-preset-baguette_roll' });
-    expect(baguetteBtn).toBeDefined();
-
-    await act(async () => {
-      baguetteBtn.props.onPress();
-    });
-
-    let fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('18,0%');
-
-    // Step down by 0.5% with minus button
-    const minusBtn = tree!.root.findByProps({ testID: 'bake-loss-minus' });
-    expect(minusBtn).toBeDefined();
-
-    await act(async () => {
-      minusBtn.props.onPress();
-    });
-
-    fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('17,5%');
+    await openIngredients();
+    const ids = tree!.root.findAll((n) => typeof n.props?.testID === 'string').map((n) => String(n.props.testID));
+    expect(ids.filter((id) => id.startsWith('bake-loss-'))).toEqual([]);
+    expect(extractCleanText(tree?.toJSON())).not.toContain('Strata wypiekowa i wilgotność miękiszu');
   });
 
   // Ustawienia przeniesione na „Dziś” (D-051 2a); otwarcie z kopią zapasową: src/__tests__/start-co-dzis.test.tsx [M1-audytor-generalny-101]
@@ -331,9 +311,10 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
       createdAt: Date.now(),
     });
 
-    await renderScreen();
+    // Własne receptury są na liście receptur (grupa „Moje receptury”, §11c 106); usuwanie z pytaniem jak dotąd
+    await renderScreen(<RecepturyLista />);
 
-    let text = extractCleanText(tree?.toJSON());
+    const text = extractCleanText(tree?.toJSON());
     expect(text).toContain('Chleb do skasowania');
 
     // Find delete button
@@ -348,83 +329,51 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     expect(recipes.find((r) => r.id === 'custom_to_delete')).toBeUndefined();
   });
 
+  // Zaczyn w arkuszu „Składniki”: „Rodzaj” i „Mąka w zaczynie” z menu systemowego; „Do miski” w dwóch grupach (§11c 106)
   it('switches preferment mode and displays artisan decomposition (Poolish / Biga)', async () => {
     await renderScreen();
-    await openArtisanAccordion();
+    await openIngredients();
 
     // Default mode is direct
-    expect(tree!.root.findAll((n) => n.props?.testID === 'preferment-details-block')).toHaveLength(0);
+    expect(tree!.root.findAll((n) => n.props?.testID === 'do-miski-zaczyn')).toHaveLength(0);
 
-    // Switch to Poolish
-    const poolishChip = tree!.root.findByProps({ testID: 'preferment-type-poolish' });
-    expect(poolishChip).toBeDefined();
-
-    await act(async () => {
-      poolishChip.props.onPress();
-    });
+    await chooseFromMenu('preferment-type-btn', 'poolish');
 
     let fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Poolish');
+    expect(fullText).toContain('Zaczyn: poolish');
     expect(fullText).toContain('Mąka w zaczynie');
-    expect(fullText).toContain('Woda w zaczynie');
+    expect(tree!.root.findAll((n) => n.props?.testID === 'scale-item-preferment-water').length).toBeGreaterThan(0);
 
     // Change preferment % to 30%
-    const thirtyPct = tree!.root.findByProps({ testID: 'preferment-pct-30' });
-    await act(async () => {
-      thirtyPct.props.onPress();
-    });
+    await chooseFromMenu('preferment-flour-btn', '30 %');
 
     fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('30%');
+    expect(fullText).toContain('30 %');
 
-    // Switch to Biga
-    const bigaChip = tree!.root.findByProps({ testID: 'preferment-type-biga' });
-    await act(async () => {
-      bigaChip.props.onPress();
-    });
+    await chooseFromMenu('preferment-type-btn', 'biga');
 
     fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Biga');
+    expect(fullText).toContain('Zaczyn: biga');
   });
 
-  it('opens custom flour blend builder, adjusts proportions, and applies custom blend', async () => {
+  // Mąki edytuje się w arkuszu „Składniki” (pola procentu, „Dodaj mąkę” z menu); zastępuje edytor mieszanki (§11c 106)
+  it('edits flour percentages in the ingredients sheet, warns until the flours make 100%, and adds a flour', async () => {
     await renderScreen();
+    await openIngredients();
 
-    // „Zmień składniki” w obszarze akcji receptury (057) otwiera arkusz mieszanki mąk
-    const openBtn = tree!.root.findByProps({ testID: 'edit-ingredients-btn' });
-    expect(openBtn).toBeDefined();
+    await typeInto('flour-pct-input-0', '70');
+    expect(tree!.root.findAll((n) => n.props?.testID === 'flour-sum-warning').length).toBeGreaterThan(0);
 
-    await act(async () => {
-      openBtn.props.onPress();
-    });
+    const sheet = jest.spyOn(ActionSheetIOS, 'showActionSheetWithOptions').mockImplementation(() => undefined);
+    await press('add-flour-btn');
+    const [opcje, wybor] = sheet.mock.calls[0];
+    expect((opcje.options as string[]).length).toBeGreaterThan(1);
+    await act(async () => wybor(0));
+    sheet.mockRestore();
 
-    // Check modal rendered
-    const modal = tree!.root.findByProps({ testID: 'flour-blend-modal' });
-    expect(modal).toBeDefined();
-
-    // Adjust first flour percentage: -10%
-    const minusBtn = tree!.root.findByProps({ testID: 'flour-minus-10-0' });
-    await act(async () => {
-      minusBtn.props.onPress();
-    });
-
-    // Rebalance with normalize
-    const normalizeBtn = tree!.root.findByProps({ testID: 'normalize-blend-btn' });
-    await act(async () => {
-      normalizeBtn.props.onPress();
-    });
-
-    // Apply blend
-    const applyBtn = tree!.root.findByProps({ testID: 'apply-blend-btn' });
-    expect(applyBtn.props.disabled).toBe(false);
-
-    await act(async () => {
-      applyBtn.props.onPress();
-    });
-
-    // Verify calculator updated
-    const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Mieszanka mąk');
+    expect(tree!.root.findAll((n) => n.props?.testID === 'flour-sum-warning')).toHaveLength(0);
+    expect(tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'flour-pct-input-2')).toHaveLength(1);
+    expect(tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'scale-item-flour-2')).toHaveLength(1);
   });
 
   // Powitanie z wyborem stylu zastąpił Start „Co dziś robisz?” (F-68, design-spec §10: bez intro) [M1-audytor-generalny-101]
@@ -436,8 +385,8 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
   it('opens flour pantry inventory modal and checks recipe stock status', async () => {
     await renderScreen();
-    // Jedno wejście spiżarni (po powrocie F-30): sekcja mieszanki mąk w akordeonie (057, bez duplikatu w akcjach)
-    await openArtisanAccordion();
+    // Jedno wejście spiżarni (po powrocie F-30): grupa „Mąki” w arkuszu „Składniki” (dawniej akordeon, §11c 106)
+    await openIngredients();
 
     // Open inventory modal
     const openInvBtn = tree!.root.findByProps({ testID: 'open-flour-inventory-btn' });
@@ -463,37 +412,26 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
   });
 
   it('filters master recipes by category and displays artisan details card (BR-RECP-001 Wybór receptury bazowej)', async () => {
+    // Szczegóły receptury bazowej: sekcja „O recepturze” na ekranie receptury (§11c 106)
     await renderScreen();
-
-    // Check default info card for initial master recipe (country loaf)
-    const infoCard = tree!.root.findByProps({ testID: 'master-recipe-info-card' });
-    expect(infoCard).toBeDefined();
-
+    expect(tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'recipe-about')).toHaveLength(1);
     let fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Na zakwasie');
     expect(fullText).toContain('Pieczenie');
     expect(fullText).toContain('garnek żeliwny');
+    act(() => tree!.unmount());
 
-    // Switch category filter to Rye (Żytnie)
-    const ryeFilterBtn = tree!.root.findByProps({ testID: 'category-filter-rye' });
-    await act(async () => {
-      ryeFilterBtn.props.onPress();
-    });
+    // Filtr i wybór receptury: lista receptur (kategoria w podpisie wiersza)
+    await renderScreen(<RecepturyLista />);
+    expect(extractCleanText(tree?.toJSON())).toContain('Na zakwasie');
+    await press('category-filter-rye');
+    expect(tree!.root.findAll((n) => n.props?.testID === 'recipe-row-rye_100_pan').length).toBeGreaterThan(0);
+    await press('recipe-row-borodinsky_rye');
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/receptury/receptura', params: { nazwa: expect.stringContaining('Chleb Borodyński') } });
+    act(() => tree!.unmount());
 
-    // Check that rye recipe chip is present
-    const ryeChip = tree!.root.findByProps({ testID: 'preset-chip-rye_100_pan' });
-    expect(ryeChip).toBeDefined();
-
-    // Select Borodinsky rye recipe
-    const borodinskyChip = tree!.root.findByProps({ testID: 'preset-chip-borodinsky_rye' });
-    expect(borodinskyChip).toBeDefined();
-
-    await act(async () => {
-      borodinskyChip.props.onPress();
-    });
-
+    // Ekran receptury wczytuje wybraną recepturę
+    await renderScreen();
     fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Chleb Borodyński');
     expect(fullText).toContain('foremka keksówka');
   });
 

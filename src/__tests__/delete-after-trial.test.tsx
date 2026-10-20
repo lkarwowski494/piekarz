@@ -23,7 +23,8 @@ jest.mock('../lib/pdf-sheet-generator', () => ({
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+// Własne receptury i ich usuwanie: lista receptur (design-spec 11c 106) [M1-audytor-generalny-106]
+import RecepturyLista from '../../app/(tabs)/receptury/index';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { FlourInventoryModal } from '../components/FlourInventoryModal';
 import { PaywallModal } from '../components/PaywallModal';
@@ -71,13 +72,13 @@ describe('Deleting own data without an entitlement (007)', () => {
     });
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
-      tree = renderer.create(<AppAccessProvider><CalculatorScreen /></AppAccessProvider>);
+      tree = renderer.create(<AppAccessProvider><RecepturyLista /></AppAccessProvider>);
     });
     await flush();
-    const selector = tree!.root.find((n) => typeof n.props?.onDeleteCustomRecipe === 'function');
+    const selector = tree!.root.find((n) => typeof n.props?.onUsunMoja === 'function');
     const recipe = (await getRecipes()).find((r) => r.id === 'recipe_user_1');
     await act(async () => {
-      selector.props.onDeleteCustomRecipe(recipe);
+      selector.props.onUsunMoja(recipe);
     });
     await flush();
     expect(paywallShown(tree!.root)).toBe(false);

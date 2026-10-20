@@ -15,4 +15,9 @@ appId: com.apps4brew.baker
     id: "start-pieke-na-drozdzach"
 - tapOn:
     id: "start-pieke-na-zakwasie"
+# Receptury: lista receptur jako ekran glowny (M1-audytor-generalny-106), wiersz otwiera ekran receptury
+- assertVisible:
+    id: "recipe-list"
+- tapOn:
+    id: "recipe-row-country_loaf_72"
 - assertVisible: "Hydratacja"
