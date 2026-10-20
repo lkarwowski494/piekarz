@@ -132,4 +132,7 @@ export const EN_12: Record<string, string> = {
   '-{masa} pary': '-{masa} steam',
   'woda z kranu ({temp})': 'tap water ({temp})',
   '{maka} mąki + {woda} wody': '{maka} flour + {woda} water',
+  // Skaner QR bez modułu aparatu w buildzie [M1-audytor-generalny-049]
+  'Skaner QR': 'QR scanner',
+  'Skaner QR jest niedostępny w tej wersji aplikacji.': 'The QR scanner is not available in this version of the app.',
 };

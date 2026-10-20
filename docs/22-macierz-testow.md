@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
-| **UI** | 31 | 31 | **100.0%** | ✅ POKRYTE |
+| **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 538 | 538 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 284 | 284 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 285 | 285 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 98 | 98 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **956** | Pokrytych: **956** | Brakujących: **0**
+Łącznie elementów: **959** | Pokrytych: **959** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -21,7 +21,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :--- | :--- | :---: | :--- |
 | `EKRAN` | `/(tabs)/doktor` | `app/(tabs)/doktor.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
 | `EKRAN` | `/(tabs)/harmonogram` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/interaction-guards.test.ts |
-| `EKRAN` | `/(tabs)/index` | `app/(tabs)/index.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/brands.contract.test.ts |
+| `EKRAN` | `/(tabs)/index` | `app/(tabs)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/(tabs)/stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
 | `EKRAN` | `/(tabs)/zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Doktor Chleba` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
@@ -133,6 +133,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Importuj JSON` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zapisz jako mój przepis` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozpocznij wypiek na Stolnicy` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `UI` | `Skaner QR` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | src/__tests__/skaner-qr-brak-modulu.test.tsx |
+| `UI` | `Skaner QR jest niedostępny w tej wersji aplikacji.` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | src/__tests__/skaner-qr-brak-modulu.test.tsx |
 | `TEKST` | `Hydratacja` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Masa` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mąka` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/i18n-en-main-flow.test.tsx |
@@ -317,7 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Wystąpił błąd podczas zapisywania receptury do bazy SQLite.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Importuj recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `Wklej kod JSON udostępniony przez innego piekarza` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wklej ze schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 656 kolejnych elementów w pełnym wykazie)*
+*(... i 659 kolejnych elementów w pełnym wykazie)*

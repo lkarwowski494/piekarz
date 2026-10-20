@@ -6,6 +6,10 @@
 // ============================================================================
 
 import React from 'react';
+import { Alert } from 'react-native';
+import { t } from '../../lib/i18n';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
+import { ladujSkanerQr } from '../../lib/qr-skaner';
 import { SettingsModal } from '../SettingsModal';
 import { FlourBlendModal } from '../FlourBlendModal';
 import { OnboardingModal } from '../OnboardingModal';
@@ -14,7 +18,6 @@ import { ImportRecipeModal } from '../ImportRecipeModal';
 import { FlourEquivalentsModal } from '../FlourEquivalentsModal';
 import { VolumeConverterModal } from '../VolumeConverterModal';
 import { ShareRecipeQrModal } from '../ShareRecipeQrModal';
-import { QrScannerModal } from '../QrScannerModal';
 import { FlourItemInput, FlourItemCalculated } from '../../core/domain-rules';
 import { BakerRitualProfile } from '../../data/sqlite-store';
 import { StoredRecipe } from '../../data/db';
@@ -74,6 +77,16 @@ export function CalculatorModalsProvider({
   isVolumeModalOpen,
   onCloseVolume,
 }: CalculatorModalsProviderProps) {
+  // Skaner QR (F-08 PÓŹNIEJ) ładowany leniwie: build 1.0 nie linkuje expo-camera [M1-audytor-generalny-049]
+  const skanerOtwarty = wejscieWidoczne('qr') && isScannerOpen;
+  const Skaner = skanerOtwarty ? ladujSkanerQr() : null;
+  React.useEffect(() => {
+    if (skanerOtwarty && !Skaner) {
+      Alert.alert(t('Skaner QR'), t('Skaner QR jest niedostępny w tej wersji aplikacji.'));
+      onCloseScanner();
+    }
+  }, [skanerOtwarty, Skaner, onCloseScanner]);
+
   return (
     <>
       <SettingsModal
@@ -112,11 +125,7 @@ export function CalculatorModalsProvider({
         onClose={onCloseShareQr}
       />
 
-      <QrScannerModal
-        visible={isScannerOpen}
-        onClose={onCloseScanner}
-        onScanRecipe={onScanRecipe}
-      />
+      {Skaner && <Skaner visible={isScannerOpen} onClose={onCloseScanner} onScanRecipe={onScanRecipe} />}
 
       <FlourEquivalentsModal
         visible={isEquivModalOpen}

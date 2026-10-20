@@ -5,6 +5,12 @@
  * zakupu. Drogi: wklejony tekst, schowek (plik / JSON), kod QR (wejście skanu poza 1.0, kod zostaje).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
+// F-08 PÓŹNIEJ (D-043): wejście skanu QR ukryte w aplikacji; tu sprawdzamy kod importu z QR, który zostaje,
+// z włączonym wejściem [M1-audytor-generalny-049].
+jest.mock('../lib/wejscia-pozniej', () => {
+  const actual = jest.requireActual('../lib/wejscia-pozniej');
+  return { ...actual, wejscieWidoczne: (w: string) => w === 'qr' || actual.wejscieWidoczne(w) };
+});
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
   return {
@@ -134,6 +140,7 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('QR code read after the entitlement ends: the import window opens without the purchase screen; saved only after confirming', async () => {
+    await press(tree, 'open-scan-qr-btn');
     await utrataUprawnienia();
     const before = (await getRecipes()).length;
     await act(async () => {

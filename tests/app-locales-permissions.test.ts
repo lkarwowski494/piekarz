@@ -71,6 +71,67 @@ describe('nazwa aplikacji w każdym aktywnym języku zostaje (049)', () => {
   });
 });
 
+// Build 1.0 bez natywnego kodu aparatu (ITMS-90683): expo-camera wykluczony z autolinkingu iOS i Androida
+// (docs.expo.dev/modules/autolinking, „exclude”, odczyt 2026-10-20), pakiet zostaje w zależnościach na później.
+describe('build 1.0 nie linkuje expo-camera, dopóki F-08 jest PÓŹNIEJ (049, autolinking)', () => {
+  const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+
+  it('package.json: expo-camera wykluczony z autolinkingu iOS i Androida, pakiet zostaje', () => {
+    expect(pkg.dependencies['expo-camera']).toBeDefined();
+    expect(pkg.expo?.autolinking?.ios?.exclude ?? []).toContain('expo-camera');
+    expect(pkg.expo?.autolinking?.android?.exclude ?? []).toContain('expo-camera');
+  });
+
+  it('żaden plik ładowany przy starcie (app/ i ich statyczne importy) nie importuje expo-camera statycznie', () => {
+    const { readdirSync, statSync } = require('node:fs') as typeof import('node:fs');
+    const { dirname, resolve } = require('node:path') as typeof import('node:path');
+    const walk = (d: string): string[] =>
+      readdirSync(d).flatMap((n) => {
+        const p = join(d, n);
+        return statSync(p).isDirectory() ? walk(p) : /\.(ts|tsx)$/.test(n) ? [p] : [];
+      });
+    const plik = (base: string): string | null => {
+      for (const ext of ['', '.ts', '.tsx', '/index.ts', '/index.tsx']) if (existsSync(base + ext) && statSync(base + ext).isFile()) return base + ext;
+      return null;
+    };
+    const widziane = new Set<string>();
+    const winne: string[] = [];
+    const odwiedz = (f: string) => {
+      if (widziane.has(f)) return;
+      widziane.add(f);
+      const src = readFileSync(f, 'utf8');
+      // Statyczne importy wartości (import type znika przy kompilacji)
+      for (const m of src.matchAll(/^\s*import\s+(?!type\b)[^;]*?from\s+['"]([^'"]+)['"]|^\s*import\s+['"]([^'"]+)['"]/gm)) {
+        const spec = m[1] ?? m[2];
+        if (spec === 'expo-camera' || spec.startsWith('expo-camera/')) winne.push(f.slice(root.length + 1));
+        if (spec.startsWith('.')) {
+          const cel = plik(resolve(dirname(f), spec));
+          if (cel) odwiedz(cel);
+        }
+      }
+    };
+    walk(join(root, 'app')).forEach(odwiedz);
+    expect(widziane.size).toBeGreaterThan(50);
+    expect(winne).toEqual([]);
+  });
+
+  it('skaner QR ładowany leniwie: brak modułu natywnego daje null zamiast awarii', () => {
+    // Z modułem (atrapa z jest.setup.js): komponent skanera
+    jest.isolateModules(() => {
+      const { ladujSkanerQr } = require('../src/lib/qr-skaner');
+      expect(typeof ladujSkanerQr()).toBe('function');
+    });
+    // Bez modułu natywnego (wykluczony z autolinkingu): null, bez wyjątku
+    jest.isolateModules(() => {
+      jest.doMock('expo-camera', () => {
+        throw new Error("Cannot find native module 'ExpoCamera'");
+      });
+      const { ladujSkanerQr } = require('../src/lib/qr-skaner');
+      expect(ladujSkanerQr()).toBeNull();
+    });
+  });
+});
+
 describe('verify-native zabrania opisu aparatu, dopóki F-08 jest PÓŹNIEJ (049)', () => {
   let tmp: string;
   beforeAll(() => {
