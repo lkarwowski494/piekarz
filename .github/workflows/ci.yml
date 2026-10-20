@@ -23,6 +23,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Pełna historia: reguła src/data ↔ test porównuje z bazą PR albo poprzednim commitem pushu
+          fetch-depth: 0
 
       - name: Set up Node.js 22
         uses: actions/setup-node@v4
@@ -32,6 +35,17 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
+
+      # M1-audytor-generalny-063 (08-programista-018): ESLint na kodzie produkcyjnym app/ i src/
+      - name: Lint (ESLint)
+        run: npm run lint
+
+      # M1-audytor-generalny-063 (08-programista-017): zmiana src/data wymaga zmiany testu
+      # SHA przez zmienną środowiskową, nie wklejony w polecenie (zasada izolacji run:, tests/public-repo.test.ts)
+      - name: Data change requires test change
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/check-data-tests.mjs --base "$BASE_SHA"
 
       - name: Run verification pipeline
         run: npm run verify

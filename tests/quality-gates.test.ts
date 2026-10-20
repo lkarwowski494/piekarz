@@ -6,7 +6,9 @@
 // Ochrona master to krok właściciela w ustawieniach GitHub; tego test nie sprawdza.
 // ============================================================================
 
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, relative, sep } from 'node:path';
 
 const root = join(__dirname, '..');
@@ -114,4 +116,72 @@ describe('bramka TestFlight (07-jakosc-011)', () => {
     expect(plist.length).toBe(2);
     for (const l of plist) expect(l).not.toMatch(/\|\||2>\s*\/dev\/null/);
   });
+});
+
+// ============================================================================
+// M1-audytor-generalny-063 (05-architekt-016, 08-programista-018): lint w verify i w CI,
+// limit 20 480 B na granicy, verify:matrix bez zapisu plików śledzonych.
+// ============================================================================
+const runNode = (args: string[], input?: string) =>
+  spawnSync(process.execPath, args, { cwd: root, encoding: 'utf8', input, timeout: 120_000 });
+const porcelain = () => execFileSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' });
+
+describe('lint (ESLint) jest bramką (063)', () => {
+  it('package.json ma skrypt lint na app/ i src/, a verify go woła', () => {
+    expect(pkg.scripts.lint).toMatch(/^eslint\b/);
+    expect(pkg.scripts.lint).toMatch(/\bapp\b/);
+    expect(pkg.scripts.lint).toMatch(/\bsrc\b/);
+    expect(pkg.scripts.verify).toMatch(/npm run lint\b/);
+  });
+
+  it('workflow CI na push i PR ma krok npm run lint', () => {
+    const ci = read('.github/workflows/ci.yml');
+    expect(ci).toMatch(/\bpush:/);
+    expect(ci).toMatch(/pull_request:/);
+    expect(ci).toMatch(/run:\s*npm run lint\b/);
+  });
+
+  const bin = join('node_modules', 'eslint', 'bin', 'eslint.js');
+  const lint = (file: string, code: string) => runNode([bin, '--stdin', '--stdin-filename', file], code);
+  const bad =
+    "import { useState } from 'react';\nexport function A({ on }: { on: boolean }) {\n  if (on) {\n    const [v] = useState(0);\n    return v;\n  }\n  return 0;\n}\n";
+  const good = "import { useState } from 'react';\nexport function A() {\n  const [v] = useState(0);\n  return v;\n}\n";
+
+  it('eslint pada na złamanej regule hooków i na pustym catch, przechodzi na poprawnym kodzie', () => {
+    const r = lint('src/components/SondaLinta.tsx', bad);
+    expect(r.status).toBe(1);
+    expect(r.stdout).toContain('react-hooks/rules-of-hooks');
+    const pusty = lint('src/lib/sonda-linta.ts', 'export function f(g: () => void) {\n  try {\n    g();\n  } catch {}\n}\n');
+    expect(pusty.status).toBe(1);
+    expect(pusty.stdout).toContain('no-empty');
+    expect(lint('src/components/SondaLinta.tsx', good).status).toBe(0);
+  }, 120_000);
+
+  it('testy są poza zakresem lintu (osobne zadanie, decyzja właściciela)', () => {
+    expect(lint('src/__tests__/sonda-linta.test.tsx', bad).status).toBe(0);
+  }, 60_000);
+});
+
+describe('check:size na granicy limitu 20 480 B (063)', () => {
+  it('plik 20 481 B daje kod 1, plik 20 480 B kod 0', () => {
+    const make = (bytes: number) => {
+      const dir = mkdtempSync(join(tmpdir(), 'granica-'));
+      mkdirSync(join(dir, 'app'));
+      const head = 'export const x = "';
+      const tail = '";\n';
+      writeFileSync(join(dir, 'app', 'plik.ts'), head + 'a'.repeat(bytes - head.length - tail.length) + tail);
+      return runNode(['scripts/check-file-size.mjs', dir]).status;
+    };
+    expect(make(20_481)).toBe(1);
+    expect(make(20_480)).toBe(0);
+  });
+});
+
+describe('verify:matrix nie zmienia plików śledzonych (063)', () => {
+  it('git status --porcelain przed i po verify:matrix jest taki sam', () => {
+    const before = porcelain();
+    const r = runNode(['scripts/test-matrix.mjs', '--check']);
+    expect(r.status).toBe(0);
+    expect(porcelain()).toBe(before);
+  }, 60_000);
 });
