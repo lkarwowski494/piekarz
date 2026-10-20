@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -11,7 +11,10 @@ import {
   calculateReverseSchedule,
   autoResolveSleepCollision,
 } from '../../../src/scheduler/reverse-scheduler';
-import { setActiveBake } from '../../../src/data/sqlite-store';
+import { setActiveBake, getStarters } from '../../../src/data/sqlite-store';
+import type { StoredStarter } from '../../../src/data/db';
+import { withFridgeWake } from '../../../src/core/fridge-wake';
+import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu } from '../../../src/lib/plan-receptury';
@@ -71,6 +74,20 @@ export default function HarmonogramScreen() {
     });
   }, [targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
 
+  // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
+  // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
+  const [zakwas, setZakwas] = useState<StoredStarter | null>(null);
+  useEffect(() => {
+    let zywy = true;
+    void getStarters().then((lista) => { if (zywy) setZakwas(zakwasPlanu(lista)); }).catch(() => {});
+    return () => { zywy = false; };
+  }, []);
+  const steps = useMemo(() => {
+    const zPlanu = stepsFromSchedule(schedule);
+    return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
+  }, [schedule, zakwas]);
+  const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
+
   // Automatic sleep collision resolution helper
   const autoResolved = useMemo(() => {
     if (!schedule.hasSleepCollision) return null;
@@ -114,7 +131,6 @@ export default function HarmonogramScreen() {
   // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
     requireActionAccess(() => {
-      const steps = stepsFromSchedule(schedule);
       const receptura = recepturaPlanu();
       setActiveBake({
         id: `bake_${Date.now()}`,
@@ -124,6 +140,7 @@ export default function HarmonogramScreen() {
         ambientTempC: ambientTemp,
         isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
         steps,
+        ...(zakwas ? { starterId: zakwas.id } : {}),
         ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       });
       router.push('/stolnica');
@@ -139,13 +156,13 @@ export default function HarmonogramScreen() {
 
   // Total journey time
   const journeyDurationHours = useMemo(() => {
-    if (schedule.stages.length === 0) return 0;
-    const start = schedule.stages[0].startTime.getTime();
-    const end = schedule.stages[schedule.stages.length - 1].endTime.getTime();
+    if (stages.length === 0) return 0;
+    const start = stages[0].startTime.getTime();
+    const end = stages[stages.length - 1].endTime.getTime();
     return Math.round(((end - start) / (1000 * 60 * 60)) * 10) / 10;
-  }, [schedule.stages]);
+  }, [stages]);
 
-  const firstStage = schedule.stages[0];
+  const firstStage = stages[0];
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
@@ -197,7 +214,7 @@ export default function HarmonogramScreen() {
 
         {/* Timeline Stages List */}
         <TimelineStagesList
-          stages={schedule.stages}
+          stages={stages}
           formatTime={formatTime}
           formatDayBadge={formatDayBadge}
         />

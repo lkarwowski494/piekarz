@@ -51,6 +51,9 @@ export const EN_13: Record<string, string> = {
     'According to King Arthur Baking, before baking, feed the refrigerated starter in equal parts by weight and leave it at room temperature.',
   'Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.':
     'It may start bubbling quickly or take up to 12 hours, depending on when it was last fed.',
+  // Opis kroku dokarmienia z lodówki = oba zdania plan.start razem (FRIDGE_WAKE_INSTRUCTIONS.join), na osi planu i w kroku [M1-audytor-generalny-104]
+  'Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej. Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.':
+    'According to King Arthur Baking, before baking, feed the refrigerated starter in equal parts by weight and leave it at room temperature. It may start bubbling quickly or take up to 12 hours, depending on when it was last fed.',
   'Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.':
     'Feed it every 12 hours until it doubles or triples in volume within 6–8 hours of feeding; then it is ready for baking.',
   'Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia.':

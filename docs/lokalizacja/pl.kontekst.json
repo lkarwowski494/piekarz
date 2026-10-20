@@ -5831,6 +5831,9 @@
       "src/core/fridge-wake.ts (dane: kod)"
     ]
   },
+  "Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej. Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.": {
+    "gdzie": []
+  },
   "Według King Arthur Baking, gdy w domu jest zwykle poniżej 20 °C, warto znaleźć dla zakwasu cieplejsze miejsce.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: temperature)"

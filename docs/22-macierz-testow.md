@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 8 | 8 | **100.0%** | ✅ POKRYTE |
 | **UI** | 39 | 39 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 571 | 571 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 352 | 352 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 355 | 355 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 152 | 152 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1122** | Pokrytych: **1122** | Brakujących: **0**
+Łącznie elementów: **1125** | Pokrytych: **1125** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Pasywne` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wymaga obecności` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 822 kolejnych elementów w pełnym wykazie)*
+*(... i 825 kolejnych elementów w pełnym wykazie)*

@@ -29,7 +29,7 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
-import { initDatabase, getActiveBake, setActiveBake, _resetMemStore } from '../data/sqlite-store';
+import { initDatabase, getActiveBake, setActiveBake, _resetMemStore, getStarters, deleteStarter } from '../data/sqlite-store';
 import { setAppSetting } from '../data/settings-store';
 import { BAKE_SESSION_KEY, loadBakeSession, parseBakeSession, saveBakeSession } from '../data/bake-session-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
@@ -131,6 +131,8 @@ describe('Stolnica z receptury i planu (030)', () => {
   });
 
   it('start z Harmonogramu: kroki Stolnicy mają te same id, kolejność i czasy co schedule.stages', async () => {
+    // Plan bez zakwasu z lodówki (z nim pierwszy krok to dokarmienie z lodówki, 104 / D-052: plan-z-lodowki-104.test.tsx)
+    for (const s of await getStarters()) await deleteStarter(s.id);
     const harm = await render(<HarmonogramScreen />);
     await act(async () => {
       button(harm.root, 'Zacznij wypiek').props.onPress();

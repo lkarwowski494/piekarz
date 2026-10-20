@@ -21,6 +21,7 @@ import { predictStarterPeak } from '../../../src/core/starter-peak-predictor';
 import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
 import { confirmResetStarter, confirmDeleteStarter } from '../../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
+import { ustawZakwasPlanu } from '../../../src/lib/zakwas-planu';
 import { StoredStarter } from '../../../src/data/db';
 import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../../src/components/StarterConverterModal';
@@ -103,6 +104,11 @@ export default function ZakwasScreen() {
   useEffect(() => {
     loadStarterData();
   }, [loadStarterData]);
+
+  // Plan wypieku bierze zakwas wybrany tutaj (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
+  useEffect(() => {
+    ustawZakwasPlanu(selectedStarterId || null);
+  }, [selectedStarterId]);
 
   // Age in days
   const ageDays = useMemo(() => {
