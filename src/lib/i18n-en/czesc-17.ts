@@ -1,10 +1,36 @@
 /**
- * Słownik EN, część 17: nazwy ogólne mąk atlasu bez polskiego numeru typu (src/core/flour-atlas-ogolne.ts;
+ * Słownik EN, część 17: nazwy i opisy ogólne mąk atlasu bez polskiego numeru typu (src/core/flour-atlas-ogolne.ts;
  * teksty docs/tresci/en/maki-ogolne.md, rola 06) [M1-audytor-generalny-094].
  */
 export const EN_17: Record<string, string> = {
+  'Mąka pszenna niskowyciągowa, białko 9,8%': 'Low-extraction wheat flour, protein 9.8%',
+  'Mąka niskowyciągowa. Białko w badanej próbce: 9,8%.': 'Low-extraction flour. Protein in the tested sample: 9.8%.',
+  'Mąka pszenna niskowyciągowa, białko 10,6–14,3%': 'Low-extraction wheat flour, protein 10.6–14.3%',
+  'Mąka niskowyciągowa. Białko w badanych próbkach: 10,6–14,3%.': 'Low-extraction flour. Protein in the tested samples: 10.6–14.3%.',
+  'Mąka pszenna niskowyciągowa, białko 10,2–13,8%': 'Low-extraction wheat flour, protein 10.2–13.8%',
+  'Mąka niskowyciągowa. Białko w badanych próbkach: 10,2–13,8%.': 'Low-extraction flour. Protein in the tested samples: 10.2–13.8%.',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'High-extraction wheat flour, protein 12.4–15.5%',
+  'Mąka wysokowyciągowa. Białko w badanych próbkach: 12,4–15,5%.': 'High-extraction flour. Protein in the tested samples: 12.4–15.5%.',
+  'Mąka pszenna wysokowyciągowa, białko 11,9%': 'High-extraction wheat flour, protein 11.9%',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'High-extraction flour. Protein in the tested sample: 11.9%.',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'High-extraction wheat flour, protein 13.1%',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.': 'High-extraction flour. Protein in the tested sample: 13.1%.',
   'Mąka pszenna': 'Wheat flour',
-  'Mąka żytnia': 'Rye flour',
-  'Mąka orkiszowa': 'Spelt flour',
+  'Mąka pszenna razowa, białko 8,7–9,6%': 'Wholemeal wheat flour, protein 8.7–9.6%',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Wholemeal flour. Protein in the tested samples: 8.7–9.6%. Ash under Polish standards: at most 2%.',
+  'Mąka żytnia, białko 6,3%': 'Rye flour, protein 6.3%',
+  'Białko w badanej próbce: 6,3%. Popiół według polskich norm: 0,59–0,78%.': 'Protein in the tested sample: 6.3%. Ash under Polish standards: 0.59–0.78%.',
+  'Mąka żytnia, białko 8,4%': 'Rye flour, protein 8.4%',
+  'Białko w badanej próbce: 8,4%. Popiół według polskich norm: najwyżej 2%.': 'Protein in the tested sample: 8.4%. Ash under Polish standards: at most 2%.',
   'Mąka pszenna Manitoba': 'Manitoba wheat flour',
+  'Mąka orkiszowa': 'Spelt flour',
+  'Mąka orkiszowa, białko 12,6%': 'Spelt flour, protein 12.6%',
+  'Białko w badanej próbce: 12,6%. Popiół według polskich norm: najwyżej 2%.': 'Protein in the tested sample: 12.6%. Ash under Polish standards: at most 2%.',
+  'Mąka pszenna, białko 13,8%': 'Wheat flour, protein 13.8%',
+  'Białko w badanej próbce: 13,8%.': 'Protein in the tested sample: 13.8%.',
+  'Mąka pszenna niskowyciągowa, białko 7,8–14,8%': 'Low-extraction wheat flour, protein 7.8–14.8%',
+  'Mąka niskowyciągowa. Białko w badanych próbkach: 7,8–14,8%. Popiół według polskich norm: 0,51–0,58%.': 'Low-extraction flour. Protein in the tested samples: 7.8–14.8%. Ash under Polish standards: 0.51–0.58%.',
+  'Mąka żytnia': 'Rye flour',
+  'Mąka żytnia, białko 8,1%': 'Rye flour, protein 8.1%',
+  'Białko w badanej próbce: 8,1%. Popiół według polskich norm: 1,31–1,60%.': 'Protein in the tested sample: 8.1%. Ash under Polish standards: 1.31–1.60%.',
 };

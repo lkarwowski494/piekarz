@@ -1180,7 +1180,7 @@
     "twierdzenie": "Zakres zawartości białka (% s.m.) dla każdego profilu atlasu mąk (polskie typy pszenne, żytnie i orkiszowe oraz Manitoba), do opisu ogólnego bez numeru typu.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094: opis ogólny miał podawać białko, ale żadne twierdzenie w rejestrze go nie popiera; pola proteinPercent w src/core/flour-atlas.ts nie mają źródła (06-tresci-fix-p4-002). Normy określają typy według zawartości popiołu (MAK-TYP-001, MAK-TYP-002); twierdzenia o białku poszczególnych typów rejestr nie ma. Do tego czasu opisPl w src/core/flour-atlas-ogolne.ts jest pusty.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): białko mają twierdzenia MAK-OGL-002, MAK-OGL-003, MAK-OGL-006 dla 13 profili. Bez przeczytanego źródła zostają: wheat_1850 (typ 1850), wheat_manitoba, rye_500, spelt_630 — dla nich opisPl pusty i nazwa bez białka. Szukane: czasopisma ZNTJ, PTPS, Acta Agrophysica, PMC; tabela białka typów w normach (płatnych) też nie występuje. Pola proteinPercent w src/core/flour-atlas.ts nadal bez źródła (06-tresci-fix-p4-002), poza zakresem 094.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1190,10 +1190,145 @@
     "twierdzenie": "Stopień przemiału (jasna, półrazowa, razowa/pełnoziarnista) dla każdego profilu atlasu mąk, do nazwy i opisu ogólnego bez numeru typu.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094: źródłem mogłyby być granice popiołu typów (MAK-TYP-900 otwarte, tekst norm płatny) albo opis producenta [DO USTALENIA]; rejestr nie ma twierdzenia, które łączy typ z przemiałem. Do tego czasu nazwa ogólna podaje tylko zboże, a opis jest pusty.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): stopień przemiału mają twierdzenia MAK-OGL-001 (niskowyciągowa: 450, 500, 550, 650; wysokowyciągowa: 750, 850, 1050) i MAK-OGL-007 (pszenna razowa 2000), uzasadnienie popiołem MAK-OGL-004 i MAK-OGL-005. Bez słowa o przemiale zostają: wheat_405, wheat_1850, wheat_manitoba, rye_500, rye_720, rye_1400, rye_2000, spelt_630, spelt_2000 — przeczytane źródła podają dla części z nich popiół (MAK-OGL-004), ale nie nazywają stopnia przemiału, a granice „jasna/razowa” według popiołu są tylko w płatnych normach (MAK-TYP-900).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "MAK-OGL-001",
+    "twierdzenie": "W badaniu Achremowicza, Berskiego i Gambuś (2010) handlowe mąki pszenne typu 450, 500, 550 i 650 (Polskie Zakłady Zbożowe w Krakowie, 2006) opisano jako niskowyciągowe, a typu 750, 850 i 1050 jako wysokowyciągowe.",
+    "zrodla": [
+      {
+        "adres": "https://wydawnictwo.pttz.org/wp-content/uploads/2015/02/03_Achremowicz.pdf",
+        "miejsce": "Achremowicz B., Berski W., Gambuś H., „Wykorzystanie metody SRC…”, Żywność. Nauka. Technologia. Jakość 2010, 6(73), 34–45, tab. 1 „Pochodzenie materiału badawczego”, wiersze 2006 Polskie Zakłady Zbożowe S.A. w Krakowie; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/zntj-2010-6-achremowicz.pdf (tekst .txt)",
+        "cytat": "Mąka pszenna niskowyciągowa typu […] 450, 500, 550 i 650 […] Mąka pszenna wysokowyciągowa typu […] 750, 850 i 1050",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Opis stopnia przemiału (wyciągu) mąk jednego producenta z 2006 roku; źródło nie podaje granic wyciągu ani popiołu. W opisie ogólnym słowo „niskowyciągowa” albo „wysokowyciągowa” stoi przy profilu tego samego typu.",
+    "uwagi": "M1-audytor-generalny-094, decyzja właściciela (a) w 06-tresci-fix-p7-001. Uzasadnienie przez popiół: MAK-OGL-005. Profile wheat_450, wheat_500, wheat_550, wheat_650 (niskowyciągowa), wheat_750, wheat_850, wheat_1050 (wysokowyciągowa) w src/core/flour-atlas-ogolne.ts.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-002",
+    "twierdzenie": "W badaniu Achremowicza, Berskiego i Gambuś (2010) handlowe mąki pszenne z 2006 roku zawierały białko: typ 450 9,8%, typ 500 10,6%, typ 550 11,4%, typ 650 10,6%, typ 750 12,4%, typ 850 11,9%, typ 1050 13,1% (po jednej próbce każdego typu).",
+    "zrodla": [
+      {
+        "adres": "https://wydawnictwo.pttz.org/wp-content/uploads/2015/02/03_Achremowicz.pdf",
+        "miejsce": "jw., tab. 2 „Wyniki analiz badanych mąk pszennych…”, kolumna „Białko [%]” (oznaczenie wg AOAC 920.87), wiersze typ 450…typ 1050: 9,80; 10,56; 11,40; 10,64; 12,43; 11,91; 13,05; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/zntj-2010-6-achremowicz.pdf (tekst .txt)",
+        "cytat": "typ 450 2006 55,1 76,5 78,2 123,7 62,2 28,0 397 9,80 77,98 26,00 143,6 13,3 346,2 36",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Wartości zaokrąglone do 0,1 punktu procentowego (połówki w górę: 10,56 → 10,6; 13,05 → 13,1). Jedna próbka na typ, jeden producent; źródło nie podaje, czy wynik jest w suchej masie. Białko zależy od ziarna, nie od typu: to wynik badanych próbek, nie wymaganie.",
+    "uwagi": "M1-audytor-generalny-094. Zakres białka profilu = najmniejsza i największa wartość z MAK-OGL-002, MAK-OGL-003 i MAK-OGL-006 dla tego samego typu (rachunek, źródła tego samego szczebla się różnią, więc pokazany przedział, nie jedna wartość).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-003",
+    "twierdzenie": "W badaniu Sujki i Koczonia (2017) mąki z polskich młynów zawierały białko: pszenna typ 550 7,8%, typ 650 10,2%, typ 2000 9,6% i 8,7% (ekologiczna), żytnia typ 720 6,3%, typ 1400 8,1%, typ 2000 8,4%, orkiszowa typ 2000 12,6%.",
+    "zrodla": [
+      {
+        "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5294222/",
+        "miejsce": "Sujka K., Koczoń P., „The Application of FT-IR Spectroscopy for Quality Control of Flours Obtained from Polish Producers”, Journal of Analytical Methods in Chemistry 2017, 4315678, doi:10.1155/2017/4315678, tab. 2 „Chemical composition of the analyzed flours”, kolumna Protein [%]: 7.80; 10.18; 9.55; 8.71; 6.28; 8.05; 8.36; 12.61 (średnie, n = 3); kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/pmc5294222.htm (tekst .txt)",
+        "cytat": "Wheat, type 550 7.80 ± 0.06 b […] Rye, type 720 6.28 ± 0.15 a […] Spelt, type 2000 12.61 ± 0.13 j",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Wartości zaokrąglone do 0,1 (połówki w górę: 8,05 → 8,1; 9,55 → 9,6). Jedna próbka handlowa na typ (pszenna 550 i żytnie: Jelonki; pszenne 650 i 2000, orkiszowa: Młyny Wodne); białko N × 5,7 (żytnie N × 6,25) według metody w źródle.",
+    "uwagi": "M1-audytor-generalny-094. Orkiszowa typ 2000 to profil spelt_2000; orkiszowej typ 630 źródło nie bada (bada typ 1100).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-004",
+    "twierdzenie": "Według zestawienia polskich norm w pracy Sujki i Koczonia (2017) zawartość popiołu wynosi: typ 550 0,51–0,58%, typ 720 0,59–0,78%, typ 1400 1,31–1,60%, typ 2000 ≤2% (najwyżej 2%).",
+    "zrodla": [
+      {
+        "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5294222/",
+        "miejsce": "jw., 2.1 Materials i tab. 1 „Details of studied flour types”; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/pmc5294222.htm (tekst .txt)",
+        "cytat": "According to Polish standards flours are classified by the content of ash. […] 550 0.51–0.58% […] 700/720 0.59–0.78% […] 1400 1.31–1.60% 2000 ≤2%",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Granice norm przytoczone w publikacji recenzowanej, nie odczytane w tekście norm (płatne, MAK-TYP-900). Wiersz typu 650 w tej tabeli („0.59–0.60%”) pominięty: wygląda na błąd druku, a innego źródła szczebla 1–3 nie ma [DO USTALENIA]. Wiersz 2000 nie rozróżnia zboża; w opisie ogólnym użyty dla pszennej, żytniej i orkiszowej typ 2000.",
+    "uwagi": "M1-audytor-generalny-094: popiół jako uzasadnienie przemiału (MAK-OGL-005). Wartości w opisach profili wheat_550, rye_720, rye_1400, wheat_2000, rye_2000, spelt_2000.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-005",
+    "twierdzenie": "Składniki mineralne (popiół) są głównie w zewnętrznych częściach ziarna, więc większy udział otrąb w mące daje większą zawartość popiołu.",
+    "zrodla": [
+      {
+        "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5294222/",
+        "miejsce": "jw., 3.1.4 Ash; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/pmc5294222.htm (tekst .txt)",
+        "cytat": "Mineral elements are present mainly in the external parts of grain, so that a higher content of bran reflects in a higher content of minerals.",
+        "odczyt": "2026-10-20",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-094: uzasadnienie w rejestrze, dlaczego popiół (podstawa typu, MAK-TYP-001, MAK-TYP-002) opisuje stopień przemiału. Bez zdania w opisach ogólnych.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-006",
+    "twierdzenie": "W badaniu Szwedziak i in. (2018) próbki mąki pszennej z jednego młyna zawierały białko: typ 405 13,8%, typ 500 14,3%, typ 550 14,8%, typ 650 13,8%, typ 750 15,5%, oraz popiół: typ 405 0,44%, typ 500 0,52%, typ 550 0,56%, typ 650 0,61%, typ 750 0,79%.",
+    "zrodla": [
+      {
+        "adres": "https://bibliotekanauki.pl/articles/227508.pdf",
+        "miejsce": "Szwedziak K., Polańczyk E., Dąbrowska-Molenda M., Nowaczyk M., „Analiza jakości wybranych typów mąki pszennej”, Postępy Techniki Przetwórstwa Spożywczego 2018, nr 2, s. 5–8 (Politechnika Opolska), tab. 1–4 i 6; białko aparatem Inframatic, próbki z młyna w Straduni; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/bn-227508.pdf (tekst .txt)",
+        "cytat": "Tabela 1. Wyniki analizy jakości mąki pszennej typ 405 […] Popiół 0,44% Białko 13,8%",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Jedna próbka na typ z jednego młyna; białko oznaczone metodą NIR (Inframatic), bez podanej bazy (sucha masa czy masa produktu), dlatego wartości są wyższe niż w MAK-OGL-002 i MAK-OGL-003. Szczebel 3: publikacja uczelni w czasopiśmie technicznym, recenzji nie sprawdziłem.",
+    "uwagi": "M1-audytor-generalny-094. Popiół z tej pracy nie trafia do opisów (pojedyncze próbki); białko tworzy przedział z MAK-OGL-002 i MAK-OGL-003, a dla wheat_405 jest jedyną wartością.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-007",
+    "twierdzenie": "W badaniu Szwedziak i in. (2018) mąkę pszenną typ 2000 nazwano mąką pszenną razową.",
+    "zrodla": [
+      {
+        "adres": "https://bibliotekanauki.pl/articles/227508.pdf",
+        "miejsce": "jw., „Metodyka badań”; kopia audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-20-p7b/dowody/zrodla/bn-227508.pdf (tekst .txt)",
+        "cytat": "mąka pszenna typ 750, mąka pszenna razowa typ 2000",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Nazwa produktu w pracy badawczej, nie definicja; źródło nie podaje, że mąka jest z całego ziarna. Profil wheat_2000.",
+    "uwagi": "M1-audytor-generalny-094. Razowej żytniej i orkiszowej typ 2000 przeczytane źródła nie nazywają: rye_2000 i spelt_2000 bez słowa o przemiale (MAK-OGL-901).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
   },
   {
     "id": "BEZ-SUR-001",

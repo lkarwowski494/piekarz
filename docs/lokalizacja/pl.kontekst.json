@@ -362,6 +362,36 @@
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
     ]
   },
+  "Białko w badanej próbce: 12,6%. Popiół według polskich norm: najwyżej 2%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Białko w badanej próbce: 13,8%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Białko w badanej próbce: 6,3%. Popiół według polskich norm: 0,59–0,78%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Białko w badanej próbce: 8,1%. Popiół według polskich norm: 1,31–1,60%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Białko w badanej próbce: 8,4%. Popiół według polskich norm: najwyżej 2%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
   "Białko:": {
     "gdzie": [
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)"
@@ -2664,6 +2694,30 @@
       "src/components/calculator/DoMiskiScaleCard.tsx (label)"
     ]
   },
+  "Mąka niskowyciągowa. Białko w badanej próbce: 9,8%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka niskowyciągowa. Białko w badanych próbkach: 10,2–13,8%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka niskowyciągowa. Białko w badanych próbkach: 10,6–14,3%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka niskowyciągowa. Białko w badanych próbkach: 7,8–14,8%. Popiół według polskich norm: 0,51–0,58%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
   "Mąka orkiszowa": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
@@ -2682,6 +2736,12 @@
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
+  },
+  "Mąka orkiszowa, białko 12,6%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka pełnoziarnista / razowa (100%)": {
     "gdzie": [
@@ -2740,6 +2800,30 @@
       "src/recipes/presets.ts (dane: name)"
     ]
   },
+  "Mąka pszenna niskowyciągowa, białko 10,2–13,8%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna niskowyciągowa, białko 10,6–14,3%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna niskowyciągowa, białko 7,8–14,8%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna niskowyciągowa, białko 9,8%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
   "Mąka pszenna pełnoziarnista / graham": {
     "gdzie": [
       "src/core/volume-converter.ts (dane: namePl)"
@@ -2749,6 +2833,12 @@
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
+  },
+  "Mąka pszenna razowa, białko 8,7–9,6%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka pszenna sitkowa / graham": {
     "gdzie": [
@@ -2805,8 +2895,38 @@
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
   },
+  "Mąka pszenna wysokowyciągowa, białko 11,9%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna wysokowyciągowa, białko 12,4–15,5%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna wysokowyciągowa, białko 13,1%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka pszenna, białko 13,8%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
   "Mąka razem": {
     "gdzie": []
+  },
+  "Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka stanowi 100% bazy w procentach piekarskich": {
     "gdzie": [
@@ -2824,6 +2944,24 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/SkladnikiSheet.tsx (kod)"
     ]
+  },
+  "Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka wysokowyciągowa. Białko w badanych próbkach: 12,4–15,5%.": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: opisPl)"
+    ],
+    "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka ze sfermentowanego zaczynu": {
     "gdzie": [
@@ -2869,6 +3007,24 @@
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
+  },
+  "Mąka żytnia, białko 6,3%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka żytnia, białko 8,1%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
+  },
+  "Mąka żytnia, białko 8,4%": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: zboże, stopień przemiału i białko w badanych próbkach (docs/tresci/pl/maki-ogolne.md), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour). Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka: {amount} g": {
     "gdzie": []
