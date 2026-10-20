@@ -9,6 +9,7 @@
 > **Kategoria Poboczna:** Productivity (Produktywność)  
 > **Klasyfikacja Wiekowa:** 4+ (Brak ograniczeń wiekowych)  
 > **Jedyne źródło metadanych sklepu** (nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis — każdy język): ten plik. `docs/15-app-store.md` tylko odsyła tutaj; test `tests/store-metadata.test.ts` pilnuje limitu słów kluczowych (100 B) w każdym języku [M1-audytor-generalny-036]. Słowa kluczowe pozostałych języków: przekład 095 (partia 4).  
+> **Nazwy, podtytuły i słowa kluczowe wszystkich lokalizacji strony:** §5 (M5 widoczność w sklepie, D-053…D-055, 2026-10-20); mapa storefrontów i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.  
 
 ---
 
@@ -18,10 +19,10 @@
 
 | Pole | Treść | Liczba znaków | Limit Apple |
 | :--- | :--- | :---: | :---: |
-| **Nazwa aplikacji (Name)** | `Piekarz — Chleb i Zakwas` | **24** | max 30 |
-| **Podtytuł (Subtitle)** | `Kalkulator chleba i 4-DDT` | **25** | max 30 |
+| **Nazwa aplikacji (Name)** | `Piekarz: Chleb na zakwasie` | **26** | max 30 |
+| **Podtytuł (Subtitle)** | `Plan i kalkulator wypieku` | **25** | max 30 |
 | **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), 4-DDT, kroki z Twojego planu na stolnicy i 100% prywatności offline.` | **165** | max 170 |
-| **Słowa kluczowe (Keywords)** | `pieczenie,mąka,hydratacja,bochenek,garnek,receptura,fermentacja,żytni,lewain,harmonogram,pizza` | **96** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
+| **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
 ### 1.2. Pełny Opis Aplikacji (Description PL — 3 745 / 4 000 znaków)
 
@@ -68,10 +69,10 @@ Języki: polski i angielski.
 
 | Pole | Treść | Liczba znaków | Limit Apple |
 | :--- | :--- | :---: | :---: |
-| **App Name** | `Crust — Sourdough & Bread` | **25** | max 30 |
-| **Subtitle** | `Baker's % & 4-DDT Calculator` | **28** | max 30 |
+| **App Name** | `Baker: Sourdough Bread Planner` | **30** | max 30 |
+| **Subtitle** | `Dough Calculator & Bake Timer` | **29** | max 30 |
 | **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, bench steps from your plan, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **166** | max 170 |
-| **Keywords** | `baking,flour,hydration,dutch oven,loaf,ferment,levain,crumb,recipe,rye,starter,schedule,pizza` | **93** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
+| **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
 ### 2.2. Pełny Opis Aplikacji (Description EN — 3 879 / 4 000 znaków)
 
@@ -217,3 +218,61 @@ e) Tap "Confirm import". Import replaces the current data; the app first saves a
 4. PERMISSIONS
 The app asks for permission to send local notifications only when you start the first timer or starter feeding reminder. It uses no microphone, location or App Tracking Transparency.
 ```
+
+---
+
+## 5. Lokalizacje strony App Store: nazwa, podtytuł, słowa kluczowe (M5, 2026-10-20)
+
+Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<piekarz>: <fraza z zakwasem>” w każdym języku, po angielsku „Baker: Sourdough Bread Planner”; 34 lokalizacje strony; kategoria bez zmian. Wiersze `pl` i `en-US` są tymi samymi polami co §1.1 i §2.1. Limity: nazwa i podtytuł ≤ 30 znaków, słowa kluczowe ≤ 100 B UTF-8, każde słowo > 2 znaki, bez słów z nazwy, podtytułu i kategorii; kontrola: `sprawdz-wydanie.mjs metadane` kod 0 (raport M5). Frazy, źródła i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.
+
+**Reguła prawdy (D-054):** lokalizację strony w danym języku wysyła się dopiero z buildem, który ma ten język w interfejsie aplikacji; English (U.K.), English (Australia) i English (Canada) mogą iść od razu. Pełny opis i tekst promocyjny języków innych niż angielski: przekład M1 (zadania 093/095) z §1.2 i §2.2 po ich aktualizacji (081); pierwsze zdanie opisu niżej jest punktem wyjścia przekładu i przechodzi kontrolę roli 09. Status „hipoteza” = frazy bez sygnału z wyszukiwarki tego kraju; sprawdzenie po wydaniu w App Analytics.
+
+| Lokalizacja | Kod ASC | Nazwa | Zn. | Podtytuł | Zn. | Słowa kluczowe | B | Pierwsze zdanie opisu | Zn. | Status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| English (U.S.) | `en-US` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | częściowo |
+| English (U.K.) | `en-GB` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | częściowo |
+| English (Australia) | `en-AU` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,wholemeal,percentage` | 100 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | hipoteza |
+| English (Canada) | `en-CA` | `Baker: Sourdough Bread Planner` | 30 | `Dough Calculator & Bake Timer` | 29 | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | 94 | Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. | 148 | hipoteza |
+| German | `de-DE` | `Bäcker: Sauerteigbrot backen` | 28 | `Backplan, Teigrechner & Timer` | 29 | `anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,stockgare,starter` | 97 | Bäcker führt dich beim Sauerteigbrot vom Rezept bis zum Laib: rechnet Mengen, plant rückwärts ab Fertigzeit und erinnert dich auch bei gesperrtem Handy. | 152 | częściowo |
+| Dutch | `nl-NL` | `Bakker: Zuurdesem & Brood` | 25 | `Bakplanning en rekenhulp` | 24 | `desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,timer,rijzen,bakken` | 95 | Bakker begeleidt je bij zuurdesembrood van recept tot brood: rekent hoeveelheden uit, plant terug vanaf je eetmoment en herinnert je ook met vergrendelde telefoon. | 163 | częściowo |
+| French | `fr-FR` | `Mitron : Pain au levain` | 23 | `Calcul, plan et minuteur` | 24 | `boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcentage,maison,pâte` | 97 | Mitron vous guide pas à pas, de la recette au pain, pour réussir votre pain au levain à la maison : quantités, planning et minuteurs. | 133 | częściowo |
+| French (Canada) | `fr-CA` | `Mitron : Pain au levain` | 23 | `Calcul, plan et minuterie` | 25 | `boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcentage,maison,pâte` | 97 | Mitron vous guide pas à pas, de la recette au pain, pour réussir votre pain au levain à la maison : quantités, planning et minuteries. | 134 | hipoteza |
+| Italian | `it` | `Fornaio: Pane e lievito madre` | 29 | `Calcolo impasto e timer` | 23 | `idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poolish,segale` | 91 | Fornaio ti guida passo dopo passo, dalla ricetta al pane, per fare il pane con lievito madre a casa: dosi, programma e timer. | 125 | częściowo |
+| Spanish (Spain) | `es-ES` | `Panadero: Pan de masa madre` | 27 | `Calculadora y plan de horneado` | 30 | `hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,porcentaje,casero` | 95 | Panadero te guía en el pan de masa madre, de la receta al pan: calcula cantidades, organiza el plan y avisa de cada paso con el móvil bloqueado. | 144 | częściowo |
+| Spanish (Mexico) | `es-MX` | `Panadero: Pan de masa madre` | 27 | `Calculadora y plan de horneado` | 30 | `hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,porcentaje,casero` | 95 | Panadero te guía en el pan de masa madre, de la receta al pan: calcula cantidades, organiza el plan y avisa de cada paso con el celular bloqueado. | 146 | częściowo |
+| Portuguese (Brazil) | `pt-BR` | `Padeiro: Fermentação Natural` | 28 | `Calculadora e plano de fornada` | 30 | `hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,massa,temporizador` | 96 | Padeiro guia você no pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e avisa cada etapa com o celular bloqueado. | 156 | częściowo |
+| Portuguese (Portugal) | `pt-PT` | `Padeiro: Pão e massa-mãe` | 24 | `Calculadora e plano de fornada` | 30 | `hidratação,fermentação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento` | 91 | O Padeiro guia-o no pão de massa-mãe, da receita ao pão pronto: calcula as quantidades, monta o plano e avisa cada etapa com o telemóvel bloqueado. | 147 | częściowo |
+| Polish | `pl` | `Piekarz: Chleb na zakwasie` | 26 | `Plan i kalkulator wypieku` | 25 | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | 98 | Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. | 138 | zmierzone |
+| Czech | `cs` | `Pekař: Chléb na kvásku` | 22 | `Plán pečení a kalkulačka` | 24 | `bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice,fermentace` | 91 | Pekař vás provede pečením chleba na kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. | 129 | hipoteza |
+| Slovak | `sk` | `Pekár: Chlieb na kvásku` | 23 | `Plán pečenia a kalkulačka` | 25 | `bochník,pizza,hydratácia,cesto,žitný,levain,poolish,časovač,recept,droždie,fermentácia` | 94 | Pekár vás prevedie pečením chleba na kvásku od receptu po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. | 132 | hipoteza |
+| Hungarian | `hu` | `Pék: Kovászos kenyér` | 20 | `Sütési terv és kalkulátor` | 25 | `cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjesztés,élesztő` | 91 | A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, tervet készít, és figyeli az időt, amikor a telefon alszik. | 152 | hipoteza |
+| Croatian | `hr` | `Pekar: Kruh na zakvasu` | 22 | `Plan pečenja i kalkulator` | 25 | `štruca,pizza,hidratacija,tijesto,raženi,levain,poolish,timer,recept,fermentacija,kvasac` | 89 | Pekar vas vodi kroz pečenje kruha na zakvasu od recepta do štruce: izračunava količine, slaže plan i pazi na vrijeme dok telefon spava. | 135 | hipoteza |
+| Slovenian | `sl` | `Pek: Kruh na kvasu` | 18 | `Načrt peke in kalkulator` | 24 | `hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija,kvasec` | 87 | Pek vas vodi skozi peko kruha na kvasu od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. | 125 | hipoteza |
+| Romanian | `ro` | `Brutar: Pâine cu maia` | 21 | `Plan de coacere și calculator` | 29 | `pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,drojdie,franzelă` | 95 | Brutar te ghidează prin coacerea pâinii cu maia, de la rețetă la pâine: calculează cantitățile, face planul și urmărește timpul când telefonul doarme. | 150 | hipoteza |
+| Swedish | `sv` | `Bagaren: Bröd & Surdeg` | 22 | `Bakplan, degkalkyl & timer` | 26 | `jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påminnelse,pizza,bakning` | 100 | Bagaren leder dig genom surdegsbröd från recept till limpa: räknar mängder, lägger planen från sluttiden och larmar när telefonen sover. | 136 | częściowo |
+| Norwegian | `no` | `Bakeren: Brød og surdeig` | 24 | `Bakeplan og oppskriftsregner` | 28 | `heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaking,hevetid` | 90 | Bakeren leder deg gjennom surdeigsbrød fra oppskrift til brød: regner mengder, lager planen fra ferdigtidspunktet og varsler deg når telefonen sover. | 149 | częściowo |
+| Danish | `da` | `Bageren: Brød og surdej` | 23 | `Bageplan og opskriftsregner` | 27 | `hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbagning,hævetid` | 93 | Bageren fører dig gennem surdejsbrød fra opskrift til brød: regner mængder, lægger planen fra sluttidspunktet og giver besked, når telefonen sover. | 147 | częściowo |
+| Finnish | `fi` | `Leipuri: Leipä ja hapanjuuri` | 28 | `Leivontasuunnitelma ja laskuri` | 30 | `taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resepti,pata,juurileipä` | 98 | Leipuri opastaa hapanjuurileivän teossa reseptistä leivukseen: laskee määrät, tekee aikataulun valmistumisajasta ja muistuttaa, kun puhelin nukkuu. | 147 | hipoteza |
+| Russian | `ru` | `Хлебопёк: Хлеб на закваске` | 26 | `Расчёт теста и план выпечки` | 27 | `гидратация,пекарский,ржаной,рецепты,пицца,таймер` | 91 | Хлебопёк ведёт вас от рецепта до буханки на закваске: считает количество, строит план от нужного часа и следит за временем. | 123 | częściowo |
+| Ukrainian | `uk` | `Пекар: Хліб на заквасці` | 23 | `Розрахунок тіста і план` | 23 | `гідратація,пекарський,житній,рецепти,піца,таймер` | 91 | Пекар веде вас від рецепта до буханки на заквасці: рахує кількість, будує план від потрібної години й стежить за часом. | 119 | częściowo |
+| Greek | `el` | `Αρτοποιός: Ψωμί & Προζύμι` | 25 | `Υπολογισμός ζύμης και πλάνο` | 27 | `υδάτωση,συνταγές,σίκαλη,λεβέν,πίτσα,χρονόμετρο` | 87 | Ο Αρτοποιός σας οδηγεί από τη συνταγή στο καρβέλι με προζύμι: υπολογίζει ποσότητες, φτιάχνει πλάνο και προσέχει τον χρόνο. | 122 | hipoteza |
+| Turkish | `tr` | `Fırıncı: Ekşi Mayalı Ekmek` | 26 | `Hamur hesabı ve pişirme planı` | 29 | `hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,mayalama,fermantasyon` | 98 | Fırıncı, ekşi mayalı ekmeği tariften somuna kadar yönetir: miktarları hesaplar, plan çıkarır ve süreleri takip eder. | 116 | hipoteza |
+| Japanese | `ja` | `パン職人 - サワードウと天然酵母` | 17 | `ベーカーズ％計算と発酵タイマー` | 15 | `パン作り,レシピ,ライ麦,自家製,パン生地,仕込み水,スケジュール,ルヴァン` | 100 | 自家製サワードウのパン作りを、レシピから焼き上がりまで案内します。分量計算、逆算スケジュール、睡眠を考えた発酵タイマーで、次の一本をもっと良く。 | 72 | częściowo |
+| Korean | `ko` | `제빵사 - 사워도우 빵 만들기` | 16 | `베이커스 퍼센트·발효 타이머` | 15 | `홈베이킹,레시피,천연발효종,르방종,호밀빵,빵반죽,수분율,발효온도` | 91 | 사워도우 빵을 레시피부터 완성까지 안내합니다. 재료량 계산, 완성 시간에서 거꾸로 짜는 일정, 잠자는 시간을 고려한 발효 알림으로 다음 빵을 더 낫게. | 84 | częściowo |
+| Chinese (Traditional) | `zh-Hant` | `麵包師傅 - 酸種麵包烘焙` | 13 | `烘焙百分比計算與發酵計時` | 12 | `魯邦種,天然酵母,裸麥麵包,水合率,揉麵團,發酵時間,烘焙排程,披薩麵團` | 94 | 從配方到出爐，陪你完成家庭酸種麵包：計算用量、由完成時間倒推行程、避開睡眠時間提醒，並幫你改進下一次烘焙。 | 53 | częściowo |
+| Indonesian | `id` | `Tukang Roti: Sourdough` | 22 | `Kalkulator & Jadwal Adonan` | 26 | `resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread` | 80 | Memandu Anda membuat roti sourdough di rumah dari resep hingga roti jadi: hitung bahan, jadwal mundur dari jam siap, pengingat saat ponsel terkunci. | 148 | hipoteza |
+| Malay | `ms` | `Tukang Roti: Sourdough` | 22 | `Kalkulator Doh & Jadual Bakar` | 29 | `resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread` | 79 | Memandu anda membuat roti sourdough di rumah dari resepi hingga siap: kira bahan, jadual undur dari waktu siap, peringatan semasa telefon dikunci. | 146 | hipoteza |
+| Vietnamese | `vi` | `Thợ Bánh Mì: Sourdough` | 22 | `Tính công thức & hẹn giờ ủ` | 26 | `men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột` | 76 | Hướng dẫn làm bánh mì sourdough tại nhà từ công thức đến ổ bánh: tính lượng nguyên liệu, lập lịch ngược từ giờ xong, nhắc giờ khi điện thoại khóa. | 146 | hipoteza |
+
+### 5.1. English (U.K.), English (Australia), English (Canada): pozostałe pola
+
+| Lokalizacja | Tekst promocyjny (≤ 170 znaków) | Zn. |
+| :--- | :--- | :---: |
+| en-GB, en-AU | Plan sourdough back from the time you want it ready: baker's %, 4-DDT water temperature, sleep-friendly steps and timers. Offline, no account, no ads. | 150 |
+| en-CA | Sourdough planner with baker's percentage: recipe amounts, a plan back from your ready time, timers that ring while the phone is locked. No account, no ads. | 156 |
+
+Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 po aktualizacji 081, z nazwą „Baker” i pisownią lokalną: en-GB i en-AU „discolouration”, „flavour”, „prove / proving”, „over-proved”; en-CA „discolouration”, „flavour”, „proof / proofing”, „over-proofed”. Wyjątek nazwany od D-054 / STOP 1 (3a): opis z dzisiejszego §2.2 opisuje ekrany sprzed nowej szaty (partia 5) i funkcje poza zakresem B, więc jego kopia z pisownią brytyjską utrwaliłaby nieprawdę; do czasu 081 lokalizacje angielskie spoza USA dostają tylko pola z tabeli i tekst promocyjny.
+
+### 5.2. Kolejność zrzutów (D-055, wszystkie lokalizacje)
+
+1) plan od godziny „gotowe” z ochroną snu; 2) kalkulator ilości z procentem piekarskim; 3) prowadzenie kroków z minutnikiem; 4) Doktor Chleba; 5) zakwasy i dokarmianie; 6) dziennik wypieków; 7) offline i prywatność. Jeden zrzut w motywie ciemnym. Podpisy w języku lokalizacji. Zrzuty i podpisy: zadanie 080 z `docs/design/wzorce-zrzuty/`; §3 opisuje dawną kolejność do czasu 080.
