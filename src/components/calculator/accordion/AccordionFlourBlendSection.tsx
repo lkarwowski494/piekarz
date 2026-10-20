@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { nazwaMakiMieszanki } from '../../../lib/nazwa-maki-mieszanki';
 import { wejscieWidoczne } from '../../../lib/wejscia-pozniej';
 import { FlourItemInput, POPULAR_FLOUR_BLENDS } from '../../../core/domain-rules';
 
@@ -43,7 +44,7 @@ export function AccordionFlourBlendSection({
         {flourBlend.map((f, i) => (
           <View key={i} style={styles.flourTag}>
             <Text style={styles.flourTagText}>
-              {f.name}: {f.percentage}%
+              {nazwaMakiMieszanki(f)}: {f.percentage}%
             </Text>
           </View>
         ))}

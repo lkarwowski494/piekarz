@@ -80,7 +80,7 @@ export function SymptomSelectorSection({
             style={styles.presetChip}
             onPress={() => onApplyPreset(preset)}
           >
-            <Text style={styles.presetName}>{preset.name}</Text>
+            <Text style={styles.presetName}>{t(preset.name)}</Text>
           </Pressable>
         ))}
       </ScrollView>

@@ -55,6 +55,12 @@ export const SLEEP_PROFILES = [
   { id: 'night_owl', namePl: 'Nocny marek', label: '00:00 – 08:00', start: 24.0, end: 8.0 },
 ];
 
+/** Godziny profilu snu w formacie regionu (en-US 12 h), nie stały napis 24 h (Z-3 z 080) [M1-audytor-generalny-093]. */
+export function etykietaProfiluSnu(p: { start: number; end: number }): string {
+  const hm = (x: number) => godzina(x, Math.round((x % 1) * 60));
+  return `${hm(p.start)} – ${hm(p.end)}`;
+}
+
 export interface TargetReadyCardProps {
   targetDayOffset: number;
   onTargetDayOffsetChange: (offset: number) => void;
@@ -223,7 +229,7 @@ export function TargetReadyCard({
                   isSelected && styles.sleepProfileTextActive,
                 ]}
               >
-                {t(p.namePl)} ({p.label})
+                {t(p.namePl)} ({etykietaProfiluSnu(p)})
               </Text>
             </Pressable>
           );

@@ -8,6 +8,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { formatFixed, formatNumber } from '../../lib/format';
 import { DoughRecipeResult } from '../../core/domain-rules';
 import { useUnitSystem, formatWeight, formatDoseWeight, ouncesToGrams } from '../../lib/unit-converter';
@@ -133,7 +134,7 @@ export function DoMiskiScaleCard({
           <View style={styles.loavesInfo}>
             <Text style={styles.loavesTitle}>{t('Liczba bochenków i gramatura')}</Text>
             <Text style={styles.loavesSubtitle}>
-              {recipeName} • {t('{masa} / szt.', { masa: formatWeight(calculations.targetDoughWeightGrams / loavesCount, unitSystem) })}
+              {nazwaReceptury(recipeName)} • {t('{masa} / szt.', { masa: formatWeight(calculations.targetDoughWeightGrams / loavesCount, unitSystem) })}
             </Text>
             <View style={styles.chipRow}>
               {[1, 2, 3, 4].map((count) => (

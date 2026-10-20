@@ -10,6 +10,7 @@ import type { BakeSession } from '../../data/bake-session-store';
 import type { TimerState } from '../../core/bake-session';
 import { stepHasTimer } from '../../core/bake-session';
 import { t } from '../../lib/i18n';
+import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { formatTime } from '../../lib/format';
 import { czasSlownie, dzienSlownie, etykietaPlanuWypieku } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
@@ -59,9 +60,9 @@ export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc }: {
           )}
           <Text style={styles.objasnienie}>
             {gotowe === null
-              ? sesja.recipeName
+              ? nazwaReceptury(sesja.recipeName)
               : t('{nazwa}: gotowe {dzien} o {godzina}', {
-                  nazwa: sesja.recipeName,
+                  nazwa: nazwaReceptury(sesja.recipeName),
                   dzien: dzienSlownie(gotowe, new Date(teraz)),
                   godzina: formatTime(gotowe),
                 })}

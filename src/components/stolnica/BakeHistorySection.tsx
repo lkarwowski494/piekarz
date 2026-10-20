@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
+import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { appLocale, formatDate } from '../../lib/format';
 import { StoredBakeLog } from '../../data/db';
 import { SensoryRadarChart } from '../SensoryRadarChart';
@@ -98,7 +99,7 @@ export function BakeHistorySection({
           return (
             <View key={log.id} style={styles.historyCard} testID={`bake-log-card-${log.id}`}>
               <View style={styles.historyCardHeader}>
-                <Text style={styles.historyRecipeName}>{log.recipeName}</Text>
+                <Text style={styles.historyRecipeName}>{nazwaReceptury(log.recipeName)}</Text>
                 <View style={styles.historyActionsRow}>
                   {log.ratingStars !== undefined && (
                     <Text style={styles.historyStars}>{t('Ocena: {n}/5', { n: log.ratingStars })}</Text>
@@ -165,7 +166,7 @@ export function BakeHistorySection({
               <Pressable
                 testID={`bake-again-btn-${log.id}`}
                 accessibilityRole="button"
-                accessibilityLabel={`${t('Piecz ponownie')}: ${log.recipeName}`}
+                accessibilityLabel={`${t('Piecz ponownie')}: ${nazwaReceptury(log.recipeName)}`}
                 style={styles.bakeAgainBtn}
                 onPress={() => onBakeAgain(log)}
               >

@@ -2,7 +2,7 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { getFocusedRouteNameFromRoute } from 'expo-router/react-navigation';
 import { theme } from '../../src/ui/theme';
-import { t } from '../../src/lib/i18n';
+import { t, useLang } from '../../src/lib/i18n';
 import { TabIcon, TabLabel } from '../../src/components/TabIcon';
 
 // 4 zakładki: Dziś, Receptury, Zakwasy, Dziennik; ustawienia z „Dziś” (D-051 2a, design-spec §4).
@@ -16,6 +16,8 @@ const stylPaskaReceptur = (route: Parameters<typeof getFocusedRouteNameFromRoute
   getFocusedRouteNameFromRoute(route) === 'receptura' ? { ...PASEK, display: 'none' as const } : PASEK;
 
 export default function TabsLayout() {
+  // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
+  useLang();
   return (
     <Tabs
       screenOptions={{

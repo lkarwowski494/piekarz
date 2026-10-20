@@ -11,7 +11,7 @@ import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
-import { initLanguage, t } from '../src/lib/i18n';
+import { initLanguage, t, useLang } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { trasaZPowiadomienia } from '../src/core/notification-plan';
 import { naglowekZwykly } from '../src/ui/naglowek';
@@ -33,6 +33,8 @@ export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
 
 export default function RootLayout() {
   const [rescue, setRescue] = useState(false);
+  // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
+  useLang();
 
   useEffect(() => {
     let milestone: ReturnType<typeof setTimeout> | undefined;

@@ -7,6 +7,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { t } from '../../lib/i18n';
+import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import type { SessionStep } from '../../core/bake-steps';
 import { SpiralaWypieku } from '../Spirala';
 import { styles } from './stolnica-screen.styles';
@@ -26,7 +27,7 @@ export interface StrefaPlanuProps {
 export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null }: StrefaPlanuProps) {
   return (
     <>
-      <Text style={styles.recipeTag}>{recipeName}</Text>
+      <Text style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
       <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} />
       <View style={styles.planOpis}>
         <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>

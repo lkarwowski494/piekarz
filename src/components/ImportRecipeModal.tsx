@@ -20,6 +20,7 @@ import { sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { nazwaMakiMieszanki } from '../lib/nazwa-maki-mieszanki';
 import { formatFixed } from '../lib/format';
 import { getUnitSystem, formatTemperature } from '../lib/unit-converter';
 import { StoredRecipe } from '../data/db';
@@ -181,7 +182,7 @@ export function ImportRecipeModal({
                 {validation.recipe.formula.flours.map((f, idx) => (
                   <View key={idx} style={styles.flourRow}>
                     <Text style={styles.flourBullet}>•</Text>
-                    <Text style={styles.flourName}>{f.name}</Text>
+                    <Text style={styles.flourName}>{nazwaMakiMieszanki(f)}</Text>
                     <Text style={styles.flourPct}>{formatFixed(f.percentage, 1)}%</Text>
                   </View>
                 ))}

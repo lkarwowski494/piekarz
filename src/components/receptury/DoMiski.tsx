@@ -11,6 +11,7 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { formatFixed, formatNumber } from '../../lib/format';
 import type { DoughRecipeResult } from '../../core/domain-rules';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
@@ -160,7 +161,7 @@ export function DoMiski(p: DoMiskiProps) {
         <>
           <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Do miski (odhaczaj przy ważeniu)')}</Text>
           <View style={s.grupa} testID="do-miski">
-            {c.flours.map((f, i) => wiersz(`scale-item-flour-${i}`, t(f.name), w(f.weightGrams), proc(f.percentage)))}
+            {c.flours.map((f, i) => wiersz(`scale-item-flour-${i}`, nazwaMakiMieszanki(f), w(f.weightGrams), proc(f.percentage)))}
             {wiersz('scale-item-water', t('Woda'), w(c.waterGrams), proc(p.waterPct))}
             {zakwas}
             {wiersz('scale-item-salt', t('Sól'), d(c.saltGrams), `${formatFixed(p.saltPct, 1)}%`)}

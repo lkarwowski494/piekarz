@@ -43,7 +43,8 @@ export const BREAD_SENSORY_AXES: BreadAxisDefinition[] = [
 export interface SensoryRadarChartProps {
   profile: BreadSensoryProfile;
   size?: number;
-  language?: 'pl' | 'en';
+  /** Nieużywane: etykiety idą przez t() w języku aplikacji [M1-audytor-generalny-093]. */
+  language?: string;
   showLabels?: boolean;
   interactive?: boolean;
   onChangeProfile?: (newProfile: BreadSensoryProfile) => void;
@@ -53,7 +54,6 @@ export interface SensoryRadarChartProps {
 export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
   profile,
   size = 220,
-  language = 'pl',
   showLabels = true,
   interactive = false,
   onChangeProfile,
@@ -159,7 +159,8 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
             BREAD_SENSORY_AXES.map((axis, i) => {
               const labelRadius = maxRadius + 14;
               const { x, y } = getCoordinates(i, labelRadius);
-              const labelText = language === 'pl' ? axis.labelPl : axis.labelEn;
+              // Etykieta w języku aplikacji (t), nie z propsa pl/en (Z-3 z 080) [M1-audytor-generalny-093]
+              const labelText = t(axis.labelPl);
 
               let textAnchor: 'middle' | 'start' | 'end' = 'middle';
               if (i === 1 || i === 2) textAnchor = 'start';
@@ -189,7 +190,7 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
         <View style={styles.controlsContainer} testID="radar-interactive-controls">
           {BREAD_SENSORY_AXES.map((axis) => {
             const val = profile[axis.key] ?? 3;
-            const label = language === 'pl' ? axis.labelPl : axis.labelEn;
+            const label = t(axis.labelPl);
             return (
               <View key={axis.key} style={styles.controlRow}>
                 <Text style={styles.controlLabel}>{label}</Text>

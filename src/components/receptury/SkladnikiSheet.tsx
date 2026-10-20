@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { nazwaMaki } from '../../lib/nazwa-maki';
+import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { POPULAR_FLOUR_BLENDS, FlourItemInput, HydrationDifficultyInfo } from '../../core/domain-rules';
 import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend } from '../../core/flour-atlas';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
@@ -140,7 +141,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Mąki (razem 100%)')}</Text>
             <View style={s.grupa}>
               {szkic.map((f, i) => (
-                <PoleProcentu key={`${f.name}-${i}`} id={`flour-pct-input-${i}`} etykieta={t(f.name)} wartosc={f.percentage} min={0} max={100} onChange={(n) => zmienMake(i, n)} />
+                <PoleProcentu key={`${f.name}-${i}`} id={`flour-pct-input-${i}`} etykieta={nazwaMakiMieszanki(f)} wartosc={f.percentage} min={0} max={100} onChange={(n) => zmienMake(i, n)} />
               ))}
               <WierszMenu id="add-flour-btn" etykieta={t('Dodaj mąkę')} onPress={dodajMake} akcja />
               <WierszMenu id="flour-blend-menu-btn" etykieta={t('Wstaw gotową mieszankę')} onPress={wstawMieszanke} akcja />

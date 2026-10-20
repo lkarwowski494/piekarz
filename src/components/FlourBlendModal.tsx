@@ -19,6 +19,7 @@ import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { nazwaMaki, notaSzacunku, opisMaki, pokazZdanieONormach } from '../lib/nazwa-maki';
+import { nazwaMakiMieszanki } from '../lib/nazwa-maki-mieszanki';
 import { formatFixed } from '../lib/format';
 import { FlourItemInput } from '../core/domain-rules';
 import {
@@ -148,7 +149,7 @@ export function FlourBlendModal({
               <View key={idx} style={styles.flourRow} testID={`flour-row-${idx}`}>
                 <View style={styles.flourMeta}>
                   <Text style={styles.flourName}>
-                    {flour.name}
+                    {nazwaMakiMieszanki(flour)}
                   </Text>
                   <Text style={styles.flourPctText}>{formatFixed(flour.percentage, 1)}%</Text>
                 </View>
@@ -157,7 +158,7 @@ export function FlourBlendModal({
                 <View style={styles.stepperGroup}>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 10 })}
+                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: nazwaMakiMieszanki(flour), n: 10 })}
                     testID={`flour-minus-10-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, -10)}
@@ -166,7 +167,7 @@ export function FlourBlendModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 5 })}
+                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: nazwaMakiMieszanki(flour), n: 5 })}
                     testID={`flour-minus-5-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, -5)}
@@ -175,7 +176,7 @@ export function FlourBlendModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 5 })}
+                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: nazwaMakiMieszanki(flour), n: 5 })}
                     testID={`flour-plus-5-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, 5)}
@@ -184,7 +185,7 @@ export function FlourBlendModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 10 })}
+                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: nazwaMakiMieszanki(flour), n: 10 })}
                     testID={`flour-plus-10-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, 10)}
@@ -195,7 +196,7 @@ export function FlourBlendModal({
                   {draftBlend.length > 1 && (
                     <Pressable
                       accessibilityRole="button"
-                      accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: flour.name })}
+                      accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: nazwaMakiMieszanki(flour) })}
                       testID={`flour-remove-${idx}`}
                       style={styles.removeBtn}
                       onPress={() => removeFlour(idx)}
