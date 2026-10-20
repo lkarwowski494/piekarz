@@ -13,6 +13,9 @@
 // Kontekst: docs/lokalizacja/pl.kontekst.json ma wpis dla każdego klucza EN z aktualnymi miejscami użycia;
 // klucz „tekst|kontekst” (ten sam tekst w dwóch znaczeniach) i jego tekst bazowy mają opis. Zapis pliku tylko
 // przez `npm run i18n:kontekst` (--zapisz-kontekst), nigdy w `npm run verify`.
+// Słowniki 33 języków (src/lib/i18n-slowniki, --slowniki <katalog> do testu): każdy klucz EN poza PÓŹNIEJ
+// (docs/lokalizacja/pozniej-poza-przekladem.json) i „czeka na przekład” (docs/lokalizacja/czeka-na-przeklad.json),
+// parametry, pusty tekst, formy CLDR liczby mnogiej [M1-audytor-generalny-093].
 // Nazwy własne i symbole tylko przez scripts/i18n-wyjatki.json, z powodem przy każdym wpisie
 // [M1-audytor-generalny-047; 09-lokalizacja-001].
 import { fileURLToPath } from 'node:url';
@@ -191,6 +194,50 @@ const scan = scanCode(dirs, wyjatki);
 for (const [k, g] of scan.used) if (!keys.has(k)) bledy.push(`kod ${g}: brak tłumaczenia EN dla „${k}”`);
 for (const k of keys) if (params(k) !== params(dict[k])) bledy.push(`słownik EN: różne parametry {…} w „${k}”`);
 
+// Słowniki 33 języków przekładu 093 (src/lib/i18n-slowniki/<kod>/czesc-*.ts) [M1-audytor-generalny-093]:
+// każdy klucz EN poza funkcjami PÓŹNIEJ i wpisami „czeka na przekład” (z datą i powodem), te same parametry,
+// niepusty tekst, formy liczby mnogiej każdej kategorii CLDR języka (klucz `<forma one PL>#<kategoria>`).
+// Brak wpisu w aplikacji = tekst EN, więc brak to BŁĄD, a dozwolony brak to UWAGA.
+const czytajJson = (p) => (existsSync(join(root, p)) ? JSON.parse(readFileSync(join(root, p), 'utf8')) : null);
+const pozniej = new Set((czytajJson('docs/lokalizacja/pozniej-poza-przekladem.json')?.klucze ?? []).map((x) => x.klucz));
+const czeka = czytajJson('docs/lokalizacja/czeka-na-przeklad.json')?.klucze ?? [];
+const czekaBad = czeka.filter((x) => !x.klucz || !String(x.powod || '').trim() || !/^\d{4}-\d{2}-\d{2}$/.test(String(x.od || '')));
+if (czekaBad.length) bledy.push(`docs/lokalizacja/czeka-na-przeklad.json: wpisy bez klucza, powodu albo daty „od”: ${JSON.stringify(czekaBad)}`);
+const czekaMap = new Map(czeka.map((x) => [x.klucz, x.jezyki ?? null]));
+const grupyMnogie = [];
+for (const file of dirs.flatMap((d) => walk(d))) {
+  const v = (n) => {
+    if (ts.isObjectLiteralExpression(n)) {
+      const o = {};
+      for (const pr of n.properties) if (ts.isPropertyAssignment(pr) && ts.isIdentifier(pr.name) && isLit(pr.initializer)) o[pr.name.text] = pr.initializer.text;
+      if (o.one && o.other && (o.few || o.many)) grupyMnogie.push(o.one);
+    }
+    ts.forEachChild(n, v);
+  };
+  v(parse(file));
+}
+const slownikiDir = opt('slowniki') ? resolve(root, opt('slowniki')) : join(root, 'src/lib/i18n-slowniki');
+const jezyki = existsSync(slownikiDir) ? readdirSync(slownikiDir).filter((f) => statSync(join(slownikiDir, f)).isDirectory()).sort() : [];
+let dozwoloneBraki = 0;
+for (const kod of jezyki) {
+  const d = readDictionary(join(slownikiDir, kod));
+  const e = (k, m) => bledy.push(`${kod} „${k}”: ${m}`);
+  for (const [k, v] of Object.entries(d)) {
+    if (!String(v).trim()) e(k, 'pusty tekst');
+    const baza = k.includes('#') ? k.slice(0, k.lastIndexOf('#')) : k;
+    if (params(baza) !== params(v)) e(baza, `parametry {${params(v)}} ≠ klucz {${params(baza)}}`);
+  }
+  for (const k of keys) {
+    if (Object.prototype.hasOwnProperty.call(d, k)) continue;
+    const cz = czekaMap.get(k);
+    if (pozniej.has(k) || (czekaMap.has(k) && (!cz || cz.includes(kod)))) dozwoloneBraki++;
+    else e(k, 'brak tłumaczenia');
+  }
+  const kategorie = new Intl.PluralRules(kod === 'pt' ? 'pt-PT' : kod).resolvedOptions().pluralCategories;
+  for (const g of new Set(grupyMnogie)) for (const kat of kategorie) if (!Object.prototype.hasOwnProperty.call(d, `${g}#${kat}`)) e(g, `brak formy liczby mnogiej #${kat}`);
+}
+if (dozwoloneBraki) uwagi.push(`języki przekładu: ${dozwoloneBraki} braków dozwolonych (PÓŹNIEJ albo czeka na przekład) — w aplikacji tekst EN`);
+
 
 // Plik kontekstu: każdy klucz słownika EN → miejsca użycia (generowane) + opis (ręczny, zachowywany).
 // Zapis tylko osobną komendą `npm run i18n:kontekst`; sprawdzenie nie aktualizuje pliku samo.
@@ -234,7 +281,7 @@ if (kodArg) {
 for (const b of bledy) console.log('BŁĄD', b);
 if (args.includes('--uwagi')) for (const u of uwagi) console.log('UWAGA', u);
 console.log(
-  `i18n: ${scan.used.size} tekstów t('…') w kodzie, ${keys.size} w słowniku EN; błędy: ${bledy.length}, uwagi: ${uwagi.length}` +
+  `i18n: ${scan.used.size} tekstów t('…') w kodzie, ${keys.size} w słowniku EN, języki przekładu: ${jezyki.length}; błędy: ${bledy.length}, uwagi: ${uwagi.length}` +
     (kodArg ? ` (skan kodu: ${kodArg}; uwagi wypisuje --uwagi)` : ' (bez skanu tekstów na sztywno)')
 );
 process.exit(bledy.length ? 1 : 0);

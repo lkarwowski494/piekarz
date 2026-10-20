@@ -29,6 +29,38 @@ function bramka(nazwa: string, plik: string, tresc: string) {
   return { kod: r.status, wynik: `${r.stdout}${r.stderr}` };
 }
 
+describe('check:i18n sprawdza słowniki 33 języków przekładu 093 (M1-audytor-generalny-093)', () => {
+  /** Słowniki języków w osobnym katalogu (format generatora: <kod>/czesc-N.ts) i bramka na nich. */
+  function slowniki(nazwa: string, pliki: Record<string, string>) {
+    const dir = join(tmp, nazwa);
+    for (const [p, tresc] of Object.entries(pliki)) {
+      mkdirSync(join(dir, p, '..'), { recursive: true });
+      writeFileSync(join(dir, p), tresc, 'utf8');
+    }
+    const r = spawnSync(process.execPath, [script, '--slowniki', dir], { cwd: root, encoding: 'utf8' });
+    return { kod: r.status, wynik: `${r.stdout}${r.stderr}` };
+  }
+  const czesc = (wpisy: Record<string, string>) =>
+    `export const CZESC: Record<string, string> = {\n${Object.entries(wpisy).map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n};\n`;
+
+  it('inny parametr, pusty tekst, brak klucza i brak formy CLDR: kod 1 z językiem i kluczem', () => {
+    const { kod, wynik } = slowniki('zle', {
+      'de/czesc-1.ts': czesc({ 'Krok {n} z {m}': 'Schritt {x} von {m}', Dziś: '', '{n} godzina#one': '{n} Stunde' }),
+    });
+    expect(kod).toBe(1);
+    expect(wynik).toMatch(/de „Krok \{n\} z \{m\}”: parametry/);
+    expect(wynik).toMatch(/de „Dziś”: pusty tekst/);
+    expect(wynik).toMatch(/de „Receptury”: brak tłumaczenia/);
+    expect(wynik).toMatch(/de „\{n\} godzina”: brak formy liczby mnogiej #other/);
+  });
+
+  it('słowniki repo: 33 języki bez błędów, kod 0', () => {
+    const r = spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
+    expect(`${r.stdout}`).toMatch(/języki przekładu: 33/);
+    expect(r.status).toBe(0);
+  });
+});
+
 describe('check:i18n wykrywa teksty na sztywno (M1-audytor-generalny-075)', () => {
   it('tekst w JSX: kod 1 i plik:linia w wyniku', () => {
     const { kod, wynik } = bramka(
