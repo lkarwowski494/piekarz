@@ -25,9 +25,107 @@
 .menu button:last-child { border-bottom: 0; }
 .menu button > span:first-child { flex: 1; min-width: 0; }
 .menu button.usun { color: var(--blad); }
+/* partia 6 (106): filtr rodzaju jak chipy planu (inne.html), zawijane zamiast przewijania w poziomie (AX5); wiersze listy z szewronem systemowym */
+.chipy { display: flex; gap: 8px; flex-wrap: wrap; }
+.chipy button { min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid var(--obwodka); background: transparent; color: var(--tusz); font: inherit; }
+.chipy button.wyb { background: var(--akcent); color: var(--naAkcencie); border-color: var(--akcent); font-weight: 600; }
+.wiersz { color: var(--tusz); text-decoration: none; }
+.szewron { color: var(--tusz3); font: 400 calc(22px + 20px * var(--ax)) / 1 var(--f-tr); margin-left: auto; }
 </style>
 </head>
 <body>
+
+<!-- Partia 6 (106, 04-studio-projektowe-022): ekran główny zakładki Receptury = lista receptur (F-26, F-27, D-047: nawigacja bez oferty).
+     Filtr rodzaju z „Co dziś robisz?” (BR-START-001); dotknięcie wiersza otwiera ekran receptury (stan „receptura”). Nazwy receptur: [PRZYKŁAD] z src/recipes/presets.ts. -->
+<main data-ekran="lista-receptur">
+  <div class="status"><span>9:10</span><span>LTE 88%</span></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="tab.receptury">Receptury</h1>
+    <div class="chipy t-obj" role="group" aria-label="Rodzaj receptur"><button class="wyb" aria-pressed="true" data-t="lr.wszystkie">Wszystkie</button><button aria-pressed="false" data-t="lr.zakwas">Na zakwasie</button><button aria-pressed="false" data-t="lr.zytnie">Żytnie</button><button aria-pressed="false" data-t="lr.drozdzowe">Drożdżowe</button><button aria-pressed="false" data-t="lr.pizza">Pizza i słodkie</button></div>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="lr.moje">Moje receptury</h2>
+    <div class="grupa t-tresc">
+      <a class="kom wiersz" href="#"><span class="roz"><span data-t="lr.m1">Mój wiejski 75%</span><br><span class="t-przyp p2" data-t="lr.m1o">moja, woda 75%</span></span><span class="szewron" aria-hidden="true">›</span></a>
+    </div>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="lr.bazowe">Receptury bazowe</h2>
+    <div class="grupa t-tresc">
+      <a class="kom wiersz" href="#"><span class="roz"><span data-t="lr.r1">Wiejski chleb codzienny na zakwasie</span><br><span class="t-przyp p2" data-t="lr.r1o">Na zakwasie, poziom łatwy</span></span><span class="szewron" aria-hidden="true">›</span></a>
+      <a class="kom wiersz" href="#"><span class="roz"><span data-t="lr.r2">Tradycyjny chleb 100% żytni razowy</span><br><span class="t-przyp p2" data-t="lr.r2o">Żytni, poziom średni</span></span><span class="szewron" aria-hidden="true">›</span></a>
+      <a class="kom wiersz" href="#"><span class="roz"><span data-t="lr.r3">Chleb nocny bez wyrabiania</span><br><span class="t-przyp p2" data-t="lr.r3o">Drożdżowy, poziom łatwy</span></span><span class="szewron" aria-hidden="true">›</span></a>
+      <a class="kom wiersz" href="#"><span class="roz"><span data-t="lr.r4">Focaccia z solanką i rozmarynem</span><br><span class="t-przyp p2" data-t="lr.r4o">Drożdżowy, poziom średni</span></span><span class="szewron" aria-hidden="true">›</span></a>
+    </div>
+    <span class="przyklad t-przyp" style="align-self:flex-start" data-t="lr.przyklad">nazwy i poziomy: przykład</span>
+  </div>
+  <nav class="zakladki" aria-label="Zakładki"><a href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#" class="wyb" aria-current="page"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<!-- Partia 6 (106): receptura z zaczynem (F-55) — „Do miski” jako dwie grupy z odhaczaniem: zaczyn i ciasto właściwe (dawny podział w AccordionPrefermentSection).
+     Liczby: [PRZYKŁAD] rachunek dla 2 × 850 g, woda 70%, sól 2%, drożdże 0,5%, poolish z 20% mąki przy 100% wody (nie twierdzenie dziedzinowe). -->
+<main data-ekran="receptura-zaczyn">
+  <div class="status"><span>9:15</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.receptury">Receptury</span></a><button aria-label="Więcej działań: receptura" style="margin-left:auto" data-ikona="wiecej"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="kl.nazwaPoolish">Chleb pszenny na poolishu</h1>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.bochenki">Bochenki</span><span class="stepper"><button aria-label="Mniej bochenków">−</button><span class="w t-2">2</span><button aria-label="Więcej bochenków">+</button></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.masaBochenka">Masa bochenka</span><span class="t-nagl" data-g="850"></span></div>
+    </div>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="kl.zaczynGrupa">Zaczyn: poolish</h2>
+    <div class="grupa" style="padding:0 16px">
+      <div class="wagi t-tresc">
+        <div class="waga"><span class="checkbox on" data-ikona="sprawdz"></span><span class="nazwa" data-t="kl.maka">Mąka pszenna typ 750</span><span class="liczba t-nagl" data-g="197"></span></div>
+        <div class="waga"><span class="checkbox on" data-ikona="sprawdz"></span><span class="nazwa" data-t="kl.woda">Woda</span><span class="liczba t-nagl" data-g="197"></span></div>
+      </div>
+    </div>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="kl.doMiskiKrotko">Do miski</h2>
+    <div class="grupa" style="padding:0 16px">
+      <div class="wagi t-tresc">
+        <div class="waga"><span class="checkbox"></span><span class="nazwa" data-t="kl.poolishCaly">Poolish (cały)</span><span class="liczba t-nagl" data-g="394"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa" data-t="kl.maka">Mąka pszenna typ 750</span><span class="liczba t-nagl" data-g="789"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa" data-t="kl.woda">Woda</span><span class="liczba t-nagl" data-g="493"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa" data-t="kl.sol">Sól</span><span class="liczba t-nagl" data-g="20"></span></div>
+        <div class="waga"><span class="checkbox"></span><span class="nazwa" data-t="kl.drozdze">Drożdże</span><span class="liczba t-nagl" data-g="5"></span></div>
+      </div>
+    </div>
+    <div class="info t-obj"><span data-ikona="info"></span><span data-t="kl.hydr70">Hydratacja całkowita 70%: woda z zaczynu jest wliczona.</span></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="kl.ulozPlan">Ułóż plan</button>
+    <div class="akcje"><button class="drugi t-obj" data-t="kl.zapisz">Zapisz jako moją</button><button class="drugi t-obj" data-t="kl.tempWody">Temperatura wody</button></div>
+    <button class="drugi t-obj" style="flex:none" data-t="kl.zmien">Zmień składniki</button>
+  </div>
+</main>
+
+<!-- Partia 6 (106): uzupełniony arkusz „Składniki” (akcja „Zmień składniki”): tryb liczenia, mąki z gotową mieszanką, proporcje, zaczyn.
+     Zastępuje akordeon „Parametry Rzemieślnicze & Mąki” (ArtisanAccordionPro) i przełącznik „Bochenki / Masa mąki” z karty Do miski. -->
+<main data-ekran="skladniki-pelne">
+  <div class="status"><span>9:18</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="kl.recepturaWstecz">Receptura</span></a><button class="t-tresc" style="font-weight:600" data-t="kl.gotowe">Gotowe</button></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="kl.skladniki">Składniki</h1>
+    <h2 class="t-obj p2" data-t="kl.liczeOd">Ilości liczę od</h2>
+    <div class="segment t-obj" role="radiogroup"><span class="wyb" role="radio" aria-checked="true" data-t="kl.odBochenkow">bochenków</span><span role="radio" aria-checked="false" data-t="kl.odMaki">masy mąki</span></div>
+    <h2 class="t-obj p2" data-t="kl.maki">Mąki (razem 100%)</h2>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.makaPszenna">Mąka pszenna typ 750</span><span class="pole t-nagl" style="min-width:84px">80 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.makaZytnia720">Mąka żytnia typ 720</span><span class="pole t-nagl" style="min-width:84px">20 %</span></div>
+      <div class="kom"><span class="roz t-obj" style="color:var(--akcentTekst)"><span data-ikona="plus"></span> <span data-t="kl.dodajMake">Dodaj mąkę</span></span></div>
+      <div class="kom"><span class="roz t-obj" style="color:var(--akcentTekst)" data-t="kl.gotowaMieszanka">Wstaw gotową mieszankę</span><span class="szewron" aria-hidden="true">›</span></div>
+    </div>
+    <h2 class="t-obj p2" data-t="kl.proporcje">Proporcje (procent mąki)</h2>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.woda">Woda</span><span class="pole t-nagl" style="min-width:84px">75 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.zakwasP">Zakwas</span><span class="pole t-nagl" style="min-width:84px">20 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.hydrZakwasu">Hydratacja zakwasu</span><span class="pole t-nagl" style="min-width:84px">100 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.sol">Sól</span><span class="pole t-nagl" style="min-width:84px">2 %</span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.drozdze">Drożdże</span><span class="pole t-nagl" style="min-width:84px">0 %</span></div>
+    </div>
+    <h2 class="t-obj p2" data-t="kl.zaczyn">Zaczyn</h2>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.zaczynRodzaj">Rodzaj</span><span class="wart t-tresc" data-t="kl.bezZaczynu">bez zaczynu</span><span class="szewron" aria-hidden="true">›</span></div>
+    </div>
+    <p class="t-przyp p2" data-t="kl.zaczynOpis">Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.</p>
+  </div>
+</main>
 
 <main data-ekran="receptura">
   <div class="status"><span>9:12</span><span>LTE 88%</span></div>
