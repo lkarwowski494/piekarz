@@ -94,7 +94,7 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 055 AX5 i 320 pt | zrzuty `*-320-*-ax5`: bez ucięć, stos pionowy, wartości pod etykietami |
 | 056 widok skupiony i pasek kciuka | ekran prowadzenia; strefy, ukryte elementy i test w §11b |
 | 057 ≤ 4 akcje | receptura: Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki; reszta w menu „Więcej” (§11b) |
-| 058 element firmowy | spirala koszyka, rozdział 2 |
+| 058 element firmowy | spirala koszyka, rozdział 2; miejsca, etykiety PL/EN i test w §11b |
 | 087 dane zmyślone | start bez danych; przykłady oznaczone ramką „przykład” |
 | 088 emoji, teksty techniczne | ikony symboli, brak kodów w tekstach |
 | 089 jedna nazwa na akcję | rozdział 5 |
@@ -140,6 +140,21 @@ Wzorzec: `ekrany/prowadzenie.html`, stany `w-trakcie`, `koniec-kroku`, `brak-zgo
 Nie ma na tym ekranie: listy wszystkich etapów, kart liczb (`StolnicaSacredCard`), drugiego zegara i numeru etapu, przycisków korekty czasu (`adjust-time-*`), „Start”/„Wstrzymaj” (czas kroku biegnie od planu; BR-HARMO-005: „Zrobione” przed czasem przesuwa dalsze kroki) i akcji destrukcyjnej. „Odrzuć wypiek” staje się „Przerwij wypiek” / “Stop Bake” na ekranie „Plan wypieku”, na dole listy, tekst `blad`, z alertem „Przerwać wypiek? Powiadomienia o kolejnych krokach znikną.” [Wróć do wypieku] [Przerwij] (skutek dla danych jak dziś przy „Odrzuć wypiek”; rola 05/08). Etykieta VoiceOver „Zrobione: {nazwa kroku}” / “Done: {step name}”.
 
 Test akceptacyjny 056: (1) render prowadzenia w aktywnym kroku: element `thumb-bar` zawiera dokładnie 3 przyciski — `next-or-finish-step-btn` („Zrobione”), `step-undo-btn` („Cofnij poprzedni”), `step-why-btn` („Po co ten krok”) — w tej kolejności; (2) `minHeight` ≥ 64 dla `next-or-finish-step-btn` i ≥ 48 dla dwóch pozostałych; (3) `thumb-bar` nie jest potomkiem `ScrollView`; (4) na ekranie prowadzenia brak `discard-bake-btn`, `adjust-time-*`, `stolnica-sacred-card` i listy etapów; „Przerwij wypiek” jest na „Plan wypieku” i otwiera `Alert` z przyciskiem `destructive`; (5) Spirala ma `accessibilityRole="image"` i etykietę według §2; (6) na urządzeniu przy 320 i 390 pt bez przewijania widać tytuł kroku, czas i „Zrobione” w dolnych 30% ekranu (Maestro e2e `assertVisible` bez `scroll`, krok roli 07).
+
+### 058 · Element firmowy: Spirala koszyka (D-045, D-049 zastępują DEC-07 a)
+System zatwierdzony przez właściciela (D-049 „Potwierdzam koszyk spiralny po obejrzeniu porównania”, D-051 E3) ma element firmowy opisany w §2. Komponent `Spirala` (`react-native-svg`, wzór `spirala()` w `ekrany/wspolne.js`) z danymi z planu użytkownika, nie z przykładu:
+
+| Miejsce | Wariant | Dane | Etykieta VoiceOver PL / EN |
+|---|---|---|---|
+| prowadzenie | pełna 150–220 pt | kroki planu, „teraz”, godzina „gotowe” | „Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}. Gotowe {dzień} o {godzina}.” / “Bake plan, step {n} of {N}: {name}, {time} left. Ready {day} at {time}.” |
+| Dziś, trwający wypiek | mała 92 pt, grubości ×1,4 | jw. | jw. |
+| plan przed startem | pełna, wszystkie zwoje cienkie | kroki planu, godzina „gotowe” | „Plan wypieku: {N} kroków. Gotowe {dzień} o {godzina}.” / “Bake plan: {N} steps. Ready {day} at {time}.” |
+| karta zakwasu | jeden cykl, niecałe 2 zwoje | czas od dokarmienia i odstęp (OP-38: 12 h) | „Od dokarmienia minęło {czas} z {odstęp}.” / “{time} of {interval} since feeding.” |
+| ekran startowy, ikona | pusta, bez danych | — | — (grafika ozdobna systemu, poza drzewem dostępności) |
+
+Kolory tylko `ratan`, `ratanSzary`, `nocDane`, `tusz`, `tlo` (pary w `kontrast.md`, ≥ 3:1 we wszystkich 4 wariantach); stany kroku różnią się grubością i wzorem, nie tylko barwą (§2). Etykieta w makiecie (`spirala()`: „Plan: krok …”) jest skrócona; obowiązuje tabela wyżej.
+
+Test akceptacyjny 058: (1) render prowadzenia, „Dziś” z trwającym wypiekiem, planu i karty zakwasu: każdy zawiera `testID="brand-spiral"` z `accessibilityRole="image"` i etykietą według wzoru z tabeli, wypełnioną danymi planu z testu (np. plan 13 kroków, krok 4 → „krok 4 z 13”); (2) test jednostkowy geometrii: liczba odcinków ścieżki = liczba kroków planu, odcinki zrobione mają `strokeWidth` 7, bieżący 9, przyszłe 3, noc w lodówce ma `strokeDasharray`; (3) zmiana planu (dłuższy krok) zmienia długość łuku tego kroku; (4) po zakryciu nazwy i ikony osoba rozpoznaje Piekarza po spirali (krytyka, pytanie 7; przejście poznawcze roli 04 po wdrożeniu).
 
 ## 11a. Zrzuty wzorcowe (linia bazowa audytu SP-13)
 `wzorce-zrzuty/` (150 plików, skala 1×, nazwy `<ekran>-<stan>-<wariant>-<szerokość>-<motyw>[-ax5].png`), generowane `narzedzia/zrzuty.mjs` z `ekrany/*.html`:
