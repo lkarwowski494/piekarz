@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 565 | 565 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 324 | 324 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 330 | 330 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 137 | 137 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1066** | Pokrytych: **1066** | Brakujących: **0**
+Łącznie elementów: **1072** | Pokrytych: **1072** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Godzina podania na stół:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godziny snu:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 766 kolejnych elementów w pełnym wykazie)*
+*(... i 772 kolejnych elementów w pełnym wykazie)*
