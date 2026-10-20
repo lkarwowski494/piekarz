@@ -81,3 +81,47 @@ Wektory: `docs/wzrost/wektory-prosba-o-ocene.json` (W01–W15 dla funkcji, M01�
 
 - `npx expo install expo-store-review` (dla SDK 57 tag `sdk-57` = 57.0.3); po instalacji `npm run check:licenses`, `npm run verify:native` (moduł natywny, nowy build).
 - 07: W TestFlight prośba się nie pokaże („no effect”), więc dowód działania to test Jest wektorów i miejsca wywołania; ręczny test na urządzeniu z buildem deweloperskim (ta sama strona Apple: „When your app calls this method while it’s in development mode, StoreKit always displays the rating and review request view”).
+
+## 2. Kontakt i zgłoszenie problemu (M1-audytor-generalny-083; 11-wzrost-005)
+
+Zależy od **M1-audytor-generalny-012** (strona wsparcia 404, `docs/wydanie/sklep.md`) i od adresu e-mail, którego właściciel jeszcze nie ma. Do tego czasu wiersz się nie renderuje (KM01).
+
+### 2.1 Źródła (odczyt 2026-10-20, surowy tekst przez `curl`)
+
+| Fakt | Źródło | Cytat |
+|---|---|---|
+| okno poczty w aplikacji | docs.expo.dev/versions/v57.0.0/sdk/mail-composer/ | `composeAsync`: „Opens a mail modal for iOS and a mail app intent for Android and fills the fields with provided data. On iOS you will need to be signed into the Mail app.” |
+| dostępność | tamże | `isAvailableAsync()`: „Returns true when the device has a default email setup for sending mail.” |
+| wynik | tamże | „a status field that specifies whether an email was sent, saved, or cancelled” |
+| wersja paczki | `npm view expo-mail-composer dist-tags` | `"sdk-57": "57.0.2"` |
+
+### 2.2 Stała adresu
+
+W `src/lib/links.ts`:
+```ts
+export const SUPPORT_EMAIL = '[DO USTALENIA: adres wsparcia od właściciela]';
+```
+Wiersz pokazuje się tylko wtedy, gdy wartość jest adresem e-mail (`/^[^\s@\[\]]+@[^\s@\[\]]+\.[a-z]{2,}$/i`), nie znacznikiem. *Dlaczego:* test akceptacyjny wymaga „działającego adresu wsparcia”; adres na `site/support.html` nie jest potwierdzony przez właściciela (znalezisko w raporcie roli 11, fix p4). Ten sam adres trafia na stronę wsparcia (012) i do `docs/15-app-store.md` (rola 10).
+
+### 2.3 Czysta funkcja treści
+
+Plik: `src/lib/zgloszenie.ts` (bez importów z React Native):
+```ts
+export interface DaneZgloszenia { wersja: string | null; build: string | null; systemIos: string | null; model: string | null; jezyk: 'pl' | 'en' }
+export function trescZgloszenia(d: DaneZgloszenia): { temat: string; tresc: string };
+```
+- Temat: `Piekarz (Crust) <wersja> — <tekst 04>`; bez wersji bez numeru (K04).
+- Treść: zdanie zachęty do opisu (04), dwie puste linie na tekst użytkownika, separator `---`, potem `Wersja aplikacji: <wersja> (<build>)`, `iOS: <wersja systemu>` i `Telefon: <model>` tylko, gdy model jest znany (K02). Brakujące pola: „nieznana”, nigdy `null`/`undefined` (K03, K04).
+- **Bez danych osobowych i bez treści użytkownika:** żadnych receptur, notatek, historii, identyfikatorów wypieków, adresów ani identyfikatora urządzenia. Użytkownik sam dopisuje, co chce, i widzi całość przed wysłaniem. Dziennik techniczny tylko według NIE-09 (rola 12), osobną decyzją.
+- Źródła pól: `Constants.expoConfig?.version` i `Constants.expoConfig?.ios?.buildNumber` (`expo-constants`, już w zależnościach), `Platform.Version` (iOS). Model telefonu (BR-OPIN-003 go wymienia) wymaga nowej zależności, np. `expo-device`; jej API i licencję 08 sprawdza w dniu wdrożenia `[DO USTALENIA]`; bez niej wiersz „Telefon” się pomija (K02), a 08 zapisuje ER dla roli 01.
+- Wektory: `docs/wzrost/wektory-kontakt.json` (K01–K04 dla funkcji, KM01–KM05 dla miejsca wywołania); sprawdzone na implementacji referencyjnej roli 11 (4/4). Test 08: `src/lib/__tests__/zgloszenie.test.ts`, czerwony przed dodaniem modułu.
+
+### 2.4 Miejsce wywołania
+
+- Ustawienia, `src/components/settings/StudioEcosystemSection.tsx`, w karcie z „Polityka prywatności” i „Oceń w App Store” (ten sam `linkRow`, `minHeight: 44`), `testID="settings-contact-link"`, tekst 04 („Napisz do nas”).
+- Dotknięcie: `await MailComposer.isAvailableAsync()`;
+  - `true` → `MailComposer.composeAsync({ recipients: [SUPPORT_EMAIL], subject: temat, body: tresc, isHtml: false })`. Systemowe okno poczty pokazuje adres, temat i treść do zmiany; wysyła tylko użytkownik (KM02). Wynik `cancelled` albo `saved`: nic się nie dzieje (KM04).
+  - `false` → okno 04 z adresem jako tekstem do zaznaczenia (`<Text selectable>`), bez `Linking.openURL('mailto:…')` i bez sieci (KM03, BR-OPIN-003 „Brak skonfigurowanej poczty”).
+- Aplikacja nie wykonuje żadnego połączenia (NFR-OFF-001, CLAUDE.md; `tests/public-repo.test.ts` pilnuje zakazu `fetch`).
+- Zależność: `npx expo install expo-mail-composer` (tag `sdk-57` = 57.0.2), `npm run check:licenses`, `npm run verify:native`, nowy build.
+- Teksty („Napisz do nas”, temat, zachęta, okno z adresem) przez rolę 04 i `npm run check:i18n`.

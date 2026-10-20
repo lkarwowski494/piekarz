@@ -1,0 +1,52 @@
+{
+  "opis": "Wektory czystej funkcji treści wiadomości do autora (BR-OPIN-003). Specyfikacja: docs/wzrost/petla-opinii.md, sekcja 2. Zadanie M1-audytor-generalny-083 (11-wzrost-005). Teksty stałe (temat, nagłówek, etykiety) są przykładem formatu; brzmienie daje rola 04 przez i18n.",
+  "wektory": [
+    {
+      "id": "K01",
+      "stan": "pełne dane, język PL",
+      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "model": "iPhone 15", "jezyk": "pl" },
+      "oczekiwane": {
+        "temat": "Piekarz (Crust) 1.0.0 — wiadomość do autora",
+        "tresc_zawiera": ["Wersja aplikacji: 1.0.0 (1014)", "iOS: 18.6", "Telefon: iPhone 15"],
+        "tresc_nie_zawiera": ["@", "http", "bake_", "receptur"]
+      }
+    },
+    {
+      "id": "K02",
+      "stan": "brak modelu (bez expo-device): wiersz telefonu pominięty, nie pusty",
+      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "model": null, "jezyk": "pl" },
+      "oczekiwane": {
+        "temat": "Piekarz (Crust) 1.0.0 — wiadomość do autora",
+        "tresc_zawiera": ["Wersja aplikacji: 1.0.0 (1014)", "iOS: 18.6"],
+        "tresc_nie_zawiera": ["Telefon:", "null", "undefined"]
+      }
+    },
+    {
+      "id": "K03",
+      "stan": "brak numeru buildu: wersja bez nawiasu",
+      "we": { "wersja": "1.0.0", "build": null, "systemIos": "18.6", "model": null, "jezyk": "en" },
+      "oczekiwane": {
+        "temat": "Piekarz (Crust) 1.0.0 — message to the developer",
+        "tresc_zawiera": ["App version: 1.0.0", "iOS: 18.6"],
+        "tresc_nie_zawiera": ["()", "null", "undefined"]
+      }
+    },
+    {
+      "id": "K04",
+      "stan": "brak wersji (dane uszkodzone): temat bez numeru, treść z „nieznana”",
+      "we": { "wersja": null, "build": null, "systemIos": "18.6", "model": null, "jezyk": "pl" },
+      "oczekiwane": {
+        "temat": "Piekarz (Crust) — wiadomość do autora",
+        "tresc_zawiera": ["Wersja aplikacji: nieznana", "iOS: 18.6"],
+        "tresc_nie_zawiera": ["null", "undefined"]
+      }
+    }
+  ],
+  "miejsce_wywolania": [
+    { "id": "KM01", "stan": "SUPPORT_EMAIL to znacznik [DO USTALENIA…] (nie adres)", "oczekiwane": "wiersz „Napisz do nas” się nie renderuje; composeAsync i openURL nie są wołane" },
+    { "id": "KM02", "stan": "MailComposer.isAvailableAsync() = true", "oczekiwane": "composeAsync({ recipients: [SUPPORT_EMAIL], subject, body, isHtml: false }); systemowe okno poczty pokazuje adres, temat i treść do zmiany przed wysłaniem; aplikacja niczego nie wysyła sama" },
+    { "id": "KM03", "stan": "MailComposer.isAvailableAsync() = false (brak skonfigurowanej poczty)", "oczekiwane": "okno z adresem SUPPORT_EMAIL jako tekst do zaznaczenia i skopiowania (selectable); bez openURL i bez sieci" },
+    { "id": "KM04", "stan": "użytkownik zamyka okno poczty bez wysyłania (status cancelled)", "oczekiwane": "brak komunikatu, brak ponowienia, brak zapisu treści w aplikacji" },
+    { "id": "KM05", "stan": "dowolny przebieg", "oczekiwane": "zero wywołań fetch/XMLHttpRequest/WebSocket (tests/public-repo.test.ts)" }
+  ]
+}
