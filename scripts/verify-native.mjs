@@ -69,6 +69,16 @@ const forbiddenPermissions = [
 for (const perm of forbiddenPermissions) {
   check(!infoPlist[perm], `app.json zawiera niedozwolone uprawnienie: ${perm}`);
 }
+// 4a. Aparat: F-08 (skan i udostępnianie QR) jest PÓŹNIEJ (D-043), więc 1.0 nie ma opisu aparatu ani wtyczki
+// expo-camera; zdjąć ten zakaz razem z przywróceniem F-08 w src/lib/wejscia-pozniej.ts [M1-audytor-generalny-049]
+check(
+  !infoPlist.NSCameraUsageDescription,
+  'app.json zawiera NSCameraUsageDescription, a F-08 (QR) jest PÓŹNIEJ (D-043): 1.0 nie używa aparatu'
+);
+check(
+  !(appJson.plugins || []).some((p) => p === 'expo-camera' || (Array.isArray(p) && p[0] === 'expo-camera')),
+  'app.json zawiera wtyczkę expo-camera, a F-08 (QR) jest PÓŹNIEJ (D-043)'
+);
 
 // 4b. Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: wtyczka, Time Sensitive, bez trybu tła push
 const plugins = appJson.plugins || [];

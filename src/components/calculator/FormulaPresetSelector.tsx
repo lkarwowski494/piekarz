@@ -10,6 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { StoredRecipe } from '../../data/db';
 import { formatTemperature } from '../../lib/unit-converter';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
@@ -70,15 +71,18 @@ export function FormulaPresetSelector({
           >
             <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
           </Pressable>
-          <Pressable
-            testID="open-scan-qr-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Skanuj QR')}
-            style={styles.headerActionPill}
-            onPress={onOpenScanQr}
-          >
-            <Text style={styles.headerActionPillText}>📷 {t('Skanuj QR')}</Text>
-          </Pressable>
+          {/* F-08 PÓŹNIEJ (D-043): skan QR ukryty, 1.0 nie prosi o aparat [M1-audytor-generalny-049] */}
+          {wejscieWidoczne('qr') && (
+            <Pressable
+              testID="open-scan-qr-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Skanuj QR')}
+              style={styles.headerActionPill}
+              onPress={onOpenScanQr}
+            >
+              <Text style={styles.headerActionPillText}>📷 {t('Skanuj QR')}</Text>
+            </Pressable>
+          )}
           {/* Druk tylko z akcji Kalkulatora: „Drukuj” (BR-DRUK-001) [M1-audytor-generalny-032] */}
         </View>
       </View>

@@ -46,9 +46,23 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
 
   it('every LATER entry is switched off in one place', () => {
     // F-50 druk PÓŹNIEJ (D-043) [M1-audytor-generalny-072]
-    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'rodzina-apps4craft'];
+    // F-08 skan i udostępnianie QR PÓŹNIEJ (D-043) [M1-audytor-generalny-049]
+    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'qr', 'rodzina-apps4craft'];
     expect(Object.keys(WEJSCIA_WIDOCZNE).sort()).toEqual([...all].sort());
-    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false]);
+    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false, false]);
+  });
+
+  it('Calculator has no QR scan and no QR sharing entry (F-08, D-043); JSON import stays', async () => {
+    await act(async () => {
+      tree = renderer.create(<CalculatorScreen />);
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    const ids = testIds(tree!.root);
+    expect(ids).toContain('open-import-recipe-btn');
+    expect(ids).toContain('import-recipe-json-btn');
+    expect(ids.filter((id) => /qr|scan/i.test(id) && id.endsWith('-btn'))).toEqual([]);
   });
 
   it('Calculator has no print entry: recipe card PDF and jar label are outside 1.0 (F-50, D-043)', async () => {

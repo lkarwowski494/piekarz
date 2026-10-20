@@ -1,6 +1,5 @@
 {
   "ios": {
-    "CFBundleDisplayName": "Piekarz",
-    "NSCameraUsageDescription": "Piekarz wymaga dostępu do aparatu, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline."
+    "CFBundleDisplayName": "Piekarz"
   }
 }

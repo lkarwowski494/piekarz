@@ -1,16 +1,26 @@
 // ============================================================================
-// Piekarz — teksty zgód systemowych w PL i EN (M1-audytor-generalny-029, F-08)
-// Expo: "locales" w app.json + plik języka z kluczami usage-description w "ios"
+// Piekarz — teksty zgód systemowych i nazwa aplikacji w każdym języku (M1-audytor-generalny-029, -049)
+// Expo: "locales" w app.json + plik języka z kluczami w "ios"
 // (docs.expo.dev/guides/localization, „Translating app metadata”, odczyt 2026-10-19).
+// Od 2026-10-20 (D-043): F-08 (skan i udostępnianie QR) jest PÓŹNIEJ, więc 1.0 nie prosi o aparat;
+// opis aparatu, wtyczka expo-camera i CAMERA w Androidzie znikają. Kod QR i pakiet zostają na później.
 // ============================================================================
 
-import { existsSync, readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ACTIVE_LANGS } from '../src/lib/i18n';
+import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 
 const root = join(__dirname, '..');
-const expo = JSON.parse(readFileSync(join(root, 'app.json'), 'utf8')).expo;
-const usageKeys = Object.keys(expo.ios?.infoPlist ?? {}).filter((k) => k.endsWith('UsageDescription'));
+const appJson = JSON.parse(readFileSync(join(root, 'app.json'), 'utf8'));
+const expo = appJson.expo;
+const infoPlist: Record<string, unknown> = expo.ios?.infoPlist ?? {};
+const usageKeys = Object.keys(infoPlist).filter((k) => k.endsWith('UsageDescription'));
+
+/** Uprawnienia z opisem (*UsageDescription) używane w 1.0: żadne (powiadomienia lokalne nie mają opisu w Info.plist). */
+const UZYWANE_W_1_0: readonly string[] = [];
 
 function localeIos(lang: string): Record<string, string> {
   const rel: string | undefined = expo.locales?.[lang];
@@ -19,63 +29,73 @@ function localeIos(lang: string): Record<string, string> {
   return existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')).ios ?? {} : {};
 }
 
-describe('zgody systemowe w PL i EN (M1-audytor-generalny-029)', () => {
-  it('app.json ma opis zgody na aparat i mieszane lokalizacje', () => {
-    expect(usageKeys).toContain('NSCameraUsageDescription');
-    expect(expo.ios.infoPlist.CFBundleAllowMixedLocalizations).toBe(true);
+describe('zgody systemowe tylko dla funkcji 1.0 (M1-audytor-generalny-029, -049)', () => {
+  it('app.json: mieszane lokalizacje włączone, opisy zgód tylko dla uprawnień używanych w 1.0', () => {
+    expect(infoPlist.CFBundleAllowMixedLocalizations).toBe(true);
+    expect(usageKeys.filter((k) => !UZYWANE_W_1_0.includes(k))).toEqual([]);
+    expect(infoPlist.NSCameraUsageDescription).toBeUndefined();
+    expect(infoPlist.NSMicrophoneUsageDescription).toBeUndefined();
   });
 
-  it.each(['pl', 'en'])('plik języka %s ma każdy opis zgody', (lang) => {
+  it.each([...ACTIVE_LANGS])('plik języka %s: bez opisu aparatu i mikrofonu, każdy opis używanego uprawnienia jest', (lang) => {
     const ios = localeIos(lang);
-    for (const key of usageKeys) {
-      expect(typeof ios[key]).toBe('string');
-      expect(ios[key].trim().length).toBeGreaterThan(20);
-    }
+    const opisy = Object.keys(ios).filter((k) => k.endsWith('UsageDescription'));
+    expect(opisy.filter((k) => !UZYWANE_W_1_0.includes(k))).toEqual([]);
+    expect(ios.NSCameraUsageDescription).toBeUndefined();
+    expect(ios.NSMicrophoneUsageDescription).toBeUndefined();
+    for (const key of UZYWANE_W_1_0) expect(typeof ios[key]).toBe('string');
   });
 
-  it('opis po angielsku nie jest kopią polskiego', () => {
-    const pl = localeIos('pl');
-    const en = localeIos('en');
-    for (const key of usageKeys) {
-      expect(en[key]).not.toBe(pl[key]);
-      expect(en[key]).toMatch(/camera|QR/i);
-    }
+  it('bez wtyczki expo-camera i bez uprawnień aparatu i mikrofonu w Androidzie', () => {
+    const nazwy = (expo.plugins as unknown[]).map((p) => (Array.isArray(p) ? p[0] : p));
+    expect(nazwy).not.toContain('expo-camera');
+    const android: string[] = expo.android?.permissions ?? [];
+    expect(android.filter((p) => /CAMERA|RECORD_AUDIO/.test(p))).toEqual([]);
+  });
+
+  it('F-08 PÓŹNIEJ: wejścia skanu i udostępniania QR ukryte w jednym miejscu', () => {
+    expect(wejscieWidoczne('qr')).toBe(false);
   });
 });
 
-// Opisy uprawnień i nazwa w każdym aktywnym języku; brak nieużywanego opisu mikrofonu
-// [M1-audytor-generalny-049; 09-lokalizacja-004, 10-wydanie-007]. expo-camera 57.0.6
-// (node_modules/expo-camera/plugin/build/withCamera.js): microphonePermission: false usuwa
-// NSMicrophoneUsageDescription, recordAudioAndroid: false pomija RECORD_AUDIO.
-describe('Info.plist w każdym aktywnym języku (049)', () => {
-  const plFile = localeIos('pl');
-  const cameraPlugin = (expo.plugins as unknown[]).find(
-    (p): p is [string, Record<string, unknown>] => Array.isArray(p) && p[0] === 'expo-camera'
-  );
-
-  it.each([...ACTIVE_LANGS])('%s: plik języka w app.json z opisem aparatu i nazwą aplikacji', (lang) => {
+describe('nazwa aplikacji w każdym aktywnym języku zostaje (049)', () => {
+  it.each([...ACTIVE_LANGS])('%s: plik języka w app.json z nazwą aplikacji', (lang) => {
     expect(expo.locales?.[lang]).toBe(`./languages/${lang}.json`);
     const ios = localeIos(lang);
-    expect(typeof ios.NSCameraUsageDescription).toBe('string');
-    expect(ios.NSCameraUsageDescription.trim().length).toBeGreaterThan(20);
     expect(typeof ios.CFBundleDisplayName).toBe('string');
     expect(ios.CFBundleDisplayName.trim().length).toBeGreaterThan(0);
   });
 
   it('nazwa PL to „Piekarz”', () => {
-    expect(plFile.CFBundleDisplayName).toBe('Piekarz');
+    expect(localeIos('pl').CFBundleDisplayName).toBe('Piekarz');
+  });
+});
+
+describe('verify-native zabrania opisu aparatu, dopóki F-08 jest PÓŹNIEJ (049)', () => {
+  let tmp: string;
+  beforeAll(() => {
+    tmp = mkdtempSync(join(tmpdir(), 'piekarz-native-049-'));
+  });
+  afterAll(() => rmSync(tmp, { recursive: true, force: true }));
+
+  const run = (mutate: (cfg: { expo: Record<string, any> }) => void) => {
+    const cfg = JSON.parse(JSON.stringify(appJson));
+    mutate(cfg);
+    const p = join(tmp, `app-${Math.random().toString(36).slice(2)}.json`);
+    writeFileSync(p, JSON.stringify(cfg), 'utf8');
+    const r = spawnSync(process.execPath, [join(root, 'scripts', 'verify-native.mjs'), '--app', p], { cwd: root, encoding: 'utf8' });
+    return { kod: r.status, wynik: `${r.stdout}${r.stderr}` };
+  };
+
+  it('obecny app.json: kod 0', () => {
+    expect(run(() => undefined).kod).toBe(0);
   });
 
-  it('opis aparatu w app.json i we wtyczce expo-camera jest taki sam jak w pliku PL', () => {
-    expect(expo.ios.infoPlist.NSCameraUsageDescription).toBe(plFile.NSCameraUsageDescription);
-    expect(cameraPlugin?.[1].cameraPermission).toBe(plFile.NSCameraUsageDescription);
-  });
-
-  it('bez opisu mikrofonu: wtyczka go wyłącza, app.json i pliki języków go nie mają', () => {
-    expect(cameraPlugin?.[1].microphonePermission).toBe(false);
-    expect(cameraPlugin?.[1].recordAudioAndroid).toBe(false);
-    expect(expo.ios.infoPlist.NSMicrophoneUsageDescription).toBeUndefined();
-    expect(expo.android.permissions).not.toContain('RECORD_AUDIO');
-    for (const lang of ACTIVE_LANGS) expect(localeIos(lang).NSMicrophoneUsageDescription).toBeUndefined();
+  it('NSCameraUsageDescription w app.json: kod 1 z komunikatem', () => {
+    const r = run((c) => {
+      c.expo.ios.infoPlist.NSCameraUsageDescription = 'Aparat do skanu kodu QR receptury.';
+    });
+    expect(r.kod).toBe(1);
+    expect(r.wynik).toMatch(/NSCameraUsageDescription/);
   });
 });

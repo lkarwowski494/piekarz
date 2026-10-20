@@ -60,13 +60,16 @@ export function CalculatorActionButtons({
         <Text style={styles.cloneRecipeBtnText}>📦 {t('Eksportuj JSON')}</Text>
       </Pressable>
 
-      <Pressable
-        testID="share-recipe-qr-btn"
-        style={styles.cloneRecipeBtn}
-        onPress={onShareQr}
-      >
-        <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
-      </Pressable>
+      {/* F-08 PÓŹNIEJ (D-043): udostępnianie kodu QR ukryte, kod zostaje [M1-audytor-generalny-049] */}
+      {wejscieWidoczne('qr') && (
+        <Pressable
+          testID="share-recipe-qr-btn"
+          style={styles.cloneRecipeBtn}
+          onPress={onShareQr}
+        >
+          <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
+        </Pressable>
+      )}
 
       {/* Jedyne wejście druku: karta A4 albo etykieta słoika (BR-DRUK-001) [M1-audytor-generalny-032];
           F-50 PÓŹNIEJ (D-043): wejście ukryte, kod druku zostaje [M1-audytor-generalny-072] */}
