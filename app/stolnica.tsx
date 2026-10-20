@@ -29,6 +29,7 @@ import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
 import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
+import { poCoTenKrok } from '../src/core/po-co-ten-krok';
 import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
@@ -41,6 +42,7 @@ import { StolnicaKeepAwake } from '../src/components/stolnica/StolnicaKeepAwake'
 import { PasekKciuka } from '../src/components/stolnica/PasekKciuka';
 import { PlanWypiekuArkusz } from '../src/components/stolnica/PlanWypiekuArkusz';
 import { PasekCofnij } from '../src/components/PasekCofnij';
+import { PoCoTenKrokArkusz } from '../src/components/stolnica/PoCoTenKrokArkusz';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { SpiralaWypieku } from '../src/components/Spirala';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
@@ -55,6 +57,7 @@ export default function StolnicaScreen() {
   const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
   const [planOpen, setPlanOpen] = useState<boolean>(false);
+  const [poCoOpen, setPoCoOpen] = useState<boolean>(false);
 
   const handleSelectVessel = (vessel: BakingVessel) => {
     void setBakingVessel(vessel);
@@ -206,6 +209,8 @@ export default function StolnicaScreen() {
 
   const currentStep: SessionStep | undefined = steps[currentStepIdx];
   const aktywny = isActive && !!currentStep;
+  // „Po co ten krok” z treści roli 06; krok bez źródła (KRO-POC-900) ma przycisk nieaktywny (100)
+  const poCo = currentStep ? poCoTenKrok(currentStep, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined) : null;
 
   // Start new bake from idle: domyślny chleb pszenny z planu liczonego od teraz [M1-audytor-generalny-030]
   const handleStartBake = () => {
@@ -384,10 +389,13 @@ export default function StolnicaScreen() {
             onZrobione={handleNextStep}
             onCofnij={handleUndo}
             cofnijDostepne={cofnijDostepne}
-            onPoCo={() => undefined}
-            poCoDostepne={false}
+            onPoCo={() => setPoCoOpen(true)}
+            poCoDostepne={poCo !== null}
           />
         </BlokadaFunkcji>
+      )}
+      {aktywny && (
+        <PoCoTenKrokArkusz zdania={poCoOpen ? poCo : null} nazwaKroku={t(currentStep.name)} onClose={() => setPoCoOpen(false)} />
       )}
       {aktywny && (
         <PlanWypiekuArkusz

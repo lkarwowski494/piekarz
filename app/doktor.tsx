@@ -29,6 +29,7 @@ import {
 import { KitchenTestsGuideSection } from '../src/components/doktor/KitchenTestsGuideSection';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
+import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 
 export default function DoctorScreen() {
   const router = useRouter();
@@ -98,6 +99,8 @@ export default function DoctorScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Doktor Chleba”: app/_layout.tsx; Akademia jako pierwszy wiersz treści (dawniej w nagłówku ekranu) */}
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        {/* Akademia bez wejścia w 1.0 (wejścia-później 'akademia', F-44) [M1-audytor-generalny-100]; kod i testy modułu zostają */}
+        {wejscieWidoczne('akademia') && (
         <Pressable
           accessibilityRole="button"
           testID="open-academy-btn"
@@ -107,8 +110,10 @@ export default function DoctorScreen() {
         >
           <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
         </Pressable>
+        )}
         <BlokadaFunkcji {...blokada('doktor')}>
         {/* Bread Academy Promotion Banner */}
+        {wejscieWidoczne('akademia') && (
         <Pressable
           accessibilityRole="button"
           testID="open-academy-banner"
@@ -123,6 +128,7 @@ export default function DoctorScreen() {
           </View>
           <Text style={styles.academyBannerArrow}>→</Text>
         </Pressable>
+        )}
 
         {/* Diagnosis Result Card (Primary Focus) */}
         <DiagnosisResultCard

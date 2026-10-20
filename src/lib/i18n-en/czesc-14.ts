@@ -8,4 +8,38 @@ export const EN_14: Record<string, string> = {
   // Pasek „Cofnij” po „Cofnij poprzedni” (design-spec §5, stan po-cofnieciu) [M1-audytor-generalny-102]
   'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': 'Undid “{krok}.” Notifications are back to their previous times.',
   'Przywróć': 'Restore',
+
+  // „Po co ten krok”: docs/tresci/en/po-co-ten-krok.md (KRO-POC-001…016) [M1-audytor-generalny-100]
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.':
+    'The yeast and bacteria in a starter need regular feeding with fresh flour and water to survive and grow.',
+  'Według King Arthur Baking zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.':
+    'According to King Arthur Baking, a starter is ready for baking when it doubles in volume within 6–8 hours of feeding and is full of bubbles.',
+  'Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.':
+    'According to King Arthur Baking, resting flour and water before adding salt lets the flour absorb the water, starts gluten formation and makes kneading easier.',
+  'Według King Arthur Baking wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.':
+    'According to King Arthur Baking, kneading develops the gluten, so the dough traps the gas made by the yeast and rises.',
+  'Według King Arthur Baking w czasie fermentacji powstają kwasy, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.':
+    'According to King Arthur Baking, fermentation produces acids, which give the dough flavour and strength, and carbon dioxide, which gives it volume and lightness.',
+  'Składanie pomaga rozwinąć sieć glutenową i wzmacnia ciasto.': 'Folding helps develop the gluten network and strengthens the dough.',
+  'Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt bochenka, jeszcze bez dopracowania.':
+    'According to King Arthur Baking, pre-shaping gives the dough the basic shape of the loaf without refining it yet.',
+  'Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.':
+    'According to King Arthur Baking, every time you handle dough the gluten tightens, and a rest relaxes it, so final shaping is easier.',
+  'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'According to King Arthur Baking, the basket supports and shapes the rising loaf.',
+  'Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.': "According to King Arthur Baking, this is the dough's final rise before baking.",
+  'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.':
+    'The cold of the fridge slows fermentation, and according to the same source slower fermentation deepens the flavour.',
+  'Według King Arthur Baking garnek nagrzewa się pusty, żeby po włożeniu ciasta powstała w nim para.':
+    'According to King Arthur Baking, the pot is preheated empty so that steam forms inside it when the dough goes in.',
+  'Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.':
+    'According to King Arthur Baking, the slash gives the loaf a place to expand, so the bread keeps its shape and does not burst at the side.',
+  'Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.':
+    'According to King Arthur Baking, the steam under the lid keeps the crust soft longer, so the loaf can keep rising early in the bake.',
+  'Według King Arthur Baking bez pokrywki chleb piecze się dalej, aż w pełni się zrumieni.':
+    'According to King Arthur Baking, without the lid the bread keeps baking until it is fully browned.',
+  'Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić.':
+    'According to King Arthur Baking, bread releases moisture as it cools, and the crumb needs that time to set.',
+  'Pokrojony za wcześnie może być gumowaty.': 'Sliced too early, it can be gummy.',
+  'Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.':
+    'Moist, dense breads with a high share of rye often benefit from cooling for up to 24 hours.',
 };

@@ -610,6 +610,11 @@
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
     ]
   },
+  "Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: final_proof)"
+    ]
+  },
   "Ciasteczka": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
@@ -1109,6 +1114,11 @@
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (label)",
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: kod)"
     ]
   },
   "Drożdże instant (suche)": {
@@ -3567,7 +3577,8 @@
   },
   "Po co ten krok": {
     "gdzie": [
-      "src/components/stolnica/PasekKciuka.tsx (tekst)"
+      "src/components/stolnica/PasekKciuka.tsx (tekst)",
+      "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst w JSX)"
     ]
   },
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
@@ -3676,6 +3687,11 @@
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
       "src/lib/schedule-formatter.ts (kod)"
+    ]
+  },
+  "Pokrojony za wcześnie może być gumowaty.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: cool)"
     ]
   },
   "Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu (Oven Spring).": {
@@ -4560,6 +4576,11 @@
   "Składania": {
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Składanie pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: bulk_ferment)"
     ]
   },
   "Składanie rozciągane (Stretch & Fold)": {
@@ -5565,6 +5586,16 @@
       "src/core/starter-log.ts (dane: day6_plus)"
     ]
   },
+  "Według King Arthur Baking bez pokrywki chleb piecze się dalej, aż w pełni się zrumieni.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: lid_off)"
+    ]
+  },
+  "Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: kod)"
+    ]
+  },
   "Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: flour)"
@@ -5575,14 +5606,49 @@
       "src/core/starter-doctor.ts (dane: kod)"
     ]
   },
+  "Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt bochenka, jeszcze bez dopracowania.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: pre_shape)"
+    ]
+  },
+  "Według King Arthur Baking garnek nagrzewa się pusty, żeby po włożeniu ciasta powstała w nim para.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: preheat_oven)"
+    ]
+  },
+  "Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: bench_rest)"
+    ]
+  },
+  "Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: final_shape)"
+    ]
+  },
   "Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: start)"
     ]
   },
+  "Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: bake)"
+    ]
+  },
+  "Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: autolyse)"
+    ]
+  },
   "Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: lid_on)"
     ]
   },
   "Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.": {
@@ -5600,10 +5666,20 @@
       "src/core/starter-log.ts (dane: ready)"
     ]
   },
+  "Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: final_proof)"
+    ]
+  },
   "Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)",
       "src/core/rye-stages.ts (dane: instructionsPl)"
+    ]
+  },
+  "Według King Arthur Baking w czasie fermentacji powstają kwasy, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: bulk_ferment)"
     ]
   },
   "Według King Arthur Baking w dniu 3 zwykle widać pęcherzyki, świeży owocowy zapach i wzrost objętości.": {
@@ -5626,9 +5702,19 @@
       "src/core/starter-log.ts (dane: day1)"
     ]
   },
+  "Według King Arthur Baking wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: mix)"
+    ]
+  },
   "Według King Arthur Baking zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.": {
     "gdzie": [
       "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: kod)"
     ]
   },
   "Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej.": {
@@ -5684,6 +5770,11 @@
   "Wielkie dziury pod skórką i zbity dół (Jaskinie)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wilgotnym, zwartym chlebom z dużym udziałem żyta często służy studzenie nawet do 24 godzin.": {
+    "gdzie": [
+      "src/core/po-co-ten-krok.ts (dane: rye_cool)"
     ]
   },
   "Witaj w Piekarzu": {

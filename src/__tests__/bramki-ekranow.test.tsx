@@ -176,15 +176,15 @@ describe('Without an entitlement every screen opens the purchase screen except h
     act(() => tree.unmount());
   });
 
-  it('Doktor: diagnosis and the academy open the purchase screen', async () => {
+  // 100: Akademia nie ma wejścia w 1.0 (wejścia-później 'akademia'), więc bramka zostaje tylko na diagnozie
+  it('Doktor: diagnosis opens the purchase screen; the academy has no entry in 1.0', async () => {
     const tree = await render(<DoctorScreen />);
     await press(tree, 'blokada-doktor');
     expect(paywallShown(tree.root)).toBe(true);
     await act(async () => {
       tree.root.findByType(PaywallModal).props.onClose();
     });
-    await press(tree, 'open-academy-btn');
-    expect(paywallShown(tree.root)).toBe(true);
+    expect(tree.root.findAllByProps({ testID: 'open-academy-btn' })).toHaveLength(0);
     act(() => tree.unmount());
   });
 });
