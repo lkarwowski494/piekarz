@@ -1,8 +1,8 @@
 /**
- * Import receptury bez uprawnienia nie zapisuje niczego przed decyzją użytkownika (MON-06)
- * [M1-audytor-generalny-026; 02-monetyzacja-007]. Import i skan QR są płatne (DEC-01.podzial):
- * wejście jest za strażnikiem, a gdy uprawnienie zniknie przy otwartym imporcie (zwrot, koniec
- * subskrypcji), potwierdzenie otwiera tylko ekran zakupu. Drogi: wklejony tekst, schowek (plik / JSON), kod QR.
+ * Import receptury nie zapisuje niczego przed decyzją użytkownika (MON-06) i działa zawsze, także bez
+ * uprawnienia (D-039, zmiana 2026-10-20) [M1-audytor-generalny-026; 02-monetyzacja-007]: gdy uprawnienie
+ * zniknie przy otwartym imporcie (zwrot, koniec subskrypcji), potwierdzenie zapisuje recepturę bez ekranu
+ * zakupu. Drogi: wklejony tekst, schowek (plik / JSON), kod QR (wejście skanu poza 1.0, kod zostaje).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -60,30 +60,30 @@ async function utrataUprawnienia(): Promise<void> {
   await flush();
 }
 
-describe('ImportRecipeModal asks the guard before saving (026)', () => {
-  it('a refusing guard means no save, no success callback and the import window closes', async () => {
+describe('ImportRecipeModal saves only after the user confirms (026, D-039)', () => {
+  it('nothing is saved while the window is open; confirming saves once and closes the window', async () => {
     _resetMemStore();
     await initDatabase();
     const onClose = jest.fn();
     const onImportSuccess = jest.fn();
-    const canSave = jest.fn(() => false);
     let tree: renderer.ReactTestRenderer | null = null;
-    await act(async () => {
-      tree = renderer.create(<ImportRecipeModal visible={true} onClose={onClose} onImportSuccess={onImportSuccess} canSave={canSave} initialInput={payload} />);
-    });
     const before = (await getRecipes()).length;
+    await act(async () => {
+      tree = renderer.create(<ImportRecipeModal visible={true} onClose={onClose} onImportSuccess={onImportSuccess} initialInput={payload} />);
+    });
+    expect((await getRecipes()).length).toBe(before);
+    expect(onImportSuccess).not.toHaveBeenCalled();
     await act(async () => {
       await tree!.root.findByProps({ testID: 'confirm-import-btn' }).props.onPress();
     });
-    expect(canSave).toHaveBeenCalledTimes(1);
-    expect((await getRecipes()).length).toBe(before);
-    expect(onImportSuccess).not.toHaveBeenCalled();
+    expect((await getRecipes()).length).toBe(before + 1);
+    expect(onImportSuccess).toHaveBeenCalledTimes(1);
     expect(onClose).toHaveBeenCalledTimes(1);
     act(() => tree!.unmount());
   });
 });
 
-describe('Import without an entitlement saves nothing before the user decides (026)', () => {
+describe('Import without an entitlement works and saves only after the user confirms (026, D-039)', () => {
   let alert: jest.SpyInstance;
   let tree: renderer.ReactTestRenderer;
   beforeEach(async () => {
@@ -105,50 +105,50 @@ describe('Import without an entitlement saves nothing before the user decides (0
     alert.mockRestore();
   });
 
-  it('pasted text: confirming the import only opens the purchase screen; the recipes table is unchanged', async () => {
+  it('pasted text: after the entitlement ends, confirming saves the recipe once, without the purchase screen', async () => {
     await press(tree, 'open-import-recipe-btn');
     await act(async () => {
       tree.root.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
     });
     await utrataUprawnienia();
     const before = (await getRecipes()).length;
-    await press(tree, 'confirm-import-btn');
-    expect((await getRecipes()).length).toBe(before);
     expect((await getRecipes()).some((r) => r.name === 'Chleb od sąsiada')).toBe(false);
-    expect(paywallShown(tree.root)).toBe(true);
-    expect(alert).not.toHaveBeenCalled();
+    await press(tree, 'confirm-import-btn');
+    expect((await getRecipes()).length).toBe(before + 1);
+    expect((await getRecipes()).some((r) => r.name === 'Chleb od sąsiada')).toBe(true);
+    expect(paywallShown(tree.root)).toBe(false);
+    expect(alert).toHaveBeenCalledTimes(1);
   });
 
-  it('clipboard (JSON file content): nothing is saved and no "imported" message appears', async () => {
+  it('clipboard (JSON file content): nothing is saved before confirming, then once, without the purchase screen', async () => {
     await press(tree, 'import-recipe-json-btn');
     (Clipboard.getStringAsync as jest.Mock).mockResolvedValueOnce(payload);
     await press(tree, 'paste-clipboard-btn');
     await utrataUprawnienia();
     const before = (await getRecipes()).length;
-    await press(tree, 'confirm-import-btn');
-    expect((await getRecipes()).length).toBe(before);
-    expect(paywallShown(tree.root)).toBe(true);
     expect(alert).not.toHaveBeenCalled();
+    await press(tree, 'confirm-import-btn');
+    expect((await getRecipes()).length).toBe(before + 1);
+    expect(paywallShown(tree.root)).toBe(false);
+    expect(alert).toHaveBeenCalledTimes(1);
   });
 
-  it('QR code scanned after the entitlement ends: the purchase screen opens and nothing is saved', async () => {
-    await press(tree, 'open-scan-qr-btn');
+  it('QR code read after the entitlement ends: the import window opens without the purchase screen; saved only after confirming', async () => {
     await utrataUprawnienia();
     const before = (await getRecipes()).length;
     await act(async () => {
       tree.root.findByType(QrScannerModal).props.onScanRecipe(payload);
     });
     await flush();
-    const confirm = tree.root.findAll((n) => n.props?.testID === 'confirm-import-btn' && typeof n.props.onPress === 'function');
-    if (confirm.length > 0) {
-      await act(async () => {
-        await confirm[confirm.length - 1].props.onPress();
-      });
-      await flush();
-    }
+    expect(paywallShown(tree.root)).toBe(false);
+    expect(tree.root.findByType(ImportRecipeModal).props.visible).toBe(true);
     expect((await getRecipes()).length).toBe(before);
-    expect(paywallShown(tree.root)).toBe(true);
-    expect(alert).not.toHaveBeenCalled();
+    await act(async () => {
+      await tree.root.findByType(ImportRecipeModal).findByProps({ testID: 'confirm-import-btn' }).props.onPress();
+    });
+    await flush();
+    expect((await getRecipes()).length).toBe(before + 1);
+    expect(paywallShown(tree.root)).toBe(false);
   });
 
   it('with an entitlement the import saves the recipe once (control)', async () => {

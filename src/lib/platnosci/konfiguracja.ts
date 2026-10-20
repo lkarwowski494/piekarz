@@ -39,8 +39,10 @@ export type Funkcja =
 /**
  * Jedyna lista funkcji dostępnych bez subskrypcji, oferty wprowadzającej i zakupu dożywotniego
  * (decyzja właściciela 2026-10-19, DEC-01.podzial). „dane” = odczyt, eksport i usunięcie własnych danych.
+ * „import” = import kopii i receptury z pliku danych, zawsze, także po okresie próbnym bez zakupu (D-039)
+ * [M1-audytor-generalny-026].
  */
-export const BEZ_UPRAWNIENIA: readonly Funkcja[] = ['historia', 'dane'];
+export const BEZ_UPRAWNIENIA: readonly Funkcja[] = ['historia', 'dane', 'import'];
 
 /** Klucz w app_settings: pamięć ostatniego udanego odczytu sklepu (nie jest w kopii zapasowej). */
 export const KLUCZ_PAMIECI = 'platnosci_pamiec';

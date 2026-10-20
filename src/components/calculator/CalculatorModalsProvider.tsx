@@ -35,7 +35,6 @@ export interface CalculatorModalsProviderProps {
   importInitialInput: string;
   onCloseImport: () => void;
   onImportSuccess: (imported: StoredRecipe) => void;
-  canSaveImport: () => boolean;
   isShareQrOpen: boolean;
   currentRecipeForShare: StoredRecipe | null;
   onCloseShareQr: () => void;
@@ -64,7 +63,6 @@ export function CalculatorModalsProvider({
   importInitialInput,
   onCloseImport,
   onImportSuccess,
-  canSaveImport,
   isShareQrOpen,
   currentRecipeForShare,
   onCloseShareQr,
@@ -106,7 +104,6 @@ export function CalculatorModalsProvider({
         initialInput={importInitialInput}
         onClose={onCloseImport}
         onImportSuccess={onImportSuccess}
-        canSave={canSaveImport}
       />
 
       <ShareRecipeQrModal

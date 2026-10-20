@@ -70,12 +70,14 @@ async function press(tree: renderer.ReactTestRenderer, testID: string): Promise<
 }
 
 describe('The list of functions available without an entitlement is one configuration (027)', () => {
-  it('today: only history and own data; everything else needs the App Store entitlement', () => {
-    expect([...BEZ_UPRAWNIENIA]).toEqual(['historia', 'dane']);
-    const platne: Funkcja[] = ['kalkulator', 'zakwas', 'stolnica', 'harmonogram', 'doktor', 'spizarnia', 'receptury', 'import', 'udostepnianie'];
+  // Import kopii i receptury z pliku działa zawsze (D-039) [M1-audytor-generalny-026]
+  it('today: only history, own data and import; everything else needs the App Store entitlement', () => {
+    expect([...BEZ_UPRAWNIENIA]).toEqual(['historia', 'dane', 'import']);
+    const platne: Funkcja[] = ['kalkulator', 'zakwas', 'stolnica', 'harmonogram', 'doktor', 'spizarnia', 'receptury', 'udostepnianie'];
     for (const f of platne) expect({ f, bez: dozwolona(f, false), z: dozwolona(f, true) }).toEqual({ f, bez: false, z: true });
     expect(dozwolona('historia', false)).toBe(true);
     expect(dozwolona('dane', false)).toBe(true);
+    expect(dozwolona('import', false)).toBe(true);
     expect(dozwolona('kalkulator', false, ['kalkulator'])).toBe(true);
   });
 });
@@ -87,7 +89,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     await initDatabase();
   });
 
-  it('Kalkulator: calculator, save, import, QR and pantry open the purchase screen; export and copy stay free', async () => {
+  it('Kalkulator: calculator, save, QR sharing and pantry open the purchase screen; import, export and copy stay free (D-039)', async () => {
     const tree = await render(<CalculatorScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toContain('blokada-kalkulator');
     expect(locks(tree.root)[0].props.accessibilityLabel).toBe(t('Odblokuj pełny dostęp'));
@@ -95,7 +97,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
       locks(tree.root).find((n) => n.props.testID === 'blokada-kalkulator')!.props.onPress();
     });
     expect(paywallShown(tree.root)).toBe(true);
-    for (const id of ['save-custom-recipe-btn', 'open-import-recipe-btn', 'open-scan-qr-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'import-recipe-json-btn', 'open-volume-converter-btn', 'start-bake-btn', 'print-menu-btn']) {
+    for (const id of ['save-custom-recipe-btn', 'share-recipe-qr-btn', 'open-flour-inventory-btn', 'open-volume-converter-btn', 'start-bake-btn', 'print-menu-btn']) {
       await act(async () => {
         tree.root.findByType(PaywallModal).props.onClose();
       });
@@ -107,6 +109,10 @@ describe('Without an entitlement every screen opens the purchase screen except h
     });
     await press(tree, 'copy-recipe-btn');
     expect(paywallShown(tree.root)).toBe(false);
+    for (const id of ['open-import-recipe-btn', 'import-recipe-json-btn']) {
+      await press(tree, id);
+      expect({ id, paywall: paywallShown(tree.root) }).toEqual({ id, paywall: false });
+    }
     act(() => tree.unmount());
   });
 

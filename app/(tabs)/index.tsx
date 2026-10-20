@@ -216,20 +216,16 @@ export default function CalculatorScreen() {
     return MASTER_RECIPES.find((p) => p.id === selectedPresetId);
   }, [selectedPresetId]);
 
+  // Import działa zawsze (D-039): bez uprawnienia receptura trafia na listę, bez ekranu zakupu [M1-audytor-generalny-026]
   const handleImportSuccess = (imported: StoredRecipe) => {
-    requireActionAccess(() => {
-      applyFormula(imported.id, imported.name, imported.formula, imported.targetDDT);
-      loadRecipesFromStore();
-    });
+    if (moze('kalkulator')) applyFormula(imported.id, imported.name, imported.formula, imported.targetDDT);
+    loadRecipesFromStore();
   };
 
   const handleScanRecipe = (scannedData: string) => {
     setIsScannerOpen(false);
-    // Skan QR jest płatny: bez uprawnienia tylko ekran zakupu, bez okna importu [M1-audytor-generalny-026]
-    chron('import', () => {
-      setImportInitialInput(scannedData);
-      setIsImportModalOpen(true);
-    })();
+    setImportInitialInput(scannedData);
+    setIsImportModalOpen(true);
   };
 
   const handleSelectMasterPreset = (presetId: string) => {
@@ -427,8 +423,8 @@ export default function CalculatorScreen() {
           onSelectCustomRecipe={handleSelectCustomRecipe}
           onDeleteCustomRecipe={handleDeleteCustomRecipe}
           onOpenVolumeConverter={chron('kalkulator', () => setIsVolumeModalOpen(true))}
-          onOpenImportRecipe={chron('import', () => setIsImportModalOpen(true))}
-          onOpenScanQr={chron('import', () => setIsScannerOpen(true))}
+          onOpenImportRecipe={() => setIsImportModalOpen(true)}
+          onOpenScanQr={() => setIsScannerOpen(true)}
           unitSystem={unitSystem}
         />
 
@@ -450,7 +446,7 @@ export default function CalculatorScreen() {
           onExportJson={() => executeExportRecipeJson(currentRecipeForShare as any)}
           onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
           onPrintMenu={chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf))}
-          onImportJson={chron('import', () => setIsImportModalOpen(true))}
+          onImportJson={() => setIsImportModalOpen(true)}
           onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
           onSaveCustomRecipe={chron('receptury', () => {
             setSaveRecipeNameInput(recipeName);
@@ -494,7 +490,6 @@ export default function CalculatorScreen() {
             setImportInitialInput('');
           }}
           onImportSuccess={handleImportSuccess}
-          canSaveImport={() => moze('import') || requireActionAccess()}
           isShareQrOpen={isShareQrOpen}
           currentRecipeForShare={currentRecipeForShare}
           onCloseShareQr={() => setIsShareQrOpen(false)}
