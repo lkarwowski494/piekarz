@@ -1,0 +1,89 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — plan, ocena, ustawienia (E3)</title>
+<!-- PR-02 (F-13, F-14: zakres modelu 20–26 °C / 68–79 °F, BR-HARMO-001…003, kolizja ze snem), PR-06 (F-28 ocena, F-43 Doktor ≤ 2★, F-69 prośba systemowa ≥ 4★ bez własnego okna, OG-07),
+     PR-10 (F-38 jednostki, D-044 domyślnie według regionu), PR-07 (F-32, F-33, F-65), PR-09 (przywróć, zarządzaj), PR-18 (F-69), F-40 (polityka). Dane: [PRZYKŁAD]. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.gwiazdki { display: flex; gap: 6px; color: var(--ratan); flex-wrap: wrap; }
+.gwiazdki button { min-width: 48px; min-height: 48px; background: none; border: 0; color: inherit; padding: 0; }
+.chipy { display: flex; gap: 8px; flex-wrap: wrap; }
+.chipy span { min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid var(--obwodka); display: inline-flex; align-items: center; }
+.chipy span.wyb { background: var(--akcent); color: var(--naAkcencie); border-color: var(--akcent); font-weight: 600; }
+.godzina { font: 700 calc(56px + 43px * var(--ax)) / 1 var(--f-tyt); }
+</style>
+</head>
+<body>
+
+<main data-ekran="plan-sen">
+  <div class="status"><span>20:15</span><span>LTE 84%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="kl.recepturaWstecz">Receptura</span></a></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="pl.kiedy">Kiedy chleb ma być gotowy?</h1>
+    <div class="pole" style="justify-content:space-between"><span class="t-tresc" data-t="pl.jutro">jutro</span><span class="godzina" data-h="7:00"></span></div>
+    <h2 class="t-obj p2" data-t="pl.kuchnia">Temperatura w kuchni</h2>
+    <div class="chipy t-obj"><span data-c="20"></span><span data-c="22"></span><span class="wyb" data-c="24"></span><span data-c="26"></span></div>
+    <p class="t-przyp p2" data-t="pl.zakres">Czasy liczę dla {c:20}–{c:26}. Poza tym zakresem nie podam czasu.</p>
+    <div class="ostrz t-tresc" style="background:var(--powierzchnia);color:var(--tusz);border:2px solid var(--tusz)"><span data-ikona="ksiezyc"></span><span><b data-t="pl.kolizjaTyt">Składanie wypada o {h:2:30} w nocy</b><span data-t="pl.kolizjaOpis">Mogę przesunąć fermentację do lodówki na noc. Chleb będzie gotowy o {h:9:30} zamiast o {h:7:00}.</span></span></div>
+    <div class="rzad"><button class="drugi t-obj" data-t="pl.przesun">Przesuń do lodówki</button><button class="drugi t-obj" data-t="pl.zostaw">Zostaw nocne składanie</button></div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="0"></svg>
+      <div class="opis t-obj p2"><span data-t="pl.start">Start dziś o {h:20:30}</span><span data-t="pl.krokow">13 kroków, 5 z nich czynnych</span></div>
+    </div>
+  </div>
+  <div class="kciuk"><button class="glowny t-nagl" data-t="pl.zacznij">Zacznij wypiek</button></div>
+</main>
+
+<main data-ekran="ocena-slaba">
+  <div class="status"><span>10:40</span><span>LTE 60%</span></div>
+  <div class="nav"><span></span><button class="t-tresc" style="font-weight:600" data-t="oc.zapisz">Zapisz</button></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="oc.jak">Jak wyszedł bochenek?</h1>
+    <div class="gwiazdki" role="radiogroup" aria-label="Ocena: 2 z 5"><button aria-label="1 gwiazdka" data-ikona="gwiazdaPelna"></button><button aria-label="2 gwiazdki" data-ikona="gwiazdaPelna"></button><button aria-label="3 gwiazdki" data-ikona="gwiazda"></button><button aria-label="4 gwiazdki" data-ikona="gwiazda"></button><button aria-label="5 gwiazdek" data-ikona="gwiazda"></button></div>
+    <div class="pole t-tresc p2" style="min-height:96px;align-items:flex-start" data-t="oc.notatka">Notatka, np. „miękisz zbity, płaski”</div>
+    <div class="grupa">
+      <div class="kom"><span class="roz"><b class="t-nagl" data-t="oc.doktorTyt">Sprawdzić, co poszło nie tak?</b><br><span class="t-obj p2" data-t="oc.doktorOpis">Doktor Chleba zada kilka pytań i zaproponuje jedną zmianę na następny raz.</span></span></div>
+    </div>
+    <div class="rzad"><button class="drugi t-obj" data-t="oc.doktor">Otwórz Doktora Chleba</button><button class="drugi t-obj" data-t="oc.nieTeraz">Nie teraz</button></div>
+  </div>
+</main>
+
+<main data-ekran="ustawienia">
+  <div class="status"><span>21:02</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.dzis">Dziś</span></a></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="us.tytul">Ustawienia</h1>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="us.jednostki">Jednostki</h2>
+    <div class="grupa" style="padding:12px 16px;display:flex;flex-direction:column;gap:10px">
+      <div class="segment t-obj"><span data-u="met" data-t="us.metr">gramy, °C</span><span data-u="imp" data-t="us.imp">uncje, °F</span></div>
+      <span class="t-przyp p2" data-t="us.jednOpis">Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.</span>
+    </div>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="us.dane">Twoje dane</h2>
+    <div class="grupa t-tresc">
+      <div class="kom"><span class="roz" data-t="us.eksport">Eksportuj do pliku</span></div>
+      <div class="kom"><span class="roz" data-t="us.import">Importuj z pliku</span></div>
+      <div class="kom"><span class="roz" data-t="us.kopie">Kopie zapasowe</span><span class="wart" data-t="us.kopieStan">10, ostatnia dziś</span></div>
+      <div class="kom"><span class="roz" style="color:var(--blad)" data-t="us.usun">Usuń wszystkie dane</span></div>
+    </div>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="us.pro">Piekarz Pro</h2>
+    <div class="grupa t-tresc">
+      <div class="kom"><span class="roz" data-t="us.planRoczny">Plan roczny, odnowienie 23 października</span></div>
+      <div class="kom"><span class="roz" style="color:var(--akcentTekst)" data-t="us.zarzadzaj">Zarządzaj subskrypcją</span></div>
+      <div class="kom"><span class="roz" style="color:var(--akcentTekst)" data-t="of.przywroc">Przywróć zakupy</span></div>
+    </div>
+    <h2 class="t-przyp p2 naglowek-grupy" data-t="us.kontakt">Kontakt</h2>
+    <div class="grupa t-tresc">
+      <div class="kom"><span class="roz" style="color:var(--akcentTekst)" data-t="us.ocen">Oceń w App Store</span></div>
+      <div class="kom"><span class="roz" style="color:var(--akcentTekst)" data-t="us.napisz">Napisz do nas</span><span class="wart t-przyp" data-t="us.napiszOpis">otworzy Pocztę</span></div>
+      <div class="kom"><span class="roz" style="color:var(--akcentTekst)" data-t="of.prywatnosc">Polityka prywatności</span></div>
+    </div>
+  </div>
+</main>
+
+<script src="teksty.js"></script>
+<script src="teksty-najdluzszy.js" onerror="0"></script>
+<script src="wspolne.js"></script>
+</body>
+</html>

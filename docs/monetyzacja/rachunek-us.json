@@ -1,0 +1,20 @@
+{
+  "data": "2026-10-19",
+  "waluta": "USD",
+  "opis": "DEC-01 d, storefront US: 0,99 USD/mies., 6,99 USD/rok, 14,99 USD dożywotni; rok 1; lejek = kryterium eksperymentu (próg 500 USD netto, D-024) dla samego iOS",
+  "vat": { "stawka": 0, "zrodlo": "[OCENA] ceny w US bez podatku od sprzedaży; prowizja od ceny bez podatków (DPLA Schedule 2 pkt 3.4(a) „net of any and all taxes”), jak w bramce wariantów 2026-10-19" },
+  "prowizja": { "stawka": 0.15, "zrodlo": "developer.apple.com/app-store/small-business-program, odczyt 2026-10-19 (MS-20); warunek: zapis do programu (OP-M01)" },
+  "koszty_roczne": [
+    { "nazwa": "próg opłacalności właściciela (500 USD netto/rok, karta Stan projektu, D-024) zamiast kosztów", "kwota": 500, "waluta": "USD", "zrodlo": "CLAUDE.md, Stan projektu, 2026-10-19" }
+  ],
+  "produkty": [
+    { "id": "mies-US", "cena_brutto": 0.99, "platnosci_w_roku": 4.26, "platnosci_zrodlo": "[OCENA] płatności miesięcznego w 1. roku z modelu retencji bramki wariantów (RevenueCat 2026), 2026-10-19" },
+    { "id": "rok-US", "cena_brutto": 6.99, "platnosci_w_roku": 1, "platnosci_zrodlo": "1 płatność w 1. roku" },
+    { "id": "dozywotni-US", "cena_brutto": 14.99 }
+  ],
+  "lejek": [
+    { "nazwa": "kryterium iOS: mies.", "produkt": "mies-US", "odslony_strony": 3310, "konwersja": 0.3, "zakup": 0.0413, "zrodlo": "[OCENA] 993 pobrań iOS/rok (bramka wariantów, scen. norm., 2026-10-19) = 3310 odsłon × 0,3; zakup = 8,5% pobranie→płacący × udział 0,486 (udziały wariantu a, RevenueCat 2026)" },
+    { "nazwa": "kryterium iOS: rok", "produkt": "rok-US", "odslony_strony": 3310, "konwersja": 0.3, "zakup": 0.0294, "zrodlo": "[OCENA] jw.; udział 0,346" },
+    { "nazwa": "kryterium iOS: dożywotni", "produkt": "dozywotni-US", "odslony_strony": 3310, "konwersja": 0.3, "zakup": 0.0143, "zrodlo": "[OCENA] jw.; udział 0,168" }
+  ]
+}

@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — prowadzenie wypieku (E3)</title>
+<!-- Ekran kluczowy E3, kierunek A. Przepływy PR-04, PR-15; BR-ETAP-001, -004, -005, BR-HARMO-005, BR-CZAS-002, -003, BR-REKA-001, BR-NAUK-001.
+     Dane planu, receptura, godziny i treść kroku: [PRZYKŁAD]; treść kroków i „po co ten krok” należy do roli 06.
+     Ostrzeżenie: RD-23-W1 (S-47, S-48), tekst z kryterium BR-ETAP-004. -->
+<link rel="stylesheet" href="wspolne.css">
+</head>
+<body>
+
+<main data-ekran="w-trakcie">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="nav.dzis">Dziś</span></a><a href="#" class="t-tresc" data-t="pw.plan">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="t-obj p2" data-t="pw.receptura">Chleb pszenny na zakwasie, 2 × {g:850} <span class="przyklad">przykład</span></div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="297" data-gotowe="Gotowe jutro o 9:35."></svg>
+      <div class="opis">
+        <b class="t-obj" data-t="pw.krok4">Krok 4 z 13</b>
+        <span class="t-obj p2" data-t="pw.gotoweJutro">Gotowe jutro o {h:9:35}</span>
+        <span class="legenda t-przyp p2"><svg width="22" height="8"><line x1="2" y1="4" x2="20" y2="4" stroke="var(--ratan)" stroke-width="7" stroke-linecap="round"/></svg><span data-t="pw.legZrobione">zrobione</span></span>
+        <span class="legenda t-przyp p2"><svg width="22" height="8"><line x1="2" y1="4" x2="20" y2="4" stroke="var(--ratanSzary)" stroke-width="3" stroke-linecap="round"/></svg><span data-t="pw.legPrzed">przed nami</span></span>
+        <span class="legenda t-przyp p2"><svg width="22" height="8"><line x1="2" y1="4" x2="20" y2="4" stroke="var(--nocDane)" stroke-width="3" stroke-dasharray="2 4" stroke-linecap="round"/></svg><span data-t="pw.legNoc">noc w lodówce (skrócona)</span></span>
+      </div>
+    </div>
+    <h1 class="t-krok" data-t="pw.skladanie2">Składanie 2 z 4</h1>
+    <div><div class="t-czas" data-t="pw.18min">18 min</div><div class="t-tresc p2" data-t="pw.do1115">do {h:11:15}, potem składanie 3 z 4</div></div>
+    <p class="t-tresc" data-t="pw.coSkladanie">Chwyć brzeg ciasta, rozciągnij w górę i złóż na środek. Obróć miskę i powtórz cztery razy. <span class="przyklad">treść roli 06</span></p>
+    <div class="info t-obj"><span data-ikona="ekran"></span><span data-t="pw.ekranNieZgasnie">Ekran nie zgaśnie do końca kroku. Powiadomienie o {h:11:15}.</span></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>
+    <div class="rzad"><button class="drugi t-obj" data-t="pw.cofnij">Cofnij poprzedni</button><button class="drugi t-obj" data-t="pw.poCo">Po co ten krok</button></div>
+  </div>
+</main>
+
+<main data-ekran="koniec-kroku">
+  <div class="status"><span>8:12</span><span>LTE 64%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="nav.dzis">Dziś</span></a><a href="#" class="t-tresc" data-t="pw.plan">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="t-obj p2" data-t="pw.receptura">Chleb pszenny na zakwasie, 2 × {g:850} <span class="przyklad">przykład</span></div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="1572" data-gotowe="Gotowe dziś o 9:35."></svg>
+      <div class="opis">
+        <b class="t-obj" data-t="pw.krok12">Krok 12 z 13</b>
+        <span class="t-obj p2" data-t="pw.gotoweDzis">Gotowe dziś o {h:9:35}</span>
+      </div>
+    </div>
+    <h1 class="t-krok" data-t="pw.zdejmij">Zdejmij pokrywę</h1>
+    <div class="ostrz t-tresc" role="alert"><span data-ikona="para"></span><span><b data-t="pw.goracaPara">Gorąca para</b><span data-t="pw.rekawice">Załóż suche rękawice. Pokrywę unoś od siebie.</span></span></div>
+    <div><div class="t-czas" data-t="pw.2minPo">2 min po czasie</div><div class="t-tresc p2" data-t="pw.skonczylo">pieczenie pod pokrywą skończyło się o {h:8:10}; piekarnik {c:250} <span class="przyklad">przykład</span></div></div>
+    <div class="t-obj p2" data-t="pw.potem">Potem: pieczenie bez pokrywy, 25 min, do {h:8:37}</div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>
+    <div class="rzad"><button class="drugi t-obj" data-t="pw.cofnij">Cofnij poprzedni</button><button class="drugi t-obj" data-t="pw.poCo">Po co ten krok</button></div>
+  </div>
+</main>
+
+<main data-ekran="brak-zgody">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="nav.dzis">Dziś</span></a><a href="#" class="t-tresc" data-t="pw.plan">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="info t-tresc" style="color:var(--tusz)"><span data-ikona="dzwonekWyl"></span><span><b data-t="pw.powWyl">Powiadomienia są wyłączone.</b> <span data-t="pw.powWylOpis">Nie dam znać o kroku, gdy telefon śpi. Sprawdzaj czas tutaj albo włącz powiadomienia.</span></span></div>
+    <button class="drugi t-obj" style="flex:none" data-t="pw.otworzUst">Otwórz Ustawienia</button>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="297"></svg>
+      <div class="opis"><b class="t-obj" data-t="pw.krok4">Krok 4 z 13</b><span class="t-obj p2" data-t="pw.gotoweJutro">Gotowe jutro o {h:9:35}</span></div>
+    </div>
+    <h1 class="t-krok" data-t="pw.skladanie2">Składanie 2 z 4</h1>
+    <div><div class="t-czas" data-t="pw.18min">18 min</div><div class="t-tresc p2" data-t="pw.do1115">do {h:11:15}, potem składanie 3 z 4</div></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>
+  </div>
+</main>
+
+<main data-ekran="zgoda">
+  <div class="status"><span>9:58</span><span>LTE 81%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="pw.plan">Plan wypieku</span></a></div>
+  <div class="tresc" style="justify-content:center">
+    <svg class="spirala" data-teraz="0" style="width:180px;align-self:center"></svg>
+    <h1 class="t-krok" data-t="pw.zgodaTyt">Dam znać o każdym kroku</h1>
+    <p class="t-tresc" data-t="pw.zgodaOpis">Wypiek trwa do jutra. Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.</p>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zgodaDalej">Dalej</button>
+  </div>
+</main>
+
+<main data-ekran="po-cofnieciu">
+  <div class="status"><span>10:58</span><span>LTE 80%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="nav.dzis">Dziś</span></a><a href="#" class="t-tresc" data-t="pw.plan">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="kosz">
+      <svg class="spirala" data-teraz="297"></svg>
+      <div class="opis"><b class="t-obj" data-t="pw.krok4">Krok 4 z 13</b><span class="t-obj p2" data-t="pw.gotoweJutro">Gotowe jutro o {h:9:35}</span></div>
+    </div>
+    <h1 class="t-krok" data-t="pw.skladanie2">Składanie 2 z 4</h1>
+    <div><div class="t-czas" data-t="pw.17min">17 min</div><div class="t-tresc p2" data-t="pw.do1115">do {h:11:15}, potem składanie 3 z 4</div></div>
+  </div>
+  <div class="pasek-cofnij t-obj" role="status"><span data-t="pw.cofnieto">Cofnięto „Składanie 2 z 4”. Powiadomienia wróciły do poprzednich godzin.</span><button data-t="pw.przywroc">Przywróć</button></div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>
+    <div class="rzad"><button class="drugi t-obj" data-t="pw.cofnij">Cofnij poprzedni</button><button class="drugi t-obj" data-t="pw.poCo">Po co ten krok</button></div>
+  </div>
+</main>
+
+<script src="teksty.js"></script>
+<script src="teksty-najdluzszy.js" onerror="0"></script>
+<script src="wspolne.js"></script>
+</body>
+</html>

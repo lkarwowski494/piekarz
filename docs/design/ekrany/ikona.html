@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — ikona i ekran startowy (E3)</title>
+<!-- Ikona: spirala koszyka z przerwami (kroki), kropka końca = „gotowe”; z tokenów (noc #1E4954, ratan jasny #D9C3A0 tylko w ikonie, płótno #F5F5F2).
+     Ekran startowy (HIG, Branding: nie reklama): tło motywu i pusta spirala bez tekstu. Intro: brak (zbędne opóźnienie przy powrocie do trwającego wypieku). -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.ikony { display: flex; gap: 20px; align-items: flex-end; padding: 24px; background: #FFF; flex-wrap: wrap; }
+.ikony.ciemne { background: #000; }
+.ikony svg { border-radius: 22%; }
+.podpis { font: 12px var(--f-tr); color: #555; text-align: center; margin-top: 6px; }
+.ciemne .podpis { color: #BBB; }
+</style>
+</head>
+<body>
+<div class="ikony" data-ekran="ikony-jasne">
+  <div><svg class="ik" width="180" height="180"></svg><div class="podpis">1024 (180 pt w podglądzie)</div></div>
+  <div><svg class="ik" width="60" height="60"></svg><div class="podpis">60 pt</div></div>
+  <div><svg class="ik" width="40" height="40"></svg><div class="podpis">40 pt</div></div>
+  <div><svg class="ik" width="29" height="29"></svg><div class="podpis">29 pt</div></div>
+</div>
+<div class="ikony ciemne" data-ekran="ikony-ciemne">
+  <div><svg class="ik" data-wariant="ciemny" width="180" height="180"></svg><div class="podpis">wariant ciemny iOS</div></div>
+  <div><svg class="ik" data-wariant="odcien" width="180" height="180"></svg><div class="podpis">wariant w odcieniu (tinted)</div></div>
+  <div><svg class="ik" data-wariant="ciemny" width="60" height="60"></svg></div>
+  <div><svg class="ik" data-wariant="ciemny" width="29" height="29"></svg></div>
+</div>
+<main data-ekran="ekran-startowy" style="justify-content:center;align-items:center">
+  <svg class="spirala" data-kroki='[["a",60],["b",60],["c",60],["d",60],["e",60]]' data-teraz="-1" style="width:120px" aria-hidden="true"></svg>
+</main>
+<script src="teksty.js"></script>
+<script src="wspolne.js"></script>
+<script>
+for (const svg of document.querySelectorAll('svg.ik')) {
+  const w = svg.dataset.wariant;
+  const tlo = w === 'ciemny' ? '#0E1315' : w === 'odcien' ? '#000000' : '#1E4954';
+  const zwoj = w === 'odcien' ? '#8E8E8E' : '#D9C3A0';
+  const kropka = w === 'odcien' ? '#BDBDBD' : '#F5F5F2';
+  svg.setAttribute('viewBox', '0 0 100 100');
+  const pts = []; for (let t = 0.6 * Math.PI; t <= 6.6 * Math.PI; t += 0.05) { const r = 4 + 1.72 * t; pts.push((50 + r * Math.cos(t)).toFixed(1) + ' ' + (50 + r * Math.sin(t)).toFixed(1)); }
+  const tk = 6.6 * Math.PI, rk = 4 + 1.72 * tk;
+  svg.innerHTML = `<rect width="100" height="100" fill="${tlo}"/><path d="M${pts.join(' L')}" fill="none" stroke="${zwoj}" stroke-width="7" stroke-linecap="round" stroke-dasharray="40 9 26 9 58 9 34 9"/><circle cx="${50 + rk * Math.cos(tk)}" cy="${50 + rk * Math.sin(tk)}" r="6" fill="${kropka}"/>`;
+}
+</script>
+</body>
+</html>

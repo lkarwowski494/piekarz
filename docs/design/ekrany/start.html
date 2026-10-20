@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Piekarz — start „Co dziś robisz?” (E3)</title>
+<!-- F-68, BR-START-001 (PR-12), H-08 a; F-58 powrót jednym dotknięciem; 087: przykłady oznaczone; D-047: wybór otwiera przepływ bez oferty.
+     Stan „tylko historia”: F-67, BR-ZAK-004, D-038/D-039. Nazwy zakwasów i receptur: [PRZYKŁAD]. -->
+<link rel="stylesheet" href="wspolne.css">
+<style>
+.wybor { display: flex; gap: 14px; align-items: center; min-height: 72px; padding: 12px 16px; border-bottom: 1px solid var(--linia); color: var(--tusz); text-decoration: none; flex-wrap: wrap; }
+.wybor:last-child { border-bottom: 0; }
+.wybor > span[data-ikona] { flex: none; color: var(--akcent); }
+.wybor .roz { flex: 1 1 calc(180px + 400px * var(--ax)); min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.trwa { background: var(--powierzchnia); border-radius: 12px; padding: 14px 16px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.trwa svg.spirala { width: 92px; flex: none; }
+.trwa .roz { flex: 1 1 calc(160px + 400px * var(--ax)); min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.baner { background: var(--powierzchnia); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; border: 1.5px solid var(--obwodka); }
+</style>
+</head>
+<body>
+
+<main data-ekran="pierwsze-uruchomienie">
+  <div class="status"><span>19:40</span><span>LTE 90%</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="st.coDzis">Co dziś robisz?</h1>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b><span class="t-obj p2" data-t="st.zakladamOpis">Od mąki i wody do pierwszego bochenka, dzień po dniu.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b><span class="t-obj p2" data-t="st.piekeZakwasOpis">Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b><span class="t-obj p2" data-t="st.piekeDrozdzeOpis">Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.</span></span></a>
+    </div>
+    <p class="t-obj p2" data-t="st.offline">Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.</p>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<main data-ekran="trwa-wypiek">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="tab.dzis">Dziś</h1>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="st.trwa">Trwa wypiek</h2>
+    <a class="trwa" href="#" style="color:var(--tusz);text-decoration:none">
+      <svg class="spirala" data-teraz="297" data-mala="tak" aria-label="Plan: krok 4 z 13, składanie 2 z 4."></svg>
+      <span class="roz"><b class="t-2" data-t="pw.skladanie2">Składanie 2 z 4</b><span class="t-tresc" data-t="st.zostalo18">zostało 18 min, do {h:11:15}</span><span class="t-obj p2" data-t="st.chlebGotowy">Chleb pszenny na zakwasie, gotowy jutro o {h:9:35}</span></span>
+    </a>
+    <button class="glowny t-nagl" data-t="st.wroc">Wróć do wypieku</button>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="tab.zakwasy">Zakwasy</h2>
+    <div class="grupa">
+      <div class="kom"><span class="roz"><b class="t-nagl" data-t="st.zakwasZytni">Zakwas żytni</b> <span class="przyklad t-przyp" data-t="w.przyklad">przykład</span><br><span class="t-obj p2" data-t="st.zakwasZytniStan">na blacie, dokarmić o {h:20:00}</span></span></div>
+    </div>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="st.coJeszcze">Co jeszcze dziś robisz?</h2>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b></span></a>
+    </div>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<main data-ekran="tylko-historia">
+  <div class="status"><span>8:03</span><span>LTE 70%</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="tab.dzis">Dziś</h1>
+    <div class="baner">
+      <b class="t-nagl" data-t="st.probaMinela">Okres próbny się skończył</b>
+      <span class="t-tresc" data-t="st.probaMinelaOpis">Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.</span>
+      <button class="drugi t-obj" style="flex:none" data-t="st.zobaczPlany">Zobacz plany</button>
+    </div>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b><span class="zamek t-obj"><span data-ikona="zamek"></span><span data-t="st.wymagaPro">wymaga Piekarz Pro</span></span></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b><span class="zamek t-obj"><span data-ikona="zamek"></span><span data-t="st.wymagaPro">wymaga Piekarz Pro</span></span></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b><span class="zamek t-obj"><span data-ikona="zamek"></span><span data-t="st.wymagaPro">wymaga Piekarz Pro</span></span></span></a>
+    </div>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<script src="teksty.js"></script>
+<script src="teksty-najdluzszy.js" onerror="0"></script>
+<script src="wspolne.js"></script>
+</body>
+</html>
