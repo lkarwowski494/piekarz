@@ -267,7 +267,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 | Lokalizacja | Tekst promocyjny (≤ 170 znaków) | Zn. |
 | :--- | :--- | :---: |
-| en-GB, en-AU | Plan sourdough back from the time you want it ready: baker's %, 4-DDT water temperature, sleep-friendly steps and timers. Offline, no account, no ads. | 150 |
+| en-GB, en-AU | Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads. | 161 |
 | en-CA | Sourdough planner with baker's percentage: recipe amounts, a plan back from your ready time, timers that ring while the phone is locked. No account, no ads. | 156 |
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
