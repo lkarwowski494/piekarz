@@ -126,3 +126,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** Alegreya Sans, Bitter (bez greki), Big Shoulders Stencil (tylko łacinka), Rubik (bez greki).
 - **Dlaczego (rekomendacja studia):** wąski krój mieści długie nazwy kroków przy AX5 i w najdłuższym języku; pokrywa pisma europejskie z 35.
 - **Zależy od:** D-049.
+
+### [D-051] 2026-10-20 — System E3: usuwanie z „Cofnij”, 4 zakładki, jeden wybór jednostek, akcent „noc” na przycisku (rola 04 build, STOP E3)
+- **Rodzaj:** produktowa (interakcja i wygląd). **Słowa właściciela:** „E3: 1a, 2a, 3a, 4a. Przejdź do E4.” (2026-10-20, odpowiedź na pytania 1–4 STOP E3).
+- **Decyzja:** (1a) rutynowe usunięcie (wpis zakwasu, własna receptura) bez pytania, z paskiem „Cofnij”; potwierdzenie tylko dla „Usuń wszystkie dane” i dla zakwasu z historią; (2a) 4 zakładki: Dziś, Receptury, Zakwasy, Dziennik; ustawienia z „Dziś”; (3a) jednostki jako jeden wybór „gramy, °C / uncje, °F” zamiast dwóch przełączników z kryterium F-38 — do wpisu ZM u roli 03; (4a) akcent `noc` na przycisku głównym i na „nocy w lodówce” w spirali.
+- **Odrzucone:** (1b) potwierdzenie wszędzie; (2b) 3 zakładki z zakwasami na „Dziś”; (3b) dwa przełączniki; (4b) przycisk w kolorze tuszu.
+- **Dlaczego (rekomendacje studia):** „Cofnij” nie przerywa krótkich czynności przy blacie; zakwas to osobna praca J-04, więc ma zakładkę; masa i temperatura w USA idą razem (ZAL-037), dwa przełączniki to stan, którego nikt nie potrzebuje; jeden akcent, jedno znaczenie.
+- **Zależy od:** D-049; (3a) od zgody roli 03 na zmianę brzmienia kryterium F-38.
+- **Uwaga:** tego samego dnia sesja audytu M1 przekazała zgody właściciela na E3 i E4 bez STOP; nie przyjęto ich jako podstawy (brief: STOP pomija się tylko po słowach właściciela w czacie roli). Ta decyzja i przejście do E4 opierają się na słowach właściciela z czatu roli 04.

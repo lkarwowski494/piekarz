@@ -40,6 +40,6 @@ Persony: P-6 (początkujący bez zakwasu), P-7 (regularny), P-8 (drożdże i piz
 | F-67 | uprzedzenie jednym komunikatem; po końcu jasne, co działa | `uprzedzenie-3-dni`, start `tylko-historia` | tak | tak | tak | tak | pozytywny | H-04: co zostaje + przypomnienia ustaną |
 | F-40 | polityka w ustawieniach | `ustawienia` | tak | tak | tak | — | pozytywny | |
 
-**Podsumowanie:** 31 kryteriów pozytywnych (część z ryzykiem dla wdrożenia), 2 nie badane (F-61, F-15 TEST), 0 negatywnych. Jedna proponowana zmiana kryterium: F-38 „dwa przełączniki” → jeden wybór „gramy, °C / uncje, °F” (prostsze; odrębne jednostki masy i temperatury nie mają dowodu potrzeby). Do roli 03: wpis ZM albo zgoda na brzmienie.
+**Podsumowanie:** 31 kryteriów pozytywnych (część z ryzykiem dla wdrożenia), 2 nie badane (F-61, F-15 TEST), 0 negatywnych. Jedna proponowana zmiana kryterium: F-38 „dwa przełączniki” → jeden wybór „gramy, °C / uncje, °F” (prostsze; odrębne jednostki masy i temperatury nie mają dowodu potrzeby). Właściciel przyjął zmianę (D-051, 3a, 2026-10-20); do roli 03: wpis ZM z nowym brzmieniem kryterium F-38.
 
 Wpis dla roli 03 (do bramki „Zmiany zakresu”): `wynik: pozytywny, 2026-10-20, docs/design/03-przejscie-poznawcze.md` dla F-68, F-09, F-56, F-11, F-38*, F-10, F-55, F-13, F-14, F-07, F-57, F-58, F-16, F-18, F-22, F-23, F-24, F-25, F-60, F-62, F-26, F-27, F-28, F-69, F-43, F-64, F-44, F-31, F-32, F-33, F-65, F-35, F-37, F-67, F-40; F-61 i F-15 bez wyniku.

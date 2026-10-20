@@ -1,11 +1,12 @@
 # Stan sztafety
-Ścieżka: naprawa po audycie M1 (sztafeta 01 → 02 sesja 2 → 03 → 04 build przed partią 5) · Aktualizacja: 2026-10-19
+Ścieżka: naprawa po audycie M1 (sztafeta 01 → 02 sesja 2 → 03 → 04 build przed partią 5) · Aktualizacja: 2026-10-20
 
 | Rola | Tryb | Stan | Commit | Artefakty | Otwarte decyzje |
 |---|---|---|---|---|---|
 | 01 Odkrywanie | build | zakończona 2026-10-19 | gałąź `claude/01-odkrywanie-2026-10-19-279a7f` (E3: 3df4758; E4: commit z tym plikiem) | `docs/brd/`, `docs/zalozenia.md`, `docs/decyzje.md` (D-035…D-037), `tests/wektory/brd.json` | OP o statusie [DO WYJAŚNIENIA] w `docs/brd/README.md`; sekcja „Stan projektu” w `CLAUDE.md` dodana za zgodą właściciela (f140e45), pola [DO USTALENIA]: liczba testerów, standard marki |
 | 02 Monetyzacja | build, sesja 2 | zakończona 2026-10-19 | gałąź `claude/wizardly-sammet-81a68b` (E0 f5a78cb, E1 cbba5aa, E2 47a5aac, E3 1f211bb; przekazanie: commit z tym wpisem) | `docs/monetyzacja.md`, `docs/monetyzacja/rachunek.mjs`, `rachunek.json`, `rachunek-us.json`, `docs/decyzje.md` (D-038, D-039), `docs/zalozenia.md` (ZAL-038, -042, -044, -049, -050) | OP-M01 (Paid Apps, Small Business Program: właściciel), OP-M03 (pola `expo-iap`: 05/08) |
 | 03 Zakres | build | zakończona 2026-10-20 | gałąź `claude/03-zakres-2026-10-19-7a0b8a` (E0 20d8083, E1 d4cebc5, E2 fff601c, b5cc7ee, E3 ffa162d, D-044 3b9da9d; scalenia roli 01: 36d0d47, b5d9b5d; przekazanie: commit z tym wpisem) | `docs/scope-contract.md`, `docs/zakres-wplyw-na-plan.md`, `docs/decyzje.md` (D-040, D-041, D-043, D-044), `docs/zalozenia.md` (ZAL-045), archiwum `docs/archiwum/scope-contract-2.0.md`, `docs/archiwum/scope-contract-2026-10-20-robocze.md` | ER-49 (rola 01); wyniki intuicyjności (rola 04) |
+| 04 Studio Projektowe | build | zakończona 2026-10-20 | gałąź `claude/04-projekt-2026-10-20-088299` (E0 f404056, d87b8dd; E1 b74287f; E2 383cd37, ca56088, 07f387f, 9585ec4; E3 7e40ad1, 5e4a792; E4: commit z tym wpisem) | `docs/design/` (00…04, design-spec, tokeny.json/ts, kontrast.md, ekrany/, wzorce-zrzuty/, kierunki/, porownanie, kroje, pomiar-jezykow), `docs/decyzje.md` (D-045…D-051) | ZM F-38 (rola 03); tekst wiersza PR-12 (rola 02, D-047) |
 
 ## Definicja ukończenia roli 01 (build), z dowodem
 
@@ -73,5 +74,33 @@ Punkt po punkcie z dowodem: `docs/scope-contract.md`, sekcja „Definicja ukońc
 - Otwarte decyzje: w zakresie brak po stronie właściciela; ER-49 (rola 01); wyniki testu pierwszego użycia (rola 04, bramka zmian).
 - Ryzyko przy scalaniu: numery D-040…D-044 mogą zderzyć się z wpisami partii 3 w `docs/DECISIONS.md` na gałęzi p3; przy konflikcie przenumerować jawnie. D-043 zmienia D-029, DEC-05 a i D-034 pyt. 6a, 7b (QR, spiżarnia, druk → PÓŹNIEJ).
 
+## Rola 04 Studio Projektowe (build): definicja ukończenia, z dowodem
+| Punkt | Dowód |
+|---|---|
+| Każdy ekran i przycisk wynika z przepływu kontraktu | `docs/design/00-rozpoznanie.md` (PR-01…PR-18 bez PR-08); macierz stanów i słownik akcji w `design-spec.md` (rozdz. 5–6); przejście poznawcze `03-przejscie-poznawcze.md` (każdy stan → F i PR); funkcje PÓŹNIEJ/NIE bez ekranów |
+| Trzy kierunki na tym samym ekranie z prawdziwą treścią; wybór dosłownie z datą | `kierunki/a-koszyk.html`, `b-sloik.html`, `c-tasma.html`, `porownanie.png`; D-049 (słowa właściciela 2026-10-20 i potwierdzenie okiem), krój D-050 (`kroje.png`) |
+| Test generyczności na kartach kontrolnych, tabela na E2 | karty kontrolne `01-swiat.md` §4 (napisane przed kartami kierunków); tabela w `02-kierunki.md` i na `porownanie.png` |
+| Element firmowy koduje dane ze stanu użytkownika, opis VoiceOver | spirala planu: `design-spec.md` §2 (dane, stany, wzór etykiety), makiety z `aria-label` |
+| Tabela kontrastu ze skryptu, podłogi w obu motywach | `node docs/design/narzedzia/tokeny.mjs` → `kontrast.md`: 20 par × 4 warianty (jasny, ciemny, oba ze „Zwiększ kontrast”), 0 braków, kod 0 (2026-10-20) |
+| Zrzuty wzorcowe 320/390/430, jasny/ciemny, domyślny i AX5, obejrzane i poprawione | `wzorce-zrzuty/` 150 plików (pl 84 + pl-kontrast 4 + en-US-imp 27 + fr 35); arkusze obejrzane; lista usterek i poprawek `04-krytyka-e3.md` (P1 pusta); przegląd `e3-przeglad.png` |
+| Zero wyborów z kalibracji bez decyzji | `design-spec.md` §12 (D-042…D-051) |
+| Nie sprawdzone | makiety w Chromium, nie na iPhonie (krój treści i symbole zastępcze); VoiceOver, haptyka, dźwięk, powiadomienia, Dynamic Type na urządzeniu; test 3–5 osób (opcjonalny, właściciel); `npm test` nie uruchamiany (zmiany tylko w `docs/`) |
+
+### Przekazanie do następnej roli
+- Zakończono: 04-studio-projektowe, tryb build, gałąź `claude/04-projekt-2026-10-20-088299` (od 0599da8 roli 03); artefakty w `docs/design/` (spis w `design-spec.md`), decyzje D-045…D-051 w `docs/decyzje.md`.
+- Następny krok ścieżki (blok `redesign` planu M1): **partia 5 — wdrożenie nowej szaty przez rolę 08** w ramach systemu z `docs/design/` (kryteria akceptacji 050–058, 087–090, 096–104, tabela w `design-spec.md` §11); po wdrożeniu **rola 04 w trybie `audit`** porównuje ekrany z `wzorce-zrzuty/` (SP-13). Partia 5 startuje dopiero po przeglądzie właściciela.
+- Paczka wejściowa:
+  - **08 (partia 5):** `design-spec.md`, `tokeny.ts` (propozycja modułu motywu, np. `src/ui/theme.ts`; generowane z `tokeny.json`), kroje `docs/design/fonty/` (Sofia Sans Semi Condensed + licencja OFL; Noto Sans tylko do makiet), makiety `ekrany/*.html` (wzór spirali: `ekrany/wspolne.js`, `spirala()`, do `react-native-svg`), D-046 (`@apps4craft/ui` tylko komponenty techniczne), D-047 (oferta przy pierwszej akcji), D-051 (Cofnij, 4 zakładki, jeden wybór jednostek), formaty miar USA (§7), mapa haptyki (`tokeny.json`).
+  - **05:** 4 zakładki i nawigacja (D-051), znacznik trwającego wypieku do otwarcia wprost na kroku (F-58), stan „ekran nie gaśnie” tylko w kroku czynnym, odbicie układu RTL dla ar/he (spirala) [do potwierdzenia].
+  - **06:** teksty w makietach oznaczone „treść roli 06” (kroki, „po co ten krok”, objawy zakwasu i pleśni, ostrzeżenie ogólne dla kroku nieznanego rodzaju, zdanie o próbie wody); atrybucje „według King Arthur Baking”, „SDSU Extension”, „USDA FSIS” do weryfikacji w rejestrze.
+  - **07:** przypadki testów: kontrast z `tokeny.ts` (zamiast `theme.ts` po wdrożeniu), formaty jednostek (§7: lb + oz, 2 miejsca < 1 oz, °F całkowite, 68–79 °F), 4 akcje receptury, ≥ 48/44/64 pt, pasek „Cofnij” i przeliczenie powiadomień (102); wynik przejścia poznawczego jako kryteria do testu pierwszego użycia.
+  - **09 / zadanie 093:** pomiar długości `pomiar-jezykow.md` (fr najdłuższy łącznie, fi i de najdłuższe słowa); przekłady w `ekrany/teksty*.js` są robocze, nie do aplikacji.
+  - **03:** wynik intuicyjności `03-przejscie-poznawcze.md` (`wynik: pozytywny, 2026-10-20` dla 35 funkcji, F-61 i F-15 bez wyniku); wpis ZM: kryterium F-38 „jeden wybór gramy, °C / uncje, °F” (D-051, 3a); F-68 zgodne z D-047.
+  - **02:** wiersz PR-12 kontraktu płatności („pierwsza akcja z wyborem prowadzi do oferty”) dopasować do D-047 (oferta przy pierwszej akcji liczącej, planującej albo zapisującej).
+  - **Właściciel:** wpis do pamięci portfolio w repo `prompts` (tekst w `design-spec.md` §13); opcjonalnie test 5-sekundowy i zadaniowy z 3–5 osobami (ok. 1 h); koszt przekładu roboczego 1,50 USD (D-048).
+  - **M1:** blok `redesign` — rola 04 build zakończona; kryteria partii 5 bez zmian brzmienia, rozwiązania w `design-spec.md` §11.
+- Otwarte decyzje: ZM F-38 (rola 03); tekst PR-12 (rola 02); RTL spirali (rola 05 z 04 w audycie).
+- Ryzyko przy scalaniu: numery D-045…D-051 mogą zderzyć się z wpisami partii 3/4 w `docs/DECISIONS.md`; przy konflikcie przenumerować jawnie. Zrzuty wzorcowe to ok. 19 MB PNG w publicznym repo.
+
 ## Następny krok
-04-studio-projektowe, tryb build: polecenie `prompty/04-studio-projektowe-build.md`, baza: gałąź `claude/03-zakres-2026-10-19-7a0b8a`, paczka wejściowa jak wyżej.
+Przegląd właściciela, potem partia 5 (rola 08) na gałęzi `claude/04-projekt-2026-10-20-088299` z paczką wyżej; po wdrożeniu rola 04 tryb `audit` wobec `docs/design/wzorce-zrzuty/`.

@@ -2,6 +2,8 @@
 
 Rola 04, tryb build, E3 · 2026-10-20 · zastępuje `docs/design-spec.md` (2.0-craft, inwentarz) po wdrożeniu w partii 5. Decyzje: D-045 (jasny i ciemny według systemu), D-046 (własne tokeny), D-047 (oferta przy pierwszej akcji), D-048 (najdłuższy język z pomiaru), D-049 (kierunek A), D-050 (Sofia Sans Semi Condensed).
 
+Krytyka zrzutów E3: `04-krytyka-e3.md`. Propozycja wpisu do pamięci portfolio: rozdział 13.
+
 Pliki: tokeny `tokeny.json` → `tokeny.ts` + `kontrast.md` (`narzedzia/tokeny.mjs`); makiety `ekrany/*.html` (wspólne `wspolne.css`, `wspolne.js`, przekłady `teksty.js`, `teksty-najdluzszy.js`); zrzuty wzorcowe `wzorce-zrzuty/`; świat i kierunki `01-swiat.md`, `02-kierunki.md`, `porownanie.png`, `kroje.png`.
 
 ## 1. Zasada
@@ -23,7 +25,7 @@ Jeden mocny element — **spirala koszyka** niosąca plan wypieku — i spokojna
 ## 3. Tokeny
 - Kolory, typografia, odstępy, promienie, cele, ruch, haptyka: `tokeny.json` (jedno źródło), propozycja modułu `tokeny.ts` (wygenerowana). Cztery warianty kolorów: jasny, ciemny, jasny i ciemny ze „Zwiększ kontrast”.
 - Kontrast: `kontrast.md` — 20 par × 4 warianty, wszystkie spełniają progi (tekst 4,5, grafika z danymi i obwódki 3; WCAG 2.2, 1.4.3 i 1.4.11).
-- Kolor ostrzeżenia `#F7D117` z czarnym tekstem i trójkątem (logika ISO 7010, nie kopia znaku) — używany tylko do ostrzeżeń bezpieczeństwa i zasady ostrożności (RD-21…RD-23). Błąd ma osobny kolor `blad` + ikonę. Akcent `noc` znaczy „działanie” i „noc w lodówce” w spirali — to samo znaczenie (czas, który płynie bez ciebie) [decyzja studia, do weta].
+- Kolor ostrzeżenia `#F7D117` z czarnym tekstem i trójkątem (logika ISO 7010, nie kopia znaku) — używany tylko do ostrzeżeń bezpieczeństwa i zasady ostrożności (RD-21…RD-23). Błąd ma osobny kolor `blad` + ikonę. Akcent `noc` znaczy „działanie” i „noc w lodówce” w spirali — to samo znaczenie (czas, który płynie bez ciebie; D-051, 4a).
 - Typografia: Sofia Sans Semi Condensed (tytuły, czasy, ceny) dla łacinki, cyrylicy i greki; w pozostałych pismach i w treści krój systemowy. Skala z HIG (Large Default → AX5): treść 17 → 53 pt, tytuł kroku 28 → 58, duży tytuł 34 → 60, czas 56 → 99 (własny, skala jak Large Title). Liczby tabelaryczne. Żaden tekst nie ma limitu linii; przy AX5 długie słowa mogą się dzielić, nigdy nie są ucinane (055).
 - Cele: 48 pt w prowadzeniu i akcjach głównych, 44 pt w pozostałych, przycisk kciuka 64 pt (DEC-15 a).
 
@@ -47,7 +49,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Zacznij 14 dni próby / Kup plan … / Przywróć zakupy / Zarządzaj subskrypcją | oferta, ustawienia | StoreKit; bez sieci komunikat i „Spróbuj ponownie” |
 | Usuń wszystkie dane | ustawienia | potwierdzenie: „Usunąć wszystkie dane?” [Anuluj] [Usuń wszystko] (kolor błędu tylko na przycisku destrukcyjnym) |
 | Oceń w App Store, Napisz do nas | ustawienia | strona aplikacji z formularzem recenzji; Poczta z podglądem treści (BR-OPIN-002, -003) |
-Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobione: składanie 2 z 4”). **Do decyzji (STOP E3):** rutynowe usunięcie (wpis zakwasu, receptura własna): „Cofnij” bez pytania czy potwierdzenie.
+Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobione: składanie 2 z 4”). Rutynowe usunięcie (wpis zakwasu, receptura własna): bez pytania, z paskiem „Cofnij” przez kilka sekund; potwierdzenie tylko dla „Usuń wszystkie dane” i zakwasu z historią (D-051, 1a).
 
 ## 6. Macierz stanów (makiety)
 | Ekran | Stany w `ekrany/` |
@@ -61,7 +63,7 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 Ładowanie: brak (wszystko lokalne; szkielet tylko przy imporcie pliku > 1 s). Brak wyników: lista receptur z filtrem rodzaju — „Brak receptur tego rodzaju. Pokaż wszystkie.” Offline: tylko zakup i przywrócenie (bez sieci).
 
 ## 7. Miary USA (096, D-044)
-- Przełącznik w ustawieniach: „gramy, °C” / „uncje, °F”; domyślnie według regionu (US → imperialne). Baza zawsze metryczna; procenty bez zmian.
+- Jeden wybór w ustawieniach: „gramy, °C” / „uncje, °F” (D-051, 3a); domyślnie według regionu (US → imperialne). Baza zawsze metryczna; procenty bez zmian.
 - Masa: ≥ 16 oz → „1 lb 14,0 oz” (w en-US „1 lb 14.0 oz”); 1–16 oz jedno miejsce po przecinku; < 1 oz dwa miejsca (sól 17 g → 0.60 oz, drożdże 1 g → 0.04 oz). Stała 0,03527396195 oz/g jak w `src/lib/unit-converter.ts`.
 - Temperatura: °F w liczbach całkowitych; zakres modelu 20–26 °C = 68–79 °F (chipy 68, 72, 75, 79 °F); pole wejścia przyjmuje jednostkę z ustawienia.
 - Godziny: format regionu (en-US 12 h z AM/PM, PL 24 h); teksty powiadomień w tych samych jednostkach.
@@ -123,5 +125,14 @@ Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy N
 | przypomnienie na blacie co 12 h | D-043 (OP-38) |
 | prośba o ocenę od 4★ | D-042 |
 | jednostki według regionu | D-044 |
-| 4 zakładki, ustawienia z „Dziś” | propozycja E3 — do decyzji na STOP E3 |
-| rutynowe usunięcie: Cofnij czy potwierdzenie | do decyzji na STOP E3 |
+| 4 zakładki, ustawienia z „Dziś” | D-051 (2a) |
+| rutynowe usunięcie z „Cofnij” | D-051 (1a) |
+| jeden wybór jednostek zamiast dwóch przełączników | D-051 (3a); zmiana kryterium F-38 u roli 03 |
+| akcent „noc” na przycisku głównym i w spirali | D-051 (4a) |
+
+## 13. Propozycja wpisu do pamięci portfolio
+Repo `prompts`, `role/04-studio-projektowe/moduly/pamiec-portfolio.md`; wpis dopisuje właściciel.
+
+| Aplikacja | Metafora / element firmowy | Paleta (rdzeń) | Kroje | Uwagi właściciela |
+|---|---|---|---|---|
+| Piekarz („Koszyk spiralny”) | Koszyk do garowania zwijany spiralnie: **spirala planu** — zwoje od startu (środek) do godziny „gotowe” (kropka), długość łuku według czasu kroku, zrobione grube, przyszłe cienkie, noc w lodówce kropkami; jeden cykl dokarmienia zakwasu jako krótka spirala; ikona: spirala z przerwami na nocy | płótno `#F5F5F2`, żeliwo `#1C1D1B`, ratan `#9C6B2F` (tylko dane), ratan szary `#8A8273`, noc `#1E4954` (akcent), noc ciemna `#141A1C`; ostrzeżenie `#F7D117` z czarnym (logika ISO 7010) | Sofia Sans Semi Condensed (tytuły, czasy, ceny), treść systemowa | 2026-10-20: „idziemy w koszyk spiralny”; krój wybrany z 5 (`kroje.png`); odrzucone: słoik z gumką (może wrócić w karcie zakwasu), taśma z etykietą. Ratan nigdy jako tło — para krem + brąz to klisza kategorii. Spirala i para ratan + noc należą do Piekarza. |
