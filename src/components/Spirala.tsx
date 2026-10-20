@@ -100,8 +100,9 @@ export function Spirala({ kroki, wariant, biezacy = null, postepKroku = 0, etyki
   });
 
   const z = start.current ?? r.teraz;
+  // Bez etykiety z danych (wariant pusty, zakwas bez wpisu) Spirala jest ozdobą, nie obrazem bez nazwy [M1-audytor-generalny-115]
   const dostepnosc =
-    wariant === 'pusta'
+    wariant === 'pusta' || !etykieta
       ? { accessible: false, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true }
       : { accessible: true, accessibilityRole: 'image' as const, accessibilityLabel: etykieta };
 
