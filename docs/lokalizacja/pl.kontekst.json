@@ -7537,6 +7537,8 @@
   },
   "wymaga Piekarz Pro": {
     "gdzie": [
+      "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
+      "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
       "src/components/start/WyborCzynnosci.tsx (kod)",
       "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
     ]

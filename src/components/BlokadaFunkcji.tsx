@@ -1,14 +1,19 @@
 // ============================================================================
-// Piekarz — blokada obszaru funkcji bez uprawnienia [M1-audytor-generalny-027]
-// Zawartość zostaje widoczna (odczyt), ale dotyk otwiera ekran zakupu przez jedynego strażnika
-// (useAppAccess().requireActionAccess). Wygląd do akceptacji roli 04 (SP-09).
+// Piekarz — blokada obszaru funkcji bez uprawnienia [M1-audytor-generalny-027, -108]
+// Dane użytkownika zostają do odczytu, także dla VoiceOver, i nic ich nie zasłania (D-039, DEC-01 d).
+// Zablokowane są akcje: dotknięcie w treści (palcem albo aktywacją VoiceOver) trafia w obszar treści
+// (pointerEvents „box-only”) i otwiera ekran zakupu przez jedynego strażnika (useAppAccess().requireActionAccess).
+// Nad treścią, we własnym wierszu, kłódka z „wymaga Piekarz Pro” i „Odblokuj pełny dostęp” — jak w stanie
+// `tylko-historia` Startu (design-spec §6, start/WyborCzynnosci.tsx).
 // ============================================================================
 
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { theme } from '../ui/theme';
+import { odstepy, typografia } from '../ui/tokeny';
 import { t } from '../lib/i18n';
 import type { Funkcja } from '../lib/platnosci/konfiguracja';
+import { IkonaStartu } from './start/IkonaStartu';
 
 export interface BlokadaFunkcjiProps {
   funkcja: Funkcja;
@@ -21,42 +26,41 @@ export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, children }
   if (odblokowane) return <>{children}</>;
   return (
     <View>
-      <View pointerEvents="none" importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
-        {children}
-      </View>
       <Pressable
         testID={`blokada-${funkcja}`}
-        style={styles.overlay}
+        style={styles.wiersz}
         onPress={onZablokowane}
         accessibilityRole="button"
         accessibilityLabel={t('Odblokuj pełny dostęp')}
+        accessibilityHint={t('wymaga Piekarz Pro')}
       >
-        <Text style={styles.pill}>{t('Odblokuj pełny dostęp')}</Text>
+        <IkonaStartu nazwa="zamek" kolor={theme.colors.zablokowane} rozmiar={20} />
+        <Text style={styles.wymaga}>{t('wymaga Piekarz Pro')}</Text>
+        <Text style={styles.odblokuj}>{t('Odblokuj pełny dostęp')}</Text>
       </Pressable>
+      <View
+        testID={`blokada-${funkcja}-tresc`}
+        pointerEvents="box-only"
+        onStartShouldSetResponder={() => true}
+        onResponderRelease={onZablokowane}
+      >
+        {children}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-start',
-    padding: theme.spacing.sm,
-    minHeight: 44,
+  wiersz: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    columnGap: odstepy.s,
+    rowGap: odstepy.xs,
+    minHeight: theme.cele.pozostale,
+    paddingVertical: odstepy.s,
+    marginBottom: odstepy.s,
   },
-  pill: {
-    backgroundColor: theme.colors.akcent,
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
-    fontSize: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    overflow: 'hidden',
-  },
+  wymaga: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.zablokowane },
+  odblokuj: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.akcentTekst },
 });
