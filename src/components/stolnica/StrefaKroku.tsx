@@ -13,6 +13,8 @@ import type { DutchOvenBakePhase } from '../../core/baking-phases';
 import { PokeTestEntry } from './PokeTestEntry';
 import { DutchOvenController } from './DutchOvenController';
 import { styles } from './stolnica-screen.styles';
+import { Ostrzezenie } from '../Ostrzezenie';
+import type { StepWarning } from '../../core/step-warnings';
 
 export interface StrefaKrokuProps {
   step: SessionStep;
@@ -22,14 +24,17 @@ export interface StrefaKrokuProps {
   isCompleted: boolean;
   onSwitchPhase: (phase: DutchOvenBakePhase) => void;
   onStartPhase2AfterSteamAlert: () => void;
+  /** Ostrzeżenia bezpieczeństwa kroku według rodzaju (103); pusta lista = brak pola. */
+  ostrzezenia: readonly StepWarning[];
 }
 
-export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert }: StrefaKrokuProps) {
+export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia }: StrefaKrokuProps) {
   return (
     <>
       <Text testID="step-title" style={styles.activeStepTitle}>{t(step.name)}</Text>
       {stepHasTimer(step) && <Text testID="step-time" style={styles.czas}>{formattedTime}</Text>}
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
+      {ostrzezenia.length > 0 && <Ostrzezenie tytul={t('Bezpieczeństwo')} teksty={ostrzezenia.map((w) => t(w.text))} />}
       <PokeTestEntry step={step} />
 
       {/* Dutch Oven Two-Phase Controller for the bake step */}

@@ -359,6 +359,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Bezpieczeństwo": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (tytul)"
+    ]
+  },
   "Bezpośrednie": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"

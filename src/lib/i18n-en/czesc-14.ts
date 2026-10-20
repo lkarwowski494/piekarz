@@ -8,6 +8,8 @@ export const EN_14: Record<string, string> = {
   // Pasek „Cofnij” po „Cofnij poprzedni” (design-spec §5, stan po-cofnieciu) [M1-audytor-generalny-102]
   'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': 'Undid “{krok}.” Notifications are back to their previous times.',
   'Przywróć': 'Restore',
+  // Tytuł Ostrzeżenia w kroku (komponent systemu, design-spec §4) [M1-audytor-generalny-103]; do przeglądu roli 04
+  'Bezpieczeństwo': 'Safety',
 
   // „Po co ten krok”: docs/tresci/en/po-co-ten-krok.md (KRO-POC-001…016) [M1-audytor-generalny-100]
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.':

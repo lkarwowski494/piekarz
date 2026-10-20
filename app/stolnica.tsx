@@ -30,6 +30,7 @@ import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-st
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
 import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
 import { poCoTenKrok } from '../src/core/po-co-ten-krok';
+import { ostrzezeniaKroku } from '../src/core/ostrzezenia-kroku';
 import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
@@ -365,6 +366,7 @@ export default function StolnicaScreen() {
               isCompleted={isCompleted}
               onSwitchPhase={handleSwitchDutchOvenPhase}
               onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
+              ostrzezenia={ostrzezeniaKroku(steps, currentStepIdx, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined)}
             />
           </View>
           </BlokadaFunkcji>
