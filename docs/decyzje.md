@@ -134,3 +134,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dlaczego (rekomendacje studia):** „Cofnij” nie przerywa krótkich czynności przy blacie; zakwas to osobna praca J-04, więc ma zakładkę; masa i temperatura w USA idą razem (ZAL-037), dwa przełączniki to stan, którego nikt nie potrzebuje; jeden akcent, jedno znaczenie.
 - **Zależy od:** D-049; (3a) od zgody roli 03 na zmianę brzmienia kryterium F-38.
 - **Uwaga:** tego samego dnia sesja audytu M1 przekazała zgody właściciela na E3 i E4 bez STOP; nie przyjęto ich jako podstawy (brief: STOP pomija się tylko po słowach właściciela w czacie roli). Ta decyzja i przejście do E4 opierają się na słowach właściciela z czatu roli 04.
+
+### [D-052] 2026-10-20 — Plan obudzenia zakwasu z lodówki: jedno dokarmienie 12 h przed mieszaniem (M2 partia 5, zadanie M1-audytor-generalny-104, D-104-a roli 06)
+- **Rodzaj:** produktowa (kształt planu). **Słowa właściciela:** „1 dokarmienie (Recommended)” (2026-10-20, czat M2 partii 5, pytanie D-104-a z dwiema opcjami).
+- **Decyzja:** plan wypieku z zakwasem z lodówki zaczyna się jednym dokarmieniem 12 h przed mieszaniem; aplikacja sprawdza warunek gotowości ze źródła (podwojenie objętości w ≤ 8 h, ZAK-LOD-002); gdy zakwas nie jest gotowy — ścieżka „niegotowy w dniu ciasta” z propozycją przesunięcia (BR-ZAKW-006).
+- **Odrzucone:** dwa dokarmienia 24 h przed mieszaniem (scenariusz dla zaniedbanego zakwasu, ZAK-LOD-004) — dłuższy plan także dla zakwasu, który byłby gotowy po jednym.
+- **Dlaczego (rekomendacja roli 06):** źródła podają warunek, nie liczbę dokarmień (ZAK-LOD-900 [DO USTALENIA]); jedno dokarmienie mniej obciąża użytkownika, a warunek i ścieżka „niegotowy” pokrywają przypadek zaniedbany.
+- **Zależy od:** twierdzeń ZAK-LOD-002…004 w `docs/tresci/rejestr.json` (szczebel 4, atrybucja „Według King Arthur Baking”); wraca do sprawdzenia, gdy wyższe źródło poda liczbę.
