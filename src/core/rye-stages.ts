@@ -28,10 +28,12 @@ export const RYE_PROOF_STAGE_ID = 'rye_proof';
 export const RYE_STAGE_TEMPLATES: readonly RyeStageTemplate[] = [
   // ZYT-ETA-001 (nazwa)
   { id: 'rye_starter', namePl: 'Zakwas żytni', category: 'starter_feed', isPassive: true, instructionsPl: '', fixedDurationMin: null },
-  // ZYT-ETA-001 (nazwa), ZYT-ETA-003 (instrukcja)
+  // ZYT-ETA-001 (nazwa), ZYT-ETA-003 (instrukcja), BEZ-SUR-001, BEZ-SUR-002 (dwa ostatnie zdania, RD-22-W1,
+  // docs/tresci/pl/wypiek-bezpieczenstwo.md) [M1-audytor-generalny-086]
   {
     id: 'rye_mix', namePl: 'Mieszanie ciasta', category: 'mix', isPassive: false,
-    instructionsPl: 'Wymieszaj składniki do uzyskania jednolitej masy.', fixedDurationMin: null,
+    instructionsPl: 'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.',
+    fixedDurationMin: null,
   },
   // ZYT-ETA-004
   { id: 'rye_rest', namePl: 'Krótka fermentacja ciasta', category: 'bulk_ferment', isPassive: true, instructionsPl: '', fixedDurationMin: null },

@@ -199,7 +199,9 @@ export const EN_3: Record<string, string> = {
   // [M1-audytor-generalny-030; ZYT-ETA-001, ZYT-ETA-003..006, ZYT-STU-001]
   'Zakwas żytni': 'Rye sourdough',
   'Mieszanie ciasta': 'Mixing the dough',
-  'Wymieszaj składniki do uzyskania jednolitej masy.': 'Mix the ingredients into a uniform mass.',
+  // + BEZ-SUR-001, BEZ-SUR-002 dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]
+  'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.':
+    'Mix the ingredients into a uniform mass. Do not taste raw dough or flour. After handling dough, wash your hands with soap under running water.',
   'Krótka fermentacja ciasta': 'Short dough fermentation',
   'Podział i formowanie': 'Dividing and shaping',
   'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Divide the dough, shape it by hand and place it in a tin.',

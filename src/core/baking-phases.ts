@@ -18,6 +18,8 @@ export interface DutchOvenPhaseConfig {
   descriptionPl: string;
   tipPl: string;
   alertHeadlinePl?: string;
+  /** Ostrzeżenie bezpieczeństwa przy tym kroku (klucz PL dla t()); tekst z docs/tresci, przegląd człowieka. */
+  safetyWarningPl?: string;
 }
 
 export const DUTCH_OVEN_PHASES: Record<DutchOvenBakePhase, DutchOvenPhaseConfig> = {
@@ -39,6 +41,9 @@ export const DUTCH_OVEN_PHASES: Record<DutchOvenBakePhase, DutchOvenPhaseConfig>
     descriptionPl: 'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.',
     tipPl: 'Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.',
     alertHeadlinePl: 'Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.',
+    // BEZ-OPA-001, BEZ-OPA-002, BEZ-OPA-003 (RD-23-W1): dosłownie z docs/tresci/pl/wypiek-bezpieczenstwo.md
+    // [M1-audytor-generalny-086; 01-odkrywanie-019]
+    safetyWarningPl: 'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.',
   },
 };
 

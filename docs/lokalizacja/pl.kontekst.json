@@ -895,7 +895,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury.": {
+  "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
     ]
@@ -5748,7 +5748,7 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Wymieszaj składniki do uzyskania jednolitej masy.": {
+  "Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: instructionsPl)"
     ]
@@ -6357,6 +6357,11 @@
     "gdzie": [
       "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)",
       "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
+    "gdzie": [
+      "src/core/baking-phases.ts (dane: safetyWarningPl)"
     ]
   },
   "Załóż wyciągnięty płat przez wierzch na przeciwną stronę ciasta.": {

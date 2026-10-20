@@ -405,6 +405,10 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       const steamAlert = tree!.root.findByProps({ testID: 'steam-gate-alert' });
       expect(steamAlert).toBeDefined();
       expect(extractCleanText(tree?.toJSON())).toContain('Zdejmij pokrywkę');
+      // 086 (RD-23-W1, BEZ-OPA-001..003): ostrzeżenie w banerze zdjęcia pokrywki
+      expect(extractCleanText(steamAlert)).toContain(
+        'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.'
+      );
 
       // Tap Rozpocznij Fazę 2
       const startPhase2Btn = tree!.root.findByProps({ testID: 'start-phase-2-btn' });

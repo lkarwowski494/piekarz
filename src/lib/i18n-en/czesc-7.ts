@@ -36,6 +36,9 @@ export const EN_7: Record<string, string> = {
     'Lower the temperature to 210°C. The Maillard reaction creates a crispy, nutty-caramel crust.',
   'Zdejmij pokrywkę garnka! Wypuść parę i obniż temp. do 210°C.':
     'Remove the pot lid! Release the steam and lower the temp. to 210°C.',
+  // BEZ-OPA-001..003 dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]
+  'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.':
+    'Wear dry oven mitts and lift the lid away from you, because hot steam escapes from under it.',
   'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.':
     'Classic loaf weighing 750–900 g. Standard moisture loss in a bake with steam.',
   'Foremka ogranicza powierzchnię parowania ścianek bocznych, zachowując wyższą wilgoć miękiszu.':

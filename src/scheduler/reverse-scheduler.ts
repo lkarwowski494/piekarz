@@ -106,7 +106,9 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     durationMinutes: 15,
     isPassive: false,
     canStretch: false,
-    instructionsPl: 'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury.',
+    // Dwa ostatnie zdania: BEZ-SUR-001, BEZ-SUR-002 (RD-22-W1), dosłownie z docs/tresci/pl/wypiek-bezpieczenstwo.md
+    // [M1-audytor-generalny-086; 01-odkrywanie-019]
+    instructionsPl: 'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.',
   },
   {
     id: 'bulk_ferment',

@@ -98,6 +98,12 @@ export function DutchOvenController({
           <Text style={styles.steamAlertDesc}>
             {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}
           </Text>
+          {/* Ostrzeżenie fazy lid_off (BEZ-OPA-001..003, RD-23-W1) [M1-audytor-generalny-086] */}
+          {DUTCH_OVEN_PHASES.lid_off.safetyWarningPl ? (
+            <Text style={styles.steamAlertDesc} accessibilityRole="alert" testID="steam-gate-safety-warning">
+              {t(DUTCH_OVEN_PHASES.lid_off.safetyWarningPl)}
+            </Text>
+          ) : null}
           <Pressable
             testID="start-phase-2-btn"
             style={styles.steamAlertActionBtn}

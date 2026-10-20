@@ -86,8 +86,9 @@ export const EN_12: Record<string, string> = {
     'Combine the flour and water until moistened. Cover and set aside for spontaneous gluten development.',
   'Wymieszanie z solą i zakwasem (Bassinage)':
     'Mixing in salt and starter (Bassinage)',
-  'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury.':
-    'Add the active starter and salt. Knead until combined and smooth.',
+  // Dwa ostatnie zdania: BEZ-SUR-001, BEZ-SUR-002, dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]
+  'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.':
+    'Add the active starter and salt. Knead until combined and smooth. Do not taste raw dough or flour. After handling dough, wash your hands with soap under running water.',
   'Fermentacja burzliwa ze składaniami':
     'Bulk fermentation with folds',
   'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.':
