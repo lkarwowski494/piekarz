@@ -1,0 +1,29 @@
+{
+  "opis": "Wektory czystej funkcji warunku systemowej prośby o ocenę (BR-OPIN-001, D-042, S-63). Specyfikacja: docs/wzrost/petla-opinii.md. Czas jako ISO 8601 UTC; test w Jest zamienia go na milisekundy (Date.parse). Zadanie M1-audytor-generalny-082 (11-wzrost-004).",
+  "stale": { "minOcenaGwiazdki": 4, "maksProsbWOknie": 3, "oknoDni": 365 },
+  "wektory": [
+    { "id": "W01", "stan": "pierwsze uruchomienie: brak zakończonego i ocenionego wypieku", "we": { "ocenaWypieku": null, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W02", "stan": "właśnie zapisany wypiek oceniony przez użytkownika na 4★, brak wcześniejszych próśb", "we": { "ocenaWypieku": 4, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": true },
+    { "id": "W03", "stan": "wypiek oceniony na 5★, brak wcześniejszych próśb", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": true },
+    { "id": "W04", "stan": "wypiek oceniony na 3★ (poniżej progu D-042)", "we": { "ocenaWypieku": 3, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W05", "stan": "wypiek oceniony na 2★ (zamiast prośby propozycja Doktora, BR-DIAG-001)", "we": { "ocenaWypieku": 2, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W06", "stan": "gwiazdki nietknięte przez użytkownika (domyślne 5 w formularzu): miejsce wywołania podaje null", "we": { "ocenaWypieku": null, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W07", "stan": "ocena spoza skali 1–5 albo niecałkowita (dane uszkodzone)", "we": { "ocenaWypieku": 4.5, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W08", "stan": "ocena 6 (poza skalą)", "we": { "ocenaWypieku": 6, "datyPoprzednichProsb": [], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W09", "stan": "4★, dwie prośby w ostatnich 365 dniach (trzecia dozwolona)", "we": { "ocenaWypieku": 4, "datyPoprzednichProsb": ["2026-06-01T12:00:00Z", "2026-11-15T12:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": true },
+    { "id": "W10", "stan": "5★, trzy prośby w ostatnich 365 dniach (limit S-63 wyczerpany)", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2026-04-01T12:00:00Z", "2026-09-01T12:00:00Z", "2027-02-01T12:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W11", "stan": "5★, trzy prośby, ale najstarsza dokładnie 365 dni temu (wypada z okna)", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2026-03-01T12:00:00Z", "2026-09-01T12:00:00Z", "2027-02-01T12:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": true },
+    { "id": "W12", "stan": "5★, trzy prośby, najstarsza 365 dni temu minus 1 ms (jeszcze w oknie)", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2026-03-01T12:00:00.001Z", "2026-09-01T12:00:00Z", "2027-02-01T12:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W13", "stan": "5★, cztery prośby starsze niż rok (historia nie blokuje)", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2024-01-01T00:00:00Z", "2024-06-01T00:00:00Z", "2025-01-01T00:00:00Z", "2025-06-01T00:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": true },
+    { "id": "W14", "stan": "5★, trzy daty w przyszłości (zegar cofnięty przez użytkownika): liczą się do limitu", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2027-04-01T00:00:00Z", "2027-05-01T00:00:00Z", "2027-06-01T00:00:00Z"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false },
+    { "id": "W15", "stan": "5★, w zapisie dat wartość nie-liczbowa (uszkodzony odczyt): liczy się jako prośba", "we": { "ocenaWypieku": 5, "datyPoprzednichProsb": ["2027-01-01T00:00:00Z", "2027-02-01T00:00:00Z", "zepsute"], "teraz": "2027-03-01T12:00:00Z" }, "oczekiwane": false }
+  ],
+  "miejsce_wywolania": [
+    { "id": "M01", "stan": "StoreReview.isAvailableAsync() zwraca false (TestFlight)", "oczekiwane": "nie wywoływać requestReview(), nie zapisywać daty" },
+    { "id": "M02", "stan": "StoreReview.hasAction() zwraca false", "oczekiwane": "nie wywoływać requestReview(), nie zapisywać daty" },
+    { "id": "M03", "stan": "czyProsicOOcene zwraca true i API dostępne", "oczekiwane": "jedno wywołanie requestReview() po zamknięciu okna zapisu, zapis bieżącej daty do listy" },
+    { "id": "M04", "stan": "wiersz „Oceń w App Store” w Ustawieniach", "oczekiwane": "Linking.openURL(adres z action=write-review); nigdy requestReview()" },
+    { "id": "M05", "stan": "requestReview() rzuca błąd (ERR_STORE_REVIEW_FAILED)", "oczekiwane": "błąd połknięty bez komunikatu; zapis wypieku już się udał i zostaje; daty nie zapisuje się" },
+    { "id": "M06", "stan": "zapis wypieku nie powiódł się", "oczekiwane": "brak wywołania" }
+  ]
+}
