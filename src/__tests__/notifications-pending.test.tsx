@@ -38,6 +38,7 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, saveStarter, restoreFromBackupData } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { resyncNotifications } from '../lib/notifications';
+import { planBakeSteps } from '../core/bake-steps';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 type Mock = { pending: Map<string, { identifier: string; trigger: { date: number } }>; iosStatus: number; grantOnRequest: boolean };
@@ -90,16 +91,19 @@ describe('Pending notifications follow the saved state (006)', () => {
   });
 
   // 056: czas kroku biegnie od planu (bez Start/Wstrzymaj/+5 min), „Przerwij wypiek” na „Plan wypieku”
-  it('Stolnica: start → krok; next step → krok of the next step; discard → none', async () => {
+  // 102 (BR-HARMO-005): czeka powiadomienie bieżącego kroku i kolejnych kroków planu (piekarz.krok.<indeks>)
+  it('Stolnica: start → krok and next steps; next step → krok of the next step; discard → none', async () => {
     setActiveBake({ id: 'bake_n', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
     const tree = await mount(<StolnicaScreen />);
-    expect(ids()).toEqual(['piekarz.krok']);
+    // Krok w garnku ma też zdjęcie pokrywki po fazie 1 (piekarz.krok.<indeks>.pokrywka)
+    const garnek = `piekarz.krok.${planBakeSteps({ startAt: now, isHighRye: false }).findIndex((s) => s.category === 'bake')}.pokrywka`;
+    expect(ids()).toEqual(['piekarz.krok', garnek, ...Array.from({ length: 10 }, (_, i) => `piekarz.krok.${i + 1}`)].sort());
     const first = mock.pending.get('piekarz.krok')!.trigger.date;
     // Pierwszy etap planu: dokarmienie zakwasu, 6 h [M1-audytor-generalny-030]
     expect(first).toBe(now + 360 * 60 * 1000);
 
     await press(tree.root, 'Zrobione');
-    expect(ids()).toEqual(['piekarz.krok']);
+    expect(ids()).toEqual(['piekarz.krok', garnek, ...Array.from({ length: 9 }, (_, i) => `piekarz.krok.${i + 2}`)].sort());
     // Drugi etap planu: autoliza, 45 min
     expect(mock.pending.get('piekarz.krok')!.trigger.date).toBe(now + 45 * 60 * 1000);
     await press(tree.root, 'Plan wypieku');

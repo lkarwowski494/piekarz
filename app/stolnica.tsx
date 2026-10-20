@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import {
   View,
   Text,
@@ -27,7 +27,8 @@ import { useUnitSystem, formatTextUnits } from '../src/lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
-import { stepDurationSec, stepHasTimer } from '../src/core/bake-session';
+import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
+import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
 import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
@@ -40,6 +41,7 @@ import { IdleBakeCard } from '../src/components/stolnica/IdleBakeCard';
 import { StolnicaKeepAwake } from '../src/components/stolnica/StolnicaKeepAwake';
 import { PasekKciuka } from '../src/components/stolnica/PasekKciuka';
 import { PlanWypiekuArkusz } from '../src/components/stolnica/PlanWypiekuArkusz';
+import { PasekCofnij } from '../src/components/PasekCofnij';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { SpiralaWypieku } from '../src/components/Spirala';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
@@ -109,13 +111,42 @@ export default function StolnicaScreen() {
   }, []);
 
   const endAtMsRef = useRef<number | null>(null);
+  // Koniec zegara bieżącego kroku także po jego upływie: termin kroku dla „Zrobione” (BR-HARMO-005) [M1-audytor-generalny-102]
+  const ostatniKoniecRef = useRef<number | null>(null);
+  // Migawka do „Cofnij poprzedni” w pamięci ekranu (bez nowego pola w zapisie sesji) i pasek „Cofnięto …” z „Przywróć”
+  const [undo, setUndo] = useState<StepUndo | null>(null);
+  const [cofniete, setCofniete] = useState<{ nazwa: string; ponow: BakeProgress; undo: StepUndo } | null>(null);
+  const ukryjCofniete = useCallback(() => setCofniete(null), []);
 
   // Czas kroku biegnie od planu, bez „Start”/„Wstrzymaj” (design-spec §11b „056”) [M1-audytor-generalny-056]
   const runFor = (sec: number) => {
     endAtMsRef.current = sec > 0 ? Date.now() + sec * 1000 : null;
+    ostatniKoniecRef.current = endAtMsRef.current;
     setTimeLeftSec(sec);
     setIsRunning(sec > 0);
     setIsCompleted(false);
+  };
+
+  /** Postęp z ekranu na wejście logiki kroków (src/core/step-confirm.ts). */
+  const postep = (): BakeProgress => ({
+    steps, stepIdx: currentStepIdx, dutchOvenPhase, pausedLeftSec: null,
+    timerEndsAt: isRunning || isCompleted ? ostatniKoniecRef.current : null,
+  });
+
+  /** Krok, plan i zegar z postępu; zegar stojący rusza sam. Zwraca, czy zegar ruszył od nowa. */
+  const zastosuj = (p: BakeProgress): boolean => {
+    setSteps(p.steps);
+    setCurrentStepIdx(p.stepIdx);
+    setDutchOvenPhase(p.dutchOvenPhase);
+    const timer = restoreTimerState(p, Date.now());
+    endAtMsRef.current = timer.isRunning ? p.timerEndsAt : null;
+    ostatniKoniecRef.current = p.timerEndsAt;
+    setTimeLeftSec(timer.timeLeftSec);
+    setIsRunning(timer.isRunning);
+    setIsCompleted(timer.isCompleted);
+    const rusza = !timer.isRunning && !timer.isCompleted && timer.timeLeftSec > 0 && stepHasTimer(p.steps[p.stepIdx]);
+    if (rusza) runFor(timer.timeLeftSec);
+    return rusza;
   };
 
   // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]
@@ -125,23 +156,13 @@ export default function StolnicaScreen() {
           timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : null,
           pausedLeftSec: isRunning ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
       : null,
-    (s, timer) => {
+    (s) => {
       setIsActive(true);
-      setSteps(s.steps);
       setRecipeName(s.recipeName);
       setStartedAt(s.startedAt);
       setActiveBakeData(s.bake);
-      setCurrentStepIdx(s.stepIdx);
-      setDutchOvenPhase(s.dutchOvenPhase);
-      endAtMsRef.current = timer.isRunning ? s.timerEndsAt : null;
-      setTimeLeftSec(timer.timeLeftSec);
-      setIsRunning(timer.isRunning);
-      setIsCompleted(timer.isCompleted);
       // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006)
-      if (!timer.isRunning && !timer.isCompleted && timer.timeLeftSec > 0 && stepHasTimer(s.steps[s.stepIdx])) {
-        runFor(timer.timeLeftSec);
-        void ensureNotificationPermission();
-      }
+      if (zastosuj(s)) void ensureNotificationPermission();
     }
   );
 
@@ -208,6 +229,8 @@ export default function StolnicaScreen() {
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
     runFor(stepDurationSec(steps[idx], 'lid_on'));
+    setUndo(null);
+    setCofniete(null);
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
@@ -224,12 +247,35 @@ export default function StolnicaScreen() {
     tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
 
+  // „Zrobione” przed terminem przesuwa dalsze kroki i powiadomienia wcześniej, po terminie — później (BR-HARMO-005)
   const handleNextStep = () => {
-    if (currentStepIdx < steps.length - 1) {
-      goToStep(currentStepIdx + 1);
-    } else {
+    if (currentStepIdx >= steps.length - 1) {
       finish.open();
+      return;
     }
+    const wynik = confirmStep(postep(), Date.now());
+    zastosuj(wynik.progress);
+    setUndo(wynik.undo);
+    setCofniete(null);
+    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
+  };
+
+  // „Cofnij poprzedni”: poprzedni krok, plan i zegar sprzed potwierdzenia; powiadomienia idą za planem (design-spec §5)
+  const cofnijDostepne = undo !== null && canUndoConfirm(postep(), undo);
+  const handleUndo = () => {
+    if (!undo || !cofnijDostepne) return;
+    const ponow = postep();
+    const { progress } = undoConfirm(undo, Date.now());
+    zastosuj(progress);
+    setCofniete({ nazwa: t(progress.steps[progress.stepIdx]?.name ?? ''), ponow, undo });
+    setUndo(null);
+    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
+  };
+  const handleRestore = () => {
+    if (!cofniete) return;
+    zastosuj(cofniete.ponow);
+    setUndo(cofniete.undo);
+    setCofniete(null);
   };
 
   // „Przerwij wypiek” na „Plan wypieku”: skutek dla danych jak dawne „Odrzuć wypiek” (056)
@@ -331,13 +377,20 @@ export default function StolnicaScreen() {
 
       </ScrollView>
 
+      {aktywny && cofniete && (
+        <PasekCofnij
+          tekst={t('Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.', { krok: cofniete.nazwa })}
+          onPrzywroc={handleRestore}
+          onUkryj={ukryjCofniete}
+        />
+      )}
       {aktywny && (
         <BlokadaFunkcji {...blokada('stolnica')}>
           <PasekKciuka
             nazwaKroku={t(currentStep.name)}
             onZrobione={handleNextStep}
-            onCofnij={() => goToStep(currentStepIdx - 1)}
-            cofnijDostepne={currentStepIdx > 0}
+            onCofnij={handleUndo}
+            cofnijDostepne={cofnijDostepne}
             onPoCo={() => undefined}
             poCoDostepne={false}
           />

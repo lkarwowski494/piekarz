@@ -731,6 +731,11 @@
       "src/components/stolnica/PasekKciuka.tsx (tekst)"
     ]
   },
+  "Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.": {
+    "gdzie": [
+      "app/stolnica.tsx (tekst)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -4119,6 +4124,11 @@
   "Przyspieszona fermentacja termiczna": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
+    ]
+  },
+  "Przywróć": {
+    "gdzie": [
+      "src/components/PasekCofnij.tsx (tekst w JSX)"
     ]
   },
   "Przywróć zakupy": {

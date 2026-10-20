@@ -139,15 +139,18 @@ export function planFeedingNotifications(starters: readonly PlanStarter[], now: 
   return out;
 }
 
-/** Pełna lista powiadomień, które powinny czekać: krok zawsze zostaje, reszta po czasie do limitu. */
+/**
+ * Pełna lista powiadomień, które powinny czekać: kroki wypieku (bieżący i kolejne z planu, BR-HARMO-005)
+ * zawsze zostają, reszta po czasie do limitu [M1-audytor-generalny-102].
+ */
 export function planNotifications(
-  input: { session: PlanBakeSession | null; starters: readonly PlanStarter[] },
+  input: { session: PlanBakeSessionWithPlan | null; starters: readonly PlanStarter[] },
   now: number
 ): PlannedNotification[] {
-  const bake = planBakeNotification(input.session, now);
+  const bake = planBakeStepNotifications(input.session, now);
   const feeding = planFeedingNotifications(input.starters, now).sort((a, b) => a.triggerAt - b.triggerAt);
-  const room = MAX_PENDING_NOTIFICATIONS - (bake ? 1 : 0);
-  return [...(bake ? [bake] : []), ...feeding.slice(0, Math.max(0, room))].sort((a, b) => a.triggerAt - b.triggerAt);
+  const room = MAX_PENDING_NOTIFICATIONS - bake.length;
+  return [...bake, ...feeding.slice(0, Math.max(0, room))].sort((a, b) => a.triggerAt - b.triggerAt);
 }
 
 export function notificationFingerprint(p: PlannedNotification): string {

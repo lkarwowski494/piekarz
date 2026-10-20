@@ -5,4 +5,7 @@
 export const EN_14: Record<string, string> = {
   'Cofnij poprzedni': 'Undo Previous',
   'Po co ten krok': 'Why this step',
+  // Pasek „Cofnij” po „Cofnij poprzedni” (design-spec §5, stan po-cofnieciu) [M1-audytor-generalny-102]
+  'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': 'Undid “{krok}.” Notifications are back to their previous times.',
+  'Przywróć': 'Restore',
 };
