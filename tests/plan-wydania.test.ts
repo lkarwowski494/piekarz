@@ -40,7 +40,7 @@ describe('plan wydania docs/wydanie/sklep.md (079, DEC-16 a)', () => {
     const slowa = [...meta.matchAll(/^\| \*\*(?:Słowa kluczowe \(Keywords\)|Keywords)\*\* \| `([^`]+)`/gm)].map((m) => m[1]);
     expect(slowa.length).toBeGreaterThanOrEqual(2);
     for (const s of slowa) expect(sklep).not.toContain(s);
-    const opisPL = /```text\n(Piekarz \(Crust\) prowadzi[^\n]+)/.exec(meta)?.[1] ?? '';
+    const opisPL = /```text\n(Piekarz prowadzi[^\n]+)/.exec(meta)?.[1] ?? '';
     expect(opisPL.length).toBeGreaterThan(50);
     expect(sklep).not.toContain(opisPL);
   });
