@@ -86,14 +86,17 @@ export function CalculatorActionButtons({
         <Text style={styles.cloneRecipeBtnText}>{t('Importuj JSON')}</Text>
       </Pressable>
 
-      <Pressable
-        accessibilityRole="button"
-        testID="open-flour-inventory-btn"
-        style={styles.cloneRecipeBtn}
-        onPress={onOpenInventory}
-      >
-        <Text style={styles.cloneRecipeBtnText}>{t('Spiżarnia mąk & Stan zapasów')}</Text>
-      </Pressable>
+      {/* F-30 PÓŹNIEJ (D-043): wejście do spiżarni ukryte, zapasy i kod zostają [M1-audytor-generalny-097] */}
+      {wejscieWidoczne('spizarnia') && (
+        <Pressable
+          accessibilityRole="button"
+          testID="open-flour-inventory-btn"
+          style={styles.cloneRecipeBtn}
+          onPress={onOpenInventory}
+        >
+          <Text style={styles.cloneRecipeBtnText}>{t('Spiżarnia mąk & Stan zapasów')}</Text>
+        </Pressable>
+      )}
 
       <Pressable
         accessibilityRole="button"

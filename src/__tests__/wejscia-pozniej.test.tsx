@@ -47,9 +47,24 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
   it('every LATER entry is switched off in one place', () => {
     // F-50 druk PÓŹNIEJ (D-043) [M1-audytor-generalny-072]
     // F-08 skan i udostępnianie QR PÓŹNIEJ (D-043) [M1-audytor-generalny-049]
-    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'qr', 'rodzina-apps4craft'];
+    // F-30 spiżarnia mąk PÓŹNIEJ (D-043) [M1-audytor-generalny-097]
+    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'qr', 'rodzina-apps4craft', 'spizarnia'];
     expect(Object.keys(WEJSCIA_WIDOCZNE).sort()).toEqual([...all].sort());
-    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false, false]);
+    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false, false, false]);
+  });
+
+  it('Calculator has no flour pantry entry anywhere, accordion closed or open (F-30, D-043)', async () => {
+    await act(async () => {
+      tree = renderer.create(<CalculatorScreen />);
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(testIds(tree!.root)).not.toContain('open-flour-inventory-btn');
+    await act(async () => {
+      tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' }).props.onPress();
+    });
+    expect(testIds(tree!.root)).not.toContain('open-flour-inventory-btn');
   });
 
   it('Calculator has no QR scan and no QR sharing entry (F-08, D-043); JSON import stays', async () => {
@@ -90,7 +105,8 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     });
     const ids = testIds(tree!.root);
     // Akordeon jest otwarty: sekcja mieszanki mąk (ta sama co słownik) jest widoczna
-    expect(ids).toContain('open-flour-inventory-btn');
+    expect(ids).toContain('artisan-accordion-body');
+    expect(ids).not.toContain('open-flour-inventory-btn');
     expect(ids).not.toContain('open-flour-equivalents-btn');
     expect(ids.filter((id) => id.startsWith('bake-loss-'))).toEqual([]);
     // Podtytuł akordeonu nie obiecuje ukrytej sekcji

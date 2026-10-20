@@ -67,7 +67,8 @@ export function AccordionFlourBlendSection({
         >
           <Text style={styles.flourActionBtnText}>{t('Skomponuj własną mieszankę mąk')}</Text>
         </Pressable>
-        {onOpenInventory && (
+        {/* F-30 PÓŹNIEJ (D-043): wejście do spiżarni ukryte [M1-audytor-generalny-097] */}
+        {onOpenInventory && wejscieWidoczne('spizarnia') && (
           <Pressable
             accessibilityRole="button"
             testID="open-flour-inventory-btn"

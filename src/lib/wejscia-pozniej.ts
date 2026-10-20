@@ -12,7 +12,8 @@ export type WejsciePozniej =
   | 'konwerter-zakwasu' // F-49
   | 'druk' // F-50: karta PDF i etykieta słoika poza 1.0 (D-043) [M1-audytor-generalny-072]
   | 'qr' // F-08: skan i udostępnianie kodu QR poza 1.0, bez zgody na aparat (D-043) [M1-audytor-generalny-049]
-  | 'rodzina-apps4craft'; // F-52 (ZM-14)
+  | 'rodzina-apps4craft' // F-52 (ZM-14)
+  | 'spizarnia'; // F-30: spiżarnia mąk poza 1.0 (D-043); zapasy zostają w bazie i w kopii [M1-audytor-generalny-097]
 
 /** Jedno miejsce decyzji: czy wejście do funkcji jest widoczne. */
 export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
@@ -23,6 +24,7 @@ export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
   druk: false,
   qr: false,
   'rodzina-apps4craft': false,
+  spizarnia: false,
 };
 
 export function wejscieWidoczne(wejscie: WejsciePozniej): boolean {
