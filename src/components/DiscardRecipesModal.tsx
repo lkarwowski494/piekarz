@@ -12,9 +12,7 @@ import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import {
-  getDiscardRecipes,
   filterDiscardRecipes,
-  DiscardRecipe,
   DiscardCategory,
 } from '../recipes/discard-recipes';
 

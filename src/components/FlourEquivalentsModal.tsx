@@ -14,9 +14,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { formatNumber } from '../lib/format';
 import {
-  getFlourEquivalents,
   searchFlourEquivalents,
-  FlourEquivalentEntry,
 } from '../core/flour-equivalents';
 
 interface FlourEquivalentsModalProps {

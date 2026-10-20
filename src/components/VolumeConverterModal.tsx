@@ -30,7 +30,6 @@ interface VolumeConverterModalProps {
 export function VolumeConverterModal({
   visible,
   onClose,
-  onApplyGrams,
 }: VolumeConverterModalProps) {
   const [selectedIngredientId, setSelectedIngredientId] =
     useState<VolumeIngredientId>('flour_wheat_sifted');

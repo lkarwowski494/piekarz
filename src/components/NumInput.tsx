@@ -11,8 +11,6 @@ import {
   StyleSheet,
   StyleProp,
   TextStyle,
-  NativeSyntheticEvent,
-  TextInputFocusEventData,
 } from 'react-native';
 import { wInKeep } from '../lib/unit-converter';
 import { theme } from '../ui/theme';

@@ -20,7 +20,6 @@ import { useRouter } from 'expo-router';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { NumInput, NumInputProps } from './NumInput';
-import { normSearch } from '../lib/norm-search';
 
 export { NumInput, NumInputProps };
 

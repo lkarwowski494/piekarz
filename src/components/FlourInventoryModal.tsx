@@ -48,7 +48,6 @@ export function FlourInventoryModal({
   onInventoryUpdated,
 }: FlourInventoryModalProps) {
   const {
-    access,
     requireActionAccess,
   } = useAppAccess();
   const [inventory, setInventory] = useState<StoredFlourInventoryItem[]>([]);

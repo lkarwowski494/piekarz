@@ -10,7 +10,6 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
-import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
 import { tapHaptic } from '../../src/lib/haptics';

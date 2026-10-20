@@ -10,7 +10,6 @@ import {
   CraftHeader,
   sharedCraftTokens,
 } from '@apps4craft/ui';
-import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { guardSave } from '../../src/lib/save-guard';
 import {
@@ -88,11 +87,11 @@ export default function CalculatorScreen() {
 
   // DDT parameters
   const [targetDdt, setTargetDdt] = useState<number>(25.0);
-  const [flourTemp, setFlourTemp] = useState<number>(21.0);
-  const [roomTemp, setRoomTemp] = useState<number>(22.0);
-  const [starterTemp, setStarterTemp] = useState<number>(21.0);
-  const [frictionFactor, setFrictionFactor] = useState<number>(2.0);
-  const [tapWaterTemp, setTapWaterTemp] = useState<number>(16.0);
+  const [flourTemp] = useState<number>(21.0);
+  const [roomTemp] = useState<number>(22.0);
+  const [starterTemp] = useState<number>(21.0);
+  const [frictionFactor] = useState<number>(2.0);
+  const [tapWaterTemp] = useState<number>(16.0);
 
   // Bake Loss & Crumb Moisture state
   const [selectedBakeLossPresetId, setSelectedBakeLossPresetId] = useState<BakeTypePresetId>('batard_boule');
