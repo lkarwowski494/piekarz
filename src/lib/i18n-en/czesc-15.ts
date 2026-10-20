@@ -74,7 +74,7 @@ export const EN_15: Record<string, string> = {
     'Importing replaces all data in the app with the data from the backup. Before importing, I\'ll save a copy of your current data.',
   'Zastąp dane': 'Replace Data',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.':
-    'I don\'t recognize this file. Piekarz imports recipe files and backup files made in Piekarz.',
+    'I don\'t recognize this file. Baker imports recipe files and backup files made in Baker.',
   '{n} receptura': '{n} recipe',
   '{n} receptury': '{n} recipes',
   '{n} receptur': '{n} recipes',

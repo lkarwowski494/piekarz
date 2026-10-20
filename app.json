@@ -3,7 +3,7 @@
     "name": "Piekarz",
     "slug": "piekarz",
     "version": "1.0.0",
-    "description": "Piekarz (Crust) — asystent domowego piekarza, procent piekarski, 4-DDT, harmonogram wsteczny, baza zakwasu i radar sensoryczny. 100% Offline-First.",
+    "description": "Piekarz — asystent domowego piekarza, procent piekarski, 4-DDT, harmonogram wsteczny, baza zakwasu i radar sensoryczny. 100% Offline-First.",
     "primaryColor": "#D49B42",
     "scheme": "piekarz",
     "orientation": "portrait",

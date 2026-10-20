@@ -60,7 +60,7 @@ describe('Ustawienia: „Napisz do nas” z adresem wsparcia', () => {
     const opcje = mail.composeAsync.mock.calls[0][0];
     expect(opcje.recipients).toEqual(['pomoc@example.com']);
     expect(opcje.isHtml).toBe(false);
-    expect(opcje.subject).toBe('Piekarz (Crust) 1.0.0 — wiadomość do autora');
+    expect(opcje.subject).toBe('Piekarz 1.0.0 — wiadomość do autora');
     expect(opcje.body).toContain('Wersja aplikacji: 1.0.0 (1014)');
     expect(opcje.body).toContain('iOS: ');
     expect(opcje.body).not.toMatch(/null|undefined|bake_/);

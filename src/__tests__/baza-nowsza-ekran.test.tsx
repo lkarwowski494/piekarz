@@ -13,7 +13,7 @@ import { setLang } from '../lib/i18n';
 import { ustalDostep, pobierzStan, _resetStanu } from '../lib/platnosci/stan';
 
 const PL = 'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.';
-const EN = 'Your data was saved by a newer version of Crust. Update the app to keep saving. Until then you can only view it.';
+const EN = 'Your data was saved by a newer version of Baker. Update the app to keep saving. Until then you can only view it.';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string') return n;

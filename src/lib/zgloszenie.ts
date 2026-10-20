@@ -20,7 +20,7 @@ export interface DaneZgloszenia {
  */
 export function trescZgloszenia(d: DaneZgloszenia): { temat: string; tresc: string } {
   const nieznana = t('nieznana');
-  const temat = `Piekarz (Crust)${d.wersja ? ` ${d.wersja}` : ''} — ${t('wiadomość do autora')}`;
+  const temat = `${t('Piekarz')}${d.wersja ? ` ${d.wersja}` : ''} — ${t('wiadomość do autora')}`;
   const wersja = `${d.wersja ?? nieznana}${d.build ? ` (${d.build})` : ''}`;
   const linie = [
     t('Wersja aplikacji: {wersja}', { wersja }),

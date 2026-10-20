@@ -193,9 +193,11 @@ export const EN_12: Record<string, string> = {
     "I have a starter. I'll choose a recipe and the time I want the bread ready.",
   'Piekę na drożdżach albo pizzę': 'Baking with yeast or making pizza',
   'Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.': 'Yeast bread, poolish or biga preferment, pizza dough.',
-  'wymaga Piekarz Pro': 'requires Piekarz Pro',
+  'wymaga Piekarz Pro': 'requires Baker Pro',
+  // Nazwa aplikacji: lokalne słowo sprzed dwukropka nazwy w sklepie (D-053) [M1-audytor-generalny-093; M1-audytor-generalny-118]
+  'Piekarz': 'Baker',
   'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.':
-    'Piekarz works without internet and without an account. Your recipes and notes stay on this phone.',
+    'Baker works without internet and without an account. Your recipes and notes stay on this phone.',
   'Trwa wypiek': 'Bake in progress',
   'zostało {czas}': '{czas} left',
   'zostało {czas}, do {godzina}': '{czas} left, until {godzina}',
@@ -203,7 +205,7 @@ export const EN_12: Record<string, string> = {
   'Co jeszcze dziś robisz?': 'What else are you doing today?',
   'Okres próbny się skończył': 'Your trial has ended',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.':
-    'You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Piekarz Pro.',
+    'You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Baker Pro.',
   'Zobacz plany': 'See Plans',
   'Receptury': 'Recipes',
   'Zakwasy': 'Starters',

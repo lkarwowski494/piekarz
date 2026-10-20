@@ -92,7 +92,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
         referenceDate: refDate,
       });
 
-      expect(formatted).toContain('Harmonogram: Piekarz (Crust)');
+      expect(formatted).toContain('Harmonogram: Piekarz');
       expect(formatted).toContain('Godzina gotowości chleba do krojenia: 12:00 (Jutro)');
       // Temperatura przez formatTemperature: separator według języka (PL „23,5°C”), w trybie imperialnym °F [M1-audytor-generalny-096]
       expect(formatted).toContain('23,5°C');

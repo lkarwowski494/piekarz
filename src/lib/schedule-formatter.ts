@@ -41,7 +41,7 @@ export function formatScheduleToText(
   }
 
   const lines: string[] = [];
-  lines.push(`${t('Harmonogram')}: Piekarz (Crust)`);
+  lines.push(`${t('Harmonogram')}: ${t('Piekarz')}`);
   lines.push(`${t('Godzina gotowości chleba do krojenia')}: ${targetTimeStr}`);
   lines.push(`${t('Łączny czas')}: ${czasTrwania(totalMin).tekst}`);
 
