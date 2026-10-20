@@ -52,6 +52,14 @@ describe('Stryker: próg z DEC-12 (a) i plan podnoszenia (07-jakosc-010)', () =>
     expect(pkg.scripts['test:mutation']).toMatch(/^stryker run/);
     expect(nightly).not.toMatch(/continue-on-error|\|\|\s*true/);
   });
+
+  it('nightly ma limit czasu na pełny przebieg Strykera (ok. 42 min) po verify — co najmniej 120 min', () => {
+    // Run 39351363780: Stryker przerwany limitem 60 min; decyzja właściciela 2026-10-20 „Limit 120 min”.
+    const nightly = read('.github/workflows/nightly.yml');
+    const limity = [...nightly.matchAll(/timeout-minutes:\s*(\d+)/g)].map((m) => Number(m[1]));
+    expect(limity.length).toBeGreaterThanOrEqual(1);
+    for (const limit of limity) expect(limit).toBeGreaterThanOrEqual(120);
+  });
 });
 
 describe('fast-check: ziarno zawsze liczbowe, także przy PROP_SEED=random (07-jakosc-010)', () => {
