@@ -10,6 +10,7 @@ import { CraftCard, CraftStatDisplay } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
 import { useMotyw } from '../../ui/motyw';
 import { t } from '../../lib/i18n';
+import { useUnitSystem, celsiusToFahrenheit } from '../../lib/unit-converter';
 
 export interface ZakwasSacredCardProps {
   ageDays: number;
@@ -25,6 +26,8 @@ export function ZakwasSacredCard({
   ambientTempC,
 }: ZakwasSacredCardProps) {
   const motyw = useMotyw();
+  // Temperatura w jednostce z ustawienia (design-spec §7, D-044) [M1-audytor-generalny-096]
+  const imperialne = useUnitSystem() === 'imperial';
   return (
     <CraftCard
       testID="zakwas-sacred-card"
@@ -55,8 +58,8 @@ export function ZakwasSacredCard({
         <CraftStatDisplay
           testID="stat-zakwas-temp"
           label={t('Temp')}
-          value={ambientTempC}
-          unit="°C"
+          value={imperialne ? celsiusToFahrenheit(ambientTempC) : ambientTempC}
+          unit={imperialne ? '°F' : '°C'}
           size="md"
         />
       </View>

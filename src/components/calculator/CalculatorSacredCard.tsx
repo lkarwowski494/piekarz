@@ -9,6 +9,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
+import { useUnitSystem, formatWeight, formatTemperature } from '../../lib/unit-converter';
 
 export interface CalculatorSacredCardProps {
   overallHydrationPercent: number;
@@ -32,12 +33,14 @@ export function CalculatorSacredCard({
   totalFlourGrams,
   targetDdt,
 }: CalculatorSacredCardProps) {
+  // Masa i DDT w jednostkach z ustawienia (design-spec §7, D-044) [M1-audytor-generalny-096]
+  const unitSystem = useUnitSystem();
   return (
     <View testID="sacred-numbers-panel" style={styles.grupa}>
       <Komorka testID="stat-hydration" etykieta={t('Hydratacja')} wartosc={`${formatFixed(overallHydrationPercent, 1)}%`} />
-      <Komorka testID="stat-dough-weight" etykieta={t('Masa')} wartosc={`${targetDoughWeightGrams} g`} />
-      <Komorka testID="stat-total-flour" etykieta={t('Mąka')} wartosc={`${totalFlourGrams} g`} />
-      <Komorka testID="stat-target-ddt" etykieta={t('DDT')} wartosc={`${targetDdt}°C`} ostatnia />
+      <Komorka testID="stat-dough-weight" etykieta={t('Masa')} wartosc={formatWeight(targetDoughWeightGrams, unitSystem)} />
+      <Komorka testID="stat-total-flour" etykieta={t('Mąka')} wartosc={formatWeight(totalFlourGrams, unitSystem)} />
+      <Komorka testID="stat-target-ddt" etykieta={t('DDT')} wartosc={formatTemperature(targetDdt, unitSystem)} ostatnia />
     </View>
   );
 }

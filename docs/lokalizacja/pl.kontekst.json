@@ -1086,6 +1086,11 @@
       "app/(tabs)/zakwasy/_layout.tsx (title)"
     ]
   },
+  "Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.": {
+    "gdzie": [
+      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+    ]
+  },
   "Dopiekaj w temperaturze min. 210–220°C bez pokrywki.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -1768,11 +1773,6 @@
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Imperialne (°F, oz)": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
-    ]
-  },
   "Importowanie...": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
@@ -1837,7 +1837,7 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
-  "Jednostki miar": {
+  "Jednostki": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
     ]
@@ -2365,11 +2365,6 @@
   "Metryczna": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Metryczne (°C, g)": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
     ]
   },
   "Miejsce przechowywania": {
@@ -7362,6 +7357,11 @@
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
     ]
   },
+  "gramy, °C": {
+    "gdzie": [
+      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+    ]
+  },
   "gru": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
@@ -7527,6 +7527,11 @@
   "szklanek": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "uncje, °F": {
+    "gdzie": [
+      "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
     ]
   },
   "upieczonego": {

@@ -17,6 +17,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { useUnitSystem, formatWeight } from '../lib/unit-converter';
 import {
   calculateRecipeStarterSubstitution,
   convertStarterHydration,
@@ -36,6 +37,9 @@ export function StarterConverterModal({
   currentStarterHydration = 100,
   currentStarterName = 'Twój zakwas',
 }: StarterConverterModalProps) {
+  // Masy w jednostkach z ustawienia (D-044) [M1-audytor-generalny-096]
+  const unitSystem = useUnitSystem();
+  const w = (g: number) => formatWeight(g, unitSystem);
   const [activeTab, setActiveTab] = useState<'substitution' | 'hydration_shift'>('substitution');
 
   // Substitution state
@@ -130,7 +134,7 @@ export function StarterConverterModal({
                       onPress={() => setRecipeStarterGrams(g)}
                     >
                       <Text style={[styles.chipText, recipeStarterGrams === g && styles.chipTextActive]}>
-                        {g}g
+                        {w(g)}
                       </Text>
                     </Pressable>
                   ))}
@@ -201,7 +205,7 @@ export function StarterConverterModal({
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Użyj Twojego zakwasu')}:</Text>
-                      <Text style={styles.metricValueHighlight}>{subResult.userStarterGrams}g</Text>
+                      <Text style={styles.metricValueHighlight}>{w(subResult.userStarterGrams)}</Text>
                     </View>
 
                     <View style={styles.metricRow}>
@@ -226,7 +230,7 @@ export function StarterConverterModal({
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Mąka ze sfermentowanego zaczynu')}:</Text>
-                      <Text style={styles.metricValue}>{subResult.starterFlourGrams}g</Text>
+                      <Text style={styles.metricValue}>{w(subResult.starterFlourGrams)}</Text>
                     </View>
 
                     <Text style={styles.adviceText}>{t(subResult.adviceTemplatePl, subResult.adviceParams)}</Text>
@@ -248,7 +252,7 @@ export function StarterConverterModal({
                       onPress={() => setTargetYieldGrams(g)}
                     >
                       <Text style={[styles.chipText, targetYieldGrams === g && styles.chipTextActive]}>
-                        {g}g
+                        {w(g)}
                       </Text>
                     </Pressable>
                   ))}
@@ -312,23 +316,23 @@ export function StarterConverterModal({
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Zakwas matka')}:</Text>
-                      <Text style={styles.metricValueHighlight}>{shiftResult.seedStarterGrams}g</Text>
+                      <Text style={styles.metricValueHighlight}>{w(shiftResult.seedStarterGrams)}</Text>
                     </View>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Mąka dodana')}:</Text>
-                      <Text style={styles.metricValue}>{shiftResult.addedFlourGrams}g</Text>
+                      <Text style={styles.metricValue}>{w(shiftResult.addedFlourGrams)}</Text>
                     </View>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Woda dodana')}:</Text>
-                      <Text style={styles.metricValue}>{shiftResult.addedWaterGrams}g</Text>
+                      <Text style={styles.metricValue}>{w(shiftResult.addedWaterGrams)}</Text>
                     </View>
 
                     <View style={styles.metricRow}>
                       <Text style={styles.metricLabel}>{t('Uzyskana masa i hydratacja')}:</Text>
                       <Text style={styles.metricValue}>
-                        {shiftResult.actualYieldGrams}g ({shiftResult.actualHydration}%)
+                        {w(shiftResult.actualYieldGrams)} ({shiftResult.actualHydration}%)
                       </Text>
                     </View>
 

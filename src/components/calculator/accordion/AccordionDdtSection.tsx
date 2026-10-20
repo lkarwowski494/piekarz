@@ -5,7 +5,7 @@ import { t } from '../../../lib/i18n';
 import { formatFixed, formatNumber } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
-import { useUnitSystem, formatTemperature } from '../../../lib/unit-converter';
+import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
 
 export interface AccordionDdtSectionProps {
   targetDdt: number;
@@ -68,7 +68,7 @@ export function AccordionDdtSection({
               accessibilityLabel={t('Obniż docelową temperaturę ciasta')}
               testID="ddt-minus-btn"
               style={styles.miniBtn}
-              onPress={() => onTargetDdtChange(Math.max(18, targetDdt - 0.5))}
+              onPress={() => onTargetDdtChange(Math.max(18, krokTemperatury(targetDdt, -1, unitSystem)))}
             >
               <Text style={styles.miniBtnText}>−</Text>
             </Pressable>
@@ -78,7 +78,7 @@ export function AccordionDdtSection({
               accessibilityLabel={t('Podnieś docelową temperaturę ciasta')}
               testID="ddt-plus-btn"
               style={styles.miniBtn}
-              onPress={() => onTargetDdtChange(Math.min(32, targetDdt + 0.5))}
+              onPress={() => onTargetDdtChange(Math.min(32, krokTemperatury(targetDdt, 1, unitSystem)))}
             >
               <Text style={styles.miniBtnText}>+</Text>
             </Pressable>

@@ -11,6 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { useUnitSystem, formatWeight } from '../lib/unit-converter';
 import {
   filterDiscardRecipes,
   DiscardCategory,
@@ -22,6 +23,8 @@ interface DiscardRecipesModalProps {
 }
 
 export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalProps) {
+  // Masy w jednostkach z ustawienia (D-044) [M1-audytor-generalny-096]
+  const unitSystem = useUnitSystem();
   const [selectedCategory, setSelectedCategory] = useState<DiscardCategory | 'all'>('all');
   const [expandedRecipeId, setExpandedRecipeId] = useState<string | null>(null);
 
@@ -202,7 +205,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                     <View style={styles.metaRow}>
                       <View style={styles.discardGramsPill}>
                         <Text style={styles.discardGramsText}>
-                          {recipe.discardWeightGrams} g {t('odrzutu')}
+                          {formatWeight(recipe.discardWeightGrams, unitSystem)} {t('odrzutu')}
                         </Text>
                       </View>
                       <Text style={styles.timeMeta}>
@@ -224,7 +227,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                           <Text style={styles.ingredientBullet}>•</Text>
                           <Text style={styles.ingredientName}>{t(ing.namePl)}</Text>
                           <Text style={styles.ingredientAmount}>
-                            {ing.amount} {ing.unit}
+                            {ing.unit === 'g' ? formatWeight(ing.amount, unitSystem) : ` `}
                           </Text>
                         </View>
                       ))}

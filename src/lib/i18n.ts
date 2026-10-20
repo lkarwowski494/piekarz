@@ -127,7 +127,18 @@ export function t(pl: string, params?: Record<string, string | number>): string 
       text = text.split(`{${k}}`).join(paramText(params[k]));
     }
   }
-  return text;
+  return przeliczanie ? przeliczanie(text) : text;
+}
+
+let przeliczanie: ((tekst: string) => string) | null = null;
+
+/**
+ * Przeliczenie jednostek w gotowym tekście (po parametrach), rejestrowane przez unit-converter: w trybie
+ * imperialnym °C → °F i g → oz w każdym tekście z t() (design-spec §7, D-044) [M1-audytor-generalny-096].
+ * Bez cyklu importów: i18n nie importuje unit-converter.
+ */
+export function ustawPrzeliczanieTekstu(fn: ((tekst: string) => string) | null): void {
+  przeliczanie = fn;
 }
 
 /**

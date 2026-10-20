@@ -5,8 +5,10 @@
 // ============================================================================
 
 import { useState, useEffect } from 'react';
+import { getLocales } from 'expo-localization';
 import { getAppSetting, setAppSetting } from '../data/sqlite-store';
-import { formatNumber } from './format';
+import { formatFixed, formatNumber } from './format';
+import { ustawPrzeliczanieTekstu } from './i18n';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -14,21 +16,49 @@ export type UnitSystem = 'metric' | 'imperial';
 let currentUnitSystem: UnitSystem = 'metric';
 const unitListeners = new Set<(system: UnitSystem) => void>();
 
+/** Region urządzenia z expo-localization (getLocales()[0]); null na web albo bez danych. */
+export interface RegionJednostek {
+  regionCode?: string | null;
+  measurementSystem?: string | null;
+}
+
 /**
- * Inicjalizuje układ jednostek z bazy SQLite
+ * Domyślny układ, gdy użytkownik nie wybrał (D-044): system miar urządzenia „us” → imperialne (USA; iOS podaje
+ * „us” także dla LR i MM), „metric” i „uk” (GB: w kuchni gramy i °C) → metryczne. Bez systemu miar (web):
+ * region US → imperialne, inny albo brak → metryczne.
+ */
+export function domyslnyUkladJednostek(region: RegionJednostek | null | undefined): UnitSystem {
+  const system = region?.measurementSystem;
+  if (system) return system === 'us' ? 'imperial' : 'metric';
+  return region?.regionCode === 'US' ? 'imperial' : 'metric';
+}
+
+function regionUrzadzenia(): RegionJednostek | undefined {
+  try {
+    return getLocales()[0];
+  } catch {
+    return undefined;
+  }
+}
+
+/**
+ * Inicjalizuje układ jednostek z bazy SQLite; bez zapisanego wyboru — domyślny według regionu urządzenia
+ * (D-044), bez zapisu w bazie, żeby nie nadpisywać przyszłego wyboru użytkownika [M1-audytor-generalny-096]
  */
 export async function initUnitSystem(): Promise<UnitSystem> {
+  let next: UnitSystem = currentUnitSystem;
   try {
     const saved = await getAppSetting('unit_system');
-    if (saved === 'imperial' || saved === 'metric') {
-      currentUnitSystem = saved;
-      unitListeners.forEach((fn) => fn(saved));
-      return saved;
-    }
+    next = saved === 'imperial' || saved === 'metric' ? saved : domyslnyUkladJednostek(regionUrzadzenia());
   } catch {
-    // Odczyt ustawienia nieudany: zostaje bieżący układ jednostek (domyślnie metryczny)
+    // Odczyt ustawienia nieudany: zostaje bieżący układ jednostek
+    return currentUnitSystem;
   }
-  return currentUnitSystem;
+  if (next !== currentUnitSystem) {
+    currentUnitSystem = next;
+    unitListeners.forEach((fn) => fn(next));
+  }
+  return next;
 }
 
 /**
@@ -143,27 +173,28 @@ export function formatTemperature(celsius: number, unitSystem: UnitSystem = curr
   return `${formatNumber(celsius, undefined, { maximumFractionDigits: 1 })}°C`;
 }
 
+/** Uncje wagowe w gramie (design-spec §7). */
+const OZ_PER_GRAM = 0.03527396195;
+
+/**
+ * Masa w uncjach według design-spec §7 (096, D-044): ≥ 16 oz → „1 lb 14.0 oz” (uncje z jednym miejscem),
+ * 1–16 oz jedno miejsce po przecinku, < 1 oz dwa miejsca (sól, drożdże); separator według języka.
+ */
+function formatOunces(grams: number): string {
+  const oz1 = roundTo(grams * OZ_PER_GRAM, 1);
+  if (oz1 >= 16) {
+    const lbs = Math.floor(oz1 / 16);
+    return `${lbs} lb ${formatFixed(roundTo(oz1 - lbs * 16, 1), 1)} oz`;
+  }
+  const oz2 = roundTo(grams * OZ_PER_GRAM, 2);
+  return oz2 >= 1 ? `${formatFixed(oz1, 1)} oz` : `${formatFixed(oz2, 2)} oz`;
+}
+
 /**
  * Formatuje wagę składnika (gramy lub uncje/funty)
  */
 export function formatWeight(grams: number, unitSystem: UnitSystem = currentUnitSystem): string {
-  if (unitSystem === 'imperial') {
-    if (grams >= 454) {
-      // Pokaż funty i uncje dla większych wag (np. ciasto, mąka)
-      const totalOz = grams * 0.03527396195;
-      const lbs = Math.floor(totalOz / 16);
-      const remainingOz = parseFloat((totalOz % 16).toFixed(1));
-      const oz = formatNumber(remainingOz, undefined, { maximumFractionDigits: 1 });
-      if (lbs > 0 && remainingOz > 0) {
-        return `${lbs} lb ${oz} oz`;
-      }
-      if (lbs > 0 && remainingOz === 0) {
-        return `${lbs} lb`;
-      }
-      return `${oz} oz`;
-    }
-    return `${formatNumber(gramsToOunces(grams), undefined, { maximumFractionDigits: 2 })} oz`;
-  }
+  if (unitSystem === 'imperial') return formatOunces(grams);
   return `${formatNumber(Math.round(grams), undefined, { maximumFractionDigits: 0 })} g`;
 }
 
@@ -171,21 +202,54 @@ export function formatWeight(grams: number, unitSystem: UnitSystem = currentUnit
  * Formatuje małą wagę składnika (sól, drożdże, zakwas)
  */
 export function formatDoseWeight(grams: number, unitSystem: UnitSystem = currentUnitSystem): string {
-  if (unitSystem === 'imperial') {
-    return `${formatNumber(gramsToOunces(grams), undefined, { maximumFractionDigits: 2 })} oz`;
-  }
+  if (unitSystem === 'imperial') return formatOunces(grams);
   return `${formatNumber(grams, undefined, { maximumFractionDigits: 1 })} g`;
 }
 
+const LITERA = 'A-Za-zÀ-ɏąćęłńóśźżĄĆĘŁŃÓŚŹŻ';
+const LICZBA = '(\\d+(?:[.,]\\d+)?)';
+/** Słowa po temperaturze, które czynią z niej różnicę (PL, EN): „10 °C niżej” = 18 °F niżej. */
+const ROZNICA_PO = '(\\s+(?:niżej|wyżej|mniej|więcej|cieplej|chłodniej|zimniej|lower|higher|cooler|warmer|colder|less|more)(?![' + LITERA + ']))';
+const RE_ROZNICA_PO = new RegExp(`${LICZBA}(\\s*)°C${ROZNICA_PO}`, 'g');
+const RE_ROZNICA_PRZED = new RegExp(`((?:^|[^${LITERA}])(?:o|by)\\s+|[+±])${LICZBA}(\\s*)°C`, 'g');
+const RE_ZAKRES_C = new RegExp(`(^|[^\\d.,])([−-]?)${LICZBA}(\\s*[–-]\\s*)([−-]?)${LICZBA}(\\s*)°C`, 'g');
+const RE_TEMP_C = new RegExp(`(^|[^\\d.,])([−-]?)${LICZBA}(\\s*)°C`, 'g');
+const RE_ZAKRES_G = new RegExp(`${LICZBA}(\\s*[–-]\\s*)${LICZBA}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
+const RE_MASA = new RegExp(`${LICZBA}\\s*(kg|g)(?![${LITERA}\\d])`, 'g');
+
+const liczba = (s: string, znak = ''): number => (znak ? -1 : 1) * parseFloat(s.replace(',', '.'));
+const fahrenheit = (c: number): string => formatNumber(celsiusToFahrenheit(c));
+const gramy = (s: string, jednostka: string): number => liczba(s) * (jednostka === 'kg' ? 1000 : 1);
+
 /**
- * Konwertuje wystąpienia temperatur w tekście na jednostki wybranego systemu
+ * Przelicza w tekście temperatury (°C → °F całkowite, także zakresy i różnice) i masy (g, kg → oz, lb)
+ * według wybranego układu; metrycznie tekst bez zmian [M1-audytor-generalny-096]
  */
 export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUnitSystem): string {
   if (unitSystem !== 'imperial' || !text) return text;
-  return text.replace(/(\d+(?:[.,]\d+)?)\s*°C/g, (_, numStr) => {
-    const val = parseFloat(numStr.replace(',', '.'));
-    return formatTemperature(val, 'imperial');
-  });
+  return text
+    .replace(RE_ROZNICA_PO, (_, n: string, ws: string, po: string) => `${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F${po}`)
+    .replace(RE_ROZNICA_PRZED, (_, przed: string, n: string, ws: string) => `${przed}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F`)
+    .replace(RE_ZAKRES_C, (_, p: string, za: string, a: string, sep: string, zb: string, b: string, ws: string) =>
+      `${p}${fahrenheit(liczba(a, za))}${sep}${fahrenheit(liczba(b, zb))}${ws}°F`)
+    .replace(RE_TEMP_C, (_, p: string, z: string, n: string, ws: string) => `${p}${fahrenheit(liczba(n, z))}${ws}°F`)
+    .replace(RE_ZAKRES_G, (_, a: string, sep: string, b: string, j: string) => `${formatOunces(gramy(a, j))}${sep}${formatOunces(gramy(b, j))}`)
+    .replace(RE_MASA, (_, n: string, j: string) => formatOunces(gramy(n, j)));
+}
+
+// Każdy tekst przez t() (ekrany, komunikaty, powiadomienia, eksport tekstowy) w trybie imperialnym ma °F i oz
+// (design-spec §7, D-044) [M1-audytor-generalny-096]
+ustawPrzeliczanieTekstu((s) => (currentUnitSystem === 'imperial' ? formatTextUnits(s, 'imperial') : s));
+
+/** Wartość z pola temperatury w jednostce z ustawienia → °C do zapisu (baza metryczna, D-044). */
+export function temperaturaZPola(wartosc: number, unitSystem: UnitSystem = currentUnitSystem): number {
+  return unitSystem === 'imperial' ? roundTo(((wartosc - 32) * 5) / 9, 2) : wartosc;
+}
+
+/** Krok steppera temperatury: imperialnie o 1 °F, metrycznie o 0,5 °C; wynik w °C (096). */
+export function krokTemperatury(celsius: number, kierunek: 1 | -1, unitSystem: UnitSystem = currentUnitSystem): number {
+  if (unitSystem !== 'imperial') return celsius + 0.5 * kierunek;
+  return temperaturaZPola(celsiusToFahrenheit(celsius) + kierunek, 'imperial');
 }
 
 /**
@@ -244,4 +308,5 @@ export function wInKeep(txt: string, unit: string, prevBase?: number): number {
   }
   return roundTo(xIn / cu, 2);
 }
+
 

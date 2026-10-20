@@ -10,7 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { formatFixed, formatNumber } from '../../lib/format';
 import { DoughRecipeResult } from '../../core/domain-rules';
-import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
+import { useUnitSystem, formatWeight, formatDoseWeight, ouncesToGrams } from '../../lib/unit-converter';
 import { ScaleIngredientRow } from './ScaleIngredientRow';
 
 // Wybór receptury jest jeden (lista receptur, FormulaPresetSelector), a „Ułóż plan” jest jedną akcją
@@ -44,6 +44,9 @@ export function DoMiskiScaleCard({
   loafWeightGrams = 850,
 }: DoMiskiScaleCardProps) {
   const unitSystem = useUnitSystem();
+  // Krok masy mąki w jednostce z ustawienia: 50 g albo 2 oz, zapis zawsze w gramach (D-044) [M1-audytor-generalny-096]
+  const krokMaki = unitSystem === 'imperial' ? ouncesToGrams(2) : 50;
+  const etykietaKroku = unitSystem === 'imperial' ? formatWeight(krokMaki, unitSystem) : String(krokMaki);
   const [checkedIngredients, setCheckedIngredients] = useState<Record<string, boolean>>({});
 
   const toggleCheck = (key: string) => {
@@ -79,7 +82,7 @@ export function DoMiskiScaleCard({
           onPress={() => onCalcModeChange?.('loaves')}
         >
           <Text style={[styles.modeTabText, calcMode === 'loaves' && styles.modeTabTextActive]}>
-            {t('Bochenki')} ({loavesCount} × {loafWeightGrams}g)
+            {t('Bochenki')} ({loavesCount} × {formatWeight(loafWeightGrams, unitSystem)})
           </Text>
         </Pressable>
         <Pressable
@@ -89,7 +92,7 @@ export function DoMiskiScaleCard({
           onPress={() => onCalcModeChange?.('flour')}
         >
           <Text style={[styles.modeTabText, calcMode === 'flour' && styles.modeTabTextActive]}>
-            {t('Masa mąki')} ({flourGrams}g)
+            {t('Masa mąki')} ({formatWeight(flourGrams, unitSystem)})
           </Text>
         </Pressable>
       </View>
@@ -106,22 +109,22 @@ export function DoMiskiScaleCard({
           <View style={styles.stepperContainer}>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={t('Zmniejsz masę mąki o {g} g', { g: 50 })}
+              accessibilityLabel={t('Zmniejsz masę mąki o {g} g', { g: krokMaki })}
               style={styles.stepperBtn}
-              onPress={() => onFlourGramsChange?.(Math.max(100, flourGrams - 50))}
+              onPress={() => onFlourGramsChange?.(Math.max(100, flourGrams - krokMaki))}
             >
-              <Text style={styles.stepperBtnText}>-50</Text>
+              <Text style={styles.stepperBtnText}>-{etykietaKroku}</Text>
             </Pressable>
             <View style={styles.stepperValueBox}>
-              <Text style={styles.stepperValueText}>{flourGrams}g</Text>
+              <Text style={styles.stepperValueText}>{formatWeight(flourGrams, unitSystem)}</Text>
             </View>
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel={t('Zwiększ masę mąki o {g} g', { g: 50 })}
+              accessibilityLabel={t('Zwiększ masę mąki o {g} g', { g: krokMaki })}
               style={styles.stepperBtn}
-              onPress={() => onFlourGramsChange?.(flourGrams + 50)}
+              onPress={() => onFlourGramsChange?.(flourGrams + krokMaki)}
             >
-              <Text style={styles.stepperBtnText}>+50</Text>
+              <Text style={styles.stepperBtnText}>+{etykietaKroku}</Text>
             </Pressable>
           </View>
         </View>

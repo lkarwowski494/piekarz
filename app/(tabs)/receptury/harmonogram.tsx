@@ -19,6 +19,7 @@ import { stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
+import { formatTime as formatGodziny } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
@@ -108,11 +109,8 @@ export default function HarmonogramScreen() {
     setTargetMinute(total % 60);
   };
 
-  const formatTime = (d: Date) => {
-    const h = String(d.getHours()).padStart(2, '0');
-    const m = String(d.getMinutes()).padStart(2, '0');
-    return `${h}:${m}`;
-  };
+  // Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]
+  const formatTime = (d: Date) => formatGodziny(d);
 
   const formatDayBadge = (d: Date) => {
     const today = new Date();

@@ -50,9 +50,9 @@ export function PreferencesSection({
         </View>
       </View>
 
-      {/* Unit System Section */}
+      {/* Jeden wybór segmentowy „gramy, °C” / „uncje, °F” (design-spec §7, D-051 3a) [M1-audytor-generalny-096] */}
       <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Jednostki miar')}</Text>
+        <Text style={styles.sectionTitle}>{t('Jednostki')}</Text>
         <View style={styles.langRow}>
           <Pressable
             accessibilityRole="button"
@@ -62,7 +62,7 @@ export function PreferencesSection({
             onPress={() => onUnitSystemChange('metric')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'metric' && styles.langBtnTextActive]}>
-              {t('Metryczne (°C, g)')}
+              {t('gramy, °C')}
             </Text>
           </Pressable>
           <Pressable
@@ -73,10 +73,11 @@ export function PreferencesSection({
             onPress={() => onUnitSystemChange('imperial')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'imperial' && styles.langBtnTextActive]}>
-              {t('Imperialne (°F, oz)')}
+              {t('uncje, °F')}
             </Text>
           </Pressable>
         </View>
+        <Text style={styles.opis}>{t('Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.')}</Text>
       </View>
     </>
   );
@@ -120,6 +121,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: theme.colors.tusz,
+  },
+  opis: {
+    marginTop: theme.spacing.sm,
+    fontSize: 13,
+    color: theme.colors.tusz2,
   },
   langBtnTextActive: {
     color: theme.colors.akcentTekst,

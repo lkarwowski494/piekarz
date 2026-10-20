@@ -12,6 +12,7 @@ import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
 import { initLanguage, t } from '../src/lib/i18n';
+import { initUnitSystem } from '../src/lib/unit-converter';
 import { trasaZPowiadomienia } from '../src/core/notification-plan';
 import { naglowekZwykly } from '../src/ui/naglowek';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
@@ -45,6 +46,8 @@ export default function RootLayout() {
       await initDatabase();
       // Język z zapisu albo z systemu, po bazie (zapis w app_settings) [M1-audytor-generalny-048]
       await initLanguage();
+      // Jednostki z zapisu albo według regionu urządzenia (D-044); rejestruje przeliczanie tekstów t() [M1-audytor-generalny-096]
+      await initUnitSystem();
       // Nasłuch transakcji StoreKit od startu, zanim użytkownik otworzy ekran zakupu (MON-04) [M1-audytor-generalny-008]
       stopPlatnosci = uruchomPlatnosci();
       void resyncNotifications();

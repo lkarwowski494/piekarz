@@ -3,11 +3,12 @@ import * as Haptics from 'expo-haptics';
 import { ReverseScheduleResult } from '../scheduler/reverse-scheduler';
 import { t } from './i18n';
 import { announce } from './announce';
+import { formatTemperature } from './unit-converter';
+import { formatTime } from './format';
 
+/** Godzina etapu w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 export function formatStageTime(d: Date): string {
-  const h = String(d.getHours()).padStart(2, '0');
-  const m = String(d.getMinutes()).padStart(2, '0');
-  return `${h}:${m}`;
+  return formatTime(d);
 }
 
 export function formatStageDateBadge(d: Date, refDate = new Date()): string {
@@ -47,7 +48,7 @@ export function formatScheduleToText(
   if (options?.ambientTempC !== undefined || options?.coldRetardHours !== undefined) {
     const metaParts: string[] = [];
     if (options.ambientTempC !== undefined) {
-      metaParts.push(`${t('Temperatura otoczenia')}: ${options.ambientTempC}°C`);
+      metaParts.push(`${t('Temperatura otoczenia')}: ${formatTemperature(options.ambientTempC)}`);
     }
     if (options.coldRetardHours !== undefined) {
       metaParts.push(`${t('Garowanie chłodnicze')}: ${options.coldRetardHours}h`);

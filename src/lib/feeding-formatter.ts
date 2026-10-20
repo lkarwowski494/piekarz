@@ -4,6 +4,7 @@ import { StarterFeedingResult } from '../core/domain-rules';
 import { StoredStarter } from '../data/db';
 import { t } from './i18n';
 import { announce } from './announce';
+import { formatWeight } from './unit-converter';
 
 export function formatFeedingToText(
   starter: StoredStarter,
@@ -13,12 +14,13 @@ export function formatFeedingToText(
   const lines: string[] = [];
   lines.push(`${t('Dokarmienie zakwasu')}: ${starter.name}`);
   lines.push(`${t('Proporcja')}: 1:${ratio[1]}:${ratio[2]}`);
-  lines.push(`${t('Docelowa masa zaczynu')}: ${feeding.targetYieldGrams} g`);
+  // Masy w jednostkach z ustawienia (design-spec §7, D-044) [M1-audytor-generalny-096]
+  lines.push(`${t('Docelowa masa zaczynu')}: ${formatWeight(feeding.targetYieldGrams)}`);
   lines.push('');
   lines.push(`${t('Składniki do słoika')}:`);
-  lines.push(`1. ${t('Zakwas matka')}: ${feeding.starterGrams} g`);
-  lines.push(`2. ${t('Mąka')} (${starter.flourType}): ${feeding.flourGrams} g`);
-  lines.push(`3. ${t('Woda')}: ${feeding.waterGrams} g`);
+  lines.push(`1. ${t('Zakwas matka')}: ${formatWeight(feeding.starterGrams)}`);
+  lines.push(`2. ${t('Mąka')} (${starter.flourType}): ${formatWeight(feeding.flourGrams)}`);
+  lines.push(`3. ${t('Woda')}: ${formatWeight(feeding.waterGrams)}`);
   lines.push('');
   if (feeding.tipPl) {
     lines.push(feeding.tipPl);

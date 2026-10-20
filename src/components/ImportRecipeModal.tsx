@@ -21,6 +21,7 @@ import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { formatFixed } from '../lib/format';
+import { getUnitSystem, formatTemperature } from '../lib/unit-converter';
 import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
@@ -166,7 +167,7 @@ export function ImportRecipeModal({
               <View style={styles.previewCard} testID="import-preview-card">
                 <View style={styles.previewHeader}>
                   <Text style={styles.previewBadge}>✓ {t('Poprawna formuła')}</Text>
-                  <Text style={styles.previewDdt}>DDT: {validation.recipe.targetDDT}°C</Text>
+                  <Text style={styles.previewDdt}>DDT: {formatTemperature(validation.recipe.targetDDT, getUnitSystem())}</Text>
                 </View>
 
                 <Text style={styles.previewName}>{validation.recipe.name}</Text>

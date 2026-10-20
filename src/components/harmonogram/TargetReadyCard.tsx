@@ -9,6 +9,10 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
+import { formatTime } from '../../lib/format';
+
+/** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
+const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
 
 export const BAKING_SCENARIOS = [
   {
@@ -162,7 +166,7 @@ export function TargetReadyCard({
               style={[styles.hourChip, isSelected && styles.hourChipActive]}
             >
               <Text style={[styles.hourChipText, isSelected && styles.hourChipTextActive]}>
-                {h}:00
+                {godzina(h, 0)}
               </Text>
             </Pressable>
           );
@@ -181,7 +185,7 @@ export function TargetReadyCard({
 
         <View style={styles.timeDisplayBox}>
           <Text style={styles.timeDisplayText}>
-            {String(targetHour).padStart(2, '0')}:{String(targetMinute).padStart(2, '0')}
+            {godzina(targetHour, targetMinute)}
           </Text>
           <Text style={styles.timeDisplayDay}>{formattedDayBadge}</Text>
         </View>
@@ -198,8 +202,8 @@ export function TargetReadyCard({
       {/* Sleep Guard Profile Selector */}
       <Text style={styles.inputGroupLabel}>
         {t('Godziny snu:')}{' '}
-        {sleepStartHour === 24 ? '00' : Math.floor(sleepStartHour)}:00 –{' '}
-        {String(Math.floor(sleepEndHour)).padStart(2, '0')}:{sleepEndHour % 1 !== 0 ? '30' : '00'}
+        {godzina(sleepStartHour, 0)} –{' '}
+        {godzina(sleepEndHour, sleepEndHour % 1 !== 0 ? 30 : 0)}
       </Text>
       <View style={styles.sleepProfilesRow}>
         {SLEEP_PROFILES.map((p) => {

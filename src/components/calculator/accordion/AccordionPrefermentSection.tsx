@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { useUnitSystem, formatWeight } from '../../../lib/unit-converter';
 import { PrefermentType, PrefermentBreakdownResult } from '../../../core/preferments';
 
 export interface AccordionPrefermentSectionProps {
@@ -19,6 +20,8 @@ export function AccordionPrefermentSection({
   onPrefermentFlourPctChange,
   prefermentBreakdown,
 }: AccordionPrefermentSectionProps) {
+  // Masy w jednostkach z ustawienia (D-044) [M1-audytor-generalny-096]
+  const unitSystem = useUnitSystem();
   return (
     <View style={styles.sectionBlock}>
       <Text style={styles.sectionHeaderTitle}>{t('Zaczyny rzemieślnicze')}</Text>
@@ -88,8 +91,8 @@ export function AccordionPrefermentSection({
           <View style={styles.prefermentGrid}>
             <View style={styles.prefermentCol}>
               <Text style={styles.prefermentColHeader}>{t('Zaczyn ({g} g)', { g: prefermentBreakdown.prefermentTotalWeightGrams })}</Text>
-              <Text style={styles.prefermentItemText}>{t('Mąka w zaczynie')}: {prefermentBreakdown.prefermentFlourGrams} g</Text>
-              <Text style={styles.prefermentItemText}>{t('Woda w zaczynie')}: {prefermentBreakdown.prefermentWaterGrams} g</Text>
+              <Text style={styles.prefermentItemText}>{t('Mąka w zaczynie')}: {formatWeight(prefermentBreakdown.prefermentFlourGrams, unitSystem)}</Text>
+              <Text style={styles.prefermentItemText}>{t('Woda w zaczynie')}: {formatWeight(prefermentBreakdown.prefermentWaterGrams, unitSystem)}</Text>
             </View>
             <View style={styles.prefermentCol}>
               <Text style={styles.prefermentColHeader}>{t('Do miski (Ciasto właściwe)')}</Text>

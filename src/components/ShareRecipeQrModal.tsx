@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { useUnitSystem, formatTemperature } from '../lib/unit-converter';
 import { StoredRecipe } from '../data/db';
 import { MasterRecipe } from '../recipes/presets';
 import { encodeRecipeToShareUrl } from '../lib/recipe-sharing';
@@ -34,6 +35,8 @@ export function ShareRecipeQrModal({
   onClose,
   recipe,
 }: ShareRecipeQrModalProps) {
+  // DDT w jednostce z ustawienia (D-044) [M1-audytor-generalny-096]
+  const unitSystem = useUnitSystem();
   if (!visible || !recipe) return null;
 
   const isMaster = 'namePl' in recipe;
@@ -85,7 +88,7 @@ export function ShareRecipeQrModal({
                 {name}
               </Text>
               <Text style={styles.recipeDetails}>
-                {t('Hydratacja')}: {recipe.formula.waterPercentage}% • {t('Zakwas|składnik')}: {recipe.formula.starterPercentage}% • DDT: {recipe.targetDDT ?? 25}°C
+                {t('Hydratacja')}: {recipe.formula.waterPercentage}% • {t('Zakwas|składnik')}: {recipe.formula.starterPercentage}% • DDT: {formatTemperature(recipe.targetDDT ?? 25, unitSystem)}
               </Text>
             </View>
 
