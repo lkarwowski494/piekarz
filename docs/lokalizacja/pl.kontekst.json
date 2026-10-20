@@ -2664,6 +2664,12 @@
       "src/components/calculator/DoMiskiScaleCard.tsx (label)"
     ]
   },
+  "Mąka orkiszowa": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
+  },
   "Mąka orkiszowa jasna typ 630": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: name)",
@@ -2682,6 +2688,12 @@
       "src/core/flour-equivalents.ts (dane: namePl)"
     ]
   },
+  "Mąka pszenna": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
+  },
   "Mąka pszenna (czerpana szklanką / ubita)": {
     "gdzie": [
       "src/core/volume-converter.ts (dane: namePl)"
@@ -2691,6 +2703,12 @@
     "gdzie": [
       "src/core/volume-converter.ts (dane: namePl)"
     ]
+  },
+  "Mąka pszenna Manitoba": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka pszenna bułkowa / bagietkowa": {
     "gdzie": [
@@ -2811,6 +2829,12 @@
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
+  },
+  "Mąka żytnia": {
+    "gdzie": [
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+    ],
+    "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka żytnia (typ 720 / 2000)": {
     "gdzie": [

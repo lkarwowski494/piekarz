@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 43 | 43 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 597 | 597 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 371 | 371 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 154 | 154 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 372 | 372 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 157 | 157 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1174** | Pokrytych: **1174** | Brakujących: **0**
+Łącznie elementów: **1178** | Pokrytych: **1178** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie zapisałem receptury. Spróbuj jeszcze raz.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 874 kolejnych elementów w pełnym wykazie)*
+*(... i 878 kolejnych elementów w pełnym wykazie)*

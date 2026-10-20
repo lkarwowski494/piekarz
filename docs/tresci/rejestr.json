@@ -1170,7 +1170,27 @@
     "twierdzenie": "Polskim typom mąki odpowiadają typy francuskie (T45–T150), włoskie (Tipo 00–Integrale), niemieckie (Type 405–Vollkornmehl) i kategorie USA (Cake/Pastry, All-Purpose, Bread Flour, Whole Wheat), np. typ 650 ≈ T65 / Tipo 0 / Type 812 / French Style Bread Flour.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Mapowanie w src/core/flour-equivalents.ts (F-46 PÓŹNIEJ, wejście ukryte, D-034) bez przeczytanego źródła; systemy klasyfikacji różnią się podstawą (popiół w Polsce, kategorie USA według białka i zastosowania), więc „≈” to uproszczenie, którego kierunku nie potwierdziło żadne źródło szczebla 1–4. Zgodnie z DEC-06 w EN i innych językach bez sprawdzonej mapy: polska nazwa typu z rodzajem zboża („Wheat flour type 650”), bez odpowiednika lokalnego.",
+    "uwagi": "[DO USTALENIA] Mapowanie w src/core/flour-equivalents.ts (F-46 PÓŹNIEJ, wejście ukryte, D-034) bez przeczytanego źródła; systemy klasyfikacji różnią się podstawą (popiół w Polsce, kategorie USA według białka i zastosowania), więc „≈” to uproszczenie, którego kierunku nie potwierdziło żadne źródło szczebla 1–4. Mapa typów per język: src/core/flour-atlas-ogolne.ts (MAPA_TYPOW_MAK, tylko pl z MAK-TYP-001/002/004/005). Od 2026-10-20 (decyzja przekładu właściciela „Bez numeru”, M1-audytor-generalny-094) w EN i pozostałych 33 językach nazwa ogólna bez polskiego numeru typu i bez odpowiednika lokalnego (docs/tresci/pl/maki-ogolne.md, docs/tresci/en/maki-ogolne.md); do wdrożenia wyświetlania przez rolę 08 EN pokazuje dotychczasową nazwę z typem.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-OGL-900",
+    "twierdzenie": "Zakres zawartości białka (% s.m.) dla każdego profilu atlasu mąk (polskie typy pszenne, żytnie i orkiszowe oraz Manitoba), do opisu ogólnego bez numeru typu.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094: opis ogólny miał podawać białko, ale żadne twierdzenie w rejestrze go nie popiera; pola proteinPercent w src/core/flour-atlas.ts nie mają źródła (06-tresci-fix-p4-002). Normy określają typy według zawartości popiołu (MAK-TYP-001, MAK-TYP-002); twierdzenia o białku poszczególnych typów rejestr nie ma. Do tego czasu opisPl w src/core/flour-atlas-ogolne.ts jest pusty.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-OGL-901",
+    "twierdzenie": "Stopień przemiału (jasna, półrazowa, razowa/pełnoziarnista) dla każdego profilu atlasu mąk, do nazwy i opisu ogólnego bez numeru typu.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094: źródłem mogłyby być granice popiołu typów (MAK-TYP-900 otwarte, tekst norm płatny) albo opis producenta [DO USTALENIA]; rejestr nie ma twierdzenia, które łączy typ z przemiałem. Do tego czasu nazwa ogólna podaje tylko zboże, a opis jest pusty.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
