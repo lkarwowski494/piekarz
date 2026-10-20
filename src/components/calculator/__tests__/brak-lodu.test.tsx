@@ -59,6 +59,7 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
       'src/components/calculator/accordion/AccordionDdtSection.tsx',
       'src/components/calculator/ArtisanAccordionPro.tsx',
       'app/(tabs)/receptury/index.tsx',
+      'app/(tabs)/receptury/receptura.tsx',
       'src/hooks/useRecipeCalculations.ts',
     ]) {
       expect({ p, lod: /iceGrams|iceResult|calculateIceRequirement|\(Lód\)|lodu|lodem/.test(zrodlo(p)) }).toEqual({ p, lod: false });

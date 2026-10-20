@@ -1,0 +1,442 @@
+import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
+import { ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { guardSave } from '../../../src/lib/save-guard';
+import {
+  BAKE_LOSS_PRESETS,
+  BakeTypePresetId,
+  POPULAR_FLOUR_BLENDS,
+  FlourItemInput,
+} from '../../../src/core/domain-rules';
+import { MASTER_RECIPES, filterMasterRecipes } from '../../../src/recipes/presets';
+import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/lib/start-stan';
+import {
+  getRecipes,
+  deleteRecipe,
+} from '../../../src/data/sqlite-store';
+import { StoredRecipe } from '../../../src/data/db';
+import { confirmDeleteRecipe } from '../../../src/lib/confirm';
+import type { PendingRecipeFormula, PendingRecipeToLoad } from '../../../src/lib/recipe-navigation';
+import { usePendingRecipeLoader } from '../../../src/hooks/usePendingRecipeLoader';
+import { PrefermentType } from '../../../src/core/preferments';
+import { useAppAccess } from '../../../src/lib/app-access';
+import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
+import { DoMiskiScaleCard } from '../../../src/components/calculator/DoMiskiScaleCard';
+import { ArtisanAccordionPro } from '../../../src/components/calculator/ArtisanAccordionPro';
+import { SaveRecipeModal } from '../../../src/components/calculator/SaveRecipeModal';
+import { CalculatorActionButtons } from '../../../src/components/calculator/CalculatorActionButtons';
+import { FormulaPresetSelector, CategoryFilterType } from '../../../src/components/calculator/FormulaPresetSelector';
+import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
+import { useUnitSystem } from '../../../src/lib/unit-converter';
+import { CalculatorSacredCard } from '../../../src/components/calculator/CalculatorSacredCard';
+import { useRecipeCalculations } from '../../../src/hooks/useRecipeCalculations';
+import {
+  executePrintRecipePdf,
+  executeExportRecipeJson,
+  executeCopyRecipe,
+  executeSaveCustomRecipe,
+} from '../../../src/lib/calculator-actions';
+import { openPrintMenu } from '../../../src/lib/print-menu';
+import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { ustawRecepturePlanu } from '../../../src/lib/plan-receptury';
+import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
+import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
+import { styles } from '../../../src/components/calculator/calculator-screen.styles';
+
+type CalculationMode = 'loaves' | 'flour';
+
+export default function EkranReceptury() {
+  const router = useRouter();
+
+  // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
+  const { chron, blokada, moze, requireActionAccess } = useAppAccess();
+
+  const [isArtisanAccordionOpen, setIsArtisanAccordionOpen] = useState<boolean>(false);
+
+  const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
+
+  // Loaves mode parameters
+  const [loavesCount, setLoavesCount] = useState<number>(2);
+  const [loafWeightGrams, setLoafWeightGrams] = useState<number>(850);
+
+  // Flour mode parameters
+  const [flourGrams, setFlourGrams] = useState<number>(500);
+
+  // Recipe parameters
+  const [selectedPresetId, setSelectedPresetId] = useState<string>(MASTER_RECIPES[0].id);
+  const [recipeName, setRecipeName] = useState<string>(MASTER_RECIPES[0].namePl);
+  const [flourBlend, setFlourBlend] = useState<FlourItemInput[]>([
+    { name: 'Mąka pszenna chlebowa typ 750', percentage: 80.0, type: 'pszenna_750' },
+    { name: 'Mąka żytnia typ 720', percentage: 20.0, type: 'zytnia_720' },
+  ]);
+  const [waterPct, setWaterPct] = useState<number>(68.0);
+  const [starterPct, setStarterPct] = useState<number>(20.0);
+  const [saltPct, setSaltPct] = useState<number>(2.0);
+  const [yeastPct, setYeastPct] = useState<number>(0); // drożdże z receptury [M1-audytor-generalny-092]
+  const [starterHydration, setStarterHydration] = useState<number>(100.0);
+
+  // DDT parameters
+  const [targetDdt, setTargetDdt] = useState<number>(25.0);
+  const [flourTemp] = useState<number>(21.0);
+  const [roomTemp] = useState<number>(22.0);
+  const [starterTemp] = useState<number>(21.0);
+  const [frictionFactor] = useState<number>(2.0);
+  const [tapWaterTemp] = useState<number>(16.0);
+
+  // Bake Loss & Crumb Moisture state
+  const [selectedBakeLossPresetId, setSelectedBakeLossPresetId] = useState<BakeTypePresetId>('batard_boule');
+  const [customBakeLossPercent, setCustomBakeLossPercent] = useState<number>(14.0);
+
+  // Custom recipes & Settings state
+  const [customRecipes, setCustomRecipes] = useState<StoredRecipe[]>([]);
+  const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
+  const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
+  const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
+  const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
+  const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
+  const [isShareQrOpen, setIsShareQrOpen] = useState<boolean>(false);
+  const [isScannerOpen, setIsScannerOpen] = useState<boolean>(false);
+  const [importInitialInput, setImportInitialInput] = useState<string>('');
+  const [isEquivModalOpen, setIsEquivModalOpen] = useState<boolean>(false);
+  const [isVolumeModalOpen, setIsVolumeModalOpen] = useState<boolean>(false);
+  const [isWaterTempOpen, setIsWaterTempOpen] = useState<boolean>(false);
+  const [masterCategoryFilter, setMasterCategoryFilter] = useState<CategoryFilterType>('all');
+
+  // Artisan Preferments state
+  const [prefermentType, setPrefermentType] = useState<PrefermentType>('direct');
+  const [prefermentFlourPct, setPrefermentFlourPct] = useState<number>(20.0);
+
+  const unitSystem = useUnitSystem();
+
+  // Unified recipe setter
+  const applyFormula = useCallback((id: string, name: string, formula: PendingRecipeFormula, ddt?: number) => {
+    setSelectedPresetId(id);
+    setRecipeName(name);
+    setFlourBlend(formula.flours);
+    setWaterPct(formula.waterPercentage);
+    setStarterPct(formula.starterPercentage);
+    setSaltPct(formula.saltPercentage);
+    setYeastPct(formula.extraYeastPercentage ?? 0);
+    setStarterHydration(formula.starterHydration ?? 100.0);
+    if (ddt !== undefined) setTargetDdt(ddt);
+  }, []);
+
+  // Derived Calculations Hook
+  const {
+    targetDoughWeightGrams,
+    calculations,
+    currentRecipeForShare,
+    ddtResult,
+    bakeLossMetrics,
+    bakedTotalWeight,
+    bakedSingleLoafWeight,
+    hydrationDifficulty,
+    blendAbsorption,
+    prefermentBreakdown,
+  } = useRecipeCalculations({
+    calcMode,
+    loavesCount,
+    loafWeightGrams,
+    flourGrams,
+    flourBlend,
+    waterPct,
+    starterPct,
+    saltPct,
+    extraYeastPct: yeastPct,
+    starterHydration,
+    targetDdt,
+    flourTemp,
+    roomTemp,
+    starterTemp,
+    frictionFactor,
+    customBakeLossPercent,
+    prefermentType,
+    prefermentFlourPct,
+    selectedPresetId,
+    recipeName,
+  });
+
+  const handlePrintRecipePdf = async () => {
+    await executePrintRecipePdf({
+      recipeName,
+      calculations,
+      starterHydration,
+      saltPct,
+      targetDdt,
+      waterTempTarget: ddtResult.waterTempTarget,
+      roomTemp,
+      loavesCount: calcMode === 'loaves' ? loavesCount : 1,
+      bakedSingleLoafWeight,
+      selectedPresetId,
+    });
+  };
+
+  const loadRecipesFromStore = useCallback(async () => {
+    const all = await getRecipes();
+    setCustomRecipes(all.filter((r) => !r.isBuiltIn));
+  }, []);
+
+  usePendingRecipeLoader((pending: PendingRecipeToLoad) => {
+    // Receptura z „Piecz ponownie” albo z importu w Ustawieniach (F-33): lista własnych od nowa [M1-audytor-generalny-057]
+    void loadRecipesFromStore();
+    applyFormula(pending.id ?? selectedPresetId, pending.name, pending.formula, pending.targetDDT);
+    if (pending.formula.targetDoughWeightGrams !== undefined) {
+      setCalcMode('loaves');
+      setLoavesCount(1);
+      setLoafWeightGrams(pending.formula.targetDoughWeightGrams);
+    }
+  }, loadRecipesFromStore, [loadRecipesFromStore, applyFormula, selectedPresetId]);
+
+  // Start „Co dziś robisz?” zastępuje powitanie z wyborem stylu: filtr receptur z wybranej czynności
+  // (na zakwasie / na drożdżach); wejście bez wyboru — „Wszystkie”. Zapisany styl z dawnego powitania
+  // (baker_ritual_profile) zostaje w bazie, ale go nie czytamy [M1-audytor-generalny-101; BR-START-001]
+  useEffect(() => {
+    const zeStartu = odbierzRodzajReceptur();
+    if (zeStartu) setMasterCategoryFilter(zeStartu);
+    return subskrybujRodzajReceptur(setMasterCategoryFilter);
+  }, []);
+
+  const filteredMasterRecipes = useMemo(() => filterMasterRecipes(masterCategoryFilter), [masterCategoryFilter]);
+
+  const currentMasterPreset = useMemo(() => {
+    return MASTER_RECIPES.find((p) => p.id === selectedPresetId);
+  }, [selectedPresetId]);
+
+  // Import działa zawsze (D-039): bez uprawnienia receptura trafia na listę, bez ekranu zakupu [M1-audytor-generalny-026]
+  const handleImportSuccess = (imported: StoredRecipe) => {
+    if (moze('kalkulator')) applyFormula(imported.id, imported.name, imported.formula, imported.targetDDT);
+    loadRecipesFromStore();
+  };
+
+  const handleScanRecipe = (scannedData: string) => {
+    setIsScannerOpen(false);
+    setImportInitialInput(scannedData);
+    setIsImportModalOpen(true);
+  };
+
+  const handleSelectMasterPreset = (presetId: string) => {
+    const preset = MASTER_RECIPES.find((p) => p.id === presetId);
+    if (preset) applyFormula(preset.id, preset.namePl, preset.formula, preset.targetDDT);
+  };
+
+  const handleSelectCustomRecipe = (recipe: StoredRecipe) => {
+    applyFormula(recipe.id, recipe.name, recipe.formula, recipe.targetDDT);
+  };
+
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]
+  const handleDeleteCustomRecipe = (recipe: StoredRecipe) => {
+    confirmDeleteRecipe(recipe.name, guardSave(async () => {
+      await deleteRecipe(recipe.id);
+      if (selectedPresetId === recipe.id) {
+        handleSelectMasterPreset(MASTER_RECIPES[0].id);
+      }
+      await loadRecipesFromStore();
+    }));
+  };
+
+  const handleSelectFlourBlend = (blend: typeof POPULAR_FLOUR_BLENDS[number]) => {
+    setFlourBlend(blend.flours);
+  };
+
+  const handleSelectBakeLossPreset = (presetId: BakeTypePresetId) => {
+    setSelectedBakeLossPresetId(presetId);
+    const p = BAKE_LOSS_PRESETS.find((item) => item.id === presetId);
+    if (p) setCustomBakeLossPercent(p.defaultLossPercent);
+  };
+
+  const handleSaveCustomRecipe = async () => {
+    requireActionAccess(guardSave(async () => {
+      const saved = await executeSaveCustomRecipe(
+        saveRecipeNameInput,
+        flourBlend,
+        waterPct,
+        saltPct,
+        starterPct,
+        starterHydration,
+        targetDoughWeightGrams,
+        targetDdt
+      );
+      if (saved) {
+        await loadRecipesFromStore();
+        setSelectedPresetId(saved.id);
+        setRecipeName(saved.name);
+        setIsSaveModalOpen(false);
+        setSaveRecipeNameInput('');
+      }
+    }));
+  };
+
+  // „Ułóż plan” (słownik §5): plan wstecz z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057]
+  const handleMakePlan = () => {
+    requireActionAccess(() => {
+      ustawRecepturePlanu({
+        recipeName,
+        calculatedRecipe: calculations,
+        recipeFormula: {
+          flours: flourBlend,
+          waterPercentage: waterPct,
+          saltPercentage: saltPct,
+          starterPercentage: starterPct,
+          extraYeastPercentage: yeastPct,
+          starterHydration,
+          targetDoughWeightGrams,
+        },
+      });
+      router.push('/receptury/harmonogram');
+    });
+  };
+
+  // Menu „Więcej” w pasku nawigacji (057): pozycje z bieżącą recepturą przy każdym otwarciu
+  const menuWiecej = useRef<() => PozycjaMenuReceptury[]>(() => []);
+  menuWiecej.current = () =>
+    pozycjeMenuReceptury({
+      kopiuj: () =>
+        void executeCopyRecipe({
+          recipeName,
+          calculations,
+          bakeLossMetrics,
+          targetDdt,
+          waterTempTarget: ddtResult.waterTempTarget,
+          tapWaterTemp,
+          loavesCount: calcMode === 'loaves' ? loavesCount : 1,
+        }),
+      udostepnijPlik: () => void executeExportRecipeJson(currentRecipeForShare),
+      udostepnijQr: chron('udostepnianie', () => setIsShareQrOpen(true)),
+      drukuj: chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf)),
+    });
+  useEffect(() => zarejestrujMenuReceptury(() => menuWiecej.current()), []);
+
+  return (
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        <CorruptStateRecoveryBanner />
+
+        {/* Sacred Numbers Glanceable Countertop Card */}
+        <CalculatorSacredCard
+          overallHydrationPercent={calculations.overallHydrationPercent}
+          targetDoughWeightGrams={calculations.targetDoughWeightGrams}
+          totalFlourGrams={calculations.totalFlourGrams}
+          targetDdt={targetDdt}
+        />
+
+        <BlokadaFunkcji {...blokada('kalkulator')}>
+        <DoMiskiScaleCard
+          calculations={calculations}
+          saltPercent={saltPct}
+          recipeName={recipeName}
+          loavesCount={calcMode === 'loaves' ? loavesCount : 1}
+          onLoavesChange={(count) => {
+            setCalcMode('loaves');
+            setLoavesCount(count);
+          }}
+          calcMode={calcMode}
+          onCalcModeChange={setCalcMode}
+          flourGrams={flourGrams}
+          onFlourGramsChange={setFlourGrams}
+          loafWeightGrams={loafWeightGrams}
+          onLoafWeightGramsChange={setLoafWeightGrams}
+        />
+
+        <ArtisanAccordionPro
+          isOpen={isArtisanAccordionOpen}
+          onToggle={() => setIsArtisanAccordionOpen((prev) => !prev)}
+          flourBlend={flourBlend}
+          onSelectFlourBlend={handleSelectFlourBlend}
+          onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
+          onOpenEquivalents={() => setIsEquivModalOpen(true)}
+          prefermentType={prefermentType}
+          onPrefermentTypeChange={setPrefermentType}
+          prefermentFlourPct={prefermentFlourPct}
+          onPrefermentFlourPctChange={setPrefermentFlourPct}
+          prefermentBreakdown={prefermentBreakdown}
+          bakeLossPercent={customBakeLossPercent}
+          onBakeLossPercentChange={setCustomBakeLossPercent}
+          bakedTotalWeightGrams={bakedTotalWeight}
+          bakeLossMetrics={bakeLossMetrics}
+          selectedBakeLossPresetId={selectedBakeLossPresetId}
+          onSelectBakeLossPreset={handleSelectBakeLossPreset}
+        />
+        </BlokadaFunkcji>
+
+        {/* Master & Custom Recipes Selector */}
+        <FormulaPresetSelector
+          filteredMasterRecipes={filteredMasterRecipes}
+          totalMasterRecipesCount={MASTER_RECIPES.length}
+          masterCategoryFilter={masterCategoryFilter}
+          onCategoryFilterChange={setMasterCategoryFilter}
+          selectedPresetId={selectedPresetId}
+          onSelectMasterPreset={(id) => chron('kalkulator', () => handleSelectMasterPreset(id))()}
+          currentMasterPreset={currentMasterPreset}
+          customRecipes={customRecipes}
+          onSelectCustomRecipe={handleSelectCustomRecipe}
+          onDeleteCustomRecipe={handleDeleteCustomRecipe}
+          onOpenVolumeConverter={chron('kalkulator', () => setIsVolumeModalOpen(true))}
+          onOpenScanQr={() => setIsScannerOpen(true)}
+          unitSystem={unitSystem}
+        />
+
+        {/* Obszar akcji receptury: dokładnie 4 akcje główne (057); reszta w menu „Więcej” w pasku nawigacji */}
+        <CalculatorActionButtons
+          onMakePlan={handleMakePlan}
+          onSaveCustomRecipe={chron('receptury', () => {
+            setSaveRecipeNameInput(recipeName);
+            setIsSaveModalOpen(true);
+          })}
+          onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
+          onEditIngredients={chron('kalkulator', () => setIsBlendModalOpen(true))}
+        />
+
+        <TemperaturaWodySheet
+          visible={isWaterTempOpen}
+          onClose={() => setIsWaterTempOpen(false)}
+          targetDdt={targetDdt}
+          onTargetDdtChange={setTargetDdt}
+          waterTempTarget={ddtResult.waterTempTarget}
+          waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
+          waterPct={waterPct}
+          onWaterPctChange={setWaterPct}
+          hydrationDifficulty={hydrationDifficulty}
+          blendAbsorption={blendAbsorption}
+        />
+
+        {/* Modal: Save Recipe */}
+        <SaveRecipeModal
+          visible={isSaveModalOpen}
+          recipeName={saveRecipeNameInput}
+          onRecipeNameChange={setSaveRecipeNameInput}
+          onClose={() => setIsSaveModalOpen(false)}
+          onSave={handleSaveCustomRecipe}
+        />
+
+        {/* Calculator Modals Provider */}
+        <CalculatorModalsProvider
+          isBlendModalOpen={isBlendModalOpen}
+          flourBlend={flourBlend}
+          onApplyBlend={setFlourBlend}
+          onCloseBlend={() => setIsBlendModalOpen(false)}
+          isInventoryOpen={isInventoryOpen}
+          onCloseInventory={() => setIsInventoryOpen(false)}
+          recipeFlours={calculations.flours}
+          isImportModalOpen={isImportModalOpen}
+          importInitialInput={importInitialInput}
+          onCloseImport={() => {
+            setIsImportModalOpen(false);
+            setImportInitialInput('');
+          }}
+          onImportSuccess={handleImportSuccess}
+          isShareQrOpen={isShareQrOpen}
+          currentRecipeForShare={currentRecipeForShare}
+          onCloseShareQr={() => setIsShareQrOpen(false)}
+          isScannerOpen={isScannerOpen}
+          onCloseScanner={() => setIsScannerOpen(false)}
+          onScanRecipe={handleScanRecipe}
+          isEquivModalOpen={isEquivModalOpen}
+          onCloseEquiv={() => setIsEquivModalOpen(false)}
+          isVolumeModalOpen={isVolumeModalOpen}
+          onCloseVolume={() => setIsVolumeModalOpen(false)}
+        />
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
