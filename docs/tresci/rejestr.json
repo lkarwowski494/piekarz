@@ -1716,5 +1716,443 @@
       "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-001",
+    "twierdzenie": "Założenie zakwasu od zera wymaga kilku dni regularnego dokarmiania; średnio zakwas jest gotowy do pieczenia po 7–10 dniach.",
+    "zrodla": [
+      {
+        "adres": "https://extension.sdstate.edu/sourdough-starters",
+        "miejsce": "SDSU Extension, „Sourdough Starters” (Updated July 01, 2024), „Factors that Influence Microorganism Growth”, „Time”; kopia dowody/zrodla/sdsu-starters.htm",
+        "cytat": "Creating a sourdough starter from scratch takes several days of regular feedings (providing fresh flour as food) to establish the ecosystem of microorganisms. On average, it takes 7 to 10 days for a starter to be ready for use in baking.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a (F-60, BR-ZAKW-005; RD-24, S-44).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-002",
+    "twierdzenie": "Według King Arthur Baking w dniu 1 miesza się mąkę pełnoziarnistą (pszenną razową albo żytnią razową typu pumpernickel) z wodą w równych ilościach wagowych, np. 113 g i 113 g, naczynie przykrywa się luźno, a mieszanina stoi 24 godziny w ciepłej temperaturze pokojowej, około 70 °F (rachunek: ok. 21 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 1”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "Combine 113g (a generous 1 cup) pumpernickel or 113g (1 cup) whole wheat flour with 113g (1/2 cup) room-temperature (68°F-70°F) water in a non-reactive container. […] Cover the container loosely and let the mixture sit at warm room temperature (about 70°F) for 24 hours.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (70 − 32) × 5/9 = 21,1 °C, zaokrąglone do 21 °C. Ilości 113 g to przykład źródła; regułą jest równa waga mąki i wody.",
+    "uwagi": "M1-audytor-generalny-104 a. Przepis KA „Sourdough Starter” (S-53, kopia dowody/zrodla/ka-starter.htm) podaje ten sam plan z ilościami 50 g.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "zakwas_zalozenie_dzien1_h",
+    "wartosc": 24,
+    "jednostka": "h",
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-003",
+    "twierdzenie": "Według King Arthur Baking w pierwszych 24 godzinach można nie zobaczyć żadnej aktywności albo niewielki wzrost i pęcherzyki; w dniu 2 w obu przypadkach odrzuca się połowę zakwasu, dodaje mąkę i wodę w równych ilościach wagowych i zostawia na 24 godziny.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 2”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "You may see no activity at all in the first 24 hours, or you may see a bit of growth or bubbling. Either way, discard half of the starter (113g, about 1/2 cup)",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a; RD-24-W5 (brak aktywności w dniu 1 to normalne).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-004",
+    "twierdzenie": "Według King Arthur Baking w dniu 3 zwykle widać aktywność (pęcherzyki, świeży owocowy zapach, wzrost objętości) i od tego dnia dokarmia się zakwas dwa razy dziennie, w możliwie równych odstępach, około co 12 godzin.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 3”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "By the third day, you'll likely see some activity — bubbling; a fresh, fruity aroma, and some evidence of expansion. It's now time to begin two feedings daily, as evenly spaced as your schedule allows. […] let the mixture rest at room temperature for approximately 12 hours before repeating.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a. Zgodne z SDSU (ZAK-ZAL-012: dwa razy dziennie na blacie).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "zakwas_zalozenie_odstep_dokarmien_h",
+    "wartosc": 12,
+    "jednostka": "h",
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-005",
+    "twierdzenie": "Według King Arthur Baking dokarmianie działa dobrze przy proporcji zakwas : mąka : woda 1:1:1, czyli równych częściach wagowych.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Why discard so much starter?”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "the feeding process works well when the ratio of starter-to-flour-to-water is 1:1:1 — equal parts, by weight, existing starter, added flour, and added water. Some bakers prefer different ratios, but this is a good place to start.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło dopuszcza inne proporcje; 1:1:1 to punkt wyjścia, nie jedyna poprawna wartość.",
+    "uwagi": "M1-audytor-generalny-104 a, b.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-006",
+    "twierdzenie": "Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i kwaskowy, przyjemnie kwaśny, ale nie przytłaczający zapach.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 4 + 5”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "By the end of day 5, the starter should have at least doubled in volume. You'll see lots of bubbles; there may be some little \"rivulets\" on the surface, full of finer bubbles. Also, the starter should have a tangy aroma — pleasingly acidic, but not overpowering.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-007",
+    "twierdzenie": "Według King Arthur Baking zakwas, który mało urósł i ma mało pęcherzyków, dokarmia się dalej co 12 godzin w dniach 6 i 7, a w razie potrzeby dłużej; 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni; miarą gotowości jest wyraźne i powtarzalne co najmniej podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, nie liczba dni.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 6 + 7”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "Conditions vary so widely that 7 days can actually be too little. The key is to watch for a dramatic and consistent rise in the container — at least doubling between 6 and 8 hours after feeding. This could be 7 days or less after you begin, or it could be up to a couple of weeks. Watch for this benchmark, rather than watching the calendar.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„a couple of weeks” oddane jako „kilka tygodni” bez liczby. Próg 8 h jak w RD-24 (granica włączna: „between 6 and 8 hours”).",
+    "uwagi": "M1-audytor-generalny-104 a, c; RD-24-W2, RD-24-W3, BR-DIAG-002.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "zakwas_podwojenie_po_dokarmieniu_h_max",
+    "wartosc": 8,
+    "jednostka": "h",
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-008",
+    "twierdzenie": "Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 70 °F (rachunek: ok. 21 °C); w zbyt wysokiej temperaturze wzrost i fermentacja mogą przebiegać za szybko, a nawet ustać.",
+    "zrodla": [
+      {
+        "adres": "https://extension.sdstate.edu/sourdough-starters",
+        "miejsce": "SDSU Extension, „Sourdough Starters” (Updated July 01, 2024), „Temperature”; kopia dowody/zrodla/sdsu-starters.htm",
+        "cytat": "Starters grow best at warm temperatures, around 70 degrees Fahrenheit, a comfortable room temperature. […] When starters are in higher temperatures, growth and fermentation may occur too rapidly and may even stop, resulting in the starter going bad.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, „Sourdough Starter Best Practices” (Reviewed: October 2025), „Temperature”; kopia dowody/zrodla/csu-starter.htm",
+        "cytat": "The fermenting microorganisms are more viable at temperatures that feel comfortable for you, a warm room temperature (around 70°F). Fermentation will slow at colder temperatures, and occur too rapidly or even stop when too hot for your own comfort.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Rachunek: (70 − 32) × 5/9 = 21,1 °C, zaokrąglone do 21 °C. Górnej granicy „za ciepło” źródła szczebla 3 nie podają liczbą (KA: ZAK-ZAL-015).",
+    "uwagi": "M1-audytor-generalny-104 a, c. Chłód spowalnia: ZAK-SZC-004.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-009",
+    "twierdzenie": "Według King Arthur Baking im zimniej, tym wolniej rośnie zakwas; gdy w domu jest zwykle poniżej 68 °F (rachunek: poniżej 20 °C), warto znaleźć dla zakwasu cieplejsze miejsce.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Day 1”, uwaga o temperaturze; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "The colder the environment, the more slowly your starter will grow. If the normal temperature in your home is below 68°F, we suggest finding a warmer spot to develop your starter.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (68 − 32) × 5/9 = 20,0 °C. Przykłady ciepłych miejsc ze źródła (m.in. wyłączony piekarnik z żarówką) pominięte: piekarnik ma osobne ostrzeżenie DOK-PIE-002.",
+    "uwagi": "M1-audytor-generalny-104 a, c.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-010",
+    "twierdzenie": "Według King Arthur Baking dzikie drożdże częściej występują w mące pełnoziarnistej niż w mące uniwersalnej (pszennej jasnej), a zakwas zakładany tylko na mące jasnej może potrzebować trochę więcej czasu, żeby ruszyć.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, przepis „Sourdough Starter”, „Tips from our Bakers”; kopia dowody/zrodla/ka-starter.htm",
+        "cytat": "Because the wild yeast that gives sourdough starter its life is more likely to be found in the mineral-rich environment of a whole grain flour than in all-purpose flour. What if all you have is all-purpose flour, no whole wheat? Go ahead and use all-purpose; you may find the starter simply takes a little longer to get going.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„All-purpose flour” oddane jako mąka uniwersalna (pszenna jasna); polskiego typu mąki źródło nie podaje (MAK-EN-900).",
+    "uwagi": "M1-audytor-generalny-104 a, c.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-011",
+    "twierdzenie": "O gotowości zakwasu świadczą pęcherzyki, kwaskowy zapach, konsystencja gęstej masy, wzrost objętości i zapiski z kolejnych dokarmień; gotowy zakwas bąbelkuje, rośnie i ma przyjemnie kwaśny zapach.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, „Sourdough Starter Best Practices” (Reviewed: October 2025), lista best practices („Flour is a raw agricultural product”) i „Time”; kopia dowody/zrodla/csu-starter.htm",
+        "cytat": "Instead, a bubbly appearance, tangy smell, batter-like consistency, expansion, and records of preparation steps should be used to determine when your starter is ready. […] It will bubble and rise, and develop a pleasantly sour smell when ready to use.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Pominięto test pływania z SDSU (sprzeczność z S-55, ER-06-104-b dla roli 01).",
+    "uwagi": "M1-audytor-generalny-104 a. Zdanie poprzedzające w źródle to „Do not taste raw sourdough starter before baking” (ZAK-SUR-001): oceny gotowości nie robi się przez próbowanie.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-012",
+    "twierdzenie": "Zakwas trzymany w temperaturze pokojowej dokarmia się mąką dwa razy dziennie, a trzymany w lodówce raz w tygodniu; do lodówki wstawia się go dopiero po ustaleniu się mikroflory, czyli po 7–10 dniach.",
+    "zrodla": [
+      {
+        "adres": "https://extension.sdstate.edu/sourdough-starters",
+        "miejsce": "SDSU Extension, „Sourdough Starters” (Updated July 01, 2024), „Things to Consider”, „Up-keep”; kopia dowody/zrodla/sdsu-starters.htm",
+        "cytat": "Starters must be fed flour twice daily if they are being stored at room temperature, or fed once weekly, if being stored in the refrigerator. Do not store your starter in the refrigerator until it has an established microbiome (after 7-10 days).",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a, b; RD-25 (S-44).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-013",
+    "twierdzenie": "Według King Arthur Baking odrzucanie części zakwasu przy dokarmianiu utrzymuje małą objętość i daje drożdżom więcej pożywienia przy każdym dokarmieniu.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Why discard so much starter?”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "Also, keeping the volume down offers the yeast more food to eat each time you feed it; it's not fighting with quite so many other little yeast cells to get enough to eat.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a. CSU (tamże) też nazywa odrzucanie części zakwasu ważnym krokiem dokarmiania.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-014",
+    "twierdzenie": "Zakwas trzyma się luźno przykryty, żeby utrudnić rozwój pleśni.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, „Sourdough Starter Best Practices” (Reviewed: October 2025), „Moisture”; kopia dowody/zrodla/csu-starter.htm",
+        "cytat": "Keep starter loosely covered to discourage mold development.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 a.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-ZAL-015",
+    "twierdzenie": "Według King Arthur Baking temperaturę zakwasu warto co jakiś czas sprawdzać, żeby nie był za ciepły; idealny zakres to 70–78 °F (rachunek: ok. 21–26 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, przepis „Sourdough Starter”, „Tips from our Bakers”, uwaga o temperaturze pokojowej; kopia dowody/zrodla/ka-starter.htm",
+        "cytat": "Wherever you place it, just be sure to monitor the temperature of your starter periodically to make sure it’s not getting too hot; remember that ideal range is 70°F to 78°F.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (70 − 32) × 5/9 = 21,1 °C; (78 − 32) × 5/9 = 25,6 °C; zaokrąglone do 21–26 °C. Zakres jednego wydawcy (szczebel 4), tylko z atrybucją.",
+    "uwagi": "M1-audytor-generalny-104 a, c.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-LOD-001",
+    "twierdzenie": "Według King Arthur Baking przed pieczeniem zakwas z lodówki dokarmia się w równych częściach wagowych i zostawia w temperaturze pokojowej; zależnie od jego stanu i od tego, kiedy był ostatnio dokarmiony, może szybko zacząć bąbelkować albo potrzebować nawet 12 godzin, żeby pokazać oznaki życia.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking”; kopia dowody/zrodla/ka-feeding.htm",
+        "cytat": "Cover the starter and let it rest at room temperature. Depending on its health and how recently you'd fed it, the starter may start to bubble and expand quickly, or it may take up to 12 hours to show signs of life.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„health” oddane jako „stan” (DEC-10: bez słowa „zdrowy”).",
+    "uwagi": "M1-audytor-generalny-104 b (F-61, BR-ZAKW-006; S-54).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-LOD-002",
+    "twierdzenie": "Według King Arthur Baking zakwas z lodówki dokarmia się co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking”; kopia dowody/zrodla/ka-feeding.htm",
+        "cytat": "Repeat the feeding process (steps 9 and 10) every 12 hours until you see it double or triple in volume within 6 to 8 hours; this means it's ready to bake with.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Liczba dokarmień zależy od warunku, nie od liczby (ZAK-LOD-900).",
+    "uwagi": "M1-audytor-generalny-104 b; RD-24-W3, BR-ZAKW-006 (zakwas niegotowy w dniu ciasta).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "zakwas_z_lodowki_odstep_dokarmien_h",
+    "wartosc": 12,
+    "jednostka": "h",
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-LOD-003",
+    "twierdzenie": "Według King Arthur Baking im rzadziej zakwas jest dokarmiany, tym dłużej trwa przygotowanie go do pieczenia; zakwas zapomniany w lodówce na miesiące da się zwykle ożywić, ale trwa to prawie tak długo jak założenie nowego.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/maintain",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Maintain”, „Maintaining your starter”; kopia dowody/zrodla/ka-sd-maintain.htm",
+        "cytat": "Understand that the less frequently you feed your starter, the longer it will take to get it ready for baking. If you forget your starter in the back of the refrigerator for months on end, you can probably still bring it back to life; but it will take nearly as long as creating a new starter from scratch.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-104 b, c.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-LOD-004",
+    "twierdzenie": "Według King Arthur Baking zakwas zbyt długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały; po dokarmieniu żywy zakwas zaczyna bąbelkować po kilku godzinach, wtedy dokarmia się go drugi raz, a jeśli w ciągu 12 godzin zrobi się pęcherzykowy i urośnie, jest gotowy na ostatnie dokarmienie przed użyciem.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/faq",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „FAQ”, „I haven't fed my starter in quite awhile. How do I revive it?”; kopia dowody/zrodla/ka-sd-faq.htm",
+        "cytat": "If your sourdough starter sits in the refrigerator for too long between feedings, it will develop a thick layer of liquid on top, and will be sluggish (not produce many bubbles). […] If the starter is still alive, it will begin to bubble after a few hours. Once this happens, measure out 113g and feed once again with 113g each water and flour. If the starter becomes bubbly and expanded within 12 hours, it's ready for one final feeding before use, or to be put back in the refrigerator for storage.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Płyn: wmieszanie według źródła, zgodne z ZAK-HOO-001 (zlać albo wmieszać); bez koloru płynu (RD-21, OP-36).",
+    "uwagi": "M1-audytor-generalny-104 b, c.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-LOD-900",
+    "twierdzenie": "Stała liczba dokarmień i stała liczba godzin przed mieszaniem ciasta dla zakwasu z lodówki (do planu wypieku).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-104 b. Przeczytane źródła (ZAK-LOD-001…004) podają warunek („co 12 h, aż podwoi w 6–8 h”), nie liczbę; liczba zależy od tego, jak dawno zakwas był dokarmiony. Plan z liczbą to decyzja produktowa w granicach źródeł (D-104-a w raporcie roli 06, partia 5).",
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZAK-DOK-001",
+    "twierdzenie": "Według King Arthur Baking w zaniedbanym zakwasie, długo niedokarmianym na blacie albo w lodówce, drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada; seria regularnych dokarmień powinna go przywrócić.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, „Common problems and what to do”, „What if I forget to feed it?”; kopia dowody/zrodla/ka-sd-create.htm",
+        "cytat": "When sourdough starter is neglected — left on the counter or in the refrigerator for extended periods without being fed — the yeast and bacteria run out of food, and their populations gradually decline. […] If you do happen to forget your starter for a while, a series of regular feedings should restore its health.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„restore its health” oddane jako „przywrócić” (DEC-10: bez słowa „zdrowy”).",
+    "uwagi": "M1-audytor-generalny-104 c (F-64, BR-DIAG-002).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "ZAK-DOK-900",
+    "twierdzenie": "Woda z kranu (chlor) jako przyczyna braku aktywności zakwasu; dokładna górna granica temperatury, przy której zakwas przestaje rosnąć.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-104 c. KA („Create”) mówi tylko, że wody butelkowanej nie trzeba, chyba że woda z kranu pachnie chemikaliami — to nie jest twierdzenie o przyczynie. SDSU i CSU (ZAK-ZAL-008) nie podają liczby dla „za ciepło”.",
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
