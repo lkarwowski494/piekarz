@@ -163,3 +163,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** kategoria dodatkowa Utilities albo Lifestyle (brak dowodu korzyści); dzisiejsza kolejność zrzutów (kalkulator pierwszy); angielskie słowa tylko w English (U.K.).
 - **Dlaczego:** wszystkie aplikacje niszy w wynikach mają kategorię Food & Drink; pierwsze 1–3 zrzuty są widoczne w wynikach, a główna praca to plan od godziny „gotowe”; w polskim sklepie „zakwas” nie ma podpowiedzi, „sourdough” ma wiele (zrzuty właściciela 2026-10-20).
 - **Zależy od:** czy słowa kluczowe języka dodatkowego liczą się w storefroncie `[DO USTALENIA]` (H-03).
+
+### [D-056] 2026-10-20 — Licencja repo: wszelkie prawa zastrzeżone (M2 p7, zadanie 035, opcja (a) roli 10)
+- **Rodzaj:** produktowa (prawa do kodu). **Słowa właściciela:** „Ewentualne STOP-y partii 7 - z gory aprobuje rekomendowane opcje.” (2026-10-20, czat M2 p7).
+- **Decyzja:** plik `LICENSE` „All rights reserved”; README bez deklaracji „GPLv3 / Open Core”. Kod zostaje publiczny do wglądu.
+- **Odrzucone:** (b) MIT albo Apache-2.0 — każdy mógłby wydać kod jako własną aplikację; (c) GPLv3 — zgodność z warunkami App Store `[DO USTALENIA]`, a deklaracja bez pliku licencji była twierdzeniem bez pokrycia.
+- **Dlaczego:** płatna aplikacja (DEC-01 d) z publicznym kodem; najprostsza ochrona bez wyboru licencji otwartej.
+- **Zależy od:** nic; właściciel może zmienić licencję później (nowy wpis).

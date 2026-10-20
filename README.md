@@ -164,4 +164,4 @@ piekarz/
 
 ## 📄 Licencja
 
-Licencja nie jest wybrana: repo nie ma pliku licencji ani pola `license` w `package.json`. Wybór licencji to decyzja właściciela (opcje w raporcie roli 10, `audit/M1-2026-10-19/M1-2026-10-19/role/10-wydanie/fix-2026-10-20-p7/wynik.md`).
+Wszelkie prawa zastrzeżone (plik `LICENSE`, decyzja D-056). Kod jest publiczny do wglądu; kopiowanie, zmiany i rozpowszechnianie wymagają zgody autora.
