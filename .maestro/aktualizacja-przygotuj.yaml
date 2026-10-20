@@ -1,7 +1,7 @@
 appId: com.apps4craft.piekarz
 ---
 - launchApp
-- tapOn: "Kalkulator"
-- assertVisible: "Kalkulator Chleba"
-- tapOn: "Stolnica"
-- assertVisible: "Stolnica"
+- tapOn: "Receptury"
+- assertVisible: "Receptury mistrzowskie"
+- tapOn: "Zakwasy"
+- assertVisible: "Zakwasy"

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import {
   initDatabase,
@@ -65,7 +65,7 @@ function findButtonByText(root: renderer.ReactTestInstance, text: string): rende
   });
 }
 
-describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
+describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
@@ -128,8 +128,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     await renderScreen();
 
     const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Kalkulator');
-    expect(fullText).toContain('Receptury mistrzowskie');
+    // Tytuł 
     expect(fullText).toContain('Do miski na wagę');
     expect(fullText).toContain('Wiejski chleb');
   });
@@ -220,7 +219,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
       startBakeBtn?.props.onPress();
     });
 
-    expect(mockPush).toHaveBeenCalledWith('/(tabs)/stolnica');
+    expect(mockPush).toHaveBeenCalledWith('/stolnica');
 
     const active = getActiveBake();
     expect(active).not.toBeNull();
@@ -269,19 +268,10 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(fullText).toContain('17,5%');
   });
 
-  it('opens Settings and Backup modal when tapping settings gear in header', async () => {
+  // Ustawienia przeniesione na „Dziś” (D-051 2a); otwarcie z kopią zapasową: src/__tests__/start-co-dzis.test.tsx [M1-audytor-generalny-101]
+  it('Receptury nie mają przycisku Ustawień (ustawienia z „Dziś”)', async () => {
     await renderScreen();
-
-    const settingsBtn = tree!.root.findByProps({ testID: 'open-settings-btn' });
-    expect(settingsBtn).toBeDefined();
-
-    await act(async () => {
-      settingsBtn.props.onPress();
-    });
-
-    const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Ustawienia');
-    expect(fullText).toContain('Kopia zapasowa');
+    expect(tree!.root.findAllByProps({ testID: 'open-settings-btn' })).toHaveLength(0);
   });
 
   it('triggers copy recipe to clipboard when tapping copy recipe button', async () => {
@@ -419,20 +409,11 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(fullText).toContain('Mieszanka mąk');
   });
 
-  it('displays onboarding modal when user has not completed onboarding and allows selecting ritual', async () => {
+  // Powitanie z wyborem stylu zastąpił Start „Co dziś robisz?” (F-68, design-spec §10: bez intro) [M1-audytor-generalny-101]
+  it('first launch shows no onboarding modal on Receptury (Start replaces it)', async () => {
     await renderScreen();
-
-    const puristBtn = tree!.root.findByProps({ testID: 'onboarding-pref-purist' });
-    expect(puristBtn).toBeDefined();
-
-    await act(async () => {
-      puristBtn.props.onPress();
-    });
-
-    const startBtn = tree!.root.findByProps({ testID: 'onboarding-start-btn' });
-    await act(async () => {
-      await startBtn.props.onPress();
-    });
+    expect(tree!.root.findAllByProps({ testID: 'onboarding-pref-purist' })).toHaveLength(0);
+    expect(tree!.root.findAllByProps({ testID: 'onboarding-start-btn' })).toHaveLength(0);
   });
 
   it('opens flour pantry inventory modal and checks recipe stock status', async () => {

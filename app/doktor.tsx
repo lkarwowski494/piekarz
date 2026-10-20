@@ -8,28 +8,27 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { CraftHeader, sharedCraftTokens } from '@apps4craft/ui';
-import { theme } from '../../src/ui/theme';
-import { t } from '../../src/lib/i18n';
+import { theme } from '../src/ui/theme';
+import { t } from '../src/lib/i18n';
 import {
   diagnoseBreadDefect,
   BreadInspectionCriteria,
-} from '../../src/doctor/diagnostics';
-import { EmergencyCode } from '../../src/doctor/dough-recovery';
-import { copyDiagnosisToClipboard } from '../../src/lib/diagnosis-formatter';
-import { BreadAcademyModal } from '../../src/components/BreadAcademyModal';
-import { useUnitSystem } from '../../src/lib/unit-converter';
-import { setPendingRecipeToLoad } from '../../src/lib/recipe-navigation';
-import { MASTER_RECIPES } from '../../src/recipes/presets';
-import { DiagnosisResultCard } from '../../src/components/doktor/DiagnosisResultCard';
-import { EmergencyRecoverySection } from '../../src/components/doktor/EmergencyRecoverySection';
+} from '../src/doctor/diagnostics';
+import { EmergencyCode } from '../src/doctor/dough-recovery';
+import { copyDiagnosisToClipboard } from '../src/lib/diagnosis-formatter';
+import { BreadAcademyModal } from '../src/components/BreadAcademyModal';
+import { useUnitSystem } from '../src/lib/unit-converter';
+import { setPendingRecipeToLoad } from '../src/lib/recipe-navigation';
+import { MASTER_RECIPES } from '../src/recipes/presets';
+import { DiagnosisResultCard } from '../src/components/doktor/DiagnosisResultCard';
+import { EmergencyRecoverySection } from '../src/components/doktor/EmergencyRecoverySection';
 import {
   SymptomSelectorSection,
   DiagnosticPreset,
-} from '../../src/components/doktor/SymptomSelectorSection';
-import { KitchenTestsGuideSection } from '../../src/components/doktor/KitchenTestsGuideSection';
-import { useAppAccess } from '../../src/lib/app-access';
-import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
+} from '../src/components/doktor/SymptomSelectorSection';
+import { KitchenTestsGuideSection } from '../src/components/doktor/KitchenTestsGuideSection';
+import { useAppAccess } from '../src/lib/app-access';
+import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 
 export default function DoctorScreen() {
   const router = useRouter();
@@ -91,30 +90,23 @@ export default function DoctorScreen() {
         targetDDT: preset.targetDDT,
         formula: preset.formula,
       });
-      router.push('/(tabs)');
+      router.push('/receptury');
     }
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <CraftHeader
-        title={t('Doktor Chleba')}
-        subtitle={t('Diagnostyka błędów wypieku i ratowanie bochenka')}
-        testID="doktor-header"
-        rightAction={
-          <Pressable
-            accessibilityRole="button"
-            testID="open-academy-btn"
-            hitSlop={sharedCraftTokens.hitSlopStandard}
-            style={styles.academyHeaderPill}
-            onPress={chron('doktor', () => setIsAcademyOpen(true))}
-            accessibilityLabel={t('Akademia Piekarza')}
-          >
-            <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
-          </Pressable>
-        }
-      />
-      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      {/* Nagłówek systemowy „Doktor Chleba”: app/_layout.tsx; Akademia jako pierwszy wiersz treści (dawniej w nagłówku ekranu) */}
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        <Pressable
+          accessibilityRole="button"
+          testID="open-academy-btn"
+          style={styles.academyHeaderPill}
+          onPress={chron('doktor', () => setIsAcademyOpen(true))}
+          accessibilityLabel={t('Akademia Piekarza')}
+        >
+          <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
+        </Pressable>
         <BlokadaFunkcji {...blokada('doktor')}>
         {/* Bread Academy Promotion Banner */}
         <Pressable
@@ -136,9 +128,9 @@ export default function DoctorScreen() {
         <DiagnosisResultCard
           diagnosis={diagnosis}
           unitSystem={unitSystem}
-          onNavigateHarmonogram={() => router.push('/(tabs)/harmonogram')}
-          onNavigateCalculator={() => router.push('/(tabs)')}
-          onNavigateStolnica={() => router.push('/(tabs)/stolnica')}
+          onNavigateHarmonogram={() => router.push('/receptury/harmonogram')}
+          onNavigateCalculator={() => router.push('/receptury')}
+          onNavigateStolnica={() => router.push('/stolnica')}
           onCopyDiagnosis={handleCopyDiagnosis}
         />
 
@@ -184,6 +176,8 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   academyHeaderPill: {
+    alignSelf: 'flex-end',
+    marginBottom: theme.spacing.sm,
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,

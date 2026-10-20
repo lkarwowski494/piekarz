@@ -217,13 +217,13 @@
   },
   "Akademia": {
     "gdzie": [
-      "app/(tabs)/doktor.tsx (tekst w JSX)"
+      "app/doktor.tsx (tekst w JSX)"
     ]
   },
   "Akademia Piekarza": {
     "gdzie": [
-      "app/(tabs)/doktor.tsx (accessibilityLabel)",
-      "app/(tabs)/doktor.tsx (tekst w JSX)",
+      "app/doktor.tsx (accessibilityLabel)",
+      "app/doktor.tsx (tekst w JSX)",
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
@@ -301,9 +301,7 @@
     ]
   },
   "Asystent wypieku na żywo (Hands-in-flour)": {
-    "gdzie": [
-      "app/(tabs)/stolnica.tsx (subtitle)"
-    ]
+    "gdzie": []
   },
   "Autoliza": {
     "gdzie": [
@@ -521,6 +519,11 @@
       "src/recipes/presets.ts (dane: namePl)"
     ]
   },
+  "Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
+    ]
+  },
   "Chleb foremkowy o wysokiej wilgotności": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
@@ -699,6 +702,16 @@
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
     ]
   },
+  "Co dziś robisz?": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (title)"
+    ]
+  },
+  "Co jeszcze dziś robisz?": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
   "Co zrobić przy następnym wypieku:": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
@@ -756,7 +769,7 @@
   },
   "Czw.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "DDT": {
@@ -782,9 +795,7 @@
     ]
   },
   "Diagnostyka błędów wypieku i ratowanie bochenka": {
-    "gdzie": [
-      "app/(tabs)/doktor.tsx (subtitle)"
-    ]
+    "gdzie": []
   },
   "Dla chlebów pszennych: odczekaj MINIMUM 2 godziny przed pierwszym krojeniem.": {
     "gdzie": [
@@ -936,7 +947,7 @@
   },
   "Dodano zakwas": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.": {
@@ -979,20 +990,22 @@
   },
   "Dokarmiono zakwas": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Doktor": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)",
-      "app/(tabs)/zakwas.tsx (tekst w JSX)"
+      "app/(tabs)/zakwasy/_layout.tsx (tekst)",
+      "app/_layout.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
     "gdzie": [
-      "app/(tabs)/doktor.tsx (title)",
-      "app/(tabs)/stolnica.tsx (accessibilityLabel)",
-      "app/(tabs)/zakwas.tsx (accessibilityLabel)",
+      "app/(tabs)/dziennik/index.tsx (accessibilityLabel)",
+      "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
+      "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
+      "app/_layout.tsx (etykieta)",
+      "app/_layout.tsx (title)",
       "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
@@ -1105,6 +1118,12 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Dziennik": {
+    "gdzie": [
+      "app/(tabs)/_layout.tsx (title)",
+      "app/(tabs)/dziennik/_layout.tsx (title)"
+    ]
+  },
   "Dzień gotowości:": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
@@ -1133,7 +1152,10 @@
   },
   "Dziś": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (kod)",
+      "app/(tabs)/(dzis)/_layout.tsx (title)",
+      "app/(tabs)/(dzis)/index.tsx (title)",
+      "app/(tabs)/_layout.tsx (title)",
+      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -1522,15 +1544,11 @@
   },
   "Harmonogram": {
     "gdzie": [
-      "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/harmonogram.tsx (title)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
   "Harmonogram wsteczny z ochroną snu": {
-    "gdzie": [
-      "app/(tabs)/harmonogram.tsx (subtitle)"
-    ]
+    "gdzie": []
   },
   "Historia wypieków": {
     "gdzie": [
@@ -1602,9 +1620,7 @@
     ]
   },
   "Ilości i temperatura wody": {
-    "gdzie": [
-      "app/(tabs)/index.tsx (subtitle)"
-    ]
+    "gdzie": []
   },
   "Ilość objętościowa:": {
     "gdzie": [
@@ -1712,7 +1728,7 @@
   },
   "Jutro": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (kod)",
+      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -1723,10 +1739,7 @@
     ]
   },
   "Kalkulator": {
-    "gdzie": [
-      "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/index.tsx (title)"
-    ]
+    "gdzie": []
   },
   "Kalkulator dokarmiania": {
     "gdzie": [
@@ -1797,7 +1810,7 @@
   },
   "Klasyczny chleb rzemieślniczy (Harmonogram)": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (recipeName)"
+      "app/(tabs)/receptury/harmonogram.tsx (recipeName)"
     ]
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
@@ -1914,7 +1927,7 @@
   },
   "Kopiuj dokarmienie": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)",
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
     ]
   },
@@ -1973,7 +1986,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)"
+      "app/stolnica.tsx (tekst w JSX)"
     ]
   },
   "Krok „{step}” dobiegł końca.": {
@@ -2034,7 +2047,7 @@
   },
   "Kultura „{name}” została utworzona.": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Kup dostęp dożywotni": {
@@ -2138,6 +2151,11 @@
   "Maksymalna liczba mąk w mieszance wynosi 12": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
+  "Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
   "Masa": {
@@ -2334,7 +2352,7 @@
   },
   "Musisz posiadać co najmniej jeden profil zakwasu.": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Mąka": {
@@ -2396,7 +2414,7 @@
   },
   "Mąka pszenna chlebowa": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (flourType)"
+      "app/(tabs)/zakwasy/index.tsx (flourType)"
     ]
   },
   "Mąka pszenna chlebowa / wysoki gluten": {
@@ -2406,12 +2424,12 @@
   },
   "Mąka pszenna chlebowa t750": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (kod)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "Mąka pszenna chlebowa typ 750": {
     "gdzie": [
-      "app/(tabs)/index.tsx (dane: name)",
+      "app/(tabs)/receptury/index.tsx (dane: name)",
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
@@ -2692,7 +2710,7 @@
   },
   "Nie można usunąć": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Nie poprawiaj cięcia ani nie piłuj ostrzem — jedno pociągnięcie daje najczystsze otwarcie.": {
@@ -2807,7 +2825,7 @@
   },
   "Niedz.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Niedzielny obiad": {
@@ -3001,6 +3019,11 @@
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
+  "Od mąki i wody do pierwszego bochenka, dzień po dniu.": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
+    ]
+  },
   "Odblokuj pełny dostęp": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
@@ -3119,6 +3142,11 @@
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "Okres próbny się skończył": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
   "Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.": {
@@ -3332,9 +3360,24 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz nie uruchomił się poprawnie": {
     "gdzie": [
       "src/components/RescueScreen.tsx (tekst w JSX)"
+    ]
+  },
+  "Piekę na drożdżach albo pizzę": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
+    ]
+  },
+  "Piekę na zakwasie": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
   "Pierwsze {dni} dni bezpłatnie, potem {cena}": {
@@ -3355,6 +3398,13 @@
   "Pizza i słodkie": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+    ]
+  },
+  "Plan wypieku": {
+    "gdzie": [
+      "app/(tabs)/receptury/_layout.tsx (etykieta)",
+      "app/(tabs)/receptury/_layout.tsx (tekst)",
+      "app/(tabs)/receptury/_layout.tsx (title)"
     ]
   },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
@@ -3485,7 +3535,7 @@
   },
   "Pojutrze": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (kod)",
+      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -3525,7 +3575,7 @@
   },
   "Pon.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Poolish (Rzadki zaczyn 100%)": {
@@ -3684,14 +3734,12 @@
   },
   "Profil zakwasu": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)",
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
       "src/lib/confirm.ts (message)"
     ]
   },
   "Profil, cykl dokarmiania i szczyt aktywności": {
-    "gdzie": [
-      "app/(tabs)/zakwas.tsx (subtitle)"
-    ]
+    "gdzie": []
   },
   "Proporcja": {
     "gdzie": [
@@ -3819,7 +3867,7 @@
   },
   "Przerwij wypiek": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)"
+      "app/stolnica.tsx (tekst w JSX)"
     ]
   },
   "Przetwarzanie...": {
@@ -3937,7 +3985,7 @@
   },
   "Pt.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Pusty lub nieprawidłowy link": {
@@ -4048,6 +4096,12 @@
   "Receptura piekarska z aplikacji Piekarz": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (message)"
+    ]
+  },
+  "Receptury": {
+    "gdzie": [
+      "app/(tabs)/_layout.tsx (title)",
+      "app/(tabs)/receptury/_layout.tsx (title)"
     ]
   },
   "Receptury mistrzowskie": {
@@ -4306,7 +4360,7 @@
   },
   "Skopiowano proporcje dokarmiania do schowka": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Skopiowano przepis do schowka": {
@@ -4389,7 +4443,7 @@
   },
   "Sob.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Sobotnie śniadanie": {
@@ -4504,8 +4558,7 @@
   },
   "Stolnica": {
     "gdzie": [
-      "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/stolnica.tsx (title)"
+      "app/_layout.tsx (title)"
     ]
   },
   "Strata Piecowa": {
@@ -4660,7 +4713,7 @@
   },
   "Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu": {
     "gdzie": [
-      "app/(tabs)/doktor.tsx (tekst w JSX)"
+      "app/doktor.tsx (tekst w JSX)"
     ]
   },
   "Sztywny zakwas żytni (60%)": {
@@ -4892,6 +4945,11 @@
   "Trener i Fiszki": {
     "gdzie": []
   },
+  "Trwa wypiek": {
+    "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+    ]
+  },
   "Tryb transakcji:": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
@@ -4925,6 +4983,11 @@
   "Twoje receptury i historia wypieków są zapisywane w lokalnej bazie danych SQLite.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
   "Twoje zapasy mąk": {
@@ -5101,8 +5164,7 @@
   },
   "Ustawienia": {
     "gdzie": [
-      "app/(tabs)/index.tsx (accessibilityLabel)",
-      "app/(tabs)/index.tsx (tekst w JSX)",
+      "app/(tabs)/(dzis)/index.tsx (etykieta)",
       "src/components/SettingsModal.tsx (tekst w JSX)"
     ]
   },
@@ -5325,7 +5387,7 @@
   },
   "Wczoraj": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (kod)",
+      "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -5527,6 +5589,8 @@
   },
   "Wróć do wypieku": {
     "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (accessibilityLabel)",
+      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -5619,7 +5683,7 @@
   },
   "Wt.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
@@ -5833,7 +5897,7 @@
   },
   "Wypiek bez receptury": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (kod)"
+      "app/stolnica.tsx (kod)"
     ]
   },
   "Wypiek gotowy na: {time}": {
@@ -5866,7 +5930,7 @@
   },
   "Wypiek w garnku zakończony! Wyjmij chleb na kratkę.": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (kod)"
+      "app/stolnica.tsx (kod)"
     ]
   },
   "Wypiek w garnku żeliwnym (Dutch Oven)": {
@@ -6137,10 +6201,7 @@
     ]
   },
   "Zakwas": {
-    "gdzie": [
-      "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/zakwas.tsx (title)"
-    ],
+    "gdzie": [],
     "opis": "Nazwa zakładki i tytuł ekranu prowadzenia zakwasu (karmienie, profil, przypomnienia); jedno krótkie słowo pod ikoną zakładki. Nie składnik receptury: ten ma klucz „Zakwas|składnik”."
   },
   "Zakwas (Levain)": {
@@ -6201,6 +6262,12 @@
   "Zakwas: {amount} g": {
     "gdzie": []
   },
+  "Zakwasy": {
+    "gdzie": [
+      "app/(tabs)/_layout.tsx (title)",
+      "app/(tabs)/zakwasy/_layout.tsx (title)"
+    ]
+  },
   "Zakwas|składnik": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
@@ -6209,6 +6276,11 @@
       "src/lib/recipe-formatter.ts (kod)"
     ],
     "opis": "Zakwas jako składnik receptury: etykieta obok masy albo procentu (Stolnica, podgląd importu, tekst receptury „Zakwas (20%): 200 g”). Termin glosariusza: EN „starter”. Krótka etykieta."
+  },
+  "Zakładam zakwas": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)"
+    ]
   },
   "Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.": {
     "gdzie": [
@@ -6298,7 +6370,7 @@
   },
   "Zapisano zaktualizowany profil": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Zapisz": {
@@ -6345,7 +6417,7 @@
   },
   "Zarejestrowano dokarmienie zakwasu „{name}”.": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (Alert.alert)"
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
   "Zarejestrowano dokarmienie!": {
@@ -6640,6 +6712,12 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Zobacz plany": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
   "Zostaje wgłębienie i ciasto siada:": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -6657,12 +6735,12 @@
   },
   "Zrobione": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)"
+      "app/stolnica.tsx (tekst w JSX)"
     ]
   },
   "Zrobione: {krok}": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (accessibilityLabel)"
+      "app/stolnica.tsx (accessibilityLabel)"
     ]
   },
   "Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.": {
@@ -6791,7 +6869,7 @@
   },
   "cze": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "dziś": {
@@ -6816,7 +6894,7 @@
   },
   "gru": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "hydratacji": {
@@ -6837,7 +6915,7 @@
   },
   "kwi": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "lekcji": {
@@ -6845,12 +6923,12 @@
   },
   "lip": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "lis": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "lodu": {
@@ -6865,17 +6943,17 @@
   },
   "lut": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "maj": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "mar": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "miesiąc": {
@@ -6920,7 +6998,7 @@
   },
   "paź": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "po upieczeniu: ~{masa}": {
@@ -6935,7 +7013,7 @@
   },
   "przed chwilą": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (kod)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "przed nami": {
@@ -6950,7 +7028,7 @@
   },
   "sie": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "soli": {
@@ -6965,7 +7043,7 @@
   },
   "sty": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "szklanek": {
@@ -7000,7 +7078,13 @@
   },
   "wrz": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
+    ]
+  },
+  "wymaga Piekarz Pro": {
+    "gdzie": [
+      "src/components/start/WyborCzynnosci.tsx (kod)",
+      "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
     ]
   },
   "zalecana": {
@@ -7018,6 +7102,16 @@
       "src/lib/confirm.ts (message)"
     ]
   },
+  "zostało {czas}": {
+    "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+    ]
+  },
+  "zostało {czas}, do {godzina}": {
+    "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+    ]
+  },
   "zrobione": {
     "gdzie": [
       "src/components/Spirala.tsx (tekst w JSX)"
@@ -7025,12 +7119,12 @@
   },
   "{days}d temu": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (kod)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "{dzien}, {d} {miesiac}": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (kod)"
     ]
   },
   "{godziny} {minuty}": {
@@ -7045,7 +7139,7 @@
   },
   "{hours}h temu": {
     "gdzie": [
-      "app/(tabs)/zakwas.tsx (kod)"
+      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "{h}h": {
@@ -7066,6 +7160,11 @@
   "{masa} / szt.": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
+    ]
+  },
+  "{nazwa}, gotowy {dzien} o {godzina}": {
+    "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
     ]
   },
   "{n} cz.": {
@@ -7202,7 +7301,7 @@
   },
   "Śr.": {
     "gdzie": [
-      "app/(tabs)/harmonogram.tsx (dane: kod)"
+      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
   "Śr. miękisz": {

@@ -42,7 +42,7 @@ jest.mock('react-native-safe-area-context', () => {
   };
 });
 
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import { StolnicaKeepAwake } from '../components/stolnica/StolnicaKeepAwake';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';

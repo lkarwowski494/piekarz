@@ -16,7 +16,7 @@ jest.mock('react-native-safe-area-context', () => {
 import React from 'react';
 import { Alert, Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, saveStarter, getStarters } from '../data/sqlite-store';
 import { useTempDbDir, control } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { StorageGate, shareRescueFile } from '../components/StorageGate';

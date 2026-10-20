@@ -1,11 +1,11 @@
 appId: com.apps4craft.piekarz
 ---
 - launchApp
-- tapOn: "Stolnica"
-- assertVisible: "Stolnica"
-- tapOn: "Harmonogram"
-- assertVisible: "Harmonogram"
-- tapOn: "Doktor"
-- assertVisible: "Doktor Ciasta"
+- tapOn: "Receptury"
+- assertVisible: "Plan wypieku"
+- tapOn: "Zacznij wypiek"
+- assertVisible: "Zrobione"
+- tapOn: "Doktor Chleba"
+- assertVisible: "Protokoły ratunkowe (Pogotowie ciasta)"
 - tapOn: "Akademia"
 - assertVisible: "Akademia Piekarza"

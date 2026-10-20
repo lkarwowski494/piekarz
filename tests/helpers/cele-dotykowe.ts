@@ -143,7 +143,7 @@ export function plikiTsx(): string[] {
 }
 
 /** Prowadzenie wypieku (Stolnica) i akcje główne: próg `cele.glownyPrzeplyw` (48). */
-export const PLIKI_PROWADZENIA = [/^app\/\(tabs\)\/stolnica\.tsx$/, /^src\/components\/stolnica\//];
+export const PLIKI_PROWADZENIA = [/^app\/stolnica\.tsx$/, /^src\/components\/stolnica\//];
 export const AKCJE_GLOWNE = ['start-bake-btn', 'fast-start-bake-cta-btn', 'save-custom-recipe-btn', 'next-or-finish-step-btn'];
 
 export function prog(c: Cel): number {

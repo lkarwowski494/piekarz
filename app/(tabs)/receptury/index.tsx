@@ -1,56 +1,47 @@
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import {
-  Text,
-  ScrollView,
-  Pressable,
-} from 'react-native';
+import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import {
-  CraftHeader,
-  sharedCraftTokens,
-} from '@apps4craft/ui';
-import { t } from '../../src/lib/i18n';
-import { guardSave } from '../../src/lib/save-guard';
+import { guardSave } from '../../../src/lib/save-guard';
 import {
   BAKE_LOSS_PRESETS,
   BakeTypePresetId,
   POPULAR_FLOUR_BLENDS,
   FlourItemInput,
-} from '../../src/core/domain-rules';
-import { MASTER_RECIPES, filterMasterRecipes, ritualCategoryFilter } from '../../src/recipes/presets';
+} from '../../../src/core/domain-rules';
+import { MASTER_RECIPES, filterMasterRecipes, ritualCategoryFilter } from '../../../src/recipes/presets';
+import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/lib/start-stan';
 import {
   getRecipes,
   deleteRecipe,
   setActiveBake,
-  hasCompletedOnboarding,
   getBakerRitualProfile,
-} from '../../src/data/sqlite-store';
-import { StoredRecipe } from '../../src/data/db';
-import { confirmDeleteRecipe } from '../../src/lib/confirm';
-import type { PendingRecipeFormula, PendingRecipeToLoad } from '../../src/lib/recipe-navigation';
-import { usePendingRecipeLoader } from '../../src/hooks/usePendingRecipeLoader';
-import { PrefermentType } from '../../src/core/preferments';
-import { useAppAccess } from '../../src/lib/app-access';
-import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
-import { DoMiskiScaleCard } from '../../src/components/calculator/DoMiskiScaleCard';
-import { ArtisanAccordionPro } from '../../src/components/calculator/ArtisanAccordionPro';
-import { SaveRecipeModal } from '../../src/components/calculator/SaveRecipeModal';
-import { CalculatorActionButtons } from '../../src/components/calculator/CalculatorActionButtons';
-import { FormulaPresetSelector, CategoryFilterType } from '../../src/components/calculator/FormulaPresetSelector';
-import { CalculatorModalsProvider } from '../../src/components/calculator/CalculatorModalsProvider';
-import { useUnitSystem } from '../../src/lib/unit-converter';
-import { CalculatorSacredCard } from '../../src/components/calculator/CalculatorSacredCard';
-import { useRecipeCalculations } from '../../src/hooks/useRecipeCalculations';
+} from '../../../src/data/sqlite-store';
+import { StoredRecipe } from '../../../src/data/db';
+import { confirmDeleteRecipe } from '../../../src/lib/confirm';
+import type { PendingRecipeFormula, PendingRecipeToLoad } from '../../../src/lib/recipe-navigation';
+import { usePendingRecipeLoader } from '../../../src/hooks/usePendingRecipeLoader';
+import { PrefermentType } from '../../../src/core/preferments';
+import { useAppAccess } from '../../../src/lib/app-access';
+import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
+import { DoMiskiScaleCard } from '../../../src/components/calculator/DoMiskiScaleCard';
+import { ArtisanAccordionPro } from '../../../src/components/calculator/ArtisanAccordionPro';
+import { SaveRecipeModal } from '../../../src/components/calculator/SaveRecipeModal';
+import { CalculatorActionButtons } from '../../../src/components/calculator/CalculatorActionButtons';
+import { FormulaPresetSelector, CategoryFilterType } from '../../../src/components/calculator/FormulaPresetSelector';
+import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
+import { useUnitSystem } from '../../../src/lib/unit-converter';
+import { CalculatorSacredCard } from '../../../src/components/calculator/CalculatorSacredCard';
+import { useRecipeCalculations } from '../../../src/hooks/useRecipeCalculations';
 import {
   executePrintRecipePdf,
   executeExportRecipeJson,
   executeCopyRecipe,
   executeSaveCustomRecipe,
-} from '../../src/lib/calculator-actions';
-import { openPrintMenu } from '../../src/lib/print-menu';
-import { CorruptStateRecoveryBanner } from '../../src/components/CorruptStateRecoveryBanner';
-import { styles } from '../../src/components/calculator/calculator-screen.styles';
+} from '../../../src/lib/calculator-actions';
+import { openPrintMenu } from '../../../src/lib/print-menu';
+import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
+import { styles } from '../../../src/components/calculator/calculator-screen.styles';
 
 type CalculationMode = 'loaves' | 'flour';
 
@@ -100,9 +91,7 @@ export default function CalculatorScreen() {
   const [customRecipes, setCustomRecipes] = useState<StoredRecipe[]>([]);
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);
   const [saveRecipeNameInput, setSaveRecipeNameInput] = useState<string>('');
-  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   const [isBlendModalOpen, setIsBlendModalOpen] = useState<boolean>(false);
-  const [isOnboardingOpen, setIsOnboardingOpen] = useState<boolean>(false);
   const [isInventoryOpen, setIsInventoryOpen] = useState<boolean>(false);
   const [isImportModalOpen, setIsImportModalOpen] = useState<boolean>(false);
   const [isShareQrOpen, setIsShareQrOpen] = useState<boolean>(false);
@@ -197,11 +186,13 @@ export default function CalculatorScreen() {
     }
   }, loadRecipesFromStore, [loadRecipesFromStore, applyFormula, selectedPresetId]);
 
+  // Start „Co dziś robisz?” zastępuje powitanie z wyborem stylu: filtr receptur z wybranej czynności
+  // (na zakwasie / na drożdżach); wejście bez wyboru — filtr ze stylu z Ustawień [M1-audytor-generalny-101]
   useEffect(() => {
-    void hasCompletedOnboarding().then((completed) => {
-      if (!completed) setIsOnboardingOpen(true);
-    });
-    void getBakerRitualProfile().then(applyRitual);
+    const zeStartu = odbierzRodzajReceptur();
+    if (zeStartu) setMasterCategoryFilter(zeStartu);
+    else void getBakerRitualProfile().then(applyRitual);
+    return subskrybujRodzajReceptur(setMasterCategoryFilter);
   }, []);
 
   // Rytuał ustawia widoczny filtr kategorii, nie ukrywa receptur (F-26, ZM-14) [M1-audytor-generalny-032]
@@ -298,32 +289,13 @@ export default function CalculatorScreen() {
         },
       });
 
-      router.push('/(tabs)/stolnica');
+      router.push('/stolnica');
     });
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        {/* CraftHeader */}
-        <CraftHeader
-          title={t('Kalkulator')}
-          subtitle={t('Ilości i temperatura wody')}
-          testID="calculator-header"
-          rightAction={
-            <Pressable
-              testID="open-settings-btn"
-              accessibilityRole="button"
-              accessibilityLabel={t('Ustawienia')}
-              hitSlop={sharedCraftTokens.hitSlopStandard}
-              style={styles.settingsHeaderBtn}
-              onPress={() => setIsSettingsOpen(true)}
-            >
-              <Text style={styles.settingsHeaderBtnText}>{t('Ustawienia')}</Text>
-            </Pressable>
-          }
-        />
-
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         <CorruptStateRecoveryBanner />
 
         {/* Sacred Numbers Glanceable Countertop Card */}
@@ -445,16 +417,6 @@ export default function CalculatorScreen() {
 
         {/* Calculator Modals Provider */}
         <CalculatorModalsProvider
-          isSettingsOpen={isSettingsOpen}
-          onCloseSettings={() => {
-            setIsSettingsOpen(false);
-            void getBakerRitualProfile().then(applyRitual);
-          }}
-          isOnboardingOpen={isOnboardingOpen}
-          onCompleteOnboarding={(profile) => {
-            setIsOnboardingOpen(false);
-            applyRitual(profile);
-          }}
           isBlendModalOpen={isBlendModalOpen}
           flourBlend={flourBlend}
           onApplyBlend={setFlourBlend}

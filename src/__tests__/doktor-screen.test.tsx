@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import DoctorScreen from '../../app/(tabs)/doktor';
+import DoctorScreen from '../../app/doktor';
 
 jest.setTimeout(20000);
 
@@ -40,7 +40,7 @@ function findButtonByText(root: renderer.ReactTestInstance, text: string): rende
   });
 }
 
-describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
+describe('DoctorScreen UI (app/doktor.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(() => {
@@ -65,10 +65,7 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
     const root = tree!.root;
     const allText = extractCleanText(root);
 
-    // Title & headers
-    expect(allText).toContain('Doktor Chleba');
-    expect(allText).toContain('Diagnostyka błędów wypieku');
-
+    // Tytuł 
     // Default under-proofed diagnosis
     expect(allText).toContain('Niedofermentowanie (Under-proofed / Flying Crust)');
     expect(allText).toContain('Przyczyna biologiczno-chemiczna:');
@@ -124,7 +121,7 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
       await Promise.resolve();
     });
 
-    expect(mockPush).toHaveBeenCalledWith('/(tabs)/stolnica');
+    expect(mockPush).toHaveBeenCalledWith('/stolnica');
   });
 
   it('applies flavor defect presets (excessively sour and bland flavor)', async () => {
@@ -232,7 +229,7 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
       await Promise.resolve();
     });
 
-    expect(mockPush).toHaveBeenCalledWith('/(tabs)/harmonogram');
+    expect(mockPush).toHaveBeenCalledWith('/receptury/harmonogram');
   });
 
   it('copies diagnosis to clipboard when copy button is pressed', async () => {

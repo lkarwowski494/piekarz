@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — wibracja dotyku dla przycisków Stolnicy (wydzielone z app/(tabs)/stolnica.tsx, limit 20 KB)
+// Piekarz — wibracja dotyku dla przycisków Stolnicy (wydzielone z app/stolnica.tsx, limit 20 KB)
 // Brak modułu albo błąd biblioteki nie przerywa akcji użytkownika.
 // ============================================================================
 

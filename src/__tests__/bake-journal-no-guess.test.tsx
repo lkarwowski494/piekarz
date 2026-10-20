@@ -20,7 +20,7 @@ jest.mock('react-native-safe-area-context', () => {
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, getBakeLogs, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';

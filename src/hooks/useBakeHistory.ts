@@ -47,7 +47,7 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
         const pending = prepareBakeAgainRecipe(log, custom);
         setPendingRecipeToLoad(pending);
 
-        router.navigate('/(tabs)');
+        router.navigate('/receptury');
         Alert.alert(
           t('Załadowano recepturę'),
           t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
@@ -55,7 +55,7 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
           })
         );
       } catch {
-        router.navigate('/(tabs)');
+        router.navigate('/receptury');
       }
     });
   };

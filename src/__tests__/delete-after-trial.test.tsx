@@ -23,8 +23,8 @@ jest.mock('../lib/pdf-sheet-generator', () => ({
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { FlourInventoryModal } from '../components/FlourInventoryModal';
 import { PaywallModal } from '../components/PaywallModal';
 // Jedyny ekran zakupu aplikacji (app/_layout.tsx) [M1-audytor-generalny-025]

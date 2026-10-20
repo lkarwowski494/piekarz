@@ -13,21 +13,6 @@ export const styles = StyleSheet.create({
   header: {
     marginBottom: theme.spacing.md,
   },
-  headerDoctorBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: theme.radius.full,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  headerDoctorBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
   activeCard: {
     backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,

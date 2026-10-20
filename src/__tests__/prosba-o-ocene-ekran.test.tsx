@@ -36,7 +36,7 @@ import renderer, { act } from 'react-test-renderer';
 import { readdirSync, readFileSync, statSync } from 'fs';
 import { join } from 'path';
 import * as StoreReview from 'expo-store-review';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import * as store from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { StorageWriteError } from '../data/storage-status';

@@ -11,7 +11,10 @@ import { RescueScreen } from '../src/components/RescueScreen';
 import { beginStartup, markStartupSucceeded, STARTUP_MILESTONE_MS } from '../src/lib/startup-guard';
 import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
-import { initLanguage } from '../src/lib/i18n';
+import { initLanguage, t } from '../src/lib/i18n';
+import { trasaZPowiadomienia } from '../src/core/notification-plan';
+import { naglowekZwykly } from '../src/ui/naglowek';
+import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',
@@ -61,8 +64,10 @@ export default function RootLayout() {
       if (s === 'active') void resyncNotifications();
     });
     const tap = Notifications.addNotificationResponseReceivedListener((r) => {
-      const route: unknown = Reflect.get(r.notification.request.content.data ?? {}, 'route');
-      if (route === '/(tabs)/stolnica' || route === '/(tabs)/zakwas') router.push(route);
+      // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
+      // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
+      const trasa = trasaZPowiadomienia(Reflect.get(r.notification.request.content.data ?? {}, 'route'));
+      if (trasa) router.push(trasa);
     });
     return () => {
       appState.remove();
@@ -89,8 +94,21 @@ export default function RootLayout() {
       <StorageGate onRetry={retryDatabase}>
         {/* Jeden stan dostępu i jeden ekran zakupu dla wszystkich zakładek [M1-audytor-generalny-025] */}
         <AppAccessProvider>
+          {/* Zakładki (D-051 2a) i ekrany nad nimi bez paska zakładek: prowadzenie wypieku, Doktor Chleba [M1-audytor-generalny-101] */}
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(tabs)" />
+            <Stack.Screen
+              name="stolnica"
+              options={{
+                ...naglowekZwykly,
+                title: t('Stolnica'),
+                headerBackButtonDisplayMode: 'minimal',
+                headerRight: () => (
+                  <PrzyciskNaglowka testID="stolnica-doctor-shortcut-btn" etykieta={t('Doktor Chleba')} tekst={t('Doktor')} onPress={() => router.push('/doktor')} />
+                ),
+              }}
+            />
+            <Stack.Screen name="doktor" options={{ ...naglowekZwykly, title: t('Doktor Chleba'), headerBackButtonDisplayMode: 'minimal' }} />
           </Stack>
         </AppAccessProvider>
       </StorageGate>

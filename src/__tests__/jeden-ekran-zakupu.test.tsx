@@ -20,12 +20,12 @@ jest.mock('../lib/pdf-sheet-generator', () => ({
 jest.mock('../components/StorageGate', () => ({
   StorageGate: ({ children }: { children: React.ReactNode }) => children,
 }));
-// Stos Expo Router: grupa (tabs) to dwie zamontowane zakładki (Zakwas i Stolnica).
+// Stos Expo Router: zamontowane dwa ekrany (zakładka Zakwasy i prowadzenie wypieku).
 jest.mock('expo-router', () => {
   const React = require('react');
   const Stack = () => {
-    const Zakwas = require('../../app/(tabs)/zakwas').default;
-    const Stolnica = require('../../app/(tabs)/stolnica').default;
+    const Zakwas = require('../../app/(tabs)/zakwasy/index').default;
+    const Stolnica = require('../../app/stolnica').default;
     return React.createElement(React.Fragment, null, React.createElement(Zakwas), React.createElement(Stolnica));
   };
   Stack.Screen = () => null;

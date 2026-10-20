@@ -98,9 +98,10 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
   // S7 & NFR-INT-007
   describe('S7: Keyboard Handling Contracts', () => {
     it('primary tab screens with inputs wrap or configure scrollviews with keyboard dismissal', () => {
-      const tabs = ['index.tsx', 'stolnica.tsx', 'zakwas.tsx', 'doktor.tsx'];
+      // Ekrany po D-051 2a: 4 zakładki, plan wypieku, prowadzenie i Doktor [M1-audytor-generalny-101]
+      const tabs = ['(tabs)/(dzis)/index.tsx', '(tabs)/receptury/index.tsx', '(tabs)/receptury/harmonogram.tsx', '(tabs)/zakwasy/index.tsx', '(tabs)/dziennik/index.tsx', 'stolnica.tsx', 'doktor.tsx'];
       for (const t of tabs) {
-        const content = fs.readFileSync(path.join(appDir, '(tabs)', t), 'utf-8');
+        const content = fs.readFileSync(path.join(appDir, t), 'utf-8');
         const hasScroll = content.includes('ScrollView') || content.includes('FlatList');
         if (hasScroll) {
           expect(content).toMatch(/keyboardShouldPersistTaps="handled"|keyboardDismissMode="on-drag"/);
@@ -134,9 +135,9 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
   // S10 & NFR-INT-010
   describe('S10: Safe Navigation Routing', () => {
     it('all tabs declare canonical export default component', () => {
-      const tabs = ['index.tsx', 'stolnica.tsx', 'zakwas.tsx', 'harmonogram.tsx', 'doktor.tsx'];
+      const tabs = ['(tabs)/(dzis)/index.tsx', '(tabs)/receptury/index.tsx', '(tabs)/receptury/harmonogram.tsx', '(tabs)/zakwasy/index.tsx', '(tabs)/dziennik/index.tsx', 'stolnica.tsx', 'doktor.tsx'];
       for (const t of tabs) {
-        const content = fs.readFileSync(path.join(appDir, '(tabs)', t), 'utf-8');
+        const content = fs.readFileSync(path.join(appDir, t), 'utf-8');
         expect(content).toMatch(/export default function/);
       }
     });

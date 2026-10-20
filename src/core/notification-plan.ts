@@ -24,6 +24,19 @@ export type NotificationTextKey =
   | 'karmienie.lodowkaPrzypomnienie'
   | 'karmienie.lodowkaTermin';
 
+/** Ekran otwierany z powiadomienia: prowadzenie wypieku (bieżący krok, F-58) albo zakładka Zakwasy (D-051 2a). */
+export type TrasaPowiadomienia = '/stolnica' | '/zakwasy';
+
+/**
+ * Trasa z danych dotkniętego powiadomienia (dane z zewnątrz, `unknown`). Powiadomienia zaplanowane przez wersję
+ * sprzed 4 zakładek niosą '/stolnica' i '/zakwasy' — prowadzą w te same miejsca; inna wartość → null.
+ * [M1-audytor-generalny-101]
+ */
+export function trasaZPowiadomienia(v: unknown): TrasaPowiadomienia | null {
+  if (v === '/stolnica' || v === '/(tabs)/stolnica') return '/stolnica';
+  if (v === '/zakwasy' || v === '/(tabs)/zakwas') return '/zakwasy';
+  return null;
+}
 export interface PlannedNotification {
   id: string;
   kind: NotificationKind;
@@ -31,7 +44,7 @@ export interface PlannedNotification {
   level: NotificationLevel;
   textKey: NotificationTextKey;
   params: Record<string, string>;
-  route: '/(tabs)/stolnica' | '/(tabs)/zakwas';
+  route: TrasaPowiadomienia;
 }
 export interface PendingNotification {
   id: string;
@@ -65,7 +78,7 @@ export function planBakeNotification(session: PlanBakeSession | null, now: numbe
     level: TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active',
     textKey,
     params: { stepId: step.id, stepName: step.name },
-    route: '/(tabs)/stolnica',
+    route: '/stolnica',
   };
 }
 
@@ -90,7 +103,7 @@ export function planFeedingNotifications(starters: readonly PlanStarter[], now: 
         level: 'active',
         textKey,
         params: { starterName: s.name },
-        route: '/(tabs)/zakwas',
+        route: '/zakwasy',
       });
     }
   }

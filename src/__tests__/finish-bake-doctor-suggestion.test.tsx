@@ -28,7 +28,7 @@ jest.mock('expo-router', () => ({
 import React from 'react';
 import { Alert, AlertButton } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, getBakeLogs } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { shouldSuggestDoctor, suggestDoctorAfterRating, DOCTOR_SUGGESTION_MAX_STARS } from '../lib/doctor-suggestion';
@@ -116,7 +116,7 @@ describe('Doctor suggestion after a weak rating (BR-DIAG-001)', () => {
     expect(buttons.map((b) => b.text)).toEqual(['Nie teraz', 'Otwórz Doktora Chleba']);
     expect(mockPush).not.toHaveBeenCalled();
     buttons[1].onPress?.();
-    expect(mockPush).toHaveBeenCalledWith('/(tabs)/doktor');
+    expect(mockPush).toHaveBeenCalledWith('/doktor');
   });
 
   it('declining the suggestion keeps the same saved entry and does not navigate', async () => {

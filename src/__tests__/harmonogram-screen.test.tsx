@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import HarmonogramScreen from '../../app/(tabs)/harmonogram';
+import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import { getActiveBake, setActiveBake, initDatabase } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -50,7 +50,7 @@ function findAllButtonsByText(root: renderer.ReactTestInstance, text: string): r
   });
 }
 
-describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
+describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
@@ -78,9 +78,7 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
     const root = tree!.root;
     const allText = extractCleanText(root);
 
-    // Title & headers
-    expect(allText).toContain('Harmonogram');
-    expect(allText).toContain('Godzina gotowości chleba do krojenia');
+    // Tytuł     expect(allText).toContain('Godzina gotowości chleba do krojenia');
     expect(allText).toContain('Ochrona snu aktywna');
 
     // Default chips
@@ -231,7 +229,7 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
     expect(activeBake?.actualDdtC).toBeUndefined();
 
     // Check navigation
-    expect(mockPush).toHaveBeenCalledWith('/(tabs)/stolnica');
+    expect(mockPush).toHaveBeenCalledWith('/stolnica');
   });
 
   it('copies schedule to clipboard when copy button is pressed', async () => {

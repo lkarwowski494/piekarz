@@ -22,7 +22,7 @@ const mock = (Notifications as unknown as { __mock: Mock }).__mock;
 const planned = (textKey: NotificationTextKey, params: Record<string, string>): PlannedNotification => {
   const kind: NotificationKind = textKey.startsWith('krok') ? 'krok' : 'karmienie';
   const level: NotificationLevel = 'active';
-  return { id: 'piekarz.x', kind, level, textKey, params, triggerAt: 1, route: '/(tabs)/stolnica' };
+  return { id: 'piekarz.x', kind, level, textKey, params, triggerAt: 1, route: '/stolnica' };
 };
 
 describe('notifications adapter (006)', () => {

@@ -4,6 +4,9 @@ import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { TabIcon, TabLabel } from '../../src/components/TabIcon';
 
+// 4 zakładki: Dziś, Receptury, Zakwasy, Dziennik; ustawienia z „Dziś” (D-051 2a, design-spec §4).
+// Każda zakładka ma własny stos z dużym tytułem (app/(tabs)/<zakładka>/_layout.tsx); prowadzenie wypieku
+// i Doktor Chleba otwierają się nad zakładkami, bez paska (app/_layout.tsx). [M1-audytor-generalny-101]
 export default function TabsLayout() {
   return (
     <Tabs
@@ -24,37 +27,31 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(dzis)"
         options={{
-          title: t('Kalkulator'),
-          tabBarIcon: ({ color }) => <TabIcon name="calculator" color={color} />,
+          title: t('Dziś'),
+          tabBarIcon: ({ color }) => <TabIcon name="dzis" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="harmonogram"
+        name="receptury"
         options={{
-          title: t('Harmonogram'),
-          tabBarIcon: ({ color }) => <TabIcon name="schedule" color={color} />,
+          title: t('Receptury'),
+          tabBarIcon: ({ color }) => <TabIcon name="receptury" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="stolnica"
+        name="zakwasy"
         options={{
-          title: t('Stolnica'),
-          tabBarIcon: ({ color }) => <TabIcon name="workbench" color={color} />,
+          title: t('Zakwasy'),
+          tabBarIcon: ({ color }) => <TabIcon name="zakwasy" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="zakwas"
+        name="dziennik"
         options={{
-          title: t('Zakwas'),
-          tabBarIcon: ({ color }) => <TabIcon name="starter" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="doktor"
-        options={{
-          href: null,
+          title: t('Dziennik'),
+          tabBarIcon: ({ color }) => <TabIcon name="dziennik" color={color} />,
         }}
       />
     </Tabs>

@@ -1,9 +1,9 @@
 appId: com.apps4craft.piekarz
 ---
 - launchApp
-- assertVisible: "Kalkulator Chleba"
-- tapOn: "Kalkulator"
-- assertVisible: "Mąka całkowita"
+- assertVisible: "Co dziś robisz?"
+- tapOn: "Piekę na zakwasie"
+- assertVisible: "Receptury mistrzowskie"
 - assertVisible: "Hydratacja"
-- tapOn: "Stolnica"
-- assertVisible: "Stolnica"
+- tapOn: "Dziennik"
+- assertVisible: "Historia wypieków"

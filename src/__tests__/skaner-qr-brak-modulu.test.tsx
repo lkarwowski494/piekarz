@@ -19,7 +19,7 @@ jest.mock('../lib/qr-skaner', () => ({ ladujSkanerQr: () => null }));
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { Alert } from 'react-native';
-import CalculatorScreen from '../../app/(tabs)/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore } from '../data/sqlite-store';
 import { setLang } from '../lib/i18n';

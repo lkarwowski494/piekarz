@@ -58,7 +58,9 @@ async function start(stan: Stan) {
   }
   _resetStanu();
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
-  const CalculatorScreen = require('../../app/(tabs)/index').default;
+  const CalculatorScreen = require('../../app/(tabs)/receptury/index').default;
+  // Ustawienia (import kopii) są na „Dziś” (D-051 2a), kalkulator na „Receptury” [M1-audytor-generalny-101]
+  const StartScreen = require('../../app/(tabs)/(dzis)/index').default;
   const { AppAccessProvider } = require('../components/AppAccessProvider');
   const { PaywallModal } = require('../components/PaywallModal');
   const flush = async () => {
@@ -68,7 +70,7 @@ async function start(stan: Stan) {
   };
   let tree: renderer.ReactTestRenderer | null = null;
   await TR.act(async () => {
-    tree = TR.create(R.createElement(AppAccessProvider, null, R.createElement(CalculatorScreen)));
+    tree = TR.create(R.createElement(AppAccessProvider, null, R.createElement(StartScreen), R.createElement(CalculatorScreen)));
   });
   await flush();
   const t = tree as unknown as renderer.ReactTestRenderer;

@@ -79,18 +79,18 @@ describe('Apps4Brew Architectural Interaction Guards (docs/32-wzorce-interakcji)
   });
 
   describe('Guard S22: Canonical Navigation Routing Contract', () => {
-    const tabsDir = path.resolve(__dirname, '../../../app/(tabs)');
+    const tabsDir = path.resolve(__dirname, '../../../app');
+    // D-051 2a: 4 zakładki (Dziś, Receptury, Zakwasy, Dziennik), plan wypieku w Recepturach, prowadzenie i Doktor nad zakładkami [M1-audytor-generalny-101]
+    const requiredTabs = ['(tabs)/(dzis)/index.tsx', '(tabs)/receptury/index.tsx', '(tabs)/receptury/harmonogram.tsx', '(tabs)/zakwasy/index.tsx', '(tabs)/dziennik/index.tsx', 'stolnica.tsx', 'doktor.tsx'];
 
-    it('all 5 canonical tabs exist as Expo Router screen modules', () => {
-      const requiredTabs = ['index.tsx', 'stolnica.tsx', 'zakwas.tsx', 'harmonogram.tsx', 'doktor.tsx'];
+    it('all canonical screens exist as Expo Router screen modules', () => {
       for (const tab of requiredTabs) {
         const fullPath = path.join(tabsDir, tab);
         expect(fs.existsSync(fullPath)).toBe(true);
       }
     });
 
-    it('all 5 screen modules export a default React component', () => {
-      const requiredTabs = ['index.tsx', 'stolnica.tsx', 'zakwas.tsx', 'harmonogram.tsx', 'doktor.tsx'];
+    it('all screen modules export a default React component', () => {
       for (const tab of requiredTabs) {
         const content = fs.readFileSync(path.join(tabsDir, tab), 'utf-8');
         expect(content).toMatch(/export default function/);

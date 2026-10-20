@@ -6,8 +6,8 @@
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { WEJSCIA_WIDOCZNE, wejscieWidoczne, WejsciePozniej } from '../lib/wejscia-pozniej';

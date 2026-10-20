@@ -9,14 +9,14 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
-import { t } from '../../src/lib/i18n';
-import { guardSave } from '../../src/lib/save-guard';
-import { tapHaptic } from '../../src/lib/haptics';
-import { useBakeSession } from '../../src/hooks/useBakeSession';
-import { saveBakeSession } from '../../src/data/bake-session-store';
-import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
-import { NotificationsOffBanner } from '../../src/components/NotificationsOffBanner';
-import { confirmDiscardBake } from '../../src/lib/confirm';
+import { t } from '../src/lib/i18n';
+import { guardSave } from '../src/lib/save-guard';
+import { tapHaptic } from '../src/lib/haptics';
+import { useBakeSession } from '../src/hooks/useBakeSession';
+import { saveBakeSession } from '../src/data/bake-session-store';
+import { resyncNotifications, ensureNotificationPermission } from '../src/lib/notifications';
+import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
+import { confirmDiscardBake } from '../src/lib/confirm';
 import {
   finishBake,
   setActiveBake,
@@ -24,34 +24,30 @@ import {
   getBakingVessel,
   setBakingVessel,
   BakingVessel,
-} from '../../src/data/sqlite-store';
-import {
-  CraftHeader,
-  sharedCraftTokens,
-} from '@apps4craft/ui';
-import { useUnitSystem, formatTextUnits } from '../../src/lib/unit-converter';
-import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../../src/components/SensoryRadarChart';
-import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
-import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
-import { SessionStep, isDutchOvenStep, planBakeSteps } from '../../src/core/bake-steps';
-import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
-import { useBakeHistory } from '../../src/hooks/useBakeHistory';
-import { useAppAccess } from '../../src/lib/app-access';
-import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
-import { suggestDoctorAfterRating } from '../../src/lib/doctor-suggestion';
-import { poprosOOceneJesliWarto } from '../../src/lib/prosba-o-ocene-wywolanie';
-import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
-import { PokeTestEntry } from '../../src/components/stolnica/PokeTestEntry';
-import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
-import { ActiveTimerDisplay } from '../../src/components/stolnica/ActiveTimerDisplay';
-import { BakeStatsCard } from '../../src/components/stolnica/BakeStatsCard';
-import { BakeHistorySection } from '../../src/components/stolnica/BakeHistorySection';
-import { BakeStepsList } from '../../src/components/stolnica/BakeStepsList';
-import { StolnicaSacredCard } from '../../src/components/stolnica/StolnicaSacredCard';
-import { IdleBakeCard } from '../../src/components/stolnica/IdleBakeCard';
-import { StolnicaKeepAwake } from '../../src/components/stolnica/StolnicaKeepAwake';
-import { SpiralaWypieku } from '../../src/components/Spirala';
-import { styles } from '../../src/components/stolnica/stolnica-screen.styles';
+} from '../src/data/sqlite-store';
+import { useUnitSystem, formatTextUnits } from '../src/lib/unit-converter';
+import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../src/components/SensoryRadarChart';
+import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
+import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
+import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
+import { stepDurationSec, stepHasTimer } from '../src/core/bake-session';
+import { useBakeHistory } from '../src/hooks/useBakeHistory';
+import { useAppAccess } from '../src/lib/app-access';
+import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
+import { suggestDoctorAfterRating } from '../src/lib/doctor-suggestion';
+import { poprosOOceneJesliWarto } from '../src/lib/prosba-o-ocene-wywolanie';
+import { FinishBakeModal } from '../src/components/stolnica/FinishBakeModal';
+import { PokeTestEntry } from '../src/components/stolnica/PokeTestEntry';
+import { DutchOvenController } from '../src/components/stolnica/DutchOvenController';
+import { ActiveTimerDisplay } from '../src/components/stolnica/ActiveTimerDisplay';
+import { BakeStatsCard } from '../src/components/stolnica/BakeStatsCard';
+import { BakeHistorySection } from '../src/components/stolnica/BakeHistorySection';
+import { BakeStepsList } from '../src/components/stolnica/BakeStepsList';
+import { StolnicaSacredCard } from '../src/components/stolnica/StolnicaSacredCard';
+import { IdleBakeCard } from '../src/components/stolnica/IdleBakeCard';
+import { StolnicaKeepAwake } from '../src/components/stolnica/StolnicaKeepAwake';
+import { SpiralaWypieku } from '../src/components/Spirala';
+import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
   const router = useRouter();
@@ -285,7 +281,7 @@ export default function StolnicaScreen() {
     setFinishNotes('');
     await loadHistory();
     // Po zapisanym wpisie: propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032]
-    suggestDoctorAfterRating(finishRating, chron('doktor', () => router.push('/(tabs)/doktor')));
+    suggestDoctorAfterRating(finishRating, chron('doktor', () => router.push('/doktor')));
     // Systemowa prośba o ocenę przy >= 4★ wybranych przez użytkownika (BR-OPIN-001)
     void poprosOOceneJesliWarto(ratingTouched.current ? finishRating : null);
     ratingTouched.current = false;
@@ -315,26 +311,10 @@ export default function StolnicaScreen() {
   }, [timeLeftSec]);
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       <StolnicaKeepAwake active={isActive} />
-      <CraftHeader
-        title={t('Stolnica')}
-        subtitle={t('Asystent wypieku na żywo (Hands-in-flour)')}
-        testID="stolnica-header"
-        rightAction={
-          <Pressable
-            testID="stolnica-doctor-shortcut-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Doktor Chleba')}
-            hitSlop={sharedCraftTokens.hitSlopStandard}
-            style={styles.headerDoctorBtn}
-            onPress={() => router.push('/(tabs)/doktor')}
-          >
-            <Text style={styles.headerDoctorBtnText}>{t('Doktor')}</Text>
-          </Pressable>
-        }
-      />
-      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+      {/* Nagłówek systemowy i skrót do Doktora: app/_layout.tsx (prowadzenie bez paska zakładek, D-051 2a) */}
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {!isActive || !currentStep ? (
           <View>
             {/* Bez uprawnienia: tylko przegląd historii (BEZ_UPRAWNIENIA) [M1-audytor-generalny-027] */}

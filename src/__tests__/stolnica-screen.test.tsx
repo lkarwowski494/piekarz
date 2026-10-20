@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import {
   initDatabase,
   getActiveBake,
@@ -66,7 +66,7 @@ function findButtonByText(root: renderer.ReactTestInstance, text: string): rende
   });
 }
 
-describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
+describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
@@ -99,7 +99,8 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     await renderScreen();
 
     const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Stolnica');
+    // Tytuł w nawigacji systemowej (tests/nawigacja-d051.test.tsx), ekran bez własnego nagłówka [M1-audytor-generalny-101]
+    expect(tree!.root.findAllByProps({ testID: 'stolnica-header' })).toHaveLength(0);
     expect(fullText).toContain('Brak aktywnego wypieku');
     expect(fullText).toContain('Zacznij wypiek');
     expect(fullText).toContain('Historia wypieków');

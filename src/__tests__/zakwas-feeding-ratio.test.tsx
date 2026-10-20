@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import * as predictor from '../core/starter-peak-predictor';
 import { initDatabase, getStarters, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';

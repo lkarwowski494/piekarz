@@ -5,23 +5,22 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
-import { CraftHeader } from '@apps4craft/ui';
-import { theme } from '../../src/ui/theme';
-import { t } from '../../src/lib/i18n';
+import { theme } from '../../../src/ui/theme';
+import { t } from '../../../src/lib/i18n';
 import {
   calculateReverseSchedule,
   autoResolveSleepCollision,
-} from '../../src/scheduler/reverse-scheduler';
-import { setActiveBake } from '../../src/data/sqlite-store';
-import { stepsFromSchedule } from '../../src/core/bake-steps';
-import { copyScheduleToClipboard } from '../../src/lib/schedule-formatter';
-import { useUnitSystem } from '../../src/lib/unit-converter';
-import { useAppAccess } from '../../src/lib/app-access';
-import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
-import { TargetReadyCard } from '../../src/components/harmonogram/TargetReadyCard';
-import { SleepGuardBanner } from '../../src/components/harmonogram/SleepGuardBanner';
-import { ScheduleSummaryCard } from '../../src/components/harmonogram/ScheduleSummaryCard';
-import { TimelineStagesList } from '../../src/components/harmonogram/TimelineStagesList';
+} from '../../../src/scheduler/reverse-scheduler';
+import { setActiveBake } from '../../../src/data/sqlite-store';
+import { stepsFromSchedule } from '../../../src/core/bake-steps';
+import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
+import { useUnitSystem } from '../../../src/lib/unit-converter';
+import { useAppAccess } from '../../../src/lib/app-access';
+import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
+import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
+import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
+import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
+import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
 const POLISH_MONTHS = [
@@ -123,7 +122,7 @@ export default function HarmonogramScreen() {
         isHighRye: false,
         steps,
       });
-      router.push('/(tabs)/stolnica');
+      router.push('/stolnica');
     });
   };
 
@@ -145,13 +144,9 @@ export default function HarmonogramScreen() {
   const firstStage = schedule.stages[0];
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <CraftHeader
-        title={t('Harmonogram')}
-        subtitle={t('Harmonogram wsteczny z ochroną snu')}
-        testID="harmonogram-header"
-      />
-      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027] */}
         <BlokadaFunkcji {...blokada('harmonogram')}>
         <TargetReadyCard

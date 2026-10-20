@@ -22,7 +22,7 @@ jest.mock('react-native-safe-area-context', () => {
 import React from 'react';
 import { Alert } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
+import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, saveFlourInventoryItem } from '../data/sqlite-store';
 import { useTempDbDir, control, openRaw, dbFilePath } from '../data/__tests__/helpers/node-sqlite-adapter';
 import type { DoughRecipeResult } from '../core/domain-rules';

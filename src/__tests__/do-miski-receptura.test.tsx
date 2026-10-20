@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { setPendingRecipeToLoad } from '../lib/recipe-navigation';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';

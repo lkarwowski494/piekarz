@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, getStarters, saveStarter, _resetMemStore } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -48,7 +48,7 @@ function findButtonByText(root: renderer.ReactTestInstance, text: string): rende
   });
 }
 
-describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
+describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {

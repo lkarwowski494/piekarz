@@ -2,48 +2,40 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
   ScrollView,
   StyleSheet,
-  Pressable,
-  Text,
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
-import {
-  CraftHeader,
-  sharedCraftTokens,
-} from '@apps4craft/ui';
-import { theme } from '../../src/ui/theme';
-import { t } from '../../src/lib/i18n';
-import { guardSave } from '../../src/lib/save-guard';
-import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
-import { NotificationsOffBanner } from '../../src/components/NotificationsOffBanner';
+import { theme } from '../../../src/ui/theme';
+import { t } from '../../../src/lib/i18n';
+import { guardSave } from '../../../src/lib/save-guard';
+import { resyncNotifications, ensureNotificationPermission } from '../../../src/lib/notifications';
+import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
 import {
   calculateStarterFeeding,
   evaluateSourdoughSafety,
   calculateStarterPhase,
-} from '../../src/core/domain-rules';
-import { predictStarterPeak } from '../../src/core/starter-peak-predictor';
-import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../src/core/feeding-ratio';
-import { confirmResetStarter, confirmDeleteStarter } from '../../src/lib/confirm';
-import { getStarters, saveStarter, deleteStarter } from '../../src/data/sqlite-store';
-import { StoredStarter } from '../../src/data/db';
-import { copyFeedingToClipboard } from '../../src/lib/feeding-formatter';
-import { StarterConverterModal } from '../../src/components/StarterConverterModal';
-import { DiscardRecipesModal } from '../../src/components/DiscardRecipesModal';
-import { useAppAccess } from '../../src/lib/app-access';
-import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
-import { useUnitSystem } from '../../src/lib/unit-converter';
-import { ZakwasSacredCard } from '../../src/components/zakwas/ZakwasSacredCard';
-import { StartersSelectorRow } from '../../src/components/zakwas/StartersSelectorRow';
-import { StarterProfileCard } from '../../src/components/zakwas/StarterProfileCard';
-import { StarterPeakActivityCard } from '../../src/components/zakwas/StarterPeakActivityCard';
-import { StarterFeedingCard } from '../../src/components/zakwas/StarterFeedingCard';
-import { StarterSafetyCard } from '../../src/components/zakwas/StarterSafetyCard';
-import { EditStarterModal } from '../../src/components/zakwas/EditStarterModal';
-import { AddStarterModal } from '../../src/components/zakwas/AddStarterModal';
+} from '../../../src/core/domain-rules';
+import { predictStarterPeak } from '../../../src/core/starter-peak-predictor';
+import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
+import { confirmResetStarter, confirmDeleteStarter } from '../../../src/lib/confirm';
+import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
+import { StoredStarter } from '../../../src/data/db';
+import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
+import { StarterConverterModal } from '../../../src/components/StarterConverterModal';
+import { DiscardRecipesModal } from '../../../src/components/DiscardRecipesModal';
+import { useAppAccess } from '../../../src/lib/app-access';
+import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
+import { useUnitSystem } from '../../../src/lib/unit-converter';
+import { ZakwasSacredCard } from '../../../src/components/zakwas/ZakwasSacredCard';
+import { StartersSelectorRow } from '../../../src/components/zakwas/StartersSelectorRow';
+import { StarterProfileCard } from '../../../src/components/zakwas/StarterProfileCard';
+import { StarterPeakActivityCard } from '../../../src/components/zakwas/StarterPeakActivityCard';
+import { StarterFeedingCard } from '../../../src/components/zakwas/StarterFeedingCard';
+import { StarterSafetyCard } from '../../../src/components/zakwas/StarterSafetyCard';
+import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModal';
+import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
 
 export default function ZakwasScreen() {
-  const router = useRouter();
   const unitSystem = useUnitSystem();
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
@@ -262,25 +254,9 @@ export default function ZakwasScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-      <CraftHeader
-        title={t('Zakwas')}
-        subtitle={t('Profil, cykl dokarmiania i szczyt aktywności')}
-        testID="zakwas-header"
-        rightAction={
-          <Pressable
-            testID="zakwas-doctor-shortcut-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Doktor Chleba')}
-            hitSlop={sharedCraftTokens.hitSlopStandard}
-            style={styles.headerDoctorBtn}
-            onPress={() => router.push('/(tabs)/doktor')}
-          >
-            <Text style={styles.headerDoctorBtnText}>{t('Doktor')}</Text>
-          </Pressable>
-        }
-      />
-      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+    <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      {/* Nagłówek systemowy „Zakwasy” i skrót do Doktora: app/(tabs)/zakwasy/_layout.tsx (D-051 2a) */}
+      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Sacred Numbers Glanceable Countertop Card */}
         <NotificationsOffBanner />
         <ZakwasSacredCard
@@ -405,20 +381,5 @@ const styles = StyleSheet.create({
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
-  },
-  headerDoctorBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.akcent,
-  },
-  headerDoctorBtnText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
   },
 });

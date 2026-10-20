@@ -1,15 +1,18 @@
 # Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
-# Pierwsze uruchomienie: powitanie -> Kalkulator z proporcjami.
+# Pierwsze uruchomienie: Start "Co dzis robisz?" z trzema czynnosciami (BR-START-001, M1-audytor-generalny-101),
+# wybor "Pieke na zakwasie" otwiera Receptury bez oferty (D-047).
 appId: com.apps4brew.baker
 ---
 - launchApp:
     clearState: true
 - extendedWaitUntil:
     visible:
-      id: "onboarding-start-btn"
+      id: "start-czynnosci"
     timeout: 60000
-- tapOn:
-    id: "onboarding-start-btn"
 - assertVisible:
-    id: "calculator-header"
+    id: "start-zakladam-zakwas"
+- assertVisible:
+    id: "start-pieke-na-drozdzach"
+- tapOn:
+    id: "start-pieke-na-zakwasie"
 - assertVisible: "Hydratacja"

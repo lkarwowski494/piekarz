@@ -182,4 +182,29 @@ export const EN_12: Record<string, string> = {
   'Oceń na {n} z 5': 'Rate {n} out of 5',
   'Zmniejsz ilość o pół': 'Decrease amount by half',
   'Zwiększ ilość o pół': 'Increase amount by half',
+  // Start „Co dziś robisz?” i 4 zakładki (D-051 2a); EN z docs/design/ekrany/teksty.js [M1-audytor-generalny-101]
+  'Co dziś robisz?': 'What are you doing today?',
+  'Zakładam zakwas': 'Starting a sourdough starter',
+  'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'From flour and water to your first loaf, day by day.',
+  'Piekę na zakwasie': 'Baking with sourdough',
+  'Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.':
+    "I have a starter. I'll choose a recipe and the time I want the bread ready.",
+  'Piekę na drożdżach albo pizzę': 'Baking with yeast or making pizza',
+  'Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.': 'Yeast bread, poolish or biga preferment, pizza dough.',
+  'wymaga Piekarz Pro': 'requires Piekarz Pro',
+  'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.':
+    'Piekarz works without internet and without an account. Your recipes and notes stay on this phone.',
+  'Trwa wypiek': 'Bake in progress',
+  'zostało {czas}': '{czas} left',
+  'zostało {czas}, do {godzina}': '{czas} left, until {godzina}',
+  '{nazwa}, gotowy {dzien} o {godzina}': '{nazwa}, ready {dzien} at {godzina}',
+  'Co jeszcze dziś robisz?': 'What else are you doing today?',
+  'Okres próbny się skończył': 'Your trial has ended',
+  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.':
+    'You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Piekarz Pro.',
+  'Zobacz plany': 'See Plans',
+  'Receptury': 'Recipes',
+  'Zakwasy': 'Starters',
+  'Dziennik': 'Journal',
+  'Plan wypieku': 'Bake Schedule',
 };

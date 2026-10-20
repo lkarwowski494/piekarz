@@ -27,9 +27,9 @@ jest.mock('react-native-safe-area-context', () => {
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import StolnicaScreen from '../app/(tabs)/stolnica';
-import HarmonogramScreen from '../app/(tabs)/harmonogram';
-import ZakwasScreen from '../app/(tabs)/zakwas';
+import StolnicaScreen from '../app/stolnica';
+import HarmonogramScreen from '../app/(tabs)/receptury/harmonogram';
+import ZakwasScreen from '../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, getStarters, saveStarter, _resetMemStore } from '../src/data/sqlite-store';
 import { saveBakeSession } from '../src/data/bake-session-store';
 import { useTempDbDir } from '../src/data/__tests__/helpers/node-sqlite-adapter';

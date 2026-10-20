@@ -28,7 +28,8 @@ export interface MaestroRunContext {
 }
 
 export interface ScreenState {
-  currentTab: 'kalkulator' | 'stolnica' | 'harmonogram' | 'doktor' | 'akademia';
+  // Zakładki D-051 (2a) i ekrany nad nimi [M1-audytor-generalny-101]
+  currentTab: 'dzis' | 'receptury' | 'zakwasy' | 'dziennik' | 'stolnica' | 'doktor' | 'akademia';
   visibleTexts: Set<string>;
   inputs: Map<string, string>;
 }
@@ -83,52 +84,30 @@ export const SCREEN_DICTIONARIES: Record<
   ScreenState['currentTab'],
   string[]
 > = {
-  kalkulator: [
-    'Kalkulator Chleba',
-    'Kalkulator',
-    'Mąka całkowita',
+  dzis: ['Co dziś robisz?', 'Zakładam zakwas', 'Piekę na zakwasie', 'Piekę na drożdżach albo pizzę', 'Ustawienia'],
+  receptury: [
+    'Receptury',
+    'Receptury mistrzowskie',
     'Hydratacja',
-    'Zaczyn / Zakwas',
-    'Sól kuchenna',
-    'Przelicz recepturę',
+    'Do miski na wagę',
+    'Sól kłodawska / morska',
     'Kopiuj jako tekst',
-    'Wypiek na stolnicy',
-  ],
-  stolnica: [
-    'Stolnica',
-    'Asystent wypieku',
-    'Faza 1: Pod pokrywką (Para)',
     'Zacznij wypiek',
-    'Zapisz wypiek',
-    'Historia wypieków',
-    'Timer',
+    'Plan wypieku',
+    'Godzina gotowości chleba do krojenia',
+    'Ochrona snu aktywna',
   ],
-  harmonogram: [
-    'Harmonogram',
-    'Harmonogram wsteczny',
-    'Godzina gotowego chleba',
-    'Ochrona snu (Sleep Guard)',
-    'Etapy fermentacji',
-    'Oblicz harmonogram',
-  ],
-  doktor: [
-    'Doktor Ciasta',
-    'Doktor',
-    'Diagnostyka błędów',
-    'Blady bochenek',
-    'Zbyt lepkie ciasto',
-    'Ratuj bochenek',
-  ],
+  zakwasy: ['Zakwasy', 'Doktor'],
+  dziennik: ['Dziennik', 'Historia wypieków', 'Doktor Chleba'],
+  stolnica: ['Stolnica', 'Brak aktywnego wypieku', 'Zacznij wypiek', 'Zrobione', 'Przerwij wypiek'],
+  doktor: ['Doktor Chleba', 'Akademia', 'Akademia Piekarza', 'Protokoły ratunkowe (Pogotowie ciasta)'],
   akademia: [
     'Akademia Piekarza',
     'Akademia',
     'Szkoła Chleba',
     '12 technik rzemieślniczych',
-    'Trener intuicji piekarskiej',
-    'Atlas mąk',
   ],
 };
-
 export class MaestroInterpreter {
   private state: ScreenState;
   private context: MaestroRunContext;
@@ -139,7 +118,7 @@ export class MaestroInterpreter {
   }
 
   private initialState(): ScreenState {
-    const tab = 'kalkulator';
+    const tab = 'dzis';
     return {
       currentTab: tab,
       visibleTexts: new Set(SCREEN_DICTIONARIES[tab]),
@@ -161,16 +140,20 @@ export class MaestroInterpreter {
 
       case 'tapOn': {
         const target = step.target!;
-        if (target.includes('Stolnica')) {
+        if (target === 'Dziś') {
+          this.switchTab('dzis');
+        } else if (target === 'Receptury' || target === 'Piekę na zakwasie' || target === 'Piekę na drożdżach albo pizzę') {
+          this.switchTab('receptury');
+        } else if (target === 'Zakwasy' || target === 'Zakładam zakwas') {
+          this.switchTab('zakwasy');
+        } else if (target === 'Dziennik') {
+          this.switchTab('dziennik');
+        } else if (target === 'Zacznij wypiek' || target === 'Wróć do wypieku') {
           this.switchTab('stolnica');
-        } else if (target.includes('Harmonogram')) {
-          this.switchTab('harmonogram');
         } else if (target.includes('Doktor')) {
           this.switchTab('doktor');
         } else if (target.includes('Akademia')) {
           this.switchTab('akademia');
-        } else if (target.includes('Kalkulator')) {
-          this.switchTab('kalkulator');
         } else {
           // Verify element was visible on current screen before tapping
           if (!this.isVisible(target)) {
@@ -231,12 +214,11 @@ export class MaestroInterpreter {
     this.state.currentTab = tab;
     this.state.visibleTexts = new Set([
       ...SCREEN_DICTIONARIES[tab],
-      // Tab navigation bar buttons are always visible
-      'Kalkulator',
-      'Stolnica',
-      'Harmonogram',
-      'Doktor',
-      'Akademia',
+      // Pasek zakładek jest zawsze widoczny (D-051 2a)
+      'Dziś',
+      'Receptury',
+      'Zakwasy',
+      'Dziennik',
     ]);
   }
 

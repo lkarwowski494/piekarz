@@ -187,6 +187,20 @@ jest.mock('expo-router', () => ({
     back: jest.fn(),
   }),
   useLocalSearchParams: () => ({}),
+  // Nagłówek systemowy ustawiany z ekranu (Stack.Screen options): w teście przycisk z prawej trafia do drzewa
+  // ekranu, żeby dało się go nacisnąć (Ustawienia na „Dziś”, D-051 2a) [M1-audytor-generalny-101]
+  Stack: Object.assign(
+    ({ children }) => {
+      const React = require('react');
+      return React.createElement(React.Fragment, null, children);
+    },
+    {
+      Screen: ({ options }) => {
+        const React = require('react');
+        return options && options.headerRight ? React.createElement(React.Fragment, null, options.headerRight({})) : null;
+      },
+    }
+  ),
   useFocusEffect: (cb) => {
     const React = require('react');
     React.useEffect(cb, []);

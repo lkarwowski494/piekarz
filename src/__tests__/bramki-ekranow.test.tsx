@@ -27,11 +27,11 @@ jest.mock('../lib/confirm', () => ({
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/index';
-import ZakwasScreen from '../../app/(tabs)/zakwas';
-import StolnicaScreen from '../../app/(tabs)/stolnica';
-import HarmonogramScreen from '../../app/(tabs)/harmonogram';
-import DoctorScreen from '../../app/(tabs)/doktor';
+import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
+import StolnicaScreen from '../../app/stolnica';
+import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
+import DoctorScreen from '../../app/doktor';
 import { PaywallModal } from '../components/PaywallModal';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { BlokadaFunkcji } from '../components/BlokadaFunkcji';

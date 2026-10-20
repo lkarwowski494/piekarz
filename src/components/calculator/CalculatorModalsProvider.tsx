@@ -1,6 +1,7 @@
 // ============================================================================
 // Apps4Craft Studio — CalculatorModalsProvider Component
-// Container for calculator modals (Settings, Inventory, Flour Blend, QR).
+// Container for calculator modals (Inventory, Flour Blend, QR). Ustawienia są na „Dziś” (D-051 2a),
+// powitanie z wyborem stylu zastąpił Start „Co dziś robisz?” [M1-audytor-generalny-101].
 // Ekran zakupu jest jeden dla aplikacji: AppAccessProvider w app/_layout.tsx [M1-audytor-generalny-025].
 // 100% Offline-First.
 // ============================================================================
@@ -10,23 +11,16 @@ import { Alert } from 'react-native';
 import { t } from '../../lib/i18n';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import { ladujSkanerQr } from '../../lib/qr-skaner';
-import { SettingsModal } from '../SettingsModal';
 import { FlourBlendModal } from '../FlourBlendModal';
-import { OnboardingModal } from '../OnboardingModal';
 import { FlourInventoryModal } from '../FlourInventoryModal';
 import { ImportRecipeModal } from '../ImportRecipeModal';
 import { FlourEquivalentsModal } from '../FlourEquivalentsModal';
 import { VolumeConverterModal } from '../VolumeConverterModal';
 import { ShareRecipeQrModal } from '../ShareRecipeQrModal';
 import { FlourItemInput, FlourItemCalculated } from '../../core/domain-rules';
-import { BakerRitualProfile } from '../../data/sqlite-store';
 import { StoredRecipe } from '../../data/db';
 
 export interface CalculatorModalsProviderProps {
-  isSettingsOpen: boolean;
-  onCloseSettings: () => void;
-  isOnboardingOpen: boolean;
-  onCompleteOnboarding: (profile: BakerRitualProfile) => void;
   isBlendModalOpen: boolean;
   flourBlend: FlourItemInput[];
   onApplyBlend: (newBlend: FlourItemInput[]) => void;
@@ -51,10 +45,6 @@ export interface CalculatorModalsProviderProps {
 }
 
 export function CalculatorModalsProvider({
-  isSettingsOpen,
-  onCloseSettings,
-  isOnboardingOpen,
-  onCompleteOnboarding,
   isBlendModalOpen,
   flourBlend,
   onApplyBlend,
@@ -89,16 +79,6 @@ export function CalculatorModalsProvider({
 
   return (
     <>
-      <SettingsModal
-        visible={isSettingsOpen}
-        onClose={onCloseSettings}
-      />
-
-      <OnboardingModal
-        visible={isOnboardingOpen}
-        onComplete={onCompleteOnboarding}
-      />
-
       <FlourBlendModal
         visible={isBlendModalOpen}
         initialBlend={flourBlend}

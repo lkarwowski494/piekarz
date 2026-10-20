@@ -7,65 +7,63 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
-| **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
+| **EKRAN** | 7 | 7 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 299 | 299 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 112 | 112 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 571 | 571 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 305 | 305 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 117 | 117 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1014** | Pokrytych: **1014** | Brakujących: **0**
+Łącznie elementów: **1035** | Pokrytych: **1035** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
 | Kategoria | Nazwa elementu | Plik źródłowy | Status | Pliki testowe |
 | :--- | :--- | :--- | :---: | :--- |
-| `EKRAN` | `/(tabs)/doktor` | `app/(tabs)/doktor.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
-| `EKRAN` | `/(tabs)/harmonogram` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/interaction-guards.test.ts |
-| `EKRAN` | `/(tabs)/index` | `app/(tabs)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
-| `EKRAN` | `/(tabs)/zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Doktor Chleba` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
-| `TEKST` | `Diagnostyka błędów wypieku i ratowanie bochenka` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Akademia Piekarza` | `app/(tabs)/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Akademia` | `app/(tabs)/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/(tabs)/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Dziś` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
-| `TEKST` | `Jutro` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
-| `TEKST` | `Pojutrze` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
-| `TEKST` | `Wczoraj` | `app/(tabs)/harmonogram.tsx` | ✅ | src/lib/__tests__/schedule-formatter.test.ts |
-| `TEKST` | `{dzien}, {d} {miesiac}` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Klasyczny chleb rzemieślniczy (Harmonogram)` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Harmonogram` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Harmonogram wsteczny z ochroną snu` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Kalkulator` | `app/(tabs)/index.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Ilości i temperatura wody` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Ustawienia` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
-| `TEKST` | `Wypiek bez receptury` | `app/(tabs)/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
-| `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/maestro-runner.ts |
-| `TEKST` | `Asystent wypieku na żywo (Hands-in-flour)` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Doktor` | `app/(tabs)/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Krok {n} z {m}` | `app/(tabs)/stolnica.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Zrobione: {krok}` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zrobione` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Przerwij wypiek` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Mąka pszenna chlebowa t750` | `app/(tabs)/zakwas.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/core/__tests__/flour-atlas.test.ts |
-| `TEKST` | `przed chwilą` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `{hours}h temu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `{days}d temu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Dokarmiono zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/storage-write-failure-screen.test.tsx |
-| `UI` | `Zarejestrowano dokarmienie zakwasu „{name}”.` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Profil zakwasu` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Zapisano zaktualizowany profil` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mąka pszenna chlebowa` | `app/(tabs)/zakwas.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-invariants.test.ts |
-| `UI` | `Dodano zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Kultura „{name}” została utworzona.` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Nie można usunąć` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Musisz posiadać co najmniej jeden profil zakwasu.` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Kopiuj dokarmienie` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Profil, cykl dokarmiania i szczyt aktywności` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `EKRAN` | `/(tabs)/(dzis)/index` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/interaction-guards.test.ts |
+| `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
+| `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
+| `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
+| `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Ustawienia` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Doktor Chleba` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Jutro` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
+| `TEKST` | `Pojutrze` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
+| `TEKST` | `Wczoraj` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/lib/__tests__/schedule-formatter.test.ts |
+| `TEKST` | `{dzien}, {d} {miesiac}` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
+| `TEKST` | `Klasyczny chleb rzemieślniczy (Harmonogram)` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
+| `TEKST` | `Mąka pszenna chlebowa t750` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/core/__tests__/flour-atlas.test.ts |
+| `TEKST` | `przed chwilą` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `{hours}h temu` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `{days}d temu` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Dokarmiono zakwas` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/storage-write-failure-screen.test.tsx |
+| `UI` | `Zarejestrowano dokarmienie zakwasu „{name}”.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Profil zakwasu` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Zapisano zaktualizowany profil` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Mąka pszenna chlebowa` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-invariants.test.ts |
+| `UI` | `Dodano zakwas` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Kultura „{name}” została utworzona.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Nie można usunąć` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Musisz posiadać co najmniej jeden profil zakwasu.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Kopiuj dokarmienie` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Akademia Piekarza` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Akademia` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
+| `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Krok {n} z {m}` | `app/stolnica.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
+| `TEKST` | `Zrobione: {krok}` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zrobione` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Przerwij wypiek` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij Akademię` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Techniki` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -156,16 +154,16 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `{n} szt.` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Mniej bochenków` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Więcej bochenków` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Do miski na wagę` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/DoMiskiScaleCard.test.tsx |
+| `TEKST` | `Do miski na wagę` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Odhaczaj składniki w miarę wsypywania` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mąka dodana` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/starter-converter-modal.test.tsx |
 | `TEKST` | `Woda` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Aktywny zakwas` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `W szczycie aktywności` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Sól kłodawska / morska` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Sól kłodawska / morska` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Drożdże` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
 | `TEKST` | `Całkowita masa ciasta:` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Receptury mistrzowskie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `Receptury mistrzowskie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przelicznik objętości` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Skanuj QR` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Na zakwasie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
@@ -195,7 +193,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Anuluj` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/close-button-guard.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
+| `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/matrix-a11y.test.tsx |
 | `TEKST` | `Zamknij` | `src/components/CloseButton.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Baza danych nie otworzyła się przy poprzednim uruchomieniu` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
@@ -225,7 +223,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dostosuj hydratację w Kalkulatorze` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przejdź do Stolnicy` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Kopiuj diagnozę` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Protokoły ratunkowe (Pogotowie ciasta)` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Protokoły ratunkowe (Pogotowie ciasta)` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szybkie interwencje w trakcie fermentacji` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij protokół ratunkowy` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akcja natychmiastowa:` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
@@ -310,8 +308,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Uwaga: Kolizja ze snem!` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozwiąż kolizję` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `lodówka` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Ochrona snu aktywna` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
-| `TEKST` | `Godzina gotowości chleba do krojenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
+| `TEKST` | `Ochrona snu aktywna` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Godzina gotowości chleba do krojenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wyznacz kroki wstecz, aby nie zarywać nocy` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Scenariusze wypieku` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dzień gotowości:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +317,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Godziny snu:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Czas w lodówce (Cold Retard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 714 kolejnych elementów w pełnym wykazie)*
+*(... i 735 kolejnych elementów w pełnym wykazie)*

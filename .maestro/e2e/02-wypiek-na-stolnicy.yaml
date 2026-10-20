@@ -1,29 +1,36 @@
 # Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
-# Główny przepływ: Stolnica -> start wypieku -> następny krok; zakładki Harmonogram i Zakwas.
+# Glowny przeplyw (D-051 2a, M1-audytor-generalny-101): Start -> zakladki Zakwasy i Dziennik -> Receptury ->
+# start wypieku -> prowadzenie bez paska zakladek -> nastepny krok; po ponownym uruchomieniu "Wroc do wypieku"
+# na Starcie jednym dotknieciem wraca do prowadzenia (F-58).
 appId: com.apps4brew.baker
 ---
 - launchApp:
     clearState: true
 - extendedWaitUntil:
     visible:
-      id: "onboarding-start-btn"
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn: "Zakwasy"
+- assertVisible:
+    id: "zakwas-doctor-shortcut-btn"
+- tapOn: "Dziennik"
+- assertVisible:
+    id: "dziennik-doktor-btn"
+- tapOn: "Receptury"
+- tapOn:
+    id: "start-bake-btn"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- tapOn:
+    id: "next-or-finish-step-btn"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- launchApp
+- extendedWaitUntil:
+    visible:
+      id: "resume-bake-btn"
     timeout: 60000
 - tapOn:
-    id: "onboarding-start-btn"
-- tapOn: "Stolnica"
-- assertVisible:
-    id: "stolnica-header"
-- assertVisible: "Brak aktywnego wypieku"
-- tapOn: "Zacznij wypiek"
+    id: "resume-bake-btn"
 - assertVisible:
     id: "next-or-finish-step-btn"
-- tapOn:
-    id: "next-or-finish-step-btn"
-- assertVisible:
-    id: "next-or-finish-step-btn"
-- tapOn: "Harmonogram"
-- assertVisible:
-    id: "harmonogram-header"
-- tapOn: "Zakwas"
-- assertVisible:
-    id: "zakwas-header"
