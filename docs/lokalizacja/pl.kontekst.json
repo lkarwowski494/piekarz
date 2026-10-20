@@ -1,14 +1,9 @@
 {
   "+10 sek": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "+5 min": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (accessibilityLabel)",
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "+{g}g wody": {
     "gdzie": [
@@ -16,14 +11,10 @@
     ]
   },
   "-10 sek": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "-5 min": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "-{masa} pary": {
     "gdzie": [
@@ -797,8 +788,7 @@
   },
   "DDT": {
     "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
-      "src/components/stolnica/StolnicaSacredCard.tsx (label)"
+      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)"
     ]
   },
   "Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.": {
@@ -1297,9 +1287,7 @@
     ]
   },
   "Etap": {
-    "gdzie": [
-      "src/components/stolnica/StolnicaSacredCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Etap \"{etap}\" wypada w nocy o {godzina}": {
     "gdzie": [
@@ -1308,7 +1296,6 @@
   },
   "Etap ukończony!": {
     "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)",
       "src/lib/timer-audio.ts (kod)"
     ]
   },
@@ -1617,7 +1604,6 @@
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
-      "src/components/stolnica/StolnicaSacredCard.tsx (label)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)",
       "src/components/zakwas/ZakwasSacredCard.tsx (label)"
     ]
@@ -3185,9 +3171,7 @@
     ]
   },
   "Odliczanie trwa": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odnawia się automatycznie co miesiąc": {
     "gdzie": [
@@ -3370,9 +3354,7 @@
     ]
   },
   "Otoczenie": {
-    "gdzie": [
-      "src/components/stolnica/StolnicaSacredCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Otwartość": {
     "gdzie": [
@@ -3828,9 +3810,7 @@
     ]
   },
   "Pozostało": {
-    "gdzie": [
-      "src/components/stolnica/StolnicaSacredCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.": {
     "gdzie": [
@@ -4705,9 +4685,7 @@
     ]
   },
   "Start": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Stary zakwas": {
     "gdzie": [
@@ -5880,14 +5858,10 @@
     ]
   },
   "Wstrzymaj": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wstrzymano": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wsuń palce obu dłoni pod boki ciasta, kciukami obejmując wierzch.": {
     "gdzie": [
