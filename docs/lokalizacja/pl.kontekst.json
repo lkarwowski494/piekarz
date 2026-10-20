@@ -7770,12 +7770,12 @@
   },
   "{h} h": {
     "gdzie": [
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/czas-trwania.ts (kod)"
     ]
   },
   "{h} h {m} min": {
     "gdzie": [
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/czas-trwania.ts (kod)"
     ]
   },
   "{maka} mąki + {woda} wody": {
@@ -7883,7 +7883,7 @@
   },
   "{n} min": {
     "gdzie": [
-      "src/lib/prowadzenie-teksty.ts (kod)"
+      "src/lib/czas-trwania.ts (kod)"
     ]
   },
   "{n} receptur": {
