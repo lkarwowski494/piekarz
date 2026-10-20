@@ -84,7 +84,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(fullText).toContain('Bolesław');
     expect(fullText).toContain('Żytnia razowa typ 2000');
     expect(fullText).toContain('Szczyt aktywności');
-    expect(fullText).toContain('Kalkulator dokarmiania');
+    expect(fullText).toContain('Ilości do dokarmienia');
   });
 
   it('logs feeding and updates lastFedAt in SQLite', async () => {

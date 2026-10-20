@@ -513,20 +513,20 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     await act(async () => {
       tree = renderer.create(<ImportRecepturySection />);
     });
-    const openImportBtn = tree!.root.findByProps({ testID: 'import-recipe-json-btn' });
+    const openImportBtn = tree!.root.findByProps({ testID: 'import-file-btn' });
 
     await act(async () => {
       openImportBtn.props.onPress();
     });
 
-    const importModal = tree!.root.findByProps({ testID: 'import-recipe-modal' });
+    const importModal = tree!.root.findByProps({ testID: 'import-file-sheet' });
     expect(importModal).toBeDefined();
 
     const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Importuj recepturę');
+    expect(fullText).toContain('Importuj z pliku');
 
     // Close import modal
-    const closeImportBtn = tree!.root.findByProps({ testID: 'close-import-btn' });
+    const closeImportBtn = tree!.root.findByProps({ testID: 'cancel-import-btn' });
     await act(async () => {
       closeImportBtn.props.onPress();
     });

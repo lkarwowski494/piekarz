@@ -126,10 +126,10 @@ describe('Pending notifications follow the saved state (006)', () => {
     await saveStarter({ id: 'stary', name: 'Stary', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now });
     await resyncNotifications();
     expect(ids()).toEqual(['piekarz.karmienie.stary.1']);
-    const { BackupAndDataSection } = require('../components/settings/BackupAndDataSection');
-    const tree = await mount(React.createElement(BackupAndDataSection));
+    const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
+    const tree = await mount(React.createElement(ImportRecepturySection));
     await act(async () => {
-      tree.root.findByProps({ testID: 'import-backup-btn' }).props.onPress();
+      tree.root.findByProps({ testID: 'import-file-btn' }).props.onPress();
     });
     const backup = { format: 'piekarz-backup', schemaVersion: 1, exportedAt: '', state: { bakes: [], customRecipes: [], starters: [{ id: 'nowy', name: 'Nowy', flourType: 'P', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: now }] } };
     await act(async () => {

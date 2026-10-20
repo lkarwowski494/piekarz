@@ -248,7 +248,7 @@
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
@@ -465,7 +465,8 @@
   },
   "Błąd schowka": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (Alert.alert)"
+      "src/components/ImportRecipeModal.tsx (Alert.alert)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Błąd składni JSON — upewnij się, że tekst jest poprawny": {
@@ -475,7 +476,8 @@
   },
   "Błąd zapisu": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (Alert.alert)"
+      "src/components/ImportRecipeModal.tsx (Alert.alert)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Całkowita masa ciasta:": {
@@ -924,6 +926,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: proTipsPl)"
     ]
   },
+  "Dodaj": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+    ]
+  },
   "Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -977,6 +984,11 @@
   },
   "Dodaj {object}": {
     "gdzie": []
+  },
+  "Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+    ]
   },
   "Dodanie soli na początku autolizy (drastycznie wydłuża czas hydratacji białek).": {
     "gdzie": [
@@ -1743,6 +1755,11 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ilości do dokarmienia": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
   "Ilości i temperatura wody": {
     "gdzie": []
   },
@@ -1763,23 +1780,26 @@
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Importowanie...": {
+  "Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
+  },
+  "Importowanie...": {
+    "gdzie": []
   },
   "Importuj JSON": {
     "gdzie": []
   },
   "Importuj recepturę": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)",
-      "src/components/settings/ImportRecepturySection.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
     ]
   },
   "Importuj z pliku": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+      "src/components/settings/ImportRecepturySection.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (kod)"
     ]
   },
   "Jajka (żółtka i białka osobno)": {
@@ -1871,11 +1891,6 @@
   },
   "Kalkulator": {
     "gdzie": []
-  },
-  "Kalkulator dokarmiania": {
-    "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
   },
   "Kalkulator kosztów": {
     "gdzie": []
@@ -2041,12 +2056,28 @@
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
     ]
   },
+  "Kopia z {data}: {receptury}, {zakwasy}, {wpisy}.": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (kod)"
+    ]
+  },
   "Kopia zapasowa": {
     "gdzie": [
       "src/components/RescueScreen.tsx (Alert.alert)",
       "src/components/settings/BackupAndDataSection.tsx (Alert.alert)",
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)",
       "src/lib/backup.ts (dialogTitle)"
+    ]
+  },
+  "Kopia zapasowa z pliku": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (kod)"
+    ]
+  },
+  "Kopia: {receptury}, {zakwasy}, {wpisy}.": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (kod)"
     ]
   },
   "Kopiuj adres": {
@@ -2729,6 +2760,7 @@
   },
   "Mąki": {
     "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
     ]
   },
@@ -2853,6 +2885,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Nazwa": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)"
+    ]
+  },
   "Nazwa mąki (np. Pszenna typ 750)": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (placeholder)"
@@ -2939,7 +2976,8 @@
   },
   "Nie udało się odczytać zawartości schowka.": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (Alert.alert)"
+      "src/components/ImportRecipeModal.tsx (Alert.alert)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Nie udało się połączyć z App Store. Spróbuj ponownie.": {
@@ -2970,7 +3008,7 @@
   },
   "Nie udało się zaimportować kopii": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (kod)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Nie udało się zapisać wypieku": {
@@ -2983,13 +3021,14 @@
   },
   "Nie zapisano": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)",
       "src/lib/save-guard.ts (Alert.alert)"
     ]
   },
   "Nie zapisałem receptury. Spróbuj jeszcze raz.": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (Alert.alert)"
+      "src/components/ImportRecipeModal.tsx (Alert.alert)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Nie zaznaczono żadnego objawu": {
@@ -3049,7 +3088,7 @@
   },
   "Nieprawidłowy format JSON": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+      "src/lib/backup.ts (dane: kod)"
     ]
   },
   "Nieprawidłowy wpis mąki na pozycji {index}": {
@@ -4354,6 +4393,16 @@
       "src/components/ShareRecipeQrModal.tsx (message)"
     ]
   },
+  "Receptura z pliku": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (kod)"
+    ]
+  },
+  "Receptura „{nazwa}” jest w Moich recepturach.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
+    ]
+  },
   "Receptury": {
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
@@ -5005,6 +5054,7 @@
   "Sól": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
@@ -5081,6 +5131,11 @@
   "Techniki": {
     "gdzie": [
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
+    ]
+  },
+  "Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
   },
   "Telefon: {model}": {
@@ -5881,14 +5936,19 @@
     ]
   },
   "Wklej zawartość pliku JSON kopii zapasowej:": {
+    "gdzie": []
+  },
+  "Wklej zawartość pliku receptury albo kopii zapasowej.": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (accessibilityLabel)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
   },
   "Wklej ze schowka": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
   },
   "Wlej 3–4 łyżki oliwy z oliwek na głęboką blachę do pieczenia lub żeliwną patelnię.": {
@@ -5903,6 +5963,7 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/calculator/DoMiskiScaleCard.tsx (label)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)",
@@ -6550,7 +6611,7 @@
   },
   "Zaimportowano pomyślnie!": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Zaimportowano recepturę": {
@@ -6560,7 +6621,7 @@
   },
   "Zaimportowano. Pominięto uszkodzone wpisy: {count}.": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Zaimportuj przepis": {
@@ -6668,6 +6729,7 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
@@ -6707,6 +6769,7 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
@@ -6863,10 +6926,13 @@
   "Zastąp część wody lodem:": {
     "gdzie": []
   },
-  "Zatwierdź import": {
+  "Zastąp dane": {
     "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
+  },
+  "Zatwierdź import": {
+    "gdzie": []
   },
   "Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.": {
     "gdzie": [
@@ -7698,6 +7764,62 @@
   "{n}m w {temp}": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} receptur": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: many)"
+    ]
+  },
+  "{n} receptura": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: one)"
+    ]
+  },
+  "{n} receptury": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: few)",
+      "src/lib/import-z-pliku.ts (dane: other)"
+    ]
+  },
+  "{n} wpis w Dzienniku": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: one)"
+    ]
+  },
+  "{n} wpisu w Dzienniku": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: other)"
+    ]
+  },
+  "{n} wpisy w Dzienniku": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: few)"
+    ]
+  },
+  "{n} wpisów w Dzienniku": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: many)"
+    ]
+  },
+  "{n} zakwas": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: one)"
+    ]
+  },
+  "{n} zakwasu": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: other)"
+    ]
+  },
+  "{n} zakwasy": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: few)"
+    ]
+  },
+  "{n} zakwasów": {
+    "gdzie": [
+      "src/lib/import-z-pliku.ts (dane: many)"
     ]
   },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {

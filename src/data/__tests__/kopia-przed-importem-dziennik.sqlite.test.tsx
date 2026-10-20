@@ -26,13 +26,15 @@ async function seededSettings() {
   await app.store.saveFlourInventoryItem({ id: 'm1', name: 'Mąka 750', stockGrams: 900, updatedAt: 1 });
   const before = await app.store.collectBackupData();
   const { BackupAndDataSection } = require('../../components/settings/BackupAndDataSection');
+  // Import kopii: jedno wejście „Importuj z pliku” w Ustawieniach [M1-audytor-generalny-113]
+  const { ImportRecepturySection } = require('../../components/settings/ImportRecepturySection');
   const R: typeof React = require('react');
   const TR: typeof renderer = require('react-test-renderer');
   const RN: typeof import('react-native') = require('react-native');
   const alert = jest.spyOn(RN.Alert, 'alert').mockImplementation(() => {});
   let tree: renderer.ReactTestRenderer | null = null;
   await TR.act(async () => {
-    tree = TR.create(R.createElement(BackupAndDataSection));
+    tree = TR.create(R.createElement(R.Fragment, null, R.createElement(BackupAndDataSection), R.createElement(ImportRecepturySection)));
   });
   const t = tree as unknown as renderer.ReactTestRenderer;
   const press = async (testID: string) => {
@@ -58,7 +60,7 @@ describe('104 P0: kopia przed importem i eksport z Ustawień mają dziennik zakw
     expect(s.before.starterEntries).toHaveLength(3);
     s.mockFiles.clear();
     const plik = JSON.stringify(s.app.backup.buildBackup({ bakes: [], starters: [starter('z')], customRecipes: [], starterEntries: [] }));
-    await s.press('import-backup-btn');
+    await s.press('import-file-btn');
     await s.TR.act(async () => {
       s.tree.root.findByProps({ testID: 'import-json-input' }).props.onChangeText(plik);
     });

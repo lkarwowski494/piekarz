@@ -40,7 +40,7 @@ export function StarterFeedingCard({
 }: StarterFeedingCardProps) {
   return (
     <View style={styles.card}>
-      <Text style={styles.cardTitle}>{t('Kalkulator dokarmiania')}</Text>
+      <Text style={styles.cardTitle}>{t('Ilości do dokarmienia')}</Text>
       <Text style={styles.cardSubtitle}>
         {t('Dobierz proporcje i potrzebną masę zaczynu do wypieku')}
       </Text>

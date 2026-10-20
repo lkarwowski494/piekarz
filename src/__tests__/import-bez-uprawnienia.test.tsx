@@ -117,9 +117,9 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('pasted text: after the entitlement ends, confirming saves the recipe once, without the purchase screen', async () => {
-    await press(tree, 'import-recipe-json-btn');
+    await press(tree, 'import-file-btn');
     await act(async () => {
-      tree.root.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
+      tree.root.findByProps({ testID: 'import-json-input' }).props.onChangeText(payload);
     });
     await utrataUprawnienia();
     const before = (await getRecipes()).length;
@@ -132,7 +132,7 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('clipboard (JSON file content): nothing is saved before confirming, then once, without the purchase screen', async () => {
-    await press(tree, 'import-recipe-json-btn');
+    await press(tree, 'import-file-btn');
     (Clipboard.getStringAsync as jest.Mock).mockResolvedValueOnce(payload);
     await press(tree, 'paste-clipboard-btn');
     await utrataUprawnienia();
@@ -164,9 +164,9 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('with an entitlement the import saves the recipe once (control)', async () => {
-    await press(tree, 'import-recipe-json-btn');
+    await press(tree, 'import-file-btn');
     await act(async () => {
-      tree.root.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
+      tree.root.findByProps({ testID: 'import-json-input' }).props.onChangeText(payload);
     });
     const before = (await getRecipes()).length;
     await press(tree, 'confirm-import-btn');

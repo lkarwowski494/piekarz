@@ -61,7 +61,7 @@ describe('SettingsModal Component', () => {
     const plBtn = root.findByProps({ testID: 'lang-pl' });
     const enBtn = root.findByProps({ testID: 'lang-en' });
     const exportBtn = root.findByProps({ testID: 'export-backup-btn' });
-    const importBtn = root.findByProps({ testID: 'import-backup-btn' });
+    const importBtn = root.findByProps({ testID: 'import-file-btn' });
 
     expect(plBtn).toBeDefined();
     expect(enBtn).toBeDefined();
@@ -184,7 +184,7 @@ describe('SettingsModal Component', () => {
     });
 
     const root = tree!.root;
-    const importBtn = root.findByProps({ testID: 'import-backup-btn' });
+    const importBtn = root.findByProps({ testID: 'import-file-btn' });
 
     // Click import to open input box
     await act(async () => {
@@ -214,7 +214,7 @@ describe('SettingsModal Component', () => {
     });
 
     const root = tree!.root;
-    const importBtn = root.findByProps({ testID: 'import-backup-btn' });
+    const importBtn = root.findByProps({ testID: 'import-file-btn' });
 
     await act(async () => {
       importBtn.props.onPress();
@@ -225,15 +225,9 @@ describe('SettingsModal Component', () => {
       input.props.onChangeText('{ bad json');
     });
 
-    const confirmBtn = root.findByProps({ testID: 'confirm-import-btn' });
-    await act(async () => {
-      await confirmBtn.props.onPress();
-    });
-
-    expect(Alert.alert).toHaveBeenCalledWith(
-      expect.any(String),
-      'Nieprawidłowy format JSON'
-    );
+    // 113: uszkodzony plik to plik nierozpoznany — komunikat w arkuszu, bez przycisku zapisu [M1-audytor-generalny-113]
+    expect(root.findAllByProps({ testID: 'import-unrecognized' }).length).toBeGreaterThan(0);
+    expect(root.findAllByProps({ testID: 'confirm-import-btn' })).toHaveLength(0);
     expect(sqliteModule.restoreFromBackupData).not.toHaveBeenCalled();
   });
 
@@ -256,7 +250,7 @@ describe('SettingsModal Component', () => {
     });
 
     const root = tree!.root;
-    const importBtn = root.findByProps({ testID: 'import-backup-btn' });
+    const importBtn = root.findByProps({ testID: 'import-file-btn' });
 
     await act(async () => {
       importBtn.props.onPress();

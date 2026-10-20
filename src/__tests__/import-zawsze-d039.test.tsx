@@ -121,9 +121,10 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
 
     await s.press('open-settings-btn');
     expect(s.paywall()).toBe(false);
-    const { BackupAndDataSection } = require('../components/settings/BackupAndDataSection');
-    const sekcja = s.tree.root.findByType(BackupAndDataSection);
-    await s.press('import-backup-btn', sekcja);
+    // Jedno wejście „Importuj z pliku” dla kopii i receptury [M1-audytor-generalny-113]
+    const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
+    const sekcja = s.tree.root.findByType(ImportRecepturySection);
+    await s.press('import-file-btn', sekcja);
     await s.TR.act(async () => {
       sekcja.findByProps({ testID: 'import-json-input' }).props.onChangeText(kopia);
     });
@@ -151,12 +152,12 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
   });
 
   // Import receptury tylko w Ustawieniach, nie na ekranie receptury (F-33, design-spec §11b „057”) [M1-audytor-generalny-057]
-  it.each(['import-recipe-json-btn'])(
+  it.each(['import-file-btn'])(
     'Ustawienia: „%s” otwiera okno importu bez ekranu zakupu; receptura trafia do bazy dopiero po „Zaimportuj”',
     async (wejscie) => {
       const s = await start(stan);
       const { encodeRecipeToShareUrl } = require('../lib/recipe-sharing');
-      const { ImportRecipeModal } = require('../components/ImportRecipeModal');
+      const { ImportZPlikuArkusz } = require('../components/settings/ImportZPlikuArkusz');
       const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
       const payload = encodeRecipeToShareUrl({ ...recipe(9, 'Chleb od sąsiada'), id: 'recipe_shared_9' });
       const przed = dbState();
@@ -167,10 +168,10 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
       const sekcja = s.tree.root.findByType(ImportRecepturySection);
       await s.press(wejscie, sekcja);
       expect(s.paywall()).toBe(false);
-      const okno = sekcja.findByType(ImportRecipeModal);
-      expect(okno.props.visible).toBe(true);
+      expect(sekcja.findAllByType(ImportZPlikuArkusz)).toHaveLength(1);
+      const okno = sekcja.findByType(ImportZPlikuArkusz);
       await s.TR.act(async () => {
-        okno.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
+        okno.findByProps({ testID: 'import-json-input' }).props.onChangeText(payload);
       });
       await s.flush();
       // Przed potwierdzeniem liczności wszystkich tabel bez zmian

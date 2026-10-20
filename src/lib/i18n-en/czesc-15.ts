@@ -2,7 +2,8 @@
  * Słownik EN, część 15: teksty PL bez angielskich wstawek w nawiasach — kroki planu, Doktor Chleba, testy kuchenne,
  * pogotowie ciasta, faza garnka (design-spec §8) [M1-audytor-generalny-112; 04-studio-projektowe-027]. Wartości EN
  * przeniesione bez zmian ze starych kluczy (EN może mieć termin angielski). Stare klucze kroków planu zostają w części 12
- * dla wypieków zapisanych przed zmianą (nazwa i instrukcja kroku są w zapisie sesji).
+ * dla wypieków zapisanych przed zmianą (nazwa i instrukcja kroku są w zapisie sesji). Dalej: karta dokarmienia
+ * i „Importuj z pliku” [M1-audytor-generalny-113].
  */
 export const EN_15: Record<string, string> = {
   'Wymieszanie z solą i zakwasem':
@@ -57,4 +58,32 @@ export const EN_15: Record<string, string> = {
     'Poke Test',
   'Rozerwanie boku przy spodzie':
     'Bottom side blowout',
+  // Karta dokarmienia i jedno wejście „Importuj z pliku” z podglądem według rodzaju pliku (design-spec §11c „113”,
+  // docs/design/ekrany/teksty.js) [M1-audytor-generalny-113; 04-studio-projektowe-028]
+  'Ilości do dokarmienia': 'Feeding Amounts',
+  'Receptura z pliku': 'Recipe from File',
+  'Kopia zapasowa z pliku': 'Backup from File',
+  'Wklej zawartość pliku receptury albo kopii zapasowej.': 'Paste the contents of a recipe file or a backup file.',
+  'Nazwa': 'Name',
+  'Dodaj': 'Add',
+  'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'I\'ll add it to My Recipes. Your other data stays as it is.',
+  'Receptura „{nazwa}” jest w Moich recepturach.': '“{nazwa}” is now in My Recipes.',
+  'Kopia z {data}: {receptury}, {zakwasy}, {wpisy}.': 'Backup from {data}: {receptury}, {zakwasy}, {wpisy}.',
+  'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'Backup: {receptury}, {zakwasy}, {wpisy}.',
+  'Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.':
+    'Importing replaces all data in the app with the data from the backup. Before importing, I\'ll save a copy of your current data.',
+  'Zastąp dane': 'Replace Data',
+  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.':
+    'I don\'t recognize this file. Piekarz imports recipe files and backup files made in Piekarz.',
+  '{n} receptura': '{n} recipe',
+  '{n} receptury': '{n} recipes',
+  '{n} receptur': '{n} recipes',
+  '{n} zakwas': '{n} starter',
+  '{n} zakwasy': '{n} starters',
+  '{n} zakwasów': '{n} starters',
+  '{n} zakwasu': '{n} starters',
+  '{n} wpis w Dzienniku': '{n} journal entry',
+  '{n} wpisy w Dzienniku': '{n} journal entries',
+  '{n} wpisów w Dzienniku': '{n} journal entries',
+  '{n} wpisu w Dzienniku': '{n} journal entries',
 };

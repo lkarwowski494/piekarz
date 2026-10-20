@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 8 | 8 | **100.0%** | ✅ POKRYTE |
-| **UI** | 39 | 39 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 556 | 556 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 359 | 359 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 152 | 152 | **100.0%** | ✅ POKRYTE |
+| **UI** | 40 | 40 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 561 | 561 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 363 | 363 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 153 | 153 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1114** | Pokrytych: **1114** | Brakujących: **0**
+Łącznie elementów: **1125** | Pokrytych: **1125** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wymaga obecności` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kolizja nocna!` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 814 kolejnych elementów w pełnym wykazie)*
+*(... i 825 kolejnych elementów w pełnym wykazie)*

@@ -58,7 +58,7 @@ describe('Row validation on import and read (022)', () => {
     const app = restartApp();
     await app.schema.initDatabase();
     // Po resetModules komponent, React i renderer muszą pochodzić z tego samego rejestru modułów.
-    const { BackupAndDataSection } = require('../../components/settings/BackupAndDataSection');
+    const { ImportRecepturySection } = require('../../components/settings/ImportRecepturySection');
     const R: typeof React = require('react');
     const TR: typeof renderer = require('react-test-renderer');
     const act = TR.act;
@@ -66,10 +66,10 @@ describe('Row validation on import and read (022)', () => {
     const alert = jest.spyOn(FreshAlert, 'alert').mockImplementation(() => {});
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
-      tree = TR.create(R.createElement(BackupAndDataSection));
+      tree = TR.create(R.createElement(ImportRecepturySection));
     });
     await act(async () => {
-      tree!.root.findByProps({ testID: 'import-backup-btn' }).props.onPress();
+      tree!.root.findByProps({ testID: 'import-file-btn' }).props.onPress();
     });
     await act(async () => {
       tree!.root.findByProps({ testID: 'import-json-input' }).props.onChangeText(backupWithOneBadRecipe());

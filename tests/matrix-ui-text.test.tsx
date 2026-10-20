@@ -159,7 +159,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Język",
     "Kalkulator",
     "Temperatura wody",
-    "Kalkulator dokarmiania",
+    "Ilości do dokarmienia",
     "Kalkulator kosztów wypieku",
     "Klosz",
     "Klosz ceramiczny",

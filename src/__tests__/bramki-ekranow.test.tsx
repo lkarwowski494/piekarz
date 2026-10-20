@@ -132,7 +132,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     expect(tree.root.findAll((n) => n.props?.testID === 'import-recipe-json-btn' || n.props?.testID === 'open-import-recipe-btn').map((n) => String(n.props.testID))).toEqual([]);
     act(() => tree.unmount());
     const ustawienia = await render(<ImportRecepturySection />);
-    await press(ustawienia, 'import-recipe-json-btn');
+    await press(ustawienia, 'import-file-btn');
     expect(paywallShown(ustawienia.root)).toBe(false);
     act(() => ustawienia.unmount());
   });
