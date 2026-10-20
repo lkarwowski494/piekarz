@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import {
   View,
-  Text,
   ScrollView,
   AppState,
 } from 'react-native';
@@ -35,7 +34,7 @@ import { PlanWypiekuArkusz } from '../src/components/stolnica/PlanWypiekuArkusz'
 import { PasekCofnij } from '../src/components/PasekCofnij';
 import { PoCoTenKrokArkusz } from '../src/components/stolnica/PoCoTenKrokArkusz';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
-import { SpiralaWypieku } from '../src/components/Spirala';
+import { StrefaPlanu } from '../src/components/stolnica/StrefaPlanu';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
@@ -283,10 +282,8 @@ export default function StolnicaScreen() {
           <View>
             <NotificationsOffBanner />
             {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
-            <Text style={styles.recipeTag}>{recipeName}</Text>
-            <SpiralaWypieku steps={steps} stepIdx={currentStepIdx} pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null}
-              pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-            <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length })}</Text>
+            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx}
+              pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
 
             {/* Strefa kroku: tytuł, czas do końca, treść, test palca, fazy garnka */}
             <StrefaKroku

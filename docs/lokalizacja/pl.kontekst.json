@@ -2156,7 +2156,7 @@
   },
   "Krok {n} z {m}": {
     "gdzie": [
-      "app/stolnica.tsx (tekst w JSX)"
+      "src/components/stolnica/StrefaPlanu.tsx (tekst w JSX)"
     ]
   },
   "Krok „{step}” dobiegł końca.": {
