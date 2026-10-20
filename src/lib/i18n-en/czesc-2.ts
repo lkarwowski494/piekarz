@@ -7,7 +7,7 @@ export const EN_2: Record<string, string> = {
   'Profil smakowy': 'Flavor profile',
 
   // Artisan Preferments (Kalkulator)
-  'Zaczyny rzemieślnicze': 'Artisan Preferments',
+  'Zaczyny': 'Preferments',
   'Typ zaczynu': 'Preferment type',
   'Udział mąki w zaczynie': 'Flour in preferment',
   'Mąka w zaczynie': 'Preferment flour',

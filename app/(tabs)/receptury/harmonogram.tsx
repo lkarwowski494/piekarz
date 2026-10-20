@@ -144,7 +144,7 @@ export default function HarmonogramScreen() {
       const receptura = recepturaPlanu();
       setActiveBake({
         id: `bake_${Date.now()}`,
-        recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy (Harmonogram)'),
+        recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy'),
         startedAt: Date.now(),
         currentStageId: steps[0]?.id ?? '',
         ambientTempC: ambientTemp,

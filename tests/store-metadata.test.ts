@@ -93,10 +93,10 @@ describe('notatki dla App Review (078)', () => {
   });
 
   it('prowadzą krok po kroku do eksportu i importu kopii przyciskami z interfejsu EN', () => {
-    for (const pl of ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj kopię', 'Wklej zawartość pliku JSON kopii zapasowej:', 'Zatwierdź import']) {
+    for (const pl of ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj z pliku', 'Wklej zawartość pliku JSON kopii zapasowej:', 'Zatwierdź import']) {
       expect({ pl, jest: notatki.includes(en(pl)) }).toEqual({ pl, jest: true });
     }
-    const kroki = ['Ustawienia', 'Importuj kopię', 'Zatwierdź import'].map((pl) => notatki.indexOf(en(pl)));
+    const kroki = ['Ustawienia', 'Importuj z pliku', 'Zatwierdź import'].map((pl) => notatki.indexOf(en(pl)));
     expect([...kroki].sort((a, b) => a - b)).toEqual(kroki);
   });
 

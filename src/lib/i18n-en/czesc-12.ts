@@ -197,7 +197,7 @@ export const EN_12: Record<string, string> = {
   'Trwa wypiek': 'Bake in progress',
   'zostało {czas}': '{czas} left',
   'zostało {czas}, do {godzina}': '{czas} left, until {godzina}',
-  '{nazwa}, gotowy {dzien} o {godzina}': '{nazwa}, ready {dzien} at {godzina}',
+  '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: ready {dzien} at {godzina}',
   'Co jeszcze dziś robisz?': 'What else are you doing today?',
   'Okres próbny się skończył': 'Your trial has ended',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.':
@@ -206,7 +206,7 @@ export const EN_12: Record<string, string> = {
   'Receptury': 'Recipes',
   'Zakwasy': 'Starters',
   'Dziennik': 'Journal',
-  'Plan wypieku': 'Bake Schedule',
+  'Plan wypieku': 'Bake plan',
   // Zakwasy bez zakwasu: stan pusty zamiast przykładowego profilu (głos §8, tekst do przeglądu) [M1-audytor-generalny-087]
   'Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.':
     "You don't have a starter yet. Add the one you have, or start a new one.",

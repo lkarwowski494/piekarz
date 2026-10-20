@@ -139,7 +139,7 @@ export function BackupAndDataSection() {
             onPress={() => setShowImportInput((prev) => !prev)}
             disabled={isImporting}
           >
-            <Text style={styles.importBtnText}>{t('Importuj kopię')}</Text>
+            <Text style={styles.importBtnText}>{t('Importuj z pliku')}</Text>
           </Pressable>
         </View>
 

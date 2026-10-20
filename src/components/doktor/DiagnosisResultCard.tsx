@@ -114,7 +114,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateHarmonogram}
         >
           <Text style={styles.navActionBtnText}>
-            {t('Przejdź do Harmonogramu')}
+            {t('Ułóż plan')}
           </Text>
         </Pressable>
       )}
@@ -126,7 +126,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateCalculator}
         >
           <Text style={styles.navActionBtnText}>
-            {t('Dostosuj hydratację w Kalkulatorze')}
+            {t('Otwórz recepturę')}
           </Text>
         </Pressable>
       )}

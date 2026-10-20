@@ -1091,11 +1091,6 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Dostosuj hydratację w Kalkulatorze": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
-    ]
-  },
   "Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.": {
     "gdzie": [
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
@@ -1776,15 +1771,15 @@
   "Importuj JSON": {
     "gdzie": []
   },
-  "Importuj kopię": {
-    "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
-    ]
-  },
   "Importuj recepturę": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/settings/ImportRecepturySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Importuj z pliku": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
   "Jajka (żółtka i białka osobno)": {
@@ -1938,7 +1933,7 @@
       "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
-  "Klasyczny chleb rzemieślniczy (Harmonogram)": {
+  "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (recipeName)"
     ]
@@ -3482,6 +3477,13 @@
       "src/components/NotificationsOffBanner.tsx (tekst w JSX)"
     ]
   },
+  "Otwórz recepturę": {
+    "gdzie": [
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
+      "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)",
+      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
+    ]
+  },
   "Oznacz lekcję jako zaliczoną": {
     "gdzie": [
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
@@ -3837,7 +3839,7 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
     ]
   },
-  "Pora nakarmić zakwas": {
+  "Pora dokarmić zakwas": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
     ]
@@ -4028,11 +4030,6 @@
   "Przeglądaj historię (Read-Only)": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Przejdź do Harmonogramu": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
   "Przejdź do Stolnicy": {
@@ -5531,6 +5528,7 @@
   "Ułóż plan": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
@@ -6102,7 +6100,7 @@
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
-  "Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.": {
+  "Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.": {
     "gdzie": [
       "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
     ]
@@ -6536,7 +6534,7 @@
       "src/recipes/presets.ts (dane: notesPl)"
     ]
   },
-  "Zaczyny rzemieślnicze": {
+  "Zaczyny": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
     ]
@@ -6658,7 +6656,7 @@
       "src/lib/notifications.ts (body)"
     ]
   },
-  "Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.": {
+  "Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
     ]
@@ -6909,12 +6907,6 @@
   "Załadowano recepturę": {
     "gdzie": [
       "src/hooks/useBakeHistory.ts (Alert.alert)"
-    ]
-  },
-  "Załaduj do Kalkulatora": {
-    "gdzie": [
-      "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)",
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
     ]
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
@@ -7640,7 +7632,7 @@
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
     ]
   },
-  "{nazwa}, gotowy {dzien} o {godzina}": {
+  "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
     ]

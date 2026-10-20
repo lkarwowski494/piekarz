@@ -103,11 +103,11 @@ export function EmergencyRecoverySection({
               <Pressable
                 testID="pivot-recipe-btn"
                 accessibilityRole="button"
-                accessibilityLabel={`${t('Załaduj do Kalkulatora')}: ${t(selectedProto.pivotRecipeNamePl)}`}
+                accessibilityLabel={`${t('Otwórz recepturę')}: ${t(selectedProto.pivotRecipeNamePl)}`}
                 style={styles.pivotActionBtn}
                 onPress={() => onPivotToRecipe(selectedProto.id)}
               >
-                <Text style={styles.pivotActionBtnText}>{t('Załaduj do Kalkulatora')}</Text>
+                <Text style={styles.pivotActionBtnText}>{t('Otwórz recepturę')}</Text>
               </Pressable>
             )}
           </View>

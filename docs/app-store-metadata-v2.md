@@ -204,7 +204,7 @@ Restore purchases: "Restore Purchases" at the bottom of the purchase screen, and
 2. DATA EXPORT AND IMPORT (works without a purchase)
 a) Open the Calculator tab and tap "Settings" at the top right.
 b) In the "Backup" section tap "Export to File" to share a JSON backup file.
-c) Tap "Import backup". A field "Paste JSON backup file content:" appears.
+c) Tap "Import from File". A field "Paste JSON backup file content:" appears.
 d) Paste the contents of an exported file, or this sample with one starter:
 {"format":"piekarz-backup","schemaVersion":1,"exportedAt":"2026-10-20T08:00:00.000Z","state":{"bakes":[],"starters":[{"id":"review-starter","name":"Review Starter","flourType":"rye","hydration":100,"birthDate":1760947200000,"storageState":"ROOM_TEMP"}],"customRecipes":[]}}
 e) Tap "Confirm import". Import replaces the current data; the app first saves a safety copy on the device. With the trial active, the imported starter appears in the Sourdough tab.

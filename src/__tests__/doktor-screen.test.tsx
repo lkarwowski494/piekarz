@@ -221,7 +221,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
-    const navBtn = findButtonByText(root, 'Przejdź do Harmonogramu');
+    const navBtn = findButtonByText(root, 'Ułóż plan');
     expect(navBtn).toBeDefined();
 
     await act(async () => {

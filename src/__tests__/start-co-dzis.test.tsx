@@ -242,7 +242,7 @@ describe('101: Start „Co dziś robisz?”', () => {
       'Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.', 'Piekę na drożdżach albo pizzę',
       'Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.', 'wymaga Piekarz Pro',
       'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.', 'Trwa wypiek',
-      'zostało {czas}', 'zostało {czas}, do {godzina}', '{nazwa}, gotowy {dzien} o {godzina}', 'Co jeszcze dziś robisz?',
+      'zostało {czas}', 'zostało {czas}, do {godzina}', '{nazwa}: gotowe {dzien} o {godzina}', 'Co jeszcze dziś robisz?',
       'Okres próbny się skończył',
       'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.',
       'Zobacz plany', 'Dziś', 'Receptury', 'Zakwasy', 'Dziennik', 'Plan wypieku', 'Doktor Chleba', 'Doktor', 'Stolnica', 'Akademia',

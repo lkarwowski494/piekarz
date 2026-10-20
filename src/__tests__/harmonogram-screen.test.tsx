@@ -223,7 +223,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     // Check sqlite store state
     const activeBake = getActiveBake();
     expect(activeBake).not.toBeNull();
-    expect(activeBake?.recipeName).toContain('Harmonogram');
+    expect(activeBake?.recipeName).toBe('Klasyczny chleb rzemieślniczy'); // bez dawnej nazwy miejsca (089)
     expect(activeBake?.ambientTempC).toBe(23.0);
     // [M1-audytor-generalny-017] bez pomiaru nie ma DDT (wcześniej stałe 25.0)
     expect(activeBake?.actualDdtC).toBeUndefined();

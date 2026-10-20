@@ -24,7 +24,7 @@ export function AccordionPrefermentSection({
   const unitSystem = useUnitSystem();
   return (
     <View style={styles.sectionBlock}>
-      <Text style={styles.sectionHeaderTitle}>{t('Zaczyny rzemieślnicze')}</Text>
+      <Text style={styles.sectionHeaderTitle}>{t('Zaczyny')}</Text>
       <View style={styles.prefermentButtonsRow}>
         {(['direct', 'poolish', 'biga', 'pate_fermentee', 'levain'] as PrefermentType[]).map(
           (pType) => {

@@ -60,7 +60,7 @@ export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc }: {
           <Text style={styles.objasnienie}>
             {gotowe === null
               ? sesja.recipeName
-              : t('{nazwa}, gotowy {dzien} o {godzina}', {
+              : t('{nazwa}: gotowe {dzien} o {godzina}', {
                   nazwa: sesja.recipeName,
                   dzien: dzienSlownie(gotowe, new Date(teraz)),
                   godzina: formatTime(gotowe),

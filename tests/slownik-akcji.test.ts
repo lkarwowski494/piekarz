@@ -54,6 +54,10 @@ const SLOWNIK_W_KODZIE: [string, string][] = [
   ['Usuń recepturę', 'Delete Recipe'],
   ['Eksportuj do pliku', 'Export to File'],
   ['Zacznij od nowa', 'Start Over'],
+  // [M1-audytor-generalny-089; 04-studio-projektowe-028]: import kopii w Ustawieniach (para „Eksportuj do pliku”),
+  // „Ułóż plan” zamiast „Przejdź do Harmonogramu” w Doktorze
+  ['Importuj z pliku', 'Import from File'],
+  ['Ułóż plan', 'Make a Plan'],
 ];
 
 /** Akcje słownika dla ekranów, które dopiero powstają (partia 5, zestawy C–H): jeśli są w słowniku EN, to z tą nazwą. */
@@ -89,7 +93,20 @@ const ZNIKAJA = [
   'Otwórz Doktora',
   'Eksportuj kopię',
   'Zakończ wypiek',
+  // [M1-audytor-generalny-089; 04-studio-projektowe-028, 04-studio-projektowe-035]
+  'Importuj kopię',
+  'Przejdź do Harmonogramu',
+  'Dostosuj hydratację w Kalkulatorze',
+  'Załaduj do Kalkulatora',
+  'Pora nakarmić zakwas',
+  'Zaczyny rzemieślnicze',
+  '{nazwa}, gotowy {dzien} o {godzina}',
 ];
+
+/** Miejsca, których po D-051 2a nie ma („Kalkulator” → Receptury, „Harmonogram” → Plan wypieku), w odmianach nazwy miejsca. */
+const MIEJSCA_DAWNE = /Kalkulatorze|Kalkulatora\b|Harmonogramu|Harmonogramie|\(Harmonogram\)/;
+/** Klucze t() w kodzie (teksty PL). */
+const kluczeWKodzie = [...new Set(kod.flatMap(({ zrodlo }) => [...zrodlo.matchAll(/\bt\(\s*'((?:[^'\\]|\\.)*)'/g)].map((m) => m[1])))];
 
 describe('089: słownik akcji', () => {
   it.each(SLOWNIK_W_KODZIE)('„%s” / „%s”: jedna nazwa PL i EN, użyta w kodzie', (pl, en) => {
@@ -105,6 +122,34 @@ describe('089: słownik akcji', () => {
   it('nazwy, które znikają, nie są kluczami t() w kodzie ani w słowniku EN', () => {
     const znalezione = ZNIKAJA.flatMap((pl) => [...uzycia(pl).map((p) => `${p}: ${pl}`), ...(pl in EN ? [`słownik EN: ${pl}`] : [])]);
     expect(znalezione).toEqual([]);
+  });
+
+  it('M1-audytor-generalny-089: teksty nie odsyłają do „Kalkulatora” ani „Harmonogramu” (dziś Receptury i Plan wypieku)', () => {
+    expect(kluczeWKodzie.length).toBeGreaterThan(500);
+    expect(kluczeWKodzie.filter((k) => MIEJSCA_DAWNE.test(k))).toEqual([]);
+    expect(Object.keys(EN).filter((k) => MIEJSCA_DAWNE.test(k))).toEqual([]);
+  });
+
+  it('M1-audytor-generalny-089: „Plan wypieku” ma w EN jedną nazwę “Bake plan” (nagłówek i etykieta Spirali)', () => {
+    expect(EN['Plan wypieku']).toBe('Bake plan');
+    expect(EN['Plan wypieku: {n} kroków.']).toMatch(/^Bake plan: /);
+  });
+
+  it('M1-audytor-generalny-089: poprawki tekstów 04-035 (gotowe przy nazwie, dokarmienie, Zaczyny)', () => {
+    expect(EN['{nazwa}: gotowe {dzien} o {godzina}']).toBe('{nazwa}: ready {dzien} at {godzina}');
+    expect(uzycia('{nazwa}: gotowe {dzien} o {godzina}')).toContain('src/components/start/TrwajacyWypiek.tsx');
+    expect(uzycia('Pora dokarmić zakwas')).toContain('src/lib/notifications.ts');
+    expect(uzycia('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.')).toContain('src/lib/notifications.ts');
+    expect('Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.' in EN).toBe(false);
+    expect(EN['Zaczyny']).toBe('Preferments');
+    expect(uzycia('Zaczyny')).toContain('src/components/calculator/accordion/AccordionPrefermentSection.tsx');
+  });
+
+  it('kontrola wzorca 089: nazwy dawnych miejsc w odmianie są wykrywane, inne słowa nie', () => {
+    expect(MIEJSCA_DAWNE.test('Wybierz recepturę w Kalkulatorze')).toBe(true);
+    expect(MIEJSCA_DAWNE.test('Przejdź do Harmonogramu')).toBe(true);
+    expect(MIEJSCA_DAWNE.test('Klasyczny chleb (Harmonogram)')).toBe(true);
+    expect(MIEJSCA_DAWNE.test('Kalkulator dokarmiania')).toBe(false);
   });
 
   it('ikona zamknięcia z @apps4craft/ui zastąpiona przyciskiem tekstowym (Zamknij albo Anuluj)', () => {

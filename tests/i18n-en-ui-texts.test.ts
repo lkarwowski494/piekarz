@@ -7,7 +7,7 @@ import { t, setLang } from '../src/lib/i18n';
 const PARY: [string, string][] = [
   ['Krok {n} z {m}', 'Step {n} of {m}'],
   ['Brak aktywnego wypieku', 'No active bake'],
-  ['Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.', 'Choose a recipe in the Calculator and tap “{przycisk}”, or start the standard artisan schedule below.'],
+  ['Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.', 'Choose a recipe on the Recipes tab and tap “{przycisk}”, or start the standard bake plan below.'],
   ['Zacznij wypiek', 'Start Bake'],
   ['Składniki do odważenia', 'Ingredients to weigh'],
   ['Mąki', 'Flours'],
@@ -44,7 +44,7 @@ const PARY: [string, string][] = [
   ['paź', 'Oct'],
   ['lis', 'Nov'],
   ['gru', 'Dec'],
-  ['Klasyczny chleb rzemieślniczy (Harmonogram)', 'Classic artisan bread (Schedule)'],
+  ['Klasyczny chleb rzemieślniczy', 'Classic artisan bread'],
   ['Etap "{etap}" wypada w nocy o {godzina}', 'Stage "{etap}" falls during the night at {godzina}'],
   ['Sugerowana korekta: wydłuż czas garowania w lodówce (Cold Retard) o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.', 'Suggested fix: extend the fridge proof (Cold Retard) by 2–4 hours or move the starter feeding time to avoid hands-on stages at night.'],
   ['Dobierz proporcje i potrzebną masę zaczynu do wypieku', 'Choose the ratio and the amount of levain you need for the bake'],

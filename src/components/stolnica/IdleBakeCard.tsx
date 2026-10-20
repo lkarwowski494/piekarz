@@ -26,7 +26,7 @@ export function IdleBakeCard({
     <View style={styles.idleCard}>
       <Text style={styles.idleTitle}>{t('Brak aktywnego wypieku')}</Text>
       <Text style={styles.idleText}>
-        {t('Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.', {
+        {t('Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.', {
           przycisk: t('Zacznij wypiek'),
         })}
       </Text>
