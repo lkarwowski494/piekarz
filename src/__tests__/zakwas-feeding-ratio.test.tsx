@@ -52,7 +52,7 @@ describe('proporcja dokarmiania na ekranie Zakwas', () => {
     const spy = jest.spyOn(predictor, 'predictStarterPeak');
     let tree = await render();
     await pressByText(tree, '1:5:5');
-    await pressByText(tree, 'Zarejestruj dokarmienie');
+    await pressByText(tree, 'Zapisz dokarmienie');
     expect((await getStarters())[0].feedingRatio).toBe('1:5:5');
     act(() => tree.unmount());
 

@@ -96,10 +96,7 @@ export function PaywallModal({
           <View style={styles.badgeRow}>
             <Text style={styles.passBadge}>APPS4CRAFT PASS</Text>
           </View>
-          <CloseButton
-            onPress={onClose}
-            label={t('Zamknij')}
-          />
+          <CloseButton onPress={onClose} akcja="zamknij" />
         </View>
 
         <ScrollView contentContainerStyle={styles.scrollContent}>

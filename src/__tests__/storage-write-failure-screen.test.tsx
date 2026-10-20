@@ -72,7 +72,7 @@ describe('Write failure is visible on screen (003)', () => {
 
     control().failWrites = true;
     const feed = tree!.root.findAll(
-      (n) => typeof n.props?.onPress === 'function' && textOf(n.props.children ?? null).includes('Zarejestruj dokarmienie')
+      (n) => typeof n.props?.onPress === 'function' && textOf(n.props.children ?? null).includes('Zapisz dokarmienie')
     );
     expect(feed.length).toBeGreaterThan(0);
     await act(async () => {

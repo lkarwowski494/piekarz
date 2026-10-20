@@ -27,7 +27,7 @@ export function IdleBakeCard({
       <Text style={styles.idleTitle}>{t('Brak aktywnego wypieku')}</Text>
       <Text style={styles.idleText}>
         {t('Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.', {
-          przycisk: t('Rozpocznij wypiek na Stolnicy'),
+          przycisk: t('Zacznij wypiek'),
         })}
       </Text>
 
@@ -38,7 +38,7 @@ export function IdleBakeCard({
       />
 
       <Pressable style={styles.startBtn} onPress={onStartBake}>
-        <Text style={styles.startBtnText}>{t('Rozpocznij wypiek')}</Text>
+        <Text style={styles.startBtnText}>{t('Zacznij wypiek')}</Text>
       </Pressable>
     </View>
   );

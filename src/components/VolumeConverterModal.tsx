@@ -9,9 +9,8 @@ import {
   Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
-import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import {
   VOLUME_INGREDIENTS,
@@ -32,7 +31,6 @@ export function VolumeConverterModal({
   visible,
   onClose,
 }: VolumeConverterModalProps) {
-  const motyw = useMotyw();
   const [selectedIngredientId, setSelectedIngredientId] =
     useState<VolumeIngredientId>('flour_wheat_sifted');
   const [unit, setUnit] = useState<VolumeUnit>('cup');
@@ -68,11 +66,12 @@ export function VolumeConverterModal({
             <Pressable
               testID="close-volume-modal-btn"
               style={styles.closeBtn}
+              accessibilityRole="button"
               onPress={onClose}
               hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij przelicznik')}
             >
-              <CloseIcon size={20} color={motyw.kolory.tusz} />
+              <Text style={styles.closeBtnText}>{t('Zamknij')}</Text>
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -270,15 +269,13 @@ const styles = StyleSheet.create({
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
-    borderRadius: 22,
-    backgroundColor: theme.colors.powierzchnia,
+    paddingHorizontal: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: theme.colors.tusz,
+    fontSize: 17,
+    color: theme.colors.akcentTekst,
   },
   scrollContent: {
     padding: theme.spacing.md,

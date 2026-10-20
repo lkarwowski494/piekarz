@@ -61,7 +61,7 @@ export function FinishBakeModal({
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Zakończ wypiek')}</Text>
+          <Text style={styles.modalTitle}>{t('Jak wyszedł bochenek?')}</Text>
           <Text style={styles.modalSubtitle}>
             {t('Oceń bochenek i zapisz notatki do historii piekarskiej')}
           </Text>
@@ -177,7 +177,7 @@ export function FinishBakeModal({
               onPress={onSave}
               hitSlop={sharedCraftTokens.hitSlopStandard}
             >
-              <Text style={styles.modalConfirmBtnText}>{t('Zapisz w historii')}</Text>
+              <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
             </Pressable>
           </View>
         </View>

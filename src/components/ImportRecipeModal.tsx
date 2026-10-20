@@ -16,10 +16,9 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
-import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import { formatFixed } from '../lib/format';
 import { StoredRecipe } from '../data/db';
@@ -39,7 +38,6 @@ export function ImportRecipeModal({
   onImportSuccess,
   initialInput,
 }: ImportRecipeModalProps) {
-  const motyw = useMotyw();
   const [jsonInput, setJsonInput] = useState<string>(initialInput || '');
 
   React.useEffect(() => {
@@ -101,12 +99,12 @@ export function ImportRecipeModal({
             <Pressable
               testID="close-import-btn"
               accessibilityRole="button"
-              accessibilityLabel={t('Zamknij')}
+              accessibilityLabel={t('Anuluj')}
               onPress={onClose}
               hitSlop={sharedCraftTokens.hitSlopStandard}
               style={styles.closeBtn}
             >
-              <CloseIcon size={20} color={motyw.kolory.tusz} />
+              <Text style={styles.closeBtnText}>{t('Anuluj')}</Text>
             </Pressable>
           </View>
 
@@ -126,7 +124,7 @@ export function ImportRecipeModal({
                 <Pressable
                   testID="clear-json-btn"
                   accessibilityRole="button"
-                  accessibilityLabel={t('Wyczyść')}
+                  accessibilityLabel={t('Wyczyść wklejony tekst')}
                   style={[styles.actionBtn, styles.clearBtn]}
                   onPress={handleClear}
                 >
@@ -288,14 +286,13 @@ const styles = StyleSheet.create({
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
-    borderRadius: 22,
-    backgroundColor: theme.colors.linia,
+    paddingHorizontal: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
   closeBtnText: {
-    fontSize: 16,
-    color: theme.colors.tusz,
+    fontSize: 17,
+    color: theme.colors.akcentTekst,
   },
   scrollArea: {
     maxHeight: 450,

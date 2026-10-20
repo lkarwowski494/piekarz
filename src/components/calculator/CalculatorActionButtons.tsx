@@ -12,7 +12,6 @@ import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface CalculatorActionButtonsProps {
   onCopyRecipe: () => void;
-  onCloneRecipe: () => void;
   onExportJson: () => void;
   onShareQr: () => void;
   /** Otwiera wybór druku (przez strażnika dostępu). */
@@ -25,7 +24,6 @@ export interface CalculatorActionButtonsProps {
 
 export function CalculatorActionButtons({
   onCopyRecipe,
-  onCloneRecipe,
   onExportJson,
   onShareQr,
   onPrintMenu,
@@ -41,15 +39,7 @@ export function CalculatorActionButtons({
         style={styles.copyRecipeBtn}
         onPress={onCopyRecipe}
       >
-        <Text style={styles.copyRecipeBtnText}>{t('Kopiuj recepturę')}</Text>
-      </Pressable>
-
-      <Pressable
-        testID="clone-recipe-btn"
-        style={styles.cloneRecipeBtn}
-        onPress={onCloneRecipe}
-      >
-        <Text style={styles.cloneRecipeBtnText}>{t('Klonuj recepturę')}</Text>
+        <Text style={styles.copyRecipeBtnText}>{t('Kopiuj jako tekst')}</Text>
       </Pressable>
 
       <Pressable
@@ -57,7 +47,7 @@ export function CalculatorActionButtons({
         style={styles.cloneRecipeBtn}
         onPress={onExportJson}
       >
-        <Text style={styles.cloneRecipeBtnText}>{t('Eksportuj JSON')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>{t('Udostępnij plik receptury')}</Text>
       </Pressable>
 
       {/* F-08 PÓŹNIEJ (D-043): udostępnianie kodu QR ukryte, kod zostaje [M1-audytor-generalny-049] */}
@@ -105,7 +95,7 @@ export function CalculatorActionButtons({
         style={styles.secondaryBtn}
         onPress={onSaveCustomRecipe}
       >
-        <Text style={styles.secondaryBtnText}>{t('Zapisz jako mój przepis')}</Text>
+        <Text style={styles.secondaryBtnText}>{t('Zapisz jako moją')}</Text>
       </Pressable>
 
       <Pressable
@@ -113,7 +103,7 @@ export function CalculatorActionButtons({
         style={styles.primaryBtn}
         onPress={onStartBake}
       >
-        <Text style={styles.primaryBtnText}>{t('Rozpocznij wypiek na Stolnicy')}</Text>
+        <Text style={styles.primaryBtnText}>{t('Zacznij wypiek')}</Text>
       </Pressable>
     </View>
   );

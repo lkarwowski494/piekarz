@@ -214,7 +214,7 @@ describe('HarmonogramScreen UI (app/(tabs)/harmonogram.tsx)', () => {
 
     const root = tree!.root;
 
-    const startBakeBtn = findButtonByText(root, 'Rozpocznij wypiek na Stolnicy');
+    const startBakeBtn = findButtonByText(root, 'Zacznij wypiek');
     expect(startBakeBtn).toBeDefined();
 
     await act(async () => {

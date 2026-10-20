@@ -280,13 +280,6 @@ export default function StolnicaScreen() {
     setIsCompleted(false);
   };
 
-  const resetCurrentStepTimer = () => {
-    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
-    setIsRunning(false);
-    setIsCompleted(false);
-    setTimeLeftSec(stepDurationSec(currentStep, dutchOvenPhase));
-  };
-
   // Finish bake: wpis, licznik wypieków i odliczenie mąki w jednej transakcji [M1-audytor-generalny-021]
   const handleSaveFinishBake = guardSave(async () => {
     await finishBake({
@@ -449,7 +442,6 @@ export default function StolnicaScreen() {
                 onAdjustSeconds={adjustTimerSeconds}
                 onToggleTimer={toggleTimer}
                 onAddFiveMinutes={addFiveMinutes}
-                onResetTimer={resetCurrentStepTimer}
               />}
 
               {/* Step Navigation Controls */}
@@ -458,17 +450,15 @@ export default function StolnicaScreen() {
                   testID="next-or-finish-step-btn"
                   style={styles.actionBtnNext}
                   onPress={handleNextStep}
+                  accessibilityRole="button"
+                  accessibilityLabel={t('Zrobione: {krok}', { krok: t(steps[currentStepIdx]?.name ?? '') })}
                 >
-                  <Text style={styles.actionBtnNextText}>
-                    {currentStepIdx === steps.length - 1
-                      ? t('Zakończ wypiek')
-                      : `${t('Następny krok')} (${t(steps[currentStepIdx + 1]?.name ?? '')}) ✓`}
-                  </Text>
+                  <Text style={styles.actionBtnNextText}>{t('Zrobione')}</Text>
                 </Pressable>
               </View>
 
               <Pressable style={styles.discardBtn} onPress={handleDiscard}>
-                <Text style={styles.discardBtnText}>{t('Odrzuć wypiek')}</Text>
+                <Text style={styles.discardBtnText}>{t('Przerwij wypiek')}</Text>
               </Pressable>
             </View>
 

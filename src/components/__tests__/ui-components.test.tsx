@@ -56,7 +56,7 @@ describe('Common UI Components (S1..S16)', () => {
           <Empty
             title="Brak wypieków"
             description="Rozpocznij swój pierwszy wypiek, aby zobaczyć statystyki."
-            actionLabel="Rozpocznij wypiek"
+            actionLabel="Zacznij wypiek"
             onAction={onAction}
           />
         );

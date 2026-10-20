@@ -64,7 +64,7 @@ async function finishWithRating(stars: number): Promise<void> {
     tree!.root.findByProps({ testID: `finish-rating-star-${stars}` }).props.onPress();
   });
   await act(async () => {
-    await pressables(tree!.root, 'Zapisz w historii')[0].props.onPress();
+    await pressables(tree!.root, 'Zapisz')[0].props.onPress();
     for (let i = 0; i < 20; i++) await Promise.resolve();
   });
   act(() => tree!.unmount());
@@ -113,7 +113,7 @@ describe('Doctor suggestion after a weak rating (BR-DIAG-001)', () => {
     expect(calls).toHaveLength(1);
     expect(calls[0][1]).toBe('Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.');
     const buttons = calls[0][2] as AlertButton[];
-    expect(buttons.map((b) => b.text)).toEqual(['Nie teraz', 'Otwórz Doktora']);
+    expect(buttons.map((b) => b.text)).toEqual(['Nie teraz', 'Otwórz Doktora Chleba']);
     expect(mockPush).not.toHaveBeenCalled();
     buttons[1].onPress?.();
     expect(mockPush).toHaveBeenCalledWith('/(tabs)/doktor');

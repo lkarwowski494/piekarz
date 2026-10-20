@@ -90,7 +90,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
   it('logs feeding and updates lastFedAt in SQLite', async () => {
     await renderScreen();
 
-    const feedBtn = findButtonByText(tree!.root, 'Zarejestruj dokarmienie');
+    const feedBtn = findButtonByText(tree!.root, 'Zapisz dokarmienie');
     expect(feedBtn).toBeDefined();
 
     const beforeStarters = await getStarters();
@@ -182,7 +182,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwas.tsx)', () => {
     expect(text).toContain('Pleśń może sięgać w głąb zakwasu');
 
     // Tap Resetuj profil zakwasu
-    const resetBtn = findButtonByText(tree!.root, 'Resetuj profil zakwasu');
+    const resetBtn = findButtonByText(tree!.root, 'Zacznij od nowa');
     expect(resetBtn).toBeDefined();
 
     await act(async () => {

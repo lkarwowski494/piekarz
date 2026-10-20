@@ -10,8 +10,7 @@ export const EN_7: Record<string, string> = {
     'Baking Apprentice',
   'Brak danych o karmieniu':
     'No feeding data',
-  'Zarejestruj dokarmienie, aby uruchomić śledzenie szczytu aktywności.':
-    'Log a feeding to start tracking peak activity.',
+  'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Log a feeding to start tracking peak activity.',
   'W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.':
     'At low temperature (4°C) yeast metabolism slows down. Take it out 2–3h before baking and feed it.',
   'Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.':

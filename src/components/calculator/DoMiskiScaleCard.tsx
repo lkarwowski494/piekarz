@@ -187,7 +187,8 @@ export function DoMiskiScaleCard({
           <View style={styles.stepperContainer}>
             <Pressable
               testID="loaves-decrement-btn"
-              accessibilityLabel={t('Mniej')}
+              accessibilityRole="button"
+              accessibilityLabel={t('Mniej bochenków')}
               style={styles.stepperBtn}
               disabled={loavesCount <= 1}
               onPress={() => handleLoafChange(-1)}
@@ -205,7 +206,8 @@ export function DoMiskiScaleCard({
 
             <Pressable
               testID="loaves-increment-btn"
-              accessibilityLabel={t('Więcej')}
+              accessibilityRole="button"
+              accessibilityLabel={t('Więcej bochenków')}
               style={styles.stepperBtn}
               onPress={() => handleLoafChange(1)}
             >
@@ -287,7 +289,7 @@ export function DoMiskiScaleCard({
       >
         <Pressable testID="start-bake-btn" onPress={onStartBake}>
           <Text style={styles.fastStartBtnText}>
-            {t('Rozpocznij wypiek na Stolnicy')}
+            {t('Zacznij wypiek')}
           </Text>
         </Pressable>
       </Pressable>

@@ -69,7 +69,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
-          <CloseButton onPress={onClose} />
+          <CloseButton onPress={onClose} akcja="zamknij" />
           <Text style={styles.headerTitle}>{t('Ustawienia')}</Text>
           <View style={styles.headerPlaceholder} />
         </View>

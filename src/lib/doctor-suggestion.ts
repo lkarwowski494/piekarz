@@ -26,7 +26,7 @@ export function suggestDoctorAfterRating(ratingStars: number, openDoctor: () => 
     t('Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.'),
     [
       { text: t('Nie teraz'), style: 'cancel' },
-      { text: t('Otwórz Doktora'), onPress: openDoctor },
+      { text: t('Otwórz Doktora Chleba'), onPress: openDoctor },
     ]
   );
 }

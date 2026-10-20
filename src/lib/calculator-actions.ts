@@ -92,7 +92,7 @@ export async function executeCopyRecipe(params: {
   });
   const copied = await copyRecipeToClipboard(text);
   if (copied) {
-    Alert.alert(t('Kopiuj recepturę'), t('Skopiowano przepis do schowka'));
+    Alert.alert(t('Kopiuj jako tekst'), t('Skopiowano przepis do schowka'));
   }
 }
 

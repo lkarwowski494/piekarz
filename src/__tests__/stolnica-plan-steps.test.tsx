@@ -124,7 +124,7 @@ describe('Stolnica z receptury i planu (030)', () => {
   it('start z Harmonogramu: kroki Stolnicy mają te same id, kolejność i czasy co schedule.stages', async () => {
     const harm = await render(<HarmonogramScreen />);
     await act(async () => {
-      button(harm.root, 'Rozpocznij wypiek na Stolnicy').props.onPress();
+      button(harm.root, 'Zacznij wypiek').props.onPress();
     });
     act(() => harm.unmount());
 
@@ -192,7 +192,7 @@ describe('Stolnica z receptury i planu (030)', () => {
       if (i !== proofIdx) expect({ step: steps[i].category, entries: entries().length }).toEqual({ step: steps[i].category, entries: 0 });
       else break;
       await act(async () => {
-        button(stol.root, 'Następny krok').props.onPress();
+        button(stol.root, 'Zrobione').props.onPress();
       });
     }
     expect(textOf(stol.toJSON())).toContain(`Krok ${proofIdx + 1} z ${steps.length}`);
@@ -207,7 +207,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia');
     // Następny krok (nagrzewanie i pieczenie) już bez wejścia
     await act(async () => {
-      button(stol.root, 'Następny krok').props.onPress();
+      button(stol.root, 'Zrobione').props.onPress();
     });
     expect(entries()).toHaveLength(0);
     act(() => stol.unmount());
@@ -261,7 +261,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     const stol = await render(<StolnicaScreen />);
     for (let i = 0; i < 4; i++) {
       await act(async () => {
-        button(stol.root, 'Następny krok').props.onPress();
+        button(stol.root, 'Zrobione').props.onPress();
       });
     }
     expect(textOf(stol.toJSON())).toContain('Krok 5 z 7');
@@ -280,7 +280,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Rozrost w formie');
     // Wypiek żytni w formie (ZYT-ETA-001): bez dwóch faz garnka
     await act(async () => {
-      button(stol.root, 'Następny krok').props.onPress();
+      button(stol.root, 'Zrobione').props.onPress();
     });
     expect(textOf(stol.toJSON())).toContain('Krok 6 z 7');
     expect(stol.root.findAll((n) => n.props.testID === 'dutch-oven-phase-card')).toHaveLength(0);
@@ -310,7 +310,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Krótka fermentacja ciasta');
     expect(again.root.findAll((n) => n.props.testID === 'timer-in-flight-adjustments')).toHaveLength(0);
     expect(button(again.root, 'Start')).toBeUndefined();
-    expect(button(again.root, 'Następny krok')).toBeDefined();
+    expect(button(again.root, 'Zrobione')).toBeDefined();
     act(() => again.unmount());
   });
 

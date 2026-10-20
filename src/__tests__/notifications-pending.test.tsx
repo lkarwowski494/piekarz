@@ -105,11 +105,11 @@ describe('Pending notifications follow the saved state (006)', () => {
     await press(tree.root, '+5 min');
     expect(mock.pending.get('piekarz.krok')!.trigger.date).toBe(first + 300_000);
 
-    await press(tree.root, 'Następny krok');
+    await press(tree.root, 'Zrobione');
     expect(ids()).toEqual([]);
     await press(tree.root, 'Start');
     expect(ids()).toEqual(['piekarz.krok']);
-    await press(tree.root, 'Odrzuć wypiek');
+    await press(tree.root, 'Przerwij wypiek');
     expect(ids()).toEqual([]);
     act(() => tree.unmount());
   });
@@ -117,7 +117,7 @@ describe('Pending notifications follow the saved state (006)', () => {
   it('Zakwas: feeding a fridge starter schedules +6 d and +7 d reminders', async () => {
     await saveStarter({ id: 'z1', name: 'Ania', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: 1 });
     const tree = await mount(<ZakwasScreen />);
-    await press(tree.root, 'Zarejestruj dokarmienie');
+    await press(tree.root, 'Zapisz dokarmienie');
     expect(ids()).toEqual(['piekarz.karmienie.z1.1', 'piekarz.karmienie.z1.2']);
     act(() => tree.unmount());
   });
@@ -158,7 +158,7 @@ describe('Pending notifications follow the saved state (006)', () => {
     await press(tree.root, 'Wstrzymaj');
     await press(tree.root, 'Start');
     expect(Notifications.requestPermissionsAsync).toHaveBeenCalledTimes(1);
-    await press(tree.root, 'Odrzuć wypiek');
+    await press(tree.root, 'Przerwij wypiek');
     act(() => tree.unmount());
   });
 });

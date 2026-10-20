@@ -122,7 +122,7 @@ export function StarterPeakActivityCard({
       )}
 
       <Pressable style={styles.feedNowBtn} onPress={onLogFeeding}>
-        <Text style={styles.feedNowBtnText}>{t('Zarejestruj dokarmienie')}</Text>
+        <Text style={styles.feedNowBtnText}>{t('Zapisz dokarmienie')}</Text>
       </Pressable>
     </View>
   );

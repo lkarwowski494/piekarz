@@ -161,7 +161,7 @@ export const EN_2: Record<string, string> = {
   'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Starter hydration must be between 40–200%',
   'Eksport JSON': 'JSON Export',
   'Skopiowano kod JSON receptury do schowka.': 'Recipe JSON code copied to clipboard.',
-  'Eksportuj JSON': 'Export JSON',
+  'Udostępnij plik receptury': 'Share Recipe File',
   'Importuj JSON': 'Import JSON',
 
   // Master Recipes Discovery & Categories

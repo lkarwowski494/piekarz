@@ -53,16 +53,14 @@ export function confirm({
 }
 
 /**
- * Potwierdzenie porzucenia trwającego wypieku.
+ * Potwierdzenie przerwania trwającego wypieku: [Wróć do wypieku] [Przerwij]
+ * (słownik interakcji, docs/design/design-spec.md §5; wyjątek od „Anuluj”, bo rezygnacja wraca do wypieku) [M1-audytor-generalny-089].
  */
 export function confirmDiscardBake(onConfirm: () => void) {
-  confirm({
-    title: t('Odrzucić trwający wypiek?'),
-    message: t('Przerwiesz bieżący harmonogram i pomiary czasu.'),
-    action: t('Odrzuć wypiek'),
-    destructive: true,
-    onConfirm,
-  });
+  Alert.alert(t('Przerwać wypiek?'), t('Powiadomienia o kolejnych krokach znikną.'), [
+    { text: t('Wróć do wypieku'), style: 'cancel' },
+    { text: t('Przerwij'), style: 'destructive', onPress: onConfirm },
+  ]);
 }
 
 /**
@@ -70,9 +68,9 @@ export function confirmDiscardBake(onConfirm: () => void) {
  */
 export function confirmResetStarter(onConfirm: () => void) {
   confirm({
-    title: t('Zresetować profil zakwasu?'),
+    title: t('Zacząć profil zakwasu od nowa?'),
     message: t('Dotychczasowy cykl dokarmiania zostanie wyzerowany.'),
-    action: t('Resetuj profil'),
+    action: t('Zacznij od nowa'),
     destructive: true,
     onConfirm,
   });

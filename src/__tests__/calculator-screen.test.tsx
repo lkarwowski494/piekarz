@@ -213,7 +213,7 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
   it('transfers calculated recipe to Workbench and navigates upon tapping action button', async () => {
     await renderScreen();
 
-    const startBakeBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek na Stolnicy');
+    const startBakeBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     expect(startBakeBtn).toBeDefined();
 
     await act(async () => {
@@ -297,23 +297,13 @@ describe('CalculatorScreen UI (app/(tabs)/index.tsx)', () => {
     expect(tree).toBeDefined();
   });
 
-  it('clones active master recipe into an editable custom recipe', async () => {
+  // 089: „Klonuj recepturę” to ta sama akcja co „Zapisz jako moją” (słownik §5) — jeden przycisk zapisu receptury
+  it('has one save-as-mine action and no separate clone action', async () => {
     await renderScreen();
 
-    const cloneBtn = tree!.root.findByProps({ testID: 'clone-recipe-btn' });
-    expect(cloneBtn).toBeDefined();
-
-    await act(async () => {
-      await cloneBtn.props.onPress();
-    });
-
-    const recipes = await getRecipes();
-    const cloned = recipes.find((r) => r.name.includes('(Kopia)'));
-    expect(cloned).toBeDefined();
-    expect(cloned?.isBuiltIn).toBe(false);
-
-    const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('(Kopia)');
+    expect(tree!.root.findAllByProps({ testID: 'clone-recipe-btn' })).toHaveLength(0);
+    const saveBtn = tree!.root.findByProps({ testID: 'save-custom-recipe-btn' });
+    expect(extractCleanText(saveBtn.props.children)).toContain('Zapisz jako moją');
   });
 
   it('deletes custom recipe upon confirmation and selects default preset', async () => {

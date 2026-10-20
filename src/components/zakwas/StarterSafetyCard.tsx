@@ -94,7 +94,7 @@ export function StarterSafetyCard({
       </View>
 
       <Pressable style={styles.resetBtn} onPress={onReset}>
-        <Text style={styles.resetBtnText}>{t('Resetuj profil zakwasu')}</Text>
+        <Text style={styles.resetBtnText}>{t('Zacznij od nowa')}</Text>
       </Pressable>
     </View>
   );

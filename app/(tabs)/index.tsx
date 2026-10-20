@@ -46,7 +46,6 @@ import {
   executePrintRecipePdf,
   executeExportRecipeJson,
   executeCopyRecipe,
-  executeCloneRecipe,
   executeSaveCustomRecipe,
 } from '../../src/lib/calculator-actions';
 import { openPrintMenu } from '../../src/lib/print-menu';
@@ -247,24 +246,6 @@ export default function CalculatorScreen() {
     }));
   };
 
-  const handleCloneAsCustomRecipe = async () => {
-    requireActionAccess(guardSave(async () => {
-      const cloned = await executeCloneRecipe(
-        recipeName,
-        flourBlend,
-        waterPct,
-        saltPct,
-        starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-        targetDdt
-      );
-      await loadRecipesFromStore();
-      setSelectedPresetId(cloned.id);
-      setRecipeName(cloned.name);
-    }));
-  };
-
   const handleSelectFlourBlend = (blend: typeof POPULAR_FLOUR_BLENDS[number]) => {
     setFlourBlend(blend.flours);
   };
@@ -441,7 +422,6 @@ export default function CalculatorScreen() {
               loavesCount: calcMode === 'loaves' ? loavesCount : 1,
             })
           }
-          onCloneRecipe={handleCloneAsCustomRecipe}
           onExportJson={() => executeExportRecipeJson(currentRecipeForShare)}
           onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
           onPrintMenu={chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf))}

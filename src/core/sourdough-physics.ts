@@ -100,7 +100,7 @@ export function calculateStarterPhase(
       elapsedHours: 999,
       labelPl: 'Brak danych o karmieniu',
       poziom: 'info',
-      advicePl: 'Zarejestruj dokarmienie, aby uruchomić śledzenie szczytu aktywności.',
+      advicePl: 'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.',
     };
   }
 

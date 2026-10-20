@@ -69,8 +69,10 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
 
     expect(Alert.alert).toHaveBeenCalledTimes(1);
     const [title, , buttons] = (Alert.alert as jest.Mock).mock.calls[0];
-    expect(title).toBe('Odrzucić trwający wypiek?');
-    expect(buttons[1].text).toBe('Odrzuć wypiek');
+    expect(title).toBe('Przerwać wypiek?');
+    expect(buttons[0].text).toBe('Wróć do wypieku');
+    expect(buttons[0].style).toBe('cancel');
+    expect(buttons[1].text).toBe('Przerwij');
     expect(buttons[1].style).toBe('destructive');
   });
 
@@ -80,8 +82,8 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
 
     expect(Alert.alert).toHaveBeenCalledTimes(1);
     const [title, , buttons] = (Alert.alert as jest.Mock).mock.calls[0];
-    expect(title).toBe('Zresetować profil zakwasu?');
-    expect(buttons[1].text).toBe('Resetuj profil');
+    expect(title).toBe('Zacząć profil zakwasu od nowa?');
+    expect(buttons[1].text).toBe('Zacznij od nowa');
     expect(buttons[1].style).toBe('destructive');
   });
 

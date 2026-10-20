@@ -20,13 +20,13 @@ export const EN_4: Record<string, string> = {
   'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.':
     'The subscription renews automatically at the price shown for the plan until you cancel it. Payment is charged to your Apple Account by the App Store. You can cancel at any time in your Apple Account settings or with “Manage subscription”.',
   'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Lifetime access is a one-time purchase that does not renew.',
-  'Zarządzaj subskrypcją': 'Manage subscription',
+  'Zarządzaj subskrypcją': 'Manage Subscription',
   // Propozycja Doktora po ocenie ≤ 2★ (BR-DIAG-001) [M1-audytor-generalny-032]
   'Sprawdzić przyczynę w Doktorze?': 'Check the cause in the Doctor?',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.':
     'The entry is in your history. The Bread Doctor will suggest what to change next bake.',
-  'Nie teraz': 'Not now',
-  'Otwórz Doktora': 'Open Doctor',
+  'Nie teraz': 'Not Now',
+  'Otwórz Doktora Chleba': 'Open Bread Doctor',
   // Podtytuł akordeonu PRO bez ukrytej straty piecowej (F-48 PÓŹNIEJ) [M1-audytor-generalny-032]
   'Temperatura wody i zaczyny': 'Water temperature and preferments',
   // Rytuał bez ukrywania receptur (F-26, ZM-14) [M1-audytor-generalny-032]

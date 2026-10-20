@@ -71,7 +71,7 @@ describe('Active bake survives a process kill (019)', () => {
     const first = await render();
     for (let i = 0; i < 2; i++) {
       await act(async () => {
-        button(first.root, 'Następny krok').props.onPress();
+        button(first.root, 'Zrobione').props.onPress();
       });
     }
     await act(async () => {

@@ -9,9 +9,8 @@ import {
   Pressable,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
+import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
-import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import { formatNumber } from '../lib/format';
 import {
@@ -24,7 +23,6 @@ interface FlourEquivalentsModalProps {
 }
 
 export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModalProps) {
-  const motyw = useMotyw();
   const [searchQuery, setSearchQuery] = useState('');
 
   const entries = useMemo(() => {
@@ -45,11 +43,12 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
             <Pressable
               testID="close-flour-equiv-modal-btn"
               style={styles.closeBtn}
+              accessibilityRole="button"
               onPress={onClose}
               hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij słownik mąk')}
             >
-              <CloseIcon size={20} color={motyw.kolory.tusz} />
+              <Text style={styles.closeBtnText}>{t('Zamknij')}</Text>
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -189,15 +188,13 @@ const styles = StyleSheet.create({
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
-    borderRadius: 22,
-    backgroundColor: theme.colors.powierzchnia,
+    paddingHorizontal: 8,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: theme.colors.tusz,
+    fontSize: 17,
+    color: theme.colors.akcentTekst,
   },
   scrollContent: {
     padding: theme.spacing.md,

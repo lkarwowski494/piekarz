@@ -78,7 +78,7 @@ async function finishOnScreen(): Promise<void> {
     tree!.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
   });
   await act(async () => {
-    await pressables(tree!.root, 'Zapisz w historii')[0].props.onPress();
+    await pressables(tree!.root, 'Zapisz')[0].props.onPress();
     for (let i = 0; i < 20; i++) await Promise.resolve();
   });
   act(() => tree!.unmount());

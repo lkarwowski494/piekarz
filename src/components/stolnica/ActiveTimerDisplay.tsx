@@ -16,7 +16,6 @@ export interface ActiveTimerDisplayProps {
   onAdjustSeconds: (deltaSec: number) => void;
   onToggleTimer: () => void;
   onAddFiveMinutes: () => void;
-  onResetTimer: () => void;
 }
 
 export function ActiveTimerDisplay({
@@ -26,7 +25,6 @@ export function ActiveTimerDisplay({
   onAdjustSeconds,
   onToggleTimer,
   onAddFiveMinutes,
-  onResetTimer,
 }: ActiveTimerDisplayProps) {
   return (
     <View style={[styles.timerContainer, isCompleted && styles.timerContainerCompleted]}>
@@ -94,10 +92,6 @@ export function ActiveTimerDisplay({
 
         <Pressable style={styles.timerSecondaryBtn} onPress={onAddFiveMinutes}>
           <Text style={styles.timerSecondaryBtnText}>{t('+5 min')}</Text>
-        </Pressable>
-
-        <Pressable style={styles.timerSecondaryBtn} onPress={onResetTimer}>
-          <Text style={styles.timerSecondaryBtnText}>⟲ {t('Resetuj')}</Text>
         </Pressable>
       </View>
     </View>

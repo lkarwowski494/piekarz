@@ -14,7 +14,7 @@ appId: com.apps4brew.baker
 - assertVisible:
     id: "stolnica-header"
 - assertVisible: "Brak aktywnego wypieku"
-- tapOn: "Rozpocznij wypiek"
+- tapOn: "Zacznij wypiek"
 - assertVisible:
     id: "next-or-finish-step-btn"
 - tapOn:

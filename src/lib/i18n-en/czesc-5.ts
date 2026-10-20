@@ -6,7 +6,6 @@ export const EN_5: Record<string, string> = {
   'Brak aktywnego wypieku': 'No active bake',
   'Wybierz recepturę w Kalkulatorze i kliknij „{przycisk}”, lub uruchom standardowy harmonogram rzemieślniczy poniżej.':
     'Choose a recipe in the Calculator and tap “{przycisk}”, or start the standard artisan schedule below.',
-  'Rozpocznij wypiek': 'Start bake',
   'Składniki do odważenia': 'Ingredients to weigh',
   'Mąki': 'Flours',
   'Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%': 'Dough weight: {masa} · Total hydration: {hydratacja}%',

@@ -101,14 +101,14 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Stolnica');
     expect(fullText).toContain('Brak aktywnego wypieku');
-    expect(fullText).toContain('Rozpocznij wypiek');
+    expect(fullText).toContain('Zacznij wypiek');
     expect(fullText).toContain('Historia wypieków');
   });
 
   it('starts bake from idle when tapping Rozpocznij wypiek button', async () => {
     await renderScreen();
 
-    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     expect(startBtn).toBeDefined();
 
     await act(async () => {
@@ -163,7 +163,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     await renderScreen();
 
     // Start bake
-    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     await act(async () => {
       startBtn?.props.onPress();
     });
@@ -195,30 +195,22 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     // 6 h + 5 min = 6:05:00
     expect(extractCleanText(tree?.toJSON())).toContain('6:05:00');
 
-    // Tap Reset
-    const resetBtn = findButtonByText(tree!.root, 'Resetuj');
-    expect(resetBtn).toBeDefined();
-
-    await act(async () => {
-      resetBtn?.props.onPress();
-    });
-
-    // Back to 6:00:00
-    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
+    // 089: zerowania czasu etapu nie ma w systemie (słownik §5: „Resetuj” znika)
+    expect(findButtonByText(tree!.root, 'Resetuj')).toBeUndefined();
   });
 
-  it('advances to next step when tapping Następny krok', async () => {
+  it('advances to next step when tapping Zrobione (089: dawniej Następny krok)', async () => {
     await renderScreen();
 
-    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     await act(async () => {
       startBtn?.props.onPress();
     });
 
     expect(extractCleanText(tree?.toJSON())).toContain('Dokarmienie zakwasu');
 
-    // Tap Następny krok
-    const nextBtn = findButtonByText(tree!.root, 'Następny krok');
+    // Tap Zrobione
+    const nextBtn = findButtonByText(tree!.root, 'Zrobione');
     expect(nextBtn).toBeDefined();
 
     await act(async () => {
@@ -235,7 +227,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
   it('discards active bake cleanly and returns to idle state', async () => {
     await renderScreen();
 
-    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     await act(async () => {
       startBtn?.props.onPress();
     });
@@ -243,7 +235,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     expect(extractCleanText(tree?.toJSON())).toContain('Krok 1 z 11');
 
     // Tap Odrzuć wypiek
-    const discardBtn = findButtonByText(tree!.root, 'Odrzuć wypiek');
+    const discardBtn = findButtonByText(tree!.root, 'Przerwij wypiek');
     expect(discardBtn).toBeDefined();
 
     await act(async () => {
@@ -284,7 +276,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     await renderScreen();
 
     // Start bake
-    const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
     await act(async () => {
       startBtn?.props.onPress();
     });
@@ -299,14 +291,14 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       step8Btn?.props.onPress();
     });
 
-    // Tap Zakończ wypiek button on last step to open Finish Modal
+    // Tap Zrobione on the last step to open the rating sheet
     const finishTriggerBtn = tree!.root.findByProps({ testID: 'next-or-finish-step-btn' });
     await act(async () => {
       finishTriggerBtn.props.onPress();
     });
 
     const fullModalText = extractCleanText(tree?.toJSON());
-    expect(fullModalText).toContain('Zakończ wypiek');
+    expect(fullModalText).toContain('Jak wyszedł bochenek?');
     expect(fullModalText).toContain('Struktura miękiszu');
     expect(fullModalText).toContain('Jakość skórki');
     expect(fullModalText).toContain('Profil smakowy');
@@ -330,7 +322,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     });
 
     // Save bake
-    const saveHistoryBtn = findButtonByText(tree!.root, 'Zapisz w historii');
+    const saveHistoryBtn = findButtonByText(tree!.root, 'Zapisz');
     await act(async () => {
       await saveHistoryBtn?.props.onPress();
     });
@@ -349,7 +341,7 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
       await renderScreen();
 
       // Start bake
-      const startBtn = findButtonByText(tree!.root, 'Rozpocznij wypiek');
+      const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
       await act(async () => {
         startBtn?.props.onPress();
       });

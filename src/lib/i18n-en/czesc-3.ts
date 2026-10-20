@@ -6,7 +6,7 @@ export const EN_3: Record<string, string> = {
   'Zwiększ': 'Increase',
   'Załadowano recepturę': 'Recipe loaded',
   'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Formula and baking parameters for "{name}" loaded into the calculator.',
-  'Piecz ponownie': 'Bake again',
+  'Piecz ponownie': 'Bake Again',
   '-5 min': '-5 min',
   '-10 sek': '-10 sec',
   '+10 sek': '+10 sec',
@@ -26,7 +26,7 @@ export const EN_3: Record<string, string> = {
   'Zero reklam, zero śledzenia telemetrycznego': 'Zero ads, zero telemetry tracking',
   'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'All advanced tools and workbench assistant without limits',
   'Przetwarzanie...': 'Processing...',
-  'Przywróć zakupy': 'Restore purchases',
+  'Przywróć zakupy': 'Restore Purchases',
   'Przeglądaj historię (Read-Only)': 'Browse history (Read-Only)',
   'Zakup': 'Purchase',
   'Nie udało się dokończyć zakupu. Spróbuj ponownie.': 'Failed to complete purchase. Please try again.',
@@ -135,7 +135,7 @@ export const EN_3: Record<string, string> = {
   'Nie można otworzyć bazy danych': 'Cannot open the database',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.':
     'Your data has not been changed, but the app cannot read or save it right now. Restart the app. If the problem returns, free up storage on your phone.',
-  'Spróbuj ponownie': 'Try again',
+  'Spróbuj ponownie': 'Try Again',
   // Kopia sprzed migracji [M1-audytor-generalny-004]
   'Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.':
     'A copy of your data from before the update is saved on your phone. You can share it, for example save it to Files.',

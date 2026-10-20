@@ -146,7 +146,7 @@ export function BackupAndDataSection() {
             disabled={isExporting}
           >
             <Text style={styles.exportBtnText}>
-              {isExporting ? t('Eksportowanie...') : t('Eksportuj kopię')}
+              {isExporting ? t('Eksportowanie...') : t('Eksportuj do pliku')}
             </Text>
           </Pressable>
 

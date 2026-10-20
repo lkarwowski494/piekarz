@@ -1171,19 +1171,14 @@
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
-  "Eksportuj JSON": {
+  "Eksportuj do pliku": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
   "Eksportuj historię wypieków (CSV)": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (kod)",
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
-    ]
-  },
-  "Eksportuj kopię": {
-    "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
@@ -1655,6 +1650,11 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Jak wyszedł bochenek?": {
+    "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+    ]
+  },
   "Jaki jest Twój styl wypieku?": {
     "gdzie": [
       "src/components/OnboardingModal.tsx (tekst w JSX)"
@@ -1805,11 +1805,6 @@
       "src/core/domain-rules.ts (dane: labelPl)"
     ]
   },
-  "Klonuj recepturę": {
-    "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
-    ]
-  },
   "Klosz": {
     "gdzie": [
       "src/components/stolnica/BakeVesselSelector.tsx (label)"
@@ -1918,7 +1913,7 @@
       "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
     ]
   },
-  "Kopiuj recepturę": {
+  "Kopiuj jako tekst": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
       "src/lib/calculator-actions.ts (Alert.alert)"
@@ -2290,6 +2285,9 @@
     ]
   },
   "Mniej": {
+    "gdzie": []
+  },
+  "Mniej bochenków": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
     ]
@@ -2655,11 +2653,6 @@
   },
   "Następne pytanie": {
     "gdzie": []
-  },
-  "Następny krok": {
-    "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)"
-    ]
   },
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
@@ -3043,11 +3036,6 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: physicalPrinciplePl)"
     ]
   },
-  "Odrzucić trwający wypiek?": {
-    "gdzie": [
-      "src/lib/confirm.ts (title)"
-    ]
-  },
   "Odrzucić zmiany?": {
     "gdzie": [
       "src/components/DraftHeader.tsx (Alert.alert)"
@@ -3061,12 +3049,6 @@
   "Odrzut zakwasu (100% hydratacji)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
-    ]
-  },
-  "Odrzuć wypiek": {
-    "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)",
-      "src/lib/confirm.ts (action)"
     ]
   },
   "Odrzuć zmiany": {
@@ -3209,7 +3191,7 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
-  "Otwórz Doktora": {
+  "Otwórz Doktora Chleba": {
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
     ]
@@ -3536,6 +3518,11 @@
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
     ]
   },
+  "Powiadomienia o kolejnych krokach znikną.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Powiadomienia wyłączone": {
     "gdzie": [
       "src/components/NotificationsOffBanner.tsx (tekst w JSX)"
@@ -3755,9 +3742,19 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
-  "Przerwiesz bieżący harmonogram i pomiary czasu.": {
+  "Przerwać wypiek?": {
     "gdzie": [
-      "src/lib/confirm.ts (message)"
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
+  "Przerwij": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Przerwij wypiek": {
+    "gdzie": [
+      "app/(tabs)/stolnica.tsx (tekst w JSX)"
     ]
   },
   "Przetwarzanie...": {
@@ -3993,21 +3990,6 @@
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
     ]
   },
-  "Resetuj": {
-    "gdzie": [
-      "src/components/stolnica/ActiveTimerDisplay.tsx (tekst w JSX)"
-    ]
-  },
-  "Resetuj profil": {
-    "gdzie": [
-      "src/lib/confirm.ts (action)"
-    ]
-  },
-  "Resetuj profil zakwasu": {
-    "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
-    ]
-  },
   "Roczny": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
@@ -4066,19 +4048,6 @@
   "Rozpocznij rytuał wypieku": {
     "gdzie": [
       "src/components/OnboardingModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Rozpocznij wypiek": {
-    "gdzie": [
-      "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
-    ]
-  },
-  "Rozpocznij wypiek na Stolnicy": {
-    "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
-      "src/components/stolnica/IdleBakeCard.tsx (przycisk)"
     ]
   },
   "Rozpocznij wypiek z asystentem": {
@@ -4972,6 +4941,11 @@
       "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
+  "Udostępnij plik receptury": {
+    "gdzie": [
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+    ]
+  },
   "Udostępnij recepturę": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
@@ -5351,6 +5325,9 @@
     ]
   },
   "Więcej": {
+    "gdzie": []
+  },
+  "Więcej bochenków": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
     ]
@@ -5468,6 +5445,11 @@
     ]
   },
   "Wróć do edycji": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Wróć do wypieku": {
     "gdzie": [
       "src/lib/confirm.ts (text)"
     ]
@@ -5606,8 +5588,12 @@
   },
   "Wyczyść": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Wyczyść wklejony tekst": {
+    "gdzie": [
+      "src/components/ImportRecipeModal.tsx (accessibilityLabel)"
     ]
   },
   "Wyczyść wyszukiwanie": {
@@ -5990,6 +5976,21 @@
       "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
+  "Zacznij od nowa": {
+    "gdzie": [
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
+      "src/lib/confirm.ts (action)"
+    ]
+  },
+  "Zacznij wypiek": {
+    "gdzie": [
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
+      "src/components/stolnica/IdleBakeCard.tsx (przycisk)",
+      "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
+    ]
+  },
   "Zaczyn ({g} g)": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
@@ -6003,6 +6004,11 @@
   "Zaczyny rzemieślnicze": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Zacząć profil zakwasu od nowa?": {
+    "gdzie": [
+      "src/lib/confirm.ts (title)"
     ]
   },
   "Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.": {
@@ -6038,12 +6044,6 @@
   },
   "Zakończ": {
     "gdzie": []
-  },
-  "Zakończ wypiek": {
-    "gdzie": [
-      "app/(tabs)/stolnica.tsx (tekst w JSX)",
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
-    ]
   },
   "Zakup": {
     "gdzie": [
@@ -6156,10 +6156,12 @@
   },
   "Zamknij": {
     "gdzie": [
+      "src/components/CloseButton.tsx (title)",
+      "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
+      "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
-      "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
-      "src/components/PaywallModal.tsx (label)",
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
@@ -6221,10 +6223,21 @@
   "Zapisz": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
+      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Zapisz jako mój przepis": {
+  "Zapisz dokarmienie": {
+    "gdzie": [
+      "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.": {
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "Zapisz jako moją": {
     "gdzie": [
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
     ]
@@ -6237,11 +6250,6 @@
   "Zapisz przepis": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Zapisz w historii": {
-    "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
   "Zapisz w spiżarni": {
@@ -6261,16 +6269,6 @@
   },
   "Zarejestrowano dokarmienie!": {
     "gdzie": []
-  },
-  "Zarejestruj dokarmienie": {
-    "gdzie": [
-      "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
-    ]
-  },
-  "Zarejestruj dokarmienie, aby uruchomić śledzenie szczytu aktywności.": {
-    "gdzie": [
-      "src/core/sourdough-physics.ts (dane: advicePl)"
-    ]
   },
   "Zarządzaj subskrypcją": {
     "gdzie": [
@@ -6536,14 +6534,19 @@
       "src/core/rye-stages.ts (dane: instructionsPl)"
     ]
   },
-  "Zresetować profil zakwasu?": {
-    "gdzie": [
-      "src/lib/confirm.ts (title)"
-    ]
-  },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+    ]
+  },
+  "Zrobione": {
+    "gdzie": [
+      "app/(tabs)/stolnica.tsx (tekst w JSX)"
+    ]
+  },
+  "Zrobione: {krok}": {
+    "gdzie": [
+      "app/(tabs)/stolnica.tsx (accessibilityLabel)"
     ]
   },
   "Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.": {

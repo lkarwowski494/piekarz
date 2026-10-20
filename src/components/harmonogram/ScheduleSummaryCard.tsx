@@ -56,7 +56,7 @@ export function ScheduleSummaryCard({
         onPress={onStartBakeOnWorkbench}
       >
         <Text style={styles.transferBtnText}>
-          {t('Rozpocznij wypiek na Stolnicy')}
+          {t('Zacznij wypiek')}
         </Text>
       </Pressable>
 

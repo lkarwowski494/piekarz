@@ -44,7 +44,7 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
   });
   if (startFromIdle) {
     await act(async () => {
-      pressables(tree!.root, 'Rozpocznij wypiek')[0].props.onPress();
+      pressables(tree!.root, 'Zacznij wypiek')[0].props.onPress();
     });
   }
   await act(async () => {
@@ -54,7 +54,7 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
     tree!.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
   });
   await act(async () => {
-    await pressables(tree!.root, 'Zapisz w historii')[0].props.onPress();
+    await pressables(tree!.root, 'Zapisz')[0].props.onPress();
     for (let i = 0; i < 20; i++) await Promise.resolve();
   });
   return tree!;
@@ -102,7 +102,7 @@ describe('Bake journal keeps missing values missing (017)', () => {
   it('the note field starts empty again after saving a bake', async () => {
     const tree = await finishBakeOnScreen(true);
     await act(async () => {
-      pressables(tree.root, 'Rozpocznij wypiek')[0].props.onPress();
+      pressables(tree.root, 'Zacznij wypiek')[0].props.onPress();
     });
     await act(async () => {
       pressables(tree.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)
