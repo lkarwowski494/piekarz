@@ -7,6 +7,7 @@
      Dane planu, receptura, godziny i treść kroku: [PRZYKŁAD]; treść kroków i „po co ten krok” należy do roli 06.
      Ostrzeżenie: RD-23-W1 (S-47, S-48), tekst z kryterium BR-ETAP-004. -->
 <link rel="stylesheet" href="wspolne.css">
+<style>.ostrz .zd { display: block; }</style>
 </head>
 <body>
 
@@ -49,9 +50,33 @@
       </div>
     </div>
     <h1 class="t-krok" data-t="pw.zdejmij">Zdejmij pokrywę</h1>
-    <div class="ostrz t-tresc" role="alert"><span data-ikona="para"></span><span><b data-t="pw.goracaPara">Gorąca para</b><span data-t="pw.rekawice">Załóż suche rękawice. Pokrywę unoś od siebie.</span></span></div>
+    <div class="ostrz t-tresc" role="alert"><span data-ikona="para"></span><span><b data-t="pw.goracaPara">Gorące naczynie</b><span data-t="pw.rekawice">Załóż suche rękawice. Pokrywę unoś od siebie.</span></span></div>
     <div><div class="t-czas" data-t="pw.2minPo">2 min po czasie</div><div class="t-tresc p2" data-t="pw.skonczylo">pieczenie pod pokrywą skończyło się o {h:8:10}; piekarnik {c:250} <span class="przyklad">przykład</span></div></div>
     <div class="t-obj p2" data-t="pw.potem">Potem: pieczenie bez pokrywy, 25 min, do {h:8:37}</div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>
+    <div class="rzad"><button class="drugi t-obj" data-t="pw.cofnij">Cofnij poprzedni</button><button class="drugi t-obj" data-t="pw.poCo">Po co ten krok</button></div>
+  </div>
+</main>
+
+<!-- Partia 6 (109, 04-studio-projektowe-035): krok z dwiema sekcjami ostrzeżeń (pieczenie: gorące naczynie + dzieci) = jedno Ostrzeżenie,
+     jeden tytuł według sekcji o najwyższym priorytecie, zdania w kolejności sekcji. Zdania dosłownie z src/core/step-warnings.ts (rejestr roli 06). -->
+<main data-ekran="ostrzezenie-dwie-sekcje">
+  <div class="status"><span>7:52</span><span>LTE 66%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="nav.dzis">Dziś</span></a><a href="#" class="t-tresc" data-t="pw.plan">Plan wypieku</a></div>
+  <div class="tresc">
+    <div class="t-obj p2" data-t="pw.receptura">Chleb pszenny na zakwasie, 2 × {g:850} <span class="przyklad">przykład</span></div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="1552" data-gotowe="Gotowe dziś o 9:35."></svg>
+      <div class="opis">
+        <b class="t-obj" data-t="pw.krok11">Krok 11 z 13</b>
+        <span class="t-obj p2" data-t="pw.gotoweDzis">Gotowe dziś o {h:9:35}</span>
+      </div>
+    </div>
+    <h1 class="t-krok" data-t="pw.piecPokrywa">Pieczenie pod pokrywą</h1>
+    <div><div class="t-czas" data-t="pw.18min">18 min</div><div class="t-tresc p2" data-t="pw.doPotemBez">do {h:8:10}, potem pieczenie bez pokrywy</div></div>
+    <div class="ostrz t-tresc" role="alert" aria-label="Gorące naczynie. Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami. Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz."><span data-ikona="para"></span><span><b data-t="pw.tytGoraceNaczynie">Gorące naczynie</b><span class="zd" data-t="pw.zdGoraceNaczynie">Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.</span><span class="zd" data-t="pw.zdDzieci">Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.</span> <span class="przyklad" data-t="w.tresc06">treść roli 06</span></span></div>
   </div>
   <div class="kciuk">
     <button class="glowny t-nagl" data-t="pw.zrobione">Zrobione</button>

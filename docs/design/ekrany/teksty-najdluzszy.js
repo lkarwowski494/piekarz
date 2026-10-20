@@ -61,7 +61,7 @@ window.TEKSTY['fr'] = {
  "pw.krok12": "Étape 12 sur 13",
  "pw.gotoweDzis": "Prêt aujourd'hui à {h:9:35}",
  "pw.zdejmij": "Retirez le couvercle",
- "pw.goracaPara": "Vapeur brûlante",
+ "pw.goracaPara": "Récipient brûlant",
  "pw.rekawice": "Mettez des gants secs. Soulevez le couvercle vers l'avant, loin de vous.",
  "pw.2minPo": "2 min de retard",
  "pw.skonczylo": "la cuisson avec couvercle s'est terminée à {h:8:10} ; four à {c:250} <span class=\"przyklad\">exemple</span>",
@@ -189,5 +189,12 @@ window.TEKSTY['fr'] = {
  "zk.wyrzucOpis": "Des taches colorées ou un duvet peuvent être de la moisissure. N’essayez pas de la retirer. Jetez le contenu, lavez le bocal et recommencez.",
  "zk.wyrzucZrodlo": "Principe de précaution selon l’USDA FSIS. <span class=\"przyklad\">contenu rôle 06</span>",
  "zk.zacznijOdNowa": "Recommencer",
- "zk.zostaw": "Garder l’entrée et revenir"
+ "zk.zostaw": "Garder l’entrée et revenir",
+ "pw.krok11": "Étape 11 sur 13",
+ "pw.piecPokrywa": "Cuisson avec couvercle",
+ "pw.doPotemBez": "jusqu'à {h:8:10}, puis cuisson sans couvercle",
+ "pw.tytGoraceNaczynie": "Récipient brûlant",
+ "pw.zdGoraceNaczynie": "Saisissez la cocotte, le couvercle et le moule brûlants avec des gants de cuisine secs ou des maniques.",
+ "pw.zdDzieci": "Tenez les enfants éloignés de la cuisinière et de votre plan de travail.",
+ "w.tresc06": "contenu rôle 06"
 };

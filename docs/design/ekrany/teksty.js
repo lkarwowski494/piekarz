@@ -61,7 +61,7 @@ window.TEKSTY['en-US'] = {
  "pw.krok12": "Step 12 of 13",
  "pw.gotoweDzis": "Ready today at {h:9:35}",
  "pw.zdejmij": "Remove the lid",
- "pw.goracaPara": "Hot steam",
+ "pw.goracaPara": "Hot cookware",
  "pw.rekawice": "Put on dry oven mitts. Lift the lid away from you.",
  "pw.2minPo": "2 min overdue",
  "pw.skonczylo": "baking with the lid on ended at {h:8:10}; oven {c:250} <span class=\"przyklad\">example</span>",
@@ -191,5 +191,12 @@ window.TEKSTY['en-US'] = {
  "zk.wyrzucOpis": "Colored spots or fuzzy growth may be mold. Don't try to scrape it off. Throw out the contents, wash the jar, and start over.",
  "zk.wyrzucZrodlo": "Precautionary rule per USDA FSIS. <span class=\"przyklad\">role 06 content</span>",
  "zk.zacznijOdNowa": "Start Over",
- "zk.zostaw": "Keep Entry and Go Back"
+ "zk.zostaw": "Keep Entry and Go Back",
+ "pw.krok11": "Step 11 of 13",
+ "pw.piecPokrywa": "Bake with the lid on",
+ "pw.doPotemBez": "until {h:8:10}, then bake uncovered",
+ "pw.tytGoraceNaczynie": "Hot cookware",
+ "pw.zdGoraceNaczynie": "Handle the hot pot, lid, and pan with dry oven mitts or pot holders.",
+ "pw.zdDzieci": "Keep children away from the stove and the area where you're working.",
+ "w.tresc06": "role 06 content"
 };

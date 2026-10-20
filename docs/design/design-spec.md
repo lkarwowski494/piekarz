@@ -65,7 +65,7 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 | Ekran | Stany w `ekrany/` |
 |---|---|
 | Start (F-68) | `pierwsze-uruchomienie` (bez danych zmyślonych, 087), `trwa-wypiek` (powrót jednym dotknięciem), `tylko-historia` (F-67, kłódka + tekst) |
-| Prowadzenie (F-07, F-57, F-16, F-18, F-58) | `w-trakcie`, `koniec-kroku` (ostrzeżenie RD-23, „po czasie”), `brak-zgody` (stała informacja + Ustawienia), `zgoda` (zdanie przed prośbą), `po-cofnieciu` |
+| Prowadzenie (F-07, F-57, F-16, F-18, F-58) | `w-trakcie`, `koniec-kroku` (ostrzeżenie RD-23, „po czasie”), `brak-zgody` (stała informacja + Ustawienia), `zgoda` (zdanie przed prośbą), `po-cofnieciu`, `ostrzezenie-dwie-sekcje` (jedno Ostrzeżenie, tytuł według rodzaju, §11c 109) |
 | Receptura (F-09, F-10, F-11, F-56) | `receptura` (≤ 4 akcje), `receptura-wiecej` (menu „Więcej”, 057), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
 | Zakwas (F-22…F-25, F-60, F-62, F-64) | `karta` (cykl, „Podwoił objętość”), `zakladanie-dzien-3` (dzień N, 7–10 dni), `plesn` (RD-21, polecenie zamiast listy) |
 | Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `uprzedzenie-3-dni`, `bez-sieci` |
@@ -188,6 +188,23 @@ Bieżący zwój (`tusz`, grubość 9) leży na zwoju przyszłym (`ratanSzary`, g
 Warianty jasny i ciemny bez zmian (`tusz` / `ratanSzary` 4,45 i 4,06). Do `tokeny.json` dopisane pary: `tusz` / `ratanSzary`, `ratan` / `powierzchnia`, `ratanSzary` / `powierzchnia`, `nocDane` / `powierzchnia` (próg 3; karta zakwasu i karta trwającego wypieku). *Dlaczego jaśniejszy w jasnym i ciemniejszy w ciemnym:* zwój przyszły musi odstawać i od tła, i od tuszu; przedział jasności, który spełnia oba warunki, leży między starymi wartościami a tłem.
 
 Test akceptacyjny 110: (1) `node docs/design/narzedzia/tokeny.mjs` kończy się kodem 0 (31 par × 4 warianty); (2) w `src/ui/tokeny.ts` `ratanSzary` = `#7C7568` (jasnyKontrast) i `#837C6D` (ciemnyKontrast), a test kontrastu motywu (`src/ui/__tests__/theme-contrast.test.ts`) ma pary z tabeli wyżej z progiem 3; (3) zrzut `wzorce-zrzuty/prowadzenie-w-trakcie-pl-kontrast-390-*`.
+
+### 109 · Tytuł Ostrzeżenia według rodzaju zagrożenia (035)
+Decyzja właściciela 2026-10-20 („3a”): tytuł Ostrzeżenia mówi, czego dotyczy zagrożenie, zamiast stałego „Bezpieczeństwo”. Zdania ostrzeżeń zostają bez zmian (rejestr roli 06, `src/core/step-warnings.ts`); zmienia się tylko tytuł.
+
+| Sekcja (stała w `step-warnings.ts`) | Rodzaje kroków | Tytuł PL / EN | Priorytet |
+|---|---|---|---|
+| `HOT_VESSEL_WARNING` | `preheat_oven`, `bake`, `lid_on`, `rye_bake`, `cool`, `rye_cool` | „Gorące naczynie” / “Hot cookware” | 1 |
+| `STARTER_WARNINGS` | `starter_feed`, `rye_starter` | „Surowy zakwas” / “Raw starter” | 2 |
+| `RAW_DOUGH_WARNINGS` | `autolyse`, `bulk_ferment`, `pre_shape`, `final_shape`, `rye_shape` | „Surowe ciasto i mąka” / “Raw dough and flour” | 3 |
+| `CHILDREN_WARNING` | (dziś zawsze razem z gorącym naczyniem) | „Dzieci w kuchni” / “Children in the kitchen” | 4 |
+| `UNKNOWN_KIND_WARNING` | rodzaj spoza mapy (np. krok własnej receptury) | „Uważaj w kuchni” / “Take care in the kitchen” | zawsze, gdy obecna |
+
+Reguła dla kroku z dwiema sekcjami (np. pieczenie: gorące naczynie + dzieci; nieznany rodzaj w czasie wypieku: nieznany + gorące naczynie): **jedno Ostrzeżenie** z jednym tytułem i wszystkimi zdaniami w kolejności z `STEP_KIND_WARNINGS` (każde zdanie w osobnej linii). Tytuł: gdy wśród sekcji jest `UNKNOWN_KIND_WARNING` — „Uważaj w kuchni” (zdanie ogólne obejmuje resztę); w przeciwnym razie tytuł sekcji o najwyższym priorytecie z tabeli (pieczenie → „Gorące naczynie”). *Dlaczego jedno:* jedno żółte pole to jeden `role=alert`, jedno ogłoszenie VoiceOver i jedna haptyka `ostrzezenieWKroku`; dwa pola obok siebie podwajają alarm przy tym samym kroku, a kolor ostrzeżenia traci wagę. Ikona bez zmian (trójkąt komponentu Ostrzeżenie; w makiecie zastępczo rysunek pary). Etykieta VoiceOver: „{tytuł}. {zdanie 1} {zdanie 2}”.
+
+Makieta: `ekrany/prowadzenie.html`, nowy stan `ostrzezenie-dwie-sekcje` (krok „Pieczenie pod pokrywą”); w stanie `koniec-kroku` roboczy tytuł „Gorąca para” zastąpiony przez „Gorące naczynie” (zrzuty `prowadzenie-koniec-kroku-*` wygenerowane ponownie, te same parametry i liczba plików).
+
+Test akceptacyjny 109: (1) test jednostkowy funkcji tytułu (np. `tytulOstrzezen(ostrzezenia)` w `src/core/step-warnings.ts`) dla każdego klucza `STEP_KIND_WARNINGS` z niepustą listą i dla `stepKindWarnings(null)` oraz `stepKindWarnings(null, { duringBake: true })`: wynik według tabeli (np. `bake` → „Gorące naczynie”, `starter_feed` → „Surowy zakwas”, `bulk_ferment` → „Surowe ciasto i mąka”, nieznany w czasie wypieku → „Uważaj w kuchni”); (2) render `StrefaKroku` dla kroku `bake`: dokładnie jeden element z `accessibilityRole="alert"`, tytuł „Gorące naczynie”, oba zdania; (3) tekst „Bezpieczeństwo” nie występuje w `StrefaKroku.tsx` ani w kluczach i18n używanych przez prowadzenie; tytuły EN w `src/lib/i18n-en/` według tabeli; (4) wzorzec `wzorce-zrzuty/prowadzenie-ostrzezenie-dwie-sekcje-pl-*`.
 
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |
