@@ -96,3 +96,81 @@ describe('Store, README and site texts claim only what this version does (035)',
     expect(html).toMatch(/okres(em)? próbn/);
   });
 });
+
+/**
+ * Strona produktu zaczyna od głównej pracy i prywatności [M1-audytor-generalny-081; 10-wydanie-011]
+ * (DEC-16 a, 2026-10-19). Pierwsze zdanie opisu i podtytuł = pola §5 dla `pl` i `en-US` (źródło przekładu 34
+ * lokalizacji, D-054); prywatność w pierwszych trzech zdaniach; ograniczenia nazwane; nazwa według D-053;
+ * opis bez funkcji PÓŹNIEJ i NIE z kontraktu B (OG-05: QR, druk PDF, spiżarnia, przelicznik objętości, masa lodu).
+ */
+/** Funkcje PÓŹNIEJ i NIE, których teksty o aplikacji nie obiecują (OG-05, `docs/zakres-wplyw-na-plan.md`). */
+const OG05 =
+  /\bQR\b|wydruk|drukuj|(?<!\p{L})druk(?!\p{L})|\bPDF\b|\bprint|spiżarni|pantry|flour inventory|przelicznik objęto|objętość ↔|volume (to weight|conver)|cups? to grams|szklank|(?<!\p{L})(lód|lodu)(?!\p{L})|\bice\b/iu;
+
+describe('strona produktu: główna praca i prywatność na początku (081)', () => {
+  const doc = read('docs/app-store-metadata-v2.md').replace(/\r\n/g, '\n');
+  const opis = (naglowek: RegExp) => new RegExp(naglowek.source + '[^\\n]*\\n\\n```text\\n([\\s\\S]*?)\\n```').exec(doc)?.[1] ?? '';
+  const pl = opis(/### 1\.2\. Pełny Opis Aplikacji/);
+  const en = opis(/### 2\.2\. Pełny Opis Aplikacji/);
+  const gb = opis(/#### 5\.1\.1\. Pełny opis en-GB, en-AU, en-CA/);
+  const zdania = (s: string) => s.split('\n')[0].match(/[^.!?]+[.!?]/g) ?? [];
+  /** Wiersz tabeli §5: kolumny po kodzie lokalizacji. */
+  const wiersz5 = (kod: string) => {
+    const linia = doc.split('\n').find((l) => l.startsWith('| ') && l.includes(`| \`${kod}\` |`)) ?? '';
+    const k = linia.split(' | ').map((c) => c.replace(/^\| |`/g, '').trim());
+    return { nazwa: k[2], podtytul: k[4], pierwsze: k[8] };
+  };
+  const pole = (re: RegExp) => doc.split('\n').map((l) => l.match(re)?.[1]).filter(Boolean);
+
+  it.each([
+    ['pl', () => pl],
+    ['en-US', () => en],
+    ['en-GB', () => gb],
+  ] as const)('%s: pierwsze zdanie opisu jest pierwszym zdaniem z §5 (główna praca)', (kod, tekst) => {
+    expect(tekst().length).toBeGreaterThan(500);
+    expect(zdania(tekst())[0]).toBe(wiersz5(kod).pierwsze);
+  });
+
+  it('nazwa i podtytuł PL i EN w §1.1 i §2.1 są tymi samymi polami co §5 (D-053)', () => {
+    expect(pole(/^\| \*\*(?:Nazwa aplikacji \(Name\)|App Name)\*\* \| `([^`]*)`/)).toEqual([wiersz5('pl').nazwa, wiersz5('en-US').nazwa]);
+    expect(pole(/^\| \*\*(?:Podtytuł \(Subtitle\)|Subtitle)\*\* \| `([^`]*)`/)).toEqual([wiersz5('pl').podtytul, wiersz5('en-US').podtytul]);
+    expect(wiersz5('pl').podtytul).toMatch(/[Pp]lan/);
+    expect(wiersz5('en-US').podtytul).toMatch(/Calculator/);
+  });
+
+  it('prywatność (bez konta, bez śledzenia) w pierwszych trzech zdaniach i ograniczenia nazwane', () => {
+    expect(zdania(pl).slice(0, 3).join(' ')).toMatch(/bez konta[\s\S]*bez śledzenia/);
+    expect(zdania(en).slice(0, 3).join(' ')).toMatch(/without an account[\s\S]*no tracking/);
+    expect(pl).toMatch(/iPhon[\s\S]*nie synchronizuje[\s\S]*Bez zgody na powiadomienia/);
+    expect(en).toMatch(/iPhone[\s\S]*does not sync[\s\S]*Without permission for notifications/);
+  });
+
+  it('tekst promocyjny PL i EN mówi o głównej pracy i prywatności, bez żargonu (True Baker, 4-DDT)', () => {
+    const promo = pole(/^\| \*\*(?:Tekst promocyjny \(Promotional Text\)|Promotional Text)\*\* \| `([^`]*)`/);
+    expect(promo).toHaveLength(2);
+    expect(promo[0]).toMatch(/gotowy[\s\S]*Bez konta/);
+    expect(promo[1]).toMatch(/ready[\s\S]*No account/);
+    for (const p of promo) expect(p).not.toMatch(/True Baker|4-DDT|Sleep Guard|100%/);
+  });
+
+  it('nazwa „Piekarz” / „Baker” bez dawnej „Crust” w całym dokumencie metadanych', () => {
+    expect(doc.match(/Crust\b/g) ?? []).toEqual([]);
+    expect(pl).toMatch(/^Piekarz /);
+    expect(en).toMatch(/^Baker /);
+  });
+
+  it('opisy PL, EN i en-GB bez funkcji PÓŹNIEJ i NIE (OG-05) i bez Akademii bez wejścia (F-44)', () => {
+    for (const tekst of [pl, en, gb]) {
+      expect(tekst.split('\n').filter((l) => OG05.test(l))).toEqual([]);
+      expect(tekst).not.toMatch(/Akademi|Academy|lekcj|lesson/i);
+    }
+  });
+
+  it('en-GB, en-AU, en-CA: opis = §2.2 z pisownią lokalną, w limicie 4000 znaków z podaną liczbą', () => {
+    expect(gb).toBe(en.replace(/flavor/g, 'flavour').replace(/discoloration/g, 'discolouration'));
+    expect(gb).not.toMatch(/flavor\b|discoloration/);
+    const podane = /#### 5\.1\.1\.[^\n]*— (\d[\d ]*) \/ 4 000 znaków/.exec(doc)?.[1];
+    expect(Number(podane?.replace(/ /g, ''))).toBe(znaki(gb));
+    expect(znaki(gb)).toBeLessThanOrEqual(4000);
+  });
+});

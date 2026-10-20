@@ -1,8 +1,8 @@
-# Pakiet Metadanych App Store Connect v2.0 — Piekarz (Crust)
+# Pakiet Metadanych App Store Connect v2.0 — Piekarz (EN: Baker)
 
 > **Dokument:** Apps4Craft Studio — App Store Operations Specyfikacja v2.0  
 > **Data:** 18 października 2026 r.  
-> **Aplikacja:** Piekarz (Crust)  
+> **Aplikacja:** Piekarz; po angielsku Baker (D-053: nazwa w tekstach = słowo przed dwukropkiem nazwy lokalizacji)  
 > **Bundle Identifier:** `com.apps4brew.baker`  
 > **SKU:** `piekarz-app-v2`  
 > **Kategoria Główna:** Food & Drink (Żywność i napoje)  
@@ -21,42 +21,40 @@
 | :--- | :--- | :---: | :---: |
 | **Nazwa aplikacji (Name)** | `Piekarz: Chleb na zakwasie` | **26** | max 30 |
 | **Podtytuł (Subtitle)** | `Plan i kalkulator wypieku` | **25** | max 30 |
-| **Tekst promocyjny (Promotional Text)** | `Rzemieślniczy asystent wypieku chleba na zakwasie. Prawdziwy procent piekarski (True Baker's %), 4-DDT, kroki z Twojego planu na stolnicy i 100% prywatności offline.` | **165** | max 170 |
+| **Tekst promocyjny (Promotional Text)** | `Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.` | **157** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 745 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 114 / 4 000 znaków)
 
 ```text
-Piekarz (Crust) prowadzi domowy wypiek chleba od receptury do bochenka: liczy ilości składników, układa plan od godziny, o której chleb ma być gotowy, i prowadzi Cię etapami tego planu. Działa bez konta i bez internetu, bez reklam i bez śledzenia.
+Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
 
-CO ROBI PIEKARZ
+RECEPTURY I ILOŚCI
+Wybierasz jedną z 15 receptur bazowych (na zakwasie, żytnie, drożdżowe, pizza i słodkie) albo własną. Ustawiasz liczbę bochenków albo masę mąki, a Piekarz podaje gramy mąki, wody, zakwasu, soli i drożdży. Procent piekarski uwzględnia mąkę i wodę z zakwasu i z zaczynu. Piekarz poda też temperaturę wody dla temperatury ciasta, którą chcesz uzyskać.
 
-1. PRAWDZIWY PROCENT PIEKARSKI (TRUE BAKER'S %)
-Piekarz rozbija zakwas na mąkę i wodę i liczy hydratację całego ciasta. W panelu PRO rozbija też zaczyn (poolish, biga, pâte fermentée, levain) na mąkę i wodę w zaczynie oraz resztę do miski. Wybierasz jedną z 15 receptur bazowych albo własną, ustawiasz liczbę bochenków, a karta „Do miski” podaje gramy mąki, wody, zakwasu, soli i drożdży.
+PLAN OD GODZINY „GOTOWE”
+Wybierasz, kiedy chleb ma być gotowy, a Piekarz liczy wstecz godzinę startu każdego kroku. Czas fermentacji zależy od temperatury w kuchni. Gdy krok wymagający twoich rąk wypada w nocy (domyślnie między 23:00 a 06:30), Piekarz zaproponuje dłuższy czas w lodówce. Gdy czasu jest za mało, poda najwcześniejszą możliwą godzinę.
 
-2. TEMPERATURA WODY (4-DDT)
-Ustawiasz docelową temperaturę ciasta, a Piekarz wylicza temperaturę wody wzorem 4-DDT. Gdy woda musiałaby mieć mniej niż 4 °C, podaje masę lodu w gramach; gdy wynik przekracza 45 °C, ostrzega.
+PROWADZENIE KROK PO KROKU
+Piekarz pokazuje bieżący krok: co zrobić, ile to trwa i co będzie potem. Gdy zezwolisz na powiadomienia, da znać o końcu kroku także przy zablokowanym telefonie. Ekran prowadzenia nie gaśnie w trakcie wypieku. Kroki z gorącym naczyniem albo surowym ciastem mają ostrzeżenie. Chleb żytni (ponad połowa mąki to mąka żytnia) ma własne kroki bez składania. Pomyłkowo potwierdzony krok cofniesz, a po ponownym otwarciu aplikacja wraca do bieżącego kroku.
 
-3. STOLNICA: ETAPY Z TWOJEGO PLANU
-Stolnica prowadzi Cię etapami planu z Harmonogramu, z minutnikiem każdego etapu: dokarmienie zakwasu, autoliza, wymieszanie z solą i zakwasem, fermentacja ze składaniami, formowanie wstępne, odpoczynek na desce, formowanie, garowanie w lodówce, nagrzewanie pieca, wypiek w garnku żeliwnym w dwóch fazach (pod pokrywką i bez pokrywki) i studzenie. Minutnik poprawisz o 10 sekund albo 5 minut. Gdy zezwolisz na powiadomienia, Piekarz da znać o końcu etapu także przy zablokowanym telefonie, a ekran Stolnicy nie gaśnie w trakcie wypieku. Dla ciasta, w którym mąka żytnia stanowi więcej niż 50% mąki, Stolnica prowadzi wariant żytni bez składania: ciasto po uformowaniu rośnie w formie i w niej się piecze, a czasy etapów pochodzą z Twojego planu.
+ZAKWASY
+Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.
 
-4. HARMONOGRAM WSTECZNY ZE SLEEP GUARD
-Wybierz dzień i godzinę, o której chleb ma być gotowy (np. jutro 08:30), a Harmonogram poda godzinę startu każdego etapu. Czas fermentacji dopasowuje do temperatury w kuchni. Sleep Guard ostrzeże, gdy etap wymagający Twoich rąk wypada w godzinach snu (domyślnie 23:00–06:30), i zaproponuje dłuższy czas w lodówce, który omija noc.
+DOKTOR CHLEBA
+Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
 
-5. ZAKWAS
-Prowadzisz kilka zakwasów z wiekiem, hydratacją i miejscem przechowywania. Kalkulator dokarmiania podaje gramy dla proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5, zapisuje karmienie i szacuje okno szczytu aktywności. Gdy zezwolisz na powiadomienia, przypomni o karmieniu. Karta bezpieczeństwa stosuje zasadę ostrożności: każdy nalot, przebarwienie albo zgniły zapach oznacza zalecenie, by zakwas wyrzucić.
+DZIENNIK
+Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.
 
-6. DOKTOR CHLEBA
-Miękisz jest zbity, a skórka blada? Zaznacz objawy, a Doktor Chleba wskaże jedną z 9 wad, wyjaśni przyczynę i poda kroki na następny wypiek. Cztery protokoły ratunkowe pomagają w trakcie fermentacji; przy każdym jednym dotknięciem wczytasz do Kalkulatora recepturę awaryjną (np. focaccię z przerośniętego ciasta). Doktora otwierasz ze Stolnicy albo Zakwasu, a po ocenie wypieku na 1 lub 2 gwiazdki Piekarz sam go zaproponuje. Z Doktora wchodzisz do Akademii: 6 lekcji Szkoły Chleba i 12 technik.
+TWOJE DANE
+Piekarz trzyma w telefonie 10 ostatnich automatycznych kopii zapasowych. Wszystkie dane wyeksportujesz do pliku i zaimportujesz z pliku, a historię wypieków wyeksportujesz jako CSV. Jednostki: gramy i °C albo uncje i °F.
 
-7. DZIENNIK WYPIEKÓW
-Po wypieku oceniasz bochenek: gwiazdki, miękisz, skórka i profil smaku. Historia pokazuje statystyki, a „Piecz ponownie” wczytuje recepturę do Kalkulatora.
-
-8. OFFLINE I PRYWATNOŚĆ
-Bez reklam, bez śledzenia, bez analityki, bez konta. Receptury, dziennik i notatki są zapisane tylko na Twoim urządzeniu i aplikacja ich nie wysyła; eksport (JSON, CSV), kod QR i wydruk uruchamiasz sam. Obliczenia, plan i minutniki działają bez internetu.
+WARTO WIEDZIEĆ
+Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.
 
 DOSTĘP I ZAKUP
-Pełny dostęp daje subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja może zaczynać się bezpłatnym okresem próbnym (oferta wprowadzająca App Store dla uprawnionych). Bez zakupu przeglądasz historię wypieków oraz eksportujesz i usuwasz swoje dane.
+Pełny dostęp daje subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja może zaczynać się bezpłatnym okresem próbnym (oferta wprowadzająca App Store dla uprawnionych). Bez zakupu przeglądasz historię wypieków, importujesz plik oraz eksportujesz i usuwasz swoje dane.
 
 Języki: polski i angielski.
 ```
@@ -71,42 +69,40 @@ Języki: polski i angielski.
 | :--- | :--- | :---: | :---: |
 | **App Name** | `Baker: Sourdough Bread Planner` | **30** | max 30 |
 | **Subtitle** | `Dough Calculator & Bake Timer` | **29** | max 30 |
-| **Promotional Text** | `Artisan sourdough baking companion. True Baker's %, 4-DDT water temperature, bench steps from your plan, reverse scheduler with Sleep Guard, and 100% offline privacy.` | **166** | max 170 |
+| **Promotional Text** | `Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.` | **161** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 879 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 128 / 4 000 znaków)
 
 ```text
-Crust guides home bread baking from recipe to loaf: it calculates ingredient amounts, builds a plan from the time you want the bread ready, and walks you through the stages of that plan. It works without an account and without the internet, with no ads and no tracking.
+Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
 
-WHAT CRUST DOES
+RECIPES AND AMOUNTS
+Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment. Baker also gives the water temperature for the dough temperature you want.
 
-1. TRUE BAKER'S PERCENTAGE
-Crust splits your starter into flour and water and calculates the hydration of the whole dough. In the PRO panel it also splits a preferment (poolish, biga, pâte fermentée, levain) into the flour and water in the preferment and the rest that goes into the bowl. Pick one of 15 base recipes or your own, set the number of loaves, and the "Into the bowl on scale" card gives the grams of flour, water, starter, salt and yeast.
+A PLAN FROM THE "READY" TIME
+Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 06:30 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
 
-2. WATER TEMPERATURE (4-DDT)
-Set your desired dough temperature and Crust calculates the water temperature with the 4-DDT formula. When the water would have to be below 4 °C, it gives the ice weight in grams; when the result is above 45 °C, it warns you.
+STEP-BY-STEP GUIDANCE
+Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. The guidance screen stays on during the bake. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
 
-3. WORKBENCH: STAGES FROM YOUR PLAN
-The Workbench guides you through the stages of your plan from the Schedule, with a timer for every stage: starter feed, autolyse, mixing with salt and starter, bulk fermentation with folds, pre-shape, bench rest, shaping, cold proof in the fridge, oven preheat, Dutch oven baking in two phases (lid on and lid off) and cooling. You can correct the timer by 10 seconds or 5 minutes. If you allow notifications, Crust tells you when a stage ends even when your phone is locked, and the Workbench screen stays on during a bake. For dough in which rye flour makes up more than 50% of the flour, the Workbench runs a rye variant with no folding: after shaping, the dough rises in a tin and is baked in it, with stage times taken from your plan.
+STARTERS
+Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discoloration or rotten smell, it advises you to throw the starter away.
 
-4. REVERSE SCHEDULER WITH SLEEP GUARD
-Choose the day and time you want the bread ready (e.g. tomorrow 08:30) and the Schedule gives the start time of every stage. It adjusts fermentation time to your kitchen temperature. Sleep Guard warns you when a hands-on stage falls in your sleeping hours (23:00–06:30 by default) and suggests a longer time in the fridge that avoids the night.
+BREAD DOCTOR
+Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
 
-5. STARTER
-Keep several starters with their age, hydration and storage place. The feeding calculator gives grams for 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratios, records the feeding and estimates the peak activity window. If you allow notifications, it reminds you to feed. The safety card follows a precautionary rule: any film, discoloration or rotten smell means the advice is to throw the starter away.
+JOURNAL
+Rate each loaf: stars, crumb, crust and flavor profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
 
-6. BREAD DOCTOR
-Dense crumb and a pale crust? Mark the symptoms and the Bread Doctor points to one of 9 defects, explains the cause and gives steps for your next bake. Four recovery protocols help during fermentation; with each one, a single tap loads a backup recipe into the Calculator (e.g. focaccia from over-proofed dough). You open the Doctor from the Workbench or Sourdough tab, and after you rate a bake 1 or 2 stars Crust suggests it. From the Doctor you enter the Baker Academy: 6 Bread School lessons and 12 techniques.
+YOUR DATA
+Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.
 
-7. BAKE LOG
-After a bake you rate the loaf: stars, crumb, crust and flavor profile. The history shows statistics, and "Bake Again" loads the recipe into the Calculator.
-
-8. OFFLINE AND PRIVACY
-No ads, no tracking, no analytics, no account. Recipes, the log and notes are stored only on your device and the app does not send them; you start export (JSON, CSV), QR code and printing yourself. Calculations, the plan and timers work without the internet.
+GOOD TO KNOW
+Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
 
 ACCESS AND PURCHASE
-Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history and export and delete your data.
+Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
 
 Languages: Polish and English.
 ```
@@ -195,7 +191,7 @@ Notatki są po angielsku, bo recenzent używa interfejsu EN; nazwy przycisków s
 ```text
 Dear App Review Team,
 
-Piekarz (Crust) is a 100% offline bread-baking assistant. There is no sign-in, no account and no network use; all data stays on the device.
+Baker (Polish name: Piekarz) is a 100% offline bread-baking assistant. There is no sign-in, no account and no network use; all data stays on the device.
 
 1. PURCHASES AND FREE TRIAL
 Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing and reading, exporting and deleting your own data work.
@@ -271,7 +267,42 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 | en-GB, en-AU | Plan sourdough back from the time you want it ready: baker's %, 4-DDT water temperature, sleep-friendly steps and timers. Offline, no account, no ads. | 150 |
 | en-CA | Sourdough planner with baker's percentage: recipe amounts, a plan back from your ready time, timers that ring while the phone is locked. No account, no ads. | 156 |
 
-Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 po aktualizacji 081, z nazwą „Baker” i pisownią lokalną: en-GB i en-AU „discolouration”, „flavour”, „prove / proving”, „over-proved”; en-CA „discolouration”, „flavour”, „proof / proofing”, „over-proofed”. Wyjątek nazwany od D-054 / STOP 1 (3a): opis z dzisiejszego §2.2 opisuje ekrany sprzed nowej szaty (partia 5) i funkcje poza zakresem B, więc jego kopia z pisownią brytyjską utrwaliłaby nieprawdę; do czasu 081 lokalizacje angielskie spoza USA dostają tylko pola z tabeli i tekst promocyjny.
+Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
+
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 130 / 4 000 znaków)
+
+```text
+Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
+
+RECIPES AND AMOUNTS
+Choose one of 15 base recipes (sourdough, rye, yeast, pizza and sweet) or your own. Set the number of loaves or the flour weight, and Baker gives the grams of flour, water, starter, salt and yeast. The baker's percentage counts the flour and water in your starter and in a preferment. Baker also gives the water temperature for the dough temperature you want.
+
+A PLAN FROM THE "READY" TIME
+Choose when the bread should be ready, and Baker works back to the start time of every step. Fermentation time follows your kitchen temperature. When a hands-on step falls at night (23:00 to 06:30 by default), Baker suggests a longer time in the fridge. If there is not enough time, it gives the earliest possible ready time.
+
+STEP-BY-STEP GUIDANCE
+Baker shows the current step: what to do, how long it takes and what comes next. If you allow notifications, it tells you when a step ends even when your phone is locked. The guidance screen stays on during the bake. Steps with a hot pot or raw dough carry a safety warning. Rye bread (more than half rye flour) gets its own steps with no folding. You can undo a step confirmed by mistake, and the app returns to the current step when you open it again.
+
+STARTERS
+Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away.
+
+BREAD DOCTOR
+Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
+
+JOURNAL
+Rate each loaf: stars, crumb, crust and flavour profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
+
+YOUR DATA
+Baker keeps the last 10 automatic backups on your phone. You can export all your data to a file, import it from a file and export your bake history as CSV. Units: grams and °C or ounces and °F.
+
+GOOD TO KNOW
+Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
+
+ACCESS AND PURCHASE
+Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
+
+Languages: Polish and English.
+```
 
 ### 5.2. Kolejność zrzutów (D-055, wszystkie lokalizacje)
 
