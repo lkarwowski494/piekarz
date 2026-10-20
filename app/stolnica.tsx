@@ -10,15 +10,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { t } from '../src/lib/i18n';
-import { guardSave } from '../src/lib/save-guard';
 import { tapHaptic } from '../src/lib/haptics';
 import { useBakeSession } from '../src/hooks/useBakeSession';
+import { useFinishBake } from '../src/hooks/useFinishBake';
 import { saveBakeSession } from '../src/data/bake-session-store';
 import { resyncNotifications, ensureNotificationPermission } from '../src/lib/notifications';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
 import {
-  finishBake,
   setActiveBake,
   ActiveBakeState,
   getBakingVessel,
@@ -26,7 +25,6 @@ import {
   BakingVessel,
 } from '../src/data/sqlite-store';
 import { useUnitSystem, formatTextUnits } from '../src/lib/unit-converter';
-import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../src/components/SensoryRadarChart';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
@@ -34,8 +32,6 @@ import { stepDurationSec, stepHasTimer } from '../src/core/bake-session';
 import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
-import { suggestDoctorAfterRating } from '../src/lib/doctor-suggestion';
-import { poprosOOceneJesliWarto } from '../src/lib/prosba-o-ocene-wywolanie';
 import { FinishBakeModal } from '../src/components/stolnica/FinishBakeModal';
 import { PokeTestEntry } from '../src/components/stolnica/PokeTestEntry';
 import { DutchOvenController } from '../src/components/stolnica/DutchOvenController';
@@ -74,15 +70,6 @@ export default function StolnicaScreen() {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [dutchOvenPhase, setDutchOvenPhase] = useState<DutchOvenBakePhase>('lid_on');
 
-  // Finish Bake Modal & History
-  const [isFinishModalOpen, setIsFinishModalOpen] = useState<boolean>(false);
-  const [finishRating, setFinishRating] = useState<number>(5);
-  const ratingTouched = useRef(false); // domyślne 5★ to nie ocena (D-042, 082)
-  const [finishNotes, setFinishNotes] = useState<string>('');
-  const [finishCrumbScore, setFinishCrumbScore] = useState<number>(3);
-  const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
-  const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
-  const [finishSensoryProfile, setFinishSensoryProfile] = useState<BreadSensoryProfile>(DEFAULT_BREAD_SENSORY_PROFILE);
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     blokada,
@@ -101,6 +88,19 @@ export default function StolnicaScreen() {
     handleBakeAgain,
     handleDeleteBakeLog,
   } = useBakeHistory(requireActionAccess);
+
+  const finish = useFinishBake({
+    recipeName,
+    startedAt,
+    activeBakeData,
+    onFinished: () => {
+      setActiveBakeData(null);
+      setIsActive(false);
+      setCurrentStepIdx(0);
+    },
+    loadHistory,
+    openDoctor: chron('doktor', () => router.push('/doktor')),
+  });
 
   useEffect(() => {
     void getBakingVessel().then((v) => {
@@ -221,7 +221,7 @@ export default function StolnicaScreen() {
     if (currentStepIdx < steps.length - 1) {
       goToStep(currentStepIdx + 1);
     } else {
-      setIsFinishModalOpen(true);
+      finish.open();
     }
   };
 
@@ -245,47 +245,6 @@ export default function StolnicaScreen() {
     setTimeLeftSec((prev) => Math.max(0, prev + deltaSeconds));
     setIsCompleted(false);
   };
-
-  // Finish bake: wpis, licznik wypieków i odliczenie mąki w jednej transakcji [M1-audytor-generalny-021]
-  const handleSaveFinishBake = guardSave(async () => {
-    await finishBake({
-      id: `bake_${Date.now()}`,
-      recipeName,
-      startedAt,
-      finishedAt: Date.now(),
-      ambientTemp: activeBakeData?.ambientTempC,
-      actualDDT: activeBakeData?.actualDdtC,
-      ratingStars: finishRating,
-      notes: finishNotes.trim() || undefined,
-      crumbScore: finishCrumbScore,
-      crustScore: finishCrustScore,
-      tasteProfile: finishTasteProfile,
-      sensoryProfile: {
-        ...finishSensoryProfile,
-        openCrumb: finishCrumbScore,
-        crustCrispness: finishCrustScore,
-      },
-    }, activeBakeData?.calculatedRecipe?.flours ?? []);
-
-    setActiveBake(null);
-    await saveBakeSession(null);
-    void resyncNotifications();
-    setActiveBakeData(null);
-    setIsActive(false);
-    setCurrentStepIdx(0);
-    setIsFinishModalOpen(false);
-    setFinishCrumbScore(3);
-    setFinishCrustScore(3);
-    setFinishTasteProfile('balanced');
-    setFinishSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
-    setFinishNotes('');
-    await loadHistory();
-    // Po zapisanym wpisie: propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032]
-    suggestDoctorAfterRating(finishRating, chron('doktor', () => router.push('/doktor')));
-    // Systemowa prośba o ocenę przy >= 4★ wybranych przez użytkownika (BR-OPIN-001)
-    void poprosOOceneJesliWarto(ratingTouched.current ? finishRating : null);
-    ratingTouched.current = false;
-  });
 
   const handleDiscard = () => {
     confirmDiscardBake(() => {
@@ -420,24 +379,8 @@ export default function StolnicaScreen() {
           </BlokadaFunkcji>
         )}
 
-        {/* Modal: Finish Bake Evaluation */}
-        <FinishBakeModal
-          visible={isFinishModalOpen}
-          onClose={() => setIsFinishModalOpen(false)}
-          onSave={handleSaveFinishBake}
-          rating={finishRating}
-          onRatingChange={(r) => { ratingTouched.current = true; setFinishRating(r); }}
-          notes={finishNotes}
-          onNotesChange={setFinishNotes}
-          crumbScore={finishCrumbScore}
-          onCrumbScoreChange={setFinishCrumbScore}
-          crustScore={finishCrustScore}
-          onCrustScoreChange={setFinishCrustScore}
-          tasteProfile={finishTasteProfile}
-          onTasteProfileChange={setFinishTasteProfile}
-          sensoryProfile={finishSensoryProfile}
-          onSensoryProfileChange={setFinishSensoryProfile}
-        />
+        {/* Arkusz oceny po ostatnim kroku */}
+        <FinishBakeModal {...finish.modalProps} />
 
       </ScrollView>
     </SafeAreaView>
