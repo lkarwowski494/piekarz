@@ -2,7 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, Linking, Alert } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { PRIVACY_URL, APP_STORE_ID, APP_STORE_REVIEW_URL } from '../../lib/links';
+import { PRIVACY_URL, APP_STORE_ID, APP_STORE_REVIEW_URL, SUPPORT_EMAIL } from '../../lib/links';
+import { czyAdresWsparcia } from '../../lib/zgloszenie';
+import { napiszDoAutora } from '../../lib/zgloszenie-wyslanie';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import {
   CRAFT_APPS,
@@ -99,6 +101,18 @@ export function StudioEcosystemSection() {
             testID="settings-rate-link"
           >
             <Text style={styles.linkText}>{t('Oceń w App Store')}</Text>
+          </Pressable>
+        )}
+        {/* Kontakt przez systemową pocztę (BR-OPIN-003); ukryty, dopóki adres wsparcia jest znacznikiem [M1-audytor-generalny-083] */}
+        {czyAdresWsparcia(SUPPORT_EMAIL) && (
+          <Pressable
+            style={styles.linkRow}
+            onPress={() => void napiszDoAutora()}
+            accessibilityRole="button"
+            accessibilityLabel={t('Napisz do nas')}
+            testID="settings-contact-link"
+          >
+            <Text style={styles.linkText}>{t('Napisz do nas')}</Text>
           </Pressable>
         )}
       </View>

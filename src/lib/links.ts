@@ -23,3 +23,8 @@ export const APPLE_SUBSCRIPTIONS_URL = 'https://apps.apple.com/account/subscript
  */
 export const APP_STORE_ID = '[DO USTALENIA: Apple ID aplikacji z App Store Connect]';
 export const APP_STORE_REVIEW_URL = `https://apps.apple.com/app/apple-store/id${APP_STORE_ID}?action=write-review`;
+/**
+ * Adres wsparcia dla „Napisz do nas” (BR-OPIN-003); ten sam trafia na stronę wsparcia (012).
+ * Dopóki to znacznik, a nie adres e-mail, wiersz się nie renderuje [M1-audytor-generalny-083; 11-wzrost-005].
+ */
+export const SUPPORT_EMAIL = '[DO USTALENIA: adres wsparcia od właściciela]';

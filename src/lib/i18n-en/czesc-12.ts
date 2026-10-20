@@ -138,4 +138,14 @@ export const EN_12: Record<string, string> = {
   // Link do opinii w Ustawieniach, BR-OPIN-002 [M1-audytor-generalny-082]
   'Oceń w App Store': 'Rate on the App Store',
   'Ocena wymaga połączenia z App Store.': 'Rating requires a connection to the App Store.',
+  // Kontakt z autorem przez pocztę systemową, BR-OPIN-003 [M1-audytor-generalny-083]
+  'Napisz do nas': 'Contact us',
+  'wiadomość do autora': 'message to the developer',
+  'Opisz, co się stało albo co chcesz nam przekazać:': 'Describe what happened or what you would like to tell us:',
+  'Wersja aplikacji: {wersja}': 'App version: {wersja}',
+  'Telefon: {model}': 'Phone: {model}',
+  'nieznana': 'unknown',
+  'Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}':
+    'Mail is not set up on this phone. Write to: {adres}',
+  'Kopiuj adres': 'Copy address',
 };

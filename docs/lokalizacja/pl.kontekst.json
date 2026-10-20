@@ -1921,6 +1921,11 @@
       "src/lib/backup.ts (dialogTitle)"
     ]
   },
+  "Kopiuj adres": {
+    "gdzie": [
+      "src/lib/zgloszenie-wyslanie.ts (text)"
+    ]
+  },
   "Kopiuj diagnozę": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
@@ -2644,6 +2649,13 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
     ]
   },
+  "Napisz do nas": {
+    "gdzie": [
+      "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
+      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)",
+      "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
+    ]
+  },
   "Następne pytanie": {
     "gdzie": []
   },
@@ -3123,6 +3135,11 @@
       "src/core/bread-school-lessons.ts (dane: didacticGoalPl)"
     ]
   },
+  "Opisz, co się stało albo co chcesz nam przekazać:": {
+    "gdzie": [
+      "src/lib/zgloszenie.ts (kod)"
+    ]
+  },
   "Oprósz wierzch ciasta mąką, odwróć skrobką na drugą stronę (strona gładka dotyka blatu).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
@@ -3367,6 +3384,11 @@
   "Pochyl żyletkę pod kątem 30° do powierzchni ciasta (cięcie pod skórkę).": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}": {
+    "gdzie": [
+      "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
     ]
   },
   "Początkowy stan zapasów (g)": {
@@ -4728,6 +4750,11 @@
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
+  "Telefon: {model}": {
+    "gdzie": [
+      "src/lib/zgloszenie.ts (kod)"
+    ]
+  },
   "Telemetria i chmura:": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
@@ -5265,6 +5292,11 @@
   "Wersja 1.1, podgląd": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Wersja aplikacji: {wersja}": {
+    "gdzie": [
+      "src/lib/zgloszenie.ts (kod)"
     ]
   },
   "Wiejski chleb codzienny na zakwasie": {
@@ -6105,7 +6137,8 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/PaywallModal.tsx (label)",
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
+      "src/components/StarterConverterModal.tsx (tekst w JSX)",
+      "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
   "Zamknij Akademię": {
@@ -6659,6 +6692,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "nieznana": {
+    "gdzie": [
+      "src/lib/zgloszenie.ts (kod)"
+    ]
+  },
   "np. Mąka pszenna chlebowa t750": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (placeholder)"
@@ -6732,6 +6770,11 @@
   "w tym lód": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "wiadomość do autora": {
+    "gdzie": [
+      "src/lib/zgloszenie.ts (kod)"
     ]
   },
   "woda z kranu ({temp})": {
