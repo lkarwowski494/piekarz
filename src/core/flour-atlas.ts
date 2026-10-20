@@ -311,7 +311,7 @@ export interface FlourBlendValidationResult {
   errorPl?: string;
   /** Szablon komunikatu + parametry do t() przy wyświetlaniu [M1-audytor-generalny-047] */
   errorTemplatePl?: string;
-  errorParams?: Record<string, string>;
+  errorParams?: Record<string, number>;
 }
 
 /**
@@ -334,19 +334,20 @@ export function validateFlourBlend(flours: FlourBlendEntry[]): FlourBlendValidat
   const isValid = Math.abs(sum - 100.0) <= 0.05;
 
   let errorTemplatePl: string | undefined;
-  let errorParams: Record<string, string> | undefined;
+  // Liczby zostają liczbami: t() formatuje je według języka aplikacji [M1-audytor-generalny-070]
+  let errorParams: Record<string, number> | undefined;
   if (!isValid) {
     if (sum < 100.0) {
       errorTemplatePl = 'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.';
-      errorParams = { suma: String(sum), reszta: String(remaining) };
+      errorParams = { suma: sum, reszta: remaining };
     } else {
       errorTemplatePl = 'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.';
-      errorParams = { suma: String(sum), reszta: String(Math.abs(remaining)) };
+      errorParams = { suma: sum, reszta: Math.abs(remaining) };
     }
   }
   const errorPl =
     errorTemplatePl && errorParams
-      ? Object.entries(errorParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), errorTemplatePl)
+      ? Object.entries(errorParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(`${v}`), errorTemplatePl)
       : undefined;
 
   return {

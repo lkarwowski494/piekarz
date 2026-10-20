@@ -120,4 +120,11 @@ export const EN_12: Record<string, string> = {
     'Cooling on a rack (do not slice it hot!)',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.':
     'Turn out onto a metal rack. Wait at least 2 hours for the crumb to finish the gelling process.',
+  // Adaptacja czasu fermentacji Q10, RD-08 [M1-audytor-generalny-070]
+  'Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.':
+    'Optimal temperature ({temp}°C). Time matches the recipe.',
+  'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).':
+    'Warm kitchen ({temp}°C). Fermentation shortened by {min} min (protects against over-souring).',
+  'Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).':
+    'Cool kitchen ({temp}°C). Fermentation extended by {min} min (yeast works more slowly).',
 };

@@ -11,6 +11,17 @@ import { formatDate as formatDateApp } from '../date';
 import { buildBackup } from '../backup';
 import { exportFlourInventoryCsv } from '../csv-exporter';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
+import { t } from '../i18n';
+import { formatRecipeText } from '../recipe-formatter';
+import { calculateDoughRecipe, calculateBakeLossMetrics, calculateFermentationAdaptation } from '../../core/domain-rules';
+import { validateFlourBlend } from '../../core/flour-atlas';
+import { calculateRecipeStarterSubstitution } from '../../core/starter-converter';
+import { DoMiskiScaleCard } from '../../components/calculator/DoMiskiScaleCard';
+import { AccordionDdtSection } from '../../components/calculator/accordion/AccordionDdtSection';
+import { AccordionBakeLossSection } from '../../components/calculator/accordion/AccordionBakeLossSection';
+import { FlourEquivalentsModal } from '../../components/FlourEquivalentsModal';
 
 const D = new Date(2026, 9, 25, 21, 5); // 25.10.2026 21:05 czasu lokalnego
 
@@ -99,6 +110,141 @@ describe('miejsca wyświetlania według języka aplikacji', () => {
     walk(join(root, 'src'));
     walk(join(root, 'app'));
     expect(hits).toEqual([]);
+  });
+});
+
+// Resztki 070 (partia 4): wartości wstawiane wprost do JSX i parametry t() przez String() [M1-audytor-generalny-070]
+describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
+  const textOf = (n: unknown): string => {
+    if (typeof n === 'string' || typeof n === 'number') return String(n);
+    if (Array.isArray(n)) return n.map(textOf).join('');
+    if (n && typeof n === 'object' && 'children' in n) return textOf((n as { children: unknown }).children);
+    return '';
+  };
+  const render = (el: React.ReactElement): string => {
+    let tree: renderer.ReactTestRenderer | undefined;
+    act(() => {
+      tree = renderer.create(el);
+    });
+    const s = textOf(tree?.toJSON()).replace(/\s+/g, ' ');
+    act(() => tree?.unmount());
+    return s;
+  };
+  const calc = calculateDoughRecipe({
+    flours: [{ name: 'Mąka pszenna typ 750', percentage: 100 }],
+    waterPercentage: 70,
+    saltPercentage: 2,
+    starterPercentage: 20,
+    targetDoughWeightGrams: 960,
+  });
+
+  it('t(): liczba w parametrze PL z przecinkiem, EN z kropką; całkowita bez zmian', () => {
+    setLang('pl');
+    expect(t('Mąka: {amount} g', { amount: 2.5 })).toBe('Mąka: 2,5 g');
+    expect(t('Mąka: {amount} g', { amount: 1250 })).toBe('Mąka: 1250 g');
+    setLang('en');
+    expect(t('Mąka: {amount} g', { amount: 2.5 })).toBe('Flour: 2.5 g');
+  });
+
+  it('Do miski: „70,91% hydratacji” w PL, „70.91% hydration” w EN', () => {
+    const el = React.createElement(DoMiskiScaleCard, {
+      calculations: { ...calc, overallHydrationPercent: 70.91 },
+      saltPercent: 2,
+      recipeName: 'X',
+      loavesCount: 1,
+      onLoavesChange: () => {},
+      presets: [],
+      selectedPresetId: '',
+      onSelectPreset: () => {},
+      onStartBake: () => {},
+    });
+    setLang('pl');
+    expect(render(el)).toContain('70,91% hydratacji');
+    setLang('en');
+    expect(render(el)).toContain('70.91% hydration');
+  });
+
+  it('chłonność i białko mieszanki: PL 68,4% i ~11,5%, EN 68.4% i ~11.5%', () => {
+    const el = React.createElement(AccordionDdtSection, {
+      targetDdt: 25,
+      onTargetDdtChange: () => {},
+      waterTempTarget: 20,
+      waterPct: 70,
+      onWaterPctChange: () => {},
+      blendAbsorption: {
+        weightedAbsorptionPercent: 68.4,
+        recommendedHydrationRange: [66.5, 72.5],
+        estimatedProteinPercent: 11.5,
+        ryePercentage: 0,
+        wholeGrainPercentage: 0,
+        doughFeelAdvicePl: 'Idealny balans chłonności i hydratacji dla tej kompozycji mąk.',
+      },
+    });
+    setLang('pl');
+    const pl = render(el);
+    expect(pl).toContain('68,4%');
+    expect(pl).toContain('66,5–72,5%');
+    expect(pl).toContain('~11,5%');
+    setLang('en');
+    const en = render(el);
+    expect(en).toContain('68.4%');
+    expect(en).toContain('66.5–72.5%');
+    expect(en).toContain('~11.5%');
+  });
+
+  it('wilgotność miękiszu na ekranie i w tekście receptury: PL 28,1%, EN 28.1%', () => {
+    const metrics = { ...calculateBakeLossMetrics(960, 14, 400), retainedMoisturePercent: 28.1 };
+    const el = React.createElement(AccordionBakeLossSection, {
+      bakeLossPercent: 14,
+      bakedTotalWeightGrams: 826,
+      bakeLossMetrics: metrics,
+    });
+    setLang('pl');
+    expect(render(el)).toContain('28,1%');
+    expect(formatRecipeText({ recipeName: 'X', calc, bakeLoss: metrics })).toContain('28,1%');
+    setLang('en');
+    expect(render(el)).toContain('28.1%');
+    expect(formatRecipeText({ recipeName: 'X', calc, bakeLoss: metrics })).toContain('28.1%');
+  });
+
+  it('atlas zamienników: białko i popiół PL z przecinkiem, EN z kropką', () => {
+    const el = React.createElement(FlourEquivalentsModal, { visible: true, onClose: () => {} });
+    setLang('pl');
+    const pl = render(el);
+    expect(pl).toContain('~10,5%');
+    expect(pl).toContain('0,5–0,59%');
+    expect(pl).not.toMatch(/\d\.\d/);
+    setLang('en');
+    const en = render(el);
+    expect(en).toContain('~10.5%');
+    expect(en).toContain('0.5–0.59%');
+  });
+
+  it('komunikaty rdzenia z parametrami (mieszanka, zakwas, spiżarnia) przez t() według języka', () => {
+    const v = validateFlourBlend([{ name: 'A', percentage: 60.5 } as Parameters<typeof validateFlourBlend>[0][number]]);
+    setLang('pl');
+    expect(t(v.errorTemplatePl ?? '', v.errorParams)).toBe('Suma procentów wynosi 60,5% — brakuje jeszcze 39,5%.');
+    setLang('en');
+    expect(t(v.errorTemplatePl ?? '', v.errorParams)).toBe('The percentages add up to 60.5% — 39.5% still missing.');
+    const s = calculateRecipeStarterSubstitution({ recipeStarterGrams: 100, recipeStarterHydration: 100, userStarterHydration: 62.5 });
+    setLang('pl');
+    expect(t(s.adviceTemplatePl, s.adviceParams)).toContain('(62,5%)');
+    setLang('en');
+    expect(t(s.adviceTemplatePl, s.adviceParams)).toContain('(62.5%)');
+  });
+
+  it('komunikat adaptacji Q10 (RD-08): PL „21,5°C”, EN po angielsku „21.5°C”', () => {
+    setLang('pl');
+    const pl = calculateFermentationAdaptation(4, 21.5).messagePl;
+    expect(pl).toContain('21,5°C');
+    expect(pl).toContain('wydłużony');
+    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24,0°C');
+    setLang('en');
+    const en = calculateFermentationAdaptation(4, 21.5).messagePl;
+    expect(en).toContain('21.5°C');
+    expect(en).not.toMatch(/[ąćęłńóśźż]|Chłodno|wydłużony/i);
+    expect(calculateFermentationAdaptation(4, 27).messagePl).toContain('27.0°C');
+    expect(calculateFermentationAdaptation(4, 24).messagePl).toContain('24.0°C');
   });
 });
 

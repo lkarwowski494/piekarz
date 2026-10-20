@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { formatNumber } from '../lib/format';
 import {
   getFlourEquivalents,
   searchFlourEquivalents,
@@ -84,7 +85,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                   <Text style={styles.cardTitle}>{t(entry.namePl)}</Text>
                   <View style={styles.absorptionBadge}>
                     <Text style={styles.absorptionBadgeText}>
-                      💧 ~{entry.typicalAbsorptionPercent}% {t('wody')}
+                      💧 ~{formatNumber(entry.typicalAbsorptionPercent)}% {t('wody')}
                     </Text>
                   </View>
                 </View>
@@ -116,10 +117,10 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                 {/* Technical stats */}
                 <View style={styles.statsRow}>
                   <Text style={styles.statChip}>
-                    🔥 {t('Popiół:')} {entry.ashPercentRange[0]}–{entry.ashPercentRange[1]}%
+                    🔥 {t('Popiół:')} {formatNumber(entry.ashPercentRange[0], undefined, { maximumFractionDigits: 2 })}–{formatNumber(entry.ashPercentRange[1], undefined, { maximumFractionDigits: 2 })}%
                   </Text>
                   <Text style={styles.statChip}>
-                    🌾 {t('Białko:')} ~{entry.typicalProteinPercent}%
+                    🌾 {t('Białko:')} ~{formatNumber(entry.typicalProteinPercent)}%
                   </Text>
                   {entry.wStrengthRange && (
                     <Text style={styles.statChip}>

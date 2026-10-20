@@ -93,7 +93,7 @@ export function AccordionBakeLossSection({
           <View style={styles.bakeLossMetricCol}>
             <Text style={styles.bakeLossMetricLabel}>{t('Szacowana wilgotność miękiszu')}</Text>
             <Text style={[styles.bakeLossMetricValue, { color: theme.colors.accentDark }]} testID="bake-loss-moisture-value">
-              {bakeLossMetrics.retainedMoisturePercent}%
+              {formatNumber(bakeLossMetrics.retainedMoisturePercent)}%
             </Text>
           </View>
         </View>

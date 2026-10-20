@@ -62,7 +62,7 @@ export interface RecipeStarterSubstitutionResult {
   advicePl: string;
   /** Szablon porady + parametry do t() przy wyświetlaniu [M1-audytor-generalny-047] */
   adviceTemplatePl: string;
-  adviceParams: Record<string, string>;
+  adviceParams: Record<string, number>;
 }
 
 export interface StarterHydrationConversionInput {
@@ -85,7 +85,7 @@ export interface StarterHydrationConversionResult {
   tipPl: string;
   /** Szablon wskazówki + parametry i opcjonalne zdanie o konsystencji (do t()) [M1-audytor-generalny-047] */
   tipTemplatePl: string;
-  tipParams: Record<string, string>;
+  tipParams: Record<string, number>;
   tipConsistencyPl?: string;
 }
 
@@ -121,11 +121,12 @@ export function calculateRecipeStarterSubstitution(
 
   let action: 'ADD' | 'REDUCE' | 'NONE' = 'NONE';
   let adviceTemplatePl = 'Hydratacja zakwasu jest identyczna — brak konieczności korekty wody w cieście.';
-  const adviceParams: Record<string, string> = {
-    twoj: String(userStarterHydration),
-    przepis: String(recipeStarterHydration),
-    zakwas: String(roundedUserStarter),
-    woda: String(Math.abs(waterAdjustment)),
+  // Liczby zostają liczbami: t() formatuje je według języka aplikacji [M1-audytor-generalny-070]
+  const adviceParams: Record<string, number> = {
+    twoj: userStarterHydration,
+    przepis: recipeStarterHydration,
+    zakwas: roundedUserStarter,
+    woda: Math.abs(waterAdjustment),
   };
 
   if (waterAdjustment > 0.4) {
@@ -137,7 +138,7 @@ export function calculateRecipeStarterSubstitution(
     adviceTemplatePl =
       'Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.';
   }
-  const advicePl = Object.entries(adviceParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), adviceTemplatePl);
+  const advicePl = Object.entries(adviceParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(`${v}`), adviceTemplatePl);
 
   return {
     recipeStarterGrams,
@@ -204,11 +205,11 @@ export function convertStarterHydration(
   const actualHydration = Number(((totalWater / totalFlour) * 100.0).toFixed(1));
 
   const tipTemplatePl = 'Wymieszaj {matka}g zakwasu matki ({hydratacja}%) z {maka}g mąki i {woda}g wody.';
-  const tipParams: Record<string, string> = {
-    matka: String(seedGrams),
-    hydratacja: String(sourceHydration),
-    maka: String(addedFlour),
-    woda: String(addedWater),
+  const tipParams: Record<string, number> = {
+    matka: seedGrams,
+    hydratacja: sourceHydration,
+    maka: addedFlour,
+    woda: addedWater,
   };
   let tipConsistencyPl: string | undefined;
   if (targetHydration <= 55) {
@@ -216,7 +217,7 @@ export function convertStarterHydration(
   } else if (targetHydration >= 100) {
     tipConsistencyPl = 'Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.';
   }
-  const tipMain = Object.entries(tipParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), tipTemplatePl);
+  const tipMain = Object.entries(tipParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(`${v}`), tipTemplatePl);
   const tipPl = tipConsistencyPl ? ` ${tipConsistencyPl}` : tipMain;
 
   return {

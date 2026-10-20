@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
-import { formatFixed } from '../../../lib/format';
+import { formatFixed, formatNumber } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatWeight, formatTemperature } from '../../../lib/unit-converter';
@@ -156,7 +156,7 @@ export function AccordionDdtSection({
       {blendAbsorption && (
         <View style={styles.absorptionBadge} testID="flour-absorption-badge">
           <Text style={styles.absorptionLabel}>
-            🌾 {t('Chłonność mąk:')} {blendAbsorption.weightedAbsorptionPercent}% ({t('zalecana')}: {blendAbsorption.recommendedHydrationRange[0]}–{blendAbsorption.recommendedHydrationRange[1]}%) • {t('Białko')}: ~{blendAbsorption.estimatedProteinPercent}%
+            🌾 {t('Chłonność mąk:')} {formatNumber(blendAbsorption.weightedAbsorptionPercent)}% ({t('zalecana')}: {formatNumber(blendAbsorption.recommendedHydrationRange[0])}–{formatNumber(blendAbsorption.recommendedHydrationRange[1])}%) • {t('Białko')}: ~{formatNumber(blendAbsorption.estimatedProteinPercent)}%
           </Text>
           <Text style={styles.absorptionAdviceText}>
             💡 {t(blendAbsorption.doughFeelAdvicePl)}

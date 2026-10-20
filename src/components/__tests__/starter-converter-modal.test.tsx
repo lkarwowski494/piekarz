@@ -59,7 +59,7 @@ describe('StarterConverterModal Component (src/components/StarterConverterModal.
     const fullText = JSON.stringify(tree!.toJSON());
     // Recipe is 150g at 100% -> user starter at 50% requires 113g and +37.5g water
     expect(fullText).toContain('113g');
-    expect(fullText).toContain('+37.5g wody');
+    expect(fullText).toContain('+37,5g wody'); // PL: przecinek dziesiętny [M1-audytor-generalny-070]
   });
 
   it('switches to shift (odrost) tab and computes seed, flour and water additions', async () => {

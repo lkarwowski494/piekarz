@@ -3,7 +3,7 @@ import * as Haptics from 'expo-haptics';
 import { DoughRecipeResult } from '../core/domain-rules';
 import { BakeLossMetricsResult } from '../core/domain-rules';
 import { t } from './i18n';
-import { formatFixed } from './format';
+import { formatFixed, formatNumber } from './format';
 
 export interface RecipeFormatOptions {
   recipeName: string;
@@ -54,7 +54,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
 
   if (bakeLoss) {
     lines.push(`${t('Strata piecowa')}: ${formatFixed(bakeLoss.bakeLossPercent, 1)}% (-${bakeLoss.evaporatedWaterGrams} g pary)`);
-    lines.push(`${t('Szacowana wilgotność miękiszu')}: ${bakeLoss.retainedMoisturePercent}% (${bakeLoss.categoryLabelPl})`);
+    lines.push(`${t('Szacowana wilgotność miękiszu')}: ${formatNumber(bakeLoss.retainedMoisturePercent)}% (${bakeLoss.categoryLabelPl})`);
   }
 
   lines.push('');

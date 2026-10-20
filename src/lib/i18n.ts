@@ -93,6 +93,18 @@ const own = (dict: Record<string, string> | undefined, key: string): string | un
   return dict && Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : undefined;
 };
 
+const paramFormats = new Map<Lang, Intl.NumberFormat>();
+/** Liczba w parametrze: separator dziesiętny języka aplikacji, bez zaokrąglania i bez separatora tysięcy [M1-audytor-generalny-070]. */
+function paramText(v: string | number): string {
+  if (typeof v !== 'number' || !Number.isFinite(v)) return String(v);
+  let f = paramFormats.get(currentLang);
+  if (!f) {
+    f = new Intl.NumberFormat(currentLang, { useGrouping: false, maximumFractionDigits: 20 });
+    paramFormats.set(currentLang, f);
+  }
+  return f.format(v);
+}
+
 /**
  * Tłumaczenie tekstu z opcjonalną interpolacją parametrów {klucz}.
  * Brak wpisu: słownik zastępczy (EN), potem tekst źródłowy; nigdy pusty tekst.
@@ -104,7 +116,7 @@ export function t(pl: string, params?: Record<string, string | number>): string 
       : own(DICTIONARIES[currentLang], pl) ?? own(DICTIONARIES[FALLBACK_LANG], pl) ?? pl;
   if (params) {
     for (const k of Object.keys(params)) {
-      text = text.split(`{${k}}`).join(String(params[k]));
+      text = text.split(`{${k}}`).join(paramText(params[k]));
     }
   }
   return text;

@@ -8,7 +8,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { formatFixed } from '../../lib/format';
+import { formatFixed, formatNumber } from '../../lib/format';
 import { DoughRecipeResult } from '../../core/domain-rules';
 import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 import { ScaleIngredientRow } from './ScaleIngredientRow';
@@ -230,7 +230,7 @@ export function DoMiskiScaleCard({
           <ScaleIngredientRow
             testID="scale-item-water"
             label={`💧 ${t('Woda')}`}
-            subtext={`${calculations.overallHydrationPercent}% ${t('hydratacji')}`}
+            subtext={`${formatNumber(calculations.overallHydrationPercent, undefined, { maximumFractionDigits: 2 })}% ${t('hydratacji')}`}
             weight={formatWeight(calculations.waterGrams, unitSystem)}
             checked={!!checkedIngredients['water']}
             onPress={() => toggleCheck('water')}

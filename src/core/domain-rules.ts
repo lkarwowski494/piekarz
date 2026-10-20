@@ -10,6 +10,8 @@ export * from './bake-loss';
 export * from './sourdough-physics';
 import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
 import { Q10_FERMENTATION } from './fermentation-q10';
+import { t } from '../lib/i18n';
+import { formatFixed } from '../lib/format';
 
 export interface FlourItemInput {
   name: string;
@@ -76,6 +78,7 @@ export interface FermentationAdaptationResult {
   adaptedMinutesFormatted: string;
   diffMinutes: number;
   temperatureCelsius: number;
+  /** Komunikat w języku aplikacji (t(), nazwa pola historyczna) [M1-audytor-generalny-070]. */
   messagePl: string;
 }
 
@@ -278,13 +281,15 @@ export function calculateFermentationAdaptation(
   const m = totalMinutes % 60;
   const formatted = h > 0 ? `${h}h ${m}m` : `${m}m`;
 
+  // Komunikat w języku aplikacji, temperatura z separatorem języka [M1-audytor-generalny-070]
+  const temp = formatFixed(actualTempC, 1);
   let msg: string;
   if (Math.abs(diffMinutes) < 5) {
-    msg = `Temperatura optymalna (${actualTempC.toFixed(1)}°C). Czas zgodny z recepturą.`;
+    msg = t('Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.', { temp });
   } else if (diffMinutes < 0) {
-    msg = `Ciepło w kuchni (${actualTempC.toFixed(1)}°C). Czas fermentacji skrócony o ${Math.abs(diffMinutes)} min (ochrona przed przekwaszeniem).`;
+    msg = t('Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).', { temp, min: Math.abs(diffMinutes) });
   } else {
-    msg = `Chłodno w kuchni (${actualTempC.toFixed(1)}°C). Czas fermentacji wydłużony o ${diffMinutes} min (wolniejsza praca drożdży).`;
+    msg = t('Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).', { temp, min: diffMinutes });
   }
 
   return {
