@@ -86,4 +86,14 @@ export const EN_13: Record<string, string> = {
     'What to do: feed the starter regularly; according to the same source, a series of regular feedings should bring it back.',
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.':
     'Once it starts bubbling after a feeding, feed it a second time; if within 12 hours it rises and is full of bubbles, it is ready for one final feeding before use.',
+  // ostrzezenia-krokow.md i wypiek-bezpieczenstwo.md (ostrzeżenia według rodzaju kroku) [M1-audytor-generalny-103]
+  'Nie próbuj surowego zakwasu ani mąki.': 'Do not taste raw starter or flour.',
+  'Po pracy z mąką i zakwasem umyj ręce mydłem pod bieżącą wodą.': 'After handling flour and starter, wash your hands with soap under running water.',
+  'Nie próbuj surowego ciasta ani mąki.': 'Do not taste raw dough or flour.',
+  'Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'After handling dough, wash your hands with soap under running water.',
+  'Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.':
+    'Handle the hot pot, lid and tin with dry oven mitts or pot holders.',
+  'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': 'Keep children away from the stove and the area where you are working.',
+  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.':
+    'If this step involves raw flour, dough or starter, do not taste them, and wash your hands with soap under running water afterwards.',
 };

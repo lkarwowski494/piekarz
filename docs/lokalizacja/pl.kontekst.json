@@ -1140,6 +1140,11 @@
       "src/core/flour-equivalents.ts (dane: substitutionTipsPl)"
     ]
   },
+  "Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
   "Dzielenie na porcje (ok. 300g każda) i wstępne formowanie w wałeczki; 15 min odpoczynku.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -1527,6 +1532,11 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Gorący garnek, pokrywkę i formę chwytaj suchymi rękawicami kuchennymi albo łapkami.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
   "Gotowe": {
     "gdzie": []
   },
@@ -1753,6 +1763,11 @@
   "Jeśli po 20 minutach ciasto rozlało się jak kałuża, jego gluten jest słaby — formuj ciaśniej. Jeśli stoi w pionie, jest gotowe do formowania batarda.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
+    ]
+  },
+  "Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
     ]
   },
   "Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.": {
@@ -2785,6 +2800,16 @@
       "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
     ]
   },
+  "Nie próbuj surowego ciasta ani mąki.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
+  "Nie próbuj surowego zakwasu ani mąki.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
   "Nie próbuj surowego zakwasu przed upieczeniem.": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
@@ -3490,6 +3515,16 @@
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
+  "Po pracy z mąką i zakwasem umyj ręce mydłem pod bieżącą wodą.": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
     ]
   },
   "Po prawidłowej autolizie ciasto z szorstkiej grudkowatej masy staje się gładkie i rozciągliwe jeszcze przed właściwym wyrabianiem!": {
