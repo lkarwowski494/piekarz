@@ -5659,6 +5659,11 @@
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
+  "Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"

@@ -73,6 +73,15 @@ describe('069: teksty produktu ze źródła (docs/tresci)', () => {
     expect(enDla(pl)).toBe(en);
   });
 
+  it('DOK-PIE-002: nowy krok tuż po DOK-PIE-001 (wyjmij naczynie przed nagrzewaniem) PL i EN jak w docs/tresci', () => {
+    expect(zimna).toBeDefined();
+    const pl = sekcja('pl/doktor-zimna-kuchnia.md', 'stepByStepPl[1] (nowy krok)');
+    const en = sekcja('en/doktor-zimna-kuchnia.md', 'stepByStepPl[1] (new step)');
+    expect(zimna!.stepByStepPl[0]).toBe(sekcja('pl/doktor-zimna-kuchnia.md', 'stepByStepPl[0]'));
+    expect(zimna!.stepByStepPl[1]).toBe(pl);
+    expect(enDla(pl)).toBe(en);
+  });
+
   it('wycofane twierdzenia nie występują w kodzie produkcyjnym (src/, app/)', () => {
     const zakazane = [/WYŁĄCZNIE mąki bezglutenowej/, /EXCLUSIVELY with non-gluten/, /fitaz/i, /phytase/i, /26–27/];
     const pliki: string[] = [];

@@ -156,6 +156,9 @@ export const EN_9: Record<string, string> = {
     'Accelerated thermal fermentation',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.':
     'Put the bowl of dough in the switched-off oven and turn on only the light: according to King Arthur Baking, the temperature inside rises gradually, but every oven and every kitchen gives a different result.',
+  // DOK-PIE-002 dosłownie z docs/tresci/en/doktor-zimna-kuchnia.md [M1-audytor-generalny-069; 06-tresci-012]
+  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.':
+    'Take the bowl out before you turn on the oven to preheat: King Arthur Baking warns that this is easy to forget.',
   'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).':
     'Alternatively: set the bowl over a pot of lukewarm water (water bath ~30°C).',
   'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.':

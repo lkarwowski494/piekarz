@@ -66,6 +66,9 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
     pivotRecipeNamePl: 'Przyspieszona fermentacja termiczna',
     stepByStepPl: [
       'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.',
+      // DOK-PIE-002 (krytyczne, przegląd człowieka): dosłownie z docs/tresci/pl/doktor-zimna-kuchnia.md
+      // [M1-audytor-generalny-069; 06-tresci-012]
+      'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.',
       'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).',
       'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.',
       'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.',
