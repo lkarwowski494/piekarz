@@ -16,7 +16,7 @@ Ten plik nie zawiera tekstów sklepu. Nazwa, podtytuł, tekst promocyjny, słowa
 | Kanał testowy | każdy tag `v*` albo ręczne „Run workflow” na commicie z master → przesłanie do TestFlight; po sukcesie tag `vX.Y.Z-bNNNN` | `.github/workflows/testflight.yml` | — |
 | Mapy źródeł JS | artefakt `testflight-sourcemap-<wersja>-b<build>`, 90 dni | ten sam workflow | 068 |
 | Uprawnienia | tylko powiadomienia lokalne; bez aparatu (expo-camera wykluczony z autolinkingu, QR PÓŹNIEJ) | `app.json`, `package.json` | 049 |
-| Języki | pl, en (`supportedLocales`) | `app.json` | 073 |
+| Języki | 35 języków z `src/lib/i18n-locales.ts` (`released`, `supportedLocales`) | `app.json` | 073, 093 |
 | Notatki dla App Review | po angielsku | `docs/app-store-metadata-v2.md` §4.3 | 078 |
 | Wysyłka do recenzji i wydanie | **nie są zautomatyzowane**: workflow kończy się na TestFlight, `eas.json` bez `autoSubmit` (test `tests/plan-wydania.test.ts`) | — | 079 |
 

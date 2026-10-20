@@ -90,6 +90,16 @@ describe('Store, README and site texts claim only what this version does (035)',
     expect(found).toEqual([]);
   });
 
+  /** Lista języków bez liczby („polski i angielski”, „pl, en”) też musi zgadzać się z rejestrem [M1-audytor-generalny-095]. */
+  it.each([...DOKUMENTY, 'docs/wydanie/sklep.md'])('%s: nie podaje języków aplikacji jako tylko polski i angielski', (f) => {
+    const zle = read(f)
+      .split('\n')
+      .map((linia, i) => ({ gdzie: `${f}:${i + 1}`, linia }))
+      .filter((x) => /[Jj]ęzyki[^|\n]*:\s*polski i angielski|Languages:\s*Polish and English|\|\s*Języki\s*\|\s*pl, en\b/.test(x.linia));
+    expect(getLocalesByStatus('released').length).toBeGreaterThan(2);
+    expect(zle).toEqual([]);
+  });
+
   it('README: funkcje PÓŹNIEJ (F-08, F-30, F-45, F-50, lekcje Akademii F-44) nie są „Wdrożone”', () => {
     const lines = read('README.md').split('\n');
     expect(lines.filter((l) => /`F-(08|30|45|50)`/.test(l) && /Wdrożone/.test(l))).toEqual([]);
