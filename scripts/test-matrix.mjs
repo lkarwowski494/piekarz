@@ -18,7 +18,12 @@ const isCheckMode = process.argv.includes('--check');
 function getFiles(dir, ext = ['.ts', '.tsx']) {
   const res = [];
   if (!existsSync(dir)) return res;
-  for (const item of readdirSync(dir)) {
+  // Stała kolejność niezależna od systemu plików (ext4 nie sortuje, NTFS tak); M1-audytor-generalny-064.
+  const kolejnosc = (a, b) => {
+    const [x, y] = [a.toUpperCase(), b.toUpperCase()];
+    return x < y ? -1 : x > y ? 1 : 0;
+  };
+  for (const item of readdirSync(dir).sort(kolejnosc)) {
     if (['node_modules', '.git', '.expo', 'dist', 'scratch'].includes(item)) continue;
     const p = join(dir, item);
     const s = statSync(p);
