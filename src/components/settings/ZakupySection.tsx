@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   sectionTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,

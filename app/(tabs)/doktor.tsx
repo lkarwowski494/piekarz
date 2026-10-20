@@ -213,6 +213,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   academyBannerTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,

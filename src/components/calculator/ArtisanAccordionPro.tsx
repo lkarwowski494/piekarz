@@ -187,6 +187,7 @@ const styles = StyleSheet.create({
     minHeight: 52, // Zasada Brudnego Kciuka
   },
   toggleTitleRow: {
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
@@ -195,6 +196,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   toggleTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.tusz,

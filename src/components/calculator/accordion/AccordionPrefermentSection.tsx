@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   sectionHeaderTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,

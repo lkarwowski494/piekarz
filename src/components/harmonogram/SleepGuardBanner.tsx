@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sleepGuardTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sleepGuardSafeTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.tusz,

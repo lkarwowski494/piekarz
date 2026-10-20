@@ -6,7 +6,7 @@
 // ============================================================================
 
 import { koloryMotywu } from './motyw';
-import { cele, odstepy, promienie } from './tokeny';
+import { cele, odstepy, promienie, typografia } from './tokeny';
 
 export const theme = {
   colors: koloryMotywu,
@@ -24,6 +24,10 @@ export const theme = {
     full: 9999, // kształt koła lub kapsuły (kropka, znacznik wyboru), nie stopień hierarchii promieni
   },
   // Cele dotykowe (DEC-15 a): 48 prowadzenie i akcje główne, 44 pozostałe, 64 przycisk kciuka [M1-audytor-generalny-052]
+  // Krój tytułów, czasów i cen (D-050); treść krojem systemowym (fontFamily nieustawione) [M1-audytor-generalny-055]
+  typography: {
+    krojTytulow: typografia.krojTytulow,
+  },
   cele: {
     glownyPrzeplyw: cele.glownyPrzeplyw,
     pozostale: cele.pozostale,

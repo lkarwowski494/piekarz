@@ -146,7 +146,7 @@ export function FlourBlendModal({
             {draftBlend.map((flour, idx) => (
               <View key={idx} style={styles.flourRow} testID={`flour-row-${idx}`}>
                 <View style={styles.flourMeta}>
-                  <Text style={styles.flourName} numberOfLines={1}>
+                  <Text style={styles.flourName}>
                     {flour.name}
                   </Text>
                   <Text style={styles.flourPctText}>{formatFixed(flour.percentage, 1)}%</Text>
@@ -291,6 +291,7 @@ const styles = StyleSheet.create({
     maxHeight: '90%',
   },
   modalTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 18,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -420,6 +421,7 @@ const styles = StyleSheet.create({
     borderTopColor: theme.colors.linia,
   },
   addSectionTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.tusz2,

@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   digitalClock: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 52,
     fontWeight: '900',
     fontVariant: ['tabular-nums'],
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   digitalClockCompleted: {
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.akcentTekst,
   },
   timeAdjustmentRow: {

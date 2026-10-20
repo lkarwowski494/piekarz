@@ -81,7 +81,7 @@ export function ShareRecipeQrModal({
           >
             {/* Subtitle & Recipe Name */}
             <View style={styles.recipeInfoBox}>
-              <Text style={styles.recipeName} numberOfLines={2}>
+              <Text style={styles.recipeName}>
                 {name}
               </Text>
               <Text style={styles.recipeDetails}>
@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 17,
     fontWeight: '700',
     color: theme.colors.tusz,

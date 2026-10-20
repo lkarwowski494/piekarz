@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 28,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -265,11 +266,13 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   cardTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   cardTitleActive: {
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.akcentTekst,
   },
   checkIndicator: {

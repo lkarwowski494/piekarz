@@ -274,6 +274,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 20,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -361,6 +362,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.blad,
   },
   errorTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.blad,
@@ -414,6 +416,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   previewSectionTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 12,
     fontWeight: '600',
     color: theme.colors.tusz2,

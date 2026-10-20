@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 17,
     fontWeight: '700',
     color: '#FBF8F3',
@@ -165,6 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   permissionTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 22,
     fontWeight: '800',
     color: theme.colors.tusz,

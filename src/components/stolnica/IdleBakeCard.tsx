@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.lg,
   },
   idleTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 18,
     fontWeight: '700',
     color: theme.colors.tusz,

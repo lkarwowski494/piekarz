@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   vesselSelectorTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.tusz2,

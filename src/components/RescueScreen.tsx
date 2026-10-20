@@ -57,7 +57,8 @@ export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry }) => {
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.colors.tlo },
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
-  title: { color: theme.colors.tusz, fontSize: 22, fontWeight: '700', marginBottom: theme.spacing.md },
+  title: { fontFamily: theme.typography.krojTytulow,
+           color: theme.colors.tusz, fontSize: 22, fontWeight: '700', marginBottom: theme.spacing.md },
   body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
   button: {
     backgroundColor: theme.colors.akcent,

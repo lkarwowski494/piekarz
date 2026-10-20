@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.xs,
   },
   sectionHeaderTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,

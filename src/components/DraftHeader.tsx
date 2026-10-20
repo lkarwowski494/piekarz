@@ -29,7 +29,6 @@ export function HeaderButton({ title, onPress, bold, label, testID }: HeaderButt
     >
       <Text
         accessibilityLanguage={lang()}
-        maxFontSizeMultiplier={1.4}
         style={[
           styles.headerButtonText,
           bold && styles.headerButtonBold,

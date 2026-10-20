@@ -89,6 +89,14 @@
       "expo-notifications",
       "expo-iap",
       [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/SofiaSansSemiCondensed-wght.ttf"
+          ]
+        }
+      ],
+      [
         "expo-localization",
         {
           "supportedLocales": {

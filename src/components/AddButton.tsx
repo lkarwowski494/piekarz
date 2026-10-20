@@ -42,7 +42,6 @@ export function AddButton({
     >
       <Text
         accessibilityLanguage={lang()}
-        maxFontSizeMultiplier={1.4}
         style={styles.text}
       >
         +

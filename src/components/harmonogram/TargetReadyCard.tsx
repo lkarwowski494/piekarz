@@ -295,6 +295,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   cardTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,

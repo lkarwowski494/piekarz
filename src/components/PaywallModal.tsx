@@ -339,6 +339,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 24,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -366,6 +367,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   guaranteeTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -425,11 +427,13 @@ const styles = StyleSheet.create({
     marginLeft: theme.spacing.sm,
   },
   planPrice: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 20,
     fontWeight: '800',
     color: theme.colors.tusz,
   },
   planPricePeriod: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 11,
     color: theme.colors.tusz3,
   },

@@ -160,12 +160,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 4,
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 20,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -224,6 +226,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   cardTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,

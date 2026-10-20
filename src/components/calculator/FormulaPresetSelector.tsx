@@ -274,6 +274,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   sectionHeading: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 15,
     fontWeight: '600',
     color: theme.colors.tusz2,

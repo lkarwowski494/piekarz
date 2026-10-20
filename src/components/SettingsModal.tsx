@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 17,
     fontWeight: '700',
     color: theme.colors.tusz,

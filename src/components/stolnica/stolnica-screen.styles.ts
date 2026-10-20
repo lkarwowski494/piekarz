@@ -59,6 +59,7 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
   activeStepTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 22,
     fontWeight: '800',
     color: theme.colors.tusz,

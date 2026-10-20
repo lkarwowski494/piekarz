@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
   },
   title: {
+    fontFamily: theme.typography.krojTytulow,
     color: theme.colors.tusz,
     fontSize: 22,
     fontWeight: '700',

@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.lg,
   },
   sectionHeading: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -177,6 +178,7 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   stageTitleRow: {
+    fontFamily: theme.typography.krojTytulow,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

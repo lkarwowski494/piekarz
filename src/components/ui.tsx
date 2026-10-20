@@ -429,6 +429,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   emptyTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 17,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -465,6 +466,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tlo,
   },
   missingTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 20,
     fontWeight: '800',
     color: theme.colors.tusz,

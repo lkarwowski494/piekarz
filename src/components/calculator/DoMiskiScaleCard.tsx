@@ -132,7 +132,6 @@ export function DoMiskiScaleCard({
                   styles.presetChipText,
                   isSelected && styles.presetChipTextSelected,
                 ]}
-                numberOfLines={1}
               >
                 {preset.name}
               </Text>
@@ -370,6 +369,7 @@ const styles = StyleSheet.create({
     marginRight: theme.spacing.sm,
   },
   loavesTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 15,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -425,6 +425,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   scaleHeaderTitle: {
+    fontFamily: theme.typography.krojTytulow,
     fontSize: 16,
     fontWeight: '800',
     color: theme.colors.tusz,
