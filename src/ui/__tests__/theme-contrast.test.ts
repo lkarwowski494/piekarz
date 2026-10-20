@@ -102,6 +102,20 @@ describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (system „Koszyk sp
     });
   });
 
+  // 110: pary spirali (design-spec §11c 110, tokeny.json) z progiem 3 (WCAG 1.4.11) we wszystkich 4 wariantach,
+  // także w „Zwiększ kontrast” [M1-audytor-generalny-110; 04-studio-projektowe-031]
+  describe.each(WARIANTY)('Spiral pairs (WCAG 1.4.11 >= 3.0:1) — %s', (w) => {
+    it.each([
+      ['tusz', 'ratanSzary'],
+      ['ratanSzary', 'tlo'],
+      ['ratan', 'powierzchnia'],
+      ['ratanSzary', 'powierzchnia'],
+      ['nocDane', 'powierzchnia'],
+    ])('%s on %s >= 3.0', (fg, bg) => {
+      expect(cr(Reflect.get(theme.colors, fg), Reflect.get(theme.colors, bg), w)).toBeGreaterThanOrEqual(3.0);
+    });
+  });
+
   describe('Apple HIG & Android Material Touch Target Size Guarantees', () => {
     it('theme spacing scale defines ergonomic tap pad minimums', () => {
       expect(theme.spacing.sm).toBe(8);
