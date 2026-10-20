@@ -2703,6 +2703,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/index.tsx (tekst w JSX)"
+    ]
+  },
   "Nie można otworzyć bazy danych": {
     "gdzie": [
       "src/components/StorageGate.tsx (tekst w JSX)"

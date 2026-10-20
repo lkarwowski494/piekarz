@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 7 | 7 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 571 | 571 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 572 | 572 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 305 | 305 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 117 | 117 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1035** | Pokrytych: **1035** | Brakujących: **0**
+Łącznie elementów: **1036** | Pokrytych: **1036** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -55,6 +55,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Musisz posiadać co najmniej jeden profil zakwasu.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Kopiuj dokarmienie` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.` | `app/(tabs)/zakwasy/index.tsx` | ✅ | src/__tests__/dane-przykladowe-087.test.tsx |
 | `TEKST` | `Akademia Piekarza` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -187,7 +188,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `stal piekarska` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `blacha piekarnika` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wskazówki` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Moje przepisy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Moje przepisy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dane-przykladowe-087.test.tsx |
 | `TEKST` | `Usuń recepturę: {nazwa}` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zapisz przepis` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ui-components.test.tsx |
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Czas w lodówce (Cold Retard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 735 kolejnych elementów w pełnym wykazie)*
+*(... i 736 kolejnych elementów w pełnym wykazie)*

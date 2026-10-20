@@ -3,9 +3,11 @@ import {
   ScrollView,
   StyleSheet,
   Alert,
+  Text,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../../src/ui/theme';
+import { typografia } from '../../../src/ui/tokeny';
 import { t } from '../../../src/lib/i18n';
 import { guardSave } from '../../../src/lib/save-guard';
 import { resyncNotifications, ensureNotificationPermission } from '../../../src/lib/notifications';
@@ -45,16 +47,17 @@ export default function ZakwasScreen() {
   } = useAppAccess();
 
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
-  const [selectedStarterId, setSelectedStarterId] = useState<string>('starter_default');
+  // Bez zakwasu w bazie nie ma profilu ani liczb: wartość startowa nie jest pokazywana (087, bez danych zmyślonych)
+  const [selectedStarterId, setSelectedStarterId] = useState<string>('');
   const [starter, setStarter] = useState<StoredStarter>({
-    id: 'starter_default',
-    name: 'Bolesław',
-    flourType: 'Żytnia razowa typ 2000',
+    id: '',
+    name: '',
+    flourType: '',
     hydration: 100.0,
-    birthDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
-    storageState: 'FRIDGE',
-    lastFedAt: Date.now() - 1000 * 60 * 60 * 6,
+    birthDate: 0,
+    storageState: 'ROOM_TEMP',
   });
+  const maZakwas = startersList.length > 0;
 
   const [targetYield, setTargetYield] = useState<number>(150);
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
@@ -259,12 +262,19 @@ export default function ZakwasScreen() {
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Sacred Numbers Glanceable Countertop Card */}
         <NotificationsOffBanner />
-        <ZakwasSacredCard
-          ageDays={ageDays}
-          hydration={starter.hydration}
-          selectedRatio={selectedRatio}
-          ambientTempC={ambientTempC}
-        />
+        {maZakwas ? (
+          <ZakwasSacredCard
+            ageDays={ageDays}
+            hydration={starter.hydration}
+            selectedRatio={selectedRatio}
+            ambientTempC={ambientTempC}
+          />
+        ) : (
+          // Pierwsze uruchomienie: co zrobić zamiast przykładowego zakwasu jako „twojego” [M1-audytor-generalny-087]
+          <Text style={styles.pusty} testID="zakwas-pusty">
+            {t('Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.')}
+          </Text>
+        )}
 
         {/* Starters Carousel / Selector */}
         <StartersSelectorRow
@@ -278,25 +288,29 @@ export default function ZakwasScreen() {
         />
 
         {/* Profile Card */}
-        <StarterProfileCard
-          starter={starter}
-          ageDays={ageDays}
-          lastFedLabel={lastFedLabel}
-          unitSystem={unitSystem}
-          onOpenEditModal={handleOpenEditModal}
-        />
+        {maZakwas && (
+          <StarterProfileCard
+            starter={starter}
+            ageDays={ageDays}
+            lastFedLabel={lastFedLabel}
+            unitSystem={unitSystem}
+            onOpenEditModal={handleOpenEditModal}
+          />
+        )}
 
         {/* Bez uprawnienia: profil do odczytu, etykieta i usunięcie wolne; reszta otwiera ekran zakupu (027) */}
         <BlokadaFunkcji {...blokada('zakwas')}>
-        <StarterPeakActivityCard
-          phaseResult={phaseResult}
-          peakPrediction={peakPrediction}
-          showPeakWindow={starter.storageState !== 'FRIDGE'}
-          ambientTempC={ambientTempC}
-          onAmbientTempChange={setAmbientTempC}
-          unitSystem={unitSystem}
-          onLogFeeding={handleLogFeeding}
-        />
+        {maZakwas && (
+          <StarterPeakActivityCard
+            phaseResult={phaseResult}
+            peakPrediction={peakPrediction}
+            showPeakWindow={starter.storageState !== 'FRIDGE'}
+            ambientTempC={ambientTempC}
+            onAmbientTempChange={setAmbientTempC}
+            unitSystem={unitSystem}
+            onLogFeeding={handleLogFeeding}
+          />
+        )}
 
         {/* Feeding Calculator */}
         <StarterFeedingCard
@@ -360,7 +374,7 @@ export default function ZakwasScreen() {
           visible={isConverterOpen}
           onClose={() => setIsConverterOpen(false)}
           currentStarterHydration={starter.hydration}
-          currentStarterName={starter.name}
+          currentStarterName={maZakwas ? starter.name : undefined}
         />
 
         <DiscardRecipesModal
@@ -381,5 +395,10 @@ const styles = StyleSheet.create({
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
+  },
+  pusty: {
+    fontSize: typografia.style.tresc.pt,
+    color: theme.colors.tusz2,
+    marginBottom: theme.spacing.md,
   },
 });

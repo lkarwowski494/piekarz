@@ -23,8 +23,7 @@ export function StartersSelectorRow({
   onSelectStarter,
   onOpenAddModal,
 }: StartersSelectorRowProps) {
-  if (startersList.length === 0) return null;
-
+  // Bez zakwasu wiersz zostaje z samym „Dodaj nowy zakwas”: jedyne wejście do dodania pierwszego zakwasu [M1-audytor-generalny-087]
   return (
     <View style={styles.startersSelectorRow}>
       <ScrollView

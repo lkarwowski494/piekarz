@@ -207,4 +207,7 @@ export const EN_12: Record<string, string> = {
   'Zakwasy': 'Starters',
   'Dziennik': 'Journal',
   'Plan wypieku': 'Bake Schedule',
+  // Zakwasy bez zakwasu: stan pusty zamiast przykładowego profilu (głos §8, tekst do przeglądu) [M1-audytor-generalny-087]
+  'Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.':
+    "You don't have a starter yet. Add the one you have, or start a new one.",
 };
