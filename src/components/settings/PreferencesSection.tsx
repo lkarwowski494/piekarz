@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t, Lang } from '../../lib/i18n';
 import { UnitSystem } from '../../lib/unit-converter';
+import { getLocalesByStatus } from '../../lib/i18n-locales';
+
+const JEZYKI = getLocalesByStatus('released');
 
 export interface PreferencesSectionProps {
   currentLang: Lang;
@@ -22,31 +25,26 @@ export function PreferencesSection({
       {/* Language Section */}
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>{t('Język')}</Text>
-        <View style={styles.langRow}>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ selected: currentLang === 'pl' }}
-            accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: 'Polski' })}
-            testID="lang-pl"
-            style={[styles.langBtn, currentLang === 'pl' && styles.langBtnActive]}
-            onPress={() => onLanguageChange('pl')}
-          >
-            <Text style={[styles.langBtnText, currentLang === 'pl' && styles.langBtnTextActive]}>
-              Polski
-            </Text>
-          </Pressable>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ selected: currentLang === 'en' }}
-            accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: 'English' })}
-            testID="lang-en"
-            style={[styles.langBtn, currentLang === 'en' && styles.langBtnActive]}
-            onPress={() => onLanguageChange('en')}
-          >
-            <Text style={[styles.langBtnText, currentLang === 'en' && styles.langBtnTextActive]}>
-              English
-            </Text>
-          </Pressable>
+        {/* 35 języków w wydaniu (rejestr, przekład 093): siatka przycisków w stylu dotychczasowych dwóch; nazwa języka
+            w nim samym, wymowa VoiceOver w tym języku (LOK-12). Docelowy wzór listy: rola 04 [M1-audytor-generalny-093] */}
+        <View style={styles.langGrid}>
+          {JEZYKI.map(({ code, name }) => {
+            const wybrany = currentLang === code;
+            return (
+              <Pressable
+                key={code}
+                accessibilityRole="button"
+                accessibilityState={{ selected: wybrany }}
+                accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: name })}
+                accessibilityLanguage={code}
+                testID={`lang-${code}`}
+                style={[styles.langBtn, styles.langBtnSiatka, wybrany && styles.langBtnActive]}
+                onPress={() => onLanguageChange(code as Lang)}
+              >
+                <Text style={[styles.langBtnText, wybrany && styles.langBtnTextActive]}>{name}</Text>
+              </Pressable>
+            );
+          })}
         </View>
       </View>
 
@@ -111,6 +109,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.colors.powierzchnia,
+  },
+  langGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: theme.spacing.sm,
+  },
+  // Dwie kolumny przy 320 pt; dłuższa nazwa języka zawija się w przycisku zamiast go ucinać
+  langBtnSiatka: {
+    flexGrow: 1,
+    flexBasis: '45%',
+    paddingHorizontal: theme.spacing.sm,
   },
   langBtnActive: {
     borderColor: theme.colors.akcent,

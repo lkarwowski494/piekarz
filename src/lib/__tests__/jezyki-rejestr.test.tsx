@@ -1,13 +1,18 @@
 /**
- * Rejestr języków zgodny z DEC-06 (b) z rozszerzeniem właściciela: PL + EN w wydaniu 1.0, razem 35 języków
- * „jak w aplikacji Trening”. Lista Treningu: repo trening, lib/i18n.ts:17 (`LANGS`) i katalog locales/
- * (35 plików), commit 8273448, odczyt 2026-10-20. Języki w wydaniu = słowniki = `locales` i `supportedLocales`
- * w app.json = przełącznik w Ustawieniach; martwe słowniki usunięte [M1-audytor-generalny-073; 09-lokalizacja-008].
+ * Rejestr języków zgodny z DEC-06 (b) z rozszerzeniem właściciela: 35 języków „jak w aplikacji Trening”.
+ * Lista Treningu: repo trening, lib/i18n.ts:17 (`LANGS`) i katalog locales/ (35 plików), commit 8273448, odczyt
+ * 2026-10-20. Języki w wydaniu = słowniki = `locales` i `supportedLocales` w app.json = przełącznik w Ustawieniach;
+ * martwe słowniki usunięte [M1-audytor-generalny-073; 09-lokalizacja-008]. Od przekładu 093 (partia 7) w wydaniu
+ * są wszystkie 35: słowniki 33 języków z przekładu M1, poprawki KROK 0 i tłumaczenie zwrotne w rejestrze
+ * (docs/lokalizacja/jezyki.md) [M1-audytor-generalny-093].
  */
+import React from 'react';
+import renderer, { act } from 'react-test-renderer';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { SUPPORTED_LOCALES_35, getLocalesByStatus, getLocaleMetadata } from '../i18n-locales';
 import { ACTIVE_LANGS, hasDictionary } from '../i18n';
+import { PreferencesSection } from '../../components/settings/PreferencesSection';
 
 const ROOT = join(__dirname, '..', '..', '..');
 const TRENING_35 = [
@@ -22,9 +27,9 @@ describe('rejestr języków (DEC-06 b, 35 jak w Treningu)', () => {
     expect(sorted(SUPPORTED_LOCALES_35.map((l) => l.code))).toEqual(sorted(TRENING_35));
   });
 
-  it('w wydaniu 1.0 są PL i EN; pozostałe 33 czekają na przekład 093', () => {
-    expect(sorted(getLocalesByStatus('released').map((l) => l.code))).toEqual(['en', 'pl']);
-    expect(getLocalesByStatus('planned')).toHaveLength(33);
+  it('w wydaniu 1.0 jest 35 języków (przekład 093); żaden nie czeka', () => {
+    expect(sorted(getLocalesByStatus('released').map((l) => l.code))).toEqual(sorted(TRENING_35));
+    expect(getLocalesByStatus('planned')).toHaveLength(0);
     expect(getLocaleMetadata('zh-hant')?.code).toBe('zh-Hant');
   });
 
@@ -48,10 +53,18 @@ describe('rejestr języków (DEC-06 b, 35 jak w Treningu)', () => {
     expect(plugin[1].supportsRTL).toBe(false);
   });
 
-  it('przełącznik w Ustawieniach oferuje dokładnie języki w wydaniu', () => {
-    const src = readFileSync(join(ROOT, 'src/components/settings/PreferencesSection.tsx'), 'utf8');
-    const offered = [...src.matchAll(/testID="lang-([A-Za-z0-9-]+)"/g)].map((m) => m[1]);
-    expect(sorted(offered)).toEqual(sorted(getLocalesByStatus('released').map((l) => l.code)));
+  it('przełącznik w Ustawieniach oferuje dokładnie języki w wydaniu, z nazwą w tym języku i językiem wymowy VoiceOver', () => {
+    let tree: renderer.ReactTestRenderer | null = null;
+    act(() => {
+      tree = renderer.create(
+        <PreferencesSection currentLang="pl" onLanguageChange={() => undefined} unitSystem="metric" onUnitSystemChange={() => undefined} />
+      );
+    });
+    const przyciski = tree!.root.findAll((n) => typeof n.props.testID === 'string' && n.props.testID.startsWith('lang-') && typeof n.type !== 'string');
+    const unikalne = new Map(przyciski.map((n) => [n.props.testID as string, n]));
+    expect(sorted([...unikalne.keys()].map((id) => id.slice(5)))).toEqual(sorted(getLocalesByStatus('released').map((l) => l.code)));
+    expect(unikalne.get('lang-de')!.props.accessibilityLanguage).toBe('de');
+    act(() => tree!.unmount());
   });
 
   it('brak martwych słowników: żadnego słownika poza rejestrem wydania', () => {
@@ -65,5 +78,14 @@ describe('rejestr języków (DEC-06 b, 35 jak w Treningu)', () => {
     );
     expect(sorted([...rows.keys()])).toEqual(sorted(TRENING_35));
     for (const l of SUPPORTED_LOCALES_35) expect(rows.get(l.code)).toBe(l.status === 'released' ? 'w wydaniu 1.0' : 'planowany');
+  });
+
+  it('nazwa pod ikoną w languages/<kod>.json według D-053 (de: Bäcker, fr: Mitron, bg: Пекар)', () => {
+    const nazwa = (kod: string) => JSON.parse(readFileSync(join(ROOT, 'languages', `${kod}.json`), 'utf8')).ios.CFBundleDisplayName;
+    expect(nazwa('de')).toBe('Bäcker');
+    expect(nazwa('fr')).toBe('Mitron');
+    expect(nazwa('es-419')).toBe('Panadero');
+    expect(nazwa('bg')).toBe('Пекар');
+    for (const l of TRENING_35) expect(nazwa(l)).not.toBe('Crust');
   });
 });

@@ -26,6 +26,7 @@ import { StageCategory } from '../src/scheduler/reverse-scheduler';
 import { AccessStatus } from '../src/lib/app-access';
 import { AUTO_DIR, AUTO_KEEP } from '../src/lib/backup';
 import { LANGS } from '../src/lib/i18n';
+import { getLocaleMetadata } from '../src/lib/i18n-locales';
 import { RecipeValidationResult } from '../src/lib/recipe-sharing';
 import { UnitSystem } from '../src/lib/unit-converter';
 import { Plan } from '../src/lib/platnosci/konfiguracja';
@@ -114,7 +115,9 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
   describe('Exhaustive Dimension Invariant Coverage (BR-TEST-030)', () => {
     it('verifies all enum dimensions and constant arrays across studio specifications', () => {
       // 1. Languages
-      LANGS.forEach((l) => expect(['pl', 'en']).toContain(l));
+      // 35 języków rejestru w wydaniu (przekład 093) [M1-audytor-generalny-093]
+      expect(LANGS).toHaveLength(35);
+      LANGS.forEach((l) => expect(getLocaleMetadata(l)?.status).toBe('released'));
 
       // 2. Bake steps: dawna lista 8 kroków tylko dla starych zapisów (M1-audytor-generalny-030)
       expect(LEGACY_STEPS_V1.length).toBe(8);

@@ -3,14 +3,14 @@
  * Specyfikacja: docs/wzrost/petla-opinii.md §2.3; wektory: docs/wzrost/wektory-kontakt.json.
  * Bez importów z React Native.
  */
-import { t } from './i18n';
+import { t, type Lang } from './i18n';
 
 export interface DaneZgloszenia {
   wersja: string | null;
   build: string | null;
   systemIos: string | null;
   model: string | null;
-  jezyk: 'pl' | 'en';
+  jezyk: Lang;
 }
 
 /**

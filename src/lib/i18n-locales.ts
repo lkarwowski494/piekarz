@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz (Crust) — rejestr języków (DEC-06 b z rozszerzeniem właściciela)
-// PL + EN w wydaniu 1.0; razem 35 języków „jak w aplikacji Trening” (repo trening, lib/i18n.ts `LANGS`,
+// 35 języków w wydaniu 1.0 (przekład 093, partia 7; PL źródło, EN i 33 języki z przekładu maszynowego); lista języków „jak w aplikacji Trening” (repo trening, lib/i18n.ts `LANGS`,
 // katalog locales/, commit 8273448, odczyt 2026-10-20). Powody, przekład i przeglądy: docs/lokalizacja/jezyki.md.
 // Liczba mnoga zawsze z Intl.PluralRules (CLDR), nie z tej tabeli [M1-audytor-generalny-073; 09-lokalizacja-008].
 // ============================================================================
@@ -17,45 +17,46 @@ export interface LocaleMetadata {
   status: LocaleStatus;
 }
 
-const planned = (code: string, name: string, englishName: string): LocaleMetadata => ({ code, name, englishName, status: 'planned' });
+/** Język w wydaniu: słownik z przekładu 093, languages/<kod>.json, app.json, przełącznik [M1-audytor-generalny-093]. */
+const released = (code: string, name: string, englishName: string): LocaleMetadata => ({ code, name, englishName, status: 'released' });
 
 /** Kolejność jak `LANGS` w Treningu. Żaden język nie jest pisany od prawej (app.json: supportsRTL false). */
 export const SUPPORTED_LOCALES_35: readonly LocaleMetadata[] = [
   { code: 'pl', name: 'Polski', englishName: 'Polish', status: 'released' },
   { code: 'en', name: 'English', englishName: 'English', status: 'released' },
-  planned('cs', 'Čeština', 'Czech'),
-  planned('sk', 'Slovenčina', 'Slovak'),
-  planned('hu', 'Magyar', 'Hungarian'),
-  planned('ro', 'Română', 'Romanian'),
-  planned('bg', 'Български', 'Bulgarian'),
-  planned('hr', 'Hrvatski', 'Croatian'),
-  planned('sl', 'Slovenščina', 'Slovenian'),
-  planned('sr', 'Српски', 'Serbian'),
-  planned('lt', 'Lietuvių', 'Lithuanian'),
-  planned('lv', 'Latviešu', 'Latvian'),
-  planned('et', 'Eesti', 'Estonian'),
-  planned('uk', 'Українська', 'Ukrainian'),
-  planned('es', 'Español (España)', 'Spanish (Spain)'),
-  planned('es-419', 'Español (Latinoamérica)', 'Spanish (Latin America)'),
-  planned('pt', 'Português (Portugal)', 'Portuguese (Portugal)'),
-  planned('pt-BR', 'Português (Brasil)', 'Portuguese (Brazil)'),
-  planned('de', 'Deutsch', 'German'),
-  planned('fr', 'Français', 'French'),
-  planned('it', 'Italiano', 'Italian'),
-  planned('nl', 'Nederlands', 'Dutch'),
-  planned('sv', 'Svenska', 'Swedish'),
-  planned('da', 'Dansk', 'Danish'),
-  planned('nb', 'Norsk', 'Norwegian (Bokmål)'),
-  planned('fi', 'Suomi', 'Finnish'),
-  planned('tr', 'Türkçe', 'Turkish'),
-  planned('el', 'Ελληνικά', 'Greek'),
-  planned('id', 'Bahasa Indonesia', 'Indonesian'),
-  planned('ms', 'Bahasa Melayu', 'Malay'),
-  planned('vi', 'Tiếng Việt', 'Vietnamese'),
-  planned('ru', 'Русский', 'Russian'),
-  planned('ja', '日本語', 'Japanese'),
-  planned('ko', '한국어', 'Korean'),
-  planned('zh-Hant', '繁體中文', 'Chinese (Traditional)'),
+  released('cs', 'Čeština', 'Czech'),
+  released('sk', 'Slovenčina', 'Slovak'),
+  released('hu', 'Magyar', 'Hungarian'),
+  released('ro', 'Română', 'Romanian'),
+  released('bg', 'Български', 'Bulgarian'),
+  released('hr', 'Hrvatski', 'Croatian'),
+  released('sl', 'Slovenščina', 'Slovenian'),
+  released('sr', 'Српски', 'Serbian'),
+  released('lt', 'Lietuvių', 'Lithuanian'),
+  released('lv', 'Latviešu', 'Latvian'),
+  released('et', 'Eesti', 'Estonian'),
+  released('uk', 'Українська', 'Ukrainian'),
+  released('es', 'Español (España)', 'Spanish (Spain)'),
+  released('es-419', 'Español (Latinoamérica)', 'Spanish (Latin America)'),
+  released('pt', 'Português (Portugal)', 'Portuguese (Portugal)'),
+  released('pt-BR', 'Português (Brasil)', 'Portuguese (Brazil)'),
+  released('de', 'Deutsch', 'German'),
+  released('fr', 'Français', 'French'),
+  released('it', 'Italiano', 'Italian'),
+  released('nl', 'Nederlands', 'Dutch'),
+  released('sv', 'Svenska', 'Swedish'),
+  released('da', 'Dansk', 'Danish'),
+  released('nb', 'Norsk', 'Norwegian (Bokmål)'),
+  released('fi', 'Suomi', 'Finnish'),
+  released('tr', 'Türkçe', 'Turkish'),
+  released('el', 'Ελληνικά', 'Greek'),
+  released('id', 'Bahasa Indonesia', 'Indonesian'),
+  released('ms', 'Bahasa Melayu', 'Malay'),
+  released('vi', 'Tiếng Việt', 'Vietnamese'),
+  released('ru', 'Русский', 'Russian'),
+  released('ja', '日本語', 'Japanese'),
+  released('ko', '한국어', 'Korean'),
+  released('zh-Hant', '繁體中文', 'Chinese (Traditional)'),
 ];
 
 export function getLocaleMetadata(code: string): LocaleMetadata | undefined {

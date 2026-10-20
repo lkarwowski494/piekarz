@@ -33,8 +33,10 @@ describe('język: wykrycie z systemu i zapis wyboru', () => {
     const { resolveLanguage } = require('../i18n') as I18n;
     expect(resolveLanguage(null, ['pl-PL'])).toBe('pl');
     expect(resolveLanguage(null, ['en-GB'])).toBe('en');
-    expect(resolveLanguage(null, ['de-DE'])).toBe('en');
-    expect(resolveLanguage(null, ['de-DE', 'pl-PL'])).toBe('pl');
+    // Od przekładu 093 niemiecki jest w wydaniu; język spoza 35 (arabski) → angielski [M1-audytor-generalny-093]
+    expect(resolveLanguage(null, ['de-DE'])).toBe('de');
+    expect(resolveLanguage(null, ['ar-SA'])).toBe('en');
+    expect(resolveLanguage(null, ['ar-SA', 'pl-PL'])).toBe('pl');
     expect(resolveLanguage('en', ['pl-PL'])).toBe('en');
     expect(resolveLanguage('xx', ['pl-PL'])).toBe('pl');
   });

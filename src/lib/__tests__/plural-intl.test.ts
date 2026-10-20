@@ -5,7 +5,7 @@
  */
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { ACTIVE_LANGS, setLang, tPlural } from '../i18n';
+import { ACTIVE_LANGS, jezykLiczbyMnogiej, setLang, tPlural } from '../i18n';
 import { formatPluralUniversal } from '../i18n-locales';
 
 // Znaczniki kategorii: brak wpisu w słowniku EN, więc t() zwraca klucz w każdym języku.
@@ -34,7 +34,8 @@ describe('tPlural przez Intl.PluralRules (M1-audytor-generalny-071)', () => {
     for (const l of ACTIVE_LANGS) {
       setLang(l);
       for (const n of [0, 1, 2, 3, 5, 11, 12, 21, 22, 25, 101, 112, 0.5, 1.5, 2.25]) {
-        const expected = new Intl.PluralRules(l).select(n);
+        // pt w rejestrze = Portugalia: reguły pt-PT (samo „pt” w CLDR = Brazylia) [M1-audytor-generalny-093]
+        const expected = new Intl.PluralRules(jezykLiczbyMnogiej(l)).select(n);
         const got = cat(tPlural(n, FORMS));
         expect({ l, n, got }).toEqual({ l, n, got: expected in FORMS ? expected : 'other' });
       }
@@ -73,6 +74,19 @@ describe('polyfill Intl.PluralRules dla Hermes na iOS', () => {
     const pl = new Intl.PluralRules('pl');
     expect([1, 2, 22, 5, 12, 1.5].map((n) => pl.select(n))).toEqual(['one', 'few', 'few', 'many', 'many', 'other']);
     expect([1, 2].map((n) => new Intl.PluralRules('en').select(n))).toEqual(['one', 'other']);
+  });
+
+  it('po wczytaniu polyfillu każdy z 35 języków ma reguły (ru 21 one, sl 2 two, lv 10 zero, ro 20 other) [M1-audytor-generalny-093]', () => {
+    jest.isolateModules(() => {
+      require('../intl-polyfills');
+    });
+    for (const l of ACTIVE_LANGS) expect(Intl.PluralRules.supportedLocalesOf([jezykLiczbyMnogiej(l)])).toHaveLength(1);
+    expect(new Intl.PluralRules('ru').select(21)).toBe('one');
+    expect(new Intl.PluralRules('sl').select(2)).toBe('two');
+    expect(new Intl.PluralRules('lv').select(10)).toBe('zero');
+    expect(new Intl.PluralRules('ro').select(20)).toBe('other');
+    expect(new Intl.PluralRules('pt-PT').select(0)).toBe('other');
+    expect(new Intl.PluralRules('zh-Hant').select(1)).toBe('other');
   });
 
   it('polyfill jest pierwszym importem punktu startu aplikacji (app/_layout.tsx)', () => {
