@@ -29,7 +29,6 @@ import { DiscardRecipesModal } from '../../../src/components/DiscardRecipesModal
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
-import { ZakwasSacredCard } from '../../../src/components/zakwas/ZakwasSacredCard';
 import { StartersSelectorRow } from '../../../src/components/zakwas/StartersSelectorRow';
 import { StarterProfileCard } from '../../../src/components/zakwas/StarterProfileCard';
 import { StarterPeakActivityCard } from '../../../src/components/zakwas/StarterPeakActivityCard';
@@ -271,16 +270,10 @@ export default function ZakwasScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Zakwasy” i skrót do Doktora: app/(tabs)/zakwasy/_layout.tsx (D-051 2a) */}
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {/* Sacred Numbers Glanceable Countertop Card */}
         <NotificationsOffBanner />
-        {maZakwas ? (
-          <ZakwasSacredCard
-            ageDays={ageDays}
-            hydration={starter.hydration}
-            selectedRatio={selectedRatio}
-            ambientTempC={ambientTempC}
-          />
-        ) : (
+        {/* Bez bloku statystyk (§12a): wiek i hydratacja w karcie profilu, proporcja w karcie cyklu i ilościach
+            do dokarmienia, temperatura w aktywności zakwasu [M1-audytor-generalny-111] */}
+        {!maZakwas && (
           // Pierwsze uruchomienie: co zrobić zamiast przykładowego zakwasu jako „twojego” [M1-audytor-generalny-087]
           <Text style={styles.pusty} testID="zakwas-pusty">
             {t('Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.')}

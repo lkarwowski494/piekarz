@@ -1684,8 +1684,7 @@
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
-      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)",
-      "src/components/zakwas/ZakwasSacredCard.tsx (label)"
+      "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
     ]
   },
   "Hydratacja Twojego zakwasu": {
@@ -3998,7 +3997,6 @@
   "Proporcja": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
-      "src/components/zakwas/ZakwasSacredCard.tsx (label)",
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
@@ -5093,9 +5091,7 @@
     ]
   },
   "Temp": {
-    "gdzie": [
-      "src/components/zakwas/ZakwasSacredCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Temperatura DDT musi mieścić się w zakresie 10–40°C": {
     "gdzie": [
@@ -5838,9 +5834,7 @@
     ]
   },
   "Wiek": {
-    "gdzie": [
-      "src/components/zakwas/ZakwasSacredCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Wiek zakwasu": {
     "gdzie": [

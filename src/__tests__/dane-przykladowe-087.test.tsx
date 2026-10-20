@@ -24,7 +24,6 @@ import ZakwasyScreen from '../../app/(tabs)/zakwasy/index';
 import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { CorruptStateRecoveryBanner } from '../components/CorruptStateRecoveryBanner';
-import { ZakwasSacredCard } from '../components/zakwas/ZakwasSacredCard';
 import { StarterProfileCard } from '../components/zakwas/StarterProfileCard';
 import { StarterPeakActivityCard } from '../components/zakwas/StarterPeakActivityCard';
 import { BakeStatsCard } from '../components/stolnica/BakeStatsCard';
@@ -87,7 +86,7 @@ describe('087: pusta baza — bez danych zmyślonych jako dane użytkownika', ()
     const txt = teksty(tree.root);
     expect(txt).not.toContain('Bolesław');
     expect(txt).toContain('Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.');
-    expect(tree.root.findAllByType(ZakwasSacredCard)).toHaveLength(0);
+    expect(tree.root.findAllByProps({ testID: 'zakwas-sacred-card' })).toHaveLength(0);
     expect(tree.root.findAllByType(StarterProfileCard)).toHaveLength(0);
     expect(tree.root.findAllByType(StarterPeakActivityCard)).toHaveLength(0);
     expect(tree.root.findAllByProps({ testID: 'add-starter-btn' }).length).toBeGreaterThan(0);

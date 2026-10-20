@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 8 | 8 | **100.0%** | ✅ POKRYTE |
 | **UI** | 39 | 39 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 565 | 565 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 359 | 359 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 152 | 152 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1123** | Pokrytych: **1123** | Brakujących: **0**
+Łącznie elementów: **1121** | Pokrytych: **1121** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolizja nocna!` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Błąd schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 823 kolejnych elementów w pełnym wykazie)*
+*(... i 821 kolejnych elementów w pełnym wykazie)*
