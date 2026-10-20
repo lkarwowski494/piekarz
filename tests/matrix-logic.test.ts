@@ -240,7 +240,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
   it('getLocaleMetadata retrieves locale configuration', () => {
     const plMeta = getLocaleMetadata('pl');
     expect(plMeta?.name).toBe('Polski');
-    expect(plMeta?.tier).toBe(1);
+    expect(plMeta?.status).toBe('released');
     const unknown = getLocaleMetadata('unknown');
     expect(unknown).toBeUndefined();
   });

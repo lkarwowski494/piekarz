@@ -31,7 +31,7 @@ import { UnitSystem } from '../src/lib/unit-converter';
 import { Plan } from '../src/lib/platnosci/konfiguracja';
 import { DB_NAME, SCHEMA_MIGRATIONS } from '../src/data/sqlite-schema';
 import { BakerRitualProfile, BakingVessel } from '../src/data/sqlite-store';
-import { PluralRuleCategory } from '../src/lib/i18n-locales';
+import { LocaleStatus } from '../src/lib/i18n-locales';
 import { StorageState } from '../src/data/storage-status';
 
 describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004)', () => {
@@ -240,15 +240,9 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       const storageStates: StorageState[] = ['ok', 'unavailable'];
       expect(storageStates.length).toBe(2);
 
-      const pluralCategories: PluralRuleCategory[] = [
-        'slavic',
-        'germanic',
-        'romance',
-        'asian',
-        'arabic',
-        'semitic',
-      ];
-      expect(pluralCategories.length).toBe(6);
+      // LocaleStatus zastępuje ręczne PluralRuleCategory (liczba mnoga z Intl.PluralRules) [M1-audytor-generalny-073]
+      const localeStatuses: LocaleStatus[] = ['released', 'planned'];
+      expect(localeStatuses.length).toBe(2);
 
     });
   });

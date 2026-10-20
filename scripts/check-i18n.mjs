@@ -3,7 +3,8 @@
 // Kod wyjścia: 0 bez błędów, 1 błędy, 2 konfiguracja albo skan kodu niewykonany.
 //
 // Bez --kod: każde t('…') z literałem musi mieć wpis w słowniku EN (src/lib/i18n-en/czesc-*.ts)
-// z tymi samymi parametrami {…}; słowniki Tier 1 mają te same parametry.
+// z tymi samymi parametrami {…}. Słowniki Tier 1 usunięte (rejestr języków DEC-06, docs/lokalizacja/jezyki.md)
+// [M1-audytor-generalny-073; 09-lokalizacja-008].
 // Z --kod: skan składnią TypeScript (moduł roli 09 i18n-expo, `skanujKod`, format projektu: klucz = tekst PL):
 //   - tekst w JSX, literał w {…} w JSX, literał w propsie z listy PROPSY, literał w Alert.alert = BŁĄD;
 //   - pole danych `…Pl` wyświetlane w JSX bez t() = BŁĄD (dane domenowe po polsku w każdym języku);
@@ -40,7 +41,7 @@ const walk = (d, files = []) => {
     const p = join(d, f);
     if (statSync(p).isDirectory()) {
       if (!['node_modules', '.expo', 'scratch', '__tests__', 'i18n-en'].includes(f)) walk(p, files);
-    } else if (/\.(ts|tsx)$/.test(f) && !/i18n(\.en|\.tier1)?\.ts$/.test(f) && !/\.(test|spec)\.(ts|tsx)$/.test(f)) {
+    } else if (/\.(ts|tsx)$/.test(f) && !/i18n(\.en)?\.ts$/.test(f) && !/\.(test|spec)\.(ts|tsx)$/.test(f)) {
       files.push(p);
     }
   }
@@ -168,16 +169,6 @@ const scan = scanCode(dirs, wyjatki);
 for (const [k, g] of scan.used) if (!keys.has(k)) bledy.push(`kod ${g}: brak tłumaczenia EN dla „${k}”`);
 for (const k of keys) if (params(k) !== params(dict[k])) bledy.push(`słownik EN: różne parametry {…} w „${k}”`);
 
-// TASK-R09-02: Weryfikacja słowników Tier 1 (DE, FR, IT, ES, JA)
-const tier1Path = join(root, 'src/lib/i18n.tier1.ts');
-if (existsSync(tier1Path)) {
-  const tier1Src = readFileSync(tier1Path, 'utf8');
-  for (const block of tier1Src.matchAll(/(\w{2}):\s*\{([^}]+)\}/g)) {
-    for (const m of block[2].matchAll(/'((?:[^'\\]|\\.)*)'\s*:\s*'((?:[^'\\]|\\.)*)'/g)) {
-      if (params(m[1]) !== params(m[2])) bledy.push(`słownik Tier 1 [${block[1]}]: różne parametry {…} w „${m[1]}”`);
-    }
-  }
-}
 
 if (kodArg) {
   for (const x of scan.teksty) (x.blad ? bledy : uwagi).push(`kod ${x.gdzie}: tekst na sztywno „${x.tekst}”`);

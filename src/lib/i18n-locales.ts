@@ -1,80 +1,69 @@
 // ============================================================================
-// Apps4Craft Studio — Piekarz (Crust)
-// 35-Language Global Localization Registry & Metadata (i18n Tier 1..3)
-// 100% Offline-First, Zero External Dependencies, Zero Bundle Bloat
+// Piekarz (Crust) — rejestr języków (DEC-06 b z rozszerzeniem właściciela)
+// PL + EN w wydaniu 1.0; razem 35 języków „jak w aplikacji Trening” (repo trening, lib/i18n.ts `LANGS`,
+// katalog locales/, commit 8273448, odczyt 2026-10-20). Powody, przekład i przeglądy: docs/lokalizacja/jezyki.md.
+// Liczba mnoga zawsze z Intl.PluralRules (CLDR), nie z tej tabeli [M1-audytor-generalny-073; 09-lokalizacja-008].
 // ============================================================================
 
-export type PluralRuleCategory =
-  | 'slavic'   // 3 forms (1, 2-4, 5+)
-  | 'germanic' // 2 forms (1, other)
-  | 'romance'  // 2 forms (0-1, other)
-  | 'asian'    // 1 form (invariable)
-  | 'arabic'   // 6 forms (zero, one, two, few, many, other)
-  | 'semitic'; // 4 forms / dual
+/** `released` = język w wydaniu (słownik, app.json, przełącznik); `planned` = czeka na przekład 093 i przeglądy. */
+export type LocaleStatus = 'released' | 'planned';
 
 export interface LocaleMetadata {
+  /** Tag BCP 47, jak plik słownika w Treningu (locales/<code>.json). */
   code: string;
+  /** Nazwa języka w nim samym (lista w Ustawieniach), jak `LANG_NAME` w Treningu. */
   name: string;
   englishName: string;
-  tier: 1 | 2 | 3;
-  isRtl: boolean;
-  pluralRule: PluralRuleCategory;
+  status: LocaleStatus;
 }
 
+const planned = (code: string, name: string, englishName: string): LocaleMetadata => ({ code, name, englishName, status: 'planned' });
+
+/** Kolejność jak `LANGS` w Treningu. Żaden język nie jest pisany od prawej (app.json: supportsRTL false). */
 export const SUPPORTED_LOCALES_35: readonly LocaleMetadata[] = [
-  // Tier 1: Core Craft Markets (8 languages)
-  { code: 'pl', name: 'Polski', englishName: 'Polish', tier: 1, isRtl: false, pluralRule: 'slavic' },
-  { code: 'en', name: 'English', englishName: 'English', tier: 1, isRtl: false, pluralRule: 'germanic' },
-  { code: 'de', name: 'Deutsch', englishName: 'German', tier: 1, isRtl: false, pluralRule: 'germanic' },
-  { code: 'fr', name: 'Français', englishName: 'French', tier: 1, isRtl: false, pluralRule: 'romance' },
-  { code: 'it', name: 'Italiano', englishName: 'Italian', tier: 1, isRtl: false, pluralRule: 'romance' },
-  { code: 'es', name: 'Español', englishName: 'Spanish', tier: 1, isRtl: false, pluralRule: 'romance' },
-  { code: 'pt', name: 'Português', englishName: 'Portuguese', tier: 1, isRtl: false, pluralRule: 'romance' },
-  { code: 'ja', name: '日本語', englishName: 'Japanese', tier: 1, isRtl: false, pluralRule: 'asian' },
-
-  // Tier 2: European & Nordic Bread Culture (12 languages)
-  { code: 'sv', name: 'Svenska', englishName: 'Swedish', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'da', name: 'Dansk', englishName: 'Danish', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'no', name: 'Norsk', englishName: 'Norwegian', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'fi', name: 'Suomi', englishName: 'Finnish', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'nl', name: 'Nederlands', englishName: 'Dutch', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'cs', name: 'Čeština', englishName: 'Czech', tier: 2, isRtl: false, pluralRule: 'slavic' },
-  { code: 'sk', name: 'Slovenčina', englishName: 'Slovak', tier: 2, isRtl: false, pluralRule: 'slavic' },
-  { code: 'uk', name: 'Українська', englishName: 'Ukrainian', tier: 2, isRtl: false, pluralRule: 'slavic' },
-  { code: 'hu', name: 'Magyar', englishName: 'Hungarian', tier: 2, isRtl: false, pluralRule: 'germanic' },
-  { code: 'el', name: 'Ελληνικά', englishName: 'Greek', tier: 2, isRtl: false, pluralRule: 'romance' },
-  { code: 'ro', name: 'Română', englishName: 'Romanian', tier: 2, isRtl: false, pluralRule: 'romance' },
-  { code: 'bg', name: 'Български', englishName: 'Bulgarian', tier: 2, isRtl: false, pluralRule: 'slavic' },
-
-  // Tier 3: Global Craft & Emerging Markets (15 languages)
-  { code: 'tr', name: 'Türkçe', englishName: 'Turkish', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'ko', name: '한국어', englishName: 'Korean', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'zh', name: '简体中文', englishName: 'Chinese (Simplified)', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'zh-TW', name: '繁體中文', englishName: 'Chinese (Traditional)', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'ar', name: 'العربية', englishName: 'Arabic', tier: 3, isRtl: true, pluralRule: 'arabic' },
-  { code: 'he', name: 'עברית', englishName: 'Hebrew', tier: 3, isRtl: true, pluralRule: 'semitic' },
-  { code: 'vi', name: 'Tiếng Việt', englishName: 'Vietnamese', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'th', name: 'ไทย', englishName: 'Thai', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'id', name: 'Bahasa Indonesia', englishName: 'Indonesian', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'ms', name: 'Bahasa Melayu', englishName: 'Malay', tier: 3, isRtl: false, pluralRule: 'asian' },
-  { code: 'hi', name: 'हिन्दी', englishName: 'Hindi', tier: 3, isRtl: false, pluralRule: 'germanic' },
-  { code: 'hr', name: 'Hrvatski', englishName: 'Croatian', tier: 3, isRtl: false, pluralRule: 'slavic' },
-  { code: 'lt', name: 'Lietuvių', englishName: 'Lithuanian', tier: 3, isRtl: false, pluralRule: 'slavic' },
-  { code: 'lv', name: 'Latviešu', englishName: 'Latvian', tier: 3, isRtl: false, pluralRule: 'slavic' },
-  { code: 'et', name: 'Eesti', englishName: 'Estonian', tier: 3, isRtl: false, pluralRule: 'germanic' },
-] as const;
+  { code: 'pl', name: 'Polski', englishName: 'Polish', status: 'released' },
+  { code: 'en', name: 'English', englishName: 'English', status: 'released' },
+  planned('cs', 'Čeština', 'Czech'),
+  planned('sk', 'Slovenčina', 'Slovak'),
+  planned('hu', 'Magyar', 'Hungarian'),
+  planned('ro', 'Română', 'Romanian'),
+  planned('bg', 'Български', 'Bulgarian'),
+  planned('hr', 'Hrvatski', 'Croatian'),
+  planned('sl', 'Slovenščina', 'Slovenian'),
+  planned('sr', 'Српски', 'Serbian'),
+  planned('lt', 'Lietuvių', 'Lithuanian'),
+  planned('lv', 'Latviešu', 'Latvian'),
+  planned('et', 'Eesti', 'Estonian'),
+  planned('uk', 'Українська', 'Ukrainian'),
+  planned('es', 'Español (España)', 'Spanish (Spain)'),
+  planned('es-419', 'Español (Latinoamérica)', 'Spanish (Latin America)'),
+  planned('pt', 'Português (Portugal)', 'Portuguese (Portugal)'),
+  planned('pt-BR', 'Português (Brasil)', 'Portuguese (Brazil)'),
+  planned('de', 'Deutsch', 'German'),
+  planned('fr', 'Français', 'French'),
+  planned('it', 'Italiano', 'Italian'),
+  planned('nl', 'Nederlands', 'Dutch'),
+  planned('sv', 'Svenska', 'Swedish'),
+  planned('da', 'Dansk', 'Danish'),
+  planned('nb', 'Norsk', 'Norwegian (Bokmål)'),
+  planned('fi', 'Suomi', 'Finnish'),
+  planned('tr', 'Türkçe', 'Turkish'),
+  planned('el', 'Ελληνικά', 'Greek'),
+  planned('id', 'Bahasa Indonesia', 'Indonesian'),
+  planned('ms', 'Bahasa Melayu', 'Malay'),
+  planned('vi', 'Tiếng Việt', 'Vietnamese'),
+  planned('ru', 'Русский', 'Russian'),
+  planned('ja', '日本語', 'Japanese'),
+  planned('ko', '한국어', 'Korean'),
+  planned('zh-Hant', '繁體中文', 'Chinese (Traditional)'),
+];
 
 export function getLocaleMetadata(code: string): LocaleMetadata | undefined {
   return SUPPORTED_LOCALES_35.find((l) => l.code.toLowerCase() === code.toLowerCase());
 }
 
-export function getLocalesByTier(tier: 1 | 2 | 3): LocaleMetadata[] {
-  return SUPPORTED_LOCALES_35.filter((l) => l.tier === tier);
-}
-
-export function isRtlLocale(code: string): boolean {
-  const meta = getLocaleMetadata(code);
-  return meta?.isRtl ?? false;
+export function getLocalesByStatus(status: LocaleStatus): LocaleMetadata[] {
+  return SUPPORTED_LOCALES_35.filter((l) => l.status === status);
 }
 
 export function getAllSupportedLocaleCodes(): string[] {

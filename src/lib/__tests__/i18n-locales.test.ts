@@ -1,70 +1,42 @@
 // ============================================================================
-// Apps4Craft Studio — Piekarz (Crust)
-// Unit Tests for 35-Language Localization Registry & Pluralization Engine
+// Piekarz (Crust) — rejestr 35 języków i liczba mnoga przez Intl.PluralRules.
+// Lista zmieniona z „Tier 1..3 z arabskim i hebrajskim” na listę Treningu według DEC-06 (b) z rozszerzeniem
+// właściciela; zgodność z app.json i słownikami: jezyki-rejestr.test.ts [M1-audytor-generalny-073; 09-lokalizacja-008].
 // ============================================================================
 
 import {
   SUPPORTED_LOCALES_35,
   getLocaleMetadata,
-  getLocalesByTier,
-  isRtlLocale,
+  getLocalesByStatus,
   getAllSupportedLocaleCodes,
   formatPluralUniversal,
 } from '../i18n-locales';
 
-describe('i18n 35-Language Global Registry (Apps4Craft Studio)', () => {
-  it('registers exactly 35 distinct locales across 3 tiers', () => {
+describe('i18n: rejestr 35 języków (DEC-06 b)', () => {
+  it('35 różnych kodów; 2 w wydaniu i 33 planowane', () => {
     expect(SUPPORTED_LOCALES_35.length).toBe(35);
-
-    const codes = new Set(SUPPORTED_LOCALES_35.map((l) => l.code));
-    expect(codes.size).toBe(35);
-
-    const tier1 = getLocalesByTier(1);
-    const tier2 = getLocalesByTier(2);
-    const tier3 = getLocalesByTier(3);
-
-    expect(tier1.length).toBe(8);
-    expect(tier2.length).toBe(12);
-    expect(tier3.length).toBe(15);
-    expect(tier1.length + tier2.length + tier3.length).toBe(35);
+    expect(new Set(SUPPORTED_LOCALES_35.map((l) => l.code)).size).toBe(35);
+    expect(getLocalesByStatus('released').length + getLocalesByStatus('planned').length).toBe(35);
   });
 
-  it('correctly identifies RTL writing systems (Arabic & Hebrew only)', () => {
-    expect(isRtlLocale('ar')).toBe(true);
-    expect(isRtlLocale('he')).toBe(true);
-
-    expect(isRtlLocale('pl')).toBe(false);
-    expect(isRtlLocale('en')).toBe(false);
-    expect(isRtlLocale('de')).toBe(false);
-    expect(isRtlLocale('ja')).toBe(false);
-    expect(isRtlLocale('zh')).toBe(false);
-  });
-
-  it('provides complete metadata for every registered locale', () => {
+  it('każdy wpis ma poprawny tag BCP 47, nazwę własną i angielską', () => {
     for (const locale of SUPPORTED_LOCALES_35) {
-      expect(locale.code.length).toBeGreaterThan(0);
+      expect(Intl.getCanonicalLocales(locale.code)).toEqual([locale.code]);
       expect(locale.name.length).toBeGreaterThan(0);
       expect(locale.englishName.length).toBeGreaterThan(0);
-      expect([1, 2, 3]).toContain(locale.tier);
-      expect(typeof locale.isRtl).toBe('boolean');
-      expect(['slavic', 'germanic', 'romance', 'asian', 'arabic', 'semitic']).toContain(
-        locale.pluralRule
-      );
+      expect(['released', 'planned']).toContain(locale.status);
     }
   });
 
-  it('returns all supported locale codes', () => {
+  it('getAllSupportedLocaleCodes zwraca warianty regionalne Treningu, bez języków spoza listy', () => {
     const allCodes = getAllSupportedLocaleCodes();
-    expect(allCodes.length).toBe(35);
-    expect(allCodes).toContain('pl');
-    expect(allCodes).toContain('en');
-    expect(allCodes).toContain('de');
-    expect(allCodes).toContain('fr');
-    expect(allCodes).toContain('ja');
-    expect(allCodes).toContain('ar');
+    expect(allCodes).toHaveLength(35);
+    for (const c of ['pl', 'en', 'es-419', 'pt-BR', 'nb', 'zh-Hant', 'ru', 'sl', 'sr']) expect(allCodes).toContain(c);
+    for (const c of ['ar', 'he', 'th', 'hi', 'zh', 'zh-TW', 'no']) expect(allCodes).not.toContain(c);
+    expect(getLocaleMetadata('PT-br')?.name).toBe('Português (Brasil)');
   });
 
-  it('formats plurals correctly across language families', () => {
+  it('liczba mnoga według CLDR w różnych językach', () => {
     const forms = {
       one: 'minuta',
       few: 'minuty',
@@ -72,19 +44,19 @@ describe('i18n 35-Language Global Registry (Apps4Craft Studio)', () => {
       other: 'minut',
     };
 
-    // Slavic (Polish): 1 minuta, 2 minuty, 5 minut, 22 minuty
+    // Polski: 1 minuta, 2 minuty, 5 minut, 22 minuty
     expect(formatPluralUniversal('pl', 1, forms)).toBe('1 minuta');
     expect(formatPluralUniversal('pl', 2, forms)).toBe('2 minuty');
     expect(formatPluralUniversal('pl', 5, forms)).toBe('5 minut');
     expect(formatPluralUniversal('pl', 22, forms)).toBe('22 minuty');
 
-    // Germanic (English): 1 minute, 2 minutes, 5 minutes
+    // Angielski: 1 minute, 2 minutes, 0 minutes
     const enForms = { one: 'minute', other: 'minutes' };
     expect(formatPluralUniversal('en', 1, enForms)).toBe('1 minute');
     expect(formatPluralUniversal('en', 2, enForms)).toBe('2 minutes');
     expect(formatPluralUniversal('en', 0, enForms)).toBe('0 minutes');
 
-    // Asian (Japanese): invariable
+    // Japoński: jedna forma
     const jaForms = { one: '分', other: '分' };
     expect(formatPluralUniversal('ja', 1, jaForms)).toBe('1 分');
     expect(formatPluralUniversal('ja', 10, jaForms)).toBe('10 分');
