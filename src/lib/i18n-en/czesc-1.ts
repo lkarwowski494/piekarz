@@ -20,6 +20,8 @@ export const EN_1: Record<string, string> = {
   'Harmonogram': 'Schedule',
   'Stolnica': 'Workbench',
   'Zakwas': 'Sourdough',
+  // Ten sam tekst jako składnik receptury: osobny klucz z kontekstem [M1-audytor-generalny-074]
+  'Zakwas|składnik': 'Starter',
   'Doktor Chleba': 'Bread Doctor',
   'Więcej': 'More',
   'Ustawienia': 'Settings',

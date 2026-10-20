@@ -48,7 +48,7 @@ export function BakeStepsList({
               </Text>
             </View>
             <View style={styles.ingredientPill}>
-              <Text style={styles.ingredientLabel}>{t('Zakwas')}</Text>
+              <Text style={styles.ingredientLabel}>{t('Zakwas|składnik')}</Text>
               <Text style={styles.ingredientValue}>
                 {formatWeight(calculatedRecipe.starterGrams, unitSystem)}
               </Text>

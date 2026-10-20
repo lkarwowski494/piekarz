@@ -2,7 +2,9 @@
 
 Decyzja: DEC-06 planu napraw M1 = (b) „Polski i angielski w 1.0 po naprawie lokalizacji głównego przepływu i przeglądzie EN”, rozszerzona przez właściciela 2026-10-19: „PL + EN pełne w 1.0 ORAZ wszystkie języki jak w aplikacji Trening (razem 35)”. Zabezpieczenia z decyzji: treści bezpieczeństwa zakwasu według DEC-10 (a) i tłumaczenie zwrotne tekstów krytycznych; przegląd natywny później; w językach bez sprawdzonej mapy mąk opis ogólny (białko %, zboże). Wymaganie: NFR-JEZ-001 w nowym BRD (gałąź `claude/03-zakres-2026-10-19-7a0b8a`, `docs/brd/wymagania.md:113`).
 
-Źródło: `pl` (klucz słownika = tekst polski). Utrzymanie: nowy tekst = klucz + wpis w każdym języku w wydaniu albo wyjątek z datą. *Dlaczego:* każdy język mnoży pracę przy zmianie tekstu, więc rejestr mówi wprost, które języki trzeba zaktualizować.
+Źródło: `pl` (klucz słownika = tekst polski). Utrzymanie: nowy tekst = klucz + kontekst (`docs/lokalizacja/pl.kontekst.json`, `npm run i18n:kontekst`) + wpis w każdym języku w wydaniu albo wyjątek z datą. *Dlaczego:* każdy język mnoży pracę przy zmianie tekstu, więc rejestr mówi wprost, które języki trzeba zaktualizować.
+
+Kontekst klucza: plik kontekstu ma dla każdego klucza EN miejsca użycia bez numerów linii (`plik (prop)`, `tekst w JSX`, `Alert.alert`, `dane: pole` dla tekstów tłumaczonych dynamicznie), generowane z kodu, oraz ręczny `opis` tam, gdzie miejsce nie wystarcza. Ten sam tekst w dwóch znaczeniach to dwa klucze: `tekst|kontekst` (np. `Zakwas` = zakładka, `Zakwas|składnik` = składnik receptury); `t()` pokazuje tekst przed `|`. `npm run check:i18n` zgłasza błąd, gdy wpisu brakuje, miejsca są nieaktualne albo klucz z `|` i jego tekst bazowy nie mają opisu. Sprawdzenie nie zapisuje pliku samo. *Dlaczego:* „Zakwas” jako zakładka i jako składnik to w angielskim różne słowa („Sourdough”, „Starter”), a tłumacz bez kontekstu wybiera jedno dla obu.
 
 Jedno źródło w kodzie: `src/lib/i18n-locales.ts` (`SUPPORTED_LOCALES_35`, pole `status`). Zgodność rejestru z `ACTIVE_LANGS`, słownikami, `languages/*.json`, `app.json` (`locales`, `supportedLocales`, `supportsRTL: false`) i przełącznikiem w Ustawieniach sprawdza `src/lib/__tests__/jezyki-rejestr.test.ts` (`npm test`).
 
@@ -12,8 +14,8 @@ Lista i kolejność jak w Treningu: repo `trening`, `lib/i18n.ts:17` (`LANGS`) i
 
 | Kod | Nazwa | Stan | Powód (dowód) | Przekład | Przeglądy |
 |---|---|---|---|---|---|
-| `pl` | Polski | w wydaniu 1.0 | język źródłowy; DEC-06 (b) | źródło | brak wpisu (zadanie 074) |
-| `en` | English | w wydaniu 1.0 | DEC-06 (b): drugi język 1.0 | brak wpisu (zadanie 074) | brak wpisu (zadanie 074) |
+| `pl` | Polski | w wydaniu 1.0 | język źródłowy; DEC-06 (b) | źródło | patrz „Przeglądy języków w wydaniu” |
+| `en` | English | w wydaniu 1.0 | DEC-06 (b): drugi język 1.0 | maszynowe (AI), patrz niżej | patrz „Przeglądy języków w wydaniu” |
 | `cs` | Čeština | planowany | DEC-06 rozszerzenie (Trening) | zadanie 093, partia 6 | brak |
 | `sk` | Slovenčina | planowany | DEC-06 rozszerzenie (Trening) | zadanie 093, partia 6 | brak |
 | `hu` | Magyar | planowany | DEC-06 rozszerzenie (Trening) | zadanie 093, partia 6 | brak |
@@ -64,3 +66,12 @@ Język przechodzi do „w wydaniu 1.0” dopiero, gdy wszystkie punkty są speł
 5. Wybór języka z systemu: warianty regionalne i aliasy jak w Treningu (`es-419` dla regionów Ameryki Łacińskiej, `zh-Hant` dla TW/HK/MO, `in` → `id`, `zsm` → `ms`; `trening/lib/i18n.ts`, `ES_419_REGIONS`, `ZH_HANT_REGIONS`, `LANG_ALIAS`); dziś `resolveLanguage` bierze tylko pełny tag i kod języka.
 6. Treści krytyczne zakwasu według DEC-10 (a) z tłumaczeniem zwrotnym na polski w świeżej sesji i porównaniem sensu; typy mąk bez sprawdzonej mapy: opis ogólny (DEC-06).
 7. Wpis w „Przeglądach języków w wydaniu”: pochodzenie przekładu, drugi przegląd AI w świeżym kontekście, przegląd człowieka (DEC-06: później, przed nim tylko kontrola treści krytycznych z punktu 6).
+
+## Przeglądy języków w wydaniu
+
+Stan na 2026-10-20 (commit bazowy 3c810e7). Każdy język w wydaniu ma tu wiersz; wydanie 1.0 wymaga przeglądu EN (słowa DEC-06 b). Przegląd modelu to nie przegląd rodzimego użytkownika języka.
+
+| Język | Pochodzenie przekładu | Drugi przegląd AI (świeży kontekst) | Przegląd człowieka | Treści krytyczne | Zrzuty |
+|---|---|---|---|---|---|
+| `pl` | tekst źródłowy (klucze słownika); treści merytoryczne w rejestrze roli 06 (`docs/tresci/rejestr.json`) | nie dotyczy (źródło) | [DO USTALENIA] kto i kiedy przeczytał teksty interfejsu jako rodzimy użytkownik | treści zakwasu według DEC-10 (a), rola 06 | brak katalogu `docs/lokalizacja/zrzuty/pl/` |
+| `en` | maszynowe (AI): `src/lib/i18n-en/czesc-*.ts`, 1387 kluczy, 72 commity od 255d1db (2026-10-15) do 0477bbc; 31 z nich ma trailer `Co-Authored-By: Claude Opus 5.5`, 41 bez oznaczenia narzędzia ([DO USTALENIA] czym powstały). Zmiana 2026-10-20: `Zakwas\|składnik` → „Starter” (M1-audytor-generalny-074) | nie wykonany. Próbka audytu M1 (ok. 40 kluczy, 2026-10-19) była przeglądem własnym, nie niezależnym. Do wykonania etapem oceny w potoku Batches (zadanie 093) albo osobną sesją | brak; krok właściciela: wskazać osobę i zakres (główny przepływ, treści krytyczne) | bez tłumaczenia zwrotnego i bez przeglądu człowieka: [DO USTALENIA] przed 1.0 według DEC-06 i DEC-10 (a) | brak katalogu `docs/lokalizacja/zrzuty/en/` |

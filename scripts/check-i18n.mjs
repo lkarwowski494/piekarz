@@ -10,10 +10,13 @@
 //   - pole danych `…Pl` wyświetlane w JSX bez t() = BŁĄD (dane domenowe po polsku w każdym języku);
 //   - literał w obiekcie pod kluczem z PROPSY = UWAGA; klucz dynamiczny t(x) = UWAGA;
 //   - sklejanie t() z tekstem przez + = UWAGA (użyj parametru {nazwa}).
+// Kontekst: docs/lokalizacja/pl.kontekst.json ma wpis dla każdego klucza EN z aktualnymi miejscami użycia;
+// klucz „tekst|kontekst” (ten sam tekst w dwóch znaczeniach) i jego tekst bazowy mają opis. Zapis pliku tylko
+// przez `npm run i18n:kontekst` (--zapisz-kontekst), nigdy w `npm run verify`.
 // Nazwy własne i symbole tylko przez scripts/i18n-wyjatki.json, z powodem przy każdym wpisie
 // [M1-audytor-generalny-047; 09-lokalizacja-001].
 import { fileURLToPath } from 'node:url';
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync, writeFileSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 
@@ -85,6 +88,22 @@ function loadExceptions(path) {
   return { wartosci: (raw.wartosci || []).map((w) => w.tekst), pola: (raw.pola || []).map((w) => w.nazwa) };
 }
 
+// Kontekst dla tłumacza bez numerów linii (stabilny przy edycji): najbliższy prop JSX albo pole obiektu,
+// Alert.alert, tekst w JSX, inaczej kod [M1-audytor-generalny-074; 09-lokalizacja-009].
+const rodzaj = (n) => {
+  for (let p = n.parent; p && !ts.isSourceFile(p); p = p.parent) {
+    if (ts.isJsxAttribute(p) || ts.isPropertyAssignment(p)) return p.name.getText();
+    if (ts.isCallExpression(p) && /Alert\.alert$/.test(p.expression.getText())) return 'Alert.alert';
+    if (ts.isJsxExpression(p) && !ts.isJsxAttribute(p.parent)) return 'tekst w JSX';
+    if (ts.isFunctionLike(p)) return 'kod';
+  }
+  return 'kod';
+};
+const miejsca = new Map();
+// Teksty tłumaczone dynamicznie (t(zmienna)): miejsce, gdzie literał PL stoi w danych, np. „src/core/x.ts (dane: namePl)”
+const literaly = new Map();
+const dodajMiejsce = (mapa, k, m) => (mapa.get(k) || mapa.set(k, new Set()).get(k)).add(m);
+
 function scanCode(dirs, wyjatki) {
   const used = new Map();
   const teksty = [];
@@ -92,6 +111,7 @@ function scanCode(dirs, wyjatki) {
   const sklejenia = [];
   for (const file of dirs.flatMap((d) => walk(d))) {
     const sf = parse(file);
+    const plik = relative(root, file).split('\\').join('/');
     const where = (n) => `${relative(root, file)}:${sf.getLineAndCharacterOfPosition(n.getStart()).line + 1}`;
     const st = (n) =>
       !n ? [] : ts.isJsxExpression(n) || ts.isParenthesizedExpression(n) ? st(n.expression)
@@ -121,6 +141,7 @@ function scanCode(dirs, wyjatki) {
     };
     const visit = (n) => {
       const name = (ts.isJsxAttribute(n) || ts.isPropertyAssignment(n)) && n.name.getText(sf);
+      if (isLit(n) && !(n.parent && isT(n.parent) && n.parent.arguments[0] === n)) dodajMiejsce(literaly, n.text, `${plik} (dane: ${rodzaj(n)})`);
       if (ts.isJsxText(n) && isText(n.text)) add(n, n.text, true);
       if (ts.isJsxExpression(n) && !ts.isJsxAttribute(n.parent)) {
         for (const s of st(n)) if (isText(s)) add(n, s, true);
@@ -138,6 +159,7 @@ function scanCode(dirs, wyjatki) {
         const a = n.arguments[0];
         if (isLit(a)) {
           if (!used.has(a.text)) used.set(a.text, where(n));
+          dodajMiejsce(miejsca, a.text, `${plik} (${rodzaj(n)})`);
         } else if (a) dynamiczne.push(`${where(n)} t(${a.getText(sf)})`);
       }
       if (
@@ -169,6 +191,39 @@ const scan = scanCode(dirs, wyjatki);
 for (const [k, g] of scan.used) if (!keys.has(k)) bledy.push(`kod ${g}: brak tłumaczenia EN dla „${k}”`);
 for (const k of keys) if (params(k) !== params(dict[k])) bledy.push(`słownik EN: różne parametry {…} w „${k}”`);
 
+
+// Plik kontekstu: każdy klucz słownika EN → miejsca użycia (generowane) + opis (ręczny, zachowywany).
+// Zapis tylko osobną komendą `npm run i18n:kontekst`; sprawdzenie nie aktualizuje pliku samo.
+const kontekstPath = join(root, 'docs/lokalizacja/pl.kontekst.json');
+const stary = existsSync(kontekstPath) ? JSON.parse(readFileSync(kontekstPath, 'utf8')) : null;
+const kontekst = {};
+for (const k of [...keys].sort()) {
+  kontekst[k] = { gdzie: [...(miejsca.get(k) || literaly.get(k) || [])].sort() };
+  if (stary?.[k]?.opis) kontekst[k].opis = stary[k].opis;
+}
+// Miejsca użycia porównujemy tylko przy skanie całego kodu (src i app); skan jednego katalogu sprawdza resztę bramki.
+const pelnySkan = dirs.map((d) => relative(root, d).split('\\').join('/')).sort().join(',') === 'app,src';
+if (!pelnySkan) {
+  if (args.includes('--zapisz-kontekst')) bledy.push('kontekst: zapis tylko przy skanie --kod src,app');
+} else if (args.includes('--zapisz-kontekst')) {
+  writeFileSync(kontekstPath, JSON.stringify(kontekst, null, 2) + '\n');
+  console.log(`zapisano ${relative(root, kontekstPath)}: ${keys.size} kluczy`);
+} else if (!stary) {
+  bledy.push(`brak pliku kontekstu ${relative(root, kontekstPath)} (npm run i18n:kontekst)`);
+} else {
+  for (const k of keys) {
+    if (!stary[k]) bledy.push(`kontekst: brak wpisu dla „${k}” (npm run i18n:kontekst)`);
+    else if (JSON.stringify(stary[k].gdzie) !== JSON.stringify(kontekst[k].gdzie)) bledy.push(`kontekst: nieaktualne miejsca „${k}” (npm run i18n:kontekst)`);
+  }
+  for (const k of Object.keys(stary)) if (!keys.has(k)) bledy.push(`kontekst: wpis „${k}” bez klucza w słowniku EN`);
+}
+const bezMiejsca = Object.keys(kontekst).filter((k) => !kontekst[k].gdzie.length);
+if (bezMiejsca.length) uwagi.push(`kontekst: ${bezMiejsca.length} kluczy EN bez miejsca w kodzie (sieroty albo tekst z szablonu), np. „${bezMiejsca[0]}”`);
+// Ten sam tekst w dwóch znaczeniach: klucz „tekst|kontekst” i jego tekst bazowy wymagają opisu dla tłumacza
+for (const k of keys) {
+  if (!k.includes('|')) continue;
+  for (const x of [k, k.split('|')[0]]) if (keys.has(x) && !kontekst[x].opis) bledy.push(`kontekst: „${x}” bez opisu (tekst w dwóch znaczeniach)`);
+}
 
 if (kodArg) {
   for (const x of scan.teksty) (x.blad ? bledy : uwagi).push(`kod ${x.gdzie}: tekst na sztywno „${x.tekst}”`);

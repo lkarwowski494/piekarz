@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 33 | 33 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 538 | 538 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 539 | 539 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 283 | 283 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 96 | 96 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **955** | Pokrytych: **955** | Brakujących: **0**
+Łącznie elementów: **956** | Pokrytych: **956** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Wystąpił błąd podczas zapisywania receptury do bazy SQLite.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Importuj recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 
-*(... i 655 kolejnych elementów w pełnym wykazie)*
+*(... i 656 kolejnych elementów w pełnym wykazie)*

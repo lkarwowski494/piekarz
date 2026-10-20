@@ -19,6 +19,7 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "check:i18n": "node scripts/check-i18n.mjs --kod src,app",
+    "i18n:kontekst": "node scripts/check-i18n.mjs --kod src,app --zapisz-kontekst",
     "check:licenses": "node scripts/check-licenses.mjs",
     "check:size": "node scripts/check-file-size.mjs",
     "matrix:update": "node scripts/test-matrix.mjs",

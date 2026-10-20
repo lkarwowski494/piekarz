@@ -201,7 +201,7 @@ export function ImportRecipeModal({
                     </Text>
                   </View>
                   <View style={styles.metricItem}>
-                    <Text style={styles.metricLabel}>{t('Zakwas')}</Text>
+                    <Text style={styles.metricLabel}>{t('Zakwas|składnik')}</Text>
                     <Text style={styles.metricValue}>
                       {formatFixed(validation.recipe.formula.starterPercentage, 1)}%
                     </Text>

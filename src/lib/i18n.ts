@@ -105,15 +105,22 @@ function paramText(v: string | number): string {
   return f.format(v);
 }
 
+/** Separator kontekstu w kluczu: „Zakwas|składnik” = tekst „Zakwas” w znaczeniu składnika receptury. */
+const CONTEXT_SEP = '|';
+
 /**
  * Tłumaczenie tekstu z opcjonalną interpolacją parametrów {klucz}.
- * Brak wpisu: słownik zastępczy (EN), potem tekst źródłowy; nigdy pusty tekst.
+ * Ten sam tekst w dwóch znaczeniach = dwa klucze: „tekst|kontekst” (opis w docs/lokalizacja/pl.kontekst.json)
+ * [M1-audytor-generalny-074]. Brak wpisu: słownik zastępczy (EN), potem tekst źródłowy bez kontekstu; nigdy pusty tekst.
  */
 export function t(pl: string, params?: Record<string, string | number>): string {
+  // Wywołanie z wartością spoza słownika (np. undefined z danych) nie może wywrócić ekranu
+  const sep = typeof pl === 'string' ? pl.indexOf(CONTEXT_SEP) : -1;
+  const source = sep >= 0 ? pl.slice(0, sep) : pl;
   let text =
     currentLang === SOURCE_LANG
-      ? pl
-      : own(DICTIONARIES[currentLang], pl) ?? own(DICTIONARIES[FALLBACK_LANG], pl) ?? pl;
+      ? source
+      : own(DICTIONARIES[currentLang], pl) ?? own(DICTIONARIES[FALLBACK_LANG], pl) ?? source;
   if (params) {
     for (const k of Object.keys(params)) {
       text = text.split(`{${k}}`).join(paramText(params[k]));

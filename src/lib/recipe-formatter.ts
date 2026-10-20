@@ -87,7 +87,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
 
   // Sourdough starter
   lines.push(
-    `  • ${t('Zakwas')} (${pct(calc.starterGrams)}%): ${w(calc.starterGrams)} (${t('{maka} mąki + {woda} wody', { maka: w(calc.starterFlourGrams), woda: w(calc.starterWaterGrams) })})`
+    `  • ${t('Zakwas|składnik')} (${pct(calc.starterGrams)}%): ${w(calc.starterGrams)} (${t('{maka} mąki + {woda} wody', { maka: w(calc.starterFlourGrams), woda: w(calc.starterWaterGrams) })})`
   );
 
   // Salt
