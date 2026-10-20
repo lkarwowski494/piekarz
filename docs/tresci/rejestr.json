@@ -1031,10 +1031,10 @@
     "uwagi": "M1-audytor-generalny-069 (06-tresci-012): ostrzeżenie o wyjęciu naczynia przed nagrzewaniem (ryzyko dla mienia: plastikowa miska, ściereczka).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "d0c833d37ff3",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
@@ -1192,10 +1192,10 @@
     "uwagi": "M1-audytor-generalny-086 (01-odkrywanie-019; RD-22, S-46 roli 01, przeczytane ponownie przez 06).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "84fb02c92af2",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-04-20"
@@ -1217,10 +1217,10 @@
     "uwagi": "M1-audytor-generalny-086 (RD-22-W1).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "4ac9d0fd8e35",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-04-20"
@@ -1242,10 +1242,10 @@
     "uwagi": "M1-audytor-generalny-086: w rejestrze dla RD-22 (dzieci); w tekstach kroku nieużyte (komunikat krótki), do decyzji roli 03/04.",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd (brak zdań w treści: przegląd tylko twierdzenia)",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "e3b0c44298fc",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-04-20"
@@ -1268,10 +1268,10 @@
     "uwagi": "M1-audytor-generalny-086 (RD-23-W1; S-47 roli 01, przeczytane ponownie przez 06).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "e59fc24f1d71",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
@@ -1294,10 +1294,10 @@
     "uwagi": "M1-audytor-generalny-086 (RD-23-W1; S-48 roli 01, przeczytane ponownie przez 06).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "e59fc24f1d71",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
@@ -1320,10 +1320,10 @@
     "uwagi": "M1-audytor-generalny-086: podstawa słowa „suche” w RD-23 (S-47 i S-48 go nie zawierają).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "e59fc24f1d71",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
