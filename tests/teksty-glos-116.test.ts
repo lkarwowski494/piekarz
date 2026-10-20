@@ -55,7 +55,7 @@ function literaly(): Literal[] {
   const out: Literal[] = [];
   for (const p of [...plikiKodu(join(ROOT, 'app')), ...plikiKodu(join(ROOT, 'src'))]) {
     const plik = relative(ROOT, p).replace(/\\/g, '/');
-    if (plik.startsWith('src/lib/i18n-en/') || plik === 'src/lib/i18n-locales.ts') continue; // słowniki: wartości EN sprawdza test niżej
+    if (plik.startsWith('src/lib/i18n-en/') || plik.startsWith('src/lib/i18n-slowniki/') || plik === 'src/lib/i18n-locales.ts') continue; // słowniki: wartości EN sprawdza test niżej; klucze słowników 093 = te same teksty PL co w kodzie
     const sf = ts.createSourceFile(p, readFileSync(p, 'utf-8'), ts.ScriptTarget.Latest, true, p.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
     const odwiedz = (n: ts.Node) => {
       if (ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n)) {

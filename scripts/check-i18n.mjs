@@ -43,7 +43,7 @@ const walk = (d, files = []) => {
   for (const f of readdirSync(d)) {
     const p = join(d, f);
     if (statSync(p).isDirectory()) {
-      if (!['node_modules', '.expo', 'scratch', '__tests__', 'i18n-en'].includes(f)) walk(p, files);
+      if (!['node_modules', '.expo', 'scratch', '__tests__', 'i18n-en', 'i18n-slowniki'].includes(f)) walk(p, files);
     } else if (/\.(ts|tsx)$/.test(f) && !/i18n(\.en)?\.ts$/.test(f) && !/\.(test|spec)\.(ts|tsx)$/.test(f)) {
       files.push(p);
     }

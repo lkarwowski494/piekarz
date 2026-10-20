@@ -15,7 +15,7 @@ function walk(dir: string): string[] {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      if (!['__tests__', 'node_modules', 'i18n-en'].includes(entry.name)) res = res.concat(walk(full));
+      if (!['__tests__', 'node_modules', 'i18n-en', 'i18n-slowniki'].includes(entry.name)) res = res.concat(walk(full));
     } else if (/\.(ts|tsx)$/.test(entry.name) && !/\.test\./.test(entry.name)) {
       res.push(full);
     }

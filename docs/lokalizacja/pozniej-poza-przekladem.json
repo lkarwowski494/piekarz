@@ -1,0 +1,2577 @@
+{
+  "_opis": "Klucze słownika poza przekładem 1.0: teksty funkcji z ukrytym wejściem (src/lib/wejscia-pozniej.ts, D-034/D-043), decyzja 3a właściciela 2026-10-20 [M1-audytor-generalny-093]. Klucz jest tu tylko, gdy wszystkie jego miejsca są w plikach funkcji PÓŹNIEJ. W językach 093 te klucze pokazują tekst EN (zastępczy); npm run check:i18n nie liczy ich jako braków. Po odsłonięciu funkcji: przekład i usunięcie z listy.",
+  "commit": "1978237",
+  "pliki": {
+    "F-44 akademia": [
+      "src/components/BreadAcademyModal.tsx",
+      "src/components/academy/AcademyHeader.tsx",
+      "src/components/academy/BreadSchoolSection.tsx",
+      "src/components/academy/TechniquesLibrarySection.tsx",
+      "src/core/bread-school.ts",
+      "src/core/bread-school-lessons.ts",
+      "src/core/baking-techniques.ts",
+      "src/core/techniques/prep-ferment-techniques.ts",
+      "src/core/techniques/shaping-baking-techniques.ts"
+    ],
+    "F-47 odrzut zakwasu": [
+      "src/components/DiscardRecipesModal.tsx",
+      "src/recipes/discard-recipes.ts"
+    ],
+    "F-30 spizarnia": [
+      "src/components/FlourInventoryModal.tsx",
+      "src/core/inventory.ts"
+    ],
+    "F-45 przelicznik objetosci": [
+      "src/components/VolumeConverterModal.tsx",
+      "src/core/volume-converter.ts"
+    ],
+    "F-49 konwerter zakwasu": [
+      "src/components/StarterConverterModal.tsx",
+      "src/core/starter-converter.ts"
+    ],
+    "F-08 QR": [
+      "src/components/ShareRecipeQrModal.tsx",
+      "src/components/QrScannerModal.tsx",
+      "src/components/QrCodeSvg.tsx",
+      "src/lib/qr-skaner.ts"
+    ],
+    "F-50 druk": [
+      "src/lib/pdf-sheet-generator.ts",
+      "src/lib/print-menu.ts"
+    ],
+    "F-48 strata piecowa": [
+      "src/components/calculator/accordion/AccordionBakeLossSection.tsx"
+    ],
+    "F-52 rodzina": [
+      "src/components/settings/StudioEcosystemSection.tsx"
+    ]
+  },
+  "klucze": [
+    {
+      "klucz": "+{g}g wody",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "0g (brak zmian)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "1 duża blacha piekarnicza (~50 szt.)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "100% (Płynny Levain)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "100% (Płynny)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "100% Płynny Levain",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "100% mąka pszenna chlebowa typ 650",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "100% mąka pszenna francuska T65 (Tradition)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "100% mąka włoska Tipo 00 (W>300)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "100% mąka żytnia razowa typ 2000",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "12h fermentacja zaczynu Poolish + krótka fermentacja właściwa 2h",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "12–14 puszystych placków (3–4 porcje)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "14h powolna fermentacja w temperaturze pokojowej (20–22°C)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "16 godzin retardacji chłodniczej w lodówce w 4°C w celu wzmocnienia profilu kwasowego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "16–18 ciastek",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "4 duże podpłomyki",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "6-stopniowa rzemieślnicza ścieżka wtajemniczenia. Od prostego chleba bez wyrabiania do mistrzowskiego Tartine i pizzy neapolitańskiej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "60% (Sztywny)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "60% (Żytni)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "80% mąka pszenna chlebowa t750 + 20% mąka żytnia t720",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "8–10 gofrów",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "90% mąka chlebowa wysokobiałkowa (W>280) + 10% pszenna razowa",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Amylazy w życie są neutralizowane jedynie przez odpowiednie zakwaszenie ciasta (pH < 4.5); bez kwasu chleb zamienia się w papkę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Asymetryczne nacięcie pod ostrym kątem 30° tworzy płat skórki, który pod wpływem ciśnienia pary unosi się i tworzy chrupiące ucho.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Autoliza i Fermentoliza",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Białka ubij ze szczyptą soli na sztywną pianę.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Błąd",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Chleb żytni: według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. Gorące żyto po ukrojeniu ma postać lepkiej mazi.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Chrupiące gofry rzemieślnicze",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Chrupiące krakersy ziołowe z solą morską",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Chwyć ciasto od spodu po stronie północnej (góra miski) i unieś delikatnie w górę, rozciągając je bez rwania.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Chwyć górną krawędź kciukami i zroluj ciasno w dół ku sobie, dociskając kciukami szew.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Ciasteczka",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Co chcesz wydrukować?",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Cukier trzcinowy",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Cukier trzcinowy lub miód",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Cukier waniliowy lub miód",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Czego unikać (typowe błędy):",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Czeladnik Piekarski",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Czerpanie szklanką bezpośrednio z worka ubija mąkę, dodając do 25% więcej mąki niż zakłada przepis!",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Czosnek i masło do posmarowania",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Delikatnie chwytaj krawędzie ciasta od spodu i rozciągaj je we wszystkie strony, tworząc prostokąt o grubości 2–3 mm.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dla chlebów pszennych: odczekaj MINIMUM 2 godziny przed pierwszym krojeniem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dla ciast o średniej hydratacji (65–72%) wystarczą 3–4 serie składań w pierwszych 2 godzinach fermentacji burzliwej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dla mąk pełnoziarnistych (graham, razowa) wydłuż autolizę do 60–90 minut.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Do ciasta dodaj proszek do pieczenia, a następnie delikatnie wmieszaj szpatułką ubitą pianę z białek.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Docelowa hydratacja nowego zakwasu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Docelowa masa nowego zakwasu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Dociąganie kciukami przy każdym obrocie tworzy wewnętrzny spiralny szkielet trzymający chleb w pionie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dodaj mąkę do spiżarni",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Dodaj nową mąkę",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Dodaj suche składniki do mokrych. Po dodaniu sody ciasto natychmiast zacznie intensywnie pienić się pod wpływem reakcji z kwasem zakwasu.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Dodaj zimny odrzut zakwasu i posiekaną czekoladę. Szybko zagnieć ciasto w zwarty dysk.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Dodaj {g} g mąki {nazwa}",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Dodanie soli na początku autolizy (drastycznie wydłuża czas hydratacji białek).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dodawanie mokrych dodatków (np. oliwek) bez uprzedniego odsączenia (rozbija strukturę ciasta).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dokarm zakwas w proporcji 1:2:2 i odczekaj do osiągnięcia szczytu (podwojenie objętości, wypukła kopuła).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dostęp do Aparatu",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Dozowanie mikrogramów drożdży, panowanie nad elastycznością glutenu po 48h w chłodzie, otwieranie placka dłońmi bez wałka.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Drożdże instant (suche)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Drożdże świeże (prasowane)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Dzielenie na porcje (ok. 300g każda) i wstępne formowanie w wałeczki; 15 min odpoczynku.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dzień wcześniej przygotuj Poolish: 30% mąki z przepisu + równa ilość wody (100% hydratacji) + szczypta drożdży (12h w 20°C).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Dzięki obecności zakwasu ciastka zyskują głęboki, karmelowo-maślany posmak.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Ekstremalne rozciągnięcie siatki glutenowej w przezroczystą błonę w celu równomiernego ułożenia nasion, ziół lub sera.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Enzymy proteolityczne i woda spontanicznie łączą cząsteczki gliadyny i gluteniny w siatkę bez użycia rąk.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Etykieta słoika zakwasu",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Etykieta zakwasu",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "FAZA 1 (PAROWA): Zamknij szczelnie pokrywkę i piecz 20 minut w 230–240°C. Para sprawia, że bochenek gwałtownie rośnie, a cięcie otwiera się w ucho.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "FAZA 2 (RUMIENIENIE): Zdejmij pokrywkę, zmniejsz temperaturę do 200–210°C i dopiekaj 20–25 minut do uzyskania głębokiego koloru mahoniowego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fermentacja burzliwa 4–5h w 24°C ze składaniami + garowanie w koszyku",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fermentacja burzliwa 5h + 16h garowania chłodniczego w 4°C (Cold Retard)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fermentacja burzliwa 90 minut z jednym delikatnym złożeniem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fermentacja i prowadzenie:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fermentoliza: polega na dodaniu zakwasu od razu do mąki i wody (z pominięciem soli), skracając późniejszy czas mieszania.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Fizjologia i chemia:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie bagietki: zagięcie 1/3 do środka, ponowne zagięcie, zrolowanie dłońmi na długość 45 cm z zaostrzonymi końcami.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie bochenka okrągłego (Boule)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie bochenka podłużnego (Batard)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie ostateczne w batard (wrzeciono) z silnym naciągiem powierzchniowym (surface tension).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie wstępne (Pre-shape) i Bench Rest",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formowanie wstępne (pre-shape) -> 20 minut odpoczynku na desce (bench rest).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Formuj kulki wielkości orzecha włoskiego, układaj na blasze z papierem i spłaszczaj dłonią.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Garuj w koszyku ok. 2–2,5h lub wstaw na noc do lodówki (4°C).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Gdy ciasto podwoi objętość i na wierzchu pojawią się małe kraterki, wstaw do pieca (240°C przez 15 min z parą, potem 200°C przez 45 min).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Gofry",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Gorzka czekolada (posiekana)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Gorące placki posmaruj masłem czosnkowym lub oliwą z ziołami.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Gęsty jogurt naturalny lub grecki",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Gęsty zakwas żytni do ciężkich chlebów razowych. Wzmacnia strukturę miękiszu i chroni enzymy.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Hydratacja Twojego zakwasu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Hydratacja w przepisie",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Hydratacja zakwasu jest identyczna — brak konieczności korekty wody w cieście.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Hydratacja zakwasu matki",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Ilość objętościowa:",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Jajka (żółtka i białka osobno)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Jajko (rozmiar L)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Jednolity, sprężysty miękisz bez lepkiego zakalca pod skórką po 24 godzinach od wypieku.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Jeśli po 20 minutach ciasto rozlało się jak kałuża, jego gluten jest słaby — formuj ciaśniej. Jeśli stoi w pionie, jest gotowe do formowania batarda.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Jogurt w połączeniu z kwasem zakwasu zapewnia wyjątkową miękkość i elastyczność ciasta.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Karta receptury A4",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Klasyczny rzemieślniczy zakwas 1:1. Zrównoważony profil kwasowy, łatwy do dozowania.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Kluczem jest pewność i prędkość — gluten buduje się dzięki energii kinetycznej uderzenia o blat.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Kod QR Receptury",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Konsystencja będzie zwarta (Lievito Madre) — zagnieć kulę i nacinij krzyżem lub zroluj.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Kontakt",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Kontrola zapasów mąk i powiadomienia o brakach",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Korekta wody w cieście",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Krakersy",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Krojenie gorącego chleba prosto z pieca — nóż miażdży niestabilną siatkę skrobi, tworząc trwały zakalec na ostrzu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Kroki technologiczne:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Kryterium zaliczenia:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Krzywa żyletka automatycznie podcina ciasto pod spód, tworząc idealny daszek pod spektakularne ucho rzemieślnicze.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Który zakwas?",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Kuchnia zero-waste: krakersy, naleśniki, gofry i ciasteczka bez marnowania zakwasu",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Kładź placek na suchą patelnię. Smaż ok. 1,5–2 minuty, aż powstaną wielkie bąble i przypalenia, obróć i smaż jeszcze 1 minutę.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Laminacja ciasta i dodatki",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Laminacja pozwala na wprowadzenie nawet do 25% wagi dodatków bez niszczenia napowietrzenia miękiszu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 1: Chleb nocny z garnka żeliwnego (No-Knead)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 2: Prosty chleb pszenno-żytni na zakwasie",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 3: Klasyczny chleb wiejski 75% hydratacji (Tartine)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 4: Tradycyjny razowiec 100% żytni w keksówce",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 5: Tradycyjna bagietka paryska na poolish",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lekcja ukończona (stuknij, aby cofnąć)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Lievito Madre / Pasta Madre (50%)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Masa zakwasu w przepisie",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Masło (roztopione)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Masło (roztopione) lub oliwa extra virgin",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Masło (zimne, posiekane w kostkę)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Maślane kruche ciasteczka z czekoladą",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Metryczna",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Mistrz Piekarstwa",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Mistrz Rzemiosła Piekarskiego",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Mleko ciepłe",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Mleko lub napój roślinny",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Mąka pszenna (czerpana szklanką / ubita)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Mąka pszenna (napowietrzona / sypana łyżką)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Mąka pszenna pełnoziarnista / graham",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Mąka pszenna typ 500",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Mąka pszenna typ 650 lub graham",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Mąka ze sfermentowanego zaczynu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Mąka żytnia (typ 720 / 2000)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Mąka żytnia dostarcza enzymów i minerałów przyspieszających namnażanie dzikich drożdży i bakterii kwasu mlekowego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "NIE dodawaj soli na tym etapie — sól działa higroskopijnie, wyciąga wodę i hamuje działanie enzymów.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "NIGDY nie używaj wałka — zniszczyłby napompowane brzegi!",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Na 4–5 godzin przed pieczeniem podziel ciasto na kulki (panetti) po 260g i ułóż w szczelnych pojemnikach w temperaturze pokojowej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nacinaj ciasto natychmiast po wyjęciu z lodówki — schłodzone ciasto jest sztywne i nie ciągnie się za ostrzem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nacinanie pod kątem prostym 90° (daje symetryczne pęknięcie, ale zero uniesionego ucha).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nacinanie żyletką pod „ucho” (Scoring for Ear)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nacinanie: 5–6 szybkich, płytkich nacięć wzdłuż osi bagietki nachodzących na siebie na 1/3 długości.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nacięcie pod kątem 30° wzdłuż bochenka na głębokość 8 mm i pieczenie w piecu z parą.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Najpierw dodaj zakwas w zakładce Zakwas.",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Nakładaj porcje ciasta (ok. 2 łyżki na placek). Smaż ok. 2–3 minuty, aż na powierzchni pojawią się pęcherzyki, obróć i smaż jeszcze 1–2 minuty.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Nakłuj całą powierzchnię widelcem, aby krakersy nie urosły jak poduszki, i pokrój nożem do pizzy na kwadraty.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Naleśniki",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Nazwa mąki (np. Pszenna typ 750)",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Netnij wierzch żyletką pod kątem i piecz w garnku: 20 min pod pokrywką (230°C) + 20 min bez (200°C).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nie poprawiaj cięcia ani nie piłuj ostrzem — jedno pociągnięcie daje najczystsze otwarcie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nie udało się wygenerować etykiety PDF",
+      "funkcje": [
+        "F-50 druk"
+      ]
+    },
+    {
+      "klucz": "Nieszczelne sklejenie szwu, przez co chleb pęka od spodu w piecu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Niska temperatura 4°C wyhamowuje drożdże, umożliwiając bakteriom mlekowym powolną produkcję kwasu mlekowego i enzymów.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Nowicjusz Piekarski",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Obróć misę o 90° i powtórz czynność ze strony wschodniej, południowej i zachodniej (łącznie 4 naciągnięcia).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Obróć o 90°, ponownie podchwyć i powtarzaj płynny rytm przez 3–5 minut.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Obróć pojemnik o 90° i powtórz uniesienie w osi poprzecznej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Ocena wymaga połączenia z App Store.",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Oceń w App Store",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Odejmij {g} g mąki {nazwa}",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Odlicz zużycie z magazynu",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Odparowana woda",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Odrzut zakwasu",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Odrzut zakwasu (100% hydratacji)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Odstaw całe ciasto na 2 godziny w temperaturze pokojowej pod przykryciem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Odstaw ciasto pod przykryciem na 30–45 minut do kolejnego cyklu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Odstaw miskę pod przykryciem na 30–90 minut w temperaturze 22–26°C.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Odstaw pod przykryciem na 15 minut, aby gluten się zrelaksował.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Odwróć bochenek gładką stroną do góry (szew dotyka blatu).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Oliwa z oliwek",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Opanowanie pracy z żywym zakwasem, wyczucie szczytu aktywności (Peak) oraz techniki składania stretch & fold.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Oprósz wierzch ciasta mąką, odwróć skrobką na drugą stronę (strona gładka dotyka blatu).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Opuść ciasto delikatnie na dno naczynia.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Opór blatu naciąga zewnętrzną membranę w idealnie gładką, napiętą kopułę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Ostrożnie wyjmij gorący garnek (zawsze w rękawicach żaroodpornych!) i zdejmij pokrywkę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Otwieranie placka: oprósz kulkę semoliną, wypchnij gaz palcami ze środka ku brzegom (tworząc cornicione) i rozciągaj techniką slap.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Oznacz lekcję jako zaliczoną",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "POZIOM",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Piecz 30 minut pod szczelną pokrywką, następnie zdejmij pokrywkę i piecz 15 minut w 220°C do uzyskania złocisto-brązowej skórki.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Piecz gofry przez 4–6 minut do uzyskania ciemnozłotego koloru i chrupiącej skórki.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Piecz w 180°C (termoobieg) przez 18–22 minuty, aż brzegi będą złocisto-brązowe. Wystudź na kratce.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Piecz w 180°C przez 12–15 minut, aż brzegi będą lekko przyrumienione.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Piecz w najwyższej możliwej temperaturze (piec do pizzy 450°C przez 90s lub piekarnik domowy z grillem i rozgrzaną stalą w 275°C przez 4–5 min).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Pieczenie bez pokrywki od początku (skórka twardnieje przedwcześnie, blokując rozrost bochenka).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Po prawidłowej autolizie ciasto z szorstkiej grudkowatej masy staje się gładkie i rozciągliwe jeszcze przed właściwym wyrabianiem!",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Po wyjęciu z pieca natychmiast przełóż chleb z garnka na uniesioną metalową kratkę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Po wypieku wysusz koszyk w stygnącym piekarniku (max 50°C) i wyczyść suchą szczoteczką z twardym włosiem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Po wzroście o ok. 50% uformuj kulę (boule) i przełóż szwem do góry do oprószonego koszyka rozrostowego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Początkowy stan zapasów (g)",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Podaj nazwę mąki",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Podpłomyki",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Podsypywanie blatu mąką podczas wyrabiania (blokuje przywieranie ciasta potrzebne do rozciągania).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Podziel ciasto na 4 części i rozwałkuj na oprószonym blacie na cienkie placki (~3 mm).",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Pominięcie bench restu — gluten jest zbyt napięty i rwie się przy ostatecznym formowaniu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Pomyślnie odliczono",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Posiekaj zimne masło z mąką, cukrem i solą, aż powstaną drobne okruchy.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Posyp płatkami soli morskiej i dociśnij lekko wałkiem.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Posłuchaj chleba: w pierwszych minutach usłyszysz charakterystyczne „śpiewanie” (trzaskanie pękającej cieniutkiej skórki).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Pozostaw ciasto na blacie na 15–25 minut (Bench Rest) bez przykrycia (przy dużej wilgotności) lub pod ściereczką.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Pozostaw do całkowitego ostygnięcia — prosto z pieca są miękkie, po ostygnięciu stają się idealnie kruche.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Praktykant Zakwasu",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Prawidłowe wykonanie:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Prawidłowo uformowana kula po dotknięciu lekko drży jak napompowana piłka.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Prawidłowo wyrośnięty bochenek bez oznak spłaszczenia z wyraźnym otwarciem nacięcia.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Proszek do pieczenia",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Przelicznik hydratacji i zamiennik w recepturze",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Przenieś do lodówki (4°C) na 44 godziny powolnego dojrzewania enzymatycznego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przełóż lepkie ciasto bezpośrednio do wysmarowanej masłem i wysypanej otrębami foremki keksówki.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przełóż nacięte ciasto na papierze do pieczenia na dno garnka.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przełóż szwem do góry do okrągłego koszyka rozrostowego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przełóż szwem do góry do podłużnego koszyka (bannetona) oprószonego mąką ryżową.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przełóż z powrotem do pojemnika na dokończenie fermentacji burzliwej.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przygotowanie (Odrost)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Przygotowanie koszyka rozrostowego (Banneton)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przygotowanie krok po kroku:",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Przygotowanie płynnego zaczynu Poolish (100% hydratacji), formowanie cylindryczne bez wybijania gazu i nacinanie osiowe.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przygotuj silny trójfazowy kwas żytni o intensywnym owocowo-octowym aromacie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Puszyste amerykańskie pancakes na zakwasie",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Półpłynny zakwas (80%)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Płynny Levain (100%)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Reakcja sody z kwasem mlekowym zakwasu nie tylko daje plackom niesamowitą puszystość, ale też całkowicie niweluje kwaśny smak.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Receptura odrostu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Receptura piekarska z aplikacji Piekarz",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Rodzina Apps4Craft Studio",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Rozgrzej mocno gofrownicę i posmaruj pędzelkiem odrobiną oleju.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Rozgrzej piekarnik wraz z żeliwnym garnkiem do 240°C przez minimum 45 minut.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozgrzej suchą patelnię nieprzywierającą na średnim ogniu.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Rozgrzej suchą patelnię żeliwną lub stalową na dużym ogniu.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Rozgrzewaj garnek żeliwny z pokrywką w piekarniku w temperaturze 240–250°C przez 45–60 minut.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozklep delikatnie dłońmi na kształt prostokąta/trapezu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozprowadź mąkę dłonią dokładnie w rowkach wikliny koszyka.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozpuść sól w chłodnej wodzie, dodaj mikrodawkę drożdży i stopniowo wprowadzaj mąkę Tipo 00.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozrost w płótnie lnianym (couche) fałdowanym między bagietkami (45 minut).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozsyp równomiernie ulubione dodatki (prażony słonecznik, rozmaryn, ser cheddar, suszone pomidory).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rozwałkuj ciasto bezpośrednio na papierze do pieczenia na grubość 1–2 mm (im cieńsze, tym bardziej chrupiące).",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Rzadki zakwas / Batter (120%)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Rzemieślnicze aplikacje kulinarne offline-first. Zero chmury, zero telemetrii, 100% pasji:",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Równoległe ukierunkowanie nici glutenowych oraz równomierne rozprowadzenie temperatury i drożdży w objętości ciasta.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Równomierne centryczne naprężenie sfery ciasta do wypieku w garnku żeliwnym lub koszyku okrągłym.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Skanuj Kod QR",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Skieruj obiektyw na kod QR receptury",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Składania",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Składanie rozciągane (Stretch & Fold)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Składanie zwojowe (Coil Fold)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Składniki:",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Soda oczyszczona (neutralizuje kwas)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Spiżarnia mąk (Magazyn)",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Spontaniczne rozwinięcie łańcuchów glutenu bez wysiłku mechanicznego; proteazy rozluźniają wiązania, a cząsteczki skrobi w pełni absorbują wodę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Standard szklanki:",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Starszy Czeladnik",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Strata Piecowa",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Strata wypiekowa i wilgotność miękiszu",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Studzenie na kratce i zakaz wczesnego krojenia",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Studź na metalowej kratce, by para mogła swobodnie uchodzić (na talerzu zmiękną!).",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Sugerowany zamiennik ze Spiżarni: {nazwa}.",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Suszony rozmaryn / oregano / tymianek",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Szacowany ubytek masy",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Szarpnięcie i rozerwanie siatki glutenowej zamiast płynnego rozciągania.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Szczypta soli",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Szklanki",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Szkoła Chleba",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Sztywny zakwas żytni (60%)",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Szybkie podpłomyki / chlebki z patelni (Naan)",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Sól decyduje o smaku i sile siatki glutenowej. Zbyt duża szczypta może zahamować fermentację.",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Sól drobna",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Sól drobna kuchenna / morska",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Sól morska",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Sól w płatkach (kosher / Maldon)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Sól w płatkach do posypania",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Ta aplikacja",
+      "funkcje": [
+        "F-52 rodzina"
+      ]
+    },
+    {
+      "klucz": "Techniki",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Tradycyjny włoski gęsty zakwas. Łagodna kwasowość mlekowa, idealny do panettone, chałek i pizzy.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Trzymaj żyletkę pod kątem ostrym ok. 30° względem powierzchni chleba (nie pionowo pod kątem 90°!).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Twoje zapasy mąk",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Twój zakwas ({twoj}%) jest gęstszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i DODAJ {woda}g wody do ciasta właściwego.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Tępe ostrze lub zbyt wolny ruch szarpiący ciasto.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "US Cup (236,6 ml)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "UWAGA: Ciasta 100% żytniego NIGDY nie składamy ani nie rozciągamy! Zniszczyłoby to delikatne żele pentozanowe.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Ubijanie białek na sztywno i studzenie na kratce to sekret restauracyjnej chrupkości.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Uczeń Piekarski",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Udostępnij recepturę",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Umiarkowanie gęsty zaczyn pszenny do pieczywa tostowego i bagietek.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Umieść ciasto w prostokątnym, płaskim pojemniku (np. szklanym naczyniu żaroodpornym).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Unieś ciasto pionowo w górę — oba końce swobodnie opadną i podwiną się pod spód ciasta.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Unieś ciasto, energicznie uderz dolną częścią o blat (slap), rozciągnij w przód i zawiń przez wierzch na siebie (fold).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Upieczenie pierwszego bochenka z cienką, chrupiącą skórką i słyszalnym trzaskaniem podczas studzenia.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Uwaga: W spiżarni brakuje {g}g mąki ({lista}).",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Uzyskana masa i hydratacja",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Uzyskanie dzikiego, otwartego miękiszu (open crumb) oraz uniesionego, chrupiącego ucha (ear).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Ułóż dłonie wokół ciasta w kształt litery V i obracając kulę, przyciągaj ją ku sobie po blacie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Użyj Twojego zakwasu",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Użyj zimnego odrzutu prosto z lodówki — tłuszcz w cieście łatwiej się zwiąże, dając kruchą, listkującą strukturę.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Użyj świeżej, ostrej żyletki zamocowanej na zakrzywionej rękojeści (kulawce / lame).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Używanie mąki na dłoniach, która tworzy wewnątrz ciasta niepożądane suche smugi.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "W dużej misce połącz odrzut zakwasu, mleko, jajko, roztopione masło i cukier/miód.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "W misce połącz zakwas, mąkę, jogurt, oliwę i sól. Wyrabiaj 2–3 minuty do powstania miękkiego ciasta.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "W misce wymieszaj odrzut zakwasu z mąką, roztopionym masłem lub oliwą, solą drobną i ziołami.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "W osobnej miseczce wymieszaj proszek do pieczenia, sodę i sól.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "W spiżarni posiadasz {nazwa} ({g}g) — możesz użyć jej jako zamiennika.",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "W trakcie wyrabiania ciasto magicznie przestanie kleić się do rąk i blatu, zamieniając się w lśniącą kulę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "W tym czasie na powierzchni ciasta powstanie cieniutka skórka ułatwiająca ostateczne formowanie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Według tego samego źródła wielu piekarzy wybiera grubszą mąkę, np. semolinę albo mąkę ryżową, bo tworzy wyraźniejszą barierę między ciastem a koszykiem i nie wchodzi w ciasto.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Woda / Mleko",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Woda dodana",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wprowadź młody zaczyn (Levain) i sól rozpuszczoną w pozostałej wodzie (metoda bassinage).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wrzuć 2 kostki lodu pod papier do pieczenia tuż przed nałożeniem pokrywki, by uzyskać dodatkowy zastrzyk pary i lśniącą skórkę w drobne bąbelki.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wsuń palce obu dłoni pod boki ciasta, kciukami obejmując wierzch.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wszystkie mąki z tej receptury są w spiżarni.",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Wybierz składnik:",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Wybierz z Atlasu lub wpisz własną",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Wygładź wierzch mokrą łyżką, posyp ziarnami lub mąką i odstaw w ciepłe miejsce (26–28°C) do wyrośnięcia (ok. 3h).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wykonaj 3 serie składań rozciąganych (stretch & fold) co 45 minut, wyciągając ciasto w górę z 4 stron.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wykonaj jedno pewne, płynne cięcie wzdłuż osi bochenka na głębokość 8–10 mm, lekko przesunięte od środka ku krawędzi.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wykonywanie składania w wąskiej, głębokiej misce (wymaga płaskiego pojemnika).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wymieszaj delikatnie łyżką tylko do połączenia składników — nie mieszaj zbyt długo, by zachować pęcherzyki gazu.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wymieszaj mąkę z wodą (autoliza 30 min), następnie dodaj aktywny zakwas i sól.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wymieszaj mąkę żytnią razową, wodę, kwas żytni i sól — tylko do połączenia składników (1–2 minuty).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wymieszaj odrzut zakwasu z mąką, mlekiem, roztopionym masłem, żółtkami i cukrem.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wymieszaj {matka}g zakwasu matki ({hydratacja}%) z {maka}g mąki i {woda}g wody.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wynik przeliczenia",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wypiek i studzenie",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wypiek kończy się dopiero po ostygnięciu bochenka; woda odparowuje przez pory, a skrobia przechodzi proces retrogradacji, stabilizując miękisz.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wypiek na rozgrzanym kamieniu szamotowym w 250°C z intensywnym zaparowaniem pieca przez pierwsze 10 minut.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wypiek w garnku żeliwnym (Dutch Oven)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyrabianie",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyrabianie francuskie (Slap & Fold / Bertinet)",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyrośnięty, napompowany brzeg (cornicione) z lamparcimi przypaleniami (leopard spots) i elastyczny spód dający się złożyć w trójkąt.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wysokouwodniony zaczyn o szybkiej fermentacji i wyraźniejszej kwasowości octowej.",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Wysyp ciasto na lekko oprószony blat za pomocą zaokrąglonej skrobki.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wytworzenie silnego napięcia powierzchniowego (Surface Tension) zapobiegającego rozlewaniu się bochenka na boki w piecu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyłóż ciasto na papier do pieczenia i ostrożnie przełóż do rozgrzanego garnka.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyłóż ciasto po 2. lub 3. składaniu na blat.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wyłóż lepkie ciasto na czysty, nienatłuszczony i nieoprószony blat.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Wzmacnianie delikatnej struktury w luźnych ciastach wysokiej hydratacji (>75%) z wykorzystaniem grawitacji, bez miażdżenia pęcherzyków gazu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Włożenie ciasta do niedostatecznie nagrzanego garnka (dolna skórka będzie blada i gruba).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Z każdym kolejnym coil foldem poczujesz, jak ciasto staje się coraz bardziej zwarte, poduszkowe i samoistnie trzyma kształt.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Za dużo mąki na blacie (ciasto ślizga się i nie da się wytworzyć oporu i naciągu).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Za pomocą krawędzi dłoni przeciągaj batard po blacie, wzmacniając naciąg wzdłużny.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Za pomocą skrobki i oprószonej dłoni podciągaj ciasto ku sobie, formując gładką kulę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zagnieć gładkie, zwarte ciasto (ok. 1–2 minuty). Jeśli ciasto jest zbyt lepkie, podsyp odrobiną mąki.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Zakwas aktywny (hydratacja 100%)",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Zaliczona",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zamiennik w przepisie",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Zamknij Akademię",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zamknij przelicznik",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Zamknij przepisy na odrzut",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Zamknięta przestrzeń naczynia zatrzymuje parę parującą z samego ciasta (100% wilgotności), opóźniając twardnienie skórki i umożliwiając maksymalny Oven Spring.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zamykanie wilgotnego koszyka w szczelnej szafce.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zapewnij swobodny przepływ powietrza od spodu bochenka (chleb pozostawiony na blacie lub desce zaparzy się i namoknie od spodu!).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zapisz w spiżarni",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Zasoby mąki w spiżarni zostały zaktualizowane.",
+      "funkcje": [
+        "F-30 spizarnia"
+      ]
+    },
+    {
+      "klucz": "Zastosuj 4 serie składania zwojowego (coil fold) co 30 minut, dbając o nienaruszenie pęcherzy gazu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zawijanie ciepłego chleba w folię lub ściereczkę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zawiń w folię lub woskowijkę i schłodź w lodówce przez 30 minut.",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "Załóż wyciągnięty płat przez wierzch na przeciwną stronę ciasta.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbierz krawędzie z 8 stron do środka jak sakiewkę i sklej palcami w centralnym punkcie.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt długa autoliza (>2h w cieple), która prowadzi do nadmiernego rozpadu siatki glutenowej przez proteazy.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt gwałtowne pociągnięcie, które wyciska nagromadzony dwutlenek węgla.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt luźne zwinięcie bochenka (chleb rozleje się na boki po wyjęciu z koszyka).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt mocne naciągnięcie na etapie wstępnym.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt wczesna laminacja, zanim gluten osiągnie odpowiednią elastyczność.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zbyt wolne, niepewne ruchy powodujące przyklejanie się ciasta do dłoni.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Zezwól na dostęp do aparatu",
+      "funkcje": [
+        "F-08 QR"
+      ]
+    },
+    {
+      "klucz": "Zmieszaj Poolish z resztą mąki, wody i soli; delikatne składanie metodą slap & fold.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zmieszaj całą mąkę z receptury z 90–95% przewidzianej wody, aż nie będzie suchych grudek.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zmieszaj mąkę, wodę, drożdże instant i sól w misce łyżką (zajmie to zaledwie 2 minuty — zero wyrabiania!).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zmniejsz ilość o pół",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Zmniejsz stratę piecową",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zrozumienie roli czasu w autogenicznej budowie siatki glutenowej oraz potęgi pieczenia w zamkniętym garnku.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zwilż blat kuchenny mgiełką wody (woda zapobiega przywieraniu ciasta lepiej niż mąka).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zwilż dłonie wodą (nie podsypuj mąką — dodatkowa mąka obniżyłaby faktyczną hydratację ciasta).",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zwilż obie dłonie wodą i wsuń palce pod środek ciasta z obu stron.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Zwiększ ilość o pół",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Zwiększ stratę piecową",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "Złota rada rzemieślnika:",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Złóż ciasto w 1/3 jak list biznesowy od lewej i prawej strony, posyp kolejną warstwę dodatków i zroluj od góry do dołu.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "Złóż dolną 1/3 do góry, a boki zawiń do środka jak kopertę.",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "odrzutu",
+      "funkcje": [
+        "F-47 odrzut zakwasu"
+      ]
+    },
+    {
+      "klucz": "soli",
+      "funkcje": [
+        "F-44 akademia"
+      ]
+    },
+    {
+      "klucz": "szklanek",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "upieczonego",
+      "funkcje": [
+        "F-48 strata piecowa"
+      ]
+    },
+    {
+      "klucz": "{g}g wody",
+      "funkcje": [
+        "F-49 konwerter zakwasu"
+      ]
+    },
+    {
+      "klucz": "Łyżeczki",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "Łyżki",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "łyżeczek",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    },
+    {
+      "klucz": "łyżek",
+      "funkcje": [
+        "F-45 przelicznik objetosci"
+      ]
+    }
+  ]
+}
