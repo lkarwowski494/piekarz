@@ -411,9 +411,7 @@
     ]
   },
   "Brak aktywnego wypieku": {
-    "gdzie": [
-      "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Brak danych o karmieniu": {
     "gdzie": [
@@ -1477,9 +1475,7 @@
     ]
   },
   "Forma": {
-    "gdzie": [
-      "src/components/stolnica/BakeVesselSelector.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Formowanie": {
     "gdzie": [
@@ -1538,9 +1534,7 @@
     ]
   },
   "Garnek": {
-    "gdzie": [
-      "src/components/stolnica/BakeVesselSelector.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Garnek żeliwny": {
     "gdzie": [
@@ -1953,9 +1947,7 @@
     ]
   },
   "Klosz": {
-    "gdzie": [
-      "src/components/stolnica/BakeVesselSelector.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Klosz ceramiczny": {
     "gdzie": [
@@ -2794,9 +2786,7 @@
     ]
   },
   "Naczynie wypiekowe": {
-    "gdzie": [
-      "src/components/stolnica/BakeVesselSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Nagrzewanie pieca i garnka żeliwnego": {
     "gdzie": [
@@ -4757,9 +4747,7 @@
     ]
   },
   "Stal": {
-    "gdzie": [
-      "src/components/stolnica/BakeVesselSelector.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Stal / Kamień szamotowy": {
     "gdzie": [
@@ -6095,9 +6083,7 @@
     ]
   },
   "Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.": {
-    "gdzie": [
-      "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wybierz składnik:": {
     "gdzie": [
@@ -6513,9 +6499,7 @@
   },
   "Zacznij wypiek": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
-      "src/components/stolnica/IdleBakeCard.tsx (przycisk)",
-      "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
     ]
   },
   "Zaczyn ({g} g)": {
