@@ -45,15 +45,15 @@ export const NotificationsOffBanner: React.FC = () => {
 
 const styles = StyleSheet.create({
   banner: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.statusWarning,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.obwodka,
     borderWidth: 1,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
   },
-  title: { color: theme.colors.textPrimary, fontSize: 15, fontWeight: '700', marginBottom: 4 },
-  body: { color: theme.colors.textSecondary, fontSize: 13, lineHeight: 18, marginBottom: theme.spacing.sm },
+  title: { color: theme.colors.tusz, fontSize: 15, fontWeight: '700', marginBottom: 4 },
+  body: { color: theme.colors.tusz2, fontSize: 13, lineHeight: 18, marginBottom: theme.spacing.sm },
   button: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },
-  buttonText: { color: theme.colors.accent, fontSize: 14, fontWeight: '700' },
+  buttonText: { color: theme.colors.akcentTekst, fontSize: 14, fontWeight: '700' },
 });

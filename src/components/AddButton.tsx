@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   text: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontSize: 26,
     fontWeight: '400',
     lineHeight: 28,

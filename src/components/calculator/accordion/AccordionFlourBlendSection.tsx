@@ -90,11 +90,11 @@ export function AccordionFlourBlendSection({
 
 const styles = StyleSheet.create({
   sectionBlock: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   rowBetween: {
     flexDirection: 'row',
@@ -105,17 +105,17 @@ const styles = StyleSheet.create({
   sectionHeaderTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   pillActionBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: theme.radius.full,
   },
   pillActionText: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontSize: 11,
     fontWeight: '700',
   },
@@ -123,9 +123,9 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   blendPresetChip: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.full,
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   },
   blendPresetText: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '600',
   },
   flourPillsContainer: {
@@ -143,16 +143,16 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   flourTag: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   flourTagText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '600',
   },
   flourActionsRow: {
@@ -160,9 +160,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   flourActionBtn: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingVertical: 8,
     alignItems: 'center',
@@ -170,6 +170,6 @@ const styles = StyleSheet.create({
   flourActionBtnText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
 });

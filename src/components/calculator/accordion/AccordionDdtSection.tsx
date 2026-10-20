@@ -143,8 +143,8 @@ export function AccordionDdtSection({
       {/* Badge trudności hydratacji */}
       {hydrationDifficulty && (
         <View style={styles.diffBadgeRow}>
-          <View style={[styles.diffBadge, { backgroundColor: hydrationDifficulty.badgeColor + '20' }]}>
-            <Text style={[styles.diffBadgeText, { color: hydrationDifficulty.badgeColor }]}>
+          <View style={styles.diffBadge}>
+            <Text style={styles.diffBadgeText}>
               ● {t(hydrationDifficulty.labelPl)}
             </Text>
           </View>
@@ -169,30 +169,30 @@ export function AccordionDdtSection({
 
 const styles = StyleSheet.create({
   sectionBlock: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionHeaderTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   sectionDesc: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: theme.spacing.sm,
     lineHeight: 16,
   },
   ddtResultCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     padding: theme.spacing.sm,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.sm,
   },
   ddtResultRow: {
@@ -203,12 +203,12 @@ const styles = StyleSheet.create({
   ddtResultLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   ddtResultValue: {
     fontSize: 16,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   iceAlertRow: {
     flexDirection: 'row',
@@ -216,19 +216,19 @@ const styles = StyleSheet.create({
     marginTop: 6,
     paddingTop: 6,
     borderTopWidth: 1,
-    borderTopColor: theme.colors.border,
+    borderTopColor: theme.colors.linia,
   },
   hotAlertRow: {
     marginTop: 6,
     padding: 8,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.statusDanger,
+    borderColor: theme.colors.blad,
   },
   hotAlertText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   iceIcon: {
     fontSize: 14,
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   iceText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   gridParams: {
     flexDirection: 'row',
@@ -245,15 +245,15 @@ const styles = StyleSheet.create({
   },
   paramBox: {
     flex: 1,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     padding: theme.spacing.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   paramLabel: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 4,
   },
   stepperInline: {
@@ -264,22 +264,22 @@ const styles = StyleSheet.create({
   miniBtn: {
     width: 32,
     height: 32,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   miniBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   paramValue: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stepperRow: {
     flexDirection: 'row',
@@ -289,16 +289,16 @@ const styles = StyleSheet.create({
   paramStepBtn: {
     flex: 1,
     paddingVertical: 8,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   paramStepText: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   diffBadgeRow: {
     marginTop: 10,
@@ -309,32 +309,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: theme.radius.full,
+    backgroundColor: theme.colors.tloGrupa, // poziom info (hydrationDifficulty.poziom): kolor z komponentu, nie z danych
   },
   diffBadgeText: {
     fontSize: 11,
     fontWeight: '700',
+    color: theme.colors.tusz,
   },
   diffTipText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontStyle: 'italic',
   },
   absorptionBadge: {
     marginTop: 10,
     padding: 8,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     gap: 4,
   },
   absorptionLabel: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   absorptionAdviceText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
 });

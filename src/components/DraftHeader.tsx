@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   headerButtonText: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontSize: 17,
     fontWeight: '400',
   },

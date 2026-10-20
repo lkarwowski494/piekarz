@@ -11,9 +11,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 543 | 543 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 288 | 288 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 101 | 101 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 102 | 102 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **972** | Pokrytych: **972** | Brakujących: **0**
+Łącznie elementów: **973** | Pokrytych: **973** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przepis „{name}” został pomyślnie dodany do Twojej bazy.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 672 kolejnych elementów w pełnym wykazie)*
+*(... i 673 kolejnych elementów w pełnym wykazie)*

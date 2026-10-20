@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderTopLeftRadius: theme.radius.lg,
     borderTopRightRadius: theme.radius.lg,
     maxHeight: '90%',
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.lg,
     paddingVertical: theme.spacing.md,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border,
+    borderBottomColor: theme.colors.linia,
   },
   cancelBtn: {
     minHeight: 48,
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   cancelBtnText: {
     fontSize: 16,
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontWeight: '600',
   },
   headerCenter: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   headerRightSpacer: {
     width: 48,
@@ -178,13 +178,13 @@ const styles = StyleSheet.create({
   recipeName: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     textAlign: 'center',
     marginBottom: 4,
   },
   recipeDetails: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '500',
   },
   qrWrapper: {
@@ -193,16 +193,11 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.lg,
     marginVertical: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
+    borderColor: theme.colors.linia,
   },
   hintText: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 18,
     marginBottom: theme.spacing.lg,
@@ -213,17 +208,17 @@ const styles = StyleSheet.create({
     gap: theme.spacing.sm,
   },
   secondaryBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     minHeight: 48,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: theme.spacing.lg,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   secondaryBtnText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 15,
     fontWeight: '600',
   },

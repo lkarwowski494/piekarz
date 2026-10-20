@@ -92,7 +92,7 @@ export function AccordionBakeLossSection({
           </View>
           <View style={styles.bakeLossMetricCol}>
             <Text style={styles.bakeLossMetricLabel}>{t('Szacowana wilgotność miękiszu')}</Text>
-            <Text style={[styles.bakeLossMetricValue, { color: theme.colors.accentDark }]} testID="bake-loss-moisture-value">
+            <Text style={[styles.bakeLossMetricValue, { color: theme.colors.akcentTekst }]} testID="bake-loss-moisture-value">
               {formatNumber(bakeLossMetrics.retainedMoisturePercent)}%
             </Text>
           </View>
@@ -113,21 +113,21 @@ export function AccordionBakeLossSection({
 
 const styles = StyleSheet.create({
   sectionBlock: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionHeaderTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   sectionDesc: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: theme.spacing.sm,
     lineHeight: 16,
   },
@@ -135,25 +135,25 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
   presetChip: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.full,
     paddingHorizontal: 10,
     paddingVertical: 6,
     marginRight: 6,
   },
   presetChipActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
+    backgroundColor: theme.colors.akcent,
   },
   presetChipText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '600',
   },
   presetChipTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   bakeLossStepperRow: {
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   bakeLossLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   stepperInline: {
     flexDirection: 'row',
@@ -175,31 +175,31 @@ const styles = StyleSheet.create({
   miniBtn: {
     width: 32,
     height: 32,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   miniBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   paramValue: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   bakeLossGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     padding: 10,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginTop: 6,
   },
   bakeLossMetricCol: {
@@ -208,31 +208,31 @@ const styles = StyleSheet.create({
   },
   bakeLossMetricLabel: {
     fontSize: 10,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     textAlign: 'center',
     marginBottom: 2,
   },
   bakeLossMetricValue: {
     fontSize: 14,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   crumbMoistureBox: {
     marginTop: 8,
     padding: 8,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     gap: 2,
   },
   crumbMoistureTitle: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   crumbMoistureAdvice: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
 });

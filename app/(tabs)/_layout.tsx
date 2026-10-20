@@ -10,14 +10,14 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: theme.colors.surface,
-          borderTopColor: theme.colors.border,
+          backgroundColor: theme.colors.powierzchnia,
+          borderTopColor: theme.colors.linia,
           height: 60,
           paddingBottom: 6,
           paddingTop: 6,
         },
-        tabBarActiveTintColor: theme.colors.accent,
-        tabBarInactiveTintColor: theme.colors.textMuted,
+        tabBarActiveTintColor: theme.colors.akcentTekst,
+        tabBarInactiveTintColor: theme.colors.tusz3,
         tabBarLabel: ({ color, position, children }) => (
           <TabLabel color={color} position={position}>
             {children}

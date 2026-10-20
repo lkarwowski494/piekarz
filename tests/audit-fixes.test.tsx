@@ -228,8 +228,9 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
     expect(Math.abs(batch.sumCheckGrams - 1000)).toBeLessThanOrEqual(3);
 
     // Kontrast motywu
-    expect(theme.colors.accent).toBeTruthy();
-    expect(theme.colors.background).toBeTruthy();
+    // 050: role motywu to tokeny (accent → akcent, background → tlo; mapa-rol.md §2)
+    expect(theme.colors.akcent).toBeTruthy();
+    expect(theme.colors.tlo).toBeTruthy();
   });
 
   // --------------------------------------------------------------------------

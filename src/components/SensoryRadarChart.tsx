@@ -110,8 +110,8 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
             <Polygon
               key={`level-${level}`}
               points={getLevelPolygonPoints(level)}
-              fill={level === 5 ? 'rgba(217, 119, 36, 0.04)' : 'none'}
-              stroke={theme.colors.border}
+              fill="none"
+              stroke={theme.colors.tusz2}
               strokeWidth={level === 5 ? '1.5' : '1'}
               strokeDasharray={level < 5 ? '2,2' : undefined}
             />
@@ -127,7 +127,7 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
                 y1={center}
                 x2={x}
                 y2={y}
-                stroke={theme.colors.border}
+                stroke={theme.colors.tusz2}
                 strokeWidth="1"
               />
             );
@@ -136,8 +136,8 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
           {/* Filled Sensory Polygon */}
           <Polygon
             points={dataPolygonPointsString}
-            fill="rgba(217, 119, 36, 0.35)"
-            stroke={theme.colors.accent}
+            fill="none"
+            stroke={theme.colors.akcentTekst}
             strokeWidth="2.5"
           />
 
@@ -148,8 +148,8 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
               cx={pt.x}
               cy={pt.y}
               r="4.5"
-              fill={theme.colors.accent}
-              stroke={theme.colors.surface}
+              fill={theme.colors.akcentTekst}
+              stroke={theme.colors.linia}
               strokeWidth="1.5"
             />
           ))}
@@ -172,7 +172,7 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
                   key={`label-${axis.key}`}
                   x={x}
                   y={y + dy}
-                  fill={theme.colors.textPrimary}
+                  fill={theme.colors.tusz}
                   fontSize="10"
                   fontWeight="600"
                   textAnchor={textAnchor}
@@ -248,13 +248,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 4,
     paddingHorizontal: theme.spacing.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
   },
   controlLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stepperRow: {
     flexDirection: 'row',
@@ -265,9 +265,9 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -277,12 +277,12 @@ const styles = StyleSheet.create({
   stepperBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stepperValue: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     minWidth: 28,
     textAlign: 'center',
   },

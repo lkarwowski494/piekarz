@@ -73,11 +73,11 @@ export function StarterProfileCard({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   cardHeaderRow: {
@@ -96,29 +96,29 @@ const styles = StyleSheet.create({
   starterName: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   starterType: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
   },
   editProfileBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   editProfileBtnText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   divider: {
     height: 1,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.linia,
     marginVertical: 12,
   },
   metaRow: {
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   },
   metaLabel: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     textTransform: 'uppercase',
     fontWeight: '600',
     marginBottom: 4,
@@ -138,6 +138,6 @@ const styles = StyleSheet.create({
   metaValue: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
 });

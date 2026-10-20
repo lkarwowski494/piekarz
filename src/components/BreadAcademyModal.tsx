@@ -94,7 +94,7 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   scrollContent: {
     padding: theme.spacing.md,

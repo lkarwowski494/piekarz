@@ -102,16 +102,16 @@ export function AccordionPrefermentSection({
 
 const styles = StyleSheet.create({
   sectionBlock: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionHeaderTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   rowBetween: {
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   paramLabel: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 4,
   },
   prefermentButtonsRow: {
@@ -133,35 +133,35 @@ const styles = StyleSheet.create({
   },
   prefBtn: {
     flexGrow: 1,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
     minHeight: 40,
     justifyContent: 'center',
   },
   prefBtnSelected: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   prefBtnText: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   prefBtnTextSelected: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.naAkcencie,
   },
   prefermentDetailsBlock: {
     marginTop: 10,
     padding: 10,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     gap: 8,
   },
   chipRow: {
@@ -169,24 +169,24 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   smallChip: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.full,
     paddingHorizontal: 8,
     paddingVertical: 4,
   },
   smallChipActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
+    backgroundColor: theme.colors.akcent,
   },
   smallChipText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   smallChipTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   prefermentGrid: {
@@ -200,16 +200,16 @@ const styles = StyleSheet.create({
   prefermentColHeader: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 2,
   },
   prefermentItemText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   fermentationTipText: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontStyle: 'italic',
   },
 });

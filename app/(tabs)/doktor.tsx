@@ -178,16 +178,16 @@ export default function DoctorScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   container: {
     padding: theme.spacing.md,
     paddingBottom: 40,
   },
   academyHeaderPill: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 14,
@@ -195,14 +195,14 @@ const styles = StyleSheet.create({
   academyHeaderPillText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   academyBanner: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.md,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
@@ -225,17 +225,17 @@ const styles = StyleSheet.create({
   academyBannerTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   academyBannerSubtitle: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 14,
     marginTop: 1,
   },
   academyBannerArrow: {
     fontSize: 16,
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
     marginLeft: 6,
   },

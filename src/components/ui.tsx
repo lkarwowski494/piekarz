@@ -45,7 +45,7 @@ export const Field: React.FC<FieldProps> = ({
       {label && <Text style={styles.fieldLabel}>{label}</Text>}
       <TextInput
         maxLength={maxLength}
-        placeholderTextColor={theme.colors.textMuted}
+        placeholderTextColor={theme.colors.tusz3}
         style={[styles.fieldInput, error ? styles.fieldInputError : null, style]}
         {...rest}
       />
@@ -244,7 +244,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
-        placeholderTextColor={theme.colors.textMuted}
+        placeholderTextColor={theme.colors.tusz3}
         style={styles.searchInput}
         maxLength={128}
         returnKeyType="search"
@@ -365,29 +365,29 @@ const styles = StyleSheet.create({
   switchRowLabel: {
     fontSize: 15,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   switchRowDesc: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
   },
   switchTrack: {
     width: 48,
     height: 28,
     borderRadius: 14,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.obwodka,
     padding: 2,
     justifyContent: 'center',
   },
   switchTrackActive: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
   },
   switchThumb: {
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: theme.colors.powierzchnia,
   },
   switchThumbActive: {
     alignSelf: 'flex-end',
@@ -398,28 +398,28 @@ const styles = StyleSheet.create({
   fieldLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 6,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   fieldInput: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    color: theme.colors.textPrimary,
+    borderColor: theme.colors.obwodka,
+    color: theme.colors.tusz,
     fontSize: 16,
     paddingHorizontal: 12,
     paddingVertical: 10,
     minHeight: 48,
   },
   fieldInputError: {
-    borderColor: theme.colors.statusDanger,
+    borderColor: theme.colors.blad,
   },
   fieldErrorText: {
     fontSize: 12,
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
     marginTop: 4,
   },
   emptyContainer: {
@@ -431,13 +431,13 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 17,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
     textAlign: 'center',
   },
   emptyDescription: {
     fontSize: 14,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 20,
     marginBottom: 16,
@@ -445,7 +445,7 @@ const styles = StyleSheet.create({
   emptyButton: {
     minHeight: 48,
     minWidth: 120,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
@@ -453,7 +453,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emptyButtonText: {
-    color: '#121214',
+    color: theme.colors.naAkcencie,
     fontSize: 15,
     fontWeight: '700',
   },
@@ -462,18 +462,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   missingTitle: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 12,
     textAlign: 'center',
   },
   missingMessage: {
     fontSize: 15,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: 24,
@@ -481,9 +481,9 @@ const styles = StyleSheet.create({
   missingButton: {
     minHeight: 48,
     minWidth: 140,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     paddingHorizontal: 24,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
@@ -491,7 +491,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   missingButtonText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 15,
     fontWeight: '600',
   },
@@ -504,20 +504,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   btnPrimary: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
   },
   btnSecondary: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   btnGhost: {
     backgroundColor: 'transparent',
   },
   btnDanger: {
-    backgroundColor: '#7F1D1D',
-    borderWidth: 1,
-    borderColor: theme.colors.statusDanger,
+    backgroundColor: theme.colors.powierzchnia,
+    borderWidth: 1.5,
+    borderColor: theme.colors.blad,
   },
   btnPressed: {
     opacity: 0.8,
@@ -526,27 +526,27 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   btnTextPrimary: {
-    color: '#121214',
+    color: theme.colors.naAkcencie,
     fontSize: 15,
     fontWeight: '700',
   },
   btnTextSecondary: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 15,
     fontWeight: '600',
   },
   btnTextGhost: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontSize: 15,
     fontWeight: '600',
   },
   btnTextDanger: {
-    color: '#FCA5A5',
+    color: theme.colors.blad,
     fontSize: 15,
     fontWeight: '700',
   },
   btnTextDisabled: {
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   searchContainer: {
     position: 'relative',
@@ -554,11 +554,11 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   searchInput: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    color: theme.colors.textPrimary,
+    borderColor: theme.colors.obwodka,
+    color: theme.colors.tusz,
     fontSize: 15,
     paddingHorizontal: 12,
     paddingRight: 40,
@@ -570,12 +570,12 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     alignItems: 'center',
     justifyContent: 'center',
   },
   searchClearText: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontSize: 18,
     lineHeight: 20,
     fontWeight: '600',
@@ -583,7 +583,7 @@ const styles = StyleSheet.create({
   swipeRowContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     marginVertical: 4,
     overflow: 'hidden',
@@ -594,12 +594,14 @@ const styles = StyleSheet.create({
   swipeRowDeleteBtn: {
     width: 48,
     minHeight: 44,
-    backgroundColor: '#7F1D1D',
+    backgroundColor: theme.colors.powierzchnia,
+    borderLeftWidth: 1,
+    borderLeftColor: theme.colors.linia,
     alignItems: 'center',
     justifyContent: 'center',
   },
   swipeRowDeleteText: {
-    color: '#FCA5A5',
+    color: theme.colors.blad,
     fontSize: 16,
     fontWeight: 'bold',
   },

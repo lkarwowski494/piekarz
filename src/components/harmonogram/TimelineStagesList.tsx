@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   sectionHeading: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginTop: 8,
     marginBottom: 12,
   },
@@ -155,20 +155,20 @@ const styles = StyleSheet.create({
   startTimeText: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   endTimeText: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   dateText: {
     fontSize: 10,
     fontWeight: '600',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
     marginTop: 2,
   },
   timeCollision: {
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
   },
   bulletColumn: {
     alignItems: 'center',
@@ -178,22 +178,22 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 15,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     zIndex: 1,
   },
   bulletActive: {
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
   },
   bulletPassive: {
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   bulletCollision: {
-    borderColor: theme.colors.statusDanger,
-    backgroundColor: '#FEE2E2',
+    borderColor: theme.colors.blad,
+    backgroundColor: theme.colors.powierzchnia,
   },
   bulletIcon: {
     fontSize: 14,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   verticalLine: {
     width: 2,
     flex: 1,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.linia,
     marginTop: 2,
     marginBottom: -8,
   },
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   stageName: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stageMetaRow: {
     flexDirection: 'row',
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   stageDuration: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   typeBadge: {
     paddingHorizontal: 6,
@@ -236,25 +236,27 @@ const styles = StyleSheet.create({
     borderRadius: 4,
   },
   typeBadgeActive: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
   },
   typeBadgePassive: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
   },
   typeBadgeText: {
     fontSize: 10,
     fontWeight: '600',
   },
   typeBadgeTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   typeBadgeTextPassive: {
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   collisionBadge: {
-    backgroundColor: '#FEE2E2',
+    backgroundColor: theme.colors.powierzchnia,
+    borderWidth: 1,
+    borderColor: theme.colors.blad,
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 4,
@@ -262,11 +264,11 @@ const styles = StyleSheet.create({
   collisionBadgeText: {
     fontSize: 10,
     fontWeight: '700',
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
   },
   stageInstructions: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 16,
     marginTop: 2,
   },

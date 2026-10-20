@@ -84,7 +84,8 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar barStyle="light-content" />
+      {/* default: iOS sam dobiera kolor paska do jasnego albo ciemnego wyglądu (D-045) */}
+      <StatusBar barStyle="default" />
       <StorageGate onRetry={retryDatabase}>
         {/* Jeden stan dostępu i jeden ekran zakupu dla wszystkich zakładek [M1-audytor-generalny-025] */}
         <AppAccessProvider>

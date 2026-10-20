@@ -76,11 +76,11 @@ export function ScheduleSummaryCard({
 
 const styles = StyleSheet.create({
   summaryCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   summaryRow: {
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontWeight: '600',
     marginBottom: 4,
     textAlign: 'center',
@@ -103,11 +103,11 @@ const styles = StyleSheet.create({
   summaryTime: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   summaryDate: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
   },
   summaryDivider: {
@@ -116,16 +116,16 @@ const styles = StyleSheet.create({
   },
   summaryArrow: {
     fontSize: 18,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   summaryHours: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
   },
   transferBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
     alignItems: 'center',
@@ -134,19 +134,19 @@ const styles = StyleSheet.create({
   transferBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   copyScheduleBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   copyScheduleBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
 });

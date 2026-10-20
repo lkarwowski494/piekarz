@@ -39,7 +39,7 @@ export function EditStarterModal({
   onSave,
 }: EditStarterModalProps) {
   return (
-    <Modal visible={visible} transparent animationType="fade">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>{t('Edytuj zakwas')}</Text>
@@ -121,49 +121,44 @@ export function EditStarterModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     width: '100%',
     maxWidth: 420,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 6,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 16,
   },
   modalInputLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 6,
   },
   modalInput: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 15,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 14,
   },
   storageToggleRow: {
@@ -173,24 +168,24 @@ const styles = StyleSheet.create({
   },
   storageBtn: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   storageBtnActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   storageBtnText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   storageBtnTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   modalButtonsRow: {
@@ -204,7 +199,7 @@ const styles = StyleSheet.create({
   },
   modalDeleteBtnText: {
     fontSize: 13,
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
     fontWeight: '600',
   },
   modalRightButtons: {
@@ -219,18 +214,18 @@ const styles = StyleSheet.create({
   },
   modalCancelBtnText: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontWeight: '600',
   },
   modalConfirmBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 18,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,
   },
   modalConfirmBtnText: {
     fontSize: 14,
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
 });

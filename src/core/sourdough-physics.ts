@@ -5,6 +5,7 @@
 // ============================================================================
 
 import { predictStarterPeak } from './starter-peak-predictor';
+import type { PoziomKomunikatu } from './poziom-komunikatu';
 
 export interface StarterFeedingResult {
   targetYieldGrams: number;
@@ -70,7 +71,8 @@ export interface SourdoughPhaseResult {
   phase: SourdoughPhase;
   elapsedHours: number;
   labelPl: string;
-  badgeColor: string;
+  /** Poziom komunikatu; kolor nadaje komponent (mapa-rol.md §3). */
+  poziom: PoziomKomunikatu;
   advicePl: string;
 }
 
@@ -97,7 +99,7 @@ export function calculateStarterPhase(
       phase: 'hungry',
       elapsedHours: 999,
       labelPl: 'Brak danych o karmieniu',
-      badgeColor: '#EF4444',
+      poziom: 'info',
       advicePl: 'Zarejestruj dokarmienie, aby uruchomić śledzenie szczytu aktywności.',
     };
   }
@@ -112,7 +114,7 @@ export function calculateStarterPhase(
         phase: 'lag',
         elapsedHours,
         labelPl: `Uśpiony w lodówce (${elapsedDays} dni)`,
-        badgeColor: '#3B82F6',
+        poziom: 'info',
         advicePl: 'W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.',
       };
     }
@@ -120,7 +122,7 @@ export function calculateStarterPhase(
       phase: 'hungry',
       elapsedHours,
       labelPl: `Wymaga odświeżenia (${elapsedDays} dni w chłodzie)`,
-      badgeColor: '#F59E0B',
+      poziom: 'info',
       advicePl: 'Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.',
     };
   }
@@ -137,7 +139,7 @@ export function calculateStarterPhase(
       phase: 'before',
       elapsedHours,
       labelPl: 'Przed szacowanym szczytem',
-      badgeColor: '#3B82F6',
+      poziom: 'info',
       advicePl: 'W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.',
     };
   }
@@ -146,7 +148,7 @@ export function calculateStarterPhase(
       phase: 'peak',
       elapsedHours,
       labelPl: 'W szacowanym oknie szczytu',
-      badgeColor: '#10B981',
+      poziom: 'info',
       advicePl: 'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.',
     };
   }
@@ -154,7 +156,7 @@ export function calculateStarterPhase(
     phase: 'after',
     elapsedHours,
     labelPl: 'Po szacowanym szczycie',
-    badgeColor: '#F59E0B',
+    poziom: 'info',
     advicePl: 'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.',
   };
 }

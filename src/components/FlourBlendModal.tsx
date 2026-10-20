@@ -100,7 +100,7 @@ export function FlourBlendModal({
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-blend-modal">
           {/* Header */}
@@ -263,33 +263,28 @@ export function FlourBlendModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     width: '100%',
     maxWidth: 480,
     maxHeight: '90%',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
-    elevation: 6,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 12,
   },
   validationBox: {
@@ -299,12 +294,12 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   validationBoxSuccess: {
-    backgroundColor: '#F0FDF4',
-    borderColor: '#BBF7D0',
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.linia,
   },
   validationBoxWarning: {
-    backgroundColor: '#FFFBEB',
-    borderColor: '#FDE68A',
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.obwodka,
   },
   validationRow: {
     flexDirection: 'row',
@@ -318,19 +313,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   validationTextSuccess: {
-    color: theme.colors.statusSuccess,
+    color: theme.colors.akcentTekst,
   },
   validationTextWarning: {
-    color: theme.colors.statusWarning,
+    color: theme.colors.tusz,
   },
   normalizeBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,
   },
   normalizeBtnText: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontSize: 11,
     fontWeight: '700',
   },
@@ -339,12 +334,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   flourRow: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     padding: theme.spacing.sm,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   flourMeta: {
     flexDirection: 'row',
@@ -355,14 +350,14 @@ const styles = StyleSheet.create({
   flourName: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     flex: 1,
     marginRight: 8,
   },
   flourPctText: {
     fontSize: 14,
     fontWeight: '800',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   stepperGroup: {
     flexDirection: 'row',
@@ -370,9 +365,9 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   stepBtn: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingHorizontal: 8,
     paddingVertical: 5,
@@ -382,12 +377,12 @@ const styles = StyleSheet.create({
   stepBtnText: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   removeBtn: {
-    backgroundColor: '#FEE2E2',
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: '#FCA5A5',
+    borderColor: theme.colors.blad,
     borderRadius: theme.radius.sm,
     paddingHorizontal: 8,
     paddingVertical: 5,
@@ -396,32 +391,32 @@ const styles = StyleSheet.create({
   removeBtnText: {
     fontSize: 12,
     fontWeight: '800',
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
   },
   addSection: {
     marginTop: 8,
     paddingTop: 8,
     borderTopWidth: 1,
-    borderTopColor: theme.colors.border,
+    borderTopColor: theme.colors.linia,
   },
   addSectionTitle: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 8,
   },
   addSectionNote: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 8,
   },
   profileChipsScroll: {
     flexDirection: 'row',
   },
   profileChip: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -429,12 +424,12 @@ const styles = StyleSheet.create({
   },
   profileChipText: {
     fontSize: 11,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontWeight: '600',
   },
   profileChipNote: {
     fontSize: 10,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
   },
   modalButtonsRow: {
@@ -450,21 +445,21 @@ const styles = StyleSheet.create({
   },
   modalCancelBtnText: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontWeight: '600',
   },
   modalConfirmBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
   },
   modalConfirmBtnDisabled: {
-    backgroundColor: '#D1D5DB',
+    opacity: 0.4, // stan nieaktywny: brak tokenu (zgłoszenie do roli 04)
   },
   modalConfirmBtnText: {
     fontSize: 14,
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
 });

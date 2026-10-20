@@ -6,8 +6,9 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { CraftCard, CraftStatDisplay, sharedCraftTokens } from '@apps4craft/ui';
+import { CraftCard, CraftStatDisplay } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
+import { useMotyw } from '../../ui/motyw';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
 import { ActiveBakeState } from '../../data/sqlite-store';
@@ -25,18 +26,18 @@ export function StolnicaSacredCard({
   formattedTime,
   activeBakeData,
 }: StolnicaSacredCardProps) {
+  const motyw = useMotyw();
   return (
     <CraftCard
       testID="stolnica-sacred-card"
       style={styles.sacredNumbersCard}
-      accentBorder={theme.colors.borderActive}
+      accentBorder={motyw.kolory.akcent}
     >
       <View style={styles.sacredGrid}>
         <CraftStatDisplay
           testID="stat-stolnica-step"
           label={t('Etap')}
           value={`${currentStepIdx + 1}/${totalSteps}`}
-          accentColor={theme.colors.accent}
           size="md"
         />
         <CraftStatDisplay
@@ -77,7 +78,6 @@ export function StolnicaSacredCard({
 const styles = StyleSheet.create({
   sacredNumbersCard: {
     marginBottom: theme.spacing.md,
-    backgroundColor: sharedCraftTokens.colors.bgCard,
   },
   sacredGrid: {
     flexDirection: 'row',

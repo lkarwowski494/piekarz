@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
+import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import { formatNumber } from '../lib/format';
 import {
@@ -23,6 +24,7 @@ interface FlourEquivalentsModalProps {
 }
 
 export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModalProps) {
+  const motyw = useMotyw();
   const [searchQuery, setSearchQuery] = useState('');
 
   const entries = useMemo(() => {
@@ -47,7 +49,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
               hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij słownik mąk')}
             >
-              <CloseIcon size={20} color={theme.colors.textPrimary} />
+              <CloseIcon size={20} color={motyw.kolory.tusz} />
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -57,7 +59,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
             testID="flour-equiv-search-input"
             style={styles.searchInput}
             placeholder={t('Szukaj np. T65, Tipo 00, 550, Bread Flour...')}
-            placeholderTextColor={theme.colors.textMuted}
+            placeholderTextColor={theme.colors.tusz3}
             value={searchQuery}
             onChangeText={setSearchQuery}
             clearButtonMode="while-editing"
@@ -150,13 +152,13 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   header: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
     flexDirection: 'row',
@@ -167,35 +169,35 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   subtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: theme.spacing.sm,
   },
   searchInput: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.md,
     paddingHorizontal: theme.spacing.sm,
     paddingVertical: 8,
     fontSize: 14,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
     borderRadius: 22,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
     fontSize: 18,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scrollContent: {
     padding: theme.spacing.md,
@@ -207,16 +209,16 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     textAlign: 'center',
   },
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -227,25 +229,25 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     flex: 1,
     marginRight: 8,
   },
   absorptionBadge: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: theme.radius.full,
     borderWidth: 1,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
   },
   absorptionBadgeText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   countryGrid: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.sm,
@@ -258,13 +260,13 @@ const styles = StyleSheet.create({
   countryFlag: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     width: 65,
   },
   countryType: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     flex: 1,
   },
   statsRow: {
@@ -275,13 +277,13 @@ const styles = StyleSheet.create({
   },
   statChip: {
     fontSize: 11,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   bestForBox: {
     marginBottom: 6,
@@ -289,30 +291,30 @@ const styles = StyleSheet.create({
   bestForLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 2,
   },
   bestForText: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 16,
   },
   tipsBox: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     padding: 8,
     borderRadius: theme.radius.sm,
     borderLeftWidth: 3,
-    borderLeftColor: theme.colors.accent,
+    borderLeftColor: theme.colors.akcent,
   },
   tipsLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginBottom: 2,
   },
   tipsText: {
     fontSize: 11,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     lineHeight: 15,
   },
 });

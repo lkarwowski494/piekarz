@@ -45,8 +45,8 @@ export function StarterPeakActivityCard({
     <View style={styles.card} testID="peak-activity-card">
       <View style={styles.peakHeaderRow}>
         <Text style={styles.cardTitle}>🕒 {t('Szczyt aktywności (Peak Timer)')}</Text>
-        <View style={[styles.phaseBadge, { backgroundColor: phaseResult.badgeColor + '20' }]}>
-          <Text style={[styles.phaseBadgeText, { color: phaseResult.badgeColor }]}>
+        <View style={styles.phaseBadge}>
+          <Text style={styles.phaseBadgeText}>
             ● {t(phaseResult.labelPl)}
           </Text>
         </View>
@@ -69,11 +69,7 @@ export function StarterPeakActivityCard({
               styles.progressBarFill,
               {
                 width: `${peakPrediction.progressPercent}%`,
-                backgroundColor: peakPrediction.isCurrentlyInPeak
-                  ? theme.colors.statusSuccess
-                  : peakPrediction.hasPassedPeak
-                  ? theme.colors.statusWarning
-                  : theme.colors.accent,
+                backgroundColor: theme.colors.akcent,
               },
             ]}
           />
@@ -134,17 +130,17 @@ export function StarterPeakActivityCard({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   peakHeaderRow: {
     flexDirection: 'row',
@@ -156,23 +152,25 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,
+    backgroundColor: theme.colors.tloGrupa, // poziom info (phaseResult.poziom): kolor z komponentu, nie z danych
   },
   phaseBadgeText: {
     fontSize: 12,
     fontWeight: '700',
+    color: theme.colors.tusz,
   },
   phaseAdvice: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: 12,
   },
   predictionBox: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     padding: theme.spacing.sm,
     borderRadius: theme.radius.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: 12,
   },
   predictionRow: {
@@ -184,16 +182,16 @@ const styles = StyleSheet.create({
   predictionLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   predictionWindowText: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   progressBarBackground: {
     height: 8,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.linia,
     borderRadius: 4,
     overflow: 'hidden',
     marginVertical: 4,
@@ -210,18 +208,18 @@ const styles = StyleSheet.create({
   },
   progressSubtext: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   predictionStatusText: {
     fontSize: 12,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontStyle: 'italic',
     marginBottom: 8,
   },
   tempSelectorHeading: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 6,
   },
   tempChipsRow: {
@@ -232,26 +230,26 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   tempChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   tempChipText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   tempChipTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   feedNowBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
     alignItems: 'center',
@@ -259,6 +257,6 @@ const styles = StyleSheet.create({
   feedNowBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
 });

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   vesselSelectorTitle: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -79,20 +79,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   vesselChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   vesselChipText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   vesselChipTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
 });

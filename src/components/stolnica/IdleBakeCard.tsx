@@ -46,41 +46,36 @@ export function IdleBakeCard({
 
 const styles = StyleSheet.create({
   idleCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     alignItems: 'center',
     marginBottom: theme.spacing.lg,
   },
   idleTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
   },
   idleText: {
     fontSize: 14,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 20,
     marginBottom: 20,
   },
   startBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 24,
     paddingVertical: 14,
     borderRadius: theme.radius.md,
-    shadowColor: theme.colors.accent,
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 3,
   },
   startBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
 });

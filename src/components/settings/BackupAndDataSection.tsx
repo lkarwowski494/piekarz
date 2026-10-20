@@ -172,7 +172,7 @@ export function BackupAndDataSection() {
               value={importJsonText}
               onChangeText={setImportJsonText}
               placeholder='{"format":"piekarz-backup",...}'
-              placeholderTextColor={theme.colors.textMuted}
+              placeholderTextColor={theme.colors.tusz3}
               autoCapitalize="none"
               autoCorrect={false}
             />
@@ -244,21 +244,21 @@ export function BackupAndDataSection() {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
   },
@@ -269,55 +269,55 @@ const styles = StyleSheet.create({
   exportBtn: {
     flex: 1,
     minHeight: 44,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: theme.spacing.sm,
   },
   exportBtnText: {
-    color: '#121214',
+    color: theme.colors.naAkcencie,
     fontSize: 14,
     fontWeight: '700',
   },
   importBtn: {
     flex: 1,
     minHeight: 44,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: theme.spacing.sm,
   },
   importBtnText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 14,
     fontWeight: '700',
   },
   importBox: {
     marginTop: theme.spacing.md,
     padding: theme.spacing.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   importLabel: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: theme.spacing.xs,
   },
   importInput: {
     minHeight: 80,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     padding: theme.spacing.sm,
     fontSize: 12,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     textAlignVertical: 'top',
   },
   importActions: {
@@ -328,47 +328,47 @@ const styles = StyleSheet.create({
   confirmImportBtn: {
     flex: 1,
     minHeight: 44,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },
   confirmImportBtnText: {
-    color: '#121214',
+    color: theme.colors.naAkcencie,
     fontSize: 13,
     fontWeight: '700',
   },
   cancelImportBtn: {
     flex: 1,
     minHeight: 44,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
   },
   cancelImportBtnText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 13,
   },
   infoBadge: {
     marginTop: theme.spacing.sm,
     padding: theme.spacing.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
   },
   infoBadgeText: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   csvButtonsCol: {
     gap: theme.spacing.sm,
   },
   csvBtn: {
     minHeight: 44,
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.border,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.obwodka,
     borderWidth: 1,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
@@ -376,7 +376,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.sm,
   },
   csvBtnText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 14,
     fontWeight: '700',
   },

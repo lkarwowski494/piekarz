@@ -67,9 +67,9 @@ export function SleepGuardBanner({
 
 const styles = StyleSheet.create({
   sleepGuardAlert: {
-    backgroundColor: '#FEF2F2',
+    backgroundColor: theme.colors.powierzchnia, // kolizja ze snem: informacja, nie błąd (mapa-rol.md §3)
     borderWidth: 2,
-    borderColor: theme.colors.statusDanger,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
@@ -77,17 +77,17 @@ const styles = StyleSheet.create({
   sleepGuardTitle: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#991B1B',
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   sleepGuardBody: {
     fontSize: 13,
-    color: '#7F1D1D',
+    color: theme.colors.tusz,
     lineHeight: 18,
     marginBottom: 10,
   },
   autoFixBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
@@ -96,17 +96,17 @@ const styles = StyleSheet.create({
   autoFixBtnText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   sleepGuardAction: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontStyle: 'italic',
   },
   sleepGuardSafe: {
-    backgroundColor: '#ECFDF5',
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.statusSuccess,
+    borderColor: theme.colors.linia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
   sleepGuardSafeTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#065F46',
+    color: theme.colors.tusz,
     marginBottom: 2,
   },
   sleepGuardSafeBody: {
     fontSize: 12,
-    color: '#047857',
+    color: theme.colors.tusz2,
     lineHeight: 16,
   },
 });

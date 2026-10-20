@@ -4,7 +4,7 @@ import { theme } from '../../ui/theme';
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   container: {
     padding: theme.spacing.md,
@@ -16,9 +16,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   settingsHeaderBtnText: {
     fontSize: 20,

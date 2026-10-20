@@ -108,7 +108,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   header: {
     height: 52,
@@ -117,13 +117,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   headerTitle: {
     fontSize: 17,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   headerPlaceholder: {
     width: 44,

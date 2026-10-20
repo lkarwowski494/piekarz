@@ -21,6 +21,18 @@ const contrast = (a: string, b: string) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
+// 050: kolory motywu to DynamicColorIOS z 4 wariantami (D-045); pomiar w każdym wariancie [M1-audytor-generalny-050]
+const POLE: Record<string, string> = { jasny: 'light', ciemny: 'dark', jasnyKontrast: 'highContrastLight', ciemnyKontrast: 'highContrastDark' };
+const WARIANTY = Object.keys(POLE);
+const hex = (kolor: unknown, wariant: string): string => {
+  if (typeof kolor === 'string') return kolor;
+  const dyn: unknown = typeof kolor === 'object' && kolor !== null ? Reflect.get(kolor, 'dynamic') : undefined;
+  const v: unknown = typeof dyn === 'object' && dyn !== null ? Reflect.get(dyn, POLE[wariant]) : undefined;
+  if (typeof v !== 'string') throw new Error(`brak koloru wariantu ${wariant}`);
+  return v;
+};
+const minKontrast = (fg: unknown, bg: unknown) => Math.min(...WARIANTY.map((w) => contrast(hex(fg, w), hex(bg, w))));
+
 const renderStatus = async (status: SourdoughSafetyStatus) => {
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
@@ -46,10 +58,10 @@ const renderStatus = async (status: SourdoughSafetyStatus) => {
   const action = root.find((n) => String(n.type) === 'Text' && n.props.children === `AKCJA ${status}`);
   // Najgłębszy widok zawierający tytuł = ramka komunikatu
   const boxes = root.findAll((n) => String(n.type) === 'View' && n.findAll((c) => c === title).length > 0);
-  const bg = StyleSheet.flatten(boxes[boxes.length - 1].props.style).backgroundColor as string;
+  const bg: unknown = StyleSheet.flatten(boxes[boxes.length - 1].props.style).backgroundColor;
   const out = {
-    title: contrast(StyleSheet.flatten(title.props.style).color as string, bg),
-    action: contrast(StyleSheet.flatten(action.props.style).color as string, bg),
+    title: minKontrast(StyleSheet.flatten(title.props.style).color, bg),
+    action: minKontrast(StyleSheet.flatten(action.props.style).color, bg),
   };
   act(() => tree!.unmount());
   return out;
@@ -83,6 +95,6 @@ describe('Starter safety card text contrast (016)', () => {
   it('the token pair used by the card (text on surfaceCard) also reaches 4.5:1 in the amber night theme', () => {
     expect(contrast(amberTheme.colors.textPrimary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
     expect(contrast(amberTheme.colors.textSecondary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
-    expect(contrast(theme.colors.textSecondary, theme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
+    expect(minKontrast(theme.colors.tusz2, theme.colors.powierzchnia)).toBeGreaterThanOrEqual(4.5);
   });
 });

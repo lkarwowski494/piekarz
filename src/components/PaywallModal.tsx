@@ -308,7 +308,7 @@ export function PaywallModal({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   header: {
     flexDirection: 'row',
@@ -322,8 +322,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   passBadge: {
-    backgroundColor: theme.colors.accent,
-    color: '#FFFFFF',
+    backgroundColor: theme.colors.akcent,
+    color: theme.colors.naAkcencie,
     fontWeight: '800',
     fontSize: 12,
     letterSpacing: 1.2,
@@ -345,22 +345,22 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     textAlign: 'center',
     marginBottom: theme.spacing.xs,
   },
   subtitle: {
     fontSize: 14,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 20,
     marginBottom: theme.spacing.md,
   },
   guaranteeCard: {
     flexDirection: 'row',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.lg,
@@ -376,11 +376,11 @@ const styles = StyleSheet.create({
   guaranteeTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   guaranteeDesc: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
     lineHeight: 16,
   },
@@ -390,22 +390,23 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   planCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 2,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     minHeight: 64,
     justifyContent: 'center',
   },
   planCardSelected: {
-    borderColor: theme.colors.accentDark,
-    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   termsText: {
     fontSize: 12,
     lineHeight: 17,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     marginBottom: theme.spacing.sm,
   },
@@ -420,11 +421,11 @@ const styles = StyleSheet.create({
   planName: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   planSubtext: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
   },
   priceCol: {
@@ -434,15 +435,15 @@ const styles = StyleSheet.create({
   planPrice: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   planPricePeriod: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   pillarsCard: {
     width: '100%',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.lg,
@@ -458,25 +459,21 @@ const styles = StyleSheet.create({
   },
   pillarText: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     flex: 1,
   },
   primaryCtaBtn: {
     width: '100%',
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingVertical: 16,
     borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 52, // Zasada Brudnego Kciuka
     marginBottom: theme.spacing.md,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   primaryCtaBtnText: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontSize: 16,
     fontWeight: '800',
   },
@@ -496,7 +493,7 @@ const styles = StyleSheet.create({
   },
   textBtnLabel: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textDecorationLine: 'underline',
   },
   legalLinksRow: {
@@ -515,11 +512,11 @@ const styles = StyleSheet.create({
   },
   legalLinkText: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     textDecorationLine: 'underline',
   },
   legalDividerText: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
 });

@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
   ingredientRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: theme.spacing.md,
     paddingVertical: 12,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     minHeight: 52, // Zasada Brudnego Kciuka
   },
   ingredientRowChecked: {
-    backgroundColor: theme.colors.background,
-    borderColor: theme.colors.borderLight,
+    backgroundColor: theme.colors.tlo,
+    borderColor: theme.colors.obwodka,
     opacity: 0.5,
   },
   checkbox: {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   checkboxMark: {
     fontSize: 18,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   ingredientDetails: {
     flex: 1,
@@ -66,24 +66,24 @@ const styles = StyleSheet.create({
   ingredientName: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   ingredientNameChecked: {
     textDecorationLine: 'line-through',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   ingredientSubtext: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 1,
   },
   ingredientWeight: {
     fontSize: 22,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   ingredientWeightChecked: {
     textDecorationLine: 'line-through',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
 });

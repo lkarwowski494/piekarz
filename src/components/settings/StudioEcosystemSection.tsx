@@ -133,21 +133,21 @@ export function StudioEcosystemSection() {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
   },
@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   appItemCurrent: {
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
   },
   appItemIconWrapper: {
     width: 36,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   currentBadge: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 6,
@@ -194,16 +194,16 @@ const styles = StyleSheet.create({
   currentBadgeText: {
     fontSize: 10,
     fontWeight: '700',
-    color: '#121214',
+    color: theme.colors.naAkcencie,
   },
   appItemDomain: {
     fontSize: 12,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginTop: 1,
   },
   appItemDesc: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
   },
   row: {
@@ -219,52 +219,52 @@ const styles = StyleSheet.create({
   linkText: {
     fontSize: 14,
     fontWeight: '600',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     textDecorationLine: 'underline',
   },
   label: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   codeText: {
     fontSize: 12,
     fontFamily: 'System',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   valueText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   statusOffText: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.statusSuccess,
+    color: theme.colors.akcentTekst,
   },
   manifestoCard: {
     padding: theme.spacing.md,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     alignItems: 'center',
   },
   manifestoTitle: {
     fontSize: 15,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginBottom: 4,
   },
   manifestoText: {
     fontSize: 13,
     fontStyle: 'italic',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     marginBottom: 8,
   },
   manifestoDetails: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     textAlign: 'center',
   },
 });

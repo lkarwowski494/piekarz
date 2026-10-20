@@ -297,17 +297,17 @@ export function DoMiskiScaleCard({
 
 const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   sectionLabel: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.xs,
   },
   presetsRow: {
@@ -317,9 +317,9 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   presetChip: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.full,
     paddingHorizontal: 12,
     paddingVertical: 8,
@@ -328,23 +328,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   presetChipSelected: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentMuted,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   presetChipText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   presetChipTextSelected: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
   },
   loavesRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
@@ -356,20 +357,20 @@ const styles = StyleSheet.create({
   loavesTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   loavesSubtitle: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
   },
   stepperContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     overflow: 'hidden',
   },
   stepperBtn: {
@@ -377,15 +378,15 @@ const styles = StyleSheet.create({
     height: 48, // Zasada Brudnego Kciuka
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
   },
   stepperBtnText: {
     fontSize: 22,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stepperDisabled: {
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   stepperValueBox: {
     width: 48,
@@ -395,14 +396,14 @@ const styles = StyleSheet.create({
   stepperValueText: {
     fontSize: 18,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scaleCard: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   scaleHeader: {
@@ -411,11 +412,11 @@ const styles = StyleSheet.create({
   scaleHeaderTitle: {
     fontSize: 16,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scaleHeaderSubtitle: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
   },
   ingredientsList: {
@@ -428,43 +429,39 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.md,
     paddingTop: theme.spacing.sm,
     borderTopWidth: 1,
-    borderTopColor: theme.colors.border,
+    borderTopColor: theme.colors.linia,
   },
   totalDoughLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   totalDoughValue: {
     fontSize: 16,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   fastStartBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     paddingVertical: 16,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 52, // Zasada Brudnego Kciuka
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   fastStartBtnText: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontSize: 16,
     fontWeight: '800',
   },
   modeSwitcherContainer: {
     flexDirection: 'row',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 4,
     marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   modeTab: {
     flex: 1,
@@ -473,19 +470,15 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   modeTabActive: {
-    backgroundColor: theme.colors.surface,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 2,
-    elevation: 1,
+    backgroundColor: theme.colors.powierzchnia,
   },
   modeTabText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   modeTabTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontWeight: '700',
   },
   chipRow: {
@@ -494,24 +487,24 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   smallChip: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.full,
     paddingHorizontal: 10,
     paddingVertical: 6,
   },
   smallChipActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentLight,
+    borderColor: theme.colors.akcent,
+    backgroundColor: theme.colors.akcent,
   },
   smallChipText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   smallChipTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
 });

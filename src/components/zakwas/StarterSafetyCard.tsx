@@ -89,8 +89,8 @@ export function StarterSafetyCard({
         ]}
         testID={`starter-safety-${safetyResult.status}`}
       >
-        <Text style={styles.safetyTitle}>{t(safetyResult.titlePl)}</Text>
-        <Text style={styles.safetyAction}>{t(safetyResult.actionPl)}</Text>
+        <Text style={[styles.safetyTitle, safetyResult.status === 'discard' && styles.safetyTekstOstrz]}>{t(safetyResult.titlePl)}</Text>
+        <Text style={[styles.safetyAction, safetyResult.status === 'discard' && styles.safetyTekstOstrz]}>{t(safetyResult.actionPl)}</Text>
       </View>
 
       <Pressable style={styles.resetBtn} onPress={onReset}>
@@ -102,28 +102,28 @@ export function StarterSafetyCard({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   cardSubtitle: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
     marginBottom: 8,
   },
   boundary: {
     fontSize: 12,
     lineHeight: 16,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 12,
   },
   checkRow: {
@@ -131,30 +131,30 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   checkBtn: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     padding: 10,
     minHeight: 44,
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   // Zaznaczenie: ramka w kolorze stanu, tło i tekst z ciemnego motywu (kontrast jak w 016)
   checkBtnActive: {
-    borderColor: theme.colors.statusWarning,
+    borderColor: theme.colors.akcent,
     borderWidth: 2,
   },
   checkBtnDangerActive: {
-    borderColor: theme.colors.statusDanger,
+    borderColor: theme.colors.blad,
     borderWidth: 2,
   },
   checkBtnText: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '500',
   },
   checkBtnTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontWeight: '700',
   },
   safetyBox: {
@@ -163,45 +163,48 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderWidth: 1,
   },
-  // Ciemne tło karty i kolor stanu na ramce — tylko istniejące tokeny motywu; jasny tekst ≥ 4,5:1
+  // Pleśń (RD-21) to ostrzeżenie bezpieczeństwa: żółte pole Ostrzeżenia z ciemnym tekstem; płyn i brak objawu: informacja (mapa-rol.md §3)
   // (wcześniej pastelowe tła pod jasnym tekstem: 1,04:1) [M1-audytor-generalny-016]
   safetyNeutral: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.border,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.linia,
   },
   safetyWarning: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.statusWarning,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.obwodka,
   },
   safetyDanger: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.statusDanger,
+    backgroundColor: theme.colors.ostrzTlo,
+    borderColor: theme.colors.ostrzTlo,
     borderWidth: 2,
+  },
+  safetyTekstOstrz: {
+    color: theme.colors.ostrzTusz,
   },
   safetyTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   safetyAction: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 16,
   },
   resetBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     minHeight: 44,
     justifyContent: 'center',
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   resetBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
 });

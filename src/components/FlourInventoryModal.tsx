@@ -130,7 +130,7 @@ export function FlourInventoryModal({
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-inventory-modal">
           {/* Header */}
@@ -254,7 +254,7 @@ export function FlourInventoryModal({
                   testID="new-flour-name-input"
                   style={styles.textInput}
                   placeholder={t('Nazwa mąki (np. Pszenna typ 750)')}
-                  placeholderTextColor={theme.colors.textMuted}
+                  placeholderTextColor={theme.colors.tusz3}
                   value={newFlourName}
                   onChangeText={setNewFlourName}
                 />
@@ -264,7 +264,7 @@ export function FlourInventoryModal({
                   testID="new-flour-stock-input"
                   style={styles.textInput}
                   placeholder="1000"
-                  placeholderTextColor={theme.colors.textMuted}
+                  placeholderTextColor={theme.colors.tusz3}
                   keyboardType="numeric"
                   value={newFlourStock}
                   onChangeText={setNewFlourStock}
@@ -315,7 +315,7 @@ export function FlourInventoryModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
@@ -323,21 +323,21 @@ const styles = StyleSheet.create({
   modalCard: {
     width: '100%',
     maxHeight: '90%',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: 20,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 14,
   },
   stockBanner: {
@@ -347,34 +347,34 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   stockBannerSuccess: {
-    backgroundColor: '#E8F5E9',
-    borderColor: theme.colors.statusSuccess,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.linia,
   },
   stockBannerWarning: {
-    backgroundColor: '#FFF3E0',
-    borderColor: theme.colors.statusWarning,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.obwodka,
   },
   stockBannerTitle: {
     fontSize: 13,
     fontWeight: '700',
   },
   stockBannerTitleSuccess: {
-    color: '#2E7D32',
+    color: theme.colors.tusz,
   },
   stockBannerTitleWarning: {
-    color: '#E65100',
+    color: theme.colors.tusz,
   },
   substituteText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 4,
     fontStyle: 'italic',
   },
   deductBtn: {
     marginTop: 8,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingVertical: 6,
     paddingHorizontal: 10,
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
   deductBtnText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scrollArea: {
     maxHeight: 380,
@@ -391,16 +391,16 @@ const styles = StyleSheet.create({
   sectionHeading: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
   },
   inventoryRow: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 10,
     marginBottom: 8,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   itemInfo: {
     marginBottom: 6,
@@ -408,12 +408,12 @@ const styles = StyleSheet.create({
   itemName: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   itemStock: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
     marginTop: 2,
   },
   adjustRow: {
@@ -422,9 +422,9 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   adjustBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -432,7 +432,7 @@ const styles = StyleSheet.create({
   adjustBtnText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   deleteBtn: {
     marginLeft: 'auto',
@@ -444,34 +444,34 @@ const styles = StyleSheet.create({
   openAddBtn: {
     marginTop: 8,
     paddingVertical: 8,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     alignItems: 'center',
   },
   openAddBtnText: {
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
     fontSize: 13,
   },
   addFormCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 12,
     marginTop: 8,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   formTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 6,
   },
   inputLabel: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 4,
   },
   presetScroll: {
@@ -479,9 +479,9 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   presetChip: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingVertical: 4,
     paddingHorizontal: 8,
@@ -489,16 +489,16 @@ const styles = StyleSheet.create({
   },
   presetChipText: {
     fontSize: 11,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   textInput: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     padding: 8,
     fontSize: 13,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
   },
   formButtonsRow: {
@@ -513,21 +513,21 @@ const styles = StyleSheet.create({
   },
   formCancelBtnText: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   formConfirmBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.sm,
     paddingVertical: 6,
     paddingHorizontal: 14,
   },
   formConfirmBtnText: {
-    color: '#ffffff',
+    color: theme.colors.naAkcencie,
     fontSize: 12,
     fontWeight: '700',
   },
   closeButton: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     minHeight: 52,
     justifyContent: 'center',
@@ -535,7 +535,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   closeButtonText: {
-    color: '#ffffff',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
     fontSize: 14,
   },

@@ -400,7 +400,7 @@ export default function ZakwasScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   container: {
     padding: theme.spacing.md,
@@ -410,13 +410,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.borderActive,
+    borderColor: theme.colors.akcent,
   },
   headerDoctorBtnText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
 });

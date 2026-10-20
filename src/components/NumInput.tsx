@@ -98,7 +98,7 @@ export const NumInput: React.FC<NumInputProps> = ({
       onFocus={handleFocus}
       onBlur={handleBlur}
       keyboardType={keyboardType}
-      placeholderTextColor={theme.colors.textMuted}
+      placeholderTextColor={theme.colors.tusz3}
       style={[styles.input, style]}
       {...rest}
     />
@@ -107,11 +107,11 @@ export const NumInput: React.FC<NumInputProps> = ({
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
-    color: theme.colors.textPrimary,
+    borderColor: theme.colors.obwodka,
+    color: theme.colors.tusz,
     fontSize: 16,
     paddingHorizontal: 12,
     paddingVertical: 10,

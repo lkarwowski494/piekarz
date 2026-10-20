@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz (Crust) — First Launch Onboarding Modal (Ritual Personalization)
-// Apps4Craft Studio: Dark Basalt Ceramic (#121214) with Warm Crust Gold (#D49B42)
+// Kolory z motywu (src/ui/theme.ts, tokeny systemu „Koszyk spiralny”)
 // 100% Offline-First (SQLite). No tracking, no clouds.
 // ============================================================================
 
@@ -16,6 +16,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { PiekarzAppIcon } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
+import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import {
   BakerRitualProfile,
@@ -29,6 +30,7 @@ export interface OnboardingModalProps {
 }
 
 export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
+  const motyw = useMotyw();
   const [selectedProfile, setSelectedProfile] = useState<BakerRitualProfile>('artisan_hybrid');
 
   const handleStart = async () => {
@@ -49,7 +51,7 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
           <View style={styles.header}>
             <View style={styles.iconStage}>
               <View style={styles.iconSquircle}>
-                <PiekarzAppIcon size={44} color={theme.colors.accent} strokeWidth={2} />
+                <PiekarzAppIcon size={44} color={motyw.kolory.akcentTekst} strokeWidth={2} />
               </View>
             </View>
             <Text style={styles.eyebrow}>{t('APPS4CRAFT STUDIO · 100% OFFLINE')}</Text>
@@ -184,7 +186,7 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   scroll: {
     flex: 1,
@@ -205,9 +207,9 @@ const styles = StyleSheet.create({
     width: 68,
     height: 68,
     borderRadius: 20,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1.5,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -218,20 +220,20 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '700',
     letterSpacing: 1.5,
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginBottom: 6,
     textTransform: 'uppercase',
   },
   title: {
     fontSize: 28,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 14,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 20,
     paddingHorizontal: 12,
@@ -239,7 +241,7 @@ const styles = StyleSheet.create({
   choosePrompt: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textTransform: 'uppercase',
     letterSpacing: 0.8,
     marginBottom: 12,
@@ -252,29 +254,31 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     padding: 16,
     borderRadius: 16,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1.5,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     alignItems: 'flex-start',
   },
   prefCardActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.surfaceCard,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   cardIconBox: {
     width: 44,
     height: 44,
     borderRadius: 12,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 14,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   cardIconBoxActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentMuted,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   cardEmoji: {
     fontSize: 22,
@@ -291,37 +295,37 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   cardTitleActive: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   checkIndicator: {
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',
   },
   checkIndicatorText: {
-    color: '#121214',
+    color: theme.colors.naAkcencie,
     fontSize: 12,
     fontWeight: '800',
   },
   cardDesc: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
   },
   privacyBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 12,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: 24,
     gap: 10,
   },
@@ -331,13 +335,13 @@ const styles = StyleSheet.create({
   privacyText: {
     flex: 1,
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     lineHeight: 16,
   },
   startButton: {
     minHeight: 52,
     borderRadius: 14,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
@@ -345,6 +349,6 @@ const styles = StyleSheet.create({
   startButtonText: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#121214',
+    color: theme.colors.naAkcencie,
   },
 });

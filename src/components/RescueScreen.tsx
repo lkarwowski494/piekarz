@@ -55,12 +55,12 @@ export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry }) => {
 };
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: theme.colors.background },
+  screen: { flex: 1, backgroundColor: theme.colors.tlo },
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
-  title: { color: theme.colors.textPrimary, fontSize: 22, fontWeight: '700', marginBottom: theme.spacing.md },
-  body: { color: theme.colors.textSecondary, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
+  title: { color: theme.colors.tusz, fontSize: 22, fontWeight: '700', marginBottom: theme.spacing.md },
+  body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
   button: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     minHeight: 44,
     minWidth: 44,
@@ -70,9 +70,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: theme.spacing.md,
   },
-  buttonText: { color: theme.colors.background, fontSize: 16, fontWeight: '700' },
+  buttonText: { color: theme.colors.naAkcencie, fontSize: 16, fontWeight: '700' },
   secondaryButton: {
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     borderWidth: 1,
     borderRadius: theme.radius.md,
     minHeight: 44,
@@ -82,5 +82,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  secondaryButtonText: { color: theme.colors.accent, fontSize: 16, fontWeight: '700' },
+  secondaryButtonText: { color: theme.colors.akcentTekst, fontSize: 16, fontWeight: '700' },
 });

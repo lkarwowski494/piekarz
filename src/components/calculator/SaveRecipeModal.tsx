@@ -27,7 +27,7 @@ export function SaveRecipeModal({
   onSave,
 }: SaveRecipeModalProps) {
   return (
-    <Modal visible={visible} transparent animationType="fade">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>{t('Zapisz przepis')}</Text>
@@ -38,7 +38,7 @@ export function SaveRecipeModal({
           <TextInput
             style={styles.modalInput}
             placeholder={t('Wpisz nazwę przepisu')}
-            placeholderTextColor={theme.colors.textMuted}
+            placeholderTextColor={theme.colors.tusz3}
             value={recipeName}
             onChangeText={onRecipeNameChange}
             autoFocus
@@ -69,13 +69,13 @@ export function SaveRecipeModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 24,
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     width: '100%',
@@ -84,23 +84,23 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 16,
   },
   modalInput: {
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 14,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 18,
   },
   modalButtonsRow: {
@@ -115,18 +115,18 @@ const styles = StyleSheet.create({
   },
   modalCancelBtnText: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontWeight: '600',
   },
   modalConfirmBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 18,
     paddingVertical: 8,
     borderRadius: theme.radius.sm,
   },
   modalConfirmBtnText: {
     fontSize: 14,
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
 });

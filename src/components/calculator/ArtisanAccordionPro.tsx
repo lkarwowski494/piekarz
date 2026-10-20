@@ -171,10 +171,10 @@ export function ArtisanAccordionPro({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
     overflow: 'hidden',
   },
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: theme.spacing.md,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     minHeight: 52, // Zasada Brudnego Kciuka
   },
   toggleTitleRow: {
@@ -201,30 +201,30 @@ const styles = StyleSheet.create({
   toggleTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   toggleSubtitle: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 1,
   },
   arrowBadge: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     alignItems: 'center',
     justifyContent: 'center',
   },
   arrowBadgeOpen: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.akcent,
   },
   arrowText: {
     fontSize: 12,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   bodyContent: {
     padding: theme.spacing.md,

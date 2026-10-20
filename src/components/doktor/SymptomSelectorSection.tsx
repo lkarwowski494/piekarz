@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
   sectionHeading: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginTop: 12,
     marginBottom: 8,
   },
@@ -337,12 +337,12 @@ const styles = StyleSheet.create({
   presetChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: theme.radius.full,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     marginRight: 6,
   },
   presetIcon: {
@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
   },
   presetName: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '600',
   },
   chipsContainer: {
@@ -359,32 +359,32 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   symptomChip: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 14,
     paddingVertical: 10,
     borderRadius: theme.radius.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   symptomChipActive: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.akcent,
   },
   symptomChipText: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '500',
   },
   symptomChipTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
   },
   clearBtn: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 10,
     borderRadius: theme.radius.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 8,
@@ -392,6 +392,6 @@ const styles = StyleSheet.create({
   clearBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
 });

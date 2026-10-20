@@ -96,10 +96,10 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   notice: {
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     borderWidth: 1,
     borderRadius: theme.radius.md,
     margin: theme.spacing.md,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
   },
   noticeText: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 16,
     lineHeight: 22,
   },
@@ -117,19 +117,19 @@ const styles = StyleSheet.create({
     padding: theme.spacing.lg,
   },
   title: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontSize: 22,
     fontWeight: '700',
     marginBottom: theme.spacing.md,
   },
   body: {
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontSize: 16,
     lineHeight: 22,
     marginBottom: theme.spacing.lg,
   },
   button: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     minHeight: 44,
     minWidth: 44,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    color: theme.colors.background,
+    color: theme.colors.naAkcencie,
     fontSize: 16,
     fontWeight: '700',
   },
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.lg,
   },
   secondaryButton: {
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     borderWidth: 1,
     borderRadius: theme.radius.md,
     minHeight: 44,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   secondaryButtonText: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontSize: 16,
     fontWeight: '700',
   },

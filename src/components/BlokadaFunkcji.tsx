@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     minHeight: 44,
   },
   pill: {
-    backgroundColor: theme.colors.accentDark,
-    color: '#FFFFFF',
+    backgroundColor: theme.colors.akcent,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
     fontSize: 12,
     paddingHorizontal: 10,

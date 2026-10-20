@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
+import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import {
   VOLUME_INGREDIENTS,
@@ -31,6 +32,7 @@ export function VolumeConverterModal({
   visible,
   onClose,
 }: VolumeConverterModalProps) {
+  const motyw = useMotyw();
   const [selectedIngredientId, setSelectedIngredientId] =
     useState<VolumeIngredientId>('flour_wheat_sifted');
   const [unit, setUnit] = useState<VolumeUnit>('cup');
@@ -70,7 +72,7 @@ export function VolumeConverterModal({
               hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij przelicznik')}
             >
-              <CloseIcon size={20} color={theme.colors.textPrimary} />
+              <CloseIcon size={20} color={motyw.kolory.tusz} />
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -242,13 +244,13 @@ export function VolumeConverterModal({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   header: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
     flexDirection: 'row',
@@ -259,40 +261,40 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   subtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
     borderRadius: 22,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
     fontSize: 18,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scrollContent: {
     padding: theme.spacing.md,
     paddingBottom: 32,
   },
   warningBanner: {
-    backgroundColor: '#FFF8E1',
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: '#FFE082',
+    borderColor: theme.colors.linia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.md,
   },
   warningBannerText: {
     fontSize: 12,
-    color: '#6D4C41',
+    color: theme.colors.tusz,
     lineHeight: 16,
   },
   standardRow: {
@@ -304,7 +306,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   chipRow: {
     flexDirection: 'row',
@@ -314,31 +316,31 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   smallChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   smallChipText: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '500',
   },
   smallChipTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   unitTabsRow: {
     flexDirection: 'row',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 3,
     marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   unitTab: {
     flex: 1,
@@ -347,21 +349,21 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   unitTabActive: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
   },
   unitTabText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   unitTabTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontWeight: '700',
   },
   sectionHeading: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.xs,
   },
   ingredientList: {
@@ -371,38 +373,38 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   ingredientChip: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   ingredientChipActive: {
-    backgroundColor: theme.colors.surfaceCard,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.powierzchnia,
+    borderColor: theme.colors.akcent,
   },
   ingredientChipText: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   ingredientChipTextActive: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
   },
   amountCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     alignItems: 'center',
   },
   amountLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 8,
   },
   stepperContainer: {
@@ -414,51 +416,51 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   stepBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   amountInput: {
     width: 80,
     height: 44,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     borderRadius: theme.radius.sm,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     fontSize: 18,
     fontWeight: '700',
     textAlign: 'center',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   resultCard: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
   },
   resultSub: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 4,
   },
   resultGrams: {
     fontSize: 36,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginBottom: 4,
   },
   resultItemName: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
 });

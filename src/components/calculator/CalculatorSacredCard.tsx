@@ -8,6 +8,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { CraftCard, CraftStatDisplay } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
+import { useMotyw } from '../../ui/motyw';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
 
@@ -24,11 +25,12 @@ export function CalculatorSacredCard({
   totalFlourGrams,
   targetDdt,
 }: CalculatorSacredCardProps) {
+  const motyw = useMotyw();
   return (
     <CraftCard
       testID="sacred-numbers-panel"
       style={styles.sacredNumbersCard}
-      accentBorder={theme.colors.borderActive}
+      accentBorder={motyw.kolory.akcent}
     >
       <View style={styles.sacredGrid}>
         <CraftStatDisplay
@@ -36,7 +38,6 @@ export function CalculatorSacredCard({
           label={t('Hydratacja')}
           value={formatFixed(overallHydrationPercent, 1)}
           unit="%"
-          accentColor={theme.colors.accent}
           size="md"
         />
         <CraftStatDisplay
@@ -59,7 +60,6 @@ export function CalculatorSacredCard({
           value={targetDdt}
           unit="°C"
           size="md"
-          accentColor={theme.colors.accentLight}
         />
       </View>
     </CraftCard>

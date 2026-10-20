@@ -10,6 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
+import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import {
   filterDiscardRecipes,
@@ -22,6 +23,7 @@ interface DiscardRecipesModalProps {
 }
 
 export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalProps) {
+  const motyw = useMotyw();
   const [selectedCategory, setSelectedCategory] = useState<DiscardCategory | 'all'>('all');
   const [expandedRecipeId, setExpandedRecipeId] = useState<string | null>(null);
 
@@ -51,7 +53,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               hitSlop={sharedCraftTokens.hitSlopStandard}
               accessibilityLabel={t('Zamknij przepisy na odrzut')}
             >
-              <CloseIcon size={20} color={theme.colors.textPrimary} />
+              <CloseIcon size={20} color={motyw.kolory.tusz} />
             </Pressable>
           </View>
           <Text style={styles.subtitle}>
@@ -246,13 +248,13 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   header: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
     flexDirection: 'row',
@@ -263,49 +265,49 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   subtitle: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 8,
   },
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
     borderRadius: 22,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
     fontSize: 18,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   categoryScroll: {
     marginTop: 4,
   },
   categoryChip: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
     marginRight: 6,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   categoryChipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   categoryChipText: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontWeight: '500',
   },
   categoryChipTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   scrollContent: {
@@ -313,12 +315,12 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   cardHeaderPressable: {
     flexDirection: 'row',
@@ -332,7 +334,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 6,
   },
   metaRow: {
@@ -342,9 +344,9 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   discardGramsPill: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: theme.radius.full,
@@ -352,36 +354,36 @@ const styles = StyleSheet.create({
   discardGramsText: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   timeMeta: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   yieldMeta: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   toggleIcon: {
     fontSize: 14,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     padding: 4,
   },
   expandedContent: {
     marginTop: theme.spacing.md,
     borderTopWidth: 1,
-    borderTopColor: theme.colors.border,
+    borderTopColor: theme.colors.linia,
     paddingTop: theme.spacing.sm,
   },
   sectionSubtitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 6,
     marginTop: 6,
   },
   ingredientsBox: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.sm,
@@ -393,19 +395,19 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
   },
   ingredientBullet: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginRight: 6,
     fontSize: 14,
   },
   ingredientName: {
     flex: 1,
     fontSize: 12,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   ingredientAmount: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   stepRow: {
     flexDirection: 'row',
@@ -416,7 +418,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 8,
@@ -425,18 +427,18 @@ const styles = StyleSheet.create({
   stepNumberText: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   stepText: {
     flex: 1,
     fontSize: 12,
     lineHeight: 18,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   proTipBox: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderLeftWidth: 3,
-    borderLeftColor: theme.colors.accent,
+    borderLeftColor: theme.colors.akcent,
     padding: 8,
     borderRadius: theme.radius.sm,
     marginTop: 8,
@@ -444,12 +446,12 @@ const styles = StyleSheet.create({
   proTipTitle: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginBottom: 2,
   },
   proTipText: {
     fontSize: 11,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     lineHeight: 16,
   },
 });

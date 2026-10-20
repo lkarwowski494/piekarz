@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
   header: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,
-    borderBottomColor: theme.colors.border,
-    backgroundColor: theme.colors.surface,
+    borderBottomColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
     flexDirection: 'row',
@@ -73,28 +73,28 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   closeBtn: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeBtnText: {
     fontSize: 18,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   tabNavRow: {
     flexDirection: 'row',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 3,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   navTab: {
     flex: 1,
@@ -103,15 +103,15 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   navTabActive: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
   },
   navTabText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   navTabTextActive: {
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     fontWeight: '700',
   },
 });

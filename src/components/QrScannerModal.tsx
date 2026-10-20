@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   },
   permissionBox: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
     padding: theme.spacing.xl,
     justifyContent: 'center',
     alignItems: 'center',
@@ -172,20 +172,20 @@ const styles = StyleSheet.create({
   permissionTitle: {
     fontSize: 22,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
     textAlign: 'center',
   },
   permissionDesc: {
     fontSize: 15,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: theme.spacing.xl,
     paddingHorizontal: theme.spacing.md,
   },
   permissionBtn: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     minHeight: 48,
     justifyContent: 'center',
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.spacing.xl,
   },
   permissionBtnText: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
     fontSize: 16,
     fontWeight: '700',
   },

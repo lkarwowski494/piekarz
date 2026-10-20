@@ -42,17 +42,17 @@ export function BakeStatsCard({ stats }: BakeStatsCardProps) {
 
 const styles = StyleSheet.create({
   statsCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 14,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   statsCardTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 10,
   },
   statsGrid: {
@@ -65,13 +65,13 @@ const styles = StyleSheet.create({
   },
   statsLabel: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 4,
     textAlign: 'center',
   },
   statsValue: {
     fontSize: 14,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
 });

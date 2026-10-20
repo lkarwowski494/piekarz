@@ -75,7 +75,7 @@ export function StarterConverterModal({
   }, [targetYieldGrams, sourceHydration, targetHydration]);
 
   return (
-    <Modal visible={visible} transparent animationType="slide">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="starter-converter-modal">
           {/* Header */}
@@ -341,7 +341,7 @@ export function StarterConverterModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
@@ -349,21 +349,21 @@ const styles = StyleSheet.create({
   modalCard: {
     width: '100%',
     maxHeight: '90%',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: 20,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 14,
   },
   tabRow: {
@@ -376,22 +376,22 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 8,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   tabButtonActive: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   tabButtonText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   tabButtonTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.naAkcencie,
     fontWeight: '800',
   },
   scrollArea: {
@@ -400,7 +400,7 @@ const styles = StyleSheet.create({
   sectionLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginTop: 10,
     marginBottom: 6,
   },
@@ -414,21 +414,21 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   chipActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   chipText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   chipTextActive: {
-    color: '#ffffff',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   presetsRow: {
@@ -441,35 +441,35 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 8,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   presetChipActive: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   presetChipText: {
     fontSize: 11,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   presetChipTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   resultCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: 12,
     marginTop: 12,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   resultCardTitle: {
     fontSize: 14,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 8,
   },
   metricRow: {
@@ -478,21 +478,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 4,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: theme.colors.border,
+    borderBottomColor: theme.colors.linia,
   },
   metricLabel: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   metricValue: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   metricValueHighlight: {
     fontSize: 15,
     fontWeight: '800',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   badge: {
     paddingVertical: 3,
@@ -500,28 +500,28 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   badgeAdd: {
-    backgroundColor: '#E8F5E9',
+    backgroundColor: theme.colors.tloGrupa,
   },
   badgeReduce: {
-    backgroundColor: '#FFEBEE',
+    backgroundColor: theme.colors.tloGrupa,
   },
   badgeNeutral: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: theme.colors.tloGrupa,
   },
   badgeText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   adviceText: {
     fontSize: 12,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     fontStyle: 'italic',
     marginTop: 8,
     lineHeight: 16,
   },
   closeButton: {
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     borderRadius: theme.radius.md,
     minHeight: 52,
     justifyContent: 'center',
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   closeButtonText: {
-    color: '#ffffff',
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
     fontSize: 14,
   },

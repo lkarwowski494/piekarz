@@ -19,6 +19,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { CloseIcon, sharedCraftTokens } from '@apps4craft/ui';
 import * as Clipboard from 'expo-clipboard';
 import { theme } from '../ui/theme';
+import { useMotyw } from '../ui/motyw';
 import { t } from '../lib/i18n';
 import { formatFixed } from '../lib/format';
 import { StoredRecipe } from '../data/db';
@@ -38,6 +39,7 @@ export function ImportRecipeModal({
   onImportSuccess,
   initialInput,
 }: ImportRecipeModalProps) {
+  const motyw = useMotyw();
   const [jsonInput, setJsonInput] = useState<string>(initialInput || '');
 
   React.useEffect(() => {
@@ -87,7 +89,7 @@ export function ImportRecipeModal({
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="import-recipe-modal">
           {/* Header */}
@@ -104,7 +106,7 @@ export function ImportRecipeModal({
               hitSlop={sharedCraftTokens.hitSlopStandard}
               style={styles.closeBtn}
             >
-              <CloseIcon size={20} color={theme.colors.textPrimary} />
+              <CloseIcon size={20} color={motyw.kolory.tusz} />
             </Pressable>
           </View>
 
@@ -139,7 +141,7 @@ export function ImportRecipeModal({
               style={styles.jsonInput}
               multiline
               placeholder={t('Wklej kod JSON receptury tutaj...')}
-              placeholderTextColor={theme.colors.textMuted}
+              placeholderTextColor={theme.colors.tusz3}
               value={jsonInput}
               onChangeText={setJsonInput}
               autoCapitalize="none"
@@ -253,11 +255,11 @@ export function ImportRecipeModal({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(26, 18, 11, 0.65)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'flex-end',
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     paddingHorizontal: 20,
@@ -276,24 +278,24 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   subtitle: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginTop: 2,
   },
   closeBtn: {
     minWidth: 44,
     minHeight: 44,
     borderRadius: 22,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.linia,
     alignItems: 'center',
     justifyContent: 'center',
   },
   closeBtnText: {
     fontSize: 16,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   scrollArea: {
     maxHeight: 450,
@@ -305,9 +307,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   actionBtn: {
-    backgroundColor: theme.colors.card,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 10,
@@ -317,7 +319,7 @@ const styles = StyleSheet.create({
   actionBtnText: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.crustGold,
+    color: theme.colors.akcentTekst,
   },
   clearBtn: {
     backgroundColor: 'transparent',
@@ -325,17 +327,17 @@ const styles = StyleSheet.create({
   },
   clearBtnText: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
   jsonInput: {
-    backgroundColor: theme.colors.card,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: 12,
     padding: 12,
     fontSize: 12,
     fontFamily: 'monospace',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     minHeight: 120,
     maxHeight: 180,
     textAlignVertical: 'top',
@@ -343,42 +345,42 @@ const styles = StyleSheet.create({
   hintBox: {
     marginTop: 12,
     padding: 12,
-    backgroundColor: theme.colors.card,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   hintText: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
   },
   errorBox: {
     marginTop: 12,
     padding: 14,
-    backgroundColor: '#FDF2F0',
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: '#E8A399',
+    borderWidth: 1.5,
+    borderColor: theme.colors.blad,
   },
   errorTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#A02010',
+    color: theme.colors.blad,
     marginBottom: 4,
   },
   errorText: {
     fontSize: 13,
-    color: '#A02010',
+    color: theme.colors.tusz,
     lineHeight: 18,
   },
   previewCard: {
     marginTop: 14,
     padding: 16,
-    backgroundColor: theme.colors.card,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: 14,
     borderWidth: 1.5,
-    borderColor: theme.colors.crustGold,
+    borderColor: theme.colors.akcent,
   },
   previewHeader: {
     flexDirection: 'row',
@@ -389,35 +391,35 @@ const styles = StyleSheet.create({
   previewBadge: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#2E7D32',
+    color: theme.colors.akcentTekst,
     textTransform: 'uppercase',
   },
   previewDdt: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   previewName: {
     fontSize: 17,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   previewNotes: {
     fontSize: 13,
     fontStyle: 'italic',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 8,
   },
   divider: {
     height: 1,
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.linia,
     marginVertical: 10,
   },
   previewSectionTitle: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 6,
     textTransform: 'uppercase',
   },
@@ -428,18 +430,18 @@ const styles = StyleSheet.create({
   },
   flourBullet: {
     fontSize: 14,
-    color: theme.colors.crustGold,
+    color: theme.colors.akcentTekst,
     marginRight: 6,
   },
   flourName: {
     flex: 1,
     fontSize: 13,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   flourPct: {
     fontSize: 13,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   metricsRow: {
     flexDirection: 'row',
@@ -451,14 +453,14 @@ const styles = StyleSheet.create({
   },
   metricLabel: {
     fontSize: 11,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textTransform: 'uppercase',
     marginBottom: 2,
   },
   metricValue: {
     fontSize: 15,
     fontWeight: '700',
-    color: theme.colors.crustGold,
+    color: theme.colors.akcentTekst,
   },
   footer: {
     flexDirection: 'row',
@@ -470,32 +472,34 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
     justifyContent: 'center',
   },
   cancelBtnText: {
     fontSize: 15,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   confirmBtn: {
     flex: 2,
     height: 48,
     borderRadius: 12,
-    backgroundColor: theme.colors.crustGold,
+    backgroundColor: theme.colors.akcent,
     alignItems: 'center',
     justifyContent: 'center',
   },
   confirmBtnDisabled: {
-    backgroundColor: theme.colors.border,
+    backgroundColor: theme.colors.powierzchnia,
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
   },
   confirmBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   confirmBtnTextDisabled: {
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
   },
 });

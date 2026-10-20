@@ -149,21 +149,21 @@ export function BakerRitualSection({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
   },
@@ -175,13 +175,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 12,
     borderRadius: 12,
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   optionCardActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentMuted,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   optionEmoji: {
     fontSize: 22,
@@ -193,21 +194,21 @@ const styles = StyleSheet.create({
   optionTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   optionTitleActive: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   optionSubtitle: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginTop: 2,
     lineHeight: 16,
   },
   checkMark: {
     fontSize: 16,
     fontWeight: '800',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     marginLeft: 8,
   },
 });

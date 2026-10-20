@@ -74,16 +74,16 @@ export function PreferencesSection({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: theme.spacing.sm,
   },
   langRow: {
@@ -94,23 +94,24 @@ const styles = StyleSheet.create({
     flex: 1,
     minHeight: 44,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
   },
   langBtnActive: {
-    borderColor: theme.colors.accent,
-    backgroundColor: theme.colors.accentMuted,
+    borderColor: theme.colors.akcent,
+    borderWidth: 3,
+    backgroundColor: theme.colors.powierzchnia,
   },
   langBtnText: {
     fontSize: 14,
     fontWeight: '600',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   langBtnTextActive: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
     fontWeight: '700',
   },
 });

@@ -121,12 +121,12 @@ export function DutchOvenController({
 
 const styles = StyleSheet.create({
   dutchOvenContainer: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   phaseTabsRow: {
     flexDirection: 'row',
@@ -138,30 +138,30 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 8,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   phaseTabBtnActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   phaseTabBtnText: {
     fontSize: 11,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     textAlign: 'center',
   },
   phaseTabBtnTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   phaseInfoCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     padding: 12,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   phaseHeaderRow: {
     flexDirection: 'row',
@@ -172,10 +172,10 @@ const styles = StyleSheet.create({
   phaseTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
   phaseTempBadge: {
-    backgroundColor: theme.colors.accentLight,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: theme.radius.sm,
@@ -183,23 +183,21 @@ const styles = StyleSheet.create({
   phaseTempBadgeText: {
     fontSize: 12,
     fontWeight: '800',
-    color: theme.colors.accentDark,
+    color: theme.colors.naAkcencie,
   },
   phaseDesc: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: 6,
   },
   phaseTip: {
     fontSize: 12,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontStyle: 'italic',
   },
   steamAlertBanner: {
-    backgroundColor: '#FEF2F2',
-    borderWidth: 2,
-    borderColor: '#EF4444',
+    backgroundColor: theme.colors.ostrzTlo, // Ostrzeżenie bezpieczeństwa: gorące naczynie i para (RD-23, mapa-rol.md §3)
     borderRadius: theme.radius.md,
     padding: 14,
     marginTop: 12,
@@ -207,17 +205,18 @@ const styles = StyleSheet.create({
   steamAlertTitle: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#991B1B',
+    color: theme.colors.ostrzTusz,
     marginBottom: 4,
   },
   steamAlertDesc: {
     fontSize: 12,
-    color: '#7F1D1D',
+    color: theme.colors.ostrzTusz,
     lineHeight: 18,
     marginBottom: 10,
   },
   steamAlertActionBtn: {
-    backgroundColor: '#DC2626',
+    borderWidth: 1.5,
+    borderColor: theme.colors.ostrzTusz,
     paddingVertical: 10,
     paddingHorizontal: 14,
     borderRadius: theme.radius.sm,
@@ -226,6 +225,6 @@ const styles = StyleSheet.create({
   steamAlertActionBtnText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.ostrzTusz,
   },
 });

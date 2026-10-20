@@ -1,11 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../../ui/theme';
 
 export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.tlo,
   },
   container: {
     padding: theme.spacing.md,
@@ -17,22 +16,22 @@ export const styles = StyleSheet.create({
   headerDoctorBtn: {
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: sharedCraftTokens.borderRadius.full,
-    backgroundColor: sharedCraftTokens.colors.bgCardSecondary,
+    borderRadius: theme.radius.full,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: sharedCraftTokens.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   headerDoctorBtnText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   activeCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.md,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
   badgeRow: {
@@ -42,7 +41,7 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
   },
   stepBadge: {
-    backgroundColor: theme.colors.accentLight,
+    backgroundColor: theme.colors.akcent,
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,
@@ -50,22 +49,22 @@ export const styles = StyleSheet.create({
   stepBadgeText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.naAkcencie,
   },
   recipeTag: {
     fontSize: 13,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     fontWeight: '600',
   },
   activeStepTitle: {
     fontSize: 22,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 6,
   },
   activeStepDesc: {
     fontSize: 14,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     lineHeight: 20,
     marginBottom: 16,
   },
@@ -73,9 +72,9 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   actionBtnNext: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.accent,
+    borderColor: theme.colors.akcent,
     paddingVertical: 14,
     borderRadius: theme.radius.md,
     alignItems: 'center',
@@ -83,7 +82,7 @@ export const styles = StyleSheet.create({
   actionBtnNextText: {
     fontSize: 15,
     fontWeight: '700',
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
   },
   discardBtn: {
     alignItems: 'center',
@@ -91,7 +90,7 @@ export const styles = StyleSheet.create({
   },
   discardBtnText: {
     fontSize: 13,
-    color: theme.colors.statusDanger,
+    color: theme.colors.blad,
     fontWeight: '600',
   },
 });

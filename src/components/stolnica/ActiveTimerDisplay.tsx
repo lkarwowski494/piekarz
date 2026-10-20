@@ -106,38 +106,38 @@ export function ActiveTimerDisplay({
 
 const styles = StyleSheet.create({
   timerContainer: {
-    backgroundColor: theme.colors.surfaceCard,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     padding: theme.spacing.md,
     alignItems: 'center',
     marginBottom: 16,
     borderWidth: 2,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   timerContainerCompleted: {
-    borderColor: theme.colors.statusSuccess,
-    backgroundColor: '#F0FDF4',
+    borderColor: theme.colors.linia,
+    backgroundColor: theme.colors.powierzchnia,
   },
   timerStatusText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 2,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   timerStatusTextCompleted: {
-    color: theme.colors.statusSuccess,
+    color: theme.colors.akcentTekst,
   },
   digitalClock: {
     fontSize: 52,
     fontWeight: '900',
     fontVariant: ['tabular-nums'],
-    color: theme.colors.accentDark,
+    color: theme.colors.akcentTekst,
     marginVertical: 4,
   },
   digitalClockCompleted: {
-    color: theme.colors.statusSuccess,
+    color: theme.colors.akcentTekst,
   },
   timeAdjustmentRow: {
     flexDirection: 'row',
@@ -148,14 +148,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: theme.radius.full,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   timePillText: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   timerControlsRow: {
     flexDirection: 'row',
@@ -165,31 +165,31 @@ const styles = StyleSheet.create({
   },
   timerPrimaryBtn: {
     flex: 2,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     paddingVertical: 12,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
   },
   timerPrimaryBtnPause: {
-    backgroundColor: theme.colors.statusWarning,
+    backgroundColor: theme.colors.akcent,
   },
   timerPrimaryBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   timerSecondaryBtn: {
     flex: 1,
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     paddingVertical: 12,
     borderRadius: theme.radius.sm,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   timerSecondaryBtnText: {
     fontSize: 13,
     fontWeight: '700',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
   },
 });

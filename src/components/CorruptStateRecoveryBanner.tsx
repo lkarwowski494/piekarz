@@ -49,9 +49,9 @@ export const CorruptStateRecoveryBanner: React.FC = () => {
 
 const styles = StyleSheet.create({
   banner: {
-    backgroundColor: '#7F1D1D', // Deep safety red
-    borderColor: '#EF4444',
-    borderWidth: 1,
+    backgroundColor: theme.colors.powierzchnia, // błąd: tekst blad + obwódka blad (mapa-rol.md §3)
+    borderColor: theme.colors.blad,
+    borderWidth: 1.5,
     borderRadius: theme.radius.sm,
     padding: 12,
     marginHorizontal: 16,
@@ -65,18 +65,19 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   title: {
-    color: '#FEE2E2',
+    color: theme.colors.blad,
     fontWeight: '700',
     fontSize: 14,
     marginBottom: 4,
   },
   message: {
-    color: '#FECACA',
+    color: theme.colors.tusz,
     fontSize: 12,
     lineHeight: 16,
   },
   dismissButton: {
-    backgroundColor: '#991B1B',
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
     paddingHorizontal: 14,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dismissText: {
-    color: '#FFFFFF',
+    color: theme.colors.tusz,
     fontWeight: '600',
     fontSize: 13,
   },

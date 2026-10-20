@@ -34,66 +34,71 @@ function contrastRatio(hex1: string, hex2: string): number {
   return (l1 + 0.05) / (l2 + 0.05);
 }
 
-describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (Apps4Craft Basalt)', () => {
-  describe('Primary Typography Contrast (WCAG AAA >= 7.0:1)', () => {
-    it('primary text (#F4EFEA) against deep basalt background (#121214) exceeds WCAG AAA (7.0:1)', () => {
-      const cr = contrastRatio(theme.colors.textPrimary, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(7.0);
-      expect(cr).toBeGreaterThan(12.0); // Ultra-high readability for flour-dusted kitchen screens
+// 050: motyw ma 4 warianty (D-045); stare role ciemnego motywu zastąpione tokenami według docs/design/mapa-rol.md §2
+// (textPrimary → tusz, surface/surfaceCard → powierzchnia, backgroundSecondary → tloGrupa, textSecondary → tusz2,
+// statusSuccess → akcentTekst, statusDanger → blad, accent jako tekst → akcentTekst, jako grafika → akcent,
+// passiveStageBadge → ratanSzary) [M1-audytor-generalny-050]
+const POLE: Record<string, string> = {
+  jasny: 'light',
+  ciemny: 'dark',
+  jasnyKontrast: 'highContrastLight',
+  ciemnyKontrast: 'highContrastDark',
+};
+const WARIANTY = Object.keys(POLE);
+function hex(kolor: unknown, wariant: string): string {
+  if (typeof kolor === 'string') return kolor;
+  const dyn: unknown = typeof kolor === 'object' && kolor !== null ? Reflect.get(kolor, 'dynamic') : undefined;
+  const v: unknown = typeof dyn === 'object' && dyn !== null ? Reflect.get(dyn, POLE[wariant]) : undefined;
+  if (typeof v !== 'string') throw new Error(`brak koloru wariantu ${wariant}`);
+  return v;
+}
+const cr = (fg: unknown, bg: unknown, wariant: string) => contrastRatio(hex(fg, wariant), hex(bg, wariant));
+
+describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (system „Koszyk spiralny”, 4 warianty)', () => {
+  describe.each(WARIANTY)('Primary Typography Contrast (WCAG AAA >= 7.0:1) — %s', (w) => {
+    it('primary text (tusz) against screen background (tlo) exceeds WCAG AAA (7.0:1)', () => {
+      expect(cr(theme.colors.tusz, theme.colors.tlo, w)).toBeGreaterThanOrEqual(7.0);
+      expect(cr(theme.colors.tusz, theme.colors.tlo, w)).toBeGreaterThan(12.0); // Ultra-high readability for flour-dusted kitchen screens
     });
 
-    it('primary text against ceramic surface (#1C1C1F) exceeds WCAG AAA', () => {
-      const cr = contrastRatio(theme.colors.textPrimary, theme.colors.surface);
-      expect(cr).toBeGreaterThanOrEqual(7.0);
+    it('primary text against cell surface (powierzchnia) exceeds WCAG AAA', () => {
+      expect(cr(theme.colors.tusz, theme.colors.powierzchnia, w)).toBeGreaterThanOrEqual(7.0);
     });
 
-    it('primary text against card surface (#242428) exceeds WCAG AAA', () => {
-      const cr = contrastRatio(theme.colors.textPrimary, theme.colors.surfaceCard);
-      expect(cr).toBeGreaterThanOrEqual(7.0);
-    });
-
-    it('primary text against secondary background (#1C1C1F) exceeds WCAG AAA', () => {
-      const cr = contrastRatio(theme.colors.textPrimary, theme.colors.backgroundSecondary);
-      expect(cr).toBeGreaterThanOrEqual(7.0);
-    });
-  });
-
-  describe('Secondary Typography & Status Badges Contrast (WCAG AA >= 4.5:1)', () => {
-    it('secondary text (#A09C96) against dark background (#121214) meets WCAG AA (>= 4.5:1)', () => {
-      const cr = contrastRatio(theme.colors.textSecondary, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(4.5);
-    });
-
-    it('secondary text against card surface meets WCAG AA', () => {
-      const cr = contrastRatio(theme.colors.textSecondary, theme.colors.surfaceCard);
-      expect(cr).toBeGreaterThanOrEqual(4.5);
-    });
-
-    it('statusSuccess (#4E9F3D) against background meets graphical UI contrast', () => {
-      const cr = contrastRatio(theme.colors.statusSuccess, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(3.0);
-    });
-
-    it('statusDanger (#D9534F) against background meets graphical UI contrast', () => {
-      const cr = contrastRatio(theme.colors.statusDanger, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(3.0);
-    });
-
-    it('accent (#D49B42) against background meets WCAG AA (>= 4.5:1)', () => {
-      const cr = contrastRatio(theme.colors.accent, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(4.5);
+    it('primary text against grouped list background (tloGrupa) exceeds WCAG AAA', () => {
+      expect(cr(theme.colors.tusz, theme.colors.tloGrupa, w)).toBeGreaterThanOrEqual(7.0);
     });
   });
 
-  describe('Graphical UI Components & Active Borders (WCAG 2.1 UI >= 3.0:1)', () => {
-    it('accent color (#D49B42) against dark background meets graphical UI contrast (>= 3.0:1)', () => {
-      const cr = contrastRatio(theme.colors.accent, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(3.0);
+  describe.each(WARIANTY)('Secondary Typography & Status Contrast (WCAG AA >= 4.5:1) — %s', (w) => {
+    it('secondary text (tusz2) against background (tlo) meets WCAG AA (>= 4.5:1)', () => {
+      expect(cr(theme.colors.tusz2, theme.colors.tlo, w)).toBeGreaterThanOrEqual(4.5);
     });
 
-    it('passive stage badge (#3E3E46) meets graphical UI contrast against card', () => {
-      const cr = contrastRatio(theme.colors.passiveStageBadge, theme.colors.background);
-      expect(cr).toBeGreaterThanOrEqual(1.2);
+    it('secondary text against cell surface meets WCAG AA', () => {
+      expect(cr(theme.colors.tusz2, theme.colors.powierzchnia, w)).toBeGreaterThanOrEqual(4.5);
+    });
+
+    it('success icon (akcentTekst) against background meets graphical UI contrast', () => {
+      expect(cr(theme.colors.akcentTekst, theme.colors.tlo, w)).toBeGreaterThanOrEqual(3.0);
+    });
+
+    it('error (blad) against background meets graphical UI contrast', () => {
+      expect(cr(theme.colors.blad, theme.colors.tlo, w)).toBeGreaterThanOrEqual(3.0);
+    });
+
+    it('action text (akcentTekst) against background meets WCAG AA (>= 4.5:1)', () => {
+      expect(cr(theme.colors.akcentTekst, theme.colors.tlo, w)).toBeGreaterThanOrEqual(4.5);
+    });
+  });
+
+  describe.each(WARIANTY)('Graphical UI Components & Active Borders (WCAG 2.1 UI >= 3.0:1) — %s', (w) => {
+    it('accent (akcent) against background meets graphical UI contrast (>= 3.0:1)', () => {
+      expect(cr(theme.colors.akcent, theme.colors.tlo, w)).toBeGreaterThanOrEqual(3.0);
+    });
+
+    it('future plan step (ratanSzary) meets graphical UI contrast against background', () => {
+      expect(cr(theme.colors.ratanSzary, theme.colors.tlo, w)).toBeGreaterThanOrEqual(1.2);
     });
   });
 
@@ -108,7 +113,7 @@ describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (Apps4Craft Basalt)'
     it('theme border radiuses provide soft, modern tactile feedback', () => {
       expect(theme.radius.sm).toBe(6);
       expect(theme.radius.md).toBe(12);
-      expect(theme.radius.lg).toBe(16);
+      expect(theme.radius.lg).toBe(12); // 050: promienie z tokenów (promienie.grupa), dawniej 16 spoza systemu
       expect(theme.radius.full).toBe(9999);
     });
   });

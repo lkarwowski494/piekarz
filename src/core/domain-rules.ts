@@ -9,6 +9,7 @@
 export * from './bake-loss';
 export * from './sourdough-physics';
 import { RYE_VARIANT_THRESHOLD_PCT } from './rye-stages';
+import type { PoziomKomunikatu } from './poziom-komunikatu';
 import { Q10_FERMENTATION } from './fermentation-q10';
 import { t } from '../lib/i18n';
 import { formatFixed } from '../lib/format';
@@ -366,7 +367,8 @@ export type HydrationDifficulty = 'easy' | 'artisan_standard' | 'high_open_crumb
 export interface HydrationDifficultyInfo {
   level: HydrationDifficulty;
   labelPl: string;
-  badgeColor: string;
+  /** Poziom komunikatu; kolor nadaje komponent (mapa-rol.md §3). */
+  poziom: PoziomKomunikatu;
   tipPl: string;
 }
 
@@ -378,7 +380,7 @@ export function getHydrationDifficulty(waterPercentage: number): HydrationDiffic
     return {
       level: 'easy',
       labelPl: 'Łatwe w prowadzeniu',
-      badgeColor: '#10B981',
+      poziom: 'info',
       tipPl: 'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.',
     };
   }
@@ -386,7 +388,7 @@ export function getHydrationDifficulty(waterPercentage: number): HydrationDiffic
     return {
       level: 'artisan_standard',
       labelPl: 'Klasyk rzemieślniczy',
-      badgeColor: '#3B82F6',
+      poziom: 'info',
       tipPl: 'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.',
     };
   }
@@ -394,14 +396,14 @@ export function getHydrationDifficulty(waterPercentage: number): HydrationDiffic
     return {
       level: 'high_open_crumb',
       labelPl: 'Wysoka hydratacja (Otwarty miękisz)',
-      badgeColor: '#F59E0B',
+      poziom: 'info',
       tipPl: 'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.',
     };
   }
   return {
     level: 'expert_sticky',
     labelPl: 'Ekstremalna hydratacja (Ekspert)',
-    badgeColor: '#EF4444',
+    poziom: 'info',
     tipPl: 'Bardzo lejące ciasto. Wymaga mocnej mąki (np. Manitoba) i precyzyjnego budowania siły ciasta.',
   };
 }

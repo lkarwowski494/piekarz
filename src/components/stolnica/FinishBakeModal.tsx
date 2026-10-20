@@ -58,7 +58,7 @@ export function FinishBakeModal({
   onSensoryProfileChange,
 }: FinishBakeModalProps) {
   return (
-    <Modal visible={visible} transparent animationType="fade">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>🎉 {t('Zakończ wypiek')}</Text>
@@ -83,7 +83,7 @@ export function FinishBakeModal({
           <TextInput
             style={styles.modalInput}
             placeholder={t('Wpisz swoje uwagi (miękisz, skórka, czas pieca)...')}
-            placeholderTextColor={theme.colors.textMuted}
+            placeholderTextColor={theme.colors.tusz3}
             value={notes}
             onChangeText={onNotesChange}
             multiline
@@ -189,32 +189,32 @@ export function FinishBakeModal({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: theme.colors.tlo,
     justifyContent: 'center',
     padding: theme.spacing.md,
   },
   modalCard: {
-    backgroundColor: theme.colors.surface,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.lg,
     padding: theme.spacing.lg,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   modalTitle: {
     fontSize: 20,
     fontWeight: '800',
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     marginBottom: 4,
   },
   modalSubtitle: {
     fontSize: 13,
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
     marginBottom: 16,
   },
   modalSectionLabel: {
     fontSize: 12,
     fontWeight: '700',
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 6,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -226,19 +226,19 @@ const styles = StyleSheet.create({
   },
   starIcon: {
     fontSize: 28,
-    color: theme.colors.border,
+    color: theme.colors.tusz3,
   },
   starIconActive: {
-    color: theme.colors.accent,
+    color: theme.colors.akcentTekst,
   },
   modalInput: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.sm,
     padding: 12,
     fontSize: 14,
-    color: theme.colors.textPrimary,
+    color: theme.colors.tusz,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     minHeight: 65,
     textAlignVertical: 'top',
     marginBottom: 14,
@@ -252,26 +252,26 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 10,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
     alignItems: 'center',
   },
   scoreBtnActive: {
-    backgroundColor: theme.colors.accent,
-    borderColor: theme.colors.accentDark,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   scoreBtnText: {
     fontSize: 15,
     fontWeight: '700',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   scoreBtnTextActive: {
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
   scoreHint: {
     fontSize: 11,
-    color: theme.colors.textMuted,
+    color: theme.colors.tusz3,
     marginBottom: 12,
   },
   tasteRow: {
@@ -284,32 +284,32 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.obwodka,
   },
   tasteChipActive: {
-    backgroundColor: theme.colors.accentLight,
-    borderColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
+    borderColor: theme.colors.akcent,
   },
   tasteChipText: {
     fontSize: 12,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   tasteChipTextActive: {
-    color: theme.colors.accentDark,
+    color: theme.colors.naAkcencie,
     fontWeight: '700',
   },
   modalRadarBox: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     borderRadius: theme.radius.md,
     paddingVertical: 10,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: theme.colors.border,
+    borderColor: theme.colors.linia,
   },
   modalButtonsRow: {
     flexDirection: 'row',
@@ -320,24 +320,24 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: theme.colors.powierzchnia,
     alignItems: 'center',
   },
   modalCancelBtnText: {
     fontSize: 14,
     fontWeight: '600',
-    color: theme.colors.textSecondary,
+    color: theme.colors.tusz2,
   },
   modalConfirmBtn: {
     flex: 2,
     paddingVertical: 12,
     borderRadius: theme.radius.md,
-    backgroundColor: theme.colors.accent,
+    backgroundColor: theme.colors.akcent,
     alignItems: 'center',
   },
   modalConfirmBtnText: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: theme.colors.naAkcencie,
   },
 });
