@@ -11,6 +11,8 @@ jest.mock('expo-haptics', () => ({
   ImpactFeedbackStyle: { Light: 'light', Medium: 'medium', Heavy: 'heavy' },
 }));
 jest.mock('expo-router', () => ({
+  // Prowadzenie ustawia przycisk „Plan wypieku” w pasku nawigacji (Stack.Screen, 056): przycisk w drzewie ekranu
+  Stack: { Screen: ({ options }: { options?: { headerRight?: () => React.ReactElement } }) => (options?.headerRight ? options.headerRight() : null) },
   useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
 }));
@@ -64,6 +66,13 @@ const textOf = (n: unknown): string => {
 };
 const button = (root: renderer.ReactTestInstance, label: string) =>
   root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children).includes(label))[0];
+
+/** Lista kroków planu jest na „Plan wypieku” z paska nawigacji prowadzenia (design-spec §11b „056”). */
+async function openPlan(tree: renderer.ReactTestRenderer): Promise<void> {
+  await act(async () => {
+    button(tree.root, 'Plan wypieku').props.onPress();
+  });
+}
 
 async function render(el: React.ReactElement): Promise<renderer.ReactTestRenderer> {
   let tree: renderer.ReactTestRenderer | null = null;
@@ -144,6 +153,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(bake?.isHighRye).toBe(false);
 
     const stol = await render(<StolnicaScreen />);
+    await openPlan(stol);
     const text = textOf(stol.toJSON());
     expect(text).toContain(`Krok 1 z ${schedule.stages.length}`);
     for (const st of schedule.stages) expect(text).toContain(st.namePl);
@@ -233,6 +243,7 @@ describe('Stolnica z receptury i planu (030)', () => {
   it('receptura żytnia (> 50%): kroki w kolejności roli 06, bez składania, czasy z planu tej samej kategorii', async () => {
     startRye();
     const stol = await render(<StolnicaScreen />);
+    await openPlan(stol);
     const text = textOf(stol.toJSON());
     expect(text).not.toContain(RYE_MSG);
     expect(text).toContain('Krok 1 z 7');
@@ -266,9 +277,8 @@ describe('Stolnica z receptury i planu (030)', () => {
     }
     expect(textOf(stol.toJSON())).toContain('Krok 5 z 7');
     expect(textOf(stol.toJSON())).toContain(RYE_PROOF_TEXT);
-    await act(async () => {
-      button(stol.root, 'Start').props.onPress();
-    });
+    // Minutnik z planu biegnie od wejścia w krok, bez „Start” (056)
+    expect(button(stol.root, 'Start')).toBeUndefined();
     const later = Date.now() + 15 * 3600 * 1000;
     jest.spyOn(Date, 'now').mockImplementation(() => later);
     await act(async () => {
@@ -300,7 +310,8 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Razowiec po restarcie');
     expect(text).toContain('Krok 5 z 7');
     expect(text).toContain('29:00');
-    expect(button(stol.root, 'Wstrzymaj')).toBeDefined();
+    // Zegar biegnie dalej z zapisanego końca (bez przycisku „Wstrzymaj”, 056)
+    expect((await loadBakeSession())?.timerEndsAt).toBe(ryeFixture.timerEndsAt);
     act(() => stol.unmount());
 
     await setAppSetting(BAKE_SESSION_KEY, JSON.stringify({ ...ryeFixture, stepIdx: 2, timerEndsAt: null }));
@@ -338,7 +349,8 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Krok 3 z 8');
     expect(text).toContain('Składanie 1 (Stretch & Fold)');
     expect(text).toContain('29:00');
-    expect(button(stol.root, 'Wstrzymaj')).toBeDefined();
+    // Zegar biegnie dalej z zapisanego końca (bez przycisku „Wstrzymaj”, 056)
+    expect((await loadBakeSession())?.timerEndsAt).toBe(legacyFixture.timerEndsAt);
     act(() => stol.unmount());
   });
 

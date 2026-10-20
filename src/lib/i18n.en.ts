@@ -15,7 +15,8 @@ import { EN_10 } from './i18n-en/czesc-10';
 import { EN_11 } from './i18n-en/czesc-11';
 import { EN_12 } from './i18n-en/czesc-12';
 import { EN_13 } from './i18n-en/czesc-13';
+import { EN_14 } from './i18n-en/czesc-14';
 
 export const EN: Record<string, string> = {
-  ...EN_1, ...EN_2, ...EN_3, ...EN_4, ...EN_5, ...EN_6, ...EN_7, ...EN_8, ...EN_9, ...EN_10, ...EN_11, ...EN_12, ...EN_13,
+  ...EN_1, ...EN_2, ...EN_3, ...EN_4, ...EN_5, ...EN_6, ...EN_7, ...EN_8, ...EN_9, ...EN_10, ...EN_11, ...EN_12, ...EN_13, ...EN_14,
 };

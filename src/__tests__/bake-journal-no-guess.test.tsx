@@ -48,6 +48,9 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
     });
   }
   await act(async () => {
+    pressables(tree!.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)
+  });
+  await act(async () => {
     pressables(tree!.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)
   });
   await act(async () => {
@@ -79,7 +82,8 @@ describe('Bake journal keeps missing values missing (017)', () => {
     act(() => tree.unmount());
   });
 
-  it('a bake handed over without a measured DDT saves no DDT and the live card shows "—" instead of 25°C', async () => {
+  // 056: karty liczb (StolnicaSacredCard) nie ma na prowadzeniu, więc nie pokazuje też zgadniętego DDT
+  it('a bake handed over without a measured DDT saves no DDT and the guidance screen shows no invented DDT card', async () => {
     setActiveBake({ id: 'bake_x', recipeName: 'Mój chleb', startedAt: 1, currentStageId: 'step_1', ambientTempC: 21 });
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
@@ -88,8 +92,8 @@ describe('Bake journal keeps missing values missing (017)', () => {
     await act(async () => {
       for (let i = 0; i < 20; i++) await Promise.resolve();
     });
-    const card = tree!.root.findByProps({ testID: 'stat-stolnica-ddt' });
-    expect(card.props.value).toBe('—');
+    expect(tree!.root.findAllByProps({ testID: 'stat-stolnica-ddt' })).toHaveLength(0);
+    expect(textOf(tree!.toJSON())).not.toContain('25°C');
     act(() => tree!.unmount());
 
     const done = await finishBakeOnScreen(false);
@@ -103,6 +107,9 @@ describe('Bake journal keeps missing values missing (017)', () => {
     const tree = await finishBakeOnScreen(true);
     await act(async () => {
       pressables(tree.root, 'Zacznij wypiek')[0].props.onPress();
+    });
+    await act(async () => {
+      pressables(tree.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)
     });
     await act(async () => {
       pressables(tree.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)

@@ -24,6 +24,8 @@ let mockFocus: (() => void) | null = null;
 jest.mock('expo-router', () => {
   const React = require('react');
   return {
+    // Prowadzenie ustawia przycisk „Plan wypieku” w pasku nawigacji (Stack.Screen, 056): przycisk w drzewie ekranu
+    Stack: { Screen: ({ options }: { options?: { headerRight?: () => unknown } }) => (options?.headerRight ? options.headerRight() : null) },
     useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
     useLocalSearchParams: () => ({}),
     useFocusEffect: (cb: () => (() => void) | void) => {

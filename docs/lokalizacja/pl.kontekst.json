@@ -735,6 +735,11 @@
       "src/core/starter-doctor.ts (dane: kod)"
     ]
   },
+  "Cofnij poprzedni": {
+    "gdzie": [
+      "src/components/stolnica/PasekKciuka.tsx (tekst)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -1034,7 +1039,8 @@
   "Doktor": {
     "gdzie": [
       "app/(tabs)/zakwasy/_layout.tsx (tekst)",
-      "app/_layout.tsx (tekst)"
+      "app/_layout.tsx (tekst)",
+      "app/stolnica.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
@@ -1044,6 +1050,7 @@
       "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
       "app/_layout.tsx (etykieta)",
       "app/_layout.tsx (title)",
+      "app/stolnica.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
@@ -3530,7 +3537,10 @@
   },
   "Plan wypieku": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (title)"
+      "app/(tabs)/receptury/_layout.tsx (title)",
+      "app/stolnica.tsx (etykieta)",
+      "app/stolnica.tsx (tekst)",
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)"
     ]
   },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
@@ -3566,6 +3576,11 @@
   "Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
+    ]
+  },
+  "Po co ten krok": {
+    "gdzie": [
+      "src/components/stolnica/PasekKciuka.tsx (tekst)"
     ]
   },
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
@@ -4008,7 +4023,7 @@
   },
   "Przerwij wypiek": {
     "gdzie": [
-      "app/stolnica.tsx (tekst w JSX)"
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)"
     ]
   },
   "Przetwarzanie...": {
@@ -7000,12 +7015,12 @@
   },
   "Zrobione": {
     "gdzie": [
-      "app/stolnica.tsx (tekst w JSX)"
+      "src/components/stolnica/PasekKciuka.tsx (tekst w JSX)"
     ]
   },
   "Zrobione: {krok}": {
     "gdzie": [
-      "app/stolnica.tsx (accessibilityLabel)"
+      "src/components/stolnica/PasekKciuka.tsx (accessibilityLabel)"
     ]
   },
   "Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.": {

@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 7 | 7 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 567 | 567 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 344 | 344 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 149 | 149 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1098** | Pokrytych: **1098** | Brakujących: **0**
+Łącznie elementów: **1102** | Pokrytych: **1102** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -61,10 +61,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
 | `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Plan wypieku` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
+| `TEKST` | `Doktor` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Krok {n} z {m}` | `app/stolnica.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Zrobione: {krok}` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zrobione` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Przerwij wypiek` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij Akademię` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Techniki` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Kolizja nocna!` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Błąd schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie udało się odczytać zawartości schowka.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zaimportowano recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 798 kolejnych elementów w pełnym wykazie)*
+*(... i 802 kolejnych elementów w pełnym wykazie)*

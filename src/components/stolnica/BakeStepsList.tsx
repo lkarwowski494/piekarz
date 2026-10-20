@@ -30,7 +30,7 @@ export function BakeStepsList({
   unitSystem,
 }: BakeStepsListProps) {
   return (
-    <View>
+    <View testID="bake-steps-list">
       {/* Active Recipe Ingredients Card */}
       {calculatedRecipe && (
         <View style={styles.ingredientsCard}>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
+import { odstepy, typografia } from '../../ui/tokeny';
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -13,76 +14,37 @@ export const styles = StyleSheet.create({
   header: {
     marginBottom: theme.spacing.md,
   },
-  activeCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.lg,
-    padding: theme.spacing.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    marginBottom: theme.spacing.md,
-  },
-  badgeRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  stepBadge: {
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: theme.radius.sm,
-  },
-  stepBadgeText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.naAkcencie,
-  },
+  // Prowadzenie w widoku skupionym (design-spec §11b „056”): strefa planu i strefa kroku [M1-audytor-generalny-056]
   recipeTag: {
-    fontSize: 13,
-    color: theme.colors.tusz3,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
+    marginBottom: odstepy.s,
+  },
+  krokNzN: {
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
+    color: theme.colors.tusz,
+    textAlign: 'center',
+    marginBottom: odstepy.l,
   },
   activeStepTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: typografia.style.tytulKroku.pt,
+    fontWeight: '700',
     color: theme.colors.tusz,
-    marginBottom: 6,
+    marginBottom: odstepy.xs,
+  },
+  czas: {
+    fontFamily: theme.typography.krojTytulow,
+    fontSize: typografia.style.czas.pt,
+    fontWeight: '700',
+    fontVariant: ['tabular-nums'],
+    color: theme.colors.tusz,
+    marginBottom: odstepy.s,
   },
   activeStepDesc: {
-    fontSize: 14,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,
-    lineHeight: 20,
-    marginBottom: 16,
-  },
-  controlsRow: {
-    marginBottom: 10,
-  },
-  actionBtnNext: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.akcent,
-    paddingVertical: 14,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-  },
-  actionBtnNextText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
-  discardBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 8,
-  },
-  discardBtnText: {
-    fontSize: 13,
-    color: theme.colors.blad,
-    fontWeight: '600',
+    marginBottom: odstepy.l,
   },
 });

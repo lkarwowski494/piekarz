@@ -89,26 +89,20 @@ describe('Pending notifications follow the saved state (006)', () => {
     jest.restoreAllMocks();
   });
 
-  it('Stolnica: start → krok; pause → none; resume → krok; +5 min → later; next step → none; discard → none', async () => {
+  // 056: czas kroku biegnie od planu (bez Start/Wstrzymaj/+5 min), „Przerwij wypiek” na „Plan wypieku”
+  it('Stolnica: start → krok; next step → krok of the next step; discard → none', async () => {
     setActiveBake({ id: 'bake_n', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
     const tree = await mount(<StolnicaScreen />);
-    await press(tree.root, 'Start');
     expect(ids()).toEqual(['piekarz.krok']);
     const first = mock.pending.get('piekarz.krok')!.trigger.date;
     // Pierwszy etap planu: dokarmienie zakwasu, 6 h [M1-audytor-generalny-030]
     expect(first).toBe(now + 360 * 60 * 1000);
 
-    await press(tree.root, 'Wstrzymaj');
-    expect(ids()).toEqual([]);
-    await press(tree.root, 'Start');
-    expect(ids()).toEqual(['piekarz.krok']);
-    await press(tree.root, '+5 min');
-    expect(mock.pending.get('piekarz.krok')!.trigger.date).toBe(first + 300_000);
-
     await press(tree.root, 'Zrobione');
-    expect(ids()).toEqual([]);
-    await press(tree.root, 'Start');
     expect(ids()).toEqual(['piekarz.krok']);
+    // Drugi etap planu: autoliza, 45 min
+    expect(mock.pending.get('piekarz.krok')!.trigger.date).toBe(now + 45 * 60 * 1000);
+    await press(tree.root, 'Plan wypieku');
     await press(tree.root, 'Przerwij wypiek');
     expect(ids()).toEqual([]);
     act(() => tree.unmount());
@@ -150,14 +144,14 @@ describe('Pending notifications follow the saved state (006)', () => {
     mock.iosStatus = 0;
     mock.grantOnRequest = false;
     setActiveBake({ id: 'bake_d', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
+    // 056: pierwszy zegar rusza sam przy wejściu w wypiek — wtedy jedna prośba o zgodę
     const tree = await mount(<StolnicaScreen />);
-    await press(tree.root, 'Start');
     expect(Notifications.requestPermissionsAsync).toHaveBeenCalledTimes(1);
     expect(ids()).toEqual([]);
     expect(textOf(tree.toJSON())).toContain('Powiadomienia wyłączone');
-    await press(tree.root, 'Wstrzymaj');
-    await press(tree.root, 'Start');
+    await press(tree.root, 'Zrobione');
     expect(Notifications.requestPermissionsAsync).toHaveBeenCalledTimes(1);
+    await press(tree.root, 'Plan wypieku');
     await press(tree.root, 'Przerwij wypiek');
     act(() => tree.unmount());
   });

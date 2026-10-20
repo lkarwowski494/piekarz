@@ -26,6 +26,7 @@ import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { planBakeSteps } from '../core/bake-steps';
+import { loadBakeSession } from '../data/bake-session-store';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -74,9 +75,7 @@ describe('Active bake survives a process kill (019)', () => {
         button(first.root, 'Zrobione').props.onPress();
       });
     }
-    await act(async () => {
-      button(first.root, 'Start').props.onPress();
-    });
+    // Zegar kroku 3 biegnie od „Zrobione”, bez „Start” (056)
     await act(async () => {
       for (let i = 0; i < 20; i++) await Promise.resolve();
     });
@@ -93,7 +92,8 @@ describe('Active bake survives a process kill (019)', () => {
     const step3 = planBakeSteps({ startAt: now - 60_000, isHighRye: false, ambientTempC: 22 })?.[2];
     expect(text).toContain(step3?.name ?? '?');
     expect(text).toContain(`${String((step3?.durationMin ?? 0) - 1).padStart(2, '0')}:00`);
-    expect(button(second.root, 'Wstrzymaj')).toBeDefined();
+    // Zegar biegnie z zapisanego końca kroku (bez przycisku „Wstrzymaj”, 056)
+    expect((await loadBakeSession())?.timerEndsAt).toBe(now - 60_000 + (step3?.durationMin ?? 0) * 60_000);
     act(() => second.unmount());
   });
 });

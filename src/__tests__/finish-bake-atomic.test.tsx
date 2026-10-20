@@ -72,6 +72,9 @@ async function finishOnScreen(): Promise<void> {
     for (let i = 0; i < 20; i++) await Promise.resolve();
   });
   await act(async () => {
+    pressables(tree!.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)
+  });
+  await act(async () => {
     pressables(tree!.root, 'Studzenie na kratce')[0].props.onPress(); // ostatni etap planu (030)
   });
   await act(async () => {

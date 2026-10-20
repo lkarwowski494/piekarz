@@ -95,6 +95,13 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     });
   };
 
+  // Lista kroków i składniki są na „Plan wypieku” z paska nawigacji prowadzenia (design-spec §11b „056”)
+  const openPlan = async () => {
+    await act(async () => {
+      tree!.root.findAll((n) => n.props.testID === 'bake-plan-btn' && n.props.accessibilityRole === 'button')[0].props.onPress();
+    });
+  };
+
   it('renders idle state with start bake button and history', async () => {
     await renderScreen();
 
@@ -166,6 +173,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     });
 
     await renderScreen();
+    await openPlan();
 
     const text = extractCleanText(tree?.toJSON());
     expect(text).toContain('Wiejski chleb 72%');
@@ -175,44 +183,34 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(text).toContain('179 g');
   });
 
-  it('controls the kitchen timer: starts, pauses, and adds 5 minutes', async () => {
-    await renderScreen();
+  // 056: czas kroku biegnie od planu — bez „Start”/„Wstrzymaj” i „+5 min” (design-spec §11b „056”)
+  it('the kitchen timer runs from the plan without Start, Pause or +5 min', async () => {
+    jest.useFakeTimers();
+    try {
+      await renderScreen();
 
-    // Start bake
-    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    await act(async () => {
-      startBtn?.props.onPress();
-    });
+      // Start bake
+      const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
+      await act(async () => {
+        startBtn?.props.onPress();
+      });
 
-    // Initial timer is the first plan stage (6 h) and paused
-    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
-    expect(extractCleanText(tree?.toJSON())).toContain('Wstrzymano');
+      // Initial timer is the first plan stage (6 h) and already running
+      expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
+      await act(async () => {
+        jest.advanceTimersByTime(5000);
+      });
+      expect(extractCleanText(tree?.toJSON())).toContain('5:59:55');
 
-    // Tap Start timer
-    const playBtn = findButtonByText(tree!.root, 'Start');
-    expect(playBtn).toBeDefined();
+      expect(findButtonByText(tree!.root, 'Start')).toBeUndefined();
+      expect(findButtonByText(tree!.root, 'Wstrzymaj')).toBeUndefined();
+      expect(findButtonByText(tree!.root, '+5 min')).toBeUndefined();
 
-    await act(async () => {
-      playBtn?.props.onPress();
-    });
-
-    // Now running
-    expect(extractCleanText(tree?.toJSON())).toContain('Odliczanie trwa');
-    expect(extractCleanText(tree?.toJSON())).toContain('Wstrzymaj');
-
-    // Tap +5 min
-    const addFiveBtn = findButtonByText(tree!.root, '+5 min');
-    expect(addFiveBtn).toBeDefined();
-
-    await act(async () => {
-      addFiveBtn?.props.onPress();
-    });
-
-    // 6 h + 5 min = 6:05:00
-    expect(extractCleanText(tree?.toJSON())).toContain('6:05:00');
-
-    // 089: zerowania czasu etapu nie ma w systemie (słownik §5: „Resetuj” znika)
-    expect(findButtonByText(tree!.root, 'Resetuj')).toBeUndefined();
+      // 089: zerowania czasu etapu nie ma w systemie (słownik §5: „Resetuj” znika)
+      expect(findButtonByText(tree!.root, 'Resetuj')).toBeUndefined();
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('advances to next step when tapping Zrobione (089: dawniej Następny krok)', async () => {
@@ -250,7 +248,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
     expect(extractCleanText(tree?.toJSON())).toContain('Krok 1 z 11');
 
-    // Tap Odrzuć wypiek
+    // Tap Przerwij wypiek on „Plan wypieku” (056)
+    await openPlan();
     const discardBtn = findButtonByText(tree!.root, 'Przerwij wypiek');
     expect(discardBtn).toBeDefined();
 
@@ -297,7 +296,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       startBtn?.props.onPress();
     });
 
-    // Jump directly to the last plan step (cooling)
+    // Jump directly to the last plan step (cooling) from „Plan wypieku” (056)
+    await openPlan();
     const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
       return extractCleanText(p.props.children).includes('Studzenie na kratce');
     });
@@ -362,7 +362,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
         startBtn?.props.onPress();
       });
 
-      // Jump to the plan's bake stage (Wypiek z parą i rumienienie)
+      // Jump to the plan's bake stage (Wypiek z parą i rumienienie) from „Plan wypieku” (056)
+      await openPlan();
       const step8Btn = tree!.root.findAll((n) => typeof n.props?.onPress === 'function').find((p) => {
         return extractCleanText(p.props.children).includes('Wypiek z parą i rumienienie');
       });
@@ -398,11 +399,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
       expect(extractCleanText(tree?.toJSON())).toContain('20:00');
 
-      // Start timer in Phase 1
-      const timerToggleBtn = findButtonByText(tree!.root, 'Start');
-      await act(async () => {
-        timerToggleBtn?.props.onPress();
-      });
+      // Phase 1 timer runs from the plan without a Start button (056)
+      expect(findButtonByText(tree!.root, 'Start')).toBeUndefined();
 
       // Advance timers by 20 minutes (1201 seconds)
       await act(async () => {
@@ -553,7 +551,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(pending?.formula.waterPercentage).toBe(68.0);
   });
 
-  it('adjusts active timer in-flight (-10s, +10s, +5m, -5m)', async () => {
+  // 056: korekt czasu (adjust-time-*) nie ma na prowadzeniu (design-spec §11b „056”)
+  it('has no in-flight timer adjustments on the guidance screen', async () => {
     setActiveBake({
       id: 'bake_timer_adjust',
       recipeName: 'Tartine 75%',
@@ -565,38 +564,10 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
     await renderScreen();
 
-    const plus10s = tree!.root.findByProps({ testID: 'adjust-time-plus-10s' });
-    const minus10s = tree!.root.findByProps({ testID: 'adjust-time-minus-10s' });
-    const plus5m = tree!.root.findByProps({ testID: 'adjust-time-plus-5m' });
-    const minus5m = tree!.root.findByProps({ testID: 'adjust-time-minus-5m' });
-
-    expect(plus10s).toBeDefined();
-    expect(minus10s).toBeDefined();
-    expect(plus5m).toBeDefined();
-    expect(minus5m).toBeDefined();
-
-    // First plan stage 6 h = 6:00:00. +10s -> 6:00:10
-    await act(async () => {
-      plus10s.props.onPress();
-    });
-    expect(extractCleanText(tree?.toJSON())).toContain('6:00:10');
-
-    // -10s -> 6:00:00
-    await act(async () => {
-      minus10s.props.onPress();
-    });
-    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
-
-    // +5m -> 6:05:00
-    await act(async () => {
-      plus5m.props.onPress();
-    });
-    expect(extractCleanText(tree?.toJSON())).toContain('6:05:00');
-
-    // -5m -> 6:00:00
-    await act(async () => {
-      minus5m.props.onPress();
-    });
+    for (const id of ['adjust-time-plus-10s', 'adjust-time-minus-10s', 'adjust-time-plus-5m', 'adjust-time-minus-5m']) {
+      expect(tree!.root.findAllByProps({ testID: id })).toHaveLength(0);
+    }
+    // First plan stage 6 h = 6:00:00
     expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
   });
 
@@ -630,6 +601,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     });
 
     await renderScreen();
+    await openPlan();
     const fullText = extractCleanText(tree?.toJSON());
 
     // In imperial mode, temperatures are in °F and weights in oz / lb

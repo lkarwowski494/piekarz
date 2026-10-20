@@ -3,11 +3,10 @@ import {
   View,
   Text,
   ScrollView,
-  Pressable,
   AppState,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { t } from '../src/lib/i18n';
 import { tapHaptic } from '../src/lib/haptics';
@@ -35,13 +34,13 @@ import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { FinishBakeModal } from '../src/components/stolnica/FinishBakeModal';
 import { PokeTestEntry } from '../src/components/stolnica/PokeTestEntry';
 import { DutchOvenController } from '../src/components/stolnica/DutchOvenController';
-import { ActiveTimerDisplay } from '../src/components/stolnica/ActiveTimerDisplay';
 import { BakeStatsCard } from '../src/components/stolnica/BakeStatsCard';
 import { BakeHistorySection } from '../src/components/stolnica/BakeHistorySection';
-import { BakeStepsList } from '../src/components/stolnica/BakeStepsList';
-import { StolnicaSacredCard } from '../src/components/stolnica/StolnicaSacredCard';
 import { IdleBakeCard } from '../src/components/stolnica/IdleBakeCard';
 import { StolnicaKeepAwake } from '../src/components/stolnica/StolnicaKeepAwake';
+import { PasekKciuka } from '../src/components/stolnica/PasekKciuka';
+import { PlanWypiekuArkusz } from '../src/components/stolnica/PlanWypiekuArkusz';
+import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { SpiralaWypieku } from '../src/components/Spirala';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
@@ -54,6 +53,7 @@ export default function StolnicaScreen() {
   const [startedAt, setStartedAt] = useState<number>(Date.now());
   const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
+  const [planOpen, setPlanOpen] = useState<boolean>(false);
 
   const handleSelectVessel = (vessel: BakingVessel) => {
     void setBakingVessel(vessel);
@@ -110,6 +110,14 @@ export default function StolnicaScreen() {
 
   const endAtMsRef = useRef<number | null>(null);
 
+  // Czas kroku biegnie od planu, bez „Start”/„Wstrzymaj” (design-spec §11b „056”) [M1-audytor-generalny-056]
+  const runFor = (sec: number) => {
+    endAtMsRef.current = sec > 0 ? Date.now() + sec * 1000 : null;
+    setTimeLeftSec(sec);
+    setIsRunning(sec > 0);
+    setIsCompleted(false);
+  };
+
   // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]
   useBakeSession(
     isActive
@@ -129,6 +137,11 @@ export default function StolnicaScreen() {
       setTimeLeftSec(timer.timeLeftSec);
       setIsRunning(timer.isRunning);
       setIsCompleted(timer.isCompleted);
+      // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006)
+      if (!timer.isRunning && !timer.isCompleted && timer.timeLeftSec > 0 && stepHasTimer(s.steps[s.stepIdx])) {
+        runFor(timer.timeLeftSec);
+        void ensureNotificationPermission();
+      }
     }
   );
 
@@ -172,6 +185,7 @@ export default function StolnicaScreen() {
   }, [isRunning, currentStepIdx, dutchOvenPhase, steps]);
 
   const currentStep: SessionStep | undefined = steps[currentStepIdx];
+  const aktywny = isActive && !!currentStep;
 
   // Start new bake from idle: domyślny chleb pszenny z planu liczonego od teraz [M1-audytor-generalny-030]
   const handleStartBake = () => {
@@ -183,9 +197,8 @@ export default function StolnicaScreen() {
       setCurrentStepIdx(0);
       setStartedAt(now);
       setDutchOvenPhase('lid_on');
-      setTimeLeftSec(stepDurationSec(planned[0], 'lid_on'));
-      setIsRunning(false);
-      setIsCompleted(false);
+      runFor(stepDurationSec(planned[0], 'lid_on'));
+      void ensureNotificationPermission(); // zgoda przy pierwszym zegarze (ADR-006)
     });
   };
 
@@ -194,25 +207,19 @@ export default function StolnicaScreen() {
     if (idx < 0 || idx >= steps.length) return;
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
-    setTimeLeftSec(stepDurationSec(steps[idx], 'lid_on'));
-    setIsRunning(false);
-    setIsCompleted(false);
+    runFor(stepDurationSec(steps[idx], 'lid_on'));
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
   };
 
   const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
     setDutchOvenPhase(phase);
-    setTimeLeftSec(DUTCH_OVEN_PHASES[phase].durationMin * 60);
-    setIsRunning(false);
-    setIsCompleted(false);
+    runFor(DUTCH_OVEN_PHASES[phase].durationMin * 60);
     tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   const handleStartPhase2AfterSteamAlert = () => {
     setDutchOvenPhase('lid_off');
-    setTimeLeftSec(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
-    setIsCompleted(false);
-    setIsRunning(true);
+    runFor(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
     void ensureNotificationPermission();
     tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
@@ -225,29 +232,10 @@ export default function StolnicaScreen() {
     }
   };
 
-  // Timer Controls
-  const toggleTimer = () => {
-    tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
-    if (!isRunning) void ensureNotificationPermission(); // zgoda przy pierwszym zegarze (ADR-006)
-    setIsRunning((prev) => !prev);
-  };
-
-  const addFiveMinutes = () => {
-    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
-    if (endAtMsRef.current) endAtMsRef.current += 300000;
-    setTimeLeftSec((prev) => prev + 300);
-    setIsCompleted(false);
-  };
-
-  const adjustTimerSeconds = (deltaSeconds: number) => {
-    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
-    if (endAtMsRef.current) endAtMsRef.current += deltaSeconds * 1000;
-    setTimeLeftSec((prev) => Math.max(0, prev + deltaSeconds));
-    setIsCompleted(false);
-  };
-
+  // „Przerwij wypiek” na „Plan wypieku”: skutek dla danych jak dawne „Odrzuć wypiek” (056)
   const handleDiscard = () => {
     confirmDiscardBake(() => {
+      setPlanOpen(false);
       setActiveBake(null);
       void saveBakeSession(null).then(() => resyncNotifications()).catch(() => {});
       setActiveBakeData(null);
@@ -271,10 +259,20 @@ export default function StolnicaScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
+      {/* Nawigacja: „Dziś” (wstecz) · „Plan wypieku” w trwającym wypieku, inaczej skrót do Doktora (D-051 2a, §11b „056”) */}
+      <Stack.Screen
+        options={{
+          headerRight: () =>
+            aktywny ? (
+              <PrzyciskNaglowka testID="bake-plan-btn" etykieta={t('Plan wypieku')} tekst={t('Plan wypieku')} onPress={() => setPlanOpen(true)} />
+            ) : (
+              <PrzyciskNaglowka testID="stolnica-doctor-shortcut-btn" etykieta={t('Doktor Chleba')} tekst={t('Doktor')} onPress={() => router.push('/doktor')} />
+            ),
+        }}
+      />
       <StolnicaKeepAwake active={isActive} />
-      {/* Nagłówek systemowy i skrót do Doktora: app/_layout.tsx (prowadzenie bez paska zakładek, D-051 2a) */}
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {!isActive || !currentStep ? (
+        {!aktywny ? (
           <View>
             {/* Bez uprawnienia: tylko przegląd historii (BEZ_UPRAWNIENIA) [M1-audytor-generalny-027] */}
             <BlokadaFunkcji {...blokada('stolnica')}>
@@ -302,79 +300,28 @@ export default function StolnicaScreen() {
           <BlokadaFunkcji {...blokada('stolnica')}>
           <View>
             <NotificationsOffBanner />
-            {/* Sacred Numbers Glanceable Countertop Card */}
-            <StolnicaSacredCard
-              currentStepIdx={currentStepIdx}
-              totalSteps={steps.length}
-              formattedTime={stepHasTimer(currentStep) ? formattedTime : '—'}
-              activeBakeData={activeBakeData}
-            />
+            {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
+            <Text style={styles.recipeTag}>{recipeName}</Text>
+            <SpiralaWypieku steps={steps} stepIdx={currentStepIdx} pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null}
+              pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
+            <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length })}</Text>
 
-            {/* Active Header & Recipe Badge */}
-            <View style={styles.activeCard}>
-              {/* Spirala koszyka z planu tego wypieku (058) */}
-              <SpiralaWypieku steps={steps} stepIdx={currentStepIdx} pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null}
-                pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
-              <View style={styles.badgeRow}>
-                <View style={styles.stepBadge}>
-                  <Text style={styles.stepBadgeText}>
-                    {t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length })}
-                  </Text>
-                </View>
-                <Text style={styles.recipeTag}>{recipeName}</Text>
-              </View>
+            {/* Strefa kroku: tytuł, czas do końca (etap żytni bez czasu w planie idzie bez minutnika, 030), treść */}
+            <Text testID="step-title" style={styles.activeStepTitle}>{t(currentStep.name)}</Text>
+            {stepHasTimer(currentStep) && <Text testID="step-time" style={styles.czas}>{formattedTime}</Text>}
+            <Text style={styles.activeStepDesc}>{formatTextUnits(t(currentStep.instructions), unitSystem)}</Text>
+            <PokeTestEntry step={currentStep} />
 
-              <Text style={styles.activeStepTitle}>{t(currentStep.name)}</Text>
-              <Text style={styles.activeStepDesc}>{formatTextUnits(t(currentStep.instructions), unitSystem)}</Text>
-              <PokeTestEntry step={currentStep} />
-
-              {/* Dutch Oven Two-Phase Controller for the bake step */}
-              {isDutchOvenStep(currentStep) && (
-                <DutchOvenController
-                  dutchOvenPhase={dutchOvenPhase}
-                  onSwitchPhase={handleSwitchDutchOvenPhase}
-                  unitSystem={unitSystem}
-                  isCompleted={isCompleted}
-                  onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
-                />
-              )}
-
-              {/* Zegar; etap żytni bez czasu w planie idzie bez minutnika (030) */}
-              {stepHasTimer(currentStep) && <ActiveTimerDisplay
-                formattedTime={formattedTime}
-                isRunning={isRunning}
+            {/* Dutch Oven Two-Phase Controller for the bake step */}
+            {isDutchOvenStep(currentStep) && (
+              <DutchOvenController
+                dutchOvenPhase={dutchOvenPhase}
+                onSwitchPhase={handleSwitchDutchOvenPhase}
+                unitSystem={unitSystem}
                 isCompleted={isCompleted}
-                onAdjustSeconds={adjustTimerSeconds}
-                onToggleTimer={toggleTimer}
-                onAddFiveMinutes={addFiveMinutes}
-              />}
-
-              {/* Step Navigation Controls */}
-              <View style={styles.controlsRow}>
-                <Pressable
-                  testID="next-or-finish-step-btn"
-                  style={styles.actionBtnNext}
-                  onPress={handleNextStep}
-                  accessibilityRole="button"
-                  accessibilityLabel={t('Zrobione: {krok}', { krok: t(steps[currentStepIdx]?.name ?? '') })}
-                >
-                  <Text style={styles.actionBtnNextText}>{t('Zrobione')}</Text>
-                </Pressable>
-              </View>
-
-              <Pressable accessibilityRole="button" style={styles.discardBtn} onPress={handleDiscard}>
-                <Text style={styles.discardBtnText}>{t('Przerwij wypiek')}</Text>
-              </Pressable>
-            </View>
-
-            {/* Active Recipe Ingredients Card & Steps Timeline */}
-            <BakeStepsList
-              steps={steps}
-              currentStepIdx={currentStepIdx}
-              onGoToStep={goToStep}
-              calculatedRecipe={activeBakeData?.calculatedRecipe}
-              unitSystem={unitSystem}
-            />
+                onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
+              />
+            )}
           </View>
           </BlokadaFunkcji>
         )}
@@ -383,6 +330,31 @@ export default function StolnicaScreen() {
         <FinishBakeModal {...finish.modalProps} />
 
       </ScrollView>
+
+      {aktywny && (
+        <BlokadaFunkcji {...blokada('stolnica')}>
+          <PasekKciuka
+            nazwaKroku={t(currentStep.name)}
+            onZrobione={handleNextStep}
+            onCofnij={() => goToStep(currentStepIdx - 1)}
+            cofnijDostepne={currentStepIdx > 0}
+            onPoCo={() => undefined}
+            poCoDostepne={false}
+          />
+        </BlokadaFunkcji>
+      )}
+      {aktywny && (
+        <PlanWypiekuArkusz
+          visible={planOpen}
+          onClose={() => setPlanOpen(false)}
+          steps={steps}
+          currentStepIdx={currentStepIdx}
+          onGoToStep={goToStep}
+          calculatedRecipe={activeBakeData?.calculatedRecipe}
+          unitSystem={unitSystem}
+          onPrzerwij={handleDiscard}
+        />
+      )}
     </SafeAreaView>
   );
 }

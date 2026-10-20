@@ -20,6 +20,8 @@ jest.mock('react-native-safe-area-context', () => {
 });
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
+  // Prowadzenie ustawia przycisk „Plan wypieku” w pasku nawigacji (Stack.Screen, 056): przycisk w drzewie ekranu
+  Stack: { Screen: ({ options }: { options?: { headerRight?: () => React.ReactElement } }) => (options?.headerRight ? options.headerRight() : null) },
   useRouter: () => ({ push: mockPush, navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
   useLocalSearchParams: () => ({}),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
@@ -53,6 +55,9 @@ async function finishWithRating(stars: number): Promise<void> {
   });
   await act(async () => {
     for (let i = 0; i < 20; i++) await Promise.resolve();
+  });
+  await act(async () => {
+    pressables(tree!.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)
   });
   await act(async () => {
     pressables(tree!.root, 'Studzenie na kratce')[0].props.onPress();

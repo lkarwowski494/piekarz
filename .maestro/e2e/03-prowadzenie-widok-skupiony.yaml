@@ -1,0 +1,33 @@
+# Prawdziwe E2E na symulatorze iOS: prowadzenie w widoku skupionym (design-spec 11b "056", punkt 6;
+# M1-audytor-generalny-056). Bez przewijania widac tytul kroku, czas i pasek kciuka z "Zrobione".
+# Polozenie "Zrobione" w dolnych 30% ekranu przy 320 i 390 pt sprawdza rola 07 na urzadzeniu (zrzut).
+appId: com.apps4brew.baker
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible:
+      id: "start-czynnosci"
+    timeout: 60000
+- tapOn: "Receptury"
+- tapOn:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
+- assertVisible:
+    id: "step-title"
+- assertVisible:
+    id: "step-time"
+- assertVisible:
+    id: "thumb-bar"
+- assertVisible:
+    id: "next-or-finish-step-btn"
+- assertVisible:
+    id: "step-undo-btn"
+- assertVisible:
+    id: "step-why-btn"
+- assertNotVisible:
+    id: "discard-bake-btn"
