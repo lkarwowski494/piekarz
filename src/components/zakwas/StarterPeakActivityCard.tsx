@@ -29,7 +29,6 @@ export interface StarterPeakActivityCardProps {
   ambientTempC: number;
   onAmbientTempChange: (temp: number) => void;
   unitSystem: UnitSystem;
-  onLogFeeding: () => void;
 }
 
 export function StarterPeakActivityCard({
@@ -39,7 +38,6 @@ export function StarterPeakActivityCard({
   ambientTempC,
   onAmbientTempChange,
   unitSystem,
-  onLogFeeding,
 }: StarterPeakActivityCardProps) {
   return (
     <View style={styles.card} testID="peak-activity-card">
@@ -122,10 +120,6 @@ export function StarterPeakActivityCard({
         </View>
       </View>
       )}
-
-      <Pressable accessibilityRole="button" style={styles.feedNowBtn} onPress={onLogFeeding}>
-        <Text style={styles.feedNowBtnText}>{t('Zapisz dokarmienie')}</Text>
-      </Pressable>
     </View>
   );
 }
@@ -253,18 +247,5 @@ const styles = StyleSheet.create({
   tempChipTextActive: {
     color: theme.colors.naAkcencie,
     fontWeight: '700',
-  },
-  feedNowBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-  },
-  feedNowBtnText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: theme.colors.naAkcencie,
   },
 });

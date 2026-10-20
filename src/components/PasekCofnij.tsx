@@ -1,6 +1,7 @@
 // ============================================================================
-// Piekarz — Pasek „Cofnij” (komponent systemu, design-spec §4, §5; D-051 1a) [M1-audytor-generalny-102]
-// Po działaniu rutynowym: zdanie o skutku i „Przywróć”; znika sam po kilku sekundach (PASEK_COFNIJ_MS).
+// Piekarz — Pasek „Cofnij” (komponent systemu, design-spec §4, §5; D-051 1a) [M1-audytor-generalny-102, -104]
+// Po działaniu rutynowym (potwierdzenie kroku, usunięcie wpisu bez pytania): zdanie o skutku i „Przywróć”;
+// znika sam po kilku sekundach (PASEK_COFNIJ_MS).
 // Kolory: tło tusz, tekst tlo, promień 14 (makieta .pasek-cofnij w docs/design/ekrany/wspolne.css).
 // ============================================================================
 
@@ -13,16 +14,28 @@ import { t } from '../lib/i18n';
 /** „Przez kilka sekund” (design-spec §5, D-051 1a); dokładnej wartości system nie podaje — do potwierdzenia przez rolę 04. */
 export const PASEK_COFNIJ_MS = 6000;
 
-export function PasekCofnij({ tekst, onPrzywroc, onUkryj }: { tekst: string; onPrzywroc: () => void; onUkryj: () => void }) {
+export function PasekCofnij({
+  tekst,
+  onPrzywroc,
+  onUkryj,
+  testID = 'undo-bar',
+  przywrocTestID = 'undo-restore-btn',
+}: {
+  tekst: string;
+  onPrzywroc: () => void;
+  onUkryj: () => void;
+  testID?: string;
+  przywrocTestID?: string;
+}) {
   useEffect(() => {
     AccessibilityInfo.announceForAccessibility(tekst);
     const czas = setTimeout(onUkryj, PASEK_COFNIJ_MS);
     return () => clearTimeout(czas);
   }, [tekst, onUkryj]);
   return (
-    <View testID="undo-bar" style={styles.pasek} accessibilityLiveRegion="polite">
+    <View testID={testID} style={styles.pasek} accessibilityLiveRegion="polite">
       <Text style={styles.tekst}>{tekst}</Text>
-      <Pressable testID="undo-restore-btn" accessibilityRole="button" onPress={onPrzywroc} style={styles.przycisk}>
+      <Pressable testID={przywrocTestID} accessibilityRole="button" onPress={onPrzywroc} style={styles.przycisk}>
         <Text style={styles.przyciskTekst}>{t('Przywróć')}</Text>
       </Pressable>
     </View>

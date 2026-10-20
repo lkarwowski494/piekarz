@@ -33,13 +33,29 @@ describe('BR-ZAKW-006: obudzenie zakwasu z lodówki (104, D-052)', () => {
     const mixAt = mixStartOf(plan)!;
     expect(mixAt).toBeGreaterThan(START);
     const steps = withFridgeWake(plan, FRIDGE);
-    expect(steps).toHaveLength(plan.length + 1);
+    // D-052: dokarmienie z planu (starter_feed 6 h) łączy się z krokiem z lodówki — tyle samo kroków, krok do mieszania
+    expect(plan[0].category).toBe('starter_feed');
+    expect(steps).toHaveLength(plan.length);
     expect(steps[0]).toEqual(
-      expect.objectContaining({ id: FRIDGE_WAKE_STEP_ID, name: FRIDGE_WAKE_STEP_NAME, category: 'starter_feed', plannedStart: mixAt - 12 * H, plannedEnd: plan[0].plannedStart })
+      expect.objectContaining({ id: FRIDGE_WAKE_STEP_ID, name: FRIDGE_WAKE_STEP_NAME, category: 'starter_feed', plannedStart: mixAt - 12 * H, plannedEnd: mixAt })
     );
-    expect(steps.slice(1)).toEqual(plan);
+    expect(steps.slice(1)).toEqual(plan.slice(1));
     expect(isSessionStep(steps[0])).toBe(true);
     expect(withFridgeWake(steps, FRIDGE)).toEqual(steps);
+  });
+
+  it.each([
+    ['pszenny', false],
+    ['żytni', true],
+  ])('D-052 „1 dokarmienie”: plan %s z zakwasem z lodówki ma dokładnie jedno dokarmienie przed mieszaniem, 12 h przed mieszaniem', (_n, isHighRye) => {
+    const plan = planBakeSteps({ startAt: START, isHighRye });
+    const mixAt = mixStartOf(plan)!;
+    const steps = withFridgeWake(plan, FRIDGE);
+    const feeds = steps.filter((s) => s.category === 'starter_feed' && s.plannedStart !== null && s.plannedStart < mixAt);
+    expect(feeds.map((s) => ({ id: s.id, start: s.plannedStart, end: s.plannedEnd }))).toEqual([
+      { id: FRIDGE_WAKE_STEP_ID, start: mixAt - 12 * H, end: mixAt },
+    ]);
+    expect(mixStartOf(steps)).toBe(mixAt);
   });
 
   it('plan żytni: mieszanie = etap rye_mix', () => {

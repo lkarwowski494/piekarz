@@ -52,15 +52,18 @@ export function mixStartOf(steps: readonly Pick<SessionStep, 'category' | 'plann
 }
 
 /**
- * Plan z zakwasem z lodówki zaczyna się dokarmieniem 12 h przed mieszaniem (BR-ZAKW-006): krok trwa do początku
- * pierwszego kroku planu. Zakwas z blatu, plan bez godzin albo plan już z tym krokiem → kroki bez zmian.
+ * Plan z zakwasem z lodówki ma dokładnie jedno dokarmienie przed mieszaniem: 12 h przed mieszaniem, do mieszania
+ * (BR-ZAKW-006, D-052 „1 dokarmienie”). Dokarmienie z planu (krok `starter_feed` przed mieszaniem, np. 6 h szczytu
+ * albo etap żytni „Zakwas żytni”) łączy się z nim — zostaje jeden krok. Zakwas z blatu, plan bez godzin albo plan
+ * już z tym krokiem → kroki bez zmian.
  */
 export function withFridgeWake(steps: readonly SessionStep[], starter: { storageState: 'ROOM_TEMP' | 'FRIDGE' }): SessionStep[] {
   const mixAt = mixStartOf(steps);
-  const firstStart = steps[0]?.plannedStart ?? null;
-  if (mixAt === null || firstStart === null || steps.some((s) => s.id === FRIDGE_WAKE_STEP_ID)) return [...steps];
-  const wake = fridgeWakeStep(mixAt, starter, Math.min(firstStart, mixAt));
-  return wake ? [wake, ...steps] : [...steps];
+  if (mixAt === null || steps.some((s) => s.id === FRIDGE_WAKE_STEP_ID)) return [...steps];
+  const wake = fridgeWakeStep(mixAt, starter);
+  if (!wake) return [...steps];
+  const feedBeforeMix = (s: SessionStep) => s.category === 'starter_feed' && s.plannedStart !== null && s.plannedStart < mixAt;
+  return [wake, ...steps.filter((s) => !feedBeforeMix(s))];
 }
 
 export type FridgeWakeOutcome =

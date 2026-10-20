@@ -267,6 +267,7 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)",
       "src/lib/menu-receptury.ts (options)",
       "src/lib/menu-receptury.ts (text)",
@@ -472,6 +473,11 @@
   "Bułki, chałki, focaccia, ciasta drożdżowe, pizza domowa na blasze.": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: bestForPl)"
+    ]
+  },
+  "Bąbelki": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (dane: bubbles)"
     ]
   },
   "Błąd": {
@@ -711,9 +717,20 @@
       "app/(tabs)/(dzis)/index.tsx (title)"
     ]
   },
+  "Co dziś zrobić": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
   "Co jeszcze dziś robisz?": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
+  "Co widzisz?": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
   "Co zrobić przy następnym wypieku:": {
@@ -744,6 +761,11 @@
   "Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.": {
     "gdzie": [
       "app/stolnica.tsx (tekst)"
+    ]
+  },
+  "Coś mnie niepokoi": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
   "Cukier trzcinowy": {
@@ -1021,6 +1043,11 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Dokarmienie": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
   "Dokarmienie zakwasu": {
     "gdzie": [
       "src/lib/feeding-formatter.ts (kod)"
@@ -1034,6 +1061,11 @@
   "Dokarmienie zakwasu z lodówki": {
     "gdzie": [
       "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
+  "Dokarmienie {proporcja}": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (kod)"
     ]
   },
   "Dokarmiono zakwas": {
@@ -1057,6 +1089,11 @@
       "app/_layout.tsx (title)",
       "app/stolnica.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
+    ]
+  },
+  "Doktor zakwasu": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/_layout.tsx (title)"
     ]
   },
   "Dopiekaj w temperaturze min. 210–220°C bez pokrywki.": {
@@ -1194,6 +1231,17 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Dzień {n}": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Dzień {n} zakładania zakwasu": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (accessibilityLabel)"
+    ]
+  },
   "Dzika, otwarta struktura rzemieślnicza!": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -1217,11 +1265,18 @@
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
-      "src/lib/schedule-formatter.ts (kod)"
+      "src/lib/schedule-formatter.ts (kod)",
+      "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
+  "Długo stał w lodówce bez dokarmiania": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: long_unfed)"
     ]
   },
   "Edytuj": {
     "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
     ]
   },
@@ -1230,6 +1285,16 @@
   },
   "Edytuj profil": {
     "gdzie": []
+  },
+  "Edytuj wpis": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
+    ]
+  },
+  "Edytuj wpis: {opis}": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)"
+    ]
   },
   "Edytuj zakwas": {
     "gdzie": [
@@ -1533,10 +1598,21 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Godzina": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
+    ]
+  },
   "Godzina gotowości chleba do krojenia": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
       "src/lib/schedule-formatter.ts (kod)"
+    ]
+  },
+  "Godzina od 0 do 23, minuty od 0 do 59.": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Godzina podania na stół:": {
@@ -1575,6 +1651,11 @@
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Gotowy do ciasta (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/zakwas/ZakwasDziennik.tsx (tekst w JSX)"
     ]
   },
   "Gotowy do krojenia": {
@@ -1937,6 +2018,12 @@
   "Kolizja ze snem": {
     "gdzie": [
       "src/lib/schedule-formatter.ts (kod)"
+    ]
+  },
+  "Kolorowe plamy albo puszysty nalot": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: mold_signs)",
+      "src/lib/zakwas-widok.ts (dane: mold_signs)"
     ]
   },
   "Kompozycja Mąk": {
@@ -2355,6 +2442,12 @@
       "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
     ]
   },
+  "Minuta": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
+    ]
+  },
   "Minutnik kuchenny": {
     "gdzie": []
   },
@@ -2464,6 +2557,11 @@
   "Musisz posiadać co najmniej jeden profil zakwasu.": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+    ]
+  },
+  "Mój zakwas": {
+    "gdzie": [
+      "src/components/zakwas/ZakladanieStart.tsx (name)"
     ]
   },
   "Mąka": {
@@ -2790,6 +2888,11 @@
       "src/lib/zgloszenie-wyslanie.ts (Alert.alert)"
     ]
   },
+  "Następne dokarmienie: {dzien} o {godzina}.": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
   "Następne pytanie": {
     "gdzie": []
   },
@@ -2814,6 +2917,17 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Nic się nie dzieje": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: no_activity)",
+      "src/lib/zakwas-widok.ts (dane: no_activity)"
+    ]
+  },
+  "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
   "Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (tekst w JSX)"
@@ -2827,6 +2941,11 @@
   "Nie można usunąć": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+    ]
+  },
+  "Nie podwaja objętości": {
+    "gdzie": [
+      "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: no_doubling)"
     ]
   },
   "Nie poprawiaj cięcia ani nie piłuj ostrzem — jedno pociągnięcie daje najczystsze otwarcie.": {
@@ -3086,6 +3205,11 @@
   "Obróć pojemnik o 90° i powtórz uniesienie w osi poprzecznej.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Obserwacja: {objawy}": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (kod)"
     ]
   },
   "Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.": {
@@ -3366,6 +3490,11 @@
   "Ostatnie dokarmienie": {
     "gdzie": [
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Ostatnie wpisy": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Ostrożnie wyjmij gorący garnek (zawsze w rękawicach żaroodpornych!) i zdejmij pokrywkę.": {
@@ -3672,6 +3801,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Podwoił objętość": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
   "Podział i formowanie": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)"
@@ -3902,6 +4036,11 @@
   },
   "Profil, cykl dokarmiania i szczyt aktywności": {
     "gdzie": []
+  },
+  "Proponowane mieszanie ciasta: {dzien} o {godzina}.": {
+    "gdzie": [
+      "src/components/zakwas/FridgeWakeStatus.tsx (tekst w JSX)"
+    ]
   },
   "Proporcja": {
     "gdzie": [
@@ -4669,6 +4808,11 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Sprawdź, czy podwoi objętość do {godzina}.": {
+    "gdzie": [
+      "src/components/zakwas/FridgeWakeStatus.tsx (tekst w JSX)"
+    ]
+  },
   "Sprzęt i naczynie do wypieku": {
     "gdzie": [
       "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
@@ -5342,10 +5486,20 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: physicalPrinciplePl)"
     ]
   },
+  "Urósł od kreski": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (dane: rose)"
+    ]
+  },
   "Ustawienia": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (etykieta)",
       "src/components/SettingsModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Usunięto wpis": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (tekst)"
     ]
   },
   "Usunąć profil zakwasu?": {
@@ -5392,7 +5546,13 @@
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (accessibilityLabel)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
       "src/lib/confirm.ts (action)"
+    ]
+  },
+  "Usuń wpis: {opis}": {
+    "gdzie": [
+      "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)"
     ]
   },
   "Usuń zakwas": {
@@ -5453,7 +5613,8 @@
   },
   "Ułóż plan": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
   "Użyj Twojego zakwasu": {
@@ -5578,7 +5739,8 @@
   "Wczoraj": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/lib/schedule-formatter.ts (kod)"
+      "src/lib/schedule-formatter.ts (kod)",
+      "src/lib/zakwas-widok.ts (kod)"
     ]
   },
   "Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.": {
@@ -6453,6 +6615,7 @@
   "Zacznij od nowa": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)",
       "src/lib/confirm.ts (action)"
     ]
   },
@@ -6626,7 +6789,8 @@
   },
   "Zakładam zakwas": {
     "gdzie": [
-      "src/components/start/WyborCzynnosci.tsx (kod)"
+      "src/components/start/WyborCzynnosci.tsx (kod)",
+      "src/components/zakwas/ZakladanieStart.tsx (tekst w JSX)"
     ]
   },
   "Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.": {
@@ -6724,17 +6888,24 @@
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
-      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
+      "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Zapisz dokarmienie": {
     "gdzie": [
-      "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
+      "src/components/zakwas/ZakladanieStart.tsx (tekst w JSX)"
     ]
   },
   "Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "Zapisz dzień {n}": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
   "Zapisz jako moją": {
@@ -6834,6 +7005,11 @@
   "Zaznacz, co widzisz albo czujesz w słoiku.": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
   "Załadowano recepturę": {
@@ -7088,6 +7264,11 @@
       "src/core/rye-stages.ts (dane: instructionsPl)"
     ]
   },
+  "Zostaw zapis i wróć": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
@@ -7232,6 +7413,11 @@
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
+  "dokarmiony o {godzina}, następne o {nastepne}": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
   "dziś": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
@@ -7317,6 +7503,16 @@
   "miesiąc": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
+  "na blacie": {
+    "gdzie": [
+      "src/components/zakwas/ZakwasDziennik.tsx (kod)"
+    ]
+  },
+  "na blacie, {proporcja}": {
+    "gdzie": [
+      "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
   },
   "nieznana": {
@@ -7414,6 +7610,16 @@
       "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
     ]
   },
+  "w lodówce": {
+    "gdzie": [
+      "src/components/zakwas/ZakwasDziennik.tsx (kod)"
+    ]
+  },
+  "w lodówce, {proporcja}": {
+    "gdzie": [
+      "src/components/zakwas/ZakwasDziennik.tsx (kod)"
+    ]
+  },
   "w tym lód": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
@@ -7475,9 +7681,19 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
+  "{czas} od dokarmienia": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
   "{days}d temu": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (kod)"
+    ]
+  },
+  "{dzien} {godzina}: {opis}": {
+    "gdzie": [
+      "src/lib/zakwas-widok.ts (kod)"
     ]
   },
   "{dzien}, {d} {miesiac}": {

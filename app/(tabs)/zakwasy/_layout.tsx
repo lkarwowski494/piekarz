@@ -17,6 +17,8 @@ export default function ZakwasyLayout() {
           ),
         }}
       />
+      {/* „Coś mnie niepokoi” na karcie zakwasu (BR-DIAG-002) [M1-audytor-generalny-104] */}
+      <Stack.Screen name="doktor-zakwasu" options={{ title: t('Doktor zakwasu'), headerLargeTitle: false }} />
     </Stack>
   );
 }

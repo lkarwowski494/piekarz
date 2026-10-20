@@ -8,9 +8,8 @@ import { saveErrorText } from '../../lib/save-guard';
 import { resyncNotifications } from '../../lib/notifications';
 import {
   getBakeLogs,
-  getStarters,
-  getRecipes,
   getFlourInventory,
+  collectBackupData,
   restoreFromBackupData,
 } from '../../data/sqlite-store';
 import {
@@ -29,16 +28,8 @@ export function BackupAndDataSection() {
   const handleExport = async () => {
     setIsExporting(true);
     try {
-      const [bakes, starters, recipes] = await Promise.all([
-        getBakeLogs(),
-        getStarters(),
-        getRecipes(),
-      ]);
-      const success = await exportBackup({
-        bakes,
-        starters,
-        customRecipes: recipes.filter((r) => !r.isBuiltIn),
-      });
+      // Pełny stan z bazy: dziennik zakwasu i spiżarnia w pliku (ADR-008) [M1-audytor-generalny-104]
+      const success = await exportBackup(await collectBackupData());
       if (!success) {
         Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
       }
@@ -92,18 +83,8 @@ export function BackupAndDataSection() {
     try {
       const envelope = parseAndValidateBackup(importJsonText);
 
-      // Snapshot current state before applying changes (Safety Invariant ZP-06)
-      const [bakes, starters, recipes] = await Promise.all([
-        getBakeLogs(),
-        getStarters(),
-        getRecipes(),
-      ]);
-      const currentState = {
-        bakes,
-        starters,
-        customRecipes: recipes.filter((r) => !r.isBuiltIn),
-      };
-      await safetyBackup('import', currentState);
+      // Kopia przed importem z pełnego stanu bazy, z dziennikiem zakwasu i spiżarnią (ZP-06, ADR-008) [M1-audytor-generalny-104]
+      await safetyBackup('import', await collectBackupData());
 
       // Restore data inside transaction
       await restoreFromBackupData(envelope.state);
