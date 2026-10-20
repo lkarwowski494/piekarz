@@ -9,12 +9,10 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
+        // Wysokość i odstępy paska liczy biblioteka z marginesu systemu (wskaźnik Home) [M1-audytor-generalny-054]
         tabBarStyle: {
           backgroundColor: theme.colors.powierzchnia,
           borderTopColor: theme.colors.linia,
-          height: 60,
-          paddingBottom: 6,
-          paddingTop: 6,
         },
         tabBarActiveTintColor: theme.colors.akcentTekst,
         tabBarInactiveTintColor: theme.colors.tusz3,

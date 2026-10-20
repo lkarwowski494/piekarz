@@ -79,8 +79,6 @@ export function TabIcon({
   );
 }
 
-export const TAB_LABEL_MIN_SCALE = 0.8;
-
 export function TabLabel({
   color,
   position,
@@ -93,9 +91,6 @@ export function TabLabel({
   return (
     <Text
       accessibilityLanguage={lang()}
-      numberOfLines={1}
-      adjustsFontSizeToFit
-      minimumFontScale={TAB_LABEL_MIN_SCALE}
       allowFontScaling={false}
       style={[
         {
