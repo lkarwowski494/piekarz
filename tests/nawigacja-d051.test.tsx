@@ -13,8 +13,9 @@ const mockStos: { screenOptions?: Opcje; ekrany: Array<{ name: string; options: 
 jest.mock('expo-router', () => {
   const ReactMod = jest.requireActual('react');
   const Tabs = ({ children }: { children: React.ReactNode }) => ReactMod.createElement(ReactMod.Fragment, null, children);
-  Tabs.Screen = ({ name, options }: { name: string; options: Opcje }) => {
-    mockZakladki.push({ name, options });
+  Tabs.Screen = ({ name, options }: { name: string; options: Opcje | ((a: { route: object }) => Opcje) }) => {
+    // Opcje zakładki „Receptury” są funkcją trasy (pasek ukryty na ekranie receptury) [M1-audytor-generalny-106]
+    mockZakladki.push({ name, options: typeof options === 'function' ? options({ route: {} }) : options });
     return null;
   };
   const Stack = ({ screenOptions, children }: { screenOptions?: Opcje; children: React.ReactNode }) => {

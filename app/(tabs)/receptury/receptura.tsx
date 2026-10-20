@@ -252,7 +252,7 @@ export default function EkranReceptury() {
   );
 
   return (
-    <SafeAreaView style={s.ekran} edges={['left', 'right']}>
+    <SafeAreaView style={s.ekran} edges={['left', 'right', 'bottom']}>
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
         <ScrollView contentContainerStyle={s.tresc} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
           <BlokadaFunkcji {...blokada('kalkulator')}>
