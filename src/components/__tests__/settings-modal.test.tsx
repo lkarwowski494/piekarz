@@ -17,6 +17,7 @@ jest.mock('../../data/sqlite-store', () => ({
   getStarters: jest.fn().mockResolvedValue([]),
   getRecipes: jest.fn().mockResolvedValue([]),
   getFlourInventory: jest.fn().mockResolvedValue([]),
+  collectBackupData: jest.fn().mockResolvedValue({ bakes: [], starters: [], customRecipes: [], starterEntries: [], flourInventory: [] }),
   restoreFromBackupData: jest.fn().mockResolvedValue(undefined),
   getAppSetting: jest.fn().mockResolvedValue(null),
   setAppSetting: jest.fn().mockResolvedValue(undefined),
