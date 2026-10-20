@@ -1485,6 +1485,11 @@
   "Gotowe": {
     "gdzie": []
   },
+  "Gotowe {dzien} o {godzina}.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
   "Gotowy do krojenia": {
     "gdzie": [
       "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
@@ -2991,6 +2996,11 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Od dokarmienia minęło {czas} z {odstep}.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
   "Odblokuj pełny dostęp": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
@@ -3345,6 +3355,36 @@
   "Pizza i słodkie": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+    ]
+  },
+  "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Plan wypieku, krok {n} z {N}: {nazwa}.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "Plan wypieku: {n} krok.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: one)"
+    ]
+  },
+  "Plan wypieku: {n} kroki.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: few)"
+    ]
+  },
+  "Plan wypieku: {n} kroku.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: other)"
+    ]
+  },
+  "Plan wypieku: {n} kroków.": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: many)"
     ]
   },
   "Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).": {
@@ -6754,6 +6794,16 @@
       "app/(tabs)/harmonogram.tsx (dane: kod)"
     ]
   },
+  "dziś": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "długi krok (skrócony)": {
+    "gdzie": [
+      "src/components/Spirala.tsx (tekst w JSX)"
+    ]
+  },
   "foremka keksówka": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
@@ -6778,6 +6828,11 @@
   "jednorazowo": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
+  "jutro": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "kwi": {
@@ -6833,6 +6888,16 @@
       "src/lib/zgloszenie.ts (kod)"
     ]
   },
+  "noc w lodówce": {
+    "gdzie": [
+      "src/components/Spirala.tsx (tekst w JSX)"
+    ]
+  },
+  "noc w lodówce (skrócona)": {
+    "gdzie": [
+      "src/components/Spirala.tsx (tekst w JSX)"
+    ]
+  },
   "np. Mąka pszenna chlebowa t750": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (placeholder)"
@@ -6863,9 +6928,19 @@
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
+  "pojutrze": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
   "przed chwilą": {
     "gdzie": [
       "app/(tabs)/zakwas.tsx (kod)"
+    ]
+  },
+  "przed nami": {
+    "gdzie": [
+      "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
   "rok": {
@@ -6943,6 +7018,11 @@
       "src/lib/confirm.ts (message)"
     ]
   },
+  "zrobione": {
+    "gdzie": [
+      "src/components/Spirala.tsx (tekst w JSX)"
+    ]
+  },
   "{days}d temu": {
     "gdzie": [
       "app/(tabs)/zakwas.tsx (kod)"
@@ -6951,6 +7031,11 @@
   "{dzien}, {d} {miesiac}": {
     "gdzie": [
       "app/(tabs)/harmonogram.tsx (kod)"
+    ]
+  },
+  "{godziny} {minuty}": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "{g}g wody": {
@@ -7004,6 +7089,22 @@
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
   },
+  "{n} godzin": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: many)"
+    ]
+  },
+  "{n} godzina": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: one)"
+    ]
+  },
+  "{n} godziny": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: few)",
+      "src/lib/spirala-etykieta.ts (dane: other)"
+    ]
+  },
   "{n} min": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
@@ -7011,6 +7112,22 @@
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} minut": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: many)"
+    ]
+  },
+  "{n} minuta": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: one)"
+    ]
+  },
+  "{n} minuty": {
+    "gdzie": [
+      "src/lib/spirala-etykieta.ts (dane: few)",
+      "src/lib/spirala-etykieta.ts (dane: other)"
     ]
   },
   "{n} szt.": {

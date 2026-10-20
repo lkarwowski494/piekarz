@@ -1,0 +1,197 @@
+// ============================================================================
+// Piekarz — Spirala koszyka, element firmowy (D-049; design-spec §2, §11b 058) [M1-audytor-generalny-058]
+// react-native-svg; punkty liczone raz na plan (useMemo), kolory tylko ratan, ratanSzary, nocDane, tusz, tlo
+// z useMotyw(). Spirala nie jest przyciskiem: rola obrazu i jedna etykieta z danych planu; wariant pusty
+// (ekran startowy, ikona) jest ozdobą poza drzewem dostępności. Ruch po „Zrobione”: ruch.zwoj (300 ms,
+// easeOut), przy „Ogranicz ruch” zmiana bez przejścia. RTL (odbicie w poziomie): otwarte (rola 05/04).
+// ============================================================================
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { AccessibilityInfo, Animated, Easing, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import Svg, { Circle, Line, Path } from 'react-native-svg';
+import type { SessionStep } from '../core/bake-steps';
+import { t } from '../lib/i18n';
+import {
+  czasPrzejsciaSpirali,
+  krokiSpiraliZSesji,
+  rysunekSpirali,
+  SPIRALA_GRUBOSC,
+  SPIRALA_PUSTA,
+  SPIRALA_ZWOJE,
+  ukladSpirali,
+  type KrokSpirali,
+  type WariantSpirali,
+} from '../lib/spirala-geometria';
+import { etykietaPlanuWypieku } from '../lib/spirala-etykieta';
+import { useMotyw } from '../ui/motyw';
+import { odstepy, typografia } from '../ui/tokeny';
+
+const AnimowaneKolo = Animated.createAnimatedComponent(Circle);
+const AnimowanaSciezka = Animated.createAnimatedComponent(Path);
+
+/** „Ogranicz ruch” z systemu, z nasłuchem zmiany. */
+function useOgraniczRuch(): boolean {
+  const [ogranicz, ustaw] = useState(false);
+  useEffect(() => {
+    let aktywny = true;
+    AccessibilityInfo.isReduceMotionEnabled()
+      .then((v) => {
+        if (aktywny) ustaw(v);
+      })
+      .catch(() => undefined);
+    const sub = AccessibilityInfo.addEventListener('reduceMotionChanged', (v: boolean) => ustaw(v));
+    return () => {
+      aktywny = false;
+      sub.remove();
+    };
+  }, []);
+  return ogranicz;
+}
+
+/** Rozmiar w pt: pełna 150–220 (rośnie z dużym tekstem, §2), mała 92, pusta 120. */
+function useRozmiar(wariant: WariantSpirali, rozmiar?: number): number {
+  const { fontScale } = useWindowDimensions();
+  if (rozmiar !== undefined) return rozmiar;
+  if (wariant === 'mala') return 92;
+  if (wariant === 'pusta') return 120;
+  return Math.min(220, Math.max(150, Math.round(150 * fontScale)));
+}
+
+export interface SpiralaProps {
+  kroki: readonly KrokSpirali[];
+  wariant: WariantSpirali;
+  /** Indeks bieżącego kroku; null albo brak = żaden (plan przed startem). */
+  biezacy?: number | null;
+  /** Postęp bieżącego kroku 0–1. */
+  postepKroku?: number;
+  /** Etykieta VoiceOver z danych planu (src/lib/spirala-etykieta.ts); wariant pusty jej nie ma. */
+  etykieta?: string;
+  rozmiar?: number;
+}
+
+export function Spirala({ kroki, wariant, biezacy = null, postepKroku = 0, etykieta, rozmiar }: SpiralaProps) {
+  const { kolory } = useMotyw();
+  const ograniczRuch = useOgraniczRuch();
+  const bok = useRozmiar(wariant, rozmiar);
+  const dane = wariant === 'pusta' ? SPIRALA_PUSTA : kroki;
+  const uklad = useMemo(() => ukladSpirali(dane, wariant === 'zakwas' ? SPIRALA_ZWOJE.zakwas : SPIRALA_ZWOJE.plan), [dane, wariant]);
+  const r = rysunekSpirali(uklad, dane, { wariant, biezacy, postepKroku });
+
+  // Po „Zrobione”: znacznik przesuwa się z poprzedniego miejsca, zwój bieżący grubieje (ruch.zwoj)
+  const przejscie = useRef(new Animated.Value(1)).current;
+  const poprzedni = useRef<{ biezacy: number | null; x: number; y: number } | null>(null);
+  const start = useRef<{ x: number; y: number } | null>(null);
+  const indeksBiez = wariant === 'plan' || wariant === 'pusta' ? null : biezacy;
+  if (poprzedni.current && indeksBiez !== null && poprzedni.current.biezacy !== null && indeksBiez > poprzedni.current.biezacy) {
+    start.current = { x: poprzedni.current.x, y: poprzedni.current.y };
+  }
+  useEffect(() => {
+    const czas = czasPrzejsciaSpirali(ograniczRuch);
+    if (start.current && czas > 0) {
+      przejscie.setValue(0);
+      Animated.timing(przejscie, { toValue: 1, duration: czas, easing: Easing.out(Easing.ease), useNativeDriver: false }).start();
+    } else {
+      przejscie.setValue(1);
+    }
+    start.current = null;
+  }, [indeksBiez, ograniczRuch, przejscie]);
+  useEffect(() => {
+    poprzedni.current = r.teraz ? { biezacy: indeksBiez, x: r.teraz.x, y: r.teraz.y } : null;
+  });
+
+  const z = start.current ?? r.teraz;
+  const dostepnosc =
+    wariant === 'pusta'
+      ? { accessible: false, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true }
+      : { accessible: true, accessibilityRole: 'image' as const, accessibilityLabel: etykieta };
+
+  return (
+    <View testID="brand-spiral" style={{ width: bok, height: bok }} {...dostepnosc}>
+      <Svg width={bok} height={bok} viewBox={r.viewBox}>
+        {r.odcinki.map((o) => {
+          const wspolne = { testID: `brand-spiral-odcinek-${o.indeks}`, d: o.d, fill: 'none', stroke: kolory[o.kolor], strokeLinecap: 'round' as const };
+          const kreski = o.kreski ?? undefined;
+          if (o.stan === 'biezacy' && start.current) {
+            const w = przejscie.interpolate({ inputRange: [0, 1], outputRange: [SPIRALA_GRUBOSC.przyszly * (o.grubosc / SPIRALA_GRUBOSC.biezacy), o.grubosc] });
+            return <AnimowanaSciezka key={o.indeks} {...wspolne} strokeWidth={w} strokeDasharray={kreski} />;
+          }
+          return <Path key={o.indeks} {...wspolne} strokeWidth={o.grubosc} strokeDasharray={kreski} />;
+        })}
+        {r.postep && (
+          <Path testID="brand-spiral-postep" d={r.postep.d} fill="none" stroke={kolory.tusz} strokeWidth={r.postep.grubosc} strokeLinecap="round" />
+        )}
+        {r.teraz && z && (
+          <AnimowaneKolo
+            testID="brand-spiral-teraz"
+            cx={przejscie.interpolate({ inputRange: [0, 1], outputRange: [z.x, r.teraz.x] })}
+            cy={przejscie.interpolate({ inputRange: [0, 1], outputRange: [z.y, r.teraz.y] })}
+            r={r.teraz.r}
+            fill={kolory.tlo}
+            stroke={kolory.tusz}
+            strokeWidth={r.teraz.obwodka}
+          />
+        )}
+        <Circle cx={r.koniec.x} cy={r.koniec.y} r={r.koniec.r} fill={kolory.tusz} />
+      </Svg>
+    </View>
+  );
+}
+
+/** Legenda tekstem (nic tylko kolorem, §2): zrobione, przed nami, noc w lodówce, skrócone kroki. */
+export function LegendaSpirali({ kroki }: { kroki: readonly KrokSpirali[] }) {
+  const { kolory } = useMotyw();
+  const noc = kroki.filter((k) => k.noc);
+  const skroconaNoc = noc.some((k) => k.bierny && k.minuty !== null && k.minuty > 180);
+  const innySkrocony = kroki.some((k) => !k.noc && k.bierny && k.minuty !== null && k.minuty > 180);
+  const pozycja = (tekst: string, kolor: string, w: number, kreski?: string) => (
+    <View style={styles.pozycja} key={tekst}>
+      <Svg width={22} height={10}>
+        <Line x1={3} y1={5} x2={19} y2={5} stroke={kolor} strokeWidth={w} strokeDasharray={kreski} strokeLinecap="round" />
+      </Svg>
+      <Text style={[styles.tekst, { color: kolory.tusz2 }]}>{tekst}</Text>
+    </View>
+  );
+  return (
+    <View style={styles.legenda}>
+      {pozycja(t('zrobione'), kolory.ratan, 7)}
+      {pozycja(t('przed nami'), kolory.ratanSzary, 3)}
+      {noc.length > 0 && pozycja(skroconaNoc ? t('noc w lodówce (skrócona)') : t('noc w lodówce'), kolory.nocDane, 3, '2 5')}
+      {innySkrocony && pozycja(t('długi krok (skrócony)'), kolory.ratanSzary, 3)}
+    </View>
+  );
+}
+
+/** Spirala trwającego wypieku z kroków sesji (prowadzenie): etykieta z danych planu tego wypieku. */
+export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec }: {
+  steps: readonly SessionStep[];
+  stepIdx: number;
+  /** Pozostały czas kroku (s); null = krok bez minutnika. */
+  pozostaloSec: number | null;
+  /** Pełny czas kroku (s). */
+  pelnySec: number;
+}) {
+  const kroki = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
+  const postep = pozostaloSec !== null && pelnySec > 0 ? 1 - pozostaloSec / pelnySec : 0;
+  const koniec = steps[steps.length - 1]?.plannedEnd ?? null;
+  const etykieta = etykietaPlanuWypieku({
+    krok: stepIdx + 1,
+    liczbaKrokow: steps.length,
+    nazwa: t(steps[stepIdx]?.name ?? ''),
+    pozostaloMin: pozostaloSec === null ? null : Math.ceil(pozostaloSec / 60),
+    gotowe: koniec === null ? null : new Date(koniec),
+    teraz: new Date(),
+  });
+  return (
+    <View style={styles.wypiek}>
+      <Spirala kroki={kroki} wariant="pelna" biezacy={stepIdx} postepKroku={postep} etykieta={etykieta} />
+      <LegendaSpirali kroki={kroki} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  wypiek: { alignItems: 'center', gap: odstepy.s, marginBottom: odstepy.m },
+  legenda: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', columnGap: odstepy.m, rowGap: odstepy.xs },
+  pozycja: { flexDirection: 'row', alignItems: 'center', gap: odstepy.xs },
+  tekst: { fontSize: typografia.style.przypis.pt },
+});

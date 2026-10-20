@@ -123,6 +123,21 @@ describe('StolnicaScreen UI Interactions (app/(tabs)/stolnica.tsx)', () => {
     expect(activeText).not.toContain('Składanie 1 (Stretch & Fold)');
   });
 
+  // Spirala koszyka z planu tego wypieku (design-spec §11b 058) [M1-audytor-generalny-058]
+  it('trwający wypiek pokazuje spiralę brand-spiral z etykietą z danych planu', async () => {
+    await renderScreen();
+    await act(async () => {
+      findButtonByText(tree!.root, 'Zacznij wypiek')?.props.onPress();
+    });
+    const spirale = tree!.root.findAll(
+      (n) => typeof n.type === 'string' && n.props.testID === 'brand-spiral' && n.props.accessibilityRole === 'image',
+    );
+    expect(spirale).toHaveLength(1);
+    expect(spirale[0].props.accessibilityLabel).toMatch(
+      /^Plan wypieku, krok 1 z 11: Dokarmienie zakwasu \(osiągnięcie szczytu\), zostało 6 godzin\. Gotowe .+ o \d\d:\d\d\.$/,
+    );
+  });
+
   it('displays transferred recipe ingredients when active bake was set from Calculator', async () => {
     setActiveBake({
       id: 'bake_test_calc',

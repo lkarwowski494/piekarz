@@ -56,6 +56,7 @@ import { BakeStepsList } from '../../src/components/stolnica/BakeStepsList';
 import { StolnicaSacredCard } from '../../src/components/stolnica/StolnicaSacredCard';
 import { IdleBakeCard } from '../../src/components/stolnica/IdleBakeCard';
 import { StolnicaKeepAwake } from '../../src/components/stolnica/StolnicaKeepAwake';
+import { SpiralaWypieku } from '../../src/components/Spirala';
 import { styles } from '../../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
@@ -410,6 +411,9 @@ export default function StolnicaScreen() {
 
             {/* Active Header & Recipe Badge */}
             <View style={styles.activeCard}>
+              {/* Spirala koszyka z planu tego wypieku (058) */}
+              <SpiralaWypieku steps={steps} stepIdx={currentStepIdx} pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null}
+                pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
               <View style={styles.badgeRow}>
                 <View style={styles.stepBadge}>
                   <Text style={styles.stepBadgeText}>

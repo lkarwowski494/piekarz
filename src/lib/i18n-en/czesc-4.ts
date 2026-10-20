@@ -62,4 +62,28 @@ export const EN_4: Record<string, string> = {
   // Ostrzeżenie RD-05 o wodzie > 45 °C w Kalkulatorze [M1-audytor-generalny-039]
   'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.':
     'Warning: the calculated water temperature exceeds 45°C. Risk of killing the yeast and lactic acid bacteria! Cool the flour or lower the room temperature.',
+  // Spirala koszyka: etykieta VoiceOver i legenda (design-spec §2, §11b 058) [M1-audytor-generalny-058]
+  'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Bake plan, step {n} of {N}: {nazwa}, {czas} left.',
+  'Plan wypieku, krok {n} z {N}: {nazwa}.': 'Bake plan, step {n} of {N}: {nazwa}.',
+  'Gotowe {dzien} o {godzina}.': 'Ready {dzien} at {godzina}.',
+  'Plan wypieku: {n} krok.': 'Bake plan: {n} step.',
+  'Plan wypieku: {n} kroki.': 'Bake plan: {n} steps.',
+  'Plan wypieku: {n} kroków.': 'Bake plan: {n} steps.',
+  'Plan wypieku: {n} kroku.': 'Bake plan: {n} steps.',
+  'Od dokarmienia minęło {czas} z {odstep}.': '{czas} of {odstep} since feeding.',
+  '{godziny} {minuty}': '{godziny} {minuty}',
+  '{n} godzina': '{n} hour',
+  '{n} godziny': '{n} hours',
+  '{n} godzin': '{n} hours',
+  '{n} minuta': '{n} minute',
+  '{n} minuty': '{n} minutes',
+  '{n} minut': '{n} minutes',
+  'dziś': 'today',
+  'jutro': 'tomorrow',
+  'pojutrze': 'the day after tomorrow',
+  'zrobione': 'done',
+  'przed nami': 'ahead',
+  'noc w lodówce': 'overnight in the fridge',
+  'noc w lodówce (skrócona)': 'overnight in the fridge (shortened)',
+  'długi krok (skrócony)': 'long step (shortened)',
 };
