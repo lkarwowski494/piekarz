@@ -340,11 +340,6 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
-  "Bezpieczeństwo": {
-    "gdzie": [
-      "src/components/stolnica/StrefaKroku.tsx (tytul)"
-    ]
-  },
   "Bezpośrednie": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
@@ -1205,6 +1200,11 @@
       "src/core/step-warnings.ts (dane: kod)"
     ]
   },
+  "Dzieci w kuchni": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
   "Dzielenie na porcje (ok. 300g każda) i wstępne formowanie w wałeczki; 15 min odpoczynku.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -1625,6 +1625,11 @@
   "Gorzka czekolada (posiekana)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
+    ]
+  },
+  "Gorące naczynie": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
     ]
   },
   "Gorące placki posmaruj masłem czosnkowym lub oliwą z ziołami.": {
@@ -4942,6 +4947,16 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
+  "Surowe ciasto i mąka": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
+  "Surowy zakwas": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
   "Suszony rozmaryn / oregano / tymianek": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -5552,6 +5567,11 @@
   "Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: kod)"
+    ]
+  },
+  "Uważaj w kuchni": {
+    "gdzie": [
+      "src/core/step-warnings.ts (dane: kod)"
     ]
   },
   "Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.": {

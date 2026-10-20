@@ -86,4 +86,10 @@ export const EN_15: Record<string, string> = {
   '{n} wpisy w Dzienniku': '{n} journal entries',
   '{n} wpisów w Dzienniku': '{n} journal entries',
   '{n} wpisu w Dzienniku': '{n} journal entries',
+  // Tytuł Ostrzeżenia według rodzaju zagrożenia (design-spec §11c „109”) [M1-audytor-generalny-109; 04-studio-projektowe-035]
+  'Gorące naczynie': 'Hot cookware',
+  'Surowy zakwas': 'Raw starter',
+  'Surowe ciasto i mąka': 'Raw dough and flour',
+  'Dzieci w kuchni': 'Children in the kitchen',
+  'Uważaj w kuchni': 'Take care in the kitchen',
 };

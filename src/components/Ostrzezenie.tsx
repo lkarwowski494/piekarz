@@ -12,6 +12,12 @@ import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
 import { useMotyw } from '../ui/motyw';
 
+/** Etykieta VoiceOver „{tytuł}. {zdania}” (§11c „109”); tytuł zakończony znakiem zdania bez dodatkowej kropki. */
+function etykietaOstrzezenia(tytul: string, zdania: readonly string[]): string {
+  if (zdania.length === 0) return tytul;
+  return `${tytul}${/[.!?:]$/.test(tytul) ? '' : '.'} ${zdania.join(' ')}`;
+}
+
 export function Ostrzezenie({
   tytul,
   tekst,
@@ -30,7 +36,7 @@ export function Ostrzezenie({
       testID={testID}
       accessible
       accessibilityRole="alert"
-      accessibilityLabel={[tytul, ...wszystkie].join(' ')}
+      accessibilityLabel={etykietaOstrzezenia(tytul, wszystkie)}
       style={styles.pole}
     >
       <Svg width={30} height={30} viewBox="0 0 24 24" accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">

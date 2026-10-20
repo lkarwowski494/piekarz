@@ -72,6 +72,25 @@ export function stepKindWarnings(kind: string | null | undefined, opts: { during
   return opts.duringBake ? [UNKNOWN_KIND_WARNING, HOT_VESSEL_WARNING] : [UNKNOWN_KIND_WARNING];
 }
 
+/** Tytuły sekcji w kolejności priorytetu (design-spec §11c „109”, decyzja właściciela 3a) [M1-audytor-generalny-109]. */
+const TYTULY_SEKCJI: ReadonlyArray<[readonly StepWarning[], string]> = [
+  [[HOT_VESSEL_WARNING], 'Gorące naczynie'],
+  [STARTER_WARNINGS, 'Surowy zakwas'],
+  [RAW_DOUGH_WARNINGS, 'Surowe ciasto i mąka'],
+  [[CHILDREN_WARNING], 'Dzieci w kuchni'],
+];
+
+/**
+ * Tytuł jednego Ostrzeżenia kroku (klucz PL dla t()): z sekcją „nieznany rodzaj” — „Uważaj w kuchni” (zdanie ogólne
+ * obejmuje resztę), inaczej tytuł sekcji o najwyższym priorytecie; pusta lista = brak tytułu (i brak pola).
+ */
+export function tytulOstrzezen(ostrzezenia: readonly StepWarning[]): string | null {
+  if (ostrzezenia.length === 0) return null;
+  if (ostrzezenia.includes(UNKNOWN_KIND_WARNING)) return 'Uważaj w kuchni';
+  const sekcja = TYTULY_SEKCJI.find(([ws]) => ws.some((x) => ostrzezenia.includes(x)));
+  return sekcja ? sekcja[1] : 'Uważaj w kuchni';
+}
+
 /** Rodzaj kroku sesji: etap żytni po id, krok w garnku po fazie, inaczej kategoria planu. */
 export function stepKindOf(step: Pick<SessionStep, 'id' | 'category'>, phase?: DutchOvenBakePhase): string {
   if (RYE_STAGE_TEMPLATES.some((tp) => tp.id === step.id)) return step.id;

@@ -108,7 +108,7 @@ describe('103: Ostrzeżenie w kroku według rodzaju kroku (BR-ETAP-004)', () => 
     expect(strefa(plan, 5).zdania).toEqual([NIEZNANY]);
   });
 
-  it('prowadzenie: krok dokarmienia zakwasu pokazuje Ostrzeżenie z rolą alert i tytułem', async () => {
+  it('prowadzenie: krok dokarmienia zakwasu pokazuje Ostrzeżenie z rolą alert i tytułem według rodzaju (109)', async () => {
     zUprawnieniem();
     _resetMemStore();
     setActiveBake(null);
@@ -125,7 +125,7 @@ describe('103: Ostrzeżenie w kroku według rodzaju kroku (BR-ETAP-004)', () => 
     expect(alerty).toHaveLength(1);
     const teksty = alerty[0].findAll((x) => typeof x.type === 'string' && x.props.testID === 'step-warning-text').map((x) => x.children.join(''));
     expect(teksty).toEqual(ZAKWAS);
-    expect(alerty[0].findAll((x) => typeof x.type === 'string' && x.props.testID === 'step-warning-title').map((x) => x.children.join(''))).toEqual(['Bezpieczeństwo']);
+    expect(alerty[0].findAll((x) => typeof x.type === 'string' && x.props.testID === 'step-warning-title').map((x) => x.children.join(''))).toEqual(['Surowy zakwas']);
     act(() => tree.unmount());
   });
 });

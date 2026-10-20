@@ -9,8 +9,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 8 | 8 | **100.0%** | ✅ POKRYTE |
 | **UI** | 40 | 40 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 561 | 561 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 363 | 363 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 560 | 560 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 364 | 364 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 153 | 153 | **100.0%** | ✅ POKRYTE |
 
 Łącznie elementów: **1125** | Pokrytych: **1125** | Brakujących: **0**
