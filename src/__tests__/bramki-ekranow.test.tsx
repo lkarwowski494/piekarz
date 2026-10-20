@@ -103,7 +103,9 @@ describe('Without an entitlement every screen opens the purchase screen except h
     }
     // Spiżarnia mąk (F-30) PÓŹNIEJ, wejście ukryte (D-043) [M1-audytor-generalny-097]
     expect(tree.root.findAll((n) => n.props?.testID === 'open-flour-inventory-btn').map((n) => String(n.props.testID))).toEqual([]);
-    for (const id of ['save-custom-recipe-btn', 'open-volume-converter-btn', 'start-bake-btn']) {
+    // Przelicznik objętości (F-45) PÓŹNIEJ, wejście ukryte [M1-audytor-generalny-098]
+    expect(tree.root.findAll((n) => n.props?.testID === 'open-volume-converter-btn').map((n) => String(n.props.testID))).toEqual([]);
+    for (const id of ['save-custom-recipe-btn', 'start-bake-btn']) {
       await act(async () => {
         tree.root.findByType(PaywallModal).props.onClose();
       });

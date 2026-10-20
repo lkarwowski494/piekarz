@@ -54,15 +54,18 @@ export function FormulaPresetSelector({
       <View style={styles.sectionHeaderRow}>
         <Text style={styles.sectionHeading}>{t('Receptury mistrzowskie')}</Text>
         <View style={styles.headerPillsRow}>
-          <Pressable
-            testID="open-volume-converter-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Przelicznik objętości')}
-            style={styles.headerActionPill}
-            onPress={onOpenVolumeConverter}
-          >
-            <Text style={styles.headerActionPillText}>{t('Przelicznik objętości')}</Text>
-          </Pressable>
+          {/* F-45 PÓŹNIEJ: wejście ukryte, moduł przelicznika i testy zostają [M1-audytor-generalny-098] */}
+          {wejscieWidoczne('przelicznik-objetosci') && (
+            <Pressable
+              testID="open-volume-converter-btn"
+              accessibilityRole="button"
+              accessibilityLabel={t('Przelicznik objętości')}
+              style={styles.headerActionPill}
+              onPress={onOpenVolumeConverter}
+            >
+              <Text style={styles.headerActionPillText}>{t('Przelicznik objętości')}</Text>
+            </Pressable>
+          )}
           <Pressable
             testID="open-import-recipe-btn"
             accessibilityRole="button"
