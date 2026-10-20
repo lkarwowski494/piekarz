@@ -8,22 +8,14 @@ export const EN_9: Record<string, string> = {
     'Increase the baking time by 5–8 minutes.',
   'Sprawdź temperaturę wewnętrzną termometrem szpilkowym (docelowo: 95–98°C).':
     'Check the internal temperature with a probe thermometer (target: 95–98°C).',
-  'Niedofermentowanie (Under-proofed / Flying Crust)':
-    'Under-proofing (Under-proofed / Flying Crust)',
   'Wielkie dziury pod górną skórką, a pod nimi ciężki, zbity i wilgotny dół':
     'Huge holes under the top crust, with a heavy, dense and moist bottom beneath them',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.':
     'The yeast did not have time to produce and distribute gas throughout the whole dough before it went into the oven. In the oven the expansion happened abruptly only at the top, tearing the crust.',
   'Wydłuż fermentację burzliwą o 45–60 minut.':
     'Extend the bulk fermentation by 45–60 minutes.',
-  'Upewnij się, że zakwas został użyty w szczycie objętości (Peak).':
-    'Make sure the starter was used at peak volume (Peak).',
   'Zastosuj kalkulator DDT, aby podnieść temperaturę ciasta do 25–26°C.':
     'Use the DDT calculator to raise the dough temperature to 25–26°C.',
-  'Wykonaj test palca (Poke Test) przed włożeniem bochenka do piekarnika.':
-    'Do the poke test (Poke Test) before putting the loaf in the oven.',
-  'Przekwaszenie / Przerośnięcie (Over-proofed)':
-    'Over-souring / Over-proofing (Over-proofed)',
   'Chleb rozlał się na płasko, oklapł po nacięciu żyletką lub ma blady kolor':
     'The bread spread flat, collapsed after scoring with the blade, or has a pale color',
   'Bakterie kwasu mlekowego strawiły siatkę glutenową, a drożdże zużyły cały dostępny cukier. Ciasto straciło sprężystość i nie ma siły utrzymać kształtu w piecu.':
@@ -36,8 +28,6 @@ export const EN_9: Record<string, string> = {
     'Lower the fridge temperature (ideally 3–5°C).',
   'Piecz bochenek wcześniej, gdy ciasto przy próbie palca powoli i sprężyście wraca.':
     'Bake the loaf earlier, when the dough springs back slowly and elastically in the poke test.',
-  'Pęknięcie boku bochenka (Side Blow-out)':
-    'Side of the loaf burst (Side Blow-out)',
   'Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi':
     'The loaf did not open at the score but burst along the bottom edge',
   'Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.':
@@ -48,20 +38,14 @@ export const EN_9: Record<string, string> = {
     'Hold the blade at an acute angle (about 30°) to a depth of 8–10 mm.',
   'Przełóż bochenek szwem do dołu, aby nie pękał od spodu.':
     'Turn the loaf seam side down so it does not burst from the bottom.',
-  'Brak uniesionego ucha (Lack of Ear)':
-    'No raised ear (Lack of Ear)',
   'Nacięcie rozeszło się gładko bez chrupiącego grzebienia':
     'The score opened smoothly without a crisp ridge',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda (brak Surface Tension).':
-    'A vertical cut (90°) instead of an undercut at an angle (30°), or insufficient surface tension when shaping the batard (no Surface Tension).',
   'Pochyl żyletkę pod kątem 30° do powierzchni ciasta (cięcie pod skórkę).':
     'Tilt the blade at 30° to the dough surface (cut under the skin).',
   'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.':
     'Tighten the dough more firmly during final shaping.',
   'Upewnij się, że garnek żeliwny był nagrzewany przez minimum 45 minut w 240°C.':
     'Make sure the cast iron pot was preheated for at least 45 minutes at 240°C.',
-  'Blada skórka bez chrupkości (Pale Crust)':
-    'Pale crust without crispness (Pale Crust)',
   'Brak reakcji Maillarda i karmelizacji cukrów':
     'No Maillard reaction and no caramelization of sugars',
   'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.':
@@ -70,8 +54,6 @@ export const EN_9: Record<string, string> = {
     'Finish baking at a temperature of at least 210–220°C with the lid off.',
   'Skróć czas fermentacji, aby pozostawić cukry resztkowe w cieście.':
     'Shorten the fermentation time to leave residual sugars in the dough.',
-  'Zbyt kwaśny, octowy smak (Excessively Sour)':
-    'Excessively sour, vinegar-like taste (Excessively Sour)',
   'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna':
     'Unpleasant sourness dominating over the aroma of toasted grain',
   'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.':
@@ -80,22 +62,14 @@ export const EN_9: Record<string, string> = {
     'Feed the starter more often (at a ratio of 1:2:2 or 1:3:3) before baking.',
   'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.':
     'Shorten fermentation at low temperature: lower fermentation temperatures have been linked to acetic acid, and longer fermentation to excess organic acids.',
-  'Skróć fermentację burzliwą i pilnuj temperatury ciasta (DDT 24–26°C).':
-    'Shorten the bulk fermentation and watch the dough temperature (DDT 24–26°C).',
-  'Płaski smak bez głębi (Bland Flavor)':
-    'Flat flavor without depth (Bland Flavor)',
   'Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu':
     'The bread tastes bland, like ordinary supermarket wheat bread',
   'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.':
     'Fermentation time too short. Complex aromatic compounds form through slow enzymatic activity and the metabolism of lactic acid bacteria during cold fermentation.',
-  'Wprowadź garowanie chłodnicze w lodówce (Cold Retard, 12–16 godzin w 4°C).':
-    'Introduce a cold proof in the fridge (Cold Retard, 12–16 hours at 4°C).',
   'Zwiększ udział zakwasu w recepturze do 20%.':
     'Increase the share of starter in the recipe to 20%.',
   'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.':
     'Add 10–20% whole grain flour (rye type 2000 or whole wheat) to the recipe.',
-  'Zbity, gęsty miękisz (Dense Crumb)':
-    'Tight, dense crumb (Dense Crumb)',
   'Drobne pory, bochenek ciężki w dłoni':
     'Small pores, the loaf feels heavy in the hand',
   'Zbyt niska hydratacja ciasta (<65%), słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.':
@@ -118,8 +92,6 @@ export const EN_9: Record<string, string> = {
     'Pour 3–4 tablespoons of olive oil into a deep baking pan or a cast iron skillet.',
   'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.':
     'Gently slide the dough into the pan without degassing it too much.',
-  'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia (dimpling).':
-    'Drizzle the top with olive oil and press your fingers into the dough to make the characteristic dimples (dimpling).',
   'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.':
     'Top with rosemary, cherry tomatoes and coarse salt.',
   'Piecz w 220°C przez 25–30 minut do złocistego koloru.':
@@ -130,8 +102,6 @@ export const EN_9: Record<string, string> = {
     'Dough too slack (Tin Rescue)',
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.':
     'The hydration has exceeded the strength of the flour — the dough sticks to your hands and spreads into a puddle.',
-  'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).':
-    'Skip the proofing basket. Use a loaf tin (Tin Loaf).',
   'Chleb foremkowy o wysokiej wilgotności':
     'High-moisture tin loaf',
   'Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.':
@@ -161,8 +131,6 @@ export const EN_9: Record<string, string> = {
     'Take the bowl out before you turn on the oven to preheat: King Arthur Baking warns that this is easy to forget.',
   'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).':
     'Alternatively: set the bowl over a pot of lukewarm water (water bath ~30°C).',
-  'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.':
-    'Do one extra gentle fold (Coil Fold) to distribute the heat.',
   'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.':
     'Monitor the volume — at 27°C the yeast and bacteria will regain their vigor within 60–90 minutes.',
   'Aktywność metaboliczna drożdży Saccharomyces cerevisiae i bakterii Lactobacillus podwaja się między 18°C a 26°C wg kinetyki reakcji biochemicznych Arrheniusa.':

@@ -215,7 +215,7 @@ describe('Stolnica z receptury i planu (030)', () => {
       entries()[0].props.onPress();
     });
     const text = textOf(stol.toJSON());
-    expect(text).toContain('Test palca (Poke Test)');
+    expect(text).toContain('Test palca');
     expect(text).toContain('Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia');
     // Następny krok (nagrzewanie i pieczenie) już bez wejścia
     await act(async () => {

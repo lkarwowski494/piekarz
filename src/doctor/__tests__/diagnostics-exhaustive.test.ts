@@ -159,7 +159,7 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
     it('under-proofed defect explains gas distribution and provides Poke Test advice', () => {
       const result = diagnoseBreadDefect({ crumbHasHugeTopHolesWithDenseBottom: true });
       expect(result.biologicalCausePl).toContain('Drożdże');
-      expect(result.actionChecklistPl.some((a) => a.includes('Poke Test'))).toBe(true);
+      expect(result.actionChecklistPl.some((a) => a.includes('test palca'))).toBe(true);
       expect(result.actionChecklistPl.some((a) => a.includes('DDT'))).toBe(true);
     });
 

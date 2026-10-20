@@ -34,7 +34,7 @@ export const DIAGNOSTIC_PRESETS: DiagnosticPreset[] = [
   },
   {
     id: 'preset_blowout',
-    name: 'Pęknięty bok (Blowout)',
+    name: 'Pęknięty bok',
     symptoms: { loafBurstAtBottomSide: true },
   },
   {
@@ -221,7 +221,7 @@ export function SymptomSelectorSection({
               symptoms.loafBurstAtBottomSide && styles.symptomChipTextActive,
             ]}
           >
-            {t('Rozerwanie boku przy spodzie (Blowout)')}
+            {t('Rozerwanie boku przy spodzie')}
           </Text>
         </Pressable>
 

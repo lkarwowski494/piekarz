@@ -57,6 +57,6 @@ describe('Piekarz „Doktor Chleba” Diagnostics Engine (BR-DIAG-001…004)', (
 
     expect(result.defectCode).toBe('BLAND_FLAVOR');
     expect(result.titlePl).toContain('Płaski smak');
-    expect(result.actionChecklistPl.some((a) => a.includes('Cold Retard'))).toBe(true);
+    expect(result.actionChecklistPl.some((a) => a.includes('garowanie chłodnicze w lodówce'))).toBe(true);
   });
 });

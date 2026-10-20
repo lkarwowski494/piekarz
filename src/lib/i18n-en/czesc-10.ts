@@ -16,8 +16,6 @@ export const EN_10: Record<string, string> = {
     'Fold the dough into an envelope (like a letter) and press it in with your fingertips.',
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.':
     'Let it rest for 20 minutes before the next standard fold.',
-  'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu (bassinage) pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.':
-    'Dry salt draws water out locally by osmosis and forms lumps. Adding it as a solution (bassinage) lets the Na+ and Cl- ions immediately tighten the gluten bonds throughout the dough.',
   'Chrupiące krakersy ziołowe z solą morską':
     'Crispy herb crackers with sea salt',
   '1 duża blacha piekarnicza (~50 szt.)':

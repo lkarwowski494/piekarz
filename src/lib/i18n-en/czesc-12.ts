@@ -84,6 +84,8 @@ export const EN_12: Record<string, string> = {
     'Autolyse (flour + water)',
   'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.':
     'Combine the flour and water until moistened. Cover and set aside for spontaneous gluten development.',
+  // Stare nazwy i instrukcje kroków (z wstawką) tylko dla wypieków zapisanych przed 112; nowe klucze: część 15
+  // [M1-audytor-generalny-112; 04-studio-projektowe-027]
   'Wymieszanie z solą i zakwasem (Bassinage)':
     'Mixing in salt and starter (Bassinage)',
   // Dwa ostatnie zdania: BEZ-SUR-001, BEZ-SUR-002, dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]

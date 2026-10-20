@@ -29,7 +29,7 @@ export const DUTCH_OVEN_PHASES: Record<DutchOvenBakePhase, DutchOvenPhaseConfig>
     namePl: 'Faza 1: Pod pokrywką (Para)',
     durationMin: 20,
     temperatureC: 240,
-    descriptionPl: 'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu (Oven Spring).',
+    descriptionPl: 'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.',
     tipPl: 'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).',
   },
   lid_off: {

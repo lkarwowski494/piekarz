@@ -25,8 +25,6 @@ export const EN_7: Record<string, string> = {
     'Openness',
   'Karmelizacja':
     'Caramelization',
-  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu (Oven Spring).':
-    'Lid CLOSED. Maximum steam and expansion in the oven (Oven Spring).',
   'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).':
     'High humidity delays crust hardening, allowing the score (ear) to open as much as possible.',
   'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.':

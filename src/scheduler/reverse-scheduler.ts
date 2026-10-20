@@ -101,7 +101,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
   },
   {
     id: 'mix',
-    namePl: 'Wymieszanie z solą i zakwasem (Bassinage)',
+    namePl: 'Wymieszanie z solą i zakwasem',
     category: 'mix',
     durationMinutes: 15,
     isPassive: false,
@@ -117,11 +117,11 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     durationMinutes: 240, // 4h
     isPassive: false,
     canStretch: false,
-    instructionsPl: 'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.',
+    instructionsPl: 'Wykonaj 4 serie składań co 30–45 minut.',
   },
   {
     id: 'pre_shape',
-    namePl: 'Formowanie wstępne (Pre-shape)',
+    namePl: 'Formowanie wstępne',
     category: 'pre_shape',
     durationMinutes: 10,
     isPassive: false,
@@ -130,7 +130,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
   },
   {
     id: 'bench_rest',
-    namePl: 'Odpoczynek na desce (Bench Rest)',
+    namePl: 'Odpoczynek na desce',
     category: 'bench_rest',
     durationMinutes: 20,
     isPassive: true,
@@ -148,7 +148,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
   },
   {
     id: 'final_proof',
-    namePl: 'Garowanie chłodnicze w lodówce (Cold Retard)',
+    namePl: 'Garowanie chłodnicze w lodówce',
     category: 'final_proof',
     durationMinutes: 840, // 14h
     isPassive: true,
@@ -281,7 +281,7 @@ export function calculateReverseSchedule(
   let suggestion: string | undefined;
   if (hasCollision) {
     suggestion =
-      'Sugerowana korekta: wydłuż czas garowania w lodówce (Cold Retard) o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.';
+      'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.';
   }
 
   return {

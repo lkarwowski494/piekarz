@@ -385,7 +385,7 @@
       "src/core/flour-equivalents.ts (dane: bestForPl)"
     ]
   },
-  "Blada skórka bez chrupkości (Pale Crust)": {
+  "Blada skórka bez chrupkości": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -438,7 +438,7 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Brak uniesionego ucha (Lack of Ear)": {
+  "Brak uniesionego ucha": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -672,7 +672,7 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: proTipsPl)"
     ]
   },
-  "Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda (brak Surface Tension).": {
+  "Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
@@ -934,7 +934,7 @@
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
     ]
   },
-  "Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.": {
+  "Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
@@ -1507,10 +1507,14 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Formowanie wstępne": {
+    "gdzie": [
+      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+    ]
+  },
   "Formowanie wstępne (Pre-shape)": {
     "gdzie": [
-      "src/core/legacy-steps-v1.ts (dane: kod)",
-      "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Formowanie wstępne (Pre-shape) i Bench Rest": {
@@ -1546,10 +1550,13 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
-  "Garowanie chłodnicze w lodówce (Cold Retard)": {
+  "Garowanie chłodnicze w lodówce": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
+  },
+  "Garowanie chłodnicze w lodówce (Cold Retard)": {
+    "gdzie": []
   },
   "Garuj w koszyku ok. 2–2,5h lub wstaw na noc do lodówki (4°C).": {
     "gdzie": [
@@ -1641,7 +1648,7 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Gumowaty, lepki miękisz (Gummy Crumb)": {
+  "Gumowaty, lepki miękisz": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -3005,7 +3012,7 @@
       "src/components/ui.tsx (kod)"
     ]
   },
-  "Niedofermentowanie (Under-proofed / Flying Crust)": {
+  "Niedofermentowanie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -3273,10 +3280,13 @@
       "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
     ]
   },
-  "Odpoczynek na desce (Bench Rest)": {
+  "Odpoczynek na desce": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
+  },
+  "Odpoczynek na desce (Bench Rest)": {
+    "gdzie": []
   },
   "Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.": {
     "gdzie": [
@@ -3775,7 +3785,7 @@
       "src/core/po-co-ten-krok.ts (dane: cool)"
     ]
   },
-  "Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu (Oven Spring).": {
+  "Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
@@ -3785,7 +3795,7 @@
       "src/core/baking-phases.ts (dane: descriptionPl)"
     ]
   },
-  "Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia (dimpling).": {
+  "Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
@@ -4025,7 +4035,7 @@
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
-  "Przekwaszenie / Przerośnięcie (Over-proofed)": {
+  "Przekwaszenie / Przerośnięcie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -4274,12 +4284,12 @@
       "src/core/starter-converter.ts (dane: namePl)"
     ]
   },
-  "Pęknięcie boku bochenka (Side Blow-out)": {
+  "Pęknięcie boku bochenka": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
   },
-  "Płaski smak bez głębi (Bland Flavor)": {
+  "Płaski smak bez głębi": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -4370,7 +4380,7 @@
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
-  "Rozerwanie boku przy spodzie (Blowout)": {
+  "Rozerwanie boku przy spodzie": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
     ]
@@ -4612,7 +4622,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Skróć fermentację burzliwą i pilnuj temperatury ciasta (DDT 24–26°C).": {
+  "Skróć fermentację burzliwą i pilnuj temperatury ciasta (24–26°C).": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -4843,7 +4853,7 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
-  "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu (bassinage) pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
+  "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
     ]
@@ -4853,7 +4863,7 @@
       "src/core/bake-loss.ts (dane: kod)"
     ]
   },
-  "Sugerowana korekta: wydłuż czas garowania w lodówce (Cold Retard) o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
+  "Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: kod)"
     ]
@@ -5136,7 +5146,7 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
-  "Test palca (Poke Test)": {
+  "Test palca": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
@@ -5363,7 +5373,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Upewnij się, że zakwas został użyty w szczycie objętości (Peak).": {
+  "Upewnij się, że zakwas został użyty w szczycie objętości.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -5937,7 +5947,7 @@
       "src/components/stolnica/FinishBakeModal.tsx (placeholder)"
     ]
   },
-  "Wprowadź garowanie chłodnicze w lodówce (Cold Retard, 12–16 godzin w 4°C).": {
+  "Wprowadź garowanie chłodnicze w lodówce (12–16 godzin w 4°C).": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -6166,6 +6176,9 @@
     ]
   },
   "Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.": {
+    "gdzie": []
+  },
+  "Wykonaj 4 serie składań co 30–45 minut.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
     ]
@@ -6180,7 +6193,7 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
-  "Wykonaj test palca (Poke Test) przed włożeniem bochenka do piekarnika.": {
+  "Wykonaj test palca przed włożeniem bochenka do piekarnika.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -6259,10 +6272,13 @@
       "src/core/starter-converter.ts (dane: kod)"
     ]
   },
-  "Wymieszanie z solą i zakwasem (Bassinage)": {
+  "Wymieszanie z solą i zakwasem": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
+  },
+  "Wymieszanie z solą i zakwasem (Bassinage)": {
+    "gdzie": []
   },
   "Wynik przeliczenia": {
     "gdzie": [
@@ -6914,7 +6930,7 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
-  "Zbity, gęsty miękisz (Dense Crumb)": {
+  "Zbity, gęsty miękisz": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
@@ -6947,11 +6963,6 @@
   "Zbyt kwaśny, octowy smak": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
-    ]
-  },
-  "Zbyt kwaśny, octowy smak (Excessively Sour)": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: titlePl)"
     ]
   },
   "Zbyt luźne ciasto (Ratunek w Foremce)": {
@@ -7133,7 +7144,7 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
-  "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).": {
+  "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
     ]

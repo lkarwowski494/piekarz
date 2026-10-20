@@ -46,7 +46,7 @@ const PARY: [string, string][] = [
   ['gru', 'Dec'],
   ['Klasyczny chleb rzemieślniczy', 'Classic artisan bread'],
   ['Etap "{etap}" wypada w nocy o {godzina}', 'Stage "{etap}" falls during the night at {godzina}'],
-  ['Sugerowana korekta: wydłuż czas garowania w lodówce (Cold Retard) o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.', 'Suggested fix: extend the fridge proof (Cold Retard) by 2–4 hours or move the starter feeding time to avoid hands-on stages at night.'],
+  ['Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.', 'Suggested fix: extend the fridge proof (Cold Retard) by 2–4 hours or move the starter feeding time to avoid hands-on stages at night.'],
   ['Dobierz proporcje i potrzebną masę zaczynu do wypieku', 'Choose the ratio and the amount of levain you need for the bake'],
   ['1:1:1 (Szybki 3-4h)', '1:1:1 (Quick 3-4h)'],
   ['1:2:2 (Klasyk 6-8h)', '1:2:2 (Classic 6-8h)'],

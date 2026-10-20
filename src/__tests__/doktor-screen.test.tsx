@@ -67,7 +67,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
 
     // Tytuł 
     // Default under-proofed diagnosis
-    expect(allText).toContain('Niedofermentowanie (Under-proofed / Flying Crust)');
+    expect(allText).toContain('Niedofermentowanie');
     expect(allText).toContain('Przyczyna biologiczno-chemiczna:');
     expect(allText).toContain('Co zrobić przy następnym wypieku:');
     expect(allText).toContain('Wydłuż fermentację burzliwą');
@@ -90,7 +90,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const allText = extractCleanText(root);
-    expect(allText).toContain('Przekwaszenie / Przerośnięcie (Over-proofed)');
+    expect(allText).toContain('Przekwaszenie / Przerośnięcie');
     expect(allText).toContain('Bakterie kwasu mlekowego strawiły siatkę glutenową');
   });
 
@@ -110,7 +110,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const allText = extractCleanText(root);
-    expect(allText).toContain('Gumowaty, lepki miękisz (Gummy Crumb)');
+    expect(allText).toContain('Gumowaty, lepki miękisz');
 
     // Navigation button to Stolnica
     const navBtn = findButtonByText(root, 'Przejdź do Stolnicy');
@@ -142,7 +142,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     let allText = extractCleanText(root);
-    expect(allText).toContain('Zbyt kwaśny, octowy smak (Excessively Sour)');
+    expect(allText).toContain('Zbyt kwaśny, octowy smak');
     expect(allText).toContain('Acetobacter');
 
     // Test bland preset
@@ -155,7 +155,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     allText = extractCleanText(root);
-    expect(allText).toContain('Płaski smak bez głębi (Bland Flavor)');
+    expect(allText).toContain('Płaski smak bez głębi');
   });
 
   it('clears all symptoms and displays empty selection prompt', async () => {
@@ -187,7 +187,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     const root = tree!.root;
 
     // Expand Poke Test
-    const pokeTestCard = findButtonByText(root, 'Test palca (Poke Test)');
+    const pokeTestCard = findButtonByText(root, 'Test palca');
     expect(pokeTestCard).toBeDefined();
 
     await act(async () => {

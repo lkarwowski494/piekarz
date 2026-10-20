@@ -52,7 +52,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.cutImmediatelyWhileSteamingHot || symptoms.crumbIsWetGummyToKnife) {
     return {
       defectCode: 'GUMMY_CRUMB',
-      titlePl: 'Gumowaty, lepki miękisz (Gummy Crumb)',
+      titlePl: 'Gumowaty, lepki miękisz',
       subtitlePl: 'Miękisz maże się na nożu i wygląda na niedopieczony',
       biologicalCausePl:
         'Krojenie gorącego chleba niszczy strukturę skrobi, która potrzebuje ostygnięcia do min. 50°C, aby dokończyć proces żelowania. Inną przyczyną może być zbyt niska temperatura wewnątrz bochenka (<94°C).',
@@ -69,15 +69,15 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.crumbHasHugeTopHolesWithDenseBottom) {
     return {
       defectCode: 'UNDER_PROOFED',
-      titlePl: 'Niedofermentowanie (Under-proofed / Flying Crust)',
+      titlePl: 'Niedofermentowanie',
       subtitlePl: 'Wielkie dziury pod górną skórką, a pod nimi ciężki, zbity i wilgotny dół',
       biologicalCausePl:
         'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.',
       actionChecklistPl: [
         'Wydłuż fermentację burzliwą o 45–60 minut.',
-        'Upewnij się, że zakwas został użyty w szczycie objętości (Peak).',
+        'Upewnij się, że zakwas został użyty w szczycie objętości.',
         'Zastosuj kalkulator DDT, aby podnieść temperaturę ciasta do 25–26°C.',
-        'Wykonaj test palca (Poke Test) przed włożeniem bochenka do piekarnika.',
+        'Wykonaj test palca przed włożeniem bochenka do piekarnika.',
       ],
       severity: 'critical',
     };
@@ -87,7 +87,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.loafCollapsedAfterScoring || symptoms.loafIsFlatLikeDisk || symptoms.crumbHasSmallUniformFoamLikeHoles) {
     return {
       defectCode: 'OVER_PROOFED',
-      titlePl: 'Przekwaszenie / Przerośnięcie (Over-proofed)',
+      titlePl: 'Przekwaszenie / Przerośnięcie',
       subtitlePl: 'Chleb rozlał się na płasko, oklapł po nacięciu żyletką lub ma blady kolor',
       biologicalCausePl:
         'Bakterie kwasu mlekowego strawiły siatkę glutenową, a drożdże zużyły cały dostępny cukier. Ciasto straciło sprężystość i nie ma siły utrzymać kształtu w piecu.',
@@ -105,7 +105,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.loafBurstAtBottomSide) {
     return {
       defectCode: 'SIDE_BLOWOUT',
-      titlePl: 'Pęknięcie boku bochenka (Side Blow-out)',
+      titlePl: 'Pęknięcie boku bochenka',
       subtitlePl: 'Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi',
       biologicalCausePl:
         'Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.',
@@ -122,10 +122,10 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.crustLacksEarCutDidNotOpen) {
     return {
       defectCode: 'LACK_OF_EAR',
-      titlePl: 'Brak uniesionego ucha (Lack of Ear)',
+      titlePl: 'Brak uniesionego ucha',
       subtitlePl: 'Nacięcie rozeszło się gładko bez chrupiącego grzebienia',
       biologicalCausePl:
-        'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda (brak Surface Tension).',
+        'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.',
       actionChecklistPl: [
         'Pochyl żyletkę pod kątem 30° do powierzchni ciasta (cięcie pod skórkę).',
         'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.',
@@ -139,7 +139,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.crustIsPaleLackColor) {
     return {
       defectCode: 'PALE_CRUST',
-      titlePl: 'Blada skórka bez chrupkości (Pale Crust)',
+      titlePl: 'Blada skórka bez chrupkości',
       subtitlePl: 'Brak reakcji Maillarda i karmelizacji cukrów',
       biologicalCausePl:
         'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.',
@@ -155,14 +155,14 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.breadIsExcessivelySour) {
     return {
       defectCode: 'EXCESSIVELY_SOUR',
-      titlePl: 'Zbyt kwaśny, octowy smak (Excessively Sour)',
+      titlePl: 'Zbyt kwaśny, octowy smak',
       subtitlePl: 'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna',
       biologicalCausePl:
         'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.',
       actionChecklistPl: [
         'Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.',
         'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.',
-        'Skróć fermentację burzliwą i pilnuj temperatury ciasta (DDT 24–26°C).',
+        'Skróć fermentację burzliwą i pilnuj temperatury ciasta (24–26°C).',
       ],
       severity: 'moderate',
     };
@@ -172,12 +172,12 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   if (symptoms.breadIsBlandNoFlavor) {
     return {
       defectCode: 'BLAND_FLAVOR',
-      titlePl: 'Płaski smak bez głębi (Bland Flavor)',
+      titlePl: 'Płaski smak bez głębi',
       subtitlePl: 'Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu',
       biologicalCausePl:
         'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.',
       actionChecklistPl: [
-        'Wprowadź garowanie chłodnicze w lodówce (Cold Retard, 12–16 godzin w 4°C).',
+        'Wprowadź garowanie chłodnicze w lodówce (12–16 godzin w 4°C).',
         'Zwiększ udział zakwasu w recepturze do 20%.',
         'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.',
       ],
@@ -188,7 +188,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
   // Default: Dense crumb
   return {
     defectCode: 'DENSE_CRUMB',
-    titlePl: 'Zbity, gęsty miękisz (Dense Crumb)',
+    titlePl: 'Zbity, gęsty miękisz',
     subtitlePl: 'Drobne pory, bochenek ciężki w dłoni',
     biologicalCausePl:
       'Zbyt niska hydratacja ciasta (<65%), słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.',

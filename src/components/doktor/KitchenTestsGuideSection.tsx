@@ -24,7 +24,7 @@ export function KitchenTestsGuideSection() {
         onPress={() => setShowPokeTest((prev) => !prev)}
       >
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test palca (Poke Test)')}</Text>
+          <Text style={styles.guideTitle}>{t('Test palca')}</Text>
           <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>

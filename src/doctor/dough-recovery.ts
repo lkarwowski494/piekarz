@@ -31,7 +31,7 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
     stepByStepPl: [
       'Wlej 3–4 łyżki oliwy z oliwek na głęboką blachę do pieczenia lub żeliwną patelnię.',
       'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.',
-      'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia (dimpling).',
+      'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.',
       'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.',
       'Piecz w 220°C przez 25–30 minut do złocistego koloru.',
     ],
@@ -42,7 +42,7 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
     id: 'SLACK_HIGH_HYDRATION',
     titlePl: 'Zbyt luźne ciasto (Ratunek w Foremce)',
     triggerSummaryPl: 'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.',
-    immediateActionPl: 'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).',
+    immediateActionPl: 'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.',
     pivotRecipeNamePl: 'Chleb foremkowy o wysokiej wilgotności',
     stepByStepPl: [
       'Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.',
@@ -66,7 +66,7 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
       // [M1-audytor-generalny-069; 06-tresci-012]
       'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.',
       'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).',
-      'Dodaj jedno dodatkowe delikatne złożenie (Coil Fold), aby rozprowadzić ciepło.',
+      'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.',
       'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.',
     ],
     scientificReasoningPl:
@@ -86,7 +86,7 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
       'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.',
     ],
     scientificReasoningPl:
-      'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu (bassinage) pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.',
+      'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.',
   },
 ];
 

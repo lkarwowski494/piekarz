@@ -132,8 +132,6 @@ export const EN_8: Record<string, string> = {
     'Wrapping warm bread in plastic wrap or a tea towel.',
   'Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.':
     'Patience is the last ingredient of good bread: the crumb cuts cleanly without dirtying the knife only once the temperature drops to room temperature.',
-  'Gumowaty, lepki miękisz (Gummy Crumb)':
-    'Gummy, sticky crumb (Gummy Crumb)',
   'Miękisz maże się na nożu i wygląda na niedopieczony':
     'The crumb smears on the knife and looks underbaked',
   'Krojenie gorącego chleba niszczy strukturę skrobi, która potrzebuje ostygnięcia do min. 50°C, aby dokończyć proces żelowania. Inną przyczyną może być zbyt niska temperatura wewnątrz bochenka (<94°C).':
