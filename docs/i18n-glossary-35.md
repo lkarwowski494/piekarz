@@ -4,6 +4,7 @@
 > **Aplikacja:** Piekarz (Crust)  
 > **Data:** 18.10.2026  
 > **Zakres:** 20 fundamentalnych pojęć rzemieślniczych chleba na zakwasie w 35 językach świata  
+> **Stan 2026-10-21 (przekład 093, partia 7) [M1-audytor-generalny-093]:** języki w wydaniu = lista Treningu z rejestru `docs/lokalizacja/jezyki.md`. Kolumny `zh` (uproszczony), `ar`, `he`, `th`, `hi` są poza wydaniem; `no` = `nb` (bokmål), `zh-TW` = `zh-Hant`. Kolumny `ru`, `sl`, `sr`, `es-419`, `pt-BR`: sekcja 4a (baza terminów przekładu M1). Poprawki 2026-10-21: DE 6 „Vorformen (Rundwirken)” (było „Rundwirken (Vormengen)”; Vormengen = wstępne mieszanie), DE 18 „Hydration (Wasseranteil)” (było „Teigausbeute / Hydratation”; Teigausbeute TA = 100 + hydratacja %, inna miara: hydratacja 75% to TA 175), NL 11 „Insnijden” (było „Inkeriven”, takiego słowa nie ma). Do przeglądu natywnego: DE 8 „Schluss formen” (przekład używa „Endformen (Wirken)”).  
 
 ---
 
@@ -49,7 +50,7 @@ Niniejszy glosariusz stanowi **jednolite źródło prawdy (Single Source of Trut
 | **3** | Bassinage | Bassinage | Bassinage (Nachgießen) | Bassinage | Bassinage (Acqua ritardata) | Bassinage (Agua retenida) | Bassinage (Água retida) | バシナージュ (注水) |
 | **4** | Fermentacja burzliwa | Bulk fermentation | Stockgare | Fermentation en masse (Pointage) | Puntata (Prima lievitazione) | Fermentación en bloque | Fermentação em bloco | 一次発酵 (バルク発酵) |
 | **5** | Składanie ciasta | Coil fold / Stretch & fold | Dehnen und Falten | Rabats (Étirements) | Pieghe di rinforzo | Pliegues (Stretch & fold) | Dobras de reforço | パンチ / 折りたたみ |
-| **6** | Formowanie wstępne | Pre-shape | Rundwirken (Vormengen) | Boulage (Préfaçonnage) | Pre-formatura | Pre-formado | Pré-modelagem | 予備成形 (丸め) |
+| **6** | Formowanie wstępne | Pre-shape | Vorformen (Rundwirken) | Boulage (Préfaçonnage) | Pre-formatura | Pre-formado | Pré-modelagem | 予備成形 (丸め) |
 | **7** | Odpoczynek na desce | Bench rest | Entspannungsphase | Détente sur planche | Riposo sul banco | Reposo en mesa | Descanso de bancada | ベンチタイム |
 | **8** | Formowanie ostateczne | Final shape | Schluss formen (Wirken) | Façonnage définitif | Formatura finale | Formado definitivo | Modelagem final | 最終成形 |
 | **9** | Koszyk rozrostowy | Banneton / Proofing basket | Gärkörbchen | Banneton | Cestino di lievitazione | Cesta de fermentación (Banneton) | Cesto de fermentação (Banneton) | 発酵カゴ (バネトン) |
@@ -61,7 +62,7 @@ Niniejszy glosariusz stanowi **jednolite źródło prawdy (Single Source of Trut
 | **15**| Studzenie na kratce | Cooling rack | Auskühlen auf dem Gitter | Refroidissement sur grille | Raffreddamento su griglia | Enfriamiento en rejilla | Resfriamento em grade | 網での冷却 |
 | **16**| Procent piekarski | Baker's percentage | Bäckerprozente | Pourcentage boulanger | Percentuale del fornaio | Porcentaje del panadero | Porcentagem do padeiro | ベーカーズパーセント |
 | **17**| Pożądana temp. ciasta (DDT)| Desired Dough Temp (DDT)| Gewünschte Teigtemperatur | Température de pâte désirée | Temperatura desiderata dell'impasto | Temperatura deseada de la masa | Temperatura desejada da massa | 捏ね上げ目標温度 (DDT) |
-| **18**| Hydratacja | Total hydration | Teigausbeute / Hydratation | Hydratation totale | Idratazione totale | Hidratación total | Hidratação total | 加水率 (吸水率) |
+| **18**| Hydratacja | Total hydration | Hydration (Wasseranteil) | Hydratation totale | Idratazione totale | Hidratación total | Hidratação total | 加水率 (吸水率) |
 | **19**| Struktura miękiszu | Open crumb | Offene Porung | Mie alvéolée | Alveolatura aperta | Miga abierta y alveolada | Miolo aberto (Alvéolos) | オープンクラム (気泡構造) |
 | **20**| Reakcja Maillarda | Maillard reaction | Maillard-Reaktion | Réaction de Maillard | Reazione di Maillard | Reacción de Maillard | Reação de Maillard | メイラード反応 |
 
@@ -81,7 +82,7 @@ Niniejszy glosariusz stanowi **jednolite źródło prawdy (Single Source of Trut
 | **8** | Formowanie ostateczne | Slutlig formning | Endelig formning | Endelig forming | Lopullinen muotoilu | Opbollen / Eindvormen | Konečné tvarování |
 | **9** | Koszyk rozrostowy | Jäskorg | Hævekurv | Hevekurv | Kohotuskori | Rijsmandje | Ošatka |
 | **10**| Garowanie na zimno | Kalljäsning | Koldhævning | Kaldheving | Kylmälepo | Koude rijs | Kynutí v chladu |
-| **11**| Nacinanie | Snittning | Snitning | Snitting | Viiltäminen | Inkeriven | Nařezávání |
+| **11**| Nacinanie | Snittning | Snitning | Snitting | Viiltäminen | Insnijden | Nařezávání |
 | **12**| Ucho bochenka | Brödöra | Brødøre | Brødøre | Leivän korva | Korstoor | Kůrkové ucho |
 | **13**| Pieczenie w garnku z parą| Grytgräddning med ånga| Grydebagning med damp| Grytebaking med damp | Valurautapatahöyrypaisto | Bakken in gietijzeren pan | Pečení v litině s párou |
 | **14**| Dopiekanie bez pokrywy | Grädda utan lock | Bagning uden låg | Steking uten lokk | Paisto ilman kantta | Afbakken zonder deksel | Dopékání bez poklopu |
@@ -119,6 +120,35 @@ Niniejszy glosariusz stanowi **jednolite źródło prawdy (Single Source of Trut
 
 ---
 
+## 4a. Języki listy Treningu bez kolumny wyżej (baza terminów przekładu 093, MT claude-opus-5-5, 2026-10-20)
+
+Terminy, które przekład M1 ustalił jako wiążące dla języka (`languages/<kod>.json` → `baza`, narzędzie poza repo); przegląd natywny: później (DEC-06). `es-419` i `pt-BR` różnią się od kolumn `es` i `pt` tam, gdzie region ma własne słowo.
+
+| Nr | Pojęcie (PL) | Русский (`ru`) | Slovenščina (`sl`) | Српски (`sr`) | Español LatAm (`es-419`) | Português BR (`pt-BR`) |
+| :---: | :--- | :--- | :--- | :--- | :--- | :--- |
+| **1** | Zakwas | Закваска | Kvas (starter / levain) | Стартер | Masa madre | Fermento natural |
+| **2** | Autoliza | Автолиз | Avtoliza | Аутолиза | Autólisis | Autólise |
+| **3** | Bassinage | Бассинаж | Bassinage (naknadna voda) | Басинаж | Bassinage (agua retenida) | Bassinage (água retida) |
+| **4** | Fermentacja burzliwa | Основное брожение | Prvo vzhajanje | Прва ферментација | Fermentación en bloque | Fermentação em bloco |
+| **5** | Składanie ciasta | Складывание | Raztezanje in prepogibanje | Пресавијање теста | Pliegues (stretch & fold) | Dobras |
+| **6** | Formowanie wstępne | Предформовка | Predoblikovanje | Предобликовање | Preformado | Pré-modelagem |
+| **7** | Odpoczynek na desce | Отлёжка | Počitek na pultu | Одмор теста | Reposo en mesa | Descanso de bancada |
+| **8** | Formowanie ostateczne | Формовка | Končno oblikovanje | Коначно обликовање | Formado definitivo | Modelagem final |
+| **9** | Koszyk rozrostowy | Расстоечная корзина | Košarica za vzhajanje | Корпа за нарастање | Canasta de fermentación (banneton) | Cesto de fermentação (banneton) |
+| **10**| Garowanie na zimno | Холодная расстойка | Hladno vzhajanje | Хладна ферментација | Fermentación en frío | Fermentação a frio |
+| **11**| Nacinanie | Надрезы | Zarezovanje | Засецање | Greñado (corte) | Corte (lâmina) |
+| **12**| Ucho bochenka | Ушко | Uho hlebca | Уво векне | Oreja | Orelha do pão |
+| **13**| Pieczenie w garnku z parą | Выпечка под крышкой | Peka v loncu s paro | Печење у лонцу са паром | Horneado en olla de hierro fundido con vapor | Assar na panela com vapor |
+| **14**| Dopiekanie bez pokrywy | Допекание без крышки | Peka brez pokrovke | Печење без поклопца | Horneado sin tapa | Douramento sem tampa |
+| **15**| Studzenie na kratce | Остывание на решётке | Ohlajanje na rešetki | Хлађење на решетки | Enfriamiento en rejilla | Resfriamento na grade |
+| **16**| Procent piekarski | Пекарский процент | Pekovski odstotek | Пекарски проценат | Porcentaje del panadero | Porcentagem do padeiro |
+| **17**| Pożądana temp. ciasta | Целевая температура теста | Želena temperatura testa | Жељена температура теста | Temperatura deseada de la masa | Temperatura desejada da massa |
+| **18**| Hydratacja | Гидратация | Hidracija | Хидратација | Hidratación | Hidratação |
+| **19**| Struktura miękiszu | Структура мякиша | Struktura sredice | Структура средине | Miga abierta | Estrutura do miolo |
+| **20**| Reakcja Maillarda | Реакция Майяра | Maillardova reakcija | Мајарова реакција | Reacción de Maillard | Reação de Maillard |
+
+---
+
 ## 5. Tier 3: Globalne Rynki Rzemieślnicze & Wschodzące (15 Języków)
 
 ### Grupa Azjatycka & Bliskowschodni (RTL)
@@ -143,5 +173,5 @@ Niniejszy glosariusz stanowi **jednolite źródło prawdy (Single Source of Trut
 ## 6. Wnioski i Zasady Implementacji
 
 1. **Rygor ortograficzny:** Bezwzględny zakaz anglicyzmów w językach posiadających ugruntowaną terminologię cechową (np. *Anstellgut* w DE, *Lievito madre* w IT, *Ošatka* w CS/SK, *Banneton* w FR).
-2. **Kierunek tekstu (RTL):** Języki `ar` (Arabski) i `he` (Hebrajski) wymagają flagi `isRtl: true` w metadanych lokalizacji.
-3. **Pluralizacja:** Zróżnicowane reguły liczebników muszą być mapowane w module `src/lib/i18n-locales.ts` w oparciu o kategorię gramatyczną (Slavic, Germanic, Romance, Asian, Semitic).
+2. **Kierunek tekstu (RTL):** w wydaniu nie ma języka pisanego od prawej (lista Treningu, `supportsRTL: false` w app.json); kolumny `ar` i `he` zostają jako materiał, nie język aplikacji (stan 2026-10-21).
+3. **Pluralizacja:** kategorie CLDR z `Intl.PluralRules` (polyfill dla Hermes), formy języka w słowniku pod kluczem `<forma one PL>#<kategoria>` (`src/lib/i18n.ts`, `tPlural`), nie rodziny języków (stan 2026-10-21, M1-audytor-generalny-093).
