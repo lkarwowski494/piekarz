@@ -37,7 +37,7 @@ export async function napiszDoAutora(): Promise<void> {
     model: null,
     jezyk: lang(),
   });
-  let dostepna = false;
+  let dostepna: boolean;
   try {
     dostepna = await MailComposer.isAvailableAsync();
   } catch {

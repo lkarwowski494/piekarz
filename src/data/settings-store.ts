@@ -93,7 +93,11 @@ export async function setAppSetting(key: string, value: string): Promise<void> {
       key,
       value
     );
-  } catch {}
+  } catch {
+    // ZNANY BRAK (nowe znalezisko przy M1-audytor-generalny-063): błąd zapisu w bazie nie daje sygnału;
+    // wartość zostaje tylko w pamięci do zamknięcia aplikacji. Zmiana na StorageWriteError wymaga
+    // obsługi u 9 wywołujących (osobne zadanie z testem), więc tu bez zmiany zachowania.
+  }
 }
 
 export type BakerRitualProfile = 'sourdough_purist' | 'artisan_hybrid' | 'beginner';

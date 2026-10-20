@@ -54,7 +54,9 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
       if (r.sensoryProfileRaw) {
         try {
           sensoryProfile = JSON.parse(r.sensoryProfileRaw);
-        } catch {}
+        } catch {
+          // Uszkodzony JSON profilu: brak zostaje brakiem (undefined), bez zgadywania wartości
+        }
       }
       return {
         id: r.id,

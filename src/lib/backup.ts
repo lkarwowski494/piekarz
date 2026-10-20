@@ -281,7 +281,7 @@ export async function copyRawDatabaseFiles(dbUri: string): Promise<string[]> {
 
 /** Po błędzie otwarcia: najpierw surowa kopia plików, potem plik ratunkowy z opisem błędu i listą kopii. */
 export async function rescueAfterOpenFailure(dbUri: string, message: string): Promise<string | null> {
-  let copies: string[] = [];
+  let copies: string[];
   try {
     copies = await copyRawDatabaseFiles(dbUri);
   } catch {
@@ -367,7 +367,9 @@ export async function dismissCorruptState(fileName: string): Promise<void> {
     const docDir = FileSystem.documentDirectory;
     if (!docDir) return;
     await FileSystem.writeAsStringAsync(`${docDir}${AUTO_DIR}${fileName}${DISMISSED_SUFFIX}`, new Date().toISOString());
-  } catch {}
+  } catch {
+    // Bez znacznika baner pokaże się znowu; plik ratunkowy i kopie zostają nietknięte
+  }
 }
 
 /**

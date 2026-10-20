@@ -61,7 +61,9 @@ export function DoMiskiScaleCard({
   const toggleCheck = (key: string) => {
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    } catch {}
+    } catch {
+      // Haptyka jest dodatkiem: brak wibracji na urządzeniu nie blokuje zaznaczenia składnika
+    }
     setCheckedIngredients((prev) => ({
       ...prev,
       [key]: !prev[key],
@@ -72,7 +74,9 @@ export function DoMiskiScaleCard({
     const next = Math.max(1, Math.min(20, loavesCount + delta));
     try {
       void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
-    } catch {}
+    } catch {
+      // Haptyka jest dodatkiem: brak wibracji nie blokuje zmiany liczby bochenków
+    }
     onLoavesChange(next);
   };
 
@@ -111,7 +115,9 @@ export function DoMiskiScaleCard({
               onPress={() => {
                 try {
                   void Haptics.selectionAsync();
-                } catch {}
+                } catch {
+                  // Haptyka jest dodatkiem: brak wibracji nie blokuje wyboru receptury
+                }
                 onSelectPreset(preset.id);
               }}
             >

@@ -346,7 +346,7 @@ export function analyzeFlourBlendAbsorption(
   wholeGrainPercent = Math.round(wholeGrainPercent * 10) / 10;
 
   // Determine dough feel advice relative to current hydration
-  let doughFeelAdvicePl = '';
+  let doughFeelAdvicePl: string;
   if (currentHydrationPercent < recommendedRange[0] - 2.0) {
     doughFeelAdvicePl = 'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.';
   } else if (currentHydrationPercent > recommendedRange[1] + 3.0) {

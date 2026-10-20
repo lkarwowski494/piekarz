@@ -50,7 +50,7 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
   const flourPortion = ratio[1] || 1;
   const foodRatio = flourPortion / starterPortion;
 
-  let ratioFactor = 1.0;
+  let ratioFactor: number;
   if (foodRatio <= 1.0) {
     // 1:1:1
     ratioFactor = 0.72;
@@ -66,7 +66,7 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
   }
 
   // 3. Grain factor (Rye has high amylase & pentosans -> ferments faster)
-  let grainFactor = 1.0;
+  let grainFactor: number;
   if (grain === 'rye') {
     grainFactor = 0.88;
   } else if (grain === 'spelt') {
@@ -88,7 +88,7 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
   const isCurrentlyInPeak = now >= peakWindowStartTimestamp && now <= peakWindowEndTimestamp;
   const hasPassedPeak = now > peakWindowEndTimestamp;
 
-  let progressPercent = 0;
+  let progressPercent: number;
   if (now <= lastFed) {
     progressPercent = 0;
   } else if (now >= peakWindowStartTimestamp) {

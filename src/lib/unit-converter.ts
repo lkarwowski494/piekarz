@@ -25,7 +25,9 @@ export async function initUnitSystem(): Promise<UnitSystem> {
       unitListeners.forEach((fn) => fn(saved));
       return saved;
     }
-  } catch {}
+  } catch {
+    // Odczyt ustawienia nieudany: zostaje bieżący układ jednostek (domyślnie metryczny)
+  }
   return currentUnitSystem;
 }
 
@@ -208,7 +210,7 @@ export function wInKeep(txt: string, unit: string, prevBase?: number): number {
   }
 
   const u = unit.toLowerCase().trim();
-  let cu = 1;
+  let cu: number;
   const isFahrenheit = u === '°f' || u === 'f';
 
   if (u === 'lb' || u === 'lbs') {

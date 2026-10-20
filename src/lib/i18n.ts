@@ -60,6 +60,7 @@ export function resolveLanguage(saved: string | null | undefined, deviceTags: re
 }
 
 // Leniwy odczyt: settings-store przez backup.ts importuje i18n (cykl przy imporcie statycznym)
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- celowy leniwy require przerywa cykl importów
 const settingsStore = (): typeof import('../data/settings-store') => require('../data/settings-store');
 
 function deviceLanguageTags(): string[] {

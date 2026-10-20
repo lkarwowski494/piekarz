@@ -8,6 +8,7 @@ import type { QrScannerModal as QrScannerModalType } from '../components/QrScann
 
 export function ladujSkanerQr(): typeof QrScannerModalType | null {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports -- celowy leniwy require: build 1.0 nie linkuje expo-camera
     const mod: { QrScannerModal?: typeof QrScannerModalType } = require('../components/QrScannerModal');
     return typeof mod.QrScannerModal === 'function' ? mod.QrScannerModal : null;
   } catch {

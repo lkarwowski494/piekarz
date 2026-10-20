@@ -376,7 +376,9 @@ export async function initDatabase(): Promise<void> {
           1,
           0
         );
-      } catch {}
+      } catch {
+        // Wbudowana receptura jest też w kodzie (MASTER_RECIPES): nieudany wpis do bazy nie usuwa jej z listy
+      }
     }
   } catch {
     // Memory fallback handles errors in non-native contexts
