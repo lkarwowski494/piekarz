@@ -27,4 +27,4 @@ export const APP_STORE_REVIEW_URL = `https://apps.apple.com/app/apple-store/id${
  * Adres wsparcia dla „Napisz do nas” (BR-OPIN-003); ten sam trafia na stronę wsparcia (012).
  * Dopóki to znacznik, a nie adres e-mail, wiersz się nie renderuje [M1-audytor-generalny-083; 11-wzrost-005].
  */
-export const SUPPORT_EMAIL = '[DO USTALENIA: adres wsparcia od właściciela]';
+export const SUPPORT_EMAIL = 'support@apps4brew.com'; // właściciel 2026-10-20: „Zrób jak w aplikacji trening”; ten sam adres w site/support.html

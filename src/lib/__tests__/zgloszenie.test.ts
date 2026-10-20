@@ -45,9 +45,9 @@ describe('trescZgloszenia: wektory K01–K04', () => {
 });
 
 describe('czyAdresWsparcia: wiersz tylko przy adresie e-mail (KM01)', () => {
-  it('znacznik [DO USTALENIA] nie jest adresem; dziś SUPPORT_EMAIL to znacznik', () => {
+  it('znacznik [DO USTALENIA] nie jest adresem; SUPPORT_EMAIL (od 2026-10-20) jest', () => {
     expect(czyAdresWsparcia('[DO USTALENIA: adres wsparcia od właściciela]')).toBe(false);
-    expect(czyAdresWsparcia(SUPPORT_EMAIL)).toBe(false);
+    expect(czyAdresWsparcia(SUPPORT_EMAIL)).toBe(true);
   });
 
   it('prawdziwy adres przechodzi, adres bez domeny albo ze spacją nie', () => {

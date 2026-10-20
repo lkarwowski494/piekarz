@@ -2,6 +2,11 @@
  * BR-OPIN-003, KM01 (DEC-13 a): dopóki SUPPORT_EMAIL to znacznik [DO USTALENIA], wiersz „Napisz do nas”
  * się nie renderuje, a dotknięcie nie może otworzyć poczty ani linku [M1-audytor-generalny-083; 11-wzrost-005].
  */
+// Od 2026-10-20 SUPPORT_EMAIL to prawdziwy adres; KM01 sprawdza zachowanie przy znaczniku przez atrapę modułu.
+jest.mock('../lib/links', () => ({
+  ...jest.requireActual('../lib/links'),
+  SUPPORT_EMAIL: '[DO USTALENIA: adres wsparcia od właściciela]',
+}));
 jest.mock('expo-mail-composer', () => ({
   isAvailableAsync: jest.fn(async () => true),
   composeAsync: jest.fn(async () => ({ status: 'sent' })),
