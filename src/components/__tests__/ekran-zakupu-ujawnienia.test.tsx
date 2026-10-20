@@ -60,7 +60,7 @@ describe('Purchase screen disclosures (011)', () => {
   });
   afterEach(() => open.mockRestore());
 
-  it('shows the three store plans with displayPrice, period and automatic renewal terms', async () => {
+  it('shows the three store plans with displayPrice, period and automatic renewal terms (BR-ZAK-003 Przed startem próby)', async () => {
     produkty(false);
     const tree = await mount();
     const all = text(tree.toJSON());
@@ -92,7 +92,7 @@ describe('Purchase screen disclosures (011)', () => {
     act(() => tree.unmount());
   });
 
-  it('the 14-day introductory offer is shown only to eligible users, with the price after it', async () => {
+  it('the 14-day introductory offer is shown only to eligible users, with the price after it (BR-ZAK-003 Przed startem próby)', async () => {
     produkty(true);
     let tree = await mount();
     expect(text(tree.toJSON())).toContain(t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni: 14, cena: '29,99 zł' }));

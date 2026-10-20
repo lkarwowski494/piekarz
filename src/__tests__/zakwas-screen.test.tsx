@@ -139,7 +139,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(text).toContain('67 g');
   });
 
-  it('evaluates biological safety flags and resets upon confirmation', async () => {
+  it('evaluates biological safety flags and resets upon confirmation (BR-ZAKW-004 Biały nalot)', async () => {
     await renderScreen();
 
     // [M1-audytor-generalny-013] DEC-10 (a): przyciski i werdykty z docs/tresci/pl/zakwas-bezpieczenstwo.md;
@@ -282,7 +282,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(fullText).toContain('Bolesław');
   });
 
-  it('allows deleting a starter when multiple exist, but prevents deletion when only one remains', async () => {
+  it('allows deleting a starter when multiple exist, but prevents deletion when only one remains (BR-ZAKW-001 Usunięcie zakwasu)', async () => {
     // Add second starter
     await saveStarter({
       id: 'starter_extra',

@@ -54,7 +54,7 @@ describe('Ustawienia: „Napisz do nas” z adresem wsparcia', () => {
     jest.restoreAllMocks();
   });
 
-  it('KM02: poczta dostępna — composeAsync z adresem, tematem i treścią, bez HTML', async () => {
+  it('KM02: poczta dostępna — composeAsync z adresem, tematem i treścią, bez HTML (BR-OPIN-003 Wiadomość do autora)', async () => {
     await pressContact();
     expect(mail.composeAsync).toHaveBeenCalledTimes(1);
     const opcje = mail.composeAsync.mock.calls[0][0];
@@ -67,14 +67,14 @@ describe('Ustawienia: „Napisz do nas” z adresem wsparcia', () => {
     expect(openURL).not.toHaveBeenCalled();
   });
 
-  it('KM04: zamknięcie okna bez wysyłania — brak komunikatu i ponowienia', async () => {
+  it('KM04: zamknięcie okna bez wysyłania — brak komunikatu i ponowienia (BR-OPIN-003 Bez danych w tle)', async () => {
     mail.composeAsync.mockResolvedValue({ status: 'cancelled' } as never);
     await pressContact();
     expect(mail.composeAsync).toHaveBeenCalledTimes(1);
     expect(alert).not.toHaveBeenCalled();
   });
 
-  it('KM03: poczta nieskonfigurowana — okno z adresem do skopiowania, bez composeAsync i bez mailto', async () => {
+  it('KM03: poczta nieskonfigurowana — okno z adresem do skopiowania, bez composeAsync i bez mailto (BR-OPIN-003 Brak skonfigurowanej poczty)', async () => {
     mail.isAvailableAsync.mockResolvedValue(false);
     await pressContact();
     expect(mail.composeAsync).not.toHaveBeenCalled();

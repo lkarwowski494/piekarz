@@ -92,7 +92,7 @@ describe('Pending notifications follow the saved state (006)', () => {
 
   // 056: czas kroku biegnie od planu (bez Start/Wstrzymaj/+5 min), „Przerwij wypiek” na „Plan wypieku”
   // 102 (BR-HARMO-005): czeka powiadomienie bieżącego kroku i kolejnych kroków planu (piekarz.krok.<indeks>)
-  it('Stolnica: start → krok and next steps; next step → krok of the next step; discard → none', async () => {
+  it('Stolnica: start → krok and next steps; next step → krok of the next step; discard → none (BR-CZAS-002 Koniec wypieku: przerwanie)', async () => {
     setActiveBake({ id: 'bake_n', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
     const tree = await mount(<StolnicaScreen />);
     // Krok w garnku ma też zdjęcie pokrywki po fazie 1 (piekarz.krok.<indeks>.pokrywka)
@@ -144,7 +144,7 @@ describe('Pending notifications follow the saved state (006)', () => {
     await restoreFromBackupData({ bakes: [], starters: [], customRecipes: [] });
   });
 
-  it('without permission nothing waits and Stolnica shows "Powiadomienia wyłączone"; the first timer asks once', async () => {
+  it('without permission nothing waits and Stolnica shows "Powiadomienia wyłączone"; the first timer asks once (BR-CZAS-003 Odmowa)', async () => {
     mock.iosStatus = 0;
     mock.grantOnRequest = false;
     setActiveBake({ id: 'bake_d', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });

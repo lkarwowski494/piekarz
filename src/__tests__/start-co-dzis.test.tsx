@@ -101,7 +101,7 @@ describe('101: Start „Co dziś robisz?”', () => {
   });
   afterEach(() => setLang('pl'));
 
-  it('pierwsze uruchomienie: dokładnie 3 czynności z rolą button i etykietami PL', async () => {
+  it('pierwsze uruchomienie: dokładnie 3 czynności z rolą button i etykietami PL (BR-START-001 Pierwsze uruchomienie)', async () => {
     await pustaBaza();
     const tree = await renderStart();
     const p = przyciski(tree.root);
@@ -132,7 +132,7 @@ describe('101: Start „Co dziś robisz?”', () => {
     act(() => tree.unmount());
   });
 
-  it('wybór czynności otwiera przepływ bez oferty (D-047)', async () => {
+  it('wybór czynności otwiera przepływ bez oferty (D-047) (BR-START-001 Wybór prowadzi do przepływu)', async () => {
     await pustaBaza();
     const tree = await renderStart();
     for (const btn of przyciski(tree.root)) {
@@ -223,7 +223,7 @@ describe('101: Start „Co dziś robisz?”', () => {
     act(() => tree.unmount());
   });
 
-  it('po próbie bez zakupu: Dziennik pokazuje historię bez ekranu zakupu', async () => {
+  it('po próbie bez zakupu: Dziennik pokazuje historię bez ekranu zakupu (BR-RECP-003 Przegląd historii bez zakupu, BR-ZAK-004 Po końcu próby)', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {

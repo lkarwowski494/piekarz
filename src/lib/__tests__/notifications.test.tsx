@@ -76,7 +76,7 @@ describe('notifications adapter (006)', () => {
     expect(karm.shouldPlaySound).toBe(true);
   });
 
-  it('NotificationsOffBanner appears only without permission and opens system Settings', async () => {
+  it('NotificationsOffBanner appears only without permission and opens system Settings (BR-CZAS-003 Odmowa)', async () => {
     mock.iosStatus = 1;
     const open = jest.spyOn(Linking, 'openSettings').mockResolvedValue();
     let tree: renderer.ReactTestRenderer | null = null;

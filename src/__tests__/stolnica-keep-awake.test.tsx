@@ -69,7 +69,7 @@ describe('blokada wygaszania ekranu na Stolnicy', () => {
     act(() => tree!.unmount());
   });
 
-  it('aktywny wypiek na widocznej Stolnicy blokuje; wyjście z zakładki i koniec wypieku zwalniają', async () => {
+  it('aktywny wypiek na widocznej Stolnicy blokuje; wyjście z zakładki i koniec wypieku zwalniają (BR-REKA-001 Krok czynny)', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(<StolnicaKeepAwake active />);

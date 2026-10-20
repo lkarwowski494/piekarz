@@ -39,7 +39,7 @@ describe('Failed writes are reported, not hidden (003)', () => {
     useTempDbDir();
   });
 
-  it('with a full disk every user-data write rejects, memory does not pretend, and earlier data survives a restart', async () => {
+  it('with a full disk every user-data write rejects, memory does not pretend, and earlier data survives a restart (BR-RECP-002 Przerwany zapis)', async () => {
     const first = restartApp();
     await first.schema.initDatabase();
     await first.store.saveStarter(starter);

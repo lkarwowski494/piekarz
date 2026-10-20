@@ -56,7 +56,7 @@ describe('Auto-backup after a finished bake is built from the database (001)', (
     mockFiles.clear();
   });
 
-  it('after a restart, the backup of the 7th bake holds 7/7 bakes, 2/2 starters and 3/3 user recipes', async () => {
+  it('after a restart, the backup of the 7th bake holds 7/7 bakes, 2/2 starters and 3/3 user recipes (BR-DANE-002 Kopie automatyczne)', async () => {
     const first = restartApp();
     await first.schema.initDatabase();
     for (let n = 1; n <= 6; n++) await first.store.saveBakeLog(bake(n, false));

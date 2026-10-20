@@ -98,7 +98,7 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
     useTempDbDir();
   });
 
-  it('kontrola: stan bez uprawnienia, płatny kalkulator otwiera ekran zakupu', async () => {
+  it('kontrola: stan bez uprawnienia, płatny kalkulator otwiera ekran zakupu (BR-ZAK-004 Po końcu próby)', async () => {
     const s = await start(stan);
     await s.press('blokada-kalkulator');
     expect(s.paywall()).toBe(true);
@@ -106,7 +106,7 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
     s.alert.mockRestore();
   });
 
-  it('Ustawienia: import kopii przywraca dane z kopii, bez ekranu zakupu; kopia przed importem powstaje przed zapisem', async () => {
+  it('Ustawienia: import kopii przywraca dane z kopii, bez ekranu zakupu; kopia przed importem powstaje przed zapisem (BR-DANE-003 Kopia przed importem, Import bez zakupu)', async () => {
     const s = await start(stan);
     s.mockFiles.clear();
     const kopia = JSON.stringify(

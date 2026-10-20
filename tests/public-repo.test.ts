@@ -109,7 +109,7 @@ describe('Bezpieczeństwo publicznego repozytorium i potoku CI/CD (NFR-SEC)', ()
     }
   });
 
-  test('izolacja sieciowa (100% Offline-First): zero wywołań sieciowych w kodzie produkcyjnym (NFR-SEC-014)', () => {
+  test('izolacja sieciowa (100% Offline-First): zero wywołań sieciowych w kodzie produkcyjnym (NFR-SEC-014) (BR-PRYW-001 Tryb samolotowy)', () => {
     function getCodeFiles(dir: string): string[] {
       const res: string[] = [];
       if (!existsSync(dir)) return res;

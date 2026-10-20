@@ -132,7 +132,7 @@ describe('102: Zrobione wcześniej, Cofnij poprzedni i Przywróć z powiadomieni
     }
   });
 
-  it('krok potwierdzony po terminie przesuwa dalsze kroki później', async () => {
+  it('krok potwierdzony po terminie przesuwa dalsze kroki później (BR-HARMO-004 Spóźnione składanie, BR-CZAS-002 Zmiana planu)', async () => {
     setActiveBake({ id: 'bake_102b', recipeName: 'Chleb', startedAt: T0, currentStageId: 'step_1' });
     const plan = planBakeSteps({ startAt: T0, isHighRye: false });
     let tree!: renderer.ReactTestRenderer;

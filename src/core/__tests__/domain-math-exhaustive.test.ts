@@ -390,7 +390,7 @@ describe('Exhaustive Domain Math & Physics Invariants (BR-MATH-EXHAUSTIVE)', () 
       expect(res.freshGrams).toBe(15.0);
     });
 
-    it('throws error when negative yeast weight is provided', () => {
+    it('throws error when negative yeast weight is provided (BR-KALK-009 Ujemna masa)', () => {
       expect(() => convertYeast(-5.0, 'fresh')).toThrow('Masa drożdży nie może być ujemna');
     });
   });

@@ -40,7 +40,7 @@ describe('Rescue file after a database open failure (024)', () => {
     control().failOpen = false;
   });
 
-  it('copies the raw database files (.db and -wal) next to the rescue file and lists them in it', async () => {
+  it('copies the raw database files (.db and -wal) next to the rescue file and lists them in it (BR-DANE-001 Uszkodzony plik stanu)', async () => {
     await initDatabase();
     await flush();
     const files = corruptFiles();

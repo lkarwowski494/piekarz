@@ -42,7 +42,7 @@ describe('notification plan (006, ADR-006)', () => {
     expect(off).toEqual(expect.objectContaining({ level: 'timeSensitive', textKey: 'krok.wypiekGotowy' }));
   });
 
-  it('feeding: room temperature +24 h; fridge +6 d and +7 d; past dates and missing lastFedAt skipped', () => {
+  it('feeding: room temperature +24 h; fridge +6 d and +7 d; past dates and missing lastFedAt skipped (BR-ZAKW-004 Zakwas na blacie, Zakwas w lodówce)', () => {
     const plan = planFeedingNotifications(
       [
         { id: 'a', name: 'A', storageState: 'ROOM_TEMP', lastFedAt: now },

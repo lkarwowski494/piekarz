@@ -123,7 +123,7 @@ describe('100: przycisk „Po co ten krok” na prowadzeniu', () => {
     });
   };
 
-  it('otwiera arkusz z wyjaśnieniem bieżącego kroku; zamknięcie wraca do kroku bez zmian', async () => {
+  it('otwiera arkusz z wyjaśnieniem bieżącego kroku; zamknięcie wraca do kroku bez zmian (BR-NAUK-001 Wyjaśnienie przy kroku)', async () => {
     await render(<StolnicaScreen />);
     await act(async () => {
       tree!.root.findAll((n) => typeof n.props.onPress === 'function' && textOf(n.props.children).includes('Zacznij wypiek'))[0].props.onPress();
@@ -144,7 +144,7 @@ describe('100: przycisk „Po co ten krok” na prowadzeniu', () => {
     expect(textOf(tree!.toJSON())).toBe(przed);
   });
 
-  it('krok żytni bez źródła (rye_mix): przycisk „Po co ten krok” nieaktywny', async () => {
+  it('krok żytni bez źródła (rye_mix): przycisk „Po co ten krok” nieaktywny (BR-NAUK-001 Treść bez źródła)', async () => {
     setActiveBake({ id: 'bake_rye', recipeName: 'Razowiec', startedAt: Date.now(), currentStageId: 'rye_starter', isHighRye: true });
     await render(<StolnicaScreen />);
     expect(btn('step-why-btn').props.accessibilityState).toEqual({ disabled: false }); // rye_starter ma tekst

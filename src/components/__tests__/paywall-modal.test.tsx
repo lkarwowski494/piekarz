@@ -39,7 +39,7 @@ describe('PaywallModal Component', () => {
   }
 
   // Ceny tylko z produktów App Store (displayPrice), nigdy z kodu [M1-audytor-generalny-008]
-  it('renders the three store prices from displayPrice and guarantees', async () => {
+  it('renders the three store prices from displayPrice and guarantees (BR-ZAK-001 Ceny ze sklepu)', async () => {
     mockIap.products = [
       { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '$0.99', type: 'subs' },
       { id: 'com.apps4brew.baker.pro.yearly', displayPrice: '$6.99', type: 'subs' },
@@ -190,7 +190,7 @@ describe('PaywallModal Component', () => {
     ];
   };
 
-  it('eligible user sees the store trial length and the price after it; lifetime has no trial', async () => {
+  it('eligible user sees the store trial length and the price after it; lifetime has no trial (BR-ZAK-005 Pierwsze użycie kalkulatora)', async () => {
     withIntroOffer('week', 2);
     await act(async () => {
       tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);

@@ -131,7 +131,7 @@ describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => 
 
     beforeEach(() => mockFiles.clear());
 
-    it('eleven automatic copies leave exactly 10 files, including the newest one', async () => {
+    it('eleven automatic copies leave exactly 10 files, including the newest one (BR-DANE-002 Kopie automatyczne)', async () => {
       const paths: Array<string | null> = [];
       for (let i = 0; i < AUTO_KEEP + 1; i++) {
         paths.push(await autoBackup({ bakes: [{ id: `b${i}`, recipeName: 'Chleb', startedAt: i }], starters: [], customRecipes: [] }));

@@ -168,7 +168,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     expect(allText).toContain('26°C');
   });
 
-  it('detects sleep collision for 18:00 target and provides one-tap auto-resolution', async () => {
+  it('detects sleep collision for 18:00 target and provides one-tap auto-resolution (BR-HARMO-002 Krok czynny w nocy)', async () => {
     await act(async () => {
       tree = renderer.create(<HarmonogramScreen />);
       await Promise.resolve();

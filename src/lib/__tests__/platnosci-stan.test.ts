@@ -72,7 +72,7 @@ describe('Transaction listener from app start (008)', () => {
     expect(await getAppSetting('platnosci_pamiec')).toBe('');
   });
 
-  it('cancelled purchase is not an error and not a success', async () => {
+  it('cancelled purchase is not an error and not a success (BR-ZAK-001 Przerwany zakup)', async () => {
     mockIap.purchaseError = { code: 'user-cancelled' };
     await expect(kup('monthly')).resolves.toBeUndefined();
     mockIap.purchaseError = { code: 'network-error' };

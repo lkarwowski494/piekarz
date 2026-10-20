@@ -462,7 +462,7 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     });
   });
 
-  it('filters master recipes by category and displays artisan details card', async () => {
+  it('filters master recipes by category and displays artisan details card (BR-RECP-001 Wybór receptury bazowej)', async () => {
     await renderScreen();
 
     // Check default info card for initial master recipe (country loaf)

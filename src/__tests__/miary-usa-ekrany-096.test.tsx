@@ -106,7 +106,7 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
     _resetUnitSystemForTests();
   });
 
-  it('Receptury: liczby, Do miski, Mieszanka mąk i zaczyny, arkusz Temperatura wody', async () => {
+  it('Receptury: liczby, Do miski, Mieszanka mąk i zaczyny, arkusz Temperatura wody (BR-UST-001 Uncje i °F do wyświetlania)', async () => {
     const tree = await render(<CalculatorScreen />);
     await press(tree, 'artisan-accordion-toggle-btn');
     await press(tree, 'water-temp-btn');
@@ -174,7 +174,7 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
     }
   });
 
-  it('Wejście w °F i oz zapisuje °C i gramy: DDT o 1 °F, mąka o 2 oz, kuchnia z chipu °F', async () => {
+  it('Wejście w °F i oz zapisuje °C i gramy: DDT o 1 °F, mąka o 2 oz, kuchnia z chipu °F (BR-UST-001: zapis w gramach i °C)', async () => {
     const ddt = jest.fn();
     let tree = await render(<AccordionDdtSection targetDdt={25} onTargetDdtChange={ddt} waterTempTarget={20} waterPct={70} onWaterPctChange={() => {}} />);
     expect(textOf(tree.toJSON())).toContain('77°F');

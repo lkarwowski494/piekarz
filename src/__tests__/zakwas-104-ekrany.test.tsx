@@ -169,7 +169,7 @@ describe('104: ekrany zakwasu', () => {
     s.done();
   });
 
-  it('karta: Spirala cyklu z etykietą, „Podwoił objętość” zapisuje obserwację i pokazuje „gotowy” z atrybucją', async () => {
+  it('karta: Spirala cyklu z etykietą, „Podwoił objętość” zapisuje obserwację i pokazuje „gotowy” z atrybucją (BR-ZAKW-003 Podwojenie w 6 h)', async () => {
     const fedAt = Date.now() - 380 * 60_000;
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z'), feed('f1', 'z', fedAt, '1:2:2'));

@@ -45,7 +45,7 @@ describe('Public privacy and support links (012)', () => {
     expect(doc).toContain(SUPPORT_URL);
   });
 
-  it('Settings has a privacy policy link that opens PRIVACY_URL', async () => {
+  it('Settings has a privacy policy link that opens PRIVACY_URL (BR-UST-003 Otwarcie polityki)', async () => {
     const open = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {

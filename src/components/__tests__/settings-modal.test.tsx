@@ -199,7 +199,7 @@ describe('SettingsModal Component', () => {
     expect(root.findAllByProps({ testID: 'import-json-input' })).toHaveLength(0);
   });
 
-  it('handles invalid JSON import gracefully', async () => {
+  it('handles invalid JSON import gracefully (BR-DANE-003 Plik uszkodzony)', async () => {
     (backupModule.parseAndValidateBackup as jest.Mock).mockImplementation(() => {
       throw new Error('Nieprawidłowy format JSON');
     });

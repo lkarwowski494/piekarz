@@ -60,7 +60,7 @@ describe('Active bake survives a process kill (019)', () => {
     jest.restoreAllMocks();
   });
 
-  it('after a kill and restart, Stolnica returns to step 3 with the running timer 60 s shorter', async () => {
+  it('after a kill and restart, Stolnica returns to step 3 with the running timer 60 s shorter (BR-ETAP-005 System zamknął aplikację)', async () => {
     setActiveBake({
       id: 'bake_live',
       recipeName: 'Chleb na restart',

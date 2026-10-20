@@ -242,7 +242,7 @@ describe('Stolnica z receptury i planu (030)', () => {
       calculatedRecipe: recipe(true),
     });
 
-  it('receptura żytnia (> 50%): kroki w kolejności roli 06, bez składania, czasy z planu tej samej kategorii', async () => {
+  it('receptura żytnia (> 50%): kroki w kolejności roli 06, bez składania, czasy z planu tej samej kategorii (BR-ETAP-002 Wariant żytni)', async () => {
     startRye();
     const stol = await render(<StolnicaScreen />);
     await openPlan(stol);
@@ -327,7 +327,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     act(() => again.unmount());
   });
 
-  it('zapis starego formatu (HEAD 1c38b28) wczytuje się w tym samym kroku i z tym samym pozostałym czasem', async () => {
+  it('zapis starego formatu (HEAD 1c38b28) wczytuje się w tym samym kroku i z tym samym pozostałym czasem (BR-ETAP-005 Zapis w starym formacie)', async () => {
     const raw = JSON.stringify(legacyFixture);
     const parsed = parseBakeSession(raw);
     expect(parsed?.version).toBe(2);

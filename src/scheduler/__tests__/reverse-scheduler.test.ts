@@ -1,7 +1,7 @@
 import { calculateReverseSchedule, autoResolveSleepCollision } from '../reverse-scheduler';
 
 describe('Piekarz Reverse Scheduler (BR-HARMO-001…004)', () => {
-  it('Calculates complete timeline backwards from Sunday 09:00 AM', () => {
+  it('Calculates complete timeline backwards from Sunday 09:00 AM (BR-HARMO-001 Godziny etapów)', () => {
     // Sunday 2026-10-18 at 09:00:00
     const targetSundayMorning = new Date(2026, 9, 18, 9, 0, 0);
 
@@ -90,7 +90,7 @@ describe('Piekarz Reverse Scheduler (BR-HARMO-001…004)', () => {
     expect(proof16.durationMinutes).toBe(960); // 16h
   });
 
-  it('autoResolveSleepCollision automatically finds an adjusted cold retard duration that clears collisions', () => {
+  it('autoResolveSleepCollision automatically finds an adjusted cold retard duration that clears collisions (BR-HARMO-002 Krok czynny w nocy)', () => {
     // 18:00 (6:00 PM) target ready time with standard 14h retard causes shaping & folding to fall around midnight (00:15 AM)
     const target = new Date(2026, 9, 18, 18, 0, 0);
     const initial = calculateReverseSchedule(target, { sleepStartHour: 23.0, sleepEndHour: 6.5, coldRetardHours: 14 });

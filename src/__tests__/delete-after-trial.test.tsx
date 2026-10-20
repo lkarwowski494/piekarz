@@ -60,7 +60,7 @@ describe('Deleting own data without an entitlement (007)', () => {
     await initDatabase();
   });
 
-  it('recipe: deletes without the purchase screen', async () => {
+  it('recipe: deletes without the purchase screen (BR-DANE-004 Usunięcie bez zakupu)', async () => {
     await saveRecipe({
       id: 'recipe_user_1',
       name: 'Moja receptura',
@@ -85,7 +85,7 @@ describe('Deleting own data without an entitlement (007)', () => {
     act(() => tree!.unmount());
   });
 
-  it('starter: deletes without the purchase screen', async () => {
+  it('starter: deletes without the purchase screen (BR-DANE-004 Usunięcie bez zakupu)', async () => {
     await saveStarter({ id: 'starter_user_2', name: 'Drugi zakwas', flourType: 'Pszenna', hydration: 100, birthDate: 1, storageState: 'FRIDGE' });
     const before = (await getStarters()).length;
     let tree: renderer.ReactTestRenderer | null = null;

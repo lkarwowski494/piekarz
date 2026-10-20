@@ -77,7 +77,7 @@ describe('104 P0: kopia przed importem i eksport z Ustawień mają dziennik zakw
     s.done();
   });
 
-  it('Eksportuj do pliku: udostępniany plik zawiera dziennik zakwasu i spiżarnię', async () => {
+  it('Eksportuj do pliku: udostępniany plik zawiera dziennik zakwasu i spiżarnię (BR-DANE-003 Pełny eksport)', async () => {
     const s = await seededSettings();
     const sharing = require('expo-sharing') as { shareAsync: jest.Mock };
     let shared = '';

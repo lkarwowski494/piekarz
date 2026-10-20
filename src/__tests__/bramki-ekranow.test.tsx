@@ -91,7 +91,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     await initDatabase();
   });
 
-  it('Kalkulator: calculator, save, QR sharing and pantry open the purchase screen; import, export and copy stay free (D-039)', async () => {
+  it('Kalkulator: calculator, save, QR sharing and pantry open the purchase screen; import, export and copy stay free (D-039) (BR-ZAK-005 Pierwsze użycie kalkulatora)', async () => {
     const tree = await render(<CalculatorScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toContain('blokada-kalkulator');
     expect(locks(tree.root)[0].props.accessibilityLabel).toBe(t('Odblokuj pełny dostęp'));
@@ -153,7 +153,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     act(() => tree.unmount());
   });
 
-  it('Stolnica: starting a bake opens the purchase screen; history is readable and deletable', async () => {
+  it('Stolnica: starting a bake opens the purchase screen; history is readable and deletable (BR-RECP-003 Przegląd historii bez zakupu)', async () => {
     await saveBakeLog({ id: 'bake_h1', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const tree = await render(<StolnicaScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toEqual(['blokada-stolnica']);
@@ -189,7 +189,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
   });
 });
 
-describe('With an entitlement (introductory offer, subscription or lifetime) nothing is locked (027)', () => {
+describe('With an entitlement (introductory offer, subscription or lifetime) nothing is locked (027) (BR-RECP-001 Bez ukrywania receptur, BR-ZAK-001)', () => {
   beforeEach(async () => {
     _resetMemStore();
     zUprawnieniem();

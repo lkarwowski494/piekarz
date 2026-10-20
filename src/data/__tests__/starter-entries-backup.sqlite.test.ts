@@ -55,7 +55,7 @@ describe('F-33: kopia zapasowa z dziennikiem zakwasu (104)', () => {
     expect(a).toEqual(expect.objectContaining({ setupStartedAt: 500, lastFedAt: 1000, feedingRatio: '1:2:2' }));
   });
 
-  it('kopia v1 (bez dziennika) w nowej aplikacji: wpis feeding z lastFedAt, przypomnienie jak przed importem', async () => {
+  it('kopia v1 (bez dziennika) w nowej aplikacji: wpis feeding z lastFedAt, przypomnienie jak przed importem (BR-DANE-003 Import starszego pliku)', async () => {
     const app = restartApp();
     await app.schema.initDatabase();
     const v1 = JSON.stringify({

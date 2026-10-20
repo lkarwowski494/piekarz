@@ -109,7 +109,7 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
     expect(czyEkranZakupu()).toBe(false);
   });
 
-  it('a purchase on one tab unlocks both mounted tabs and a refund locks both, without a restart', async () => {
+  it('a purchase on one tab unlocks both mounted tabs and a refund locks both, without a restart (BR-ZAK-001 Udany zakup)', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(<RootLayout />);

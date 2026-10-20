@@ -31,7 +31,7 @@ describe('bake steps from the plan (030)', () => {
     );
   });
 
-  it('planBakeSteps: wheat gets the plan from the start', () => {
+  it('planBakeSteps: wheat gets the plan from the start (BR-ETAP-002: pszenne ze składaniami z receptury)', () => {
     const wheat = planBakeSteps({ startAt: start, isHighRye: false });
     expect(wheat.map((s) => s.id)).toEqual(DEFAULT_STAGE_TEMPLATES.map((tp) => tp.id));
     expect(wheat[0].plannedStart).toBe(start);
@@ -59,7 +59,7 @@ describe('bake steps from the plan (030)', () => {
     ]);
   });
 
-  it('planBakeSteps rye: order of role 06, each duration = plan stage of the same category, rye_cool 1440', () => {
+  it('planBakeSteps rye: order of role 06, each duration = plan stage of the same category, rye_cool 1440 (BR-ETAP-002 Wariant żytni)', () => {
     const rye = planBakeSteps({ startAt: start, isHighRye: true, ambientTempC: 22 });
     expect(rye.map((s) => s.id)).toEqual(RYE_ORDER);
     expect(rye.some((s) => FOLDING.test(`${s.name} ${s.instructions}`))).toBe(false);

@@ -26,7 +26,7 @@ describe('Starter safety vectors K1–K6 (013, DEC-10 a)', () => {
     expect(Object.prototype.hasOwnProperty.call(r, 'isEdible') ? Reflect.get(r, 'isEdible') : false).toBe(false);
   });
 
-  it('no result text says healthy, safe, harmless or edible (PL and EN)', () => {
+  it('no result text says healthy, safe, harmless or edible (PL and EN) (BR-ZAKW-004 Brak zaznaczeń)', () => {
     for (const v of vectors) {
       const r = evaluateSourdoughSafety(v.wejscie);
       setLang('pl');

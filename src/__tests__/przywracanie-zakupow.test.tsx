@@ -78,7 +78,7 @@ describe('Restore purchases only on request, from the purchase screen and from S
     restoreMock.mockImplementation(oryginal);
   });
 
-  it('Settings: empty database and an entitlement in the store gives access after restore', async () => {
+  it('Settings: empty database and an entitlement in the store gives access after restore (BR-ZAK-001 Przywrócenie na nowym telefonie)', async () => {
     const tree = await mount(<SettingsModal visible={true} onClose={() => undefined} />);
     expect(mockIap.restoreCalls).toBe(0); // bez synchronizacji przy starcie
     expect(pobierzStan().decyzja.dostep).toBe(false);

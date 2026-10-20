@@ -52,7 +52,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194'])('TestFlight database from build
     useTempDbDir();
   });
 
-  it('counts of user tables are equal before and after; version 5; integrity and foreign keys ok', async () => {
+  it('counts of user tables are equal before and after; version 5; integrity and foreign keys ok (BR-DANE-001 Aktualizacja aplikacji)', async () => {
     const before = seed(sha);
     const app = restartApp();
     await app.schema.initDatabase();

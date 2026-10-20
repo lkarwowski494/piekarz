@@ -16,7 +16,7 @@ import { matchFlourProfile } from '../flour-atlas';
 import { calculatePrefermentBreakdown } from '../preferments';
 
 describe('Domain Rules & Core Error Branches (100% Coverage Hardening - BR-TEST-002)', () => {
-  test('calculateDoughRecipe throws on invalid target weight and flour blend', () => {
+  test('calculateDoughRecipe throws on invalid target weight and flour blend (BR-KALK-003 Masa zero)', () => {
     expect(() =>
       calculateDoughRecipe({
         targetDoughWeightGrams: 0,
@@ -43,7 +43,7 @@ describe('Domain Rules & Core Error Branches (100% Coverage Hardening - BR-TEST-
     expect(() => calculateFermentationAdaptation(4, 0)).toThrow('Czas bazowy i temperatura muszą być większe od zera');
   });
 
-  test('calculateDoughRecipeFromFlour & calculateDoughRecipeForLoaves throw on invalid inputs', () => {
+  test('calculateDoughRecipeFromFlour & calculateDoughRecipeForLoaves throw on invalid inputs (BR-KALK-001 Brak mąki, BR-KALK-003 Masa zero)', () => {
     expect(() =>
       calculateDoughRecipeFromFlour(0, {
         flours: [{ name: 'Pszenna', percentage: 100 }],

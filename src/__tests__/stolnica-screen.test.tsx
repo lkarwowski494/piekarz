@@ -113,7 +113,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(fullText).toContain('Historia wypieków');
   });
 
-  it('starts bake from idle when tapping Rozpocznij wypiek button', async () => {
+  it('starts bake from idle when tapping Rozpocznij wypiek button (BR-ETAP-001 Bieżący krok)', async () => {
     await renderScreen();
 
     const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
@@ -213,7 +213,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     }
   });
 
-  it('advances to next step when tapping Zrobione (089: dawniej Następny krok)', async () => {
+  it('advances to next step when tapping Zrobione (089: dawniej Następny krok) (BR-ETAP-001 Potwierdzenie kroku)', async () => {
     await renderScreen();
 
     const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
@@ -287,7 +287,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(logs.find((l: any) => l.id === 'bake_to_remove')).toBeUndefined();
   });
 
-  it('completes bake with sensory evaluation (crumb, crust, taste) and persists to SQLite', async () => {
+  it('completes bake with sensory evaluation (crumb, crust, taste) and persists to SQLite (BR-RECP-003 Ocena po wypieku)', async () => {
     await renderScreen();
 
     // Start bake
@@ -526,7 +526,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(fullText).toContain('Zbalansowany');
   });
 
-  it('triggers Bake Again when tapping Piecz ponownie button on a history card', async () => {
+  it('triggers Bake Again when tapping Piecz ponownie button on a history card (BR-RECP-003 Następny wypiek z wpisu: ta sama receptura)', async () => {
     await saveBakeLog({
       id: 'bake_again_test_id',
       recipeName: 'Wiejski chleb codzienny na zakwasie',

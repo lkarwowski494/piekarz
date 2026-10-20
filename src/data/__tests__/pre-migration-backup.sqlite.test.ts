@@ -53,7 +53,7 @@ describe('Pre-migration backup and migration failure (004)', () => {
     copy.close();
   });
 
-  it('a failed migration keeps the open database (5/5 bakes, version 2), is reported and offers the copy for export', async () => {
+  it('a failed migration keeps the open database (5/5 bakes, version 2), is reported and offers the copy for export (BR-DANE-001 Nieudana migracja)', async () => {
     seedVersion2InWal().close();
     const copySpy = jest.spyOn(FileSystem, 'copyAsync');
     control().failWritesMatching = /schema_migrations/;

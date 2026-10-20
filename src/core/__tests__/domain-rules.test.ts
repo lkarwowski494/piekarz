@@ -89,7 +89,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(result.sumCheckGrams).toBe(2250);
     });
 
-    it('rye variant threshold: more than 50% rye flour (ZYT-GRA-001); 50% stays wheat, 50.1% and 51% are rye', () => {
+    it('rye variant threshold: more than 50% rye flour (ZYT-GRA-001); 50% stays wheat, 50.1% and 51% are rye (BR-KALK-005 Granica 50%)', () => {
       const ryeFlag = (rye: number) =>
         calculateDoughRecipe({
           flours: [
@@ -109,7 +109,7 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(ryeFlag(100)).toBe(true);
     });
 
-    it('Detects high rye ratio (>50%) and sets isHighRye flag', () => {
+    it('Detects high rye ratio (>50%) and sets isHighRye flag (BR-KALK-005 Udział żyta wybiera wariant)', () => {
       const result = calculateDoughRecipe({
         flours: [
           { name: 'Mąka żytnia razowa typ 2000', percentage: 60.0 },

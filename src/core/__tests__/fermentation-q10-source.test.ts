@@ -14,7 +14,7 @@ describe('Q10 fermentacji ze źródła', () => {
     expect(Q10_FERMENTATION).toBe(3.0);
   });
 
-  it('RD-08: 4,0 h w 24 °C → 21 °C 5,56 h, 26 °C 3,21 h, 20 °C 6,21 h', () => {
+  it('RD-08: 4,0 h w 24 °C → 21 °C 5,56 h, 26 °C 3,21 h, 20 °C 6,21 h (BR-HARMO-003 Czas w zakresie modelu)', () => {
     expect(calculateFermentationAdaptation(4, 21).adaptedHours).toBeCloseTo(5.56, 2);
     expect(calculateFermentationAdaptation(4, 26).adaptedHours).toBeCloseTo(3.21, 2);
     expect(calculateFermentationAdaptation(4, 20).adaptedHours).toBeCloseTo(6.21, 2);
