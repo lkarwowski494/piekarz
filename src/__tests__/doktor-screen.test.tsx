@@ -224,7 +224,7 @@ describe('DoctorScreen UI (app/(tabs)/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
-    const navBtn = findButtonByText(root, 'Przejdź do Harmonogramu (Sleep Guard)');
+    const navBtn = findButtonByText(root, 'Przejdź do Harmonogramu');
     expect(navBtn).toBeDefined();
 
     await act(async () => {

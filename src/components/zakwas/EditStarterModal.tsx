@@ -71,7 +71,7 @@ export function EditStarterModal({
               onPress={() => onStorageStateChange('FRIDGE')}
             >
               <Text style={[styles.storageBtnText, storageState === 'FRIDGE' && styles.storageBtnTextActive]}>
-                ❄️ {t('W lodówce (4°C)')}
+                {t('W lodówce (4°C)')}
               </Text>
             </Pressable>
             <Pressable
@@ -79,7 +79,7 @@ export function EditStarterModal({
               onPress={() => onStorageStateChange('ROOM_TEMP')}
             >
               <Text style={[styles.storageBtnText, storageState === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                🏠 {t('Temperatura pokojowa')}
+                {t('Temperatura pokojowa')}
               </Text>
             </Pressable>
           </View>
@@ -92,7 +92,7 @@ export function EditStarterModal({
                 onPress={onDelete}
                 hitSlop={sharedCraftTokens.hitSlopStandard}
               >
-                <Text style={styles.modalDeleteBtnText}>🗑️ {t('Usuń zakwas')}</Text>
+                <Text style={styles.modalDeleteBtnText}>{t('Usuń zakwas')}</Text>
               </Pressable>
             )}
             <View style={styles.modalRightButtons}>

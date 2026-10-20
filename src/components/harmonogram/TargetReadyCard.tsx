@@ -14,7 +14,6 @@ export const BAKING_SCENARIOS = [
   {
     id: 'saturday_breakfast',
     namePl: 'Sobotnie śniadanie',
-    icon: '☕',
     targetDayOffset: 1,
     targetHour: 8,
     targetMinute: 30,
@@ -23,7 +22,6 @@ export const BAKING_SCENARIOS = [
   {
     id: 'sunday_dinner',
     namePl: 'Niedzielny obiad',
-    icon: '🍲',
     targetDayOffset: 1,
     targetHour: 13,
     targetMinute: 0,
@@ -32,7 +30,6 @@ export const BAKING_SCENARIOS = [
   {
     id: 'after_work',
     namePl: 'Świeży po pracy',
-    icon: '🌆',
     targetDayOffset: 0,
     targetHour: 18,
     targetMinute: 30,
@@ -41,7 +38,6 @@ export const BAKING_SCENARIOS = [
   {
     id: 'same_day_direct',
     namePl: 'Wypiek jednodniowy (Direct)',
-    icon: '⚡',
     targetDayOffset: 0,
     targetHour: 19,
     targetMinute: 0,
@@ -50,9 +46,9 @@ export const BAKING_SCENARIOS = [
 ];
 
 export const SLEEP_PROFILES = [
-  { id: 'standard', namePl: 'Standard', label: '23:00 – 06:30', start: 23.0, end: 6.5, icon: '⚖️' },
-  { id: 'early_bird', namePl: 'Ranny ptaszek', label: '22:00 – 06:00', start: 22.0, end: 6.0, icon: '🌅' },
-  { id: 'night_owl', namePl: 'Nocny marek', label: '00:00 – 08:00', start: 24.0, end: 8.0, icon: '🌙' },
+  { id: 'standard', namePl: 'Standard', label: '23:00 – 06:30', start: 23.0, end: 6.5 },
+  { id: 'early_bird', namePl: 'Ranny ptaszek', label: '22:00 – 06:00', start: 22.0, end: 6.0 },
+  { id: 'night_owl', namePl: 'Nocny marek', label: '00:00 – 08:00', start: 24.0, end: 8.0 },
 ];
 
 export interface TargetReadyCardProps {
@@ -118,7 +114,6 @@ export function TargetReadyCard({
               onColdRetardHoursChange(scen.coldRetardHours);
             }}
           >
-            <Text style={styles.scenarioIcon}>{scen.icon}</Text>
             <Text style={styles.scenarioText}>{t(scen.namePl)}</Text>
           </Pressable>
         ))}
@@ -195,7 +190,7 @@ export function TargetReadyCard({
 
       {/* Sleep Guard Profile Selector */}
       <Text style={styles.inputGroupLabel}>
-        🌙 {t('Godziny snu (Sleep Guard):')}{' '}
+        {t('Godziny snu:')}{' '}
         {sleepStartHour === 24 ? '00' : Math.floor(sleepStartHour)}:00 –{' '}
         {String(Math.floor(sleepEndHour)).padStart(2, '0')}:{sleepEndHour % 1 !== 0 ? '30' : '00'}
       </Text>
@@ -215,7 +210,7 @@ export function TargetReadyCard({
                   isSelected && styles.sleepProfileTextActive,
                 ]}
               >
-                {p.icon} {t(p.namePl)} ({p.label})
+                {t(p.namePl)} ({p.label})
               </Text>
             </Pressable>
           );
@@ -316,10 +311,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     marginRight: 8,
-  },
-  scenarioIcon: {
-    fontSize: 14,
-    marginRight: 6,
   },
   scenarioText: {
     fontSize: 13,

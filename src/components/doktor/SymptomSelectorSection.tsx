@@ -13,7 +13,6 @@ import { BreadInspectionCriteria } from '../../doctor/diagnostics';
 export interface DiagnosticPreset {
   id: string;
   name: string;
-  icon: string;
   symptoms: BreadInspectionCriteria;
 }
 
@@ -21,37 +20,31 @@ export const DIAGNOSTIC_PRESETS: DiagnosticPreset[] = [
   {
     id: 'preset_under',
     name: 'Jaskinie (Niedofermentowany)',
-    icon: '🏔️',
     symptoms: { crumbHasHugeTopHolesWithDenseBottom: true },
   },
   {
     id: 'preset_over',
     name: 'Płaski dysk (Przerośnięty)',
-    icon: '🥞',
     symptoms: { loafIsFlatLikeDisk: true, loafCollapsedAfterScoring: true },
   },
   {
     id: 'preset_gummy',
     name: 'Gumowaty (Gorący nóż)',
-    icon: '🔪',
     symptoms: { cutImmediatelyWhileSteamingHot: true },
   },
   {
     id: 'preset_blowout',
     name: 'Pęknięty bok (Blowout)',
-    icon: '🌋',
     symptoms: { loafBurstAtBottomSide: true },
   },
   {
     id: 'preset_sour',
     name: 'Zbyt kwaśny (Octowy)',
-    icon: '🍋',
     symptoms: { breadIsExcessivelySour: true },
   },
   {
     id: 'preset_bland',
     name: 'Płaski smak (Jałowy)',
-    icon: '🥖',
     symptoms: { breadIsBlandNoFlavor: true },
   },
 ];
@@ -86,7 +79,6 @@ export function SymptomSelectorSection({
             style={styles.presetChip}
             onPress={() => onApplyPreset(preset)}
           >
-            <Text style={styles.presetIcon}>{preset.icon}</Text>
             <Text style={styles.presetName}>{preset.name}</Text>
           </Pressable>
         ))}
@@ -343,10 +335,6 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.full,
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
-    marginRight: 6,
-  },
-  presetIcon: {
-    fontSize: 14,
     marginRight: 6,
   },
   presetName: {

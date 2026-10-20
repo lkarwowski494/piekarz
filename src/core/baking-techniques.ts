@@ -20,7 +20,6 @@ export interface TechniqueCard {
   category: TechniqueCategory;
   titlePl: string;
   titleEn: string;
-  icon: string;
   physicalPrinciplePl: string;
   physicalPrincipleEn: string;
   executionStepsPl: string[];

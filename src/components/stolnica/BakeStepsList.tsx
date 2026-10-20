@@ -34,7 +34,7 @@ export function BakeStepsList({
       {/* Active Recipe Ingredients Card */}
       {calculatedRecipe && (
         <View style={styles.ingredientsCard}>
-          <Text style={styles.ingredientsTitle}>⚖️ {t('Składniki do odważenia')}</Text>
+          <Text style={styles.ingredientsTitle}>{t('Składniki do odważenia')}</Text>
           <View style={styles.ingredientsGrid}>
             <View style={styles.ingredientPill}>
               <Text style={styles.ingredientLabel}>{t('Mąki')}</Text>
@@ -62,7 +62,7 @@ export function BakeStepsList({
             </View>
           </View>
           <Text style={styles.ingredientsCaption}>
-            {t('Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}% (True Baker’s %)', {
+            {t('Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%', {
               masa: formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem),
               hydratacja: formatFixed(calculatedRecipe.overallHydrationPercent, 1),
             })}

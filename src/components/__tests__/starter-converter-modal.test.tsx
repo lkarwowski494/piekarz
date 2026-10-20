@@ -81,7 +81,7 @@ describe('StarterConverterModal Component (src/components/StarterConverterModal.
 
     const fullText = JSON.stringify(tree!.toJSON());
     expect(fullText).toContain('Receptura odrostu');
-    expect(fullText).toContain('Zakwas matka (Seed)');
+    expect(fullText).toContain('Zakwas matka');
     expect(fullText).toContain('Mąka dodana');
     expect(fullText).toContain('Woda dodana');
   });

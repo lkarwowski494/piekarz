@@ -146,7 +146,7 @@ export function BackupAndDataSection() {
             disabled={isExporting}
           >
             <Text style={styles.exportBtnText}>
-              {isExporting ? `⏳ ${t('Eksportowanie...')}` : `📦 ${t('Eksportuj kopię')}`}
+              {isExporting ? t('Eksportowanie...') : t('Eksportuj kopię')}
             </Text>
           </Pressable>
 
@@ -156,7 +156,7 @@ export function BackupAndDataSection() {
             onPress={() => setShowImportInput((prev) => !prev)}
             disabled={isImporting}
           >
-            <Text style={styles.importBtnText}>📥 {t('Importuj kopię')}</Text>
+            <Text style={styles.importBtnText}>{t('Importuj kopię')}</Text>
           </Pressable>
         </View>
 
@@ -184,7 +184,7 @@ export function BackupAndDataSection() {
                 disabled={isImporting}
               >
                 <Text style={styles.confirmImportBtnText}>
-                  {isImporting ? `⏳ ${t('Importowanie...')}` : t('Zatwierdź import')}
+                  {isImporting ? t('Importowanie...') : t('Zatwierdź import')}
                 </Text>
               </Pressable>
               <Pressable
@@ -204,7 +204,7 @@ export function BackupAndDataSection() {
 
         <View style={styles.infoBadge}>
           <Text style={styles.infoBadgeText}>
-            🛡️ {t('Automatyczna rotacja: 10 ostatnich kopii w katalogu Documents/Backup/')}
+            {t('Trzymam 10 ostatnich kopii na tym telefonie.')}
           </Text>
         </View>
       </View>
@@ -223,7 +223,7 @@ export function BackupAndDataSection() {
             disabled={isExportingCsv}
           >
             <Text style={styles.csvBtnText}>
-              {isExportingCsv ? `⏳ ${t('Eksportowanie...')}` : `📊 ${t('Eksportuj historię wypieków (CSV)')}`}
+              {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj historię wypieków (CSV)')}
             </Text>
           </Pressable>
           <Pressable
@@ -233,7 +233,7 @@ export function BackupAndDataSection() {
             disabled={isExportingCsv}
           >
             <Text style={styles.csvBtnText}>
-              {isExportingCsv ? `⏳ ${t('Eksportowanie...')}` : `🌾 ${t('Eksportuj spiżarnię mąk (CSV)')}`}
+              {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj spiżarnię mąk (CSV)')}
             </Text>
           </Pressable>
         </View>

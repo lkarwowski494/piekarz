@@ -42,7 +42,7 @@ export function StarterProfileCard({
             style={styles.editProfileBtn}
             onPress={onOpenEditModal}
           >
-            <Text style={styles.editProfileBtnText}>✏️ {t('Edytuj')}</Text>
+            <Text style={styles.editProfileBtnText}>{t('Edytuj')}</Text>
           </Pressable>
         </View>
       </View>

@@ -114,7 +114,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateHarmonogram}
         >
           <Text style={styles.navActionBtnText}>
-            ⏱️ {t('Przejdź do Harmonogramu (Sleep Guard)')}
+            {t('Przejdź do Harmonogramu')}
           </Text>
         </Pressable>
       )}
@@ -125,7 +125,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateCalculator}
         >
           <Text style={styles.navActionBtnText}>
-            ⚖️ {t('Dostosuj hydratację w Kalkulatorze')}
+            {t('Dostosuj hydratację w Kalkulatorze')}
           </Text>
         </Pressable>
       )}
@@ -136,7 +136,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateStolnica}
         >
           <Text style={styles.navActionBtnText}>
-            🥖 {t('Przejdź do Stolnicy')}
+            {t('Przejdź do Stolnicy')}
           </Text>
         </Pressable>
       )}
@@ -148,7 +148,7 @@ export function DiagnosisResultCard({
         onPress={onCopyDiagnosis}
       >
         <Text style={styles.copyDiagnosisBtnText}>
-          📋 {t('Kopiuj diagnozę')}
+          {t('Kopiuj diagnozę')}
         </Text>
       </Pressable>
     </View>

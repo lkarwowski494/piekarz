@@ -34,7 +34,7 @@ export function EmergencyRecoverySection({
 
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionHeading}>🚨 {t('Protokoły ratunkowe (Pogotowie ciasta)')}</Text>
+      <Text style={styles.sectionHeading}>{t('Protokoły ratunkowe (Pogotowie ciasta)')}</Text>
       <Text style={styles.sectionSubheading}>
         {t('Szybkie interwencje w trakcie fermentacji')}
       </Text>
@@ -53,7 +53,6 @@ export function EmergencyRecoverySection({
               style={[styles.presetChip, isSelected && styles.recoveryChipActive]}
               onPress={() => onSelectRecoveryId(isSelected ? null : (proto.id as EmergencyCode))}
             >
-              <Text style={styles.presetIcon}>{proto.icon}</Text>
               <Text style={[styles.presetName, isSelected && styles.recoveryChipTextActive]}>
                 {t(proto.titlePl)}
               </Text>
@@ -67,7 +66,7 @@ export function EmergencyRecoverySection({
         <View style={styles.recoveryCard} testID="recovery-protocol-card">
           <View style={styles.recoveryHeaderRow}>
             <Text style={styles.recoveryCardTitle}>
-              {selectedProto.icon} {t(selectedProto.titlePl)}
+              {t(selectedProto.titlePl)}
             </Text>
             <Pressable
               testID="close-recovery-card-btn"
@@ -79,7 +78,7 @@ export function EmergencyRecoverySection({
           </View>
 
           <Text style={styles.recoveryTriggerText}>
-            🔍 {formatTextUnits(t(selectedProto.triggerSummaryPl), unitSystem)}
+            {formatTextUnits(t(selectedProto.triggerSummaryPl), unitSystem)}
           </Text>
 
           {/* Immediate Action Alert */}
@@ -104,7 +103,7 @@ export function EmergencyRecoverySection({
                 style={styles.pivotActionBtn}
                 onPress={() => onPivotToRecipe(selectedProto.id)}
               >
-                <Text style={styles.pivotActionBtnText}>⚡ {t('Załaduj do Kalkulatora')}</Text>
+                <Text style={styles.pivotActionBtnText}>{t('Załaduj do Kalkulatora')}</Text>
               </Pressable>
             )}
           </View>
@@ -122,7 +121,7 @@ export function EmergencyRecoverySection({
 
           {/* Scientific Reasoning */}
           <View style={styles.scienceBox}>
-            <Text style={styles.scienceLabel}>🔬 {t('Fizjologia ciasta:')}</Text>
+            <Text style={styles.scienceLabel}>{t('Fizjologia ciasta:')}</Text>
             <Text style={styles.scienceText}>
               {formatTextUnits(t(selectedProto.scientificReasoningPl), unitSystem)}
             </Text>
@@ -172,10 +171,6 @@ const styles = StyleSheet.create({
   recoveryChipTextActive: {
     color: theme.colors.naAkcencie,
     fontWeight: '700',
-  },
-  presetIcon: {
-    fontSize: 14,
-    marginRight: 6,
   },
   presetName: {
     fontSize: 13,

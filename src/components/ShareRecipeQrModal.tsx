@@ -82,7 +82,7 @@ export function ShareRecipeQrModal({
             {/* Subtitle & Recipe Name */}
             <View style={styles.recipeInfoBox}>
               <Text style={styles.recipeName} numberOfLines={2}>
-                🍞 {name}
+                {name}
               </Text>
               <Text style={styles.recipeDetails}>
                 {t('Hydratacja')}: {recipe.formula.waterPercentage}% • {t('Zakwas|składnik')}: {recipe.formula.starterPercentage}% • DDT: {recipe.targetDDT ?? 25}°C
@@ -108,7 +108,7 @@ export function ShareRecipeQrModal({
                 accessibilityLabel={t('Udostępnij recepturę')}
               >
                 <Text style={styles.secondaryBtnText}>
-                  📤 {t('Udostępnij recepturę')}
+                  {t('Udostępnij recepturę')}
                 </Text>
               </Pressable>
             </View>

@@ -25,7 +25,7 @@ export function PokeTestEntry({ step }: { step: Pick<SessionStep, 'id' | 'catego
         style={styles.entryBtn}
         onPress={chron('stolnica', () => setOpen((v) => !v))}
       >
-        <Text style={styles.entryBtnText}>👆 {t('Sprawdź gotowość: test palca')}</Text>
+        <Text style={styles.entryBtnText}>{t('Sprawdź gotowość: test palca')}</Text>
       </Pressable>
       {open && <KitchenTestsGuideSection />}
     </View>

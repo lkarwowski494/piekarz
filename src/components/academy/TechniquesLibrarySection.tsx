@@ -47,7 +47,7 @@ export function TechniquesLibrarySection({
           onPress={() => onCategoryChange('dough_prep')}
         >
           <Text style={[styles.smallChipText, techCategory === 'dough_prep' && styles.smallChipTextActive]}>
-            🥣 {t('Wyrabianie')}
+            {t('Wyrabianie')}
           </Text>
         </Pressable>
         <Pressable
@@ -55,7 +55,7 @@ export function TechniquesLibrarySection({
           onPress={() => onCategoryChange('bulk_fermentation')}
         >
           <Text style={[styles.smallChipText, techCategory === 'bulk_fermentation' && styles.smallChipTextActive]}>
-            🌀 {t('Składania')}
+            {t('Składania')}
           </Text>
         </Pressable>
         <Pressable
@@ -63,7 +63,7 @@ export function TechniquesLibrarySection({
           onPress={() => onCategoryChange('shaping')}
         >
           <Text style={[styles.smallChipText, techCategory === 'shaping' && styles.smallChipTextActive]}>
-            🥖 {t('Formowanie')}
+            {t('Formowanie')}
           </Text>
         </Pressable>
         <Pressable
@@ -71,7 +71,7 @@ export function TechniquesLibrarySection({
           onPress={() => onCategoryChange('baking_cooling')}
         >
           <Text style={[styles.smallChipText, techCategory === 'baking_cooling' && styles.smallChipTextActive]}>
-            🔥 {t('Wypiek i studzenie')}
+            {t('Wypiek i studzenie')}
           </Text>
         </Pressable>
       </ScrollView>
@@ -88,7 +88,6 @@ export function TechniquesLibrarySection({
             >
               <View style={styles.lessonTitleBlock}>
                 <View style={styles.levelPillRow}>
-                  <Text style={styles.lessonBadge}>{tech.icon}</Text>
                   <Text style={styles.techCodeTag}>{tech.code}</Text>
                 </View>
                 <Text style={styles.cardTitle}>{t(tech.titlePl)}</Text>
@@ -96,7 +95,7 @@ export function TechniquesLibrarySection({
               <Text style={styles.toggleIcon}>{isExpanded ? '▲' : '▼'}</Text>
             </Pressable>
 
-            <Text style={styles.techPrincipleText}>💡 {t(tech.physicalPrinciplePl)}</Text>
+            <Text style={styles.techPrincipleText}>{t(tech.physicalPrinciplePl)}</Text>
 
             {isExpanded && (
               <View style={styles.expandedLessonBox}>
@@ -117,7 +116,7 @@ export function TechniquesLibrarySection({
                 ))}
 
                 <View style={styles.techProTipBox}>
-                  <Text style={styles.proTipTitle}>🌟 {t('Złota rada rzemieślnika:')}</Text>
+                  <Text style={styles.proTipTitle}>{t('Złota rada rzemieślnika:')}</Text>
                   <Text style={styles.proTipText}>{t(tech.proTipsPl)}</Text>
                 </View>
               </View>
@@ -162,9 +161,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: 6,
     marginBottom: 4,
-  },
-  lessonBadge: {
-    fontSize: 18,
   },
   techCodeTag: {
     fontSize: 11,

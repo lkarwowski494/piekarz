@@ -79,7 +79,7 @@ export function StarterConverterModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="starter-converter-modal">
           {/* Header */}
-          <Text style={styles.modalTitle}>⚖️ {t('Konwerter zakwasu & Lievito Madre')}</Text>
+          <Text style={styles.modalTitle}>{t('Konwerter zakwasu & Lievito Madre')}</Text>
           <Text style={styles.modalSubtitle}>
             {t('Przelicznik hydratacji i zamiennik w recepturze')}
           </Text>
@@ -94,7 +94,7 @@ export function StarterConverterModal({
               <Text
                 style={[styles.tabButtonText, activeTab === 'substitution' && styles.tabButtonTextActive]}
               >
-                🔄 {t('Zamiennik w przepisie')}
+                {t('Zamiennik w przepisie')}
               </Text>
             </Pressable>
             <Pressable
@@ -105,7 +105,7 @@ export function StarterConverterModal({
               <Text
                 style={[styles.tabButtonText, activeTab === 'hydration_shift' && styles.tabButtonTextActive]}
               >
-                🌱 {t('Przygotowanie (Odrost)')}
+                {t('Przygotowanie (Odrost)')}
               </Text>
             </Pressable>
           </View>
@@ -243,7 +243,7 @@ export function StarterConverterModal({
                 </View>
 
                 {/* Source Hydration */}
-                <Text style={styles.sectionLabel}>{t('Hydratacja zakwasu matki (Seed)')}:</Text>
+                <Text style={styles.sectionLabel}>{t('Hydratacja zakwasu matki')}:</Text>
                 <View style={styles.presetsRow}>
                   {[
                     { label: '50% Lievito Madre', value: 50 },
@@ -295,7 +295,7 @@ export function StarterConverterModal({
                     <Text style={styles.resultCardTitle}>{t('Receptura odrostu')}</Text>
 
                     <View style={styles.metricRow}>
-                      <Text style={styles.metricLabel}>{t('Zakwas matka (Seed)')}:</Text>
+                      <Text style={styles.metricLabel}>{t('Zakwas matka')}:</Text>
                       <Text style={styles.metricValueHighlight}>{shiftResult.seedStarterGrams}g</Text>
                     </View>
 

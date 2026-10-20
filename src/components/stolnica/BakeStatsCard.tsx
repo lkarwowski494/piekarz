@@ -17,7 +17,7 @@ export interface BakeStatsCardProps {
 export function BakeStatsCard({ stats }: BakeStatsCardProps) {
   return (
     <View style={styles.statsCard} testID="bake-stats-card">
-      <Text style={styles.statsCardTitle}>📊 {t('Statystyki piekarni domowej')}</Text>
+      <Text style={styles.statsCardTitle}>{t('Statystyki piekarni domowej')}</Text>
       <View style={styles.statsGrid}>
         <View style={styles.statsItem}>
           <Text style={styles.statsLabel}>{t('Łącznie wypieków')}</Text>
@@ -25,15 +25,15 @@ export function BakeStatsCard({ stats }: BakeStatsCardProps) {
         </View>
         <View style={styles.statsItem}>
           <Text style={styles.statsLabel}>{t('Średnia ocena')}</Text>
-          <Text style={styles.statsValue}>⭐ {stats.averageRating}</Text>
+          <Text style={styles.statsValue}>{stats.averageRating}</Text>
         </View>
         <View style={styles.statsItem}>
           <Text style={styles.statsLabel}>{t('Śr. miękisz')}</Text>
-          <Text style={styles.statsValue}>🍞 {stats.averageCrumbScore}/5</Text>
+          <Text style={styles.statsValue}>{stats.averageCrumbScore}/5</Text>
         </View>
         <View style={styles.statsItem}>
           <Text style={styles.statsLabel}>{t('Śr. skórka')}</Text>
-          <Text style={styles.statsValue}>🔥 {stats.averageCrustScore}/5</Text>
+          <Text style={styles.statsValue}>{stats.averageCrustScore}/5</Text>
         </View>
       </View>
     </View>

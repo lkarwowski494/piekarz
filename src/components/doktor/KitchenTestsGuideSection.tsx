@@ -23,7 +23,7 @@ export function KitchenTestsGuideSection() {
         onPress={() => setShowPokeTest((prev) => !prev)}
       >
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>👆 {t('Test palca (Poke Test)')}</Text>
+          <Text style={styles.guideTitle}>{t('Test palca (Poke Test)')}</Text>
           <Text style={styles.guideToggle}>{showPokeTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>
@@ -53,7 +53,7 @@ export function KitchenTestsGuideSection() {
         onPress={() => setShowWindowpaneTest((prev) => !prev)}
       >
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>🪟 {t('Test okna glutenowego (Windowpane)')}</Text>
+          <Text style={styles.guideTitle}>{t('Test okna glutenowego (Windowpane)')}</Text>
           <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>

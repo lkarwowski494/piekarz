@@ -74,14 +74,14 @@ describe('PL + metric unchanged', () => {
     setLang('pl');
     expect(text(1, 'metric')).toBe(
       [
-        '🥖 Country loaf',
+        'Country loaf',
         '================',
         'Masa ciasta: 1700 g (po upieczeniu: ~1462 g)',
-        "Hydratacja całkowita: 70,9% (True Baker's %)",
+        'Hydratacja całkowita: 70,9%',
         'Strata piecowa: 14,0% (-238 g pary)',
         'Szacowana wilgotność miękiszu: 31,5% (Suchy / chrupki (Crisp Dry))',
         '',
-        '📋 Do miski na wagę:',
+        'Do miski na wagę:',
         '  • Bread flour T65 (80,0%): 716 g',
         '  • Whole rye (20,0%): 179 g',
         '  • Woda (67,9%): 608 g [temp. 3,5°C]',
@@ -89,12 +89,12 @@ describe('PL + metric unchanged', () => {
         '  • Zakwas (20,0%): 179 g (89 g mąki + 89 g wody)',
         '  • Sól (2,0%): 17,9 g',
         '',
-        '🌡️ Docelowa temperatura ciasta (DDT): 25,5°C',
+        'Docelowa temperatura ciasta (DDT): 25,5°C',
         '',
-        '⏱️ Zalecenie studzenia na kratce:',
+        'Zalecenie studzenia na kratce:',
         '  Niska wilgotność miękiszu (styl bagietkowy). Skórka bardzo krucha, krótszy czas zachowania świeżości.',
         '',
-        '— Apps4Craft Studio • Piekarz 🥖 • 100% Offline-First',
+        '— Apps4Craft Studio • Piekarz',
       ].join('\n')
     );
   });

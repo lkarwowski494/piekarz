@@ -374,7 +374,7 @@ export default function StolnicaScreen() {
             style={styles.headerDoctorBtn}
             onPress={() => router.push('/(tabs)/doktor')}
           >
-            <Text style={styles.headerDoctorBtnText}>🩺 {t('Doktor')}</Text>
+            <Text style={styles.headerDoctorBtnText}>{t('Doktor')}</Text>
           </Pressable>
         }
       />
@@ -461,7 +461,7 @@ export default function StolnicaScreen() {
                 >
                   <Text style={styles.actionBtnNextText}>
                     {currentStepIdx === steps.length - 1
-                      ? `🏆 ${t('Zakończ wypiek')}`
+                      ? t('Zakończ wypiek')
                       : `${t('Następny krok')} (${t(steps[currentStepIdx + 1]?.name ?? '')}) ✓`}
                   </Text>
                 </Pressable>

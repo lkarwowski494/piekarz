@@ -10,35 +10,6 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { ScheduledStage } from '../../scheduler/reverse-scheduler';
 
-export function getStageIcon(category: string): string {
-  switch (category) {
-    case 'starter_feed':
-      return '🥣';
-    case 'autolyse':
-      return '🌾';
-    case 'mix':
-      return '🧂';
-    case 'bulk_ferment':
-      return '👐';
-    case 'pre_shape':
-      return '🥯';
-    case 'bench_rest':
-      return '⏳';
-    case 'final_shape':
-      return '🧺';
-    case 'final_proof':
-      return '❄️';
-    case 'preheat_oven':
-      return '🔥';
-    case 'bake':
-      return '♨️';
-    case 'cool':
-      return '🍞';
-    default:
-      return '🥖';
-  }
-}
-
 export interface TimelineStagesListProps {
   stages: ScheduledStage[];
   formatTime: (d: Date) => string;
@@ -52,7 +23,7 @@ export function TimelineStagesList({
 }: TimelineStagesListProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.sectionHeading}>{t('Oś czasu przygotowania (Timeline)')}</Text>
+      <Text style={styles.sectionHeading}>{t('Oś czasu przygotowania')}</Text>
 
       <View style={styles.timeline}>
         {stages.map((stage: ScheduledStage, idx: number) => {
@@ -77,9 +48,7 @@ export function TimelineStagesList({
                       ? styles.bulletPassive
                       : styles.bulletActive,
                   ]}
-                >
-                  <Text style={styles.bulletIcon}>{getStageIcon(stage.category)}</Text>
-                </View>
+                />
                 {idx < stages.length - 1 && <View style={styles.verticalLine} />}
               </View>
 
@@ -113,7 +82,7 @@ export function TimelineStagesList({
                   </View>
                   {isColliding && (
                     <View style={styles.collisionBadge}>
-                      <Text style={styles.collisionBadgeText}>⚠️ {t('Kolizja nocna!')}</Text>
+                      <Text style={styles.collisionBadgeText}>{t('Kolizja nocna!')}</Text>
                     </View>
                   )}
                 </View>
@@ -194,9 +163,6 @@ const styles = StyleSheet.create({
   bulletCollision: {
     borderColor: theme.colors.blad,
     backgroundColor: theme.colors.powierzchnia,
-  },
-  bulletIcon: {
-    fontSize: 14,
   },
   verticalLine: {
     width: 2,

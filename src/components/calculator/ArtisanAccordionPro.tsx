@@ -101,15 +101,14 @@ export function ArtisanAccordionPro({
         onPress={onToggle}
       >
         <View style={styles.toggleTitleRow}>
-          <Text style={styles.toggleEmoji}>🔬</Text>
           <View style={styles.toggleTextCol}>
             <Text style={styles.toggleTitle}>
               {t('Parametry Rzemieślnicze & Mąki')}
             </Text>
             <Text style={styles.toggleSubtitle}>
               {wejscieWidoczne('strata-piecowa')
-                ? t('4-DDT, matematyka lodu, prefermenty, strata piecowa')
-                : t('4-DDT, matematyka lodu, prefermenty')}
+                ? t('Temperatura wody, zaczyny, strata piecowa')
+                : t('Temperatura wody i zaczyny')}
             </Text>
           </View>
         </View>
@@ -190,10 +189,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  toggleEmoji: {
-    fontSize: 24,
-    marginRight: theme.spacing.sm,
   },
   toggleTextCol: {
     flex: 1,

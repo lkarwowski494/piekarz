@@ -25,22 +25,22 @@ describe('Diagnosis Formatter & Clipboard Specification (lib/diagnosis-formatter
     it('formats bread defect diagnosis with title, cause, and actionable checklist', () => {
       const text = formatDiagnosisToText(sampleDiagnosis);
 
-      expect(text).toContain('🩺 Doktor Chleba: Niedofermentowany bochenek');
-      expect(text).toContain('🔴 Wielkie jaskinie');
-      expect(text).toContain('🧬 Przyczyna biologiczna / fizyczna:');
+      expect(text).toContain('Doktor Chleba: Niedofermentowany bochenek');
+      expect(text).toContain('Krytyczny błąd struktury: Wielkie jaskinie');
+      expect(text).toContain('Przyczyna biologiczna / fizyczna:');
       expect(text).toContain('Drożdże nie zdążyły');
-      expect(text).toContain('🛠️ Kroki naprawcze na kolejny wypiek:');
+      expect(text).toContain('Kroki naprawcze na kolejny wypiek:');
       expect(text).toContain('1. Wydłuż fermentację burzliwą');
       expect(text).toContain('2. Pilnuj temperatury ciasta');
       expect(text).toContain('Apps4Craft Studio');
     });
 
-    it('uses correct severity emoji based on severity level', () => {
+    it('names the severity level in words, as the badge in the result card (088: no emoji)', () => {
       const moderateDiag = { ...sampleDiagnosis, severity: 'moderate' as const };
-      expect(formatDiagnosisToText(moderateDiag)).toContain('🟡');
+      expect(formatDiagnosisToText(moderateDiag)).toContain('Umiarkowana wada: Wielkie jaskinie');
 
       const mildDiag = { ...sampleDiagnosis, severity: 'mild' as const };
-      expect(formatDiagnosisToText(mildDiag)).toContain('🟢');
+      expect(formatDiagnosisToText(mildDiag)).toContain('Drobna niedoskonałość: Wielkie jaskinie');
     });
   });
 

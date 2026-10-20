@@ -7,7 +7,7 @@ export const EN_2: Record<string, string> = {
   'Profil smakowy': 'Flavor profile',
 
   // Artisan Preferments (Kalkulator)
-  'Zaczyny rzemieślnicze (Preferments)': 'Artisan Preferments',
+  'Zaczyny rzemieślnicze': 'Artisan Preferments',
   'Typ zaczynu': 'Preferment type',
   'Udział mąki w zaczynie': 'Flour in preferment',
   'Mąka w zaczynie': 'Preferment flour',
@@ -55,7 +55,6 @@ export const EN_2: Record<string, string> = {
   'Zwiń protokół': 'Collapse protocol',
 
   // Sourdough Metabolic Peak Predictor (Zakwas)
-  'Odliczanie do szczytu (Peak Countdown)': 'Peak countdown',
   'Szacowane okno szczytu:': 'Estimated peak window:',
   'Postęp do szczytu:': 'Progress to peak:',
   'W szczycie': 'At peak',
@@ -66,7 +65,7 @@ export const EN_2: Record<string, string> = {
   'Niedzielny obiad': 'Sunday dinner',
   'Świeży po pracy': 'Fresh after work',
   'Wypiek jednodniowy (Direct)': 'Same-day bake (Direct)',
-  'Godziny snu (Sleep Guard):': 'Sleep hours (Sleep Guard):',
+  'Godziny snu:': 'Sleep hours:',
   'Ranny ptaszek': 'Early bird',
   'Nocny marek': 'Night owl',
   'Standard': 'Standard',
@@ -85,10 +84,9 @@ export const EN_2: Record<string, string> = {
   '0g (brak zmian)': '0g (no change)',
   'Mąka ze sfermentowanego zaczynu': 'Flour from fermented preferment',
   'Docelowa masa nowego zakwasu': 'Target weight of new starter',
-  'Hydratacja zakwasu matki (Seed)': 'Seed mother starter hydration',
+  'Hydratacja zakwasu matki': 'Mother starter hydration',
   'Docelowa hydratacja nowego zakwasu': 'Target hydration of new starter',
   'Receptura odrostu': 'Offshoot formula',
-  'Zakwas matka (Seed)': 'Mother starter (Seed)',
   'Mąka dodana': 'Flour added',
   'Woda dodana': 'Water added',
   'Uzyskana masa i hydratacja': 'Resulting weight and hydration',
@@ -202,7 +200,6 @@ export const EN_2: Record<string, string> = {
   'Słownik mąk': 'Flour dictionary',
 
   // Volume to Weight Converter (Z-013)
-  'Przelicznik Objętość ↔ Waga': 'Volume ↔ Weight Converter',
   'Zamknij przelicznik': 'Close converter',
   'Przelicz szklanki, łyżki i łyżeczki na gramy (DEC-14 / Z-013)': 'Convert cups, tablespoons and teaspoons to grams (DEC-14 / Z-013)',
   'Standard szklanki:': 'Cup standard:',

@@ -32,12 +32,12 @@ describe('Feeding Formatter & Clipboard Specification (lib/feeding-formatter)', 
     it('formats starter feeding details with jar ingredients and baking tip', () => {
       const text = formatFeedingToText(sampleStarter, sampleFeeding, [1, 2, 2]);
 
-      expect(text).toContain('🥣 Dokarmienie zakwasu: Bolesław');
-      expect(text).toContain('⚖️ Proporcja: 1:2:2');
-      expect(text).toContain('🎯 Docelowa masa zaczynu: 150 g');
-      expect(text).toContain('1. 🫙 Zakwas matka: 30 g');
-      expect(text).toContain('2. 🌾 Mąka (Żytnia razowa typ 2000): 60 g');
-      expect(text).toContain('3. 💧 Woda: 60 g');
+      expect(text).toContain('Dokarmienie zakwasu: Bolesław');
+      expect(text).toContain('Proporcja: 1:2:2');
+      expect(text).toContain('Docelowa masa zaczynu: 150 g');
+      expect(text).toContain('1. Zakwas matka: 30 g');
+      expect(text).toContain('2. Mąka (Żytnia razowa typ 2000): 60 g');
+      expect(text).toContain('3. Woda: 60 g');
       expect(text).toContain('Standardowe dokarmienie przed pieczeniem');
       expect(text).toContain('Apps4Craft Studio');
     });

@@ -14,7 +14,6 @@ export type EmergencyCode =
 export interface DoughRecoveryProtocol {
   id: EmergencyCode;
   titlePl: string;
-  icon: string;
   triggerSummaryPl: string;
   immediateActionPl: string;
   pivotRecipeNamePl: string;
@@ -26,7 +25,6 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'OVERPROOFED_COLLAPSE',
     titlePl: 'Przerośnięte ciasto (Pivot na Focaccię)',
-    icon: '🫒',
     triggerSummaryPl: 'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.',
     immediateActionPl: 'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.',
     pivotRecipeNamePl: 'Rzemieślnicza Focaccia na zakwasie',
@@ -43,7 +41,6 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'SLACK_HIGH_HYDRATION',
     titlePl: 'Zbyt luźne ciasto (Ratunek w Foremce)',
-    icon: '🍞',
     triggerSummaryPl: 'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.',
     immediateActionPl: 'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej (Tin Loaf).',
     pivotRecipeNamePl: 'Chleb foremkowy o wysokiej wilgotności',
@@ -60,7 +57,6 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'COLD_SLUGGISH',
     titlePl: 'Ospała fermentacja (Zimna kuchnia)',
-    icon: '🌡️',
     triggerSummaryPl: 'Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).',
     immediateActionPl: 'Podnieś temperaturę fermentacji do optymalnych 26–28°C.',
     pivotRecipeNamePl: 'Przyspieszona fermentacja termiczna',
@@ -79,7 +75,6 @@ export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'FORGOTTEN_SALT',
     titlePl: 'Zapomniana sól (Laminacja ratunkowa)',
-    icon: '🧂',
     triggerSummaryPl: 'Ciasto już fermentuje, a odważona sól została na blacie.',
     immediateActionPl: 'Rozpuść sól w minimalnej ilości wody i wprowadź przez laminację.',
     pivotRecipeNamePl: 'Procedura Bassinage ratunkowego',

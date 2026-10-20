@@ -36,7 +36,7 @@ export function AccordionDdtSection({
   return (
     <View style={styles.sectionBlock}>
       <Text style={styles.sectionHeaderTitle}>
-        🌡️ {t('Kalkulator 4-DDT i Temperatura Wody')}
+        {t('Temperatura wody')}
       </Text>
       <Text style={styles.sectionDesc}>
         {t(
@@ -54,13 +54,12 @@ export function AccordionDdtSection({
 
         {waterTempWarning !== undefined && (
           <View style={styles.hotAlertRow} testID="ddt-too-hot-warning" accessibilityRole="alert">
-            <Text style={styles.hotAlertText}>⚠️ {t(waterTempWarning)}</Text>
+            <Text style={styles.hotAlertText}>{t(waterTempWarning)}</Text>
           </View>
         )}
 
         {iceGrams !== undefined && iceGrams > 0 && (
           <View style={styles.iceAlertRow}>
-            <Text style={styles.iceIcon}>🧊</Text>
             <Text style={styles.iceText}>
               {t('Zastąp część wody lodem:')} {formatWeight(iceGrams, unitSystem)} {t('lodu')}
             </Text>
@@ -156,10 +155,10 @@ export function AccordionDdtSection({
       {blendAbsorption && (
         <View style={styles.absorptionBadge} testID="flour-absorption-badge">
           <Text style={styles.absorptionLabel}>
-            🌾 {t('Chłonność mąk:')} {formatNumber(blendAbsorption.weightedAbsorptionPercent)}% ({t('zalecana')}: {formatNumber(blendAbsorption.recommendedHydrationRange[0])}–{formatNumber(blendAbsorption.recommendedHydrationRange[1])}%) • {t('Białko')}: ~{formatNumber(blendAbsorption.estimatedProteinPercent)}%
+            {t('Chłonność mąk:')} {formatNumber(blendAbsorption.weightedAbsorptionPercent)}% ({t('zalecana')}: {formatNumber(blendAbsorption.recommendedHydrationRange[0])}–{formatNumber(blendAbsorption.recommendedHydrationRange[1])}%) • {t('Białko')}: ~{formatNumber(blendAbsorption.estimatedProteinPercent)}%
           </Text>
           <Text style={styles.absorptionAdviceText}>
-            💡 {t(blendAbsorption.doughFeelAdvicePl)}
+            {t(blendAbsorption.doughFeelAdvicePl)}
           </Text>
         </View>
       )}
@@ -229,10 +228,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.tusz,
-  },
-  iceIcon: {
-    fontSize: 14,
-    marginRight: 6,
   },
   iceText: {
     fontSize: 12,

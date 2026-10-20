@@ -44,7 +44,7 @@ export function DutchOvenController({
               dutchOvenPhase === 'lid_on' && styles.phaseTabBtnTextActive,
             ]}
           >
-            🍲 {t('Faza 1: Pod pokrywką (Para)')}
+            {t('Faza 1: Pod pokrywką (Para)')}
           </Text>
         </Pressable>
 
@@ -62,7 +62,7 @@ export function DutchOvenController({
               dutchOvenPhase === 'lid_off' && styles.phaseTabBtnTextActive,
             ]}
           >
-            🔥 {t('Faza 2: Bez pokrywki (Karmelizacja)')}
+            {t('Faza 2: Bez pokrywki (Karmelizacja)')}
           </Text>
         </Pressable>
       </View>
@@ -85,7 +85,7 @@ export function DutchOvenController({
           {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].descriptionPl), unitSystem)}
         </Text>
         <Text style={styles.phaseTip}>
-          💡 {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl), unitSystem)}
+          {formatTextUnits(t(DUTCH_OVEN_PHASES[dutchOvenPhase].tipPl), unitSystem)}
         </Text>
       </View>
 
@@ -93,7 +93,7 @@ export function DutchOvenController({
       {dutchOvenPhase === 'lid_on' && isCompleted && (
         <View style={styles.steamAlertBanner} testID="steam-gate-alert">
           <Text style={styles.steamAlertTitle}>
-            🔥 {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
+            {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
           </Text>
           <Text style={styles.steamAlertDesc}>
             {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}
@@ -110,7 +110,7 @@ export function DutchOvenController({
             onPress={onStartPhase2AfterSteamAlert}
           >
             <Text style={styles.steamAlertActionBtnText}>
-              ▶ {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: 25 })} @ {formatTemperature(210, unitSystem)})
+              {t('Rozpocznij Fazę 2')} ({t('{n} min', { n: 25 })} @ {formatTemperature(210, unitSystem)})
             </Text>
           </Pressable>
         </View>

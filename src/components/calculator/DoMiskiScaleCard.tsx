@@ -89,7 +89,7 @@ export function DoMiskiScaleCard({
           onPress={() => onCalcModeChange?.('loaves')}
         >
           <Text style={[styles.modeTabText, calcMode === 'loaves' && styles.modeTabTextActive]}>
-            🥖 {t('Bochenki')} ({loavesCount} × {loafWeightGrams}g)
+            {t('Bochenki')} ({loavesCount} × {loafWeightGrams}g)
           </Text>
         </Pressable>
         <Pressable
@@ -97,7 +97,7 @@ export function DoMiskiScaleCard({
           onPress={() => onCalcModeChange?.('flour')}
         >
           <Text style={[styles.modeTabText, calcMode === 'flour' && styles.modeTabTextActive]}>
-            🌾 {t('Masa mąki')} ({flourGrams}g)
+            {t('Masa mąki')} ({flourGrams}g)
           </Text>
         </Pressable>
       </View>
@@ -215,10 +215,10 @@ export function DoMiskiScaleCard({
         </View>
       )}
 
-      {/* ⚖️ Do miski na wagę */}
+      {/* Do miski na wagę */}
       <View style={styles.scaleCard}>
         <View style={styles.scaleHeader}>
-          <Text style={styles.scaleHeaderTitle}>⚖️ {t('Do miski na wagę')}</Text>
+          <Text style={styles.scaleHeaderTitle}>{t('Do miski na wagę')}</Text>
           <Text style={styles.scaleHeaderSubtitle}>
             {t('Odhaczaj składniki w miarę wsypywania')}
           </Text>
@@ -227,7 +227,7 @@ export function DoMiskiScaleCard({
         <View style={styles.ingredientsList}>
           <ScaleIngredientRow
             testID="scale-item-flour"
-            label={`🌾 ${t('Mąka dodana')}`}
+            label={t('Mąka dodana')}
             subtext="100% bazy"
             weight={formatWeight(calculations.baseFlourWeightGrams, unitSystem)}
             checked={!!checkedIngredients['flour']}
@@ -235,7 +235,7 @@ export function DoMiskiScaleCard({
           />
           <ScaleIngredientRow
             testID="scale-item-water"
-            label={`💧 ${t('Woda')}`}
+            label={t('Woda')}
             subtext={`${formatNumber(calculations.overallHydrationPercent, undefined, { maximumFractionDigits: 2 })}% ${t('hydratacji')}`}
             weight={formatWeight(calculations.waterGrams, unitSystem)}
             checked={!!checkedIngredients['water']}
@@ -244,7 +244,7 @@ export function DoMiskiScaleCard({
           {calculations.starterGrams > 0 && (
             <ScaleIngredientRow
               testID="scale-item-starter"
-              label={`🏺 ${t('Aktywny zakwas')}`}
+              label={t('Aktywny zakwas')}
               subtext={t('W szczycie aktywności')}
               weight={formatWeight(calculations.starterGrams, unitSystem)}
               checked={!!checkedIngredients['starter']}
@@ -253,7 +253,7 @@ export function DoMiskiScaleCard({
           )}
           <ScaleIngredientRow
             testID="scale-item-salt"
-            label={`🧂 ${t('Sól kłodawska / morska')}`}
+            label={t('Sól kłodawska / morska')}
             subtext={`${formatFixed(saltPercent, 1)}%`}
             weight={formatDoseWeight(calculations.saltGrams, unitSystem)}
             checked={!!checkedIngredients['salt']}
@@ -262,7 +262,7 @@ export function DoMiskiScaleCard({
           {calculations.yeastGrams > 0 && (
             <ScaleIngredientRow
               testID="scale-item-yeast"
-              label={`🫧 ${t('Drożdże')}`}
+              label={t('Drożdże')}
               weight={formatDoseWeight(calculations.yeastGrams, unitSystem)}
               checked={!!checkedIngredients['yeast']}
               onPress={() => toggleCheck('yeast')}
@@ -287,7 +287,7 @@ export function DoMiskiScaleCard({
       >
         <Pressable testID="start-bake-btn" onPress={onStartBake}>
           <Text style={styles.fastStartBtnText}>
-            🥖 {t('Rozpocznij wypiek na Stolnicy')}
+            {t('Rozpocznij wypiek na Stolnicy')}
           </Text>
         </Pressable>
       </Pressable>

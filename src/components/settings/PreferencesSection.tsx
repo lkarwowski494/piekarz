@@ -29,7 +29,7 @@ export function PreferencesSection({
             onPress={() => onLanguageChange('pl')}
           >
             <Text style={[styles.langBtnText, currentLang === 'pl' && styles.langBtnTextActive]}>
-              🇵🇱 Polski
+              Polski
             </Text>
           </Pressable>
           <Pressable
@@ -38,7 +38,7 @@ export function PreferencesSection({
             onPress={() => onLanguageChange('en')}
           >
             <Text style={[styles.langBtnText, currentLang === 'en' && styles.langBtnTextActive]}>
-              🇬🇧 English
+              English
             </Text>
           </Pressable>
         </View>
@@ -54,7 +54,7 @@ export function PreferencesSection({
             onPress={() => onUnitSystemChange('metric')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'metric' && styles.langBtnTextActive]}>
-              ⚖️ {t('Metryczne (°C, g)')}
+              {t('Metryczne (°C, g)')}
             </Text>
           </Pressable>
           <Pressable
@@ -63,7 +63,7 @@ export function PreferencesSection({
             onPress={() => onUnitSystemChange('imperial')}
           >
             <Text style={[styles.langBtnText, unitSystem === 'imperial' && styles.langBtnTextActive]}>
-              🌡️ {t('Imperialne (°F, oz)')}
+              {t('Imperialne (°F, oz)')}
             </Text>
           </Pressable>
         </View>

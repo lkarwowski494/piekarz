@@ -7,7 +7,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'dough_prep',
     titlePl: 'Autoliza i Fermentoliza',
     titleEn: 'Autolyse & Fermentolyse',
-    icon: '🥣',
     physicalPrinciplePl: 'Spontaniczne rozwinięcie łańcuchów glutenu bez wysiłku mechanicznego; proteazy rozluźniają wiązania, a cząsteczki skrobi w pełni absorbują wodę.',
     physicalPrincipleEn: 'Spontaneous gluten formation without physical kneading; proteases relax bonds while starch granules fully hydrate.',
     executionStepsPl: [
@@ -41,7 +40,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'bulk_fermentation',
     titlePl: 'Składanie rozciągane (Stretch & Fold)',
     titleEn: 'Stretch & Fold Technique',
-    icon: '🖐️',
     physicalPrinciplePl: 'Równoległe ukierunkowanie nici glutenowych oraz równomierne rozprowadzenie temperatury i drożdży w objętości ciasta.',
     physicalPrincipleEn: 'Aligns gluten strands along tension lines and equalizes internal temperature and yeast distribution.',
     executionStepsPl: [
@@ -75,7 +73,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'bulk_fermentation',
     titlePl: 'Składanie zwojowe (Coil Fold)',
     titleEn: 'Coil Fold Technique',
-    icon: '🌀',
     physicalPrinciplePl: 'Wzmacnianie delikatnej struktury w luźnych ciastach wysokiej hydratacji (>75%) z wykorzystaniem grawitacji, bez miażdżenia pęcherzyków gazu.',
     physicalPrincipleEn: 'Strengthens wet dough (>75% hydration) using gravity while protecting delicate fermentation gas bubbles.',
     executionStepsPl: [
@@ -109,7 +106,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'dough_prep',
     titlePl: 'Wyrabianie francuskie (Slap & Fold / Bertinet)',
     titleEn: 'French Kneading (Slap & Fold)',
-    icon: '⚡',
     physicalPrinciplePl: 'Szybkie wprowadzenie powietrza i energii kinetycznej do bardzo kleistego ciasta na samym początku mieszania.',
     physicalPrincipleEn: 'Rapidly aerates and introduces mechanical energy into high-hydration sticky dough at the mixing onset.',
     executionStepsPl: [
@@ -143,7 +139,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'bulk_fermentation',
     titlePl: 'Laminacja ciasta i dodatki',
     titleEn: 'Dough Lamination & Inclusions',
-    icon: '✨',
     physicalPrinciplePl: 'Ekstremalne rozciągnięcie siatki glutenowej w przezroczystą błonę w celu równomiernego ułożenia nasion, ziół lub sera.',
     physicalPrincipleEn: 'Stretching the gluten matrix into a thin translucent sheet to evenly disperse seeds, herbs, or cheese inclusions.',
     executionStepsPl: [
@@ -179,7 +174,6 @@ export const PREP_FERMENT_TECHNIQUES: TechniqueCard[] = [
     category: 'shaping',
     titlePl: 'Formowanie wstępne (Pre-shape) i Bench Rest',
     titleEn: 'Pre-shaping & Bench Rest',
-    icon: '⏳',
     physicalPrinciplePl: 'Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.',
     physicalPrincipleEn: 'Aligns dough mass into a symmetric sphere and allows gluten relaxation before final tensioning.',
     executionStepsPl: [

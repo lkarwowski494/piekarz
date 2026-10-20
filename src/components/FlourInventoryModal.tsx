@@ -134,9 +134,9 @@ export function FlourInventoryModal({
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="flour-inventory-modal">
           {/* Header */}
-          <Text style={styles.modalTitle}>🌾 {t('Spiżarnia mąk (Magazyn)')} [{t('Wersja 1.1, podgląd')}]</Text>
+          <Text style={styles.modalTitle}>{t('Spiżarnia mąk (Magazyn)')}</Text>
           <Text style={styles.modalSubtitle}>
-            {t('Kontrola zapasów mąk i powiadomienia o brakach')} • {t('Etap 1.1')}
+            {t('Kontrola zapasów mąk i powiadomienia o brakach')}
           </Text>
 
           {/* Recipe Stock Check Status Banner */}
@@ -158,7 +158,7 @@ export function FlourInventoryModal({
               >
                 {stockCheck.allSufficient
                   ? `✓ ${t('Wszystkie mąki są dostępne w spiżarni!')}`
-                  : `⚠️ ${t(stockCheck.warningTemplatePl ?? '', stockCheck.warningParams)}`}
+                  : t(stockCheck.warningTemplatePl ?? '', stockCheck.warningParams)}
               </Text>
 
               {!stockCheck.allSufficient &&
@@ -166,7 +166,7 @@ export function FlourInventoryModal({
                   .filter((i) => i.deficitGrams > 0 && i.substituteSuggestionPl)
                   .map((i, idx) => (
                     <Text key={idx} style={styles.substituteText}>
-                      💡 {t(i.substituteTemplatePl ?? '', { ...i.substituteParams, nazwa: t(i.substituteParams?.nazwa ?? '') })}
+                      {t(i.substituteTemplatePl ?? '', { ...i.substituteParams, nazwa: t(i.substituteParams?.nazwa ?? '') })}
                     </Text>
                   ))}
 
@@ -177,7 +177,7 @@ export function FlourInventoryModal({
                   onPress={handleDeductRecipeStocks}
                 >
                   <Text style={styles.deductBtnText}>
-                    📦 {t('Odlicz zużycie z magazynu')}
+                    {t('Odlicz zużycie z magazynu')}
                   </Text>
                 </Pressable>
               )}
@@ -226,7 +226,7 @@ export function FlourInventoryModal({
                     style={styles.deleteBtn}
                     onPress={() => handleDeleteItem(item.id)}
                   >
-                    <Text style={styles.deleteBtnText}>🗑️</Text>
+                    <Text style={styles.deleteBtnText}>{t('Usuń')}</Text>
                   </Pressable>
                 </View>
               </View>
@@ -440,6 +440,7 @@ const styles = StyleSheet.create({
   },
   deleteBtnText: {
     fontSize: 14,
+    color: theme.colors.blad,
   },
   openAddBtn: {
     marginTop: 8,

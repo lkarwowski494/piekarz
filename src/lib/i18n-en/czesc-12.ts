@@ -149,4 +149,6 @@ export const EN_12: Record<string, string> = {
   'Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}':
     'Mail is not set up on this phone. Write to: {adres}',
   'Kopiuj adres': 'Copy address',
+  // 088: teksty zamiast emoji (ocena wpisu w Dzienniku)
+  'Ocena: {n}/5': 'Rating: {n}/5',
 };

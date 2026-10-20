@@ -38,7 +38,7 @@ export function AddStarterModal({
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>🥣 {t('Dodaj nowy zakwas')}</Text>
+          <Text style={styles.modalTitle}>{t('Dodaj nowy zakwas')}</Text>
           <Text style={styles.modalSubtitle}>{t('Utwórz profil dla nowej kultury zakwasu')}</Text>
 
           {/* Name input */}
@@ -71,7 +71,7 @@ export function AddStarterModal({
               onPress={() => onStorageChange('ROOM_TEMP')}
             >
               <Text style={[styles.storageBtnText, storage === 'ROOM_TEMP' && styles.storageBtnTextActive]}>
-                🏠 {t('Temperatura pokojowa')}
+                {t('Temperatura pokojowa')}
               </Text>
             </Pressable>
             <Pressable
@@ -79,7 +79,7 @@ export function AddStarterModal({
               onPress={() => onStorageChange('FRIDGE')}
             >
               <Text style={[styles.storageBtnText, storage === 'FRIDGE' && styles.storageBtnTextActive]}>
-                ❄️ {t('W lodówce (4°C)')}
+                {t('W lodówce (4°C)')}
               </Text>
             </Pressable>
           </View>

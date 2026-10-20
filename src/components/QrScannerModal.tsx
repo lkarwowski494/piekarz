@@ -75,7 +75,6 @@ export function QrScannerModal({
 
         {!permission?.granted ? (
           <View style={styles.permissionBox} testID="camera-permission-box">
-            <Text style={styles.permissionIcon}>📷</Text>
             <Text style={styles.permissionTitle}>{t('Dostęp do Aparatu')}</Text>
             <Text style={styles.permissionDesc}>
               {t('Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.')}
@@ -164,10 +163,6 @@ const styles = StyleSheet.create({
     padding: theme.spacing.xl,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  permissionIcon: {
-    fontSize: 54,
-    marginBottom: theme.spacing.md,
   },
   permissionTitle: {
     fontSize: 22,

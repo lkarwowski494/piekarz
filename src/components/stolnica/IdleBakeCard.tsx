@@ -38,7 +38,7 @@ export function IdleBakeCard({
       />
 
       <Pressable style={styles.startBtn} onPress={onStartBake}>
-        <Text style={styles.startBtnText}>🥖 {t('Rozpocznij wypiek')}</Text>
+        <Text style={styles.startBtnText}>{t('Rozpocznij wypiek')}</Text>
       </Pressable>
     </View>
   );

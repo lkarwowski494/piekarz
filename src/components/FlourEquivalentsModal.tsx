@@ -41,7 +41,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
-            <Text style={styles.title}>🌍 {t('Słownik Odpowiedników Mąk')}</Text>
+            <Text style={styles.title}>{t('Słownik Odpowiedników Mąk')}</Text>
             <Pressable
               testID="close-flour-equiv-modal-btn"
               style={styles.closeBtn}
@@ -85,7 +85,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                   <Text style={styles.cardTitle}>{t(entry.namePl)}</Text>
                   <View style={styles.absorptionBadge}>
                     <Text style={styles.absorptionBadgeText}>
-                      💧 ~{formatNumber(entry.typicalAbsorptionPercent)}% {t('wody')}
+                      ~{formatNumber(entry.typicalAbsorptionPercent)}% {t('wody')}
                     </Text>
                   </View>
                 </View>
@@ -93,23 +93,23 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                 {/* Country mappings grid */}
                 <View style={styles.countryGrid}>
                   <View style={styles.countryRow}>
-                    <Text style={styles.countryFlag}>🇵🇱 PL:</Text>
+                    <Text style={styles.countryFlag}>PL:</Text>
                     <Text style={styles.countryType}>{entry.plType}</Text>
                   </View>
                   <View style={styles.countryRow}>
-                    <Text style={styles.countryFlag}>🇫🇷 FR:</Text>
+                    <Text style={styles.countryFlag}>FR:</Text>
                     <Text style={styles.countryType}>{entry.frType}</Text>
                   </View>
                   <View style={styles.countryRow}>
-                    <Text style={styles.countryFlag}>🇮🇹 IT:</Text>
+                    <Text style={styles.countryFlag}>IT:</Text>
                     <Text style={styles.countryType}>{entry.itType}</Text>
                   </View>
                   <View style={styles.countryRow}>
-                    <Text style={styles.countryFlag}>🇩🇪 DE:</Text>
+                    <Text style={styles.countryFlag}>DE:</Text>
                     <Text style={styles.countryType}>{entry.deType}</Text>
                   </View>
                   <View style={styles.countryRow}>
-                    <Text style={styles.countryFlag}>🇺🇸 US:</Text>
+                    <Text style={styles.countryFlag}>US:</Text>
                     <Text style={styles.countryType}>{entry.usType}</Text>
                   </View>
                 </View>
@@ -117,27 +117,27 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
                 {/* Technical stats */}
                 <View style={styles.statsRow}>
                   <Text style={styles.statChip}>
-                    🔥 {t('Popiół:')} {formatNumber(entry.ashPercentRange[0], undefined, { maximumFractionDigits: 2 })}–{formatNumber(entry.ashPercentRange[1], undefined, { maximumFractionDigits: 2 })}%
+                    {t('Popiół:')} {formatNumber(entry.ashPercentRange[0], undefined, { maximumFractionDigits: 2 })}–{formatNumber(entry.ashPercentRange[1], undefined, { maximumFractionDigits: 2 })}%
                   </Text>
                   <Text style={styles.statChip}>
-                    🌾 {t('Białko:')} ~{formatNumber(entry.typicalProteinPercent)}%
+                    {t('Białko:')} ~{formatNumber(entry.typicalProteinPercent)}%
                   </Text>
                   {entry.wStrengthRange && (
                     <Text style={styles.statChip}>
-                      💪 W: {entry.wStrengthRange[0]}–{entry.wStrengthRange[1]}
+                      W: {entry.wStrengthRange[0]}–{entry.wStrengthRange[1]}
                     </Text>
                   )}
                 </View>
 
                 {/* Best for */}
                 <View style={styles.bestForBox}>
-                  <Text style={styles.bestForLabel}>🎯 {t('Zastosowanie:')}</Text>
+                  <Text style={styles.bestForLabel}>{t('Zastosowanie:')}</Text>
                   <Text style={styles.bestForText}>{t(entry.bestForPl)}</Text>
                 </View>
 
                 {/* Substitution advice */}
                 <View style={styles.tipsBox}>
-                  <Text style={styles.tipsLabel}>💡 {t('Wskazówka rzemieślnicza:')}</Text>
+                  <Text style={styles.tipsLabel}>{t('Wskazówka rzemieślnicza:')}</Text>
                   <Text style={styles.tipsText}>{t(entry.substitutionTipsPl)}</Text>
                 </View>
               </View>

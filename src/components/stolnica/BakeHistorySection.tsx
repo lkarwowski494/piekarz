@@ -83,16 +83,16 @@ export function BakeHistorySection({
               <View style={styles.historyCardHeader}>
                 <Text style={styles.historyRecipeName}>{log.recipeName}</Text>
                 <View style={styles.historyActionsRow}>
-                  <Text style={styles.historyStars}>
-                    {'⭐'.repeat(log.ratingStars ?? 5)}
-                  </Text>
+                  {log.ratingStars !== undefined && (
+                    <Text style={styles.historyStars}>{t('Ocena: {n}/5', { n: log.ratingStars })}</Text>
+                  )}
                   <Pressable
                     testID={`delete-bake-log-${log.id}`}
                     onPress={() => onDeleteBakeLog(log.id)}
                     style={styles.deleteHistoryBtn}
                     accessibilityLabel={t('Usuń wpis')}
                   >
-                    <Text style={styles.deleteHistoryBtnText}>🗑️</Text>
+                    <Text style={styles.deleteHistoryBtnText}>{t('Usuń wpis')}</Text>
                   </Pressable>
                 </View>
               </View>
@@ -103,21 +103,21 @@ export function BakeHistorySection({
                 {log.crumbScore !== undefined && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>
-                      🍞 {t('Miękisz:')} {log.crumbScore}/5
+                      {t('Miękisz:')} {log.crumbScore}/5
                     </Text>
                   </View>
                 )}
                 {log.crustScore !== undefined && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>
-                      🔥 {t('Skórka:')} {log.crustScore}/5
+                      {t('Skórka:')} {log.crustScore}/5
                     </Text>
                   </View>
                 )}
                 {log.tasteProfile && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>
-                      👅 {log.tasteProfile === 'sour' ? t('Kwaśny') : log.tasteProfile === 'mild' ? t('Łagodny') : log.tasteProfile === 'tangy' ? t('Bardzo kwaśny') : t('Zbalansowany')}
+                      {log.tasteProfile === 'sour' ? t('Kwaśny') : log.tasteProfile === 'mild' ? t('Łagodny') : log.tasteProfile === 'tangy' ? t('Bardzo kwaśny') : t('Zbalansowany')}
                     </Text>
                   </View>
                 )}
@@ -151,7 +151,7 @@ export function BakeHistorySection({
                 style={styles.bakeAgainBtn}
                 onPress={() => onBakeAgain(log)}
               >
-                <Text style={styles.bakeAgainBtnText}>🔁 {t('Piecz ponownie')}</Text>
+                <Text style={styles.bakeAgainBtnText}>{t('Piecz ponownie')}</Text>
               </Pressable>
             </View>
           );
@@ -244,6 +244,7 @@ const styles = StyleSheet.create({
   },
   deleteHistoryBtnText: {
     fontSize: 14,
+    color: theme.colors.blad,
   },
   historyDate: {
     fontSize: 12,

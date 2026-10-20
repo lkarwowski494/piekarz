@@ -61,7 +61,7 @@ export function FormulaPresetSelector({
             style={styles.headerActionPill}
             onPress={onOpenVolumeConverter}
           >
-            <Text style={styles.headerActionPillText}>⚖️ {t('Przelicznik objętości')}</Text>
+            <Text style={styles.headerActionPillText}>{t('Przelicznik objętości')}</Text>
           </Pressable>
           <Pressable
             testID="open-import-recipe-btn"
@@ -70,7 +70,7 @@ export function FormulaPresetSelector({
             style={styles.headerActionPill}
             onPress={onOpenImportRecipe}
           >
-            <Text style={styles.headerActionPillText}>📥 {t('Importuj JSON')}</Text>
+            <Text style={styles.headerActionPillText}>{t('Importuj JSON')}</Text>
           </Pressable>
           {/* F-08 PÓŹNIEJ (D-043): skan QR ukryty, 1.0 nie prosi o aparat [M1-audytor-generalny-049] */}
           {wejscieWidoczne('qr') && (
@@ -81,7 +81,7 @@ export function FormulaPresetSelector({
               style={styles.headerActionPill}
               onPress={onOpenScanQr}
             >
-              <Text style={styles.headerActionPillText}>📷 {t('Skanuj QR')}</Text>
+              <Text style={styles.headerActionPillText}>{t('Skanuj QR')}</Text>
             </Pressable>
           )}
           {/* Druk tylko z akcji Kalkulatora: „Drukuj” (BR-DRUK-001) [M1-audytor-generalny-032] */}
@@ -105,7 +105,7 @@ export function FormulaPresetSelector({
           style={[styles.categoryFilterChip, masterCategoryFilter === 'sourdough' && styles.categoryFilterChipActive]}
         >
           <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'sourdough' && styles.categoryFilterChipTextActive]}>
-            🌾 {t('Na zakwasie')}
+            {t('Na zakwasie')}
           </Text>
         </Pressable>
         <Pressable
@@ -114,7 +114,7 @@ export function FormulaPresetSelector({
           style={[styles.categoryFilterChip, masterCategoryFilter === 'rye' && styles.categoryFilterChipActive]}
         >
           <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'rye' && styles.categoryFilterChipTextActive]}>
-            🍞 {t('Żytnie')}
+            {t('Żytnie')}
           </Text>
         </Pressable>
         <Pressable
@@ -123,7 +123,7 @@ export function FormulaPresetSelector({
           style={[styles.categoryFilterChip, masterCategoryFilter === 'yeast' && styles.categoryFilterChipActive]}
         >
           <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'yeast' && styles.categoryFilterChipTextActive]}>
-            🥖 {t('Drożdżowe')}
+            {t('Drożdżowe')}
           </Text>
         </Pressable>
         <Pressable
@@ -132,7 +132,7 @@ export function FormulaPresetSelector({
           style={[styles.categoryFilterChip, masterCategoryFilter === 'pizza_sweet' && styles.categoryFilterChipActive]}
         >
           <Text style={[styles.categoryFilterChipText, masterCategoryFilter === 'pizza_sweet' && styles.categoryFilterChipTextActive]}>
-            🍕 {t('Pizza i słodkie')}
+            {t('Pizza i słodkie')}
           </Text>
         </Pressable>
       </ScrollView>
@@ -162,11 +162,11 @@ export function FormulaPresetSelector({
           <View style={styles.masterInfoPillsRow}>
             <View style={styles.categoryPill}>
               <Text style={styles.categoryPillText}>
-                {currentMasterPreset.category === 'sourdough' && `🌾 ${t('Na zakwasie')}`}
-                {currentMasterPreset.category === 'rye' && `🍞 ${t('Żytni')}`}
-                {currentMasterPreset.category === 'yeast' && `🥖 ${t('Drożdżowy')}`}
-                {currentMasterPreset.category === 'pizza' && `🍕 ${t('Pizza')}`}
-                {currentMasterPreset.category === 'sweet' && `🥐 ${t('Słodkie')}`}
+                {currentMasterPreset.category === 'sourdough' && t('Na zakwasie')}
+                {currentMasterPreset.category === 'rye' && t('Żytni')}
+                {currentMasterPreset.category === 'yeast' && t('Drożdżowy')}
+                {currentMasterPreset.category === 'pizza' && t('Pizza')}
+                {currentMasterPreset.category === 'sweet' && t('Słodkie')}
               </Text>
             </View>
             <View
@@ -179,10 +179,10 @@ export function FormulaPresetSelector({
               ]}
             >
               <Text style={styles.difficultyPillText}>
-                {currentMasterPreset.difficulty === 'easy' && `🟢 ${t('Łatwy')}`}
-                {currentMasterPreset.difficulty === 'medium' && `🟡 ${t('Średni')}`}
-                {currentMasterPreset.difficulty === 'hard' && `🟠 ${t('Wymagający')}`}
-                {currentMasterPreset.difficulty === 'artisan' && `🔴 ${t('Mistrzowski')}`}
+                {currentMasterPreset.difficulty === 'easy' && t('Łatwy')}
+                {currentMasterPreset.difficulty === 'medium' && t('Średni')}
+                {currentMasterPreset.difficulty === 'hard' && t('Wymagający')}
+                {currentMasterPreset.difficulty === 'artisan' && t('Mistrzowski')}
               </Text>
             </View>
           </View>
@@ -191,13 +191,13 @@ export function FormulaPresetSelector({
 
           <View style={styles.masterTechniqueBox}>
             <Text style={styles.masterTechniqueItem}>
-              ♨️ <Text style={styles.boldText}>{t('Pieczenie')}:</Text>{' '}
+ <Text style={styles.boldText}>{t('Pieczenie')}:</Text>{' '}
               {formatTemperature(currentMasterPreset.bakeTempSteamC, unitSystem)} (
               {currentMasterPreset.bakeTimeSteamMinutes}m {t('para')} +{' '}
               {t('{n}m w {temp}', { n: currentMasterPreset.bakeTimeBrowningMinutes, temp: formatTemperature(currentMasterPreset.bakeTempBrowningC, unitSystem) })})
             </Text>
             <Text style={styles.masterTechniqueItem}>
-              🥖 <Text style={styles.boldText}>{t('Naczynie')}:</Text>{' '}
+ <Text style={styles.boldText}>{t('Naczynie')}:</Text>{' '}
               {currentMasterPreset.recommendedVessel === 'dutch_oven'
                 ? t('garnek żeliwny')
                 : currentMasterPreset.recommendedVessel === 'bread_pan'
@@ -208,7 +208,7 @@ export function FormulaPresetSelector({
             </Text>
             {currentMasterPreset.notesPl ? (
               <Text style={styles.masterTechniqueItem}>
-                📝 <Text style={styles.boldText}>{t('Wskazówki')}:</Text> {t(currentMasterPreset.notesPl)}
+ <Text style={styles.boldText}>{t('Wskazówki')}:</Text> {t(currentMasterPreset.notesPl)}
               </Text>
             ) : null}
           </View>
@@ -229,7 +229,7 @@ export function FormulaPresetSelector({
                     style={[styles.presetChip, isSelected && styles.presetChipActive]}
                   >
                     <Text style={[styles.presetChipText, isSelected && styles.presetChipTextActive]}>
-                      ⭐ {custom.name}
+                      {custom.name}
                     </Text>
                   </Pressable>
                   <Pressable

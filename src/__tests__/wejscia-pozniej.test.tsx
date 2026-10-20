@@ -97,8 +97,8 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     const texts = tree!.root
       .findAll((n) => (n.type as unknown) === 'Text')
       .map((n) => (Array.isArray(n.props.children) ? n.props.children.join('') : String(n.props.children)));
-    expect(texts).toContain('4-DDT, matematyka lodu, prefermenty');
-    expect(texts).not.toContain('4-DDT, matematyka lodu, prefermenty, strata piecowa');
+    expect(texts).toContain('Temperatura wody i zaczyny');
+    expect(texts).not.toContain('Temperatura wody, zaczyny, strata piecowa');
   });
 
   it('Starter screen has no discard recipes entry (F-47) and no starter converter entry (F-49)', async () => {

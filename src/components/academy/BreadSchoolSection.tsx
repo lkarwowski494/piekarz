@@ -43,7 +43,6 @@ export function BreadSchoolSection({
             >
               <View style={styles.lessonTitleBlock}>
                 <View style={styles.levelPillRow}>
-                  <Text style={styles.lessonBadge}>{lesson.badge}</Text>
                   <Text style={styles.lessonLevelTag}>
                     {t('POZIOM')} {lesson.level}
                   </Text>
@@ -59,23 +58,23 @@ export function BreadSchoolSection({
             </Pressable>
 
             {/* Didactic Goal summary */}
-            <Text style={styles.goalText}>🎯 {t(lesson.didacticGoalPl)}</Text>
+            <Text style={styles.goalText}>{t(lesson.didacticGoalPl)}</Text>
 
             {/* Parameters Pill Grid */}
             <View style={styles.paramsGrid}>
               <Text style={styles.paramChip}>
-                💧 {lesson.hydrationPercent}% {t('hydratacji')}
+                {lesson.hydrationPercent}% {t('hydratacji')}
               </Text>
               <Text style={styles.paramChip}>
-                🧂 {lesson.saltPercent}% {t('soli')}
+                {lesson.saltPercent}% {t('soli')}
               </Text>
-              <Text style={styles.paramChip}>🌾 {t(lesson.flourBlendPl)}</Text>
+              <Text style={styles.paramChip}>{t(lesson.flourBlendPl)}</Text>
             </View>
 
             {isExpanded && (
               <View style={styles.expandedLessonBox}>
                 <Text style={styles.subSectionTitle}>{t('Fermentacja i prowadzenie:')}</Text>
-                <Text style={styles.fermentTypeText}>⏱️ {t(lesson.fermentationTypePl)}</Text>
+                <Text style={styles.fermentTypeText}>{t(lesson.fermentationTypePl)}</Text>
 
                 <Text style={styles.subSectionTitle}>{t('Kroki technologiczne:')}</Text>
                 {lesson.stepsPl.map((step, idx) => (
@@ -88,12 +87,12 @@ export function BreadSchoolSection({
                 ))}
 
                 <View style={styles.scienceCallout}>
-                  <Text style={styles.scienceCalloutTitle}>🔬 {t('Fizjologia i chemia:')}</Text>
+                  <Text style={styles.scienceCalloutTitle}>{t('Fizjologia i chemia:')}</Text>
                   <Text style={styles.scienceCalloutText}>{t(lesson.scientificInsightPl)}</Text>
                 </View>
 
                 <View style={styles.passingCallout}>
-                  <Text style={styles.passingTitle}>🏅 {t('Kryterium zaliczenia:')}</Text>
+                  <Text style={styles.passingTitle}>{t('Kryterium zaliczenia:')}</Text>
                   <Text style={styles.passingText}>{t(lesson.passingCriteriaPl)}</Text>
                 </View>
 
@@ -160,9 +159,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: 6,
     marginBottom: 4,
-  },
-  lessonBadge: {
-    fontSize: 18,
   },
   lessonLevelTag: {
     fontSize: 11,

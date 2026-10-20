@@ -11,16 +11,15 @@ export const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   settingsHeaderBtn: {
-    width: 44,
-    height: 44,
+    minWidth: 44,
+    minHeight: 44,
+    paddingHorizontal: theme.spacing.xs,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: theme.radius.sm,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
   },
   settingsHeaderBtnText: {
-    fontSize: 20,
+    fontSize: 17,
+    fontWeight: '600',
+    color: theme.colors.akcentTekst,
   },
 });

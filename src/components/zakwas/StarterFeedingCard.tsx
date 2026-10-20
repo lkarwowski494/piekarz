@@ -111,7 +111,7 @@ export function StarterFeedingCard({
         </View>
       </View>
       <Text style={styles.feedingReserveTip}>
-        💡 {t('Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.', {
+        {t('Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.', {
           masa: formatWeight(targetYield, unitSystem),
           od: formatWeight(20, unitSystem),
           do: formatWeight(25, unitSystem),
@@ -124,7 +124,7 @@ export function StarterFeedingCard({
         onPress={onCopyFeeding}
       >
         <Text style={styles.copyFeedingBtnText}>
-          📋 {t('Kopiuj dokarmienie')}
+          {t('Kopiuj dokarmienie')}
         </Text>
       </Pressable>
 
@@ -136,7 +136,7 @@ export function StarterFeedingCard({
           onPress={onOpenConverter}
         >
           <Text style={styles.openConverterBtnText}>
-            ⚖️ {t('Konwerter zakwasu & Lievito Madre')}
+            {t('Konwerter zakwasu & Lievito Madre')}
           </Text>
         </Pressable>
       )}
@@ -148,7 +148,7 @@ export function StarterFeedingCard({
           onPress={onOpenDiscardRecipes}
         >
           <Text style={styles.openConverterBtnText}>
-            🥞 {t('Przepisy na Odrzut Zakwasu')}
+            {t('Przepisy na Odrzut Zakwasu')}
           </Text>
         </Pressable>
       )}

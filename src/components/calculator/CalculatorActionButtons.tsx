@@ -41,7 +41,7 @@ export function CalculatorActionButtons({
         style={styles.copyRecipeBtn}
         onPress={onCopyRecipe}
       >
-        <Text style={styles.copyRecipeBtnText}>📋 {t('Kopiuj recepturę')}</Text>
+        <Text style={styles.copyRecipeBtnText}>{t('Kopiuj recepturę')}</Text>
       </Pressable>
 
       <Pressable
@@ -49,7 +49,7 @@ export function CalculatorActionButtons({
         style={styles.cloneRecipeBtn}
         onPress={onCloneRecipe}
       >
-        <Text style={styles.cloneRecipeBtnText}>✨ {t('Klonuj recepturę')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>{t('Klonuj recepturę')}</Text>
       </Pressable>
 
       <Pressable
@@ -57,7 +57,7 @@ export function CalculatorActionButtons({
         style={styles.cloneRecipeBtn}
         onPress={onExportJson}
       >
-        <Text style={styles.cloneRecipeBtnText}>📦 {t('Eksportuj JSON')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>{t('Eksportuj JSON')}</Text>
       </Pressable>
 
       {/* F-08 PÓŹNIEJ (D-043): udostępnianie kodu QR ukryte, kod zostaje [M1-audytor-generalny-049] */}
@@ -67,7 +67,7 @@ export function CalculatorActionButtons({
           style={styles.cloneRecipeBtn}
           onPress={onShareQr}
         >
-          <Text style={styles.cloneRecipeBtnText}>🏁 {t('Udostępnij kod QR')}</Text>
+          <Text style={styles.cloneRecipeBtnText}>{t('Udostępnij kod QR')}</Text>
         </Pressable>
       )}
 
@@ -80,7 +80,7 @@ export function CalculatorActionButtons({
           style={styles.cloneRecipeBtn}
           onPress={onPrintMenu}
         >
-          <Text style={styles.cloneRecipeBtnText}>🖨️ {t('Drukuj')}</Text>
+          <Text style={styles.cloneRecipeBtnText}>{t('Drukuj')}</Text>
         </Pressable>
       )}
 
@@ -89,7 +89,7 @@ export function CalculatorActionButtons({
         style={styles.cloneRecipeBtn}
         onPress={onImportJson}
       >
-        <Text style={styles.cloneRecipeBtnText}>📥 {t('Importuj JSON')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>{t('Importuj JSON')}</Text>
       </Pressable>
 
       <Pressable
@@ -97,7 +97,7 @@ export function CalculatorActionButtons({
         style={styles.cloneRecipeBtn}
         onPress={onOpenInventory}
       >
-        <Text style={styles.cloneRecipeBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
+        <Text style={styles.cloneRecipeBtnText}>{t('Spiżarnia mąk & Stan zapasów')}</Text>
       </Pressable>
 
       <Pressable
@@ -105,7 +105,7 @@ export function CalculatorActionButtons({
         style={styles.secondaryBtn}
         onPress={onSaveCustomRecipe}
       >
-        <Text style={styles.secondaryBtnText}>💾 {t('Zapisz jako mój przepis')}</Text>
+        <Text style={styles.secondaryBtnText}>{t('Zapisz jako mój przepis')}</Text>
       </Pressable>
 
       <Pressable
@@ -113,7 +113,7 @@ export function CalculatorActionButtons({
         style={styles.primaryBtn}
         onPress={onStartBake}
       >
-        <Text style={styles.primaryBtnText}>🥖 {t('Rozpocznij wypiek na Stolnicy')}</Text>
+        <Text style={styles.primaryBtnText}>{t('Rozpocznij wypiek na Stolnicy')}</Text>
       </Pressable>
     </View>
   );

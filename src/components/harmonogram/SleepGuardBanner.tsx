@@ -28,7 +28,7 @@ export function SleepGuardBanner({
   if (hasSleepCollision) {
     return (
       <View style={styles.sleepGuardAlert}>
-        <Text style={styles.sleepGuardTitle}>🌙 {t('Uwaga: Kolizja ze snem!')}</Text>
+        <Text style={styles.sleepGuardTitle}>{t('Uwaga: Kolizja ze snem!')}</Text>
         <Text style={styles.sleepGuardBody}>
           {sleepCollisions
             .map((c) => t(SLEEP_COLLISION_TEMPLATE_PL, { ...sleepCollisionParams(c), etap: t(c.stageNamePl) }))
@@ -40,7 +40,7 @@ export function SleepGuardBanner({
             onPress={() => onApplyAutoResolution(autoResolved.adjustedColdRetardHours)}
           >
             <Text style={styles.autoFixBtnText}>
-              ⚡ {t('Rozwiąż kolizję')} ({t('lodówka')}: {autoResolved.adjustedColdRetardHours}h)
+              {t('Rozwiąż kolizję')} ({t('lodówka')}: {autoResolved.adjustedColdRetardHours}h)
             </Text>
           </Pressable>
         )}
@@ -54,7 +54,7 @@ export function SleepGuardBanner({
   return (
     <View style={styles.sleepGuardSafe}>
       <Text style={styles.sleepGuardSafeTitle}>
-        ✓ {t('Ochrona snu aktywna (Sleep Guard)')}
+        ✓ {t('Ochrona snu aktywna')}
       </Text>
       <Text style={styles.sleepGuardSafeBody}>
         {t(

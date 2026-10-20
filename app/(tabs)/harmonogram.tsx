@@ -148,7 +148,7 @@ export default function HarmonogramScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <CraftHeader
         title={t('Harmonogram')}
-        subtitle={t('Harmonogram wsteczny z ochroną snu (Sleep Guard)')}
+        subtitle={t('Harmonogram wsteczny z ochroną snu')}
         testID="harmonogram-header"
       />
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">

@@ -78,7 +78,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
     .map(
       (f) => `
     <tr>
-      <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🌾 ${escapeXml(f.name)}</td>
+      <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">${escapeXml(f.name)}</td>
       <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: center; font-weight: bold;">${formatFixed(f.percentage, 0)}%</td>
       <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${f.weightGrams} g</td>
     </tr>
@@ -224,7 +224,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
 <body>
   <div class="header-banner">
     <div class="title-box">
-      <h1>🥖 ${escapeXml(recipeName)}</h1>
+      <h1>${escapeXml(recipeName)}</h1>
       <p>Piekarz (Crust) • Rzemieślnicza Formuła Piekarska</p>
     </div>
     <div class="meta-box">
@@ -238,7 +238,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
     <!-- Kolumna Lewa: Składniki & Baker's % -->
     <div class="col">
       <div class="card">
-        <div class="card-title">Mieszanka Mąk (True Baker’s %)</div>
+        <div class="card-title">Mieszanka Mąk</div>
         <table>
           <thead>
             <tr>
@@ -250,7 +250,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
           <tbody>
             ${flourRows}
             <tr style="background: #EFE9E1; font-weight: bold;">
-              <td style="padding: 6px 10px;">🌾 Mąki łącznie</td>
+              <td style="padding: 6px 10px;">Mąki łącznie</td>
               <td style="padding: 6px 10px; text-align: center;">100%</td>
               <td style="padding: 6px 10px; text-align: right; font-family: monospace;">${totalFlourGrams} g</td>
             </tr>
@@ -263,15 +263,15 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
         <table>
           <tbody>
             <tr>
-              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">💧 Woda (Hydratacja ${formatFixed(overallHydrationPercent, 1)}%)</td>
+              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">Woda (Hydratacja ${formatFixed(overallHydrationPercent, 1)}%)</td>
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${waterGrams} g</td>
             </tr>
             <tr>
-              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🏺 Zakwas (Levain ${starterHydration}%)</td>
+              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">Zakwas (Levain ${starterHydration}%)</td>
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${starterGrams} g</td>
             </tr>
             <tr>
-              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">🧂 Sól (${formatFixed(saltPercent, 1)}%)</td>
+              <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5;">Sól (${formatFixed(saltPercent, 1)}%)</td>
               <td style="padding: 6px 10px; border-bottom: 1px solid #E2DCD5; text-align: right; font-weight: bold; font-family: monospace; font-size: 14px;">${saltGrams} g</td>
             </tr>
           </tbody>
@@ -289,7 +289,7 @@ export function generateRecipeBenchSheetHtml(options: RecipeBenchSheetOptions): 
           ${ambientTemp !== undefined ? `<span class="metric-badge">Otoczenie: ${formatFixed(ambientTemp, 1)}°C</span>` : ''}
         </div>
         <div class="highlight-box">
-          🌡️ <strong>Temperatura wody:</strong> Użyj wody o wyliczonej temperaturze, aby ciasto po wymieszaniu osiągnęło dokładnie docelowe DDT.
+ <strong>Temperatura wody:</strong> Użyj wody o wyliczonej temperaturze, aby ciasto po wymieszaniu osiągnęło dokładnie docelowe DDT.
         </div>
       </div>
       `
@@ -377,7 +377,6 @@ export function generateStarterJarLabelSvg(options: StarterJarLabelOptions): str
   <!-- Mini pieczęć "CRUST" -->
   <rect x="230" y="112" width="48" height="48" rx="4" fill="#F4EFEA" stroke="#C4B9AD" stroke-width="1" />
   <text x="254" y="133" font-family="Georgia, serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#8C8072">PIEKARZ</text>
-  <text x="254" y="148" font-family="monospace" font-size="10" text-anchor="middle" fill="#3D352E">🥖 🌾</text>
 </svg>
   `.trim();
 }

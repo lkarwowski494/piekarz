@@ -44,7 +44,7 @@ export function StarterPeakActivityCard({
   return (
     <View style={styles.card} testID="peak-activity-card">
       <View style={styles.peakHeaderRow}>
-        <Text style={styles.cardTitle}>🕒 {t('Szczyt aktywności (Peak Timer)')}</Text>
+        <Text style={styles.cardTitle}>{t('Szczyt aktywności')}</Text>
         <View style={styles.phaseBadge}>
           <Text style={styles.phaseBadgeText}>
             ● {t(phaseResult.labelPl)}
@@ -93,10 +93,10 @@ export function StarterPeakActivityCard({
         </Text>
         <View style={styles.tempChipsRow}>
           {[
-            { temp: 19, label: `❄️ ${formatTemperature(19, unitSystem)}`, id: 'temp-19' },
-            { temp: 22, label: `🏠 ${formatTemperature(22, unitSystem)}`, id: 'temp-22' },
-            { temp: 25, label: `☀️ ${formatTemperature(25, unitSystem)}`, id: 'temp-25' },
-            { temp: 28, label: `♨️ ${formatTemperature(28, unitSystem)}`, id: 'temp-28' },
+            { temp: 19, label: formatTemperature(19, unitSystem), id: 'temp-19' },
+            { temp: 22, label: formatTemperature(22, unitSystem), id: 'temp-22' },
+            { temp: 25, label: formatTemperature(25, unitSystem), id: 'temp-25' },
+            { temp: 28, label: formatTemperature(28, unitSystem), id: 'temp-28' },
           ].map((item) => (
             <Pressable
               key={item.id}
@@ -122,7 +122,7 @@ export function StarterPeakActivityCard({
       )}
 
       <Pressable style={styles.feedNowBtn} onPress={onLogFeeding}>
-        <Text style={styles.feedNowBtnText}>🥣 {t('Zarejestruj dokarmienie')}</Text>
+        <Text style={styles.feedNowBtnText}>{t('Zarejestruj dokarmienie')}</Text>
       </Pressable>
     </View>
   );

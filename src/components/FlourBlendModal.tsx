@@ -126,7 +126,7 @@ export function FlourBlendModal({
               >
                 {validation.isValid
                   ? `✓ ${t('Proporcje poprawne (100%)')}`
-                  : `⚠️ ${t(validation.errorTemplatePl ?? '', validation.errorParams)}`}
+                  : t(validation.errorTemplatePl ?? '', validation.errorParams)}
               </Text>
               {!validation.isValid && draftBlend.length > 0 && (
                 <Pressable

@@ -327,7 +327,7 @@ export default function CalculatorScreen() {
         {/* CraftHeader */}
         <CraftHeader
           title={t('Kalkulator')}
-          subtitle={t('True Baker’s % & DDT')}
+          subtitle={t('Ilości i temperatura wody')}
           testID="calculator-header"
           rightAction={
             <Pressable
@@ -338,7 +338,7 @@ export default function CalculatorScreen() {
               style={styles.settingsHeaderBtn}
               onPress={() => setIsSettingsOpen(true)}
             >
-              <Text style={styles.settingsHeaderBtnText}>⚙️</Text>
+              <Text style={styles.settingsHeaderBtnText}>{t('Ustawienia')}</Text>
             </Pressable>
           }
         />

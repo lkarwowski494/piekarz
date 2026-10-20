@@ -153,10 +153,10 @@ export interface VolumeConversionResult {
 }
 
 export const VOLUME_ACCURACY_WARNING_PL =
-  '⚠️ Piekarskie ostrzeżenie o precyzji: Pomiary objętościowe (szklanki, łyżki) cechują się błędem rzędu 15–30% w zależności od wilgotności powietrza i stopnia ubicia mąki. W rzemieślniczym piekarstwie chleba zalecamy użycie wagi kuchennej z dokładnością do 1 g.';
+  'Piekarskie ostrzeżenie o precyzji: Pomiary objętościowe (szklanki, łyżki) cechują się błędem rzędu 15–30% w zależności od wilgotności powietrza i stopnia ubicia mąki. W rzemieślniczym piekarstwie chleba zalecamy użycie wagi kuchennej z dokładnością do 1 g.';
 
 export const VOLUME_ACCURACY_WARNING_EN =
-  '⚠️ Baking Precision Warning: Volume measurements (cups, spoons) carry a 15–30% margin of error depending on humidity and flour packing. In artisan bread baking, an electronic kitchen scale accurate to 1 g is strongly recommended.';
+  'Baking Precision Warning: Volume measurements (cups, spoons) carry a 15–30% margin of error depending on humidity and flour packing. In artisan bread baking, an electronic kitchen scale accurate to 1 g is strongly recommended.';
 
 /**
  * Converts a given volume amount of a chosen ingredient into weight in grams.

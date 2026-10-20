@@ -35,7 +35,7 @@ export function ActiveTimerDisplay({
           ? `✓ ${t('Etap ukończony!')}`
           : isRunning
           ? `● ${t('Odliczanie trwa')}`
-          : `⏸ ${t('Wstrzymano')}`}
+          : t('Wstrzymano')}
       </Text>
       <Text style={[styles.digitalClock, isCompleted && styles.digitalClockCompleted]}>
         {formattedTime}
@@ -88,7 +88,7 @@ export function ActiveTimerDisplay({
           onPress={onToggleTimer}
         >
           <Text style={styles.timerPrimaryBtnText}>
-            {isRunning ? `⏸ ${t('Wstrzymaj')}` : `▶ ${t('Start')}`}
+            {isRunning ? t('Wstrzymaj') : t('Start')}
           </Text>
         </Pressable>
 

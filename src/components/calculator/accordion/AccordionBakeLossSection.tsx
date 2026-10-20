@@ -31,7 +31,7 @@ export function AccordionBakeLossSection({
 
   return (
     <View style={styles.sectionBlock}>
-      <Text style={styles.sectionHeaderTitle}>🔥 {t('Strata wypiekowa i wilgotność miękiszu')}</Text>
+      <Text style={styles.sectionHeaderTitle}>{t('Strata wypiekowa i wilgotność miękiszu')}</Text>
       <Text style={styles.sectionDesc}>
         {t('Strata Piecowa')} • {t('Szacowany ubytek masy')} ({formatNumber(bakeLossPercent)}%): ≈ {formatWeight(bakedTotalWeightGrams, unitSystem)} {t('upieczonego')}
       </Text>
@@ -102,7 +102,7 @@ export function AccordionBakeLossSection({
       {bakeLossMetrics && (
         <View style={styles.crumbMoistureBox}>
           <Text style={styles.crumbMoistureTitle} testID="bake-loss-category-label">
-            🥖 {t(bakeLossMetrics.categoryLabelPl)}
+            {t(bakeLossMetrics.categoryLabelPl)}
           </Text>
           <Text style={styles.crumbMoistureAdvice}>{t(bakeLossMetrics.coolingAdvicePl)}</Text>
         </View>

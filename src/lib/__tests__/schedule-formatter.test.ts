@@ -92,12 +92,12 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
         referenceDate: refDate,
       });
 
-      expect(formatted).toContain('⏱️ Harmonogram: Piekarz (Crust)');
-      expect(formatted).toContain('🎯 Godzina gotowości chleba do krojenia: 12:00 (Jutro)');
+      expect(formatted).toContain('Harmonogram: Piekarz (Crust)');
+      expect(formatted).toContain('Godzina gotowości chleba do krojenia: 12:00 (Jutro)');
       expect(formatted).toContain('23.5°C');
       expect(formatted).toContain('14h');
-      expect(formatted).toContain('1. 🥣 11:00 (Dziś) — Dokarmienie zakwasu (5h)');
-      expect(formatted).toContain('2. ♨️ 11:15 (Jutro) — Wypiek z parą (45 min)');
+      expect(formatted).toContain('1. 11:00 (Dziś) — Dokarmienie zakwasu (5h)');
+      expect(formatted).toContain('2. 11:15 (Jutro) — Wypiek z parą (45 min)');
       expect(formatted).toContain('Apps4Craft Studio');
     });
 
@@ -109,7 +109,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
       };
 
       const formatted = formatScheduleToText(collisionSchedule, { referenceDate: refDate });
-      expect(formatted).toContain('⚠️ Kolizja ze snem (Sleep Guard): Formowanie wypada o 02:30 w nocy');
+      expect(formatted).toContain('Kolizja ze snem: Formowanie wypada o 02:30 w nocy');
     });
   });
 

@@ -3,7 +3,6 @@
 export interface BreadSchoolLesson {
   level: number;
   id: string;
-  badge: string;
   rankTitlePl: string;
   rankTitleEn: string;
   titlePl: string;
@@ -29,7 +28,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 1,
     id: 'lesson_1_no_knead',
-    badge: '🥖',
     rankTitlePl: 'Nowicjusz Piekarski',
     rankTitleEn: 'Baking Novice',
     titlePl: 'Lekcja 1: Chleb nocny z garnka żeliwnego (No-Knead)',
@@ -67,7 +65,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 2,
     id: 'lesson_2_country_sourdough',
-    badge: '🌾',
     rankTitlePl: 'Praktykant Zakwasu',
     rankTitleEn: 'Sourdough Apprentice',
     titlePl: 'Lekcja 2: Prosty chleb pszenno-żytni na zakwasie',
@@ -105,7 +102,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 3,
     id: 'lesson_3_tartine_high_hydration',
-    badge: '🏆',
     rankTitlePl: 'Czeladnik Piekarski',
     rankTitleEn: 'Bread Journeyman',
     titlePl: 'Lekcja 3: Klasyczny chleb wiejski 75% hydratacji (Tartine)',
@@ -145,7 +141,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 4,
     id: 'lesson_4_100_rye',
-    badge: '🍞',
     rankTitlePl: 'Starszy Czeladnik',
     rankTitleEn: 'Senior Baker',
     titlePl: 'Lekcja 4: Tradycyjny razowiec 100% żytni w keksówce',
@@ -185,7 +180,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 5,
     id: 'lesson_5_baguette_poolish',
-    badge: '🥖',
     rankTitlePl: 'Mistrz Piekarstwa',
     rankTitleEn: 'Master Baker',
     titlePl: 'Lekcja 5: Tradycyjna bagietka paryska na poolish',
@@ -227,7 +221,6 @@ export const BREAD_SCHOOL_LESSONS: BreadSchoolLesson[] = [
   {
     level: 6,
     id: 'lesson_6_pizza_napoletana',
-    badge: '🍕',
     rankTitlePl: 'Mistrz Rzemiosła Piekarskiego',
     rankTitleEn: 'Grand Artisan Master',
     titlePl: 'Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)',

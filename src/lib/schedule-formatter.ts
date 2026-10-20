@@ -4,35 +4,6 @@ import { ReverseScheduleResult } from '../scheduler/reverse-scheduler';
 import { t } from './i18n';
 import { announce } from './announce';
 
-function getCategoryIcon(cat: string): string {
-  switch (cat) {
-    case 'starter_feed':
-      return '🥣';
-    case 'autolyse':
-      return '🌾';
-    case 'mix':
-      return '🧂';
-    case 'bulk_ferment':
-      return '👐';
-    case 'pre_shape':
-      return '🥯';
-    case 'bench_rest':
-      return '⏳';
-    case 'final_shape':
-      return '🧺';
-    case 'final_proof':
-      return '❄️';
-    case 'preheat_oven':
-      return '🔥';
-    case 'bake':
-      return '♨️';
-    case 'cool':
-      return '🍞';
-    default:
-      return '🥖';
-  }
-}
-
 export function formatStageTime(d: Date): string {
   const h = String(d.getHours()).padStart(2, '0');
   const m = String(d.getMinutes()).padStart(2, '0');
@@ -69,9 +40,9 @@ export function formatScheduleToText(
   }
 
   const lines: string[] = [];
-  lines.push(`⏱️ ${t('Harmonogram')}: Piekarz (Crust)`);
-  lines.push(`🎯 ${t('Godzina gotowości chleba do krojenia')}: ${targetTimeStr}`);
-  lines.push(`⏳ ${t('Łączny czas')}: ${totalHours}h`);
+  lines.push(`${t('Harmonogram')}: Piekarz (Crust)`);
+  lines.push(`${t('Godzina gotowości chleba do krojenia')}: ${targetTimeStr}`);
+  lines.push(`${t('Łączny czas')}: ${totalHours}h`);
 
   if (options?.ambientTempC !== undefined || options?.coldRetardHours !== undefined) {
     const metaParts: string[] = [];
@@ -81,29 +52,28 @@ export function formatScheduleToText(
     if (options.coldRetardHours !== undefined) {
       metaParts.push(`${t('Garowanie chłodnicze')}: ${options.coldRetardHours}h`);
     }
-    lines.push(`🌡️ ${metaParts.join(' | ')}`);
+    lines.push(metaParts.join(' | '));
   }
 
   if (schedule.hasSleepCollision) {
-    lines.push(`⚠️ ${t('Kolizja ze snem (Sleep Guard)')}: ${schedule.collisionDetailsPl || ''}`);
+    lines.push(`${t('Kolizja ze snem')}: ${schedule.collisionDetailsPl || ''}`);
   }
 
   lines.push('');
-  lines.push(`📋 ${t('Etapy wypieku')}:`);
+  lines.push(`${t('Etapy wypieku')}:`);
 
   stages.forEach((s, idx) => {
-    const icon = getCategoryIcon(s.category);
     const startStr = `${formatStageTime(s.startTime)} (${formatStageDateBadge(s.startTime, ref)})`;
     const durStr =
       s.durationMinutes >= 60
         ? `${Math.floor(s.durationMinutes / 60)}h${s.durationMinutes % 60 > 0 ? ` ${s.durationMinutes % 60}m` : ''}`
         : `${s.durationMinutes} min`;
 
-    lines.push(`${idx + 1}. ${icon} ${startStr} — ${s.namePl} (${durStr})`);
+    lines.push(`${idx + 1}. ${startStr} — ${s.namePl} (${durStr})`);
   });
 
   lines.push('');
-  lines.push('— Apps4Craft Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz');
   return lines.join('\n');
 }
 

@@ -109,7 +109,7 @@ export default function DoctorScreen() {
             onPress={chron('doktor', () => setIsAcademyOpen(true))}
             accessibilityLabel={t('Akademia Piekarza')}
           >
-            <Text style={styles.academyHeaderPillText}>🎓 {t('Akademia')}</Text>
+            <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
           </Pressable>
         }
       />
@@ -121,9 +121,6 @@ export default function DoctorScreen() {
           style={styles.academyBanner}
           onPress={() => setIsAcademyOpen(true)}
         >
-          <View style={styles.academyBannerIcon}>
-            <Text style={styles.academyBannerIconText}>🎓</Text>
-          </View>
           <View style={styles.academyBannerContent}>
             <Text style={styles.academyBannerTitle}>{t('Akademia Piekarza')}</Text>
             <Text style={styles.academyBannerSubtitle}>
@@ -206,18 +203,6 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.md,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.md,
-  },
-  academyBannerIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: theme.colors.powierzchnia,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  academyBannerIconText: {
-    fontSize: 18,
   },
   academyBannerContent: {
     flex: 1,

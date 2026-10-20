@@ -31,7 +31,7 @@ export function BlokadaFunkcji({ funkcja, odblokowane, onZablokowane, children }
         accessibilityRole="button"
         accessibilityLabel={t('Odblokuj pełny dostęp')}
       >
-        <Text style={styles.pill}>🔒 {t('Odblokuj pełny dostęp')}</Text>
+        <Text style={styles.pill}>{t('Odblokuj pełny dostęp')}</Text>
       </Pressable>
     </View>
   );

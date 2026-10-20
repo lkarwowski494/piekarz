@@ -77,9 +77,6 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
               ]}
               onPress={() => setSelectedProfile('sourdough_purist')}
             >
-              <View style={[styles.cardIconBox, selectedProfile === 'sourdough_purist' && styles.cardIconBoxActive]}>
-                <Text style={styles.cardEmoji}>🌾</Text>
-              </View>
               <View style={styles.cardContent}>
                 <View style={styles.cardHeaderRow}>
                   <Text style={[styles.cardTitle, selectedProfile === 'sourdough_purist' && styles.cardTitleActive]}>
@@ -108,9 +105,6 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
               ]}
               onPress={() => setSelectedProfile('artisan_hybrid')}
             >
-              <View style={[styles.cardIconBox, selectedProfile === 'artisan_hybrid' && styles.cardIconBoxActive]}>
-                <Text style={styles.cardEmoji}>🥖</Text>
-              </View>
               <View style={styles.cardContent}>
                 <View style={styles.cardHeaderRow}>
                   <Text style={[styles.cardTitle, selectedProfile === 'artisan_hybrid' && styles.cardTitleActive]}>
@@ -139,9 +133,6 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
               ]}
               onPress={() => setSelectedProfile('beginner')}
             >
-              <View style={[styles.cardIconBox, selectedProfile === 'beginner' && styles.cardIconBoxActive]}>
-                <Text style={styles.cardEmoji}>🍞</Text>
-              </View>
               <View style={styles.cardContent}>
                 <View style={styles.cardHeaderRow}>
                   <Text style={[styles.cardTitle, selectedProfile === 'beginner' && styles.cardTitleActive]}>
@@ -162,7 +153,6 @@ export function OnboardingModal({ visible, onComplete }: OnboardingModalProps) {
 
           {/* Privacy & Rygor Badge */}
           <View style={styles.privacyBadge}>
-            <Text style={styles.privacyIcon}>🔒</Text>
             <Text style={styles.privacyText}>
               {t('100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.')}
             </Text>
@@ -264,25 +254,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     backgroundColor: theme.colors.powierzchnia,
   },
-  cardIconBox: {
-    width: 44,
-    height: 44,
-    borderRadius: 12,
-    backgroundColor: theme.colors.tlo,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 14,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-  },
-  cardIconBoxActive: {
-    borderColor: theme.colors.akcent,
-    borderWidth: 3,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  cardEmoji: {
-    fontSize: 22,
-  },
   cardContent: {
     flex: 1,
   },
@@ -328,9 +299,6 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
     marginBottom: 24,
     gap: 10,
-  },
-  privacyIcon: {
-    fontSize: 18,
   },
   privacyText: {
     flex: 1,

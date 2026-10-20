@@ -7,7 +7,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'shaping',
     titlePl: 'Formowanie bochenka podłużnego (Batard)',
     titleEn: 'Batard Shaping (Oval Loaf)',
-    icon: '🥖',
     physicalPrinciplePl: 'Wytworzenie silnego napięcia powierzchniowego (Surface Tension) zapobiegającego rozlewaniu się bochenka na boki w piecu.',
     physicalPrincipleEn: 'Builds longitudinal skin surface tension, preventing lateral spreading and driving explosive upward oven spring.',
     executionStepsPl: [
@@ -43,7 +42,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'shaping',
     titlePl: 'Formowanie bochenka okrągłego (Boule)',
     titleEn: 'Boule Shaping (Round Loaf)',
-    icon: '🌕',
     physicalPrinciplePl: 'Równomierne centryczne naprężenie sfery ciasta do wypieku w garnku żeliwnym lub koszyku okrągłym.',
     physicalPrincipleEn: 'Builds radial centric tension across the spherical dough envelope for round Dutch ovens.',
     executionStepsPl: [
@@ -79,7 +77,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'proofing',
     titlePl: 'Przygotowanie koszyka rozrostowego (Banneton)',
     titleEn: 'Banneton Preparation & Care',
-    icon: '🧺',
     physicalPrinciplePl: 'Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.',
     physicalPrincipleEn: 'Wicks moisture from dough skin during retard, creating a dry micro-crust that ensures clean un-molding.',
     executionStepsPl: [
@@ -111,7 +108,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'baking_cooling',
     titlePl: 'Nacinanie żyletką pod „ucho” (Scoring for Ear)',
     titleEn: 'Scoring Angle for Ear Creation',
-    icon: '🔪',
     physicalPrinciplePl: 'Asymetryczne nacięcie pod ostrym kątem 30° tworzy płat skórki, który pod wpływem ciśnienia pary unosi się i tworzy chrupiące ucho.',
     physicalPrincipleEn: 'An acute 30-degree cut creates an asymmetrical dough flap that peels upward as steam expands, forging a jagged ear.',
     executionStepsPl: [
@@ -145,7 +141,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'baking_cooling',
     titlePl: 'Wypiek w garnku żeliwnym (Dutch Oven)',
     titleEn: 'Dutch Oven Two-Phase Baking',
-    icon: '🥘',
     physicalPrinciplePl: 'Zamknięta przestrzeń naczynia zatrzymuje parę parującą z samego ciasta (100% wilgotności), opóźniając twardnienie skórki i umożliwiając maksymalny Oven Spring.',
     physicalPrincipleEn: 'Traps self-generated dough steam at 100% relative humidity, delaying crust starch setting for maximum oven spring expansion.',
     executionStepsPl: [
@@ -179,7 +174,6 @@ export const SHAPING_BAKING_TECHNIQUES: TechniqueCard[] = [
     category: 'baking_cooling',
     titlePl: 'Studzenie na kratce i zakaz wczesnego krojenia',
     titleEn: 'Wire Rack Cooling & Slicing Discipline',
-    icon: '❄️',
     physicalPrinciplePl: 'Wypiek kończy się dopiero po ostygnięciu bochenka; woda odparowuje przez pory, a skrobia przechodzi proces retrogradacji, stabilizując miękisz.',
     physicalPrincipleEn: 'Baking concludes only when cooled; steam diffuses through pores while starch undergoes retrogradation to set crumb architecture.',
     executionStepsPl: [

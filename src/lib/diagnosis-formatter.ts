@@ -5,22 +5,27 @@ import { t } from './i18n';
 import { announce } from './announce';
 
 export function formatDiagnosisToText(diag: DiagnosticResult): string {
-  const severityEmoji =
-    diag.severity === 'critical' ? '🔴' : diag.severity === 'moderate' ? '🟡' : '🟢';
+  // Poziom tekstem, jak plakietka w DiagnosisResultCard (emoji nie są ikonami, 088)
+  const poziom =
+    diag.severity === 'critical'
+      ? t('Krytyczny błąd struktury')
+      : diag.severity === 'moderate'
+        ? t('Umiarkowana wada')
+        : t('Drobna niedoskonałość');
 
   const lines: string[] = [];
-  lines.push(`🩺 ${t('Doktor Chleba')}: ${diag.titlePl}`);
-  lines.push(`${severityEmoji} ${diag.subtitlePl}`);
+  lines.push(`${t('Doktor Chleba')}: ${diag.titlePl}`);
+  lines.push(`${poziom}: ${diag.subtitlePl}`);
   lines.push('');
-  lines.push(`🧬 ${t('Przyczyna biologiczna / fizyczna')}:`);
+  lines.push(`${t('Przyczyna biologiczna / fizyczna')}:`);
   lines.push(diag.biologicalCausePl);
   lines.push('');
-  lines.push(`🛠️ ${t('Kroki naprawcze na kolejny wypiek')}:`);
+  lines.push(`${t('Kroki naprawcze na kolejny wypiek')}:`);
   diag.actionChecklistPl.forEach((item, idx) => {
     lines.push(`${idx + 1}. ${item}`);
   });
   lines.push('');
-  lines.push('— Apps4Craft Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz');
   return lines.join('\n');
 }
 

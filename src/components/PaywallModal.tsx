@@ -103,7 +103,6 @@ export function PaywallModal({
         </View>
 
         <ScrollView contentContainerStyle={styles.scrollContent}>
-          <Text style={styles.heroEmoji}>🥖</Text>
           <Text style={styles.title}>{t('Odblokuj pełny dostęp')}</Text>
           <Text style={styles.subtitle}>
             {t(
@@ -113,7 +112,6 @@ export function PaywallModal({
 
           {/* Guarantee banner: History Read-Only */}
           <View style={styles.guaranteeCard}>
-            <Text style={styles.guaranteeIcon}>🛡️</Text>
             <View style={styles.guaranteeTextCol}>
               <Text style={styles.guaranteeTitle}>
                 {t('Twoja historia jest bezpieczna')}
@@ -201,19 +199,16 @@ export function PaywallModal({
           {/* Pillars List */}
           <View style={styles.pillarsCard}>
             <View style={styles.pillarItem}>
-              <Text style={styles.pillarIcon}>📶</Text>
               <Text style={styles.pillarText}>
-                {t('100% Offline-First: Żadnych chmur, dane tylko w telefonie')}
+                {t('Bez chmury: dane zostają w telefonie')}
               </Text>
             </View>
             <View style={styles.pillarItem}>
-              <Text style={styles.pillarIcon}>🚫</Text>
               <Text style={styles.pillarText}>
                 {t('Zero reklam, zero śledzenia telemetrycznego')}
               </Text>
             </View>
             <View style={styles.pillarItem}>
-              <Text style={styles.pillarIcon}>🥖</Text>
               <Text style={styles.pillarText}>
                 {t('Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów')}
               </Text>
@@ -337,11 +332,6 @@ const styles = StyleSheet.create({
     paddingBottom: theme.spacing.xl,
     alignItems: 'center',
   },
-  heroEmoji: {
-    fontSize: 48,
-    marginTop: theme.spacing.sm,
-    marginBottom: theme.spacing.xs,
-  },
   title: {
     fontSize: 24,
     fontWeight: '800',
@@ -365,10 +355,6 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
     marginBottom: theme.spacing.lg,
     alignItems: 'center',
-  },
-  guaranteeIcon: {
-    fontSize: 24,
-    marginRight: theme.spacing.sm,
   },
   guaranteeTextCol: {
     flex: 1,
@@ -452,10 +438,6 @@ const styles = StyleSheet.create({
   pillarItem: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  pillarIcon: {
-    fontSize: 16,
-    marginRight: theme.spacing.sm,
   },
   pillarText: {
     fontSize: 13,

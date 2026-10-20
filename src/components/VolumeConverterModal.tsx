@@ -64,7 +64,7 @@ export function VolumeConverterModal({
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
-            <Text style={styles.title}>⚖️ {t('Przelicznik Objętość ↔ Waga')}</Text>
+            <Text style={styles.title}>{t('Przelicznik objętości')}</Text>
             <Pressable
               testID="close-volume-modal-btn"
               style={styles.closeBtn}
@@ -104,7 +104,7 @@ export function VolumeConverterModal({
                       standard === 'metric' && styles.smallChipTextActive,
                     ]}
                   >
-                    🇪🇺 {t('Metryczna')} (250 ml)
+                    {t('Metryczna')} (250 ml)
                   </Text>
                 </Pressable>
                 <Pressable
@@ -118,7 +118,7 @@ export function VolumeConverterModal({
                       standard === 'us' && styles.smallChipTextActive,
                     ]}
                   >
-                    🇺🇸 {t('US Cup (236,6 ml)')}
+                    {t('US Cup (236,6 ml)')}
                   </Text>
                 </Pressable>
               </View>
@@ -133,7 +133,7 @@ export function VolumeConverterModal({
               onPress={() => setUnit('cup')}
             >
               <Text style={[styles.unitTabText, unit === 'cup' && styles.unitTabTextActive]}>
-                🥛 {t('Szklanki')}
+                {t('Szklanki')}
               </Text>
             </Pressable>
             <Pressable
@@ -147,7 +147,7 @@ export function VolumeConverterModal({
                   unit === 'tablespoon' && styles.unitTabTextActive,
                 ]}
               >
-                🥄 {t('Łyżki')} (15 ml)
+                {t('Łyżki')} (15 ml)
               </Text>
             </Pressable>
             <Pressable
@@ -161,7 +161,7 @@ export function VolumeConverterModal({
                   unit === 'teaspoon' && styles.unitTabTextActive,
                 ]}
               >
-                🥄 {t('Łyżeczki')} (5 ml)
+                {t('Łyżeczki')} (5 ml)
               </Text>
             </Pressable>
           </View>

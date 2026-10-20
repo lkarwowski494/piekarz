@@ -19,7 +19,7 @@ export function AcademyHeader({
   return (
     <View style={styles.header}>
       <View style={styles.headerTitleRow}>
-        <Text style={styles.title}>🎓 {t('Akademia Piekarza')}</Text>
+        <Text style={styles.title}>{t('Akademia Piekarza')}</Text>
         <Pressable
           testID="close-modal"
           style={styles.closeBtn}
@@ -40,7 +40,7 @@ export function AcademyHeader({
           onPress={() => onSelectTab('school')}
         >
           <Text style={[styles.navTabText, activeTab === 'school' && styles.navTabTextActive]}>
-            🥖 {t('Szkoła Chleba')}
+            {t('Szkoła Chleba')}
           </Text>
         </Pressable>
         <Pressable
@@ -49,7 +49,7 @@ export function AcademyHeader({
           onPress={() => onSelectTab('techniques')}
         >
           <Text style={[styles.navTabText, activeTab === 'techniques' && styles.navTabTextActive]}>
-            📖 {t('Techniki')}
+            {t('Techniki')}
           </Text>
         </Pressable>
       </View>

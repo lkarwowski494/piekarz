@@ -31,7 +31,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, ritualProfile === 'sourdough_purist' && styles.optionCardActive]}
             onPress={() => onProfileChange('sourdough_purist')}
           >
-            <Text style={styles.optionEmoji}>🌾</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, ritualProfile === 'sourdough_purist' && styles.optionTitleActive]}>
                 {t('Klasyczny Zakwasowiec')}
@@ -48,7 +47,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, ritualProfile === 'artisan_hybrid' && styles.optionCardActive]}
             onPress={() => onProfileChange('artisan_hybrid')}
           >
-            <Text style={styles.optionEmoji}>🥖</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, ritualProfile === 'artisan_hybrid' && styles.optionTitleActive]}>
                 {t('Nowoczesny Rzemieślnik')}
@@ -65,7 +63,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, ritualProfile === 'beginner' && styles.optionCardActive]}
             onPress={() => onProfileChange('beginner')}
           >
-            <Text style={styles.optionEmoji}>🍞</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, ritualProfile === 'beginner' && styles.optionTitleActive]}>
                 {t('Początkujący Piekarz')}
@@ -91,7 +88,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, bakingVessel === 'dutch_oven' && styles.optionCardActive]}
             onPress={() => onVesselChange('dutch_oven')}
           >
-            <Text style={styles.optionEmoji}>🍲</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'dutch_oven' && styles.optionTitleActive]}>
                 {t('Garnek żeliwny (Dutch Oven)')}
@@ -105,7 +101,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, bakingVessel === 'cloche' && styles.optionCardActive]}
             onPress={() => onVesselChange('cloche')}
           >
-            <Text style={styles.optionEmoji}>🏺</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'cloche' && styles.optionTitleActive]}>
                 {t('Klosz ceramiczny (Cloche)')}
@@ -119,7 +114,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, bakingVessel === 'baking_steel' && styles.optionCardActive]}
             onPress={() => onVesselChange('baking_steel')}
           >
-            <Text style={styles.optionEmoji}>🛡️</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'baking_steel' && styles.optionTitleActive]}>
                 {t('Stal / Kamień szamotowy')}
@@ -133,7 +127,6 @@ export function BakerRitualSection({
             style={[styles.optionCard, bakingVessel === 'pullman_pan' && styles.optionCardActive]}
             onPress={() => onVesselChange('pullman_pan')}
           >
-            <Text style={styles.optionEmoji}>🍞</Text>
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'pullman_pan' && styles.optionTitleActive]}>
                 {t('Foremka z pokrywą (Pullman)')}
@@ -183,10 +176,6 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
     borderWidth: 3,
     backgroundColor: theme.colors.powierzchnia,
-  },
-  optionEmoji: {
-    fontSize: 22,
-    marginRight: 12,
   },
   optionContent: {
     flex: 1,

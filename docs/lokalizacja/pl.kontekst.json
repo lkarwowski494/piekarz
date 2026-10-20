@@ -65,11 +65,6 @@
       "src/components/StarterConverterModal.tsx (label)"
     ]
   },
-  "100% Offline-First: Żadnych chmur, dane tylko w telefonie": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
-  },
   "100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.": {
     "gdzie": [
       "src/components/OnboardingModal.tsx (tekst w JSX)"
@@ -163,16 +158,6 @@
   "4 duże podpłomyki": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
-    ]
-  },
-  "4-DDT, matematyka lodu, prefermenty": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
-  },
-  "4-DDT, matematyka lodu, prefermenty, strata piecowa": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
     ]
   },
   "50% Pszenna + 50% Żytnia (Pół na pół)": {
@@ -335,11 +320,6 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: titlePl)"
     ]
   },
-  "Automatyczna rotacja: 10 ostatnich kopii w katalogu Documents/Backup/": {
-    "gdzie": [
-      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
-    ]
-  },
   "Bagietka paryska z Poolishem (Baguette de Tradition)": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
@@ -383,6 +363,11 @@
   "Baza danych nie otworzyła się przy poprzednim uruchomieniu": {
     "gdzie": [
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
+    ]
+  },
+  "Bez chmury: dane zostają w telefonie": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
   "Bezpośrednie": {
@@ -1048,7 +1033,8 @@
   },
   "Drobna niedoskonałość": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (label)"
+      "src/components/doktor/DiagnosisResultCard.tsx (label)",
+      "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
   "Drobne pory, bochenek ciężki w dłoni": {
@@ -1248,11 +1234,6 @@
   "Etap \"{etap}\" wypada w nocy o {godzina}": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: kod)"
-    ]
-  },
-  "Etap 1.1": {
-    "gdzie": [
-      "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
   "Etap ukończony!": {
@@ -1481,7 +1462,7 @@
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
     ]
   },
-  "Godziny snu (Sleep Guard):": {
+  "Godziny snu:": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
     ]
@@ -1541,7 +1522,7 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
-  "Harmonogram wsteczny z ochroną snu (Sleep Guard)": {
+  "Harmonogram wsteczny z ochroną snu": {
     "gdzie": [
       "app/(tabs)/harmonogram.tsx (subtitle)"
     ]
@@ -1595,7 +1576,7 @@
       "src/core/starter-converter.ts (dane: kod)"
     ]
   },
-  "Hydratacja zakwasu matki (Seed)": {
+  "Hydratacja zakwasu matki": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
@@ -1613,6 +1594,11 @@
   "Idealny balans chłonności i hydratacji dla tej kompozycji mąk.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: kod)"
+    ]
+  },
+  "Ilości i temperatura wody": {
+    "gdzie": [
+      "app/(tabs)/index.tsx (subtitle)"
     ]
   },
   "Ilość objętościowa:": {
@@ -1732,11 +1718,6 @@
       "app/(tabs)/index.tsx (title)"
     ]
   },
-  "Kalkulator 4-DDT i Temperatura Wody": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
-  },
   "Kalkulator dokarmiania": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
@@ -1854,7 +1835,7 @@
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
     ]
   },
-  "Kolizja ze snem (Sleep Guard)": {
+  "Kolizja ze snem": {
     "gdzie": [
       "src/lib/schedule-formatter.ts (kod)"
     ]
@@ -2017,7 +1998,8 @@
   },
   "Krytyczny błąd struktury": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (label)"
+      "src/components/doktor/DiagnosisResultCard.tsx (label)",
+      "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
   "Krzywa żyletka automatycznie podcina ciasto pod spód, tworząc idealny daszek pod spektakularne ucho rzemieślnicze.": {
@@ -2163,7 +2145,7 @@
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
-  "Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}% (True Baker’s %)": {
+  "Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%": {
     "gdzie": [
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
     ]
@@ -2974,6 +2956,11 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Ocena: {n}/5": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ]
+  },
   "Oceń bochenek i zapisz notatki do historii piekarskiej": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -2986,7 +2973,7 @@
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
-  "Ochrona snu aktywna (Sleep Guard)": {
+  "Ochrona snu aktywna": {
     "gdzie": [
       "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
     ]
@@ -3025,9 +3012,6 @@
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
-  },
-  "Odliczanie do szczytu (Peak Countdown)": {
-    "gdzie": []
   },
   "Odliczanie trwa": {
     "gdzie": [
@@ -3240,7 +3224,7 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "Oś czasu przygotowania (Timeline)": {
+  "Oś czasu przygotowania": {
     "gdzie": [
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
     ]
@@ -3652,7 +3636,7 @@
       "src/lib/confirm.ts (message)"
     ]
   },
-  "Profil, cykl dokarmiania i szczyt aktywności (Peak Timer)": {
+  "Profil, cykl dokarmiania i szczyt aktywności": {
     "gdzie": [
       "app/(tabs)/zakwas.tsx (subtitle)"
     ]
@@ -3694,7 +3678,7 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
-  "Przejdź do Harmonogramu (Sleep Guard)": {
+  "Przejdź do Harmonogramu": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
@@ -3714,11 +3698,6 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
-  "Przelicznik Objętość ↔ Waga": {
-    "gdzie": [
-      "src/components/VolumeConverterModal.tsx (tekst w JSX)"
-    ]
-  },
   "Przelicznik hydratacji i zamiennik w recepturze": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
@@ -3726,6 +3705,7 @@
   },
   "Przelicznik objętości": {
     "gdzie": [
+      "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)",
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
     ]
@@ -4624,7 +4604,7 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
-  "Szczyt aktywności (Peak Timer)": {
+  "Szczyt aktywności": {
     "gdzie": [
       "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
     ]
@@ -4819,6 +4799,21 @@
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
     ]
   },
+  "Temperatura wody": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Temperatura wody i zaczyny": {
+    "gdzie": [
+      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
+    ]
+  },
+  "Temperatura wody, zaczyny, strata piecowa": {
+    "gdzie": [
+      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
+    ]
+  },
   "Temperatura wody: {temp}°C": {
     "gdzie": []
   },
@@ -4863,14 +4858,6 @@
   "Trener i Fiszki": {
     "gdzie": []
   },
-  "True Baker’s %": {
-    "gdzie": []
-  },
-  "True Baker’s % & DDT": {
-    "gdzie": [
-      "app/(tabs)/index.tsx (subtitle)"
-    ]
-  },
   "Tryb transakcji:": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
@@ -4879,6 +4866,11 @@
   "Trzymaj żyletkę pod kątem ostrym ok. 30° względem powierzchni chleba (nie pionowo pod kątem 90°!).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Trzymam 10 ostatnich kopii na tym telefonie.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
   "Twoja historia jest bezpieczna": {
@@ -5013,7 +5005,8 @@
   },
   "Umiarkowana wada": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (label)"
+      "src/components/doktor/DiagnosisResultCard.tsx (label)",
+      "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
   "Umiarkowanie gęsty zaczyn pszenny do pieczywa tostowego i bagietek.": {
@@ -5070,6 +5063,7 @@
   "Ustawienia": {
     "gdzie": [
       "app/(tabs)/index.tsx (accessibilityLabel)",
+      "app/(tabs)/index.tsx (tekst w JSX)",
       "src/components/SettingsModal.tsx (tekst w JSX)"
     ]
   },
@@ -5093,6 +5087,7 @@
   },
   "Usuń": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (tekst w JSX)",
       "src/components/ui.tsx (kod)"
     ]
   },
@@ -5104,6 +5099,7 @@
   "Usuń wpis": {
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (accessibilityLabel)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/lib/confirm.ts (action)"
     ]
   },
@@ -5317,11 +5313,6 @@
   "Wektorowy radar sensoryczny": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Wersja 1.1, podgląd": {
-    "gdzie": [
-      "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
   "Wersja aplikacji: {wersja}": {
@@ -6009,7 +6000,7 @@
       "src/recipes/presets.ts (dane: notesPl)"
     ]
   },
-  "Zaczyny rzemieślnicze (Preferments)": {
+  "Zaczyny rzemieślnicze": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
     ]
@@ -6086,12 +6077,8 @@
   },
   "Zakwas matka": {
     "gdzie": [
+      "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)"
-    ]
-  },
-  "Zakwas matka (Seed)": {
-    "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
   "Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.": {

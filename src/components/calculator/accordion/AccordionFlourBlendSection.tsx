@@ -23,7 +23,7 @@ export function AccordionFlourBlendSection({
   return (
     <View style={styles.sectionBlock}>
       <View style={styles.rowBetween}>
-        <Text style={styles.sectionHeaderTitle}>🌾 {t('Mieszanka mąk')}</Text>
+        <Text style={styles.sectionHeaderTitle}>{t('Mieszanka mąk')}</Text>
         <Pressable
           testID="edit-blend-pro-btn"
           style={styles.pillActionBtn}
@@ -62,7 +62,7 @@ export function AccordionFlourBlendSection({
           style={styles.flourActionBtn}
           onPress={onOpenBlendModal}
         >
-          <Text style={styles.flourActionBtnText}>⚙️ {t('Skomponuj własną mieszankę mąk')}</Text>
+          <Text style={styles.flourActionBtnText}>{t('Skomponuj własną mieszankę mąk')}</Text>
         </Pressable>
         {onOpenInventory && (
           <Pressable
@@ -70,7 +70,7 @@ export function AccordionFlourBlendSection({
             style={styles.flourActionBtn}
             onPress={onOpenInventory}
           >
-            <Text style={styles.flourActionBtnText}>🌾 {t('Spiżarnia mąk & Stan zapasów')}</Text>
+            <Text style={styles.flourActionBtnText}>{t('Spiżarnia mąk & Stan zapasów')}</Text>
           </Pressable>
         )}
         {/* F-46 PÓŹNIEJ: wejście ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
@@ -80,7 +80,7 @@ export function AccordionFlourBlendSection({
             style={styles.flourActionBtn}
             onPress={onOpenEquivalents}
           >
-            <Text style={styles.flourActionBtnText}>🌍 {t('Słownik Odpowiedników Mąk')}</Text>
+            <Text style={styles.flourActionBtnText}>{t('Słownik Odpowiedników Mąk')}</Text>
           </Pressable>
         )}
       </View>

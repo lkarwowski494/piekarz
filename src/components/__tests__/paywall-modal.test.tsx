@@ -63,7 +63,7 @@ describe('PaywallModal Component', () => {
     expect(fullText).toContain('$6.99');
     expect(fullText).toContain('$14.99');
     expect(fullText).toContain('Twoja historia jest bezpieczna');
-    expect(fullText).toContain('100% Offline-First');
+    expect(fullText).toContain('Bez chmury: dane zostają w telefonie');
   });
 
   it('shows no price when the store returned no products', async () => {

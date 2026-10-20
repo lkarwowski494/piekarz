@@ -56,7 +56,7 @@ export function ScheduleSummaryCard({
         onPress={onStartBakeOnWorkbench}
       >
         <Text style={styles.transferBtnText}>
-          🥖 {t('Rozpocznij wypiek na Stolnicy')}
+          {t('Rozpocznij wypiek na Stolnicy')}
         </Text>
       </Pressable>
 
@@ -67,7 +67,7 @@ export function ScheduleSummaryCard({
         onPress={onCopySchedule}
       >
         <Text style={styles.copyScheduleBtnText}>
-          📋 {t('Kopiuj harmonogram')}
+          {t('Kopiuj harmonogram')}
         </Text>
       </Pressable>
     </View>

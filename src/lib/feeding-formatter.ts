@@ -11,19 +11,19 @@ export function formatFeedingToText(
   ratio: [number, number, number]
 ): string {
   const lines: string[] = [];
-  lines.push(`🥣 ${t('Dokarmienie zakwasu')}: ${starter.name}`);
-  lines.push(`⚖️ ${t('Proporcja')}: 1:${ratio[1]}:${ratio[2]}`);
-  lines.push(`🎯 ${t('Docelowa masa zaczynu')}: ${feeding.targetYieldGrams} g`);
+  lines.push(`${t('Dokarmienie zakwasu')}: ${starter.name}`);
+  lines.push(`${t('Proporcja')}: 1:${ratio[1]}:${ratio[2]}`);
+  lines.push(`${t('Docelowa masa zaczynu')}: ${feeding.targetYieldGrams} g`);
   lines.push('');
-  lines.push(`📋 ${t('Składniki do słoika')}:`);
-  lines.push(`1. 🫙 ${t('Zakwas matka')}: ${feeding.starterGrams} g`);
-  lines.push(`2. 🌾 ${t('Mąka')} (${starter.flourType}): ${feeding.flourGrams} g`);
-  lines.push(`3. 💧 ${t('Woda')}: ${feeding.waterGrams} g`);
+  lines.push(`${t('Składniki do słoika')}:`);
+  lines.push(`1. ${t('Zakwas matka')}: ${feeding.starterGrams} g`);
+  lines.push(`2. ${t('Mąka')} (${starter.flourType}): ${feeding.flourGrams} g`);
+  lines.push(`3. ${t('Woda')}: ${feeding.waterGrams} g`);
   lines.push('');
   if (feeding.tipPl) {
-    lines.push(`💡 ${feeding.tipPl}`);
+    lines.push(feeding.tipPl);
   }
-  lines.push('— Apps4Craft Studio • Piekarz 🥖');
+  lines.push('— Apps4Craft Studio • Piekarz');
   return lines.join('\n');
 }
 

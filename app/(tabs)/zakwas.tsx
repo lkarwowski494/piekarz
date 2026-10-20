@@ -265,7 +265,7 @@ export default function ZakwasScreen() {
     <SafeAreaView style={styles.safeArea} edges={['top']}>
       <CraftHeader
         title={t('Zakwas')}
-        subtitle={t('Profil, cykl dokarmiania i szczyt aktywności (Peak Timer)')}
+        subtitle={t('Profil, cykl dokarmiania i szczyt aktywności')}
         testID="zakwas-header"
         rightAction={
           <Pressable
@@ -276,7 +276,7 @@ export default function ZakwasScreen() {
             style={styles.headerDoctorBtn}
             onPress={() => router.push('/(tabs)/doktor')}
           >
-            <Text style={styles.headerDoctorBtnText}>🩺 {t('Doktor')}</Text>
+            <Text style={styles.headerDoctorBtnText}>{t('Doktor')}</Text>
           </Pressable>
         }
       />

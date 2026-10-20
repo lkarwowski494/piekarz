@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 543 | 543 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 541 | 541 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 288 | 288 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 102 | 102 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **973** | Pokrytych: **973** | Brakujących: **0**
+Łącznie elementów: **971** | Pokrytych: **971** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -36,9 +36,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `{dzien}, {d} {miesiac}` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Klasyczny chleb rzemieślniczy (Harmonogram)` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Harmonogram` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Harmonogram wsteczny z ochroną snu (Sleep Guard)` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Harmonogram wsteczny z ochroną snu` | `app/(tabs)/harmonogram.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kalkulator` | `app/(tabs)/index.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `True Baker’s % & DDT` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Ilości i temperatura wody` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Ustawienia` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
 | `TEKST` | `Wypiek bez receptury` | `app/(tabs)/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
 | `TEKST` | `Załadowano recepturę` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -67,7 +67,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Kopiuj dokarmienie` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Skopiowano proporcje dokarmiania do schowka` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zakwas` | `app/(tabs)/zakwas.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Profil, cykl dokarmiania i szczyt aktywności (Peak Timer)` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Profil, cykl dokarmiania i szczyt aktywności` | `app/(tabs)/zakwas.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij Akademię` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Techniki` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -98,11 +98,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Upieczony bochenek` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Odparowana woda` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Szacowana wilgotność miękiszu` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/recipe-formatter-en.test.ts |
-| `TEKST` | `Kalkulator 4-DDT i Temperatura Wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Temperatura wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
 | `TEKST` | `Docelowa temp. wody:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `0°C (Lód)` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Zastąp część wody lodem:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `lodu` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
+| `TEKST` | `lodu` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Docelowe DDT` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja bazy` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Chłonność mąk:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -113,7 +113,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Skomponuj własną mieszankę mąk` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Spiżarnia mąk & Stan zapasów` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Słownik Odpowiedników Mąk` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zaczyny rzemieślnicze (Preferments)` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zaczyny rzemieślnicze` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Bezpośrednie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział mąki w zaczynie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/core/__tests__/domain-error-branches.test.ts |
 | `TEKST` | `Zaczyn ({g} g)` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
@@ -123,8 +123,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Pozostała mąka: {g} g` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Pozostała woda: {g} g` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Parametry Rzemieślnicze & Mąki` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `4-DDT, matematyka lodu, prefermenty, strata piecowa` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/wejscia-pozniej.test.tsx |
-| `TEKST` | `4-DDT, matematyka lodu, prefermenty` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/wejscia-pozniej.test.tsx |
+| `TEKST` | `Temperatura wody, zaczyny, strata piecowa` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/wejscia-pozniej.test.tsx |
+| `TEKST` | `Temperatura wody i zaczyny` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | src/__tests__/wejscia-pozniej.test.tsx |
 | `TEKST` | `Kopiuj recepturę` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Klonuj recepturę` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Eksportuj JSON` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -138,8 +138,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Masa` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mąka` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/i18n-en-main-flow.test.tsx |
-| `TEKST` | `DDT` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/matrix-invariants.test.ts, tests/matrix-logic.test.ts |
-| `TEKST` | `Bochenki` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `DDT` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-invariants.test.ts |
+| `TEKST` | `Bochenki` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Masa mąki` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Co dzisiaj pieczemy?` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/DoMiskiScaleCard.test.tsx |
 | `TEKST` | `Masa mąki bazowej` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/calculator-screen.test.tsx |
@@ -207,12 +207,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przygotowanie krok po kroku:` | `src/components/DiscardRecipesModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wskazówka rzemieślnicza:` | `src/components/DiscardRecipesModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wybierz objawy bochenka` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
-| `TEKST` | `Krytyczny błąd struktury` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
-| `TEKST` | `Umiarkowana wada` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Drobna niedoskonałość` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Krytyczny błąd struktury` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/diagnosis-formatter.test.ts |
+| `TEKST` | `Umiarkowana wada` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/diagnosis-formatter.test.ts |
+| `TEKST` | `Drobna niedoskonałość` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/diagnosis-formatter.test.ts |
 | `TEKST` | `Przyczyna biologiczno-chemiczna:` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Co zrobić przy następnym wypieku:` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
-| `TEKST` | `Przejdź do Harmonogramu (Sleep Guard)` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
+| `TEKST` | `Przejdź do Harmonogramu` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Dostosuj hydratację w Kalkulatorze` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przejdź do Stolnicy` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Kopiuj diagnozę` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -278,12 +278,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Pomyślnie odliczono` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Zasoby mąki w spiżarni zostały zaktualizowane.` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Spiżarnia mąk (Magazyn)` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/flour-inventory-modal.test.tsx |
-| `TEKST` | `Wersja 1.1, podgląd` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Kontrola zapasów mąk i powiadomienia o brakach` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Etap 1.1` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wszystkie mąki są dostępne w spiżarni!` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/flour-inventory-modal.test.tsx |
 | `TEKST` | `Odlicz zużycie z magazynu` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Twoje zapasy mąk` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `Usuń` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-a11y.test.tsx, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dodaj mąkę do spiżarni` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wybierz z Atlasu lub wpisz własną` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nazwa mąki (np. Pszenna typ 750)` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -297,18 +296,18 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Uwaga: Kolizja ze snem!` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rozwiąż kolizję` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `lodówka` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Ochrona snu aktywna (Sleep Guard)` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Ochrona snu aktywna` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `Godzina gotowości chleba do krojenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/schedule-formatter.test.ts |
 | `TEKST` | `Wyznacz kroki wstecz, aby nie zarywać nocy` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Scenariusze wypieku` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dzień gotowości:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godzina podania na stół:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Godziny snu (Sleep Guard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Godziny snu:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Czas w lodówce (Cold Retard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Oś czasu przygotowania (Timeline)` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Oś czasu przygotowania` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{h}h {m}min` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `{h}h` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Pasywne` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zaimportowano recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przepis „{name}” został pomyślnie dodany do Twojej bazy.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `UI` | `Wystąpił błąd podczas zapisywania receptury do bazy SQLite.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 673 kolejnych elementów w pełnym wykazie)*
+*(... i 671 kolejnych elementów w pełnym wykazie)*

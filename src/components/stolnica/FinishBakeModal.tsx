@@ -61,7 +61,7 @@ export function FinishBakeModal({
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>🎉 {t('Zakończ wypiek')}</Text>
+          <Text style={styles.modalTitle}>{t('Zakończ wypiek')}</Text>
           <Text style={styles.modalSubtitle}>
             {t('Oceń bochenek i zapisz notatki do historii piekarskiej')}
           </Text>
@@ -91,7 +91,7 @@ export function FinishBakeModal({
           />
 
           {/* Crumb Score */}
-          <Text style={styles.modalSectionLabel}>🍞 {t('Struktura miękiszu')} (1–5)</Text>
+          <Text style={styles.modalSectionLabel}>{t('Struktura miękiszu')} (1–5)</Text>
           <View style={styles.scoreRow}>
             {[1, 2, 3, 4, 5].map((s) => (
               <Pressable
@@ -105,11 +105,11 @@ export function FinishBakeModal({
             ))}
           </View>
           <Text style={styles.scoreHint}>
-            {crumbScore <= 2 ? `🧱 ${t('Zbity, gęsty miękisz — rozważaj dłuższy bulk')}` : crumbScore >= 5 ? `🌟 ${t('Dzika, otwarta struktura rzemieślnicza!')}` : `✅ ${t('Ładna równomierna alweolatura')}`}
+            {crumbScore <= 2 ? t('Zbity, gęsty miękisz — rozważaj dłuższy bulk') : crumbScore >= 5 ? t('Dzika, otwarta struktura rzemieślnicza!') : t('Ładna równomierna alweolatura')}
           </Text>
 
           {/* Crust Score */}
-          <Text style={styles.modalSectionLabel}>🔥 {t('Jakość skórki')} (1–5)</Text>
+          <Text style={styles.modalSectionLabel}>{t('Jakość skórki')} (1–5)</Text>
           <View style={styles.scoreRow}>
             {[1, 2, 3, 4, 5].map((s) => (
               <Pressable
@@ -123,18 +123,18 @@ export function FinishBakeModal({
             ))}
           </View>
           <Text style={styles.scoreHint}>
-            {crustScore <= 2 ? `🫧 ${t('Blada, miękka skórka — zwiększ parę lub temperaturę')}` : crustScore >= 5 ? `💎 ${t('Perfekcyjna chrupiąca skórka z pęcherzykami')}` : `✅ ${t('Dobra skórka z lekkim połyskiem')}`}
+            {crustScore <= 2 ? t('Blada, miękka skórka — zwiększ parę lub temperaturę') : crustScore >= 5 ? t('Perfekcyjna chrupiąca skórka z pęcherzykami') : t('Dobra skórka z lekkim połyskiem')}
           </Text>
 
           {/* Taste Profile */}
-          <Text style={styles.modalSectionLabel}>👅 {t('Profil smakowy')}</Text>
+          <Text style={styles.modalSectionLabel}>{t('Profil smakowy')}</Text>
           <View style={styles.tasteRow}>
             {(['mild', 'balanced', 'sour', 'tangy'] as const).map((profile) => {
               const labels: Record<string, string> = {
-                mild: `🍞 ${t('Łagodny')}`,
-                balanced: `⚖️ ${t('Zbalansowany')}`,
-                sour: `🍋 ${t('Kwaśny')}`,
-                tangy: `🔥 ${t('Bardzo kwaśny')}`,
+                mild: t('Łagodny'),
+                balanced: t('Zbalansowany'),
+                sour: t('Kwaśny'),
+                tangy: t('Bardzo kwaśny'),
               };
               return (
                 <Pressable
@@ -152,7 +152,7 @@ export function FinishBakeModal({
           </View>
 
           {/* Sensory Radar Profile (5 Osi Rzemieślniczych) */}
-          <Text style={styles.modalSectionLabel}>🕸️ {t('Wektorowy radar sensoryczny')}</Text>
+          <Text style={styles.modalSectionLabel}>{t('Wektorowy radar sensoryczny')}</Text>
           <View style={styles.modalRadarBox}>
             <SensoryRadarChart
               profile={sensoryProfile}

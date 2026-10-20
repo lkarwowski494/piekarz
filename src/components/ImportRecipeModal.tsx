@@ -120,7 +120,7 @@ export function ImportRecipeModal({
                 style={styles.actionBtn}
                 onPress={handlePasteClipboard}
               >
-                <Text style={styles.actionBtnText}>📋 {t('Wklej ze schowka')}</Text>
+                <Text style={styles.actionBtnText}>{t('Wklej ze schowka')}</Text>
               </Pressable>
               {jsonInput.length > 0 && (
                 <Pressable
@@ -152,14 +152,14 @@ export function ImportRecipeModal({
             {validation === null && (
               <View style={styles.hintBox}>
                 <Text style={styles.hintText}>
-                  💡 {t('Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.')}
+                  {t('Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.')}
                 </Text>
               </View>
             )}
 
             {validation && !validation.success && (
               <View style={styles.errorBox} testID="import-error-box">
-                <Text style={styles.errorTitle}>⚠️ {t('Nieprawidłowy format')}</Text>
+                <Text style={styles.errorTitle}>{t('Nieprawidłowy format')}</Text>
                 <Text style={styles.errorText}>{validation.error}</Text>
               </View>
             )}

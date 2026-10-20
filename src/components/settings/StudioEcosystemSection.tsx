@@ -123,9 +123,6 @@ export function StudioEcosystemSection() {
         <Text style={styles.manifestoText}>
           „{t('Mąka, woda, sól i czas — rzemieślnicza precyzja bez kompromisów.')}”
         </Text>
-        <Text style={styles.manifestoDetails}>
-          Piekarz (Crust) v1.0.0 • 100% Offline-First • Data Not Collected
-        </Text>
       </View>
     </>
   );

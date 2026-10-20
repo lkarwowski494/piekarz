@@ -20,15 +20,15 @@ export function BakeVesselSelector({
   onSelectVessel,
 }: BakeVesselSelectorProps) {
   const vessels = [
-    { id: 'dutch_oven' as const, label: `🍲 ${t('Garnek')}` },
-    { id: 'cloche' as const, label: `🏺 ${t('Klosz')}` },
-    { id: 'baking_steel' as const, label: `⬛ ${t('Stal')}` },
-    { id: 'pullman_pan' as const, label: `🔲 ${t('Forma')}` },
+    { id: 'dutch_oven' as const, label: t('Garnek') },
+    { id: 'cloche' as const, label: t('Klosz') },
+    { id: 'baking_steel' as const, label: t('Stal') },
+    { id: 'pullman_pan' as const, label: t('Forma') },
   ];
 
   return (
     <View style={styles.vesselSelectorContainer} testID="baking-vessel-selector">
-      <Text style={styles.vesselSelectorTitle}>🔥 {t('Naczynie wypiekowe')}</Text>
+      <Text style={styles.vesselSelectorTitle}>{t('Naczynie wypiekowe')}</Text>
       <View style={styles.vesselChipsRow}>
         {vessels.map((v) => (
           <Pressable

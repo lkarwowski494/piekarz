@@ -21,7 +21,7 @@ export function AccordionPrefermentSection({
 }: AccordionPrefermentSectionProps) {
   return (
     <View style={styles.sectionBlock}>
-      <Text style={styles.sectionHeaderTitle}>🏺 {t('Zaczyny rzemieślnicze (Preferments)')}</Text>
+      <Text style={styles.sectionHeaderTitle}>{t('Zaczyny rzemieślnicze')}</Text>
       <View style={styles.prefermentButtonsRow}>
         {(['direct', 'poolish', 'biga', 'pate_fermentee', 'levain'] as PrefermentType[]).map(
           (pType) => {
@@ -82,18 +82,18 @@ export function AccordionPrefermentSection({
 
           <View style={styles.prefermentGrid}>
             <View style={styles.prefermentCol}>
-              <Text style={styles.prefermentColHeader}>🥣 {t('Zaczyn ({g} g)', { g: prefermentBreakdown.prefermentTotalWeightGrams })}</Text>
-              <Text style={styles.prefermentItemText}>🌾 {t('Mąka w zaczynie')}: {prefermentBreakdown.prefermentFlourGrams} g</Text>
-              <Text style={styles.prefermentItemText}>💧 {t('Woda w zaczynie')}: {prefermentBreakdown.prefermentWaterGrams} g</Text>
+              <Text style={styles.prefermentColHeader}>{t('Zaczyn ({g} g)', { g: prefermentBreakdown.prefermentTotalWeightGrams })}</Text>
+              <Text style={styles.prefermentItemText}>{t('Mąka w zaczynie')}: {prefermentBreakdown.prefermentFlourGrams} g</Text>
+              <Text style={styles.prefermentItemText}>{t('Woda w zaczynie')}: {prefermentBreakdown.prefermentWaterGrams} g</Text>
             </View>
             <View style={styles.prefermentCol}>
-              <Text style={styles.prefermentColHeader}>🥖 {t('Do miski (Ciasto właściwe)')}</Text>
-              <Text style={styles.prefermentItemText}>🌾 {t('Pozostała mąka: {g} g', { g: prefermentBreakdown.doughAddedFlourGrams })}</Text>
-              <Text style={styles.prefermentItemText}>💧 {t('Pozostała woda: {g} g', { g: prefermentBreakdown.doughAddedWaterGrams })}</Text>
+              <Text style={styles.prefermentColHeader}>{t('Do miski (Ciasto właściwe)')}</Text>
+              <Text style={styles.prefermentItemText}>{t('Pozostała mąka: {g} g', { g: prefermentBreakdown.doughAddedFlourGrams })}</Text>
+              <Text style={styles.prefermentItemText}>{t('Pozostała woda: {g} g', { g: prefermentBreakdown.doughAddedWaterGrams })}</Text>
             </View>
           </View>
 
-          <Text style={styles.fermentationTipText}>💡 {t(prefermentBreakdown.fermentationTipPl)}</Text>
+          <Text style={styles.fermentationTipText}>{t(prefermentBreakdown.fermentationTipPl)}</Text>
         </View>
       )}
     </View>

@@ -45,7 +45,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.header}>
           <View style={styles.headerTitleRow}>
-            <Text style={styles.title}>🥞 {t('Przepisy na Odrzut Zakwasu')}</Text>
+            <Text style={styles.title}>{t('Przepisy na Odrzut Zakwasu')}</Text>
             <Pressable
               testID="close-discard-modal-btn"
               style={styles.closeBtn}
@@ -97,7 +97,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   selectedCategory === 'crackers' && styles.categoryChipTextActive,
                 ]}
               >
-                🧂 {t('Krakersy')}
+                {t('Krakersy')}
               </Text>
             </Pressable>
             <Pressable
@@ -114,7 +114,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   selectedCategory === 'pancakes' && styles.categoryChipTextActive,
                 ]}
               >
-                🥞 {t('Naleśniki')}
+                {t('Naleśniki')}
               </Text>
             </Pressable>
             <Pressable
@@ -131,7 +131,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   selectedCategory === 'waffles' && styles.categoryChipTextActive,
                 ]}
               >
-                🧇 {t('Gofry')}
+                {t('Gofry')}
               </Text>
             </Pressable>
             <Pressable
@@ -148,7 +148,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   selectedCategory === 'cookies' && styles.categoryChipTextActive,
                 ]}
               >
-                🍪 {t('Ciasteczka')}
+                {t('Ciasteczka')}
               </Text>
             </Pressable>
             <Pressable
@@ -165,7 +165,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                   selectedCategory === 'flatbread' && styles.categoryChipTextActive,
                 ]}
               >
-                🫓 {t('Podpłomyki')}
+                {t('Podpłomyki')}
               </Text>
             </Pressable>
           </ScrollView>
@@ -190,13 +190,13 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                     <View style={styles.metaRow}>
                       <View style={styles.discardGramsPill}>
                         <Text style={styles.discardGramsText}>
-                          🫙 {recipe.discardWeightGrams} g {t('odrzutu')}
+                          {recipe.discardWeightGrams} g {t('odrzutu')}
                         </Text>
                       </View>
                       <Text style={styles.timeMeta}>
-                        ⏱️ {t('{n} min', { n: recipe.prepTimeMinutes + recipe.cookTimeMinutes })}
+                        {t('{n} min', { n: recipe.prepTimeMinutes + recipe.cookTimeMinutes })}
                       </Text>
-                      <Text style={styles.yieldMeta}>🍽️ {t(recipe.yieldPl)}</Text>
+                      <Text style={styles.yieldMeta}>{t(recipe.yieldPl)}</Text>
                     </View>
                   </View>
                   <Text style={styles.toggleIcon}>{isExpanded ? '▲' : '▼'}</Text>
@@ -231,7 +231,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
 
                     {/* Pro tip */}
                     <View style={styles.proTipBox}>
-                      <Text style={styles.proTipTitle}>💡 {t('Wskazówka rzemieślnicza:')}</Text>
+                      <Text style={styles.proTipTitle}>{t('Wskazówka rzemieślnicza:')}</Text>
                       <Text style={styles.proTipText}>{t(recipe.proTipPl)}</Text>
                     </View>
                   </View>

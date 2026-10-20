@@ -45,7 +45,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   const lines: string[] = [];
 
   // Header
-  lines.push(`🥖 ${recipeName}`);
+  lines.push(recipeName);
   lines.push('='.repeat(recipeName.length + 4));
 
   // Yield & Weights Summary
@@ -59,7 +59,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
     lines.push(`${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${t('po upieczeniu: ~{masa}', { masa: w(baked) })})`);
   }
 
-  lines.push(`${t('Hydratacja całkowita')}: ${formatFixed(calc.overallHydrationPercent, 1)}% (True Baker's %)`);
+  lines.push(`${t('Hydratacja całkowita')}: ${formatFixed(calc.overallHydrationPercent, 1)}%`);
 
   if (bakeLoss) {
     lines.push(`${t('Strata piecowa')}: ${formatFixed(bakeLoss.bakeLossPercent, 1)}% (${t('-{masa} pary', { masa: w(bakeLoss.evaporatedWaterGrams) })})`);
@@ -67,7 +67,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   }
 
   lines.push('');
-  lines.push(`📋 ${t('Do miski na wagę')}:`);
+  lines.push(`${t('Do miski na wagę')}:`);
 
   // Flour breakdown
   calc.flours.forEach((f) => {
@@ -101,18 +101,18 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   // DDT section
   if (targetDdt !== undefined) {
     lines.push('');
-    lines.push(`🌡️ ${t('Docelowa temperatura ciasta (DDT)')}: ${temp(targetDdt)}`);
+    lines.push(`${t('Docelowa temperatura ciasta (DDT)')}: ${temp(targetDdt)}`);
   }
 
   // Cooling advice
   if (bakeLoss?.coolingAdvicePl) {
     lines.push('');
-    lines.push(`⏱️ ${t('Zalecenie studzenia na kratce')}:`);
+    lines.push(`${t('Zalecenie studzenia na kratce')}:`);
     lines.push(`  ${t(bakeLoss.coolingAdvicePl)}`);
   }
 
   lines.push('');
-  lines.push('— Apps4Craft Studio • Piekarz 🥖 • 100% Offline-First');
+  lines.push('— Apps4Craft Studio • Piekarz');
 
   return lines.join('\n');
 }

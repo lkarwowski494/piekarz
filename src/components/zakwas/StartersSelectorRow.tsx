@@ -47,7 +47,7 @@ export function StartersSelectorRow({
                   isSelected && styles.starterPillTextActive,
                 ]}
               >
-                {isSelected ? '🥣 ' : ''}{s.name}
+                {s.name}
               </Text>
             </Pressable>
           );
