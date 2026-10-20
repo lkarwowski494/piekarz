@@ -66,6 +66,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
             style={styles.categoryScroll}
           >
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'all' }}
               testID="discard-filter-all"
               style={[
                 styles.categoryChip,
@@ -83,6 +85,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'crackers' }}
               testID="discard-filter-crackers"
               style={[
                 styles.categoryChip,
@@ -100,6 +104,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'pancakes' }}
               testID="discard-filter-pancakes"
               style={[
                 styles.categoryChip,
@@ -117,6 +123,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'waffles' }}
               testID="discard-filter-waffles"
               style={[
                 styles.categoryChip,
@@ -134,6 +142,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'cookies' }}
               testID="discard-filter-cookies"
               style={[
                 styles.categoryChip,
@@ -151,6 +161,8 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedCategory === 'flatbread' }}
               testID="discard-filter-flatbread"
               style={[
                 styles.categoryChip,
@@ -180,6 +192,7 @@ export function DiscardRecipesModal({ visible, onClose }: DiscardRecipesModalPro
                 testID={`discard-card-${recipe.id}`}
               >
                 <Pressable
+                  accessibilityRole="button"
                   testID={`toggle-discard-${recipe.id}`}
                   onPress={() => toggleExpand(recipe.id)}
                   style={styles.cardHeaderPressable}

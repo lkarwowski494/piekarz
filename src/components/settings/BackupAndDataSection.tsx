@@ -140,6 +140,7 @@ export function BackupAndDataSection() {
 
         <View style={styles.backupButtonsRow}>
           <Pressable
+            accessibilityRole="button"
             testID="export-backup-btn"
             style={styles.exportBtn}
             onPress={handleExport}
@@ -151,6 +152,7 @@ export function BackupAndDataSection() {
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
             testID="import-backup-btn"
             style={styles.importBtn}
             onPress={() => setShowImportInput((prev) => !prev)}
@@ -178,6 +180,7 @@ export function BackupAndDataSection() {
             />
             <View style={styles.importActions}>
               <Pressable
+                accessibilityRole="button"
                 testID="confirm-import-btn"
                 style={styles.confirmImportBtn}
                 onPress={handleConfirmImport}
@@ -188,6 +191,7 @@ export function BackupAndDataSection() {
                 </Text>
               </Pressable>
               <Pressable
+                accessibilityRole="button"
                 testID="cancel-import-btn"
                 style={styles.cancelImportBtn}
                 onPress={() => {
@@ -217,6 +221,7 @@ export function BackupAndDataSection() {
         </Text>
         <View style={styles.csvButtonsCol}>
           <Pressable
+            accessibilityRole="button"
             testID="export-bakes-csv-btn"
             style={styles.csvBtn}
             onPress={handleExportBakesCsv}
@@ -227,6 +232,7 @@ export function BackupAndDataSection() {
             </Text>
           </Pressable>
           <Pressable
+            accessibilityRole="button"
             testID="export-inventory-csv-btn"
             style={styles.csvBtn}
             onPress={handleExportInventoryCsv}

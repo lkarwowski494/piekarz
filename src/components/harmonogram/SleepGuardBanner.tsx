@@ -36,6 +36,7 @@ export function SleepGuardBanner({
         </Text>
         {autoResolved && (
           <Pressable
+            accessibilityRole="button"
             style={styles.autoFixBtn}
             onPress={() => onApplyAutoResolution(autoResolved.adjustedColdRetardHours)}
           >

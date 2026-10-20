@@ -25,6 +25,7 @@ export function AccordionFlourBlendSection({
       <View style={styles.rowBetween}>
         <Text style={styles.sectionHeaderTitle}>{t('Mieszanka mąk')}</Text>
         <Pressable
+          accessibilityRole="button"
           testID="edit-blend-pro-btn"
           style={styles.pillActionBtn}
           onPress={onOpenBlendModal}
@@ -37,6 +38,7 @@ export function AccordionFlourBlendSection({
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.blendScroll}>
         {POPULAR_FLOUR_BLENDS.map((blend) => (
           <Pressable
+            accessibilityRole="button"
             key={blend.id}
             onPress={() => onSelectFlourBlend?.(blend)}
             style={styles.blendPresetChip}
@@ -58,6 +60,7 @@ export function AccordionFlourBlendSection({
 
       <View style={styles.flourActionsRow}>
         <Pressable
+          accessibilityRole="button"
           testID="open-blend-builder-btn"
           style={styles.flourActionBtn}
           onPress={onOpenBlendModal}
@@ -66,6 +69,7 @@ export function AccordionFlourBlendSection({
         </Pressable>
         {onOpenInventory && (
           <Pressable
+            accessibilityRole="button"
             testID="open-flour-inventory-btn"
             style={styles.flourActionBtn}
             onPress={onOpenInventory}
@@ -76,6 +80,7 @@ export function AccordionFlourBlendSection({
         {/* F-46 PÓŹNIEJ: wejście ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
         {onOpenEquivalents && wejscieWidoczne('slownik-mak') && (
           <Pressable
+            accessibilityRole="button"
             testID="open-flour-equivalents-btn"
             style={styles.flourActionBtn}
             onPress={onOpenEquivalents}

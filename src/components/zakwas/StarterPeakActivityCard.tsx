@@ -99,6 +99,8 @@ export function StarterPeakActivityCard({
             { temp: 28, label: formatTemperature(28, unitSystem), id: 'temp-28' },
           ].map((item) => (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: ambientTempC === item.temp }}
               key={item.id}
               testID={`temp-chip-${item.temp}`}
               style={[
@@ -121,7 +123,7 @@ export function StarterPeakActivityCard({
       </View>
       )}
 
-      <Pressable style={styles.feedNowBtn} onPress={onLogFeeding}>
+      <Pressable accessibilityRole="button" style={styles.feedNowBtn} onPress={onLogFeeding}>
         <Text style={styles.feedNowBtnText}>{t('Zapisz dokarmienie')}</Text>
       </Pressable>
     </View>

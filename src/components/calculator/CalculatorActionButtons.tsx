@@ -35,6 +35,7 @@ export function CalculatorActionButtons({
   return (
     <View style={styles.actionButtonsContainer}>
       <Pressable
+        accessibilityRole="button"
         testID="copy-recipe-btn"
         style={styles.copyRecipeBtn}
         onPress={onCopyRecipe}
@@ -43,6 +44,7 @@ export function CalculatorActionButtons({
       </Pressable>
 
       <Pressable
+        accessibilityRole="button"
         testID="export-recipe-json-btn"
         style={styles.cloneRecipeBtn}
         onPress={onExportJson}
@@ -53,6 +55,7 @@ export function CalculatorActionButtons({
       {/* F-08 PÓŹNIEJ (D-043): udostępnianie kodu QR ukryte, kod zostaje [M1-audytor-generalny-049] */}
       {wejscieWidoczne('qr') && (
         <Pressable
+          accessibilityRole="button"
           testID="share-recipe-qr-btn"
           style={styles.cloneRecipeBtn}
           onPress={onShareQr}
@@ -75,6 +78,7 @@ export function CalculatorActionButtons({
       )}
 
       <Pressable
+        accessibilityRole="button"
         testID="import-recipe-json-btn"
         style={styles.cloneRecipeBtn}
         onPress={onImportJson}
@@ -83,6 +87,7 @@ export function CalculatorActionButtons({
       </Pressable>
 
       <Pressable
+        accessibilityRole="button"
         testID="open-flour-inventory-btn"
         style={styles.cloneRecipeBtn}
         onPress={onOpenInventory}
@@ -91,6 +96,7 @@ export function CalculatorActionButtons({
       </Pressable>
 
       <Pressable
+        accessibilityRole="button"
         testID="save-custom-recipe-btn"
         style={styles.secondaryBtn}
         onPress={onSaveCustomRecipe}
@@ -99,6 +105,7 @@ export function CalculatorActionButtons({
       </Pressable>
 
       <Pressable
+        accessibilityRole="button"
         testID="start-bake-btn"
         style={styles.primaryBtn}
         onPress={onStartBake}

@@ -77,6 +77,8 @@ export function BakeStepsList({
         const isCurrent = idx === currentStepIdx;
         return (
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: !!(isCurrent) }}
             key={step.id}
             onPress={() => onGoToStep(idx)}
             style={[

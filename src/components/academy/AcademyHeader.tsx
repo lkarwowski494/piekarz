@@ -21,6 +21,7 @@ export function AcademyHeader({
       <View style={styles.headerTitleRow}>
         <Text style={styles.title}>{t('Akademia Piekarza')}</Text>
         <Pressable
+          accessibilityRole="button"
           testID="close-modal"
           style={styles.closeBtn}
           onPress={onClose}
@@ -35,6 +36,8 @@ export function AcademyHeader({
       {/* Navigation Tabs */}
       <View style={styles.tabNavRow}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: activeTab === 'school' }}
           testID="academy-tab-school"
           style={[styles.navTab, activeTab === 'school' && styles.navTabActive]}
           onPress={() => onSelectTab('school')}
@@ -44,6 +47,8 @@ export function AcademyHeader({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: activeTab === 'techniques' }}
           testID="academy-tab-techniques"
           style={[styles.navTab, activeTab === 'techniques' && styles.navTabActive]}
           onPress={() => onSelectTab('techniques')}

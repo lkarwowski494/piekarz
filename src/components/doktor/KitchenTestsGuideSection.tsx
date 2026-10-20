@@ -19,6 +19,7 @@ export function KitchenTestsGuideSection() {
 
       {/* Poke Test Card */}
       <Pressable
+        accessibilityRole="button"
         style={styles.guideCard}
         onPress={() => setShowPokeTest((prev) => !prev)}
       >
@@ -49,6 +50,7 @@ export function KitchenTestsGuideSection() {
 
       {/* Windowpane Test Card */}
       <Pressable
+        accessibilityRole="button"
         style={styles.guideCard}
         onPress={() => setShowWindowpaneTest((prev) => !prev)}
       >

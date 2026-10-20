@@ -46,6 +46,7 @@ export function SaveRecipeModal({
 
           <View style={styles.modalButtonsRow}>
             <Pressable
+              accessibilityRole="button"
               style={styles.modalCancelBtn}
               onPress={onClose}
               hitSlop={sharedCraftTokens.hitSlopStandard}
@@ -53,6 +54,7 @@ export function SaveRecipeModal({
               <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
               style={styles.modalConfirmBtn}
               onPress={onSave}
               hitSlop={sharedCraftTokens.hitSlopStandard}

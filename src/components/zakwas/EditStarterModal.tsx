@@ -67,6 +67,8 @@ export function EditStarterModal({
           <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
           <View style={styles.storageToggleRow}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: storageState === 'FRIDGE' }}
               style={[styles.storageBtn, storageState === 'FRIDGE' && styles.storageBtnActive]}
               onPress={() => onStorageStateChange('FRIDGE')}
             >
@@ -75,6 +77,8 @@ export function EditStarterModal({
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: storageState === 'ROOM_TEMP' }}
               style={[styles.storageBtn, storageState === 'ROOM_TEMP' && styles.storageBtnActive]}
               onPress={() => onStorageStateChange('ROOM_TEMP')}
             >
@@ -87,6 +91,7 @@ export function EditStarterModal({
           <View style={styles.modalButtonsRow}>
             {canDelete && (
               <Pressable
+                accessibilityRole="button"
                 testID="delete-starter-btn"
                 style={styles.modalDeleteBtn}
                 onPress={onDelete}
@@ -97,6 +102,7 @@ export function EditStarterModal({
             )}
             <View style={styles.modalRightButtons}>
               <Pressable
+                accessibilityRole="button"
                 style={styles.modalCancelBtn}
                 onPress={onClose}
                 hitSlop={sharedCraftTokens.hitSlopStandard}
@@ -104,6 +110,7 @@ export function EditStarterModal({
                 <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
               </Pressable>
               <Pressable
+                accessibilityRole="button"
                 style={styles.modalConfirmBtn}
                 onPress={onSave}
                 hitSlop={sharedCraftTokens.hitSlopStandard}

@@ -96,6 +96,7 @@ export function ArtisanAccordionPro({
     <View style={styles.container} testID="artisan-accordion-pro">
       {/* Accordion Header / Toggle */}
       <Pressable
+        accessibilityRole="button"
         testID="artisan-accordion-toggle-btn"
         style={styles.toggleHeader}
         onPress={onToggle}

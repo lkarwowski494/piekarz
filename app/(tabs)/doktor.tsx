@@ -103,6 +103,7 @@ export default function DoctorScreen() {
         testID="doktor-header"
         rightAction={
           <Pressable
+            accessibilityRole="button"
             testID="open-academy-btn"
             hitSlop={sharedCraftTokens.hitSlopStandard}
             style={styles.academyHeaderPill}
@@ -117,6 +118,7 @@ export default function DoctorScreen() {
         <BlokadaFunkcji {...blokada('doktor')}>
         {/* Bread Academy Promotion Banner */}
         <Pressable
+          accessibilityRole="button"
           testID="open-academy-banner"
           style={styles.academyBanner}
           onPress={() => setIsAcademyOpen(true)}

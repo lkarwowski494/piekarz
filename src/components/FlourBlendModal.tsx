@@ -130,6 +130,7 @@ export function FlourBlendModal({
               </Text>
               {!validation.isValid && draftBlend.length > 0 && (
                 <Pressable
+                  accessibilityRole="button"
                   testID="normalize-blend-btn"
                   style={styles.normalizeBtn}
                   onPress={handleNormalize}
@@ -154,6 +155,8 @@ export function FlourBlendModal({
                 {/* Steppers */}
                 <View style={styles.stepperGroup}>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 10 })}
                     testID={`flour-minus-10-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, -10)}
@@ -161,6 +164,8 @@ export function FlourBlendModal({
                     <Text style={styles.stepBtnText}>-10</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 5 })}
                     testID={`flour-minus-5-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, -5)}
@@ -168,6 +173,8 @@ export function FlourBlendModal({
                     <Text style={styles.stepBtnText}>-5</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 5 })}
                     testID={`flour-plus-5-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, 5)}
@@ -175,6 +182,8 @@ export function FlourBlendModal({
                     <Text style={styles.stepBtnText}>+5</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Zwiększ udział mąki {nazwa} o {n}%', { nazwa: flour.name, n: 10 })}
                     testID={`flour-plus-10-${idx}`}
                     style={styles.stepBtn}
                     onPress={() => updateFlourPercentage(idx, 10)}
@@ -184,6 +193,8 @@ export function FlourBlendModal({
 
                   {draftBlend.length > 1 && (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: flour.name })}
                       testID={`flour-remove-${idx}`}
                       style={styles.removeBtn}
                       onPress={() => removeFlour(idx)}
@@ -211,6 +222,7 @@ export function FlourBlendModal({
                   (p) => !draftBlend.some((f) => f.name === p.namePl || f.type === p.id)
                 ).map((profile) => (
                   <Pressable
+                    accessibilityRole="button"
                     key={profile.id}
                     testID={`add-flour-${profile.id}`}
                     style={styles.profileChip}
@@ -234,6 +246,7 @@ export function FlourBlendModal({
           {/* Action Buttons */}
           <View style={styles.modalButtonsRow}>
             <Pressable
+              accessibilityRole="button"
               testID="close-blend-modal-btn"
               style={styles.modalCancelBtn}
               onPress={onClose}
@@ -242,6 +255,7 @@ export function FlourBlendModal({
               <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
               testID="apply-blend-btn"
               disabled={!validation.isValid}
               style={[

@@ -37,7 +37,7 @@ export function IdleBakeCard({
         onSelectVessel={onSelectVessel}
       />
 
-      <Pressable style={styles.startBtn} onPress={onStartBake}>
+      <Pressable accessibilityRole="button" style={styles.startBtn} onPress={onStartBake}>
         <Text style={styles.startBtnText}>{t('Zacznij wypiek')}</Text>
       </Pressable>
     </View>

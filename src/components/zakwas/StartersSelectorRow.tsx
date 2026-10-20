@@ -36,6 +36,8 @@ export function StartersSelectorRow({
           const isSelected = s.id === activeStarterId;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={s.id}
               testID={`select-starter-${s.id}`}
               style={[styles.starterPill, isSelected && styles.starterPillActive]}
@@ -53,6 +55,7 @@ export function StartersSelectorRow({
           );
         })}
         <Pressable
+          accessibilityRole="button"
           testID="add-starter-btn"
           style={styles.addStarterBtn}
           onPress={onOpenAddModal}

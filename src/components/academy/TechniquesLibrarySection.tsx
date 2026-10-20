@@ -35,6 +35,8 @@ export function TechniquesLibrarySection({
         style={styles.techCategoryScroll}
       >
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: techCategory === 'all' }}
           style={[styles.smallChip, techCategory === 'all' && styles.smallChipActive]}
           onPress={() => onCategoryChange('all')}
         >
@@ -43,6 +45,8 @@ export function TechniquesLibrarySection({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: techCategory === 'dough_prep' }}
           style={[styles.smallChip, techCategory === 'dough_prep' && styles.smallChipActive]}
           onPress={() => onCategoryChange('dough_prep')}
         >
@@ -51,6 +55,8 @@ export function TechniquesLibrarySection({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: techCategory === 'bulk_fermentation' }}
           style={[styles.smallChip, techCategory === 'bulk_fermentation' && styles.smallChipActive]}
           onPress={() => onCategoryChange('bulk_fermentation')}
         >
@@ -59,6 +65,8 @@ export function TechniquesLibrarySection({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: techCategory === 'shaping' }}
           style={[styles.smallChip, techCategory === 'shaping' && styles.smallChipActive]}
           onPress={() => onCategoryChange('shaping')}
         >
@@ -67,6 +75,8 @@ export function TechniquesLibrarySection({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: techCategory === 'baking_cooling' }}
           style={[styles.smallChip, techCategory === 'baking_cooling' && styles.smallChipActive]}
           onPress={() => onCategoryChange('baking_cooling')}
         >
@@ -81,6 +91,7 @@ export function TechniquesLibrarySection({
         return (
           <View key={tech.id} style={styles.card} testID={`tech-card-${tech.code}`}>
             <Pressable
+              accessibilityRole="button"
               style={styles.lessonHeaderPressable}
               onPress={() =>
                 setExpandedTechId((prev) => (prev === tech.id ? null : tech.id))

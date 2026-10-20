@@ -93,6 +93,8 @@ export function VolumeConverterModal({
               <Text style={styles.label}>{t('Standard szklanki:')}</Text>
               <View style={styles.chipRow}>
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: standard === 'metric' }}
                   testID="cup-metric-btn"
                   style={[styles.smallChip, standard === 'metric' && styles.smallChipActive]}
                   onPress={() => setStandard('metric')}
@@ -107,6 +109,8 @@ export function VolumeConverterModal({
                   </Text>
                 </Pressable>
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: standard === 'us' }}
                   testID="cup-us-btn"
                   style={[styles.smallChip, standard === 'us' && styles.smallChipActive]}
                   onPress={() => setStandard('us')}
@@ -127,6 +131,8 @@ export function VolumeConverterModal({
           {/* Unit Switcher */}
           <View style={styles.unitTabsRow}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: unit === 'cup' }}
               testID="unit-cup-btn"
               style={[styles.unitTab, unit === 'cup' && styles.unitTabActive]}
               onPress={() => setUnit('cup')}
@@ -136,6 +142,8 @@ export function VolumeConverterModal({
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: unit === 'tablespoon' }}
               testID="unit-tbsp-btn"
               style={[styles.unitTab, unit === 'tablespoon' && styles.unitTabActive]}
               onPress={() => setUnit('tablespoon')}
@@ -150,6 +158,8 @@ export function VolumeConverterModal({
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: unit === 'teaspoon' }}
               testID="unit-tsp-btn"
               style={[styles.unitTab, unit === 'teaspoon' && styles.unitTabActive]}
               onPress={() => setUnit('teaspoon')}
@@ -172,6 +182,8 @@ export function VolumeConverterModal({
               const isSelected = selectedIngredientId === item.id;
               return (
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: !!(isSelected) }}
                   key={item.id}
                   testID={`volume-ingredient-${item.id}`}
                   style={[styles.ingredientChip, isSelected && styles.ingredientChipActive]}
@@ -195,6 +207,8 @@ export function VolumeConverterModal({
             <Text style={styles.amountLabel}>{t('Ilość objętościowa:')}</Text>
             <View style={styles.stepperContainer}>
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('Zmniejsz ilość o pół')}
                 testID="volume-step-minus-btn"
                 style={styles.stepBtn}
                 onPress={() => adjustAmount(-0.5)}
@@ -209,6 +223,8 @@ export function VolumeConverterModal({
                 style={styles.amountInput}
               />
               <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('Zwiększ ilość o pół')}
                 testID="volume-step-plus-btn"
                 style={styles.stepBtn}
                 onPress={() => adjustAmount(0.5)}

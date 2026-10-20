@@ -35,6 +35,7 @@ export function BreadSchoolSection({
             testID={`lesson-card-${lesson.level}`}
           >
             <Pressable
+              accessibilityRole="button"
               testID={`expand-lesson-btn-${lesson.level}`}
               style={styles.lessonHeaderPressable}
               onPress={() =>
@@ -98,6 +99,8 @@ export function BreadSchoolSection({
 
                 {/* Completion Toggle Button */}
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: !!(isCompleted) }}
                   testID={`toggle-lesson-completed-btn-${lesson.level}`}
                   style={[
                     styles.toggleCompleteBtn,

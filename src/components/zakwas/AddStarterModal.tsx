@@ -67,6 +67,8 @@ export function AddStarterModal({
           <Text style={styles.modalInputLabel}>{t('Miejsce przechowywania')}</Text>
           <View style={styles.storageToggleRow}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: storage === 'ROOM_TEMP' }}
               style={[styles.storageBtn, storage === 'ROOM_TEMP' && styles.storageBtnActive]}
               onPress={() => onStorageChange('ROOM_TEMP')}
             >
@@ -75,6 +77,8 @@ export function AddStarterModal({
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: storage === 'FRIDGE' }}
               style={[styles.storageBtn, storage === 'FRIDGE' && styles.storageBtnActive]}
               onPress={() => onStorageChange('FRIDGE')}
             >
@@ -86,6 +90,7 @@ export function AddStarterModal({
 
           <View style={styles.modalButtonsRow}>
             <Pressable
+              accessibilityRole="button"
               testID="cancel-add-starter-btn"
               style={styles.modalCancelBtn}
               onPress={onClose}
@@ -94,6 +99,7 @@ export function AddStarterModal({
               <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
               testID="save-new-starter-btn"
               style={styles.modalConfirmBtn}
               onPress={onSave}

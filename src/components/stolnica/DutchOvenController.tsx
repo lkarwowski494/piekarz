@@ -31,6 +31,8 @@ export function DutchOvenController({
       {/* Phase selector tabs */}
       <View style={styles.phaseTabsRow}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: dutchOvenPhase === 'lid_on' }}
           testID="phase-tab-lid-on"
           style={[
             styles.phaseTabBtn,
@@ -49,6 +51,8 @@ export function DutchOvenController({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: dutchOvenPhase === 'lid_off' }}
           testID="phase-tab-lid-off"
           style={[
             styles.phaseTabBtn,
@@ -105,6 +109,7 @@ export function DutchOvenController({
             </Text>
           ) : null}
           <Pressable
+            accessibilityRole="button"
             testID="start-phase-2-btn"
             style={styles.steamAlertActionBtn}
             onPress={onStartPhase2AfterSteamAlert}

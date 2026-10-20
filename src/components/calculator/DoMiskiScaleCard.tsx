@@ -85,6 +85,8 @@ export function DoMiskiScaleCard({
       {/* Calculation Mode Switcher */}
       <View style={styles.modeSwitcherContainer}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: calcMode === 'loaves' }}
           style={[styles.modeTab, calcMode === 'loaves' && styles.modeTabActive]}
           onPress={() => onCalcModeChange?.('loaves')}
         >
@@ -93,6 +95,8 @@ export function DoMiskiScaleCard({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: calcMode === 'flour' }}
           style={[styles.modeTab, calcMode === 'flour' && styles.modeTabActive]}
           onPress={() => onCalcModeChange?.('flour')}
         >
@@ -109,6 +113,8 @@ export function DoMiskiScaleCard({
           const isSelected = preset.id === selectedPresetId;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={preset.id}
               testID={`preset-chip-${preset.id}`}
               style={[styles.presetChip, isSelected && styles.presetChipSelected]}
@@ -146,6 +152,8 @@ export function DoMiskiScaleCard({
           </View>
           <View style={styles.stepperContainer}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Zmniejsz masę mąki o {g} g', { g: 50 })}
               style={styles.stepperBtn}
               onPress={() => onFlourGramsChange?.(Math.max(100, flourGrams - 50))}
             >
@@ -155,6 +163,8 @@ export function DoMiskiScaleCard({
               <Text style={styles.stepperValueText}>{flourGrams}g</Text>
             </View>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Zwiększ masę mąki o {g} g', { g: 50 })}
               style={styles.stepperBtn}
               onPress={() => onFlourGramsChange?.(flourGrams + 50)}
             >
@@ -172,6 +182,8 @@ export function DoMiskiScaleCard({
             <View style={styles.chipRow}>
               {[1, 2, 3, 4].map((count) => (
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: loavesCount === count }}
                   key={count}
                   onPress={() => onLoavesChange(count)}
                   style={[styles.smallChip, loavesCount === count && styles.smallChipActive]}
@@ -283,11 +295,12 @@ export function DoMiskiScaleCard({
 
       {/* Główny przycisk CTA: min. 52pt */}
       <Pressable
+        accessibilityRole="button"
         testID="fast-start-bake-cta-btn"
         style={styles.fastStartBtn}
         onPress={onStartBake}
       >
-        <Pressable testID="start-bake-btn" onPress={onStartBake}>
+        <Pressable accessibilityRole="button" testID="start-bake-btn" onPress={onStartBake}>
           <Text style={styles.fastStartBtnText}>
             {t('Zacznij wypiek')}
           </Text>

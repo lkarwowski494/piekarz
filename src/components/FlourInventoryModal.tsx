@@ -172,6 +172,7 @@ export function FlourInventoryModal({
 
               {recipeFlours && recipeFlours.length > 0 && (
                 <Pressable
+                  accessibilityRole="button"
                   testID="deduct-stocks-btn"
                   style={styles.deductBtn}
                   onPress={handleDeductRecipeStocks}
@@ -201,6 +202,8 @@ export function FlourInventoryModal({
                 {/* Adjust buttons */}
                 <View style={styles.adjustRow}>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Odejmij {g} g mąki {nazwa}', { g: 250, nazwa: item.name })}
                     testID={`adjust-minus-250-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, -250)}
@@ -208,6 +211,8 @@ export function FlourInventoryModal({
                     <Text style={styles.adjustBtnText}>-250g</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 500, nazwa: item.name })}
                     testID={`adjust-plus-500-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, 500)}
@@ -215,6 +220,8 @@ export function FlourInventoryModal({
                     <Text style={styles.adjustBtnText}>+500g</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 1000, nazwa: item.name })}
                     testID={`adjust-plus-1000-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, 1000)}
@@ -222,6 +229,8 @@ export function FlourInventoryModal({
                     <Text style={styles.adjustBtnText}>+1kg</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: item.name })}
                     testID={`delete-inv-${item.id}`}
                     style={styles.deleteBtn}
                     onPress={() => handleDeleteItem(item.id)}
@@ -241,6 +250,7 @@ export function FlourInventoryModal({
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.presetScroll}>
                   {FLOUR_PROFILES.slice(0, 6).map((p) => (
                     <Pressable
+                      accessibilityRole="button"
                       key={p.id}
                       style={styles.presetChip}
                       onPress={() => setNewFlourName(p.namePl)}
@@ -272,12 +282,14 @@ export function FlourInventoryModal({
 
                 <View style={styles.formButtonsRow}>
                   <Pressable
+                    accessibilityRole="button"
                     style={styles.formCancelBtn}
                     onPress={() => setIsAddingNew(false)}
                   >
                     <Text style={styles.formCancelBtnText}>{t('Anuluj')}</Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
                     testID="confirm-add-flour-btn"
                     style={styles.formConfirmBtn}
                     onPress={handleAddNewFlour}
@@ -288,6 +300,7 @@ export function FlourInventoryModal({
               </View>
             ) : (
               <Pressable
+                accessibilityRole="button"
                 testID="open-add-flour-btn"
                 style={styles.openAddBtn}
                 onPress={() => setIsAddingNew(true)}
@@ -299,6 +312,7 @@ export function FlourInventoryModal({
 
           {/* Close button */}
           <Pressable
+            accessibilityRole="button"
             testID="close-inventory-btn"
             style={styles.closeButton}
             onPress={onClose}

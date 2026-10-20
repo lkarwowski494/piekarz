@@ -38,6 +38,7 @@ export function StarterProfileCard({
         <View style={styles.cardHeaderActions}>
           {/* Etykieta słoika drukowana z „Drukuj” w Kalkulatorze (BR-DRUK-001) [M1-audytor-generalny-032] */}
           <Pressable
+            accessibilityRole="button"
             testID="edit-profile-btn"
             style={styles.editProfileBtn}
             onPress={onOpenEditModal}

@@ -104,6 +104,7 @@ export function TargetReadyCard({
       >
         {BAKING_SCENARIOS.map((scen) => (
           <Pressable
+            accessibilityRole="button"
             key={scen.id}
             testID={`scenario-${scen.id}`}
             style={styles.scenarioChip}
@@ -130,6 +131,8 @@ export function TargetReadyCard({
           const isSelected = item.offset === targetDayOffset;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={item.offset}
               onPress={() => onTargetDayOffsetChange(item.offset)}
               style={[styles.dayChip, isSelected && styles.dayChipActive]}
@@ -149,6 +152,8 @@ export function TargetReadyCard({
           const isSelected = h === targetHour && targetMinute === 0;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={h}
               onPress={() => {
                 onTargetHourChange(h);
@@ -167,6 +172,7 @@ export function TargetReadyCard({
       {/* Fine Tuning Controls */}
       <View style={styles.fineTuneRow}>
         <Pressable
+          accessibilityRole="button"
           style={styles.fineTuneBtn}
           onPress={() => onAdjustTargetTime(-30)}
         >
@@ -181,6 +187,7 @@ export function TargetReadyCard({
         </View>
 
         <Pressable
+          accessibilityRole="button"
           style={styles.fineTuneBtn}
           onPress={() => onAdjustTargetTime(30)}
         >
@@ -199,6 +206,8 @@ export function TargetReadyCard({
           const isSelected = sleepStartHour === p.start && sleepEndHour === p.end;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={p.id}
               testID={`sleep-profile-${p.id}`}
               style={[styles.sleepProfileChip, isSelected && styles.sleepProfileChipActive]}
@@ -226,6 +235,8 @@ export function TargetReadyCard({
         <View style={styles.paramChips}>
           {[20, 22, 24, 26].map((temp) => (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: ambientTemp === temp }}
               key={temp}
               onPress={() => onAmbientTempChange(temp)}
               style={[styles.paramChip, ambientTemp === temp && styles.paramChipActive]}
@@ -252,6 +263,8 @@ export function TargetReadyCard({
         <View style={styles.paramChips}>
           {[10, 12, 14, 16, 18].map((hours) => (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: coldRetardHours === hours }}
               key={hours}
               onPress={() => onColdRetardHoursChange(hours)}
               style={[styles.paramChip, coldRetardHours === hours && styles.paramChipActive]}

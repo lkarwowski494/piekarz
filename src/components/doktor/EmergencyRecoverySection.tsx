@@ -48,6 +48,8 @@ export function EmergencyRecoverySection({
           const isSelected = selectedRecoveryId === proto.id;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={proto.id}
               testID={`recovery-chip-${proto.id}`}
               style={[styles.presetChip, isSelected && styles.recoveryChipActive]}
@@ -69,6 +71,8 @@ export function EmergencyRecoverySection({
               {t(selectedProto.titlePl)}
             </Text>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Zamknij protokół ratunkowy')}
               testID="close-recovery-card-btn"
               onPress={() => onSelectRecoveryId(null)}
               style={styles.closeRecoveryBtn}

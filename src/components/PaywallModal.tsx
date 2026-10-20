@@ -125,6 +125,8 @@ export function PaywallModal({
           <View style={styles.plansContainer}>
             {/* Yearly: kwota rozliczenia jako najważniejszy element ceny; bez etykiet bez danych [M1-audytor-generalny-011] */}
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedPlan === 'yearly' }}
               testID="plan-yearly-btn"
               style={[
                 styles.planCard,
@@ -148,6 +150,8 @@ export function PaywallModal({
 
             {/* Monthly */}
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedPlan === 'monthly' }}
               testID="plan-monthly-btn"
               style={[
                 styles.planCard,
@@ -171,6 +175,8 @@ export function PaywallModal({
 
             {/* Lifetime */}
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: selectedPlan === 'lifetime' }}
               testID="plan-lifetime-btn"
               style={[
                 styles.planCard,
@@ -214,6 +220,7 @@ export function PaywallModal({
 
           {/* CTA Action */}
           <Pressable
+            accessibilityRole="button"
             testID="subscribe-submit-btn"
             style={[styles.primaryCtaBtn, isProcessing && styles.btnDisabled]}
             disabled={isProcessing}
@@ -251,6 +258,7 @@ export function PaywallModal({
             </Pressable>
             {onRestore && (
               <Pressable
+                accessibilityRole="button"
                 testID="restore-purchases-btn"
                 onPress={handleRestore}
                 style={styles.textBtn}
@@ -259,6 +267,7 @@ export function PaywallModal({
               </Pressable>
             )}
             <Pressable
+              accessibilityRole="button"
               testID="read-only-continue-btn"
               onPress={onClose}
               style={styles.textBtn}

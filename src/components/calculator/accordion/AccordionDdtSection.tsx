@@ -72,6 +72,8 @@ export function AccordionDdtSection({
           <Text style={styles.paramLabel}>{t('Docelowe DDT')}</Text>
           <View style={styles.stepperInline}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Obniż docelową temperaturę ciasta')}
               testID="ddt-minus-btn"
               style={styles.miniBtn}
               onPress={() => onTargetDdtChange(Math.max(18, targetDdt - 0.5))}
@@ -80,6 +82,8 @@ export function AccordionDdtSection({
             </Pressable>
             <Text style={styles.paramValue}>{formatTemperature(targetDdt, unitSystem)}</Text>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Podnieś docelową temperaturę ciasta')}
               testID="ddt-plus-btn"
               style={styles.miniBtn}
               onPress={() => onTargetDdtChange(Math.min(32, targetDdt + 0.5))}
@@ -93,6 +97,8 @@ export function AccordionDdtSection({
           <Text style={styles.paramLabel}>{t('Hydratacja bazy')}</Text>
           <View style={styles.stepperInline}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Zmniejsz hydratację')}
               testID="water-pct-minus-btn"
               style={styles.miniBtn}
               onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 1).toFixed(1))))}
@@ -101,6 +107,8 @@ export function AccordionDdtSection({
             </Pressable>
             <Text style={styles.paramValue}>{formatFixed(waterPct, 1)}%</Text>
             <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('Zwiększ hydratację')}
               testID="water-pct-plus-btn"
               style={styles.miniBtn}
               onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 1).toFixed(1))))}
@@ -114,24 +122,32 @@ export function AccordionDdtSection({
       {/* Steppery -5%, -1%, +1%, +5% */}
       <View style={styles.stepperRow}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('Zmniejsz hydratację o {n}%', { n: 5 })}
           style={styles.paramStepBtn}
           onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 5).toFixed(1))))}
         >
           <Text style={styles.paramStepText}>-5%</Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('Zmniejsz hydratację o {n}%', { n: 1 })}
           style={styles.paramStepBtn}
           onPress={() => onWaterPctChange(Math.max(50, Number((waterPct - 1).toFixed(1))))}
         >
           <Text style={styles.paramStepText}>-1%</Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('Zwiększ hydratację o {n}%', { n: 1 })}
           style={styles.paramStepBtn}
           onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 1).toFixed(1))))}
         >
           <Text style={styles.paramStepText}>+1%</Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t('Zwiększ hydratację o {n}%', { n: 5 })}
           style={styles.paramStepBtn}
           onPress={() => onWaterPctChange(Math.min(100, Number((waterPct + 5).toFixed(1))))}
         >

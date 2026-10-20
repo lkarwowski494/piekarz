@@ -45,6 +45,8 @@ export function BakeHistorySection({
               { id: 'tangy' as const, label: t('Bardzo kwaśny') },
             ].map((p) => (
               <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: selectedTasteFilter === p.id }}
                 key={p.id}
                 testID={`filter-taste-${p.id}`}
                 style={[
@@ -87,6 +89,7 @@ export function BakeHistorySection({
                     <Text style={styles.historyStars}>{t('Ocena: {n}/5', { n: log.ratingStars })}</Text>
                   )}
                   <Pressable
+                    accessibilityRole="button"
                     testID={`delete-bake-log-${log.id}`}
                     onPress={() => onDeleteBakeLog(log.id)}
                     style={styles.deleteHistoryBtn}

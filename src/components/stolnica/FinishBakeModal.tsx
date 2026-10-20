@@ -70,7 +70,14 @@ export function FinishBakeModal({
           <Text style={styles.modalSectionLabel}>{t('Ocena wypieku')}</Text>
           <View style={styles.starRow}>
             {[1, 2, 3, 4, 5].map((star) => (
-              <Pressable key={star} testID={`finish-rating-star-${star}`} onPress={() => onRatingChange(star)}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={t('Oceń na {n} z 5', { n: star })}
+                accessibilityState={{ selected: rating === star }}
+                key={star}
+                testID={`finish-rating-star-${star}`}
+                onPress={() => onRatingChange(star)}
+              >
                 <Text style={[styles.starIcon, rating >= star && styles.starIconActive]}>
                   ★
                 </Text>
@@ -95,6 +102,8 @@ export function FinishBakeModal({
           <View style={styles.scoreRow}>
             {[1, 2, 3, 4, 5].map((s) => (
               <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: crumbScore === s }}
                 key={s}
                 testID={`crumb-score-${s}`}
                 style={[styles.scoreBtn, crumbScore === s && styles.scoreBtnActive]}
@@ -113,6 +122,8 @@ export function FinishBakeModal({
           <View style={styles.scoreRow}>
             {[1, 2, 3, 4, 5].map((s) => (
               <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: crustScore === s }}
                 key={s}
                 testID={`crust-score-${s}`}
                 style={[styles.scoreBtn, crustScore === s && styles.scoreBtnActive]}
@@ -138,6 +149,8 @@ export function FinishBakeModal({
               };
               return (
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: tasteProfile === profile }}
                   key={profile}
                   testID={`taste-${profile}`}
                   style={[styles.tasteChip, tasteProfile === profile && styles.tasteChipActive]}
@@ -166,6 +179,7 @@ export function FinishBakeModal({
 
           <View style={styles.modalButtonsRow}>
             <Pressable
+              accessibilityRole="button"
               style={styles.modalCancelBtn}
               onPress={onClose}
               hitSlop={sharedCraftTokens.hitSlopStandard}
@@ -173,6 +187,7 @@ export function FinishBakeModal({
               <Text style={styles.modalCancelBtnText}>{t('Anuluj')}</Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
               style={styles.modalConfirmBtn}
               onPress={onSave}
               hitSlop={sharedCraftTokens.hitSlopStandard}

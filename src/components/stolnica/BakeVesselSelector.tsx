@@ -32,6 +32,8 @@ export function BakeVesselSelector({
       <View style={styles.vesselChipsRow}>
         {vessels.map((v) => (
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: bakingVessel === v.id }}
             key={v.id}
             testID={`vessel-chip-${v.id}`}
             style={[

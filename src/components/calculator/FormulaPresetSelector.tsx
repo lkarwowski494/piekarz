@@ -91,6 +91,8 @@ export function FormulaPresetSelector({
       {/* Master Recipes Category Filters */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categoryFilterScroll}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: masterCategoryFilter === 'all' }}
           testID="category-filter-all"
           onPress={() => onCategoryFilterChange('all')}
           style={[styles.categoryFilterChip, masterCategoryFilter === 'all' && styles.categoryFilterChipActive]}
@@ -100,6 +102,8 @@ export function FormulaPresetSelector({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: masterCategoryFilter === 'sourdough' }}
           testID="category-filter-sourdough"
           onPress={() => onCategoryFilterChange('sourdough')}
           style={[styles.categoryFilterChip, masterCategoryFilter === 'sourdough' && styles.categoryFilterChipActive]}
@@ -109,6 +113,8 @@ export function FormulaPresetSelector({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: masterCategoryFilter === 'rye' }}
           testID="category-filter-rye"
           onPress={() => onCategoryFilterChange('rye')}
           style={[styles.categoryFilterChip, masterCategoryFilter === 'rye' && styles.categoryFilterChipActive]}
@@ -118,6 +124,8 @@ export function FormulaPresetSelector({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: masterCategoryFilter === 'yeast' }}
           testID="category-filter-yeast"
           onPress={() => onCategoryFilterChange('yeast')}
           style={[styles.categoryFilterChip, masterCategoryFilter === 'yeast' && styles.categoryFilterChipActive]}
@@ -127,6 +135,8 @@ export function FormulaPresetSelector({
           </Text>
         </Pressable>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: masterCategoryFilter === 'pizza_sweet' }}
           testID="category-filter-pizza-sweet"
           onPress={() => onCategoryFilterChange('pizza_sweet')}
           style={[styles.categoryFilterChip, masterCategoryFilter === 'pizza_sweet' && styles.categoryFilterChipActive]}
@@ -143,6 +153,8 @@ export function FormulaPresetSelector({
           const isSelected = preset.id === selectedPresetId;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={preset.id}
               testID={`preset-chip-${preset.id}`}
               onPress={() => onSelectMasterPreset(preset.id)}
@@ -225,6 +237,8 @@ export function FormulaPresetSelector({
               return (
                 <View key={custom.id} style={styles.customChipWrapper}>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityState={{ selected: !!(isSelected) }}
                     onPress={() => onSelectCustomRecipe(custom)}
                     style={[styles.presetChip, isSelected && styles.presetChipActive]}
                   >
@@ -233,6 +247,8 @@ export function FormulaPresetSelector({
                     </Text>
                   </Pressable>
                   <Pressable
+                    accessibilityRole="button"
+                    accessibilityLabel={t('Usuń recepturę: {nazwa}', { nazwa: custom.name })}
                     onPress={() => onDeleteCustomRecipe(custom)}
                     style={styles.deleteChipBtn}
                     hitSlop={8}

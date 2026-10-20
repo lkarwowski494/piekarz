@@ -42,6 +42,8 @@ export function AccordionBakeLossSection({
           const isSelected = selectedBakeLossPresetId === p.id;
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={p.id}
               testID={`bake-loss-preset-${p.id}`}
               onPress={() => onSelectBakeLossPreset?.(p.id)}
@@ -59,6 +61,8 @@ export function AccordionBakeLossSection({
         <Text style={styles.bakeLossLabel}>{t('Strata piecowa')}:</Text>
         <View style={styles.stepperInline}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('Zmniejsz stratę piecową')}
             testID="bake-loss-minus"
             style={styles.miniBtn}
             onPress={() => onBakeLossPercentChange?.(Math.max(5, Number((bakeLossPercent - 0.5).toFixed(1))))}
@@ -67,6 +71,8 @@ export function AccordionBakeLossSection({
           </Pressable>
           <Text style={styles.paramValue}>{formatFixed(bakeLossPercent, 1)}%</Text>
           <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t('Zwiększ stratę piecową')}
             testID="bake-loss-plus"
             style={styles.miniBtn}
             onPress={() => onBakeLossPercentChange?.(Math.min(30, Number((bakeLossPercent + 0.5).toFixed(1))))}

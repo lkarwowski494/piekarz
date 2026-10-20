@@ -921,6 +921,11 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Dodaj {g} g mąki {nazwa}": {
+    "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
   "Dodaj {object}": {
     "gdzie": []
   },
@@ -2904,6 +2909,11 @@
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
+  "Obniż docelową temperaturę ciasta": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
+    ]
+  },
   "Obniż temperaturę do 210°C. Reakcja Maillarda tworzy chrupiącą, orzechowo-karmelową skórkę.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: tipPl)"
@@ -2959,6 +2969,11 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Oceń na {n} z 5": {
+    "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (accessibilityLabel)"
+    ]
+  },
   "Oceń w App Store": {
     "gdzie": [
       "src/components/settings/StudioEcosystemSection.tsx (Alert.alert)",
@@ -2991,6 +3006,11 @@
   "Odczekaj minimum 2 godziny przed pierwszym krojeniem bochenka. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Odejmij {g} g mąki {nazwa}": {
+    "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
     ]
   },
   "Odhaczaj składniki w miarę wsypywania": {
@@ -3386,6 +3406,11 @@
   "Podaj nazwę mąki": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (Alert.alert)"
+    ]
+  },
+  "Podnieś docelową temperaturę ciasta": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
     ]
   },
   "Podnieś temperaturę fermentacji do optymalnych 26–28°C.": {
@@ -5065,9 +5090,20 @@
       "src/components/ui.tsx (kod)"
     ]
   },
+  "Usuń mąkę: {nazwa}": {
+    "gdzie": [
+      "src/components/FlourBlendModal.tsx (accessibilityLabel)",
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
   "Usuń recepturę": {
     "gdzie": [
       "src/lib/confirm.ts (action)"
+    ]
+  },
+  "Usuń recepturę: {nazwa}": {
+    "gdzie": [
+      "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)"
     ]
   },
   "Usuń wpis": {
@@ -6170,6 +6206,11 @@
       "src/components/academy/AcademyHeader.tsx (accessibilityLabel)"
     ]
   },
+  "Zamknij protokół ratunkowy": {
+    "gdzie": [
+      "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)"
+    ]
+  },
   "Zamknij przelicznik": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (accessibilityLabel)"
@@ -6509,6 +6550,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Zmień język na {nazwa}": {
+    "gdzie": [
+      "src/components/settings/PreferencesSection.tsx (accessibilityLabel)"
+    ]
+  },
   "Zmień parametry swojego zakwasu": {
     "gdzie": [
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
@@ -6517,6 +6563,36 @@
   "Zmniejsz": {
     "gdzie": [
       "src/components/SensoryRadarChart.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz hydratację": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz hydratację o {n}%": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz ilość o pół": {
+    "gdzie": [
+      "src/components/VolumeConverterModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz masę mąki o {g} g": {
+    "gdzie": [
+      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz stratę piecową": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zmniejsz udział mąki {nazwa} o {n}%": {
+    "gdzie": [
+      "src/components/FlourBlendModal.tsx (accessibilityLabel)"
     ]
   },
   "Zmniejsz udział zakwasu w recepturze z 20% do 15%.": {
@@ -6594,9 +6670,39 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Zwiększ hydratację": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zwiększ hydratację o {n}%": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
+    ]
+  },
   "Zwiększ hydratację receptury o 3–5%.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Zwiększ ilość o pół": {
+    "gdzie": [
+      "src/components/VolumeConverterModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zwiększ masę mąki o {g} g": {
+    "gdzie": [
+      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zwiększ stratę piecową": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zwiększ udział mąki {nazwa} o {n}%": {
+    "gdzie": [
+      "src/components/FlourBlendModal.tsx (accessibilityLabel)"
     ]
   },
   "Zwiększ udział zakwasu w recepturze do 20%.": {

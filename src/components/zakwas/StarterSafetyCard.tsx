@@ -93,7 +93,7 @@ export function StarterSafetyCard({
         <Text style={[styles.safetyAction, safetyResult.status === 'discard' && styles.safetyTekstOstrz]}>{t(safetyResult.actionPl)}</Text>
       </View>
 
-      <Pressable style={styles.resetBtn} onPress={onReset}>
+      <Pressable accessibilityRole="button" style={styles.resetBtn} onPress={onReset}>
         <Text style={styles.resetBtnText}>{t('Zacznij od nowa')}</Text>
       </Pressable>
     </View>

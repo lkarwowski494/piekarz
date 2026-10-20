@@ -75,6 +75,7 @@ export function SymptomSelectorSection({
       >
         {DIAGNOSTIC_PRESETS.map((preset) => (
           <Pressable
+            accessibilityRole="button"
             key={preset.id}
             style={styles.presetChip}
             onPress={() => onApplyPreset(preset)}
@@ -88,6 +89,8 @@ export function SymptomSelectorSection({
       <Text style={styles.sectionHeading}>{t('Miękisz (Wnętrze bochenka)')}</Text>
       <View style={styles.chipsContainer}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crumbHasHugeTopHolesWithDenseBottom) }}
           style={[
             styles.symptomChip,
             symptoms.crumbHasHugeTopHolesWithDenseBottom && styles.symptomChipActive,
@@ -105,6 +108,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crumbHasSmallUniformFoamLikeHoles) }}
           style={[
             styles.symptomChip,
             symptoms.crumbHasSmallUniformFoamLikeHoles && styles.symptomChipActive,
@@ -122,6 +127,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crumbIsWetGummyToKnife) }}
           style={[
             styles.symptomChip,
             symptoms.crumbIsWetGummyToKnife && styles.symptomChipActive,
@@ -139,6 +146,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crumbIsUniformlyDenseAllOver) }}
           style={[
             styles.symptomChip,
             symptoms.crumbIsUniformlyDenseAllOver && styles.symptomChipActive,
@@ -160,6 +169,8 @@ export function SymptomSelectorSection({
       <Text style={styles.sectionHeading}>{t('Skórka i Kształt bochenka')}</Text>
       <View style={styles.chipsContainer}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.loafIsFlatLikeDisk) }}
           style={[
             styles.symptomChip,
             symptoms.loafIsFlatLikeDisk && styles.symptomChipActive,
@@ -177,6 +188,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.loafCollapsedAfterScoring) }}
           style={[
             styles.symptomChip,
             symptoms.loafCollapsedAfterScoring && styles.symptomChipActive,
@@ -194,6 +207,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.loafBurstAtBottomSide) }}
           style={[
             styles.symptomChip,
             symptoms.loafBurstAtBottomSide && styles.symptomChipActive,
@@ -211,6 +226,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crustIsPaleLackColor) }}
           style={[
             styles.symptomChip,
             symptoms.crustIsPaleLackColor && styles.symptomChipActive,
@@ -228,6 +245,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.crustLacksEarCutDidNotOpen) }}
           style={[
             styles.symptomChip,
             symptoms.crustLacksEarCutDidNotOpen && styles.symptomChipActive,
@@ -245,6 +264,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.cutImmediatelyWhileSteamingHot) }}
           style={[
             styles.symptomChip,
             symptoms.cutImmediatelyWhileSteamingHot && styles.symptomChipActive,
@@ -266,6 +287,8 @@ export function SymptomSelectorSection({
       <Text style={styles.sectionHeading}>{t('Smak i Aromat')}</Text>
       <View style={styles.chipsContainer}>
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.breadIsExcessivelySour) }}
           style={[
             styles.symptomChip,
             symptoms.breadIsExcessivelySour && styles.symptomChipActive,
@@ -283,6 +306,8 @@ export function SymptomSelectorSection({
         </Pressable>
 
         <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ selected: !!(symptoms.breadIsBlandNoFlavor) }}
           style={[
             styles.symptomChip,
             symptoms.breadIsBlandNoFlavor && styles.symptomChipActive,
@@ -302,7 +327,7 @@ export function SymptomSelectorSection({
 
       {/* Clear Button */}
       {hasAnySymptom && (
-        <Pressable style={styles.clearBtn} onPress={onClear}>
+        <Pressable accessibilityRole="button" style={styles.clearBtn} onPress={onClear}>
           <Text style={styles.clearBtnText}>{t('Wyczyść zaznaczone objawy')}</Text>
         </Pressable>
       )}

@@ -19,6 +19,8 @@ export interface ScaleIngredientRowProps {
 export function ScaleIngredientRow({ testID, label, subtext, weight, checked, onPress }: ScaleIngredientRowProps) {
   return (
     <Pressable
+      accessibilityRole="button"
+      accessibilityState={{ selected: !!(checked) }}
       testID={testID}
       style={[styles.ingredientRow, checked && styles.ingredientRowChecked]}
       onPress={onPress}

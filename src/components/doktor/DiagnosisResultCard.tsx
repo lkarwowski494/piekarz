@@ -110,6 +110,7 @@ export function DiagnosisResultCard({
       {/* Smart Navigation Link */}
       {(diagnosis.defectCode === 'UNDER_PROOFED' || diagnosis.defectCode === 'OVER_PROOFED') && (
         <Pressable
+          accessibilityRole="button"
           style={styles.navActionBtn}
           onPress={onNavigateHarmonogram}
         >
@@ -121,6 +122,7 @@ export function DiagnosisResultCard({
 
       {diagnosis.defectCode === 'DENSE_CRUMB' && (
         <Pressable
+          accessibilityRole="button"
           style={styles.navActionBtn}
           onPress={onNavigateCalculator}
         >
@@ -132,6 +134,7 @@ export function DiagnosisResultCard({
 
       {diagnosis.defectCode === 'GUMMY_CRUMB' && (
         <Pressable
+          accessibilityRole="button"
           style={styles.navActionBtn}
           onPress={onNavigateStolnica}
         >
@@ -143,6 +146,7 @@ export function DiagnosisResultCard({
 
       {/* Copy Diagnosis to Clipboard Button */}
       <Pressable
+        accessibilityRole="button"
         testID="copy-diagnosis-btn"
         style={styles.copyDiagnosisBtn}
         onPress={onCopyDiagnosis}

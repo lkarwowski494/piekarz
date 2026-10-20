@@ -82,6 +82,7 @@ export function ActiveTimerDisplay({
       {/* Big Hands-in-Flour Timer Action Controls */}
       <View style={styles.timerControlsRow}>
         <Pressable
+          accessibilityRole="button"
           style={[styles.timerPrimaryBtn, isRunning && styles.timerPrimaryBtnPause]}
           onPress={onToggleTimer}
         >
@@ -90,7 +91,7 @@ export function ActiveTimerDisplay({
           </Text>
         </Pressable>
 
-        <Pressable style={styles.timerSecondaryBtn} onPress={onAddFiveMinutes}>
+        <Pressable accessibilityRole="button" style={styles.timerSecondaryBtn} onPress={onAddFiveMinutes}>
           <Text style={styles.timerSecondaryBtnText}>{t('+5 min')}</Text>
         </Pressable>
       </View>

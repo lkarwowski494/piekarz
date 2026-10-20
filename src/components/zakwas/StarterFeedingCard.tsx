@@ -60,6 +60,8 @@ export function StarterFeedingCard({
             selectedRatio[2] === item.ratio[2];
           return (
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: !!(isSelected) }}
               key={idx}
               onPress={() => onSelectRatio(item.ratio)}
               style={[styles.ratioChip, isSelected && styles.ratioChipActive]}
@@ -79,6 +81,8 @@ export function StarterFeedingCard({
       <View style={styles.yieldButtons}>
         {[100, 150, 200, 250, 300].map((y) => (
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: targetYield === y }}
             key={y}
             onPress={() => onTargetYieldChange(y)}
             style={[styles.yieldChip, targetYield === y && styles.yieldChipActive]}
@@ -119,6 +123,7 @@ export function StarterFeedingCard({
       </Text>
 
       <Pressable
+        accessibilityRole="button"
         testID="copy-feeding-btn"
         style={styles.copyFeedingBtn}
         onPress={onCopyFeeding}
@@ -131,6 +136,7 @@ export function StarterFeedingCard({
       {/* F-49 i F-47 PÓŹNIEJ: wejścia ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
       {wejscieWidoczne('konwerter-zakwasu') && (
         <Pressable
+          accessibilityRole="button"
           testID="open-converter-btn"
           style={styles.openConverterBtn}
           onPress={onOpenConverter}
@@ -143,6 +149,7 @@ export function StarterFeedingCard({
 
       {wejscieWidoczne('odrzut-zakwasu') && (
         <Pressable
+          accessibilityRole="button"
           testID="open-discard-recipes-btn"
           style={styles.openConverterBtn}
           onPress={onOpenDiscardRecipes}

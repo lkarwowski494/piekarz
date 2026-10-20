@@ -27,6 +27,8 @@ export function BakerRitualSection({
         </Text>
         <View style={styles.optionsCol}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: ritualProfile === 'sourdough_purist' }}
             testID="ritual-purist-btn"
             style={[styles.optionCard, ritualProfile === 'sourdough_purist' && styles.optionCardActive]}
             onPress={() => onProfileChange('sourdough_purist')}
@@ -43,6 +45,8 @@ export function BakerRitualSection({
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: ritualProfile === 'artisan_hybrid' }}
             testID="ritual-hybrid-btn"
             style={[styles.optionCard, ritualProfile === 'artisan_hybrid' && styles.optionCardActive]}
             onPress={() => onProfileChange('artisan_hybrid')}
@@ -59,6 +63,8 @@ export function BakerRitualSection({
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: ritualProfile === 'beginner' }}
             testID="ritual-beginner-btn"
             style={[styles.optionCard, ritualProfile === 'beginner' && styles.optionCardActive]}
             onPress={() => onProfileChange('beginner')}
@@ -84,6 +90,8 @@ export function BakerRitualSection({
         </Text>
         <View style={styles.optionsCol}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: bakingVessel === 'dutch_oven' }}
             testID="vessel-dutch-oven-btn"
             style={[styles.optionCard, bakingVessel === 'dutch_oven' && styles.optionCardActive]}
             onPress={() => onVesselChange('dutch_oven')}
@@ -97,6 +105,8 @@ export function BakerRitualSection({
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: bakingVessel === 'cloche' }}
             testID="vessel-cloche-btn"
             style={[styles.optionCard, bakingVessel === 'cloche' && styles.optionCardActive]}
             onPress={() => onVesselChange('cloche')}
@@ -110,6 +120,8 @@ export function BakerRitualSection({
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: bakingVessel === 'baking_steel' }}
             testID="vessel-steel-btn"
             style={[styles.optionCard, bakingVessel === 'baking_steel' && styles.optionCardActive]}
             onPress={() => onVesselChange('baking_steel')}
@@ -123,6 +135,8 @@ export function BakerRitualSection({
           </Pressable>
 
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: bakingVessel === 'pullman_pan' }}
             testID="vessel-pullman-btn"
             style={[styles.optionCard, bakingVessel === 'pullman_pan' && styles.optionCardActive]}
             onPress={() => onVesselChange('pullman_pan')}

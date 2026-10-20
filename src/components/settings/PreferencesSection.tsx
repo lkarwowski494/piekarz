@@ -24,6 +24,9 @@ export function PreferencesSection({
         <Text style={styles.sectionTitle}>{t('Język')}</Text>
         <View style={styles.langRow}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: currentLang === 'pl' }}
+            accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: 'Polski' })}
             testID="lang-pl"
             style={[styles.langBtn, currentLang === 'pl' && styles.langBtnActive]}
             onPress={() => onLanguageChange('pl')}
@@ -33,6 +36,9 @@ export function PreferencesSection({
             </Text>
           </Pressable>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: currentLang === 'en' }}
+            accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: 'English' })}
             testID="lang-en"
             style={[styles.langBtn, currentLang === 'en' && styles.langBtnActive]}
             onPress={() => onLanguageChange('en')}
@@ -49,6 +55,8 @@ export function PreferencesSection({
         <Text style={styles.sectionTitle}>{t('Jednostki miar')}</Text>
         <View style={styles.langRow}>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: unitSystem === 'metric' }}
             testID="unit-metric"
             style={[styles.langBtn, unitSystem === 'metric' && styles.langBtnActive]}
             onPress={() => onUnitSystemChange('metric')}
@@ -58,6 +66,8 @@ export function PreferencesSection({
             </Text>
           </Pressable>
           <Pressable
+            accessibilityRole="button"
+            accessibilityState={{ selected: unitSystem === 'imperial' }}
             testID="unit-imperial"
             style={[styles.langBtn, unitSystem === 'imperial' && styles.langBtnActive]}
             onPress={() => onUnitSystemChange('imperial')}

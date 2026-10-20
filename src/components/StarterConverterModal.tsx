@@ -87,6 +87,8 @@ export function StarterConverterModal({
           {/* Mode Switcher */}
           <View style={styles.tabRow}>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: activeTab === 'substitution' }}
               testID="tab-substitution"
               style={[styles.tabButton, activeTab === 'substitution' && styles.tabButtonActive]}
               onPress={() => setActiveTab('substitution')}
@@ -98,6 +100,8 @@ export function StarterConverterModal({
               </Text>
             </Pressable>
             <Pressable
+              accessibilityRole="button"
+              accessibilityState={{ selected: activeTab === 'hydration_shift' }}
               testID="tab-shift"
               style={[styles.tabButton, activeTab === 'hydration_shift' && styles.tabButtonActive]}
               onPress={() => setActiveTab('hydration_shift')}
@@ -118,6 +122,8 @@ export function StarterConverterModal({
                 <View style={styles.chipsRow}>
                   {[100, 150, 200, 250].map((g) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: recipeStarterGrams === g }}
                       key={g}
                       testID={`recipe-starter-${g}g`}
                       style={[styles.chip, recipeStarterGrams === g && styles.chipActive]}
@@ -139,6 +145,8 @@ export function StarterConverterModal({
                     { label: t('100% (Płynny)'), value: 100 },
                   ].map((p) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: recipeStarterHydration === p.value }}
                       key={p.value}
                       testID={`recipe-hydr-${p.value}`}
                       style={[styles.presetChip, recipeStarterHydration === p.value && styles.presetChipActive]}
@@ -167,6 +175,8 @@ export function StarterConverterModal({
                     { label: t('100% (Płynny Levain)'), value: 100 },
                   ].map((p) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: userStarterHydration === p.value }}
                       key={p.value}
                       testID={`user-hydr-${p.value}`}
                       style={[styles.presetChip, userStarterHydration === p.value && styles.presetChipActive]}
@@ -230,6 +240,8 @@ export function StarterConverterModal({
                 <View style={styles.chipsRow}>
                   {[100, 150, 200, 300].map((g) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: targetYieldGrams === g }}
                       key={g}
                       testID={`target-yield-${g}g`}
                       style={[styles.chip, targetYieldGrams === g && styles.chipActive]}
@@ -250,6 +262,8 @@ export function StarterConverterModal({
                     { label: t('100% Płynny Levain'), value: 100 },
                   ].map((p) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: sourceHydration === p.value }}
                       key={p.value}
                       testID={`source-hydr-${p.value}`}
                       style={[styles.presetChip, sourceHydration === p.value && styles.presetChipActive]}
@@ -272,6 +286,8 @@ export function StarterConverterModal({
                 <View style={styles.presetsRow}>
                   {STARTER_PRESETS.map((p) => (
                     <Pressable
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: targetHydration === p.hydration }}
                       key={p.id}
                       testID={`target-preset-${p.id}`}
                       style={[styles.presetChip, targetHydration === p.hydration && styles.presetChipActive]}
@@ -325,6 +341,7 @@ export function StarterConverterModal({
 
           {/* Close button */}
           <Pressable
+            accessibilityRole="button"
             testID="close-converter-btn"
             style={styles.closeButton}
             onPress={onClose}

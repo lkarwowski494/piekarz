@@ -28,12 +28,15 @@ export function AccordionPrefermentSection({
             const isSel = prefermentType === pType;
             return (
               <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: !!(isSel) }}
                 key={pType}
                 testID={`pref-type-${pType}`}
                 style={[styles.prefBtn, isSel && styles.prefBtnSelected]}
                 onPress={() => onPrefermentTypeChange(pType)}
               >
                 <Pressable
+                  accessibilityRole="button"
                   testID={`preferment-type-${pType}`}
                   onPress={() => onPrefermentTypeChange(pType)}
                 >
@@ -67,6 +70,8 @@ export function AccordionPrefermentSection({
             <View style={styles.chipRow}>
               {[15, 20, 25, 30, 40].map((pct) => (
                 <Pressable
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: prefermentFlourPct === pct }}
                   key={pct}
                   testID={`preferment-pct-${pct}`}
                   style={[styles.smallChip, prefermentFlourPct === pct && styles.smallChipActive]}

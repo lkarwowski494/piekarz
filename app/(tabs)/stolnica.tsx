@@ -457,7 +457,7 @@ export default function StolnicaScreen() {
                 </Pressable>
               </View>
 
-              <Pressable style={styles.discardBtn} onPress={handleDiscard}>
+              <Pressable accessibilityRole="button" style={styles.discardBtn} onPress={handleDiscard}>
                 <Text style={styles.discardBtnText}>{t('Przerwij wypiek')}</Text>
               </Pressable>
             </View>
