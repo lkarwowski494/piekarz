@@ -18,6 +18,12 @@ export interface FlourProfile {
   optimalHydrationRange: [number, number]; // [min%, max%]
   wStrength?: number; // Chopin Alveograph W index (e.g. 240)
   descriptionPl: string;
+  /**
+   * Szacunek: typ potwierdzony (MAK-TYP-004/005), ale parametry liczbowe bez źródła (p4-002 roli 06),
+   * skopiowane z profilu tego samego zboża o najbliższym numerze typu, tu podanym.
+   * Decyzja właściciela 2026-10-20 D-A [M1-audytor-generalny-091].
+   */
+  estimatedFromTyp?: number;
 }
 
 export const FLOUR_PROFILES: FlourProfile[] = [
@@ -74,7 +80,8 @@ export const FLOUR_PROFILES: FlourProfile[] = [
     typicalAbsorptionPercent: 71.0,
     optimalHydrationRange: [68.0, 76.0],
     wStrength: 260,
-    descriptionPl: 'Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.',
+    // MAK-TYP-003 (docs/tresci/pl/maki-typy.md) [M1-audytor-generalny-091]
+    descriptionPl: 'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.',
   },
   {
     id: 'wheat_1050',
@@ -158,6 +165,55 @@ export const FLOUR_PROFILES: FlourProfile[] = [
     optimalHydrationRange: [76.0, 86.0],
     descriptionPl: 'Pełnoziarnisty orkisz. Wyraźny orzechowo-słodki smak, wysokie zapotrzebowanie na wodę.',
   },
+  // Profile szacunkowe: decyzja właściciela 2026-10-20 D-A; typ z MAK-TYP-004 (405, 550, żytnia 500)
+  // i MAK-TYP-005 (żytnia 1400); parametry bez źródła (p4-002 roli 06), kopia z najbliższego typu.
+  // Bez opisu, bo opis byłby twierdzeniem bez źródła. Na końcu listy: indeksy istniejących profili bez zmian.
+  {
+    id: 'wheat_405',
+    namePl: 'Mąka pszenna typ 405',
+    grain: 'wheat',
+    ashTyp: 405,
+    proteinPercent: 9.5,
+    typicalAbsorptionPercent: 58.0,
+    optimalHydrationRange: [56.0, 62.0],
+    wStrength: 140,
+    descriptionPl: '',
+    estimatedFromTyp: 450,
+  },
+  {
+    id: 'wheat_550',
+    namePl: 'Mąka pszenna typ 550 (Luksusowa)',
+    grain: 'wheat',
+    ashTyp: 550,
+    proteinPercent: 10.5,
+    typicalAbsorptionPercent: 60.0,
+    optimalHydrationRange: [58.0, 64.0],
+    wStrength: 180,
+    descriptionPl: '',
+    estimatedFromTyp: 500,
+  },
+  {
+    id: 'rye_500',
+    namePl: 'Mąka żytnia typ 500',
+    grain: 'rye',
+    ashTyp: 500,
+    proteinPercent: 8.5,
+    typicalAbsorptionPercent: 70.0,
+    optimalHydrationRange: [68.0, 78.0],
+    descriptionPl: '',
+    estimatedFromTyp: 720,
+  },
+  {
+    id: 'rye_1400',
+    namePl: 'Mąka żytnia typ 1400',
+    grain: 'rye',
+    ashTyp: 1400,
+    proteinPercent: 10.0,
+    typicalAbsorptionPercent: 82.0,
+    optimalHydrationRange: [78.0, 90.0],
+    descriptionPl: '',
+    estimatedFromTyp: 2000,
+  },
 ];
 
 /**
@@ -184,6 +240,12 @@ export function matchFlourProfile(flourName: string): FlourProfile {
     if (normalized.includes('2000') || normalized.includes('razow')) {
       return FLOUR_PROFILES.find((p) => p.id === 'rye_2000')!;
     }
+    if (normalized.includes('1400')) {
+      return FLOUR_PROFILES.find((p) => p.id === 'rye_1400')!;
+    }
+    if (normalized.includes('500')) {
+      return FLOUR_PROFILES.find((p) => p.id === 'rye_500')!;
+    }
     return FLOUR_PROFILES.find((p) => p.id === 'rye_720')!;
   }
 
@@ -203,11 +265,17 @@ export function matchFlourProfile(flourName: string): FlourProfile {
   if (normalized.includes('650') || normalized.includes('bułkow')) {
     return FLOUR_PROFILES.find((p) => p.id === 'wheat_650')!;
   }
+  if (normalized.includes('550') || normalized.includes('luksus')) {
+    return FLOUR_PROFILES.find((p) => p.id === 'wheat_550')!;
+  }
   if (normalized.includes('500') || normalized.includes('poznań') || normalized.includes('wrocł')) {
     return FLOUR_PROFILES.find((p) => p.id === 'wheat_500')!;
   }
   if (normalized.includes('450') || normalized.includes('tortow')) {
     return FLOUR_PROFILES.find((p) => p.id === 'wheat_450')!;
+  }
+  if (normalized.includes('405')) {
+    return FLOUR_PROFILES.find((p) => p.id === 'wheat_405')!;
   }
 
   // Default fallback: Typ 750 bread flour

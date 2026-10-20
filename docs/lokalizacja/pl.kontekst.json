@@ -666,11 +666,6 @@
       "src/core/flour-equivalents.ts (dane: bestForPl)"
     ]
   },
-  "Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: descriptionPl)"
-    ]
-  },
   "Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
@@ -2459,6 +2454,11 @@
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
   },
+  "Mąka pszenna typ 405": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)"
+    ]
+  },
   "Mąka pszenna typ 450 (Tortowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
@@ -2470,6 +2470,11 @@
     ]
   },
   "Mąka pszenna typ 500 (Wrocławska / Poznańska)": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)"
+    ]
+  },
+  "Mąka pszenna typ 550 (Luksusowa)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
@@ -2534,6 +2539,16 @@
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
       "src/recipes/presets.ts (dane: name)"
+    ]
+  },
+  "Mąka żytnia typ 1400": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)"
+    ]
+  },
+  "Mąka żytnia typ 500": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: namePl)"
     ]
   },
   "Mąka, woda, sól i czas — rzemieślnicza precyzja bez kompromisów.": {
@@ -4591,6 +4606,11 @@
       "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
     ]
   },
+  "Szacunek: parametry przyjęte z typu {typ}, bez źródła": {
+    "gdzie": [
+      "src/components/FlourBlendModal.tsx (tekst w JSX)"
+    ]
+  },
   "Szacunkowy koszt składników i energii pieca": {
     "gdzie": []
   },
@@ -4896,6 +4916,11 @@
       "src/core/starter-converter.ts (dane: kod)"
     ]
   },
+  "Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: descriptionPl)"
+    ]
+  },
   "Typ mąki": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
@@ -4908,6 +4933,11 @@
   },
   "Typ zaczynu": {
     "gdzie": []
+  },
+  "Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.": {
+    "gdzie": [
+      "src/components/FlourBlendModal.tsx (tekst w JSX)"
+    ]
   },
   "Tępe ostrze lub zbyt wolny ruch szarpiący ciasto.": {
     "gdzie": [

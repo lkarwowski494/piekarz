@@ -72,8 +72,9 @@ export const EN_11: Record<string, string> = {
     'A classic Polish bread flour. Excellent balance between dough extensibility and strength.',
   'Mąka pszenna typ 850':
     'Wheat flour type 850',
-  'Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.':
-    'A darker bread flour with higher enzymatic activity and a nutty aroma.',
+  // MAK-TYP-003 (docs/tresci/en/maki-typy.md) [M1-audytor-generalny-091]
+  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.':
+    'Type 850 is not listed in the PN-A-74022:2003 standard: mills produce it to their own technical specification. A darker bread flour with higher enzymatic activity and a nutty aroma.',
   'Mąka pszenna typ 1050':
     'Wheat flour type 1050',
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.':
@@ -108,6 +109,19 @@ export const EN_11: Record<string, string> = {
     'Whole-grain spelt. Distinct nutty-sweet flavor, high water demand.',
   'Standardowa mąka chlebowa.':
     'Standard bread flour.',
+  // Polskie typy w atlasie: MAK-TYP-001/002/004/005, nazwy EN według DEC-06 [M1-audytor-generalny-091]
+  'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.':
+    'Polish wheat and rye flour types are set by the Polish Standards PN-A-74022:2003 and PN-A-74032:2002 according to ash content.',
+  'Mąka pszenna typ 405':
+    'Wheat flour type 405',
+  'Mąka pszenna typ 550 (Luksusowa)':
+    'Wheat flour type 550 (luksusowa)',
+  'Mąka żytnia typ 500':
+    'Rye flour type 500',
+  'Mąka żytnia typ 1400':
+    'Rye flour type 1400',
+  'Szacunek: parametry przyjęte z typu {typ}, bez źródła':
+    'Estimate: parameters taken from type {typ}, no source',
   'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.':
     'The dough will be very dense and stiff. Feel free to add more water.',
   'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.':

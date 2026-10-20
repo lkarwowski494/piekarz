@@ -34,7 +34,10 @@ export interface InventoryCheckResult {
  * Finds the closest substitute for a given flour profile among candidate profiles.
  */
 function findClosestSubstituteProfile(profile: FlourProfile): FlourProfile | undefined {
-  const sameGrain = FLOUR_PROFILES.filter((p) => p.grain === profile.grain && p.id !== profile.id);
+  // Profile szacunkowe (D-A, M1-audytor-generalny-091) nie są proponowane jako zamiennik: parametry bez źródła
+  const sameGrain = FLOUR_PROFILES.filter(
+    (p) => p.grain === profile.grain && p.id !== profile.id && p.estimatedFromTyp === undefined
+  );
   if (sameGrain.length === 0) return undefined;
 
   // Sort by closest ashTyp

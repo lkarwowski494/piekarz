@@ -198,6 +198,10 @@ export function FlourBlendModal({
             {/* Add Flour from Atlas section */}
             <View style={styles.addSection}>
               <Text style={styles.addSectionTitle}>+ {t('Dodaj mąkę z Atlasu')}</Text>
+              {/* MAK-TYP-001, MAK-TYP-002 (docs/tresci/pl/maki-typy.md) [M1-audytor-generalny-091] */}
+              <Text style={styles.addSectionNote}>
+                {t('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.')}
+              </Text>
               <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -213,6 +217,14 @@ export function FlourBlendModal({
                     onPress={() => addFlourProfile(profile)}
                   >
                     <Text style={styles.profileChipText}>{t(profile.namePl)}</Text>
+                    {profile.estimatedFromTyp !== undefined && (
+                      // Decyzja właściciela 2026-10-20 D-A: parametry bez źródła [M1-audytor-generalny-091]
+                      <Text style={styles.profileChipNote}>
+                        {t('Szacunek: parametry przyjęte z typu {typ}, bez źródła', {
+                          typ: String(profile.estimatedFromTyp),
+                        })}
+                      </Text>
+                    )}
                   </Pressable>
                 ))}
               </ScrollView>
@@ -398,6 +410,11 @@ const styles = StyleSheet.create({
     color: theme.colors.textSecondary,
     marginBottom: 8,
   },
+  addSectionNote: {
+    fontSize: 11,
+    color: theme.colors.textMuted,
+    marginBottom: 8,
+  },
   profileChipsScroll: {
     flexDirection: 'row',
   },
@@ -414,6 +431,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: theme.colors.textPrimary,
     fontWeight: '600',
+  },
+  profileChipNote: {
+    fontSize: 10,
+    color: theme.colors.textMuted,
+    marginTop: 2,
   },
   modalButtonsRow: {
     flexDirection: 'row',
