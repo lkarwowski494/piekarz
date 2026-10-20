@@ -71,6 +71,9 @@ export interface SourdoughPhaseResult {
   phase: SourdoughPhase;
   elapsedHours: number;
   labelPl: string;
+  /** Szablon etykiety z parametrami (klucz słownika), gdy labelPl ma wstawioną liczbę [M1-audytor-generalny-093]. */
+  labelTemplatePl?: string;
+  labelParams?: Record<string, number>;
   /** Poziom komunikatu; kolor nadaje komponent (mapa-rol.md §3). */
   poziom: PoziomKomunikatu;
   advicePl: string;
@@ -114,6 +117,8 @@ export function calculateStarterPhase(
         phase: 'lag',
         elapsedHours,
         labelPl: `Uśpiony w lodówce (${elapsedDays} dni)`,
+        labelTemplatePl: 'Uśpiony w lodówce ({elapsedDays} dni)',
+        labelParams: { elapsedDays },
         poziom: 'info',
         advicePl: 'W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.',
       };
@@ -122,6 +127,8 @@ export function calculateStarterPhase(
       phase: 'hungry',
       elapsedHours,
       labelPl: `Wymaga odświeżenia (${elapsedDays} dni w chłodzie)`,
+      labelTemplatePl: 'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)',
+      labelParams: { elapsedDays },
       poziom: 'info',
       advicePl: 'Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.',
     };

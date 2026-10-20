@@ -14,6 +14,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { nazwaMaki } from '../../lib/nazwa-maki';
 import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
+import { wskazowkaZaczynu } from '../../lib/wskazowka-zaczynu';
 import { POPULAR_FLOUR_BLENDS, FlourItemInput, HydrationDifficultyInfo } from '../../core/domain-rules';
 import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend } from '../../core/flour-atlas';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
@@ -178,7 +179,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             </View>
             <Text style={s.info}>
               {p.prefermentBreakdown
-                ? t(p.prefermentBreakdown.fermentationTipPl)
+                ? wskazowkaZaczynu(p.prefermentBreakdown)
                 : t('Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.')}
             </Text>
           </ScrollView>

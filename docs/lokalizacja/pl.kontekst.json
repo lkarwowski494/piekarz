@@ -99,6 +99,16 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
+  "12–16h w 18–20°C (lub 4h w 24°C)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "12–24h w chłodzie (4–8°C)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
   "14h powolna fermentacja w temperaturze pokojowej (20–22°C)": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -112,6 +122,11 @@
   "16–18 ciastek": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
+    ]
+  },
+  "16–24h w 16–18°C (lub 24–48h w lodówce)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "1:1:1 (Szybki 3-4h)": {
@@ -137,6 +152,11 @@
   "4 duże podpłomyki": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
+    ]
+  },
+  "4–8h w 24–26°C do szczytu objętości": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "50% Pszenna + 50% Żytnia (Pół na pół)": {
@@ -928,6 +948,11 @@
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "Do ostygnięcia do temp. pokojowej": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).": {
@@ -2549,6 +2574,11 @@
   "Mieszanka mąk, zaczyny, strata piecowa": {
     "gdzie": [
       "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
+    ]
+  },
+  "Min. 4h lub przez noc w lodówce": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "Minuta": {
@@ -6071,7 +6101,9 @@
     ]
   },
   "Uśpiony w lodówce ({elapsedDays} dni)": {
-    "gdzie": []
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
+    ]
   },
   "Użyj Twojego zakwasu": {
     "gdzie": [
@@ -6790,7 +6822,9 @@
     ]
   },
   "Wymaga odświeżenia ({elapsedDays} dni w chłodzie)": {
-    "gdzie": []
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
+    ]
   },
   "Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.": {
     "gdzie": [
@@ -8324,7 +8358,9 @@
     ]
   },
   "{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}": {
-    "gdzie": []
+    "gdzie": [
+      "src/lib/wskazowka-zaczynu.ts (kod)"
+    ]
   },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [

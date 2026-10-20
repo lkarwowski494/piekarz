@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../../ui/theme';
 import { t } from '../../../lib/i18n';
+import { wskazowkaZaczynu } from '../../../lib/wskazowka-zaczynu';
 import { useUnitSystem, formatWeight } from '../../../lib/unit-converter';
 import { PrefermentType, PrefermentBreakdownResult } from '../../../core/preferments';
 
@@ -101,7 +102,7 @@ export function AccordionPrefermentSection({
             </View>
           </View>
 
-          <Text style={styles.fermentationTipText}>{t(prefermentBreakdown.fermentationTipPl)}</Text>
+          <Text style={styles.fermentationTipText}>{wskazowkaZaczynu(prefermentBreakdown)}</Text>
         </View>
       )}
     </View>

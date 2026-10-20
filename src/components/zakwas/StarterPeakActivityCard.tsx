@@ -12,6 +12,11 @@ import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import type { SourdoughPhaseResult } from '../../core/sourdough-physics';
 import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
 
+/** Etykieta fazy zakwasu w języku aplikacji [M1-audytor-generalny-093]. */
+export function etykietaFazyZakwasu(f: SourdoughPhaseResult): string {
+  return f.labelTemplatePl ? t(f.labelTemplatePl, f.labelParams) : t(f.labelPl);
+}
+
 export interface StarterPeakActivityCardProps {
   phaseResult: SourdoughPhaseResult;
   peakPrediction: Pick<
@@ -45,7 +50,7 @@ export function StarterPeakActivityCard({
         <Text style={styles.cardTitle}>{t('Szczyt aktywności')}</Text>
         <View style={styles.phaseBadge}>
           <Text style={styles.phaseBadgeText}>
-            ● {t(phaseResult.labelPl)}
+            ● {etykietaFazyZakwasu(phaseResult)}
           </Text>
         </View>
       </View>

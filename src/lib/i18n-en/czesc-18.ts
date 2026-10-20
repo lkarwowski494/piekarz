@@ -32,4 +32,13 @@ export const EN_18: Record<string, string> = {
   'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'High-protein wheat flour (W > 280 / Manitoba)',
   'Mąka z pszenicy durum (Semolina)': 'Durum wheat flour (semolina)',
   'Mąka pszenna włoska Tipo 00': 'Italian Tipo 00 wheat flour',
+
+  // Czas dojrzewania zaczynu (PREFERMENT_DEFINITIONS.fermentationTimeHours) w szablonie wskazówki zaczynu
+  // (src/lib/wskazowka-zaczynu.ts); nie było go w przekładzie 093 [M1-audytor-generalny-093]
+  '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h at 18–20°C (or 4 h at 24°C)',
+  '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h at 16–18°C (or 24–48 h in the fridge)',
+  '12–24h w chłodzie (4–8°C)': '12–24 h in the cold (4–8°C)',
+  '4–8h w 24–26°C do szczytu objętości': '4–8 h at 24–26°C until peak volume',
+  'Do ostygnięcia do temp. pokojowej': 'Until cooled to room temperature',
+  'Min. 4h lub przez noc w lodówce': 'At least 4 h or overnight in the fridge',
 };
