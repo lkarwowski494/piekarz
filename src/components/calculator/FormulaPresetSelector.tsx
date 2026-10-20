@@ -9,26 +9,27 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { StoredRecipe } from '../../data/db';
-import { formatTemperature } from '../../lib/unit-converter';
+import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
+import type { RecipePreset } from '../../recipes/presets';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
 export interface FormulaPresetSelectorProps {
-  filteredMasterRecipes: any[];
+  filteredMasterRecipes: RecipePreset[];
   totalMasterRecipesCount: number;
   masterCategoryFilter: CategoryFilterType;
   onCategoryFilterChange: (cat: CategoryFilterType) => void;
   selectedPresetId: string;
   onSelectMasterPreset: (id: string) => void;
-  currentMasterPreset: any;
+  currentMasterPreset: RecipePreset | undefined;
   customRecipes: StoredRecipe[];
   onSelectCustomRecipe: (recipe: StoredRecipe) => void;
   onDeleteCustomRecipe: (recipe: StoredRecipe) => void;
   onOpenVolumeConverter: () => void;
   onOpenImportRecipe: () => void;
   onOpenScanQr: () => void;
-  unitSystem: any;
+  unitSystem: UnitSystem;
 }
 
 export function FormulaPresetSelector({

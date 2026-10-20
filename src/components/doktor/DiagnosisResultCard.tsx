@@ -8,11 +8,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { formatTextUnits } from '../../lib/unit-converter';
+import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
+import type { DiagnosticResult } from '../../doctor/diagnostics';
 
 export interface DiagnosisResultCardProps {
-  diagnosis: any;
-  unitSystem: any;
+  diagnosis: DiagnosticResult | null;
+  unitSystem: UnitSystem;
   onNavigateHarmonogram: () => void;
   onNavigateCalculator: () => void;
   onNavigateStolnica: () => void;

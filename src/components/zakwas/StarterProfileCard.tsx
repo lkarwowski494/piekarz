@@ -9,13 +9,13 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
-import { formatTextUnits } from '../../lib/unit-converter';
+import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 export interface StarterProfileCardProps {
   starter: StoredStarter;
   ageDays: number;
   lastFedLabel: string;
-  unitSystem: any;
+  unitSystem: UnitSystem;
   onOpenEditModal: () => void;
 }
 

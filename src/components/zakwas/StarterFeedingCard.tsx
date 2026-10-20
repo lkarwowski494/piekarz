@@ -8,7 +8,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { formatWeight, formatTemperature } from '../../lib/unit-converter';
+import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface StarterFeedingCardProps {
@@ -21,7 +21,7 @@ export interface StarterFeedingCardProps {
     flourGrams: number;
     waterGrams: number;
   };
-  unitSystem: any;
+  unitSystem: UnitSystem;
   onCopyFeeding: () => void;
   onOpenConverter: () => void;
   onOpenDiscardRecipes: () => void;

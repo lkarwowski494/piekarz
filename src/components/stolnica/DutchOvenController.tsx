@@ -9,12 +9,12 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../core/baking-phases';
-import { formatTemperature, formatTextUnits } from '../../lib/unit-converter';
+import { formatTemperature, formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 export interface DutchOvenControllerProps {
   dutchOvenPhase: DutchOvenBakePhase;
   onSwitchPhase: (phase: DutchOvenBakePhase) => void;
-  unitSystem: any;
+  unitSystem: UnitSystem;
   isCompleted: boolean;
   onStartPhase2AfterSteamAlert: () => void;
 }

@@ -8,16 +8,27 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { formatTemperature } from '../../lib/unit-converter';
+import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
+import type { SourdoughPhaseResult } from '../../core/sourdough-physics';
+import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
 
 export interface StarterPeakActivityCardProps {
-  phaseResult: any;
-  peakPrediction: any;
+  phaseResult: SourdoughPhaseResult;
+  peakPrediction: Pick<
+    PeakPredictionResult,
+    | 'formattedWindowPl'
+    | 'progressPercent'
+    | 'isCurrentlyInPeak'
+    | 'hasPassedPeak'
+    | 'statusMessagePl'
+    | 'statusTemplatePl'
+    | 'statusParams'
+  >;
   /** W lodówce okna szczytu nie liczymy (model temperatury 20–26 °C, FER-Q10-902) [M1-audytor-generalny-044]. */
   showPeakWindow?: boolean;
   ambientTempC: number;
   onAmbientTempChange: (temp: number) => void;
-  unitSystem: any;
+  unitSystem: UnitSystem;
   onLogFeeding: () => void;
 }
 

@@ -13,12 +13,12 @@ import {
   EmergencyCode,
   getDoughRecoveryProtocol,
 } from '../../doctor/dough-recovery';
-import { formatTextUnits } from '../../lib/unit-converter';
+import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
 export interface EmergencyRecoverySectionProps {
   selectedRecoveryId: EmergencyCode | null;
   onSelectRecoveryId: (id: EmergencyCode | null) => void;
-  unitSystem: any;
+  unitSystem: UnitSystem;
   onPivotToRecipe?: (protocolId: EmergencyCode) => void;
 }
 

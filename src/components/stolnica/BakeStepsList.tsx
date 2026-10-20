@@ -7,18 +7,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { formatWeight, formatDoseWeight } from '../../lib/unit-converter';
+import { formatWeight, formatDoseWeight, UnitSystem } from '../../lib/unit-converter';
 import { t } from '../../lib/i18n';
 import { formatFixed } from '../../lib/format';
 
 import type { SessionStep } from '../../core/bake-steps';
+import type { DoughRecipeResult } from '../../core/domain-rules';
 
 export interface BakeStepsListProps {
   steps: readonly SessionStep[];
   currentStepIdx: number;
   onGoToStep: (idx: number) => void;
-  calculatedRecipe?: any;
-  unitSystem: any;
+  calculatedRecipe?: DoughRecipeResult;
+  unitSystem: UnitSystem;
 }
 
 export function BakeStepsList({

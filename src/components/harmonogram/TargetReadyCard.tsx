@@ -8,7 +8,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { formatTemperature } from '../../lib/unit-converter';
+import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 
 export const BAKING_SCENARIOS = [
   {
@@ -71,7 +71,7 @@ export interface TargetReadyCardProps {
   sleepStartHour: number;
   sleepEndHour: number;
   onSleepHoursChange: (start: number, end: number) => void;
-  unitSystem: any;
+  unitSystem: UnitSystem;
 }
 
 export function TargetReadyCard({

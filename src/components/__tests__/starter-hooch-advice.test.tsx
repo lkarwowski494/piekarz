@@ -39,7 +39,7 @@ describe('porada fazy hungry a ZAK-HOO-001', () => {
       tree = renderer.create(
         <StarterPeakActivityCard
           phaseResult={hungry()}
-          peakPrediction={{ formattedWindowPl: '', progressPercent: 0, isCurrentlyInPeak: false, hasPassedPeak: true, statusMessagePl: '' }}
+          peakPrediction={{ formattedWindowPl: '', progressPercent: 0, isCurrentlyInPeak: false, hasPassedPeak: true, statusMessagePl: '', statusTemplatePl: '', statusParams: {} }}
           ambientTempC={22}
           onAmbientTempChange={() => {}}
           unitSystem="metric"

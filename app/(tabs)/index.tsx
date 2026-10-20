@@ -28,7 +28,7 @@ import {
 } from '../../src/data/sqlite-store';
 import { StoredRecipe } from '../../src/data/db';
 import { confirmDeleteRecipe } from '../../src/lib/confirm';
-import type { PendingRecipeToLoad } from '../../src/lib/recipe-navigation';
+import type { PendingRecipeFormula, PendingRecipeToLoad } from '../../src/lib/recipe-navigation';
 import { usePendingRecipeLoader } from '../../src/hooks/usePendingRecipeLoader';
 import { PrefermentType } from '../../src/core/preferments';
 import { useAppAccess } from '../../src/lib/app-access';
@@ -120,7 +120,7 @@ export default function CalculatorScreen() {
   const unitSystem = useUnitSystem();
 
   // Unified recipe setter
-  const applyFormula = useCallback((id: string, name: string, formula: any, ddt?: number) => {
+  const applyFormula = useCallback((id: string, name: string, formula: PendingRecipeFormula, ddt?: number) => {
     setSelectedPresetId(id);
     setRecipeName(name);
     setFlourBlend(formula.flours);
@@ -442,7 +442,7 @@ export default function CalculatorScreen() {
             })
           }
           onCloneRecipe={handleCloneAsCustomRecipe}
-          onExportJson={() => executeExportRecipeJson(currentRecipeForShare as any)}
+          onExportJson={() => executeExportRecipeJson(currentRecipeForShare)}
           onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
           onPrintMenu={chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf))}
           onImportJson={() => setIsImportModalOpen(true)}
