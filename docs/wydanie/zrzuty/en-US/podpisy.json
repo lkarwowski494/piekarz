@@ -1,0 +1,100 @@
+{
+  "jezyk": "en-US",
+  "zrodlo": "docs/app-store-metadata-v2.md §3 (podpisy), §5.2 (kolejność)",
+  "klasy": {
+    "iphone-6.9": {
+      "px": [
+        1320,
+        2868
+      ],
+      "pt": [
+        440,
+        956
+      ],
+      "skala": 3
+    },
+    "iphone-6.3": {
+      "px": [
+        1206,
+        2622
+      ],
+      "pt": [
+        402,
+        874
+      ],
+      "skala": 3
+    }
+  },
+  "ramki": [
+    {
+      "plik": "01-plan.png",
+      "naglowek": "Bread Ready When You Want It",
+      "podtytul": "A plan worked back from your time, with no steps at night",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "harmonogram"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "02-receptura.png",
+      "naglowek": "Grams for Every Ingredient",
+      "podtytul": "Flour and water from your starter counted in the baker's percentage",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "03-prowadzenie-ciemny.png",
+      "naglowek": "One Step at a Time",
+      "podtytul": "What to do, how long it takes and a notification when it ends",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "stolnica"
+      ],
+      "motyw": "ciemny"
+    },
+    {
+      "plik": "04-doktor.png",
+      "naglowek": "Make Your Next Loaf Better",
+      "podtytul": "Symptoms, the cause and one change for your next bake",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "doktor"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "05-zakwasy.png",
+      "naglowek": "Your Starter, Ready on Time",
+      "podtytul": "Feeding amounts and a reminder after 12 hours",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "zakwas"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "06-dziennik.png",
+      "naglowek": "Every Bake on Record",
+      "podtytul": "Rate the loaf and tap \"Bake Again\"",
+      "oznaczenie": "requires Baker Pro",
+      "funkcje": [
+        "historia",
+        "stolnica",
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "07-offline.png",
+      "naglowek": "No Account, No Internet",
+      "podtytul": "No ads or tracking; your data stays on your phone",
+      "oznaczenie": null,
+      "funkcje": [],
+      "motyw": "jasny"
+    }
+  ]
+}

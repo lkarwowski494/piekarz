@@ -1,0 +1,100 @@
+{
+  "jezyk": "pl",
+  "zrodlo": "docs/app-store-metadata-v2.md §3 (podpisy), §5.2 (kolejność)",
+  "klasy": {
+    "iphone-6.9": {
+      "px": [
+        1320,
+        2868
+      ],
+      "pt": [
+        440,
+        956
+      ],
+      "skala": 3
+    },
+    "iphone-6.3": {
+      "px": [
+        1206,
+        2622
+      ],
+      "pt": [
+        402,
+        874
+      ],
+      "skala": 3
+    }
+  },
+  "ramki": [
+    {
+      "plik": "01-plan.png",
+      "naglowek": "Chleb gotowy na twoją godzinę",
+      "podtytul": "Plan wstecz bez kroków w środku nocy",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "harmonogram"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "02-receptura.png",
+      "naglowek": "Gramy każdego składnika od razu",
+      "podtytul": "Mąka i woda z zakwasu wliczone w procent piekarski",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "03-prowadzenie-ciemny.png",
+      "naglowek": "Jeden krok naraz",
+      "podtytul": "Co zrobić, ile to trwa i powiadomienie o końcu kroku",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "stolnica"
+      ],
+      "motyw": "ciemny"
+    },
+    {
+      "plik": "04-doktor.png",
+      "naglowek": "Co poprawić w następnym bochenku",
+      "podtytul": "Objawy, przyczyna i jedna zmiana na następny wypiek",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "doktor"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "05-zakwasy.png",
+      "naglowek": "Zakwas zawsze gotowy na czas",
+      "podtytul": "Ilości do dokarmienia i przypomnienie po 12 godzinach",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "zakwas"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "06-dziennik.png",
+      "naglowek": "Każdy wypiek zapisany",
+      "podtytul": "Ocena bochenka i „Piecz ponownie” jednym dotknięciem",
+      "oznaczenie": "wymaga Piekarz Pro",
+      "funkcje": [
+        "historia",
+        "stolnica",
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "07-offline.png",
+      "naglowek": "Bez konta i bez internetu",
+      "podtytul": "Bez reklam i śledzenia; dane tylko w twoim telefonie",
+      "oznaczenie": null,
+      "funkcje": [],
+      "motyw": "jasny"
+    }
+  ]
+}
