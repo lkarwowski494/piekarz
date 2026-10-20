@@ -102,6 +102,19 @@
         }
       ],
       [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 120,
+          "resizeMode": "contain",
+          "backgroundColor": "#F5F5F2",
+          "dark": {
+            "image": "./assets/splash-icon-dark.png",
+            "backgroundColor": "#141A1C"
+          }
+        }
+      ],
+      [
         "expo-localization",
         {
           "supportedLocales": {

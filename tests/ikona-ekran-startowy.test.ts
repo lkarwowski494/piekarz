@@ -100,4 +100,19 @@ describe('ekran startowy (M1-audytor-generalny-105)', () => {
     }
     expect(expo.splash.image).toBe('./assets/splash-icon-dark.png');
   });
+
+  it('ekran startowy trafia do buildu: wtyczka expo-splash-screen z tłem tokenów jasnego i ciemnego wariantu (SDK 57 nie czyta samego klucza splash)', () => {
+    const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+    expect(pkg.dependencies['expo-splash-screen']).toBeDefined();
+    const wpis = (expo.plugins as unknown[]).find((p) => Array.isArray(p) && p[0] === 'expo-splash-screen') as
+      | [string, { image: string; backgroundColor: string; dark: { image: string; backgroundColor: string } }]
+      | undefined;
+    expect(wpis).toBeDefined();
+    const opcje = wpis![1];
+    expect(opcje.image).toBe('./assets/splash-icon.png');
+    expect(opcje.backgroundColor.toUpperCase()).toBe(kolory.jasny.tlo.toUpperCase());
+    expect(opcje.dark.image).toBe('./assets/splash-icon-dark.png');
+    expect(opcje.dark.backgroundColor.toUpperCase()).toBe(kolory.ciemny.tlo.toUpperCase());
+    for (const p of [opcje.image, opcje.dark.image]) expect(existsSync(sciezka(p))).toBe(true);
+  });
 });
