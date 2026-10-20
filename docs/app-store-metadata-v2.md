@@ -189,19 +189,31 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji (DEC-04 a, 2026-10-19); 
 
 ### 4.3. Instrukcja dla Apple App Review Team (Review Notes)
 
+Notatki są po angielsku, bo recenzent używa interfejsu EN; nazwy przycisków są wartościami słownika EN (`src/lib/i18n-en/`), a przykładowa kopia przechodzi `parseAndValidateBackup` (test `tests/store-metadata.test.ts`) [M1-audytor-generalny-078].
+
 ```text
-Drodzy Recenzenci Apple,
+Dear App Review Team,
 
-Piekarz (Crust) to aplikacja 100% Offline-First dla pasjonatów wypieku chleba na zakwasie.
+Piekarz (Crust) is a 100% offline bread-baking assistant. There is no sign-in, no account and no network use; all data stays on the device.
 
-1. LOGOWANIE I KONTA:
-Aplikacja NIE WYMAGA logowania, podawania adresu e-mail ani numeru telefonu. Dane i obliczenia są lokalne; dostęp do funkcji opisuje punkt 2.
+1. PURCHASES AND FREE TRIAL
+Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing and reading, exporting and deleting your own data work.
+To see the features: sign in with a sandbox account, tap any feature (for example the Calculator tab), choose the monthly or yearly plan on the purchase screen and tap "Try 14 days". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
+Restore purchases: "Restore purchases" at the bottom of the purchase screen, and in Settings > Purchases.
 
-2. ZAKUPY W APLIKACJI (IAP):
-Dostęp do funkcji daje subskrypcja miesięczna lub roczna (jedna grupa; oferta wprowadzająca: 14 dni bezpłatnie) albo zakup dożywotni. Bez zakupu działa tylko przegląd historii wypieków oraz odczyt, eksport i usunięcie własnych danych.
-Nowy użytkownik nie ma historii, więc bez okresu próbnego nie zobaczy funkcji aplikacji. Prosimy: zaloguj się kontem sandbox, dotknij dowolnej funkcji (np. Kalkulator), na ekranie zakupu wybierz plan roczny i dotknij „Wypróbuj 14 dni”.
-Przycisk „Przywróć zakupy” (Restore Purchases) jest na dole ekranu zakupu.
+2. DATA EXPORT AND IMPORT (works without a purchase)
+a) Open the Calculator tab and tap the gear icon at the top right to open Settings.
+b) In the "Backup" section tap "Export backup" to share a JSON backup file.
+c) Tap "Import backup". A field "Paste JSON backup file content:" appears.
+d) Paste the contents of an exported file, or this sample with one starter:
+{"format":"piekarz-backup","schemaVersion":1,"exportedAt":"2026-10-20T08:00:00.000Z","state":{"bakes":[],"starters":[{"id":"review-starter","name":"Review Starter","flourType":"rye","hydration":100,"birthDate":1760947200000,"storageState":"ROOM_TEMP"}],"customRecipes":[]}}
+e) Tap "Confirm import". Import replaces the current data; the app first saves a safety copy on the device. With the trial active, the imported starter appears in the Sourdough tab.
 
-3. UPRAWNIENIA:
-Aplikacja prosi o dostęp do aparatu dopiero, gdy użytkownik dotknie „Skanuj QR” w Kalkulatorze (Camera Permission), oraz o zgodę na powiadomienia lokalne przy pierwszym minutniku albo karmieniu zakwasu (koniec etapu wypieku, przypomnienie o karmieniu). Brak uprawnień do mikrofonu, lokalizacji i śledzenia ATT.
+3. OTHER FEATURES THAT ARE EASY TO MISS
+- Schedule tab: enter the time the bread should be ready; the app plans the steps backwards and Sleep Guard moves hands-on steps out of your sleep hours.
+- Workbench tab: guided bake step by step with timers. Start it from the Calculator with "Start bake on Workbench".
+- Bread Doctor: tap "Doctor" at the top of the Workbench or Sourdough tab to diagnose a loaf; "Academy" in its header opens short lessons.
+
+4. PERMISSIONS
+The app asks for permission to send local notifications only when you start the first timer or starter feeding reminder. It uses no microphone, location or App Tracking Transparency.
 ```

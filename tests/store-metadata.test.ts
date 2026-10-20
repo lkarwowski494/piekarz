@@ -7,6 +7,8 @@
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { setLang, t } from '../src/lib/i18n';
+import { parseAndValidateBackup } from '../src/lib/backup';
 
 const root = path.join(__dirname, '..');
 const read = (p: string) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -63,5 +65,69 @@ describe('metadane sklepu: jedno źródło i słowa kluczowe w limicie (036)', (
     const doc15 = read('docs/15-app-store.md');
     expect(doc15).not.toMatch(/\|\s*\*\*(Słowa kluczowe|Keywords|Tekst promocyjny|Promotional Text|Podtytuł|Subtitle)\*\*/);
     expect(doc15).toContain(META);
+  });
+});
+
+/**
+ * Notatki dla App Review [M1-audytor-generalny-078; 10-wydanie-008]: po angielsku (UI recenzenta), krok po kroku
+ * do ścieżki importu kopii i innych nieoczywistych funkcji 1.0, nazwy przycisków jak w słowniku EN; bez QR i
+ * skanowania (F-08 PÓŹNIEJ) i bez funkcji z ukrytym wejściem (src/lib/wejscia-pozniej.ts) ani PÓŹNIEJ (druk, spiżarnia).
+ */
+describe('notatki dla App Review (078)', () => {
+  const en = (pl: string, params?: Record<string, string | number>) => {
+    setLang('en');
+    try {
+      return t(pl, params);
+    } finally {
+      setLang('pl');
+    }
+  };
+  const doc = read(META).replace(/\r\n/g, '\n');
+  const sekcja = doc.split(/^### /m).find((s) => /^4\.3\. .*Review Notes/.test(s)) ?? '';
+  const notatki = /```text\n([\s\S]*?)```/.exec(sekcja)?.[1] ?? '';
+
+  it('są po angielsku i mieszczą się w limicie 4000 znaków App Store Connect', () => {
+    expect(notatki.length).toBeGreaterThan(200);
+    expect(notatki.length).toBeLessThanOrEqual(4000);
+    expect(notatki.match(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g) ?? []).toEqual([]);
+  });
+
+  it('prowadzą krok po kroku do eksportu i importu kopii przyciskami z interfejsu EN', () => {
+    for (const pl of ['Ustawienia', 'Kopia zapasowa', 'Eksportuj kopię', 'Importuj kopię', 'Wklej zawartość pliku JSON kopii zapasowej:', 'Zatwierdź import']) {
+      expect({ pl, jest: notatki.includes(en(pl)) }).toEqual({ pl, jest: true });
+    }
+    const kroki = ['Ustawienia', 'Importuj kopię', 'Zatwierdź import'].map((pl) => notatki.indexOf(en(pl)));
+    expect([...kroki].sort((a, b) => a - b)).toEqual(kroki);
+  });
+
+  it('przykładowa kopia w notatkach to poprawny plik kopii (jeden zakwas, nic pominiętego)', () => {
+    const json = notatki.split('\n').find((l) => l.startsWith('{"format":"piekarz-backup"'));
+    expect(json).toBeDefined();
+    const kopia = parseAndValidateBackup(json!);
+    expect([kopia.state.starters.length, kopia.state.bakes.length, kopia.state.customRecipes.length, kopia.skippedRows]).toEqual([1, 0, 0, 0]);
+  });
+
+  it('opisują inne nieoczywiste funkcje 1.0: okres próbny, przywracanie zakupów, Harmonogram, Stolnica, Doktor', () => {
+    for (const [pl, params] of [
+      ['Wypróbuj {dni} dni', { dni: 14 }],
+      ['Przywróć zakupy', undefined],
+      ['Zakupy', undefined],
+      ['Kalkulator', undefined],
+      ['Harmonogram', undefined],
+      ['Stolnica', undefined],
+      ['Zakwas', undefined],
+      ['Doktor', undefined],
+      ['Doktor Chleba', undefined],
+      ['Akademia', undefined],
+    ] as const) {
+      expect({ pl, jest: notatki.includes(en(pl, params)) }).toEqual({ pl, jest: true });
+    }
+    expect(notatki).toMatch(/Sleep Guard/);
+    expect(notatki).toMatch(/introductory offer/i);
+  });
+
+  it('nie wspominają QR, skanowania ani funkcji PÓŹNIEJ i ukrytych', () => {
+    expect(notatki).not.toMatch(/\bQR\b|scan/i);
+    expect(notatki).not.toMatch(/print|pantry|flour equivalent|discard|bake loss|converter|Apps4Craft/i);
   });
 });
