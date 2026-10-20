@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 5 | 5 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 565 | 565 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 299 | 299 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 112 | 112 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1016** | Pokrytych: **1016** | Brakujących: **0**
+Łącznie elementów: **1014** | Pokrytych: **1014** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -41,8 +41,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Ilości i temperatura wody` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Ustawienia` | `app/(tabs)/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
 | `TEKST` | `Wypiek bez receptury` | `app/(tabs)/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
-| `TEKST` | `Załadowano recepturę` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Parametry bochenka „{name}” zostały załadowane do kalkulatora.` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Stolnica` | `app/(tabs)/stolnica.tsx` | ✅ | tests/i18n-en-main-flow.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `Asystent wypieku na żywo (Hands-in-flour)` | `app/(tabs)/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +317,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dzień gotowości:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godzina podania na stół:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godziny snu:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 716 kolejnych elementów w pełnym wykazie)*
+*(... i 714 kolejnych elementów w pełnym wykazie)*

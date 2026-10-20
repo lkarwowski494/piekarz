@@ -3253,7 +3253,7 @@
   },
   "Parametry bochenka „{name}” zostały załadowane do kalkulatora.": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (Alert.alert)"
+      "src/hooks/useBakeHistory.ts (Alert.alert)"
     ]
   },
   "Pasywne": {
@@ -6421,7 +6421,7 @@
   },
   "Załadowano recepturę": {
     "gdzie": [
-      "app/(tabs)/stolnica.tsx (Alert.alert)"
+      "src/hooks/useBakeHistory.ts (Alert.alert)"
     ]
   },
   "Załaduj do Kalkulatora": {

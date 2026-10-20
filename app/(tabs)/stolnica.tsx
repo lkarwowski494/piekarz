@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   View,
   Text,
   ScrollView,
   Pressable,
-  Alert,
   AppState,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -17,14 +16,11 @@ import { useBakeSession } from '../../src/hooks/useBakeSession';
 import { saveBakeSession } from '../../src/data/bake-session-store';
 import { resyncNotifications, ensureNotificationPermission } from '../../src/lib/notifications';
 import { NotificationsOffBanner } from '../../src/components/NotificationsOffBanner';
-import { confirmDiscardBake, confirmDeleteBakeLog } from '../../src/lib/confirm';
+import { confirmDiscardBake } from '../../src/lib/confirm';
 import {
   finishBake,
-  getBakeLogs,
-  deleteBakeLog,
   setActiveBake,
   ActiveBakeState,
-  getRecipes,
   getBakingVessel,
   setBakingVessel,
   BakingVessel,
@@ -34,14 +30,12 @@ import {
   sharedCraftTokens,
 } from '@apps4craft/ui';
 import { useUnitSystem, formatTextUnits } from '../../src/lib/unit-converter';
-import { StoredBakeLog } from '../../src/data/db';
-import { setPendingRecipeToLoad, prepareBakeAgainRecipe } from '../../src/lib/recipe-navigation';
 import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../../src/components/SensoryRadarChart';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../../src/core/bake-steps';
 import { stepDurationSec, stepHasTimer } from '../../src/core/bake-session';
-import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-statistics';
+import { useBakeHistory } from '../../src/hooks/useBakeHistory';
 import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { suggestDoctorAfterRating } from '../../src/lib/doctor-suggestion';
@@ -93,9 +87,6 @@ export default function StolnicaScreen() {
   const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
   const [finishTasteProfile, setFinishTasteProfile] = useState<'mild' | 'balanced' | 'sour' | 'tangy'>('balanced');
   const [finishSensoryProfile, setFinishSensoryProfile] = useState<BreadSensoryProfile>(DEFAULT_BREAD_SENSORY_PROFILE);
-  const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
-  const [selectedTasteFilter, setSelectedTasteFilter] = useState<'all' | 'mild' | 'balanced' | 'sour' | 'tangy'>('all');
-
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
     blokada,
@@ -104,44 +95,22 @@ export default function StolnicaScreen() {
   } = useAppAccess();
   const unitSystem = useUnitSystem();
 
-  const bakeStats = useMemo(() => calculateBakeStatistics(bakeHistory), [bakeHistory]);
-  const filteredHistory = useMemo(() => {
-    return filterBakeLogs(bakeHistory, { tasteProfile: selectedTasteFilter });
-  }, [bakeHistory, selectedTasteFilter]);
-
-  const handleBakeAgain = async (log: StoredBakeLog) => {
-    requireActionAccess(async () => {
-      tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
-
-      try {
-        const custom = await getRecipes();
-        const pending = prepareBakeAgainRecipe(log, custom);
-        setPendingRecipeToLoad(pending);
-
-        router.navigate('/(tabs)');
-        Alert.alert(
-          t('Załadowano recepturę'),
-          t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
-            name: log.recipeName,
-          })
-        );
-      } catch {
-        router.navigate('/(tabs)');
-      }
-    });
-  };
-
-  const loadHistory = useCallback(async () => {
-    const logs = await getBakeLogs();
-    setBakeHistory(logs);
-  }, []);
+  const {
+    bakeHistory,
+    bakeStats,
+    filteredHistory,
+    selectedTasteFilter,
+    setSelectedTasteFilter,
+    loadHistory,
+    handleBakeAgain,
+    handleDeleteBakeLog,
+  } = useBakeHistory(requireActionAccess);
 
   useEffect(() => {
-    loadHistory();
     void getBakingVessel().then((v) => {
       setBakingVesselState(v);
     });
-  }, [loadHistory]);
+  }, []);
 
   const endAtMsRef = useRef<number | null>(null);
 
@@ -331,13 +300,6 @@ export default function StolnicaScreen() {
       setCurrentStepIdx(0);
       setIsRunning(false);
     });
-  };
-
-  const handleDeleteBakeLog = (id: string) => {
-    confirmDeleteBakeLog(guardSave(async () => {
-      await deleteBakeLog(id);
-      await loadHistory();
-    }));
   };
 
   // Format time remaining
