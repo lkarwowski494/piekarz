@@ -13,6 +13,8 @@
 .chipy span { min-height: 44px; padding: 0 14px; border-radius: 22px; border: 1.5px solid var(--obwodka); display: inline-flex; align-items: center; }
 .chipy span.wyb { background: var(--akcent); color: var(--naAkcencie); border-color: var(--akcent); font-weight: 600; }
 .godzina { font: 700 calc(56px + 43px * var(--ax)) / 1 var(--f-tyt); }
+/* partia 6 (107): przycisk główny nieaktywny — tło powierzchnia, obwódka obwodka, tekst zablokowane (para zablokowane/powierzchnia w kontrast.md) */
+.glowny.nieaktywny { background: var(--powierzchnia); color: var(--zablokowane); border: 1.5px solid var(--obwodka); }
 </style>
 </head>
 <body>
@@ -34,6 +36,29 @@
     </div>
   </div>
   <div class="kciuk"><button class="glowny t-nagl" data-t="pl.zacznij">Zacznij wypiek</button></div>
+</main>
+
+<!-- Partia 6 (107, 04-studio-projektowe-024): stan „za późno” — pierwszy krok planu zaczyna się przed „teraz”. Przykład: teraz 20:15, wybrane „jutro 7:00”,
+     plan trwa 27 h 35 min (SPIRALA_DOMYSLNA), więc start wypadłby dziś o 3:25; najwcześniej: teraz + długość planu w górę do pełnych 5 min = jutro 23:50. -->
+<main data-ekran="plan-za-pozno">
+  <div class="status"><span>20:15</span><span>LTE 84%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="kl.recepturaWstecz">Receptura</span></a></div>
+  <div class="tresc">
+    <h1 class="t-krok" data-t="pl.kiedy">Kiedy chleb ma być gotowy?</h1>
+    <div class="pole" style="justify-content:space-between"><span class="t-tresc" data-t="pl.jutro">jutro</span><span class="godzina" data-h="7:00"></span></div>
+    <div class="ostrz t-tresc" role="status" style="background:var(--powierzchnia);color:var(--tusz);border:2px solid var(--tusz)"><span data-ikona="dzis"></span><span><b data-t="pl.zaPoznoTyt">Nie zdążysz na tę godzinę</b><span data-t="pl.zaPoznoOpis">Plan musiałby się zacząć dziś o {h:3:25}. Najwcześniej chleb będzie gotowy jutro o {h:23:50}.</span></span></div>
+    <button class="drugi t-obj" style="flex:none" data-t="pl.ustawTe">Ustaw tę godzinę</button>
+    <h2 class="t-obj p2" data-t="pl.kuchnia">Temperatura w kuchni</h2>
+    <div class="chipy t-obj"><span data-c="20"></span><span data-c="22"></span><span class="wyb" data-c="24"></span><span data-c="26"></span></div>
+    <div class="kosz">
+      <svg class="spirala" data-teraz="0"></svg>
+      <div class="opis t-obj p2"><span data-t="pl.krokow">13 kroków, 5 z nich czynnych</span><span data-t="pl.calosc">Całość trwa 27 h 35 min.</span></div>
+    </div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl nieaktywny" disabled aria-disabled="true" aria-describedby="powod-zacznij" data-t="pl.zacznij">Zacznij wypiek</button>
+    <p class="t-przyp p2" id="powod-zacznij" data-t="pl.zacznijPowod">Najpierw ustaw godzinę, na którą zdążysz.</p>
+  </div>
 </main>
 
 <main data-ekran="ocena-slaba">

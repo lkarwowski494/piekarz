@@ -196,5 +196,10 @@ window.TEKSTY['fr'] = {
  "pw.tytGoraceNaczynie": "Récipient brûlant",
  "pw.zdGoraceNaczynie": "Saisissez la cocotte, le couvercle et le moule brûlants avec des gants de cuisine secs ou des maniques.",
  "pw.zdDzieci": "Tenez les enfants éloignés de la cuisinière et de votre plan de travail.",
- "w.tresc06": "contenu rôle 06"
+ "w.tresc06": "contenu rôle 06",
+ "pl.zaPoznoTyt": "Pas assez de temps pour cette heure",
+ "pl.zaPoznoOpis": "Le planning aurait dû commencer aujourd'hui à {h:3:25}. Le pain sera prêt au plus tôt demain à {h:23:50}.",
+ "pl.ustawTe": "Choisir cette heure",
+ "pl.calosc": "Durée totale : 27 h 35 min.",
+ "pl.zacznijPowod": "Choisissez d'abord une heure réalisable."
 };

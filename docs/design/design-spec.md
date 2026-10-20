@@ -42,7 +42,8 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Cofnij poprzedni | pasek kciuka | wraca poprzedni krok, powiadomienia wracają do poprzednich godzin; pasek „Cofnięto …” z „Przywróć” |
 | Po co ten krok | pasek kciuka | arkusz z wyjaśnieniem roli 06; zamknięcie wraca do kroku bez zmian (F-44) |
 | Wróć do wypieku | Dziś | bieżący krok (F-58) |
-| Ułóż plan / Zacznij wypiek | receptura / plan | plan wstecz / start z prośbą o zgodę (jedno zdanie wcześniej, BR-CZAS-003) |
+| Ułóż plan / Zacznij wypiek | receptura / plan | plan wstecz / start z prośbą o zgodę (jedno zdanie wcześniej, BR-CZAS-003); w stanie `plan-za-pozno` „Zacznij wypiek” nieaktywny z powodem (§11c 107) |
+| Ustaw tę godzinę / Use This Time | Plan wypieku, stan `plan-za-pozno` | godzina gotowości = najwcześniejsza możliwa (teraz + długość planu, w górę do 5 min); stan znika, „Zacznij wypiek” aktywny |
 | Zapisz jako moją, Temperatura wody, Zmień składniki | receptura | razem z „Ułóż plan” najwyżej 4 akcje (057) |
 | Więcej → Kopiuj jako tekst, Udostępnij plik receptury | receptura, menu systemowe z przycisku w pasku nawigacji | tekst receptury w schowku („Skopiowano recepturę”); arkusz udostępniania systemu z plikiem receptury (F-33); stan `receptura-wiecej` |
 | Zapisz dokarmienie, Podwoił objętość, Coś mnie niepokoi, Edytuj | zakwas | wpis; „gotowy” z atrybucją; objawy; poprawa wpisu (F-62) |
@@ -69,7 +70,7 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 | Receptura (F-09, F-10, F-11, F-56) | `receptura` (≤ 4 akcje), `receptura-wiecej` (menu „Więcej”, 057), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
 | Zakwas (F-22…F-25, F-60, F-62, F-64) | `karta` (cykl, „Podwoił objętość”), `zakladanie-dzien-3` (dzień N, 7–10 dni), `plesn` (RD-21, polecenie zamiast listy) |
 | Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `uprzedzenie-3-dni`, `bez-sieci` |
-| Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `ocena-slaba` (Doktor ≤ 2★; przy ≥ 4★ tylko prośba systemowa, bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka) |
+| Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `plan-za-pozno` (start planu przed „teraz”: zdanie z godzinami, „Ustaw tę godzinę”, „Zacznij wypiek” nieaktywny z powodem; §11c 107), `ocena-slaba` (Doktor ≤ 2★; przy ≥ 4★ tylko prośba systemowa, bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka) |
 Ładowanie: brak (wszystko lokalne; szkielet tylko przy imporcie pliku > 1 s). Brak wyników: lista receptur z filtrem rodzaju — „Brak receptur tego rodzaju. Pokaż wszystkie.” Offline: tylko zakup i przywrócenie (bez sieci).
 
 ## 7. Miary USA (096, D-044)
@@ -205,6 +206,25 @@ Reguła dla kroku z dwiema sekcjami (np. pieczenie: gorące naczynie + dzieci; n
 Makieta: `ekrany/prowadzenie.html`, nowy stan `ostrzezenie-dwie-sekcje` (krok „Pieczenie pod pokrywą”); w stanie `koniec-kroku` roboczy tytuł „Gorąca para” zastąpiony przez „Gorące naczynie” (zrzuty `prowadzenie-koniec-kroku-*` wygenerowane ponownie, te same parametry i liczba plików).
 
 Test akceptacyjny 109: (1) test jednostkowy funkcji tytułu (np. `tytulOstrzezen(ostrzezenia)` w `src/core/step-warnings.ts`) dla każdego klucza `STEP_KIND_WARNINGS` z niepustą listą i dla `stepKindWarnings(null)` oraz `stepKindWarnings(null, { duringBake: true })`: wynik według tabeli (np. `bake` → „Gorące naczynie”, `starter_feed` → „Surowy zakwas”, `bulk_ferment` → „Surowe ciasto i mąka”, nieznany w czasie wypieku → „Uważaj w kuchni”); (2) render `StrefaKroku` dla kroku `bake`: dokładnie jeden element z `accessibilityRole="alert"`, tytuł „Gorące naczynie”, oba zdania; (3) tekst „Bezpieczeństwo” nie występuje w `StrefaKroku.tsx` ani w kluczach i18n używanych przez prowadzenie; tytuły EN w `src/lib/i18n-en/` według tabeli; (4) wzorzec `wzorce-zrzuty/prowadzenie-ostrzezenie-dwie-sekcje-pl-*`.
+
+### 107 · Plan wypieku: stan „za późno” (024)
+Stan `plan-za-pozno` (`ekrany/inne.html`) występuje, gdy początek pierwszego kroku planu (`steps[0].plannedStart`, po dokarmieniu z lodówki według D-052) jest wcześniejszy niż „teraz” (z dokładnością do minuty). Stan liczy się od nowa przy każdej zmianie godziny, temperatury i zakwasu oraz co minutę, gdy ekran jest otwarty (ekran zostawiony na noc może przejść w ten stan).
+
+| Strefa (od góry) | Zawartość w stanie „za późno” |
+|---|---|
+| pytanie i godzina | bez zmian: „Kiedy chleb ma być gotowy?”, pole dnia i godziny |
+| informacja (pod polem godziny) | pole `powierzchnia` z obwódką `tusz` 2 pt, ikona zegara (symbol SF `clock`), `role` statusu (nie alert: to nie zagrożenie, kolor ostrzeżenia `ostrzTlo` zostaje tylko dla bezpieczeństwa, §3): tytuł „Nie zdążysz na tę godzinę” / “Not enough time for this”; treść „Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.” / “The plan would have to start {startDay} at {startTime}. The earliest the bread can be ready is {readyDay} at {readyTime}.” |
+| akcja naprawy | przycisk drugi 48 pt „Ustaw tę godzinę” / “Use This Time” (`plan-use-earliest-btn`) |
+| reszta planu | temperatura i zakres bez zmian; baner kolizji ze snem ukryty, dopóki trwa ten stan (najpierw godzina, potem noc); przy spirali bez „Start {dzień} o {godzina}”, zostaje „{N} kroków, {M} z nich czynnych” i „Całość trwa {czas}.” (§11c 116) |
+| pasek kciuka | „Zacznij wypiek” nieaktywny: tło `powierzchnia`, obwódka `obwodka` 1,5, tekst `zablokowane`, `accessibilityState.disabled`, podpowiedź VoiceOver = powód; pod przyciskiem powód tekstem: „Najpierw ustaw godzinę, na którą zdążysz.” / “First set a time you can make.” |
+
+Wartości w tekście: `{dzien…}` jak dziś w planie, małą literą w środku zdania: „wczoraj”, „dziś”, „jutro”, „pojutrze”, dalej „{dzień tygodnia}, {d} {miesiąc}” (EN “yesterday”, “today”, “tomorrow”, “the day after tomorrow”, dalej “{weekday}, {month} {d}”); godziny w formacie regionu (§7). Najwcześniejsza godzina gotowości = teraz + długość planu, zaokrąglona w górę do pełnych 5 minut. „Ustaw tę godzinę” wpisuje ją w pole dnia i godziny; stan znika, „Zacznij wypiek” staje się aktywne.
+
+Zachowanie „Zacznij wypiek” w tym stanie: **nieaktywny z powodem** (nie potwierdzenie). *Dlaczego:* start planu z krokami w przeszłości daje powiadomienia, które już minęły, i krok bieżący, który nie zgadza się z ciastem; naprawa jest jednym dotknięciem obok, więc okno potwierdzenia dodałoby krok bez wartości.
+
+Domyślna godzina gotowości (opcja b z audytu): przy otwarciu planu, gdy domyślna godzina dałaby stan „za późno”, ekran od razu proponuje najwcześniejszą godzinę (reguła wyżej) zamiast domyślnej; w innym wypadku zostaje domyślna. Ile wynosi domyślna godzina, to nie wartość tego systemu (dziś w kodzie „jutro 10:00”; zmiana należy do roli 05/08 i właściciela). Stan „za późno” pojawia się więc tylko po ręcznym wyborze godziny albo po upływie czasu przy otwartym ekranie.
+
+Test akceptacyjny 107: (1) render planu z zegarem ustawionym tak, że `steps[0].plannedStart` < teraz: widoczny tekst tytułu i treści z wartościami z planu (np. teraz 20:15, plan 27 h 35 min, cel jutro 7:00 → „Plan musiałby się zacząć dziś o 3:25. Najwcześniej chleb będzie gotowy jutro o 23:50.”), `plan-start-bake-btn` ma `accessibilityState.disabled === true`, a jego naciśnięcie nie wywołuje `setActiveBake`; (2) naciśnięcie `plan-use-earliest-btn` ustawia godzinę gotowości na „jutro 23:50”, stan znika, przycisk startu jest aktywny; (3) otwarcie planu o 20:15 z planem dłuższym niż czas do domyślnej godziny: pole pokazuje najwcześniejszą godzinę, stan „za późno” niewidoczny; (4) przy stanie „za późno” baner kolizji ze snem nie jest renderowany; (5) wzorzec `wzorce-zrzuty/inne-plan-za-pozno-*`.
 
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |

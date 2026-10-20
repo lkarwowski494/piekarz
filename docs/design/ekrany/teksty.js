@@ -198,5 +198,10 @@ window.TEKSTY['en-US'] = {
  "pw.tytGoraceNaczynie": "Hot cookware",
  "pw.zdGoraceNaczynie": "Handle the hot pot, lid, and pan with dry oven mitts or pot holders.",
  "pw.zdDzieci": "Keep children away from the stove and the area where you're working.",
- "w.tresc06": "role 06 content"
+ "w.tresc06": "role 06 content",
+ "pl.zaPoznoTyt": "Not enough time for this",
+ "pl.zaPoznoOpis": "The plan would have to start today at {h:3:25}. The earliest the bread can be ready is tomorrow at {h:23:50}.",
+ "pl.ustawTe": "Use This Time",
+ "pl.calosc": "Takes 27 h 35 min in total.",
+ "pl.zacznijPowod": "First set a time you can make."
 };
