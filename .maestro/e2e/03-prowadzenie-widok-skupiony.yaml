@@ -10,6 +10,11 @@ appId: com.apps4brew.baker
       id: "start-czynnosci"
     timeout: 60000
 - tapOn: "Receptury"
+# Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106)
+- tapOn:
+    id: "recipe-row-country_loaf_72"
+- assertVisible:
+    id: "start-bake-btn"
 - tapOn:
     id: "start-bake-btn"
 - scrollUntilVisible:

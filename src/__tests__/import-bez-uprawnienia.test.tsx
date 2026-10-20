@@ -23,7 +23,8 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { Alert } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+// Wejście skanu QR (PÓŹNIEJ) jest na liście receptur, z dawnego nagłówka receptur (§11c 106) [M1-audytor-generalny-106]
+import RecepturyLista from '../../app/(tabs)/receptury/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { PaywallModal } from '../components/PaywallModal';
 import { QrScannerModal } from '../components/QrScannerModal';
@@ -58,7 +59,7 @@ async function press(tree: renderer.ReactTestRenderer, testID: string): Promise<
   await flush();
 }
 
-/** Okno importu, które jest otwarte (QR z ekranu receptury albo import receptury z Ustawień, 057). */
+/** Okno importu, które jest otwarte (QR z listy receptur albo import receptury z Ustawień, 057). */
 const otwartyImport = (tree: renderer.ReactTestRenderer) => tree.root.findAllByType(ImportRecipeModal).filter((m) => m.props.visible === true)[0];
 
 /** Uprawnienie znika przy otwartym oknie (zwrot albo koniec subskrypcji): następny odczyt sklepu jest pusty. */
@@ -104,7 +105,7 @@ describe('Import without an entitlement works and saves only after the user conf
     await act(async () => {
       tree = renderer.create(
         <AppAccessProvider>
-          <CalculatorScreen />
+          <RecepturyLista />
           <ImportRecepturySection />
         </AppAccessProvider>
       );

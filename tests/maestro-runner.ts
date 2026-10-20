@@ -87,10 +87,12 @@ export const SCREEN_DICTIONARIES: Record<
   dzis: ['Co dziś robisz?', 'Zakładam zakwas', 'Piekę na zakwasie', 'Piekę na drożdżach albo pizzę', 'Ustawienia'],
   receptury: [
     'Receptury',
-    'Receptury mistrzowskie',
+    // 106: lista receptur (ekran główny zakładki) i ekran receptury z „Do miski” (§11c 106) [M1-audytor-generalny-106]
+    'Receptury bazowe',
+    'Wiejski chleb codzienny na zakwasie',
     'Hydratacja',
-    'Do miski na wagę',
-    'Sól kłodawska / morska',
+    'Do miski (odhaczaj przy ważeniu)',
+    'Sól',
     // 057: 4 akcje receptury; „Kopiuj jako tekst” jest w menu „Więcej”, „Zacznij wypiek” na planie [M1-audytor-generalny-057]
     'Ułóż plan',
     'Zapisz jako moją',

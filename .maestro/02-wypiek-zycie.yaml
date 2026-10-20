@@ -2,6 +2,7 @@ appId: com.apps4craft.piekarz
 ---
 - launchApp
 - tapOn: "Receptury"
+- tapOn: "Wiejski chleb codzienny na zakwasie"
 - tapOn: "Ułóż plan"
 - assertVisible: "Plan wypieku"
 - tapOn: "Zacznij wypiek"

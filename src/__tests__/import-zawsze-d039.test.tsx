@@ -58,7 +58,7 @@ async function start(stan: Stan) {
   }
   _resetStanu();
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
-  const CalculatorScreen = require('../../app/(tabs)/receptury/index').default;
+  const CalculatorScreen = require('../../app/(tabs)/receptury/receptura').default;
   // Ustawienia (import kopii) są na „Dziś” (D-051 2a), kalkulator na „Receptury” [M1-audytor-generalny-101]
   const StartScreen = require('../../app/(tabs)/(dzis)/index').default;
   const { AppAccessProvider } = require('../components/AppAccessProvider');

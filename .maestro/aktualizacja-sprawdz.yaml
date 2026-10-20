@@ -2,7 +2,7 @@ appId: com.apps4craft.piekarz
 ---
 - launchApp
 - tapOn: "Receptury"
-- assertVisible: "Receptury mistrzowskie"
+- assertVisible: "Receptury bazowe"
 - tapOn: "Dziennik"
 - assertVisible: "Historia wypieków"
 - tapOn: "Akademia"

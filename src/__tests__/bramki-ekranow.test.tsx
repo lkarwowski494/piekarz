@@ -27,7 +27,8 @@ jest.mock('../lib/confirm', () => ({
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+// Ekran receptury (push z listy receptur, design-spec 11c 106) [M1-audytor-generalny-106]
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import StolnicaScreen from '../../app/stolnica';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';

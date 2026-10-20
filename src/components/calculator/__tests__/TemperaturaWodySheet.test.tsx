@@ -21,7 +21,6 @@ const tekst = (t: renderer.ReactTestRenderer) =>
 describe('TemperaturaWodySheet', () => {
   const onClose = jest.fn();
   const onTargetDdtChange = jest.fn();
-  const onWaterPctChange = jest.fn();
   let tree: renderer.ReactTestRenderer | null = null;
 
   const render = async (visible: boolean) => {
@@ -33,8 +32,6 @@ describe('TemperaturaWodySheet', () => {
           targetDdt={25.0}
           onTargetDdtChange={onTargetDdtChange}
           waterTempTarget={3.5}
-          waterPct={68}
-          onWaterPctChange={onWaterPctChange}
         />
       );
     });
@@ -44,7 +41,8 @@ describe('TemperaturaWodySheet', () => {
     tree = null;
   });
 
-  it('shows the water temperature with steppers; DDT and hydration change by the same steps as before', async () => {
+  // Arkusz liczy tylko temperaturę; procent wody jest w arkuszu „Składniki” (§11c 106) [M1-audytor-generalny-106]
+  it('shows the water temperature with the DDT stepper and no hydration stepper', async () => {
     await render(true);
     expect(tekst(tree!)).toContain('Temperatura wody');
     expect(tekst(tree!)).toContain('3,5°C');
@@ -52,10 +50,9 @@ describe('TemperaturaWodySheet', () => {
       tree!.root.findByProps({ testID: 'ddt-plus-btn' }).props.onPress();
     });
     expect(onTargetDdtChange).toHaveBeenCalledWith(25.5);
-    await act(async () => {
-      tree!.root.findByProps({ testID: 'water-pct-minus-btn' }).props.onPress();
-    });
-    expect(onWaterPctChange).toHaveBeenCalledWith(67);
+    expect(tree!.root.findAllByProps({ testID: 'water-pct-minus-btn' })).toHaveLength(0);
+    expect(tree!.root.findAllByProps({ testID: 'water-pct-plus-btn' })).toHaveLength(0);
+    expect(tekst(tree!)).not.toContain('Hydratacja bazy');
   });
 
   it('"Close" closes the sheet; a hidden sheet renders nothing', async () => {

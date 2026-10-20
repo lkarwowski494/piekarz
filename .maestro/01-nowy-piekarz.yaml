@@ -3,7 +3,8 @@ appId: com.apps4craft.piekarz
 - launchApp
 - assertVisible: "Co dziś robisz?"
 - tapOn: "Piekę na zakwasie"
-- assertVisible: "Receptury mistrzowskie"
+- assertVisible: "Receptury bazowe"
+- tapOn: "Wiejski chleb codzienny na zakwasie"
 - assertVisible: "Hydratacja"
 - tapOn: "Dziennik"
 - assertVisible: "Historia wypieków"

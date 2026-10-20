@@ -26,7 +26,7 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(
-        <AccordionDdtSection targetDdt={18} onTargetDdtChange={() => undefined} waterTempTarget={-2} waterPct={70} onWaterPctChange={() => undefined} />
+        <AccordionDdtSection targetDdt={18} onTargetDdtChange={() => undefined} waterTempTarget={-2} />
       );
     });
     const txt = teksty(tree!);
@@ -44,8 +44,6 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
           onTargetDdtChange={() => undefined}
           waterTempTarget={48}
           waterTempWarning="Uwaga: Obliczona temperatura wody przekracza 45°C."
-          waterPct={70}
-          onWaterPctChange={() => undefined}
         />
       );
     });

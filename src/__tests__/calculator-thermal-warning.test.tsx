@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
-import CalculatorScreen from '../../app/(tabs)/receptury/index';
+import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import { calculateDDTWaterTemp } from '../core/domain-rules';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
