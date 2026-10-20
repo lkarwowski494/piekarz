@@ -1069,7 +1069,6 @@
     "gdzie": [
       "app/(tabs)/dziennik/index.tsx (accessibilityLabel)",
       "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
-      "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
       "app/_layout.tsx (etykieta)",
       "app/_layout.tsx (title)",
       "app/stolnica.tsx (etykieta)",
@@ -1078,6 +1077,7 @@
   },
   "Doktor zakwasu": {
     "gdzie": [
+      "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
       "app/(tabs)/zakwasy/_layout.tsx (title)"
     ]
   },

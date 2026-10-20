@@ -23,6 +23,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import DoctorScreen from '../../app/doktor';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { PO_CO_TEN_KROK, PO_CO_BEZ_ZRODLA, poCoTenKrok } from '../core/po-co-ten-krok';
@@ -124,10 +125,8 @@ describe('100: przycisk „Po co ten krok” na prowadzeniu', () => {
   };
 
   it('otwiera arkusz z wyjaśnieniem bieżącego kroku; zamknięcie wraca do kroku bez zmian (BR-NAUK-001 Wyjaśnienie przy kroku)', async () => {
+    await zacznijWypiekBezReceptury(); // jak dawny start ze Stolnicy bez wypieku (117)
     await render(<StolnicaScreen />);
-    await act(async () => {
-      tree!.root.findAll((n) => typeof n.props.onPress === 'function' && textOf(n.props.children).includes('Zacznij wypiek'))[0].props.onPress();
-    });
     const przed = textOf(tree!.toJSON());
     expect(tree!.root.findAll((n) => n.props.testID === 'why-step-sheet')).toHaveLength(0);
     expect(btn('step-why-btn').props.accessibilityState).toEqual({ disabled: false });

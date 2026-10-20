@@ -1,4 +1,5 @@
-// Zakładka „Zakwasy” (D-051 2a): stos z dużym tytułem; skrót do Doktora Chleba w pasku nawigacji.
+// Zakładka „Zakwasy” (D-051 2a): stos z dużym tytułem; skrót do Doktora zakwasu w pasku nawigacji
+// (ten sam przepływ co „Coś mnie niepokoi”, design-spec §5) [M1-audytor-generalny-117].
 import React from 'react';
 import { Stack, router } from 'expo-router';
 import { t } from '../../../src/lib/i18n';
@@ -13,7 +14,7 @@ export default function ZakwasyLayout() {
         options={{
           title: t('Zakwasy'),
           headerRight: () => (
-            <PrzyciskNaglowka testID="zakwas-doctor-shortcut-btn" etykieta={t('Doktor Chleba')} tekst={t('Doktor')} onPress={() => router.push('/doktor')} />
+            <PrzyciskNaglowka testID="zakwas-doctor-shortcut-btn" etykieta={t('Doktor zakwasu')} tekst={t('Doktor')} onPress={() => router.push('/zakwasy/doktor-zakwasu')} />
           ),
         }}
       />

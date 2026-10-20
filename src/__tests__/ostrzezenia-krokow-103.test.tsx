@@ -23,6 +23,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import { StrefaKroku } from '../components/stolnica/StrefaKroku';
 import { ostrzezeniaKroku, wTrakcieWypieku } from '../core/ostrzezenia-kroku';
 import { DEFAULT_STAGE_TEMPLATES, type StageCategory } from '../scheduler/reverse-scheduler';
@@ -112,15 +113,13 @@ describe('103: Ostrzeżenie w kroku według rodzaju kroku (BR-ETAP-004)', () => 
     _resetMemStore();
     setActiveBake(null);
     await initDatabase();
+    await zacznijWypiekBezReceptury(); // jak dawny start ze Stolnicy bez wypieku (117)
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {
       tree = renderer.create(<StolnicaScreen />);
     });
     await act(async () => {
       for (let i = 0; i < 20; i++) await Promise.resolve();
-    });
-    await act(async () => {
-      tree.root.findAll((n) => typeof n.props.onPress === 'function' && textOf(n.props.children).includes('Zacznij wypiek'))[0].props.onPress();
     });
     const alerty = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'step-warning' && n.props.accessibilityRole === 'alert');
     expect(alerty).toHaveLength(1);

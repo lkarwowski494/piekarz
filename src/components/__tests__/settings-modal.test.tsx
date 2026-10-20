@@ -142,8 +142,12 @@ describe('SettingsModal Component', () => {
     expect(unitConverter.getUnitSystem()).toBe('metric');
   });
 
-  it('triggers CSV exports for bakes and inventory', async () => {
+  // Eksport spiżarni ma wejście tylko z widoczną spiżarnią (F-30 PÓŹNIEJ) [M1-audytor-generalny-117]; kod eksportu zostaje
+  it('triggers CSV exports for bakes and inventory (inventory with the pantry entry visible)', async () => {
     const csvModule = require('../../lib/csv-exporter');
+    const wejscia = require('../../lib/wejscia-pozniej');
+    const prawdziwe = wejscia.wejscieWidoczne;
+    const spy = jest.spyOn(wejscia, 'wejscieWidoczne').mockImplementation((w) => w === 'spizarnia' || prawdziwe(w));
     await act(async () => {
       tree = renderer.create(<SettingsModal visible={true} onClose={mockOnClose} />);
     });
@@ -171,6 +175,7 @@ describe('SettingsModal Component', () => {
       'mock-inventory-csv',
       expect.any(String)
     );
+    spy.mockRestore();
   });
 
   it('opens and cancels JSON import input box', async () => {

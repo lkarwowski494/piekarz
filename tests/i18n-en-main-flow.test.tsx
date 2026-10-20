@@ -15,7 +15,7 @@ jest.mock('expo-haptics', () => ({
 jest.mock('expo-router', () => ({
   // Prowadzenie ustawia przycisk „Plan wypieku” w pasku nawigacji (Stack.Screen, 056): przycisk w drzewie ekranu
   Stack: { Screen: ({ options }: { options?: { headerRight?: () => React.ReactElement } }) => (options?.headerRight ? options.headerRight() : null) },
-  useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
+  useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
 }));
 jest.mock('react-native-safe-area-context', () => {

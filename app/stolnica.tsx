@@ -16,29 +16,19 @@ import { saveBakeSession } from '../src/data/bake-session-store';
 import { resyncNotifications, ensureNotificationPermission } from '../src/lib/notifications';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
-import {
-  setActiveBake,
-  ActiveBakeState,
-  getBakingVessel,
-  setBakingVessel,
-  BakingVessel,
-} from '../src/data/sqlite-store';
+import { setActiveBake, ActiveBakeState } from '../src/data/sqlite-store';
 import { useUnitSystem } from '../src/lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
-import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
+import { SessionStep, isDutchOvenStep } from '../src/core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
 import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
 import { poCoTenKrok } from '../src/core/po-co-ten-krok';
 import { ostrzezeniaKroku } from '../src/core/ostrzezenia-kroku';
-import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { FinishBakeModal } from '../src/components/stolnica/FinishBakeModal';
 import { StrefaKroku } from '../src/components/stolnica/StrefaKroku';
-import { BakeStatsCard } from '../src/components/stolnica/BakeStatsCard';
-import { BakeHistorySection } from '../src/components/stolnica/BakeHistorySection';
-import { IdleBakeCard } from '../src/components/stolnica/IdleBakeCard';
 import { StolnicaKeepAwake } from '../src/components/stolnica/StolnicaKeepAwake';
 import { PasekKciuka } from '../src/components/stolnica/PasekKciuka';
 import { PlanWypiekuArkusz } from '../src/components/stolnica/PlanWypiekuArkusz';
@@ -56,15 +46,8 @@ export default function StolnicaScreen() {
   const [recipeName, setRecipeName] = useState<string>(t('Wypiek bez receptury'));
   const [startedAt, setStartedAt] = useState<number>(Date.now());
   const [activeBakeData, setActiveBakeData] = useState<ActiveBakeState | null>(null);
-  const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
   const [planOpen, setPlanOpen] = useState<boolean>(false);
   const [poCoOpen, setPoCoOpen] = useState<boolean>(false);
-
-  const handleSelectVessel = (vessel: BakingVessel) => {
-    void setBakingVessel(vessel);
-    setBakingVesselState(vessel);
-    tapHaptic(Haptics.ImpactFeedbackStyle.Light);
-  };
 
   // Kroki z planu sesji; żyto: etapy roli 06 z czasami planu [M1-audytor-generalny-030]
   const [steps, setSteps] = useState<readonly SessionStep[]>([]);
@@ -76,23 +59,8 @@ export default function StolnicaScreen() {
   const [dutchOvenPhase, setDutchOvenPhase] = useState<DutchOvenBakePhase>('lid_on');
 
   // Apps4Craft Monetization & Access (Cheaper than espresso)
-  const {
-    blokada,
-    chron,
-    requireActionAccess,
-  } = useAppAccess();
+  const { blokada, chron } = useAppAccess();
   const unitSystem = useUnitSystem();
-
-  const {
-    bakeHistory,
-    bakeStats,
-    filteredHistory,
-    selectedTasteFilter,
-    setSelectedTasteFilter,
-    loadHistory,
-    handleBakeAgain,
-    handleDeleteBakeLog,
-  } = useBakeHistory(requireActionAccess);
 
   const finish = useFinishBake({
     recipeName,
@@ -103,15 +71,10 @@ export default function StolnicaScreen() {
       setIsActive(false);
       setCurrentStepIdx(0);
     },
-    loadHistory,
+    // Historię pokazuje Dziennik (czyta wpisy przy wejściu na zakładkę); Stolnica po zapisie wraca na Dziś
+    loadHistory: async () => undefined,
     openDoctor: chron('doktor', () => router.push('/doktor')),
   });
-
-  useEffect(() => {
-    void getBakingVessel().then((v) => {
-      setBakingVesselState(v);
-    });
-  }, []);
 
   const endAtMsRef = useRef<number | null>(null);
   // Koniec zegara bieżącego kroku także po jego upływie: termin kroku dla „Zrobione” (BR-HARMO-005) [M1-audytor-generalny-102]
@@ -153,7 +116,7 @@ export default function StolnicaScreen() {
   };
 
   // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]
-  useBakeSession(
+  const sesjaWczytana = useBakeSession(
     isActive
       ? { version: 2, steps, stepIdx: currentStepIdx, dutchOvenPhase,
           timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : null,
@@ -168,6 +131,12 @@ export default function StolnicaScreen() {
       if (zastosuj(s)) void ensureNotificationPermission();
     }
   );
+
+  // Bez trwającego wypieku (koniec, przerwanie, powiadomienie po wypieku) Stolnica przekierowuje na Dziś:
+  // wypiek zaczyna się z receptury, historia jest w Dzienniku (decyzja właściciela 2a) [M1-audytor-generalny-117]
+  useEffect(() => {
+    if (sesjaWczytana && !isActive) router.replace('/');
+  }, [sesjaWczytana, isActive, router]);
 
   useEffect(() => {
     if (isRunning && endAtMsRef.current === null) {
@@ -212,21 +181,6 @@ export default function StolnicaScreen() {
   const aktywny = isActive && !!currentStep;
   // „Po co ten krok” z treści roli 06; krok bez źródła (KRO-POC-900) ma przycisk nieaktywny (100)
   const poCo = currentStep ? poCoTenKrok(currentStep, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined) : null;
-
-  // Start new bake from idle: domyślny chleb pszenny z planu liczonego od teraz [M1-audytor-generalny-030]
-  const handleStartBake = () => {
-    requireActionAccess(() => {
-      const now = Date.now();
-      const planned = planBakeSteps({ startAt: now, isHighRye: false });
-      setSteps(planned);
-      setIsActive(true);
-      setCurrentStepIdx(0);
-      setStartedAt(now);
-      setDutchOvenPhase('lid_on');
-      runFor(stepDurationSec(planned[0], 'lid_on'));
-      void ensureNotificationPermission(); // zgoda przy pierwszym zegarze (ADR-006)
-    });
-  };
 
   // Jump to or advance step
   const goToStep = (idx: number) => {
@@ -323,31 +277,8 @@ export default function StolnicaScreen() {
       />
       <StolnicaKeepAwake active={isActive} />
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {!aktywny ? (
-          <View>
-            {/* Bez uprawnienia: tylko przegląd historii (BEZ_UPRAWNIENIA) [M1-audytor-generalny-027] */}
-            <BlokadaFunkcji {...blokada('stolnica')}>
-            <IdleBakeCard
-              bakingVessel={bakingVessel}
-              onSelectVessel={handleSelectVessel}
-              onStartBake={handleStartBake}
-            />
-            </BlokadaFunkcji>
-
-            {/* History of Bakes & Artisan Statistics */}
-            <BlokadaFunkcji {...blokada('historia')}>
-            {bakeHistory.length > 0 && <BakeStatsCard stats={bakeStats} />}
-            <BakeHistorySection
-              bakeHistory={bakeHistory}
-              selectedTasteFilter={selectedTasteFilter}
-              onSelectTasteFilter={setSelectedTasteFilter}
-              filteredHistory={filteredHistory}
-              onDeleteBakeLog={handleDeleteBakeLog}
-              onBakeAgain={handleBakeAgain}
-            />
-            </BlokadaFunkcji>
-          </View>
-        ) : (
+        {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
+        {!aktywny ? null : (
           <BlokadaFunkcji {...blokada('stolnica')}>
           <View>
             <NotificationsOffBanner />

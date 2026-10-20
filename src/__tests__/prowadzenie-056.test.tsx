@@ -22,6 +22,7 @@ import React from 'react';
 import { Alert, ScrollView, StyleSheet } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import { initDatabase, setActiveBake, getActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 
@@ -41,15 +42,14 @@ const byId = (root: Inst, id: string) =>
 const minHeight = (n: Inst) => Number(StyleSheet.flatten(n.props.style)?.minHeight ?? 0);
 
 let tree: renderer.ReactTestRenderer | null = null;
+// Wypiek bez receptury jak dawny start ze Stolnicy bez wypieku (117: Stolnica bez wypieku → Dziś)
 async function startBake(): Promise<Inst> {
+  await zacznijWypiekBezReceptury();
   await act(async () => {
     tree = renderer.create(<StolnicaScreen />);
   });
   await act(async () => {
     for (let i = 0; i < 20; i++) await Promise.resolve();
-  });
-  await act(async () => {
-    pressable(tree!.root, 'Zacznij wypiek').props.onPress();
   });
   return tree!.root;
 }
@@ -133,7 +133,9 @@ describe('056: prowadzenie w widoku skupionym z paskiem kciuka (design-spec §11
       btns[1].onPress?.();
     });
     expect(getActiveBake()).toBeNull();
-    expect(textOf(tree!.toJSON())).toContain('Brak aktywnego wypieku');
+    // Bez trwającego wypieku ekran nie prowadzi kroku i przekierowuje na Dziś [M1-audytor-generalny-117]
+    expect(byId(tree!.root, 'next-or-finish-step-btn')).toHaveLength(0);
+    expect(textOf(tree!.toJSON())).not.toContain('Krok 1 z');
   });
 
   it('(5) Spirala ma rolę obrazu i etykietę według §2', async () => {

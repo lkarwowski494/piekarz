@@ -1,6 +1,8 @@
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
+import DziennikScreen from '../../app/(tabs)/dziennik/index';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import {
   initDatabase,
   getActiveBake,
@@ -91,7 +93,17 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       tree = renderer.create(<StolnicaScreen />);
     });
     await act(async () => {
-      await Promise.resolve();
+      for (let i = 0; i < 20; i++) await Promise.resolve();
+    });
+  };
+
+  // Historia wypieków jest w Dzienniku (te same komponenty, co dawniej pod Stolnicą bez wypieku) [M1-audytor-generalny-117]
+  const renderDziennik = async () => {
+    await act(async () => {
+      tree = renderer.create(<DziennikScreen />);
+    });
+    await act(async () => {
+      for (let i = 0; i < 20; i++) await Promise.resolve();
     });
   };
 
@@ -102,26 +114,24 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     });
   };
 
-  it('renders idle state with start bake button and history', async () => {
+  // Bez trwającego wypieku Stolnica przekierowuje na Dziś (decyzja 2a): bez stanu bezczynności i drugiej historii
+  // (przekierowanie: src/__tests__/przeplywy-117.test.tsx) [M1-audytor-generalny-117]
+  it('without an active bake renders no idle state and no second history', async () => {
+    await saveBakeLog({ id: 'bake_idle', recipeName: 'Chleb z Dziennika', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     await renderScreen();
 
     const fullText = extractCleanText(tree?.toJSON());
     // Tytuł w nawigacji systemowej (tests/nawigacja-d051.test.tsx), ekran bez własnego nagłówka [M1-audytor-generalny-101]
     expect(tree!.root.findAllByProps({ testID: 'stolnica-header' })).toHaveLength(0);
-    expect(fullText).toContain('Brak aktywnego wypieku');
-    expect(fullText).toContain('Zacznij wypiek');
-    expect(fullText).toContain('Historia wypieków');
+    expect(fullText).not.toContain('Brak aktywnego wypieku');
+    expect(fullText).not.toContain('Zacznij wypiek');
+    expect(fullText).not.toContain('Historia wypieków');
+    expect(fullText).not.toContain('Chleb z Dziennika');
   });
 
-  it('starts bake from idle when tapping Rozpocznij wypiek button (BR-ETAP-001 Bieżący krok)', async () => {
+  it('an active bake without a recipe starts on the first plan step (BR-ETAP-001 Bieżący krok)', async () => {
+    await zacznijWypiekBezReceptury();
     await renderScreen();
-
-    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    expect(startBtn).toBeDefined();
-
-    await act(async () => {
-      startBtn?.props.onPress();
-    });
 
     const activeText = extractCleanText(tree?.toJSON());
     // Domyślny chleb pszenny: kroki z planu Harmonogramu liczonego od teraz [M1-audytor-generalny-030]
@@ -133,10 +143,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
 
   // Spirala koszyka z planu tego wypieku (design-spec §11b 058) [M1-audytor-generalny-058]
   it('trwający wypiek pokazuje spiralę brand-spiral z etykietą z danych planu', async () => {
+    await zacznijWypiekBezReceptury();
     await renderScreen();
-    await act(async () => {
-      findButtonByText(tree!.root, 'Zacznij wypiek')?.props.onPress();
-    });
     const spirale = tree!.root.findAll(
       (n) => typeof n.type === 'string' && n.props.testID === 'brand-spiral' && n.props.accessibilityRole === 'image',
     );
@@ -187,13 +195,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
   it('the kitchen timer runs from the plan without Start, Pause or +5 min', async () => {
     jest.useFakeTimers();
     try {
+      await zacznijWypiekBezReceptury();
       await renderScreen();
-
-      // Start bake
-      const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-      await act(async () => {
-        startBtn?.props.onPress();
-      });
 
       // Initial timer is the first plan stage (6 h) and already running
       expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
@@ -214,12 +217,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
   });
 
   it('advances to next step when tapping Zrobione (089: dawniej Następny krok) (BR-ETAP-001 Potwierdzenie kroku)', async () => {
+    await zacznijWypiekBezReceptury();
     await renderScreen();
-
-    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    await act(async () => {
-      startBtn?.props.onPress();
-    });
 
     expect(extractCleanText(tree?.toJSON())).toContain('Dokarmienie zakwasu');
 
@@ -238,13 +237,9 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(text).toContain('45:00');
   });
 
-  it('discards active bake cleanly and returns to idle state', async () => {
+  it('discards active bake cleanly; the screen empties and goes back to Dziś (117)', async () => {
+    await zacznijWypiekBezReceptury();
     await renderScreen();
-
-    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    await act(async () => {
-      startBtn?.props.onPress();
-    });
 
     expect(extractCleanText(tree?.toJSON())).toContain('Krok 1 z 11');
 
@@ -257,11 +252,11 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       discardBtn?.props.onPress();
     });
 
-    expect(extractCleanText(tree?.toJSON())).toContain('Brak aktywnego wypieku');
+    expect(extractCleanText(tree?.toJSON())).not.toContain('Krok 1 z 11');
     expect(getActiveBake()).toBeNull();
   });
 
-  it('deletes bake log from history when delete button is pressed', async () => {
+  it('deletes bake log from history (Dziennik, 117) when delete button is pressed', async () => {
     const { saveBakeLog } = require('../data/sqlite-store');
     await saveBakeLog({
       id: 'bake_to_remove',
@@ -272,7 +267,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       notes: 'Zaraz zniknie',
     });
 
-    await renderScreen();
+    await renderDziennik();
     expect(extractCleanText(tree?.toJSON())).toContain('Chleb do skasowania');
 
     const deleteBtn = tree!.root.findByProps({ testID: 'delete-bake-log-bake_to_remove' });
@@ -288,13 +283,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
   });
 
   it('completes bake with sensory evaluation (crumb, crust, taste) and persists to SQLite (BR-RECP-003 Ocena po wypieku)', async () => {
+    await zacznijWypiekBezReceptury();
     await renderScreen();
-
-    // Start bake
-    const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    await act(async () => {
-      startBtn?.props.onPress();
-    });
 
     // Jump directly to the last plan step (cooling) from „Plan wypieku” (056)
     await openPlan();
@@ -354,13 +344,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
   it('manages Two-Phase Dutch Oven baking with steam release alert and phase transition', async () => {
     jest.useFakeTimers();
     try {
+      await zacznijWypiekBezReceptury();
       await renderScreen();
-
-      // Start bake
-      const startBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-      await act(async () => {
-        startBtn?.props.onPress();
-      });
 
       // Jump to the plan's bake stage (Wypiek z parą i rumienienie) from „Plan wypieku” (056)
       await openPlan();
@@ -431,7 +416,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     }
   });
 
-  it('displays artisan bake statistics card when history contains logs', async () => {
+  it('displays artisan bake statistics (Dziennik, 117) card when history contains logs', async () => {
     // Seed sample bakes
     await saveBakeLog({
       id: 'bake_test_1',
@@ -454,7 +439,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       tasteProfile: 'sour',
     });
 
-    await renderScreen();
+    await renderDziennik();
 
     const statsCard = tree!.root.findByProps({ testID: 'bake-stats-card' });
     expect(statsCard).toBeDefined();
@@ -468,7 +453,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(fullText).toContain('4.5'); // (5+4)/2 = 4.5
   });
 
-  it('filters history logs when tapping taste profile chip', async () => {
+  it('filters history logs (Dziennik, 117) when tapping taste profile chip', async () => {
     await saveBakeLog({
       id: 'bake_sour_1',
       recipeName: 'San Francisco Sourdough',
@@ -488,7 +473,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       tasteProfile: 'mild',
     });
 
-    await renderScreen();
+    await renderDziennik();
 
     // Both logs are initially visible
     expect(extractCleanText(tree?.toJSON())).toContain('San Francisco Sourdough');
@@ -507,7 +492,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(filteredText).not.toContain('Bagietka z Poolishem');
   });
 
-  it('renders crumb, crust and taste badges in history card', async () => {
+  it('renders crumb, crust and taste badges (Dziennik, 117) in history card', async () => {
     await saveBakeLog({
       id: 'bake_badge_test',
       recipeName: 'Tartine Style 80%',
@@ -518,7 +503,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       tasteProfile: 'balanced',
     });
 
-    await renderScreen();
+    await renderDziennik();
 
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Miękisz: 5/5');
@@ -526,7 +511,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     expect(fullText).toContain('Zbalansowany');
   });
 
-  it('triggers Bake Again when tapping Piecz ponownie button on a history card (BR-RECP-003 Następny wypiek z wpisu: ta sama receptura)', async () => {
+  it('triggers Bake Again (Dziennik, 117) when tapping Piecz ponownie button on a history card (BR-RECP-003 Następny wypiek z wpisu: ta sama receptura)', async () => {
     await saveBakeLog({
       id: 'bake_again_test_id',
       recipeName: 'Wiejski chleb codzienny na zakwasie',
@@ -536,7 +521,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       crustScore: 4,
     });
 
-    await renderScreen();
+    await renderDziennik();
 
     const bakeAgainBtn = tree!.root.findByProps({ testID: 'bake-again-btn-bake_again_test_id' });
     expect(bakeAgainBtn).toBeDefined();

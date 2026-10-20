@@ -21,6 +21,7 @@ jest.mock('react-native-safe-area-context', () => {
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import { initDatabase, getBakeLogs, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
@@ -35,6 +36,8 @@ const pressables = (root: renderer.ReactTestInstance, label: string) =>
   root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children).includes(label));
 
 async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.ReactTestRenderer> {
+  // Wypiek bez receptury: ten sam stan co dawny start ze Stolnicy bez wypieku (117: Stolnica bez wypieku → Dziś)
+  if (startFromIdle) await zacznijWypiekBezReceptury();
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
     tree = renderer.create(<StolnicaScreen />);
@@ -42,11 +45,6 @@ async function finishBakeOnScreen(startFromIdle: boolean): Promise<renderer.Reac
   await act(async () => {
     for (let i = 0; i < 20; i++) await Promise.resolve();
   });
-  if (startFromIdle) {
-    await act(async () => {
-      pressables(tree!.root, 'Zacznij wypiek')[0].props.onPress();
-    });
-  }
   await act(async () => {
     pressables(tree!.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)
   });
@@ -104,9 +102,15 @@ describe('Bake journal keeps missing values missing (017)', () => {
   });
 
   it('the note field starts empty again after saving a bake', async () => {
-    const tree = await finishBakeOnScreen(true);
+    const pierwszy = await finishBakeOnScreen(true);
+    act(() => pierwszy.unmount());
+    await zacznijWypiekBezReceptury();
+    let tree!: renderer.ReactTestRenderer;
     await act(async () => {
-      pressables(tree.root, 'Zacznij wypiek')[0].props.onPress();
+      tree = renderer.create(<StolnicaScreen />);
+    });
+    await act(async () => {
+      for (let i = 0; i < 20; i++) await Promise.resolve();
     });
     await act(async () => {
       pressables(tree.root, 'Plan wypieku')[0].props.onPress(); // lista kroków na „Plan wypieku” (056)

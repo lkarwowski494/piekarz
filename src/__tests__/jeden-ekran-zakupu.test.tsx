@@ -47,6 +47,7 @@ import { odswiezDostep } from '../lib/platnosci/stan';
 import { PRODUKTY } from '../lib/platnosci/konfiguracja';
 import { czyEkranZakupu, subskrybujEkranZakupu, ustawEkranZakupu, _resetEkranu } from '../lib/platnosci/ekran';
 import { bezUprawnienia, mockIap } from '../../tests/helpers/platnosci';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 
 const flush = async () => {
   await act(async () => {
@@ -70,9 +71,11 @@ const zakup = {
 };
 
 describe('One access state and one purchase screen for all mounted tabs (025)', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     _resetMemStore();
     bezUprawnienia();
+    // Prowadzenie z trwającym wypiekiem: bez wypieku Stolnica przekierowuje na Dziś [M1-audytor-generalny-117]
+    await zacznijWypiekBezReceptury();
   });
 
   it('the app has exactly one purchase screen, wherever the lock is tapped', async () => {

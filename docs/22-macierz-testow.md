@@ -62,7 +62,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Akademia Piekarza` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
+| `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | tests/helpers/wypiek.ts, src/__tests__/bake-journal-no-guess.test.tsx |
 | `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Plan wypieku` | `app/stolnica.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Doktor` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |

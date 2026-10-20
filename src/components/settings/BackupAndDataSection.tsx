@@ -6,6 +6,7 @@ import { exportBackup, parseAndValidateBackup, safetyBackup } from '../../lib/ba
 import { StorageWriteError } from '../../data/storage-status';
 import { saveErrorText } from '../../lib/save-guard';
 import { resyncNotifications } from '../../lib/notifications';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import {
   getBakeLogs,
   getFlourInventory,
@@ -212,17 +213,20 @@ export function BackupAndDataSection() {
               {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj historię wypieków (CSV)')}
             </Text>
           </Pressable>
-          <Pressable
-            accessibilityRole="button"
-            testID="export-inventory-csv-btn"
-            style={styles.csvBtn}
-            onPress={handleExportInventoryCsv}
-            disabled={isExportingCsv}
-          >
-            <Text style={styles.csvBtnText}>
-              {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj spiżarnię mąk (CSV)')}
-            </Text>
-          </Pressable>
+          {/* Spiżarnia mąk (F-30) PÓŹNIEJ: wejście ukryte, kod eksportu zostaje (D-043) [M1-audytor-generalny-117] */}
+          {wejscieWidoczne('spizarnia') && (
+            <Pressable
+              accessibilityRole="button"
+              testID="export-inventory-csv-btn"
+              style={styles.csvBtn}
+              onPress={handleExportInventoryCsv}
+              disabled={isExportingCsv}
+            >
+              <Text style={styles.csvBtnText}>
+                {isExportingCsv ? t('Eksportowanie...') : t('Eksportuj spiżarnię mąk (CSV)')}
+              </Text>
+            </Pressable>
+          )}
         </View>
       </View>
     </>

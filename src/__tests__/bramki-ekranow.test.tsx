@@ -30,6 +30,8 @@ import renderer, { act } from 'react-test-renderer';
 import CalculatorScreen from '../../app/(tabs)/receptury/index';
 import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import StolnicaScreen from '../../app/stolnica';
+import DziennikScreen from '../../app/(tabs)/dziennik/index';
+import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import DoctorScreen from '../../app/doktor';
 import { PaywallModal } from '../components/PaywallModal';
@@ -153,20 +155,25 @@ describe('Without an entitlement every screen opens the purchase screen except h
     act(() => tree.unmount());
   });
 
-  it('Stolnica: starting a bake opens the purchase screen; history is readable and deletable (BR-RECP-003 Przegląd historii bez zakupu)', async () => {
+  // Stolnica bez wypieku przekierowuje na Dziś, historia jest w Dzienniku; wypiek zaczyna się z Receptur (zablokowane
+  // wyżej: start-bake-btn) [M1-audytor-generalny-117]
+  it('Stolnica: no bake means nothing to lock; history is readable and deletable in Dziennik; a running bake shows the lock (BR-RECP-003 Przegląd historii bez zakupu)', async () => {
     await saveBakeLog({ id: 'bake_h1', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
-    const tree = await render(<StolnicaScreen />);
-    expect(locks(tree.root).map((n) => n.props.testID)).toEqual(['blokada-stolnica']);
+    const pusta = await render(<StolnicaScreen />);
+    expect(locks(pusta.root)).toEqual([]);
+    act(() => pusta.unmount());
+    const tree = await render(<DziennikScreen />);
     expect(tree.root.findAllByProps({ testID: 'bake-log-card-bake_h1' }).length).toBeGreaterThan(0);
-    await press(tree, 'blokada-stolnica');
-    expect(paywallShown(tree.root)).toBe(true);
-    await act(async () => {
-      tree.root.findByType(PaywallModal).props.onClose();
-    });
     await press(tree, 'delete-bake-log-bake_h1');
     expect(paywallShown(tree.root)).toBe(false);
     expect((await getBakeLogs()).some((b) => b.id === 'bake_h1')).toBe(false);
     act(() => tree.unmount());
+    await zacznijWypiekBezReceptury();
+    const trwa = await render(<StolnicaScreen />);
+    expect(locks(trwa.root).map((n) => n.props.testID)).toContain('blokada-stolnica');
+    await press(trwa, 'blokada-stolnica');
+    expect(paywallShown(trwa.root)).toBe(true);
+    act(() => trwa.unmount());
   });
 
   it('Harmonogram: the whole planner opens the purchase screen', async () => {
