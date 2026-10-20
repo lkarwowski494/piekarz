@@ -17,7 +17,7 @@ const PARY: [string, string][] = [
   ['Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.', 'Carefully remove the lid, let the steam escape and lower the oven temperature to 210°C to caramelize the crust.'],
   ['Oceń bochenek i zapisz notatki do historii piekarskiej', 'Rate the loaf and save notes to your baking history'],
   ['Zbity, gęsty miękisz — rozważaj dłuższy bulk', 'Tight, dense crumb — consider a longer bulk'],
-  ['Dzika, otwarta struktura rzemieślnicza!', 'Wild, open artisan structure!'],
+  ['Bardzo otwarty miękisz.', 'Very open crumb.'],
   ['Ładna równomierna alweolatura', 'Nice, even crumb structure'],
   ['Blada, miękka skórka — zwiększ parę lub temperaturę', 'Pale, soft crust — increase steam or temperature'],
   ['Perfekcyjna chrupiąca skórka z pęcherzykami', 'Perfect crisp crust with blisters'],

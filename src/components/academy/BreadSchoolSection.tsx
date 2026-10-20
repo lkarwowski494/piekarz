@@ -49,7 +49,7 @@ export function BreadSchoolSection({
                   </Text>
                   {isCompleted && (
                     <View style={styles.completedBadge}>
-                      <Text style={styles.completedBadgeText}>✓ {t('Zaliczona')}</Text>
+                      <Text style={styles.completedBadgeText}>{t('Zaliczona')}</Text>
                     </View>
                   )}
                 </View>
@@ -115,8 +115,8 @@ export function BreadSchoolSection({
                     ]}
                   >
                     {isCompleted
-                      ? `✓ ${t('Lekcja ukończona (stuknij, aby cofnąć)')}`
-                      : `${t('Oznacz lekcję jako zaliczoną')} ✓`}
+                      ? t('Lekcja ukończona (stuknij, aby cofnąć)')
+                      : t('Oznacz lekcję jako zaliczoną')}
                   </Text>
                 </Pressable>
               </View>

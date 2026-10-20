@@ -59,7 +59,6 @@ export const EN_1: Record<string, string> = {
   'Minutnik kuchenny': 'Kitchen timer',
   'Odliczanie trwa': 'Countdown running',
   'Wstrzymano': 'Paused',
-  'Etap ukończony!': 'Stage completed!',
   '+5 min': '+5 min',
   'Ocena wypieku': 'Bake rating',
   'Notatki z wypieku': 'Bake notes',
@@ -130,7 +129,6 @@ export const EN_1: Record<string, string> = {
     'Affects bulk fermentation rate: 10 °C cooler means about 3 times longer fermentation (approximation from a research model, valid at 20–26 °C).',
   'Czas w lodówce:': 'Time in the fridge:',
   'Elastyczny bufor regulujący porę formowania i pieczenia': 'Flexible buffer controlling shaping and baking times',
-  'Uwaga: Kolizja ze snem!': 'Warning: Sleep collision!',
   'Rozwiąż kolizję': 'Resolve collision',
   'lodówka': 'fridge',
   'Ochrona snu aktywna': 'Sleep protection active',
@@ -140,7 +138,6 @@ export const EN_1: Record<string, string> = {
   'Oś czasu przygotowania': 'Baking timeline',
   'Pasywne': 'Passive',
   'Wymaga obecności': 'Active (hands-on)',
-  'Kolizja nocna!': 'Night collision!',
   'Przenieś harmonogram do asystenta wypieku na żywo': 'Transfer schedule to live bake assistant',
 
   // Bread Doctor (Doktor Chleba)
@@ -175,7 +172,6 @@ export const EN_1: Record<string, string> = {
   'Szybko odskakuje:': 'Bounces back quickly:',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Under-proofed. Leave in warmth for another 30–60 minutes.',
   'Wraca powoli do połowy:': 'Springs back halfway slowly:',
-  'Optymalny moment! Rozgrzewaj piec i szykuj żyletkę.': 'Optimal timing! Preheat oven and prepare your blade.',
   'Zostaje wgłębienie i ciasto siada:': 'Indent remains and dough deflates:',
   'Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.': 'Over-proofed. Bake immediately, score very shallowly.',
   'Test okna glutenowego (Windowpane)': 'Windowpane Test',
@@ -222,7 +218,6 @@ export const EN_1: Record<string, string> = {
   'Etap ukończony! Czas na kolejny krok.': 'Stage completed! Time for the next step.',
   'Wklej zawartość pliku JSON kopii zapasowej:': 'Paste JSON backup file content:',
   'Zatwierdź import': 'Confirm import',
-  'Zaimportowano pomyślnie!': 'Imported successfully!',
   'Nieprawidłowy format JSON': 'Invalid JSON format',
 
   // Schedule & Diagnosis Clipboard & History Management

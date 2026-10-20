@@ -70,7 +70,7 @@ describe('FlourInventoryModal Component (src/components/FlourInventoryModal.tsx)
     expect(banner).toBeDefined();
 
     const fullText = JSON.stringify(tree!.toJSON());
-    expect(fullText).toContain('Wszystkie m\u0105ki s\u0105 dost\u0119pne w spi\u017carni!');
+    expect(fullText).toContain('Wszystkie m\u0105ki z tej receptury s\u0105 w spi\u017carni.'); // 116: bez \u201e\u2713\u201d i \u201e!\u201d
   });
 
   it('displays shortage warning banner and substitute suggestion when recipe exceeds stock', async () => {

@@ -77,7 +77,7 @@ export function StarterPeakActivityCard({
             {t('Postęp do szczytu:')} {peakPrediction.progressPercent}%
           </Text>
           <Text style={styles.progressSubtext}>
-            {peakPrediction.isCurrentlyInPeak ? `✓ ${t('W szczycie')}` : ''}
+            {peakPrediction.isCurrentlyInPeak ? t('W szczycie') : ''}
           </Text>
         </View>
 

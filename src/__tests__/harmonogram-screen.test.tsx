@@ -195,12 +195,13 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
       await Promise.resolve();
     });
 
+    // 116: tytuł kolizji „… wypada(ją) w nocy” zamiast „Uwaga: Kolizja ze snem!”, przycisk „Przesuń do lodówki”
     let allText = extractCleanText(root);
-    expect(allText).toContain('Uwaga: Kolizja ze snem!');
-    expect(allText).toContain('Rozwiąż kolizję');
+    expect(allText).toMatch(/wypada(ją)?( o \d\d:\d\d)? w nocy/);
+    expect(allText).toContain('Przesuń do lodówki');
 
     // Tap the auto-resolve button
-    const autoFixBtn = findButtonByText(root, 'Rozwiąż kolizję');
+    const autoFixBtn = findButtonByText(root, 'Przesuń do lodówki');
     expect(autoFixBtn).toBeDefined();
 
     await act(async () => {
@@ -211,7 +212,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     allText = extractCleanText(root);
     // Collision should now be resolved!
     expect(allText).toContain('Ochrona snu aktywna');
-    expect(allText).not.toContain('Uwaga: Kolizja ze snem!');
+    expect(allText).not.toMatch(/wypada(ją)?( o \d\d:\d\d)? w nocy/);
   });
 
   it('transfers calculated schedule to Stolnica and navigates to workbench', async () => {

@@ -177,7 +177,9 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
   },
   {
     id: 'cool',
-    namePl: 'Studzenie na kratce (nie krój gorącego!)',
+    // bez wykrzyknika w nazwie kroku (§11c 116); zdanie o krojeniu przenosi do treści kroku rola 06. Stary klucz
+    // zostaje w słowniku EN dla wypieków zapisanych przed zmianą [M1-audytor-generalny-116]
+    namePl: 'Studzenie na kratce',
     category: 'cool',
     durationMinutes: 120, // 2h
     isPassive: true,

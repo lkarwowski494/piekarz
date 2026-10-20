@@ -97,7 +97,7 @@ export function DutchOvenController({
       {dutchOvenPhase === 'lid_on' && isCompleted && (
         <View style={styles.steamAlertBanner} testID="steam-gate-alert">
           <Text style={styles.steamAlertTitle}>
-            {t('Zdejmij pokrywkę garnka! Wypuść parę.')}
+            {t('Zdejmij pokrywkę garnka. Wypuść parę.')}
           </Text>
           <Text style={styles.steamAlertDesc}>
             {formatTextUnits(t('Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.'), unitSystem)}

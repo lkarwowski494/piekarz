@@ -23,8 +23,6 @@ export const EN_2: Record<string, string> = {
   'Zastosuj mieszankę': 'Apply blend',
 
   // Dutch Oven Two-Phase Baking (Stolnica)
-  'Zdejmij pokrywkę garnka! Wypuść parę.': 'Remove Dutch oven lid! Release steam.',
-  'Wypiek w garnku zakończony! Wyjmij chleb na kratkę.': 'Dutch oven baking finished! Place bread on wire rack.',
   'Faza 1: Pod pokrywką (Para)': 'Phase 1: Lid on (Steam)',
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Phase 2: Lid off (Caramelization)',
   'Zdejmij pokrywkę!': 'Remove lid!',
@@ -94,7 +92,6 @@ export const EN_2: Record<string, string> = {
   // Flour Inventory (Magazyn Mąk)
   'Spiżarnia mąk (Magazyn)': 'Flour pantry (Stock)',
   'Kontrola zapasów mąk i powiadomienia o brakach': 'Flour stock control and shortage alerts',
-  'Wszystkie mąki są dostępne w spiżarni!': 'All flours are available in the pantry!',
   'Odlicz zużycie z magazynu': 'Deduct batch usage from pantry',
   'Twoje zapasy mąk': 'Your flour stocks',
   'Dodaj mąkę do spiżarni': 'Add flour to pantry',

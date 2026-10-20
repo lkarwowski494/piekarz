@@ -128,16 +128,21 @@ describe('EN: główny przepływ bez polskich tekstów (047)', () => {
   it('Harmonogram z kolizją Sleep Guard', async () => {
     const tree = await render(<HarmonogramScreen />);
     // Przesunięcie godziny gotowości tak, by aktywny etap wypadł w nocy (Sleep Guard)
+    // 107: „pojutrze”, żeby cel nie dał stanu „za późno” (w nim baner snu jest ukryty); 116: tytuł kolizji bez „Uwaga…!”
+    const day = tree.root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children) === t('Pojutrze'))[0];
+    await act(async () => {
+      day.props.onPress();
+    });
     const minus = tree.root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children).includes('-30'))[0];
-    const collision = t('Uwaga: Kolizja ze snem!');
-    for (let i = 0; i < 48 && !textOf(tree.toJSON()).includes(collision); i++) {
+    const collision = /during the night/;
+    for (let i = 0; i < 48 && !collision.test(textOf(tree.toJSON())); i++) {
       await act(async () => {
         minus.props.onPress();
       });
     }
     const text = textOf(tree.toJSON());
     expect(polishWords(text)).toEqual([]);
-    expect(text).toContain(collision);
+    expect(text).toMatch(collision);
     act(() => tree.unmount());
   });
 

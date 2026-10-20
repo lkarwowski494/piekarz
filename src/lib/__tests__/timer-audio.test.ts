@@ -29,7 +29,7 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
     const success = await notifyTimerFinished('Autoliza');
 
     expect(success).toBe(true);
-    expect(announceSpy).toHaveBeenCalledWith(expect.stringContaining('Autoliza'));
+    expect(announceSpy).toHaveBeenCalledWith('Koniec kroku: Autoliza'); // 116: bez „Etap ukończony!”
     expect(Haptics.notificationAsync).toHaveBeenCalledWith('success');
     expect(createAudioPlayer).toHaveBeenCalled();
     expect(mockPlay).toHaveBeenCalled();
@@ -41,7 +41,7 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
     const success = await notifyTimerFinished();
 
     expect(success).toBe(true);
-    expect(announceSpy).toHaveBeenCalledWith('Etap ukończony!');
+    expect(announceSpy).toHaveBeenCalledWith('Koniec kroku'); // 116: bez wykrzyknika (§11c)
     expect(createAudioPlayer).toHaveBeenCalled();
     expect(mockPlay).toHaveBeenCalled();
   });

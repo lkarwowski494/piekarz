@@ -96,9 +96,10 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
       expect(formatted).toContain('Godzina gotowości chleba do krojenia: 12:00 (Jutro)');
       // Temperatura przez formatTemperature: separator według języka (PL „23,5°C”), w trybie imperialnym °F [M1-audytor-generalny-096]
       expect(formatted).toContain('23,5°C');
-      expect(formatted).toContain('14h');
-      expect(formatted).toContain('1. 11:00 (Dziś) — Dokarmienie zakwasu (5h)');
-      expect(formatted).toContain('2. 11:15 (Jutro) — Wypiek z parą (45 min)');
+      // 116: wspólny format czasu trwania („14 h”, „5 h”, spacje niełamiące; §11c)
+      expect(formatted).toContain('14 h');
+      expect(formatted).toContain('1. 11:00 (Dziś) — Dokarmienie zakwasu (5 h)');
+      expect(formatted).toContain('2. 11:15 (Jutro) — Wypiek z parą (45 min)');
       expect(formatted).toContain('Apps4Craft Studio');
     });
 

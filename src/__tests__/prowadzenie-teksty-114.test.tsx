@@ -106,7 +106,7 @@ describe('114: teksty prowadzenia według makiety', () => {
   it('krok bierny z czasem: „Gotowe jutro o …”, czas w godzinach i minutach, „do …, potem …”, bez zdania o ekranie', async () => {
     const w = await prowadzenie(0, koniec(0), T0 + 2 * MIN);
     expect(w.gotowe).toBe(`Gotowe jutro o ${formatTime(KONIEC)}`);
-    expect(w.czas).toBe(`5${NBSP}h 58${NBSP}min`);
+    expect(w.czas).toBe(`5${NBSP}h${NBSP}58${NBSP}min`);
     expect(w.czasEtykieta).toBe('5 godzin 58 minut');
     expect(w.potem).toBe(`do ${formatTime(koniec(0))}, potem ${mala(t(steps[1].name))}`);
     expect(w.potem).toMatch(/, potem \p{Ll}/u);
@@ -192,7 +192,7 @@ describe('114: teksty prowadzenia według makiety', () => {
     expect(czasKroku(2)).toEqual({ tekst: `2${NBSP}s`, etykieta: '2 sekundy' });
     expect(czasKroku(1)).toEqual({ tekst: `1${NBSP}s`, etykieta: '1 sekunda' });
     expect(czasKroku(3600)).toEqual({ tekst: `1${NBSP}h`, etykieta: '1 godzina' });
-    expect(czasKroku(3601).tekst).toBe(`1${NBSP}h 1${NBSP}min`);
+    expect(czasKroku(3601).tekst).toBe(`1${NBSP}h${NBSP}1${NBSP}min`);
     expect(czasKroku(22 * 60).etykieta).toBe('22 minuty');
   });
 });

@@ -115,7 +115,8 @@ export function FinishBakeModal({
             ))}
           </View>
           <Text style={styles.scoreHint}>
-            {crumbScore <= 2 ? t('Zbity, gęsty miękisz — rozważaj dłuższy bulk') : crumbScore >= 5 ? t('Dzika, otwarta struktura rzemieślnicza!') : t('Ładna równomierna alweolatura')}
+            {/* podpis oceny bez porady i wykrzyknika; porada należy do Doktora Chleba (§11c 116) [M1-audytor-generalny-116] */}
+            {crumbScore <= 2 ? t('Zbity, gęsty miękisz.') : crumbScore >= 5 ? t('Bardzo otwarty miękisz.') : t('Równomierny miękisz.')}
           </Text>
 
           {/* Crust Score */}

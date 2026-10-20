@@ -7,6 +7,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { appLocale, formatDate } from '../../lib/format';
 import { StoredBakeLog } from '../../data/db';
@@ -19,6 +20,8 @@ export interface BakeHistorySectionProps {
   filteredHistory: StoredBakeLog[];
   onDeleteBakeLog: (id: string) => void;
   onBakeAgain: (log: StoredBakeLog) => void;
+  /** Pusty Dziennik: „Wybierz recepturę” prowadzi do zakładki Receptury. */
+  onChooseRecipe: () => void;
 }
 
 export function BakeHistorySection({
@@ -28,6 +31,7 @@ export function BakeHistorySection({
   filteredHistory,
   onDeleteBakeLog,
   onBakeAgain,
+  onChooseRecipe,
 }: BakeHistorySectionProps) {
   return (
     <View style={styles.historyContainer}>
@@ -70,8 +74,19 @@ export function BakeHistorySection({
       )}
 
       {bakeHistory.length === 0 ? (
+        // Pusty Dziennik: zaproszenie i jedna akcja do listy receptur (design-spec §11c 116, `dziennik-pusty`)
+        // [M1-audytor-generalny-116]
         <View style={styles.emptyHistoryBox}>
-          <Text style={styles.emptyHistoryText}>{t('Brak wcześniejszych wypieków')}</Text>
+          <Text style={styles.emptyHistoryTitle} accessibilityRole="header">{t('Tu zapiszą się twoje wypieki')}</Text>
+          <Text style={styles.emptyHistoryText}>{t('Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.')}</Text>
+          <Pressable
+            accessibilityRole="button"
+            testID="journal-empty-choose-recipe-btn"
+            style={styles.emptyHistoryBtn}
+            onPress={onChooseRecipe}
+          >
+            <Text style={styles.emptyHistoryBtnText}>{t('Wybierz recepturę')}</Text>
+          </Pressable>
         </View>
       ) : (
         filteredHistory.slice(0, 15).map((log) => {
@@ -207,16 +222,34 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   emptyHistoryBox: {
-    padding: theme.spacing.lg,
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
+    gap: odstepy.m,
+    marginTop: odstepy.xxl,
+  },
+  emptyHistoryTitle: {
+    fontFamily: theme.typography.krojTytulow,
+    fontSize: typografia.style.tytul2.pt,
+    fontWeight: '700',
+    color: theme.colors.tusz,
   },
   emptyHistoryText: {
-    fontSize: 13,
-    color: theme.colors.tusz3,
+    fontSize: typografia.style.tresc.pt,
+    color: theme.colors.tusz2,
+  },
+  emptyHistoryBtn: {
+    minHeight: theme.cele.glownyPrzeplyw,
+    borderRadius: promienie.przycisk,
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.s,
+  },
+  emptyHistoryBtnText: {
+    fontSize: typografia.style.naglowek.pt,
+    fontWeight: '600',
+    color: theme.colors.tusz,
+    textAlign: 'center',
   },
   historyCard: {
     backgroundColor: theme.colors.powierzchnia,

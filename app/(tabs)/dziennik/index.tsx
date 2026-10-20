@@ -45,6 +45,7 @@ export default function DziennikScreen() {
           filteredHistory={historia.filteredHistory}
           onDeleteBakeLog={historia.handleDeleteBakeLog}
           onBakeAgain={historia.handleBakeAgain}
+          onChooseRecipe={() => router.push('/receptury')}
         />
       </BlokadaFunkcji>
       <Pressable

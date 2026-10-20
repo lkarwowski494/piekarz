@@ -157,7 +157,7 @@ export function FlourInventoryModal({
                 ]}
               >
                 {stockCheck.allSufficient
-                  ? `✓ ${t('Wszystkie mąki są dostępne w spiżarni!')}`
+                  ? t('Wszystkie mąki z tej receptury są w spiżarni.') // bez „✓” i „!” (§11c 116)
                   : t(stockCheck.warningTemplatePl ?? '', stockCheck.warningParams)}
               </Text>
 

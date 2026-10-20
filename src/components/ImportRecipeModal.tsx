@@ -166,7 +166,7 @@ export function ImportRecipeModal({
             {validation && validation.success && (
               <View style={styles.previewCard} testID="import-preview-card">
                 <View style={styles.previewHeader}>
-                  <Text style={styles.previewBadge}>✓ {t('Poprawna formuła')}</Text>
+                  <Text style={styles.previewBadge}>{t('Poprawna formuła')}</Text>
                   <Text style={styles.previewDdt}>DDT: {formatTemperature(validation.recipe.targetDDT, getUnitSystem())}</Text>
                 </View>
 

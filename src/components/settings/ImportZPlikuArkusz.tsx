@@ -60,11 +60,12 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
     try {
       await importujKopie(kopia);
       onClose();
+      // tytuł mówi, co się stało, treść: następny stan danych (§8, §11c 116) [M1-audytor-generalny-116]
       Alert.alert(
-        t('Kopia zapasowa'),
+        t('Zaimportowano'),
         kopia.skippedRows > 0
-          ? t('Zaimportowano. Pominięto uszkodzone wpisy: {count}.', { count: kopia.skippedRows })
-          : t('Zaimportowano pomyślnie!')
+          ? t('Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.', { n: kopia.skippedRows })
+          : t('Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.')
       );
     } catch (err: unknown) {
       if (err instanceof StorageWriteError) {

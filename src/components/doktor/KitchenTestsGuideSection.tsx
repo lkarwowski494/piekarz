@@ -38,7 +38,7 @@ export function KitchenTestsGuideSection() {
             </Text>
             <Text style={styles.guideStep}>
               • <Text style={styles.guideBold}>{t('Wraca powoli do połowy:')}</Text>{' '}
-              {t('Optymalny moment! Rozgrzewaj piec i szykuj żyletkę.')}
+              {t('Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.')}
             </Text>
             <Text style={styles.guideStep}>
               • <Text style={styles.guideBold}>{t('Zostaje wgłębienie i ciasto siada:')}</Text>{' '}

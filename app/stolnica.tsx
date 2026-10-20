@@ -161,7 +161,7 @@ export default function StolnicaScreen() {
         if (step && isDutchOvenStep(step) && dutchOvenPhase === 'lid_on') {
           void notifySteamReleaseAlert();
         } else if (step && isDutchOvenStep(step)) {
-          void notifyTimerFinished(t('Wypiek w garnku zakończony! Wyjmij chleb na kratkę.'));
+          void notifyTimerFinished(t('Wypiek w garnku zakończony. Wyjmij chleb na kratkę.'));
         } else {
           void notifyTimerFinished(t(step?.name ?? ''));
         }

@@ -102,7 +102,7 @@ export const EN_15: Record<string, string> = {
   'Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.': 'The screen will stay on until the step ends. Notification at {godzina}.',
   'pieczenie bez pokrywy': 'bake uncovered',
   '{czas} po czasie': '{czas} overdue',
-  '{h} h {m} min': '{h} h {m} min',
+  '{h} h {m} min': '{h} h {m} min',
   '{h} h': '{h} h',
   '{n} min': '{n} min',
   '{n} s': '{n} s',
@@ -117,4 +117,32 @@ export const EN_15: Record<string, string> = {
     'The plan would have to start {dzienStartu} at {godzinaStartu}. The earliest the bread can be ready is {dzienGotowe} at {godzinaGotowe}.',
   'Ustaw tę godzinę': 'Use This Time',
   'Najpierw ustaw godzinę, na którą zdążysz.': 'First set a time you can make.',
+  // Puste stany i teksty bez wykrzyknika, strzałki i „Uwaga…!” (design-spec §11c „116”, teksty.js dz.*, pl.calosc)
+  // [M1-audytor-generalny-116; 04-studio-projektowe-034]
+  'Tu zapiszą się twoje wypieki': 'Your bakes will appear here',
+  'Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.':
+    'After each bake, I\'ll save the recipe, the date, and your rating. Start with a recipe.',
+  'Wybierz recepturę': 'Choose a Recipe',
+  '{krok} wypada o {godzina} w nocy': '{krok} falls at {godzina} during the night',
+  '{n} krok wypada w nocy': '{n} step falls during the night',
+  '{n} kroki wypadają w nocy': '{n} steps fall during the night',
+  '{n} kroków wypada w nocy': '{n} steps fall during the night',
+  'W nocy': 'At night',
+  'Przesuń do lodówki': 'Move to fridge',
+  'Wszystkie mąki z tej receptury są w spiżarni.': 'All flours for this recipe are in your pantry.',
+  'Zaimportowano': 'Imported',
+  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.':
+    'The backup data is now in the app. I saved your previous data in a pre-import backup.',
+  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.':
+    'The backup data is now in the app. Damaged entries skipped: {n}. I saved your previous data in a pre-import backup.',
+  'Zbity, gęsty miękisz.': 'Dense, tight crumb.',
+  'Równomierny miękisz.': 'Even crumb.',
+  'Bardzo otwarty miękisz.': 'Very open crumb.',
+  'Koniec kroku: {nazwa}': 'Step finished: {nazwa}',
+  'Start {dzien} o {godzina}': 'Start {dzien} at {godzina}',
+  'Całość trwa {czas}.': 'Takes {czas} in total.',
+  'Studzenie na kratce': 'Cooling on a rack',
+  'Zdejmij pokrywkę garnka. Wypuść parę.': 'Remove the Dutch oven lid. Release the steam.',
+  'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Dutch oven bake finished. Place the bread on a wire rack.',
+  'Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.': 'Right on time. Preheat the oven and get your blade ready.',
 };

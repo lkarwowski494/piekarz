@@ -137,7 +137,7 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
     expect(po.integrity).toBe('ok');
     expect(po.fk).toEqual([]);
     expect(s.paywall()).toBe(false);
-    expect(s.alert).toHaveBeenCalledWith('Kopia zapasowa', 'Zaimportowano pomyślnie!');
+    expect(s.alert).toHaveBeenCalledWith('Zaimportowano', 'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.');
     // Kopia bezpieczeństwa ma stan sprzed importu, więc powstała przed zapisem
     const safety = [...s.mockFiles.keys()].filter((k) => /piekarz-przed-importem-.*\.json$/.test(k));
     expect(safety).toHaveLength(1);

@@ -327,6 +327,11 @@
       "src/core/domain-rules.ts (dane: tipPl)"
     ]
   },
+  "Bardzo otwarty miękisz.": {
+    "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+    ]
+  },
   "Baza Fiszek Biochemicznych": {
     "gdzie": []
   },
@@ -439,9 +444,7 @@
     ]
   },
   "Brak wcześniejszych wypieków": {
-    "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Bułki, chałki, focaccia, ciasta drożdżowe, pizza domowa na blasze.": {
     "gdzie": [
@@ -478,6 +481,12 @@
   "Całkowita masa ciasta:": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Całość trwa {czas}.": {
+    "gdzie": [
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (accessibilityLabel)",
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
     ]
   },
   "Cena energii": {
@@ -806,6 +815,16 @@
   "Dane są zapisywane tylko w tym telefonie.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
+    ]
+  },
+  "Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
   },
   "Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.": {
@@ -1237,11 +1256,6 @@
       "src/components/zakwas/StarterSetupCard.tsx (accessibilityLabel)"
     ]
   },
-  "Dzika, otwarta struktura rzemieślnicza!": {
-    "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
-    ]
-  },
   "Dzięki obecności zakwasu ciastka zyskują głęboki, karmelowo-maślany posmak.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: proTipPl)"
@@ -1371,11 +1385,6 @@
   "Etap \"{etap}\" wypada w nocy o {godzina}": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: kod)"
-    ]
-  },
-  "Etap ukończony!": {
-    "gdzie": [
-      "src/lib/timer-audio.ts (kod)"
     ]
   },
   "Etap ukończony! Czas na kolejny krok.": {
@@ -1666,9 +1675,7 @@
     ]
   },
   "Gotowy do krojenia": {
-    "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.": {
     "gdzie": [
@@ -2001,11 +2008,6 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
-  "Kolizja nocna!": {
-    "gdzie": [
-      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
-    ]
-  },
   "Kolizja ze snem": {
     "gdzie": [
       "src/lib/schedule-formatter.ts (kod)"
@@ -2022,7 +2024,13 @@
   },
   "Koniec kroku": {
     "gdzie": [
-      "src/lib/notifications.ts (title)"
+      "src/lib/notifications.ts (title)",
+      "src/lib/timer-audio.ts (kod)"
+    ]
+  },
+  "Koniec kroku: {nazwa}": {
+    "gdzie": [
+      "src/lib/timer-audio.ts (kod)"
     ]
   },
   "Konsystencja będzie płynna — dokładnie napowietrz trzepaczką lub widelcem.": {
@@ -3467,7 +3475,7 @@
       "src/core/bake-loss.ts (dane: kod)"
     ]
   },
-  "Optymalny moment! Rozgrzewaj piec i szykuj żyletkę.": {
+  "Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
@@ -3745,6 +3753,11 @@
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Po każdym wypieku zapiszę recepturę, datę i twoją ocenę. Zacznij od receptury.": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
@@ -4196,6 +4209,11 @@
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)"
     ]
   },
+  "Przesuń do lodówki": {
+    "gdzie": [
+      "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
+    ]
+  },
   "Przetwarzanie...": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)",
@@ -4513,9 +4531,7 @@
     "gdzie": []
   },
   "Rozpoczęcie dokarmiania": {
-    "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Rozprowadź mąkę dłonią dokładnie w rowkach wikliny koszyka.": {
     "gdzie": [
@@ -4563,9 +4579,7 @@
     ]
   },
   "Rozwiąż kolizję": {
-    "gdzie": [
-      "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Rozłóż kęs ciasta gładką stroną do dołu na lekko oprószonym blacie.": {
     "gdzie": [
@@ -4615,6 +4629,11 @@
   "Równomierny / rzemieślniczy (Balanced)": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: kod)"
+    ]
+  },
+  "Równomierny miękisz.": {
+    "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
   "Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy": {
@@ -4881,6 +4900,11 @@
   "Start": {
     "gdzie": []
   },
+  "Start {dzien} o {godzina}": {
+    "gdzie": [
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
+    ]
+  },
   "Stary zakwas": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
@@ -4922,10 +4946,13 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
-  "Studzenie na kratce (nie krój gorącego!)": {
+  "Studzenie na kratce": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
+  },
+  "Studzenie na kratce (nie krój gorącego!)": {
+    "gdzie": []
   },
   "Studzenie na kratce i zakaz wczesnego krojenia": {
     "gdzie": [
@@ -5302,6 +5329,11 @@
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
     ]
   },
+  "Tu zapiszą się twoje wypieki": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ]
+  },
   "Twoja historia jest bezpieczna": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
@@ -5589,11 +5621,6 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Uwaga: Kolizja ze snem!": {
-    "gdzie": [
-      "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
-    ]
-  },
   "Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: warningMessagePl)"
@@ -5701,6 +5728,11 @@
   "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "W nocy": {
+    "gdzie": [
+      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
     ]
   },
   "W osobnej miseczce wymieszaj proszek do pieczenia, sodę i sól.": {
@@ -6188,7 +6220,7 @@
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
     ]
   },
-  "Wszystkie mąki są dostępne w spiżarni!": {
+  "Wszystkie mąki z tej receptury są w spiżarni.": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
@@ -6211,6 +6243,11 @@
   "Wybierz objawy bochenka": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Wybierz recepturę": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.": {
@@ -6439,7 +6476,7 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
-  "Wypiek w garnku zakończony! Wyjmij chleb na kratkę.": {
+  "Wypiek w garnku zakończony. Wyjmij chleb na kratkę.": {
     "gdzie": [
       "app/stolnica.tsx (kod)"
     ]
@@ -6669,7 +6706,7 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Zaimportowano pomyślnie!": {
+  "Zaimportowano": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
     ]
@@ -6680,9 +6717,7 @@
     ]
   },
   "Zaimportowano. Pominięto uszkodzone wpisy: {count}.": {
-    "gdzie": [
-      "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
-    ]
+    "gdzie": []
   },
   "Zaimportuj przepis": {
     "gdzie": [
@@ -7062,6 +7097,9 @@
     ]
   },
   "Zbity, gęsty miękisz — rozważaj dłuższy bulk": {
+    "gdzie": []
+  },
+  "Zbity, gęsty miękisz.": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
@@ -7136,7 +7174,7 @@
       "src/core/baking-phases.ts (dane: alertHeadlinePl)"
     ]
   },
-  "Zdejmij pokrywkę garnka! Wypuść parę.": {
+  "Zdejmij pokrywkę garnka. Wypuść parę.": {
     "gdzie": [
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)",
       "src/lib/timer-audio.ts (kod)"
@@ -7499,9 +7537,7 @@
     "gdzie": []
   },
   "lodówka": {
-    "gdzie": [
-      "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "lut": {
     "gdzie": [
@@ -7759,23 +7795,24 @@
     ]
   },
   "{h}h": {
-    "gdzie": [
-      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "{h}h {m}min": {
-    "gdzie": [
-      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "{h} h": {
     "gdzie": [
       "src/lib/czas-trwania.ts (kod)"
     ]
   },
-  "{h} h {m} min": {
+  "{h} h {m} min": {
     "gdzie": [
       "src/lib/czas-trwania.ts (kod)"
+    ]
+  },
+  "{krok} wypada o {godzina} w nocy": {
+    "gdzie": [
+      "src/components/harmonogram/SleepGuardBanner.tsx (kod)"
     ]
   },
   "{maka} mąki + {woda} wody": {
@@ -7830,11 +7867,26 @@
       "src/lib/spirala-etykieta.ts (dane: other)"
     ]
   },
+  "{n} krok wypada w nocy": {
+    "gdzie": [
+      "src/components/harmonogram/SleepGuardBanner.tsx (dane: one)"
+    ]
+  },
+  "{n} kroki wypadają w nocy": {
+    "gdzie": [
+      "src/components/harmonogram/SleepGuardBanner.tsx (dane: few)"
+    ]
+  },
+  "{n} kroków wypada w nocy": {
+    "gdzie": [
+      "src/components/harmonogram/SleepGuardBanner.tsx (dane: many)",
+      "src/components/harmonogram/SleepGuardBanner.tsx (dane: other)"
+    ]
+  },
   "{n} min": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
-      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
     ]
@@ -7951,9 +8003,7 @@
     "gdzie": []
   },
   "Ładna równomierna alweolatura": {
-    "gdzie": [
-      "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Łagodny": {
     "gdzie": [

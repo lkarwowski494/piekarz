@@ -21,7 +21,7 @@ export function czasTrwania(minuty: number): CzasTrwania {
   const h = Math.floor(min / 60);
   const m = min % 60;
   let tekst: string;
-  if (h > 0 && m > 0) tekst = t('{h} h {m} min', { h, m });
+  if (h > 0 && m > 0) tekst = t('{h} h {m} min', { h, m });
   else if (h > 0) tekst = t('{h} h', { h });
   else tekst = t('{n} min', { n: m });
   return { tekst, etykieta: czasSlownie(min) };

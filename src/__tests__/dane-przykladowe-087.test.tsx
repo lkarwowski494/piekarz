@@ -96,7 +96,7 @@ describe('087: pusta baza — bez danych zmyślonych jako dane użytkownika', ()
   it('Dziennik: bez wpisów nie ma statystyk z zer, jest stan pusty', async () => {
     const tree = await render(DziennikScreen);
     expect(tree.root.findAllByType(BakeStatsCard)).toHaveLength(0);
-    expect(teksty(tree.root)).toContain('Brak wcześniejszych wypieków');
+    expect(teksty(tree.root)).toContain('Tu zapiszą się twoje wypieki');
     act(() => tree.unmount());
   });
 

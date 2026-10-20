@@ -200,15 +200,12 @@ export default function HarmonogramScreen() {
     });
   };
 
-  // Total journey time
-  const journeyDurationHours = useMemo(() => {
+  // Długość planu w minutach (format czasu trwania, §11c 116) [M1-audytor-generalny-116]
+  const czasPlanuMin = useMemo(() => {
     if (stages.length === 0) return 0;
-    const start = stages[0].startTime.getTime();
-    const end = stages[stages.length - 1].endTime.getTime();
-    return Math.round(((end - start) / (1000 * 60 * 60)) * 10) / 10;
+    return (stages[stages.length - 1].endTime.getTime() - stages[0].startTime.getTime()) / MINUTA_MS;
   }, [stages]);
-
-  const firstStage = stages[0];
+  const startPlanu = stages.length > 0 && !zaPozno ? stages[0].startTime : null;
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
@@ -263,11 +260,9 @@ export default function HarmonogramScreen() {
 
         {/* Summary Card */}
         <ScheduleSummaryCard
-          firstStage={firstStage}
-          targetDate={targetDate}
-          journeyDurationHours={journeyDurationHours}
-          formatTime={formatTime}
-          formatDayBadge={formatDayBadge}
+          start={startPlanu}
+          czasMin={czasPlanuMin}
+          teraz={teraz}
           onStartBakeOnWorkbench={handleStartBakeOnWorkbench}
           onCopySchedule={handleCopySchedule}
           powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}

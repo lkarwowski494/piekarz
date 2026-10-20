@@ -5,6 +5,7 @@ import { t } from './i18n';
 import { announce } from './announce';
 import { formatTemperature } from './unit-converter';
 import { formatTime } from './format';
+import { czasTrwania } from './czas-trwania';
 
 /** Godzina etapu w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 export function formatStageTime(d: Date): string {
@@ -33,17 +34,16 @@ export function formatScheduleToText(
   const targetTimeStr = `${formatStageTime(schedule.targetReadyTime)} (${formatStageDateBadge(schedule.targetReadyTime, ref)})`;
 
   const stages = schedule.stages;
-  let totalHours = 0;
+  // Czasy trwania we wspólnym formacie („35 h 40 min”, bez ułamków godzin; §11c 116) [M1-audytor-generalny-116]
+  let totalMin = 0;
   if (stages.length > 0) {
-    const startMs = stages[0].startTime.getTime();
-    const endMs = stages[stages.length - 1].endTime.getTime();
-    totalHours = Math.round(((endMs - startMs) / (1000 * 60 * 60)) * 10) / 10;
+    totalMin = (stages[stages.length - 1].endTime.getTime() - stages[0].startTime.getTime()) / 60_000;
   }
 
   const lines: string[] = [];
   lines.push(`${t('Harmonogram')}: Piekarz (Crust)`);
   lines.push(`${t('Godzina gotowości chleba do krojenia')}: ${targetTimeStr}`);
-  lines.push(`${t('Łączny czas')}: ${totalHours}h`);
+  lines.push(`${t('Łączny czas')}: ${czasTrwania(totalMin).tekst}`);
 
   if (options?.ambientTempC !== undefined || options?.coldRetardHours !== undefined) {
     const metaParts: string[] = [];
@@ -51,7 +51,7 @@ export function formatScheduleToText(
       metaParts.push(`${t('Temperatura otoczenia')}: ${formatTemperature(options.ambientTempC)}`);
     }
     if (options.coldRetardHours !== undefined) {
-      metaParts.push(`${t('Garowanie chłodnicze')}: ${options.coldRetardHours}h`);
+      metaParts.push(`${t('Garowanie chłodnicze')}: ${czasTrwania(options.coldRetardHours * 60).tekst}`);
     }
     lines.push(metaParts.join(' | '));
   }
@@ -65,12 +65,7 @@ export function formatScheduleToText(
 
   stages.forEach((s, idx) => {
     const startStr = `${formatStageTime(s.startTime)} (${formatStageDateBadge(s.startTime, ref)})`;
-    const durStr =
-      s.durationMinutes >= 60
-        ? `${Math.floor(s.durationMinutes / 60)}h${s.durationMinutes % 60 > 0 ? ` ${s.durationMinutes % 60}m` : ''}`
-        : `${s.durationMinutes} min`;
-
-    lines.push(`${idx + 1}. ${startStr} — ${s.namePl} (${durStr})`);
+    lines.push(`${idx + 1}. ${startStr} — ${s.namePl} (${czasTrwania(s.durationMinutes).tekst})`);
   });
 
   lines.push('');

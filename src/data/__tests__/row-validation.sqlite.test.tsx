@@ -77,9 +77,9 @@ describe('Row validation on import and read (022)', () => {
     await act(async () => {
       await tree!.root.findByProps({ testID: 'confirm-import-btn' }).props.onPress();
     });
-    expect(alert).toHaveBeenCalledWith('Kopia zapasowa', 'Zaimportowano. Pominięto uszkodzone wpisy: 1.');
+    expect(alert).toHaveBeenCalledWith('Zaimportowano', 'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: 1. Poprzednie dane zapisałem w kopii przed importem.');
     const { t } = require('../../lib/i18n');
-    expect(t('Zaimportowano. Pominięto uszkodzone wpisy: {count}.', { count: 1 })).toBe('Zaimportowano. Pominięto uszkodzone wpisy: 1.');
+    expect(t('Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.', { n: 1 })).toBe('Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: 1. Poprzednie dane zapisałem w kopii przed importem.');
     expect((await app.store.getRecipes()).filter((r) => !r.isBuiltIn).map((r) => r.id)).toEqual(['recipe_user_1', 'recipe_user_3']);
     act(() => tree!.unmount());
     alert.mockRestore();

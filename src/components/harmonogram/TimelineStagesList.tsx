@@ -9,6 +9,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { ScheduledStage } from '../../scheduler/reverse-scheduler';
+import { czasTrwania } from '../../lib/czas-trwania';
+import { IkonaStartu } from '../start/IkonaStartu';
 
 export interface TimelineStagesListProps {
   stages: ScheduledStage[];
@@ -58,12 +60,9 @@ export function TimelineStagesList({
                 </View>
 
                 <View style={styles.stageMetaRow}>
-                  <Text style={styles.stageDuration}>
-                    {stage.durationMinutes >= 60
-                      ? stage.durationMinutes % 60 > 0
-                        ? t('{h}h {m}min', { h: Math.floor(stage.durationMinutes / 60), m: stage.durationMinutes % 60 })
-                        : t('{h}h', { h: Math.floor(stage.durationMinutes / 60) })
-                      : t('{n} min', { n: stage.durationMinutes })}
+                  {/* wspólny format czasu trwania (§11c 116) [M1-audytor-generalny-116] */}
+                  <Text style={styles.stageDuration} accessibilityLabel={czasTrwania(stage.durationMinutes).etykieta}>
+                    {czasTrwania(stage.durationMinutes).tekst}
                   </Text>
                   <View
                     style={[
@@ -82,7 +81,9 @@ export function TimelineStagesList({
                   </View>
                   {isColliding && (
                     <View style={styles.collisionBadge}>
-                      <Text style={styles.collisionBadgeText}>{t('Kolizja nocna!')}</Text>
+                      {/* „W nocy” + księżyc, nie sam kolor (§11c 116) */}
+                      <IkonaStartu nazwa="ksiezyc" kolor={theme.colors.blad} rozmiar={12} />
+                      <Text style={styles.collisionBadgeText}>{t('W nocy')}</Text>
                     </View>
                   )}
                 </View>
@@ -222,6 +223,9 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
   },
   collisionBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 3,
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,
     borderColor: theme.colors.blad,

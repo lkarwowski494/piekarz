@@ -269,7 +269,7 @@ describe('SettingsModal Component', () => {
     // Invariant check: safetyBackup must precede restore
     expect(backupModule.safetyBackup).toHaveBeenCalledWith('import', expect.any(Object));
     expect(sqliteModule.restoreFromBackupData).toHaveBeenCalledWith(validEnvelope.state);
-    expect(Alert.alert).toHaveBeenCalledWith('Kopia zapasowa', 'Zaimportowano pomyślnie!');
+    expect(Alert.alert).toHaveBeenCalledWith('Zaimportowano', 'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.');
 
     // Import box should close after successful import
     expect(root.findAllByProps({ testID: 'import-json-input' })).toHaveLength(0);

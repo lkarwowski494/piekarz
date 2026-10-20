@@ -7,15 +7,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
+import { typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
-import { ScheduledStage } from '../../scheduler/reverse-scheduler';
+import { formatTime } from '../../lib/format';
+import { czasTrwania } from '../../lib/czas-trwania';
+import { dzienWZdaniu } from '../../lib/plan-za-pozno';
 
 export interface ScheduleSummaryCardProps {
-  firstStage: ScheduledStage;
-  targetDate: Date;
-  journeyDurationHours: number;
-  formatTime: (d: Date) => string;
-  formatDayBadge: (d: Date) => string;
+  /** Początek pierwszego kroku planu; null = bez linii „Start …” (stan „za późno”, §11c 107). */
+  start: Date | null;
+  /** Długość planu w minutach. */
+  czasMin: number;
+  teraz: number;
   onStartBakeOnWorkbench: () => void;
   onCopySchedule: () => void;
   /** Powód, dla którego „Zacznij wypiek” jest nieaktywny (stan „za późno”); brak = aktywny. */
@@ -23,35 +26,29 @@ export interface ScheduleSummaryCardProps {
 }
 
 export function ScheduleSummaryCard({
-  firstStage,
-  targetDate,
-  journeyDurationHours,
-  formatTime,
-  formatDayBadge,
+  start,
+  czasMin,
+  teraz,
   onStartBakeOnWorkbench,
   onCopySchedule,
   powodBlokady = null,
 }: ScheduleSummaryCardProps) {
-  if (!firstStage) return null;
   const zablokowany = !!powodBlokady;
+  const czas = czasTrwania(czasMin);
 
   return (
     <View style={styles.summaryCard}>
+      {/* Bez strzałki: „Start {dzień} o {godzina}” i „Całość trwa {czas}.”; godzina „gotowe” jest w polu godziny
+          (design-spec §11c 116) [M1-audytor-generalny-116] */}
       <View style={styles.summaryRow}>
-        <View style={styles.summaryItem}>
-          <Text style={styles.summaryLabel}>{t('Rozpoczęcie dokarmiania')}</Text>
-          <Text style={styles.summaryTime}>{formatTime(firstStage.startTime)}</Text>
-          <Text style={styles.summaryDate}>{formatDayBadge(firstStage.startTime)}</Text>
-        </View>
-        <View style={styles.summaryDivider}>
-          <Text style={styles.summaryArrow}>➔</Text>
-          <Text style={styles.summaryHours}>{journeyDurationHours}h</Text>
-        </View>
-        <View style={styles.summaryItem}>
-          <Text style={styles.summaryLabel}>{t('Gotowy do krojenia')}</Text>
-          <Text style={styles.summaryTime}>{formatTime(targetDate)}</Text>
-          <Text style={styles.summaryDate}>{formatDayBadge(targetDate)}</Text>
-        </View>
+        {start ? (
+          <Text style={styles.summaryLine}>
+            {t('Start {dzien} o {godzina}', { dzien: dzienWZdaniu(start, new Date(teraz)), godzina: formatTime(start) })}
+          </Text>
+        ) : null}
+        <Text style={styles.summaryLine} accessibilityLabel={t('Całość trwa {czas}.', { czas: czas.etykieta })}>
+          {t('Całość trwa {czas}.', { czas: czas.tekst })}
+        </Text>
       </View>
 
       {/* Transfer to Stolnica Action Button; w stanie „za późno” nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107] */}
@@ -97,45 +94,14 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   summaryRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    gap: 2,
     marginBottom: 16,
   },
-  summaryItem: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  summaryLabel: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    fontWeight: '600',
-    marginBottom: 4,
-    textAlign: 'center',
-  },
-  summaryTime: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: theme.colors.akcentTekst,
-  },
-  summaryDate: {
-    fontSize: 12,
+  summaryLine: {
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
-    marginTop: 2,
-  },
-  summaryDivider: {
-    alignItems: 'center',
-    paddingHorizontal: 8,
-  },
-  summaryArrow: {
-    fontSize: 18,
-    color: theme.colors.tusz3,
-  },
-  summaryHours: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: theme.colors.tusz3,
-    marginTop: 2,
+    textAlign: 'center',
   },
   transferBtn: {
     minHeight: theme.cele.pozostale,

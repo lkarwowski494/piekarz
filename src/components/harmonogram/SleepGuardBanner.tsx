@@ -7,7 +7,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { t } from '../../lib/i18n';
+import { t, tPlural } from '../../lib/i18n';
 import { SLEEP_COLLISION_TEMPLATE_PL, SleepCollision, sleepCollisionParams } from '../../scheduler/reverse-scheduler';
 
 export interface SleepGuardBannerProps {
@@ -16,6 +16,19 @@ export interface SleepGuardBannerProps {
   suggestedActionPl?: string;
   autoResolved: { adjustedColdRetardHours: number } | null;
   onApplyAutoResolution: (hours: number) => void;
+}
+
+const KROKI_W_NOCY = {
+  one: '{n} krok wypada w nocy',
+  few: '{n} kroki wypadają w nocy',
+  many: '{n} kroków wypada w nocy',
+  other: '{n} kroków wypada w nocy',
+};
+
+/** Tytuł kolizji ze snem bez „Uwaga…!”: jeden krok z godziną, kilka z formą liczby (design-spec §11c 116) [M1-audytor-generalny-116]. */
+function tytulKolizji(kolizje: SleepCollision[]): string {
+  if (kolizje.length === 1) return t('{krok} wypada o {godzina} w nocy', { krok: t(kolizje[0].stageNamePl), godzina: kolizje[0].time });
+  return tPlural(kolizje.length, KROKI_W_NOCY);
 }
 
 export function SleepGuardBanner({
@@ -28,21 +41,22 @@ export function SleepGuardBanner({
   if (hasSleepCollision) {
     return (
       <View style={styles.sleepGuardAlert} testID="sleep-guard-banner">
-        <Text style={styles.sleepGuardTitle}>{t('Uwaga: Kolizja ze snem!')}</Text>
-        <Text style={styles.sleepGuardBody}>
-          {sleepCollisions
-            .map((c) => t(SLEEP_COLLISION_TEMPLATE_PL, { ...sleepCollisionParams(c), etap: t(c.stageNamePl) }))
-            .join('; ')}
-        </Text>
+        <Text style={styles.sleepGuardTitle}>{tytulKolizji(sleepCollisions)}</Text>
+        {/* przy jednym kroku tytuł mówi już wszystko; przy kilku lista kroków z godzinami */}
+        {sleepCollisions.length > 1 && (
+          <Text style={styles.sleepGuardBody}>
+            {sleepCollisions
+              .map((c) => t(SLEEP_COLLISION_TEMPLATE_PL, { ...sleepCollisionParams(c), etap: t(c.stageNamePl) }))
+              .join('; ')}
+          </Text>
+        )}
         {autoResolved && (
           <Pressable
             accessibilityRole="button"
             style={styles.autoFixBtn}
             onPress={() => onApplyAutoResolution(autoResolved.adjustedColdRetardHours)}
           >
-            <Text style={styles.autoFixBtnText}>
-              {t('Rozwiąż kolizję')} ({t('lodówka')}: {autoResolved.adjustedColdRetardHours}h)
-            </Text>
+            <Text style={styles.autoFixBtnText}>{t('Przesuń do lodówki')}</Text>
           </Pressable>
         )}
         {suggestedActionPl && (
@@ -55,7 +69,7 @@ export function SleepGuardBanner({
   return (
     <View style={styles.sleepGuardSafe} testID="sleep-guard-banner">
       <Text style={styles.sleepGuardSafeTitle}>
-        ✓ {t('Ochrona snu aktywna')}
+        {t('Ochrona snu aktywna')}
       </Text>
       <Text style={styles.sleepGuardSafeBody}>
         {t(

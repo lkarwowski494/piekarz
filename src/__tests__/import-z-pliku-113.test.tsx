@@ -226,7 +226,7 @@ describe('113: jedno wejście „Importuj z pliku”', () => {
     const zapisana = JSON.parse(nowa.mockFiles.get(safety[0]) as string);
     expect({ bakes: zapisana.state.bakes.length, starters: zapisana.state.starters.length, recipes: zapisana.state.customRecipes.length })
       .toEqual({ bakes: 1, starters: 1, recipes: 2 });
-    expect(nowa.alert).toHaveBeenCalledWith('Kopia zapasowa', 'Zaimportowano pomyślnie!');
+    expect(nowa.alert).toHaveBeenCalledWith('Zaimportowano', 'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.');
     a.done();
   });
 });

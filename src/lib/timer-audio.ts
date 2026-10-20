@@ -10,9 +10,8 @@ let soundInstance: AudioPlayer | null = null;
  */
 export async function notifyTimerFinished(stepName?: string): Promise<boolean> {
   // 1. Accessibility announcement for screen readers
-  const message = stepName
-    ? `${t('Etap ukończony!')}: ${stepName}`
-    : t('Etap ukończony!');
+  // „Koniec kroku: {nazwa}” bez wykrzyknika (design-spec §11c 116) [M1-audytor-generalny-116]
+  const message = stepName ? t('Koniec kroku: {nazwa}', { nazwa: stepName }) : t('Koniec kroku');
   announce(message);
 
   // 2. High-priority tactile feedback
@@ -49,7 +48,7 @@ export async function notifyTimerFinished(stepName?: string): Promise<boolean> {
  * Triggers audio, haptic, and VoiceOver announcement specifically for Dutch oven steam release gate.
  */
 export async function notifySteamReleaseAlert(): Promise<boolean> {
-  const message = t('Zdejmij pokrywkę garnka! Wypuść parę.');
+  const message = t('Zdejmij pokrywkę garnka. Wypuść parę.');
   announce(message);
 
   try {
