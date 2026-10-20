@@ -92,7 +92,7 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 052 cele dotykowe | 64/48/44 pt (`tokeny.json` → `cele`) |
 | 054 pasek zakładek | systemowy, z marginesem wskaźnika Home (makieta: 34 pt) |
 | 055 AX5 i 320 pt | zrzuty `*-320-*-ax5`: bez ucięć, stos pionowy, wartości pod etykietami |
-| 056 widok skupiony i pasek kciuka | ekran prowadzenia |
+| 056 widok skupiony i pasek kciuka | ekran prowadzenia; strefy, ukryte elementy i test w §11b |
 | 057 ≤ 4 akcje | receptura: Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki; reszta w menu „Więcej” (§11b) |
 | 058 element firmowy | spirala koszyka, rozdział 2 |
 | 087 dane zmyślone | start bez danych; przykłady oznaczone ramką „przykład” |
@@ -126,6 +126,20 @@ Ekran receptury (dziś Kalkulator, zakładka „Receptury” według D-051 2a) m
 Poza ekranem receptury: „Importuj z pliku” tylko w Ustawieniach (F-33; usunąć `import-recipe-json-btn` i `open-import-recipe-btn` z receptury). Ukryte (PÓŹNIEJ, `src/lib/wejscia-pozniej.ts`): QR (`share-recipe-qr-btn`, `open-scan-qr-btn`, F-08), druk (`print-menu-btn`, F-50), spiżarnia (`open-flour-inventory-btn` ×2, F-30), przelicznik objętości (`open-volume-converter-btn`, F-45), odpowiedniki mąk (`open-flour-equivalents-btn`, F-46). Bez emoji w etykietach (088).
 
 Test akceptacyjny 057: (1) render ekranu receptury: w obszarze akcji 4 elementy z rolą `button` (`start-bake-btn`, `save-custom-recipe-btn`, `water-temp-btn`, `edit-ingredients-btn`) i żadnego innego; (2) w drzewie ekranu każdy testID występuje najwyżej raz (brak duplikatów `start-bake-btn`, `open-flour-inventory-btn`, importu); (3) `recipe-more-btn` otwiera menu z dokładnie 2 pozycjami w tej kolejności; (4) etykiety bez znaków emoji (regex `\p{Extended_Pictographic}` = 0); (5) wzorzec: `wzorce-zrzuty/kalkulator-receptura-*` i stan `receptura-wiecej` w `ekrany/kalkulator.html`.
+
+### 056 · Prowadzenie (Stolnica) w widoku skupionym z paskiem kciuka (DEC-09 a)
+Wzorzec: `ekrany/prowadzenie.html`, stany `w-trakcie`, `koniec-kroku`, `brak-zgody`, `zgoda`, `po-cofnieciu`; zrzuty `wzorce-zrzuty/prowadzenie-*`. Ekran otwierany z „Dziś” („Wróć do wypieku”) bez paska zakładek; pasek kciuka przyklejony nad wskaźnikiem Home (dolny margines 34 pt), poza przewijaną treścią.
+
+| Strefa (od góry) | Zawartość | Tokeny |
+|---|---|---|
+| nawigacja | „Dziś” (wstecz) · „Plan wypieku” (prawy róg: lista kroków, korekty planu, „Przerwij wypiek”) | `akcentTekst`, cel 44 |
+| plan | nazwa receptury (`objasnienie`, `tusz2`); Spirala 150–220 pt + „Krok n z N”, „Gotowe {dzień} o {godzina}”, legenda | §2 |
+| krok | tytuł kroku (`tytulKroku`), czas do końca (`czas`, cyfry tabelaryczne), „do {godzina}, potem {następny krok}”; treść kroku (rola 06); Ostrzeżenie, gdy krok go ma (F-57); „Ekran nie zgaśnie do końca kroku…” tylko w kroku czynnym (F-18) | `tusz`, `tusz2`, `ostrzTlo`/`ostrzTusz` |
+| pasek kciuka | „Zrobione” / “Done” 64 pt pełnej szerokości (`akcent` + `naAkcencie`, promień 18); pod nim rząd 48 pt: „Cofnij poprzedni” / “Undo Previous”, „Po co ten krok” / “Why this step” (obwódka `obwodka` 1,5, promień 14) | `cele`, `promienie` |
+
+Nie ma na tym ekranie: listy wszystkich etapów, kart liczb (`StolnicaSacredCard`), drugiego zegara i numeru etapu, przycisków korekty czasu (`adjust-time-*`), „Start”/„Wstrzymaj” (czas kroku biegnie od planu; BR-HARMO-005: „Zrobione” przed czasem przesuwa dalsze kroki) i akcji destrukcyjnej. „Odrzuć wypiek” staje się „Przerwij wypiek” / “Stop Bake” na ekranie „Plan wypieku”, na dole listy, tekst `blad`, z alertem „Przerwać wypiek? Powiadomienia o kolejnych krokach znikną.” [Wróć do wypieku] [Przerwij] (skutek dla danych jak dziś przy „Odrzuć wypiek”; rola 05/08). Etykieta VoiceOver „Zrobione: {nazwa kroku}” / “Done: {step name}”.
+
+Test akceptacyjny 056: (1) render prowadzenia w aktywnym kroku: element `thumb-bar` zawiera dokładnie 3 przyciski — `next-or-finish-step-btn` („Zrobione”), `step-undo-btn` („Cofnij poprzedni”), `step-why-btn` („Po co ten krok”) — w tej kolejności; (2) `minHeight` ≥ 64 dla `next-or-finish-step-btn` i ≥ 48 dla dwóch pozostałych; (3) `thumb-bar` nie jest potomkiem `ScrollView`; (4) na ekranie prowadzenia brak `discard-bake-btn`, `adjust-time-*`, `stolnica-sacred-card` i listy etapów; „Przerwij wypiek” jest na „Plan wypieku” i otwiera `Alert` z przyciskiem `destructive`; (5) Spirala ma `accessibilityRole="image"` i etykietę według §2; (6) na urządzeniu przy 320 i 390 pt bez przewijania widać tytuł kroku, czas i „Zrobione” w dolnych 30% ekranu (Maestro e2e `assertVisible` bez `scroll`, krok roli 07).
 
 ## 11a. Zrzuty wzorcowe (linia bazowa audytu SP-13)
 `wzorce-zrzuty/` (150 plików, skala 1×, nazwy `<ekran>-<stan>-<wariant>-<szerokość>-<motyw>[-ax5].png`), generowane `narzedzia/zrzuty.mjs` z `ekrany/*.html`:
