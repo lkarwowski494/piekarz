@@ -1,6 +1,7 @@
 /**
  * Polityka prywatności i wsparcie pod jednym adresem: paywall, Ustawienia, metadane App Store i strona w site/
- * [M1-audytor-generalny-012; 01-odkrywanie-002, 10-wydanie-001]. Odpowiedź 200 sprawdza właściciel po publikacji.
+ * [M1-audytor-generalny-012; 01-odkrywanie-002, 10-wydanie-001]. Strony publikuje repo apps4brew-www pod
+ * apps4brew.com/piekarz/ (decyzja właściciela 2026-10-20); odpowiedź 200 sprawdzona 2026-10-20.
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -24,9 +25,9 @@ const root = path.join(__dirname, '..');
 const read = (p: string) => fs.readFileSync(path.join(root, p), 'utf8');
 
 describe('Public privacy and support links (012)', () => {
-  it('the addresses point to the GitHub Pages pages built from site/', () => {
-    expect(PRIVACY_URL).toBe('https://lkarwowski494.github.io/piekarz/privacy.html');
-    expect(SUPPORT_URL).toBe('https://lkarwowski494.github.io/piekarz/support.html');
+  it('the addresses point to the Piekarz pages on apps4brew.com (owner 2026-10-20)', () => {
+    expect(PRIVACY_URL).toBe('https://apps4brew.com/piekarz/privacy.html');
+    expect(SUPPORT_URL).toBe('https://apps4brew.com/piekarz/support.html');
     expect(APPLE_EULA_URL).toContain('apple.com/legal');
     expect(fs.existsSync(path.join(root, 'site/privacy.html'))).toBe(true);
     expect(fs.existsSync(path.join(root, 'site/support.html'))).toBe(true);

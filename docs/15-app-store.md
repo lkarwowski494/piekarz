@@ -20,8 +20,8 @@ Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wyt
   - Tracking: `false`
   - Zbieranie danych: brak (Data Not Collected)
   - Required Reason APIs: `UserDefaults`, `FileTimestamp`, `SystemBootTime`, `DiskSpace`
-- **Adres URL Polityki Prywatności:** `https://lkarwowski494.github.io/piekarz/privacy.html`
-- **Adres URL Wsparcia:** `https://lkarwowski494.github.io/piekarz/support.html`
+- **Adres URL Polityki Prywatności:** `https://apps4brew.com/piekarz/privacy.html`
+- **Adres URL Wsparcia:** `https://apps4brew.com/piekarz/support.html`
 
 ---
 

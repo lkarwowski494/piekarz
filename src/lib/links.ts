@@ -1,10 +1,10 @@
 /**
  * Adresy publicznych stron aplikacji [M1-audytor-generalny-012]: jedno źródło dla paywalla, Ustawień
- * i metadanych App Store (docs/15-app-store.md). Strony leżą w `site/` i publikuje je workflow
- * `.github/workflows/pages.yml` (GitHub Pages, decyzja właściciela 2026-10-19).
+ * i metadanych App Store (docs/15-app-store.md). Strony publikuje repo apps4brew-www pod
+ * apps4brew.com/piekarz/ (decyzja właściciela 2026-10-20).
  */
-export const PRIVACY_URL = 'https://lkarwowski494.github.io/piekarz/privacy.html';
-export const SUPPORT_URL = 'https://lkarwowski494.github.io/piekarz/support.html';
+export const PRIVACY_URL = 'https://apps4brew.com/piekarz/privacy.html';
+export const SUPPORT_URL = 'https://apps4brew.com/piekarz/support.html';
 /**
  * Standardowa licencja użytkownika Apple (EULA): „Licensed Application End User License Agreement”
  * (odczyt strony 2026-10-19) [M1-audytor-generalny-011].
