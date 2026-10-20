@@ -261,7 +261,7 @@ export function TargetReadyCard({
       {/* Cold Retard (Garowanie chłodnicze w lodówce) */}
       <View style={styles.paramSection}>
         <View style={styles.paramHeader}>
-          <Text style={styles.paramLabel}>{t('Czas w lodówce (Cold Retard):')}</Text>
+          <Text style={styles.paramLabel}>{t('Czas w lodówce:')}</Text>
           <Text style={styles.paramValue}>{coldRetardHours}h</Text>
         </View>
         <View style={styles.paramChips}>

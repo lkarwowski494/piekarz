@@ -130,7 +130,7 @@ export const EN_2: Record<string, string> = {
   'Zaimportowano recepturę': 'Recipe imported',
   'Przepis „{name}” został pomyślnie dodany do Twojej bazy.': 'Recipe "{name}" has been successfully added to your library.',
   'Błąd zapisu': 'Save error',
-  'Wystąpił błąd podczas zapisywania receptury do bazy SQLite.': 'An error occurred while saving the recipe to SQLite database.',
+  'Nie zapisałem receptury. Spróbuj jeszcze raz.': 'The recipe was not saved. Try again.',
   'Importuj recepturę': 'Import recipe',
   'Wklej kod JSON udostępniony przez innego piekarza': 'Paste recipe JSON shared by another baker',
   'Wklej ze schowka': 'Paste from clipboard',

@@ -116,7 +116,7 @@ export function BackupAndDataSection() {
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>{t('Kopia zapasowa')}</Text>
         <Text style={styles.cardDescription}>
-          {t('Twoje receptury i historia wypieków są zapisywane w lokalnej bazie danych SQLite.')}
+          {t('Dane są zapisywane tylko w tym telefonie.')}
         </Text>
 
         <View style={styles.backupButtonsRow}>

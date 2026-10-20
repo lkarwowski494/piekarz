@@ -84,7 +84,6 @@ export function DiagnosisResultCard({
             {severityBadge.label}
           </Text>
         </View>
-        <Text style={styles.defectCodeTag}>{diagnosis.defectCode}</Text>
       </View>
 
       <View style={styles.diagnosisHeader}>
@@ -208,11 +207,6 @@ const styles = StyleSheet.create({
   },
   badgeTextMild: {
     color: theme.colors.tusz,
-  },
-  defectCodeTag: {
-    fontSize: 11,
-    fontFamily: 'monospace',
-    color: theme.colors.tusz3,
   },
   diagnosisHeader: {
     marginBottom: 12,

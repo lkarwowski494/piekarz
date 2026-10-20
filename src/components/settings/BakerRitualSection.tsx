@@ -33,7 +33,7 @@ export function BakerRitualSection({
           >
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'dutch_oven' && styles.optionTitleActive]}>
-                {t('Garnek żeliwny (Dutch Oven)')}
+                {t('Garnek żeliwny')}
               </Text>
             </View>
             {bakingVessel === 'dutch_oven' && <Text style={styles.checkMark}>✓</Text>}
@@ -48,7 +48,7 @@ export function BakerRitualSection({
           >
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'cloche' && styles.optionTitleActive]}>
-                {t('Klosz ceramiczny (Cloche)')}
+                {t('Klosz ceramiczny')}
               </Text>
             </View>
             {bakingVessel === 'cloche' && <Text style={styles.checkMark}>✓</Text>}
@@ -78,7 +78,7 @@ export function BakerRitualSection({
           >
             <View style={styles.optionContent}>
               <Text style={[styles.optionTitle, bakingVessel === 'pullman_pan' && styles.optionTitleActive]}>
-                {t('Foremka z pokrywą (Pullman)')}
+                {t('Foremka z pokrywą')}
               </Text>
             </View>
             {bakingVessel === 'pullman_pan' && <Text style={styles.checkMark}>✓</Text>}

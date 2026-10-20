@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 8 | 8 | **100.0%** | ✅ POKRYTE |
 | **UI** | 39 | 39 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 572 | 572 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 567 | 567 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 359 | 359 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 152 | 152 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1130** | Pokrytych: **1130** | Brakujących: **0**
+Łącznie elementów: **1125** | Pokrytych: **1125** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -64,7 +64,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | src/__tests__/bake-journal-no-guess.test.tsx |
 | `TEKST` | `Wypiek w garnku zakończony! Wyjmij chleb na kratkę.` | `app/stolnica.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Plan wypieku` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/nawigacja-d051.test.tsx |
+| `TEKST` | `Plan wypieku` | `app/stolnica.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Doktor` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Krok {n} z {m}` | `app/stolnica.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.` | `app/stolnica.tsx` | ✅ | src/__tests__/prowadzenie-102.test.tsx |
@@ -312,7 +312,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Godziny snu:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Czas w lodówce (Cold Retard):` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Czas w lodówce:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Oś czasu przygotowania` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{h}h {m}min` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Pasywne` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wymaga obecności` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 830 kolejnych elementów w pełnym wykazie)*
+*(... i 825 kolejnych elementów w pełnym wykazie)*

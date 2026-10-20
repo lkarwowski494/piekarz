@@ -103,7 +103,7 @@ export const EN_1: Record<string, string> = {
   'Ostatnie dokarmienie': 'Last feeding',
   'Cykl dokarmiania': 'Feeding cycle',
   'Kalkulator dokarmiania': 'Feeding calculator',
-  'Potrzebny zaczyn (Levain)': 'Required starter (Levain)',
+  'Potrzebny zaczyn': 'Required starter',
   'Edytuj profil': 'Edit profile',
   'Edytuj zakwas': 'Edit sourdough',
   'Imię zakwasu': 'Starter name',
@@ -129,7 +129,7 @@ export const EN_1: Record<string, string> = {
   'Temperatura w kuchni:': 'Kitchen temperature:',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).':
     'Affects bulk fermentation rate: 10 °C cooler means about 3 times longer fermentation (approximation from a research model, valid at 20–26 °C).',
-  'Czas w lodówce (Cold Retard):': 'Fridge cold retard time:',
+  'Czas w lodówce:': 'Time in the fridge:',
   'Elastyczny bufor regulujący porę formowania i pieczenia': 'Flexible buffer controlling shaping and baking times',
   'Uwaga: Kolizja ze snem!': 'Warning: Sleep collision!',
   'Rozwiąż kolizję': 'Resolve collision',

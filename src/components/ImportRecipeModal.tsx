@@ -83,7 +83,7 @@ export function ImportRecipeModal({
         })
       );
     } catch {
-      Alert.alert(t('Błąd zapisu'), t('Wystąpił błąd podczas zapisywania receptury do bazy SQLite.'));
+      Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
     }
   };
 

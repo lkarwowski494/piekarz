@@ -42,7 +42,7 @@ export function StarterFeedingCard({
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Kalkulator dokarmiania')}</Text>
       <Text style={styles.cardSubtitle}>
-        {t('Dobierz proporcje i potrzebną masę zaczynu (Levain) do wypieku')}
+        {t('Dobierz proporcje i potrzebną masę zaczynu do wypieku')}
       </Text>
 
       {/* Ratio Selector */}
@@ -76,7 +76,7 @@ export function StarterFeedingCard({
 
       {/* Yield Amount Selector */}
       <Text style={styles.subHeading}>
-        {t('Potrzebny zaczyn (Levain)')}: {formatWeight(targetYield, unitSystem)}
+        {t('Potrzebny zaczyn')}: {formatWeight(targetYield, unitSystem)}
       </Text>
       <View style={styles.yieldButtons}>
         {[100, 150, 200, 250, 300].map((y) => (

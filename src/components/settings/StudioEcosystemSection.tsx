@@ -62,21 +62,10 @@ export function StudioEcosystemSection() {
       </View>
       )}
 
-      {/* Security & Database Location */}
+      {/* Kontakt i polityka prywatności (makieta ustawienia); bez tekstów technicznych o bazie (design-spec §8)
+          [M1-audytor-generalny-088] */}
       <View style={styles.card}>
-        <Text style={styles.sectionTitle}>{t('Baza danych i bezpieczeństwo')}</Text>
-        <View style={styles.row}>
-          <Text style={styles.label}>{t('Lokalizacja bazy:')}</Text>
-          <Text style={styles.codeText}>/Library/SQLite/piekarz.db</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>{t('Tryb transakcji:')}</Text>
-          <Text style={styles.valueText}>ACID / WAL mode</Text>
-        </View>
-        <View style={styles.row}>
-          <Text style={styles.label}>{t('Telemetria i chmura:')}</Text>
-          <Text style={styles.statusOffText}>{t('0% (Brak trackerów)')}</Text>
-        </View>
+        <Text style={styles.sectionTitle}>{t('Kontakt')}</Text>
         {/* Polityka prywatności dostępna także poza paywallem [M1-audytor-generalny-012] */}
         <Pressable
           style={styles.linkRow}
@@ -115,14 +104,6 @@ export function StudioEcosystemSection() {
             <Text style={styles.linkText}>{t('Napisz do nas')}</Text>
           </Pressable>
         )}
-      </View>
-
-      {/* Apps4Craft Manifesto & Version */}
-      <View style={styles.manifestoCard}>
-        <Text style={styles.manifestoTitle}>Apps4Craft Studio</Text>
-        <Text style={styles.manifestoText}>
-          „{t('Mąka, woda, sól i czas — rzemieślnicza precyzja bez kompromisów.')}”
-        </Text>
       </View>
     </>
   );
@@ -205,11 +186,6 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
     marginTop: 2,
   },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 4,
-  },
   linkRow: {
     minHeight: 44,
     justifyContent: 'center',
@@ -220,50 +196,5 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.akcentTekst,
     textDecorationLine: 'underline',
-  },
-  label: {
-    fontSize: 13,
-    color: theme.colors.tusz2,
-  },
-  codeText: {
-    fontSize: 12,
-    color: theme.colors.akcentTekst,
-  },
-  valueText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.tusz,
-  },
-  statusOffText: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
-  manifestoCard: {
-    padding: theme.spacing.md,
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    alignItems: 'center',
-  },
-  manifestoTitle: {
-    fontFamily: theme.typography.krojTytulow,
-    fontSize: 15,
-    fontWeight: '800',
-    color: theme.colors.akcentTekst,
-    marginBottom: 4,
-  },
-  manifestoText: {
-    fontSize: 13,
-    fontStyle: 'italic',
-    color: theme.colors.tusz2,
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  manifestoDetails: {
-    fontSize: 11,
-    color: theme.colors.tusz3,
-    textAlign: 'center',
   },
 });

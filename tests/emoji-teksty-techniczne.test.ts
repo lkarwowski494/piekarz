@@ -54,7 +54,42 @@ const ZAKAZANE_WSZEDZIE = [
   'Documents/Backup',
 ];
 /** Angielskie nazwy funkcji w nawiasach w tekstach PL (słownik EN tłumaczy je sam). */
-const ZAKAZANE_W_PL = ['(Sleep Guard)', '(Peak Timer)', '(Peak Countdown)', '(Preferments)', '(Timeline)'];
+const ZAKAZANE_W_PL = [
+  '(Sleep Guard)', '(Peak Timer)', '(Peak Countdown)', '(Preferments)', '(Timeline)',
+  // etykiety interfejsu (Ustawienia, plan, zakwas), nie treść dziedzinowa roli 06 [M1-audytor-generalny-088; 04-studio-projektowe-027]
+  'Garnek żeliwny (Dutch Oven)', 'Klosz ceramiczny (Cloche)', 'Foremka z pokrywą (Pullman)',
+  'Czas w lodówce (Cold Retard)', 'Potrzebny zaczyn (Levain)', 'masę zaczynu (Levain)',
+];
+
+/**
+ * Teksty techniczne w interfejsie (§8: nazwy bazy, ścieżki, tryby zapisu, marka spoza projektu) — w tekstach
+ * widocznych: tekst JSX i napisy w t(), oraz w kluczach i wartościach słownika EN [M1-audytor-generalny-088; 04-studio-projektowe-027].
+ */
+const ZAKAZANE_TECHNICZNE = ['SQLite', 'WAL mode', 'ACID', '/Library/', 'piekarz.db', 'Apps4Craft Studio'];
+/** Wyjątki nazwane: tekst w sekcji ukrytej (F-52 PÓŹNIEJ, wejscieWidoczne('rodzina-apps4craft') = false; nazwa marki do decyzji). */
+const WYJATKI_TECHNICZNE = ['Rodzina Apps4Craft Studio', 'Apps4Craft Studio Family'];
+/** Kod z programu w tekście widocznym (np. UNDER_PROOFED): wielkie litery z podkreśleniem. */
+const KOD = /\b[A-Z]{2,}_[A-Z_]{2,}\b/;
+
+/** Teksty widoczne: tekst JSX, napisy w JSX ({'…'}) i pierwszy argument t()/tPlural(). */
+function tekstyWidoczne(plik: string): { tekst: string; linia: number }[] {
+  const sf = ts.createSourceFile(plik, fs.readFileSync(plik, 'utf8'), ts.ScriptTarget.Latest, true,
+    plik.endsWith('x') ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
+  const out: { tekst: string; linia: number }[] = [];
+  const dodaj = (n: ts.Node, tekst: string) => out.push({ tekst, linia: sf.getLineAndCharacterOfPosition(n.getStart()).line + 1 });
+  const napis = (n: ts.Node | undefined): n is ts.StringLiteral | ts.NoSubstitutionTemplateLiteral =>
+    !!n && (ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n));
+  const visit = (n: ts.Node) => {
+    if (ts.isJsxText(n) && n.text.trim()) dodaj(n, n.text);
+    if (ts.isJsxExpression(n) && napis(n.expression)) dodaj(n, n.expression.text);
+    if (ts.isCallExpression(n) && ts.isIdentifier(n.expression) && ['t', 'tPlural'].includes(n.expression.text) && napis(n.arguments[0])) {
+      dodaj(n, n.arguments[0].text);
+    }
+    ts.forEachChild(n, visit);
+  };
+  visit(sf);
+  return out;
+}
 
 describe('088: emoji i teksty techniczne', () => {
   it('pliki produkcyjne app/ i src/ (z słownikiem EN) nie mają ani jednego emoji', () => {
@@ -89,6 +124,44 @@ describe('088: emoji i teksty techniczne', () => {
     expect(klucze.length).toBeGreaterThan(500);
     const zle = klucze.filter((k) => [...ZAKAZANE_WSZEDZIE, ...ZAKAZANE_W_PL].some((z) => k.includes(z)));
     expect(zle).toEqual([]);
+  });
+
+  it('M1-audytor-generalny-088: teksty widoczne bez nazwy bazy, ścieżki, trybu zapisu, obcej marki i kodów z programu', () => {
+    const znalezione: string[] = [];
+    for (const f of pliki) {
+      const r = rel(f);
+      if (r.startsWith('src/lib/i18n-en/')) continue;
+      for (const { tekst, linia } of tekstyWidoczne(f)) {
+        if (WYJATKI_TECHNICZNE.includes(tekst)) continue;
+        for (const fraza of ZAKAZANE_TECHNICZNE) if (tekst.includes(fraza)) znalezione.push(`${r}:${linia}: „${fraza}” w „${tekst.slice(0, 70)}”`);
+        if (KOD.test(tekst)) znalezione.push(`${r}:${linia}: kod w „${tekst.slice(0, 70)}”`);
+      }
+      // kod diagnozy wstawiony wprost do JSX (np. {diagnosis.defectCode})
+      fs.readFileSync(f, 'utf8').split('\n').forEach((l, i) => {
+        if (/\{\s*[\w.?]*\.defectCode\s*\}/.test(l)) znalezione.push(`${r}:${i + 1}: kod diagnozy w JSX: ${l.trim().slice(0, 70)}`);
+      });
+    }
+    expect(znalezione).toEqual([]);
+  });
+
+  it('M1-audytor-generalny-088: słownik EN (klucze PL i wartości EN) bez tekstów technicznych', () => {
+    const katalog = path.join(rootDir, 'src/lib/i18n-en');
+    const zle: string[] = [];
+    for (const f of fs.readdirSync(katalog)) {
+      for (const m of fs.readFileSync(path.join(katalog, f), 'utf8').matchAll(/'((?:[^'\\]|\\.)*)'/g)) {
+        const tekst = m[1];
+        if (WYJATKI_TECHNICZNE.includes(tekst)) continue;
+        if (ZAKAZANE_TECHNICZNE.some((z) => tekst.includes(z))) zle.push(`${f}: ${tekst.slice(0, 80)}`);
+      }
+    }
+    expect(zle).toEqual([]);
+  });
+
+  it('kontrola wzorców 088: wykrywa kod, ścieżkę i tekst w t()', () => {
+    expect(KOD.test('UNDER_PROOFED')).toBe(true);
+    expect(KOD.test('Plan wypieku: 13 kroków')).toBe(false);
+    const probny = path.join(rootDir, 'src/components/settings/StudioEcosystemSection.tsx');
+    expect(tekstyWidoczne(probny).some((x) => x.tekst === 'Polityka prywatności')).toBe(true);
   });
 
   it('test wykrywa emoji, flagi i frazy techniczne (kontrola wzorców)', () => {
