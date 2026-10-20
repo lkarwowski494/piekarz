@@ -77,3 +77,20 @@ Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja
 ## Powrót i opinie
 
 Pętla opinii F-69 (BR-OPIN-001…003): `docs/wzrost/petla-opinii.md` (zadania 082, 083). Odpowiedzi na recenzje: rzeczowo, bez danych osobowych recenzenta i marketingu; zgłoszony błąd trafia do zgłoszeń albo ER/ZM.
+
+## Pomiar
+
+Źródła bez SDK: App Store Connect (sprzedaż, App Analytics, recenzje), zgłoszenia od użytkowników. W aplikacji nie ma telemetrii (CLAUDE.md); liczniki na urządzeniu służą tylko warunkowi prośby o ocenę i nie wychodzą z telefonu.
+
+| H | Pytanie (decyzja, od której zależy) | Metryka i źródło | Mierzalność: oczekiwane n, zastępnik | Próg (ID decyzji) | Min. próba | Data oceny | Werdykt |
+|---|---|---|---|---|---|---|---|
+| H-01 | Czy DEC-01 d osiąga próg 500 USD netto/rok na iOS? (rozwój albo zamrożenie, D-040) | nowi płacący iOS ÷ pobrania pierwszorazowe iOS w dniach 30–90; App Store Connect | ok. 166 pobrań [OCENA: 83/mies. z bramki roli 02]; zastępnik: liczby bezwzględne z kryterium | **kryterium:** średnio ≥ 7 nowych płacących/mies. albo ≥ 42 USD/mies.; zamrożenie przy ≤ 3,5 albo ≤ 21 USD/mies. (D-038, `docs/monetyzacja.md` roli 02); w skrypcie ≥ 8,5% | 100 pobrań (propozycja roli 11, do potwierdzenia) | wydanie + 90 dni (najwcześniej 2027-01-19) | czeka na dane |
+
+Dane: `docs/wzrost/hipotezy.json`, skrypt `docs/wzrost/hipotezy.mjs` (`node docs/wzrost/hipotezy.mjs docs/wzrost/hipotezy.json`, kod 0; test `tests/wzrost-hipotezy.test.ts`). Zmierzone wartości (`dane`) wpisuje się w kopii lokalnej, poza publicznym repo.
+
+Reguła rozstrzygania H-01 (*dlaczego dwie miary:* kryterium roli 02 jest liczbą płacących i wpływem, a `hipotezy.mjs` liczy odsetek z przedziałem Wilsona):
+1. Rozstrzyga **kryterium liczbowe** z `docs/monetyzacja.md`: ≥ 7 płacących/mies. albo ≥ 42 USD/mies. → próg osiągnięty; ≤ 3,5 albo ≤ 21 USD/mies. → zamrożenie rozwoju; pomiędzy → wynik pośredni, decyzja właściciela.
+2. Odsetek w skrypcie (≥ 8,5%, czyli 7 ÷ ok. 83 pobrań/mies.) jest pomocniczy: mówi, czy problemem jest konwersja, czy liczba pobrań. Przy innej liczbie pobrań niż w bramce rozstrzyga punkt 1.
+3. Kryterium mierzy model, nie otwiera go: wynik nie jest podstawą do zmiany cen, modelu, próby ani podziału (D-038).
+
+KPI z BRD 0.1 (`docs/brd/A4.md:13-17`: „≥ 4,8 ★”, „≥ 42%”, „30–45%”, „≥ 99,8%”, „≥ 65%”) oraz prognozy z `docs/monetyzacja-audyt.md` (55 000 pobrań, CAC, retencja 6,7 mies.) nie mają źródła ani ID decyzji: **nie są celami** i żadna decyzja na nich nie stoi. Każda z tych liczb może wrócić jako H-nn z progiem i minimalną próbą od właściciela; aktywnych H najwyżej 3.

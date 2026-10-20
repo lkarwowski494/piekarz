@@ -1,0 +1,28 @@
+{
+  "z": 1.645,
+  "opis": "Hipotezy wzrostu z progami (DEC-13 a). Opis i reguła rozstrzygania: docs/wzrost.md, sekcja Pomiar. Zmierzone dane (pole dane) trzyma się poza publicznym repo; do oceny wpisuje się je w kopii lokalnej. Zadanie M1-audytor-generalny-085 (11-wzrost-007).",
+  "hipotezy": [
+    {
+      "id": "H-01",
+      "pytanie": "Czy model DEC-01 d osiąga próg opłacalności 500 USD netto/rok na iOS? (decyzja: rozwój dalej albo zamrożenie, D-040)",
+      "metryka": "nowi płacący iOS ÷ pobrania pierwszorazowe iOS, dni 30–90 od wydania",
+      "zrodlo": "App Store Connect: zdarzenia „Paid Subscription from Introductory Price” i zakupy dożywotniego (Sales and Trends), pobrania pierwszorazowe (App Analytics); bez telemetrii",
+      "kryterium": {
+        "tekst": "po 90 dniach od wydania: w dniach 30–90 średnio ≥ 7 nowych płacących/mies. na iOS (płatność po ofercie wprowadzającej + zakupy dożywotniego) albo wpływ ≥ 42 USD/mies.; ≤ 3,5 płacących albo ≤ 21 USD/mies. → zamrożenie rozwoju",
+        "zrodlo": "docs/monetyzacja.md roli 02, „Kryterium eksperymentu dla DEC-01 d” (eksperyment.kryterium_do_przeliczenia), D-038",
+        "okno_dni": [30, 90],
+        "prog": { "nowi_placacy_mies": 7, "wplyw_usd_mies": 42 },
+        "zamrozenie": { "nowi_placacy_mies": 3.5, "wplyw_usd_mies": 21 }
+      },
+      "prog": { "wartosc": 0.085, "kierunek": ">=", "decyzja": "D-038 (kryterium roli 02: ok. 8,5% przy ok. 83 pobraniach iOS/mies.), DEC-13 a" },
+      "min_proba": 100,
+      "mierzalnosc": {
+        "oczekiwane_n": 166,
+        "metoda": "[OCENA] 993 pobrania iOS/rok z bramki opłacalności roli 02 ≈ 83/mies. × 2 mies. (dni 30–90)",
+        "zastepnik": "liczby bezwzględne z kryterium (nowi płacący/mies., wpływ USD/mies.) z raportów sprzedaży; nie wymagają progu prywatności App Analytics"
+      },
+      "data_oceny": "2027-01-19",
+      "data_oceny_regula": "data wydania w App Store + 90 dni; 2027-01-19 to najwcześniejsza możliwa (wydanie nie wcześniej niż 2026-10-21); w dniu wydania przestawić według docs/wydanie/dziennik.md"
+    }
+  ]
+}
