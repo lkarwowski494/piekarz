@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
+import { getFocusedRouteNameFromRoute } from 'expo-router/react-navigation';
 import { theme } from '../../src/ui/theme';
 import { t } from '../../src/lib/i18n';
 import { TabIcon, TabLabel } from '../../src/components/TabIcon';
@@ -9,14 +10,10 @@ import { TabIcon, TabLabel } from '../../src/components/TabIcon';
 // i Doktor Chleba otwierają się nad zakładkami, bez paska (app/_layout.tsx). [M1-audytor-generalny-101]
 
 // Ekran receptury (push w stosie „Receptury”) ukrywa pasek zakładek (design-spec §11c 106); nazwa ekranu
-// z zagnieżdżonego stanu stosu zakładki. [M1-audytor-generalny-106]
-type TrasaZakladki = { state?: { index?: number; routes: { name: string }[] } };
+// ze stanu stosu zakładki przez getFocusedRouteNameFromRoute (stan dziecka nie leży w route.state). [M1-audytor-generalny-106]
 const PASEK = { backgroundColor: theme.colors.powierzchnia, borderTopColor: theme.colors.linia };
-const stylPaskaReceptur = (route: TrasaZakladki) => {
-  const s = route.state;
-  const ekran = s ? s.routes[s.index ?? s.routes.length - 1]?.name : undefined;
-  return ekran === 'receptura' ? { ...PASEK, display: 'none' as const } : PASEK;
-};
+const stylPaskaReceptur = (route: Parameters<typeof getFocusedRouteNameFromRoute>[0]) =>
+  getFocusedRouteNameFromRoute(route) === 'receptura' ? { ...PASEK, display: 'none' as const } : PASEK;
 
 export default function TabsLayout() {
   return (
@@ -46,7 +43,7 @@ export default function TabsLayout() {
         options={({ route }) => ({
           title: t('Receptury'),
           tabBarIcon: ({ color }) => <TabIcon name="receptury" color={color} />,
-          tabBarStyle: stylPaskaReceptur(route as TrasaZakladki),
+          tabBarStyle: stylPaskaReceptur(route),
         })}
       />
       <Tabs.Screen
