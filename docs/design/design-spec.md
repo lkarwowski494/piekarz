@@ -24,7 +24,7 @@ Jeden mocny element — **spirala koszyka** niosąca plan wypieku — i spokojna
 
 ## 3. Tokeny
 - Kolory, typografia, odstępy, promienie, cele, ruch, haptyka: `tokeny.json` (jedno źródło), propozycja modułu `tokeny.ts` (wygenerowana). Cztery warianty kolorów: jasny, ciemny, jasny i ciemny ze „Zwiększ kontrast”.
-- Kontrast: `kontrast.md` — 20 par × 4 warianty, wszystkie spełniają progi (tekst 4,5, grafika z danymi i obwódki 3; WCAG 2.2, 1.4.3 i 1.4.11).
+- Kontrast: `kontrast.md` — 31 par × 4 warianty, wszystkie spełniają progi (tekst 4,5, grafika z danymi i obwódki 3; WCAG 2.2, 1.4.3 i 1.4.11); pary spirali na tle ekranu i na karcie (`powierzchnia`) oraz zwój bieżący na zwoju przyszłym (`tusz` / `ratanSzary`) od partii 6 (§11c, 110).
 - Kolor ostrzeżenia `#F7D117` z czarnym tekstem i trójkątem (logika ISO 7010, nie kopia znaku) — używany tylko do ostrzeżeń bezpieczeństwa i zasady ostrożności (RD-21…RD-23). Błąd ma osobny kolor `blad` + ikonę. Akcent `noc` znaczy „działanie” i „noc w lodówce” w spirali — to samo znaczenie (czas, który płynie bez ciebie; D-051, 4a).
 - Typografia: Sofia Sans Semi Condensed (tytuły, czasy, ceny) dla łacinki, cyrylicy i greki; w pozostałych pismach i w treści krój systemowy. Skala z HIG (Large Default → AX5): treść 17 → 53 pt, tytuł kroku 28 → 58, duży tytuł 34 → 60, czas 56 → 99 (własny, skala jak Large Title). Liczby tabelaryczne. Żaden tekst nie ma limitu linii; przy AX5 długie słowa mogą się dzielić, nigdy nie są ucinane (055).
 - Cele: 48 pt w prowadzeniu i akcjach głównych, 44 pt w pozostałych, przycisk kciuka 64 pt (DEC-15 a).
@@ -173,6 +173,21 @@ Test akceptacyjny 058: (1) render prowadzenia, „Dziś” z trwającym wypiekie
 - przegląd wszystkich 21 stanów przy 390 pt: `e3-przeglad.png`;
 - 2026-10-20 (fix, 057): 20 zrzutów `kalkulator-receptura-*` wygenerowane ponownie z przyciskiem „Więcej” w pasku nawigacji (ta sama liczba plików, te same parametry); stan `receptura-wiecej` poza linią bazową (pl, en-US).
 Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy Noto Sans, symbole zastępcze); AX5 przy 320 pt dzieli długie słowa (fr z dzieleniem, pl bez słownika dzielenia w Chromium) — nic nie jest ucięte; na urządzeniu sprawdza rola 07/właściciel.
+
+## 11c. Partia 6 (rola 04, tryb fix, 2026-10-20)
+Uzupełnienia systemu dla zadań planu M2 partii 6; wdrożenie w kodzie robi rola 08 pod tymi samymi ID. Każdy punkt ma test akceptacyjny jak w §11b; testID to propozycja (istniejące zostają, gdy znaczenie się nie zmienia). Zrzuty wzorcowe nowych i zmienionych stanów: `wzorce-zrzuty/` (pl 390 jasny i ciemny, 320 jasny AX5; nazwy jak w §11a).
+
+### 110 · Spirala w „Zwiększ kontrast”: nowy `ratanSzary` (031)
+Bieżący zwój (`tusz`, grubość 9) leży na zwoju przyszłym (`ratanSzary`, grubość 3), więc to sąsiednie kolory w rozumieniu WCAG 1.4.11. W wariantach kontrastowych para miała 2,99 i 2,78. Nowe wartości (ten sam ciepły szary, inna jasność), wszystkie pary spirali ≥ 3 we wszystkich 4 wariantach (`kontrast.md`):
+
+| Token | Wariant | Było | Jest | `tusz` / `ratanSzary` | `ratanSzary` / `tlo` | `ratanSzary` / `powierzchnia` |
+|---|---|---|---|---|---|---|
+| `ratanSzary` | jasnyKontrast | `#5E5850` | `#7C7568` | 2,99 → 4,60 | 7,03 → 4,56 | 4,56 |
+| `ratanSzary` | ciemnyKontrast | `#A39A8B` | `#837C6D` | 2,78 → 4,14 | 7,55 → 5,07 | 4,16 |
+
+Warianty jasny i ciemny bez zmian (`tusz` / `ratanSzary` 4,45 i 4,06). Do `tokeny.json` dopisane pary: `tusz` / `ratanSzary`, `ratan` / `powierzchnia`, `ratanSzary` / `powierzchnia`, `nocDane` / `powierzchnia` (próg 3; karta zakwasu i karta trwającego wypieku). *Dlaczego jaśniejszy w jasnym i ciemniejszy w ciemnym:* zwój przyszły musi odstawać i od tła, i od tuszu; przedział jasności, który spełnia oba warunki, leży między starymi wartościami a tłem.
+
+Test akceptacyjny 110: (1) `node docs/design/narzedzia/tokeny.mjs` kończy się kodem 0 (31 par × 4 warianty); (2) w `src/ui/tokeny.ts` `ratanSzary` = `#7C7568` (jasnyKontrast) i `#837C6D` (ciemnyKontrast), a test kontrastu motywu (`src/ui/__tests__/theme-contrast.test.ts`) ma pary z tabeli wyżej z progiem 3; (3) zrzut `wzorce-zrzuty/prowadzenie-w-trakcie-pl-kontrast-390-*`.
 
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |

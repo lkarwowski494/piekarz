@@ -17,7 +17,7 @@
 | obwodka / tlo | obwódka przycisku i pola (WCAG 1.4.11) | 3 | 3,66 (#7E8079 / #F5F5F2) | 3,97 (#6E7A7D / #141A1C) | 10,49 (#3E403B / #FFFFFF) | 11,07 (#B4BEC0 / #000000) |
 | obwodka / powierzchnia | obwódka pola w komórce | 3 | 4,00 (#7E8079 / #FFFFFF) | 3,44 (#6E7A7D / #1F2729) | 10,49 (#3E403B / #FFFFFF) | 9,08 (#B4BEC0 / #161C1E) |
 | ratan / tlo | zwój zrobiony (grafika z danymi) | 3 | 4,22 (#9C6B2F / #F5F5F2) | 7,76 (#D3A464 / #141A1C) | 7,89 (#6E4A1F / #FFFFFF) | 12,63 (#E8C38E / #000000) |
-| ratanSzary / tlo | zwój przyszły (grafika z danymi) | 3 | 3,48 (#8A8273 / #F5F5F2) | 3,82 (#7D7466 / #141A1C) | 7,03 (#5E5850 / #FFFFFF) | 7,55 (#A39A8B / #000000) |
+| ratanSzary / tlo | zwój przyszły (grafika z danymi) | 3 | 3,48 (#8A8273 / #F5F5F2) | 3,82 (#7D7466 / #141A1C) | 4,56 (#7C7568 / #FFFFFF) | 5,07 (#837C6D / #000000) |
 | nocDane / tlo | noc w lodówce (grafika z danymi) | 3 | 9,00 (#1E4954 / #F5F5F2) | 8,29 (#8FB9C4 / #141A1C) | 13,61 (#12323A / #FFFFFF) | 13,64 (#B5D6DE / #000000) |
 | tusz / tlo | zwój bieżący i znacznik teraz | 3 | 15,49 (#1C1D1B / #F5F5F2) | 15,52 (#F1F1EC / #141A1C) | 21,00 (#000000 / #FFFFFF) | 21,00 (#FFFFFF / #000000) |
 | ostrzTusz / ostrzTlo | tekst ostrzeżenia | 4,5 | 11,35 (#1C1D1B / #F7D117) | 11,35 (#1C1D1B / #F7D117) | 14,09 (#000000 / #F7D117) | 14,09 (#000000 / #F7D117) |
@@ -31,5 +31,9 @@
 | akcent / powierzchnia | obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) | 3 | 9,83 (#1E4954 / #FFFFFF) | 7,17 (#8FB9C4 / #1F2729) | 13,61 (#12323A / #FFFFFF) | 11,19 (#B5D6DE / #161C1E) |
 | akcent / tlo | obwódka 3 pt wybranej opcji na tle ekranu | 3 | 9,00 (#1E4954 / #F5F5F2) | 8,29 (#8FB9C4 / #141A1C) | 13,61 (#12323A / #FFFFFF) | 13,64 (#B5D6DE / #000000) |
 | zablokowane / tlo | funkcja zablokowana na tle ekranu | 4,5 | 5,49 (#62645E / #F5F5F2) | 6,59 (#9AA09A / #141A1C) | 10,49 (#3E403B / #FFFFFF) | 12,39 (#C4C8C2 / #000000) |
+| tusz / ratanSzary | zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031) | 3 | 4,45 (#1C1D1B / #8A8273) | 4,06 (#F1F1EC / #7D7466) | 4,60 (#000000 / #7C7568) | 4,14 (#FFFFFF / #837C6D) |
+| ratan / powierzchnia | zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) | 3 | 4,61 (#9C6B2F / #FFFFFF) | 6,71 (#D3A464 / #1F2729) | 7,89 (#6E4A1F / #FFFFFF) | 10,36 (#E8C38E / #161C1E) |
+| ratanSzary / powierzchnia | zwój przyszły na karcie (partia 6, 031) | 3 | 3,80 (#8A8273 / #FFFFFF) | 3,30 (#7D7466 / #1F2729) | 4,56 (#7C7568 / #FFFFFF) | 4,16 (#837C6D / #161C1E) |
+| nocDane / powierzchnia | noc w lodówce na karcie (partia 6, 031) | 3 | 9,83 (#1E4954 / #FFFFFF) | 7,17 (#8FB9C4 / #1F2729) | 13,61 (#12323A / #FFFFFF) | 11,19 (#B5D6DE / #161C1E) |
 
-Wynik: wszystkie pary spełniają progi (27 par × 4 warianty).
+Wynik: wszystkie pary spełniają progi (31 par × 4 warianty).

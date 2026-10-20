@@ -24,7 +24,7 @@
       "tusz": "#000000", "tusz2": "#2E302C", "tusz3": "#3E403B",
       "linia": "#8A8B84", "obwodka": "#3E403B",
       "akcent": "#12323A", "naAkcencie": "#FFFFFF", "akcentTekst": "#12323A",
-      "ratan": "#6E4A1F", "ratanSzary": "#5E5850", "nocDane": "#12323A",
+      "ratan": "#6E4A1F", "ratanSzary": "#7C7568", "nocDane": "#12323A",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
       "blad": "#8C1D18", "zablokowane": "#3E403B"
     },
@@ -33,7 +33,7 @@
       "tusz": "#FFFFFF", "tusz2": "#DADDD8", "tusz3": "#C4C8C2",
       "linia": "#7C878A", "obwodka": "#B4BEC0",
       "akcent": "#B5D6DE", "naAkcencie": "#000000", "akcentTekst": "#B5D6DE",
-      "ratan": "#E8C38E", "ratanSzary": "#A39A8B", "nocDane": "#B5D6DE",
+      "ratan": "#E8C38E", "ratanSzary": "#837C6D", "nocDane": "#B5D6DE",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
       "blad": "#FFB4AB", "zablokowane": "#C4C8C2"
     }
@@ -65,7 +65,11 @@
     ["obwodka", "tloGrupa", 3, "obwódka pola na tle listy (WCAG 1.4.11)"],
     ["akcent", "powierzchnia", 3, "obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight)"],
     ["akcent", "tlo", 3, "obwódka 3 pt wybranej opcji na tle ekranu"],
-    ["zablokowane", "tlo", 4.5, "funkcja zablokowana na tle ekranu"]
+    ["zablokowane", "tlo", 4.5, "funkcja zablokowana na tle ekranu"],
+    ["tusz", "ratanSzary", 3, "zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031)"],
+    ["ratan", "powierzchnia", 3, "zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031)"],
+    ["ratanSzary", "powierzchnia", 3, "zwój przyszły na karcie (partia 6, 031)"],
+    ["nocDane", "powierzchnia", 3, "noc w lodówce na karcie (partia 6, 031)"]
   ],
   "typografia": {
     "_zrodlo": "HIG Typography, iOS Dynamic Type, Large (Default) i AX5 (odczyt 2026-10-20, developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json); punkty iOS",
