@@ -1327,5 +1327,342 @@
       "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
     },
     "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-001",
+    "twierdzenie": "Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.",
+    "zrodla": [
+      {
+        "adres": "https://extension.colostate.edu/resource/sourdough-starter-best-practices/",
+        "miejsce": "CSU Extension, „Sourdough Starter Best Practices” (Reviewed: October 2025), lista best practices, „Take care of your living starter”; kopia dowody/zrodla/csu-starter.htm",
+        "cytat": "The fermenting microorganisms in sourdough starter need to be fed fresh flour and water regularly to survive and grow.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100 (F-44, BR-NAUK-001): po co ten krok, starter_feed i rye_starter.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-002",
+    "twierdzenie": "Według King Arthur Baking zakwas gotowy do pieczenia po dokarmieniu podwaja objętość w ciągu 6–8 godzin, jest pełen pęcherzyków i ma ostry, czysty zapach.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, „Keeping starter alive vs. getting it active”; kopia dowody/zrodla/ka-sd-bake.htm",
+        "cytat": "To create baking-ready starter, feed it until it doubles in size within 6 to 8 hours of being fed; and appears bubbly and vigorous, with a sharp, clean aroma.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: starter_feed. Ta sama granica co ZAK-ZAL-006 (6–8 h, RD-24).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-003",
+    "twierdzenie": "Według King Arthur Baking odpoczynek ciasta z mąki i wody przed dodaniem soli (autoliza) pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, krok 2 „Autolyse”; kopia dowody/zrodla/ka-sd-bake.htm",
+        "cytat": "This rest, known as an autolyse, allows the flour to absorb the water, which starts the dough's gluten formation, and makes it easier to knead.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/glossary",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Glossary”, hasło „Autolyse”; kopia dowody/zrodla/ka-sd-glossary.htm",
+        "cytat": "A 15- to 30-minute rest period after mixing flour and water, before adding salt and yeast. It begins gluten development and reduces kneading time.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Dwie strony tego samego wydawcy liczone jako jedno źródło. Czas 15–30 min ze słowniczka nie trafia do treści (czas etapu to sprawa planu; nowe znalezisko 06-tresci-fix-p5-001).",
+    "uwagi": "M1-audytor-generalny-100: autolyse.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-004",
+    "twierdzenie": "Według King Arthur Baking wyrabianie rozwija gluten ciasta, wzmacnia go i rozciąga, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/yeast-baking",
+        "miejsce": "King Arthur Baking, „Yeast Baking 101”, „Kneading basics”; kopia dowody/zrodla/ka-guide-yeast.htm",
+        "cytat": "Kneading develops the dough's gluten, strengthening and stretching it so it's able to trap the gas created by yeast, thus making the dough rise.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło opisuje ciasto na drożdżach piekarskich; w zakwasie gaz także wytwarzają drożdże (słowniczek KA, hasło Fermentation), więc kierunek się zgadza. Nie dotyczy ciasta żytniego (ZYT-CIA-001).",
+    "uwagi": "M1-audytor-generalny-100: mix (tylko pszenny).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-005",
+    "twierdzenie": "Według King Arthur Baking podczas fermentacji w jednej masie powstają kwasy organiczne, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje objętość i lekkość.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/07/22/bulk-fermentation",
+        "miejsce": "King Arthur Baking, Maurizio Leo, „Bulk fermentation, explained” (2019-07-22), akapit o fermentacji w jednej masie; kopia dowody/zrodla/ka-bulk.htm",
+        "cytat": "Organic acids are primarily what give the dough flavor and strength (acids help condition the gluten network) and carbon dioxide gives the dough volume and lightness.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: bulk_ferment.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-006",
+    "twierdzenie": "Według King Arthur Baking rozciąganie i składanie ciasta w czasie fermentacji pomaga rozwinąć sieć glutenową i wzmacnia ciasto; przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/07/22/bulk-fermentation",
+        "miejsce": "King Arthur Baking, Maurizio Leo, „Bulk fermentation, explained” (2019-07-22), „Why stretch and fold during bulk fermentation?”; kopia dowody/zrodla/ka-bulk.htm",
+        "cytat": "This act of stretching and folding, which takes just a few moments, helps develop the gluten network in the dough. […] with a 100% rye bread , you can likely skip folding because the gluten properties in rye don't strengthen the same way that wheat gluten does.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Zdanie o życie dotyczy chleba 100% żytniego; wariant żytni Piekarza (> 50%, ZYT-GRA-001) nie ma składań z innego powodu (D-030), więc w treści o życie tego zdania nie ma.",
+    "uwagi": "M1-audytor-generalny-100: bulk_ferment (składania).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-007",
+    "twierdzenie": "Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt przyszłego bochenka, bez jego dopracowania.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, krok 5 „Pre-Shape”; kopia dowody/zrodla/ka-sd-bake.htm",
+        "cytat": "Pre-shaping dough creates the basic shape the loaf will eventually be, without refining that shape.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: pre_shape.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-008",
+    "twierdzenie": "Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek po formowaniu wstępnym rozluźnia go, więc ostateczne formowanie jest łatwiejsze.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, krok 5 „Pre-Shape”, „Why pre-shape?”; kopia dowody/zrodla/ka-sd-bake.htm",
+        "cytat": "Any time you handle dough its gluten tightens up, making it more resistant to further shaping. Pre-shaping dough then letting it rest before its final shaping relaxes its gluten, making it much easier to shape into its final form.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: bench_rest (i pre_shape).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-009",
+    "twierdzenie": "Według King Arthur Baking koszyk do garowania (banneton) podtrzymuje i kształtuje rosnący bochenek.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/glossary",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Glossary”, hasło „Banneton”; kopia dowody/zrodla/ka-sd-glossary.htm",
+        "cytat": "A French-style basket, similar to the German brotform, designed to hold and shape a rising loaf.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: final_shape (część z koszykiem). Po co samo formowanie ostateczne: KRO-POC-900.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-010",
+    "twierdzenie": "Według King Arthur Baking garowanie to ostatnie rośnięcie ciasta przed pieczeniem, a spowolnienie fermentacji, zwykle przez obniżenie temperatury, służy pogłębieniu smaku.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/glossary",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Glossary”, hasła „Proof” i „Retard”; kopia dowody/zrodla/ka-sd-glossary.htm",
+        "cytat": "The final rise of dough before baking. […] Slowing the fermentation process to increase flavor, usually by reducing the temperature.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: final_proof (garowanie w lodówce).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-011",
+    "twierdzenie": "Według King Arthur Baking garnek nagrzewa się pusty (około 30 minut), żeby po włożeniu ciasta powstała w nim para.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
+        "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), „Preheating the pot”; kopia dowody/zrodla/ka-dutch-oven.htm",
+        "cytat": "To ensure you get a burst of steam when the dough is put inside the pot, it should be preheated empty for about 30 minutes.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Czas 30 minut nie trafia do treści (czas etapu z planu).",
+    "uwagi": "M1-audytor-generalny-100: preheat_oven.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-012",
+    "twierdzenie": "Według King Arthur Baking nacięcie wyrośniętego bochenka tuż przed pieczeniem pomaga mu zachować kształt, bo wyznacza miejsce, w którym bochenek się rozszerza; bez nacięcia może pęknąć z boku albo na górze.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, krok 8 „Score”; kopia dowody/zrodla/ka-sd-bake.htm",
+        "cytat": "Scoring (a.k.a. slashing) a risen loaf just before putting it into the oven helps it retain its shape by giving it a pre-designated spot — the slash — to expand. Without scoring, bread may bulge, or \"blow out\" its side or top, creating a misshapen loaf.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: bake (krok z nacięciem).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-013",
+    "twierdzenie": "Według King Arthur Baking para w przykrytym garnku dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
+        "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), „How steam leads to beautiful loaves”; kopia dowody/zrodla/ka-dutch-oven.htm",
+        "cytat": "The steam keeps the crust soft longer, so it can continue to expand during the early stages of baking.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: faza lid_on.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-014",
+    "twierdzenie": "Według King Arthur Baking po zdjęciu pokrywy chleb piecze się dalej, aż w pełni się zrumieni.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
+        "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), opis pieczenia; kopia dowody/zrodla/ka-dutch-oven.htm",
+        "cytat": "remove the lid and bake for another 5 to 10 minutes, until the loaf browns fully.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Bez czasów z przepisu (5–10 min dotyczy innego przepisu niż plan Piekarza).",
+    "uwagi": "M1-audytor-generalny-100: faza lid_off.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-015",
+    "twierdzenie": "Według King Arthur Baking chleb wyjęty z pieca nie jest jeszcze w pełni gotowy: w czasie studzenia oddaje wilgoć, a jego miękisz potrzebuje tego czasu, żeby się w pełni ustalić; krojony wcześniej może być gumowaty.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2023/05/31/how-to-tell-if-bread-is-done",
+        "miejsce": "King Arthur Baking, Annabelle Shippee, „How to tell if bread is done baking” (2023-05-31), wypowiedź Barb; kopia dowody/zrodla/ka-bread-done.htm",
+        "cytat": "Moisture continues to be released as bread cools, and the internal structure of the loaf needs that time to set completely. Unless you want to end up with a gummy interior, let your bread cool completely before slicing into it.",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-100: cool i rye_cool.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-016",
+    "twierdzenie": "Według King Arthur Baking wilgotnym, zwartym chlebom z dużym udziałem mąki żytniej często służy studzenie nawet do 24 godzin.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2023/05/31/how-to-tell-if-bread-is-done",
+        "miejsce": "King Arthur Baking, Annabelle Shippee, „How to tell if bread is done baking” (2023-05-31), nawias po wypowiedzi Barb; kopia dowody/zrodla/ka-bread-done.htm",
+        "cytat": "Moist, dense rye breads with a high percentage of rye flour often benefit from up to 24 hours of cooling time!",
+        "odczyt": "2026-10-20",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Zgodne kierunkowo z ZYT-STU-001 (24 h, ten sam wydawca, inny tekst); granica „do 24 godzin” to zalecenie, nie blokada.",
+    "uwagi": "M1-audytor-generalny-100: rye_cool.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "KRO-POC-900",
+    "twierdzenie": "Po co są etapy chleba żytniego: mieszanie (rye_mix), krótka fermentacja (rye_rest), podział i formowanie (rye_shape), rozrost w formie (rye_proof), para przy wypieku w formie (rye_bake); po co jest samo formowanie ostateczne pszennego bochenka (final_shape).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-100. ZYT-ETA-001…006 opisują kolejność i warunki etapów w procedurze laboratoryjnej, nie ich cel; KRO-POC-004 i KRO-POC-006 dotyczą glutenu pszennego (ZYT-CIA-001: w cieście żytnim nie ma takiej sieci), więc nie wolno ich przenosić na żyto. Para przy wypieku: KA (ka-sd-bake) opisuje chleb pszenny na zakwasie. Do czasu źródła M2 nie pokazuje „po co” dla tych kroków.",
+    "krytyczne": false,
+    "przeglad": null
   }
 ]
