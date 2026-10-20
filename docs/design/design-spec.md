@@ -98,7 +98,7 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 087 dane zmyślone | start bez danych; przykłady oznaczone ramką „przykład” |
 | 088 emoji, teksty techniczne | ikony symboli, brak kodów w tekstach |
 | 089 jedna nazwa na akcję | rozdział 5 |
-| 090 wybory domyślne z decyzją | rozdział 12 |
+| 090 wybory domyślne z decyzją | rozdział 12 i 12a (kalibracja wiersz po wierszu, test) |
 | 096 miary USA | rozdział 7 i zrzuty en-US |
 | 097–099 PÓŹNIEJ/NIE bez wejść | brak spiżarni, przelicznika objętości i lodu w makietach |
 | 100 „po co ten krok” | przycisk w pasku kciuka; Akademia bez osobnego wejścia |
@@ -180,6 +180,33 @@ Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy N
 | rutynowe usunięcie z „Cofnij” | D-051 (1a) |
 | jeden wybór jednostek zamiast dwóch przełączników | D-051 (3a); zmiana kryterium F-38 u roli 03 |
 | akcent „noc” na przycisku głównym i w spirali | D-051 (4a) |
+| cele 64 / 48 / 44 pt | DEC-15 (a) planu napraw M1, `tokeny.json` → `cele` |
+| oferta przy pierwszej akcji, „Zamknij” zawsze widoczne | D-047, kontrakt płatności (`docs/monetyzacja.md`) |
+| brak przełącznika motywu w aplikacji | D-045 |
+| dźwięk w aplikacji | brak w 1.0 (§9: „gdy dźwięk powstanie”); domyślny stan przełącznika wymaga decyzji właściciela przed dodaniem dźwięku |
+| haptyka | według ustawienia systemu „Haptyka systemowa” (zachowanie platformy, HIG Playing haptics), nie wybór produktowy |
+
+### 12a. Kalibracja domyślnych wyborów (wzorce studia) — wiersz po wierszu (090, 2026-10-20)
+Stan w systemie z `docs/design/`; w kodzie wybory z kalibracji znikają z wdrożeniem 050/056/057 (mapa: `mapa-rol.md`).
+
+| Wybór z kalibracji | W systemie | Decyzja albo dowód braku |
+|---|---|---|
+| fiolet, indygo, gradienty, rozmyte plamy, szkło | brak (tokeny bez gradientu i rozmycia) | D-049; test: grep `LinearGradient\|BlurView\|expo-blur` w `app/`, `src/` = 0 |
+| kremowe tło + kontrastowy szeryf + terakota | brak: tło neutralne `#F5F5F2`, krój bezszeryfowy, akcent noc `#1E4954`, ratan tylko na zwojach | D-049 (test generyczności `02-kierunki.md`, wiersz A paleta), D-050 |
+| prawie czarne tło z jednym kwasowym akcentem | brak: ciemny `#141A1C` zabarwiony nocą, akcent `#8FB9C4` | D-045, D-049 |
+| przyciemniona czerń zamiast czerni bez powodu | ciemne tło to „noc ciemna” z palety kierunku; czerń `#000000` w wariancie „Zwiększ kontrast” | D-049 |
+| układ gazetowy (cienkie linie, zero zaokrągleń) | brak: listy grupowane iOS, promienie 6–18 według hierarchii | `tokeny.json` → `promienie`, D-049 |
+| zestaw kart SaaS (ten sam promień i cień wszędzie) | brak: bez cieni (`mapa-rol.md` §1, zasada 4); `CraftCard` usunięty; wyjątek nazwany: uprzedzenie 3 dni w `ekrany/oferta.html` rysowane jak alert systemowy (cień alertu iOS) | D-046, D-049 |
+| bohater „duża liczba + mała etykieta + statystyki + gradient” | jedna duża liczba tylko w prowadzeniu: czas kroku z podpisem „do {godzina}, potem …”, bez statystyk i gradientu; karty liczb (`CraftStatDisplay`) usunięte | DEC-09 (a) (widok skupiony: krok, zegar, jedna akcja), SP-17; §11b 056 |
+| WERSALIKI z rozstrzeleniem, „A · B”, „SŁOWO — fragment”, „→” na przyciskach, mono na etykietach | brak; „→” tylko w ujawnieniach oferty jako ścieżka w Ustawieniach systemu („Apple ID → Subskrypcje”), nie na przycisku | `02-kierunki.md` (wiersz A, B, C); test: grep `textTransform: 'uppercase'`, `letterSpacing`, ` · ` w `app/`, `src/` = 0 |
+| wyróżnienie jednego słowa kolorem lub kursywą | brak | — (brak w makietach) |
+| numeracja 01 / 02 / 03 bez sekwencji | brak; „Krok 4 z 13”, „Składanie 2 z 4”, „Dzień 3” to prawdziwe sekwencje | BR-ETAP-001, F-60 |
+| Inter, Roboto, Space Grotesk | brak: Sofia Sans Semi Condensed (tytuły), treść systemowa | D-050 |
+| „fade + slide up” każdej sekcji | brak: ruch tylko zwoju po „Zrobione” i paska „Cofnij” | `tokeny.json` → `ruch`, §9 |
+| emoji, postaci 3D, stockowe ilustracje | brak; ikony to symbole SF | 088, §4 |
+| kopie wyborów innej aplikacji portfolio | brak: porównanie z Treningiem, Organizerem, NaviStories w §13 | D-049, §13 |
+
+Test akceptacyjny 090: każdy wiersz §12 i §12a ma ID decyzji albo dowód braku; po wdrożeniu partii 5 testy grep z tabeli zwracają 0, a OP-38 (12 h, D-043), OP-49 (≥ 4★, D-042) i jednostki według regionu (D-044) mają testy jednostkowe wartości domyślnych (12 h odstępu przypomnienia na blacie; prośba o ocenę tylko przy ocenie ≥ 4; region `US` → `imp`, inne → `met`).
 
 ## 13. Propozycja wpisu do pamięci portfolio
 Repo `prompts`, `role/04-studio-projektowe/moduly/pamiec-portfolio.md`; wpis dopisuje właściciel.
