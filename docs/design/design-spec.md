@@ -44,6 +44,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Wróć do wypieku | Dziś | bieżący krok (F-58) |
 | Ułóż plan / Zacznij wypiek | receptura / plan | plan wstecz / start z prośbą o zgodę (jedno zdanie wcześniej, BR-CZAS-003) |
 | Zapisz jako moją, Temperatura wody, Zmień składniki | receptura | razem z „Ułóż plan” najwyżej 4 akcje (057) |
+| Więcej → Kopiuj jako tekst, Udostępnij plik receptury | receptura, menu systemowe z przycisku w pasku nawigacji | tekst receptury w schowku („Skopiowano recepturę”); arkusz udostępniania systemu z plikiem receptury (F-33); stan `receptura-wiecej` |
 | Zapisz dokarmienie, Podwoił objętość, Coś mnie niepokoi, Edytuj | zakwas | wpis; „gotowy” z atrybucją; objawy; poprawa wpisu (F-62) |
 | Zapisz / Anuluj / Zamknij | arkusze, oferta | jak w słowniku studia; oferta ma zawsze widoczne „Zamknij” |
 | Zacznij 14 dni próby / Kup plan … / Przywróć zakupy / Zarządzaj subskrypcją | oferta, ustawienia | StoreKit; bez sieci komunikat i „Spróbuj ponownie” |
@@ -56,7 +57,7 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 |---|---|
 | Start (F-68) | `pierwsze-uruchomienie` (bez danych zmyślonych, 087), `trwa-wypiek` (powrót jednym dotknięciem), `tylko-historia` (F-67, kłódka + tekst) |
 | Prowadzenie (F-07, F-57, F-16, F-18, F-58) | `w-trakcie`, `koniec-kroku` (ostrzeżenie RD-23, „po czasie”), `brak-zgody` (stała informacja + Ustawienia), `zgoda` (zdanie przed prośbą), `po-cofnieciu` |
-| Receptura (F-09, F-10, F-11, F-56) | `receptura` (≤ 4 akcje), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
+| Receptura (F-09, F-10, F-11, F-56) | `receptura` (≤ 4 akcje), `receptura-wiecej` (menu „Więcej”, 057), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
 | Zakwas (F-22…F-25, F-60, F-62, F-64) | `karta` (cykl, „Podwoił objętość”), `zakladanie-dzien-3` (dzień N, 7–10 dni), `plesn` (RD-21, polecenie zamiast listy) |
 | Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `uprzedzenie-3-dni`, `bez-sieci` |
 | Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `ocena-slaba` (Doktor ≤ 2★; przy ≥ 4★ tylko prośba systemowa, bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka) |
@@ -92,7 +93,7 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 054 pasek zakładek | systemowy, z marginesem wskaźnika Home (makieta: 34 pt) |
 | 055 AX5 i 320 pt | zrzuty `*-320-*-ax5`: bez ucięć, stos pionowy, wartości pod etykietami |
 | 056 widok skupiony i pasek kciuka | ekran prowadzenia |
-| 057 ≤ 4 akcje | receptura: Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki |
+| 057 ≤ 4 akcje | receptura: Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki; reszta w menu „Więcej” (§11b) |
 | 058 element firmowy | spirala koszyka, rozdział 2 |
 | 087 dane zmyślone | start bez danych; przykłady oznaczone ramką „przykład” |
 | 088 emoji, teksty techniczne | ikony symboli, brak kodów w tekstach |
@@ -106,12 +107,33 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 103 ostrzeżenia w krokach | komponent Ostrzeżenie (koniec-kroku); krok nieznanego rodzaju: ostrzeżenie ogólne „Uważaj na gorące naczynia i surowe ciasto” [treść roli 06] |
 | 104 zakwas od zera, z lodówki, poprawa, Doktor zakwasu | zakwas: dzień N, plan budzi z lodówki (dokarmienia w planie), „Edytuj” przy wpisie, „Coś mnie niepokoi” |
 
+## 11b. Testy akceptacyjne partii 5 (rola 04, tryb fix, 2026-10-20)
+Każdy punkt jest sprawdzalny testem albo zrzutem; testID to propozycja dla roli 08 (istniejące zostają, gdy znaczenie się nie zmienia, żeby ścieżki Maestro przetrwały).
+
+### 057 · Receptura: najwyżej 4 akcje główne, reszta w menu (DEC-09 a)
+Ekran receptury (dziś Kalkulator, zakładka „Receptury” według D-051 2a) ma w obszarze akcji dokładnie 4 przyciski i jeden przycisk „Więcej” w pasku nawigacji:
+
+| Akcja PL / EN | Miejsce | testID | Zastępuje w kodzie |
+|---|---|---|---|
+| Ułóż plan / Make a Plan | przycisk główny 64 pt (`cele.przyciskKciuka`), `akcent` + `naAkcencie` | `start-bake-btn` (jeden) | `start-bake-btn` ×2 (`DoMiskiScaleCard`, `CalculatorActionButtons`), `fast-start-bake-cta-btn` |
+| Zapisz jako moją / Save as Mine | przycisk drugi 48 pt | `save-custom-recipe-btn` | „Zapisz jako mój przepis” i „Klonuj recepturę” (`clone-recipe-btn`, ta sama akcja) |
+| Temperatura wody / Water temperature | przycisk drugi 48 pt | `water-temp-btn` | wejście do temperatury wody (F-10) |
+| Zmień składniki / Change Ingredients | przycisk drugi 48 pt | `edit-ingredients-btn` | `edit-blend-pro-btn`, `open-blend-builder-btn` (F-11, F-56) |
+| Więcej (etykieta VoiceOver „Więcej działań: receptura” / “More actions: recipe”) | pasek nawigacji, prawy róg, cel 44 pt; menu systemowe iOS | `recipe-more-btn` | — |
+| Więcej → Kopiuj jako tekst / Copy as Text | menu | `copy-recipe-btn` | „Kopiuj recepturę” |
+| Więcej → Udostępnij plik receptury / Share Recipe File | menu | `export-recipe-json-btn` | „Eksportuj JSON” |
+
+Poza ekranem receptury: „Importuj z pliku” tylko w Ustawieniach (F-33; usunąć `import-recipe-json-btn` i `open-import-recipe-btn` z receptury). Ukryte (PÓŹNIEJ, `src/lib/wejscia-pozniej.ts`): QR (`share-recipe-qr-btn`, `open-scan-qr-btn`, F-08), druk (`print-menu-btn`, F-50), spiżarnia (`open-flour-inventory-btn` ×2, F-30), przelicznik objętości (`open-volume-converter-btn`, F-45), odpowiedniki mąk (`open-flour-equivalents-btn`, F-46). Bez emoji w etykietach (088).
+
+Test akceptacyjny 057: (1) render ekranu receptury: w obszarze akcji 4 elementy z rolą `button` (`start-bake-btn`, `save-custom-recipe-btn`, `water-temp-btn`, `edit-ingredients-btn`) i żadnego innego; (2) w drzewie ekranu każdy testID występuje najwyżej raz (brak duplikatów `start-bake-btn`, `open-flour-inventory-btn`, importu); (3) `recipe-more-btn` otwiera menu z dokładnie 2 pozycjami w tej kolejności; (4) etykiety bez znaków emoji (regex `\p{Extended_Pictographic}` = 0); (5) wzorzec: `wzorce-zrzuty/kalkulator-receptura-*` i stan `receptura-wiecej` w `ekrany/kalkulator.html`.
+
 ## 11a. Zrzuty wzorcowe (linia bazowa audytu SP-13)
 `wzorce-zrzuty/` (150 plików, skala 1×, nazwy `<ekran>-<stan>-<wariant>-<szerokość>-<motyw>[-ax5].png`), generowane `narzedzia/zrzuty.mjs` z `ekrany/*.html`:
 - **pl**: 7 stanów kluczowych (start ×2, prowadzenie ×2, receptura, zakwas, oferta) × 320/390/430 × jasny/ciemny × domyślny/AX5 = 84; **pl-kontrast**: prowadzenie ×2 × 390 × jasny/ciemny („Zwiększ kontrast”) = 4;
 - **en-US-imp** (miary USA): prowadzenie ×2, receptura, temperatura wody, zakwas, plan, ustawienia, start, oferta (9 stanów) × 390 jasny/ciemny + 320 jasny AX5 = 27;
 - **fr** (najdłuższy język, `pomiar-jezykow.md`): 7 stanów × 320/390 jasny × domyślny/AX5 + 430 ciemny = 35 (razem 150);
-- przegląd wszystkich 21 stanów przy 390 pt: `e3-przeglad.png`.
+- przegląd wszystkich 21 stanów przy 390 pt: `e3-przeglad.png`;
+- 2026-10-20 (fix, 057): 20 zrzutów `kalkulator-receptura-*` wygenerowane ponownie z przyciskiem „Więcej” w pasku nawigacji (ta sama liczba plików, te same parametry); stan `receptura-wiecej` poza linią bazową (pl, en-US).
 Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy Noto Sans, symbole zastępcze); AX5 przy 320 pt dzieli długie słowa (fr z dzieleniem, pl bez słownika dzielenia w Chromium) — nic nie jest ucięte; na urządzeniu sprawdza rola 07/właściciel.
 
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją

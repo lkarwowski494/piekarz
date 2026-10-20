@@ -134,6 +134,8 @@ window.TEKSTY['en-US'] = {
  "kl.zapisz": "Save as Mine",
  "kl.tempWody": "Water temperature",
  "kl.zmien": "Change Ingredients",
+ "kl.kopiujTekst": "Copy as Text",
+ "kl.udostepnijPlik": "Share Recipe File",
  "kl.gotowe": "Done",
  "kl.skladniki": "Ingredients",
  "kl.maki": "Flours (100% total)",

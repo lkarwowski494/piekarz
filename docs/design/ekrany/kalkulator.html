@@ -1,10 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pl">
 <head>
 <meta charset="utf-8">
 <title>Piekarz — receptura i ilości (E3)</title>
 <!-- PR-01, F-09 (BR-KALK-001…003), F-11 (żytni), F-56 (sól, BR-KALK-011), F-10 (woda), F-27, F-38 (miary USA, 096).
      Najwyżej 4 akcje główne (057, DEC-09 a): Ułóż plan, Zapisz jako moją, Temperatura wody, Zmień składniki. Bez QR, druku, spiżarni (PÓŹNIEJ), bez lodu (F-53 NIE).
+     Reszta w menu „Więcej” w pasku nawigacji (stan receptura-wiecej, partia 5 fix 2026-10-20): Kopiuj jako tekst, Udostępnij plik receptury; import tylko w Ustawieniach (F-33).
      Liczby: [PRZYKŁAD] rachunek procentu piekarskiego dla 2 × 850 g przy 75% wody i 20% zakwasu o hydratacji 100% (nie twierdzenie dziedzinowe). -->
 <link rel="stylesheet" href="wspolne.css">
 <style>
@@ -18,13 +19,19 @@
 .wagi .waga { display: flex; gap: 12px; align-items: flex-start; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--linia); } .wagi .waga:last-child { border-bottom: 0; } .wagi .nazwa { flex: 1 1 calc(120px + 400px * var(--ax)); min-width: 0; } .wagi .liczba { margin-left: auto; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .akcje { display: flex; flex-wrap: wrap; gap: 10px; }
 .akcje .drugi { flex: 1 1 calc(140px + 400px * var(--ax)); }
+/* menu „Więcej” (057): systemowe menu iOS z przycisku w pasku nawigacji; makieta rysuje je zastępczo, bez własnego przyciemnienia tła */
+.menu { position: absolute; top: calc(91px + 70px * var(--ax)); right: 8px; width: min(calc(250px + 120px * var(--ax)), calc(100% - 16px)); background: var(--powierzchnia); border: 1px solid var(--linia); border-radius: 14px; overflow: hidden; z-index: 2; }
+.menu button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 48px; padding: 10px 16px; background: none; border: 0; border-bottom: 1px solid var(--linia); color: var(--tusz); text-align: left; font: inherit; }
+.menu button:last-child { border-bottom: 0; }
+.menu button > span:first-child { flex: 1; min-width: 0; }
+.menu button.usun { color: var(--blad); }
 </style>
 </head>
 <body>
 
 <main data-ekran="receptura">
   <div class="status"><span>9:12</span><span>LTE 88%</span></div>
-  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.receptury">Receptury</span></a></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.receptury">Receptury</span></a><button aria-label="Więcej działań: receptura" style="margin-left:auto" data-ikona="wiecej"></button></div>
   <div class="tresc">
     <h1 class="t-duzy" data-t="kl.nazwa">Chleb pszenny na zakwasie</h1>
     <span class="przyklad t-przyp" style="align-self:flex-start" data-t="kl.bazowa">receptura bazowa, przykład</span>
@@ -42,6 +49,28 @@
       </div>
     </div>
     <div class="info t-obj"><span data-ikona="info"></span><span data-t="kl.hydratacja">Hydratacja całkowita 77%: woda z zakwasu jest wliczona.</span></div>
+  </div>
+  <div class="kciuk">
+    <button class="glowny t-nagl" data-t="kl.ulozPlan">Ułóż plan</button>
+    <div class="akcje"><button class="drugi t-obj" data-t="kl.zapisz">Zapisz jako moją</button><button class="drugi t-obj" data-t="kl.tempWody">Temperatura wody</button></div>
+    <button class="drugi t-obj" style="flex:none" data-t="kl.zmien">Zmień składniki</button>
+  </div>
+</main>
+
+<main data-ekran="receptura-wiecej">
+  <div class="status"><span>9:13</span><span>LTE 88%</span></div>
+  <div class="nav"><a href="#" class="t-tresc"><span data-ikona="wstecz"></span><span data-t="tab.receptury">Receptury</span></a><button aria-label="Więcej działań: receptura" aria-expanded="true" style="margin-left:auto" data-ikona="wiecej"></button></div>
+  <div class="menu t-tresc" role="menu" aria-label="Więcej działań: receptura">
+    <button role="menuitem"><span data-t="kl.kopiujTekst">Kopiuj jako tekst</span><span data-ikona="kopiuj"></span></button>
+    <button role="menuitem"><span data-t="kl.udostepnijPlik">Udostępnij plik receptury</span><span data-ikona="udostepnij"></span></button>
+  </div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="kl.nazwa">Chleb pszenny na zakwasie</h1>
+    <span class="przyklad t-przyp" style="align-self:flex-start" data-t="kl.bazowa">receptura bazowa, przykład</span>
+    <div class="grupa">
+      <div class="kom"><span class="roz t-tresc" data-t="kl.bochenki">Bochenki</span><span class="stepper"><button aria-label="Mniej bochenków">−</button><span class="w t-2">2</span><button aria-label="Więcej bochenków">+</button></span></div>
+      <div class="kom"><span class="roz t-tresc" data-t="kl.masaBochenka">Masa bochenka</span><span class="t-nagl" data-g="850"></span></div>
+    </div>
   </div>
   <div class="kciuk">
     <button class="glowny t-nagl" data-t="kl.ulozPlan">Ułóż plan</button>

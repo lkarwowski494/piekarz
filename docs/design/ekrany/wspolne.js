@@ -59,6 +59,11 @@ var IKONY = {
   para: '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 L29 27 H1 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M10.5 22c1.5-2-1.5-3.5 0-5.5M15 22c1.5-2-1.5-3.5 0-5.5M19.5 22c1.5-2-1.5-3.5 0-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   plesn: '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M15 2 L29 27 H1 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M15 10v8M15 21.5v.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>',
   ksiezyc: IKONA('<path d="M19 14.5A8 8 0 1 1 9.5 5a6.5 6.5 0 0 0 9.5 9.5z"/>', 20),
+  // menu „Więcej” receptury (057, DEC-09 a); na iOS symbole SF: ellipsis.circle, doc.on.doc, square.and.arrow.up, trash
+  wiecej: IKONA('<circle cx="12" cy="12" r="9"/><circle cx="7.8" cy="12" r=".9" fill="currentColor"/><circle cx="12" cy="12" r=".9" fill="currentColor"/><circle cx="16.2" cy="12" r=".9" fill="currentColor"/>', 26),
+  kopiuj: IKONA('<rect x="8" y="8" width="11" height="13" rx="2"/><path d="M5 16V5a2 2 0 0 1 2-2h8"/>', 22),
+  udostepnij: IKONA('<path d="M12 3v12M7.5 7.5L12 3l4.5 4.5"/><path d="M6 11H5v10h14V11h-1"/>', 22),
+  kosz: IKONA('<path d="M4 7h16M9 7V4h6v3M6.5 7l1 14h9l1-14"/>', 22),
 };
 
 // Spirala koszyka (element firmowy). data-kroki: JSON [[nazwa, min, czynny, noc]], data-teraz: minuty od startu, data-gotowe: tekst godziny.
