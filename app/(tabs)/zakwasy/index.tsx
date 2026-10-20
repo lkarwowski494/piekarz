@@ -36,6 +36,8 @@ import { StarterFeedingCard } from '../../../src/components/zakwas/StarterFeedin
 import { StarterSafetyCard } from '../../../src/components/zakwas/StarterSafetyCard';
 import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModal';
 import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
+import { ZakwasDziennik } from '../../../src/components/zakwas/ZakwasDziennik';
+import { ZakladanieStart } from '../../../src/components/zakwas/ZakladanieStart';
 
 export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
@@ -83,6 +85,8 @@ export default function ZakwasScreen() {
   const [newStarterStorage, setNewStarterStorage] = useState<'ROOM_TEMP' | 'FRIDGE'>('ROOM_TEMP');
   const [isConverterOpen, setIsConverterOpen] = useState<boolean>(false);
   const [isDiscardModalOpen, setIsDiscardModalOpen] = useState<boolean>(false);
+  // Dziennik czyta wpisy ponownie po dokarmieniu zapisanym na ekranie [M1-audytor-generalny-104]
+  const [wersjaDziennika, setWersjaDziennika] = useState<number>(0);
 
   const loadStarterData = useCallback(async (preferredId?: string) => {
     const list = await getStarters();
@@ -170,6 +174,7 @@ export default function ZakwasScreen() {
       void ensureNotificationPermission(); // zgoda przy pierwszym karmieniu, przypomnienia (ADR-006)
       setStarter(updated);
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
+      setWersjaDziennika((v) => v + 1);
       Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
     }));
   };
@@ -275,6 +280,14 @@ export default function ZakwasScreen() {
             {t('Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.')}
           </Text>
         )}
+        {/* Zakładanie od zera: pierwsze dokarmienie tworzy zakwas w dniu 1 (BR-ZAKW-005) [M1-audytor-generalny-104] */}
+        {!maZakwas && (
+          <ZakladanieStart onZapisz={(nowy) => requireActionAccess(guardSave(async () => {
+            await nowy();
+            void resyncNotifications();
+            await loadStarterData();
+          }))} />
+        )}
 
         {/* Starters Carousel / Selector */}
         <StartersSelectorRow
@@ -298,6 +311,16 @@ export default function ZakwasScreen() {
           />
         )}
 
+        {maZakwas && (
+          <ZakwasDziennik
+            starter={starter}
+            wersja={wersjaDziennika}
+            onDokarm={handleLogFeeding}
+            zDostepem={(akcja) => requireActionAccess(akcja)}
+            onZmianaZakwasu={() => loadStarterData(starter.id)}
+          />
+        )}
+
         {/* Bez uprawnienia: profil do odczytu, etykieta i usunięcie wolne; reszta otwiera ekran zakupu (027) */}
         <BlokadaFunkcji {...blokada('zakwas')}>
         {maZakwas && (
@@ -308,7 +331,6 @@ export default function ZakwasScreen() {
             ambientTempC={ambientTempC}
             onAmbientTempChange={setAmbientTempC}
             unitSystem={unitSystem}
-            onLogFeeding={handleLogFeeding}
           />
         )}
 

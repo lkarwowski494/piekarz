@@ -43,7 +43,6 @@ describe('porada fazy hungry a ZAK-HOO-001', () => {
           ambientTempC={22}
           onAmbientTempChange={() => {}}
           unitSystem="metric"
-          onLogFeeding={() => {}}
         />,
       );
     });
