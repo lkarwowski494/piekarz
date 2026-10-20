@@ -237,5 +237,17 @@ window.TEKSTY['fr'] = {
  "kl.zaczyn": "Préferment",
  "kl.zaczynRodzaj": "Type",
  "kl.bezZaczynu": "aucun",
- "kl.zaczynOpis": "Avec un préferment (poolish, biga, pâte fermentée, levain), vous choisissez la part de farine qui y va ; « Dans le bol » montre le préferment et la pâte séparément."
+ "kl.zaczynOpis": "Avec un préferment (poolish, biga, pâte fermentée, levain), vous choisissez la part de farine qui y va ; « Dans le bol » montre le préferment et la pâte séparément.",
+ "im.anuluj": "Annuler",
+ "im.dodaj": "Ajouter",
+ "im.recTyt": "Recette depuis un fichier",
+ "im.nazwa": "Nom",
+ "im.nazwaWart": "Mon pain de campagne 75 %",
+ "im.maki": "Farines",
+ "im.makiWart": "blé 80 %, seigle 20 %",
+ "im.recOpis": "Je l'ajoute à Mes recettes. Vos autres données restent inchangées.",
+ "im.kopiaTyt": "Sauvegarde depuis un fichier",
+ "im.kopiaZawartosc": "Sauvegarde du 18 octobre 2026 : 3 recettes, 1 levain, 12 entrées du journal.",
+ "im.kopiaOpis": "L'import remplace toutes les données de l'application par celles de la sauvegarde. Avant l'import, j'enregistre une copie de vos données actuelles.",
+ "im.zastap": "Remplacer les données"
 };

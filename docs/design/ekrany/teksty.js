@@ -43,7 +43,7 @@ window.TEKSTY['en-US'] = {
  "of.cenaNieznana": "price will appear once connected",
  "of.sprobujPonownie": "Try Again",
  "nav.dzis": "Today",
- "pw.plan": "Bake Schedule",
+ "pw.plan": "Bake Plan",
  "pw.receptura": "Sourdough wheat bread, 2 × {g:850} <span class=\"przyklad\">example</span>",
  "pw.krok4": "Step 4 of 13",
  "pw.gotoweJutro": "Ready tomorrow at {h:9:35}",
@@ -239,5 +239,17 @@ window.TEKSTY['en-US'] = {
  "kl.zaczyn": "Preferment",
  "kl.zaczynRodzaj": "Type",
  "kl.bezZaczynu": "none",
- "kl.zaczynOpis": "With a preferment (poolish, biga, old dough, levain), you choose how much flour goes into it; “Into the bowl” shows the preferment and the dough separately."
+ "kl.zaczynOpis": "With a preferment (poolish, biga, old dough, levain), you choose how much flour goes into it; “Into the bowl” shows the preferment and the dough separately.",
+ "im.anuluj": "Cancel",
+ "im.dodaj": "Add",
+ "im.recTyt": "Recipe from File",
+ "im.nazwa": "Name",
+ "im.nazwaWart": "My country loaf 75%",
+ "im.maki": "Flours",
+ "im.makiWart": "wheat 80%, rye 20%",
+ "im.recOpis": "I'll add it to My Recipes. Your other data stays as it is.",
+ "im.kopiaTyt": "Backup from File",
+ "im.kopiaZawartosc": "Backup from October 18, 2026: 3 recipes, 1 starter, 12 journal entries.",
+ "im.kopiaOpis": "Importing replaces all data in the app with the data from the backup. Before importing, I'll save a copy of your current data.",
+ "im.zastap": "Replace Data"
 };

@@ -61,6 +61,39 @@
   </div>
 </main>
 
+<!-- Partia 6 (113, 04-studio-projektowe-028): jedno wejście „Importuj z pliku” w Ustawieniach; po wyborze pliku arkusz podglądu według rodzaju pliku
+     (format „piekarz-backup” = kopia, inaczej receptura). Dane: [PRZYKŁAD]. -->
+<main data-ekran="import-receptura">
+  <div class="status"><span>21:04</span><span>LTE 80%</span></div>
+  <div class="arkusz">
+    <div class="nav"><button class="t-tresc" data-t="im.anuluj">Anuluj</button><button class="t-tresc" style="font-weight:600" data-t="im.dodaj">Dodaj</button></div>
+    <div class="tresc">
+      <h1 class="t-krok" data-t="im.recTyt">Receptura z pliku</h1>
+      <div class="grupa" style="background:var(--tlo)">
+        <div class="kom"><span class="roz t-tresc" data-t="im.nazwa">Nazwa</span><span class="wart t-tresc" data-t="im.nazwaWart">Mój wiejski 75%</span></div>
+        <div class="kom"><span class="roz t-tresc" data-t="im.maki">Mąki</span><span class="wart t-tresc" data-t="im.makiWart">pszenna 80%, żytnia 20%</span></div>
+        <div class="kom"><span class="roz t-tresc" data-t="kl.woda">Woda</span><span class="wart t-tresc">75%</span></div>
+        <div class="kom"><span class="roz t-tresc" data-t="kl.zakwasP">Zakwas</span><span class="wart t-tresc">20%</span></div>
+        <div class="kom"><span class="roz t-tresc" data-t="kl.sol">Sól</span><span class="wart t-tresc">2%</span></div>
+      </div>
+      <div class="info t-obj"><span data-ikona="info"></span><span data-t="im.recOpis">Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.</span></div>
+    </div>
+  </div>
+</main>
+
+<main data-ekran="import-kopia">
+  <div class="status"><span>21:05</span><span>LTE 80%</span></div>
+  <div class="arkusz">
+    <div class="nav"><button class="t-tresc" data-t="im.anuluj">Anuluj</button><span></span></div>
+    <div class="tresc">
+      <h1 class="t-krok" data-t="im.kopiaTyt">Kopia zapasowa z pliku</h1>
+      <p class="t-tresc" data-t="im.kopiaZawartosc">Kopia z 18 października 2026: 3 receptury, 1 zakwas, 12 wpisów w Dzienniku.</p>
+      <div class="info t-obj" style="color:var(--tusz)"><span data-ikona="info"></span><span data-t="im.kopiaOpis">Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.</span></div>
+      <button class="drugi t-nagl" style="flex:none;color:var(--blad)" data-t="im.zastap">Zastąp dane</button>
+    </div>
+  </div>
+</main>
+
 <main data-ekran="ocena-slaba">
   <div class="status"><span>10:40</span><span>LTE 60%</span></div>
   <div class="nav"><span></span><button class="t-tresc" style="font-weight:600" data-t="oc.zapisz">Zapisz</button></div>
