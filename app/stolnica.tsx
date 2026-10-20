@@ -23,7 +23,7 @@ import {
   setBakingVessel,
   BakingVessel,
 } from '../src/data/sqlite-store';
-import { useUnitSystem, formatTextUnits } from '../src/lib/unit-converter';
+import { useUnitSystem } from '../src/lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep, planBakeSteps } from '../src/core/bake-steps';
@@ -33,8 +33,7 @@ import { useBakeHistory } from '../src/hooks/useBakeHistory';
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { FinishBakeModal } from '../src/components/stolnica/FinishBakeModal';
-import { PokeTestEntry } from '../src/components/stolnica/PokeTestEntry';
-import { DutchOvenController } from '../src/components/stolnica/DutchOvenController';
+import { StrefaKroku } from '../src/components/stolnica/StrefaKroku';
 import { BakeStatsCard } from '../src/components/stolnica/BakeStatsCard';
 import { BakeHistorySection } from '../src/components/stolnica/BakeHistorySection';
 import { IdleBakeCard } from '../src/components/stolnica/IdleBakeCard';
@@ -352,22 +351,16 @@ export default function StolnicaScreen() {
               pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
             <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: currentStepIdx + 1, m: steps.length })}</Text>
 
-            {/* Strefa kroku: tytuł, czas do końca (etap żytni bez czasu w planie idzie bez minutnika, 030), treść */}
-            <Text testID="step-title" style={styles.activeStepTitle}>{t(currentStep.name)}</Text>
-            {stepHasTimer(currentStep) && <Text testID="step-time" style={styles.czas}>{formattedTime}</Text>}
-            <Text style={styles.activeStepDesc}>{formatTextUnits(t(currentStep.instructions), unitSystem)}</Text>
-            <PokeTestEntry step={currentStep} />
-
-            {/* Dutch Oven Two-Phase Controller for the bake step */}
-            {isDutchOvenStep(currentStep) && (
-              <DutchOvenController
-                dutchOvenPhase={dutchOvenPhase}
-                onSwitchPhase={handleSwitchDutchOvenPhase}
-                unitSystem={unitSystem}
-                isCompleted={isCompleted}
-                onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
-              />
-            )}
+            {/* Strefa kroku: tytuł, czas do końca, treść, test palca, fazy garnka */}
+            <StrefaKroku
+              step={currentStep}
+              formattedTime={formattedTime}
+              unitSystem={unitSystem}
+              dutchOvenPhase={dutchOvenPhase}
+              isCompleted={isCompleted}
+              onSwitchPhase={handleSwitchDutchOvenPhase}
+              onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
+            />
           </View>
           </BlokadaFunkcji>
         )}
