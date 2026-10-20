@@ -54,10 +54,10 @@
     "uproszczenie": "FSIS nie wymienia zakwasu; regułę dla zakwasu daje CSU (szczebel 3), FSIS potwierdza kierunek dla żywności o dużej wilgotności.",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "1c7c4e005203",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -78,10 +78,10 @@
     "uproszczenie": "FSIS nie wymienia zakwasu; zakwas traktujemy jak żywność o dużej wilgotności (kierunek bezpieczny).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "7b7c894bd8e0",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -171,10 +171,10 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "5d958fd66999",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -203,10 +203,10 @@
     "uproszczenie": "Ostrożniej niż źródło 3: CSU Extension uznaje za bezpieczne drożdże „whitish clumps on the surface of the liquid layer” w zakwasie trzymanym w lodówce bez regularnego dokarmiania. Aplikacja tego nie rozróżnia, bo pleśń bywa biała (FSIS, szczebel 1), a użytkownik ocenia wzrokiem; kierunek bezpieczny (więcej wyrzuceń, żadnego przepuszczenia pleśni). Powrót do rozróżnienia = decyzja produktowa właściciela po przeglądzie człowieka.",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "76010751432e",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -228,10 +228,10 @@
     "uproszczenie": "Źródło łączy objawy spójnikiem „and”; aplikacja traktuje każdy objaw osobno jako powód do wyrzucenia (kierunek bezpieczny).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "1c7c4e005203",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -252,10 +252,10 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "bdd5bcb7cdf2",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -277,10 +277,10 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "190d8c186774",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
@@ -302,10 +302,10 @@
     "uproszczenie": "Bez koloru płynu, bez „głodu” i bez werdyktu „zdrowy” (źródło tego nie mówi). Atrybucja w treści, bo jedno źródło szczebla 3.",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "eb405d93b6be",
+      "status": "przejrzane: właściciel w czacie M2 p7 2026-10-20: „Zatwierdzam przegląd człowieka 8 twierdzeń krytycznych: ZAK-PLE-002, ZAK-PLE-003, ZAK-PLE-004, ZAK-NAL-001, ZAK-KOL-001, ZAK-WAC-001, ZAK-NAC-001, ZAK-HOO-001 (zdania z docs/tresci/przeglad/zakwas-bezpieczenstwo.md bez zmian).”",
       "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
     },
     "wazne_do": "2027-10-19"
