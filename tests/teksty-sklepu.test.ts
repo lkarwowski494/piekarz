@@ -7,6 +7,7 @@
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { getLocalesByStatus } from '../src/lib/i18n-locales';
 
 const root = path.join(__dirname, '..');
 const read = (p: string) => fs.readFileSync(path.join(root, p), 'utf8');
@@ -32,7 +33,6 @@ const BEZ_POKRYCIA: readonly [RegExp, string][] = [
   [/atlas (europejskich )?(typów )?mąk|flour atlas/i, 'słownik i atlas mąk bez wejścia w aplikacji (F-46 PÓŹNIEJ)'],
   [/never drift or pause|odporne na uśpienie|odpornymi na tło|zero timer drift/i, 'sygnał przy uśpionym telefonie to powiadomienie lokalne (F-16)'],
   [/przeniesiesz parametry na Stolnicę|on your workbench|Przenieś do Stolnicy|naprawić recepturę na Stolnicy/i, 'pivot wczytuje gotową recepturę do Kalkulatora'],
-  [/35 języ|35 languages/i, 'w 1.0 aktywne PL i EN (DEC-06 b, ACTIVE_LANGS)'],
   [/kahm[^.]*bezpieczn|bezpieczny kożuch|kahm yeast\*?\)? od groźnej/i, 'każdy nalot → wyrzuć (DEC-10 a, ZAK-NAL-001)'],
   [/zabija drożdże/i, 'twierdzenie dziedzinowe bez wpisu w rejestrze treści'],
   [/23:00[^0-9]{1,5}06:00|22:00[^0-9]{1,5}06:30/, 'okno snu domyślnie 23:00–06:30 (src/scheduler/reverse-scheduler.ts)'],
@@ -73,6 +73,20 @@ describe('Store, README and site texts claim only what this version does (035)',
         if (/GPL|Open Core/i.test(linia)) why.push('licencja bez pliku licencji (decyzja właściciela)');
         return why.map((w) => `${f}:${i + 1} ${w}`);
       });
+    expect(found).toEqual([]);
+  });
+
+  /**
+   * Liczba języków w tekście = liczba języków `released` w rejestrze (src/lib/i18n-locales.ts). Zastępuje dawny zakaz
+   * „35 języków” z czasów PL i EN: po 093 liczba jest prawdziwa, a każda inna liczba języków albo spadek liczby
+   * języków w rejestrze bez zmiany tekstu daje błąd [M1-audytor-generalny-095].
+   */
+  it.each(DOKUMENTY)('%s: liczba języków w tekście jest liczbą języków released', (f) => {
+    const released = getLocalesByStatus('released').length;
+    const found = read(f)
+      .split('\n')
+      .flatMap((linia, i) => [...linia.matchAll(/(\d+) (języ|languages)/gi)].map((m) => ({ gdzie: `${f}:${i + 1}`, liczba: Number(m[1]) })))
+      .filter((x) => x.liczba !== released);
     expect(found).toEqual([]);
   });
 
@@ -200,6 +214,15 @@ describe('strona produktu: główna praca i prywatność na początku (081)', ()
       expect(tekst.split('\n').filter((l) => OG05.test(l))).toEqual([]);
       expect(tekst).not.toMatch(/Akademi|Academy|lekcj|lesson/i);
     }
+  });
+
+  it('opisy PL, EN i en-GB kończą się zdaniem o 35 językach z rejestru (093), bez „polski i angielski” [095]', () => {
+    expect(getLocalesByStatus('released')).toHaveLength(35);
+    expect(getLocalesByStatus('planned')).toEqual([]);
+    expect(pl.split('\n').pop()).toMatch(/35 języ/);
+    expect(en.split('\n').pop()).toMatch(/35 languages/);
+    expect(gb.split('\n').pop()).toMatch(/35 languages/);
+    for (const tekst of [pl, en, gb]) expect(tekst).not.toMatch(/polski i angielski|Polish and English/);
   });
 
   it('en-GB, en-AU, en-CA: opis = §2.2 z pisownią lokalną, w limicie 4000 znaków z podaną liczbą', () => {

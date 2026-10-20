@@ -24,7 +24,7 @@
 | **Tekst promocyjny (Promotional Text)** | `Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.` | **157** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 114 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 224 / 4 000 znaków)
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -56,7 +56,7 @@ Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dan
 DOSTĘP I ZAKUP
 Pełny dostęp daje subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja może zaczynać się bezpłatnym okresem próbnym (oferta wprowadzająca App Store dla uprawnionych). Bez zakupu przeglądasz historię wypieków, importujesz plik oraz eksportujesz i usuwasz swoje dane.
 
-Języki: polski i angielski.
+Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim.
 ```
 
 ---
@@ -72,7 +72,7 @@ Języki: polski i angielski.
 | **Promotional Text** | `Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.` | **161** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 128 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 219 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -104,7 +104,7 @@ Baker runs on iPhone and does not sync between devices; you move data with a bac
 ACCESS AND PURCHASE
 Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
 
-Languages: Polish and English.
+Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
 ```
 
 ---
@@ -272,7 +272,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 130 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 221 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -304,7 +304,7 @@ Baker runs on iPhone and does not sync between devices; you move data with a bac
 ACCESS AND PURCHASE
 Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
 
-Languages: Polish and English.
+Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
 ```
 
 ### 5.2. Kolejność zrzutów (D-055, wszystkie lokalizacje)
