@@ -9,12 +9,11 @@ import {
   POPULAR_FLOUR_BLENDS,
   FlourItemInput,
 } from '../../../src/core/domain-rules';
-import { MASTER_RECIPES, filterMasterRecipes, ritualCategoryFilter } from '../../../src/recipes/presets';
+import { MASTER_RECIPES, filterMasterRecipes } from '../../../src/recipes/presets';
 import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/lib/start-stan';
 import {
   getRecipes,
   deleteRecipe,
-  getBakerRitualProfile,
 } from '../../../src/data/sqlite-store';
 import { StoredRecipe } from '../../../src/data/db';
 import { confirmDeleteRecipe } from '../../../src/lib/confirm';
@@ -190,18 +189,14 @@ export default function CalculatorScreen() {
   }, loadRecipesFromStore, [loadRecipesFromStore, applyFormula, selectedPresetId]);
 
   // Start „Co dziś robisz?” zastępuje powitanie z wyborem stylu: filtr receptur z wybranej czynności
-  // (na zakwasie / na drożdżach); wejście bez wyboru — filtr ze stylu z Ustawień [M1-audytor-generalny-101]
+  // (na zakwasie / na drożdżach); wejście bez wyboru — „Wszystkie”. Zapisany styl z dawnego powitania
+  // (baker_ritual_profile) zostaje w bazie, ale go nie czytamy [M1-audytor-generalny-101; BR-START-001]
   useEffect(() => {
     const zeStartu = odbierzRodzajReceptur();
     if (zeStartu) setMasterCategoryFilter(zeStartu);
-    else void getBakerRitualProfile().then(applyRitual);
     return subskrybujRodzajReceptur(setMasterCategoryFilter);
   }, []);
 
-  // Rytuał ustawia widoczny filtr kategorii, nie ukrywa receptur (F-26, ZM-14) [M1-audytor-generalny-032]
-  function applyRitual(p: string) {
-    setMasterCategoryFilter(ritualCategoryFilter(p));
-  }
   const filteredMasterRecipes = useMemo(() => filterMasterRecipes(masterCategoryFilter), [masterCategoryFilter]);
 
   const currentMasterPreset = useMemo(() => {

@@ -11,9 +11,6 @@ import { theme } from '../ui/theme';
 import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
 import { CloseButton } from './CloseButton';
 import {
-  getBakerRitualProfile,
-  setBakerRitualProfile,
-  BakerRitualProfile,
   getBakingVessel,
   setBakingVessel,
   BakingVessel,
@@ -35,21 +32,14 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const currentLang = useLang();
   const unitSystem = useUnitSystem();
 
-  // Craft Ritual Profile & Equipment
-  const [ritualProfile, setRitualProfileState] = useState<BakerRitualProfile>('artisan_hybrid');
+  // Naczynie do wypieku; bez wyboru stylu wypieku [M1-audytor-generalny-101; BR-START-001]
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
 
   useEffect(() => {
     if (visible) {
-      void getBakerRitualProfile().then(setRitualProfileState);
       void getBakingVessel().then(setBakingVesselState);
     }
   }, [visible]);
-
-  const handleProfileChange = async (p: BakerRitualProfile) => {
-    setRitualProfileState(p);
-    await setBakerRitualProfile(p);
-  };
 
   const handleVesselChange = async (v: BakingVessel) => {
     setBakingVesselState(v);
@@ -76,10 +66,8 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
         </View>
 
         <ScrollView contentContainerStyle={styles.content}>
-          {/* Baking Ritual Profile & Equipment */}
+          {/* Baking Equipment */}
           <BakerRitualSection
-            ritualProfile={ritualProfile}
-            onProfileChange={handleProfileChange}
             bakingVessel={bakingVessel}
             onVesselChange={handleVesselChange}
           />

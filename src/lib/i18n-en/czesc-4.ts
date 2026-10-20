@@ -35,9 +35,6 @@ export const EN_4: Record<string, string> = {
   'Więcej działań: receptura': 'More actions: recipe',
   'Mieszanka mąk i zaczyny': 'Flour blend and preferments',
   'Mieszanka mąk, zaczyny, strata piecowa': 'Flour blend, preferments, bake loss',
-  // Rytuał bez ukrywania receptur (F-26, ZM-14) [M1-audytor-generalny-032]
-  'Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.':
-    'Choose your baking style. It sets the starting recipe filter in the Calculator; all recipes stay available.',
   // Jedno wejście druku w Kalkulatorze (BR-DRUK-001) [M1-audytor-generalny-032]
   'Drukuj': 'Print',
   'Co chcesz wydrukować?': 'What do you want to print?',

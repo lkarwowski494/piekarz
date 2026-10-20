@@ -119,8 +119,9 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     });
   };
 
-  // F-26, ZM-14, D-034 wybór 8a: rytuał ustawia widoczny filtr, „Wszystkie” pokazuje każdą recepturę [M1-audytor-generalny-032]
-  it('sourdough purist ritual starts on the sourdough filter and "all" still shows every master recipe', async () => {
+  // Zapisany styl z dawnego powitania zostaje w bazie, ale nie ustawia filtru: bez wyboru na Starcie
+  // lista zaczyna od „Wszystkie” [M1-audytor-generalny-101; BR-START-001] (wcześniej filtr ze stylu, 032)
+  it('a saved sourdough purist style no longer sets the filter: the list starts on "all"', async () => {
     await setBakerRitualProfile('sourdough_purist');
     await renderScreen();
     await act(async () => {
@@ -134,8 +135,7 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
           .map((n) => String(n.props.testID))
       ),
     ];
-    const sourdoughIds = MASTER_RECIPES.filter((p) => p.category === 'sourdough').map((p) => `preset-chip-${p.id}`);
-    expect(chips().sort()).toEqual(sourdoughIds.sort());
+    expect(chips()).toHaveLength(MASTER_RECIPES.length);
     await act(async () => {
       tree!.root.findByProps({ testID: 'category-filter-all' }).props.onPress();
     });

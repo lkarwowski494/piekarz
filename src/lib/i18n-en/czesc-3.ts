@@ -61,21 +61,7 @@ export const EN_3: Record<string, string> = {
   'Szacowany ubytek masy': 'Estimated mass loss',
   'upieczonego': 'baked',
 
-  // Apps4Craft Unified Design System & Onboarding
-  'APPS4CRAFT STUDIO · 100% OFFLINE': 'APPS4CRAFT STUDIO · 100% OFFLINE',
-  'Witaj w Piekarzu': 'Welcome to Crust (Piekarz)',
-  'Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.': 'Personalize your ritual. The app will tailor its interface and calculators to your baking philosophy.',
-  'Jaki jest Twój styl wypieku?': 'What is your baking style?',
-  'Klasyczny Zakwasowiec': 'Classic Sourdough Purist',
-  'Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.': 'Wild sourdough, 100% natural fermentation, long cold retard (4°C), and Dutch oven. Zero commercial yeast.',
-  'Nowoczesny Rzemieślnik': 'Modern Artisan',
-  'Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.': 'Sourdough, preferments (biga, poolish), ciabattas, baguettes, focaccias, and mixed breads. Complete freedom of technique.',
-  'Początkujący Piekarz': 'Beginner Baker',
-  'Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.': 'Predictable recipes with foolproof hydration (65–68%), simple step-by-step guidance, and no complex formulas.',
-  '100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.': '100% Offline. Your recipes and notes are stored exclusively in the local database on your device.',
-  'Rozpocznij rytuał wypieku': 'Begin Baking Ritual',
-  'Rytuał piekarski': 'Baking Ritual',
-  'Wybierz styl prowadzenia ciasta i filozofię wypieku:': 'Choose your dough management style and baking philosophy:',
+  // Apps4Craft Unified Design System
   'Sprzęt i naczynie do wypieku': 'Baking Vessel & Equipment',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Choose default baking vessel for the Workbench procedure:',
   'Garnek żeliwny (Dutch Oven)': 'Cast Iron Dutch Oven',

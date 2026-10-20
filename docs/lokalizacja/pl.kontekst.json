@@ -54,11 +54,6 @@
       "src/components/StarterConverterModal.tsx (label)"
     ]
   },
-  "100% Offline. Twoje receptury i notatki są zapisywane wyłącznie w lokalnej bazie na Twoim urządzeniu.": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
-    ]
-  },
   "100% Pszenna chlebowa": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: namePl)"
@@ -197,11 +192,6 @@
   "90% mąka chlebowa wysokobiałkowa (W>280) + 10% pszenna razowa": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
-    ]
-  },
-  "APPS4CRAFT STUDIO · 100% OFFLINE": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
     ]
   },
   "Akademia": {
@@ -1247,12 +1237,6 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
-  "Dziki zakwas, 100% naturalna fermentacja, długi rozrost w chłodzie (4°C) i garnek żeliwny. Zero drożdży komercyjnych.": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
-  },
   "Dzięki obecności zakwasu ciastka zyskują głęboki, karmelowo-maślany posmak.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: proTipPl)"
@@ -1828,11 +1812,6 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
-  "Jaki jest Twój styl wypieku?": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
-    ]
-  },
   "Jakość skórki": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -1952,12 +1931,6 @@
   "Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
-    ]
-  },
-  "Klasyczny Zakwasowiec": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
     ]
   },
   "Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.": {
@@ -3158,12 +3131,6 @@
       "src/core/bread-school-lessons.ts (dane: rankTitlePl)"
     ]
   },
-  "Nowoczesny Rzemieślnik": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
-  },
   "Nowy zakwas": {
     "gdzie": []
   },
@@ -3770,12 +3737,6 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
-  "Początkujący Piekarz": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
-  },
   "Podaj nazwę mąki": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (Alert.alert)"
@@ -4182,12 +4143,6 @@
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
-  "Przewidywalne receptury z bezpieczną hydratacją (65–68%), proste prowadzenie za rękę i brak skomplikowanych wzorów.": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
-  },
   "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
@@ -4480,11 +4435,6 @@
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
     ]
   },
-  "Rozpocznij rytuał wypieku": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
-    ]
-  },
   "Rozpocznij wypiek z asystentem": {
     "gdzie": []
   },
@@ -4551,11 +4501,6 @@
   "Rwanie skórki przez zbyt agresywne obracanie na suchym blacie.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
-    ]
-  },
-  "Rytuał piekarski": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
     ]
   },
   "Rzadki zakwas / Batter (120%)": {
@@ -4774,9 +4719,6 @@
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
-  },
-  "Spersonalizuj swój rytuał. Aplikacja dostosuje interfejs i kalkulatory do Twojej filozofii wypieku.": {
-    "gdzie": []
   },
   "Spiżarnia mąk & Stan zapasów": {
     "gdzie": [
@@ -5944,11 +5886,6 @@
       "src/core/po-co-ten-krok.ts (dane: rye_cool)"
     ]
   },
-  "Witaj w Piekarzu": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
-    ]
-  },
   "Więcej": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (tekst)"
@@ -6195,16 +6132,6 @@
   "Wybierz składnik:": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Wybierz styl prowadzenia ciasta i filozofię wypieku:": {
-    "gdzie": [
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
-    ]
-  },
-  "Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)"
     ]
   },
   "Wybierz z Atlasu lub wpisz własną": {
@@ -6761,12 +6688,6 @@
   "Zakwas „{name}” stoi na blacie od doby bez karmienia.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
-    ]
-  },
-  "Zakwas, prefermenty (biga, poolish), ciabatty, bagietki, focaccia i chleby mieszane. Pełna swoboda technik.": {
-    "gdzie": [
-      "src/components/OnboardingModal.tsx (tekst w JSX)",
-      "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
     ]
   },
   "Zakwas: {amount} g": {
