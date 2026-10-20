@@ -15,3 +15,11 @@ export const APPLE_EULA_URL = 'https://www.apple.com/legal/internet-services/itu
  * (ten sam adres expo-iap 6.1.1 używa w deepLinkToSubscriptionsIOS bez arkusza StoreKit).
  */
 export const APPLE_SUBSCRIPTIONS_URL = 'https://apps.apple.com/account/subscriptions';
+/**
+ * Apple ID aplikacji (App Store Connect → App Information → Apple ID; krok właściciela) i stały link
+ * do napisania opinii: parametr `action=write-review` (Apple, RequestReviewAction; format jak w Expo SDK 57).
+ * Dopóki ID nie jest liczbą, wiersz „Oceń w App Store” się nie renderuje (BR-OPIN-002)
+ * [M1-audytor-generalny-082; 11-wzrost-004].
+ */
+export const APP_STORE_ID = '[DO USTALENIA: Apple ID aplikacji z App Store Connect]';
+export const APP_STORE_REVIEW_URL = `https://apps.apple.com/app/apple-store/id${APP_STORE_ID}?action=write-review`;

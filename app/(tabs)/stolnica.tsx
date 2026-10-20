@@ -46,6 +46,7 @@ import { calculateBakeStatistics, filterBakeLogs } from '../../src/core/bake-sta
 import { useAppAccess } from '../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../src/components/BlokadaFunkcji';
 import { suggestDoctorAfterRating } from '../../src/lib/doctor-suggestion';
+import { poprosOOceneJesliWarto } from '../../src/lib/prosba-o-ocene-wywolanie';
 import { FinishBakeModal } from '../../src/components/stolnica/FinishBakeModal';
 import { PokeTestEntry } from '../../src/components/stolnica/PokeTestEntry';
 import { DutchOvenController } from '../../src/components/stolnica/DutchOvenController';
@@ -86,6 +87,7 @@ export default function StolnicaScreen() {
   // Finish Bake Modal & History
   const [isFinishModalOpen, setIsFinishModalOpen] = useState<boolean>(false);
   const [finishRating, setFinishRating] = useState<number>(5);
+  const ratingTouched = useRef(false); // domyślne 5★ to nie ocena (D-042, 082)
   const [finishNotes, setFinishNotes] = useState<string>('');
   const [finishCrumbScore, setFinishCrumbScore] = useState<number>(3);
   const [finishCrustScore, setFinishCrustScore] = useState<number>(3);
@@ -322,6 +324,9 @@ export default function StolnicaScreen() {
     await loadHistory();
     // Po zapisanym wpisie: propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032]
     suggestDoctorAfterRating(finishRating, chron('doktor', () => router.push('/(tabs)/doktor')));
+    // Systemowa prośba o ocenę przy >= 4★ wybranych przez użytkownika (BR-OPIN-001)
+    void poprosOOceneJesliWarto(ratingTouched.current ? finishRating : null);
+    ratingTouched.current = false;
   });
 
   const handleDiscard = () => {
@@ -486,7 +491,7 @@ export default function StolnicaScreen() {
           onClose={() => setIsFinishModalOpen(false)}
           onSave={handleSaveFinishBake}
           rating={finishRating}
-          onRatingChange={setFinishRating}
+          onRatingChange={(r) => { ratingTouched.current = true; setFinishRating(r); }}
           notes={finishNotes}
           onNotesChange={setFinishNotes}
           crumbScore={finishCrumbScore}

@@ -135,4 +135,7 @@ export const EN_12: Record<string, string> = {
   // Skaner QR bez modułu aparatu w buildzie [M1-audytor-generalny-049]
   'Skaner QR': 'QR scanner',
   'Skaner QR jest niedostępny w tej wersji aplikacji.': 'The QR scanner is not available in this version of the app.',
+  // Link do opinii w Ustawieniach, BR-OPIN-002 [M1-audytor-generalny-082]
+  'Oceń w App Store': 'Rate on the App Store',
+  'Ocena wymaga połączenia z App Store.': 'Rating requires a connection to the App Store.',
 };

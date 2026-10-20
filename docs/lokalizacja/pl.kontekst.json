@@ -2937,6 +2937,11 @@
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
     ]
   },
+  "Ocena wymaga połączenia z App Store.": {
+    "gdzie": [
+      "src/components/settings/StudioEcosystemSection.tsx (Alert.alert)"
+    ]
+  },
   "Ocena wypieku": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -2945,6 +2950,13 @@
   "Oceń bochenek i zapisz notatki do historii piekarskiej": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Oceń w App Store": {
+    "gdzie": [
+      "src/components/settings/StudioEcosystemSection.tsx (Alert.alert)",
+      "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
+      "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
   "Ochrona snu aktywna (Sleep Guard)": {

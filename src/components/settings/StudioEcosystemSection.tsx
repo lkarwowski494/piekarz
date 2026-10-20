@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, Linking } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Linking, Alert } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
-import { PRIVACY_URL } from '../../lib/links';
+import { PRIVACY_URL, APP_STORE_ID, APP_STORE_REVIEW_URL } from '../../lib/links';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import {
   CRAFT_APPS,
@@ -85,6 +85,22 @@ export function StudioEcosystemSection() {
         >
           <Text style={styles.linkText}>{t('Polityka prywatności')}</Text>
         </Pressable>
+        {/* Stały link do opinii (BR-OPIN-002); ukryty, dopóki Apple ID jest znacznikiem [M1-audytor-generalny-082] */}
+        {/^\d+$/.test(APP_STORE_ID) && (
+          <Pressable
+            style={styles.linkRow}
+            onPress={() => {
+              Linking.openURL(APP_STORE_REVIEW_URL).catch(() =>
+                Alert.alert(t('Oceń w App Store'), t('Ocena wymaga połączenia z App Store.'))
+              );
+            }}
+            accessibilityRole="link"
+            accessibilityLabel={t('Oceń w App Store')}
+            testID="settings-rate-link"
+          >
+            <Text style={styles.linkText}>{t('Oceń w App Store')}</Text>
+          </Pressable>
+        )}
       </View>
 
       {/* Apps4Craft Manifesto & Version */}
