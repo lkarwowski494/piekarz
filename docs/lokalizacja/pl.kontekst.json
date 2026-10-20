@@ -5349,9 +5349,14 @@
       "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
     ]
   },
+  "Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła": {
+    "gdzie": [
+      "src/lib/nazwa-maki.ts (kod)"
+    ]
+  },
   "Szacunek: parametry przyjęte z typu {typ}, bez źródła": {
     "gdzie": [
-      "src/components/FlourBlendModal.tsx (tekst w JSX)"
+      "src/lib/nazwa-maki.ts (kod)"
     ]
   },
   "Szacunkowy koszt składników i energii pieca": {

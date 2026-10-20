@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { nazwaMaki, notaSzacunku, opisMaki, pokazZdanieONormach } from '../lib/nazwa-maki';
 import { formatFixed } from '../lib/format';
 import { FlourItemInput } from '../core/domain-rules';
 import {
@@ -210,9 +211,11 @@ export function FlourBlendModal({
             <View style={styles.addSection}>
               <Text style={styles.addSectionTitle}>+ {t('Dodaj mąkę z Atlasu')}</Text>
               {/* MAK-TYP-001, MAK-TYP-002 (docs/tresci/pl/maki-typy.md) [M1-audytor-generalny-091] */}
-              <Text style={styles.addSectionNote}>
-                {t('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.')}
-              </Text>
+              {pokazZdanieONormach() && (
+                <Text style={styles.addSectionNote}>
+                  {t('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.')}
+                </Text>
+              )}
               <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
@@ -228,14 +231,12 @@ export function FlourBlendModal({
                     style={styles.profileChip}
                     onPress={() => addFlourProfile(profile)}
                   >
-                    <Text style={styles.profileChipText}>{t(profile.namePl)}</Text>
+                    {/* Poza pl nazwa i opis ogólny bez numeru typu [M1-audytor-generalny-094] */}
+                    <Text style={styles.profileChipText}>{nazwaMaki(profile)}</Text>
+                    {opisMaki(profile) !== '' && <Text style={styles.profileChipNote}>{opisMaki(profile)}</Text>}
                     {profile.estimatedFromTyp !== undefined && (
                       // Decyzja właściciela 2026-10-20 D-A: parametry bez źródła [M1-audytor-generalny-091]
-                      <Text style={styles.profileChipNote}>
-                        {t('Szacunek: parametry przyjęte z typu {typ}, bez źródła', {
-                          typ: String(profile.estimatedFromTyp),
-                        })}
-                      </Text>
+                      <Text style={styles.profileChipNote}>{notaSzacunku(profile)}</Text>
                     )}
                   </Pressable>
                 ))}

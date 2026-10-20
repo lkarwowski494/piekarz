@@ -11,6 +11,7 @@ import { join } from 'path';
 import { FLOUR_PROFILES, matchFlourProfile, FlourProfile } from '../flour-atlas';
 import { FlourBlendModal } from '../../components/FlourBlendModal';
 import { setLang, t } from '../../lib/i18n';
+import { notaSzacunku } from '../../lib/nazwa-maki';
 
 const ROOT = join(__dirname, '..', '..', '..');
 const SZACUNEK = 'Szacunek: parametry przyjęte z typu {typ}, bez źródła';
@@ -103,7 +104,8 @@ describe('091: polskie typy mąki w atlasie ze źródłem', () => {
       // wheat_750 jest już w mieszance, więc nie ma przycisku dodania
       for (const p of FLOUR_PROFILES.filter((x) => x.id !== 'wheat_750')) {
         const chip = tree.root.findByProps({ testID: `add-flour-${p.id}` });
-        const oczekiwany = t(SZACUNEK, { typ: String(p.estimatedFromTyp) });
+        // Poza pl (EN bez mapy typów) notka bez numeru typu, z nazwą ogólną profilu źródłowego [M1-audytor-generalny-094]
+        const oczekiwany = jezyk === 'pl' ? t(SZACUNEK, { typ: String(p.estimatedFromTyp) }) : notaSzacunku(p, 'en');
         if (p.estimatedFromTyp !== undefined) expect(teksty(chip)).toContain(oczekiwany);
         else expect(teksty(chip)).not.toContain(jezyk === 'pl' ? 'Szacunek' : 'Estimate');
       }
@@ -121,9 +123,10 @@ describe('091: polskie typy mąki w atlasie ze źródłem', () => {
     const tree = await render();
     expect(teksty(tree.root)).toContain(pl);
     act(() => tree.unmount());
+    // Poza pl atlas pokazuje opis ogólny bez polskich typów, więc bez zdania o normach [M1-audytor-generalny-094]
     setLang('en');
     const treeEn = await render();
-    expect(teksty(treeEn.root)).toContain(en);
+    expect(teksty(treeEn.root)).not.toContain(en);
     act(() => treeEn.unmount());
   });
 

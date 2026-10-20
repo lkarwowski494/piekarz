@@ -12,6 +12,7 @@ import { Modal, View, Text, Pressable, ScrollView, StyleSheet } from 'react-nati
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
+import { nazwaMaki } from '../../lib/nazwa-maki';
 import { POPULAR_FLOUR_BLENDS, FlourItemInput, HydrationDifficultyInfo } from '../../core/domain-rules';
 import { FLOUR_PROFILES, BlendAbsorptionAnalysis, validateFlourBlend } from '../../core/flour-atlas';
 import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
@@ -94,7 +95,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
 
   const dodajMake = () => {
     const wolne = FLOUR_PROFILES.filter((f) => !szkic.some((b) => b.name === f.namePl || b.type === f.id));
-    pokazMenuWyboru(t('Dodaj mąkę'), wolne.map((f) => t(f.namePl)), (i) => {
+    pokazMenuWyboru(t('Dodaj mąkę'), wolne.map((f) => nazwaMaki(f)), (i) => {
       const f = wolne[i];
       const reszta = Math.round((100 - suma) * 10) / 10;
       ustawMaki([...szkic, { name: f.namePl, percentage: reszta > 0 ? reszta : 10, type: f.id }]);

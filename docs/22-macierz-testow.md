@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 43 | 43 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 597 | 597 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 372 | 372 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 596 | 596 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 376 | 376 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 158 | 158 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1179** | Pokrytych: **1179** | Brakujących: **0**
+Łącznie elementów: **1182** | Pokrytych: **1182** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -262,8 +262,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zwiększ udział mąki {nazwa} o {n}%` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Usuń mąkę: {nazwa}` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dodaj mąkę z Atlasu` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.` | `src/components/FlourBlendModal.tsx` | ✅ | src/core/__tests__/flour-atlas-typy.test.ts |
-| `TEKST` | `Szacunek: parametry przyjęte z typu {typ}, bez źródła` | `src/components/FlourBlendModal.tsx` | ✅ | src/core/__tests__/flour-atlas-typy.test.ts |
+| `TEKST` | `Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.` | `src/components/FlourBlendModal.tsx` | ✅ | src/core/__tests__/flour-atlas-typy.test.ts, src/__tests__/maki-opis-ogolny-094.test.tsx |
 | `TEKST` | `Zastosuj mieszankę` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij słownik mąk` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przepis „{name}” został pomyślnie dodany do Twojej bazy.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie zapisałem receptury. Spróbuj jeszcze raz.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Importuj recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/import-z-pliku-113.test.tsx |
 
-*(... i 879 kolejnych elementów w pełnym wykazie)*
+*(... i 882 kolejnych elementów w pełnym wykazie)*

@@ -3,6 +3,8 @@
  * teksty docs/tresci/en/maki-ogolne.md, rola 06) [M1-audytor-generalny-094].
  */
 export const EN_17: Record<string, string> = {
+  // Notka o szacunku poza językiem z mapą typów (src/lib/nazwa-maki.ts) [M1-audytor-generalny-094]
+  'Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła': 'Estimate: parameters taken from the profile {nazwa}, no source',
   'Mąka pszenna niskowyciągowa, białko 9,8%': 'Low-extraction wheat flour, protein 9.8%',
   'Mąka niskowyciągowa. Białko w badanej próbce: 9,8%.': 'Low-extraction flour. Protein in the tested sample: 9.8%.',
   'Mąka pszenna niskowyciągowa, białko 10,6–14,3%': 'Low-extraction wheat flour, protein 10.6–14.3%',
