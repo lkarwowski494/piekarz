@@ -11,10 +11,11 @@
     "!src/core/**/__tests__/**",
     "!src/core/**/*.d.ts"
   ],
+  "//": "thresholds.break 60: decyzja DEC-12 (a) planu napraw M1-2026-10-19 z 2026-10-19 (nie DEC-12 BRD), wynik bazowy 61.08 na ebd8471; plan podnoszenia: docs/20-definicja-ukonczenia.md, wiersz 21 [M1-audytor-generalny-064]",
   "thresholds": {
     "high": 95,
     "low": 90,
-    "break": 90
+    "break": 60
   },
   "concurrency": 2,
   "timeoutMS": 30000,

@@ -76,6 +76,7 @@ jobs:
         run: |
           npx tsc --noEmit
           node scripts/test-matrix.mjs --check
+          npm run check:i18n
           node scripts/check-licenses.mjs
           node scripts/verify-native.mjs
           npx jest --runInBand

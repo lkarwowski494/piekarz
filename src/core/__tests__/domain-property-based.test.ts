@@ -13,7 +13,9 @@ import { analyzeFlourBlendAbsorption } from '../flour-atlas';
 import { Q10_FERMENTATION } from '../fermentation-q10';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 
-const PBT_SEED = process.env.PROP_SEED ? Number(process.env.PROP_SEED) : undefined;
+// Ziarno z globalnej konfiguracji (jest.app-after-env.js → tests/helpers/fc-config.js): zawsze liczba,
+// także przy PROP_SEED=random w nightly; Number('random') dawało NaN i stały ciąg [M1-audytor-generalny-064].
+const PBT_SEED: number | undefined = fc.readConfigureGlobal().seed;
 
 function assertWithSeed<Ts extends [unknown, ...unknown[]]>(
   property: fc.IProperty<Ts>,
