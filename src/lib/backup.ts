@@ -1,8 +1,8 @@
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { t } from './i18n';
-import { StoredRecipe, StoredStarter, StoredBakeLog, StoredStarterEntry } from '../data/db';
-import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow, parseStarterEntryRow } from '../data/row-parsers';
+import { StoredRecipe, StoredStarter, StoredBakeLog, StoredStarterEntry, StoredFlourInventoryItem } from '../data/db';
+import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow, parseStarterEntryRow, parseFlourInventoryRow } from '../data/row-parsers';
 import { legacyFeedingEntry } from '../core/starter-log';
 import { assertWritable } from '../data/storage-status';
 
@@ -27,6 +27,8 @@ export interface PiekarzBackupData {
   customRecipes: StoredRecipe[];
   /** Dziennik zakwasu (wersja 2); brak = dane bez dziennika (kopia v1: wpis z lastFedAt przy imporcie). */
   starterEntries?: StoredStarterEntry[];
+  /** Spiżarnia mąk (wersja 2, F-30/F-33); brak = kopia bez spiżarni, import zostawia zapasy w telefonie. */
+  flourInventory?: StoredFlourInventoryItem[];
   settings?: Record<string, unknown>;
 }
 
@@ -247,6 +249,8 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
         return e && ids.has(e.starterId) ? e : null;
       })
     : { rows: starters.rows.flatMap((s) => legacyFeedingEntry(s) ?? []), skipped: 0 };
+  // Spiżarnia mąk (F-30 PÓŹNIEJ: dane zostają w eksporcie F-33) [M1-audytor-generalny-097]
+  const flours = Array.isArray(state.flourInventory) ? parseRows(state.flourInventory, parseFlourInventoryRow) : null;
   return {
     format: 'piekarz-backup',
     schemaVersion: envelope.schemaVersion,
@@ -256,8 +260,9 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
       starters: starters.rows,
       customRecipes: recipes.rows.map((r) => ({ ...r, isBuiltIn: false })),
       starterEntries: entries.rows,
+      ...(flours ? { flourInventory: flours.rows } : {}),
     },
-    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped,
+    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0),
   };
 }
 

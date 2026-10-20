@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
-import type { StoredBakeLog, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
+import type { StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
 import { isStarterSign, type StarterSign } from '../core/starter-log';
 
 export type Obj = Record<string, unknown>;
@@ -88,7 +88,13 @@ export function parseStarterRow(v: unknown): StoredStarter | null {
   };
 }
 
-const optPos = (v: unknown): number | undefined => (isNum(v) && v > 0 ? v : undefined);
+/** Pozycja spiżarni mąk z kopii (F-30, F-33): zapas ≥ 0; brak marki i białka zostaje brakiem [M1-audytor-generalny-097]. */
+export function parseFlourInventoryRow(v: unknown): StoredFlourInventoryItem | null {
+  if (!isObj(v) || !isStr(v.id) || !isStr(v.name) || !isNum(v.stockGrams) || v.stockGrams < 0 || !isNum(v.updatedAt)) return null;
+  return { id: v.id, name: v.name, stockGrams: v.stockGrams, brand: optS(v.brand), proteinPct: optN(v.proteinPct), updatedAt: v.updatedAt };
+}
+
+const optPos =(v: unknown): number | undefined => (isNum(v) && v > 0 ? v : undefined);
 
 /**
  * Wpis dziennika zakwasu z kopii albo wiersza bazy (signs jako tablica albo tekst JSON) [M1-audytor-generalny-104].

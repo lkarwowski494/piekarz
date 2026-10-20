@@ -134,15 +134,17 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
       starters: [...memStore.starters],
       customRecipes: memStore.recipes.filter((r) => !r.isBuiltIn),
       starterEntries: [...memStore.starterEntries],
+      flourInventory: [...memStore.flourInventory],
     };
   }
-  const [bakes, starters, recipes, starterEntries] = await Promise.all([
+  const [bakes, starters, recipes, starterEntries, flourInventory] = await Promise.all([
     getBakeLogs(),
     readStarters(db),
     getRecipes(),
     getAllStarterEntries(),
+    getFlourInventory(),
   ]);
-  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries };
+  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory };
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
@@ -349,6 +351,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     memStore.logs = [...data.bakes];
     memStore.starters = [...data.starters];
     memStore.starterEntries = [...entries];
+    if (data.flourInventory) memStore.flourInventory = [...data.flourInventory];
     memStore.recipes = [
       ...MASTER_RECIPES.map((preset) => ({
         id: preset.id,
@@ -397,6 +400,12 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 
     for (const b of data.bakes) {
       await writeBakeRow(db, b);
+    }
+
+    // Spiżarnia tylko z kopii, która ją niesie; kopia bez spiżarni (v1) zostawia zapasy [M1-audytor-generalny-097]
+    if (data.flourInventory) {
+      await db.execAsync('DELETE FROM flour_inventory;');
+      for (const f of data.flourInventory) await writeFlourRow(db, f);
     }
   }));
   applyToMemory();
