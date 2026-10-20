@@ -137,7 +137,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     // Domyślny chleb pszenny: kroki z planu Harmonogramu liczonego od teraz [M1-audytor-generalny-030]
     expect(activeText).toContain('Krok 1 z 11');
     expect(activeText).toContain('Dokarmienie zakwasu (osiągnięcie szczytu)');
-    expect(activeText).toContain('6:00:00');
+    expect(activeText).toContain('6 h'); // 114: czas w minutach
     expect(activeText).not.toContain('Składanie 1 (Stretch & Fold)');
   });
 
@@ -198,12 +198,12 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       await zacznijWypiekBezReceptury();
       await renderScreen();
 
-      // Initial timer is the first plan stage (6 h) and already running
-      expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
+      // Initial timer is the first plan stage (6 h) and already running (114: czas w minutach, makieta prowadzenia)
+      expect(extractCleanText(tree?.toJSON())).toContain('6 h');
       await act(async () => {
-        jest.advanceTimersByTime(5000);
+        jest.advanceTimersByTime(60_000);
       });
-      expect(extractCleanText(tree?.toJSON())).toContain('5:59:55');
+      expect(extractCleanText(tree?.toJSON())).toContain('5 h 59 min');
 
       expect(findButtonByText(tree!.root, 'Start')).toBeUndefined();
       expect(findButtonByText(tree!.root, 'Wstrzymaj')).toBeUndefined();
@@ -234,7 +234,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     const text = extractCleanText(tree?.toJSON());
     expect(text).toContain('Krok 2 z 11');
     expect(text).toContain('Autoliza (mąka + woda)');
-    expect(text).toContain('45:00');
+    expect(text).toContain('45 min'); // 114
   });
 
   it('discards active bake cleanly; the screen empties and goes back to Dziś (117)', async () => {
@@ -363,7 +363,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       let fullText = extractCleanText(tree?.toJSON());
       expect(fullText).toContain('Faza 1: Pod pokrywką');
       expect(fullText).toContain('240°C');
-      expect(fullText).toContain('20:00');
+      expect(fullText).toContain('20 min'); // 114
 
       // Switch manually to Phase 2 (Bez pokrywki)
       const phase2Tab = tree!.root.findByProps({ testID: 'phase-tab-lid-off' });
@@ -374,7 +374,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       fullText = extractCleanText(tree?.toJSON());
       expect(fullText).toContain('Faza 2: Bez pokrywki');
       expect(fullText).toContain('210°C');
-      expect(fullText).toContain('25:00');
+      expect(fullText).toContain('25 min'); // 114
 
       // Switch back to Phase 1
       const phase1Tab = tree!.root.findByProps({ testID: 'phase-tab-lid-on' });
@@ -382,7 +382,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
         phase1Tab.props.onPress();
       });
 
-      expect(extractCleanText(tree?.toJSON())).toContain('20:00');
+      expect(extractCleanText(tree?.toJSON())).toContain('20 min'); // 114
 
       // Phase 1 timer runs from the plan without a Start button (056)
       expect(findButtonByText(tree!.root, 'Start')).toBeUndefined();
@@ -410,7 +410,7 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       // Phase 2 is now active with 25:00
       fullText = extractCleanText(tree?.toJSON());
       expect(fullText).toContain('Faza 2: Bez pokrywki');
-      expect(fullText).toContain('25:00');
+      expect(fullText).toContain('25 min'); // 114
     } finally {
       jest.useRealTimers();
     }
@@ -552,8 +552,8 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
     for (const id of ['adjust-time-plus-10s', 'adjust-time-minus-10s', 'adjust-time-plus-5m', 'adjust-time-minus-5m']) {
       expect(tree!.root.findAllByProps({ testID: id })).toHaveLength(0);
     }
-    // First plan stage 6 h = 6:00:00
-    expect(extractCleanText(tree?.toJSON())).toContain('6:00:00');
+    // First plan stage 6 h (114: czas w minutach)
+    expect(extractCleanText(tree?.toJSON())).toContain('6 h');
   });
 
   it('renders imperial units when unitSystem is set to imperial', async () => {

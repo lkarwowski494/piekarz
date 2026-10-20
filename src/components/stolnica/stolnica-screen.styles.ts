@@ -25,7 +25,34 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.tusz,
     textAlign: 'center',
+  },
+  // „Krok n z N” i „Gotowe {dzień} o {godzina}” (makieta: t-obj, p2) [M1-audytor-generalny-114]
+  planOpis: {
+    gap: odstepy.xs,
     marginBottom: odstepy.l,
+  },
+  gotowe: {
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
+    textAlign: 'center',
+  },
+  // „do {godzina}, potem …” pod czasem kroku i „Ekran nie zgaśnie…” (makieta: t-tresc p2, info) [M1-audytor-generalny-114]
+  potem: {
+    fontSize: typografia.style.tresc.pt,
+    color: theme.colors.tusz2,
+    marginBottom: odstepy.m,
+  },
+  ekran: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: odstepy.s,
+    marginBottom: odstepy.l,
+  },
+  ekranTekst: {
+    flex: 1,
+    minWidth: 0,
+    fontSize: typografia.style.objasnienie.pt,
+    color: theme.colors.tusz2,
   },
   activeStepTitle: {
     fontFamily: theme.typography.krojTytulow,

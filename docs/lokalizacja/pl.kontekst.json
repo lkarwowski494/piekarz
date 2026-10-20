@@ -1290,6 +1290,11 @@
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
   },
+  "Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
+  },
   "Eksport CSV": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
@@ -1644,6 +1649,11 @@
   },
   "Gotowe": {
     "gdzie": []
+  },
+  "Gotowe {dzien} o {godzina}": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
   },
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
@@ -3920,6 +3930,16 @@
   "Posłuchaj chleba: w pierwszych minutach usłyszysz charakterystyczne „śpiewanie” (trzaskanie pękającej cieniutkiej skórki).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Potem: {krok}": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
+  },
+  "Potem: {krok}, {czas}, do {godzina}": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
   "Potrzebny zaczyn": {
@@ -7374,6 +7394,16 @@
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
+  "do {godzina}": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
+  },
+  "do {godzina}, potem {krok}": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
+  },
   "dokarmiony o {godzina}, następne o {nastepne}": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
@@ -7521,6 +7551,11 @@
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
     ]
   },
+  "pieczenie bez pokrywy": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (nazwa)"
+    ]
+  },
   "po upieczeniu: ~{masa}": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
@@ -7659,6 +7694,12 @@
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
+  "{czas} po czasie": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (etykieta)",
+      "src/lib/prowadzenie-teksty.ts (tekst)"
+    ]
+  },
   "{days}d temu": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (kod)"
@@ -7697,6 +7738,16 @@
   "{h}h {m}min": {
     "gdzie": [
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
+    ]
+  },
+  "{h} h": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
+    ]
+  },
+  "{h} h {m} min": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
   "{maka} mąki + {woda} wody": {
@@ -7776,6 +7827,22 @@
       "src/lib/spirala-etykieta.ts (dane: other)"
     ]
   },
+  "{n} sekund": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (dane: many)"
+    ]
+  },
+  "{n} sekunda": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (dane: one)"
+    ]
+  },
+  "{n} sekundy": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (dane: few)",
+      "src/lib/prowadzenie-teksty.ts (dane: other)"
+    ]
+  },
   "{n} szt.": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
@@ -7784,6 +7851,11 @@
   "{n}m w {temp}": {
     "gdzie": [
       "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} min": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
   "{n} receptur": {
@@ -7800,6 +7872,11 @@
     "gdzie": [
       "src/lib/import-z-pliku.ts (dane: few)",
       "src/lib/import-z-pliku.ts (dane: other)"
+    ]
+  },
+  "{n} s": {
+    "gdzie": [
+      "src/lib/prowadzenie-teksty.ts (tekst)"
     ]
   },
   "{n} wpis w Dzienniku": {

@@ -103,7 +103,7 @@ describe('056: prowadzenie w widoku skupionym z paskiem kciuka (design-spec §11
     expect(pressable(root, 'Start')).toBeUndefined();
     expect(pressable(root, 'Wstrzymaj')).toBeUndefined();
     // Czas kroku biegnie od planu: pierwszy krok 6 h, bez przycisku startu
-    expect(tekst).toContain('6:00:00');
+    expect(tekst).toContain('6 h'); // 114: czas w minutach (makieta prowadzenia)
   });
 
   it('(4) „Przerwij wypiek” jest na „Plan wypieku” i otwiera Alert z przyciskiem destructive', async () => {

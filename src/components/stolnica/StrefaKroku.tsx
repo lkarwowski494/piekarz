@@ -1,10 +1,13 @@
 // ============================================================================
 // Piekarz — strefa kroku na ekranie prowadzenia (design-spec §11b „056”): tytuł kroku, czas do końca
-// (etap żytni bez czasu w planie idzie bez minutnika, 030), treść kroku, test palca i dwie fazy garnka.
+// (etap żytni bez czasu w planie idzie bez minutnika, 030), „do {godzina}, potem …”, treść kroku, Ostrzeżenie,
+// „Ekran nie zgaśnie…” w kroku czynnym (114), test palca i dwie fazy garnka.
 // ============================================================================
 
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import Svg, { Circle, Rect } from 'react-native-svg';
+import { useMotyw } from '../../ui/motyw';
 import { t } from '../../lib/i18n';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 import { SessionStep, isDutchOvenStep } from '../../core/bake-steps';
@@ -26,16 +29,33 @@ export interface StrefaKrokuProps {
   onStartPhase2AfterSteamAlert: () => void;
   /** Ostrzeżenia bezpieczeństwa kroku według rodzaju (103); pusta lista = brak pola. */
   ostrzezenia: readonly StepWarning[];
+  /** Etykieta VoiceOver czasu kroku (słownie, liczba mnoga przez i18n) [M1-audytor-generalny-114]. */
+  czasEtykieta?: string;
+  /** „do {godzina}, potem {następny krok}” albo po czasie „Potem: …”; null = brak linii. */
+  potem?: string | null;
+  /** „Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.” tylko w kroku czynnym; null = brak. */
+  ekran?: string | null;
 }
 
-export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia }: StrefaKrokuProps) {
+export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null }: StrefaKrokuProps) {
   const tytul = tytulOstrzezen(ostrzezenia);
+  const { kolory } = useMotyw();
   return (
     <>
       <Text testID="step-title" style={styles.activeStepTitle}>{t(step.name)}</Text>
-      {stepHasTimer(step) && <Text testID="step-time" style={styles.czas}>{formattedTime}</Text>}
+      {stepHasTimer(step) && <Text testID="step-time" style={styles.czas} accessibilityLabel={czasEtykieta}>{formattedTime}</Text>}
+      {potem !== null && <Text testID="step-next" style={styles.potem}>{potem}</Text>}
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
       {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}
+      {ekran !== null && (
+        <View testID="step-screen-on" style={styles.ekran}>
+          <Svg width={20} height={20} viewBox="0 0 24 24" accessible={false} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+            <Rect x={7} y={2.5} width={10} height={19} rx={2.5} fill="none" stroke={kolory.tusz2} strokeWidth={1.8} />
+            <Circle cx={12} cy={9} r={2.2} fill={kolory.tusz2} />
+          </Svg>
+          <Text style={styles.ekranTekst}>{ekran}</Text>
+        </View>
+      )}
       <PokeTestEntry step={step} />
 
       {/* Dutch Oven Two-Phase Controller for the bake step */}

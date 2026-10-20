@@ -1,10 +1,11 @@
 // ============================================================================
 // Piekarz — strefa planu na ekranie prowadzenia (design-spec §11b „056”): nazwa receptury, Spirala koszyka
-// z planu tego wypieku (058) i „Krok n z N”. Wydzielona z app/stolnica.tsx [M1-audytor-generalny-114].
+// z planu tego wypieku (058), „Krok n z N” i pod nim „Gotowe {dzień} o {godzina}” (makieta prowadzenia,
+// 04-studio-projektowe-029). Wydzielona z app/stolnica.tsx [M1-audytor-generalny-114].
 // ============================================================================
 
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { t } from '../../lib/i18n';
 import type { SessionStep } from '../../core/bake-steps';
 import { SpiralaWypieku } from '../Spirala';
@@ -18,14 +19,19 @@ export interface StrefaPlanuProps {
   pozostaloSec: number | null;
   /** Pełny czas kroku (s). */
   pelnySec: number;
+  /** „Gotowe {dzień} o {godzina}”; null = plan bez godziny końca (linia znika). */
+  gotowe?: string | null;
 }
 
-export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec }: StrefaPlanuProps) {
+export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null }: StrefaPlanuProps) {
   return (
     <>
       <Text style={styles.recipeTag}>{recipeName}</Text>
       <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} />
-      <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>
+      <View style={styles.planOpis}>
+        <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>
+        {gotowe !== null && <Text testID="plan-ready" style={styles.gotowe}>{gotowe}</Text>}
+      </View>
     </>
   );
 }

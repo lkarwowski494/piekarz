@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
   ScrollView,
@@ -35,6 +35,7 @@ import { PasekCofnij } from '../src/components/PasekCofnij';
 import { PoCoTenKrokArkusz } from '../src/components/stolnica/PoCoTenKrokArkusz';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { StrefaPlanu } from '../src/components/stolnica/StrefaPlanu';
+import { useTekstyProwadzenia } from '../src/hooks/useTekstyProwadzenia';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
@@ -249,17 +250,8 @@ export default function StolnicaScreen() {
     });
   };
 
-  // Format time remaining
-  const formattedTime = useMemo(() => {
-    const hours = Math.floor(timeLeftSec / 3600);
-    const minutes = Math.floor((timeLeftSec % 3600) / 60);
-    const seconds = timeLeftSec % 60;
-
-    if (hours > 0) {
-      return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    }
-    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-  }, [timeLeftSec]);
+  // „Gotowe {dzień} o {godzina}”, czas kroku, „do {godzina}, potem …”, „Ekran nie zgaśnie…” (makieta prowadzenia, 114)
+  const teksty = useTekstyProwadzenia({ steps, stepIdx: currentStepIdx, dutchOvenPhase, koniecKrokuMs: ostatniKoniecRef.current, poCzasie: isCompleted });
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
@@ -282,13 +274,16 @@ export default function StolnicaScreen() {
           <View>
             <NotificationsOffBanner />
             {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
-            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx}
+            <StrefaPlanu recipeName={recipeName} steps={steps} stepIdx={currentStepIdx} gotowe={teksty.gotowe}
               pozostaloSec={stepHasTimer(currentStep) ? timeLeftSec : null} pelnySec={stepDurationSec(currentStep, dutchOvenPhase)} />
 
             {/* Strefa kroku: tytuł, czas do końca, treść, test palca, fazy garnka */}
             <StrefaKroku
               step={currentStep}
-              formattedTime={formattedTime}
+              formattedTime={teksty.czas?.tekst ?? ''}
+              czasEtykieta={teksty.czas?.etykieta}
+              potem={teksty.potem}
+              ekran={teksty.ekran}
               unitSystem={unitSystem}
               dutchOvenPhase={dutchOvenPhase}
               isCompleted={isCompleted}

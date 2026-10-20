@@ -91,7 +91,7 @@ describe('Active bake survives a process kill (019)', () => {
     // Kroki z planu liczonego od startu wypieku [M1-audytor-generalny-030]
     const step3 = planBakeSteps({ startAt: now - 60_000, isHighRye: false, ambientTempC: 22 })?.[2];
     expect(text).toContain(step3?.name ?? '?');
-    expect(text).toContain(`${String((step3?.durationMin ?? 0) - 1).padStart(2, '0')}:00`);
+    expect(text).toContain(`${(step3?.durationMin ?? 0) - 1} min`); // 114: czas w minutach
     // Zegar biegnie z zapisanego końca kroku (bez przycisku „Wstrzymaj”, 056)
     expect((await loadBakeSession())?.timerEndsAt).toBe(now - 60_000 + (step3?.durationMin ?? 0) * 60_000);
     act(() => second.unmount());

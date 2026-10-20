@@ -287,7 +287,7 @@ describe('Stolnica z receptury i planu (030)', () => {
       await new Promise((r) => setTimeout(r, 1100));
     });
     const text = textOf(stol.toJSON());
-    expect(text).toContain('00:00');
+    expect(text).toContain('po czasie'); // 114: zegar po terminie (makieta „koniec-kroku”)
     expect(text).toContain('Krok 5 z 7');
     expect(text).toContain('Rozrost w formie');
     // Wypiek żytni w formie (ZYT-ETA-001): bez dwóch faz garnka
@@ -311,7 +311,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     let text = textOf(stol.toJSON());
     expect(text).toContain('Razowiec po restarcie');
     expect(text).toContain('Krok 5 z 7');
-    expect(text).toContain('29:00');
+    expect(text).toContain('29 min'); // 114: czas w minutach
     // Zegar biegnie dalej z zapisanego końca (bez przycisku „Wstrzymaj”, 056)
     expect((await loadBakeSession())?.timerEndsAt).toBe(ryeFixture.timerEndsAt);
     act(() => stol.unmount());
@@ -350,7 +350,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(text).toContain('Chleb sprzed aktualizacji');
     expect(text).toContain('Krok 3 z 8');
     expect(text).toContain('Składanie 1 (Stretch & Fold)');
-    expect(text).toContain('29:00');
+    expect(text).toContain('29 min'); // 114: czas w minutach
     // Zegar biegnie dalej z zapisanego końca (bez przycisku „Wstrzymaj”, 056)
     expect((await loadBakeSession())?.timerEndsAt).toBe(legacyFixture.timerEndsAt);
     act(() => stol.unmount());
