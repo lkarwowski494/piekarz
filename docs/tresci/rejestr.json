@@ -327,11 +327,11 @@
     "uproszczenie": null,
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
-      "lista": "docs/tresci/przeglad/zakwas-bezpieczenstwo.md"
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "bee99ed06b7d",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-10-19"
   },
@@ -1194,9 +1194,9 @@
     "przeglad": {
       "kto": "właściciel projektu (lkarwowski494)",
       "data": "2026-10-20",
-      "sha": "84fb02c92af2",
-      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
-      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+      "sha": "1c8ceaf515c4",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-04-20"
   },
@@ -1219,9 +1219,9 @@
     "przeglad": {
       "kto": "właściciel projektu (lkarwowski494)",
       "data": "2026-10-20",
-      "sha": "4ac9d0fd8e35",
-      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
-      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+      "sha": "42712601a01f",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-04-20"
   },
@@ -1322,9 +1322,9 @@
     "przeglad": {
       "kto": "właściciel projektu (lkarwowski494)",
       "data": "2026-10-20",
-      "sha": "e59fc24f1d71",
-      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 2026-10-20",
-      "lista": "docs/tresci/przeglad/bezpieczenstwo-wypieku.md"
+      "sha": "ac829a4446e3",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-10-20"
   },
@@ -1683,10 +1683,10 @@
     "uwagi": "M1-audytor-generalny-103 (F-57, BR-ETAP-004; RD-23-W2, RD-23-W4). To samo źródło co BEZ-OPA-001 (S-47), inne zdanie.",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "f00055ce23bc",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
       "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-10-20"
@@ -1709,10 +1709,10 @@
     "uwagi": "M1-audytor-generalny-103 (RD-23-W2; S-50 roli 01, przeczytane przez 06 2026-10-20).",
     "krytyczne": true,
     "przeglad": {
-      "kto": null,
-      "data": null,
-      "sha": null,
-      "status": "czeka na przegląd",
+      "kto": "właściciel projektu (lkarwowski494)",
+      "data": "2026-10-20",
+      "sha": "31f4ec7d786b",
+      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
       "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
     },
     "wazne_do": "2027-10-20"

@@ -1,6 +1,6 @@
 # Lista do przeglądu człowieka: ostrzeżenia według rodzaju kroku (zakwas, gorące naczynie, dzieci, krok nieznanego rodzaju)
 
-Status: **czeka na przegląd**. Przygotowała rola 06-tresci, 2026-10-20, partia 5 (M1-audytor-generalny-103; F-57, BR-ETAP-004, RD-22, RD-23). Do czasu przeglądu M2 nie wdraża zdań z `docs/tresci/pl|en/ostrzezenia-krokow.md`.
+Status: **przejrzane** — właściciel projektu (lkarwowski494) zatwierdził wszystkie 5 zdań w czacie M2 p5 2026-10-20 („Zatwierdzam”), skróty jak w tabeli; wpisy `przeglad` w rejestrze. Przygotowała rola 06-tresci, 2026-10-20, partia 5 (M1-audytor-generalny-103; F-57, BR-ETAP-004, RD-22, RD-23). Do czasu przeglądu M2 nie wdraża zdań z `docs/tresci/pl|en/ostrzezenia-krokow.md`.
 
 Jak przeglądać: jak w `docs/tresci/przeglad/bezpieczenstwo-wypieku.md` — recenzent otwiera adres źródła, znajduje cytat i porównuje go ze zdaniem z aplikacji (PL i EN). Nie ocenia brzmienia, tylko czy zdanie mówi tyle, ile cytat, w tym samym zakresie. Po przeglądzie wpisuje w rejestrze dla każdego ID: `"przeglad": { "kto": "<imię i nazwisko>", "data": "RRRR-MM-DD", "sha": "<skrót z tabeli>" }`. Zmiana któregokolwiek zdania zmienia skrót i unieważnia przegląd.
 
