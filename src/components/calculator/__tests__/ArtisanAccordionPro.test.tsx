@@ -77,7 +77,6 @@ describe('ArtisanAccordionPro Component', () => {
           targetDdt={25.0}
           onTargetDdtChange={mockOnTargetDdtChange}
           waterTempTarget={3.5}
-          iceGrams={45}
           ambientTemp={24.0}
           flourTemp={23.0}
           frictionFactor={3.0}
@@ -99,7 +98,7 @@ describe('ArtisanAccordionPro Component', () => {
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Temperatura wody');
     expect(fullText).toContain('3,5°C');
-    expect(fullText).toContain('45 g lodu'); // Ice requirement alert
+    expect(fullText).not.toContain('lodu'); // F-53 NIE: bez masy lodu [M1-audytor-generalny-099]
     expect(fullText).toContain('Mąka typ 750: 80%');
     expect(fullText).toContain('Strata Piecowa');
     expect(fullText).toContain('730 g');

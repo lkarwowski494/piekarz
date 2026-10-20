@@ -41,9 +41,7 @@
     ]
   },
   "0°C (Lód)": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "1 duża blacha piekarnicza (~50 szt.)": {
     "gdzie": [
@@ -6462,9 +6460,7 @@
     ]
   },
   "Zastąp część wody lodem:": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zatwierdź import": {
     "gdzie": [
@@ -6937,9 +6933,7 @@
     ]
   },
   "lodu": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "lodówka": {
     "gdzie": [

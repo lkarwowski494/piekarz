@@ -1,6 +1,6 @@
 // ============================================================================
 // Apps4Craft Studio — ArtisanAccordionPro (Progressive Disclosure Level 2)
-// Zwijany panel dla rzemieślników: 4-DDT, lód, prefermenty, strata piecowa
+// Zwijany panel dla rzemieślników: 4-DDT, prefermenty, strata piecowa; obliczenie dla schłodzenia wody poza interfejsem (F-53 NIE) [M1-audytor-generalny-099]
 // ============================================================================
 
 import React from 'react';
@@ -33,7 +33,6 @@ export interface ArtisanAccordionProProps {
   onTargetDdtChange: (val: number) => void;
   waterTempTarget: number;
   waterTempWarning?: string;
-  iceGrams?: number;
   ambientTemp: number;
   flourTemp: number;
   frictionFactor: number;
@@ -70,7 +69,6 @@ export function ArtisanAccordionPro({
   onTargetDdtChange,
   waterTempTarget,
   waterTempWarning,
-  iceGrams,
   flourBlend,
   onOpenBlendModal,
   onSelectFlourBlend,
@@ -127,7 +125,6 @@ export function ArtisanAccordionPro({
             onTargetDdtChange={onTargetDdtChange}
             waterTempTarget={waterTempTarget}
             waterTempWarning={waterTempWarning}
-            iceGrams={iceGrams}
             waterPct={waterPct}
             onWaterPctChange={onWaterPctChange}
             hydrationDifficulty={hydrationDifficulty}

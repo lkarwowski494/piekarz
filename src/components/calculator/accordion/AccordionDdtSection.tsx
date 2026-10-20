@@ -5,7 +5,7 @@ import { t } from '../../../lib/i18n';
 import { formatFixed, formatNumber } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
-import { useUnitSystem, formatWeight, formatTemperature } from '../../../lib/unit-converter';
+import { useUnitSystem, formatTemperature } from '../../../lib/unit-converter';
 
 export interface AccordionDdtSectionProps {
   targetDdt: number;
@@ -13,7 +13,6 @@ export interface AccordionDdtSectionProps {
   waterTempTarget: number;
   /** Ostrzeżenie reguły RD-05 (status too_hot_danger); brak = woda w zakresie [M1-audytor-generalny-039]. */
   waterTempWarning?: string;
-  iceGrams?: number;
   waterPct: number;
   onWaterPctChange: (pct: number) => void;
   hydrationDifficulty?: HydrationDifficultyInfo;
@@ -25,7 +24,6 @@ export function AccordionDdtSection({
   onTargetDdtChange,
   waterTempTarget,
   waterTempWarning,
-  iceGrams,
   waterPct,
   onWaterPctChange,
   hydrationDifficulty,
@@ -48,7 +46,7 @@ export function AccordionDdtSection({
         <View style={styles.ddtResultRow}>
           <Text style={styles.ddtResultLabel}>{t('Docelowa temp. wody:')}</Text>
           <Text style={styles.ddtResultValue}>
-            {waterTempTarget > 0 ? formatTemperature(waterTempTarget, unitSystem) : t('0°C (Lód)')}
+            {formatTemperature(waterTempTarget, unitSystem)}
           </Text>
         </View>
 
@@ -58,13 +56,7 @@ export function AccordionDdtSection({
           </View>
         )}
 
-        {iceGrams !== undefined && iceGrams > 0 && (
-          <View style={styles.iceAlertRow}>
-            <Text style={styles.iceText}>
-              {t('Zastąp część wody lodem:')} {formatWeight(iceGrams, unitSystem)} {t('lodu')}
-            </Text>
-          </View>
-        )}
+
       </View>
 
       <View style={styles.gridParams}>
@@ -226,14 +218,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: theme.colors.akcentTekst,
   },
-  iceAlertRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 6,
-    paddingTop: 6,
-    borderTopWidth: 1,
-    borderTopColor: theme.colors.linia,
-  },
+
   hotAlertRow: {
     marginTop: 6,
     padding: 8,
@@ -246,11 +231,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
   },
-  iceText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
+
   gridParams: {
     flexDirection: 'row',
     gap: theme.spacing.sm,

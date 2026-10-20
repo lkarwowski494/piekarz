@@ -126,7 +126,6 @@ export default function CalculatorScreen() {
     calculations,
     currentRecipeForShare,
     ddtResult,
-    iceResult,
     bakeLossMetrics,
     bakedTotalWeight,
     bakedSingleLoafWeight,
@@ -149,7 +148,6 @@ export default function CalculatorScreen() {
     roomTemp,
     starterTemp,
     frictionFactor,
-    tapWaterTemp,
     customBakeLossPercent,
     prefermentType,
     prefermentFlourPct,
@@ -335,7 +333,6 @@ export default function CalculatorScreen() {
           onTargetDdtChange={setTargetDdt}
           waterTempTarget={ddtResult.waterTempTarget}
           waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
-          iceGrams={iceResult?.iceGrams}
           ambientTemp={roomTemp}
           flourTemp={flourTemp}
           frictionFactor={frictionFactor}
@@ -389,7 +386,6 @@ export default function CalculatorScreen() {
               bakeLossMetrics,
               targetDdt,
               waterTempTarget: ddtResult.waterTempTarget,
-              iceGrams: iceResult?.iceGrams,
               tapWaterTemp,
               loavesCount: calcMode === 'loaves' ? loavesCount : 1,
             })

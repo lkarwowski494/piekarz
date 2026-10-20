@@ -8,7 +8,6 @@ import { useMemo } from 'react';
 import {
   calculateDoughRecipe,
   calculateDDTWaterTemp,
-  calculateIceRequirement,
   calculateBakeLossMetrics,
   getHydrationDifficulty,
   FlourItemInput,
@@ -33,7 +32,6 @@ export interface UseRecipeCalculationsParams {
   roomTemp: number;
   starterTemp: number;
   frictionFactor: number;
-  tapWaterTemp: number;
   customBakeLossPercent: number;
   prefermentType: PrefermentType;
   prefermentFlourPct: number;
@@ -57,7 +55,6 @@ export function useRecipeCalculations({
   roomTemp,
   starterTemp,
   frictionFactor,
-  tapWaterTemp,
   customBakeLossPercent,
   prefermentType,
   prefermentFlourPct,
@@ -124,17 +121,6 @@ export function useRecipeCalculations({
     });
   }, [targetDdt, flourTemp, roomTemp, starterTemp, frictionFactor]);
 
-  const iceResult = useMemo(() => {
-    if (ddtResult.status === 'requires_ice') {
-      return calculateIceRequirement(
-        calculations.waterGrams,
-        tapWaterTemp,
-        ddtResult.waterTempTarget
-      );
-    }
-    return null;
-  }, [ddtResult, calculations.waterGrams, tapWaterTemp]);
-
   const bakeLossMetrics = useMemo(() => {
     return calculateBakeLossMetrics(
       calculations.targetDoughWeightGrams,
@@ -185,7 +171,6 @@ export function useRecipeCalculations({
     calculations,
     currentRecipeForShare,
     ddtResult,
-    iceResult,
     bakeLossMetrics,
     bakedTotalWeight,
     bakedSingleLoafWeight,
