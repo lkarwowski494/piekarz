@@ -1664,5 +1664,57 @@
     "uwagi": "[DO USTALENIA] M1-audytor-generalny-100. ZYT-ETA-001…006 opisują kolejność i warunki etapów w procedurze laboratoryjnej, nie ich cel; KRO-POC-004 i KRO-POC-006 dotyczą glutenu pszennego (ZYT-CIA-001: w cieście żytnim nie ma takiej sieci), więc nie wolno ich przenosić na żyto. Para przy wypieku: KA (ka-sd-bake) opisuje chleb pszenny na zakwasie. Do czasu źródła M2 nie pokazuje „po co” dla tych kroków.",
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "BEZ-OPA-004",
+    "twierdzenie": "Do chwytania gorących przedmiotów używa się rękawic kuchennych i łapek.",
+    "zrodla": [
+      {
+        "adres": "https://www.brownhealth.org/centers-services/rhode-island-burn-center/avoiding-scalds",
+        "miejsce": "Rhode Island Burn Center (Brown University Health), „Avoiding Scalds”, „In the kitchen”; kopia dowody/zrodla/brown-scalds.htm",
+        "cytat": "Encourage the use of oven mitts and potholders to handle hot items.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło: „zachęcaj do używania”; w ostrzeżeniu tryb rozkazujący (strona bezpieczna). „Suche” z BEZ-OPA-003.",
+    "uwagi": "M1-audytor-generalny-103 (F-57, BR-ETAP-004; RD-23-W2, RD-23-W4). To samo źródło co BEZ-OPA-001 (S-47), inne zdanie.",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
+    },
+    "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "BEZ-OPA-005",
+    "twierdzenie": "Według Shriners Children's wokół kuchenki i wszystkich miejsc, w których przygotowuje się jedzenie i napoje, wyznacza się strefę bez dzieci o promieniu około 3 stóp.",
+    "zrodla": [
+      {
+        "adres": "https://www.shrinerschildrens.org/en/news-and-media/news/2023/01/prevent-scald-burns-at-home",
+        "miejsce": "Shriners Children's, „Scald Prevention in the Kitchen” (2023); kopia dowody/zrodla/shriners-scald.htm",
+        "cytat": "Establish a “kid-free zone” 3 feet around the stove and all areas where food and drink is prepared.",
+        "odczyt": "2026-10-20",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "W treści bez liczby: „z dala od kuchenki i miejsca, w którym pracujesz” (rachunek: 3 stopy = 0,91 m; liczba w stopach nie pomaga użytkownikowi na rynku metrycznym, a „z dala” nie przesuwa granicy w stronę niebezpieczną, bo nie podaje mniejszej odległości).",
+    "uwagi": "M1-audytor-generalny-103 (RD-23-W2; S-50 roli 01, przeczytane przez 06 2026-10-20).",
+    "krytyczne": true,
+    "przeglad": {
+      "kto": null,
+      "data": null,
+      "sha": null,
+      "status": "czeka na przegląd",
+      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
+    },
+    "wazne_do": "2027-10-20"
   }
 ]
