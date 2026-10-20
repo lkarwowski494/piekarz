@@ -29,16 +29,17 @@ describe('096: domyślny układ jednostek według regionu (D-044)', () => {
     ['DE', 'metric', 'metric'],
     // GB: measurementSystem „uk” (mile i pinty), w kuchni gramy i °C → metryczne
     ['GB', 'uk', 'metric'],
-    // LR i MM: system podaje „us” (iOS Locale.measurementSystem) → imperialne jak w USA
-    ['LR', 'us', 'imperial'],
-    ['MM', 'us', 'imperial'],
+    // LR i MM: system podaje „us” (iOS Locale.measurementSystem), ale D-044 mówi o regionie US → metryczne (090)
+    ['LR', 'us', 'metric'],
+    ['MM', 'us', 'metric'],
   ] as const)('region %s (measurementSystem %s) → %s', (regionCode, measurementSystem, wynik) => {
     expect(domyslnyUkladJednostek({ regionCode, measurementSystem })).toBe(wynik);
   });
 
-  it('bez measurementSystem (web): region US → imperialne, inny albo brak → metryczne', () => {
+  it('bez measurementSystem (web): region US → imperialne, inny → metryczne; bez regionu: system „us” → imperialne', () => {
     expect(domyslnyUkladJednostek({ regionCode: 'US', measurementSystem: null })).toBe('imperial');
     expect(domyslnyUkladJednostek({ regionCode: 'FR', measurementSystem: null })).toBe('metric');
+    expect(domyslnyUkladJednostek({ regionCode: null, measurementSystem: 'us' })).toBe('imperial');
     expect(domyslnyUkladJednostek(undefined)).toBe('metric');
   });
 

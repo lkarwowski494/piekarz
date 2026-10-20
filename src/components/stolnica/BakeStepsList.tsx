@@ -62,7 +62,7 @@ export function BakeStepsList({
             </View>
           </View>
           <Text style={styles.ingredientsCaption}>
-            {t('Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%', {
+            {t('Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%', {
               masa: formatWeight(calculatedRecipe.targetDoughWeightGrams, unitSystem),
               hydratacja: formatFixed(calculatedRecipe.overallHydrationPercent, 1),
             })}

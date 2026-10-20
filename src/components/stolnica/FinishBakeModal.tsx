@@ -233,8 +233,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz3,
     marginBottom: 6,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   starRow: {
     flexDirection: 'row',

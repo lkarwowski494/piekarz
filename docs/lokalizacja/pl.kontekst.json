@@ -2309,7 +2309,7 @@
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
-  "Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%": {
+  "Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%": {
     "gdzie": [
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
     ]
@@ -6683,7 +6683,7 @@
       "src/lib/notifications.ts (body)"
     ]
   },
-  "Zakwas „{name}” stoi na blacie od doby bez karmienia.": {
+  "Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
     ]

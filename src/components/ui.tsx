@@ -400,8 +400,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   fieldInput: {
     backgroundColor: theme.colors.powierzchnia,

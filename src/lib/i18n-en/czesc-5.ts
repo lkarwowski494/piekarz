@@ -8,7 +8,8 @@ export const EN_5: Record<string, string> = {
     'Choose a recipe in the Calculator and tap “{przycisk}”, or start the standard artisan schedule below.',
   'Składniki do odważenia': 'Ingredients to weigh',
   'Mąki': 'Flours',
-  'Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%': 'Dough weight: {masa} · Total hydration: {hydratacja}%',
+  // Bez „A · B” (design-spec §12a, 090) [M1-audytor-generalny-090]
+  'Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%': 'Dough weight: {masa}, total hydration: {hydratacja}%',
   'Wszystkie etapy wypieku': 'All bake stages',
   '{n} min': '{n} min',
   'Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.':

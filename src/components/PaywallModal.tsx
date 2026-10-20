@@ -327,7 +327,6 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     fontWeight: '800',
     fontSize: 12,
-    letterSpacing: 1.2,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: theme.radius.sm,

@@ -82,7 +82,8 @@ describe('pdf-sheet-generator', () => {
       expect(svg).toContain('Bolesław');
       expect(svg).toContain('Żytnia razowa t2000');
       expect(svg).toContain('Hydratacja: 100%');
-      expect(svg).toContain('Proporcja: 1:2:2');
+      // Bez „A · B”: proporcja po przecinku (design-spec §12a) [M1-audytor-generalny-090]
+      expect(svg).toContain('Hydratacja: 100%, proporcja: 1:2:2');
       expect(svg).toContain('Lodówka (4°C)');
       expect(svg).toContain('120 dni');
     });

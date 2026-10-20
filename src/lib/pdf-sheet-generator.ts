@@ -365,7 +365,7 @@ export function generateStarterJarLabelSvg(options: StarterJarLabelOptions): str
 
   <!-- Mąka i parametry -->
   <text x="150" y="72" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#554C42">${escapeXml(flourType)}</text>
-  <text x="150" y="88" font-family="Georgia, serif" font-size="11" font-style="italic" text-anchor="middle" fill="#C47B2B">Hydratacja: ${hydration}% · Proporcja: ${escapeXml(feedingRatio)}</text>
+  <text x="150" y="88" font-family="Georgia, serif" font-size="11" font-style="italic" text-anchor="middle" fill="#C47B2B">Hydratacja: ${hydration}%, proporcja: ${escapeXml(feedingRatio)}</text>
 
   <line x1="24" y1="100" x2="276" y2="100" stroke="#D6CEC5" stroke-width="1" />
 

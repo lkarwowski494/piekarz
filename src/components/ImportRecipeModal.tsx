@@ -392,7 +392,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
-    textTransform: 'uppercase',
   },
   previewDdt: {
     fontSize: 12,
@@ -422,7 +421,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
-    textTransform: 'uppercase',
   },
   flourRow: {
     flexDirection: 'row',
@@ -455,7 +453,6 @@ const styles = StyleSheet.create({
   metricLabel: {
     fontSize: 11,
     color: theme.colors.tusz2,
-    textTransform: 'uppercase',
     marginBottom: 2,
   },
   metricValue: {

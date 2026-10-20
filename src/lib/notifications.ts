@@ -54,7 +54,7 @@ export function notificationText(p: PlannedNotification): { title: string; body:
     case 'krok.wypiekGotowy':
       return { title: t('Chleb upieczony'), body: t('Wyjmij chleb z garnka na kratkę.') };
     case 'karmienie.blat':
-      return { title: t('Pora nakarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od doby bez karmienia.', { name }) };
+      return { title: t('Pora nakarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.', { name }) };
     case 'karmienie.lodowkaPrzypomnienie':
       return { title: t('Zakwas w lodówce'), body: t('Zakwas „{name}” czeka na karmienie od 6 dni.', { name }) };
     case 'karmienie.lodowkaTermin':

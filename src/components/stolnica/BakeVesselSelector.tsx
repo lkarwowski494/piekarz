@@ -70,8 +70,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz2,
     marginBottom: 8,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
   },
   vesselChipsRow: {
     flexDirection: 'row',

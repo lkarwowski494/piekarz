@@ -169,7 +169,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '700',
     color: theme.colors.tusz3,
-    textTransform: 'uppercase',
   },
   completedBadge: {
     backgroundColor: theme.colors.powierzchnia,

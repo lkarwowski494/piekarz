@@ -32,7 +32,7 @@ export function StarterProfileCard({
         <View style={styles.flex1}>
           <Text style={styles.starterName}>{starter.name}</Text>
           <Text style={styles.starterType}>
-            {starter.flourType} · {t('Hydratacja')} {starter.hydration}%
+            {starter.flourType}, {t('Hydratacja')} {starter.hydration}%
           </Text>
         </View>
         <View style={styles.cardHeaderActions}>
@@ -134,7 +134,6 @@ const styles = StyleSheet.create({
   metaLabel: {
     fontSize: 11,
     color: theme.colors.tusz3,
-    textTransform: 'uppercase',
     fontWeight: '600',
     marginBottom: 4,
   },

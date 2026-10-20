@@ -61,7 +61,7 @@ describe('notifications adapter (006)', () => {
       expect(txt.title.length).toBeGreaterThan(0);
       expect(txt.body.length).toBeGreaterThan(0);
     }
-    expect(notificationText(planned('karmienie.blat', { starterName: 'Ania' })).body).toBe('Zakwas „Ania” stoi na blacie od doby bez karmienia.');
+    expect(notificationText(planned('karmienie.blat', { starterName: 'Ania' })).body).toBe('Zakwas „Ania” stoi na blacie od 12 godzin bez karmienia.'); // D-043 OP-38 [M1-audytor-generalny-090]
     setLang('en');
     expect(notificationText(planned('krok.zdejmijPokrywke', {})).title).toBe('Take the lid off');
     setLang('pl');

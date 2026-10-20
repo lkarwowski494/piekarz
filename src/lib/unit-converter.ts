@@ -23,14 +23,13 @@ export interface RegionJednostek {
 }
 
 /**
- * Domyślny układ, gdy użytkownik nie wybrał (D-044): system miar urządzenia „us” → imperialne (USA; iOS podaje
- * „us” także dla LR i MM), „metric” i „uk” (GB: w kuchni gramy i °C) → metryczne. Bez systemu miar (web):
- * region US → imperialne, inny albo brak → metryczne.
+ * Domyślny układ, gdy użytkownik nie wybrał (D-044: „US → imperialne, pozostałe regiony → metryczne”): region
+ * urządzenia US → imperialne; inny region → metryczne, także GB (measurementSystem „uk”) oraz LR i MM, choć system
+ * podaje dla nich „us” — decyzja mówi o regionie US. Bez regionu: measurementSystem „us” → imperialne, inaczej metryczne.
  */
 export function domyslnyUkladJednostek(region: RegionJednostek | null | undefined): UnitSystem {
-  const system = region?.measurementSystem;
-  if (system) return system === 'us' ? 'imperial' : 'metric';
-  return region?.regionCode === 'US' ? 'imperial' : 'metric';
+  if (region?.regionCode) return region.regionCode.toUpperCase() === 'US' ? 'imperial' : 'metric';
+  return region?.measurementSystem === 'us' ? 'imperial' : 'metric';
 }
 
 function regionUrzadzenia(): RegionJednostek | undefined {

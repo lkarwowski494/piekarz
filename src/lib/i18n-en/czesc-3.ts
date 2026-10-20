@@ -152,7 +152,8 @@ export const EN_3: Record<string, string> = {
   'Chleb upieczony': 'Bread is baked',
   'Wyjmij chleb z garnka na kratkę.': 'Take the bread out of the pot onto a rack.',
   'Pora nakarmić zakwas': 'Time to feed your starter',
-  'Zakwas „{name}” stoi na blacie od doby bez karmienia.': 'Starter “{name}” has been on the counter for a day without feeding.',
+  // Przypomnienie po 12 h (D-043 OP-38) [M1-audytor-generalny-090]
+  'Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.': 'Starter “{name}” has been on the counter for 12 hours without feeding.',
   'Zakwas w lodówce': 'Starter in the fridge',
   'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Starter “{name}” has been waiting for a feeding for 6 days.',
   'Nakarm zakwas dziś': 'Feed your starter today',

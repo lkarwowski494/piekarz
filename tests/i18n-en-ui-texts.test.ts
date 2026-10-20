@@ -11,7 +11,7 @@ const PARY: [string, string][] = [
   ['Zacznij wypiek', 'Start Bake'],
   ['Składniki do odważenia', 'Ingredients to weigh'],
   ['Mąki', 'Flours'],
-  ['Masa ciasta: {masa} · Hydratacja całkowita: {hydratacja}%', 'Dough weight: {masa} · Total hydration: {hydratacja}%'],
+  ['Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%', 'Dough weight: {masa}, total hydration: {hydratacja}%'],
   ['Wszystkie etapy wypieku', 'All bake stages'],
   ['{n} min', '{n} min'],
   ['Zdejmij ostrożnie pokrywkę, pozwól parze ulecieć i obniż temperaturę pieca do 210°C dla karmelizacji skórki.', 'Carefully remove the lid, let the steam escape and lower the oven temperature to 210°C to caramelize the crust.'],

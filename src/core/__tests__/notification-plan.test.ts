@@ -57,7 +57,8 @@ describe('notification plan (006, ADR-006)', () => {
       [`${NOTIF_PREFIX}karmienie.b.1`, FEED_FRIDGE_REMIND_AFTER_MS],
       [`${NOTIF_PREFIX}karmienie.b.2`, FEED_FRIDGE_DUE_AFTER_MS],
     ]);
-    expect(FEED_ROOM_TEMP_AFTER_MS).toBe(DAY);
+    // D-043 OP-38: 12 h zamiast doby z BRD Z-041 [M1-audytor-generalny-090]
+    expect(FEED_ROOM_TEMP_AFTER_MS).toBe(DAY / 2);
   });
 
   it('planNotifications keeps the step and cuts feeding to the limit', () => {

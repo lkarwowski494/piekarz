@@ -9,8 +9,8 @@ const DAY_MS = 24 * HOUR_MS;
 
 export const NOTIF_PREFIX = 'piekarz.';
 export const NOTIF_ID_BAKE = 'piekarz.krok';
-/** Zakwas na blacie: przypomnienie 24 h po karmieniu (BRD A3a Z-041). */
-export const FEED_ROOM_TEMP_AFTER_MS = 24 * HOUR_MS;
+/** Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090]. */
+export const FEED_ROOM_TEMP_AFTER_MS = 12 * HOUR_MS;
 /** Zakwas w lodówce: przypomnienie po 6 dniach i termin po 7 dniach (BRD B2 BR-ZAKW-004 kryt. 1). */
 export const FEED_FRIDGE_REMIND_AFTER_MS = 6 * DAY_MS;
 export const FEED_FRIDGE_DUE_AFTER_MS = 7 * DAY_MS;
