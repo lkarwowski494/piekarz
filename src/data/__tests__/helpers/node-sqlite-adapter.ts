@@ -78,10 +78,14 @@ function params(ps: unknown[]): SqlValue[] {
   });
 }
 
+/**
+ * Baza otwierana jak SQLite w aplikacji: bez kluczy obcych (node:sqlite domyślnie je włącza), więc testy
+ * sprawdzają, że włącza je aplikacja (05-architekt-fix-p5-003) [M1-audytor-generalny-104].
+ */
 export function openRaw(file: string): DatabaseSyncType {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const { DatabaseSync } = nodeSqlite();
-  return new DatabaseSync(file);
+  return new DatabaseSync(file, { enableForeignKeyConstraints: false });
 }
 
 function wrap(file: string) {

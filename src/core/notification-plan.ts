@@ -4,6 +4,7 @@
 // ============================================================================
 
 import { SessionStep, isDutchOvenStep } from './bake-steps';
+import { DUTCH_OVEN_PHASES } from './baking-phases';
 import {
   NOTIF_PREFIX,
   NOTIF_ID_BAKE,
@@ -80,6 +81,34 @@ export function planBakeNotification(session: PlanBakeSession | null, now: numbe
     params: { stepId: step.id, stepName: step.name },
     route: '/stolnica',
   };
+}
+
+export interface PlanBakeSessionWithPlan extends Omit<PlanBakeSession, 'steps'> {
+  steps: readonly Pick<SessionStep, 'id' | 'name' | 'category' | 'durationMin' | 'plannedStart' | 'plannedEnd'>[];
+}
+
+/**
+ * Powiadomienia bieżącego i kolejnych kroków (BR-HARMO-005, BR-CZAS-002) [M1-audytor-generalny-102]: bieżący jak
+ * planBakeNotification, kolejne na planowany koniec (krok w garnku także zdjęcie pokrywki po fazie 1); krok bez
+ * planu godzin albo bez czasu i terminy minione pominięte. Po potwierdzeniu kroku (confirmStep) godziny idą za planem.
+ */
+export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | null, now: number): PlannedNotification[] {
+  if (!session) return [];
+  const current = planBakeNotification(session, now);
+  const out: PlannedNotification[] = current ? [current] : [];
+  session.steps.forEach((step, i) => {
+    if (i <= session.stepIdx || step.plannedEnd === null) return;
+    const oven = isDutchOvenStep(step);
+    if (!oven && step.durationMin === null) return;
+    const level: NotificationLevel = TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active';
+    const base = { kind: 'krok' as const, level, params: { stepId: step.id, stepName: step.name }, route: '/stolnica' as const };
+    const lidAt = oven && step.plannedStart !== null ? step.plannedStart + DUTCH_OVEN_PHASES.lid_on.durationMin * 60_000 : null;
+    if (lidAt !== null && lidAt > now) out.push({ ...base, id: `${NOTIF_PREFIX}krok.${i}.pokrywka`, triggerAt: lidAt, textKey: 'krok.zdejmijPokrywke' });
+    if (step.plannedEnd > now) {
+      out.push({ ...base, id: `${NOTIF_PREFIX}krok.${i}`, triggerAt: step.plannedEnd, textKey: oven ? 'krok.wypiekGotowy' : 'krok.koniec' });
+    }
+  });
+  return out;
 }
 
 /** Przypomnienia o karmieniu: blat +24 h; lodówka +6 d i +7 d; minione terminy pominięte. */

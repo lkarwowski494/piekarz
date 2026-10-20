@@ -6,6 +6,7 @@ import {
   StoredStarter,
   StoredBakeLog,
   StoredFlourInventoryItem,
+  StoredStarterEntry,
 } from './db';
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
@@ -29,13 +30,17 @@ export interface ActiveBakeState {
   isHighRye?: boolean;
   /** Migawka etapów planu z Harmonogramu; brak = plan liczony od startu wypieku [M1-audytor-generalny-030]. */
   steps?: SessionStep[];
+  /** Zakwas wybrany do wypieku (plan z lodówki, D-052); brak = nie wybrano [M1-audytor-generalny-104]. */
+  starterId?: string;
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
+let dbOpening: Promise<SQLite.SQLiteDatabase | null> | null = null;
 
 // In-memory fallback for test and non-native environments
 export const memStore = {
   starters: [] as StoredStarter[],
+  starterEntries: [] as StoredStarterEntry[],
   recipes: [] as StoredRecipe[],
   logs: [] as StoredBakeLog[],
   flourInventory: [] as StoredFlourInventoryItem[],
@@ -53,6 +58,7 @@ export const memStore = {
 
 export function _resetMemStore(): void {
   memStore.starters = [];
+  memStore.starterEntries = [];
   memStore.recipes = [];
   memStore.logs = [];
   memStore.flourInventory = [];
@@ -62,14 +68,30 @@ export function _resetMemStore(): void {
   memStore.settings = {};
 }
 
-export async function getDb(): Promise<SQLite.SQLiteDatabase | null> {
-  if (dbInstance) return dbInstance;
+/**
+ * Jedno połączenie na proces: równoległe wywołania czekają na to samo otwarcie, a klucze obce (starter_entries,
+ * ADR-008) włączamy zaraz po otwarciu, poza transakcją (05-architekt-fix-p5-001) [M1-audytor-generalny-104].
+ */
+export function getDb(): Promise<SQLite.SQLiteDatabase | null> {
+  if (dbInstance) return Promise.resolve(dbInstance);
+  if (!dbOpening) {
+    dbOpening = openDb().then((db) => {
+      dbOpening = null;
+      return db;
+    });
+  }
+  return dbOpening;
+}
+
+async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
   try {
     const defaultDir = SQLite.defaultDatabaseDirectory;
     const safeDir = dbDirectory(defaultDir);
-    dbInstance = safeDir
+    const db = safeDir
       ? await SQLite.openDatabaseAsync(DB_NAME, undefined, safeDir)
       : await SQLite.openDatabaseAsync(DB_NAME);
+    await db.execAsync('PRAGMA foreign_keys = ON;');
+    dbInstance = db;
     return dbInstance;
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
@@ -217,6 +239,41 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
       if (!startersCols.some((c) => c.name === 'last_feed_ratio')) {
         await db.execAsync('ALTER TABLE starters ADD COLUMN last_feed_ratio TEXT;');
       }
+    },
+  },
+  {
+    // Dziennik wpisów zakwasu (ADR-008): pierwszy klucz obcy; same CREATE i ADD COLUMN, bez przebudowy tabel.
+    // Każde istniejące last_fed_at przechodzi jako wpis feeding (id 'v5-<zakwas>') [M1-audytor-generalny-104].
+    version: 5,
+    description: 'Starter entry log (ADR-008)',
+    run: async (db) => {
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS starter_entries (
+          id TEXT PRIMARY KEY NOT NULL,
+          starter_id TEXT NOT NULL REFERENCES starters(id) ON DELETE CASCADE,
+          kind TEXT NOT NULL CHECK (kind IN ('feeding', 'observation')),
+          occurred_at INTEGER NOT NULL CHECK (occurred_at > 0),
+          feed_ratio TEXT,
+          flour_grams REAL CHECK (flour_grams IS NULL OR flour_grams > 0),
+          water_grams REAL CHECK (water_grams IS NULL OR water_grams > 0),
+          signs TEXT NOT NULL DEFAULT '[]' CHECK (json_valid(signs) AND json_type(signs) = 'array'),
+          created_at INTEGER NOT NULL,
+          updated_at INTEGER NOT NULL,
+          CHECK (kind = 'feeding' OR (feed_ratio IS NULL AND flour_grams IS NULL AND water_grams IS NULL))
+        );
+        CREATE INDEX IF NOT EXISTS idx_starter_entries_starter_kind_at ON starter_entries(starter_id, kind, occurred_at DESC);
+      `);
+      const startersCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+      if (!startersCols.some((c) => c.name === 'setup_started_at')) {
+        await db.execAsync('ALTER TABLE starters ADD COLUMN setup_started_at INTEGER;');
+      }
+      if (!startersCols.some((c) => c.name === 'setup_completed_at')) {
+        await db.execAsync('ALTER TABLE starters ADD COLUMN setup_completed_at INTEGER;');
+      }
+      await db.runAsync(`INSERT INTO starter_entries (id, starter_id, kind, occurred_at, feed_ratio, created_at, updated_at)
+        SELECT 'v5-' || id, id, 'feeding', last_fed_at, last_feed_ratio, last_fed_at, last_fed_at
+        FROM starters WHERE last_fed_at IS NOT NULL AND last_fed_at > 0
+        ON CONFLICT (id) DO NOTHING;`);
     },
   },
 ];

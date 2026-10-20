@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 7 | 7 | **100.0%** | ✅ POKRYTE |
 | **UI** | 35 | 35 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 311 | 311 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 118 | 118 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 344 | 344 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 149 | 149 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1034** | Pokrytych: **1034** | Brakujących: **0**
+Łącznie elementów: **1098** | Pokrytych: **1098** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Błąd schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie udało się odczytać zawartości schowka.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 734 kolejnych elementów w pełnym wykazie)*
+*(... i 798 kolejnych elementów w pełnym wykazie)*

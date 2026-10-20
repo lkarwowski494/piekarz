@@ -4,7 +4,7 @@
 **Data wydania:** 18.10.2026  
 **Rola:** Principal System Architect, Lead Software Engineer & Data Modeling Strategist  
 **Status:** WIĄŻĄCY I ZATWIERDZONY  
-**Dokumenty nadrzędne:** `docs/brd/00_START.md`, `docs/scope-contract.md`, `docs/monetyzacja-audyt.md`, `docs/adr/ADR-001..006`  
+**Dokumenty nadrzędne:** `docs/brd/00_START.md`, `docs/scope-contract.md`, `docs/monetyzacja-audyt.md`, `docs/adr/ADR-001..008`  
 
 ---
 
@@ -68,6 +68,9 @@ PRAGMA cache_size = -64000; -- 64MB cache w RAM
 | `app_access` | `id TEXT` | Stan licencji "Cheaper than Espresso"| `subscription_tier ENUM`, `completed_bakes_count >= 0` |
 | `app_settings` | `key TEXT` | Ustawienia aplikacji i FSM sesji | Klucz-Wartość |
 | `pending_ops` | `id TEXT` | Kolejka Outbox zdarzeń Apple Watch | `status IN ('PENDING', 'PROCESSING', 'SYNCED')` |
+| `starter_entries` (v5, projekt ADR-008, jeszcze nie w kodzie) | `id TEXT` | Dziennik zakwasu: dokarmienia i obserwacje, poprawa wpisu w miejscu (F-60…F-62, F-64); `starter_id` → `starters(id) ON DELETE CASCADE` — pierwszy klucz obcy w schemacie | wykonywane: `kind IN ('feeding','observation')`, `occurred_at > 0`, gramy > 0, `signs` jako tablica JSON, ilości tylko przy `feeding` |
+
+Od v5 `starters` dostaje `setup_started_at` i `setup_completed_at` (zakładanie zakwasu, dzień N), a „ostatnie dokarmienie” (`lastFedAt`, `feedingRatio`) aplikacja wylicza z najnowszego wpisu `feeding`; kolumn `last_fed_at` i `last_feed_ratio` od v5 nie zapisuje ani nie czyta (ADR-008).
 
 ### 2.3 Indeksy B-Tree pod Zapytania o Złożoności $O(\log N)$ i Czasie < 5ms
 ```sql
@@ -76,6 +79,8 @@ CREATE INDEX IF NOT EXISTS idx_starters_last_fed_at ON starters(last_fed_at DESC
 CREATE INDEX IF NOT EXISTS idx_recipes_is_built_in ON recipes(is_built_in, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_flour_inventory_name ON flour_inventory(name);
 CREATE INDEX IF NOT EXISTS idx_pending_ops_status ON pending_ops(status, created_at ASC);
+-- v5 (ADR-008): ostatnie dokarmienie zakwasu, plan zapytania SEARCH … USING COVERING INDEX
+CREATE INDEX IF NOT EXISTS idx_starter_entries_starter_kind_at ON starter_entries(starter_id, kind, occurred_at DESC);
 ```
 
 ---
@@ -129,6 +134,8 @@ Zgodnie z decyzjami `DEC-03`, `DEC-45` oraz `ADR-005`:
 - Migracja 4 dodaje pustą kolumnę `starters.last_feed_ratio` (proporcja ostatniego dokarmiania, np. `1:5:5`; pusta = nieznana, predyktor przyjmuje 1:2:2) [M1-audytor-generalny-023]. Kolumna `feeding_ratio` z migracji 2 (`DEFAULT '1:1:1'`) nigdy nie była zapisywana przez aplikację i pozostaje nieczytana.
 - Zapis zakwasu to UPSERT (`ON CONFLICT(id) DO UPDATE`), nie `INSERT OR REPLACE`, żeby pominięta kolumna nie wracała do wartości domyślnej.
 - Test na bazach każdej wydanej wersji: `src/data/__tests__/starter-feeding-ratio.sqlite.test.ts` i `testflight-migration.sqlite.test.ts` (fikstury `fixtures/schema-<commit>.sql`).
+- Wydane wersje schematu (tagi TestFlight, `git show <tag>:src/data/`): `v1.0.0-b1006`, `b1007`, `b1012` — `user_version = 0` (fikstury `schema-adfe1fa.sql`, `schema-b21c194.sql`; wcześniejszy build `schema-70fd81a.sql`), `v1.0.0-b1013` — `user_version = 3` (`schema-ebd8471.sql`). Migracja 4 nie weszła jeszcze do żadnego otagowanego buildu.
+- **Migracja 5 (projekt 2026-10-20, ADR-008; kod: rola 08):** tabela `starter_entries` z kluczem obcym do `starters`, indeks, kolumny `starters.setup_started_at` i `setup_completed_at`, wypełnienie jednym wpisem `feeding` na zakwas z `last_fed_at > 0`. Bez przebudowy tabel. Warunek wstępny: wszystkie zapisy na jednym połączeniu z `PRAGMA foreign_keys = ON` (dziś pragma jest ustawiana w `applySchemaMigrations`, a `getDb` może przy starcie otworzyć bazę dwa razy). Format kopii zapasowej rośnie do `schemaVersion` 2 (dziennik zakwasu w `starterEntries`).
 
 ---
 
@@ -142,3 +149,4 @@ Zgodnie z decyzjami `DEC-03`, `DEC-45` oraz `ADR-005`:
 | **ADR-004** | Maszyna Stanów Wypieku FSM | `BR-ETAP-001..025`, `RD-01..15`, `ZP-10` |
 | **ADR-005** | watchOS Standalone & Brak Background Audio | `DEC-03`, `DEC-06`, `NFR-ZEG-001..010` |
 | **ADR-006** | Powiadomienia lokalne kroków i karmienia (uzgadnianie z zapisanym stanem) | `BR-CZAS-001`, `BR-CZAS-002` kryt. 1, `BR-ZAKW-004`, `Z-041`, `Z-056` |
+| **ADR-008** | Dziennik wpisów zakwasu `starter_entries` (migracja v5), plan z lodówki i Doktor zakwasu jako obliczenia, kopia w formacie 2 | `BR-ZAKW-005`, `BR-ZAKW-006`, `BR-ZAKW-007`, `BR-DIAG-002`, `BR-DANE-003` |

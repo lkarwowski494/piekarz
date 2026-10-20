@@ -52,7 +52,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194'])('TestFlight database from build
     useTempDbDir();
   });
 
-  it('counts of user tables are equal before and after; version 4; integrity and foreign keys ok', async () => {
+  it('counts of user tables are equal before and after; version 5; integrity and foreign keys ok', async () => {
     const before = seed(sha);
     const app = restartApp();
     await app.schema.initDatabase();
@@ -64,7 +64,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194'])('TestFlight database from build
       if (before[t] !== undefined) expect({ table: t, count: after[t] }).toEqual({ table: t, count: before[t] });
     }
     expect((raw.prepare('SELECT count(*) AS c FROM recipes WHERE is_built_in = 0').get() as { c: number }).c).toBe(before.user_recipes);
-    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 4 });
+    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 5 });
     expect(raw.prepare('PRAGMA integrity_check').get()).toEqual({ integrity_check: 'ok' });
     expect(raw.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
     raw.close();

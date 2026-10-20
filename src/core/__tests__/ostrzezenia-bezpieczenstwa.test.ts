@@ -2,7 +2,8 @@
  * M1-audytor-generalny-086 (01-odkrywanie-019; RD-22-W1, RD-23-W1): ostrzeżenia bezpieczeństwa w krokach
  * Stolnicy, teksty dosłownie z docs/tresci/pl|en/wypiek-bezpieczenstwo.md (przegląd człowieka w rejestrze).
  * Wektory: lid_off → ostrzeżenie (BEZ-OPA-001..003); mix i rye_mix → zdania BEZ-SUR-001/002 na końcu
- * instrukcji; lid_on i starter_feed → bez nowych zdań.
+ * instrukcji; lid_on i starter_feed → bez nowych zdań w instrukcji i w polu fazy. Ostrzeżenia według rodzaju kroku
+ * (103: starter_feed → „zakwas”, lid_on → gorące naczynie i dzieci) jako osobne ostrzeżenie: step-warnings.test.ts.
  */
 import { readFileSync } from 'fs';
 import { join } from 'path';

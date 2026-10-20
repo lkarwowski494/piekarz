@@ -1,11 +1,13 @@
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { t } from './i18n';
-import { StoredRecipe, StoredStarter, StoredBakeLog } from '../data/db';
-import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow } from '../data/row-parsers';
+import { StoredRecipe, StoredStarter, StoredBakeLog, StoredStarterEntry, StoredFlourInventoryItem } from '../data/db';
+import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow, parseStarterEntryRow, parseFlourInventoryRow } from '../data/row-parsers';
+import { legacyFeedingEntry } from '../core/starter-log';
 import { assertWritable } from '../data/storage-status';
 
-export const SCHEMA_VERSION = 1;
+/** Wersja 2: dziennik zakwasu (ADR-008); stara aplikacja odrzuca ją czytelnym komunikatem [M1-audytor-generalny-104]. */
+export const SCHEMA_VERSION = 2;
 export const AUTO_DIR = 'Backup/';
 export const AUTO_KEEP = 10;
 
@@ -23,6 +25,10 @@ export interface PiekarzBackupData {
   bakes: StoredBakeLog[];
   starters: StoredStarter[];
   customRecipes: StoredRecipe[];
+  /** Dziennik zakwasu (wersja 2); brak = dane bez dziennika (kopia v1: wpis z lastFedAt przy imporcie). */
+  starterEntries?: StoredStarterEntry[];
+  /** Spiżarnia mąk (wersja 2, F-30/F-33); brak = kopia bez spiżarni, import zostawia zapasy w telefonie. */
+  flourInventory?: StoredFlourInventoryItem[];
   settings?: Record<string, unknown>;
 }
 
@@ -234,6 +240,17 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
   const bakes = parseRows(state.bakes, parseBakeRow);
   const starters = parseRows(state.starters, parseStarterRow);
   const recipes = parseRows(state.customRecipes, parseRecipeRow);
+  // Dziennik zakwasu: bez tablicy (v1) → wpis z lastFedAt (reguła migracji v5); v2 → wpisy z pliku, wpis zakwasu spoza pliku
+  // pominięty i policzony (zamiast naruszenia klucza obcego) [M1-audytor-generalny-104]
+  const ids = new Set(starters.rows.map((s) => s.id));
+  const entries = Array.isArray(state.starterEntries)
+    ? parseRows(state.starterEntries, (v) => {
+        const e = parseStarterEntryRow(v);
+        return e && ids.has(e.starterId) ? e : null;
+      })
+    : { rows: starters.rows.flatMap((s) => legacyFeedingEntry(s) ?? []), skipped: 0 };
+  // Spiżarnia mąk (F-30 PÓŹNIEJ: dane zostają w eksporcie F-33) [M1-audytor-generalny-097]
+  const flours = Array.isArray(state.flourInventory) ? parseRows(state.flourInventory, parseFlourInventoryRow) : null;
   return {
     format: 'piekarz-backup',
     schemaVersion: envelope.schemaVersion,
@@ -242,8 +259,10 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
       bakes: bakes.rows,
       starters: starters.rows,
       customRecipes: recipes.rows.map((r) => ({ ...r, isBuiltIn: false })),
+      starterEntries: entries.rows,
+      ...(flours ? { flourInventory: flours.rows } : {}),
     },
-    skippedRows: bakes.skipped + starters.skipped + recipes.skipped,
+    skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0),
   };
 }
 
