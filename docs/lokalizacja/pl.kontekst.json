@@ -277,6 +277,8 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)",
+      "src/lib/menu-receptury.ts (options)",
+      "src/lib/menu-receptury.ts (text)",
       "src/lib/print-menu.ts (text)"
     ]
   },
@@ -696,9 +698,7 @@
     ]
   },
   "Co dzisiaj pieczemy?": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Co dziś robisz?": {
     "gdzie": [
@@ -772,7 +772,7 @@
   },
   "DDT": {
     "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (label)",
+      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
       "src/components/stolnica/StolnicaSacredCard.tsx (label)"
     ]
   },
@@ -1096,7 +1096,7 @@
   },
   "Drukuj": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/lib/menu-receptury.ts (etykieta)",
       "src/lib/print-menu.ts (Alert.alert)"
     ]
   },
@@ -1164,9 +1164,7 @@
     ]
   },
   "Edytuj blend": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Edytuj profil": {
     "gdzie": []
@@ -1556,7 +1554,7 @@
   "Hydratacja": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
-      "src/components/calculator/CalculatorSacredCard.tsx (label)",
+      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
       "src/components/stolnica/StolnicaSacredCard.tsx (label)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)",
       "src/components/zakwas/ZakwasSacredCard.tsx (label)"
@@ -1643,11 +1641,7 @@
     ]
   },
   "Importuj JSON": {
-    "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)",
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Importuj kopię": {
     "gdzie": [
@@ -1656,7 +1650,8 @@
   },
   "Importuj recepturę": {
     "gdzie": [
-      "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+      "src/components/ImportRecipeModal.tsx (tekst w JSX)",
+      "src/components/settings/ImportRecepturySection.tsx (tekst w JSX)"
     ]
   },
   "Jajka (żółtka i białka osobno)": {
@@ -1936,8 +1931,8 @@
   },
   "Kopiuj jako tekst": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/lib/calculator-actions.ts (Alert.alert)"
+      "src/lib/calculator-actions.ts (Alert.alert)",
+      "src/lib/menu-receptury.ts (etykieta)"
     ]
   },
   "Korekta wody w cieście": {
@@ -2158,7 +2153,7 @@
   },
   "Masa": {
     "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (label)"
+      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)"
     ]
   },
   "Masa ciasta": {
@@ -2262,6 +2257,16 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
     ]
   },
+  "Mieszanka mąk i zaczyny": {
+    "gdzie": [
+      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
+    ]
+  },
+  "Mieszanka mąk, zaczyny, strata piecowa": {
+    "gdzie": [
+      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
+    ]
+  },
   "Minutnik kuchenny": {
     "gdzie": []
   },
@@ -2355,7 +2360,7 @@
   },
   "Mąka": {
     "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (label)",
+      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)"
     ]
@@ -3405,8 +3410,6 @@
   },
   "Plan wypieku": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (etykieta)",
-      "app/(tabs)/receptury/_layout.tsx (tekst)",
       "app/(tabs)/receptury/_layout.tsx (title)"
     ]
   },
@@ -4337,9 +4340,7 @@
     ]
   },
   "Skomponuj własną mieszankę mąk": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Skopiowano diagnozę do schowka": {
     "gdzie": [
@@ -4464,7 +4465,6 @@
   },
   "Spiżarnia mąk & Stan zapasów": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
       "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)"
     ]
   },
@@ -4891,18 +4891,16 @@
   },
   "Temperatura wody": {
     "gdzie": [
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/components/calculator/TemperaturaWodySheet.tsx (tekst w JSX)",
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
     ]
   },
   "Temperatura wody i zaczyny": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Temperatura wody, zaczyny, strata piecowa": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Temperatura wody: {temp}°C": {
     "gdzie": []
@@ -5063,7 +5061,7 @@
   },
   "Udostępnij kod QR": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+      "src/lib/menu-receptury.ts (etykieta)"
     ]
   },
   "Udostępnij kopię bazy": {
@@ -5074,7 +5072,7 @@
   },
   "Udostępnij plik receptury": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+      "src/lib/menu-receptury.ts (etykieta)"
     ]
   },
   "Udostępnij recepturę": {
@@ -5274,6 +5272,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Ułóż plan": {
+    "gdzie": [
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+    ]
+  },
   "Użyj Twojego zakwasu": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
@@ -5466,11 +5469,19 @@
     ]
   },
   "Więcej": {
-    "gdzie": []
+    "gdzie": [
+      "app/(tabs)/receptury/_layout.tsx (tekst)"
+    ]
   },
   "Więcej bochenków": {
     "gdzie": [
       "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
+    ]
+  },
+  "Więcej działań: receptura": {
+    "gdzie": [
+      "app/(tabs)/receptury/_layout.tsx (etykieta)",
+      "src/lib/menu-receptury.ts (Alert.alert)"
     ]
   },
   "Wklej kod JSON receptury tutaj...": {
@@ -6127,8 +6138,6 @@
   },
   "Zacznij wypiek": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
       "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
       "src/components/stolnica/IdleBakeCard.tsx (przycisk)",
       "src/components/stolnica/IdleBakeCard.tsx (tekst w JSX)"
@@ -6671,6 +6680,11 @@
   "Zmień parametry swojego zakwasu": {
     "gdzie": [
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Zmień składniki": {
+    "gdzie": [
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
     ]
   },
   "Zmniejsz": {

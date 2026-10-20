@@ -29,6 +29,12 @@ export const EN_4: Record<string, string> = {
   'Otwórz Doktora Chleba': 'Open Bread Doctor',
   // Podtytuł akordeonu PRO bez ukrytej straty piecowej (F-48 PÓŹNIEJ) [M1-audytor-generalny-032]
   'Temperatura wody i zaczyny': 'Water temperature and preferments',
+  // Receptura: 4 akcje główne i menu „Więcej” (design-spec §11b „057”, słownik §5) [M1-audytor-generalny-057]
+  'Ułóż plan': 'Make a Plan',
+  'Zmień składniki': 'Change Ingredients',
+  'Więcej działań: receptura': 'More actions: recipe',
+  'Mieszanka mąk i zaczyny': 'Flour blend and preferments',
+  'Mieszanka mąk, zaczyny, strata piecowa': 'Flour blend, preferments, bake loss',
   // Rytuał bez ukrywania receptur (F-26, ZM-14) [M1-audytor-generalny-032]
   'Wybierz swój styl wypieku. Ustawi on startowy filtr receptur w Kalkulatorze; wszystkie receptury zostają dostępne.':
     'Choose your baking style. It sets the starting recipe filter in the Calculator; all recipes stay available.',

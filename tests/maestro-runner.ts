@@ -91,7 +91,12 @@ export const SCREEN_DICTIONARIES: Record<
     'Hydratacja',
     'Do miski na wagę',
     'Sól kłodawska / morska',
-    'Kopiuj jako tekst',
+    // 057: 4 akcje receptury; „Kopiuj jako tekst” jest w menu „Więcej”, „Zacznij wypiek” na planie [M1-audytor-generalny-057]
+    'Ułóż plan',
+    'Zapisz jako moją',
+    'Temperatura wody',
+    'Zmień składniki',
+    'Więcej',
     'Zacznij wypiek',
     'Plan wypieku',
     'Godzina gotowości chleba do krojenia',

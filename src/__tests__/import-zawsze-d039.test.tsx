@@ -1,5 +1,5 @@
 /**
- * Import działa zawsze (D-039): kopia w Ustawieniach i receptura w Kalkulatorze także po końcu okresu
+ * Import działa zawsze (D-039): kopia i receptura w Ustawieniach (057) także po końcu okresu
  * próbnego bez zakupu i przed nim, bez ekranu zakupu; nic nie trafia do bazy przed potwierdzeniem
  * użytkownika [M1-audytor-generalny-026; 02-monetyzacja-007]. Baza v4 na prawdziwym SQLite (node:sqlite):
  * liczności przed i po, integrity_check, foreign_key_check.
@@ -150,18 +150,24 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
     s.alert.mockRestore();
   });
 
-  it.each(['import-recipe-json-btn', 'open-import-recipe-btn'])(
-    'Kalkulator: „%s” otwiera okno importu bez ekranu zakupu; receptura trafia do bazy dopiero po „Zaimportuj”',
+  // Import receptury tylko w Ustawieniach, nie na ekranie receptury (F-33, design-spec §11b „057”) [M1-audytor-generalny-057]
+  it.each(['import-recipe-json-btn'])(
+    'Ustawienia: „%s” otwiera okno importu bez ekranu zakupu; receptura trafia do bazy dopiero po „Zaimportuj”',
     async (wejscie) => {
       const s = await start(stan);
       const { encodeRecipeToShareUrl } = require('../lib/recipe-sharing');
       const { ImportRecipeModal } = require('../components/ImportRecipeModal');
+      const { ImportRecepturySection } = require('../components/settings/ImportRecepturySection');
       const payload = encodeRecipeToShareUrl({ ...recipe(9, 'Chleb od sąsiada'), id: 'recipe_shared_9' });
       const przed = dbState();
 
-      await s.press(wejscie);
+      // Ekran receptury nie ma wejścia importu
+      expect(s.tree.root.findAll((n) => ['import-recipe-json-btn', 'open-import-recipe-btn'].includes(n.props?.testID)).length).toBe(0);
+      await s.press('open-settings-btn');
+      const sekcja = s.tree.root.findByType(ImportRecepturySection);
+      await s.press(wejscie, sekcja);
       expect(s.paywall()).toBe(false);
-      const okno = s.tree.root.findByType(ImportRecipeModal);
+      const okno = sekcja.findByType(ImportRecipeModal);
       expect(okno.props.visible).toBe(true);
       await s.TR.act(async () => {
         okno.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
@@ -171,7 +177,7 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
       expect(dbState().counts).toEqual(przed.counts);
       expect(s.alert).not.toHaveBeenCalled();
 
-      await s.press('confirm-import-btn', s.tree.root.findByType(ImportRecipeModal));
+      await s.press('confirm-import-btn', okno);
       const po = dbState();
       expect(po.counts).toEqual({ ...przed.counts, recipes: przed.counts.recipes + 1 });
       expect(po.userRecipes).toBe(przed.userRecipes + 1);

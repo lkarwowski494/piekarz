@@ -86,11 +86,21 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     expect(ekrany.find((e) => e.name === 'index')?.options.title).toBe(tytul);
   });
 
-  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”, wejście z paska nawigacji', () => {
+  // Plan otwiera akcja receptury „Ułóż plan” (057); w pasku nawigacji receptury jest „Więcej” z menu działań
+  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”; w pasku nawigacji „Więcej”', () => {
     const { ekrany } = uklad('../app/(tabs)/receptury/_layout');
     const plan = ekrany.find((e) => e.name === 'harmonogram');
     expect(plan?.options).toMatchObject({ title: 'Plan wypieku', headerLargeTitleEnabled: false });
-    expect(testIdPrzycisku(ekrany.find((e) => e.name === 'index')!.options)).toBe('open-plan-btn');
+    const opcje = ekrany.find((e) => e.name === 'index')!.options;
+    expect(testIdPrzycisku(opcje)).toBe('recipe-more-btn');
+    let tree!: renderer.ReactTestRenderer;
+    act(() => {
+      tree = renderer.create(opcje.headerRight!());
+    });
+    const przycisk = tree.root.findAll((n) => n.props.testID === 'recipe-more-btn' && typeof n.props.accessibilityLabel === 'string')[0];
+    expect(przycisk.props.accessibilityLabel).toBe('Więcej działań: receptura');
+    expect(przycisk.props.onPress).toBe(require('../src/lib/menu-receptury').pokazMenuReceptury);
+    act(() => tree.unmount());
   });
 
   it('Zakwasy: skrót do Doktora Chleba w pasku nawigacji', () => {

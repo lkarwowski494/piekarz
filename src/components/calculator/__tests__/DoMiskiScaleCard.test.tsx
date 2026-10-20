@@ -6,8 +6,6 @@ import { calculateDoughRecipe } from '../../../core/domain-rules';
 describe('DoMiskiScaleCard Component', () => {
   let tree: renderer.ReactTestRenderer | null = null;
   const mockOnLoavesChange = jest.fn();
-  const mockOnSelectPreset = jest.fn();
-  const mockOnStartBake = jest.fn();
 
   const sampleCalc = calculateDoughRecipe({
     flours: [{ name: 'Mąka pszenna typ 750', percentage: 100 }],
@@ -16,13 +14,6 @@ describe('DoMiskiScaleCard Component', () => {
     starterPercentage: 20,
     targetDoughWeightGrams: 960,
   });
-
-  const presets = [
-    { id: 'p1', name: 'Klasyczny pszenno-żytni' },
-    { id: 'p2', name: 'Bagietka francuska' },
-    { id: 'p3', name: 'Pizza Napoletana' },
-    { id: 'p4', name: 'Chleb żytni 100%' },
-  ];
 
   afterEach(() => {
     if (tree) {
@@ -45,7 +36,7 @@ describe('DoMiskiScaleCard Component', () => {
     return walk(node).replace(/\s+/g, ' ').trim();
   }
 
-  it('renders quick bread chips, loaf count stepper, and ingredient weights', async () => {
+  const renderCard = async () => {
     await act(async () => {
       tree = renderer.create(
         <DoMiskiScaleCard
@@ -54,16 +45,17 @@ describe('DoMiskiScaleCard Component', () => {
           recipeName="Klasyczny pszenno-żytni"
           loavesCount={1}
           onLoavesChange={mockOnLoavesChange}
-          presets={presets}
-          selectedPresetId="p1"
-          onSelectPreset={mockOnSelectPreset}
-          onStartBake={mockOnStartBake}
         />
       );
     });
+  };
+
+  it('renders loaf count stepper and ingredient weights', async () => {
+    await renderCard();
 
     const fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Co dzisiaj pieczemy?');
+    // 057: jeden wybór receptury (lista receptur) — karta nie ma własnych chipów „Co dzisiaj pieczemy?”
+    expect(fullText).not.toContain('Co dzisiaj pieczemy?');
     expect(fullText).toContain('Klasyczny pszenno-żytni');
     expect(fullText).toContain('Liczba bochenków');
     expect(fullText).toContain('Do miski na wagę');
@@ -74,21 +66,7 @@ describe('DoMiskiScaleCard Component', () => {
   });
 
   it('steps loaves count and calls onLoavesChange', async () => {
-    await act(async () => {
-      tree = renderer.create(
-        <DoMiskiScaleCard
-          calculations={sampleCalc}
-          saltPercent={2}
-          recipeName="Klasyczny pszenno-żytni"
-          loavesCount={1}
-          onLoavesChange={mockOnLoavesChange}
-          presets={presets}
-          selectedPresetId="p1"
-          onSelectPreset={mockOnSelectPreset}
-          onStartBake={mockOnStartBake}
-        />
-      );
-    });
+    await renderCard();
 
     const incBtn = tree!.root.findByProps({ testID: 'loaves-increment-btn' });
     await act(async () => {
@@ -99,21 +77,7 @@ describe('DoMiskiScaleCard Component', () => {
   });
 
   it('toggles ingredient checkbox on tap with visual checkmark', async () => {
-    await act(async () => {
-      tree = renderer.create(
-        <DoMiskiScaleCard
-          calculations={sampleCalc}
-          saltPercent={2}
-          recipeName="Klasyczny pszenno-żytni"
-          loavesCount={1}
-          onLoavesChange={mockOnLoavesChange}
-          presets={presets}
-          selectedPresetId="p1"
-          onSelectPreset={mockOnSelectPreset}
-          onStartBake={mockOnStartBake}
-        />
-      );
-    });
+    await renderCard();
 
     const flourItem = tree!.root.findByProps({ testID: 'scale-item-flour' });
     await act(async () => {
@@ -124,53 +88,20 @@ describe('DoMiskiScaleCard Component', () => {
     expect(text).toContain('✓');
   });
 
-  it('switches preset upon tapping bread chip', async () => {
-    await act(async () => {
-      tree = renderer.create(
-        <DoMiskiScaleCard
-          calculations={sampleCalc}
-          saltPercent={2}
-          recipeName="Klasyczny pszenno-żytni"
-          loavesCount={1}
-          onLoavesChange={mockOnLoavesChange}
-          presets={presets}
-          selectedPresetId="p1"
-          onSelectPreset={mockOnSelectPreset}
-          onStartBake={mockOnStartBake}
-        />
-      );
-    });
+  // 057 (design-spec §11b): wybór receptury tylko z listy receptur, bez drugiego zestawu chipów z tymi samymi testID
+  it('has no recipe chips of its own', async () => {
+    await renderCard();
 
-    const chipP2 = tree!.root.findByProps({ testID: 'preset-chip-p2' });
-    await act(async () => {
-      chipP2.props.onPress();
-    });
-
-    expect(mockOnSelectPreset).toHaveBeenCalledWith('p2');
+    expect(tree!.root.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('preset-chip-'))).toHaveLength(0);
   });
 
-  it('triggers onStartBake when tapping primary CTA button', async () => {
-    await act(async () => {
-      tree = renderer.create(
-        <DoMiskiScaleCard
-          calculations={sampleCalc}
-          saltPercent={2}
-          recipeName="Klasyczny pszenno-żytni"
-          loavesCount={1}
-          onLoavesChange={mockOnLoavesChange}
-          presets={presets}
-          selectedPresetId="p1"
-          onSelectPreset={mockOnSelectPreset}
-          onStartBake={mockOnStartBake}
-        />
-      );
-    });
+  // 057: „Ułóż plan” jest jedną akcją obszaru akcji receptury (start-bake-btn ×1), karta nie ma przycisku startu
+  it('has no start button of its own', async () => {
+    await renderCard();
 
-    const startBtn = tree!.root.findByProps({ testID: 'fast-start-bake-cta-btn' });
-    await act(async () => {
-      startBtn.props.onPress();
-    });
-
-    expect(mockOnStartBake).toHaveBeenCalled();
+    for (const id of ['fast-start-bake-cta-btn', 'start-bake-btn']) {
+      expect({ id, n: tree!.root.findAllByProps({ testID: id }).length }).toEqual({ id, n: 0 });
+    }
+    expect(extractCleanText(tree?.toJSON())).not.toContain('Zacznij wypiek');
   });
 });

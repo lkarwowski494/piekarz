@@ -144,7 +144,8 @@ export function plikiTsx(): string[] {
 
 /** Prowadzenie wypieku (Stolnica) i akcje główne: próg `cele.glownyPrzeplyw` (48). */
 export const PLIKI_PROWADZENIA = [/^app\/stolnica\.tsx$/, /^src\/components\/stolnica\//];
-export const AKCJE_GLOWNE = ['start-bake-btn', 'fast-start-bake-cta-btn', 'save-custom-recipe-btn', 'next-or-finish-step-btn'];
+// 057: akcje receptury „Temperatura wody” i „Zmień składniki” to akcje główne 48 pt (design-spec §11b) [M1-audytor-generalny-057]
+export const AKCJE_GLOWNE = ['start-bake-btn', 'fast-start-bake-cta-btn', 'save-custom-recipe-btn', 'water-temp-btn', 'edit-ingredients-btn', 'next-or-finish-step-btn'];
 
 export function prog(c: Cel): number {
   if (PLIKI_PROWADZENIA.some((r) => r.test(c.plik))) return cele.glownyPrzeplyw;

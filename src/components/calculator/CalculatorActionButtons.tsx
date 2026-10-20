@@ -1,185 +1,94 @@
 // ============================================================================
-// Apps4Craft Studio — CalculatorActionButtons Component
-// Action buttons for sharing, exporting, inventory, saving, and baking.
-// 100% Offline-First.
+// Piekarz — obszar akcji receptury: dokładnie 4 akcje główne (design-spec §11b „057”, DEC-09 a)
+// „Ułóż plan” 64 pt w kolorze akcji i trzy akcje drugie 48 pt; kopiowanie i udostępnianie pliku są w menu
+// „Więcej” w pasku nawigacji (src/lib/menu-receptury.ts), import tylko w Ustawieniach (F-33); QR, druk,
+// spiżarnia, przelicznik objętości i odpowiedniki mąk bez wejścia (PÓŹNIEJ). [M1-audytor-generalny-057]
 // ============================================================================
 
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
+import { promienie } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
-import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export interface CalculatorActionButtonsProps {
-  onCopyRecipe: () => void;
-  onExportJson: () => void;
-  onShareQr: () => void;
-  /** Otwiera wybór druku (przez strażnika dostępu). */
-  onPrintMenu: () => void;
-  onImportJson: () => void;
-  onOpenInventory: () => void;
+  onMakePlan: () => void;
   onSaveCustomRecipe: () => void;
-  onStartBake: () => void;
+  onWaterTemp: () => void;
+  onEditIngredients: () => void;
 }
 
 export function CalculatorActionButtons({
-  onCopyRecipe,
-  onExportJson,
-  onShareQr,
-  onPrintMenu,
-  onImportJson,
-  onOpenInventory,
+  onMakePlan,
   onSaveCustomRecipe,
-  onStartBake,
+  onWaterTemp,
+  onEditIngredients,
 }: CalculatorActionButtonsProps) {
   return (
-    <View style={styles.actionButtonsContainer}>
-      <Pressable
-        accessibilityRole="button"
-        testID="copy-recipe-btn"
-        style={styles.copyRecipeBtn}
-        onPress={onCopyRecipe}
-      >
-        <Text style={styles.copyRecipeBtnText}>{t('Kopiuj jako tekst')}</Text>
+    <View style={styles.obszar} testID="recipe-actions">
+      <Pressable accessibilityRole="button" testID="start-bake-btn" style={styles.glowny} onPress={onMakePlan}>
+        <Text style={styles.glownyTekst}>{t('Ułóż plan')}</Text>
       </Pressable>
-
-      <Pressable
-        accessibilityRole="button"
-        testID="export-recipe-json-btn"
-        style={styles.cloneRecipeBtn}
-        onPress={onExportJson}
-      >
-        <Text style={styles.cloneRecipeBtnText}>{t('Udostępnij plik receptury')}</Text>
-      </Pressable>
-
-      {/* F-08 PÓŹNIEJ (D-043): udostępnianie kodu QR ukryte, kod zostaje [M1-audytor-generalny-049] */}
-      {wejscieWidoczne('qr') && (
-        <Pressable
-          accessibilityRole="button"
-          testID="share-recipe-qr-btn"
-          style={styles.cloneRecipeBtn}
-          onPress={onShareQr}
-        >
-          <Text style={styles.cloneRecipeBtnText}>{t('Udostępnij kod QR')}</Text>
+      <View style={styles.rzad}>
+        <Pressable accessibilityRole="button" testID="save-custom-recipe-btn" style={[styles.drugi, styles.wRzedzie]} onPress={onSaveCustomRecipe}>
+          <Text style={styles.drugiTekst}>{t('Zapisz jako moją')}</Text>
         </Pressable>
-      )}
-
-      {/* Jedyne wejście druku: karta A4 albo etykieta słoika (BR-DRUK-001) [M1-audytor-generalny-032];
-          F-50 PÓŹNIEJ (D-043): wejście ukryte, kod druku zostaje [M1-audytor-generalny-072] */}
-      {wejscieWidoczne('druk') && (
-        <Pressable
-          testID="print-menu-btn"
-          accessibilityRole="button"
-          style={styles.cloneRecipeBtn}
-          onPress={onPrintMenu}
-        >
-          <Text style={styles.cloneRecipeBtnText}>{t('Drukuj')}</Text>
+        <Pressable accessibilityRole="button" testID="water-temp-btn" style={[styles.drugi, styles.wRzedzie]} onPress={onWaterTemp}>
+          <Text style={styles.drugiTekst}>{t('Temperatura wody')}</Text>
         </Pressable>
-      )}
-
-      <Pressable
-        accessibilityRole="button"
-        testID="import-recipe-json-btn"
-        style={styles.cloneRecipeBtn}
-        onPress={onImportJson}
-      >
-        <Text style={styles.cloneRecipeBtnText}>{t('Importuj JSON')}</Text>
-      </Pressable>
-
-      {/* F-30 PÓŹNIEJ (D-043): wejście do spiżarni ukryte, zapasy i kod zostają [M1-audytor-generalny-097] */}
-      {wejscieWidoczne('spizarnia') && (
-        <Pressable
-          accessibilityRole="button"
-          testID="open-flour-inventory-btn"
-          style={styles.cloneRecipeBtn}
-          onPress={onOpenInventory}
-        >
-          <Text style={styles.cloneRecipeBtnText}>{t('Spiżarnia mąk & Stan zapasów')}</Text>
-        </Pressable>
-      )}
-
-      <Pressable
-        accessibilityRole="button"
-        testID="save-custom-recipe-btn"
-        style={styles.secondaryBtn}
-        onPress={onSaveCustomRecipe}
-      >
-        <Text style={styles.secondaryBtnText}>{t('Zapisz jako moją')}</Text>
-      </Pressable>
-
-      <Pressable
-        accessibilityRole="button"
-        testID="start-bake-btn"
-        style={styles.primaryBtn}
-        onPress={onStartBake}
-      >
-        <Text style={styles.primaryBtnText}>{t('Zacznij wypiek')}</Text>
+      </View>
+      <Pressable accessibilityRole="button" testID="edit-ingredients-btn" style={styles.drugi} onPress={onEditIngredients}>
+        <Text style={styles.drugiTekst}>{t('Zmień składniki')}</Text>
       </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  actionButtonsContainer: {
+  obszar: {
     marginTop: theme.spacing.lg,
     gap: 10,
   },
-  copyRecipeBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.akcent,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
+  rzad: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
   },
-  copyRecipeBtnText: {
-    fontSize: 14,
+  wRzedzie: {
+    flexGrow: 1,
+    flexBasis: 140,
+  },
+  glowny: {
+    minHeight: theme.cele.przyciskKciuka,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: theme.spacing.md,
+    backgroundColor: theme.colors.akcent,
+    borderRadius: promienie.przyciskGlowny,
+  },
+  glownyTekst: {
+    fontFamily: theme.typography.krojTytulow,
+    fontSize: 20,
     fontWeight: '700',
-    color: theme.colors.akcentTekst,
+    color: theme.colors.naAkcencie,
+    textAlign: 'center',
   },
-  cloneRecipeBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    paddingVertical: 12,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-  },
-  cloneRecipeBtnText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: theme.colors.tusz,
-  },
-  secondaryBtn: {
+  drugi: {
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: theme.spacing.md,
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1.5,
-    borderColor: theme.colors.akcent,
-    paddingVertical: 14,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
+    borderColor: theme.colors.obwodka,
+    borderRadius: promienie.przycisk,
   },
-  secondaryBtnText: {
+  drugiTekst: {
     fontSize: 15,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-  },
-  primaryBtn: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingVertical: 16,
-    borderRadius: theme.radius.md,
-    alignItems: 'center',
-  },
-  primaryBtnText: {
-    fontSize: 16,
-    fontWeight: '800',
-    color: theme.colors.naAkcencie,
+    fontWeight: '600',
+    color: theme.colors.tusz,
+    textAlign: 'center',
   },
 });

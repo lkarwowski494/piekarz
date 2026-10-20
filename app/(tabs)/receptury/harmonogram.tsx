@@ -14,6 +14,7 @@ import {
 import { setActiveBake } from '../../../src/data/sqlite-store';
 import { stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
+import { recepturaPlanu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
@@ -109,18 +110,21 @@ export default function HarmonogramScreen() {
     return t('{dzien}, {d} {miesiac}', { dzien: t(POLISH_DAYS[d.getDay()]), d: d.getDate(), miesiac: t(POLISH_MONTHS[d.getMonth()]) });
   };
 
-  // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030]
+  // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];
+  // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
     requireActionAccess(() => {
       const steps = stepsFromSchedule(schedule);
+      const receptura = recepturaPlanu();
       setActiveBake({
         id: `bake_${Date.now()}`,
-        recipeName: t('Klasyczny chleb rzemieślniczy (Harmonogram)'),
+        recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy (Harmonogram)'),
         startedAt: Date.now(),
         currentStageId: steps[0]?.id ?? '',
         ambientTempC: ambientTemp,
-        isHighRye: false,
+        isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
         steps,
+        ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       });
       router.push('/stolnica');
     });

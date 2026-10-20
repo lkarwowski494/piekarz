@@ -12,8 +12,18 @@ import {
   setBakerRitualProfile,
 } from '../data/sqlite-store';
 import { MASTER_RECIPES } from '../recipes/presets';
+import { biezaceMenuReceptury } from '../lib/menu-receptury';
+import { recepturaPlanu } from '../lib/plan-receptury';
+import { ImportRecepturySection } from '../components/settings/ImportRecepturySection';
 
 jest.setTimeout(20000);
+
+/** Pozycja menu „Więcej” receptury (057): przycisk jest w pasku nawigacji, akcje rejestruje ekran. */
+const pozycjaMenu = (id: string) => {
+  const p = biezaceMenuReceptury().find((x) => x.id === id);
+  if (!p) throw new Error(`brak pozycji menu ${id}`);
+  return p;
+};
 
 // F-46 i F-48 PÓŹNIEJ: wejścia ukryte w aplikacji (D-034, test wejscia-pozniej); tu sprawdzamy kod, który
 // zostaje, z włączonymi wejściami [M1-audytor-generalny-032].
@@ -101,6 +111,14 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     });
   };
 
+  // Temperatura wody i hydratacja: arkusz z akcji „Temperatura wody” (057) [M1-audytor-generalny-057]
+  const openWaterTemp = async () => {
+    const btn = tree!.root.findByProps({ testID: 'water-temp-btn' });
+    await act(async () => {
+      btn.props.onPress();
+    });
+  };
+
   // F-26, ZM-14, D-034 wybór 8a: rytuał ustawia widoczny filtr, „Wszystkie” pokazuje każdą recepturę [M1-audytor-generalny-032]
   it('sourdough purist ritual starts on the sourdough filter and "all" still shows every master recipe', async () => {
     await setBakerRitualProfile('sourdough_purist');
@@ -177,7 +195,7 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
   it('adjusts hydration percentage and difficulty badge when pressing +5%', async () => {
     await renderScreen();
-    await openArtisanAccordion();
+    await openWaterTemp();
 
     expect(extractCleanText(tree?.toJSON())).toContain('68,0%');
 
@@ -209,24 +227,25 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     expect(updatedText).toContain('Mąka żytnia razowa typ 2000');
   });
 
-  it('transfers calculated recipe to Workbench and navigates upon tapping action button', async () => {
+  // 057 (słownik §5): „Ułóż plan” prowadzi do planu wypieku z tą recepturą; wypiek z ilościami zapisuje
+  // „Zacznij wypiek” na planie (src/__tests__/receptura-akcje-057.test.tsx, także actualDdtC bez zgadywania)
+  it('transfers calculated recipe to the bake plan and navigates upon tapping action button', async () => {
     await renderScreen();
 
-    const startBakeBtn = findButtonByText(tree!.root, 'Zacznij wypiek');
-    expect(startBakeBtn).toBeDefined();
+    const makePlanBtn = findButtonByText(tree!.root, 'Ułóż plan');
+    expect(makePlanBtn).toBeDefined();
 
     await act(async () => {
-      startBakeBtn?.props.onPress();
+      makePlanBtn?.props.onPress();
     });
 
-    expect(mockPush).toHaveBeenCalledWith('/stolnica');
+    expect(mockPush).toHaveBeenCalledWith('/receptury/harmonogram');
+    expect(getActiveBake()).toBeNull();
 
-    const active = getActiveBake();
-    expect(active).not.toBeNull();
-    expect(active?.calculatedRecipe).toBeDefined();
-    expect(active?.calculatedRecipe?.targetDoughWeightGrams).toBeGreaterThan(0);
-    // [M1-audytor-generalny-017] DDT docelowe nie jest zapisywane jako zmierzone
-    expect(active?.actualDdtC).toBeUndefined();
+    const plan = recepturaPlanu();
+    expect(plan).not.toBeNull();
+    expect(plan?.calculatedRecipe).toBeDefined();
+    expect(plan?.calculatedRecipe.targetDoughWeightGrams).toBeGreaterThan(0);
   });
 
   it('renders Bake Loss & Crumb Moisture card and displays live metrics', async () => {
@@ -277,11 +296,11 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
   it('triggers copy recipe to clipboard when tapping copy recipe button', async () => {
     await renderScreen();
 
-    const copyBtn = tree!.root.findByProps({ testID: 'copy-recipe-btn' });
-    expect(copyBtn).toBeDefined();
+    const copyBtn = pozycjaMenu('copy-recipe-btn');
+    expect(copyBtn.etykieta).toBe('Kopiuj jako tekst');
 
     await act(async () => {
-      await copyBtn.props.onPress();
+      copyBtn.akcja();
     });
 
     expect(tree).toBeDefined();
@@ -370,10 +389,9 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
   it('opens custom flour blend builder, adjusts proportions, and applies custom blend', async () => {
     await renderScreen();
-    await openArtisanAccordion();
 
-    // Find and open custom blend builder
-    const openBtn = tree!.root.findByProps({ testID: 'open-blend-builder-btn' });
+    // „Zmień składniki” w obszarze akcji receptury (057) otwiera arkusz mieszanki mąk
+    const openBtn = tree!.root.findByProps({ testID: 'edit-ingredients-btn' });
     expect(openBtn).toBeDefined();
 
     await act(async () => {
@@ -418,6 +436,8 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
 
   it('opens flour pantry inventory modal and checks recipe stock status', async () => {
     await renderScreen();
+    // Jedno wejście spiżarni (po powrocie F-30): sekcja mieszanki mąk w akordeonie (057, bez duplikatu w akcjach)
+    await openArtisanAccordion();
 
     // Open inventory modal
     const openInvBtn = tree!.root.findByProps({ testID: 'open-flour-inventory-btn' });
@@ -480,17 +500,20 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
   it('copies recipe JSON to clipboard and opens import modal', async () => {
     await renderScreen();
 
-    // Export JSON button
-    const exportJsonBtn = tree!.root.findByProps({ testID: 'export-recipe-json-btn' });
-    expect(exportJsonBtn).toBeDefined();
+    // „Udostępnij plik receptury” w menu „Więcej” (057)
+    const exportJsonBtn = pozycjaMenu('export-recipe-json-btn');
 
     await act(async () => {
-      exportJsonBtn.props.onPress();
+      exportJsonBtn.akcja();
     });
 
-    // Open import modal
-    const openImportBtn = tree!.root.findByProps({ testID: 'open-import-recipe-btn' });
-    expect(openImportBtn).toBeDefined();
+    // Import receptury tylko w Ustawieniach (F-33, 057): na ekranie receptury nie ma wejścia importu
+    expect(tree!.root.findAllByProps({ testID: 'open-import-recipe-btn' })).toHaveLength(0);
+    act(() => tree!.unmount());
+    await act(async () => {
+      tree = renderer.create(<ImportRecepturySection />);
+    });
+    const openImportBtn = tree!.root.findByProps({ testID: 'import-recipe-json-btn' });
 
     await act(async () => {
       openImportBtn.props.onPress();
@@ -518,10 +541,12 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     await renderScreen();
 
     expect(tree!.root.findAllByProps({ testID: 'header-print-pdf-btn' })).toHaveLength(0);
-    const printBtn = tree!.root.findByProps({ testID: 'print-menu-btn' });
+    // Druk (po powrocie F-50) jest pozycją menu „Więcej” receptury (057)
+    expect(tree!.root.findAllByProps({ testID: 'print-menu-btn' })).toHaveLength(0);
+    const printBtn = pozycjaMenu('print-menu-btn');
 
     await act(async () => {
-      await printBtn.props.onPress();
+      printBtn.akcja();
     });
     const menu = alertSpy.mock.calls.find((c: unknown[]) => c[0] === 'Drukuj');
     const card = (menu![2] as { text: string; onPress: () => void }[]).find((b) => b.text === 'Karta receptury A4');
@@ -545,7 +570,7 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     setUnitSystem('imperial');
 
     await renderScreen();
-    await openArtisanAccordion();
+    await openWaterTemp();
     const fullText = extractCleanText(tree?.toJSON());
 
     // In imperial mode, temperature is in °F and weights are in oz / lb

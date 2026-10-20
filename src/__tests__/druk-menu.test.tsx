@@ -11,6 +11,7 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, saveStarter, getStarters, deleteStarter, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { openPrintMenu, starterLabelOptions } from '../lib/print-menu';
+import { biezaceMenuReceptury } from '../lib/menu-receptury';
 
 jest.setTimeout(20000);
 
@@ -64,10 +65,10 @@ async function renderCalculator(): Promise<renderer.ReactTestRenderer> {
   return tree!;
 }
 
-/** Dotyka „Drukuj” i zwraca przyciski okna wyboru. */
-async function openMenu(tree: renderer.ReactTestRenderer, alert: jest.SpyInstance): Promise<AlertButton[]> {
+/** Wybiera „Drukuj” z menu „Więcej” receptury (057) i zwraca przyciski okna wyboru. */
+async function openMenu(_tree: renderer.ReactTestRenderer, alert: jest.SpyInstance): Promise<AlertButton[]> {
   await act(async () => {
-    tree.root.findAllByProps({ testID: 'print-menu-btn' })[0].props.onPress();
+    biezaceMenuReceptury().find((p) => p.id === 'print-menu-btn')!.akcja();
   });
   const call = alert.mock.calls.find((c) => c[0] === 'Drukuj');
   expect(call?.[1]).toBe('Co chcesz wydrukować?');
@@ -107,9 +108,11 @@ describe('Single print entry in the Calculator actions (BR-DRUK-001)', () => {
     expect(printRecipe).toHaveBeenCalledTimes(1);
   });
 
+  // 057: wejście druku (po powrocie F-50) to jedna pozycja menu „Więcej” receptury, nie przycisk na ekranie
   it('Calculator has exactly one print entry and the Starter screen has none', async () => {
     const calc = await renderCalculator();
-    expect(printIds(calc.root)).toEqual(['print-menu-btn']);
+    expect(biezaceMenuReceptury().map((p) => p.id).filter((id) => /print|pdf|druk|label/i.test(id))).toEqual(['print-menu-btn']);
+    expect(printIds(calc.root)).toEqual([]);
     act(() => calc.unmount());
 
     let zakwas: renderer.ReactTestRenderer | null = null;

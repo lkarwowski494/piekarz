@@ -53,6 +53,7 @@ export function ScheduleSummaryCard({
       {/* Transfer to Stolnica Action Button */}
       <Pressable
         accessibilityRole="button"
+        testID="plan-start-bake-btn"
         style={styles.transferBtn}
         onPress={onStartBakeOnWorkbench}
       >

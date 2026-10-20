@@ -22,6 +22,7 @@ import { useUnitSystem, setUnitSystem, UnitSystem } from '../lib/unit-converter'
 import { BakerRitualSection } from './settings/BakerRitualSection';
 import { PreferencesSection } from './settings/PreferencesSection';
 import { BackupAndDataSection } from './settings/BackupAndDataSection';
+import { ImportRecepturySection } from './settings/ImportRecepturySection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
 import { ZakupySection } from './settings/ZakupySection';
 
@@ -96,6 +97,9 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 
           {/* Backup & CSV Exports */}
           <BackupAndDataSection />
+
+          {/* Import receptury tylko tutaj, nie na ekranie receptury (F-33, 057) [M1-audytor-generalny-057] */}
+          <ImportRecepturySection />
 
           {/* Apps4Craft Studio Family & Security */}
           <StudioEcosystemSection />

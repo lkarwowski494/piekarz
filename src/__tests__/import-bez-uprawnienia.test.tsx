@@ -28,6 +28,7 @@ import { AppAccessProvider } from '../components/AppAccessProvider';
 import { PaywallModal } from '../components/PaywallModal';
 import { QrScannerModal } from '../components/QrScannerModal';
 import { ImportRecipeModal } from '../components/ImportRecipeModal';
+import { ImportRecepturySection } from '../components/settings/ImportRecepturySection';
 import { initDatabase, _resetMemStore, getRecipes } from '../data/sqlite-store';
 import { encodeRecipeToShareUrl } from '../lib/recipe-sharing';
 import { odswiezDostep } from '../lib/platnosci/stan';
@@ -56,6 +57,9 @@ async function press(tree: renderer.ReactTestRenderer, testID: string): Promise<
   });
   await flush();
 }
+
+/** Okno importu, które jest otwarte (QR z ekranu receptury albo import receptury z Ustawień, 057). */
+const otwartyImport = (tree: renderer.ReactTestRenderer) => tree.root.findAllByType(ImportRecipeModal).filter((m) => m.props.visible === true)[0];
 
 /** Uprawnienie znika przy otwartym oknie (zwrot albo koniec subskrypcji): następny odczyt sklepu jest pusty. */
 async function utrataUprawnienia(): Promise<void> {
@@ -101,6 +105,7 @@ describe('Import without an entitlement works and saves only after the user conf
       tree = renderer.create(
         <AppAccessProvider>
           <CalculatorScreen />
+          <ImportRecepturySection />
         </AppAccessProvider>
       );
     });
@@ -112,7 +117,7 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('pasted text: after the entitlement ends, confirming saves the recipe once, without the purchase screen', async () => {
-    await press(tree, 'open-import-recipe-btn');
+    await press(tree, 'import-recipe-json-btn');
     await act(async () => {
       tree.root.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
     });
@@ -148,10 +153,10 @@ describe('Import without an entitlement works and saves only after the user conf
     });
     await flush();
     expect(paywallShown(tree.root)).toBe(false);
-    expect(tree.root.findByType(ImportRecipeModal).props.visible).toBe(true);
+    expect(otwartyImport(tree).props.visible).toBe(true);
     expect((await getRecipes()).length).toBe(before);
     await act(async () => {
-      await tree.root.findByType(ImportRecipeModal).findByProps({ testID: 'confirm-import-btn' }).props.onPress();
+      await otwartyImport(tree).findByProps({ testID: 'confirm-import-btn' }).props.onPress();
     });
     await flush();
     expect((await getRecipes()).length).toBe(before + 1);
@@ -159,7 +164,7 @@ describe('Import without an entitlement works and saves only after the user conf
   });
 
   it('with an entitlement the import saves the recipe once (control)', async () => {
-    await press(tree, 'open-import-recipe-btn');
+    await press(tree, 'import-recipe-json-btn');
     await act(async () => {
       tree.root.findByProps({ testID: 'recipe-json-input' }).props.onChangeText(payload);
     });

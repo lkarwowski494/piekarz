@@ -13,12 +13,8 @@ import { DoughRecipeResult } from '../../core/domain-rules';
 import { useUnitSystem, formatWeight, formatDoseWeight } from '../../lib/unit-converter';
 import { ScaleIngredientRow } from './ScaleIngredientRow';
 
-export interface DoMiskiPreset {
-  id: string;
-  name: string;
-  emoji?: string;
-}
-
+// Wybór receptury jest jeden (lista receptur, FormulaPresetSelector), a „Ułóż plan” jest jedną akcją
+// w obszarze akcji receptury: karta nie ma własnych chipów ani przycisku startu (057) [M1-audytor-generalny-057]
 export interface DoMiskiScaleCardProps {
   calculations: DoughRecipeResult;
   /** Procent soli z receptury (True Baker's %); bez stałej w karcie [M1-audytor-generalny-059]. */
@@ -26,10 +22,6 @@ export interface DoMiskiScaleCardProps {
   recipeName: string;
   loavesCount: number;
   onLoavesChange: (count: number) => void;
-  presets: DoMiskiPreset[];
-  selectedPresetId: string;
-  onSelectPreset: (id: string) => void;
-  onStartBake: () => void;
   singleLoafWeightGrams?: number;
   calcMode?: 'loaves' | 'flour';
   onCalcModeChange?: (mode: 'loaves' | 'flour') => void;
@@ -45,10 +37,6 @@ export function DoMiskiScaleCard({
   recipeName,
   loavesCount,
   onLoavesChange,
-  presets,
-  selectedPresetId,
-  onSelectPreset,
-  onStartBake,
   calcMode = 'loaves',
   onCalcModeChange,
   flourGrams = 500,
@@ -104,40 +92,6 @@ export function DoMiskiScaleCard({
             {t('Masa mąki')} ({flourGrams}g)
           </Text>
         </Pressable>
-      </View>
-
-      {/* Level 1: Quick Bread Selection Chipy */}
-      <Text style={styles.sectionLabel}>{t('Co dzisiaj pieczemy?')}</Text>
-      <View style={styles.presetsRow}>
-        {presets.slice(0, 4).map((preset) => {
-          const isSelected = preset.id === selectedPresetId;
-          return (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: !!(isSelected) }}
-              key={preset.id}
-              testID={`preset-chip-${preset.id}`}
-              style={[styles.presetChip, isSelected && styles.presetChipSelected]}
-              onPress={() => {
-                try {
-                  void Haptics.selectionAsync();
-                } catch {
-                  // Haptyka jest dodatkiem: brak wibracji nie blokuje wyboru receptury
-                }
-                onSelectPreset(preset.id);
-              }}
-            >
-              <Text
-                style={[
-                  styles.presetChipText,
-                  isSelected && styles.presetChipTextSelected,
-                ]}
-              >
-                {preset.name}
-              </Text>
-            </Pressable>
-          );
-        })}
       </View>
 
       {/* Mode-Specific Input Card */}
@@ -291,20 +245,6 @@ export function DoMiskiScaleCard({
           </Text>
         </View>
       </View>
-
-      {/* Główny przycisk CTA: min. 52pt */}
-      <Pressable
-        accessibilityRole="button"
-        testID="fast-start-bake-cta-btn"
-        style={styles.fastStartBtn}
-        onPress={onStartBake}
-      >
-        <Pressable accessibilityRole="button" testID="start-bake-btn" onPress={onStartBake}>
-          <Text style={styles.fastStartBtnText}>
-            {t('Zacznij wypiek')}
-          </Text>
-        </Pressable>
-      </Pressable>
     </View>
   );
 }
@@ -317,43 +257,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
-  },
-  sectionLabel: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-    marginBottom: theme.spacing.xs,
-  },
-  presetsRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: theme.spacing.xs,
-    marginBottom: theme.spacing.md,
-  },
-  presetChip: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    borderRadius: theme.radius.full,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  presetChipSelected: {
-    borderColor: theme.colors.akcent,
-    borderWidth: 3,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  presetChipText: {
-    fontSize: 13,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
-  },
-  presetChipTextSelected: {
-    color: theme.colors.akcentTekst,
-    fontWeight: '700',
   },
   loavesRow: {
     flexDirection: 'row',
@@ -456,19 +359,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '800',
     color: theme.colors.tusz,
-  },
-  fastStartBtn: {
-    backgroundColor: theme.colors.akcent,
-    borderRadius: theme.radius.md,
-    paddingVertical: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 52, // Zasada Brudnego Kciuka
-  },
-  fastStartBtnText: {
-    color: theme.colors.naAkcencie,
-    fontSize: 16,
-    fontWeight: '800',
   },
   modeSwitcherContainer: {
     flexDirection: 'row',

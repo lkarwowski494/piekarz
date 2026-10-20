@@ -17,8 +17,14 @@ appId: com.apps4brew.baker
 - assertVisible:
     id: "dziennik-doktor-btn"
 - tapOn: "Receptury"
+# "Uloz plan" (start-bake-btn, M1-audytor-generalny-057) otwiera plan wypieku; "Zacznij wypiek" na planie
 - tapOn:
     id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "plan-start-bake-btn"
+- tapOn:
+    id: "plan-start-bake-btn"
 - assertVisible:
     id: "next-or-finish-step-btn"
 - tapOn:

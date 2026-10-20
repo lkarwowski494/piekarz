@@ -11,6 +11,7 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { WEJSCIA_WIDOCZNE, wejscieWidoczne, WejsciePozniej } from '../lib/wejscia-pozniej';
+import { biezaceMenuReceptury } from '../lib/menu-receptury';
 
 jest.setTimeout(20000);
 
@@ -78,7 +79,8 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     expect(testIds(tree!.root)).not.toContain('open-flour-inventory-btn');
   });
 
-  it('Calculator has no QR scan and no QR sharing entry (F-08, D-043); JSON import stays', async () => {
+  // Import receptury jest w Ustawieniach, nie na ekranie receptury (F-33, 057) [M1-audytor-generalny-057]
+  it('Calculator has no QR scan and no QR sharing entry (F-08, D-043); JSON import is in Settings', async () => {
     await act(async () => {
       tree = renderer.create(<CalculatorScreen />);
     });
@@ -86,9 +88,10 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
       await Promise.resolve();
     });
     const ids = testIds(tree!.root);
-    expect(ids).toContain('open-import-recipe-btn');
-    expect(ids).toContain('import-recipe-json-btn');
+    expect(ids).not.toContain('open-import-recipe-btn');
+    expect(ids).not.toContain('import-recipe-json-btn');
     expect(ids.filter((id) => /qr|scan/i.test(id) && id.endsWith('-btn'))).toEqual([]);
+    expect(biezaceMenuReceptury().map((p) => p.id).filter((id) => /qr|scan/i.test(id))).toEqual([]);
   });
 
   it('Calculator has no print entry: recipe card PDF and jar label are outside 1.0 (F-50, D-043)', async () => {
@@ -99,7 +102,10 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
       await Promise.resolve();
     });
     const ids = testIds(tree!.root);
-    expect(ids).toContain('copy-recipe-btn');
+    // „Kopiuj jako tekst” jest w menu „Więcej” receptury (057); druku nie ma ani na ekranie, ani w menu
+    const menu = biezaceMenuReceptury().map((p) => p.id);
+    expect(menu).toContain('copy-recipe-btn');
+    expect(menu).not.toContain('print-menu-btn');
     expect(ids).not.toContain('print-menu-btn');
     expect(ids.filter((id) => /print|pdf|druk/i.test(id))).toEqual([]);
   });
@@ -124,8 +130,9 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     const texts = tree!.root
       .findAll((n) => (n.type as unknown) === 'Text')
       .map((n) => (Array.isArray(n.props.children) ? n.props.children.join('') : String(n.props.children)));
-    expect(texts).toContain('Temperatura wody i zaczyny');
-    expect(texts).not.toContain('Temperatura wody, zaczyny, strata piecowa');
+    // Temperatura wody ma własną akcję i arkusz (057): podtytuł mówi o mieszance mąk i zaczynach
+    expect(texts).toContain('Mieszanka mąk i zaczyny');
+    expect(texts).not.toContain('Mieszanka mąk, zaczyny, strata piecowa');
   });
 
   it('Starter screen has no discard recipes entry (F-47) and no starter converter entry (F-49)', async () => {

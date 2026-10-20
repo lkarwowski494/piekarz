@@ -1,11 +1,13 @@
 // Zakładka „Receptury” (D-051 2a): receptura i ilości (dawny Kalkulator) oraz plan wypieku (dawny Harmonogram)
-// w jednym stosie, plan z przyciskiem wstecz „Receptury”. Wejście do planu z paska nawigacji do czasu
-// akcji „Ułóż plan” w recepturze (057, zestaw F). [M1-audytor-generalny-101]
+// w jednym stosie, plan z przyciskiem wstecz „Receptury”. Plan otwiera akcja receptury „Ułóż plan”; w pasku
+// nawigacji receptury przycisk „Więcej” z menu (Kopiuj jako tekst, Udostępnij plik receptury; design-spec §11b
+// „057”). [M1-audytor-generalny-101; M1-audytor-generalny-057]
 import React from 'react';
-import { Stack, router } from 'expo-router';
+import { Stack } from 'expo-router';
 import { t } from '../../../src/lib/i18n';
 import { naglowekDuzy, naglowekZwykly } from '../../../src/ui/naglowek';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
+import { pokazMenuReceptury } from '../../../src/lib/menu-receptury';
 
 export default function RecepturyLayout() {
   return (
@@ -15,7 +17,7 @@ export default function RecepturyLayout() {
         options={{
           title: t('Receptury'),
           headerRight: () => (
-            <PrzyciskNaglowka testID="open-plan-btn" etykieta={t('Plan wypieku')} tekst={t('Plan wypieku')} onPress={() => router.push('/receptury/harmonogram')} />
+            <PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} onPress={pokazMenuReceptury} />
           ),
         }}
       />

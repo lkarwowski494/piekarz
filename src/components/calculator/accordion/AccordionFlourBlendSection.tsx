@@ -7,7 +7,6 @@ import { FlourItemInput, POPULAR_FLOUR_BLENDS } from '../../../core/domain-rules
 
 export interface AccordionFlourBlendSectionProps {
   flourBlend: FlourItemInput[];
-  onOpenBlendModal: () => void;
   onSelectFlourBlend?: (blend: (typeof POPULAR_FLOUR_BLENDS)[number]) => void;
   onOpenInventory?: () => void;
   onOpenEquivalents?: () => void;
@@ -15,23 +14,15 @@ export interface AccordionFlourBlendSectionProps {
 
 export function AccordionFlourBlendSection({
   flourBlend,
-  onOpenBlendModal,
   onSelectFlourBlend,
   onOpenInventory,
   onOpenEquivalents,
 }: AccordionFlourBlendSectionProps) {
   return (
     <View style={styles.sectionBlock}>
+      {/* Edycja mieszanki: akcja receptury „Zmień składniki” (edit-ingredients-btn) [M1-audytor-generalny-057] */}
       <View style={styles.rowBetween}>
         <Text style={styles.sectionHeaderTitle}>{t('Mieszanka mąk')}</Text>
-        <Pressable
-          accessibilityRole="button"
-          testID="edit-blend-pro-btn"
-          style={styles.pillActionBtn}
-          onPress={onOpenBlendModal}
-        >
-          <Text style={styles.pillActionText}>{t('Edytuj blend')}</Text>
-        </Pressable>
       </View>
 
       {/* Popular flour blend presets */}
@@ -59,14 +50,6 @@ export function AccordionFlourBlendSection({
       </View>
 
       <View style={styles.flourActionsRow}>
-        <Pressable
-          accessibilityRole="button"
-          testID="open-blend-builder-btn"
-          style={styles.flourActionBtn}
-          onPress={onOpenBlendModal}
-        >
-          <Text style={styles.flourActionBtnText}>{t('Skomponuj własną mieszankę mąk')}</Text>
-        </Pressable>
         {/* F-30 PÓŹNIEJ (D-043): wejście do spiżarni ukryte [M1-audytor-generalny-097] */}
         {onOpenInventory && wejscieWidoczne('spizarnia') && (
           <Pressable
@@ -114,19 +97,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 4,
-  },
-  pillActionBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: theme.radius.full,
-  },
-  pillActionText: {
-    color: theme.colors.naAkcencie,
-    fontSize: 11,
-    fontWeight: '700',
   },
   blendScroll: {
     marginVertical: 6,

@@ -153,10 +153,6 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
       recipeName: 'X',
       loavesCount: 1,
       onLoavesChange: () => {},
-      presets: [],
-      selectedPresetId: '',
-      onSelectPreset: () => {},
-      onStartBake: () => {},
     });
     setLang('pl');
     expect(render(el)).toContain('70,91% hydratacji');

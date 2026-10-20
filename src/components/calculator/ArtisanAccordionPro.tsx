@@ -1,6 +1,7 @@
 // ============================================================================
 // Apps4Craft Studio — ArtisanAccordionPro (Progressive Disclosure Level 2)
-// Zwijany panel dla rzemieślników: 4-DDT, prefermenty, strata piecowa; obliczenie dla schłodzenia wody poza interfejsem (F-53 NIE) [M1-audytor-generalny-099]
+// Zwijany panel dla rzemieślników: mieszanka mąk, prefermenty, strata piecowa; obliczenie dla schłodzenia wody poza interfejsem (F-53 NIE) [M1-audytor-generalny-099]
+// Temperatura wody ma własną akcję receptury i arkusz (TemperaturaWodySheet, 057) [M1-audytor-generalny-057]
 // ============================================================================
 
 import React from 'react';
@@ -14,12 +15,9 @@ import {
 import {
   FlourItemInput,
   POPULAR_FLOUR_BLENDS,
-  HydrationDifficultyInfo,
   BakeTypePresetId,
   BakeLossMetricsResult,
 } from '../../core/domain-rules';
-import { BlendAbsorptionAnalysis } from '../../core/flour-atlas';
-import { AccordionDdtSection } from './accordion/AccordionDdtSection';
 import { AccordionFlourBlendSection } from './accordion/AccordionFlourBlendSection';
 import { AccordionPrefermentSection } from './accordion/AccordionPrefermentSection';
 import { AccordionBakeLossSection } from './accordion/AccordionBakeLossSection';
@@ -28,25 +26,11 @@ import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 export interface ArtisanAccordionProProps {
   isOpen: boolean;
   onToggle: () => void;
-  // DDT
-  targetDdt: number;
-  onTargetDdtChange: (val: number) => void;
-  waterTempTarget: number;
-  waterTempWarning?: string;
-  ambientTemp: number;
-  flourTemp: number;
-  frictionFactor: number;
   // Flour blend
   flourBlend: FlourItemInput[];
-  onOpenBlendModal: () => void;
   onSelectFlourBlend?: (blend: (typeof POPULAR_FLOUR_BLENDS)[number]) => void;
   onOpenInventory?: () => void;
   onOpenEquivalents?: () => void;
-  // Water & Hydration
-  waterPct: number;
-  onWaterPctChange: (pct: number) => void;
-  hydrationDifficulty?: HydrationDifficultyInfo;
-  blendAbsorption?: BlendAbsorptionAnalysis;
   // Preferments
   prefermentType: PrefermentType;
   onPrefermentTypeChange: (type: PrefermentType) => void;
@@ -65,19 +49,10 @@ export interface ArtisanAccordionProProps {
 export function ArtisanAccordionPro({
   isOpen,
   onToggle,
-  targetDdt,
-  onTargetDdtChange,
-  waterTempTarget,
-  waterTempWarning,
   flourBlend,
-  onOpenBlendModal,
   onSelectFlourBlend,
   onOpenInventory,
   onOpenEquivalents,
-  waterPct,
-  onWaterPctChange,
-  hydrationDifficulty,
-  blendAbsorption,
   prefermentType,
   onPrefermentTypeChange,
   prefermentFlourPct = 20,
@@ -106,8 +81,8 @@ export function ArtisanAccordionPro({
             </Text>
             <Text style={styles.toggleSubtitle}>
               {wejscieWidoczne('strata-piecowa')
-                ? t('Temperatura wody, zaczyny, strata piecowa')
-                : t('Temperatura wody i zaczyny')}
+                ? t('Mieszanka mąk, zaczyny, strata piecowa')
+                : t('Mieszanka mąk i zaczyny')}
             </Text>
           </View>
         </View>
@@ -119,22 +94,9 @@ export function ArtisanAccordionPro({
       {/* Accordion Body */}
       {isOpen && (
         <View style={styles.bodyContent} testID="artisan-accordion-body">
-          {/* 1. Sekcja 4-DDT & Temperatura Wody */}
-          <AccordionDdtSection
-            targetDdt={targetDdt}
-            onTargetDdtChange={onTargetDdtChange}
-            waterTempTarget={waterTempTarget}
-            waterTempWarning={waterTempWarning}
-            waterPct={waterPct}
-            onWaterPctChange={onWaterPctChange}
-            hydrationDifficulty={hydrationDifficulty}
-            blendAbsorption={blendAbsorption}
-          />
-
           {/* 2. Blend Mąk i Chłonność */}
           <AccordionFlourBlendSection
             flourBlend={flourBlend}
-            onOpenBlendModal={onOpenBlendModal}
             onSelectFlourBlend={onSelectFlourBlend}
             onOpenInventory={onOpenInventory}
             onOpenEquivalents={onOpenEquivalents}

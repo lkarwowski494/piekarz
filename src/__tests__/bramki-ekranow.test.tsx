@@ -35,6 +35,8 @@ import DoctorScreen from '../../app/doktor';
 import { PaywallModal } from '../components/PaywallModal';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { BlokadaFunkcji } from '../components/BlokadaFunkcji';
+import { ImportRecepturySection } from '../components/settings/ImportRecepturySection';
+import { biezaceMenuReceptury } from '../lib/menu-receptury';
 import { initDatabase, _resetMemStore, saveBakeLog, getBakeLogs } from '../data/sqlite-store';
 import { BEZ_UPRAWNIENIA, Funkcja } from '../lib/platnosci/konfiguracja';
 import { dozwolona } from '../lib/platnosci/dostep';
@@ -105,7 +107,8 @@ describe('Without an entitlement every screen opens the purchase screen except h
     expect(tree.root.findAll((n) => n.props?.testID === 'open-flour-inventory-btn').map((n) => String(n.props.testID))).toEqual([]);
     // Przelicznik objętości (F-45) PÓŹNIEJ, wejście ukryte [M1-audytor-generalny-098]
     expect(tree.root.findAll((n) => n.props?.testID === 'open-volume-converter-btn').map((n) => String(n.props.testID))).toEqual([]);
-    for (const id of ['save-custom-recipe-btn', 'start-bake-btn']) {
+    // 4 akcje receptury (057): „Ułóż plan”, zapis, temperatura wody i składniki liczą albo planują — ekran zakupu
+    for (const id of ['save-custom-recipe-btn', 'start-bake-btn', 'water-temp-btn', 'edit-ingredients-btn']) {
       await act(async () => {
         tree.root.findByType(PaywallModal).props.onClose();
       });
@@ -115,13 +118,21 @@ describe('Without an entitlement every screen opens the purchase screen except h
     await act(async () => {
       tree.root.findByType(PaywallModal).props.onClose();
     });
-    await press(tree, 'copy-recipe-btn');
-    expect(paywallShown(tree.root)).toBe(false);
-    for (const id of ['open-import-recipe-btn', 'import-recipe-json-btn']) {
-      await press(tree, id);
+    // Kopiowanie i plik receptury z menu „Więcej” (057) bez ekranu zakupu
+    for (const id of ['copy-recipe-btn', 'export-recipe-json-btn']) {
+      await act(async () => {
+        biezaceMenuReceptury().find((p) => p.id === id)!.akcja();
+      });
+      await flush();
       expect({ id, paywall: paywallShown(tree.root) }).toEqual({ id, paywall: false });
     }
+    // Import receptury tylko w Ustawieniach (F-33, 057), bez ekranu zakupu (D-039)
+    expect(tree.root.findAll((n) => n.props?.testID === 'import-recipe-json-btn' || n.props?.testID === 'open-import-recipe-btn').map((n) => String(n.props.testID))).toEqual([]);
     act(() => tree.unmount());
+    const ustawienia = await render(<ImportRecepturySection />);
+    await press(ustawienia, 'import-recipe-json-btn');
+    expect(paywallShown(ustawienia.root)).toBe(false);
+    act(() => ustawienia.unmount());
   });
 
   // Etykieta PDF przeniesiona do „Drukuj” w Kalkulatorze, płatne (BR-DRUK-001) [M1-audytor-generalny-032]

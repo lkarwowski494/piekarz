@@ -27,7 +27,6 @@ export interface FormulaPresetSelectorProps {
   onSelectCustomRecipe: (recipe: StoredRecipe) => void;
   onDeleteCustomRecipe: (recipe: StoredRecipe) => void;
   onOpenVolumeConverter: () => void;
-  onOpenImportRecipe: () => void;
   onOpenScanQr: () => void;
   unitSystem: UnitSystem;
 }
@@ -44,7 +43,6 @@ export function FormulaPresetSelector({
   onSelectCustomRecipe,
   onDeleteCustomRecipe,
   onOpenVolumeConverter,
-  onOpenImportRecipe,
   onOpenScanQr,
   unitSystem,
 }: FormulaPresetSelectorProps) {
@@ -66,15 +64,7 @@ export function FormulaPresetSelector({
               <Text style={styles.headerActionPillText}>{t('Przelicznik objętości')}</Text>
             </Pressable>
           )}
-          <Pressable
-            testID="open-import-recipe-btn"
-            accessibilityRole="button"
-            accessibilityLabel={t('Importuj JSON')}
-            style={styles.headerActionPill}
-            onPress={onOpenImportRecipe}
-          >
-            <Text style={styles.headerActionPillText}>{t('Importuj JSON')}</Text>
-          </Pressable>
+          {/* Import receptury tylko w Ustawieniach (F-33, design-spec §11b „057”) [M1-audytor-generalny-057] */}
           {/* F-08 PÓŹNIEJ (D-043): skan QR ukryty, 1.0 nie prosi o aparat [M1-audytor-generalny-049] */}
           {wejscieWidoczne('qr') && (
             <Pressable

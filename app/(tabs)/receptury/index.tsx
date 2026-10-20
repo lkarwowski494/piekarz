@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -14,7 +14,6 @@ import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/li
 import {
   getRecipes,
   deleteRecipe,
-  setActiveBake,
   getBakerRitualProfile,
 } from '../../../src/data/sqlite-store';
 import { StoredRecipe } from '../../../src/data/db';
@@ -40,6 +39,9 @@ import {
   executeSaveCustomRecipe,
 } from '../../../src/lib/calculator-actions';
 import { openPrintMenu } from '../../../src/lib/print-menu';
+import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { ustawRecepturePlanu } from '../../../src/lib/plan-receptury';
+import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
 import { styles } from '../../../src/components/calculator/calculator-screen.styles';
 
@@ -99,6 +101,7 @@ export default function CalculatorScreen() {
   const [importInitialInput, setImportInitialInput] = useState<string>('');
   const [isEquivModalOpen, setIsEquivModalOpen] = useState<boolean>(false);
   const [isVolumeModalOpen, setIsVolumeModalOpen] = useState<boolean>(false);
+  const [isWaterTempOpen, setIsWaterTempOpen] = useState<boolean>(false);
   const [masterCategoryFilter, setMasterCategoryFilter] = useState<CategoryFilterType>('all');
 
   // Artisan Preferments state
@@ -176,6 +179,8 @@ export default function CalculatorScreen() {
   }, []);
 
   usePendingRecipeLoader((pending: PendingRecipeToLoad) => {
+    // Receptura z „Piecz ponownie” albo z importu w Ustawieniach (F-33): lista własnych od nowa [M1-audytor-generalny-057]
+    void loadRecipesFromStore();
     applyFormula(pending.id ?? selectedPresetId, pending.name, pending.formula, pending.targetDDT);
     if (pending.formula.targetDoughWeightGrams !== undefined) {
       setCalcMode('loaves');
@@ -267,14 +272,11 @@ export default function CalculatorScreen() {
     }));
   };
 
-  const handleStartBakeOnWorkbench = () => {
+  // „Ułóż plan” (słownik §5): plan wstecz z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057]
+  const handleMakePlan = () => {
     requireActionAccess(() => {
-      setActiveBake({
-        id: `bake_${Date.now()}`,
+      ustawRecepturePlanu({
         recipeName,
-        startedAt: Date.now(),
-        currentStageId: 'step_1',
-        ambientTempC: roomTemp,
         calculatedRecipe: calculations,
         recipeFormula: {
           flours: flourBlend,
@@ -286,10 +288,29 @@ export default function CalculatorScreen() {
           targetDoughWeightGrams,
         },
       });
-
-      router.push('/stolnica');
+      router.push('/receptury/harmonogram');
     });
   };
+
+  // Menu „Więcej” w pasku nawigacji (057): pozycje z bieżącą recepturą przy każdym otwarciu
+  const menuWiecej = useRef<() => PozycjaMenuReceptury[]>(() => []);
+  menuWiecej.current = () =>
+    pozycjeMenuReceptury({
+      kopiuj: () =>
+        void executeCopyRecipe({
+          recipeName,
+          calculations,
+          bakeLossMetrics,
+          targetDdt,
+          waterTempTarget: ddtResult.waterTempTarget,
+          tapWaterTemp,
+          loavesCount: calcMode === 'loaves' ? loavesCount : 1,
+        }),
+      udostepnijPlik: () => void executeExportRecipeJson(currentRecipeForShare),
+      udostepnijQr: chron('udostepnianie', () => setIsShareQrOpen(true)),
+      drukuj: chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf)),
+    });
+  useEffect(() => zarejestrujMenuReceptury(() => menuWiecej.current()), []);
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
@@ -314,10 +335,6 @@ export default function CalculatorScreen() {
             setCalcMode('loaves');
             setLoavesCount(count);
           }}
-          presets={MASTER_RECIPES.map((r) => ({ id: r.id, name: r.namePl }))}
-          selectedPresetId={selectedPresetId}
-          onSelectPreset={handleSelectMasterPreset}
-          onStartBake={handleStartBakeOnWorkbench}
           calcMode={calcMode}
           onCalcModeChange={setCalcMode}
           flourGrams={flourGrams}
@@ -329,22 +346,10 @@ export default function CalculatorScreen() {
         <ArtisanAccordionPro
           isOpen={isArtisanAccordionOpen}
           onToggle={() => setIsArtisanAccordionOpen((prev) => !prev)}
-          targetDdt={targetDdt}
-          onTargetDdtChange={setTargetDdt}
-          waterTempTarget={ddtResult.waterTempTarget}
-          waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
-          ambientTemp={roomTemp}
-          flourTemp={flourTemp}
-          frictionFactor={frictionFactor}
           flourBlend={flourBlend}
-          onOpenBlendModal={() => setIsBlendModalOpen(true)}
           onSelectFlourBlend={handleSelectFlourBlend}
-          onOpenInventory={() => setIsInventoryOpen(true)}
+          onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
           onOpenEquivalents={() => setIsEquivModalOpen(true)}
-          waterPct={waterPct}
-          onWaterPctChange={setWaterPct}
-          hydrationDifficulty={hydrationDifficulty}
-          blendAbsorption={blendAbsorption}
           prefermentType={prefermentType}
           onPrefermentTypeChange={setPrefermentType}
           prefermentFlourPct={prefermentFlourPct}
@@ -372,34 +377,32 @@ export default function CalculatorScreen() {
           onSelectCustomRecipe={handleSelectCustomRecipe}
           onDeleteCustomRecipe={handleDeleteCustomRecipe}
           onOpenVolumeConverter={chron('kalkulator', () => setIsVolumeModalOpen(true))}
-          onOpenImportRecipe={() => setIsImportModalOpen(true)}
           onOpenScanQr={() => setIsScannerOpen(true)}
           unitSystem={unitSystem}
         />
 
-        {/* Action Buttons: Save Custom Recipe, Copy Recipe & Start Bake on Workbench */}
+        {/* Obszar akcji receptury: dokładnie 4 akcje główne (057); reszta w menu „Więcej” w pasku nawigacji */}
         <CalculatorActionButtons
-          onCopyRecipe={() =>
-            executeCopyRecipe({
-              recipeName,
-              calculations,
-              bakeLossMetrics,
-              targetDdt,
-              waterTempTarget: ddtResult.waterTempTarget,
-              tapWaterTemp,
-              loavesCount: calcMode === 'loaves' ? loavesCount : 1,
-            })
-          }
-          onExportJson={() => executeExportRecipeJson(currentRecipeForShare)}
-          onShareQr={chron('udostepnianie', () => setIsShareQrOpen(true))}
-          onPrintMenu={chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf))}
-          onImportJson={() => setIsImportModalOpen(true)}
-          onOpenInventory={chron('spizarnia', () => setIsInventoryOpen(true))}
+          onMakePlan={handleMakePlan}
           onSaveCustomRecipe={chron('receptury', () => {
             setSaveRecipeNameInput(recipeName);
             setIsSaveModalOpen(true);
           })}
-          onStartBake={handleStartBakeOnWorkbench}
+          onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
+          onEditIngredients={chron('kalkulator', () => setIsBlendModalOpen(true))}
+        />
+
+        <TemperaturaWodySheet
+          visible={isWaterTempOpen}
+          onClose={() => setIsWaterTempOpen(false)}
+          targetDdt={targetDdt}
+          onTargetDdtChange={setTargetDdt}
+          waterTempTarget={ddtResult.waterTempTarget}
+          waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
+          waterPct={waterPct}
+          onWaterPctChange={setWaterPct}
+          hydrationDifficulty={hydrationDifficulty}
+          blendAbsorption={blendAbsorption}
         />
 
         {/* Modal: Save Recipe */}

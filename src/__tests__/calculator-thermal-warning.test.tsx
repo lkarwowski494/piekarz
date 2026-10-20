@@ -29,8 +29,9 @@ async function renderWithDdt(steps: number) {
   await act(async () => {
     tree = renderer.create(<CalculatorScreen />);
   });
+  // Temperatura wody: akcja receptury „Temperatura wody” i jej arkusz (057) [M1-audytor-generalny-057]
   await act(async () => {
-    tree!.root.findByProps({ testID: 'artisan-accordion-toggle-btn' }).props.onPress();
+    tree!.root.findByProps({ testID: 'water-temp-btn' }).props.onPress();
   });
   for (let i = 0; i < steps; i++) {
     await act(async () => {
