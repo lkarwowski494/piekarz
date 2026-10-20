@@ -1,4 +1,4 @@
-# Piekarz — specyfikacja projektowa (kierunek A „Koszyk spiralny”)
+﻿# Piekarz — specyfikacja projektowa (kierunek A „Koszyk spiralny”)
 
 Rola 04, tryb build, E3 · 2026-10-20 · zastępuje `docs/design-spec.md` (2.0-craft, inwentarz) po wdrożeniu w partii 5. Decyzje: D-045 (jasny i ciemny według systemu), D-046 (własne tokeny), D-047 (oferta przy pierwszej akcji), D-048 (najdłuższy język z pomiaru), D-049 (kierunek A), D-050 (Sofia Sans Semi Condensed).
 
@@ -103,6 +103,14 @@ Mapa w `tokeny.json` (`ruch`, `haptyka`, `dzwiek`). Sygnał kroku przy uśpionym
 | 102 wcześniej i cofnięcie | „Zrobione” przed terminem, „Cofnij poprzedni” + pasek „Przywróć” |
 | 103 ostrzeżenia w krokach | komponent Ostrzeżenie (koniec-kroku); krok nieznanego rodzaju: ostrzeżenie ogólne „Uważaj na gorące naczynia i surowe ciasto” [treść roli 06] |
 | 104 zakwas od zera, z lodówki, poprawa, Doktor zakwasu | zakwas: dzień N, plan budzi z lodówki (dokarmienia w planie), „Edytuj” przy wpisie, „Coś mnie niepokoi” |
+
+## 11a. Zrzuty wzorcowe (linia bazowa audytu SP-13)
+`wzorce-zrzuty/` (150 plików, skala 1×, nazwy `<ekran>-<stan>-<wariant>-<szerokość>-<motyw>[-ax5].png`), generowane `narzedzia/zrzuty.mjs` z `ekrany/*.html`:
+- **pl**: 7 stanów kluczowych (start ×2, prowadzenie ×2, receptura, zakwas, oferta) × 320/390/430 × jasny/ciemny × domyślny/AX5 = 84; **pl-kontrast**: prowadzenie ×2 × 390 × jasny/ciemny („Zwiększ kontrast”) = 4;
+- **en-US-imp** (miary USA): prowadzenie ×2, receptura, temperatura wody, zakwas, plan, ustawienia, start, oferta (9 stanów) × 390 jasny/ciemny + 320 jasny AX5 = 27;
+- **fr** (najdłuższy język, `pomiar-jezykow.md`): 7 stanów × 320/390 jasny × domyślny/AX5 + 430 ciemny = 35 (razem 150);
+- przegląd wszystkich 21 stanów przy 390 pt: `e3-przeglad.png`.
+Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy Noto Sans, symbole zastępcze); AX5 przy 320 pt dzieli długie słowa (fr z dzieleniem, pl bez słownika dzielenia w Chromium) — nic nie jest ucięte; na urządzeniu sprawdza rola 07/właściciel.
 
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |

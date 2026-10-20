@@ -43,7 +43,7 @@ main { width: var(--w, 390px); min-height: 844px; background: var(--tlo); color:
 h1, h2, h3, p { margin: 0; }
 .kciuk { padding: 12px calc(20px - 6px * var(--ax)) 34px; display: flex; flex-direction: column; gap: 10px; }
 .glowny { min-height: 64px; border: 0; border-radius: 18px; background: var(--akcent); color: var(--naAkcencie); padding: 8px 12px; width: 100%; }
-.drugi { flex: 1 1 140px; min-height: 48px; border-radius: 14px; border: 1.5px solid var(--obwodka); background: transparent; color: var(--tusz); padding: 8px 12px; }
+.drugi { flex: 1 1 calc(140px + 400px * var(--ax)); min-height: 48px; border-radius: 14px; border: 1.5px solid var(--obwodka); background: transparent; color: var(--tusz); padding: 8px 12px; }
 .rzad { display: flex; gap: 10px; flex-wrap: wrap; }
 .grupa { background: var(--powierzchnia); border-radius: 12px; overflow: hidden; }
 .kom { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 16px; border-bottom: 1px solid var(--linia); flex-wrap: wrap; }

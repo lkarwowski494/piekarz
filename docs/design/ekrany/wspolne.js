@@ -29,6 +29,7 @@ function START() {
   for (const el of document.querySelectorAll('[data-g]')) el.textContent = masa(+el.dataset.g);
   for (const el of document.querySelectorAll('[data-c]')) el.textContent = temp(+el.dataset.c);
   for (const el of document.querySelectorAll('[data-h]')) el.textContent = godz(el.dataset.h);
+  for (const el of document.querySelectorAll('[data-u]')) el.classList.toggle('wyb', el.dataset.u === U);
   for (const el of document.querySelectorAll('[data-ikona]')) el.innerHTML = IKONY[el.dataset.ikona] || '';
   for (const svg of document.querySelectorAll('svg.spirala')) spirala(svg);
 }

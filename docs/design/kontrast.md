@@ -1,6 +1,6 @@
 # Tabela kontrastu (wygenerowana)
 
-Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-10-19. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
+Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-10-20. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
 
 | Para | Użycie | Próg | jasny | ciemny | jasnyKontrast | ciemnyKontrast |
 |---|---|---|---|---|---|---|

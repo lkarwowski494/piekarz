@@ -6,7 +6,7 @@ import { mkdirSync } from 'node:fs';
 import { resolve, basename } from 'node:path';
 import { pathToFileURL } from 'node:url';
 const [file, out, fonts = '', zapytanie = '', przyrostek = '', stany = '', szer = '320,390,430', motywy = 'light,dark', ax = 'oba'] = process.argv.slice(2);
-const tylko = stany.split(',').filter(Boolean);
+const tylko = stany === '*' ? [] : stany.split(',').filter(Boolean); // '*' = wszystkie stany (PowerShell gubi pusty argument)
 mkdirSync(out, { recursive: true });
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1400, height: 1000 }, deviceScaleFactor: Number(process.env.DSF || 2) }); // DSF=1 dla zrzutów wzorcowych w repo (rozmiar), nazwany wyjątek
