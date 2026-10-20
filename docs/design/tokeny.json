@@ -58,7 +58,14 @@
     ["ostrzTusz", "ostrzTlo", 4.5, "tekst ostrzeżenia"],
     ["blad", "tlo", 4.5, "tekst błędu"],
     ["blad", "powierzchnia", 4.5, "tekst błędu w komórce"],
-    ["zablokowane", "powierzchnia", 4.5, "funkcja zablokowana (tekst + kłódka)"]
+    ["zablokowane", "powierzchnia", 4.5, "funkcja zablokowana (tekst + kłódka)"],
+    ["tusz2", "tloGrupa", 4.5, "tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym)"],
+    ["tusz3", "tloGrupa", 4.5, "podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym)"],
+    ["akcentTekst", "tloGrupa", 4.5, "akcja na tle listy"],
+    ["obwodka", "tloGrupa", 3, "obwódka pola na tle listy (WCAG 1.4.11)"],
+    ["akcent", "powierzchnia", 3, "obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight)"],
+    ["akcent", "tlo", 3, "obwódka 3 pt wybranej opcji na tle ekranu"],
+    ["zablokowane", "tlo", 4.5, "funkcja zablokowana na tle ekranu"]
   ],
   "typografia": {
     "_zrodlo": "HIG Typography, iOS Dynamic Type, Large (Default) i AX5 (odczyt 2026-10-20, developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json); punkty iOS",

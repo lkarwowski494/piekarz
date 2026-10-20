@@ -24,5 +24,12 @@
 | blad / tlo | tekst błędu | 4,5 | 5,98 (#B3261E / #F5F5F2) | 7,70 (#FF8A80 / #141A1C) | 9,11 (#8C1D18 / #FFFFFF) | 12,37 (#FFB4AB / #000000) |
 | blad / powierzchnia | tekst błędu w komórce | 4,5 | 6,54 (#B3261E / #FFFFFF) | 6,66 (#FF8A80 / #1F2729) | 9,11 (#8C1D18 / #FFFFFF) | 10,15 (#FFB4AB / #161C1E) |
 | zablokowane / powierzchnia | funkcja zablokowana (tekst + kłódka) | 4,5 | 5,99 (#62645E / #FFFFFF) | 5,70 (#9AA09A / #1F2729) | 10,49 (#3E403B / #FFFFFF) | 10,16 (#C4C8C2 / #161C1E) |
+| tusz2 / tloGrupa | tekst pomocniczy na tle listy (mapa-rol.md: textSecondary w polu zagnieżdżonym) | 4,5 | 7,22 (#4B4D48 / #ECECE7) | 9,83 (#B9BDB8 / #0E1315) | 11,67 (#2E302C / #F0F0EC) | 15,32 (#DADDD8 / #000000) |
+| tusz3 / tloGrupa | podpis na tle listy (mapa-rol.md: textMuted w polu zagnieżdżonym) | 4,5 | 5,06 (#62645E / #ECECE7) | 7,01 (#9AA09A / #0E1315) | 9,18 (#3E403B / #F0F0EC) | 12,39 (#C4C8C2 / #000000) |
+| akcentTekst / tloGrupa | akcja na tle listy | 4,5 | 8,29 (#1E4954 / #ECECE7) | 8,82 (#8FB9C4 / #0E1315) | 11,91 (#12323A / #F0F0EC) | 13,64 (#B5D6DE / #000000) |
+| obwodka / tloGrupa | obwódka pola na tle listy (WCAG 1.4.11) | 3 | 3,37 (#7E8079 / #ECECE7) | 4,22 (#6E7A7D / #0E1315) | 9,18 (#3E403B / #F0F0EC) | 11,07 (#B4BEC0 / #000000) |
+| akcent / powierzchnia | obwódka 3 pt wybranej opcji w komórce (mapa-rol.md: borderActive, accentMuted, accentLight) | 3 | 9,83 (#1E4954 / #FFFFFF) | 7,17 (#8FB9C4 / #1F2729) | 13,61 (#12323A / #FFFFFF) | 11,19 (#B5D6DE / #161C1E) |
+| akcent / tlo | obwódka 3 pt wybranej opcji na tle ekranu | 3 | 9,00 (#1E4954 / #F5F5F2) | 8,29 (#8FB9C4 / #141A1C) | 13,61 (#12323A / #FFFFFF) | 13,64 (#B5D6DE / #000000) |
+| zablokowane / tlo | funkcja zablokowana na tle ekranu | 4,5 | 5,49 (#62645E / #F5F5F2) | 6,59 (#9AA09A / #141A1C) | 10,49 (#3E403B / #FFFFFF) | 12,39 (#C4C8C2 / #000000) |
 
-Wynik: wszystkie pary spełniają progi (20 par × 4 warianty).
+Wynik: wszystkie pary spełniają progi (27 par × 4 warianty).
