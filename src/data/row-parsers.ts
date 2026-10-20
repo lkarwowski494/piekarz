@@ -4,7 +4,8 @@
 // ============================================================================
 
 import { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
-import type { StoredBakeLog, StoredRecipe, StoredStarter } from './db';
+import type { StoredBakeLog, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
+import { isStarterSign, type StarterSign } from '../core/starter-log';
 
 export type Obj = Record<string, unknown>;
 export const isObj = (v: unknown): v is Obj => typeof v === 'object' && v !== null && !Array.isArray(v);
@@ -82,6 +83,47 @@ export function parseStarterRow(v: unknown): StoredStarter | null {
     storageState: v.storageState,
     lastFedAt: optN(v.lastFedAt),
     feedingRatio: optS(v.feedingRatio),
+    setupStartedAt: optN(v.setupStartedAt),
+    setupCompletedAt: optN(v.setupCompletedAt),
+  };
+}
+
+const optPos = (v: unknown): number | undefined => (isNum(v) && v > 0 ? v : undefined);
+
+/**
+ * Wpis dziennika zakwasu z kopii albo wiersza bazy (signs jako tablica albo tekst JSON) [M1-audytor-generalny-104].
+ * Wymagane: id, starterId, kind, occurredAt > 0, createdAt, updatedAt; nieznany kod obserwacji = wiersz odrzucony.
+ * Obserwacja nie niesie proporcji ani gramów (CHECK w bazie), więc te pola dla niej są pomijane.
+ */
+export function parseStarterEntryRow(v: unknown): StoredStarterEntry | null {
+  if (!isObj(v) || !isStr(v.id) || !isStr(v.starterId) || !isNum(v.occurredAt) || !(v.occurredAt > 0)) return null;
+  if ((v.kind !== 'feeding' && v.kind !== 'observation') || !isNum(v.createdAt) || !isNum(v.updatedAt)) return null;
+  let signs: unknown = v.signs ?? [];
+  if (isStr(signs)) {
+    try {
+      signs = JSON.parse(signs);
+    } catch {
+      return null;
+    }
+  }
+  if (!Array.isArray(signs)) return null;
+  const known: StarterSign[] = [];
+  for (const s of signs) {
+    if (!isStarterSign(s)) return null;
+    known.push(s);
+  }
+  const feeding = v.kind === 'feeding';
+  return {
+    id: v.id,
+    starterId: v.starterId,
+    kind: v.kind,
+    occurredAt: v.occurredAt,
+    feedRatio: feeding ? optS(v.feedRatio) : undefined,
+    flourGrams: feeding ? optPos(v.flourGrams) : undefined,
+    waterGrams: feeding ? optPos(v.waterGrams) : undefined,
+    signs: known,
+    createdAt: v.createdAt,
+    updatedAt: v.updatedAt,
   };
 }
 

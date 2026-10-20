@@ -4,6 +4,7 @@
 // ============================================================================
 
 import { DoughRecipeInput } from '../core/domain-rules';
+import type { StarterEntryKind, StarterSign } from '../core/starter-log';
 
 export interface StoredRecipe {
   id: string;
@@ -22,8 +23,28 @@ export interface StoredStarter {
   hydration: number;
   birthDate: number;
   storageState: 'ROOM_TEMP' | 'FRIDGE';
+  /** Od v5 wyliczane z najnowszego wpisu `feeding` (ADR-008); zapis przez wpis dziennika. */
   lastFedAt?: number;
+  /** Proporcja najnowszego dokarmienia (wyliczana jak lastFedAt). */
   feedingRatio?: string;
+  /** Początek zakładania (dzień 1); brak = zakwas dojrzały (ADR-008). */
+  setupStartedAt?: number;
+  /** Chwila „gotowy”; brak przy trwającym zakładaniu. */
+  setupCompletedAt?: number;
+}
+
+/** Wpis dziennika zakwasu: dokarmienie albo obserwacja (tabela starter_entries, migracja v5, ADR-008). */
+export interface StoredStarterEntry {
+  id: string;
+  starterId: string;
+  kind: StarterEntryKind;
+  occurredAt: number;
+  feedRatio?: string;
+  flourGrams?: number;
+  waterGrams?: number;
+  signs: StarterSign[];
+  createdAt: number;
+  updatedAt: number;
 }
 
 export interface StoredBakeLog {

@@ -2,9 +2,12 @@ import { autoBackup, PiekarzBackupData } from '../lib/backup';
 import {
   StoredRecipe,
   StoredStarter,
+  StoredStarterEntry,
   StoredBakeLog,
   StoredFlourInventoryItem,
 } from './db';
+import { STARTER_UPSERT, starterParams, getAllStarterEntries, insertStarterEntryRow } from './starter-entries-store';
+import { legacyFeedingEntry } from '../core/starter-log';
 import { MASTER_RECIPES } from '../recipes/presets';
 import {
   getDb,
@@ -130,14 +133,16 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
       bakes: [...memStore.logs],
       starters: [...memStore.starters],
       customRecipes: memStore.recipes.filter((r) => !r.isBuiltIn),
+      starterEntries: [...memStore.starterEntries],
     };
   }
-  const [bakes, starters, recipes] = await Promise.all([
+  const [bakes, starters, recipes, starterEntries] = await Promise.all([
     getBakeLogs(),
-    db.getAllAsync<StoredStarter>(STARTERS_SELECT),
+    readStarters(db),
     getRecipes(),
+    getAllStarterEntries(),
   ]);
-  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn) };
+  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries };
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
@@ -158,38 +163,75 @@ export function setActiveBake(bake: ActiveBakeState | null): void {
 // Starters (Zakwas)
 // ==========================================
 
-const STARTERS_SELECT =
-  'SELECT id, name, flour_type as flourType, hydration, birth_date as birthDate, storage_state as storageState, last_fed_at as lastFedAt, last_feed_ratio as feedingRatio FROM starters;';
+// lastFedAt i feedingRatio wyliczane z najnowszego wpisu feeding (ADR-008, jedno źródło; indeks pokrywający)
+const LAST_FEED = (col: string) =>
+  `(SELECT e.${col} FROM starter_entries e WHERE e.starter_id = s.id AND e.kind = 'feeding' ORDER BY e.occurred_at DESC LIMIT 1)`;
+const STARTERS_SELECT = `SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_date as birthDate, s.storage_state as storageState,
+  s.setup_started_at as setupStartedAt, s.setup_completed_at as setupCompletedAt,
+  ${LAST_FEED('occurred_at')} as lastFedAt, ${LAST_FEED('feed_ratio')} as feedingRatio FROM starters s;`;
 
-// UPSERT zamiast INSERT OR REPLACE: REPLACE zerował kolumny pominięte w zapisie (zasada 10) [M1-audytor-generalny-023]
-const STARTER_UPSERT = `INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state, last_fed_at, last_feed_ratio)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-  ON CONFLICT(id) DO UPDATE SET name = excluded.name, flour_type = excluded.flour_type, hydration = excluded.hydration,
-    birth_date = excluded.birth_date, storage_state = excluded.storage_state, last_fed_at = excluded.last_fed_at,
-    last_feed_ratio = excluded.last_feed_ratio;`;
+type StarterRow = Omit<StoredStarter, 'lastFedAt' | 'feedingRatio' | 'setupStartedAt' | 'setupCompletedAt'> & {
+  lastFedAt: number | null;
+  feedingRatio: string | null;
+  setupStartedAt: number | null;
+  setupCompletedAt: number | null;
+};
 
-const starterParams = (s: StoredStarter) =>
-  [s.id, s.name, s.flourType, s.hydration, s.birthDate, s.storageState, s.lastFedAt ?? null, s.feedingRatio ?? null] as const;
+/** Brak w bazie (NULL) zostaje brakiem (pole pominięte), bez zgadywania wartości. */
+function starterFromRow({ lastFedAt, feedingRatio, setupStartedAt, setupCompletedAt, ...s }: StarterRow): StoredStarter {
+  return {
+    ...s,
+    ...(lastFedAt === null ? {} : { lastFedAt }),
+    ...(feedingRatio === null ? {} : { feedingRatio }),
+    ...(setupStartedAt === null ? {} : { setupStartedAt }),
+    ...(setupCompletedAt === null ? {} : { setupCompletedAt }),
+  };
+}
+
+async function readStarters(db: Db): Promise<StoredStarter[]> {
+  return (await db.getAllAsync<StarterRow>(STARTERS_SELECT)).map(starterFromRow);
+}
 
 export async function getStarters(): Promise<StoredStarter[]> {
   const db = await getDb();
   if (!db) return [...memStore.starters];
 
   try {
-    const rows = await db.getAllAsync<Omit<StoredStarter, 'feedingRatio'> & { feedingRatio: string | null }>(STARTERS_SELECT);
-    // Brak zapisanej proporcji zostaje brakiem (undefined), bez zgadywania wartości
-    return rows.length > 0
-      ? rows.map(({ feedingRatio, ...s }) => (feedingRatio === null ? s : { ...s, feedingRatio }))
-      : [...memStore.starters];
+    const rows = await readStarters(db);
+    return rows.length > 0 ? rows : [...memStore.starters];
   } catch {
     return [...memStore.starters];
   }
 }
 
+/**
+ * Zapis profilu zakwasu (UPSERT, dziennik zostaje). Zgodność z ekranem, który dokarmienie zapisuje dziś przez
+ * nowe `lastFedAt`: gdy jest późniejsze niż ostatni wpis feeding, w tej samej transakcji powstaje wpis
+ * dokarmienia z proporcją (do czasu przejścia ekranu na addStarterEntry) [M1-audytor-generalny-104].
+ */
 export async function saveStarter(starter: StoredStarter): Promise<void> {
   const db = await getDb();
+  const fedAt = starter.lastFedAt;
+  const feedEntry = (latest: number): StoredStarterEntry | null =>
+    fedAt !== undefined && fedAt > 0 && fedAt > latest
+      ? { id: `feed-${starter.id}-${fedAt}`, starterId: starter.id, kind: 'feeding', occurredAt: fedAt, feedRatio: starter.feedingRatio, signs: [], createdAt: fedAt, updatedAt: fedAt }
+      : null;
   if (db) {
-    await writeOrThrow(() => db.runAsync(STARTER_UPSERT, ...starterParams(starter)));
+    await writeOrThrow(() =>
+      db.withTransactionAsync(async () => {
+        await db.runAsync(STARTER_UPSERT, ...starterParams(starter));
+        const last = await db.getFirstAsync<{ at: number | null }>(
+          "SELECT max(occurred_at) AS at FROM starter_entries WHERE starter_id = ? AND kind = 'feeding';",
+          starter.id
+        );
+        const e = feedEntry(last?.at ?? 0);
+        if (e) await insertStarterEntryRow(db, e, true);
+      })
+    );
+  } else {
+    const latest = Math.max(0, ...memStore.starterEntries.filter((x) => x.starterId === starter.id && x.kind === 'feeding').map((x) => x.occurredAt));
+    const e = feedEntry(latest);
+    if (e) memStore.starterEntries = [...memStore.starterEntries.filter((x) => x.id !== e.id), e];
   }
 
   const idx = memStore.starters.findIndex((s) => s.id === starter.id);
@@ -200,10 +242,19 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
   }
 }
 
+/** Usunięcie zakwasu: jawnie najpierw jego wpisy, potem zakwas, w jednej transakcji (kaskada to zabezpieczenie). */
 export async function deleteStarter(id: string): Promise<void> {
   const db = await getDb();
-  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM starters WHERE id = ?;', id));
+  if (db) {
+    await writeOrThrow(() =>
+      db.withTransactionAsync(async () => {
+        await db.runAsync('DELETE FROM starter_entries WHERE starter_id = ?;', id);
+        await db.runAsync('DELETE FROM starters WHERE id = ?;', id);
+      })
+    );
+  }
   memStore.starters = memStore.starters.filter((s) => s.id !== id);
+  memStore.starterEntries = memStore.starterEntries.filter((e) => e.starterId !== id);
 }
 
 // ==========================================
@@ -289,10 +340,15 @@ export async function deleteRecipe(id: string): Promise<void> {
  * Restores entire state from a validated backup dataset.
  */
 export async function restoreFromBackupData(data: PiekarzBackupData): Promise<void> {
+  // Dziennik zakwasu (ADR-008): z kopii v2, a dla danych bez dziennika (kopia v1) wpis z lastFedAt jak migracja v5.
+  // Wpis zakwasu spoza danych nie wchodzi (klucz obcy) [M1-audytor-generalny-104].
+  const ids = new Set(data.starters.map((s) => s.id));
+  const entries = (data.starterEntries ?? data.starters.flatMap((s) => legacyFeedingEntry(s) ?? [])).filter((e) => ids.has(e.starterId));
   // Pamięć dopiero po zatwierdzeniu transakcji: nieudany import nie udaje sukcesu [M1-audytor-generalny-022]
   const applyToMemory = () => {
     memStore.logs = [...data.bakes];
     memStore.starters = [...data.starters];
+    memStore.starterEntries = [...entries];
     memStore.recipes = [
       ...MASTER_RECIPES.map((preset) => ({
         id: preset.id,
@@ -315,11 +371,15 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 
   await writeOrThrow(() => db.withTransactionAsync(async () => {
     await db.execAsync('DELETE FROM bakes;');
+    await db.execAsync('DELETE FROM starter_entries;');
     await db.execAsync('DELETE FROM starters;');
     await db.execAsync('DELETE FROM recipes WHERE is_built_in = 0;');
 
     for (const s of data.starters) {
       await db.runAsync(STARTER_UPSERT, ...starterParams(s));
+    }
+    for (const e of entries) {
+      await insertStarterEntryRow(db, e, true);
     }
 
     for (const r of data.customRecipes) {

@@ -44,6 +44,7 @@ export function isActiveBakeState(v: unknown): v is ActiveBakeState {
     (v.calculatedRecipe === undefined || isRecipeResult(v.calculatedRecipe)) &&
     (v.recipeFormula === undefined || isRecipeInput(v.recipeFormula)) &&
     (v.isHighRye === undefined || typeof v.isHighRye === 'boolean') &&
+    (v.starterId === undefined || isStr(v.starterId)) &&
     (v.steps === undefined || parseSteps(v.steps) !== null);
 }
 

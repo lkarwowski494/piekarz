@@ -601,6 +601,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Chłodne miejsce: w niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Chłodno w kuchni ({temp}°C). Czas fermentacji wydłużony o {min} min (wolniejsza praca drożdży).": {
     "gdzie": [
       "src/core/domain-rules.ts (kod)"
@@ -704,6 +709,21 @@
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
+  "Co zrobić:": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Co zrobić: dokarm zakwas według planu na następny dzień.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: kod)"
+    ]
+  },
+  "Co zrobić: dokarmiaj zakwas regularnie; według tego samego źródła seria regularnych dokarmień powinna go przywrócić.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Cukier trzcinowy": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -804,6 +824,11 @@
   "Do ciasta dodaj proszek do pieczenia, a następnie delikatnie wmieszaj szpatułką ubitą pianę z białek.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: ready)"
     ]
   },
   "Do miski (Ciasto właściwe)": {
@@ -962,6 +987,16 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
   "Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -975,6 +1010,11 @@
   "Dokarmienie zakwasu (osiągnięcie szczytu)": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+    ]
+  },
+  "Dokarmienie zakwasu z lodówki": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
     ]
   },
   "Dokarmiono zakwas": {
@@ -1446,6 +1486,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -1611,6 +1656,11 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
   "Imię zakwasu": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
@@ -1703,6 +1753,16 @@
   "Jeśli po 20 minutach ciasto rozlało się jak kałuża, jego gluten jest słaby — formuj ciaśniej. Jeśli stoi w pionie, jest gotowe do formowania batarda.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
+    ]
+  },
+  "Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: discard_link)"
+    ]
+  },
+  "Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day6_plus)"
     ]
   },
   "Jogurt w połączeniu z kwasem zakwasu zapewnia wyjątkową miękkość i elastyczność ciasta.": {
@@ -2327,9 +2387,29 @@
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
+  "Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
+  "Możesz przesunąć plan wypieku.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
   "Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Możliwe przyczyny:": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
     ]
   },
   "Musisz posiadać co najmniej jeden profil zakwasu.": {
@@ -3001,6 +3081,11 @@
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
+  "Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
   "Odblokuj pełny dostęp": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
@@ -3066,6 +3151,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: physicalPrinciplePl)"
     ]
   },
+  "Odrzucanie utrzymuje małą objętość, więc drożdże dostają więcej pożywienia.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
   "Odrzucić zmiany?": {
     "gdzie": [
       "src/components/DraftHeader.tsx (Alert.alert)"
@@ -3079,6 +3169,11 @@
   "Odrzut zakwasu (100% hydratacji)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
+    ]
+  },
+  "Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day2)"
     ]
   },
   "Odrzuć zmiany": {
@@ -3563,6 +3658,11 @@
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
+  "Postaw zakwas w miejscu o temperaturze około 21 °C.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Postęp do szczytu:": {
     "gdzie": [
       "src/components/zakwas/StarterPeakActivityCard.tsx (tekst w JSX)"
@@ -3882,6 +3982,11 @@
   "Przełącz zakwas": {
     "gdzie": []
   },
+  "Przy każdym dokarmieniu zostaw część zakwasu, dodaj mąkę i wodę w proporcji 1:1:1 wagowo, a resztę odrzuć.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
   "Przyczyna biologiczna / fizyczna": {
     "gdzie": [
       "src/lib/diagnosis-formatter.ts (kod)"
@@ -3920,6 +4025,11 @@
   "Przykryj miskę folią lub talerzem i odstaw na 12–16 godzin na kuchenny blat.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day1)"
     ]
   },
   "Przyspieszona fermentacja termiczna": {
@@ -4942,6 +5052,11 @@
       "src/core/starter-converter.ts (dane: kod)"
     ]
   },
+  "Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -5234,6 +5349,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: temperature)"
+    ]
+  },
   "W dużej misce połącz odrzut zakwasu, mleko, jajko, roztopione masło i cukier/miód.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
@@ -5334,9 +5454,34 @@
       "src/core/sourdough-physics.ts (dane: actionPl)"
     ]
   },
+  "Według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day6_plus)"
+    ]
+  },
+  "Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: flour)"
+    ]
+  },
+  "Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: start)"
+    ]
+  },
   "Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day4_5)"
     ]
   },
   "Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.": {
@@ -5344,10 +5489,50 @@
       "src/core/bread-school-lessons.ts (dane: scientificInsightPl)"
     ]
   },
+  "Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: ready)"
+    ]
+  },
   "Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)",
       "src/core/rye-stages.ts (dane: instructionsPl)"
+    ]
+  },
+  "Według King Arthur Baking w dniu 3 zwykle widać pęcherzyki, świeży owocowy zapach i wzrost objętości.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day3)"
+    ]
+  },
+  "Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności; dokarm zakwas tak samo.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day2)"
+    ]
+  },
+  "Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: day1)"
+    ]
+  },
+  "Według King Arthur Baking zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking, gdy w domu jest zwykle poniżej 20 °C, warto znaleźć dla zakwasu cieplejsze miejsce.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: temperature)"
     ]
   },
   "Według szacunku zakwas jest teraz w oknie szczytu.": {
@@ -6037,6 +6222,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Za mało czasu: według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
   "Za pomocą krawędzi dłoni przeciągaj batard po blacie, wzmacniając naciąg wzdłużny.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
@@ -6151,15 +6341,30 @@
       "src/core/volume-converter.ts (dane: namePl)"
     ]
   },
+  "Zakwas jest gotowy, gdy bąbelkuje, rośnie i ma przyjemnie kwaśny zapach.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: ready)"
+    ]
+  },
   "Zakwas matka": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
+  "Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.": {
+    "gdzie": [
+      "src/core/fridge-wake.ts (dane: kod)"
+    ]
+  },
   "Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: temperature)"
     ]
   },
   "Zakwas w lodówce": {
@@ -6430,6 +6635,11 @@
       "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
     ]
   },
+  "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
+    "gdzie": [
+      "src/core/starter-log.ts (dane: start)"
+    ]
+  },
   "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: safetyWarningPl)"
@@ -6460,6 +6670,11 @@
   "Zbity, gęsty miękisz — rozważaj dłuższy bulk": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Zbyt ciepłe miejsce: fermentacja może przebiegać za szybko, a nawet ustać.": {
+    "gdzie": [
+      "src/core/starter-doctor.ts (dane: kod)"
     ]
   },
   "Zbyt długa autoliza (>2h w cieple), która prowadzi do nadmiernego rozpadu siatki glutenowej przez proteazy.": {
