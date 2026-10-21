@@ -60,7 +60,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
         'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.',
       actionChecklistPl: [
         'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
-        'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.',
+        'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.',
         'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.',
       ],
       severity: 'moderate',

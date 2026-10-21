@@ -2629,7 +2629,7 @@
   },
   {
     "id": "DIA-TEM-001",
-    "twierdzenie": "Według King Arthur Baking większość bochenków i bułek jest upieczona, gdy w środku ma 190 °F (rachunek: ok. 88 °C); w teście autorki nawet duży, zwarty bochenek pełnoziarnisty był w pełni upieczony przy 190 °F, a bagietki wymagają wyższej temperatury.",
+    "twierdzenie": "Według King Arthur Baking większość bochenków i bułek jest upieczona, gdy w środku ma 190 °F (rachunek: ok. 88 °C); w teście autorki nawet duży, zwarty bochenek pełnoziarnisty był w pełni upieczony przy 190 °F, a bagietki wymagają wyższej temperatury. Chleb żytni ze względu na cechy mąki żytniej bywa zbyt wilgotny i powinien mieć w środku 205–210 °F (rachunek: ok. 96–99 °C).",
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/blog/2017/04/07/using-a-thermometer-with-yeast-bread",
@@ -2637,12 +2637,19 @@
         "cytat": "Most loaves and rolls will indeed be done when they register 190°F at their center. But some breads — baguettes, for instance — need to reach a higher internal temperature to be fully baked. […] Verdict: Even a large, fairly dense whole grain loaf is fully baked at 190°F.",
         "odczyt": "2026-10-21",
         "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/04/07/using-a-thermometer-with-yeast-bread",
+        "miejsce": "jw., podsumowanie po testach (akapit o chlebie żytnim); ta sama strona co kopia dowody/zrodla/ka-thermometer.htm (fix-2026-10-21-p9a); cytat sprawdzony na surowym HTML (curl) 2026-10-22",
+        "cytat": "Due to certain inherent characteristics of rye flour, rye bread tends towards excessive moistness, and should be baked to an internal temperature of 205°F to 210°F.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek: (190 − 32) × 5/9 = 87,8 °C, w tekście ok. 88 °C (tryb imperialny przelicza na 190 °F). Pominięto zastrzeżenie o bagietkach i zdanie „some bakers argue … 205°F to 210°F” dla dużych bochenków pełnoziarnistych, które autorka testem odrzuca. Szczebel 4: atrybucja w treści.",
-    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor GUMMY_CRUMB w miejsce „(<94°C)” i „docelowo: 95–98°C” (DIA-LIC-900). Wyższego szczebla dla temperatury wnętrza chleba nie szukano w tej partii.",
+    "uproszczenie": "Rachunek: (190 − 32) × 5/9 = 87,8 °C, w tekście ok. 88 °C; (205 − 32) × 5/9 = 96,1 °C i (210 − 32) × 5/9 = 98,9 °C, w tekście 96–99 °C (tryb imperialny przelicza z powrotem na °F). Pominięto zastrzeżenie o bagietkach i zdanie „some bakers argue … 205°F to 210°F” dla dużych bochenków pełnoziarnistych, które autorka testem odrzuca. Szczebel 4: atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor GUMMY_CRUMB w miejsce „(<94°C)” i „docelowo: 95–98°C” (DIA-LIC-900). Wyższego szczebla dla temperatury wnętrza chleba nie szukano w tej partii. Audyt niezależny E-4 (2026-10-22, tor p15b): zdanie o pomiarze w Doktorze (GUMMY_CRUMB) podaje też 96–99 °C dla chleba żytniego z tego samego źródła.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "temperatura_wnetrza_upieczonego_chleba",

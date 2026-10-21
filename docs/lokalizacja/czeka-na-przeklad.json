@@ -40,6 +40,11 @@
       "klucz": "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.",
       "powod": "opis receptury bazowej bez słowa „Odżywczy” (twierdzenie zdrowotne bez źródła); nowy klucz zastępuje stary opis [audyt-niezalezny E-8]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.",
+      "powod": "Doktor Chleba (gumowaty miękisz): zdanie o pomiarze z temperaturą dla chleba żytniego według DIA-TEM-001; nowy klucz zastępuje zdanie bez żyta [audyt-niezalezny E-4]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

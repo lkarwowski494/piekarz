@@ -11,7 +11,7 @@ Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. [T:KRO-POC-015]
 Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. [T:ZYT-STU-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[1]
-Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C. [T:DIA-TEM-001]
+Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C. [T:DIA-TEM-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[2]
 Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie. [T:DIA-TEM-001]
