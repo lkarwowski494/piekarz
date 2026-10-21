@@ -5,9 +5,9 @@
  * z wpisem częściowym; wyjątek bez powodu).
  */
 import { spawnSync } from 'node:child_process';
-import { cpSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 
 const root = join(__dirname, '..');
 const script = join(root, 'scripts', 'br-bez-testu.mjs');
@@ -17,17 +17,18 @@ const uruchom = (args: string[]) =>
 
 type Raport = { brd: number; wyjatki: string[]; czesciowe: string[]; bezTestuBezWyjatku: string[]; bledy: string[]; mapa: Record<string, string[]> };
 
-function kopia(): string {
+function kopia(zrodlo: string = root): string {
   const dir = mkdtempSync(join(tmpdir(), 'br-bez-testu-'));
   mkdirSync(join(dir, 'docs', 'brd'), { recursive: true });
-  for (const f of readdirSync(join(root, 'docs', 'brd')).filter((n) => n.endsWith('.md'))) {
-    cpSync(join(root, 'docs', 'brd', f), join(dir, 'docs', 'brd', f));
+  for (const f of readdirSync(join(zrodlo, 'docs', 'brd')).filter((n) => n.endsWith('.md'))) {
+    cpSync(join(zrodlo, 'docs', 'brd', f), join(dir, 'docs', 'brd', f));
   }
   mkdirSync(join(dir, 'scripts'), { recursive: true });
-  cpSync(join(root, 'scripts', 'br-wyjatki.json'), join(dir, 'scripts', 'br-wyjatki.json'));
-  const filtr = (src: string) => !/[\\/](node_modules|\.claude)([\\/]|$)/.test(src);
-  cpSync(join(root, 'tests'), join(dir, 'tests'), { recursive: true, filter: filtr });
-  cpSync(join(root, 'src'), join(dir, 'src'), { recursive: true, filter: filtr });
+  cpSync(join(zrodlo, 'scripts', 'br-wyjatki.json'), join(dir, 'scripts', 'br-wyjatki.json'));
+  // Ścieżka względem źródła: segment `.claude` nad repo (worktree sesji) nie wyklucza całej kopii (192).
+  const filtr = (src: string) => !/(^|[\\/])(node_modules|\.claude)([\\/]|$)/.test(relative(zrodlo, src));
+  cpSync(join(zrodlo, 'tests'), join(dir, 'tests'), { recursive: true, filter: filtr });
+  cpSync(join(zrodlo, 'src'), join(dir, 'src'), { recursive: true, filter: filtr });
   return dir;
 }
 
@@ -73,6 +74,31 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
       expect(r.stdout).toContain(`BRAK    ${id}`);
     } finally {
       rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  // M1-audytor-generalny-192 (07-jakosc-604): sesje pracują w worktree pod `.claude/worktrees`;
+  // filtr kopii ma pomijać `.claude` i `node_modules` wewnątrz repo, a nie w ścieżce do repo.
+  it('kopia do mutantów działa także, gdy repo leży pod katalogiem .claude (192)', () => {
+    const baza = mkdtempSync(join(tmpdir(), 'br-claude-'));
+    const repo = join(baza, '.claude', 'worktrees', 'repo');
+    let dir = '';
+    try {
+      mkdirSync(join(baza, '.claude', 'worktrees'), { recursive: true });
+      renameSync(kopia(), repo);
+      mkdirSync(join(repo, 'src', '.claude'), { recursive: true });
+      writeFileSync(join(repo, 'src', '.claude', 'obcy.test.ts'), "it('BR-SONDA-192', () => {});\n");
+      dir = kopia(repo);
+      expect(existsSync(join(dir, 'tests', 'br-bez-testu.test.ts'))).toBe(true);
+      expect(existsSync(join(dir, 'src', '.claude'))).toBe(false);
+      const r = spawnSync(process.execPath, [script, '--root', dir, '--json'], { encoding: 'utf8' });
+      const raport = JSON.parse(r.stdout) as Raport;
+      expect(raport.bezTestuBezWyjatku).toEqual([]);
+      expect(Object.keys(raport.mapa).length).toBeGreaterThan(0);
+      expect(r.status).toBe(0);
+    } finally {
+      rmSync(baza, { recursive: true, force: true });
+      if (dir) rmSync(dir, { recursive: true, force: true });
     }
   });
 
