@@ -326,6 +326,7 @@ export default function HarmonogramScreen() {
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
+          bezLodowki={zytni}
         />
         </BlokadaFunkcji>
       </ScrollView>

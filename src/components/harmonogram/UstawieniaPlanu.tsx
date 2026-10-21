@@ -18,32 +18,38 @@ export interface UstawieniaPlanuProps {
   coldRetardHours: number;
   onColdRetardHoursChange: (hours: number) => void;
   onCopySchedule: () => void;
+  /** Plan żytni: rozrost w formie w cieple (ZYT-ETA-005), bez przełącznika lodówki [audyt-niezalezny D-7] */
+  bezLodowki?: boolean;
 }
 
-export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange, onCopySchedule }: UstawieniaPlanuProps) {
+export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange, onCopySchedule, bezLodowki = false }: UstawieniaPlanuProps) {
   return (
     <View style={styles.sekcja}>
       <Text style={styles.naglowek}>
         {t('Godziny snu:')} {okno ? etykietaProfiluSnu({ start: okno.startH, end: okno.koniecH }) : t('Bez godzin snu')}
       </Text>
 
-      <Text style={styles.naglowek}>
-        {t('Czas w lodówce:')} {coldRetardHours}h
-      </Text>
-      <View style={styles.rzad}>
-        {[10, 12, 14, 16, 18].map((h) => (
-          <Pressable
-            accessibilityRole="button"
-            accessibilityState={{ selected: coldRetardHours === h }}
-            key={h}
-            onPress={() => onColdRetardHoursChange(h)}
-            style={[styles.chip, coldRetardHours === h && styles.chipWybrany]}
-          >
-            <Text style={[styles.chipTekst, coldRetardHours === h && styles.chipTekstWybranyAkcent]}>{h}h</Text>
-          </Pressable>
-        ))}
-      </View>
-      <Text style={styles.przypis}>{t('Elastyczny bufor regulujący porę formowania i pieczenia')}</Text>
+      {bezLodowki ? null : (
+        <>
+          <Text style={styles.naglowek}>
+            {t('Czas w lodówce:')} {coldRetardHours}h
+          </Text>
+          <View style={styles.rzad}>
+            {[10, 12, 14, 16, 18].map((h) => (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ selected: coldRetardHours === h }}
+                key={h}
+                onPress={() => onColdRetardHoursChange(h)}
+                style={[styles.chip, coldRetardHours === h && styles.chipWybrany]}
+              >
+                <Text style={[styles.chipTekst, coldRetardHours === h && styles.chipTekstWybranyAkcent]}>{h}h</Text>
+              </Pressable>
+            ))}
+          </View>
+          <Text style={styles.przypis}>{t('Elastyczny bufor regulujący porę formowania i pieczenia')}</Text>
+        </>
+      )}
 
       <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
         <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
