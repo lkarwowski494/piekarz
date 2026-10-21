@@ -2,8 +2,9 @@
  * M1-audytor-generalny-090 (04-studio-projektowe-018, DEC-07 → D-045): wybory domyślne z decyzją, zero wyborów
  * z kalibracji bez decyzji (design-spec §12, §12a). Testy grep z §12a w app/ i src/ (bez testów) = 0:
  * gradient i rozmycie, wersaliki (textTransform 'uppercase', letterSpacing), znak „ · ” w tekstach; wartości
- * domyślne: przypomnienie zakwasu na blacie 12 h (D-043, OP-38), prośba o ocenę od 4★ (D-042), jednostki według
- * regionu (D-044). Wartości w kodzie mają w komentarzu ID decyzji (zasada 11 roli 08).
+ * domyślne: przypomnienie zakwasu na blacie 12 h (D-043, OP-38), prośba o ocenę od 3. ukończonego wypieku (D-067,
+ * uchyla próg 4★ z D-042), jednostki według regionu (D-044), przełącznik „Przypomnienia o karmieniu” domyślnie
+ * włączony (D-068). Wartości w kodzie mają w komentarzu ID decyzji (zasada 11 roli 08).
  */
 import fs from 'fs';
 import path from 'path';
@@ -148,5 +149,35 @@ describe('090: wartości domyślne z decyzją (design-spec §12)', () => {
     expect(domyslnyUkladJednostek({ regionCode: 'MM', measurementSystem: 'us' })).toBe('metric');
     expect(domyslnyUkladJednostek({ regionCode: 'GB', measurementSystem: 'uk' })).toBe('metric');
     expect(zrodlo('src/lib/unit-converter.ts')).toMatch(/D-044[\s\S]{0,400}export function domyslnyUkladJednostek/);
+  });
+});
+
+// Test akceptacyjny 090 mówi o wyborach „zapisanych w specyfikacji”: kod zgodny z D-067 i D-068 nie wystarcza,
+// jeśli design-spec dalej opisuje uchylony próg 4★ (D-042) albo nie ma wyboru domyślnego z D-068
+// [M1-audytor-generalny-090; reaudit-noc 2026-10-22].
+describe('090: wybory domyślne zapisane w specyfikacji (design-spec §12)', () => {
+  const spec = fs.readFileSync(path.join(ROOT, 'docs/design/design-spec.md'), 'utf8');
+  const sekcja12 = spec.slice(spec.indexOf('## 12. '), spec.indexOf('### 12a.'));
+  const wiersze12 = sekcja12.split('\n').filter((l) => l.startsWith('| ') && !l.startsWith('|---'));
+
+  it('§12: prośba o ocenę z decyzją D-067 (3 wypieki, 14 dni), nie od 4★ (D-042)', () => {
+    const prosba = wiersze12.filter((l) => /prośba o ocenę/.test(l));
+    expect(prosba).toHaveLength(1);
+    expect(prosba[0]).toMatch(/D-067/);
+    expect(prosba[0]).toMatch(/3\./);
+    expect(prosba[0]).toMatch(/14 dni/);
+    expect(prosba[0]).not.toMatch(/(od|≥)\s*4★/);
+  });
+
+  it('§12: przełącznik „Przypomnienia o karmieniu” domyślnie włączony (D-068)', () => {
+    const karmienie = wiersze12.filter((l) => /Przypomnienia o karmieniu/.test(l));
+    expect(karmienie).toHaveLength(1);
+    expect(karmienie[0]).toMatch(/domyślnie włączon/);
+    expect(karmienie[0]).toMatch(/D-068/);
+  });
+
+  it('cała specyfikacja: próg 4★ tylko jako uchylony przez D-067, nigdy jako obowiązujący', () => {
+    const z4 = spec.split('\n').map((l, i) => ({ l, nr: i + 1 })).filter(({ l }) => /[≥>]=?\s*4★|od 4★/.test(l));
+    expect(z4.filter(({ l }) => !/uchyl[\s\S]*D-067|D-067[\s\S]*uchyl/.test(l)).map(({ nr, l }) => `${nr}: ${l.slice(0, 120)}`)).toEqual([]);
   });
 });

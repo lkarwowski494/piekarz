@@ -52,7 +52,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Usuń wszystkie dane | ustawienia | potwierdzenie: „Usunąć wszystkie dane?” [Anuluj] [Usuń wszystko] (kolor błędu tylko na przycisku destrukcyjnym) |
 | Oceń w App Store, Napisz do nas | ustawienia | strona aplikacji z formularzem recenzji; Poczta z podglądem treści (BR-OPIN-002, -003) |
 | Przerwij wypiek / Stop Bake | Plan wypieku (z prowadzenia), dół listy | alert „Przerwać wypiek? Powiadomienia o kolejnych krokach znikną.” [Wróć do wypieku] [Przerwij]; zastępuje „Odrzuć wypiek” (056) |
-| Zrobione na ostatnim kroku | pasek kciuka | arkusz oceny: gwiazdki 1–5, [Zapisz] / Save; przy ≤ 2★ „Otwórz Doktora Chleba” / Open Bread Doctor i „Nie teraz” / Not Now (F-43); przy ≥ 4★ tylko prośba systemowa (D-042) |
+| Zrobione na ostatnim kroku | pasek kciuka | arkusz oceny: gwiazdki 1–5, [Zapisz] / Save; przy ≤ 2★ „Otwórz Doktora Chleba” / Open Bread Doctor i „Nie teraz” / Not Now (F-43); po „Zapisz”, bez względu na ocenę bochenka, tylko prośba systemowa o ocenę aplikacji, gdy dziennik ma co najmniej 3 ukończone wypieki, ostatnia prośba była co najmniej 14 dni temu i w 365 dniach były mniej niż 3 prośby (D-067; próg 4★ z D-042 uchylony) |
 | Wybierz recepturę / Choose a Recipe | pusty Dziennik (`dziennik-pusty`) | zakładka Receptury, lista receptur (§11c 116) |
 | Przesuń do lodówki / Move to fridge, Zostaw nocne składanie / Keep the night fold | Plan wypieku, kolizja ze snem (`plan-sen`) | fermentacja w lodówce na noc, nowa godzina „gotowe” / plan bez zmian; zastępuje „Rozwiąż kolizję” |
 | Piecz ponownie / Bake Again | wpis w Dzienniku | plan wypieku z recepturą z wpisu i notatką z poprzedniego razu nad planem (F-28, BR-RECP-003; D-070) |
@@ -82,7 +82,7 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 | Receptura (F-09, F-10, F-11, F-26, F-27, F-55, F-56) | `lista-receptur` (ekran główny zakładki, filtr rodzaju, moje i bazowe; §11c 106), `receptura-zaczyn` („Do miski” w dwóch grupach), `skladniki-pelne` (tryb, mąki, proporcje, zaczyn), `receptura` (≤ 4 akcje), `receptura-wiecej` (menu „Więcej”, 057), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
 | Zakwas (F-22…F-25, F-60, F-62, F-64) | `karta` (cykl, „Podwoił objętość”), `zakladanie-dzien-3` (dzień N, 7–10 dni), `plesn` (RD-21, polecenie zamiast listy) |
 | Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `bez-sieci` (teksty i klucze §11e 127); uprzedzenie przed końcem próby jest na „Dziś” (stany startu, §11d 126) |
-| Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `plan-za-pozno` (start planu przed „teraz”: zdanie z godzinami, „Ustaw tę godzinę”, „Zacznij wypiek” nieaktywny z powodem; §11c 107), `dziennik-pusty` (zaproszenie i „Wybierz recepturę”, §11c 116), `ocena-slaba` (Doktor ≤ 2★; przy ≥ 4★ tylko prośba systemowa, bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka), `import-receptura` i `import-kopia` (podgląd po „Importuj z pliku”, §11c 113) |
+| Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `plan-za-pozno` (start planu przed „teraz”: zdanie z godzinami, „Ustaw tę godzinę”, „Zacznij wypiek” nieaktywny z powodem; §11c 107), `dziennik-pusty` (zaproszenie i „Wybierz recepturę”, §11c 116), `ocena-slaba` (Doktor ≤ 2★; prośba o ocenę aplikacji tylko systemowa według D-067, bez warunku oceny bochenka i bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka), `import-receptura` i `import-kopia` (podgląd po „Importuj z pliku”, §11c 113) |
 Ładowanie: brak (wszystko lokalne; szkielet tylko przy imporcie pliku > 1 s). Brak wyników: lista receptur z filtrem rodzaju — „Brak receptur tego rodzaju. Pokaż wszystkie.” Offline: tylko zakup i przywrócenie (bez sieci).
 
 ## 7. Miary USA (096, D-044)
@@ -420,7 +420,8 @@ Test akceptacyjny 127: (1) render trzech stanów (oferta z `probaDni: 14` dla ob
 | krój tytułów | D-050 |
 | oferta przy pierwszej akcji | D-047 |
 | przypomnienie na blacie co 12 h | D-043 (OP-38) |
-| prośba o ocenę od 4★ | D-042 |
+| prośba o ocenę aplikacji po 3. ukończonym wypieku, bez warunku oceny bochenka, odstęp 14 dni, najwyżej 3 w 365 dniach | D-067 (DEC-20 a; uchyla próg 4★ z D-042), S-63 |
+| przełącznik „Przypomnienia o karmieniu” w Ustawieniach domyślnie włączony (wyłącza tylko powiadomienia o karmieniu zakwasu; kroki wypieku przychodzą dalej) | D-068 (DEC-22 a) |
 | jednostki według regionu | D-044 |
 | 4 zakładki, ustawienia z „Dziś” | D-051 (2a) |
 | rutynowe usunięcie z „Cofnij” | D-051 (1a) |
@@ -452,7 +453,7 @@ Stan w systemie z `docs/design/`; w kodzie wybory z kalibracji znikają z wdroż
 | emoji, postaci 3D, stockowe ilustracje | brak; ikony to symbole SF | 088, §4 |
 | kopie wyborów innej aplikacji portfolio | brak: porównanie z Treningiem, Organizerem, NaviStories w §13 | D-049, §13 |
 
-Test akceptacyjny 090: każdy wiersz §12 i §12a ma ID decyzji albo dowód braku; po wdrożeniu partii 5 testy grep z tabeli zwracają 0, a OP-38 (12 h, D-043), OP-49 (≥ 4★, D-042) i jednostki według regionu (D-044) mają testy jednostkowe wartości domyślnych (12 h odstępu przypomnienia na blacie; prośba o ocenę tylko przy ocenie ≥ 4; region `US` → `imp`, inne → `met`).
+Test akceptacyjny 090: każdy wiersz §12 i §12a ma ID decyzji albo dowód braku; po wdrożeniu partii 5 testy grep z tabeli zwracają 0, a OP-38 (12 h, D-043), prośba o ocenę (D-067, uchyla próg 4★ z D-042 w OP-49) i jednostki według regionu (D-044) mają testy jednostkowe wartości domyślnych (12 h odstępu przypomnienia na blacie; prośba o ocenę od 3. ukończonego wypieku, z odstępem 14 dni, bez warunku oceny bochenka; region `US` → `imp`, inne → `met`); przełącznik „Przypomnienia o karmieniu” domyślnie włączony (D-068) ma test w kodzie (`src/__tests__/przypomnienia-karmienia-179.test.tsx`).
 
 ## 13. Propozycja wpisu do pamięci portfolio
 Repo `prompts`, `role/04-studio-projektowe/moduly/pamiec-portfolio.md`; wpis dopisuje właściciel.
