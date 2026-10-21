@@ -104,7 +104,7 @@ Cena bazowa w USD; storefronty z ceną ręczną według D-038 (`docs/decyzje.md:
 | 7.1 Ankieta | App Privacy → Get Started → „No, we do not collect data from this app” → Save → Publish; strona produktu pokaże „Data Not Collected” | `docs/app-store-metadata-v2.md:171-175`; developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy (odczyt 2026-10-21) |
 | 7.2 Podstawa „No” | brak kodu sieciowego (`fetch`, `XMLHttpRequest`, `WebSocket`) w kodzie aplikacji, test w `npm test`; zakupy obsługuje StoreKit, a Apple: „You are not responsible for disclosing data collected by Apple” | `tests/public-repo.test.ts:137-140`; developer.apple.com/app-store/app-privacy-details/ (odczyt 2026-10-21) |
 | 7.3 Privacy Policy URL | App Information, w każdym języku: `https://apps4brew.com/piekarz/privacy.html` (kod 200 przy odczycie 2026-10-21) | `src/lib/links.ts:6` |
-| 7.4 Support URL | wersja 1.0, w każdym języku: `https://apps4brew.com/piekarz/support.html` (kod 200, 2026-10-21); strona podaje e-mail support@apps4brew.com; Apple: adres ma prowadzić do danych kontaktowych „(legal address, email address, telephone number), as may be required by local law” — adres i telefon `[DO USTALENIA]` (status tradera DSA, decyzja właściciela) | `src/lib/links.ts:7`; `site/support.html:53`; developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information (odczyt 2026-10-21) |
+| 7.4 Support URL | wersja 1.0, w każdym języku: `https://apps4brew.com/piekarz/support.html` (kod 200, 2026-10-21); strona podaje e-mail support@apps4brew.com; Apple: adres ma prowadzić do danych kontaktowych „(legal address, email address, telephone number), as may be required by local law” — adres i telefon `[DO USTALENIA]` (status tradera DSA, decyzja właściciela) | `src/lib/links.ts:7`; `site/support.html:15` (odesłanie do strony z repo apps4brew-www); developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information (odczyt 2026-10-21) |
 | 7.5 Licencja | „License Agreement”: standardowa Apple EULA (bez własnej) | `src/lib/links.ts:12` |
 
 ## 8. Kategoria wiekowa
@@ -209,7 +209,7 @@ Surowy tekst stron pobrany `curl` (kod 200) i przeczytany; cytaty w krokach wyż
 | Miejsce przełącznika Family Sharing dla Non-Consumable | właściciel w App Store Connect | `docs/decyzje.md:46` |
 | ICP dla CHN (D-057) | właściciel / rola 10 | `docs/decyzje.md:174` |
 | „Guns or Other Weapons” i wynik wieku (D-058) | rola 10 po ankiecie | `docs/decyzje.md:181` |
-| Adres i telefon na stronie wsparcia (status tradera DSA) | właściciel | `site/support.html:53` |
+| Adres i telefon na stronie wsparcia (status tradera DSA) | właściciel | `site/support.html:2` (jedno źródło: repo apps4brew-www, `piekarz/support.html`; M1-audytor-generalny-174) |
 | Nazwy produktów zakupu na 35 języków | M1 / rola 09 | `docs/wydanie/widocznosc.md:119` |
 | Czy zakupy w buildzie TestFlight idą przez sandbox | rola 10 | `docs/monetyzacja.md:246` |
 | Sposób liczenia znaków przez Apple (punkty kodowe czy jednostki UTF-16) | rola 10 | `scripts/sprawdz-metadane.mjs:15` |
