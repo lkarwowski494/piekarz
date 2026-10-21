@@ -9,7 +9,7 @@ jest.mock('expo-localization', () => ({
 
 import { setLang, t } from '../i18n';
 import '../unit-converter';
-import { _resetLacinkiForTests } from '../sr-latinica';
+import { _resetLacinkiForTests, tekstSerbski } from '../sr-latinica';
 
 describe('t() dla sr-Latn (F-11)', () => {
   afterEach(() => {
@@ -31,6 +31,15 @@ describe('t() dla sr-Latn (F-11)', () => {
     _resetLacinkiForTests();
     setLang('sr');
     expect(t('Piekarz')).toBe('Пекар');
+  });
+
+  it('tekstSerbski: łacinka tylko dla języka sr na urządzeniu sr-Latn', () => {
+    mockTagi = ['sr-Latn-RS'];
+    _resetLacinkiForTests();
+    setLang('sr');
+    expect(tekstSerbski('Љубав и ђак')).toBe('Ljubav i đak');
+    setLang('pl');
+    expect(tekstSerbski('Љубав')).toBe('Љубав');
   });
 
   it('inny język na urządzeniu sr-Latn bez zmian', () => {

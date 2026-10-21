@@ -5,6 +5,7 @@
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import { t } from '../../lib/i18n';
 import {
   SensoryRadarChart,
   BreadSensoryProfile,
@@ -50,6 +51,7 @@ describe('SensoryRadarChart', () => {
     expect(obraz[0].props.accessibilityLabel).toBe(
       'Chrupkość: 4 z 5, Sprężystość: 4 z 5, Kwasowość: 3 z 5, Otwartość: 3 z 5, Karmelizacja: 4 z 5',
     );
+    expect(obraz[0].props.accessibilityLabel.startsWith(t('{nazwa}: {n} z 5', { nazwa: 'Chrupkość', n: 4 }))).toBe(true);
   });
 
   it('renders interactive controls and adjusts profile when requested', async () => {

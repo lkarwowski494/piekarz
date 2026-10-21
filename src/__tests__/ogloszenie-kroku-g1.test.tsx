@@ -8,6 +8,7 @@ import { AccessibilityInfo } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import { StrefaKroku } from '../components/stolnica/StrefaKroku';
 import type { SessionStep } from '../core/bake-steps';
+import { t } from '../lib/i18n';
 
 const krok = (id: string, name: string): SessionStep => ({
   id, name, category: 'autolyse', durationMin: 30, isPassive: true, instructions: '', plannedStart: null, plannedEnd: null,
@@ -35,6 +36,7 @@ describe('G-1: ogłoszenie nowego kroku w prowadzeniu', () => {
       tree.update(strefa(krok('b', 'Składanie')));
     });
     expect(spy.mock.calls).toEqual([['Teraz: Składanie']]);
+    expect(spy.mock.calls[0][0]).toBe(t('Teraz: {nazwa}', { nazwa: 'Składanie' }));
     spy.mockRestore();
   });
 });
