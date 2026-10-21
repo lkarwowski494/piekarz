@@ -48,7 +48,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Więcej → Kopiuj jako tekst, Udostępnij plik receptury | receptura, menu systemowe z przycisku w pasku nawigacji | tekst receptury w schowku („Skopiowano recepturę”); arkusz udostępniania systemu z plikiem receptury (F-33); stan `receptura-wiecej` |
 | Zapisz dokarmienie, Podwoił objętość, Coś mnie niepokoi, Edytuj | zakwas | wpis; „gotowy” z atrybucją; objawy; poprawa wpisu (F-62) |
 | Zapisz / Anuluj / Zamknij | arkusze, oferta | jak w słowniku studia; oferta ma zawsze widoczne „Zamknij” |
-| Zacznij 14 dni próby / Kup plan … / Przywróć zakupy / Zarządzaj subskrypcją | oferta, ustawienia | StoreKit; bez sieci komunikat i „Spróbuj ponownie” |
+| Zacznij 14 dni próby / Kup plan … / Przywróć zakupy / Zarządzaj subskrypcją | oferta, ustawienia; „Zarządzaj subskrypcją” także w banerze uprzedzenia na „Dziś” (§11d 126) | StoreKit; bez sieci komunikat i „Spróbuj ponownie” |
 | Usuń wszystkie dane | ustawienia | potwierdzenie: „Usunąć wszystkie dane?” [Anuluj] [Usuń wszystko] (kolor błędu tylko na przycisku destrukcyjnym) |
 | Oceń w App Store, Napisz do nas | ustawienia | strona aplikacji z formularzem recenzji; Poczta z podglądem treści (BR-OPIN-002, -003) |
 | Przerwij wypiek / Stop Bake | Plan wypieku (z prowadzenia), dół listy | alert „Przerwać wypiek? Powiadomienia o kolejnych krokach znikną.” [Wróć do wypieku] [Przerwij]; zastępuje „Odrzuć wypiek” (056) |
@@ -69,11 +69,11 @@ Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobion
 ## 6. Macierz stanów (makiety)
 | Ekran | Stany w `ekrany/` |
 |---|---|
-| Start (F-68) | `pierwsze-uruchomienie` (bez danych zmyślonych, 087), `trwa-wypiek` (powrót jednym dotknięciem), `tylko-historia` (F-67, kłódka + tekst) |
+| Start (F-68) | `pierwsze-uruchomienie` (bez danych zmyślonych, 087), `trwa-wypiek` (powrót jednym dotknięciem), `tylko-historia` (F-67, kłódka + tekst), `uprzedzenie-proby`, `uprzedzenie-proby-trwa-wypiek`, `uprzedzenie-proby-nieznane` (F-67, baner raz przed końcem próby, §11d 126) |
 | Prowadzenie (F-07, F-57, F-16, F-18, F-58) | `w-trakcie`, `koniec-kroku` (ostrzeżenie RD-23, „po czasie”), `brak-zgody` (stała informacja + Ustawienia), `zgoda` (zdanie przed prośbą), `po-cofnieciu`, `ostrzezenie-dwie-sekcje` (jedno Ostrzeżenie, tytuł według rodzaju, §11c 109) |
 | Receptura (F-09, F-10, F-11, F-26, F-27, F-55, F-56) | `lista-receptur` (ekran główny zakładki, filtr rodzaju, moje i bazowe; §11c 106), `receptura-zaczyn` („Do miski” w dwóch grupach), `skladniki-pelne` (tryb, mąki, proporcje, zaczyn), `receptura` (≤ 4 akcje), `receptura-wiecej` (menu „Więcej”, 057), `mieszanka-i-sol` (wariant żytni, informacja o soli bez blokady), `temperatura-wody` |
 | Zakwas (F-22…F-25, F-60, F-62, F-64) | `karta` (cykl, „Podwoił objętość”), `zakladanie-dzien-3` (dzień N, 7–10 dni), `plesn` (RD-21, polecenie zamiast listy) |
-| Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `uprzedzenie-3-dni`, `bez-sieci` |
+| Oferta i zakup (F-35, F-37, F-67) | `oferta-proba` (3 opcje, ujawnienia U1–U8), `zakup-bez-proby`, `bez-sieci`; uprzedzenie przed końcem próby jest na „Dziś” (stany startu, §11d 126) |
 | Inne | `plan-sen` (zakres 20–26 °C / 68–79 °F, kolizja ze snem i propozycja), `plan-za-pozno` (start planu przed „teraz”: zdanie z godzinami, „Ustaw tę godzinę”, „Zacznij wypiek” nieaktywny z powodem; §11c 107), `dziennik-pusty` (zaproszenie i „Wybierz recepturę”, §11c 116), `ocena-slaba` (Doktor ≤ 2★; przy ≥ 4★ tylko prośba systemowa, bez własnego okna), `ustawienia` (jednostki, dane, Pro, kontakt, polityka), `import-receptura` i `import-kopia` (podgląd po „Importuj z pliku”, §11c 113) |
 Ładowanie: brak (wszystko lokalne; szkielet tylko przy imporcie pliku > 1 s). Brak wyników: lista receptur z filtrem rodzaju — „Brak receptur tego rodzaju. Pokaż wszystkie.” Offline: tylko zakup i przywrócenie (bez sieci).
 
@@ -177,7 +177,8 @@ Test akceptacyjny 058: (1) render prowadzenia, „Dziś” z trwającym wypiekie
 - **fr** (najdłuższy język, `pomiar-jezykow.md`): 7 stanów × 320/390 jasny × domyślny/AX5 + 430 ciemny = 35 (razem 150);
 - przegląd wszystkich 21 stanów przy 390 pt: `e3-przeglad.png`;
 - 2026-10-20 (fix, 057): 20 zrzutów `kalkulator-receptura-*` wygenerowane ponownie z przyciskiem „Więcej” w pasku nawigacji (ta sama liczba plików, te same parametry); stan `receptura-wiecej` poza linią bazową (pl, en-US);
-- 2026-10-20 (fix, partia 6, §11c): +31 zrzutów nowych stanów (pl 390 jasny/ciemny, pl 320 jasny AX5, en-US-imp 390 jasny): `kalkulator-lista-receptur`, `kalkulator-receptura-zaczyn`, `kalkulator-skladniki-pelne`, `inne-plan-za-pozno`, `inne-import-receptura`, `inne-import-kopia`, `inne-dziennik-pusty` (po 4) i `prowadzenie-ostrzezenie-dwie-sekcje` (3, bez en-US); wygenerowane ponownie z tymi samymi parametrami: `prowadzenie-koniec-kroku-*` (22, tytuł „Gorące naczynie”), `prowadzenie-*-pl-kontrast-*` (4, nowy `ratanSzary`), `prowadzenie-*-en-US-imp-*` (6, “Bake Plan”); razem 181 plików.
+- 2026-10-20 (fix, partia 6, §11c): +31 zrzutów nowych stanów (pl 390 jasny/ciemny, pl 320 jasny AX5, en-US-imp 390 jasny): `kalkulator-lista-receptur`, `kalkulator-receptura-zaczyn`, `kalkulator-skladniki-pelne`, `inne-plan-za-pozno`, `inne-import-receptura`, `inne-import-kopia`, `inne-dziennik-pusty` (po 4) i `prowadzenie-ostrzezenie-dwie-sekcje` (3, bez en-US); wygenerowane ponownie z tymi samymi parametrami: `prowadzenie-koniec-kroku-*` (22, tytuł „Gorące naczynie”), `prowadzenie-*-pl-kontrast-*` (4, nowy `ratanSzary`), `prowadzenie-*-en-US-imp-*` (6, “Bake Plan”); razem 181 plików;
+- 2026-10-21 (fix, partia 8, §11d 126): +12 zrzutów `start-uprzedzenie-proby*` (3 stany × pl 390 jasny/ciemny, pl 320 jasny AX5, en-US-imp 390 jasny); razem 193 pliki. Zrzuty fr tych stanów (długość) tylko w raporcie roli 04 z partii 8.
 Ograniczenia nazwane: makieta w Chromium, nie na iOS (krój treści zastępczy Noto Sans, symbole zastępcze); AX5 przy 320 pt dzieli długie słowa (fr z dzieleniem, pl bez słownika dzielenia w Chromium) — nic nie jest ucięte; na urządzeniu sprawdza rola 07/właściciel.
 
 ## 11c. Partia 6 (rola 04, tryb fix, 2026-10-20)
@@ -298,6 +299,47 @@ Format czasu trwania (plan, zakwas, kroki): PL i EN „{h} h {m} min” (np. „
 
 Test akceptacyjny 116: (1) w tekstach t() i literałach renderowanych w `app/`, `src/` (PL i `src/lib/i18n-en/`) brak „!” (regex `!\s*['"\`]` w wartościach tekstów; wyjątki nazwane w teście, np. operatory w kodzie), „➔”, „✓” i „Uwaga:”; (2) render Dziennika bez wypieków: tytuł, opis i `journal-empty-choose-recipe-btn` prowadzący do zakładki Receptury; (3) test funkcji formatu czasu: 35,67 h → „35 h 40 min”, 0,5 h → „30 min”, 4 h → „4 h”, etykieta „35 godzin 40 minut”, „1 godzina 1 minuta”, „2 godziny 22 minuty”, EN “1 hour 1 minute”; (4) baner kolizji z jedną i z trzema kolizjami: tytuły według tabeli; (5) wzorzec `wzorce-zrzuty/inne-dziennik-pusty-*`; linia „Całość trwa …” w `inne-plan-za-pozno-*`.
 
+## 11d. Partia 8 (rola 04, tryb fix, 2026-10-21)
+
+### 126 · Uprzedzenie przed końcem próby na „Dziś” (02-monetyzacja-502)
+Podstawa: D-039 pkt 2 (uprzedzenie 3 dni przed końcem próby, raz), kontrakt płatności (`docs/monetyzacja.md`, PR-16 i „Uprzedzenie 3 dni”), wybór właściciela P-126 a z 2026-10-21: jednorazowy komunikat na „Dziś” przy pierwszym otwarciu w oknie 72 h przed końcem próby, nigdy w trakcie kroku, bez lokalnego powiadomienia. Makieta: `ekrany/start.html`, stany `uprzedzenie-proby`, `uprzedzenie-proby-trwa-wypiek`, `uprzedzenie-proby-nieznane`; stan `uprzedzenie-3-dni` w `ekrany/oferta.html` usunięty.
+
+**Forma.** Ten sam baner co w stanie `tylko-historia` (`.baner` w `start.html`; w kodzie `styles.baner` na „Dziś”): tło `powierzchnia`, obwódka `obwodka` 1,5, promień grupy, tytuł `naglowek` krojem tytułów, treść `tresc` w `tusz`, dwa przyciski drugie 48 pt pełnej szerokości jeden pod drugim: „Zarządzaj subskrypcją” (`showManageSubscriptionsIOS`, `trial-notice-manage-btn`), „Zamknij” (`trial-notice-close-btn`, etykieta VoiceOver „Zamknij informację o końcu próby” / “Close trial end notice”). Bez okna nad ekranem, bez przyciemnienia, bez cienia, bez nowego koloru i komponentu (`testID` banera: `start-uprzedzenie-proby`). Tytuł ma `accessibilityRole="header"`. *Dlaczego baner, nie okno:* okno na starcie aplikacji to wzorzec zakazany dla oferty (BR-ZAK-003, „nigdy przy starcie”), a baner w treści informuje bez przerywania i nie zasłania powrotu do wypieku.
+
+**Miejsce.** Bez trwającego wypieku: na górze treści „Dziś”, pod banerem ratunkowym (`CorruptStateRecoveryBanner`), nad listą czynności. Z trwającym wypiekiem: pod kartą „Trwa wypiek” i przyciskiem „Wróć do wypieku”, nad „Co jeszcze dziś robisz?” (F-58: powrót do wypieku zostaje w pierwszym widoku). Ekran prowadzenia (krok) nigdy nie pokazuje banera.
+
+**Kiedy (raz).** Warunki: bieżąca transakcja subskrypcji jest w okresie próbnym (oferta wprowadzająca), znana jest data końca próby, do końca zostało ≤ 72 h i > 0, dla tej daty końca uprzedzenia jeszcze nie pokazano. Baner pojawia się przy pierwszym wyświetleniu „Dziś” po spełnieniu warunków (także gdy aplikację otwarto z powiadomienia prosto w krok: wtedy przy pierwszym przejściu na „Dziś”). Datę pokazania zapisuje kod w `app_settings` w chwili pierwszego wyświetlenia (kontrakt, aneks ADR-007). Baner znika po „Zamknij” albo gdy aplikacja przejdzie w tło; drugi raz dla tej samej daty końca się nie pokazuje. Gdy nie wiadomo, czy to okres próbny, albo nie ma daty końca: brak banera (nie twierdzimy niczego, czego nie wiemy). Brak lokalnego powiadomienia (P-126 a).
+
+**Teksty** (klucze słownika `t()`; PL jest kluczem; EN dla `src/lib/i18n-en/`, przekład na 33 języki w zadaniu 093):
+
+| Klucz PL (dokładnie) | EN | Kiedy | Parametry |
+|---|---|---|---|
+| `Okres próbny kończy się {data}` | `Your free trial ends on {date}` | tytuł, zawsze | `{data}`: dzień i miesiąc w formacie regionu (`Intl.DateTimeFormat`, `{ day: 'numeric', month: 'long' }`: „23 października”, “October 23”) |
+| `Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.` | `Then the App Store will charge {price} for one year of your subscription. If you don't want to pay, cancel your subscription before the trial ends.` | odnawianie włączone, produkt roczny, cena znana | `{cena}`: `displayPrice` produktu ze sklepu, bez zmian (waluta i separatory sklepu) |
+| `Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.` | `Then the App Store will charge {price} for one month of your subscription. If you don't want to pay, cancel your subscription before the trial ends.` | odnawianie włączone, produkt miesięczny, cena znana | `{cena}` jw. |
+| `Subskrypcja się nie odnowi, więc nic nie zapłacisz.` | `Your subscription won't renew, so you won't be charged.` | odnawianie wyłączone | — |
+| `Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.` | `If your subscription isn't canceled, the App Store will then charge for the plan you chose.` | stan odnawiania nieznany albo cena lub okres nieznane (OP-M03, brak sieci, puste pola) | — |
+| `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `Without a purchase, your history and data stay. Calculations, plans, and guidance will require Piekarz Pro.` | po zdaniu o opłacie, gdy użytkownik nie ma planu dożywotniego | — |
+| `Zamknij informację o końcu próby` | `Close trial end notice` | etykieta VoiceOver przycisku „Zamknij” | — |
+| `Zarządzaj subskrypcją`, `Zamknij` (istniejące) | `Manage Subscription`, `Close` | przyciski | — |
+
+Nowe klucze: 7 (w tym 1 etykieta VoiceOver). Okres jako dwa pełne zdania, nie parametr `{okres}`: *dlaczego:* „za rok / za miesiąc” wymaga w wielu językach innego przyimka, przypadku albo rodzaju (pl biernik, cs/sk/ru/uk przypadki, de/fr rodzajnik), więc parametr dałby błąd gramatyczny w części z 33 przekładów. Cena jako jeden parametr z `displayPrice`, nigdy liczba sklejona z walutą w kodzie. Data tylko w tytule; zdania mówią „wtedy”, żeby nie powtarzać daty i nie mnożyć parametrów.
+
+| Odnawianie | Cena i okres | Plan dożywotni | Treść pod tytułem |
+|---|---|---|---|
+| włączone | znane | nie | zdanie roczne albo miesięczne + „Bez zakupu zostaną…” |
+| włączone | znane | tak | tylko zdanie roczne albo miesięczne (próba subskrypcji nadal pobierze opłatę; ujawnienie U4) |
+| wyłączone | — | nie | „Subskrypcja się nie odnowi…” + „Bez zakupu zostaną…” |
+| wyłączone | — | tak | brak banera (nic się nie zmienia) |
+| nieznane albo brak ceny lub okresu | — | nie | „Jeśli subskrypcja nie jest anulowana…” + „Bez zakupu zostaną…” |
+| nieznane albo brak ceny lub okresu | — | tak | tylko „Jeśli subskrypcja nie jest anulowana…” |
+
+**Tytuł z datą zamiast „Za 3 dni…”:** baner pojawia się przy pierwszym otwarciu w oknie 72 h, więc do końca może zostać np. 30 h; data jest prawdziwa w każdym przypadku i nie jest odliczaniem (zakazany wzorzec kontraktu).
+
+**Przypomnienia o dokarmianiu (H-04, BR-ZAK-004) — wyjątek nazwany, warunkowy.** Zdanie „Przypomnienia o dokarmianiu zakwasu ustaną.” (EN “Starter feeding reminders will stop.”) wraca jako osobny klucz po „Bez zakupu zostaną…” dopiero razem z zadaniem M1-audytor-generalny-143 (wyłączenie przypomnień po końcu próby, partia 10), w tych samych wierszach tabeli co „Bez zakupu zostaną…”. Do tego czasu go nie ma. *Dlaczego:* dziś kod nie wyłącza przypomnień po próbie, a komunikat nie może obiecywać zachowania, którego aplikacja nie ma; brak zdania jest mniejszą szkodą niż nieprawda.
+
+Test akceptacyjny 126: (1) render „Dziś” z próbą rocznym planem kończącą się za 30 h, odnawianiem włączonym i ceną „29,99 zł”: `start-uprzedzenie-proby` z tytułem „Okres próbny kończy się {data}” wypełnionym datą końca, zdaniem rocznym z „29,99 zł” i zdaniem „Bez zakupu zostaną…”; brak tekstu „Za 3 dni” i „Przypomnienia o dokarmianiu zakwasu ustaną.”; (2) każdy wiersz tabeli wariantów jako osobny przypadek (miesięczny, wyłączone, nieznane, dożywotni + próba, dożywotni + wyłączone = brak banera); (3) do końca 73 h albo próba już zakończona albo brak daty końca albo brak informacji o okresie próbnym: brak banera; (4) po pierwszym renderze w `app_settings` jest data pokazania; drugi render po ponownym uruchomieniu: brak banera; „Zamknij” ukrywa baner od razu; (5) z trwającym wypiekiem baner jest w drzewie po `resume-bake-btn` („Wróć do wypieku”); ekran prowadzenia nie renderuje banera; (6) brak `Modal` i brak zaplanowanego powiadomienia lokalnego dla uprzedzenia; (7) przyciski `trial-notice-manage-btn` (wywołuje `showManageSubscriptionsIOS`) i `trial-notice-close-btn` z `minHeight` ≥ 48 i etykietą „Zamknij informację o końcu próby”; (8) wzorzec `wzorce-zrzuty/start-uprzedzenie-proby*`.
+
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |
 |---|---|
@@ -329,7 +371,7 @@ Stan w systemie z `docs/design/`; w kodzie wybory z kalibracji znikają z wdroż
 | prawie czarne tło z jednym kwasowym akcentem | brak: ciemny `#141A1C` zabarwiony nocą, akcent `#8FB9C4` | D-045, D-049 |
 | przyciemniona czerń zamiast czerni bez powodu | ciemne tło to „noc ciemna” z palety kierunku; czerń `#000000` w wariancie „Zwiększ kontrast” | D-049 |
 | układ gazetowy (cienkie linie, zero zaokrągleń) | brak: listy grupowane iOS, promienie 6–18 według hierarchii | `tokeny.json` → `promienie`, D-049 |
-| zestaw kart SaaS (ten sam promień i cień wszędzie) | brak: bez cieni (`mapa-rol.md` §1, zasada 4); `CraftCard` usunięty; wyjątek nazwany: uprzedzenie 3 dni w `ekrany/oferta.html` rysowane jak alert systemowy (cień alertu iOS) | D-046, D-049 |
+| zestaw kart SaaS (ten sam promień i cień wszędzie) | brak: bez cieni (`mapa-rol.md` §1, zasada 4); `CraftCard` usunięty; dawny wyjątek (uprzedzenie 3 dni jako karta z cieniem alertu) usunięty 2026-10-21: uprzedzenie to baner „Dziś” bez cienia (§11d 126) | D-046, D-049 |
 | bohater „duża liczba + mała etykieta + statystyki + gradient” | jedna duża liczba tylko w prowadzeniu: czas kroku z podpisem „do {godzina}, potem …”, bez statystyk i gradientu; karty liczb (`CraftStatDisplay`) usunięte | DEC-09 (a) (widok skupiony: krok, zegar, jedna akcja), SP-17; §11b 056 |
 | WERSALIKI z rozstrzeleniem, „A · B”, „SŁOWO — fragment”, „→” na przyciskach, mono na etykietach | brak; „→” tylko w ujawnieniach oferty jako ścieżka w Ustawieniach systemu („Apple ID → Subskrypcje”), nie na przycisku | `02-kierunki.md` (wiersz A, B, C); test: grep `textTransform: 'uppercase'`, `letterSpacing`, ` · ` w `app/`, `src/` = 0 |
 | wyróżnienie jednego słowa kolorem lub kursywą | brak | — (brak w makietach) |

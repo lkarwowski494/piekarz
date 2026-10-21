@@ -11,7 +11,6 @@
 .uj { display: flex; flex-direction: column; gap: 8px; }
 .uj p { display: flex; gap: 8px; } .uj p::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--tusz2); margin-top: 0.6em; }
 .linki { display: flex; gap: 4px 16px; flex-wrap: wrap; } .linki a { color: var(--akcentTekst); min-height: 44px; display: inline-flex; align-items: center; }
-.karta-uprz { background: var(--powierzchnia); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; margin: 0 8px; box-shadow: 0 8px 30px #0003; }
 </style>
 </head>
 <body>
@@ -59,18 +58,8 @@
   </div>
 </main>
 
-<main data-ekran="uprzedzenie-3-dni" style="background:color-mix(in srgb, var(--tlo) 55%, #000)">
-  <div class="status" style="color:#FFF"><span>8:01</span><span>LTE 72%</span></div>
-  <div class="tresc" style="justify-content:center">
-    <div class="karta-uprz">
-      <h1 class="t-2" data-t="of.uprzTyt">Za 3 dni koniec próby</h1>
-      <p class="t-tresc" data-t="of.uprzOdn">23 października pobierzemy 29,99 zł za rok. Jeśli nie chcesz, anuluj w Ustawieniach telefonu, w Apple ID → Subskrypcje.</p>
-      <p class="t-obj p2" data-t="of.uprzBez">Bez subskrypcji zostaną historia i Twoje dane. Przypomnienia o dokarmianiu zakwasu ustaną.</p>
-      <button class="glowny t-nagl" data-t="of.rozumiem">Rozumiem</button>
-      <button class="drugi t-obj" style="flex:none" data-t="of.zarzadzaj">Zarządzaj subskrypcją</button>
-    </div>
-  </div>
-</main>
+<!-- Stan „uprzedzenie-3-dni” (karta jak alert systemowy) zastąpiony 2026-10-21 banerem na „Dziś”: ekrany/start.html, stany uprzedzenie-proby*
+     (design-spec §11d 126; wybór właściciela P-126 a). -->
 
 <main data-ekran="bez-sieci">
   <div class="status"><span>8:06</span><span>Brak sieci</span></div>

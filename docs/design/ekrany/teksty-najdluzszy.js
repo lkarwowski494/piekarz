@@ -34,10 +34,6 @@ window.TEKSTY['fr'] = {
  "of.dozywBez": "À vie",
  "of.u2krotko": "L'abonnement se renouvelle automatiquement ; annulez-le dans les Réglages du téléphone, sous Identifiant Apple → Abonnements.",
  "of.kup": "Acheter la formule annuelle",
- "of.uprzTyt": "L'essai se termine dans 3 jours",
- "of.uprzOdn": "Le 23 octobre, 7,99 € seront prélevés pour un an. Si vous ne le souhaitez pas, annulez dans les Réglages du téléphone, sous Identifiant Apple → Abonnements.",
- "of.uprzBez": "Sans abonnement, l'historique et vos données restent. Les rappels de nourrissage du levain s'arrêteront.",
- "of.rozumiem": "J'ai compris",
  "of.zarzadzaj": "Gérer l'abonnement",
  "of.bezSieci": "Pas de connexion à l'App Store : l'achat et la restauration sont impossibles pour le moment. Tout le reste fonctionne comme avant. Réessayez quand Internet sera revenu.",
  "of.cenaNieznana": "le prix s'affichera après la connexion",
@@ -252,5 +248,11 @@ window.TEKSTY['fr'] = {
  "im.zastap": "Remplacer les données",
  "dz.pustyTyt": "Vos cuissons apparaîtront ici",
  "dz.pustyOpis": "Après chaque cuisson, j'enregistre la recette, la date et votre note. Commencez par une recette.",
- "dz.wybierz": "Choisir une recette"
+ "dz.wybierz": "Choisir une recette",
+ // 2026-10-21 (§11d 126): przekład roboczy roli 04 bez Batches, tylko do sprawdzenia długości w makiecie
+ "st.uprzTyt": "Votre période d’essai se termine le 23 octobre",
+ "st.uprzRok": "L’App Store prélèvera alors 7,99 € pour un an d’abonnement. Si vous ne voulez pas payer, annulez votre abonnement avant la fin de l’essai.",
+ "st.uprzAnul": "Votre abonnement ne sera pas renouvelé, vous ne paierez donc rien.",
+ "st.uprzNieznane": "Si votre abonnement n’est pas annulé, l’App Store prélèvera alors le prix de la formule choisie.",
+ "st.uprzZostaje": "Sans achat, l’historique et vos données restent. Les calculs, le planning et le guidage nécessiteront Piekarz Pro."
 };
