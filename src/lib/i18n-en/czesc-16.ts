@@ -51,4 +51,9 @@ export const EN_16: Record<string, string> = {
   // Powiadomienie o końcu kroku: następny krok i jego godzina (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130]
   '{krok}: czas zacząć': '{krok}: time to start',
   'Do {godzina}.': 'Until {godzina}.',
+  // Zdanie przed prośbą o zgodę na powiadomienia (makieta prowadzenie, stan `zgoda`; `pw.zgoda*` w teksty.js; BR-CZAS-003)
+  'Dam znać o każdym kroku': "I'll let you know about every step",
+  'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.':
+    'While your phone is asleep, a notification will tell you what to do and when. Your phone will ask for permission in a moment.',
+  'Dalej': 'Continue',
 };

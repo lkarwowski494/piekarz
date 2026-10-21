@@ -15,6 +15,21 @@
       "klucz": "Do {godzina}.",
       "powod": "powiadomienie o końcu kroku z następnym krokiem i godziną (BR-CZAS-002, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Dam znać o każdym kroku",
+      "powod": "zdanie przed prośbą o zgodę na powiadomienia (BR-CZAS-003, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.",
+      "powod": "zdanie przed prośbą o zgodę na powiadomienia (BR-CZAS-003, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Dalej",
+      "powod": "zdanie przed prośbą o zgodę na powiadomienia (BR-CZAS-003, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

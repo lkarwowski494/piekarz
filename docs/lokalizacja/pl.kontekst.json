@@ -847,6 +847,16 @@
   "DDT": {
     "gdzie": []
   },
+  "Dalej": {
+    "gdzie": [
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
+    ]
+  },
+  "Dam znać o każdym kroku": {
+    "gdzie": [
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
+    ]
+  },
   "Dane są zapisywane tylko w tym telefonie.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
@@ -1650,6 +1660,11 @@
   "Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.": {
     "gdzie": [
       "src/core/starter-doctor.ts (dane: kod)"
+    ]
+  },
+  "Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.": {
+    "gdzie": [
+      "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
     ]
   },
   "Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.": {

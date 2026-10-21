@@ -13,7 +13,8 @@ import { tapHaptic } from '../src/lib/haptics';
 import { useBakeSession } from '../src/hooks/useBakeSession';
 import { useFinishBake } from '../src/hooks/useFinishBake';
 import { saveBakeSession, zaczetyZDostepem } from '../src/data/bake-session-store';
-import { resyncNotifications, ensureNotificationPermission } from '../src/lib/notifications';
+import { resyncNotifications, ensureNotificationPermission, getNotificationPermission } from '../src/lib/notifications';
+import { ZgodaPowiadomien } from '../src/components/stolnica/ZgodaPowiadomien';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
 import { setActiveBake, ActiveBakeState } from '../src/data/sqlite-store';
@@ -116,6 +117,13 @@ export default function StolnicaScreen() {
     return rusza;
   };
 
+  // Prośba systemowa o zgodę dopiero po zdaniu „po co” (ZgodaPowiadomien); przy decyzji już podjętej tylko uzgodnienie
+  const [zgodaOpen, setZgodaOpen] = useState(false);
+  const zapytajOZgode = async () => {
+    if ((await getNotificationPermission().catch(() => 'denied' as const)) === 'undetermined') setZgodaOpen(true);
+    else void ensureNotificationPermission();
+  };
+
   // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]; zegar skończony
   // na pierwszym planie zostawia w zapisie termin kroku, żeby po powrocie było widać, o ile minął
   // (BR-ETAP-005 „Termin minął”) [M1-audytor-generalny-130]
@@ -130,8 +138,9 @@ export default function StolnicaScreen() {
       setRecipeName(s.recipeName);
       setStartedAt(s.startedAt);
       setActiveBakeData(s.bake);
-      // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006)
-      if (zastosuj(s)) void ensureNotificationPermission();
+      // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006),
+      // najpierw zdanie „po co” (BR-CZAS-003) [M1-audytor-generalny-130]
+      if (zastosuj(s)) void zapytajOZgode();
     }
   );
 
@@ -208,7 +217,7 @@ export default function StolnicaScreen() {
   const handleStartPhase2AfterSteamAlert = () => {
     setDutchOvenPhase('lid_off');
     runFor(DUTCH_OVEN_PHASES.lid_off.durationMin * 60);
-    void ensureNotificationPermission();
+    void zapytajOZgode();
     tapHaptic(Haptics.ImpactFeedbackStyle.Heavy);
   };
 
@@ -328,6 +337,15 @@ export default function StolnicaScreen() {
             poCoDostepne={poCo !== null}
           />
         </BlokadaFunkcji>
+      )}
+      {aktywny && (
+        <ZgodaPowiadomien
+          visible={zgodaOpen}
+          onDalej={() => {
+            setZgodaOpen(false);
+            void ensureNotificationPermission();
+          }}
+        />
       )}
       {aktywny && (
         <PoCoTenKrokArkusz zdania={poCoOpen ? poCo : null} nazwaKroku={t(currentStep.name)} onClose={() => setPoCoOpen(false)} />
