@@ -21,6 +21,11 @@ export async function notifyTimerFinished(stepName?: string): Promise<boolean> {
     // Ignore in non-native / test environments
   }
 
+  return playChime();
+}
+
+/** Dźwięk końca kroku bez ogłoszenia (alarm pary ogłasza własny tekst raz) [audyt-niezalezny G-2]. */
+function playChime(): boolean {
   // 3. Audio chime playback
   try {
     if (soundInstance) {
@@ -57,6 +62,7 @@ export async function notifySteamReleaseAlert(): Promise<boolean> {
     // Ignore in non-native / test environments
   }
 
-  return notifyTimerFinished(message);
+  // Bez notifyTimerFinished: drugie ogłoszenie „Koniec kroku: …” przerywało to powyżej [audyt-niezalezny G-2]
+  return playChime();
 }
 
