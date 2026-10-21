@@ -126,7 +126,6 @@ export default function DoctorScreen() {
               {t('Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu')}
             </Text>
           </View>
-          <Text style={styles.academyBannerArrow}>→</Text>
         </Pressable>
         )}
 
@@ -225,11 +224,5 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     lineHeight: 14,
     marginTop: 1,
-  },
-  academyBannerArrow: {
-    fontSize: 16,
-    color: theme.colors.akcentTekst,
-    fontWeight: '700',
-    marginLeft: 6,
   },
 });

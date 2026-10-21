@@ -50,6 +50,15 @@ const tekstLiteralu = (n: ts.Node): string | null =>
   ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n) ? n.text
     : ts.isTemplateHead(n) || ts.isTemplateMiddle(n) || ts.isTemplateTail(n) ? n.text
     : ts.isJsxText(n) ? n.text : null;
+/** Tekst, który trafia na ekran: tekst JSX, literał w wyrażeniu JSX albo w atrybucie JSX i klucz t('…'); bez SQL i kluczy danych. */
+const tekstNaEkranie = (n: ts.Node): string | null => {
+  if (ts.isJsxText(n)) return n.text;
+  if (!(ts.isStringLiteral(n) || ts.isNoSubstitutionTemplateLiteral(n))) return null;
+  const r = n.parent;
+  if (ts.isJsxExpression(r) || ts.isJsxAttribute(r)) return n.text;
+  if (ts.isCallExpression(r) && ts.isIdentifier(r.expression) && /^t(Plural)?$/.test(r.expression.text) && r.arguments[0] === n) return n.text;
+  return null;
+};
 
 describe('090: wybory z kalibracji bez decyzji (design-spec §12a) = 0', () => {
   it('D-049: bez gradientów i rozmycia (LinearGradient, BlurView, expo-blur)', () => {
@@ -77,6 +86,36 @@ describe('090: wybory z kalibracji bez decyzji (design-spec §12a) = 0', () => {
       const s = tekstLiteralu(n);
       return s !== null && s.includes(' · ') ? s.trim().slice(0, 60) : null;
     });
+    expect(z).toEqual([]);
+  });
+
+  // Wiersz §12a „WERSALIKI …, „A · B”, „→” na przyciskach, mono na etykietach” mówi „brak”: grep stylów nie widzi
+  // wersalików wpisanych literami („APPS4CRAFT PASS”), separatora „•” ani strzałki w tekście
+  // [M1-audytor-generalny-090; 04-studio-projektowe-018].
+  it('02-kierunki: bez wersalików wpisanych literami (dwa słowa wielkimi literami z rzędu)', () => {
+    const z = skanuj((n) => {
+      const s = tekstNaEkranie(n);
+      return s !== null && /\b[A-ZĄĆĘŁŃÓŚŹŻ][A-ZĄĆĘŁŃÓŚŹŻ0-9]{3,}\W+[A-ZĄĆĘŁŃÓŚŹŻ]{4,}\b/u.test(s) ? s.trim().slice(0, 60) : null;
+    });
+    expect(z).toEqual([]);
+  });
+
+  it('02-kierunki: bez separatora „A • B” i bez „→” w tekstach na ekranie (JSX, t())', () => {
+    const z = skanuj((n) => {
+      const s = tekstNaEkranie(n);
+      return s !== null && (/\S\s*•\s*\S/.test(s.trim()) || s.includes('→')) ? s.trim().slice(0, 60) : null;
+    });
+    expect(z).toEqual([]);
+  });
+
+  it('02-kierunki: bez kroju mono na etykietach (fontFamily „monospace”, „Courier”, „Menlo”)', () => {
+    // Wyjątek nazwany: pole wklejania kodu receptury to dane (kod do skopiowania), nie etykieta.
+    const WYJATKI = ['src/components/ImportRecipeModal.tsx'];
+    const z = skanuj((n) => {
+      const nazwa = nazwaWlasciwosci(n);
+      if (nazwa !== 'fontFamily' || !ts.isPropertyAssignment(n)) return null;
+      return /mono|courier|menlo/i.test(n.initializer.getText()) ? `fontFamily: ${n.initializer.getText()}` : null;
+    }).filter((x) => !WYJATKI.includes(x.gdzie.split(':')[0].replace(/\\/g, '/')));
     expect(z).toEqual([]);
   });
 });

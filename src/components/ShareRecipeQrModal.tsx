@@ -88,7 +88,7 @@ export function ShareRecipeQrModal({
                 {name}
               </Text>
               <Text style={styles.recipeDetails}>
-                {t('Hydratacja')}: {recipe.formula.waterPercentage}% • {t('Zakwas|składnik')}: {recipe.formula.starterPercentage}% • DDT: {formatTemperature(recipe.targetDDT ?? 25, unitSystem)}
+                {t('Hydratacja')}: {recipe.formula.waterPercentage}%, {t('Zakwas|składnik')}: {recipe.formula.starterPercentage}%, DDT: {formatTemperature(recipe.targetDDT ?? 25, unitSystem)}
               </Text>
             </View>
 
