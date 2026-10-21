@@ -2623,7 +2623,7 @@
   },
   {
     "id": "DIA-DDT-001",
-    "twierdzenie": "Według King Arthur Baking ciasto pszenne powinno mieć na koniec mieszania 75–78 °F (rachunek: ok. 24–26 °C); wyjątkiem są chleby na zakwasie fermentowane w chłodni (nieco niżej) i chleby na zakwasie z dużym udziałem mąki żytniej (wyżej).",
+    "twierdzenie": "Według King Arthur Baking ciasto pszenne powinno mieć na koniec mieszania 75–78 °F (rachunek: 23,9–25,6 °C; w tekście ok. 24–25,5 °C); wyjątkiem są chleby na zakwasie fermentowane w chłodni (nieco niżej) i chleby na zakwasie z dużym udziałem mąki żytniej (wyżej).",
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
@@ -2635,7 +2635,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek: (75 − 32) × 5/9 = 23,9 °C; (78 − 32) × 5/9 = 25,6 °C; zaokrąglone do ok. 24–26 °C jak w RD-16 (S-02). W trybie imperialnym aplikacja pokaże ok. 75–79 °F. Wyjątki źródła (chłodnia, dużo żyta) pominięte w zdaniu Doktora.",
+    "uproszczenie": "Rachunek: (75 − 32) × 5/9 = 23,9 °C; (78 − 32) × 5/9 = 25,6 °C; w tekście Doktora ok. 24–25,5 °C, żeby tryb imperialny (zaokrąglenie do całych °F) pokazał ok. 75–78 °F jak źródło; RD-16 (S-02) zaokrągla do ok. 24–26 °C. Zmiana 2026-10-21: M1-audytor-generalny-208 (06-tresci-604), wcześniej tekst 24–26 °C dawał w °F górną granicę o 1 °F wyższą niż źródło. Wyjątki źródła (chłodnia, dużo żyta) pominięte w zdaniu Doktora.",
     "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor UNDER_PROOFED w miejsce „25–26°C” i EXCESSIVELY_SOUR (24–26 °C bez twierdzenia). Szczebel jak S-02 w docs/brd/zrodla.md.",
     "krytyczne": false,
     "przeglad": null,

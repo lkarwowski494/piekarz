@@ -17,7 +17,7 @@ Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Ar
 Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie. [T:DIA-TEM-001]
 
 ## diagnostics.UNDER_PROOFED.actionChecklistPl[2]
-Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C. [T:DIA-DDT-001]
+Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C. [T:DIA-DDT-001]
 
 ## diagnostics.OVER_PROOFED.actionChecklistPl[2]
 Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację. [T:KRO-POC-010]
@@ -44,7 +44,7 @@ Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki p
 Dokarmiaj zakwas częściej przed wypiekiem. [T:KWA-GLO-001]
 
 ## diagnostics.EXCESSIVELY_SOUR.actionChecklistPl[2]
-Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C. [T:KWA-CZA-001,DIA-DDT-001]
+Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C. [T:KWA-CZA-001,DIA-DDT-001]
 
 ## diagnostics.BLAND_FLAVOR.actionChecklistPl[0]
 Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak. [T:KRO-POC-010]

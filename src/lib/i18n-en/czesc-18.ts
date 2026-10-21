@@ -83,8 +83,8 @@ export const EN_18: Record<string, string> = {
     'If the centre is cooler, bake longer and measure again.',
   'Wydłuż fermentację burzliwą.':
     'Extend the bulk fermentation.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
-    'Use the DDT calculator: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
+  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
+    'Use the DDT calculator: according to King Arthur Baking, wheat dough should be about 24–25.5 °C after mixing.',
   'Zmniejsz udział zakwasu w recepturze.':
     'Reduce the share of starter in the recipe.',
   'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.':
@@ -103,8 +103,8 @@ export const EN_18: Record<string, string> = {
     'After removing the lid, keep baking: according to King Arthur Baking, the uncovered bread bakes until it is fully browned.',
   'Dokarmiaj zakwas częściej przed wypiekiem.':
     'Feed the starter more often before baking.',
-  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
-    'Shorten the bulk fermentation and watch the dough temperature: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
+  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
+    'Shorten the bulk fermentation and watch the dough temperature: according to King Arthur Baking, wheat dough should be about 24–25.5 °C after mixing.',
   'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.':
     'Proof the dough in the fridge: according to King Arthur Baking, cold slows fermentation, and slower fermentation deepens the flavour.',
   'Zwiększ udział zakwasu w recepturze.':
