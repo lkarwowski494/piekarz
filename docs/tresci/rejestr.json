@@ -2115,14 +2115,14 @@
         "adres": "https://extension.sdstate.edu/sourdough-starters",
         "miejsce": "SDSU Extension, „Sourdough Starters” (Updated July 01, 2024), „Things to Consider”, „Up-keep”; kopia dowody/zrodla/sdsu-starters.htm",
         "cytat": "Starters must be fed flour twice daily if they are being stored at room temperature, or fed once weekly, if being stored in the refrigerator. Do not store your starter in the refrigerator until it has an established microbiome (after 7-10 days).",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 3
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-104 a, b; RD-25 (S-44).",
+    "uwagi": "M1-audytor-generalny-104 a, b; RD-25 (S-44). M1-audytor-generalny-132 (06-tresci-502): ponowny odczyt 2026-10-21; porada fazy hungry karty szczytu. Próg fazy hungry w kodzie (5 dni, „Wymaga odświeżenia”) przeczy „raz w tygodniu”: przekazanie do 08, wartość 7 dni (rachunek: raz w tygodniu = co 7 dni).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -2195,14 +2195,14 @@
         "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
         "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking”; kopia dowody/zrodla/ka-feeding.htm",
         "cytat": "Cover the starter and let it rest at room temperature. Depending on its health and how recently you'd fed it, the starter may start to bubble and expand quickly, or it may take up to 12 hours to show signs of life.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "„health” oddane jako „stan” (DEC-10: bez słowa „zdrowy”).",
-    "uwagi": "M1-audytor-generalny-104 b (F-61, BR-ZAKW-006; S-54).",
+    "uwagi": "M1-audytor-generalny-104 b (F-61, BR-ZAKW-006; S-54). M1-audytor-generalny-132 (06-tresci-502): ponowny odczyt 2026-10-21, cytat dosłownie w surowym tekście strony; porada fazy lag karty szczytu (src/core/sourdough-physics.ts) w miejsce „wyjmij na 2–3h i dokarm” i „4°C”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -2215,14 +2215,14 @@
         "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
         "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking”; kopia dowody/zrodla/ka-feeding.htm",
         "cytat": "Repeat the feeding process (steps 9 and 10) every 12 hours until you see it double or triple in volume within 6 to 8 hours; this means it's ready to bake with.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Liczba dokarmień zależy od warunku, nie od liczby (ZAK-LOD-900).",
-    "uwagi": "M1-audytor-generalny-104 b; RD-24-W3, BR-ZAKW-006 (zakwas niegotowy w dniu ciasta).",
+    "uwagi": "M1-audytor-generalny-104 b; RD-24-W3, BR-ZAKW-006 (zakwas niegotowy w dniu ciasta). M1-audytor-generalny-132 (06-tresci-502): ponowny odczyt 2026-10-21, cytat dosłownie w surowym tekście strony; porada fazy hungry karty szczytu w miejsce „1–2 karmień”.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "zakwas_z_lodowki_odstep_dokarmien_h",
@@ -2309,5 +2309,17 @@
     "uwagi": "[DO USTALENIA] M1-audytor-generalny-104 c. KA („Create”) mówi tylko, że wody butelkowanej nie trzeba, chyba że woda z kranu pachnie chemikaliami — to nie jest twierdzenie o przyczynie. SDSU i CSU (ZAK-ZAL-008) nie podają liczby dla „za ciepło”.",
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "ZAK-LOD-901",
+    "twierdzenie": "Zakwas z lodówki wyjmuje się przed pieczeniem na 2–3 h i dokarmia; w lodówce (4 °C) metabolizm drożdży zwalnia; zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej (src/core/sourdough-physics.ts, porady faz lag i hungry).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: przeczytane źródła (ZAK-LOD-001, ZAK-LOD-002, ZAK-ZAL-012) podają warunek „co 12 h, aż podwoi w 6–8 h” i dokarmianie raz w tygodniu, nie 2–3 h, 1–2 karmień, 4 °C ani 5 dni. Wycofane z produktu w M1-audytor-generalny-132 (06-tresci-502).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAK-LOD-002",
+    "wycofane": "2026-10-21, M1-audytor-generalny-132"
   }
 ]

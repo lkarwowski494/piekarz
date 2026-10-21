@@ -41,4 +41,10 @@ export const EN_18: Record<string, string> = {
   '4–8h w 24–26°C do szczytu objętości': '4–8 h at 24–26°C until peak volume',
   'Do ostygnięcia do temp. pokojowej': 'Until cooled to room temperature',
   'Min. 4h lub przez noc w lodówce': 'At least 4 h or overnight in the fridge',
+
+  // Porady karty szczytu zakwasu w lodówce: docs/tresci/en/zakwas-z-lodowki.md [M1-audytor-generalny-132; 06-tresci-502]
+  'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.':
+    'According to King Arthur Baking, before baking, feed the starter from the fridge and leave it at room temperature; it may take up to 12 hours to show signs of life.',
+  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.':
+    'A starter kept in the fridge is fed once a week. According to King Arthur Baking, before baking, feed it every 12 hours until it doubles or triples in volume within 6–8 hours of feeding.',
 };

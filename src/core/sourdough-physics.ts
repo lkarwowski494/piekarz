@@ -120,7 +120,9 @@ export function calculateStarterPhase(
         labelTemplatePl: 'Uśpiony w lodówce ({elapsedDays} dni)',
         labelParams: { elapsedDays },
         poziom: 'info',
-        advicePl: 'W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.',
+        // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-LOD-001) [M1-audytor-generalny-132; 06-tresci-502]
+        advicePl:
+          'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.',
       };
     }
     return {
@@ -130,7 +132,9 @@ export function calculateStarterPhase(
       labelTemplatePl: 'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)',
       labelParams: { elapsedDays },
       poziom: 'info',
-      advicePl: 'Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.',
+      // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-ZAL-012, ZAK-LOD-002) [M1-audytor-generalny-132; 06-tresci-502]
+      advicePl:
+        'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.',
     };
   }
 

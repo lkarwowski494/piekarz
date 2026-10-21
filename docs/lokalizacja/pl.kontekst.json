@@ -6157,11 +6157,6 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.": {
-    "gdzie": [
-      "src/core/sourdough-physics.ts (dane: advicePl)"
-    ]
-  },
   "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
@@ -6324,6 +6319,11 @@
   "Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: ready)"
+    ]
+  },
+  "Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.": {
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
   "Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.": {
@@ -7256,14 +7256,14 @@
       "src/core/starter-log.ts (dane: temperature)"
     ]
   },
+  "Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.": {
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
   "Zakwas w lodówce": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
-    ]
-  },
-  "Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.": {
-    "gdzie": [
-      "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
   "Zakwas żytni": {
