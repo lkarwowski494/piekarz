@@ -50,3 +50,45 @@ describe('201: czas w kroju czasu z ograniczeniem skali', () => {
     for (const c of czasy) expect(c.props.maxFontSizeMultiplier).toBeCloseTo(MNOZNIK, 5);
   });
 });
+
+/** Jeden wiersz z dopasowaniem: en-US „9:45 AM” i „1:05:00” po 99 pt przy 320 pt nie mieszczą się w ok. 260 pt pola,
+ *  więc tekst zmniejsza się do mieszczącego się rozmiaru zamiast łamać cyfry (reaudit-noc N-2). Najmniejszy rozmiar
+ *  nie schodzi poniżej tokenu dużego tytułu. */
+function jedenWierszZDopasowaniem(czasy: renderer.ReactTestInstance[]) {
+  expect(czasy.length).toBeGreaterThan(0);
+  for (const c of czasy) {
+    expect(c.props.numberOfLines).toBe(1);
+    expect(c.props.adjustsFontSizeToFit).toBe(true);
+    expect(c.props.minimumFontScale).toBeGreaterThan(0);
+    expect(c.props.minimumFontScale).toBeLessThan(1);
+    expect(c.props.minimumFontScale * typografia.style.czas.ax5).toBeGreaterThanOrEqual(typografia.style.tytulDuzy.pt);
+  }
+}
+
+describe('N-2: czas w jednym wierszu z dopasowaniem rozmiaru', () => {
+  it('plan: godzina gotowości (en-US „9:45 AM”)', () => {
+    let tree!: renderer.ReactTestRenderer;
+    act(() => {
+      tree = renderer.create(
+        <TargetReadyCard targetDayOffset={1} onTargetDayOffsetChange={() => {}} targetHour={21} targetMinute={45}
+          onAdjustTargetTime={() => {}} formattedDayBadge={`${'Tomorrow'}`} ambientTemp={22} onAmbientTempChange={() => {}}
+          unitSystem="imperial" />,
+      );
+    });
+    jedenWierszZDopasowaniem(textyCzasu(tree));
+  });
+
+  it('prowadzenie: czas kroku „1:05:00”', async () => {
+    const krok: SessionStep = {
+      id: 'bake', name: 'bake', category: 'bake', durationMin: 65, isPassive: false, instructions: '', plannedStart: null, plannedEnd: null,
+    };
+    let tree!: renderer.ReactTestRenderer;
+    await act(async () => {
+      tree = renderer.create(
+        <StrefaKroku step={krok} formattedTime="1:05:00" unitSystem="metric" dutchOvenPhase="lid_on" isCompleted={false}
+          onSwitchPhase={() => undefined} onStartPhase2AfterSteamAlert={() => undefined} ostrzezenia={[]} />,
+      );
+    });
+    jedenWierszZDopasowaniem(textyCzasu(tree));
+  });
+});

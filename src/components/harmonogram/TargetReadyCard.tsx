@@ -83,8 +83,10 @@ export function TargetReadyCard({
         {!waski && minus}
         <View testID="plan-pole-gotowosci" style={styles.pole}>
           <Text style={styles.dzien}>{formattedDayBadge}</Text>
-          {/* Cyfry rosną z Dynamic Type najwyżej do tokenu AX5 (czas 56 → 99 pt), więc mieszczą się w wierszu [M1-audytor-generalny-201] */}
-          <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}>
+          {/* Cyfry rosną z Dynamic Type najwyżej do tokenu AX5 (czas 56 → 99 pt); en-US „9:45 AM” przy 320 pt zmniejsza
+              się w jednym wierszu zamiast łamać [M1-audytor-generalny-201; reaudit-noc N-2] */}
+          <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+            numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
             {godzina(targetHour, targetMinute)}
           </Text>
         </View>

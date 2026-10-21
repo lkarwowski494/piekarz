@@ -47,10 +47,12 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
   return (
     <>
       <Text testID="step-title" style={[styles.activeStepTitle, waga]}>{t(step.name)}</Text>
-      {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt) [M1-audytor-generalny-201] */}
+      {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt); „1:05:00” przy 320 pt zmniejsza się w jednym
+          wierszu zamiast łamać cyfry [M1-audytor-generalny-201; reaudit-noc N-2] */}
       {stepHasTimer(step) && (
         <Text testID="step-time" style={[styles.czas, waga]} accessibilityLabel={czasEtykieta}
-          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}>
+          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
+          numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
           {formattedTime}
         </Text>
       )}
