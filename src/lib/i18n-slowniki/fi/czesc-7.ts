@@ -105,7 +105,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Pidennä autolyysiä ja lisää yksi ylimääräinen coil fold -taittelukierros.',
   'Wydłuż fermentację burzliwą.': 'Pidennä ensimmäistä kohotusta.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Jääkaapissa säilytettävää hapanjuurta ruokitaan kerran viikossa. King Arthur Bakingin mukaan ruoki sitä ennen leivontaa 12 tunnin välein, kunnes se kaksin- tai kolminkertaistuu 6–8 tunnin kuluessa ruokinnasta.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Käytä taikinan tavoitelämmön laskinta: King Arthur Bakingin mukaan vehnätaikinan lämpötilan pitäisi sekoittamisen jälkeen olla noin 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Taikinan hydraatio on liian matala, jauho on heikkoa ja sen proteiinipitoisuus matala tai gluteeni ei ole kehittynyt riittävästi.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Monivivahteinen maito- ja etikkahappojen aromi.',
   'Zmniejsz udział zakwasu w recepturze.': 'Pienennä hapanjuuren osuutta reseptissä.',

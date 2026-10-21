@@ -98,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Verleng de autolyse en voeg een extra vouwronde (coil fold) toe.',
   'Wydłuż fermentację burzliwą.': 'Verleng de bulkrijs.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Een zuurdesemstarter die je in de koelkast bewaart, voed je één keer per week. Volgens King Arthur Baking voed je hem voor het bakken elke 12 uur, tot hij binnen 6–8 uur na het voeden in volume verdubbelt of verdrievoudigt.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Gebruik de calculator voor de gewenste deegtemperatuur: volgens King Arthur Baking moet tarwedeeg na het mengen ongeveer 24–26 °C zijn.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Te lage hydratatie van het deeg, zwak meel met een laag eiwitgehalte of onvoldoende ontwikkeld gluten.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Complex boeket van melkzuur en azijnzuur.',
   'Zmniejsz udział zakwasu w recepturze.': 'Verlaag het aandeel zuurdesemstarter in het recept.',

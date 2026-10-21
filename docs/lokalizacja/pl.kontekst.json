@@ -1751,11 +1751,6 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
-  "Harmonogram": {
-    "gdzie": [
-      "src/lib/schedule-formatter.ts (kod)"
-    ]
-  },
   "Harmonogram wsteczny z ochroną snu": {
     "gdzie": []
   },
@@ -2209,15 +2204,11 @@
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
-  "Kopiuj harmonogram": {
-    "gdzie": [
-      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
-    ]
-  },
   "Kopiuj jako tekst": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/calculator-actions.ts (Alert.alert)",
       "src/lib/menu-receptury.ts (etykieta)"
@@ -3891,10 +3882,11 @@
   "Parametry Rzemieślnicze & Mąki": {
     "gdzie": []
   },
-  "Parametry bochenka „{name}” zostały załadowane do kalkulatora.": {
+  "Parametry bochenka „{name}” wczytano do receptury.": {
     "gdzie": [
       "src/hooks/useBakeHistory.ts (Alert.alert)"
-    ]
+    ],
+    "opis": "Komunikat po „Piecz ponownie” z wpisu Dziennika: ilości i parametry tamtego wypieku trafiły na ekran receptury. {name} = nazwa receptury. Dawny „kalkulator” to dziś ekran receptury. [M1-audytor-generalny-113]"
   },
   "Pasywne": {
     "gdzie": [
@@ -4038,7 +4030,8 @@
       "app/(tabs)/receptury/_layout.tsx (title)",
       "app/stolnica.tsx (etykieta)",
       "app/stolnica.tsx (tekst)",
-      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)"
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/lib/schedule-formatter.ts (kod)"
     ]
   },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
@@ -4223,6 +4216,12 @@
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
+  },
+  "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ],
+    "opis": "Rada Doktora Chleba (treść roli 06, twierdzenie DIA-DDT-001): przed dwukropkiem akcja w aplikacji (arkusz „Temperatura wody” na ekranie receptury), po dwukropku fakt ze źródłem z atrybucją. Liczby i °C bez zmian; w trybie imperialnym aplikacja przelicza na °F. [M1-audytor-generalny-113]"
   },
   "Polityka prywatności": {
     "gdzie": [
@@ -5072,15 +5071,16 @@
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
-  "Skopiowano harmonogram do schowka": {
-    "gdzie": [
-      "src/lib/schedule-formatter.ts (kod)"
-    ]
-  },
   "Skopiowano kod JSON receptury do schowka.": {
     "gdzie": [
       "src/lib/calculator-actions.ts (Alert.alert)"
     ]
+  },
+  "Skopiowano plan wypieku do schowka": {
+    "gdzie": [
+      "src/lib/schedule-formatter.ts (kod)"
+    ],
+    "opis": "Komunikat VoiceOver po „Kopiuj jako tekst” na ekranie planu wypieku (tekst planu w schowku). „Plan wypieku” to nazwa ekranu (EN „Bake plan”); dawna nazwa „Harmonogram” zniknęła. [M1-audytor-generalny-113]"
   },
   "Skopiowano proporcje dokarmiania do schowka": {
     "gdzie": [
@@ -7456,11 +7456,6 @@
   "Zastosuj 4 serie składania zwojowego (coil fold) co 30 minut, dbając o nienaruszenie pęcherzy gazu.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
-    ]
-  },
-  "Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
   "Zastosuj mieszankę": {

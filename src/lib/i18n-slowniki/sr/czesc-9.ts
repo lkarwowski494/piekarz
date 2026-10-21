@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Продужите аутолизу и додајте још једну серију пресавијања теста (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Продужите основну ферментацију.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Стартер који се држи у фрижидеру храни се једном недељно. Према King Arthur Baking, пре печења храните га на сваких 12 сати, док у року од 6–8 сати после храњења не удвостручи или утростручи запремину.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Користите калкулатор циљне температуре теста: према King Arthur Baking, пшенично тесто после мешења треба да има око 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Прениска хидратација теста, слабо брашно са ниским садржајем протеина или недовољно развијен глутен.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Сложен букет млечне и сирћетне киселине.',
   'Zmniejsz udział zakwasu w recepturze.': 'Смањите удео стартера у рецепту.',

@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Otwórz Ustawienia': 'Deschide Configurări',
   'para': 'abur',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Parametrii pâinii „{name}” au fost încărcați în calculator.',
   'Parametry Rzemieślnicze & Mąki': 'Parametri artizanali & Făinuri',
   'Pasywne': 'Pasiv',
   'paź': 'oct',
@@ -174,7 +173,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Compune-ți propriul amestec de făinuri',
   'Skopiowano diagnozę do schowka': 'Diagnosticul a fost copiat în clipboard',
   'Skopiowano dokarmienie do schowka': 'Hrănirea a fost copiată în clipboard',
-  'Skopiowano harmonogram do schowka': 'Programul a fost copiat în clipboard',
   'Skopiowano kod JSON receptury do schowka.': 'Codul JSON al rețetei a fost copiat în clipboard.',
   'Skopiowano proporcje dokarmiania do schowka': 'Proporția de hrănire a fost copiată în clipboard',
   'Skopiowano przepis do schowka': 'Rețeta a fost copiată în clipboard',

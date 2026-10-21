@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — ustawienia planu pod listą kroków: godziny snu (tylko odczyt, wybór w Ustawieniach, D-066 1a), czas
-// w lodówce, „Kopiuj harmonogram” [M1-audytor-generalny-128, -130; 04-studio-projektowe-501]. Poza pierwszym
+// w lodówce, „Kopiuj jako tekst” [M1-audytor-generalny-128, -130; 04-studio-projektowe-501]. Poza pierwszym
 // widokiem: pierwsza propozycja planu i „Przesuń do lodówki” w banerze nocy wystarczają bez nich (`plan-sen`).
 // ============================================================================
 
@@ -46,7 +46,7 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
       <Text style={styles.przypis}>{t('Elastyczny bufor regulujący porę formowania i pieczenia')}</Text>
 
       <Pressable accessibilityRole="button" testID="copy-schedule-btn" style={styles.kopiuj} onPress={onCopySchedule}>
-        <Text style={styles.chipTekst}>{t('Kopiuj harmonogram')}</Text>
+        <Text style={styles.chipTekst}>{t('Kopiuj jako tekst')}</Text>
       </Pressable>
     </View>
   );

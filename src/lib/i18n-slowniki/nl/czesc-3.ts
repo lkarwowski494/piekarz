@@ -186,7 +186,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Open recept',
   'Otwórz Ustawienia': 'Open Instellingen',
   'para': 'stoom',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'De parameters van het brood “{name}” zijn in de calculator geladen.',
   'Parametry Rzemieślnicze & Mąki': 'Ambachtelijke parameters & meel',
   'Pasywne': 'Passief',
   'paź': 'okt',

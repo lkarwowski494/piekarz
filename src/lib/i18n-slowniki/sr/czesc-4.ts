@@ -105,7 +105,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Отвори рецептуру',
   'Otwórz Ustawienia': 'Отвори Подешавања',
   'para': 'пара',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Параметри векне „{name}“ учитани су у калкулатор.',
   'Parametry Rzemieślnicze & Mąki': 'Занатски параметри и брашна',
   'Pasywne': 'Пасивно',
   'paź': 'окт',

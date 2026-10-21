@@ -41,7 +41,7 @@ export function formatScheduleToText(
   }
 
   const lines: string[] = [];
-  lines.push(`${t('Harmonogram')}: ${t('Piekarz')}`);
+  lines.push(`${t('Plan wypieku')}: ${t('Piekarz')}`);
   lines.push(`${t('Godzina gotowości chleba do krojenia')}: ${targetTimeStr}`);
   lines.push(`${t('Łączny czas')}: ${czasTrwania(totalMin).tekst}`);
 
@@ -84,6 +84,6 @@ export async function copyScheduleToClipboard(
   } catch {
     // Non-native fallback
   }
-  announce(t('Skopiowano harmonogram do schowka'));
+  announce(t('Skopiowano plan wypieku do schowka'));
   return true;
 }

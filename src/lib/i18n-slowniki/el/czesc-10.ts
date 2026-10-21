@@ -33,7 +33,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Παρατείνετε την αυτόλυση και προσθέστε μια επιπλέον σειρά διπλωμάτων ζύμης (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Παρατείνετε την κύρια ζύμωση.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Το προζύμι που φυλάσσεται στο ψυγείο ταΐζεται μία φορά την εβδομάδα. Σύμφωνα με την King Arthur Baking, πριν από το ψήσιμο ταΐζετέ το κάθε 12 ώρες, μέχρι να διπλασιάζει ή να τριπλασιάζει τον όγκο του μέσα σε 6–8 ώρες μετά το τάισμα.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Χρησιμοποιήστε τον υπολογιστή επιθυμητής θερμοκρασίας ζύμης (DDT): σύμφωνα με την King Arthur Baking, η σιταρένια ζύμη μετά την ανάμειξη πρέπει να έχει περίπου 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Πολύ χαμηλή ενυδάτωση ζύμης, αδύναμο αλεύρι με χαμηλή περιεκτικότητα σε πρωτεΐνη ή ανεπαρκώς αναπτυγμένη γλουτένη.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Σύνθετο μπουκέτο γαλακτικού και οξικού οξέος.',
   'Zmniejsz udział zakwasu w recepturze.': 'Μειώστε το ποσοστό προζυμιού στη συνταγή.',

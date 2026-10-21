@@ -40,7 +40,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': '配合を開く',
   'Otwórz Ustawienia': '設定を開く',
   'para': 'スチーム',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'ローフ「{name}」のパラメーターを「計算」に読み込みました。',
   'Parametry Rzemieślnicze & Mąki': 'アルチザン設定＆粉',
   'Pasywne': '放置',
   'paź': '10月',

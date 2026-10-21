@@ -161,7 +161,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Kendi un karışımını oluştur',
   'Skopiowano diagnozę do schowka': 'Teşhis panoya kopyalandı',
   'Skopiowano dokarmienie do schowka': 'Besleme panoya kopyalandı',
-  'Skopiowano harmonogram do schowka': 'Plan panoya kopyalandı',
   'Skopiowano kod JSON receptury do schowka.': 'Tarifin JSON kodu panoya kopyalandı.',
   'Skopiowano proporcje dokarmiania do schowka': 'Besleme oranı panoya kopyalandı',
   'Skopiowano przepis do schowka': 'Tarif panoya kopyalandı',

@@ -140,5 +140,4 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Prelungește autoliza și adaugă încă o serie de împăturiri coil fold.',
   'Wydłuż fermentację burzliwą.': 'Prelungește fermentarea în bloc.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Maiaua naturală păstrată în frigider se hrănește o dată pe săptămână. Potrivit King Arthur Baking, înainte de coacere hrănește-o la fiecare 12 ore, până când, în 6–8 ore de la hrănire, își dublează sau își triplează volumul.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Folosește calculatorul pentru temperatura dorită a aluatului (DDT): potrivit King Arthur Baking, aluatul de grâu ar trebui să aibă aprox. 24–26 °C după frământare.',
 };

@@ -132,7 +132,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Pailginkite autolizę ir atlikite papildomą tešlos lankstymo (coil fold) seriją.',
   'Wydłuż fermentację burzliwą.': 'Pailginkite pirminę fermentaciją.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Šaldytuve laikomas natūralus raugas maitinamas kartą per savaitę. Pasak King Arthur Baking, prieš kepimą maitinkite jį kas 12 valandų, kol per 6–8 valandas po maitinimo jo tūris padvigubės arba patrigubės.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Naudokite tikslinės tešlos temperatūros (DDT) skaičiuoklę: pasak King Arthur Baking, kvietinė tešla po maišymo turėtų būti apie 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Per maža tešlos hidratacija, silpni miltai su mažu baltymų kiekiu arba nepakankamai išvystytas glitimas.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Sudėtinga pieno ir acto rūgščių puokštė.',
   'Zmniejsz udział zakwasu w recepturze.': 'Sumažinkite natūralaus raugo dalį receptūroje.',

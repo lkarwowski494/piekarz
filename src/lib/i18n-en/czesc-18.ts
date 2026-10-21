@@ -83,8 +83,8 @@ export const EN_18: Record<string, string> = {
     'If the centre is cooler, bake longer and measure again.',
   'Wydłuż fermentację burzliwą.':
     'Extend the bulk fermentation.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
-    'Use the DDT calculator: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
+  'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
+    'Work out the water temperature in the recipe: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
   'Zmniejsz udział zakwasu w recepturze.':
     'Reduce the share of starter in the recipe.',
   'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.':

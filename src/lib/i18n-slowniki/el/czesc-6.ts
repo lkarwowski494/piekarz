@@ -30,7 +30,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Δημιουργήστε το δικό σας μείγμα αλευριών',
   'Skopiowano diagnozę do schowka': 'Η διάγνωση αντιγράφηκε στο πρόχειρο',
   'Skopiowano dokarmienie do schowka': 'Το τάισμα αντιγράφηκε στο πρόχειρο',
-  'Skopiowano harmonogram do schowka': 'Το πρόγραμμα αντιγράφηκε στο πρόχειρο',
   'Skopiowano kod JSON receptury do schowka.': 'Ο κώδικας JSON της συνταγής αντιγράφηκε στο πρόχειρο.',
   'Skopiowano proporcje dokarmiania do schowka': 'Οι αναλογίες ταΐσματος αντιγράφηκαν στο πρόχειρο',
   'Skopiowano przepis do schowka': 'Η συνταγή αντιγράφηκε στο πρόχειρο',

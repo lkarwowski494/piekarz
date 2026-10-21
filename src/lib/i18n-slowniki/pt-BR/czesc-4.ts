@@ -1,7 +1,6 @@
 // Słownik pt-BR, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Os parâmetros do pão “{name}” foram carregados na calculadora.',
   'Parametry Rzemieślnicze & Mąki': 'Parâmetros artesanais e farinhas',
   'Pasywne': 'Passivo',
   'paź': 'out',
@@ -172,7 +171,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Criar sua mistura de farinhas',
   'Skopiowano diagnozę do schowka': 'Diagnóstico copiado para a área de transferência',
   'Skopiowano dokarmienie do schowka': 'Alimentação copiada para a área de transferência',
-  'Skopiowano harmonogram do schowka': 'Cronograma copiado para a área de transferência',
   'Skopiowano kod JSON receptury do schowka.': 'Código JSON da receita copiado para a área de transferência.',
   'Skopiowano proporcje dokarmiania do schowka': 'Proporção de alimentação copiada',
   'Skopiowano przepis do schowka': 'Receita copiada para a área de transferência',

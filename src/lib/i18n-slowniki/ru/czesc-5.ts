@@ -150,7 +150,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Составить свою мучную смесь',
   'Skopiowano diagnozę do schowka': 'Диагноз скопирован в буфер обмена',
   'Skopiowano dokarmienie do schowka': 'Подкормка скопирована в буфер обмена',
-  'Skopiowano harmonogram do schowka': 'Расписание скопировано в буфер обмена',
   'Skopiowano kod JSON receptury do schowka.': 'JSON-код рецептуры скопирован в буфер обмена.',
   'Skopiowano proporcje dokarmiania do schowka': 'Пропорции подкормки скопированы в буфер обмена',
   'Skopiowano przepis do schowka': 'Рецепт скопирован в буфер обмена',

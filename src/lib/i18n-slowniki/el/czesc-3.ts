@@ -56,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': 'Αντίγραφο ασφαλείας από αρχείο',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'Αντίγραφο ασφαλείας: {receptury}, {zakwasy}, {wpisy}.',
   'Kopiuj adres': 'Αντιγραφή διεύθυνσης',
-  'Kopiuj harmonogram': 'Αντιγραφή προγράμματος',
   'Kopiuj jako tekst': 'Αντιγραφή ως κείμενο',
   'Koszt całego wypieku': 'Συνολικό κόστος ψησίματος',
   'Koszt na 100g': 'Κόστος ανά 100 g',

@@ -119,7 +119,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Autoliz süresini uzatın ve ek bir katlama (coil fold) seti ekleyin.',
   'Wydłuż fermentację burzliwą.': 'İlk mayalanmayı (Bulk) uzatın.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Buzdolabında saklanan ekşi maya haftada bir beslenir. King Arthur Baking\'e göre pişirmeden önce, beslemeden sonraki 6–8 saat içinde hacmi iki ya da üç katına çıkana kadar onu 12 saatte bir besleyin.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Hedef hamur sıcaklığı (DDT) hesaplayıcısını kullanın: King Arthur Baking\'e göre buğday hamuru karıştırıldıktan sonra yaklaşık 24–26 °C olmalıdır.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hamurun hidrasyonu çok düşük, protein oranı düşük zayıf un ya da yeterince gelişmemiş gluten.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Laktik ve asetik asitlerden oluşan karmaşık bir aroma buketi.',
   'Zmniejsz udział zakwasu w recepturze.': 'Tarifteki ekşi maya oranını azaltın.',

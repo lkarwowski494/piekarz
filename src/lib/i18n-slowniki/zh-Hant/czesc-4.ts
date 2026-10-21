@@ -134,7 +134,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': '調配自己的混合麵粉',
   'Skopiowano diagnozę do schowka': '已將診斷複製到剪貼簿',
   'Skopiowano dokarmienie do schowka': '已將餵養資料複製到剪貼簿',
-  'Skopiowano harmonogram do schowka': '已將時程表複製到剪貼簿',
   'Skopiowano kod JSON receptury do schowka.': '已將配方 JSON 程式碼複製到剪貼簿。',
   'Skopiowano proporcje dokarmiania do schowka': '已將餵養比例複製到剪貼簿',
   'Skopiowano przepis do schowka': '已將配方複製到剪貼簿',

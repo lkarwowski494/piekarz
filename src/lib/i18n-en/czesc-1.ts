@@ -17,7 +17,6 @@ export const EN_1: Record<string, string> = {
   'Wznów': 'Resume',
   'Zakończ': 'Finish',
   'Kalkulator': 'Calculator',
-  'Harmonogram': 'Schedule',
   'Stolnica': 'Workbench',
   'Zakwas': 'Sourdough',
   // Ten sam tekst jako składnik receptury: osobny klucz z kontekstem [M1-audytor-generalny-074]
@@ -221,8 +220,8 @@ export const EN_1: Record<string, string> = {
   'Nieprawidłowy format JSON': 'Invalid JSON format',
 
   // Schedule & Diagnosis Clipboard & History Management
-  'Kopiuj harmonogram': 'Copy schedule',
-  'Skopiowano harmonogram do schowka': 'Schedule copied to clipboard',
+  'Skopiowano plan wypieku do schowka':
+    'Bake plan copied to clipboard',
   'Łączny czas': 'Total time',
   'Garowanie chłodnicze': 'Cold retard',
   'Kolizja ze snem': 'Sleep collision',

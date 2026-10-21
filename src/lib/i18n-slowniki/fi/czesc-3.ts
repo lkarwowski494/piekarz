@@ -188,7 +188,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Avaa resepti',
   'Otwórz Ustawienia': 'Avaa Asetukset',
   'para': 'höyry',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Leivän ”{name}” tiedot ladattiin laskimeen.',
   'Parametry Rzemieślnicze & Mąki': 'Käsityöparametrit & jauhot',
   'Pasywne': 'Passiivinen',
   'paź': 'loka',

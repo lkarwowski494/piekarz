@@ -186,7 +186,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Otvoriť receptúru',
   'Otwórz Ustawienia': 'Otvoriť Nastavenia',
   'para': 'para',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Parametre bochníka „{name}“ boli načítané do kalkulačky.',
   'Parametry Rzemieślnicze & Mąki': 'Remeselné parametre & múky',
   'Pasywne': 'Pasívne',
   'paź': 'okt',

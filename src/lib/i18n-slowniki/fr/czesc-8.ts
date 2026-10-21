@@ -19,7 +19,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Prolongez l\'autolyse et ajoutez une série supplémentaire de rabats (coil folds).',
   'Wydłuż fermentację burzliwą.': 'Prolongez le pointage.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Un levain conservé au réfrigérateur se rafraîchit une fois par semaine. Selon King Arthur Baking, avant la fournée, rafraîchissez-le toutes les 12 heures jusqu\'à ce qu\'il double ou triple de volume dans les 6–8 heures suivant le rafraîchi.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Utilisez le calculateur de température de pâte visée : selon King Arthur Baking, une pâte de blé doit être à environ 24–26 °C après le mélange.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hydratation de la pâte trop faible, farine faible à basse teneur en protéines ou gluten insuffisamment développé.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Bouquet complexe d\'acides lactique et acétique.',
   'Zmniejsz udział zakwasu w recepturze.': 'Réduisez la part de levain dans la recette.',

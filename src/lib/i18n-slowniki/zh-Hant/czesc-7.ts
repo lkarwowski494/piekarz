@@ -49,7 +49,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': '延長水解法時間，並多加一輪翻面拉摺（coil fold）。',
   'Wydłuż fermentację burzliwą.': '延長基礎發酵時間。',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': '冷藏的天然酵母起種每週餵養一次。根據 King Arthur Baking，烘焙前請每 12 小時餵養一次，直到它在餵養後 6–8 小時內膨脹到兩倍或三倍。',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': '使用目標麵溫（DDT）計算機：根據 King Arthur Baking，小麥麵糰攪拌完成後應約為 24–26°C。',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': '麵糰含水量過低、使用蛋白質含量低的弱力麵粉，或筋性發展不足。',
   'Złożony bukiet kwasów mlekowego i octowego.': '乳酸與醋酸交織而成的複雜風味。',
   'Zmniejsz udział zakwasu w recepturze.': '降低配方中天然酵母起種的比例。',

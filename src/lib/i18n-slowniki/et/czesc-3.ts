@@ -174,7 +174,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Ava retsept',
   'Otwórz Ustawienia': 'Ava Seaded',
   'para': 'aur',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Pätsi „{name}“ parameetrid laaditi kalkulaatorisse.',
   'Parametry Rzemieślnicze & Mąki': 'Käsitööparameetrid ja jahud',
   'Pasywne': 'Passiivne',
   'paź': 'okt',

@@ -189,7 +189,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Tarifi Aç',
   'Otwórz Ustawienia': 'Ayarlar\'ı Aç',
   'para': 'buhar',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': '“{name}” somununun parametreleri hesaplayıcıya yüklendi.',
   'Parametry Rzemieślnicze & Mąki': 'Zanaat Parametreleri ve Unlar',
   'Pasywne': 'Pasif',
   'paź': 'Eki',

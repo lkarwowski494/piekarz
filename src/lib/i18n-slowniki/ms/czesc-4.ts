@@ -164,7 +164,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Gubah campuran tepung sendiri',
   'Skopiowano diagnozę do schowka': 'Diagnosis disalin ke papan klip',
   'Skopiowano dokarmienie do schowka': 'Pemberian makan disalin ke papan klip',
-  'Skopiowano harmonogram do schowka': 'Jadual disalin ke papan klip',
   'Skopiowano kod JSON receptury do schowka.': 'Kod JSON resipi disalin ke papan klip.',
   'Skopiowano proporcje dokarmiania do schowka': 'Nisbah pemberian makan disalin ke papan klip',
   'Skopiowano przepis do schowka': 'Resipi disalin ke papan klip',

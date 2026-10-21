@@ -168,7 +168,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Eigene Mehlmischung zusammenstellen',
   'Skopiowano diagnozę do schowka': 'Diagnose in die Zwischenablage kopiert',
   'Skopiowano dokarmienie do schowka': 'Auffrischen in die Zwischenablage kopiert',
-  'Skopiowano harmonogram do schowka': 'Zeitplan in die Zwischenablage kopiert',
   'Skopiowano kod JSON receptury do schowka.': 'JSON-Code der Rezeptur in die Zwischenablage kopiert.',
   'Skopiowano proporcje dokarmiania do schowka': 'Auffrischverhältnis in die Zwischenablage kopiert',
   'Skopiowano przepis do schowka': 'Rezept in die Zwischenablage kopiert',

@@ -141,7 +141,6 @@ export const CZESC: Record<string, string> = {
   'gru': 'Δεκ',
   'Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.': 'Χοντροαλεσμένο αλεύρι με όλα τα μέρη του κόκκου. Τα πίτουρα κόβουν τη γλουτένη· απαιτεί απαλά διπλώματα ζύμης.',
   'Gumowaty, lepki miękisz': 'Λαστιχωτή, κολλώδης ψίχα',
-  'Harmonogram': 'Πρόγραμμα',
   'Harmonogram wsteczny z ochroną snu': 'Αντίστροφο πρόγραμμα με προστασία ύπνου',
   'Historia wypieków': 'Ιστορικό ψησίματος',
   'Hydratacja': 'Ενυδάτωση ζύμης',

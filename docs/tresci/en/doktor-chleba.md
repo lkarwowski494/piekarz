@@ -16,7 +16,7 @@ Check the temperature in the centre of the loaf with a probe thermometer: accord
 If the centre is cooler, bake longer and measure again. [T:DIA-TEM-001]
 
 ## diagnostics.UNDER_PROOFED.actionChecklistPl[2]
-Use the DDT calculator: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing. [T:DIA-DDT-001]
+Work out the water temperature in the recipe: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing. [T:DIA-DDT-001]
 
 ## diagnostics.OVER_PROOFED.actionChecklistPl[2]
 Lower the fridge temperature: according to King Arthur Baking, a lower temperature slows fermentation. [T:KRO-POC-010]

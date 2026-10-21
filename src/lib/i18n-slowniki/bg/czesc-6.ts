@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Skopiowano diagnozę do schowka': 'Диагнозата е копирана в клипборда',
   'Skopiowano dokarmienie do schowka': 'Храненето е копирано в клипборда',
-  'Skopiowano harmonogram do schowka': 'Графикът е копиран в клипборда',
   'Skopiowano kod JSON receptury do schowka.': 'JSON кодът на рецептата е копиран в клипборда.',
   'Skopiowano proporcje dokarmiania do schowka': 'Съотношението за хранене е копирано в клипборда',
   'Skopiowano przepis do schowka': 'Рецептата е копирана в клипборда',

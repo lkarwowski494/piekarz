@@ -130,7 +130,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Pagariniet autolīzi un pievienojiet vēl vienu mīklas locīšanas sēriju (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Pagariniet pamatfermentāciju.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Ledusskapī turētu dabīgo ieraugu baro reizi nedēļā. Saskaņā ar King Arthur Baking pirms cepšanas barojiet to ik pēc 12 stundām, līdz 6–8 stundu laikā pēc barošanas tā tilpums dubultojas vai trīskāršojas.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Izmantojiet vēlamās mīklas temperatūras kalkulatoru: saskaņā ar King Arthur Baking kviešu mīklai pēc samīcīšanas jābūt aptuveni 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Pārāk zema mīklas hidratācija, vāji milti ar zemu olbaltumvielu saturu vai nepietiekami attīstīts glutēns.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Sarežģīta pienskābes un etiķskābes buķete.',
   'Zmniejsz udział zakwasu w recepturze.': 'Samaziniet dabīgā ierauga daļu receptē.',

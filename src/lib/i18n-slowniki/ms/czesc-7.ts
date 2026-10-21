@@ -118,7 +118,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Lanjutkan autolisis dan tambah satu set lipatan doh (coil fold) tambahan.',
   'Wydłuż fermentację burzliwą.': 'Lanjutkan penapaian pukal.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Biang sourdough yang disimpan dalam peti sejuk diberi makan seminggu sekali. Menurut King Arthur Baking, sebelum membakar, beri makan setiap 12 jam sehingga isipadunya berganda atau bertambah tiga kali ganda dalam tempoh 6–8 jam selepas pemberian makan.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Gunakan kalkulator sasaran suhu doh (DDT): menurut King Arthur Baking, doh gandum sepatutnya bersuhu kira-kira 24–26 °C selepas diadun.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hidrasi doh terlalu rendah, tepung lemah dengan kandungan protein rendah atau gluten kurang berkembang.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Aroma kompleks asid laktik dan asid asetik.',
   'Zmniejsz udział zakwasu w recepturze.': 'Kurangkan bahagian biang sourdough dalam resipi.',

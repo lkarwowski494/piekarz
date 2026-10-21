@@ -114,7 +114,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Perpanjang autolisis dan tambahkan satu set regang dan lipat (coil fold) lagi.',
   'Wydłuż fermentację burzliwą.': 'Perpanjang fermentasi massal.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Starter ragi alami yang disimpan di kulkas diberi makan seminggu sekali. Menurut King Arthur Baking, sebelum memanggang, beri makan setiap 12 jam hingga volumenya menjadi dua atau tiga kali lipat dalam 6–8 jam setelah pemberian makan.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Gunakan kalkulator target suhu adonan (DDT): menurut King Arthur Baking, adonan terigu setelah diaduk sebaiknya bersuhu sekitar 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hidrasi adonan terlalu rendah, tepung lemah dengan kadar protein rendah, atau gluten belum berkembang dengan baik.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Perpaduan kompleks asam laktat dan asam asetat.',
   'Zmniejsz udział zakwasu w recepturze.': 'Kurangi porsi starter ragi alami dalam resep.',

@@ -141,5 +141,4 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Hosszabbítsd meg az autolízist, és végezz még egy sorozat coil fold hajtogatást.',
   'Wydłuż fermentację burzliwą.': 'Hosszabbítsd meg a főérlelést.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'A hűtőben tárolt kovászt hetente egyszer kell etetni. A King Arthur Baking szerint sütés előtt etesd 12 óránként, amíg az etetés utáni 6–8 órán belül megduplázza vagy megháromszorozza a térfogatát.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Használd a cél tésztahőmérséklet (DDT) kalkulátort: a King Arthur Baking szerint a búzatésztának összekeverés után kb. 24–26 °C-osnak kell lennie.',
 };

@@ -189,7 +189,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Buka Resipi',
   'Otwórz Ustawienia': 'Buka Tetapan',
   'para': 'wap',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Parameter buku roti “{name}” telah dimuatkan ke dalam kalkulator.',
   'Parametry Rzemieślnicze & Mąki': 'Parameter Artisan & Tepung',
   'Pasywne': 'Pasif',
   'paź': 'Okt',

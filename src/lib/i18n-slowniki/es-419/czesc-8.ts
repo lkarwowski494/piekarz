@@ -1,7 +1,6 @@
 // Słownik es-419, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Usa la calculadora de temperatura deseada de la masa: según King Arthur Baking, la masa de trigo debe tener unos 24–26 °C después de mezclarla.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hidratación de la masa demasiado baja, harina débil con bajo contenido de proteína o gluten poco desarrollado.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Bouquet complejo de ácidos láctico y acético.',
   'Zmniejsz udział zakwasu w recepturze.': 'Reduce la proporción de masa madre en la receta.',

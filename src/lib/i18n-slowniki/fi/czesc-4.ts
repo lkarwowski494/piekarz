@@ -158,7 +158,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Luo oma jauhoseos',
   'Skopiowano diagnozę do schowka': 'Diagnoosi kopioitu leikepöydälle',
   'Skopiowano dokarmienie do schowka': 'Ruokinta kopioitu leikepöydälle',
-  'Skopiowano harmonogram do schowka': 'Aikataulu kopioitu leikepöydälle',
   'Skopiowano kod JSON receptury do schowka.': 'Reseptin JSON-koodi kopioitiin leikepöydälle.',
   'Skopiowano proporcje dokarmiania do schowka': 'Ruokintasuhde kopioitu leikepöydälle',
   'Skopiowano przepis do schowka': 'Resepti kopioitu leikepöydälle',

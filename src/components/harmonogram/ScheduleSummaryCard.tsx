@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — opis planu pod Spiralą (`plan-sen`): „Start {dzień} o {godzina}” i „Całość trwa {czas}.”
 // (design-spec §11c 116) [M1-audytor-generalny-116]. „Zacznij wypiek” jest w pasku kciuka (PasekStartu.tsx),
-// „Kopiuj harmonogram” pod listą kroków (UstawieniaPlanu.tsx) [M1-audytor-generalny-128].
+// „Kopiuj jako tekst” pod listą kroków (UstawieniaPlanu.tsx) [M1-audytor-generalny-128].
 // ============================================================================
 
 import React from 'react';

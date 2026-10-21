@@ -79,7 +79,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Pikenda autolüüsi ja lisa üks täiendav taigna voltimise seeria (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Pikenda põhikergitust.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Külmkapis hoitavat looduslikku juuretist toidetakse kord nädalas. King Arthur Bakingu andmetel toida seda enne küpsetamist iga 12 tunni järel, kuni see 6–8 tunni jooksul pärast toitmist oma mahu kahe- või kolmekordistab.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Kasuta soovitud taigna temperatuuri kalkulaatorit: King Arthur Bakingu andmetel peaks nisutainas pärast segamist olema umbes 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Liiga madal taigna hüdratsioon, nõrk madala valgusisaldusega jahu või välja arenemata gluteen.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Piim- ja äädikhappe keerukas maitsebukett.',
   'Zmniejsz udział zakwasu w recepturze.': 'Vähenda loodusliku juuretise osakaalu retseptis.',

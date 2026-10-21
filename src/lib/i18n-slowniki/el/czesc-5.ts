@@ -12,7 +12,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Άνοιγμα συνταγής',
   'Otwórz Ustawienia': 'Άνοιγμα Ρυθμίσεων',
   'para': 'ατμός',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Οι παράμετροι του καρβελιού «{name}» φορτώθηκαν στον Υπολογιστή.',
   'Parametry Rzemieślnicze & Mąki': 'Παράμετροι Αρτοποιίας & Αλεύρια',
   'Pasywne': 'Παθητικά',
   'paź': 'Οκτ',

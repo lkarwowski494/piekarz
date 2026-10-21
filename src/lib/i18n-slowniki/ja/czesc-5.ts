@@ -33,7 +33,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'オリジナルの粉ブレンドを作成',
   'Skopiowano diagnozę do schowka': '診断をクリップボードにコピーしました',
   'Skopiowano dokarmienie do schowka': '種継ぎの内容をクリップボードにコピーしました',
-  'Skopiowano harmonogram do schowka': 'スケジュールをクリップボードにコピーしました',
   'Skopiowano kod JSON receptury do schowka.': '配合のJSONコードをクリップボードにコピーしました。',
   'Skopiowano proporcje dokarmiania do schowka': '種継ぎの比率をクリップボードにコピーしました',
   'Skopiowano przepis do schowka': 'レシピをクリップボードにコピーしました',

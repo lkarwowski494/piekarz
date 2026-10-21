@@ -167,7 +167,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Izveidot savu miltu maisījumu',
   'Skopiowano diagnozę do schowka': 'Diagnoze nokopēta starpliktuvē',
   'Skopiowano dokarmienie do schowka': 'Barošana nokopēta starpliktuvē',
-  'Skopiowano harmonogram do schowka': 'Grafiks nokopēts starpliktuvē',
   'Skopiowano kod JSON receptury do schowka.': 'Receptūras JSON kods nokopēts starpliktuvē.',
   'Skopiowano proporcje dokarmiania do schowka': 'Barošanas proporcijas nokopētas starpliktuvē',
   'Skopiowano przepis do schowka': 'Recepte nokopēta starpliktuvē',

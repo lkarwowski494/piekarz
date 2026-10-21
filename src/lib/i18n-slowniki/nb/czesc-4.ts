@@ -138,7 +138,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Sett sammen din egen melblanding',
   'Skopiowano diagnozę do schowka': 'Diagnosen er kopiert til utklippstavlen',
   'Skopiowano dokarmienie do schowka': 'Mating kopiert til utklippstavlen',
-  'Skopiowano harmonogram do schowka': 'Tidsplanen er kopiert til utklippstavlen',
   'Skopiowano kod JSON receptury do schowka.': 'Oppskriftens JSON-kode er kopiert til utklippstavlen.',
   'Skopiowano proporcje dokarmiania do schowka': 'Matingsforholdet er kopiert til utklippstavlen',
   'Skopiowano przepis do schowka': 'Oppskrift kopiert til utklippstavlen',

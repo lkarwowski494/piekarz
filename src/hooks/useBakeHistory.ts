@@ -50,7 +50,7 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
         router.navigate('/receptury');
         Alert.alert(
           t('Załadowano recepturę'),
-          t('Parametry bochenka „{name}” zostały załadowane do kalkulatora.', {
+          t('Parametry bochenka „{name}” wczytano do receptury.', {
             name: log.recipeName,
           })
         );

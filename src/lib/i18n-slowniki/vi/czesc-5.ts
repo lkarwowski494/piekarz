@@ -9,7 +9,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Tự pha trộn hỗn hợp bột',
   'Skopiowano diagnozę do schowka': 'Đã sao chép chẩn đoán vào bộ nhớ tạm',
   'Skopiowano dokarmienie do schowka': 'Đã sao chép lần cho men ăn vào bộ nhớ tạm',
-  'Skopiowano harmonogram do schowka': 'Đã sao chép lịch trình vào bộ nhớ tạm',
   'Skopiowano kod JSON receptury do schowka.': 'Đã sao chép mã JSON của công thức vào bộ nhớ tạm.',
   'Skopiowano proporcje dokarmiania do schowka': 'Đã sao chép tỷ lệ cho men ăn vào bộ nhớ tạm',
   'Skopiowano przepis do schowka': 'Đã sao chép công thức vào bộ nhớ tạm',

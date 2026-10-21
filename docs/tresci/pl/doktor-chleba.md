@@ -17,7 +17,7 @@ Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Ar
 Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie. [T:DIA-TEM-001]
 
 ## diagnostics.UNDER_PROOFED.actionChecklistPl[2]
-Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C. [T:DIA-DDT-001]
+Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C. [T:DIA-DDT-001]
 
 ## diagnostics.OVER_PROOFED.actionChecklistPl[2]
 Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację. [T:KRO-POC-010]

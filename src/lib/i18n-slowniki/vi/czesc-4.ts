@@ -27,7 +27,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Mở công thức',
   'Otwórz Ustawienia': 'Mở Cài đặt',
   'para': 'hơi nước',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Thông số của ổ bánh “{name}” đã được tải vào Tính toán.',
   'Parametry Rzemieślnicze & Mąki': 'Thông số thủ công & Bột',
   'Pasywne': 'Thụ động',
   'paź': 'Thg 10',

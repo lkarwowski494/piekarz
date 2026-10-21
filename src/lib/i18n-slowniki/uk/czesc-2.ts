@@ -136,7 +136,6 @@ export const CZESC: Record<string, string> = {
   'gru': 'гру',
   'Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.': 'Борошно грубого помелу з усіма частинами зерна. Висівки перерізають клейковину, потрібне делікатне складання тіста.',
   'Gumowaty, lepki miękisz': 'Гумовий, липкий м\'якуш',
-  'Harmonogram': 'Розклад',
   'Harmonogram wsteczny z ochroną snu': 'Зворотний розклад із захистом сну',
   'Historia wypieków': 'Історія випічки',
   'Hydratacja': 'Гідратація тіста',

@@ -21,7 +21,6 @@ export const CZESC: Record<string, string> = {
   'Otwórz recepturę': 'Ouvrir la recette',
   'Otwórz Ustawienia': 'Ouvrir Réglages',
   'para': 'vapeur',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Les paramètres de la miche « {name} » ont été chargés dans le calculateur.',
   'Parametry Rzemieślnicze & Mąki': 'Paramètres artisanaux & farines',
   'Pasywne': 'Passif',
   'paź': 'oct.',
@@ -192,7 +191,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Créer votre mélange de farines',
   'Skopiowano diagnozę do schowka': 'Diagnostic copié dans le presse-papiers',
   'Skopiowano dokarmienie do schowka': 'Rafraîchi copié dans le presse-papiers',
-  'Skopiowano harmonogram do schowka': 'Planning copié dans le presse-papiers',
   'Skopiowano kod JSON receptury do schowka.': 'Code JSON de la recette copié dans le presse-papiers.',
   'Skopiowano proporcje dokarmiania do schowka': 'Proportions du rafraîchi copiées dans le presse-papiers',
 };

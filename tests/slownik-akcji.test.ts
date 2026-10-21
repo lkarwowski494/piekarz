@@ -101,7 +101,8 @@ const ZNIKAJA = [
   'Pora nakarmić zakwas',
   'Zaczyny rzemieślnicze',
   '{nazwa}, gotowy {dzien} o {godzina}',
-  // [M1-audytor-generalny-089]: „Kopiuj jako tekst” i „Wróć do wypieku” ze słownika §5
+  // [M1-audytor-generalny-089, -113]: „Kopiuj jako tekst” i „Wróć do wypieku” ze słownika §5
+  'Kopiuj harmonogram',
   'Kopiuj diagnozę',
   'Kopiuj dokarmienie',
   'Przejdź do Stolnicy',
@@ -160,6 +161,13 @@ describe('089: słownik akcji', () => {
     // Etykiety akcji, nie zdania (zdanie kończy się kropką, np. opis sekcji eksportu)
     const poza = kluczeWKodzie.filter((k) => CZASOWNIK.test(k) && !/\.$/.test(k) && !s5.includes(k));
     expect(poza).toEqual([]);
+  });
+
+  // Nazwy usuniętych miejsc także w mianowniku i małą literą („Kopiuj harmonogram”, „Zastosuj kalkulator DDT”,
+  // nagłówek „Harmonogram: …”) [M1-audytor-generalny-113; 04-studio-projektowe-028]
+  it('M1-audytor-generalny-113: klucze t() w kodzie bez „harmonogram” i „kalkulator” w żadnej formie', () => {
+    const DAWNE = /harmonogram|kalkulator(?!\s+dokarmiania)/i;
+    expect(kluczeWKodzie.filter((k) => DAWNE.test(k))).toEqual([]);
   });
 
   it('kontrola wzorca 089: nazwy dawnych miejsc w odmianie są wykrywane, inne słowa nie', () => {

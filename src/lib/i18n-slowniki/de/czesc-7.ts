@@ -132,7 +132,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Verlängere die Autolyse und füge eine zusätzliche Runde Dehnen und Falten (Coil Fold) hinzu.',
   'Wydłuż fermentację burzliwą.': 'Verlängere die Stockgare.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Anstellgut, das im Kühlschrank lagert, wird einmal pro Woche aufgefrischt. Laut King Arthur Baking frischst du es vor dem Backen alle 12 Stunden auf, bis es innerhalb von 6–8 Stunden nach dem Auffrischen sein Volumen verdoppelt oder verdreifacht.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Nutze den Rechner für die gewünschte Teigtemperatur: Laut King Arthur Baking sollte Weizenteig nach dem Mischen ca. 24–26 °C haben.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Zu niedrige Hydration des Teigs, schwaches Mehl mit niedrigem Eiweißgehalt oder unzureichend entwickeltes Gluten.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Komplexes Bukett aus Milch- und Essigsäure.',
   'Zmniejsz udział zakwasu w recepturze.': 'Verringere den Anteil an Anstellgut im Rezept.',

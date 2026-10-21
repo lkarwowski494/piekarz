@@ -92,7 +92,9 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
         referenceDate: refDate,
       });
 
-      expect(formatted).toContain('Harmonogram: Piekarz');
+      // Nagłówek nazwą ekranu „Plan wypieku”, nie dawnym „Harmonogram” [M1-audytor-generalny-113]
+      expect(formatted).toContain('Plan wypieku: Piekarz');
+      expect(formatted).not.toMatch(/Harmonogram/);
       expect(formatted).toContain('Godzina gotowości chleba do krojenia: 12:00 (Jutro)');
       // Temperatura przez formatTemperature: separator według języka (PL „23,5°C”), w trybie imperialnym °F [M1-audytor-generalny-096]
       expect(formatted).toContain('23,5°C');
@@ -129,7 +131,7 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
 
       expect(success).toBe(true);
       expect(Clipboard.setStringAsync).toHaveBeenCalled();
-      expect(announceSpy).toHaveBeenCalledWith('Skopiowano harmonogram do schowka');
+      expect(announceSpy).toHaveBeenCalledWith('Skopiowano plan wypieku do schowka');
     });
   });
 });

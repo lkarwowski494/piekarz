@@ -131,7 +131,6 @@ export const CZESC: Record<string, string> = {
   'Skomponuj własną mieszankę mąk': 'Направи своју мешавину брашна',
   'Skopiowano diagnozę do schowka': 'Дијагноза је копирана у међуспремник',
   'Skopiowano dokarmienie do schowka': 'Храњење је копирано у међуспремник',
-  'Skopiowano harmonogram do schowka': 'Распоред је копиран у међуспремник',
   'Skopiowano kod JSON receptury do schowka.': 'JSON код рецептуре је копиран у међуспремник.',
   'Skopiowano proporcje dokarmiania do schowka': 'Однос храњења је копиран у привремену меморију',
   'Skopiowano przepis do schowka': 'Рецепт је копиран у међуспремник',

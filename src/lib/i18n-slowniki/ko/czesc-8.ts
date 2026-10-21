@@ -9,7 +9,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': '오토리즈 시간을 늘리고 늘려접기 (코일 폴드)를 한 세트 더 하세요.',
   'Wydłuż fermentację burzliwą.': '1차 발효 시간을 늘리세요.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': '냉장고에 보관하는 사워도우 스타터는 일주일에 한 번 먹이를 줘요. King Arthur Baking에 따르면 베이킹 전에는 먹이를 준 뒤 6–8시간 안에 부피가 두 배 또는 세 배로 늘어날 때까지 12시간마다 먹이를 주세요.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': '목표 반죽 온도 (DDT) 계산기를 사용하세요. King Arthur Baking에 따르면 밀 반죽은 믹싱 후 약 24–26 °C여야 해요.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': '너무 낮은 반죽 가수율, 단백질 함량이 낮은 약한 밀가루 또는 충분히 발달하지 않은 글루텐.',
   'Złożony bukiet kwasów mlekowego i octowego.': '젖산과 초산이 어우러진 복합적인 향.',
   'Zmniejsz udział zakwasu w recepturze.': '배합에서 사워도우 스타터 비율을 줄이세요.',

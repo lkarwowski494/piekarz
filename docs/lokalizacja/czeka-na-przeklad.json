@@ -15,6 +15,21 @@
       "klucz": "Usunięto recepturę",
       "powod": "usunięcie receptury bez pytania, z paskiem Cofnij (D-051 1a, 04-studio-projektowe-506) (M1-audytor-generalny-161); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Skopiowano plan wypieku do schowka",
+      "powod": "nazwy miejsc według słownika akcji, bez „Harmonogramu” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Parametry bochenka „{name}” wczytano do receptury.",
+      "powod": "nazwy miejsc według słownika akcji, bez „Kalkulatora” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.",
+      "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028); zdanie 06 bez zmiany twierdzenia (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

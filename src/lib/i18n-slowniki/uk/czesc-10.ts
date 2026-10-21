@@ -1,7 +1,6 @@
 // Słownik uk, część 10 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Скористайтеся калькулятором цільової температури тіста (DDT): за даними King Arthur Baking, пшеничне тісто після замішування має мати близько 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Занизька гідратація тіста, слабке борошно з низьким вмістом білка або недостатньо розвинена клейковина.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Складний букет молочної та оцтової кислот.',
   'Zmniejsz udział zakwasu w recepturze.': 'Зменште частку закваски в рецептурі.',

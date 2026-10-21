@@ -139,7 +139,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Alarga la autólisis y añade una serie adicional de pliegues (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Alarga la fermentación en bloque.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'La masa madre que se guarda en la nevera se alimenta una vez a la semana. Según King Arthur Baking, antes de hornear, aliméntala cada 12 horas hasta que doble o triplique su volumen en 6–8 horas tras la alimentación.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Usa la calculadora de temperatura deseada de la masa: según King Arthur Baking, la masa de trigo debe tener unos 24–26 °C después de mezclarla.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Hidratación de la masa demasiado baja, harina floja con bajo contenido en proteína o gluten poco desarrollado.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Bouquet complejo de ácidos láctico y acético.',
   'Zmniejsz udział zakwasu w recepturze.': 'Reduce la proporción de masa madre en la receta.',

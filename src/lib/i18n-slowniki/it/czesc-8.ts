@@ -1,7 +1,6 @@
 // Słownik it, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Usa il calcolatore della temperatura desiderata dell\'impasto: secondo King Arthur Baking, l\'impasto di frumento dopo l\'impastamento dovrebbe essere a circa 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Idratazione dell\'impasto troppo bassa, farina debole con basso contenuto proteico o glutine non sufficientemente sviluppato.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Bouquet complesso di acido lattico e acido acetico.',
   'Zmniejsz udział zakwasu w recepturze.': 'Riduci la quota di lievito madre nella ricetta.',
