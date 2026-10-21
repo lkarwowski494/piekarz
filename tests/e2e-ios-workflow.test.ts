@@ -55,6 +55,24 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     expect(tekstowe).toEqual([]);
   });
 
+  // Jedyny wybór po tekście: przycisk systemowego okna zgody iOS (nie ma id, to okno systemu, nie aplikacji),
+  // w obu językach przebiegu i zawsze opcjonalny. Po „Dalej” w ZgodaPowiadomien (130) okno zasłaniało prowadzenie
+  // (przebieg 39688253940) [M1-audytor-generalny-037]
+  it('tekst w scenariuszach E2E tylko dla przycisku systemowego okna zgody, zawsze opcjonalnie', () => {
+    const OKNO_ZGODY = '"Pozwalaj|Zezwalaj|Zezwól|Allow"';
+    const zle: string[] = [];
+    for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {
+      const linie = readFileSync(join(e2eDir, f), 'utf8').split(/\r?\n/);
+      linie.forEach((l, i) => {
+        const m = /^\s+text:\s*(.*)$/.exec(l);
+        if (!m) return;
+        const ok = m[1].trim() === OKNO_ZGODY && /^\s+optional:\s*true\s*$/.test(linie[i + 1] ?? '') && /^- tapOn:\s*$/.test(linie[i - 1] ?? '');
+        if (!ok) zle.push(`${f}:${i + 1}: ${l.trim()}`);
+      });
+    }
+    expect(zle).toEqual([]);
+  });
+
   // Systemowe okno zgody na powiadomienia zasłaniało ekran w przebiegu 39581379222 [M1-audytor-generalny-037]
   it('każde uruchomienie aplikacji w scenariuszach E2E ma z góry zgodę na powiadomienia', () => {
     for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {

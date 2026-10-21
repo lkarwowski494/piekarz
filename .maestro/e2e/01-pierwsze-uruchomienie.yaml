@@ -23,5 +23,13 @@ appId: com.apps4brew.baker
     id: "recipe-list"
 - tapOn:
     id: "recipe-row-country_loaf_72"
+# Ekran receptury (M1-audytor-generalny-057, 106): "Do miski" z liczba bochenkow i "Uloz plan" bez przewijania;
+# hydratacja w karcie "Do miski" pod skladnikami. Dawne "stat-hydration" zniknelo z kalkulatorem (7d9a9e8, 149) -
+# przebieg 39688253940 padl na nim mimo poprawnego ekranu receptury.
 - assertVisible:
-    id: "stat-hydration"
+    id: "loaves-count-display"
+- assertVisible:
+    id: "start-bake-btn"
+- scrollUntilVisible:
+    element:
+      id: "recipe-hydration"

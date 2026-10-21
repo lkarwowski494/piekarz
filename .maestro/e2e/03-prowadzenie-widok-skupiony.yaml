@@ -14,7 +14,8 @@ appId: com.apps4brew.baker
     timeout: 60000
 - tapOn:
     id: "tab-receptury"
-# Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106)
+# Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106).
+# Receptura z zakwasem: "Uloz plan" aktywny takze po D-3 (receptura bez zakwasu - nieaktywny).
 - tapOn:
     id: "recipe-row-country_loaf_72"
 - assertVisible:
@@ -26,8 +27,20 @@ appId: com.apps4brew.baker
       id: "plan-start-bake-btn"
 - tapOn:
     id: "plan-start-bake-btn"
-- assertVisible:
-    id: "step-title"
+# Zdanie "po co" przed prosba iOS o zgode (ZgodaPowiadomien, M1-audytor-generalny-130) pokazuje sie, gdy zgoda
+# jest nieustalona - na runnerze macos-26 mimo launchApp permissions (przebieg 39688253940, zrzut z chwili bledu).
+# "Dalej" wywoluje systemowe okno zgody; jego przycisk nie ma id (okno iOS, nie aplikacji), stad tekst systemu
+# w obu jezykach przebiegu. Oba kroki opcjonalne: przy zgodzie juz nadanej okien nie ma.
+- tapOn:
+    id: "zgoda-dalej-btn"
+    optional: true
+- tapOn:
+    text: "Pozwalaj|Zezwalaj|Zezwól|Allow"
+    optional: true
+- extendedWaitUntil:
+    visible:
+      id: "step-title"
+    timeout: 15000
 - assertVisible:
     id: "step-time"
 - assertVisible:
