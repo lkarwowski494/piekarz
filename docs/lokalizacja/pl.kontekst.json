@@ -232,9 +232,7 @@
     ]
   },
   "Aktywny zakwas": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Aktywuj plan miesięczny": {
     "gdzie": [
@@ -368,9 +366,7 @@
     ]
   },
   "Bezpośrednie": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Białka ubij ze szczyptą soli na sztywną pianę.": {
     "gdzie": [
@@ -459,7 +455,6 @@
   },
   "Bochenki": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)"
     ]
   },
@@ -537,9 +532,7 @@
     ]
   },
   "Całkowita masa ciasta:": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Całość trwa {czas}.": {
     "gdzie": [
@@ -866,9 +859,7 @@
     ]
   },
   "DDT": {
-    "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)"
-    ]
+    "gdzie": []
   },
   "Dane są zapisywane tylko w tym telefonie.": {
     "gdzie": [
@@ -935,9 +926,7 @@
     ]
   },
   "Do miski (Ciasto właściwe)": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Do miski (odhaczaj przy ważeniu)": {
     "gdzie": [
@@ -946,7 +935,6 @@
   },
   "Do miski na wagę": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -1243,7 +1231,6 @@
   },
   "Drożdże": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (label)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/lib/recipe-formatter.ts (kod)"
@@ -1271,12 +1258,11 @@
   },
   "Drożdżowe": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+      "src/components/receptury/ListaReceptur.tsx (dane: etykieta)"
     ]
   },
   "Drożdżowy": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
@@ -1808,7 +1794,6 @@
   "Hydratacja": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
-      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
     ]
   },
@@ -2435,9 +2420,7 @@
     "gdzie": []
   },
   "Liczba bochenków i gramatura": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Lievito Madre / Pasta Madre (50%)": {
     "gdzie": [
@@ -2460,9 +2443,7 @@
     ]
   },
   "Masa": {
-    "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)"
-    ]
+    "gdzie": []
   },
   "Masa bochenka": {
     "gdzie": [
@@ -2481,14 +2462,11 @@
   },
   "Masa mąki": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)",
       "src/components/receptury/DoMiski.tsx (etykieta)"
     ]
   },
   "Masa mąki bazowej": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Masa surowego ciasta do misy": {
     "gdzie": []
@@ -2557,9 +2535,7 @@
     ]
   },
   "Mieszanka mąk": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Mieszanka mąk (100%):": {
     "gdzie": [
@@ -2567,14 +2543,10 @@
     ]
   },
   "Mieszanka mąk i zaczyny": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Mieszanka mąk, zaczyny, strata piecowa": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Min. 4h lub przez noc w lodówce": {
     "gdzie": [
@@ -2601,9 +2573,7 @@
     ]
   },
   "Mistrzowski": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Mistrzowski wiejski (Tartine Style 80%)": {
     "gdzie": [
@@ -2640,7 +2610,6 @@
   },
   "Mniej bochenków": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)",
       "src/components/receptury/DoMiski.tsx (accessibilityLabel)"
     ]
   },
@@ -2655,9 +2624,7 @@
     ]
   },
   "Moje przepisy": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Moje receptury": {
     "gdzie": [
@@ -2711,7 +2678,6 @@
   },
   "Mąka": {
     "gdzie": [
-      "src/components/calculator/CalculatorSacredCard.tsx (etykieta)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)"
@@ -2730,8 +2696,7 @@
   },
   "Mąka dodana": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)",
-      "src/components/calculator/DoMiskiScaleCard.tsx (label)"
+      "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
   "Mąka niskowyciągowa. Białko w badanej próbce: 9,8%.": {
@@ -3015,9 +2980,7 @@
     "opis": "Opis ogólny mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: przemiał, białko w badanych próbkach i popiół według polskich norm (docs/tresci/pl/maki-ogolne.md), bez numeru typu. Liczby i przedziały bez zmian, z separatorem dziesiętnym języka [M1-audytor-generalny-094]."
   },
   "Mąka stanowi 100% bazy w procentach piekarskich": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Mąka uniwersalna / pszenna jasna": {
     "gdzie": [
@@ -3026,7 +2989,6 @@
   },
   "Mąka w zaczynie": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/receptury/SkladnikiSheet.tsx (kod)"
     ]
@@ -3160,7 +3122,6 @@
   },
   "Na zakwasie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
@@ -3196,7 +3157,6 @@
   },
   "Naczynie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
@@ -3680,9 +3640,7 @@
     ]
   },
   "Odhaczaj składniki w miarę wsypywania": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odkryj wiedzę naukową": {
     "gdzie": []
@@ -3706,9 +3664,7 @@
     ]
   },
   "Odparowana woda": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odpoczynek na desce": {
     "gdzie": [
@@ -3934,9 +3890,7 @@
     ]
   },
   "Parametry Rzemieślnicze & Mąki": {
-    "gdzie": [
-      "src/components/calculator/ArtisanAccordionPro.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Parametry bochenka „{name}” zostały załadowane do kalkulatora.": {
     "gdzie": [
@@ -4011,7 +3965,6 @@
   },
   "Pieczenie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
@@ -4053,7 +4006,6 @@
   },
   "Pizza": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
@@ -4064,7 +4016,7 @@
   },
   "Pizza i słodkie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+      "src/components/receptury/ListaReceptur.tsx (dane: etykieta)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -4380,14 +4332,10 @@
     ]
   },
   "Pozostała mąka: {g} g": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Pozostała woda: {g} g": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Pozostało": {
     "gdzie": []
@@ -4526,9 +4474,7 @@
   "Przelicznik objętości": {
     "gdzie": [
       "app/(tabs)/receptury/index.tsx (tekst w JSX)",
-      "src/components/VolumeConverterModal.tsx (tekst w JSX)",
-      "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)",
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+      "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
   "Przenieś do lodówki (4°C) na 44 godziny powolnego dojrzewania enzymatycznego.": {
@@ -4876,9 +4822,7 @@
     ]
   },
   "Receptury mistrzowskie": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Roczny": {
     "gdzie": [
@@ -5091,9 +5035,7 @@
   },
   "Skanuj QR": {
     "gdzie": [
-      "app/(tabs)/receptury/index.tsx (tekst w JSX)",
-      "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)",
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+      "app/(tabs)/receptury/index.tsx (tekst w JSX)"
     ]
   },
   "Skieruj obiektyw na kod QR receptury": {
@@ -5236,7 +5178,6 @@
   },
   "Spiżarnia mąk & Stan zapasów": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
     ]
   },
@@ -5343,20 +5284,15 @@
     ]
   },
   "Strata Piecowa": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Strata piecowa": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
   "Strata wypiekowa i wilgotność miękiszu": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Struktura miękiszu": {
     "gdzie": [
@@ -5448,7 +5384,6 @@
   },
   "Szacowana wilgotność miękiszu": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -5463,9 +5398,7 @@
     ]
   },
   "Szacowany ubytek masy": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła": {
     "gdzie": [
@@ -5581,9 +5514,7 @@
     ]
   },
   "Sól kłodawska / morska": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (label)"
-    ]
+    "gdzie": []
   },
   "Sól morska": {
     "gdzie": [
@@ -5612,14 +5543,12 @@
   },
   "Słodkie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
   "Słownik Odpowiedników Mąk": {
     "gdzie": [
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)",
-      "src/components/calculator/accordion/AccordionFlourBlendSection.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
     ]
   },
@@ -5881,9 +5810,7 @@
     ]
   },
   "Udział mąki w zaczynie": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Udział soli musi mieścić się w zakresie 0–6%": {
     "gdzie": [
@@ -5953,7 +5880,6 @@
   },
   "Upieczony bochenek": {
     "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -6020,7 +5946,6 @@
   },
   "Usuń recepturę: {nazwa}": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (accessibilityLabel)",
       "src/components/receptury/ListaReceptur.tsx (accessibilityLabel)"
     ]
   },
@@ -6203,9 +6128,7 @@
     ]
   },
   "W szczycie aktywności": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (subtext)"
-    ]
+    "gdzie": []
   },
   "W trakcie wyrabiania ciasto magicznie przestanie kleić się do rąk i blatu, zamieniając się w lśniącą kulę.": {
     "gdzie": [
@@ -6445,7 +6368,6 @@
   },
   "Więcej bochenków": {
     "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)",
       "src/components/receptury/DoMiski.tsx (accessibilityLabel)"
     ]
   },
@@ -6492,7 +6414,6 @@
   "Woda": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
-      "src/components/calculator/DoMiskiScaleCard.tsx (label)",
       "src/components/receptury/DoMiski.tsx (tekst w JSX)",
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
@@ -6513,9 +6434,7 @@
     ]
   },
   "Woda w zaczynie": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Woda: {amount} g": {
     "gdzie": []
@@ -6600,7 +6519,6 @@
   },
   "Wskazówki": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
@@ -6653,7 +6571,6 @@
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)",
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/stolnica/BakeHistorySection.tsx (label)"
     ]
   },
@@ -6832,9 +6749,7 @@
     ]
   },
   "Wymagający": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wymagana temperatura wody": {
     "gdzie": []
@@ -7140,9 +7055,7 @@
     ]
   },
   "Zaczyn ({g} g)": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.": {
     "gdzie": [
@@ -7155,9 +7068,7 @@
     ]
   },
   "Zaczyny": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionPrefermentSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zacząć profil zakwasu od nowa?": {
     "gdzie": [
@@ -7744,14 +7655,10 @@
     ]
   },
   "Zmniejsz masę mąki o {g} g": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zmniejsz stratę piecową": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zmniejsz udział mąki {nazwa} o {n}%": {
     "gdzie": [
@@ -7861,14 +7768,10 @@
     ]
   },
   "Zwiększ masę mąki o {g} g": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zwiększ stratę piecową": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zwiększ udział mąki {nazwa} o {n}%": {
     "gdzie": [
@@ -7928,7 +7831,6 @@
   },
   "blacha piekarnika": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
   },
@@ -7973,13 +7875,11 @@
   },
   "foremka keksówka": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
   },
   "garnek żeliwny": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
   },
@@ -7995,8 +7895,7 @@
   },
   "hydratacji": {
     "gdzie": [
-      "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)",
-      "src/components/calculator/DoMiskiScaleCard.tsx (subtext)"
+      "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
   "jednorazowo": {
@@ -8116,7 +8015,6 @@
   },
   "para": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
@@ -8173,7 +8071,6 @@
   },
   "stal piekarska": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (kod)"
     ]
   },
@@ -8198,9 +8095,7 @@
     ]
   },
   "upieczonego": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "w lodówce": {
     "gdzie": [
@@ -8353,9 +8248,7 @@
     ]
   },
   "{masa} / szt.": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}": {
     "gdzie": [
@@ -8461,13 +8354,10 @@
     ]
   },
   "{n} szt.": {
-    "gdzie": [
-      "src/components/calculator/DoMiskiScaleCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "{n}m w {temp}": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
@@ -8566,9 +8456,7 @@
     ]
   },
   "Łatwy": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Łyżeczki": {
     "gdzie": [
@@ -8626,9 +8514,7 @@
     ]
   },
   "Średni": {
-    "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Średnia ocena": {
     "gdzie": [
@@ -8660,13 +8546,12 @@
   },
   "Żytni": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)",
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
   "Żytnie": {
     "gdzie": [
-      "src/components/calculator/FormulaPresetSelector.tsx (tekst w JSX)"
+      "src/components/receptury/ListaReceptur.tsx (dane: etykieta)"
     ]
   }
 }

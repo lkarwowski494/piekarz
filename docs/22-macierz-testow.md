@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 43 | 43 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 596 | 596 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 548 | 548 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 380 | 380 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 158 | 158 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1186** | Pokrytych: **1186** | Brakujących: **0**
+Łącznie elementów: **1138** | Pokrytych: **1138** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -94,16 +94,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Złota rada rzemieślnika:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Odblokuj pełny dostęp` | `src/components/BlokadaFunkcji.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx, src/__tests__/bramki-ekranow.test.tsx |
 | `TEKST` | `wymaga Piekarz Pro` | `src/components/BlokadaFunkcji.tsx` | ✅ | tests/nazwa-d053.test.ts, tests/zrzuty-sklepu.test.ts |
-| `TEKST` | `Strata wypiekowa i wilgotność miękiszu` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `Strata Piecowa` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
-| `TEKST` | `Szacowany ubytek masy` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `upieczonego` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Strata piecowa` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/core/__tests__/bake-loss.test.ts |
-| `TEKST` | `Zmniejsz stratę piecową` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zwiększ stratę piecową` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Upieczony bochenek` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Odparowana woda` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Szacowana wilgotność miękiszu` | `src/components/calculator/accordion/AccordionBakeLossSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/recipe-formatter-en.test.ts |
 | `TEKST` | `Temperatura wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Docelowa temp. wody:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptura-akcje-057.test.tsx |
 | `TEKST` | `Docelowe DDT` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -112,74 +102,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Chłonność mąk:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `zalecana` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Białko` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mieszanka mąk` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
-| `TEKST` | `Spiżarnia mąk & Stan zapasów` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/metadane-sklepu.test.ts |
-| `TEKST` | `Słownik Odpowiedników Mąk` | `src/components/calculator/accordion/AccordionFlourBlendSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zaczyny` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Bezpośrednie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Udział mąki w zaczynie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/core/__tests__/domain-error-branches.test.ts |
-| `TEKST` | `Zaczyn ({g} g)` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/lib/__tests__/miary-usa-096.test.ts |
-| `TEKST` | `Mąka w zaczynie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `Woda w zaczynie` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Do miski (Ciasto właściwe)` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Pozostała mąka: {g} g` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/lib/__tests__/miary-usa-096.test.ts |
-| `TEKST` | `Pozostała woda: {g} g` | `src/components/calculator/accordion/AccordionPrefermentSection.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Parametry Rzemieślnicze & Mąki` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mieszanka mąk, zaczyny, strata piecowa` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | src/components/calculator/__tests__/ArtisanAccordionPro.test.tsx |
-| `TEKST` | `Mieszanka mąk i zaczyny` | `src/components/calculator/ArtisanAccordionPro.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Ułóż plan` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/maestro-runner.ts, tests/slownik-akcji.test.ts |
 | `TEKST` | `Zapisz jako moją` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zmień składniki` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/maestro-runner.ts, tests/slownik-akcji.test.ts |
 | `UI` | `Skaner QR` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | tests/metadane-sklepu.test.ts, src/__tests__/skaner-qr-brak-modulu.test.tsx |
 | `UI` | `Skaner QR jest niedostępny w tej wersji aplikacji.` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | src/__tests__/skaner-qr-brak-modulu.test.tsx |
-| `TEKST` | `Hydratacja` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Masa` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mąka` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/br-kryteria-067.test.tsx |
-| `TEKST` | `DDT` | `src/components/calculator/CalculatorSacredCard.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/emoji-teksty-techniczne.test.ts |
-| `TEKST` | `Bochenki` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Masa mąki` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Masa mąki bazowej` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Mąka stanowi 100% bazy w procentach piekarskich` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Zmniejsz masę mąki o {g} g` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zwiększ masę mąki o {g} g` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Liczba bochenków i gramatura` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/core/__tests__/domain-error-branches.test.ts |
-| `TEKST` | `{masa} / szt.` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `{n} szt.` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Mniej bochenków` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Więcej bochenków` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Do miski na wagę` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/calculator/__tests__/DoMiskiScaleCard.test.tsx |
-| `TEKST` | `Odhaczaj składniki w miarę wsypywania` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mąka dodana` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/starter-converter-modal.test.tsx |
-| `TEKST` | `Woda` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Aktywny zakwas` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `W szczycie aktywności` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Sól kłodawska / morska` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Drożdże` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
-| `TEKST` | `Całkowita masa ciasta:` | `src/components/calculator/DoMiskiScaleCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Receptury mistrzowskie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptury-uklad-106.test.tsx |
-| `TEKST` | `Na zakwasie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `Żytnie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Drożdżowe` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Pizza i słodkie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Żytni` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Drożdżowy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptury-uklad-106.test.tsx |
-| `TEKST` | `Pizza` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/core/__tests__/bake-statistics.test.ts |
-| `TEKST` | `Słodkie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Łatwy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Średni` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
-| `TEKST` | `Wymagający` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mistrzowski` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/stolnica-screen.test.tsx |
-| `TEKST` | `Pieczenie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/lib/__tests__/pdf-sheet-generator.test.ts |
-| `TEKST` | `para` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `{n}m w {temp}` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Naczynie` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `garnek żeliwny` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `foremka keksówka` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `stal piekarska` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `blacha piekarnika` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
-| `TEKST` | `Wskazówki` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Moje przepisy` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptury-uklad-106.test.tsx |
-| `TEKST` | `Usuń recepturę: {nazwa}` | `src/components/calculator/FormulaPresetSelector.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zapisz przepis` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ui-components.test.tsx |
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -264,6 +191,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dodaj mąkę z Atlasu` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.` | `src/components/FlourBlendModal.tsx` | ✅ | src/core/__tests__/flour-atlas-typy.test.ts, src/__tests__/maki-opis-ogolny-094.test.tsx |
 | `TEKST` | `Zastosuj mieszankę` | `src/components/FlourBlendModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Słownik Odpowiedników Mąk` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij słownik mąk` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szukaj np. T65, Tipo 00, 550, Bread Flour...` | `src/components/FlourEquivalentsModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +247,77 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Błąd zapisu` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie zapisałem receptury. Spróbuj jeszcze raz.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Importuj recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/import-z-pliku-113.test.tsx |
+| `TEKST` | `Wklej kod JSON udostępniony przez innego piekarza` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wklej ze schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wyczyść wklejony tekst` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wyczyść` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-a11y.test.tsx |
+| `TEKST` | `Wklej kod JSON receptury tutaj...` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Nieprawidłowy format` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/settings-modal.test.tsx |
+| `TEKST` | `Poprawna formuła` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Mieszanka mąk (100%):` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Woda` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Sól` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
+| `TEKST` | `Zakwas\|składnik` | `src/components/ImportRecipeModal.tsx` | ✅ | src/lib/__tests__/i18n-kontekst.test.ts |
+| `TEKST` | `Zaimportuj przepis` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
+| `TEKST` | `Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
+| `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
+| `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
+| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
+| `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Twoja historia jest bezpieczna` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Roczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `12 miesięcy` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Odnawia się automatycznie co rok` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/emoji-teksty-techniczne.test.ts |
+| `TEKST` | `Miesięczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `1 miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Odnawia się automatycznie co miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `miesiąc` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Dożywotni (Lifetime)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Jednorazowy zakup na zawsze • Wszystkie aktualizacje` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `jednorazowo` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Bez chmury: dane zostają w telefonie` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Zero reklam, zero śledzenia telemetrycznego` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Przetwarzanie...` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wypróbuj {dni} dni` | `src/components/PaywallModal.tsx` | ✅ | tests/store-metadata.test.ts, src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Aktywuj plan roczny` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Aktywuj plan miesięczny` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Kup dostęp dożywotni` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Dostęp dożywotni to jednorazowy zakup bez odnawiania.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Zarządzaj subskrypcją` | `src/components/PaywallModal.tsx` | ✅ | tests/slownik-akcji.test.ts, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Przywróć zakupy` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `TEKST` | `Przeglądaj historię (Read-Only)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Warunki użytkowania (EULA)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Polityka prywatności` | `src/components/PaywallModal.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
+| `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `UI` | `Zakupy zostały pomyślnie przywrócone` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
+| `UI` | `Nie znaleziono aktywnych zakupów` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
+| `UI` | `Nie udało się połączyć z App Store. Spróbuj ponownie.` | `src/components/przywroc-zakupy.ts` | ✅ | src/__tests__/przywracanie-zakupow.test.tsx |
+| `TEKST` | `Skanuj Kod QR` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Dostęp do Aparatu` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zezwól na dostęp do aparatu` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Skieruj obiektyw na kod QR receptury` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zakwas ({n}% wody)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Bochenki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
+| `UI` | `Mniej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `UI` | `Więcej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `TEKST` | `Masa bochenka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `Masa mąki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/br-kryteria-067.test.tsx |
+| `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
+| `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
+| `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 886 kolejnych elementów w pełnym wykazie)*
+*(... i 838 kolejnych elementów w pełnym wykazie)*
