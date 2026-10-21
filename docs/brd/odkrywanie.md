@@ -138,7 +138,7 @@ Kontekst opisany z recenzji i ze zdania celu; rozmów z użytkownikami nie było
 |---|---|---|---|---|---|---|
 | J-01 | blat, przy wadze | wolne do wpisywania; przy wsypywaniu zajęte [OCENA] | ekran i waga na zmianę | bez wymagań; aplikacja online zawodzi w kuchni (S-23, rec. 10637740561) | minuty [OCENA] | ZAL-037 (jednostki) |
 | J-02 | dom; telefon odłożony, zablokowany, noc, wyjście z domu | w krokach czynnych w cieście ⚠ (higiena: surowe ciasto) | uwaga na innej czynności między krokami; sygnał musi przyjść sam | bez wymagań | wiele krótkich wejść w ciągu doby | ZAL-032; ZAL-033; ZAL-031 (ekran gaśnie: 2 z 338) |
-| J-02 (wypiek) | piekarnik, garnek żeliwny albo kamień | zdejmowanie pokrywy, wkładanie bochenka ⚠ oparzenie | uwaga na piekarniku, nie na ekranie | — | sekundy w kroku | ⚠ źródło E2 (M1-audytor-generalny-086) |
+| J-02 (wypiek) | piekarnik, garnek żeliwny albo kamień | zdejmowanie pokrywy, wkładanie bochenka ⚠ oparzenie | uwaga na piekarniku, nie na ekranie | — | sekundy w kroku | S-47, S-48, S-50 (RD-23; M1-audytor-generalny-086) |
 | J-03 | blat, termometr | wolne | krótko | — | minuty | — |
 | J-04 | blat albo lodówka, słoik | wolne albo w zakwasie | ocena wyglądu i zapachu ⚠ pleśń | — | krótka, codziennie lub co tydzień | ⚠ reguła krytyczna (DEC-10, S-16 rec. 12552106485) |
 | J-07 | jw. przez kilka dni | jw. | niepewność, czy zakwas żyje ⚠ pleśń | — | krótka, codziennie | ZAL-034; ⚠ jw. |
@@ -259,7 +259,7 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
 
 ### H-06: Rdzeń wyróżniający to matematyka z zakwasem, prowadzenie w czasie z powiadomieniami i dziennik z kopią
 - Rodzaj: zakres · Rejestr: ZAL-045 · Rozstrzyga: rola 03
-- Za: wnioski z tabeli rynku; J-01, J-02, J-05, J-10 z najmocniejszymi motywami; cel ZP-17. Przeciw: Rise robi większość od 2020 r. przy 4,87★; kategoria nasycona (OG-06).
+- Za: wnioski z tabeli rynku; J-01, J-02, J-05, J-10 z najmocniejszymi motywami; cel ZP-17. Przeciw: Rise robi większość od 2020 r. [DO USTALENIA: źródło daty] przy 4,87★; kategoria nasycona (OG-06).
 - Kandydaci do pierwszej wersji: J-01, J-02, J-03, J-04, J-05, J-07, J-10; dalsze: J-06, J-08, J-09, J-11 według ZP-20 i ZP-23.
 - Jak sprawdzić: przejście poznawcze roli 04 na głównym przepływie; po wydaniu odnowienia (ZP-21).
 
@@ -313,13 +313,13 @@ Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
 - Realny. Kopie automatyczne w katalogu aplikacji (`src/lib/backup.ts:8-9`), na zewnątrz tylko ręczny eksport (`src/lib/backup.ts:75`); utrata telefonu zabiera dane z kopiami. Do roli 05 (OP-32).
 
 ### RYZ-13: Sygnał kroku nie przychodzi
-- Realny. Brak zgody na powiadomienia, tryb Skupienie, wyciszenie, rozładowany telefon; kod pyta o zgodę przy pierwszym minutniku (`app/(tabs)/stolnica.tsx`, l. 264). Główny przepływ J-02.
+- Realny. Brak zgody na powiadomienia, tryb Skupienie, wyciszenie, rozładowany telefon; kod pyta o zgodę przy pierwszym minutniku (`app/stolnica.tsx`, `ensureNotificationPermission`). Główny przepływ J-02.
 
 ### RYZ-14: Błędna ocena pleśni na zakwasie
 - Realny, krytyczny. Konkurencja oceniła pleśń jako dobry zakwas (S-16). Reguła RD-21 (ostrożność, DEC-10).
 
 ### RYZ-15: Oparzenie przy garnku żeliwnym, piecu albo kamieniu
-- Realny. Krok „zdejmij pokrywkę, wypuść parę” bez ostrzeżenia (`src/core/baking-phases.ts:41`). Reguła RD-23.
+- Realny. Krok „zdejmij pokrywkę, wypuść parę” ma ostrzeżenie o rękawicach i parze (`src/core/baking-phases.ts`, RD-23-W1; ER-50); kamień i piec do pizzy bez źródła (OP-37). Reguła RD-23.
 
 ### RYZ-16: Spróbowanie surowego ciasta albo mąki
 - Brzegowy. Reguła RD-22.

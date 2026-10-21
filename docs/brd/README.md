@@ -35,10 +35,10 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-35 | [DO WYJAŚNIENIA] co aplikacja pokazuje, gdy temperatura jest poza 20–26 °C (brak liczby, zakres, ostrzeżenie) | właściciel z rolą 04 | RD-17 |
 | OP-36 | [DO USTALENIA] czy kolor płynu na zakwasie (ciemny) ma znaczenie dla bezpieczeństwa | źródła szczebla 1–3, rola 06 | RD-21 |
 | OP-37 | [DO USTALENIA] zasady bezpieczeństwa przy kamieniu do pieczenia i piecu do pizzy | źródła szczebla 1–3 | RD-23, J-11 |
-| OP-38 | [DO WYJAŚNIENIA] domyślny odstęp przypomnienia o dokarmianiu na blacie: 12 h (S-44) czy dłuższy w granicach źródeł | właściciel z rolą 03 | RD-25 |
+| OP-38 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): domyślny odstęp przypomnienia o dokarmianiu na blacie 12 h (S-44) | właściciel z rolą 03 | RD-25 |
 | OP-39 | [DO USTALENIA] progi faz zakwasu w godzinach po dokarmieniu (kod: do 2 h, do 5 h, szczyt 5–9 h, głodny po 14 h) | źródła szczebla 1–3, rola 06 | J-04, RD-24 |
 | OP-40 | [DO USTALENIA] czas zimnej fermentacji ciasta na pizzę ze źródła szczebla 1–3 (przewodnik S-60: 24–48 h) | źródła, rola 06 | J-11 |
-| OP-41 | [DO WYJAŚNIENIA] jak kopia przetrwa utratę telefonu: kopia urządzenia (iCloud systemu), plik w iCloud Drive (wyjątek od zakazu sieci, H-11) czy tylko ręczny eksport | właściciel z rolami 03 i 05 | BR-DANE-002 |
+| OP-41 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): kopia urządzenia (iCloud systemu) i przypomnienie o eksporcie pliku, bez wyjątku od zakazu sieci (technika: rola 05) | właściciel z rolami 03 i 05 | BR-DANE-002 |
 | OP-42 | [DO WYJAŚNIENIA] dopuszczalne opóźnienie sygnału kroku przy zablokowanym ekranie | właściciel z rolą 05 | NFR-CZAS-001 |
 | OP-43 | [DO WYJAŚNIENIA] budżet czasu startu i reakcji kalkulatora | rola 05 | NFR-WYD-001 |
 | OP-44 | [DO USTALENIA] masy składników w przeliczniku objętości (g na szklankę, łyżkę) ze źródła szczebla 1–3 | rola 06 | BR-KALK-007 |

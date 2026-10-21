@@ -236,7 +236,6 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 
 - RD-17: kod liczy temperaturę także poza 20–26 °C bez komunikatu (soczewka eksperta: `src/core/domain-rules.ts`, `calculateFermentationAdaptation`).
 - RD-19: kod używa przelicznika 3:1 (0,33) dla drożdży (soczewka eksperta: `src/core/domain-rules.ts`, `convertYeast`); BRD przyjmuje 0,4 ze szczebla 1.
-- RD-25: kod przypomina po 24 h na blacie (`src/core/notification-config.ts:13`) i po 6–7 dniach w lodówce (l. 15–16); BRD przyjmuje 12 h (S-44) — do decyzji OP-38.
-- RD-23: krok „zdejmij pokrywkę, wypuść parę” bez ostrzeżenia (`src/core/baking-phases.ts:41`).
+- RD-25 i RD-23: zgodne z kodem od 2026-10-20 (ER-50): przypomnienie po 12 h na blacie (`src/core/notification-config.ts`, `FEED_ROOM_TEMP_AFTER_MS`; D-043 pkt 4) i ostrzeżenie o rękawicach i parze przy zdejmowaniu pokrywki (`src/core/baking-phases.ts`, `safetyWarningPl`, RD-23-W1).
 - Studzenie chleba żytniego: kod Doktora 2 h i 8 h, rejestr roli 06 24 h (ZYT-STU-001, szczebel 4).
 - Próg ostrzeżenia 45 °C dla wody i progi faz zakwasu w godzinach (`src/core/sourdough-physics.ts`) bez źródła: OP-34, OP-39.
