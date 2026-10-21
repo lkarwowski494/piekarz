@@ -5445,6 +5445,7 @@
   },
   "Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)": {
     "gdzie": [
+      "src/hooks/useRecipeCalculations.ts (kod)",
       "src/lib/recipe-sharing.ts (error)"
     ]
   },

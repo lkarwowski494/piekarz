@@ -9,7 +9,7 @@ import CalculatorScreen from '../../app/(tabs)/receptury/receptura';
 import { setPendingRecipeToLoad } from '../lib/recipe-navigation';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
-import { obliczRecepture, normalizujMaki } from '../core/domain-rules';
+import { obliczRecepture, normalizujMaki, TOLERANCJA_SUMY_MAK } from '../core/domain-rules';
 import { parseRecipeRow } from '../data/row-parsers';
 
 jest.setTimeout(20000);
@@ -46,6 +46,10 @@ describe('150: suma mąk różna od 100%', () => {
     expect(n).not.toBeNull();
     expect(Math.abs(suma(n ?? []) - 100)).toBeLessThan(1e-9);
     expect(normalizujMaki([{ name: 'A', percentage: 80 }])).toBeNull();
+    // Ta sama tolerancja co import JSON receptury (recipe-sharing.ts)
+    expect(TOLERANCJA_SUMY_MAK).toEqual([95, 105]);
+    expect(normalizujMaki([{ name: 'A', percentage: 95 }])).not.toBeNull();
+    expect(normalizujMaki([{ name: 'A', percentage: 105.1 }])).toBeNull();
   });
 
   it('import kopii: receptura z sumą 99,9% ma po wczytaniu sumę 100%; z sumą 80% wiersz pominięty', () => {
