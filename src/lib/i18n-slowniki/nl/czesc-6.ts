@@ -14,7 +14,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Doe de vingertest voordat je het brood in de oven zet.',
   'Wykryto uszkodzony stan bazy danych': 'Beschadigde databasestatus gevonden',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Leg het deeg op het werkblad, vorm het voor tot een bol en span het oppervlak aan.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vereist meel met een eiwitgehalte van minimaal 13,0 g. Autolyse van 60 minuten zonder zout. Heel voorzichtig vouwen (coil folds).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vereist meel met een eiwitgehalte van minimaal 13%. Autolyse van 60 minuten zonder zout. Heel voorzichtig vouwen (coil folds).',
   'Wymaga obecności': 'Aanwezigheid nodig',
   'wymaga Piekarz Pro': 'vereist Bakker Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Hiervoor broei je rode roggemout samen met gemalen koriander met kokend water. Bestrooi de bovenkant vóór het bakken met hele korianderzaadjes.',

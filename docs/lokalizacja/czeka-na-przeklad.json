@@ -25,6 +25,339 @@
       "klucz": "Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.",
       "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Kontakt",
+      "powod": "karta „Kontakt” w Ustawieniach jest widoczna w 1.0, a klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Oceń w App Store",
+      "powod": "wiersz karty „Kontakt” widoczny w 1.0 (Apple ID wpisany, 082), klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ocena wymaga połączenia z App Store.",
+      "powod": "komunikat wiersza „Oceń w App Store” w karcie „Kontakt”, klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.",
+      "powod": "arkusz „Importuj z pliku”: kopia z nowszej wersji aplikacji (schemaVersion wyższy niż obsługiwany) zamiast „nie rozpoznaję” [audyt-niezalezny B-7]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.",
+      "powod": "treść okna potwierdzenia „Usunąć wszystkie dane?”: kopie zapasowe zostają w aplikacji Pliki [audyt-niezalezny B-4]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Teraz: {nazwa}",
+      "powod": "ogłoszenie VoiceOver nowego kroku w prowadzeniu po „Zrobione” i „Cofnij” [audyt-niezalezny G-1]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{nazwa}: {n} z 5",
+      "powod": "etykieta VoiceOver wykresu profilu bochenka (oś i ocena 1–5) w Dzienniku i przy zapisie oceny [audyt-niezalezny G-3]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.",
+      "powod": "opis receptury bazowej bez słowa „Odżywczy” (twierdzenie zdrowotne bez źródła); nowy klucz zastępuje stary opis [audyt-niezalezny E-8]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.",
+      "powod": "Doktor Chleba (gumowaty miękisz): zdanie o pomiarze z temperaturą dla chleba żytniego według DIA-TEM-001; nowy klucz zastępuje zdanie bez żyta [audyt-niezalezny E-4]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Subskrypcja się nie odnowi, więc nic nie zapłacisz.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Zamknij informację o końcu próby",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Dokarmiaj zakwas częściej przed wypiekiem.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Użyj mąki chlebowej o wyższej zawartości białka.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wydłuż fermentację burzliwą.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Zmniejsz udział zakwasu w recepturze.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Zwiększ hydratację receptury.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Zwiększ udział zakwasu w recepturze.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Przerośnięte ciasto: zrób focaccię",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
+    },
+    {
+      "klucz": "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.",
+      "powod": "hr: tekst w formie „Vi” (2. os. lm.), reszta słownika hr w formie „ti”; ponowny przekład w formie „ti”, do tego czasu obecny tekst hr [audyt-niezalezny F-7]",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     }
   ],
   "zamkniete": {

@@ -156,7 +156,7 @@ export function FlourBlendModal({
                 </View>
 
                 {/* Steppers */}
-                <View style={styles.stepperGroup}>
+                <View style={styles.stepperGroup} testID={`flour-stepper-${idx}`}>
                   <Pressable
                     accessibilityRole="button"
                     accessibilityLabel={t('Zmniejsz udział mąki {nazwa} o {n}%', { nazwa: nazwaMakiMieszanki(flour), n: 10 })}
@@ -381,6 +381,8 @@ const styles = StyleSheet.create({
   },
   stepperGroup: {
     flexDirection: 'row',
+    // Przy dużym tekście i 320 pt przyciski przechodzą do nowego wiersza [audyt-niezalezny G-11]
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: 6,
   },
@@ -393,7 +395,8 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
     paddingHorizontal: 8,
     paddingVertical: 5,
-    minWidth: 38,
+    // było 38 pt; pole dotyku 44 × 44 (RD-ENG-03) [audyt-niezalezny G-10]
+    minWidth: theme.cele.pozostale,
     alignItems: 'center',
   },
   stepBtnText: {
@@ -403,6 +406,9 @@ const styles = StyleSheet.create({
   },
   removeBtn: {
     minHeight: theme.cele.pozostale,
+    // „✕” miał ok. 26 pt szerokości; pole dotyku 44 × 44 (RD-ENG-03) [audyt-niezalezny G-6]
+    minWidth: theme.cele.pozostale,
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,

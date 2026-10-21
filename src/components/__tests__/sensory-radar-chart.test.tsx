@@ -5,6 +5,7 @@
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
+import { t } from '../../lib/i18n';
 import {
   SensoryRadarChart,
   BreadSensoryProfile,
@@ -38,6 +39,19 @@ describe('SensoryRadarChart', () => {
     const root = tree!.root;
     expect(root.findByProps({ testID: 'bread-radar' })).toBeDefined();
     expect(root.findByProps({ testID: 'bread-sensory-radar-svg' })).toBeDefined();
+  });
+
+  it('wykres ma etykietę VoiceOver z wartościami 5 osi (obraz, nie same linie SVG) [audyt-niezalezny G-3]', async () => {
+    await act(async () => {
+      tree = renderer.create(<SensoryRadarChart profile={DEFAULT_BREAD_SENSORY_PROFILE} size={200} testID="bread-radar" />);
+    });
+    const obraz = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.accessibilityRole === 'image');
+    expect(obraz).toHaveLength(1);
+    expect(obraz[0].props.accessible).toBe(true);
+    expect(obraz[0].props.accessibilityLabel).toBe(
+      'Chrupkość: 4 z 5, Sprężystość: 4 z 5, Kwasowość: 3 z 5, Otwartość: 3 z 5, Karmelizacja: 4 z 5',
+    );
+    expect(obraz[0].props.accessibilityLabel.startsWith(t('{nazwa}: {n} z 5', { nazwa: 'Chrupkość', n: 4 }))).toBe(true);
   });
 
   it('renders interactive controls and adjusts profile when requested', async () => {

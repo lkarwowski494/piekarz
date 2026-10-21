@@ -2,7 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Istresi tijesto na radnu površinu, oblikuj ga u kuglu i napni površinu.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13,0 g. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13%. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
   'Wymaga obecności': 'Zahtijeva prisutnost',
   'wymaga Piekarz Pro': 'zahtijeva Pekar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Potrebno je preliti crveni raženi slad kipućom vodom zajedno s mljevenim korijanderom. Prije pečenja pospi vrh cijelim zrnima korijandera.',
@@ -155,7 +155,7 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Ravan disk (Predugo fermentiran)',
   'Płaski smak (Jałowy)': 'Prazan okus (Bljutav)',
   'Zbyt kwaśny (Octowy)': 'Previše kiseo (Na ocat)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će vam povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će ti povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
   'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ako pretplata nije otkazana, App Store će tada naplatiti odabrani plan.',
   'Okres próbny kończy się {data}': 'Probno razdoblje završava {data}',
   'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Pretplata se neće obnoviti pa nećete ništa platiti.',

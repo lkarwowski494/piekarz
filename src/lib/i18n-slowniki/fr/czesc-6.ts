@@ -73,7 +73,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Faites le test du doigt avant d\'enfourner la miche.',
   'Wykryto uszkodzony stan bazy danych': 'Base de données endommagée détectée',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Déposez la pâte sur le plan de travail, donnez-lui une première forme de boule et tendez la surface.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Nécessite une farine d\'une teneur en protéines d\'au moins 13,0 g. Autolyse de 60 minutes sans sel. Rabats en spirale très délicats.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Nécessite une farine d\'une teneur en protéines d\'au moins 13%. Autolyse de 60 minutes sans sel. Rabats en spirale très délicats.',
   'Wymaga obecności': 'Présence requise',
   'wymaga Piekarz Pro': 'nécessite Mitron Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Nécessite d\'infuser le malt de seigle rouge et la coriandre moulue dans de l\'eau bouillante. Avant la cuisson, parsemez le dessus de graines de coriandre entières.',

@@ -95,7 +95,7 @@ export function ShareRecipeQrModal({
 
             {/* QR Code Canvas */}
             <View style={styles.qrWrapper} testID="qr-code-wrapper">
-              <QrCodeSvg value={sharePayload} size={220} testID="recipe-qr-svg" />
+              <QrCodeSvg value={sharePayload} size={220} testID="recipe-qr-svg" accessibilityLabel={t('Kod QR Receptury')} />
             </View>
 
             <Text style={styles.hintText}>

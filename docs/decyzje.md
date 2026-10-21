@@ -312,3 +312,47 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (C-3) nadawanie dostępu z pamięci bez odczytu sklepu na stałe — sklep zostaje źródłem prawdy (zwrot zabiera dostęp przy pierwszym udanym odczycie); (C-7) zgadywanie próby z czasu trwania subskrypcji — bez danych ze sklepu nagłówek nie twierdzi, że była próba.
 - **Dlaczego:** komunikat ma mówić prawdę o przyczynie (brak sieci, brak produktów, czekanie na zgodę), a płacący nie może widzieć kłódek przez wolny StoreKit.
 - **Zależy od:** OP-M03 (czy StoreKit wypełnia offerIOS — sandbox): bez tego wszyscy po subskrypcji dostaną nagłówek neutralny; limit 15 s to parametr techniczny, nie liczba dziedzinowa. Zrzut ekranu zakupu dla App Review (A-3 a) — krok właściciela.
+
+### [D-081] 2026-10-22 — Link „Oceń w App Store” zostaje widoczny przed wydaniem (audyt niezależny A-7) (M2 tor p15b)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Naprawiaj wszystko.”, „W nocy doprowadź aplikację tip top do zera problemów” oraz zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** wiersz „Oceń w App Store” w karcie „Kontakt” zostaje widoczny, gdy `APP_STORE_ID` jest liczbą (`src/lib/links.ts`, 082). Przed publikacją w App Store strona aplikacji (`apps.apple.com/app/apple-store/id…?action=write-review`) nie istnieje i tester TestFlight zobaczy stronę błędu sklepu; od dnia wydania link działa bez nowej wersji.
+- **Odrzucone:** (b) ukrycie wiersza do wydania (flaga albo warunek daty) — wymaga nowej wersji po wydaniu albo przełącznika, o którym łatwo zapomnieć; wtedy link zostałby ukryty w wersji publicznej, gdzie ma wartość (BR-OPIN-002).
+- **Dlaczego:** link ma wartość od pierwszego dnia w sklepie; wada dotyczy tylko testerów TestFlight przed wydaniem, a błąd otwarcia adresu i tak pokazuje komunikat „Ocena wymaga połączenia z App Store.”.
+- **Zależy od:** daty wydania 1.0 (DEC-16 a, wydanie ręczne). Jeśli wydanie się opóźni, a testerów TestFlight będzie wielu, wrócić do opcji (b).
+
+### [D-082] 2026-10-22 — „Usuń wszystkie dane” nie kasuje kopii zapasowych w Plikach; okno potwierdzenia mówi, gdzie są (audyt niezależny B-4) (M2 tor p15b)
+- **Rodzaj:** produktowa. **Słowa właściciela:** zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** kopie `piekarz-kopia-*`, `piekarz-przed-importem-*` i `piekarz-przed-czyszczeniem-*` zostają po „Usuń wszystkie dane”; okno „Usunąć wszystkie dane?” mówi, że kopie zostają w aplikacji Pliki, w folderze aplikacji, i że tam można je usunąć.
+- **Odrzucone:** automatyczne kasowanie kopii razem z danymi — usuwa ostatnią drogę odzyskania, łącznie z kopią przed czyszczeniem zrobioną chwilę wcześniej.
+- **Dlaczego:** zasada zero utraty danych; użytkownik dostaje pełną informację w chwili decyzji.
+
+### [D-083] 2026-10-22 — Pasek „Cofnij” bez limitu czasu przy włączonym czytniku ekranu (audyt niezależny B-9, WCAG 2.2.1) (M2 tor p15b)
+- **Rodzaj:** dostępność (projektowa). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** przy włączonym VoiceOver pasek „Cofnij” nie znika sam po 6 s; chowa się przy następnym działaniu albo po wyjściu z ekranu. Bez czytnika czas 6 s bez zmian. Usunięcie jest zapisane przed pokazaniem paska.
+- **Odrzucone:** dłuższy stały czas (np. 60 s) — dalej limit czasu dla osoby z czytnikiem (WCAG 2.2.1 „Timing Adjustable”).
+
+### [D-084] 2026-10-22 — Kontrola bezpieczeństwa zakwasu dostępna bez zakupu (audyt niezależny E-1) (M2 tor p15b)
+- **Rodzaj:** produktowa i bezpieczeństwo żywności. **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** w zakładce Zakwasy karta bezpieczeństwa (`StarterSafetyCard`: nalot, kożuch, przebarwienie, zgniły zapach → „Wyrzuć zakwas”, RD-21-W1) i zdanie o granicach oceny są poza blokadą zakupu; dokarmianie, kalkulator, szczyt zakwasu i diagnoza przyczyn w Doktorze zakwasu zostają płatne.
+- **Odrzucone:** karta za blokadą — ostrzeżenie o bezpieczeństwie żywności nie może być płatne (docs/monetyzacja.md BR-DIAG-002: „ostrzeżenie RD-21 zawsze”).
+
+### [D-085] 2026-10-22 — Szacunek białka mieszanki mąk ukryty do czasu źródła (audyt niezależny E-7) (M2 tor p15b)
+- **Rodzaj:** merytoryczna. **Decyzja:** arkusz „Temperatura wody” nie pokazuje „Białko: ~x%”; pola `proteinPercent` atlasu nie mają źródła (MAK-OGL-900) i przeczą rejestrowi (np. pszenna typ 2000: 13,8% w atlasie, 9,6% według MAK-OGL-003). Wartość zostaje w modelu (`analyzeFlourBlendAbsorption`), bez wyświetlania.
+- **Odrzucone:** wpisanie liczb z MAK-OGL — źródła dają pojedyncze próbki i przedziały, część profili nie ma źródła, a model liczy średnią z jednej liczby.
+- **Zależy od:** źródła szczebla 1–3 dla białka każdego profilu mąki (rola 06).
+
+### [D-086] 2026-10-22 — Serbski w łacince (sr-Latn) z cyrylicznego słownika sr przez transliterację; folder „kopie-ratunkowe” bez zmiany nazwy; hr w formie „ti” przez ponowny przekład (audyt niezależny F-11, F-10, F-7) (M2 tor p15b)
+- **Rodzaj:** produktowa (języki). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** (1) na urządzeniu z serbskim w łacince tekst t() języka sr przechodzi przez `cyrylicaNaLacinke` (`src/lib/sr-latinica.ts`, odpowiedniość liter 1:1); nazwa pod ikoną zostaje cyrylicą. (2) Nazwa folderu kopii ratunkowych zostaje (stała techniczna podana w komunikatach). (3) 39 tekstów hr w formie „Vi” czeka na ponowny przekład w formie „ti” (`czeka-na-przeklad.json`, `jezyki: ["hr"]`).
+- **Odrzucone:** (1) osobny słownik sr-Latn (drugi przekład i drugie źródło prawdy) albo hr/EN dla sr-Latn; (2) zmiana nazwy folderu bez migracji — gubi istniejące kopie ratunkowe; (3) ręczna przeróbka 39 zdań hr bez przekładu.
+
+### [D-087] 2026-10-22 — Podpisy zakładek skalują się z Dynamic Type do 1,5×, bez limitu linii i bez zmniejszania kroju (audyt niezależny G-9; zmiana reguły 055 roli 04 do przeglądu) (M2 tor p15b)
+- **Rodzaj:** projektowa (dostępność). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** `TabLabel` bez `allowFontScaling={false}`, z `maxFontSizeMultiplier={1.5}`; reguła 054 (bez limitu linii i bez zmniejszania kroju) bez zmian. W `tests/duzy-tekst-kroj.test.ts` dawny wyjątek „Large Content Viewer” zastąpiony nazwanym wyjątkiem z tą jedną wartością.
+- **Odrzucone:** pełne skalowanie do AX5 (pasek zakładek ma stałą wysokość 49 pt); jeden wiersz z dopasowaniem kroju — łamie regułę 054.
+- **Zależy od:** przeglądu roli 04 (reguła 055 miała wyjątek z uzasadnieniem, którego własny `TabLabel` nie spełniał).
+
+### [D-088] 2026-10-22 — expo-audio bez uprawnienia mikrofonu i bez odtwarzania w tle (audyt niezależny, ryzyko ITMS-90683) (M2 tor p15b)
+- **Rodzaj:** techniczna (wydanie). **Decyzja:** wtyczka `expo-audio` w `app.json` z `microphonePermission: false`, `recordAudioAndroid: false`, `enableBackgroundPlayback: false`, `enableBackgroundRecording: false`; `verify:native` pilnuje tej konfiguracji. Aplikacja nie nagrywa (tylko `createAudioPlayer`).
+- **Odrzucone:** opis `NSMicrophoneUsageDescription` dla aplikacji, która nie nagrywa (zakaz w `verify:native`, pytanie o zgodę, której nie ma); wykluczenie expo-audio z autolinkingu (dźwięk końca kroku jest potrzebny).
+- **Zależy od:** odpowiedzi App Store Connect na pierwszy build: jeśli Apple zgłosi ITMS-90683 dla mikrofonu (kod nagrywania w bibliotece), decyzja właściciela: krótki opis mikrofonu („Piekarz nie nagrywa dźwięku…”) albo moduł dźwięku bez kodu nagrywania.

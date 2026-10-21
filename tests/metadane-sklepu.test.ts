@@ -101,6 +101,25 @@ describe('metadane 34 lokalizacji strony produktu (095)', () => {
     expect(m.opis.trim().split('\n').pop()).toMatch(/35/);
   });
 
+  /**
+   * Apple (App Review Guidelines 3.1.2(c), wymagania subskrypcji): metadane aplikacji muszą zawierać link do Terms of Use
+   * (EULA). Piekarz używa standardowej licencji Apple (instrukcja ustawień §7.5), więc opis każdej lokalizacji ma linię
+   * z jej adresem przed zdaniem o 35 językach [audyt-niezalezny A-1].
+   */
+  const EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
+  it.each(KODY)('%s: opis zawiera link do Terms of Use (standardowa EULA Apple) w osobnej linii z etykietą (A-1)', (kod) => {
+    const linie = meta(kod).opis.split('\n');
+    const linia = linie.find((l) => l.includes(EULA));
+    expect({ kod, linia: linia !== undefined, zEtykieta: /\S.*:\s*https:/.test(linia ?? '') }).toEqual({ kod, linia: true, zEtykieta: true });
+    expect(linie.indexOf(linia!)).toBeLessThan(linie.length - 1);
+  });
+
+  it('opisy PL i EN w źródle przekładu mają linię EULA z etykietą w swoim języku (A-1)', () => {
+    expect(blok(/### 1\.2\. Pełny Opis Aplikacji/)).toContain(`Warunki użytkowania (EULA): ${EULA}`);
+    expect(blok(/### 2\.2\. Pełny Opis Aplikacji/)).toContain(`Terms of Use (EULA): ${EULA}`);
+    expect(blok(/#### 5\.1\.1\. Pełny opis en-GB, en-AU, en-CA/)).toContain(`Terms of Use (EULA): ${EULA}`);
+  });
+
   it('kontrola negatywna: skrypt zgłasza złamane limity, „Crust”, OG-05, brak lokalizacji i lokalizację spoza listy', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'metadane-095-'));
     try {
@@ -114,6 +133,7 @@ describe('metadane 34 lokalizacji strony produktu (095)', () => {
       fs.writeFileSync(path.join(tmp, 'de-DE.json'), JSON.stringify(de));
       const ja = meta('ja');
       ja.ramki[1].naglowek += '氷';
+      ja.opis = ja.opis.replace(EULA, '');
       fs.writeFileSync(path.join(tmp, 'ja.json'), JSON.stringify(ja));
       fs.rmSync(path.join(tmp, 'fr-FR.json'));
       fs.writeFileSync(path.join(tmp, 'bg.json'), '{}');
@@ -127,6 +147,7 @@ describe('metadane 34 lokalizacji strony produktu (095)', () => {
         'de-DE.ramki[1].podtytul: funkcja PÓŹNIEJ/NIE (OG-05) „Vorratskammer”',
         'de-DE.tekstPromocyjny: 175 znaków',
         'ja.ramki[2].naglowek: funkcja PÓŹNIEJ/NIE (OG-05) „氷”',
+        'ja.opis: brak linku Terms of Use',
         'fr-FR: brak pliku',
         'bg: lokalizacja spoza listy 34',
       ]) expect(r.stdout).toContain(oczekiwany);

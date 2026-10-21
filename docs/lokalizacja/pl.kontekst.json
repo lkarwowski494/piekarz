@@ -357,9 +357,7 @@
     ]
   },
   "Białko": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Białko w badanej próbce: 12,6%. Popiół według polskich norm: najwyżej 2%.": {
     "gdzie": [
@@ -588,6 +586,11 @@
   "Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
+  "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Chleb żytni / foremkowy": {
@@ -1909,6 +1912,7 @@
   },
   "Ilość objętościowa:": {
     "gdzie": [
+      "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
@@ -1919,7 +1923,9 @@
   },
   "Imię zakwasu": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -2147,6 +2153,7 @@
   },
   "Kod QR Receptury": {
     "gdzie": [
+      "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
@@ -3309,6 +3316,7 @@
   },
   "Nazwa mąki (np. Pszenna typ 750)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (placeholder)"
     ]
   },
@@ -3569,6 +3577,7 @@
   },
   "Notatki z wypieku": {
     "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (accessibilityLabel)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
@@ -3802,11 +3811,6 @@
   "Odwróć bochenek gładką stroną do góry (szew dotyka blatu).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
-    ]
-  },
-  "Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.": {
@@ -4237,6 +4241,7 @@
   },
   "Początkowy stan zapasów (g)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
@@ -4568,6 +4573,11 @@
   "Przed szacowanym szczytem": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelPl)"
+    ]
+  },
+  "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
     ]
   },
   "Przekwaszenie / Przerośnięcie": {
@@ -5333,7 +5343,7 @@
       "src/components/stolnica/PokeTestEntry.tsx (tekst w JSX)"
     ]
   },
-  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.": {
+  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -5601,6 +5611,7 @@
   },
   "Szukaj np. T65, Tipo 00, 550, Bread Flour...": {
     "gdzie": [
+      "src/components/FlourEquivalentsModal.tsx (accessibilityLabel)",
       "src/components/FlourEquivalentsModal.tsx (placeholder)"
     ]
   },
@@ -5717,6 +5728,11 @@
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
+  "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+    ]
+  },
   "Tangzhong (Zaparzana mąka 1:5 w 65°C)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
@@ -5796,6 +5812,11 @@
   "Temperatura zakwasu albo zaczynu": {
     "gdzie": [
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
+    ]
+  },
+  "Teraz: {nazwa}": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (kod)"
     ]
   },
   "Test okna glutenowego": {
@@ -5903,7 +5924,9 @@
   },
   "Typ mąki": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -6570,6 +6593,7 @@
   },
   "Wklej kod JSON receptury tutaj...": {
     "gdzie": [
+      "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (placeholder)"
     ]
   },
@@ -6643,6 +6667,7 @@
   },
   "Wpisz nazwę przepisu": {
     "gdzie": [
+      "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
       "src/components/calculator/SaveRecipeModal.tsx (placeholder)"
     ]
   },
@@ -6921,7 +6946,7 @@
   "Wykryto uszkodzony stan bazy danych": {
     "gdzie": []
   },
-  "Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
+  "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -8483,6 +8508,11 @@
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
     ]
   },
+  "{nazwa}: {n} z 5": {
+    "gdzie": [
+      "src/components/SensoryRadarChart.tsx (kod)"
+    ]
+  },
   "{n} cz.": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (dane: few)",
@@ -8579,8 +8609,14 @@
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} min w {temp}": {
+    "gdzie": [
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
   "{n} minut": {
@@ -8617,11 +8653,6 @@
   },
   "{n} szt.": {
     "gdzie": []
-  },
-  "{n}m w {temp}": {
-    "gdzie": [
-      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
-    ]
   },
   "{n}x ~{masa} upieczony bochenek": {
     "gdzie": [

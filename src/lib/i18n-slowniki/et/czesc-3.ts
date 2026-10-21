@@ -20,7 +20,7 @@ export const CZESC: Record<string, string> = {
   'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.': 'Jälgi mahtu — 27 °C juures saavad pärm ja bakterid 60–90 minutiga elujõu tagasi.',
   'Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'See võib hakata kiiresti mullitama või vajada kuni 12 tundi, olenevalt sellest, millal seda viimati toideti.',
   'Możesz przesunąć plan wypieku.': 'Saad küpsetusplaani nihutada.',
-  'Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.': 'Saad importida Crustis loodud JSON-faili või käsitsi koostatud malli.',
+  'Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.': 'Saad importida Pagaris loodud JSON-faili või käsitsi koostatud malli.',
   'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.': 'Võimalik põhjus: pärmidel ja bakteritel napib toitu ning nende arv väheneb järk-järgult.',
   'Możliwe przyczyny:': 'Võimalikud põhjused:',
   'Mój zakwas': 'Minu juuretis',

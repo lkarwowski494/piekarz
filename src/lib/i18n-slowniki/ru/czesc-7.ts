@@ -83,7 +83,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Перед тем как ставить каравай в духовку, сделайте тест пальцем.',
   'Wykryto uszkodzony stan bazy danych': 'Обнаружено повреждённое состояние базы данных',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Выложите тесто на стол, придайте ему форму шара и натяните поверхность.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Нужна мука с содержанием белка не менее 13,0 г. Автолиз 60 минут без соли. Очень деликатные кольцевые складывания.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Нужна мука с содержанием белка не менее 13%. Автолиз 60 минут без соли. Очень деликатные кольцевые складывания.',
   'Wymaga obecności': 'Нужно ваше участие',
   'wymaga Piekarz Pro': 'требует Хлебопёк Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Красный ржаной солод нужно заварить кипятком вместе с молотым кориандром. Перед выпечкой посыпьте верх целыми зёрнами кориандра.',

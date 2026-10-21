@@ -39,7 +39,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Fă testul degetului înainte să pui pâinea în cuptor.',
   'Wykryto uszkodzony stan bazy danych': 'S-a detectat o stare deteriorată a bazei de date',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Răstoarnă aluatul pe blat, dă-i o formă inițială de bilă și întinde-i suprafața.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Necesită făină cu un conținut de proteine de minimum 13,0 g. Autoliză 60 de minute, fără sare. Împăturiri Coil Fold foarte delicate.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Necesită făină cu un conținut de proteine de minimum 13%. Autoliză 60 de minute, fără sare. Împăturiri Coil Fold foarte delicate.',
   'Wymaga obecności': 'Necesită prezența ta',
   'wymaga Piekarz Pro': 'necesită Brutar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Necesită opărirea malțului roșu de secară cu apă clocotită, împreună cu coriandrul măcinat. Înainte de coacere, presară deasupra semințe întregi de coriandru.',

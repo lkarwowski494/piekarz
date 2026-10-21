@@ -160,7 +160,8 @@ describe('Without an entitlement every screen opens the purchase screen except h
   });
 
   // Etykieta PDF przeniesiona do „Drukuj” w Kalkulatorze, płatne (BR-DRUK-001) [M1-audytor-generalny-032]
-  it('Zakwas: feeding, calculator, safety check and adding a starter open the purchase screen; no print entry here', async () => {
+  // Kontrola bezpieczeństwa (RD-21) jest poza blokadą: src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx [audyt-niezalezny E-1]
+  it('Zakwas: feeding, calculator and adding a starter open the purchase screen; no print entry here', async () => {
     const tree = await render(<ZakwasScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toContain('blokada-zakwas');
     await press(tree, 'blokada-zakwas');

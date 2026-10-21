@@ -39,7 +39,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Mielőtt a cipót a sütőbe teszed, végezd el az ujjtesztet.',
   'Wykryto uszkodzony stan bazy danych': 'Sérült adatbázis-állapot észlelve',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Borítsd a tésztát a pultra, formázd előzetesen gömbbé, és feszítsd meg a felszínét.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Legalább 13,0 g fehérjetartalmú lisztet igényel. 60 perces autolízis só nélkül. Nagyon óvatos hajtogatás (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Legalább 13% fehérjetartalmú lisztet igényel. 60 perces autolízis só nélkül. Nagyon óvatos hajtogatás (coil fold).',
   'Wymaga obecności': 'Jelenlétet igényel',
   'wymaga Piekarz Pro': 'Pék Pro szükséges',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'A vörös rozsmalátát az őrölt korianderrel együtt forrásban lévő vízzel le kell forrázni. Sütés előtt szórd meg a tetejét egész koriandermaggal.',

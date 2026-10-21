@@ -28,7 +28,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Lakukan ujian cucuk jari sebelum memasukkan buku roti ke dalam ketuhar.',
   'Wykryto uszkodzony stan bazy danych': 'Keadaan pangkalan data rosak dikesan',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Letakkan doh di atas meja, bentukkan awal menjadi bebola dan tegangkan permukaannya.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Memerlukan tepung dengan kandungan protein sekurang-kurangnya 13.0 g. Autolisis 60 minit tanpa garam. Lipatan doh gulung (coil) yang sangat lembut.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Memerlukan tepung dengan kandungan protein sekurang-kurangnya 13%. Autolisis 60 minit tanpa garam. Lipatan doh gulung (coil) yang sangat lembut.',
   'Wymaga obecności': 'Perlu kehadiran',
   'wymaga Piekarz Pro': 'memerlukan Tukang Roti Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Malt rai merah perlu direndam dengan air mendidih bersama ketumbar kisar. Taburkan biji ketumbar utuh di atasnya sebelum dibakar.',

@@ -4,8 +4,9 @@
 // „Ekran nie zgaśnie…” w kroku czynnym (114), test palca i dwie fazy garnka.
 // ============================================================================
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Text, View } from 'react-native';
+import { announce } from '../../lib/announce';
 import Svg, { Circle, Rect } from 'react-native-svg';
 import { useMotyw } from '../../ui/motyw';
 import { typografia } from '../../ui/tokeny';
@@ -44,6 +45,14 @@ export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, i
   const { kolory } = useMotyw();
   // „Pogrubiony tekst” iOS: tytuł kroku i czas w kroju tytułów o stopień ciężej [M1-audytor-generalny-158]
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
+  // Po „Zrobione” albo „Cofnij” VoiceOver zostaje na przycisku: ogłoś nowy krok (bez ogłoszenia przy wejściu na ekran)
+  // [audyt-niezalezny G-1]
+  const poprzedniKrok = useRef(step.id);
+  useEffect(() => {
+    if (poprzedniKrok.current === step.id) return;
+    poprzedniKrok.current = step.id;
+    announce(t('Teraz: {nazwa}', { nazwa: t(step.name) }));
+  }, [step.id, step.name]);
   return (
     <>
       <Text testID="step-title" style={[styles.activeStepTitle, waga]}>{t(step.name)}</Text>

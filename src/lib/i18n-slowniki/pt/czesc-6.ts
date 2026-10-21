@@ -39,7 +39,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Faça o teste do dedo antes de colocar o pão no forno.',
   'Wykryto uszkodzony stan bazy danych': 'Detetado estado danificado da base de dados',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Vire a massa para a bancada, dê-lhe uma forma inicial de bola e crie tensão na superfície.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Requer farinha com teor de proteína mínimo de 13,0 g. Autólise de 60 minutos sem sal. Dobras em espiral muito suaves.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Requer farinha com teor de proteína mínimo de 13%. Autólise de 60 minutos sem sal. Dobras em espiral muito suaves.',
   'Wymaga obecności': 'Requer presença',
   'wymaga Piekarz Pro': 'requer o Padeiro Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Requer escaldar o malte de centeio vermelho com água a ferver, juntamente com os coentros moídos. Antes de cozer, polvilhe o topo com sementes de coentro inteiras.',

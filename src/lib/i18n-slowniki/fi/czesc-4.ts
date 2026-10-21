@@ -195,7 +195,7 @@ export const CZESC: Record<string, string> = {
   'Świeży po pracy': 'Tuoreena töiden jälkeen',
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Raikas, yksinkertainen vehnän maku ilman kehittynyttä happamuutta.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (keitetty jauho 1:5, 65 °C)',
-  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'En tunnista tätä tiedostoa. Leipuri tuo Crustin reseptitiedostoja ja varmuuskopiotiedostoja.',
+  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'En tunnista tätä tiedostoa. Leipuri tuo Leipurin reseptitiedostoja ja varmuuskopiotiedostoja.',
   'Temp': 'Lämpö',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'Taikinan tavoitelämmön (DDT) on oltava välillä 10–40 °C',
   'Temperatura docelowa:': 'Tavoitelämpötila:',

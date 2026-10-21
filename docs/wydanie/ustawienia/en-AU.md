@@ -44,7 +44,7 @@ starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,
 Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.
 ```
 
-### Opis (Description) · 3151 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3238 / 4000 znaków · wersja 1.0
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -75,6 +75,7 @@ Baker runs on iPhone and does not sync between devices; you move data with a bac
 
 ACCESS AND PURCHASE
 Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
 ```

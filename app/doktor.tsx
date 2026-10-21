@@ -37,9 +37,8 @@ export default function DoctorScreen() {
   const unitSystem = useUnitSystem();
   // Bez uprawnienia Doktor i Akademia otwierają ekran zakupu [M1-audytor-generalny-027]
   const { blokada, chron } = useAppAccess();
-  const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({
-    crumbHasHugeTopHolesWithDenseBottom: true, // Default initial example
-  });
+  // Bez zaznaczonych objawów na starcie: diagnoza dopiero po wyborze użytkownika [audyt-niezalezny E-6]
+  const [symptoms, setSymptoms] = useState<BreadInspectionCriteria>({});
 
   const [selectedRecoveryId, setSelectedRecoveryId] = useState<EmergencyCode | null>(null);
   const [isAcademyOpen, setIsAcademyOpen] = useState<boolean>(false);

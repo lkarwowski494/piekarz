@@ -49,6 +49,7 @@ export function EditStarterModal({
           {/* Name input */}
           <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
           <TextInput
+            accessibilityLabel={t('Imię zakwasu')}
             style={styles.modalInput}
             value={name}
             onChangeText={onNameChange}
@@ -58,6 +59,7 @@ export function EditStarterModal({
           {/* Flour type input */}
           <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
           <TextInput
+            accessibilityLabel={t('Typ mąki')}
             style={styles.modalInput}
             value={flourType}
             onChangeText={onFlourTypeChange}

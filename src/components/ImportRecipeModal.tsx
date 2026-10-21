@@ -138,6 +138,7 @@ export function ImportRecipeModal({
 
             {/* JSON Text Input */}
             <TextInput
+              accessibilityLabel={t('Wklej kod JSON receptury tutaj...')}
               testID="recipe-json-input"
               style={styles.jsonInput}
               multiline

@@ -71,7 +71,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 245,
     bakeTempBrowningC: 210,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
+    notesPl: 'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
   },
   {
     id: 'san_francisco_sourdough',
@@ -290,7 +290,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     id: 'graham_bread_honey',
     namePl: 'Chleb Graham z miodem i siemieniem',
     category: 'sourdough',
-    descriptionPl: 'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
+    descriptionPl: 'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 60.0, type: 'pszenna_graham' },

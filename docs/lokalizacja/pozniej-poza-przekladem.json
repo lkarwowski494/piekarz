@@ -718,12 +718,6 @@
       ]
     },
     {
-      "klucz": "Kontakt",
-      "funkcje": [
-        "F-52 rodzina"
-      ]
-    },
-    {
       "klucz": "Kontrola zapasów mąk i powiadomienia o brakach",
       "funkcje": [
         "F-30 spizarnia"
@@ -1081,18 +1075,6 @@
       "klucz": "Obróć pojemnik o 90° i powtórz uniesienie w osi poprzecznej.",
       "funkcje": [
         "F-44 akademia"
-      ]
-    },
-    {
-      "klucz": "Ocena wymaga połączenia z App Store.",
-      "funkcje": [
-        "F-52 rodzina"
-      ]
-    },
-    {
-      "klucz": "Oceń w App Store",
-      "funkcje": [
-        "F-52 rodzina"
       ]
     },
     {

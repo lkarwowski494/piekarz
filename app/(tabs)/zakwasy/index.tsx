@@ -350,7 +350,10 @@ export default function ZakwasScreen() {
           onOpenDiscardRecipes={() => setIsDiscardModalOpen(true)}
         />
 
-        {/* Biological Safety Checker */}
+        </BlokadaFunkcji>
+
+        {/* Kontrola bezpieczeństwa (RD-21-W1) poza blokadą: ostrzeżenie „wyrzuć” działa bez zakupu
+            (docs/monetyzacja.md BR-DIAG-002 „ostrzeżenie RD-21 zawsze”) [audyt-niezalezny E-1] */}
         <StarterSafetyCard
           hasHooch={hasHooch}
           onToggleHooch={() => setHasHooch((prev) => !prev)}
@@ -365,7 +368,6 @@ export default function ZakwasScreen() {
           safetyResult={safetyResult}
           onReset={handleReset}
         />
-        </BlokadaFunkcji>
 
         {/* Modal: Edit Starter Profile */}
         <EditStarterModal

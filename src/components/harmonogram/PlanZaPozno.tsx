@@ -5,17 +5,23 @@
 // pod nim przycisk drugi 48 pt „Ustaw tę godzinę”.
 // ============================================================================
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { announce } from '../../lib/announce';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { IkonaStartu } from '../start/IkonaStartu';
 
 export function PlanZaPozno({ tytul, tresc, onUstawNajwczesniej }: { tytul: string; tresc: string; onUstawNajwczesniej: () => void }) {
+  // accessibilityLiveRegion działa tylko na Androidzie; na iOS ogłoszenie wprost [audyt-niezalezny G-8]
+  const komunikat = `${tytul}. ${tresc}`;
+  useEffect(() => {
+    announce(komunikat);
+  }, [komunikat]);
   return (
     <View style={styles.kontener}>
-      <View style={styles.pole} accessible role="status" accessibilityLiveRegion="polite" accessibilityLabel={`${tytul}. ${tresc}`} testID="plan-too-late">
+      <View style={styles.pole} accessible role="status" accessibilityLiveRegion="polite" accessibilityLabel={komunikat} testID="plan-too-late">
         <IkonaStartu nazwa="zegar" kolor={theme.colors.tusz} rozmiar={24} />
         <View style={styles.teksty}>
           <Text style={styles.tytul}>{tytul}</Text>

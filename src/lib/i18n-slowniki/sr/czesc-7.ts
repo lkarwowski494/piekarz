@@ -74,7 +74,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Уради тест прстом пре него што ставиш векну у рерну.',
   'Wykryto uszkodzony stan bazy danych': 'Откривено је оштећено стање базе података',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Истреси тесто на радну површину, дај му почетни облик лопте и затегни површину.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Потребно је брашно са садржајем протеина од минимум 13,0 g. Аутолиза 60 минута без соли. Веома нежна кружна пресавијања.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Потребно је брашно са садржајем протеина од минимум 13%. Аутолиза 60 минута без соли. Веома нежна кружна пресавијања.',
   'Wymaga obecności': 'Захтева присуство',
   'wymaga Piekarz Pro': 'захтева Пекар Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Потребно је прелити црвени ражани слад кључалом водом заједно са млевеним коријандером. Пре печења поспи површину целим зрнима коријандера.',

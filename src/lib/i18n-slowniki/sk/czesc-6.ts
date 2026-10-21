@@ -17,7 +17,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Pred vložením bochníka do rúry urobte test prstom.',
   'Wykryto uszkodzony stan bazy danych': 'Zistil sa poškodený stav databázy',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Cesto vyklopte na dosku, dajte mu predbežný tvar gule a napnite povrch.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vyžaduje múku s obsahom bielkovín minimálne 13,0 g. Autolýza 60 minút bez soli. Veľmi jemné prekladanie (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vyžaduje múku s obsahom bielkovín minimálne 13%. Autolýza 60 minút bez soli. Veľmi jemné prekladanie (coil fold).',
   'Wymaga obecności': 'Vyžaduje prítomnosť',
   'wymaga Piekarz Pro': 'vyžaduje Pekár Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Vyžaduje zapariť červený ražný slad vriacou vodou spolu s mletým koriandrom. Vrch pred pečením posypte celými zrnkami koriandra.',

@@ -45,6 +45,7 @@ export function AddStarterModal({
           {/* Name input */}
           <Text style={styles.modalInputLabel}>{t('Imię zakwasu')}</Text>
           <TextInput
+            accessibilityLabel={t('Imię zakwasu')}
             testID="new-starter-name-input"
             style={styles.modalInput}
             value={name}
@@ -56,6 +57,7 @@ export function AddStarterModal({
           {/* Flour type input */}
           <Text style={styles.modalInputLabel}>{t('Typ mąki')}</Text>
           <TextInput
+            accessibilityLabel={t('Typ mąki')}
             testID="new-starter-flour-input"
             style={styles.modalInput}
             value={flour}

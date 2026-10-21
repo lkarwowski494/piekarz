@@ -40,6 +40,16 @@ function findButtonByText(root: renderer.ReactTestInstance, text: string): rende
   });
 }
 
+/** Ekran startuje bez objawów (E-6); testy diagnozy wybierają objaw jak użytkownik. */
+async function wybierzNiedofermentowany(root: renderer.ReactTestInstance) {
+  const btn = findButtonByText(root, 'Jaskinie (Niedofermentowany)');
+  expect(btn).toBeDefined();
+  await act(async () => {
+    btn!.props.onPress();
+    await Promise.resolve();
+  });
+}
+
 describe('DoctorScreen UI (app/doktor.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
@@ -56,17 +66,26 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     }
   });
 
-  it('renders initial diagnosis, biological cause, and action checklist', async () => {
+  // Ekran startuje bez zaznaczonych objawów i bez diagnozy; diagnoza dopiero po wyborze objawu [audyt-niezalezny E-6]
+  it('starts without a diagnosis; after choosing symptoms shows diagnosis, biological cause, and action checklist', async () => {
     await act(async () => {
       tree = renderer.create(<DoctorScreen />);
       await Promise.resolve();
     });
 
     const root = tree!.root;
-    const allText = extractCleanText(root);
+    const startText = extractCleanText(root);
+    expect(startText).toContain('Wybierz objawy bochenka');
+    expect(startText).not.toContain('Niedofermentowanie');
+    expect(startText).not.toContain('Co zrobić przy następnym wypieku:');
 
-    // Tytuł 
-    // Default under-proofed diagnosis
+    const underBtn = findButtonByText(root, 'Jaskinie (Niedofermentowany)');
+    expect(underBtn).toBeDefined();
+    await act(async () => {
+      underBtn!.props.onPress();
+      await Promise.resolve();
+    });
+    const allText = extractCleanText(root);
     expect(allText).toContain('Niedofermentowanie');
     expect(allText).toContain('Przyczyna biologiczno-chemiczna:');
     expect(allText).toContain('Co zrobić przy następnym wypieku:');
@@ -166,6 +185,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
+    await wybierzNiedofermentowany(root);
     const clearBtn = findButtonByText(root, 'Wyczyść zaznaczone objawy');
     expect(clearBtn).toBeDefined();
 
@@ -222,6 +242,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
+    await wybierzNiedofermentowany(root);
     const navBtn = findButtonByText(root, 'Ułóż plan');
     expect(navBtn).toBeDefined();
 
@@ -243,6 +264,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
+    await wybierzNiedofermentowany(root);
     const copyBtn = root.findByProps({ testID: 'copy-diagnosis-btn' });
     expect(copyBtn).toBeDefined();
 

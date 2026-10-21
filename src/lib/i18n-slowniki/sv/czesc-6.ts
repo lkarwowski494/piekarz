@@ -3,7 +3,7 @@
 export const CZESC: Record<string, string> = {
   'Wykryto uszkodzony stan bazy danych': 'Skadad databas upptäcktes',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Stjälp upp degen på bänken, ge den en preliminär bollform och spänn ytan.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Kräver mjöl med en proteinhalt på minst 13,0 g. Autolys 60 minuter utan salt. Mycket varsamma vikningar (Coil Fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Kräver mjöl med en proteinhalt på minst 13%. Autolys 60 minuter utan salt. Mycket varsamma vikningar (Coil Fold).',
   'Wymaga obecności': 'Kräver närvaro',
   'wymaga Piekarz Pro': 'kräver Bagaren Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Den röda rågmalten ska skållas med kokande vatten tillsammans med malen koriander. Strö hela korianderfrön över ytan före gräddning.',

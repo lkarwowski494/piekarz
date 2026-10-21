@@ -25,6 +25,8 @@ export interface AdapterControl {
   failWrites: boolean;
   /** Wymusza błąd zapisu tylko dla zapytań pasujących do wzorca. */
   failWritesMatching: RegExp | null;
+  /** Wymusza błąd odczytu (SELECT) dla zapytań pasujących do wzorca [audyt-niezalezny B-8]. */
+  failReadsMatching: RegExp | null;
   /** Wymusza błąd otwarcia bazy. */
   failOpen: boolean;
   /** Ścieżki otwartych plików baz (do sprawdzeń w testach). */
@@ -37,7 +39,7 @@ type GlobalWithControl = typeof globalThis & { [KEY]?: AdapterControl };
 export function control(): AdapterControl {
   const g = globalThis as GlobalWithControl;
   if (!g[KEY]) {
-    g[KEY] = { dir: '', failWrites: false, failWritesMatching: null, failOpen: false, opened: [] };
+    g[KEY] = { dir: '', failWrites: false, failWritesMatching: null, failReadsMatching: null, failOpen: false, opened: [] };
   }
   return g[KEY];
 }
@@ -53,6 +55,7 @@ export function useTempDbDir(): string {
   c.dir = fs.mkdtempSync(path.join(os.tmpdir(), 'piekarz-sqlite-'));
   c.failWrites = false;
   c.failWritesMatching = null;
+  c.failReadsMatching = null;
   c.failOpen = false;
   c.opened = [];
   return c.dir;
@@ -98,6 +101,9 @@ function wrap(file: string) {
       throw new Error('SQLITE_FULL: database or disk is full');
     }
   };
+  const guardRead = (sql: string) => {
+    if (c.failReadsMatching && c.failReadsMatching.test(sql)) throw new Error('SQLITE_IOERR_READ: disk I/O error');
+  };
   let inTx = false;
   const self = {
     databasePath: file,
@@ -110,10 +116,14 @@ function wrap(file: string) {
       const r = db.prepare(sql).run(...params(ps));
       return { lastInsertRowId: Number(r.lastInsertRowid), changes: Number(r.changes) };
     },
-    getAllAsync: async <T>(sql: string, ...ps: unknown[]): Promise<T[]> =>
-      db.prepare(sql).all(...params(ps)) as T[],
-    getFirstAsync: async <T>(sql: string, ...ps: unknown[]): Promise<T | null> =>
-      (db.prepare(sql).get(...params(ps)) as T | undefined) ?? null,
+    getAllAsync: async <T>(sql: string, ...ps: unknown[]): Promise<T[]> => {
+      guardRead(sql);
+      return db.prepare(sql).all(...params(ps)) as T[];
+    },
+    getFirstAsync: async <T>(sql: string, ...ps: unknown[]): Promise<T | null> => {
+      guardRead(sql);
+      return (db.prepare(sql).get(...params(ps)) as T | undefined) ?? null;
+    },
     withTransactionAsync: async (fn: () => Promise<void>): Promise<void> => {
       if (inTx) throw new Error('Zagnieżdżona transakcja');
       inTx = true;

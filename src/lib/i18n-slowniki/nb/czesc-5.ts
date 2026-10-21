@@ -145,7 +145,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Gjør fingertesten før du setter brødet i ovnen.',
   'Wykryto uszkodzony stan bazy danych': 'Skadet databasetilstand oppdaget',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Legg deigen på benken, form den lett til en kule og stram overflaten.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Krever mel med et proteininnhold på minimum 13,0 g. Autolyse i 60 minutter uten salt. Svært forsiktig bretting (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Krever mel med et proteininnhold på minimum 13%. Autolyse i 60 minutter uten salt. Svært forsiktig bretting (coil fold).',
   'Wymaga obecności': 'Krever tilstedeværelse',
   'wymaga Piekarz Pro': 'krever Bakeren Pro',
 };

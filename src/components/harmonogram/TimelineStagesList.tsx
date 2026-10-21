@@ -5,7 +5,7 @@
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { ScheduledStage } from '../../scheduler/reverse-scheduler';
@@ -13,6 +13,10 @@ import { czasTrwania } from '../../lib/czas-trwania';
 import { IkonaStartu } from '../start/IkonaStartu';
 
 import { typografia } from '../../ui/tokeny';
+
+/** Szerokość kolumny godzin przy zwykłym tekście (makieta planu). */
+const SZEROKOSC_GODZIN = 65;
+
 export interface TimelineStagesListProps {
   stages: ScheduledStage[];
   formatTime: (d: Date) => string;
@@ -24,6 +28,11 @@ export function TimelineStagesList({
   formatTime,
   formatDayBadge,
 }: TimelineStagesListProps) {
+  // Kolumna godzin rośnie z Dynamic Type; od fontScale 2 (AX1–AX5, jak ekran zakupu 200) godziny idą nad treścią
+  // w pełnej szerokości, bez kolumny kropek [audyt-niezalezny G-5]
+  const { fontScale } = useWindowDimensions();
+  const duzyTekst = fontScale >= 2;
+  const kolumna = duzyTekst ? styles.timeRow : { width: Math.round(SZEROKOSC_GODZIN * Math.max(1, fontScale)) };
   return (
     <View style={styles.container}>
       <Text style={styles.sectionHeading}>{t('Oś czasu przygotowania')}</Text>
@@ -32,8 +41,8 @@ export function TimelineStagesList({
         {stages.map((stage: ScheduledStage, idx: number) => {
           const isColliding = stage.isSleepCollision;
           return (
-            <View key={stage.id} style={styles.timelineItem}>
-              <View style={styles.timeColumn}>
+            <View key={stage.id} testID={`timeline-item-${idx}`} style={[styles.timelineItem, duzyTekst && styles.timelineItemKolumna]}>
+              <View testID={`timeline-time-${idx}`} style={[styles.timeColumn, kolumna]}>
                 <Text style={[styles.startTimeText, isColliding && styles.timeCollision]}>
                   {formatTime(stage.startTime)}
                 </Text>
@@ -41,7 +50,7 @@ export function TimelineStagesList({
                 <Text style={styles.dateText}>{formatDayBadge(stage.startTime)}</Text>
               </View>
 
-              <View style={styles.bulletColumn}>
+              {!duzyTekst && <View testID={`timeline-bullet-${idx}`} style={styles.bulletColumn}>
                 <View
                   style={[
                     styles.bullet,
@@ -53,9 +62,9 @@ export function TimelineStagesList({
                   ]}
                 />
                 {idx < stages.length - 1 && <View style={styles.verticalLine} />}
-              </View>
+              </View>}
 
-              <View style={styles.contentColumn}>
+              <View style={[styles.contentColumn, duzyTekst && styles.contentPelna]}>
                 <View style={styles.stageTitleRow}>
                   <Text style={styles.stageName}>{t(stage.namePl)}</Text>
                 </View>
@@ -119,11 +128,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 16,
   },
+  timelineItemKolumna: {
+    flexDirection: 'column',
+  },
   timeColumn: {
-    width: 65,
     alignItems: 'flex-end',
     paddingRight: 10,
     paddingTop: 2,
+  },
+  timeRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'baseline',
+    columnGap: 6,
+    paddingRight: 0,
+  },
+  contentPelna: {
+    paddingLeft: 0,
   },
   startTimeText: {
     fontSize: typografia.style.przypis.pt,

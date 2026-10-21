@@ -11,6 +11,7 @@ import { odstepy, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { etykietaProfiluSnu } from './TargetReadyCard';
 import type { OknoSnu } from '../../lib/plan-bez-nocy';
+import { czasTrwania } from '../../lib/czas-trwania';
 
 export interface UstawieniaPlanuProps {
   /** Okno snu z Ustawień; null = „Bez godzin snu”. */
@@ -32,7 +33,7 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
       {bezLodowki ? null : (
         <>
           <Text style={styles.naglowek}>
-            {t('Czas w lodówce:')} {coldRetardHours}h
+            {t('Czas w lodówce:')} {czasTrwania(coldRetardHours * 60).tekst}
           </Text>
           <View style={styles.rzad}>
             {[10, 12, 14, 16, 18].map((h) => (
@@ -43,7 +44,7 @@ export function UstawieniaPlanu({ okno, coldRetardHours, onColdRetardHoursChange
                 onPress={() => onColdRetardHoursChange(h)}
                 style={[styles.chip, coldRetardHours === h && styles.chipWybrany]}
               >
-                <Text style={[styles.chipTekst, coldRetardHours === h && styles.chipTekstWybranyAkcent]}>{h}h</Text>
+                <Text style={[styles.chipTekst, coldRetardHours === h && styles.chipTekstWybranyAkcent]}>{czasTrwania(h * 60).tekst}</Text>
               </Pressable>
             ))}
           </View>

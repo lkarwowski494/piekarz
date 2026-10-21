@@ -3,6 +3,10 @@
 export const EN_5: Record<string, string> = {
   // Stolnica
   'Krok {n} z {m}': 'Step {n} of {m}',
+  // Ogłoszenie VoiceOver po zmianie kroku w prowadzeniu [audyt-niezalezny G-1]
+  'Teraz: {nazwa}': 'Now: {nazwa}',
+  // Etykieta VoiceOver wykresu profilu bochenka: oś i ocena 1–5 [audyt-niezalezny G-3]
+  '{nazwa}: {n} z 5': '{nazwa}: {n} of 5',
   'Brak aktywnego wypieku': 'No active bake',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.':
     'Choose a recipe on the Recipes tab and tap “{przycisk}”, or start the standard bake plan below.',
@@ -76,7 +80,7 @@ export const EN_5: Record<string, string> = {
   'Liczba bochenków i gramatura': 'Number of loaves and weight',
   '{masa} / szt.': '{masa} / loaf',
   '{n} szt.': '{n} pcs',
-  '{n}m w {temp}': '{n}m at {temp}',
+  '{n} min w {temp}': '{n} min at {temp}',
   'garnek żeliwny': 'cast-iron pot',
   'foremka keksówka': 'loaf pan',
   'stal piekarska': 'baking steel',

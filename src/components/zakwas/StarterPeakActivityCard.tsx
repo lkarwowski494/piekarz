@@ -11,6 +11,8 @@ import { t, tPlural } from '../../lib/i18n';
 import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import type { SourdoughPhaseResult } from '../../core/sourdough-physics';
 import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
+import { formatTime } from '../../lib/format';
+import { czasTrwania } from '../../lib/czas-trwania';
 
 import { typografia } from '../../ui/tokeny';
 const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' };
@@ -19,6 +21,21 @@ const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dn
 export function etykietaFazyZakwasu(f: SourdoughPhaseResult): string {
   if (!f.labelTemplatePl) return t(f.labelPl);
   return t(f.labelTemplatePl, f.labelDni === undefined ? f.labelParams : { dni: tPlural(f.labelDni, DNI) });
+}
+
+/**
+ * Okno szczytu i parametry komunikatu w języku aplikacji: godziny przez Intl (formatTime), czas „{h} h {m} min”
+ * z kluczy (czasTrwania); bez znaczników czasu — tekst z rdzenia [audyt-niezalezny F-2].
+ */
+export function oknoIStatusSzczytu(p: StarterPeakActivityCardProps['peakPrediction']): { okno: string; params: Record<string, string> } {
+  const okno =
+    p.peakWindowStartTimestamp !== undefined && p.peakWindowEndTimestamp !== undefined
+      ? `${formatTime(p.peakWindowStartTimestamp)} – ${formatTime(p.peakWindowEndTimestamp)}`
+      : p.formattedWindowPl;
+  const params = { ...p.statusParams };
+  if (p.statusMinuty !== undefined && 'czas' in params) params.czas = czasTrwania(p.statusMinuty).tekst;
+  if ('okno' in params) params.okno = okno;
+  return { okno, params };
 }
 
 export interface StarterPeakActivityCardProps {
@@ -32,7 +49,8 @@ export interface StarterPeakActivityCardProps {
     | 'statusMessagePl'
     | 'statusTemplatePl'
     | 'statusParams'
-  >;
+  > &
+    Partial<Pick<PeakPredictionResult, 'peakWindowStartTimestamp' | 'peakWindowEndTimestamp' | 'statusMinuty'>>;
   /** W lodówce okna szczytu nie liczymy (model temperatury 20–26 °C, FER-Q10-902) [M1-audytor-generalny-044]. */
   showPeakWindow?: boolean;
   /** Wybór temperatury otoczenia (faza na odznace); w lodówce ukryty. */
@@ -51,6 +69,7 @@ export function StarterPeakActivityCard({
   onAmbientTempChange,
   unitSystem,
 }: StarterPeakActivityCardProps) {
+  const szczyt = oknoIStatusSzczytu(peakPrediction);
   return (
     <View style={styles.card} testID="peak-activity-card">
       <View style={styles.peakHeaderRow}>
@@ -69,7 +88,7 @@ export function StarterPeakActivityCard({
       <View style={styles.predictionBox} testID="peak-prediction-box">
         <View style={styles.predictionRow}>
           <Text style={styles.predictionLabel}>{t('Szacowane okno szczytu:')}</Text>
-          <Text style={styles.predictionWindowText}>{peakPrediction.formattedWindowPl}</Text>
+          <Text style={styles.predictionWindowText}>{szczyt.okno}</Text>
         </View>
 
         {/* Progress bar */}
@@ -94,7 +113,7 @@ export function StarterPeakActivityCard({
         </View>
 
         <Text style={styles.predictionStatusText}>
-          {t(peakPrediction.statusTemplatePl, peakPrediction.statusParams)}
+          {t(peakPrediction.statusTemplatePl, szczyt.params)}
         </Text>
       </View>
       )}

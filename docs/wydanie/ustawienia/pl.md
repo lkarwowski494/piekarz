@@ -44,7 +44,7 @@ bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,r
 Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3156 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3250 / 4000 znaków · wersja 1.0
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -75,6 +75,7 @@ Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dan
 
 DOSTĘP I ZAKUP
 Pełny dostęp daje subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja może zaczynać się bezpłatnym okresem próbnym (oferta wprowadzająca App Store dla uprawnionych). Bez zakupu przeglądasz historię wypieków, importujesz plik oraz eksportujesz i usuwasz swoje dane.
+Warunki użytkowania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim.
 ```

@@ -95,7 +95,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     expect(allText).toContain('Kiedy chleb ma być gotowy?');
     expect(godzinaPola(root)).toBeGreaterThanOrEqual(0);
     expect(allText).toContain('23°C');
-    expect(allText).toContain('14h');
+    expect(allText).toContain('14 h'); // czas trwania z klucza „{h} h” [audyt-niezalezny F-4]
 
     // Stages from template
     expect(allText).toContain('Dokarmienie zakwasu');
@@ -280,10 +280,10 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     expect(root.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('scenario-'))).toHaveLength(0);
 
     await act(async () => {
-      findButtonByText(root, '18h')!.props.onPress();
+      findButtonByText(root, '18 h')!.props.onPress();
       await Promise.resolve();
     });
-    expect(extractCleanText(root)).toContain('Czas w lodówce: 18h');
+    expect(extractCleanText(root)).toContain('Czas w lodówce: 18 h');
   });
 
   // Profile snu wybiera się w Ustawieniach (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130]: plan pokazuje

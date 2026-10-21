@@ -33,7 +33,7 @@ export function planDoKopii(
 import { t } from './i18n';
 import { announce } from './announce';
 import { formatTemperature } from './unit-converter';
-import { formatTime } from './format';
+import { appLocale, formatDate, formatTime } from './format';
 import { czasTrwania } from './czas-trwania';
 
 /** Godzina etapu w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
@@ -50,9 +50,8 @@ export function formatStageDateBadge(d: Date, refDate = new Date()): string {
   if (diffDays === 1) return t('Jutro');
   if (diffDays === 2) return t('Pojutrze');
   if (diffDays === -1) return t('Wczoraj');
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${day}.${month}`;
+  // Dzień i miesiąc w formacie języka (PL 25.10, EN-US 10/25), nie zawsze „DD.MM” [audyt-niezalezny F-3]
+  return formatDate(d, appLocale(), { day: '2-digit', month: '2-digit' });
 }
 
 export function formatScheduleToText(

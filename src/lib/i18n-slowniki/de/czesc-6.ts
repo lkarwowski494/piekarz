@@ -32,7 +32,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Mach die Fingerprobe, bevor du den Laib in den Ofen schiebst.',
   'Wykryto uszkodzony stan bazy danych': 'Beschädigter Datenbankzustand erkannt',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Gib den Teig auf die Arbeitsfläche, forme ihn grob zu einer Kugel und spanne die Oberfläche.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Erfordert Mehl mit einem Eiweißgehalt von mindestens 13,0 g. Autolyse 60 Minuten ohne Salz. Sehr sanftes Dehnen und Falten (Coil Fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Erfordert Mehl mit einem Eiweißgehalt von mindestens 13%. Autolyse 60 Minuten ohne Salz. Sehr sanftes Dehnen und Falten (Coil Fold).',
   'Wymaga obecności': 'Anwesenheit nötig',
   'wymaga Piekarz Pro': 'erfordert Bäcker Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Das rote Roggenmalz wird zusammen mit gemahlenem Koriander mit kochendem Wasser gebrüht. Bestreue die Oberfläche vor dem Backen mit ganzen Koriandersamen.',

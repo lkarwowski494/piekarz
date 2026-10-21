@@ -65,13 +65,13 @@ const PORY = [
 ] as const;
 
 describe.each(PORY)('Usuń wszystkie dane, zegar %s (124; BR-DANE-004 Usunięcie z potwierdzeniem)', (_pora, now) => {
-  let alerts: Array<{ title: string; buttons?: AlertButton[] }> = [];
+  let alerts: Array<{ title: string; msg?: string; buttons?: AlertButton[] }> = [];
 
   beforeEach(async () => {
     jest.spyOn(Date, 'now').mockImplementation(() => now);
     alerts = [];
-    jest.spyOn(Alert, 'alert').mockImplementation((title, _msg, buttons) => {
-      alerts.push({ title, buttons });
+    jest.spyOn(Alert, 'alert').mockImplementation((title, msg, buttons) => {
+      alerts.push({ title, msg, buttons });
     });
     useTempDbDir();
     mockFiles.clear();
@@ -107,6 +107,10 @@ describe.each(PORY)('Usuń wszystkie dane, zegar %s (124; BR-DANE-004 Usunięcie
       wiersz.props.onPress();
     });
     const pytanie = alerts.find((a) => a.title === 'Usunąć wszystkie dane?');
+    // [audyt-niezalezny B-4] potwierdzenie mówi, że kopie zapasowe zostają w aplikacji Pliki i gdzie je usunąć
+    expect(pytanie?.msg).toBe(
+      'Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.'
+    );
     expect(pytanie?.buttons?.map((b) => [b.text, b.style])).toEqual([
       ['Anuluj', 'cancel'],
       ['Usuń wszystko', 'destructive'],

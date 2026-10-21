@@ -35,4 +35,6 @@ export const EN_17: Record<string, string> = {
   'Mąka żytnia': 'Rye flour',
   'Mąka żytnia, białko 8,1%': 'Rye flour, protein 8.1%',
   'Białko w badanej próbce: 8,1%. Popiół według polskich norm: 1,31–1,60%.': 'Protein in the tested sample: 8.1%. Ash under Polish standards: 1.31–1.60%.',
+  'Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.': 'This backup comes from a newer version of Baker. Update the app and import the file again.',
+  'Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.': 'Before deleting, I\'ll save a copy of your current data. Backups stay in the Files app, in this app\'s folder; you can delete them there yourself.',
 };

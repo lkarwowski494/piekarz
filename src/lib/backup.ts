@@ -141,17 +141,19 @@ async function writeBackupFile(
     throw e;
   }
 
-  // Rotacja puli
+  // Rotacja puli. Kopia zapisana teraz zostaje zawsze, także gdy zegar cofnięto i jej nazwa sortuje się jako
+  // najstarsza; z pozostałych zostaje AUTO_KEEP - 1 najnowszych [audyt-niezalezny B-5]
   try {
     const files = await FileSystem.readDirectoryAsync(dir);
     const pool = files
+      .filter((f) => f !== name)
       .map((f) => [f, re.exec(f)] as const)
       .filter((x): x is readonly [string, RegExpExecArray] => !!x[1]);
 
     const oldFiles = pool
       .map(([f, m]) => [f, poolKey(m)] as const)
       .sort((a, b) => (a[1] < b[1] ? 1 : a[1] > b[1] ? -1 : 0))
-      .slice(AUTO_KEEP);
+      .slice(AUTO_KEEP - 1);
 
     for (const [f] of oldFiles) {
       await FileSystem.deleteAsync(`${dir}${f}`, { idempotent: true });
