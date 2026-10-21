@@ -934,6 +934,11 @@
       "src/core/starter-peak-predictor.ts (dane: kod)"
     ]
   },
+  "Do {godzina}.": {
+    "gdzie": [
+      "src/lib/notifications.ts (body)"
+    ]
+  },
   "Dobierz proporcje i potrzebną masę zaczynu do wypieku": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
@@ -8285,6 +8290,11 @@
   "{krok} wypada o {godzina} w nocy": {
     "gdzie": [
       "src/components/harmonogram/SleepGuardBanner.tsx (kod)"
+    ]
+  },
+  "{krok}: czas zacząć": {
+    "gdzie": [
+      "src/lib/notifications.ts (title)"
     ]
   },
   "{maka} mąki + {woda} wody": {

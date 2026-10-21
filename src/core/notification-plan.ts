@@ -58,8 +58,8 @@ export interface PlanStarter {
   lastFedAt?: number;
 }
 export interface PlanBakeSession {
-  /** Kroki sesji: nazwa i rodzaj kroku z planu, nie ze stałej listy [M1-audytor-generalny-030]. */
-  steps: readonly Pick<SessionStep, 'id' | 'name' | 'category'>[];
+  /** Kroki sesji: nazwa i rodzaj kroku z planu, nie ze stałej listy [M1-audytor-generalny-030]; koniec z planu, gdy jest. */
+  steps: readonly (Pick<SessionStep, 'id' | 'name' | 'category'> & Partial<Pick<SessionStep, 'plannedEnd'>>)[];
   stepIdx: number;
   dutchOvenPhase: 'lid_on' | 'lid_off';
   timerEndsAt: number | null;
@@ -78,9 +78,19 @@ export function planBakeNotification(session: PlanBakeSession | null, now: numbe
     triggerAt: session.timerEndsAt,
     level: TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active',
     textKey,
-    params: { stepId: step.id, stepName: step.name },
+    params: { stepId: step.id, stepName: step.name, ...parametryNastepnego(session.steps, session.stepIdx) },
     route: '/stolnica',
   };
+}
+
+/**
+ * Następny krok do powiadomienia o końcu kroku: nazwa i planowany koniec (ms jako tekst), gdy są
+ * (BR-CZAS-002: „powiadomienie z nazwą następnego kroku”; design-spec §10) [M1-audytor-generalny-130].
+ */
+function parametryNastepnego(steps: PlanBakeSession['steps'], i: number): Record<string, string> {
+  const nast = steps[i + 1];
+  if (!nast) return {};
+  return { nextName: nast.name, ...(nast.plannedEnd != null ? { nextEnd: String(nast.plannedEnd) } : {}) };
 }
 
 export interface PlanBakeSessionWithPlan extends Omit<PlanBakeSession, 'steps'> {
@@ -101,11 +111,15 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
     const oven = isDutchOvenStep(step);
     if (!oven && step.durationMin === null) return;
     const level: NotificationLevel = TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active';
-    const base = { kind: 'krok' as const, level, params: { stepId: step.id, stepName: step.name }, route: '/stolnica' as const };
+    const params = { stepId: step.id, stepName: step.name };
+    const base = { kind: 'krok' as const, level, params, route: '/stolnica' as const };
     const lidAt = oven && step.plannedStart !== null ? step.plannedStart + DUTCH_OVEN_PHASES.lid_on.durationMin * 60_000 : null;
     if (lidAt !== null && lidAt > now) out.push({ ...base, id: `${NOTIF_PREFIX}krok.${i}.pokrywka`, triggerAt: lidAt, textKey: 'krok.zdejmijPokrywke' });
     if (step.plannedEnd > now) {
-      out.push({ ...base, id: `${NOTIF_PREFIX}krok.${i}`, triggerAt: step.plannedEnd, textKey: oven ? 'krok.wypiekGotowy' : 'krok.koniec' });
+      out.push({
+        ...base, id: `${NOTIF_PREFIX}krok.${i}`, triggerAt: step.plannedEnd, textKey: oven ? 'krok.wypiekGotowy' : 'krok.koniec',
+        params: { ...params, ...parametryNastepnego(session.steps, i) },
+      });
     }
   });
   return out;

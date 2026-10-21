@@ -5,6 +5,16 @@
       "klucz": "Kiedy chleb ma być gotowy?",
       "powod": "nowy tytuł planu wypieku według wzorca plan-sen (M1-audytor-generalny-128); przekład we wspólnym batchu partii 9 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "{krok}: czas zacząć",
+      "powod": "powiadomienie o końcu kroku z następnym krokiem i godziną (BR-CZAS-002, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Do {godzina}.",
+      "powod": "powiadomienie o końcu kroku z następnym krokiem i godziną (BR-CZAS-002, M1-audytor-generalny-130); przekład we wspólnym batchu partii 9 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

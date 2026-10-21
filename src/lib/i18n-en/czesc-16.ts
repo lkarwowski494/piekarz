@@ -48,4 +48,7 @@ export const EN_16: Record<string, string> = {
     'With a preferment (poolish, biga, old dough, levain), you choose how much flour goes into it; “Into the bowl” shows the preferment and the dough separately.',
   // Plan wypieku, stan plan-sen (`pl.kiedy` w docs/design/ekrany/teksty.js) [M1-audytor-generalny-128]
   'Kiedy chleb ma być gotowy?': 'When should the bread be ready?',
+  // Powiadomienie o końcu kroku: następny krok i jego godzina (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130]
+  '{krok}: czas zacząć': '{krok}: time to start',
+  'Do {godzina}.': 'Until {godzina}.',
 };
