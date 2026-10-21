@@ -143,7 +143,8 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
 
     let allText = extractCleanText(root);
     expect(allText).toContain('Zbyt kwaśny, octowy smak');
-    expect(allText).toContain('Acetobacter');
+    expect(allText).toContain('niedokarmionym zakwasem');
+    expect(allText).not.toContain('Acetobacter'); // brak twierdzenia [M1-audytor-generalny-163]
 
     // Test bland preset
     const blandBtn = findButtonByText(root, 'Płaski smak (Jałowy)');

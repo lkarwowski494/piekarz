@@ -2395,6 +2395,11 @@
       "src/components/stolnica/FinishBakeModal.tsx (sour)"
     ]
   },
+  "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
   "Kładź placek na suchą patelnię. Smaż ok. 1,5–2 minuty, aż powstaną wielkie bąble i przypalenia, obróć i smaż jeszcze 1 minutę.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
@@ -4616,11 +4621,6 @@
   "Przetwarzanie...": {
     "gdzie": [
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
-    ]
-  },
-  "Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
   "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {

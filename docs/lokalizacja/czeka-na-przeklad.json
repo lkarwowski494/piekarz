@@ -10,6 +10,11 @@
       "klucz": "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
       "powod": "zakres DDT w °C zawężony do 24–25,5 °C, żeby tryb imperialny pokazał 75–78 °F jak źródło DIA-DDT-001 (M1-audytor-generalny-208); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.",
+      "powod": "usunięte zdanie o Acetobacter bez twierdzenia; pole przyczyny ma teraz tylko zdanie z KWA-GLO-001, KWA-HYD-001, KWA-TEM-001 (M1-audytor-generalny-163); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

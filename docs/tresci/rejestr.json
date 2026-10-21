@@ -722,7 +722,7 @@
     "twierdzenie": "Zmniejszona ilość zakwasu (15%) i wydłużona fermentacja w chłodzie sprzyjają namnażaniu bakterii octowych (src/recipes/presets.ts, preset San Francisco).",
     "zrodla": [],
     "status": "wycofane",
-    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) wiąże niższą temperaturę z kwasem octowym (KWA-TEM-001), nie z namnażaniem bakterii octowych; kwas octowy wytwarzają też heterofermentatywne bakterie mlekowe. Mniejsza ilość zakwasu: źródło mówi odwrotnie o kwasowości („using more starter in a bread recipe can yield more acidic bread doughs”), więc związek z ilością zakwasu usunięty.",
+    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) wiąże niższą temperaturę z kwasem octowym (KWA-TEM-001), nie z namnażaniem bakterii octowych; kwas octowy wytwarzają też heterofermentatywne bakterie mlekowe. Mniejsza ilość zakwasu: źródło mówi odwrotnie o kwasowości („using more starter in a bread recipe can yield more acidic bread doughs”), więc związek z ilością zakwasu usunięty. 2026-10-21 (M1-audytor-generalny-163, 06-tresci-505): z przyczyny Doktora EXCESSIVELY_SOUR usunięte zdanie o przewadze bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym — rejestr nie ma takiego twierdzenia, kwas octowy w zakwasie opisuje KWA-HYD-001 (szczepy heterofermentatywne bakterii mlekowych).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
