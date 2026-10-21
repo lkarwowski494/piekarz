@@ -30,6 +30,17 @@ const WYJATKI_SKALI: Record<string, string> = {
   'src/components/TabIcon.tsx':
     'etykieta paska zakładek: na iOS pasek systemowy nie powiększa etykiet z Dynamic Type, przy dużym tekście pokazuje je przytrzymanie (Large Content Viewer); allowFontScaling={false}',
 };
+/**
+ * Nazwany wyjątek (reaudit-noc N-2, 201): godzina „gotowe” i czas kroku w tokenie `czas` (99 pt przy AX5) w jednym
+ * wierszu z dopasowaniem rozmiaru — tylko numberOfLines={1}, adjustsFontSizeToFit i minimumFontScale={0.5}. Bez tego
+ * en-US „9:45 AM” i „1:05:00” przy 320 pt łamią cyfry w dwa wiersze. Najdłuższy tekst („12:45 PM”, 8 znaków) przy 0,5
+ * (ok. 50 pt) ma ok. 200 pt przy ok. 260 pt pola, więc nic nie jest ucinane (cel reguły §3 zostaje).
+ */
+const WYJATKI_JEDEN_WIERSZ: Record<string, string> = {
+  'src/components/harmonogram/TargetReadyCard.tsx': 'godzina „gotowe” na planie (token czas)',
+  'src/components/stolnica/StrefaKroku.tsx': 'czas kroku w prowadzeniu (token czas)',
+};
+const JEDEN_WIERSZ: Record<string, string> = { numberOfLines: '{1}', adjustsFontSizeToFit: '', minimumFontScale: '{0.5}' };
 const STYL_TYTULU = /^(title|heading)$|Title|Heading|Clock|Price/;
 
 describe('055: duży tekst i krój tytułów', () => {
@@ -48,7 +59,8 @@ describe('055: duży tekst i krój tytułów', () => {
             // tego samego stylu (czas 99 / 56) — rozmiar przy AX5 z tokenów, nie dowolny limit [M1-audytor-generalny-201]
             const zTokenow = nazwa === 'maxFontSizeMultiplier' &&
               /^\{\s*typografia\.style\.(\w+)\.ax5\s*\/\s*typografia\.style\.\1\.pt\s*\}$/.test(a.initializer?.getText(sf) ?? '');
-            if (LIMITY.includes(nazwa) && !zTokenow) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
+            const jedenWiersz = !!WYJATKI_JEDEN_WIERSZ[rel(f)] && JEDEN_WIERSZ[nazwa] === (a.initializer?.getText(sf) ?? '');
+            if (LIMITY.includes(nazwa) && !zTokenow && !jedenWiersz) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
             if (nazwa === 'allowFontScaling' && /false/.test(a.initializer?.getText(sf) ?? '') && !WYJATKI_SKALI[rel(f)]) {
               znalezione.push(`${rel(f)}:${linia} allowFontScaling={false}`);
             }
