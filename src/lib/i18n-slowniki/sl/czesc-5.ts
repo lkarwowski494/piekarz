@@ -123,7 +123,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Vpliva na hitrost prvega vzhajanja: 10 °C nižja temperatura pomeni približno 3-krat daljše vzhajanje (približek iz raziskovalnega modela, velja pri 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Vnesite edinstveno ime za to razmerje sestavin',
   'Wraca powoli do połowy:': 'Počasi se vrne do polovice:',
-  'Wróć': 'Nazaj',
   'Wróć do edycji': 'Nazaj na urejanje',
   'Wróć do wypieku': 'Nazaj k peki',
   'wrz': 'sep',
@@ -147,6 +146,5 @@ export const CZESC: Record<string, string> = {
   'Wybierz objawy bochenka': 'Izberite simptome hlebca',
   'Wybierz recepturę': 'Izberi recept',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Na zavihku Recepti izberite recept in tapnite „{przycisk}“ ali spodaj začnite standardni načrt peke.',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'Izbrani element ne obstaja ali je bil že izbrisan.',
   'Wyczyść': 'Počisti',
 };

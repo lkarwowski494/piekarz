@@ -98,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Bu saate yetişemezsiniz',
   'Nie znaleziono aktywnych zakupów': 'Etkin satın alım bulunamadı',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Aranan ifade için karşılık bulunamadı.',
-  'Nie znaleziono rekordu': 'Kayıt bulunamadı',
   'Niedofermentowanie': 'Yetersiz fermantasyon',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Yetersiz fermente olmuş. 30–60 dakika daha sıcak bir yerde bırakın.',
   'Niedz.': 'Paz',

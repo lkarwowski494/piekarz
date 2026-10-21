@@ -129,7 +129,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Không kịp vào giờ này',
   'Nie znaleziono aktywnych zakupów': 'Không tìm thấy giao dịch mua nào đang hiệu lực',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Không tìm thấy loại tương đương với cụm từ đã nhập.',
-  'Nie znaleziono rekordu': 'Không tìm thấy bản ghi',
   'Niedofermentowanie': 'Lên men chưa đủ',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Ủ chưa đủ. Để ở chỗ ấm thêm 30–60 phút.',
   'Niedz.': 'CN',

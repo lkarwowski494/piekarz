@@ -114,7 +114,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': '이 시간에는 맞출 수 없어요',
   'Nie znaleziono aktywnych zakupów': '활성화된 구매 내역이 없어요',
   'Nie znaleziono odpowiednika dla podanej frazy.': '검색어에 맞는 대응 가루를 찾지 못했어요.',
-  'Nie znaleziono rekordu': '기록을 찾을 수 없음',
   'Niedofermentowanie': '발효 부족',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': '발효 부족이에요. 따뜻한 곳에 30–60분 더 두세요.',
   'Niedz.': '일',

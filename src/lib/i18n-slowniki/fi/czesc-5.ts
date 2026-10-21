@@ -138,7 +138,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Vaikuttaa ensimmäisen kohotuksen nopeuteen: 10 °C viileämpi tarkoittaa noin 3 kertaa pidempää käymistä (tutkimusmallin likiarvo, pätee 20–26 °C:ssa).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Anna tälle ainesten suhteelle yksilöllinen nimi',
   'Wraca powoli do połowy:': 'Palautuu hitaasti puoliväliin:',
-  'Wróć': 'Takaisin',
   'Wróć do edycji': 'Palaa muokkaamaan',
   'Wróć do wypieku': 'Palaa leivontaan',
   'wrz': 'syys',

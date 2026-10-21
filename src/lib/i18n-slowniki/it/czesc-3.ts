@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Non fai in tempo per quest\'ora',
   'Nie znaleziono aktywnych zakupów': 'Nessun acquisto attivo trovato',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Nessun equivalente trovato per la ricerca.',
-  'Nie znaleziono rekordu': 'Record non trovato',
   'Niedofermentowanie': 'Sottolievitazione',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Poco lievitato. Lascialo al caldo per altri 30–60 minuti.',
   'Niedz.': 'Dom.',

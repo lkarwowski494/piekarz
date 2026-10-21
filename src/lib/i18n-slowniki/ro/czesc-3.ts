@@ -106,7 +106,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Nu reușești până la ora asta',
   'Nie znaleziono aktywnych zakupów': 'Nu s-au găsit achiziții active',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Nu s-a găsit niciun echivalent pentru expresia căutată.',
-  'Nie znaleziono rekordu': 'Înregistrarea nu a fost găsită',
   'Niedofermentowanie': 'Fermentare insuficientă',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Fermentat insuficient. Lasă-l la cald încă 30–60 de minute.',
   'Niedz.': 'Dum.',

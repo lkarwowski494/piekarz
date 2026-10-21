@@ -141,7 +141,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'この時刻には間に合いません',
   'Nie znaleziono aktywnych zakupów': '有効な購入が見つかりません',
   'Nie znaleziono odpowiednika dla podanej frazy.': '該当する対応品が見つかりませんでした。',
-  'Nie znaleziono rekordu': 'データが見つかりません',
   'Niedofermentowanie': '発酵不足',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': '発酵不足です。暖かい場所であと30–60分置いてください。',
   'Niedz.': '日',

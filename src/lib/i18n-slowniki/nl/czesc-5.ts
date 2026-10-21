@@ -131,7 +131,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Beïnvloedt het tempo van de bulkrijs: 10 °C kouder betekent ongeveer 3 keer zo lang rijzen (benadering uit een onderzoeksmodel, geldig bij 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Voer een unieke naam in voor deze verhouding van ingrediënten',
   'Wraca powoli do połowy:': 'Veert langzaam half terug:',
-  'Wróć': 'Terug',
   'Wróć do edycji': 'Terug naar bewerken',
   'Wróć do wypieku': 'Terug naar bakken',
   'wrz': 'sep',

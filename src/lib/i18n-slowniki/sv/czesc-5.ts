@@ -123,7 +123,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Påverkar takten i första jäsningen (Bulk): 10 °C kallare ger ungefär 3 gånger längre jäsning (approximation från en forskningsmodell, gäller vid 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Ange ett unikt namn för den här ingrediensproportionen',
   'Wraca powoli do połowy:': 'Fjädrar långsamt tillbaka till hälften:',
-  'Wróć': 'Tillbaka',
   'Wróć do edycji': 'Tillbaka till redigering',
   'Wróć do wypieku': 'Tillbaka till baket',
   'wrz': 'sep',

@@ -139,7 +139,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'İlk fermantasyon (Bulk) hızını etkiler: 10 °C daha düşük sıcaklık, yaklaşık 3 kat daha uzun fermantasyon demektir (araştırma modelinden yaklaşık değer, 20–26 °C aralığında geçerlidir).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Bu malzeme oranı için benzersiz bir ad girin',
   'Wraca powoli do połowy:': 'Yavaşça yarıya kadar geri dönüyor:',
-  'Wróć': 'Geri',
   'Wróć do edycji': 'Düzenlemeye dön',
   'Wróć do wypieku': 'Pişirmeye Dön',
   'wrz': 'Eyl',

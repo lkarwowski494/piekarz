@@ -47,6 +47,11 @@ const SIEROTY: Array<[string, string]> = [
   // [M2-koordynator-napraw-401 (p12b3)]: po p12b3 bez miejsca użycia
   ['Zmień język na {nazwa}', '401 (p12b3)'],
   ['Upieczony bochenek', '401 (p12b3)'],
+  // [M2-koordynator-napraw-633 (p12c)]: teksty usuniętego src/components/ui.tsx (5665342)
+  ['Nie znaleziono rekordu', '633 (p12c)'],
+  ['Wybrany element nie istnieje lub został wcześniej usunięty.', '633 (p12c)'],
+  ['Wróć', '633 (p12c)'],
+  ['Wyczyść wyszukiwanie', '633 (p12c)'],
 ];
 
 describe('słowniki bez osieroconych kluczy (p13a)', () => {

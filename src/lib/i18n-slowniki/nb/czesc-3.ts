@@ -86,7 +86,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Du rekker ikke dette tidspunktet',
   'Nie znaleziono aktywnych zakupów': 'Fant ingen aktive kjøp',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Fant ingen tilsvarende for søkeordet.',
-  'Nie znaleziono rekordu': 'Fant ikke oppføringen',
   'Niedofermentowanie': 'Underheving',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Underhevet. La det stå varmt i ytterligere 30–60 minutter.',
   'Niedz.': 'Søn.',

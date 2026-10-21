@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Masukkan nama unik untuk nisbah bahan ini',
   'Wraca powoli do połowy:': 'Kembali perlahan-lahan separuh:',
-  'Wróć': 'Kembali',
   'Wróć do edycji': 'Kembali mengedit',
   'Wróć do wypieku': 'Kembali ke Bakaran',
   'wrz': 'Sep',
@@ -27,10 +26,8 @@ export const CZESC: Record<string, string> = {
   'Wybierz objawy bochenka': 'Pilih simptom buku roti',
   'Wybierz recepturę': 'Pilih Resipi',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Pilih resipi di tab Resipi dan ketik “{przycisk}”, atau mulakan pelan bakaran standard di bawah.',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'Item yang dipilih tidak wujud atau telah dipadam sebelum ini.',
   'Wyczyść': 'Kosongkan',
   'Wyczyść wklejony tekst': 'Kosongkan teks yang ditampal',
-  'Wyczyść wyszukiwanie': 'Kosongkan carian',
   'Wyczyść zaznaczone objawy': 'Kosongkan simptom yang ditandakan',
   'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Penapaian sejuk yang dipanjangkan (18–24 jam pada 4°C). Suhu penapaian yang lebih rendah dikaitkan dengan asid asetik. Dibakar dengan wap yang kuat.',
   'Wyjmij chleb z garnka na kratkę.': 'Keluarkan roti dari periuk ke atas rak dawai.',

@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Je haalt dit tijdstip niet',
   'Nie znaleziono aktywnych zakupów': 'Geen actieve aankopen gevonden',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Geen equivalent gevonden voor deze zoekterm.',
-  'Nie znaleziono rekordu': 'Item niet gevonden',
   'Niedofermentowanie': 'Onvoldoende gerezen',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Onderrezen. Laat nog 30–60 minuten op een warme plek staan.',
   'Niedz.': 'Zo',

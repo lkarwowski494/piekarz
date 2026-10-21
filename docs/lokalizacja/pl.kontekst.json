@@ -3455,9 +3455,6 @@
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)"
     ]
   },
-  "Nie znaleziono rekordu": {
-    "gdzie": []
-  },
   "Niedofermentowanie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
@@ -6616,9 +6613,6 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: proTipsPl)"
     ]
   },
-  "Wróć": {
-    "gdzie": []
-  },
   "Wróć do edycji": {
     "gdzie": [
       "src/lib/confirm.ts (text)"
@@ -6767,9 +6761,6 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
-  "Wybrany element nie istnieje lub został wcześniej usunięty.": {
-    "gdzie": []
-  },
   "Wyczyść": {
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
@@ -6779,9 +6770,6 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (accessibilityLabel)"
     ]
-  },
-  "Wyczyść wyszukiwanie": {
-    "gdzie": []
   },
   "Wyczyść zaznaczone objawy": {
     "gdzie": [

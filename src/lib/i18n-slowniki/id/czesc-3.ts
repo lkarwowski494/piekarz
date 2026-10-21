@@ -98,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Tidak sempat pada jam ini',
   'Nie znaleziono aktywnych zakupów': 'Tidak ada pembelian aktif',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Padanan untuk kata kunci ini tidak ditemukan.',
-  'Nie znaleziono rekordu': 'Data tidak ditemukan',
   'Niedofermentowanie': 'Kurang fermentasi',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Fermentasi kurang. Biarkan di tempat hangat 30–60 menit lagi.',
   'Niedz.': 'Min',

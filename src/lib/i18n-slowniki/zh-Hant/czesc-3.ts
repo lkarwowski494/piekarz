@@ -76,7 +76,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': '時間來不及',
   'Nie znaleziono aktywnych zakupów': '找不到有效的購買項目',
   'Nie znaleziono odpowiednika dla podanej frazy.': '找不到符合此關鍵字的對應麵粉。',
-  'Nie znaleziono rekordu': '找不到紀錄',
   'Niedofermentowanie': '發酵不足',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': '發酵不足。放在溫暖處再發酵 30–60 分鐘。',
   'Niedz.': '週日',

@@ -133,7 +133,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Ovlivňuje rychlost prvního kynutí (bulk): o 10 °C nižší teplota znamená zhruba 3krát delší fermentaci (přiblížení podle výzkumného modelu, platí pro 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Zadejte jedinečný název pro tento poměr surovin',
   'Wraca powoli do połowy:': 'Pomalu se vrací do poloviny:',
-  'Wróć': 'Zpět',
   'Wróć do edycji': 'Zpět k úpravám',
   'Wróć do wypieku': 'Zpět k pečení',
   'wrz': 'zář',

@@ -89,7 +89,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Selleks kellaajaks ei jõua',
   'Nie znaleziono aktywnych zakupów': 'Aktiivseid oste ei leitud',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Sisestatud otsingule vastet ei leitud.',
-  'Nie znaleziono rekordu': 'Kirjet ei leitud',
   'Niedofermentowanie': 'Alakergitus',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Alakergitunud. Jäta veel 30–60 minutiks sooja.',
   'Niedz.': 'P',

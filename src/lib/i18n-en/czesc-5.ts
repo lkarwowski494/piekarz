@@ -110,8 +110,4 @@ export const EN_5: Record<string, string> = {
   // Ustawienia, elementy wspólne
   'Eksportowanie...': 'Exporting...',
   'Importowanie...': 'Importing...',
-  'Nie znaleziono rekordu': 'Record not found',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'The selected item does not exist or has already been deleted.',
-  'Wróć': 'Back',
-  'Wyczyść wyszukiwanie': 'Clear search',
 };

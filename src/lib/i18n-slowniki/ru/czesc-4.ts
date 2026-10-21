@@ -26,7 +26,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Не успеете к этому времени',
   'Nie znaleziono aktywnych zakupów': 'Активные покупки не найдены',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Для этого запроса соответствие не найдено.',
-  'Nie znaleziono rekordu': 'Запись не найдена',
   'Niedofermentowanie': 'Недоброд',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Недобродил. Оставьте в тепле ещё на 30–60 минут.',
   'Niedz.': 'Вс',

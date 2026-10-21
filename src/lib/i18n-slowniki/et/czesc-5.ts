@@ -122,7 +122,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Mõjutab põhikergituse kiirust: 10 °C madalam temperatuur tähendab umbes 3 korda pikemat kääritust (uurimismudeli lähendus, kehtib vahemikus 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Sisesta selle koostisosade vahekorra jaoks unikaalne nimi',
   'Wraca powoli do połowy:': 'Taastub aeglaselt poolenisti:',
-  'Wróć': 'Tagasi',
   'Wróć do edycji': 'Tagasi muutma',
   'Wróć do wypieku': 'Tagasi küpsetamise juurde',
   'wrz': 'sept',
@@ -146,9 +145,7 @@ export const CZESC: Record<string, string> = {
   'Wybierz objawy bochenka': 'Vali pätsi sümptomid',
   'Wybierz recepturę': 'Vali retsept',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Vali retsept vahekaardil Retseptid ja puuduta „{przycisk}“ või alusta allpool tavalist küpsetusplaani.',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'Valitud elementi ei ole olemas või see on juba kustutatud.',
   'Wyczyść': 'Tühjenda',
   'Wyczyść wklejony tekst': 'Tühjenda kleebitud tekst',
-  'Wyczyść wyszukiwanie': 'Tühjenda otsing',
   'Wyczyść zaznaczone objawy': 'Tühjenda valitud sümptomid',
 };

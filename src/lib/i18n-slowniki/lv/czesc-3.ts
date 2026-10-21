@@ -103,7 +103,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Līdz šim laikam nepaspēsiet',
   'Nie znaleziono aktywnych zakupów': 'Aktīvi pirkumi nav atrasti',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Ievadītajai frāzei atbilstība nav atrasta.',
-  'Nie znaleziono rekordu': 'Ieraksts nav atrasts',
   'Niedofermentowanie': 'Nepietiekama fermentācija',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Nepietiekami uzrūdzis. Atstājiet siltumā vēl 30–60 minūtes.',
   'Niedz.': 'Svētd.',

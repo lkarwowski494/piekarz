@@ -51,7 +51,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Δεν προλαβαίνετε αυτή την ώρα',
   'Nie znaleziono aktywnych zakupów': 'Δεν βρέθηκαν ενεργές αγορές',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Δεν βρέθηκε αντιστοιχία για τον όρο αναζήτησης.',
-  'Nie znaleziono rekordu': 'Η εγγραφή δεν βρέθηκε',
   'Niedofermentowanie': 'Ελλιπής ζύμωση',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Δεν έχει ωριμάσει αρκετά. Αφήστε το σε ζεστό μέρος για άλλα 30–60 λεπτά.',
   'Niedz.': 'Κυρ.',

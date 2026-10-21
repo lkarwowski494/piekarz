@@ -96,10 +96,6 @@ const PARY: [string, string][] = [
   ['100% Płynny Levain', '100% Liquid Levain'],
   ['Eksportowanie...', 'Exporting...'],
   ['Importowanie...', 'Importing...'],
-  ['Nie znaleziono rekordu', 'Record not found'],
-  ['Wybrany element nie istnieje lub został wcześniej usunięty.', 'The selected item does not exist or has already been deleted.'],
-  ['Wróć', 'Back'],
-  ['Wyczyść wyszukiwanie', 'Clear search'],
 ];
 
 const params = (s: string) => [...s.matchAll(/\{(\w+)\}/g)].map((m) => m[1]).sort();

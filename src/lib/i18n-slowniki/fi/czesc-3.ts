@@ -98,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Et ehdi tähän kellonaikaan',
   'Nie znaleziono aktywnych zakupów': 'Aktiivisia ostoja ei löytynyt',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Hakusanalla ei löytynyt vastinetta.',
-  'Nie znaleziono rekordu': 'Tietuetta ei löytynyt',
   'Niedofermentowanie': 'Alikohotus',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Alikohonnut. Jätä lämpimään vielä 30–60 minuutiksi.',
   'Niedz.': 'Su',

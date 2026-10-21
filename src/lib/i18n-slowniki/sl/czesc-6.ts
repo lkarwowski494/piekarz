@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wyczyść wklejony tekst': 'Počisti prilepljeno besedilo',
-  'Wyczyść wyszukiwanie': 'Počisti iskanje',
   'Wyczyść zaznaczone objawy': 'Počisti označene simptome',
   'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Podaljšana fermentacija na hladnem (18–24 h pri 4 °C). Nižjo temperaturo fermentacije povezujejo z ocetno kislino. Peka z obilo pare.',
   'Wyjmij chleb z garnka na kratkę.': 'Prestavite kruh iz lonca na rešetko.',

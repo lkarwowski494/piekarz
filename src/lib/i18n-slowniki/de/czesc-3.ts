@@ -106,7 +106,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Bis zu dieser Uhrzeit nicht machbar',
   'Nie znaleziono aktywnych zakupów': 'Keine aktiven Käufe gefunden',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Für den Suchbegriff wurde keine Entsprechung gefunden.',
-  'Nie znaleziono rekordu': 'Eintrag nicht gefunden',
   'Niedofermentowanie': 'Untergare',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Zu wenig Gare. Lass den Teig weitere 30–60 Minuten im Warmen stehen.',
   'Niedz.': 'So',

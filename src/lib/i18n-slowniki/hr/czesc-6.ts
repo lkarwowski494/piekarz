@@ -3,10 +3,8 @@
 export const CZESC: Record<string, string> = {
   'Wybierz recepturę': 'Odaberi recepturu',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Odaberi recepturu na kartici Recepture i dodirni „{przycisk}” ili započni standardni plan pečenja u nastavku.',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'Odabrana stavka ne postoji ili je već izbrisana.',
   'Wyczyść': 'Očisti',
   'Wyczyść wklejony tekst': 'Očisti zalijepljeni tekst',
-  'Wyczyść wyszukiwanie': 'Očisti pretraživanje',
   'Wyczyść zaznaczone objawy': 'Očisti označene simptome',
   'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Produljena fermentacija na hladnom (18–24 h na 4 °C). Niža temperatura fermentacije povezuje se s octenom kiselinom. Pečenje uz jako zaparivanje.',
   'Wyjmij chleb z garnka na kratkę.': 'Izvadi kruh iz lonca na rešetku.',

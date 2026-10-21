@@ -108,7 +108,6 @@ export const CZESC: Record<string, string> = {
   'Nie zdążysz na tę godzinę': 'Ez az időpont nem tartható',
   'Nie znaleziono aktywnych zakupów': 'Nem található aktív vásárlás',
   'Nie znaleziono odpowiednika dla podanej frazy.': 'Nem található megfelelő a megadott kifejezésre.',
-  'Nie znaleziono rekordu': 'A rekord nem található',
   'Niedofermentowanie': 'Alulérlelés',
   'Niedofermentowany. Pozostaw w cieple na kolejne 30–60 minut.': 'Alulkelt. Hagyd melegen még 30–60 percig.',
   'Niedz.': 'V.',

@@ -2,10 +2,8 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Välj ett recept på fliken Recept och tryck på ”{przycisk}”, eller starta standardplanen för bak nedan.',
-  'Wybrany element nie istnieje lub został wcześniej usunięty.': 'Det valda objektet finns inte eller har redan raderats.',
   'Wyczyść': 'Rensa',
   'Wyczyść wklejony tekst': 'Rensa inklistrad text',
-  'Wyczyść wyszukiwanie': 'Rensa sökning',
   'Wyczyść zaznaczone objawy': 'Rensa markerade symtom',
   'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Förlängd kall jäsning (18–24 h i 4 °C). Lägre jästemperatur förknippas med ättiksyra. Grädda med kraftig ånga.',
   'Wyjmij chleb z garnka na kratkę.': 'Ta ut brödet ur grytan och lägg det på gallret.',

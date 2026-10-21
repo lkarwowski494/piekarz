@@ -76,7 +76,6 @@ export const CZESC: Record<string, string> = {
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Επηρεάζει τον ρυθμό της κύριας ζύμωσης: 10 °C χαμηλότερα σημαίνει περίπου 3 φορές μεγαλύτερη ζύμωση (προσέγγιση από ερευνητικό μοντέλο, ισχύει στους 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Εισαγάγετε ένα μοναδικό όνομα για αυτή την αναλογία υλικών',
   'Wraca powoli do połowy:': 'Επανέρχεται αργά μέχρι τη μέση:',
-  'Wróć': 'Πίσω',
   'Wróć do edycji': 'Επιστροφή στην επεξεργασία',
   'Wróć do wypieku': 'Επιστροφή στο ψήσιμο',
   'wrz': 'Σεπ',
