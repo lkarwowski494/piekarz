@@ -18,7 +18,7 @@ import type { StoredStarter } from '../../../src/data/db';
 import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
-import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
+import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny } from '../../../src/lib/format';
@@ -228,9 +228,11 @@ export default function HarmonogramScreen() {
   };
 
   const handleCopySchedule = async () => {
-    await copyScheduleToClipboard(schedule, {
+    // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
+    await copyScheduleToClipboard(planDoKopii(schedule, stages, zytni ? kolizjeZytnie : schedule.sleepCollisions), {
       ambientTempC: ambientTemp,
-      coldRetardHours,
+      // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
+      ...(zytni ? {} : { coldRetardHours }),
     });
   };
 

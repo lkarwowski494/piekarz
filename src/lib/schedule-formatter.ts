@@ -1,6 +1,35 @@
 import * as Clipboard from 'expo-clipboard';
 import * as Haptics from 'expo-haptics';
-import { ReverseScheduleResult } from '../scheduler/reverse-scheduler';
+import {
+  ReverseScheduleResult,
+  ScheduledStage,
+  SleepCollision,
+  SLEEP_COLLISION_TEMPLATE_PL,
+  sleepCollisionParams,
+} from '../scheduler/reverse-scheduler';
+
+/**
+ * Plan do „Kopiuj harmonogram” z etapów i kolizji pokazanych na ekranie (np. kroki żytnie), nie z planu
+ * pszennego liczonego w tle [M1-audytor-generalny-197; 03-zakres-601].
+ */
+export function planDoKopii(
+  schedule: ReverseScheduleResult,
+  stages: ScheduledStage[],
+  kolizje: SleepCollision[] = schedule.sleepCollisions,
+): ReverseScheduleResult {
+  return {
+    ...schedule,
+    stages,
+    hasSleepCollision: kolizje.length > 0,
+    sleepCollisions: kolizje,
+    collisionDetailsPl:
+      kolizje.length > 0
+        ? kolizje
+            .map((c) => Object.entries(sleepCollisionParams(c)).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), SLEEP_COLLISION_TEMPLATE_PL))
+            .join('; ')
+        : undefined,
+  };
+}
 import { t } from './i18n';
 import { announce } from './announce';
 import { formatTemperature } from './unit-converter';
