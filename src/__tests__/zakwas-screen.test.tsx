@@ -368,6 +368,21 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(extractCleanText(tree?.toJSON())).not.toContain('Dokarmiaj dalej co 12 godzin');
   });
 
+  // Zakwas w lodówce: karta cyklu nie radzi karmienia co 12 h (ZAK-ZAL-007 dotyczy zakładania na blacie) i nie podaje
+  // terminu po 12 h; odstęp 7 dni z ZAK-ZAL-012, jak karta szczytu [M1-audytor-generalny-188; 06-tresci-601]
+  it('fridge starter after 8.5 h without doubling: no 12 h feeding advice and no next feeding at +12 h (BR-ZAKW-003)', async () => {
+    const [first] = await getStarters();
+    const fedAt = Date.now() - 8.5 * 3_600_000;
+    await saveStarter({ ...first, storageState: 'FRIDGE', lastFedAt: fedAt });
+    await renderScreen();
+    const tekst = extractCleanText(tree?.toJSON());
+    expect(tree!.root.findAll((n) => n.props?.testID === 'zakwas-karm-dalej')).toHaveLength(0);
+    expect(tekst).not.toContain('Dokarmiaj dalej co 12 godzin');
+    const { formatTime } = require('../lib/format');
+    expect(tekst).not.toContain(`następne o ${formatTime(fedAt + 12 * 3_600_000)}`);
+    expect(tekst).toMatch(/od dokarmienia/);
+  });
+
   it('opens and closes Starter & Lievito Madre Converter modal', async () => {
     await renderScreen();
 

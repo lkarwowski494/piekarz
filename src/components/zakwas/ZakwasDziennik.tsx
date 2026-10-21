@@ -109,7 +109,8 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       >
         {stan.gotowy && !zakladanie && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
         {/* Po 8 h od dokarmienia bez podwojenia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007; BR-ZAKW-003) [130] */}
-        {!stan.gotowy && !zakladanie && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60 && (
+        {/* W lodówce ta rada nie obowiązuje (ZAK-ZAL-012: raz w tygodniu; radę daje karta szczytu) [M1-audytor-generalny-188] */}
+        {!stan.gotowy && !zakladanie && starter.storageState !== 'FRIDGE' && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60 && (
           <Text testID="zakwas-karm-dalej" style={styles.gotowy}>{t(NO_DOUBLING_ACTIONS[0])}</Text>
         )}
         {wypiekZakwasu === starter.id && <FridgeWakeStatus wynik={fridgeWakeOutcome(log.entries, now)} now={now} />}

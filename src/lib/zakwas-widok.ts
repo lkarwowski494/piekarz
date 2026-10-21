@@ -13,6 +13,7 @@ import {
   setupDay,
   type StarterSign,
 } from '../core/starter-log';
+import { FEED_FRIDGE_DUE_AFTER_MS } from '../core/notification-config';
 import { t } from './i18n';
 import { appLocale, formatDate, formatTime } from './format';
 
@@ -39,13 +40,14 @@ export interface StanKartyZakwasu {
 }
 
 export function stanKartyZakwasu(
-  starter: Pick<StoredStarter, 'setupStartedAt' | 'setupCompletedAt'>,
+  starter: Partial<Pick<StoredStarter, 'setupStartedAt' | 'setupCompletedAt' | 'storageState'>>,
   entries: readonly StoredStarterEntry[],
   now: number
 ): StanKartyZakwasu {
   const dzien = wZakladaniu(starter) && starter.setupStartedAt !== undefined ? setupDay(starter.setupStartedAt, now) : null;
   const odstepH = dzien !== null && dzien < 3 ? SETUP_FEED_INTERVAL_EARLY_H : SETUP_FEED_INTERVAL_H;
-  const odstepMin = odstepH * 60;
+  // Dojrzały zakwas w lodówce: raz w tygodniu (ZAK-ZAL-012), ten sam termin co powiadomienie [M1-audytor-generalny-188]
+  const odstepMin = dzien === null && starter.storageState === 'FRIDGE' ? FEED_FRIDGE_DUE_AFTER_MS / MIN_MS : odstepH * 60;
   const feed = lastFeeding(entries);
   if (!feed) return { dokarmionoAt: null, mineloMin: null, odstepMin, nastepneAt: null, postep: 0, gotowy: false, dzien };
   const mineloMin = Math.max(0, Math.floor((now - feed.occurredAt) / MIN_MS));
