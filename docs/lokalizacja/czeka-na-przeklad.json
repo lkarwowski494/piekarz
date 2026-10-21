@@ -10,6 +10,16 @@
       "klucz": "Wymaga odświeżenia ({dni} w chłodzie)",
       "powod": "liczba dni z odmianą CLDR w parametrze {dni} zamiast „({elapsedDays} dni w chłodzie)” (09-lokalizacja-504) (M1-audytor-generalny-071); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n}x ~{masa} upieczony bochenek",
+      "powod": "tekst receptury bez sklejania i bez toLowerCase na przekładzie (09-lokalizacja-509) (M1-audytor-generalny-172); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "temp. {temp}",
+      "powod": "skrót temperatury wody w tekście receptury był na sztywno (09-lokalizacja-509) (M1-audytor-generalny-172); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

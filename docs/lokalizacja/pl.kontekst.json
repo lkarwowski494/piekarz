@@ -5960,9 +5960,7 @@
     ]
   },
   "Upieczony bochenek": {
-    "gdzie": [
-      "src/lib/recipe-formatter.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.": {
     "gdzie": [
@@ -8212,6 +8210,12 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "temp. {temp}": {
+    "gdzie": [
+      "src/lib/recipe-formatter.ts (kod)"
+    ],
+    "opis": "Tekst receptury do skopiowania: w nawiasie kwadratowym po masie wody docelowa temperatura wody, np. „[temp. 22,0°C]”. Krótki skrót słowa „temperatura” w języku; {temp} to liczba z jednostką [M1-audytor-generalny-172]."
+  },
   "uncje, °F": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
@@ -8543,6 +8547,12 @@
     "gdzie": [
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
+  },
+  "{n}x ~{masa} upieczony bochenek": {
+    "gdzie": [
+      "src/lib/recipe-formatter.ts (kod)"
+    ],
+    "opis": "Tekst receptury do skopiowania, w nawiasie po masie ciasta: liczba bochenków ({n}, co najmniej 2) i przybliżona masa jednego bochenka po upieczeniu ({masa} z jednostką), np. „(2x ~731 g upieczony bochenek)”. Gramatyka i wielkość liter według języka (de rzeczownik wielką literą) [M1-audytor-generalny-172]."
   },
   "{n} min": {
     "gdzie": [

@@ -51,8 +51,9 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   // Yield & Weights Summary
   if (loavesCount > 1) {
     const singleBaked = bakeLoss?.singleLoafBakedGrams ?? Math.round((bakeLoss?.bakedWeightGrams ?? calc.targetDoughWeightGrams * 0.86) / loavesCount);
+    // Zdanie w nawiasie jednym kluczem: gramatyka i wielkość liter w słowniku [M1-audytor-generalny-172; 09-lokalizacja-509]
     lines.push(
-      `${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${loavesCount}x ~${w(singleBaked)} ${t('Upieczony bochenek').toLowerCase()})`
+      `${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${t('{n}x ~{masa} upieczony bochenek', { n: loavesCount, masa: w(singleBaked) })})`
     );
   } else {
     const baked = bakeLoss?.bakedWeightGrams ?? Math.round(calc.targetDoughWeightGrams * 0.86);
@@ -76,7 +77,7 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
 
   // Water
   if (waterTempTarget !== undefined) {
-    lines.push(`  • ${t('Woda')} (${pct(calc.waterGrams)}%): ${w(calc.waterGrams)} [temp. ${temp(waterTempTarget)}]`);
+    lines.push(`  • ${t('Woda')} (${pct(calc.waterGrams)}%): ${w(calc.waterGrams)} [${t('temp. {temp}', { temp: temp(waterTempTarget) })}]`);
     if (iceGrams && iceGrams > 0) {
       const tap = formatTemperature(tapWaterTemp ?? 16, units);
       lines.push(`    ↳ ${t('w tym lód')}: ${w(iceGrams)} + ${t('woda z kranu ({temp})', { temp: tap })}: ${w(calc.waterGrams - iceGrams)}`);

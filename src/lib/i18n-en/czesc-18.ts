@@ -129,4 +129,8 @@ export const EN_18: Record<string, string> = {
   // Osobne zdanie pod mieszanką z żytem ≥ 40% [M1-audytor-generalny-134]
   'Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.':
     'High rye share: the dough will be sticky, so avoid vigorous kneading.',
+  // Tekst receptury do udostępnienia (src/lib/recipe-formatter.ts): zdanie w nawiasie i skrót temperatury wody
+  // jako klucze, bez sklejania i toLowerCase [M1-audytor-generalny-172; 09-lokalizacja-509]
+  '{n}x ~{masa} upieczony bochenek': '{n}x ~{masa} baked loaf',
+  'temp. {temp}': 'temp. {temp}',
 };
