@@ -14,7 +14,8 @@ import { t } from '../../lib/i18n';
 import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { formatFixed, formatNumber } from '../../lib/format';
 import type { DoughRecipeResult } from '../../core/domain-rules';
-import type { PrefermentBreakdownResult, PrefermentType } from '../../core/preferments';
+import type { PrefermentType } from '../../core/preferments';
+import type { ZaczynWFormuleResult } from '../../core/zaczyn-w-formule';
 import { NumInput } from '../NumInput';
 import { useUnitSystem, formatWeight, formatDoseWeight, gramsToOunces, roundTo } from '../../lib/unit-converter';
 import { nazwaZaczynu } from './nazwy-receptur';
@@ -35,7 +36,8 @@ export interface DoMiskiProps {
   flourGrams: number;
   onFlourGramsChange: (g: number) => void;
   prefermentType: PrefermentType;
-  prefermentBreakdown: PrefermentBreakdownResult | null;
+  /** Zaczyn w formule (D-061): wiersze „Zaczyn” i „Do miski” sumują się do masy [M1-audytor-generalny-182] */
+  prefermentBreakdown: ZaczynWFormuleResult | null;
 }
 
 const proc = (n: number) => `${formatNumber(n, undefined, { maximumFractionDigits: 1 })}%`;
@@ -105,8 +107,9 @@ export function DoMiski(p: DoMiskiProps) {
       }}
     />
   );
+  const nazwaZakwasu = t('Zakwas ({n}% wody)', { n: formatNumber(p.starterHydration) });
   const zakwas = c.starterGrams > 0
-    ? wiersz('scale-item-starter', t('Zakwas ({n}% wody)', { n: formatNumber(p.starterHydration) }), w(c.starterGrams), proc(p.starterPct))
+    ? wiersz('scale-item-starter', nazwaZakwasu, w(c.starterGrams), proc(p.starterPct))
     : null;
   const zmienBochenki = (delta: number) => {
     haptyka(Haptics.ImpactFeedbackStyle.Medium);
@@ -144,6 +147,7 @@ export function DoMiski(p: DoMiskiProps) {
           <View style={s.grupa} testID="do-miski-zaczyn">
             {wiersz('scale-item-preferment-flour', t('Mąka'), w(b.prefermentFlourGrams))}
             {wiersz('scale-item-preferment-water', t('Woda'), w(b.prefermentWaterGrams))}
+            {b.prefermentStarterGrams > 0 && wiersz('scale-item-preferment-starter', nazwaZakwasu, w(b.prefermentStarterGrams), proc(p.starterPct))}
             {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', t('Drożdże'), d(b.prefermentYeastGrams))}
             {b.prefermentSaltGrams > 0 && wiersz('scale-item-preferment-salt', t('Sól'), d(b.prefermentSaltGrams))}
           </View>
@@ -152,7 +156,7 @@ export function DoMiski(p: DoMiskiProps) {
             {wiersz('scale-item-preferment-all', t('{rodzaj} (cały)', { rodzaj: nazwaZaczynu(p.prefermentType) }), w(b.prefermentTotalWeightGrams))}
             {wiersz('scale-item-flour', t('Mąka'), w(b.doughAddedFlourGrams))}
             {wiersz('scale-item-water', t('Woda'), w(b.doughAddedWaterGrams))}
-            {zakwas}
+            {b.doughStarterGrams > 0 && wiersz('scale-item-starter', nazwaZakwasu, w(b.doughStarterGrams), proc(p.starterPct))}
             {wiersz('scale-item-salt', t('Sól'), d(b.doughAddedSaltGrams), `${formatFixed(p.saltPct, 1)}%`)}
             {b.doughYeastGrams > 0 && wiersz('scale-item-yeast', t('Drożdże'), d(b.doughYeastGrams))}
           </View>

@@ -45,7 +45,7 @@ hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija
 Nastavite uro, ko naj bo kruh pripravljen: Pek izračuna količine, sestavi obratni urnik in vas obvesti o koncu vsakega koraka. Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 3032 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2957 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
@@ -63,7 +63,7 @@ KVASI
 Vodite lahko več kvasov. Pek poda količine za hranjenje v razmerju 1:1:1, 1:2:2, 1:3:3 ali 1:5:5. Ko kvas podvoji prostornino, ga Pek označi kot pripravljenega za testo. Po 12 urah na pultu brez hranjenja vas nanj opomni z obvestilom. Nov kvas lahko vzgojite dan za dnem. Pek upošteva načelo previdnosti: pri oblogi, razbarvanju ali gnilem vonju svetuje, da kvas zavržete.
 
 DOKTOR ZA KRUH
-Sredica je zbita, skorja pa bleda? Označite simptome, Doktor za kruh pa prepozna eno od 9 napak, pojasni vzrok in pove, kaj naslednjič spremeniti. Štirje reševalni protokoli pomagajo, ko ima testo težave med fermentacijo. Doktor za kvas pomaga, ko vas pri kvasu kaj skrbi.
+Sredica je zbita, skorja pa bleda? Označite simptome, Doktor za kruh pa prepozna eno od 9 napak, pojasni vzrok in pove, kaj naslednjič spremeniti. Doktor za kvas pomaga, ko vas pri kvasu kaj skrbi.
 
 DNEVNIK
 Ocenite vsak hlebec: zvezdice, sredica, skorja in profil okusa. Dnevnik prikazuje statistiko, „Speci znova“ pa odpre isti recept.

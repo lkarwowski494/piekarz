@@ -44,7 +44,7 @@ jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påmi
 Ställ in när brödet ska vara klart: Bagaren räknar ut mängderna, planerar bakåt och säger till när varje steg är slut. Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3182 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3111 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
@@ -62,7 +62,7 @@ SURDEGSGRUNDER
 Du kan ha flera surdegsgrunder. Bagaren anger mängderna för matning i förhållandet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. När surdegsgrunden har fördubblat sin volym markerar Bagaren den som redo för degen. Efter 12 timmar på bänken utan matning påminner Bagaren dig med en notis. En ny surdegsgrund startar du dag för dag. Bagaren följer försiktighetsprincipen: vid beläggning, missfärgning eller ruttnande lukt rekommenderar Bagaren att du slänger surdegsgrunden.
 
 BRÖDDOKTORN
-Kompakt inkråm och blek skorpa? Du markerar symtomen, och Bröddoktorn pekar ut ett av 9 fel, förklarar orsaken och anger vad du ska ändra nästa gång. Fyra räddningsprotokoll hjälper när degen får problem under jäsningen. Surdegsdoktorn hjälper när något med surdegsgrunden oroar dig.
+Kompakt inkråm och blek skorpa? Du markerar symtomen, och Bröddoktorn pekar ut ett av 9 fel, förklarar orsaken och anger vad du ska ändra nästa gång. Surdegsdoktorn hjälper när något med surdegsgrunden oroar dig.
 
 BAKDAGBOK
 Du betygsätter varje limpa: stjärnor, inkråm, skorpa och smakprofil. Bakdagboken visar statistik, och ”Baka igen” öppnar samma recept.

@@ -44,7 +44,7 @@ bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,r
 Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3224 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3143 / 4000 znaków · wersja 1.0
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -62,7 +62,7 @@ ZAKWASY
 Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.
 
 DOKTOR CHLEBA
-Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
+Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
 
 DZIENNIK
 Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.

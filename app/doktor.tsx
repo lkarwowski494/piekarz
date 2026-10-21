@@ -140,13 +140,15 @@ export default function DoctorScreen() {
           onCopyDiagnosis={handleCopyDiagnosis}
         />
 
-        {/* Emergency Dough Recovery Protocols */}
+        {/* Protokoły ratunkowe PÓŹNIEJ do czasu źródeł (032 b) [M1-audytor-generalny-032]; kod i testy modułu zostają */}
+        {wejscieWidoczne('protokoly-ratunkowe') && (
         <EmergencyRecoverySection
           selectedRecoveryId={selectedRecoveryId}
           onSelectRecoveryId={setSelectedRecoveryId}
           unitSystem={unitSystem}
           onPivotToRecipe={handlePivotToRecipe}
         />
+        )}
 
         {/* Symptoms Selector (Miękisz, Skórka, Smak) */}
         <SymptomSelectorSection

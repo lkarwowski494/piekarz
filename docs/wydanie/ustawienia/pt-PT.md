@@ -44,7 +44,7 @@ hidratação,fermentação,levain,receitas,caseiro,artesanal,pizza,centeio,farin
 Defina a hora a que quer o pão pronto: o Padeiro calcula as quantidades, cria o plano inverso e avisa no fim de cada passo. Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3522 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3431 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro acompanha-o na fornada de pão de fermento natural, da receita ao pão: calcula as quantidades, organiza o plano e controla o tempo enquanto o telemóvel está em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreio. As suas receitas, fermentos naturais e diário ficam apenas no seu telemóvel.
@@ -62,7 +62,7 @@ FERMENTOS NATURAIS
 Mantenha vários fermentos naturais. O Padeiro indica as quantidades para a alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quando o fermento natural duplicar de volume, o Padeiro marca-o como pronto para a massa. Após 12 horas na bancada sem alimentação, o Padeiro envia uma notificação de lembrete. Pode criar um novo fermento natural dia após dia. O Padeiro segue o princípio da precaução: perante película, descoloração ou cheiro a podre, aconselha deitar fora o fermento natural.
 
 DOUTOR PÃO
-Miolo compacto e côdea pálida? Assinale os sintomas e o Doutor Pão indica um de 9 defeitos, explica a causa e diz o que alterar da próxima vez. Quatro protocolos de salvamento ajudam quando a massa tem problemas durante a fermentação. O Doutor Fermento ajuda quando algo no seu fermento natural o preocupa.
+Miolo compacto e côdea pálida? Assinale os sintomas e o Doutor Pão indica um de 9 defeitos, explica a causa e diz o que alterar da próxima vez. O Doutor Fermento ajuda quando algo no seu fermento natural o preocupa.
 
 DIÁRIO
 Avalie cada pão: estrelas, miolo, côdea e perfil de sabor. O Diário mostra estatísticas, e «Cozer novamente» abre a mesma receita.

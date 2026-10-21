@@ -13,7 +13,8 @@ import {
   FlourItemInput,
 } from '../core/domain-rules';
 import { analyzeFlourBlendAbsorption } from '../core/flour-atlas';
-import { calculatePrefermentBreakdown, PrefermentType } from '../core/preferments';
+import { PrefermentType } from '../core/preferments';
+import { procentyFormulyZZaczynem, zaczynWFormule } from '../core/zaczyn-w-formule';
 
 export interface UseRecipeCalculationsParams {
   calcMode: 'loaves' | 'flour';
@@ -61,27 +62,42 @@ export function useRecipeCalculations({
   selectedPresetId,
   recipeName,
 }: UseRecipeCalculationsParams) {
+  // Zaczyn jako część formuły: woda, sól i drożdże formuły nie mniejsze niż w zaczynie (D-061) [M1-audytor-generalny-182]
+  const wejscieZaczynu = useMemo(
+    () => ({
+      prefermentType,
+      prefermentFlourPercentage: prefermentFlourPct,
+      waterPercentage: waterPct,
+      saltPercentage: saltPct,
+      yeastPercentage: extraYeastPct,
+      starterPercentage: starterPct,
+      starterHydration,
+    }),
+    [prefermentType, prefermentFlourPct, waterPct, saltPct, extraYeastPct, starterPct, starterHydration],
+  );
+  const formula = useMemo(() => procentyFormulyZZaczynem(wejscieZaczynu), [wejscieZaczynu]);
+
   // Target Dough Weight depending on mode
   const targetDoughWeightGrams = useMemo(() => {
     if (calcMode === 'loaves') {
       return Math.round(loavesCount * loafWeightGrams);
     }
-    const totalPercent = 100.0 + waterPct + starterPct + saltPct + extraYeastPct;
+    const totalPercent = 100.0 + formula.waterPercentage + starterPct + formula.saltPercentage + formula.yeastPercentage;
     return Math.round(flourGrams * (totalPercent / 100.0));
-  }, [calcMode, loavesCount, loafWeightGrams, flourGrams, waterPct, starterPct, saltPct, extraYeastPct]);
+  }, [calcMode, loavesCount, loafWeightGrams, flourGrams, formula, starterPct]);
 
   // Calculations
   const calculations = useMemo(() => {
     return calculateDoughRecipe({
       flours: flourBlend,
-      waterPercentage: waterPct,
+      waterPercentage: formula.waterPercentage,
       starterPercentage: starterPct,
-      saltPercentage: saltPct,
-      extraYeastPercentage: extraYeastPct,
+      saltPercentage: formula.saltPercentage,
+      extraYeastPercentage: formula.yeastPercentage,
       starterHydration,
       targetDoughWeightGrams,
     });
-  }, [flourBlend, waterPct, starterPct, saltPct, extraYeastPct, starterHydration, targetDoughWeightGrams]);
+  }, [flourBlend, formula, starterPct, starterHydration, targetDoughWeightGrams]);
 
   const currentRecipeForShare = useMemo(() => {
     return {
@@ -147,24 +163,10 @@ export function useRecipeCalculations({
     return analyzeFlourBlendAbsorption(flourBlend, waterPct);
   }, [flourBlend, waterPct]);
 
-  const prefermentBreakdown = useMemo(() => {
-    if (prefermentType === 'direct') return null;
-    return calculatePrefermentBreakdown({
-      prefermentType,
-      prefermentFlourPercentage: prefermentFlourPct,
-      totalFlourGrams: calculations.totalFlourGrams,
-      totalTargetHydration: calculations.overallHydrationPercent,
-      saltPercentage: saltPct,
-      customPrefermentHydration: prefermentType === 'levain' ? starterHydration : undefined,
-    });
-  }, [
-    prefermentType,
-    prefermentFlourPct,
-    calculations.totalFlourGrams,
-    calculations.overallHydrationPercent,
-    saltPct,
-    starterHydration,
-  ]);
+  const prefermentBreakdown = useMemo(
+    () => zaczynWFormule({ ...wejscieZaczynu, ...formula, targetDoughWeightGrams }),
+    [wejscieZaczynu, formula, targetDoughWeightGrams],
+  );
 
   return {
     targetDoughWeightGrams,

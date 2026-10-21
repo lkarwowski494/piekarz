@@ -125,4 +125,7 @@ export const EN_18: Record<string, string> = {
     'The hydration is within the range given for this flour blend.',
   'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.':
     'The hydration is close to the range given for this flour blend.',
+  // Osobne zdanie pod mieszanką z żytem ≥ 40% [M1-audytor-generalny-134]
+  'Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.':
+    'High rye share: the dough will be sticky, so avoid vigorous kneading.',
 };

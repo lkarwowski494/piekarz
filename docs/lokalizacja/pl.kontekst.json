@@ -7011,6 +7011,11 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
+  "Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
+    ]
+  },
   "Wysokie rozcieńczenie: mniej zakwasu względem świeżej mąki i wody, więc dłuższy czas do szczytu.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: kod)"

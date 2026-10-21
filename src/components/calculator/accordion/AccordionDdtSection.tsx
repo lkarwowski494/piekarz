@@ -104,6 +104,7 @@ export function AccordionDdtSection({
           </Text>
           <Text style={styles.absorptionAdviceText}>
             {t(blendAbsorption.doughFeelAdvicePl)}
+            {blendAbsorption.ryeWarningPl ? ` ${t(blendAbsorption.ryeWarningPl)}` : ''}
           </Text>
         </View>
       )}

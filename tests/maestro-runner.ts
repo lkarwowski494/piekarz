@@ -107,7 +107,8 @@ export const SCREEN_DICTIONARIES: Record<
   zakwasy: ['Zakwasy', 'Doktor'],
   dziennik: ['Dziennik', 'Historia wypieków', 'Doktor Chleba'],
   stolnica: ['Stolnica', 'Brak aktywnego wypieku', 'Zacznij wypiek', 'Zrobione', 'Przerwij wypiek'],
-  doktor: ['Doktor Chleba', 'Akademia', 'Akademia Piekarza', 'Protokoły ratunkowe (Pogotowie ciasta)'],
+  // Protokoły ratunkowe PÓŹNIEJ (032 b): sekcji nie ma na ekranie [M1-audytor-generalny-032]
+  doktor: ['Doktor Chleba', 'Akademia', 'Akademia Piekarza'],
   akademia: [
     'Akademia Piekarza',
     'Akademia',

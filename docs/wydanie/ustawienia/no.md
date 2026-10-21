@@ -44,7 +44,7 @@ heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaki
 Velg når brødet skal være ferdig: Bakeren regner ut mengdene, lager en plan bakover og varsler deg når hvert steg er ferdig. Uten konto, uten internett, uten reklame.
 ```
 
-### Opis (Description) · 3276 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3201 / 4000 znaków · wersja 1.0
 
 ```text
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
@@ -62,7 +62,7 @@ SURDEIGSSTARTERE
 Hold styr på flere surdeigsstartere. Bakeren gir deg mengdene til mating i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. Når surdeigsstarteren har doblet volumet, merker Bakeren den som klar til deigen. Etter 12 timer på benken uten mating minner Bakeren deg på den med et varsel. En ny surdeigsstarter kan du lage dag for dag. Bakeren følger et føre-var-prinsipp: ved belegg, misfarging eller råtten lukt råder appen deg til å kaste surdeigsstarteren.
 
 BRØDDOKTOR
-Kompakt krumme og blek skorpe? Kryss av symptomene, så peker Brøddoktor ut én av 9 feil, forklarer årsaken og sier hva du bør endre neste gang. Fire redningsprotokoller hjelper når deigen får problemer under gjæringen. Starterdoktoren hjelper når noe ved surdeigsstarteren bekymrer deg.
+Kompakt krumme og blek skorpe? Kryss av symptomene, så peker Brøddoktor ut én av 9 feil, forklarer årsaken og sier hva du bør endre neste gang. Starterdoktoren hjelper når noe ved surdeigsstarteren bekymrer deg.
 
 DAGBOK
 Vurder hvert brød: stjerner, krumme, skorpe og smaksprofil. Dagboken viser statistikk, og «Bak igjen» åpner den samme oppskriften.

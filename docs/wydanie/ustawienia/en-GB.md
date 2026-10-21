@@ -45,7 +45,7 @@ starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proving,
 Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.
 ```
 
-### Opis (Description) · 3221 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3143 / 4000 znaków · wersja 1.0
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -63,7 +63,7 @@ STARTERS
 Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away.
 
 BREAD DOCTOR
-Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
+Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. The Starter Doctor helps when something about your starter worries you.
 
 JOURNAL
 Rate each loaf: stars, crumb, crust and flavour profile. The Journal shows statistics, and "Bake Again" opens the same recipe.

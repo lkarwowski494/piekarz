@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 564 | 564 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 407 | 407 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 409 | 409 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 169 | 169 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1194** | Pokrytych: **1194** | Brakujących: **0**
+Łącznie elementów: **1196** | Pokrytych: **1196** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -141,7 +141,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Otwórz recepturę` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Przejdź do Stolnicy` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
 | `TEKST` | `Kopiuj diagnozę` | `src/components/doktor/DiagnosisResultCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Protokoły ratunkowe (Pogotowie ciasta)` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Protokoły ratunkowe (Pogotowie ciasta)` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szybkie interwencje w trakcie fermentacji` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zamknij protokół ratunkowy` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akcja natychmiastowa:` | `src/components/doktor/EmergencyRecoverySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/doktor-screen.test.tsx |
@@ -265,13 +265,13 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
-| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
+| `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-zgloszenie.test.ts, tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Twoja historia jest bezpieczna` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `TEKST` | `Roczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `12 miesięcy` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Odnawia się automatycznie co rok` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia-workflow.test.ts, tests/check-i18n-gate.test.ts |
+| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia-workflow.test.ts, tests/asc-zgloszenie-workflow.test.ts |
 | `TEKST` | `Miesięczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `1 miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Odnawia się automatycznie co miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 894 kolejnych elementów w pełnym wykazie)*
+*(... i 896 kolejnych elementów w pełnym wykazie)*
