@@ -11,6 +11,7 @@ import { collectBackupData, restoreFromBackupData, saveRecipe } from '../data/sq
 import { resyncNotifications } from './notifications';
 import { initLanguage, t, tPlural } from './i18n';
 import { initUnitSystem } from './unit-converter';
+import { wczytajPonowniePrzypomnieniaKarmienia } from './przypomnienia-karmienia';
 import { appLocale, formatDate } from './format';
 import type { StoredRecipe } from '../data/db';
 
@@ -76,6 +77,8 @@ export async function importujKopie(kopia: ValidatedBackup): Promise<void> {
   // teksty były w nowym języku. Kopia bez tych pól nic nie zmienia [M2-koordynator-napraw-502 (p11)].
   await initLanguage();
   await initUnitSystem();
+  // Przełącznik przypomnień o karmieniu z kopii przed planem powiadomień [audyt-niezalezny B-6]
+  await wczytajPonowniePrzypomnieniaKarmienia();
   void resyncNotifications();
 }
 

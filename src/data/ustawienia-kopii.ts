@@ -7,7 +7,10 @@
 
 import type * as SQLite from 'expo-sqlite';
 
-/** Klucze app_settings przenoszone kopią: język, jednostki, godziny snu, naczynie, profil, wprowadzenie. */
+/**
+ * Klucze app_settings przenoszone kopią: język, jednostki, godziny snu, naczynie, profil, wprowadzenie i przełącznik
+ * przypomnień o karmieniu (D-068) [audyt-niezalezny B-6]. Kopia bez klucza nie zmienia wartości w telefonie.
+ */
 export const KLUCZE_USTAWIEN_KOPII = [
   'language',
   'unit_system',
@@ -15,6 +18,7 @@ export const KLUCZE_USTAWIEN_KOPII = [
   'selected_baking_vessel',
   'baker_ritual_profile',
   'has_completed_onboarding',
+  'przypomnienia_karmienia',
 ] as const;
 
 export interface LekcjaKopii {

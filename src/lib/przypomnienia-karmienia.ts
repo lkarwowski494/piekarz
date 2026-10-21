@@ -29,6 +29,13 @@ export async function zapiszPrzypomnieniaKarmienia(v: boolean): Promise<void> {
   await guardSave(() => setAppSetting(KLUCZ_PRZYPOMNIEN_KARMIENIA, v ? '1' : '0'))();
 }
 
+/** Ponowny odczyt z bazy po imporcie kopii (wybór mógł przyjść z pliku) i powiadomienie ekranów [audyt-niezalezny B-6]. */
+export async function wczytajPonowniePrzypomnieniaKarmienia(): Promise<void> {
+  biezacy = null;
+  const v = await czyPrzypomnieniaKarmienia();
+  sluchacze.forEach((fn) => fn(v));
+}
+
 /** Bieżący wybór z subskrypcją; do wczytania z bazy — włączone. */
 export function usePrzypomnieniaKarmienia(): boolean {
   const [v, setV] = useState<boolean>(biezacy ?? true);

@@ -37,7 +37,7 @@ const ustawienia = (file: string) => {
 describe('139: format ustawień i lekcji w kopii', () => {
   it('KLUCZE_USTAWIEN_KOPII, dozwolony, parseUstawienia i parseLekcje: tylko dozwolone klucze z tekstem, lekcje z liczbami', () => {
     const k = require('../ustawienia-kopii') as typeof import('../ustawienia-kopii');
-    expect(k.KLUCZE_USTAWIEN_KOPII).toEqual(['language', 'unit_system', 'godziny_snu', 'selected_baking_vessel', 'baker_ritual_profile', 'has_completed_onboarding']);
+    expect(k.KLUCZE_USTAWIEN_KOPII).toEqual(['language', 'unit_system', 'godziny_snu', 'selected_baking_vessel', 'baker_ritual_profile', 'has_completed_onboarding', 'przypomnienia_karmienia']);
     expect(k.dozwolony('language')).toBe(true);
     expect(k.dozwolony('active_bake_session')).toBe(false);
     expect(k.dozwolony('platnosci_pamiec')).toBe(false);
@@ -98,6 +98,27 @@ describe('139: ustawienia i lekcje w kopii (BR-DANE-003 Pełny eksport)', () => 
     const po = ustawienia((await app.schema.getDb())?.databasePath ?? '');
     expect(po.s.language).toBe('en');
     expect(po.lekcje).toEqual([2, 5]);
+  });
+
+  // [audyt-niezalezny B-6] Wybór „Przypomnienia o karmieniu” (D-068) przechodzi kopią; stara kopia bez klucza go nie zmienia.
+  it('wyłączone przypomnienia o karmieniu przechodzą kopią na drugi telefon; kopia bez klucza zostawia wybór w telefonie (B-6)', async () => {
+    const app = await telefonZUstawieniami();
+    await app.store.setAppSetting('przypomnienia_karmienia', '0');
+    const dane = await app.store.collectBackupData();
+    expect(dane.settings?.przypomnienia_karmienia).toBe('0');
+    const plik = JSON.stringify(app.backup.buildBackup(dane));
+
+    useTempDbDir();
+    const nowy = restartApp();
+    await nowy.schema.initDatabase();
+    await nowy.store.restoreFromBackupData(nowy.backup.parseAndValidateBackup(plik).state);
+    expect(ustawienia((await nowy.schema.getDb())?.databasePath ?? '').s.przypomnienia_karmienia).toBe('0');
+
+    const { przypomnienia_karmienia: _pominiete, ...bezKlucza } = dane.settings ?? {};
+    await nowy.store.setAppSetting('przypomnienia_karmienia', '1');
+    const stara = nowy.backup.parseAndValidateBackup(JSON.stringify(nowy.backup.buildBackup({ ...dane, settings: bezKlucza })));
+    await nowy.store.restoreFromBackupData(stara.state);
+    expect(ustawienia((await nowy.schema.getDb())?.databasePath ?? '').s.przypomnienia_karmienia).toBe('1');
   });
 
   it('„Usuń wszystkie dane”: kopia przed czyszczeniem zawiera zaliczone lekcje, a jej import je przywraca (05-architekt-602)', async () => {
