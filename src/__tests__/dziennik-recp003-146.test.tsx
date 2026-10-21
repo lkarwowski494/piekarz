@@ -1,6 +1,6 @@
 /**
- * M1-audytor-generalny-146 (01-odkrywanie-504), BR-RECP-003: wpis w historii z temperaturami, które zapisał
- * wypiek (kuchnia i ciasto, gdy są), i wszystkie wpisy w historii (dawniej najwyżej 15).
+ * M1-audytor-generalny-146 (01-odkrywanie-504), BR-RECP-003: wpis w historii z temperaturą w kuchni, którą zapisał
+ * wypiek (gdy jest; temperatury ciasta wypiek nie zapisuje), i wszystkie wpisy w historii (dawniej najwyżej 15).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -31,7 +31,6 @@ import { initDatabase, _resetMemStore, saveBakeLog } from '../data/sqlite-store'
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { formatTemperature } from '../lib/unit-converter';
 import { setLang, t } from '../lib/i18n';
-import { EN } from '../lib/i18n.en';
 
 jest.setTimeout(30000);
 
@@ -58,13 +57,12 @@ describe('BR-RECP-003: dziennik wypieków', () => {
     await initDatabase();
   });
 
-  it('BR-RECP-003 Ocena po wypieku: wpis pokazuje temperaturę w kuchni i ciasta zapisane przy wypieku', async () => {
-    await saveBakeLog({ id: 'b1', recipeName: 'Mój chleb', startedAt: 1_800_000_000_000, finishedAt: 1_800_000_100_000, ratingStars: 4, ambientTemp: 22, actualDDT: 25, notes: 'Dłużej garować' });
+  it('BR-RECP-003 Ocena po wypieku: wpis pokazuje temperaturę w kuchni zapisaną przy wypieku', async () => {
+    await saveBakeLog({ id: 'b1', recipeName: 'Mój chleb', startedAt: 1_800_000_000_000, finishedAt: 1_800_000_100_000, ratingStars: 4, ambientTemp: 22, notes: 'Dłużej garować' });
     const tree = await dziennik();
     const karta = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'bake-log-card-b1')[0];
     const tekst = karta.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
     expect(tekst).toContain(`${t('Temperatura w kuchni:')} ${formatTemperature(22)}`);
-    expect(tekst).toContain(`${t('Temperatura ciasta:')} ${formatTemperature(25)}`);
     expect(tekst).toContain('Ocena: 4/5');
     expect(tekst).toContain('Dłużej garować');
     act(() => tree.unmount());
@@ -76,7 +74,6 @@ describe('BR-RECP-003: dziennik wypieków', () => {
     const karta = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'bake-log-card-b2')[0];
     const tekst = karta.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
     expect(tekst).not.toContain('Temperatura w kuchni:');
-    expect(tekst).not.toContain('Temperatura ciasta:');
     act(() => tree.unmount());
   });
 
@@ -86,9 +83,5 @@ describe('BR-RECP-003: dziennik wypieków', () => {
     const karty = tree.root.findAll((n) => typeof n.type === 'string' && /^bake-log-card-w\d+$/.test(String(n.props.testID)));
     expect(karty).toHaveLength(20);
     act(() => tree.unmount());
-  });
-
-  it('nowy tekst ma wpis EN', () => {
-    expect(EN['Temperatura ciasta:']).toBe('Dough temperature:');
   });
 });

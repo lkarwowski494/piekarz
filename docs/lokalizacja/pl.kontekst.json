@@ -5673,11 +5673,6 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
-  "Temperatura ciasta:": {
-    "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
-    ]
-  },
   "Temperatura docelowa:": {
     "gdzie": []
   },

@@ -120,19 +120,13 @@ export function BakeHistorySection({
               </View>
               <Text style={styles.historyDate}>{dateStr}</Text>
 
-              {/* Crumb, crust & taste pills; temperatury tylko zapisane przy wypieku (BR-RECP-003, bez zgadywania 017) [M1-audytor-generalny-146] */}
+              {/* Crumb, crust & taste pills; temperatura w kuchni tylko zapisana przy wypieku (BR-RECP-003, bez zgadywania 017).
+                  Temperatury ciasta wypiek dziś nie zapisuje (actualDdtC bez zapisu), więc jej nie pokazujemy [M1-audytor-generalny-146] */}
               <View style={styles.historyPillsRow}>
                 {log.ambientTemp != null && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>
                       {t('Temperatura w kuchni:')} {formatTemperature(log.ambientTemp, unitSystem)}
-                    </Text>
-                  </View>
-                )}
-                {log.actualDDT != null && (
-                  <View style={styles.historyPill}>
-                    <Text style={styles.historyPillText}>
-                      {t('Temperatura ciasta:')} {formatTemperature(log.actualDDT, unitSystem)}
                     </Text>
                   </View>
                 )}
