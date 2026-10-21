@@ -44,8 +44,8 @@ export const EN_11: Record<string, string> = {
     'Mix the ingredients in a bowl with a spoon. Cover with plastic wrap and leave for 12–16 hours at room temperature. No folding.',
   'Pizza Napoletana Verace (48h)':
     'Pizza Napoletana Verace (48h)',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.':
-    'Authentic Neapolitan pizza dough with a crispy rim (Cornicione) and a delicate interior.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.':
+    'Authentic Neapolitan pizza dough with a crispy rim and a delicate interior.',
   'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.':
     'Fermentation: 2h on the counter, divide into 250g balls, 46h in the fridge (4°C). Take out 2h before baking.',
   'Maślana chałka drożdżowa':

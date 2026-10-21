@@ -276,10 +276,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: titlePl)"
     ]
   },
-  "Bagietka paryska z Poolishem (Baguette de Tradition)": {
+  "Bagietka paryska na poolishu": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
-    ]
+    ],
+    "opis": "Nazwa receptury bazowej: bagietka paryska na zaczynie poolish (płynny zaczyn drożdżowy; w aplikacji nazwa zaczynu „poolish”). Bez nawiasów. [M1-audytor-generalny-112]"
   },
   "Bagietki / Bułki (duża powierzchnia odparowania)": {
     "gdzie": [
@@ -449,11 +450,6 @@
       "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
     ]
   },
-  "Brak sekcji formuły ciasta (formula)": {
-    "gdzie": [
-      "src/lib/recipe-sharing.ts (error)"
-    ]
-  },
   "Brak struktury glutenowej (funkcję szkieletu pełnią śluzy arabinoksylany). Wymaga zakwasu (pH < 4.5).": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -558,6 +554,12 @@
     "gdzie": [
       "src/lib/notifications.ts (title)"
     ]
+  },
+  "Chleb w stylu San Francisco o wyrazistej kwasowości": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: namePl)"
+    ],
+    "opis": "Nazwa receptury bazowej: chleb na zakwasie w stylu San Francisco (nazwa miasta, styl chleba), wyraźnie kwaśny. Bez nawiasów. [M1-audytor-generalny-112]"
   },
   "Chleb wiejski / Batard / Boule (garnek/kamień)": {
     "gdzie": [
@@ -2571,10 +2573,11 @@
   "Mistrzowski": {
     "gdzie": []
   },
-  "Mistrzowski wiejski (Tartine Style 80%)": {
+  "Mistrzowski wiejski w stylu Tartine, 80%": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
-    ]
+    ],
+    "opis": "Nazwa receptury bazowej na liście receptur. Tartine = nazwa własna (piekarnia w San Francisco, styl chleba), 80% = hydratacja. Bez nawiasów. [M1-audytor-generalny-112]"
   },
   "Miękisz (Wnętrze bochenka)": {
     "gdzie": [
@@ -3804,10 +3807,11 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.": {
+  "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
-    ]
+    ],
+    "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
     "gdzie": [
@@ -4520,10 +4524,11 @@
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
-  "Przerośnięte ciasto (Pivot na Focaccię)": {
+  "Przerośnięte ciasto: zrób focaccię": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
-    ]
+    ],
+    "opis": "Tytuł protokołu ratunkowego w Doktorze Chleba: przerośnięte ciasto przerabiasz na focaccię. Focaccia = włoski płaski chleb (nazwa potrawy). [M1-audytor-generalny-112]"
   },
   "Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.": {
     "gdzie": [
@@ -5018,11 +5023,6 @@
   "Ręcznie zdefiniowany procent utraty masy po pieczeniu i pełnym wystudzeniu.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"
-    ]
-  },
-  "San Francisco Sourdough (Wyrazista Kwasowość)": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
     ]
   },
   "Scenariusze wypieku": {
@@ -5655,10 +5655,11 @@
   "Temperatura wody: {temp}°C": {
     "gdzie": []
   },
-  "Test okna glutenowego (Windowpane)": {
+  "Test okna glutenowego": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
-    ]
+    ],
+    "opis": "Tytuł rozwijanej karty w Doktorze Chleba: test rozciągania ciasta pod światło (błona glutenowa). Bez angielskiego dopisku w nawiasie. [M1-audytor-generalny-112]"
   },
   "Test palca": {
     "gdzie": [
@@ -6130,6 +6131,12 @@
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
+  },
+  "W pliku receptury brakuje proporcji ciasta.": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ],
+    "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
   },
   "W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.": {
     "gdzie": [

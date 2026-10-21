@@ -118,7 +118,7 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
 
   // 3. Validate formula object
   if (!recipeData.formula || typeof recipeData.formula !== 'object' || Array.isArray(recipeData.formula)) {
-    return { success: false, error: t('Brak sekcji formuły ciasta (formula)') };
+    return { success: false, error: t('W pliku receptury brakuje proporcji ciasta.') };
   }
 
   const formulaData = recipeData.formula as Record<string, unknown>;

@@ -6,7 +6,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': '水溫與酵頭',
   'Temperatura wody, zaczyny, strata piecowa': '水溫、酵頭、烘烤損耗',
   'Temperatura wody: {temp}°C': '水溫：{temp}°C',
-  'Test okna glutenowego (Windowpane)': '薄膜測試（Windowpane）',
   'Test palca': '手指測試',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': '傳統義大利拖鞋麵包，使用硬式 Biga 酵頭（50%）。驚人的爐內膨脹與晶亮的大氣孔。',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': '源自法國鄉村的傳統麵包。乳酸風味平衡，尾韻帶有堅果與麩皮香。',

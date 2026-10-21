@@ -173,7 +173,8 @@ export const EN_1: Record<string, string> = {
   'Wraca powoli do połowy:': 'Springs back halfway slowly:',
   'Zostaje wgłębienie i ciasto siada:': 'Indent remains and dough deflates:',
   'Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.': 'Over-proofed. Bake immediately, score very shallowly.',
-  'Test okna glutenowego (Windowpane)': 'Windowpane Test',
+  'Test okna glutenowego':
+    'Windowpane Test',
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Assessing gluten matrix development after autolyse and folds',
   'Ciasto rwie się przy rozciąganiu:': 'Dough tears when stretched:',
   'Słaby gluten. Wykonaj dodatkową serię składań coil fold.': 'Weak gluten. Perform an extra set of coil folds.',

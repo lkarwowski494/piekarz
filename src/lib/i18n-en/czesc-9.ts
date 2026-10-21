@@ -42,8 +42,8 @@ export const EN_9: Record<string, string> = {
     'Fermentation time too short. Complex aromatic compounds form through slow enzymatic activity and the metabolism of lactic acid bacteria during cold fermentation.',
   'Drobne pory, bochenek ciężki w dłoni':
     'Small pores, the loaf feels heavy in the hand',
-  'Przerośnięte ciasto (Pivot na Focaccię)':
-    'Over-proofed dough (Pivot to Focaccia)',
+  'Przerośnięte ciasto: zrób focaccię':
+    'Over-proofed dough: make focaccia',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.':
     'The dough has collapsed, spreads flat, bubbles and does not hold its shape after scoring.',
   'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.':

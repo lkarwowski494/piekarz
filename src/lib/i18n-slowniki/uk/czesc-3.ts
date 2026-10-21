@@ -167,7 +167,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'Кухонний таймер',
   'mistrzowski': 'майстерський',
   'Mistrzowski': 'Майстерний',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'Майстерський сільський (Tartine Style 80 %)',
   'Mniej': 'Менше',
   'Mniej bochenków': 'Менше хлібин',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Міцна клейковинна сітка. Витримує багатогодинне бродіння й тривалу холодну ферментацію без втрати форми.',

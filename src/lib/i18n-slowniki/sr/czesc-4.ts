@@ -93,7 +93,6 @@ export const CZESC: Record<string, string> = {
   'Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.': 'Оптимална влажност. Хрскава кора и сочна средина која дуго остаје свежа. Хлади најмање 2 сата.',
   'Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.': 'Савршен тренутак. Загревај рерну и спреми жилет.',
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': 'Древна спелта. Глутен је веома растегљив, али склон слабљењу при интензивном машинском мешењу.',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.': 'Оригинално тесто за наполитанску пицу са хрскавим ободом (cornicione) и нежном унутрашњошћу.',
   'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.': 'Векна орашастог укуса од древне спелте са додатком прженог лана, сунцокрета и сусама.',
   'Ospała fermentacja (Zimna kuchnia)': 'Спора ферментација (хладна кухиња)',
   'Ostatnie dokarmienie': 'Последње храњење',

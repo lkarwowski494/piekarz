@@ -101,7 +101,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': 'Nhiệt độ nước và bột men',
   'Temperatura wody, zaczyny, strata piecowa': 'Nhiệt độ nước, bột men, hao hụt khi nướng',
   'Temperatura wody: {temp}°C': 'Nhiệt độ nước: {temp}°C',
-  'Test okna glutenowego (Windowpane)': 'Thử màng gluten (Windowpane)',
   'Test palca': 'Thử ấn ngón tay',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Ciabatta Ý truyền thống với bột men đặc Biga (50%). Bánh nở bung ngoạn mục trong lò và có những lỗ khí lớn óng ánh.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Ổ bánh truyền thống từ vùng quê nước Pháp. Vị chua lactic cân bằng, hậu vị bùi của hạt và cám.',

@@ -381,7 +381,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Temperatura otoczenia",
     "Temperatura pokojowa",
     "Temperatura w kuchni:",
-    "Test okna glutenowego (Windowpane)",
+    "Test okna glutenowego",
     "Test palca (Poke Test)",
     "Ilości i temperatura wody",
     "Dane są zapisywane tylko w tym telefonie.",

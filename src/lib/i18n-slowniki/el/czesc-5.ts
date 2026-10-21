@@ -115,7 +115,6 @@ export const CZESC: Record<string, string> = {
   'Przepisy na odrzut': 'Συνταγές για το περίσσευμα προζυμιού',
   'Przepisy na Odrzut Zakwasu': 'Συνταγές με περίσσευμα προζυμιού',
   'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.': 'Υπερωρίμανση (οι ζυμομύκητες έφαγαν όλα τα απλά σάκχαρα) ή πολύ χαμηλή θερμοκρασία ψησίματος στη φάση χωρίς καπάκι.',
-  'Przerośnięte ciasto (Pivot na Focaccię)': 'Παραφουσκωμένη ζύμη (Αλλαγή σε Focaccia)',
   'Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.': 'Υπερωριμασμένο. Ψήστε αμέσως, χαράξτε πολύ ρηχά.',
   'Przerwać wypiek?': 'Διακοπή ψησίματος;',
   'Przerwij': 'Διακοπή',

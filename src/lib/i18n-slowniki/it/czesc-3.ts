@@ -69,7 +69,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'Timer da cucina',
   'mistrzowski': 'maestro',
   'Mistrzowski': 'Esperto',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'Rustico d\'autore (Tartine Style 80%)',
   'Mniej': 'Meno',
   'Mniej bochenków': 'Meno pagnotte',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Maglia glutinica forte. Regge molte ore di fermentazione e una lunga lievitazione in frigo senza perdere la forma.',
@@ -189,7 +188,6 @@ export const CZESC: Record<string, string> = {
   'Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.': 'Umidità ottimale. Crosta croccante e mollica succosa che resta fresca a lungo. Lascia raffreddare almeno 2 ore.',
   'Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.': 'Momento ottimale. Preriscalda il forno e prepara la lametta.',
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': 'Farro spelta antico. Glutine molto estensibile, ma soggetto a indebolirsi con un\'impastatura meccanica intensa.',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.': 'Impasto originale per pizza napoletana con cornicione croccante e interno delicato.',
   'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.': 'Pagnotta dal gusto di nocciola di antico farro spelta, con semi di lino, girasole e sesamo tostati.',
   'Ospała fermentacja (Zimna kuchnia)': 'Fermentazione lenta (cucina fredda)',
 };

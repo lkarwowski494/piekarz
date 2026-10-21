@@ -9,7 +9,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'Χρονόμετρο κουζίνας',
   'mistrzowski': 'για μάστορες',
   'Mistrzowski': 'Μαστορικό',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'Κορυφαίο χωριάτικο (Tartine Style 80%)',
   'Mniej': 'Λιγότερα',
   'Mniej bochenków': 'Λιγότερα καρβέλια',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Δυνατό πλέγμα γλουτένης. Αντέχει πολύωρη ζύμωση και μακρά ψυχρή ωρίμανση χωρίς να χάνει το σχήμα του.',
@@ -129,5 +128,4 @@ export const CZESC: Record<string, string> = {
   'Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.': 'Βέλτιστη υγρασία. Τραγανή κόρα και ζουμερή ψίχα που μένει φρέσκια για πολύ. Αφήστε να κρυώσει τουλάχιστον 2 ώρες.',
   'Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.': 'Ιδανική στιγμή. Προθερμάνετε τον φούρνο και ετοιμάστε το ξυράφι.',
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': 'Αρχαίο σιτηρό ζέα. Πολύ εκτατή γλουτένη, που όμως εξασθενεί εύκολα με έντονο μηχανικό ζύμωμα.',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.': 'Αυθεντική ζύμη για ναπολιτάνικη πίτσα με τραγανή άκρη (Cornicione) και απαλό εσωτερικό.',
 };

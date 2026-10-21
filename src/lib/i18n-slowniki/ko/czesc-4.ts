@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': '고대 곡물 스펠트예요. 글루텐 신장성이 매우 좋지만 기계로 세게 반죽하면 약해지기 쉬워요.',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.': '바삭한 가장자리(코르니초네)와 부드러운 속을 가진 정통 나폴리 피자 반죽.',
   'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.': '볶은 아마씨, 해바라기씨, 참깨를 더한 고대 스펠트 밀의 고소한 빵 덩어리.',
   'Ospała fermentacja (Zimna kuchnia)': '느린 발효 (추운 주방)',
   'Ostatnie dokarmienie': '마지막 먹이 주기',
@@ -117,7 +116,6 @@ export const CZESC: Record<string, string> = {
   'Przepisy na odrzut': '덜어 낸 스타터 활용 레시피',
   'Przepisy na Odrzut Zakwasu': '스타터 디스카드 레시피',
   'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.': '과발효(효모가 단당을 모두 먹어 버림) 또는 뚜껑 열고 굽는 단계의 온도가 너무 낮았어요.',
-  'Przerośnięte ciasto (Pivot na Focaccię)': '과발효 반죽 (포카치아로 전환)',
   'Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.': '과발효예요. 바로 굽고, 쿠프는 아주 얕게 넣으세요.',
   'Przerwać wypiek?': '베이킹을 중단할까요?',
   'Przerwij': '중단',
@@ -170,7 +168,6 @@ export const CZESC: Record<string, string> = {
   'Różowe, pomarańczowe lub inne przebarwienia, smugi albo plamy': '분홍색, 주황색 또는 기타 변색, 줄무늬나 얼룩',
   'Rzemieślnicza Focaccia na zakwasie': '아티장 사워도우 포카치아',
   'Rzemieślnicza maślana brioszka na Lievito Madre': '리에비토 마드레로 만든 아티장 버터 브리오슈',
-  'San Francisco Sourdough (Wyrazista Kwasowość)': '샌프란시스코 사워도우 (강한 산미)',
   'Scenariusze wypieku': '베이킹 시나리오',
   'sie': '8월',
   'Skaner QR': 'QR 스캐너',

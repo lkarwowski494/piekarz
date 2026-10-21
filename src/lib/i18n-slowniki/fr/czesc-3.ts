@@ -83,7 +83,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'Minuteur de cuisine',
   'mistrzowski': 'expert',
   'Mistrzowski': 'Expert',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'Pain rustique de maître (style Tartine 80 %)',
   'Mniej': 'Moins',
   'Mniej bochenków': 'Moins de miches',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Réseau de gluten solide. Supporte une fermentation de plusieurs heures et une longue pousse lente au froid sans perdre sa forme.',

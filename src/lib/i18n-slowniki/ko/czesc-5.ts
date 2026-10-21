@@ -80,7 +80,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': '물 온도와 사전 발효종',
   'Temperatura wody, zaczyny, strata piecowa': '물 온도, 사전 발효종, 굽기 손실',
   'Temperatura wody: {temp}°C': '물 온도: {temp}°C',
-  'Test okna glutenowego (Windowpane)': '글루텐 막 테스트 (윈도페인)',
   'Test palca': '손가락 테스트',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': '단단한 비가 발효종(50%)으로 만든 전통 이탈리아 치아바타. 놀라운 오븐 스프링과 진주처럼 반짝이는 큰 기공.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': '프랑스 시골 마을의 전통 빵. 균형 잡힌 젖산 풍미와 고소한 견과·밀기울 여운.',

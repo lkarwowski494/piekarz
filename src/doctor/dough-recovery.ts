@@ -24,7 +24,7 @@ export interface DoughRecoveryProtocol {
 export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'OVERPROOFED_COLLAPSE',
-    titlePl: 'Przerośnięte ciasto (Pivot na Focaccię)',
+    titlePl: 'Przerośnięte ciasto: zrób focaccię',
     triggerSummaryPl: 'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.',
     immediateActionPl: 'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.',
     pivotRecipeNamePl: 'Rzemieślnicza Focaccia na zakwasie',

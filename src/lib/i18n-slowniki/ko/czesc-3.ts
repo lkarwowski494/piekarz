@@ -72,7 +72,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': '주방 타이머',
   'mistrzowski': '마스터',
   'Mistrzowski': '마스터',
-  'Mistrzowski wiejski (Tartine Style 80%)': '마스터 시골빵 (타르틴 스타일 80%)',
   'Mniej': '간략히',
   'Mniej bochenków': '빵 개수 줄이기',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': '글루텐 망이 튼튼해요. 몇 시간에 걸친 발효와 긴 저온 숙성 (콜드 리타드)에도 모양이 무너지지 않아요.',

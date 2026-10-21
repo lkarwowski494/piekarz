@@ -30,6 +30,41 @@
       "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.",
       "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028); zdanie 06 bez zmiany twierdzenia (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Test okna glutenowego",
+      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Przerośnięte ciasto: zrób focaccię",
+      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mistrzowski wiejski w stylu Tartine, 80%",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Chleb w stylu San Francisco o wyrazistej kwasowości",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Bagietka paryska na poolishu",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.",
+      "powod": "bez obcych wstawek w PL (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "W pliku receptury brakuje proporcji ciasta.",
+      "powod": "bez tekstów technicznych w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

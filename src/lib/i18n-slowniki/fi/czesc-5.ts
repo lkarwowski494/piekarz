@@ -44,7 +44,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': 'Veden lämpötila ja esitaikinat',
   'Temperatura wody, zaczyny, strata piecowa': 'Veden lämpötila, esitaikinat, paistohävikki',
   'Temperatura wody: {temp}°C': 'Veden lämpötila: {temp} °C',
-  'Test okna glutenowego (Windowpane)': 'Gluteeni-ikkunatesti (Windowpane)',
   'Test palca': 'Sormitesti',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Perinteinen italialainen ciabatta jäykällä Biga-juurella (50 %). Näyttävä uuninousu ja suuret, helmiäiset kolot.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Perinteinen leipä Ranskan maaseudulta. Tasapainoinen maitohappoinen maku ja pähkinäinen, leseinen jälkimaku.',

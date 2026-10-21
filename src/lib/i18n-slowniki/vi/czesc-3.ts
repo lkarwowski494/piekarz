@@ -95,7 +95,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'Hẹn giờ nhà bếp',
   'mistrzowski': 'bậc thầy',
   'Mistrzowski': 'Bậc thầy',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'Bánh đồng quê bậc thầy (Tartine Style 80%)',
   'Mniej': 'Ít hơn',
   'Mniej bochenków': 'Ít ổ hơn',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Mạng gluten chắc. Chịu được nhiều giờ lên men và ủ lạnh chậm dài mà không mất dáng.',

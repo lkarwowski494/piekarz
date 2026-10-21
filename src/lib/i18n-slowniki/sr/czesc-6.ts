@@ -51,7 +51,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': 'Температура воде и предферменти',
   'Temperatura wody, zaczyny, strata piecowa': 'Температура воде, предферменти, губитак при печењу',
   'Temperatura wody: {temp}°C': 'Температура воде: {temp}°C',
-  'Test okna glutenowego (Windowpane)': 'Тест глутенског прозора (Windowpane)',
   'Test palca': 'Тест прстом',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Традиционална италијанска чабата на чврстом предтесту Biga (50%). Спектакуларан раст у рерни и велике бисерне рупе.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Традиционална векна из француских села. Уравнотежен укус млечне киселине и орашаст завршетак са нотом мекиња.',

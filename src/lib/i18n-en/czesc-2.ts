@@ -144,7 +144,8 @@ export const EN_2: Record<string, string> = {
   'Receptura musi posiadać nazwę (1-120 znaków)': 'Recipe must have a name (1-120 characters)',
   'Nieprawidłowa wartość temperatury docelowej (DDT)': 'Invalid desired dough temperature (DDT)',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT temperature must be between 10–40°C',
-  'Brak sekcji formuły ciasta (formula)': 'Missing dough formula section',
+  'W pliku receptury brakuje proporcji ciasta.':
+    'The recipe file is missing the dough proportions.',
   'Receptura musi zawierać co najmniej jedną mąkę': 'Recipe must include at least one flour',
   'Maksymalna liczba mąk w mieszance wynosi 12': 'Maximum number of flours in blend is 12',
   'Nieprawidłowy wpis mąki na pozycji {index}': 'Invalid flour entry at position {index}',

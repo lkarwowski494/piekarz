@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': 'Watertemperatuur en levains',
   'Temperatura wody, zaczyny, strata piecowa': 'Watertemperatuur, levains, bakverlies',
   'Temperatura wody: {temp}°C': 'Watertemperatuur: {temp}°C',
-  'Test okna glutenowego (Windowpane)': 'Vliestest (Windowpane)',
   'Test palca': 'Vingertest',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Traditionele Italiaanse ciabatta met een stevige Biga (50%). Spectaculaire ovenspring en grote, glanzende gaten.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Traditioneel brood van het Franse platteland. Een evenwichtige melkzure smaak en een nootachtige afdronk met een toets van zemelen.',

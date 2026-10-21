@@ -116,7 +116,6 @@ export const CZESC: Record<string, string> = {
   'Minutnik kuchenny': 'キッチンタイマー',
   'mistrzowski': 'マスター級',
   'Mistrzowski': '上級',
-  'Mistrzowski wiejski (Tartine Style 80%)': 'マスターのカントリーローフ（タルティーヌスタイル 80%）',
   'Mniej': '少なく',
   'Mniej bochenków': 'ローフを減らす',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': '強いグルテン網。長時間の発酵や長い低温長時間発酵にも、形を崩さず耐えます。',
