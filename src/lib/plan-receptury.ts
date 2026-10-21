@@ -5,6 +5,7 @@
 // ============================================================================
 
 import type { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
+import { t } from './i18n';
 
 export interface RecepturaPlanu {
   recipeName: string;
@@ -24,4 +25,13 @@ export function ustawRecepturePlanu(r: RecepturaPlanu | null): void {
 /** Ostatnia receptura z „Ułóż plan” albo null (plan otwarty bez receptury). */
 export function recepturaPlanu(): RecepturaPlanu | null {
   return biezaca;
+}
+
+/**
+ * Plan wypieku i prowadzenie są ułożone dla chleba na zakwasie (dokarmienie zakwasu, garowanie w lodówce), więc
+ * receptura bez zakwasu nie dostaje planu: powód pod nieaktywnym „Ułóż plan” i „Zacznij wypiek”; null = plan
+ * dostępny [audyt-niezalezny D-3].
+ */
+export function powodBezZakwasu(formula: Pick<DoughRecipeInput, 'starterPercentage'>): string | null {
+  return formula.starterPercentage > 0 ? null : t('Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.');
 }

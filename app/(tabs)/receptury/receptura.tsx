@@ -28,7 +28,7 @@ import {
 } from '../../../src/lib/calculator-actions';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
-import { ustawRecepturePlanu } from '../../../src/lib/plan-receptury';
+import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
@@ -233,6 +233,7 @@ export default function EkranReceptury() {
   const akcje = (
     <CalculatorActionButtons
       onMakePlan={handleMakePlan}
+      powodBezPlanu={powodBezZakwasu(recipeFormula)}
       onSaveCustomRecipe={chron('receptury', () => {
         setSaveRecipeNameInput(recipeName);
         setIsSaveModalOpen(true);

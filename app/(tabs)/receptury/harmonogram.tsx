@@ -19,7 +19,7 @@ import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
@@ -111,6 +111,11 @@ export default function HarmonogramScreen() {
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
   // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
   const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
+  // Receptura bez zakwasu (np. z „Piecz ponownie”): plan zakwasowy jej nie prowadzi, start nieaktywny z powodem (D-3)
+  const [bezZakwasu] = useState(() => {
+    const r = recepturaPlanu();
+    return r ? powodBezZakwasu(r.recipeFormula) : null;
+  });
   const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
     const zPlanu = stepsFromSchedule(plan);
     const bazowe = zytni ? ryeStepsEndingAt(zPlanu, celMs) : zPlanu;
@@ -210,7 +215,7 @@ export default function HarmonogramScreen() {
   // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];
   // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
-    if (zaPozno) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
+    if (zaPozno || bezZakwasu) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
     requireActionAccess(() => {
       const receptura = recepturaPlanu();
       setActiveBake({
@@ -324,7 +329,7 @@ export default function HarmonogramScreen() {
       </ScrollView>
       <PasekStartu
         onStart={handleStartBakeOnWorkbench}
-        powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}
+        powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
       />
     </SafeAreaView>
   );

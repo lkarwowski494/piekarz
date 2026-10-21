@@ -277,3 +277,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (a) przesunięcie całego planu na teraz — plan otwiera się na godzinie bez kroków czynnych w nocy (129, DEC-18 a), a przesunięcie wpychało kroki czynne w sen (sprawdzone: przy wariancie a czerwone przypadki `src/__tests__/plan-bez-nocy-129.test.tsx`, `plan-za-pozno-107`, `kopia-planu-zyto-197`, `stolnica-plan-steps`; dowody/M2/p15a/D-5-szersze.txt); bez zmian — krok 1 od teraz i reszta na godzinach planu (rozjazd do kilku godzin).
 - **Dlaczego:** godzina „gotowe” i ochrona snu to wybór użytkownika z planu; start nie może ich po cichu zmieniać.
 - **Zależy od:** brak nowych tekstów do przekładu (teksty planu i powiadomień już przetłumaczone).
+### [D-072] 2026-10-22 — Plan wypieku tylko dla receptur na zakwasie (audyt niezależny D-3, minimum b) (M2 tor p15a)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja).
+- **Decyzja:** receptura z zakwasem 0% (np. pizza na drożdżach, bagietka na poolishu) ma „Ułóż plan” nieaktywny z powodem pod przyciskiem: „Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.”; plan otwarty z taką recepturą (np. „Piecz ponownie”) ma „Zacznij wypiek” nieaktywny z tym samym powodem.
+- **Odrzucone:** plan z napisem „plan dla chleba na zakwasie” — kroki (dokarmienie zakwasu, 14 h w lodówce) dalej wprowadzałyby w błąd przy recepturze drożdżowej; ★(a) szablon etapów z receptury — nowe etapy i czasy dla drożdży i zaczynów wymagają treści roli 06 ze źródłami (rejestr nie ma czasów fermentacji drożdżowej), poza nocą.
+- **Dlaczego:** lepiej nie dać planu niż dać plan z krokami, których receptura nie ma.
+- **Zależy od:** (a) — treści roli 06 (etapy i czasy dla receptur drożdżowych i z zaczynem) i projektu roli 04; nowy tekst w `K/przeklad-noc3/p15a-klucze.json`.

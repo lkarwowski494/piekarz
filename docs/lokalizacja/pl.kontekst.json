@@ -4120,6 +4120,11 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
+  "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
+    ]
+  },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
