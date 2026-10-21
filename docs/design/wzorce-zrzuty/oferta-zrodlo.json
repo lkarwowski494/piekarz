@@ -1,0 +1,28 @@
+{
+  "opis": "Źródła zrzutów oferta-*: skrót sha256 docs/design/ekrany/oferta.html i linii \"of.*\" z teksty.js (LF). Po zmianie makiety odśwież zrzuty (docs/design/narzedzia/zrzuty.mjs, DSF=1) i ten plik [M1-audytor-generalny-202].",
+  "wygenerowano": "2026-10-21",
+  "polecenie": "node zrzuty.mjs docs/design/ekrany/oferta.html docs/design/wzorce-zrzuty \"Sofia Sans Semi Condensed\" <j=…> <pl|fr|en-US-imp> oferta-proba <szerokości> <motywy> <ax5>",
+  "skrot": "ace30dc184e5f26db2b65888f18a15327535accef9e529c249e514a02ff68343",
+  "zrzuty": [
+    "oferta-oferta-proba-en-US-imp-320-light-ax5.png",
+    "oferta-oferta-proba-en-US-imp-390-dark.png",
+    "oferta-oferta-proba-en-US-imp-390-light.png",
+    "oferta-oferta-proba-fr-320-light-ax5.png",
+    "oferta-oferta-proba-fr-320-light.png",
+    "oferta-oferta-proba-fr-390-light-ax5.png",
+    "oferta-oferta-proba-fr-390-light.png",
+    "oferta-oferta-proba-fr-430-dark.png",
+    "oferta-oferta-proba-pl-320-dark-ax5.png",
+    "oferta-oferta-proba-pl-320-dark.png",
+    "oferta-oferta-proba-pl-320-light-ax5.png",
+    "oferta-oferta-proba-pl-320-light.png",
+    "oferta-oferta-proba-pl-390-dark-ax5.png",
+    "oferta-oferta-proba-pl-390-dark.png",
+    "oferta-oferta-proba-pl-390-light-ax5.png",
+    "oferta-oferta-proba-pl-390-light.png",
+    "oferta-oferta-proba-pl-430-dark-ax5.png",
+    "oferta-oferta-proba-pl-430-dark.png",
+    "oferta-oferta-proba-pl-430-light-ax5.png",
+    "oferta-oferta-proba-pl-430-light.png"
+  ]
+}
