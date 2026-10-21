@@ -7,8 +7,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Nechávam v pohári',
   'Uczeń Piekarski': 'Pekársky učeň',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Čas zrenia {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Treba osviežiť (dni v chlade: {elapsedDays})',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Uspaný v chladničke (dni: {elapsedDays})',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Svetlá pšeničná múka (chlebová)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšeničná múka Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Ražná múka (chlebová, stredne svetlá)',

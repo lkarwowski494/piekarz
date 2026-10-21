@@ -43,8 +43,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Az üvegben hagyom',
   'Uczeń Piekarski': 'Péktanonc',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: érlelési idő {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Frissítésre szorul ({elapsedDays} napja hűtőben)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Alszik a hűtőben ({elapsedDays} napja)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Világos búzaliszt',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Manitoba / Forte búzaliszt (W > 300)',
   'Mąka żytnia typ 720': 'Világos rozsliszt',

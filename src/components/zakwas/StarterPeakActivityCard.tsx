@@ -7,14 +7,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { t } from '../../lib/i18n';
+import { t, tPlural } from '../../lib/i18n';
 import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import type { SourdoughPhaseResult } from '../../core/sourdough-physics';
 import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
 
-/** Etykieta fazy zakwasu w języku aplikacji [M1-audytor-generalny-093]. */
+const DNI = { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' };
+
+/** Etykieta fazy zakwasu w języku aplikacji; liczba dni formami CLDR [M1-audytor-generalny-093; M1-audytor-generalny-071]. */
 export function etykietaFazyZakwasu(f: SourdoughPhaseResult): string {
-  return f.labelTemplatePl ? t(f.labelTemplatePl, f.labelParams) : t(f.labelPl);
+  if (!f.labelTemplatePl) return t(f.labelPl);
+  return t(f.labelTemplatePl, f.labelDni === undefined ? f.labelParams : { dni: tPlural(f.labelDni, DNI) });
 }
 
 export interface StarterPeakActivityCardProps {

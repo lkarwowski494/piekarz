@@ -18,8 +18,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Kavanozda bıraktığım',
   'Uczeń Piekarski': 'Fırıncı Çırağı',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Olgunlaşma süresi {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Tazelenmesi gerekiyor (soğukta {elapsedDays} gün)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Buzdolabında uykuda ({elapsedDays} gün)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Açık renkli buğday unu',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Manitoba / Forte buğday unu (W > 300)',
   'Mąka żytnia typ 720': 'Açık renkli çavdar unu',

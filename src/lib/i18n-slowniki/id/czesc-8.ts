@@ -17,8 +17,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Sisa di toples',
   'Uczeń Piekarski': 'Murid Pembuat Roti',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Waktu pematangan {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Perlu disegarkan ({elapsedDays} hari di tempat dingin)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Dorman di kulkas ({elapsedDays} hari)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Tepung terigu putih untuk roti',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Tepung terigu Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Tepung gandum hitam (penggilingan sedang)',

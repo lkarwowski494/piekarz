@@ -142,5 +142,4 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Nechávám ve sklenici',
   'Uczeń Piekarski': 'Pekařský učeň',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Doba zrání {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Potřebuje osvěžit ({elapsedDays} dní v chladu)',
 };

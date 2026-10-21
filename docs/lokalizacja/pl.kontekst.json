@@ -6121,10 +6121,11 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
-  "Uśpiony w lodówce ({elapsedDays} dni)": {
+  "Uśpiony w lodówce ({dni})": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
-    ]
+    ],
+    "opis": "Etykieta fazy zakwasu (sourdough starter) trzymanego w lodówce, 0–6 dni od dokarmienia. {dni} to gotowa liczba dni z odmianą języka (np. „1 dzień”, „5 dni”, EN „1 day”, „5 days”) — nie dopisuj słowa „dni” [M1-audytor-generalny-071]."
   },
   "Użyj Twojego zakwasu": {
     "gdzie": [
@@ -6853,10 +6854,11 @@
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
     ]
   },
-  "Wymaga odświeżenia ({elapsedDays} dni w chłodzie)": {
+  "Wymaga odświeżenia ({dni} w chłodzie)": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
-    ]
+    ],
+    "opis": "Etykieta fazy zakwasu w lodówce po 7 i więcej dniach bez dokarmienia. {dni} to gotowa liczba dni z odmianą języka (np. „7 dni”, EN „7 days”) — nie dopisuj słowa „dni” [M1-audytor-generalny-071]."
   },
   "Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.": {
     "gdzie": [
@@ -8444,6 +8446,8 @@
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: few)",
       "src/components/PaywallModal.tsx (dane: many)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: few)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: many)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: few)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: many)"
     ]
@@ -8451,12 +8455,14 @@
   "{n} dnia": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: other)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
   },
   "{n} dzień": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: one)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
   },

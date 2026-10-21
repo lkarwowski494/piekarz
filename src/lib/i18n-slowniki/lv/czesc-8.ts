@@ -27,8 +27,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Atstāju burkā',
   'Uczeń Piekarski': 'Maiznieka māceklis',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: nogatavināšanas laiks {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Jāatsvaidzina (aukstumā: {elapsedDays} d.)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Iemidzis ledusskapī ({elapsedDays} d.)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Gaiši kviešu maizes milti',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Kviešu milti Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Gaiši rudzu milti',

@@ -92,8 +92,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': '留在罐中',
   'Uczeń Piekarski': '烘焙學徒',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}：熟成時間 {fermentationTimeHours}。{flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': '需要重新餵養（已冷藏 {elapsedDays} 天）',
-  'Uśpiony w lodówce ({elapsedDays} dni)': '冷藏休眠中（{elapsedDays} 天）',
   'Mąka pszenna typ 650 (chlebowa jasna)': '淺色小麥麵粉',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Manitoba / Forte 小麥麵粉（W > 300）',
   'Mąka żytnia typ 720': '裸麥粉（中等研磨程度）',

@@ -132,8 +132,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Sparar i burken',
   'Uczeń Piekarski': 'Baklärling',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Mognadstid {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Behöver uppfriskas (dagar i kyla: {elapsedDays})',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Vilande i kylen (dagar: {elapsedDays})',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Ljust vetemjöl (för bröd)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Vetemjöl Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Ljust rågmjöl',

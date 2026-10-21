@@ -15,8 +15,9 @@ export const EN_18: Record<string, string> = {
   // Pola domeny bez wpisu EN (przekład 093 je miał, EN nie): szablony z wartościami domeny i nazwy mąk receptur
   // bazowych; nazwy mąk bez polskiego numeru typu, jak przekład 093 (094) [M1-audytor-generalny-093]
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: ripening time {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Needs a refresh ({elapsedDays} days in the cold)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Dormant in the fridge ({elapsedDays} days)',
+  // {dni} = liczba dni z odmianą formami CLDR („{n} dzień”) [M1-audytor-generalny-071]
+  'Wymaga odświeżenia ({dni} w chłodzie)': 'Needs a refresh ({dni} in the cold)',
+  'Uśpiony w lodówce ({dni})': 'Dormant in the fridge ({dni})',
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.':
     'Nourishing bread from coarsely ground Graham wheat flour with natural honey and flaxseed.',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Light wheat bread flour',

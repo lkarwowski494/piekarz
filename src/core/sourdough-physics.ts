@@ -74,6 +74,8 @@ export interface SourdoughPhaseResult {
   /** Szablon etykiety z parametrami (klucz słownika), gdy labelPl ma wstawioną liczbę [M1-audytor-generalny-093]. */
   labelTemplatePl?: string;
   labelParams?: Record<string, number>;
+  /** Liczba dni do parametru {dni} szablonu, odmieniana przy wyświetlaniu formami CLDR [M1-audytor-generalny-071]. */
+  labelDni?: number;
   /** Poziom komunikatu; kolor nadaje komponent (mapa-rol.md §3). */
   poziom: PoziomKomunikatu;
   advicePl: string;
@@ -112,14 +114,17 @@ export function calculateStarterPhase(
 
   if (storageState === 'FRIDGE') {
     const elapsedDays = Math.floor(elapsedHours / 24);
+    // Liczba dni z odmianą (1 dzień, 2 dni, 5 dni), w innych językach formy CLDR przy wyświetlaniu [M1-audytor-generalny-071]
+    const dniPl = `${elapsedDays} ${elapsedDays === 1 ? 'dzień' : 'dni'}`;
     // Raz w tygodniu = 7 dni (ZAK-ZAL-012) [M1-audytor-generalny-132; 06-tresci-502]
     if (elapsedDays < 7) {
       return {
         phase: 'lag',
         elapsedHours,
-        labelPl: `Uśpiony w lodówce (${elapsedDays} dni)`,
-        labelTemplatePl: 'Uśpiony w lodówce ({elapsedDays} dni)',
+        labelPl: `Uśpiony w lodówce (${dniPl})`,
+        labelTemplatePl: 'Uśpiony w lodówce ({dni})',
         labelParams: { elapsedDays },
+        labelDni: elapsedDays,
         poziom: 'info',
         // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-LOD-001) [M1-audytor-generalny-132; 06-tresci-502]
         advicePl:
@@ -129,9 +134,10 @@ export function calculateStarterPhase(
     return {
       phase: 'hungry',
       elapsedHours,
-      labelPl: `Wymaga odświeżenia (${elapsedDays} dni w chłodzie)`,
-      labelTemplatePl: 'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)',
+      labelPl: `Wymaga odświeżenia (${dniPl} w chłodzie)`,
+      labelTemplatePl: 'Wymaga odświeżenia ({dni} w chłodzie)',
       labelParams: { elapsedDays },
+      labelDni: elapsedDays,
       poziom: 'info',
       // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-ZAL-012, ZAK-LOD-002) [M1-audytor-generalny-132; 06-tresci-502]
       advicePl:
