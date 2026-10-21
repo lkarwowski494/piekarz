@@ -22,6 +22,7 @@ import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import RecepturyScreen from '../../app/(tabs)/receptury/receptura';
 import ZakwasyScreen from '../../app/(tabs)/zakwasy/index';
 import DoktorScreen from '../../app/doktor';
+import DoktorZakwasuScreen from '../../app/(tabs)/zakwasy/doktor-zakwasu';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { BlokadaFunkcji } from '../components/BlokadaFunkcji';
 import { PaywallModal } from '../components/PaywallModal';
@@ -86,6 +87,8 @@ const EKRANY: [string, () => React.ReactElement, string][] = [
   ['Receptury', () => <RecepturyScreen />, 'kalkulator'],
   ['Zakwasy', () => <ZakwasyScreen />, 'zakwas'],
   ['Doktor', () => <DoktorScreen />, 'doktor'],
+  // Diagnoza zakwasu za blokadą, ostrzeżenie o plamach poza nią [M1-audytor-generalny-027; 02-monetyzacja-503]
+  ['Doktor zakwasu', () => <DoktorZakwasuScreen />, 'doktor'],
 ];
 
 describe('108: blokada bez uprawnienia — treść czytelna, zablokowane tylko akcje', () => {

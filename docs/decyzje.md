@@ -2,6 +2,8 @@
 
 Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), który zostaje bez zmian jako archiwum wpisów do D-034. Nowe wpisy od D-035 trafiają tutaj, jedna numeracja dla obu plików. Rodzaj wpisu: produktowa (słowa właściciela dosłownie) albo merytoryczna (źródło S i szczebel). *Dlaczego osobny plik:* polecenia sztafety 01–04 (2026-10-19) wskazują `docs/decyzje.md` jako rejestr; połączenie obu plików w jeden czeka na słowo właściciela.
 
+**Przestrzenie nazw (2026-10-21).** Numery D-nnn są jedne dla obu plików (D-029…D-034 w `docs/DECISIONS.md`, od D-035 tutaj; duplikatów brak). Oznaczenia „DEC” to trzy różne listy, których nie łączy się z numeracją D: DEC-001…DEC-004 to wpisy z 17.10.2026 w `docs/DECISIONS.md`; DEC-01…DEC-22 (dwie cyfry, np. DEC-01 d, DEC-06) to decyzje planu napraw audytu M1 z 2026-10-19 (poza repo, cytowane w wpisach jako „plan napraw M1”); DEC-nn w zarchiwizowanym BRD (`docs/brd/archiwum/2.0-craft/00b_Decyzje.md` i `docs/brd/archiwum/Piekarz_BRD_0.1___00b_Jedna_lista_decyzji__DEC-01_40_.md`) to historyczne decyzje BRD 0.1/2.0. *Dlaczego:* ten sam skrót DEC-01 znaczy w tych listach co innego (np. podstawa źródeł w BRD i model płatności w planie M1).
+
 ---
 
 ### [D-035] 2026-10-19 — Hierarchia źródeł dla BRD (sztafeta, rola 01 build)
@@ -170,16 +172,17 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) MIT albo Apache-2.0 — każdy mógłby wydać kod jako własną aplikację; (c) GPLv3 — zgodność z warunkami App Store `[DO USTALENIA]`, a deklaracja bez pliku licencji była twierdzeniem bez pokrycia.
 - **Dlaczego:** płatna aplikacja (DEC-01 d) z publicznym kodem; najprostsza ochrona bez wyboru licencji otwartej.
 - **Zależy od:** nic; właściciel może zmienić licencję później (nowy wpis).
+- **Potwierdzenie (2026-10-21, M2 p8):** właściciel nie zawetował D-056 ani cen ręcznych w 9 storefrontach (D-038, `docs/wydanie/ceny.json`); oba stoją bez zmian.
 
-### [D-057] 2026-10-21 — Dostępność 1.0: 174 storefronty bez Chin kontynentalnych (M2 p7, zadanie 119, warunkowa)
-- **Rodzaj:** produktowa (rynki). **Słowa właściciela:** „Ewentualne STOP-y partii 7 - z gory aprobuje rekomendowane opcje.” (2026-10-20, czat M2 p7).
+### [D-057] 2026-10-21 — Dostępność 1.0: 174 storefronty bez Chin kontynentalnych (M2 p7, zadanie 119, potwierdzona 2026-10-21)
+- **Rodzaj:** produktowa (rynki). **Słowa właściciela:** „Ewentualne STOP-y partii 7 - z gory aprobuje rekomendowane opcje.” (2026-10-20, czat M2 p7); potwierdzenie: „Potwierdzam” (2026-10-21, po partii 7). Wcześniej warunkowa (zgoda hurtowa z góry).
 - **Decyzja:** Pricing and Availability → „Specific Countries or Regions”: wszystkie storefronty poza Chinami kontynentalnymi (CHN), z zaznaczonym udostępnianiem w nowych krajach (`docs/wydanie/instrukcja-ustawien.md` §6).
 - **Odrzucone:** (a) „All Countries or Regions” (175) — Apple: „China’s Ministry of Industry and Information Technology (MIIT) requires that some apps possess a valid Internet Content Provider (ICP) Filing Number” (App Store Connect Help „App information”, odczyt 2026-10-21); czy aplikacja bez sieci tego wymaga, `[DO USTALENIA]`, a CHN nie ma lokalizacji w języku domyślnym (D-054); (b) tylko rynki bramki 02 — sprzeczne z „Rynek: globalny” (CLAUDE.md, DEC-06).
 - **Dlaczego:** 174 storefronty mają lokalizację w języku domyślnym (`docs/wydanie/storefronty.json`); CHN to jedyny z otwartym wymogiem formalnym.
 - **Zależy od:** rozstrzygnięcia ICP dla CHN; po potwierdzeniu, że nie jest wymagany, CHN można dodać (nowy wpis).
 
-### [D-058] 2026-10-21 — Kategoria wiekowa: „Guns or Other Weapons” = Infrequent (nóż i żyletka kuchenna), oczekiwane 9+ (M2 p7, zadanie 119, warunkowa)
-- **Rodzaj:** merytoryczna (kryteria formularza Apple). **Słowa właściciela:** jak D-057.
+### [D-058] 2026-10-21 — Kategoria wiekowa: „Guns or Other Weapons” = Infrequent (nóż i żyletka kuchenna), oczekiwane 9+ (M2 p7, zadanie 119, potwierdzona 2026-10-21)
+- **Rodzaj:** merytoryczna (kryteria formularza Apple). **Słowa właściciela:** jak D-057, z potwierdzeniem „Potwierdzam” (2026-10-21). Wcześniej warunkowa.
 - **Decyzja:** w ankiecie wieku wszystkie kategorie „None”/„No”, poza „Guns or Other Weapons” = „Infrequent”: treść wspomina nóż i żyletkę do nacinania (`src/lib/i18n-en/czesc-8.ts:80`), a Apple podaje „objects that may cause bodily harm. May include: guns, swords, or knives” (Age ratings values and definitions, odczyt 2026-10-21). Reguła roli 10: przy wątpliwości deklarujesz więcej.
 - **Odrzucone:** „None” wszędzie i 4+ (`docs/15-app-store.md` §3) — narzędzie kuchenne to nie broń w zwykłym znaczeniu, ale brzmienie Apple tego nie wyłącza `[DO USTALENIA]`.
 - **Dlaczego:** zaniżony wiek to fałszywa odpowiedź (WYD-10, P1); zawyżony nie szkodzi użytkownikowi.

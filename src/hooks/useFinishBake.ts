@@ -7,7 +7,6 @@
 import { useRef, useState } from 'react';
 import { guardSave } from '../lib/save-guard';
 import { finishBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
-import { saveBakeSession } from '../data/bake-session-store';
 import { resyncNotifications } from '../lib/notifications';
 import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../components/SensoryRadarChart';
 import type { FinishBakeModalProps } from '../components/stolnica/FinishBakeModal';
@@ -50,10 +49,10 @@ export function useFinishBake(opts: {
       crustScore,
       tasteProfile,
       sensoryProfile: { ...sensoryProfile, openCrumb: crumbScore, crustCrispness: crustScore },
-    }, activeBakeData?.calculatedRecipe?.flours ?? []);
+    }, activeBakeData?.calculatedRecipe?.flours ?? [], { clearSession: true });
 
+    // Sesja skasowana w transakcji zakończenia (finishBake) [M1-audytor-generalny-120]
     setActiveBake(null);
-    await saveBakeSession(null);
     void resyncNotifications();
     opts.onFinished();
     setVisible(false);

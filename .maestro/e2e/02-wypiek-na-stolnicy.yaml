@@ -1,3 +1,4 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstów języka (M1-audytor-generalny-037, 07-jakosc-501).
 # Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
 # Glowny przeplyw (D-051 2a, M1-audytor-generalny-101): Start -> zakladki Zakwasy i Dziennik -> Receptury ->
 # start wypieku -> prowadzenie bez paska zakladek -> nastepny krok; po ponownym uruchomieniu "Wroc do wypieku"
@@ -6,17 +7,22 @@ appId: com.apps4brew.baker
 ---
 - launchApp:
     clearState: true
+    permissions:
+      notifications: allow
 - extendedWaitUntil:
     visible:
       id: "start-czynnosci"
     timeout: 60000
-- tapOn: "Zakwasy"
+- tapOn:
+    id: "tab-zakwasy"
 - assertVisible:
     id: "zakwas-doctor-shortcut-btn"
-- tapOn: "Dziennik"
+- tapOn:
+    id: "tab-dziennik"
 - assertVisible:
     id: "dziennik-doktor-btn"
-- tapOn: "Receptury"
+- tapOn:
+    id: "tab-receptury"
 # Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106)
 - tapOn:
     id: "recipe-row-country_loaf_72"
@@ -36,7 +42,9 @@ appId: com.apps4brew.baker
     id: "next-or-finish-step-btn"
 - assertVisible:
     id: "next-or-finish-step-btn"
-- launchApp
+- launchApp:
+    permissions:
+      notifications: allow
 - extendedWaitUntil:
     visible:
       id: "resume-bake-btn"

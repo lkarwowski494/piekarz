@@ -78,6 +78,78 @@
   <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
 </main>
 
+<!-- Uprzedzenie przed końcem próby (D-039 pkt 2, wybór właściciela P-126 a z 2026-10-21; design-spec §11d 126): ten sam baner co „tylko historia”,
+     raz, przy pierwszym wyświetleniu „Dziś” w oknie 72 h przed końcem próby; bez okna nad ekranem, bez powiadomienia. Data i cena: [PRZYKŁAD] (D-038). -->
+<main data-ekran="uprzedzenie-proby">
+  <div class="status"><span>8:01</span><span>LTE 72%</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="st.coDzis">Co dziś robisz?</h1>
+    <section class="baner" aria-labelledby="uprz-1">
+      <h2 class="t-nagl" id="uprz-1" data-t="st.uprzTyt">Okres próbny kończy się 23 października</h2>
+      <p class="t-tresc" data-t="st.uprzRok">Wtedy App Store pobierze 29,99&nbsp;zł za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.</p>
+      <p class="t-tresc" data-t="st.uprzZostaje">Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.</p>
+      <button class="drugi t-obj" style="flex:none" data-t="of.zarzadzaj">Zarządzaj subskrypcją</button>
+      <button class="drugi t-obj" style="flex:none" aria-label="Zamknij informację o końcu próby" data-t="of.zamknij">Zamknij</button>
+    </section>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b><span class="t-obj p2" data-t="st.zakladamOpis">Od mąki i wody do pierwszego bochenka, dzień po dniu.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b><span class="t-obj p2" data-t="st.piekeZakwasOpis">Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b><span class="t-obj p2" data-t="st.piekeDrozdzeOpis">Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.</span></span></a>
+    </div>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<main data-ekran="uprzedzenie-proby-trwa-wypiek">
+  <div class="status"><span>10:57</span><span>LTE 80%</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="tab.dzis">Dziś</h1>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="st.trwa">Trwa wypiek</h2>
+    <a class="trwa" href="#" style="color:var(--tusz);text-decoration:none">
+      <svg class="spirala" data-teraz="297" data-mala="tak" aria-label="Plan: krok 4 z 13, składanie 2 z 4."></svg>
+      <span class="roz"><b class="t-2" data-t="pw.skladanie2">Składanie 2 z 4</b><span class="t-tresc" data-t="st.zostalo18">zostało 18 min, do {h:11:15}</span><span class="t-obj p2" data-t="st.chlebGotowy">Chleb pszenny na zakwasie, gotowy jutro o {h:9:35}</span></span>
+    </a>
+    <button class="glowny t-nagl" data-t="st.wroc">Wróć do wypieku</button>
+    <section class="baner" aria-labelledby="uprz-2">
+      <h2 class="t-nagl" id="uprz-2" data-t="st.uprzTyt">Okres próbny kończy się 23 października</h2>
+      <p class="t-tresc" data-t="st.uprzAnul">Subskrypcja się nie odnowi, więc nic nie zapłacisz.</p>
+      <p class="t-tresc" data-t="st.uprzZostaje">Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.</p>
+      <button class="drugi t-obj" style="flex:none" data-t="of.zarzadzaj">Zarządzaj subskrypcją</button>
+      <button class="drugi t-obj" style="flex:none" aria-label="Zamknij informację o końcu próby" data-t="of.zamknij">Zamknij</button>
+    </section>
+    <h2 class="t-obj p2 naglowek-grupy" style="padding:0" data-t="st.coJeszcze">Co jeszcze dziś robisz?</h2>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b></span></a>
+    </div>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
+<main data-ekran="uprzedzenie-proby-nieznane">
+  <div class="status"><span>8:01</span><span>Brak sieci</span></div>
+  <div class="nav" style="justify-content:flex-end"><button aria-label="Ustawienia" data-ikona="ustawienia"></button></div>
+  <div class="tresc">
+    <h1 class="t-duzy" data-t="st.coDzis">Co dziś robisz?</h1>
+    <section class="baner" aria-labelledby="uprz-3">
+      <h2 class="t-nagl" id="uprz-3" data-t="st.uprzTyt">Okres próbny kończy się 23 października</h2>
+      <p class="t-tresc" data-t="st.uprzNieznane">Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.</p>
+      <p class="t-tresc" data-t="st.uprzZostaje">Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.</p>
+      <button class="drugi t-obj" style="flex:none" data-t="of.zarzadzaj">Zarządzaj subskrypcją</button>
+      <button class="drugi t-obj" style="flex:none" aria-label="Zamknij informację o końcu próby" data-t="of.zamknij">Zamknij</button>
+    </section>
+    <div class="grupa">
+      <a class="wybor" href="#"><span data-ikona="sloik"></span><span class="roz"><b class="t-nagl" data-t="st.zakladam">Zakładam zakwas</b><span class="t-obj p2" data-t="st.zakladamOpis">Od mąki i wody do pierwszego bochenka, dzień po dniu.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="bochenek"></span><span class="roz"><b class="t-nagl" data-t="st.piekeZakwas">Piekę na zakwasie</b><span class="t-obj p2" data-t="st.piekeZakwasOpis">Mam zakwas. Wybieram recepturę i godzinę, o której chleb ma być gotowy.</span></span></a>
+      <a class="wybor" href="#"><span data-ikona="pizza"></span><span class="roz"><b class="t-nagl" data-t="st.piekeDrozdze">Piekę na drożdżach albo pizzę</b><span class="t-obj p2" data-t="st.piekeDrozdzeOpis">Chleb drożdżowy, zaczyn poolish albo biga, ciasto na pizzę.</span></span></a>
+    </div>
+  </div>
+  <nav class="zakladki"><a class="wyb" href="#"><span data-ikona="dzis"></span><span data-t="tab.dzis">Dziś</span></a><a href="#"><span data-ikona="receptury"></span><span data-t="tab.receptury">Receptury</span></a><a href="#"><span data-ikona="zakwasy"></span><span data-t="tab.zakwasy">Zakwasy</span></a><a href="#"><span data-ikona="dziennik"></span><span data-t="tab.dziennik">Dziennik</span></a></nav>
+</main>
+
 <script src="teksty.js"></script>
 <script src="teksty-najdluzszy.js" onerror="0"></script>
 <script src="wspolne.js"></script>

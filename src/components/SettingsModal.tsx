@@ -10,6 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
 import { CloseButton } from './CloseButton';
+import { guardSave } from '../lib/save-guard';
 import {
   getBakingVessel,
   setBakingVessel,
@@ -43,12 +44,12 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 
   const handleVesselChange = async (v: BakingVessel) => {
     setBakingVesselState(v);
-    await setBakingVessel(v);
+    await guardSave(() => setBakingVessel(v))();
   };
 
-  // Zmiana od razu i zapis na kolejne uruchomienia [M1-audytor-generalny-048]
+  // Zmiana od razu i zapis na kolejne uruchomienia [M1-audytor-generalny-048]; nieudany zapis: „Nie zapisano” [M1-audytor-generalny-120]
   const handleLanguageChange = (newLang: Lang) => {
-    void chooseLanguage(newLang).catch(() => {});
+    void guardSave(() => chooseLanguage(newLang))();
   };
 
   const handleUnitSystemChange = (system: UnitSystem) => {

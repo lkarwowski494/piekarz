@@ -17,6 +17,7 @@ import { IkonaStartu } from '../../../src/components/start/IkonaStartu';
 import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
 import { SettingsModal } from '../../../src/components/SettingsModal';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
+import { UprzedzenieProby, useUprzedzenieProby } from '../../../src/components/start/UprzedzenieProby';
 import { theme } from '../../../src/ui/theme';
 import { odstepy, promienie, typografia } from '../../../src/ui/tokeny';
 
@@ -27,6 +28,9 @@ export default function StartScreen() {
   const [ustawienia, setUstawienia] = useState(false);
   // Do pierwszego odczytu sklepu bez kłódek: brak odpowiedzi App Store to nie koniec próby
   const stan = stanStartu({ trwaWypiek: dane.sesja !== null, dostep: access.canCreateNewBake || loading, maDane: dane.maDane });
+  // Uprzedzenie przed końcem próby: raz, w treści „Dziś” (§11d 126) [M1-audytor-generalny-126]
+  const uprzedzenie = useUprzedzenieProby();
+  const banerProby = uprzedzenie.wariant ? <UprzedzenieProby wariant={uprzedzenie.wariant} onZamknij={uprzedzenie.zamknij} /> : null;
 
   // Wybór otwiera pierwszy ekran przepływu bez oferty (D-047); oferta przy pierwszej akcji liczącej lub zapisującej
   const wybierz = (c: CzynnoscStartu) => {
@@ -72,9 +76,11 @@ export default function StartScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <CorruptStateRecoveryBanner />
+        {stan !== 'trwa-wypiek' && banerProby}
         {dane.gotowe && stan === 'trwa-wypiek' && dane.sesja && dane.zegar && (
           <>
             <TrwajacyWypiek sesja={dane.sesja} zegar={dane.zegar} teraz={dane.teraz} onWroc={() => router.push('/stolnica')} />
+            {banerProby}
             <Text style={styles.naglowekGrupy} accessibilityRole="header">{t('Co jeszcze dziś robisz?')}</Text>
             {lista(false)}
           </>

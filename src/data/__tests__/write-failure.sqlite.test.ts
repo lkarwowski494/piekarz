@@ -92,7 +92,8 @@ describe('Failed writes are reported, not hidden (003)', () => {
   it('when the database cannot be opened, storage is marked unavailable instead of silently using demo data', async () => {
     control().failOpen = true;
     const app = restartApp();
-    expect(app.status.getStorageState()).toBe('ok');
+    // Przed końcem initDatabase ekrany czekają (stan „initializing”, 003 p8)
+    expect(app.status.getStorageState()).toBe('initializing');
     await app.schema.initDatabase();
     expect(app.status.getStorageState()).toBe('unavailable');
     expect(app.status.getStorageError()).toContain('unable to open database file');

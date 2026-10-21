@@ -5,7 +5,7 @@
  * Stan „newer”: bazę zapisała nowsza wersja aplikacji; odczyt działa, każdy zapis rzuca
  * StorageReadOnlyError, żeby starszy build nie zmienił danych nowszego [M1-audytor-generalny-061].
  */
-export type StorageState = 'ok' | 'unavailable' | 'newer';
+export type StorageState = 'initializing' | 'ok' | 'unavailable' | 'newer';
 
 export class StorageWriteError extends Error {
   constructor(cause: unknown) {
@@ -22,7 +22,8 @@ export class StorageReadOnlyError extends StorageWriteError {
   }
 }
 
-let state: StorageState = 'ok';
+// Do końca initDatabase (kopia, migracje) ekrany nie czytają bazy: StorageGate czeka [M1-audytor-generalny-003; 05-architekt-502]
+let state: StorageState = 'initializing';
 let lastError: string | null = null;
 let rescueFile: string | null = null;
 const listeners = new Set<(s: StorageState) => void>();
@@ -40,11 +41,38 @@ export function getRescueFile(): string | null {
   return rescueFile;
 }
 
-export function markStorageUnavailable(message: string, rescue: string | null = null): void {
+/**
+ * Rodzaj pliku do udostępnienia: kopia SQLite sprzed migracji (004) albo komplet surowych plików bazy
+ * w jednym pliku JSON po błędzie odczytu uszkodzonej bazy [M1-audytor-generalny-122].
+ */
+export type RescueKind = 'przed-migracja' | 'pliki-bazy';
+let rescueKind: RescueKind = 'przed-migracja';
+
+export function getRescueKind(): RescueKind {
+  return rescueKind;
+}
+
+export function markStorageUnavailable(message: string, rescue: string | null = null, kind: RescueKind = 'przed-migracja'): void {
   state = 'unavailable';
   lastError = message;
   rescueFile = rescue;
+  rescueKind = kind;
   listeners.forEach((fn) => fn(state));
+}
+
+/** Koniec initDatabase bez błędu: ekrany mogą czytać bazę (stan błędu albo „newer” zostaje). */
+export function markStorageReady(): void {
+  if (state !== 'initializing') return;
+  state = 'ok';
+  listeners.forEach((fn) => fn(state));
+}
+
+/** Błąd odczytu z otwartej bazy: ekran błędu zamiast danych z pamięci [M1-audytor-generalny-003]. */
+export class StorageReadError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'StorageReadError';
+  }
 }
 
 /** Baza w wersji wyższej niż znana aplikacji: tylko odczyt [M1-audytor-generalny-061]. */

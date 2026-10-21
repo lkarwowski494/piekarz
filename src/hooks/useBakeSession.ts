@@ -3,6 +3,10 @@
 // ============================================================================
 
 import { useEffect, useRef, useState } from 'react';
+import { Alert } from 'react-native';
+import { StorageWriteError } from '../data/storage-status';
+import { saveErrorText } from '../lib/save-guard';
+import { t } from '../lib/i18n';
 import { restoreTimerState, TimerState } from '../core/bake-session';
 import { BakeSession, loadBakeSession, pickBakeSession, saveBakeSession } from '../data/bake-session-store';
 import { getActiveBake } from '../data/sqlite-store';
@@ -35,14 +39,25 @@ export function useBakeSession(
 
   const snapRef = useRef(snapshot);
   snapRef.current = snapshot;
+  // Wypiek, przy którym już pokazano „Nie zapisano”; po udanym zapisie komunikat może wrócić [M1-audytor-generalny-120]
+  const alerted = useRef<string | null>(null);
   const key = snapshot ? JSON.stringify(snapshot) : null;
   useEffect(() => {
     if (!ready || key === null || !snapRef.current) return;
-    // Nieudany zapis postępu nie przerywa wypieku; zegar w pamięci działa dalej.
+    const bakeId = snapRef.current.bake?.id ?? String(snapRef.current.startedAt);
+    // Nieudany zapis postępu nie przerywa wypieku (zegar w pamięci działa dalej), ale nie jest cichy:
+    // jeden komunikat „Nie zapisano” na wypiek (05-architekt-501, wybór P-120 a).
     // Po zapisie uzgodnienie powiadomień z bazą (ADR-006) [M1-audytor-generalny-006]
     void saveBakeSession(snapRef.current)
-      .then(() => resyncNotifications())
-      .catch(() => {});
+      .then(() => {
+        alerted.current = null;
+        return resyncNotifications();
+      })
+      .catch((e: unknown) => {
+        if (!(e instanceof StorageWriteError) || alerted.current === bakeId) return;
+        alerted.current = bakeId;
+        Alert.alert(t('Nie zapisano'), saveErrorText(e));
+      });
   }, [ready, key]);
 
   return ready;

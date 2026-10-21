@@ -7,7 +7,8 @@
 import type { StoredStarter, StoredStarterEntry } from './db';
 import { getDb, memStore } from './sqlite-schema';
 import { writeOrThrow } from './storage-status';
-import { parseStarterEntryRow } from './row-parsers';
+import { parseStarterEntryRow, isObj, isStr } from './row-parsers';
+import { zachowajUszkodzony } from './uszkodzone-wiersze';
 
 type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
 
@@ -37,6 +38,8 @@ function parseEntries(raw: unknown[]): StoredStarterEntry[] {
   for (const r of raw) {
     const e = parseStarterEntryRow(r);
     if (e) out.push(e);
+    // Wpis pominięty: cały wiersz do pliku ratunkowego i kopii [M1-audytor-generalny-121]
+    else zachowajUszkodzony({ tabela: 'starter_entries', id: isObj(r) && isStr(r.id) ? r.id : JSON.stringify(r), surowe: JSON.stringify(r) });
   }
   return out;
 }

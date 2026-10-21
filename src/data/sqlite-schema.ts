@@ -1,6 +1,7 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { rescueAfterOpenFailure, PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
+import { PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
+import { ratujPlikiBazy } from '../lib/kopia-plikow-bazy';
 import {
   StoredRecipe,
   StoredStarter,
@@ -11,7 +12,7 @@ import {
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import type { SessionStep } from '../core/bake-steps';
-import { markStorageUnavailable, markStorageNewer } from './storage-status';
+import { markStorageUnavailable, markStorageNewer, markStorageReady } from './storage-status';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -32,6 +33,11 @@ export interface ActiveBakeState {
   steps?: SessionStep[];
   /** Zakwas wybrany do wypieku (plan z lodówki, D-052); brak = nie wybrano [M1-audytor-generalny-104]. */
   starterId?: string;
+  /**
+   * Wypiek zaczęty z dostępem (próba, subskrypcja, dożywotni): prowadzi się do końca także po wygaśnięciu (D-039 pkt 3).
+   * Brak = zapis sprzed tej wersji, traktowany jak zaczęty z dostępem (wybór P-125 a) [M1-audytor-generalny-125].
+   */
+  zaczetyZDostepem?: boolean;
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
@@ -97,14 +103,26 @@ async function openDb(): Promise<SQLite.SQLiteDatabase | null> {
     const msg = err instanceof Error ? err.message : String(err);
     // Brak bazy nie jest cichym trybem pamięci: StorageGate pokazuje ekran błędu [M1-audytor-generalny-003]
     markStorageUnavailable(msg);
-    // Surowa kopia plików bazy i plik ratunkowy z ich listą [M1-audytor-generalny-024]
-    const dir = dbDirectory(SQLite.defaultDatabaseDirectory) ?? SQLite.defaultDatabaseDirectory;
-    if (typeof dir === 'string') {
-      const path = `${dir.replace(/\/+$/, '')}/${DB_NAME}`;
-      void rescueAfterOpenFailure(path.startsWith('file://') ? path : `file://${path}`, msg);
-    }
+    // Surowa kopia plików bazy i plik ratunkowy z ich listą [M1-audytor-generalny-024]; pakiet do udostępnienia [M1-audytor-generalny-122]
+    void ratunekPoBledzie(msg);
     return null; // Pamięć tylko dla testów bez natywnego SQLite
   }
+}
+
+/** Adres pliku bazy bez otwierania jej (tryb awaryjny, kopie ratunkowe). */
+export function dbFileUri(): string | null {
+  const dir = dbDirectory(SQLite.defaultDatabaseDirectory) ?? SQLite.defaultDatabaseDirectory;
+  if (typeof dir !== 'string') return null;
+  const path = `${dir.replace(/\/+$/, '')}/${DB_NAME}`;
+  return path.startsWith('file://') ? path : `file://${path}`;
+}
+
+/** Kopie surowych plików i plik ratunkowy, potem pakiet do udostępnienia z ekranu błędu [M1-audytor-generalny-122]. */
+async function ratunekPoBledzie(msg: string): Promise<void> {
+  const uri = dbFileUri();
+  if (!uri) return;
+  const pakiet = await ratujPlikiBazy(uri, msg);
+  if (pakiet) markStorageUnavailable(msg, pakiet, 'pliki-bazy');
 }
 
 export interface SchemaMigration {
@@ -362,7 +380,8 @@ export async function initDatabase(): Promise<void> {
     }));
   }
 
-  if (memStore.starters.length === 0) {
+  // Zakwas i mąki pokazowe tylko bez bazy (testy w pamięci); z bazą pusta tabela to pusta lista [M1-audytor-generalny-003]
+  if (!db && memStore.starters.length === 0) {
     memStore.starters = [
       {
         id: 'starter_default',
@@ -376,7 +395,7 @@ export async function initDatabase(): Promise<void> {
     ];
   }
 
-  if (memStore.flourInventory.length === 0) {
+  if (!db && memStore.flourInventory.length === 0) {
     memStore.flourInventory = [
       {
         id: 'flour_inv_wheat_750',
@@ -414,7 +433,17 @@ export async function initDatabase(): Promise<void> {
       return;
     }
     // Błąd migracji albo kopii nie jest przemilczany: ekran błędu z kopią do udostępnienia [M1-audytor-generalny-004]
-    markStorageUnavailable(err instanceof Error ? err.message : String(err), err instanceof MigrationError ? err.backupPath : null);
+    const msg = err instanceof Error ? err.message : String(err);
+    if (err instanceof MigrationError) {
+      markStorageUnavailable(msg, err.backupPath);
+      return;
+    }
+    // Inny błąd (np. uszkodzony nagłówek: pierwszy odczyt pliku): surowe kopie przed zamknięciem połączenia,
+    // potem zamknięcie, plik ratunkowy i pakiet do udostępnienia [M1-audytor-generalny-122; 12-niezawodnosc-503]
+    markStorageUnavailable(msg);
+    await ratunekPoBledzie(msg);
+    await db.closeAsync().catch(() => undefined);
+    if (dbInstance === db) dbInstance = null;
     return;
   }
 
@@ -440,4 +469,5 @@ export async function initDatabase(): Promise<void> {
   } catch {
     // Memory fallback handles errors in non-native contexts
   }
+  markStorageReady();
 }

@@ -30,6 +30,8 @@ export interface PiekarzBackupData {
   /** Spiżarnia mąk (wersja 2, F-30/F-33); brak = kopia bez spiżarni, import zostawia zapasy w telefonie. */
   flourInventory?: StoredFlourInventoryItem[];
   settings?: Record<string, unknown>;
+  /** Surowa treść wierszy pominiętych przy odczycie; import ją pomija [M1-audytor-generalny-121]. */
+  uszkodzoneWiersze?: Array<{ tabela: string; id: string; surowe: string }>;
 }
 
 export interface PiekarzBackupEnvelope {

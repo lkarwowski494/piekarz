@@ -7,20 +7,41 @@ import React, { useState } from 'react';
 import { Text, StyleSheet, Pressable, ScrollView, Alert } from 'react-native';
 import { collectBackupData } from '../data/sqlite-store';
 import { exportBackup } from '../lib/backup';
+import { dbFileUri } from '../data/sqlite-schema';
+import { pakietPlikowBazy } from '../lib/kopia-plikow-bazy';
+import { shareRescueFile } from './StorageGate';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
 interface RescueScreenProps {
   onRetry: () => Promise<void>;
+  /** Tryb awaryjny startu: baza nie była otwierana ani migrowana w tym uruchomieniu [M1-audytor-generalny-123]. */
+  bezMigracji?: boolean;
 }
 
-export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry }) => {
+export const RescueScreen: React.FC<RescueScreenProps> = ({ onRetry, bezMigracji = false }) => {
   const [busy, setBusy] = useState(false);
 
+  // Błąd renderu po starcie: kopia JSON do importu (018), a gdy odczyt się nie uda — komplet plików bazy.
+  // Tryb awaryjny startu (bezMigracji): od razu komplet plików bazy bez otwierania jej i bez migracji, działa
+  // przy każdej wersji schematu [M1-audytor-generalny-123; 12-niezawodnosc-505]
+  const eksportJson = async (): Promise<boolean> => {
+    if (bezMigracji) return false;
+    try {
+      return await exportBackup(await collectBackupData());
+    } catch {
+      return false;
+    }
+  };
   const handleExport = async () => {
     setBusy(true);
     try {
-      const ok = await exportBackup(await collectBackupData());
+      let ok = await eksportJson();
+      if (!ok) {
+        const uri = dbFileUri();
+        const pakiet = uri ? await pakietPlikowBazy(uri) : null;
+        ok = pakiet ? await shareRescueFile(pakiet) : false;
+      }
       if (!ok) Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));
     } catch {
       Alert.alert(t('Kopia zapasowa'), t('Nie udało się wyeksportować kopii'));

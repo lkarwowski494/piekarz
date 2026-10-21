@@ -34,10 +34,6 @@ window.TEKSTY['en-US'] = {
  "of.dozywBez": "Lifetime",
  "of.u2krotko": "The subscription renews automatically; cancel it in your phone's Settings, under Apple ID → Subscriptions.",
  "of.kup": "Buy Yearly Plan",
- "of.uprzTyt": "Your trial ends in 3 days",
- "of.uprzOdn": "On October 23, you'll be charged $6.99 for one year. If you don't want that, cancel in your phone's Settings, under Apple ID → Subscriptions.",
- "of.uprzBez": "Without a subscription, your history and data stay. Starter feeding reminders will stop.",
- "of.rozumiem": "Got It",
  "of.zarzadzaj": "Manage Subscription",
  "of.bezSieci": "There's no connection to the App Store, so purchasing and restoring won't work right now. Everything else works as usual. Try again when you're back online.",
  "of.cenaNieznana": "price will appear once connected",
@@ -254,5 +250,11 @@ window.TEKSTY['en-US'] = {
  "im.zastap": "Replace Data",
  "dz.pustyTyt": "Your bakes will appear here",
  "dz.pustyOpis": "After each bake, I'll save the recipe, the date, and your rating. Start with a recipe.",
- "dz.wybierz": "Choose a Recipe"
+ "dz.wybierz": "Choose a Recipe",
+ // 2026-10-21 (§11d 126): teksty EN roli 04 (wzorzec dla 093), bez Batches
+ "st.uprzTyt": "Your free trial ends on October 23",
+ "st.uprzRok": "Then the App Store will charge $6.99 for one year of your subscription. If you don't want to pay, cancel your subscription before the trial ends.",
+ "st.uprzAnul": "Your subscription won't renew, so you won't be charged.",
+ "st.uprzNieznane": "If your subscription isn't canceled, the App Store will then charge for the plan you chose.",
+ "st.uprzZostaje": "Without a purchase, your history and data stay. Calculations, plans, and guidance will require Piekarz Pro."
 };

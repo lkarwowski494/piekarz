@@ -1,4 +1,4 @@
-// Słownik lt, część 7 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wysokie rozcieńczenie: mniej zakwasu względem świeżej mąki i wody, więc dłuższy czas do szczytu.': 'Didelis praskiedimas: mažiau raugo, palyginti su šviežiais miltais ir vandeniu, todėl ilgiau užtrunka pasiekti raugo aktyvumo piką.',
@@ -144,6 +144,16 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Plokščias diskas (Perfermentuotas)',
   'Płaski smak (Jałowy)': 'Blankus skonis (Lėkštas)',
   'Zbyt kwaśny (Octowy)': 'Per rūgštus (Actiškas)',
+  'Usunąć wszystkie dane?': 'Ištrinti visus duomenis?',
+  'Usuń wszystkie dane': 'Ištrinti visus duomenis',
+  'Usuń wszystko': 'Ištrinti viską',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Be pirkimo išliks istorija ir jūsų duomenys. Skaičiavimams, planams ir nurodymams reikės Kepėjas Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Jei prenumerata nebus atšaukta, App Store tada nuskaičiuos mokestį už pasirinktą planą.',
+  'Okres próbny kończy się {data}': 'Bandomasis laikotarpis baigiasi {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Prenumerata nebus atnaujinta, todėl nieko nemokėsite.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Tada App Store nuskaičiuos {cena} už mėnesio prenumeratą. Jei nenorite mokėti, atšaukite prenumeratą iki bandomojo laikotarpio pabaigos.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Tada App Store nuskaičiuos {cena} už metų prenumeratą. Jei nenorite mokėti, atšaukite prenumeratą iki bandomojo laikotarpio pabaigos.',
+  'Zamknij informację o końcu próby': 'Uždaryti pranešimą apie bandomojo laikotarpio pabaigą',
   'Uczeń Piekarski': 'Kepėjo mokinys',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: brandinimo laikas {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Sudėtinga pieno ir acto rūgščių puokštė, ilgiau išliekantis šviežumas ir mažas glikemijos indeksas.',
@@ -196,5 +206,4 @@ export const CZESC: Record<string, string> = {
   'Plan wypieku: {n} krok.#one': 'Kepimo planas: {n} žingsnis.',
   'Plan wypieku: {n} krok.#few': 'Kepimo planas: {n} žingsniai.',
   'Plan wypieku: {n} krok.#many': 'Kepimo planas: {n} žingsnio.',
-  'Plan wypieku: {n} krok.#other': 'Kepimo planas: {n} žingsnių.',
 };

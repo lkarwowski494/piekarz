@@ -147,9 +147,12 @@ describe('EN: główny przepływ bez polskich tekstów (047)', () => {
   });
 
   it('Zakwas z oknem szczytu (zakwas w temperaturze pokojowej)', async () => {
-    const [first] = await getStarters();
+    // Świeża baza nie ma już zakwasu pokazowego (003): zakwas zakłada użytkownik
+    expect(await getStarters()).toEqual([]);
     await saveStarter({
-      ...first,
+      id: 'starter_en',
+      hydration: 100,
+      birthDate: Date.now() - 30 * 24 * 3600 * 1000,
       name: 'Rye starter',
       flourType: 'Whole rye flour 2000',
       storageState: 'ROOM_TEMP',

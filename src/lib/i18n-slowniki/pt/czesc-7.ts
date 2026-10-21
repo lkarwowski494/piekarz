@@ -1,4 +1,4 @@
-// Słownik pt, część 7 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wyrzuć zakwas': 'Deite fora o fermento natural',
@@ -149,6 +149,16 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Disco achatado (Sobrefermentado)',
   'Płaski smak (Jałowy)': 'Sabor plano (Insípido)',
   'Zbyt kwaśny (Octowy)': 'Demasiado ácido (Avinagrado)',
+  'Usunąć wszystkie dane?': 'Apagar todos os dados?',
+  'Usuń wszystkie dane': 'Apagar todos os dados',
+  'Usuń wszystko': 'Apagar tudo',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Sem compra, o seu histórico e os seus dados mantêm-se. Os cálculos, o plano e o acompanhamento passarão a exigir o Padeiro Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Se a subscrição não for cancelada, a App Store cobrará nessa altura o valor do plano escolhido.',
+  'Okres próbny kończy się {data}': 'O período experimental termina a {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'A subscrição não será renovada, pelo que não pagará nada.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Nessa altura, a App Store cobrará {cena} por um mês de subscrição. Se não quiser pagar, cancele a subscrição antes do fim do período experimental.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Nessa altura, a App Store cobrará {cena} por um ano de subscrição. Se não quiser pagar, cancele a subscrição antes do fim do período experimental.',
+  'Zamknij informację o końcu próby': 'Fechar aviso de fim do período experimental',
   'Uczeń Piekarski': 'Aprendiz de Padeiro',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: tempo de maturação {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Bouquet complexo de ácidos láctico e acético, frescura prolongada e baixo índice glicémico.',
@@ -179,18 +189,4 @@ export const CZESC: Record<string, string> = {
   '{n} zakwas#many': '{n} fermentos naturais',
   '{n} zakwas#other': '{n} fermentos naturais',
   '{n} wpis w Dzienniku#one': '{n} entrada no Diário',
-  '{n} wpis w Dzienniku#many': '{n} entradas no Diário',
-  '{n} wpis w Dzienniku#other': '{n} entradas no Diário',
-  '{n} sekunda#one': '{n} segundo',
-  '{n} sekunda#many': '{n} segundos',
-  '{n} sekunda#other': '{n} segundos',
-  '{n} godzina#one': '{n} hora',
-  '{n} godzina#many': '{n} horas',
-  '{n} godzina#other': '{n} horas',
-  '{n} minuta#one': '{n} minuto',
-  '{n} minuta#many': '{n} minutos',
-  '{n} minuta#other': '{n} minutos',
-  'Plan wypieku: {n} krok.#one': 'Plano da fornada: {n} passo.',
-  'Plan wypieku: {n} krok.#many': 'Plano da fornada: {n} passos.',
-  'Plan wypieku: {n} krok.#other': 'Plano da fornada: {n} passos.',
 };

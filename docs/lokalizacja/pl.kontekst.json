@@ -270,6 +270,7 @@
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/stos-receptur.ts (options)",
       "src/components/receptury/stos-receptur.ts (text)",
+      "src/components/settings/BackupAndDataSection.tsx (text)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
@@ -365,6 +366,11 @@
   "Bez chmury: dane zostają w telefonie": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
     ]
   },
   "Bezpośrednie": {
@@ -1997,6 +2003,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
     ]
   },
+  "Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (kod)"
+    ]
+  },
   "Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/step-warnings.ts (dane: kod)"
@@ -3403,6 +3414,7 @@
   "Nie zapisano": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)",
+      "src/hooks/useBakeSession.ts (Alert.alert)",
       "src/lib/save-guard.ts (Alert.alert)"
     ]
   },
@@ -3791,6 +3803,11 @@
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
+  "Okres próbny kończy się {data}": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
     ]
   },
   "Okres próbny się skończył": {
@@ -5391,6 +5408,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Subskrypcja się nie odnowi, więc nic nie zapłacisz.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (kod)"
+    ]
+  },
   "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
@@ -5777,7 +5799,8 @@
   },
   "Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.": {
     "gdzie": [
-      "src/components/RescueScreen.tsx (tekst w JSX)"
+      "src/components/RescueScreen.tsx (tekst w JSX)",
+      "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
   "Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.": {
@@ -6001,6 +6024,11 @@
       "src/lib/confirm.ts (title)"
     ]
   },
+  "Usunąć wszystkie dane?": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+    ]
+  },
   "Usuń": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
@@ -6035,6 +6063,16 @@
   "Usuń wpis: {opis}": {
     "gdzie": [
       "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)"
+    ]
+  },
+  "Usuń wszystkie dane": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Usuń wszystko": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (text)"
     ]
   },
   "Usuń zakwas": {
@@ -6680,6 +6718,16 @@
   "Wt.": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
+    ]
+  },
+  "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (kod)"
+    ]
+  },
+  "Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (kod)"
     ]
   },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
@@ -7340,12 +7388,18 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
+      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
   "Zamknij Akademię": {
     "gdzie": [
       "src/components/academy/AcademyHeader.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zamknij informację o końcu próby": {
+    "gdzie": [
+      "src/components/start/UprzedzenieProby.tsx (accessibilityLabel)"
     ]
   },
   "Zamknij protokół ratunkowy": {
@@ -7465,7 +7519,8 @@
       "src/components/PaywallModal.tsx (accessibilityLabel)",
       "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
-      "src/components/settings/ZakupySection.tsx (tekst w JSX)"
+      "src/components/settings/ZakupySection.tsx (tekst w JSX)",
+      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
     ]
   },
   "Zasoby mąki w spiżarni zostały zaktualizowane.": {

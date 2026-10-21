@@ -1,5 +1,5 @@
 import { getDb, memStore } from './sqlite-schema';
-import { assertWritable } from './storage-status';
+import { assertWritable, writeOrThrow } from './storage-status';
 
 // ----------------------------------------------------------------------------
 // Bread School Lesson Progress (Z-084…090 / SCI)
@@ -37,25 +37,23 @@ export async function toggleLessonProgress(levelId: number): Promise<boolean> {
     }
   }
 
-  try {
-    if (isCurrentlyCompleted) {
-      await db.runAsync('DELETE FROM lesson_progress WHERE level_id = ?;', levelId);
-      memStore.completedLessons = memStore.completedLessons.filter((l) => l !== levelId);
-      return false;
-    } else {
-      await db.runAsync(
-        'INSERT OR REPLACE INTO lesson_progress (level_id, completed_at) VALUES (?, ?);',
-        levelId,
-        Date.now()
-      );
-      if (!memStore.completedLessons.includes(levelId)) {
-        memStore.completedLessons.push(levelId);
-      }
-      return true;
-    }
-  } catch {
-    return !isCurrentlyCompleted;
+  // Nieudany zapis rzuca StorageWriteError zamiast zwracać sukces [M1-audytor-generalny-120; 05-architekt-501]
+  if (isCurrentlyCompleted) {
+    await writeOrThrow(() => db.runAsync('DELETE FROM lesson_progress WHERE level_id = ?;', levelId));
+    memStore.completedLessons = memStore.completedLessons.filter((l) => l !== levelId);
+    return false;
   }
+  await writeOrThrow(() =>
+    db.runAsync(
+      'INSERT OR REPLACE INTO lesson_progress (level_id, completed_at) VALUES (?, ?);',
+      levelId,
+      Date.now()
+    )
+  );
+  if (!memStore.completedLessons.includes(levelId)) {
+    memStore.completedLessons.push(levelId);
+  }
+  return true;
 }
 
 export async function isLessonCompleted(levelId: number): Promise<boolean> {
@@ -84,20 +82,12 @@ export async function getAppSetting(key: string, defaultValue?: string): Promise
 export async function setAppSetting(key: string, value: string): Promise<void> {
   // Baza nowsza niż aplikacja: ustawienie odrzucone typowanym błędem [M1-audytor-generalny-061]
   assertWritable();
-  memStore.settings[key] = value;
   const db = await getDb();
-  if (!db) return;
-  try {
-    await db.runAsync(
-      'INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?);',
-      key,
-      value
-    );
-  } catch {
-    // ZNANY BRAK (nowe znalezisko przy M1-audytor-generalny-063): błąd zapisu w bazie nie daje sygnału;
-    // wartość zostaje tylko w pamięci do zamknięcia aplikacji. Zmiana na StorageWriteError wymaga
-    // obsługi u 9 wywołujących (osobne zadanie z testem), więc tu bez zmiany zachowania.
+  if (db) {
+    // Błąd zapisu to StorageWriteError, nie cisza; wywołujący pokazują „Nie zapisano” [M1-audytor-generalny-120; 05-architekt-501]
+    await writeOrThrow(() => db.runAsync('INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?);', key, value));
   }
+  memStore.settings[key] = value;
 }
 
 export type BakerRitualProfile = 'sourdough_purist' | 'artisan_hybrid' | 'beginner';

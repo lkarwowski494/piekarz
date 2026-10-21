@@ -9,6 +9,7 @@ import { getLocales } from 'expo-localization';
 import { getAppSetting, setAppSetting } from '../data/sqlite-store';
 import { formatFixed, formatNumber } from './format';
 import { ustawPrzeliczanieTekstu } from './i18n';
+import { guardSave } from './save-guard';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -73,7 +74,8 @@ export function getUnitSystem(): UnitSystem {
 export function setUnitSystem(system: UnitSystem): void {
   if (currentUnitSystem !== system) {
     currentUnitSystem = system;
-    void setAppSetting('unit_system', system);
+    // Wybór działa w tej sesji; nieudany zapis: „Nie zapisano” [M1-audytor-generalny-120]
+    void guardSave(() => setAppSetting('unit_system', system))();
     unitListeners.forEach((fn) => fn(system));
   }
 }
@@ -220,13 +222,44 @@ const liczba = (s: string, znak = ''): number => (znak ? -1 : 1) * parseFloat(s.
 const fahrenheit = (c: number): string => formatNumber(celsiusToFahrenheit(c));
 const gramy = (s: string, jednostka: string): number => liczba(s) * (jednostka === 'kg' ? 1000 : 1);
 
+/** Symbole gramów w pismach przekładu poza łacinką (ru, uk, bg, el, ja, ko, zh) [M1-audytor-generalny-096]. */
+const RE_MASA_INNA = new RegExp(`${LICZBA}(\\s*)(кг|г|γρ|グラム|그램|公克|克)(?![\\p{L}\\d])`, 'gu');
+// Liczba z °C, która nie jest końcem zakresu ani liczbą ujemną (te przelicza zakres/temperatura)
+const RE_ROZNICA_TEMP = new RegExp(`(^|[^\\d.,−–-])${LICZBA}(\\s*)°C`, 'g');
+
+/** Wartości liczb, które tekst źródłowy (PL) nazywa różnicą temperatur („10 °C niżej”, „o 2 °C”). */
+function roznice(zrodlo: string): Set<number> {
+  const wynik = new Set<number>();
+  for (const m of zrodlo.matchAll(RE_ROZNICA_PO)) wynik.add(liczba(m[1]));
+  for (const m of zrodlo.matchAll(RE_ROZNICA_PRZED)) wynik.add(liczba(m[2]));
+  return wynik;
+}
+
+/** Masy w gramach z tekstu źródłowego (PL): tylko te liczby w przekładzie są masą, nie np. rok „2026 г.”. */
+function masy(zrodlo: string): Set<number> {
+  const wynik = new Set<number>();
+  for (const m of zrodlo.matchAll(RE_MASA)) wynik.add(gramy(m[1], m[2]));
+  for (const m of zrodlo.matchAll(RE_ZAKRES_G)) {
+    wynik.add(gramy(m[1], m[4]));
+    wynik.add(gramy(m[3], m[4]));
+  }
+  return wynik;
+}
+
 /**
  * Przelicza w tekście temperatury (°C → °F całkowite, także zakresy i różnice) i masy (g, kg → oz, lb)
- * według wybranego układu; metrycznie tekst bez zmian [M1-audytor-generalny-096]
+ * według wybranego układu; metrycznie tekst bez zmian [M1-audytor-generalny-096]. `zrodlo` (tekst PL klucza t())
+ * rozpoznaje różnice temperatur i masy w każdym języku przekładu, bez list słów języka [09-lokalizacja-501].
  */
-export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUnitSystem): string {
+export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUnitSystem, zrodlo?: string): string {
   if (unitSystem !== 'imperial' || !text) return text;
-  return text
+  const roz = zrodlo ? roznice(zrodlo) : null;
+  const mas = zrodlo ? masy(zrodlo) : null;
+  const poRoznicach = roz?.size
+    ? text.replace(RE_ROZNICA_TEMP, (cale: string, p: string, n: string, ws: string) =>
+        roz.has(liczba(n)) ? `${p}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F` : cale)
+    : text;
+  const poLacince = poRoznicach
     .replace(RE_ROZNICA_PO, (_, n: string, ws: string, po: string) => `${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F${po}`)
     .replace(RE_ROZNICA_PRZED, (_, przed: string, n: string, ws: string) => `${przed}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F`)
     .replace(RE_ZAKRES_C, (_, p: string, za: string, a: string, sep: string, zb: string, b: string, ws: string) =>
@@ -234,11 +267,16 @@ export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUn
     .replace(RE_TEMP_C, (_, p: string, z: string, n: string, ws: string) => `${p}${fahrenheit(liczba(n, z))}${ws}°F`)
     .replace(RE_ZAKRES_G, (_, a: string, sep: string, b: string, j: string) => `${formatOunces(gramy(a, j))}${sep}${formatOunces(gramy(b, j))}`)
     .replace(RE_MASA, (_, n: string, j: string) => formatOunces(gramy(n, j)));
+  if (!mas?.size) return poLacince;
+  return poLacince.replace(RE_MASA_INNA, (cale: string, n: string, _ws: string, j: string) => {
+    const g = liczba(n) * (j === 'кг' ? 1000 : 1);
+    return mas.has(g) ? formatOunces(g) : cale;
+  });
 }
 
 // Każdy tekst przez t() (ekrany, komunikaty, powiadomienia, eksport tekstowy) w trybie imperialnym ma °F i oz
-// (design-spec §7, D-044) [M1-audytor-generalny-096]
-ustawPrzeliczanieTekstu((s) => (currentUnitSystem === 'imperial' ? formatTextUnits(s, 'imperial') : s));
+// (design-spec §7, D-044) [M1-audytor-generalny-096]; tekst źródłowy klucza rozpoznaje różnice i masy (09-lokalizacja-501)
+ustawPrzeliczanieTekstu((s, zrodlo) => (currentUnitSystem === 'imperial' ? formatTextUnits(s, 'imperial', zrodlo) : s));
 
 /** Wartość z pola temperatury w jednostce z ustawienia → °C do zapisu (baza metryczna, D-044). */
 export function temperaturaZPola(wartosc: number, unitSystem: UnitSystem = currentUnitSystem): number {

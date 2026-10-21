@@ -38,6 +38,9 @@ env:
   MAESTRO_VERSION: "2.11.0"
   MAESTRO_CLI_NO_ANALYTICS: 1
   MAESTRO_DRIVER_STARTUP_TIMEOUT: 480000
+  # Build E2E z dostępem (symulator nie ma StoreKit): Metro wstawia flagę przy budowaniu; testflight.yml jej
+  # nie dopuszcza (krok „Guard against test/mock flags”). Wybór P-037 a [M1-audytor-generalny-037].
+  EXPO_PUBLIC_E2E: "1"
 
 jobs:
   e2e:
@@ -90,8 +93,24 @@ jobs:
           curl -fsSL "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
 
-      - name: Run E2E flows (.maestro/e2e)
-        run: maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e.xml
+      # Aplikacja startuje w języku systemu (048): scenariusze po id przechodzą w pl_PL i en_US (07-jakosc-501)
+      - name: Run E2E flows (.maestro/e2e, pl_PL)
+        run: |
+          xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array pl-PL
+          xcrun simctl spawn "$UDID" defaults write -g AppleLocale -string pl_PL
+          xcrun simctl shutdown "$UDID"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-pl.xml
+
+      - name: Run E2E flows (.maestro/e2e, en_US)
+        run: |
+          xcrun simctl spawn "$UDID" defaults write -g AppleLanguages -array en-US
+          xcrun simctl spawn "$UDID" defaults write -g AppleLocale -string en_US
+          xcrun simctl shutdown "$UDID"
+          xcrun simctl boot "$UDID"
+          xcrun simctl bootstatus "$UDID" -b
+          maestro --device "$UDID" test .maestro/e2e --format junit --output maestro-e2e-en.xml
 
       - name: Negative control must fail
         run: |
@@ -108,7 +127,8 @@ jobs:
         with:
           name: maestro-e2e
           path: |
-            maestro-e2e.xml
+            maestro-e2e-pl.xml
+            maestro-e2e-en.xml
             ~/.maestro/tests
           if-no-files-found: ignore
           retention-days: 7

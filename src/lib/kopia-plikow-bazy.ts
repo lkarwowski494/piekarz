@@ -1,0 +1,44 @@
+// ============================================================================
+// Piekarz — komplet surowych plików bazy w jednym pliku do udostępnienia
+// [M1-audytor-generalny-122; 12-niezawodnosc-503] [M1-audytor-generalny-123; 12-niezawodnosc-505]
+// Bez otwierania bazy i bez migracji: .db, -wal i -shm jako base64 w jednym JSON-ie, bo udostępnienie
+// bierze jeden plik (wybór P-122 a). Plik trwały w Backup/kopie-ratunkowe/ (Pliki), nie w Caches.
+// ============================================================================
+
+import * as FileSystem from 'expo-file-system/legacy';
+import { AUTO_DIR, RESCUE_DIR, rescueAfterOpenFailure, stampOf } from './backup';
+
+export const PAKIET_FORMAT = 'piekarz-pliki-bazy';
+export const PAKIET_PREFIX = 'piekarz-pliki-bazy-';
+
+/** Zapisuje pakiet istniejących plików bazy; null, gdy żadnego pliku nie ma albo zapis się nie udał. */
+export async function pakietPlikowBazy(dbUri: string, blad?: string): Promise<string | null> {
+  const docDir = FileSystem.documentDirectory;
+  if (!docDir) return null;
+  try {
+    const name = dbUri.slice(dbUri.lastIndexOf('/') + 1);
+    const pliki: Array<{ nazwa: string; base64: string }> = [];
+    for (const suffix of ['', '-wal', '-shm']) {
+      const from = `${dbUri}${suffix}`;
+      if (!(await FileSystem.getInfoAsync(from)).exists) continue;
+      pliki.push({ nazwa: `${name}${suffix}`, base64: await FileSystem.readAsStringAsync(from, { encoding: 'base64' }) });
+    }
+    if (pliki.length === 0) return null;
+    const dir = `${docDir}${AUTO_DIR}${RESCUE_DIR}`;
+    await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
+    const target = `${dir}${PAKIET_PREFIX}${stampOf(new Date())}.json`;
+    await FileSystem.writeAsStringAsync(
+      target,
+      JSON.stringify({ format: PAKIET_FORMAT, wersja: 1, utworzono: new Date().toISOString(), ...(blad ? { blad } : {}), pliki })
+    );
+    return target;
+  } catch {
+    return null;
+  }
+}
+
+/** Po błędzie otwarcia albo odczytu bazy: surowe kopie i plik ratunkowy (024), potem pakiet do udostępnienia. */
+export async function ratujPlikiBazy(dbUri: string, message: string): Promise<string | null> {
+  await rescueAfterOpenFailure(dbUri, message);
+  return pakietPlikowBazy(dbUri, message);
+}

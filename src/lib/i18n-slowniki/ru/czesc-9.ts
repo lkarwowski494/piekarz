@@ -1,4 +1,4 @@
-// Słownik ru, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ru, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.': 'Закваска лучше всего растёт при тёплой комнатной температуре, около 21 °C.',
@@ -109,6 +109,16 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Плоский диск (перебродивший)',
   'Płaski smak (Jałowy)': 'Плоский вкус (пресный)',
   'Zbyt kwaśny (Octowy)': 'Слишком кислый (уксусный)',
+  'Usunąć wszystkie dane?': 'Удалить все данные?',
+  'Usuń wszystkie dane': 'Удалить все данные',
+  'Usuń wszystko': 'Удалить всё',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Без покупки ваша история и данные сохранятся. Для расчётов, планирования и пошагового сопровождения потребуется Хлебопёк Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Если подписка не будет отменена, App Store в этот момент спишет оплату за выбранный план.',
+  'Okres próbny kończy się {data}': 'Пробный период заканчивается {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Подписка не продлится, поэтому вы ничего не заплатите.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Затем App Store спишет {cena} за месяц подписки. Если не хотите платить, отмените подписку до конца пробного периода.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Затем App Store спишет {cena} за год подписки. Если не хотите платить, отмените подписку до конца пробного периода.',
+  'Zamknij informację o końcu próby': 'Закрыть уведомление о конце пробного периода',
   'Uczeń Piekarski': 'Ученик пекаря',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: время созревания {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Сложный букет молочной и уксусной кислот, долгая свежесть и низкий гликемический индекс.',
@@ -148,18 +158,4 @@ export const CZESC: Record<string, string> = {
   '{n} wpis w Dzienniku#other': '{n} записи в Дневнике',
   '{n} sekunda#one': '{n} секунда',
   '{n} sekunda#few': '{n} секунды',
-  '{n} sekunda#many': '{n} секунд',
-  '{n} sekunda#other': '{n} секунды',
-  '{n} godzina#one': '{n} час',
-  '{n} godzina#few': '{n} часа',
-  '{n} godzina#many': '{n} часов',
-  '{n} godzina#other': '{n} часа',
-  '{n} minuta#one': '{n} минута',
-  '{n} minuta#few': '{n} минуты',
-  '{n} minuta#many': '{n} минут',
-  '{n} minuta#other': '{n} минуты',
-  'Plan wypieku: {n} krok.#one': 'План выпечки: {n} шаг.',
-  'Plan wypieku: {n} krok.#few': 'План выпечки: {n} шага.',
-  'Plan wypieku: {n} krok.#many': 'План выпечки: {n} шагов.',
-  'Plan wypieku: {n} krok.#other': 'План выпечки: {n} шага.',
 };
