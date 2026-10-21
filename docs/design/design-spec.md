@@ -319,7 +319,7 @@ Podstawa: D-039 pkt 2 (uprzedzenie 3 dni przed końcem próby, raz), kontrakt p�
 | `Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.` | `Then the App Store will charge {price} for one month of your subscription. If you don't want to pay, cancel your subscription before the trial ends.` | odnawianie włączone, produkt miesięczny, cena znana | `{cena}` jw. |
 | `Subskrypcja się nie odnowi, więc nic nie zapłacisz.` | `Your subscription won't renew, so you won't be charged.` | odnawianie wyłączone | — |
 | `Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.` | `If your subscription isn't canceled, the App Store will then charge for the plan you chose.` | stan odnawiania nieznany albo cena lub okres nieznane (OP-M03, brak sieci, puste pola) | — |
-| `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `Without a purchase, your history and data stay. Calculations, plans, and guidance will require Piekarz Pro.` | po zdaniu o opłacie, gdy użytkownik nie ma planu dożywotniego | — |
+| `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `Without a purchase, your history and data stay. Calculations, plans, and guidance will require Baker Pro.` | po zdaniu o opłacie, gdy użytkownik nie ma planu dożywotniego | — |
 | `Zamknij informację o końcu próby` | `Close trial end notice` | etykieta VoiceOver przycisku „Zamknij” | — |
 | `Zarządzaj subskrypcją`, `Zamknij` (istniejące) | `Manage Subscription`, `Close` | przyciski | — |
 
