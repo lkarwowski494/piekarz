@@ -33,6 +33,7 @@ export const LOKALIZACJE = {
   'zh-Hant': 'zh-Hant', id: 'id', ms: 'ms', vi: 'vi',
 };
 
+const EULA = 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
 const LIMITY = { nazwa: [2, 30], podtytul: [0, 30], tekstPromocyjny: [0, 170], opis: [0, 4000] };
 const zn = (s) => [...s].length;
 const bt = (s) => Buffer.byteLength(s, 'utf8');
@@ -120,6 +121,8 @@ function sprawdz() {
       }
       if (/[*_]{1,2}\S/.test(t) && pole.startsWith('ramki')) B.push(`${kod}.${pole}: znaczniki Markdown w podpisie`);
     }
+    // Apple 3.1.2: metadane aplikacji z subskrypcją zawierają link do Terms of Use (standardowa EULA) [audyt-niezalezny A-1].
+    if (!m.opis.includes(EULA)) B.push(`${kod}.opis: brak linku Terms of Use (${EULA})`);
     const ostatnie = m.opis.trim().split('\n').pop();
     if (!new RegExp(`(?<!\\d)${rel.size}(?!\\d)`).test(ostatnie)) B.push(`${kod}.opis: ostatnie zdanie bez liczby języków ${rel.size} („${ostatnie}”)`);
 

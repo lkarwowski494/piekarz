@@ -44,7 +44,7 @@ hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,may
 Ekmeğin hazır olacağı saati ayarlayın: Fırıncı miktarları hesaplar, planı geriye doğru oluşturur ve her adımın sonunu haber verir. Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3309 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3396 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
@@ -75,6 +75,7 @@ Fırıncı iPhone'da çalışır ve verileri cihazlar arasında eşitlemez; veri
 
 ERİŞİM VE SATIN ALMA
 Tam erişim, App Store'da aylık veya yıllık abonelik ya da tek seferlik ömür boyu satın alma ile sağlanır. Abonelik ücretsiz deneme süresiyle başlayabilir (uygun kullanıcılar için App Store tanıtım teklifi). Satın alma yapmadan pişirme geçmişinizi görüntüleyebilir, dosya içe aktarabilir, verilerinizi dışa aktarabilir ve silebilirsiniz.
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Diller: 35.
 ```

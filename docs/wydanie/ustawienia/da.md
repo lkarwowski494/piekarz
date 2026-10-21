@@ -44,7 +44,7 @@ hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbag
 Vælg, hvornår brødet skal være klar: Bageren beregner mængderne, planlægger baglæns og giver besked, når hvert trin slutter. Ingen konto, intet internet, ingen reklamer.
 ```
 
-### Opis (Description) · 3214 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3301 / 4000 znaków · wersja 1.0
 
 ```text
 Bageren guider dig gennem bagningen af surdejsbrød fra opskrift til færdigt brød: appen beregner mængderne, lægger planen og holder øje med tiden, mens telefonen sover. Den virker uden konto og uden internet, uden reklamer og uden sporing. Dine opskrifter, surdeje og din bagedagbog bliver kun på din telefon.
@@ -75,6 +75,7 @@ Bageren kører på iPhone og synkroniserer ikke data mellem enheder; du flytter 
 
 ADGANG OG KØB
 Fuld adgang får du med et månedligt eller årligt abonnement eller et engangskøb med livstidsadgang i App Store. Et abonnement kan starte med en gratis prøveperiode (App Store-introduktionstilbud for berettigede brugere). Uden køb kan du se din bagehistorik, importere en fil samt eksportere og slette dine data.
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Sprog: 35.
 ```

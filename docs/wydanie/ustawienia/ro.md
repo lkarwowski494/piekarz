@@ -44,7 +44,7 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Setează ora la care vrei pâinea gata: Brutar calculează cantitățile, face planul invers și te anunță la finalul fiecărui pas. Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3203 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3290 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
@@ -75,6 +75,7 @@ Brutar funcționează pe iPhone și nu sincronizează datele între dispozitive;
 
 ACCES ȘI ACHIZIȚIE
 Accesul complet îl oferă un abonament lunar sau anual ori o achiziție unică pe viață în App Store. Abonamentul poate începe cu o perioadă de probă gratuită (ofertă introductivă App Store pentru utilizatorii eligibili). Fără achiziție poți răsfoi istoricul coacerilor, importa un fișier, precum și exporta și șterge datele tale.
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Limbi: 35.
 ```

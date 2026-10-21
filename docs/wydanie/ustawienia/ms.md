@@ -45,7 +45,7 @@ resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread
 Tetapkan masa roti siap: Tukang Roti mengira kuantiti, menyusun pelan secara songsang dan memberitahu bila setiap langkah tamat. Tanpa akaun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3408 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3495 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
@@ -76,6 +76,7 @@ Tukang Roti berfungsi pada iPhone dan tidak menyegerakkan data antara peranti; p
 
 AKSES DAN PEMBELIAN
 Akses penuh diberikan melalui langganan bulanan atau tahunan, atau pembelian sekali seumur hidup di App Store. Langganan mungkin bermula dengan tempoh percubaan percuma (tawaran pengenalan App Store untuk pengguna yang layak). Tanpa pembelian, anda boleh melihat sejarah bakaran, mengimport fail serta mengeksport dan memadam data anda.
+Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Bahasa: 35.
 ```
