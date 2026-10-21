@@ -57,7 +57,96 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-// [M1-audytor-generalny-215; 12-niezawodnosc-604] Tryb awaryjny nie dotyka bazy: powrót na pierwszy plan
+// [M1-audytor-generalny-140; 12-niezawodnosc-504] Kamień milowy strażnika startu: pierwszy ekran po bazie (onLayout),
+// nie timer 5 s; „Spróbuj ponownie” w trybie awaryjnym robi pełny start i nie zeruje licznika przed kamieniem.
+describe('140: strażnik startu — wektory wzorca roli 12 (próg 2)', () => {
+  const plik = 'file:///mock/documents/.piekarz/start-guard.json';
+  const pliki = () => (require('expo-file-system/legacy') as { __mockFiles: Map<string, string> }).__mockFiles;
+  beforeEach(() => {
+    jest.resetModules();
+    pliki().clear();
+  });
+  const g = () => require('../lib/startup-guard') as typeof import('../lib/startup-guard');
+
+  it('pierwszy start i start po udanym → normalny; jeden bez kamienia → normalny; drugi z rzędu → awaryjny', async () => {
+    expect((await g().beginStartup()).rescue).toBe(false);
+    await g().markStartupSucceeded();
+    expect((await g().beginStartup()).rescue).toBe(false); // po udanym
+    expect((await g().beginStartup()).rescue).toBe(false); // jeden bez kamienia
+    expect((await g().beginStartup()).rescue).toBe(true); // drugi z rzędu bez kamienia
+  });
+
+  it('start awaryjny i jego ekran → licznik bez zmian, kolejny start znów awaryjny', async () => {
+    await g().beginStartup();
+    await g().beginStartup();
+    expect((await g().beginStartup()).rescue).toBe(true);
+    const licznik = pliki().get(plik);
+    expect((await g().beginStartup()).rescue).toBe(true);
+    expect(pliki().get(plik)).toBe(licznik);
+  });
+
+  it('„spróbuj normalnie” bez kamienia → awaryjny; z kamieniem → licznik 0; zły zapis → stan początkowy', async () => {
+    await g().beginStartup();
+    await g().beginStartup();
+    expect((await g().beginStartup()).rescue).toBe(true);
+    // „Spróbuj ponownie” niczego nie zapisuje; próba bez kamienia → następny start awaryjny
+    expect((await g().beginStartup()).rescue).toBe(true);
+    await g().markStartupSucceeded();
+    expect(JSON.parse(String(pliki().get(plik)))).toEqual({ failedStarts: 0 });
+    for (const zly of ['{"x":1}', 'nie-json', 'null']) {
+      pliki().set(plik, zly);
+      expect((await g().beginStartup()).rescue).toBe(false);
+    }
+  });
+});
+
+describe('140: kamień milowy w RootLayout', () => {
+  afterEach(() => jest.useRealTimers());
+
+  it('start bez narysowanego pierwszego ekranu nie zeruje licznika, także po 60 s; narysowany ekran zeruje od razu', async () => {
+    jest.useFakeTimers({ doNotFake: ['nextTick', 'setImmediate', 'clearImmediate', 'queueMicrotask'] });
+    const m = uruchom();
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    await m.TR.act(async () => {
+      jest.advanceTimersByTime(60_000);
+      await flush();
+    });
+    expect(m.guard.markStartupSucceeded).not.toHaveBeenCalled();
+    const kamien = tree.root.findAll((n) => n.props?.testID === 'start-kamien-milowy' && typeof n.props.onLayout === 'function');
+    expect(kamien.length).toBeGreaterThan(0);
+    await m.TR.act(async () => {
+      kamien[0].props.onLayout({ nativeEvent: { layout: { x: 0, y: 0, width: 390, height: 844 } } });
+      kamien[0].props.onLayout({ nativeEvent: { layout: { x: 0, y: 0, width: 390, height: 844 } } });
+      await flush();
+    });
+    expect(m.guard.markStartupSucceeded).toHaveBeenCalledTimes(1);
+    m.TR.act(() => tree.unmount());
+  });
+
+  it('„Spróbuj ponownie” w trybie awaryjnym: pełny start (baza, język, jednostki) bez zerowania licznika przed kamieniem', async () => {
+    const m = uruchom({ rescue: true });
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    await m.TR.act(async () => {
+      await tree.root.findByProps({ testID: 'rescue-retry' }).props.onPress();
+      await flush();
+    });
+    expect(m.init).toHaveBeenCalledTimes(1);
+    expect(m.lang).toHaveBeenCalledTimes(1);
+    expect(m.units).toHaveBeenCalledTimes(1);
+    expect(m.guard.markStartupSucceeded).not.toHaveBeenCalled();
+    m.TR.act(() => tree.unmount());
+  });
+});
+
+// [M1-audytor-generalny-215;12-niezawodnosc-604] Tryb awaryjny nie dotyka bazy: powrót na pierwszy plan
 // nie uzgadnia powiadomień (to uzgodnienie czyta sesję wypieku i zakwasy z bazy)
 describe('215: tryb awaryjny bez uzgadniania powiadomień przy powrocie na pierwszy plan', () => {
   it('RootLayout w trybie awaryjnym: zdarzenie „active” nie wywołuje resyncNotifications ani initDatabase', async () => {
