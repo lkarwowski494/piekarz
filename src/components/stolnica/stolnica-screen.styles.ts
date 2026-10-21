@@ -55,14 +55,14 @@ export const styles = StyleSheet.create({
     color: theme.colors.tusz2,
   },
   activeStepTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tytulKroku.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: odstepy.xs,
   },
   czas: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.czas.pt,
     fontWeight: '700',
     fontVariant: ['tabular-nums'],

@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   ingredientsTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   sectionHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,

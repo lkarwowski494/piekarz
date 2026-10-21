@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   diagnosisTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 20,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   checklistTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   emptyTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,

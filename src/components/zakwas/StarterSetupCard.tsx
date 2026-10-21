@@ -91,7 +91,7 @@ export function StarterSetupCard({ dzien, wynik, now, onZapiszDzien, onZacznijOd
 
 const styles = StyleSheet.create({
   karta: { gap: odstepy.m, padding: odstepy.l, marginBottom: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  tytul: { fontFamily: typografia.krojTytulow, fontSize: typografia.style.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
+  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
   naglowek: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
   tresc: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   wazne: { fontSize: typografia.style.tresc.pt, fontWeight: '700', color: theme.colors.tusz },

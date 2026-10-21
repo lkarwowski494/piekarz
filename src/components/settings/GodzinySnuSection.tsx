@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
-  sectionTitle: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.naglowek.pt, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
+  sectionTitle: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.naglowek.pt, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
   opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, marginBottom: 10 },
   lista: { gap: 8 },
   opcja: {

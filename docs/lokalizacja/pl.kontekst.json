@@ -122,6 +122,11 @@
     ],
     "opis": "Chip proporcji dokarmiania zakwasu na noc i przybliżony czas do szczytu. [M1-audytor-generalny-162]"
   },
+  "20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
   "2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -442,6 +447,11 @@
   "Brak danych o karmieniu": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelPl)"
+    ]
+  },
+  "Brak katalogu dokumentów aplikacji": {
+    "gdzie": [
+      "src/lib/backup.ts (dane: kod)"
     ]
   },
   "Brak otwartego ucha (nacięcie się zasklepiło)": {
@@ -877,6 +887,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
   "Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -994,6 +1009,11 @@
   "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+    ]
+  },
+  "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).": {
@@ -1564,6 +1584,11 @@
   "Formowanie bochenka podłużnego (Batard)": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: titlePl)"
+    ]
+  },
+  "Formowanie do koszyka i chłód": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Formowanie ostateczne i koszyk": {
@@ -2548,6 +2573,11 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
+  "Mieszanie i zaszczepienie": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
   "Mieszanka musi zawierać co najmniej jedną mąkę.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: errorPl)",
@@ -2655,6 +2685,11 @@
   "Mokry, lepki miękisz, brudzi nóż": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.": {
@@ -3179,6 +3214,11 @@
   },
   "Naczynie wypiekowe": {
     "gdzie": []
+  },
+  "Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
   },
   "Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.": {
     "gdzie": [
@@ -3849,6 +3889,11 @@
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
     ]
   },
+  "Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
   "Ostatnie wpisy": {
     "gdzie": [
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
@@ -4386,6 +4431,11 @@
   "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+    ]
+  },
+  "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Połączenie mąki ryżowej i zimnego ciasta z lodówki gwarantuje, że bochenek sam wyskoczy na papier do pieczenia w ułamku sekundy.": {
@@ -5158,6 +5208,21 @@
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
     ]
   },
+  "Składanie 1 (Stretch & Fold)": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Składanie 2 (Coil Fold)": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
+  "Składanie 3 (Coil Fold)": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
+    ]
+  },
   "Składanie pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: bulk_ferment)"
@@ -5921,9 +5986,7 @@
     ]
   },
   "Upieczony bochenek": {
-    "gdzie": [
-      "src/lib/recipe-formatter.ts (kod)"
-    ]
+    "gdzie": []
   },
   "Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.": {
     "gdzie": [
@@ -6077,10 +6140,11 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
-  "Uśpiony w lodówce ({elapsedDays} dni)": {
+  "Uśpiony w lodówce ({dni})": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
-    ]
+    ],
+    "opis": "Etykieta fazy zakwasu (sourdough starter) trzymanego w lodówce, 0–6 dni od dokarmienia. {dni} to gotowa liczba dni z odmianą języka (np. „1 dzień”, „5 dni”, EN „1 day”, „5 days”) — nie dopisuj słowa „dni” [M1-audytor-generalny-071]."
   },
   "Użyj Twojego zakwasu": {
     "gdzie": [
@@ -6730,7 +6794,8 @@
   "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
+    ],
+    "opis": "Porada Doktora Chleba. „Coil fold” to konkretna technika składania (ciasto unoszone od środka i zawijane pod siebie), NIE „stretch and fold” (rozciąganie i składanie). Użyj nazwy coil fold tak jak w innych kluczach słownika (np. ja „コイルフォールド”) [M1-audytor-generalny-185]."
   },
   "Wydłuż fermentację burzliwą.": {
     "gdzie": [
@@ -6813,10 +6878,11 @@
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
     ]
   },
-  "Wymaga odświeżenia ({elapsedDays} dni w chłodzie)": {
+  "Wymaga odświeżenia ({dni} w chłodzie)": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelTemplatePl)"
-    ]
+    ],
+    "opis": "Etykieta fazy zakwasu w lodówce po 7 i więcej dniach bez dokarmienia. {dni} to gotowa liczba dni z odmianą języka (np. „7 dni”, EN „7 days”) — nie dopisuj słowa „dni” [M1-audytor-generalny-071]."
   },
   "Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.": {
     "gdzie": [
@@ -6914,6 +6980,11 @@
   "Wypiek w formie": {
     "gdzie": [
       "src/core/rye-stages.ts (dane: namePl)"
+    ]
+  },
+  "Wypiek w garnku z parą": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Wypiek w garnku zakończony. Wyjmij chleb na kratkę.": {
@@ -7022,6 +7093,11 @@
   "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+    ]
+  },
+  "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.": {
+    "gdzie": [
+      "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
   "Wyłóż ciasto na papier do pieczenia i ostrożnie przełóż do rozgrzanego garnka.": {
@@ -7341,7 +7417,8 @@
   "Zamknij informację o końcu próby": {
     "gdzie": [
       "src/components/start/UprzedzenieProby.tsx (accessibilityLabel)"
-    ]
+    ],
+    "opis": "Etykieta VoiceOver przycisku, który zamyka (chowa) baner na ekranie „Dziś” z informacją, kiedy kończy się okres próbny. NIE wyłącza powiadomień ani przypomnień; użyj słowa „informacja/komunikat/baner”, nie „powiadomienie” (np. zh-Hant 提示, nie 通知) [M1-audytor-generalny-185]."
   },
   "Zamknij protokół ratunkowy": {
     "gdzie": [
@@ -7692,9 +7769,7 @@
     ]
   },
   "Zmień język na {nazwa}": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zmień parametry swojego zakwasu": {
     "gdzie": [
@@ -8151,6 +8226,12 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "temp. {temp}": {
+    "gdzie": [
+      "src/lib/recipe-formatter.ts (kod)"
+    ],
+    "opis": "Tekst receptury do skopiowania: w nawiasie kwadratowym po masie wody docelowa temperatura wody, np. „[temp. 22,0°C]”. Krótki skrót słowa „temperatura” w języku; {temp} to liczba z jednostką [M1-audytor-generalny-172]."
+  },
   "uncje, °F": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
@@ -8374,6 +8455,8 @@
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: few)",
       "src/components/PaywallModal.tsx (dane: many)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: few)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: many)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: few)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: many)"
     ]
@@ -8388,6 +8471,7 @@
   "{n} dnia": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: other)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
   },
@@ -8400,6 +8484,7 @@
   "{n} dzień": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: one)",
+      "src/components/zakwas/StarterPeakActivityCard.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
   },
@@ -8494,6 +8579,12 @@
     "gdzie": [
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
+  },
+  "{n}x ~{masa} upieczony bochenek": {
+    "gdzie": [
+      "src/lib/recipe-formatter.ts (kod)"
+    ],
+    "opis": "Tekst receptury do skopiowania, w nawiasie po masie ciasta: liczba bochenków ({n}, co najmniej 2) i przybliżona masa jednego bochenka po upieczeniu ({masa} z jednostką), np. „(2x ~731 g upieczony bochenek)”. Gramatyka i wielkość liter według języka (de rzeczownik wielką literą) [M1-audytor-generalny-172]."
   },
   "{n} min": {
     "gdzie": [

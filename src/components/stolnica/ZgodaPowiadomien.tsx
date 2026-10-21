@@ -39,7 +39,7 @@ export function ZgodaPowiadomien({ visible, onDalej }: ZgodaPowiadomienProps) {
 const styles = StyleSheet.create({
   tlo: { flex: 1, backgroundColor: theme.colors.tlo },
   tresc: { flex: 1, justifyContent: 'center', paddingHorizontal: odstepy.xl, gap: odstepy.m },
-  tytul: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
+  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
   opis: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   kciuk: { paddingHorizontal: odstepy.xl, paddingVertical: odstepy.m },
   glowny: {

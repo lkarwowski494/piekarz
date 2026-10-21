@@ -35,8 +35,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Dejo en el tarro',
   'Uczeń Piekarski': 'Aprendiz de panadero',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: tiempo de maduración {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Necesita un refresco ({elapsedDays} días en frío)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'En reposo en la nevera ({elapsedDays} días)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Harina de trigo blanca',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Harina de trigo Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Harina de centeno de molienda media',

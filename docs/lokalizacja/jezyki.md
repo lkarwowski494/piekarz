@@ -80,7 +80,17 @@ M1 zgłosił 22 rozbieżności w 13 językach; sekcji „rozbieznosc” w raport
 | pt-BR | Biały nalot lub kożuch na powierzchni | zakwas | poprawka: „Camada branca ou película na superfície” | „crosta” = twarda skorupa |
 | zh-Hant | Biały nalot lub kożuch na powierzchni | zakwas | poprawka: „表面出現白色覆層或皮膜” | 硬皮 = twarda skórka |
 | vi | Uwaga: Obliczona temperatura wody przekracza 45°C… Schłodź mąkę… (słownik i pole domeny) | temperatura | poprawka: „bột” → „bột mì” | „bột” = mąka albo ciasto; „bột mì” = mąka |
-| fi, fr, ja, sv, vi | `sklep:opis` | sklep | bez zmian w aplikacji; opis dla roli 10 (zadanie 095) | klucze `sklep:*` nie są wpinane do aplikacji; zgłoszone: nazwa „Crust” zamiast lokalnej (D-053), fi/fr procent piekarski (mąka i woda z zakwasu i zaczynu), ja bez „dożywotni”, vi masa ciasta zamiast masy mąki |
+| fi, fr, ja, sv, vi | `sklep:opis` | sklep | bez zmian w aplikacji; opis dla roli 10 (zadanie 095) |
+
+### Kontrola zwrotna kluczy partii 8–9 (2026-10-21, M1-audytor-generalny-185)
+
+Źródło: raport kontroli zwrotnej M1 z 2026-10-21 (9 rozbieżności w 1630 pozycjach; 4 rozbieżności „nawet 12 godzin” es, pt-BR, tr, zh-Hant i et „Pagar Pro” poza tym zadaniem).
+
+| Język | Tekst (PL) | Rozstrzygnięcie | Stan |
+|---|---|---|---|
+| ja | Wydłuż autolizę i dodaj dodatkową serię składań coil fold. | ponowny przekład: przekład podaje „ストレッチ＆フォールド” (stretch and fold, inna technika); w tym samym słowniku coil fold to „コイルフォールド” (2 klucze) | czeka na batch przekładu partii 12 (wskazówka dla tłumacza w `pl.kontekst.json`) |
+| zh-Hant | Zamknij informację o końcu próby | ponowny przekład: „關閉試用期結束通知” brzmi jak wyłączenie powiadomienia; etykieta zamyka baner (np. „關閉試用期結束提示”) | czeka na batch przekładu partii 12 (wskazówka w `pl.kontekst.json`) |
+| lv | Wydłuż fermentację burzliwą. / Skróć fermentację burzliwą… | słownik lv nazywa fermentację burzliwą (bulk) jednym terminem „pamatfermentācija” w 4 kluczach, także w nazwie kroku „Fermentacja burzliwa ze składaniami” („Pamatfermentācija ar locīšanu”); tłumaczenie zwrotne oddało go jako „fermentacja wstępna” | [DO USTALENIA] znaczenie terminu bez przeczytanego źródła (wyszukiwanie 2026-10-21 bez wyniku); bez zmiany do przeglądu rodzimego użytkownika (DEC-06) | klucze `sklep:*` nie są wpinane do aplikacji; zgłoszone: nazwa „Crust” zamiast lokalnej (D-053), fi/fr procent piekarski (mąka i woda z zakwasu i zaczynu), ja bez „dożywotni”, vi masa ciasta zamiast masy mąki |
 
 ## Rozbieżność z poprzednim rejestrem (zapis 2026-10-20)
 

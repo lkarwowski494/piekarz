@@ -1,7 +1,6 @@
 // Słownik cs, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Uspaný v lednici (počet dní: {elapsedDays})',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Pšeničná mouka (světlá, na chléb)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšeničná mouka Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Žitná mouka (středně světlá)',

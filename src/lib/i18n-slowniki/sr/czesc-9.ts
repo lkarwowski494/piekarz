@@ -100,6 +100,4 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Остављам у тегли',
   'Uczeń Piekarski': 'Пекарски ученик',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: време зрења {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Потребно освежавање (дана у хладном: {elapsedDays})',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Успаван у фрижидеру (дана: {elapsedDays})',
 };

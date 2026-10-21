@@ -61,8 +61,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Je garde dans le bocal',
   'Uczeń Piekarski': 'Apprenti boulanger',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl} : temps de maturation {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'À rafraîchir ({elapsedDays} jours au froid)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'En sommeil au réfrigérateur ({elapsedDays} jours)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Farine de blé blanche (à pain)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Farine de blé Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Farine de seigle (mouture claire à moyenne)',

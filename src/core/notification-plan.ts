@@ -163,19 +163,24 @@ export function planNotifications(
   return [...bake, ...feeding.slice(0, Math.max(0, room))].sort((a, b) => a.triggerAt - b.triggerAt);
 }
 
-export function notificationFingerprint(p: PlannedNotification): string {
-  return `${p.triggerAt}|${p.level}|${p.textKey}|${JSON.stringify(p.params)}`;
+/**
+ * Odcisk zawiera język treści: tekst powstaje przy planowaniu, więc po zmianie języka
+ * oczekujące planujemy na nowo [M1-audytor-generalny-136; 09-lokalizacja-503].
+ */
+export function notificationFingerprint(p: PlannedNotification, lang = ''): string {
+  return `${p.triggerAt}|${p.level}|${p.textKey}|${JSON.stringify(p.params)}|${lang}`;
 }
 
 /** Różnica między oczekującymi a planem; obcych identyfikatorów (bez prefiksu) nie dotyka. */
 export function diffNotifications(
   pending: readonly PendingNotification[],
-  desired: readonly PlannedNotification[]
+  desired: readonly PlannedNotification[],
+  lang = ''
 ): { cancel: string[]; schedule: PlannedNotification[] } {
   const ours = pending.filter((p) => p.id.startsWith(NOTIF_PREFIX));
   const wanted = new Map(desired.map((d) => [d.id, d]));
   const cancel = ours.filter((p) => !wanted.has(p.id)).map((p) => p.id);
   const have = new Map(ours.map((p) => [p.id, p.fingerprint]));
-  const schedule = desired.filter((d) => have.get(d.id) !== notificationFingerprint(d));
+  const schedule = desired.filter((d) => have.get(d.id) !== notificationFingerprint(d, lang));
   return { cancel, schedule };
 }

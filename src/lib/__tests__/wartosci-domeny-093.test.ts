@@ -2,7 +2,7 @@
 // {flavorProfilePl}, ${elapsedDays}) dawały polski tekst w każdym języku, bo t() dostawało gotowe zdanie PL bez
 // wpisu w słowniku. Przy wyświetlaniu: szablon i wartości z przekładu; pola *Pl w wynikach bez zmian
 // [M1-audytor-generalny-093].
-import { setLang, t, type Lang } from '../i18n';
+import { setLang, t, tPlural, type Lang } from '../i18n';
 import { calculatePrefermentBreakdown, PREFERMENT_DEFINITIONS } from '../../core/preferments';
 import { calculateStarterPhase } from '../../core/sourdough-physics';
 import { wskazowkaZaczynu } from '../wskazowka-zaczynu';
@@ -40,7 +40,8 @@ describe('wartości domeny w języku użytkownika (093)', () => {
     expect(faza.labelPl).toBe('Uśpiony w lodówce (3 dni)');
     setLang(l);
     const e = etykietaFazyZakwasu(faza);
-    expect(e).toBe(t('Uśpiony w lodówce ({elapsedDays} dni)', { elapsedDays: 3 }));
+    // Liczba dni z odmianą CLDR w parametrze {dni} [M1-audytor-generalny-071]
+    expect(e).toBe(t('Uśpiony w lodówce ({dni})', { dni: tPlural(3, { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' }) }));
     expect(e).not.toMatch(/lodówce/);
     const glodny = etykietaFazyZakwasu(calculateStarterPhase(teraz - 7 * DOBA, 'FRIDGE', teraz));
     expect(glodny).toContain('7');

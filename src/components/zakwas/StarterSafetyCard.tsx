@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   cardTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     color: theme.colors.ostrzTusz,
   },
   safetyTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,

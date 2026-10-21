@@ -167,13 +167,13 @@ export function t(pl: string, params?: Record<string, string | number>): string 
  * które liczby są różnicą temperatur albo masą, niezależnie od słów języka [M1-audytor-generalny-096; 09-lokalizacja-501].
  */
 function wypelnij(tekst: string, params?: Record<string, string | number>, zrodlo?: string): string {
-  let text = tekst;
-  if (params) {
-    for (const k of Object.keys(params)) {
-      text = text.split(`{${k}}`).join(paramText(params[k]));
-    }
-  }
-  return przeliczanie ? przeliczanie(text, zrodlo) : text;
+  const wstaw = (s: string) => {
+    let wynik = s;
+    if (params) for (const k of Object.keys(params)) wynik = wynik.split(`{${k}}`).join(paramText(params[k]));
+    return wynik;
+  };
+  // Źródło też z parametrami: masa „{g} g” jest masą także w przekładzie z „г” [M1-audytor-generalny-213; 09-lokalizacja-601]
+  return przeliczanie ? przeliczanie(wstaw(tekst), zrodlo === undefined ? undefined : wstaw(zrodlo)) : wstaw(tekst);
 }
 
 let przeliczanie: ((tekst: string, zrodlo?: string) => string) | null = null;

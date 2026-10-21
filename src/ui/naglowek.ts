@@ -7,7 +7,7 @@
 
 import { theme } from './theme';
 
-const tytul = { fontFamily: theme.typography.krojTytulow, fontWeight: '700' as const, color: theme.colors.tusz };
+const tytul = { get fontFamily() { return theme.typography.krojTytulow; }, fontWeight: '700' as const, color: theme.colors.tusz };
 
 /** Nagłówek ekranu w stosie: zwykły tytuł, przycisk wstecz w kolorze akcji, bez linii pod paskiem. */
 export const naglowekZwykly = {

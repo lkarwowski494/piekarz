@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     padding: odstepy.l,
     gap: odstepy.s,
   },
-  banerHeading: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, fontFamily: theme.typography.krojTytulow },
+  banerHeading: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, get fontFamily() { return theme.typography.krojTytulow; } },
   banerTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   drugi: {
     minHeight: theme.cele.glownyPrzeplyw,

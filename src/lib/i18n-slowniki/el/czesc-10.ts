@@ -75,8 +75,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Κρατάω στο βάζο',
   'Uczeń Piekarski': 'Μαθητευόμενος αρτοποιός',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Χρόνος ωρίμανσης {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Χρειάζεται ανανέωση (ημέρες στο κρύο: {elapsedDays})',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Σε λήθαργο στο ψυγείο (ημέρες: {elapsedDays})',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Λευκό αλεύρι σίτου (για ψωμί)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Αλεύρι σίτου Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Αλεύρι σίκαλης μεσαίας άλεσης',

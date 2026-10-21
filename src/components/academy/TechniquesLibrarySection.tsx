@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   lessonTitleBlock: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     flex: 1,
     marginRight: 8,
   },
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   cardTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.sm,
   },
   subSectionTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   subSectionTitleMistake: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.blad,
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.akcent,
   },
   proTipTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 11,
     fontWeight: '700',
     color: theme.colors.akcentTekst,

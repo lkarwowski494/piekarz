@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sectionHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,

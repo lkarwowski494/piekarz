@@ -51,8 +51,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': '병에 남길 양',
   'Uczeń Piekarski': '베이킹 견습생',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: 숙성 시간 {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': '리프레시 필요 (냉장 {elapsedDays}일)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': '냉장고에서 휴면 중 ({elapsedDays}일)',
   'Mąka pszenna typ 650 (chlebowa jasna)': '밀가루 (빵용 백색 밀가루)',
   'Mąka pszenna Manitoba / Forte (W > 300)': '마니토바 / 포르테 밀가루 (W > 300)',
   'Mąka żytnia typ 720': '호밀가루 (중간 제분도)',

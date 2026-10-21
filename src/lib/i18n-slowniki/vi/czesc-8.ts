@@ -71,8 +71,6 @@ export const CZESC: Record<string, string> = {
   'Zostawiam w słoiku': 'Giữ lại trong lọ',
   'Uczeń Piekarski': 'Học viên làm bánh',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Thời gian ủ {fermentationTimeHours}. {flavorProfilePl}',
-  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Cần cho ăn lại ({elapsedDays} ngày trong lạnh)',
-  'Uśpiony w lodówce ({elapsedDays} dni)': 'Đang ngủ trong tủ lạnh ({elapsedDays} ngày)',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Bột mì trắng',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Bột mì Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Bột lúa mạch đen (độ xay trung bình)',
