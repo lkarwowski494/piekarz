@@ -39,6 +39,12 @@ const DAWNE_NAZWY: ReadonlyArray<readonly [string, string]> = [
   ['Mąka orkiszowa jasna typ 630', 'orkisz_630'],
   ['Mąka żytnia razowa typ 2000', 'zytnia_2000'],
   ['Mąka orkiszowa razowa typ 2000', 'orkisz_2000'],
+  // nazwy jak atlas (M2-koordynator-napraw-p13a-001)
+  ['Mąka pszenna typ 650 (chlebowa jasna)', 'pszenna_650'],
+  ['Mąka pszenna typ 650', 'pszenna_650'],
+  ['Mąka pszenna pełnoziarnista typ 2000', 'pszenna_razowa'],
+  ['Mąka pszenna graham typ 1850', 'pszenna_graham'],
+  ['Mąka pszenna luksusowa typ 550', 'pszenna_550'],
 ];
 for (const [n, typ] of DAWNE_NAZWY) if (!TYP_NAZWY.has(n)) TYP_NAZWY.set(n, typ);
 const NAZWY_DANYCH = new Set(TYP_NAZWY.keys());

@@ -8,8 +8,8 @@ export const EN_6: Record<string, string> = {
     'Lesson 1: Overnight Cast Iron Pot Bread (No-Knead)',
   'Zrozumienie roli czasu w autogenicznej budowie siatki glutenowej oraz potęgi pieczenia w zamkniętym garnku.':
     'Understanding the role of time in the autogenic development of the gluten network and the power of baking in a covered pot.',
-  '100% mąka pszenna chlebowa typ 650':
-    '100% wheat bread flour type 650',
+  '100% mąka pszenna typ 650 (Bułkowa)':
+    '100% wheat flour (Polish type 650)',
   '14h powolna fermentacja w temperaturze pokojowej (20–22°C)':
     '14h slow fermentation at room temperature (20–22°C)',
   'Zmieszaj mąkę, wodę, drożdże instant i sól w misce łyżką (zajmie to zaledwie 2 minuty — zero wyrabiania!).':
@@ -60,8 +60,8 @@ export const EN_6: Record<string, string> = {
     'Lesson 3: Classic 75% Hydration Country Bread (Tartine)',
   'Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).':
     'Mastering classic autolyse, coil folds, a long cold retard and scoring for an ear.',
-  '90% mąka chlebowa wysokobiałkowa (W>280) + 10% pszenna razowa':
-    '90% high-protein bread flour (W>280) + 10% whole wheat flour',
+  '90% mąka pszenna Manitoba + 10% mąka pszenna razowa typ 2000':
+    '90% Manitoba wheat flour + 10% whole wheat flour (Polish type 2000)',
   'Fermentacja burzliwa 5h + 16h garowania chłodniczego w 4°C (Cold Retard)':
     'Bulk fermentation 5h + 16h cold proofing at 4°C (Cold Retard)',
   'Wykonaj 60-minutową autolizę mąki z 90% wody z receptury.':
@@ -88,8 +88,8 @@ export const EN_6: Record<string, string> = {
     'Lesson 4: Traditional 100% Whole Rye Bread in a Loaf Tin',
   'Zrozumienie chemii pentozanów, śluzów roślinnych i całkowitego braku glutenu pszennego; technologia wypieku żytniego.':
     'Understanding the chemistry of pentosans, plant mucilages and the complete absence of wheat gluten; rye baking technology.',
-  '100% mąka żytnia razowa typ 2000':
-    '100% whole grain rye flour type 2000',
+  '100% mąka żytnia typ 2000':
+    '100% rye flour (Polish type 2000)',
   'Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce':
     'Single-stage warm sour fermentation (26–28°C) for 3–4h in a loaf tin',
   'Przygotuj silny trójfazowy kwas żytni o intensywnym owocowo-octowym aromacie.':
@@ -144,8 +144,8 @@ export const EN_6: Record<string, string> = {
     'Lesson 6: Pizza Napoletana Verace (48h cold)',
   'Dozowanie mikrogramów drożdży, panowanie nad elastycznością glutenu po 48h w chłodzie, otwieranie placka dłońmi bez wałka.':
     'Dosing micrograms of yeast, controlling gluten elasticity after 48h in the cold, opening the pizza base by hand without a rolling pin.',
-  '100% mąka włoska Tipo 00 (W>300)':
-    '100% Italian Tipo 00 flour (W>300)',
+  '100% mąka włoska Tipo 00':
+    '100% Italian Tipo 00 flour',
   '2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek':
     '2h room temperature + 44h maturation at 4°C + 4h warming of the dough balls',
   'Rozpuść sól w chłodnej wodzie, dodaj mikrodawkę drożdży i stopniowo wprowadzaj mąkę Tipo 00.':

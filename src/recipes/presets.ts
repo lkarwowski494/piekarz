@@ -57,7 +57,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     formula: {
       flours: [
         { name: 'Mąka pszenna Manitoba', percentage: 90.0, type: 'pszenna_manitoba' },
-        { name: 'Mąka pszenna pełnoziarnista typ 2000', percentage: 10.0, type: 'pszenna_razowa' },
+        { name: 'Mąka pszenna razowa typ 2000', percentage: 10.0, type: 'pszenna_razowa' },
       ],
       waterPercentage: 76.0,
       saltPercentage: 2.0,
@@ -105,7 +105,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     formula: {
       flours: [
         { name: 'Mąka pszenna chlebowa typ 750', percentage: 75.0, type: 'pszenna_750' },
-        { name: 'Mąka pszenna graham typ 1850', percentage: 15.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 15.0, type: 'pszenna_graham' },
         { name: 'Mąka żytnia typ 720', percentage: 10.0, type: 'zytnia_720' },
       ],
       waterPercentage: 69.0,
@@ -129,7 +129,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650 (chlebowa jasna)', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 72.0,
       saltPercentage: 2.0,
@@ -175,7 +175,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Puszyste, oliwne ciasto z chrupiącą bazą, soczystymi wgłębieniami i aromatem świeżego rozmarynu z solą morską.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650', percentage: 85.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 85.0, type: 'pszenna_650' },
         { name: 'Mąka z pszenicy durum (Semolina)', percentage: 15.0, type: 'durum' },
       ],
       waterPercentage: 80.0,
@@ -293,7 +293,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna graham typ 1850', percentage: 60.0, type: 'pszenna_graham' },
+        { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 60.0, type: 'pszenna_graham' },
         { name: 'Mąka pszenna chlebowa typ 750', percentage: 40.0, type: 'pszenna_750' },
       ],
       waterPercentage: 72.0,
@@ -317,7 +317,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Najprostszy chleb świata. Mieszanie łyżką w 2 minuty, nocny rozrost na blacie i pieczenie w garnku.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna typ 650', percentage: 100.0, type: 'pszenna_650' },
+        { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
       ],
       waterPercentage: 75.0,
       saltPercentage: 2.0,
@@ -363,7 +363,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna luksusowa typ 550', percentage: 100.0, type: 'pszenna_550' },
+        { name: 'Mąka pszenna typ 550 (Luksusowa)', percentage: 100.0, type: 'pszenna_550' },
       ],
       waterPercentage: 45.0,
       saltPercentage: 1.0,

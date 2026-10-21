@@ -54,22 +54,22 @@
       "src/components/StarterConverterModal.tsx (label)"
     ]
   },
-  "100% mąka pszenna chlebowa typ 650": {
-    "gdzie": [
-      "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
-    ]
-  },
   "100% mąka pszenna francuska T65 (Tradition)": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
     ]
   },
-  "100% mąka włoska Tipo 00 (W>300)": {
+  "100% mąka pszenna typ 650 (Bułkowa)": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
     ]
   },
-  "100% mąka żytnia razowa typ 2000": {
+  "100% mąka włoska Tipo 00": {
+    "gdzie": [
+      "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
+    ]
+  },
+  "100% mąka żytnia typ 2000": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
     ]
@@ -182,7 +182,7 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "90% mąka chlebowa wysokobiałkowa (W>280) + 10% pszenna razowa": {
+  "90% mąka pszenna Manitoba + 10% mąka pszenna razowa typ 2000": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: flourBlendPl)"
     ]
@@ -2874,12 +2874,12 @@
   "Mąka pszenna graham typ 1850": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna luksusowa typ 550": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna niskowyciągowa, białko 10,2–13,8%": {
@@ -2913,12 +2913,13 @@
   },
   "Mąka pszenna pełnoziarnista typ 2000": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna razowa typ 2000": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/presets.ts (dane: name)"
     ]
   },
   "Mąka pszenna razowa, białko 8,7–9,6%": {
@@ -2939,7 +2940,8 @@
   },
   "Mąka pszenna typ 1850 (Graham)": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/presets.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 405": {
@@ -2964,22 +2966,24 @@
   },
   "Mąka pszenna typ 550 (Luksusowa)": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/presets.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 650": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna typ 650 (Bułkowa)": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/presets.ts (dane: name)"
     ]
   },
   "Mąka pszenna typ 650 (chlebowa jasna)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna typ 650 lub graham": {
@@ -4394,7 +4398,8 @@
   },
   "Potrzebny zakwas": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
+      "src/lib/feeding-formatter.ts (kod)"
     ],
     "opis": "Etykieta wyniku w karcie dokarmienia: masa zakwasu (sourdough starter) potrzebna do ciasta, po niej dwukropek i masa. Nie zaczyn/preferment. [M1-audytor-generalny-160]"
   },
@@ -5379,7 +5384,8 @@
   },
   "Stary zakwas": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
+      "src/lib/feeding-formatter.ts (kod)"
     ]
   },
   "Statystyki piekarni domowej": {
@@ -7330,8 +7336,7 @@
   },
   "Zakwas matka": {
     "gdzie": [
-      "src/components/StarterConverterModal.tsx (tekst w JSX)",
-      "src/lib/feeding-formatter.ts (kod)"
+      "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
   "Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.": {

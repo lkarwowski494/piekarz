@@ -82,7 +82,7 @@
       ]
     },
     {
-      "klucz": "100% mąka pszenna chlebowa typ 650",
+      "klucz": "100% mąka pszenna typ 650 (Bułkowa)",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -94,13 +94,13 @@
       ]
     },
     {
-      "klucz": "100% mąka włoska Tipo 00 (W>300)",
+      "klucz": "100% mąka włoska Tipo 00",
       "funkcje": [
         "F-44 akademia"
       ]
     },
     {
-      "klucz": "100% mąka żytnia razowa typ 2000",
+      "klucz": "100% mąka żytnia typ 2000",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -184,7 +184,7 @@
       ]
     },
     {
-      "klucz": "90% mąka chlebowa wysokobiałkowa (W>280) + 10% pszenna razowa",
+      "klucz": "90% mąka pszenna Manitoba + 10% mąka pszenna razowa typ 2000",
       "funkcje": [
         "F-44 akademia"
       ]
