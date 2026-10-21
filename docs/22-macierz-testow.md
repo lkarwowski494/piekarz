@@ -249,7 +249,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wklej kod JSON udostępniony przez innego piekarza` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wklej ze schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wyczyść wklejony tekst` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wyczyść` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Wyczyść` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/sieroty-slownikow-p13a.test.ts |
 | `TEKST` | `Wklej kod JSON receptury tutaj...` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nieprawidłowy format` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/settings-modal.test.tsx |
