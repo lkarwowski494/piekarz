@@ -41,10 +41,22 @@ export function getRescueFile(): string | null {
   return rescueFile;
 }
 
-export function markStorageUnavailable(message: string, rescue: string | null = null): void {
+/**
+ * Rodzaj pliku do udostępnienia: kopia SQLite sprzed migracji (004) albo komplet surowych plików bazy
+ * w jednym pliku JSON po błędzie odczytu uszkodzonej bazy [M1-audytor-generalny-122].
+ */
+export type RescueKind = 'przed-migracja' | 'pliki-bazy';
+let rescueKind: RescueKind = 'przed-migracja';
+
+export function getRescueKind(): RescueKind {
+  return rescueKind;
+}
+
+export function markStorageUnavailable(message: string, rescue: string | null = null, kind: RescueKind = 'przed-migracja'): void {
   state = 'unavailable';
   lastError = message;
   rescueFile = rescue;
+  rescueKind = kind;
   listeners.forEach((fn) => fn(state));
 }
 

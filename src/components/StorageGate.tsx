@@ -7,7 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView, ActivityIndicator } from 'react-native';
 import * as Sharing from 'expo-sharing';
-import { getStorageState, getRescueFile, subscribeStorageState, StorageState } from '../data/storage-status';
+import { getStorageState, getRescueFile, getRescueKind, subscribeStorageState, StorageState } from '../data/storage-status';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
@@ -15,7 +15,9 @@ import { t } from '../lib/i18n';
 export async function shareRescueFile(filePath: string): Promise<boolean> {
   if (!(await Sharing.isAvailableAsync())) return false;
   const uri = filePath.startsWith('file://') ? filePath : `file://${filePath}`;
-  await Sharing.shareAsync(uri, { mimeType: 'application/x-sqlite3', dialogTitle: t('Udostępnij kopię bazy') });
+  // Komplet plików bazy w jednym JSON-ie (122) albo kopia SQLite sprzed migracji (004)
+  const mimeType = uri.endsWith('.json') ? 'application/json' : 'application/x-sqlite3';
+  await Sharing.shareAsync(uri, { mimeType, dialogTitle: t('Udostępnij kopię bazy') });
   return true;
 }
 
@@ -85,7 +87,9 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
       {rescue ? (
         <>
           <Text style={[styles.body, styles.rescueText]}>
-            {t('Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.')}
+            {getRescueKind() === 'pliki-bazy'
+              ? t('Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.')
+              : t('Kopia danych sprzed aktualizacji jest zapisana w telefonie. Możesz ją udostępnić, np. zapisać w Plikach.')}
           </Text>
           <Pressable
             style={styles.secondaryButton}
