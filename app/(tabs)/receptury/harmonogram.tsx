@@ -53,6 +53,9 @@ export default function HarmonogramScreen() {
 
   // Baking environment
   const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
+  // 23 °C to założenie modelu planu, nie pomiar: do wypieku i dziennika trafia tylko temperatura wybrana
+  // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]
+  const [tempWybrana, setTempWybrana] = useState(false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
   // Sleep Guard settings
@@ -183,7 +186,7 @@ export default function HarmonogramScreen() {
         recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy'),
         startedAt: Date.now(),
         currentStageId: steps[0]?.id ?? '',
-        ambientTempC: ambientTemp,
+        ...(tempWybrana ? { ambientTempC: ambientTemp } : {}),
         isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
         steps,
         ...(zakwas ? { starterId: zakwas.id } : {}),
@@ -225,7 +228,10 @@ export default function HarmonogramScreen() {
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
           ambientTemp={ambientTemp}
-          onAmbientTempChange={setAmbientTemp}
+          onAmbientTempChange={(c: number) => {
+            setAmbientTemp(c);
+            setTempWybrana(true);
+          }}
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
           sleepStartHour={sleepStartHour}

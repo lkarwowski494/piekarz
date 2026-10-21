@@ -61,6 +61,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
   });
 
   afterEach(() => {
+    jest.restoreAllMocks(); // zegar stały tylko w teście, który go ustawia (017)
     if (tree) {
       act(() => {
         tree?.unmount();
@@ -70,6 +71,9 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
   });
 
   it('renders reverse schedule, Sleep Guard status, and timeline stages', async () => {
+    // Plan domyślny startuje od „teraz” (stan „za późno”, 107), więc kolizja ze snem zależy od godziny: zegar stały
+    // o 02:00, kiedy kroki z obecnością wypadają w dzień (SYS-06; wcześniej test był czerwony np. o 10:00) [M1-audytor-generalny-017]
+    jest.spyOn(Date, 'now').mockImplementation(() => new Date(2026, 9, 21, 2, 0).getTime());
     await act(async () => {
       tree = renderer.create(<HarmonogramScreen />);
       await Promise.resolve();
@@ -235,7 +239,8 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     const activeBake = getActiveBake();
     expect(activeBake).not.toBeNull();
     expect(activeBake?.recipeName).toBe('Klasyczny chleb rzemieślniczy'); // bez dawnej nazwy miejsca (089)
-    expect(activeBake?.ambientTempC).toBe(23.0);
+    // [M1-audytor-generalny-017] 23 °C to założenie planu, nie pomiar: bez wyboru użytkownika wypiek nie ma temperatury
+    expect(activeBake?.ambientTempC).toBeUndefined();
     // [M1-audytor-generalny-017] bez pomiaru nie ma DDT (wcześniej stałe 25.0)
     expect(activeBake?.actualDdtC).toBeUndefined();
 
