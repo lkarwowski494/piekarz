@@ -34,6 +34,34 @@ const ustawienia = (file: string) => {
   return { s: Object.fromEntries(rows.map((r) => [r.key, r.value])), lekcje };
 };
 
+describe('139: format ustawień i lekcji w kopii', () => {
+  it('KLUCZE_USTAWIEN_KOPII, dozwolony, parseUstawienia i parseLekcje: tylko dozwolone klucze z tekstem, lekcje z liczbami', () => {
+    const k = require('../ustawienia-kopii') as typeof import('../ustawienia-kopii');
+    expect(k.KLUCZE_USTAWIEN_KOPII).toEqual(['language', 'unit_system', 'godziny_snu', 'selected_baking_vessel', 'baker_ritual_profile', 'has_completed_onboarding']);
+    expect(k.dozwolony('language')).toBe(true);
+    expect(k.dozwolony('active_bake_session')).toBe(false);
+    expect(k.dozwolony('platnosci_pamiec')).toBe(false);
+    expect(k.parseUstawienia({ language: 'de', unit_system: 7, platnosci_pamiec: 'x' })).toEqual({ language: 'de' });
+    expect(k.parseUstawienia(undefined)).toBeUndefined();
+    expect(k.parseUstawienia([])).toBeUndefined();
+    expect(k.parseLekcje([{ levelId: 3, completedAt: 10 }, { levelId: 1.5, completedAt: 1 }, { levelId: 4 }])).toEqual([{ levelId: 3, completedAt: 10 }]);
+    expect(k.parseLekcje('x')).toBeUndefined();
+  });
+
+  it('czytajUstawieniaILekcje i zapiszUstawieniaILekcje na node:sqlite: zapis bez pól nic nie zmienia, z polami nadpisuje', async () => {
+    useTempDbDir();
+    const app = restartApp();
+    await app.schema.initDatabase();
+    const db = await app.schema.getDb();
+    if (!db) throw new Error('brak bazy');
+    const k = require('../ustawienia-kopii') as typeof import('../ustawienia-kopii');
+    await k.zapiszUstawieniaILekcje(db, { language: 'fr', active_bake_session: 'X' }, [{ levelId: 7, completedAt: 70 }]);
+    expect(await k.czytajUstawieniaILekcje(db)).toEqual({ settings: { language: 'fr' }, lessonProgress: [{ levelId: 7, completedAt: 70 }] });
+    await k.zapiszUstawieniaILekcje(db);
+    expect(await k.czytajUstawieniaILekcje(db)).toEqual({ settings: { language: 'fr' }, lessonProgress: [{ levelId: 7, completedAt: 70 }] });
+  });
+});
+
 describe('139: ustawienia i lekcje w kopii (BR-DANE-003 Pełny eksport)', () => {
   beforeEach(() => {
     useTempDbDir();
