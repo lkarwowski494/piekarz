@@ -159,28 +159,31 @@ export function t(pl: string, params?: Record<string, string | number>): string 
     currentLang === SOURCE_LANG
       ? source
       : own(slownik(currentLang), pl) ?? own(slownik(FALLBACK_LANG), pl) ?? source;
-  return wypelnij(text, params);
+  return wypelnij(text, params, source);
 }
 
-/** Parametry {klucz} i przeliczenie jednostek w gotowym tekście. */
-function wypelnij(tekst: string, params?: Record<string, string | number>): string {
+/**
+ * Parametry {klucz} i przeliczenie jednostek w gotowym tekście. `zrodlo` (tekst PL klucza) mówi przeliczeniu,
+ * które liczby są różnicą temperatur albo masą, niezależnie od słów języka [M1-audytor-generalny-096; 09-lokalizacja-501].
+ */
+function wypelnij(tekst: string, params?: Record<string, string | number>, zrodlo?: string): string {
   let text = tekst;
   if (params) {
     for (const k of Object.keys(params)) {
       text = text.split(`{${k}}`).join(paramText(params[k]));
     }
   }
-  return przeliczanie ? przeliczanie(text) : text;
+  return przeliczanie ? przeliczanie(text, zrodlo) : text;
 }
 
-let przeliczanie: ((tekst: string) => string) | null = null;
+let przeliczanie: ((tekst: string, zrodlo?: string) => string) | null = null;
 
 /**
  * Przeliczenie jednostek w gotowym tekście (po parametrach), rejestrowane przez unit-converter: w trybie
  * imperialnym °C → °F i g → oz w każdym tekście z t() (design-spec §7, D-044) [M1-audytor-generalny-096].
  * Bez cyklu importów: i18n nie importuje unit-converter.
  */
-export function ustawPrzeliczanieTekstu(fn: ((tekst: string) => string) | null): void {
+export function ustawPrzeliczanieTekstu(fn: ((tekst: string, zrodlo?: string) => string) | null): void {
   przeliczanie = fn;
 }
 
@@ -212,7 +215,7 @@ export function tPlural(count: number, forms: PluralForms, params?: Record<strin
   const p = { n: count, ...params };
   if (currentLang !== SOURCE_LANG) {
     const wlasna = own(slownik(currentLang), `${forms.one ?? forms.other}#${cat}`);
-    if (wlasna !== undefined) return wypelnij(wlasna, p);
+    if (wlasna !== undefined) return wypelnij(wlasna, p, forms[cat] ?? forms.other);
   }
   return t(forms[cat] ?? forms.other, p);
 }
