@@ -346,6 +346,12 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Bez godzin snu": {
+    "gdzie": [
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)",
+      "src/components/settings/GodzinySnuSection.tsx (tekst)"
+    ]
+  },
   "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
     "gdzie": [
       "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
@@ -1691,6 +1697,11 @@
   "Godzina podania na stół:": {
     "gdzie": []
   },
+  "Godziny snu": {
+    "gdzie": [
+      "src/components/settings/GodzinySnuSection.tsx (tekst w JSX)"
+    ]
+  },
   "Godziny snu:": {
     "gdzie": [
       "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
@@ -2309,6 +2320,11 @@
   "Kroki technologiczne:": {
     "gdzie": [
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Kroki z pracą przy cieście planuję poza tymi godzinami.": {
+    "gdzie": [
+      "src/components/settings/GodzinySnuSection.tsx (tekst w JSX)"
     ]
   },
   "Kryterium zaliczenia:": {
@@ -3500,7 +3516,7 @@
   },
   "Nocny marek": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
+      "src/lib/godziny-snu.ts (dane: namePl)"
     ]
   },
   "Notatki z wypieku": {
@@ -4043,6 +4059,11 @@
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (tresc)"
+    ]
+  },
+  "Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.": {
+    "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
     ]
   },
   "Plan wypieku": {
@@ -4787,7 +4808,7 @@
   },
   "Ranny ptaszek": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
+      "src/lib/godziny-snu.ts (dane: namePl)"
     ]
   },
   "Razem {masa}": {
@@ -5265,7 +5286,7 @@
   },
   "Standard": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
+      "src/lib/godziny-snu.ts (dane: namePl)"
     ]
   },
   "Standard szklanki:": {
@@ -6621,6 +6642,9 @@
     ]
   },
   "Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).": {
+    "gdzie": []
+  },
+  "Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).": {
     "gdzie": [
       "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
     ]

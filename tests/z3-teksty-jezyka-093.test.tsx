@@ -40,10 +40,11 @@ describe('Z-3: teksty w języku aplikacji (093)', () => {
     act(() => tree.unmount());
   });
 
-  it('profil snu: godziny w formacie regionu (pl 24 h, en 12 h), nie stały napis „23:00 – 06:30”', () => {
-    expect(etykietaProfiluSnu(SLEEP_PROFILES[0])).toBe('23:00 – 06:30');
+  // Profil „Standard” 23:00–07:00 według BRD BR-HARMO-002 i D-066 1a (wcześniej 06:30) [M1-audytor-generalny-130]
+  it('profil snu: godziny w formacie regionu (pl 24 h, en 12 h), nie stały napis „23:00 – 07:00”', () => {
+    expect(etykietaProfiluSnu(SLEEP_PROFILES[0])).toBe('23:00 – 07:00');
     act(() => setLang('en'));
     const en = etykietaProfiluSnu(SLEEP_PROFILES[0]);
-    expect(en).toMatch(/11:00\s?PM – 0?6:30\s?AM/);
+    expect(en).toMatch(/11:00\s?PM – 0?7:00\s?AM/);
   });
 });

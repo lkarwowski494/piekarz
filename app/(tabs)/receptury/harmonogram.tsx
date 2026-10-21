@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import {
   ScrollView,
   StyleSheet,
+  Text,
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -28,6 +29,7 @@ import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuard
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
 import { UstawieniaPlanu } from '../../../src/components/harmonogram/UstawieniaPlanu';
+import { oknoSnu, useProfilSnu } from '../../../src/lib/godziny-snu';
 import { PasekStartu } from '../../../src/components/harmonogram/PasekStartu';
 import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
@@ -61,9 +63,11 @@ export default function HarmonogramScreen() {
   const [tempWybrana, setTempWybrana] = useState(false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
-  // Sleep Guard settings
-  const [sleepStartHour, setSleepStartHour] = useState<number>(23.0);
-  const [sleepEndHour, setSleepEndHour] = useState<number>(6.5);
+  // Godziny snu z Ustawień (D-066 1a, BR-HARMO-002); „Bez godzin snu” = okno puste (0–0), plan nie sprawdza nocy
+  // [M1-audytor-generalny-130]
+  const oknoPlanu = oknoSnu(useProfilSnu());
+  const sleepStartHour = oknoPlanu?.startH ?? 0;
+  const sleepEndHour = oknoPlanu?.koniecH ?? 0;
 
   // Target Date object
   const targetDate = useMemo(() => {
@@ -137,7 +141,7 @@ export default function HarmonogramScreen() {
   // [M1-audytor-generalny-129; DEC-18 a]
   useEffect(() => {
     if (!godzinaDomyslna.current) return;
-    const okno = { startH: sleepStartHour, koniecH: sleepEndHour };
+    const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
         krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
@@ -268,6 +272,9 @@ export default function HarmonogramScreen() {
               if (stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
             })}
           />
+        ) : oknoPlanu === null ? (
+          // „Bez godzin snu” w Ustawieniach: plan bez sprawdzania nocy i informacja, gdzie je ustawić (BR-HARMO-002) [130]
+          <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
         ) : (
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
           // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
@@ -277,6 +284,7 @@ export default function HarmonogramScreen() {
             suggestedActionPl={zytni ? undefined : schedule.suggestedActionPl}
             autoResolved={zytni ? null : autoResolved}
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
+            okno={oknoPlanu}
           />
         )}
         </TargetReadyCard>
@@ -293,12 +301,7 @@ export default function HarmonogramScreen() {
         />
 
         <UstawieniaPlanu
-          sleepStartHour={sleepStartHour}
-          sleepEndHour={sleepEndHour}
-          onSleepHoursChange={(start, end) => {
-            setSleepStartHour(start);
-            setSleepEndHour(end);
-          }}
+          okno={oknoPlanu}
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
@@ -320,6 +323,11 @@ const styles = StyleSheet.create({
   },
   przewijane: {
     flex: 1,
+  },
+  bezSnu: {
+    fontSize: 15,
+    color: theme.colors.tusz2,
+    marginBottom: theme.spacing.md,
   },
   container: {
     padding: theme.spacing.md,

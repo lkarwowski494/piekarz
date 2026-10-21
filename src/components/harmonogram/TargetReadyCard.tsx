@@ -16,11 +16,8 @@ import { formatTime } from '../../lib/format';
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
 
-export const SLEEP_PROFILES = [
-  { id: 'standard', namePl: 'Standard', label: '23:00 – 06:30', start: 23.0, end: 6.5 },
-  { id: 'early_bird', namePl: 'Ranny ptaszek', label: '22:00 – 06:00', start: 22.0, end: 6.0 },
-  { id: 'night_owl', namePl: 'Nocny marek', label: '00:00 – 08:00', start: 24.0, end: 8.0 },
-];
+/** Profile godzin snu: wybór w Ustawieniach (src/lib/godziny-snu.ts, D-066 1a) [M1-audytor-generalny-130]. */
+export { PROFILE_SNU as SLEEP_PROFILES } from '../../lib/godziny-snu';
 
 /** Godziny profilu snu w formacie regionu (en-US 12 h), nie stały napis 24 h (Z-3 z 080) [M1-audytor-generalny-093]. */
 export function etykietaProfiluSnu(p: { start: number; end: number }): string {

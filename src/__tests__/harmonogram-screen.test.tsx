@@ -5,6 +5,7 @@ import { getActiveBake, setActiveBake, initDatabase } from '../data/sqlite-store
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { godzinaPola, ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
+import { zapiszProfilSnu } from '../lib/godziny-snu';
 jest.setTimeout(20000);
 
 const mockPush = jest.fn();
@@ -283,40 +284,30 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     expect(extractCleanText(root)).toContain('Czas w lodówce: 18h');
   });
 
-  it('allows customizing Sleep Guard hours via sleep profiles', async () => {
+  // Profile snu wybiera się w Ustawieniach (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130]: plan pokazuje
+  // bieżący wybór i idzie za jego zmianą
+  it('shows Sleep Guard hours from Settings and follows a change of the profile', async () => {
+    await zapiszProfilSnu('standard');
     await act(async () => {
       tree = renderer.create(<HarmonogramScreen />);
       await Promise.resolve();
     });
 
     const root = tree!.root;
-
-    // Initially standard profile: 23:00 - 06:30
-    let allText = extractCleanText(root);
-    expect(allText).toContain('23:00 – 06:30');
-
-    // Select early bird profile (22:00 - 06:00)
-    const earlyBird = root.findByProps({ testID: 'sleep-profile-early_bird' });
-    expect(earlyBird).toBeDefined();
+    expect(extractCleanText(root)).toContain('Godziny snu: 23:00 – 07:00');
+    expect(root.findAll((n) => n.props?.testID === 'sleep-profile-early_bird')).toHaveLength(0);
 
     await act(async () => {
-      earlyBird.props.onPress();
-      await Promise.resolve();
+      await zapiszProfilSnu('early_bird');
     });
-
-    allText = extractCleanText(root);
-    expect(allText).toContain('22:00 – 06:00');
-
-    // Select night owl profile (00:00 - 08:00)
-    const nightOwl = root.findByProps({ testID: 'sleep-profile-night_owl' });
-    expect(nightOwl).toBeDefined();
+    expect(extractCleanText(root)).toContain('Godziny snu: 22:00 – 06:00');
 
     await act(async () => {
-      nightOwl.props.onPress();
-      await Promise.resolve();
+      await zapiszProfilSnu('night_owl');
     });
-
-    allText = extractCleanText(root);
-    expect(allText).toContain('00:00 – 08:00');
+    expect(extractCleanText(root)).toContain('Godziny snu: 00:00 – 08:00');
+    await act(async () => {
+      await zapiszProfilSnu('standard');
+    });
   });
 });
