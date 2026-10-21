@@ -10,11 +10,6 @@
       "klucz": "Mąka orkiszowa typ 2000",
       "powod": "nazwa atlasu bez „razowa” (MAK-OGL-901 otwarte) toru p13a (M2-koordynator-napraw-453 (p12b2)); przekład 33 języków batchem M1",
       "od": "2026-10-22"
-    },
-    {
-      "klucz": "następne dokarmienie {data} o {godzina}",
-      "powod": "nowy tekst toru p13a: karta zakwasu w lodówce z dniem następnego dokarmienia (M2-koordynator-napraw-503 (p11)); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

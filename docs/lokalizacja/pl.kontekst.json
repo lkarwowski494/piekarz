@@ -3287,6 +3287,7 @@
   },
   "Następne dokarmienie: {dzien} o {godzina}.": {
     "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
@@ -8103,11 +8104,6 @@
   "na blacie, {proporcja}": {
     "gdzie": [
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
-    ]
-  },
-  "następne dokarmienie {data} o {godzina}": {
-    "gdzie": [
-      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
   },
   "nieznana": {

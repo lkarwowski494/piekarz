@@ -60,7 +60,6 @@ export const EN_14: Record<string, string> = {
   'Dzień {n}': 'Day {n}',
   'Zapisz dzień {n}': 'Save Day {n}',
   'dokarmiony o {godzina}, następne o {nastepne}': 'fed at {godzina}, next at {nastepne}',
-  'następne dokarmienie {data} o {godzina}': 'next feeding {data} at {godzina}',
   '{czas} od dokarmienia': '{czas} since feeding',
   'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).':
     "Check this when the starter has doubled from the mark on the jar. That's when it's ready for dough (per King Arthur Baking).",

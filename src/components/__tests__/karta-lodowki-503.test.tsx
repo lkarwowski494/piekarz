@@ -36,8 +36,9 @@ describe('503: karta zakwasu w lodówce — dzień i godzina następnego dokarmi
     const stan = stanKartyZakwasu({ storageState: 'FRIDGE' }, [feed(fedAt)], now);
     expect(stan.nastepneAt).toBe(nastepne);
     const t = tekst(stan);
-    expect(t).toContain(formatDate(nastepne, appLocale(), { day: 'numeric', month: 'long' }));
-    expect(t).toContain(formatTime(nastepne));
+    // dzień jak w §11c: dalej niż pojutrze „{dzień tygodnia}, {d} {miesiąc}” według języka
+    const dzien = formatDate(nastepne, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
+    expect(t).toContain(jezyk === 'pl' ? `Następne dokarmienie: ${dzien} o ${formatTime(nastepne)}.` : `Next feeding: ${dzien} at ${formatTime(nastepne)}.`);
   });
 
   it('blat: zostaje „dokarmiony o …, następne o …” bez daty', () => {

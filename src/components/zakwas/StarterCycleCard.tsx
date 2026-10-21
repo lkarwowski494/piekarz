@@ -8,8 +8,8 @@ import React, { useMemo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Spirala } from '../Spirala';
 import { t } from '../../lib/i18n';
-import { appLocale, formatDate, formatTime } from '../../lib/format';
-import { czasSlownie, etykietaZakwasu } from '../../lib/spirala-etykieta';
+import { formatTime } from '../../lib/format';
+import { czasSlownie, dzienSlownie, etykietaZakwasu } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZakwasu } from '../../lib/spirala-geometria';
 import type { StanKartyZakwasu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
@@ -51,10 +51,11 @@ export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNie
                   {t('dokarmiony o {godzina}, następne o {nastepne}', { godzina: formatTime(stan.dokarmionoAt), nastepne: formatTime(stan.nastepneAt) })}
                 </Text>
               ) : (
-                // Lodówka: dzień i godzina następnego dokarmienia (ten sam termin co powiadomienie) [M2-koordynator-napraw-503 (p11)]
+                // Lodówka: dzień i godzina następnego dokarmienia (ten sam termin co powiadomienie), zdaniem z karty
+                // zakładania i dniem jak w §11c (dzienSlownie) [M2-koordynator-napraw-503 (p11)]
                 <Text testID="zakwas-nastepne-data" style={styles.drugi}>
-                  {t('następne dokarmienie {data} o {godzina}', {
-                    data: formatDate(stan.nastepneAt, appLocale(), { day: 'numeric', month: 'long' }),
+                  {t('Następne dokarmienie: {dzien} o {godzina}.', {
+                    dzien: dzienSlownie(new Date(stan.nastepneAt), new Date(stan.dokarmionoAt + stan.mineloMin * 60_000)),
                     godzina: formatTime(stan.nastepneAt),
                   })}
                 </Text>
