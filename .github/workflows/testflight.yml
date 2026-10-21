@@ -72,14 +72,9 @@ jobs:
             fi
           done
 
-      - name: Run quality gates (Typecheck + Matrix + i18n + Licenses + Tests)
-        run: |
-          npx tsc --noEmit
-          node scripts/test-matrix.mjs --check
-          npm run check:i18n
-          node scripts/check-licenses.mjs
-          node scripts/verify-native.mjs
-          npx jest --runInBand
+      # Te same kontrole co lokalnie i w CI, także check:size i lint (M1-audytor-generalny-167)
+      - name: Run quality gates (npm run verify)
+        run: npm run verify
 
       - name: Prebuild native iOS project
         run: npx expo prebuild --platform ios --no-install --clean

@@ -97,12 +97,47 @@ describe('bramka TestFlight (07-jakosc-011)', () => {
 
   it('krok bramek jakości uruchamia i18n, macierz, licencje i Jest', () => {
     const gates = step(testflight, /Run quality gates/);
-    expect(gates).toMatch(/npm run check:i18n|node scripts\/check-i18n\.mjs/);
+    // Krok wołający `npm run verify` uruchamia komendy skryptów z łańcucha verify (167).
+    const zVerify = /(^|\n)\s*(run:\s*)?npm run verify\s*(\n|$)/.test(gates)
+      ? pkg.scripts.verify
+          .split(/\s*&&\s*/)
+          .map((c: string) => (c === 'npm test' ? pkg.scripts.test : c.startsWith('npm run ') ? pkg.scripts[c.slice(8)] : c))
+          .join('\n')
+      : '';
+    const wykonywane = `${gates}\n${zVerify}`;
+    expect(wykonywane).toMatch(/npm run check:i18n|node scripts\/check-i18n\.mjs/);
     expect(pkg.scripts['check:i18n']).toMatch(/check-i18n\.mjs/);
-    expect(gates).toMatch(/npx tsc --noEmit/);
-    expect(gates).toMatch(/test-matrix\.mjs --check/);
-    expect(gates).toMatch(/check-licenses\.mjs/);
-    expect(gates).toMatch(/npx jest/);
+    expect(wykonywane).toMatch(/(^|\n|npx )tsc --noEmit/);
+    expect(wykonywane).toMatch(/test-matrix\.mjs --check/);
+    expect(wykonywane).toMatch(/check-licenses\.mjs/);
+    expect(wykonywane).toMatch(/npx jest|(^|\n)jest\b/);
+  });
+
+  // M1-audytor-generalny-167 (07-jakosc-505): bramka wydania sprawdza to samo co lokalne verify i CI,
+  // także rozmiar plików i lint. Warunek „zielone E2E” czeka na M1-audytor-generalny-037.
+  it('krok bramek jakości wywołuje npm run verify, a verify zatrzymuje się na pliku 21 KB (167)', () => {
+    const gates = step(testflight, /Run quality gates/);
+    const linie = gates.split('\n').map((l) => l.trim().replace(/^run:\s*/, ''));
+    expect(linie).toContain('npm run verify');
+    const chain = pkg.scripts.verify.split(/\s*&&\s*/);
+    expect(pkg.scripts.verify).not.toMatch(/;|\|\|/);
+    expect(chain).toEqual(
+      expect.arrayContaining([
+        'npm run typecheck',
+        'npm run check:i18n',
+        'npm run check:licenses',
+        'npm run check:size',
+        'npm run lint',
+        'npm run verify:native',
+        'npm run verify:matrix',
+        'npm test',
+      ]),
+    );
+    const dir = mkdtempSync(join(tmpdir(), 'bramka-tf-'));
+    mkdirSync(join(dir, 'app'));
+    writeFileSync(join(dir, 'app', 'wstrzykniety.tsx'), `export const x = '${'a'.repeat(21 * 1024)}';\n`);
+    const r = spawnSync(process.execPath, ['scripts/check-file-size.mjs', dir], { cwd: root, encoding: 'utf8' });
+    expect(r.status).toBe(1);
   });
 
   it('żaden krok nie wycisza błędów `|| true` ani continue-on-error', () => {
