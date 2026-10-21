@@ -20,7 +20,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
-| `errata.md` | errata ER-34…ER-48 | E3 + 2026-10-20 |
+| `errata.md` | errata ER-34…ER-56 | E3 + 2026-10-21 |
 
 ## Otwarte pytania
 
@@ -32,7 +32,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-32 | [DO USTALENIA] jak dane aplikacji przechodzą na nowy telefon (kopia iCloud urządzenia, plik eksportu) | dokumentacja Apple (E2), rola 05 | J-10, ZAL-036 |
 | OP-33 | [DO USTALENIA] jakie dane o ofercie wprowadzającej, przejściu do płatnego i odnowieniach daje App Store Connect bez telemetrii w aplikacji | dokumentacja Apple (E2) | ZP-21, ZAL-038 |
 | OP-34 | [DO USTALENIA] powyżej jakiej temperatury wody aplikacja ostrzega, że zaszkodzi drożdżom i zakwasowi (kod: 45 °C bez źródła) | źródła szczebla 1–3, rola 06 | RD-16 |
-| OP-35 | [DO WYJAŚNIENIA] co aplikacja pokazuje, gdy temperatura jest poza 20–26 °C (brak liczby, zakres, ostrzeżenie) | właściciel z rolą 04 | RD-17 |
+| OP-35 | Rozstrzygnięte 2026-10-21 (D-066 2a, ER-55): temperatura w planie tylko z wyboru 20–26 °C, więc stanu „poza zakresem” w planie nie ma i komunikat nie jest potrzebny | właściciel z rolą 04 | RD-17 |
 | OP-36 | [DO USTALENIA] czy kolor płynu na zakwasie (ciemny) ma znaczenie dla bezpieczeństwa | źródła szczebla 1–3, rola 06 | RD-21 |
 | OP-37 | [DO USTALENIA] zasady bezpieczeństwa przy kamieniu do pieczenia i piecu do pizzy | źródła szczebla 1–3 | RD-23, J-11 |
 | OP-38 | Rozstrzygnięte 2026-10-20 (D-043 pkt 4, ER-50): domyślny odstęp przypomnienia o dokarmianiu na blacie 12 h (S-44) | właściciel z rolą 03 | RD-25 |
@@ -42,7 +42,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-42 | [DO WYJAŚNIENIA] dopuszczalne opóźnienie sygnału kroku przy zablokowanym ekranie | właściciel z rolą 05 | NFR-CZAS-001 |
 | OP-43 | [DO WYJAŚNIENIA] budżet czasu startu i reakcji kalkulatora | rola 05 | NFR-WYD-001 |
 | OP-44 | [DO USTALENIA] masy składników w przeliczniku objętości (g na szklankę, łyżkę) ze źródła szczebla 1–3 | rola 06 | BR-KALK-007 |
-| OP-45 | [DO WYJAŚNIENIA] domyślne godziny snu w planie (stare BRD: 23:00–06:30 i 22:00–08:00 bez decyzji) | właściciel z rolą 04 | BR-HARMO-002 |
+| OP-45 | Rozstrzygnięte 2026-10-21 (D-066 1a, ER-55): godziny snu domyślnie 23:00–07:00, wybór w Ustawieniach z opcją „Bez godzin snu”; przesunięcie kroków (BR-HARMO-004) sprawdza te same godziny | właściciel z rolą 04 | BR-HARMO-002 |
 | OP-46 | [DO USTALENIA] opis próby gotowości ciasta przed pieczeniem ze źródła | rola 06 | BR-ETAP-003 |
 | OP-47 | Rozstrzygnięte 2026-10-19: 3 dni (D-039, rola 02) | właściciel | BR-ZAK-004 |
 | OP-48 | Rozstrzygnięte 2026-10-19: wypiek rozpoczęty w czasie dostępu prowadzi się do końca, bez nowego (D-039, rola 02) | właściciel | BR-ZAK-004 |
