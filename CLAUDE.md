@@ -38,14 +38,15 @@ Piekarz to rzemieślniczy asystent domowego wypieku chleba stworzony w Apps4Brew
 # Uruchomienie aplikacji w trybie deweloperskim
 npm start
 
-# Pełna weryfikacja wszystkich bramek jakościowych (Typecheck, i18n, Licencje, Rozmiar plików, Niezmienniki iOS, Macierz AST, Testy)
+# Pełna weryfikacja wszystkich bramek jakościowych (Typecheck, i18n, Licencje, Rozmiar plików, Lint, Niezmienniki iOS, Macierz AST, Testy)
 npm run verify
 
 # Pojedyncze bramki:
 npm run typecheck       # Kontrola typów TypeScript (--noEmit)
-npm run check:i18n      # Kompletność tłumaczeń PL i EN
+npm run check:i18n      # Klucze PL (tekst klucza) z wpisem EN i w słownikach 33 języków (parametry, liczba mnoga), teksty na sztywno w app/ i src/, kontekst kluczy
 npm run check:licenses  # Weryfikacja braku wirusowych licencji GPL/AGPL
 npm run check:size      # Limit 20 480 B plików produkcyjnych w app/ i src/
+npm run lint            # ESLint dla app/ i src/
 npm run verify:native   # Weryfikacja niezmienników natywnego projektu iOS
 npm run verify:matrix   # Kontrola 100% pokrycia macierzy testów AST i aktualności docs/22 (bez zapisu)
 npm run matrix:update   # Ponowne wygenerowanie docs/22-macierz-testow.md

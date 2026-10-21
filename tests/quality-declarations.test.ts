@@ -112,6 +112,47 @@ describe('interpreter Maestro w pamięci: deklaracja w CLAUDE.md zgodna z kodem 
   });
 });
 
+// [reaudit-noc N-14]: deklaracje zakresu bramek w CLAUDE.md i docs/20 nie mogą zaniżać tego, co robi package.json
+// i scripts/check-i18n.mjs (verify z lintem, check:i18n ze słownikami 33 języków).
+describe('zakres bramek w CLAUDE.md i docs/20 zgodny z package.json (N-14)', () => {
+  const claude = read('CLAUDE.md').replace(/\r\n/g, '\n');
+  const blok = claude.split('## 2.')[1].split('## 3.')[0];
+  const linie = blok.split('\n');
+  const krokiVerify = [...(pkg.scripts.verify as string).matchAll(/npm (?:run ([\w:-]+)|test)/g)].map((m) => m[1] ?? 'test');
+  const ETYKIETA: Record<string, RegExp> = {
+    typecheck: /Typecheck/i, 'check:i18n': /i18n/i, 'check:licenses': /Licencj/i, 'check:size': /Rozmiar/i,
+    lint: /Lint|ESLint/i, 'verify:native': /iOS/i, 'verify:matrix': /Macierz/i, test: /Test/i,
+  };
+
+  it('opis `npm run verify` wymienia każdą bramkę z package.json, także lint', () => {
+    expect(krokiVerify).toContain('lint');
+    const i = linie.findIndex((l) => /^npm run verify\s*$/.test(l));
+    expect(i).toBeGreaterThan(0);
+    const opis = linie[i - 1];
+    for (const k of krokiVerify) {
+      expect(ETYKIETA[k]).toBeDefined();
+      expect([k, ETYKIETA[k].test(opis)]).toEqual([k, true]);
+    }
+  });
+
+  it('lista pojedynczych bramek ma wiersz dla każdego kroku verify', () => {
+    for (const k of krokiVerify.filter((x) => x !== 'test')) {
+      expect([k, linie.some((l) => l.startsWith(`npm run ${k} `))]).toEqual([k, true]);
+    }
+  });
+
+  it('check:i18n: CLAUDE.md i docs/20 mówią o słownikach 33 języków, nie tylko o PL i EN', () => {
+    const skrypt = read('scripts/check-i18n.mjs');
+    expect(skrypt).toMatch(/i18n-slowniki/);
+    const linia = linie.find((l) => l.startsWith('npm run check:i18n')) ?? '';
+    expect(linia).toMatch(/33 języ/);
+    expect(linia).not.toMatch(/PL i EN\s*$/);
+    const wiersz11 = read('docs/20-definicja-ukonczenia.md').split('\n').find((l) => l.startsWith('| **11** |')) ?? '';
+    expect(wiersz11).toMatch(/`npm run check:i18n`[^|]*33 języ/);
+    expect(wiersz11).not.toMatch(/33 pozostałe języki: partia lokalizacyjna/);
+  });
+});
+
 describe('nazwy testów mówią, co naprawdę sprawdzają (07-jakosc-007)', () => {
   it.each(['tests/matrix-dimensions.test.tsx', 'tests/matrix-a11y.test.tsx'])('%s nie obiecuje pomiaru 320 pt, AX5 ani 44 pt', (f) => {
     const titles = [...read(f).matchAll(/(?:it|describe)\(\s*'([^']+)'/g)].map((m) => m[1]);
