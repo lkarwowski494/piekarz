@@ -72,7 +72,46 @@ describe('metadane sklepu: jedno źródło i słowa kluczowe w limicie (036)', (
  * Notatki dla App Review [M1-audytor-generalny-078; 10-wydanie-008]: po angielsku (UI recenzenta), krok po kroku
  * do ścieżki importu kopii i innych nieoczywistych funkcji 1.0, nazwy przycisków jak w słowniku EN; bez QR i
  * skanowania (F-08 PÓŹNIEJ) i bez funkcji z ukrytym wejściem (src/lib/wejscia-pozniej.ts) ani PÓŹNIEJ (druk, spiżarnia).
+ * Od 119 (10-wydanie-020): każda nazwa przycisku z notatek jest tekstem dzisiejszego interfejsu, czyli kluczem t('…')
+ * użytym w app/ albo src/components/ — notatki nie mogą prowadzić przez ekrany sprzed nowej szaty (zakładka
+ * „Kalkulator”, Akademia bez wejścia w 1.0) [M1-audytor-generalny-119; 10-wydanie-020].
  */
+const KOD_UI = (() => {
+  const pliki: string[] = [];
+  const zbierz = (k: string) => {
+    for (const e of fs.readdirSync(path.join(root, k), { withFileTypes: true })) {
+      const p = path.join(k, e.name);
+      if (e.isDirectory()) {
+        if (e.name !== '__tests__') zbierz(p);
+      } else if (/\.tsx?$/.test(e.name)) pliki.push(p);
+    }
+  };
+  zbierz('app');
+  zbierz('src/components');
+  return pliki.map(read).join('\n');
+})();
+const wInterfejsie = (pl: string) => KOD_UI.includes(`t('${pl}'`);
+
+const KROKI_IMPORTU = ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj z pliku', 'Wklej zawartość pliku receptury albo kopii zapasowej.', 'Zastąp dane'];
+const KOLEJNOSC_IMPORTU = ['Ustawienia', 'Importuj z pliku', 'Zastąp dane'];
+const FUNKCJE: ReadonlyArray<readonly [string, Record<string, number> | undefined]> = [
+  ['Wypróbuj {dni} dni', { dni: 14 }],
+  ['Przywróć zakupy', undefined],
+  ['Zakupy', undefined],
+  ['Dziś', undefined],
+  ['Receptury', undefined],
+  ['Zakwasy', undefined],
+  ['Dziennik', undefined],
+  ['Piekę na zakwasie', undefined],
+  ['Receptury bazowe', undefined],
+  ['Ułóż plan', undefined],
+  ['Przesuń do lodówki', undefined],
+  ['Zacznij wypiek', undefined],
+  ['Stolnica', undefined],
+  ['Doktor', undefined],
+  ['Doktor Chleba', undefined],
+];
+
 describe('notatki dla App Review (078)', () => {
   const en = (pl: string, params?: Record<string, string | number>) => {
     setLang('en');
@@ -93,10 +132,10 @@ describe('notatki dla App Review (078)', () => {
   });
 
   it('prowadzą krok po kroku do eksportu i importu kopii przyciskami z interfejsu EN', () => {
-    for (const pl of ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj z pliku', 'Wklej zawartość pliku JSON kopii zapasowej:', 'Zatwierdź import']) {
+    for (const pl of KROKI_IMPORTU) {
       expect({ pl, jest: notatki.includes(en(pl)) }).toEqual({ pl, jest: true });
     }
-    const kroki = ['Ustawienia', 'Importuj z pliku', 'Zatwierdź import'].map((pl) => notatki.indexOf(en(pl)));
+    const kroki = KOLEJNOSC_IMPORTU.map((pl) => notatki.indexOf(en(pl)));
     expect([...kroki].sort((a, b) => a - b)).toEqual(kroki);
   });
 
@@ -107,23 +146,24 @@ describe('notatki dla App Review (078)', () => {
     expect([kopia.state.starters.length, kopia.state.bakes.length, kopia.state.customRecipes.length, kopia.skippedRows]).toEqual([1, 0, 0, 0]);
   });
 
-  it('opisują inne nieoczywiste funkcje 1.0: okres próbny, przywracanie zakupów, Harmonogram, Stolnica, Doktor', () => {
-    for (const [pl, params] of [
-      ['Wypróbuj {dni} dni', { dni: 14 }],
-      ['Przywróć zakupy', undefined],
-      ['Zakupy', undefined],
-      ['Kalkulator', undefined],
-      ['Harmonogram', undefined],
-      ['Stolnica', undefined],
-      ['Zakwas', undefined],
-      ['Doktor', undefined],
-      ['Doktor Chleba', undefined],
-      ['Akademia', undefined],
-    ] as const) {
+  it('opisują inne nieoczywiste funkcje 1.0: okres próbny, przywracanie zakupów, 4 zakładki, plan, Stolnica, Doktor', () => {
+    for (const [pl, params] of FUNKCJE) {
       expect({ pl, jest: notatki.includes(en(pl, params)) }).toEqual({ pl, jest: true });
     }
     expect(notatki).toMatch(/Sleep Guard/);
     expect(notatki).toMatch(/introductory offer/i);
+  });
+
+  it('każda nazwa przycisku z notatek jest tekstem dzisiejszego interfejsu (t() w app/ albo src/components/) (119, 10-wydanie-020)', () => {
+    for (const pl of [...KROKI_IMPORTU, ...FUNKCJE.map(([k]) => k)]) {
+      expect({ pl, wInterfejsie: wInterfejsie(pl) }).toEqual({ pl, wInterfejsie: true });
+    }
+  });
+
+  it('nie prowadzą przez ekrany sprzed nowej szaty ani do Akademii bez wejścia w 1.0 (119, 10-wydanie-020)', () => {
+    for (const pl of ['Kalkulator', 'Harmonogram', 'Akademia', 'Zatwierdź import', 'Wklej zawartość pliku JSON kopii zapasowej:']) {
+      expect({ pl, jest: notatki.includes(en(pl)) }).toEqual({ pl, jest: false });
+    }
   });
 
   it('nie wspominają QR, skanowania ani funkcji PÓŹNIEJ i ukrytych', () => {

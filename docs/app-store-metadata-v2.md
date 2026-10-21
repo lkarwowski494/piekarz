@@ -189,30 +189,32 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 
 ### 4.3. Instrukcja dla Apple App Review Team (Review Notes)
 
-Notatki są po angielsku, bo recenzent używa interfejsu EN; nazwy przycisków są wartościami słownika EN (`src/lib/i18n-en/`), a przykładowa kopia przechodzi `parseAndValidateBackup` (test `tests/store-metadata.test.ts`) [M1-audytor-generalny-078].
+Notatki są po angielsku, bo recenzent używa interfejsu EN; nazwy przycisków są wartościami słownika EN (`src/lib/i18n-en/`) i tekstami dzisiejszego interfejsu (klucz `t()` użyty w `app/` albo `src/components/`), a przykładowa kopia przechodzi `parseAndValidateBackup` (test `tests/store-metadata.test.ts`) [M1-audytor-generalny-078]. Ścieżki według nowej szaty: 4 zakładki z `app/(tabs)/_layout.tsx`, Ustawienia z „Dziś”, import jednym arkuszem „Importuj z pliku”, Akademia bez wejścia w 1.0 [M1-audytor-generalny-119; 10-wydanie-020].
 
 ```text
 Dear App Review Team,
 
 Baker (Polish name: Piekarz) is a 100% offline bread-baking assistant. There is no sign-in, no account and no network use; all data stays on the device.
 
+The app has four tabs: Today, Recipes, Starters and Journal. Settings open from the gear button at the top right of the Today tab (VoiceOver label "Settings").
+
 1. PURCHASES AND FREE TRIAL
-Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing and reading, exporting and deleting your own data work.
-To see the features: sign in with a sandbox account, tap any feature (for example the Calculator tab), choose the monthly or yearly plan on the purchase screen and tap "Try 14 days". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
+Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing, importing a file, and reading, exporting and deleting your own data work.
+To see the features with a sandbox account: on the Today tab choose "Baking with sourdough", tap any recipe under "Base Recipes", then tap "Make a Plan". The purchase screen opens; choose the monthly or yearly plan and tap "Try 14 days". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
 Restore purchases: "Restore Purchases" at the bottom of the purchase screen, and in Settings > Purchases.
 
 2. DATA EXPORT AND IMPORT (works without a purchase)
-a) Open the Calculator tab and tap "Settings" at the top right.
+a) On the Today tab tap the gear button "Settings" at the top right.
 b) In the "Backup" section tap "Export to File" to share a JSON backup file.
-c) Tap "Import from File". A field "Paste JSON backup file content:" appears.
-d) Paste the contents of an exported file, or this sample with one starter:
+c) Tap "Import from File". A sheet opens: "Paste the contents of a recipe file or a backup file."
+d) Paste the contents of an exported file (or copy it and tap "Paste from clipboard"), or this sample with one starter:
 {"format":"piekarz-backup","schemaVersion":1,"exportedAt":"2026-10-20T08:00:00.000Z","state":{"bakes":[],"starters":[{"id":"review-starter","name":"Review Starter","flourType":"rye","hydration":100,"birthDate":1760947200000,"storageState":"ROOM_TEMP"}],"customRecipes":[]}}
-e) Tap "Confirm import". Import replaces the current data; the app first saves a safety copy on the device. With the trial active, the imported starter appears in the Sourdough tab.
+e) The sheet says what the backup contains. Tap "Replace Data". Import replaces the current data; the app first saves a safety copy on the device. The imported starter appears in the Starters tab.
 
 3. OTHER FEATURES THAT ARE EASY TO MISS
-- Schedule tab: enter the time the bread should be ready; the app plans the steps backwards and Sleep Guard moves hands-on steps out of your sleep hours.
-- Workbench tab: guided bake step by step with timers. Start it from the Calculator with "Start Bake".
-- Bread Doctor: tap "Doctor" at the top of the Workbench or Sourdough tab to diagnose a loaf; "Academy" in its header opens short lessons.
+- Bake plan with Sleep Guard: after "Make a Plan", set the ready time; the app plans the steps backwards. When a hands-on step falls in your sleep hours, Sleep Guard offers "Move to fridge".
+- Workbench: tap "Start Bake" on the bake plan to open guided baking step by step with timers.
+- Bread Doctor: tap "Doctor" at the top of the Workbench, or "Bread Doctor" on the Journal tab, to diagnose a loaf. On the Starters tab, "Doctor" at the top opens the Starter Doctor.
 
 4. PERMISSIONS
 The app asks for permission to send local notifications only when you start the first timer or starter feeding reminder. It uses no microphone, location or App Tracking Transparency.
