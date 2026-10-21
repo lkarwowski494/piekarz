@@ -270,3 +270,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (RECP-003 b) errata BRD według design-spec (ekran receptury) — BRD wiąże „piecz ponownie” z kolejnym wypiekiem i notatką, a cel aplikacji to poprawianie następnego wypieku; (NAUK-001) usunięcie zdania LEK-PRO-900 z lekcji 6 — zmiana treści roli 06 bez źródła dla lekcji, która w 1.0 nie jest widoczna.
 - **Dlaczego:** notatka z poprzedniego wypieku ma być widoczna w chwili planowania następnego; temperatura wody ma liczyć się z warunków użytkownika, a nie ze stałych.
 - **Zależy od:** BR-DIAG-001 (Doktor z pytaniami i jedną zmianą) — nie wdrożone: kierunki zaleceń Doktora (DIA-KIE-900) są „otwarte” bez przeczytanego źródła, a pytania i wybór jednej zmiany to nowy przepływ roli 04 (blokada zadania 146).
+
+### [D-081] 2026-10-22 — Link „Oceń w App Store” zostaje widoczny przed wydaniem (audyt niezależny A-7) (M2 tor p15b)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Naprawiaj wszystko.”, „W nocy doprowadź aplikację tip top do zera problemów” oraz zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** wiersz „Oceń w App Store” w karcie „Kontakt” zostaje widoczny, gdy `APP_STORE_ID` jest liczbą (`src/lib/links.ts`, 082). Przed publikacją w App Store strona aplikacji (`apps.apple.com/app/apple-store/id…?action=write-review`) nie istnieje i tester TestFlight zobaczy stronę błędu sklepu; od dnia wydania link działa bez nowej wersji.
+- **Odrzucone:** (b) ukrycie wiersza do wydania (flaga albo warunek daty) — wymaga nowej wersji po wydaniu albo przełącznika, o którym łatwo zapomnieć; wtedy link zostałby ukryty w wersji publicznej, gdzie ma wartość (BR-OPIN-002).
+- **Dlaczego:** link ma wartość od pierwszego dnia w sklepie; wada dotyczy tylko testerów TestFlight przed wydaniem, a błąd otwarcia adresu i tak pokazuje komunikat „Ocena wymaga połączenia z App Store.”.
+- **Zależy od:** daty wydania 1.0 (DEC-16 a, wydanie ręczne). Jeśli wydanie się opóźni, a testerów TestFlight będzie wielu, wrócić do opcji (b).
