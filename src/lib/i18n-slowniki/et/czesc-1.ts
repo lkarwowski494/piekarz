@@ -1,4 +1,4 @@
-// Słownik et, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} auru',
@@ -213,4 +213,11 @@ export const CZESC: Record<string, string> = {
   'Doktor Chleba': 'Leivadoktor',
   'Doktor zakwasu': 'Juuretise doktor',
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Vaikimisi telefoni piirkonna järgi. Retseptid salvestan grammides; protsendid ei muutu.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Kohanda jahude osakaalu. Summa peab olema täpselt 100%.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Senine toitmistsükkel nullitakse.',
+  'Drobna niedoskonałość': 'Väike puudus',
+  'Drobne pory, bochenek ciężki w dłoni': 'Väikesed poorid, päts on käes raske',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Peened ühtlased poorid nagu käsnal/vahul',
+  'Drożdże': 'Pärm',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Juuretises olevaid pärmseeni ja baktereid tuleb regulaarselt toita värske jahu ja veega, et need ellu jääksid ja paljuneksid.',
 };

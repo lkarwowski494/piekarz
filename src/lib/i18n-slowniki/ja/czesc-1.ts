@@ -1,4 +1,4 @@
-// Słownik ja, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ja, część 1 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '蒸気 -{masa}',
@@ -190,4 +190,13 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': '目標DDT',
   'Dodaj': '追加',
   'Dodaj {object}': '{object}を追加',
+  'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': '活性化したサワー種 (ルヴァン) と塩を加え、まとまってなめらかになるまで捏ねてください。生の生地や粉を味見しないでください。生地を扱った後は、流水と石けんで手を洗ってください。',
+  'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': '熱を行き渡らせるため、やさしいパンチ / 折りたたみを1回追加してください。',
+  'Dodaj mąkę': '粉を追加',
+  'Dodaj mąkę z Atlasu': '粉図鑑から粉を追加',
+  'Dodaj nowy zakwas': '新しいサワー種を追加',
+  'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'マイ配合に追加します。その他のデータは変更されません。',
+  'Dodano zakwas': 'サワー種を追加しました',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'はちみつを大さじ1杯加えると発酵を助け、酸味を和らげます。グラハム粉の粗いふすまには45分のオートリーズが必要です。',
+  'Dodatki (orzechy, ziarna)': '具材（ナッツ、シード）',
 };

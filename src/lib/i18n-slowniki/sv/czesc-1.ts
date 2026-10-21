@@ -211,4 +211,13 @@ export const CZESC: Record<string, string> = {
   'dokarmiony o {godzina}, następne o {nastepne}': 'matad kl. {godzina}, nästa kl. {nastepne}',
   'Doktor': 'Doktorn',
   'Doktor Chleba': 'Bröddoktorn',
+  'Doktor zakwasu': 'Surdegsdoktorn',
+  'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Som standard enligt telefonens region. Jag sparar recept i gram; procenten ändras inte.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Justera andelarna mjöl. Summan måste vara exakt 100 %.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Den nuvarande matningscykeln nollställs.',
+  'Drobna niedoskonałość': 'Liten brist',
+  'Drobne pory, bochenek ciężki w dłoni': 'Små porer, limpan känns tung i handen',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, jämna porer som en svamp/ett skum',
+  'Drożdże': 'Jäst',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Jästen och bakterierna i surdegsgrunden behöver matas regelbundet med färskt mjöl och vatten för att överleva och föröka sig.',
 };

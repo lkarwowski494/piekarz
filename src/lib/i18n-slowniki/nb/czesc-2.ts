@@ -1,14 +1,6 @@
-// Słownik nb, część 2 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nb, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Følger telefonens region som standard. Jeg lagrer oppskrifter i gram; prosentene endres ikke.',
-  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Juster andelen av hver melsort. Summen må være nøyaktig 100 %.',
-  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Den nåværende matesyklusen blir nullstilt.',
-  'Drobna niedoskonałość': 'Liten ufullkommenhet',
-  'Drobne pory, bochenek ciężki w dłoni': 'Små porer, brødet føles tungt i hånden',
-  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, jevne bobler som i svamp/skum',
-  'Drożdże': 'Gjær',
-  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Gjæren og bakteriene i starteren må mates regelmessig med ferskt mel og vann for å overleve og formere seg.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Gjæren rakk ikke å produsere og fordele gass i hele deigen før den kom i ovnen. I ovnen skjedde ekspansjonen brått og bare øverst, slik at skorpen revnet.',
   'Drożdżowe': 'Med gjær',
   'Drożdżowy': 'Med gjær',
@@ -240,4 +232,19 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 450 (Tortowa)': 'Lyst hvetemel til kaker',
   'Mąka pszenna typ 500 (Wrocławska / Poznańska)': 'Lyst, allsidig hvetemel',
   'Mąka pszenna typ 550 (Luksusowa)': 'Lyst, finsiktet hvetemel',
+  'Mąka pszenna typ 650 (Bułkowa)': 'Halvlyst hvetemel til rundstykker',
+  'Mąka pszenna typ 850': 'Mørkere hvetemel til brød',
+  'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Hvetemel, høy utmalingsgrad, protein 11,9 %',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Hvetemel, høy utmalingsgrad, protein 12,4–15,5 %',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Hvetemel, høy utmalingsgrad, protein 13,1 %',
+  'Mąka pszenna, białko 13,8%': 'Hvetemel, protein 13,8 %',
+  'Mąka razem': 'Mel totalt',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Sammalt mel. Protein i de testede prøvene: 8,7–9,6 %. Askeinnhold etter polske normer: høyst 2 %.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Mel utgjør 100 % av basen i bakerprosent',
+  'Mąka uniwersalna / pszenna jasna': 'Allsidig lyst hvetemel',
+  'Mąka w zaczynie': 'Mel i fordeigen',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Mel med høy utmalingsgrad. Protein i den testede prøven: 11,9 %.',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.': 'Mel med høy utmalingsgrad. Protein i den testede prøven: 13,1 %.',
+  'Mąka wysokowyciągowa. Białko w badanych próbkach: 12,4–15,5%.': 'Mel med høy utmalingsgrad. Protein i de testede prøvene: 12,4–15,5 %.',
+  'Mąka żytnia': 'Rugmel',
 };

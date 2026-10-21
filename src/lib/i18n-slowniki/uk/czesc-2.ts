@@ -1,12 +1,6 @@
 // Słownik uk, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Дані з копії вже в застосунку. Пропущено пошкоджених записів: {n}. Попередні дані збережено в копії перед імпортом.',
-  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Дані з копії вже в застосунку. Попередні дані збережено в копії перед імпортом.',
-  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Дані збережено новішою версією Пекар. Оновіть застосунок, щоб і далі зберігати. Доти можна лише переглядати.',
-  'DDT': 'Цільова темп. тіста',
-  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Обережно зсуньте тісто на деко, не випускаючи з нього зайвого газу.',
-  'Diagnostyka błędów wypieku i ratowanie bochenka': 'Діагностика вад випічки й порятунок хлібини',
   'długi krok (skrócony)': 'довгий крок (скорочений)',
   'Długo stał w lodówce bez dokarmiania': 'Довго стояла в холодильнику без підживлення',
   'do {godzina}': 'до {godzina}',
@@ -161,4 +155,18 @@ export const CZESC: Record<string, string> = {
   'Importuj recepturę': 'Імпортувати рецептуру',
   'Importuj z pliku': 'Імпортувати з файлу',
   'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Як перевірити, чи хлібина в кошику готова до випікання',
+  'Jak wyszedł bochenek?': 'Яка вийшла хлібина?',
+  'Jakość skórki': 'Якість скоринки',
+  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Рівномірно щільний і важкий м\'якуш (без пористості)',
+  'Jednostki': 'Одиниці',
+  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Якщо на цьому кроці ви працюєте із сирим борошном, тістом або закваскою, не куштуйте їх, а потім вимийте руки з милом під проточною водою.',
+  'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Якщо ви бачите наліт, плями або зміну кольору чи відчуваєте гнилий запах, відкрийте перевірку закваски.',
+  'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Якщо закваска мало піднялася й має мало бульбашок, підживлюйте її далі кожні 12 годин.',
+  'Język': 'Мова',
+  'jutro': 'завтра',
+  'Jutro': 'Завтра',
+  'Kalkulator': 'Калькулятор',
+  'Kalkulator kosztów': 'Калькулятор вартості',
+  'Kalkulator kosztów wypieku': 'Калькулятор вартості випічки',
+  'Karmelizacja': 'Карамелізація',
 };

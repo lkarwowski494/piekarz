@@ -1,0 +1,25 @@
+// Słownik nb, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
+export const CZESC: Record<string, string> = {
+  'Mąka pszenna pełnoziarnista typ 2000': 'Fullkornsmel av hvete',
+  '{n} krok wypada w nocy#one': '{n} steg havner om natten',
+  '{n} krok wypada w nocy#other': '{n} steg havner om natten',
+  '{n} dzień#one': '{n} dag',
+  '{n} dzień#other': '{n} dager',
+  '{n} dzień temu#one': 'for {n} dag siden',
+  '{n} dzień temu#other': 'for {n} dager siden',
+  '{n} receptura#one': '{n} oppskrift',
+  '{n} receptura#other': '{n} oppskrifter',
+  '{n} zakwas#one': '{n} surdeigsstarter',
+  '{n} zakwas#other': '{n} surdeigsstartere',
+  '{n} wpis w Dzienniku#one': '{n} oppføring i Dagboken',
+  '{n} wpis w Dzienniku#other': '{n} oppføringer i Dagboken',
+  '{n} sekunda#one': '{n} sekund',
+  '{n} sekunda#other': '{n} sekunder',
+  '{n} godzina#one': '{n} time',
+  '{n} godzina#other': '{n} timer',
+  '{n} minuta#one': '{n} minutt',
+  '{n} minuta#other': '{n} minutter',
+  'Plan wypieku: {n} krok.#one': 'Bakeplan: {n} trinn.',
+  'Plan wypieku: {n} krok.#other': 'Bakeplan: {n} trinn.',
+};

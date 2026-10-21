@@ -197,4 +197,12 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Ajouter un levain naturel',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Je l\'ajouterai à Mes recettes. Vos autres données restent inchangées.',
   'Dodano zakwas': 'Levain naturel ajouté',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Une cuillère de miel favorise la fermentation et adoucit l\'acidité. Le son grossier de la farine Graham nécessite une autolyse de 45 minutes.',
+  'Dodatki (orzechy, ziarna)': 'Ajouts (fruits à coque, graines)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Rafraîchissez le levain naturel avec de la farine et de l\'eau tiède. Placez-le au chaud jusqu\'à ce qu\'il double de volume.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Continuez à rafraîchir toutes les 12 heures, jusqu\'à ce que le levain double de volume dans les 6–8 heures suivant le rafraîchi.',
+  'Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.': 'Rafraîchissez-le toutes les 12 heures jusqu\'à ce qu\'il double ou triple de volume dans les 6–8 heures suivant le rafraîchi ; il est alors prêt pour la cuisson.',
+  'Dokarmienie': 'Rafraîchi',
+  'Dokarmienie {proporcja}': 'Rafraîchi {proporcja}',
+  'Dokarmienie zakwasu': 'Rafraîchi du levain naturel',
 };

@@ -1,12 +1,6 @@
 // Słownik el, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Ώρα να αφαιρέσετε το καπάκι από τη γάστρα και να συνεχίσετε το ψήσιμο χωρίς ατμό.',
-  'cze': 'Ιουν',
-  'Czw.': 'Πέμ.',
-  'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Εξασκήστε νοερά τη διαίσθησή σας στις αρτοποιητικές αναλογίες (Mental Baker Drill)',
-  'Dane są zapisywane tylko w tym telefonie.': 'Τα δεδομένα αποθηκεύονται μόνο σε αυτό το τηλέφωνο.',
-  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Κατεστραμμένες εγγραφές που παραλείφθηκαν: {n}. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
   'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
   'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Τα δεδομένα αποθηκεύτηκαν από νεότερη έκδοση του Αρτοποιός. Ενημερώστε την εφαρμογή για να συνεχίσετε την αποθήκευση. Μέχρι τότε μπορείτε μόνο να τα προβάλλετε.',
   'DDT': 'DDT',
@@ -153,4 +147,16 @@ export const CZESC: Record<string, string> = {
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Η ενυδάτωση νερού πρέπει να είναι στο εύρος 35–120%',
   'Hydratacja zakwasu': 'Ενυδάτωση προζυμιού',
   'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Η ενυδάτωση του προζυμιού πρέπει να είναι στο εύρος 40–200%',
+  'hydratacji': 'ενυδάτωσης ζύμης',
+  'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ιδανική βάση για τη συντήρηση του μητρικού προζυμιού. Πλούσιο σε άγριους ζυμομύκητες και γαλακτικά βακτήρια.',
+  'Ilości do dokarmienia': 'Ποσότητες ταΐσματος',
+  'Ilości i temperatura wody': 'Ποσότητες και θερμοκρασία νερού',
+  'Ilości liczę od': 'Υπολογίζω τις ποσότητες από',
+  'Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia.': 'Όσο πιο σπάνια ταϊζόταν το προζύμι, τόσο περισσότερο χρειάζεται για να ετοιμαστεί για ψήσιμο.',
+  'Imię zakwasu': 'Όνομα προζυμιού',
+  'Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.': 'Η εισαγωγή θα αντικαταστήσει όλα τα δεδομένα της εφαρμογής με τα δεδομένα του αντιγράφου. Πριν από την εισαγωγή θα αποθηκεύσω αντίγραφο των τρεχόντων δεδομένων.',
+  'Importowanie...': 'Εισαγωγή...',
+  'Importuj JSON': 'Εισαγωγή JSON',
+  'Importuj recepturę': 'Εισαγωγή συνταγής',
+  'Importuj z pliku': 'Εισαγωγή από αρχείο',
 };

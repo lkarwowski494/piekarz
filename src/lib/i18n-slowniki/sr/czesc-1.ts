@@ -168,4 +168,12 @@ export const CZESC: Record<string, string> = {
   'Dane są zapisywane tylko w tym telefonie.': 'Подаци се чувају само на овом телефону.',
   'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Подаци из копије су у апликацији. Прескочени оштећени уноси: {n}. Претходне податке сам сачувао у копији пре увоза.',
   'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Подаци из копије су у апликацији. Претходне податке сам сачувао у копији пре увоза.',
+  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Подаци су сачувани новијом верзијом апликације Пекар. Ажурирај апликацију да би чување поново радило. Дотле можеш само да прегледаш.',
+  'DDT': 'Темп. теста',
+  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Нежно превуци тесто у плех, без претераног испуштања гаса.',
+  'Diagnostyka błędów wypieku i ratowanie bochenka': 'Дијагностика грешака у печењу и спасавање векне',
+  'długi krok (skrócony)': 'дуг корак (скраћен)',
+  'Długo stał w lodówce bez dokarmiania': 'Дуго стајао у фрижидеру без храњења',
+  'do {godzina}': 'до {godzina}',
+  'do {godzina}, potem {krok}': 'до {godzina}, затим {krok}',
 };

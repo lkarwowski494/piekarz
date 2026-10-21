@@ -88,8 +88,8 @@ M1 zgłosił 22 rozbieżności w 13 językach; sekcji „rozbieznosc” w raport
 
 | Język | Tekst (PL) | Rozstrzygnięcie | Stan |
 |---|---|---|---|
-| ja | Wydłuż autolizę i dodaj dodatkową serię składań coil fold. | ponowny przekład: przekład podaje „ストレッチ＆フォールド” (stretch and fold, inna technika); w tym samym słowniku coil fold to „コイルフォールド” (2 klucze) | czeka na batch przekładu partii 12 (wskazówka dla tłumacza w `pl.kontekst.json`) |
-| zh-Hant | Zamknij informację o końcu próby | ponowny przekład: „關閉試用期結束通知” brzmi jak wyłączenie powiadomienia; etykieta zamyka baner (np. „關閉試用期結束提示”) | czeka na batch przekładu partii 12 (wskazówka w `pl.kontekst.json`) |
+| ja | Wydłuż autolizę i dodaj dodatkową serię składań coil fold. | ponowny przekład: przekład podaje „ストレッチ＆フォールド” (stretch and fold, inna technika); w tym samym słowniku coil fold to „コイルフォールド” (2 klucze) | przełożone ponownie w batchu p12-noc (2026-10-22): „オートリーズを長くし、コイルフォールドを1セット追加してください。”; tłumaczenie zwrotne „coil fold”, ocena: drobna różnica („jedną serię” zamiast „dodatkowej serii”) |
+| zh-Hant | Zamknij informację o końcu próby | ponowny przekład: „關閉試用期結束通知” brzmi jak wyłączenie powiadomienia; etykieta zamyka baner (np. „關閉試用期結束提示”) | przełożone ponownie w batchu p12-noc (2026-10-22): „關閉試用期結束提示”; tłumaczenie zwrotne zgodne |
 | lv | Wydłuż fermentację burzliwą. / Skróć fermentację burzliwą… | słownik lv nazywa fermentację burzliwą (bulk) jednym terminem „pamatfermentācija” w 4 kluczach, także w nazwie kroku „Fermentacja burzliwa ze składaniami” („Pamatfermentācija ar locīšanu”); tłumaczenie zwrotne oddało go jako „fermentacja wstępna” | [DO USTALENIA] znaczenie terminu bez przeczytanego źródła (wyszukiwanie 2026-10-21 bez wyniku); bez zmiany do przeglądu rodzimego użytkownika (DEC-06) | klucze `sklep:*` nie są wpinane do aplikacji; zgłoszone: nazwa „Crust” zamiast lokalnej (D-053), fi/fr procent piekarski (mąka i woda z zakwasu i zaczynu), ja bez „dożywotni”, vi masa ciasta zamiast masy mąki |
 
 ## Rozbieżność z poprzednim rejestrem (zapis 2026-10-20)

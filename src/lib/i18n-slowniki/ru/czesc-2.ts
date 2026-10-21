@@ -1,11 +1,6 @@
 // Słownik ru, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Данные из копии перенесены в приложение. Пропущено повреждённых записей: {n}. Прежние данные сохранены в копии перед импортом.',
-  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Данные из копии перенесены в приложение. Прежние данные сохранены в копии перед импортом.',
-  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Данные сохранены более новой версией Хлебопёк. Обновите приложение, чтобы продолжить сохранение. До тех пор доступен только просмотр.',
-  'DDT': 'Темп. теста',
-  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Аккуратно сдвиньте тесто на противень, не выпуская из него лишний газ.',
   'Diagnostyka błędów wypieku i ratowanie bochenka': 'Диагностика ошибок выпечки и спасение каравая',
   'długi krok (skrócony)': 'долгий шаг (сокращён)',
   'Długo stał w lodówce bez dokarmiania': 'Долго стояла в холодильнике без подкормки',
@@ -162,4 +157,17 @@ export const CZESC: Record<string, string> = {
   'Importuj z pliku': 'Импортировать из файла',
   'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Как понять, что каравай в корзине готов к выпечке',
   'Jak wyszedł bochenek?': 'Как получился каравай?',
+  'Jakość skórki': 'Качество корки',
+  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плотный и тяжёлый мякиш (нет пористости)',
+  'Jednostki': 'Единицы',
+  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Если на этом шаге вы работаете с сырой мукой, тестом или закваской, не пробуйте их на вкус, а после этого вымойте руки с мылом под проточной водой.',
+  'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Если вы видите налёт, пятна или изменение цвета либо чувствуете гнилостный запах, откройте проверку закваски.',
+  'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Если закваска мало поднялась и в ней мало пузырьков, продолжайте подкармливать её каждые 12 часов.',
+  'Język': 'Язык',
+  'jutro': 'завтра',
+  'Jutro': 'Завтра',
+  'Kalkulator': 'Калькулятор',
+  'Kalkulator kosztów': 'Калькулятор стоимости',
+  'Kalkulator kosztów wypieku': 'Калькулятор стоимости выпечки',
+  'Karmelizacja': 'Карамелизация',
 };

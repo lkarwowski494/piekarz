@@ -1,4 +1,4 @@
-// Słownik nb, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik nb, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} damp',
@@ -212,4 +212,12 @@ export const CZESC: Record<string, string> = {
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Brøddoktor',
   'Doktor zakwasu': 'Surdeigsdoktor',
+  'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Følger telefonens region som standard. Jeg lagrer oppskrifter i gram; prosentene endres ikke.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Juster andelen av hver melsort. Summen må være nøyaktig 100 %.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Den nåværende matesyklusen blir nullstilt.',
+  'Drobna niedoskonałość': 'Liten ufullkommenhet',
+  'Drobne pory, bochenek ciężki w dłoni': 'Små porer, brødet føles tungt i hånden',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, jevne bobler som i svamp/skum',
+  'Drożdże': 'Gjær',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Gjæren og bakteriene i starteren må mates regelmessig med ferskt mel og vann for å overleve og formere seg.',
 };

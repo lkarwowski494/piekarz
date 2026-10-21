@@ -1,6 +1,19 @@
 // Słownik cs, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Skopiowano plan wypieku do schowka': 'Plán pečení byl zkopírován do schránky',
+  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Zkraťte první kynutí a hlídejte teplotu těsta: podle King Arthur Baking by pšeničné těsto mělo mít po promíchání asi 24–25,5 °C.',
+  'temp. {temp}': 'tepl. {temp}',
+  'Test okna glutenowego': 'Test lepkové blány',
+  'Usunięto recepturę': 'Receptura smazána',
+  'Uśpiony w lodówce ({dni})': 'Uspaný v lednici ({dni})',
+  'W pliku receptury brakuje proporcji ciasta.': 'V souboru receptury chybí poměry těsta.',
+  'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Zvolte poměr a kolik kvásku potřebujete do těsta. Spočítám mouku a vodu.',
+  'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Vyklopte těsto na pracovní desku a stěrkou ho jemně zakulaťte do koule bez přebytečné mouky. Nechte 20 min odpočinout.',
+  'Wymaga odświeżenia ({dni} w chłodzie)': 'Potřebuje osvěžit ({dni} v chladu)',
+  'Wypiek w garnku z parą': 'Pečení v litině s párou',
+  'Uczeń Piekarski': 'Pekařský učeň',
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Doba zrání {fermentationTimeHours}. {flavorProfilePl}',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Pšeničná mouka (světlá, na chléb)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšeničná mouka Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Žitná mouka (středně světlá)',
@@ -21,6 +34,8 @@ export const CZESC: Record<string, string> = {
   '{n} dzień#few': '{n} dny',
   '{n} dzień#many': '{n} dne',
   '{n} dzień#other': '{n} dní',
+  '{n} dzień temu#one': 'před {n} dnem',
+  '{n} dzień temu#many': 'před {n} dne',
   '{n} receptura#one': '{n} recept',
   '{n} receptura#few': '{n} recepty',
   '{n} receptura#many': '{n} recepty',

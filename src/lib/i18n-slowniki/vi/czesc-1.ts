@@ -195,4 +195,10 @@ export const CZESC: Record<string, string> = {
   'Dodaj mąkę': 'Thêm bột',
   'Dodaj mąkę z Atlasu': 'Thêm bột từ Cẩm nang bột',
   'Dodaj nowy zakwas': 'Thêm men tự nhiên mới',
+  'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Tôi sẽ thêm vào Công thức của tôi. Các dữ liệu khác giữ nguyên.',
+  'Dodano zakwas': 'Đã thêm men tự nhiên',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Thêm một thìa mật ong giúp hỗ trợ lên men và làm dịu vị chua. Cám thô trong bột Graham cần thủy phân bột 45 phút.',
+  'Dodatki (orzechy, ziarna)': 'Phụ liệu (hạt dinh dưỡng, hạt ngũ cốc)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Cho men ăn bằng bột và nước ấm. Để nơi ấm đến khi gấp đôi thể tích.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Tiếp tục cho ăn mỗi 12 giờ cho đến khi men tự nhiên nở gấp đôi thể tích trong vòng 6–8 giờ sau khi cho ăn.',
 };

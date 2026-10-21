@@ -1,262 +1,6 @@
 {
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
-  "klucze": [
-    {
-      "klucz": "Piekarz Pro nie jest aktywny",
-      "powod": "nowy tekst toru p12d (M1-audytor-generalny-143); przekład 33 języków batchem M1 za zgodą na kwotę",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Przypomnienia o karmieniu",
-      "powod": "nowy tekst toru p12d (M1-audytor-generalny-179); przekład 33 języków batchem M1 za zgodą na kwotę",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.",
-      "powod": "nowy tekst toru p12d (M1-audytor-generalny-179); przekład 33 języków batchem M1 za zgodą na kwotę",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.",
-      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Potrzebny zakwas",
-      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Usunięto recepturę",
-      "powod": "usunięcie receptury bez pytania, z paskiem Cofnij (D-051 1a, 04-studio-projektowe-506) (M1-audytor-generalny-161); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Skopiowano plan wypieku do schowka",
-      "powod": "nazwy miejsc według słownika akcji, bez „Harmonogramu” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Parametry bochenka „{name}” wczytano do receptury.",
-      "powod": "nazwy miejsc według słownika akcji, bez „Kalkulatora” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
-      "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028) (M1-audytor-generalny-113); zakres DDT w °C zawężony do 24–25,5 °C, żeby tryb imperialny pokazał 75–78 °F jak źródło DIA-DDT-001 (M1-audytor-generalny-208); zdanie złożone przy scaleniu torów p12b i p12b2; przekład w batchu nocy (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Test okna glutenowego",
-      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Przerośnięte ciasto: zrób focaccię",
-      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Mistrzowski wiejski w stylu Tartine, 80%",
-      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Chleb w stylu San Francisco o wyrazistej kwasowości",
-      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Bagietka paryska na poolishu",
-      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.",
-      "powod": "bez obcych wstawek w PL (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "W pliku receptury brakuje proporcji ciasta.",
-      "powod": "bez tekstów technicznych w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
-      "powod": "głos bez „Uwaga:” i wykrzyknika (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.",
-      "powod": "głos bez „Uwaga:”, wykrzyknika i angielskiej wstawki (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "{n} h temu",
-      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "{n} dzień temu",
-      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "{n} dni temu",
-      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "{n} dnia temu",
-      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "1:1:1 (szybki, 3–4 h)",
-      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "1:2:2 (klasyczny, 6–8 h)",
-      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "1:5:5 (na noc, 12 h)",
-      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.",
-      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
-      "powod": "zakres DDT w °C zawężony do 24–25,5 °C, żeby tryb imperialny pokazał 75–78 °F jak źródło DIA-DDT-001 (M1-audytor-generalny-208); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.",
-      "powod": "usunięte zdanie o Acetobacter bez twierdzenia; pole przyczyny ma teraz tylko zdanie z KWA-GLO-001, KWA-HYD-001, KWA-TEM-001 (M1-audytor-generalny-163); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Gumowaty (Krojony na gorąco)",
-      "powod": "etykieta PL nazywała „gorący nóż”, przyczyna to krojenie gorącego chleba (KRO-POC-015), jak EN (M1-audytor-generalny-148); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
-      "powod": "porada przy hydratacji poniżej zakresu warunkowa, bo próg MAK-HYD-900 nie ma źródła (M1-audytor-generalny-210); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Drożdże świeże (prasowane)",
-      "powod": "wiersz drożdży zaczynu nazywa rodzaj drożdży z ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002 (BBGA: drożdże świeże prasowane); klucz istniał w EN, w 33 językach był na liście PÓŹNIEJ (M1-audytor-generalny-207); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Mąka pszenna typ 500 (Wrocławska)",
-      "powod": "nazwa atlasu PL bez „Poznańska” (brak źródła); w 33 językach nie wyświetlana (opis ogólny), przekład dla kompletności słownika (M1-audytor-generalny-091); przekład we wspólnym batchu nocnych napraw (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Uśpiony w lodówce ({dni})",
-      "powod": "liczba dni z odmianą CLDR w parametrze {dni} zamiast „({elapsedDays} dni)” (09-lokalizacja-504) (M1-audytor-generalny-071); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Wymaga odświeżenia ({dni} w chłodzie)",
-      "powod": "liczba dni z odmianą CLDR w parametrze {dni} zamiast „({elapsedDays} dni w chłodzie)” (09-lokalizacja-504) (M1-audytor-generalny-071); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "{n}x ~{masa} upieczony bochenek",
-      "powod": "tekst receptury bez sklejania i bez toLowerCase na przekładzie (09-lokalizacja-509) (M1-audytor-generalny-172); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "temp. {temp}",
-      "powod": "skrót temperatury wody w tekście receptury był na sztywno (09-lokalizacja-509) (M1-audytor-generalny-172); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Mieszanie i zaszczepienie",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Składanie 1 (Stretch & Fold)",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Składanie 2 (Coil Fold)",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Składanie 3 (Coil Fold)",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Formowanie do koszyka i chłód",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Wypiek w garnku z parą",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    },
-    {
-      "klucz": "Brak katalogu dokumentów aplikacji",
-      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
-      "od": "2026-10-21"
-    }
-  ],
+  "klucze": [],
   "zamkniete": {
     "data": "2026-10-21",
     "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",
@@ -273,6 +17,63 @@
       "4–8h w 24–26°C do szczytu objętości",
       "Do ostygnięcia do temp. pokojowej",
       "Min. 4h lub przez noc w lodówce"
+    ]
+  },
+  "zamkniete-p12-noc": {
+    "data": "2026-10-22",
+    "sposob": "batch M1 „p12-noc” (Claude API Message Batches, claude-opus-5-5): 51 kluczy torów nocy 21/22.10 (p12d 3, p12b 23, p12b2 6, p12b3 19; zdanie Doktora o DDT złożone przy scaleniu ze 113 i 208 jednym kluczem) × 33 języki, 0 braków i 0 błędów walidacji; ponowne przekłady 185 (ja, zh-Hant) i formy liczby mnogiej „{n} dzień temu” (162, poprawki liczba-mnoga w poprawki-przekladu.json); wpięte przez scripts/wepnij-przeklad.mjs na gałęzi integracja/noc-2026-10-22",
+    "klucze": [
+      "Piekarz Pro nie jest aktywny",
+      "Przypomnienia o karmieniu",
+      "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.",
+      "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.",
+      "Potrzebny zakwas",
+      "Usunięto recepturę",
+      "Skopiowano plan wypieku do schowka",
+      "Parametry bochenka „{name}” wczytano do receptury.",
+      "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "Test okna glutenowego",
+      "Przerośnięte ciasto: zrób focaccię",
+      "Mistrzowski wiejski w stylu Tartine, 80%",
+      "Chleb w stylu San Francisco o wyrazistej kwasowości",
+      "Bagietka paryska na poolishu",
+      "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.",
+      "W pliku receptury brakuje proporcji ciasta.",
+      "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
+      "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.",
+      "{n} h temu",
+      "{n} dzień temu",
+      "{n} dni temu",
+      "{n} dnia temu",
+      "1:1:1 (szybki, 3–4 h)",
+      "1:2:2 (klasyczny, 6–8 h)",
+      "1:5:5 (na noc, 12 h)",
+      "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.",
+      "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.",
+      "Gumowaty (Krojony na gorąco)",
+      "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
+      "Drożdże świeże (prasowane)",
+      "Mąka pszenna typ 500 (Wrocławska)",
+      "Uśpiony w lodówce ({dni})",
+      "Wymaga odświeżenia ({dni} w chłodzie)",
+      "{n}x ~{masa} upieczony bochenek",
+      "temp. {temp}",
+      "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.",
+      "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.",
+      "Mieszanie i zaszczepienie",
+      "Składanie 1 (Stretch & Fold)",
+      "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.",
+      "Składanie 2 (Coil Fold)",
+      "Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.",
+      "Składanie 3 (Coil Fold)",
+      "Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.",
+      "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.",
+      "Formowanie do koszyka i chłód",
+      "Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.",
+      "Wypiek w garnku z parą",
+      "20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.",
+      "Brak katalogu dokumentów aplikacji"
     ]
   }
 }

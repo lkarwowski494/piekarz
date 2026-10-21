@@ -1,10 +1,6 @@
 // Słownik bg, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Упражнявайте усета за хлебарските пропорции наум (Mental Baker Drill)',
-  'Dane są zapisywane tylko w tym telefonie.': 'Данните се записват само на този телефон.',
-  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Данните от копието са в приложението. Пропуснати повредени записи: {n}. Запазих предишните данни в копие преди импорта.',
-  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Данните от копието са в приложението. Запазих предишните данни в копие преди импорта.',
   'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Данните са записани от по-нова версия на Пекар. Актуализирайте приложението, за да продължите да записвате. Дотогава можете само да ги преглеждате.',
   'DDT': 'Целева темп. на тестото',
   'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Внимателно плъзнете тестото в тавата, без да изпускате прекалено много газ от него.',
@@ -157,4 +153,14 @@ export const CZESC: Record<string, string> = {
   'Ilości liczę od': 'Изчислявам количествата от',
   'Im rzadziej zakwas był dokarmiany, tym dłużej trwa przygotowanie go do pieczenia.': 'Колкото по-рядко е бил хранен квасният стартер, толкова по-дълго трае подготовката му за печене.',
   'Imię zakwasu': 'Име на квасния стартер',
+  'Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.': 'Импортът ще замени всички данни в приложението с данните от копието. Преди импорта ще запазя копие на текущите данни.',
+  'Importowanie...': 'Импортиране...',
+  'Importuj JSON': 'Импорт на JSON',
+  'Importuj recepturę': 'Импорт на рецепта',
+  'Importuj z pliku': 'Импортирайте от файл',
+  'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Как да проверите дали самунът в кошницата е готов за печене',
+  'Jak wyszedł bochenek?': 'Как се получи самунът?',
+  'Jakość skórki': 'Качество на кората',
+  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плътна и тежка среда (без въздух)',
+  'Jednostki': 'Единици',
 };

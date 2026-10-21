@@ -1,14 +1,6 @@
 // Słownik sr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Подаци су сачувани новијом верзијом апликације Пекар. Ажурирај апликацију да би чување поново радило. Дотле можеш само да прегледаш.',
-  'DDT': 'Темп. теста',
-  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Нежно превуци тесто у плех, без претераног испуштања гаса.',
-  'Diagnostyka błędów wypieku i ratowanie bochenka': 'Дијагностика грешака у печењу и спасавање векне',
-  'długi krok (skrócony)': 'дуг корак (скраћен)',
-  'Długo stał w lodówce bez dokarmiania': 'Дуго стајао у фрижидеру без храњења',
-  'do {godzina}': 'до {godzina}',
-  'do {godzina}, potem {krok}': 'до {godzina}, затим {krok}',
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'У фрижидер га стављај тек када се устали, односно после 7–10 дана.',
   'Do miski': 'У чинију',
   'Do miski (Ciasto właściwe)': 'У чинију (главно тесто)',
@@ -165,4 +157,17 @@ export const CZESC: Record<string, string> = {
   'Jednostki': 'Јединице',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Ако у овом кораку радиш са сировим брашном, тестом или стартером, немој да их пробаш, а затим опери руке сапуном под текућом водом.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ако видиш превлаку, мрље или промену боје или осетиш трули мирис, отвори проверу стартера.',
+  'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако стартер није много нарастао и има мало мехурића, настави да га храниш на 12 сати.',
+  'Język': 'Језик',
+  'jutro': 'сутра',
+  'Jutro': 'Сутра',
+  'Kalkulator': 'Калкулатор',
+  'Kalkulator kosztów': 'Калкулатор трошкова',
+  'Kalkulator kosztów wypieku': 'Калкулатор трошкова печења',
+  'Karmelizacja': 'Карамелизација',
+  'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.': 'Карамелизација и слаткоћа скроба, мекана, еластична средина јапанског пецива.',
+  'Karta receptury': 'Картица рецептуре',
+  'Każda mąka musi posiadać nazwę': 'Свако брашно мора имати назив',
+  'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Класични француски багет са предтестом Poolish од 12 сати. Хрскава, танка кора и лагана, ваздушаста средина.',
+  'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Класично пољско брашно за хлеб. Одличан баланс између растегљивости и снаге теста.',
 };

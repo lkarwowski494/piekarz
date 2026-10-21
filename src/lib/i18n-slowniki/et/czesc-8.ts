@@ -1,0 +1,26 @@
+// Słownik et, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
+export const CZESC: Record<string, string> = {
+  'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'Kõrge valgusisaldusega nisujahu (W > 280 / Manitoba)',
+  'Mąka pszenna pełnoziarnista typ 2000': 'Nisu täisterajahu',
+  '{n} krok wypada w nocy#one': '{n} samm jääb öösse',
+  '{n} krok wypada w nocy#other': '{n} sammu jääb öösse',
+  '{n} dzień#one': '{n} päev',
+  '{n} dzień#other': '{n} päeva',
+  '{n} dzień temu#one': '{n} päev tagasi',
+  '{n} dzień temu#other': '{n} päeva tagasi',
+  '{n} receptura#one': '{n} retsept',
+  '{n} receptura#other': '{n} retsepti',
+  '{n} zakwas#one': '{n} juuretis',
+  '{n} zakwas#other': '{n} juuretist',
+  '{n} wpis w Dzienniku#one': '{n} kirje päevikus',
+  '{n} wpis w Dzienniku#other': '{n} kirjet päevikus',
+  '{n} sekunda#one': '{n} sekund',
+  '{n} sekunda#other': '{n} sekundit',
+  '{n} godzina#one': '{n} tund',
+  '{n} godzina#other': '{n} tundi',
+  '{n} minuta#one': '{n} minut',
+  '{n} minuta#other': '{n} minutit',
+  'Plan wypieku: {n} krok.#one': 'Küpsetusplaan: {n} samm.',
+  'Plan wypieku: {n} krok.#other': 'Küpsetusplaan: {n} sammu.',
+};

@@ -200,4 +200,12 @@ export const CZESC: Record<string, string> = {
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': '꿀 한 큰술은 발효를 돕고 산미를 부드럽게 해요. 그레이엄 가루의 굵은 밀기울 때문에 45분 오토리즈가 필요해요.',
   'Dodatki (orzechy, ziarna)': '부재료 (견과류, 씨앗)',
   'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': '사워도우 스타터에 가루와 미지근한 물로 먹이를 주세요. 부피가 두 배가 될 때까지 따뜻한 곳에 두세요.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': '먹이를 준 뒤 6–8시간 안에 스타터 부피가 두 배가 될 때까지 12시간마다 계속 먹이를 주세요.',
+  'Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.': '먹이를 준 뒤 6–8시간 안에 부피가 두 배나 세 배로 늘어날 때까지 12시간마다 먹이를 주세요. 그러면 베이킹할 준비가 된 거예요.',
+  'Dokarmienie': '먹이 주기',
+  'Dokarmienie {proporcja}': '먹이 주기 {proporcja}',
+  'Dokarmienie zakwasu': '사워도우 스타터 먹이 주기',
+  'Dokarmienie zakwasu (osiągnięcie szczytu)': '사워도우 스타터 먹이 주기 (스타터 활성 정점 도달)',
+  'Dokarmienie zakwasu z lodówki': '냉장 스타터 먹이 주기',
+  'Dokarmiono zakwas': '스타터에 먹이를 줬어요',
 };

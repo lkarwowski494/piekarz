@@ -166,4 +166,10 @@ export const CZESC: Record<string, string> = {
   'Czw.': 'Чт',
   'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Тренуйте відчуття пекарських пропорцій подумки (Mental Baker Drill)',
   'Dane są zapisywane tylko w tym telefonie.': 'Дані зберігаються лише на цьому телефоні.',
+  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Дані з копії вже в застосунку. Пропущено пошкоджених записів: {n}. Попередні дані збережено в копії перед імпортом.',
+  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Дані з копії вже в застосунку. Попередні дані збережено в копії перед імпортом.',
+  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Дані збережено новішою версією Пекар. Оновіть застосунок, щоб і далі зберігати. Доти можна лише переглядати.',
+  'DDT': 'Цільова темп. тіста',
+  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Обережно зсуньте тісто на деко, не випускаючи з нього зайвого газу.',
+  'Diagnostyka błędów wypieku i ratowanie bochenka': 'Діагностика вад випічки й порятунок хлібини',
 };

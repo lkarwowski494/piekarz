@@ -1,13 +1,6 @@
-// Słownik et, część 2 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik et, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Kohanda jahude osakaalu. Summa peab olema täpselt 100%.',
-  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Senine toitmistsükkel nullitakse.',
-  'Drobna niedoskonałość': 'Väike puudus',
-  'Drobne pory, bochenek ciężki w dłoni': 'Väikesed poorid, päts on käes raske',
-  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Peened ühtlased poorid nagu käsnal/vahul',
-  'Drożdże': 'Pärm',
-  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Juuretises olevaid pärmseeni ja baktereid tuleb regulaarselt toita värske jahu ja veega, et need ellu jääksid ja paljuneksid.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Pärm ei jõudnud enne ahju panemist gaasi tekitada ega seda kogu taignas jaotada. Ahjus paisus tainas järsult ainult ülaosas ja rebestas kooriku.',
   'Drożdżowe': 'Pärmiga',
   'Drożdżowy': 'Pärmiga',
@@ -239,4 +232,16 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 450 (Tortowa)': 'Väga hele nisujahu (kookideks)',
   'Mąka pszenna typ 500 (Wrocławska / Poznańska)': 'Hele nisujahu (pärmitaignad)',
   'Mąka pszenna typ 550 (Luksusowa)': 'Hele nisujahu',
+  'Mąka pszenna typ 650 (Bułkowa)': 'Hele nisujahu (kuklid)',
+  'Mąka pszenna typ 850': 'Tumedam nisujahu',
+  'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Kõrge väljasaagisega nisujahu, valgusisaldus 11,9%',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Kõrge väljasaagisega nisujahu, valgusisaldus 12,4–15,5%',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Kõrge väljasaagisega nisujahu, valgusisaldus 13,1%',
+  'Mąka pszenna, białko 13,8%': 'Nisujahu, valgusisaldus 13,8%',
+  'Mąka razem': 'Jahu kokku',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Täisterajahu. Valgusisaldus uuritud proovides: 8,7–9,6%. Tuhasisaldus Poola standardite järgi: kuni 2%.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Pagariprotsendis on jahu 100% alus',
+  'Mąka uniwersalna / pszenna jasna': 'Hele nisujahu',
+  'Mąka w zaczynie': 'Eeltaigna jahu',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Kõrge väljasaagisega (tumedam) jahu. Valgusisaldus uuritud proovis: 11,9%.',
 };

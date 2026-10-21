@@ -212,4 +212,12 @@ export const CZESC: Record<string, string> = {
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Doktor za kruh',
   'Doktor zakwasu': 'Doktor za kvas',
+  'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Privzeto glede na regijo telefona. Recepte shranjujem v gramih; odstotki se ne spremenijo.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Prilagodite deleže moke. Vsota mora biti natanko 100 %.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Dosedanji cikel hranjenja bo ponastavljen.',
+  'Drobna niedoskonałość': 'Manjša pomanjkljivost',
+  'Drobne pory, bochenek ciężki w dłoni': 'Drobne pore, hlebec je težak v roki',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Drobni, enakomerni mehurčki kot goba/pena',
+  'Drożdże': 'Kvasovke',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Kvasovke in bakterije v kvasu je treba redno hraniti s svežo moko in vodo, da preživijo in se razmnožujejo.',
 };

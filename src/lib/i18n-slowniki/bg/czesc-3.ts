@@ -1,16 +1,6 @@
 // Słownik bg, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.': 'Импортът ще замени всички данни в приложението с данните от копието. Преди импорта ще запазя копие на текущите данни.',
-  'Importowanie...': 'Импортиране...',
-  'Importuj JSON': 'Импорт на JSON',
-  'Importuj recepturę': 'Импорт на рецепта',
-  'Importuj z pliku': 'Импортирайте от файл',
-  'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Как да проверите дали самунът в кошницата е готов за печене',
-  'Jak wyszedł bochenek?': 'Как се получи самунът?',
-  'Jakość skórki': 'Качество на кората',
-  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плътна и тежка среда (без въздух)',
-  'Jednostki': 'Единици',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Ако в тази стъпка работите със сурово брашно, тесто или квасен стартер, не ги опитвайте, а след това измийте ръцете си със сапун под течаща вода.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ако виждате налеп, петна или промяна в цвета, или усещате гнилостна миризма, отворете проверката на квасния стартер.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако квасният стартер е нараснал малко и има малко мехурчета, продължете да го храните на всеки 12 часа.',
@@ -181,4 +171,15 @@ export const CZESC: Record<string, string> = {
   'Moje przepisy': 'Моите рецепти',
   'Moje receptury': 'Моите рецепти',
   'Mokry, lepki miękisz, brudzi nóż': 'Мокра, лепкава среда, цапа ножа',
+  'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.': 'Следете обема — при 27 °C дрождите и бактериите ще възвърнат силата си в рамките на 60–90 минути.',
+  'Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'Може да започне да бълбука бързо или да му трябват дори 12 часа в зависимост от това кога е хранен за последно.',
+  'Możesz przesunąć plan wypieku.': 'Можете да преместите плана за печене.',
+  'Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.': 'Можете да импортирате JSON файл, създаден в Пекар, или ръчно подготвен шаблон.',
+  'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.': 'Възможна причина: на дрождите и бактериите не им достига храна и броят им постепенно намалява.',
+  'Możliwe przyczyny:': 'Възможни причини:',
+  'Mój zakwas': 'Моят стартер',
+  'Musisz posiadać co najmniej jeden profil zakwasu.': 'Трябва да имате поне един профил на квасен стартер.',
+  'na blacie': 'на плота',
+  'na blacie, {proporcja}': 'на плота, {proporcja}',
+  'Na początku wypieku zapewnij parę w piekarniku.': 'В началото на печенето осигурете пара във фурната.',
 };

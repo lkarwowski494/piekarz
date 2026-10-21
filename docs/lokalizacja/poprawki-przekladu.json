@@ -12,8 +12,7 @@
     { "jezyk": "ms", "rodzaj": "krok0", "klucz": "Biały nalot lub kożuch na powierzchni", "z": "Selaput putih atau lapisan kulit nipis di permukaan", "na": "Selaput putih atau lapisan kulit di permukaan", "powod": "„nipis” = cienki zawęża objaw; bez przymiotnika obejmuje każdy kożuch (DEC-10 a)" },
     { "jezyk": "pt-BR", "rodzaj": "krok0", "klucz": "Biały nalot lub kożuch na powierzchni", "z": "Película branca ou crosta na superfície", "na": "Camada branca ou película na superfície", "powod": "„crosta” = twarda skorupa, nie kożuch; camada (nalot) albo película (kożuch, błonka)" },
     { "jezyk": "zh-Hant", "rodzaj": "krok0", "klucz": "Biały nalot lub kożuch na powierzchni", "z": "表面有白色表層覆膜或硬皮", "na": "表面出現白色覆層或皮膜", "powod": "硬皮 = twarda skórka; 覆層 (nalot) albo 皮膜 (kożuch, błonka)" },
-    { "jezyk": "vi", "rodzaj": "krok0", "klucz": "Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.", "z": "Cảnh báo: Nhiệt độ nước tính được vượt quá 45°C. Nguy cơ làm chết nấm men và vi khuẩn axit lactic vì nóng! Làm lạnh bột hoặc hạ nhiệt độ môi trường.", "na": "Cảnh báo: Nhiệt độ nước tính được vượt quá 45°C. Nguy cơ làm chết nấm men và vi khuẩn axit lactic vì nóng! Làm lạnh bột mì hoặc hạ nhiệt độ môi trường.", "powod": "„bột” to i mąka, i ciasto; „bột mì” = mąka pszenna, jednoznacznie" },
-
+    { "jezyk": "vi", "rodzaj": "krok0", "klucz": "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.", "z": "Nhiệt độ nước tính được vượt quá 45°C. Điều này có nguy cơ làm chín nấm men và vi khuẩn axit lactic. Hãy làm lạnh bột hoặc hạ nhiệt độ môi trường.", "na": "Nhiệt độ nước tính được vượt quá 45°C. Điều này có nguy cơ làm chín nấm men và vi khuẩn axit lactic. Hãy làm lạnh bột mì hoặc hạ nhiệt độ môi trường.", "powod": "„bột” to i mąka, i ciasto; „bột mì” = mąka pszenna, jednoznacznie (przeniesiona na nowy klucz po M1-audytor-generalny-116 bez „Uwaga:”; przekład p12-noc znów ma samo „bột”)" },
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n} krok wypada w nocy#other", "z": "{n} pași cad noaptea", "na": "{n} de pași cad noaptea", "powod": "CLDR ro other = 20 i więcej: rzeczownik po „de”" },
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#other", "z": "{n} zile", "na": "{n} de zile", "powod": "CLDR ro other: „de”" },
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n}\u00a0receptura#other", "z": "{n}\u00a0rețete", "na": "{n}\u00a0de rețete", "powod": "CLDR ro other: „de”" },
@@ -23,7 +22,6 @@
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n} godzina#other", "z": "{n} ore", "na": "{n} de ore", "powod": "CLDR ro other: „de”" },
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n} minuta#other", "z": "{n} minute", "na": "{n} de minute", "powod": "CLDR ro other: „de”" },
     { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "Plan wypieku: {n} krok.#other", "z": "Plan de coacere: {n} pași.", "na": "Plan de coacere: {n} de pași.", "powod": "CLDR ro other: „de”" },
-
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} krok wypada w nocy#two", "z": "{n} koraki padejo v noč", "na": "{n} koraka padeta v noč", "powod": "CLDR sl two = liczba podwójna (2, 102…), której polski nie ma" },
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#two", "z": "{n} dni", "na": "{n} dneva", "powod": "liczba podwójna" },
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} dni", "na": "{n} dnevi", "powod": "CLDR sl few (3, 4): „dnevi”; PL ma jeden klucz „{n} dni” dla 2–4 i 5+, przekład dał formę 5+" },
@@ -34,10 +32,17 @@
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} godzina#two", "z": "{n} ure", "na": "{n} uri", "powod": "liczba podwójna" },
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} minuta#two", "z": "{n} minute", "na": "{n} minuti", "powod": "liczba podwójna" },
     { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "Plan wypieku: {n} krok.#two", "z": "Načrt peke: {n} koraki.", "na": "Načrt peke: {n} koraka.", "powod": "liczba podwójna" },
-
     { "jezyk": "cs", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} dní", "na": "{n} dny", "powod": "CLDR cs few (2–4): „dny”; PL ma jeden klucz „{n} dni” dla 2–4 i 5+, przekład dał formę 5+" },
     { "jezyk": "sk", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} dní", "na": "{n} dni", "powod": "CLDR sk few (2–4): „dni”; jak wyżej" },
     { "jezyk": "lt", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} dienų", "na": "{n} dienos", "powod": "CLDR lt few (2–9): „dienos”; jak wyżej" },
-    { "jezyk": "ru", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} дней", "na": "{n} дня", "powod": "CLDR ru few (2–4, 22–24…): „дня”; jak wyżej" }
+    { "jezyk": "ru", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień#few", "z": "{n} дней", "na": "{n} дня", "powod": "CLDR ru few (2–4, 22–24…): „дня”; jak wyżej" },
+    { "jezyk": "es-419", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#many", "z": "hace {n} días", "na": "hace {n} de días", "powod": "CLDR es-419 many (np. n = 1000000): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "fr", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#many", "z": "il y a {n} jours", "na": "il y a {n} de jours", "powod": "CLDR fr many (np. n = 1000000): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "lt", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#other", "z": "prieš {n} dienas", "na": "prieš {n} dienų", "powod": "CLDR lt other (np. n = 10): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "pt", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#many", "z": "há {n} dias", "na": "há {n} de dias", "powod": "CLDR pt many (np. n = 1000000): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "ro", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#other", "z": "acum {n} zile", "na": "acum {n} de zile", "powod": "CLDR ro other (np. n = 20): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "ru", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#few", "z": "{n} дней назад", "na": "{n} дня назад", "powod": "CLDR ru few (np. n = 2): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "sl", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#two", "z": "pred {n} dnevi", "na": "pred {n} dnevoma", "powod": "CLDR sl two (np. n = 2): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" },
+    { "jezyk": "uk", "rodzaj": "liczba-mnoga", "klucz": "{n} dzień temu#few", "z": "{n} днів тому", "na": "{n} дні тому", "powod": "CLDR uk few (np. n = 2): forma kategorii z przekładu p12-noc; forma PL „{n} dni temu” jest wspólna dla kilku kategorii języka [M1-audytor-generalny-162]" }
   ]
 }

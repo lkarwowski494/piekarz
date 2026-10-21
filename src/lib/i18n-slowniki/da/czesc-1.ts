@@ -1,4 +1,4 @@
-// Słownik da, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik da, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} damp',
@@ -212,4 +212,12 @@ export const CZESC: Record<string, string> = {
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Brøddoktor',
   'Doktor zakwasu': 'Surdejsdoktor',
+  'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Som standard efter telefonens region. Jeg gemmer opskrifter i gram; procenterne ændres ikke.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Justér melandelene. Summen skal være præcis 100 %.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Den nuværende fodringscyklus nulstilles.',
+  'Drobna niedoskonałość': 'Mindre skønhedsfejl',
+  'Drobne pory, bochenek ciężki w dłoni': 'Små porer, brødet føles tungt i hånden',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, ensartede porer som svamp/skum',
+  'Drożdże': 'Gær',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Gæren og bakterierne i surdejen skal fodres regelmæssigt med frisk mel og vand for at overleve og formere sig.',
 };

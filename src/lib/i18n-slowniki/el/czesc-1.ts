@@ -161,4 +161,10 @@ export const CZESC: Record<string, string> = {
   'Coś mnie niepokoi': 'Κάτι με ανησυχεί',
   'Cykl dokarmiania': 'Κύκλος ταΐσματος',
   'Czas w lodówce:': 'Χρόνος στο ψυγείο:',
+  'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Ώρα να αφαιρέσετε το καπάκι από τη γάστρα και να συνεχίσετε το ψήσιμο χωρίς ατμό.',
+  'cze': 'Ιουν',
+  'Czw.': 'Πέμ.',
+  'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Εξασκήστε νοερά τη διαίσθησή σας στις αρτοποιητικές αναλογίες (Mental Baker Drill)',
+  'Dane są zapisywane tylko w tym telefonie.': 'Τα δεδομένα αποθηκεύονται μόνο σε αυτό το τηλέφωνο.',
+  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Κατεστραμμένες εγγραφές που παραλείφθηκαν: {n}. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
 };
