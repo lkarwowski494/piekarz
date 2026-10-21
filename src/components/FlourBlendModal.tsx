@@ -403,6 +403,9 @@ const styles = StyleSheet.create({
   },
   removeBtn: {
     minHeight: theme.cele.pozostale,
+    // „✕” miał ok. 26 pt szerokości; pole dotyku 44 × 44 (RD-ENG-03) [audyt-niezalezny G-6]
+    minWidth: theme.cele.pozostale,
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.powierzchnia,
     borderWidth: 1,

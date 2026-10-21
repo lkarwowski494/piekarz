@@ -181,4 +181,17 @@ describe('FlourBlendModal Component (src/components/FlourBlendModal.tsx)', () =>
     expect(mockOnClose).toHaveBeenCalledTimes(1);
     expect(mockOnApply).not.toHaveBeenCalled();
   });
+
+  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]', async () => {
+    await act(async () => {
+      tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
+    });
+    const { StyleSheet } = jest.requireActual('react-native');
+    const przyciski = tree!.root.findAll((n) => typeof n.props.testID === 'string' && /^flour-remove-\d+$/.test(n.props.testID) && n.props.style);
+    expect(przyciski.length).toBeGreaterThan(0);
+    for (const p of przyciski) {
+      const s = StyleSheet.flatten(p.props.style);
+      expect({ minWidth: s.minWidth >= 44, minHeight: s.minHeight >= 44 }).toEqual({ minWidth: true, minHeight: true });
+    }
+  });
 });
