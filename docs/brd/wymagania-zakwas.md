@@ -56,7 +56,11 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
   - Scenariusz: Zakwas w lodówce
     - Zakładając, że zakwas w lodówce dokarmiono 2026-10-01 o 10:00
     - Gdy jest 2026-10-08 10:00
-    - Wtedy użytkownik dostaje przypomnienie (RD-25-W4)
+    - Wtedy użytkownik dostaje przypomnienie (RD-25-W4); to jedno powiadomienie na cykl karmienia, bez wcześniejszego przypomnienia (D-068, ER-58)
+  - Scenariusz: Przypomnienia o karmieniu wyłączone
+    - Zakładając, że użytkownik wyłączył w Ustawieniach przełącznik „Przypomnienia o karmieniu”
+    - Gdy mija termin dokarmienia zakwasu na blacie albo w lodówce
+    - Wtedy nie dostaje przypomnienia o karmieniu, a powiadomienia o krokach wypieku przychodzą dalej (D-068)
   - Scenariusz: Kolorowe plamy
     - Zakładając, że użytkownik zaznacza kolorowe plamy na zakwasie
     - Gdy zatwierdza objawy

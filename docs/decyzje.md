@@ -249,7 +249,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** dla zakwasu w lodówce plan powiadomień ma jedno powiadomienie na cykl karmienia, w terminie 7 dni po karmieniu (`karmienie.lodowkaTermin`); przypomnienie po 6 dniach znika. W Ustawieniach przełącznik „Przypomnienia o karmieniu” (`przypomnienia_karmienia` w `app_settings`, domyślnie włączony) wyłącza tylko powiadomienia o karmieniu; kroki wypieku przychodzą dalej. ADR-006 reguła 4 opisuje nowy plan.
 - **Odrzucone:** (b) bez zmian — dwa powiadomienia o tym samym karmieniu (HIG Notifications: „Avoid sending multiple notifications for the same thing”), wyłączenie tylko w systemie razem z krokami wypieku.
 - **Dlaczego:** powiadomienie ma dotyczyć rzeczy, o którą użytkownik prosił, raz; kto chce tylko alarmów wypieku, nie musi wyłączać wszystkich powiadomień.
-- **Zależy od:** BR-ZAKW-004 kryt. 1 (BRD nadal opisuje dwa powiadomienia: zmiana BRD przez role 01/03, poza torem p12d).
+- **Zależy od:** BR-ZAKW-004 kryt. 1 (BRD nadal opisuje dwa powiadomienia: zmiana BRD przez role 01/03, poza torem p12d). Uzupełnione 2026-10-22: BR-ZAKW-004 z jednym powiadomieniem i scenariuszem przełącznika (ER-58, M2 tor p13a).
 
 ### Uzupełnienie D-060 (2026-10-21, M2 tor p12b2, zadanie M1-audytor-generalny-206) — zakres przykładu BBGA
 - **Rodzaj:** merytoryczna (zapis zakresu źródła; decyzja produktowa D-060 bez zmian). Rekomendacja reaudytu roli 06 (06-tresci-602, opcja a) według zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
