@@ -389,7 +389,7 @@ export async function initDatabase(): Promise<void> {
       {
         id: 'starter_default',
         name: 'Zakwas żytni (Bolesław)',
-        flourType: 'Żytnia razowa typ 2000',
+        flourType: 'Żytnia typ 2000',
         hydration: 100.0,
         birthDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
         storageState: 'FRIDGE',
@@ -409,7 +409,7 @@ export async function initDatabase(): Promise<void> {
       },
       {
         id: 'flour_inv_rye_2000',
-        name: 'Mąka żytnia razowa typ 2000',
+        name: 'Mąka żytnia typ 2000',
         stockGrams: 1500,
         proteinPct: 10.0,
         updatedAt: Date.now(),

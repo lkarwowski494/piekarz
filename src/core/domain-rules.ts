@@ -475,7 +475,7 @@ export const POPULAR_FLOUR_BLENDS: FlourBlendPreset[] = [
     flours: [
       { name: 'Mąka pszenna chlebowa typ 750', percentage: 70.0, type: 'pszenna_750' },
       { name: 'Mąka orkiszowa', percentage: 20.0, type: 'orkiszowa' },
-      { name: 'Mąka żytnia razowa typ 2000', percentage: 10.0, type: 'zytnia_2000' },
+      { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
     ],
   },
   {

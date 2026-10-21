@@ -235,7 +235,7 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     // nazwa jak w atlasie, bez typu 630 (MAK-TYP-902 otwarte) [M2-koordynator-napraw-451 (p12b2)]
     expect(updatedText).toContain('Mąka orkiszowa');
     expect(updatedText).not.toContain('typ 630');
-    expect(updatedText).toContain('Mąka żytnia razowa typ 2000');
+    expect(updatedText).toContain('Mąka żytnia typ 2000'); // bez „razowa” [M2-koordynator-napraw-453 (p12b2)]
   });
 
   // 057 (słownik §5): „Ułóż plan” prowadzi do planu wypieku z tą recepturą; wypiek z ilościami zapisuje

@@ -2775,18 +2775,24 @@
   },
   "Mąka orkiszowa": {
     "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/recipes/presets.ts (dane: name)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka orkiszowa jasna typ 630": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka orkiszowa razowa typ 2000": {
+    "gdzie": [
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
+    ]
+  },
+  "Mąka orkiszowa typ 2000": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
@@ -2822,18 +2828,20 @@
   "Mąka pszenna Manitoba": {
     "gdzie": [
       "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
-      "src/core/flour-atlas.ts (dane: namePl)"
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/data/sqlite-schema.ts (dane: name)",
+      "src/recipes/presets.ts (dane: name)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka pszenna Manitoba / Forte (W > 300)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna Manitoba / Forte (W > 350)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna bułkowa / bagietkowa": {
@@ -2989,7 +2997,7 @@
   },
   "Mąka pszenna wysokobiałkowa (W>280 / Manitoba)": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka pszenna wysokowyciągowa, białko 11,9%": {
@@ -3085,7 +3093,7 @@
   },
   "Mąka żytnia chlebowa typ 720": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka żytnia dostarcza enzymów i minerałów przyspieszających namnażanie dzikich drożdży i bakterii kwasu mlekowego.": {
@@ -3095,15 +3103,20 @@
   },
   "Mąka żytnia razowa typ 2000": {
     "gdzie": [
-      "src/core/domain-rules.ts (dane: name)",
-      "src/core/flour-atlas.ts (dane: namePl)",
-      "src/data/sqlite-schema.ts (dane: name)",
-      "src/recipes/presets.ts (dane: name)"
+      "src/lib/nazwa-maki-mieszanki.ts (dane: kod)"
     ]
   },
   "Mąka żytnia typ 1400": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
+    ]
+  },
+  "Mąka żytnia typ 2000": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: name)",
+      "src/core/flour-atlas.ts (dane: namePl)",
+      "src/data/sqlite-schema.ts (dane: name)",
+      "src/recipes/presets.ts (dane: name)"
     ]
   },
   "Mąka żytnia typ 500": {

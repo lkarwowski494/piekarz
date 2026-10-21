@@ -19,7 +19,7 @@
     { "tekst": "Typ 650 (Bułkowa)", "plik": "src/core/flour-equivalents.ts", "powod": "jak wyżej (F-46, PÓŹNIEJ)" },
     { "tekst": "Typ 2000 (Razowa pełnoziarnista)", "plik": "src/core/flour-equivalents.ts", "powod": "jak wyżej (F-46, PÓŹNIEJ)" },
     { "tekst": "Zakwas żytni (Bolesław)", "plik": "src/data/sqlite-schema.ts", "powod": "dane startowe magazynu w pamięci (memStore) poza iOS; w aplikacji iOS nie trafiają do bazy użytkownika" },
-    { "tekst": "Żytnia razowa typ 2000", "plik": "src/data/sqlite-schema.ts", "powod": "jak wyżej (memStore poza iOS)" },
+    { "tekst": "Żytnia typ 2000", "plik": "src/data/sqlite-schema.ts", "powod": "jak wyżej (memStore poza iOS)" },
     { "tekst": "Plik kopii musi być obiektem JSON", "plik": "src/lib/backup.ts", "powod": "walidacja kopii przechwytywana w rozpoznajPlik (src/lib/import-z-pliku.ts): plik nierozpoznany, ekran pokazuje własny komunikat z kluczem" },
     { "tekst": "Nieprawidłowa wersja schematu kopii", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik)" },
     { "tekst": "Kopia pochodzi z nowszej wersji aplikacji (v", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik; szablon z numerem wersji)" },

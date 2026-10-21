@@ -81,7 +81,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     formula: {
       flours: [
         { name: 'Mąka pszenna chlebowa typ 750', percentage: 90.0, type: 'pszenna_750' },
-        { name: 'Mąka żytnia razowa typ 2000', percentage: 10.0, type: 'zytnia_2000' },
+        { name: 'Mąka żytnia typ 2000', percentage: 10.0, type: 'zytnia_2000' },
       ],
       waterPercentage: 70.0,
       saltPercentage: 2.1,
@@ -199,7 +199,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.',
     formula: {
       flours: [
-        { name: 'Mąka żytnia razowa typ 2000', percentage: 100.0, type: 'zytnia_2000' },
+        { name: 'Mąka żytnia typ 2000', percentage: 100.0, type: 'zytnia_2000' },
       ],
       waterPercentage: 78.0,
       saltPercentage: 1.8,
@@ -222,7 +222,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.',
     formula: {
       flours: [
-        { name: 'Mąka żytnia razowa typ 2000', percentage: 85.0, type: 'zytnia_2000' },
+        { name: 'Mąka żytnia typ 2000', percentage: 85.0, type: 'zytnia_2000' },
         { name: 'Mąka żytnia typ 720', percentage: 15.0, type: 'zytnia_720' },
       ],
       waterPercentage: 82.0,
@@ -247,7 +247,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     formula: {
       flours: [
         { name: 'Mąka orkiszowa', percentage: 70.0, type: 'orkisz_630' },
-        { name: 'Mąka orkiszowa razowa typ 2000', percentage: 30.0, type: 'orkisz_2000' },
+        { name: 'Mąka orkiszowa typ 2000', percentage: 30.0, type: 'orkisz_2000' },
       ],
       waterPercentage: 68.0,
       saltPercentage: 2.0,

@@ -82,7 +82,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     const fullText = extractCleanText(tree?.toJSON());
     expect(fullText).toContain('Zakwas');
     expect(fullText).toContain('Bolesław');
-    expect(fullText).toContain('Żytnia razowa typ 2000');
+    expect(fullText).toContain('Żytnia typ 2000'); // bez „razowa” (MAK-OGL-901 otwarte) [M2-koordynator-napraw-453 (p12b2)]
     expect(fullText).toContain('Szczyt aktywności');
     expect(fullText).toContain('Ilości do dokarmienia');
   });
@@ -209,7 +209,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     const copiedText = (Clipboard.setStringAsync as jest.Mock).mock.calls[0][0];
     expect(copiedText).toContain('Bolesław');
     expect(copiedText).toContain('1. Zakwas matka: 30 g');
-    expect(copiedText).toContain('2. Mąka (Żytnia razowa typ 2000): 60 g');
+    expect(copiedText).toContain('2. Mąka (Żytnia typ 2000): 60 g');
     expect(copiedText).toContain('3. Woda: 60 g');
   });
 

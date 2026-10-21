@@ -93,6 +93,7 @@ export const EN_11: Record<string, string> = {
     'No gluten structure (arabinoxylan gums act as the framework). Requires sourdough (pH < 4.5).',
   'Mąka żytnia razowa typ 2000':
     'Whole rye flour type 2000',
+  'Mąka żytnia typ 2000': 'Rye flour type 2000',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.':
     'An ideal base for maintaining a mother starter. Rich in wild yeasts and lactic acid bacteria.',
   'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.':
@@ -103,6 +104,7 @@ export const EN_11: Record<string, string> = {
     'Ancient spelt. Very extensible gluten, but prone to weakening under intensive mechanical kneading.',
   'Mąka orkiszowa razowa typ 2000':
     'Whole spelt flour type 2000',
+  'Mąka orkiszowa typ 2000': 'Spelt flour type 2000',
   'Pełnoziarnisty orkisz. Wyraźny orzechowo-słodki smak, wysokie zapotrzebowanie na wodę.':
     'Whole-grain spelt. Distinct nutty-sweet flavor, high water demand.',
   'Standardowa mąka chlebowa.':

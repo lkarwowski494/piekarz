@@ -126,7 +126,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'rye_2000',
-    namePl: 'Mąka żytnia razowa typ 2000',
+    namePl: 'Mąka żytnia typ 2000', // „razowa” otwarte (MAK-OGL-901) [M2-koordynator-napraw-453 (p12b2)]
     grain: 'rye',
     ashTyp: 2000,
     proteinPercent: 10.0,
@@ -157,7 +157,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'spelt_2000',
-    namePl: 'Mąka orkiszowa razowa typ 2000',
+    namePl: 'Mąka orkiszowa typ 2000', // „razowa” otwarte (MAK-OGL-901) [M2-koordynator-napraw-453 (p12b2)]
     grain: 'spelt',
     ashTyp: 2000,
     proteinPercent: 13.5,

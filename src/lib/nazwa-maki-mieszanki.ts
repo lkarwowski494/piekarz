@@ -37,6 +37,8 @@ const DAWNE_NAZWY: ReadonlyArray<readonly [string, string]> = [
   ['Mąka pszenna Manitoba / Forte (W > 350)', 'pszenna_manitoba'],
   ['Mąka żytnia chlebowa typ 720', 'zytnia_720'],
   ['Mąka orkiszowa jasna typ 630', 'orkisz_630'],
+  ['Mąka żytnia razowa typ 2000', 'zytnia_2000'],
+  ['Mąka orkiszowa razowa typ 2000', 'orkisz_2000'],
 ];
 for (const [n, typ] of DAWNE_NAZWY) if (!TYP_NAZWY.has(n)) TYP_NAZWY.set(n, typ);
 const NAZWY_DANYCH = new Set(TYP_NAZWY.keys());

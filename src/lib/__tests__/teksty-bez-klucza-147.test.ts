@@ -25,7 +25,7 @@ const NIEWIDOCZNE = [
   'Całkowita masa mąki musi być większa od 0', 'Udział mąki w zaczynie musi mieścić się w przedziale 0–100%',
   'Parametry dokarmiania muszą być większe od zera', 'niskowyciągowa', 'wysokowyciągowa',
   'Typ 500 / 550 (Poznańska / Luksusowa)', 'Typ 650 (Bułkowa)', 'Typ 2000 (Razowa pełnoziarnista)',
-  'Zakwas żytni (Bolesław)', 'Żytnia razowa typ 2000', 'Plik kopii musi być obiektem JSON', 'Nieprawidłowa wersja schematu kopii',
+  'Zakwas żytni (Bolesław)', 'Żytnia typ 2000', 'Plik kopii musi być obiektem JSON', 'Nieprawidłowa wersja schematu kopii',
   'Kopia pochodzi z nowszej wersji aplikacji (v', 'Nieprawidłowa struktura wypieków ("bakes" musi być tablicą)',
   'Nieprawidłowa struktura zakwasów ("starters" musi być tablicą)', 'Nieprawidłowa struktura przepisów ("customRecipes" musi być tablicą)',
   '{n} zakwasów', '{n} wpisów w Dzienniku',
