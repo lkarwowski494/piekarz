@@ -194,3 +194,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) test czytający decyzję z archiwum BRD — archiwum nie jest obowiązującym rejestrem.
 - **Dlaczego:** po przeniesieniu BRD 2.0 do archiwum wymaganie nie miało źródła w obowiązujących dokumentach, a test i `verify-native` wskazywały nieistniejący plik.
 - **Zależy od:** nic; zmiana minimalnego iOS to nowy wpis.
+
+### [D-060] 2026-10-21 — Pâte fermentée liczona z przykładu BBGA: 75% wody, 1% drożdży, 2% soli (M2 tor p9a, zadanie 131; wpis dopisany na gałęzi integracyjnej pętli 2)
+- **Rodzaj:** produktowa (wybór wartości obliczeń przy braku reguły w źródle). **Słowa właściciela** (czat M2 p9a, 2026-10-21, pytanie o pâte fermentée, ZAC-PAT-900): „Przykład BBGA (Recommended)”.
+- **Decyzja:** zaczyn pâte fermentée w `src/core/preferments.ts` liczony z hydratacją 75%, drożdżami 1% i solą 2% według przykładowej formuły Bread Bakers Guild of America (diagram 4, kolumna „WW & Rye Pâte Fermentée”), twierdzenie ZAC-PAT-002 w `docs/tresci/rejestr.json`; wcześniejsze 65% / 0,5% / 2,0% bez źródła wycofane (ZAC-PAT-900). Commity toru p9a: 04698d7 (kod), 77daafd, 68dce1f (treść).
+- **Odrzucone:** zostawienie 65% / 0,5% / 2,0% — wartości bez źródła; usunięcie liczb — „Do miski” musi podać gramy wody, drożdży i soli.
+- **Dlaczego:** BBGA mówi, że pâte fermentée może być dowolnym ciastem (ZAC-PAT-001), więc nie ma jednej reguły; przykład BBGA to jedyne źródło z liczbami. Uproszczenie: przykład, nie reguła (pole `uproszczenie` ZAC-PAT-002).
+- **Zależy od:** nic; inne parametry pâte fermentée (np. wybór użytkownika) to nowy wpis.
