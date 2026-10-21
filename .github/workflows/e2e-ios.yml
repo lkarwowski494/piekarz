@@ -88,6 +88,14 @@ jobs:
           APP=$(ls -d build/Build/Products/Release-iphonesimulator/*.app | head -n 1)
           xcrun simctl install "$UDID" "$APP"
 
+      # Maestro nadaje zgody iOS (launchApp: permissions) przez applesimutils; bez niego systemowe okno zgody
+      # na powiadomienia zasłania ekran (przebiegi 39581379222, 39591487157) [M1-audytor-generalny-037]
+      - name: Install applesimutils
+        run: |
+          brew tap wix/brew
+          brew install applesimutils
+          applesimutils --version
+
       - name: Install Maestro CLI
         run: |
           curl -fsSL "https://get.maestro.mobile.dev" | bash
