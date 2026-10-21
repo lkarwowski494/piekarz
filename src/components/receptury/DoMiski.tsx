@@ -41,7 +41,7 @@ export interface DoMiskiProps {
   prefermentBreakdown: ZaczynWFormuleResult | null;
 }
 
-const proc = (n: number) => `${formatNumber(n, undefined, { maximumFractionDigits: 1 })}%`;
+const proc = (n: number, miejsca = 1) => `${formatNumber(n, undefined, { maximumFractionDigits: miejsca })}%`;
 
 function haptyka(styl: Haptics.ImpactFeedbackStyle) {
   try {
@@ -170,7 +170,8 @@ export function DoMiski(p: DoMiskiProps) {
             {wiersz('scale-item-water', t('Woda'), w(c.waterGrams), proc(p.waterPct))}
             {zakwas}
             {wiersz('scale-item-salt', t('Sól'), d(c.saltGrams), `${formatFixed(p.saltPct, 1)}%`)}
-            {c.yeastGrams > 0 && wiersz('scale-item-yeast', t('Drożdże'), d(c.yeastGrams), proc(p.yeastPct))}
+            {/* Drożdże z dwoma miejscami: 0,08% to nie „0,1%” [audyt-niezalezny D-14] */}
+            {c.yeastGrams > 0 && wiersz('scale-item-yeast', t('Drożdże'), d(c.yeastGrams), proc(p.yeastPct, 2))}
           </View>
         </>
       )}
