@@ -101,7 +101,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'L\'idratazione ha superato la forza della farina: l\'impasto si attacca alle mani e si allarga come una pozzanghera.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'L\'idratazione dell\'acqua deve essere nell\'intervallo 35–120%',
   'Hydratacja zakwasu': 'Idratazione del lievito madre',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'L\'idratazione del lievito madre deve essere nell\'intervallo 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'L\'idratazione del lievito madre deve essere nell\'intervallo 20–200%',
   'hydratacji': 'idratazione',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideale per mantenere il lievito madre. Ricca di lieviti selvatici e batteri lattici.',
   'Ilości do dokarmienia': 'Quantità per il rinfresco',

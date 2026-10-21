@@ -99,7 +99,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Tešlos hidratacija viršijo miltų stiprumą – tešla limpa prie rankų ir išsilieja į balutę.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Vandens hidratacija turi būti 35–120 %',
   'Hydratacja zakwasu': 'Natūralaus raugo hidratacija',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Raugo hidratacija turi būti 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Raugo hidratacija turi būti 20–200 %',
   'hydratacji': 'tešlos hidratacijos',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealus pagrindas motininiam natūraliam raugui palaikyti. Gausu laukinių mielių ir pieno rūgšties bakterijų.',
   'Ilości do dokarmienia': 'Maitinimo kiekiai',

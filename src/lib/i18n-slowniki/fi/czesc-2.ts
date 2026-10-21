@@ -97,7 +97,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hydraatio ylitti jauhojen vahvuuden — taikina tarttuu käsiin ja leviää lätäköksi.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Veden hydraation on oltava välillä 35–120 %',
   'Hydratacja zakwasu': 'Hapanjuuren hydraatio',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Hapanjuuren hydraation on oltava välillä 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hapanjuuren hydraation on oltava välillä 20–200 %',
   'hydratacji': 'hydraatio',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ihanteellinen pohja emohapanjuuren ylläpitoon. Runsaasti villihiivoja ja maitohappobakteereja.',
   'Ilości do dokarmienia': 'Ruokintamäärät',

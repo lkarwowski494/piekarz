@@ -105,7 +105,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': '가수율이 가루의 힘을 넘어섰어요 — 반죽이 손에 달라붙고 웅덩이처럼 퍼져요.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': '물 가수율은 35–120% 범위여야 해요',
   'Hydratacja zakwasu': '사워도우 스타터 가수율',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': '사워도우 스타터 가수율은 40–200% 범위여야 해요',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': '사워도우 스타터 가수율은 20–200% 범위여야 해요',
   'hydratacji': '가수율',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '마더 사워도우 스타터를 키우기에 이상적인 베이스예요. 야생 효모와 젖산균이 풍부해요.',
   'Ilości do dokarmienia': '먹이 주기 분량',

@@ -156,7 +156,7 @@ export const EN_2: Record<string, string> = {
   'Udział soli musi mieścić się w zakresie 0–6%': 'Salt percentage must be between 0–6%',
   'Udział zakwasu musi mieścić się w zakresie 0–150%': 'Starter percentage must be between 0–150%',
   'Nieprawidłowa hydratacja zakwasu': 'Invalid starter hydration',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Starter hydration must be between 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Starter hydration must be between 20–200%',
   'Eksport JSON': 'JSON Export',
   'Skopiowano kod JSON receptury do schowka.': 'Recipe JSON code copied to clipboard.',
   'Udostępnij plik receptury': 'Share Recipe File',

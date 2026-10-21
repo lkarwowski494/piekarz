@@ -93,7 +93,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Vätskegraden har överstigit mjölets styrka – degen klibbar vid händerna och flyter ut som en pöl.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Vattnets vätskegrad måste ligga inom intervallet 35–120 %',
   'Hydratacja zakwasu': 'Surdegsgrundens vätskegrad',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Surdegsgrundens vätskegrad måste ligga inom intervallet 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Surdegsgrundens vätskegrad måste ligga inom intervallet 20–200 %',
   'hydratacji': 'vätskegrad',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Idealisk bas för att underhålla en surdegsgrund. Rik på vildjäst och mjölksyrabakterier.',
   'Ilości do dokarmienia': 'Matningsmängder',

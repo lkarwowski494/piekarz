@@ -108,7 +108,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'L\'hydratation totale a dépassé la force de la farine — la pâte colle aux mains et s\'étale en flaque.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'L\'hydratation en eau doit être comprise dans la plage 35–120 %',
   'Hydratacja zakwasu': 'Hydratation du levain naturel',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'L\'hydratation du levain naturel doit être comprise dans la plage 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'L\'hydratation du levain naturel doit être comprise dans la plage 20–200 %',
   'hydratacji': 'd\'hydratation totale',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base idéale pour entretenir votre levain naturel chef. Riche en levures sauvages et en bactéries lactiques.',
   'Ilości do dokarmienia': 'Quantités pour le rafraîchi',

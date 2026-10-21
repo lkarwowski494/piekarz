@@ -93,7 +93,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Deighydreringen ble for høy for melets styrke – deigen kleber seg til hendene og flyter ut til en dam.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Deighydreringen (vann) må ligge i området 35–120 %',
   'Hydratacja zakwasu': 'Deighydrering i surdeigsstarteren',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Surdeigsstarterens hydrering må ligge i området 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Surdeigsstarterens hydrering må ligge i området 20–200 %',
   'hydratacji': 'deighydrering',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideell base for å holde en morstarter. Rik på villgjær og melkesyrebakterier.',
   'Ilości do dokarmienia': 'Matemengder',

@@ -100,7 +100,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'A hidratáció meghaladta a liszt erejét — a tészta a kezedhez ragad, és tócsaként szétfolyik.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'A víz hidratációjának 35–120% között kell lennie',
   'Hydratacja zakwasu': 'Kovász hidratációja',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'A kovász hidratációjának 40–200% között kell lennie',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'A kovász hidratációjának 20–200% között kell lennie',
   'hydratacji': 'hidratáció',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideális alap az anyakovász fenntartásához. Gazdag vadélesztőkben és tejsavbaktériumokban.',
   'Ilości do dokarmienia': 'Etetési mennyiségek',

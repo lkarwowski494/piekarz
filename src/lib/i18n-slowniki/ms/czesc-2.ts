@@ -97,7 +97,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Penghidratan melebihi kekuatan tepung — doh melekat pada tangan dan merebak menjadi lopak.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Penghidratan air mesti dalam julat 35–120%',
   'Hydratacja zakwasu': 'Penghidratan pemula sourdough',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Penghidratan pemula sourdough mesti dalam julat 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Penghidratan pemula sourdough mesti dalam julat 20–200%',
   'hydratacji': 'penghidratan',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Asas ideal untuk menjaga pemula sourdough induk. Kaya dengan yis liar dan bakteria asid laktik.',
   'Ilości do dokarmienia': 'Kuantiti Pemberian Makan',

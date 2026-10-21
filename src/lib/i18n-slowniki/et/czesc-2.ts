@@ -93,7 +93,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Veesisaldus ületas jahu tugevuse — tainas kleepub kätesse ja valgub lombiks.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Vee osakaal (veesisaldus) peab olema vahemikus 35–120%',
   'Hydratacja zakwasu': 'Loodusliku juuretise veesisaldus',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Juuretise veesisaldus peab olema vahemikus 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Juuretise veesisaldus peab olema vahemikus 20–200%',
   'hydratacji': 'veesisalduse',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideaalne alus emajuuretise pidamiseks. Rikas looduslike pärmide ja piimhappebakterite poolest.',
   'Ilości do dokarmienia': 'Toitmise kogused',

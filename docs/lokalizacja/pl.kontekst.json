@@ -1879,7 +1879,7 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
-  "Hydratacja zakwasu musi mieścić się w zakresie 40–200%": {
+  "Hydratacja zakwasu musi mieścić się w zakresie 20–200%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
     ]

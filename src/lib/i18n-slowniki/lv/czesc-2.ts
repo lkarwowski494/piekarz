@@ -99,7 +99,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Mīklas hidrācija pārsniegusi miltu spēku — mīkla līp pie rokām un izplūst peļķē.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Ūdens hidrācijai jābūt robežās 35–120 %',
   'Hydratacja zakwasu': 'Dabīgā ierauga hidrācija',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Ierauga hidrācijai jābūt robežās 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Ierauga hidrācijai jābūt robežās 20–200 %',
   'hydratacji': 'hidrācijas',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideāli piemēroti dabīgā ierauga (mātes kultūras) uzturēšanai. Bagāti ar savvaļas raugiem un pienskābes baktērijām.',
   'Ilości do dokarmienia': 'Barošanas daudzumi',

@@ -99,7 +99,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'A hidratação excedeu a força da farinha — a massa cola às mãos e espalha-se como uma poça.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'A hidratação da água tem de estar no intervalo de 35–120%',
   'Hydratacja zakwasu': 'Hidratação do fermento natural',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'A hidratação do fermento natural tem de estar no intervalo de 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'A hidratação do fermento natural tem de estar no intervalo de 20–200%',
   'hydratacji': 'hidratação',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Base ideal para manter o fermento natural-mãe. Rica em leveduras selvagens e bactérias lácticas.',
   'Ilości do dokarmienia': 'Quantidades para alimentar',

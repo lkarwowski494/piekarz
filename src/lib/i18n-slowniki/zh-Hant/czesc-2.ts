@@ -87,7 +87,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': '麵團含水量超出麵粉的承受力——麵團黏手，攤成一灘。',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': '水的含水量必須介於 35–120%',
   'Hydratacja zakwasu': '天然酵母起種含水量',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': '天然酵母起種含水量必須介於 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': '天然酵母起種含水量必須介於 20–200%',
   'hydratacji': '麵團含水量',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': '非常適合作為天然酵母起種（母種）的基底。富含野生酵母與乳酸菌。',
   'Ilości do dokarmienia': '餵養用量',

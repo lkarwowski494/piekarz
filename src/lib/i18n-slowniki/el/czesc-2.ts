@@ -146,7 +146,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Η ενυδάτωση ζύμης ξεπέρασε τη δύναμη του αλευριού — η ζύμη κολλάει στα χέρια και απλώνει σαν λιμνούλα.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Η ενυδάτωση νερού πρέπει να είναι στο εύρος 35–120%',
   'Hydratacja zakwasu': 'Ενυδάτωση προζυμιού',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Η ενυδάτωση του προζυμιού πρέπει να είναι στο εύρος 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Η ενυδάτωση του προζυμιού πρέπει να είναι στο εύρος 20–200%',
   'hydratacji': 'ενυδάτωσης ζύμης',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ιδανική βάση για τη συντήρηση του μητρικού προζυμιού. Πλούσιο σε άγριους ζυμομύκητες και γαλακτικά βακτήρια.',
   'Ilości do dokarmienia': 'Ποσότητες ταΐσματος',

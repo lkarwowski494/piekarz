@@ -96,7 +96,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hidrasyon unun gücünü aştı — hamur ellere yapışıyor ve gölcük gibi yayılıyor.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Su hidrasyonu %35–120 aralığında olmalıdır',
   'Hydratacja zakwasu': 'Ekşi maya hidrasyonu',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Ekşi maya hidrasyonu %40–200 aralığında olmalıdır',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Ekşi maya hidrasyonu %20–200 aralığında olmalıdır',
   'hydratacji': 'hidrasyon',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ana ekşi mayayı sürdürmek için ideal temel. Yabani mayalar ve laktik asit bakterileri bakımından zengindir.',
   'Ilości do dokarmienia': 'Besleme miktarları',

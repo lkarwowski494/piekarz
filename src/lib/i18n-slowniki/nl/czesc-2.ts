@@ -95,7 +95,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'De hydratatie is te hoog voor de kracht van het meel — het deeg plakt aan je handen en loopt uit tot een plas.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Hydratatie van het water moet tussen 35–120% liggen',
   'Hydratacja zakwasu': 'Hydratatie zuurdesemstarter',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Hydratatie van de zuurdesemstarter moet tussen 40–200% liggen',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hydratatie van de zuurdesemstarter moet tussen 20–200% liggen',
   'hydratacji': 'hydratatie',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideale basis om een zuurdesemstarter (moederdesem) te onderhouden. Rijk aan wilde gisten en melkzuurbacteriën.',
   'Ilości do dokarmienia': 'Voedingshoeveelheden',

@@ -114,7 +114,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': '加水率が粉の力を上回っています。生地が手にくっつき、水たまりのように広がります。',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': '水の加水率は35–120%の範囲で指定してください',
   'Hydratacja zakwasu': 'サワー種の加水率',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'サワー種の加水率は40–200%の範囲で指定してください',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'サワー種の加水率は20–200%の範囲で指定してください',
   'hydratacji': '加水率',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'サワー種の元種を育てるのに最適なベース。野生酵母と乳酸菌が豊富です。',
   'Ilości do dokarmienia': '種継ぎの分量',

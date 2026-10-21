@@ -93,7 +93,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hydreringen har overgået melets styrke — dejen klistrer til hænderne og flyder ud som en pyt.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Vandets hydrering skal ligge i intervallet 35–120 %',
   'Hydratacja zakwasu': 'Surdejens hydrering',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Surdejens hydrering skal ligge i intervallet 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Surdejens hydrering skal ligge i intervallet 20–200 %',
   'hydratacji': 'hydrering',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideel base til at holde en modersurdej. Rig på vildgær og mælkesyrebakterier.',
   'Ilości do dokarmienia': 'Fodringsmængder',

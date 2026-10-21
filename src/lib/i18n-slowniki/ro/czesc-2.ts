@@ -100,7 +100,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Gradul de hidratare a depășit puterea făinii — aluatul se lipește de mâini și se întinde ca o baltă.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Gradul de hidratare (apă) trebuie să fie între 35–120%',
   'Hydratacja zakwasu': 'Gradul de hidratare al maiei',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Gradul de hidratare al maiei trebuie să fie între 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Gradul de hidratare al maiei trebuie să fie între 20–200%',
   'hydratacji': 'hidratare',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Bază ideală pentru întreținerea maielei naturale-mamă. Bogată în drojdii sălbatice și bacterii lactice.',
   'Ilości do dokarmienia': 'Cantități pentru hrănire',

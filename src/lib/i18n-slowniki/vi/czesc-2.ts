@@ -112,7 +112,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Độ ẩm bột vượt quá sức của bột mì — bột dính tay và chảy loang như vũng nước.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Độ ẩm bột từ nước phải nằm trong khoảng 35–120%',
   'Hydratacja zakwasu': 'Độ ẩm của men tự nhiên',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Độ ẩm của men tự nhiên phải nằm trong khoảng 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Độ ẩm của men tự nhiên phải nằm trong khoảng 20–200%',
   'hydratacji': 'độ ẩm bột',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Nền lý tưởng để nuôi men tự nhiên gốc. Giàu nấm men hoang dã và vi khuẩn axit lactic.',
   'Ilości do dokarmienia': 'Lượng cho men ăn',

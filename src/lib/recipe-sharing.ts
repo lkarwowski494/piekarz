@@ -212,8 +212,9 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
     if (typeof formulaData.starterHydration !== 'number' || isNaN(formulaData.starterHydration)) {
       return { success: false, error: t('Nieprawidłowa hydratacja zakwasu') };
     }
-    if (formulaData.starterHydration < 40 || formulaData.starterHydration > 200) {
-      return { success: false, error: t('Hydratacja zakwasu musi mieścić się w zakresie 40–200%') };
+    // Ten sam zakres co pole „Hydratacja zakwasu” w arkuszu „Składniki” (20–200%, ER-58, ER-62) [M2-koordynator-napraw-641 (p13b)]
+    if (formulaData.starterHydration < 20 || formulaData.starterHydration > 200) {
+      return { success: false, error: t('Hydratacja zakwasu musi mieścić się w zakresie 20–200%') };
     }
     starterHydration = formulaData.starterHydration;
   }

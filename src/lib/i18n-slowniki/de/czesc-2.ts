@@ -101,7 +101,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Die Hydration übersteigt die Kraft des Mehls – der Teig klebt an den Händen und läuft zur Pfütze auseinander.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Die Hydration des Wassers muss im Bereich 35–120 % liegen',
   'Hydratacja zakwasu': 'Sauerteig-Hydration',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Die Hydration des Sauerteigs muss im Bereich 40–200 % liegen',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Die Hydration des Sauerteigs muss im Bereich 20–200 % liegen',
   'hydratacji': 'Hydration',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideale Basis für die Führung des Anstellguts. Reich an wilden Hefen und Milchsäurebakterien.',
   'Ilości do dokarmienia': 'Mengen zum Auffrischen',

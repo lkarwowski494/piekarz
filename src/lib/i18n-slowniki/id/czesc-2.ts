@@ -98,7 +98,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hidrasi melebihi kekuatan tepung — adonan lengket di tangan dan melebar seperti genangan.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Hidrasi air harus berada dalam rentang 35–120%',
   'Hydratacja zakwasu': 'Hidrasi starter ragi alami',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Hidrasi starter ragi alami harus berada dalam rentang 40–200%',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hidrasi starter ragi alami harus berada dalam rentang 20–200%',
   'hydratacji': 'hidrasi',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Basis ideal untuk merawat starter ragi alami induk. Kaya ragi liar dan bakteri asam laktat.',
   'Ilości do dokarmienia': 'Takaran pemberian makan',

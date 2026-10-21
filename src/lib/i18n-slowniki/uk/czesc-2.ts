@@ -141,7 +141,7 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Гідратація тіста перевищила силу борошна — тісто липне до рук і розпливається калюжею.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Гідратація води має бути в межах 35–120 %',
   'Hydratacja zakwasu': 'Гідратація закваски',
-  'Hydratacja zakwasu musi mieścić się w zakresie 40–200%': 'Гідратація закваски має бути в межах 40–200 %',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Гідратація закваски має бути в межах 20–200 %',
   'hydratacji': 'гідратації',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ідеальна основа для ведення материнської закваски. Багате на дикі дріжджі та молочнокислі бактерії.',
   'Ilości do dokarmienia': 'Кількості для підживлення',
