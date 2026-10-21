@@ -97,6 +97,16 @@ describe('187: uszkodzona strona tabeli — ratunek po błędzie odczytu', () =>
     expect([...mockFiles.keys()].filter((k) => /state_corrupt_[^/]+\.json$/.test(k))).toHaveLength(1);
   });
 
+  it('ratunekPoBledzie: surowe kopie, plik ratunkowy i pakiet z ekranu błędu (wspólny dla otwarcia i odczytu)', async () => {
+    mockFiles.set(DB_URI, 'BAZA');
+    const m = uruchom();
+    await m.schema.ratunekPoBledzie('database disk image is malformed');
+    expect(m.status.getStorageState()).toBe('unavailable');
+    expect(m.status.getRescueKind()).toBe('pliki-bazy');
+    expect(m.status.getRescueFile()).toMatch(/piekarz-pliki-bazy-[^/]+\.json$/);
+    expect([...mockFiles.keys()].filter((k) => /state_corrupt_[^/]+\.json$/.test(k))).toHaveLength(1);
+  });
+
   it('błąd odczytu inny niż uszkodzenie (np. brak tabeli) zmienia tylko stan, bez kopii', async () => {
     const m = uruchom();
     const { odczytNieudany } = require('../data/odczyt') as typeof import('../data/odczyt');
