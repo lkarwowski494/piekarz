@@ -32,10 +32,10 @@ const OCZEKIWANE: Record<string, string> = {
   'Mąka pełnoziarnista / razowa (100%)': 'Whole-grain / wholemeal flour (100%)',
   'Odhaczaj składniki w miarę wsypywania': 'Check off ingredients as you add them',
   'Czeladnik Piekarski': 'Journeyman Baker',
-  'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.':
-    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch of growth shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
 };
 
+// Tekst krytyczny ZAK-PLE-003 („small patch of growth”) bez zmiany: zdania po przeglądzie człowieka (przeglad w
+// docs/tresci/rejestr.json) zmienia dopiero nowy przegląd; propozycja czeka na przegląd EN właściciela.
 const zrodlo = (p: string) => readFileSync(join(__dirname, '..', '..', '..', p), 'utf8');
 
 describe('074: poprawki EN z kontroli 2026-10-22', () => {

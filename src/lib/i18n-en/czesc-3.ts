@@ -165,7 +165,7 @@ export const EN_3: Record<string, string> = {
   'Nieprzyjemny, zgniły zapach': 'Foul, rotten smell',
   'Wyrzuć zakwas': 'Discard the starter',
   'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.':
-    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch of growth shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
+    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
   'Płyn na powierzchni (hooch)': 'Liquid on the surface (hooch)',
   'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
     'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
