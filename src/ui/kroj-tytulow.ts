@@ -11,7 +11,16 @@ import { typografia } from './tokeny';
 
 export const JEZYKI_POZA_KROJEM_TYTULOW: readonly Lang[] = ['vi', 'ja', 'ko', 'zh-Hant'];
 
+/**
+ * Cyrylica: plik kroju rysuje domyślnie formy bułgarskie (д, в, г, т…); formy rosyjskie są tylko w `locl` dla RUS,
+ * ukraińskich i serbskich nie ma, a React Native na iOS nie podaje języka do `locl`. W uk, ru i sr tytuł idzie
+ * krojem systemowym; bg zostaje przy kroju tytułów. Pilnuje test kroj-tytulow-cyrylica-137 (GSUB pliku kroju)
+ * [M2-koordynator-napraw-137 (p12b); M1-audytor-generalny-137].
+ */
+export const JEZYKI_CYRYLICY_BEZ_FORM_KROJU: readonly Lang[] = ['uk', 'ru', 'sr'];
+
 /** Krój tytułów dla bieżącego języka; `undefined` = krój systemowy. Czytany przy renderze (getter w stylach). */
 export function krojTytulowDlaJezyka(): string | undefined {
-  return JEZYKI_POZA_KROJEM_TYTULOW.includes(lang()) ? undefined : typografia.krojTytulow;
+  const l = lang();
+  return JEZYKI_POZA_KROJEM_TYTULOW.includes(l) || JEZYKI_CYRYLICY_BEZ_FORM_KROJU.includes(l) ? undefined : typografia.krojTytulow;
 }
