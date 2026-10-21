@@ -28,7 +28,7 @@ import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-a
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep } from '../src/core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
-import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
+import { StepUndo, canUndoConfirm, confirmStep, skokDoKroku, undoConfirm } from '../src/core/step-confirm';
 import { poCoTenKrok } from '../src/core/po-co-ten-krok';
 import { ostrzezeniaKroku } from '../src/core/ostrzezenia-kroku';
 import { useAppAccess } from '../src/lib/app-access';
@@ -207,9 +207,12 @@ export default function StolnicaScreen() {
   // Jump to or advance step
   const goToStep = (idx: number) => {
     if (idx < 0 || idx >= steps.length) return;
+    // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
+    const skok = skokDoKroku(postep(), idx, Date.now());
+    setSteps(skok.steps);
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
-    runFor(stepDurationSec(steps[idx], 'lid_on'));
+    runFor(stepDurationSec(skok.steps[idx], 'lid_on'));
     setUndo(null);
     setCofniete(null);
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);

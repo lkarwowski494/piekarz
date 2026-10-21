@@ -57,6 +57,19 @@ export function confirmStep(progress: BakeProgress, now: number): { progress: Ba
   };
 }
 
+/**
+ * Przejście do kroku `idx` z arkusza „Plan wypieku” w chwili `now`: wybrany krok zaczyna się teraz, dalsze kroki
+ * przesuwają się razem z nim (powiadomienia idą za planem), wcześniejsze bez zmian; zegar wybranego kroku od teraz.
+ * Krok bez planu godzin nie przesuwa planu [audyt-niezalezny D-8].
+ */
+export function skokDoKroku(progress: BakeProgress, idx: number, now: number): BakeProgress {
+  const start = progress.steps[idx]?.plannedStart ?? null;
+  const steps = start === null ? [...progress.steps] : shiftStepsFrom(progress.steps, idx, now - start);
+  const krok = steps[idx];
+  const timerEndsAt = stepHasTimer(krok) ? now + stepDurationSec(krok, 'lid_on') * 1000 : null;
+  return { steps, stepIdx: idx, dutchOvenPhase: 'lid_on', timerEndsAt, pausedLeftSec: null };
+}
+
 /** Czy cofnięcie jest dostępne: jest migawka bieżącego wypieku, a wypiek nie stoi na pierwszym kroku. */
 export function canUndoConfirm(progress: BakeProgress, undo: StepUndo | null): boolean {
   return undo !== null && progress.stepIdx > 0 && undo.before.stepIdx === progress.stepIdx - 1;
