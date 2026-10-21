@@ -44,7 +44,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 設定麵包完成的時間：麵包師傅 會算出用量、倒推排好時程，並在每個步驟結束時通知你。不需帳號、不需網路、沒有廣告。
 ```
 
-### Opis (Description) · 1226 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1217 / 4000 znaków · wersja 1.0
 
 ```text
 麵包師傅 帶你完成天然酵母麵包的烘焙，從配方到出爐的麵包：計算用量、排好時程，並在手機休眠時幫你掌握時間。不需帳號、不需網路，沒有廣告，也不追蹤。你的配方、天然酵母起種和日誌只會留在你的手機裡。
@@ -75,7 +75,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 
 使用權限與購買
 透過 App Store 的月訂閱、年訂閱或一次性終身購買，即可取得完整功能。訂閱可能以免費試用期開始（App Store 為符合資格者提供的首購優惠）。未購買時，你仍可瀏覽烘焙紀錄、匯入檔案，以及匯出和刪除你的資料。
-Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+使用條款（EULA）： https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 語言：35 種語言。
 ```

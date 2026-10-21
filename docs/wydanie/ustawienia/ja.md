@@ -44,7 +44,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 パンを仕上げたい時刻を設定するだけ。パン職人が分量を計算し、逆算でプランを立て、各工程の終わりをお知らせします。アカウント不要、インターネット不要、広告なし。
 ```
 
-### Opis (Description) · 1583 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1574 / 4000 znaków · wersja 1.0
 
 ```text
 パン職人は、サワードウブレッドの焼成を配合からローフまでガイドします。分量を計算し、プランを立て、スマートフォンがスリープ中でも時間を管理します。アカウント不要・インターネット接続不要で動作し、広告もトラッキングもありません。配合、サワー種、焼成記録はすべてお使いのスマートフォンの中だけに保存されます。
@@ -75,7 +75,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 
 利用と購入
 フルアクセスには、App Storeでの月額または年額のサブスクリプション、または1回限りの買い切り購入が必要です。サブスクリプションは無料トライアルから始まる場合があります（対象者向けのApp Store導入オファー）。購入しなくても、焼成履歴の閲覧、ファイルの読み込み、データの書き出しと削除ができます。
-Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+利用規約（EULA）： https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 言語：35言語。
 ```

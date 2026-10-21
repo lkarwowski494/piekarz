@@ -44,7 +44,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 빵이 완성될 시간을 정하세요. 제빵사가 분량을 계산하고 일정을 역산해 짜고, 각 단계가 끝나면 알려 드려요. 계정, 인터넷, 광고 없이 사용해요.
 ```
 
-### Opis (Description) · 1713 / 4000 znaków · wersja 1.0
+### Opis (Description) · 1706 / 4000 znaków · wersja 1.0
 
 ```text
 제빵사는 배합표부터 빵 덩어리까지 사워도우 빵 베이킹 과정을 안내해요. 분량을 계산하고, 계획을 세우고, 휴대폰이 잠들어 있을 때도 시간을 챙겨요. 계정 없이, 인터넷 없이 작동하며 광고도 추적도 없어요. 배합표, 스타터, 일지는 휴대폰에만 저장돼요.
@@ -75,7 +75,7 @@ Liczniki: znaki w punktach kodowych (sposób liczenia Apple `[DO USTALENIA]`), s
 
 이용 및 구매
 월간 또는 연간 구독, 또는 App Store의 1회성 평생 구매로 모든 기능을 이용할 수 있어요. 구독은 무료 체험 기간으로 시작될 수 있어요(자격이 있는 사용자 대상 App Store 첫 구매 혜택). 구매하지 않아도 베이킹 기록 보기, 파일 가져오기, 데이터 내보내기 및 삭제는 가능해요.
-Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+이용 약관 (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 언어: 35개 언어.
 ```

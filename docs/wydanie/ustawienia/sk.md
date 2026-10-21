@@ -44,7 +44,7 @@ bochník,pizza,hydratácia,cesto,žitný,levain,poolish,časovač,recept,droždi
 Nastavte čas, kedy má byť chlieb hotový: Pekár vypočíta množstvá, zostaví spätný plán a upozorní vás na koniec každého kroku. Bez účtu, bez internetu, bez reklám.
 ```
 
-### Opis (Description) · 3034 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3042 / 4000 znaków · wersja 1.0
 
 ```text
 Pekár vás prevedie pečením kváskového chleba od receptúry až po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. Funguje bez účtu a bez internetu, bez reklám a bez sledovania. Vaše receptúry, kvásky a denník zostávajú len vo vašom telefóne.
@@ -75,7 +75,7 @@ Pekár funguje na iPhone a nesynchronizuje údaje medzi zariadeniami; údaje pre
 
 PRÍSTUP A NÁKUP
 Plný prístup poskytuje mesačné alebo ročné predplatné alebo jednorazový doživotný nákup v App Store. Predplatné môže začínať bezplatným skúšobným obdobím (úvodná ponuka App Store pre oprávnených používateľov). Bez nákupu môžete prezerať históriu pečenia, importovať súbor a exportovať a vymazať svoje údaje.
-Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Podmienky používania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jazyky: 35.
 ```
