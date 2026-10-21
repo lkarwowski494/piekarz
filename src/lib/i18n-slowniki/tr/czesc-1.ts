@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Terazideki kaseye',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Tahmini zirve aralığına yaklaşık {czas} kaldı (aralık: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Hafif parlak, iyi bir kabuk',
-  'Docelowa masa zaczynu': 'Hedef maya hamuru miktarı',
   'Docelowa temp. wody:': 'Hedef su sıcaklığı:',
   'Docelowa temperatura ciasta (DDT)': 'Hedef hamur sıcaklığı (DDT)',
   'Docelowa waga po upieczeniu': 'Pişmiş hâldeki hedef ağırlık',

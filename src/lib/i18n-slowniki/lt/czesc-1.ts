@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Į dubenį ant svarstyklių',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Iki numatomo raugo aktyvumo piko lango liko apie {czas} (langas: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Gera plutelė su lengvu blizgesiu',
-  'Docelowa masa zaczynu': 'Tikslinė įmaišo masė',
   'Docelowa temp. wody:': 'Tikslinė vandens temp.:',
   'Docelowa temperatura ciasta (DDT)': 'Tikslinė tešlos temperatūra (DDT)',
   'Docelowa waga po upieczeniu': 'Tikslinis svoris po kepimo',

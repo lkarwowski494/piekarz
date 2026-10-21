@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'V skledo na tehtnici',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Do predvidenega okna vrha aktivnosti je še pribl. {czas} (okno: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Dobra skorja z rahlim leskom',
-  'Docelowa masa zaczynu': 'Ciljna masa nastavka',
   'Docelowa temp. wody:': 'Ciljna temp. vode:',
   'Docelowa temperatura ciasta (DDT)': 'Želena temperatura testa (DDT)',
   'Docelowa waga po upieczeniu': 'Ciljna teža po peki',

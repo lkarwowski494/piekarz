@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Ke dalam mangkuk di atas penimbang',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kira-kira {czas} lagi sebelum tempoh kemuncak anggaran (tempoh: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Kerak baik dengan sedikit kilauan',
-  'Docelowa masa zaczynu': 'Sasaran jisim biang',
   'Docelowa temp. wody:': 'Sasaran suhu air:',
   'Docelowa temperatura ciasta (DDT)': 'Sasaran suhu doh (DDT)',
   'Docelowa waga po upieczeniu': 'Sasaran berat selepas dibakar',

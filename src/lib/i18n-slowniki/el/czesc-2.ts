@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Στο μπολ, στη ζυγαριά',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Απομένουν περίπου {czas} μέχρι το εκτιμώμενο παράθυρο κορύφωσης του προζυμιού (παράθυρο: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Καλή κόρα με ελαφριά γυαλάδα',
-  'Docelowa masa zaczynu': 'Επιθυμητή ποσότητα μαγιάς προζυμιού',
   'Docelowa temp. wody:': 'Στόχος θερμ. νερού:',
   'Docelowa temperatura ciasta (DDT)': 'Επιθυμητή θερμοκρασία ζύμης (DDT)',
   'Docelowa waga po upieczeniu': 'Βάρος-στόχος μετά το ψήσιμο',

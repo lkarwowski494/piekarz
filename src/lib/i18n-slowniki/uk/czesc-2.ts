@@ -12,7 +12,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'У миску на вагах',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До орієнтовного вікна піку залишилося прибл. {czas} (вікно: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Добра скоринка з легким блиском',
-  'Docelowa masa zaczynu': 'Цільова маса опари',
   'Docelowa temp. wody:': 'Цільова темп. води:',
   'Docelowa temperatura ciasta (DDT)': 'Цільова температура тіста (DDT)',
   'Docelowa waga po upieczeniu': 'Цільова маса після випікання',

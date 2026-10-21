@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Bļodā uz svariem',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Līdz paredzamajam maksimuma logam atlicis apm. {czas} (logs: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Laba garoza ar vieglu spīdumu',
-  'Docelowa masa zaczynu': 'Vēlamā ierauga iejavas masa',
   'Docelowa temp. wody:': 'Mērķa ūdens temp.:',
   'Docelowa temperatura ciasta (DDT)': 'Vēlamā mīklas temperatūra (DDT)',
   'Docelowa waga po upieczeniu': 'Mērķa svars pēc izcepšanas',

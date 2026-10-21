@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Cho vào tô trên cân',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Còn khoảng {czas} đến khung đỉnh hoạt động của men ước tính (khung: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Vỏ bánh đẹp, hơi bóng',
-  'Docelowa masa zaczynu': 'Khối lượng bột men mục tiêu',
   'Docelowa temp. wody:': 'Nhiệt độ nước mục tiêu:',
   'Docelowa temperatura ciasta (DDT)': 'Nhiệt độ bột mục tiêu (DDT)',
   'Docelowa waga po upieczeniu': 'Khối lượng mục tiêu sau khi nướng',

@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'In die Schüssel auf der Waage',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Bis zum geschätzten Zeitfenster des Reifehöhepunkts bleiben noch ca. {czas} (Zeitfenster: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Gute Kruste mit leichtem Glanz',
-  'Docelowa masa zaczynu': 'Zielmenge Vorteig',
   'Docelowa temp. wody:': 'Ziel-Wassertemp.:',
   'Docelowa temperatura ciasta (DDT)': 'Gewünschte Teigtemperatur (DDT)',
   'Docelowa waga po upieczeniu': 'Zielgewicht nach dem Backen',

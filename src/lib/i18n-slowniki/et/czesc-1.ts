@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Kaalul olevasse kaussi',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Hinnangulise tipuaknani on jäänud umbes {czas} (aken: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Hea koorik kerge läikega',
-  'Docelowa masa zaczynu': 'Eeltaigna sihtmass',
   'Docelowa temp. wody:': 'Vee sihttemp.:',
   'Docelowa temperatura ciasta (DDT)': 'Soovitud taigna temperatuur (DDT)',
   'Docelowa waga po upieczeniu': 'Sihtkaal pärast küpsetamist',

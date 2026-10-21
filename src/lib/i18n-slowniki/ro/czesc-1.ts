@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'În bol, pe cântar',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Până la fereastra estimată a vârfului au mai rămas aprox. {czas} (fereastra: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Coajă bună, ușor lucioasă',
-  'Docelowa masa zaczynu': 'Masa țintă de levain',
   'Docelowa temp. wody:': 'Temp. țintă a apei:',
   'Docelowa temperatura ciasta (DDT)': 'Temperatura dorită a aluatului (DDT)',
   'Docelowa waga po upieczeniu': 'Greutatea țintă după coacere',

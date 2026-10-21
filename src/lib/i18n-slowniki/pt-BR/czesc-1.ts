@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'Para a tigela na balança',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Faltam cerca de {czas} para a janela estimada do pico (janela: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Casca boa, com leve brilho',
-  'Docelowa masa zaczynu': 'Massa-alvo do levain',
   'Docelowa temp. wody:': 'Temp. desejada da água:',
   'Docelowa temperatura ciasta (DDT)': 'Temperatura desejada da massa (DDT)',
   'Docelowa waga po upieczeniu': 'Peso-alvo após assar',

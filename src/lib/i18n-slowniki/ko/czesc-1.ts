@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': '저울 위 볼에 담기',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': '예상 정점 구간까지 약 {czas} 남았어요 (구간: {okno}).',
   'Dobra skórka z lekkim połyskiem': '살짝 윤기 나는 좋은 껍질',
-  'Docelowa masa zaczynu': '목표 발효종 양',
   'Docelowa temp. wody:': '목표 물 온도:',
   'Docelowa temperatura ciasta (DDT)': '목표 반죽 온도 (DDT)',
   'Docelowa waga po upieczeniu': '구운 후 목표 무게',

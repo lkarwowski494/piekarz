@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'A tálba, mérlegre',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kb. {czas} van hátra a csúcspont becsült időablakáig (ablak: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Jó héj enyhe fénnyel',
-  'Docelowa masa zaczynu': 'Kovászos előtészta célmennyisége',
   'Docelowa temp. wody:': 'Cél vízhőmérséklet:',
   'Docelowa temperatura ciasta (DDT)': 'Cél tésztahőmérséklet (DDT)',
   'Docelowa waga po upieczeniu': 'Sütés utáni céltömeg',

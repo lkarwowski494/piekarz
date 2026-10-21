@@ -15,15 +15,16 @@ export function formatFeedingToText(
   lines.push(`${t('Dokarmienie zakwasu')}: ${starter.name}`);
   lines.push(`${t('Proporcja')}: 1:${ratio[1]}:${ratio[2]}`);
   // Masy w jednostkach z ustawienia (design-spec §7, D-044) [M1-audytor-generalny-096]
-  lines.push(`${t('Docelowa masa zaczynu')}: ${formatWeight(feeding.targetYieldGrams)}`);
+  // Nazwy jak na karcie „Ilości do dokarmienia” i porada w języku interfejsu [reaudit-noc N-5]
+  lines.push(`${t('Potrzebny zakwas')}: ${formatWeight(feeding.targetYieldGrams)}`);
   lines.push('');
   lines.push(`${t('Składniki do słoika')}:`);
-  lines.push(`1. ${t('Zakwas matka')}: ${formatWeight(feeding.starterGrams)}`);
+  lines.push(`1. ${t('Stary zakwas')}: ${formatWeight(feeding.starterGrams)}`);
   lines.push(`2. ${t('Mąka')} (${starter.flourType}): ${formatWeight(feeding.flourGrams)}`);
   lines.push(`3. ${t('Woda')}: ${formatWeight(feeding.waterGrams)}`);
   lines.push('');
   if (feeding.tipPl) {
-    lines.push(feeding.tipPl);
+    lines.push(t(feeding.tipPl));
   }
   lines.push('— Apps4Craft Studio • Piekarz');
   return lines.join('\n');

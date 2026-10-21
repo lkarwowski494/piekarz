@@ -975,11 +975,6 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
-  "Docelowa masa zaczynu": {
-    "gdzie": [
-      "src/lib/feeding-formatter.ts (kod)"
-    ]
-  },
   "Docelowa temp. wody:": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"

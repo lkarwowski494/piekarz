@@ -240,7 +240,6 @@ export const EN_1: Record<string, string> = {
   'Białko': 'Protein',
   'Dokarmienie zakwasu': 'Starter feeding',
   'Proporcja': 'Ratio',
-  'Docelowa masa zaczynu': 'Target levain yield',
   'Składniki do słoika': 'Ingredients into jar',
   'Zakwas matka': 'Mother starter',
   'Skopiowano dokarmienie do schowka': 'Feeding copied to clipboard',

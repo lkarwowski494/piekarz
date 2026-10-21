@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'I bollen på vekten',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Omtrent {czas} igjen til det anslåtte vinduet for toppunktet (vindu: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'God skorpe med lett glans',
-  'Docelowa masa zaczynu': 'Ønsket mengde fordeig',
   'Docelowa temp. wody:': 'Ønsket vanntemp.:',
   'Docelowa temperatura ciasta (DDT)': 'Ønsket deigtemperatur (DDT)',
   'Docelowa waga po upieczeniu': 'Ønsket vekt etter steking',

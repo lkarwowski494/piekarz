@@ -183,7 +183,6 @@ export const CZESC: Record<string, string> = {
   'Do miski na wagę': 'In de kom op de weegschaal',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Nog ongeveer {czas} tot het geschatte venster voor de piek van de starter (venster: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Goede korst met een lichte glans',
-  'Docelowa masa zaczynu': 'Beoogde hoeveelheid levain',
   'Docelowa temp. wody:': 'Gewenste watertemp.:',
   'Docelowa temperatura ciasta (DDT)': 'Gewenste deegtemperatuur (DDT)',
   'Docelowa waga po upieczeniu': 'Doelgewicht na het bakken',
