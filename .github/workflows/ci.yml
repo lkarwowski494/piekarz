@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  # naprawy/**: kandydat z gałęzi napraw przechodzi CI przed scaleniem (M1-audytor-generalny-168, wybór 168 b)
   push:
-    branches: [ master, main ]
+    branches: [ master, main, 'naprawy/**' ]
   pull_request:
     branches: [ master, main ]
   workflow_dispatch:

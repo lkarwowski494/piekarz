@@ -130,7 +130,7 @@ Apple: „Update your app’s information property list (Info.plist) file in Xco
 | Krok | Pole → wartość | Źródło |
 |---|---|---|
 | 9.1 Info.plist | `ITSAppUsesNonExemptEncryption = false` już w konfiguracji; App Store Connect nie zada pytań przy buildzie | `app.json:68` |
-| 9.2 Podstawa | aplikacja nie przesyła danych (brak sieci) i nie ma własnej kryptografii; zależność `expo-crypto` jest w `package.json`, ale kod `app/` i `src/` jej nie importuje (znalezisko 10-wydanie-119-03) | `tests/public-repo.test.ts:137-140`; `package.json:46` |
+| 9.2 Podstawa | aplikacja nie przesyła danych (brak sieci) i nie ma własnej kryptografii; nieużywana zależność `expo-crypto` usunięta (M1-audytor-generalny-153), a każda zależność `expo*` ma użycie albo nazwany wyjątek | `tests/public-repo.test.ts:137-140`; `tests/zaleznosci.test.ts` |
 | 9.3 Gdy App Store Connect jednak zapyta | odpowiedz zgodnie z 9.2 („None of the algorithms mentioned above” / brak szyfrowania); zgłoś rozjazd roli 10 | developer.apple.com/help/app-store-connect/manage-app-information/overview-of-export-compliance (odczyt 2026-10-21) |
 
 ## 10. Metadane i zrzuty na lokalizację (karty)

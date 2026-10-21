@@ -185,7 +185,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
   - Scenariusz: Wiadomość do autora
     - Zakładając, że użytkownik jest w ustawieniach
     - Gdy wybiera „napisz do nas”
-    - Wtedy otwiera się systemowa aplikacja poczty z adresem wsparcia i tematem, a treść (w tym wersja aplikacji i model telefonu) jest widoczna i do zmiany przed wysłaniem
+    - Wtedy otwiera się systemowa aplikacja poczty z adresem wsparcia i tematem, a treść (wersja aplikacji i wersja iOS, bez modelu telefonu: ER-52) jest widoczna i do zmiany przed wysłaniem
   - Scenariusz: Bez danych w tle
     - Zakładając, że użytkownik zamyka wiadomość bez wysyłania
     - Gdy wraca do aplikacji

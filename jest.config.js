@@ -6,8 +6,11 @@ module.exports = {
   ],
   setupFiles: ['./jest.setup.js'],
   setupFilesAfterEnv: ['./jest.app-after-env.js'],
+  // Testy tylko z src/ i tests/: bez drzew sesji w .claude/worktrees (M1-audytor-generalny-166).
+  // Glob bez <rootDir>: na Windows ścieżka z „\.claude” psuła wzorzec i pomijała tests/.
+  roots: ['<rootDir>/src', '<rootDir>/tests'],
   testMatch: [
     '**/__tests__/**/*.test.[jt]s?(x)',
-    '<rootDir>/tests/**/*.test.[jt]s?(x)',
+    '**/tests/**/*.test.[jt]s?(x)',
   ],
 };

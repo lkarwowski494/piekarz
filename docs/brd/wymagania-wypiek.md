@@ -17,7 +17,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
 
 ### BR-HARMO-002: Plan omija godziny snu
 - Przepływ: PR-02
-- Dowód potrzeby: J-02; soczewka początkującego (dopasowanie planu do snu i chłodnia jako rozwiązanie); kod wykrywa kolizje (`app/(tabs)/harmonogram.tsx`, l. 76–83)
+- Dowód potrzeby: J-02; soczewka początkującego (dopasowanie planu do snu i chłodnia jako rozwiązanie); kod wykrywa kolizje (`app/(tabs)/receptury/harmonogram.tsx`)
 - Kryteria akceptacji:
   - Scenariusz: Krok czynny w nocy
     - Zakładając, że użytkownik ustawił godziny snu 23:00–07:00 [DO WYJAŚNIENIA] (OP-45) domyślne

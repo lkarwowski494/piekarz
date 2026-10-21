@@ -187,3 +187,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** „None” wszędzie i 4+ (`docs/15-app-store.md` §3) — narzędzie kuchenne to nie broń w zwykłym znaczeniu, ale brzmienie Apple tego nie wyłącza `[DO USTALENIA]`.
 - **Dlaczego:** zaniżony wiek to fałszywa odpowiedź (WYD-10, P1); zawyżony nie szkodzi użytkownikowi.
 - **Zależy od:** wyniku ankiety w App Store Connect (wiek wylicza Apple) i ewentualnej odpowiedzi App Review; `docs/15-app-store.md` §3 aktualizuje rola 10 po odczycie wyniku.
+
+### [D-059] 2026-10-21 — Minimalny iOS 18.0 (przeniesienie DEC-06 BRD 00b do obowiązującego rejestru; M2 tor p10a, zadanie 077)
+- **Rodzaj:** produktowa. **Słowa właściciela** (STOP start toru p10a, 2026-10-21): „Zatwierdzam plan p10a, wariant (a), z rekomendowanymi wyborami: 032 a, 077 a, 142 a, 168 b, 145 a; subagenci po kolei; push gałęzi toru po 168.” Wybór 077 a: nowy wpis potwierdzający iOS 18.0.
+- **Decyzja:** minimalny system to iOS 18.0: `app.json` `ios.deploymentTarget` = `18.0`, pilnowane przez `scripts/verify-native.mjs` i `tests/build-config.test.ts`. Wartość pochodzi z DEC-06 (opcja B, „iOS 18 / watchOS 11”, ZATWIERDZONA) w archiwalnym `docs/brd/archiwum/2.0-craft/00b_Decyzje.md`; watchOS nie dotyczy wersji 1.0.
+- **Odrzucone:** (b) test czytający decyzję z archiwum BRD — archiwum nie jest obowiązującym rejestrem.
+- **Dlaczego:** po przeniesieniu BRD 2.0 do archiwum wymaganie nie miało źródła w obowiązujących dokumentach, a test i `verify-native` wskazywały nieistniejący plik.
+- **Zależy od:** nic; zmiana minimalnego iOS to nowy wpis.

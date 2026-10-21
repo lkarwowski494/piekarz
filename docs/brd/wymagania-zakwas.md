@@ -68,7 +68,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
   - Scenariusz: Tylko płyn o zapachu alkoholu
     - Zakładając, że użytkownik zaznacza tylko płyn o zapachu alkoholu
     - Gdy zatwierdza objawy
-    - Wtedy widzi, że to nie powód do wyrzucenia, i radę: zlej albo wmieszaj i dokarm (RD-21-W3)
+    - Wtedy widzi, że to nie powód do wyrzucenia, i radę: zlej albo wmieszaj (RD-21-W3)
   - Scenariusz: Brak zaznaczeń
     - Zakładając, że użytkownik nic nie zaznacza
     - Gdy zatwierdza formularz

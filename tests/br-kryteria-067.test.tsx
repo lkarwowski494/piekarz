@@ -9,7 +9,7 @@ import { Alert } from 'react-native';
 import { calculateDoughRecipe, calculateDDTWaterTemp } from '../src/core/domain-rules';
 import { PREFERMENT_DEFINITIONS, calculatePrefermentBreakdown } from '../src/core/preferments';
 import { calculateReverseSchedule } from '../src/scheduler/reverse-scheduler';
-import { DoMiskiScaleCard } from '../src/components/calculator/DoMiskiScaleCard';
+import { DoMiski } from '../src/components/receptury/DoMiski';
 import { executeSaveCustomRecipe } from '../src/lib/calculator-actions';
 import { MASTER_RECIPES } from '../src/recipes/presets';
 import { initDatabase, _resetMemStore, getRecipes } from '../src/data/sqlite-store';
@@ -33,18 +33,22 @@ describe('BR-KALK-001: receptura w procentach piekarskich', () => {
       targetDoughWeightGrams: 1720,
     });
     expect([calc.baseFlourWeightGrams, calc.waterGrams, calc.saltGrams]).toEqual([1000, 700, 20]);
+    // Ekran receptury pokazuje te liczby w „Do miski” (§11c 106) [M1-audytor-generalny-149]
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(
-        <DoMiskiScaleCard calculations={calc} saltPercent={2} recipeName="Pszenny" loavesCount={1} onLoavesChange={() => undefined} />
+        <DoMiski
+          calculations={calc} waterPct={70} starterPct={0} starterHydration={100} saltPct={2} yeastPct={0}
+          calcMode="loaves" loavesCount={1} onLoavesChange={() => undefined} loafWeightGrams={1720} onLoafWeightChange={() => undefined}
+          flourGrams={1000} onFlourGramsChange={() => undefined} prefermentType="direct" prefermentBreakdown={null}
+        />
       );
     });
-    const wszystko = bezSpacji(tekst(tree!.toJSON()));
-    expect(wszystko).toContain('100%bazy');
-    expect(wszystko).toContain('70%hydratacji');
-    expect(wszystko).toContain('2,0%');
-    expect(wszystko).toContain('1000g');
-    expect(wszystko).toContain('700g');
+    const wiersz = (id: string) => bezSpacji(tekst(tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === id)[0].props.children));
+    expect(wiersz('scale-item-flour-0')).toMatch(/100%.*1000g/);
+    expect(wiersz('scale-item-water')).toMatch(/70%.*700g/);
+    expect(wiersz('scale-item-salt')).toMatch(/2,0%.*20g/);
+    expect(bezSpacji(tekst(tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'recipe-hydration')[0].props.children))).toContain('70%');
     act(() => tree!.unmount());
   });
 });

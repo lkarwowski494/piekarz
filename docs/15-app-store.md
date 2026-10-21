@@ -14,8 +14,8 @@ Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wyt
 
 - **Kategoria Główna:** Food & Drink (Żywność i napoje)
 - **Kategoria Poboczna:** Productivity (Produktywność)
-- **Klasyfikacja Wiekowa:** 4+ (brak treści dla dorosłych, brak przemocy, brak hazardu)
-- **Szyfrowanie (Export Compliance):** `ITSAppUsesNonExemptEncryption = false` (standardowe szyfrowanie HTTPS/systemowe, zwolnienie z ankiety)
+- **Klasyfikacja Wiekowa:** wylicza Apple z ankiety; odpowiedzi według D-058 (warunkowa, oczekiwane 9+) w kroku 8 `docs/wydanie/instrukcja-ustawien.md`, wynik ankiety zapisany w `docs/wydanie/dziennik.md`
+- **Szyfrowanie (Export Compliance):** `ITSAppUsesNonExemptEncryption = false` (aplikacja bez sieci i bez własnej kryptografii, tylko mechanizmy systemu; krok 9 instrukcji, zwolnienie z ankiety)
 - **Prywatność (Privacy Manifests):**
   - Tracking: `false`
   - Zbieranie danych: brak (Data Not Collected)
@@ -42,7 +42,7 @@ Wersja 1.0.0:
 
 Wymagane wpisy w **Settings → Secrets and variables → Actions**:
 
-1. `APPLE_TEAM_ID` — 10-znakowy identyfikator zespołu Apple Developer (np. `8NQ9GHY8GF`)
+1. `APPLE_TEAM_ID` — 10-znakowy identyfikator zespołu Apple Developer (`<TEAM_ID>`; wartość dla podpisu jest w `app.json`, `expo.ios.appleTeamId`)
 2. `ASC_KEY_ID` — identyfikator klucza App Store Connect API, 10 znaków (np. `<KEY_ID>`)
 3. `ASC_ISSUER_ID` — identyfikator wystawcy App Store Connect API (UUID)
 4. `ASC_KEY_P8_BASE64` — zawartość klucza `.p8` zakodowana w Base64 (`base64 -w 0 AuthKey_*.p8`)

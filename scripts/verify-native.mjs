@@ -29,12 +29,12 @@ check(/^\d+\.\d+(\.\d+)?$/.test(ver), `Wersja '${ver}' w app.json musi mieć for
 const bundleId = appJson.ios?.bundleIdentifier;
 check(!!bundleId && /^[a-zA-Z0-9_.-]+$/.test(bundleId), `Nieprawidłowy bundleIdentifier w app.json: ${bundleId}`);
 
-// 2b. Minimalny iOS z decyzji BRD 00b o minimalnym iOS (docs/brd/00b_Decyzje.md: iOS 18) i jedno
+// 2b. Minimalny iOS z decyzji D-059 w docs/decyzje.md (iOS 18.0) i jedno
 // źródło numeru buildu: liczy go workflow testflight.yml, więc app.json nie ma buildNumber [M1-audytor-generalny-077]
 const IOS_DEPLOYMENT_TARGET = '18.0';
 check(
   appJson.ios?.deploymentTarget === IOS_DEPLOYMENT_TARGET,
-  `app.json ios.deploymentTarget musi wynosić '${IOS_DEPLOYMENT_TARGET}' (decyzja BRD 00b o minimalnym iOS), obecnie: ${appJson.ios?.deploymentTarget}`
+  `app.json ios.deploymentTarget musi wynosić '${IOS_DEPLOYMENT_TARGET}' (decyzja D-059 w docs/decyzje.md), obecnie: ${appJson.ios?.deploymentTarget}`
 );
 check(
   appJson.ios?.buildNumber === undefined,

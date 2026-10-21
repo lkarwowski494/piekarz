@@ -18,9 +18,8 @@ import { formatRecipeText } from '../recipe-formatter';
 import { calculateDoughRecipe, calculateBakeLossMetrics, calculateFermentationAdaptation } from '../../core/domain-rules';
 import { validateFlourBlend } from '../../core/flour-atlas';
 import { calculateRecipeStarterSubstitution } from '../../core/starter-converter';
-import { DoMiskiScaleCard } from '../../components/calculator/DoMiskiScaleCard';
+import { DoMiski } from '../../components/receptury/DoMiski';
 import { AccordionDdtSection } from '../../components/calculator/accordion/AccordionDdtSection';
-import { AccordionBakeLossSection } from '../../components/calculator/accordion/AccordionBakeLossSection';
 import { FlourEquivalentsModal } from '../../components/FlourEquivalentsModal';
 
 const D = new Date(2026, 9, 25, 21, 5); // 25.10.2026 21:05 czasu lokalnego
@@ -146,18 +145,34 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     expect(t('Mąka: {amount} g', { amount: 2.5 })).toBe('Flour: 2.5 g');
   });
 
-  it('Do miski: „70,91% hydratacji” w PL, „70.91% hydration” w EN', () => {
-    const el = React.createElement(DoMiskiScaleCard, {
+  // „Do miski” ekranu receptury (§11c 106) zamiast dawnej karty DoMiskiScaleCard [M1-audytor-generalny-149]
+  it('Do miski: hydratacja 70,9% i sól 2,0% w PL, 70.9% i 2.0% w EN', () => {
+    const el = React.createElement(DoMiski, {
       calculations: { ...calc, overallHydrationPercent: 70.91 },
-      saltPercent: 2,
-      recipeName: 'X',
+      waterPct: 70,
+      starterPct: 20,
+      starterHydration: 100,
+      saltPct: 2,
+      yeastPct: 0,
+      calcMode: 'loaves',
       loavesCount: 1,
       onLoavesChange: () => {},
+      loafWeightGrams: 960,
+      onLoafWeightChange: () => {},
+      flourGrams: 500,
+      onFlourGramsChange: () => {},
+      prefermentType: 'direct',
+      prefermentBreakdown: null,
     });
     setLang('pl');
-    expect(render(el)).toContain('70,91% hydratacji');
+    const pl = render(el);
+    expect(pl).toContain('Hydratacja całkowita 70,9%');
+    expect(pl).toContain('2,0%');
+    expect(pl).not.toMatch(/\d\.\d/);
     setLang('en');
-    expect(render(el)).toContain('70.91% hydration');
+    const en = render(el);
+    expect(en).toContain('Total hydration 70.9%');
+    expect(en).toContain('2.0%');
   });
 
   it('chłonność i białko mieszanki: PL 68,4% i ~11,5%, EN 68.4% i ~11.5%', () => {
@@ -186,18 +201,13 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     expect(en).toContain('~11.5%');
   });
 
-  it('wilgotność miękiszu na ekranie i w tekście receptury: PL 28,1%, EN 28.1%', () => {
+  // Sekcja straty piecowej na ekranie (F-48 PÓŹNIEJ) nie ma wejścia w 1.0; wartość zostaje w tekście receptury
+  // [M1-audytor-generalny-149]
+  it('wilgotność miękiszu w tekście receptury: PL 28,1%, EN 28.1%', () => {
     const metrics = { ...calculateBakeLossMetrics(960, 14, 400), retainedMoisturePercent: 28.1 };
-    const el = React.createElement(AccordionBakeLossSection, {
-      bakeLossPercent: 14,
-      bakedTotalWeightGrams: 826,
-      bakeLossMetrics: metrics,
-    });
     setLang('pl');
-    expect(render(el)).toContain('28,1%');
     expect(formatRecipeText({ recipeName: 'X', calc, bakeLoss: metrics })).toContain('28,1%');
     setLang('en');
-    expect(render(el)).toContain('28.1%');
     expect(formatRecipeText({ recipeName: 'X', calc, bakeLoss: metrics })).toContain('28.1%');
   });
 

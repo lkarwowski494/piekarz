@@ -212,22 +212,3 @@ jest.mock('expo-router', () => ({
   },
 }));
 
-jest.mock('expo-crypto', () => {
-  const crypto = require('crypto');
-  return {
-    CryptoDigestAlgorithm: {
-      SHA256: 'SHA-256',
-      SHA512: 'SHA-512',
-    },
-    CryptoEncoding: {
-      HEX: 'HEX',
-      BASE64: 'BASE64',
-    },
-    digestStringAsync: jest.fn(async (algo, data) => {
-      return crypto.createHash('sha256').update(data).digest('hex');
-    }),
-    getRandomBytes: jest.fn((n) => new Uint8Array(crypto.randomBytes(n))),
-    getRandomBytesAsync: jest.fn(async (n) => new Uint8Array(crypto.randomBytes(n))),
-  };
-});
-

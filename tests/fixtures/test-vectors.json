@@ -213,38 +213,38 @@
     ],
     "RD_08_fermentation_temperature_adaptation": [
       {
-        "id": "VEC-FERM-01-cold-kitchen-slowdown",
-        "description": "Base 4.0h at 24°C in a 19°C room (Q10 = 2.15)",
+        "id": "VEC-FERM-01-cool-kitchen-slowdown",
+        "description": "Base 4.0h at 24°C in a 20°C room (Q10 = 3.0, FER-Q10-002)",
         "input": {
           "baseHours": 4,
-          "actualTempC": 19,
+          "actualTempC": 20,
           "baseCalibrationTempC": 24,
-          "q10Factor": 2.15
+          "q10Factor": 3.0
         },
         "expected": {
-          "adaptedHours": 5.87,
-          "diffMinutes": 112,
-          "adaptedMinutesFormatted": "5h 52m"
+          "adaptedHours": 6.21,
+          "diffMinutes": 132,
+          "adaptedMinutesFormatted": "6h 13m"
         },
         "tier": "Tier 2",
-        "sourceCitation": "Gänzle & Ripari (2016) Int. J. Food Microbiol.; Arrhenius Q10 = 2.15"
+        "sourceCitation": "Gänzle, Ehmann, Hammes (1998), model 1a (PMC106434); rejestr FER-Q10-002"
       },
       {
         "id": "VEC-FERM-02-warm-kitchen-speedup",
-        "description": "Base 4.0h at 24°C in a 28°C room (Q10 = 2.15)",
+        "description": "Base 4.0h at 24°C in a 26°C room (Q10 = 3.0, FER-Q10-002)",
         "input": {
           "baseHours": 4,
-          "actualTempC": 28,
+          "actualTempC": 26,
           "baseCalibrationTempC": 24,
-          "q10Factor": 2.15
+          "q10Factor": 3.0
         },
         "expected": {
-          "adaptedHours": 2.94,
-          "diffMinutes": -63,
-          "adaptedMinutesFormatted": "2h 56m"
+          "adaptedHours": 3.21,
+          "diffMinutes": -47,
+          "adaptedMinutesFormatted": "3h 13m"
         },
         "tier": "Tier 2",
-        "sourceCitation": "Gänzle & Ripari (2016) Int. J. Food Microbiol.; Arrhenius Q10 = 2.15"
+        "sourceCitation": "Gänzle, Ehmann, Hammes (1998), model 1a (PMC106434); rejestr FER-Q10-002"
       }
     ],
     "RD_04_yeast_conversion": [

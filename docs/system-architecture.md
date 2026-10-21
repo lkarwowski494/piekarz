@@ -22,7 +22,7 @@ System inżynieryjny aplikacji **Piekarz (Crust)** opiera się na 4 filarach arc
 【WARSTWA PREZENTACJI (UI)】  【WARSTWA CZYSTEJ DOMENY】     【WARSTWA TRWAŁOŚCI (DATA)】
 • 5 Zakładek (Expo Router 57) • Reguły matematyczne RD-nn    • Relacyjny SQLite WAL
 • @apps4craft/ui Design System• True Baker's % + 4-DDT       • Chroniony katalog /Library/SQLite
-• 1-Tap Quick Start           • reverse-scheduler (Q10=2.15) • Indeksy B-Tree < 5ms
+• 1-Tap Quick Start           • reverse-scheduler (Q10=3,0)  • Indeksy B-Tree < 5ms
 • Akordeon Rzemieślniczy Pro  • Maszyna Stanów Wypieku FSM   • Kolejka Outbox pending_ops
 • AppAccessContext (Pub/Sub)  • Doktor Chleba (Triage)       • Rotacyjna autokopia JSON (T-012)
 ```

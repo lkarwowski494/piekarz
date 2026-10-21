@@ -1,6 +1,6 @@
 # Wzrost — Piekarz (Crust) — 2026-10-20
 
-Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/A4.md`, rozdz. 15.1; na gałęzi roli 03 w archiwum BRD). Plan wydania i dziennik są w `docs/wydanie/` (rola 10); tu ich nie powtarzam. Każde działanie zewnętrzne (wpis, wiadomość, odpowiedź na recenzję, kod w App Store Connect) wykonuje właściciel po osobnej zgodzie, wpisanej jego słowami do dziennika działań (sekcja „Lista startowa”).
+Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/archiwum/2.0-craft/A4.md`, rozdz. 15.1). Plan wydania i dziennik są w `docs/wydanie/` (rola 10); tu ich nie powtarzam. Każde działanie zewnętrzne (wpis, wiadomość, odpowiedź na recenzję, kod w App Store Connect) wykonuje właściciel po osobnej zgodzie, wpisanej jego słowami do dziennika działań (sekcja „Lista startowa”).
 
 *Dlaczego jeden dokument:* plan, który właściciel wykonuje sam w małym budżecie czasu, ma się mieścić na jednej stronie i mieć regułę przy każdym kanale.
 
@@ -12,9 +12,9 @@ Rola 11 (Wzrost), tryb fix. Zastępuje plan marketingu z BRD 0.1 (`docs/brd/A4.m
 
 ## Pozycjonowanie
 
-Dla kogo, jaka praca i różnica: z kontraktu zakresu (`docs/scope-contract.md`, wariant B, D-043) i BRD roli 01; ten plik nie dodaje twierdzeń. Wpis o aplikacji mówi tylko o tym, co robi wydana wersja (WZR-01), fakty dziedzinowe z rejestru treści (`docs/tresci/rejestr.json`, rola 06), ograniczenia jawnie: tylko iPhone, PL i EN, 14 dni pełnej wersji, potem płatnie albo tylko historia i dane (D-038).
+Dla kogo, jaka praca i różnica: z kontraktu zakresu (`docs/scope-contract.md`, wariant B, D-043) i BRD roli 01; ten plik nie dodaje twierdzeń. Wpis o aplikacji mówi tylko o tym, co robi wydana wersja (WZR-01), fakty dziedzinowe z rejestru treści (`docs/tresci/rejestr.json`, rola 06), ograniczenia jawnie: tylko iPhone, 14 dni pełnej wersji, potem płatnie albo tylko historia i dane (D-038). Języki: 35 (DEC-06 planu napraw M1, lista w `src/lib/i18n-locales.ts`); wpis może być w każdym z nich.
 
-Przykład z BRD 0.1 („Apple Watch Double Tap”, `docs/brd/A4.md:29`) nie wchodzi do wpisów, dopóki kontrakt zakresu nie pokaże tej funkcji w wersji 1 `[DO USTALENIA]`.
+Przykład z BRD 0.1 („Apple Watch Double Tap”, `docs/brd/archiwum/2.0-craft/A4.md:29`) nie wchodzi do wpisów, dopóki kontrakt zakresu nie pokaże tej funkcji w wersji 1 `[DO USTALENIA]`.
 
 ## Jawność i prawo (zasady dla każdego wpisu i współpracy)
 
@@ -72,7 +72,7 @@ Krok właściciela (ok. 1–2 h): zalogowany odczyt regulaminów r/Sourdough, r/
 
 Pusta do wydania i do odczytu regulaminów. Link kampanii tylko z `pt` z App Store Connect („You can't create one manually”, moduł `pomiar-prywatny`); bez `pt` wpis bez linku kampanii.
 
-Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja <praca, którą wykonuje, słowami społeczności>. Co robi: <2–3 punkty z wydanej wersji>. Ograniczenia: tylko iPhone, PL i EN, 14 dni pełnej wersji, potem płatnie. Prywatność: <tylko to, co potwierdza inwentarz 05 i etykieta 10>. Proszę o uwagi, zwłaszcza krytyczne.”
+Szkic wpisu (forma, nie treść): „Jestem autorem tej aplikacji. #autopromocja <praca, którą wykonuje, słowami społeczności>. Co robi: <2–3 punkty z wydanej wersji>. Ograniczenia: tylko iPhone, 14 dni pełnej wersji, potem płatnie. Prywatność: <tylko to, co potwierdza inwentarz 05 i etykieta 10>. Proszę o uwagi, zwłaszcza krytyczne.”
 
 ## Powrót i opinie
 
@@ -93,4 +93,4 @@ Reguła rozstrzygania H-01 (*dlaczego dwie miary:* kryterium roli 02 jest liczb�
 2. Odsetek w skrypcie (≥ 8,5%, czyli 7 ÷ ok. 83 pobrań/mies.) jest pomocniczy: mówi, czy problemem jest konwersja, czy liczba pobrań. Przy innej liczbie pobrań niż w bramce rozstrzyga punkt 1.
 3. Kryterium mierzy model, nie otwiera go: wynik nie jest podstawą do zmiany cen, modelu, próby ani podziału (D-038).
 
-KPI z BRD 0.1 (`docs/brd/A4.md:13-17`: „≥ 4,8 ★”, „≥ 42%”, „30–45%”, „≥ 99,8%”, „≥ 65%”) oraz prognozy z `docs/monetyzacja-audyt.md` (55 000 pobrań, CAC, retencja 6,7 mies.) nie mają źródła ani ID decyzji: **nie są celami** i żadna decyzja na nich nie stoi. Każda z tych liczb może wrócić jako H-nn z progiem i minimalną próbą od właściciela; aktywnych H najwyżej 3.
+KPI z BRD 0.1 (`docs/brd/archiwum/2.0-craft/A4.md:13-17`: „≥ 4,8 ★”, „≥ 42%”, „30–45%”, „≥ 99,8%”, „≥ 65%”) oraz prognozy z `docs/monetyzacja-audyt.md` (55 000 pobrań, CAC, retencja 6,7 mies.) nie mają źródła ani ID decyzji: **nie są celami** i żadna decyzja na nich nie stoi. Każda z tych liczb może wrócić jako H-nn z progiem i minimalną próbą od właściciela; aktywnych H najwyżej 3.

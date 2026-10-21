@@ -109,7 +109,8 @@ export async function exportAndShareCsv(
 ): Promise<boolean> {
   const targetPath = `${FileSystem.cacheDirectory}${filename}`;
   try {
-    await FileSystem.writeAsStringAsync(targetPath, csvContent);
+    // BOM UTF-8: bez niego Excel czyta polskie znaki w złym kodowaniu (M1-audytor-generalny-152)
+    await FileSystem.writeAsStringAsync(targetPath, `\uFEFF${csvContent}`);
 
     if (!(await Sharing.isAvailableAsync())) {
       return false;

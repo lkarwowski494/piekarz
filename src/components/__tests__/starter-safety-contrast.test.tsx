@@ -8,7 +8,6 @@ import renderer, { act } from 'react-test-renderer';
 import { StarterSafetyCard } from '../zakwas/StarterSafetyCard';
 import type { SourdoughSafetyStatus } from '../../core/sourdough-physics';
 import { theme } from '../../ui/theme';
-import { amberTheme } from '../../ui/amber-theme';
 
 // WCAG 2.1, https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
 const lum = (hex: string) => {
@@ -92,9 +91,8 @@ describe('Starter safety card text contrast (016)', () => {
     act(() => tree!.unmount());
   });
 
-  it('the token pair used by the card (text on surfaceCard) also reaches 4.5:1 in the amber night theme', () => {
-    expect(contrast(amberTheme.colors.textPrimary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
-    expect(contrast(amberTheme.colors.textSecondary, amberTheme.colors.surfaceCard)).toBeGreaterThanOrEqual(4.5);
+  // Tylko żywy motyw (tokeny, 4 warianty); nieużywany motyw amber usunięty [M1-audytor-generalny-149]
+  it('the token pair used by the card (secondary text on surface) reaches 4.5:1 in every theme variant', () => {
     expect(minKontrast(theme.colors.tusz2, theme.colors.powierzchnia)).toBeGreaterThanOrEqual(4.5);
   });
 });

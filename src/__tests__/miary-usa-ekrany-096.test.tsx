@@ -18,7 +18,7 @@ import { DiscardRecipesModal } from '../components/DiscardRecipesModal';
 import { StarterConverterModal } from '../components/StarterConverterModal';
 import { ShareRecipeQrModal } from '../components/ShareRecipeQrModal';
 import { AccordionDdtSection } from '../components/calculator/accordion/AccordionDdtSection';
-import { DoMiskiScaleCard } from '../components/calculator/DoMiskiScaleCard';
+import { DoMiski } from '../components/receptury/DoMiski';
 import { initDatabase, setActiveBake, getActiveBake, getStarters, saveStarter, saveBakeLog, deleteStarter, _resetMemStore, setAppSetting } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { setUnitSystem, _resetUnitSystemForTests } from '../lib/unit-converter';
@@ -184,13 +184,26 @@ describe.each(['en', 'pl'] as const)('096: tryb „uncje, °F” bez °C i gram�
     expect(c).toBeCloseTo(25.56, 2);
     act(() => tree.unmount());
 
+    // Masa mąki w „Do miski” ekranu receptury (§11c 106): pole w oz, zapis w gramach [M1-audytor-generalny-149]
     const maka = jest.fn();
     tree = await render(
-      <DoMiskiScaleCard calculations={recipe} saltPercent={2} recipeName="Wheat" loavesCount={1} onLoavesChange={() => {}} calcMode="flour" flourGrams={500} onFlourGramsChange={maka} />
+      <DoMiski
+        calculations={recipe} waterPct={75} starterPct={15} starterHydration={100} saltPct={2} yeastPct={0}
+        calcMode="flour" loavesCount={1} onLoavesChange={() => {}} loafWeightGrams={1000} onLoafWeightChange={() => {}}
+        flourGrams={500} onFlourGramsChange={maka} prefermentType="direct" prefermentBreakdown={null}
+      />
     );
-    const plus = tree.root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children).startsWith('+'))[0];
-    await act(async () => plus.props.onPress());
-    expect(maka).toHaveBeenCalledWith(557);
+    const pole = () => tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'flour-weight-input')[0];
+    expect(pole().props.value).toBe('17.6');
+    const wpisz = async (txt: string) => {
+      await act(async () => pole().props.onFocus?.());
+      await act(async () => pole().props.onChangeText(txt));
+      await act(async () => pole().props.onBlur?.({}));
+    };
+    await wpisz('19,6'); // +2 oz
+    expect(maka).toHaveBeenLastCalledWith(555.65);
+    await wpisz('17,6'); // bez zmiany: zapis bez dryfu zaokrągleń
+    expect(maka).toHaveBeenLastCalledWith(500);
     act(() => tree.unmount());
 
     tree = await render(<HarmonogramScreen />);

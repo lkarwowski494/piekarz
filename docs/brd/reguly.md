@@ -21,22 +21,26 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-14-W5 | 900 | 699 | 101 | 1 | 70 | 0,01 | powyżej | rachunek: mz = 100, wz = 1 |
 | RD-14-W6 | 0 | 700 | 0 | 100 | błąd danych | — | błąd | rachunek: M = 0 |
 
-### RD-15: Skalowanie formuły do masy ciasta z zaokrągleniem do 1 g
-- Wzór: `M = masa / (Σp / 100)`; `mi = round(masa × pi / Σp)`; ostatni składnik na liście dostaje korektę `masa − Σ round(...)`, żeby suma była równa masie
+### RD-15: Skalowanie formuły do masy ciasta: suma pokazanych ilości ±1 g
+- Wzór: `M = masa / (Σp / 100)`; `mi = M × pi / 100`; mąka, woda i zakwas zaokrąglone do 1 g, sól i drożdże do 0,1 g; gdy `|masa − Σ pokazanych| > 1 g`, składnik z grupy mąka, woda, zakwas, którego zaokrąglenie najbardziej odeszło od potrzebnego kierunku, dostaje ±1 g; mąki mieszanki dzielą mąkę po korekcie metodą największej reszty (suma wierszy mąk = mąka). Każda pokazana ilość jest mniej niż 1 g od wartości dokładnej (ER-51)
 - Jednostki: masa, mi [g]; pi [%]
-- Granica: masa > 0 (ostra)
-- Podstawa: rachunek; zaokrąglanie z korektą ostatniego składnika do 1 g to parametr produktowy z decyzji DEC-11 (a) planu napraw M1 (2026-10-19); procenty względem mąki: S-01
+- Granica: masa > 0 (ostra); różnica sumy pokazanych ilości od masy ≤ 1 g (włączna)
+- Podstawa: rachunek; dokładność to parametr produktowy z decyzji DEC-11 (a) planu napraw M1 (2026-10-19: bilans składników w 1 g, test własności z tolerancją 1 g); wykładnia „sól i drożdże z 0,1 g, suma ±1 g”: ER-51 (DEC-19 a planu napraw M1, 2026-10-21); procenty względem mąki: S-01
 - Krytyczna: nie
 
 | ID | masa [g] | p: mąka / woda / sól [%] | Oczekiwane: mąka / woda / sól [g] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|---|
 | RD-15-W1 | 1720 | 100 / 70 / 2 | 1000 / 700 / 20 | 0 | typowy | rachunek: 1720 / 1,72 = 1000 |
-| RD-15-W2 | 1000 | 100 / 70 / 2 | 581 / 407 / 12 | 0 | typowy | rachunek: 581,40; 406,98; 11,63 |
-| RD-15-W3 | 999 | 100 / 70 / 2 | 581 / 407 / 11 | 0 | typowy | rachunek: zaokrąglenia dają 1000, sól skorygowana o −1 |
+| RD-15-W2 | 1000 | 100 / 70 / 2 | 581 / 407 / 11,6 | 0 | typowy | rachunek: 581,40; 406,98; 11,63; suma pokazanych 999,6 (różnica 0,4 g, bez korekty) |
+| RD-15-W3 | 999 | 100 / 70 / 2 | 581 / 407 / 11,6 | 0 | typowy | rachunek: 580,81; 406,57; 11,62; suma pokazanych 999,6 (różnica 0,6 g, bez korekty) |
 | RD-15-W4 | 1 | 100 / 70 / 2 | 1 / 0 / 0 | 0 | granica | rachunek: najmniejsza dodatnia masa w gramach |
 | RD-15-W5 | 0 | 100 / 70 / 2 | błąd danych | — | poniżej | rachunek: poza granicą masa > 0 |
 | RD-15-W6 | 2 | 100 / 70 / 2 | 1 / 1 / 0 | 0 | powyżej | rachunek: 1,16; 0,81; 0,02 |
 | RD-15-W7 | brak | 100 / 70 / 2 | błąd danych | — | błąd | rachunek: brak masy |
+
+| ID | masa [g] | p: mąka / woda / sól / zakwas [%] | Oczekiwane: mąka / woda / sól / zakwas [g] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-15-W8 | 569 | 100 / 70 / 2 / 20 | 296 / 208 / 5,9 / 59 | 0 | powyżej | rachunek: 296,35; 207,45; 5,93; 59,27; zaokrąglenia dają 567,9 (różnica 1,1 g > 1 g), woda +1 g (największy błąd zaokrąglenia w dół, −0,45); suma pokazanych 568,9 |
 
 ### RD-16: Temperatura wody dla docelowej temperatury ciasta
 - Wzór: `Tw = n × DDT − (Tm + Tp + Tt)` bez zaczynu (n = 3); `Tw = n × DDT − (Tm + Tp + Tz + Tt)` z zaczynem (n = 4)
@@ -122,7 +126,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-20-W5 | 0 | 0 | błąd danych | — | błąd | rachunek: M = 0 |
 
 ### RD-21: Zasada ostrożności przy wyglądzie i zapachu zakwasu
-- Wzór: jeśli zaznaczono pleśń, kolorowe plamy, biały nalot lub kożuch, przebarwienie albo zgniły zapach → „wyrzuć zakwas, nie wąchaj, umyj i wypłucz naczynie przed nowym”; jeśli zaznaczono tylko płyn o zapachu alkoholu → „to nie powód do wyrzucenia: zlej albo wmieszaj i dokarm”; bez zaznaczeń → brak werdyktu „zdrowy”
+- Wzór: jeśli zaznaczono pleśń, kolorowe plamy, biały nalot lub kożuch, przebarwienie albo zgniły zapach → „wyrzuć zakwas, nie wąchaj, umyj i wypłucz naczynie przed nowym”; jeśli zaznaczono tylko płyn o zapachu alkoholu → „to nie powód do wyrzucenia: zlej albo wmieszaj” (bez „dokarm”: ER-54); bez zaznaczeń → brak werdyktu „zdrowy”
 - Jednostki: objawy [-] (zbiór zaznaczeń użytkownika)
 - Granica: brak (reguła jakościowa)
 - Podstawa: S-43 (każda oznaka pleśni: nie używać; płyn o zapachu alkoholu jest w porządku; szczebel 3), S-44 (zielone, różowe, pomarańczowe plamy, zapach, przebarwienie; szczebel 3), S-45 (pleśń bywa biała; nie wąchać; szczebel 1); decyzja DEC-10 (a) planu napraw M1 (2026-10-19): każdy nalot, kożuch albo przebarwienie → wyrzuć
@@ -133,7 +137,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 |---|---|---|---|---|---|
 | RD-21-W1 | kolorowe plamy | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-44, S-43, S-45 |
 | RD-21-W2 | biały nalot | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-45 (pleśń bywa biała); decyzja DEC-10 |
-| RD-21-W3 | płyn o zapachu alkoholu | nie wyrzucaj z tego powodu; zlej albo wmieszaj i dokarm | — | typowy | S-43 |
+| RD-21-W3 | płyn o zapachu alkoholu | nie wyrzucaj z tego powodu; zlej albo wmieszaj | — | typowy | S-43; rejestr 06: ZAK-HOO-001, ZAK-HOO-901 (bez „dokarm”) |
 | RD-21-W4 | płyn o zapachu alkoholu i kolorowa plama | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-43, S-44: pleśń przeważa |
 | RD-21-W5 | brak zaznaczeń | brak werdyktu „zdrowy” ani „bezpieczny” | — | typowy | S-45 (strzępki pleśni bywają trudne do zauważenia); decyzja DEC-10; rejestr 06 wycofał ZAK-ZDR-900 |
 | RD-21-W6 | niepełny formularz | brak werdyktu „bezpieczny”; prośba o uzupełnienie | — | błąd | S-45; decyzja DEC-10 |
@@ -236,7 +240,6 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 
 - RD-17: kod liczy temperaturę także poza 20–26 °C bez komunikatu (soczewka eksperta: `src/core/domain-rules.ts`, `calculateFermentationAdaptation`).
 - RD-19: kod używa przelicznika 3:1 (0,33) dla drożdży (soczewka eksperta: `src/core/domain-rules.ts`, `convertYeast`); BRD przyjmuje 0,4 ze szczebla 1.
-- RD-25: kod przypomina po 24 h na blacie (`src/core/notification-config.ts:13`) i po 6–7 dniach w lodówce (l. 15–16); BRD przyjmuje 12 h (S-44) — do decyzji OP-38.
-- RD-23: krok „zdejmij pokrywkę, wypuść parę” bez ostrzeżenia (`src/core/baking-phases.ts:41`).
+- RD-25 i RD-23: zgodne z kodem od 2026-10-20 (ER-50): przypomnienie po 12 h na blacie (`src/core/notification-config.ts`, `FEED_ROOM_TEMP_AFTER_MS`; D-043 pkt 4) i ostrzeżenie o rękawicach i parze przy zdejmowaniu pokrywki (`src/core/baking-phases.ts`, `safetyWarningPl`, RD-23-W1).
 - Studzenie chleba żytniego: kod Doktora 2 h i 8 h, rejestr roli 06 24 h (ZYT-STU-001, szczebel 4).
 - Próg ostrzeżenia 45 °C dla wody i progi faz zakwasu w godzinach (`src/core/sourdough-physics.ts`) bez źródła: OP-34, OP-39.

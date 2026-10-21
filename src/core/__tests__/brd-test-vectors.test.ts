@@ -4,7 +4,10 @@
 // Role 1 (Lead BA) & Role 10 (Test Architect) Convergence
 // ============================================================================
 
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import testVectorsFixture from '../../../tests/fixtures/test-vectors.json';
+import { Q10_FERMENTATION } from '../fermentation-q10';
 import {
   calculateDoughRecipe,
   calculateDDTWaterTemp,
@@ -89,7 +92,25 @@ describe('BRD Ground Truth Test Vectors (test-vectors.json)', () => {
     });
   });
 
-  describe('RD_08: Fermentation Temperature Adaptation (Arrhenius Q10 = 2.15)', () => {
+  describe('RD_08: Fermentation Temperature Adaptation (Q10 = 3.0, FER-Q10-002)', () => {
+    // 041: wektory BRD z tą samą wartością i źródłem co kod i rejestr (FER-Q10-002), w zakresie 20–26 °C
+    it('każdy wektor RD_08 ma q10Factor z kodu, temperaturę 20–26 °C i źródło FER-Q10-002', () => {
+      for (const v of testVectorsFixture.vectors.RD_08_fermentation_temperature_adaptation as any[]) {
+        expect(v.input.q10Factor).toBe(Q10_FERMENTATION);
+        expect(v.input.actualTempC).toBeGreaterThanOrEqual(20);
+        expect(v.input.actualTempC).toBeLessThanOrEqual(26);
+        expect(`${v.description} ${v.sourceCitation}`).not.toMatch(/2\.15|Ripari/);
+        expect(v.sourceCitation).toMatch(/FER-Q10-002/);
+      }
+    });
+
+    it('kopia wektorów w tests/fixtures jest identyczna z BRD, a dokumentacja nie podaje Q10 = 2,15', () => {
+      const brd = readFileSync(join(__dirname, '../../../docs/brd/fixtures/test-vectors.json'), 'utf8');
+      const kopia = readFileSync(join(__dirname, '../../../tests/fixtures/test-vectors.json'), 'utf8');
+      expect(kopia.replace(/\r\n/g, '\n')).toBe(brd.replace(/\r\n/g, '\n'));
+      expect(readFileSync(join(__dirname, '../../../docs/system-architecture.md'), 'utf8')).not.toMatch(/Q10\s*=\s*2[.,]15/);
+    });
+
     testVectorsFixture.vectors.RD_08_fermentation_temperature_adaptation.forEach((v: any) => {
       it(`vector ${v.id} (${v.description}) adapts time correctly`, () => {
         const res = calculateFermentationAdaptation(

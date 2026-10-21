@@ -111,6 +111,16 @@
     "wycofane": "2026-10-19, DEC-10 (a), M1-audytor-generalny-013"
   },
   {
+    "id": "ZAK-HOO-901",
+    "twierdzenie": "Warstwa płynu o zapachu alkoholu na zakwasie oznacza, że zakwas trzeba dokarmić (zalecenie „zlej albo wmieszaj i dokarm”, RD-21-W3).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Decyzja merytoryczna 2026-10-21 (rola 06 fix p10a, kryterium ZAKW-004 zadania M1-audytor-generalny-145, DEC-19 a; znalezisko 01-odkrywanie-503): „dokarm” nie wchodzi do zalecenia przy płynie. Sprawdzone: (1) CSU Extension (S-43, szczebel 3), otwarte 2026-10-21, surowy tekst: płyn „can either be poured off or stirred in”; o dokarmieniu w związku z płynem źródło milczy (karmienie opisuje osobno jako regularną praktykę: „need to be fed fresh flour and water regularly to survive and grow”) — złożenie tych dwóch zdań w „płyn, więc dokarm” to wniosek z pary zdań (TRE-08), nie twierdzenie źródła. (2) UT Extension Jefferson County, „Beginner Sourdough Starter” (jefferson.tennessee.edu, .docx, otwarte 2026-10-21): „This liquid is called “hooch” and is an indication that your starter needs to be fed.” — ale dokument jest oznaczony „Recipe adapted from The Clever Carrot.com” (blog), więc szczebel nadaje oryginał: 5, nie potwierdza; ten sam dokument każe też usunąć płyn razem z przebarwionym zakwasem, co przeczy RD-21 (przebarwienie → wyrzuć). Odrzucone: (a) zostawić „i dokarm” w RD-21-W3 — brak źródła szczebla 1–4; (b) „i dokarm” z atrybucją do UT Extension — źródło pochodne bloga. Skutek: ZAK-HOO-001 bez zmian; kod (src/core/sourdough-physics.ts) już bez „dokarm”; BRD (docs/brd/reguly.md RD-21-W3, docs/brd/wymagania-zakwas.md) i wektor RD-21-W3 (tests/wektory/brd.json) do zmiany przez role 01 i 07 (ER).",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
     "id": "ZAK-ZDR-900",
     "twierdzenie": "Zakwas, przy którym nie zaznaczono objawów, jest zdrowy i aktywny oraz ma prawidłowy zapach owocowo-kwasowy.",
     "zrodla": [],
@@ -575,6 +585,7 @@
     "wartosc": 3,
     "jednostka": null,
     "zakres_waznosci": "20–26 °C (włącznie)",
+    "uwagi": "M1-audytor-generalny-041 (06-tresci-009), rola 06 fix p10a 2026-10-21: źródło otwarte ponownie (PMC106434, surowy tekst): cytat Tmax, model 1a (Tab. 1, x = Tmax − T) i parametry Tab. 2 bez zmian; rachunek powtórzony: Q10 = 3,0007, zaokrąglone 3,0 (audit/…/fix-2026-10-21-p10a/dowody/rachunek-q10-wektory.txt). Wektory RD_08 w docs/brd/fixtures/test-vectors.json i tests/fixtures/test-vectors.json (Q10 = 2,15, 19 °C i 28 °C, źródło wycofane FER-Q10-901) przekazane do zmiany M2 jako krok D: Q10 = 3,0 i temperatury w zakresie ważności (20 °C, 26 °C), bo 19 °C i 28 °C leżą poza tym twierdzeniem (FER-Q10-902 otwarte).",
     "wazne_do": "2027-10-19"
   },
   {
@@ -1159,10 +1170,58 @@
   },
   {
     "id": "MAK-TYP-902",
-    "twierdzenie": "W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.",
+    "twierdzenie": "W obrocie jest mąka orkiszowa typ 630.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Typy z atlasu (src/core/flour-atlas.ts) bez przeczytanego źródła szczebla 1–3; zostają w kodzie bez zmian do czasu źródła (MAK-TYP-004 i MAK-TYP-005 ich nie wymieniają). Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej).",
+    "uwagi": "[DO USTALENIA] Podzielone 2026-10-21 (M1-audytor-generalny-165, 06-tresci-509, rola 06 fix p10a). Brzmienie do 2026-10-20: „W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.” Części: pszenna 1050 → MAK-TYP-006 (potwierdzone), orkiszowa 2000 → MAK-TYP-007 (potwierdzone), „720 = chlebowa” → MAK-TYP-903 (otwarte); to ID zostaje przy orkiszowej 630. Szukane 2026-10-21: źródło szczebla 1–3 z orkiszową typ 630 — nie znalazłem (wyniki to sklepy i bazy kalorii, szczebel 5); Sujka i Koczoń 2017 badają orkiszową typ 1100 i 2000, nie 630. Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-TYP-006",
+    "twierdzenie": "W badaniu Achremowicza, Berskiego i Gambuś (2010) użyto handlowej mąki pszennej typ 1050 z Polskich Zakładów Zbożowych w Krakowie (2006).",
+    "zrodla": [
+      {
+        "adres": "https://wydawnictwo.pttz.org/wp-content/uploads/2015/02/03_Achremowicz.pdf",
+        "miejsce": "Achremowicz B., Berski W., Gambuś H., Żywność. Nauka. Technologia. Jakość 2010, 6(73), 34–45, tab. 1 „Pochodzenie materiału badawczego”, wiersz 2006 Polskie Zakłady Zbożowe S.A. w Krakowie; tekst z PDF pobranego 2026-10-21: audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/03_Achremowicz.txt",
+        "cytat": "2006 Polskie Zakłady Zbożowe S.A. w Krakowie Mąka pszenna wysokowyciągowa typu / Commercial flour type: 750, 850 i 1050",
+        "odczyt": "2026-10-21",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Stan na 2006 rok, jeden producent: źródło potwierdza, że mąka pszenna typ 1050 była mąką handlową, a nie, że jest dziś w sprzedaży.",
+    "uwagi": "M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902 o pszennej 1050. Profil wheat_1050 (src/core/flour-atlas.ts, src/core/flour-atlas-ogolne.ts).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-TYP-007",
+    "twierdzenie": "W badaniu Sujki i Koczonia (2017) użyto mąki orkiszowej typ 2000 z polskiego młyna (Młyny Wodne), który produkuje mąki dla piekarni i handlu.",
+    "zrodla": [
+      {
+        "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5294222/",
+        "miejsce": "Sujka K., Koczoń P., Journal of Analytical Methods in Chemistry 2017, 4315678, rozdz. 2.1 Materials oraz tab. 2 (wiersz „Spelt, type 2000”); tekst strony pobranej 2026-10-21: audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/pmc5294222.txt",
+        "cytat": "Wheat, rye, and spelt flours came from different Polish mills producing flours for bakeries and retailers. […] Wheat flours types 650 and 2000, spelt flour, and bran were produced by Młyny Wodne Ltd. (Korczew, Poland).",
+        "odczyt": "2026-10-21",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Stan na czas badania (publikacja 2017), jeden producent: źródło potwierdza mąkę orkiszową typ 2000 z młyna produkującego dla piekarni i handlu, nie dzisiejszą dostępność. Źródło nie nazywa jej razową.",
+    "uwagi": "M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902 o orkiszowej 2000. Profil spelt_2000. Słowo „razowa” w nazwie spelt_2000 (src/core/flour-atlas.ts) nadal bez źródła (MAK-OGL-901).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-TYP-903",
+    "twierdzenie": "Mąka żytnia typ 720 to mąka „chlebowa”.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902, wydzielona 2026-10-21. Szukane 2026-10-21: Ostasiewicz i in., ŻNTJ 2009 (wydawnictwo.pttz.org, 06_Ostasiewicz.pdf, tekst przeczytany) używa „mąki żytniej typu 720” do pieczywa, ale nie nazywa jej „chlebową”; Stolarska i in. 2010 nazywa „chlebową” pszenną typ 750, nie żytnią 720. Źródła szczebla 1–3 nie znalazłem; nazwa „chlebowa” w profilu rye_720 (src/core/flour-atlas.ts) bez podstawy.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1267,11 +1326,31 @@
       }
     ],
     "status": "potwierdzone",
-    "uproszczenie": "Granice norm przytoczone w publikacji recenzowanej, nie odczytane w tekście norm (płatne, MAK-TYP-900). Wiersz typu 650 w tej tabeli („0.59–0.60%”) pominięty: wygląda na błąd druku, a innego źródła szczebla 1–3 nie ma [DO USTALENIA]. Wiersz 2000 nie rozróżnia zboża; w opisie ogólnym użyty dla pszennej, żytniej i orkiszowej typ 2000.",
-    "uwagi": "M1-audytor-generalny-094: popiół jako uzasadnienie przemiału (MAK-OGL-005). Wartości w opisach profili wheat_550, rye_720, rye_1400, wheat_2000, rye_2000, spelt_2000.",
+    "uproszczenie": "Granice norm przytoczone w publikacji recenzowanej, nie odczytane w tekście norm (płatne, MAK-TYP-900). Wiersz typu 650 w tej tabeli („0.59–0.60%”) pominięty trwale (decyzja merytoryczna 2026-10-21, M1-audytor-generalny-165, 06-tresci-508): stoi w sprzeczności z MAK-OGL-008 (Stolarska i in. 2010: maksimum dla typu 650 0,68%), a tekstu normy nie przeczytano (MAK-TYP-900, płatna). Odrzucone: (a) 0,59–0,60% według wyższego szczebla — przedział szerokości 0,01 pkt przy sąsiednich 0,07–0,19 pkt i górna granica niższa niż w MAK-OGL-008, więc możliwy błąd druku, którego bez normy nie rozstrzygnę; (b) 0,59–0,68% — złożenie dolnej granicy z jednego źródła i górnej z drugiego, której żadne źródło nie podaje razem. Opis profilu wheat_650 bez popiołu do czasu tekstu normy. Wiersz 2000 nie rozróżnia zboża; w opisie ogólnym użyty dla pszennej, żytniej i orkiszowej typ 2000.",
+    "uwagi": "M1-audytor-generalny-094: popiół jako uzasadnienie przemiału (MAK-OGL-005). Wartości w opisach profili wheat_550, rye_720, rye_1400, wheat_2000, rye_2000, spelt_2000. Źródło otwarte ponownie 2026-10-21 (rola 06 fix p10a, M1-audytor-generalny-165): tab. 1 bez zmian, w tym wiersz „650 0.59–0.60%” (audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/pmc5294222.txt).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
+  },
+  {
+    "id": "MAK-OGL-008",
+    "twierdzenie": "Według Stolarskiej i in. (2010) w Polsce gatunkowanie mąki opiera się na zawartości popiołu, a maksymalna zawartość popiołu w mące pszennej bułkowej typ 650 wynosi 0,68%.",
+    "zrodla": [
+      {
+        "adres": "https://zut.edu.pl/fileadmin/pliki/wydawnictwo/Folia/Agricultura/278/Stolarska.pdf",
+        "miejsce": "Stolarska A., Gregorczyk A., Przybulewska K., Podlasińska J., „Ocena zawartości metali ciężkich oraz cech jakościowych ziarna pszenicy”, Folia Pomeranae Universitatis Technologiae Stetinensis, Agric., Aliment., Pisc., Zootech. 2010, 278(14), 75–80, s. 76, rozdz. „Wyniki i dyskusja”; tekst z PDF pobranego 2026-10-21: audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/zut-stolarska.txt",
+        "cytat": "W Polsce gatunkowanie mąki przeprowadza się na podstawie zawartości popiołu; maksymalna jego zawartość dla poszczególnych typów mąki kształtuje się następująco: […] bułkowa 650 – 0,68%",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło podaje tylko górną granicę, bez dolnej i bez numeru normy ani bazy (sucha masa czy masa produktu). Szczebel 3 jak MAK-OGL-006: czasopismo uczelni, recenzji nie sprawdziłem.",
+    "uwagi": "M1-audytor-generalny-165 (06-tresci-508): dowód sprzeczności z wierszem 650 w MAK-OGL-004, dlatego ten wiersz pominięty trwale. Nie trafia do opisów profili (granica bez dolnej wartości i bez tekstu normy).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
   },
   {
     "id": "MAK-OGL-005",

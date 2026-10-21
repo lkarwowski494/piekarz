@@ -1,8 +1,9 @@
 name: Tests across Timezones (TZ Matrix)
 
 on:
+  # naprawy/**: macierz stref na gałęziach napraw (M1-audytor-generalny-168, wybór 168 b)
   push:
-    branches: [master, main]
+    branches: [master, main, 'naprawy/**']
   pull_request:
   workflow_dispatch:
 

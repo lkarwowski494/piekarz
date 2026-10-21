@@ -13,9 +13,11 @@ import { t } from '../../lib/i18n';
 import { formatNumber } from '../../lib/format';
 import type { StoredRecipe } from '../../data/db';
 import type { RecipePreset } from '../../recipes/presets';
-import type { CategoryFilterType } from '../calculator/FormulaPresetSelector';
 import { opisReceptury } from './nazwy-receptur';
 import { s } from './style-receptur';
+
+/** Filtr rodzaju na liście receptur bazowych (chipy niżej). */
+export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
 const FILTRY: { id: CategoryFilterType; testID: string; etykieta: string }[] = [
   { id: 'all', testID: 'category-filter-all', etykieta: 'Wszystkie' },

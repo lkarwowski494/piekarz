@@ -1,0 +1,9 @@
+# LF w kopii roboczej niezależnie od core.autocrlf (M1-audytor-generalny-169):
+# testy czytają pliki treści po liniach, a checkout z CRLF je łamał.
+* text=auto eol=lf
+
+# Pliki zapisane w gicie z CRLF zostają bez zmian, dopóki nie zapadnie decyzja
+# o renormalizacji (bez masowej zmiany końców linii w torze p10a).
+docs/decyzje.md -text
+scripts/test-matrix.mjs -text
+docs/design/ekrany/wspolne.css -text
