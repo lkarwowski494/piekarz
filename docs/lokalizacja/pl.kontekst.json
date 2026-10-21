@@ -8105,6 +8105,11 @@
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
   },
+  "następne dokarmienie {data} o {godzina}": {
+    "gdzie": [
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
   "nieznana": {
     "gdzie": [
       "src/lib/zgloszenie.ts (kod)"
