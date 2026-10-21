@@ -5,7 +5,7 @@ Ten dokument pozwala kontynuować pracę z innego konta Claude albo na innym kom
 ## 1. Gdzie jesteśmy
 
 - Audyt M1 z 2026-10-19 (baza `ebd8471`) i plan 118 napraw w 7 partiach są **wykonane**. Każda partia zaczyna się od końca poprzedniej.
-- **Trwa reaudyt M1** (pętla 1) na gałęzi p7 `e544eec`, w sesji „M1 reaudyt Piekarza po partiach 1–7”. Skończyły role 11, 09 i 04, a 9 ról jeszcze pracuje.
+- **Reaudyt M1 (pętla 1) jest GOTOWY** (2026-10-21, na `e544eec`). Raport: `K/M1-audytor-generalny-reaudit-2026-10-21.md`. Plan ma teraz 179 zadań (`sprawdz-plan` kod 0): 88 zweryfikowanych, 23 otwarte, 7 regresji. Werdykt: **do korekty, ZABLOKOWANE**. Reaudyt stoi na **STOP 2**: właściciel decyduje o nowych zadaniach i kolejnej partii, przeczytaj sekcję decyzji w raporcie.
 - Wstępne wyniki reaudytu:
   - rola 09: regresja P1 w 093, czyli przeliczanie imperialne po przekładzie (różnica 10 °C pokazuje się jako 50 °F; w ru, uk, bg gramy nie są przeliczane). Zadania 071, 074 i 096 są nadal otwarte;
   - rola 11: 082 otwarte, 1 nowe P1 i 3 P2.
@@ -64,8 +64,8 @@ Na innym komputerze trzeba te katalogi skopiować ręcznie (np. zip przez dysk p
 
 ## 6. Kolejne kroki
 
-1. **Dokończyć reaudyt M1.** Jeśli sesja reaudytu przerwie się na limicie, uruchom go od nowa poleceniem z sekcji 7. Raporty ról, które już skończyły (11, 09, 04), są w K.
-2. **Werdykt reaudytu, nowe zadania w planie i decyzja właściciela.** Ewentualna partia 8 na blokery wydania (P0/P1 dane i płatności, regresja imperialna 093).
+1. **STOP 2 reaudytu:** pokaż właścicielowi werdykt, regresje i decyzje z raportu reaudytu, a potem zapisz jego wybory w `plan-napraw.json`.
+2. **Partia 8** (M2, od czubka p7) na zadania otwarte i regresje, które wybierze właściciel. Polecenie: `node <prompts>/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`. Potem reaudyt w pętli 2.
 3. **Scalenie łańcucha z `master`.** Przy tym jawnie przenumerować kolidujące numery decyzji (`docs/decyzje.md` D-035+ wobec `docs/DECISIONS.md`).
 4. **Na koniec:** nazwa D-053 na apps4brew.com.
 5. **Kroki właściciela:** testy na iPhonie, App Store Connect według `docs/wydanie/instrukcja-ustawien.md`, eksport TestFlight (066), ochrona `master` (064).
@@ -77,9 +77,8 @@ Kontynuujesz pracę M1 (Audytor Generalny) nad aplikacją Piekarz. Przeczytaj CA
 (git fetch origin && git show origin/przekazanie/m1-2026-10-21:docs/PRZEKAZANIE-M1.md) i stosuj zasady z sekcji 5.
 Katalog audytu K: C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19 (jeśli go nie ma — zatrzymaj się i poproś mnie o skopiowanie).
 Najpierw sprawdź stan: git checkout naprawy/M2-koordynator-napraw-2026-10-19-p7 (czubek e544eec lub nowszy), node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json,
-i czy w K jest raport reaudytu (M1-*reaudit*.md) albo raporty ról w K/role/*/reaudit*.
-Jeśli reaudyt nie jest skończony, złóż polecenie od nowa:
-  node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs M1-audytor-generalny --tryb reaudit --wyjscie K --baza ebd8471 --plik K/prompty/M1-reaudit.md
-i uruchom reaudyt w NOWEJ sesji (D-015), wykorzystując raporty ról, które już skończyły (11, 09, 04), zamiast ich powtarzania.
-Potem pokaż mi werdykt, blokery wydania i rekomendację co do scalenia z master. Niczego nie scalaj, nie pushuj i nie wysyłaj bez mojej zgody.
+Reaudyt pętli 1 jest gotowy: K/M1-audytor-generalny-reaudit-2026-10-21.md (werdykt: do korekty, ZABLOKOWANE; 179 zadań w planie).
+Przeczytaj go całego i pokaż mi STOP 2: regresje, blokery wydania, decyzje do podjęcia z opcjami i rekomendacją, oraz propozycję partii 8.
+Po moich decyzjach zapisz je w plan-napraw.json (sprawdz-plan kod 0) i złóż polecenie partii 8 (sekcja 6).
+Niczego nie scalaj, nie pushuj i nie wysyłaj bez mojej zgody.
 ```
