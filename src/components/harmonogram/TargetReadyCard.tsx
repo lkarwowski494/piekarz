@@ -72,7 +72,10 @@ export function TargetReadyCard({
         <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />
         <View testID="plan-pole-gotowosci" style={styles.pole}>
           <Text style={styles.dzien}>{formattedDayBadge}</Text>
-          <Text style={styles.godzina}>{godzina(targetHour, targetMinute)}</Text>
+          {/* Cyfry rosną z Dynamic Type najwyżej do tokenu AX5 (czas 56 → 99 pt), więc mieszczą się w wierszu [M1-audytor-generalny-201] */}
+          <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}>
+            {godzina(targetHour, targetMinute)}
+          </Text>
         </View>
         <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />
       </View>
