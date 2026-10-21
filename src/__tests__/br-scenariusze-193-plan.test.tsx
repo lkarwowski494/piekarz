@@ -120,7 +120,7 @@ describe('BR-HARMO-003: czas fermentacji z temperatury w planie', () => {
     const wartosci = [...new Set(etykiety.map((s) => Number(s.replace(/[^\d]/g, ''))))].sort((a, b) => a - b);
     expect(wartosci).toEqual([20, 22, 24, 26]);
     // Żadnego pola tekstowego temperatury (nie da się wpisać 19,9 °C)
-    const pola = tree.root.findAll((n) => typeof n.type === 'string' && n.type === 'TextInput');
+    const pola = tree.root.findAll((n) => (n.type as unknown) === 'TextInput');
     expect(pola.filter((p) => /temp|°C|kuchni/i.test(`${p.props.testID ?? ''} ${p.props.accessibilityLabel ?? ''} ${p.props.placeholder ?? ''}`))).toEqual([]);
     act(() => tree.unmount());
   });
