@@ -3103,7 +3103,8 @@
   "Mąki": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/SkladnikiKroku.tsx (maka)"
     ]
   },
   "Mąki (razem 100%)": {
@@ -5171,7 +5172,8 @@
   },
   "Składniki do odważenia": {
     "gdzie": [
-      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)"
+      "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/SkladnikiKroku.tsx (tekst w JSX)"
     ]
   },
   "Składniki do słoika": {
@@ -5526,6 +5528,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/SkladnikiKroku.tsx (sol)",
       "src/lib/recipe-formatter.ts (kod)"
     ]
   },
@@ -6465,6 +6468,7 @@
       "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/SkladnikiKroku.tsx (woda)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/feeding-formatter.ts (kod)",
       "src/lib/recipe-formatter.ts (kod)"
@@ -7260,6 +7264,7 @@
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
+      "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
       "src/lib/recipe-formatter.ts (kod)"
     ],
     "opis": "Zakwas jako składnik receptury: etykieta obok masy albo procentu (Stolnica, podgląd importu, tekst receptury „Zakwas (20%): 200 g”). Termin glosariusza: EN „starter”. Krótka etykieta."
