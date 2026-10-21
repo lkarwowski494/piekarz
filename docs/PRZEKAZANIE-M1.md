@@ -72,15 +72,64 @@ Na innym komputerze trzeba te katalogi skopiować ręcznie (np. zip przez dysk p
 4. **Na koniec:** nazwa D-053 na apps4brew.com.
 5. **Kroki właściciela:** testy na iPhonie, App Store Connect według `docs/wydanie/instrukcja-ustawien.md`, eksport TestFlight (066), ochrona `master` (064).
 
-## 7. Prompt na start nowej sesji (wklej w Claude Code w katalogu repo `piekarz`)
+## 7. Instrukcja krok po kroku: nowe konto Claude, ten sam komputer
 
-```text
-Kontynuujesz pracę M1 (Audytor Generalny) nad aplikacją Piekarz. Przeczytaj CAŁY plik docs/PRZEKAZANIE-M1.md z gałęzi przekazanie/m1-2026-10-21
-(git fetch origin && git show origin/przekazanie/m1-2026-10-21:docs/PRZEKAZANIE-M1.md) i stosuj zasady z sekcji 5.
-Katalog audytu K: C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19 (jeśli go nie ma — zatrzymaj się i poproś mnie o skopiowanie).
-Najpierw sprawdź stan: git checkout master (e544eec lub nowszy; to cały łańcuch p1–p7), node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json,
-Reaudyt pętli 1 jest gotowy i jego STOP 2 jest rozstrzygnięty: K/M1-audytor-generalny-reaudit-2026-10-21.md (werdykt: do korekty, ZABLOKOWANE; 179 zadań, 86 otwartych).
-master = e544eec (cały łańcuch p1–p7). Złóż polecenie partii 8 (sekcja 6, gałąź naprawy/M2-koordynator-napraw-2026-10-19-p8 od master)
-i uruchom ją w NOWEJ sesji M2. Na jej STOP start mam ponownie zatwierdzić 25 wróconych zadań (sekcja „C” raportu reaudytu), więc pokaż mi je z rekomendacją.
-Niczego nie scalaj, nie pushuj i nie wysyłaj bez mojej zgody.
-```
+Wszystkie pliki (repo, katalog audytu, biblioteka `prompts`, `narzedzia-api` z kluczem API) zostają na dysku. Nic nie kopiujesz.
+
+1. **Zamknij stare sesje.** W aplikacji Claude zarchiwizuj sesje tego projektu, prawy przycisk → Archiwizuj. Są czyste i ich praca jest w `master`.
+2. **Zmień konto.** W aplikacji Claude kliknij swój profil w lewym dolnym rogu, wybierz „Wyloguj”, a potem zaloguj się na nowe konto.
+3. **Otwórz projekt.** Zakładka **Code** → nowa sesja → wybierz folder `C:\Users\lukas\Projekty\piekarz`.
+   - Gdy aplikacja zapyta o zaufanie do folderu, potwierdź.
+   - Model: **Opus**, wysiłek: **High**.
+   - Tryb uprawnień: taki sam jak dotąd (Auto).
+4. **Daj prompt startowy.** Dołącz plik `C:\Users\lukas\Projekty\piekarz\audit\PROMPT-START-NOWE-KONTO.md` jako załącznik i napisz „Wykonaj ten prompt”. Możesz też wkleić jego treść; jest też niżej w sekcji 8.
+5. **Sprawdź pierwszą odpowiedź.** Sesja ma najpierw:
+   - sprawdzić stan: `master` = e544eec, `sprawdz-plan` z kodem 0;
+   - pokazać werdykt reaudytu, 7 regresji, blokery wydania i 25 zadań do ponownego zatwierdzenia, z rekomendacją;
+   - zaproponować zakres partii 8 z opcjami (a) i (b).
+
+   Jeśli zamiast tego zacznie coś zmieniać albo pushować, przerwij ją.
+6. **Zatwierdź.** Odpowiedz na jej pytania. Od tej chwili praca idzie jak dotąd:
+   - nowa sesja M2 dla partii 8 i jej STOP start w tamtej sesji;
+   - Twoje zgody na push.
+7. **Wydatki na API.** Nowy przekład przez API to nowa zgoda. Klucz w `narzedzia-api\.env` należy do konta API, którego kredyty były używane. Jeśli chcesz płacić z kredytów nowego konta, podmień klucz w tym pliku sam, poza czatem.
+8. **Pamięć projektu.** Notatki Claude (np. „przekłady przez API Batches”, „monetyzacja stała”) są zapisane lokalnie na tym komputerze. Nowe konto prawdopodobnie ich nie zobaczy. Ich treść jest w sekcji 5 i w prompcie, więc nic nie ginie.
+
+## 8. Prompt startowy (ta sama treść co w pliku z kroku 4)
+
+Kontynuujesz pracę jako **M1 Audytor Generalny** nad aplikacją **Piekarz** (Expo/React Native, iOS, offline-first asystent wypieku chleba na zakwasie). Pracowała nad tym poprzednia sesja na innym koncie; ty przejmujesz od miejsca opisanego niżej. Odpowiadaj po polsku.
+
+## Najpierw przeczytaj (w tej kolejności, w całości)
+1. Dokument przekazania z GitHuba:
+   `git fetch origin` i `git show origin/przekazanie/m1-2026-10-21:docs/PRZEKAZANIE-M1.md`
+2. `CLAUDE.md` w repo (zasady projektu i sekcja „Stan projektu”).
+3. Raport reaudytu: `C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19\M1-audytor-generalny-reaudit-2026-10-21.md`, zwłaszcza werdykt, regresje i sekcję „C. Ponowne zatwierdzenie”.
+
+## Gdzie co jest (wszystko na tym komputerze)
+- Repo aplikacji: `C:\Users\lukas\Projekty\piekarz`, gałąź **`master` = e544eec** (cały łańcuch partii 1–7). Tagi: `przed-scaleniem-2026-10-21` (ebd8471, punkt powrotu) i `reaudyt-petla1-zablokowane` (e544eec, znane regresje, wersja niewydawalna).
+- Katalog audytu **K** = `C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19` (poza gitem). Zawiera `plan-napraw.json` (179 zadań: 93 zweryfikowane, 86 otwartych; wszystkie decyzje właściciela z dosłownymi słowami), raporty ról i M2, `postep-napraw.md`, `narzedzia/sprawdz-plan.mjs`, `narzedzia/sprawdz-raport.mjs`, prompty partii w `prompty/`.
+- Biblioteka ról: `C:\Users\lukas\Projekty\prompts` (prywatne repo). Polecenie roli składasz `node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs <rola> --tryb <build|audit|fix|reaudit> ... --plik <wynik.md>`. Zrób najpierw `git -C C:\Users\lukas\Projekty\prompts fetch` i składaj z najnowszego `origin/main` (np. przez osobny worktree), bo w głównym katalogu `prompts` leżą niezatwierdzone zmiany agenta biblioteki — nie ruszaj ich.
+- Przekład przez Claude API: `C:\Users\lukas\Projekty\narzedzia-api` (`PRZEKLAD-README.md`, wyniki `przeklad/languages/`). Klucz API jest w `.env` tego katalogu — **nigdy go nie czytaj, nie wypisuj, nie kopiuj**; skrypty npm wczytują go same (`node --env-file-if-exists=.env`). Nie ustawiaj `ANTHROPIC_API_KEY` globalnie.
+- Strona studia: repo `lkarwowski494/apps4brew-www` (GitHub Pages, apps4brew.com; strony `piekarz/`).
+
+## Zasady, których się trzymasz
+- Pracujesz według ról z biblioteki: każda sesja roli czyta swoje złożone polecenie w całości i stosuje STOP-y dosłownie. Role naprawcze (M2) i reaudyt uruchamiasz w **osobnych, nowych sesjach**; ty koordynujesz, zapisujesz decyzje w `plan-napraw.json` (po każdej zmianie `node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json` z kodem 0) i raportujesz mi krótko.
+- Zgody liczą się tylko z moich słów w czacie. Nie decydujesz za mnie; przy wyborze dajesz opcje i rekomendację.
+- Push tylko za moją zgodą i tylko gałęzi danej partii; scalanie z `master`, przepisywanie historii, usuwanie gałęzi i wszystko w App Store Connect — tylko za osobną zgodą.
+- Kolejne partie zaczynają się od `master` (e544eec lub nowszy).
+- Teksty do przekładu i sklepu: przez Claude API Message Batches w `narzedzia-api`, nie sesjami. Każdy wydatek z API — tylko w ramach mojej zgody (poprzednia zgoda do 70 USD jest wyczerpana w 53 USD; nowy wydatek wymaga nowej zgody).
+- Wysiłek sesji: High, gdy partia dotyka danych użytkownika; inaczej Medium.
+- Repo jest **publiczne**: żadnych sekretów, katalog `audit/` nigdy do gita (jest w `.git/info/exclude`).
+- Monetyzacja jest ustalona i nie do zmiany (DEC-01 d): miesięczna 0,99 / roczna 6,99 USD (jedna grupa) + dożywotni 14,99 USD; PL 4,99 / 29,99 / 79,99 zł; 14 dni próby na obu subskrypcjach; za darmo na zawsze tylko historia oraz eksport i usunięcie danych. Nie proponuj zmian modelu.
+
+## Pierwsze kroki
+1. Sprawdź stan: `git -C C:\Users\lukas\Projekty\piekarz status` (czysto, gałąź `master` = e544eec lub nowszy), `node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json` (kod 0), i czy po e544eec nie przybyło commitów.
+2. Pokaż mi krótko: werdykt reaudytu, 7 regresji, blokery wydania (P0/P1) i listę 25 zadań do ponownego zatwierdzenia (sekcja „C” raportu) — z rekomendacją.
+3. Zaproponuj zakres **partii 8**: 25 wróconych zadań mają w planie stare numery partii (p1–p6), więc daj mi do wyboru: (a) przestawić ich pole `partia` na 8 (po mojej zgodzie) albo (b) podać je jawnie w `--zadania`. Potem złóż polecenie:
+   `node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`
+   i po mojej zgodzie uruchom partię 8 w nowej sesji (od `master`, STOP start z planem i kosztem).
+4. Przy okazji partii 8 uporządkuj kolizje numerów decyzji (`docs/decyzje.md` D-035+ wobec `docs/DECISIONS.md`).
+5. Na koniec całości (po partiach 8–10 i reaudycie pętli 2 bez blokad): nazwa z D-053 („Baker: Sourdough Bread Planner” po angielsku, lokalne w innych językach) na apps4brew.com — dopiero wtedy, na moją prośbę.
+
+## Moje kroki poza sesjami (przypominaj, nie rób za mnie)
+Testy na iPhonie (nowa szata, zakupy w sandboxie, powiadomienia przy uśpionym telefonie, VoiceOver i AX5, °F przy regionie US); App Store Connect według `docs/wydanie/instrukcja-ustawien.md` i kart lokalizacji; eksport z TestFlight na danych fikcyjnych do `K/dane/testflight-eksport/` (zadanie 066); ochrona gałęzi `master` po zakończeniu (064).
