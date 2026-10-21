@@ -11,6 +11,7 @@ import { theme } from '../ui/theme';
 import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
 import { CloseButton } from './CloseButton';
 import { guardSave } from '../lib/save-guard';
+import { resyncNotifications } from '../lib/notifications';
 import {
   getBakingVessel,
   setBakingVessel,
@@ -53,6 +54,8 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   // Zmiana od razu i zapis na kolejne uruchomienia [M1-audytor-generalny-048]; nieudany zapis: „Nie zapisano” [M1-audytor-generalny-120]
   const handleLanguageChange = (newLang: Lang) => {
     void guardSave(() => chooseLanguage(newLang))();
+    // Zaplanowane powiadomienia od razu w nowym języku, nie dopiero po powrocie na pierwszy plan [reaudit-noc N-10; M1-audytor-generalny-136]
+    void resyncNotifications();
   };
 
   const handleUnitSystemChange = (system: UnitSystem) => {
