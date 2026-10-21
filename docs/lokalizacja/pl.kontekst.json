@@ -357,9 +357,7 @@
     ]
   },
   "Białko": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Białko w badanej próbce: 12,6%. Popiół według polskich norm: najwyżej 2%.": {
     "gdzie": [
@@ -588,6 +586,11 @@
   "Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
+  "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Chleb żytni / foremkowy": {
@@ -3806,11 +3809,6 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
-  "Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
-    ]
-  },
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: advicePl)"
@@ -5326,7 +5324,7 @@
       "src/components/stolnica/PokeTestEntry.tsx (tekst w JSX)"
     ]
   },
-  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.": {
+  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -6928,7 +6926,7 @@
   "Wykryto uszkodzony stan bazy danych": {
     "gdzie": []
   },
-  "Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
+  "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -8586,8 +8584,14 @@
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} min w {temp}": {
+    "gdzie": [
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
   "{n} minut": {
@@ -8624,11 +8628,6 @@
   },
   "{n} szt.": {
     "gdzie": []
-  },
-  "{n}m w {temp}": {
-    "gdzie": [
-      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
-    ]
   },
   "{n}x ~{masa} upieczony bochenek": {
     "gdzie": [
