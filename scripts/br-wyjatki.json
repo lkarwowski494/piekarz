@@ -21,7 +21,6 @@
     { "id": "BR-HARMO-004", "czesciowe": true, "powod": "znalezisko w scenariuszu Przesunięcie poza godziny snu: przesunięcie kroków nie sprawdza kolizji ze snem", "zrodlo": "F-13" },
     { "id": "BR-HARMO-005", "czesciowe": true, "powod": "znalezisko w scenariuszu Cofnięcie po terminie kroku: undoConfirm zwraca overdueMs, ekran go nie pokazuje", "zrodlo": "F-13" },
     { "id": "BR-ETAP-001", "czesciowe": true, "powod": "znalezisko: składniki tylko w arkuszu Plan wypieku, nie przy bieżącym kroku; po potwierdzeniu następny krok bez godziny (tylko odliczanie)", "zrodlo": "F-07" },
-    { "id": "BR-ETAP-005", "czesciowe": true, "powod": "znalezisko w scenariuszu Termin minął: ekran pokazuje 00:00, bez „skończył się 75 min temu” i bez propozycji przesunięcia", "zrodlo": "F-58" },
     { "id": "BR-CZAS-002", "czesciowe": true, "powod": "znalezisko w scenariuszu Koniec kroku przy zablokowanym ekranie: powiadomienie ma nazwę kończącego się kroku, nie następnego (utrwala to test „powiadomienie ma nazwę i rodzaj kroku z sesji”); punktualność NFR-CZAS-001 tylko na urządzeniu", "zrodlo": "F-16, NFR-CZAS-001" },
     { "id": "BR-CZAS-003", "czesciowe": true, "powod": "znalezisko w scenariuszu Wyjaśnienie przed prośbą: zgoda na powiadomienia bez zdania wyjaśnienia przed prośbą systemową", "zrodlo": "F-16" },
     { "id": "BR-REKA-001", "czesciowe": true, "powod": "znalezisko w scenariuszu Krok bierny: blokada wygaszania przez cały wypiek, także w kroku biernym (chłodnia); samo wygaszanie tylko na urządzeniu", "zrodlo": "F-18" },

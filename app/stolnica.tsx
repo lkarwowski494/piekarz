@@ -116,12 +116,14 @@ export default function StolnicaScreen() {
     return rusza;
   };
 
-  // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]
+  // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]; zegar skończony
+  // na pierwszym planie zostawia w zapisie termin kroku, żeby po powrocie było widać, o ile minął
+  // (BR-ETAP-005 „Termin minął”) [M1-audytor-generalny-130]
   const sesjaWczytana = useBakeSession(
     isActive
       ? { version: 2, steps, stepIdx: currentStepIdx, dutchOvenPhase,
-          timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : null,
-          pausedLeftSec: isRunning ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
+          timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : isCompleted ? ostatniKoniecRef.current : null,
+          pausedLeftSec: isRunning || isCompleted ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
       : null,
     (s) => {
       setIsActive(true);

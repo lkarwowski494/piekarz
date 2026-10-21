@@ -96,4 +96,41 @@ describe('Active bake survives a process kill (019)', () => {
     expect((await loadBakeSession())?.timerEndsAt).toBe(now - 60_000 + (step3?.durationMin ?? 0) * 60_000);
     act(() => second.unmount());
   });
+
+  // Zegar kroku skończył się przy otwartej aplikacji (ekran nie gaśnie), potem system zamknął aplikację: zapis
+  // zachowuje termin kroku, a po powrocie widać, o ile minął [M1-audytor-generalny-130; 01-odkrywanie-501]
+  it('termin kroku zachowany, gdy zegar skończył się na pierwszym planie: po restarcie „1 h 15 min po czasie” (BR-ETAP-005 Termin minął)', async () => {
+    jest.useFakeTimers({ doNotFake: ['Date', 'nextTick', 'setImmediate', 'queueMicrotask'] });
+    try {
+      setActiveBake({ id: 'bake_po_terminie', recipeName: 'Chleb po terminie', startedAt: now, currentStageId: 'mix', ambientTempC: 22 });
+      const first = await render();
+      for (let i = 0; i < 2; i++) {
+        await act(async () => {
+          button(first.root, 'Zrobione').props.onPress();
+        });
+      }
+      await act(async () => {
+        for (let i = 0; i < 20; i++) await Promise.resolve();
+      });
+      const termin = (await loadBakeSession())?.timerEndsAt ?? 0;
+      expect(termin).toBeGreaterThan(now);
+      // Koniec zegara przy otwartej aplikacji: tick co sekundę widzi termin
+      now = termin + 1000;
+      await act(async () => {
+        jest.advanceTimersByTime(1000);
+        for (let i = 0; i < 20; i++) await Promise.resolve();
+      });
+      expect((await loadBakeSession())?.timerEndsAt).toBe(termin);
+      act(() => first.unmount());
+
+      // System zamyka aplikację; użytkownik wraca 75 min po terminie
+      _resetMemStore();
+      now = termin + 75 * 60_000;
+      const second = await render();
+      expect(textOf(second.toJSON())).toMatch(/1\sh\s15\smin po czasie/);
+      act(() => second.unmount());
+    } finally {
+      jest.useRealTimers();
+    }
+  });
 });
