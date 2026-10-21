@@ -1,6 +1,6 @@
 # Zaczyny: wskazówka zaczynu w arkuszu Składniki i w kalkulatorze (PREFERMENT_DEFINITIONS) — PL
 <!-- M1-audytor-generalny-131 (01-odkrywanie-502, 06-tresci-503). Nagłówek = pole w src/core/preferments.ts; wskazówka to szablon „{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}” (src/lib/wskazowka-zaczynu.ts), pokazywany dla zaczynów z menu (ZACZYNY_W_MENU: poolish, biga, pâte fermentée, levain). Rola 08 wdraża tekst dosłownie (bez znacznika [T:...]). -->
-<!-- Wycofane: ZAC-POO-900, ZAC-BIG-900, ZAC-PAT-901, ZAC-LEV-900 (czasy i temperatury bez źródła, „65%” i „100%” w nazwach, „wydłużona świeżość i niski indeks glikemiczny”). Parametry obliczeń pâte fermentée (hydratacja 65%, drożdże 0,5%, sól 2%): ZAC-PAT-900 [DO USTALENIA]. Pola bez liczby i bez zmiany (flavorProfilePl poolish, biga, pâte fermentée) poza zakresem 131. Tangzhong i yudane nie są pokazywane użytkownikowi. -->
+<!-- Wycofane: ZAC-POO-900, ZAC-BIG-900, ZAC-PAT-901, ZAC-LEV-900 (czasy i temperatury bez źródła, „65%” i „100%” w nazwach, „wydłużona świeżość i niski indeks glikemiczny”). Parametry obliczeń pâte fermentée: przykład BBGA 75% wody, 1% drożdży, 2% soli (ZAC-PAT-002, wybór właściciela 2026-10-21; ZAC-PAT-900 wycofane). Pola bez liczby i bez zmiany (flavorProfilePl poolish, biga, pâte fermentée) poza zakresem 131. Tangzhong i yudane nie są pokazywane użytkownikowi. -->
 
 ## PREFERMENT_DEFINITIONS.poolish.namePl
 Poolish (Rzadki zaczyn 100%) [T:ZAC-POO-001]

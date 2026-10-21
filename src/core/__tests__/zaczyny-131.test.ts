@@ -29,18 +29,17 @@ const znaczniki = (typ: string, pole: string) => {
 const tekst = (typ: PrefermentType, pole: string) => (PREFERMENT_DEFINITIONS[typ] as unknown as Record<string, string>)[pole];
 
 /** Parametry obliczeń pokazywane jako gramy (Do miski, akordeon): wartość ≠ 0 → twierdzenie z tą liczbą. */
-const PARAMETRY: [PrefermentType, 'defaultHydration' | 'yeastPctOfPrefermentFlour', string, string, number][] = [
+const PARAMETRY: [PrefermentType, 'defaultHydration' | 'yeastPctOfPrefermentFlour' | 'saltPctOfPrefermentFlour', string, string, number][] = [
   ['poolish', 'defaultHydration', 'ZAC-POO-001', 'hydratacji 100%', 100],
   ['poolish', 'yeastPctOfPrefermentFlour', 'ZAC-POO-002', '0,10% drożdży', 0.1],
   ['biga', 'defaultHydration', 'ZAC-BIG-001', 'hydratacji 50%', 50],
   ['biga', 'yeastPctOfPrefermentFlour', 'ZAC-BIG-001', '1% drożdży', 1],
+  // Wybór właściciela 2026-10-21: przykład BBGA zamiast wartości bez źródła (ZAC-PAT-900 wycofane)
+  ['pate_fermentee', 'defaultHydration', 'ZAC-PAT-002', '75% wody', 75],
+  ['pate_fermentee', 'yeastPctOfPrefermentFlour', 'ZAC-PAT-002', '1% drożdży', 1],
+  ['pate_fermentee', 'saltPctOfPrefermentFlour', 'ZAC-PAT-002', '2% soli', 2],
 ];
-/** [DO USTALENIA] ZAC-PAT-900: parametry pâte fermentée bez źródła — przekazanie do 08 i decyzja właściciela (wynik p9a). */
-const OTWARTE: [PrefermentType, string][] = [
-  ['pate_fermentee', 'defaultHydration'],
-  ['pate_fermentee', 'yeastPctOfPrefermentFlour'],
-  ['pate_fermentee', 'saltPctOfPrefermentFlour'],
-];
+const OTWARTE: [PrefermentType, string][] = [];
 
 const HEALTH_PL = /lekkostrawn|ciężkoś|trawien|wzdęci|żołąd|glikem/i;
 const HEALTH_EN = /digestib|digestab|predigest|bloat|stomach|\bgut\b|glycaem|glycem/i;
@@ -87,12 +86,12 @@ describe('131: liczby zaczynów pokazane użytkownikowi mają twierdzenie (docs/
     expect(PREFERMENT_DEFINITIONS[typ][pole]).toBe(wartosc);
   });
 
-  it('każdy niezerowy parametr obliczeń zaczynów z menu ma twierdzenie albo jest jawnie otwarty (ZAC-PAT-900)', () => {
+  it('każdy niezerowy parametr obliczeń zaczynów z menu ma twierdzenie (ZAC-PAT-900 wycofane)', () => {
     const POLA_LICZB = ['defaultHydration', 'yeastPctOfPrefermentFlour', 'saltPctOfPrefermentFlour'] as const;
     const znane = new Set([...PARAMETRY.map(([a, b]) => `${a}.${b}`), ...OTWARTE.map(([a, b]) => `${a}.${b}`), 'levain.defaultHydration']);
     const nieopisane = POKAZANE.flatMap((typ) => POLA_LICZB.filter((p) => PREFERMENT_DEFINITIONS[typ][p] !== 0).map((p) => `${typ}.${p}`)).filter((k) => !znane.has(k));
     expect(nieopisane).toEqual([]);
-    expect(wg('ZAC-PAT-900')?.status).toBe('otwarte');
+    expect(wg('ZAC-PAT-900')?.status).toBe('wycofane');
   });
 
   it('levain: hydratacja zaczynu z ustawienia zakwasu, nie stałe 100% (defaultHydration nie jest pokazywane)', () => {

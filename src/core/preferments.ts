@@ -54,11 +54,12 @@ export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition
   pate_fermentee: {
     type: 'pate_fermentee',
     namePl: 'Pâte Fermentée (Stare ciasto)',
-    defaultHydration: 65.0,
+    // Przykład BBGA (ZAC-PAT-002), wybór właściciela 2026-10-21 [M1-audytor-generalny-131]
+    defaultHydration: 75.0,
     defaultPrefermentFlourPct: 25.0,
     fermentationTimeHours:
       'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce',
-    yeastPctOfPrefermentFlour: 0.5,
+    yeastPctOfPrefermentFlour: 1.0,
     saltPctOfPrefermentFlour: 2.0,
     flavorProfilePl: 'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.',
   },
