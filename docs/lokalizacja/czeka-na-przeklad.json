@@ -358,6 +358,11 @@
       "jezyki": [
         "hr"
       ]
+    },
+    {
+      "klucz": "Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.",
+      "powod": "nowy tekst integracji p15 (audyt niezależny E-3: krok studzenia ze źródłem KRO-POC-015 zamiast wycofanego zdania o 2 h żelowania); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

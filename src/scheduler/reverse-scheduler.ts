@@ -194,7 +194,10 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     durationMinutes: 120, // 2h
     isPassive: true,
     canStretch: false,
-    instructionsPl: 'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.',
+    // zdanie z KRO-POC-015 zamiast wycofanego „minimum 2 godziny … żelowania”; stary klucz zostaje w słowniku EN
+    // dla wypieków zapisanych przed zmianą. durationMinutes bez źródła (KRO-POC-011) — rola 06 [audyt-niezalezny E-3]
+    instructionsPl:
+      'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.',
   },
 ];
 

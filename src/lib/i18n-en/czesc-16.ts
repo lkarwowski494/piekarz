@@ -81,4 +81,7 @@ export const EN_16: Record<string, string> = {
   'Zakup czeka na zatwierdzenie': 'Purchase awaiting approval',
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.':
     'Once the purchase is approved, Baker Pro will turn on by itself. No need to buy again.',
+  // Krok „Studzenie na kratce” ze źródłem KRO-POC-015 [audyt-niezalezny E-3]
+  'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.':
+    'Move the loaf to a wire rack. According to King Arthur Baking, bread keeps releasing moisture as it cools and the crumb needs that time to set; sliced too early it can be gummy.',
 };
