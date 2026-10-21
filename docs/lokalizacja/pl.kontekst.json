@@ -7749,9 +7749,7 @@
     ]
   },
   "Zmień język na {nazwa}": {
-    "gdzie": [
-      "src/components/settings/PreferencesSection.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Zmień parametry swojego zakwasu": {
     "gdzie": [

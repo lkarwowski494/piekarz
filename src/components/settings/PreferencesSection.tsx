@@ -26,7 +26,9 @@ export function PreferencesSection({
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>{t('Język')}</Text>
         {/* 35 języków w wydaniu (rejestr, przekład 093): siatka przycisków w stylu dotychczasowych dwóch; nazwa języka
-            w nim samym, wymowa VoiceOver w tym języku (LOK-12). Docelowy wzór listy: rola 04 [M1-audytor-generalny-093] */}
+            w nim samym, wymowa VoiceOver w tym języku (LOK-12). Docelowy wzór listy: rola 04 [M1-audytor-generalny-093].
+            Etykieta to sama nazwa: `accessibilityLanguage` obejmuje etykietę i podpowiedź, więc zdanie w języku
+            interfejsu byłoby czytane głosem języka przycisku; rolę i stan wybrania czyta system [M1-audytor-generalny-170] */}
         <View style={styles.langGrid}>
           {JEZYKI.map(({ code, name }) => {
             const wybrany = currentLang === code;
@@ -35,7 +37,7 @@ export function PreferencesSection({
                 key={code}
                 accessibilityRole="button"
                 accessibilityState={{ selected: wybrany }}
-                accessibilityLabel={t('Zmień język na {nazwa}', { nazwa: name })}
+                accessibilityLabel={name}
                 accessibilityLanguage={code}
                 testID={`lang-${code}`}
                 style={[styles.langBtn, styles.langBtnSiatka, wybrany && styles.langBtnActive]}
