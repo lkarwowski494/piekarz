@@ -14,7 +14,7 @@ import { czasTrwania } from '../../lib/czas-trwania';
 
 const NOW = new Date(2026, 9, 25, 9, 0).getTime();
 
-async function teksty(lang: string, lastFedAt: number) {
+async function teksty(lang: Parameters<typeof setLang>[0], lastFedAt: number) {
   setLang(lang);
   const p = predictStarterPeak({ lastFedAt, now: NOW, currentTempC: 22 });
   let tree: renderer.ReactTestRenderer | null = null;
