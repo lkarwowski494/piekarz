@@ -10,6 +10,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { LADOWANIE_SLOWNIKOW } from '../src/lib/i18n-slowniki';
+import { EN } from '../src/lib/i18n.en';
 
 const root = path.join(__dirname, '..');
 
@@ -32,7 +33,8 @@ describe('błędy MT (F-7)', () => {
     expect(Object.values(hr).filter((v) => /(^|[^\p{L}])[Vv]am([^\p{L}]|$)/u.test(v))).toEqual([]);
     const czeka = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8')).klucze as Array<{ klucz: string; jezyki?: string[] }>;
     const doHr = new Set(czeka.filter((x) => x.jezyki?.includes('hr')).map((x) => x.klucz));
-    const vi = Object.entries(hr).filter(([k, v]) => !k.includes('#') && /(^|[^\p{L}])(Dodajte|Smanjite|Povećajte|Produljite|Možete|Skratite)([^\p{L}]|$)/u.test(v));
+    // Tylko klucze używane (w słowniku EN); sieroty po zmianie tekstu PL nie idą do przekładu.
+    const vi = Object.entries(hr).filter(([k, v]) => !k.includes('#') && k in EN && /(^|[^\p{L}])(Dodajte|Smanjite|Povećajte|Produljite|Možete|Skratite)([^\p{L}]|$)/u.test(v));
     expect(vi.length).toBeGreaterThan(0);
     expect(vi.filter(([k]) => !doHr.has(k)).map(([k]) => k)).toEqual([]);
   });
