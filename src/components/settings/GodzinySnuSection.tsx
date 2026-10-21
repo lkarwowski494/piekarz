@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
-  sectionTitle: { fontSize: 16, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
+  sectionTitle: { fontFamily: theme.typography.krojTytulow, fontSize: 16, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
   opis: { fontSize: 13, color: theme.colors.tusz2, marginBottom: 10 },
   lista: { gap: 8 },
   opcja: {

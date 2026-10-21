@@ -160,7 +160,9 @@ describe('EN: główny przepływ bez polskich tekstów (047)', () => {
     });
     const tree = await render(<ZakwasScreen />);
     const text = textOf(tree.toJSON());
-    expect(tree.root.findAll((n) => n.props?.testID === 'peak-prediction-box').length).toBeGreaterThan(0);
+    // 130 (BR-ZAKW-003): zakwas na blacie bez okna szczytu (OP-39); karta aktywności z fazą i temperaturą zostaje
+    expect(tree.root.findAll((n) => n.props?.testID === 'peak-activity-card').length).toBeGreaterThan(0);
+    expect(tree.root.findAll((n) => n.props?.testID === 'temp-chip-22').length).toBeGreaterThan(0);
     expect(polishWords(text)).toEqual([]);
     act(() => tree.unmount());
   });

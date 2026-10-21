@@ -68,9 +68,8 @@ export function StarterFeedingCard({
       />
       {zZostawionego ? (
         <View testID="zostawiam-wynik" style={styles.zostawiamWynik}>
-          <Text style={styles.feedingItemLabel}>
-            {t('Mąka')}: {formatWeight(zZostawionego.makaG, unitSystem)} · {t('Woda')}: {formatWeight(zZostawionego.wodaG, unitSystem)}
-          </Text>
+          <Text style={styles.feedingItemLabel}>{t('Mąka')}: {formatWeight(zZostawionego.makaG, unitSystem)}</Text>
+          <Text style={styles.feedingItemLabel}>{t('Woda')}: {formatWeight(zZostawionego.wodaG, unitSystem)}</Text>
           <Text style={styles.feedingItemLabel}>{t('Hydratacja zakwasu {n}%', { n: zZostawionego.hydratacjaPct })}</Text>
         </View>
       ) : (
