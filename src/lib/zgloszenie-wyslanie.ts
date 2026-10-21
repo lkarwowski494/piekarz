@@ -29,12 +29,10 @@ function wersjaIos(): string | null {
 export async function napiszDoAutora(): Promise<void> {
   const adres = SUPPORT_EMAIL;
   if (!czyAdresWsparcia(adres)) return;
-  // Model telefonu wymaga nowej zależności (expo-device); bez niej wiersz „Telefon” się pomija (K02).
   const { temat, tresc } = trescZgloszenia({
     wersja: Constants.expoConfig?.version ?? null,
     build: Constants.expoConfig?.ios?.buildNumber ?? null,
     systemIos: wersjaIos(),
-    model: null,
     jezyk: lang(),
   });
   let dostepna: boolean;

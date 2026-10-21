@@ -207,7 +207,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Taze, sade buğday tadı; gelişmiş asitlik yok.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (Haşlanmış un 1:5, 65°C\'de)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Bu dosyayı tanımıyorum. Fırıncı, tarif dosyalarını ve Fırıncı\'ta oluşturulan yedek dosyalarını içe aktarır.',
-  'Telefon: {model}': 'Telefon: {model}',
   'Temp': 'Sıcaklık',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT sıcaklığı 10–40°C aralığında olmalıdır',
   'Temperatura docelowa:': 'Hedef sıcaklık:',

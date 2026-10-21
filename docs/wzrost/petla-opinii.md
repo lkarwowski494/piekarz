@@ -110,13 +110,13 @@ Wiersz pokazuje się tylko wtedy, gdy wartość jest adresem e-mail (`/^[^\s@\[\
 
 Plik: `src/lib/zgloszenie.ts` (bez importów z React Native):
 ```ts
-export interface DaneZgloszenia { wersja: string | null; build: string | null; systemIos: string | null; model: string | null; jezyk: 'pl' | 'en' }
+export interface DaneZgloszenia { wersja: string | null; build: string | null; systemIos: string | null; jezyk: 'pl' | 'en' }
 export function trescZgloszenia(d: DaneZgloszenia): { temat: string; tresc: string };
 ```
 - Temat: `<nazwa aplikacji w języku, t('Piekarz'): Piekarz / Baker, D-053> <wersja> — <tekst 04>`; bez wersji bez numeru (K04).
-- Treść: zdanie zachęty do opisu (04), dwie puste linie na tekst użytkownika, separator `---`, potem `Wersja aplikacji: <wersja> (<build>)`, `iOS: <wersja systemu>` i `Telefon: <model>` tylko, gdy model jest znany (K02). Brakujące pola: „nieznana”, nigdy `null`/`undefined` (K03, K04).
+- Treść: zdanie zachęty do opisu (04), dwie puste linie na tekst użytkownika, separator `---`, potem `Wersja aplikacji: <wersja> (<build>)`, `iOS: <wersja systemu>`; bez wiersza modelu telefonu (D-066 5a, K02). Brakujące pola: „nieznana”, nigdy `null`/`undefined` (K03, K04).
 - **Bez danych osobowych i bez treści użytkownika:** żadnych receptur, notatek, historii, identyfikatorów wypieków, adresów ani identyfikatora urządzenia. Użytkownik sam dopisuje, co chce, i widzi całość przed wysłaniem. Dziennik techniczny tylko według NIE-09 (rola 12), osobną decyzją.
-- Źródła pól: `Constants.expoConfig?.version` i `Constants.expoConfig?.ios?.buildNumber` (`expo-constants`, już w zależnościach), `Platform.Version` (iOS). Model telefonu (BR-OPIN-003 go wymienia) wymaga nowej zależności, np. `expo-device`; jej API i licencję 08 sprawdza w dniu wdrożenia `[DO USTALENIA]`; bez niej wiersz „Telefon” się pomija (K02), a 08 zapisuje ER dla roli 01.
+- Źródła pól: `Constants.expoConfig?.version` i `Constants.expoConfig?.ios?.buildNumber` (`expo-constants`, już w zależnościach), `Platform.Version` (iOS). Modelu telefonu (BR-OPIN-003 go wymienia) nie zbieramy (D-066 5a): pole i wiersz „Telefon” usunięte bez nowej zależności [M2-koordynator-napraw-634 (p12c)].
 - Wektory: `docs/wzrost/wektory-kontakt.json` (K01–K04 dla funkcji, KM01–KM05 dla miejsca wywołania); sprawdzone na implementacji referencyjnej roli 11 (4/4). Test 08: `src/lib/__tests__/zgloszenie.test.ts`, czerwony przed dodaniem modułu.
 
 ### 2.4 Miejsce wywołania

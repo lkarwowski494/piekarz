@@ -4,7 +4,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Svaiga, vienkārša kviešu garša bez izteikta skābuma.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (Applaucēti milti 1:5, 65 °C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Šo failu neatpazīstu. Maiznieks importē receptūras failus un Maiznieks rezerves kopiju failus.',
-  'Telefon: {model}': 'Tālrunis: {model}',
   'Temp': 'Temp.',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT temperatūrai jābūt robežās 10–40 °C',
   'Temperatura docelowa:': 'Mērķa temperatūra:',

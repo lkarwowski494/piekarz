@@ -176,7 +176,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': '新鮮、單純的小麥風味，沒有明顯的酸味。',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong（湯種，麵粉加水 1:5，65°C）',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': '我無法辨識這個檔案。麵包師傅 可匯入由 麵包師傅 製作的配方檔與備份檔。',
-  'Telefon: {model}': '手機：{model}',
   'Temp': '溫度',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': '目標麵溫（DDT）必須介於 10–40°C',
   'Temperatura docelowa:': '目標溫度：',

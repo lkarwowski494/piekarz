@@ -74,7 +74,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Φρέσκια, απλή γεύση σίτου χωρίς ανεπτυγμένη οξύτητα.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (Ζεματισμένο αλεύρι 1:5 στους 65°C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Δεν αναγνωρίζω αυτό το αρχείο. Το Αρτοποιός εισάγει αρχεία συνταγών και αρχεία αντιγράφων ασφαλείας από το Αρτοποιός.',
-  'Telefon: {model}': 'Τηλέφωνο: {model}',
   'Temp': 'Θερμ.',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'Η θερμοκρασία DDT πρέπει να είναι στο εύρος 10–40°C',
   'Temperatura docelowa:': 'Θερμοκρασία-στόχος:',

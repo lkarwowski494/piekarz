@@ -5686,11 +5686,6 @@
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
   },
-  "Telefon: {model}": {
-    "gdzie": [
-      "src/lib/zgloszenie.ts (kod)"
-    ]
-  },
   "Temp": {
     "gdzie": []
   },

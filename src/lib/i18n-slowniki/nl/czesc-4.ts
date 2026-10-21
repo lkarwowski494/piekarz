@@ -200,7 +200,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Frisse, eenvoudige tarwesmaak zonder uitgesproken zuurheid.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (gegaard meel 1:5 bij 65 °C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Dit bestand herken ik niet. Bakker importeert receptbestanden en back-upbestanden uit Bakker.',
-  'Telefon: {model}': 'Telefoon: {model}',
   'Temp': 'Temp',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT-temperatuur moet tussen 10–40°C liggen',
   'Temperatura docelowa:': 'Doeltemperatuur:',

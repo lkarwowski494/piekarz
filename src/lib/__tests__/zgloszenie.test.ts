@@ -44,6 +44,17 @@ describe('trescZgloszenia: wektory K01–K04', () => {
   });
 });
 
+describe('bez pola modelu telefonu (D-066 5a) [M2-koordynator-napraw-634 (p12c)]', () => {
+  it('DaneZgloszenia i wywołanie nie mają pola modelu; treść bez wiersza telefonu', () => {
+    for (const f of ['../zgloszenie.ts', '../zgloszenie-wyslanie.ts']) {
+      expect(readFileSync(join(__dirname, f), 'utf8')).not.toMatch(/\bmodel\b/);
+    }
+    for (const w of plik.wektory) expect(Object.keys(w.we)).not.toContain('model');
+    const { tresc } = trescZgloszenia(plik.wektory[0].we);
+    expect(tresc).not.toContain('Telefon');
+  });
+});
+
 describe('czyAdresWsparcia: wiersz tylko przy adresie e-mail (KM01)', () => {
   it('znacznik [DO USTALENIA] nie jest adresem; SUPPORT_EMAIL (od 2026-10-20) jest', () => {
     expect(czyAdresWsparcia('[DO USTALENIA: adres wsparcia od właściciela]')).toBe(false);

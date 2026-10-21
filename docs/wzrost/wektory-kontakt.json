@@ -4,17 +4,17 @@
     {
       "id": "K01",
       "stan": "pełne dane, język PL",
-      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "model": "iPhone 15", "jezyk": "pl" },
+      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "jezyk": "pl" },
       "oczekiwane": {
         "temat": "Piekarz 1.0.0 — wiadomość do autora",
-        "tresc_zawiera": ["Wersja aplikacji: 1.0.0 (1014)", "iOS: 18.6", "Telefon: iPhone 15"],
+        "tresc_zawiera": ["Wersja aplikacji: 1.0.0 (1014)", "iOS: 18.6"],
         "tresc_nie_zawiera": ["@", "http", "bake_", "receptur"]
       }
     },
     {
       "id": "K02",
-      "stan": "brak modelu (bez expo-device): wiersz telefonu pominięty, nie pusty",
-      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "model": null, "jezyk": "pl" },
+      "stan": "modelu telefonu nie zbieramy (D-066 5a): treść bez wiersza telefonu",
+      "we": { "wersja": "1.0.0", "build": "1014", "systemIos": "18.6", "jezyk": "pl" },
       "oczekiwane": {
         "temat": "Piekarz 1.0.0 — wiadomość do autora",
         "tresc_zawiera": ["Wersja aplikacji: 1.0.0 (1014)", "iOS: 18.6"],
@@ -24,7 +24,7 @@
     {
       "id": "K03",
       "stan": "brak numeru buildu: wersja bez nawiasu",
-      "we": { "wersja": "1.0.0", "build": null, "systemIos": "18.6", "model": null, "jezyk": "en" },
+      "we": { "wersja": "1.0.0", "build": null, "systemIos": "18.6", "jezyk": "en" },
       "oczekiwane": {
         "temat": "Baker 1.0.0 — message to the developer",
         "tresc_zawiera": ["App version: 1.0.0", "iOS: 18.6"],
@@ -34,7 +34,7 @@
     {
       "id": "K04",
       "stan": "brak wersji (dane uszkodzone): temat bez numeru, treść z „nieznana”",
-      "we": { "wersja": null, "build": null, "systemIos": "18.6", "model": null, "jezyk": "pl" },
+      "we": { "wersja": null, "build": null, "systemIos": "18.6", "jezyk": "pl" },
       "oczekiwane": {
         "temat": "Piekarz — wiadomość do autora",
         "tresc_zawiera": ["Wersja aplikacji: nieznana", "iOS: 18.6"],

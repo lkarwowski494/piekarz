@@ -34,7 +34,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Свіжий, простий пшеничний смак без розвиненої кислотності.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Танчжун (заварене борошно 1:5 при 65 °C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Не розпізнаю цей файл. Пекар імпортує файли рецептур і файли резервних копій, створені в Пекар.',
-  'Telefon: {model}': 'Телефон: {model}',
   'Temp': 'Темп.',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'Температура DDT має бути в межах 10–40 °C',
   'Temperatura docelowa:': 'Цільова температура:',

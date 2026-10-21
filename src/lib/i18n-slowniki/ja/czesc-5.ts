@@ -73,7 +73,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': '酸味の発達していない、フレッシュでシンプルな小麦の風味。',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'タンジョン (粉を1:5で65°Cに加熱)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'このファイルは認識できません。パン職人 でインポートできるのは、パン職人 で作成した配合ファイルとバックアップファイルです。',
-  'Telefon: {model}': '端末：{model}',
   'Temp': '温度',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDTは10–40°Cの範囲で指定してください',
   'Temperatura docelowa:': '目標温度：',

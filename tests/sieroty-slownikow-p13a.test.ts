@@ -54,6 +54,8 @@ const SIEROTY: Array<[string, string]> = [
   ['Wyczyść wyszukiwanie', '633 (p12c)'],
   // [M2-koordynator-napraw-402 (p12d)]: po 179 zakwas w lodówce ma jedno przypomnienie (D-068)
   ['Zakwas „{name}” czeka na karmienie od 6 dni.', '402 (p12d)'],
+  // [M2-koordynator-napraw-634 (p12c)]: model telefonu nie jest zbierany (D-066 5a), wiersz „Telefon” usunięty
+  ['Telefon: {model}', '634 (p12c)'],
 ];
 
 describe('słowniki bez osieroconych kluczy (p13a)', () => {

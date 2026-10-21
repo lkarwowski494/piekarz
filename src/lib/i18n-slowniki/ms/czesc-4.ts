@@ -212,5 +212,4 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Rasa gandum yang segar dan ringkas tanpa keasidan yang berkembang.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (Tepung masak 1:5 pada 65°C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Saya tidak mengenali fail ini. Tukang Roti mengimport fail resipi dan fail sandaran daripada Tukang Roti.',
-  'Telefon: {model}': 'Telefon: {model}',
 };

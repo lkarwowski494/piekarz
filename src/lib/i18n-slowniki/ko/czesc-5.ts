@@ -25,7 +25,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': '산미가 발달하지 않은 신선하고 깔끔한 밀 맛.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': '탕종 (65°C에서 가루 1:5 호화)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': '인식할 수 없는 파일이에요. 제빵사는 제빵사에서 만든 배합표 파일과 백업 파일을 가져올 수 있어요.',
-  'Telefon: {model}': '휴대폰: {model}',
   'Temp': '온도',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT 온도는 10–40°C 범위여야 해요',
   'Temperatura docelowa:': '목표 온도:',

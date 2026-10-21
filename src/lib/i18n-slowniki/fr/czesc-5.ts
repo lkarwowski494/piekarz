@@ -35,7 +35,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Saveur de blé fraîche et simple, sans acidité développée.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (farine échaudée 1:5 à 65 °C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Je ne reconnais pas ce fichier. Mitron importe les fichiers de recette et les fichiers de sauvegarde créés dans Mitron.',
-  'Telefon: {model}': 'Téléphone : {model}',
   'Temp': 'Temp.',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'La température de pâte désirée (DDT) doit être comprise dans la plage 10–40 °C',
   'Temperatura docelowa:': 'Température cible :',

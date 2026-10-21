@@ -38,7 +38,7 @@ describe('Nazwa aplikacji D-053', () => {
   });
 
   it('temat wiadomości do autora bez „(Crust)”', () => {
-    const d = { wersja: '1.0.0', build: null, systemIos: null, model: null } as const;
+    const d = { wersja: '1.0.0', build: null, systemIos: null } as const;
     expect(trescZgloszenia({ ...d, jezyk: 'pl' }).temat).toBe('Piekarz 1.0.0 — wiadomość do autora');
     setLang('en');
     expect(trescZgloszenia({ ...d, jezyk: 'en' }).temat).toMatch(/^Baker 1\.0\.0 — /);

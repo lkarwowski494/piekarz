@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Vị lúa mì tươi, đơn giản, chưa có độ chua.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (Bột hồ hóa 1:5 ở 65°C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Tôi không nhận ra tệp này. Thợ Bánh Mì nhập tệp công thức và tệp sao lưu tạo từ Thợ Bánh Mì.',
-  'Telefon: {model}': 'Điện thoại: {model}',
   'Temp': 'Nhiệt độ',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'Nhiệt độ DDT phải nằm trong khoảng 10–40°C',
   'Temperatura docelowa:': 'Nhiệt độ mục tiêu:',
