@@ -31,13 +31,18 @@ Cheiro desagradável, de podre [T:-]
 Descarte o fermento natural [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Não use este fermento natural nem tente salvá-lo. O mofo pode penetrar fundo no fermento, mesmo quando na superfície se vê apenas uma pequena película. Não cheire o fermento com película, pois isso pode causar problemas respiratórios. Antes de começar um novo fermento natural, lave e enxágue bem o pote. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Não use este fermento natural nem tente salvá-lo. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+O mofo pode penetrar fundo no fermento, mesmo quando na superfície se vê apenas uma pequena película. [T:ZAK-PLE-003]
+Não cheire o fermento com película, pois isso pode causar problemas respiratórios. [T:ZAK-WAC-001]
+Antes de começar um novo fermento natural, lave e enxágue bem o pote. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Líquido na superfície (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Segundo a CSU Extension, uma camada de líquido com cheiro de álcool não é problema: é um subproduto da fermentação das leveduras. Você pode descartá-la ou misturá-la. Se também vir película ou alteração de cor, ou sentir cheiro de podre, marque isso acima. [T:ZAK-HOO-001,-]
+Segundo a CSU Extension, uma camada de líquido com cheiro de álcool não é problema: é um subproduto da fermentação das leveduras. [T:ZAK-HOO-001]
+Você pode descartá-la ou misturá-la. [T:ZAK-HOO-001]
+Se também vir película ou alteração de cor, ou sentir cheiro de podre, marque isso acima. [T:-]
 
 ## wynik.no_observation.titlePl
 Nenhum sintoma marcado [T:-]

@@ -31,13 +31,18 @@ Bau busuk yang tidak menyenangkan [T:-]
 Buang pemula sourdough [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Jangan gunakan pemula sourdough ini dan jangan cuba menyelamatkannya. Kulapuk boleh merebak jauh ke dalam pemula sourdough, walaupun di permukaan hanya kelihatan sedikit selaput. Jangan hidu pemula sourdough yang berselaput kerana ia boleh menyebabkan masalah pernafasan. Sebelum memulakan pemula sourdough baharu, basuh dan bilas balang dengan teliti. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Jangan gunakan pemula sourdough ini dan jangan cuba menyelamatkannya. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Kulapuk boleh merebak jauh ke dalam pemula sourdough, walaupun di permukaan hanya kelihatan sedikit selaput. [T:ZAK-PLE-003]
+Jangan hidu pemula sourdough yang berselaput kerana ia boleh menyebabkan masalah pernafasan. [T:ZAK-WAC-001]
+Sebelum memulakan pemula sourdough baharu, basuh dan bilas balang dengan teliti. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Cecair di permukaan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Menurut CSU Extension, lapisan cecair yang berbau alkohol tidak mengapa: ia hasil sampingan penapaian yis. Anda boleh menuangnya keluar atau mengacaunya ke dalam. Jika anda juga melihat selaput atau perubahan warna, atau terhidu bau busuk, tandakan perkara itu di atas. [T:ZAK-HOO-001,-]
+Menurut CSU Extension, lapisan cecair yang berbau alkohol tidak mengapa: ia hasil sampingan penapaian yis. [T:ZAK-HOO-001]
+Anda boleh menuangnya keluar atau mengacaunya ke dalam. [T:ZAK-HOO-001]
+Jika anda juga melihat selaput atau perubahan warna, atau terhidu bau busuk, tandakan perkara itu di atas. [T:-]
 
 ## wynik.no_observation.titlePl
 Tiada gejala ditandakan [T:-]

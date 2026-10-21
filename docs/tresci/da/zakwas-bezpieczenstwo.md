@@ -31,13 +31,18 @@ Ubehagelig, rådden lugt [T:-]
 Smid surdejen ud [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Brug ikke denne surdej, og forsøg ikke at redde den. Skimmel kan trænge dybt ind i surdejen, selv om der kun ses en lille belægning på overfladen. Lugt ikke til surdej med belægning, da det kan give vejrtrækningsproblemer. Vask og skyl glasset grundigt, før du starter en ny surdej. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Brug ikke denne surdej, og forsøg ikke at redde den. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Skimmel kan trænge dybt ind i surdejen, selv om der kun ses en lille belægning på overfladen. [T:ZAK-PLE-003]
+Lugt ikke til surdej med belægning, da det kan give vejrtrækningsproblemer. [T:ZAK-WAC-001]
+Vask og skyl glasset grundigt, før du starter en ny surdej. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Væske på overfladen (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Ifølge CSU Extension er et lag væske, der lugter af alkohol, i orden: det er et biprodukt af gærens fermentering. Du kan hælde det fra eller røre det i. Hvis du også ser belægning eller misfarvning eller lugter en rådden lugt, så markér det ovenfor. [T:ZAK-HOO-001,-]
+Ifølge CSU Extension er et lag væske, der lugter af alkohol, i orden: det er et biprodukt af gærens fermentering. [T:ZAK-HOO-001]
+Du kan hælde det fra eller røre det i. [T:ZAK-HOO-001]
+Hvis du også ser belægning eller misfarvning eller lugter en rådden lugt, så markér det ovenfor. [T:-]
 
 ## wynik.no_observation.titlePl
 Ingen symptomer markeret [T:-]

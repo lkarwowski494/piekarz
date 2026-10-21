@@ -31,13 +31,18 @@ Odeur désagréable, de pourriture [T:-]
 Jetez le levain naturel [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-N'utilisez pas ce levain naturel et n'essayez pas de le sauver. La moisissure peut s'étendre en profondeur dans le levain, même si seule une légère pellicule est visible en surface. Ne sentez pas un levain présentant une pellicule, car cela peut provoquer des problèmes respiratoires. Avant de démarrer un nouveau levain naturel, lavez et rincez soigneusement le bocal. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+N'utilisez pas ce levain naturel et n'essayez pas de le sauver. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+La moisissure peut s'étendre en profondeur dans le levain, même si seule une légère pellicule est visible en surface. [T:ZAK-PLE-003]
+Ne sentez pas un levain présentant une pellicule, car cela peut provoquer des problèmes respiratoires. [T:ZAK-WAC-001]
+Avant de démarrer un nouveau levain naturel, lavez et rincez soigneusement le bocal. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Liquide en surface (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Selon CSU Extension, une couche de liquide à l'odeur d'alcool est sans problème : c'est un sous-produit de la fermentation des levures. Vous pouvez la vider ou la mélanger. Si vous voyez aussi une pellicule ou une décoloration, ou si vous sentez une odeur de pourri, cochez-le ci-dessus. [T:ZAK-HOO-001,-]
+Selon CSU Extension, une couche de liquide à l'odeur d'alcool est sans problème : c'est un sous-produit de la fermentation des levures. [T:ZAK-HOO-001]
+Vous pouvez la vider ou la mélanger. [T:ZAK-HOO-001]
+Si vous voyez aussi une pellicule ou une décoloration, ou si vous sentez une odeur de pourri, cochez-le ci-dessus. [T:-]
 
 ## wynik.no_observation.titlePl
 Aucun symptôme coché [T:-]

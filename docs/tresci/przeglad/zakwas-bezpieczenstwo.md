@@ -32,3 +32,11 @@ Skróty wersji zdań (`node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json
 | `docs/tresci/pl/zakwas-bezpieczenstwo.md:45` „Możesz ją zlać albo wmieszać.” | ZAK-HOO-001 | CSU: "can either be poured off or stirred in" | | akceptuję (właściciel, 2026-10-20) |
 
 Zdania EN o tych samych ID: `docs/tresci/en/zakwas-bezpieczenstwo.md` (te same nagłówki pól); recenzent sprawdza, czy EN mówi to samo co PL.
+
+## Tłumaczenia w 33 językach (stan 2026-10-21, M1-audytor-generalny-135, 06-tresci-501)
+
+Status: **nieprzejrzane przez człowieka** (DEC-06: przegląd natywny później; zamiast niego tłumaczenie zwrotne, `docs/lokalizacja/jezyki.md`). Przegląd wyżej dotyczy tylko zdań PL i EN.
+
+- Znaczniki: od 2026-10-21 każde zdanie pliku `docs/tresci/<kod>/zakwas-bezpieczenstwo.md` ma znacznik linii PL o tym samym numerze (`scripts/znaczniki-zdan.mjs`, także w `scripts/wepnij-przeklad.mjs`), gdy przekład sekcji dzieli się na tyle zdań co PL. Przypisanie idzie po kolejności zdań; sensu zdań nikt nie sprawdził.
+- Kontrola mechaniczna `--przed-przegladem`: kod 0 w 30 językach. Wyjątek nazwany: `ja`, `ko`, `zh-Hant` — sekcja `wynik.hooch.actionPl` zostaje akapitem ze znacznikiem `[T:ZAK-HOO-001,-]` (ja, zh-Hant: zdania bez spacji po „。”; ko: pierwsze zdanie PL przełożone jako dwa). Rozstrzyga rola 06 z osobą znającą język (`tests/tresci-tlumaczen-135.test.ts`).
+- Przegląd człowieka per język (krok właściciela): skróty zdań języka `node scripts/kontrole-tresci.mjs docs/tresci/rejestr.json docs/tresci/<kod>/zakwas-bezpieczenstwo.md --skroty`; recenzent znający język porównuje każde zdanie z PL obok i z cytatem źródła, a wpis przeglądu z `sha` per język dodaje rola 06 dopiero po jego odpowiedzi. Do tego czasu kontrola bez `--przed-przegladem` na plikach języków kończy się kodem 1 (oczekiwane).

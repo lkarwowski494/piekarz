@@ -31,13 +31,18 @@ Unangenehmer, fauliger Geruch [T:-]
 Sauerteig wegwerfen [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Verwende diesen Sauerteig nicht und versuche nicht, ihn zu retten. Schimmel kann tief in den Sauerteig reichen, auch wenn an der Oberfläche nur ein kleiner Belag zu sehen ist. Riech nicht an Sauerteig mit Belag, denn das kann Atembeschwerden auslösen. Wasche und spüle das Glas gründlich aus, bevor du einen neuen Sauerteig ansetzt. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Verwende diesen Sauerteig nicht und versuche nicht, ihn zu retten. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Schimmel kann tief in den Sauerteig reichen, auch wenn an der Oberfläche nur ein kleiner Belag zu sehen ist. [T:ZAK-PLE-003]
+Riech nicht an Sauerteig mit Belag, denn das kann Atembeschwerden auslösen. [T:ZAK-WAC-001]
+Wasche und spüle das Glas gründlich aus, bevor du einen neuen Sauerteig ansetzt. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Flüssigkeit an der Oberfläche (Hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Laut CSU Extension ist eine Flüssigkeitsschicht mit Alkoholgeruch in Ordnung: Sie ist ein Nebenprodukt der Hefegärung. Du kannst sie abgießen oder unterrühren. Wenn du außerdem einen Belag oder eine Verfärbung siehst oder einen fauligen Geruch wahrnimmst, markiere das oben. [T:ZAK-HOO-001,-]
+Laut CSU Extension ist eine Flüssigkeitsschicht mit Alkoholgeruch in Ordnung: Sie ist ein Nebenprodukt der Hefegärung. [T:ZAK-HOO-001]
+Du kannst sie abgießen oder unterrühren. [T:ZAK-HOO-001]
+Wenn du außerdem einen Belag oder eine Verfärbung siehst oder einen fauligen Geruch wahrnimmst, markiere das oben. [T:-]
 
 ## wynik.no_observation.titlePl
 Kein Merkmal markiert [T:-]

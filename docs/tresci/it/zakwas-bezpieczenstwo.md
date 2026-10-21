@@ -31,13 +31,18 @@ Odore sgradevole, di marcio [T:-]
 Butta il lievito madre [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Non usare questo lievito madre e non cercare di salvarlo. La muffa può penetrare in profondità nel lievito madre, anche quando in superficie si vede solo una piccola patina. Non annusare il lievito madre con la patina, perché può causare problemi respiratori. Prima di avviare un nuovo lievito madre, lava e risciacqua accuratamente il barattolo. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Non usare questo lievito madre e non cercare di salvarlo. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+La muffa può penetrare in profondità nel lievito madre, anche quando in superficie si vede solo una piccola patina. [T:ZAK-PLE-003]
+Non annusare il lievito madre con la patina, perché può causare problemi respiratori. [T:ZAK-WAC-001]
+Prima di avviare un nuovo lievito madre, lava e risciacqua accuratamente il barattolo. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Liquido in superficie (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Secondo CSU Extension, uno strato di liquido con odore di alcol va bene: è un sottoprodotto della fermentazione dei lieviti. Puoi scolarlo o incorporarlo mescolando. Se vedi anche una patina o un'alterazione di colore, oppure senti odore di marcio, segnalalo qui sopra. [T:ZAK-HOO-001,-]
+Secondo CSU Extension, uno strato di liquido con odore di alcol va bene: è un sottoprodotto della fermentazione dei lieviti. [T:ZAK-HOO-001]
+Puoi scolarlo o incorporarlo mescolando. [T:ZAK-HOO-001]
+Se vedi anche una patina o un'alterazione di colore, oppure senti odore di marcio, segnalalo qui sopra. [T:-]
 
 ## wynik.no_observation.titlePl
 Nessun sintomo selezionato [T:-]

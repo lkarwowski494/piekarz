@@ -31,13 +31,18 @@ Epämiellyttävä, mätä haju [T:-]
 Heitä hapanjuuri pois [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Älä käytä tätä hapanjuurta äläkä yritä pelastaa sitä. Home voi ulottua syvälle hapanjuureen, vaikka pinnalla näkyisi vain pieni kalvo. Älä haistele hapanjuurta, jossa on kalvo, sillä se voi aiheuttaa hengitysongelmia. Pese ja huuhtele purkki huolellisesti ennen uuden hapanjuuren aloittamista. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Älä käytä tätä hapanjuurta äläkä yritä pelastaa sitä. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Home voi ulottua syvälle hapanjuureen, vaikka pinnalla näkyisi vain pieni kalvo. [T:ZAK-PLE-003]
+Älä haistele hapanjuurta, jossa on kalvo, sillä se voi aiheuttaa hengitysongelmia. [T:ZAK-WAC-001]
+Pese ja huuhtele purkki huolellisesti ennen uuden hapanjuuren aloittamista. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Neste pinnalla (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extensionin mukaan alkoholille tuoksuva nestekerros on kunnossa: se on hiivakäymisen sivutuote. Voit kaataa sen pois tai sekoittaa joukkoon. Jos näet myös kalvoa tai värimuutoksen tai haistat mädän hajun, merkitse se yllä. [T:ZAK-HOO-001,-]
+CSU Extensionin mukaan alkoholille tuoksuva nestekerros on kunnossa: se on hiivakäymisen sivutuote. [T:ZAK-HOO-001]
+Voit kaataa sen pois tai sekoittaa joukkoon. [T:ZAK-HOO-001]
+Jos näet myös kalvoa tai värimuutoksen tai haistat mädän hajun, merkitse se yllä. [T:-]
 
 ## wynik.no_observation.titlePl
 Mitään havaintoa ei ole merkitty [T:-]

@@ -31,13 +31,18 @@ Nepříjemný, hnilobný zápach [T:-]
 Vyhoďte kvásek [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Tento kvásek nepoužívejte a nesnažte se ho zachránit. Plíseň může sahat hluboko do kvásku, i když je na povrchu vidět jen malý povlak. Ke kvásku s povlakem nečichejte, protože to může vyvolat dýchací potíže. Před založením nového kvásku sklenici důkladně umyjte a vypláchněte. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Tento kvásek nepoužívejte a nesnažte se ho zachránit. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Plíseň může sahat hluboko do kvásku, i když je na povrchu vidět jen malý povlak. [T:ZAK-PLE-003]
+Ke kvásku s povlakem nečichejte, protože to může vyvolat dýchací potíže. [T:ZAK-WAC-001]
+Před založením nového kvásku sklenici důkladně umyjte a vypláchněte. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Tekutina na povrchu (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Podle CSU Extension je vrstva tekutiny s pachem alkoholu v pořádku: je to vedlejší produkt kvašení kvasinek. Můžete ji slít, nebo vmíchat. Pokud vidíte také povlak nebo změnu barvy, případně cítíte hnilobný zápach, označte to výše. [T:ZAK-HOO-001,-]
+Podle CSU Extension je vrstva tekutiny s pachem alkoholu v pořádku: je to vedlejší produkt kvašení kvasinek. [T:ZAK-HOO-001]
+Můžete ji slít, nebo vmíchat. [T:ZAK-HOO-001]
+Pokud vidíte také povlak nebo změnu barvy, případně cítíte hnilobný zápach, označte to výše. [T:-]
 
 ## wynik.no_observation.titlePl
 Nebyl označen žádný příznak [T:-]

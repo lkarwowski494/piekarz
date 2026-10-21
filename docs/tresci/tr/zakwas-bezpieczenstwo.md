@@ -31,13 +31,18 @@ Hoş olmayan, çürük koku [T:-]
 Ekşi mayayı atın [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Bu ekşi mayayı kullanmayın ve kurtarmaya çalışmayın. Yüzeyde yalnızca küçük bir tabaka görünse bile küf ekşi mayanın derinliklerine ulaşmış olabilir. Tabaka oluşmuş ekşi mayayı koklamayın; bu, solunum sorunlarına yol açabilir. Yeni bir ekşi maya başlatmadan önce kavanozu iyice yıkayıp durulayın. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Bu ekşi mayayı kullanmayın ve kurtarmaya çalışmayın. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Yüzeyde yalnızca küçük bir tabaka görünse bile küf ekşi mayanın derinliklerine ulaşmış olabilir. [T:ZAK-PLE-003]
+Tabaka oluşmuş ekşi mayayı koklamayın; bu, solunum sorunlarına yol açabilir. [T:ZAK-WAC-001]
+Yeni bir ekşi maya başlatmadan önce kavanozu iyice yıkayıp durulayın. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Yüzeyde sıvı (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extension'a göre alkol kokulu sıvı katmanı sorun değildir: maya fermantasyonunun yan ürünüdür. Dökebilir veya karıştırabilirsiniz. Ayrıca tabaka ya da renk değişimi görüyor veya çürük koku alıyorsanız bunu yukarıda işaretleyin. [T:ZAK-HOO-001,-]
+CSU Extension'a göre alkol kokulu sıvı katmanı sorun değildir: maya fermantasyonunun yan ürünüdür. [T:ZAK-HOO-001]
+Dökebilir veya karıştırabilirsiniz. [T:ZAK-HOO-001]
+Ayrıca tabaka ya da renk değişimi görüyor veya çürük koku alıyorsanız bunu yukarıda işaretleyin. [T:-]
 
 ## wynik.no_observation.titlePl
 Hiçbir belirti işaretlenmedi [T:-]

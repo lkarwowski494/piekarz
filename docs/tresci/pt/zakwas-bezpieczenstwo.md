@@ -31,13 +31,18 @@ Cheiro desagradável, a podre [T:-]
 Deite fora o fermento natural [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Não use este fermento natural nem tente salvá-lo. O bolor pode penetrar no interior do fermento, mesmo que à superfície se veja apenas uma pequena película. Não cheire um fermento com película, porque isso pode causar problemas respiratórios. Antes de iniciar um novo fermento natural, lave e enxague bem o frasco. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Não use este fermento natural nem tente salvá-lo. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+O bolor pode penetrar no interior do fermento, mesmo que à superfície se veja apenas uma pequena película. [T:ZAK-PLE-003]
+Não cheire um fermento com película, porque isso pode causar problemas respiratórios. [T:ZAK-WAC-001]
+Antes de iniciar um novo fermento natural, lave e enxague bem o frasco. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Líquido à superfície (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Segundo a CSU Extension, uma camada de líquido com cheiro a álcool é normal: é um subproduto da fermentação das leveduras. Pode escorrê-la ou incorporá-la. Se também vir uma película ou descoloração, ou sentir um cheiro a podre, assinale-o acima. [T:ZAK-HOO-001,-]
+Segundo a CSU Extension, uma camada de líquido com cheiro a álcool é normal: é um subproduto da fermentação das leveduras. [T:ZAK-HOO-001]
+Pode escorrê-la ou incorporá-la. [T:ZAK-HOO-001]
+Se também vir uma película ou descoloração, ou sentir um cheiro a podre, assinale-o acima. [T:-]
 
 ## wynik.no_observation.titlePl
 Nenhum sintoma assinalado [T:-]

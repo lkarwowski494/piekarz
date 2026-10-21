@@ -31,13 +31,18 @@ Onaangename, rotte geur [T:-]
 Gooi de zuurdesemstarter weg [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Gebruik deze zuurdesemstarter niet en probeer hem niet te redden. Schimmel kan diep in de zuurdesemstarter doordringen, ook als je aan de oppervlakte maar een kleine aanslag ziet. Ruik niet aan een zuurdesemstarter met aanslag, want dat kan ademhalingsproblemen veroorzaken. Was en spoel de pot grondig voordat je een nieuwe zuurdesemstarter maakt. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Gebruik deze zuurdesemstarter niet en probeer hem niet te redden. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Schimmel kan diep in de zuurdesemstarter doordringen, ook als je aan de oppervlakte maar een kleine aanslag ziet. [T:ZAK-PLE-003]
+Ruik niet aan een zuurdesemstarter met aanslag, want dat kan ademhalingsproblemen veroorzaken. [T:ZAK-WAC-001]
+Was en spoel de pot grondig voordat je een nieuwe zuurdesemstarter maakt. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Vloeistof op het oppervlak (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Volgens CSU Extension is een laagje vloeistof dat naar alcohol ruikt in orde: het is een bijproduct van de gistfermentatie. Je kunt het afgieten of erdoor roeren. Zie je ook aanslag of verkleuring, of ruik je een rotte geur, vink dat dan hierboven aan. [T:ZAK-HOO-001,-]
+Volgens CSU Extension is een laagje vloeistof dat naar alcohol ruikt in orde: het is een bijproduct van de gistfermentatie. [T:ZAK-HOO-001]
+Je kunt het afgieten of erdoor roeren. [T:ZAK-HOO-001]
+Zie je ook aanslag of verkleuring, of ruik je een rotte geur, vink dat dan hierboven aan. [T:-]
 
 ## wynik.no_observation.titlePl
 Geen symptoom aangevinkt [T:-]

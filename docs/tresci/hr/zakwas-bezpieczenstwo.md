@@ -31,13 +31,18 @@ Neugodan, truo miris [T:-]
 Baci kvas [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Nemoj koristiti ovaj kvas i nemoj ga pokušavati spasiti. Plijesan može prodrijeti duboko u kvas čak i kad se na površini vidi samo mala naslaga. Nemoj njušiti kvas s naslagom jer to može izazvati probleme s disanjem. Prije pokretanja novog kvasa temeljito operi i isperi staklenku. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Nemoj koristiti ovaj kvas i nemoj ga pokušavati spasiti. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Plijesan može prodrijeti duboko u kvas čak i kad se na površini vidi samo mala naslaga. [T:ZAK-PLE-003]
+Nemoj njušiti kvas s naslagom jer to može izazvati probleme s disanjem. [T:ZAK-WAC-001]
+Prije pokretanja novog kvasa temeljito operi i isperi staklenku. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Tekućina na površini (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Prema CSU Extension sloj tekućine koji miriše na alkohol je u redu: to je nusproizvod fermentacije kvasaca. Možeš ga odliti ili umiješati. Ako vidiš i naslagu ili promjenu boje ili osjetiš truo miris, označi to gore. [T:ZAK-HOO-001,-]
+Prema CSU Extension sloj tekućine koji miriše na alkohol je u redu: to je nusproizvod fermentacije kvasaca. [T:ZAK-HOO-001]
+Možeš ga odliti ili umiješati. [T:ZAK-HOO-001]
+Ako vidiš i naslagu ili promjenu boje ili osjetiš truo miris, označi to gore. [T:-]
 
 ## wynik.no_observation.titlePl
 Nije označen nijedan simptom [T:-]
