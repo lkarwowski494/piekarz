@@ -15,6 +15,11 @@
       "klucz": "Ocena wymaga połączenia z App Store.",
       "powod": "komunikat wiersza „Oceń w App Store” w karcie „Kontakt”, klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.",
+      "powod": "arkusz „Importuj z pliku”: kopia z nowszej wersji aplikacji (schemaVersion wyższy niż obsługiwany) zamiast „nie rozpoznaję” [audyt-niezalezny B-7]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

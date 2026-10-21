@@ -153,6 +153,18 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
             </View>
           )}
 
+          {/* Kopia z nowszej wersji: aktualizacja aplikacji, bez zapisu [audyt-niezalezny B-7] */}
+          {plik?.rodzaj === 'nowsza' && (
+            <View testID="import-newer-version" style={styles.podglad}>
+              <Text style={styles.zdanie}>
+                {t('Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.')}
+              </Text>
+              <Pressable testID="import-file-close-btn" accessibilityRole="button" style={styles.drugi} onPress={onClose}>
+                <Text style={styles.drugiTekst}>{t('Zamknij')}</Text>
+              </Pressable>
+            </View>
+          )}
+
           {plik?.rodzaj === 'nierozpoznany' && (
             <View testID="import-unrecognized" style={styles.podglad}>
               <Text style={styles.zdanie}>
