@@ -35,9 +35,7 @@
     ]
   },
   "1 miesiąc": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "100% (Płynny Levain)": {
     "gdzie": [
@@ -85,9 +83,7 @@
     ]
   },
   "12 miesięcy": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "12h fermentacja zaczynu Poolish + krótka fermentacja właściwa 2h": {
     "gdzie": [
@@ -215,14 +211,10 @@
     "gdzie": []
   },
   "Aktywuj plan miesięczny": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Aktywuj plan roczny": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).": {
     "gdzie": [
@@ -342,9 +334,7 @@
     ]
   },
   "Bez chmury: dane zostają w telefonie": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Bez godzin snu": {
     "gdzie": [
@@ -354,6 +344,7 @@
   },
   "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (kod)",
       "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
     ]
   },
@@ -1191,9 +1182,7 @@
     ]
   },
   "Dostęp dożywotni to jednorazowy zakup bez odnawiania.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Dotychczasowy cykl dokarmiania zostanie wyzerowany.": {
     "gdzie": [
@@ -1205,10 +1194,13 @@
       "src/core/bread-school-lessons.ts (dane: didacticGoalPl)"
     ]
   },
-  "Dożywotni (Lifetime)": {
+  "Dożywotni": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/oferta/stan-oferty.ts (kod)"
     ]
+  },
+  "Dożywotni (Lifetime)": {
+    "gdzie": []
   },
   "Drobna niedoskonałość": {
     "gdzie": [
@@ -1969,6 +1961,11 @@
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
     ]
   },
+  "Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (kod)"
+    ]
+  },
   "Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -1985,9 +1982,7 @@
     ]
   },
   "Jednorazowy zakup na zawsze • Wszystkie aktualizacje": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Jednostki": {
     "gdzie": [
@@ -2375,7 +2370,17 @@
   },
   "Kup dostęp dożywotni": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "Kup plan miesięczny": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "Kup plan roczny": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
   "Kwasowość": {
@@ -2453,6 +2458,11 @@
   },
   "Liczba bochenków i gramatura": {
     "gdzie": []
+  },
+  "Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
   },
   "Lievito Madre / Pasta Madre (50%)": {
     "gdzie": [
@@ -2552,7 +2562,7 @@
   },
   "Miesięczny": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
   "Mieszanie ciasta": {
@@ -3260,9 +3270,7 @@
     "gdzie": []
   },
   "Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Nazwa": {
     "gdzie": [
@@ -3291,6 +3299,11 @@
   "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.": {
+    "gdzie": [
+      "src/components/oferta/KomunikatBezSieci.tsx (kod)"
     ]
   },
   "Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.": {
@@ -3344,6 +3357,9 @@
     ]
   },
   "Nie udało się dokończyć zakupu. Spróbuj ponownie.": {
+    "gdzie": []
+  },
+  "Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (Alert.alert)"
     ]
@@ -3657,14 +3673,11 @@
   "Odblokuj pełny dostęp": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
     ]
   },
   "Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
@@ -3686,14 +3699,10 @@
     "gdzie": []
   },
   "Odnawia się automatycznie co miesiąc": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odnawia się automatycznie co rok": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Odparowana woda": {
     "gdzie": []
@@ -3789,6 +3798,11 @@
   "Okres próbny się skończył": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
+  "Okres próbny: {dni}": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
   "Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.": {
@@ -4021,6 +4035,11 @@
       "src/lib/zgloszenie.ts (kod)"
     ]
   },
+  "Piekarz Pro": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
@@ -4042,9 +4061,7 @@
     ]
   },
   "Pierwsze {dni} dni bezpłatnie, potem {cena}": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "Pizza": {
     "gdzie": [
@@ -4264,7 +4281,6 @@
   },
   "Polityka prywatności": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (accessibilityLabel)",
       "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/StudioEcosystemSection.tsx (accessibilityLabel)",
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
@@ -4504,9 +4520,7 @@
     ]
   },
   "Przeglądaj historię (Read-Only)": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Przejdź do Stolnicy": {
     "gdzie": [
@@ -4601,7 +4615,6 @@
   },
   "Przetwarzanie...": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
     ]
   },
@@ -4719,6 +4732,11 @@
       "src/components/przywroc-zakupy.ts (Alert.alert)",
       "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
+    ]
+  },
+  "Próba jest jedna na oba plany subskrypcji.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Pt.": {
@@ -4883,7 +4901,7 @@
   },
   "Roczny": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
   "Rodzaj": {
@@ -5272,6 +5290,7 @@
   },
   "Spróbuj ponownie": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/RescueScreen.tsx (tekst w JSX)",
       "src/components/StorageGate.tsx (tekst w JSX)"
     ]
@@ -5377,8 +5396,16 @@
     ]
   },
   "Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.": {
+    "gdzie": []
+  },
+  "Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (kod)"
+    ]
+  },
+  "Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Subskrypcja się nie odnowi, więc nic nie zapłacisz.": {
@@ -5755,9 +5782,7 @@
     ]
   },
   "Twoja historia jest bezpieczna": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.": {
     "gdzie": [
@@ -6212,11 +6237,13 @@
   "Waga bochenka po wypieku": {
     "gdzie": []
   },
-  "Warunki użytkowania (EULA)": {
+  "Warunki użytkowania": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (accessibilityLabel)",
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
+  },
+  "Warunki użytkowania (EULA)": {
+    "gdzie": []
   },
   "Wczoraj": {
     "gdzie": [
@@ -6670,9 +6697,7 @@
     ]
   },
   "Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wt.": {
     "gdzie": [
@@ -6952,9 +6977,7 @@
     ]
   },
   "Wypróbuj {dni} dni": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.": {
     "gdzie": [
@@ -7134,6 +7157,11 @@
       "src/lib/confirm.ts (action)"
     ]
   },
+  "Zacznij okres próbny": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
   "Zacznij wypiek": {
     "gdzie": [
       "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
@@ -7201,6 +7229,11 @@
   "Zakup": {
     "gdzie": [
       "src/components/PaywallModal.tsx (Alert.alert)"
+    ]
+  },
+  "Zakup wymaga połączenia z App Store.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Zakupy": {
@@ -7466,8 +7499,6 @@
   },
   "Zarządzaj subskrypcją": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (accessibilityLabel)",
-      "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)",
       "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
@@ -7546,7 +7577,7 @@
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
     "gdzie": [
-      "src/core/starter-log.ts (dane: start)"
+      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
@@ -7674,9 +7705,7 @@
     ]
   },
   "Zero reklam, zero śledzenia telemetrycznego": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.": {
     "gdzie": [
@@ -7994,9 +8023,7 @@
     ]
   },
   "jednorazowo": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "jutro": {
     "gdzie": [
@@ -8054,9 +8081,7 @@
     ]
   },
   "miesiąc": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "mistrzowski": {
     "gdzie": [
@@ -8152,7 +8177,9 @@
   },
   "rok": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/start/UprzedzenieProby.tsx (dane: kod)",
+      "src/lib/platnosci/uprzedzenie.ts (dane: kod)",
+      "src/lib/platnosci/uprzedzenie.ts (dane: zdanie)"
     ]
   },
   "sie": {
@@ -8297,6 +8324,31 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
+  "{cena} jednorazowo": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "{cena} miesięcznie": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "{cena} miesięcznie po próbie": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "{cena} rocznie": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "{cena} rocznie po próbie": {
+    "gdzie": [
+      "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
   "{czas} od dokarmienia": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
@@ -8390,17 +8442,21 @@
   },
   "{n} dni": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (dane: few)",
+      "src/components/PaywallModal.tsx (dane: many)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: few)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: many)"
     ]
   },
   "{n} dnia": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
   },
   "{n} dzień": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
   },

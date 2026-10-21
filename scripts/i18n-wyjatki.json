@@ -5,7 +5,6 @@
     { "tekst": "Biga", "powod": "nazwa wlasna zaczynu, taka sama w PL i EN" },
     { "tekst": "Pâte Fermentée", "powod": "francuska nazwa wlasna zaczynu, taka sama w PL i EN" },
     { "tekst": "Levain", "powod": "nazwa wlasna zaczynu, taka sama w PL i EN" },
-    { "tekst": "APPS4CRAFT PASS", "powod": "nazwa produktu (marka), nie tlumaczona" },
     { "tekst": "Apps4Craft Studio", "powod": "nazwa studia (marka), nie tlumaczona" },
     { "tekst": "Piekarz (Crust) v1.0.0 • 100% Offline-First • Data Not Collected", "powod": "nazwa i wersja aplikacji z etykieta App Store 'Data Not Collected' (nazwa etykiety Apple); brzmienie do przegladu roli 04" },
     { "tekst": "/Library/SQLite/piekarz.db", "powod": "sciezka pliku bazy (dane techniczne)" },

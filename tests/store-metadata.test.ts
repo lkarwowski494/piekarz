@@ -95,7 +95,7 @@ const wInterfejsie = (pl: string) => KOD_UI.includes(`t('${pl}'`);
 const KROKI_IMPORTU = ['Ustawienia', 'Kopia zapasowa', 'Eksportuj do pliku', 'Importuj z pliku', 'Wklej zawartość pliku receptury albo kopii zapasowej.', 'Zastąp dane'];
 const KOLEJNOSC_IMPORTU = ['Ustawienia', 'Importuj z pliku', 'Zastąp dane'];
 const FUNKCJE: ReadonlyArray<readonly [string, Record<string, number> | undefined]> = [
-  ['Wypróbuj {dni} dni', { dni: 14 }],
+  ['Zacznij okres próbny', undefined],
   ['Przywróć zakupy', undefined],
   ['Zakupy', undefined],
   ['Dziś', undefined],

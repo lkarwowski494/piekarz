@@ -200,7 +200,7 @@ The app has four tabs: Today, Recipes, Starters and Journal. Settings open from 
 
 1. PURCHASES AND FREE TRIAL
 Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing, importing a file, and reading, exporting and deleting your own data work.
-To see the features with a sandbox account: on the Today tab choose "Baking with sourdough", tap any recipe under "Base Recipes", then tap "Make a Plan". The purchase screen opens; choose the monthly or yearly plan and tap "Try 14 days". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
+To see the features with a sandbox account: on the Today tab choose "Baking with sourdough", tap any recipe under "Base Recipes", then tap "Make a Plan". The purchase screen opens; choose the monthly or yearly plan and tap "Start Free Trial". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
 Restore purchases: "Restore Purchases" at the bottom of the purchase screen, and in Settings > Purchases.
 
 2. DATA EXPORT AND IMPORT (works without a purchase)

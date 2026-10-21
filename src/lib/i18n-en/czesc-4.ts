@@ -4,7 +4,7 @@ export const EN_4: Record<string, string> = {
   '12 miesięcy': '12 months',
   'Aktywuj plan roczny': 'Start yearly plan',
   'Aktywuj plan miesięczny': 'Start monthly plan',
-  'Kup dostęp dożywotni': 'Buy lifetime access',
+  'Kup dostęp dożywotni': 'Buy Lifetime Access',
   'Pierwsze {dni} dni bezpłatnie, potem {cena}': 'First {dni} days free, then {cena}',
   'Wypróbuj {dni} dni': 'Try {dni} days',
   'Odblokuj pełny dostęp': 'Unlock full access',
@@ -21,6 +21,33 @@ export const EN_4: Record<string, string> = {
     'The subscription renews automatically at the price shown for the plan until you cancel it. Payment is charged to your Apple Account by the App Store. You can cancel at any time in your Apple Account settings or with “Manage subscription”.',
   'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Lifetime access is a one-time purchase that does not renew.',
   'Zarządzaj subskrypcją': 'Manage Subscription',
+  // Ekran zakupu „Piekarz Pro” w nowej szacie (design-spec §11e 127; nazwy jak w App Store Connect) [M1-audytor-generalny-127]
+  'Piekarz Pro': 'Baker Pro',
+  'Okres próbny: {dni}': 'Free trial: {dni}',
+  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.':
+    'Recipe calculations, bake plans, step-by-step guidance with notifications, starters, and a journal. No ads, no account.',
+  'Dożywotni': 'Lifetime',
+  '{cena} rocznie po próbie': '{cena} per year after the trial',
+  '{cena} miesięcznie po próbie': '{cena} per month after the trial',
+  '{cena} rocznie': '{cena} per year',
+  '{cena} miesięcznie': '{cena} per month',
+  '{cena} jednorazowo': '{cena} one-time',
+  'Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.':
+    "One payment. This plan doesn't need a trial; if you've started a subscription trial, cancel it so you aren't charged.",
+  'Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.':
+    'The subscription renews automatically. To avoid being charged, cancel it at least 24 hours before the trial ends: in Settings, tap your name, then Subscriptions.',
+  'Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.':
+    'The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions.',
+  'Próba jest jedna na oba plany subskrypcji.': 'There is one trial for both subscription plans.',
+  'Zakup wymaga połączenia z App Store.': 'Purchasing requires a connection to the App Store.',
+  'Zacznij okres próbny': 'Start Free Trial',
+  'Kup plan roczny': 'Buy Yearly Plan',
+  'Kup plan miesięczny': 'Buy Monthly Plan',
+  'Warunki użytkowania': 'Terms of Use',
+  'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.':
+    "There's no connection to the App Store, so purchasing and restoring purchases won't work right now. The rest of the app works as usual. Check your internet connection and try again.",
+  'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.':
+    "The purchase couldn't be completed. Purchasing requires a connection to the App Store: check your internet connection and try again.",
   // Propozycja Doktora po ocenie ≤ 2★ (BR-DIAG-001) [M1-audytor-generalny-032]
   'Sprawdzić przyczynę w Doktorze?': 'Check the cause in the Doctor?',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.':
