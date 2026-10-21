@@ -82,20 +82,23 @@ export default function RecepturyLista() {
   // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]. Rutynowe usunięcie bez pytania,
   // z paskiem „Cofnij”: „Przywróć” zapisuje tę samą recepturę (id, dane, data utworzenia; bez tabel zależnych)
   // (D-051 1a, design-spec §5) [M1-audytor-generalny-161; 04-studio-projektowe-506]
-  const [usunieta, setUsunieta] = useState<StoredRecipe | null>(null);
+  // Kolejka usuniętych: drugie usunięcie w czasie paska nie odbiera cofnięcia pierwszego; „Przywróć” oddaje
+  // ostatnio usuniętą, pasek zostaje dla poprzedniej z nowym czasem (klucz po id) [reaudit-noc N-1]
+  const [usuniete, setUsuniete] = useState<StoredRecipe[]>([]);
+  const usunieta = usuniete.length > 0 ? usuniete[usuniete.length - 1] : null;
   const usunMoja = guardSave(async (r: StoredRecipe) => {
     await deleteRecipe(r.id);
-    setUsunieta(r);
+    setUsuniete((k) => [...k.filter((x) => x.id !== r.id), r]);
     await wczytajMoje();
   });
   const przywrocMoja = guardSave(async () => {
     if (!usunieta) return;
     const r = usunieta;
-    setUsunieta(null);
+    setUsuniete((k) => k.filter((x) => x.id !== r.id));
     await saveRecipe(r);
     await wczytajMoje();
   });
-  const schowajPasek = useCallback(() => setUsunieta(null), []);
+  const schowajPasek = useCallback(() => setUsuniete([]), []);
 
   // Import działa zawsze (D-039): bez uprawnienia receptura trafia na listę, bez ekranu zakupu [M1-audytor-generalny-026]
   const poImporcie = (r: StoredRecipe) => {
@@ -129,7 +132,7 @@ export default function RecepturyLista() {
           onUsunMoja={usunMoja}
         />
       </ScrollView>
-      {usunieta && <PasekCofnij tekst={t('Usunięto recepturę')} onPrzywroc={() => void przywrocMoja()} onUkryj={schowajPasek} />}
+      {usunieta && <PasekCofnij key={usunieta.id} tekst={t('Usunięto recepturę')} onPrzywroc={() => void przywrocMoja()} onUkryj={schowajPasek} />}
       <CalculatorModalsProvider
         isBlendModalOpen={false}
         flourBlend={[]}
