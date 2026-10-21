@@ -10,8 +10,8 @@
 //     do {godzina}” liczone od teraz (BR-HARMO-005: następny krok rusza od „Zrobione”);
 //   • „Ekran nie zgaśnie do końca kroku. Powiadomienie o {godzina}.” tylko w kroku czynnym (SessionStep.isPassive
 //     = false: krok z pracą przy cieście), gdy zegar biegnie i jest zgoda na powiadomienia (makieta „brak-zgody”
-//     nie ma tego zdania). Ekran nie gaśnie przez cały wypiek (StolnicaKeepAwake); zdanie mówi o tym tam, gdzie
-//     użytkownik pracuje rękami (F-18).
+//     nie ma tego zdania). Ekran nie gaśnie tylko w kroku czynnym (StolnicaKeepAwake, BR-REKA-001,
+//     M1-audytor-generalny-130), więc zdanie stoi tam, gdzie użytkownik pracuje rękami (F-18).
 // ============================================================================
 
 import type { SessionStep } from '../core/bake-steps';

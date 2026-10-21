@@ -285,7 +285,8 @@ export default function StolnicaScreen() {
             ),
         }}
       />
-      <StolnicaKeepAwake active={isActive} />
+      {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
+      <StolnicaKeepAwake active={aktywny && !currentStep.isPassive} />
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
