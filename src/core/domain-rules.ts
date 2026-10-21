@@ -126,13 +126,6 @@ export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult
   // True Overall Hydration
   const overallHydration = (totalWater / totalFlour) * 100.0;
 
-  // Calculate individual flour weights
-  const floursCalculated: FlourItemCalculated[] = input.flours.map((f) => ({
-    name: f.name,
-    percentage: f.percentage,
-    weightGrams: Math.round((baseFlourWeight * f.percentage) / 100.0),
-  }));
-
   // Detect rye ratio
   const ryePercentage = input.flours
     .filter((f) => f.name.toLowerCase().includes('żyt') || (f.type && f.type.toLowerCase().includes('zytn')))
@@ -158,6 +151,24 @@ export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult
     grams[errs.indexOf(Math.min(...errs))] += dir;
   }
   const [baseFlourRounded, waterRounded, starterRounded] = grams;
+
+  // Mąki osobno (karta „Do miski” pokazuje każdą): metoda największej reszty, więc suma wierszy mąk
+  // równa się mące bazowej po korekcie DEC-11, a każda mąka jest < 1 g od wartości dokładnej.
+  const flourExact = input.flours.map((f) => (baseFlourWeight * f.percentage) / 100.0);
+  const flourGrams = flourExact.map((g) => Math.floor(g));
+  const reszta = (i: number) => flourExact[i] - flourGrams[i];
+  let flourLeft = baseFlourRounded - flourGrams.reduce((a, g) => a + g, 0);
+  const byRemainder = flourExact.map((_, i) => i).sort((i, j) => reszta(j) - reszta(i));
+  for (const i of byRemainder) {
+    if (flourLeft <= 0) break;
+    flourGrams[i] += 1;
+    flourLeft -= 1;
+  }
+  const floursCalculated: FlourItemCalculated[] = input.flours.map((f, i) => ({
+    name: f.name,
+    percentage: f.percentage,
+    weightGrams: flourGrams[i],
+  }));
 
   const sumCheck = Math.round(shownTenths() / 10);
 
