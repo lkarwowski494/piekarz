@@ -34,8 +34,14 @@ describe('plan wydania docs/wydanie/sklep.md (079, DEC-16 a)', () => {
     expect(sklep).toMatch(/Pause Phased Release/);
   });
 
-  it('odsyła do jedynego źródła metadanych i nie powiela słów kluczowych ani opisu', () => {
-    expect(sklep).toContain('docs/app-store-metadata-v2.md');
+  // 175 (10-wydanie-503): pola sklepu 34 lokalizacji są w instrukcji i kartach, nie tylko w tekstach PL/EN
+  it('odsyła do instrukcji, kart i metadanych lokalizacji, nie powiela słów kluczowych ani opisu', () => {
+    expect(sklep).toContain('docs/wydanie/instrukcja-ustawien.md');
+    expect(sklep).toContain('docs/wydanie/ustawienia/');
+    expect(sklep).toContain('docs/wydanie/metadane/');
+    expect(sklep).not.toMatch(/jedyne źródło `docs\/app-store-metadata-v2\.md`/);
+    expect(sklep).not.toMatch(/PL i EN/);
+    expect(sklep).not.toMatch(/Crust/);
     const meta = read('docs/app-store-metadata-v2.md');
     const slowa = [...meta.matchAll(/^\| \*\*(?:Słowa kluczowe \(Keywords\)|Keywords)\*\* \| `([^`]+)`/gm)].map((m) => m[1]);
     expect(slowa.length).toBeGreaterThanOrEqual(2);
@@ -66,8 +72,13 @@ describe('plan wydania docs/wydanie/sklep.md (079, DEC-16 a)', () => {
     expect(JSON.stringify(eas)).not.toMatch(/autoSubmit|auto-submit/);
   });
 
-  it('blokady wydania nazwane: polityka i wsparcie (012), kontrakt B (D-043), werdykt 07', () => {
-    expect(sklep).toContain('M1-audytor-generalny-012');
+  // 175 (10-wydanie-503): 012 rozwiązane (oba adresy 200), więc nie jest już blokadą; kod 200 sprawdza lista przed wysyłką
+  it('blokady wydania nazwane: kontrakt B (D-043), werdykt 07; polityka i wsparcie (012) nie są blokadą', () => {
+    const blokady = sklep.split(/^## /m).find((s) => s.startsWith('3. Blokady')) ?? '';
+    expect(blokady).not.toBe('');
+    expect(blokady).not.toContain('M1-audytor-generalny-012');
+    expect(blokady).not.toMatch(/404/);
+    expect(sklep).toMatch(/kodem 200/);
     expect(sklep).toContain('D-043');
     expect(sklep).toMatch(/ZABLOKOWANE/);
   });

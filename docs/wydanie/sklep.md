@@ -1,10 +1,10 @@
-# Plan wydania iOS — Piekarz (Crust)
+# Plan wydania iOS — Piekarz
 
 Decyzja: **DEC-16 (a)**, właściciel 2026-10-19: „Wydanie ręczne po TestFlight, dziennik wydania, strona produktu zaczyna od głównej pracy i prywatności”. Odrzucona: (b) wydanie automatyczne po zatwierdzeniu. Zadanie M1-audytor-generalny-079 (10-wydanie-009). Dziennik: `docs/wydanie/dziennik.md`.
 
 *Dlaczego ręcznie:* aplikacja nie ma sieci ani zdalnego wyłącznika, więc zły build wycofuje tylko nowa wersja; ręczne wydanie daje ostatnią kontrolę po zatwierdzeniu przez Apple.
 
-Ten plik nie zawiera tekstów sklepu. Nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis, zrzuty, etykieta App Privacy, produkty i notatki dla App Review: jedyne źródło `docs/app-store-metadata-v2.md`. Kategoria, wiek, szyfrowanie, adresy i sekrety CI: `docs/15-app-store.md`. Mechanika TestFlight: `docs/TESTFLIGHT_DEPLOYMENT.md`.
+Ten plik nie zawiera tekstów ani pól sklepu; prowadzi tylko drogę wersji. Pola App Store Connect krok po kroku (produkty, ceny, dostępność, App Privacy, wiek, szyfrowanie, notatki dla App Review): `docs/wydanie/instrukcja-ustawien.md`; pola każdej z 34 lokalizacji: karty `docs/wydanie/ustawienia/` z metadanych `docs/wydanie/metadane/`; teksty źródłowe PL i angielskie: `docs/app-store-metadata-v2.md`. Adresy i sekrety CI: `docs/15-app-store.md`. Mechanika TestFlight: `docs/TESTFLIGHT_DEPLOYMENT.md`.
 
 ## 1. Konfiguracja, na której stoi plan (stan 2026-10-20, nie zmieniać tym planem)
 
@@ -35,14 +35,15 @@ Ten plik nie zawiera tekstów sklepu. Nazwa, podtytuł, tekst promocyjny, słowa
 6. **Wydanie:** po statusie „Pending Developer Release” właściciel klika „Release This Version” (krok 6.3); zgoda na wydanie osobno w dzienniku.
 7. **Aktualizacje (1.0.1 i dalej):** ta sama droga plus wydanie stopniowe 7 dni (krok 6.4). Pierwsza wersja 1.0 idzie do wszystkich naraz: Apple oferuje wydanie stopniowe tylko dla aktualizacji („When you release a version update…”), więc ryzyko 1.0 ogranicza krok 3.
 
-## 3. Blokady przed pierwszą wysyłką do recenzji (stan 2026-10-20)
+## 3. Blokady przed pierwszą wysyłką do recenzji (stan 2026-10-21)
 
 | Blokada | Dowód | Kto odblokowuje |
 |---|---|---|
 | Werdykt 07: ZABLOKOWANE na ebd8471, 1.0.0 (1013) | raport roli 07 z 2026-10-19 (audyt M1) | naprawy partii M2, nowy werdykt 07 na nowym SHA |
-| Polityka prywatności i strona wsparcia: 404 (adresy z `docs/15-app-store.md`, sprawdzone 2026-10-20) | M1-audytor-generalny-012 | właściciel: włączenie GitHub Pages i scalenie z master; potem kod 200 |
 | Kontrakt zakresu B (D-043): QR (F-08), druk (F-50), spiżarnia (F-30) PÓŹNIEJ; strona produktu bez nich | M1-audytor-generalny-080, -081 (partia 6) | rola 10 w zadaniu 081, zrzuty 080 |
 | Minimalny iOS 18.0 | `app.json` (077) | spełnione; nic nie zmieniać |
+
+Polityka prywatności i strona wsparcia (adresy z `docs/15-app-store.md`) odpowiadały kodem 200 w dniu 2026-10-21; przed wysyłką sprawdza je punkt 4.4 drogi wersji.
 
 ## 4. Zły build: plan
 
@@ -65,7 +66,7 @@ Z listy scalonych zmian (`git log <poprzedni tag>..<kandydat>`); każde zdanie m
 
 Rola wymagana przez Apple: Account Holder, Admin albo App Manager. Każdy krok za zgodą na ten build, zapis w dzienniku.
 
-1. **Teksty i formularze:** wkleić pola z `docs/app-store-metadata-v2.md` (PL i EN), adresy z `docs/15-app-store.md` dopiero po kodzie 200 (012).
+1. **Teksty i formularze:** według `docs/wydanie/instrukcja-ustawien.md`; pola każdej lokalizacji z kart `docs/wydanie/ustawienia/` (34 lokalizacje strony), adresy z `docs/15-app-store.md` po sprawdzeniu kodu 200.
 2. **Opcja wydania:** Apps → Piekarz → wersja → sekcja „App Store Version Release” → zaznaczyć „Manually release this version” → Save. Potem wysłanie do recenzji (nazwę przycisku sprawdzić w dniu wysyłki).
 3. **Wydanie:** po e-mailu o zatwierdzeniu: wersja ze statusem „Pending Developer Release” → „Release This Version” → „Confirm”. Pojawienie się w sklepie może potrwać do 24 h. Apple przypomina e-mailem po 30 dniach w tym statusie.
 4. **Aktualizacje:** przed wysłaniem do recenzji: sekcja „Phased Release for Automatic Updates” → „Release update over a 7-day period using phased release” → Save. Przerwanie: wersja „Ready for Distribution” → „Pause Phased Release” → Save; dokończenie: „Release to All Users”.
