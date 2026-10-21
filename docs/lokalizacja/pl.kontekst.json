@@ -8025,6 +8025,7 @@
   },
   "na blacie": {
     "gdzie": [
+      "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)",
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
   },
@@ -8149,6 +8150,7 @@
   },
   "w lodówce": {
     "gdzie": [
+      "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)",
       "src/components/zakwas/ZakwasDziennik.tsx (kod)"
     ]
   },
@@ -8252,7 +8254,8 @@
   },
   "{czas} od dokarmienia": {
     "gdzie": [
-      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
   },
   "{czas} po czasie": {
