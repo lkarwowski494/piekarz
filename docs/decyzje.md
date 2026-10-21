@@ -217,8 +217,6 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dlaczego:** godziny snu w ekranie planu nie były zapisywane, więc przesunięcie kroków w trakcie wypieku nie miało z czym porównać nocy; w punktach 2–6 kod albo wyższe źródło już rozstrzyga sprawę, a BRD tego nie oddaje; reszta 130 wymaga nowych tekstów i wartości dziedzinowej (zakres soli, rola 06), więc nie mieści się przed wydaniem.
 - **Zależy od:** zmiana właściciela przekazana przez M1 (zgoda trwała „az nie zmienie decyzji”).
 
-- **Zależy od:** nic; inne parametry pâte fermentée (np. wybór użytkownika) to nowy wpis.
-
 ### [D-061] 2026-10-21 — Karta „Do miski” z zaczynem: zaczyn jako część formuły, drożdże i sól zaczynu w masie docelowej, zakwas liczony raz (M2 tor p9d, zadanie 182, DEC-23 a)
 - **Rodzaj:** produktowa (model rachunku). **Słowa właściciela** (czat M1, po STOP końcowym toru p10a, 2026-10-21): „Przyjmuję rekomendacje: 032 b (PÓŹNIEJ do czasu źródeł), 101 a, 102 a, 103 a. Dopisz 101–103 do planu.” Wybór 101 a = DEC-23 a: „zaczyn jako część formuły, drożdże w masie docelowej, bez podwójnego zakwasu”.
 - **Decyzja (model dla roli 08; oznaczenia: `p` = mąka w zaczynie %, `h`, `y_z`, `s_z` = woda, drożdże i sól zaczynu w % jego mąki z `PREFERMENT_DEFINITIONS`, przy levain `h` = hydratacja zakwasu; `w`, `s`, `y`, `z` = woda, sól, drożdże i zakwas receptury w % mąki bazowej; `M` = masa docelowa):**
