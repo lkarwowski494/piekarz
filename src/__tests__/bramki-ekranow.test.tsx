@@ -24,6 +24,24 @@ jest.mock('../lib/confirm', () => ({
   confirmDeleteBakeLog: (ok: () => void) => ok(),
   confirmDiscardBake: (ok: () => void) => ok(),
 }));
+// Wejścia do Doktora zakwasu (nagłówek Zakwasów: `router`, karta cyklu: `useRouter`) zapisują trasę w jednym miejscu
+// [M1-audytor-generalny-027; 02-monetyzacja-503]
+const mockNawigacja = { push: jest.fn(), navigate: jest.fn(), replace: jest.fn(), back: jest.fn() };
+jest.mock('expo-router', () => {
+  const React = require('react');
+  return {
+    get router() {
+      return mockNawigacja;
+    },
+    useRouter: () => mockNawigacja,
+    useLocalSearchParams: () => ({}),
+    useFocusEffect: (cb: () => void) => React.useEffect(cb, []),
+    Stack: Object.assign(({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, null, children), {
+      Screen: ({ options }: { options?: { headerRight?: (p: object) => React.ReactNode } }) =>
+        options && options.headerRight ? React.createElement(React.Fragment, null, options.headerRight({})) : null,
+    }),
+  };
+});
 
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
@@ -35,6 +53,9 @@ import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import DoctorScreen from '../../app/doktor';
+import ZakwasyLayout from '../../app/(tabs)/zakwasy/_layout';
+import DoktorZakwasuScreen from '../../app/(tabs)/zakwasy/doktor-zakwasu';
+import { evaluateSourdoughSafety } from '../core/sourdough-physics';
 import { PaywallModal } from '../components/PaywallModal';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { BlokadaFunkcji } from '../components/BlokadaFunkcji';
@@ -197,6 +218,43 @@ describe('Without an entitlement every screen opens the purchase screen except h
     expect(tree.root.findAllByProps({ testID: 'open-academy-btn' })).toHaveLength(0);
     act(() => tree.unmount());
   });
+
+  // Kontrakt docs/monetyzacja.md:100 (BR-DIAG-002): „próba / płatna; ostrzeżenie RD-21 zawsze” [M1-audytor-generalny-027;
+  // 02-monetyzacja-503]. Oba wejścia prowadzą na ekran (ostrzeżenie o plamach zawsze), diagnoza za strażnikiem 'doktor'.
+  it('Doktor zakwasu: the Zakwasy header and "Coś mnie niepokoi" open it; a symptom without spots opens the purchase screen, the spots and mould warning (RD-21) stays free (BR-DIAG-002)', async () => {
+    const trasa = () => [mockNawigacja.push.mock.calls[mockNawigacja.push.mock.calls.length - 1]?.[0]].map((a: unknown) => (typeof a === 'string' ? a : (a as { pathname?: string } | undefined)?.pathname));
+    mockNawigacja.push.mockClear();
+    const naglowek = await render(<ZakwasyLayout />);
+    await press(naglowek, 'zakwas-doctor-shortcut-btn');
+    expect({ trasa: trasa(), paywall: paywallShown(naglowek.root) }).toEqual({ trasa: ['/zakwasy/doktor-zakwasu'], paywall: false });
+    act(() => naglowek.unmount());
+    mockNawigacja.push.mockClear();
+    const karta = await render(<ZakwasScreen />);
+    await press(karta, 'zakwas-niepokoi-btn');
+    expect({ trasa: trasa(), paywall: paywallShown(karta.root) }).toEqual({ trasa: ['/zakwasy/doktor-zakwasu'], paywall: false });
+    act(() => karta.unmount());
+
+    const tree = await render(<DoktorZakwasuScreen />);
+    expect(locks(tree.root).map((n) => n.props.testID)).toContain('blokada-doktor');
+    for (const s of ['no_activity', 'no_doubling', 'long_unfed']) {
+      await press(tree, `doktor-zakwasu-objaw-${s}`);
+      const porada = tree.root.findAll((n) => typeof n.props?.testID === 'string' && /^doktor-zakwasu-(first_day|no_doubling|long_unfed)$/.test(n.props.testID));
+      expect({ s, paywall: paywallShown(tree.root), porada: porada.length }).toEqual({ s, paywall: true, porada: 0 });
+      await act(async () => {
+        tree.root.findByType(PaywallModal).props.onClose();
+      });
+    }
+    // Wiersz plam poza blokadą: dotknięcie nie trafia w obszar treści BlokadaFunkcji
+    const wBlokadzie = tree.root.findAllByType(BlokadaFunkcji).some((b) => b.findAll((n) => n.props?.testID === 'doktor-zakwasu-objaw-mold_signs').length > 0);
+    expect(wBlokadzie).toBe(false);
+    await press(tree, 'doktor-zakwasu-objaw-mold_signs');
+    expect(paywallShown(tree.root)).toBe(false);
+    expect(tree.root.findAll((n) => n.props?.testID === 'doktor-zakwasu-wyrzuc' && n.props.accessibilityRole === 'alert').length).toBeGreaterThan(0);
+    const d = evaluateSourdoughSafety({ hasColoredSpots: true });
+    const teksty = tree.root.findAll((n) => typeof n.props?.children === 'string').map((n) => n.props.children as string).join(' | ');
+    expect(teksty).toContain(t(d.actionPl));
+    act(() => tree.unmount());
+  });
 });
 
 describe('With an entitlement (introductory offer, subscription or lifetime) nothing is locked (027) (BR-RECP-001 Bez ukrywania receptur, BR-ZAK-001)', () => {
@@ -212,6 +270,7 @@ describe('With an entitlement (introductory offer, subscription or lifetime) not
     ['Stolnica', <StolnicaScreen key="s" />],
     ['Harmonogram', <HarmonogramScreen key="h" />],
     ['Doktor', <DoctorScreen key="d" />],
+    ['Doktor zakwasu', <DoktorZakwasuScreen key="dz" />],
   ])('%s has no lock', async (_name, el) => {
     const tree = await render(el);
     expect(locks(tree.root)).toEqual([]);
