@@ -18,5 +18,13 @@ Polish wheat and rye flour types are set by the Polish Standards PN-A-74022:2003
 - Rye flour type 1400 [T:MAK-TYP-005]
 - Rye flour type 2000 [T:MAK-TYP-004]
 
+## trade names in the PL atlas (namePl in src/core/flour-atlas.ts; M1-audytor-generalny-091)
+- Wheat flour type 450 (tortowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Wheat flour type 500 (wrocławska) [T:MAK-NAZ-001]
+- Wheat flour type 550 (luksusowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Wheat flour type 650 (bułkowa) [T:MAK-NAZ-001]
+- Wheat flour type 750 (chlebowa) [T:MAK-NAZ-001]
+- Wheat flour type 1850 (graham) [T:MAK-TYP-004]
+
 ## wheat_850.descriptionPl (prefix of the description)
 Type 850 is not listed in the PN-A-74022:2003 standard: mills produce it to their own technical specification. [T:MAK-TYP-003]

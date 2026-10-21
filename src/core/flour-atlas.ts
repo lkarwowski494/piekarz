@@ -40,7 +40,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_500',
-    namePl: 'Mąka pszenna typ 500 (Wrocławska / Poznańska)',
+    namePl: 'Mąka pszenna typ 500 (Wrocławska)', // MAK-NAZ-001; „Poznańska” bez źródła [M1-audytor-generalny-091]
     grain: 'wheat',
     ashTyp: 500,
     proteinPercent: 10.5,
@@ -116,7 +116,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'rye_720',
-    namePl: 'Mąka żytnia chlebowa typ 720',
+    namePl: 'Mąka żytnia typ 720', // MAK-TYP-004; „chlebowa” otwarte (MAK-TYP-903) [M1-audytor-generalny-091]
     grain: 'rye',
     ashTyp: 720,
     proteinPercent: 8.5,
@@ -147,7 +147,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'spelt_630',
-    namePl: 'Mąka orkiszowa jasna typ 630',
+    namePl: 'Mąka orkiszowa', // typ 630 otwarty (MAK-TYP-902), nazwa jak ogólna [M1-audytor-generalny-091]
     grain: 'spelt',
     ashTyp: 630,
     proteinPercent: 12.0,

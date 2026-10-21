@@ -58,8 +58,8 @@ export const EN_11: Record<string, string> = {
     'Wheat flour type 450 (Cake)',
   'Niska zawartość popiołu i białka. Szybka autoliza, delikatny gluten, mała chłonność wody.':
     'Low ash and protein content. Fast autolyse, delicate gluten, low water absorption.',
-  'Mąka pszenna typ 500 (Wrocławska / Poznańska)':
-    'Wheat flour type 500 (Wroclawska / Poznanska)',
+  'Mąka pszenna typ 500 (Wrocławska)':
+    'Wheat flour type 500 (Wroclawska)',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.':
     'All-purpose wheat flour. Good for rolls, challahs and yeasted bakes.',
   'Mąka pszenna typ 650 (Bułkowa)':

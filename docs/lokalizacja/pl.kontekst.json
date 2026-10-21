@@ -2768,14 +2768,14 @@
   },
   "Mąka orkiszowa": {
     "gdzie": [
-      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
+      "src/core/flour-atlas.ts (dane: namePl)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka orkiszowa jasna typ 630": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: name)",
-      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -2945,7 +2945,7 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
-  "Mąka pszenna typ 500 (Wrocławska / Poznańska)": {
+  "Mąka pszenna typ 500 (Wrocławska)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
@@ -3078,7 +3078,6 @@
   },
   "Mąka żytnia chlebowa typ 720": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -3109,6 +3108,7 @@
     "gdzie": [
       "app/(tabs)/receptury/receptura.tsx (dane: name)",
       "src/core/domain-rules.ts (dane: name)",
+      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },

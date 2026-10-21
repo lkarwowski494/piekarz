@@ -1173,7 +1173,7 @@
     "twierdzenie": "W obrocie jest mąka orkiszowa typ 630.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Podzielone 2026-10-21 (M1-audytor-generalny-165, 06-tresci-509, rola 06 fix p10a). Brzmienie do 2026-10-20: „W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.” Części: pszenna 1050 → MAK-TYP-006 (potwierdzone), orkiszowa 2000 → MAK-TYP-007 (potwierdzone), „720 = chlebowa” → MAK-TYP-903 (otwarte); to ID zostaje przy orkiszowej 630. Szukane 2026-10-21: źródło szczebla 1–3 z orkiszową typ 630 — nie znalazłem (wyniki to sklepy i bazy kalorii, szczebel 5); Sujka i Koczoń 2017 badają orkiszową typ 1100 i 2000, nie 630. Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej).",
+    "uwagi": "[DO USTALENIA] Podzielone 2026-10-21 (M1-audytor-generalny-165, 06-tresci-509, rola 06 fix p10a). Brzmienie do 2026-10-20: „W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.” Części: pszenna 1050 → MAK-TYP-006 (potwierdzone), orkiszowa 2000 → MAK-TYP-007 (potwierdzone), „720 = chlebowa” → MAK-TYP-903 (otwarte); to ID zostaje przy orkiszowej 630. Szukane 2026-10-21: źródło szczebla 1–3 z orkiszową typ 630 — nie znalazłem (wyniki to sklepy i bazy kalorii, szczebel 5); Sujka i Koczoń 2017 badają orkiszową typ 1100 i 2000, nie 630. Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej). 2026-10-21 (M1-audytor-generalny-091): nazwa PL profilu spelt_630 bez typu 630 — „Mąka orkiszowa”, jak nazwa ogólna; w nazwie mąki receptur bazowych typ 630 zostaje (dane, znalezisko M2 toru p12b2).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1221,7 +1221,7 @@
     "twierdzenie": "Mąka żytnia typ 720 to mąka „chlebowa”.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902, wydzielona 2026-10-21. Szukane 2026-10-21: Ostasiewicz i in., ŻNTJ 2009 (wydawnictwo.pttz.org, 06_Ostasiewicz.pdf, tekst przeczytany) używa „mąki żytniej typu 720” do pieczywa, ale nie nazywa jej „chlebową”; Stolarska i in. 2010 nazywa „chlebową” pszenną typ 750, nie żytnią 720. Źródła szczebla 1–3 nie znalazłem; nazwa „chlebowa” w profilu rye_720 (src/core/flour-atlas.ts) bez podstawy.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902, wydzielona 2026-10-21. Szukane 2026-10-21: Ostasiewicz i in., ŻNTJ 2009 (wydawnictwo.pttz.org, 06_Ostasiewicz.pdf, tekst przeczytany) używa „mąki żytniej typu 720” do pieczywa, ale nie nazywa jej „chlebową”; Stolarska i in. 2010 nazywa „chlebową” pszenną typ 750, nie żytnią 720. Źródła szczebla 1–3 nie znalazłem; nazwa „chlebowa” w profilu rye_720 (src/core/flour-atlas.ts) bez podstawy. 2026-10-21 (M1-audytor-generalny-091): profil rye_720 w atlasie PL bez „chlebowa” — „Mąka żytnia typ 720”; w nazwie mąki receptury bazowej słowo zostaje (dane, znalezisko M2 toru p12b2).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1348,6 +1348,26 @@
     "jedno_zrodlo": true,
     "uproszczenie": "Źródło podaje tylko górną granicę, bez dolnej i bez numeru normy ani bazy (sucha masa czy masa produktu). Szczebel 3 jak MAK-OGL-006: czasopismo uczelni, recenzji nie sprawdziłem.",
     "uwagi": "M1-audytor-generalny-165 (06-tresci-508): dowód sprzeczności z wierszem 650 w MAK-OGL-004, dlatego ten wiersz pominięty trwale. Nie trafia do opisów profili (granica bez dolnej wartości i bez tekstu normy).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-NAZ-001",
+    "twierdzenie": "Według Stolarskiej i in. (2010) mąki pszenne typów 450, 500, 550, 650 i 750 to w Polsce odpowiednio mąka tortowa, wrocławska, luksusowa, bułkowa i chlebowa.",
+    "zrodla": [
+      {
+        "adres": "https://zut.edu.pl/fileadmin/pliki/wydawnictwo/Folia/Agricultura/278/Stolarska.pdf",
+        "miejsce": "Stolarska A., Gregorczyk A., Przybulewska K., Podlasińska J., „Ocena zawartości metali ciężkich oraz cech jakościowych ziarna pszenicy”, Folia Pomeranae Universitatis Technologiae Stetinensis, Agric., Aliment., Pisc., Zootech. 2010, 278(14), 75–80, s. 76, „Materiał i metody” i „Wyniki i dyskusja”; PDF pobrany ponownie 2026-10-21 (SHA-256 A5041D3E… równy kopii fix-2026-10-21-p10a), tekst: audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/zut-stolarska.txt",
+        "cytat": "mąka tortowa typu 450 – 0,48%, mąka wrocławska 500 – 0,53%, mąka luksusowa 550 – 0,58%, bułkowa 650 – 0,68%, chlebowa 750 – 0,78%",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Nazwy handlowe z jednego źródła (szczebel 3 jak MAK-OGL-008: czasopismo uczelni, recenzji nie sprawdziłem); dla typów 450, 550 i 1850 nazwy potwierdza też Szafrańska 2018 (MAK-TYP-004: „450 Tortowa”, „450 Krupczatka”, „550 Luksusowa”, „1850 Graham”). Nazwy „poznańska” (500) i „chlebowa” dla żytniej 720 (MAK-TYP-903) żadne przeczytane źródło nie podaje.",
+    "uwagi": "M1-audytor-generalny-091 (reaudit pętli 2): nazwy profili atlasu PL w src/core/flour-atlas.ts — wheat_450 „(Tortowa)”, wheat_500 „(Wrocławska)” bez „Poznańska”, wheat_550 „(Luksusowa)”, wheat_650 „(Bułkowa)”, wheat_750 „chlebowa”; rye_720 bez „chlebowa”, spelt_630 bez typu 630 (MAK-TYP-902 otwarte). Lista w docs/tresci/pl|en/maki-typy.md, sekcja „nazwy handlowe w atlasie PL”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-21"

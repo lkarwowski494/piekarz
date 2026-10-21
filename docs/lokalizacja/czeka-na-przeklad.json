@@ -30,6 +30,11 @@
       "klucz": "Drożdże świeże (prasowane)",
       "powod": "wiersz drożdży zaczynu nazywa rodzaj drożdży z ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002 (BBGA: drożdże świeże prasowane); klucz istniał w EN, w 33 językach był na liście PÓŹNIEJ (M1-audytor-generalny-207); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mąka pszenna typ 500 (Wrocławska)",
+      "powod": "nazwa atlasu PL bez „Poznańska” (brak źródła); w 33 językach nie wyświetlana (opis ogólny), przekład dla kompletności słownika (M1-audytor-generalny-091); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {
