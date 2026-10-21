@@ -333,3 +333,27 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag -f "$TAG" "$GITHUB_SHA"
           git push origin "$TAG" --force
+
+      # Artefakt żyje 90 dni, a build wydany w App Store działa dłużej: mapa zostaje
+      # na stałe w wydaniu GitHub tego tagu (M1-audytor-generalny-142).
+      - name: Download JS source map of this build
+        uses: actions/download-artifact@v4
+        with:
+          name: testflight-sourcemap-${{ needs.build.outputs.version }}-b${{ needs.build.outputs.build_number }}
+          path: ${{ runner.temp }}/sourcemaps
+
+      - name: Attach source map to GitHub release vX.Y.Z-bNNNN
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.build.outputs.version }}
+          BUILD: ${{ needs.build.outputs.build_number }}
+        run: |
+          TAG="v${VERSION}-b${BUILD}"
+          MAP="$RUNNER_TEMP/sourcemaps/main.jsbundle.map"
+          test -s "$MAP"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$MAP" --clobber
+          else
+            gh release create "$TAG" "$MAP" --prerelease --verify-tag \
+              --title "$TAG" --notes "Build TestFlight ${VERSION} (${BUILD}), commit ${GITHUB_SHA}. Plik main.jsbundle.map: mapa źródeł JS do symbolizacji awarii."
+          fi

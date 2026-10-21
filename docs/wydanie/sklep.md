@@ -14,7 +14,7 @@ Ten plik nie zawiera tekstów ani pól sklepu; prowadzi tylko drogę wersji. Pol
 | Numer buildu | tylko workflow: BUILD_BASE (1000) + GITHUB_RUN_NUMBER; `app.json` bez `buildNumber`, `eas.json` bez `autoIncrement` | `.github/workflows/testflight.yml`, krok „Compute & set monotonic build number” | 077 |
 | Minimalny system | iOS 18.0 (`ios.deploymentTarget`); opis wymagań w sklepie bierze się z buildu | `app.json` | 077 |
 | Kanał testowy | każdy tag `v*` albo ręczne „Run workflow” na commicie z master → przesłanie do TestFlight; po sukcesie tag `vX.Y.Z-bNNNN` | `.github/workflows/testflight.yml` | — |
-| Mapy źródeł JS | artefakt `testflight-sourcemap-<wersja>-b<build>`, 90 dni | ten sam workflow | 068 |
+| Mapy źródeł JS | trwale: wydanie GitHub z tagiem `v<wersja>-b<build>`, plik `main.jsbundle.map`; dodatkowo artefakt `testflight-sourcemap-<wersja>-b<build>` (90 dni) | ten sam workflow (zadanie `tag`) | 068, 142 |
 | Uprawnienia | tylko powiadomienia lokalne; bez aparatu (expo-camera wykluczony z autolinkingu, QR PÓŹNIEJ) | `app.json`, `package.json` | 049 |
 | Języki | 35 języków z `src/lib/i18n-locales.ts` (`released`, `supportedLocales`) | `app.json` | 073, 093 |
 | Notatki dla App Review | po angielsku | `docs/app-store-metadata-v2.md` §4.3 | 078 |
@@ -56,7 +56,7 @@ Zły build to awaria, utrata lub uszkodzenie danych, zły wynik obliczeń albo z
 | Aktualizacja w wydaniu stopniowym | „Pause Phased Release” (łącznie do 30 dni przerwy), poprawka jako nowa wersja | Apple, „Release a version update in phases” |
 | Wydana do wszystkich | poprawka jako nowa wersja tą samą drogą (TestFlight → 07 → recenzja); przyspieszona recenzja tylko przy utracie danych albo awarii głównej pracy; zdjęcie ze sprzedaży tylko przy ryzyku utraty danych nowych instalacji `[DO USTALENIA]` | moduł „incydent i poprawka” roli 12 |
 
-Po każdym incydencie: wpis w dzienniku (build, objaw, decyzja, słowa właściciela). Mapa źródeł JS tego buildu jest w artefakcie workflow (90 dni). Reset oceny przy aktualizacji: decyzja przy pierwszej aktualizacji, po przeczytaniu pomocy App Store Connect w dniu wydania `[DO USTALENIA]`.
+Po każdym incydencie: wpis w dzienniku (build, objaw, decyzja, słowa właściciela). Mapa źródeł JS: numer buildu z raportu → tag `v<wersja>-b<build>` (SHA w dzienniku i w tagu) → wydanie GitHub tego tagu, plik `main.jsbundle.map` (bez daty wygaśnięcia; artefakt workflow znika po 90 dniach). Reset oceny przy aktualizacji: decyzja przy pierwszej aktualizacji, po przeczytaniu pomocy App Store Connect w dniu wydania `[DO USTALENIA]`.
 
 ## 5. „Co nowego” dla aktualizacji
 

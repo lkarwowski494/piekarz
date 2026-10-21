@@ -44,3 +44,30 @@ describe('workflow TestFlight: mapy źródeł (M1-audytor-generalny-068)', () =>
     expect(upload).toMatch(/if-no-files-found: error/);
   });
 });
+
+// 142 (12-niezawodnosc-507): artefakt żyje 90 dni, a build wydany w App Store działa dłużej.
+describe('workflow TestFlight: trwała mapa źródeł w wydaniu GitHub (M1-audytor-generalny-142)', () => {
+  const tagJob = workflow.split(/\n  tag:\n/)[1] ?? '';
+  const sklep = readFileSync(join(root, 'docs', 'wydanie', 'sklep.md'), 'utf8').replace(/\r\n/g, '\n');
+
+  it('zadanie tag pobiera artefakt mapy tego buildu', () => {
+    expect(tagJob).toMatch(/uses: actions\/download-artifact@v\d+/);
+    expect(tagJob).toMatch(
+      /name: testflight-sourcemap-\$\{\{ needs\.build\.outputs\.version \}\}-b\$\{\{ needs\.build\.outputs\.build_number \}\}/,
+    );
+  });
+
+  it('zadanie tag dołącza mapę do wydania GitHub z tagiem v<wersja>-b<build>, bez daty wygaśnięcia', () => {
+    expect(tagJob).toMatch(/permissions:\n\s+contents: write/);
+    expect(tagJob).toMatch(/MAP="[^"\n]*\/main\.jsbundle\.map"/);
+    expect(tagJob).toMatch(/gh release create "\$TAG" "\$MAP"/);
+    expect(tagJob).toMatch(/gh release upload "\$TAG" "\$MAP"/);
+    expect(tagJob).toMatch(/GH_TOKEN: \$\{\{ github\.token \}\}/);
+    expect(tagJob).not.toMatch(/retention-days/);
+  });
+
+  it('runbook wskazuje trwałe miejsce mapy: numer buildu → tag → SHA → wydanie GitHub', () => {
+    expect(sklep).toMatch(/wydani[eu] GitHub[^\n]*`v<wersja>-b<build>`[^\n]*main\.jsbundle\.map/);
+    expect(sklep).not.toMatch(/jest w artefakcie workflow \(90 dni\)/);
+  });
+});
