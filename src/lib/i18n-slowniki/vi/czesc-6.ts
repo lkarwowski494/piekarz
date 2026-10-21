@@ -84,7 +84,6 @@ export const CZESC: Record<string, string> = {
   'Wszystkie': 'Tất cả',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Mọi công đoạn thủ công (trộn, gấp bột, nướng) đều diễn ra ngoài khung giờ ngủ (23:00 – 06:30).',
   'Wszystkie etapy wypieku': 'Tất cả các giai đoạn nướng',
-  'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'Mọi công cụ nâng cao và trợ lý Bàn làm bánh không giới hạn',
   'Wt.': 'Th 3',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Chọn dụng cụ nướng mặc định cho quy trình Bàn làm bánh:',
   'Wybierz objawy bochenka': 'Chọn triệu chứng của ổ bánh',

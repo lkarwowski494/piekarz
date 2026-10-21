@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Закваску, которая хранится в холодильнике, подкармливают раз в неделю. По данным King Arthur Baking, перед выпечкой подкармливайте её каждые 12 часов, пока она не начнёт увеличиваться в два-три раза за 6–8 часов после подкормки.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Воспользуйтесь калькулятором целевой температуры теста (DDT): по данным King Arthur Baking, пшеничное тесто после замеса должно иметь температуру около 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Слишком низкая гидратация теста, слабая мука с низким содержанием белка или недостаточно развитая клейковина.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Сложный букет молочной и уксусной кислот.',
   'Zmniejsz udział zakwasu w recepturze.': 'Уменьшите долю закваски в рецептуре.',

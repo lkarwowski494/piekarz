@@ -15,6 +15,121 @@
       "klucz": "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.",
       "powod": "nowy tekst toru p12d (M1-audytor-generalny-179); przekład 33 języków batchem M1 za zgodą na kwotę",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.",
+      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Potrzebny zakwas",
+      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Usunięto recepturę",
+      "powod": "usunięcie receptury bez pytania, z paskiem Cofnij (D-051 1a, 04-studio-projektowe-506) (M1-audytor-generalny-161); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Skopiowano plan wypieku do schowka",
+      "powod": "nazwy miejsc według słownika akcji, bez „Harmonogramu” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Parametry bochenka „{name}” wczytano do receptury.",
+      "powod": "nazwy miejsc według słownika akcji, bez „Kalkulatora” (04-studio-projektowe-028) (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.",
+      "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028); zdanie 06 bez zmiany twierdzenia (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Test okna glutenowego",
+      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Przerośnięte ciasto: zrób focaccię",
+      "powod": "bez angielskich wstawek w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mistrzowski wiejski w stylu Tartine, 80%",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Chleb w stylu San Francisco o wyrazistej kwasowości",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Bagietka paryska na poolishu",
+      "powod": "nazwy receptur bazowych bez angielskich wstawek (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.",
+      "powod": "bez obcych wstawek w PL (04-studio-projektowe-507) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "W pliku receptury brakuje proporcji ciasta.",
+      "powod": "bez tekstów technicznych w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
+      "powod": "głos bez „Uwaga:” i wykrzyknika (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.",
+      "powod": "głos bez „Uwaga:”, wykrzyknika i angielskiej wstawki (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} h temu",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dzień temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dni temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dnia temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:1:1 (szybki, 3–4 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:2:2 (klasyczny, 6–8 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:5:5 (na noc, 12 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

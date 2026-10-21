@@ -17,6 +17,7 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 export interface QrScannerModalProps {
   visible: boolean;
   onClose: () => void;
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: '#FBF8F3',
   },
@@ -167,14 +168,14 @@ const styles = StyleSheet.create({
   },
   permissionTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 22,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
     marginBottom: 8,
     textAlign: 'center',
   },
   permissionDesc: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 22,

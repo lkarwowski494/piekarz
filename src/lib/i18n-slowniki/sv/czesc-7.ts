@@ -1,7 +1,6 @@
 // Słownik sv, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zero reklam, zero śledzenia telemetrycznego': 'Ingen reklam, ingen spårning via telemetri',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rosta fröna i en torr stekpanna och häll över varmt vatten 2 h innan de arbetas in i degen vid lamineringen. Knåda dinkeln varsamt och undvik att sträcka den för mycket.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Guldstandarden för parisisk baguette. Perfekt balans mellan elasticitet och töjbarhet.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Vik degen som ett kuvert (som ett brev) och tryck in den med fingertopparna.',
@@ -89,7 +88,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Förläng autolysen och lägg till en extra omgång vikningar (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Förläng första jäsningen (bulk).',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'En surdegsgrund som förvaras i kylskåpet matas en gång i veckan. Enligt King Arthur Baking ska du före baket mata den var 12:e timme tills den dubblas eller tredubblas i volym inom 6–8 timmar efter matningen.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Använd kalkylatorn för önskad degtemperatur: enligt King Arthur Baking bör en vetedeg hålla ca 24–26 °C efter blandningen.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'För låg vätskegrad i degen, svagt mjöl med låg proteinhalt eller otillräckligt utvecklat gluten.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Komplex bukett av mjölksyra och ättiksyra.',
   'Zmniejsz udział zakwasu w recepturze.': 'Minska andelen surdegsgrund i receptet.',

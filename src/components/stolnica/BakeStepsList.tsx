@@ -14,6 +14,7 @@ import { formatFixed } from '../../lib/format';
 import type { SessionStep } from '../../core/bake-steps';
 import type { DoughRecipeResult } from '../../core/domain-rules';
 
+import { typografia } from '../../ui/tokeny';
 export interface BakeStepsListProps {
   steps: readonly SessionStep[];
   currentStepIdx: number;
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
   },
   ingredientsTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
     marginBottom: 8,
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   ingredientValue: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
     color: theme.colors.tusz,
   },
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   stepTime: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
 });

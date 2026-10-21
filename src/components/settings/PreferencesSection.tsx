@@ -5,6 +5,7 @@ import { t, Lang } from '../../lib/i18n';
 import { UnitSystem } from '../../lib/unit-converter';
 import { getLocalesByStatus } from '../../lib/i18n-locales';
 
+import { typografia } from '../../ui/tokeny';
 const JEZYKI = getLocalesByStatus('released');
 
 export interface PreferencesSectionProps {
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
   },
   opis: {
     marginTop: theme.spacing.sm,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
   },
   langBtnTextActive: {

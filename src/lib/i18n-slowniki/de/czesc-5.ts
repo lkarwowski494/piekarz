@@ -1,7 +1,6 @@
 // Słownik de, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Das Abo verlängert sich automatisch zum beim Plan angegebenen Preis, bis du es kündigst. Die Zahlung wird vom App Store über deinen Apple Account abgerechnet. Du kannst das Abo jederzeit in den Einstellungen deines Apple Accounts oder über „Abo verwalten“ kündigen.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Trockenes Salz zieht durch Osmose punktuell Wasser und bildet Klümpchen. Als Lösung eingearbeitet, können die Na+- und Cl--Ionen die Glutenbindungen sofort im gesamten Teig festigen.',
   'Suchy / chrupki (Crisp Dry)': 'Trocken / knusprig (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Vorgeschlagene Korrektur: Verlängere die Kaltgare (Kühlschrank) um 2–4 Stunden oder verschiebe die Uhrzeit des Auffrischens, um nächtliche Arbeitsschritte am Backbrett zu vermeiden.',
@@ -50,7 +49,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody i zaczyny': 'Wassertemperatur und Vorteige',
   'Temperatura wody, zaczyny, strata piecowa': 'Wassertemperatur, Vorteige, Backverlust',
   'Temperatura wody: {temp}°C': 'Wassertemperatur: {temp} °C',
-  'Test okna glutenowego (Windowpane)': 'Fenstertest (Windowpane)',
   'Test palca': 'Fingertest',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Traditionelle italienische Ciabatta mit festem Vorteig Biga (50 %). Spektakulärer Ofentrieb und große, glänzende Poren.',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Traditioneller Laib aus französischen Dörfern. Ausgewogene Milchsäure und ein nussiger Kleie-Abgang.',
@@ -61,7 +59,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Backen läuft',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Ich bewahre die letzten 10 Kopien auf diesem Telefon auf.',
   'Tu zapiszą się twoje wypieki': 'Hier erscheinen deine Backergebnisse',
-  'Twoja historia jest bezpieczna': 'Dein Verlauf ist sicher',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Deine Daten wurden nicht verändert, aber die App kann sie gerade weder lesen noch speichern. Starte die App neu. Wenn das Problem wieder auftritt, gib Speicherplatz auf deinem Telefon frei.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Deine Daten sind auf deinem Telefon gespeichert. Bevor du es erneut versuchst, kannst du eine Kopie davon exportieren.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Du kannst deine Rezepturen, Sauerteige und dein Tagebuch ansehen, exportieren und löschen. Erinnerungen ans Auffrischen sind deaktiviert. Berechnungen, Plan und Anleitung erfordern Bäcker Pro.',
@@ -103,8 +100,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Sauerteig löschen',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Bearbeitbare Kopie in deiner Bibliothek erstellt.',
   'Utwórz profil dla nowej kultury zakwasu': 'Erstelle ein Profil für eine neue Sauerteigkultur',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Achtung: sehr hohe Hydration (Wasseranteil) für diese Mischung! Der Teig kann weich sein und eine geübte Technik beim Dehnen und Falten (Coil Fold) erfordern.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Achtung: Die berechnete Wassertemperatur liegt über 45 °C. Gefahr, Hefen und Milchsäurebakterien zu verbrühen! Kühle das Mehl oder senke die Raumtemperatur.',
   'Uważaj w kuchni': 'Sei vorsichtig in der Küche',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Verkleisterte Stärke bindet Feuchtigkeit, seidige Krume und tagelange Frische.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'In der Kälte wächst er langsamer, und bei zu hoher Temperatur kann die Gärung zu schnell verlaufen oder sogar stoppen.',

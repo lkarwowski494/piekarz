@@ -12,6 +12,7 @@ import { ScheduledStage } from '../../scheduler/reverse-scheduler';
 import { czasTrwania } from '../../lib/czas-trwania';
 import { IkonaStartu } from '../start/IkonaStartu';
 
+import { typografia } from '../../ui/tokeny';
 export interface TimelineStagesListProps {
   stages: ScheduledStage[];
   formatTime: (d: Date) => string;
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     paddingTop: 2,
   },
   startTimeText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -196,7 +197,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   stageDuration: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   typeBadge: {
@@ -239,7 +240,7 @@ const styles = StyleSheet.create({
     color: theme.colors.blad,
   },
   stageInstructions: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
     marginTop: 2,

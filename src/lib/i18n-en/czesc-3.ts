@@ -5,7 +5,8 @@ export const EN_3: Record<string, string> = {
   'Zmniejsz': 'Decrease',
   'Zwiększ': 'Increase',
   'Załadowano recepturę': 'Recipe loaded',
-  'Parametry bochenka „{name}” zostały załadowane do kalkulatora.': 'Formula and baking parameters for "{name}" loaded into the calculator.',
+  'Parametry bochenka „{name}” wczytano do receptury.':
+    'Loaded the formula and parameters of "{name}" into the recipe.',
   'Piecz ponownie': 'Bake Again',
   '-5 min': '-5 min',
   '-10 sek': '-10 sec',
@@ -13,23 +14,12 @@ export const EN_3: Record<string, string> = {
   'Wektorowy radar sensoryczny': 'Vector sensory radar',
 
   // Apps4Brew Pass & Monetization
-  'Twoja historia jest bezpieczna': 'Your history is safe',
-  'Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).': 'Even without purchase, your logs, archival loaves, and recipes remain permanently free to view (Read-Only mode).',
   'Roczny': 'Yearly',
   'rok': 'year',
   'Miesięczny': 'Monthly',
-  'miesiąc': 'month',
-  'Dożywotni (Lifetime)': 'Lifetime',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'One-time purchase forever • All future updates',
-  'jednorazowo': 'one-time',
-  'Bez chmury: dane zostają w telefonie': 'No cloud: your data stays on your phone',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Zero ads, zero telemetry tracking',
-  'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'All advanced tools and workbench assistant without limits',
   'Przetwarzanie...': 'Processing...',
   'Przywróć zakupy': 'Restore Purchases',
-  'Przeglądaj historię (Read-Only)': 'Browse history (Read-Only)',
   'Zakup': 'Purchase',
-  'Nie udało się dokończyć zakupu. Spróbuj ponownie.': 'Failed to complete purchase. Please try again.',
   'Zakupy zostały pomyślnie przywrócone': 'Purchases successfully restored',
   'Nie znaleziono aktywnych zakupów': 'No active purchases found',
 
@@ -91,8 +81,14 @@ export const EN_3: Record<string, string> = {
   'Wiek': 'Age',
   'Temp': 'Temp',
   'przed chwilą': 'just now',
-  '{hours}h temu': '{hours}h ago',
-  '{days}d temu': '{days}d ago',
+  '{n} h temu':
+    '{n} h ago',
+  '{n} dzień temu':
+    '{n} day ago',
+  '{n} dni temu':
+    '{n} days ago',
+  '{n} dnia temu':
+    '{n} days ago',
   'Dokarmiono zakwas': 'Starter fed',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Logged feeding for starter "{name}".',
   'Zapisano zaktualizowany profil': 'Updated profile saved',

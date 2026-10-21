@@ -11,6 +11,7 @@ import { t } from '../../lib/i18n';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 import type { DiagnosticResult } from '../../doctor/diagnostics';
 
+import { typografia } from '../../ui/tokeny';
 export interface DiagnosisResultCardProps {
   diagnosis: DiagnosticResult | null;
   unitSystem: UnitSystem;
@@ -138,7 +139,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateStolnica}
         >
           <Text style={styles.navActionBtnText}>
-            {t('Przejdź do Stolnicy')}
+            {t('Wróć do wypieku')}
           </Text>
         </Pressable>
       )}
@@ -151,7 +152,7 @@ export function DiagnosisResultCard({
         onPress={onCopyDiagnosis}
       >
         <Text style={styles.copyDiagnosisBtnText}>
-          {t('Kopiuj diagnozę')}
+          {t('Kopiuj jako tekst')}
         </Text>
       </Pressable>
     </View>
@@ -231,13 +232,13 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.akcent,
   },
   causeLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
     marginBottom: 4,
   },
   causeText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
   },
@@ -261,7 +262,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   checklistText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     flex: 1,
@@ -278,7 +279,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   navActionBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -294,7 +295,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   copyDiagnosisBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -309,13 +310,13 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 6,
   },
   emptyText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     textAlign: 'center',
     lineHeight: 18,

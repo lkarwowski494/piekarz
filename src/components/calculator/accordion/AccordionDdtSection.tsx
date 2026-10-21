@@ -7,6 +7,7 @@ import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
 
+import { typografia } from '../../../ui/tokeny';
 // Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
 // (design-spec §11c „106”, punkt 7) [M1-audytor-generalny-106]
 export interface AccordionDdtSectionProps {
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   sectionDesc: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: theme.spacing.sm,
     lineHeight: 16,
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ddtResultLabel: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.blad,
   },
   hotAlertText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -231,7 +232,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   paramStepText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -266,7 +267,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   absorptionLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

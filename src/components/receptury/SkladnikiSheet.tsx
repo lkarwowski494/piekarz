@@ -25,6 +25,7 @@ import { nazwaZaczynu, ZACZYNY_W_MENU, PROCENTY_MAKI_W_ZACZYNIE } from './nazwy-
 import { pokazMenuWyboru } from './stos-receptur';
 import { s } from './style-receptur';
 
+import { typografia } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
   visible: boolean;
   onClose: () => void;
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
   tytul: {
     flex: 1,
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

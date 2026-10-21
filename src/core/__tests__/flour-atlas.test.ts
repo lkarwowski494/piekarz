@@ -87,7 +87,8 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       const blend = [{ name: 'Mąka tortowa typ 450', percentage: 100 }]; // Max rec: 62%
       const analysis = analyzeFlourBlendAbsorption(blend, 78.0); // 78% is way too high
 
-      expect(analysis.doughFeelAdvicePl).toContain('bardzo wysoka hydratacja');
+      // Spokojny ton bez „Uwaga:” i wykrzyknika (design-spec §8) [M1-audytor-generalny-116]
+      expect(analysis.doughFeelAdvicePl).toContain('Bardzo wysoka hydratacja');
     });
 
     it('warns when recipe hydration is very low and dough will be stiff', () => {

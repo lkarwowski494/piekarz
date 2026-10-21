@@ -17,6 +17,7 @@ import {
   DiscardCategory,
 } from '../recipes/discard-recipes';
 
+import { typografia } from '../ui/tokeny';
 interface DiscardRecipesModalProps {
   visible: boolean;
   onClose: () => void;
@@ -285,7 +286,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginBottom: 8,
   },
@@ -297,7 +298,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeBtnText: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
   categoryScroll: {
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   categoryChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -377,11 +378,11 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   timeMeta: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
   yieldMeta: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   toggleIcon: {
@@ -396,7 +397,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.sm,
   },
   sectionSubtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 6,
@@ -421,11 +422,11 @@ const styles = StyleSheet.create({
   },
   ingredientName: {
     flex: 1,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
   },
   ingredientAmount: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -451,7 +452,7 @@ const styles = StyleSheet.create({
   },
   stepText: {
     flex: 1,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 18,
     color: theme.colors.tusz2,
   },

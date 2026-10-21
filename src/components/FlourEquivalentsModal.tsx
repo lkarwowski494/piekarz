@@ -17,6 +17,7 @@ import {
   searchFlourEquivalents,
 } from '../core/flour-equivalents';
 
+import { typografia } from '../ui/tokeny';
 interface FlourEquivalentsModalProps {
   visible: boolean;
   onClose: () => void;
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginBottom: theme.spacing.sm,
   },
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeBtnText: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
   scrollContent: {
@@ -258,13 +259,13 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
   },
   countryFlag: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
     width: 65,
   },
   countryType: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
     flex: 1,
@@ -289,13 +290,13 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   bestForLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
     marginBottom: 2,
   },
   bestForText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
   },

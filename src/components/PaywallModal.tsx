@@ -6,7 +6,7 @@
 // ============================================================================
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
@@ -87,6 +87,8 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
     }
   };
 
+  const { fontScale } = useWindowDimensions();
+
   const handleRestore = async () => {
     if (!onRestore) return;
     setIsProcessing(true);
@@ -116,6 +118,26 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
     stan === 'oferta-proba'
       ? t('Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.')
       : undefined;
+
+  // Przy dużym tekście (fontScale ≥ 2, okolice AX1–AX5) przypięty zostaje tylko przycisk główny, a przywracanie
+  // i linki idą na koniec przewijanej treści, żeby pasek nie zajmował połowy ekranu [M1-audytor-generalny-200]
+  const duzyTekst = fontScale >= 2;
+  // Przywracanie i linki (Apple 3.1.2: Terms of Use i Privacy Policy w aplikacji)
+  const linki = (
+    <View style={styles.linki}>
+      {onRestore && (
+        <Pressable accessibilityRole="button" testID="restore-purchases-btn" onPress={handleRestore} style={styles.link}>
+          <Text style={styles.linkTekst}>{t('Przywróć zakupy')}</Text>
+        </Pressable>
+      )}
+      <Pressable testID="terms-of-use-btn" onPress={() => Linking.openURL(APPLE_EULA_URL)} style={styles.link} accessibilityRole="link">
+        <Text style={styles.linkTekst}>{t('Warunki użytkowania')}</Text>
+      </Pressable>
+      <Pressable testID="privacy-policy-btn" onPress={() => Linking.openURL(PRIVACY_URL)} style={styles.link} accessibilityRole="link">
+        <Text style={styles.linkTekst}>{t('Polityka prywatności')}</Text>
+      </Pressable>
+    </View>
+  );
 
   return (
     <Modal visible={visible} animationType="slide" transparent={false}>
@@ -164,6 +186,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
               {stan !== 'ladowanie' && <Ujawnienia teksty={ujawnienia} />}
             </>
           )}
+          {duzyTekst && linki}
         </ScrollView>
 
         <View style={styles.kciuk}>
@@ -184,30 +207,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
             </Pressable>
           )}
 
-          {/* Przywracanie i linki (Apple 3.1.2: Terms of Use i Privacy Policy w aplikacji) */}
-          <View style={styles.linki}>
-            {onRestore && (
-              <Pressable accessibilityRole="button" testID="restore-purchases-btn" onPress={handleRestore} style={styles.link}>
-                <Text style={styles.linkTekst}>{t('Przywróć zakupy')}</Text>
-              </Pressable>
-            )}
-            <Pressable
-              testID="terms-of-use-btn"
-              onPress={() => Linking.openURL(APPLE_EULA_URL)}
-              style={styles.link}
-              accessibilityRole="link"
-            >
-              <Text style={styles.linkTekst}>{t('Warunki użytkowania')}</Text>
-            </Pressable>
-            <Pressable
-              testID="privacy-policy-btn"
-              onPress={() => Linking.openURL(PRIVACY_URL)}
-              style={styles.link}
-              accessibilityRole="link"
-            >
-              <Text style={styles.linkTekst}>{t('Polityka prywatności')}</Text>
-            </Pressable>
-          </View>
+          {!duzyTekst && linki}
         </View>
       </SafeAreaView>
     </Modal>

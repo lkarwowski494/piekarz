@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Wszystkie': 'Sve',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Sve ručne faze (miješanje, preklapanje, pečenje) odvijaju se izvan razdoblja spavanja (23:00 – 06:30).',
   'Wszystkie etapy wypieku': 'Sve faze pečenja',
-  'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'Svi napredni alati i asistent Radnog stola bez ograničenja',
   'Wt.': 'Ut.',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Odaberi zadanu posudu za pečenje za postupak na Radnom stolu:',
   'Wybierz objawy bochenka': 'Odaberi simptome štruce',
@@ -80,7 +79,6 @@ export const CZESC: Record<string, string> = {
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Pečenje u loncu je završeno. Izvadi kruh na rešetku.',
   'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Pečenje u loncu od lijevanog željeza. 4 serije preklapanja (coil fold) u razmacima od 30 minuta. Hladna fermentacija u hladnjaku 12–16 sati.',
   'Wypiek z parą i rumienienie': 'Pečenje s parom i zarumenjivanje',
-  'Wypróbuj {dni} dni': 'Isprobaj {dni} dana',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Mijesi uz dodatak maslaca i šećera. Nakon dizanja ispleti pletenicu, premaži razmućenim jajetom i pospi mrvičastim posipom.',
   'Wyrównaj do 100%': 'Uravnoteži na 100 %',
   'Wyrzuć zakwas': 'Baci kvas',
@@ -174,5 +172,4 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Skini poklopac lonca. Ispusti paru.',
   'Zdejmij pokrywkę!': 'Skini poklopac!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Mjerač vremena radi u aplikaciji, ali dok je telefon zaključan, neće te podsjetiti na kraj koraka ni na hranjenje.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Bez oglasa, bez telemetrijskog praćenja',
 };

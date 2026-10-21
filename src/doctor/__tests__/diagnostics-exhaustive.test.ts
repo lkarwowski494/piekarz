@@ -161,7 +161,8 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
       const result = diagnoseBreadDefect({ crumbHasHugeTopHolesWithDenseBottom: true });
       expect(result.biologicalCausePl).toContain('Drożdże');
       expect(result.actionChecklistPl.some((a) => a.includes('test palca'))).toBe(true);
-      expect(result.actionChecklistPl.some((a) => a.includes('DDT'))).toBe(true);
+      // Rada o temperaturze ciasta nazywa akcję w aplikacji (temperatura wody w recepturze), nie dawny „kalkulator DDT” [M1-audytor-generalny-113]
+      expect(result.actionChecklistPl.some((a) => a.startsWith('Policz temperaturę wody w recepturze:'))).toBe(true);
     });
 
     it('over-proofed defect explains gluten breakdown and protease activity', () => {

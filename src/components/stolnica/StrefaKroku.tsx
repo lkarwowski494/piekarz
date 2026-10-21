@@ -8,6 +8,8 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import Svg, { Circle, Rect } from 'react-native-svg';
 import { useMotyw } from '../../ui/motyw';
+import { typografia } from '../../ui/tokeny';
+import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 import { t } from '../../lib/i18n';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 import { SessionStep, isDutchOvenStep } from '../../core/bake-steps';
@@ -40,10 +42,18 @@ export interface StrefaKrokuProps {
 export function StrefaKroku({ step, formattedTime, unitSystem, dutchOvenPhase, isCompleted, onSwitchPhase, onStartPhase2AfterSteamAlert, ostrzezenia, czasEtykieta, potem = null, ekran = null }: StrefaKrokuProps) {
   const tytul = tytulOstrzezen(ostrzezenia);
   const { kolory } = useMotyw();
+  // „Pogrubiony tekst” iOS: tytuł kroku i czas w kroju tytułów o stopień ciężej [M1-audytor-generalny-158]
+  const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
   return (
     <>
-      <Text testID="step-title" style={styles.activeStepTitle}>{t(step.name)}</Text>
-      {stepHasTimer(step) && <Text testID="step-time" style={styles.czas} accessibilityLabel={czasEtykieta}>{formattedTime}</Text>}
+      <Text testID="step-title" style={[styles.activeStepTitle, waga]}>{t(step.name)}</Text>
+      {/* Czas rośnie z Dynamic Type najwyżej do tokenu AX5 (56 → 99 pt) [M1-audytor-generalny-201] */}
+      {stepHasTimer(step) && (
+        <Text testID="step-time" style={[styles.czas, waga]} accessibilityLabel={czasEtykieta}
+          maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}>
+          {formattedTime}
+        </Text>
+      )}
       {potem !== null && <Text testID="step-next" style={styles.potem}>{potem}</Text>}
       <Text style={styles.activeStepDesc}>{formatTextUnits(t(step.instructions), unitSystem)}</Text>
       {tytul !== null && <Ostrzezenie tytul={t(tytul)} teksty={ostrzezenia.map((w) => t(w.text))} />}

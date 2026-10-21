@@ -78,6 +78,8 @@ export const EN_14: Record<string, string> = {
   'Edytuj wpis: {opis}': 'Edit entry: {opis}',
   'Usuń wpis: {opis}': 'Delete entry: {opis}',
   'Usunięto wpis': 'Entry deleted',
+  'Usunięto recepturę':
+    'Recipe deleted',
   'Godzina': 'Hour',
   'Minuta': 'Minute',
   'Godzina od 0 do 23, minuty od 0 do 59.': 'Hour from 0 to 23, minutes from 0 to 59.',

@@ -4,6 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { BakingVessel } from '../../data/sqlite-store';
 
+import { typografia } from '../../ui/tokeny';
 // Bez wyboru stylu wypieku: rodzaj receptur wybiera się na Starcie; zapisana wartość
 // baker_ritual_profile zostaje w bazie, kod jej nie czyta [M1-audytor-generalny-101; BR-START-001]
 export interface BakerRitualSectionProps {
@@ -105,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   optionSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
     lineHeight: 16,

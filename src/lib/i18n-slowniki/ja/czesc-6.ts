@@ -102,7 +102,6 @@ export const CZESC: Record<string, string> = {
   'Wszystkie': 'すべて',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'すべての手作業（ミキシング、折りたたみ、焼成）は睡眠時間帯（23:00 – 06:30）の外に行われます。',
   'Wszystkie etapy wypieku': '焼成の全工程',
-  'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'すべての高度なツールと作業台アシスタントを無制限に',
   'Wt.': '火',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': '作業台の手順で使うデフォルトの焼成容器を選択してください：',
   'Wybierz objawy bochenka': 'ローフの症状を選択',

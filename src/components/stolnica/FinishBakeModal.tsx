@@ -22,6 +22,7 @@ import {
   BreadSensoryProfile,
 } from '../SensoryRadarChart';
 
+import { typografia } from '../../ui/tokeny';
 export interface FinishBakeModalProps {
   visible: boolean;
   onClose: () => void;
@@ -225,12 +226,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginBottom: 16,
   },
   modalSectionLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz3,
     marginBottom: 6,
@@ -247,7 +248,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   starIcon: {
-    fontSize: 28,
+    fontSize: typografia.style.tytulKroku.pt,
     color: theme.colors.tusz3,
   },
   starIconActive: {
@@ -286,7 +287,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   scoreBtnText: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
   },
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   tasteChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },

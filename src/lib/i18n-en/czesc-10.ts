@@ -164,14 +164,14 @@ export const EN_10: Record<string, string> = {
     'A classic wheat-rye loaf with a crispy crust and an open ear. Ideal for starting your sourdough adventure.',
   'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.':
     'Baked in a cast-iron pot. 4 sets of folds (Coil Fold) at 30-minute intervals. Proofing in the fridge for 12–16 hours.',
-  'Mistrzowski wiejski (Tartine Style 80%)':
-    'Master country loaf (Tartine Style 80%)',
+  'Mistrzowski wiejski w stylu Tartine, 80%':
+    'Master country loaf, Tartine style, 80%',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.':
     'An advanced high-hydration loaf with a wild, pearly crumb and a huge ear.',
   'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.':
     'Requires flour with a protein content of at least 13.0g. Autolyse 60 minutes without salt. Very gentle coil folds.',
-  'San Francisco Sourdough (Wyrazista Kwasowość)':
-    'San Francisco Sourdough (Bold Sourness)',
+  'Chleb w stylu San Francisco o wyrazistej kwasowości':
+    'San Francisco–style sourdough with bold sourness',
   'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.':
     'A classic San Francisco bread with deep acetic sourness, a glossy blistered crust and an elastic, open crumb.',
   'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.':
@@ -182,8 +182,8 @@ export const EN_10: Record<string, string> = {
     'A traditional loaf from the French countryside. A balanced lactic acid flavor and a nutty, bran finish.',
   'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.':
     'Classic three-flour combination: light wheat, graham and rye bread flour. 3 sets of gentle stretch & fold, proofing in an oval basket.',
-  'Bagietka paryska z Poolishem (Baguette de Tradition)':
-    'Parisian baguette with Poolish (Baguette de Tradition)',
+  'Bagietka paryska na poolishu':
+    'Parisian baguette with poolish',
   'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.':
     'A classic French baguette with a 12-hour Poolish preferment. A crispy, thin crust and a light, airy crumb.',
   'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.':

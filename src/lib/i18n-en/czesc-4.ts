@@ -1,25 +1,12 @@
 // Słownik EN, część 4: zakupy przez App Store (M1-audytor-generalny-008, -009, -027).
 // Polski tekst jest kluczem. Całość składa src/lib/i18n.en.ts.
 export const EN_4: Record<string, string> = {
-  '12 miesięcy': '12 months',
-  'Aktywuj plan roczny': 'Start yearly plan',
-  'Aktywuj plan miesięczny': 'Start monthly plan',
   'Kup dostęp dożywotni': 'Buy Lifetime Access',
-  'Pierwsze {dni} dni bezpłatnie, potem {cena}': 'First {dni} days free, then {cena}',
-  'Wypróbuj {dni} dni': 'Try {dni} days',
   'Odblokuj pełny dostęp': 'Unlock full access',
-  'Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.':
-    'Unlock every feature of the app. Without a purchase, your bake history and viewing, exporting and deleting your data stay available.',
   // Przywracanie zakupów [M1-audytor-generalny-010]
   'Zakupy': 'Purchases',
   'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Could not connect to the App Store. Please try again.',
   // Ujawnienia ekranu zakupu [M1-audytor-generalny-011]
-  '1 miesiąc': '1 month',
-  'Odnawia się automatycznie co rok': 'Renews automatically every year',
-  'Odnawia się automatycznie co miesiąc': 'Renews automatically every month',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.':
-    'The subscription renews automatically at the price shown for the plan until you cancel it. Payment is charged to your Apple Account by the App Store. You can cancel at any time in your Apple Account settings or with “Manage subscription”.',
-  'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Lifetime access is a one-time purchase that does not renew.',
   'Zarządzaj subskrypcją': 'Manage Subscription',
   // Ekran zakupu „Piekarz Pro” w nowej szacie (design-spec §11e 127; nazwy jak w App Store Connect) [M1-audytor-generalny-127]
   'Piekarz Pro': 'Baker Pro',
@@ -90,8 +77,8 @@ export const EN_4: Record<string, string> = {
   'Szybkie odświeżenie: więcej zakwasu względem świeżej mąki i wody, więc krótszy czas do szczytu.':
     'Quick refresh: more starter relative to fresh flour and water, so a shorter time to peak.',
   // Ostrzeżenie RD-05 o wodzie > 45 °C w Kalkulatorze [M1-audytor-generalny-039]
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.':
-    'Warning: the calculated water temperature exceeds 45°C. Risk of killing the yeast and lactic acid bacteria! Cool the flour or lower the room temperature.',
+  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.':
+    'The calculated water temperature exceeds 45°C. That risks killing the yeast and lactic acid bacteria. Cool the flour or lower the room temperature.',
   // Spirala koszyka: etykieta VoiceOver i legenda (design-spec §2, §11b 058) [M1-audytor-generalny-058]
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Bake plan, step {n} of {N}: {nazwa}, {czas} left.',
   'Plan wypieku, krok {n} z {N}: {nazwa}.': 'Bake plan, step {n} of {N}: {nazwa}.',

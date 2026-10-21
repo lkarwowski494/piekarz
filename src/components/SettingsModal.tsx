@@ -26,6 +26,7 @@ import { ImportRecepturySection } from './settings/ImportRecepturySection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
 import { ZakupySection } from './settings/ZakupySection';
 
+import { typografia } from '../ui/tokeny';
 export interface SettingsModalProps {
   visible: boolean;
   onClose: () => void;
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

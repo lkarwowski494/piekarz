@@ -51,7 +51,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'tartine_high_hydration_80',
-    namePl: 'Mistrzowski wiejski (Tartine Style 80%)',
+    namePl: 'Mistrzowski wiejski w stylu Tartine, 80%',
     category: 'sourdough',
     descriptionPl: 'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.',
     formula: {
@@ -75,7 +75,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'san_francisco_sourdough',
-    namePl: 'San Francisco Sourdough (Wyrazista Kwasowość)',
+    namePl: 'Chleb w stylu San Francisco o wyrazistej kwasowości',
     category: 'sourdough',
     descriptionPl: 'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.',
     formula: {
@@ -124,7 +124,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'baguette_tradition_poolish',
-    namePl: 'Bagietka paryska z Poolishem (Baguette de Tradition)',
+    namePl: 'Bagietka paryska na poolishu',
     category: 'yeast',
     descriptionPl: 'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
     formula: {
@@ -337,7 +337,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     id: 'pizza_napoletana_48h',
     namePl: 'Pizza Napoletana Verace (48h)',
     category: 'pizza',
-    descriptionPl: 'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.',
+    descriptionPl: 'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.',
     formula: {
       flours: [
         { name: 'Mąka pszenna włoska Tipo 00', percentage: 100.0, type: 'tipo_00' },

@@ -234,7 +234,17 @@ for (const kod of jezyki) {
     else e(k, 'brak tłumaczenia');
   }
   const kategorie = new Intl.PluralRules(kod === 'pt' ? 'pt-PT' : kod).resolvedOptions().pluralCategories;
-  for (const g of new Set(grupyMnogie)) for (const kat of kategorie) if (!Object.prototype.hasOwnProperty.call(d, `${g}#${kat}`)) e(g, `brak formy liczby mnogiej #${kat}`);
+  // Grupa liczby mnogiej „czeka na przekład” (jak klucz bez przekładu): w aplikacji formy PL→EN, więc to UWAGA, nie BŁĄD
+  // [M1-audytor-generalny-162]
+  for (const g of new Set(grupyMnogie)) {
+    const cz = czekaMap.get(g);
+    const czeka = czekaMap.has(g) && (!cz || cz.includes(kod));
+    for (const kat of kategorie) {
+      if (Object.prototype.hasOwnProperty.call(d, `${g}#${kat}`)) continue;
+      if (czeka) dozwoloneBraki++;
+      else e(g, `brak formy liczby mnogiej #${kat}`);
+    }
+  }
 }
 if (dozwoloneBraki) uwagi.push(`języki przekładu: ${dozwoloneBraki} braków dozwolonych (PÓŹNIEJ albo czeka na przekład) — w aplikacji tekst EN`);
 

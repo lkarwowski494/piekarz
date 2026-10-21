@@ -3,6 +3,7 @@ import Svg, { Path, Rect, Circle } from 'react-native-svg';
 import { Text, type ColorValue } from 'react-native';
 import { lang } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 // Zakładki D-051 (2a): Dziś, Receptury, Zakwasy, Dziennik; kształty z makiety docs/design/ekrany/wspolne.js
 export type TabIconName = 'dzis' | 'receptury' | 'zakwasy' | 'dziennik';
 
@@ -76,7 +77,7 @@ export function TabLabel({
         },
         position === 'below-icon'
           ? { fontSize: 10 }
-          : { fontSize: 13, marginStart: 4, marginEnd: 8, lineHeight: 22 },
+          : { fontSize: typografia.style.przypis.pt, marginStart: 4, marginEnd: 8, lineHeight: 22 },
       ]}
     >
       {children}

@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — opis planu pod Spiralą (`plan-sen`): „Start {dzień} o {godzina}” i „Całość trwa {czas}.”
 // (design-spec §11c 116) [M1-audytor-generalny-116]. „Zacznij wypiek” jest w pasku kciuka (PasekStartu.tsx),
-// „Kopiuj harmonogram” pod listą kroków (UstawieniaPlanu.tsx) [M1-audytor-generalny-128].
+// „Kopiuj jako tekst” pod listą kroków (UstawieniaPlanu.tsx) [M1-audytor-generalny-128].
 // ============================================================================
 
 import React from 'react';
@@ -38,6 +38,7 @@ export function ScheduleSummaryCard({ start, czasMin, teraz }: ScheduleSummaryCa
 }
 
 const styles = StyleSheet.create({
-  opis: { alignItems: 'center', gap: 2, marginBottom: 16 },
-  linia: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, textAlign: 'center' },
+  // Obok Spirali w rzędzie z zawijaniem (`.kosz .opis`: flex 1 1 120px, min-width 0) [M1-audytor-generalny-128]
+  opis: { flexGrow: 1, flexShrink: 1, flexBasis: 120, minWidth: 0, gap: 6 },
+  linia: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
 });

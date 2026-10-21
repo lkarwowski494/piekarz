@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Kéo dài thời gian thủy phân bột và thêm một lượt gấp bột kiểu coil fold.',
   'Wydłuż fermentację burzliwą.': 'Kéo dài thời gian lên men khối.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Men tự nhiên bảo quản trong tủ lạnh được cho ăn mỗi tuần một lần. Theo King Arthur Baking, trước khi nướng, hãy cho men ăn 12 giờ một lần cho đến khi men tăng gấp đôi hoặc gấp ba thể tích trong vòng 6–8 giờ sau khi cho ăn.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Dùng máy tính Nhiệt độ bột mục tiêu (DDT): theo King Arthur Baking, bột nhào từ bột mì sau khi trộn nên ở khoảng 24–26 °C.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Độ ẩm bột quá thấp, bột yếu có hàm lượng protein thấp hoặc gluten phát triển chưa đủ.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Tầng hương phức hợp của axit lactic và axit axetic.',
   'Zmniejsz udział zakwasu w recepturze.': 'Giảm tỷ lệ men tự nhiên trong công thức.',

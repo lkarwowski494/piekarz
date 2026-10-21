@@ -16,6 +16,7 @@ import type { RecipePreset } from '../../recipes/presets';
 import { opisReceptury } from './nazwy-receptur';
 import { s } from './style-receptur';
 
+import { typografia } from '../../ui/tokeny';
 /** Filtr rodzaju na liście receptur bazowych (chipy niżej). */
 export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
 
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   usunTekst: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.blad,
   },
   pusty: {

@@ -13,6 +13,7 @@ import { t } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
+import { typografia } from '../../ui/tokeny';
 export interface StarterFeedingCardProps {
   selectedRatio: [number, number, number];
   onSelectRatio: (ratio: [number, number, number]) => void;
@@ -44,14 +45,14 @@ export function StarterFeedingCard({
   onOpenDiscardRecipes,
 }: StarterFeedingCardProps) {
   // Masa zakwasu zostawionego w słoiku (g): z niej mąka, woda i hydratacja po dokarmieniu (RD-14, BR-ZAKW-002)
-  // [M1-audytor-generalny-130]; puste pole = prośba o uzupełnienie, wynik z chipów masy zaczynu zostaje
+  // [M1-audytor-generalny-130]; puste pole = prośba o uzupełnienie, wynik z chipów masy zakwasu do ciasta zostaje
   const [zostawiam, setZostawiam] = useState<number | null>(null);
   const zZostawionego = zostawiam === null ? null : dokarmienieZeZostawionego(zostawiam, selectedRatio, hydratacjaZakwasu);
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Ilości do dokarmienia')}</Text>
       <Text style={styles.cardSubtitle}>
-        {t('Dobierz proporcje i potrzebną masę zaczynu do wypieku')}
+        {t('Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.')}
       </Text>
 
       <Text style={styles.subHeading}>{t('Zostawiam w słoiku')}</Text>
@@ -80,10 +81,10 @@ export function StarterFeedingCard({
       <Text style={styles.subHeading}>{t('Cykl dokarmiania')} ({t('Proporcja')})</Text>
       <View style={styles.ratioChipsRow}>
         {[
-          { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (Szybki 3-4h)') },
-          { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (Klasyk 6-8h)') },
-          { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8-10h)' },
-          { ratio: [1, 5, 5] as [number, number, number], label: t('1:5:5 (Na noc 12h)') },
+          { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (szybki, 3–4 h)') },
+          { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (klasyczny, 6–8 h)') },
+          { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8–10 h)' },
+          { ratio: [1, 5, 5] as [number, number, number], label: t('1:5:5 (na noc, 12 h)') },
         ].map((item, idx) => {
           const isSelected =
             selectedRatio[0] === item.ratio[0] &&
@@ -107,7 +108,7 @@ export function StarterFeedingCard({
 
       {/* Yield Amount Selector */}
       <Text style={styles.subHeading}>
-        {t('Potrzebny zaczyn')}: {formatWeight(targetYield, unitSystem)}
+        {t('Potrzebny zakwas')}: {formatWeight(targetYield, unitSystem)}
       </Text>
       <View style={styles.yieldButtons}>
         {[100, 150, 200, 250, 300].map((y) => (
@@ -160,7 +161,7 @@ export function StarterFeedingCard({
         onPress={onCopyFeeding}
       >
         <Text style={styles.copyFeedingBtnText}>
-          {t('Kopiuj dokarmienie')}
+          {t('Kopiuj jako tekst')}
         </Text>
       </Pressable>
 
@@ -210,14 +211,14 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   cardSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
     marginBottom: 12,
   },
   subHeading: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   ratioChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   yieldChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -341,7 +342,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   copyFeedingBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -357,7 +358,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   openConverterBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },

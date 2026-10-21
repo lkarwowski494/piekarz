@@ -29,6 +29,7 @@ import {
   FlourProfile,
 } from '../core/flour-atlas';
 
+import { typografia } from '../ui/tokeny';
 export interface FlourBlendModalProps {
   visible: boolean;
   initialBlend: FlourItemInput[];
@@ -300,7 +301,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginBottom: 12,
   },
@@ -325,7 +326,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   validationText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     flex: 1,
   },
@@ -367,7 +368,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   flourName: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     flex: 1,
@@ -412,7 +413,7 @@ const styles = StyleSheet.create({
     marginLeft: 'auto',
   },
   removeBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '800',
     color: theme.colors.blad,
   },
@@ -424,7 +425,7 @@ const styles = StyleSheet.create({
   },
   addSectionTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz2,
     marginBottom: 8,

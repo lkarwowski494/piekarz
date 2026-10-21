@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../../src/ui/theme';
 import { typografia } from '../../../src/ui/tokeny';
 import { t } from '../../../src/lib/i18n';
+import { dniTemu, godzinTemu } from '../../../src/lib/czas-temu';
 import { guardSave } from '../../../src/lib/save-guard';
 import { resyncNotifications, ensureNotificationPermission } from '../../../src/lib/notifications';
 import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
@@ -162,9 +163,9 @@ export default function ZakwasScreen() {
   const lastFedLabel = useMemo(() => {
     const diffHours = Math.floor((Date.now() - (starter.lastFedAt ?? Date.now())) / (1000 * 60 * 60));
     if (diffHours < 1) return t('przed chwilą');
-    if (diffHours < 24) return t('{hours}h temu', { hours: diffHours });
+    if (diffHours < 24) return godzinTemu(diffHours);
     const diffDays = Math.floor(diffHours / 24);
-    return t('{days}d temu', { days: diffDays });
+    return dniTemu(diffDays);
   }, [starter.lastFedAt]);
 
   const handleLogFeeding = async () => {
@@ -252,7 +253,7 @@ export default function ZakwasScreen() {
   const handleCopyFeeding = async () => {
     const copied = await copyFeedingToClipboard(starter, feeding, selectedRatio);
     if (copied) {
-      Alert.alert(t('Kopiuj dokarmienie'), t('Skopiowano proporcje dokarmiania do schowka'));
+      Alert.alert(t('Kopiuj jako tekst'), t('Skopiowano proporcje dokarmiania do schowka'));
     }
   };
 

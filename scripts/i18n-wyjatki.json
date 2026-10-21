@@ -18,7 +18,7 @@
     { "tekst": "DE:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
     { "tekst": "US:", "powod": "kod kraju (oznaczenie typu maki w danym kraju)" },
     { "tekst": "DDT:", "powod": "skrot Desired Dough Temperature, taki sam w PL i EN" },
-    { "tekst": "% • DDT:", "powod": "symbol procentu i skrot DDT" },
+    { "tekst": "%, DDT:", "powod": "symbol procentu i skrot DDT (separator przecinek zamiast „•”, design-spec 12a) [M1-audytor-generalny-090]" },
     { "tekst": "(250 ml)", "powod": "jednostka miary" },
     { "tekst": "(15 ml)", "powod": "jednostka miary" },
     { "tekst": "(5 ml)", "powod": "jednostka miary" },

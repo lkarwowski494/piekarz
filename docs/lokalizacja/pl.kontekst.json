@@ -34,9 +34,6 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "1 miesiąc": {
-    "gdzie": []
-  },
   "100% (Płynny Levain)": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (label)"
@@ -82,9 +79,6 @@
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
     ]
   },
-  "12 miesięcy": {
-    "gdzie": []
-  },
   "12h fermentacja zaczynu Poolish + krótka fermentacja właściwa 2h": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -110,20 +104,23 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "1:1:1 (Szybki 3-4h)": {
+  "1:1:1 (szybki, 3–4 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu (zakwas : mąka : woda) i przybliżony czas do szczytu. Zakres z półpauzą, „h” ze spacją. [M1-audytor-generalny-162]"
   },
-  "1:2:2 (Klasyk 6-8h)": {
+  "1:2:2 (klasyczny, 6–8 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu i przybliżony czas do szczytu. [M1-audytor-generalny-162]"
   },
-  "1:5:5 (Na noc 12h)": {
+  "1:5:5 (na noc, 12 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu na noc i przybliżony czas do szczytu. [M1-audytor-generalny-162]"
   },
   "2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek": {
     "gdzie": [
@@ -210,12 +207,6 @@
   "Aktywny zakwas": {
     "gdzie": []
   },
-  "Aktywuj plan miesięczny": {
-    "gdzie": []
-  },
-  "Aktywuj plan roczny": {
-    "gdzie": []
-  },
   "Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -288,10 +279,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: titlePl)"
     ]
   },
-  "Bagietka paryska z Poolishem (Baguette de Tradition)": {
+  "Bagietka paryska na poolishu": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
-    ]
+    ],
+    "opis": "Nazwa receptury bazowej: bagietka paryska na zaczynie poolish (płynny zaczyn drożdżowy; w aplikacji nazwa zaczynu „poolish”). Bez nawiasów. [M1-audytor-generalny-112]"
   },
   "Bagietki / Bułki (duża powierzchnia odparowania)": {
     "gdzie": [
@@ -325,6 +317,12 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
+    ],
+    "opis": "Rada w arkuszu „Składniki”, gdy hydratacja jest dużo powyżej zakresu mieszanki mąk. Składanie = składanie ciasta w trakcie fermentacji (stretch and fold). Spokojny ton, bez wykrzyknika. [M1-audytor-generalny-116]"
+  },
   "Baza Fiszek Biochemicznych": {
     "gdzie": []
   },
@@ -332,9 +330,6 @@
     "gdzie": [
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
     ]
-  },
-  "Bez chmury: dane zostają w telefonie": {
-    "gdzie": []
   },
   "Bez godzin snu": {
     "gdzie": [
@@ -464,11 +459,6 @@
       "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
     ]
   },
-  "Brak sekcji formuły ciasta (formula)": {
-    "gdzie": [
-      "src/lib/recipe-sharing.ts (error)"
-    ]
-  },
   "Brak struktury glutenowej (funkcję szkieletu pełnią śluzy arabinoksylany). Wymaga zakwasu (pH < 4.5).": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -574,6 +564,12 @@
       "src/lib/notifications.ts (title)"
     ]
   },
+  "Chleb w stylu San Francisco o wyrazistej kwasowości": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: namePl)"
+    ],
+    "opis": "Nazwa receptury bazowej: chleb na zakwasie w stylu San Francisco (nazwa miasta, styl chleba), wyraźnie kwaśny. Bez nawiasów. [M1-audytor-generalny-112]"
+  },
   "Chleb wiejski / Batard / Boule (garnek/kamień)": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: namePl)"
@@ -599,10 +595,11 @@
       "src/core/flour-equivalents.ts (dane: bestForPl)"
     ]
   },
-  "Chleby na zakwasie o wysokiej hydratacji (75-85%), Tartine, pizza napoletana 48h, brioszki.": {
+  "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: bestForPl)"
-    ]
+    ],
+    "opis": "Opis zastosowania mąki w tabeli odpowiedników mąk. Zmiana tylko typograficzna (półpauza w zakresie, spacja przed „h”). [M1-audytor-generalny-162]"
   },
   "Chrupiące gofry rzemieślnicze": {
     "gdzie": [
@@ -946,11 +943,6 @@
       "src/lib/notifications.ts (body)"
     ]
   },
-  "Dobierz proporcje i potrzebną masę zaczynu do wypieku": {
-    "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
-  },
   "Dobra skórka z lekkim połyskiem": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -1181,9 +1173,6 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
-  "Dostęp dożywotni to jednorazowy zakup bez odnawiania.": {
-    "gdzie": []
-  },
   "Dotychczasowy cykl dokarmiania zostanie wyzerowany.": {
     "gdzie": [
       "src/lib/confirm.ts (message)"
@@ -1198,9 +1187,6 @@
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
-  },
-  "Dożywotni (Lifetime)": {
-    "gdzie": []
   },
   "Drobna niedoskonałość": {
     "gdzie": [
@@ -1782,11 +1768,6 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
-  "Harmonogram": {
-    "gdzie": [
-      "src/lib/schedule-formatter.ts (kod)"
-    ]
-  },
   "Harmonogram wsteczny z ochroną snu": {
     "gdzie": []
   },
@@ -1985,9 +1966,6 @@
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: passingCriteriaPl)"
     ]
-  },
-  "Jednorazowy zakup na zawsze • Wszystkie aktualizacje": {
-    "gdzie": []
   },
   "Jednostki": {
     "gdzie": [
@@ -2243,24 +2221,12 @@
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
-  "Kopiuj diagnozę": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
-    ]
-  },
-  "Kopiuj dokarmienie": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
-  },
-  "Kopiuj harmonogram": {
-    "gdzie": [
-      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
-    ]
-  },
   "Kopiuj jako tekst": {
     "gdzie": [
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/calculator-actions.ts (Alert.alert)",
       "src/lib/menu-receptury.ts (etykieta)"
     ]
@@ -2622,10 +2588,11 @@
   "Mistrzowski": {
     "gdzie": []
   },
-  "Mistrzowski wiejski (Tartine Style 80%)": {
+  "Mistrzowski wiejski w stylu Tartine, 80%": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
-    ]
+    ],
+    "opis": "Nazwa receptury bazowej na liście receptur. Tartine = nazwa własna (piekarnia w San Francisco, styl chleba), 80% = hydratacja. Bez nawiasów. [M1-audytor-generalny-112]"
   },
   "Miękisz (Wnętrze bochenka)": {
     "gdzie": [
@@ -3274,9 +3241,6 @@
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
-  "Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).": {
-    "gdzie": []
-  },
   "Nazwa": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)"
@@ -3360,9 +3324,6 @@
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
     ]
-  },
-  "Nie udało się dokończyć zakupu. Spróbuj ponownie.": {
-    "gdzie": []
   },
   "Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.": {
     "gdzie": [
@@ -3571,6 +3532,12 @@
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
+  "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: warningMessagePl)"
+    ],
+    "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
+  },
   "Obniż docelową temperaturę ciasta": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
@@ -3679,9 +3646,6 @@
       "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
     ]
   },
-  "Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.": {
-    "gdzie": []
-  },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
@@ -3699,12 +3663,6 @@
     ]
   },
   "Odliczanie trwa": {
-    "gdzie": []
-  },
-  "Odnawia się automatycznie co miesiąc": {
-    "gdzie": []
-  },
-  "Odnawia się automatycznie co rok": {
     "gdzie": []
   },
   "Odparowana woda": {
@@ -3868,10 +3826,11 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.": {
+  "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
-    ]
+    ],
+    "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
     "gdzie": [
@@ -3946,10 +3905,11 @@
   "Parametry Rzemieślnicze & Mąki": {
     "gdzie": []
   },
-  "Parametry bochenka „{name}” zostały załadowane do kalkulatora.": {
+  "Parametry bochenka „{name}” wczytano do receptury.": {
     "gdzie": [
       "src/hooks/useBakeHistory.ts (Alert.alert)"
-    ]
+    ],
+    "opis": "Komunikat po „Piecz ponownie” z wpisu Dziennika: ilości i parametry tamtego wypieku trafiły na ekran receptury. {name} = nazwa receptury. Dawny „kalkulator” to dziś ekran receptury. [M1-audytor-generalny-113]"
   },
   "Pasywne": {
     "gdzie": [
@@ -4068,9 +4028,6 @@
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
   },
-  "Pierwsze {dni} dni bezpłatnie, potem {cena}": {
-    "gdzie": []
-  },
   "Pizza": {
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
@@ -4101,7 +4058,8 @@
       "app/(tabs)/receptury/_layout.tsx (title)",
       "app/stolnica.tsx (etykieta)",
       "app/stolnica.tsx (tekst)",
-      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)"
+      "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/lib/schedule-formatter.ts (kod)"
     ]
   },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
@@ -4287,6 +4245,12 @@
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
+  "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ],
+    "opis": "Rada Doktora Chleba (treść roli 06, twierdzenie DIA-DDT-001): przed dwukropkiem akcja w aplikacji (arkusz „Temperatura wody” na ekranie receptury), po dwukropku fakt ze źródłem z atrybucją. Liczby i °C bez zmian; w trybie imperialnym aplikacja przelicza na °F. [M1-audytor-generalny-113]"
+  },
   "Polityka prywatności": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)",
@@ -4374,10 +4338,11 @@
       "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
-  "Potrzebny zaczyn": {
+  "Potrzebny zakwas": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
+    ],
+    "opis": "Etykieta wyniku w karcie dokarmienia: masa zakwasu (sourdough starter) potrzebna do ciasta, po niej dwukropek i masa. Nie zaczyn/preferment. [M1-audytor-generalny-160]"
   },
   "Powiadomienia o kolejnych krokach znikną.": {
     "gdzie": [
@@ -4527,14 +4492,6 @@
       "src/core/sourdough-physics.ts (dane: labelPl)"
     ]
   },
-  "Przeglądaj historię (Read-Only)": {
-    "gdzie": []
-  },
-  "Przejdź do Stolnicy": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
-    ]
-  },
   "Przekwaszenie / Przerośnięcie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
@@ -4591,10 +4548,11 @@
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
-  "Przerośnięte ciasto (Pivot na Focaccię)": {
+  "Przerośnięte ciasto: zrób focaccię": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
-    ]
+    ],
+    "opis": "Tytuł protokołu ratunkowego w Doktorze Chleba: przerośnięte ciasto przerabiasz na focaccię. Focaccia = włoski płaski chleb (nazwa potrawy). [M1-audytor-generalny-112]"
   },
   "Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.": {
     "gdzie": [
@@ -5096,11 +5054,6 @@
       "src/core/bake-loss.ts (dane: descriptionPl)"
     ]
   },
-  "San Francisco Sourdough (Wyrazista Kwasowość)": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
-    ]
-  },
   "Scenariusze wypieku": {
     "gdzie": []
   },
@@ -5147,15 +5100,16 @@
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
-  "Skopiowano harmonogram do schowka": {
-    "gdzie": [
-      "src/lib/schedule-formatter.ts (kod)"
-    ]
-  },
   "Skopiowano kod JSON receptury do schowka.": {
     "gdzie": [
       "src/lib/calculator-actions.ts (Alert.alert)"
     ]
+  },
+  "Skopiowano plan wypieku do schowka": {
+    "gdzie": [
+      "src/lib/schedule-formatter.ts (kod)"
+    ],
+    "opis": "Komunikat VoiceOver po „Kopiuj jako tekst” na ekranie planu wypieku (tekst planu w schowku). „Plan wypieku” to nazwa ekranu (EN „Bake plan”); dawna nazwa „Harmonogram” zniknęła. [M1-audytor-generalny-113]"
   },
   "Skopiowano proporcje dokarmiania do schowka": {
     "gdzie": [
@@ -5407,9 +5361,6 @@
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
-  },
-  "Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.": {
-    "gdzie": []
   },
   "Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
     "gdzie": [
@@ -5735,10 +5686,11 @@
   "Temperatura wody: {temp}°C": {
     "gdzie": []
   },
-  "Test okna glutenowego (Windowpane)": {
+  "Test okna glutenowego": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
-    ]
+    ],
+    "opis": "Tytuł rozwijanej karty w Doktorze Chleba: test rozciągania ciasta pod światło (błona glutenowa). Bez angielskiego dopisku w nawiasie. [M1-audytor-generalny-112]"
   },
   "Test palca": {
     "gdzie": [
@@ -5795,9 +5747,6 @@
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
-  },
-  "Twoja historia jest bezpieczna": {
-    "gdzie": []
   },
   "Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.": {
     "gdzie": [
@@ -6000,6 +5949,12 @@
       "src/components/SettingsModal.tsx (tekst w JSX)"
     ]
   },
+  "Usunięto recepturę": {
+    "gdzie": [
+      "app/(tabs)/receptury/index.tsx (tekst)"
+    ],
+    "opis": "Pasek „Cofnij” na dole listy receptur po usunięciu własnej receptury (bez pytania); obok przycisk „Przywróć”. Krótko, czas przeszły, jak „Usunięto wpis”. [M1-audytor-generalny-161]"
+  },
   "Usunięto wpis": {
     "gdzie": [
       "src/components/zakwas/StarterEntriesList.tsx (tekst)"
@@ -6088,19 +6043,9 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.": {
-    "gdzie": [
-      "src/core/domain-rules.ts (dane: warningMessagePl)"
-    ]
-  },
   "Uwaga: W spiżarni brakuje {g}g mąki ({lista}).": {
     "gdzie": [
       "src/core/inventory.ts (dane: kod)"
-    ]
-  },
-  "Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
   "Uważaj w kuchni": {
@@ -6206,6 +6151,12 @@
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
+  },
+  "W pliku receptury brakuje proporcji ciasta.": {
+    "gdzie": [
+      "src/lib/recipe-sharing.ts (error)"
+    ],
+    "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
   },
   "W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.": {
     "gdzie": [
@@ -6617,6 +6568,7 @@
   },
   "Wróć do wypieku": {
     "gdzie": [
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
       "src/components/start/TrwajacyWypiek.tsx (accessibilityLabel)",
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)"
@@ -6708,9 +6660,6 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
-  "Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów": {
-    "gdzie": []
-  },
   "Wt.": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
@@ -6735,6 +6684,12 @@
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
+  },
+  "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ],
+    "opis": "Podtytuł karty „Ilości do dokarmienia” na ekranie zakwasu. „Zakwas” = sourdough starter (kultura w słoiku), NIE zaczyn/preferment (poolish, biga, levain jako składnik ciasta). Aplikacja mówi w 1. osobie („Policzę”). [M1-audytor-generalny-160]"
   },
   "Wybierz recepturę": {
     "gdzie": [
@@ -6983,9 +6938,6 @@
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
-  },
-  "Wypróbuj {dni} dni": {
-    "gdzie": []
   },
   "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.": {
     "gdzie": [
@@ -7523,11 +7475,6 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
-  "Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Zastosuj mieszankę": {
     "gdzie": [
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
@@ -7707,9 +7654,6 @@
     "gdzie": [
       "src/components/NotificationsOffBanner.tsx (tekst w JSX)"
     ]
-  },
-  "Zero reklam, zero śledzenia telemetrycznego": {
-    "gdzie": []
   },
   "Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.": {
     "gdzie": [
@@ -8026,9 +7970,6 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "jednorazowo": {
-    "gdzie": []
-  },
   "jutro": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
@@ -8083,9 +8024,6 @@
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
-  },
-  "miesiąc": {
-    "gdzie": []
   },
   "mistrzowski": {
     "gdzie": [
@@ -8366,11 +8304,6 @@
       "src/lib/prowadzenie-teksty.ts (tekst)"
     ]
   },
-  "{days}d temu": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (kod)"
-    ]
-  },
   "{dzien} {godzina}: {opis}": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (kod)"
@@ -8389,11 +8322,6 @@
   "{g}g wody": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
-    ]
-  },
-  "{hours}h temu": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "{h}h": {
@@ -8453,17 +8381,36 @@
       "src/components/zakwas/StarterProfileCard.tsx (dane: many)"
     ]
   },
+  "{n} dni temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: few)",
+      "src/lib/czas-temu.ts (dane: many)"
+    ],
+    "opis": "Ile dni temu zakwas był dokarmiony; forma PL few/many (2 dni, 5 dni). [M1-audytor-generalny-162]"
+  },
   "{n} dnia": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
   },
+  "{n} dnia temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: other)"
+    ],
+    "opis": "Ile dni temu; forma PL other (ułamki, np. 1,5 dnia). [M1-audytor-generalny-162]"
+  },
   "{n} dzień": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
+  },
+  "{n} dzień temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: one)"
+    ],
+    "opis": "Ile dni temu zakwas był dokarmiony; forma liczby pojedynczej (one) zestawu „{n} dzień temu / {n} dni temu / {n} dnia temu”. W słowniku języka formy kategorii CLDR pod kluczem „{n} dzień temu#<kategoria>”. [M1-audytor-generalny-162]"
   },
   "{n} godzin": {
     "gdzie": [
@@ -8480,6 +8427,12 @@
       "src/lib/spirala-etykieta.ts (dane: few)",
       "src/lib/spirala-etykieta.ts (dane: other)"
     ]
+  },
+  "{n} h temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (kod)"
+    ],
+    "opis": "Ile godzin temu zakwas był dokarmiony (profil zakwasu). {n} = liczba godzin; „h” = skrót godziny ze spacją, jak w całej aplikacji („35 h 40 min”). [M1-audytor-generalny-162]"
   },
   "{n} krok wypada w nocy": {
     "gdzie": [

@@ -7,6 +7,7 @@ import {
   TechniqueCard,
 } from '../../core/baking-techniques';
 
+import { typografia } from '../../ui/tokeny';
 export interface TechniquesLibrarySectionProps {
   techniques: TechniqueCard[];
   techCategory: TechniqueCategory | 'all';
@@ -141,7 +142,7 @@ export function TechniquesLibrarySection({
 
 const styles = StyleSheet.create({
   tabIntroText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginBottom: theme.spacing.md,
     lineHeight: 18,
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   techPrincipleText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
     marginBottom: 6,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
   },
   subSectionTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginTop: 8,
@@ -220,7 +221,7 @@ const styles = StyleSheet.create({
   },
   subSectionTitleMistake: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.blad,
     marginTop: 8,
@@ -243,13 +244,13 @@ const styles = StyleSheet.create({
   },
   stepItemText: {
     flex: 1,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 17,
     color: theme.colors.tusz,
   },
   mistakeText: {
     flex: 1,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 17,
     color: theme.colors.tusz2,
   },

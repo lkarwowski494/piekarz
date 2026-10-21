@@ -11,6 +11,7 @@ import { t } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
 import { czasSlownie } from '../../lib/spirala-etykieta';
 
+import { typografia } from '../../ui/tokeny';
 export interface StartersSelectorRowProps {
   startersList: StoredStarter[];
   activeStarterId: string;
@@ -99,12 +100,12 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   starterPillText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
   starterPillMeta: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
   starterPillTextActive: {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addStarterBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
   },

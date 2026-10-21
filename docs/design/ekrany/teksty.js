@@ -104,7 +104,7 @@ window.TEKSTY['en-US'] = {
  "us.kopie": "Backups",
  "us.kopieStan": "10, latest today",
  "us.usun": "Delete All Data",
- "us.pro": "Piekarz Pro",
+ "us.pro": "Baker Pro",
  "us.planRoczny": "Annual plan, renews October 23",
  "us.zarzadzaj": "Manage Subscription",
  "us.kontakt": "Contact",
@@ -153,9 +153,9 @@ window.TEKSTY['en-US'] = {
  "st.zakwasZytniStan": "on the counter, feed at {h:20:00}",
  "st.coJeszcze": "What else are you doing today?",
  "st.probaMinela": "Your trial has ended",
- "st.probaMinelaOpis": "You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Piekarz Pro.",
+ "st.probaMinelaOpis": "You can still view, export, and delete your recipes, starters, and journal. Feeding reminders are off. Calculations, plans, and guidance require Baker Pro.",
  "st.zobaczPlany": "See Plans",
- "st.wymagaPro": "requires Piekarz Pro",
+ "st.wymagaPro": "requires Baker Pro",
  "zk.edytuj": "Edit",
  "zk.minelo": "6 h 20 min since feeding",
  "zk.karmiony": "fed at {h:8:00}, next at {h:20:00}",
@@ -251,5 +251,5 @@ window.TEKSTY['en-US'] = {
  "st.uprzRok": "Then the App Store will charge $6.99 for one year of your subscription. If you don't want to pay, cancel your subscription before the trial ends.",
  "st.uprzAnul": "Your subscription won't renew, so you won't be charged.",
  "st.uprzNieznane": "If your subscription isn't canceled, the App Store will then charge for the plan you chose.",
- "st.uprzZostaje": "Without a purchase, your history and data stay. Calculations, plans, and guidance will require Piekarz Pro."
+ "st.uprzZostaje": "Without a purchase, your history and data stay. Calculations, plans, and guidance will require Baker Pro."
 };

@@ -8,7 +8,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
-import { promienie } from '../../ui/tokeny';
+import { promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 
 export interface CalculatorActionButtonsProps {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: promienie.przycisk,
   },
   drugiTekst: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
     textAlign: 'center',

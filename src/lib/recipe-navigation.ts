@@ -49,11 +49,22 @@ export function subscribePendingRecipe(listener: PendingRecipeListener): () => v
   };
 }
 
+/**
+ * Dawne nazwy receptur bazowych (przed 2026-10-21) → id: wpisy Dziennika trzymają nazwę z dnia wypieku, więc
+ * „Piecz ponownie” po zmianie nazwy dalej znajduje tę recepturę [M1-audytor-generalny-112; 04-studio-projektowe-507].
+ */
+const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
+  'mistrzowski wiejski (tartine style 80%)': 'tartine_high_hydration_80',
+  'san francisco sourdough (wyrazista kwasowość)': 'san_francisco_sourdough',
+  'bagietka paryska z poolishem (baguette de tradition)': 'baguette_tradition_poolish',
+};
+
 export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad {
   const allPresets = [...customRecipes, ...MASTER_RECIPES];
-  const match = allPresets.find(
-    (r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === log.recipeName.toLowerCase()
-  );
+  const nazwa = log.recipeName.toLowerCase();
+  const match =
+    allPresets.find((r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === nazwa) ??
+    MASTER_RECIPES.find((r) => r.id === DAWNE_NAZWY_BAZOWYCH[nazwa]);
 
   if (match) {
     return {

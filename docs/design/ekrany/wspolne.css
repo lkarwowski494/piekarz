@@ -55,7 +55,7 @@ h1, h2, h3, p { margin: 0; }
 .ostrz svg { flex: none; width: 30px; height: 30px; } .ostrz > span { flex: 1 1 calc(160px + 400px * var(--ax)); min-width: 0; } .ostrz > span[data-ikona] { flex: none; width: 30px; } .ostrz b { display: block; }
 .info { display: flex; gap: 10px; align-items: flex-start; color: var(--tusz2); }
 .info svg { flex: none; width: 20px; height: 20px; margin-top: 3px; } .info > span { min-width: 0; flex: 1; } .info > span[data-ikona] { flex: none; }
-.blad { color: var(--blad); display: flex; gap: 8px; align-items: flex-start; } .blad svg { flex: none; width: 20px; height: 20px; margin-top: 2px; }
+.blad { color: var(--blad); display: flex; gap: 8px; align-items: flex-start; } .blad svg { flex: none; width: calc(20px + 14px * var(--ax)); height: calc(20px + 14px * var(--ax)); margin-top: 2px; } .blad > span:not([data-ikona]) { flex: 1; min-width: 0; }
 .zakladki { display: flex; border-top: 1px solid var(--linia); background: var(--powierzchnia); padding: 6px 4px 34px; flex: none; }
 .zakladki a { flex: 1; min-height: 48px; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--tusz3); text-decoration: none; font: 500 calc(11px + 0px * var(--ax)) var(--f-tr); }
 .zakladki a.wyb { color: var(--akcentTekst); font-weight: 700; }

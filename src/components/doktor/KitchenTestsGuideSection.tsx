@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 
+import { typografia } from '../../ui/tokeny';
 export function KitchenTestsGuideSection() {
   const [showPokeTest, setShowPokeTest] = useState<boolean>(false);
   const [showWindowpaneTest, setShowWindowpaneTest] = useState<boolean>(false);
@@ -55,7 +56,7 @@ export function KitchenTestsGuideSection() {
         onPress={() => setShowWindowpaneTest((prev) => !prev)}
       >
         <View style={styles.guideHeader}>
-          <Text style={styles.guideTitle}>{t('Test okna glutenowego (Windowpane)')}</Text>
+          <Text style={styles.guideTitle}>{t('Test okna glutenowego')}</Text>
           <Text style={styles.guideToggle}>{showWindowpaneTest ? '▲' : '▼'}</Text>
         </View>
         <Text style={styles.guideSummary}>
@@ -108,16 +109,16 @@ const styles = StyleSheet.create({
   },
   guideTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   guideToggle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   guideSummary: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
   },
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   guideStep: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 17,
   },

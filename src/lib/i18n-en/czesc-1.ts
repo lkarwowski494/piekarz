@@ -17,7 +17,6 @@ export const EN_1: Record<string, string> = {
   'Wznów': 'Resume',
   'Zakończ': 'Finish',
   'Kalkulator': 'Calculator',
-  'Harmonogram': 'Schedule',
   'Stolnica': 'Workbench',
   'Zakwas': 'Sourdough',
   // Ten sam tekst jako składnik receptury: osobny klucz z kontekstem [M1-audytor-generalny-074]
@@ -101,7 +100,8 @@ export const EN_1: Record<string, string> = {
   'Wiek zakwasu': 'Starter age',
   'Ostatnie dokarmienie': 'Last feeding',
   'Cykl dokarmiania': 'Feeding cycle',
-  'Potrzebny zaczyn': 'Required starter',
+  'Potrzebny zakwas':
+    'Starter needed',
   'Edytuj profil': 'Edit profile',
   'Edytuj zakwas': 'Edit sourdough',
   'Imię zakwasu': 'Starter name',
@@ -148,7 +148,6 @@ export const EN_1: Record<string, string> = {
   'Przyczyna biologiczno-chemiczna:': 'Biochemical root cause:',
   'Co zrobić przy następnym wypieku:': 'Action checklist for next bake:',
   'Otwórz recepturę': 'Open Recipe',
-  'Przejdź do Stolnicy': 'Go to Workbench',
   'Wybierz objawy bochenka': 'Select loaf symptoms',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Select crumb, crust, or flavor flaws below for the Bread Doctor to identify the root cause and provide a solution.',
   'Szybkie szablony typowych problemów': 'Quick templates for common flaws',
@@ -174,7 +173,8 @@ export const EN_1: Record<string, string> = {
   'Wraca powoli do połowy:': 'Springs back halfway slowly:',
   'Zostaje wgłębienie i ciasto siada:': 'Indent remains and dough deflates:',
   'Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.': 'Over-proofed. Bake immediately, score very shallowly.',
-  'Test okna glutenowego (Windowpane)': 'Windowpane Test',
+  'Test okna glutenowego':
+    'Windowpane Test',
   'Ocena rozwoju siatki glutenowej po autolizie i składaniach': 'Assessing gluten matrix development after autolyse and folds',
   'Ciasto rwie się przy rozciąganiu:': 'Dough tears when stretched:',
   'Słaby gluten. Wykonaj dodatkową serię składań coil fold.': 'Weak gluten. Perform an extra set of coil folds.',
@@ -221,13 +221,12 @@ export const EN_1: Record<string, string> = {
   'Nieprawidłowy format JSON': 'Invalid JSON format',
 
   // Schedule & Diagnosis Clipboard & History Management
-  'Kopiuj harmonogram': 'Copy schedule',
-  'Skopiowano harmonogram do schowka': 'Schedule copied to clipboard',
+  'Skopiowano plan wypieku do schowka':
+    'Bake plan copied to clipboard',
   'Łączny czas': 'Total time',
   'Garowanie chłodnicze': 'Cold retard',
   'Kolizja ze snem': 'Sleep collision',
   'Etapy wypieku': 'Baking stages',
-  'Kopiuj diagnozę': 'Copy diagnosis',
   'Skopiowano diagnozę do schowka': 'Diagnosis copied to clipboard',
   'Przyczyna biologiczna / fizyczna': 'Biological / physical cause',
   'Kroki naprawcze na kolejny wypiek': 'Corrective steps for next bake',
@@ -245,7 +244,6 @@ export const EN_1: Record<string, string> = {
   'Docelowa masa zaczynu': 'Target levain yield',
   'Składniki do słoika': 'Ingredients into jar',
   'Zakwas matka': 'Mother starter',
-  'Kopiuj dokarmienie': 'Copy feeding',
   'Skopiowano dokarmienie do schowka': 'Feeding copied to clipboard',
   'Usunąć profil zakwasu?': 'Delete starter profile?',
   'Profil zakwasu': 'Starter profile',

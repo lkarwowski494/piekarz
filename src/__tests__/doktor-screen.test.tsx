@@ -113,7 +113,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     expect(allText).toContain('Gumowaty, lepki miękisz');
 
     // Navigation button to Stolnica
-    const navBtn = findButtonByText(root, 'Przejdź do Stolnicy');
+    const navBtn = findButtonByText(root, 'Wróć do wypieku');
     expect(navBtn).toBeDefined();
 
     await act(async () => {
@@ -201,7 +201,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     expect(allText).toContain('Zostaje wgłębienie i ciasto siada:');
 
     // Expand Windowpane Test
-    const windowCard = findButtonByText(root, 'Test okna glutenowego (Windowpane)');
+    const windowCard = findButtonByText(root, 'Test okna glutenowego');
     expect(windowCard).toBeDefined();
 
     await act(async () => {
@@ -290,7 +290,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     expect(card).toBeDefined();
 
     const fullText = extractCleanText(root);
-    expect(fullText).toContain('Pivot na Focaccię');
+    expect(fullText).toContain('zrób focaccię');
     expect(fullText).toContain('Akcja natychmiastowa:');
     expect(fullText).toContain('Receptura awaryjna:');
     expect(fullText).toContain('Focaccia');

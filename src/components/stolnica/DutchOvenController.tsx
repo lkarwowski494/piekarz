@@ -11,6 +11,7 @@ import { t } from '../../lib/i18n';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../../core/baking-phases';
 import { formatTemperature, formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
+import { typografia } from '../../ui/tokeny';
 export interface DutchOvenControllerProps {
   dutchOvenPhase: DutchOvenBakePhase;
   onSwitchPhase: (phase: DutchOvenBakePhase) => void;
@@ -189,18 +190,18 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   phaseTempBadgeText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '800',
     color: theme.colors.naAkcencie,
   },
   phaseDesc: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: 6,
   },
   phaseTip: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     fontStyle: 'italic',
   },
@@ -212,13 +213,13 @@ const styles = StyleSheet.create({
   },
   steamAlertTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
     color: theme.colors.ostrzTusz,
     marginBottom: 4,
   },
   steamAlertDesc: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.ostrzTusz,
     lineHeight: 18,
     marginBottom: 10,
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   steamAlertActionBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.ostrzTusz,
   },

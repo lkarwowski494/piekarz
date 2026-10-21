@@ -242,7 +242,7 @@ export function calculateDDTWaterTemp(settings: DDTSettings): DDTResult {
     return {
       waterTempTarget: roundedWater,
       status: 'too_hot_danger',
-      warningMessagePl: 'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.',
+      warningMessagePl: 'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.',
     };
   }
 

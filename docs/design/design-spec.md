@@ -61,6 +61,14 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Dodaj mąkę / Add Flour, Gotowe / Done | arkusz „Składniki” | nowy wiersz mąki; zamknięcie arkusza z zapisem (F-11) |
 | Wstaw gotową mieszankę / Use a Flour Blend | arkusz „Składniki”, menu systemowe | mąki i procenty z wybranej mieszanki zastępują listę mąk (§11c 106) |
 | Pokaż wszystkie / Show All | lista receptur z pustym filtrem | filtr „Wszystkie” |
+| Kopiuj jako tekst / Copy as Text | plan wypieku (pod listą kroków), wynik Doktora Chleba, karta „Ilości do dokarmienia” | tekst w schowku („Skopiowano plan wypieku do schowka”, „Skopiowano diagnozę do schowka”, „Skopiowano proporcje dokarmiania do schowka”); zastępuje „Kopiuj harmonogram”, „Kopiuj diagnozę”, „Kopiuj dokarmienie” (089, 113) |
+| Wróć do wypieku / Back to Bake | wynik Doktora Chleba (gumowaty miękisz) | prowadzenie bieżącego kroku; bez trwającego wypieku „Dziś” (117); zastępuje „Przejdź do Stolnicy” (089) |
+| Otwórz recepturę / Open Recipe | Doktor Chleba (zbity miękisz), protokół ratunkowy | lista receptur albo receptura z protokołu |
+| Otwórz Ustawienia / Open Settings | baner „powiadomienia wyłączone” | Ustawienia systemu dla aplikacji |
+| Rozpocznij Fazę 2 / Start Phase 2 | prowadzenie, pieczenie w garnku żeliwnym | druga faza pieczenia bez pokrywki z czasem i temperaturą |
+| Eksportuj kopię danych / Export a copy of your data, Udostępnij kopię bazy / Share database copy | ekran ratunkowy przy błędzie bazy (`RescueScreen`, `StorageGate`) | arkusz udostępniania z kopią danych |
+| Kopiuj adres / Copy address | okno „Napisz do nas”, gdy Poczta nie jest skonfigurowana | adres w schowku |
+| Wejścia PÓŹNIEJ, ukryte w 1.0 (nazwa do potwierdzenia przy włączeniu): Zastosuj mieszankę, Importuj recepturę, Udostępnij recepturę, Udostępnij kod QR, Eksportuj historię wypieków (CSV), Eksportuj spiżarnię mąk (CSV) | mieszanka mąk (F-46), QR (F-08), eksport CSV | bez zmian do decyzji o wejściu |
 
 Słownik jest jedynym źródłem nazw akcji w 1.0 (089): akcja spoza tabeli wymaga wpisu tutaj przed wdrożeniem. Nazwy z kodu, które znikają: „Klonuj recepturę” (= Zapisz jako moją), „Rozpocznij wypiek na Stolnicy” (= Ułóż plan, potem Zacznij wypiek), „Następny krok” (= Zrobione), „Odrzuć wypiek” (= Przerwij wypiek), „Resetuj” (czas etapu: brak w systemie; profil zakwasu: „Zacznij od nowa” / Start Over), „Eksportuj JSON” (= Udostępnij plik receptury).
 
@@ -319,7 +327,7 @@ Podstawa: D-039 pkt 2 (uprzedzenie 3 dni przed końcem próby, raz), kontrakt p�
 | `Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.` | `Then the App Store will charge {price} for one month of your subscription. If you don't want to pay, cancel your subscription before the trial ends.` | odnawianie włączone, produkt miesięczny, cena znana | `{cena}` jw. |
 | `Subskrypcja się nie odnowi, więc nic nie zapłacisz.` | `Your subscription won't renew, so you won't be charged.` | odnawianie wyłączone | — |
 | `Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.` | `If your subscription isn't canceled, the App Store will then charge for the plan you chose.` | stan odnawiania nieznany albo cena lub okres nieznane (OP-M03, brak sieci, puste pola) | — |
-| `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `Without a purchase, your history and data stay. Calculations, plans, and guidance will require Piekarz Pro.` | po zdaniu o opłacie, gdy użytkownik nie ma planu dożywotniego | — |
+| `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `Without a purchase, your history and data stay. Calculations, plans, and guidance will require Baker Pro.` | po zdaniu o opłacie, gdy użytkownik nie ma planu dożywotniego | — |
 | `Zamknij informację o końcu próby` | `Close trial end notice` | etykieta VoiceOver przycisku „Zamknij” | — |
 | `Zarządzaj subskrypcją`, `Zamknij` (istniejące) | `Manage Subscription`, `Close` | przyciski | — |
 
@@ -398,6 +406,11 @@ Słownik akcji (§5) po zmianie: „Zacznij okres próbny / Kup plan roczny / Ku
 
 Test akceptacyjny 127: (1) render trzech stanów (oferta z `probaDni: 14` dla obu subskrypcji, oferta bez `probaDni`, `pobierzOferte` odrzucone) — każdy `Text` pochodzi z `t()` (brak „APPS4CRAFT”, brak tekstu, który po usunięciu cyfr i znaków jest w całości wersalikami, brak nawiasu z łacińskim słowem, brak „•” i „·”); (2) `oferta-proba`: tekst „Okres próbny: 14 dni”, ceny „{displayPrice} rocznie po próbie” i „… miesięcznie po próbie”, „{displayPrice} jednorazowo”, opis U4, U2, U3, U5, U7, U8, przycisk „Zacznij okres próbny”, po wyborze dożywotniego „Kup dostęp dożywotni”; (3) `zakup-bez-proby`: „Kup plan roczny”, po wyborze miesięcznego „Kup plan miesięczny”, ceny bez „po próbie”, U2 krótkie i U8; (4) `bez-sieci`: komunikat `offer-no-connection`, brak opcji planu i kwot, brak „—”, `offer-retry-btn` wywołuje ponownie `pobierzOferte`; przed odpowiedzią przycisk główny nieaktywny i brak „—”; (5) błąd `onSubscribe`: okno „Zakup” z tekstem „Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.”; (6) EN: „Baker Pro”, „Free trial: 14 days”, „Start Free Trial”, „Terms of Use”; (7) brak `manage-subscriptions-btn` i `read-only-continue-btn`; opcje planu z `accessibilityRole="radio"` i `checked`; (8) zrzut aplikacji przy 320 i 390 pt zgodny z `ekrany/oferta.html` (kolejność sekcji, cena największa w opcji, „Zamknij” w prawym górnym rogu).
 
+### 128 · Plan wypieku po reaudycie pętli 2 (rola 04, tryb fix, 2026-10-21; 04-studio-projektowe-501, -607)
+- Kolejność jak `plan-sen`: pytanie → pole → (stan `plan-za-pozno`: informacja pod polem) → temperatura z zakresem → godziny snu → Spirala z opisem → kroki. Karta „Ochrona snu aktywna” zostaje także bez kolizji (mówi, że plan sprawdza noc; para do zdania „Plan nie sprawdza godzin snu…”, BR-HARMO-002), ale stoi po temperaturze, nie przed nią.
+- Spirala i opis („Start … o …”, „Całość trwa …”) w jednym rzędzie z zawijaniem, jak `.kosz` w makiecie: przy 390 pt opis obok Spirali, przy dużym tekście pod nią.
+- Szerokość < 360 pt (iPhone SE): oba „−30 min” i „+30 min” w rzędzie dni pod polem; od 360 pt po bokach pola.
+
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |
 |---|---|
@@ -431,7 +444,7 @@ Stan w systemie z `docs/design/`; w kodzie wybory z kalibracji znikają z wdroż
 | układ gazetowy (cienkie linie, zero zaokrągleń) | brak: listy grupowane iOS, promienie 6–18 według hierarchii | `tokeny.json` → `promienie`, D-049 |
 | zestaw kart SaaS (ten sam promień i cień wszędzie) | brak: bez cieni (`mapa-rol.md` §1, zasada 4); `CraftCard` usunięty; dawny wyjątek (uprzedzenie 3 dni jako karta z cieniem alertu) usunięty 2026-10-21: uprzedzenie to baner „Dziś” bez cienia (§11d 126) | D-046, D-049 |
 | bohater „duża liczba + mała etykieta + statystyki + gradient” | jedna duża liczba tylko w prowadzeniu: czas kroku z podpisem „do {godzina}, potem …”, bez statystyk i gradientu; karty liczb (`CraftStatDisplay`) usunięte | DEC-09 (a) (widok skupiony: krok, zegar, jedna akcja), SP-17; §11b 056 |
-| WERSALIKI z rozstrzeleniem, „A · B”, „SŁOWO — fragment”, „→” na przyciskach, mono na etykietach | brak; plakietka „APPS4CRAFT PASS” i „•” z oferty usunięte, ścieżka w Ustawieniach słowami („stuknij swoje imię i nazwisko, potem Subskrypcje”, §11e 127) | `02-kierunki.md` (wiersz A, B, C); test: grep `textTransform: 'uppercase'`, `letterSpacing`, ` · ` w `app/`, `src/` = 0 |
+| WERSALIKI z rozstrzeleniem, „A · B”, „SŁOWO — fragment”, „→” na przyciskach, mono na etykietach | brak; plakietka „APPS4CRAFT PASS” i „•” z oferty usunięte, ścieżka w Ustawieniach słowami („stuknij swoje imię i nazwisko, potem Subskrypcje”, §11e 127) | `02-kierunki.md` (wiersz A, B, C); test: grep `textTransform: 'uppercase'`, `letterSpacing`, ` · ` w `app/`, `src/` = 0; od 2026-10-21 także wersaliki wpisane literami, „A • B” i „→” w tekstach na ekranie oraz krój mono (wyjątek nazwany: pole wklejania kodu w `ImportRecipeModal`, dane, nie etykieta); martwe klucze starego ekranu zakupu usunięte ze słowników (203). Poza testem: etykieta PDF w `pdf-sheet-generator.ts` (F-50, wejście wyłączone w 1.0) — do poprawy przy włączeniu druku |
 | wyróżnienie jednego słowa kolorem lub kursywą | brak | — (brak w makietach) |
 | numeracja 01 / 02 / 03 bez sekwencji | brak; „Krok 4 z 13”, „Składanie 2 z 4”, „Dzień 3” to prawdziwe sekwencje | BR-ETAP-001, F-60 |
 | Inter, Roboto, Space Grotesk | brak: Sofia Sans Semi Condensed (tytuły), treść systemowa | D-050 |

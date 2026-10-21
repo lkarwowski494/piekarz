@@ -38,8 +38,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Διαγραφή προζυμιού',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Δημιουργήθηκε επεξεργάσιμο αντίγραφο στη βιβλιοθήκη σας.',
   'Utwórz profil dla nowej kultury zakwasu': 'Δημιουργήστε προφίλ για νέα καλλιέργεια προζυμιού',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Προσοχή: πολύ υψηλή ενυδάτωση για αυτό το μείγμα! Η ζύμη μπορεί να είναι χαλαρή και να απαιτεί έμπειρη τεχνική coil fold.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Προσοχή: Η υπολογισμένη θερμοκρασία νερού υπερβαίνει τους 45°C. Κίνδυνος να «βράσουν» οι ζυμομύκητες και τα γαλακτικά βακτήρια! Κρυώστε το αλεύρι ή χαμηλώστε τη θερμοκρασία χώρου.',
   'Uważaj w kuchni': 'Προσοχή στην κουζίνα',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Δέσμευση υγρασίας από το ζελατινοποιημένο άμυλο, μεταξένια ψίχα και φρεσκάδα για πολλές ημέρες.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Στο κρύο φουσκώνει πιο αργά, ενώ σε πολύ υψηλή θερμοκρασία η ζύμωση μπορεί να εξελιχθεί πολύ γρήγορα ή ακόμη και να σταματήσει.',

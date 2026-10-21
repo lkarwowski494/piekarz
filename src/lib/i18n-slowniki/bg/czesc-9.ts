@@ -28,7 +28,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Свалете капака на чугунения съд. Изпуснете парата.',
   'Zdejmij pokrywkę!': 'Свалете капака!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Таймерът работи в приложението, но при заключен телефон няма да Ви напомни за края на стъпката, нито за храненето.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Нула реклами, нула проследяване чрез телеметрия',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Запечете семената в сух тиган и ги залейте с топла вода за 2 ч, преди да ги добавите в тестото при ламинирането. Месете спелтата внимателно, избягвайте прекомерното разтягане.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Златният стандарт за парижката багета. Идеален баланс между еластичност и разтегливост.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Сгънете тестото като плик (като писмо) и го притиснете с върховете на пръстите.',

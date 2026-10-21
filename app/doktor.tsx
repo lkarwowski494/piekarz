@@ -31,6 +31,7 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 
+import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
@@ -126,7 +127,6 @@ export default function DoctorScreen() {
               {t('Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu')}
             </Text>
           </View>
-          <Text style={styles.academyBannerArrow}>→</Text>
         </Pressable>
         )}
 
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   academyHeaderPillText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -225,11 +225,5 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz2,
     lineHeight: 14,
     marginTop: 1,
-  },
-  academyBannerArrow: {
-    fontSize: 16,
-    color: theme.colors.akcentTekst,
-    fontWeight: '700',
-    marginLeft: 6,
   },
 });

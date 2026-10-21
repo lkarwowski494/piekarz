@@ -11,6 +11,7 @@ import { t, tPlural } from '../../lib/i18n';
 import { SLEEP_COLLISION_TEMPLATE_PL, SleepCollision, sleepCollisionParams } from '../../scheduler/reverse-scheduler';
 import { formatTime } from '../../lib/format';
 
+import { typografia } from '../../ui/tokeny';
 export interface SleepGuardBannerProps {
   hasSleepCollision: boolean;
   sleepCollisions: SleepCollision[];
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   sleepGuardBody: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
     lineHeight: 18,
     marginBottom: 10,
@@ -119,12 +120,12 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   autoFixBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },
   sleepGuardAction: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
   },
@@ -138,13 +139,13 @@ const styles = StyleSheet.create({
   },
   sleepGuardSafeTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 2,
   },
   sleepGuardSafeBody: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
   },

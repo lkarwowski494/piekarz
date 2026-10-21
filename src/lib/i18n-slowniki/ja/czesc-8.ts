@@ -40,7 +40,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'オートリーズを長くし、ストレッチ＆フォールドを1セット追加してください。',
   'Wydłuż fermentację burzliwą.': '一次発酵（バルク発酵）を長くしてください。',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': '冷蔵庫で保存しているサワードウスターターは、週に1回種継ぎします。King Arthur Bakingによると、焼成前は12時間ごとに種継ぎし、種継ぎ後6–8時間以内に体積が2倍または3倍になるまで続けてください。',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': '捏ね上げ目標温度（DDT）の計算ツールを使ってください。King Arthur Bakingによると、小麦の生地はミキシング後に約24–26 °Cにするのが望ましいです。',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': '生地の加水率が低すぎる、タンパク質量の少ない力の弱い粉を使っている、またはグルテンの形成が不十分。',
   'Złożony bukiet kwasów mlekowego i octowego.': '乳酸と酢酸が織りなす複雑な香り。',
   'Zmniejsz udział zakwasu w recepturze.': '配合中のサワードウスターターの割合を減らしてください。',

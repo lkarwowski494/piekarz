@@ -82,7 +82,6 @@ export const CZESC: Record<string, string> = {
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'Forleng autolysen og legg til en ekstra runde med bretting av deig (coil fold).',
   'Wydłuż fermentację burzliwą.': 'Forleng hovedhevingen.',
   'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'En surdeigsstarter som oppbevares i kjøleskapet, mates én gang i uken. Ifølge King Arthur Baking bør du før bakst mate den hver 12. time til den dobler eller tredobler volumet innen 6–8 timer etter matingen.',
-  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Bruk kalkulatoren for ønsket deigtemperatur: ifølge King Arthur Baking bør hvetedeig være ca. 24–26 °C etter blanding.',
   'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'For lav deighydrering, svakt mel med lavt proteininnhold eller for lite utviklet gluten.',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Kompleks bukett av melkesyre og eddiksyre.',
   'Zmniejsz udział zakwasu w recepturze.': 'Reduser andelen surdeigsstarter i oppskriften.',

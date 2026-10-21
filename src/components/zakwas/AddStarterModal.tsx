@@ -11,6 +11,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { sharedCraftTokens } from '@apps4craft/ui';
 
+import { typografia } from '../../ui/tokeny';
 export interface AddStarterModalProps {
   visible: boolean;
   name: string;
@@ -137,12 +138,12 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginBottom: 16,
   },
   modalInputLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz,
     marginBottom: 14,
   },
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   storageBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },

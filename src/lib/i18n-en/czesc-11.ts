@@ -44,8 +44,8 @@ export const EN_11: Record<string, string> = {
     'Mix the ingredients in a bowl with a spoon. Cover with plastic wrap and leave for 12–16 hours at room temperature. No folding.',
   'Pizza Napoletana Verace (48h)':
     'Pizza Napoletana Verace (48h)',
-  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu (Cornicione) i delikatnym wnętrzu.':
-    'Authentic Neapolitan pizza dough with a crispy rim (Cornicione) and a delicate interior.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.':
+    'Authentic Neapolitan pizza dough with a crispy rim and a delicate interior.',
   'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.':
     'Fermentation: 2h on the counter, divide into 250g balls, 46h in the fridge (4°C). Take out 2h before baking.',
   'Maślana chałka drożdżowa':
@@ -122,8 +122,8 @@ export const EN_11: Record<string, string> = {
     'Rye flour type 1400',
   'Szacunek: parametry przyjęte z typu {typ}, bez źródła':
     'Estimate: parameters taken from type {typ}, no source',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.':
-    'Warning: very high hydration for this blend! The dough may be slack and require a skilled coil fold technique.',
+  'Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.':
+    'Very high hydration for this blend. The dough may be slack and need skilled folding.',
   'Mieszanka musi zawierać co najmniej jedną mąkę.':
     'The blend must contain at least one flour.',
   'Mąka cukiernicza / tortowa (bielona)':
@@ -146,8 +146,8 @@ export const EN_11: Record<string, string> = {
     'The gold standard for the Parisian baguette. Ideal balance between elasticity and extensibility.',
   'Mąka pszenna chlebowa / wysoki gluten':
     'Wheat bread flour / high gluten',
-  'Chleby na zakwasie o wysokiej hydratacji (75-85%), Tartine, pizza napoletana 48h, brioszki.':
-    'High-hydration sourdough breads (75-85%), Tartine, 48h pizza napoletana, brioches.',
+  'Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.':
+    'High-hydration sourdough breads (75–85%), Tartine, 48 h Neapolitan pizza, brioche.',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.':
     'Strong gluten network. Withstands many hours of fermentation and a long cold retard without losing shape.',
   'Mąka pszenna sitkowa / graham':

@@ -6,7 +6,7 @@
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
@@ -35,9 +35,14 @@ export interface TargetReadyCardProps {
   ambientTemp: number;
   onAmbientTempChange: (temp: number) => void;
   unitSystem: UnitSystem;
-  /** Informacja pod polem godziny (stan „za późno” albo noc), jak w `plan-sen`. */
+  /** Informacja pod polem godziny (stan „za późno”), jak w `plan-za-pozno`. */
   children?: React.ReactNode;
+  /** Godziny snu po temperaturze (karta nocy albo zdanie „Plan nie sprawdza godzin snu”), jak w `plan-sen`. */
+  poTemperaturze?: React.ReactNode;
 }
+
+/** Poniżej tej szerokości ekranu ±30 min idą do rzędu dni (iPhone SE 320 pt) [M1-audytor-generalny-128]. */
+const WASKI_EKRAN_PT = 360;
 
 function Chip({ tekst, wybrany, onPress }: { tekst: string; wybrany?: boolean; onPress: () => void }) {
   return (
@@ -63,18 +68,27 @@ export function TargetReadyCard({
   onAmbientTempChange,
   unitSystem,
   children,
+  poTemperaturze,
 }: TargetReadyCardProps) {
+  const waski = useWindowDimensions().width < WASKI_EKRAN_PT;
+  const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
+  const plus = <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />;
   return (
     <View style={styles.sekcja}>
       <Text style={styles.pytanie} accessibilityRole="header">{t('Kiedy chleb ma być gotowy?')}</Text>
-      {/* Pole dnia i godziny z ±30 min po bokach (jeden rząd zamiast dwóch: Spirala w pierwszym widoku) */}
+      {/* Pole dnia i godziny z ±30 min po bokach (jeden rząd zamiast dwóch: Spirala w pierwszym widoku); przy szerokości
+          < 360 pt oba ±30 min w rzędzie dni pod polem, bo 77 + 140 + 77 pt z odstępami nie mieści się w 288 pt
+          [M1-audytor-generalny-128; 04-studio-projektowe-607] */}
       <View style={styles.rzadPola}>
-        <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />
+        {!waski && minus}
         <View testID="plan-pole-gotowosci" style={styles.pole}>
           <Text style={styles.dzien}>{formattedDayBadge}</Text>
-          <Text style={styles.godzina}>{godzina(targetHour, targetMinute)}</Text>
+          {/* Cyfry rosną z Dynamic Type najwyżej do tokenu AX5 (czas 56 → 99 pt), więc mieszczą się w wierszu [M1-audytor-generalny-201] */}
+          <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}>
+            {godzina(targetHour, targetMinute)}
+          </Text>
         </View>
-        <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />
+        {!waski && plus}
       </View>
       <View style={styles.rzad}>
         {[
@@ -84,6 +98,8 @@ export function TargetReadyCard({
         ].map((d) => (
           <Chip key={d.offset} tekst={d.label} wybrany={d.offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(d.offset)} />
         ))}
+        {waski && minus}
+        {waski && plus}
       </View>
 
       {children}
@@ -100,6 +116,9 @@ export function TargetReadyCard({
       <Text style={styles.przypis}>
         {t('Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).')}
       </Text>
+
+      {/* Noc po temperaturze, jak we wzorcu `plan-sen` (pole → temperatura → noc → Spirala) [M1-audytor-generalny-128] */}
+      {poTemperaturze}
     </View>
   );
 }

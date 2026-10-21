@@ -106,7 +106,7 @@ export const FLOUR_EQUIVALENTS: FlourEquivalentEntry[] = [
     itType: 'Tipo 1 / Manitoba (W>300)',
     deType: 'Type 812 / 1050',
     usType: 'Bread Flour / High Gluten Bread Flour',
-    bestForPl: 'Chleby na zakwasie o wysokiej hydratacji (75-85%), Tartine, pizza napoletana 48h, brioszki.',
+    bestForPl: 'Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.',
     bestForEn: 'High hydration sourdough (75-85%), Tartine loaves, 48h Neapolitan pizza, enriched brioche.',
     substitutionTipsPl: 'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.',
     substitutionTipsEn: 'Strong gluten network. Withstands long cold retard and multiple folds without collapsing.',

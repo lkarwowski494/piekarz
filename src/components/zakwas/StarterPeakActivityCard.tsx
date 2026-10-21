@@ -12,6 +12,7 @@ import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import type { SourdoughPhaseResult } from '../../core/sourdough-physics';
 import type { PeakPredictionResult } from '../../core/starter-peak-predictor';
 
+import { typografia } from '../../ui/tokeny';
 /** Etykieta fazy zakwasu w języku aplikacji [M1-audytor-generalny-093]. */
 export function etykietaFazyZakwasu(f: SourdoughPhaseResult): string {
   return f.labelTemplatePl ? t(f.labelTemplatePl, f.labelParams) : t(f.labelPl);
@@ -165,12 +166,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tloGrupa, // poziom info (phaseResult.poziom): kolor z komponentu, nie z danych
   },
   phaseBadgeText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   phaseAdvice: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: 12,
@@ -190,12 +191,12 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   predictionLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
   predictionWindowText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -221,14 +222,14 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz3,
   },
   predictionStatusText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     fontStyle: 'italic',
     marginBottom: 8,
   },
   tempSelectorHeading: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,

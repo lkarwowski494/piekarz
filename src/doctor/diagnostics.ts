@@ -78,7 +78,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Wydłuż fermentację burzliwą.',
         'Upewnij się, że zakwas został użyty w szczycie objętości.',
-        'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.',
+        'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.',
         'Wykonaj test palca przed włożeniem bochenka do piekarnika.',
       ],
       severity: 'critical',

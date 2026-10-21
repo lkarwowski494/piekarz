@@ -38,6 +38,7 @@ import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-z
 import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 
+import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
@@ -265,16 +266,8 @@ export default function HarmonogramScreen() {
             setTempWybrana(true);
           }}
           unitSystem={unitSystem}
-        >
-        {zaPozno ? (
-          <PlanZaPozno
-            tytul={zaPozno.tytul}
-            tresc={zaPozno.tresc}
-            onUstawNajwczesniej={zmianaGodziny(() => {
-              if (stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
-            })}
-          />
-        ) : oknoPlanu === null ? (
+          // Noc po temperaturze jak w `plan-sen`; „za późno” zostaje pod polem jak w `plan-za-pozno` [M1-audytor-generalny-128]
+          poTemperaturze={zaPozno ? null : oknoPlanu === null ? (
           // „Bez godzin snu” w Ustawieniach: plan bez sprawdzania nocy i informacja, gdzie je ustawić (BR-HARMO-002) [130]
           <Text style={styles.bezSnu}>{t('Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.')}</Text>
         ) : (
@@ -289,12 +282,24 @@ export default function HarmonogramScreen() {
             okno={oknoPlanu}
           />
         )}
+        >
+        {zaPozno ? (
+          <PlanZaPozno
+            tytul={zaPozno.tytul}
+            tresc={zaPozno.tresc}
+            onUstawNajwczesniej={zmianaGodziny(() => {
+              if (stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
+            })}
+          />
+        ) : null}
         </TargetReadyCard>
 
-        <View style={styles.spirala}>
+        {/* Spirala i opis w jednym rzędzie z zawijaniem (`.kosz` w makiecie): „Start … o …” obok Spirali, nie pod paskiem
+            kciuka; przy dużym tekście opis schodzi pod Spiralę [M1-audytor-generalny-128] */}
+        <View style={styles.kosz}>
           <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
+          <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
         </View>
-        <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
 
         <TimelineStagesList
           stages={stages}
@@ -327,7 +332,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bezSnu: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     marginBottom: theme.spacing.md,
   },
@@ -335,8 +340,11 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
     paddingBottom: 40,
   },
-  spirala: {
+  kosz: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
+    gap: 14,
     marginBottom: theme.spacing.md,
   },
 });
