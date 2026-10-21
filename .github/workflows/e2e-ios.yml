@@ -5,8 +5,11 @@ name: iOS E2E (Maestro na symulatorze)
 # Interpreter scenariuszy w Jest (tests/maestro-flows.test.tsx) nie jest E2E i działa w ci.yml.
 
 on:
+  # Tylko master/main: runnery macOS są rzadko dostępne (ok. 15:00–24:00 Warszawa wcale), a przebiegi
+  # na gałęziach napraw czekały w kolejce i kończyły się jako „failure” (właściciel 2026-10-21: maile run failed).
+  # Gałąź napraw: ręcznie przez workflow_dispatch.
   push:
-    branches: [master, main, 'naprawy/**']
+    branches: [master, main]
     paths:
       - 'app/**'
       - 'src/**'
