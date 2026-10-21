@@ -32,8 +32,12 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     expect(workflow).toMatch(/!\s*maestro\s+(--device\s+\S+\s+)?test\s+\.maestro\/kontrola-negatywna/);
   });
 
-  it('uruchamia się na gałęziach napraw, nie tylko na master', () => {
-    expect(workflow).toMatch(/naprawy\/\*\*/);
+  // Właściciel 2026-10-21: przebiegi E2E na naprawy/** czekały bez runnera macOS i kończyły się „failure”
+  // (seria maili). Push uruchamia E2E tylko na master/main; gałąź napraw — ręcznie przez workflow_dispatch.
+  it('na push tylko master/main, gałęzie napraw ręcznie (workflow_dispatch)', () => {
+    expect(workflow).toMatch(/push:\s*\n(?:\s*#.*\n)*\s*branches:\s*\[master, main\]/);
+    expect(workflow).not.toMatch(/naprawy\/\*\*/);
+    expect(workflow).toMatch(/workflow_dispatch:/);
   });
 
   // [M1-audytor-generalny-037; 07-jakosc-501] Od 048 aplikacja startuje w języku systemu: scenariusze nie mogą
