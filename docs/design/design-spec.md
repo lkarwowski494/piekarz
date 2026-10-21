@@ -72,7 +72,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 
 Słownik jest jedynym źródłem nazw akcji w 1.0 (089): akcja spoza tabeli wymaga wpisu tutaj przed wdrożeniem. Nazwy z kodu, które znikają: „Klonuj recepturę” (= Zapisz jako moją), „Rozpocznij wypiek na Stolnicy” (= Ułóż plan, potem Zacznij wypiek), „Następny krok” (= Zrobione), „Odrzuć wypiek” (= Przerwij wypiek), „Resetuj” (czas etapu: brak w systemie; profil zakwasu: „Zacznij od nowa” / Start Over), „Eksportuj JSON” (= Udostępnij plik receptury).
 
-Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobione: składanie 2 z 4”). Rutynowe usunięcie (wpis zakwasu, receptura własna): bez pytania, z paskiem „Cofnij” przez kilka sekund; potwierdzenie tylko dla „Usuń wszystkie dane” i zakwasu z historią (D-051, 1a).
+Etykiety VoiceOver: „akcja + obiekt” (np. „Mniej bochenków”, „Zrobione: składanie 2 z 4”). Rutynowe usunięcie (wpis zakwasu, receptura własna): bez pytania, z paskiem „Cofnij” („Usunięto {obiekt}” i przycisk „Przywróć” / Restore, jak w tabeli wyżej) przez kilka sekund; potwierdzenie tylko dla „Usuń wszystkie dane” i zakwasu z historią (D-051, 1a).
 
 ## 6. Macierz stanów (makiety)
 | Ekran | Stany w `ekrany/` |
@@ -424,7 +424,7 @@ Test akceptacyjny 127: (1) render trzech stanów (oferta z `probaDni: 14` dla ob
 | przełącznik „Przypomnienia o karmieniu” w Ustawieniach domyślnie włączony (wyłącza tylko powiadomienia o karmieniu zakwasu; kroki wypieku przychodzą dalej) | D-068 (DEC-22 a) |
 | jednostki według regionu | D-044 |
 | 4 zakładki, ustawienia z „Dziś” | D-051 (2a) |
-| rutynowe usunięcie z „Cofnij” | D-051 (1a) |
+| rutynowe usunięcie bez pytania, pasek „Cofnij” z przyciskiem „Przywróć” | D-051 (1a) |
 | jeden wybór jednostek zamiast dwóch przełączników | D-051 (3a); zmiana kryterium F-38 u roli 03 |
 | akcent „noc” na przycisku głównym i w spirali | D-051 (4a) |
 | cele 64 / 48 / 44 pt | DEC-15 (a) planu napraw M1, `tokeny.json` → `cele` |
