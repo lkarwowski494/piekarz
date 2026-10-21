@@ -7503,6 +7503,7 @@
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
@@ -7524,7 +7525,8 @@
   },
   "Zapisz jako moją": {
     "gdzie": [
-      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
+      "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)",
+      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)"
     ]
   },
   "Zapisz w spiżarni": {
