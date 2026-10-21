@@ -46,6 +46,18 @@ describe('zakwas-widok (104)', () => {
     expect(stanKartyZakwasu({}, [wpis('feeding', now - 20 * H)], now).postep).toBe(1);
   });
 
+  // Zakwas dojrzały w lodówce: odstęp 7 dni (ZAK-ZAL-012, ten sam co termin powiadomienia), nie 12 h;
+  // zakładanie i blat bez zmian [M1-audytor-generalny-188; 06-tresci-601]
+  it('stanKartyZakwasu: zakwas w lodówce ma odstęp 7 dni i termin po 7 dniach; blat 12 h', () => {
+    const now = dzis9() + 6 * H;
+    const fed = now - 8.5 * H;
+    expect(stanKartyZakwasu({ storageState: 'FRIDGE' }, [wpis('feeding', fed)], now)).toEqual(
+      expect.objectContaining({ odstepMin: 7 * 24 * 60, nastepneAt: fed + 7 * 24 * H })
+    );
+    expect(stanKartyZakwasu({ storageState: 'ROOM_TEMP' }, [wpis('feeding', fed)], now)).toEqual(expect.objectContaining({ odstepMin: 720, nastepneAt: fed + 12 * H }));
+    expect(stanKartyZakwasu({ storageState: 'FRIDGE', setupStartedAt: now - H }, [wpis('feeding', fed)], now)).toEqual(expect.objectContaining({ odstepMin: 1440 }));
+  });
+
   it('dzienWpisu i opisWpisu: dziś, wczoraj, data; dokarmienie z proporcją i bez, obserwacja z nazwami objawów', () => {
     const now = dzis9();
     expect(dzienWpisu(now - H, now)).toBe('Dziś');

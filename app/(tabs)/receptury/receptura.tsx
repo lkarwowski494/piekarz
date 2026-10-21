@@ -5,7 +5,7 @@
 // Tryb, mąki, proporcje i zaczyn: arkusz „Składniki”; temperatura: arkusz „Temperatura wody”.
 // Rachunek (useRecipeCalculations), zapis, plan i wczytanie receptury bez zmian. [M1-audytor-generalny-106]
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
@@ -119,6 +119,7 @@ export default function EkranReceptury() {
   const {
     targetDoughWeightGrams,
     calculations,
+    bladMak,
     currentRecipeForShare,
     ddtResult,
     bakeLossMetrics,
@@ -256,6 +257,12 @@ export default function EkranReceptury() {
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
         <ScrollView contentContainerStyle={s.tresc} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
           <BlokadaFunkcji {...blokada('kalkulator')}>
+            {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
+            {bladMak ? (
+              <Text testID="receptura-blad-mak" accessibilityRole="alert" style={styles.bladMak}>
+                {bladMak}
+              </Text>
+            ) : null}
             <DoMiski
               calculations={calculations}
               waterPct={waterPct}
@@ -358,6 +365,7 @@ export default function EkranReceptury() {
 }
 
 const styles = StyleSheet.create({
+  bladMak: { color: theme.colors.tusz, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.md },
   strefaAkcji: {
     paddingHorizontal: theme.spacing.md,
     paddingBottom: theme.spacing.md,

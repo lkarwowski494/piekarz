@@ -1,25 +1,15 @@
 name: App Store Connect — zgłoszenie przez API
 
 # Metadane 34 lokalizacji, zrzuty, opisy produktów i zrzut zakupu dla App Review [M1-audytor-generalny-186].
-# Uruchamia push na gałąź toru p8c (workflow_dispatch działa tylko z gałęzi domyślnej).
-# Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy docs/wydanie/asc-zgoda-zgloszenie.json ma
-# "zapis": true i skrót planu pokazanego właścicielowi. Zrzuty 31 lokalizacji spoza repo porównuje po sumach
-# z docs/wydanie/zrzuty/sumy.json; do ich wysłania potrzebne są pliki (krok właściciela, raport toru p8c).
-# Ta sama grupa concurrency co asc-ustawienia.yml: dwa przebiegi ASC nigdy naraz.
-# Po scaleniu z master wyzwalacz zamienić na workflow_dispatch (docs/wydanie/instrukcja-ustawien.md).
+# Uruchamia tylko właściciel ręcznie: Actions → „Run workflow” na master (workflow_dispatch, wybór a 10-wydanie-601),
+# więc przebieg na sucho porównuje treść master. Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy
+# docs/wydanie/asc-zgoda-zgloszenie.json ma "zapis": true i skrót planu pokazanego właścicielowi. Zrzuty
+# 31 lokalizacji spoza repo porównuje po sumach z docs/wydanie/zrzuty/sumy.json; do ich wysłania potrzebne są pliki
+# (paczka w wydaniu wstępnym). Zrzut zakupu dla App Review: docs/wydanie/zrzuty/review/zakup.png z finalnej aplikacji;
+# bez pliku pozycje „czeka”. Ta sama grupa concurrency co asc-ustawienia.yml: dwa przebiegi ASC nigdy naraz.
 
 on:
-  push:
-    branches:
-      - naprawy/M2-koordynator-napraw-2026-10-19-p8c
-    paths:
-      - scripts/asc-zgloszenie.mjs
-      - scripts/asc-ustawienia.mjs
-      - docs/wydanie/asc-zgloszenie.json
-      - docs/wydanie/asc-zgoda-zgloszenie.json
-      - docs/wydanie/metadane/**
-      - docs/wydanie/zrzuty/**
-      - .github/workflows/asc-zgloszenie.yml
+  workflow_dispatch:
 
 concurrency:
   group: asc-ustawienia

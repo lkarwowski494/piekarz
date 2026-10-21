@@ -6,8 +6,6 @@ import * as FileSystem from 'expo-file-system/legacy';
  * kolejny start otwiera tryb awaryjny (eksport danych bez migracji).
  */
 export const STARTUP_FAILURES_FOR_RESCUE = 2;
-/** Czas bez awarii po starcie bazy, po którym start uznajemy za udany. */
-export const STARTUP_MILESTONE_MS = 5000;
 
 const guardPath = (): string | null =>
   FileSystem.documentDirectory ? `${FileSystem.documentDirectory}.piekarz/start-guard.json` : null;
@@ -39,11 +37,17 @@ async function writeFailures(n: number): Promise<void> {
 /** Wywołaj na początku startu: zapisuje start jako niedokończony i mówi, czy otworzyć tryb awaryjny. */
 export async function beginStartup(): Promise<{ rescue: boolean }> {
   const previous = await readFailures();
+  // Start awaryjny nie jest liczony: licznik bez zmian, kolejny start bez kamienia znów awaryjny
+  // (wzorce roli 12, „Strażnik pętli awarii przy starcie”) [M1-audytor-generalny-140; 12-niezawodnosc-504]
+  if (previous >= STARTUP_FAILURES_FOR_RESCUE) return { rescue: true };
   await writeFailures(previous + 1);
-  return { rescue: previous >= STARTUP_FAILURES_FOR_RESCUE };
+  return { rescue: false };
 }
 
-/** Wywołaj po kamieniu milowym (baza gotowa i aplikacja działa STARTUP_MILESTONE_MS). */
+/**
+ * Wywołaj po kamieniu milowym: baza otwarta, migracje zakończone i pierwszy ekran narysowany (onLayout korzenia
+ * aplikacji za StorageGate), bez timera — timer JS w tle stoi [M1-audytor-generalny-140].
+ */
 export async function markStartupSucceeded(): Promise<void> {
   await writeFailures(0);
 }

@@ -307,7 +307,7 @@ export function planuj(cel, stan) {
     const z = stan.produkty[p.plan];
     const opis = `zrzut ekranu zakupu dla App Review ${p.productId}`;
     if (!cel.zakup) {
-      op('czeka', 'review', `${opis}: brak pliku ${cel.zrzutZakupu} (tor p9c, zadanie M1-audytor-generalny-127)`);
+      op('czeka', 'review', `${opis}: brak pliku ${cel.zrzutZakupu}: zrzut ekranu zakupu z finalnej aplikacji (docs/wydanie/zrzuty/README.md, „Zrzut zakupu dla App Review”)`);
       continue;
     }
     const obecny = z?.review;

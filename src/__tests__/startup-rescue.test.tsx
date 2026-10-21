@@ -51,7 +51,8 @@ describe('Startup rescue (018)', () => {
     expect(text).toContain('Piekarz nie uruchomił się poprawnie');
     expect(text).toContain('Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.');
     expect(text).toContain('Eksportuj kopię danych');
-    expect(require('../lib/startup-guard').STARTUP_MILESTONE_MS).toBe(5000);
+    // Kamień milowy bez timera 5 s (pierwszy ekran po bazie) [M1-audytor-generalny-140; 12-niezawodnosc-504]
+    expect(require('../lib/startup-guard').STARTUP_MILESTONE_MS).toBeUndefined();
     await act(async () => {
       await tree!.root.findByProps({ testID: 'rescue-export' }).props.onPress();
     });

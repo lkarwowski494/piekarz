@@ -117,8 +117,11 @@ export function dbFileUri(): string | null {
   return path.startsWith('file://') ? path : `file://${path}`;
 }
 
-/** Kopie surowych plików i plik ratunkowy, potem pakiet do udostępnienia z ekranu błędu [M1-audytor-generalny-122]. */
-async function ratunekPoBledzie(msg: string): Promise<void> {
+/**
+ * Kopie surowych plików i plik ratunkowy, potem pakiet do udostępnienia z ekranu błędu [M1-audytor-generalny-122].
+ * Także po błędzie odczytu uszkodzonej tabeli z otwartej bazy (odczyt.ts) [M1-audytor-generalny-187].
+ */
+export async function ratunekPoBledzie(msg: string): Promise<void> {
   const uri = dbFileUri();
   if (!uri) return;
   const pakiet = await ratujPlikiBazy(uri, msg);

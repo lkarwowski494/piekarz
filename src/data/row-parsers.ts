@@ -3,7 +3,7 @@
 // Strażniki typów bez asercji `as`: zły rekord daje null, nie zgadnięte wartości.
 // ============================================================================
 
-import { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
+import { DoughRecipeInput, DoughRecipeResult, normalizujMaki } from '../core/domain-rules';
 import type { StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
 import { isStarterSign, type StarterSign } from '../core/starter-log';
 
@@ -135,10 +135,14 @@ export function parseStarterEntryRow(v: unknown): StoredStarterEntry | null {
 
 export function parseRecipeRow(v: unknown): StoredRecipe | null {
   if (!isObj(v) || !isStr(v.id) || !isStr(v.name) || !isRecipeInput(v.formula) || !isNum(v.targetDDT) || !isNum(v.createdAt)) return null;
+  // Suma mąk jak przy imporcie JSON: 95–105% normalizowane do 100%, inaczej wiersz pominięty (licznik
+  // pominiętych na ekranie importu) [M1-audytor-generalny-150; 08-programista-502]
+  const flours = normalizujMaki(v.formula.flours);
+  if (!flours) return null;
   return {
     id: v.id,
     name: v.name,
-    formula: v.formula,
+    formula: { ...v.formula, flours },
     targetDDT: v.targetDDT,
     notes: optS(v.notes),
     isBuiltIn: v.isBuiltIn === true,

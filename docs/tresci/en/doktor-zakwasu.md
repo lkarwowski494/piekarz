@@ -1,5 +1,6 @@
 # Starter doctor: a starter that does not rise (F-64, BR-DIAG-002, RD-21, RD-24) — EN
 <!-- M1-audytor-generalny-104 c. EN values for the PL texts (src/lib/i18n-en/), same headings as the PL file. Role 08 implements the text verbatim (without the [T:...] marker). Mould symptoms: see the comment in the PL file. -->
+<!-- M1-audytor-generalny-188 (06-tresci-601), scope: see the second comment in the PL file (objaw.brak-podwojenia is not shown for a starter stored in the fridge; ZAK-ZAL-012). -->
 
 ## objaw.brak-aktywnosci-w-pierwszej-dobie (RD-24-W5)
 According to King Arthur Baking, you may see no activity at all in the first day. [T:ZAK-ZAL-003]

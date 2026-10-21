@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — kontrakt workflow „App Store Connect — ustawienia przez API”
 // [M1-audytor-generalny-181]. Zapis w App Store Connect jest działaniem zewnętrznym:
-// workflow rusza tylko z gałęzi toru p8b, domyślnie na sucho, zapis wyłącznie przez
+// workflow rusza tylko ręcznie (workflow_dispatch), domyślnie na sucho, zapis wyłącznie przez
 // plik zgody ze skrótem planu; sekrety tylko w env kroku skryptu, bez śledzenia poleceń.
 // ============================================================================
 
@@ -14,10 +14,12 @@ const zgoda = JSON.parse(readFileSync(join(root, 'docs', 'wydanie', 'asc-zgoda.j
 const steps = workflow.split(/\n      - name: /).slice(1);
 
 describe('workflow asc-ustawienia (M1-audytor-generalny-181)', () => {
-  it('wyzwalacz: tylko push na gałąź toru p8b; bez workflow_dispatch, pull_request i harmonogramu', () => {
+  // Po scaleniu z master: tylko ręczne uruchomienie (wybór a 10-wydanie-601); push na master nie uruchamia
+  // ani przebiegu na sucho, ani zapisu po zmianie pliku zgody bez osobnego kliknięcia [M1-audytor-generalny-181]
+  it('wyzwalacz: tylko workflow_dispatch (ręcznie z master); bez push, pull_request i harmonogramu', () => {
     const on = workflow.split(/\nconcurrency:/)[0].split(/\non:\n/)[1];
-    expect(on).toMatch(/^  push:\n    branches:\n      - naprawy\/M2-koordynator-napraw-2026-10-19-p8b\n/);
-    expect(on).not.toMatch(/pull_request|workflow_dispatch|schedule|tags/);
+    expect(on.trim()).toBe('workflow_dispatch:');
+    expect(on).not.toMatch(/push|pull_request|schedule|tags|branches/);
   });
 
   it('skrypt uruchamiany z plikiem zgody; zgoda albo wyłączona, albo pełna (skrót planu i słowa właściciela z datą)', () => {

@@ -1,5 +1,6 @@
 # Doktor dla zakwasu, który nie rośnie (F-64, BR-DIAG-002, RD-21, RD-24) — PL
 <!-- M1-audytor-generalny-104 c. Układ objaw → możliwe przyczyny → co zrobić; nagłówek = objaw (klucz dla roli 08). Rola 08 wdraża tekst dosłownie (bez znacznika [T:...]). Objawy pleśni (kolorowe plamy, nalot, przebarwienie, zgniły zapach): zamiast przyczyn wynik.discard z zakwas-bezpieczenstwo.md (RD-21-W1), bez nowego tekstu. [DO USTALENIA] ZAK-DOK-900: woda z kranu jako przyczyna i liczbowa granica „za ciepło” — bez tekstu. -->
+<!-- M1-audytor-generalny-188 (06-tresci-601), zakres: objaw.brak-podwojenia (rada „co 12 godzin”, ZAK-ZAL-007) dotyczy zakwasu zakładanego i trzymanego w temperaturze pokojowej. Dla zakwasu z miejscem „w lodówce” karta cyklu nie pokazuje tej rady; odstęp karmienia w lodówce: raz w tygodniu, 7 dni (ZAK-ZAL-012); budzenie przed wypiekiem: zakwas-z-lodowki.md (ZAK-LOD-002). -->
 
 ## objaw.brak-aktywnosci-w-pierwszej-dobie (RD-24-W5)
 Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności. [T:ZAK-ZAL-003]

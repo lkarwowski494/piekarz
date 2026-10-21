@@ -2094,7 +2094,7 @@
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "„a couple of weeks” oddane jako „kilka tygodni” bez liczby. Próg 8 h jak w RD-24 (granica włączna: „between 6 and 8 hours”).",
-    "uwagi": "M1-audytor-generalny-104 a, c; RD-24-W2, RD-24-W3, BR-DIAG-002.",
+    "uwagi": "M1-audytor-generalny-104 a, c; RD-24-W2, RD-24-W3, BR-DIAG-002. M1-audytor-generalny-188 (06-tresci-601), zakres (TRE-03): „co 12 godzin” dotyczy zakładania zakwasu w temperaturze pokojowej (KA „Create”, dni 6 i 7), nie zakwasu przechowywanego w lodówce; ta sama strona KA dla przechowywania w lodówce zaleca dokarmianie raz w tygodniu (ZAK-ZAL-012). Rada „Dokarmiaj dalej co 12 godzin…” (doktor-zakwasu.md, objaw.brak-podwojenia) nie ma zastosowania do zakwasu z miejscem „w lodówce”; budzenie zakwasu z lodówki przed wypiekiem ma osobne twierdzenie ZAK-LOD-002.",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "zakwas_podwojenie_po_dokarmieniu_h_max",
@@ -2198,14 +2198,23 @@
         "cytat": "Starters must be fed flour twice daily if they are being stored at room temperature, or fed once weekly, if being stored in the refrigerator. Do not store your starter in the refrigerator until it has an established microbiome (after 7-10 days).",
         "odczyt": "2026-10-21",
         "szczebel": 3
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/create",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Create”, po „Day 6 + 7” (przechowywanie gotowego zakwasu); kopia dowody/ka-sd-create-2026-10-21.htm w role/06-tresci/fix-2026-10-22",
+        "cytat": "Store this starter in the refrigerator, and feed it regularly; we recommend feeding it with 113g flour and 113g water once a week.",
+        "odczyt": "2026-10-21",
+        "szczebel": 4
       }
     ],
     "status": "potwierdzone",
-    "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-104 a, b; RD-25 (S-44). M1-audytor-generalny-132 (06-tresci-502): ponowny odczyt 2026-10-21; porada fazy hungry karty szczytu. Próg fazy hungry w kodzie (5 dni, „Wymaga odświeżenia”) przeczy „raz w tygodniu”: przekazanie do 08, wartość 7 dni (rachunek: raz w tygodniu = co 7 dni).",
+    "uwagi": "M1-audytor-generalny-104 a, b; RD-25 (S-44). M1-audytor-generalny-132 (06-tresci-502): ponowny odczyt 2026-10-21; porada fazy hungry karty szczytu. Próg fazy hungry w kodzie (5 dni, „Wymaga odświeżenia”) przeczy „raz w tygodniu”: przekazanie do 08, wartość 7 dni (rachunek: raz w tygodniu = co 7 dni). M1-audytor-generalny-188 (06-tresci-601): ponowny odczyt SDSU i KA „Create” 2026-10-21 (surowy tekst, cytaty dosłownie); to twierdzenie obowiązuje dla odstępu karmienia zakwasu przechowywanego w lodówce także na karcie cyklu: następne dokarmienie 7 dni po ostatnim (wartosc; rachunek: raz w tygodniu = co 7 dni), zgodnie z kartą szczytu i przypomnieniem z lodówki (BR-ZAKW-004). KA dopisane jako drugie, niezależne źródło (szczebel 4, zgodne z SDSU).",
     "krytyczne": false,
     "przeglad": null,
+    "wielkosc": "zakwas_lodowka_przechowywanie_odstep_dokarmien_d",
+    "wartosc": 7,
+    "jednostka": "d",
     "wazne_do": "2027-10-20"
   },
   {

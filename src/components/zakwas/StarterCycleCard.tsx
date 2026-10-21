@@ -45,9 +45,12 @@ export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNie
           ) : (
             <>
               <Text style={styles.minelo}>{t('{czas} od dokarmienia', { czas: czasSlownie(stan.mineloMin) })}</Text>
-              <Text style={styles.drugi}>
-                {t('dokarmiony o {godzina}, następne o {nastepne}', { godzina: formatTime(stan.dokarmionoAt), nastepne: formatTime(stan.nastepneAt) })}
-              </Text>
+              {/* Odstęp dłuższy niż doba (lodówka, 7 dni): sama godzina następnego karmienia byłaby myląca [M1-audytor-generalny-188] */}
+              {stan.odstepMin <= 24 * 60 && (
+                <Text style={styles.drugi}>
+                  {t('dokarmiony o {godzina}, następne o {nastepne}', { godzina: formatTime(stan.dokarmionoAt), nastepne: formatTime(stan.nastepneAt) })}
+                </Text>
+              )}
             </>
           )}
           <Text style={styles.drugi}>{opisMiejsca}</Text>

@@ -29,6 +29,7 @@ import { getRecipes } from './recipes-store';
 import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } from './flour-store';
 import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
 import { odczytNieudany } from './odczyt';
+import { czytajUstawieniaILekcje, dozwolony, zapiszUstawieniaILekcje } from './ustawienia-kopii';
 import { BAKE_SESSION_KEY } from './bake-session-store';
 import { zachowajUszkodzony, uszkodzoneWiersze } from './uszkodzone-wiersze';
 
@@ -142,23 +143,30 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
       customRecipes: memStore.recipes.filter((r) => !r.isBuiltIn),
       starterEntries: [...memStore.starterEntries],
       flourInventory: [...memStore.flourInventory],
+      settings: Object.fromEntries(Object.entries(memStore.settings).filter(([k]) => dozwolony(k))),
+      lessonProgress: memStore.completedLessons.map((levelId) => ({ levelId, completedAt: 0 })),
     };
   }
-  const [bakes, starters, recipes, starterEntries, flourInventory] = await Promise.all([
+  const [bakes, starters, recipes, starterEntries, flourInventory, zTelefonu] = await Promise.all([
     getBakeLogs(),
     readStarters(db),
     getRecipes(),
     getAllStarterEntries(),
     getFlourInventory(),
+    // Dozwolone ustawienia i lekcje (BR-DANE-003) [M1-audytor-generalny-139]
+    czytajUstawieniaILekcje(db).catch((e: unknown) => {
+      odczytNieudany(e);
+      return { settings: {}, lessonProgress: [] };
+    }),
   ]);
   // Nieudany odczyt dał pustą listę: kopia z niepełnych danych wyparłaby dobre kopie z puli [M1-audytor-generalny-003]
   if (getStorageState() === 'unavailable') throw new StorageReadError(getStorageError() ?? 'read failed');
   // Surowa treść wierszy pominiętych przy odczycie: kopia przed importem i czyszczeniem jej nie gubi [M1-audytor-generalny-121]
   const uszkodzone = uszkodzoneWiersze();
   if (uszkodzone.length > 0) {
-    return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory, uszkodzoneWiersze: uszkodzone };
+    return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory, ...zTelefonu, uszkodzoneWiersze: uszkodzone };
   }
-  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory };
+  return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory, ...zTelefonu };
 }
 
 export async function deleteBakeLog(id: string): Promise<void> {
@@ -287,6 +295,8 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     memStore.starters = [...data.starters];
     memStore.starterEntries = [...entries];
     if (data.flourInventory) memStore.flourInventory = [...data.flourInventory];
+    for (const [k, w] of Object.entries(data.settings ?? {})) if (dozwolony(k) && typeof w === 'string') memStore.settings[k] = w;
+    if (data.lessonProgress) memStore.completedLessons = data.lessonProgress.map((l) => l.levelId);
     memStore.recipes = [
       ...MASTER_RECIPES.map((preset) => ({
         id: preset.id,
@@ -342,6 +352,8 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
       await db.execAsync('DELETE FROM flour_inventory;');
       for (const f of data.flourInventory) await writeFlourRow(db, f);
     }
+    // Ustawienia i lekcje tylko z kopii, która je niesie (v2 bez nich zostawia stan telefonu) [M1-audytor-generalny-139]
+    await zapiszUstawieniaILekcje(db, data.settings, data.lessonProgress);
   }));
   applyToMemory();
 }
