@@ -124,11 +124,11 @@
       "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "mąka / woda / sól [g]": "581 / 407 / 12"
+      "mąka / woda / sól [g]": "581 / 407 / 11,6"
     },
     "tolerancja": 0,
     "rodzaj": "typowy",
-    "pochodzenie": "rachunek: 581,40; 406,98; 11,63",
+    "pochodzenie": "rachunek: 581,40; 406,98; 11,63; suma pokazanych 999,6 (różnica 0,4 g, bez korekty)",
     "miejsce": "docs\\brd\\reguly.md:34"
   },
   {
@@ -139,11 +139,11 @@
       "p: mąka / woda / sól [%]": "100 / 70 / 2"
     },
     "oczekiwane": {
-      "mąka / woda / sól [g]": "581 / 407 / 11"
+      "mąka / woda / sól [g]": "581 / 407 / 11,6"
     },
     "tolerancja": 0,
     "rodzaj": "typowy",
-    "pochodzenie": "rachunek: zaokrąglenia dają 1000, sól skorygowana o −1",
+    "pochodzenie": "rachunek: 580,81; 406,57; 11,62; suma pokazanych 999,6 (różnica 0,6 g, bez korekty)",
     "miejsce": "docs\\brd\\reguly.md:35"
   },
   {
@@ -207,6 +207,21 @@
     "miejsce": "docs\\brd\\reguly.md:39"
   },
   {
+    "regula": "RD-15",
+    "id": "RD-15-W8",
+    "wejscie": {
+      "masa [g]": 569,
+      "p: mąka / woda / sól / zakwas [%]": "100 / 70 / 2 / 20"
+    },
+    "oczekiwane": {
+      "mąka / woda / sól / zakwas [g]": "296 / 208 / 5,9 / 59"
+    },
+    "tolerancja": 0,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 296,35; 207,45; 5,93; 59,27; zaokrąglenia dają 567,9 (różnica 1,1 g > 1 g), woda +1 g (największy błąd zaokrąglenia w dół, −0,45); suma pokazanych 568,9",
+    "miejsce": "docs\\brd\\reguly.md:43"
+  },
+  {
     "regula": "RD-16",
     "id": "RD-16-W1",
     "wejscie": {
@@ -222,7 +237,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 3 × 25 − 52",
-    "miejsce": "docs\\brd\\reguly.md:51"
+    "miejsce": "docs\\brd\\reguly.md:55"
   },
   {
     "regula": "RD-16",
@@ -240,7 +255,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 4 × 25 − 76",
-    "miejsce": "docs\\brd\\reguly.md:52"
+    "miejsce": "docs\\brd\\reguly.md:56"
   },
   {
     "regula": "RD-16",
@@ -258,7 +273,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "S-02: przykład 76 × 3 − 72 − 74 − 24 = 58 °F, rachunek przeliczenia na °C",
-    "miejsce": "docs\\brd\\reguly.md:53"
+    "miejsce": "docs\\brd\\reguly.md:57"
   },
   {
     "regula": "RD-16",
@@ -276,7 +291,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak temperatury mąki",
-    "miejsce": "docs\\brd\\reguly.md:54"
+    "miejsce": "docs\\brd\\reguly.md:58"
   },
   {
     "regula": "RD-17",
@@ -291,7 +306,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 240 × 3^0,3",
-    "miejsce": "docs\\brd\\reguly.md:66"
+    "miejsce": "docs\\brd\\reguly.md:70"
   },
   {
     "regula": "RD-17",
@@ -306,7 +321,7 @@
     "tolerancja": 0.01,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: 240 × 3^0,4",
-    "miejsce": "docs\\brd\\reguly.md:67"
+    "miejsce": "docs\\brd\\reguly.md:71"
   },
   {
     "regula": "RD-17",
@@ -321,7 +336,7 @@
     "tolerancja": 0.01,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: 240 × 3^−0,2",
-    "miejsce": "docs\\brd\\reguly.md:68"
+    "miejsce": "docs\\brd\\reguly.md:72"
   },
   {
     "regula": "RD-17",
@@ -336,7 +351,7 @@
     "tolerancja": 0,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: wykładnik 0",
-    "miejsce": "docs\\brd\\reguly.md:69"
+    "miejsce": "docs\\brd\\reguly.md:73"
   },
   {
     "regula": "RD-17",
@@ -351,7 +366,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: T < 20",
-    "miejsce": "docs\\brd\\reguly.md:70"
+    "miejsce": "docs\\brd\\reguly.md:74"
   },
   {
     "regula": "RD-17",
@@ -366,7 +381,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: T > 26",
-    "miejsce": "docs\\brd\\reguly.md:71"
+    "miejsce": "docs\\brd\\reguly.md:75"
   },
   {
     "regula": "RD-17",
@@ -381,7 +396,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak czasu z receptury",
-    "miejsce": "docs\\brd\\reguly.md:72"
+    "miejsce": "docs\\brd\\reguly.md:76"
   },
   {
     "regula": "RD-18",
@@ -397,7 +412,7 @@
     "tolerancja": 0.5,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 7000 / 99,68",
-    "miejsce": "docs\\brd\\reguly.md:84"
+    "miejsce": "docs\\brd\\reguly.md:88"
   },
   {
     "regula": "RD-18",
@@ -413,7 +428,7 @@
     "tolerancja": 0,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: Tc = Tk",
-    "miejsce": "docs\\brd\\reguly.md:85"
+    "miejsce": "docs\\brd\\reguly.md:89"
   },
   {
     "regula": "RD-18",
@@ -429,7 +444,7 @@
     "tolerancja": 0.05,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: 70 / 99,68",
-    "miejsce": "docs\\brd\\reguly.md:86"
+    "miejsce": "docs\\brd\\reguly.md:90"
   },
   {
     "regula": "RD-18",
@@ -445,7 +460,7 @@
     "tolerancja": 0,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: Tc > Tk, lód niepotrzebny",
-    "miejsce": "docs\\brd\\reguly.md:87"
+    "miejsce": "docs\\brd\\reguly.md:91"
   },
   {
     "regula": "RD-18",
@@ -461,7 +476,7 @@
     "tolerancja": 0.5,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 10 500 / 104,68",
-    "miejsce": "docs\\brd\\reguly.md:88"
+    "miejsce": "docs\\brd\\reguly.md:92"
   },
   {
     "regula": "RD-18",
@@ -477,7 +492,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: Tc < 0",
-    "miejsce": "docs\\brd\\reguly.md:89"
+    "miejsce": "docs\\brd\\reguly.md:93"
   },
   {
     "regula": "RD-19",
@@ -491,7 +506,7 @@
     "tolerancja": 0.1,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 10 × 0,4",
-    "miejsce": "docs\\brd\\reguly.md:101"
+    "miejsce": "docs\\brd\\reguly.md:105"
   },
   {
     "regula": "RD-19",
@@ -505,7 +520,7 @@
     "tolerancja": 0.1,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 25 × 0,4",
-    "miejsce": "docs\\brd\\reguly.md:102"
+    "miejsce": "docs\\brd\\reguly.md:106"
   },
   {
     "regula": "RD-19",
@@ -519,7 +534,7 @@
     "tolerancja": 0,
     "rodzaj": "granica",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:103"
+    "miejsce": "docs\\brd\\reguly.md:107"
   },
   {
     "regula": "RD-19",
@@ -533,7 +548,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: poza granicą m ≥ 0",
-    "miejsce": "docs\\brd\\reguly.md:104"
+    "miejsce": "docs\\brd\\reguly.md:108"
   },
   {
     "regula": "RD-19",
@@ -547,7 +562,7 @@
     "tolerancja": 0.01,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 0,1 × 0,4",
-    "miejsce": "docs\\brd\\reguly.md:105"
+    "miejsce": "docs\\brd\\reguly.md:109"
   },
   {
     "regula": "RD-19",
@@ -561,7 +576,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak masy",
-    "miejsce": "docs\\brd\\reguly.md:106"
+    "miejsce": "docs\\brd\\reguly.md:110"
   },
   {
     "regula": "RD-20",
@@ -576,7 +591,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek; D-030",
-    "miejsce": "docs\\brd\\reguly.md:118"
+    "miejsce": "docs\\brd\\reguly.md:122"
   },
   {
     "regula": "RD-20",
@@ -591,7 +606,7 @@
     "tolerancja": 0.01,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: granica ostra (D-030)",
-    "miejsce": "docs\\brd\\reguly.md:119"
+    "miejsce": "docs\\brd\\reguly.md:123"
   },
   {
     "regula": "RD-20",
@@ -606,7 +621,7 @@
     "tolerancja": 0.01,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:120"
+    "miejsce": "docs\\brd\\reguly.md:124"
   },
   {
     "regula": "RD-20",
@@ -621,7 +636,7 @@
     "tolerancja": 0.01,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:121"
+    "miejsce": "docs\\brd\\reguly.md:125"
   },
   {
     "regula": "RD-20",
@@ -636,7 +651,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: M = 0",
-    "miejsce": "docs\\brd\\reguly.md:122"
+    "miejsce": "docs\\brd\\reguly.md:126"
   },
   {
     "regula": "RD-21",
@@ -650,7 +665,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-44, S-43, S-45",
-    "miejsce": "docs\\brd\\reguly.md:134"
+    "miejsce": "docs\\brd\\reguly.md:138"
   },
   {
     "regula": "RD-21",
@@ -664,7 +679,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-45 (pleśń bywa biała); decyzja DEC-10",
-    "miejsce": "docs\\brd\\reguly.md:135"
+    "miejsce": "docs\\brd\\reguly.md:139"
   },
   {
     "regula": "RD-21",
@@ -678,7 +693,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-43",
-    "miejsce": "docs\\brd\\reguly.md:136"
+    "miejsce": "docs\\brd\\reguly.md:140"
   },
   {
     "regula": "RD-21",
@@ -692,7 +707,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-43, S-44: pleśń przeważa",
-    "miejsce": "docs\\brd\\reguly.md:137"
+    "miejsce": "docs\\brd\\reguly.md:141"
   },
   {
     "regula": "RD-21",
@@ -706,7 +721,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-45 (strzępki pleśni bywają trudne do zauważenia); decyzja DEC-10; rejestr 06 wycofał ZAK-ZDR-900",
-    "miejsce": "docs\\brd\\reguly.md:138"
+    "miejsce": "docs\\brd\\reguly.md:142"
   },
   {
     "regula": "RD-21",
@@ -720,7 +735,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "S-45; decyzja DEC-10",
-    "miejsce": "docs\\brd\\reguly.md:139"
+    "miejsce": "docs\\brd\\reguly.md:143"
   },
   {
     "regula": "RD-22",
@@ -734,7 +749,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-46",
-    "miejsce": "docs\\brd\\reguly.md:150"
+    "miejsce": "docs\\brd\\reguly.md:154"
   },
   {
     "regula": "RD-22",
@@ -748,7 +763,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-43, S-46",
-    "miejsce": "docs\\brd\\reguly.md:151"
+    "miejsce": "docs\\brd\\reguly.md:155"
   },
   {
     "regula": "RD-22",
@@ -762,7 +777,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-43: „The baking step will kill any bacteria present”",
-    "miejsce": "docs\\brd\\reguly.md:152"
+    "miejsce": "docs\\brd\\reguly.md:156"
   },
   {
     "regula": "RD-22",
@@ -776,7 +791,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: bezpieczna wartość domyślna",
-    "miejsce": "docs\\brd\\reguly.md:153"
+    "miejsce": "docs\\brd\\reguly.md:157"
   },
   {
     "regula": "RD-23",
@@ -790,7 +805,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-47, S-48",
-    "miejsce": "docs\\brd\\reguly.md:165"
+    "miejsce": "docs\\brd\\reguly.md:169"
   },
   {
     "regula": "RD-23",
@@ -804,7 +819,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-47, S-50",
-    "miejsce": "docs\\brd\\reguly.md:166"
+    "miejsce": "docs\\brd\\reguly.md:170"
   },
   {
     "regula": "RD-23",
@@ -818,7 +833,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: krok bez gorącego naczynia",
-    "miejsce": "docs\\brd\\reguly.md:167"
+    "miejsce": "docs\\brd\\reguly.md:171"
   },
   {
     "regula": "RD-23",
@@ -832,7 +847,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: bezpieczna wartość domyślna",
-    "miejsce": "docs\\brd\\reguly.md:168"
+    "miejsce": "docs\\brd\\reguly.md:172"
   },
   {
     "regula": "RD-24",
@@ -847,7 +862,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-53, S-43",
-    "miejsce": "docs\\brd\\reguly.md:180"
+    "miejsce": "docs\\brd\\reguly.md:184"
   },
   {
     "regula": "RD-24",
@@ -862,7 +877,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "S-53",
-    "miejsce": "docs\\brd\\reguly.md:181"
+    "miejsce": "docs\\brd\\reguly.md:185"
   },
   {
     "regula": "RD-24",
@@ -877,7 +892,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "S-53",
-    "miejsce": "docs\\brd\\reguly.md:182"
+    "miejsce": "docs\\brd\\reguly.md:186"
   },
   {
     "regula": "RD-24",
@@ -892,7 +907,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "S-53",
-    "miejsce": "docs\\brd\\reguly.md:183"
+    "miejsce": "docs\\brd\\reguly.md:187"
   },
   {
     "regula": "RD-24",
@@ -907,7 +922,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-53",
-    "miejsce": "docs\\brd\\reguly.md:184"
+    "miejsce": "docs\\brd\\reguly.md:188"
   },
   {
     "regula": "RD-24",
@@ -922,7 +937,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:185"
+    "miejsce": "docs\\brd\\reguly.md:189"
   },
   {
     "regula": "RD-25",
@@ -938,7 +953,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "rachunek: 08:00 + 12 h (S-44)",
-    "miejsce": "docs\\brd\\reguly.md:197"
+    "miejsce": "docs\\brd\\reguly.md:201"
   },
   {
     "regula": "RD-25",
@@ -954,7 +969,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:198"
+    "miejsce": "docs\\brd\\reguly.md:202"
   },
   {
     "regula": "RD-25",
@@ -970,7 +985,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:199"
+    "miejsce": "docs\\brd\\reguly.md:203"
   },
   {
     "regula": "RD-25",
@@ -986,7 +1001,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: + 7 d (S-44)",
-    "miejsce": "docs\\brd\\reguly.md:200"
+    "miejsce": "docs\\brd\\reguly.md:204"
   },
   {
     "regula": "RD-25",
@@ -1002,7 +1017,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:201"
+    "miejsce": "docs\\brd\\reguly.md:205"
   },
   {
     "regula": "RD-26",
@@ -1017,7 +1032,7 @@
     "tolerancja": 0,
     "rodzaj": "typowy",
     "pochodzenie": "S-36",
-    "miejsce": "docs\\brd\\reguly.md:213"
+    "miejsce": "docs\\brd\\reguly.md:217"
   },
   {
     "regula": "RD-26",
@@ -1032,7 +1047,7 @@
     "tolerancja": 0,
     "rodzaj": "typowy",
     "pochodzenie": "S-61",
-    "miejsce": "docs\\brd\\reguly.md:214"
+    "miejsce": "docs\\brd\\reguly.md:218"
   },
   {
     "regula": "RD-26",
@@ -1047,7 +1062,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "S-36",
-    "miejsce": "docs\\brd\\reguly.md:215"
+    "miejsce": "docs\\brd\\reguly.md:219"
   },
   {
     "regula": "RD-26",
@@ -1062,7 +1077,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "S-36",
-    "miejsce": "docs\\brd\\reguly.md:216"
+    "miejsce": "docs\\brd\\reguly.md:220"
   },
   {
     "regula": "RD-26",
@@ -1077,7 +1092,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "S-36",
-    "miejsce": "docs\\brd\\reguly.md:217"
+    "miejsce": "docs\\brd\\reguly.md:221"
   },
   {
     "regula": "RD-26",
@@ -1092,7 +1107,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:218"
+    "miejsce": "docs\\brd\\reguly.md:222"
   },
   {
     "regula": "RD-27",
@@ -1107,7 +1122,7 @@
     "tolerancja": 0.01,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek; S-37",
-    "miejsce": "docs\\brd\\reguly.md:229"
+    "miejsce": "docs\\brd\\reguly.md:233"
   },
   {
     "regula": "RD-27",
@@ -1122,7 +1137,7 @@
     "tolerancja": 0.01,
     "rodzaj": "granica",
     "pochodzenie": "rachunek; S-37",
-    "miejsce": "docs\\brd\\reguly.md:230"
+    "miejsce": "docs\\brd\\reguly.md:234"
   },
   {
     "regula": "RD-27",
@@ -1137,7 +1152,7 @@
     "tolerancja": 0.01,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:231"
+    "miejsce": "docs\\brd\\reguly.md:235"
   },
   {
     "regula": "RD-27",
@@ -1152,7 +1167,7 @@
     "tolerancja": 0.01,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\reguly.md:232"
+    "miejsce": "docs\\brd\\reguly.md:236"
   },
   {
     "regula": "RD-27",
@@ -1167,6 +1182,6 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: M = 0",
-    "miejsce": "docs\\brd\\reguly.md:233"
+    "miejsce": "docs\\brd\\reguly.md:237"
   }
 ]
