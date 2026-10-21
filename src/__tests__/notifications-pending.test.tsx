@@ -148,8 +148,11 @@ describe('Pending notifications follow the saved state (006)', () => {
     mock.iosStatus = 0;
     mock.grantOnRequest = false;
     setActiveBake({ id: 'bake_d', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
-    // 056: pierwszy zegar rusza sam przy wejściu w wypiek — wtedy jedna prośba o zgodę
+    // 056: pierwszy zegar rusza sam przy wejściu w wypiek — wtedy jedna prośba o zgodę, po zdaniu „po co” i „Dalej”
+    // (BR-CZAS-003 Wyjaśnienie przed prośbą, M1-audytor-generalny-130)
     const tree = await mount(<StolnicaScreen />);
+    expect(Notifications.requestPermissionsAsync).not.toHaveBeenCalled();
+    await press(tree.root, 'Dalej');
     expect(Notifications.requestPermissionsAsync).toHaveBeenCalledTimes(1);
     expect(ids()).toEqual([]);
     expect(textOf(tree.toJSON())).toContain('Powiadomienia wyłączone');
