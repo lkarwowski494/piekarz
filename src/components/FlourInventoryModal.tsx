@@ -276,6 +276,7 @@ export function FlourInventoryModal({
                 </ScrollView>
 
                 <TextInput
+                  accessibilityLabel={t('Nazwa mąki (np. Pszenna typ 750)')}
                   testID="new-flour-name-input"
                   style={styles.textInput}
                   placeholder={t('Nazwa mąki (np. Pszenna typ 750)')}
@@ -286,6 +287,7 @@ export function FlourInventoryModal({
 
                 <Text style={styles.inputLabel}>{t('Początkowy stan zapasów (g)')}:</Text>
                 <TextInput
+                  accessibilityLabel={t('Początkowy stan zapasów (g)')}
                   testID="new-flour-stock-input"
                   style={styles.textInput}
                   placeholder="1000"

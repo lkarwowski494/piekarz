@@ -90,6 +90,7 @@ export function FinishBakeModal({
           {/* Notes */}
           <Text style={styles.modalSectionLabel}>{t('Notatki z wypieku')}</Text>
           <TextInput
+            accessibilityLabel={t('Notatki z wypieku')}
             style={styles.modalInput}
             placeholder={t('Wpisz swoje uwagi (miękisz, skórka, czas pieca)...')}
             placeholderTextColor={theme.colors.tusz3}

@@ -217,6 +217,7 @@ export function VolumeConverterModal({
                 <Text style={styles.stepBtnText}>-½</Text>
               </Pressable>
               <TextInput
+                accessibilityLabel={t('Ilość objętościowa:')}
                 testID="volume-amount-input"
                 keyboardType="numeric"
                 value={amountStr}
