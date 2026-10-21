@@ -284,4 +284,6 @@ console.log(
   `i18n: ${scan.used.size} tekstów t('…') w kodzie, ${keys.size} w słowniku EN, języki przekładu: ${jezyki.length}; błędy: ${bledy.length}, uwagi: ${uwagi.length}` +
     (kodArg ? ` (skan kodu: ${kodArg}; uwagi wypisuje --uwagi)` : ' (bez skanu tekstów na sztywno)')
 );
-process.exit(bledy.length ? 1 : 0);
+// exitCode zamiast process.exit: wynik przez potok (CI, spawnSync) dopisuje się do końca, nie ucina po ok. 64 KB
+// [M1-audytor-generalny-189; 07-jakosc-603]
+process.exitCode = bledy.length ? 1 : 0;

@@ -54,6 +54,21 @@ describe('check:i18n sprawdza słowniki 33 języków przekładu 093 (M1-audytor-
     expect(wynik).toMatch(/de „\{n\} godzina”: brak formy liczby mnogiej #other/);
   });
 
+  // Setki linii błędów przez potok: process.exit zaraz po console.log ucinał wynik na Linuksie (ok. 64 KB bufora potoku),
+  // więc test wyżej padał w CI i części stref. Wynik ma być pełny: liczba linii BŁĄD = liczba błędów z podsumowania,
+  // a skrypt kończy się przez process.exitCode [M1-audytor-generalny-189; 07-jakosc-603]
+  it('wynik przez potok nie jest ucinany: wszystkie linie błędów i podsumowanie, kod 1; zakończenie przez process.exitCode', () => {
+    const { kod, wynik } = slowniki('potok', { 'de/czesc-1.ts': czesc({ Dziś: 'Heute' }) });
+    expect(kod).toBe(1);
+    const ile = Number(/błędy: (\d+)/.exec(wynik)?.[1] ?? NaN);
+    expect(ile).toBeGreaterThan(400);
+    expect(wynik.split('\n').filter((l) => l.startsWith('BŁĄD ')).length).toBe(ile);
+    expect(wynik).toMatch(/de „Receptury”: brak tłumaczenia/);
+    const zrodlo = require('node:fs').readFileSync(script, 'utf8') as string;
+    expect(zrodlo).not.toMatch(/process\.exit\(bledy/);
+    expect(zrodlo).toMatch(/process\.exitCode = bledy\.length \? 1 : 0;/);
+  });
+
   it('słowniki repo: 33 języki bez błędów, kod 0', () => {
     const r = spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
     expect(`${r.stdout}`).toMatch(/języki przekładu: 33/);
