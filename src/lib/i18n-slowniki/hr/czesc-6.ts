@@ -2,7 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Istresi tijesto na radnu površinu, oblikuj ga u kuglu i napni površinu.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13,0 g. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13%. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
   'Wymaga obecności': 'Zahtijeva prisutnost',
   'wymaga Piekarz Pro': 'zahtijeva Pekar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Potrebno je preliti crveni raženi slad kipućom vodom zajedno s mljevenim korijanderom. Prije pečenja pospi vrh cijelim zrnima korijandera.',

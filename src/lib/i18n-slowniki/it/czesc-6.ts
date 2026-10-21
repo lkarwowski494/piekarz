@@ -42,7 +42,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Fai la prova del dito prima di infornare la pagnotta.',
   'Wykryto uszkodzony stan bazy danych': 'Rilevato stato del database danneggiato',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Rovescia l\'impasto sul piano, dagli una prima forma a palla e tendi la superficie.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Richiede una farina con contenuto proteico di almeno 13,0 g. Autolisi di 60 minuti senza sale. Pieghe di rinforzo (coil fold) molto delicate.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Richiede una farina con contenuto proteico di almeno 13%. Autolisi di 60 minuti senza sale. Pieghe di rinforzo (coil fold) molto delicate.',
   'Wymaga obecności': 'Richiede presenza',
   'wymaga Piekarz Pro': 'richiede Fornaio Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Richiede di mettere in infusione il malto rosso di segale in acqua bollente insieme al coriandolo macinato. Prima della cottura cospargi la superficie di semi interi di coriandolo.',

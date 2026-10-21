@@ -14,7 +14,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Κάντε το τεστ του δαχτύλου πριν βάλετε το καρβέλι στον φούρνο.',
   'Wykryto uszkodzony stan bazy danych': 'Εντοπίστηκε κατεστραμμένη κατάσταση βάσης δεδομένων',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Βγάλτε τη ζύμη στον πάγκο, δώστε της αρχικό σχήμα μπάλας και τεντώστε την επιφάνεια.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Απαιτεί αλεύρι με περιεκτικότητα σε πρωτεΐνη τουλάχιστον 13,0 g. Αυτόλυση 60 λεπτών χωρίς αλάτι. Πολύ απαλά σπιράλ διπλώματα (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Απαιτεί αλεύρι με περιεκτικότητα σε πρωτεΐνη τουλάχιστον 13%. Αυτόλυση 60 λεπτών χωρίς αλάτι. Πολύ απαλά σπιράλ διπλώματα (coil fold).',
   'Wymaga obecności': 'Απαιτεί παρουσία',
   'wymaga Piekarz Pro': 'απαιτεί Αρτοποιός Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Απαιτεί ζεμάτισμα της κόκκινης βύνης σίκαλης με βραστό νερό μαζί με αλεσμένο κόλιανδρο. Πριν από το ψήσιμο πασπαλίστε την επιφάνεια με ολόκληρους σπόρους κόλιανδρου.',

@@ -26,7 +26,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Somunu fırına koymadan önce parmak testi yapın.',
   'Wykryto uszkodzony stan bazy danych': 'Bozuk veritabanı durumu algılandı',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Hamuru tezgâha alın, ön şekil olarak top biçimi verin ve yüzeyini gerin.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'En az 13,0 g protein oranına sahip un gerektirir. Tuzsuz 60 dakika otoliz. Çok nazik katlamalar (coil fold).',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'En az %13 protein oranına sahip un gerektirir. Tuzsuz 60 dakika otoliz. Çok nazik katlamalar (coil fold).',
   'Wymaga obecności': 'Başında olmanız gerekir',
   'wymaga Piekarz Pro': 'Fırıncı Pro gerektirir',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Kırmızı çavdar maltının öğütülmüş kişnişle birlikte kaynar suyla demlenmesi gerekir. Pişirmeden önce üzerine bütün kişniş taneleri serpin.',

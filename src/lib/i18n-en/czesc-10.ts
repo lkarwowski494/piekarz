@@ -168,8 +168,8 @@ export const EN_10: Record<string, string> = {
     'Master country loaf, Tartine style, 80%',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.':
     'An advanced high-hydration loaf with a wild, pearly crumb and a huge ear.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.':
-    'Requires flour with a protein content of at least 13.0g. Autolyse 60 minutes without salt. Very gentle coil folds.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.':
+    'Requires flour with a protein content of at least 13%. Autolyse 60 minutes without salt. Very gentle coil folds.',
   'Chleb w stylu San Francisco o wyrazistej kwasowości':
     'San Francisco–style sourdough with bold sourness',
   'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.':

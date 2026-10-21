@@ -71,7 +71,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 245,
     bakeTempBrowningC: 210,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
+    notesPl: 'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.',
   },
   {
     id: 'san_francisco_sourdough',

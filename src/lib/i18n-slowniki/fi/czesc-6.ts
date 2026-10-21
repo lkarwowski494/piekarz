@@ -23,7 +23,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Tee sormitesti ennen kuin laitat leivän uuniin.',
   'Wykryto uszkodzony stan bazy danych': 'Havaittiin vioittunut tietokannan tila',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Kumoa taikina pöydälle, esimuotoile se palloksi ja kiristä pintaa.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vaatii jauhoja, joiden proteiinipitoisuus on vähintään 13,0 g. Autolyysi 60 minuuttia ilman suolaa. Erittäin hellävaraiset kierretaittelut.',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vaatii jauhoja, joiden proteiinipitoisuus on vähintään 13%. Autolyysi 60 minuuttia ilman suolaa. Erittäin hellävaraiset kierretaittelut.',
   'Wymaga obecności': 'Vaatii läsnäoloa',
   'wymaga Piekarz Pro': 'vaatii Leipuri Pron',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Vaatii punaisen ruismallaan hauduttamista kiehuvalla vedellä yhdessä jauhetun korianterin kanssa. Ripottele pinnalle ennen paistoa kokonaisia korianterinsiemeniä.',

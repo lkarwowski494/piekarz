@@ -126,7 +126,7 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': '將麵包放入烤箱前，先做手指按壓測試。',
   'Wykryto uszkodzony stan bazy danych': '偵測到資料庫狀態損毀',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': '將麵團倒在檯面上，初步整成圓球狀並繃緊表面。',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': '需使用蛋白質含量至少 13.0 g 的麵粉。水解法 60 分鐘，不加鹽。非常輕柔地進行翻面拉摺（Coil Fold）。',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': '需使用蛋白質含量至少 13% 的麵粉。水解法 60 分鐘，不加鹽。非常輕柔地進行翻面拉摺（Coil Fold）。',
   'Wymaga obecności': '需在場',
   'wymaga Piekarz Pro': '需要 麵包師傅 Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': '需以滾水沖泡紅色裸麥麥芽與磨碎的芫荽籽。烘烤前在表面撒上整粒芫荽籽。',
