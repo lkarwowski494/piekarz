@@ -148,18 +148,26 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Gdy użytkownik wybiera wydruk
     - Wtedy może zapisać albo udostępnić plik PDF
 
-### BR-OPIN-001: Systemowa prośba o ocenę po udanym wypieku
+### BR-OPIN-001: Systemowa prośba o ocenę po ukończonym wypieku
 - Przepływ: PR-06 · Ograniczenie: OG-07
-- Dowód potrzeby: J-12; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku); zadanie M1-audytor-generalny-082; S-63 (prośba na końcu sekwencji, którą użytkownik zakończył sukcesem)
+- Dowód potrzeby: J-12; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku); decyzja D-067 (DEC-20 a planu napraw M1: po 3. ukończonym wypieku, bez warunku oceny bochenka, odstęp 14 dni; uchyla próg 4★ z D-042 w warunku prośby; ER-61); zadania M1-audytor-generalny-082, M1-audytor-generalny-138; S-63 (prośba na końcu sekwencji, którą użytkownik zakończył sukcesem; najwyżej trzy razy w ciągu 365 dni)
 - Kryteria akceptacji:
-  - Scenariusz: Udany wypiek
-    - Zakładając, że użytkownik zakończył wypiek i ocenił bochenek co najmniej na 4★ (D-042)
+  - Scenariusz: Trzeci ukończony wypiek
+    - Zakładając, że dziennik ma co najmniej 3 ukończone wypieki (z właśnie zapisanym), ostatnia prośba o ocenę była co najmniej 14 dni temu, a w ostatnich 365 dniach aplikacja prosiła mniej niż trzy razy (D-067, S-63)
     - Gdy zapis oceny się kończy i użytkownik wraca do dziennika
     - Wtedy aplikacja wywołuje systemową prośbę o ocenę, a system sam decyduje, czy ją pokazać (najwyżej trzy razy w ciągu 365 dni, S-63)
+  - Scenariusz: Pierwszy i drugi wypiek
+    - Zakładając, że dziennik ma 1 albo 2 ukończone wypieki
+    - Gdy użytkownik zapisuje ocenę bochenka
+    - Wtedy aplikacja nie wywołuje prośby o ocenę (D-067)
+  - Scenariusz: Odstęp krótszy niż 14 dni
+    - Zakładając, że ostatnia prośba o ocenę była 13 dni temu
+    - Gdy użytkownik zapisuje kolejny ukończony wypiek
+    - Wtedy aplikacja nie wywołuje prośby o ocenę (D-067)
   - Scenariusz: Słaba ocena
     - Zakładając, że użytkownik ocenił bochenek na 2★
     - Gdy zapisuje ocenę
-    - Wtedy aplikacja nie wywołuje prośby o ocenę, tylko propozycję Doktora Chleba (BR-DIAG-001)
+    - Wtedy aplikacja proponuje Doktora Chleba (BR-DIAG-001); ocena bochenka nie wchodzi do warunku prośby o ocenę aplikacji, więc prośba zależy tylko od warunku ze scenariusza „Trzeci ukończony wypiek” (D-067)
   - Scenariusz: Bez własnego okna
     - Zakładając, że jakikolwiek warunek prośby jest spełniony
     - Gdy aplikacja prosi o ocenę

@@ -46,7 +46,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-46 | [DO USTALENIA] opis próby gotowości ciasta przed pieczeniem ze źródła | rola 06 | BR-ETAP-003 |
 | OP-47 | Rozstrzygnięte 2026-10-19: 3 dni (D-039, rola 02) | właściciel | BR-ZAK-004 |
 | OP-48 | Rozstrzygnięte 2026-10-19: wypiek rozpoczęty w czasie dostępu prowadzi się do końca, bez nowego (D-039, rola 02) | właściciel | BR-ZAK-004 |
-| OP-49 | Rozstrzygnięte 2026-10-20: udany wypiek to ocena co najmniej 4★ (D-042) | właściciel | BR-OPIN-001 |
+| OP-49 | Rozstrzygnięte 2026-10-20: udany wypiek to ocena co najmniej 4★ (D-042); od 2026-10-22 warunek prośby o ocenę bez oceny bochenka: od 3. ukończonego wypieku, odstęp 14 dni (D-067 uchyla próg 4★ w warunku prośby, ER-61) | właściciel | BR-OPIN-001 |
 
 ## Blokery wydania
 
