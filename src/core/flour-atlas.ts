@@ -289,6 +289,8 @@ export interface BlendAbsorptionAnalysis {
   ryePercentage: number;
   wholeGrainPercentage: number;
   doughFeelAdvicePl: string;
+  /** Osobne zdanie przy życie ≥ 40%; ekran tłumaczy je własnym `t()` [M1-audytor-generalny-134] */
+  ryeWarningPl?: string;
 }
 
 /**
@@ -358,9 +360,8 @@ export function analyzeFlourBlendAbsorption(
     doughFeelAdvicePl = 'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.';
   }
 
-  if (ryePercent >= 40) {
-    doughFeelAdvicePl += ' Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.';
-  }
+  const ryeWarningPl =
+    ryePercent >= 40 ? 'Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.' : undefined;
 
   return {
     weightedAbsorptionPercent: weightedAbs,
@@ -369,6 +370,7 @@ export function analyzeFlourBlendAbsorption(
     ryePercentage: ryePercent,
     wholeGrainPercentage: wholeGrainPercent,
     doughFeelAdvicePl,
+    ...(ryeWarningPl ? { ryeWarningPl } : {}),
   };
 }
 

@@ -155,6 +155,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             </View>
             {!validateFlourBlend(szkic).isValid && <Text style={s.info} testID="flour-sum-warning">{t('Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.')}</Text>}
             {p.blendAbsorption && <Text style={s.info}>{t(p.blendAbsorption.doughFeelAdvicePl)}</Text>}
+            {p.blendAbsorption?.ryeWarningPl && <Text style={s.info} testID="rye-warning">{t(p.blendAbsorption.ryeWarningPl)}</Text>}
 
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Proporcje (procent mąki)')}</Text>
             <View style={s.grupa}>

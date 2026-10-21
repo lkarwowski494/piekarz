@@ -79,7 +79,8 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       expect(analysis.recommendedHydrationRange).toEqual([72.0, 82.0]);
       expect(analysis.ryePercentage).toBe(50.0);
       expect(analysis.wholeGrainPercentage).toBe(50.0);
-      expect(analysis.doughFeelAdvicePl).toContain('Wysoki udział żyta');
+      // Ostrzeżenie żytnie jest osobnym polem, tłumaczonym własnym t() [M1-audytor-generalny-134]
+      expect(analysis.ryeWarningPl).toContain('Wysoki udział żyta');
     });
 
     it('warns when recipe hydration is excessively high for the flour blend', () => {
