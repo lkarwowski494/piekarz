@@ -23,10 +23,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/interaction-guards.test.ts, tests/nawigacja-d051.test.tsx |
+| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/doktor-zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/core/__tests__/starter-doctor.test.ts, src/core/__tests__/starter-setup.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
+| `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/interaction-guards.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/maestro-runner.ts |
@@ -296,7 +296,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zacznij wypiek` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `Kopiuj harmonogram` | `src/components/harmonogram/ScheduleSummaryCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `{krok} wypada o {godzina} w nocy` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
-| `TEKST` | `Przesuń do lodówki` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | src/__tests__/harmonogram-screen.test.tsx, src/__tests__/teksty-116.test.tsx |
+| `TEKST` | `Przesuń do lodówki` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/store-metadata.test.ts, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `Ochrona snu aktywna` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Godzina gotowości chleba do krojenia` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wyznacz kroki wstecz, aby nie zarywać nocy` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |

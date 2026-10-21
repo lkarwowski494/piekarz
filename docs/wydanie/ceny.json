@@ -1,0 +1,27 @@
+{
+ "opis": "Ceny produktów Piekarz Pro w App Store Connect: cena bazowa USD i storefronty z ceną ustawioną ręcznie (D-038, model stały DEC-01 d, bez propozycji zmian). Pozostałe storefronty: cena, którą App Store Connect proponuje od ceny bazowej, bez zmian. ID produktów: src/lib/platnosci/konfiguracja.ts (PRODUKTY). Kwoty w walucie storefrontu, kropka dziesiętna. Czyta to scripts/karty-ustawien.mjs [M1-audytor-generalny-119].",
+ "zrodla": [
+  "docs/decyzje.md D-038 (ceny US i PL, „ceny w innych krajach z wariant-a-wlasciciel.json”)",
+  "docs/monetyzacja.md, tabela „Kontrakt płatności”",
+  "audit/02-warianty-2026-10-19/narzedzia/wariant-a-wlasciciel.json, pole ceny i sklepy[].waluta (2026-10-19; plik lokalny właściciela, poza gitem)"
+ ],
+ "bazowy": "USA",
+ "reczne": {
+  "USA": { "waluta": "USD", "monthly": "0.99", "yearly": "6.99", "lifetime": "14.99" },
+  "GBR": { "waluta": "GBP", "monthly": "0.99", "yearly": "6.99", "lifetime": "14.99" },
+  "CAN": { "waluta": "CAD", "monthly": "0.99", "yearly": "9.99", "lifetime": "19.99" },
+  "AUS": { "waluta": "AUD", "monthly": "1.99", "yearly": "9.99", "lifetime": "22.99" },
+  "DEU": { "waluta": "EUR", "monthly": "0.99", "yearly": "7.99", "lifetime": "17.99" },
+  "FRA": { "waluta": "EUR", "monthly": "0.99", "yearly": "7.99", "lifetime": "17.99" },
+  "ESP": { "waluta": "EUR", "monthly": "0.99", "yearly": "7.99", "lifetime": "17.99" },
+  "MEX": { "waluta": "MXN", "monthly": "19", "yearly": "149", "lifetime": "299" },
+  "POL": { "waluta": "PLN", "monthly": "4.99", "yearly": "29.99", "lifetime": "79.99" }
+ },
+ "ofertaWprowadzajaca": {
+  "produkty": ["monthly", "yearly"],
+  "typ": "Free Trial",
+  "czas": "2 Weeks",
+  "storefronty": "wszystkie, w których aplikacja jest dostępna"
+ },
+ "familySharing": ["monthly", "yearly", "lifetime"]
+}

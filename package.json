@@ -23,6 +23,7 @@
     "check:licenses": "node scripts/check-licenses.mjs",
     "check:size": "node scripts/check-file-size.mjs",
     "check:metadane": "node scripts/sprawdz-metadane.mjs",
+    "karty:ustawien": "node scripts/karty-ustawien.mjs",
     "lint": "eslint app src",
     "matrix:update": "node scripts/test-matrix.mjs",
     "verify:native": "node scripts/verify-native.mjs",

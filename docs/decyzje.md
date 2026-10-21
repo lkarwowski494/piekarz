@@ -170,3 +170,17 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) MIT albo Apache-2.0 — każdy mógłby wydać kod jako własną aplikację; (c) GPLv3 — zgodność z warunkami App Store `[DO USTALENIA]`, a deklaracja bez pliku licencji była twierdzeniem bez pokrycia.
 - **Dlaczego:** płatna aplikacja (DEC-01 d) z publicznym kodem; najprostsza ochrona bez wyboru licencji otwartej.
 - **Zależy od:** nic; właściciel może zmienić licencję później (nowy wpis).
+
+### [D-057] 2026-10-21 — Dostępność 1.0: 174 storefronty bez Chin kontynentalnych (M2 p7, zadanie 119, warunkowa)
+- **Rodzaj:** produktowa (rynki). **Słowa właściciela:** „Ewentualne STOP-y partii 7 - z gory aprobuje rekomendowane opcje.” (2026-10-20, czat M2 p7).
+- **Decyzja:** Pricing and Availability → „Specific Countries or Regions”: wszystkie storefronty poza Chinami kontynentalnymi (CHN), z zaznaczonym udostępnianiem w nowych krajach (`docs/wydanie/instrukcja-ustawien.md` §6).
+- **Odrzucone:** (a) „All Countries or Regions” (175) — Apple: „China’s Ministry of Industry and Information Technology (MIIT) requires that some apps possess a valid Internet Content Provider (ICP) Filing Number” (App Store Connect Help „App information”, odczyt 2026-10-21); czy aplikacja bez sieci tego wymaga, `[DO USTALENIA]`, a CHN nie ma lokalizacji w języku domyślnym (D-054); (b) tylko rynki bramki 02 — sprzeczne z „Rynek: globalny” (CLAUDE.md, DEC-06).
+- **Dlaczego:** 174 storefronty mają lokalizację w języku domyślnym (`docs/wydanie/storefronty.json`); CHN to jedyny z otwartym wymogiem formalnym.
+- **Zależy od:** rozstrzygnięcia ICP dla CHN; po potwierdzeniu, że nie jest wymagany, CHN można dodać (nowy wpis).
+
+### [D-058] 2026-10-21 — Kategoria wiekowa: „Guns or Other Weapons” = Infrequent (nóż i żyletka kuchenna), oczekiwane 9+ (M2 p7, zadanie 119, warunkowa)
+- **Rodzaj:** merytoryczna (kryteria formularza Apple). **Słowa właściciela:** jak D-057.
+- **Decyzja:** w ankiecie wieku wszystkie kategorie „None”/„No”, poza „Guns or Other Weapons” = „Infrequent”: treść wspomina nóż i żyletkę do nacinania (`src/lib/i18n-en/czesc-8.ts:80`), a Apple podaje „objects that may cause bodily harm. May include: guns, swords, or knives” (Age ratings values and definitions, odczyt 2026-10-21). Reguła roli 10: przy wątpliwości deklarujesz więcej.
+- **Odrzucone:** „None” wszędzie i 4+ (`docs/15-app-store.md` §3) — narzędzie kuchenne to nie broń w zwykłym znaczeniu, ale brzmienie Apple tego nie wyłącza `[DO USTALENIA]`.
+- **Dlaczego:** zaniżony wiek to fałszywa odpowiedź (WYD-10, P1); zawyżony nie szkodzi użytkownikowi.
+- **Zależy od:** wyniku ankiety w App Store Connect (wiek wylicza Apple) i ewentualnej odpowiedzi App Review; `docs/15-app-store.md` §3 aktualizuje rola 10 po odczycie wyniku.
