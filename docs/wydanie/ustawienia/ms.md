@@ -45,7 +45,7 @@ resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread
 Tetapkan masa roti siap: Tukang Roti mengira kuantiti, menyusun pelan secara songsang dan memberitahu bila setiap langkah tamat. Tanpa akaun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3382 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3408 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
@@ -54,10 +54,10 @@ RESIPI DAN KUANTITI
 Pilih satu daripada 15 resipi asas (sourdough, rai, yis, piza dan manis) atau resipi anda sendiri. Tetapkan bilangan buku roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, pemula, garam dan yis. Peratusan pembuat roti mengambil kira tepung dan air daripada pemula dan biang. Tukang Roti juga memberikan suhu air untuk suhu doh yang anda mahukan.
 
 PELAN DARI MASA “SIAP”
-Pilih bila roti perlu siap, dan Tukang Roti mengira secara songsang masa mula setiap langkah. Masa penapaian bergantung pada suhu dapur anda. Apabila langkah yang memerlukan tangan anda jatuh pada waktu malam (secara lalai antara 23:00 dan 06:30), Tukang Roti mencadangkan masa lebih lama dalam peti sejuk. Jika masa tidak mencukupi, Tukang Roti memberikan masa paling awal yang mungkin.
+Pilih bila roti perlu siap, dan Tukang Roti mengira secara songsang masa mula setiap langkah. Masa penapaian bergantung pada suhu dapur anda. Apabila langkah yang memerlukan tangan anda jatuh pada waktu malam (secara lalai antara 23:00 dan 07:00), Tukang Roti mencadangkan masa lebih lama dalam peti sejuk. Jika masa tidak mencukupi, Tukang Roti memberikan masa paling awal yang mungkin.
 
 BIMBINGAN LANGKAH DEMI LANGKAH
-Tukang Roti menunjukkan langkah semasa: apa perlu dibuat, berapa lama dan apa seterusnya. Jika anda membenarkan pemberitahuan, Tukang Roti memaklumkan tamat langkah walaupun telefon dikunci. Skrin bimbingan tidak padam sepanjang bakaran. Langkah dengan peralatan masak panas atau doh mentah mempunyai amaran. Roti rai (lebih separuh tepung ialah tepung rai) mempunyai langkah tersendiri tanpa lipatan. Langkah yang tersilap disahkan boleh dibatalkan, dan apabila dibuka semula, aplikasi kembali ke langkah semasa.
+Tukang Roti menunjukkan langkah semasa: apa perlu dibuat, berapa lama dan apa seterusnya. Jika anda membenarkan pemberitahuan, Tukang Roti memaklumkan tamat langkah walaupun telefon dikunci. Semasa langkah yang memerlukan tangan anda, skrin bimbingan tidak padam. Langkah dengan peralatan masak panas atau doh mentah mempunyai amaran. Roti rai (lebih separuh tepung ialah tepung rai) mempunyai langkah tersendiri tanpa lipatan. Langkah yang tersilap disahkan boleh dibatalkan, dan apabila dibuka semula, aplikasi kembali ke langkah semasa.
 
 PEMULA
 Urus beberapa pemula. Tukang Roti memberikan kuantiti pemberian makan dalam nisbah 1:1:1, 1:2:2, 1:3:3 atau 1:5:5. Apabila pemula mengembang dua kali ganda isi padu, Tukang Roti menandakannya sedia untuk doh. Selepas 12 jam di atas kaunter tanpa diberi makan, Tukang Roti mengingatkan anda melalui pemberitahuan. Pemula baharu boleh dimulakan hari demi hari. Tukang Roti mengamalkan prinsip berjaga-jaga: jika ada selaput, perubahan warna atau bau busuk, Tukang Roti menasihatkan anda membuang pemula.

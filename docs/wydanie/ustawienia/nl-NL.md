@@ -44,7 +44,7 @@ desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,time
 Kies hoe laat je brood klaar moet zijn: Bakker berekent de hoeveelheden, plant terug en meldt het einde van elke stap. Geen account, geen internet, geen reclame.
 ```
 
-### Opis (Description) · 3488 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3516 / 4000 znaków · wersja 1.0
 
 ```text
 Bakker begeleidt je bij het bakken van zuurdesembrood, van recept tot brood: de app berekent de hoeveelheden, maakt een schema en houdt de tijd in de gaten terwijl je telefoon slaapt. Werkt zonder account en zonder internet, zonder advertenties en zonder tracking. Je recepten, zuurdesemstarters en dagboek blijven alleen op je telefoon.
@@ -53,10 +53,10 @@ RECEPTEN EN HOEVEELHEDEN
 Kies een van de 15 basisrecepten (zuurdesem, rogge, gist, pizza en zoet) of je eigen recept. Stel het aantal broden of het meelgewicht in, en Bakker geeft de grammen meel, water, zuurdesemstarter, zout en gist. Het bakkerspercentage telt het meel en water uit de zuurdesemstarter en uit het levain mee. Bakker geeft ook de watertemperatuur voor de gewenste deegtemperatuur.
 
 SCHEMA VANAF HET TIJDSTIP „KLAAR”
-Kies wanneer het brood klaar moet zijn, en Bakker rekent voor elke stap het starttijdstip terug. De fermentatietijd hangt af van de temperatuur in je keuken. Valt een stap waarbij je zelf aan de slag moet in de nacht (standaard tussen 23:00 en 06:30), dan stelt Bakker een langere tijd in de koelkast voor. Is er te weinig tijd, dan geeft Bakker het vroegst mogelijke tijdstip.
+Kies wanneer het brood klaar moet zijn, en Bakker rekent voor elke stap het starttijdstip terug. De fermentatietijd hangt af van de temperatuur in je keuken. Valt een stap waarbij je zelf aan de slag moet in de nacht (standaard tussen 23:00 en 07:00), dan stelt Bakker een langere tijd in de koelkast voor. Is er te weinig tijd, dan geeft Bakker het vroegst mogelijke tijdstip.
 
 STAP VOOR STAP BEGELEID
-Bakker toont de huidige stap: wat je moet doen, hoe lang het duurt en wat daarna komt. Sta je meldingen toe, dan laat Bakker ook bij een vergrendelde telefoon weten wanneer een stap klaar is. Het begeleidingsscherm blijft aan tijdens het bakken. Stappen met heet kookgerei of rauw deeg hebben een waarschuwing. Roggebrood (meer dan de helft van het meel is roggemeel) heeft eigen stappen zonder vouwen. Een per ongeluk bevestigde stap maak je ongedaan, en als je de app opnieuw opent, start die bij de huidige stap.
+Bakker toont de huidige stap: wat je moet doen, hoe lang het duurt en wat daarna komt. Sta je meldingen toe, dan laat Bakker ook bij een vergrendelde telefoon weten wanneer een stap klaar is. Bij een stap waarbij je zelf aan de slag moet, blijft het begeleidingsscherm aan. Stappen met heet kookgerei of rauw deeg hebben een waarschuwing. Roggebrood (meer dan de helft van het meel is roggemeel) heeft eigen stappen zonder vouwen. Een per ongeluk bevestigde stap maak je ongedaan, en als je de app opnieuw opent, start die bij de huidige stap.
 
 ZUURDESEMSTARTERS
 Beheer meerdere zuurdesemstarters. Bakker geeft de hoeveelheden om te voeden in de verhouding 1:1:1, 1:2:2, 1:3:3 of 1:5:5. Is de zuurdesemstarter in volume verdubbeld, dan markeert Bakker hem als klaar voor het deeg. Staat hij 12 uur op het aanrecht zonder te zijn gevoed, dan krijg je een herinnering via een melding. Een nieuwe zuurdesemstarter zet je dag voor dag op. Bakker hanteert het voorzorgsprincipe: bij aanslag, verkleuring of een rotte geur adviseert de app de zuurdesemstarter weg te gooien.

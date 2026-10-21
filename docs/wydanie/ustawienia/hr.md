@@ -44,7 +44,7 @@ Plan pečenja i kalkulator
 Postavi vrijeme kad kruh treba biti gotov: Pekar će izračunati količine, složiti plan unatrag i javiti ti kraj svakog koraka. Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 2997 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3012 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
@@ -53,10 +53,10 @@ RECEPTURE I KOLIČINE
 Biraš jednu od 15 osnovnih receptura (od kiselog tijesta, raženih, s kvascem, za pizzu i slatkih) ili vlastitu. Postaviš broj štruca ili masu brašna, a Pekar daje grame brašna, vode, kvasa, soli i kvasca. Pekarski postotak uzima u obzir brašno i vodu iz kvasa i iz nastavka. Pekar će ti dati i temperaturu vode za temperaturu tijesta koju želiš postići.
 
 PLAN OD VREMENA „GOTOVO”
-Biraš kada kruh treba biti gotov, a Pekar unatrag računa vrijeme početka svakog koraka. Vrijeme fermentacije ovisi o temperaturi u kuhinji. Kad korak koji traži tvoje ruke padne noću (zadano između 23:00 i 06:30), Pekar će predložiti dulje vrijeme u hladnjaku. Kad je vremena premalo, dat će najranije moguće vrijeme.
+Biraš kada kruh treba biti gotov, a Pekar unatrag računa vrijeme početka svakog koraka. Vrijeme fermentacije ovisi o temperaturi u kuhinji. Kad korak koji traži tvoje ruke padne noću (zadano između 23:00 i 07:00), Pekar će predložiti dulje vrijeme u hladnjaku. Kad je vremena premalo, dat će najranije moguće vrijeme.
 
 VOĐENJE KORAK PO KORAK
-Pekar pokazuje trenutačni korak: što napraviti, koliko traje i što slijedi. Ako dopustiš obavijesti, javit će ti kraj koraka i kad je telefon zaključan. Zaslon vođenja ne gasi se tijekom pečenja. Koraci s vrućim posuđem ili sirovim tijestom imaju upozorenje. Raženi kruh (više od polovice brašna je raženo brašno) ima vlastite korake bez preklapanja. Greškom potvrđen korak možeš poništiti, a nakon ponovnog otvaranja aplikacija se vraća na trenutačni korak.
+Pekar pokazuje trenutačni korak: što napraviti, koliko traje i što slijedi. Ako dopustiš obavijesti, javit će ti kraj koraka i kad je telefon zaključan. U koraku koji traži tvoje ruke zaslon vođenja se ne gasi. Koraci s vrućim posuđem ili sirovim tijestom imaju upozorenje. Raženi kruh (više od polovice brašna je raženo brašno) ima vlastite korake bez preklapanja. Greškom potvrđen korak možeš poništiti, a nakon ponovnog otvaranja aplikacija se vraća na trenutačni korak.
 
 KVASI
 Vodiš nekoliko kvasa. Pekar daje količine za hranjenje u omjeru 1:1:1, 1:2:2, 1:3:3 ili 1:5:5. Kad kvas udvostruči volumen, Pekar će ga označiti kao spremnog za tijesto. Nakon 12 sati na radnoj površini bez hranjenja podsjetit će te na njega obaviješću. Novi kvas pokrećeš dan po dan. Pekar primjenjuje načelo opreza: kod naslage, promjene boje ili trulog mirisa savjetuje da baciš kvas.

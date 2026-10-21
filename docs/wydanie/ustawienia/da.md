@@ -44,7 +44,7 @@ hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbag
 Vælg, hvornår brødet skal være klar: Bageren beregner mængderne, planlægger baglæns og giver besked, når hvert trin slutter. Ingen konto, intet internet, ingen reklamer.
 ```
 
-### Opis (Description) · 3191 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3214 / 4000 znaków · wersja 1.0
 
 ```text
 Bageren guider dig gennem bagningen af surdejsbrød fra opskrift til færdigt brød: appen beregner mængderne, lægger planen og holder øje med tiden, mens telefonen sover. Den virker uden konto og uden internet, uden reklamer og uden sporing. Dine opskrifter, surdeje og din bagedagbog bliver kun på din telefon.
@@ -53,10 +53,10 @@ OPSKRIFTER OG MÆNGDER
 Vælg en af 15 grundopskrifter (surdej, rug, gær, pizza og søde) eller din egen. Indstil antal brød eller melmængden, og Bageren angiver gram mel, vand, surdej, salt og gær. Bagerprocenten medregner mel og vand fra surdejen og fra fordejen. Bageren angiver også vandtemperaturen til den dejtemperatur, du ønsker.
 
 PLAN FRA »KLAR«-TIDSPUNKTET
-Vælg, hvornår brødet skal være klar, og Bageren regner baglæns frem til starttidspunktet for hvert trin. Fermenteringstiden afhænger af temperaturen i køkkenet. Når et trin, der kræver dine hænder, falder om natten (som standard mellem 23:00 og 06:30), foreslår Bageren en længere tid i køleskabet. Hvis der er for lidt tid, angiver Bageren det tidligst mulige tidspunkt.
+Vælg, hvornår brødet skal være klar, og Bageren regner baglæns frem til starttidspunktet for hvert trin. Fermenteringstiden afhænger af temperaturen i køkkenet. Når et trin, der kræver dine hænder, falder om natten (som standard mellem 23:00 og 07:00), foreslår Bageren en længere tid i køleskabet. Hvis der er for lidt tid, angiver Bageren det tidligst mulige tidspunkt.
 
 TRIN-FOR-TRIN-VEJLEDNING
-Bageren viser det aktuelle trin: hvad du skal gøre, hvor længe det tager, og hvad der kommer bagefter. Hvis du tillader notifikationer, giver appen besked, når et trin slutter, også når telefonen er låst. Vejledningsskærmen slukker ikke under bagningen. Trin med varmt kogegrej eller rå dej har en advarsel. Rugbrød (over halvdelen af melet er rugmel) har egne trin uden foldninger. Et trin, du har bekræftet ved en fejl, kan du fortryde, og når du åbner appen igen, vender den tilbage til det aktuelle trin.
+Bageren viser det aktuelle trin: hvad du skal gøre, hvor længe det tager, og hvad der kommer bagefter. Hvis du tillader notifikationer, giver appen besked, når et trin slutter, også når telefonen er låst. Under et trin, der kræver dine hænder, slukker vejledningsskærmen ikke. Trin med varmt kogegrej eller rå dej har en advarsel. Rugbrød (over halvdelen af melet er rugmel) har egne trin uden foldninger. Et trin, du har bekræftet ved en fejl, kan du fortryde, og når du åbner appen igen, vender den tilbage til det aktuelle trin.
 
 SURDEJE
 Hold styr på flere surdeje. Bageren angiver fodringsmængder i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. Når surdejen har fordoblet sit volumen, markerer Bageren den som klar til dejen. Efter 12 timer på køkkenbordet uden fodring minder Bageren dig om den med en notifikation. En ny surdej kan du starte dag for dag. Bageren følger et forsigtighedsprincip: ved belægning, misfarvning eller rådden lugt råder appen dig til at smide surdejen ud.

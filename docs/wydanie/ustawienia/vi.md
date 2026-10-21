@@ -44,7 +44,7 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Đặt giờ bạn muốn bánh xong: Thợ Bánh Mì sẽ tính lượng nguyên liệu, lập lịch trình ngược và báo khi mỗi bước kết thúc. Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3326 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3337 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
@@ -53,10 +53,10 @@ CÔNG THỨC VÀ LƯỢNG NGUYÊN LIỆU
 Chọn một trong 15 công thức cơ bản (bánh mì men tự nhiên, lúa mạch đen, men nở, pizza và bánh ngọt) hoặc công thức của riêng bạn. Đặt số ổ bánh hoặc khối lượng bột mì, Thợ Bánh Mì sẽ cho biết số gam bột mì, nước, men tự nhiên, muối và men nở. Tỷ lệ thợ làm bánh tính cả bột mì và nước trong men tự nhiên và trong bột men. Thợ Bánh Mì cũng cho biết nhiệt độ nước để đạt được nhiệt độ bột mà bạn muốn.
 
 KẾ HOẠCH TÍNH TỪ GIỜ “XONG”
-Chọn thời điểm bánh cần xong, Thợ Bánh Mì sẽ tính ngược giờ bắt đầu của từng bước. Thời gian lên men phụ thuộc vào nhiệt độ trong bếp. Khi một bước cần bạn trực tiếp làm rơi vào ban đêm (mặc định từ 23:00 đến 06:30), Thợ Bánh Mì sẽ đề xuất để trong tủ lạnh lâu hơn. Khi không đủ thời gian, Thợ Bánh Mì sẽ cho biết giờ sớm nhất có thể.
+Chọn thời điểm bánh cần xong, Thợ Bánh Mì sẽ tính ngược giờ bắt đầu của từng bước. Thời gian lên men phụ thuộc vào nhiệt độ trong bếp. Khi một bước cần bạn trực tiếp làm rơi vào ban đêm (mặc định từ 23:00 đến 07:00), Thợ Bánh Mì sẽ đề xuất để trong tủ lạnh lâu hơn. Khi không đủ thời gian, Thợ Bánh Mì sẽ cho biết giờ sớm nhất có thể.
 
 HƯỚNG DẪN TỪNG BƯỚC
-Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Màn hình hướng dẫn không tắt trong suốt mẻ bánh. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột. Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.
+Thợ Bánh Mì hiển thị bước hiện tại: cần làm gì, mất bao lâu và bước tiếp theo là gì. Nếu bạn cho phép thông báo, Thợ Bánh Mì sẽ báo khi một bước kết thúc, kể cả khi điện thoại đang khóa. Ở bước cần bạn trực tiếp làm, màn hình hướng dẫn không tắt. Các bước có đồ nấu nóng hoặc bột sống đều có cảnh báo. Bánh mì lúa mạch đen (hơn một nửa lượng bột là bột lúa mạch đen) có các bước riêng, không gấp bột. Bạn có thể hoàn tác bước đã xác nhận nhầm, và khi mở lại, ứng dụng sẽ quay về bước hiện tại.
 
 MEN TỰ NHIÊN
 Quản lý nhiều men tự nhiên cùng lúc. Thợ Bánh Mì cho biết lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5. Khi men tự nhiên nở gấp đôi thể tích, Thợ Bánh Mì sẽ đánh dấu men đã sẵn sàng để làm bột. Sau 12 giờ để trên bàn bếp mà chưa cho ăn, Thợ Bánh Mì sẽ gửi thông báo nhắc bạn. Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi.

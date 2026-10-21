@@ -44,7 +44,7 @@ resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 Tentukan jam roti harus siap: Tukang Roti menghitung takaran, menyusun jadwal mundur, dan memberi tahu saat tiap langkah selesai. Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3382 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3407 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
@@ -53,10 +53,10 @@ RESEP DAN TAKARAN
 Pilih salah satu dari 15 resep dasar (sourdough, gandum hitam, ragi, pizza, dan manis) atau resep sendiri. Atur jumlah bongkah roti atau berat tepung, dan Tukang Roti memberikan gram tepung, air, starter, garam, dan ragi. Persentase baker memperhitungkan tepung dan air dari starter dan dari biang. Tukang Roti juga memberikan suhu air untuk suhu adonan yang ingin Anda capai.
 
 RENCANA DARI JAM "SIAP"
-Pilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 06:30), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.
+Pilih kapan roti harus siap, dan Tukang Roti menghitung mundur jam mulai setiap langkah. Lama fermentasi bergantung pada suhu dapur. Jika langkah yang membutuhkan tangan Anda jatuh pada malam hari (secara bawaan antara 23:00 dan 07:00), Tukang Roti menyarankan waktu lebih lama di kulkas. Jika waktunya kurang, Tukang Roti memberikan jam paling awal yang memungkinkan.
 
 PANDUAN LANGKAH DEMI LANGKAH
-Tukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Layar panduan tetap menyala selama memanggang. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan. Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.
+Tukang Roti menampilkan langkah saat ini: apa yang dilakukan, berapa lama, dan apa berikutnya. Jika Anda mengizinkan notifikasi, Tukang Roti memberi tahu akhir langkah bahkan saat ponsel terkunci. Pada langkah yang membutuhkan tangan Anda, layar panduan tetap menyala. Langkah dengan wadah panas atau adonan mentah diberi peringatan. Roti gandum hitam (lebih dari separuh tepungnya adalah tepung gandum hitam) memiliki langkah sendiri tanpa lipatan. Langkah yang tidak sengaja dikonfirmasi dapat dibatalkan, dan saat dibuka kembali, aplikasi kembali ke langkah saat ini.
 
 STARTER
 Kelola beberapa starter. Tukang Roti memberikan takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5. Saat volume starter berlipat dua, Tukang Roti menandainya siap untuk adonan. Setelah 12 jam di meja tanpa diberi makan, Tukang Roti mengingatkan lewat notifikasi. Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter.

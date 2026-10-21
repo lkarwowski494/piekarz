@@ -44,7 +44,7 @@ jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påmi
 Ställ in när brödet ska vara klart: Bagaren räknar ut mängderna, planerar bakåt och säger till när varje steg är slut. Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3111 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3133 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
@@ -53,10 +53,10 @@ RECEPT OCH MÄNGDER
 Du väljer ett av 15 grundrecept (surdeg, råg, jäst, pizza och söta) eller ett eget. Du anger antal limpor eller mjölvikt, och Bagaren ger dig gram mjöl, vatten, surdegsgrund, salt och jäst. Bagarprocenten räknar med mjölet och vattnet i surdegsgrunden och i fördegen. Bagaren anger också vattentemperaturen för den degtemperatur du vill uppnå.
 
 PLAN FRÅN TIDEN ”KLART”
-Du väljer när brödet ska vara klart, och Bagaren räknar bakåt fram starttiden för varje steg. Jästiden beror på temperaturen i köket. Om ett steg som kräver dina händer infaller på natten (som standard mellan 23:00 och 06:30) föreslår Bagaren en längre tid i kylskåpet. Om tiden inte räcker anger Bagaren den tidigaste möjliga tiden.
+Du väljer när brödet ska vara klart, och Bagaren räknar bakåt fram starttiden för varje steg. Jästiden beror på temperaturen i köket. Om ett steg som kräver dina händer infaller på natten (som standard mellan 23:00 och 07:00) föreslår Bagaren en längre tid i kylskåpet. Om tiden inte räcker anger Bagaren den tidigaste möjliga tiden.
 
 STEG FÖR STEG
-Bagaren visar det aktuella steget: vad du ska göra, hur lång tid det tar och vad som kommer sedan. Om du tillåter notiser säger Bagaren till när steget är slut, även när telefonen är låst. Guideskärmen släcks inte under baket. Steg med hett kärl eller rå deg har en varning. Rågbröd (mer än hälften av mjölet är rågmjöl) har egna steg utan vikningar. Ett steg som du bekräftat av misstag kan du ångra, och när du öppnar appen igen återgår den till det aktuella steget.
+Bagaren visar det aktuella steget: vad du ska göra, hur lång tid det tar och vad som kommer sedan. Om du tillåter notiser säger Bagaren till när steget är slut, även när telefonen är låst. I ett steg som kräver dina händer släcks inte guideskärmen. Steg med hett kärl eller rå deg har en varning. Rågbröd (mer än hälften av mjölet är rågmjöl) har egna steg utan vikningar. Ett steg som du bekräftat av misstag kan du ångra, och när du öppnar appen igen återgår den till det aktuella steget.
 
 SURDEGSGRUNDER
 Du kan ha flera surdegsgrunder. Bagaren anger mängderna för matning i förhållandet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. När surdegsgrunden har fördubblat sin volym markerar Bagaren den som redo för degen. Efter 12 timmar på bänken utan matning påminner Bagaren dig med en notis. En ny surdegsgrund startar du dag för dag. Bagaren följer försiktighetsprincipen: vid beläggning, missfärgning eller ruttnande lukt rekommenderar Bagaren att du slänger surdegsgrunden.

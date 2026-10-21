@@ -44,7 +44,7 @@ anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,
 Stell ein, wann dein Brot fertig sein soll: Bäcker berechnet die Mengen, plant rückwärts und meldet sich am Ende jedes Schritts. Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3546 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3582 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
@@ -53,10 +53,10 @@ REZEPTUREN UND MENGEN
 Wähle eine von 15 Grundrezepturen (Sauerteig, Roggen, Hefe, Pizza und Süßes) oder deine eigene. Lege die Anzahl der Laibe oder die Mehlmenge fest, und Bäcker nennt dir die Gramm für Mehl, Wasser, Sauerteig, Salz und Hefe. Die Bäckerprozente berücksichtigen Mehl und Wasser aus dem Sauerteig und aus dem Vorteig. Bäcker nennt dir außerdem die Wassertemperatur für die Teigtemperatur, die du erreichen willst.
 
 PLAN AB DER „FERTIG“-UHRZEIT
-Wähle, wann das Brot fertig sein soll, und Bäcker rechnet für jeden Schritt die Startzeit rückwärts aus. Die Gärzeit hängt von der Temperatur in deiner Küche ab. Fällt ein Schritt, bei dem du selbst Hand anlegen musst, in die Nacht (standardmäßig zwischen 23:00 und 06:30), schlägt Bäcker eine längere Zeit im Kühlschrank vor. Reicht die Zeit nicht, nennt Bäcker die frühestmögliche Uhrzeit.
+Wähle, wann das Brot fertig sein soll, und Bäcker rechnet für jeden Schritt die Startzeit rückwärts aus. Die Gärzeit hängt von der Temperatur in deiner Küche ab. Fällt ein Schritt, bei dem du selbst Hand anlegen musst, in die Nacht (standardmäßig zwischen 23:00 und 07:00), schlägt Bäcker eine längere Zeit im Kühlschrank vor. Reicht die Zeit nicht, nennt Bäcker die frühestmögliche Uhrzeit.
 
 SCHRITT FÜR SCHRITT BEGLEITET
-Bäcker zeigt den aktuellen Schritt: was zu tun ist, wie lange es dauert und was danach kommt. Wenn du Mitteilungen erlaubst, meldet sich Bäcker am Ende eines Schritts auch bei gesperrtem Telefon. Der Begleitbildschirm bleibt während des Backens an. Schritte mit heißem Gefäß oder rohem Teig tragen einen Warnhinweis. Roggenbrot (mehr als die Hälfte des Mehls ist Roggenmehl) hat eigene Schritte ohne Dehnen und Falten. Einen versehentlich bestätigten Schritt machst du rückgängig, und beim erneuten Öffnen kehrt die App zum aktuellen Schritt zurück.
+Bäcker zeigt den aktuellen Schritt: was zu tun ist, wie lange es dauert und was danach kommt. Wenn du Mitteilungen erlaubst, meldet sich Bäcker am Ende eines Schritts auch bei gesperrtem Telefon. In einem Schritt, bei dem du selbst Hand anlegen musst, bleibt der Begleitbildschirm an. Schritte mit heißem Gefäß oder rohem Teig tragen einen Warnhinweis. Roggenbrot (mehr als die Hälfte des Mehls ist Roggenmehl) hat eigene Schritte ohne Dehnen und Falten. Einen versehentlich bestätigten Schritt machst du rückgängig, und beim erneuten Öffnen kehrt die App zum aktuellen Schritt zurück.
 
 SAUERTEIGE
 Führe mehrere Sauerteige. Bäcker nennt dir die Mengen zum Auffrischen im Verhältnis 1:1:1, 1:2:2, 1:3:3 oder 1:5:5. Hat der Sauerteig sein Volumen verdoppelt, markiert Bäcker ihn als bereit für den Teig. Steht er 12 Stunden ohne Auffrischen auf der Arbeitsfläche, erinnert dich eine Mitteilung daran. Einen neuen Sauerteig setzt du Tag für Tag an. Bäcker folgt dem Vorsichtsprinzip: Bei Belag, Verfärbung oder fauligem Geruch rät Bäcker dir, den Sauerteig wegzuwerfen.

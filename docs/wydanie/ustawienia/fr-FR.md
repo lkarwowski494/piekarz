@@ -44,7 +44,7 @@ boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcen
 Choisissez l'heure où le pain doit être prêt : Mitron calcule les quantités, planifie à rebours et signale la fin de chaque étape. Sans compte, sans internet, sans pub.
 ```
 
-### Opis (Description) · 3646 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3668 / 4000 znaków · wersja 1.0
 
 ```text
 Mitron vous guide dans la fournée de pain au levain, de la recette à la miche : il calcule les quantités, établit le planning et surveille le temps quand le téléphone est en veille. Il fonctionne sans compte et sans internet, sans publicité et sans pistage. Vos recettes, vos levains et votre journal restent uniquement sur votre téléphone.
@@ -53,10 +53,10 @@ RECETTES ET QUANTITÉS
 Choisissez l'une des 15 recettes de base (au levain, au seigle, à la levure, pizza et sucrées) ou votre propre recette. Réglez le nombre de miches ou la masse de farine, et Mitron indique les grammes de farine, d'eau, de levain, de sel et de levure. Le pourcentage boulanger tient compte de la farine et de l'eau du levain et du levain tout point. Mitron indique aussi la température de l'eau pour atteindre la température de pâte désirée.
 
 UN PLANNING À PARTIR DE L'HEURE « PRÊT »
-Choisissez quand le pain doit être prêt, et Mitron calcule à rebours l'heure de début de chaque étape. La durée de fermentation dépend de la température de votre cuisine. Quand une étape qui demande vos mains tombe la nuit (par défaut entre 23:00 et 06:30), Mitron propose un temps plus long au réfrigérateur. S'il n'y a pas assez de temps, il indique l'heure la plus tôt possible.
+Choisissez quand le pain doit être prêt, et Mitron calcule à rebours l'heure de début de chaque étape. La durée de fermentation dépend de la température de votre cuisine. Quand une étape qui demande vos mains tombe la nuit (par défaut entre 23:00 et 07:00), Mitron propose un temps plus long au réfrigérateur. S'il n'y a pas assez de temps, il indique l'heure la plus tôt possible.
 
 GUIDAGE ÉTAPE PAR ÉTAPE
-Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. L'écran de guidage reste allumé pendant la fournée. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de la moitié de la farine est de la farine de seigle) a ses propres étapes, sans rabats. Vous pouvez annuler une étape validée par erreur, et l'application revient à l'étape en cours quand vous la rouvrez.
+Mitron affiche l'étape en cours : que faire, combien de temps cela dure et ce qui vient ensuite. Si vous autorisez les notifications, il vous prévient de la fin d'une étape même lorsque le téléphone est verrouillé. Pendant une étape qui demande vos mains, l'écran de guidage reste allumé. Les étapes avec un récipient chaud ou de la pâte crue comportent un avertissement. Le pain de seigle (plus de la moitié de la farine est de la farine de seigle) a ses propres étapes, sans rabats. Vous pouvez annuler une étape validée par erreur, et l'application revient à l'étape en cours quand vous la rouvrez.
 
 LEVAINS
 Gérez plusieurs levains. Mitron indique les quantités pour le rafraîchi selon un rapport 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quand le levain a doublé de volume, Mitron le marque comme prêt pour la pâte. Après 12 heures à température ambiante sans rafraîchi, une notification vous le rappelle. Vous pouvez créer un nouveau levain jour après jour. Mitron applique le principe de précaution : en cas de pellicule, de décoloration ou d'odeur de pourri, il conseille de jeter le levain.

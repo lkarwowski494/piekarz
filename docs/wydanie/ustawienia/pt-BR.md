@@ -44,7 +44,7 @@ hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,ma
 Defina a hora em que o pão deve ficar pronto: o Padeiro calcula as quantidades, monta o plano reverso e avisa o fim de cada etapa. Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3414 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3435 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro guia você na fornada de pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e controla o tempo mesmo com o celular em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreamento. Suas receitas, seus fermentos naturais e seu diário ficam só no seu celular.
@@ -53,10 +53,10 @@ RECEITAS E QUANTIDADES
 Escolha uma das 15 receitas base (de fermentação natural, de centeio, com fermento biológico, pizza e doces) ou uma receita própria. Defina o número de pães ou o peso da farinha, e o Padeiro informa os gramas de farinha, água, fermento natural, sal e fermento biológico. A porcentagem do padeiro considera a farinha e a água do fermento natural e do levain. O Padeiro também informa a temperatura da água para chegar à temperatura da massa que você quer.
 
 PLANO A PARTIR DO HORÁRIO “PRONTO”
-Escolha quando o pão deve ficar pronto, e o Padeiro calcula de trás para frente o horário de início de cada etapa. O tempo de fermentação depende da temperatura da cozinha. Quando uma etapa que exige suas mãos cai à noite (por padrão, entre 23:00 e 06:30), o Padeiro sugere um tempo maior na geladeira. Quando o tempo é curto demais, ele informa o horário mais cedo possível.
+Escolha quando o pão deve ficar pronto, e o Padeiro calcula de trás para frente o horário de início de cada etapa. O tempo de fermentação depende da temperatura da cozinha. Quando uma etapa que exige suas mãos cai à noite (por padrão, entre 23:00 e 07:00), o Padeiro sugere um tempo maior na geladeira. Quando o tempo é curto demais, ele informa o horário mais cedo possível.
 
 ORIENTAÇÃO PASSO A PASSO
-O Padeiro mostra a etapa atual: o que fazer, quanto tempo leva e o que vem depois. Se você permitir notificações, ele avisa o fim da etapa mesmo com o celular bloqueado. A tela de orientação não se apaga durante a fornada. Etapas com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais da metade da farinha é farinha de centeio) tem etapas próprias, sem dobras. Você pode desfazer uma etapa confirmada por engano e, ao reabrir o app, ele volta para a etapa atual.
+O Padeiro mostra a etapa atual: o que fazer, quanto tempo leva e o que vem depois. Se você permitir notificações, ele avisa o fim da etapa mesmo com o celular bloqueado. Durante uma etapa que exige suas mãos, a tela de orientação não se apaga. Etapas com recipiente quente ou massa crua têm um aviso. O pão de centeio (mais da metade da farinha é farinha de centeio) tem etapas próprias, sem dobras. Você pode desfazer uma etapa confirmada por engano e, ao reabrir o app, ele volta para a etapa atual.
 
 FERMENTOS NATURAIS
 Mantenha vários fermentos naturais. O Padeiro informa as quantidades para alimentação na proporção 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quando o fermento natural dobrar de volume, o Padeiro o marca como pronto para a massa. Após 12 horas na bancada sem alimentação, ele lembra você com uma notificação. Você pode iniciar um novo fermento natural dia a dia. O Padeiro segue o princípio da precaução: em caso de película, alteração de cor ou cheiro de podre, recomenda jogar o fermento natural fora.

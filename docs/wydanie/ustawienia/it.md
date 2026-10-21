@@ -44,7 +44,7 @@ idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poo
 Imposta l'ora in cui vuoi il pane pronto: Fornaio calcola le dosi, pianifica a ritroso e ti avvisa alla fine di ogni passaggio. Senza account, internet e pubblicità.
 ```
 
-### Opis (Description) · 3561 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3588 / 4000 znaków · wersja 1.0
 
 ```text
 Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.
@@ -53,10 +53,10 @@ RICETTE E DOSI
 Scegli una delle 15 ricette di base (a lievito madre, di segale, con lievito di birra, pizza e dolci) oppure una tua. Imposta il numero di pagnotte o il peso della farina e Fornaio ti indica i grammi di farina, acqua, lievito madre, sale e lievito di birra. La percentuale del fornaio tiene conto della farina e dell'acqua contenute nel lievito madre e nel lievitino. Fornaio ti indica anche la temperatura dell'acqua per ottenere la temperatura desiderata dell'impasto.
 
 UN PROGRAMMA A PARTIRE DALL'ORA «PRONTO»
-Scegli quando vuoi il pane pronto e Fornaio calcola a ritroso l'orario d'inizio di ogni passaggio. Il tempo di fermentazione dipende dalla temperatura della tua cucina. Se un passaggio che richiede le tue mani cade di notte (per impostazione predefinita tra le 23:00 e le 06:30), Fornaio ti propone un tempo più lungo in frigo. Se il tempo non basta, ti indica l'orario più vicino possibile.
+Scegli quando vuoi il pane pronto e Fornaio calcola a ritroso l'orario d'inizio di ogni passaggio. Il tempo di fermentazione dipende dalla temperatura della tua cucina. Se un passaggio che richiede le tue mani cade di notte (per impostazione predefinita tra le 23:00 e le 07:00), Fornaio ti propone un tempo più lungo in frigo. Se il tempo non basta, ti indica l'orario più vicino possibile.
 
 GUIDA PASSO PASSO
-Fornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Lo schermo della guida resta acceso durante la sfornata. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (più di metà della farina è farina di segale) ha passaggi propri, senza pieghe di rinforzo. Puoi annullare un passaggio confermato per errore e, quando riapri l'app, torni al passaggio in corso.
+Fornaio mostra il passaggio in corso: cosa fare, quanto dura e cosa viene dopo. Se consenti le notifiche, ti avvisa della fine del passaggio anche a telefono bloccato. Durante un passaggio che richiede le tue mani, lo schermo della guida resta acceso. I passaggi con un recipiente caldo o con impasto crudo hanno un avviso. Il pane di segale (più di metà della farina è farina di segale) ha passaggi propri, senza pieghe di rinforzo. Puoi annullare un passaggio confermato per errore e, quando riapri l'app, torni al passaggio in corso.
 
 LIEVITI MADRE
 Gestisci più lieviti madre. Fornaio ti indica le dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Quando il lievito madre raddoppia di volume, Fornaio lo segna come pronto per l'impasto. Dopo 12 ore sul piano di lavoro senza rinfresco, te lo ricorda con una notifica. Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre.

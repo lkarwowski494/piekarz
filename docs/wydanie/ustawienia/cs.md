@@ -44,7 +44,7 @@ bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice
 Nastavte čas, kdy má být chléb hotový: Pekař spočítá množství, sestaví plán zpětně a dá vědět o konci každého kroku. Bez účtu, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 2828 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2850 / 4000 znaków · wersja 1.0
 
 ```text
 Pekař vás provede pečením chleba z kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. Funguje bez účtu a bez internetu, bez reklam a bez sledování. Vaše recepty, kvásky a deník zůstávají jen ve vašem telefonu.
@@ -53,10 +53,10 @@ RECEPTY A MNOŽSTVÍ
 Vyberte jeden z 15 základních receptů (kváskové, žitné, droždové, pizza a sladké) nebo vlastní. Nastavte počet bochníků nebo hmotnost mouky a Pekař uvede gramy mouky, vody, kvásku, soli a droždí. Pekařská procenta zahrnují mouku a vodu z kvásku i ze zákvasu. Pekař také uvede teplotu vody pro teplotu těsta, které chcete dosáhnout.
 
 PLÁN OD ČASU „HOTOVO“
-Vyberte, kdy má být chléb hotový, a Pekař zpětně spočítá čas začátku každého kroku. Doba kvašení závisí na teplotě v kuchyni. Když krok, který vyžaduje vaše ruce, připadne na noc (ve výchozím nastavení mezi 23:00 a 06:30), Pekař navrhne delší dobu v lednici. Když je času málo, uvede nejdřívější možný čas.
+Vyberte, kdy má být chléb hotový, a Pekař zpětně spočítá čas začátku každého kroku. Doba kvašení závisí na teplotě v kuchyni. Když krok, který vyžaduje vaše ruce, připadne na noc (ve výchozím nastavení mezi 23:00 a 07:00), Pekař navrhne delší dobu v lednici. Když je času málo, uvede nejdřívější možný čas.
 
 VEDENÍ KROK ZA KROKEM
-Pekař ukazuje aktuální krok: co udělat, jak dlouho to trvá a co bude následovat. Když povolíte oznámení, dá vědět o konci kroku i při zamčeném telefonu. Obrazovka vedení během pečení nezhasne. Kroky s horkou nádobou nebo syrovým těstem mají varování. Žitný chléb (víc než polovina mouky je žitná mouka) má vlastní kroky bez překládání. Omylem potvrzený krok vrátíte zpět a po opětovném otevření se aplikace vrátí k aktuálnímu kroku.
+Pekař ukazuje aktuální krok: co udělat, jak dlouho to trvá a co bude následovat. Když povolíte oznámení, dá vědět o konci kroku i při zamčeném telefonu. V kroku, který vyžaduje vaše ruce, obrazovka vedení nezhasne. Kroky s horkou nádobou nebo syrovým těstem mají varování. Žitný chléb (víc než polovina mouky je žitná mouka) má vlastní kroky bez překládání. Omylem potvrzený krok vrátíte zpět a po opětovném otevření se aplikace vrátí k aktuálnímu kroku.
 
 KVÁSKY
 Veďte několik kvásků. Pekař uvádí množství na krmení v poměru 1:1:1, 1:2:2, 1:3:3 nebo 1:5:5. Když kvásek zdvojnásobí objem, Pekař ho označí jako připravený do těsta. Po 12 hodinách na lince bez krmení vám ho připomene oznámením. Nový kvásek založíte den po dni. Pekař se řídí zásadou opatrnosti: při povlaku, změně barvy nebo zahnilém zápachu radí kvásek vyhodit.

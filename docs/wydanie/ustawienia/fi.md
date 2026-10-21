@@ -44,7 +44,7 @@ taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resept
 Aseta aika, jolloin leipä on valmis: Leipuri laskee määrät, laatii aikataulun taaksepäin ja kertoo vaiheiden päättymisestä. Ei tiliä, nettiä eikä mainoksia.
 ```
 
-### Opis (Description) · 3264 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3278 / 4000 znaków · wersja 1.0
 
 ```text
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
@@ -53,10 +53,10 @@ RESEPTIT JA MÄÄRÄT
 Valitse yksi 15 perusreseptistä (hapanjuuri-, ruis- ja hiivaleivät, pizza ja makeat leivonnaiset) tai oma reseptisi. Aseta leipien määrä tai jauhojen paino, niin Leipuri kertoo jauhojen, veden, hapanjuuren, suolan ja hiivan grammamäärät. Leipurin prosentti ottaa huomioon sekä hapanjuuren että juuren jauhot ja veden. Leipuri kertoo myös veden lämpötilan haluamaasi taikinan lämpötilaa varten.
 
 AIKATAULU ”VALMIS”-AJASTA
-Valitse, milloin leivän pitää olla valmis, niin Leipuri laskee taaksepäin jokaisen vaiheen alkamisajan. Käymisaika riippuu keittiösi lämpötilasta. Jos käsityötä vaativa vaihe osuu yöhön (oletuksena klo 23:00 ja 06:30 välillä), Leipuri ehdottaa pidempää aikaa jääkaapissa. Jos aikaa on liian vähän, se kertoo aikaisimman mahdollisen ajan.
+Valitse, milloin leivän pitää olla valmis, niin Leipuri laskee taaksepäin jokaisen vaiheen alkamisajan. Käymisaika riippuu keittiösi lämpötilasta. Jos käsityötä vaativa vaihe osuu yöhön (oletuksena klo 23:00 ja 07:00 välillä), Leipuri ehdottaa pidempää aikaa jääkaapissa. Jos aikaa on liian vähän, se kertoo aikaisimman mahdollisen ajan.
 
 OPASTUS VAIHE VAIHEELTA
-Leipuri näyttää nykyisen vaiheen: mitä tehdä, kauanko se kestää ja mitä on tulossa seuraavaksi. Kun sallit ilmoitukset, se kertoo vaiheen päättymisestä myös puhelimen ollessa lukittuna. Opastusnäyttö ei sammu leivonnan aikana. Vaiheissa, joissa on kuuma astia tai raaka taikina, on varoitus. Ruisleivällä (yli puolet jauhoista on ruisjauhoja) on omat vaiheensa ilman taittelua. Vahingossa vahvistetun vaiheen voit perua, ja kun avaat sovelluksen uudelleen, se palaa nykyiseen vaiheeseen.
+Leipuri näyttää nykyisen vaiheen: mitä tehdä, kauanko se kestää ja mitä on tulossa seuraavaksi. Kun sallit ilmoitukset, se kertoo vaiheen päättymisestä myös puhelimen ollessa lukittuna. Käsityötä vaativassa vaiheessa opastusnäyttö ei sammu. Vaiheissa, joissa on kuuma astia tai raaka taikina, on varoitus. Ruisleivällä (yli puolet jauhoista on ruisjauhoja) on omat vaiheensa ilman taittelua. Vahingossa vahvistetun vaiheen voit perua, ja kun avaat sovelluksen uudelleen, se palaa nykyiseen vaiheeseen.
 
 HAPANJUURET
 Voit ylläpitää useita hapanjuuria. Leipuri kertoo ruokintamäärät suhteessa 1:1:1, 1:2:2, 1:3:3 tai 1:5:5. Kun hapanjuuri on kaksinkertaistanut tilavuutensa, Leipuri merkitsee sen valmiiksi taikinaan. Kun hapanjuuri on ollut 12 tuntia pöydällä ilman ruokintaa, Leipuri muistuttaa siitä ilmoituksella. Uuden hapanjuuren aloitat päivä päivältä. Leipuri noudattaa varovaisuusperiaatetta: jos hapanjuuressa on kalvo, värimuutos tai mätä haju, se neuvoo heittämään hapanjuuren pois.

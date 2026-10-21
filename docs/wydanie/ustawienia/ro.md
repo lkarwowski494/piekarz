@@ -44,7 +44,7 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Setează ora la care vrei pâinea gata: Brutar calculează cantitățile, face planul invers și te anunță la finalul fiecărui pas. Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3177 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3203 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
@@ -53,10 +53,10 @@ REȚETE ȘI CANTITĂȚI
 Alegi una dintre cele 15 rețete de bază (cu maia, de secară, cu drojdie, pizza și dulci) sau una proprie. Setezi numărul de pâini sau masa făinii, iar Brutar îți dă gramele de făină, apă, maia, sare și drojdie. Procentele brutărești includ făina și apa din maia și din levain. Brutar îți dă și temperatura apei pentru temperatura aluatului pe care vrei s-o obții.
 
 PLAN DE LA ORA „GATA”
-Alegi când trebuie să fie gata pâinea, iar Brutar calculează invers ora de start a fiecărui pas. Durata fermentării depinde de temperatura din bucătărie. Când un pas care are nevoie de mâinile tale cade noaptea (implicit între 23:00 și 06:30), Brutar îți propune un timp mai lung la frigider. Când timpul nu ajunge, îți dă cea mai devreme oră posibilă.
+Alegi când trebuie să fie gata pâinea, iar Brutar calculează invers ora de start a fiecărui pas. Durata fermentării depinde de temperatura din bucătărie. Când un pas care are nevoie de mâinile tale cade noaptea (implicit între 23:00 și 07:00), Brutar îți propune un timp mai lung la frigider. Când timpul nu ajunge, îți dă cea mai devreme oră posibilă.
 
 GHIDARE PAS CU PAS
-Brutar îți arată pasul curent: ce ai de făcut, cât durează și ce urmează. Dacă permiți notificările, te anunță la finalul pasului și când telefonul e blocat. Ecranul de ghidare nu se stinge în timpul coacerii. Pașii cu vas fierbinte sau aluat crud au un avertisment. Pâinea de secară (peste jumătate din făină este făină de secară) are pași proprii, fără împăturire. Un pas confirmat din greșeală îl poți anula, iar la redeschidere aplicația revine la pasul curent.
+Brutar îți arată pasul curent: ce ai de făcut, cât durează și ce urmează. Dacă permiți notificările, te anunță la finalul pasului și când telefonul e blocat. Într-un pas care are nevoie de mâinile tale, ecranul de ghidare nu se stinge. Pașii cu vas fierbinte sau aluat crud au un avertisment. Pâinea de secară (peste jumătate din făină este făină de secară) are pași proprii, fără împăturire. Un pas confirmat din greșeală îl poți anula, iar la redeschidere aplicația revine la pasul curent.
 
 MAIA NATURALĂ
 Poți ține mai multe maiale. Brutar îți dă cantitățile pentru hrănire în proporție de 1:1:1, 1:2:2, 1:3:3 sau 1:5:5. Când maiaua își dublează volumul, Brutar o marchează ca gata pentru aluat. După 12 ore pe blat fără hrănire, îți amintește de ea printr-o notificare. O maia nouă o pornești zi de zi. Brutar aplică principiul precauției: la depunere, decolorare sau miros de putred te sfătuiește să arunci maiaua.

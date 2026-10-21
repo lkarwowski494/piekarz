@@ -45,7 +45,7 @@ hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija
 Nastavite uro, ko naj bo kruh pripravljen: Pek izračuna količine, sestavi obratni urnik in vas obvesti o koncu vsakega koraka. Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 2957 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2995 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
@@ -54,10 +54,10 @@ RECEPTI IN KOLIČINE
 Izberete enega od 15 osnovnih receptov (z naravnim kvasom, rženi, s pekovskim kvasom, pica in sladki) ali svojega. Nastavite število hlebcev ali maso moke, Pek pa poda grame moke, vode, kvasa, soli in pekovskega kvasa. Pekovski odstotek upošteva moko in vodo iz kvasa in iz nastavka. Pek poda tudi temperaturo vode za temperaturo testa, ki jo želite doseči.
 
 NAČRT OD URE „PRIPRAVLJENO“
-Izberete, kdaj naj bo kruh pripravljen, Pek pa nazaj izračuna začetno uro vsakega koraka. Čas fermentacije je odvisen od temperature v kuhinji. Ko korak, pri katerem so potrebne vaše roke, pade v noč (privzeto med 23:00 in 06:30), Pek predlaga daljši čas v hladilniku. Če je časa premalo, poda najzgodnejšo možno uro.
+Izberete, kdaj naj bo kruh pripravljen, Pek pa nazaj izračuna začetno uro vsakega koraka. Čas fermentacije je odvisen od temperature v kuhinji. Ko korak, pri katerem so potrebne vaše roke, pade v noč (privzeto med 23:00 in 07:00), Pek predlaga daljši čas v hladilniku. Če je časa premalo, poda najzgodnejšo možno uro.
 
 VODENJE KORAK ZA KORAKOM
-Pek prikaže trenutni korak: kaj storiti, koliko traja in kaj sledi. Če dovolite obvestila, vas o koncu koraka obvesti tudi pri zaklenjenem telefonu. Zaslon vodenja med peko ne ugasne. Koraki z vročo posodo ali surovim testom imajo opozorilo. Rženi kruh (več kot polovica moke je ržena moka) ima lastne korake brez raztezanja in prepogibanja. Pomotoma potrjen korak lahko razveljavite, po ponovnem odprtju pa se aplikacija vrne na trenutni korak.
+Pek prikaže trenutni korak: kaj storiti, koliko traja in kaj sledi. Če dovolite obvestila, vas o koncu koraka obvesti tudi pri zaklenjenem telefonu. Pri koraku, pri katerem so potrebne vaše roke, zaslon vodenja ne ugasne. Koraki z vročo posodo ali surovim testom imajo opozorilo. Rženi kruh (več kot polovica moke je ržena moka) ima lastne korake brez raztezanja in prepogibanja. Pomotoma potrjen korak lahko razveljavite, po ponovnem odprtju pa se aplikacija vrne na trenutni korak.
 
 KVASI
 Vodite lahko več kvasov. Pek poda količine za hranjenje v razmerju 1:1:1, 1:2:2, 1:3:3 ali 1:5:5. Ko kvas podvoji prostornino, ga Pek označi kot pripravljenega za testo. Po 12 urah na pultu brez hranjenja vas nanj opomni z obvestilom. Nov kvas lahko vzgojite dan za dnem. Pek upošteva načelo previdnosti: pri oblogi, razbarvanju ali gnilem vonju svetuje, da kvas zavržete.

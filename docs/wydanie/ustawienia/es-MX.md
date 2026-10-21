@@ -44,7 +44,7 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Fija la hora en que quieres el pan listo: Panadero calcula cantidades, planifica hacia atrás y te avisa al terminar cada paso. Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3438 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3453 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, de la fórmula a la hogaza: calcula las cantidades, arma el plan y lleva el tiempo aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus fórmulas, masas madre y bitácora se quedan solo en tu teléfono.
@@ -53,10 +53,10 @@ FÓRMULAS Y CANTIDADES
 Elige una de las 15 fórmulas base (de masa madre, de centeno, con levadura, pizza y dulces) o una propia. Indica el número de hogazas o el peso de la harina, y Panadero te da los gramos de harina, agua, masa madre, sal y levadura. El porcentaje del panadero incluye la harina y el agua de la masa madre y del fermento. Panadero también te indica la temperatura del agua para lograr la temperatura de la masa que buscas.
 
 UN PLAN DESDE LA HORA “LISTO”
-Elige cuándo debe estar listo el pan y Panadero calcula hacia atrás la hora de inicio de cada paso. El tiempo de fermentación depende de la temperatura de tu cocina. Si un paso que requiere tus manos cae de noche (por defecto entre las 23:00 y las 06:30), Panadero te propone más tiempo en el refrigerador. Si no alcanza el tiempo, te indica la hora más temprana posible.
+Elige cuándo debe estar listo el pan y Panadero calcula hacia atrás la hora de inicio de cada paso. El tiempo de fermentación depende de la temperatura de tu cocina. Si un paso que requiere tus manos cae de noche (por defecto entre las 23:00 y las 07:00), Panadero te propone más tiempo en el refrigerador. Si no alcanza el tiempo, te indica la hora más temprana posible.
 
 GUÍA PASO A PASO
-Panadero muestra el paso actual: qué hacer, cuánto dura y qué viene después. Si permites las notificaciones, te avisa del final de un paso incluso con el teléfono bloqueado. La pantalla de la guía no se apaga durante el horneado. Los pasos con un recipiente caliente o masa cruda llevan una advertencia. El pan de centeno (más de la mitad de la harina es harina de centeno) tiene sus propios pasos, sin pliegues. Puedes deshacer un paso confirmado por error y, al volver a abrir la app, regresas al paso actual.
+Panadero muestra el paso actual: qué hacer, cuánto dura y qué viene después. Si permites las notificaciones, te avisa del final de un paso incluso con el teléfono bloqueado. En un paso que requiere tus manos, la pantalla de la guía no se apaga. Los pasos con un recipiente caliente o masa cruda llevan una advertencia. El pan de centeno (más de la mitad de la harina es harina de centeno) tiene sus propios pasos, sin pliegues. Puedes deshacer un paso confirmado por error y, al volver a abrir la app, regresas al paso actual.
 
 MASAS MADRE
 Lleva varias masas madre. Panadero te da las cantidades para alimentarlas en proporción 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Cuando la masa madre duplica su volumen, Panadero la marca como lista para la masa. Tras 12 horas fuera del refrigerador sin alimentar, te la recuerda con una notificación. Puedes crear una masa madre nueva día a día. Panadero aplica el principio de precaución: si hay película, cambio de color u olor a podrido, te aconseja desechar la masa madre.
