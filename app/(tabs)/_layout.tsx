@@ -37,6 +37,8 @@ export default function TabsLayout() {
         name="(dzis)"
         options={{
           title: t('Dziś'),
+          // testID przycisku zakładki: E2E nie zależy od języka (07-jakosc-501) [M1-audytor-generalny-037]
+          tabBarButtonTestID: 'tab-dzis',
           tabBarIcon: ({ color }) => <TabIcon name="dzis" color={color} />,
         }}
       />
@@ -44,6 +46,7 @@ export default function TabsLayout() {
         name="receptury"
         options={({ route }) => ({
           title: t('Receptury'),
+          tabBarButtonTestID: 'tab-receptury',
           tabBarIcon: ({ color }) => <TabIcon name="receptury" color={color} />,
           tabBarStyle: stylPaskaReceptur(route),
         })}
@@ -52,6 +55,7 @@ export default function TabsLayout() {
         name="zakwasy"
         options={{
           title: t('Zakwasy'),
+          tabBarButtonTestID: 'tab-zakwasy',
           tabBarIcon: ({ color }) => <TabIcon name="zakwasy" color={color} />,
         }}
       />
@@ -59,6 +63,7 @@ export default function TabsLayout() {
         name="dziennik"
         options={{
           title: t('Dziennik'),
+          tabBarButtonTestID: 'tab-dziennik',
           tabBarIcon: ({ color }) => <TabIcon name="dziennik" color={color} />,
         }}
       />

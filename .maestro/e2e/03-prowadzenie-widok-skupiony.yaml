@@ -1,3 +1,4 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstów języka (M1-audytor-generalny-037, 07-jakosc-501).
 # Prawdziwe E2E na symulatorze iOS: prowadzenie w widoku skupionym (design-spec 11b "056", punkt 6;
 # M1-audytor-generalny-056). Bez przewijania widac tytul kroku, czas i pasek kciuka z "Zrobione".
 # Polozenie "Zrobione" w dolnych 30% ekranu przy 320 i 390 pt sprawdza rola 07 na urzadzeniu (zrzut).
@@ -9,7 +10,8 @@ appId: com.apps4brew.baker
     visible:
       id: "start-czynnosci"
     timeout: 60000
-- tapOn: "Receptury"
+- tapOn:
+    id: "tab-receptury"
 # Lista receptur -> ekran receptury; "Uloz plan" w pierwszym widoku bez przewijania (M1-audytor-generalny-106)
 - tapOn:
     id: "recipe-row-country_loaf_72"

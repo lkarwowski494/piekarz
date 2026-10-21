@@ -1,3 +1,4 @@
+# Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstów języka (M1-audytor-generalny-037, 07-jakosc-501).
 # Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
 # Pierwsze uruchomienie: Start "Co dzis robisz?" z trzema czynnosciami (BR-START-001, M1-audytor-generalny-101),
 # wybor "Pieke na zakwasie" otwiera Receptury bez oferty (D-047).
@@ -20,4 +21,5 @@ appId: com.apps4brew.baker
     id: "recipe-list"
 - tapOn:
     id: "recipe-row-country_loaf_72"
-- assertVisible: "Hydratacja"
+- assertVisible:
+    id: "stat-hydration"

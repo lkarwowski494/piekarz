@@ -21,9 +21,17 @@ export interface AppAccessInfo {
   canCreateNewBake: boolean;
 }
 
+/**
+ * Build E2E na symulatorze bez StoreKit (.github/workflows/e2e-ios.yml, EXPO_PUBLIC_E2E=1 wstawiane przez Metro przy
+ * budowaniu): pełny dostęp, żeby scenariusze przeszły główny przepływ. Wydanie TestFlight odrzuca tę flagę w kroku
+ * „Guard against test/mock flags” (testflight.yml); test: tests/e2e-ios-workflow.test.ts (wybór P-037 a) [M1-audytor-generalny-037].
+ */
+const DOSTEP_E2E = process.env.EXPO_PUBLIC_E2E === '1';
+
 /** Czysta ocena: dostęp wyłącznie z uprawnienia App Store (subskrypcja, oferta wprowadzająca, dożywotni). */
 export function evaluateAppAccess(zakup: Decyzja): AppAccessInfo {
-  return { status: zakup.dostep ? 'dostep' : 'bez_uprawnienia', zakup, canCreateNewBake: zakup.dostep };
+  const dostep = zakup.dostep || DOSTEP_E2E;
+  return { status: dostep ? 'dostep' : 'bez_uprawnienia', zakup, canCreateNewBake: dostep };
 }
 
 /**
