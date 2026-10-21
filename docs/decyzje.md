@@ -200,7 +200,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Decyzja:** zaczyn pâte fermentée w `src/core/preferments.ts` liczony z hydratacją 75%, drożdżami 1% i solą 2% według przykładowej formuły Bread Bakers Guild of America (diagram 4, kolumna „WW & Rye Pâte Fermentée”), twierdzenie ZAC-PAT-002 w `docs/tresci/rejestr.json`; wcześniejsze 65% / 0,5% / 2,0% bez źródła wycofane (ZAC-PAT-900). Commity toru p9a: 04698d7 (kod), 77daafd, 68dce1f (treść).
 - **Odrzucone:** zostawienie 65% / 0,5% / 2,0% — wartości bez źródła; usunięcie liczb — „Do miski” musi podać gramy wody, drożdży i soli.
 - **Dlaczego:** BBGA mówi, że pâte fermentée może być dowolnym ciastem (ZAC-PAT-001), więc nie ma jednej reguły; przykład BBGA to jedyne źródło z liczbami. Uproszczenie: przykład, nie reguła (pole `uproszczenie` ZAC-PAT-002).
-- **Zależy od:** nic; inne parametry pâte fermentée (np. wybór użytkownika) to nowy wpis### [D-065] 2026-10-21 — Opisy produktów zakupu różnicujące plany (en-US, pl) i numer wersji 1.0.0 w App Store Connect (M2 tor p8c, zadanie 186)
+- **Zależy od:** nic; inne parametry pâte fermentée (np. wybór użytkownika) to nowy wpis
+
+### [D-065] 2026-10-21 — Opisy produktów zakupu różnicujące plany (en-US, pl) i numer wersji 1.0.0 w App Store Connect (M2 tor p8c, zadanie 186)
 - **Rodzaj:** produktowa (tekst sklepu, wydanie). **Słowa właściciela:** „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (2026-10-21, czat M1); rozstrzygnięcie M1 według tej zgody: pytanie 1 toru p8c = (a), pytanie 4 = (a).
 - **Decyzja 1:** opis lokalizacji produktów (Description), tylko en-US i pl jak nazwy (wybór 1a toru p8b): miesięczny „Full access, billed monthly” / „Pełny dostęp, płatność co miesiąc”; roczny „Full access, billed yearly” / „Pełny dostęp, płatność co rok”; dożywotni „Full access, one-time purchase” / „Pełny dostęp, jednorazowy zakup” (`docs/wydanie/asc-zgloszenie.json`, `opisyProduktow`).
 - **Decyzja 2:** numer wersji iOS w edycji w App Store Connect zmieniony z 1.0 na 1.0.0 (wartość `expo.version` z `app.json`) w tym samym zapisie co zgłoszenie (`scripts/asc-zgloszenie.mjs`).
