@@ -1,6 +1,5 @@
 import { autoBackup, PiekarzBackupData } from '../lib/backup';
 import {
-  StoredRecipe,
   StoredStarter,
   StoredStarterEntry,
   StoredBakeLog,
@@ -24,8 +23,11 @@ export {
   ActiveBakeState,
 };
 export * from './settings-store';
+export * from './recipes-store';
+export * from './flour-store';
+import { getRecipes } from './recipes-store';
+import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } from './flour-store';
 import { writeOrThrow } from './storage-status';
-import { isRecipeInput } from './row-parsers';
 
 // ==========================================
 // Bakes & Stolnica
@@ -259,85 +261,6 @@ export async function deleteStarter(id: string): Promise<void> {
   memStore.starterEntries = memStore.starterEntries.filter((e) => e.starterId !== id);
 }
 
-// ==========================================
-// Recipes (Kalkulator)
-// ==========================================
-
-export async function getRecipes(): Promise<StoredRecipe[]> {
-  const db = await getDb();
-  if (!db) return [...memStore.recipes];
-
-  try {
-    const rows = await db.getAllAsync<{
-      id: string;
-      name: string;
-      formula_json: string;
-      target_ddt: number;
-      notes: string | null;
-      is_built_in: number;
-      created_at: number;
-    }>('SELECT * FROM recipes ORDER BY created_at ASC;');
-
-    if (rows.length === 0) return [...memStore.recipes];
-
-    // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022]
-    const out: StoredRecipe[] = [];
-    for (const r of rows) {
-      let formula: unknown;
-      try {
-        formula = JSON.parse(r.formula_json);
-      } catch {
-        continue;
-      }
-      if (!isRecipeInput(formula)) continue;
-      out.push({
-        id: r.id,
-        name: r.name,
-        formula,
-        targetDDT: r.target_ddt,
-        notes: r.notes ?? undefined,
-        isBuiltIn: r.is_built_in === 1,
-        createdAt: r.created_at,
-      });
-    }
-    return out;
-  } catch {
-    return [...memStore.recipes];
-  }
-}
-
-export async function saveRecipe(recipe: StoredRecipe): Promise<void> {
-  const db = await getDb();
-  if (db) {
-    await writeOrThrow(() =>
-      db.runAsync(
-        `INSERT OR REPLACE INTO recipes (id, name, formula_json, target_ddt, notes, is_built_in, created_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?);`,
-        recipe.id,
-        recipe.name,
-        JSON.stringify(recipe.formula),
-        recipe.targetDDT,
-        recipe.notes ?? null,
-        recipe.isBuiltIn ? 1 : 0,
-        recipe.createdAt
-      )
-    );
-  }
-
-  const idx = memStore.recipes.findIndex((r) => r.id === recipe.id);
-  if (idx >= 0) {
-    memStore.recipes[idx] = recipe;
-  } else {
-    memStore.recipes.push(recipe);
-  }
-}
-
-export async function deleteRecipe(id: string): Promise<void> {
-  const db = await getDb();
-  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM recipes WHERE id = ?;', id));
-  memStore.recipes = memStore.recipes.filter((r) => r.id !== id);
-}
-
 /**
  * Restores entire state from a validated backup dataset.
  */
@@ -411,51 +334,6 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
   applyToMemory();
 }
 
-// ==========================================
-// Flour Inventory (Magazyn Mąk)
-// ==========================================
-
-export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
-  const db = await getDb();
-  if (!db) return [...memStore.flourInventory];
-
-  try {
-    const rows = await db.getAllAsync<StoredFlourInventoryItem>(
-      'SELECT id, name, stock_grams as stockGrams, brand, protein_pct as proteinPct, updated_at as updatedAt FROM flour_inventory ORDER BY name ASC;'
-    );
-    return rows;
-  } catch {
-    return [...memStore.flourInventory];
-  }
-}
-
-async function writeFlourRow(db: Db, item: StoredFlourInventoryItem): Promise<void> {
-  await db.runAsync(
-    'INSERT OR REPLACE INTO flour_inventory (id, name, stock_grams, brand, protein_pct, updated_at) VALUES (?, ?, ?, ?, ?, ?);',
-    item.id,
-    item.name,
-    item.stockGrams,
-    item.brand ?? null,
-    item.proteinPct ?? null,
-    item.updatedAt
-  );
-}
-
-function rememberFlour(item: StoredFlourInventoryItem): void {
-  const existingIdx = memStore.flourInventory.findIndex((f) => f.id === item.id);
-  if (existingIdx >= 0) {
-    memStore.flourInventory[existingIdx] = item;
-  } else {
-    memStore.flourInventory.push(item);
-  }
-}
-
-export async function saveFlourInventoryItem(item: StoredFlourInventoryItem): Promise<void> {
-  const db = await getDb();
-  if (db) await writeOrThrow(() => writeFlourRow(db, item));
-  rememberFlour(item);
-}
-
 /**
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
@@ -493,26 +371,5 @@ export async function finishBake(log: StoredBakeLog, flours: Array<{ name: strin
     void collectBackupData()
       .then((data) => autoBackup(data))
       .catch(() => null);
-  }
-}
-
-export async function deleteFlourInventoryItem(id: string): Promise<void> {
-  const db = await getDb();
-  if (db) await writeOrThrow(() => db.runAsync('DELETE FROM flour_inventory WHERE id = ?;', id));
-  memStore.flourInventory = memStore.flourInventory.filter((f) => f.id !== id);
-}
-
-export async function deductFlourStock(flourName: string, amountGrams: number): Promise<void> {
-  const inventory = await getFlourInventory();
-  const matched = inventory.find(
-    (inv) => inv.name.trim().toLowerCase() === flourName.trim().toLowerCase()
-  );
-  if (matched) {
-    const updated = {
-      ...matched,
-      stockGrams: Math.max(0, Math.round(matched.stockGrams - amountGrams)),
-      updatedAt: Date.now(),
-    };
-    await saveFlourInventoryItem(updated);
   }
 }
