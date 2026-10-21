@@ -1904,6 +1904,7 @@
   },
   "Ilość objętościowa:": {
     "gdzie": [
+      "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
@@ -1914,7 +1915,9 @@
   },
   "Imię zakwasu": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -2142,6 +2145,7 @@
   },
   "Kod QR Receptury": {
     "gdzie": [
+      "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
@@ -3305,6 +3309,7 @@
   },
   "Nazwa mąki (np. Pszenna typ 750)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (placeholder)"
     ]
   },
@@ -3565,6 +3570,7 @@
   },
   "Notatki z wypieku": {
     "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (accessibilityLabel)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
@@ -4223,6 +4229,7 @@
   },
   "Początkowy stan zapasów (g)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
@@ -4554,6 +4561,11 @@
   "Przed szacowanym szczytem": {
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelPl)"
+    ]
+  },
+  "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
     ]
   },
   "Przekwaszenie / Przerośnięcie": {
@@ -5581,6 +5593,7 @@
   },
   "Szukaj np. T65, Tipo 00, 550, Bread Flour...": {
     "gdzie": [
+      "src/components/FlourEquivalentsModal.tsx (accessibilityLabel)",
       "src/components/FlourEquivalentsModal.tsx (placeholder)"
     ]
   },
@@ -5697,6 +5710,11 @@
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
+  "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+    ]
+  },
   "Tangzhong (Zaparzana mąka 1:5 w 65°C)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
@@ -5776,6 +5794,11 @@
   "Temperatura zakwasu albo zaczynu": {
     "gdzie": [
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
+    ]
+  },
+  "Teraz: {nazwa}": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (kod)"
     ]
   },
   "Test okna glutenowego": {
@@ -5883,7 +5906,9 @@
   },
   "Typ mąki": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -6550,6 +6575,7 @@
   },
   "Wklej kod JSON receptury tutaj...": {
     "gdzie": [
+      "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (placeholder)"
     ]
   },
@@ -6623,6 +6649,7 @@
   },
   "Wpisz nazwę przepisu": {
     "gdzie": [
+      "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
       "src/components/calculator/SaveRecipeModal.tsx (placeholder)"
     ]
   },
@@ -8456,6 +8483,11 @@
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+    ]
+  },
+  "{nazwa}: {n} z 5": {
+    "gdzie": [
+      "src/components/SensoryRadarChart.tsx (kod)"
     ]
   },
   "{n} cz.": {
