@@ -126,7 +126,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-20-W5 | 0 | 0 | błąd danych | — | błąd | rachunek: M = 0 |
 
 ### RD-21: Zasada ostrożności przy wyglądzie i zapachu zakwasu
-- Wzór: jeśli zaznaczono pleśń, kolorowe plamy, biały nalot lub kożuch, przebarwienie albo zgniły zapach → „wyrzuć zakwas, nie wąchaj, umyj i wypłucz naczynie przed nowym”; jeśli zaznaczono tylko płyn o zapachu alkoholu → „to nie powód do wyrzucenia: zlej albo wmieszaj i dokarm”; bez zaznaczeń → brak werdyktu „zdrowy”
+- Wzór: jeśli zaznaczono pleśń, kolorowe plamy, biały nalot lub kożuch, przebarwienie albo zgniły zapach → „wyrzuć zakwas, nie wąchaj, umyj i wypłucz naczynie przed nowym”; jeśli zaznaczono tylko płyn o zapachu alkoholu → „to nie powód do wyrzucenia: zlej albo wmieszaj” (bez „dokarm”: ER-54); bez zaznaczeń → brak werdyktu „zdrowy”
 - Jednostki: objawy [-] (zbiór zaznaczeń użytkownika)
 - Granica: brak (reguła jakościowa)
 - Podstawa: S-43 (każda oznaka pleśni: nie używać; płyn o zapachu alkoholu jest w porządku; szczebel 3), S-44 (zielone, różowe, pomarańczowe plamy, zapach, przebarwienie; szczebel 3), S-45 (pleśń bywa biała; nie wąchać; szczebel 1); decyzja DEC-10 (a) planu napraw M1 (2026-10-19): każdy nalot, kożuch albo przebarwienie → wyrzuć
@@ -137,7 +137,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 |---|---|---|---|---|---|
 | RD-21-W1 | kolorowe plamy | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-44, S-43, S-45 |
 | RD-21-W2 | biały nalot | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-45 (pleśń bywa biała); decyzja DEC-10 |
-| RD-21-W3 | płyn o zapachu alkoholu | nie wyrzucaj z tego powodu; zlej albo wmieszaj i dokarm | — | typowy | S-43 |
+| RD-21-W3 | płyn o zapachu alkoholu | nie wyrzucaj z tego powodu; zlej albo wmieszaj | — | typowy | S-43; rejestr 06: ZAK-HOO-001, ZAK-HOO-901 (bez „dokarm”) |
 | RD-21-W4 | płyn o zapachu alkoholu i kolorowa plama | wyrzuć, nie wąchaj, umyj naczynie | — | typowy | S-43, S-44: pleśń przeważa |
 | RD-21-W5 | brak zaznaczeń | brak werdyktu „zdrowy” ani „bezpieczny” | — | typowy | S-45 (strzępki pleśni bywają trudne do zauważenia); decyzja DEC-10; rejestr 06 wycofał ZAK-ZDR-900 |
 | RD-21-W6 | niepełny formularz | brak werdyktu „bezpieczny”; prośba o uzupełnienie | — | błąd | S-45; decyzja DEC-10 |

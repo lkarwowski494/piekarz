@@ -688,11 +688,11 @@
       "Objawy [-]": "płyn o zapachu alkoholu"
     },
     "oczekiwane": {
-      "komunikat [-]": "nie wyrzucaj z tego powodu; zlej albo wmieszaj i dokarm"
+      "komunikat [-]": "nie wyrzucaj z tego powodu; zlej albo wmieszaj"
     },
     "tolerancja": null,
     "rodzaj": "typowy",
-    "pochodzenie": "S-43",
+    "pochodzenie": "S-43; rejestr 06: ZAK-HOO-001, ZAK-HOO-901 (bez „dokarm”)",
     "miejsce": "docs\\brd\\reguly.md:140"
   },
   {
