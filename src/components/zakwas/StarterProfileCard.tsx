@@ -11,6 +11,7 @@ import { t, tPlural } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
+import { typografia } from '../../ui/tokeny';
 export interface StarterProfileCardProps {
   starter: StoredStarter;
   ageDays: number;
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   starterType: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
   },
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   editProfileBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   metaValue: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },

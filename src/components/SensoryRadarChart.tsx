@@ -10,6 +10,7 @@ import Svg, { Polygon, Line, Circle, Text as SvgText } from 'react-native-svg';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 export interface BreadSensoryProfile {
   crustCrispness: number;  // 1 - 5 (Chrupkość skórki)
   crumbElasticity: number; // 1 - 5 (Sprężystość miękiszu)
@@ -253,7 +254,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   controlLabel: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },
@@ -283,7 +284,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   stepperValue: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
     minWidth: 28,

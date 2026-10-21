@@ -21,6 +21,7 @@ import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 import { NumInput, NumInputProps } from './NumInput';
 
+import { typografia } from '../ui/tokeny';
 export { NumInput, NumInputProps };
 
 // ----------------------------------------------------------------------------
@@ -363,12 +364,12 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   switchRowLabel: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },
   switchRowDesc: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginTop: 2,
   },
@@ -396,7 +397,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   fieldLabel: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
@@ -416,7 +417,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.blad,
   },
   fieldErrorText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.blad,
     marginTop: 4,
   },
@@ -428,7 +429,7 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 8,
@@ -453,7 +454,7 @@ const styles = StyleSheet.create({
   },
   emptyButtonText: {
     color: theme.colors.naAkcencie,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
   },
   missingContainer: {
@@ -472,7 +473,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   missingMessage: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 22,
@@ -492,7 +493,7 @@ const styles = StyleSheet.create({
   },
   missingButtonText: {
     color: theme.colors.tusz,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
   },
   btnBase: {
@@ -527,22 +528,22 @@ const styles = StyleSheet.create({
   },
   btnTextPrimary: {
     color: theme.colors.naAkcencie,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
   },
   btnTextSecondary: {
     color: theme.colors.tusz,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
   },
   btnTextGhost: {
     color: theme.colors.akcentTekst,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
   },
   btnTextDanger: {
     color: theme.colors.blad,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
   },
   btnTextDisabled: {
@@ -559,7 +560,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.obwodka,
     color: theme.colors.tusz,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     paddingHorizontal: 12,
     paddingRight: 40,
     minHeight: 44,

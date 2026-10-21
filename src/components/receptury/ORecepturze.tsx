@@ -13,6 +13,7 @@ import type { RecipePreset } from '../../recipes/presets';
 import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { s } from './style-receptur';
 
+import { typografia } from '../../ui/tokeny';
 function naczynie(v: RecipePreset['recommendedVessel']): string {
   if (v === 'dutch_oven') return t('garnek żeliwny');
   if (v === 'bread_pan') return t('foremka keksówka');
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     gap: theme.spacing.sm,
   },
   wiersz: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
   },
   mocny: {

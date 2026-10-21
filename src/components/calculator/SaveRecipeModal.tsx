@@ -11,6 +11,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { sharedCraftTokens } from '@apps4craft/ui';
 
+import { typografia } from '../../ui/tokeny';
 export interface SaveRecipeModalProps {
   visible: boolean;
   recipeName: string;
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     marginBottom: 16,
   },

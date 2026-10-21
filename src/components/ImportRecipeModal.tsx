@@ -27,6 +27,7 @@ import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
 
+import { typografia } from '../ui/tokeny';
 export interface ImportRecipeModalProps {
   visible: boolean;
   onClose: () => void;
@@ -282,7 +283,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginTop: 2,
   },
@@ -294,7 +295,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   closeBtnText: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
   scrollArea: {
@@ -317,7 +318,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   actionBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
   },
@@ -326,7 +327,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   clearBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
   },
   jsonInput: {
@@ -335,7 +336,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
     borderRadius: 12,
     padding: 12,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontFamily: 'monospace',
     color: theme.colors.tusz,
     minHeight: 120,
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   hintText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
   },
@@ -371,7 +372,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   errorText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
     lineHeight: 18,
   },
@@ -390,23 +391,23 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   previewBadge: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
   previewDdt: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
   previewName: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 4,
   },
   previewNotes: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontStyle: 'italic',
     color: theme.colors.tusz2,
     marginBottom: 8,
@@ -418,7 +419,7 @@ const styles = StyleSheet.create({
   },
   previewSectionTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
@@ -435,11 +436,11 @@ const styles = StyleSheet.create({
   },
   flourName: {
     flex: 1,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
   },
   flourPct: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },
@@ -457,7 +458,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   metricValue: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -476,7 +477,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   cancelBtnText: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -494,7 +495,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   confirmBtnText: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },

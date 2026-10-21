@@ -11,6 +11,7 @@ import { getStorageState, getRescueFile, getRescueKind, subscribeStorageState, S
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 /** Udostępnia plik kopii bazy (np. do Plików) — droga eksportu po nieudanej migracji [M1-audytor-generalny-004]. */
 export async function shareRescueFile(filePath: string): Promise<boolean> {
   if (!(await Sharing.isAvailableAsync())) return false;
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: theme.typography.krojTytulow,
     color: theme.colors.tusz,
-    fontSize: 22,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     marginBottom: theme.spacing.md,
   },

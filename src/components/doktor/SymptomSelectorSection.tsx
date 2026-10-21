@@ -10,6 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { BreadInspectionCriteria } from '../../doctor/diagnostics';
 
+import { typografia } from '../../ui/tokeny';
 export interface DiagnosticPreset {
   id: string;
   name: string;
@@ -365,7 +366,7 @@ const styles = StyleSheet.create({
     marginRight: 6,
   },
   presetName: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontWeight: '600',
   },
@@ -388,7 +389,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   symptomChipText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -409,7 +410,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   clearBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz3,
   },

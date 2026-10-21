@@ -24,6 +24,7 @@ import { MasterRecipe } from '../recipes/presets';
 import { encodeRecipeToShareUrl } from '../lib/recipe-sharing';
 import { QrCodeSvg } from './QrCodeSvg';
 
+import { typografia } from '../ui/tokeny';
 export interface ShareRecipeQrModalProps {
   visible: boolean;
   onClose: () => void;
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   recipeDetails: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   hintText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     textAlign: 'center',
     lineHeight: 18,
@@ -223,7 +224,7 @@ const styles = StyleSheet.create({
   },
   secondaryBtnText: {
     color: theme.colors.tusz,
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
   },
 });

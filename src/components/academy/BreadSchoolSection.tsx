@@ -4,6 +4,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { BreadSchoolLesson } from '../../core/bread-school';
 
+import { typografia } from '../../ui/tokeny';
 export interface BreadSchoolSectionProps {
   lessons: BreadSchoolLesson[];
   completedLevels: number[];
@@ -130,7 +131,7 @@ export function BreadSchoolSection({
 
 const styles = StyleSheet.create({
   tabIntroText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginBottom: theme.spacing.md,
     lineHeight: 18,
@@ -196,7 +197,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   goalText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 8,
     lineHeight: 16,
@@ -224,14 +225,14 @@ const styles = StyleSheet.create({
   },
   subSectionTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginTop: 8,
     marginBottom: 4,
   },
   fermentTypeText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 6,
   },
@@ -257,7 +258,7 @@ const styles = StyleSheet.create({
   },
   stepItemText: {
     flex: 1,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 17,
     color: theme.colors.tusz,
   },
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   toggleCompleteBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.naAkcencie,
   },

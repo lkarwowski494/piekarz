@@ -10,6 +10,7 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { SourdoughSafetyCheck } from '../../core/sourdough-physics';
 
+import { typografia } from '../../ui/tokeny';
 export interface StarterSafetyCardProps {
   hasHooch: boolean;
   onToggleHooch: () => void;
@@ -116,13 +117,13 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   cardSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginTop: 2,
     marginBottom: 8,
   },
   boundary: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 16,
     color: theme.colors.tusz,
     marginBottom: 12,
@@ -150,7 +151,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   checkBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   safetyAction: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
   },
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   resetBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },

@@ -21,6 +21,7 @@ import { useUnitSystem, formatWeight, formatDoseWeight, gramsToOunces, roundTo }
 import { nazwaZaczynu } from './nazwy-receptur';
 import { s } from './style-receptur';
 
+import { typografia } from '../../ui/tokeny';
 export interface DoMiskiProps {
   calculations: DoughRecipeResult;
   waterPct: number;
@@ -235,7 +236,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   krokTekst: {
-    fontSize: 22,
+    fontSize: typografia.style.tytul2.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },

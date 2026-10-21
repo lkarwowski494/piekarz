@@ -21,6 +21,7 @@ import {
   VOLUME_ACCURACY_WARNING_PL,
 } from '../core/volume-converter';
 
+import { typografia } from '../ui/tokeny';
 interface VolumeConverterModalProps {
   visible: boolean;
   onClose: () => void;
@@ -281,7 +282,7 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   subtitle: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
   },
   closeBtn: {
@@ -292,7 +293,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeBtnText: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
   scrollContent: {
@@ -308,7 +309,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   warningBannerText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     lineHeight: 16,
   },
@@ -319,7 +320,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   label: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
   },
@@ -371,7 +372,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   unitTabText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz3,
   },
@@ -407,7 +408,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   ingredientChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
   ingredientChipTextActive: {
@@ -424,7 +425,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   amountLabel: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 8,
@@ -481,7 +482,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   resultItemName: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },

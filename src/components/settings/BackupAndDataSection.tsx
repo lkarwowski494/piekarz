@@ -18,6 +18,7 @@ import {
   exportAndShareCsv,
 } from '../../lib/csv-exporter';
 
+import { typografia } from '../../ui/tokeny';
 export function BackupAndDataSection() {
   const [isExporting, setIsExporting] = useState<boolean>(false);
   const [isExportingCsv, setIsExportingCsv] = useState<boolean>(false);
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     borderRadius: theme.radius.sm,
   },
   infoBadgeText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   csvButtonsCol: {

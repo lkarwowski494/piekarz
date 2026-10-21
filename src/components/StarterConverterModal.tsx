@@ -24,6 +24,7 @@ import {
   STARTER_PRESETS,
 } from '../core/starter-converter';
 
+import { typografia } from '../ui/tokeny';
 export interface StarterConverterModalProps {
   visible: boolean;
   onClose: () => void;
@@ -384,7 +385,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 14,
   },
@@ -410,7 +411,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   tabButtonText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -422,7 +423,7 @@ const styles = StyleSheet.create({
     maxHeight: 400,
   },
   sectionLabel: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginTop: 10,
@@ -449,7 +450,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   chipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -510,16 +511,16 @@ const styles = StyleSheet.create({
     borderBottomColor: theme.colors.linia,
   },
   metricLabel: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
   },
   metricValue: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   metricValueHighlight: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '800',
     color: theme.colors.akcentTekst,
   },
@@ -538,12 +539,12 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.tloGrupa,
   },
   badgeText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   adviceText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
     marginTop: 8,

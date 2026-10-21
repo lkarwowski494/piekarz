@@ -34,6 +34,7 @@ import {
 import { FLOUR_PROFILES } from '../core/flour-atlas';
 import { useAppAccess } from '../lib/app-access';
 
+import { typografia } from '../ui/tokeny';
 export interface FlourInventoryModalProps {
   visible: boolean;
   onClose: () => void;
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   modalSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     marginBottom: 14,
   },
@@ -371,7 +372,7 @@ const styles = StyleSheet.create({
   },
   stockBannerTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
   },
   stockBannerTitleSuccess: {
@@ -401,7 +402,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   deductBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
@@ -410,7 +411,7 @@ const styles = StyleSheet.create({
   },
   sectionHeading: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 8,
@@ -427,12 +428,12 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   itemName: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   itemStock: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
     marginTop: 2,
@@ -481,7 +482,7 @@ const styles = StyleSheet.create({
   openAddBtnText: {
     color: theme.colors.akcentTekst,
     fontWeight: '700',
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
   },
   addFormCard: {
     backgroundColor: theme.colors.powierzchnia,
@@ -493,7 +494,7 @@ const styles = StyleSheet.create({
   },
   formTitle: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 6,
@@ -528,7 +529,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
     borderRadius: theme.radius.sm,
     padding: 8,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz,
     marginBottom: 8,
   },
@@ -545,7 +546,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
   formCancelBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
   },
   formConfirmBtn: {
@@ -558,7 +559,7 @@ const styles = StyleSheet.create({
   },
   formConfirmBtnText: {
     color: theme.colors.naAkcencie,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
   },
   closeButton: {

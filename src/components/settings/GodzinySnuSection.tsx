@@ -11,6 +11,7 @@ import { t } from '../../lib/i18n';
 import { PROFILE_SNU, useProfilSnu, zapiszProfilSnu, type ProfilSnuId } from '../../lib/godziny-snu';
 import { etykietaProfiluSnu } from '../harmonogram/TargetReadyCard';
 
+import { typografia } from '../../ui/tokeny';
 export function GodzinySnuSection() {
   const wybrany = useProfilSnu();
   const opcje: { id: ProfilSnuId; tekst: string }[] = [
@@ -48,8 +49,8 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
     marginBottom: theme.spacing.md,
   },
-  sectionTitle: { fontFamily: theme.typography.krojTytulow, fontSize: 16, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
-  opis: { fontSize: 13, color: theme.colors.tusz2, marginBottom: 10 },
+  sectionTitle: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.naglowek.pt, fontWeight: '700', color: theme.colors.tusz, marginBottom: 4 },
+  opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, marginBottom: 10 },
   lista: { gap: 8 },
   opcja: {
     minHeight: theme.cele.pozostale,
@@ -61,6 +62,6 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   opcjaWybrana: { borderColor: theme.colors.akcent },
-  opcjaTekst: { fontSize: 14, color: theme.colors.tusz2 },
+  opcjaTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
   opcjaTekstWybrana: { color: theme.colors.akcentTekst, fontWeight: '700' },
 });

@@ -4,6 +4,7 @@ import { theme } from '../ui/theme';
 import { t, lang } from '../lib/i18n';
 import { backToEditButton } from '../lib/confirm';
 
+import { typografia } from '../ui/tokeny';
 export interface HeaderButtonProps {
   title: string;
   onPress: () => void;
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   },
   headerButtonText: {
     color: theme.colors.akcentTekst,
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '400',
   },
   headerButtonBold: {

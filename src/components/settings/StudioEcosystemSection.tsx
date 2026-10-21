@@ -15,6 +15,7 @@ import {
   FermentAppIcon,
 } from '@apps4craft/ui';
 
+import { typografia } from '../../ui/tokeny';
 export function StudioEcosystemSection() {
   return (
     <>
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.sm,
   },
   cardDescription: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     marginBottom: theme.spacing.md,
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
   },
   appItemDomain: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz,
     marginTop: 1,
   },

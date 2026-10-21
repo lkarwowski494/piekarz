@@ -9,6 +9,7 @@ import { getNotificationPermission, subscribeNotificationPermission, Notificatio
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 export const NotificationsOffBanner: React.FC = () => {
   const [status, setStatus] = useState<NotificationPermission>('undetermined');
 
@@ -53,8 +54,8 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   title: { fontFamily: theme.typography.krojTytulow,
-           color: theme.colors.tusz, fontSize: 15, fontWeight: '700', marginBottom: 4 },
-  body: { color: theme.colors.tusz2, fontSize: 13, lineHeight: 18, marginBottom: theme.spacing.sm },
+           color: theme.colors.tusz, fontSize: typografia.style.objasnienie.pt, fontWeight: '700', marginBottom: 4 },
+  body: { color: theme.colors.tusz2, fontSize: typografia.style.przypis.pt, lineHeight: 18, marginBottom: theme.spacing.sm },
   button: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },
   buttonText: { color: theme.colors.akcentTekst, fontSize: 14, fontWeight: '700' },
 });

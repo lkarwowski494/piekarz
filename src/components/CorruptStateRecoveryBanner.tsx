@@ -9,6 +9,7 @@ import { checkCorruptState, dismissCorruptState, CorruptStateRecovery } from '..
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 export const CorruptStateRecoveryBanner: React.FC = () => {
   const [corruptInfo, setCorruptInfo] = useState<CorruptStateRecovery | null>(null);
 
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   },
   message: {
     color: theme.colors.tusz,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     lineHeight: 16,
   },
   dismissButton: {
@@ -90,6 +91,6 @@ const styles = StyleSheet.create({
   dismissText: {
     color: theme.colors.tusz,
     fontWeight: '600',
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
   },
 });

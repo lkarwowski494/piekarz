@@ -38,6 +38,7 @@ import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-z
 import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 
+import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
 
 const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
@@ -329,7 +330,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bezSnu: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     marginBottom: theme.spacing.md,
   },

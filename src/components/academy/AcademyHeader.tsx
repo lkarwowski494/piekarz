@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 
+import { typografia } from '../../ui/tokeny';
 export type AcademyTab = 'school' | 'techniques';
 
 export interface AcademyHeaderProps {
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   navTabText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz3,
   },

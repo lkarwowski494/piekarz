@@ -31,6 +31,7 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 
+import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
   const router = useRouter();
   const unitSystem = useUnitSystem();
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   academyHeaderPillText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },

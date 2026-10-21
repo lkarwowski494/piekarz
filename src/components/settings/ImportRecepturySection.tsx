@@ -9,7 +9,7 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
-import { promienie } from '../../ui/tokeny';
+import { promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { ImportZPlikuArkusz } from './ImportZPlikuArkusz';
 import { setPendingRecipeToLoad } from '../../lib/recipe-navigation';
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     paddingVertical: theme.spacing.sm,
   },
   akcja: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
 });

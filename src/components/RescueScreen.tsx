@@ -13,6 +13,7 @@ import { shareRescueFile } from './StorageGate';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
 
+import { typografia } from '../ui/tokeny';
 interface RescueScreenProps {
   onRetry: () => Promise<void>;
   /** Tryb awaryjny startu: baza nie była otwierana ani migrowana w tym uruchomieniu [M1-audytor-generalny-123]. */
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: theme.colors.tlo },
   content: { flexGrow: 1, justifyContent: 'center', padding: theme.spacing.lg },
   title: { fontFamily: theme.typography.krojTytulow,
-           color: theme.colors.tusz, fontSize: 22, fontWeight: '700', marginBottom: theme.spacing.md },
+           color: theme.colors.tusz, fontSize: typografia.style.tytul2.pt, fontWeight: '700', marginBottom: theme.spacing.md },
   body: { color: theme.colors.tusz2, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.lg },
   button: {
     backgroundColor: theme.colors.akcent,

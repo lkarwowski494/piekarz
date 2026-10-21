@@ -15,6 +15,7 @@ import {
 } from '../../doctor/dough-recovery';
 import { formatTextUnits, UnitSystem } from '../../lib/unit-converter';
 
+import { typografia } from '../../ui/tokeny';
 export interface EmergencyRecoverySectionProps {
   selectedRecoveryId: EmergencyCode | null;
   onSelectRecoveryId: (id: EmergencyCode | null) => void;
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   sectionSubheading: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginBottom: 10,
   },
@@ -179,7 +180,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   presetName: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontWeight: '600',
   },
@@ -216,12 +217,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeRecoveryBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz3,
     fontWeight: '700',
   },
   recoveryTriggerText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginBottom: 10,
     lineHeight: 18,
@@ -241,7 +242,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   immediateAlertText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     lineHeight: 17,
@@ -283,12 +284,12 @@ const styles = StyleSheet.create({
   },
   pivotActionBtnText: {
     color: theme.colors.naAkcencie,
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
   },
   recoveryStepsHeading: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: 6,
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   recoveryStepText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     lineHeight: 18,
     flex: 1,
@@ -334,7 +335,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   scienceText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     lineHeight: 16,
     fontStyle: 'italic',

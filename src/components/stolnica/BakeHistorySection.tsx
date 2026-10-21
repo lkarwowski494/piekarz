@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   tasteFilterText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontWeight: '600',
   },
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   historyRecipeName: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     flex: 1,
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   historyStars: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
   },
   deleteHistoryBtn: {
     minHeight: theme.cele.glownyPrzeplyw,
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     color: theme.colors.blad,
   },
   historyDate: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
     marginBottom: 8,
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   historyNotes: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     fontStyle: 'italic',
     lineHeight: 18,
@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   bakeAgainBtnText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },

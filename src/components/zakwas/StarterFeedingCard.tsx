@@ -13,6 +13,7 @@ import { t } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
+import { typografia } from '../../ui/tokeny';
 export interface StarterFeedingCardProps {
   selectedRatio: [number, number, number];
   onSelectRatio: (ratio: [number, number, number]) => void;
@@ -210,14 +211,14 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
   },
   cardSubtitle: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz3,
     marginTop: 2,
     marginBottom: 12,
   },
   subHeading: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginBottom: 6,
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   ratioChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     color: theme.colors.tusz2,
     fontWeight: '500',
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   yieldChipText: {
-    fontSize: 12,
+    fontSize: typografia.style.podpis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
@@ -341,7 +342,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   copyFeedingBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
   },
@@ -357,7 +358,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   openConverterBtnText: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
   },
