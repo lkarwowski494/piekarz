@@ -245,3 +245,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) D-042 bez zmian na iOS, powrót przy Google Play — więcej ocen 5★, ale prośba tuż po wyborze ≥ 4★ wybiera zadowolonych (App Review 5.6.1: „filtered … feedback”); prośba po każdym wypieku bez progu liczby — prośba po pierwszym, często nieudanym chlebie.
 - **Dlaczego:** prośba ma mierzyć zaangażowanie (ukończone zadanie, HIG), nie nastrój chwili; 14 dni to górna granica zalecenia HIG „a week or two” i chroni limit 3/365 przed zużyciem w kilka dni.
 - **Zależy od:** D-042 (uchylony w części „warunek prośby”; definicja udanego wypieku dla innych miejsc bez zmian), S-63 (limit 3/365).
+
+### [D-068] 2026-10-22 — Zakwas w lodówce: jedno powiadomienie na cykl karmienia (termin 7 dni) i przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) (M2 tor p12d, zadanie 179)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Nowe decyzje produktowe - zgodnie z rekomendacja” (czat M1 reaudytu, po STOP 2, 2026-10-21; wybór DEC-22 a w planie napraw) oraz zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** dla zakwasu w lodówce plan powiadomień ma jedno powiadomienie na cykl karmienia, w terminie 7 dni po karmieniu (`karmienie.lodowkaTermin`); przypomnienie po 6 dniach znika. W Ustawieniach przełącznik „Przypomnienia o karmieniu” (`przypomnienia_karmienia` w `app_settings`, domyślnie włączony) wyłącza tylko powiadomienia o karmieniu; kroki wypieku przychodzą dalej. ADR-006 reguła 4 opisuje nowy plan.
+- **Odrzucone:** (b) bez zmian — dwa powiadomienia o tym samym karmieniu (HIG Notifications: „Avoid sending multiple notifications for the same thing”), wyłączenie tylko w systemie razem z krokami wypieku.
+- **Dlaczego:** powiadomienie ma dotyczyć rzeczy, o którą użytkownik prosił, raz; kto chce tylko alarmów wypieku, nie musi wyłączać wszystkich powiadomień.
+- **Zależy od:** BR-ZAKW-004 kryt. 1 (BRD nadal opisuje dwa powiadomienia: zmiana BRD przez role 01/03, poza torem p12d).
