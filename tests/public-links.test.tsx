@@ -33,10 +33,11 @@ describe('Public privacy and support links (012)', () => {
     expect(fs.existsSync(path.join(root, 'site/support.html'))).toBe(true);
   });
 
-  it('the Pages workflow publishes from the repository branch master', () => {
+  // Strony publikuje repo apps4brew-www (src/lib/links.ts); Pages tego repo tylko ręcznie (właściciel 2026-10-21).
+  it('the Pages workflow runs only on manual dispatch, never on push', () => {
     const wf = read('.github/workflows/pages.yml');
-    expect(wf).toMatch(/branches:\s*\n\s*-\s*master/);
-    expect(wf).not.toMatch(/branches:\s*\n\s*-\s*main\b/);
+    expect(wf).toMatch(/workflow_dispatch:/);
+    expect(wf).not.toMatch(/^\s*push:/m);
   });
 
   it('App Store metadata uses the same addresses', () => {

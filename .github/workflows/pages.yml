@@ -1,12 +1,8 @@
 name: Deploy GitHub Pages
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'site/**'
-      - '.github/workflows/pages.yml'
+  # Tylko ręcznie: strony Piekarza publikuje repo apps4brew-www (apps4brew.com/piekarz/); Pages tego repo
+  # nie jest skonfigurowane, więc automatyczny przebieg przy pushu kończył się „failure” (właściciel 2026-10-21: maile).
   workflow_dispatch:
 
 permissions:
