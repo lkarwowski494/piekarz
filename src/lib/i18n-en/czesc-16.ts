@@ -77,4 +77,8 @@ export const EN_16: Record<string, string> = {
   'Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.':
     'The bake plan is for sourdough bread only, and this recipe has no starter.',
   'Ręce tylko na starcie': 'Hands-on at the start',
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': 'The offer is temporarily unavailable. Try again in a moment.',
+  'Zakup czeka na zatwierdzenie': 'Purchase awaiting approval',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.':
+    'Once the purchase is approved, Baker Pro will turn on by itself. No need to buy again.',
 };

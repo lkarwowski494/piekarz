@@ -10,6 +10,21 @@
       "klucz": "Ręce tylko na starcie",
       "powod": "nowy tekst toru p15a (audyt niezależny D-6: kroki z rękami na starcie w ochronie snu); przekład 33 języków batchem M1",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.",
+      "powod": "nowy tekst toru p15a (audyt niezależny A-3: pusta lista produktów to nie brak sieci); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakup czeka na zatwierdzenie",
+      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.",
+      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

@@ -103,9 +103,8 @@ export function useAppAccess() {
     [moze, requireActionAccess]
   );
 
-  const subscribe = useCallback(async (plan: Plan) => {
-    await kup(plan);
-  }, []);
+  // 'oczekuje': zakup czeka na zatwierdzenie (Ask to Buy) [audyt-niezalezny C-4]
+  const subscribe = useCallback((plan: Plan) => kup(plan), []);
 
   const restorePurchases = useCallback(przywrocZakupy, []);
 

@@ -8,16 +8,19 @@ import { t } from '../../lib/i18n';
 import type { Plan } from '../../lib/platnosci/konfiguracja';
 import type { Oferta } from '../../lib/platnosci/sklep';
 
-export type StanOferty = 'ladowanie' | 'oferta-proba' | 'zakup-bez-proby' | 'bez-sieci';
+export type StanOferty = 'ladowanie' | 'oferta-proba' | 'zakup-bez-proby' | 'bez-sieci' | 'niedostepna';
 
 /** Kolejność opcji jak w makiecie oferta.html: rocznie, miesięcznie, na zawsze. */
 export const PLANY_OFERTY: readonly Plan[] = ['yearly', 'monthly', 'lifetime'];
 
-/** null = odczyt sklepu jeszcze trwa; pusta lista albo błąd = bez sieci (§11e 127, tabela stanów). */
+/**
+ * null = odczyt sklepu jeszcze trwa; błąd odczytu = bez sieci (§11e 127, tabela stanów); pusta lista bez błędu = sklep
+ * odpowiedział bez produktów, oferta chwilowo niedostępna, nie brak internetu [audyt-niezalezny A-3].
+ */
 export function stanOferty(oferta: readonly Oferta[] | null, blad: boolean): StanOferty {
   if (blad) return 'bez-sieci';
   if (oferta === null) return 'ladowanie';
-  if (oferta.length === 0) return 'bez-sieci';
+  if (oferta.length === 0) return 'niedostepna';
   return oferta.some((o) => (o.probaDni ?? 0) > 0) ? 'oferta-proba' : 'zakup-bez-proby';
 }
 

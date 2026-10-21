@@ -1674,6 +1674,11 @@
       "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
     ]
   },
+  "Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (Alert.alert)"
+    ]
+  },
   "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.": {
     "gdzie": [
       "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (tekst w JSX)"
@@ -3803,6 +3808,11 @@
   "Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
+    ]
+  },
+  "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.": {
+    "gdzie": [
+      "src/components/oferta/KomunikatBezSieci.tsx (kod)"
     ]
   },
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
@@ -7304,6 +7314,11 @@
     "gdzie": []
   },
   "Zakup": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (Alert.alert)"
+    ]
+  },
+  "Zakup czeka na zatwierdzenie": {
     "gdzie": [
       "src/components/PaywallModal.tsx (Alert.alert)"
     ]

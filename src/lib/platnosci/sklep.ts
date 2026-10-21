@@ -140,18 +140,32 @@ export async function pobierzOferte(): Promise<Oferta[]> {
   return wynik;
 }
 
-/** Arkusz zakupu App Store. Wynik przychodzi przez nasłuch transakcji (stan.ts), nie z tej funkcji. */
-export async function kup(plan: Plan): Promise<void> {
+/** Zakup czeka na zatwierdzenie (Ask to Buy w Chmurze rodzinnej albo potwierdzenie płatności): błąd sklepu albo transakcja „pending”. */
+function oczekuje(x: unknown): boolean {
+  const lista = Array.isArray(x) ? x : [x];
+  return lista.some((p) => {
+    if (typeof p !== 'object' || p === null) return false;
+    const kod = Reflect.get(p, 'code');
+    return kod === 'deferred-payment' || kod === 'pending' || Reflect.get(p, 'purchaseState') === 'pending';
+  });
+}
+
+/**
+ * Arkusz zakupu App Store. Wynik przychodzi przez nasłuch transakcji (stan.ts), nie z tej funkcji; 'oczekuje' =
+ * zakup czeka na zatwierdzenie (Ask to Buy), to nie błąd sieci [audyt-niezalezny C-4].
+ */
+export async function kup(plan: Plan): Promise<'oczekuje' | void> {
   await polacz();
   const sku = PRODUKTY[plan];
   try {
-    if (plan === 'lifetime') {
-      await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } });
-    } else {
-      await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
-    }
+    const wynik: unknown =
+      plan === 'lifetime'
+        ? await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } })
+        : await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
+    if (oczekuje(wynik)) return 'oczekuje';
   } catch (e: unknown) {
     if (Iap.isUserCancelledError(e)) return; // anulowanie to nie błąd i nie sukces
+    if (oczekuje(e)) return 'oczekuje';
     throw e;
   }
 }

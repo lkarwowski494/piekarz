@@ -94,6 +94,7 @@ const mockIap = {
     this.products = [];
     this.eligible = true;
     this.failRead = false;
+    this.failProducts = false;
     this.statusIOS = [];
     this.requests = [];
     this.finished = [];
@@ -115,7 +116,10 @@ jest.mock('expo-iap', () => ({
     return mockIap.entitlements.map((p) => ({ ...p }));
   }),
   subscriptionStatusIOS: jest.fn(async () => mockIap.statusIOS),
-  fetchProducts: jest.fn(async ({ skus }) => mockIap.products.filter((p) => skus.includes(p.id))),
+  fetchProducts: jest.fn(async ({ skus }) => {
+    if (mockIap.failProducts) throw new Error('network-error');
+    return mockIap.products.filter((p) => skus.includes(p.id));
+  }),
   isEligibleForIntroOfferIOS: jest.fn(async () => mockIap.eligible),
   requestPurchase: jest.fn(async (props) => {
     mockIap.requests.push(props);

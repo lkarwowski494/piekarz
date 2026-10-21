@@ -68,7 +68,9 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
   it.each([
     ['oferta-proba', () => produkty(true)],
     ['zakup-bez-proby', () => produkty(false)],
-    ['bez-sieci', () => (mockIap.products = [])],
+    // Bez sieci = błąd odczytu produktów; pusta lista to oferta chwilowo niedostępna [audyt-niezalezny A-3]
+    ['bez-sieci', () => (mockIap.failProducts = true)],
+    ['niedostepna', () => (mockIap.products = [])],
   ])('%s: bez plakietki, wersalików, nawiasu z angielskim terminem i kropki środkowej', async (_stan, ustaw) => {
     ustaw();
     const tree = await zamontuj();
@@ -137,7 +139,7 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
   });
 
   it('BR-PRYW-001 Zakup bez sieci: komunikat o połączeniu z App Store, bez opcji i kwot, „Spróbuj ponownie” czyta ofertę jeszcze raz', async () => {
-    mockIap.products = [];
+    mockIap.failProducts = true; // błąd odczytu; pusta lista to A-3 (oferta niedostępna)
     const tree = await zamontuj();
     expect(tekst(tree.root.findByProps({ testID: 'offer-no-connection' }))).toBe(
       t('Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.')
@@ -145,6 +147,7 @@ describe('127: ekran zakupu „Piekarz Pro” (design-spec §11e)', () => {
     expect(tree.root.findAllByProps({ testID: 'plan-yearly-btn' })).toHaveLength(0);
     expect(tekst(tree.toJSON())).not.toMatch(/—|zł/);
     produkty(false);
+    mockIap.failProducts = false;
     await wcisnij(tree, 'offer-retry-btn');
     await act(async () => {
       for (let i = 0; i < 20; i++) await Promise.resolve();

@@ -5,7 +5,7 @@
 // ujawnienia U2–U8 z kontraktu płatności (docs/monetyzacja.md); bez sieci komunikat i ponowny odczyt (BR-PRYW-001).
 // ============================================================================
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
@@ -25,7 +25,8 @@ export type PlanOption = Plan;
 export interface PaywallModalProps {
   visible: boolean;
   onClose: () => void;
-  onSubscribe: (tier: PlanOption) => Promise<void> | void;
+  /** 'oczekuje' = zakup czeka na zatwierdzenie (Ask to Buy) [audyt-niezalezny C-4] */
+  onSubscribe: (tier: PlanOption) => Promise<'oczekuje' | void> | 'oczekuje' | void;
   onRestore?: () => Promise<boolean | void> | boolean | void;
 }
 
@@ -70,19 +71,28 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
   }, [visible, odczyt]);
 
   const stan = stanOferty(oferta, blad);
+  // Bez sieci albo sklep bez produktów (A-3): komunikat i „Spróbuj ponownie” zamiast opcji
+  const bezOferty = stan === 'bez-sieci' || stan === 'niedostepna';
   const doPlanu = (plan: Plan) => oferta?.find((o) => o.plan === plan);
   // Opcja, której sklep nie zwrócił, nie jest rysowana; przy ładowaniu trzy opcje bez kwot (§11e 127).
   const plany = stan === 'ladowanie' ? PLANY_OFERTY : PLANY_OFERTY.filter((p) => doPlanu(p));
   const plan = plany.includes(wybrany) ? wybrany : (plany[0] ?? wybrany);
   const dniProby = Math.max(0, ...(oferta ?? []).map((o) => o.probaDni ?? 0));
 
+  // Blokada przed drugim stuknięciem, zanim stan isProcessing zdąży się wyrenderować [audyt-niezalezny C-5]
+  const trwa = useRef(false);
   const handlePurchase = async () => {
+    if (trwa.current) return;
+    trwa.current = true;
     setIsProcessing(true);
     try {
-      await onSubscribe(plan);
+      if ((await onSubscribe(plan)) === 'oczekuje') {
+        Alert.alert(t('Zakup czeka na zatwierdzenie'), t('Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.'));
+      }
     } catch {
       Alert.alert(t('Zakup'), t('Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.'));
     } finally {
+      trwa.current = false;
       setIsProcessing(false);
     }
   };
@@ -90,11 +100,13 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
   const { fontScale } = useWindowDimensions();
 
   const handleRestore = async () => {
-    if (!onRestore) return;
+    if (!onRestore || trwa.current) return;
+    trwa.current = true;
     setIsProcessing(true);
     try {
       if (await przywrocZKomunikatem(onRestore)) onClose();
     } finally {
+      trwa.current = false;
       setIsProcessing(false);
     }
   };
@@ -151,8 +163,8 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
             {t('Piekarz Pro')}
           </Text>
 
-          {stan === 'bez-sieci' ? (
-            <KomunikatBezSieci />
+          {bezOferty ? (
+            <KomunikatBezSieci niedostepna={stan === 'niedostepna'} />
           ) : (
             <>
               {stan === 'oferta-proba' && (
@@ -190,7 +202,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
         </ScrollView>
 
         <View style={styles.kciuk}>
-          {stan === 'bez-sieci' ? (
+          {bezOferty ? (
             <Pressable accessibilityRole="button" testID="offer-retry-btn" style={styles.glowny} onPress={ponow}>
               <Text style={styles.glownyTekst}>{t('Spróbuj ponownie')}</Text>
             </Pressable>
