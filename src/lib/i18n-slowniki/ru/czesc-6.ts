@@ -137,8 +137,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Удалить закваску',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'В вашей библиотеке создана редактируемая копия.',
   'Utwórz profil dla nowej kultury zakwasu': 'Создайте профиль новой культуры закваски',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Внимание: очень высокая гидратация для этой смеси! Тесто может быть жидким и потребовать уверенной техники coil fold.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Внимание: рассчитанная температура воды превышает 45 °C. Риск сварить дрожжи и молочнокислые бактерии! Охладите муку или снизьте температуру в помещении.',
   'Uważaj w kuchni': 'Будьте осторожны на кухне',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Удержание влаги клейстеризованным крахмалом, шелковистый мякиш и свежесть на несколько дней.',
 };

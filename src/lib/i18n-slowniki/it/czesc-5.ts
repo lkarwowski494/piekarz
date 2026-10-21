@@ -116,8 +116,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Elimina lievito madre',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Creata una copia modificabile nella tua libreria.',
   'Utwórz profil dla nowej kultury zakwasu': 'Crea un profilo per una nuova coltura di lievito madre',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Attenzione: idratazione molto alta per questa miscela! L\'impasto può risultare molle e richiedere una tecnica esperta di pieghe di rinforzo (coil fold).',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Attenzione: la temperatura dell\'acqua calcolata supera i 45 °C. Rischio di cuocere i lieviti e i batteri lattici! Raffredda la farina o abbassa la temperatura ambiente.',
   'Uważaj w kuchni': 'Fai attenzione in cucina',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Umidità trattenuta dall\'amido gelatinizzato, mollica setosa e freschezza per più giorni.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Al freddo cresce più lentamente, mentre a temperature troppo alte la fermentazione può procedere troppo in fretta o addirittura fermarsi.',

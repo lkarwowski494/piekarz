@@ -90,8 +90,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Zuurdesemstarter verwijderen',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Bewerkbare kopie aangemaakt in je bibliotheek.',
   'Utwórz profil dla nowej kultury zakwasu': 'Maak een profiel aan voor een nieuwe zuurdesemstarter',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Let op: zeer hoge hydratatie voor dit mengsel! Het deeg kan slap zijn en een geoefende coil-fold-techniek vereisen.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Let op: de berekende watertemperatuur is hoger dan 45 °C. Risico dat gist en melkzuurbacteriën worden gekookt! Koel het meel of verlaag de omgevingstemperatuur.',
   'Uważaj w kuchni': 'Wees voorzichtig in de keuken',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Vocht wordt vastgehouden door verstijfseld zetmeel: zijdezacht kruim en dagenlang vers.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'In de kou groeit het langzamer, en bij een te hoge temperatuur kan de fermentatie te snel verlopen of zelfs stilvallen.',

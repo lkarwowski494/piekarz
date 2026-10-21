@@ -65,6 +65,16 @@
       "klucz": "W pliku receptury brakuje proporcji ciasta.",
       "powod": "bez tekstów technicznych w PL (04-studio-projektowe-027) (M1-audytor-generalny-112); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.",
+      "powod": "głos bez „Uwaga:” i wykrzyknika (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.",
+      "powod": "głos bez „Uwaga:”, wykrzyknika i angielskiej wstawki (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

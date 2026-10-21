@@ -71,8 +71,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Kustuta looduslik juuretis',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Sinu kogusse loodi muudetav koopia.',
   'Utwórz profil dla nowej kultury zakwasu': 'Loo profiil uuele loodusliku juuretise kultuurile',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Tähelepanu: selle segu jaoks väga kõrge veesisaldus! Tainas võib olla vedel ja vajada osavat voltimistehnikat (coil fold).',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Tähelepanu: arvutatud vee temperatuur ületab 45 °C. Oht pärm ja piimhappebakterid ära keeta! Jahuta jahu või alanda ruumi temperatuuri.',
   'Uważaj w kuchni': 'Ole köögis ettevaatlik',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Kleisterdunud tärklis seob niiskust: siidine sisu ja mitu päeva kestev värskus.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Jahedas kasvab see aeglasemalt, liiga kõrge temperatuuri juures võib käärimine kulgeda liiga kiiresti või isegi seiskuda.',

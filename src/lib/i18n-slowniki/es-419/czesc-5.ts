@@ -113,8 +113,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Eliminar masa madre',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Se creó una copia editable en tu biblioteca.',
   'Utwórz profil dla nowej kultury zakwasu': 'Crea un perfil para un nuevo cultivo de masa madre',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Atención: ¡hidratación muy alta para esta mezcla! La masa puede quedar floja y requerir una técnica de coil fold experta.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Atención: La temperatura del agua calculada supera los 45 °C. ¡Riesgo de cocer las levaduras y las bacterias ácido lácticas! Enfría la harina o baja la temperatura ambiente.',
   'Uważaj w kuchni': 'Ten cuidado en la cocina',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Retención de humedad gracias al almidón gelatinizado, miga sedosa y frescura durante varios días.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Con frío crece más lento, y a una temperatura demasiado alta la fermentación puede ir demasiado rápido o incluso detenerse.',

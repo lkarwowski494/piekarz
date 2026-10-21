@@ -81,8 +81,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Radera surdegsgrund',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'En redigerbar kopia har skapats i ditt bibliotek.',
   'Utwórz profil dla nowej kultury zakwasu': 'Skapa en profil för en ny surdegsgrund',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Varning: mycket hög vätskegrad för den här blandningen! Degen kan bli lös och kräva god vana vid vikningar (coil fold).',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Varning: Den beräknade vattentemperaturen överstiger 45 °C. Risk att jästen och mjölksyrabakterierna kokas ihjäl! Kyl mjölet eller sänk rumstemperaturen.',
   'Uważaj w kuchni': 'Var försiktig i köket',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Klistrad stärkelse binder fukt, ger silkeslent inkråm och flera dagars färskhet.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'I kyla växer den långsammare, och vid för hög temperatur kan jäsningen gå för fort eller till och med avstanna.',

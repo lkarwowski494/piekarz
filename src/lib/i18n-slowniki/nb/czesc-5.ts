@@ -75,8 +75,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Slett surdeigsstarter',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Opprettet en redigerbar kopi i biblioteket ditt.',
   'Utwórz profil dla nowej kultury zakwasu': 'Opprett en profil for en ny surdeigsstarter',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Advarsel: svært høy deighydrering for denne blandingen! Deigen kan bli løs og kreve øvd coil fold-teknikk.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Advarsel: Den beregnede vanntemperaturen overstiger 45 °C. Fare for at gjæren og melkesyrebakteriene kokes i hjel! Kjøl ned melet eller senk omgivelsestemperaturen.',
   'Uważaj w kuchni': 'Vær forsiktig på kjøkkenet',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Fuktighet bundet av forklistret stivelse, silkemyk krumme og friskhet i flere dager.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'I kulde vokser den saktere, og ved for høy temperatur kan fermenteringen gå for fort eller til og med stoppe.',

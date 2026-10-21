@@ -152,8 +152,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Xóa men tự nhiên',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Đã tạo bản sao có thể chỉnh sửa trong thư viện của bạn.',
   'Utwórz profil dla nowej kultury zakwasu': 'Tạo hồ sơ cho men tự nhiên mới',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Cảnh báo: độ ẩm bột rất cao với hỗn hợp này! Bột có thể nhão và cần kỹ thuật gấp bột (coil fold) thành thạo.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Cảnh báo: Nhiệt độ nước tính được vượt quá 45°C. Nguy cơ làm chết nấm men và vi khuẩn axit lactic vì nóng! Làm lạnh bột mì hoặc hạ nhiệt độ môi trường.',
   'Uważaj w kuchni': 'Cẩn thận trong bếp',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Tinh bột hồ hóa giữ ẩm, ruột bánh mịn như lụa và tươi nhiều ngày.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Khi lạnh, men nở chậm hơn, còn khi nhiệt độ quá cao, quá trình lên men có thể diễn ra quá nhanh, thậm chí ngừng lại.',

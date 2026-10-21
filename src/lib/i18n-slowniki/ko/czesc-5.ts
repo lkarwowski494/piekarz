@@ -131,8 +131,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': '사워도우 스타터 삭제',
   'Utworzono edytowalną kopię w Twojej bibliotece.': '보관함에 편집 가능한 사본을 만들었어요.',
   'Utwórz profil dla nowej kultury zakwasu': '새 사워도우 스타터의 프로필을 만드세요',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': '주의: 이 블렌드에 비해 가수율이 매우 높아요! 반죽이 질어질 수 있어 숙련된 코일 폴드 기술이 필요할 수 있어요.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': '주의: 계산된 물 온도가 45°C를 초과해요. 효모와 젖산균이 익어 버릴 위험이 있어요! 가루를 차갑게 하거나 실내 온도를 낮추세요.',
   'Uważaj w kuchni': '주방에서 조심하세요',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': '호화된 전분이 수분을 붙잡아 실크 같은 속살 (크럼)과 며칠 가는 신선함.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': '서늘하면 더 천천히 부풀고, 온도가 너무 높으면 발효가 너무 빨리 진행되거나 아예 멈출 수도 있어요.',

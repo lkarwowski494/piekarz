@@ -98,8 +98,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Hapus starter',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Salinan yang dapat diedit telah dibuat di pustaka Anda.',
   'Utwórz profil dla nowej kultury zakwasu': 'Buat profil untuk kultur starter ragi alami baru',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Perhatian: hidrasi sangat tinggi untuk campuran ini! Adonan bisa lembek dan memerlukan teknik regang dan lipat (coil fold) yang terampil.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Perhatian: Suhu air hasil perhitungan melebihi 45°C. Berisiko mematikan ragi dan bakteri asam laktat karena panas! Dinginkan tepung atau turunkan suhu ruang.',
   'Uważaj w kuchni': 'Hati-hati di dapur',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Kelembapan terkunci oleh pati yang tergelatinisasi, serat roti selembut sutra, dan tetap segar berhari-hari.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Di tempat dingin starter tumbuh lebih lambat, sedangkan pada suhu terlalu tinggi fermentasi bisa berlangsung terlalu cepat, bahkan berhenti.',

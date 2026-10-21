@@ -78,8 +78,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Izbriši kvas',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'V vaši knjižnici je ustvarjena kopija, ki jo lahko urejate.',
   'Utwórz profil dla nowej kultury zakwasu': 'Ustvarite profil za novo kulturo kvasa',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Pozor: zelo visoka hidracija za to mešanico! Testo je lahko mehko in zahteva spretno tehniko coil fold.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Pozor: Izračunana temperatura vode presega 45 °C. Nevarnost, da skuhate kvasovke in mlečnokislinske bakterije! Ohladite moko ali znižajte temperaturo prostora.',
   'Uważaj w kuchni': 'Bodite previdni v kuhinji',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Zadrževanje vlage z zaklejenim škrobom, svilnata sredica in večdnevna svežina.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Na hladnem raste počasneje, pri previsoki temperaturi pa lahko fermentacija poteka prehitro ali se celo ustavi.',

@@ -98,8 +98,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Ekşi mayayı sil',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Kitaplığınızda düzenlenebilir bir kopya oluşturuldu.',
   'Utwórz profil dla nowej kultury zakwasu': 'Yeni bir ekşi maya kültürü için profil oluşturun',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Dikkat: bu karışım için hidrasyon çok yüksek! Hamur gevşek olabilir ve ustalıkla uygulanan bir katlama (coil fold) tekniği gerektirebilir.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Dikkat: Hesaplanan su sıcaklığı 45°C\'yi aşıyor. Mayaları ve laktik asit bakterilerini pişirip öldürme riski! Unu soğutun veya ortam sıcaklığını düşürün.',
   'Uważaj w kuchni': 'Mutfakta dikkatli olun',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Jelatinleşmiş nişasta nemi hapseder; ipeksi ekmek içi ve günlerce tazelik.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Soğukta daha yavaş kabarır; çok yüksek sıcaklıkta ise fermantasyon çok hızlı ilerleyebilir, hatta durabilir.',

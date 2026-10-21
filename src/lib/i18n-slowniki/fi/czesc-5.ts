@@ -95,8 +95,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Poista hapanjuuri',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Kirjastoosi luotiin muokattava kopio.',
   'Utwórz profil dla nowej kultury zakwasu': 'Luo profiili uudelle hapanjuuriviljelmälle',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Huomio: erittäin korkea hydraatio tälle seokselle! Taikina voi olla löysä ja vaatia taitavaa coil fold -tekniikkaa.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Huomio: Laskettu veden lämpötila ylittää 45 °C. Hiivat ja maitohappobakteerit voivat kuolla kuumuuteen! Jäähdytä jauhot tai laske ympäristön lämpötilaa.',
   'Uważaj w kuchni': 'Ole varovainen keittiössä',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Liisteröitynyt tärkkelys sitoo kosteutta: silkkinen sisus ja usean päivän tuoreus.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Viileässä se kasvaa hitaammin, ja liian korkeassa lämpötilassa käyminen voi edetä liian nopeasti tai jopa pysähtyä.',

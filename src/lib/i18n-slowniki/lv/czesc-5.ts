@@ -100,8 +100,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Dzēst dabīgo ieraugu',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Jūsu bibliotēkā izveidota rediģējama kopija.',
   'Utwórz profil dla nowej kultury zakwasu': 'Izveidojiet profilu jaunai dabīgā ierauga kultūrai',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Uzmanību: šim maisījumam ļoti augsta mīklas hidrācija! Mīkla var būt šķidra, un tai var būt nepieciešama prasmīga mīklas locīšana (coil fold).',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Uzmanību: aprēķinātā ūdens temperatūra pārsniedz 45 °C. Risks novārīt raugu un pienskābes baktērijas! Atdzesējiet miltus vai samaziniet apkārtējo temperatūru.',
   'Uważaj w kuchni': 'Esiet uzmanīgi virtuvē',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Mitruma saistīšana ar klīsterizētu cieti, zīdains mīkstums un vairāku dienu svaigums.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Vēsumā tas aug lēnāk, bet pārāk augstā temperatūrā fermentācija var noritēt pārāk ātri vai pat apstāties.',

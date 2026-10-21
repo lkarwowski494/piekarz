@@ -105,8 +105,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Excluir fermento natural',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Cópia editável criada na sua biblioteca.',
   'Utwórz profil dla nowej kultury zakwasu': 'Crie um perfil para uma nova cultura de fermento natural',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Atenção: hidratação muito alta para esta mistura! A massa pode ficar mole e exigir boa técnica de dobras (coil fold).',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Atenção: a temperatura calculada da água ultrapassa 45 °C. Risco de cozinhar as leveduras e as bactérias lácticas! Resfrie a farinha ou reduza a temperatura ambiente.',
   'Uważaj w kuchni': 'Cuidado na cozinha',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Retenção de umidade pelo amido gelatinizado, miolo sedoso e frescor por vários dias.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'No frio ele cresce mais devagar e, em temperatura alta demais, a fermentação pode acontecer rápido demais e até parar.',

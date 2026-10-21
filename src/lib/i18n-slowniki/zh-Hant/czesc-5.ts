@@ -57,8 +57,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': '刪除天然酵母起種',
   'Utworzono edytowalną kopię w Twojej bibliotece.': '已在你的資料庫中建立可編輯的副本。',
   'Utwórz profil dla nowej kultury zakwasu': '為新的天然酵母起種建立檔案',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': '注意：此混合麵粉的麵團含水量非常高！麵團可能較鬆軟，需要熟練的翻面拉摺（coil fold）技巧。',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': '注意：計算出的水溫超過 45°C。有燙死酵母與乳酸菌的風險！請將麵粉降溫或降低環境溫度。',
   'Uważaj w kuchni': '在廚房要小心',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': '糊化澱粉鎖住水分，內部組織柔滑如絲，可保鮮多日。',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': '天冷時它長得較慢；溫度過高時，發酵可能過快，甚至停止。',

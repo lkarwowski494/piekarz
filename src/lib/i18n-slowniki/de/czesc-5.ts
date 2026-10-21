@@ -100,8 +100,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Sauerteig löschen',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Bearbeitbare Kopie in deiner Bibliothek erstellt.',
   'Utwórz profil dla nowej kultury zakwasu': 'Erstelle ein Profil für eine neue Sauerteigkultur',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Achtung: sehr hohe Hydration (Wasseranteil) für diese Mischung! Der Teig kann weich sein und eine geübte Technik beim Dehnen und Falten (Coil Fold) erfordern.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Achtung: Die berechnete Wassertemperatur liegt über 45 °C. Gefahr, Hefen und Milchsäurebakterien zu verbrühen! Kühle das Mehl oder senke die Raumtemperatur.',
   'Uważaj w kuchni': 'Sei vorsichtig in der Küche',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Verkleisterte Stärke bindet Feuchtigkeit, seidige Krume und tagelange Frische.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'In der Kälte wächst er langsamer, und bei zu hoher Temperatur kann die Gärung zu schnell verlaufen oder sogar stoppen.',

@@ -175,7 +175,5 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'サワー種を削除',
   'Utworzono edytowalną kopię w Twojej bibliotece.': '編集可能なコピーをライブラリに作成しました。',
   'Utwórz profil dla nowej kultury zakwasu': '新しいサワー種のプロフィールを作成',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': '注意：このブレンドにはかなり高い加水率です！生地がだれやすく、熟練した折りたたみ（コイルフォールド）の技術が必要になることがあります。',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': '注意：計算された水温が45°Cを超えています。酵母と乳酸菌が熱で死滅する危険があります！粉を冷やすか、室温を下げてください。',
   'Uważaj w kuchni': 'キッチンでは注意を',
 };

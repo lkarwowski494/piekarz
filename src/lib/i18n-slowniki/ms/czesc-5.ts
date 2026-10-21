@@ -99,8 +99,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Padam pemula sourdough',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Salinan yang boleh diedit telah dicipta dalam perpustakaan anda.',
   'Utwórz profil dla nowej kultury zakwasu': 'Cipta profil untuk kultur pemula sourdough baharu',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Amaran: penghidratan sangat tinggi untuk campuran ini! Doh mungkin lembik dan memerlukan teknik lipatan doh (coil fold) yang mahir.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Amaran: Suhu air yang dikira melebihi 45°C. Risiko memasak yis dan bakteria asid laktik! Sejukkan tepung atau turunkan suhu persekitaran.',
   'Uważaj w kuchni': 'Berhati-hati di dapur',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Lembapan terperangkap oleh kanji yang tergelatin, remah selembut sutera dan kesegaran berhari-hari.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Dalam keadaan sejuk ia naik lebih perlahan, dan pada suhu terlalu tinggi penapaian boleh berlaku terlalu cepat, malah terhenti.',

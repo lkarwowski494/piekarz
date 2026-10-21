@@ -142,8 +142,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Supprimer le levain naturel',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Copie modifiable créée dans votre bibliothèque.',
   'Utwórz profil dla nowej kultury zakwasu': 'Créez un profil pour une nouvelle culture de levain naturel',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Attention : hydratation totale très élevée pour ce mélange ! La pâte peut être relâchée et exiger une technique de rabats (coil fold) maîtrisée.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Attention : la température d\'eau calculée dépasse 45 °C. Risque de cuire les levures et les bactéries lactiques ! Refroidissez la farine ou baissez la température ambiante.',
   'Uważaj w kuchni': 'Prudence en cuisine',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Rétention de l\'humidité par l\'amidon gélatinisé, mie soyeuse et fraîcheur de plusieurs jours.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Au froid, il pousse plus lentement, et à une température trop élevée, la fermentation peut aller trop vite, voire s\'arrêter.',

@@ -108,8 +108,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Ištrinti natūralų raugą',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Jūsų bibliotekoje sukurta redaguojama kopija.',
   'Utwórz profil dla nowej kultury zakwasu': 'Sukurkite naujos natūralaus raugo kultūros profilį',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Dėmesio: šiam mišiniui labai didelė tešlos hidratacija! Tešla gali būti skysta ir reikalauti įgudusios coil fold technikos.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Dėmesio: apskaičiuota vandens temperatūra viršija 45 °C. Rizika išvirti mieles ir pieno rūgšties bakterijas! Atvėsinkite miltus arba sumažinkite aplinkos temperatūrą.',
   'Uważaj w kuchni': 'Būkite atsargūs virtuvėje',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Kleisterizuotas krakmolas sulaiko drėgmę: šilkinis minkštimas ir kelias dienas išliekantis šviežumas.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Vėsoje jis kyla lėčiau, o per aukštoje temperatūroje fermentacija gali vykti per greitai ar net sustoti.',

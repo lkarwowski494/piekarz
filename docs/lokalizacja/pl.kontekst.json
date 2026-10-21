@@ -314,6 +314,12 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
+  "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
+    ],
+    "opis": "Rada w arkuszu „Składniki”, gdy hydratacja jest dużo powyżej zakresu mieszanki mąk. Składanie = składanie ciasta w trakcie fermentacji (stretch and fold). Spokojny ton, bez wykrzyknika. [M1-audytor-generalny-116]"
+  },
   "Baza Fiszek Biochemicznych": {
     "gdzie": []
   },
@@ -3519,6 +3525,12 @@
       "src/core/domain-rules.ts (dane: warningMessagePl)"
     ]
   },
+  "Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.": {
+    "gdzie": [
+      "src/core/domain-rules.ts (dane: warningMessagePl)"
+    ],
+    "opis": "Ostrzeżenie w arkuszu „Temperatura wody” na ekranie receptury, gdy wyliczona woda jest gorętsza niż 45 °C. Spokojny ton: bez „Uwaga:” i bez wykrzyknika (głos aplikacji). 45°C przelicza się na °F w trybie imperialnym. [M1-audytor-generalny-116]"
+  },
   "Obniż docelową temperaturę ciasta": {
     "gdzie": [
       "src/components/calculator/accordion/AccordionDdtSection.tsx (accessibilityLabel)"
@@ -6013,19 +6025,9 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)"
     ]
   },
-  "Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.": {
-    "gdzie": [
-      "src/core/domain-rules.ts (dane: warningMessagePl)"
-    ]
-  },
   "Uwaga: W spiżarni brakuje {g}g mąki ({lista}).": {
     "gdzie": [
       "src/core/inventory.ts (dane: kod)"
-    ]
-  },
-  "Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
   "Uważaj w kuchni": {

@@ -110,8 +110,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Kovász törlése',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'Szerkeszthető másolat készült a könyvtáradban.',
   'Utwórz profil dla nowej kultury zakwasu': 'Hozz létre profilt az új kovászkultúrához',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Figyelem: nagyon magas hidratáció ehhez a keverékhez! A tészta lágy lehet, és gyakorlott hajtogatási technikát (coil fold) igényelhet.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Figyelem: A kiszámított vízhőmérséklet meghaladja a 45 °C-ot. Fennáll a veszélye, hogy megfőnek az élesztők és a tejsavbaktériumok! Hűtsd le a lisztet, vagy csökkentsd a környezeti hőmérsékletet.',
   'Uważaj w kuchni': 'Vigyázz a konyhában',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'A csirízesedett keményítő megköti a nedvességet: selymes bélzet és többnapos frissesség.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'Hidegben lassabban nő, túl magas hőmérsékleten pedig az erjedés túl gyorsan zajlhat, sőt le is állhat.',

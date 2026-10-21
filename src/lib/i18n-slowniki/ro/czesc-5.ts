@@ -105,8 +105,6 @@ export const CZESC: Record<string, string> = {
   'Usuń zakwas': 'Șterge maiaua',
   'Utworzono edytowalną kopię w Twojej bibliotece.': 'A fost creată o copie editabilă în biblioteca ta.',
   'Utwórz profil dla nowej kultury zakwasu': 'Creează un profil pentru o nouă cultură de maia naturală',
-  'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.': 'Atenție: grad de hidratare foarte mare pentru acest amestec! Aluatul poate fi moale și poate necesita o tehnică de coil fold exersată.',
-  'Uwaga: Obliczona temperatura wody przekracza 45°C. Ryzyko ugotowania drożdży i bakterii kwasu mlekowego! Schłodź mąkę lub obniż temperaturę otoczenia.': 'Atenție: Temperatura calculată a apei depășește 45 °C. Risc de opărire a drojdiilor și a bacteriilor lactice! Răcește făina sau scade temperatura ambiantă.',
   'Uważaj w kuchni': 'Ai grijă în bucătărie',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.': 'Reținerea umidității de către amidonul gelatinizat, miez mătăsos și prospețime timp de mai multe zile.',
   'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.': 'La rece crește mai încet, iar la o temperatură prea ridicată fermentarea poate decurge prea repede sau chiar se poate opri.',

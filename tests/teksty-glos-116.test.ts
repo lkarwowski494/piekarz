@@ -21,8 +21,8 @@ const WYJATKI: { plik: string; tekst: string; powod: string }[] = [
   { plik: 'src/core/techniques/prep-ferment-techniques.ts', tekst: 'Proper autolyse transforms', powod: 'treść techniki roli 06' },
   { plik: 'src/core/volume-converter.ts', tekst: 'Czerpanie szklanką', powod: 'przelicznik objętości F-45 PÓŹNIEJ, ostrzeżenie roli 06' },
   { plik: 'src/core/volume-converter.ts', tekst: 'Scooping directly from the bag', powod: 'przelicznik objętości F-45 PÓŹNIEJ, ostrzeżenie roli 06' },
-  { plik: 'src/core/domain-rules.ts', tekst: 'Uwaga: Obliczona temperatura wody', powod: 'ostrzeżenie dziedzinowe roli 06 (temperatura wody, tor 106: arkusz „Temperatura wody”)' },
-  { plik: 'src/core/flour-atlas.ts', tekst: 'Uwaga: bardzo wysoka hydratacja', powod: 'ostrzeżenie dziedzinowe roli 06 (mieszanki mąk, tor 106: arkusz „Składniki”)' },
+  // Ostrzeżenia temperatury wody i wysokiej hydratacji nie są już wyjątkami: tor 106 jest zamknięty, oba teksty są
+  // wyświetlane (arkusze „Temperatura wody” i „Składniki”) [M1-audytor-generalny-116; 04-studio-projektowe-034]
   { plik: 'src/core/inventory.ts', tekst: 'Uwaga: W spiżarni brakuje', powod: 'spiżarnia F-30 PÓŹNIEJ; tekst braku do roli 04 przy powrocie spiżarni' },
   { plik: 'src/components/FlourBlendModal.tsx', tekst: '✓ ', powod: 'tor 106: FlourBlendModal przechodzi do arkusza „Składniki”' },
 ];
