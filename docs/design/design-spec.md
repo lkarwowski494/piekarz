@@ -55,7 +55,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Zrobione na ostatnim kroku | pasek kciuka | arkusz oceny: gwiazdki 1–5, [Zapisz] / Save; przy ≤ 2★ „Otwórz Doktora Chleba” / Open Bread Doctor i „Nie teraz” / Not Now (F-43); przy ≥ 4★ tylko prośba systemowa (D-042) |
 | Wybierz recepturę / Choose a Recipe | pusty Dziennik (`dziennik-pusty`) | zakładka Receptury, lista receptur (§11c 116) |
 | Przesuń do lodówki / Move to fridge, Zostaw nocne składanie / Keep the night fold | Plan wypieku, kolizja ze snem (`plan-sen`) | fermentacja w lodówce na noc, nowa godzina „gotowe” / plan bez zmian; zastępuje „Rozwiąż kolizję” |
-| Piecz ponownie / Bake Again | wpis w Dzienniku | receptura z wpisu z ilościami z tamtego wypieku (F-28) |
+| Piecz ponownie / Bake Again | wpis w Dzienniku | plan wypieku z recepturą z wpisu i notatką z poprzedniego razu nad planem (F-28, BR-RECP-003; D-070) |
 | Usuń wpis / Delete Entry, Usuń recepturę / Delete Recipe | wpis Dziennika, wpis zakwasu, receptura własna (gest przesunięcia + ta sama akcja w menu wiersza) | bez pytania, pasek „Usunięto {obiekt}” z „Przywróć” / Restore (D-051 1a) |
 | Eksportuj do pliku / Export to File, Importuj z pliku / Import from File, Kopie zapasowe / Backups | Ustawienia (z „Dziś”) | eksport: arkusz udostępniania z jednym plikiem; import: jedno wejście dla receptury i kopii, podgląd według rodzaju pliku (`import-receptura`: „Dodaj”; `import-kopia`: „Zastąp dane”), kopia przed importem, potem dane w aplikacji (F-33, §11c 113); kopie: lista 10 ostatnich (F-32) |
 | Dodaj mąkę / Add Flour, Gotowe / Done | arkusz „Składniki” | nowy wiersz mąki; zamknięcie arkusza z zapisem (F-11) |
