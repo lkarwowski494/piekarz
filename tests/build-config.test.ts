@@ -3,7 +3,8 @@
 // (M1-audytor-generalny-077, 10-wydanie-006). TestFlight buduje workflow
 // GitHub Actions (xcodebuild), nie EAS: numer buildu liczy tylko workflow,
 // app.json nie ma sztywnego buildNumber, eas.json nie ma autoIncrement.
-// Minimalny iOS 18.0: decyzja BRD 00b o minimalnym iOS (docs/brd/00b_Decyzje.md).
+// Minimalny iOS 18.0: decyzja w obowiązującym rejestrze docs/decyzje.md (D-059,
+// przeniesiona z archiwalnej DEC-06 BRD 00b).
 // ============================================================================
 
 import { spawnSync } from 'node:child_process';
@@ -37,14 +38,17 @@ describe('numer buildu: jedno źródło (M1-audytor-generalny-077)', () => {
   });
 });
 
-describe('minimalny iOS z decyzji BRD 00b (M1-audytor-generalny-077)', () => {
+describe('minimalny iOS z decyzji w rejestrze (M1-audytor-generalny-077)', () => {
   it('app.json ios.deploymentTarget = 18.0', () => {
     expect(appJson.expo.ios.deploymentTarget).toBe('18.0');
   });
 
-  it('decyzja w BRD 00b wybiera iOS 18', () => {
-    const dec = readFileSync(join(root, 'docs', 'brd', '00b_Decyzje.md'), 'utf8');
-    expect(dec).toMatch(/Minimalna wersja system[\s\S]{0,300}Opcja B\*\* \(iOS 18/);
+  it('obowiązujący rejestr docs/decyzje.md ma decyzję o minimalnym iOS równym app.json', () => {
+    const dec = readFileSync(join(root, 'docs', 'decyzje.md'), 'utf8').replace(/\r\n/g, '\n');
+    const wpis = dec.split('\n### ').find((w) => /^\[D-\d{3}\][^\n]*Minimalny iOS/.test(w));
+    expect(wpis).toBeDefined();
+    expect(wpis).toMatch(/\*\*Decyzja:\*\*[^\n]*iOS 18\.0/);
+    expect(wpis).toMatch(new RegExp(`deploymentTarget[^\\n]*${appJson.expo.ios.deploymentTarget.replace('.', '\\.')}`));
   });
 
   describe('verify-native pilnuje wartości', () => {
