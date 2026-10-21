@@ -10,7 +10,8 @@ import { StyleSheet, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import type { StoredStarter } from '../../data/db';
 import { loadBakeSession } from '../../data/bake-session-store';
-import { isReadyAfterFeeding, setupDay, setupObservationOutcome, type SetupOutcome, type StarterSign } from '../../core/starter-log';
+import { STARTER_DOUBLING_MAX_H, isReadyAfterFeeding, setupDay, setupObservationOutcome, type SetupOutcome, type StarterSign } from '../../core/starter-log';
+import { NO_DOUBLING_ACTIONS } from '../../core/starter-doctor';
 import { fridgeWakeOutcome } from '../../core/fridge-wake';
 import { t } from '../../lib/i18n';
 import { guardSave } from '../../lib/save-guard';
@@ -107,6 +108,10 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
         onNiepokoi={() => router.push({ pathname: '/zakwasy/doktor-zakwasu', params: { starterId: starter.id } })}
       >
         {stan.gotowy && !zakladanie && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
+        {/* Po 8 h od dokarmienia bez podwojenia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007; BR-ZAKW-003) [130] */}
+        {!stan.gotowy && !zakladanie && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60 && (
+          <Text testID="zakwas-karm-dalej" style={styles.gotowy}>{t(NO_DOUBLING_ACTIONS[0])}</Text>
+        )}
         {wypiekZakwasu === starter.id && <FridgeWakeStatus wynik={fridgeWakeOutcome(log.entries, now)} now={now} />}
       </StarterCycleCard>
       <StarterEntriesList

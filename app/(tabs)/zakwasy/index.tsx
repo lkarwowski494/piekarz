@@ -326,7 +326,9 @@ export default function ZakwasScreen() {
           <StarterPeakActivityCard
             phaseResult={phaseResult}
             peakPrediction={peakPrediction}
-            showPeakWindow={starter.storageState !== 'FRIDGE'}
+            // Bez godziny szczytu, dopóki progi nie mają źródła (OP-39, F-24; BR-ZAKW-003) [M1-audytor-generalny-130]
+            showPeakWindow={false}
+            pokazTemperature={starter.storageState !== 'FRIDGE'}
             ambientTempC={ambientTempC}
             onAmbientTempChange={setAmbientTempC}
             unitSystem={unitSystem}
