@@ -284,13 +284,13 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zakup wymaga połączenia z App Store.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
 | `TEKST` | `Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Przywróć zakupy` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `TEKST` | `Warunki użytkowania` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Polityka prywatności` | `src/components/PaywallModal.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Piekarz Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/atrapa-asc-zgloszenie.ts |
 | `TEKST` | `Okres próbny: {dni}` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/slownik-akcji.test.ts |
-| `TEKST` | `Przywróć zakupy` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Warunki użytkowania` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Polityka prywatności` | `src/components/PaywallModal.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
 | `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Zakupy zostały pomyślnie przywrócone` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
 | `UI` | `Nie znaleziono aktywnych zakupów` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
