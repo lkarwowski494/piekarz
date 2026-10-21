@@ -1,5 +1,5 @@
-// Arkusz „Temperatura wody” z akcji receptury (057): to, co sprawdzał dawny test DDT w akordeonie
-// (ArtisanAccordionPro.test.tsx „steps DDT and hydration values”), teraz w arkuszu [M1-audytor-generalny-057]
+// Arkusz „Temperatura wody” z akcji receptury (057): to, co sprawdzał dawny test DDT w akordeonie PRO
+// (usuniętym jako martwy kod, M1-audytor-generalny-149), teraz w arkuszu [M1-audytor-generalny-057]
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { TemperaturaWodySheet } from '../TemperaturaWodySheet';

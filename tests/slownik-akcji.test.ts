@@ -142,7 +142,9 @@ describe('089: słownik akcji', () => {
     expect(uzycia('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.')).toContain('src/lib/notifications.ts');
     expect('Zakwas „{name}” stoi na blacie od 12 godzin bez karmienia.' in EN).toBe(false);
     expect(EN['Zaczyny']).toBe('Preferments');
-    expect(uzycia('Zaczyny')).toContain('src/components/calculator/accordion/AccordionPrefermentSection.tsx');
+    // Zaczyn wybiera się w arkuszu „Składniki” (§11c 106), nie w dawnej sekcji „Zaczyny” akordeonu [M1-audytor-generalny-149]
+    expect(EN['Zaczyn']).toBe('Preferment');
+    expect(uzycia('Zaczyn')).toContain('src/components/receptury/SkladnikiSheet.tsx');
   });
 
   it('kontrola wzorca 089: nazwy dawnych miejsc w odmianie są wykrywane, inne słowa nie', () => {
@@ -164,6 +166,7 @@ describe('089: słownik akcji', () => {
     expect(znalezione).toEqual([]);
     expect(EN['Mniej bochenków']).toBe('Fewer loaves');
     expect(EN['Więcej bochenków']).toBe('More loaves');
-    expect(uzycia('Mniej bochenków')).toContain('src/components/calculator/DoMiskiScaleCard.tsx');
+    expect(uzycia('Mniej bochenków')).toContain('src/components/receptury/DoMiski.tsx');
+    expect(uzycia('Więcej bochenków')).toContain('src/components/receptury/DoMiski.tsx');
   });
 });

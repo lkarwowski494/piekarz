@@ -55,7 +55,10 @@ describe('No ice mass in the recipe interface (F-53 NIE)', () => {
   it('recipe screen code has no ice field, ice result or ice text', () => {
     for (const p of [
       'src/components/calculator/accordion/AccordionDdtSection.tsx',
-      'src/components/calculator/ArtisanAccordionPro.tsx',
+      // Dawny akordeon PRO zastąpiły arkusze „Temperatura wody” i „Składniki” oraz „Do miski” (§11c 106) [M1-audytor-generalny-149]
+      'src/components/calculator/TemperaturaWodySheet.tsx',
+      'src/components/receptury/SkladnikiSheet.tsx',
+      'src/components/receptury/DoMiski.tsx',
       'app/(tabs)/receptury/index.tsx',
       'app/(tabs)/receptury/receptura.tsx',
       'src/hooks/useRecipeCalculations.ts',
