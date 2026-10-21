@@ -70,12 +70,16 @@ export function TargetReadyCard({
   return (
     <View style={styles.sekcja}>
       <Text style={styles.pytanie} accessibilityRole="header">{t('Kiedy chleb ma być gotowy?')}</Text>
-      <View testID="plan-pole-gotowosci" style={styles.pole}>
-        <Text style={styles.dzien}>{formattedDayBadge}</Text>
-        <Text style={styles.godzina}>{godzina(targetHour, targetMinute)}</Text>
+      {/* Pole dnia i godziny z ±30 min po bokach (jeden rząd zamiast dwóch: Spirala w pierwszym widoku) */}
+      <View style={styles.rzadPola}>
+        <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />
+        <View testID="plan-pole-gotowosci" style={styles.pole}>
+          <Text style={styles.dzien}>{formattedDayBadge}</Text>
+          <Text style={styles.godzina}>{godzina(targetHour, targetMinute)}</Text>
+        </View>
+        <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />
       </View>
       <View style={styles.rzad}>
-        <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />
         {[
           { label: t('Dziś'), offset: 0 },
           { label: t('Jutro'), offset: 1 },
@@ -83,7 +87,6 @@ export function TargetReadyCard({
         ].map((d) => (
           <Chip key={d.offset} tekst={d.label} wybrany={d.offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(d.offset)} />
         ))}
-        <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />
       </View>
 
       {children}
@@ -113,22 +116,21 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     marginBottom: odstepy.m,
   },
+  rzadPola: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s, marginBottom: odstepy.s },
   pole: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexGrow: 1,
+    flexBasis: 140,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: odstepy.s,
+    justifyContent: 'center',
     minHeight: theme.cele.glownyPrzeplyw,
-    paddingHorizontal: odstepy.l,
-    paddingVertical: odstepy.s,
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.xs,
     borderRadius: promienie.pole,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,
-    marginBottom: odstepy.s,
   },
-  dzien: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  dzien: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   godzina: {
     fontFamily: theme.typography.krojTytulow,
     fontSize: typografia.style.czas.pt,
