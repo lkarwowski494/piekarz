@@ -100,4 +100,14 @@ export const EN_14: Record<string, string> = {
     'Rye share {n}%: rye variant, no folds in the plan.',
   'Udział żyta {n}%: wariant pszenny.':
     'Rye share {n}%: wheat variant.',
+  // Tor p13b: notatka z poprzedniego wypieku w planie przy 
+  'Notatka z poprzedniego wypieku: {notatka}':
+    'Note from your last bake: {notatka}',
+  // Tor p13b: pola temperatur w arkuszu 
+  'Temperatura w kuchni':
+    'Kitchen temperature',
+  'Temperatura zakwasu albo zaczynu':
+    'Starter or preferment temperature',
+  'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.':
+    'Fill in "{pole}" to calculate the water temperature.',
 };

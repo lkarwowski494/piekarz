@@ -30,6 +30,26 @@
       "klucz": "Udział żyta {n}%: wariant pszenny.",
       "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Notatka z poprzedniego wypieku: {notatka}",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-RECP-003 notatka w planie); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Temperatura w kuchni",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Temperatura zakwasu albo zaczynu",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

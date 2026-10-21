@@ -109,6 +109,8 @@ export default function HarmonogramScreen() {
   // Receptura żytnia z „Ułóż plan”: etapy żytnie z czasami planu, studzenie kończy się o godzinie „gotowe”;
   // te same kroki dostaje Stolnica (DEC-04 a) [M1-audytor-generalny-030; 03-zakres-501]
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
+  // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
+  const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
   const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
     const zPlanu = stepsFromSchedule(plan);
     const bazowe = zytni ? ryeStepsEndingAt(zPlanu, celMs) : zPlanu;
@@ -253,6 +255,11 @@ export default function HarmonogramScreen() {
         {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027]; start w pasku kciuka
             przechodzi przez tego samego strażnika (requireActionAccess) */}
         <BlokadaFunkcji {...blokada('harmonogram')}>
+        {notatkaPoprzednia ? (
+          <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
+            {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
+          </Text>
+        ) : null}
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}

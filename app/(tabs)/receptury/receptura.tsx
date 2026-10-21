@@ -30,6 +30,7 @@ import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
 import { ustawRecepturePlanu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
+import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
@@ -67,10 +68,9 @@ export default function EkranReceptury() {
 
   // DDT parameters
   const [targetDdt, setTargetDdt] = useState<number>(25.0);
-  const [flourTemp] = useState<number>(21.0);
-  const [roomTemp] = useState<number>(22.0);
-  const [starterTemp] = useState<number>(21.0);
-  const [frictionFactor] = useState<number>(2.0);
+  // Temperatury do wzoru wody: pola w arkuszu „Temperatura wody”, null = puste pole (BR-KALK-004, RD-16)
+  // [M1-audytor-generalny-146]
+  const [temperatury, setTemperatury] = useState<TemperaturyDdt>({ maka: 21.0, kuchnia: 22.0, zaczyn: 21.0, tarcie: 2.0 });
   const [tapWaterTemp] = useState<number>(16.0);
 
   // Strata piecowa: F-48 PÓŹNIEJ bez wejścia (§11c 106); kopia receptury pomija ją, dopóki wejście jest ukryte (DEC-25 a, 199)
@@ -116,6 +116,10 @@ export default function EkranReceptury() {
     if (ddt !== undefined) setTargetDdt(ddt);
   }, []);
 
+  const roomTemp = temperatury.kuchnia ?? 0;
+  const zZaczynem = starterPct > 0 || prefermentType !== 'direct';
+  const brakTemperatury = brakujacaTemperatura(temperatury, zZaczynem);
+
   // Derived Calculations Hook
   const {
     targetDoughWeightGrams,
@@ -140,10 +144,10 @@ export default function EkranReceptury() {
     extraYeastPct: yeastPct,
     starterHydration,
     targetDdt,
-    flourTemp,
+    flourTemp: temperatury.maka ?? 0,
     roomTemp,
-    starterTemp,
-    frictionFactor,
+    starterTemp: zZaczynem ? temperatury.zaczyn ?? 0 : undefined,
+    frictionFactor: temperatury.tarcie ?? 0,
     customBakeLossPercent,
     prefermentType,
     prefermentFlourPct,
@@ -327,6 +331,8 @@ export default function EkranReceptury() {
         onTargetDdtChange={setTargetDdt}
         waterTempTarget={ddtResult.waterTempTarget}
         waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
+        temperatury={{ wartosci: temperatury, zZaczynem, onChange: (z) => setTemperatury((p) => ({ ...p, ...z })) }}
+        brakPola={brakTemperatury ? ETYKIETY_TEMPERATUR[brakTemperatury] : null}
       />
 
       <SaveRecipeModal

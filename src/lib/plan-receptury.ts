@@ -10,6 +10,8 @@ export interface RecepturaPlanu {
   recipeName: string;
   calculatedRecipe: DoughRecipeResult;
   recipeFormula: DoughRecipeInput;
+  /** Notatka z wpisu dziennika przy „Piecz ponownie” (BR-RECP-003) [M1-audytor-generalny-146] */
+  notatka?: string;
 }
 
 let biezaca: RecepturaPlanu | null = null;
