@@ -8,6 +8,17 @@ import { act } from 'react-test-renderer';
 import renderer from 'react-test-renderer';
 import { QrCodeSvg, generateQrMatrix } from '../QrCodeSvg';
 
+describe('QrCodeSvg: etykieta VoiceOver [audyt-niezalezny G-4]', () => {
+  it('kod jest jednym obrazem z etykietą z propsa', () => {
+    let t!: renderer.ReactTestRenderer;
+    act(() => {
+      t = renderer.create(<QrCodeSvg value="piekarz://recipe?v=1&d=x" accessibilityLabel="Kod QR Receptury" testID="qr" />);
+    });
+    const obraz = t.root.findAll((n) => typeof n.type === 'string' && n.props.accessibilityRole === 'image');
+    expect(obraz.map((n) => [n.props.accessible, n.props.accessibilityLabel])).toEqual([[true, 'Kod QR Receptury']]);
+  });
+});
+
 describe('QrCodeSvg', () => {
   it('generates a valid 2D boolean matrix of QR modules', () => {
     const { size, modules } = generateQrMatrix('piekarz://recipe?v=1&d=test');

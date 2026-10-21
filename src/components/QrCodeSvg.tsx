@@ -15,6 +15,8 @@ export interface QrCodeSvgProps {
   color?: string;
   backgroundColor?: string;
   testID?: string;
+  /** Etykieta VoiceOver kodu jako jednego obrazu [audyt-niezalezny G-4]. */
+  accessibilityLabel?: string;
 }
 
 /**
@@ -48,6 +50,7 @@ export const QrCodeSvg: React.FC<QrCodeSvgProps> = ({
   color = '#2C2016',
   backgroundColor = '#FFFFFF',
   testID,
+  accessibilityLabel,
 }) => {
   const { pathData, moduleCount } = useMemo(() => {
     try {
@@ -74,7 +77,8 @@ export const QrCodeSvg: React.FC<QrCodeSvgProps> = ({
   }
 
   return (
-    <View style={[styles.container, { width: size, height: size }]} testID={testID}>
+    <View style={[styles.container, { width: size, height: size }]} testID={testID}
+      accessible accessibilityRole="image" accessibilityLabel={accessibilityLabel}>
       <Svg
         width={size}
         height={size}
