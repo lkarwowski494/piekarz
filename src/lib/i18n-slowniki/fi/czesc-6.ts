@@ -1,4 +1,4 @@
-// Słownik fi, część 6 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik fi, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej. Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'King Arthur Bakingin mukaan ruoki jääkaapista otettu hapanjuuri ennen leivontaa yhtä suurin osin painon mukaan ja jätä se huoneenlämpöön. Se voi alkaa kuplia nopeasti tai tarvita jopa 12 tuntia sen mukaan, milloin se on viimeksi ruokittu.',
