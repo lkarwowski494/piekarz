@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 560 | 560 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 559 | 559 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 405 | 405 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 169 | 169 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1188** | Pokrytych: **1188** | Brakujących: **0**
+Łącznie elementów: **1187** | Pokrytych: **1187** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 888 kolejnych elementów w pełnym wykazie)*
+*(... i 887 kolejnych elementów w pełnym wykazie)*
