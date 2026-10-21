@@ -39,9 +39,11 @@ function slownik(kod: string): Map<string, string> {
 }
 
 describe('093: 12 kluczy po małym przebiegu przekładu', () => {
-  it('lista czekających jest pusta', () => {
+  // Lista czekających przyjmuje nowe zdania roli 06 do przekładu batchem M2 (M1-audytor-generalny-131…133);
+  // żaden z 12 kluczy 093 nie może na niej wrócić [M1-audytor-generalny-132].
+  it('żaden z 12 kluczy 093 nie czeka na przekład', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8'));
-    expect(j.klucze).toEqual([]);
+    expect(j.klucze.map((x: { klucz: string }) => x.klucz).filter((k: string) => KLUCZE.includes(k))).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {
