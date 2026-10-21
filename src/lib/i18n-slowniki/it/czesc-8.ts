@@ -24,7 +24,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calcolata dell\'acqua supera i 45 °C. Questo rischia di cuocere i lieviti e i batteri lattici. Raffredda la farina o abbassa la temperatura ambiente.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Autentico impasto per pizza napoletana dal cornicione croccante e dall\'interno delicato.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Ultima piega, che crea tensione superficiale. L\'impasto dovrebbe essere soffice e mantenere la forma a palla.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parametri della pagnotta «{name}» caricati nella ricetta.',
   'Piekarz Pro nie jest aktywny': 'Fornaio Pro non è attivo',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calcola la temperatura dell\'acqua nella ricetta: secondo King Arthur Baking, l\'impasto di grano tenero dopo la miscelazione dovrebbe essere a circa 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Unisci la farina e l\'acqua, non aggiungere ancora il lievito madre né il sale. Lascia che glutine ed enzimi sviluppino da soli la struttura dell\'impasto.',

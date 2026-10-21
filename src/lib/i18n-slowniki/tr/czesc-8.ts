@@ -5,7 +5,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Hesaplanan su sıcaklığı 45°C değerini aşıyor. Bu, mayayı ve laktik asit bakterilerini haşlama riski taşır. Unu soğutun veya ortam sıcaklığını düşürün.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Çıtır kenarlı ve yumuşak içli özgün Napoli pizza hamuru.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Yüzey gerginliği oluşturan son katlama. Hamur kabarık olmalı ve top şeklini korumalıdır.',
-  'Parametry bochenka „{name}” wczytano do receptury.': '“{name}” somununun parametreleri tarife yüklendi.',
   'Piekarz Pro nie jest aktywny': 'Fırıncı Pro etkin değil',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Tarifte su sıcaklığını hesaplayın: King Arthur Baking\'e göre buğday hamuru karıştırıldıktan sonra yaklaşık 24–25,5 °C olmalıdır.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Unu ve suyu karıştırın; henüz ekşi maya veya tuz eklemeyin. Glutenin ve enzimlerin hamur yapısını kendiliğinden geliştirmesine izin verin.',

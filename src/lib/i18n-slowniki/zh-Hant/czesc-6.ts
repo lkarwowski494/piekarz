@@ -62,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': '起種',
   'zalecana': '建議',
   'Zalecenie studzenia na kratce': '散熱架冷卻建議',
-  'Załadowano recepturę': '已載入配方',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': '養成天然酵母起種需要連續數天定期餵養；平均需要 7–10 天。',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': '戴上乾燥的隔熱手套，朝遠離自己的方向掀起鍋蓋，因為鍋蓋下會冒出熱蒸汽。',
   'Zamknij': '關閉',

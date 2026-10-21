@@ -123,7 +123,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Vypočtená teplota vody přesahuje 45 °C. Hrozí uvaření kvasinek a bakterií mléčného kvašení. Zchlaďte mouku nebo snižte teplotu prostředí.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Originální těsto na neapolskou pizzu s křupavým okrajem a jemným vnitřkem.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Poslední překládání, které buduje povrchové napětí. Těsto by mělo být nadýchané a držet tvar koule.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parametry bochníku „{name}“ byly načteny do receptury.',
   'Piekarz Pro nie jest aktywny': 'Pekař Pro není aktivní',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Spočítejte teplotu vody v receptuře: podle King Arthur Baking by pšeničné těsto mělo mít po promíchání asi 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Smíchejte mouku s vodou, kvásek ani sůl zatím nepřidávejte. Nechte lepek a enzymy samovolně vyvinout strukturu těsta.',

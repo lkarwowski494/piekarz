@@ -77,7 +77,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Surdeje',
   'zalecana': 'anbefalet',
   'Zalecenie studzenia na kratce': 'Råd om afkøling på rist',
-  'Załadowano recepturę': 'Opskrift indlæst',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Det kræver flere dages regelmæssig fodring at lave en surdej; i gennemsnit tager det 7–10 dage.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Tag tørre ovnhandsker på, og løft låget væk fra dig, for der slipper varm damp ud under det.',
   'Zamknij': 'Luk',

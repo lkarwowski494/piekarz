@@ -26,7 +26,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Расчётная температура воды превышает 45 °C. Это грозит гибелью дрожжей и молочнокислых бактерий. Охладите муку или понизьте температуру в помещении.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Настоящее тесто для неаполитанской пиццы с хрустящим бортиком и нежной серединой.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Последнее складывание, создающее поверхностное натяжение. Тесто должно быть воздушным и держать форму шара.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Параметры буханки «{name}» загружены в рецептуру.',
   'Piekarz Pro nie jest aktywny': 'Хлебопёк Pro не активен',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Рассчитайте температуру воды в рецептуре: по данным King Arthur Baking, пшеничное тесто после замеса должно иметь температуру около 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Смешайте муку с водой, пока не добавляйте закваску и соль. Дайте глютену и ферментам самостоятельно развить структуру теста.',

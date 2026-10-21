@@ -126,7 +126,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Lieviti madre',
   'zalecana': 'consigliata',
   'Zalecenie studzenia na kratce': 'Consiglio per il raffreddamento su griglia',
-  'Załadowano recepturę': 'Ricetta caricata',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Avviare un lievito madre richiede diversi giorni di rinfreschi regolari; in media 7–10 giorni.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Indossa guanti da forno asciutti e solleva il coperchio verso il lato opposto a te, perché da sotto esce vapore bollente.',
   'Zamknij': 'Chiudi',

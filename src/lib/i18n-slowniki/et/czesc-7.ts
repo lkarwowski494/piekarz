@@ -103,7 +103,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Arvutatud veetemperatuur ületab 45 °C. Nii võivad pärm ja piimhappebakterid kuumuses hukkuda. Jahuta jahu või alanda ümbritsevat temperatuuri.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Ehtne Napoli pitsatainas krõbeda ääre ja õrna sisuga.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Viimane voltimine, mis loob pinnapinge. Tainas peaks olema kohev ja hoidma kera kuju.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Pätsi „{name}“ parameetrid laaditi retsepti.',
   'Piekarz Pro nie jest aktywny': 'Pagar Pro pole aktiivne',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Arvuta retseptis veetemperatuur: King Arthur Bakingu andmetel peaks nisutainas pärast segamist olema umbes 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Sega jahu ja vesi, juuretist ega soola veel ära lisa. Lase gluteenil ja ensüümidel taigna struktuur iseenesest välja arendada.',

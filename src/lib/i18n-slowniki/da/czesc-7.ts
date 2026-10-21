@@ -101,7 +101,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Den beregnede vandtemperatur overstiger 45 °C. Det risikerer at dræbe gæren og mælkesyrebakterierne. Køl melet ned, eller sænk rumtemperaturen.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Original napolitansk pizzadej med sprød kant og en delikat inderside.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Sidste foldning, der opbygger overfladespænding. Dejen skal være luftig og holde en rund form.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parametrene for brødet »{name}« er indlæst i opskriften.',
   'Piekarz Pro nie jest aktywny': 'Bageren Pro er ikke aktiv',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Beregn vandtemperaturen i opskriften: Ifølge King Arthur Baking bør hvededej have ca. 24–25,5 °C efter sammenblanding.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Bland mel og vand, men tilsæt endnu ikke surdej eller salt. Lad gluten og enzymer selv udvikle dejens struktur.',

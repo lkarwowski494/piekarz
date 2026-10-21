@@ -4,9 +4,6 @@ export const EN_3: Record<string, string> = {
   // Bake Again, Sensory Radar & Time Adjustments (P3, P4, P8)
   'Zmniejsz': 'Decrease',
   'Zwiększ': 'Increase',
-  'Załadowano recepturę': 'Recipe loaded',
-  'Parametry bochenka „{name}” wczytano do receptury.':
-    'Loaded the formula and parameters of "{name}" into the recipe.',
   'Piecz ponownie': 'Bake Again',
   '-5 min': '-5 min',
   '-10 sek': '-10 sec',

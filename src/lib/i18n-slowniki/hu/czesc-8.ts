@@ -21,7 +21,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'A kiszámított vízhőmérséklet meghaladja a 45 °C-ot. Ez azzal fenyeget, hogy az élesztő és a tejsavbaktériumok elpusztulnak. Hűtsd le a lisztet, vagy csökkentsd a környezeti hőmérsékletet.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Eredeti nápolyi pizzatészta ropogós peremmel és finom, puha belsővel.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Az utolsó hajtogatás, amely felületi feszességet ad. A tésztának levegősnek kell lennie, és meg kell tartania a gömb alakját.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'A(z) „{name}” cipó paraméterei betöltve a receptúrába.',
   'Piekarz Pro nie jest aktywny': 'A Pék Pro nem aktív',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Számold ki a vízhőmérsékletet a receptúrában: a King Arthur Baking szerint a búzatésztának bekeverés után kb. 24–25,5 °C-osnak kell lennie.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Keverd össze a lisztet a vízzel, a kovászt és a sót még ne add hozzá. Hagyd, hogy a glutén és az enzimek maguktól kialakítsák a tészta szerkezetét.',

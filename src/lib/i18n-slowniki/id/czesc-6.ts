@@ -109,7 +109,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Starter',
   'zalecana': 'disarankan',
   'Zalecenie studzenia na kratce': 'Saran pendinginan di rak kawat',
-  'Załadowano recepturę': 'Resep dimuat',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Membuat starter ragi alami memerlukan beberapa hari pemberian makan rutin; rata-rata 7–10 hari.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Kenakan sarung tangan dapur yang kering dan angkat tutup panci menjauhi tubuh Anda, karena uap panas keluar dari bawahnya.',
   'Zamknij': 'Tutup',

@@ -88,7 +88,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': '計算上の水温が45°Cを超えています。酵母と乳酸菌が死んでしまうおそれがあります。粉を冷やすか、室温を下げてください。',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': '縁はカリッと、中はやわらかい本場のナポリピッツァ生地。',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': '最後のパンチ（折りたたみ）で表面に張りを持たせます。生地はふんわりとして、丸い形を保っている状態が目安です。',
-  'Parametry bochenka „{name}” wczytano do receptury.': '「{name}」のパンのパラメーターを配合に読み込みました。',
   'Piekarz Pro nie jest aktywny': 'パン職人 Pro は有効になっていません',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': '配合画面で水温を計算してください。King Arthur Bakingによると、小麦粉の生地は混ぜ終わった時点で約24–25.5 °Cが目安です。',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': '粉と水を合わせてください。サワー種と塩はまだ加えないでください。グルテンと酵素の働きで、生地の構造が自然に形成されるのを待ちます。',

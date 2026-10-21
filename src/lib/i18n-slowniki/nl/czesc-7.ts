@@ -122,7 +122,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'De berekende watertemperatuur is hoger dan 45 °C. Daarmee dreigen de gist en de melkzuurbacteriën te worden doodgekookt. Koel het meel of verlaag de omgevingstemperatuur.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Authentiek Napolitaans pizzadeeg met een knapperige rand en een zachte binnenkant.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Laatste keer vouwen om oppervlaktespanning op te bouwen. Het deeg moet luchtig zijn en een ronde vorm houden.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'De parameters van het brood „{name}” zijn in de receptuur geladen.',
   'Piekarz Pro nie jest aktywny': 'Bakker Pro is niet actief',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Bereken de watertemperatuur in de receptuur: volgens King Arthur Baking hoort tarwedeeg na het mengen ongeveer 24–25,5 °C te zijn.',
 };

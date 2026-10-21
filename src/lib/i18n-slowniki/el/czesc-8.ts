@@ -97,7 +97,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Προζύμια',
   'zalecana': 'συνιστώμενη',
   'Zalecenie studzenia na kratce': 'Σύσταση για κρύωμα σε σχάρα',
-  'Załadowano recepturę': 'Η συνταγή φορτώθηκε',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Η δημιουργία προζυμιού απαιτεί μερικές ημέρες τακτικού ταΐσματος· κατά μέσο όρο διαρκεί 7–10 ημέρες.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Φορέστε στεγνά πυράντοχα γάντια και σηκώστε το καπάκι με κατεύθυνση μακριά από εσάς, γιατί από κάτω βγαίνει καυτός ατμός.',
   'Zamknij': 'Κλείσιμο',

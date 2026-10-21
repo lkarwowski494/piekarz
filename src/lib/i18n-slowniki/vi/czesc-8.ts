@@ -75,7 +75,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Nhiệt độ nước tính được vượt quá 45°C. Điều này có nguy cơ làm chín nấm men và vi khuẩn axit lactic. Hãy làm lạnh bột mì hoặc hạ nhiệt độ môi trường.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Bột pizza Napoli chính gốc với viền giòn và phần bên trong mềm mịn.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Lần gấp bột cuối, tạo sức căng bề mặt. Bột nên xốp nhẹ và giữ được dáng tròn.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Đã tải thông số của ổ bánh “{name}” vào công thức.',
   'Piekarz Pro nie jest aktywny': 'Thợ Bánh Mì Pro chưa kích hoạt',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Tính nhiệt độ nước trong công thức: theo King Arthur Baking, khối bột mì sau khi trộn nên đạt khoảng 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Trộn bột với nước, chưa thêm men tự nhiên hay muối. Để gluten và enzyme tự phát triển cấu trúc bột.',

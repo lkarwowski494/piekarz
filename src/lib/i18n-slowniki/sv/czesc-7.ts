@@ -106,7 +106,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Den beräknade vattentemperaturen överstiger 45 °C. Det riskerar att koka ihjäl jästen och mjölksyrabakterierna. Kyl mjölet eller sänk rumstemperaturen.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Äkta napolitansk pizzadeg med krispig kant och mjuk insida.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Sista vikningen, som bygger ytspänning. Degen ska vara luftig och hålla formen som en boll.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parametrarna för limpan ”{name}” har lästs in i receptet.',
   'Piekarz Pro nie jest aktywny': 'Bagaren Pro är inte aktiv',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Räkna ut vattentemperaturen i receptet: enligt King Arthur Baking bör vetedeg hålla ca 24–25,5 °C efter blandning.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Blanda mjölet med vattnet, men tillsätt inte surdegsgrund eller salt än. Låt glutenet och enzymerna utveckla degens struktur av sig själva.',

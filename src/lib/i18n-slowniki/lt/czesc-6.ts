@@ -113,7 +113,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Raugai',
   'zalecana': 'rekomenduojama',
   'Zalecenie studzenia na kratce': 'Aušinimo ant grotelių rekomendacija',
-  'Załadowano recepturę': 'Receptūra įkelta',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Raugo užvedimui reikia kelių dienų reguliaraus maitinimo; vidutiniškai tai trunka 7–10 dienų.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Užsimaukite sausas virtuvines pirštines ir kelkite dangtį nuo savęs, nes iš po jo veržiasi karšti garai.',
   'Zamknij': 'Uždaryti',

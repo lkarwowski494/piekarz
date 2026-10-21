@@ -82,7 +82,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Kvasi',
   'zalecana': 'priporočena',
   'Zalecenie studzenia na kratce': 'Priporočilo za ohlajanje na rešetki',
-  'Załadowano recepturę': 'Recept naložen',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Vzpostavitev kvasa zahteva nekaj dni rednega hranjenja; v povprečju traja 7–10 dni.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Nadenite si suhe kuhinjske rokavice in pokrovko dvigujte stran od sebe, ker izpod nje uhaja vroča para.',
   'Zamknij': 'Zapri',

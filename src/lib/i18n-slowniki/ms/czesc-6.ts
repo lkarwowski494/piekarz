@@ -108,7 +108,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Pemula',
   'zalecana': 'disyorkan',
   'Zalecenie studzenia na kratce': 'Cadangan penyejukan di atas rak dawai',
-  'Załadowano recepturę': 'Resipi dimuatkan',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Penyediaan pemula sourdough memerlukan beberapa hari pemberian makan yang tetap; secara purata ia mengambil masa 7–10 hari.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Pakai sarung tangan ketuhar yang kering dan angkat penutup menjauhi anda, kerana wap panas keluar dari bawahnya.',
   'Zamknij': 'Tutup',

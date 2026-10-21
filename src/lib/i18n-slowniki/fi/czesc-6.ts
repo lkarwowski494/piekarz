@@ -102,7 +102,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Hapanjuuret',
   'zalecana': 'suositeltu',
   'Zalecenie studzenia na kratce': 'Ohje: jäähdytys ritilällä',
-  'Załadowano recepturę': 'Resepti ladattu',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Hapanjuuren aloittaminen vaatii useita päiviä säännöllistä ruokintaa; keskimäärin se kestää 7–10 päivää.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Pue kuivat patakintaat ja nosta kansi itsestäsi poispäin, sillä sen alta purkautuu kuumaa höyryä.',
   'Zamknij': 'Sulje',

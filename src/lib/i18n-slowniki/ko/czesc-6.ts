@@ -142,7 +142,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': '스타터',
   'zalecana': '권장',
   'Zalecenie studzenia na kratce': '식힘망에서 식히기 안내',
-  'Załadowano recepturę': '배합표를 불러왔어요',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': '사워도우 스타터를 만들려면 며칠 동안 규칙적으로 먹이를 줘야 해요. 평균 7–10일 걸려요.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': '마른 내열 장갑을 끼고 뚜껑을 몸 반대쪽으로 들어 올리세요. 뚜껑 아래에서 뜨거운 증기가 빠져나와요.',
   'Zamknij': '닫기',

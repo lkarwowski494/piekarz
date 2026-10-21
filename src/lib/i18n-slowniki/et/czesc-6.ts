@@ -80,7 +80,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Juuretised',
   'zalecana': 'soovitatav',
   'Zalecenie studzenia na kratce': 'Restil jahutamise soovitus',
-  'Załadowano recepturę': 'Retsept laaditud',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Juuretise valmistamine nõuab mitu päeva regulaarset toitmist; keskmiselt kulub selleks 7–10 päeva.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Pane kätte kuivad pajakindad ja tõsta kaas endast eemale, sest selle alt pääseb välja kuum aur.',
   'Zamknij': 'Sulge',

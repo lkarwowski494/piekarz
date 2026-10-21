@@ -3970,10 +3970,6 @@
   "Parametry Rzemieślnicze & Mąki": {
     "gdzie": []
   },
-  "Parametry bochenka „{name}” wczytano do receptury.": {
-    "gdzie": [],
-    "opis": "Komunikat po „Piecz ponownie” z wpisu Dziennika: ilości i parametry tamtego wypieku trafiły na ekran receptury. {name} = nazwa receptury. Dawny „kalkulator” to dziś ekran receptury. [M1-audytor-generalny-113]"
-  },
   "Pasywne": {
     "gdzie": [
       "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
@@ -7626,9 +7622,6 @@
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
     ]
-  },
-  "Załadowano recepturę": {
-    "gdzie": []
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
     "gdzie": [

@@ -121,7 +121,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Maia',
   'zalecana': 'recomandată',
   'Zalecenie studzenia na kratce': 'Recomandare pentru răcirea pe grătar',
-  'Załadowano recepturę': 'Rețetă încărcată',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Obținerea maiei naturale necesită câteva zile de hrănire regulată; în medie durează 7–10 zile.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Pune-ți mănuși de bucătărie uscate și ridică capacul îndepărtându-l de tine, pentru că de sub el iese abur fierbinte.',
   'Zamknij': 'Închide',

@@ -57,7 +57,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La température d\'eau calculée dépasse 45 °C. Cela risque de tuer les levures et les bactéries lactiques. Refroidissez la farine ou abaissez la température ambiante.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Pâte à pizza napolitaine authentique, au bord croustillant et au cœur tendre.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Dernier rabat, qui crée la tension de surface. La pâte doit être aérée et garder une forme de boule.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Paramètres du pain « {name} » chargés dans la recette.',
   'Piekarz Pro nie jest aktywny': 'Mitron Pro n\'est pas actif',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calculez la température de l\'eau dans la recette : selon King Arthur Baking, une pâte de blé devrait atteindre environ 24–25,5 °C après le mélange.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Mélangez la farine et l\'eau, sans ajouter encore le levain naturel ni le sel. Laissez le gluten et les enzymes développer d\'eux-mêmes la structure de la pâte.',

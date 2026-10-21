@@ -125,7 +125,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Kovászok',
   'zalecana': 'ajánlott',
   'Zalecenie studzenia na kratce': 'Hűtés rácson: javaslat',
-  'Załadowano recepturę': 'Recept betöltve',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'A kovász elkészítése több napig tartó rendszeres etetést igényel; átlagosan 7–10 napig tart.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Húzz fel száraz edényfogó kesztyűt, és a fedőt magadtól elfelé emeld fel, mert alóla forró gőz áramlik ki.',
   'Zamknij': 'Bezárás',

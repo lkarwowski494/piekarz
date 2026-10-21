@@ -1,7 +1,6 @@
 // Słownik fi, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Leivän ”{name}” parametrit ladattiin reseptiin.',
   'Piekarz Pro nie jest aktywny': 'Leipuri Pro ei ole aktiivinen',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Laske veden lämpötila reseptissä: King Arthur Bakingin mukaan vehnätaikinan pitäisi olla sekoittamisen jälkeen noin 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Yhdistä jauhot ja vesi, älä lisää vielä hapanjuurta äläkä suolaa. Anna gluteenin ja entsyymien kehittää taikinan rakennetta itsestään.',

@@ -23,7 +23,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calculada del agua supera los 45 °C. Esto pone en riesgo de cocer las levaduras y las bacterias del ácido láctico. Enfría la harina o baja la temperatura ambiente.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Auténtica masa de pizza napolitana de borde crujiente e interior delicado.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Último pliegue, que crea tensión superficial. La masa debe estar aireada y mantener la forma de bola.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Los parámetros de la hogaza «{name}» se cargaron en la receta.',
   'Piekarz Pro nie jest aktywny': 'Panadero Pro no está activo',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calcula la temperatura del agua en la receta: según King Arthur Baking, la masa de trigo debería tener unos 24–25.5 °C tras el mezclado.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Mezcla la harina con el agua; todavía no agregues la masa madre ni la sal. Deja que el gluten y las enzimas desarrollen por sí solos la estructura de la masa.',

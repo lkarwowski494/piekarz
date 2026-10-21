@@ -102,7 +102,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Ekşi Mayalar',
   'zalecana': 'önerilen',
   'Zalecenie studzenia na kratce': 'Tel ızgarada soğutma önerisi',
-  'Załadowano recepturę': 'Tarif yüklendi',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Ekşi maya oluşturmak birkaç gün düzenli besleme gerektirir; ortalama 7–10 gün sürer.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Kuru fırın eldivenleri takın ve kapağı kendinizden uzağa doğru kaldırın, çünkü altından sıcak buhar çıkar.',
   'Zamknij': 'Kapat',

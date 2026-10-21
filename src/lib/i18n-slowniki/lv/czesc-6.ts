@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Ieraugi',
   'zalecana': 'ieteicamā',
   'Zalecenie studzenia na kratce': 'Ieteikums dzesēšanai uz režģa',
-  'Załadowano recepturę': 'Receptūra ielādēta',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Ierauga izveide prasa vairākas dienas regulāras barošanas; vidēji tā ilgst 7–10 dienas.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Uzvelciet sausus virtuves cimdus un celiet vāku virzienā prom no sevis, jo no tā apakšas izplūst karsts tvaiks.',
   'Zamknij': 'Aizvērt',

@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'サワー種',
   'zalecana': '推奨',
   'Zalecenie studzenia na kratce': '網での冷却のアドバイス',
-  'Załadowano recepturę': '配合を読み込みました',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'サワー種の起こしには数日間の定期的な種継ぎが必要で、平均7–10日かかります。',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': '乾いたオーブンミトンを着け、蓋は体から離す方向へ持ち上げてください。蓋の下から熱い蒸気が出ます。',
   'Zamknij': '閉じる',

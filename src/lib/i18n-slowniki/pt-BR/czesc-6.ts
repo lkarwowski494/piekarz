@@ -120,7 +120,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Fermentos',
   'zalecana': 'recomendada',
   'Zalecenie studzenia na kratce': 'Recomendação de resfriamento na grade',
-  'Załadowano recepturę': 'Receita carregada',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Criar um fermento natural exige vários dias de alimentação regular; em média, leva 7–10 dias.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Coloque luvas de cozinha secas e levante a tampa para longe de você, porque sai vapor quente de baixo dela.',
   'Zamknij': 'Fechar',

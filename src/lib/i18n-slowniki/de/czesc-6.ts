@@ -115,7 +115,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Sauerteige',
   'zalecana': 'empfohlen',
   'Zalecenie studzenia na kratce': 'Hinweis zum Auskühlen auf dem Gitter',
-  'Załadowano recepturę': 'Rezeptur geladen',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Das Ansetzen eines Sauerteigs erfordert mehrere Tage regelmäßiges Auffrischen; im Schnitt dauert es 7–10 Tage.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Zieh trockene Ofenhandschuhe an und hebe den Deckel von dir weg an, denn darunter entweicht heißer Dampf.',
   'Zamknij': 'Schließen',

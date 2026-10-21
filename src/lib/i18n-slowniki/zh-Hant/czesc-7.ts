@@ -89,7 +89,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': '計算出的水溫超過 45°C，可能會燙死酵母與乳酸菌。請將麵粉降溫，或降低環境溫度。',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': '正宗拿坡里披薩麵糰，餅邊酥脆、內部柔軟細緻。',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': '最後一次翻面拉摺，建立表面張力。麵糰應蓬鬆，並能維持球形。',
-  'Parametry bochenka „{name}” wczytano do receptury.': '已將麵包「{name}」的參數載入配方。',
   'Piekarz Pro nie jest aktywny': '麵包師傅 Pro 未啟用',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': '在配方中計算水溫：根據 King Arthur Baking，小麥麵糰攪拌完成後應約為 24–25.5 °C。',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': '將麵粉與水混合，先不要加入天然酵母起種和鹽。讓麩質與酵素自行發展麵糰結構。',

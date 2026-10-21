@@ -16,7 +16,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Men tự nhiên',
   'zalecana': 'khuyên dùng',
   'Zalecenie studzenia na kratce': 'Khuyến nghị làm nguội trên giá',
-  'Załadowano recepturę': 'Đã tải công thức',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Tạo men tự nhiên cần vài ngày cho men ăn đều đặn; trung bình mất 7–10 ngày.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Đeo găng tay nhà bếp khô và nhấc nắp nồi hướng ra xa người, vì hơi nước nóng thoát ra từ bên dưới nắp.',
   'Zamknij': 'Đóng',

@@ -79,7 +79,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Η υπολογισμένη θερμοκρασία του νερού υπερβαίνει τους 45°C. Υπάρχει κίνδυνος να «βράσουν» η μαγιά και τα βακτήρια γαλακτικού οξέος. Κρυώστε το αλεύρι ή χαμηλώστε τη θερμοκρασία περιβάλλοντος.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Αυθεντική ζύμη για ναπολιτάνικη πίτσα με τραγανή άκρη και απαλό εσωτερικό.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Τελευταίο δίπλωμα που χτίζει την επιφανειακή τάση. Η ζύμη πρέπει να είναι αφράτη και να κρατά σχήμα μπάλας.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Οι παράμετροι του καρβελιού «{name}» φορτώθηκαν στη συνταγή.',
   'Piekarz Pro nie jest aktywny': 'Το Αρτοποιός Pro δεν είναι ενεργό',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Υπολογίστε τη θερμοκρασία του νερού στη συνταγή: σύμφωνα με την King Arthur Baking, η ζύμη σίτου μετά το ανακάτεμα πρέπει να έχει περίπου 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Αναμείξτε το αλεύρι με το νερό, μην προσθέσετε ακόμη προζύμι ή αλάτι. Αφήστε τη γλουτένη και τα ένζυμα να αναπτύξουν μόνα τους τη δομή της ζύμης.',

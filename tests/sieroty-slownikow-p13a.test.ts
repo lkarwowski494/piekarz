@@ -56,6 +56,9 @@ const SIEROTY: Array<[string, string]> = [
   ['Zakwas „{name}” czeka na karmienie od 6 dni.', '402 (p12d)'],
   // [M2-koordynator-napraw-634 (p12c)]: model telefonu nie jest zbierany (D-066 5a), wiersz „Telefon” usunięty
   ['Telefon: {model}', '634 (p12c)'],
+  // [M2-koordynator-napraw-643 (p13b)]: „Piecz ponownie” otwiera plan (D-070), alert wczytania receptury usunięty
+  ['Załadowano recepturę', '643 (p13b)'],
+  ['Parametry bochenka „{name}” wczytano do receptury.', '643 (p13b)'],
 ];
 
 describe('słowniki bez osieroconych kluczy (p13a)', () => {

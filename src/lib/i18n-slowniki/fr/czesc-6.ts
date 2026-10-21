@@ -146,6 +146,5 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Levains',
   'zalecana': 'recommandée',
   'Zalecenie studzenia na kratce': 'Conseil de refroidissement sur grille',
-  'Załadowano recepturę': 'Recette chargée',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Créer un levain naturel demande plusieurs jours de rafraîchis réguliers ; cela prend en moyenne 7–10 jours.',
 };

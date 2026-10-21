@@ -13,7 +13,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Aprēķinātā ūdens temperatūra pārsniedz 45 °C. Tas draud nobeigt raugu un pienskābes baktērijas. Atdzesējiet miltus vai pazeminiet apkārtējo temperatūru.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Oriģināla neapoliešu picas mīkla ar kraukšķīgu malu un maigu vidu.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Pēdējā locīšana, kas veido virsmas spriegumu. Mīklai jābūt gaisīgai un jānotur bumbas forma.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Klaipa „{name}” parametri ielādēti receptē.',
   'Piekarz Pro nie jest aktywny': 'Maiznieks Pro nav aktīvs',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Aprēķiniet ūdens temperatūru receptē: saskaņā ar King Arthur Baking kviešu mīklai pēc samaisīšanas jābūt aptuveni 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Savienojiet miltus ar ūdeni, dabīgo ieraugu un sāli vēl nepievienojiet. Ļaujiet lipeklim un fermentiem pašiem attīstīt mīklas struktūru.',

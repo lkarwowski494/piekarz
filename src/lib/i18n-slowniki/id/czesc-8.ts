@@ -10,7 +10,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Suhu air yang dihitung melebihi 45°C. Hal ini berisiko memasak ragi dan bakteri asam laktat. Dinginkan tepung atau turunkan suhu ruang.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Adonan pizza Napoli asli dengan pinggiran renyah dan bagian dalam yang lembut.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Lipatan terakhir untuk membangun tegangan permukaan. Adonan harus mengembang ringan dan mempertahankan bentuk bola.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parameter bongkah roti “{name}” telah dimuat ke resep.',
   'Piekarz Pro nie jest aktywny': 'Tukang Roti Pro tidak aktif',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Hitung suhu air di resep: menurut King Arthur Baking, adonan tepung terigu setelah dicampur sebaiknya bersuhu sekitar 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Campur tepung dengan air, jangan tambahkan starter ragi alami atau garam dulu. Biarkan gluten dan enzim mengembangkan struktur adonan dengan sendirinya.',

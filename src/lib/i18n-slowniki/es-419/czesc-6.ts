@@ -125,7 +125,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Masas madre',
   'zalecana': 'recomendada',
   'Zalecenie studzenia na kratce': 'Recomendación de enfriamiento en rejilla',
-  'Załadowano recepturę': 'Fórmula cargada',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Crear una masa madre requiere varios días de alimentación regular; en promedio tarda 7–10 días.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Ponte guantes para horno secos y levanta la tapa alejándola de ti, porque por debajo sale vapor caliente.',
   'Zamknij': 'Cerrar',

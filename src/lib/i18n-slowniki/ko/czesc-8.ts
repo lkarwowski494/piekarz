@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': '계산된 물 온도가 45°C를 넘어요. 이 온도에서는 효모와 젖산균이 익어 죽을 수 있어요. 밀가루를 차갑게 하거나 실내 온도를 낮추세요.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': '가장자리는 바삭하고 속은 부드러운 정통 나폴리 피자 반죽이에요.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': '표면 장력을 만드는 마지막 늘려접기예요. 반죽은 폭신하고 공 모양을 유지해야 해요.',
-  'Parametry bochenka „{name}” wczytano do receptury.': '\'{name}\' 빵 덩어리의 설정값을 레시피에 불러왔어요.',
   'Piekarz Pro nie jest aktywny': '제빵사 Pro가 활성화되어 있지 않아요',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': '레시피에서 물 온도를 계산하세요: King Arthur Baking에 따르면 밀가루 반죽은 믹싱 후 약 24–25.5 °C가 되어야 해요.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': '밀가루와 물을 섞고, 아직 사워도우 스타터와 소금은 넣지 마세요. 글루텐과 효소가 스스로 반죽 구조를 만들도록 두세요.',

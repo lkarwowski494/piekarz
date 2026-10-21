@@ -21,7 +21,6 @@ export const CZESC: Record<string, string> = {
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Temperatura calculată a apei depășește 45°C. Există riscul de a opări drojdiile și bacteriile lactice. Răcește făina sau scade temperatura camerei.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Aluat original de pizza napoletană, cu margine crocantă și interior delicat.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Ultima împăturire, care creează tensiune la suprafață. Aluatul ar trebui să fie aerat și să-și păstreze forma de bilă.',
-  'Parametry bochenka „{name}” wczytano do receptury.': 'Parametrii pâinii „{name}” au fost încărcați în rețetă.',
   'Piekarz Pro nie jest aktywny': 'Brutar Pro nu este activ',
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calculează temperatura apei în rețetă: potrivit King Arthur Baking, aluatul de grâu ar trebui să aibă după frământare aprox. 24–25,5 °C.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Combină făina cu apa, nu adăuga încă maiaua sau sarea. Lasă glutenul și enzimele să dezvolte singure structura aluatului.',

@@ -96,7 +96,6 @@ export const CZESC: Record<string, string> = {
   'Zakwasy': 'Zuurdesem',
   'zalecana': 'aanbevolen',
   'Zalecenie studzenia na kratce': 'Advies afkoelen op rooster',
-  'Załadowano recepturę': 'Recept geladen',
   'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.': 'Het opzetten van een zuurdesemstarter vraagt een paar dagen regelmatig voeden; gemiddeld duurt het 7–10 dagen.',
   'Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.': 'Trek droge ovenhandschoenen aan en til het deksel van je af op, want eronder ontsnapt hete stoom.',
   'Zamknij': 'Sluit',
