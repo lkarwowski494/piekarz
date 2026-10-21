@@ -20,6 +20,11 @@
       "klucz": "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.",
       "powod": "arkusz „Importuj z pliku”: kopia z nowszej wersji aplikacji (schemaVersion wyższy niż obsługiwany) zamiast „nie rozpoznaję” [audyt-niezalezny B-7]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.",
+      "powod": "treść okna potwierdzenia „Usunąć wszystkie dane?”: kopie zapasowe zostają w aplikacji Pliki [audyt-niezalezny B-4]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {
