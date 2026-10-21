@@ -62,7 +62,8 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       expect(analysis.recommendedHydrationRange).toEqual([66.0, 74.0]);
       expect(analysis.estimatedProteinPercent).toBe(12.2);
       expect(analysis.ryePercentage).toBe(0);
-      expect(analysis.doughFeelAdvicePl).toContain('Idealny balans');
+      // Tekst z docs/tresci/pl/maki-chlonnosc.md, bez oceny „Idealny balans” (MAK-HYD-901) [M1-audytor-generalny-133]
+      expect(analysis.doughFeelAdvicePl).toContain('w zakresie podanym');
     });
 
     it('computes weighted metrics for composite 50/50 wheat-rye blend', () => {
@@ -92,7 +93,8 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       const blend = [{ name: 'Mąka pszenna razowa typ 2000', percentage: 100 }]; // Min rec: 78%
       const analysis = analyzeFlourBlendAbsorption(blend, 60.0);
 
-      expect(analysis.doughFeelAdvicePl).toContain('bardzo zwarte i sztywne');
+      // Tekst z docs/tresci/pl/maki-chlonnosc.md (MAK-HYD-001), bez „bardzo” i „śmiało” [M1-audytor-generalny-133]
+      expect(analysis.doughFeelAdvicePl).toContain('zwarte i sztywne');
     });
 
     it('handles empty blend gracefully with safe defaults', () => {

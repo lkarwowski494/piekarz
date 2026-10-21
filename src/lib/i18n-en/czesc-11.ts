@@ -122,14 +122,8 @@ export const EN_11: Record<string, string> = {
     'Rye flour type 1400',
   'Szacunek: parametry przyjęte z typu {typ}, bez źródła':
     'Estimate: parameters taken from type {typ}, no source',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.':
-    'The dough will be very dense and stiff. Feel free to add more water.',
   'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.':
     'Warning: very high hydration for this blend! The dough may be slack and require a skilled coil fold technique.',
-  'Idealny balans chłonności i hydratacji dla tej kompozycji mąk.':
-    'Ideal balance of absorption and hydration for this flour composition.',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.':
-    'Good dough springiness while keeping proper crumb moisture.',
   'Mieszanka musi zawierać co najmniej jedną mąkę.':
     'The blend must contain at least one flour.',
   'Mąka cukiernicza / tortowa (bielona)':

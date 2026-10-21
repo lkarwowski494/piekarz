@@ -54,4 +54,58 @@ export const EN_18: Record<string, string> = {
   'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków':
     'according to King Arthur Baking, about 6–8 hours, until it doubles in volume and is full of bubbles',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Complex bouquet of lactic and acetic acids.',
+
+  // Doktor Chleba i porada mieszanki mąk: docs/tresci/en/doktor-chleba.md, maki-chlonnosc.md [M1-audytor-generalny-133; 06-tresci-504]
+  'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.':
+    'Bread taken out of the oven is not done yet: according to King Arthur Baking, it releases moisture as it cools and the crumb needs that time to set, so if sliced too early it may be gummy. Another cause may be underbaking: according to King Arthur Baking, most loaves are done when the centre reaches about 88 °C.',
+  'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
+    'Before slicing, wait until the loaf has cooled completely. According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
+  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.':
+    'Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C.',
+  'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.':
+    'If the centre is cooler, bake longer and measure again.',
+  'Wydłuż fermentację burzliwą.':
+    'Extend the bulk fermentation.',
+  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
+    'Use the DDT calculator: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
+  'Zmniejsz udział zakwasu w recepturze.':
+    'Reduce the share of starter in the recipe.',
+  'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.':
+    'Lower the fridge temperature: according to King Arthur Baking, a lower temperature slows fermentation.',
+  'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.':
+    'Bake covered in a pot: according to King Arthur Baking, steam under the lid keeps the crust soft longer, so the loaf can keep rising at the start of baking.',
+  'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.':
+    'Hold a curved blade at about 30° to the dough surface and cut about 6–13 mm deep: according to King Arthur Baking, a shallower cut may fuse back together during baking.',
+  'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.':
+    'According to King Arthur Baking, a straight-on cut at 90° splays open to the sides, while an ear forms with a cut at a shallow angle, from the taut outer layer of dough shaped with sufficient tension.',
+  'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.':
+    'Tilt a curved blade to about 30° to the dough surface: according to King Arthur Baking, this promotes a flap of dough that peels back into an ear.',
+  'Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.':
+    'Preheat the empty pot before putting the dough in: according to King Arthur Baking, about 30 minutes, so that steam forms in it.',
+  'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.':
+    'After removing the lid, keep baking: according to King Arthur Baking, the uncovered bread bakes until it is fully browned.',
+  'Dokarmiaj zakwas częściej przed wypiekiem.':
+    'Feed the starter more often before baking.',
+  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.':
+    'Shorten the bulk fermentation and watch the dough temperature: according to King Arthur Baking, wheat dough should be about 24–26 °C after mixing.',
+  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.':
+    'Proof the dough in the fridge: according to King Arthur Baking, cold slows fermentation, and slower fermentation deepens the flavour.',
+  'Zwiększ udział zakwasu w recepturze.':
+    'Increase the share of starter in the recipe.',
+  'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).':
+    'Add some whole-grain flour (rye or wheat) to the recipe.',
+  'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.':
+    'Dough hydration too low, weak flour with low protein content or underdeveloped gluten.',
+  'Zwiększ hydratację receptury.':
+    'Increase the recipe hydration.',
+  'Użyj mąki chlebowej o wyższej zawartości białka.':
+    'Use bread flour with a higher protein content.',
+  'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.':
+    'Extend the autolyse and add an extra set of coil folds.',
+  'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.':
+    'The dough will be firm and stiff. You can add more water.',
+  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.':
+    'The hydration is within the range given for this flour blend.',
+  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.':
+    'The hydration is close to the range given for this flour blend.',
 };

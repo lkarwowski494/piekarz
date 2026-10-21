@@ -619,7 +619,7 @@
         "adres": "https://doi.org/10.7717/peerj.11389",
         "miejsce": "Calvert M.D. i in., A review of sourdough starters: ecology, practices, and sensory quality with applications for baking and recommendations for future research, PeerJ 2021, 9:e11389, rozdz. o wpływie temperatury, dokarmiania i hydratacji na smak (CC BY); czytany pełny tekst Europe PMC PMC8117929 fullTextXML",
         "cytat": "Higher temperatures are thought to favor lactic acid production and are associated with more flower and fruit aromas, while lower temperatures have been linked to acetic acid, as well as rancid flavors from butanoic acid",
-        "odczyt": "2026-10-19",
+        "odczyt": "2026-10-21",
         "szczebel": 2
       }
     ],
@@ -638,7 +638,7 @@
         "adres": "https://doi.org/10.7717/peerj.11389",
         "miejsce": "Calvert M.D. i in., PeerJ 2021, 9:e11389, ten sam akapit co KWA-TEM-001; Europe PMC PMC8117929 fullTextXML",
         "cytat": "Comparatively, prolonged fermentation time has been connected to burnt, bitter, or unpleasant flavors and excessive organic acid content",
-        "odczyt": "2026-10-19",
+        "odczyt": "2026-10-21",
         "szczebel": 2
       }
     ],
@@ -646,7 +646,8 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
-    "wazne_do": "2027-10-19"
+    "wazne_do": "2027-10-19",
+    "uwagi": "M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (PMC8117929); Doktor EXCESSIVELY_SOUR, zdanie z DIA-DDT-001."
   },
   {
     "id": "KWA-GLO-001",
@@ -656,7 +657,7 @@
         "adres": "https://doi.org/10.7717/peerj.11389",
         "miejsce": "Calvert M.D. i in., PeerJ 2021, 9:e11389, ten sam akapit co KWA-TEM-001; Europe PMC PMC8117929 fullTextXML",
         "cytat": "Similarly, yeasts produce more ethanol under acid stress, suggesting that under-fed starters may display themselves by being tart, vinegary, or alcohol-like",
-        "odczyt": "2026-10-19",
+        "odczyt": "2026-10-21",
         "szczebel": 2
       }
     ],
@@ -664,7 +665,8 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
-    "wazne_do": "2027-10-19"
+    "wazne_do": "2027-10-19",
+    "uwagi": "M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (Europe PMC PMC8117929 fullTextXML, peerj-11389-europepmc.xml); Doktor EXCESSIVELY_SOUR „Dokarmiaj zakwas częściej” bez proporcji 1:2:2 / 1:3:3."
   },
   {
     "id": "KWA-HYD-001",
@@ -1511,7 +1513,7 @@
         "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
         "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, „Keeping starter alive vs. getting it active”; kopia dowody/zrodla/ka-sd-bake.htm",
         "cytat": "To create baking-ready starter, feed it until it doubles in size within 6 to 8 hours of being fed; and appears bubbly and vigorous, with a sharp, clean aroma.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
@@ -1531,21 +1533,21 @@
         "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
         "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, krok 2 „Autolyse”; kopia dowody/zrodla/ka-sd-bake.htm",
         "cytat": "This rest, known as an autolyse, allows the flour to absorb the water, which starts the dough's gluten formation, and makes it easier to knead.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       },
       {
         "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/glossary",
         "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Glossary”, hasło „Autolyse”; kopia dowody/zrodla/ka-sd-glossary.htm",
         "cytat": "A 15- to 30-minute rest period after mixing flour and water, before adding salt and yeast. It begins gluten development and reduces kneading time.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Dwie strony tego samego wydawcy liczone jako jedno źródło. Czas 15–30 min ze słowniczka nie trafia do treści (czas etapu to sprawa planu; nowe znalezisko 06-tresci-fix-p5-001).",
-    "uwagi": "M1-audytor-generalny-100: autolyse.",
+    "uwagi": "M1-audytor-generalny-100: autolyse. M1-audytor-generalny-133: Doktor DENSE_CRUMB („Wydłuż autolizę”) bez „45–60 minut”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1605,7 +1607,7 @@
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Zdanie o życie dotyczy chleba 100% żytniego; wariant żytni Piekarza (> 50%, ZYT-GRA-001) nie ma składań z innego powodu (D-030), więc w treści o życie tego zdania nie ma.",
-    "uwagi": "M1-audytor-generalny-100: bulk_ferment (składania).",
+    "uwagi": "M1-audytor-generalny-100: bulk_ferment (składania). M1-audytor-generalny-133: Doktor DENSE_CRUMB („dodatkową serię składań”) bez liczby serii.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1678,14 +1680,14 @@
         "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/glossary",
         "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Glossary”, hasła „Proof” i „Retard”; kopia dowody/zrodla/ka-sd-glossary.htm",
         "cytat": "The final rise of dough before baking. […] Slowing the fermentation process to increase flavor, usually by reducing the temperature.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-100: final_proof (garowanie w lodówce).",
+    "uwagi": "M1-audytor-generalny-100: final_proof (garowanie w lodówce). M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (kopia dowody/zrodla/ka-sd-glossary.htm, fix-2026-10-21-p9a); Doktor: OVER_PROOFED i BLAND_FLAVOR (docs/tresci/pl/doktor-chleba.md).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1698,14 +1700,14 @@
         "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
         "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), „Preheating the pot”; kopia dowody/zrodla/ka-dutch-oven.htm",
         "cytat": "To ensure you get a burst of steam when the dough is put inside the pot, it should be preheated empty for about 30 minutes.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Czas 30 minut nie trafia do treści (czas etapu z planu).",
-    "uwagi": "M1-audytor-generalny-100: preheat_oven.",
+    "uwagi": "M1-audytor-generalny-100: preheat_oven. M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (ka-dutch-oven.htm, fix-2026-10-21-p9a); Doktor LACK_OF_EAR w miejsce „minimum 45 minut w 240°C”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1738,14 +1740,14 @@
         "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
         "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), „How steam leads to beautiful loaves”; kopia dowody/zrodla/ka-dutch-oven.htm",
         "cytat": "The steam keeps the crust soft longer, so it can continue to expand during the early stages of baking.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-100: faza lid_on.",
+    "uwagi": "M1-audytor-generalny-100: faza lid_on. M1-audytor-generalny-133: ponowny odczyt 2026-10-21; Doktor SIDE_BLOWOUT w miejsce „100% pary … przez 20 minut”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1758,14 +1760,14 @@
         "adres": "https://www.kingarthurbaking.com/blog/2017/02/21/bread-baking-dutch-oven",
         "miejsce": "King Arthur Baking, Kye Ameden, „Bread baking in a Dutch oven” (2017-02-21), opis pieczenia; kopia dowody/zrodla/ka-dutch-oven.htm",
         "cytat": "remove the lid and bake for another 5 to 10 minutes, until the loaf browns fully.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Bez czasów z przepisu (5–10 min dotyczy innego przepisu niż plan Piekarza).",
-    "uwagi": "M1-audytor-generalny-100: faza lid_off.",
+    "uwagi": "M1-audytor-generalny-100: faza lid_off. M1-audytor-generalny-133: ponowny odczyt 2026-10-21; Doktor PALE_CRUST w miejsce „min. 210–220°C”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -1778,14 +1780,14 @@
         "adres": "https://www.kingarthurbaking.com/blog/2023/05/31/how-to-tell-if-bread-is-done",
         "miejsce": "King Arthur Baking, Annabelle Shippee, „How to tell if bread is done baking” (2023-05-31), wypowiedź Barb; kopia dowody/zrodla/ka-bread-done.htm",
         "cytat": "Moisture continues to be released as bread cools, and the internal structure of the loaf needs that time to set completely. Unless you want to end up with a gummy interior, let your bread cool completely before slicing into it.",
-        "odczyt": "2026-10-20",
+        "odczyt": "2026-10-21",
         "szczebel": 4
       }
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-100: cool i rye_cool.",
+    "uwagi": "M1-audytor-generalny-100: cool i rye_cool. M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (ka-bread-done.htm, fix-2026-10-21-p9a); Doktor GUMMY_CRUMB w miejsce „ostygnięcia do min. 50°C … żelowania” i „minimum 2 godziny”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -2494,5 +2496,152 @@
     "przeglad": null,
     "nastepca": "KRO-POC-002",
     "wycofane": "2026-10-21, M1-audytor-generalny-131"
+  },
+  {
+    "id": "DIA-TEM-001",
+    "twierdzenie": "Według King Arthur Baking większość bochenków i bułek jest upieczona, gdy w środku ma 190 °F (rachunek: ok. 88 °C); w teście autorki nawet duży, zwarty bochenek pełnoziarnisty był w pełni upieczony przy 190 °F, a bagietki wymagają wyższej temperatury.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/04/07/using-a-thermometer-with-yeast-bread",
+        "miejsce": "King Arthur Baking, blog „Using a thermometer with yeast bread” (2017-04-07), wstęp i werdykt „Large whole-grain rounds”; kopia dowody/zrodla/ka-thermometer.htm (fix-2026-10-21-p9a)",
+        "cytat": "Most loaves and rolls will indeed be done when they register 190°F at their center. But some breads — baguettes, for instance — need to reach a higher internal temperature to be fully baked. […] Verdict: Even a large, fairly dense whole grain loaf is fully baked at 190°F.",
+        "odczyt": "2026-10-21",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (190 − 32) × 5/9 = 87,8 °C, w tekście ok. 88 °C (tryb imperialny przelicza na 190 °F). Pominięto zastrzeżenie o bagietkach i zdanie „some bakers argue … 205°F to 210°F” dla dużych bochenków pełnoziarnistych, które autorka testem odrzuca. Szczebel 4: atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor GUMMY_CRUMB w miejsce „(<94°C)” i „docelowo: 95–98°C” (DIA-LIC-900). Wyższego szczebla dla temperatury wnętrza chleba nie szukano w tej partii.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "temperatura_wnetrza_upieczonego_chleba",
+    "wartosc": 88,
+    "jednostka": "°C",
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "DIA-DDT-001",
+    "twierdzenie": "Według King Arthur Baking ciasto pszenne powinno mieć na koniec mieszania 75–78 °F (rachunek: ok. 24–26 °C); wyjątkiem są chleby na zakwasie fermentowane w chłodni (nieco niżej) i chleby na zakwasie z dużym udziałem mąki żytniej (wyżej).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
+        "miejsce": "King Arthur Baking, Pro Reference „Dough Temperatures”, akapit wstępny (S-02); kopia dowody/zrodla/ka-pro-dough-temperature.htm (fix-2026-10-21-p9a)",
+        "cytat": "In general, wheat-based doughs should be between 75°F and 78°F at the end of mix time. Some exceptions to this guideline are naturally leavened breads that will ferment in a retarder, which could have a slightly lower dough temperature; and sourdough breads made with a high proportion of rye flour, which benefit from a dough temperature in the low to mid 80s.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (75 − 32) × 5/9 = 23,9 °C; (78 − 32) × 5/9 = 25,6 °C; zaokrąglone do ok. 24–26 °C jak w RD-16 (S-02). W trybie imperialnym aplikacja pokaże ok. 75–79 °F. Wyjątki źródła (chłodnia, dużo żyta) pominięte w zdaniu Doktora.",
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor UNDER_PROOFED w miejsce „25–26°C” i EXCESSIVELY_SOUR (24–26 °C bez twierdzenia). Szczebel jak S-02 w docs/brd/zrodla.md.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "DIA-NAC-001",
+    "twierdzenie": "Według King Arthur Baking zakrzywione ostrze trzyma się pod kątem około 30° do powierzchni ciasta, co sprzyja powstaniu małego płatu ciasta; nacięcie musi mieć od 1/4 do 1/2 cala głębokości (rachunek: ok. 6–13 mm), żeby powierzchnia ciasta nie zrosła się w czasie pieczenia.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/08/04/scoring-bread-dough",
+        "miejsce": "King Arthur Baking, blog „How to score bread dough” (2017-08-04), akapit o zakrzywionym ostrzu; kopia dowody/zrodla/ka-scoring.htm (fix-2026-10-21-p9a)",
+        "cytat": "To score using a curved blade, hold the tool securely at about a 30-degree angle to the dough surface. […] the cut does need to be deep enough so the surface of the dough doesn't fuse back together when baking — somewhere between 1/4\" and 1/2\" deep.",
+        "odczyt": "2026-10-21",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: 1/4 cala = 6,35 mm, 1/2 cala = 12,7 mm; zaokrąglone do ok. 6–13 mm. Szczebel 4: atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor SIDE_BLOWOUT i LACK_OF_EAR w miejsce „8–10 mm” (DIA-LIC-900); kąt 30° był w kodzie bez twierdzenia.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "DIA-NAC-002",
+    "twierdzenie": "Według King Arthur Baking nacięcie pod płaskim kątem sprzyja odchyleniu się płatu ciasta (ucha), a nacięcie prosto, pod kątem 90°, rozchyleniu się nacięcia na boki; ucho tworzy napięta zewnętrzna warstwa ciasta uformowanego z wystarczającym napięciem.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/02/16/all-about-sourdough-ears",
+        "miejsce": "King Arthur Baking, blog „Everything to know about sourdough ears” (2021-02-16), „How a sourdough ear is formed”, „shallow angle scoring”, „straight-on scoring”; kopia dowody/zrodla/ka-ears.htm (fix-2026-10-21-p9a)",
+        "cytat": "When you shape bread dough with sufficient tension, you create what I like to think of as a taut wrapper outside the dough. […] The shallow angle promotes more of a peeling back effect. […] The dough is scored at a straight-on (90°) angle to promote splaying open",
+        "odczyt": "2026-10-21",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor LACK_OF_EAR (przyczyna i pierwszy krok); kąty 90° i 30° były w kodzie bez twierdzenia.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-HYD-001",
+    "twierdzenie": "Według King Arthur Baking ciasto o wysokiej hydratacji jest zwykle luźne i lepiące i może wymagać zmian w obróbce, a ciasto o niskiej hydratacji jest zwarte, nawet sztywne; mąki pełnoziarniste chłoną więcej wody.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2023/01/11/bread-hydration",
+        "miejsce": "King Arthur Baking, blog „Hydration in bread dough, explained” (2023-01-11); kopia dowody/zrodla/ka-hydration.htm (fix-2026-10-21-p9a)",
+        "cytat": "the dough will likely present as slack and sticky, possibly requiring some adjustments in how I handle it. […] a recipe hydrated in the 55% to 65% range will likely feel firm or even stiff. […] whole-grain flours are “thirstier,” and doughs made with whole-grain flours typically require more water.",
+        "odczyt": "2026-10-21",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Kierunek bez progów: źródło podaje przykłady dla mąki uniwersalnej (75–85% luźne, 55–65% zwarte), aplikacja porównuje z zakresem profilu mieszanki (MAK-HYD-900).",
+    "uwagi": "M1-audytor-generalny-133 (06-tresci-504): arkusz Składniki, analyzeFlourBlendAbsorption (src/core/flour-atlas.ts), porada przy hydratacji poniżej zakresu bez „bardzo” i „śmiało”.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-HYD-900",
+    "twierdzenie": "Zakres hydratacji każdego profilu mąki (optimalHydrationRange w src/core/flour-atlas.ts), marginesy porady (2 p.p. poniżej i 3 p.p. powyżej zakresu) oraz próg „wysokiego udziału żyta” 40% w analyzeFlourBlendAbsorption.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133 (06-tresci-504). Żadne przeczytane źródło nie podaje zakresów hydratacji profili ani progu 40%; ZYT-GRA-001 (> 50%) to granica nazewnicza prawa niemieckiego, nie reologiczna, więc nie wskazuje innej wartości progu (bez przekazania wartości do 08). Teksty porad mówią tylko „w zakresie / blisko zakresu podanego dla tej mieszanki” (rachunek) i kierunek MAK-HYD-001. Zdanie o żytcie i ostrzeżenie o wysokiej hydratacji bez zmian.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "MAK-HYD-901",
+    "twierdzenie": "Oceny mieszanki mąk: „Idealny balans chłonności i hydratacji”, „Możesz śmiało dolać więcej wody”, „Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu” (src/core/flour-atlas.ts, analyzeFlourBlendAbsorption).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: ocena względem zakresu bez źródła (MAK-HYD-900). Wycofane w M1-audytor-generalny-133 (06-tresci-504); zostaje kierunek MAK-HYD-001 i opis rachunku.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "MAK-HYD-001",
+    "wycofane": "2026-10-21, M1-audytor-generalny-133"
+  },
+  {
+    "id": "DIA-LIC-900",
+    "twierdzenie": "Liczby Doktora Chleba (src/doctor/diagnostics.ts): skrobia potrzebuje ostygnięcia do min. 50 °C, aby dokończyć żelowanie; za niska temperatura wewnątrz < 94 °C, docelowo 95–98 °C; minimum 2 h przed krojeniem; +5–8 min pieczenia; fermentacja burzliwa +45–60 min; ciasto 25–26 °C; zakwas z 20% do 15% i do 20%; lodówka 3–5 °C; 100% pary przez 20 min; nacięcie 8–10 mm; garnek min. 45 min w 240 °C; dopiekanie w min. 210–220 °C; dokarmianie 1:2:2 lub 1:3:3; garowanie 12–16 h w 4 °C; 10–20% mąki pełnoziarnistej typ 2000; hydratacja < 65% i +3–5%; białko min. 12,5 g/100 g; autoliza 45–60 min i 1 seria składań.",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE albo SPRZECZNE z przeczytanymi źródłami (DIA-TEM-001: 190 °F ≈ 88 °C; KRO-POC-011: ok. 30 minut; DIA-NAC-001: 1/4–1/2 cala; DIA-DDT-001: 75–78 °F). Wycofane w M1-audytor-generalny-133 (06-tresci-504): liczby zastąpione twierdzeniami albo usunięte, kierunek zaleceń zostaje (DIA-KIE-900).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "DIA-TEM-001",
+    "wycofane": "2026-10-21, M1-audytor-generalny-133"
+  },
+  {
+    "id": "DIA-KIE-900",
+    "twierdzenie": "Kierunki zaleceń Doktora bez liczby po M1-audytor-generalny-133: wydłuż fermentację burzliwą (UNDER_PROOFED); zmniejsz udział zakwasu (OVER_PROOFED); zwiększ udział zakwasu i dodaj mąki pełnoziarnistej (BLAND_FLAVOR); za niska hydratacja, słaba mąka lub słabo rozwinięty gluten, zwiększ hydratację, użyj mąki o wyższej zawartości białka (DENSE_CRUMB).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133: liczby usunięte (kierunek zostaje, polecenie partii 9); źródła kierunku nie przeczytano w tej partii. Pozostałe zdania Doktora bez liczby (tytuły, podtytuły, przyczyny poza GUMMY_CRUMB i LACK_OF_EAR) też bez twierdzeń: znalezisko w wyniku p9a.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
   }
 ]

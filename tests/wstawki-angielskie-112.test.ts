@@ -98,8 +98,9 @@ describe('M1-audytor-generalny-112: bez angielskich wstawek w nawiasach w teksta
       expect(WSTAWKI.filter((w) => tekst.includes(w))).toEqual([]);
       expect(typeof EN[tekst]).toBe('string');
     }
-    expect(teksty).toContain('Wprowadź garowanie chłodnicze w lodówce (12–16 godzin w 4°C).');
-    expect(teksty).toContain('Skróć fermentację burzliwą i pilnuj temperatury ciasta (24–26°C).');
+    // Teksty z docs/tresci/pl/doktor-chleba.md (KRO-POC-010, DIA-DDT-001) [M1-audytor-generalny-133]
+    expect(teksty).toContain('Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.');
+    expect(teksty).toContain('Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.');
   });
 
   it('pogotowie ciasta (Doktor) bez wstawek; każdy zmieniony tekst ma wpis EN', () => {
