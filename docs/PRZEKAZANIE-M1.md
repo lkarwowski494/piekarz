@@ -79,7 +79,7 @@ Wszystkie pliki (repo, katalog audytu, biblioteka `prompts`, `narzedzia-api` z k
 1. **Zamknij stare sesje.** W aplikacji Claude zarchiwizuj sesje tego projektu, prawy przycisk → Archiwizuj. Są czyste i ich praca jest w `master`.
 2. **Zmień konto.** W aplikacji Claude kliknij swój profil w lewym dolnym rogu, wybierz „Wyloguj”, a potem zaloguj się na nowe konto.
 3. **Otwórz projekt.** Zakładka **Code** → nowa sesja → wybierz folder `C:\Users\lukas\Projekty\piekarz`.
-   - Dodaj do tej sesji drugi folder `C:\Users\lukas\Projekty\prompts` (biblioteka ról; jak w poprzedniej sesji). Sesja składa z niego polecenia ról (`tools/assemble.mjs`). Folderu nie zmieniaj ani nie commituj: leżą w nim niezatwierdzone zmiany agenta biblioteki.
+   - Dodaj do tej sesji drugi folder `C:\Users\lukas\Projekty\prompts` (biblioteka ról; jak w poprzedniej sesji). Sesja składa z niego polecenia ról (`tools/assemble.mjs`). Klon jest na czystym `main` (48e9293). Przed złożeniem polecenia zrób `git pull --ff-only`, a w samym `prompts` nie commituj.
    - Gdy aplikacja zapyta o zaufanie do folderu, potwierdź dla obu folderów.
    - Model: **Opus**, wysiłek: **High**.
    - Tryb uprawnień: taki sam jak dotąd (Auto).
@@ -98,6 +98,7 @@ Wszystkie pliki (repo, katalog audytu, biblioteka `prompts`, `narzedzia-api` z k
 
 ## 8. Prompt startowy (ta sama treść co w pliku z kroku 4)
 
+
 Kontynuujesz pracę jako **M1 Audytor Generalny** nad aplikacją **Piekarz** (Expo/React Native, iOS, offline-first asystent wypieku chleba na zakwasie). Pracowała nad tym poprzednia sesja na innym koncie; ty przejmujesz od miejsca opisanego niżej. Odpowiadaj po polsku.
 
 ## Najpierw przeczytaj (w tej kolejności, w całości)
@@ -109,7 +110,7 @@ Kontynuujesz pracę jako **M1 Audytor Generalny** nad aplikacją **Piekarz** (Ex
 ## Gdzie co jest (wszystko na tym komputerze)
 - Repo aplikacji: `C:\Users\lukas\Projekty\piekarz`, gałąź **`master` = e544eec** (cały łańcuch partii 1–7). Tagi: `przed-scaleniem-2026-10-21` (ebd8471, punkt powrotu) i `reaudyt-petla1-zablokowane` (e544eec, znane regresje, wersja niewydawalna).
 - Katalog audytu **K** = `C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19` (poza gitem). Zawiera `plan-napraw.json` (179 zadań: 93 zweryfikowane, 86 otwartych; wszystkie decyzje właściciela z dosłownymi słowami), raporty ról i M2, `postep-napraw.md`, `narzedzia/sprawdz-plan.mjs`, `narzedzia/sprawdz-raport.mjs`, prompty partii w `prompty/`.
-- Biblioteka ról: `C:\Users\lukas\Projekty\prompts` (prywatne repo). Polecenie roli składasz `node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs <rola> --tryb <build|audit|fix|reaudit> ... --plik <wynik.md>`. Zrób najpierw `git -C C:\Users\lukas\Projekty\prompts fetch` i składaj z najnowszego `origin/main` (np. przez osobny worktree), bo w głównym katalogu `prompts` leżą niezatwierdzone zmiany agenta biblioteki — nie ruszaj ich.
+- Biblioteka ról: `C:\Users\lukas\Projekty\prompts` (prywatne repo). Polecenie roli składasz `node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs <rola> --tryb <build|audit|fix|reaudit> ... --plik <wynik.md>`. Klon stoi na czystym `main` (48e9293 z 2026-10-21, role M5–M8). Przed złożeniem polecenia zrób `git -C C:\Users\lukas\Projekty\prompts pull --ff-only` i składaj z klonu. Nie commituj i nie pushuj w `prompts`: tym zajmuje się sesja biblioteki. Gałąź `zmiany/rola02-lokalne` (91e2c73) czeka na jej decyzję i nie ruszasz jej.
 - Przekład przez Claude API: `C:\Users\lukas\Projekty\narzedzia-api` (`PRZEKLAD-README.md`, wyniki `przeklad/languages/`). Klucz API jest w `.env` tego katalogu — **nigdy go nie czytaj, nie wypisuj, nie kopiuj**; skrypty npm wczytują go same (`node --env-file-if-exists=.env`). Nie ustawiaj `ANTHROPIC_API_KEY` globalnie.
 - Strona studia: repo `lkarwowski494/apps4brew-www` (GitHub Pages, apps4brew.com; strony `piekarz/`).
 
@@ -130,6 +131,9 @@ Kontynuujesz pracę jako **M1 Audytor Generalny** nad aplikacją **Piekarz** (Ex
    `node C:\Users\lukas\Projekty\prompts\tools\assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`
    i po mojej zgodzie uruchom partię 8 w nowej sesji (od `master`, STOP start z planem i kosztem).
 4. Przy okazji partii 8 uporządkuj kolizje numerów decyzji (`docs/decyzje.md` D-035+ wobec `docs/DECISIONS.md`).
+   Dwie uwagi z nowej wersji biblioteki (48e9293):
+   - **zasada 20:** E0 każdej roli szuka wyniku bramki opłacalności w `docs/monetyzacja.md` (jest na `master`) albo w `audit/M1-*/role/02-oplacalnosc/`. Bramka Piekarza leży w starej ścieżce `audit/02-oplacalnosc-2026-10-19/`. Jeśli rola zatrzyma się z tego powodu, skopiuj ten katalog do `K/role/02-oplacalnosc/`;
+   - **`sprawdz-raport.mjs`:** w `K/narzedzia/` jest stara kopia. Przed partią 8 odśwież ją z `shared/szablony/dowody.md` z nowej biblioteki. Format raportu audytu obowiązuje teraz tylko role ścieżki i M1.
 5. Na koniec całości (po partiach 8–10 i reaudycie pętli 2 bez blokad): nazwa z D-053 („Baker: Sourdough Bread Planner” po angielsku, lokalne w innych językach) na apps4brew.com — dopiero wtedy, na moją prośbę.
 
 ## Moje kroki poza sesjami (przypominaj, nie rób za mnie)
