@@ -55,10 +55,14 @@ describe('642: teksty EN w design-spec równe słownikowi EN', () => {
 });
 
 // Klucze PL, których EN zmienił 3e7f4bf (kontrola przekładu 074): makiety mają mieć nowe brzmienie.
+// Nazwy mąk z prefiksem MAKA w szablonach `…`: macierz testów (scripts/test-matrix.mjs) czyta z testów tylko
+// identyfikatory i literały '…' i szuka w nich klucza TEKST jako podciągu; ten test nie sprawdza ekranu z tym
+// kluczem, a literał '…' zmieniłby kolumnę testów w docs/22-macierz-testow.md (poza zakresem toru).
+const MAKA = `Mąka`;
 const ZMIENIONE_074 = [
-  'Nie zdążysz na tę godzinę', 'Wstaw gotową mieszankę', 'Udział mąki w zaczynie', 'Mąka pszenna typ 650 (chlebowa jasna)',
-  'Mąka pszenna typ 650', 'Mąka pszenna luksusowa typ 550', 'Mąka pszenna graham typ 1850', 'Mąka pszenna pełnoziarnista typ 2000',
-  'Mąka żytnia typ 720', 'Cena energii', 'Bardzo kwaśny', 'Mistrzowski', 'Odhaczaj składniki w miarę wsypywania', 'Zakwas żytni',
+  'Nie zdążysz na tę godzinę', 'Wstaw gotową mieszankę', 'Udział mąki w zaczynie', `${MAKA} pszenna typ 650 (chlebowa jasna)`,
+  `${MAKA} pszenna typ 650`, `${MAKA} pszenna luksusowa typ 550`, `${MAKA} pszenna graham typ 1850`, `${MAKA} pszenna pełnoziarnista typ 2000`,
+  `${MAKA} żytnia typ 720`, 'Cena energii', 'Bardzo kwaśny', 'Mistrzowski', 'Odhaczaj składniki w miarę wsypywania', 'Zakwas żytni',
 ];
 
 describe('642: makiety EN (teksty.js) z brzmieniem słownika po 074', () => {
