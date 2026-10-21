@@ -37,7 +37,8 @@ describe('czasSlownie i dzienSlownie', () => {
     expect(dzienSlownie(new Date(2026, 9, 20, 23, 0), TERAZ)).toBe('dziś');
     expect(dzienSlownie(JUTRO_935, TERAZ)).toBe('jutro');
     expect(dzienSlownie(new Date(2026, 9, 22, 1, 0), TERAZ)).toBe('pojutrze');
-    expect(dzienSlownie(new Date(2026, 9, 24, 8, 0), TERAZ)).toBe('24.10');
+    // Dalej forma z dniem tygodnia i nazwą miesiąca (design-spec §11c) [M1-audytor-generalny-151]
+    expect(dzienSlownie(new Date(2026, 9, 24, 8, 0), TERAZ)).toBe('sobota, 24 października');
     setLang('en');
     expect(dzienSlownie(JUTRO_935, TERAZ)).toBe('tomorrow');
     expect(dzienSlownie(new Date(2026, 9, 20, 12, 0), TERAZ)).toBe('today');

@@ -85,15 +85,20 @@ export interface TekstyProwadzenia {
 export function tekstyProwadzenia(w: WejscieProwadzenia): TekstyProwadzenia {
   const krok = w.steps[w.stepIdx];
   const koniecPlanu = w.steps[w.steps.length - 1]?.plannedEnd ?? null;
-  const gotowe =
-    koniecPlanu === null
-      ? null
-      : t('Gotowe {dzien} o {godzina}', { dzien: dzienSlownie(new Date(koniecPlanu), new Date(w.teraz)), godzina: formatTime(koniecPlanu) });
-  if (!krok) return { gotowe, czas: null, potem: null, ekran: null };
-
-  const zegar = stepHasTimer(krok) ? w.koniecKrokuMs : null;
+  const zegar = krok && stepHasTimer(krok) ? w.koniecKrokuMs : null;
   const biegnie = zegar !== null && zegar > w.teraz;
   const poCzasie = zegar !== null && !biegnie;
+  // Krok po czasie: następny rusza od „Zrobione” (BR-HARMO-005), więc gotowe = teraz + pozostała długość planu
+  // (od planowanego końca kroku do końca planu) [M1-audytor-generalny-151; 08-programista-504]
+  const gotoweMs =
+    koniecPlanu !== null && poCzasie && krok?.plannedEnd != null
+      ? Math.max(koniecPlanu, w.teraz + (koniecPlanu - krok.plannedEnd))
+      : koniecPlanu;
+  const gotowe =
+    gotoweMs === null
+      ? null
+      : t('Gotowe {dzien} o {godzina}', { dzien: dzienSlownie(new Date(gotoweMs), new Date(w.teraz)), godzina: formatTime(gotoweMs) });
+  if (!krok) return { gotowe, czas: null, potem: null, ekran: null };
   const dalej = nastepny(w.steps, w.stepIdx, w.dutchOvenPhase);
 
   const czas = zegar === null ? null : biegnie ? czasKroku((zegar - w.teraz) / 1000) : czasPoTerminie((w.teraz - zegar) / 1000);
