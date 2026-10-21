@@ -41,4 +41,8 @@ export const EN_18: Record<string, string> = {
   '4–8h w 24–26°C do szczytu objętości': '4–8 h at 24–26°C until peak volume',
   'Do ostygnięcia do temp. pokojowej': 'Until cooled to room temperature',
   'Min. 4h lub przez noc w lodówce': 'At least 4 h or overnight in the fridge',
+  // „Usuń wszystkie dane” (design-spec §ustawienia, docs/design/ekrany/teksty.js us.usun) [M1-audytor-generalny-124]
+  'Usuń wszystkie dane': 'Delete All Data',
+  'Usunąć wszystkie dane?': 'Delete all data?',
+  'Usuń wszystko': 'Delete All',
 };

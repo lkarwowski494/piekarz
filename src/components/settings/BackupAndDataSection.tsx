@@ -4,6 +4,9 @@ import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { exportBackup } from '../../lib/backup';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
+import { guardSave } from '../../lib/save-guard';
+import { resyncNotifications } from '../../lib/notifications';
+import { usunWszystkieDane } from '../../data/usun-wszystko';
 import {
   getBakeLogs,
   getFlourInventory,
@@ -32,6 +35,19 @@ export function BackupAndDataSection() {
     } finally {
       setIsExporting(false);
     }
+  };
+
+  // „Usuń wszystkie dane” z potwierdzeniem (design-spec: „Usunąć wszystkie dane?” [Anuluj] [Usuń wszystko]);
+  // kopia przed czyszczeniem w usunWszystkieDane, nieudana kopia: „Nie zapisano” [M1-audytor-generalny-124]
+  const usunWszystko = guardSave(async () => {
+    await usunWszystkieDane();
+    await resyncNotifications();
+  });
+  const handleDeleteAll = () => {
+    Alert.alert(t('Usunąć wszystkie dane?'), undefined, [
+      { text: t('Anuluj'), style: 'cancel' },
+      { text: t('Usuń wszystko'), style: 'destructive', onPress: () => void usunWszystko() },
+    ]);
   };
 
   const handleExportBakesCsv = async () => {
@@ -133,6 +149,13 @@ export function BackupAndDataSection() {
           )}
         </View>
       </View>
+
+      {/* Usunięcie wszystkich danych (F-65): kolor błędu tylko na tej akcji (design-spec, inne.html us.usun) */}
+      <View style={styles.card}>
+        <Pressable accessibilityRole="button" testID="delete-all-data-btn" style={styles.deleteRow} onPress={handleDeleteAll}>
+          <Text style={styles.deleteText}>{t('Usuń wszystkie dane')}</Text>
+        </Pressable>
+      </View>
     </>
   );
 }
@@ -201,6 +224,15 @@ const styles = StyleSheet.create({
   },
   csvBtnText: {
     color: theme.colors.tusz,
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  deleteRow: {
+    minHeight: 44,
+    justifyContent: 'center',
+  },
+  deleteText: {
+    color: theme.colors.blad,
     fontSize: 14,
     fontWeight: '700',
   },

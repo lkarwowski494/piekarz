@@ -270,6 +270,7 @@
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
       "src/components/receptury/stos-receptur.ts (options)",
       "src/components/receptury/stos-receptur.ts (text)",
+      "src/components/settings/BackupAndDataSection.tsx (text)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
@@ -6003,6 +6004,11 @@
       "src/lib/confirm.ts (title)"
     ]
   },
+  "Usunąć wszystkie dane?": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+    ]
+  },
   "Usuń": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)",
@@ -6037,6 +6043,16 @@
   "Usuń wpis: {opis}": {
     "gdzie": [
       "src/components/zakwas/StarterEntriesList.tsx (accessibilityLabel)"
+    ]
+  },
+  "Usuń wszystkie dane": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Usuń wszystko": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (text)"
     ]
   },
   "Usuń zakwas": {

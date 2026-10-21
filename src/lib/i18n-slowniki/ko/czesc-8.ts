@@ -1,6 +1,8 @@
 // Słownik ko, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Mąka pszenna włoska Tipo 00': '이탈리아 밀가루 Tipo 00',
+  'Mąka pszenna luksusowa typ 550': '밀가루 (고운 백색)',
   'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': '고단백 밀가루 (W>280 / 마니토바)',
   'Mąka pszenna pełnoziarnista typ 2000': '밀 전립분',
   '{n} krok wypada w nocy#other': '{n}개 단계가 밤에 걸려요',

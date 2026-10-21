@@ -1,6 +1,11 @@
 // Słownik bg, część 10 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  '{n} krok wypada w nocy#other': '{n} стъпки се падат през нощта',
+  '{n} dzień#one': '{n} ден',
+  '{n} dzień#other': '{n} дни',
+  '{n} receptura#one': '{n} рецепта',
+  '{n} receptura#other': '{n} рецепти',
   '{n} zakwas#one': '{n} квасен стартер',
   '{n} zakwas#other': '{n} квасни стартера',
   '{n} wpis w Dzienniku#one': '{n} запис в Дневника',

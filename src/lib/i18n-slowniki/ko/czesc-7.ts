@@ -163,6 +163,9 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': '납작한 원반 (과발효)',
   'Płaski smak (Jałowy)': '밍밍한 맛 (풍미 부족)',
   'Zbyt kwaśny (Octowy)': '지나치게 신맛 (식초 맛)',
+  'Usunąć wszystkie dane?': '모든 데이터를 삭제할까요?',
+  'Usuń wszystkie dane': '모든 데이터 삭제',
+  'Usuń wszystko': '모두 삭제',
   'Uczeń Piekarski': '베이킹 견습생',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: 숙성 시간 {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': '젖산과 초산의 복합적인 풍미, 오래가는 신선함, 낮은 혈당 지수.',
@@ -176,6 +179,4 @@ export const CZESC: Record<string, string> = {
   'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '굵게 간 그레이엄 밀가루(전립분)에 천연 꿀과 아마씨를 더한 영양 많은 빵.',
   'Mąka pszenna graham typ 1850': '그레이엄 밀가루 (전립분)',
   'Mąka pszenna Manitoba / Forte (W > 350)': '마니토바 / 포르테 밀가루 (W > 350)',
-  'Mąka pszenna włoska Tipo 00': '이탈리아 밀가루 Tipo 00',
-  'Mąka pszenna luksusowa typ 550': '밀가루 (고운 백색)',
 };
