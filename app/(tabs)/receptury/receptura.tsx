@@ -71,6 +71,7 @@ export default function EkranReceptury() {
   // Temperatury do wzoru wody: pola w arkuszu „Temperatura wody”, null = puste pole (BR-KALK-004, RD-16)
   // [M1-audytor-generalny-146]
   const [temperatury, setTemperatury] = useState<TemperaturyDdt>({ maka: 21.0, kuchnia: 22.0, zaczyn: 21.0, tarcie: 2.0 });
+  const [kuchniaWpisana, setKuchniaWpisana] = useState(false); // temperatura kuchni wpisana, nie domyślna (D-4)
   const [tapWaterTemp] = useState<number>(16.0);
 
   // Strata piecowa: F-48 PÓŹNIEJ bez wejścia (§11c 106); kopia receptury pomija ją, dopóki wejście jest ukryte (DEC-25 a, 199)
@@ -203,7 +204,8 @@ export default function EkranReceptury() {
         recipeName,
         calculatedRecipe: calculations,
         recipeFormula,
-
+        // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
+        ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
       });
       router.push('/receptury/harmonogram');
     });
@@ -317,7 +319,14 @@ export default function EkranReceptury() {
         onTargetDdtChange={setTargetDdt}
         waterTempTarget={ddtResult.waterTempTarget}
         waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
-        temperatury={{ wartosci: temperatury, zZaczynem, onChange: (z) => setTemperatury((p) => ({ ...p, ...z })) }}
+        temperatury={{
+          wartosci: temperatury,
+          zZaczynem,
+          onChange: (z) => {
+            if ('kuchnia' in z) setKuchniaWpisana(true);
+            setTemperatury((p) => ({ ...p, ...z }));
+          },
+        }}
         brakPola={brakTemperatury ? ETYKIETY_TEMPERATUR[brakTemperatury] : null}
       />
 

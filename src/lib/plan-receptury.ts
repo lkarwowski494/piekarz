@@ -13,6 +13,11 @@ export interface RecepturaPlanu {
   recipeFormula: DoughRecipeInput;
   /** Notatka z wpisu dziennika przy „Piecz ponownie” (BR-RECP-003) [M1-audytor-generalny-146] */
   notatka?: string;
+  /**
+   * Temperatura kuchni z arkusza „Temperatura wody” receptury (°C): plan pokazuje tę samą liczbę; `wybrana` = wpisana
+   * przez użytkownika (tylko wtedy trafia do wypieku i dziennika) [audyt-niezalezny D-4].
+   */
+  temperaturaKuchni?: { c: number; wybrana: boolean };
 }
 
 let biezaca: RecepturaPlanu | null = null;

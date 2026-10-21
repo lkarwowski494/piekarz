@@ -298,3 +298,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** ★(a) czasy żyta z presetu („Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h)” w notatce receptury `rye_100_pan`) — liczba bez źródła w `docs/tresci/rejestr.json`; ZYT-ETA-900 (czasy domowego chleba żytniego) ma status „otwarte”, a D-035 dopuszcza czasy tylko ze źródeł rejestru; rozrost bez minutnika (durationMin null) — plan nie policzyłby godzin po rozroście, więc godzina „gotowe” traciłaby sens.
 - **Dlaczego:** przełącznik lodówki zmieniał rozrost w formie, którego nie robi się w lodówce; to najmniejsza zmiana bez nowej liczby.
 - **Zależy od:** źródła ZYT-ETA-900 (rola 06): dopiero z nim (a) — czas rozrostu żytniego zamiast czasu garowania chłodniczego planu; do tego czasu minutnik rozrostu bierze czas garowania planu (domyślnie 14 h), co zostaje znaną niezgodnością (zgłoszenie dla roli 06 w raporcie p15a).
+
+### [D-075] 2026-10-22 — Plan z „Ułóż plan” bierze temperaturę kuchni z receptury (audyt niezależny D-4, reszta po p13b) (M2 tor p15a)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja).
+- **Decyzja:** pola temperatur i wzór n = 3 bez zakwasu wprowadził p13b (D-070 pkt 2, KALK-004) — ta część D-4 jest zamknięta. Reszta: plan otwarty przyciskiem „Ułóż plan” pokazuje temperaturę kuchni z arkusza „Temperatura wody” (domyślnie 22 °C, jak w recepturze) zamiast stałych 23 °C; do wypieku i dziennika trafia tylko wtedy, gdy użytkownik wpisał ją w recepturze albo wybrał w planie (zasada M1-audytor-generalny-017 bez zmian). Plan otwarty bez receptury (np. „Piecz ponownie”) zostaje przy 23 °C modelu.
+- **Odrzucone:** zmiana domyślnej temperatury receptury na 23 °C — wartość pola wody to osobne założenie (D-070: domyślne 21/22/21/2 °C bez zmian); dwie różne liczby na dwóch ekranach tej samej receptury.
+- **Dlaczego:** jedna kuchnia, jedna temperatura: plan i temperatura wody liczą się z tej samej liczby.
+- **Zależy od:** nic nowego (żadna liczba dziedzinowa nie zmieniona).

@@ -58,10 +58,11 @@ export default function HarmonogramScreen() {
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
   // Baking environment
-  const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
   // 23 °C to założenie modelu planu, nie pomiar: do wypieku i dziennika trafia tylko temperatura wybrana
-  // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]
-  const [tempWybrana, setTempWybrana] = useState(false);
+  // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]. Z „Ułóż plan”: temperatura kuchni z receptury,
+  // ta sama liczba co w arkuszu „Temperatura wody” [audyt-niezalezny D-4]
+  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? 23.0);
+  const [tempWybrana, setTempWybrana] = useState(() => recepturaPlanu()?.temperaturaKuchni?.wybrana ?? false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
   // Godziny snu z Ustawień (D-066 1a, BR-HARMO-002); „Bez godzin snu” = okno puste (0–0), plan nie sprawdza nocy
