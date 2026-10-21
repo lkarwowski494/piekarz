@@ -56,6 +56,10 @@ export const EN_16: Record<string, string> = {
   'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.':
     'While your phone is asleep, a notification will tell you what to do and when. Your phone will ask for permission in a moment.',
   'Dalej': 'Continue',
+  // Dokarmianie z masy zostawionej w słoiku (BR-ZAKW-002) [M1-audytor-generalny-130]
+  'Zostawiam w słoiku': 'I keep in the jar',
+  'Wpisz, ile zakwasu zostawiasz w słoiku.': 'Enter how much starter you keep in the jar.',
+  'Hydratacja zakwasu {n}%': 'Starter hydration {n}%',
   // Godziny snu w Ustawieniach i na planie (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130]
   'Godziny snu': 'Sleep hours',
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'I plan hands-on steps outside these hours.',

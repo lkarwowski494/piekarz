@@ -342,6 +342,7 @@ export default function ZakwasScreen() {
           targetYield={targetYield}
           onTargetYieldChange={setTargetYield}
           feeding={feeding}
+          hydratacjaZakwasu={starter.hydration}
           unitSystem={unitSystem}
           onCopyFeeding={handleCopyFeeding}
           onOpenConverter={() => setIsConverterOpen(true)}

@@ -1877,6 +1877,11 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Hydratacja zakwasu {n}%": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
   "Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
@@ -6531,6 +6536,11 @@
       "src/components/stolnica/FinishBakeModal.tsx (placeholder)"
     ]
   },
+  "Wpisz, ile zakwasu zostawiasz w słoiku.": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
   "Wprowadź młody zaczyn (Levain) i sól rozpuszczoną w pozostałej wodzie (metoda bassinage).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -7768,6 +7778,12 @@
   "Zostaw zapis i wróć": {
     "gdzie": [
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Zostawiam w słoiku": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (accessibilityLabel)",
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
     ]
   },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.": {
