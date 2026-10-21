@@ -33,15 +33,13 @@ export function lastFeeding<T extends StarterEntryLike>(entries: readonly T[]): 
   return best;
 }
 
-const startOfLocalDay = (ms: number) => {
-  const d = new Date(ms);
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
-};
-
-/** Dzień N zakładania: różnica dni kalendarzowych (czas lokalny) + 1; zmiana czasu nie przesuwa dnia. */
+/**
+ * Dzień N zakładania: pełne doby od założenia (pierwszego dokarmienia) + 1, jak rytm karmień co 24 h; północ nie
+ * zmienia dnia (założony o 23:46 o 00:46 jest w dniu 1). Czas rzeczywisty, więc zmiana czasu nie przesuwa dnia
+ * [M2-koordynator-napraw-501 (p11)].
+ */
 export function setupDay(setupStartedAt: number, now: number): number {
-  const days = Math.round((startOfLocalDay(now) - startOfLocalDay(setupStartedAt)) / (24 * HOUR_MS));
-  return Math.max(1, days + 1);
+  return Math.max(1, Math.floor((now - setupStartedAt) / (24 * HOUR_MS)) + 1);
 }
 
 /** Gotowy: obserwacja „podwoił” najwyżej maxH godzin po ostatnim dokarmieniu (granica włączna). */

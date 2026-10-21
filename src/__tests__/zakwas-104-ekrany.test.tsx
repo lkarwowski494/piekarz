@@ -41,6 +41,8 @@ const dzienTemu = (n: number) => {
   const d = new Date();
   return new Date(d.getFullYear(), d.getMonth(), d.getDate() - n, 9, 0).getTime();
 };
+// Założenie n pełnych dób (i godzinę) temu: dzień n + 1 niezależnie od godziny przebiegu (setupDay w dobach, 501)
+const dobTemu = (n: number) => Date.now() - n * DAY - H;
 const starter = (id: string, extra: Partial<StoredStarter> = {}): StoredStarter => ({
   id, name: `Zakwas ${id}`, flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', ...extra,
 });
@@ -142,7 +144,7 @@ describe('104: ekrany zakwasu', () => {
 
   it.each([[0, 30], [12, 0], [23, 30]])('BR-ZAKW-005 Brak aktywności pierwszego dnia (zegar %i:%i): obserwacja → to normalne w pierwszej dobie i termin następnego dokarmienia', async (godz, min) => {
     const now = ustawZegar(godz, min);
-    // Dzień 1 to dzień kalendarzowy założenia (setupDay): pierwsze dokarmienie godzinę temu, ale nie wcześniej niż o północy
+    // Dzień 1 to pierwsza doba od założenia (setupDay, 501): pierwsze dokarmienie godzinę temu (o 0:30 o północy)
     const fedAt = Math.max(now - H, new Date(2026, 9, 21, 0, 0, 0, 0).getTime());
     try {
       await brakAktywnosciDnia1(fedAt);
@@ -151,21 +153,23 @@ describe('104: ekrany zakwasu', () => {
     }
   });
 
-  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 jest dzień 2 (dni kalendarzowe) — plan dnia 2, bez porady pierwszej doby', async () => {
+  // Dzień liczony w pełnych dobach od założenia, nie od północy [M2-koordynator-napraw-501 (p11)]
+  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 to nadal dzień 1 (pełne doby) — plan dnia 1 i porada pierwszej doby', async () => {
     const now = ustawZegar(0, 46);
     const fedAt = new Date(2026, 9, 20, 23, 46, 0, 0).getTime();
     try {
       const s = await start(async (e) => {
         await e.createStarterWithEntry(starter('z', { setupStartedAt: fedAt }), feed('f1', 'z', fedAt));
       });
-      expect(s.tekst()).toContain('Dzień 2');
+      expect(s.tekst()).toContain('Dzień 1');
+      expect(s.tekst()).not.toContain('Dzień 2');
+      for (const z of SETUP_GUIDE.day1) expect(s.tekst()).toContain(z);
       await s.press('zakladanie-objaw-no_activity');
       await s.press('zakladanie-zapisz-btn');
       const t = s.tekst();
-      for (const z of FIRST_DAY_NO_ACTIVITY) expect(t).not.toContain(z);
-      for (const z of SETUP_GUIDE.day2) expect(t).toContain(z);
+      for (const z of FIRST_DAY_NO_ACTIVITY) expect(t).toContain(z);
       const { formatTime } = require('../lib/format');
-      expect(t).toContain(formatTime(fedAt + DAY));
+      expect(t).toContain(`Następne dokarmienie: dziś o ${formatTime(fedAt + DAY)}.`);
       expect(now - fedAt).toBe(H);
       s.done();
     } finally {
@@ -189,7 +193,7 @@ describe('104: ekrany zakwasu', () => {
 
   it('BR-ZAKW-005 Pleśń w trakcie zakładania: dzień 4, kolorowe plamy → Ostrzeżenie „wyrzuć” i „Zacznij od nowa” od dnia 1', async () => {
     const s = await start(async (e) => {
-      await e.createStarterWithEntry(starter('z', { setupStartedAt: dzienTemu(3) }), feed('f1', 'z', dzienTemu(3)));
+      await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(3) }), feed('f1', 'z', dzienTemu(3)));
       await e.addStarterEntry(feed('f2', 'z', dzienTemu(1)));
     });
     expect(s.tekst()).toContain('Dzień 4');
@@ -212,7 +216,7 @@ describe('104: ekrany zakwasu', () => {
   it('BR-ZAKW-005 Gotowy: dzień 7, podwojenie w 8 h → „gotowy” i „Ułóż plan” do pierwszego wypieku', async () => {
     const fedAt = Date.now() - 7 * H;
     const s = await start(async (e) => {
-      await e.createStarterWithEntry(starter('z', { setupStartedAt: dzienTemu(6) }), feed('f1', 'z', fedAt));
+      await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(6) }), feed('f1', 'z', fedAt));
     });
     expect(s.tekst()).toContain('Dzień 7');
     await s.press('zakladanie-objaw-doubled');
@@ -311,7 +315,7 @@ describe('104: ekrany zakwasu', () => {
 
   it('BR-DIAG-002 Zakwas bez aktywności w dniu 5: „Coś mnie niepokoi” → Doktor zakwasu z przyczynami i radą co 12 h; plamy → wyrzuć bez listy', async () => {
     const s = await start(async (e) => {
-      await e.createStarterWithEntry(starter('z', { setupStartedAt: dzienTemu(4) }), feed('f1', 'z', Date.now() - 3 * H));
+      await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(4) }), feed('f1', 'z', Date.now() - 3 * H));
     });
     await s.press('zakwas-niepokoi-btn');
     expect(s.push).toHaveBeenCalledWith({ pathname: '/zakwasy/doktor-zakwasu', params: { starterId: 'z' } });

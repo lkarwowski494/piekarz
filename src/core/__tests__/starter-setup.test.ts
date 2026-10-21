@@ -39,9 +39,14 @@ describe('BR-ZAKW-005: dzień N i gotowość (104)', () => {
     expect(isStarterSign('smells_nice')).toBe(false);
   });
 
-  it('setupDay: dzień 1 do północy, dzień 2 po północy; zmiana czasu (25.10.2026) nie przesuwa dnia', () => {
+  // Dzień liczony w pełnych dobach od założenia (pierwszego dokarmienia), jak rytm karmień co 24 h; północ nie
+  // zmienia dnia [M2-koordynator-napraw-501 (p11)]
+  it('setupDay: dzień 2 dopiero po pełnej dobie od założenia, nie po północy; zmiana czasu (25.10.2026) nie przesuwa dnia', () => {
     expect(setupDay(local(20, 23, 50), local(20, 23, 59))).toBe(1);
-    expect(setupDay(local(20, 23, 50), local(21, 0, 5))).toBe(2);
+    expect(setupDay(local(20, 23, 50), local(21, 0, 5))).toBe(1);
+    expect(setupDay(local(20, 23, 46), local(21, 0, 46))).toBe(1);
+    expect(setupDay(local(20, 23, 50), local(21, 23, 49))).toBe(1);
+    expect(setupDay(local(20, 23, 50), local(21, 23, 50))).toBe(2);
     expect(setupDay(local(24, 12), local(26, 12))).toBe(3);
     expect(setupDay(local(20, 8), local(26, 23))).toBe(7);
     expect(setupDay(local(20, 8), local(19, 8))).toBe(1);
