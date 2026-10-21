@@ -47,7 +47,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 240,
     bakeTempBrowningC: 210,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.',
+    notesPl: 'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.',
   },
   {
     id: 'tartine_high_hydration_80',

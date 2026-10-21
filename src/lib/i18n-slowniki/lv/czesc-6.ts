@@ -59,7 +59,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Vienas dienas cepiens (Direct)',
   'Wypiek w formie': 'Cepšana veidnē',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Cepiens katlā pabeigts. Izņemiet maizi un novietojiet uz režģa.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cepšana čuguna katlā. 4 mīklas locīšanas sērijas (Coil Fold) ar 30 minūšu intervālu. Aukstā raudzēšana ledusskapī 12–16 stundas.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cepšana čuguna katlā. 4 mīklas locīšanas sērijas (Coil Fold) ar 30 minūšu intervālu. Aukstā raudzēšana ledusskapī 12–16 stundas.',
   'Wypiek z parą i rumienienie': 'Cepšana ar tvaiku un apbrūnināšana',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Mīciet, pievienojot sviestu un cukuru. Pēc uzrūgšanas sapiniet bizi, apziediet ar sakultu olu un pārkaisiet ar drupačām.',
   'Wyrównaj do 100%': 'Izlīdzināt līdz 100%',

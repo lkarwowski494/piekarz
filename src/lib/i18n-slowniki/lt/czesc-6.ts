@@ -62,7 +62,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Vienos dienos kepinys (Direct)',
   'Wypiek w formie': 'Kepimas formoje',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Kepimas puode baigtas. Išimkite duoną ant grotelių.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Kepama ketiniame puode. 4 lankstymo serijos (Coil Fold) kas 30 minučių. Šaltoji fermentacija šaldytuve 12–16 valandų.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Kepama ketiniame puode. 4 lankstymo serijos (Coil Fold) kas 30 minučių. Šaltoji fermentacija šaldytuve 12–16 valandų.',
   'Wypiek z parą i rumienienie': 'Kepimas su garais ir apskrudinimas',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Minkykite su sviestu ir cukrumi. Tešlai iškilus supinkite kasą, patepkite išplaktu kiaušiniu ir pabarstykite trupinėliais.',
   'Wyrównaj do 100%': 'Išlyginti iki 100 %',

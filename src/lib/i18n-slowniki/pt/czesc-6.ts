@@ -74,7 +74,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Fornada num só dia (direto)',
   'Wypiek w formie': 'Cozedura na forma',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Cozedura na panela concluída. Retire o pão para a grelha.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cozedura em panela de ferro fundido. 4 séries de dobras (coil fold) com intervalos de 30 minutos. Fermentação no frigorífico durante 12–16 horas.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cozedura em panela de ferro fundido. 4 séries de dobras (coil fold) com intervalos de 30 minutos. Fermentação no frigorífico durante 12–16 horas.',
   'Wypiek z parą i rumienienie': 'Cozedura com vapor e douramento',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Amasse com manteiga e açúcar. Depois de levedar, entrance, pincele com ovo batido e polvilhe com crumble.',
   'Wyrównaj do 100%': 'Ajustar a 100%',

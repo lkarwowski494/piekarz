@@ -57,7 +57,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Bakaran satu hari (Direct)',
   'Wypiek w formie': 'Pembakaran dalam acuan',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Bakaran dalam periuk selesai. Keluarkan roti ke atas rak dawai.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Dibakar dalam periuk besi tuang. 4 siri lipatan doh (Coil Fold) setiap 30 minit. Penapaian dalam peti sejuk selama 12–16 jam.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Dibakar dalam periuk besi tuang. 4 siri lipatan doh (Coil Fold) setiap 30 minit. Penapaian dalam peti sejuk selama 12–16 jam.',
   'Wypiek z parą i rumienienie': 'Bakaran berwap dan pemerangan',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Uli bersama mentega dan gula. Selepas naik, anyam menjadi tocang, sapu dengan telur yang dipukul dan taburkan streusel.',
   'Wyrównaj do 100%': 'Imbangkan kepada 100%',

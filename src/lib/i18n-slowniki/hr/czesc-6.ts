@@ -34,7 +34,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Jednodnevno pečenje (Direct)',
   'Wypiek w formie': 'Pečenje u kalupu',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Pečenje u loncu je završeno. Izvadi kruh na rešetku.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Pečenje u loncu od lijevanog željeza. 4 serije preklapanja (coil fold) u razmacima od 30 minuta. Hladna fermentacija u hladnjaku 12–16 sati.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Pečenje u loncu od lijevanog željeza. 4 serije preklapanja (coil fold) u razmacima od 30 minuta. Hladna fermentacija u hladnjaku 12–16 sati.',
   'Wypiek z parą i rumienienie': 'Pečenje s parom i zarumenjivanje',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Mijesi uz dodatak maslaca i šećera. Nakon dizanja ispleti pletenicu, premaži razmućenim jajetom i pospi mrvičastim posipom.',
   'Wyrównaj do 100%': 'Uravnoteži na 100 %',

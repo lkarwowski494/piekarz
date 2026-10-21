@@ -45,7 +45,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Eendagsbaksel (Direct)',
   'Wypiek w formie': 'Bakken in de vorm',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Bakken in de gietijzeren pan voltooid. Haal het brood eruit en leg het op het rooster.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Gebakken in een gietijzeren pan. 4 vouwrondes (coil fold) met 30 minuten ertussen. Koude rijs in de koelkast: 12–16 uur.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Gebakken in een gietijzeren pan. 4 vouwrondes (coil fold) met 30 minuten ertussen. Koude rijs in de koelkast: 12–16 uur.',
   'Wypiek z parą i rumienienie': 'Bakken met stoom en bruinen',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Kneed met boter en suiker. Vlecht het deeg na het rijzen, bestrijk met losgeklopt ei en bestrooi met streusel.',
   'Wyrównaj do 100%': 'Aanvullen tot 100%',

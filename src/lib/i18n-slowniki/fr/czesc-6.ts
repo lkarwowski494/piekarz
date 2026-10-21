@@ -95,7 +95,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Fournée en une journée (Direct)',
   'Wypiek w formie': 'Cuisson en moule',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Cuisson en cocotte terminée. Sortez le pain et posez-le sur la grille.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cuisson en cocotte en fonte. 4 séries de rabats (coil fold) espacées de 30 minutes. Pousse lente au froid : 12–16 heures.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cuisson en cocotte en fonte. 4 séries de rabats (coil fold) espacées de 30 minutes. Pousse lente au froid : 12–16 heures.',
   'Wypiek z parą i rumienienie': 'Cuisson avec vapeur et coloration',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Pétrissez en ajoutant le beurre et le sucre. Après la pousse, tressez, badigeonnez d\'œuf battu et parsemez de streusel.',
   'Wyrównaj do 100%': 'Équilibrer à 100 %',

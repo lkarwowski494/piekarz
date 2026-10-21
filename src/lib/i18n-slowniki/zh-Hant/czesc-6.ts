@@ -11,7 +11,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': '當日烘焙（Direct）',
   'Wypiek w formie': '模具烘烤',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': '鍋中烘焙已完成。請將麵包取出放到散熱架上。',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '以鑄鐵鍋烘烤。每隔 30 分鐘進行一輪翻面拉摺（Coil Fold），共 4 輪。在冰箱中低溫冷藏發酵 12–16 小時。',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '以鑄鐵鍋烘烤。每隔 30 分鐘進行一輪翻面拉摺（Coil Fold），共 4 輪。在冰箱中低溫冷藏發酵 12–16 小時。',
   'Wypiek z parą i rumienienie': '蒸汽烘焙與開蓋烤色',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': '加入奶油與糖揉麵。發酵完成後編成辮子，刷上蛋液，撒上酥粒。',
   'Wyrównaj do 100%': '調整至 100%',

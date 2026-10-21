@@ -64,7 +64,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Backen an einem Tag (Direct)',
   'Wypiek w formie': 'Backen in der Form',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Backen im Gusstopf abgeschlossen. Nimm das Brot heraus und lege es auf das Gitter.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Backen im Gusstopf. 4 Runden Dehnen und Falten (Coil Fold) im Abstand von 30 Minuten. Kaltgare im Kühlschrank 12–16 Stunden.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Backen im Gusstopf. 4 Runden Dehnen und Falten (Coil Fold) im Abstand von 30 Minuten. Kaltgare im Kühlschrank 12–16 Stunden.',
   'Wypiek z parą i rumienienie': 'Backen mit Dampf und Bräunen',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Knete den Teig mit Butter und Zucker. Flechte ihn nach dem Gehen zu einem Zopf, bestreiche ihn mit verquirltem Ei und bestreue ihn mit Streuseln.',
   'Wyrównaj do 100%': 'Auf 100 % ausgleichen',

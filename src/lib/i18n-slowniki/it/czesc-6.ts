@@ -75,7 +75,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Sfornata in giornata (diretto)',
   'Wypiek w formie': 'Cottura in stampo',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Cottura in pentola terminata. Trasferisci il pane sulla griglia.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cottura in pentola di ghisa. 4 serie di pieghe di rinforzo (coil fold) a intervalli di 30 minuti. Lievitazione in frigo per 12–16 ore.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Cottura in pentola di ghisa. 4 serie di pieghe di rinforzo (coil fold) a intervalli di 30 minuti. Lievitazione in frigo per 12–16 ore.',
   'Wypiek z parą i rumienienie': 'Cottura a vapore e doratura',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Impasta con burro e zucchero. Dopo la lievitazione intreccia, spennella con uovo sbattuto e cospargi di crumble.',
   'Wyrównaj do 100%': 'Porta al 100%',

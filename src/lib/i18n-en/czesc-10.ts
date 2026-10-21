@@ -162,8 +162,8 @@ export const EN_10: Record<string, string> = {
     'Country everyday sourdough bread',
   'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.':
     'A classic wheat-rye loaf with a crispy crust and an open ear. Ideal for starting your sourdough adventure.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.':
-    'Baked in a cast-iron pot. 4 sets of folds (Coil Fold) at 30-minute intervals. Proofing in the fridge for 12–16 hours.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.':
+    'Baked in a cast-iron pot. 4 sets of coil folds at 30-minute intervals. Proofing in the fridge for 12–16 hours.',
   'Mistrzowski wiejski w stylu Tartine, 80%':
     'Master country loaf, Tartine style, 80%',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.':

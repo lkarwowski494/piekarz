@@ -29,7 +29,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Ühepäevane küpsetus (Direct)',
   'Wypiek w formie': 'Küpsetamine vormis',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Malmpotis küpsetamine on lõppenud. Võta leib välja ja aseta restile.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Küpsetamine malmpotis. 4 voltimisseeriat (Coil Fold) 30-minutiliste vahedega. Külmkergitus külmkapis 12–16 tundi.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Küpsetamine malmpotis. 4 voltimisseeriat (Coil Fold) 30-minutiliste vahedega. Külmkergitus külmkapis 12–16 tundi.',
   'Wypiek z parą i rumienienie': 'Auruga küpsetamine ja pruunistamine',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Sõtku koos või ja suhkruga. Pärast kerkimist punu palmik, määri lahtiklopitud munaga ja puista üle purukattega.',
   'Wyrównaj do 100%': 'Ühtlusta 100%-ni',

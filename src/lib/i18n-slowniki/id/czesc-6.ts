@@ -58,7 +58,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Hasil panggangan sehari (Direct)',
   'Wypiek w formie': 'Pemanggangan di cetakan',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Pemanggangan dalam panci selesai. Keluarkan roti ke rak kawat.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Dipanggang dalam panci besi cor. 4 seri regang dan lipat (coil fold) dengan jeda 30 menit. Fermentasi di kulkas 12–16 jam.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Dipanggang dalam panci besi cor. 4 seri regang dan lipat (coil fold) dengan jeda 30 menit. Fermentasi di kulkas 12–16 jam.',
   'Wypiek z parą i rumienienie': 'Pemanggangan dengan uap dan pencokelatan',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Uleni dengan tambahan mentega dan gula. Setelah mengembang, kepang adonan, olesi dengan telur kocok, dan taburi streusel.',
   'Wyrównaj do 100%': 'Seimbangkan ke 100%',

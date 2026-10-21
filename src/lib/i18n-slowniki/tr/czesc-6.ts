@@ -51,7 +51,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Tek günde pişirme (Direct)',
   'Wypiek w formie': 'Kalıpta pişirme',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Tencerede pişirme tamamlandı. Ekmeği tel ızgaraya çıkarın.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Döküm tencerede pişirme. 30 dakika arayla 4 set katlama (Coil Fold). Buzdolabında 12–16 saat soğuk fermantasyon.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Döküm tencerede pişirme. 30 dakika arayla 4 set katlama (Coil Fold). Buzdolabında 12–16 saat soğuk fermantasyon.',
   'Wypiek z parą i rumienienie': 'Buharlı pişirme ve renk alma',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Tereyağı ve şeker ekleyerek yoğurun. Kabardıktan sonra örgü yapın, çırpılmış yumurta sürün ve crumble serpin.',
   'Wyrównaj do 100%': '%100\'e eşitle',

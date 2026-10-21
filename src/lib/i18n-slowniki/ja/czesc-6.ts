@@ -107,7 +107,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': '当日焼成 (ストレート法)',
   'Wypiek w formie': '型焼き',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': '鍋での焼成が完了しました。パンをケーキクーラーに取り出してください。',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '鋳鉄鍋で焼成します。パンチ / 折りたたみ（コイルフォールド）を30分おきに4回。冷蔵庫で12–16時間の低温長時間発酵。',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '鋳鉄鍋で焼成します。パンチ / 折りたたみ（コイルフォールド）を30分おきに4回。冷蔵庫で12–16時間の低温長時間発酵。',
   'Wypiek z parą i rumienienie': '蒸気焼成と焼き色付け',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'バターと砂糖を加えて捏ねてください。発酵後に三つ編みにし、溶き卵を塗ってクランブルをまぶします。',
   'Wyrównaj do 100%': '100%に調整',

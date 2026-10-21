@@ -70,7 +70,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Coacere într-o singură zi (Direct)',
   'Wypiek w formie': 'Coacere în formă',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Coacerea în tuci s-a încheiat. Scoate pâinea pe grătar.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Coacere în tuci de fontă. 4 serii de împăturiri (Coil Fold) la interval de 30 de minute. Dospire la rece în frigider 12–16 ore.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Coacere în tuci de fontă. 4 serii de împăturiri (Coil Fold) la interval de 30 de minute. Dospire la rece în frigider 12–16 ore.',
   'Wypiek z parą i rumienienie': 'Coacere cu abur și rumenire',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Frământă cu unt și zahăr. După creștere, împletește, unge cu ou bătut și presară streusel.',
   'Wyrównaj do 100%': 'Echilibrează la 100%',

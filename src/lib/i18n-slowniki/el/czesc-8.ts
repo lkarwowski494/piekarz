@@ -46,7 +46,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Αυθημερόν ψήσιμο (Direct)',
   'Wypiek w formie': 'Ψήσιμο σε φόρμα',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Το ψήσιμο στη γάστρα ολοκληρώθηκε. Βγάλτε το ψωμί στη σχάρα.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Ψήσιμο σε μαντεμένια γάστρα. 4 σειρές διπλωμάτων (Coil Fold) ανά 30 λεπτά. Ωρίμανση στο ψυγείο 12–16 ώρες.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Ψήσιμο σε μαντεμένια γάστρα. 4 σειρές διπλωμάτων (Coil Fold) ανά 30 λεπτά. Ωρίμανση στο ψυγείο 12–16 ώρες.',
   'Wypiek z parą i rumienienie': 'Ψήσιμο με ατμό και ρόδισμα',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Ζυμώστε προσθέτοντας βούτυρο και ζάχαρη. Αφού φουσκώσει, πλέξτε την κοτσίδα, αλείψτε με χτυπημένο αυγό και πασπαλίστε με κραμπλ.',
   'Wyrównaj do 100%': 'Εξίσωση στο 100%',

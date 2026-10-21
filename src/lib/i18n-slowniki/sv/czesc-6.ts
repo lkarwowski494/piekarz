@@ -33,7 +33,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Bak på en dag (Direct)',
   'Wypiek w formie': 'Gräddning i form',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Baket i grytan är klart. Ta ut brödet på gallret.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Grädda i gjutjärnsgryta. 4 omgångar vikningar (Coil Fold) med 30 minuters mellanrum. Kalljäsning i kylen 12–16 timmar.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Grädda i gjutjärnsgryta. 4 omgångar vikningar (Coil Fold) med 30 minuters mellanrum. Kalljäsning i kylen 12–16 timmar.',
   'Wypiek z parą i rumienienie': 'Gräddning med ånga och färg',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Knåda med smör och socker. Fläta degen när den har jäst, pensla med uppvispat ägg och strö över smultopping.',
   'Wyrównaj do 100%': 'Jämna ut till 100 %',

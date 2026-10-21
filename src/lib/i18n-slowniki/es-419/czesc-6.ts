@@ -74,7 +74,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Horneado en un día (directo)',
   'Wypiek w formie': 'Horneado en molde',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Horneado en olla terminado. Pasa el pan a la rejilla.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Horneado en olla de hierro fundido. 4 series de pliegues (coil fold) cada 30 minutos. Fermentación en frío en el refrigerador 12–16 horas.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Horneado en olla de hierro fundido. 4 series de pliegues (coil fold) cada 30 minutos. Fermentación en frío en el refrigerador 12–16 horas.',
   'Wypiek z parą i rumienienie': 'Horneado con vapor y dorado',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Amasa con mantequilla y azúcar. Después del levado, trenza la masa, barnízala con huevo batido y espolvorea el streusel.',
   'Wyrównaj do 100%': 'Ajustar a 100%',

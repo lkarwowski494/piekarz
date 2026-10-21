@@ -101,7 +101,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Nướng trong ngày (Direct)',
   'Wypiek w formie': 'Nướng trong khuôn',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Mẻ bánh trong nồi đã xong. Lấy bánh ra đặt lên giá làm nguội.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Nướng trong nồi gang. 4 lượt gấp bột (Coil Fold) cách nhau 30 phút. Ủ lạnh chậm trong tủ lạnh 12–16 giờ.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Nướng trong nồi gang. 4 lượt gấp bột (Coil Fold) cách nhau 30 phút. Ủ lạnh chậm trong tủ lạnh 12–16 giờ.',
   'Wypiek z parą i rumienienie': 'Nướng có hơi nước và làm vàng vỏ',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Nhào cùng bơ và đường. Sau khi bột nở, tết bím, quét trứng đánh tan và rắc lớp vụn bơ đường.',
   'Wyrównaj do 100%': 'Cân bằng về 100%',

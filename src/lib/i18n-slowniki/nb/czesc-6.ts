@@ -27,7 +27,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Bakst samme dag (direkte)',
   'Wypiek w formie': 'Steking i form',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Grytebaksten er ferdig. Ta ut brødet og legg det på rist.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Stekes i støpejernsgryte. 4 runder bretting (coil fold) med 30 minutters mellomrom. Kaldheving i kjøleskapet i 12–16 timer.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Stekes i støpejernsgryte. 4 runder bretting (coil fold) med 30 minutters mellomrom. Kaldheving i kjøleskapet i 12–16 timer.',
   'Wypiek z parą i rumienienie': 'Steking med damp og bruning',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Elt med smør og sukker. Når deigen har hevet, fletter du den, pensler med sammenvispet egg og drysser over streusel.',
   'Wyrównaj do 100%': 'Juster til 100 %',

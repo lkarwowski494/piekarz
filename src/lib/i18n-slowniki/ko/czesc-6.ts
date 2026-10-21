@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': '당일 베이킹 (직접법)',
   'Wypiek w formie': '틀에 굽기',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': '냄비 베이킹이 끝났어요. 빵을 꺼내 식힘망에 올리세요.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '무쇠 냄비에서 구워요. 30분 간격으로 늘려접기 (코일 폴드) 4세트. 냉장고에서 12–16시간 저온 숙성 (콜드 리타드).',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '무쇠 냄비에서 구워요. 30분 간격으로 늘려접기 (코일 폴드) 4세트. 냉장고에서 12–16시간 저온 숙성 (콜드 리타드).',
   'Wypiek z parą i rumienienie': '스팀 베이킹과 굽기색 내기',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': '버터와 설탕을 넣어 치대세요. 부풀면 땋고, 푼 달걀을 바른 뒤 크럼블을 뿌리세요.',
   'Wyrównaj do 100%': '100%로 맞추기',

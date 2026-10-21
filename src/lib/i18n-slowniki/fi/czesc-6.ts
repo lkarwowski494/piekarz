@@ -51,7 +51,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Yhden päivän leivonta (Direct)',
   'Wypiek w formie': 'Paisto vuoassa',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Leivonta padassa on valmis. Nosta leipä ritilälle.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Paisto valurautapadassa. 4 taittelusarjaa (Coil Fold) 30 minuutin välein. Kohotus jääkaapissa 12–16 tuntia.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Paisto valurautapadassa. 4 taittelusarjaa (Coil Fold) 30 minuutin välein. Kohotus jääkaapissa 12–16 tuntia.',
   'Wypiek z parą i rumienienie': 'Höyrypaisto ja ruskistus',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Vaivaa voin ja sokerin kanssa. Kohotuksen jälkeen letitä palmikko, voitele vatkatulla kananmunalla ja ripottele päälle murupäällistä.',
   'Wyrównaj do 100%': 'Tasaa 100 %:iin',

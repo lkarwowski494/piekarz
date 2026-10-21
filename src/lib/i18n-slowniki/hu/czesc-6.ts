@@ -74,7 +74,7 @@ export const CZESC: Record<string, string> = {
   'Wypiek jednodniowy (Direct)': 'Egynapos sütés (Direct)',
   'Wypiek w formie': 'Sütés formában',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'A lábasban sütés véget ért. Vedd ki a kenyeret, és tedd a rácsra.',
-  'Wypiek w garnku żeliwnym. 4 serie składań (Coil Fold) w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Sütés öntöttvas lábasban. 4 kör hajtogatás (coil fold) 30 perces időközönként. Hideg kelesztés a hűtőben 12–16 órán át.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Sütés öntöttvas lábasban. 4 kör hajtogatás (coil fold) 30 perces időközönként. Hideg kelesztés a hűtőben 12–16 órán át.',
   'Wypiek z parą i rumienienie': 'Sütés gőzzel és pirítás',
   'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.': 'Dagaszd vajjal és cukorral. Kelés után fond be, kend le felvert tojással, és szórd meg morzsával.',
   'Wyrównaj do 100%': 'Kiegyenlítés 100%-ra',

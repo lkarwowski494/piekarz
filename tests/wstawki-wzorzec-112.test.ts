@@ -65,11 +65,17 @@ const bezNawiasow = (s: string) => s.replace(/\([^)]*\)/g, ' ');
 const SLOWA_EN = new Set(Object.values(EN).flatMap(slowa));
 const SLOWA_PL = new Set(Object.keys(EN).map(bezNawiasow).flatMap(slowa));
 
+/**
+ * Terminy angielskie, które występują też w polskim tekście poza nawiasem (porada „technika Coil Fold”), więc lista
+ * słów PL by je przepuszczała; w nawiasie tekstu PL to dalej wstawka [reaudit-noc N-9].
+ */
+const TERMINY_EN = new Set(['coil', 'fold']);
+
 /** Słowa angielskie w nawiasach tekstu PL. */
 function wstawki(tekst: string): string[] {
   const bezParametrow = TRESC_ROLI_06.reduce((s, x) => s.split(x).join(' '), tekst.replace(/\{[^}]*\}/g, ' '));
   return [...bezParametrow.matchAll(/\(([^)]*)\)/g)].flatMap((m) =>
-    slowa(m[1]).filter((w) => /^[a-z]{3,}$/.test(w) && SLOWA_EN.has(w) && !SLOWA_PL.has(w) && !NAZWY_WLASNE.has(w)));
+    slowa(m[1]).filter((w) => /^[a-z]{3,}$/.test(w) && SLOWA_EN.has(w) && (!SLOWA_PL.has(w) || TERMINY_EN.has(w)) && !NAZWY_WLASNE.has(w)));
 }
 
 describe('M1-audytor-generalny-112: wzorzec nawiasu ze słowem angielskim w tekstach PL', () => {
@@ -80,6 +86,7 @@ describe('M1-audytor-generalny-112: wzorzec nawiasu ze słowem angielskim w teks
     expect(wstawki('Zbyt kwaśny (Octowy)')).toEqual([]);
     expect(wstawki('Mąka pszenna (typ 750)')).toEqual([]);
     expect(wstawki('Ciasto (według King Arthur Baking)')).toEqual([]);
+    expect(wstawki('4 serie składań (Coil Fold) w odstępach 30 minut')).toEqual(['coil', 'fold']);
   });
 
   it('teksty PL z wpisem EN w plikach z wejściem w 1.0 (w tym receptury bazowe) bez wstawek', () => {
