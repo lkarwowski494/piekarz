@@ -48,15 +48,17 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   lines.push(recipeName);
   lines.push('='.repeat(recipeName.length + 4));
 
-  // Yield & Weights Summary
-  if (loavesCount > 1) {
-    const singleBaked = bakeLoss?.singleLoafBakedGrams ?? Math.round((bakeLoss?.bakedWeightGrams ?? calc.targetDoughWeightGrams * 0.86) / loavesCount);
+  // Yield & Weights Summary. Masa po upieczeniu tylko ze straty piecowej podanej przez wołającego
+  // (F-48 PÓŹNIEJ: bez stałej 14% bez źródła, DEC-25 a) [M1-audytor-generalny-199]
+  if (!bakeLoss) {
+    lines.push(`${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)}`);
+  } else if (loavesCount > 1) {
+    const singleBaked = bakeLoss.singleLoafBakedGrams ?? Math.round(bakeLoss.bakedWeightGrams / loavesCount);
     lines.push(
       `${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${loavesCount}x ~${w(singleBaked)} ${t('Upieczony bochenek').toLowerCase()})`
     );
   } else {
-    const baked = bakeLoss?.bakedWeightGrams ?? Math.round(calc.targetDoughWeightGrams * 0.86);
-    lines.push(`${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${t('po upieczeniu: ~{masa}', { masa: w(baked) })})`);
+    lines.push(`${t('Masa ciasta')}: ${w(calc.targetDoughWeightGrams)} (${t('po upieczeniu: ~{masa}', { masa: w(bakeLoss.bakedWeightGrams) })})`);
   }
 
   lines.push(`${t('Hydratacja całkowita')}: ${formatFixed(calc.overallHydrationPercent, 1)}%`);
