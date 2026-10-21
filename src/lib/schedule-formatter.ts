@@ -86,7 +86,13 @@ export function formatScheduleToText(
   }
 
   if (schedule.hasSleepCollision) {
-    lines.push(`${t('Kolizja ze snem')}: ${schedule.collisionDetailsPl || ''}`);
+    // Opis kolizji w języku interfejsu, jak baner Sleep Guard (szablon i nazwa etapu przez t()) [M2-koordynator-napraw-632 (p12c)]
+    const opis = schedule.sleepCollisions.length > 0
+      ? schedule.sleepCollisions
+          .map((c) => t(SLEEP_COLLISION_TEMPLATE_PL, { ...sleepCollisionParams(c), etap: t(c.stageNamePl) }))
+          .join('; ')
+      : schedule.collisionDetailsPl || '';
+    lines.push(`${t('Kolizja ze snem')}: ${opis}`);
   }
 
   lines.push('');
@@ -94,7 +100,7 @@ export function formatScheduleToText(
 
   stages.forEach((s, idx) => {
     const startStr = `${formatStageTime(s.startTime)} (${formatStageDateBadge(s.startTime, ref)})`;
-    lines.push(`${idx + 1}. ${startStr} — ${s.namePl} (${czasTrwania(s.durationMinutes).tekst})`);
+    lines.push(`${idx + 1}. ${startStr} — ${t(s.namePl)} (${czasTrwania(s.durationMinutes).tekst})`);
   });
 
   lines.push('');

@@ -23,4 +23,13 @@ describe('kopia planu wypieku (p13a)', () => {
     expect(en).not.toMatch(/Apps4Craft|•/);
     expect(en.split('\n').pop()).toBe('— Baker');
   });
+
+  it('632: w EN etapy i kolizja ze snem bez polskich nazw', () => {
+    setLang('en');
+    const kol = [{ stageNamePl: plan.stages[1].namePl, time: '02:30' }];
+    const tekst = formatScheduleToText(planDoKopii(plan, plan.stages, kol), { referenceDate: ref });
+    expect(tekst).not.toMatch(/[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/);
+    for (const s of plan.stages) expect(tekst).not.toContain(s.namePl);
+    expect(tekst).not.toContain('wypada w nocy');
+  });
 });
