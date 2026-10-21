@@ -83,6 +83,7 @@ export default function RootLayout() {
   if (rescue) {
     return (
       <RescueScreen
+        bezMigracji
         onRetry={async () => {
           await markStartupSucceeded();
           setRescue(false);
