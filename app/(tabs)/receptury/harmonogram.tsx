@@ -187,6 +187,8 @@ export default function HarmonogramScreen() {
         isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
         steps,
         ...(zakwas ? { starterId: zakwas.id } : {}),
+        // Start tylko z dostępem: wypiek prowadzi się do końca także po wygaśnięciu (D-039) [M1-audytor-generalny-125]
+        zaczetyZDostepem: true,
         ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       });
       router.push('/stolnica');

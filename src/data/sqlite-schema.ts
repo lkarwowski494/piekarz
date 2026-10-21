@@ -33,6 +33,11 @@ export interface ActiveBakeState {
   steps?: SessionStep[];
   /** Zakwas wybrany do wypieku (plan z lodówki, D-052); brak = nie wybrano [M1-audytor-generalny-104]. */
   starterId?: string;
+  /**
+   * Wypiek zaczęty z dostępem (próba, subskrypcja, dożywotni): prowadzi się do końca także po wygaśnięciu (D-039 pkt 3).
+   * Brak = zapis sprzed tej wersji, traktowany jak zaczęty z dostępem (wybór P-125 a) [M1-audytor-generalny-125].
+   */
+  zaczetyZDostepem?: boolean;
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;

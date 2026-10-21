@@ -46,6 +46,7 @@ export function isActiveBakeState(v: unknown): v is ActiveBakeState {
     (v.recipeFormula === undefined || isRecipeInput(v.recipeFormula)) &&
     (v.isHighRye === undefined || typeof v.isHighRye === 'boolean') &&
     (v.starterId === undefined || isStr(v.starterId)) &&
+    (v.zaczetyZDostepem === undefined || typeof v.zaczetyZDostepem === 'boolean') &&
     (v.steps === undefined || parseSteps(v.steps) !== null);
 }
 
@@ -78,6 +79,14 @@ export function parseBakeSession(raw: string | undefined): BakeSession | null {
     startedAt: v.startedAt,
     bake: v.bake,
   };
+}
+
+/**
+ * Wypiek prowadzi się bez ekranu zakupu, gdy zaczął się z dostępem (D-039 pkt 3); brak znacznika (zapis sprzed
+ * wersji z 125 albo sesja bez danych wypieku) = zaczęty z dostępem, bo start wymagał dostępu (wybór P-125 a).
+ */
+export function zaczetyZDostepem(bake: ActiveBakeState | null): boolean {
+  return bake?.zaczetyZDostepem !== false;
 }
 
 /** Czy wypiek jest żytni: flaga z Harmonogramu albo z wyniku kalkulacji; brak receptury = pszenny domyślny. */

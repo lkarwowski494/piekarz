@@ -158,7 +158,9 @@ describe('Without an entitlement every screen opens the purchase screen except h
 
   // Stolnica bez wypieku przekierowuje na Dziś, historia jest w Dzienniku; wypiek zaczyna się z Receptur (zablokowane
   // wyżej: start-bake-btn) [M1-audytor-generalny-117]
-  it('Stolnica: no bake means nothing to lock; history is readable and deletable in Dziennik; a running bake shows the lock (BR-RECP-003 Przegląd historii bez zakupu)', async () => {
+  // Wypiek zaczęty z dostępem prowadzi się bez kłódki (D-039, 125: wypiek-po-wygasnieciu-125.test.tsx); kłódkę
+  // pokazuje tylko wypiek jawnie zaczęty bez dostępu [M1-audytor-generalny-125]
+  it('Stolnica: no bake means nothing to lock; history is readable and deletable in Dziennik; a running bake started without access shows the lock (BR-RECP-003 Przegląd historii bez zakupu)', async () => {
     await saveBakeLog({ id: 'bake_h1', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const pusta = await render(<StolnicaScreen />);
     expect(locks(pusta.root)).toEqual([]);
@@ -169,7 +171,7 @@ describe('Without an entitlement every screen opens the purchase screen except h
     expect(paywallShown(tree.root)).toBe(false);
     expect((await getBakeLogs()).some((b) => b.id === 'bake_h1')).toBe(false);
     act(() => tree.unmount());
-    await zacznijWypiekBezReceptury();
+    await zacznijWypiekBezReceptury(Date.now(), { zaczetyZDostepem: false });
     const trwa = await render(<StolnicaScreen />);
     expect(locks(trwa.root).map((n) => n.props.testID)).toContain('blokada-stolnica');
     await press(trwa, 'blokada-stolnica');

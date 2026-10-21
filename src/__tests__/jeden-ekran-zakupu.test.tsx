@@ -74,8 +74,9 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
   beforeEach(async () => {
     _resetMemStore();
     bezUprawnienia();
-    // Prowadzenie z trwającym wypiekiem: bez wypieku Stolnica przekierowuje na Dziś [M1-audytor-generalny-117]
-    await zacznijWypiekBezReceptury();
+    // Prowadzenie z trwającym wypiekiem: bez wypieku Stolnica przekierowuje na Dziś [M1-audytor-generalny-117];
+    // wypiek jawnie zaczęty bez dostępu, bo zaczęty z dostępem prowadzi się bez kłódki (D-039) [M1-audytor-generalny-125]
+    await zacznijWypiekBezReceptury(Date.now(), { zaczetyZDostepem: false });
   });
 
   it('the app has exactly one purchase screen, wherever the lock is tapped', async () => {

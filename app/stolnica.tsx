@@ -12,7 +12,7 @@ import { guardSave } from '../src/lib/save-guard';
 import { tapHaptic } from '../src/lib/haptics';
 import { useBakeSession } from '../src/hooks/useBakeSession';
 import { useFinishBake } from '../src/hooks/useFinishBake';
-import { saveBakeSession } from '../src/data/bake-session-store';
+import { saveBakeSession, zaczetyZDostepem } from '../src/data/bake-session-store';
 import { resyncNotifications, ensureNotificationPermission } from '../src/lib/notifications';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
@@ -180,6 +180,9 @@ export default function StolnicaScreen() {
 
   const currentStep: SessionStep | undefined = steps[currentStepIdx];
   const aktywny = isActive && !!currentStep;
+  // Wypiek zaczęty z dostępem prowadzi się do końca po wygaśnięciu: kroki, „Zrobione”, „Cofnij” i zapis wyniku
+  // bez ekranu zakupu; nowy wypiek i „Piecz ponownie” zostają za strażnikiem (D-039) [M1-audytor-generalny-125]
+  const blokadaWypieku = zaczetyZDostepem(activeBakeData) ? { ...blokada('stolnica'), odblokowane: true } : blokada('stolnica');
   // „Po co ten krok” z treści roli 06; krok bez źródła (KRO-POC-900) ma przycisk nieaktywny (100)
   const poCo = currentStep ? poCoTenKrok(currentStep, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined) : null;
 
@@ -275,7 +278,7 @@ export default function StolnicaScreen() {
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (
-          <BlokadaFunkcji {...blokada('stolnica')}>
+          <BlokadaFunkcji {...blokadaWypieku}>
           <View>
             <NotificationsOffBanner />
             {/* Strefa planu: nazwa receptury, Spirala koszyka z planu tego wypieku (058), krok n z N */}
@@ -313,7 +316,7 @@ export default function StolnicaScreen() {
         />
       )}
       {aktywny && (
-        <BlokadaFunkcji {...blokada('stolnica')}>
+        <BlokadaFunkcji {...blokadaWypieku}>
           <PasekKciuka
             nazwaKroku={t(currentStep.name)}
             onZrobione={handleNextStep}
