@@ -4,7 +4,7 @@
 // propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032], prośba o ocenę aplikacji od 3. wypieku (D-067).
 // ============================================================================
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { guardSave } from '../lib/save-guard';
 import { finishBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
 import { resyncNotifications } from '../lib/notifications';
@@ -34,7 +34,18 @@ export function useFinishBake(opts: {
   const [sensoryProfile, setSensoryProfile] = useState<BreadSensoryProfile>(DEFAULT_BREAD_SENSORY_PROFILE);
 
   const { recipeName, startedAt, activeBakeData } = opts;
-  const onSave = guardSave(async () => {
+  // Drugie stuknięcie „Zapisz” w trakcie zapisu nic nie robi: jeden wpis, bez fałszywego „Nie zapisano” [audyt-niezalezny D-11]
+  const zapisuje = useRef(false);
+  const onSave = async () => {
+    if (zapisuje.current) return;
+    zapisuje.current = true;
+    try {
+      await zapisz();
+    } finally {
+      zapisuje.current = false;
+    }
+  };
+  const zapisz = guardSave(async () => {
     await finishBake({
       id: `bake_${Date.now()}`,
       recipeName,
