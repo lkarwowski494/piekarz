@@ -42,7 +42,7 @@ Wersja 1.0.0:
 
 Wymagane wpisy w **Settings → Secrets and variables → Actions**:
 
-1. `APPLE_TEAM_ID` — 10-znakowy identyfikator zespołu Apple Developer (np. `8NQ9GHY8GF`)
+1. `APPLE_TEAM_ID` — 10-znakowy identyfikator zespołu Apple Developer (`<TEAM_ID>`; wartość dla podpisu jest w `app.json`, `expo.ios.appleTeamId`)
 2. `ASC_KEY_ID` — identyfikator klucza App Store Connect API, 10 znaków (np. `<KEY_ID>`)
 3. `ASC_ISSUER_ID` — identyfikator wystawcy App Store Connect API (UUID)
 4. `ASC_KEY_P8_BASE64` — zawartość klucza `.p8` zakodowana w Base64 (`base64 -w 0 AuthKey_*.p8`)
