@@ -22,7 +22,8 @@ export const unstable_settings = {
 };
 
 async function retryDatabase(): Promise<void> {
-  resetStorageState();
+  // Ekrany czekają za bramką do końca kopii i migracji [M1-audytor-generalny-205]
+  resetStorageState('initializing');
   await initDatabase();
 }
 

@@ -88,8 +88,12 @@ export function assertWritable(): void {
   if (state === 'newer') throw new StorageReadOnlyError(lastError ?? undefined);
 }
 
-export function resetStorageState(): void {
-  state = 'ok';
+/**
+ * Zeruje błąd. Ponowienie startu bazy przekazuje „initializing”: bramka trzyma ekrany do markStorageReady
+ * na końcu initDatabase, jak przy pierwszym starcie [M1-audytor-generalny-205; 05-architekt-601].
+ */
+export function resetStorageState(next: 'ok' | 'initializing' = 'ok'): void {
+  state = next;
   lastError = null;
   rescueFile = null;
   listeners.forEach((fn) => fn(state));

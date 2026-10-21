@@ -1,0 +1,98 @@
+/**
+ * Start aplikacji (app/_layout.tsx): ponowienie po błędzie bazy, kamień milowy strażnika startu i tryb awaryjny.
+ * [M1-audytor-generalny-205; 05-architekt-601] „Spróbuj ponownie” na ekranie błędu bazy trzyma bramkę „initializing”
+ * do końca initDatabase (kopia, migracje), więc ekrany nie czytają bazy w trakcie migracji.
+ */
+import type renderer from 'react-test-renderer';
+
+type Odroczone = { promise: Promise<void>; resolve: () => void };
+const odroczone = (): Odroczone => {
+  let resolve!: () => void;
+  const promise = new Promise<void>((r) => (resolve = r));
+  return { promise, resolve };
+};
+const flush = async () => {
+  for (let i = 0; i < 30; i++) await new Promise((r) => setImmediate(r));
+};
+
+/** RootLayout z kontrolowanym startem bazy; reszta startu (język, jednostki, płatności, powiadomienia) jako szpiedzy. */
+function uruchom(opcje: { rescue?: boolean; init?: () => Promise<void> } = {}) {
+  jest.resetModules();
+  const init = jest.fn(opcje.init ?? (async () => require('../data/storage-status').markStorageReady()));
+  const guard = { beginStartup: jest.fn(async () => ({ rescue: !!opcje.rescue })), markStartupSucceeded: jest.fn(async () => undefined) };
+  jest.doMock('../lib/startup-guard', () => ({ ...jest.requireActual('../lib/startup-guard'), ...guard }));
+  jest.doMock('../data/sqlite-store', () => ({ ...jest.requireActual('../data/sqlite-store'), initDatabase: init }));
+  const lang = jest.fn(async () => undefined);
+  const units = jest.fn(async () => 'metric');
+  jest.doMock('../lib/i18n', () => ({ ...jest.requireActual('../lib/i18n'), initLanguage: lang }));
+  jest.doMock('../lib/unit-converter', () => ({ ...jest.requireActual('../lib/unit-converter'), initUnitSystem: units }));
+  jest.doMock('../lib/platnosci/stan', () => ({ ...jest.requireActual('../lib/platnosci/stan'), uruchomPlatnosci: () => () => undefined }));
+  const resync = jest.fn(async () => ({ status: 'granted', ok: true }));
+  jest.doMock('../lib/notifications', () => ({ ...jest.requireActual('../lib/notifications'), resyncNotifications: resync }));
+  // Ekrany danych za bramką: licznik renderów zastępuje zapytania ekranów
+  const ekrany = { rendery: 0 };
+  jest.doMock('../components/AppAccessProvider', () => ({
+    AppAccessProvider: ({ children }: { children: unknown }) => {
+      ekrany.rendery += 1;
+      return children;
+    },
+  }));
+  const RN = require('react-native') as typeof import('react-native');
+  const appState: Array<(s: string) => void> = [];
+  jest.spyOn(RN.AppState, 'addEventListener').mockImplementation(((_t: string, fn: (s: string) => void) => {
+    appState.push(fn);
+    return { remove: () => appState.splice(appState.indexOf(fn), 1) };
+  }) as never);
+  return {
+    Layout: (require('../../app/_layout') as { default: React.ComponentType }).default,
+    React: require('react') as typeof import('react'),
+    TR: require('react-test-renderer') as typeof import('react-test-renderer'),
+    status: require('../data/storage-status') as typeof import('../data/storage-status'),
+    init, guard, lang, units, resync, ekrany, appState,
+  };
+}
+
+afterEach(() => {
+  for (const m of ['../lib/startup-guard', '../data/sqlite-store', '../lib/i18n', '../lib/unit-converter', '../lib/platnosci/stan', '../lib/notifications', '../components/AppAccessProvider']) jest.dontMock(m);
+  jest.restoreAllMocks();
+});
+
+describe('205: „Spróbuj ponownie” na ekranie błędu bazy czeka na koniec initDatabase', () => {
+  it('po markStorageUnavailable i ponowieniu stan „initializing” do końca initDatabase; ekrany za bramką nie renderują się w trakcie', async () => {
+    const m = uruchom();
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    expect(m.status.getStorageState()).toBe('ok');
+    // Błąd migracji przy starcie: ekran błędu
+    await m.TR.act(async () => {
+      m.status.markStorageUnavailable('migration failed');
+      await flush();
+    });
+    expect(tree.root.findAllByProps({ testID: 'storage-retry' }).length).toBeGreaterThan(0);
+    // Ponowienie: migracja trwa (initDatabase nie skończył)
+    const migracja = odroczone();
+    m.init.mockImplementation(async () => {
+      await migracja.promise;
+      m.status.markStorageReady();
+    });
+    const renderyPrzed = m.ekrany.rendery;
+    await m.TR.act(async () => {
+      void tree.root.findAllByProps({ testID: 'storage-retry' })[0].props.onPress();
+      await flush();
+    });
+    expect(m.status.getStorageState()).toBe('initializing');
+    expect(tree.root.findAllByProps({ testID: 'storage-initializing' }).length).toBeGreaterThan(0);
+    expect(m.ekrany.rendery).toBe(renderyPrzed);
+    // Koniec migracji: ekrany wracają
+    await m.TR.act(async () => {
+      migracja.resolve();
+      await flush();
+    });
+    expect(m.status.getStorageState()).toBe('ok');
+    expect(m.ekrany.rendery).toBeGreaterThan(renderyPrzed);
+    m.TR.act(() => tree.unmount());
+  });
+});
