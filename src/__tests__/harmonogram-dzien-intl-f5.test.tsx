@@ -48,7 +48,7 @@ describe('ekran planu: dzień z datą przez Intl (F-5)', () => {
     jest.useRealTimers();
   });
 
-  it.each(['pl', 'en', 'de'])('%s: cel „Jutro” (22.10) oglądany 25.10 — data w formacie Intl języka', async (lang) => {
+  it.each(['pl', 'en', 'de'] as const)('%s: cel „Jutro” (22.10) oglądany 25.10 — data w formacie Intl języka', async (lang) => {
     setLang(lang);
     await act(async () => {
       tree = renderer.create(<HarmonogramScreen />);
