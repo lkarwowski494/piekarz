@@ -2706,7 +2706,7 @@
     "twierdzenie": "Zakres hydratacji każdego profilu mąki (optimalHydrationRange w src/core/flour-atlas.ts), marginesy porady (2 p.p. poniżej i 3 p.p. powyżej zakresu) oraz próg „wysokiego udziału żyta” 40% w analyzeFlourBlendAbsorption.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133 (06-tresci-504). Żadne przeczytane źródło nie podaje zakresów hydratacji profili ani progu 40%; ZYT-GRA-001 (> 50%) to granica nazewnicza prawa niemieckiego, nie reologiczna, więc nie wskazuje innej wartości progu (bez przekazania wartości do 08). Teksty porad mówią tylko „w zakresie / blisko zakresu podanego dla tej mieszanki” (rachunek) i kierunek MAK-HYD-001. Zdanie o żytcie i ostrzeżenie o wysokiej hydratacji bez zmian.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133 (06-tresci-504). Żadne przeczytane źródło nie podaje zakresów hydratacji profili ani progu 40%; ZYT-GRA-001 (> 50%) to granica nazewnicza prawa niemieckiego, nie reologiczna, więc nie wskazuje innej wartości progu (bez przekazania wartości do 08). Teksty porad mówią tylko „w zakresie / blisko zakresu podanego dla tej mieszanki” (rachunek) i kierunek MAK-HYD-001. Zdanie o żytcie i ostrzeżenie o wysokiej hydratacji bez zmian. 2026-10-21 (M1-audytor-generalny-210, 06-tresci-606): do czasu źródeł progu porada „poniżej zakresu” jest warunkowa — „Ciasto może być zwarte, nawet sztywne.” (kierunek MAK-HYD-001: „will likely feel firm or even stiff”), bez „będzie”.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null

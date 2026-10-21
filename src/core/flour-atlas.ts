@@ -350,7 +350,7 @@ export function analyzeFlourBlendAbsorption(
   // Determine dough feel advice relative to current hydration
   let doughFeelAdvicePl: string;
   if (currentHydrationPercent < recommendedRange[0] - 2.0) {
-    doughFeelAdvicePl = 'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.';
+    doughFeelAdvicePl = 'Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.'; // próg MAK-HYD-900 otwarty [M1-audytor-generalny-210]
   } else if (currentHydrationPercent > recommendedRange[1] + 3.0) {
     doughFeelAdvicePl =
       'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.';

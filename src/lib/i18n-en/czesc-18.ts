@@ -119,8 +119,8 @@ export const EN_18: Record<string, string> = {
     'Use bread flour with a higher protein content.',
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.':
     'Extend the autolyse and add an extra set of coil folds.',
-  'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.':
-    'The dough will be firm and stiff. You can add more water.',
+  'Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.':
+    'The dough may feel firm or even stiff. You can add more water.',
   'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.':
     'The hydration is within the range given for this flour blend.',
   'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.':

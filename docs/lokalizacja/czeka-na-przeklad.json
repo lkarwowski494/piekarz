@@ -20,6 +20,11 @@
       "klucz": "Gumowaty (Krojony na gorąco)",
       "powod": "etykieta PL nazywała „gorący nóż”, przyczyna to krojenie gorącego chleba (KRO-POC-015), jak EN (M1-audytor-generalny-148); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
+      "powod": "porada przy hydratacji poniżej zakresu warunkowa, bo próg MAK-HYD-900 nie ma źródła (M1-audytor-generalny-210); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

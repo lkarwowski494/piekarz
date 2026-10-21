@@ -654,11 +654,6 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
     ]
   },
-  "Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
-    ]
-  },
   "Ciasto już fermentuje, a odważona sól została na blacie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
@@ -667,6 +662,11 @@
   "Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: tipPl)"
+    ]
+  },
+  "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
   "Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.": {
