@@ -1,0 +1,6 @@
+{
+  "opis": "Zgoda właściciela na zapis zgłoszenia w App Store Connect (scripts/asc-zgloszenie.mjs) [M1-audytor-generalny-186]. Zapis tylko przy \"zapis\": true i skrócie planu z przebiegu na sucho pokazanego właścicielowi; \"zgoda\": „RRRR-MM-DD: słowa właściciela”. Domyślnie wyłączona.",
+  "zapis": false,
+  "skrot": null,
+  "zgoda": null
+}

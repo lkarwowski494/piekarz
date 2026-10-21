@@ -8,6 +8,7 @@ Zasady tej instrukcji:
 - Model płatności jest stały (D-038, DEC-01 d): ta instrukcja tylko go wykonuje.
 - Strony Apple przeczytane 2026-10-21; nazwy przycisków sprawdź w dniu klikania (Apple zmienia interfejs).
 - Kroki 3 (bez zrzutu z 3.8), 4, 5, 6 i 8 zapisuje też skrypt `scripts/asc-ustawienia.mjs` przez App Store Connect API, z wartościami z `docs/wydanie/asc-ustawienia.json`, `ceny.json` i `storefronty.json` [M1-audytor-generalny-181]. Workflow `.github/workflows/asc-ustawienia.yml` rusza po pushu na gałąź toru p8b i zawsze robi przebieg na sucho (lista „utworzy / zmieni / bez zmian” ze skrótem planu); zapis tylko, gdy `docs/wydanie/asc-zgoda.json` ma `"zapis": true` i skrót listy zatwierdzonej przez właściciela. Klucz API z rolą Admin albo App Manager w sekretach GitHuba. Po scaleniu z master wyzwalacz zmienić na `workflow_dispatch`. Czego API nie ustawi (np. „nowe kraje” przy istniejącej dostępności), skrypt wypisuje jako „ręcznie” z numerem kroku.
+- Kroki 3.7 (opisy produktów), 3.8 (zrzut zakupu) i 10 (metadane i zrzuty 34 lokalizacji) zapisuje skrypt `scripts/asc-zgloszenie.mjs` z `docs/wydanie/metadane/`, `docs/wydanie/zrzuty/` (sumy MD5 wszystkich lokalizacji w `zrzuty/sumy.json`) i `docs/wydanie/asc-zgloszenie.json`; workflow `.github/workflows/asc-zgloszenie.yml` rusza po pushu na gałąź toru p8c, domyślnie na sucho, zapis tylko z `docs/wydanie/asc-zgoda-zgloszenie.json` [M1-audytor-generalny-186]. Krok 7.1 (App Privacy) API nie obsługuje: skrypt wypisuje go jako „poza API”.
 
 ## 0. Zanim zaczniesz
 
