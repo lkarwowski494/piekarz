@@ -14,8 +14,8 @@ Dokument wydawniczy przygotowany zgodnie ze standardem **BR-REL-019..022** i wyt
 
 - **Kategoria Główna:** Food & Drink (Żywność i napoje)
 - **Kategoria Poboczna:** Productivity (Produktywność)
-- **Klasyfikacja Wiekowa:** 4+ (brak treści dla dorosłych, brak przemocy, brak hazardu)
-- **Szyfrowanie (Export Compliance):** `ITSAppUsesNonExemptEncryption = false` (standardowe szyfrowanie HTTPS/systemowe, zwolnienie z ankiety)
+- **Klasyfikacja Wiekowa:** wylicza Apple z ankiety; odpowiedzi według D-058 (warunkowa, oczekiwane 9+) w kroku 8 `docs/wydanie/instrukcja-ustawien.md`, wynik ankiety zapisany w `docs/wydanie/dziennik.md`
+- **Szyfrowanie (Export Compliance):** `ITSAppUsesNonExemptEncryption = false` (aplikacja bez sieci i bez własnej kryptografii, tylko mechanizmy systemu; krok 9 instrukcji, zwolnienie z ankiety)
 - **Prywatność (Privacy Manifests):**
   - Tracking: `false`
   - Zbieranie danych: brak (Data Not Collected)

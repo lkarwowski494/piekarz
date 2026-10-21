@@ -7,7 +7,7 @@
 > **SKU:** `piekarz-app-v2`  
 > **Kategoria Główna:** Food & Drink (Żywność i napoje)  
 > **Kategoria Poboczna:** Productivity (Produktywność)  
-> **Klasyfikacja Wiekowa:** 4+ (Brak ograniczeń wiekowych)  
+> **Klasyfikacja Wiekowa:** wylicza Apple z ankiety; odpowiedzi według D-058 (warunkowa, oczekiwane 9+) w kroku 8 `docs/wydanie/instrukcja-ustawien.md`, wynik zapisany w `docs/wydanie/dziennik.md`  
 > **Jedyne źródło metadanych sklepu** (nazwa, podtytuł, tekst promocyjny, słowa kluczowe, opis, podpisy ramek): teksty źródłowe PL i EN w tym pliku (§1–§3, §5.1); pełne metadane każdej z 34 lokalizacji strony do odczytu skryptem w `docs/wydanie/metadane/<kod ASC>.json` (095), kontrola `node scripts/sprawdz-metadane.mjs` (test `tests/metadane-sklepu.test.ts`). `docs/15-app-store.md` tylko odsyła tutaj; test `tests/store-metadata.test.ts` pilnuje limitu słów kluczowych (100 B) sekcji PL i EN [M1-audytor-generalny-036, M1-audytor-generalny-095].  
 > **Nazwy, podtytuły i słowa kluczowe wszystkich lokalizacji strony:** §5 (M5 widoczność w sklepie, D-053…D-055, 2026-10-20); mapa storefrontów i hipotezy pomiaru: `docs/wydanie/widocznosc.md`.  
 
