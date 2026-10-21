@@ -1,4 +1,4 @@
-// Słownik pt-BR, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik pt-BR, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} de vapor',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Absorção das farinhas:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'O frio da geladeira desacelera a fermentação e, segundo a mesma fonte, uma fermentação mais lenta aprofunda o sabor.',
   'Chrupkość': 'Crocância',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'A massa ficará muito compacta e firme. Fique à vontade para adicionar mais água.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'A massa já está fermentando e o sal pesado ficou na bancada.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Massa macia e aerada. Recomenda-se a técnica coil fold com as mãos molhadas e farinha com W alto.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'A massa murchou, se espalha achatada, borbulha e não mantém a forma após o corte.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Seção fina e alta proporção entre a superfície da casca e a massa resultam em evaporação intensa de água.',
   'Ciepło tarcia': 'Fator de fricção',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Cozinha quente ({temp}°C). Tempo de fermentação reduzido em {min} min (evita acidez excessiva).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Corte vertical (90°) em vez de corte inclinado (30°) ou tensão superficial insuficiente na modelagem do bâtard.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Pão integral pesado e aromático na forma de bolo inglês. Sem sova e sem dobras. Mantém-se fresco por uma semana.',
   'Co dzisiaj pieczemy?': 'O que vamos assar hoje?',
   'Co dziś robisz?': 'O que você vai fazer hoje?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Faltam cerca de {czas} para a janela estimada do pico (janela: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Escolha a proporção e a quantidade de levain necessária para a fornada',
   'Dobra skórka z lekkim połyskiem': 'Casca boa, com leve brilho',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Boa elasticidade da massa, mantendo a umidade adequada do miolo.',
   'Docelowa masa zaczynu': 'Massa-alvo do levain',
   'Docelowa temp. wody:': 'Temp. desejada da água:',
   'Docelowa temperatura ciasta (DDT)': 'Temperatura desejada da massa (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Temp. desejada da massa',
   'Dodaj': 'Adicionar',
   'Dodaj {object}': 'Adicionar {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Adicione à receita 10–20% de farinha de grão inteiro (de centeio integral ou de trigo integral).',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Adicione o fermento natural ativo e o sal. Sove até incorporar e obter uma textura lisa. Não prove massa crua nem farinha. Depois de trabalhar com a massa, lave as mãos com sabão em água corrente.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Faça uma dobra delicada extra para distribuir o calor.',
   'Dodaj mąkę': 'Adicionar farinha',
@@ -215,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Adicionar novo fermento natural',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Vou adicioná-la a Minhas receitas. Os demais dados ficam inalterados.',
   'Dodano zakwas': 'Fermento natural adicionado',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Uma colher de mel ajuda a fermentação e suaviza a acidez. O farelo grosso da farinha Graham exige autólise de 45 minutos.',
+  'Dodatki (orzechy, ziarna)': 'Adições (castanhas, sementes)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Alimente o fermento natural com farinha e água morna. Deixe em local quente até dobrar de volume.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Continue alimentando a cada 12 horas até o fermento natural dobrar de volume em 6–8 horas após a alimentação.',
 };

@@ -1,4 +1,4 @@
-// Słownik ru, część 1 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ru, część 1 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} на пар',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Водопоглощение муки:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Холод в холодильнике замедляет брожение, а, согласно тому же источнику, более медленное брожение делает вкус глубже.',
   'Chrupkość': 'Хрусткость',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'Тесто будет очень плотным и тугим. Можете смело добавить больше воды.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'Тесто уже бродит, а отвешенная соль осталась на столе.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Тесто мягкое и воздушное. Рекомендуются техника Coil Fold мокрыми руками и мука с высоким показателем W.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'Тесто опало, растекается лепёшкой, пузырится и не держит форму после надреза.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Тонкое сечение и большое отношение площади корки к массе приводят к интенсивному испарению воды.',
   'Ciepło tarcia': 'Фактор трения',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Тепло на кухне ({temp} °C). Время брожения сокращено на {min} мин (защита от перекисания).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Вертикальный надрез (90°) вместо подреза под углом (30°) или недостаточное поверхностное натяжение при формовке батара.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Тяжёлый ароматный хлеб из обойной муки в прямоугольной форме. Без замеса и складываний. Остаётся свежим неделю.',
   'Co dzisiaj pieczemy?': 'Что сегодня печём?',
   'Co dziś robisz?': 'Чем займётесь сегодня?',
@@ -177,4 +175,8 @@ export const CZESC: Record<string, string> = {
   'Cykl dokarmiania': 'Цикл подкормки',
   'Czas w lodówce:': 'Время в холодильнике:',
   'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Пора снять крышку с кастрюли и допекать без пара.',
+  'cze': 'июн',
+  'Czw.': 'Чт',
+  'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Тренируйте интуицию пекарских пропорций в уме (Mental Baker Drill)',
+  'Dane są zapisywane tylko w tym telefonie.': 'Данные хранятся только на этом телефоне.',
 };

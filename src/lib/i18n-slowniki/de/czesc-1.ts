@@ -1,4 +1,4 @@
-// Słownik de, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik de, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} Dampf',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Wasseraufnahme der Mehle:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Die Kälte des Kühlschranks verlangsamt die Gärung, und laut derselben Quelle vertieft eine langsamere Gärung den Geschmack.',
   'Chrupkość': 'Knusprigkeit',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'Der Teig wird sehr fest und steif. Du kannst ruhig mehr Wasser zugeben.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'Der Teig gärt bereits, aber das abgewogene Salz liegt noch auf der Arbeitsfläche.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Weicher, luftiger Teig. Empfohlen: Dehnen und Falten (Coil Fold) mit nassen Händen und Mehl mit hohem W-Wert.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'Der Teig ist eingefallen, läuft flach auseinander, blubbert und hält nach dem Einschneiden keine Form.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Der dünne Querschnitt und das große Verhältnis von Krustenoberfläche zu Masse führen zu starker Wasserverdunstung.',
   'Ciepło tarcia': 'Reibungswärme',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Warme Küche ({temp} °C). Gärzeit um {min} min verkürzt (Schutz vor Übersäuerung).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Senkrechter Schnitt (90°) statt eines schrägen Schnitts (30°) oder zu wenig Oberflächenspannung beim Formen des Bâtards.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Schweres, aromatisches Vollkornbrot in der Kastenform. Ohne Kneten und ohne Falten. Bleibt eine Woche lang frisch.',
   'Co dzisiaj pieczemy?': 'Was backen wir heute?',
   'Co dziś robisz?': 'Was machst du heute?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Bis zum geschätzten Zeitfenster des Reifehöhepunkts bleiben noch ca. {czas} (Zeitfenster: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Wähle das Verhältnis und die benötigte Menge Vorteig für das Backen',
   'Dobra skórka z lekkim połyskiem': 'Gute Kruste mit leichtem Glanz',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Gute Elastizität des Teigs bei passender Feuchtigkeit der Krume.',
   'Docelowa masa zaczynu': 'Zielmenge Vorteig',
   'Docelowa temp. wody:': 'Ziel-Wassertemp.:',
   'Docelowa temperatura ciasta (DDT)': 'Gewünschte Teigtemperatur (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Gewünschte Teigtemperatur',
   'Dodaj': 'Hinzufügen',
   'Dodaj {object}': '{object} hinzufügen',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Gib 10–20 % Vollkornmehl (Roggenvollkorn- oder Weizenvollkornmehl) zur Rezeptur.',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Gib aktiven Sauerteig und Salz dazu. Knete, bis sich alles verbunden hat und der Teig glatt ist. Probiere weder rohen Teig noch Mehl. Wasch dir nach der Arbeit mit dem Teig die Hände mit Seife unter fließendem Wasser.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Füge eine zusätzliche sanfte Faltung hinzu, um die Wärme zu verteilen.',
   'Dodaj mąkę': 'Mehl hinzufügen',
@@ -215,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Neuen Sauerteig hinzufügen',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Ich füge sie zu „Meine Rezepturen“ hinzu. Alle anderen Daten bleiben unverändert.',
   'Dodano zakwas': 'Sauerteig hinzugefügt',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Ein Esslöffel Honig unterstützt die Gärung und mildert die Säure. Die grobe Kleie des Grahammehls braucht eine 45-minütige Autolyse.',
+  'Dodatki (orzechy, ziarna)': 'Zugaben (Nüsse, Saaten)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Frische den Sauerteig mit Mehl und lauwarmem Wasser auf. Stell ihn an einen warmen Ort, bis sich sein Volumen verdoppelt hat.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Frische weiter alle 12 Stunden auf, bis der Sauerteig innerhalb von 6–8 Stunden nach dem Auffrischen sein Volumen verdoppelt.',
 };

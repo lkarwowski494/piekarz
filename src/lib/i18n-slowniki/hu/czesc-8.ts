@@ -1,0 +1,28 @@
+// Słownik hu, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
+export const CZESC: Record<string, string> = {
+  'Mąka pszenna graham typ 1850': 'Graham-búzaliszt (teljes kiőrlésű)',
+  'Mąka pszenna Manitoba / Forte (W > 350)': 'Manitoba / Forte búzaliszt (W > 350)',
+  'Mąka pszenna włoska Tipo 00': 'Olasz Tipo 00 búzaliszt',
+  'Mąka pszenna luksusowa typ 550': 'Világos búzaliszt',
+  'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'Magas fehérjetartalmú búzaliszt (W>280 / Manitoba)',
+  'Mąka pszenna pełnoziarnista typ 2000': 'Teljes kiőrlésű búzaliszt',
+  '{n} krok wypada w nocy#one': '{n} lépés éjszakára esik',
+  '{n} krok wypada w nocy#other': '{n} lépés éjszakára esik',
+  '{n} dzień#one': '{n} nap',
+  '{n} dzień#other': '{n} nap',
+  '{n} receptura#one': '{n} recept',
+  '{n} receptura#other': '{n} recept',
+  '{n} zakwas#one': '{n} kovász',
+  '{n} zakwas#other': '{n} kovász',
+  '{n} wpis w Dzienniku#one': '{n} bejegyzés a Naplóban',
+  '{n} wpis w Dzienniku#other': '{n} bejegyzés a Naplóban',
+  '{n} sekunda#one': '{n} másodperc',
+  '{n} sekunda#other': '{n} másodperc',
+  '{n} godzina#one': '{n} óra',
+  '{n} godzina#other': '{n} óra',
+  '{n} minuta#one': '{n} perc',
+  '{n} minuta#other': '{n} perc',
+  'Plan wypieku: {n} krok.#one': 'Sütési terv: {n} lépés.',
+  'Plan wypieku: {n} krok.#other': 'Sütési terv: {n} lépés.',
+};

@@ -1,4 +1,4 @@
-// Słownik it, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik it, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} di vapore',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Assorbimento delle farine:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Il freddo del frigorifero rallenta la fermentazione e, secondo la stessa fonte, una fermentazione più lenta rende il sapore più intenso.',
   'Chrupkość': 'Croccantezza',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'L\'impasto sarà molto compatto e rigido. Puoi tranquillamente aggiungere più acqua.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'L\'impasto sta già fermentando e il sale pesato è rimasto sul piano.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Impasto morbido e arioso. Consigliate le pieghe di rinforzo coil fold con le mani bagnate e una farina con W alto.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'L\'impasto si è afflosciato, si allarga piatto, fa bolle e non tiene la forma dopo il taglio.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'La sezione sottile e l\'elevato rapporto tra superficie della crosta e massa causano un\'intensa evaporazione dell\'acqua.',
   'Ciepło tarcia': 'Fattore di attrito',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Cucina calda ({temp} °C). Tempo di fermentazione ridotto di {min} min (per evitare un\'eccessiva acidità).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Taglio verticale (90°) invece che inclinato (30°) o tensione superficiale insufficiente nella formatura del bâtard.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Pane integrale pesante e aromatico in stampo da plumcake. Senza impastare né pieghe. Resta fresco per una settimana.',
   'Co dzisiaj pieczemy?': 'Cosa inforniamo oggi?',
   'Co dziś robisz?': 'Cosa fai oggi?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Mancano circa {czas} alla finestra stimata del picco (finestra: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Scegli le proporzioni e la quantità di lievitino necessaria per la sfornata',
   'Dobra skórka z lekkim połyskiem': 'Buona crosta, leggermente lucida',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Buona elasticità dell\'impasto mantenendo la giusta umidità della mollica.',
   'Docelowa masa zaczynu': 'Quantità finale di lievitino',
   'Docelowa temp. wody:': 'Temp. acqua desiderata:',
   'Docelowa temperatura ciasta (DDT)': 'Temperatura desiderata dell\'impasto (DDT)',
@@ -207,11 +204,14 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Temperatura desiderata dell\'impasto',
   'Dodaj': 'Aggiungi',
   'Dodaj {object}': 'Aggiungi {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Aggiungi alla ricetta il 10–20% di farina integrale (di segale o di frumento).',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Aggiungi il lievito madre attivo e il sale. Impasta fino a incorporarli e ottenere una struttura liscia. Non assaggiare l\'impasto crudo né la farina. Dopo aver lavorato l\'impasto, lavati le mani con acqua corrente e sapone.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Aggiungi una piega di rinforzo delicata in più per distribuire il calore.',
   'Dodaj mąkę': 'Aggiungi farina',
   'Dodaj mąkę z Atlasu': 'Aggiungi farina dall\'Atlante delle farine',
   'Dodaj nowy zakwas': 'Aggiungi un nuovo lievito madre',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'La aggiungo alle Mie ricette. Gli altri dati restano invariati.',
+  'Dodano zakwas': 'Lievito madre aggiunto',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Un cucchiaio di miele favorisce la fermentazione e attenua l\'acidità. La crusca grossa della farina Graham richiede un\'autolisi di 45 minuti.',
+  'Dodatki (orzechy, ziarna)': 'Aggiunte (frutta secca, semi)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Rinfresca il lievito madre con farina e acqua tiepida. Lascialo in un luogo caldo finché non raddoppia di volume.',
 };

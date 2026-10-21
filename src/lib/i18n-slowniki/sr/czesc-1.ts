@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Упијање брашна:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Хладноћа фрижидера успорава ферментацију, а према истом извору спорија ферментација продубљује укус.',
   'Chrupkość': 'Хрскавост',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'Тесто ће бити веома збијено и чврсто. Слободно додај још воде.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'Тесто већ ферментира, а одмерена со је остала на радној површини.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Тесто је меко и прозрачно. Препоручује се пресавијање (coil fold) мокрим рукама и брашно високе W вредности.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'Тесто је спласнуло, разлива се, мехури и не држи облик после засецања.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Танак пресек и велики однос површине коре према маси доводе до интензивног испаравања воде.',
   'Ciepło tarcia': 'Топлота трења',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Топло у кухињи ({temp} °C). Време ферментације скраћено за {min} min (заштита од превеликог закисељавања).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Вертикалан рез (90°) уместо косог реза (30°) или недовољна површинска напетост при обликовању батара.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Тежак, ароматичан интегрални ражани хлеб у правоугаоном калупу. Без мешења и пресавијања. Остаје свеж недељу дана.',
   'Co dzisiaj pieczemy?': 'Шта данас печемо?',
   'Co dziś robisz?': 'Шта данас радиш?',
@@ -181,4 +179,6 @@ export const CZESC: Record<string, string> = {
   'Czw.': 'Чет.',
   'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Вежбај интуицију за пекарске пропорције напамет (Mental Baker Drill)',
   'Dane są zapisywane tylko w tym telefonie.': 'Подаци се чувају само на овом телефону.',
+  'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Подаци из копије су у апликацији. Прескочени оштећени уноси: {n}. Претходне податке сам сачувао у копији пре увоза.',
+  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Подаци из копије су у апликацији. Претходне податке сам сачувао у копији пре увоза.',
 };

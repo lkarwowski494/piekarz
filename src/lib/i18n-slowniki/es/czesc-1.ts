@@ -1,4 +1,4 @@
-// Słownik es, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik es, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} de vapor',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Absorción de las harinas:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'El frío de la nevera ralentiza la fermentación y, según la misma fuente, una fermentación más lenta intensifica el sabor.',
   'Chrupkość': 'Crujiente',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'La masa quedará muy compacta y firme. Puedes añadir más agua sin problema.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'La masa ya está fermentando y la sal pesada se ha quedado en la encimera.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Masa suave y aireada. Se recomiendan pliegues coil fold con las manos mojadas y una harina de W alto.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'La masa se ha hundido, se extiende plana, burbujea y no mantiene la forma tras el corte.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'La sección fina y la alta proporción entre la superficie de la corteza y la masa provocan una intensa evaporación del agua.',
   'Ciepło tarcia': 'Factor de fricción',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Cocina cálida ({temp} °C). Tiempo de fermentación acortado {min} min (protección contra la acidificación excesiva).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Corte vertical (90°) en lugar de un corte inclinado (30°) o tensión superficial insuficiente al formar el bâtard.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Pan integral de centeno denso y aromático en molde de plum cake. Sin amasado ni pliegues. Se mantiene fresco una semana.',
   'Co dzisiaj pieczemy?': '¿Qué horneamos hoy?',
   'Co dziś robisz?': '¿Qué vas a hacer hoy?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Quedan aprox. {czas} para la ventana estimada del pico (ventana: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Elige la proporción y la cantidad de levain que necesitas para el horneado',
   'Dobra skórka z lekkim połyskiem': 'Buena corteza con un ligero brillo',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Buena elasticidad de la masa manteniendo la humedad adecuada de la miga.',
   'Docelowa masa zaczynu': 'Masa objetivo del levain',
   'Docelowa temp. wody:': 'Temp. objetivo del agua:',
   'Docelowa temperatura ciasta (DDT)': 'Temperatura deseada de la masa (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Temperatura deseada de la masa',
   'Dodaj': 'Añadir',
   'Dodaj {object}': 'Añade {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Añade a la receta un 10–20 % de harina de grano entero (de centeno integral o de trigo integral).',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Añade la masa madre activa y la sal. Amasa hasta integrar y obtener una textura lisa. No pruebes la masa cruda ni la harina. Después de trabajar la masa, lávate las manos con jabón bajo el grifo.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Haz un pliegue suave adicional para repartir el calor.',
   'Dodaj mąkę': 'Añadir harina',
@@ -215,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Añadir nueva masa madre',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'La añadiré a Mis recetas. El resto de los datos no cambiará.',
   'Dodano zakwas': 'Masa madre añadida',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Una cucharada de miel favorece la fermentación y suaviza la acidez. El salvado grueso de la harina Graham requiere 45 minutos de autólisis.',
+  'Dodatki (orzechy, ziarna)': 'Extras (frutos secos, semillas)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Refresca la masa madre con harina y agua tibia. Déjala en un lugar cálido hasta que doble su volumen.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Sigue refrescándola cada 12 horas hasta que la masa madre duplique su volumen en 6–8 horas tras el refresco.',
 };

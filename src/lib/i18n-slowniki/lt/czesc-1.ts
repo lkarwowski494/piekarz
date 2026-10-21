@@ -1,4 +1,4 @@
-// Słownik lt, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik lt, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} garų',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Miltų įgeriamumas:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Šaldytuvo vėsa lėtina fermentaciją, o pasak to paties šaltinio, lėtesnė fermentacija pagilina skonį.',
   'Chrupkość': 'Traškumas',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'Tešla bus labai tanki ir standi. Drąsiai galite įpilti daugiau vandens.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'Tešla jau fermentuojasi, o atsverta druska liko ant stalo.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Tešla minkšta ir puri. Rekomenduojamas tešlos lankstymas (Coil Fold) šlapiomis rankomis ir miltai su dideliu W rodikliu.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'Tešla sukrito, plokščiai išsiliejo, burbuliuoja ir po įpjovimo neišlaiko formos.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'Plonas skerspjūvis ir didelis plutelės paviršiaus ir masės santykis lemia intensyvų vandens garavimą.',
   'Ciepło tarcia': 'Maišymo trintis',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Virtuvėje šilta ({temp} °C). Fermentacijos laikas sutrumpintas {min} min (apsauga nuo perrūgimo).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Vertikalus pjūvis (90°) vietoj įstrižo įpjovimo (30°) arba nepakankama paviršiaus įtampa formuojant batard.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Sunki, aromatinga rupaus malimo duona keksinėje formoje. Be minkymo ir lankstymo. Šviežia išlieka savaitę.',
   'Co dzisiaj pieczemy?': 'Ką šiandien kepame?',
   'Co dziś robisz?': 'Ką šiandien darote?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Iki numatomo raugo aktyvumo piko lango liko apie {czas} (langas: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Pasirinkite proporcijas ir kepiniui reikalingą įmaišo kiekį',
   'Dobra skórka z lekkim połyskiem': 'Gera plutelė su lengvu blizgesiu',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Geras tešlos elastingumas, išlaikant tinkamą minkštimo drėgmę.',
   'Docelowa masa zaczynu': 'Tikslinė įmaišo masė',
   'Docelowa temp. wody:': 'Tikslinė vandens temp.:',
   'Docelowa temperatura ciasta (DDT)': 'Tikslinė tešlos temperatūra (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Tikslinė tešlos temperatūra',
   'Dodaj': 'Pridėti',
   'Dodaj {object}': 'Pridėti {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Į receptūrą įdėkite 10–20 % viso grūdo miltų (rupaus malimo ruginių arba kvietinių).',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Įdėkite aktyvų natūralų raugą ir druską. Minkykite, kol ingredientai susijungs ir tešla taps glotni. Neragaukite žalios tešlos ar miltų. Baigę dirbti su tešla, nusiplaukite rankas su muilu po tekančiu vandeniu.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Atlikite vieną papildomą švelnų lankstymą, kad šiluma pasiskirstytų.',
   'Dodaj mąkę': 'Pridėti miltų',
@@ -215,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Pridėti naują natūralų raugą',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Pridėsiu ją prie Mano receptūrų. Kiti duomenys liks nepakeisti.',
   'Dodano zakwas': 'Raugas pridėtas',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Šaukštas medaus skatina fermentaciją ir sušvelnina rūgštumą. Stambioms Graham miltų sėlenoms reikia 45 minučių autolizės.',
+  'Dodatki (orzechy, ziarna)': 'Priedai (riešutai, sėklos)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Pamaitinkite natūralų raugą miltais ir drungnu vandeniu. Palikite šiltoje vietoje, kol tūris padvigubės.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Toliau maitinkite kas 12 valandų, kol natūralaus raugo tūris per 6–8 valandas po maitinimo padvigubės.',
 };

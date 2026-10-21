@@ -1,4 +1,4 @@
-// Słownik hu, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik hu, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} párolgás',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'A lisztek vízfelvétele:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'A hűtő hidege lassítja az erjedést, és ugyanezen forrás szerint a lassabb erjedés mélyíti az ízt.',
   'Chrupkość': 'Ropogósság',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'A tészta nagyon tömör és kemény lesz. Bátran adj hozzá több vizet.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'A tészta már erjed, a kimért só pedig a pulton maradt.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Puha, levegős tészta. Coil fold hajtogatás vizes kézzel és magas W-értékű liszt ajánlott.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'A tészta összeesett, laposan szétfolyik, bugyborékol, és bevágás után nem tartja a formáját.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'A vékony keresztmetszet és a héj felületének a tömeghez viszonyított nagy aránya erős vízpárolgást okoz.',
   'Ciepło tarcia': 'Súrlódási hő',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Meleg a konyha ({temp} °C). Az erjesztési idő {min} perccel rövidebb (véd a túlsavanyodás ellen).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Függőleges (90°-os) vágás a ferde (30°-os) bevágás helyett, vagy elégtelen felületi feszesség a batard formázásakor.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Tömör, aromás teljes kiőrlésű rozskenyér kenyérformában. Dagasztás és hajtogatás nélkül. Egy hétig friss marad.',
   'Co dzisiaj pieczemy?': 'Mit sütünk ma?',
   'Co dziś robisz?': 'Mit csinálsz ma?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kb. {czas} van hátra a csúcspont becsült időablakáig (ablak: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Válaszd ki az arányt és a sütéshez szükséges kovászos előtészta mennyiségét',
   'Dobra skórka z lekkim połyskiem': 'Jó héj enyhe fénnyel',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Jó tésztarugalmasság a bélzet megfelelő nedvességének megőrzésével.',
   'Docelowa masa zaczynu': 'Kovászos előtészta célmennyisége',
   'Docelowa temp. wody:': 'Cél vízhőmérséklet:',
   'Docelowa temperatura ciasta (DDT)': 'Cél tésztahőmérséklet (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Cél tésztahőmérséklet',
   'Dodaj': 'Hozzáadás',
   'Dodaj {object}': 'Hozzáadás: {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Adj a recepthez 10–20% teljes kiőrlésű lisztet (teljes kiőrlésű rozs- vagy búzalisztet).',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Add hozzá az aktív kovászt és a sót. Dagaszd, amíg összeáll és sima lesz. Ne kóstold meg a nyers tésztát és a lisztet. A tésztával végzett munka után moss kezet szappannal, folyó víz alatt.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Végezz egy további óvatos hajtogatást, hogy eloszlasd a hőt.',
   'Dodaj mąkę': 'Liszt hozzáadása',
@@ -215,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Dodaj nowy zakwas': 'Új kovász hozzáadása',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Hozzáadom a Saját receptjeimhez. A többi adat változatlan marad.',
   'Dodano zakwas': 'Kovász hozzáadva',
+  'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Egy kanál méz segíti az erjedést és enyhíti a savasságot. A graham-liszt durva korpája 45 perces autolízist igényel.',
+  'Dodatki (orzechy, ziarna)': 'Adalékok (diófélék, magvak)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Etesd meg a kovászt liszttel és langyos vízzel. Tedd meleg helyre, amíg a térfogata megduplázódik.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Etesd tovább 12 óránként, amíg a kovász az etetés után 6–8 órán belül meg nem duplázza a térfogatát.',
 };
