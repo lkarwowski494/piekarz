@@ -1,6 +1,7 @@
 // ============================================================================
 // Piekarz (Crust) — Maestro E2E Flows in Jest (BR-TEST-037 & NFR-TEST-001)
-// Executes .maestro/*.yaml in-memory flows across Monday, Sunday, and 23:55 UTC.
+// Executes .maestro/*.yaml flows once, in memory (not E2E). The interpreter does not read the clock,
+// so one run per flow; a run per date would repeat the same check [M2-koordynator-napraw-p12c2-001].
 // ============================================================================
 
 import { join } from 'node:path';
@@ -13,22 +14,14 @@ describe('Maestro In-Memory Runner Suite (BR-TEST-037)', () => {
     .filter((f) => f.endsWith('.yaml') || f.endsWith('.yml'))
     .map((f) => join(maestroDir, f));
 
-  const TEMPORAL_CHECKPOINTS = [
-    { label: 'Monday 10:00 UTC (Workday)', date: new Date('2026-10-19T10:00:00Z') },
-    { label: 'Sunday 10:00 UTC (Weekend bake)', date: new Date('2026-10-18T10:00:00Z') },
-    { label: 'Saturday 23:55 UTC (Midnight boundary)', date: new Date('2026-10-17T23:55:00Z') },
-  ];
-
   it('verifies that at least 4 maestro flows exist in .maestro directory', () => {
     expect(flowFiles.length).toBeGreaterThanOrEqual(4);
   });
 
-  describe.each(TEMPORAL_CHECKPOINTS)('Temporal context: $label', ({ date }) => {
-    test.each(flowFiles)('executes flow %s without assertions failing', (filePath) => {
-      expect(() => {
-        executeMaestroFlowFile(filePath, { now: date });
-      }).not.toThrow();
-    });
+  test.each(flowFiles)('executes flow %s without assertions failing', (filePath) => {
+    expect(() => {
+      executeMaestroFlowFile(filePath, { now: new Date() });
+    }).not.toThrow();
   });
 
   it('fails cleanly when an invalid element assertion is encountered in flow', () => {

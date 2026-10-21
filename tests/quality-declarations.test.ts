@@ -104,6 +104,12 @@ describe('interpreter Maestro w pamięci: deklaracja w CLAUDE.md zgodna z kodem 
     if (!czytaCzas) expect(linia).not.toMatch(/poniedział|niedziel|23:55|\bUTC\b/i);
     expect(linia).toMatch(/nie jest E2E/);
   });
+
+  // [M2-koordynator-napraw-p12c2-001]: te same przebiegi w nazwach testu, dopóki interpreter nie czyta `now`.
+  it('tests/maestro-flows.test.tsx nie obiecuje w tytułach i komentarzach dni ani godzin', () => {
+    const czytaCzas = /context\.now\b/.test(read('tests/maestro-runner.ts'));
+    if (!czytaCzas) expect(read('tests/maestro-flows.test.tsx')).not.toMatch(/Monday|Sunday|Saturday|23:55|\bUTC\b|Temporal|poniedział|niedziel/i);
+  });
 });
 
 describe('nazwy testów mówią, co naprawdę sprawdzają (07-jakosc-007)', () => {
