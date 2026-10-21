@@ -95,6 +95,18 @@ async function start(seed: (entries: typeof import('../data/starter-entries-stor
 }
 
 describe('104: ekrany zakwasu', () => {
+  // Jednorazowe ładowanie grafu modułów ekranów (transformacja i kompilacja; ok. 1,5 s z 1,8 s pierwszego testu
+  // przy pracy w pojedynkę) liczyło się dotąd w limicie pierwszego testu i przy kilku torach naraz go
+  // przekraczało. Rozgrzewka przenosi ten koszt przed testy; każdy test dalej startuje od jest.resetModules
+  // (restartApp) [M2-koordynator-napraw-p12c2-002].
+  beforeAll(() => {
+    useTempDbDir();
+    restartApp();
+    require('react-test-renderer');
+    require('../../app/(tabs)/zakwasy/index');
+    require('../../app/(tabs)/zakwasy/doktor-zakwasu');
+  });
+
   beforeEach(() => {
     useTempDbDir();
     mockParams = {};
