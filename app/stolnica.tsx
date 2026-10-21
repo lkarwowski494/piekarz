@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Stack, useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { t } from '../src/lib/i18n';
+import { guardSave } from '../src/lib/save-guard';
 import { tapHaptic } from '../src/lib/haptics';
 import { useBakeSession } from '../src/hooks/useBakeSession';
 import { useFinishBake } from '../src/hooks/useFinishBake';
@@ -242,7 +243,11 @@ export default function StolnicaScreen() {
     confirmDiscardBake(() => {
       setPlanOpen(false);
       setActiveBake(null);
-      void saveBakeSession(null).then(() => resyncNotifications()).catch(() => {});
+      // Nieudane skasowanie sesji: „Nie zapisano”, nie cisza [M1-audytor-generalny-120]
+      void guardSave(async () => {
+        await saveBakeSession(null);
+        await resyncNotifications();
+      })();
       setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);

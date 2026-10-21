@@ -9,6 +9,7 @@ import { getLocales } from 'expo-localization';
 import { getAppSetting, setAppSetting } from '../data/sqlite-store';
 import { formatFixed, formatNumber } from './format';
 import { ustawPrzeliczanieTekstu } from './i18n';
+import { guardSave } from './save-guard';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -73,7 +74,8 @@ export function getUnitSystem(): UnitSystem {
 export function setUnitSystem(system: UnitSystem): void {
   if (currentUnitSystem !== system) {
     currentUnitSystem = system;
-    void setAppSetting('unit_system', system);
+    // Wybór działa w tej sesji; nieudany zapis: „Nie zapisano” [M1-audytor-generalny-120]
+    void guardSave(() => setAppSetting('unit_system', system))();
     unitListeners.forEach((fn) => fn(system));
   }
 }

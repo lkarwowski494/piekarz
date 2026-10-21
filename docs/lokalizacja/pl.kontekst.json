@@ -3403,6 +3403,7 @@
   "Nie zapisano": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)",
+      "src/hooks/useBakeSession.ts (Alert.alert)",
       "src/lib/save-guard.ts (Alert.alert)"
     ]
   },

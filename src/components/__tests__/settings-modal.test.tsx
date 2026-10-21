@@ -10,6 +10,9 @@ jest.mock('../../lib/backup', () => ({
   exportBackup: jest.fn().mockResolvedValue(true),
   safetyBackup: jest.fn().mockResolvedValue(true),
   parseAndValidateBackup: jest.fn(),
+  // Otwarcie bazy w teście bez natywnego SQLite kończy się ścieżką ratunkową; zapis języka przechodzi przez
+  // setAppSetting, który od 120 nie połyka błędów [M1-audytor-generalny-120]
+  rescueAfterOpenFailure: jest.fn().mockResolvedValue(null),
 }));
 
 jest.mock('../../data/sqlite-store', () => ({

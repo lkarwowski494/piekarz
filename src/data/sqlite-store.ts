@@ -29,6 +29,7 @@ import { getRecipes } from './recipes-store';
 import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } from './flour-store';
 import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
 import { odczytNieudany } from './odczyt';
+import { BAKE_SESSION_KEY } from './bake-session-store';
 
 // ==========================================
 // Bakes & Stolnica
@@ -341,11 +342,16 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
  */
-export async function finishBake(log: StoredBakeLog, flours: Array<{ name: string; weightGrams: number }>): Promise<void> {
+export async function finishBake(
+  log: StoredBakeLog,
+  flours: Array<{ name: string; weightGrams: number }>,
+  opts: { clearSession?: boolean } = {}
+): Promise<void> {
   const db = await getDb();
   if (!db) {
     await saveBakeLog(log);
     for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
+    if (opts.clearSession) memStore.settings[BAKE_SESSION_KEY] = '';
     return;
   }
 
@@ -364,10 +370,15 @@ export async function finishBake(log: StoredBakeLog, flours: Array<{ name: strin
     db.withTransactionAsync(async () => {
       await writeBakeRow(db, log);
       for (const item of changed.values()) await writeFlourRow(db, item);
+      // Skasowanie trwającej sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
+      if (opts.clearSession) {
+        await db.runAsync("INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, '');", BAKE_SESSION_KEY);
+      }
     })
   );
 
   // Pamięć dopiero po zatwierdzeniu transakcji
+  if (opts.clearSession) memStore.settings[BAKE_SESSION_KEY] = '';
   memStore.logs = [log, ...memStore.logs.filter((l) => l.id !== log.id)];
   changed.forEach(rememberFlour);
   if (log.finishedAt) {

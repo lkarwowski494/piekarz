@@ -7,6 +7,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { getBreadSchoolLessons } from '../core/bread-school';
+import { guardSave } from '../lib/save-guard';
 import {
   filterTechniques,
   TechniqueCategory,
@@ -47,10 +48,11 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
   const lessons = useMemo(() => getBreadSchoolLessons(), []);
   const techniques = useMemo(() => filterTechniques(techCategory), [techCategory]);
 
-  const handleToggleLesson = async (level: number) => {
+  // Nieudany zapis postępu: „Nie zapisano”, nie cichy sukces [M1-audytor-generalny-120]
+  const handleToggleLesson = guardSave(async (level: number) => {
     await toggleLessonProgress(level);
     await loadProgress();
-  };
+  });
 
   return (
     <Modal

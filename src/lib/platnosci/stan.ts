@@ -6,7 +6,7 @@
 
 import type { Purchase } from 'expo-iap';
 import { getAppSetting, setAppSetting } from '../../data/settings-store';
-import { StorageReadOnlyError } from '../../data/storage-status';
+import { StorageWriteError } from '../../data/storage-status';
 import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec } from './dostep';
 import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz } from './sklep';
@@ -50,8 +50,9 @@ export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): P
     try {
       await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
     } catch (e) {
-      // Baza nowsza niż aplikacja: decyzja działa w tej sesji bez zapisu pamięci [M1-audytor-generalny-061]
-      if (!(e instanceof StorageReadOnlyError)) throw e;
+      // Baza nowsza niż aplikacja (061) albo nieudany zapis (120): decyzja działa w tej sesji bez zapisu pamięci,
+      // kupujący nie traci dostępu przez pełną pamięć telefonu [M1-audytor-generalny-061; M1-audytor-generalny-120]
+      if (!(e instanceof StorageWriteError)) throw e;
     }
   }
   ustaw({ decyzja: d, gotowe: true });
