@@ -10,6 +10,11 @@
       "klucz": "Potrzebny zakwas",
       "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Usunięto recepturę",
+      "powod": "usunięcie receptury bez pytania, z paskiem Cofnij (D-051 1a, 04-studio-projektowe-506) (M1-audytor-generalny-161); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

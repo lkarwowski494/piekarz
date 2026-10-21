@@ -5930,6 +5930,12 @@
       "src/components/SettingsModal.tsx (tekst w JSX)"
     ]
   },
+  "Usunięto recepturę": {
+    "gdzie": [
+      "app/(tabs)/receptury/index.tsx (tekst)"
+    ],
+    "opis": "Pasek „Cofnij” na dole listy receptur po usunięciu własnej receptury (bez pytania); obok przycisk „Przywróć”. Krótko, czas przeszły, jak „Usunięto wpis”. [M1-audytor-generalny-161]"
+  },
   "Usunięto wpis": {
     "gdzie": [
       "src/components/zakwas/StarterEntriesList.tsx (tekst)"

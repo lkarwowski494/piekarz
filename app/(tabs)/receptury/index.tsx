@@ -9,9 +9,9 @@ import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
 import { filterMasterRecipes, RecipePreset } from '../../../src/recipes/presets';
 import { odbierzRodzajReceptur, subskrybujRodzajReceptur } from '../../../src/lib/start-stan';
-import { getRecipes, deleteRecipe } from '../../../src/data/sqlite-store';
+import { getRecipes, deleteRecipe, saveRecipe } from '../../../src/data/sqlite-store';
 import { StoredRecipe } from '../../../src/data/db';
-import { confirmDeleteRecipe } from '../../../src/lib/confirm';
+import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import {
   getPendingRecipeToLoad,
   setPendingRecipeToLoad,
@@ -79,13 +79,23 @@ export default function RecepturyLista() {
   const otworzMoja = (r: StoredRecipe) =>
     setPendingRecipeToLoad({ id: r.id, name: r.name, formula: r.formula, targetDDT: r.targetDDT });
 
-  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]; z pytaniem jak dotąd
-  const usunMoja = (r: StoredRecipe) => {
-    confirmDeleteRecipe(r.name, guardSave(async () => {
-      await deleteRecipe(r.id);
-      await wczytajMoje();
-    }));
-  };
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]. Rutynowe usunięcie bez pytania,
+  // z paskiem „Cofnij”: „Przywróć” zapisuje tę samą recepturę (id, dane, data utworzenia; bez tabel zależnych)
+  // (D-051 1a, design-spec §5) [M1-audytor-generalny-161; 04-studio-projektowe-506]
+  const [usunieta, setUsunieta] = useState<StoredRecipe | null>(null);
+  const usunMoja = guardSave(async (r: StoredRecipe) => {
+    await deleteRecipe(r.id);
+    setUsunieta(r);
+    await wczytajMoje();
+  });
+  const przywrocMoja = guardSave(async () => {
+    if (!usunieta) return;
+    const r = usunieta;
+    setUsunieta(null);
+    await saveRecipe(r);
+    await wczytajMoje();
+  });
+  const schowajPasek = useCallback(() => setUsunieta(null), []);
 
   // Import działa zawsze (D-039): bez uprawnienia receptura trafia na listę, bez ekranu zakupu [M1-audytor-generalny-026]
   const poImporcie = (r: StoredRecipe) => {
@@ -119,6 +129,7 @@ export default function RecepturyLista() {
           onUsunMoja={usunMoja}
         />
       </ScrollView>
+      {usunieta && <PasekCofnij tekst={t('Usunięto recepturę')} onPrzywroc={() => void przywrocMoja()} onUkryj={schowajPasek} />}
       <CalculatorModalsProvider
         isBlendModalOpen={false}
         flourBlend={[]}
