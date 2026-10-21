@@ -101,7 +101,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
-    const gummyPresetBtn = findButtonByText(root, 'Gumowaty (Gorący nóż)');
+    const gummyPresetBtn = findButtonByText(root, 'Gumowaty (Krojony na gorąco)'); // 148
     expect(gummyPresetBtn).toBeDefined();
 
     await act(async () => {

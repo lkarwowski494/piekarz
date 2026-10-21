@@ -15,6 +15,11 @@
       "klucz": "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.",
       "powod": "usunięte zdanie o Acetobacter bez twierdzenia; pole przyczyny ma teraz tylko zdanie z KWA-GLO-001, KWA-HYD-001, KWA-TEM-001 (M1-audytor-generalny-163); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Gumowaty (Krojony na gorąco)",
+      "powod": "etykieta PL nazywała „gorący nóż”, przyczyna to krojenie gorącego chleba (KRO-POC-015), jak EN (M1-audytor-generalny-148); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

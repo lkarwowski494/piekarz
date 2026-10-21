@@ -1752,10 +1752,11 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Gumowaty (Gorący nóż)": {
+  "Gumowaty (Krojony na gorąco)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
-    ]
+    ],
+    "opis": "Doktor Chleba, przycisk szybkiego wyboru objawu: nazwa objawu i w nawiasie przyczyna — miękisz gumowaty, bo chleb pokrojono, zanim ostygł (KRO-POC-015). Nie „gorący nóż” i nie zalecenie. Krótko jak sąsiednie przyciski, wielka litera w nawiasie [M1-audytor-generalny-148]."
   },
   "Gumowaty, lepki miękisz": {
     "gdzie": [

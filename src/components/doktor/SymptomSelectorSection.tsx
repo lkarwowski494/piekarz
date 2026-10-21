@@ -29,7 +29,7 @@ export const DIAGNOSTIC_PRESETS: DiagnosticPreset[] = [
   },
   {
     id: 'preset_gummy',
-    name: 'Gumowaty (Gorący nóż)',
+    name: 'Gumowaty (Krojony na gorąco)', // przyczyna jak EN, KRO-POC-015 [M1-audytor-generalny-148]
     symptoms: { cutImmediatelyWhileSteamingHot: true },
   },
   {

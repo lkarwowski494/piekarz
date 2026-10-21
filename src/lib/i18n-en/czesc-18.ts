@@ -7,7 +7,7 @@ export const EN_18: Record<string, string> = {
   // Szablony Doktora Chleba (src/components/doktor/SymptomSelectorSection.tsx, DIAGNOSTIC_PRESETS)
   'Jaskinie (Niedofermentowany)': 'Caverns (Underproofed)',
   'Płaski dysk (Przerośnięty)': 'Flat disc (Overproofed)',
-  'Gumowaty (Gorący nóż)': 'Gummy (Cut while hot)',
+  'Gumowaty (Krojony na gorąco)': 'Gummy (Cut while hot)',
   'Pęknięty bok': 'Burst side',
   'Zbyt kwaśny (Octowy)': 'Too sour (Vinegary)',
   'Płaski smak (Jałowy)': 'Flat taste (Bland)',
