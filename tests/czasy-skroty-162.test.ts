@@ -68,7 +68,7 @@ describe('162: czasy bez skrótów w tekstach PL', () => {
 
   it('wpis Dziennika z dawną nazwą pizzy „(48h)” dalej trafia do tej receptury w „Piecz ponownie”', () => {
     const r = prepareBakeAgainRecipe({ id: 'b', recipeName: 'Pizza Napoletana Verace (48h)', startedAt: 1 }, []);
-    expect(r.id).toBe('pizza_napoletana_48h');
+    expect(r?.id).toBe('pizza_napoletana_48h');
   });
 
   it('„… temu” z formą liczby: 1 dzień temu, 2 dni temu, 5 dni temu (PL i EN)', () => {

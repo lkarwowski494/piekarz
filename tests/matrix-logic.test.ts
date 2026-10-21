@@ -97,7 +97,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
       createdAt: Date.now(),
     } as any;
 
-    const prep = prepareBakeAgainRecipe(dummyLog, []);
+    const prep = prepareBakeAgainRecipe(dummyLog, [])!; // receptura bazowa o tej nazwie istnieje (D-10: bez dopasowania null)
     expect(prep.name).toContain('Wiejski');
     expect(prep.formula.flours.length).toBeGreaterThan(0);
 

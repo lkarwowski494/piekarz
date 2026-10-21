@@ -113,7 +113,7 @@ describe('M1-audytor-generalny-112: wzorzec nawiasu ze słowem angielskim w teks
       const preset = MASTER_RECIPES.find((r) => r.namePl === nowa);
       expect(preset).toBeDefined();
       const log = { id: 'b1', recipeName: stara, startedAt: 1, finishedAt: 2 } as unknown as StoredBakeLog;
-      const p = prepareBakeAgainRecipe(log, []);
+      const p = prepareBakeAgainRecipe(log, [])!;
       expect(p.id).toBe(preset!.id);
       expect(p.formula).toEqual(preset!.formula);
     }

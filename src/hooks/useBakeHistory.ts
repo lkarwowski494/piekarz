@@ -50,6 +50,11 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
       try {
         const custom = await getRecipes();
         const pending = prepareBakeAgainRecipe(log, custom);
+        // Receptury z tą nazwą już nie ma: lista receptur zamiast zmyślonej formuły [audyt-niezalezny D-10]
+        if (!pending) {
+          router.navigate('/receptury');
+          return;
+        }
         const recipeFormula = { ...pending.formula, targetDoughWeightGrams: pending.formula.targetDoughWeightGrams ?? MASA_DOMYSLNA_G };
         ustawRecepturePlanu({
           recipeName: pending.name,
