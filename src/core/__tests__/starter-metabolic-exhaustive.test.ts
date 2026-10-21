@@ -88,11 +88,12 @@ describe('Exhaustive Sourdough Metabolic & Feeding Invariants (BR-STARTER-EXHAUS
       expect(calculateStarterPhase(fed3Days, 'FRIDGE', fixedNow).labelPl).toContain('Uśpiony w lodówce');
     });
 
-    it('transitions to hungry phase after 5+ days in fridge', () => {
-      const fed5Days = fixedNow - 5 * 24 * 3600 * 1000;
+    // Próg 5 dni nie miał źródła (ZAK-LOD-901 wycofane); raz w tygodniu = 7 dni (ZAK-ZAL-012) [M1-audytor-generalny-132]
+    it('transitions to hungry phase after 7+ days in fridge', () => {
+      const fed7Days = fixedNow - 7 * 24 * 3600 * 1000;
       const fed10Days = fixedNow - 10 * 24 * 3600 * 1000;
 
-      expect(calculateStarterPhase(fed5Days, 'FRIDGE', fixedNow).phase).toBe('hungry');
+      expect(calculateStarterPhase(fed7Days, 'FRIDGE', fixedNow).phase).toBe('hungry');
       expect(calculateStarterPhase(fed10Days, 'FRIDGE', fixedNow).phase).toBe('hungry');
     });
   });

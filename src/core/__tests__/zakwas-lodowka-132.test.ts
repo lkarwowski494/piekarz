@@ -61,4 +61,9 @@ describe('132: porady zakwasu w lodówce z docs/tresci (ZAK-LOD, ZAK-ZAL)', () =
       expect(faza(d).advicePl).not.toMatch(/2–3\s?h|1–2 karmie|4\s?°C/);
     }
   });
+
+  it('„Wymaga odświeżenia” dopiero od 7. dnia: w lodówce dokarmia się raz w tygodniu (ZAK-ZAL-012)', () => {
+    expect(faza(6).phase).toBe('lag');
+    expect(faza(7).phase).toBe('hungry');
+  });
 });

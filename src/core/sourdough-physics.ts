@@ -112,7 +112,8 @@ export function calculateStarterPhase(
 
   if (storageState === 'FRIDGE') {
     const elapsedDays = Math.floor(elapsedHours / 24);
-    if (elapsedDays < 5) {
+    // Raz w tygodniu = 7 dni (ZAK-ZAL-012) [M1-audytor-generalny-132; 06-tresci-502]
+    if (elapsedDays < 7) {
       return {
         phase: 'lag',
         elapsedHours,
