@@ -1,6 +1,23 @@
 // Słownik bg, część 10 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Wydłuż fermentację burzliwą.': 'Удължете основната ферментация.',
+  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Квас, съхраняван в хладилника, се храни веднъж седмично. Според King Arthur Baking преди печене го хранете на всеки 12 часа, докато в рамките на 6–8 часа след хранене удвои или утрои обема си.',
+  'Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Използвайте калкулатора за целева температура на тестото: според King Arthur Baking пшеничното тесто след смесването трябва да е около 24–26 °C.',
+  'Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.': 'Твърде ниска хидратация на тестото, слабо брашно с ниско съдържание на белтък или недостатъчно развит глутен.',
+  'Złożony bukiet kwasów mlekowego i octowego.': 'Сложен букет от млечна и оцетна киселина.',
+  'Zmniejsz udział zakwasu w recepturze.': 'Намалете дела на кваса в рецептата.',
+  'Zwiększ hydratację receptury.': 'Увеличете хидратацията на рецептата.',
+  'Zwiększ udział zakwasu w recepturze.': 'Увеличете дела на кваса в рецептата.',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Без покупка историята и данните ви ще останат. Изчисленията, планирането и напътствията ще изискват Пекар Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ако абонаментът не бъде прекратен, тогава App Store ще събере плащане за избрания план.',
+  'Okres próbny kończy się {data}': 'Пробният период изтича на {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Абонаментът няма да се поднови, така че няма да платите нищо.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тогава App Store ще събере {cena} за един месец абонамент. Ако не искате да плащате, прекратете абонамента преди края на пробния период.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тогава App Store ще събере {cena} за една година абонамент. Ако не искате да плащате, прекратете абонамента преди края на пробния период.',
+  'Zamknij informację o końcu próby': 'Затваряне на известието за края на пробния период',
+  'Uczeń Piekarski': 'Ученик хлебар',
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Време на зреене {fermentationTimeHours}. {flavorProfilePl}',
   'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Нуждае се от освежаване (дни в хладилника: {elapsedDays})',
   'Uśpiony w lodówce ({elapsedDays} dni)': 'Спи в хладилника (дни: {elapsedDays})',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Светло пшенично брашно за хляб',

@@ -32,16 +32,10 @@ export const EN_15: Record<string, string> = {
     'Side of the loaf burst (Side Blow-out)',
   'Brak uniesionego ucha':
     'No raised ear (Lack of Ear)',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.':
-    'A vertical cut (90°) instead of an undercut at an angle (30°), or insufficient surface tension when shaping the batard (no Surface Tension).',
   'Blada skórka bez chrupkości':
     'Pale crust without crispness (Pale Crust)',
-  'Skróć fermentację burzliwą i pilnuj temperatury ciasta (24–26°C).':
-    'Shorten the bulk fermentation and watch the dough temperature (DDT 24–26°C).',
   'Płaski smak bez głębi':
     'Flat flavor without depth (Bland Flavor)',
-  'Wprowadź garowanie chłodnicze w lodówce (12–16 godzin w 4°C).':
-    'Introduce a cold proof in the fridge (Cold Retard, 12–16 hours at 4°C).',
   'Zbity, gęsty miękisz':
     'Tight, dense crumb (Dense Crumb)',
   'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.':

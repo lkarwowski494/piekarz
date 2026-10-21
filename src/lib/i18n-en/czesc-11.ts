@@ -122,14 +122,8 @@ export const EN_11: Record<string, string> = {
     'Rye flour type 1400',
   'Szacunek: parametry przyjęte z typu {typ}, bez źródła':
     'Estimate: parameters taken from type {typ}, no source',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.':
-    'The dough will be very dense and stiff. Feel free to add more water.',
   'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.':
     'Warning: very high hydration for this blend! The dough may be slack and require a skilled coil fold technique.',
-  'Idealny balans chłonności i hydratacji dla tej kompozycji mąk.':
-    'Ideal balance of absorption and hydration for this flour composition.',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.':
-    'Good dough springiness while keeping proper crumb moisture.',
   'Mieszanka musi zawierać co najmniej jedną mąkę.':
     'The blend must contain at least one flour.',
   'Mąka cukiernicza / tortowa (bielona)':
@@ -180,12 +174,8 @@ export const EN_11: Record<string, string> = {
     'Biga (Stiff Italian preferment 50%)',
   'Głęboki, winny aromat, wysoka wytrzymałość ciasta i spektakularny piecowy skok.':
     'Deep, winey aroma, high dough strength and spectacular oven spring.',
-  'Pâte Fermentée (Stare ciasto 65%)':
-    'Pâte Fermentée (Old dough 65%)',
   'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.':
     'Traditional profile of French country bread, mild sourness and a tight crumb.',
-  'Levain (Rzemieślniczy zaczyn na zakwasie 100%)':
-    'Levain (Artisan sourdough preferment 100%)',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)':
     'Tangzhong (Scalded flour 1:5 at 65°C)',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.':

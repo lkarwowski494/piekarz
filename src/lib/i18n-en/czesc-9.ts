@@ -2,84 +2,46 @@
 // receptury, mąki, harmonogram [M1-audytor-generalny-047; 09-lokalizacja-001].
 // Polski tekst jest kluczem. Całość składa src/lib/i18n.en.ts.
 export const EN_9: Record<string, string> = {
-  'Odczekaj minimum 2 godziny przed pierwszym krojeniem bochenka. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
-    'Wait at least 2 hours before the first slice of the loaf. According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
-  'Zwiększ czas pieczenia o 5–8 minut.':
-    'Increase the baking time by 5–8 minutes.',
-  'Sprawdź temperaturę wewnętrzną termometrem szpilkowym (docelowo: 95–98°C).':
-    'Check the internal temperature with a probe thermometer (target: 95–98°C).',
   'Wielkie dziury pod górną skórką, a pod nimi ciężki, zbity i wilgotny dół':
     'Huge holes under the top crust, with a heavy, dense and moist bottom beneath them',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.':
     'The yeast did not have time to produce and distribute gas throughout the whole dough before it went into the oven. In the oven the expansion happened abruptly only at the top, tearing the crust.',
-  'Wydłuż fermentację burzliwą o 45–60 minut.':
-    'Extend the bulk fermentation by 45–60 minutes.',
-  'Zastosuj kalkulator DDT, aby podnieść temperaturę ciasta do 25–26°C.':
-    'Use the DDT calculator to raise the dough temperature to 25–26°C.',
   'Chleb rozlał się na płasko, oklapł po nacięciu żyletką lub ma blady kolor':
     'The bread spread flat, collapsed after scoring with the blade, or has a pale color',
   'Bakterie kwasu mlekowego strawiły siatkę glutenową, a drożdże zużyły cały dostępny cukier. Ciasto straciło sprężystość i nie ma siły utrzymać kształtu w piecu.':
     'Lactic acid bacteria have broken down the gluten network, and the yeast has used up all the available sugar. The dough has lost its elasticity and lacks the strength to hold its shape in the oven.',
   'Skróć czas garowania w lodówce lub fermentacji w temperaturze pokojowej.':
     'Shorten the proofing time in the fridge or the fermentation at room temperature.',
-  'Zmniejsz udział zakwasu w recepturze z 20% do 15%.':
-    'Reduce the share of starter in the recipe from 20% to 15%.',
-  'Obniż temperaturę lodówki (optymalnie 3–5°C).':
-    'Lower the fridge temperature (ideally 3–5°C).',
   'Piecz bochenek wcześniej, gdy ciasto przy próbie palca powoli i sprężyście wraca.':
     'Bake the loaf earlier, when the dough springs back slowly and elastically in the poke test.',
   'Bochenek nie otworzył się w nacięciu, lecz pękł wzdłuż dolnej krawędzi':
     'The loaf did not open at the score but burst along the bottom edge',
   'Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.':
     'The top crust hardened and dried out before the loaf had time to rise in the oven (no steam) OR the score was too shallow and at the wrong angle.',
-  'Zapewnij 100% pary w pierwszej fazie: piecz w szczelnym garnku żeliwnym przez 20 minut.':
-    'Provide 100% steam in the first phase: bake in a tightly sealed cast iron pot for 20 minutes.',
-  'Prowadź żyletkę pod kątem ostrym (ok. 30°) na głębokość 8–10 mm.':
-    'Hold the blade at an acute angle (about 30°) to a depth of 8–10 mm.',
   'Przełóż bochenek szwem do dołu, aby nie pękał od spodu.':
     'Turn the loaf seam side down so it does not burst from the bottom.',
   'Nacięcie rozeszło się gładko bez chrupiącego grzebienia':
     'The score opened smoothly without a crisp ridge',
-  'Pochyl żyletkę pod kątem 30° do powierzchni ciasta (cięcie pod skórkę).':
-    'Tilt the blade at 30° to the dough surface (cut under the skin).',
   'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.':
     'Tighten the dough more firmly during final shaping.',
-  'Upewnij się, że garnek żeliwny był nagrzewany przez minimum 45 minut w 240°C.':
-    'Make sure the cast iron pot was preheated for at least 45 minutes at 240°C.',
   'Brak reakcji Maillarda i karmelizacji cukrów':
     'No Maillard reaction and no caramelization of sugars',
   'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.':
     'Over-proofing (the yeast ate all the simple sugars) or too low a baking temperature in the lid-off phase.',
-  'Dopiekaj w temperaturze min. 210–220°C bez pokrywki.':
-    'Finish baking at a temperature of at least 210–220°C with the lid off.',
   'Skróć czas fermentacji, aby pozostawić cukry resztkowe w cieście.':
     'Shorten the fermentation time to leave residual sugars in the dough.',
   'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna':
     'Unpleasant sourness dominating over the aroma of toasted grain',
   'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.':
     'Predominance of acetic acid bacteria (Acetobacter) over lactic acid. A sour, vinegar-like taste has been linked to an under-fed starter, a stiff (low-hydration) starter or fermentation at a low temperature.',
-  'Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.':
-    'Feed the starter more often (at a ratio of 1:2:2 or 1:3:3) before baking.',
   'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.':
     'Shorten fermentation at low temperature: lower fermentation temperatures have been linked to acetic acid, and longer fermentation to excess organic acids.',
   'Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu':
     'The bread tastes bland, like ordinary supermarket wheat bread',
   'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.':
     'Fermentation time too short. Complex aromatic compounds form through slow enzymatic activity and the metabolism of lactic acid bacteria during cold fermentation.',
-  'Zwiększ udział zakwasu w recepturze do 20%.':
-    'Increase the share of starter in the recipe to 20%.',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.':
-    'Add 10–20% whole grain flour (rye type 2000 or whole wheat) to the recipe.',
   'Drobne pory, bochenek ciężki w dłoni':
     'Small pores, the loaf feels heavy in the hand',
-  'Zbyt niska hydratacja ciasta (<65%), słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.':
-    'Dough hydration too low (<65%), weak flour with low protein content, or insufficiently developed gluten.',
-  'Zwiększ hydratację receptury o 3–5%.':
-    'Increase the recipe hydration by 3–5%.',
-  'Użyj mąki chlebowej o zawartości białka min. 12,5 g / 100 g.':
-    'Use bread flour with a protein content of at least 12.5 g / 100 g.',
-  'Wydłuż autolizę do 45–60 minut i dodaj 1 dodatkową serię składań coil fold.':
-    'Extend the autolyse to 45–60 minutes and add 1 extra set of coil folds.',
   'Przerośnięte ciasto (Pivot na Focaccię)':
     'Over-proofed dough (Pivot to Focaccia)',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.':

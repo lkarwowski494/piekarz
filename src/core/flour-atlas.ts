@@ -348,14 +348,14 @@ export function analyzeFlourBlendAbsorption(
   // Determine dough feel advice relative to current hydration
   let doughFeelAdvicePl: string;
   if (currentHydrationPercent < recommendedRange[0] - 2.0) {
-    doughFeelAdvicePl = 'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.';
+    doughFeelAdvicePl = 'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.';
   } else if (currentHydrationPercent > recommendedRange[1] + 3.0) {
     doughFeelAdvicePl =
       'Uwaga: bardzo wysoka hydratacja dla tej mieszanki! Ciasto może być luźne i wymagać wprawnej techniki coil fold.';
   } else if (currentHydrationPercent >= recommendedRange[0] && currentHydrationPercent <= recommendedRange[1]) {
-    doughFeelAdvicePl = 'Idealny balans chłonności i hydratacji dla tej kompozycji mąk.';
+    doughFeelAdvicePl = 'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.';
   } else {
-    doughFeelAdvicePl = 'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.';
+    doughFeelAdvicePl = 'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.';
   }
 
   if (ryePercent >= 40) {

@@ -88,8 +88,8 @@ describe('Artisan Preferment Engine (src/core/preferments.ts)', () => {
 
       // 25% of 800g = 200g flour
       expect(res.prefermentFlourGrams).toBe(200);
-      // 65% of 200g = 130g water
-      expect(res.prefermentWaterGrams).toBe(130);
+      // 75% of 200g = 150g water (BBGA example, ZAC-PAT-002; was 65% without a source) [M1-audytor-generalny-131]
+      expect(res.prefermentWaterGrams).toBe(150);
       // 2% salt of 200g = 4g salt already inside old dough
       expect(res.prefermentSaltGrams).toBe(4.0);
 

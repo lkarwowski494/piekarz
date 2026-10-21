@@ -99,16 +99,6 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "12–16h w 18–20°C (lub 4h w 24°C)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
-    ]
-  },
-  "12–24h w chłodzie (4–8°C)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
-    ]
-  },
   "14h powolna fermentacja w temperaturze pokojowej (20–22°C)": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -122,11 +112,6 @@
   "16–18 ciastek": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
-    ]
-  },
-  "16–24h w 16–18°C (lub 24–48h w lodówce)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "1:1:1 (Szybki 3-4h)": {
@@ -152,11 +137,6 @@
   "4 duże podpłomyki": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
-    ]
-  },
-  "4–8h w 24–26°C do szczytu objętości": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "50% Pszenna + 50% Żytnia (Pół na pół)": {
@@ -609,6 +589,11 @@
       "src/core/bake-loss.ts (dane: namePl)"
     ]
   },
+  "Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
   "Chleb żytni / foremkowy": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: namePl)"
@@ -679,7 +664,7 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
     ]
   },
-  "Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.": {
+  "Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: kod)"
     ]
@@ -740,11 +725,6 @@
   "Cierpliwość to ostatni składnik dobrego chleba: miękisz tnie się czysto bez brudzenia noża tylko wtedy, gdy temperatura spadnie do pokojowej.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: proTipsPl)"
-    ]
-  },
-  "Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
   "Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.": {
@@ -976,11 +956,6 @@
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
-  "Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
-    ]
-  },
   "Docelowa hydratacja nowego zakwasu": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
@@ -1024,14 +999,14 @@
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
     ]
   },
-  "Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+    ]
+  },
+  "Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
   "Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.": {
@@ -1132,7 +1107,7 @@
       "src/core/fridge-wake.ts (dane: kod)"
     ]
   },
-  "Dokarmiaj zakwas częściej (w proporcji 1:2:2 lub 1:3:3) przed wypiekiem.": {
+  "Dokarmiaj zakwas częściej przed wypiekiem.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -1193,11 +1168,6 @@
   "Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
-    ]
-  },
-  "Dopiekaj w temperaturze min. 210–220°C bez pokrywki.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
   "Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.": {
@@ -1673,6 +1643,11 @@
   "Garowanie chłodnicze w lodówce (Cold Retard)": {
     "gdzie": []
   },
+  "Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
   "Garuj w koszyku ok. 2–2,5h lub wstaw na noc do lodówki (4°C).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -1846,6 +1821,16 @@
       "src/components/receptury/DoMiski.tsx (tekst w JSX)"
     ]
   },
+  "Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
+    ]
+  },
+  "Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
+    ]
+  },
   "Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
@@ -1884,11 +1869,6 @@
   "Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: descriptionPl)"
-    ]
-  },
-  "Idealny balans chłonności i hydratacji dla tej kompozycji mąk.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
   "Ilości do dokarmienia": {
@@ -2011,6 +1991,11 @@
   "Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.": {
     "gdzie": [
       "src/core/step-warnings.ts (dane: kod)"
+    ]
+  },
+  "Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
   "Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.": {
@@ -2283,11 +2268,6 @@
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
     ]
   },
-  "Krojenie gorącego chleba niszczy strukturę skrobi, która potrzebuje ostygnięcia do min. 50°C, aby dokończyć proces żelowania. Inną przyczyną może być zbyt niska temperatura wewnątrz bochenka (<94°C).": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
-    ]
-  },
   "Krojenie gorącego chleba prosto z pieca — nóż miażdży niestabilną siatkę skrobi, tworząc trwały zakalec na ostrzu.": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
@@ -2437,7 +2417,7 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "Levain (Rzemieślniczy zaczyn na zakwasie 100%)": {
+  "Levain (Rzemieślniczy zaczyn na zakwasie)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
     ]
@@ -3214,6 +3194,11 @@
   "Naczynie wypiekowe": {
     "gdzie": []
   },
+  "Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
   "Nagrzewanie pieca i garnka żeliwnego": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
@@ -3577,7 +3562,7 @@
       "src/core/baking-phases.ts (dane: tipPl)"
     ]
   },
-  "Obniż temperaturę lodówki (optymalnie 3–5°C).": {
+  "Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -3679,11 +3664,6 @@
   "Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Odczekaj minimum 2 godziny przed pierwszym krojeniem bochenka. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
   "Odejmij {g} g mąki {nazwa}": {
@@ -3995,6 +3975,11 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
+  "Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
   "Piecz ponownie": {
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (accessibilityLabel)",
@@ -4183,7 +4168,12 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
-  "Pochyl żyletkę pod kątem 30° do powierzchni ciasta (cięcie pod skórkę).": {
+  "Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -4505,7 +4495,12 @@
       "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
     ]
   },
-  "Prowadź żyletkę pod kątem ostrym (ok. 30°) na głębokość 8–10 mm.": {
+  "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
+    ]
+  },
+  "Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -4770,7 +4765,7 @@
       "src/components/zakwas/StarterSafetyCard.tsx (label)"
     ]
   },
-  "Pâte Fermentée (Stare ciasto 65%)": {
+  "Pâte Fermentée (Stare ciasto)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
     ]
@@ -5166,7 +5161,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Skróć fermentację burzliwą i pilnuj temperatury ciasta (24–26°C).": {
+  "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -5277,7 +5272,7 @@
       "src/components/stolnica/PokeTestEntry.tsx (tekst w JSX)"
     ]
   },
-  "Sprawdź temperaturę wewnętrzną termometrem szpilkowym (docelowo: 95–98°C).": {
+  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -5959,11 +5954,6 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Upewnij się, że garnek żeliwny był nagrzewany przez minimum 45 minut w 240°C.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Upewnij się, że zakwas został użyty w szczycie objętości.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -6148,7 +6138,7 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
-  "Użyj mąki chlebowej o zawartości białka min. 12,5 g / 100 g.": {
+  "Użyj mąki chlebowej o wyższej zawartości białka.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -6193,11 +6183,6 @@
   "W misce wymieszaj odrzut zakwasu z mąką, roztopionym masłem lub oliwą, solą drobną i ziołami.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
-    ]
-  },
-  "W niskiej temperaturze (4°C) metabolizm drożdży zwalnia. Przed pieczeniem wyjmij na 2–3h i dokarm.": {
-    "gdzie": [
-      "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
   "W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.": {
@@ -6329,6 +6314,11 @@
       "src/core/starter-log.ts (dane: start)"
     ]
   },
+  "Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
   "Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: bake)"
@@ -6362,6 +6352,11 @@
   "Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: ready)"
+    ]
+  },
+  "Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.": {
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
   "Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.": {
@@ -6578,11 +6573,6 @@
       "src/components/stolnica/FinishBakeModal.tsx (placeholder)"
     ]
   },
-  "Wprowadź garowanie chłodnicze w lodówce (12–16 godzin w 4°C).": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Wprowadź młody zaczyn (Levain) i sól rozpuszczoną w pozostałej wodzie (metoda bassinage).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -6783,12 +6773,12 @@
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
     ]
   },
-  "Wydłuż autolizę do 45–60 minut i dodaj 1 dodatkową serię składań coil fold.": {
+  "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Wydłuż fermentację burzliwą o 45–60 minut.": {
+  "Wydłuż fermentację burzliwą.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -7304,14 +7294,14 @@
       "src/core/starter-log.ts (dane: temperature)"
     ]
   },
+  "Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.": {
+    "gdzie": [
+      "src/core/sourdough-physics.ts (dane: advicePl)"
+    ]
+  },
   "Zakwas w lodówce": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
-    ]
-  },
-  "Zakwas w lodówce powyżej 5 dni potrzebuje 1–2 karmień w temperaturze pokojowej przed przygotowaniem ciasta.": {
-    "gdzie": [
-      "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
   "Zakwas żytni": {
@@ -7432,11 +7422,6 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
-  "Zapewnij 100% pary w pierwszej fazie: piecz w szczelnym garnku żeliwnym przez 20 minut.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Zapewnij swobodny przepływ powietrza od spodu bochenka (chleb pozostawiony na blacie lub desce zaparzy się i namoknie od spodu!).": {
     "gdzie": [
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
@@ -7538,7 +7523,7 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
-  "Zastosuj kalkulator DDT, aby podnieść temperaturę ciasta do 25–26°C.": {
+  "Zastosuj kalkulator DDT: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -7679,7 +7664,7 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
     ]
   },
-  "Zbyt niska hydratacja ciasta (<65%), słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.": {
+  "Zbyt niska hydratacja ciasta, słaba mąka o niskiej zawartości białka lub niedostatecznie rozwinięty gluten.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
@@ -7813,7 +7798,7 @@
       "src/components/FlourBlendModal.tsx (accessibilityLabel)"
     ]
   },
-  "Zmniejsz udział zakwasu w recepturze z 20% do 15%.": {
+  "Zmniejsz udział zakwasu w recepturze.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -7894,18 +7879,13 @@
       "src/components/SensoryRadarChart.tsx (accessibilityLabel)"
     ]
   },
-  "Zwiększ czas pieczenia o 5–8 minut.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
-  },
   "Zwiększ hydratację": {
     "gdzie": []
   },
   "Zwiększ hydratację o {n}%": {
     "gdzie": []
   },
-  "Zwiększ hydratację receptury o 3–5%.": {
+  "Zwiększ hydratację receptury.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -7930,7 +7910,7 @@
       "src/components/FlourBlendModal.tsx (accessibilityLabel)"
     ]
   },
-  "Zwiększ udział zakwasu w recepturze do 20%.": {
+  "Zwiększ udział zakwasu w recepturze.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -7951,7 +7931,7 @@
       "src/core/flour-equivalents.ts (dane: substitutionTipsPl)"
     ]
   },
-  "Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.": {
+  "Złożony bukiet kwasów mlekowego i octowego.": {
     "gdzie": [
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
@@ -8275,6 +8255,26 @@
   "wczoraj": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)"
+    ]
+  },
+  "według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "wiadomość do autora": {

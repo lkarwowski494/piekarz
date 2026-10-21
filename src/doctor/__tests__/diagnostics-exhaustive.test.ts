@@ -120,7 +120,8 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
       });
 
       expect(result.defectCode).toBe('GUMMY_CRUMB');
-      expect(result.actionChecklistPl.some((a) => a.includes('2 godziny'))).toBe(true);
+      // oczekiwany tekst z docs/tresci/pl/doktor-chleba.md [M1-audytor-generalny-133]
+      expect(result.actionChecklistPl.some((a) => a.includes('całkowicie ostygnie'))).toBe(true);
     });
 
     it('under-proofed flying crust takes precedence over over-proofed flat disk when both checked', () => {
@@ -172,7 +173,8 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
     it('excessively sour defect explains Acetobacter acetic fermentation', () => {
       const result = diagnoseBreadDefect({ breadIsExcessivelySour: true });
       expect(result.biologicalCausePl).toContain('Acetobacter');
-      expect(result.actionChecklistPl.some((a) => a.includes('1:2:2'))).toBe(true);
+      // oczekiwany tekst z docs/tresci/pl/doktor-chleba.md [M1-audytor-generalny-133]
+      expect(result.actionChecklistPl.some((a) => a.includes('Dokarmiaj zakwas częściej'))).toBe(true);
     });
 
     it('dense crumb defect recommends hydration increase and protein flour check', () => {

@@ -1,4 +1,4 @@
-// Słownik tr, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik tr, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} buhar',
@@ -148,7 +148,6 @@ export const CZESC: Record<string, string> = {
   'Chłonność mąk:': 'Unların su emişi:',
   'Chłód lodówki spowalnia fermentację, a według tego samego źródła wolniejsza fermentacja pogłębia smak.': 'Buzdolabının soğuğu fermantasyonu yavaşlatır; aynı kaynağa göre daha yavaş fermantasyon lezzeti derinleştirir.',
   'Chrupkość': 'Çıtırlık',
-  'Ciasto będzie bardzo zwarte i sztywne. Możesz śmiało dolać więcej wody.': 'Hamur çok sıkı ve sert olacak. Gönül rahatlığıyla daha fazla su ekleyebilirsiniz.',
   'Ciasto już fermentuje, a odważona sól została na blacie.': 'Hamur zaten fermente oluyor, tartılan tuz ise tezgâhta kaldı.',
   'Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.': 'Hamur yumuşak ve havadardır. Islak ellerle Coil Fold tekniği ve yüksek W değerli un önerilir.',
   'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.': 'Hamur söndü, yayvanlaşıyor, kabarcıklanıyor ve kesildikten sonra şeklini korumuyor.',
@@ -160,7 +159,6 @@ export const CZESC: Record<string, string> = {
   'Cienki przekrój i wysoki stosunek powierzchni skórki do masy skutkuje intensywnym odparowaniem wody.': 'İnce kesit ve kabuk yüzeyinin kütleye oranının yüksek olması yoğun su buharlaşmasına yol açar.',
   'Ciepło tarcia': 'Yoğurma sürtünmesi',
   'Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).': 'Mutfak sıcak ({temp}°C). Fermantasyon süresi {min} dk kısaltıldı (aşırı ekşimeye karşı koruma).',
-  'Cięcie pionowe (90°) zamiast podcięcia pod kątem (30°) lub niedostateczne napięcie powierzchniowe przy formowaniu batarda.': 'Açılı (30°) kesim yerine dikey (90°) kesim veya batard şekillendirirken yetersiz yüzey gerginliği.',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.': 'Baton kek kalıbında ağır, aromalı kepekli çavdar ekmeği. Yoğurma ve katlama yok. Bir hafta taze kalır.',
   'Co dzisiaj pieczemy?': 'Bugün ne pişiriyoruz?',
   'Co dziś robisz?': 'Bugün ne yapıyorsunuz?',
@@ -199,7 +197,6 @@ export const CZESC: Record<string, string> = {
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Tahmini zirve aralığına yaklaşık {czas} kaldı (aralık: {okno}).',
   'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Oranı ve pişirme için gereken maya hamuru miktarını seçin',
   'Dobra skórka z lekkim połyskiem': 'Hafif parlak, iyi bir kabuk',
-  'Dobra sprężystość ciasta z zachowaniem odpowiedniej wilgotności miękiszu.': 'Ekmek içinin uygun nemini korurken iyi hamur esnekliği.',
   'Docelowa masa zaczynu': 'Hedef maya hamuru miktarı',
   'Docelowa temp. wody:': 'Hedef su sıcaklığı:',
   'Docelowa temperatura ciasta (DDT)': 'Hedef hamur sıcaklığı (DDT)',
@@ -207,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Docelowe DDT': 'Hedef hamur sıcaklığı',
   'Dodaj': 'Ekle',
   'Dodaj {object}': 'Ekle: {object}',
-  'Dodaj 10–20% mąki pełnoziarnistej (żytniej typ 2000 lub pszennej razowej) do receptury.': 'Tarife %10–20 tam tahıllı un (kepekli çavdar unu veya kepekli buğday unu) ekleyin.',
   'Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Aktif ekşi mayayı ve tuzu ekleyin. Malzemeler birleşip pürüzsüz bir yapı elde edilene kadar yoğurun. Çiğ hamuru veya unu tatmayın. Hamurla çalıştıktan sonra ellerinizi akan su altında sabunla yıkayın.',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.': 'Isıyı dağıtmak için bir ek nazik katlama yapın.',
   'Dodaj mąkę': 'Un Ekle',
@@ -217,4 +213,10 @@ export const CZESC: Record<string, string> = {
   'Dodano zakwas': 'Ekşi maya eklendi',
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Bir kaşık bal eklemek fermantasyonu destekler ve ekşiliği yumuşatır. Graham\'ın iri kepeği 45 dakikalık otoliz gerektirir.',
   'Dodatki (orzechy, ziarna)': 'Katkılar (kuruyemiş, tohumlar)',
+  'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Ekşi mayanızı un ve ılık suyla besleyin. Hacmi iki katına çıkana kadar sıcak bir yerde bekletin.',
+  'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Ekşi maya beslemeden sonraki 6–8 saat içinde hacmini ikiye katlayana kadar 12 saatte bir beslemeye devam edin.',
+  'Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.': 'Beslemeden sonraki 6–8 saat içinde hacmi iki ya da üç katına çıkana kadar onu 12 saatte bir besleyin; o zaman pişirmeye hazırdır.',
+  'Dokarmienie': 'Besleme',
+  'Dokarmienie {proporcja}': 'Besleme {proporcja}',
+  'Dokarmienie zakwasu': 'Ekşi maya beslemesi',
 };

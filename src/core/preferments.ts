@@ -11,12 +11,15 @@ export interface PrefermentDefinition {
   namePl: string;
   defaultHydration: number; // e.g. 100 for Poolish, 50 for Biga
   defaultPrefermentFlourPct: number; // % of total flour prefermented, e.g. 20%
-  fermentationTimeHours: string; // e.g. '12–16h w 18–20°C'
+  fermentationTimeHours: string; // fragment wskazówki „Czas dojrzewania …”; tekst z docs/tresci/pl/zaczyny.md
   yeastPctOfPrefermentFlour: number; // % of preferment flour
   saltPctOfPrefermentFlour: number; // % of preferment flour
   flavorProfilePl: string;
 }
 
+// Teksty poolish, biga, pâte fermentée i levain z liczbą: dosłownie z docs/tresci/pl/zaczyny.md (ZAC-POO-001, ZAC-CZA-001,
+// ZAC-BIG-001, ZAC-PAT-001, KRO-POC-002, KWA-TEM-001); parametry pâte fermentée: ZAC-PAT-900 [DO USTALENIA]
+// [M1-audytor-generalny-131; 01-odkrywanie-502, 06-tresci-503]
 export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition> = {
   direct: {
     type: 'direct',
@@ -33,7 +36,7 @@ export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition
     namePl: 'Poolish (Rzadki zaczyn 100%)',
     defaultHydration: 100.0,
     defaultPrefermentFlourPct: 20.0,
-    fermentationTimeHours: '12–16h w 18–20°C (lub 4h w 24°C)',
+    fermentationTimeHours: 'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)',
     yeastPctOfPrefermentFlour: 0.1,
     saltPctOfPrefermentFlour: 0,
     flavorProfilePl: 'Słodkawy, orzechowy aromat, lekki maślany miękisz i cienka, chrupiąca skórka.',
@@ -43,30 +46,32 @@ export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition
     namePl: 'Biga (Sztywny zaczyn włoski 50%)',
     defaultHydration: 50.0,
     defaultPrefermentFlourPct: 30.0,
-    fermentationTimeHours: '16–24h w 16–18°C (lub 24–48h w lodówce)',
+    fermentationTimeHours: 'według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C',
     yeastPctOfPrefermentFlour: 1.0,
     saltPctOfPrefermentFlour: 0,
     flavorProfilePl: 'Głęboki, winny aromat, wysoka wytrzymałość ciasta i spektakularny piecowy skok.',
   },
   pate_fermentee: {
     type: 'pate_fermentee',
-    namePl: 'Pâte Fermentée (Stare ciasto 65%)',
-    defaultHydration: 65.0,
+    namePl: 'Pâte Fermentée (Stare ciasto)',
+    // Przykład BBGA (ZAC-PAT-002), wybór właściciela 2026-10-21 [M1-audytor-generalny-131]
+    defaultHydration: 75.0,
     defaultPrefermentFlourPct: 25.0,
-    fermentationTimeHours: '12–24h w chłodzie (4–8°C)',
-    yeastPctOfPrefermentFlour: 0.5,
+    fermentationTimeHours:
+      'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce',
+    yeastPctOfPrefermentFlour: 1.0,
     saltPctOfPrefermentFlour: 2.0,
     flavorProfilePl: 'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.',
   },
   levain: {
     type: 'levain',
-    namePl: 'Levain (Rzemieślniczy zaczyn na zakwasie 100%)',
+    namePl: 'Levain (Rzemieślniczy zaczyn na zakwasie)',
     defaultHydration: 100.0,
     defaultPrefermentFlourPct: 20.0,
-    fermentationTimeHours: '4–8h w 24–26°C do szczytu objętości',
+    fermentationTimeHours: 'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków',
     yeastPctOfPrefermentFlour: 0, // Dzikie drożdże z matki
     saltPctOfPrefermentFlour: 0,
-    flavorProfilePl: 'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.',
+    flavorProfilePl: 'Złożony bukiet kwasów mlekowego i octowego.',
   },
   tangzhong: {
     type: 'tangzhong',

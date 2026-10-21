@@ -15,7 +15,8 @@ describe('wartości domeny w języku użytkownika (093)', () => {
   afterEach(() => setLang('pl'));
 
   it('pole PL w wyniku obliczeń bez zmian (zapis i testy domeny)', () => {
-    expect(poolish.fermentationTipPl).toMatch(/^Poolish \(Rzadki zaczyn 100%\): Czas dojrzewania 12–16h/);
+    // Czas dojrzewania poolish z docs/tresci/pl/zaczyny.md (ZAC-CZA-001) [M1-audytor-generalny-131]
+    expect(poolish.fermentationTipPl).toMatch(/^Poolish \(Rzadki zaczyn 100%\): Czas dojrzewania według King Arthur Baking od 8 godzin/);
     expect(wskazowkaZaczynu(poolish)).toBe(poolish.fermentationTipPl);
   });
 
@@ -28,9 +29,9 @@ describe('wartości domeny w języku użytkownika (093)', () => {
     expect(w).not.toMatch(/Czas dojrzewania|Rzadki zaczyn| w 18/);
   });
 
-  it('en: czas dojrzewania z przekładu (12–16 h at 18–20°C)', () => {
+  it('en: czas dojrzewania z przekładu (docs/tresci/en/zaczyny.md, ZAC-CZA-001)', () => {
     setLang('en');
-    expect(wskazowkaZaczynu(poolish)).toContain('12–16 h at 18–20°C');
+    expect(wskazowkaZaczynu(poolish)).toContain('from 8 hours (more yeast) to 14–16 hours (less yeast)');
   });
 
   it.each<Lang>(['en', 'de'])('%s: etykieta fazy zakwasu w lodówce z liczbą dni w szablonie', (l) => {

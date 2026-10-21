@@ -134,6 +134,4 @@ export const EN_8: Record<string, string> = {
     'Patience is the last ingredient of good bread: the crumb cuts cleanly without dirtying the knife only once the temperature drops to room temperature.',
   'Miękisz maże się na nożu i wygląda na niedopieczony':
     'The crumb smears on the knife and looks underbaked',
-  'Krojenie gorącego chleba niszczy strukturę skrobi, która potrzebuje ostygnięcia do min. 50°C, aby dokończyć proces żelowania. Inną przyczyną może być zbyt niska temperatura wewnątrz bochenka (<94°C).':
-    'Slicing hot bread disrupts the starch structure, which needs to cool to at least 50°C to complete the gelling process. Another cause may be too low a temperature inside the loaf (<94°C).',
 };
