@@ -17,6 +17,7 @@ import {
 export type NotificationKind = 'krok' | 'karmienie';
 export type NotificationLevel = 'active' | 'timeSensitive';
 export type NotificationTextKey =
+  | 'krok.start'
   | 'krok.koniec'
   | 'krok.zdejmijPokrywke'
   | 'krok.wypiekGotowy'
@@ -104,6 +105,15 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
   if (!session) return [];
   const current = planBakeNotification(session, now);
   const out: PlannedNotification[] = current ? [current] : [];
+  // Wypiek zaczęty przed godziną startu planu: powiadomienie o starcie kroku 1 [audyt-niezalezny D-5]
+  const pierwszy = session.steps[0];
+  if (session.stepIdx === 0 && pierwszy && pierwszy.plannedStart !== null && pierwszy.plannedStart > now) {
+    out.push({
+      id: `${NOTIF_PREFIX}krok.start`, kind: 'krok', triggerAt: pierwszy.plannedStart, level: 'active', textKey: 'krok.start',
+      params: { stepId: pierwszy.id, stepName: pierwszy.name, ...(pierwszy.plannedEnd !== null ? { stepEnd: String(pierwszy.plannedEnd) } : {}) },
+      route: '/stolnica',
+    });
+  }
   session.steps.forEach((step, i) => {
     if (i <= session.stepIdx || step.plannedEnd === null) return;
     const oven = isDutchOvenStep(step);

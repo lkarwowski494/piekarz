@@ -5379,7 +5379,8 @@
   },
   "Start {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
+      "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
   "Stary zakwas": {

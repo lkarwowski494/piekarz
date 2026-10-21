@@ -43,6 +43,7 @@ import { PoCoTenKrokArkusz } from '../src/components/stolnica/PoCoTenKrokArkusz'
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { StrefaPlanu } from '../src/components/stolnica/StrefaPlanu';
 import { useTekstyProwadzenia } from '../src/hooks/useTekstyProwadzenia';
+import { czekaNaStart } from '../src/lib/prowadzenie-teksty';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
@@ -145,7 +146,8 @@ export default function StolnicaScreen() {
       setActiveBakeData(s.bake);
       // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006),
       // najpierw zdanie „po co” (BR-CZAS-003) [M1-audytor-generalny-130]
-      if (zastosuj(s)) void zapytajOZgode();
+      // Wypiek przed godziną startu planu (D-5): zgoda także wtedy, bo powiadomienie przyjdzie o starcie
+      if (zastosuj(s) || czekaNaStart(s.steps, s.stepIdx, Date.now()) !== null) void zapytajOZgode();
     }
   );
 
@@ -295,7 +297,7 @@ export default function StolnicaScreen() {
         }}
       />
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
-      <StolnicaKeepAwake active={aktywny && !currentStep.isPassive} />
+      <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (

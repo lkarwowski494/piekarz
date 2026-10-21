@@ -4,7 +4,7 @@
 // Wersja 2 niesie kroki sesji; zapis bez `steps` (HEAD 1c38b28) czyta się z LEGACY_STEPS_V1 [M1-audytor-generalny-030].
 // ============================================================================
 
-import { BakeProgress, validStepIdx } from '../core/bake-session';
+import { BakeProgress, stepHasTimer, validStepIdx } from '../core/bake-session';
 import { SessionStep, areRyeSteps, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
 import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
 import { ActiveBakeState } from './sqlite-schema';
@@ -107,6 +107,18 @@ export function stepsForBake(bake: ActiveBakeState): SessionStep[] {
 }
 
 /**
+ * Plan z godziną startu po „Zacznij wypiek” (np. plan na jutro): zegar kroku 1 kończy się o planowanym końcu kroku 1,
+ * więc krok 1, dalsze kroki i powiadomienia trzymają godziny planu, a do startu prowadzenie pokazuje „Start … o …”
+ * (stan „czeka do”, prowadzenie-teksty.ts). Plan od teraz albo bez godzin: null (zegar rusza od teraz jak dotąd)
+ * [audyt-niezalezny D-5].
+ */
+export function koniecPierwszegoWPlanie(steps: readonly SessionStep[], startedAt: number): number | null {
+  const k = steps[0];
+  if (!k || !stepHasTimer(k) || k.plannedStart === null || k.plannedEnd === null) return null;
+  return k.plannedStart > startedAt && k.plannedEnd > startedAt ? k.plannedEnd : null;
+}
+
+/**
  * Sesja do pokazania na Stolnicy: nowy wypiek przekazany z Kalkulatora/Harmonogramu (w pamięci) wygrywa
  * z zapisem innego wypieku; po restarcie (pamięć pusta) wraca zapis.
  */
@@ -118,7 +130,7 @@ export function pickBakeSession(inMemory: ActiveBakeState | null, saved: BakeSes
       steps,
       stepIdx: 0,
       dutchOvenPhase: 'lid_on',
-      timerEndsAt: null,
+      timerEndsAt: koniecPierwszegoWPlanie(steps, inMemory.startedAt),
       pausedLeftSec: null,
       recipeName: inMemory.recipeName,
       startedAt: inMemory.startedAt,
