@@ -40,7 +40,7 @@ Mechanizm: **uzgadnianie (reconcile), nie zdarzenia.** Czysta funkcja wylicza z 
 
 | Plik | Rola | Zawartość |
 |---|---|---|
-| `src/core/notification-config.ts` | konfiguracja | `NOTIF_PREFIX = 'piekarz.'`, `NOTIF_ID_BAKE = 'piekarz.krok'`, `FEED_ROOM_TEMP_AFTER_MS = 24 h` (Z-041), `FEED_FRIDGE_REMIND_AFTER_MS = 6 d`, `FEED_FRIDGE_DUE_AFTER_MS = 7 d` (BR-ZAKW-004 kryt. 1), `MAX_PENDING_NOTIFICATIONS = 20`, `TIME_SENSITIVE_STEPS` (niżej) |
+| `src/core/notification-config.ts` | konfiguracja | `NOTIF_PREFIX = 'piekarz.'`, `NOTIF_ID_BAKE = 'piekarz.krok'`, `FEED_ROOM_TEMP_AFTER_MS = 24 h` (Z-041), `FEED_FRIDGE_DUE_AFTER_MS = 7 d` (BR-ZAKW-004 kryt. 1), `MAX_PENDING_NOTIFICATIONS = 20`, `TIME_SENSITIVE_STEPS` (niżej) |
 | `src/core/notification-plan.ts` | domena, czyste funkcje | `planBakeNotification`, `planFeedingNotifications`, `planNotifications`, `notificationFingerprint`, `diffNotifications` |
 | `src/lib/notifications.ts` | adapter `expo-notifications` | `getNotificationPermission`, `ensureNotificationPermission`, `resyncNotifications`, `configureNotificationHandler`; jedna kolejka wywołań |
 | `src/hooks/useNotificationPermission.ts` | interfejs | stan zgody dla banera „Powiadomienia wyłączone” |
@@ -52,7 +52,7 @@ export type NotificationKind = 'krok' | 'karmienie';
 export type NotificationLevel = 'active' | 'timeSensitive';
 export type NotificationTextKey =
   | 'krok.koniec' | 'krok.zdejmijPokrywke' | 'krok.wypiekGotowy'
-  | 'karmienie.blat' | 'karmienie.lodowkaPrzypomnienie' | 'karmienie.lodowkaTermin';
+  | 'karmienie.blat' | 'karmienie.lodowkaTermin';
 export interface PlannedNotification {
   id: string;                 // NOTIF_ID_BAKE albo `piekarz.karmienie.${starterId}.${1|2}`
   kind: NotificationKind;
@@ -79,7 +79,7 @@ export function diffNotifications(pending: readonly PendingNotification[], desir
 1. Krok: brak sesji, `timerEndsAt === null` (pauza, zegar nieuruchomiony, koniec) albo `timerEndsAt <= now` → brak powiadomienia. Inaczej jedno `piekarz.krok` na `timerEndsAt`. Jednocześnie trwa najwyżej jeden wypiek, więc stały identyfikator wystarcza.
 2. Tekst kroku: `step_8` + `lid_on` → `krok.zdejmijPokrywke`; `step_8` + `lid_off` → `krok.wypiekGotowy`; pozostałe → `krok.koniec` z `stepId`.
 3. Poziom: `TIME_SENSITIVE_STEPS = ['step_8']` (obie fazy garnka: przegapienie oznacza spalony albo niedopieczony chleb w ciągu minut) → `timeSensitive`; pozostałe kroki i karmienie → `active`. Lista jest parametrem produktu w konfiguracji; rola 03 albo właściciel może ją zmienić bez zmiany kodu.
-4. Karmienie (`ROOM_TEMP`): jedno `piekarz.karmienie.<id>.1` na `lastFedAt + FEED_ROOM_TEMP_AFTER_MS`. (`FRIDGE`): `.1` na `+6 d` (`karmienie.lodowkaPrzypomnienie`), `.2` na `+7 d` (`karmienie.lodowkaTermin`). Bez `lastFedAt` albo termin minął → nic (BRD: „Nienachalne”; bez zaległych alarmów po otwarciu).
+4. Karmienie (`ROOM_TEMP`): jedno `piekarz.karmienie.<id>.1` na `lastFedAt + FEED_ROOM_TEMP_AFTER_MS`. (`FRIDGE`): jedno `.1` na `+7 d` (`karmienie.lodowkaTermin`); przypomnienie `+6 d` usunięte decyzją DEC-22 a (jedno powiadomienie na cykl, 2026-10-21) [M1-audytor-generalny-179]. Bez `lastFedAt` albo termin minął → nic (BRD: „Nienachalne”; bez zaległych alarmów po otwarciu). Karmienie planuje się tylko z uprawnieniem App Store [M1-audytor-generalny-143] i przy włączonym przełączniku „Przypomnienia o karmieniu” w Ustawieniach (`przypomnienia_karmienia` w `app_settings`) [M1-audytor-generalny-179]; kroki wypieku nie zależą od żadnego z nich.
 5. `planNotifications`: krok + karmienia, sortowanie po `triggerAt`, krok zawsze zostaje, obcięcie do `MAX_PENDING_NOTIFICATIONS`. Limit systemowy iOS na liczbę oczekujących: `[DO USTALENIA]`; 20 trzyma się daleko od każdej spotykanej wartości.
 6. `diffNotifications`: rozważa tylko identyfikatory z `NOTIF_PREFIX`; kasuje te spoza `desired`; planuje te, których brak albo których `fingerprint` się różni (ten sam identyfikator podmienia oczekujące, Apple, wyżej); identyczne pomija.
 

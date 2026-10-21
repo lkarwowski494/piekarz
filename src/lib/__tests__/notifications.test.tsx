@@ -55,7 +55,7 @@ describe('notifications adapter (006)', () => {
   });
 
   it('notificationText gives a title and body for every key, in Polish and English', () => {
-    const keys: NotificationTextKey[] = ['krok.koniec', 'krok.zdejmijPokrywke', 'krok.wypiekGotowy', 'karmienie.blat', 'karmienie.lodowkaPrzypomnienie', 'karmienie.lodowkaTermin'];
+    const keys: NotificationTextKey[] = ['krok.koniec', 'krok.zdejmijPokrywke', 'krok.wypiekGotowy', 'karmienie.blat', 'karmienie.lodowkaTermin'];
     for (const k of keys) {
       const txt = notificationText(planned(k, { stepId: 'step_1', starterName: 'Ania' }));
       expect(txt.title.length).toBeGreaterThan(0);

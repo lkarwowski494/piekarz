@@ -9,7 +9,6 @@ import {
   NOTIF_PREFIX,
   NOTIF_ID_BAKE,
   FEED_ROOM_TEMP_AFTER_MS,
-  FEED_FRIDGE_REMIND_AFTER_MS,
   FEED_FRIDGE_DUE_AFTER_MS,
   MAX_PENDING_NOTIFICATIONS,
   TIME_SENSITIVE_STEPS,
@@ -22,7 +21,6 @@ export type NotificationTextKey =
   | 'krok.zdejmijPokrywke'
   | 'krok.wypiekGotowy'
   | 'karmienie.blat'
-  | 'karmienie.lodowkaPrzypomnienie'
   | 'karmienie.lodowkaTermin';
 
 /** Ekran otwierany z powiadomienia: prowadzenie wypieku (bieżący krok, F-58) albo zakładka Zakwasy (D-051 2a). */
@@ -125,30 +123,28 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
   return out;
 }
 
-/** Przypomnienia o karmieniu: blat +24 h; lodówka +6 d i +7 d; minione terminy pominięte. */
+/**
+ * Przypomnienia o karmieniu: jedno na cykl karmienia (DEC-22 a) [M1-audytor-generalny-179; 11-wzrost-503] —
+ * blat +12 h, lodówka termin +7 d; minione terminy pominięte.
+ */
 export function planFeedingNotifications(starters: readonly PlanStarter[], now: number): PlannedNotification[] {
   const out: PlannedNotification[] = [];
   for (const s of starters) {
     if (s.lastFedAt === undefined) continue;
-    const plan: Array<[number, NotificationTextKey, number]> =
+    const [textKey, triggerAt]: [NotificationTextKey, number] =
       s.storageState === 'ROOM_TEMP'
-        ? [[1, 'karmienie.blat', s.lastFedAt + FEED_ROOM_TEMP_AFTER_MS]]
-        : [
-            [1, 'karmienie.lodowkaPrzypomnienie', s.lastFedAt + FEED_FRIDGE_REMIND_AFTER_MS],
-            [2, 'karmienie.lodowkaTermin', s.lastFedAt + FEED_FRIDGE_DUE_AFTER_MS],
-          ];
-    for (const [n, textKey, triggerAt] of plan) {
-      if (triggerAt <= now) continue;
-      out.push({
-        id: `${NOTIF_PREFIX}karmienie.${s.id}.${n}`,
-        kind: 'karmienie',
-        triggerAt,
-        level: 'active',
-        textKey,
-        params: { starterName: s.name },
-        route: '/zakwasy',
-      });
-    }
+        ? ['karmienie.blat', s.lastFedAt + FEED_ROOM_TEMP_AFTER_MS]
+        : ['karmienie.lodowkaTermin', s.lastFedAt + FEED_FRIDGE_DUE_AFTER_MS];
+    if (triggerAt <= now) continue;
+    out.push({
+      id: `${NOTIF_PREFIX}karmienie.${s.id}.1`,
+      kind: 'karmienie',
+      triggerAt,
+      level: 'active',
+      textKey,
+      params: { starterName: s.name },
+      route: '/zakwasy',
+    });
   }
   return out;
 }

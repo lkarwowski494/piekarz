@@ -112,11 +112,13 @@ describe('Pending notifications follow the saved state (006)', () => {
     act(() => tree.unmount());
   });
 
-  it('Zakwas: feeding a fridge starter schedules +6 d and +7 d reminders', async () => {
+  // DEC-22 a: jedno powiadomienie na cykl karmienia w lodówce [M1-audytor-generalny-179]
+  it('Zakwas: feeding a fridge starter schedules one reminder at +7 d', async () => {
     await saveStarter({ id: 'z1', name: 'Ania', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'FRIDGE', lastFedAt: 1 });
     const tree = await mount(<ZakwasScreen />);
     await press(tree.root, 'Zapisz dokarmienie');
-    expect(ids()).toEqual(['piekarz.karmienie.z1.1', 'piekarz.karmienie.z1.2']);
+    expect(ids()).toEqual(['piekarz.karmienie.z1.1']);
+    expect(mock.pending.get('piekarz.karmienie.z1.1')!.trigger.date).toBe(now + 7 * 24 * 3600 * 1000);
     act(() => tree.unmount());
   });
 

@@ -17,6 +17,7 @@ import { t } from './i18n';
 import { formatTime } from './format';
 import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
 import { evaluateAppAccess } from './app-access';
+import { czyPrzypomnieniaKarmienia } from './przypomnienia-karmienia';
 
 export type NotificationPermission = 'granted' | 'denied' | 'undetermined';
 
@@ -58,8 +59,6 @@ export function notificationText(p: PlannedNotification): { title: string; body:
       return { title: t('Chleb upieczony'), body: t('Wyjmij chleb z garnka na kratkę.') };
     case 'karmienie.blat':
       return { title: t('Pora dokarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.', { name }) };
-    case 'karmienie.lodowkaPrzypomnienie':
-      return { title: t('Zakwas w lodówce'), body: t('Zakwas „{name}” czeka na karmienie od 6 dni.', { name }) };
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
     default: {
@@ -95,7 +94,9 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       const pending: PendingNotification[] = pendingAll.map((r) => ({ id: r.identifier, fingerprint: fingerprintOf(r.content.data) }));
       // Przypomnienia o zakwasie tylko z uprawnieniem: po końcu próby dokarmianie otwiera ekran zakupu, a kontrakt
       // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
-      const starters = async () => (przypomnieniaZDostepem(pobierzStan()) ? (await collectBackupData()).starters : []);
+      // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
+      const starters = async () =>
+        przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()) ? (await collectBackupData()).starters : [];
       const desired = status === 'granted' ? planNotifications({ session: await loadBakeSession(), starters: await starters() }, Date.now()) : [];
       const { cancel, schedule } = diffNotifications(pending, desired);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);

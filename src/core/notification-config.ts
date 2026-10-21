@@ -11,8 +11,10 @@ export const NOTIF_PREFIX = 'piekarz.';
 export const NOTIF_ID_BAKE = 'piekarz.krok';
 /** Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090]. */
 export const FEED_ROOM_TEMP_AFTER_MS = 12 * HOUR_MS;
-/** Zakwas w lodówce: przypomnienie po 6 dniach i termin po 7 dniach (BRD B2 BR-ZAKW-004 kryt. 1). */
-export const FEED_FRIDGE_REMIND_AFTER_MS = 6 * DAY_MS;
+/**
+ * Zakwas w lodówce: jedno powiadomienie na cykl, w terminie po 7 dniach (BRD B2 BR-ZAKW-004 kryt. 1; DEC-22 a
+ * usuwa wcześniejsze przypomnienie po 6 dniach) [M1-audytor-generalny-179; 11-wzrost-503].
+ */
 export const FEED_FRIDGE_DUE_AFTER_MS = 7 * DAY_MS;
 /** Górna granica oczekujących powiadomień aplikacji (limit iOS: [DO USTALENIA], ADR-006). */
 export const MAX_PENDING_NOTIFICATIONS = 20;
