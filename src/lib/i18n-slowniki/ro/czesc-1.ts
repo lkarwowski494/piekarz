@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Proteine:',
   'Biały nalot lub kożuch na powierzchni': 'Depunere albă sau pojghiță la suprafață',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (preferment tare, grad de hidratare 50%) maturată 16 h la 18 °C. În aluatul final adaugă 3% ulei de măsline. Nu dezumfla aluatul înainte de coacere.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (preferment tare, grad de hidratare 50%) maturată 16 h la 18 °C. În aluatul final adaugă 3% ulei de măsline. Nu dezumfla aluatul înainte de coacere.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (levain italian ferm 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Pandișpan, aluat fraged, biscuiți, clătite și produse fine de cofetărie.',
   'blacha piekarnika': 'tavă de cuptor',

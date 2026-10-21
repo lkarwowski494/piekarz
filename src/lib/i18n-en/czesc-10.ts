@@ -174,8 +174,8 @@ export const EN_10: Record<string, string> = {
     'San Francisco–style sourdough with bold sourness',
   'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.':
     'A classic San Francisco bread with deep acetic sourness, a glossy blistered crust and an elastic, open crumb.',
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.':
-    'Extended cold fermentation (18–24h at 4°C). Lower fermentation temperatures have been linked to acetic acid. Baked with heavy steam.',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.':
+    'Extended cold fermentation (18–24 h at 4°C). Lower fermentation temperatures have been linked to acetic acid. Baked with heavy steam.',
   'Francuski Pain de Campagne (Chleb Wiejski)':
     'French Pain de Campagne (Country Bread)',
   'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.':
@@ -192,6 +192,6 @@ export const EN_10: Record<string, string> = {
     'Italian Ciabatta with Biga (High Hydration 82%)',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.':
     'A traditional Italian ciabatta made with a stiff Biga preferment (50%). Spectacular oven spring and large pearly holes.',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.':
-    'Biga (stiff 50% hydration preferment) matured for 16h at 18°C. Add 3% olive oil to the final dough. Do not degas the dough before baking.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.':
+    'Biga (stiff 50% hydration preferment) matured for 16 h at 18°C. Add 3% olive oil to the final dough. Do not degas the dough before baking.',
 };

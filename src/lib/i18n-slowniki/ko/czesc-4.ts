@@ -6,7 +6,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': '사워도우 빵을 구워요',
   'Pizza': '피자',
   'Pizza i słodkie': '피자 & 달콤한 빵',
-  'Pizza Napoletana Verace (48h)': '피자 나폴레타나 베라체 (48시간)',
+  'Pizza Napoletana Verace (48 h)': '피자 나폴레타나 베라체 (48시간)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': '일정을 {dzienStartu} {godzinaStartu}에 시작해야 해요. 빵은 빨라도 {dzienGotowe} {godzinaGotowe}에 완성돼요.',
   'Plan wypieku': '베이킹 계획',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': '베이킹 일정, {N}단계 중 {n}단계: {nazwa}, {czas} 남음.',

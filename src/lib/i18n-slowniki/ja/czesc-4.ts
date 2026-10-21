@@ -36,7 +36,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'サワー種のパンを焼く',
   'Pizza': 'ピザ',
   'Pizza i słodkie': 'ピザ＆スイーツ',
-  'Pizza Napoletana Verace (48h)': 'ピッツァ・ナポレターナ・ヴェラーチェ（48時間）',
+  'Pizza Napoletana Verace (48 h)': 'ピッツァ・ナポレターナ・ヴェラーチェ（48時間）',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'このプランは{dzienStartu} {godzinaStartu}に開始する必要があります。パンができあがるのは最短で{dzienGotowe} {godzinaGotowe}です。',
   'Plan wypieku': '焼成プラン',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': '焼成プラン、ステップ{n}/{N}：{nazwa}、残り{czas}。',

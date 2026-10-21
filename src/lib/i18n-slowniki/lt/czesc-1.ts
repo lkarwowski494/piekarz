@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Baltymai:',
   'Biały nalot lub kożuch na powierzchni': 'Balta apnaša arba plėvelė paviršiuje',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (standus įmaišas, 50 % hidratacija) bręsta 16 h 18 °C temperatūroje. Į pagrindinę tešlą įdėkite 3 % alyvuogių aliejaus. Prieš kepdami neišleiskite dujų iš tešlos.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (standus įmaišas, 50 % hidratacija) bręsta 16 h 18 °C temperatūroje. Į pagrindinę tešlą įdėkite 3 % alyvuogių aliejaus. Prieš kepdami neišleiskite dujų iš tešlos.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (standus itališkas įmaišas, 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Biskvitai, trapios tešlos pyragai, sausainiai, blynai ir švelnūs konditerijos gaminiai.',
   'blacha piekarnika': 'orkaitės skarda',

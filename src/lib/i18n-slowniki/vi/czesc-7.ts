@@ -58,7 +58,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Nhấc nắp nồi ra. Xả hơi nước.',
   'Zdejmij pokrywkę!': 'Nhấc nắp nồi ra!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Hẹn giờ vẫn chạy trong ứng dụng, nhưng khi điện thoại bị khóa sẽ không nhắc bạn khi một bước kết thúc hay khi cần cho men ăn.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rang hạt trên chảo khô và ngâm nước ấm 2h trước khi cho vào bột khi cán mỏng. Nhào bột spelt nhẹ nhàng, tránh kéo giãn quá mức.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rang hạt trên chảo khô và ngâm nước ấm 2 h trước khi cho vào bột khi cán mỏng. Nhào bột spelt nhẹ nhàng, tránh kéo giãn quá mức.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Tiêu chuẩn vàng cho baguette Paris. Cân bằng lý tưởng giữa độ đàn hồi và độ giãn.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Gấp bột kiểu phong bì (như gấp thư) và ấn nhẹ bằng đầu ngón tay.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Thay đổi chưa được lưu vào bộ nhớ điện thoại. Kiểm tra dung lượng trống và thử lại.',

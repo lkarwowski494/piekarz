@@ -96,7 +96,7 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Фаза 2: Без капак (карамелизация)',
   'Fermentacja': 'Ферментация',
   'Fermentacja burzliwa ze składaniami': 'Основна ферментация със сгъване',
-  'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.': 'Ферментация: 2 ч на плота, разделяне на топки по 250 г, 46 ч в хладилника (4 °C). Извадете 2 ч преди печене.',
+  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ферментация: 2 ч на плота, разделяне на топки по 250 г, 46 ч в хладилника (4 °C). Извадете 2 ч преди печене.',
   'Filtruj profil smakowy:': 'Филтър по вкусов профил:',
   'Fizjologia ciasta:': 'Физиология на тестото:',
   'Focaccia / Pizza na blasze': 'Фокача / Пица в тава',

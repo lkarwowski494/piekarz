@@ -86,7 +86,7 @@ export const CZESC: Record<string, string> = {
   'Wyczyść': 'Изчистете',
   'Wyczyść wklejony tekst': 'Изчистете поставения текст',
   'Wyczyść zaznaczone objawy': 'Изчистете отбелязаните симптоми',
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Удължена ферментация на студено (18–24 ч при 4 °C). По-ниската температура на ферментация се свързва с оцетната киселина. Печене с обилна пара.',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Удължена ферментация на студено (18–24 ч при 4 °C). По-ниската температура на ферментация се свързва с оцетната киселина. Печене с обилна пара.',
   'Wyjmij chleb z garnka na kratkę.': 'Извадете хляба от съда върху решетка.',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Извадете върху метална решетка. Изчакайте минимум 2 часа, за да завърши желирането на средата.',
   'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Извадете съда, преди да включите загряването на фурната: King Arthur Baking предупреждава, че това лесно се забравя.',

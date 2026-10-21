@@ -134,7 +134,7 @@ export const CZESC: Record<string, string> = {
   'Wyczyść': '清除',
   'Wyczyść wklejony tekst': '清除貼上的文字',
   'Wyczyść zaznaczone objawy': '清除已選症狀',
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': '延長低溫發酵（4°C 下 18–24 小時）。較低的發酵溫度與醋酸生成相關。以大量蒸汽烘烤。',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': '延長低溫發酵（4°C 下 18–24 小時）。較低的發酵溫度與醋酸生成相關。以大量蒸汽烘烤。',
   'Wyjmij chleb z garnka na kratkę.': '將麵包從鍋中取出，放到散熱架上。',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': '取出放到金屬散熱架上。至少等待 2 小時，讓內部組織完成凝膠化。',
   'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': '開始預熱烤箱前，先把容器取出：King Arthur Baking 提醒，這一步很容易忘記。',

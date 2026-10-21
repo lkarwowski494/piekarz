@@ -6,7 +6,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Retire a tampa da panela. Deixe sair o vapor.',
   'Zdejmij pokrywkę!': 'Retire a tampa!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'O temporizador funciona na app, mas com o telemóvel bloqueado não avisará do fim de um passo nem da hora de alimentar.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Torre as sementes numa frigideira seca e cubra-as com água morna durante 2 h antes de as adicionar à massa na laminação. Amasse a espelta com delicadeza e evite esticá-la em excesso.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Torre as sementes numa frigideira seca e cubra-as com água morna durante 2 h antes de as adicionar à massa na laminação. Amasse a espelta com delicadeza e evite esticá-la em excesso.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'O padrão de ouro da baguete parisiense. Equilíbrio ideal entre elasticidade e extensibilidade.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Dobre a massa em envelope (como uma carta) e pressione-a com as pontas dos dedos.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'A alteração não foi guardada na memória do telefone. Verifique o espaço livre e tente novamente.',

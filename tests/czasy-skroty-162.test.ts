@@ -7,6 +7,7 @@ import path from 'path';
 import { EN } from '../src/lib/i18n.en';
 import { setLang } from '../src/lib/i18n';
 import { dniTemu, godzinTemu } from '../src/lib/czas-temu';
+import { prepareBakeAgainRecipe } from '../src/lib/recipe-navigation';
 
 const rootDir = path.resolve(__dirname, '..');
 
@@ -51,13 +52,23 @@ describe('162: czasy bez skrótów w tekstach PL', () => {
     const pliki = ['app', 'src'].flatMap((d) => walk(path.join(rootDir, d))).filter((f) => !BEZ_WEJSCIA.includes(rel(f)));
     const zle: string[] = [];
     for (const f of pliki) {
-      const src = fs.readFileSync(f, 'utf8');
+      // Bez komentarzy: apostrof w komentarzu („Baker's”) rozjeżdżał wzorzec literałów i plik wypadał ze
+      // sprawdzenia (reaudit nocny 2026-10-22, presets.ts) [M1-audytor-generalny-162]
+      const src = fs
+        .readFileSync(f, 'utf8')
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/^\s*\/\/.*$/gm, '');
       for (const m of src.matchAll(/'((?:[^'\\]|\\.)*)'/g)) {
         const s = m[1];
         if ((s in EN || /\bt\(\s*$/.test(src.slice(Math.max(0, m.index - 6), m.index))) && SKROT.test(s) && !BEZ_WEJSCIA_TEKSTY.includes(s)) zle.push(`${rel(f)}: ${s}`);
       }
     }
     expect([...new Set(zle)]).toEqual([]);
+  });
+
+  it('wpis Dziennika z dawną nazwą pizzy „(48h)” dalej trafia do tej receptury w „Piecz ponownie”', () => {
+    const r = prepareBakeAgainRecipe({ id: 'b', recipeName: 'Pizza Napoletana Verace (48h)', startedAt: 1 }, []);
+    expect(r.id).toBe('pizza_napoletana_48h');
   });
 
   it('„… temu” z formą liczby: 1 dzień temu, 2 dni temu, 5 dni temu (PL i EN)', () => {

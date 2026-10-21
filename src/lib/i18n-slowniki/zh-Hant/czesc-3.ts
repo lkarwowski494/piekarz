@@ -166,7 +166,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': '做天然酵母麵包',
   'Pizza': '披薩',
   'Pizza i słodkie': '披薩與甜點',
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace（48 小時）',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace（48 小時）',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': '計畫必須在{dzienStartu} {godzinaStartu} 開始。麵包最快在{dzienGotowe} {godzinaGotowe} 完成。',
   'Plan wypieku': '烘焙計畫',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': '烘焙計畫，第 {n} 步（共 {N} 步）：{nazwa}，剩餘 {czas}。',

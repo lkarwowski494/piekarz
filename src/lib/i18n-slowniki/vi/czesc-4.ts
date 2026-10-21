@@ -24,7 +24,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Tôi nướng bánh mì men tự nhiên',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza & bánh ngọt',
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48h)',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Kế hoạch phải bắt đầu {dzienStartu} lúc {godzinaStartu}. Sớm nhất bánh sẽ sẵn sàng {dzienGotowe} lúc {godzinaGotowe}.',
   'Plan wypieku': 'Kế hoạch nướng',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Kế hoạch nướng, bước {n} trên {N}: {nazwa}, còn {czas}.',

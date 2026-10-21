@@ -12,8 +12,8 @@ export const EN_11: Record<string, string> = {
     'Traditional 100% whole-grain rye bread',
   'Ciężki, aromatyczny razowiec w foremce keksowej. Bez wyrabiania i składania. Zachowuje świeżość przez tydzień.':
     'A heavy, aromatic whole-grain rye loaf in a loaf pan. No kneading or folding. Stays fresh for a week.',
-  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
-    'Mix and transfer directly into a greased loaf pan sprinkled with bran. A single rise in a warm place until doubled (approx. 3–4h). According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
+    'Mix and transfer directly into a greased loaf pan sprinkled with bran. A single rise in a warm place until doubled (approx. 3–4 h). According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
   'Chleb Borodyński (Żytni na słodzie z kolendrą)':
     'Borodinsky Bread (Rye with malt and coriander)',
   'Ciemny, słodkawo-korzenny żytni chleb z aromatem czerwonego słodu fermentowanego i prażonej kolendry.':
@@ -24,14 +24,14 @@ export const EN_11: Record<string, string> = {
     'Ancient spelt bread with toasted seeds',
   'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.':
     'A nutty loaf of ancient spelt with toasted flaxseed, sunflower and sesame seeds.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.':
-    'Toast the seeds in a dry pan and cover with warm water for 2h before adding them to the dough during lamination. Knead spelt gently and avoid excessive stretching.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.':
+    'Toast the seeds in a dry pan and cover with warm water for 2 h before adding them to the dough during lamination. Knead spelt gently and avoid excessive stretching.',
   'Rzemieślnicza maślana brioszka na Lievito Madre':
     'Artisan butter brioche on Lievito Madre',
   'Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).':
     'An exceptionally delicate, buttery brioche made with a stiff Italian Lievito Madre starter (50%).',
-  'Lievito Madre odśwież 3 razy co 4h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.':
-    'Refresh the Lievito Madre 3 times every 4h before mixing the dough. Add the butter (25%) gradually in portions toward the end of kneading, once the gluten network is fully developed.',
+  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.':
+    'Refresh the Lievito Madre 3 times every 4 h before mixing the dough. Add the butter (25%) gradually in portions toward the end of kneading, once the gluten network is fully developed.',
   'Chleb Graham z miodem i siemieniem':
     'Graham bread with honey and flaxseed',
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.':
@@ -42,12 +42,12 @@ export const EN_11: Record<string, string> = {
     'The simplest bread in the world. Mixed with a spoon in 2 minutes, an overnight rise on the counter and baked in a pot.',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.':
     'Mix the ingredients in a bowl with a spoon. Cover with plastic wrap and leave for 12–16 hours at room temperature. No folding.',
-  'Pizza Napoletana Verace (48h)':
-    'Pizza Napoletana Verace (48h)',
+  'Pizza Napoletana Verace (48 h)':
+    'Pizza Napoletana Verace (48 h)',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.':
     'Authentic Neapolitan pizza dough with a crispy rim and a delicate interior.',
-  'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.':
-    'Fermentation: 2h on the counter, divide into 250g balls, 46h in the fridge (4°C). Take out 2h before baking.',
+  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.':
+    'Fermentation: 2 h on the counter, divide into 250g balls, 46 h in the fridge (4°C). Take out 2 h before baking.',
   'Maślana chałka drożdżowa':
     'Buttery yeasted challah',
   'Puszysta, słodka chałka zaplatana w warkocz z kruszonką. Idealna na niedzielne śniadanie.':

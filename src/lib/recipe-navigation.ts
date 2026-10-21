@@ -57,6 +57,8 @@ const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
   'mistrzowski wiejski (tartine style 80%)': 'tartine_high_hydration_80',
   'san francisco sourdough (wyrazista kwasowość)': 'san_francisco_sourdough',
   'bagietka paryska z poolishem (baguette de tradition)': 'baguette_tradition_poolish',
+  // „48h” → „48 h” (wspólny format czasu, 2026-10-22) [M1-audytor-generalny-162]
+  'pizza napoletana verace (48h)': 'pizza_napoletana_48h',
 };
 
 export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad {

@@ -79,7 +79,7 @@ export const CZESC: Record<string, string> = {
   'Wyczyść': 'Очистить',
   'Wyczyść wklejony tekst': 'Очистить вставленный текст',
   'Wyczyść zaznaczone objawy': 'Очистить отмеченные симптомы',
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Длительное брожение в холоде (18–24 ч при 4 °C). Более низкую температуру брожения связывают с уксусной кислотой. Выпечка с обильным паром.',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Длительное брожение в холоде (18–24 ч при 4 °C). Более низкую температуру брожения связывают с уксусной кислотой. Выпечка с обильным паром.',
   'Wyjmij chleb z garnka na kratkę.': 'Выньте хлеб из кастрюли на решётку.',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Выложите на металлическую решётку. Подождите не менее 2 часов, чтобы мякиш завершил процесс желирования.',
   'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Достаньте ёмкость, прежде чем включать разогрев духовки: King Arthur Baking предупреждает, что об этом легко забыть.',
@@ -97,5 +97,5 @@ export const CZESC: Record<string, string> = {
   'Wymagający': 'Сложный',
   'Wymagana temperatura wody': 'Нужная температура воды',
   'Wymagany lód do schłodzenia wody': 'Нужно льда для охлаждения воды',
-  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Перемешайте и сразу переложите в смазанную и обсыпанную отрубями прямоугольную форму. Однократный подъём в тепле до удвоения (около 3–4 ч). По данным King Arthur Baking, для лучшего качества испечённый ржаной хлеб на закваске должен отдохнуть 24 часа перед нарезкой.',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Перемешайте и сразу переложите в смазанную и обсыпанную отрубями прямоугольную форму. Однократный подъём в тепле до удвоения (около 3–4 ч). По данным King Arthur Baking, для лучшего качества испечённый ржаной хлеб на закваске должен отдохнуть 24 часа перед нарезкой.',
 };

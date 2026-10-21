@@ -406,7 +406,7 @@
       "src/core/preferments.ts (dane: namePl)"
     ]
   },
-  "Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.": {
+  "Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -1522,7 +1522,7 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.": {
+  "Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -2474,7 +2474,7 @@
       "src/core/starter-converter.ts (dane: namePl)"
     ]
   },
-  "Lievito Madre odśwież 3 razy co 4h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.": {
+  "Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -4092,7 +4092,7 @@
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
   },
-  "Pizza Napoletana Verace (48h)": {
+  "Pizza Napoletana Verace (48 h)": {
     "gdzie": [
       "src/recipes/presets.ts (dane: namePl)"
     ]
@@ -6834,7 +6834,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.": {
+  "Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -6935,7 +6935,7 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
+  "Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -7763,7 +7763,7 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
-  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
+  "Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]

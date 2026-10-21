@@ -1,7 +1,7 @@
 // Słownik pt-BR, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Toste as sementes em frigideira seca e cubra com água morna por 2 h antes de incorporá-las à massa na laminação. Sove a espelta com delicadeza, evitando esticar demais.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Toste as sementes em frigideira seca e cubra com água morna por 2 h antes de incorporá-las à massa na laminação. Sove a espelta com delicadeza, evitando esticar demais.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'O padrão-ouro da baguete parisiense. Equilíbrio ideal entre elasticidade e extensibilidade.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Dobre a massa como um envelope (como uma carta) e pressione com as pontas dos dedos.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'A alteração não foi salva na memória do celular. Verifique o espaço livre e tente novamente.',

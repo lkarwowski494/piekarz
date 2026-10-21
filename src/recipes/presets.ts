@@ -95,7 +95,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 240,
     bakeTempBrowningC: 210,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.',
+    notesPl: 'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.',
   },
   {
     id: 'pain_de_campagne',
@@ -166,7 +166,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 235,
     bakeTempBrowningC: 215,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.',
+    notesPl: 'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.',
   },
   {
     id: 'focaccia_genovese',
@@ -213,7 +213,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 195,
     recommendedVessel: 'bread_pan',
-    notesPl: 'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
+    notesPl: 'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
   },
   {
     id: 'borodinsky_rye',
@@ -261,7 +261,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 235,
     bakeTempBrowningC: 205,
     recommendedVessel: 'dutch_oven',
-    notesPl: 'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.',
+    notesPl: 'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.',
   },
   {
     id: 'lievito_madre_panettone_brioche',
@@ -284,7 +284,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 175,
     bakeTempBrowningC: 175,
     recommendedVessel: 'bread_pan',
-    notesPl: 'Lievito Madre odśwież 3 razy co 4h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.',
+    notesPl: 'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.',
   },
   {
     id: 'graham_bread_honey',
@@ -335,7 +335,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'pizza_napoletana_48h',
-    namePl: 'Pizza Napoletana Verace (48h)',
+    namePl: 'Pizza Napoletana Verace (48 h)',
     category: 'pizza',
     descriptionPl: 'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.',
     formula: {
@@ -354,7 +354,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 450,
     bakeTempBrowningC: 450,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.',
+    notesPl: 'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.',
   },
   {
     id: 'sweet_chalka',

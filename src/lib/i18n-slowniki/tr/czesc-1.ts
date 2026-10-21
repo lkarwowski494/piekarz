@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Yüzeyde beyaz tabaka veya zar',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (%50 hidrasyonlu sert maya hamuru) 18°C\'de 16 saat olgunlaşır. Ana hamura %3 zeytinyağı ekleyin. Pişirmeden önce hamurun gazını almayın.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (%50 hidrasyonlu sert maya hamuru) 18°C\'de 16 saat olgunlaşır. Ana hamura %3 zeytinyağı ekleyin. Pişirmeden önce hamurun gazını almayın.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Sert İtalyan maya hamuru %50)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Pandispanya, tart hamurları, kurabiyeler, krepler ve hassas pastacılık ürünleri.',
   'blacha piekarnika': 'fırın tepsisi',

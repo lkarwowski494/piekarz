@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Proteine:',
   'Biały nalot lub kożuch na powierzchni': 'Patina bianca o pellicina in superficie',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (lievitino solido al 50% di idratazione) maturata 16 h a 18 °C. Aggiungi all\'impasto finale il 3% di olio d\'oliva. Non sgonfiare l\'impasto prima della cottura.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (lievitino solido al 50% di idratazione) maturata 16 h a 18 °C. Aggiungi all\'impasto finale il 3% di olio d\'oliva. Non sgonfiare l\'impasto prima della cottura.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (lievitino rigido italiano 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Pan di Spagna, pasta frolla, biscotti, crêpe e pasticceria delicata.',
   'blacha piekarnika': 'teglia del forno',

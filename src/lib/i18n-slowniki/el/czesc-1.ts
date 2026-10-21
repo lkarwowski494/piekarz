@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Πρωτεΐνη:',
   'Biały nalot lub kożuch na powierzchni': 'Λευκή επίστρωση ή πέτσα στην επιφάνεια',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (σφιχτή προζύμωση, ενυδάτωση 50%) που ωριμάζει 16 ώρες στους 18 °C. Στην κύρια ζύμη προσθέστε 3% ελαιόλαδο. Μη βγάλετε τα αέρια από τη ζύμη πριν από το ψήσιμο.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (σφιχτή προζύμωση, ενυδάτωση 50%) που ωριμάζει 16 ώρες στους 18 °C. Στην κύρια ζύμη προσθέστε 3% ελαιόλαδο. Μη βγάλετε τα αέρια από τη ζύμη πριν από το ψήσιμο.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Σφιχτή ιταλική μαγιά προζυμιού 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Παντεσπάνια, ζύμες κουρού, μπισκότα, κρέπες και λεπτά γλυκά ζαχαροπλαστικής.',
   'blacha piekarnika': 'ταψί φούρνου',

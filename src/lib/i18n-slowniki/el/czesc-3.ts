@@ -68,7 +68,7 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Αριθμός καρβελιών',
   'Liczba bochenków i gramatura': 'Αριθμός καρβελιών και βάρος',
-  'Lievito Madre odśwież 3 razy co 4h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Ταΐστε το Lievito Madre 3 φορές ανά 4 ώρες πριν από το ζύμωμα. Προσθέτετε το βούτυρο (25%) σταδιακά, σε δόσεις, προς το τέλος του ζυμώματος, όταν το δίκτυο γλουτένης έχει αναπτυχθεί πλήρως.',
+  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Ταΐστε το Lievito Madre 3 φορές ανά 4 ώρες πριν από το ζύμωμα. Προσθέτετε το βούτυρο (25%) σταδιακά, σε δόσεις, προς το τέλος του ζυμώματος, όταν το δίκτυο γλουτένης έχει αναπτυχθεί πλήρως.',
   'lip': 'Ιουλ',
   'lis': 'Νοε',
   'lodówka': 'ψυγείο',

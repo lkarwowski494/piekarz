@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Eiweiß:',
   'Biały nalot lub kożuch na powierzchni': 'Weißer Belag oder Haut auf der Oberfläche',
   'biga': 'Biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fester Vorteig, 50 % Hydration), 16 h bei 18 °C gereift. Gib 3 % Olivenöl in den Hauptteig. Entgase den Teig vor dem Backen nicht.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fester Vorteig, 50 % Hydration), 16 h bei 18 °C gereift. Gib 3 % Olivenöl in den Hauptteig. Entgase den Teig vor dem Backen nicht.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (fester italienischer Vorteig 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Biskuit, Mürbeteig, Kekse, Pfannkuchen und feines Konditoreigebäck.',
   'blacha piekarnika': 'Backblech',

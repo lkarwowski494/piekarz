@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': '蛋白質：',
   'Biały nalot lub kożuch na powierzchni': '表面出現白色覆層或皮膜',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga（麵團含水量 50% 的硬式酵頭）在 18°C 下熟成 16 小時。主麵團加入 3% 橄欖油。烘烤前不要讓麵團排氣。',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga（麵團含水量 50% 的硬式酵頭）在 18°C 下熟成 16 小時。主麵團加入 3% 橄欖油。烘烤前不要讓麵團排氣。',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga（義式硬酵頭 50%）',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': '海綿蛋糕、塔皮、餅乾、可麗餅與精緻甜點。',
   'blacha piekarnika': '烤盤',

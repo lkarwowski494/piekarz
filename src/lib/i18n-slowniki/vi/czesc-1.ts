@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Lớp phủ màu trắng hoặc lớp váng trên bề mặt',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (bột men đặc, độ ẩm bột 50%) ủ 16h ở 18°C. Thêm 3% dầu ô liu vào bột chính. Không làm xẹp khí bột trước khi nướng.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (bột men đặc, độ ẩm bột 50%) ủ 16 h ở 18°C. Thêm 3% dầu ô liu vào bột chính. Không làm xẹp khí bột trước khi nướng.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Bột men Ý dạng đặc 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Bánh bông lan, bánh bột giòn, bánh quy, bánh kếp và các loại bánh ngọt tinh tế.',
   'blacha piekarnika': 'khay nướng',

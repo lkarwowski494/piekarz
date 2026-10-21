@@ -81,7 +81,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': '鍋の蓋を外してください。蒸気を逃がしてください。',
   'Zdejmij pokrywkę!': '蓋を外してください！',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'タイマーはアプリ内では動作しますが、iPhoneがロックされていると、工程の終了や種継ぎの時刻を通知できません。',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '種子は乾いたフライパンで煎り、温かい湯に2時間浸してから、ラミネーションの際に生地に加えてください。スペルト小麦の生地は伸ばしすぎないよう、やさしく捏ねてください。',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '種子は乾いたフライパンで煎り、温かい湯に2時間浸してから、ラミネーションの際に生地に加えてください。スペルト小麦の生地は伸ばしすぎないよう、やさしく捏ねてください。',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'パリのバゲットの黄金基準。弾力と伸展性の理想的なバランス。',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': '生地を封筒のように（手紙を折るように）たたみ、指先で押さえてください。',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': '変更が端末に保存されませんでした。空き容量を確認して、もう一度お試しください。',

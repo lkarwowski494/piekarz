@@ -1,7 +1,7 @@
 // Słownik zh-Hant, część 6 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': '拌勻後直接放入抹油並撒上麩皮的長條烤模。在溫暖處一次發酵至體積加倍（約 3–4 小時）。根據 King Arthur Baking，烤好的天然酵母裸麥麵包應靜置 24 小時再切，品質最佳。',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': '拌勻後直接放入抹油並撒上麩皮的長條烤模。在溫暖處一次發酵至體積加倍（約 3–4 小時）。根據 King Arthur Baking，烤好的天然酵母裸麥麵包應靜置 24 小時再切，品質最佳。',
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': '將材料混合至均勻。不要試吃生麵團或生麵粉。處理麵團後，請用肥皂在流動的水下洗手。',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': '在盆中用湯匙將材料拌勻。蓋上保鮮膜，在室溫下靜置 12–16 小時。不需翻面拉摺。',
   'Wymieszanie z solą i zakwasem': '加入鹽與天然酵母起種混合',
@@ -104,7 +104,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': '取下鑄鐵鍋的鍋蓋。釋放蒸氣。',
   'Zdejmij pokrywkę!': '掀開鍋蓋！',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': '計時器在 App 內可正常運作，但手機鎖定時，不會提醒你步驟結束或餵養時間。',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '穀籽先用乾鍋烘烤，再以溫水浸泡 2 小時，於延展摺疊時加入麵團。斯佩爾特小麥麵團要輕柔揉製，避免過度拉扯。',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '穀籽先用乾鍋烘烤，再以溫水浸泡 2 小時，於延展摺疊時加入麵團。斯佩爾特小麥麵團要輕柔揉製，避免過度拉扯。',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': '巴黎法棍的黃金標準。彈性與延展性之間的完美平衡。',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': '像摺信封一樣摺疊麵團，再用指腹輕輕拍壓。',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': '變更未能儲存至手機。請檢查可用空間後再試一次。',

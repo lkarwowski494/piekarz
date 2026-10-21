@@ -188,7 +188,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Memanggang dengan ragi alami',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza & manis',
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 jam)',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 jam)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Rencana harus dimulai {dzienStartu} pukul {godzinaStartu}. Paling cepat roti siap {dzienGotowe} pukul {godzinaGotowe}.',
   'Plan wypieku': 'Rencana pemanggangan',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Rencana pemanggangan, langkah {n} dari {N}: {nazwa}, sisa {czas}.',

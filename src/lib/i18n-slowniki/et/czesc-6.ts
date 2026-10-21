@@ -1,7 +1,7 @@
 // Słownik et, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Pikendatud külmkergitus (18–24 h 4 °C juures). Madalamat kergitustemperatuuri seostatakse äädikhappega. Küpsetamine tugeva auruga.',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Pikendatud külmkergitus (18–24 h 4 °C juures). Madalamat kergitustemperatuuri seostatakse äädikhappega. Küpsetamine tugeva auruga.',
   'Wyjmij chleb z garnka na kratkę.': 'Tõsta leib potist restile.',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Tõsta metallrestile. Oota vähemalt 2 tundi, kuni sisu geelistumine on lõppenud.',
   'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Võta nõu välja enne, kui lülitad ahju kuumenema: King Arthur Baking hoiatab, et see ununeb kergesti.',
@@ -19,7 +19,7 @@ export const CZESC: Record<string, string> = {
   'Wymagający': 'Nõudlik',
   'Wymagana temperatura wody': 'Vajalik vee temperatuur',
   'Wymagany lód do schłodzenia wody': 'Vee jahutamiseks vajalik jää',
-  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Sega ja tõsta otse määritud ning kliidega üle puistatud keeksivormi. Ühekordne kerkimine soojas kuni kahekordistumiseni (u 3–4 h). King Arthur Bakingu andmetel peaks küpsetatud rukki-juuretiseleib parima kvaliteedi saamiseks enne lõikamist 24 tundi puhkama.',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Sega ja tõsta otse määritud ning kliidega üle puistatud keeksivormi. Ühekordne kerkimine soojas kuni kahekordistumiseni (u 3–4 h). King Arthur Bakingu andmetel peaks küpsetatud rukki-juuretiseleib parima kvaliteedi saamiseks enne lõikamist 24 tundi puhkama.',
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Sega koostisained ühtlaseks massiks. Ära maitse toorest taignat ega jahu. Pärast taignaga töötamist pese käsi seebiga voolava vee all.',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': 'Sega koostisained kausis lusikaga. Kata kilega ja jäta 12–16 tunniks toatemperatuurile. Voltimist pole vaja.',
   'Wymieszanie z solą i zakwasem': 'Segamine soola ja juuretisega',
@@ -122,7 +122,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Eemalda malmpoti kaas. Lase aur välja.',
   'Zdejmij pokrywkę!': 'Eemalda kaas!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Taimer töötab rakenduses, kuid lukustatud telefoniga ei tuleta see meelde sammu lõppu ega toitmist.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rösti seemned kuival pannil ja leota neid 2 h soojas vees, enne kui lisad need laminatsiooni ajal tainasse. Sõtku speltatainast õrnalt, väldi liigset venitamist.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rösti seemned kuival pannil ja leota neid 2 h soojas vees, enne kui lisad need laminatsiooni ajal tainasse. Sõtku speltatainast õrnalt, väldi liigset venitamist.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Pariisi bageti kuldstandard. Ideaalne tasakaal elastsuse ja venivuse vahel.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Volti tainas ümbrikuks (nagu kirja) ja patsuta sõrmeotstega kinni.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Muudatust ei salvestatud telefoni mällu. Kontrolli vaba ruumi ja proovi uuesti.',

@@ -1,7 +1,7 @@
 // Słownik el, część 5 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 ώρες)',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 ώρες)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Το πλάνο θα έπρεπε να ξεκινήσει {dzienStartu} στις {godzinaStartu}. Το ψωμί μπορεί να είναι έτοιμο το νωρίτερο {dzienGotowe} στις {godzinaGotowe}.',
   'Plan wypieku': 'Πλάνο ψησίματος',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Πλάνο ψησίματος, βήμα {n} από {N}: {nazwa}, απομένουν {czas}.',

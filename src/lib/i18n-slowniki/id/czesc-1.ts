@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Lapisan putih atau selaput di permukaan',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (biang kaku dengan hidrasi 50%) dimatangkan 16 jam pada 18°C. Tambahkan 3% minyak zaitun ke adonan utama. Jangan membuang gas adonan sebelum dipanggang.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (biang kaku dengan hidrasi 50%) dimatangkan 16 jam pada 18°C. Tambahkan 3% minyak zaitun ke adonan utama. Jangan membuang gas adonan sebelum dipanggang.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Biang Italia kental 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Bolu, adonan kue rapuh, kue kering, panekuk, dan kue-kue halus.',
   'blacha piekarnika': 'loyang oven',

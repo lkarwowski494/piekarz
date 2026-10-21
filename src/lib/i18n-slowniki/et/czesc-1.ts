@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Valk:',
   'Biały nalot lub kożuch na powierzchni': 'Valge kirme või kile pinnal',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tugev eeltaigen, 50% veesisaldus) valmib 16 h 18 °C juures. Lisa põhitaignale 3% oliiviõli. Ära suru tainast enne küpsetamist gaasist tühjaks.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tugev eeltaigen, 50% veesisaldus) valmib 16 h 18 °C juures. Lisa põhitaignale 3% oliiviõli. Ära suru tainast enne küpsetamist gaasist tühjaks.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (tihke Itaalia eeltaigen 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Biskviidid, murutaigen, küpsised, pannkoogid ja õrnad kondiitritooted.',
   'blacha piekarnika': 'ahjuplaat',

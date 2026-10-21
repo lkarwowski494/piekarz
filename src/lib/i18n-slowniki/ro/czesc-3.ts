@@ -196,7 +196,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Coc cu maia',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza și dulciuri',
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 h)',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Planul ar trebui să înceapă {dzienStartu} la {godzinaStartu}. Cel mai devreme, pâinea va fi gata {dzienGotowe} la {godzinaGotowe}.',
   'Plan wypieku': 'Planul coacerii',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Plan de coacere, pasul {n} din {N}: {nazwa}, timp rămas: {czas}.',

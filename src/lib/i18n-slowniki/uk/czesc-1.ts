@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Білок:',
   'Biały nalot lub kożuch na powierzchni': 'Білий наліт або плівка на поверхні',
   'biga': 'біга',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (густа опара з гідратацією 50 %) дозріває 16 год за 18 °C. До основного тіста додайте 3 % оливкової олії. Не випускайте газ із тіста перед випіканням.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (густа опара з гідратацією 50 %) дозріває 16 год за 18 °C. До основного тіста додайте 3 % оливкової олії. Не випускайте газ із тіста перед випіканням.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Біга (тверда італійська опара 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Бісквіти, пісочне тісто, печиво, млинці й делікатна кондитерська випічка.',
   'blacha piekarnika': 'деко духовки',

@@ -42,7 +42,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Retirez le couvercle de la cocotte. Libérez la vapeur.',
   'Zdejmij pokrywkę!': 'Retirez le couvercle !',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Le minuteur fonctionne dans l\'app, mais téléphone verrouillé, il ne vous rappellera ni la fin d\'une étape ni l\'heure du rafraîchi.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Faites torréfier les graines à sec dans une poêle, puis laissez-les tremper 2 h dans de l\'eau tiède avant de les incorporer à la pâte lors du laminage. Pétrissez l\'épeautre délicatement et évitez de trop l\'étirer.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Faites torréfier les graines à sec dans une poêle, puis laissez-les tremper 2 h dans de l\'eau tiède avant de les incorporer à la pâte lors du laminage. Pétrissez l\'épeautre délicatement et évitez de trop l\'étirer.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'La référence absolue pour la baguette parisienne. Équilibre idéal entre élasticité et extensibilité.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Pliez la pâte en enveloppe (comme une lettre) et tapotez-la du bout des doigts.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'La modification n\'a pas été enregistrée dans la mémoire du téléphone. Vérifiez l\'espace disponible et réessayez.',

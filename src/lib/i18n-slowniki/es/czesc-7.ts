@@ -2,7 +2,7 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'El temporizador funciona en la app, pero con el teléfono bloqueado no te avisará del final de un paso ni del refresco.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Tuesta las semillas en una sartén sin aceite y cúbrelas con agua tibia durante 2 h antes de añadirlas a la masa durante el laminado. Amasa la espelta con suavidad y evita estirarla en exceso.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Tuesta las semillas en una sartén sin aceite y cúbrelas con agua tibia durante 2 h antes de añadirlas a la masa durante el laminado. Amasa la espelta con suavidad y evita estirarla en exceso.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'El estándar de oro de la baguette parisina. Equilibrio ideal entre elasticidad y extensibilidad.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Dobla la masa en forma de sobre (como una carta) y presiónala con las yemas de los dedos.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'El cambio no se ha guardado en la memoria del teléfono. Comprueba el espacio libre e inténtalo de nuevo.',

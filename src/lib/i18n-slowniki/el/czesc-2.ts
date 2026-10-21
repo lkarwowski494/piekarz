@@ -97,7 +97,7 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Φάση 2: Χωρίς καπάκι (Καραμελοποίηση)',
   'Fermentacja': 'Ζύμωση',
   'Fermentacja burzliwa ze składaniami': 'Κύρια ζύμωση με διπλώματα',
-  'Fermentacja: 2h na blacie, porcjowanie w kulki 250g, 46h w lodówce (4°C). Wyjmij 2h przed pieczeniem.': 'Ζύμωση: 2 ώρες στον πάγκο, χωρισμός σε μπάλες των 250 g, 46 ώρες στο ψυγείο (4 °C). Βγάλτε τις μπάλες 2 ώρες πριν από το ψήσιμο.',
+  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ζύμωση: 2 ώρες στον πάγκο, χωρισμός σε μπάλες των 250 g, 46 ώρες στο ψυγείο (4 °C). Βγάλτε τις μπάλες 2 ώρες πριν από το ψήσιμο.',
   'Filtruj profil smakowy:': 'Φιλτράρισμα γευστικού προφίλ:',
   'Fizjologia ciasta:': 'Φυσιολογία ζύμης:',
   'Focaccia / Pizza na blasze': 'Focaccia / Πίτσα ταψιού',

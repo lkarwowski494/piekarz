@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Hvid belægning eller hinde på overfladen',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fast fordej med 50 % hydrering) modnet 16 t ved 18 °C. Tilsæt 3 % olivenolie til hoveddejen. Pres ikke luften ud af dejen før bagning.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fast fordej med 50 % hydrering) modnet 16 t ved 18 °C. Tilsæt 3 % olivenolie til hoveddejen. Pres ikke luften ud af dejen før bagning.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (stiv italiensk fordej 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Lagkagebunde, mørdej, småkager, pandekager og fint konditorbagværk.',
   'blacha piekarnika': 'bageplade',

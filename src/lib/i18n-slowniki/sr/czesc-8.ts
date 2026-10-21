@@ -80,7 +80,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Скини поклопац лонца. Пусти пару.',
   'Zdejmij pokrywkę!': 'Скини поклопац!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Тајмер ради у апликацији, али када је телефон закључан, неће те подсетити на крај корака ни на храњење.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Семенке испржи на сувом тигању и прелиј топлом водом 2 h пре додавања у тесто током ламинације. Спелтино тесто меси нежно и избегавај претерано истезање.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Семенке испржи на сувом тигању и прелиј топлом водом 2 h пре додавања у тесто током ламинације. Спелтино тесто меси нежно и избегавај претерано истезање.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Златни стандард париског багета. Идеалан однос еластичности и растегљивости.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Пресавиј тесто у коверту (као писмо) и утапкај га јагодицама прстију.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Измена није сачувана у меморији телефона. Провери слободан простор и покушај поново.',

@@ -146,7 +146,7 @@ export const CZESC: Record<string, string> = {
   'Wyczyść': 'Ryd',
   'Wyczyść wklejony tekst': 'Ryd indsat tekst',
   'Wyczyść zaznaczone objawy': 'Ryd valgte symptomer',
-  'Wydłużona fermentacja w chłodzie (18–24h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Forlænget kold hævning (18–24 t ved 4 °C). Lavere hævetemperatur forbindes med eddikesyre. Bages med kraftig damp.',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Forlænget kold hævning (18–24 t ved 4 °C). Lavere hævetemperatur forbindes med eddikesyre. Bages med kraftig damp.',
   'Wyjmij chleb z garnka na kratkę.': 'Tag brødet ud af gryden og læg det på en rist.',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Læg brødet på en metalrist. Vent mindst 2 timer, så krummen kan afslutte geleringen.',
 };

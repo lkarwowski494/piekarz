@@ -103,7 +103,7 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Снимите крышку кастрюли. Выпустите пар.',
   'Zdejmij pokrywkę!': 'Снимите крышку!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Таймер работает в приложении, но при заблокированном телефоне он не напомнит ни о конце шага, ни о подкормке.',
-  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Обжарьте семена на сухой сковороде и залейте тёплой водой на 2 ч, прежде чем добавить в тесто при ламинировании. Полбяное тесто вымешивайте бережно, избегайте чрезмерного растягивания.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Обжарьте семена на сухой сковороде и залейте тёплой водой на 2 ч, прежде чем добавить в тесто при ламинировании. Полбяное тесто вымешивайте бережно, избегайте чрезмерного растягивания.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Золотой стандарт парижского багета. Идеальный баланс между эластичностью и растяжимостью.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Сложите тесто конвертом (как письмо) и прихлопните его кончиками пальцев.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Изменение не сохранено в памяти телефона. Проверьте свободное место и повторите попытку.',

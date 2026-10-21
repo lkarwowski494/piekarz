@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'タンパク質：',
   'Biały nalot lub kożuch na powierzchni': '表面の白い膜または張った皮',
   'biga': 'ビガ',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'ビガ（加水率50%の硬い発酵種）を18°Cで16時間熟成させます。本ごねの生地にオリーブオイルを3%加えてください。焼く前に生地のガスを抜かないでください。',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'ビガ（加水率50%の硬い発酵種）を18°Cで16時間熟成させます。本ごねの生地にオリーブオイルを3%加えてください。焼く前に生地のガスを抜かないでください。',
   'Biga (Sztywny zaczyn włoski 50%)': 'ビガ (イタリアの固い発酵種 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'スポンジケーキ、ショートクラスト生地、クッキー、パンケーキ、繊細な焼き菓子。',
   'blacha piekarnika': '天板',

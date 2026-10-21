@@ -176,7 +176,7 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Jeg baker med surdeig',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza og søtt',
-  'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 t)',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 t)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Planen måtte ha startet {dzienStartu} kl. {godzinaStartu}. Brødet kan tidligst være ferdig {dzienGotowe} kl. {godzinaGotowe}.',
   'Plan wypieku': 'Bakeplan',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Bakeplan, steg {n} av {N}: {nazwa}, {czas} igjen.',

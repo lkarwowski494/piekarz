@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Bielkoviny:',
   'Biały nalot lub kożuch na powierzchni': 'Biely povlak alebo kožka na povrchu',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tuhý predkvas s 50 % hydratáciou) zreje 16 h pri 18 °C. Do hlavného cesta pridajte 3 % olivového oleja. Cesto pred pečením neodplyňujte.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tuhý predkvas s 50 % hydratáciou) zreje 16 h pri 18 °C. Do hlavného cesta pridajte 3 % olivového oleja. Cesto pred pečením neodplyňujte.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (tuhý taliansky predkvas 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Piškóty, krehké cestá, keksy, palacinky a jemné cukrárske výrobky.',
   'blacha piekarnika': 'plech do rúry',

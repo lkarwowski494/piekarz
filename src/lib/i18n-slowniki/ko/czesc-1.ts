@@ -91,7 +91,7 @@ export const CZESC: Record<string, string> = {
   'Białko:': '단백질:',
   'Biały nalot lub kożuch na powierzchni': '표면의 흰색 표면 막 또는 피막',
   'biga': '비가',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': '비가(가수율 50%의 단단한 발효종)를 18°C에서 16시간 숙성해요. 본반죽에 올리브유 3%를 넣으세요. 굽기 전에 반죽의 가스를 빼지 마세요.',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': '비가(가수율 50%의 단단한 발효종)를 18°C에서 16시간 숙성해요. 본반죽에 올리브유 3%를 넣으세요. 굽기 전에 반죽의 가스를 빼지 마세요.',
   'Biga (Sztywny zaczyn włoski 50%)': '비가 (이탈리아식 된 발효종 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': '스펀지케이크, 타르트 반죽, 쿠키, 크레프와 섬세한 제과류.',
   'blacha piekarnika': '오븐 팬',
