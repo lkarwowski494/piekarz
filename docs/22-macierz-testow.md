@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 564 | 564 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 437 | 437 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 175 | 175 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1233** | Pokrytych: **1233** | Brakujących: **0**
+Łącznie elementów: **1232** | Pokrytych: **1232** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -41,7 +41,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Jutro` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/helpers/plan-godzina.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Pojutrze` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/helpers/plan-godzina.ts, tests/i18n-en-main-flow.test.tsx |
 | `TEKST` | `Wczoraj` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/lib/__tests__/schedule-formatter.test.ts, src/lib/__tests__/zakwas-widok.test.tsx |
-| `TEKST` | `{dzien}, {d} {miesiac}` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Klasyczny chleb rzemieślniczy` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `Notatka z poprzedniego wypieku: {notatka}` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/piecz-ponownie-recp003-146.test.tsx |
 | `TEKST` | `Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx, src/doctor/__tests__/diagnostics-exhaustive.test.ts |
 | `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 933 kolejnych elementów w pełnym wykazie)*
+*(... i 932 kolejnych elementów w pełnym wykazie)*
