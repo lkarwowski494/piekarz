@@ -155,7 +155,7 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
     act(() => tree.unmount());
   });
 
-  it('(1, 4) ręczny wybór „jutro 18:00”: tytuł i treść z godzinami planu, start nieaktywny z powodem, baner snu ukryty', async () => {
+  it('(1, 4) ręczny wybór „jutro 18:00”: tytuł i treść z godzinami planu, start nieaktywny z powodem, baner snu ukryty (BR-HARMO-001 Godzina w przeszłości)', async () => {
     const tree = await renderPlan();
     // 128: chipów godziny już nie ma; godzina przyciskami ±30 min obok pola, jak użytkownik
     await ustawGodzinePlanu(tree.root, 'Jutro', 18);

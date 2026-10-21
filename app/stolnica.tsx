@@ -16,6 +16,10 @@ import { saveBakeSession, zaczetyZDostepem } from '../src/data/bake-session-stor
 import { resyncNotifications, ensureNotificationPermission, getNotificationPermission } from '../src/lib/notifications';
 import { ZgodaPowiadomien } from '../src/components/stolnica/ZgodaPowiadomien';
 import { SkladnikiKroku } from '../src/components/stolnica/SkladnikiKroku';
+import { SleepGuardBanner } from '../src/components/harmonogram/SleepGuardBanner';
+import { oknoSnu, useProfilSnu } from '../src/lib/godziny-snu';
+import { kolizjeKrokow } from '../src/lib/plan-bez-nocy';
+import { formatTime } from '../src/lib/format';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
 import { setActiveBake, ActiveBakeState } from '../src/data/sqlite-store';
@@ -270,6 +274,10 @@ export default function StolnicaScreen() {
     });
   };
 
+  // Kroki czynne od bieżącego w oknie snu z Ustawień (po przesunięciu planu „Zrobione”); „Bez godzin snu” = brak
+  const oknoProwadzenia = oknoSnu(useProfilSnu());
+  const kolizjeNocy = oknoProwadzenia ? kolizjeKrokow(steps.slice(currentStepIdx), oknoProwadzenia, formatTime) : [];
+
   // „Gotowe {dzień} o {godzina}”, czas kroku, „do {godzina}, potem …”, „Ekran nie zgaśnie…” (makieta prowadzenia, 114)
   const teksty = useTekstyProwadzenia({ steps, stepIdx: currentStepIdx, dutchOvenPhase, koniecKrokuMs: ostatniKoniecRef.current, poCzasie: isCompleted });
 
@@ -312,6 +320,10 @@ export default function StolnicaScreen() {
               onStartPhase2AfterSteamAlert={handleStartPhase2AfterSteamAlert}
               ostrzezenia={ostrzezeniaKroku(steps, currentStepIdx, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined)}
             />
+            {/* Krok czynny przesunięty w godziny snu z Ustawień: kolizja jak w planie (BR-HARMO-004, D-066 1a) [130] */}
+            {kolizjeNocy.length > 0 && (
+              <SleepGuardBanner hasSleepCollision sleepCollisions={kolizjeNocy} autoResolved={null} onApplyAutoResolution={() => {}} />
+            )}
             {/* Składniki przy bieżącym kroku (BR-ETAP-001) [M1-audytor-generalny-130] */}
             <SkladnikiKroku steps={steps} stepIdx={currentStepIdx} calculatedRecipe={activeBakeData?.calculatedRecipe} unitSystem={unitSystem} />
           </View>
