@@ -5,6 +5,7 @@
 // ============================================================================
 
 import type { Purchase } from 'expo-iap';
+import { AppState } from 'react-native';
 import { getAppSetting, setAppSetting } from '../../data/settings-store';
 import { StorageWriteError } from '../../data/storage-status';
 import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
@@ -90,7 +91,11 @@ export async function obsluzTransakcje(p: Purchase): Promise<void> {
   await zakonczTransakcje(p);
 }
 
-/** Start aplikacji (app/_layout.tsx): nasłuch transakcji i pierwszy odczyt uprawnień. */
+/**
+ * Start aplikacji (app/_layout.tsx): nasłuch transakcji, pierwszy odczyt uprawnień i ponowny odczyt przy każdym
+ * powrocie na pierwszy plan: wygaśnięcie w tle działa bez restartu, a uprzedzenie o końcu próby sprawdza się
+ * na świeżym stanie (MON-05) [M1-audytor-generalny-144; 02-monetyzacja-505, 02-monetyzacja-601].
+ */
 export function uruchomPlatnosci(): () => void {
   const sub = nasluchujZakupow((p) => {
     void obsluzTransakcje(p).catch(() => undefined);
@@ -98,7 +103,13 @@ export function uruchomPlatnosci(): () => void {
   void polacz()
     .catch(() => undefined)
     .then(() => odswiezDostep());
-  return () => sub.remove();
+  const powrot = AppState.addEventListener('change', (s) => {
+    if (s === 'active') void odswiezDostep().catch(() => undefined);
+  });
+  return () => {
+    sub.remove();
+    powrot.remove();
+  };
 }
 
 /** Tylko testy: nowy proces bez stanu (także zamknięty ekran zakupu). */
