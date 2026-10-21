@@ -17,4 +17,10 @@ Osobno od tabeli buildów (wpisy bez buildu) [M1-audytor-generalny-181]:
 - 2026-10-21, commit `bdb854b`, przebieg na sucho (GitHub Actions run 39582555161): 714 operacji do utworzenia, skrót planu `ff854f80…1356`.
 - 2026-10-21, commit `4aaf974`, zapis (run 39583333126). Zgoda właściciela: „Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea41356 (714 operacji), łącznie z nieodwracalnym Family Sharing.” (2026-10-21). Wynik: grupa „Piekarz Pro”, 2 subskrypcje i dożywotni z Family Sharing, nazwy en-US i pl, ceny DEC-01 d i D-038, Free Trial 2 Weeks na obu subskrypcjach, 174 storefronty bez CHN, ankieta wieku D-058; drugi przebieg na sucho w tym samym zadaniu: 0 różnic.
 
+## Zgłoszenie App Store przez API (`scripts/asc-zgloszenie.mjs`)
+
+Osobno od tabeli buildów (wpisy bez buildu) [M1-audytor-generalny-186]:
+- 2026-10-21, wydanie wstępne GitHub `zrzuty-sklepu-2026-10-21` (prerelease) z paczką `zrzuty-sklepu.zip`: zrzuty 31 lokalizacji spoza repo, SHA-256 `2F74C9C6…9675`, sumy plików w `docs/wydanie/zrzuty/sumy.json`. Zgoda właściciela (czat toru p8c): „Potwierdzam: opublikuj prerelease zrzuty-sklepu-2026-10-21 z paczką zrzutów 31 lokalizacji i wykonaj jeden próbny zapis zrzutów lokalizacji pl w App Store Connect.” (2026-10-21).
+- 2026-10-21, commit `43462a1`, próbny zapis zrzutów pl (run 39613527543), ta sama zgoda, plan w zakresie pl/zrzuty o skrócie `06f84085…2f82`: zestawy iPhone 6,9″ (APP_IPHONE_67) i 6,3″ (APP_IPHONE_61) po 7 ramek w wersji 1.0; po zapisie 0 różnic, oba zestawy COMPLETE×7 (typ ekranu potwierdzony). Drugi przebieg tego samego commita (run 39613655316): nic do zapisu. Reszta zgłoszenia (metadane, pozostałe zrzuty, opisy produktów, numer wersji) bez zapisu; pełny zapis za osobną zgodą.
+
 Daty: data commitu tagu (tagi lekkie, bez daty utworzenia). Tag `vX.Y.Z-bNNNN` tworzy workflow dopiero po udanym przesłaniu (zadanie `tag` w `.github/workflows/testflight.yml`, stan dzisiejszy); czy starsze wersje workflow działały tak samo, sprawdza właściciel w App Store Connect (TestFlight → buildy).

@@ -1,7 +1,6 @@
 {
-  "opis": "Zgoda właściciela na zapis zgłoszenia w App Store Connect (scripts/asc-zgloszenie.mjs) [M1-audytor-generalny-186]. Zapis tylko przy \"zapis\": true i skrócie planu z przebiegu na sucho pokazanego właścicielowi; \"zgoda\": „RRRR-MM-DD: słowa właściciela”. \"zakres\" zawęża plan, listę i skrót (tu: próbny zapis zrzutów jednej lokalizacji, pytanie 3 (b) toru p8c); bez zakresu cały plan. Domyślnie wyłączona.",
-  "zapis": true,
-  "skrot": "06f840857dcb3fe54ed10f2e5cc978fc8582eba58797a5e5a8399e7f3f362f82",
-  "zgoda": "2026-10-21: Potwierdzam: opublikuj prerelease zrzuty-sklepu-2026-10-21 z paczką zrzutów 31 lokalizacji i wykonaj jeden próbny zapis zrzutów lokalizacji pl w App Store Connect.",
-  "zakres": { "lokalizacja": "pl", "obiekty": ["zrzuty"] }
+  "opis": "Zgoda właściciela na zapis zgłoszenia w App Store Connect (scripts/asc-zgloszenie.mjs) [M1-audytor-generalny-186]. Zapis tylko przy \"zapis\": true i skrócie planu z przebiegu na sucho pokazanego właścicielowi; \"zgoda\": „RRRR-MM-DD: słowa właściciela”. Opcjonalny \"zakres\" ({\"lokalizacja\": \"pl\", \"obiekty\": [\"zrzuty\"]}) zawęża plan, listę i skrót; bez zakresu cały plan. Próbny zapis zrzutów pl wykonany 2026-10-21 (docs/wydanie/dziennik.md). Domyślnie wyłączona.",
+  "zapis": false,
+  "skrot": null,
+  "zgoda": null
 }

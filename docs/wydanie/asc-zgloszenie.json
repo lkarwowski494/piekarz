@@ -6,7 +6,7 @@
     "iphone-6.9": "APP_IPHONE_67",
     "iphone-6.3": "APP_IPHONE_61"
   },
-  "zrodloKlas": "docs/wydanie/zrzuty/README.md (klasy i piksele). Wartości screenshotDisplayType: enum API (odczyt 2026-10-21) nie ma APP_IPHONE_69 ani APP_IPHONE_63, a dokumentacja nie mówi, który typ przyjmuje 1320 × 2868 i 1206 × 2622; APP_IPHONE_67 i APP_IPHONE_61 to wniosek [DO USTALENIA], do potwierdzenia na koncie przed zapisem zrzutów (raport toru p8c). Zasoby appScreenshotSets i appScreenshots są od API 4.5.1 oznaczone jako deprecated (następca: App Asset Library).",
+  "zrodloKlas": "docs/wydanie/zrzuty/README.md (klasy i piksele). Wartości screenshotDisplayType: enum API (odczyt 2026-10-21) nie ma APP_IPHONE_69 ani APP_IPHONE_63, a dokumentacja nie mówi, który typ przyjmuje 1320 × 2868 i 1206 × 2622; APP_IPHONE_67 i APP_IPHONE_61 potwierdzone na koncie 2026-10-21 próbnym zapisem zrzutów pl: oba zestawy przetworzone (COMPLETE) z plikami 1320 × 2868 i 1206 × 2622 (docs/wydanie/dziennik.md). Zasoby appScreenshotSets i appScreenshots są od API 4.5.1 oznaczone jako deprecated (następca: App Asset Library).",
   "ramekNaKlase": 7,
   "paczkaZrzutow": {
     "tag": "zrzuty-sklepu-2026-10-21",
