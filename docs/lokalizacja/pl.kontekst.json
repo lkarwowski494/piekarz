@@ -99,16 +99,6 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "12–16h w 18–20°C (lub 4h w 24°C)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
-    ]
-  },
-  "12–24h w chłodzie (4–8°C)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
-    ]
-  },
   "14h powolna fermentacja w temperaturze pokojowej (20–22°C)": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -122,11 +112,6 @@
   "16–18 ciastek": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
-    ]
-  },
-  "16–24h w 16–18°C (lub 24–48h w lodówce)": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "1:1:1 (Szybki 3-4h)": {
@@ -152,11 +137,6 @@
   "4 duże podpłomyki": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
-    ]
-  },
-  "4–8h w 24–26°C do szczytu objętości": {
-    "gdzie": [
-      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "50% Pszenna + 50% Żytnia (Pół na pół)": {
@@ -2426,7 +2406,7 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "Levain (Rzemieślniczy zaczyn na zakwasie 100%)": {
+  "Levain (Rzemieślniczy zaczyn na zakwasie)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
     ]
@@ -4753,7 +4733,7 @@
       "src/components/zakwas/StarterSafetyCard.tsx (label)"
     ]
   },
-  "Pâte Fermentée (Stare ciasto 65%)": {
+  "Pâte Fermentée (Stare ciasto)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
     ]
@@ -7896,7 +7876,7 @@
       "src/core/flour-equivalents.ts (dane: substitutionTipsPl)"
     ]
   },
-  "Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.": {
+  "Złożony bukiet kwasów mlekowego i octowego.": {
     "gdzie": [
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
@@ -8220,6 +8200,26 @@
   "wczoraj": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)"
+    ]
+  },
+  "według Bread Bakers Guild of America 18 godzin w 60 °F (ok. 16 °C)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
+    ]
+  },
+  "według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków": {
+    "gdzie": [
+      "src/core/preferments.ts (dane: fermentationTimeHours)"
     ]
   },
   "wiadomość do autora": {

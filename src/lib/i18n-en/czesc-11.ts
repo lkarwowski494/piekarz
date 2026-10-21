@@ -180,12 +180,8 @@ export const EN_11: Record<string, string> = {
     'Biga (Stiff Italian preferment 50%)',
   'Głęboki, winny aromat, wysoka wytrzymałość ciasta i spektakularny piecowy skok.':
     'Deep, winey aroma, high dough strength and spectacular oven spring.',
-  'Pâte Fermentée (Stare ciasto 65%)':
-    'Pâte Fermentée (Old dough 65%)',
   'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.':
     'Traditional profile of French country bread, mild sourness and a tight crumb.',
-  'Levain (Rzemieślniczy zaczyn na zakwasie 100%)':
-    'Levain (Artisan sourdough preferment 100%)',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)':
     'Tangzhong (Scalded flour 1:5 at 65°C)',
   'Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.':

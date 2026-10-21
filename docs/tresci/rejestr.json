@@ -624,7 +624,7 @@
       }
     ],
     "status": "potwierdzone",
-    "uwagi": "Źródło szczebla 3 (CORDIS AGRF0032, wyniki projektu UE) mówi: „The effect of temperature depended on the strain.” oraz „temperature had no significant influence on the quotient”. Przy sprzeczności wygrywa szczebel 2; brzmienie w treści zostaje ostrożne („wiąże się”), bez obietnicy skutku dla każdego zakwasu. Calvert to przegląd (oryginał: Siepmann i in. 2019, nieprzeczytany).",
+    "uwagi": "Źródło szczebla 3 (CORDIS AGRF0032, wyniki projektu UE) mówi: „The effect of temperature depended on the strain.” oraz „temperature had no significant influence on the quotient”. Przy sprzeczności wygrywa szczebel 2; brzmienie w treści zostaje ostrożne („wiąże się”), bez obietnicy skutku dla każdego zakwasu. Calvert to przegląd (oryginał: Siepmann i in. 2019, nieprzeczytany). M1-audytor-generalny-131: także profil smaku levain we wskazówce zaczynu („Złożony bukiet kwasów mlekowego i octowego.”, docs/tresci/pl/zaczyny.md) w miejsce zdania z „wydłużona świeżość i niski indeks glikemiczny” (ZAC-LEV-900).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
@@ -1518,7 +1518,7 @@
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": null,
-    "uwagi": "M1-audytor-generalny-100: starter_feed. Ta sama granica co ZAK-ZAL-006 (6–8 h, RD-24).",
+    "uwagi": "M1-audytor-generalny-100: starter_feed. Ta sama granica co ZAK-ZAL-006 (6–8 h, RD-24). M1-audytor-generalny-131: także czas dojrzewania levain we wskazówce zaczynu (docs/tresci/pl/zaczyny.md); levain w aplikacji to zakwas użyty jako zaczyn (hydratacja z ustawienia zakwasu).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-20"
@@ -2321,5 +2321,178 @@
     "przeglad": null,
     "nastepca": "ZAK-LOD-002",
     "wycofane": "2026-10-21, M1-audytor-generalny-132"
+  },
+  {
+    "id": "ZAC-POO-001",
+    "twierdzenie": "Poolish to płynny zaczyn drożdżowy o hydratacji 100% (równe masy mąki i wody), bez soli; ilość drożdży dobiera piekarz zależnie od czasu dojrzewania.",
+    "zrodla": [
+      {
+        "adres": "https://web.archive.org/web/20140824061756/http://www.bbga.org/files/2009FormulaFormattingSPREADS.pdf",
+        "miejsce": "Bread Bakers Guild of America, Bread Lines 2009 „Formula Layout Standards”, część III, hasło POOLISH (S-61; kopia Wayback, oryginał niedostępny); tekst PDF odczytany pypdf: dowody/zrodla/bbga-2009-formula-layout.pdf, .txt (role/06-tresci/fix-2026-10-21-p9a)",
+        "cytat": "It is a yeasted, liquid preferment with 100% hydration. The percentage of yeast is determined by the baker and related to the amount of time the poolish will sit before it is fully mature.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/preferment",
+        "miejsce": "King Arthur Baking, Pro Reference „Preferments”, sekcja Poolish (S-36); kopia dowody/zrodla/ka-pro-preferment.htm (fix-2026-10-21-p9a)",
+        "cytat": "It is by definition made with equal weights of flour and water (that is, it is 100% hydration), and a small portion of yeast. Note again the absence of salt.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502). Nazwa „Poolish (Rzadki zaczyn 100%)” i hydratacja domyślna RD-26 (RD-26-W1). Szczebel jak S-36 i S-61 w docs/brd/zrodla.md.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "hydratacja_poolish",
+    "wartosc": 100,
+    "jednostka": "%",
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "ZAC-POO-002",
+    "twierdzenie": "W przykładowych formułach Bread Bakers Guild of America (2009) poolish ma 0,10% drożdży względem mąki w poolish; procent drożdży oznacza drożdże świeże prasowane, o ile formuła nie podaje inaczej.",
+    "zrodla": [
+      {
+        "adres": "https://web.archive.org/web/20140824061756/http://www.bbga.org/files/2009FormulaFormattingSPREADS.pdf",
+        "miejsce": "Bread Bakers Guild of America, Bread Lines 2009 „Formula Layout Standards”, diagram 4 „Dough with three flours and two preferments”, kolumna Poolish, wiersz Yeast (także diagramy 2 i 3), oraz objaśnienie kolumn; kopia dowody/zrodla/bbga-2009-formula-layout.pdf, .txt (fix-2026-10-21-p9a)",
+        "cytat": "yeast percentage is always assumed to be expressed as fresh compressed yeast, unless otherwise noted. […] Yeast 1.00% 0.100 kg 0.10% 0.003 kg 1.00% 0.020 kg",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Wartość z przykładowych formuł, nie reguła: źródło mówi, że procent drożdży w poolish dobiera piekarz do czasu dojrzewania (ZAC-POO-001). Rodzaju drożdży (świeże prasowane) aplikacja przy tej ilości nie podaje: znalezisko w wyniku p9a.",
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): yeastPctOfPrefermentFlour poolish = 0,1 w src/core/preferments.ts (gramy drożdży w „Do miski”).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "drozdze_poolish_procent_maki_zaczynu",
+    "wartosc": 0.1,
+    "jednostka": "%",
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "ZAC-CZA-001",
+    "twierdzenie": "Według King Arthur Baking ilość drożdży w zaczynie (np. poolish) dobiera się do czasu dojrzewania: przy 8 godzinach daje się nieco więcej drożdży, przy 14–16 godzinach mniej; w pomieszczeniu o 65 °F potrzeba więcej drożdży niż w 75 °F.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/preferment",
+        "miejsce": "King Arthur Baking, Pro Reference „Preferments”, sekcja Poolish, akapit o ilości drożdży (S-36); kopia dowody/zrodla/ka-pro-preferment.htm (fix-2026-10-21-p9a)",
+        "cytat": "it might be suitable to make a poolish or any other preferment and allow only 8 hours of ripening. In such a case, a slightly higher percentage of yeast would be indicated in the preferment. […] the preferment might have 14 to 16 hours of maturing before the mixing of the final dough. In this case the baker would decrease the quantity of yeast used.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Dwa przykłady źródła (8 h z większą ilością drożdży, 14–16 h z mniejszą) podane w tekście jako przedział „od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)”. Źródło nie podaje czasu dla 0,1% drożdży z aplikacji ani temperatury w °C (65 °F i 75 °F tylko jako porównanie).",
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): fermentationTimeHours poolish w miejsce „12–16h w 18–20°C (lub 4h w 24°C)” (ZAC-POO-900). Atrybucja w treści.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "ZAC-BIG-001",
+    "twierdzenie": "Według Bread Bakers Guild of America biga to bardzo sztywny zaczyn pochodzenia włoskiego o hydratacji 50% z 1% drożdży świeżych (albo równoważną ilością suchych), fermentowany 18 godzin w 60 °F (rachunek: ok. 16 °C).",
+    "zrodla": [
+      {
+        "adres": "https://web.archive.org/web/20140824061756/http://www.bbga.org/files/2009FormulaFormattingSPREADS.pdf",
+        "miejsce": "Bread Bakers Guild of America, Bread Lines 2009 „Formula Layout Standards”, część III, hasło BIGA (S-61; teraz sprawdzone dosłownie na tekście PDF); kopia dowody/zrodla/bbga-2009-formula-layout.pdf, .txt (fix-2026-10-21-p9a)",
+        "cytat": "BIGA is a very stiff preferment that originated in Italy. It is made with 50% hydration and 1% fresh yeast or the equivalent amount of dry yeast. It is fermented at 60°F for 18 hours.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek: (60 − 32) × 5/9 = 15,6 °C, zaokrąglone do 16 °C. Definicja jednego źródła: King Arthur Baking (S-36) opisuje bigę szerzej — sztywną albo luźną (100%), z drożdżami nawet od 0,1% mąki, dojrzewającą od kilku do 12–16 godzin; biga aplikacji (50%, 1%) odpowiada definicji BBGA, więc czas z tego samego źródła. Atrybucja w treści.",
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): namePl biga („50%”), fermentationTimeHours w miejsce „16–24h w 16–18°C (lub 24–48h w lodówce)” (ZAC-BIG-900), yeastPctOfPrefermentFlour 1,0 i hydratacja RD-26-W2. Rodzaj drożdży (świeże) aplikacja przy tej ilości nie podaje: znalezisko w wyniku p9a.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "hydratacja_biga",
+    "wartosc": 50,
+    "jednostka": "%",
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "ZAC-PAT-001",
+    "twierdzenie": "Według Bread Bakers Guild of America ciastem wstępnie fermentowanym (pâte fermentée) może być dowolne ciasto fermentowane co najmniej 3 godziny w temperaturze pokojowej albo 1 godzinę, a potem trzymane w lodówce najwyżej 3 dni.",
+    "zrodla": [
+      {
+        "adres": "https://web.archive.org/web/20140824061756/http://www.bbga.org/files/2009FormulaFormattingSPREADS.pdf",
+        "miejsce": "Bread Bakers Guild of America, Bread Lines 2009 „Formula Layout Standards”, część III, hasło PREFERMENTED DOUGH; kopia dowody/zrodla/bbga-2009-formula-layout.pdf, .txt (fix-2026-10-21-p9a)",
+        "cytat": "It can be any dough fermented for at least three hours at room temperature, or it may be fermented for one hour and then held in the refrigerator up to three days.",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "„up to three days” oddane jako „najwyżej 3 dni”. King Arthur Baking (S-36) podaje kierunkowo „Over the course of several hours or overnight”, bez liczby.",
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): fermentationTimeHours pâte fermentée w miejsce „12–24h w chłodzie (4–8°C)” (ZAC-PAT-901). Atrybucja w treści.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "ZAC-PAT-900",
+    "twierdzenie": "Pâte fermentée ma hydratację 65%, 0,5% drożdży i 2% soli względem mąki zaczynu (src/core/preferments.ts, PREFERMENT_DEFINITIONS.pate_fermentee: defaultHydration, yeastPctOfPrefermentFlour, saltPctOfPrefermentFlour).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-131. BBGA (ZAC-PAT-001): „Any dough qualifies as prefermented dough”; w przykładowej formule (diagram 4) pâte fermentée ma 75% wody, 2% soli i 1% drożdży — przykład, nie reguła, i inna wartość niż 65% oraz 0,5%. King Arthur Baking (S-36): kawałek gotowego ciasta (mąka, woda, sól, drożdże), bez liczb. Wartości wpływają na gramy wody, drożdży i soli w „Do miski”: przekazanie do 08 i decyzja właściciela (opcje w wyniku p9a). „65%” usunięte z nazwy.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null
+  },
+  {
+    "id": "ZAC-POO-900",
+    "twierdzenie": "Poolish dojrzewa 12–16 h w 18–20 °C (lub 4 h w 24 °C) (src/core/preferments.ts, fermentationTimeHours).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: przeczytane źródła (ZAC-CZA-001, King Arthur Baking; ZAC-POO-001, BBGA) wiążą czas z ilością drożdży (8 h albo 14–16 h; w przykładzie BBGA 12–14 h w 73 °F), bez 18–20 °C i 4 h w 24 °C. Wycofane w M1-audytor-generalny-131.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAC-CZA-001",
+    "wycofane": "2026-10-21, M1-audytor-generalny-131"
+  },
+  {
+    "id": "ZAC-BIG-900",
+    "twierdzenie": "Biga dojrzewa 16–24 h w 16–18 °C (lub 24–48 h w lodówce) (src/core/preferments.ts, fermentationTimeHours).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: BBGA (ZAC-BIG-001) podaje 18 h w 60 °F; King Arthur Baking (S-36) od kilku do 12–16 h; 24–48 h w lodówce ma tylko przepis na pizzę (S-60, OP-40), nie biga. Wycofane w M1-audytor-generalny-131.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAC-BIG-001",
+    "wycofane": "2026-10-21, M1-audytor-generalny-131"
+  },
+  {
+    "id": "ZAC-PAT-901",
+    "twierdzenie": "Pâte fermentée to stare ciasto o hydratacji 65%, dojrzewające 12–24 h w chłodzie (4–8 °C) (src/core/preferments.ts, namePl i fermentationTimeHours).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: BBGA (ZAC-PAT-001) podaje co najmniej 3 h w temperaturze pokojowej albo 1 h i najwyżej 3 dni w lodówce; hydratacji źródła nie ustalają („Any dough qualifies”). Wycofane w M1-audytor-generalny-131.",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "ZAC-PAT-001",
+    "wycofane": "2026-10-21, M1-audytor-generalny-131"
+  },
+  {
+    "id": "ZAC-LEV-900",
+    "twierdzenie": "Levain ma hydratację 100%, dojrzewa 4–8 h w 24–26 °C do szczytu objętości i daje wydłużoną świeżość oraz niski indeks glikemiczny (src/core/preferments.ts, namePl, fermentationTimeHours, flavorProfilePl).",
+    "zrodla": [],
+    "status": "wycofane",
+    "uwagi": "NIEPOPARTE: hydratacja levain w aplikacji to hydratacja zakwasu z ustawienia (RD-26: 50–125%, S-36), nie stałe 100%; czas: KRO-POC-002 (6–8 h do podwojenia, King Arthur Baking); twierdzenie zdrowotne („niski indeks glikemiczny”) bez źródła szczebla 1–2 nie zostaje w produkcie (App Review 1.4.1, wzór 045); „wydłużona świeżość” bez źródła. Wycofane w M1-audytor-generalny-131 (06-tresci-503).",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "nastepca": "KRO-POC-002",
+    "wycofane": "2026-10-21, M1-audytor-generalny-131"
   }
 ]
