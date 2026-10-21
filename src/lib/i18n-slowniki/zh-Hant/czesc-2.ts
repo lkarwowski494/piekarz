@@ -156,8 +156,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': '檔案中的備份',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': '備份：{receptury}、{zakwasy}、{wpisy}。',
   'Kopiuj adres': '複製地址',
-  'Kopiuj diagnozę': '複製診斷',
-  'Kopiuj dokarmienie': '複製餵養資料',
   'Kopiuj harmonogram': '複製時程表',
   'Kopiuj jako tekst': '複製為文字',
   'Koszt całego wypieku': '整批烘焙成品成本',

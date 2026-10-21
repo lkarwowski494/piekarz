@@ -98,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'az imént',
   'przed nami': 'hátravan',
   'Przed szacowanym szczytem': 'A becsült csúcspont előtt',
-  'Przejdź do Stolnicy': 'Ugrás a Munkapadra',
   'Przekwaszenie / Przerośnięcie': 'Túlsavanyodás / túlkelesztés',
   'Przelicznik objętości': 'Térfogat-átváltó',
   'Przełącz zakwas': 'Kovászváltás',

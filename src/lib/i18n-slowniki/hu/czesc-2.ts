@@ -169,8 +169,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': 'Biztonsági mentés fájlból',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'Biztonsági mentés: {receptury}, {zakwasy}, {wpisy}.',
   'Kopiuj adres': 'Cím másolása',
-  'Kopiuj diagnozę': 'Diagnózis másolása',
-  'Kopiuj dokarmienie': 'Etetés másolása',
   'Kopiuj harmonogram': 'Ütemterv másolása',
   'Kopiuj jako tekst': 'Másolás szövegként',
   'Koszt całego wypieku': 'A teljes sütés költsége',

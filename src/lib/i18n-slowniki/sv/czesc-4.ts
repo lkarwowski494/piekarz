@@ -65,7 +65,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'nyss',
   'przed nami': 'kommande',
   'Przed szacowanym szczytem': 'Före beräknad topp',
-  'Przejdź do Stolnicy': 'Gå till Bakbord',
   'Przekwaszenie / Przerośnięcie': 'Översyrad / Överjäst',
   'Przelicznik objętości': 'Volymomvandlare',
   'Przełącz zakwas': 'Byt surdegsgrund',

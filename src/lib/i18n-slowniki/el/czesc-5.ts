@@ -103,7 +103,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'μόλις τώρα',
   'przed nami': 'επόμενα',
   'Przed szacowanym szczytem': 'Πριν από την εκτιμώμενη κορύφωση',
-  'Przejdź do Stolnicy': 'Μετάβαση στον Πάγκο',
   'Przekwaszenie / Przerośnięcie': 'Υπερβολική ξίνιση / Υπερωρίμανση',
   'Przelicznik objętości': 'Μετατροπέας όγκου',
   'Przełącz zakwas': 'Αλλαγή προζυμιού',

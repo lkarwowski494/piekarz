@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'akkurat nå',
   'przed nami': 'kommer',
   'Przed szacowanym szczytem': 'Før beregnet toppunkt',
-  'Przejdź do Stolnicy': 'Gå til Arbeidsbenk',
   'Przekwaszenie / Przerośnięcie': 'Oversyrnet / overhevet',
   'Przelicznik objętości': 'Volumomregner',
   'Przełącz zakwas': 'Bytt surdeigsstarter',

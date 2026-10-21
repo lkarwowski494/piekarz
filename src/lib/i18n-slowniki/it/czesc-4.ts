@@ -101,7 +101,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'proprio ora',
   'przed nami': 'in arrivo',
   'Przed szacowanym szczytem': 'Prima del picco stimato',
-  'Przejdź do Stolnicy': 'Vai alla Spianatoia',
   'Przekwaszenie / Przerośnięcie': 'Eccesso di acidità / Sovralievitazione',
   'Przelicznik objętości': 'Convertitore di volume',
   'Przełącz zakwas': 'Cambia lievito madre',

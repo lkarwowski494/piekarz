@@ -252,7 +252,7 @@ export default function ZakwasScreen() {
   const handleCopyFeeding = async () => {
     const copied = await copyFeedingToClipboard(starter, feeding, selectedRatio);
     if (copied) {
-      Alert.alert(t('Kopiuj dokarmienie'), t('Skopiowano proporcje dokarmiania do schowka'));
+      Alert.alert(t('Kopiuj jako tekst'), t('Skopiowano proporcje dokarmiania do schowka'));
     }
   };
 

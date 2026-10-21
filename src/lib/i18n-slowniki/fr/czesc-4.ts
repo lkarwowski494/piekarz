@@ -112,7 +112,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'à l\'instant',
   'przed nami': 'à venir',
   'Przed szacowanym szczytem': 'Avant le pic estimé',
-  'Przejdź do Stolnicy': 'Aller au Plan de travail',
   'Przekwaszenie / Przerośnięcie': 'Surfermentation / Surpousse',
   'Przelicznik objętości': 'Convertisseur de volumes',
   'Przełącz zakwas': 'Changer de levain naturel',

@@ -70,7 +70,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'только что',
   'przed nami': 'впереди',
   'Przed szacowanym szczytem': 'До расчётного пика',
-  'Przejdź do Stolnicy': 'Открыть Стол пекаря',
   'Przekwaszenie / Przerośnięcie': 'Перекисание / перебраживание',
   'Przelicznik objętości': 'Конвертер объёма',
   'Przełącz zakwas': 'Сменить закваску',

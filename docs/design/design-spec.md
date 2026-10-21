@@ -61,6 +61,14 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Dodaj mąkę / Add Flour, Gotowe / Done | arkusz „Składniki” | nowy wiersz mąki; zamknięcie arkusza z zapisem (F-11) |
 | Wstaw gotową mieszankę / Use a Flour Blend | arkusz „Składniki”, menu systemowe | mąki i procenty z wybranej mieszanki zastępują listę mąk (§11c 106) |
 | Pokaż wszystkie / Show All | lista receptur z pustym filtrem | filtr „Wszystkie” |
+| Kopiuj jako tekst / Copy as Text | plan wypieku (pod listą kroków), wynik Doktora Chleba, karta „Ilości do dokarmienia” | tekst w schowku („Skopiowano plan wypieku do schowka”, „Skopiowano diagnozę do schowka”, „Skopiowano proporcje dokarmiania do schowka”); zastępuje „Kopiuj harmonogram”, „Kopiuj diagnozę”, „Kopiuj dokarmienie” (089, 113) |
+| Wróć do wypieku / Back to Bake | wynik Doktora Chleba (gumowaty miękisz) | prowadzenie bieżącego kroku; bez trwającego wypieku „Dziś” (117); zastępuje „Przejdź do Stolnicy” (089) |
+| Otwórz recepturę / Open Recipe | Doktor Chleba (zbity miękisz), protokół ratunkowy | lista receptur albo receptura z protokołu |
+| Otwórz Ustawienia / Open Settings | baner „powiadomienia wyłączone” | Ustawienia systemu dla aplikacji |
+| Rozpocznij Fazę 2 / Start Phase 2 | prowadzenie, pieczenie w garnku żeliwnym | druga faza pieczenia bez pokrywki z czasem i temperaturą |
+| Eksportuj kopię danych / Export a copy of your data, Udostępnij kopię bazy / Share database copy | ekran ratunkowy przy błędzie bazy (`RescueScreen`, `StorageGate`) | arkusz udostępniania z kopią danych |
+| Kopiuj adres / Copy address | okno „Napisz do nas”, gdy Poczta nie jest skonfigurowana | adres w schowku |
+| Wejścia PÓŹNIEJ, ukryte w 1.0 (nazwa do potwierdzenia przy włączeniu): Zastosuj mieszankę, Importuj recepturę, Udostępnij recepturę, Udostępnij kod QR, Eksportuj historię wypieków (CSV), Eksportuj spiżarnię mąk (CSV) | mieszanka mąk (F-46), QR (F-08), eksport CSV | bez zmian do decyzji o wejściu |
 
 Słownik jest jedynym źródłem nazw akcji w 1.0 (089): akcja spoza tabeli wymaga wpisu tutaj przed wdrożeniem. Nazwy z kodu, które znikają: „Klonuj recepturę” (= Zapisz jako moją), „Rozpocznij wypiek na Stolnicy” (= Ułóż plan, potem Zacznij wypiek), „Następny krok” (= Zrobione), „Odrzuć wypiek” (= Przerwij wypiek), „Resetuj” (czas etapu: brak w systemie; profil zakwasu: „Zacznij od nowa” / Start Over), „Eksportuj JSON” (= Udostępnij plik receptury).
 

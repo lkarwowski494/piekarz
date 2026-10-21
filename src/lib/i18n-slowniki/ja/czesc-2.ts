@@ -180,8 +180,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': 'ファイルからバックアップ',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'バックアップ：{receptury}、{zakwasy}、{wpisy}。',
   'Kopiuj adres': 'アドレスをコピー',
-  'Kopiuj diagnozę': '診断をコピー',
-  'Kopiuj dokarmienie': '種継ぎをコピー',
   'Kopiuj harmonogram': 'スケジュールをコピー',
   'Kopiuj jako tekst': 'テキストとしてコピー',
   'Koszt całego wypieku': '焼成全体のコスト',

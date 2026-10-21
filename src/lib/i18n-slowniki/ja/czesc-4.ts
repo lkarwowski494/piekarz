@@ -131,7 +131,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'たった今',
   'przed nami': 'これから',
   'Przed szacowanym szczytem': '推定ピーク前',
-  'Przejdź do Stolnicy': '作業台へ',
   'Przekwaszenie / Przerośnięcie': '酸過多 / 過発酵',
   'Przelicznik objętości': '体積換算',
   'Przełącz zakwas': 'サワー種を切り替え',

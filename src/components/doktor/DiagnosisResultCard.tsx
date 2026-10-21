@@ -138,7 +138,7 @@ export function DiagnosisResultCard({
           onPress={onNavigateStolnica}
         >
           <Text style={styles.navActionBtnText}>
-            {t('Przejdź do Stolnicy')}
+            {t('Wróć do wypieku')}
           </Text>
         </Pressable>
       )}
@@ -151,7 +151,7 @@ export function DiagnosisResultCard({
         onPress={onCopyDiagnosis}
       >
         <Text style={styles.copyDiagnosisBtnText}>
-          {t('Kopiuj diagnozę')}
+          {t('Kopiuj jako tekst')}
         </Text>
       </Pressable>
     </View>

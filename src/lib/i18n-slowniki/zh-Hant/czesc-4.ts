@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': '剛剛',
   'przed nami': '接下來',
   'Przed szacowanym szczytem': '尚未到預估高峰',
-  'Przejdź do Stolnicy': '前往工作檯',
   'Przekwaszenie / Przerośnięcie': '過酸／過度發酵',
   'Przelicznik objętości': '體積換算',
   'Przełącz zakwas': '切換天然酵母起種',

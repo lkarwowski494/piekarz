@@ -2209,17 +2209,6 @@
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
-  "Kopiuj diagnozę": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
-    ]
-  },
-  "Kopiuj dokarmienie": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
-  },
   "Kopiuj harmonogram": {
     "gdzie": [
       "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
@@ -2227,6 +2216,9 @@
   },
   "Kopiuj jako tekst": {
     "gdzie": [
+      "app/(tabs)/zakwasy/index.tsx (Alert.alert)",
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)",
       "src/lib/calculator-actions.ts (Alert.alert)",
       "src/lib/menu-receptury.ts (etykieta)"
     ]
@@ -4473,11 +4465,6 @@
       "src/core/sourdough-physics.ts (dane: labelPl)"
     ]
   },
-  "Przejdź do Stolnicy": {
-    "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
-    ]
-  },
   "Przekwaszenie / Przerośnięcie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
@@ -6556,6 +6543,7 @@
   },
   "Wróć do wypieku": {
     "gdzie": [
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
       "src/components/start/TrwajacyWypiek.tsx (accessibilityLabel)",
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)"

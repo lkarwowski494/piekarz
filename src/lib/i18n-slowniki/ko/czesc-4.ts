@@ -105,7 +105,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': '방금',
   'przed nami': '남은 단계',
   'Przed szacowanym szczytem': '예상 정점 이전',
-  'Przejdź do Stolnicy': '작업대로 이동',
   'Przekwaszenie / Przerośnięcie': '과산화 / 과발효',
   'Przelicznik objętości': '부피 변환기',
   'Przełącz zakwas': '스타터 전환',

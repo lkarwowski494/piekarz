@@ -78,7 +78,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'juuri nyt',
   'przed nami': 'tulossa',
   'Przed szacowanym szczytem': 'Ennen arvioitua huippua',
-  'Przejdź do Stolnicy': 'Siirry Leivontapöytään',
   'Przekwaszenie / Przerośnięcie': 'Ylihapantunut / Ylikohonnut',
   'Przelicznik objętości': 'Tilavuusmuunnin',
   'Przełącz zakwas': 'Vaihda hapanjuuri',

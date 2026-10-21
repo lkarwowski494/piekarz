@@ -97,7 +97,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'hace un momento',
   'przed nami': 'por delante',
   'Przed szacowanym szczytem': 'Antes del punto máximo estimado',
-  'Przejdź do Stolnicy': 'Ir a la Mesa de trabajo',
   'Przekwaszenie / Przerośnięcie': 'Exceso de acidez / Sobrefermentación',
   'Przelicznik objętości': 'Convertidor de volumen',
   'Przełącz zakwas': 'Cambiar masa madre',

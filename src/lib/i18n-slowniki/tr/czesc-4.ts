@@ -81,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'az önce',
   'przed nami': 'sırada',
   'Przed szacowanym szczytem': 'Tahmini zirveden önce',
-  'Przejdź do Stolnicy': 'Tezgâh\'a Git',
   'Przekwaszenie / Przerośnięcie': 'Aşırı ekşime / Aşırı mayalanma',
   'Przelicznik objętości': 'Hacim dönüştürücü',
   'Przełącz zakwas': 'Ekşi mayayı değiştir',

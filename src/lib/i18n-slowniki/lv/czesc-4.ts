@@ -87,7 +87,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'tikko',
   'przed nami': 'priekšā',
   'Przed szacowanym szczytem': 'Pirms aplēstā maksimuma',
-  'Przejdź do Stolnicy': 'Pāriet uz Darba galdu',
   'Przekwaszenie / Przerośnięcie': 'Pārskābšana / Pārraudzēšana',
   'Przelicznik objętości': 'Tilpuma pārveidotājs',
   'Przełącz zakwas': 'Pārslēgt ieraugu',

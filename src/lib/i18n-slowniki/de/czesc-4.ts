@@ -88,7 +88,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'gerade eben',
   'przed nami': 'steht bevor',
   'Przed szacowanym szczytem': 'Vor dem geschätzten Höhepunkt',
-  'Przejdź do Stolnicy': 'Zum Backbrett',
   'Przekwaszenie / Przerośnięcie': 'Übersäuert / Übergare',
   'Przelicznik objętości': 'Volumenumrechner',
   'Przełącz zakwas': 'Sauerteig wechseln',

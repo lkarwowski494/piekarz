@@ -95,7 +95,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'ką tik',
   'przed nami': 'dar laukia',
   'Przed szacowanym szczytem': 'Prieš numatomą piką',
-  'Przejdź do Stolnicy': 'Eiti į Darbastalį',
   'Przekwaszenie / Przerośnięcie': 'Perrūgimas / Perkilimas',
   'Przelicznik objętości': 'Tūrio keitiklis',
   'Przełącz zakwas': 'Perjungti raugą',

@@ -82,7 +82,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'baru saja',
   'przed nami': 'berikutnya',
   'Przed szacowanym szczytem': 'Sebelum perkiraan puncak',
-  'Przejdź do Stolnicy': 'Buka Meja Kerja',
   'Przekwaszenie / Przerośnięcie': 'Terlalu asam / Terlalu mengembang',
   'Przelicznik objętości': 'Konverter volume',
   'Przełącz zakwas': 'Ganti starter',

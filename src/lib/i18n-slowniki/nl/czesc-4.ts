@@ -75,7 +75,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'zojuist',
   'przed nami': 'nog te gaan',
   'Przed szacowanym szczytem': 'Vóór de geschatte piek',
-  'Przejdź do Stolnicy': 'Naar Werkbank',
   'Przekwaszenie / Przerośnięcie': 'Overzuur / overgerezen',
   'Przelicznik objętości': 'Volumeconverter',
   'Przełącz zakwas': 'Zuurdesemstarter wisselen',

@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'chiar acum',
   'przed nami': 'urmează',
   'Przed szacowanym szczytem': 'Înainte de vârful estimat',
-  'Przejdź do Stolnicy': 'Mergi la Blatul de lucru',
   'Przekwaszenie / Przerośnięcie': 'Acrire excesivă / Supradospire',
   'Przelicznik objętości': 'Convertor de volum',
   'Przełącz zakwas': 'Schimbă maia',

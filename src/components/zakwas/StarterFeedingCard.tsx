@@ -160,7 +160,7 @@ export function StarterFeedingCard({
         onPress={onCopyFeeding}
       >
         <Text style={styles.copyFeedingBtnText}>
-          {t('Kopiuj dokarmienie')}
+          {t('Kopiuj jako tekst')}
         </Text>
       </Pressable>
 

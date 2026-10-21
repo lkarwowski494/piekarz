@@ -99,7 +99,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'agora mesmo',
   'przed nami': 'pela frente',
   'Przed szacowanym szczytem': 'Antes do pico estimado',
-  'Przejdź do Stolnicy': 'Ir para a Bancada',
   'Przekwaszenie / Przerośnięcie': 'Acidificação excessiva / Sobrefermentação',
   'Przelicznik objętości': 'Conversor de volume',
   'Przełącz zakwas': 'Trocar fermento natural',

@@ -101,6 +101,10 @@ const ZNIKAJA = [
   'Pora nakarmić zakwas',
   'Zaczyny rzemieślnicze',
   '{nazwa}, gotowy {dzien} o {godzina}',
+  // [M1-audytor-generalny-089]: „Kopiuj jako tekst” i „Wróć do wypieku” ze słownika §5
+  'Kopiuj diagnozę',
+  'Kopiuj dokarmienie',
+  'Przejdź do Stolnicy',
 ];
 
 /** Miejsca, których po D-051 2a nie ma („Kalkulator” → Receptury, „Harmonogram” → Plan wypieku), w odmianach nazwy miejsca. */
@@ -145,6 +149,17 @@ describe('089: słownik akcji', () => {
     // Zaczyn wybiera się w arkuszu „Składniki” (§11c 106), nie w dawnej sekcji „Zaczyny” akordeonu [M1-audytor-generalny-149]
     expect(EN['Zaczyn']).toBe('Preferment');
     expect(uzycia('Zaczyn')).toContain('src/components/receptury/SkladnikiSheet.tsx');
+  });
+
+  // Test odwrotny: każda etykieta akcji w kodzie (klucz t() zaczynający się czasownikiem akcji) jest w tabeli §5,
+  // więc nowa akcja wymaga wpisu w słowniku przed wdrożeniem [M1-audytor-generalny-089; 04-studio-projektowe-017]
+  it('M1-audytor-generalny-089: każda akcja z kodu (czasownik na początku klucza t()) jest w słowniku §5', () => {
+    const spec = fs.readFileSync(path.join(rootDir, 'docs/design/design-spec.md'), 'utf8');
+    const s5 = spec.slice(spec.indexOf('## 5. Słownik interakcji'), spec.indexOf('## 6. Macierz stanów'));
+    const CZASOWNIK = /^(Kopiuj|Przejdź|Aktywuj|Zastosuj|Załaduj|Rozpocznij|Uruchom|Eksportuj|Importuj|Udostępnij|Przywróć|Otwórz)\b/;
+    // Etykiety akcji, nie zdania (zdanie kończy się kropką, np. opis sekcji eksportu)
+    const poza = kluczeWKodzie.filter((k) => CZASOWNIK.test(k) && !/\.$/.test(k) && !s5.includes(k));
+    expect(poza).toEqual([]);
   });
 
   it('kontrola wzorca 089: nazwy dawnych miejsc w odmianie są wykrywane, inne słowa nie', () => {

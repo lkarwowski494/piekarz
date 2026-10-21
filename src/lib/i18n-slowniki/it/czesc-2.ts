@@ -170,8 +170,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': 'Backup da file',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'Backup: {receptury}, {zakwasy}, {wpisy}.',
   'Kopiuj adres': 'Copia indirizzo',
-  'Kopiuj diagnozę': 'Copia diagnosi',
-  'Kopiuj dokarmienie': 'Copia rinfresco',
   'Kopiuj harmonogram': 'Copia programma',
   'Kopiuj jako tekst': 'Copia come testo',
   'Koszt całego wypieku': 'Costo dell\'intera sfornata',

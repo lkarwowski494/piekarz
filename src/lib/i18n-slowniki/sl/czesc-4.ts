@@ -66,7 +66,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'pravkar',
   'przed nami': 'še pred nami',
   'Przed szacowanym szczytem': 'Pred ocenjenim vrhom',
-  'Przejdź do Stolnicy': 'Pojdi na Delovni pult',
   'Przekwaszenie / Przerośnięcie': 'Prekisanost / prevzhajanje',
   'Przelicznik objętości': 'Pretvornik prostornine',
   'Przełącz zakwas': 'Zamenjaj kvas',

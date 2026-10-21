@@ -118,7 +118,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'vừa xong',
   'przed nami': 'sắp tới',
   'Przed szacowanym szczytem': 'Trước đỉnh ước tính',
-  'Przejdź do Stolnicy': 'Đến Bàn làm bánh',
   'Przekwaszenie / Przerośnięcie': 'Quá chua / Ủ quá nở',
   'Przelicznik objętości': 'Chuyển đổi thể tích',
   'Przełącz zakwas': 'Đổi men tự nhiên',

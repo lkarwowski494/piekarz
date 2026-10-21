@@ -170,8 +170,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': '파일 백업',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': '백업: {receptury}, {zakwasy}, {wpisy}.',
   'Kopiuj adres': '주소 복사',
-  'Kopiuj diagnozę': '진단 복사',
-  'Kopiuj dokarmienie': '먹이 주기 복사',
   'Kopiuj harmonogram': '일정 복사',
   'Kopiuj jako tekst': '텍스트로 복사',
   'Koszt całego wypieku': '전체 베이킹 비용',

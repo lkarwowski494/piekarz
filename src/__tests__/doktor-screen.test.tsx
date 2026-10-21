@@ -113,7 +113,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     expect(allText).toContain('Gumowaty, lepki miękisz');
 
     // Navigation button to Stolnica
-    const navBtn = findButtonByText(root, 'Przejdź do Stolnicy');
+    const navBtn = findButtonByText(root, 'Wróć do wypieku');
     expect(navBtn).toBeDefined();
 
     await act(async () => {

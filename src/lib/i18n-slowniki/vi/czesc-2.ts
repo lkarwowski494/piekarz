@@ -175,8 +175,6 @@ export const CZESC: Record<string, string> = {
   'Kopia zapasowa z pliku': 'Sao lưu từ tệp',
   'Kopia: {receptury}, {zakwasy}, {wpisy}.': 'Bản sao lưu: {receptury}, {zakwasy}, {wpisy}.',
   'Kopiuj adres': 'Sao chép địa chỉ',
-  'Kopiuj diagnozę': 'Sao chép chẩn đoán',
-  'Kopiuj dokarmienie': 'Sao chép lần cho men ăn',
   'Kopiuj harmonogram': 'Sao chép lịch trình',
   'Kopiuj jako tekst': 'Sao chép dạng văn bản',
   'Koszt całego wypieku': 'Chi phí cả mẻ bánh',
