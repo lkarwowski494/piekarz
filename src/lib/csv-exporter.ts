@@ -7,6 +7,7 @@
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { StoredBakeLog, StoredFlourInventoryItem } from '../data/db';
+import { nazwaReceptury } from './nazwa-receptury';
 
 /**
  * RD-ENG-10 & NFR-SEC-015: Zabezpiecza wartość przed CSV Formula Injection i formatuje do RFC 4180
@@ -56,7 +57,8 @@ export function exportBakeLogsCsv(logs: StoredBakeLog[]): string {
     escapeCsvValue(log.id),
     escapeCsvValue(new Date(log.startedAt).toISOString()),
     escapeCsvValue(log.finishedAt ? new Date(log.finishedAt).toISOString() : ''),
-    escapeCsvValue(log.recipeName),
+    // Nazwa receptury bazowej w języku aplikacji, jak w Dzienniku; własna dosłownie [audyt-niezalezny F-9]
+    escapeCsvValue(nazwaReceptury(log.recipeName)),
     escapeCsvValue(log.actualDDT ?? ''),
     escapeCsvValue(log.ambientTemp ?? ''),
     escapeCsvValue(log.ratingStars ?? ''),
