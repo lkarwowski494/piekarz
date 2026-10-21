@@ -131,7 +131,7 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     const t = teksty(tree.root);
     expect(t).not.toContain('Okres próbny się skończył');
     expect(t).toContain('Piekarz Pro nie jest aktywny');
-    expect(EN['Piekarz Pro nie jest aktywny']).toBe("Piekarz Pro isn't active");
+    expect(EN['Piekarz Pro nie jest aktywny']).toBe("Baker Pro isn't active"); // D-053, D-063
     act(() => tree.unmount());
   });
 
