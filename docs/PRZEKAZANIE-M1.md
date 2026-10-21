@@ -9,7 +9,7 @@ Ten dokument pozwala kontynuować pracę z innego konta Claude albo na innym kom
 - Wstępne wyniki reaudytu:
   - rola 09: regresja P1 w 093, czyli przeliczanie imperialne po przekładzie (różnica 10 °C pokazuje się jako 50 °F; w ru, uk, bg gramy nie są przeliczane). Zadania 071, 074 i 096 są nadal otwarte;
   - rola 11: 082 otwarte, 1 nowe P1 i 3 P2.
-- Do `master` **nic nie jest scalone**. Scalenie wymaga decyzji właściciela po reaudycie.
+- **`master` = e544eec** (2026-10-21, decyzja właściciela: „ok, działaj”). Fast-forward z ebd8471 o 305 commitów. Tagi: `przed-scaleniem-2026-10-21` (ebd8471, punkt powrotu) i `reaudyt-petla1-zablokowane` (e544eec, znane regresje, wersja niewydawalna). **Kolejne partie zaczynają się od `master`.**
 
 ## 2. Gałęzie (wszystkie wypchnięte do `origin`)
 
@@ -65,8 +65,8 @@ Na innym komputerze trzeba te katalogi skopiować ręcznie (np. zip przez dysk p
 ## 6. Kolejne kroki
 
 1. **STOP 2 reaudytu:** pokaż właścicielowi werdykt, regresje i decyzje z raportu reaudytu, a potem zapisz jego wybory w `plan-napraw.json`.
-2. **Partia 8** (M2, od czubka p7) na zadania otwarte i regresje, które wybierze właściciel. Polecenie: `node <prompts>/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`. Potem reaudyt w pętli 2.
-3. **Scalenie łańcucha z `master`.** Przy tym jawnie przenumerować kolidujące numery decyzji (`docs/decyzje.md` D-035+ wobec `docs/DECISIONS.md`).
+2. **Partia 8** (M2, od `master` = e544eec; przy okazji uporządkować kolizje numerów decyzji D-035+ wobec `docs/DECISIONS.md`) na zadania otwarte i regresje, które wybierze właściciel. Polecenie: `node <prompts>/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`. Potem reaudyt w pętli 2.
+3. **Scalenie zrobione 2026-10-21** (punkt 1 wyżej). Po partii 8 i reaudycie pętli 2 bez blokad: ochrona `master` (064) i dopiero wtedy build do wydania.
 4. **Na koniec:** nazwa D-053 na apps4brew.com.
 5. **Kroki właściciela:** testy na iPhonie, App Store Connect według `docs/wydanie/instrukcja-ustawien.md`, eksport TestFlight (066), ochrona `master` (064).
 
@@ -76,7 +76,7 @@ Na innym komputerze trzeba te katalogi skopiować ręcznie (np. zip przez dysk p
 Kontynuujesz pracę M1 (Audytor Generalny) nad aplikacją Piekarz. Przeczytaj CAŁY plik docs/PRZEKAZANIE-M1.md z gałęzi przekazanie/m1-2026-10-21
 (git fetch origin && git show origin/przekazanie/m1-2026-10-21:docs/PRZEKAZANIE-M1.md) i stosuj zasady z sekcji 5.
 Katalog audytu K: C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19 (jeśli go nie ma — zatrzymaj się i poproś mnie o skopiowanie).
-Najpierw sprawdź stan: git checkout naprawy/M2-koordynator-napraw-2026-10-19-p7 (czubek e544eec lub nowszy), node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json,
+Najpierw sprawdź stan: git checkout master (e544eec lub nowszy; to cały łańcuch p1–p7), node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json,
 Reaudyt pętli 1 jest gotowy: K/M1-audytor-generalny-reaudit-2026-10-21.md (werdykt: do korekty, ZABLOKOWANE; 179 zadań w planie).
 Przeczytaj go całego i pokaż mi STOP 2: regresje, blokery wydania, decyzje do podjęcia z opcjami i rekomendacją, oraz propozycję partii 8.
 Po moich decyzjach zapisz je w plan-napraw.json (sprawdz-plan kod 0) i złóż polecenie partii 8 (sekcja 6).
