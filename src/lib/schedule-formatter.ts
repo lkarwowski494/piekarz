@@ -98,7 +98,8 @@ export function formatScheduleToText(
   });
 
   lines.push('');
-  lines.push('— Apps4Craft Studio • Piekarz');
+  // Stopka marką aplikacji w języku (PL „Piekarz”, EN „Baker”), bez marki studia i bez „•” (§12a) [M2-koordynator-napraw-401 (p12b)]
+  lines.push(`— ${t('Piekarz')}`);
   return lines.join('\n');
 }
 

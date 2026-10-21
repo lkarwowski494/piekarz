@@ -102,7 +102,8 @@ describe('Schedule Formatter & Clipboard Specification (lib/schedule-formatter)'
       expect(formatted).toContain('14 h');
       expect(formatted).toContain('1. 11:00 (Dziś) — Dokarmienie zakwasu (5 h)');
       expect(formatted).toContain('2. 11:15 (Jutro) — Wypiek z parą (45 min)');
-      expect(formatted).toContain('Apps4Craft Studio');
+      // Stopka marką aplikacji, bez marki studia i „•” [M2-koordynator-napraw-401 (p12b)]
+      expect(formatted.split('\n').pop()).toBe('— Piekarz');
     });
 
     it('includes sleep collision alert when collision is detected', () => {
