@@ -25,6 +25,11 @@
       "klucz": "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
       "powod": "porada przy hydratacji poniżej zakresu warunkowa, bo próg MAK-HYD-900 nie ma źródła (M1-audytor-generalny-210); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Drożdże świeże (prasowane)",
+      "powod": "wiersz drożdży zaczynu nazywa rodzaj drożdży z ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002 (BBGA: drożdże świeże prasowane); klucz istniał w EN, w 33 językach był na liście PÓŹNIEJ (M1-audytor-generalny-207); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

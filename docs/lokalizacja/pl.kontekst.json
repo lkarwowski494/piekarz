@@ -1242,8 +1242,9 @@
   },
   "Drożdże świeże (prasowane)": {
     "gdzie": [
-      "src/core/volume-converter.ts (dane: namePl)"
-    ]
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ],
+    "opis": "Drożdże świeże prasowane (kostka; compressed/cake yeast), nie suche ani instant. Etykieta wiersza drożdży zaczynu w karcie „Do miski” (ilość z formuł BBGA dla drożdży świeżych, ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002) i nazwa składnika w przeliczniku objętości [M1-audytor-generalny-207]."
   },
   "Drożdżowe": {
     "gdzie": [
