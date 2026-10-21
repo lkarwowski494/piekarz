@@ -46,7 +46,8 @@ describe('Piekarz „Doktor Chleba” Diagnostics Engine (BR-DIAG-001…004)', (
 
     expect(result.defectCode).toBe('EXCESSIVELY_SOUR');
     expect(result.titlePl).toContain('Zbyt kwaśny');
-    expect(result.biologicalCausePl).toContain('Acetobacter');
+    expect(result.biologicalCausePl).toContain('niedokarmionym zakwasem');
+    expect(result.biologicalCausePl).not.toContain('Acetobacter'); // brak twierdzenia [M1-audytor-generalny-163]
     // oczekiwany tekst z docs/tresci/pl/doktor-chleba.md [M1-audytor-generalny-133]
     expect(result.actionChecklistPl.some((a) => a.includes('Dokarmiaj zakwas częściej'))).toBe(true);
   });

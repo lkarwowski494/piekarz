@@ -651,11 +651,6 @@
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
     ]
   },
-  "Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: kod)"
-    ]
-  },
   "Ciasto już fermentuje, a odważona sól została na blacie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
@@ -664,6 +659,11 @@
   "Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: tipPl)"
+    ]
+  },
+  "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.": {
+    "gdzie": [
+      "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
   "Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.": {
@@ -1228,8 +1228,9 @@
   },
   "Drożdże świeże (prasowane)": {
     "gdzie": [
-      "src/core/volume-converter.ts (dane: namePl)"
-    ]
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ],
+    "opis": "Drożdże świeże prasowane (kostka; compressed/cake yeast), nie suche ani instant. Etykieta wiersza drożdży zaczynu w karcie „Do miski” (ilość z formuł BBGA dla drożdży świeżych, ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002) i nazwa składnika w przeliczniku objętości [M1-audytor-generalny-207]."
   },
   "Drożdżowe": {
     "gdzie": [
@@ -1743,10 +1744,11 @@
       "src/core/flour-atlas.ts (dane: descriptionPl)"
     ]
   },
-  "Gumowaty (Gorący nóż)": {
+  "Gumowaty (Krojony na gorąco)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
-    ]
+    ],
+    "opis": "Doktor Chleba, przycisk szybkiego wyboru objawu: nazwa objawu i w nawiasie przyczyna — miękisz gumowaty, bo chleb pokrojono, zanim ostygł (KRO-POC-015). Nie „gorący nóż” i nie zalecenie. Krótko jak sąsiednie przyciski, wielka litera w nawiasie [M1-audytor-generalny-148]."
   },
   "Gumowaty, lepki miękisz": {
     "gdzie": [
@@ -2366,6 +2368,11 @@
       "src/components/stolnica/FinishBakeModal.tsx (sour)"
     ]
   },
+  "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.": {
+    "gdzie": [
+      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
   "Kładź placek na suchą patelnię. Smaż ok. 1,5–2 minuty, aż powstaną wielkie bąble i przypalenia, obróć i smaż jeszcze 1 minutę.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
@@ -2697,12 +2704,6 @@
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
-  "Mąka Manitoba / Forte (W > 350)": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)",
-      "src/data/sqlite-schema.ts (dane: name)"
-    ]
-  },
   "Mąka cukiernicza / tortowa (bielona)": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: namePl)"
@@ -2739,14 +2740,14 @@
   },
   "Mąka orkiszowa": {
     "gdzie": [
-      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
+      "src/core/flour-atlas.ts (dane: namePl)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
   "Mąka orkiszowa jasna typ 630": {
     "gdzie": [
       "src/core/domain-rules.ts (dane: name)",
-      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -2785,7 +2786,8 @@
   },
   "Mąka pszenna Manitoba": {
     "gdzie": [
-      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
+      "src/core/flour-atlas.ts (dane: namePl)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },
@@ -2915,7 +2917,7 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
-  "Mąka pszenna typ 500 (Wrocławska / Poznańska)": {
+  "Mąka pszenna typ 500 (Wrocławska)": {
     "gdzie": [
       "src/core/flour-atlas.ts (dane: namePl)"
     ]
@@ -3048,7 +3050,6 @@
   },
   "Mąka żytnia chlebowa typ 720": {
     "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -3079,6 +3080,7 @@
     "gdzie": [
       "app/(tabs)/receptury/receptura.tsx (dane: name)",
       "src/core/domain-rules.ts (dane: name)",
+      "src/core/flour-atlas.ts (dane: namePl)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -4245,11 +4247,11 @@
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
-  "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
+  "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ],
-    "opis": "Rada Doktora Chleba (treść roli 06, twierdzenie DIA-DDT-001): przed dwukropkiem akcja w aplikacji (arkusz „Temperatura wody” na ekranie receptury), po dwukropku fakt ze źródłem z atrybucją. Liczby i °C bez zmian; w trybie imperialnym aplikacja przelicza na °F. [M1-audytor-generalny-113]"
+    "opis": "Rada Doktora Chleba (treść roli 06, twierdzenie DIA-DDT-001): przed dwukropkiem akcja w aplikacji (arkusz „Temperatura wody” na ekranie receptury), po dwukropku fakt ze źródłem z atrybucją. Zakres 24–25,5 °C, żeby w trybie imperialnym aplikacja pokazała ok. 75–78 °F jak źródło; w trybie imperialnym aplikacja przelicza na °F. [M1-audytor-generalny-113, M1-audytor-generalny-208]"
   },
   "Polityka prywatności": {
     "gdzie": [
@@ -4582,11 +4584,6 @@
   "Przetwarzanie...": {
     "gdzie": [
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
-    ]
-  },
-  "Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.": {
-    "gdzie": [
-      "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
   "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).": {
@@ -5131,7 +5128,7 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
-  "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.": {
+  "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]

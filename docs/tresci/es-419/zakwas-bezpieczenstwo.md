@@ -31,13 +31,18 @@ Olor desagradable, a podrido [T:-]
 Desecha la masa madre [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-No uses esta masa madre ni intentes salvarla. El moho puede extenderse hacia el interior de la masa madre, aunque en la superficie solo se vea una pequeña película. No huelas una masa madre con película, porque puede provocar problemas respiratorios. Antes de empezar una nueva masa madre, lava y enjuaga bien el frasco. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+No uses esta masa madre ni intentes salvarla. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+El moho puede extenderse hacia el interior de la masa madre, aunque en la superficie solo se vea una pequeña película. [T:ZAK-PLE-003]
+No huelas una masa madre con película, porque puede provocar problemas respiratorios. [T:ZAK-WAC-001]
+Antes de empezar una nueva masa madre, lava y enjuaga bien el frasco. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Líquido en la superficie (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Según CSU Extension, una capa de líquido con olor a alcohol está bien: es un subproducto de la fermentación de las levaduras. Puedes escurrirla o mezclarla. Si además ves una película o un cambio de color, o percibes olor a podrido, márcalo arriba. [T:ZAK-HOO-001,-]
+Según CSU Extension, una capa de líquido con olor a alcohol está bien: es un subproducto de la fermentación de las levaduras. [T:ZAK-HOO-001]
+Puedes escurrirla o mezclarla. [T:ZAK-HOO-001]
+Si además ves una película o un cambio de color, o percibes olor a podrido, márcalo arriba. [T:-]
 
 ## wynik.no_observation.titlePl
 No marcaste ningún síntoma [T:-]

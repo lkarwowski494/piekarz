@@ -722,7 +722,7 @@
     "twierdzenie": "Zmniejszona ilość zakwasu (15%) i wydłużona fermentacja w chłodzie sprzyjają namnażaniu bakterii octowych (src/recipes/presets.ts, preset San Francisco).",
     "zrodla": [],
     "status": "wycofane",
-    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) wiąże niższą temperaturę z kwasem octowym (KWA-TEM-001), nie z namnażaniem bakterii octowych; kwas octowy wytwarzają też heterofermentatywne bakterie mlekowe. Mniejsza ilość zakwasu: źródło mówi odwrotnie o kwasowości („using more starter in a bread recipe can yield more acidic bread doughs”), więc związek z ilością zakwasu usunięty.",
+    "uwagi": "CZĘŚCIOWO: Calvert (szczebel 2) wiąże niższą temperaturę z kwasem octowym (KWA-TEM-001), nie z namnażaniem bakterii octowych; kwas octowy wytwarzają też heterofermentatywne bakterie mlekowe. Mniejsza ilość zakwasu: źródło mówi odwrotnie o kwasowości („using more starter in a bread recipe can yield more acidic bread doughs”), więc związek z ilością zakwasu usunięty. 2026-10-21 (M1-audytor-generalny-163, 06-tresci-505): z przyczyny Doktora EXCESSIVELY_SOUR usunięte zdanie o przewadze bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym — rejestr nie ma takiego twierdzenia, kwas octowy w zakwasie opisuje KWA-HYD-001 (szczepy heterofermentatywne bakterii mlekowych).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
@@ -1173,7 +1173,7 @@
     "twierdzenie": "W obrocie jest mąka orkiszowa typ 630.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Podzielone 2026-10-21 (M1-audytor-generalny-165, 06-tresci-509, rola 06 fix p10a). Brzmienie do 2026-10-20: „W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.” Części: pszenna 1050 → MAK-TYP-006 (potwierdzone), orkiszowa 2000 → MAK-TYP-007 (potwierdzone), „720 = chlebowa” → MAK-TYP-903 (otwarte); to ID zostaje przy orkiszowej 630. Szukane 2026-10-21: źródło szczebla 1–3 z orkiszową typ 630 — nie znalazłem (wyniki to sklepy i bazy kalorii, szczebel 5); Sujka i Koczoń 2017 badają orkiszową typ 1100 i 2000, nie 630. Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej).",
+    "uwagi": "[DO USTALENIA] Podzielone 2026-10-21 (M1-audytor-generalny-165, 06-tresci-509, rola 06 fix p10a). Brzmienie do 2026-10-20: „W obrocie są mąka pszenna typ 1050 oraz mąki orkiszowe typ 630 i 2000; mąka żytnia typ 720 to mąka „chlebowa”.” Części: pszenna 1050 → MAK-TYP-006 (potwierdzone), orkiszowa 2000 → MAK-TYP-007 (potwierdzone), „720 = chlebowa” → MAK-TYP-903 (otwarte); to ID zostaje przy orkiszowej 630. Szukane 2026-10-21: źródło szczebla 1–3 z orkiszową typ 630 — nie znalazłem (wyniki to sklepy i bazy kalorii, szczebel 5); Sujka i Koczoń 2017 badają orkiszową typ 1100 i 2000, nie 630. Mąka Manitoba nie jest polskim typem (brak numeru typu w nazwie handlowej). 2026-10-21 (M1-audytor-generalny-091): nazwa PL profilu spelt_630 bez typu 630 — „Mąka orkiszowa”, jak nazwa ogólna; w nazwie mąki receptur bazowych typ 630 zostaje (dane, znalezisko M2 toru p12b2).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1221,7 +1221,7 @@
     "twierdzenie": "Mąka żytnia typ 720 to mąka „chlebowa”.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902, wydzielona 2026-10-21. Szukane 2026-10-21: Ostasiewicz i in., ŻNTJ 2009 (wydawnictwo.pttz.org, 06_Ostasiewicz.pdf, tekst przeczytany) używa „mąki żytniej typu 720” do pieczywa, ale nie nazywa jej „chlebową”; Stolarska i in. 2010 nazywa „chlebową” pszenną typ 750, nie żytnią 720. Źródła szczebla 1–3 nie znalazłem; nazwa „chlebowa” w profilu rye_720 (src/core/flour-atlas.ts) bez podstawy.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-165 (06-tresci-509): część MAK-TYP-902, wydzielona 2026-10-21. Szukane 2026-10-21: Ostasiewicz i in., ŻNTJ 2009 (wydawnictwo.pttz.org, 06_Ostasiewicz.pdf, tekst przeczytany) używa „mąki żytniej typu 720” do pieczywa, ale nie nazywa jej „chlebową”; Stolarska i in. 2010 nazywa „chlebową” pszenną typ 750, nie żytnią 720. Źródła szczebla 1–3 nie znalazłem; nazwa „chlebowa” w profilu rye_720 (src/core/flour-atlas.ts) bez podstawy. 2026-10-21 (M1-audytor-generalny-091): profil rye_720 w atlasie PL bez „chlebowa” — „Mąka żytnia typ 720”; w nazwie mąki receptury bazowej słowo zostaje (dane, znalezisko M2 toru p12b2).",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1241,7 +1241,7 @@
     "twierdzenie": "Zakres zawartości białka (% s.m.) dla każdego profilu atlasu mąk (polskie typy pszenne, żytnie i orkiszowe oraz Manitoba), do opisu ogólnego bez numeru typu.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): białko mają twierdzenia MAK-OGL-002, MAK-OGL-003, MAK-OGL-006 dla 13 profili. Bez przeczytanego źródła zostają: wheat_1850 (typ 1850), wheat_manitoba, rye_500, spelt_630 — dla nich opisPl pusty i nazwa bez białka. Szukane: czasopisma ZNTJ, PTPS, Acta Agrophysica, PMC; tabela białka typów w normach (płatnych) też nie występuje. Pola proteinPercent w src/core/flour-atlas.ts nadal bez źródła (06-tresci-fix-p4-002), poza zakresem 094.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): białko mają twierdzenia MAK-OGL-002, MAK-OGL-003, MAK-OGL-006 dla 13 profili. Bez przeczytanego źródła zostają: wheat_1850 (typ 1850), wheat_manitoba, rye_500, spelt_630 — dla nich opisPl pusty i nazwa bez białka. Szukane: czasopisma ZNTJ, PTPS, Acta Agrophysica, PMC; tabela białka typów w normach (płatnych) też nie występuje. Pola proteinPercent w src/core/flour-atlas.ts nadal bez źródła (06-tresci-fix-p4-002), poza zakresem 094. 2026-10-21 (M1-audytor-generalny-209, 06-tresci-605): siły mąki W żadne przeczytane źródło nie podaje, więc nazwa PL profilu wheat_manitoba bez „(W > 350)” i bez „Forte” — „Mąka pszenna Manitoba”, jak nazwa ogólna. Ta sama liczba zostaje w nazwie mąki receptury bazowej i w danych spiżarni (dane, nie atlas): znalezisko M2 w raporcie toru p12b2.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
@@ -1348,6 +1348,26 @@
     "jedno_zrodlo": true,
     "uproszczenie": "Źródło podaje tylko górną granicę, bez dolnej i bez numeru normy ani bazy (sucha masa czy masa produktu). Szczebel 3 jak MAK-OGL-006: czasopismo uczelni, recenzji nie sprawdziłem.",
     "uwagi": "M1-audytor-generalny-165 (06-tresci-508): dowód sprzeczności z wierszem 650 w MAK-OGL-004, dlatego ten wiersz pominięty trwale. Nie trafia do opisów profili (granica bez dolnej wartości i bez tekstu normy).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "MAK-NAZ-001",
+    "twierdzenie": "Według Stolarskiej i in. (2010) mąki pszenne typów 450, 500, 550, 650 i 750 to w Polsce odpowiednio mąka tortowa, wrocławska, luksusowa, bułkowa i chlebowa.",
+    "zrodla": [
+      {
+        "adres": "https://zut.edu.pl/fileadmin/pliki/wydawnictwo/Folia/Agricultura/278/Stolarska.pdf",
+        "miejsce": "Stolarska A., Gregorczyk A., Przybulewska K., Podlasińska J., „Ocena zawartości metali ciężkich oraz cech jakościowych ziarna pszenicy”, Folia Pomeranae Universitatis Technologiae Stetinensis, Agric., Aliment., Pisc., Zootech. 2010, 278(14), 75–80, s. 76, „Materiał i metody” i „Wyniki i dyskusja”; PDF pobrany ponownie 2026-10-21 (SHA-256 A5041D3E… równy kopii fix-2026-10-21-p10a), tekst: audit/M1-2026-10-19/M1-2026-10-19/role/06-tresci/fix-2026-10-21-p10a/dowody/zrodla/zut-stolarska.txt",
+        "cytat": "mąka tortowa typu 450 – 0,48%, mąka wrocławska 500 – 0,53%, mąka luksusowa 550 – 0,58%, bułkowa 650 – 0,68%, chlebowa 750 – 0,78%",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Nazwy handlowe z jednego źródła (szczebel 3 jak MAK-OGL-008: czasopismo uczelni, recenzji nie sprawdziłem); dla typów 450, 550 i 1850 nazwy potwierdza też Szafrańska 2018 (MAK-TYP-004: „450 Tortowa”, „450 Krupczatka”, „550 Luksusowa”, „1850 Graham”). Nazwy „poznańska” (500) i „chlebowa” dla żytniej 720 (MAK-TYP-903) żadne przeczytane źródło nie podaje.",
+    "uwagi": "M1-audytor-generalny-091 (reaudit pętli 2): nazwy profili atlasu PL w src/core/flour-atlas.ts — wheat_450 „(Tortowa)”, wheat_500 „(Wrocławska)” bez „Poznańska”, wheat_550 „(Luksusowa)”, wheat_650 „(Bułkowa)”, wheat_750 „chlebowa”; rye_720 bez „chlebowa”, spelt_630 bez typu 630 (MAK-TYP-902 otwarte). Lista w docs/tresci/pl|en/maki-typy.md, sekcja „nazwy handlowe w atlasie PL”.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-21"
@@ -2455,7 +2475,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Wartość z przykładowych formuł, nie reguła: źródło mówi, że procent drożdży w poolish dobiera piekarz do czasu dojrzewania (ZAC-POO-001). Rodzaju drożdży (świeże prasowane) aplikacja przy tej ilości nie podaje: znalezisko w wyniku p9a.",
+    "uproszczenie": "Wartość z przykładowych formuł, nie reguła: źródło mówi, że procent drożdży w poolish dobiera piekarz do czasu dojrzewania (ZAC-POO-001). Rodzaj drożdży (świeże prasowane) aplikacja podaje w nazwie wiersza drożdży zaczynu w „Do miski” (M1-audytor-generalny-207, 2026-10-21).",
     "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): yeastPctOfPrefermentFlour poolish = 0,1 w src/core/preferments.ts (gramy drożdży w „Do miski”).",
     "krytyczne": false,
     "przeglad": null,
@@ -2499,7 +2519,7 @@
     "status": "potwierdzone",
     "jedno_zrodlo": true,
     "uproszczenie": "Rachunek: (60 − 32) × 5/9 = 15,56 °C, w tekście ok. 15,6 °C (w trybie imperialnym aplikacja przelicza z powrotem na 60 °F, dlatego tekst bez °F). Definicja jednego źródła: King Arthur Baking (S-36) opisuje bigę szerzej — sztywną albo luźną (100%), z drożdżami nawet od 0,1% mąki, dojrzewającą od kilku do 12–16 godzin; biga aplikacji (50%, 1%) odpowiada definicji BBGA, więc czas z tego samego źródła. Atrybucja w treści.",
-    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): namePl biga („50%”), fermentationTimeHours w miejsce „16–24h w 16–18°C (lub 24–48h w lodówce)” (ZAC-BIG-900), yeastPctOfPrefermentFlour 1,0 i hydratacja RD-26-W2. Rodzaj drożdży (świeże) aplikacja przy tej ilości nie podaje: znalezisko w wyniku p9a.",
+    "uwagi": "M1-audytor-generalny-131 (01-odkrywanie-502): namePl biga („50%”), fermentationTimeHours w miejsce „16–24h w 16–18°C (lub 24–48h w lodówce)” (ZAC-BIG-900), yeastPctOfPrefermentFlour 1,0 i hydratacja RD-26-W2. Rodzaj drożdży (świeże prasowane) aplikacja podaje w nazwie wiersza drożdży zaczynu w „Do miski” (M1-audytor-generalny-207, 2026-10-21).",
     "krytyczne": false,
     "przeglad": null,
     "wielkosc": "hydratacja_biga",
@@ -2541,7 +2561,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Wartości z przykładowej formuły, nie reguła: według BBGA pâte fermentée może być dowolnym ciastem (ZAC-PAT-001). Wybór właściciela 2026-10-21 (M2 p9a): parametry obliczeń z przykładu BBGA zamiast wartości bez źródła.",
+    "uproszczenie": "Wartości z przykładowej formuły, nie reguła: według BBGA pâte fermentée może być dowolnym ciastem (ZAC-PAT-001). Wybór właściciela 2026-10-21 (M2 p9a): parametry obliczeń z przykładu BBGA zamiast wartości bez źródła. Zakres przykładu (odczyt 2026-10-21, diagram 4, kolumna „WW & Rye Pâte Fermentée”: Whole Wheat Flour 60.00%, Rye Flour 40.00%, Water 75.00%): pâte fermentée z mąki pełnoziarnistej 60% i żytniej 40%, a aplikacja stosuje 75% wody do pâte fermentée z każdej mąki receptury. Kierunek różnicy dla mąki jasnej (wniosek z pary twierdzeń, bez liczby): według MAK-HYD-001 mąki pełnoziarniste chłoną więcej wody, a ciasto o wysokiej hydratacji jest luźne, więc z mąki jasnej ta sama hydratacja 75% da zwykle ciasto luźniejsze niż w przykładzie BBGA. Decyzja D-060 bez zmian (M1-audytor-generalny-206, 06-tresci-602).",
     "uwagi": "M1-audytor-generalny-131: defaultHydration 75, yeastPctOfPrefermentFlour 1, saltPctOfPrefermentFlour 2 w src/core/preferments.ts (gramy w „Do miski”). Zastępuje ZAC-PAT-900.",
     "krytyczne": false,
     "przeglad": null,
@@ -2632,7 +2652,7 @@
   },
   {
     "id": "DIA-DDT-001",
-    "twierdzenie": "Według King Arthur Baking ciasto pszenne powinno mieć na koniec mieszania 75–78 °F (rachunek: ok. 24–26 °C); wyjątkiem są chleby na zakwasie fermentowane w chłodni (nieco niżej) i chleby na zakwasie z dużym udziałem mąki żytniej (wyżej).",
+    "twierdzenie": "Według King Arthur Baking ciasto pszenne powinno mieć na koniec mieszania 75–78 °F (rachunek: 23,9–25,6 °C; w tekście ok. 24–25,5 °C); wyjątkiem są chleby na zakwasie fermentowane w chłodni (nieco niżej) i chleby na zakwasie z dużym udziałem mąki żytniej (wyżej).",
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/pro/reference/dough-temperature",
@@ -2644,7 +2664,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek: (75 − 32) × 5/9 = 23,9 °C; (78 − 32) × 5/9 = 25,6 °C; zaokrąglone do ok. 24–26 °C jak w RD-16 (S-02). W trybie imperialnym aplikacja pokaże ok. 75–79 °F. Wyjątki źródła (chłodnia, dużo żyta) pominięte w zdaniu Doktora.",
+    "uproszczenie": "Rachunek: (75 − 32) × 5/9 = 23,9 °C; (78 − 32) × 5/9 = 25,6 °C; w tekście Doktora ok. 24–25,5 °C, żeby tryb imperialny (zaokrąglenie do całych °F) pokazał ok. 75–78 °F jak źródło; RD-16 (S-02) zaokrągla do ok. 24–26 °C. Zmiana 2026-10-21: M1-audytor-generalny-208 (06-tresci-604), wcześniej tekst 24–26 °C dawał w °F górną granicę o 1 °F wyższą niż źródło. Wyjątki źródła (chłodnia, dużo żyta) pominięte w zdaniu Doktora.",
     "uwagi": "M1-audytor-generalny-133 (06-tresci-504): Doktor UNDER_PROOFED w miejsce „25–26°C” i EXCESSIVELY_SOUR (24–26 °C bez twierdzenia). Szczebel jak S-02 w docs/brd/zrodla.md.",
     "krytyczne": false,
     "przeglad": null,
@@ -2715,7 +2735,7 @@
     "twierdzenie": "Zakres hydratacji każdego profilu mąki (optimalHydrationRange w src/core/flour-atlas.ts), marginesy porady (2 p.p. poniżej i 3 p.p. powyżej zakresu) oraz próg „wysokiego udziału żyta” 40% w analyzeFlourBlendAbsorption.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133 (06-tresci-504). Żadne przeczytane źródło nie podaje zakresów hydratacji profili ani progu 40%; ZYT-GRA-001 (> 50%) to granica nazewnicza prawa niemieckiego, nie reologiczna, więc nie wskazuje innej wartości progu (bez przekazania wartości do 08). Teksty porad mówią tylko „w zakresie / blisko zakresu podanego dla tej mieszanki” (rachunek) i kierunek MAK-HYD-001. Zdanie o żytcie i ostrzeżenie o wysokiej hydratacji bez zmian.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-133 (06-tresci-504). Żadne przeczytane źródło nie podaje zakresów hydratacji profili ani progu 40%; ZYT-GRA-001 (> 50%) to granica nazewnicza prawa niemieckiego, nie reologiczna, więc nie wskazuje innej wartości progu (bez przekazania wartości do 08). Teksty porad mówią tylko „w zakresie / blisko zakresu podanego dla tej mieszanki” (rachunek) i kierunek MAK-HYD-001. Zdanie o żytcie i ostrzeżenie o wysokiej hydratacji bez zmian. 2026-10-21 (M1-audytor-generalny-210, 06-tresci-606): do czasu źródeł progu porada „poniżej zakresu” jest warunkowa — „Ciasto może być zwarte, nawet sztywne.” (kierunek MAK-HYD-001: „will likely feel firm or even stiff”), bez „będzie”.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null

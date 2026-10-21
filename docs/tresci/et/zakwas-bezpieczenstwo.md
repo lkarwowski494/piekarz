@@ -31,13 +31,18 @@ Ebameeldiv, mädanenud lõhn [T:-]
 Viska juuretis ära [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Ära kasuta seda juuretist ega püüa seda päästa. Hallitus võib ulatuda juuretise sügavusse, isegi kui pinnal on näha vaid väike kirme. Ära nuusuta kirmega juuretist, sest see võib põhjustada hingamisprobleeme. Enne uue juuretise alustamist pese ja loputa purk hoolikalt. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Ära kasuta seda juuretist ega püüa seda päästa. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Hallitus võib ulatuda juuretise sügavusse, isegi kui pinnal on näha vaid väike kirme. [T:ZAK-PLE-003]
+Ära nuusuta kirmega juuretist, sest see võib põhjustada hingamisprobleeme. [T:ZAK-WAC-001]
+Enne uue juuretise alustamist pese ja loputa purk hoolikalt. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Vedelik pinnal (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-CSU Extensioni andmetel on alkoholilõhnaline vedelikukiht korras: see on pärmikäärimise kõrvalsaadus. Võid selle ära valada või sisse segada. Kui näed ka kirmet või värvimuutust või tunned mädanenud lõhna, märgi see eespool. [T:ZAK-HOO-001,-]
+CSU Extensioni andmetel on alkoholilõhnaline vedelikukiht korras: see on pärmikäärimise kõrvalsaadus. [T:ZAK-HOO-001]
+Võid selle ära valada või sisse segada. [T:ZAK-HOO-001]
+Kui näed ka kirmet või värvimuutust või tunned mädanenud lõhna, märgi see eespool. [T:-]
 
 ## wynik.no_observation.titlePl
 Ühtegi sümptomit pole märgitud [T:-]

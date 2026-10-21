@@ -31,13 +31,18 @@ Ubehagelig, råtten lukt [T:-]
 Kast surdeigsstarteren [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Ikke bruk denne surdeigsstarteren, og ikke prøv å redde den. Muggen kan nå langt inn i starteren, selv om du bare ser et lite belegg på overflaten. Ikke lukt på en starter med belegg, da det kan gi pusteproblemer. Vask og skyll glasset grundig før du lager en ny starter. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Ikke bruk denne surdeigsstarteren, og ikke prøv å redde den. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Muggen kan nå langt inn i starteren, selv om du bare ser et lite belegg på overflaten. [T:ZAK-PLE-003]
+Ikke lukt på en starter med belegg, da det kan gi pusteproblemer. [T:ZAK-WAC-001]
+Vask og skyll glasset grundig før du lager en ny starter. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Væske på overflaten (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Ifølge CSU Extension er et lag med væske som lukter alkohol i orden: det er et biprodukt av gjærens fermentering. Du kan helle det av eller røre det inn. Hvis du også ser belegg eller misfarging eller kjenner en råtten lukt, kryss av for det ovenfor. [T:ZAK-HOO-001,-]
+Ifølge CSU Extension er et lag med væske som lukter alkohol i orden: det er et biprodukt av gjærens fermentering. [T:ZAK-HOO-001]
+Du kan helle det av eller røre det inn. [T:ZAK-HOO-001]
+Hvis du også ser belegg eller misfarging eller kjenner en råtten lukt, kryss av for det ovenfor. [T:-]
 
 ## wynik.no_observation.titlePl
 Ingen symptomer avkrysset [T:-]

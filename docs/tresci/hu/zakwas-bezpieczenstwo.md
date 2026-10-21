@@ -31,13 +31,18 @@ Kellemetlen, rothadó szag [T:-]
 Dobd ki a kovászt [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Ne használd ezt a kovászt, és ne próbáld megmenteni. A penész mélyen behatolhat a kovászba, akkor is, ha a felszínén csak kis bevonat látszik. Ne szagold meg a bevonatos kovászt, mert ez légzési problémákat okozhat. Mielőtt új kovászt indítasz, alaposan mosd el és öblítsd ki az üveget. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Ne használd ezt a kovászt, és ne próbáld megmenteni. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+A penész mélyen behatolhat a kovászba, akkor is, ha a felszínén csak kis bevonat látszik. [T:ZAK-PLE-003]
+Ne szagold meg a bevonatos kovászt, mert ez légzési problémákat okozhat. [T:ZAK-WAC-001]
+Mielőtt új kovászt indítasz, alaposan mosd el és öblítsd ki az üveget. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Folyadék a felszínen (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-A CSU Extension szerint az alkoholszagú folyadékréteg rendben van: az élesztős erjedés mellékterméke. Leöntheted vagy belekeverheted. Ha bevonatot vagy elszíneződést is látsz, vagy rothadt szagot érzel, jelöld be fent. [T:ZAK-HOO-001,-]
+A CSU Extension szerint az alkoholszagú folyadékréteg rendben van: az élesztős erjedés mellékterméke. [T:ZAK-HOO-001]
+Leöntheted vagy belekeverheted. [T:ZAK-HOO-001]
+Ha bevonatot vagy elszíneződést is látsz, vagy rothadt szagot érzel, jelöld be fent. [T:-]
 
 ## wynik.no_observation.titlePl
 Nincs bejelölt tünet [T:-]

@@ -96,7 +96,7 @@ describe('Flour Atlas & Blend Absorption Engine Specification (core/flour-atlas)
       const analysis = analyzeFlourBlendAbsorption(blend, 60.0);
 
       // Tekst z docs/tresci/pl/maki-chlonnosc.md (MAK-HYD-001), bez „bardzo” i „śmiało” [M1-audytor-generalny-133]
-      expect(analysis.doughFeelAdvicePl).toContain('zwarte i sztywne');
+      expect(analysis.doughFeelAdvicePl).toContain('może być zwarte'); // 210: zdanie warunkowe do czasu źródeł MAK-HYD-900
     });
 
     it('handles empty blend gracefully with safe defaults', () => {

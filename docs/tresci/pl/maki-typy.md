@@ -18,5 +18,13 @@ Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-
 - Mąka żytnia typ 1400 [T:MAK-TYP-005]
 - Mąka żytnia typ 2000 [T:MAK-TYP-004]
 
+## nazwy handlowe w atlasie PL (namePl w src/core/flour-atlas.ts; M1-audytor-generalny-091)
+- Mąka pszenna typ 450 (tortowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Mąka pszenna typ 500 (wrocławska) [T:MAK-NAZ-001]
+- Mąka pszenna typ 550 (luksusowa) [T:MAK-NAZ-001,MAK-TYP-004]
+- Mąka pszenna typ 650 (bułkowa) [T:MAK-NAZ-001]
+- Mąka pszenna typ 750 (chlebowa) [T:MAK-NAZ-001]
+- Mąka pszenna typ 1850 (graham) [T:MAK-TYP-004]
+
 ## wheat_850.descriptionPl (dopisek na początku opisu)
 Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. [T:MAK-TYP-003]

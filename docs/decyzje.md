@@ -250,3 +250,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) bez zmian — dwa powiadomienia o tym samym karmieniu (HIG Notifications: „Avoid sending multiple notifications for the same thing”), wyłączenie tylko w systemie razem z krokami wypieku.
 - **Dlaczego:** powiadomienie ma dotyczyć rzeczy, o którą użytkownik prosił, raz; kto chce tylko alarmów wypieku, nie musi wyłączać wszystkich powiadomień.
 - **Zależy od:** BR-ZAKW-004 kryt. 1 (BRD nadal opisuje dwa powiadomienia: zmiana BRD przez role 01/03, poza torem p12d).
+
+### Uzupełnienie D-060 (2026-10-21, M2 tor p12b2, zadanie M1-audytor-generalny-206) — zakres przykładu BBGA
+- **Rodzaj:** merytoryczna (zapis zakresu źródła; decyzja produktowa D-060 bez zmian). Rekomendacja reaudytu roli 06 (06-tresci-602, opcja a) według zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Zapis:** przykład BBGA, z którego D-060 bierze 75% wody, to pâte fermentée z mąki pełnoziarnistej 60% i żytniej 40% (diagram 4, kolumna „WW & Rye Pâte Fermentée”); aplikacja stosuje go do pâte fermentée z każdej mąki. Dla mąki jasnej ta sama hydratacja da zwykle ciasto luźniejsze niż w przykładzie (kierunek z MAK-HYD-001, bez liczby). Pole `uproszczenie` ZAC-PAT-002 w `docs/tresci/rejestr.json`.
+- **Odrzucone:** (b) powrót do parametrów z ciasta użytkownika — zmiana decyzji D-060, która wymaga właściciela.
+- **Zależy od:** D-060.

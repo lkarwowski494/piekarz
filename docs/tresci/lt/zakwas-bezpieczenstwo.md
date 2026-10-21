@@ -31,13 +31,18 @@ Nemalonus, puvėsių kvapas [T:-]
 Išmeskite raugą [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Nenaudokite šio raugo ir nebandykite jo gelbėti. Pelėsis gali būti įsiskverbęs giliai į raugą, net jei paviršiuje matyti tik nedidelė apnaša. Neuostykite raugo su apnaša, nes tai gali sukelti kvėpavimo sutrikimų. Prieš pradėdami naują natūralų raugą, kruopščiai išplaukite ir išskalaukite stiklainį. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Nenaudokite šio raugo ir nebandykite jo gelbėti. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Pelėsis gali būti įsiskverbęs giliai į raugą, net jei paviršiuje matyti tik nedidelė apnaša. [T:ZAK-PLE-003]
+Neuostykite raugo su apnaša, nes tai gali sukelti kvėpavimo sutrikimų. [T:ZAK-WAC-001]
+Prieš pradėdami naują natūralų raugą, kruopščiai išplaukite ir išskalaukite stiklainį. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Skystis paviršiuje (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Pasak CSU Extension, alkoholio kvapo skysčio sluoksnis yra normalu: tai mielių fermentacijos šalutinis produktas. Galite jį nupilti arba įmaišyti. Jei taip pat matote apnašą ar spalvos pakitimą arba jaučiate puvėsių kvapą, pažymėkite tai aukščiau. [T:ZAK-HOO-001,-]
+Pasak CSU Extension, alkoholio kvapo skysčio sluoksnis yra normalu: tai mielių fermentacijos šalutinis produktas. [T:ZAK-HOO-001]
+Galite jį nupilti arba įmaišyti. [T:ZAK-HOO-001]
+Jei taip pat matote apnašą ar spalvos pakitimą arba jaučiate puvėsių kvapą, pažymėkite tai aukščiau. [T:-]
 
 ## wynik.no_observation.titlePl
 Nepažymėtas joks požymis [T:-]

@@ -31,13 +31,18 @@ Mùi khó chịu, mùi thối [T:-]
 Vứt bỏ men tự nhiên [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Không dùng men tự nhiên này và đừng cố cứu nó. Nấm mốc có thể lan sâu vào bên trong men, ngay cả khi trên bề mặt chỉ thấy một lớp phủ nhỏ. Không ngửi men tự nhiên có lớp phủ, vì việc này có thể gây vấn đề về hô hấp. Trước khi làm men mới, rửa sạch và tráng kỹ lọ. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Không dùng men tự nhiên này và đừng cố cứu nó. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Nấm mốc có thể lan sâu vào bên trong men, ngay cả khi trên bề mặt chỉ thấy một lớp phủ nhỏ. [T:ZAK-PLE-003]
+Không ngửi men tự nhiên có lớp phủ, vì việc này có thể gây vấn đề về hô hấp. [T:ZAK-WAC-001]
+Trước khi làm men mới, rửa sạch và tráng kỹ lọ. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Chất lỏng trên bề mặt (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Theo CSU Extension, lớp chất lỏng có mùi cồn là bình thường: đây là sản phẩm phụ của quá trình lên men của nấm men. Bạn có thể chắt bỏ hoặc khuấy trộn vào. Nếu bạn cũng thấy lớp phủ hoặc đổi màu, hoặc ngửi thấy mùi thối, đánh dấu điều đó ở trên. [T:ZAK-HOO-001,-]
+Theo CSU Extension, lớp chất lỏng có mùi cồn là bình thường: đây là sản phẩm phụ của quá trình lên men của nấm men. [T:ZAK-HOO-001]
+Bạn có thể chắt bỏ hoặc khuấy trộn vào. [T:ZAK-HOO-001]
+Nếu bạn cũng thấy lớp phủ hoặc đổi màu, hoặc ngửi thấy mùi thối, đánh dấu điều đó ở trên. [T:-]
 
 ## wynik.no_observation.titlePl
 Chưa đánh dấu dấu hiệu nào [T:-]

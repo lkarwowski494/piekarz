@@ -31,13 +31,18 @@ Nepatīkama, puvuma smaka [T:-]
 Izmetiet dabīgo ieraugu [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Neizmantojiet šo dabīgo ieraugu un nemēģiniet to glābt. Pelējums var iespiesties dziļi ieraugā, pat ja uz virsmas redzams tikai neliels aplikums. Neostiet ieraugu ar aplikumu, jo tas var izraisīt elpošanas problēmas. Pirms jauna ierauga uzsākšanas rūpīgi nomazgājiet un izskalojiet burku. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Neizmantojiet šo dabīgo ieraugu un nemēģiniet to glābt. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Pelējums var iespiesties dziļi ieraugā, pat ja uz virsmas redzams tikai neliels aplikums. [T:ZAK-PLE-003]
+Neostiet ieraugu ar aplikumu, jo tas var izraisīt elpošanas problēmas. [T:ZAK-WAC-001]
+Pirms jauna ierauga uzsākšanas rūpīgi nomazgājiet un izskalojiet burku. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Šķidrums uz virsmas (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Saskaņā ar CSU Extension šķidruma slānis ar alkohola smaržu ir kārtībā: tas ir rauga fermentācijas blakusprodukts. To var noliet vai iemaisīt. Ja redzat arī aplikumu vai krāsas izmaiņu vai jūtat pūšanas smaku, atzīmējiet to augstāk. [T:ZAK-HOO-001,-]
+Saskaņā ar CSU Extension šķidruma slānis ar alkohola smaržu ir kārtībā: tas ir rauga fermentācijas blakusprodukts. [T:ZAK-HOO-001]
+To var noliet vai iemaisīt. [T:ZAK-HOO-001]
+Ja redzat arī aplikumu vai krāsas izmaiņu vai jūtat pūšanas smaku, atzīmējiet to augstāk. [T:-]
 
 ## wynik.no_observation.titlePl
 Nav atzīmēta neviena pazīme [T:-]

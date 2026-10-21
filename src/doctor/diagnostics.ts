@@ -78,7 +78,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Wydłuż fermentację burzliwą.',
         'Upewnij się, że zakwas został użyty w szczycie objętości.',
-        'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.',
+        'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
         'Wykonaj test palca przed włożeniem bochenka do piekarnika.',
       ],
       severity: 'critical',
@@ -160,11 +160,11 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       titlePl: 'Zbyt kwaśny, octowy smak',
       subtitlePl: 'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna',
       biologicalCausePl:
-        'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.',
+        'Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.',
       actionChecklistPl: [
         'Dokarmiaj zakwas częściej przed wypiekiem.',
         'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.',
-        'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.',
+        'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
       ],
       severity: 'moderate',
     };

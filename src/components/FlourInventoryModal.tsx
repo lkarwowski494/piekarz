@@ -18,6 +18,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { sharedCraftTokens } from '@apps4craft/ui';
 import { theme } from '../ui/theme';
 import { t } from '../lib/i18n';
+import { nazwaMaki } from '../lib/nazwa-maki';
 import { formatFixed } from '../lib/format';
 import { guardSave } from '../lib/save-guard';
 import { StoredFlourInventoryItem } from '../data/db';
@@ -256,7 +257,7 @@ export function FlourInventoryModal({
                       style={styles.presetChip}
                       onPress={() => setNewFlourName(p.namePl)}
                     >
-                      <Text style={styles.presetChipText}>{p.namePl.split(' (')[0]}</Text>
+                      <Text style={styles.presetChipText}>{nazwaMaki(p).split(' (')[0]}</Text>
                     </Pressable>
                   ))}
                 </ScrollView>

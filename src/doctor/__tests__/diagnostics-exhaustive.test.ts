@@ -171,9 +171,10 @@ describe('Exhaustive Bread Doctor Diagnostics Matrix (BR-DIAG-EXHAUSTIVE)', () =
       expect(result.actionChecklistPl.some((a) => a.includes('lodówki'))).toBe(true);
     });
 
-    it('excessively sour defect explains Acetobacter acetic fermentation', () => {
+    it('excessively sour defect: cause from KWA-GLO/HYD/TEM, without Acetobacter (163)', () => {
       const result = diagnoseBreadDefect({ breadIsExcessivelySour: true });
-      expect(result.biologicalCausePl).toContain('Acetobacter');
+      expect(result.biologicalCausePl).toContain('niedokarmionym zakwasem');
+      expect(result.biologicalCausePl).not.toContain('Acetobacter'); // brak twierdzenia [M1-audytor-generalny-163]
       // oczekiwany tekst z docs/tresci/pl/doktor-chleba.md [M1-audytor-generalny-133]
       expect(result.actionChecklistPl.some((a) => a.includes('Dokarmiaj zakwas częściej'))).toBe(true);
     });

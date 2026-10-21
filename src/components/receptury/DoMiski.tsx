@@ -149,7 +149,7 @@ export function DoMiski(p: DoMiskiProps) {
             {wiersz('scale-item-preferment-flour', t('Mąka'), w(b.prefermentFlourGrams))}
             {wiersz('scale-item-preferment-water', t('Woda'), w(b.prefermentWaterGrams))}
             {b.prefermentStarterGrams > 0 && wiersz('scale-item-preferment-starter', nazwaZakwasu, w(b.prefermentStarterGrams), proc(p.starterPct))}
-            {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', t('Drożdże'), d(b.prefermentYeastGrams))}
+            {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', t('Drożdże świeże (prasowane)'), d(b.prefermentYeastGrams))}
             {b.prefermentSaltGrams > 0 && wiersz('scale-item-preferment-salt', t('Sól'), d(b.prefermentSaltGrams))}
           </View>
           <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Do miski')}</Text>

@@ -31,13 +31,18 @@ Obehaglig, rutten lukt [T:-]
 Släng surdegsgrunden [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Använd inte den här surdegsgrunden och försök inte rädda den. Mögel kan tränga djupt in i surdegsgrunden, även om bara en liten beläggning syns på ytan. Lukta inte på surdegsgrund med beläggning, eftersom det kan orsaka andningsbesvär. Diska och skölj burken noga innan du startar en ny surdegsgrund. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Använd inte den här surdegsgrunden och försök inte rädda den. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Mögel kan tränga djupt in i surdegsgrunden, även om bara en liten beläggning syns på ytan. [T:ZAK-PLE-003]
+Lukta inte på surdegsgrund med beläggning, eftersom det kan orsaka andningsbesvär. [T:ZAK-WAC-001]
+Diska och skölj burken noga innan du startar en ny surdegsgrund. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Vätska på ytan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Enligt CSU Extension är ett vätskeskikt som luktar alkohol i sin ordning: det är en biprodukt av jästens jäsning. Du kan hälla av det eller röra ner det. Om du också ser beläggning eller missfärgning eller känner en rutten lukt, markera det ovan. [T:ZAK-HOO-001,-]
+Enligt CSU Extension är ett vätskeskikt som luktar alkohol i sin ordning: det är en biprodukt av jästens jäsning. [T:ZAK-HOO-001]
+Du kan hälla av det eller röra ner det. [T:ZAK-HOO-001]
+Om du också ser beläggning eller missfärgning eller känner en rutten lukt, markera det ovan. [T:-]
 
 ## wynik.no_observation.titlePl
 Inget symptom markerat [T:-]

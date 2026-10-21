@@ -32,8 +32,8 @@ export const EN_9: Record<string, string> = {
     'Shorten the fermentation time to leave residual sugars in the dough.',
   'Nieprzyjemna kwasowość dominująca nad aromatem prażonego ziarna':
     'Unpleasant sourness dominating over the aroma of toasted grain',
-  'Przewaga bakterii kwasu octowego (Acetobacter) nad kwasem mlekowym. Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.':
-    'Predominance of acetic acid bacteria (Acetobacter) over lactic acid. A sour, vinegar-like taste has been linked to an under-fed starter, a stiff (low-hydration) starter or fermentation at a low temperature.',
+  'Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.':
+    'A sour, vinegar-like taste has been linked to an under-fed starter, a stiff (low-hydration) starter or fermentation at a low temperature.',
   'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.':
     'Shorten fermentation at low temperature: lower fermentation temperatures have been linked to acetic acid, and longer fermentation to excess organic acids.',
   'Chleb smakuje jałowo, jak zwykłe pieczywo pszenne z marketu':

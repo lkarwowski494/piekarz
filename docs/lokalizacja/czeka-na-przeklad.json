@@ -42,8 +42,8 @@
       "od": "2026-10-21"
     },
     {
-      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.",
-      "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028); zdanie 06 bez zmiany twierdzenia (M1-audytor-generalny-113); przekład w batchu partii 12 (M1)",
+      "klucz": "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "powod": "nazwy miejsc według słownika akcji, bez „kalkulatora DDT” (04-studio-projektowe-028) (M1-audytor-generalny-113); zakres DDT w °C zawężony do 24–25,5 °C, żeby tryb imperialny pokazał 75–78 °F jak źródło DIA-DDT-001 (M1-audytor-generalny-208); zdanie złożone przy scaleniu torów p12b i p12b2; przekład w batchu nocy (M1)",
       "od": "2026-10-21"
     },
     {
@@ -129,6 +129,36 @@
     {
       "klucz": "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.",
       "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.",
+      "powod": "zakres DDT w °C zawężony do 24–25,5 °C, żeby tryb imperialny pokazał 75–78 °F jak źródło DIA-DDT-001 (M1-audytor-generalny-208); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Kwaśny, octowy smak wiąże się z niedokarmionym zakwasem, gęstym (mało uwodnionym) zakwasem albo fermentacją w niskiej temperaturze.",
+      "powod": "usunięte zdanie o Acetobacter bez twierdzenia; pole przyczyny ma teraz tylko zdanie z KWA-GLO-001, KWA-HYD-001, KWA-TEM-001 (M1-audytor-generalny-163); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Gumowaty (Krojony na gorąco)",
+      "powod": "etykieta PL nazywała „gorący nóż”, przyczyna to krojenie gorącego chleba (KRO-POC-015), jak EN (M1-audytor-generalny-148); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.",
+      "powod": "porada przy hydratacji poniżej zakresu warunkowa, bo próg MAK-HYD-900 nie ma źródła (M1-audytor-generalny-210); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Drożdże świeże (prasowane)",
+      "powod": "wiersz drożdży zaczynu nazywa rodzaj drożdży z ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002 (BBGA: drożdże świeże prasowane); klucz istniał w EN, w 33 językach był na liście PÓŹNIEJ (M1-audytor-generalny-207); przekład we wspólnym batchu nocnych napraw (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mąka pszenna typ 500 (Wrocławska)",
+      "powod": "nazwa atlasu PL bez „Poznańska” (brak źródła); w 33 językach nie wyświetlana (opis ogólny), przekład dla kompletności słownika (M1-audytor-generalny-091); przekład we wspólnym batchu nocnych napraw (M1)",
       "od": "2026-10-21"
     }
   ],

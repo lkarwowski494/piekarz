@@ -31,13 +31,18 @@ Bau tidak sedap, busuk [T:-]
 Buang starter ragi alami [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Jangan gunakan starter ragi alami ini dan jangan mencoba menyelamatkannya. Jamur dapat menjalar jauh ke dalam starter, bahkan jika di permukaan hanya terlihat lapisan kecil. Jangan mencium starter yang memiliki lapisan, karena dapat memicu gangguan pernapasan. Sebelum membuat starter baru, cuci dan bilas toples hingga bersih. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Jangan gunakan starter ragi alami ini dan jangan mencoba menyelamatkannya. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Jamur dapat menjalar jauh ke dalam starter, bahkan jika di permukaan hanya terlihat lapisan kecil. [T:ZAK-PLE-003]
+Jangan mencium starter yang memiliki lapisan, karena dapat memicu gangguan pernapasan. [T:ZAK-WAC-001]
+Sebelum membuat starter baru, cuci dan bilas toples hingga bersih. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Cairan di permukaan (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Menurut CSU Extension, cairan di permukaan yang berbau alkohol tidak masalah: ini adalah produk sampingan fermentasi ragi. Anda boleh menuangnya keluar atau mengaduknya ke dalam starter. Jika Anda juga melihat lapisan atau perubahan warna, atau mencium bau busuk, tandai di atas. [T:ZAK-HOO-001,-]
+Menurut CSU Extension, cairan di permukaan yang berbau alkohol tidak masalah: ini adalah produk sampingan fermentasi ragi. [T:ZAK-HOO-001]
+Anda boleh menuangnya keluar atau mengaduknya ke dalam starter. [T:ZAK-HOO-001]
+Jika Anda juga melihat lapisan atau perubahan warna, atau mencium bau busuk, tandai di atas. [T:-]
 
 ## wynik.no_observation.titlePl
 Tidak ada gejala yang ditandai [T:-]

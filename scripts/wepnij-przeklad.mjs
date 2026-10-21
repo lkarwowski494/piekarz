@@ -17,6 +17,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { liniePrzekladu } from './znaczniki-zdan.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const ts = createRequire(join(root, 'package.json'))('typescript');
@@ -137,7 +138,8 @@ function trescKrytyczna(kod, slownik, meta) {
     out.push(`## ${s.naglowek}`);
     const caly = s.wiersze.map((w) => w.tekst).join(' ');
     const twAll = [...new Set(s.wiersze.flatMap((w) => w.tw.replace(/^\[T:|\]$/g, '').split(',').filter(Boolean)))];
-    if (s.wiersze.length > 1 && slownik.has(caly)) out.push(`${slownik.get(caly)} [T:${twAll.join(',')}]`);
+    // Zdanie po zdaniu ze znacznikiem linii PL, gdy liczba zdań się zgadza (135); inaczej akapit ze znacznikiem zbiorczym.
+    if (s.wiersze.length > 1 && slownik.has(caly)) out.push(...(liniePrzekladu(slownik.get(caly), s.wiersze) ?? [`${slownik.get(caly)} [T:${twAll.join(',')}]`]));
     else for (const w of s.wiersze) {
       if (!slownik.has(w.tekst)) braki.push(w.tekst);
       out.push(`${slownik.get(w.tekst) ?? w.tekst} ${w.tw}`.trim());

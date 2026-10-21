@@ -31,13 +31,18 @@ Neprijeten, gnil vonj [T:-]
 Zavrzite kvas [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Tega kvasa ne uporabljajte in ga ne poskušajte rešiti. Plesen lahko sega globoko v kvas, tudi če je na površini vidna le majhna obloga. Kvasa z oblogo ne vohajte, ker lahko to povzroči težave z dihanjem. Preden začnete nov kvas, kozarec temeljito umijte in sperite. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Tega kvasa ne uporabljajte in ga ne poskušajte rešiti. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Plesen lahko sega globoko v kvas, tudi če je na površini vidna le majhna obloga. [T:ZAK-PLE-003]
+Kvasa z oblogo ne vohajte, ker lahko to povzroči težave z dihanjem. [T:ZAK-WAC-001]
+Preden začnete nov kvas, kozarec temeljito umijte in sperite. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Tekočina na površini (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Po navedbah CSU Extension je plast tekočine z vonjem po alkoholu v redu: gre za stranski produkt fermentacije kvasovk. Lahko jo odlijete ali vmešate. Če vidite tudi oblogo ali razbarvanje ali zaznate gnil vonj, to označite zgoraj. [T:ZAK-HOO-001,-]
+Po navedbah CSU Extension je plast tekočine z vonjem po alkoholu v redu: gre za stranski produkt fermentacije kvasovk. [T:ZAK-HOO-001]
+Lahko jo odlijete ali vmešate. [T:ZAK-HOO-001]
+Če vidite tudi oblogo ali razbarvanje ali zaznate gnil vonj, to označite zgoraj. [T:-]
 
 ## wynik.no_observation.titlePl
 Ni označenih znakov [T:-]

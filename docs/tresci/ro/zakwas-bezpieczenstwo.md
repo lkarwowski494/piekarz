@@ -31,13 +31,18 @@ Miros neplăcut, de putrefacție [T:-]
 Aruncă maiaua naturală [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
-Nu folosi această maia naturală și nu încerca să o salvezi. Mucegaiul poate pătrunde în adâncimea maielei, chiar dacă la suprafață se vede doar o depunere mică. Nu mirosi maiaua cu depunere, deoarece poate provoca probleme respiratorii. Înainte de a porni o maia nouă, spală și clătește bine borcanul. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001,ZAK-PLE-003,ZAK-WAC-001,ZAK-NAC-001]
+Nu folosi această maia naturală și nu încerca să o salvezi. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
+Mucegaiul poate pătrunde în adâncimea maielei, chiar dacă la suprafață se vede doar o depunere mică. [T:ZAK-PLE-003]
+Nu mirosi maiaua cu depunere, deoarece poate provoca probleme respiratorii. [T:ZAK-WAC-001]
+Înainte de a porni o maia nouă, spală și clătește bine borcanul. [T:ZAK-NAC-001]
 
 ## wynik.hooch.titlePl
 Lichid la suprafață (hooch) [T:-]
 
 ## wynik.hooch.actionPl
-Potrivit CSU Extension, un strat de lichid cu miros de alcool este în regulă: este un produs secundar al fermentației drojdiilor. Îl poți scurge sau încorpora. Dacă vezi și depunere sau decolorare ori simți miros de putrezit, bifează acest lucru mai sus. [T:ZAK-HOO-001,-]
+Potrivit CSU Extension, un strat de lichid cu miros de alcool este în regulă: este un produs secundar al fermentației drojdiilor. [T:ZAK-HOO-001]
+Îl poți scurge sau încorpora. [T:ZAK-HOO-001]
+Dacă vezi și depunere sau decolorare ori simți miros de putrezit, bifează acest lucru mai sus. [T:-]
 
 ## wynik.no_observation.titlePl
 Niciun simptom bifat [T:-]
