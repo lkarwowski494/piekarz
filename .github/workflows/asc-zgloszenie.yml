@@ -45,9 +45,23 @@ jobs:
         with:
           node-version: 22
 
+      # Zrzuty lokalizacji spoza repo: paczka ZIP w wydaniu wstępnym (tag w docs/wydanie/asc-zgloszenie.json, "paczkaZrzutow").
+      # Brak wydania = pusty katalog: skrypt porówna po sumach, a zestawów bez plików nie wyśle. Sumy sprawdza skrypt.
+      - name: Zrzuty spoza repo (wydanie wstępne)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/zrzuty-sklepu"
+          TAG="$(node -p "require('./docs/wydanie/asc-zgloszenie.json').paczkaZrzutow.tag")"
+          if gh release download "$TAG" --pattern zrzuty-sklepu.zip --dir "$RUNNER_TEMP"; then
+            unzip -q "$RUNNER_TEMP/zrzuty-sklepu.zip" -d "$RUNNER_TEMP/zrzuty-sklepu"
+          else
+            echo "Brak wydania $TAG: zrzuty spoza repo tylko po sumach"
+          fi
+
       - name: Zgłoszenie App Store Connect (skrypt bez zależności)
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
-        run: node scripts/asc-zgloszenie.mjs --zgoda docs/wydanie/asc-zgoda-zgloszenie.json
+        run: node scripts/asc-zgloszenie.mjs --zgoda docs/wydanie/asc-zgoda-zgloszenie.json --zrzuty "$RUNNER_TEMP/zrzuty-sklepu"

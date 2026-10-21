@@ -261,6 +261,33 @@ describe('scripts/asc-zgloszenie.mjs na atrapie App Store Connect API (M1-audyto
     });
   });
 
+  it('zakres z pliku zgody (pl, zrzuty): lista i skrót tylko z zakresu, zapis tylko tych zestawów; reszta planu nietknięta', async () => {
+    await zAtrapa({ numerWersji: '1.0' }, async (a) => {
+      a.lokWersji.push({ type: 'appStoreVersionLocalizations', id: 'avl-pl', wersja: 'ver-1', attributes: { locale: 'pl', description: 'stary', keywords: null, promotionalText: null, supportUrl: null } });
+      const zakres = { lokalizacja: 'pl', obiekty: ['zrzuty'] };
+      const sucho = await uruchom(a.adres, ['--zgoda', plik('zakres-sucho.json', { zapis: false, skrot: null, zakres })]);
+      expect(sucho.kod).toBe(0);
+      expect(sucho.wyjscie).toMatch(/Zakres planu z pliku zgody: pl; obiekty: zrzuty/);
+      expect(roznice(sucho)).toBe(2);
+      expect(sucho.wyjscie).not.toMatch(/metadane|opis produktu|App Privacy/);
+      expect(a.zapisy()).toEqual([]);
+      const z = plik('zakres-zapis.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-10-21: test', zakres });
+      const w = await uruchom(a.adres, ['--zgoda', z]);
+      expect(w.wyjscie).toMatch(/Po zapisie: różnice 0/);
+      expect(w.kod).toBe(0);
+      expect(a.zestawy).toHaveLength(2);
+      for (const [klasa, typ] of Object.entries(KLASY)) expect(a.sumyZestawu('pl', typ)).toEqual(sumy.lokalizacje.pl[klasa].map((x: { md5: string }) => x.md5));
+      expect(a.wersje[0].attributes.versionString).toBe('1.0');
+      expect(a.lokWersji.find((l) => l.attributes.locale === 'pl')?.attributes.description).toBe('stary');
+      expect(a.lokInfo).toHaveLength(1);
+      const po = await uruchom(a.adres, ['--zgoda', plik('zakres-po.json', { zapis: false, skrot: null, zakres })]);
+      expect(roznice(po)).toBe(0);
+      expect(po.wyjscie).toMatch(/zrzuty pl iphone-6\.3: 7 ramek \(APP_IPHONE_61; COMPLETE×7\)/);
+      const calosc = await uruchom(a.adres);
+      expect(roznice(calosc)).toBeGreaterThan(100);
+    });
+  });
+
   it('opis produktu ponad 45 znaków (limit opisu In-App Purchase): kod 1 przed zapytaniami do API', async () => {
     await zAtrapa({}, async (a) => {
       const dlugi = plik('dane-dlugi.json', { ...dane, opisyProduktow: { ...OPISY, lifetime: { 'en-US': 'x'.repeat(46), pl: 'Test' } } });

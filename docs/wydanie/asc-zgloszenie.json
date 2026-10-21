@@ -8,6 +8,11 @@
   },
   "zrodloKlas": "docs/wydanie/zrzuty/README.md (klasy i piksele). Wartości screenshotDisplayType: enum API (odczyt 2026-10-21) nie ma APP_IPHONE_69 ani APP_IPHONE_63, a dokumentacja nie mówi, który typ przyjmuje 1320 × 2868 i 1206 × 2622; APP_IPHONE_67 i APP_IPHONE_61 to wniosek [DO USTALENIA], do potwierdzenia na koncie przed zapisem zrzutów (raport toru p8c). Zasoby appScreenshotSets i appScreenshots są od API 4.5.1 oznaczone jako deprecated (następca: App Asset Library).",
   "ramekNaKlase": 7,
+  "paczkaZrzutow": {
+    "tag": "zrzuty-sklepu-2026-10-21",
+    "plik": "zrzuty-sklepu.zip",
+    "zrodlo": "zrzuty 31 lokalizacji spoza repo (docs/wydanie/zrzuty/README.md) jako zasób wydania wstępnego GitHub; workflow asc-zgloszenie.yml pobiera paczkę, skrypt sprawdza każdy plik sumą z docs/wydanie/zrzuty/sumy.json. Opcja (a) pytania 2 toru p8c; wydanie publikuje się dopiero za potwierdzoną zgodą właściciela."
+  },
   "opisyProduktow": {
     "monthly": { "en-US": "Full access, billed monthly", "pl": "Pełny dostęp, płatność co miesiąc" },
     "yearly": { "en-US": "Full access, billed yearly", "pl": "Pełny dostęp, płatność co rok" },

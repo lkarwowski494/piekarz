@@ -236,7 +236,7 @@ const pokaz = (kl, v) => (['description', 'promotionalText', 'keywords'].include
 
 export function planuj(cel, stan) {
   const ops = [];
-  const op = (rodzaj, obiekt, opis, wykonaj = null, tresc = '') => ops.push({ rodzaj, obiekt, opis, wykonaj, tresc });
+  const op = (rodzaj, obiekt, opis, wykonaj = null, tresc = '', kod = null) => ops.push({ rodzaj, obiekt, opis, wykonaj, tresc, kod });
 
   if (!stan.wersja) op('ręcznie', 'wersja', `wersja iOS ${cel.wersja} w stanie edycji (Prepare for Submission): brak w App Store Connect — utwórz ją w ASC, potem uruchom ponownie (instrukcja §10.2)`);
   // Numer wersji z jednego źródła, app.json (docs/wydanie/sklep.md §1); metadane wersji dopiero po zmianie numeru (następna runda).
@@ -265,20 +265,23 @@ export function planuj(cel, stan) {
       const opis = `zrzuty ${l.kod} ${klasa}`;
       const tresc = docel.map((r) => r.md5).join(',');
       if (obecne.length === docel.length && obecne.every((x, i) => x.md5 === docel[i].md5 && przyjety(x))) {
-        op(BEZ, 'zrzuty', `${opis}: ${docel.length} ramek`, null, tresc);
+        // Stan przetwarzania w opisie: COMPLETE potwierdza, że Apple przyjął wymiary pliku dla tego typu ekranu.
+        const stany = Object.entries(obecne.reduce((a, x) => ({ ...a, [x.stan]: (a[x.stan] ?? 0) + 1 }), {})).map(([s, n]) => `${s}×${n}`).join(', ');
+        op(BEZ, 'zrzuty', `${opis}: ${docel.length} ramek (${typ}; ${stany})`, null, tresc, l.kod);
         continue;
       }
       const brakPlikow = docel.filter((r) => !r.sciezka).length;
       const dopisek = brakPlikow ? ` (pliki poza repo: ${brakPlikow} — do wysłania potrzebne --zrzuty)` : '';
-      const wykonaj = lw && stan.wersja.versionString === cel.wersja && !brakPlikow ? async (k) => {
+      // Zestaw należy do lokalizacji wersji niezależnie od jej numeru, więc zrzuty nie czekają na zmianę numeru.
+      const wykonaj = lw && !brakPlikow ? async (k) => {
         const idZestawu = zestaw?.id ?? (await k.post('/v1/appScreenshotSets', { data: { type: 'appScreenshotSets', attributes: { screenshotDisplayType: typ }, relationships: { appStoreVersionLocalization: rel('appStoreVersionLocalizations', lw.id) } } })).data.id;
         for (const x of obecne) await k.usun(`/v1/appScreenshots/${e(x.id)}`);
         const nowe = [];
         for (const r of docel) nowe.push(await wyslijPlik(k, 'appScreenshots', { appScreenshotSet: rel('appScreenshotSets', idZestawu) }, r));
         await k.patch(`/v1/appScreenshotSets/${e(idZestawu)}/relationships/appScreenshots`, { data: nowe.map((id) => ({ type: 'appScreenshots', id })) });
       } : null;
-      if (!zestaw || !obecne.length) op('utworzy', 'zrzuty', `${opis}: ${docel.length} ramek (${typ})${dopisek}`, wykonaj, tresc);
-      else op('zmieni', 'zrzuty', `${opis}: zastąpi ${obecne.length} zrzutów w ASC ${docel.length} ramkami z plików${dopisek}`, wykonaj, tresc);
+      if (!zestaw || !obecne.length) op('utworzy', 'zrzuty', `${opis}: ${docel.length} ramek (${typ})${dopisek}`, wykonaj, tresc, l.kod);
+      else op('zmieni', 'zrzuty', `${opis}: zastąpi ${obecne.length} zrzutów w ASC ${docel.length} ramkami z plików${dopisek}`, wykonaj, tresc, l.kod);
     }
   }
 
@@ -330,13 +333,13 @@ export function planuj(cel, stan) {
 function lokOps(op, opis, obiekt, kod, docel, obecna, akcje) {
   const tresc = JSON.stringify(docel);
   if (!obecna) {
-    op('utworzy', obiekt, `${opis}: ${Object.entries(docel).map(([kl, v]) => pokaz(kl, v)).join(', ')}`, akcje ? akcje.utworz : null, tresc);
+    op('utworzy', obiekt, `${opis}: ${Object.entries(docel).map(([kl, v]) => pokaz(kl, v)).join(', ')}`, akcje ? akcje.utworz : null, tresc, kod);
     return;
   }
   const rozne = Object.keys(docel).filter((kl) => (obecna.atr[kl] ?? null) !== docel[kl]);
-  if (!rozne.length) return op(BEZ, obiekt, opis, null, tresc);
+  if (!rozne.length) return op(BEZ, obiekt, opis, null, tresc, kod);
   const zm = Object.fromEntries(rozne.map((kl) => [kl, docel[kl]]));
-  op('zmieni', obiekt, `${opis}: ${rozne.map((kl) => pokaz(kl, docel[kl])).join(', ')}`, akcje ? akcje.zmien(obecna.id, zm) : null, tresc);
+  op('zmieni', obiekt, `${opis}: ${rozne.map((kl) => pokaz(kl, docel[kl])).join(', ')}`, akcje ? akcje.zmien(obecna.id, zm) : null, tresc, kod);
 }
 
 // ---------------------------------------------------------------------------
@@ -370,6 +373,8 @@ function raport(tryb, ops) {
     '## Lista',
     ...ops.filter((o) => o.rodzaj !== BEZ).map((o) => `- ${o.rodzaj} · ${o.opis}`),
     '',
+    // Zrzuty bez zmian ze stanem przetwarzania: dowód, że Apple przyjął typ ekranu (COMPLETE) albo jeszcze przetwarza.
+    ...(ops.some((o) => o.rodzaj === BEZ && o.obiekt === 'zrzuty') ? ['## Zrzuty bez zmian', ...ops.filter((o) => o.rodzaj === BEZ && o.obiekt === 'zrzuty').map((o) => `- ${o.opis}`), ''] : []),
   ].join('\n');
 }
 
@@ -394,6 +399,20 @@ function zgodaZPliku(p) {
   return z;
 }
 
+/**
+ * Zakres z pliku zgody, także przy "zapis": false: {"lokalizacja": "pl", "obiekty": ["zrzuty"]} zawęża plan, listę i skrót
+ * (np. próbny zapis zrzutów jednej lokalizacji). Bez zakresu: całe zgłoszenie.
+ */
+function zakresZPliku(p, cel) {
+  if (!p || !existsSync(p)) return null;
+  const z = JSON.parse(readFileSync(p, 'utf8')).zakres;
+  if (z == null) return null;
+  const obiekty = ['wersja', 'info', 'metadane', 'zrzuty', 'produkty', 'review', 'prywatnosc'];
+  if (!Array.isArray(z.obiekty) || !z.obiekty.length || z.obiekty.some((o) => !obiekty.includes(o))) throw new BladZgody(`plik zgody: "zakres.obiekty" z listy ${obiekty.join(', ')}`);
+  if (z.lokalizacja != null && !cel.lokalizacje.some((l) => l.kod === z.lokalizacja)) throw new BladZgody(`plik zgody: lokalizacja „${z.lokalizacja}” spoza ${META}`);
+  return z;
+}
+
 async function main(argv) {
   const opcje = { dane: arg(argv, '--dane'), sumy: arg(argv, '--sumy'), zrzuty: arg(argv, '--zrzuty') ?? null };
   for (const kl of ['dane', 'sumy']) if (!opcje[kl]) delete opcje[kl];
@@ -406,11 +425,14 @@ async function main(argv) {
   const api = arg(argv, '--api') ?? API_DOMYSLNE;
   const cel = stanDocelowy(opcje);
   const zgoda = zgodaZPliku(arg(argv, '--zgoda'));
+  const zakres = zakresZPliku(arg(argv, '--zgoda'), cel);
   const tajne = sekrety();
   const odczyt = klient(api, tajne, true);
-  const plan = async () => planuj(cel, await stanAsc(odczyt, cel));
+  const wZakresie = (o) => !zakres || (zakres.obiekty.includes(o.obiekt) && (zakres.lokalizacja == null || o.kod === zakres.lokalizacja));
+  const plan = async () => planuj(cel, await stanAsc(odczyt, cel)).filter(wZakresie);
   const ops = await plan();
   const dzialania = ops.filter((o) => DZIALANIA.includes(o.rodzaj));
+  if (zakres) wypisz(`Zakres planu z pliku zgody: ${zakres.lokalizacja ?? 'wszystkie lokalizacje'}; obiekty: ${zakres.obiekty.join(', ')}\n`);
   if (!zgoda || !dzialania.length) {
     wypisz(raport(zgoda ? 'przebieg na sucho (zgoda w pliku, ale nie ma nic do zapisu)' : 'przebieg na sucho', ops));
     return 0;
