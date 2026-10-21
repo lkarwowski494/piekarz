@@ -44,7 +44,11 @@ describe('055: duży tekst i krój tytułów', () => {
             if (!ts.isJsxAttribute(a)) continue;
             const nazwa = a.name.getText(sf);
             const linia = sf.getLineAndCharacterOfPosition(a.getStart(sf)).line + 1;
-            if (LIMITY.includes(nazwa)) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
+            // Wyjątek nazwany (201, 04-studio-projektowe-609): maxFontSizeMultiplier równy stosunkowi tokenów AX5 / pt
+            // tego samego stylu (czas 99 / 56) — rozmiar przy AX5 z tokenów, nie dowolny limit [M1-audytor-generalny-201]
+            const zTokenow = nazwa === 'maxFontSizeMultiplier' &&
+              /^\{\s*typografia\.style\.(\w+)\.ax5\s*\/\s*typografia\.style\.\1\.pt\s*\}$/.test(a.initializer?.getText(sf) ?? '');
+            if (LIMITY.includes(nazwa) && !zTokenow) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
             if (nazwa === 'allowFontScaling' && /false/.test(a.initializer?.getText(sf) ?? '') && !WYJATKI_SKALI[rel(f)]) {
               znalezione.push(`${rel(f)}:${linia} allowFontScaling={false}`);
             }
