@@ -75,6 +75,46 @@
       "klucz": "Bardzo wysoka hydratacja dla tej mieszanki. Ciasto może być luźne i wymagać wprawnego składania.",
       "powod": "głos bez „Uwaga:”, wykrzyknika i angielskiej wstawki (04-studio-projektowe-034) (M1-audytor-generalny-116); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} h temu",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dzień temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dni temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "{n} dnia temu",
+      "powod": "wspólny format czasu z formą liczby (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:1:1 (szybki, 3–4 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:2:2 (klasyczny, 6–8 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "1:5:5 (na noc, 12 h)",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.",
+      "powod": "wspólny format czasu (04-studio-projektowe-508) (M1-audytor-generalny-162); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

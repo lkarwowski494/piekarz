@@ -146,8 +146,8 @@ export const EN_11: Record<string, string> = {
     'The gold standard for the Parisian baguette. Ideal balance between elasticity and extensibility.',
   'Mąka pszenna chlebowa / wysoki gluten':
     'Wheat bread flour / high gluten',
-  'Chleby na zakwasie o wysokiej hydratacji (75-85%), Tartine, pizza napoletana 48h, brioszki.':
-    'High-hydration sourdough breads (75-85%), Tartine, 48h pizza napoletana, brioches.',
+  'Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.':
+    'High-hydration sourdough breads (75–85%), Tartine, 48 h Neapolitan pizza, brioche.',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.':
     'Strong gluten network. Withstands many hours of fermentation and a long cold retard without losing shape.',
   'Mąka pszenna sitkowa / graham':

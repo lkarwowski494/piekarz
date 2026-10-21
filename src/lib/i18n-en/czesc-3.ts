@@ -81,8 +81,14 @@ export const EN_3: Record<string, string> = {
   'Wiek': 'Age',
   'Temp': 'Temp',
   'przed chwilą': 'just now',
-  '{hours}h temu': '{hours}h ago',
-  '{days}d temu': '{days}d ago',
+  '{n} h temu':
+    '{n} h ago',
+  '{n} dzień temu':
+    '{n} day ago',
+  '{n} dni temu':
+    '{n} days ago',
+  '{n} dnia temu':
+    '{n} days ago',
   'Dokarmiono zakwas': 'Starter fed',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Logged feeding for starter "{name}".',
   'Zapisano zaktualizowany profil': 'Updated profile saved',

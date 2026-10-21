@@ -104,20 +104,23 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "1:1:1 (Szybki 3-4h)": {
+  "1:1:1 (szybki, 3–4 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu (zakwas : mąka : woda) i przybliżony czas do szczytu. Zakres z półpauzą, „h” ze spacją. [M1-audytor-generalny-162]"
   },
-  "1:2:2 (Klasyk 6-8h)": {
+  "1:2:2 (klasyczny, 6–8 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu i przybliżony czas do szczytu. [M1-audytor-generalny-162]"
   },
-  "1:5:5 (Na noc 12h)": {
+  "1:5:5 (na noc, 12 h)": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (label)"
-    ]
+    ],
+    "opis": "Chip proporcji dokarmiania zakwasu na noc i przybliżony czas do szczytu. [M1-audytor-generalny-162]"
   },
   "2h temperatura pokojowa + 44h dojrzewanie w 4°C + 4h ogrzewanie kulek": {
     "gdzie": [
@@ -592,10 +595,11 @@
       "src/core/flour-equivalents.ts (dane: bestForPl)"
     ]
   },
-  "Chleby na zakwasie o wysokiej hydratacji (75-85%), Tartine, pizza napoletana 48h, brioszki.": {
+  "Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: bestForPl)"
-    ]
+    ],
+    "opis": "Opis zastosowania mąki w tabeli odpowiedników mąk. Zmiana tylko typograficzna (półpauza w zakresie, spacja przed „h”). [M1-audytor-generalny-162]"
   },
   "Chrupiące gofry rzemieślnicze": {
     "gdzie": [
@@ -8295,11 +8299,6 @@
       "src/lib/prowadzenie-teksty.ts (tekst)"
     ]
   },
-  "{days}d temu": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (kod)"
-    ]
-  },
   "{dzien} {godzina}: {opis}": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (kod)"
@@ -8318,11 +8317,6 @@
   "{g}g wody": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
-    ]
-  },
-  "{hours}h temu": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (kod)"
     ]
   },
   "{h}h": {
@@ -8382,17 +8376,36 @@
       "src/components/zakwas/StarterProfileCard.tsx (dane: many)"
     ]
   },
+  "{n} dni temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: few)",
+      "src/lib/czas-temu.ts (dane: many)"
+    ],
+    "opis": "Ile dni temu zakwas był dokarmiony; forma PL few/many (2 dni, 5 dni). [M1-audytor-generalny-162]"
+  },
   "{n} dnia": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
   },
+  "{n} dnia temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: other)"
+    ],
+    "opis": "Ile dni temu; forma PL other (ułamki, np. 1,5 dnia). [M1-audytor-generalny-162]"
+  },
   "{n} dzień": {
     "gdzie": [
       "src/components/PaywallModal.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]
+  },
+  "{n} dzień temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (dane: one)"
+    ],
+    "opis": "Ile dni temu zakwas był dokarmiony; forma liczby pojedynczej (one) zestawu „{n} dzień temu / {n} dni temu / {n} dnia temu”. W słowniku języka formy kategorii CLDR pod kluczem „{n} dzień temu#<kategoria>”. [M1-audytor-generalny-162]"
   },
   "{n} godzin": {
     "gdzie": [
@@ -8409,6 +8422,12 @@
       "src/lib/spirala-etykieta.ts (dane: few)",
       "src/lib/spirala-etykieta.ts (dane: other)"
     ]
+  },
+  "{n} h temu": {
+    "gdzie": [
+      "src/lib/czas-temu.ts (kod)"
+    ],
+    "opis": "Ile godzin temu zakwas był dokarmiony (profil zakwasu). {n} = liczba godzin; „h” = skrót godziny ze spacją, jak w całej aplikacji („35 h 40 min”). [M1-audytor-generalny-162]"
   },
   "{n} krok wypada w nocy": {
     "gdzie": [

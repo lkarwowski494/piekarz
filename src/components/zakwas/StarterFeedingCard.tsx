@@ -80,10 +80,10 @@ export function StarterFeedingCard({
       <Text style={styles.subHeading}>{t('Cykl dokarmiania')} ({t('Proporcja')})</Text>
       <View style={styles.ratioChipsRow}>
         {[
-          { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (Szybki 3-4h)') },
-          { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (Klasyk 6-8h)') },
-          { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8-10h)' },
-          { ratio: [1, 5, 5] as [number, number, number], label: t('1:5:5 (Na noc 12h)') },
+          { ratio: [1, 1, 1] as [number, number, number], label: t('1:1:1 (szybki, 3–4 h)') },
+          { ratio: [1, 2, 2] as [number, number, number], label: t('1:2:2 (klasyczny, 6–8 h)') },
+          { ratio: [1, 3, 3] as [number, number, number], label: '1:3:3 (8–10 h)' },
+          { ratio: [1, 5, 5] as [number, number, number], label: t('1:5:5 (na noc, 12 h)') },
         ].map((item, idx) => {
           const isSelected =
             selectedRatio[0] === item.ratio[0] &&

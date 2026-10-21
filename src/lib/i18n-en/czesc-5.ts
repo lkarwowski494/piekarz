@@ -48,9 +48,12 @@ export const EN_5: Record<string, string> = {
   // Zakwas
   'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.':
     'Choose the ratio and how much starter you need for the dough. I will work out the flour and water.',
-  '1:1:1 (Szybki 3-4h)': '1:1:1 (Quick 3-4h)',
-  '1:2:2 (Klasyk 6-8h)': '1:2:2 (Classic 6-8h)',
-  '1:5:5 (Na noc 12h)': '1:5:5 (Overnight 12h)',
+  '1:1:1 (szybki, 3–4 h)':
+    '1:1:1 (quick, 3–4 h)',
+  '1:2:2 (klasyczny, 6–8 h)':
+    '1:2:2 (classic, 6–8 h)',
+  '1:5:5 (na noc, 12 h)':
+    '1:5:5 (overnight, 12 h)',
   '{n} cz.': '{n} pt.',
   'Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.':
     'Tip: from the resulting {masa}, take the amount the dough needs and keep the rest (~{od}–{do}) in the fridge as the mother starter for your next bake.',
