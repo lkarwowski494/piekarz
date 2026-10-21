@@ -54,7 +54,8 @@ export const EN_5: Record<string, string> = {
     '1:2:2 (classic, 6–8 h)',
   '1:5:5 (na noc, 12 h)':
     '1:5:5 (overnight, 12 h)',
-  '{n} cz.': '{n} pt.',
+  '{n} cz.': '{n} parts',
+  '{n} cz.#one': '{n} part',
   'Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.':
     'Tip: from the resulting {masa}, take the amount the dough needs and keep the rest (~{od}–{do}) in the fridge as the mother starter for your next bake.',
   '{n} dzień': '{n} day',

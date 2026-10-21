@@ -12,7 +12,7 @@ import {
   getFlourInventory,
   _resetMemStore,
 } from '../data/sqlite-store';
-import { getPendingRecipeToLoad } from '../lib/recipe-navigation';
+import { recepturaPlanu } from '../lib/plan-receptury';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 jest.setTimeout(20000);
@@ -530,10 +530,11 @@ describe('StolnicaScreen UI Interactions (app/stolnica.tsx)', () => {
       await bakeAgainBtn.props.onPress();
     });
 
-    const pending = getPendingRecipeToLoad();
-    expect(pending).not.toBeNull();
-    expect(pending?.name).toBe('Wiejski chleb codzienny na zakwasie');
-    expect(pending?.formula.waterPercentage).toBe(68.0);
+    // Od 146 (BR-RECP-003, D-070): plan wypieku z tą recepturą, nie ekran receptury
+    const plan = recepturaPlanu();
+    expect(plan).not.toBeNull();
+    expect(plan?.recipeName).toBe('Wiejski chleb codzienny na zakwasie');
+    expect(plan?.recipeFormula.waterPercentage).toBe(68.0);
   });
 
   // 056: korekt czasu (adjust-time-*) nie ma na prowadzeniu (design-spec §11b „056”)

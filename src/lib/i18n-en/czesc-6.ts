@@ -55,7 +55,7 @@ export const EN_6: Record<string, string> = {
   'Mąka żytnia dostarcza enzymów i minerałów przyspieszających namnażanie dzikich drożdży i bakterii kwasu mlekowego.':
     'Rye flour supplies enzymes and minerals that speed up the multiplication of wild yeast and lactic acid bacteria.',
   'Czeladnik Piekarski':
-    'Bread Journeyman',
+    'Journeyman Baker',
   'Lekcja 3: Klasyczny chleb wiejski 75% hydratacji (Tartine)':
     'Lesson 3: Classic 75% Hydration Country Bread (Tartine)',
   'Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).':

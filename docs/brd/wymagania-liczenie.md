@@ -30,7 +30,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
   - Scenariusz: Ujemna hydratacja zakwasu
     - Zakładając, że użytkownik wpisuje hydratację zakwasu −1%
     - Gdy zatwierdza pole
-    - Wtedy widzi komunikat o błędnych danych, a wynik nie jest liczony (RD-14-W4)
+    - Wtedy pole przyjmuje najniższą wartość zakresu 20% (pole 20–200%), a wynik liczy się z 20%; wartość spoza pola nie trafia do wzoru, więc RD-14-W4 zostaje wektorem reguły (ER-58)
 
 ### BR-KALK-003: Skalowanie do masy ciasta albo liczby sztuk z dokładnością 1 g
 - Przepływ: PR-01, PR-17 · Reguła: RD-15
@@ -149,12 +149,12 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
 - Kryteria akceptacji:
   - Scenariusz: Sól na granicy
     - Zakładając, że receptura ma 1000 g mąki
-    - Gdy użytkownik wpisuje 20 g soli
+    - Gdy użytkownik wpisuje sól 2,0% (20 g)
     - Wtedy aplikacja nie pokazuje informacji (RD-27-W2)
   - Scenariusz: Sól powyżej typowej
     - Zakładając, że receptura ma 1000 g mąki
-    - Gdy użytkownik wpisuje 20,1 g soli
-    - Wtedy widzi informację, że to więcej niż typowe 1,8–2,0%, bez blokady zapisu (RD-27-W3)
+    - Gdy użytkownik wpisuje sól 2,01% (20,1 g)
+    - Wtedy widzi informację, że to więcej niż typowe 1,8–2,0%, z atrybucją źródła (S-37), bez blokady zapisu (RD-27-W3; pole soli w procentach mąki jak w BR-KALK-001: ER-59)
 
 ### BR-UST-001: Jednostki wagi i temperatury
 - Przepływ: PR-10 · zależy od: ZAL-037

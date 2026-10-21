@@ -7,7 +7,7 @@ According to King Arthur Baking, the measure of readiness is doubling in volume 
 
 ## dzien.1
 According to King Arthur Baking, mix whole grain flour, whole wheat or whole rye, with water in equal weights, for example 113 g of flour and 113 g of water. [T:ZAK-ZAL-002]
-Cover the container loosely, which discourages mould, and leave it for 24 hours in a warm spot, at about 21 °C. [T:ZAK-ZAL-002,ZAK-ZAL-014]
+Cover the container loosely, which makes mold less likely, and leave it for 24 hours in a warm spot, at about 21 °C. [T:ZAK-ZAL-002,ZAK-ZAL-014]
 
 ## dzien.2
 According to King Arthur Baking, you may see no activity at all in the first day; feed the starter all the same. [T:ZAK-ZAL-003]

@@ -10,7 +10,7 @@ After shaping, the dough rises in a tin and is baked in it. [T:ZYT-ETA-001]
 The rye variant applies to dough in which rye flour makes up more than 50% of the flour. [T:ZYT-GRA-001]
 
 ## rye_starter.name
-Rye sourdough [T:ZYT-ETA-001]
+Rye starter [T:ZYT-ETA-001]
 
 ## rye_mix.name
 Mixing the dough [T:ZYT-ETA-001]

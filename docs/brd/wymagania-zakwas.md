@@ -56,7 +56,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
   - Scenariusz: Zakwas w lodówce
     - Zakładając, że zakwas w lodówce dokarmiono 2026-10-01 o 10:00
     - Gdy jest 2026-10-08 10:00
-    - Wtedy użytkownik dostaje przypomnienie (RD-25-W4); to jedno powiadomienie na cykl karmienia, bez wcześniejszego przypomnienia (D-068, ER-58)
+    - Wtedy użytkownik dostaje przypomnienie (RD-25-W4); to jedno powiadomienie na cykl karmienia, bez wcześniejszego przypomnienia (D-068, ER-60)
   - Scenariusz: Przypomnienia o karmieniu wyłączone
     - Zakładając, że użytkownik wyłączył w Ustawieniach przełącznik „Przypomnienia o karmieniu”
     - Gdy mija termin dokarmienia zakwasu na blacie albo w lodówce

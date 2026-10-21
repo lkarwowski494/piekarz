@@ -6,6 +6,7 @@ import { formatNumber } from '../../../lib/format';
 import { HydrationDifficultyInfo } from '../../../core/domain-rules';
 import { BlendAbsorptionAnalysis } from '../../../core/flour-atlas';
 import { useUnitSystem, formatTemperature, krokTemperatury } from '../../../lib/unit-converter';
+import { PolaTemperaturDdt, PolaTemperaturDdtProps } from './PolaTemperaturDdt';
 
 import { typografia } from '../../../ui/tokeny';
 // Arkusz „Temperatura wody” liczy tylko temperaturę: procent wody jest w arkuszu „Składniki”
@@ -18,6 +19,10 @@ export interface AccordionDdtSectionProps {
   waterTempWarning?: string;
   hydrationDifficulty?: HydrationDifficultyInfo;
   blendAbsorption?: BlendAbsorptionAnalysis;
+  /** Pola temperatur mąki, kuchni, zaczynu i tarcia (BR-KALK-004) [M1-audytor-generalny-146] */
+  temperatury?: PolaTemperaturDdtProps;
+  /** Etykieta pierwszego pustego pola: prośba o uzupełnienie zamiast wyniku (RD-16-W4) */
+  brakPola?: string | null;
 }
 
 export function AccordionDdtSection({
@@ -27,6 +32,8 @@ export function AccordionDdtSection({
   waterTempWarning,
   hydrationDifficulty,
   blendAbsorption,
+  temperatury,
+  brakPola,
 }: AccordionDdtSectionProps) {
   const unitSystem = useUnitSystem();
 
@@ -42,14 +49,20 @@ export function AccordionDdtSection({
       </Text>
 
       <View style={styles.ddtResultCard}>
-        <View style={styles.ddtResultRow}>
-          <Text style={styles.ddtResultLabel}>{t('Docelowa temp. wody:')}</Text>
-          <Text style={styles.ddtResultValue}>
-            {formatTemperature(waterTempTarget, unitSystem)}
+        {brakPola ? (
+          <Text style={styles.ddtResultLabel} testID="ddt-missing-input">
+            {t('Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.', { pole: t(brakPola) })}
           </Text>
-        </View>
+        ) : (
+          <View style={styles.ddtResultRow} testID="ddt-water-result">
+            <Text style={styles.ddtResultLabel}>{t('Docelowa temp. wody:')}</Text>
+            <Text style={styles.ddtResultValue}>
+              {formatTemperature(waterTempTarget, unitSystem)}
+            </Text>
+          </View>
+        )}
 
-        {waterTempWarning !== undefined && (
+        {!brakPola && waterTempWarning !== undefined && (
           <View style={styles.hotAlertRow} testID="ddt-too-hot-warning" accessibilityRole="alert">
             <Text style={styles.hotAlertText}>{t(waterTempWarning)}</Text>
           </View>
@@ -84,6 +97,8 @@ export function AccordionDdtSection({
           </View>
         </View>
       </View>
+
+      {temperatury && <PolaTemperaturDdt {...temperatury} />}
 
       {/* Badge trudności hydratacji */}
       {hydrationDifficulty && (

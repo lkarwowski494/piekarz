@@ -377,16 +377,17 @@ describe('Exhaustive Domain Math & Physics Invariants (BR-MATH-EXHAUSTIVE)', () 
   // --------------------------------------------------------------------------
   // 7. Commercial Yeast Conversions (Fresh vs Instant Dry vs Active Dry)
   // --------------------------------------------------------------------------
-  describe('Yeast Conversion Equivalences (Fresh 3x vs Instant 1x)', () => {
-    it('converts instant to fresh yeast with 3x multiplier', () => {
-      const res = convertYeast(5.0, 'instant');
+  // RD-19 (S-40, S-39: × 0,4) zamiast 3:1 [M1-audytor-generalny-130]
+  describe('Yeast Conversion Equivalences (RD-19: dry = fresh × 0.4)', () => {
+    it('converts dry to fresh yeast with 1/0.4 multiplier', () => {
+      const res = convertYeast(6.0, 'instant');
       expect(res.freshGrams).toBe(15.0);
-      expect(res.instantGrams).toBe(5.0);
+      expect(res.instantGrams).toBe(6.0);
     });
 
-    it('converts fresh to instant yeast with 1/3 divisor', () => {
+    it('converts fresh to dry yeast with 0.4 multiplier', () => {
       const res = convertYeast(15.0, 'fresh');
-      expect(res.instantGrams).toBe(5.0);
+      expect(res.instantGrams).toBe(6.0);
       expect(res.freshGrams).toBe(15.0);
     });
 

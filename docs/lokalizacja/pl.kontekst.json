@@ -712,7 +712,9 @@
     ]
   },
   "Ciepło tarcia": {
-    "gdzie": []
+    "gdzie": [
+      "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: tarcie)"
+    ]
   },
   "Ciepło w kuchni ({temp}°C). Czas fermentacji skrócony o {min} min (ochrona przed przekwaszeniem).": {
     "gdzie": [
@@ -3557,6 +3559,11 @@
       "src/lib/profile-snu.ts (dane: namePl)"
     ]
   },
+  "Notatka z poprzedniego wypieku: {notatka}": {
+    "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
+    ]
+  },
   "Notatki z wypieku": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -3964,9 +3971,7 @@
     "gdzie": []
   },
   "Parametry bochenka „{name}” wczytano do receptury.": {
-    "gdzie": [
-      "src/hooks/useBakeHistory.ts (Alert.alert)"
-    ],
+    "gdzie": [],
     "opis": "Komunikat po „Piecz ponownie” z wpisu Dziennika: ilości i parametry tamtego wypieku trafiły na ekran receptury. {name} = nazwa receptury. Dawny „kalkulator” to dziś ekran receptury. [M1-audytor-generalny-113]"
   },
   "Pasywne": {
@@ -5656,6 +5661,16 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
+  "Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (kod)"
+    ]
+  },
+  "Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (kod)"
+    ]
+  },
   "Słaby gluten. Wykonaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -5712,7 +5727,9 @@
     "gdzie": []
   },
   "Temperatura mąki": {
-    "gdzie": []
+    "gdzie": [
+      "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: maka)"
+    ]
   },
   "Temperatura optymalna ({temp}°C). Czas zgodny z recepturą.": {
     "gdzie": [
@@ -5730,6 +5747,11 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Temperatura w kuchni": {
+    "gdzie": [
+      "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: kuchnia)"
     ]
   },
   "Temperatura w kuchni:": {
@@ -5753,6 +5775,11 @@
   },
   "Temperatura wody: {temp}°C": {
     "gdzie": []
+  },
+  "Temperatura zakwasu albo zaczynu": {
+    "gdzie": [
+      "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
+    ]
   },
   "Test okna glutenowego": {
     "gdzie": [
@@ -5940,6 +5967,16 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Udział żyta {n}%: wariant pszenny.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ]
+  },
+  "Udział żyta {n}%: wariant żytni, plan bez składań.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ]
+  },
   "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
@@ -6119,6 +6156,11 @@
   "Uwięzienie wilgoci przez skleikowaną skrobię, jedwabisty miękisz i wielodniowa świeżość.": {
     "gdzie": [
       "src/core/preferments.ts (dane: flavorProfilePl)"
+    ]
+  },
+  "Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.": {
+    "gdzie": [
+      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
     ]
   },
   "Uzyskana masa i hydratacja": {
@@ -7274,9 +7316,7 @@
     ]
   },
   "Zakwas": {
-    "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
-    ],
+    "gdzie": [],
     "opis": "Nazwa zakładki i tytuł ekranu prowadzenia zakwasu (karmienie, profil, przypomnienia); jedno krótkie słowo pod ikoną zakładki. Nie składnik receptury: ten ma klucz „Zakwas|składnik”."
   },
   "Zakwas (Levain)": {
@@ -7354,6 +7394,7 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
+      "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
@@ -7587,9 +7628,7 @@
     ]
   },
   "Załadowano recepturę": {
-    "gdzie": [
-      "src/hooks/useBakeHistory.ts (Alert.alert)"
-    ]
+    "gdzie": []
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
     "gdzie": [
@@ -8436,8 +8475,14 @@
   },
   "{n} cz.": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: few)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: many)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: one)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: other)"
     ]
+  },
+  "{n} cz.#one": {
+    "gdzie": []
   },
   "{n} dni": {
     "gdzie": [

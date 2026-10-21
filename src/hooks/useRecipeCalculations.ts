@@ -33,7 +33,8 @@ export interface UseRecipeCalculationsParams {
   targetDdt: number;
   flourTemp: number;
   roomTemp: number;
-  starterTemp: number;
+  /** Brak = receptura bez zakwasu i zaczynu: wzór temperatury wody z n = 3 (RD-16) [M1-audytor-generalny-146] */
+  starterTemp?: number;
   frictionFactor: number;
   customBakeLossPercent: number;
   prefermentType: PrefermentType;

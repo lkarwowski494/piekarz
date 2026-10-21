@@ -9,11 +9,15 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { NumInput } from '../NumInput';
 import { dokarmienieZeZostawionego } from '../../core/dokarmianie';
 import { theme } from '../../ui/theme';
-import { t } from '../../lib/i18n';
+import { t, tPlural } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 import { typografia } from '../../ui/tokeny';
+
+/** Części proporcji karmienia z formą liczby (EN: 1 part, 2 parts) [M1-audytor-generalny-074]. */
+const CZESCI = { one: '{n} cz.', few: '{n} cz.', many: '{n} cz.', other: '{n} cz.' };
+
 export interface StarterFeedingCardProps {
   selectedRatio: [number, number, number];
   onSelectRatio: (ratio: [number, number, number]) => void;
@@ -131,19 +135,19 @@ export function StarterFeedingCard({
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Stary zakwas')}</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.starterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[0] })}</Text>
+          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[0], CZESCI)}</Text>
         </View>
         <Text style={styles.plusSign}>+</Text>
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Mąka')}</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.flourGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[1] })}</Text>
+          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[1], CZESCI)}</Text>
         </View>
         <Text style={styles.plusSign}>+</Text>
         <View style={styles.feedingItem}>
           <Text style={styles.feedingItemLabel}>{t('Woda')} (~{formatTemperature(28, unitSystem)})</Text>
           <Text style={styles.feedingItemValue}>{formatWeight(feeding.waterGrams, unitSystem)}</Text>
-          <Text style={styles.feedingItemRatio}>{t('{n} cz.', { n: selectedRatio[2] })}</Text>
+          <Text style={styles.feedingItemRatio}>{tPlural(selectedRatio[2], CZESCI)}</Text>
         </View>
       </View>
       <Text style={styles.feedingReserveTip}>

@@ -4,17 +4,20 @@
 // ============================================================================
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
-import { t } from '../lib/i18n';
 import { guardSave } from '../lib/save-guard';
 import { tapHaptic } from '../lib/haptics';
 import { confirmDeleteBakeLog } from '../lib/confirm';
 import { getBakeLogs, deleteBakeLog, getRecipes } from '../data/sqlite-store';
 import { StoredBakeLog } from '../data/db';
-import { setPendingRecipeToLoad, prepareBakeAgainRecipe } from '../lib/recipe-navigation';
+import { prepareBakeAgainRecipe } from '../lib/recipe-navigation';
+import { ustawRecepturePlanu } from '../lib/plan-receptury';
+import { calculateDoughRecipe } from '../core/domain-rules';
 import { calculateBakeStatistics, filterBakeLogs } from '../core/bake-statistics';
+
+/** Masa ciasta, gdy receptura jej nie ma: jak domyślnie na ekranie receptury (2 bochenki po 850 g). */
+const MASA_DOMYSLNA_G = 2 * 850;
 
 export type FiltrSmaku = 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
 
@@ -42,18 +45,19 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
     requireActionAccess(async () => {
       tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
 
+      // BR-RECP-003 „Następny wypiek z wpisu”: plan wypieku (PR-02) z tą samą recepturą i notatką z wpisu
+      // (wariant BRD, D-070) [M1-audytor-generalny-146]
       try {
         const custom = await getRecipes();
         const pending = prepareBakeAgainRecipe(log, custom);
-        setPendingRecipeToLoad(pending);
-
-        router.navigate('/receptury');
-        Alert.alert(
-          t('Załadowano recepturę'),
-          t('Parametry bochenka „{name}” wczytano do receptury.', {
-            name: log.recipeName,
-          })
-        );
+        const recipeFormula = { ...pending.formula, targetDoughWeightGrams: pending.formula.targetDoughWeightGrams ?? MASA_DOMYSLNA_G };
+        ustawRecepturePlanu({
+          recipeName: pending.name,
+          calculatedRecipe: calculateDoughRecipe(recipeFormula),
+          recipeFormula,
+          notatka: log.notes?.trim() || undefined,
+        });
+        router.navigate('/receptury/harmonogram');
       } catch {
         router.navigate('/receptury');
       }

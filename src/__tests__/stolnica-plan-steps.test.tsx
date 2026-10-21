@@ -307,7 +307,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(saved?.steps[0]?.plannedStart).toBe(now);
     setLang('en');
     expect(RYE_STAGES.map(([, name]) => t(name))).toEqual([
-      'Rye sourdough', 'Mixing the dough', 'Short dough fermentation', 'Dividing and shaping',
+      'Rye starter', 'Mixing the dough', 'Short dough fermentation', 'Dividing and shaping',
       'Rise in the tin', 'Baking in the tin', 'Cooling',
     ]);
     expect(t(RYE_PROOF_TEXT)).toBe('Leave the dough in the tin until its surface reaches the rim of the tin.');

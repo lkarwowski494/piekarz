@@ -27,7 +27,7 @@ export const EN_3: Record<string, string> = {
   'Co dzisiaj pieczemy?': 'What are we baking today?',
   'Mniej': 'Less',
   'Wsyp do miski na wagę': 'Add to bowl on scale',
-  'Odhaczaj składniki w miarę wsypywania': 'Check off ingredients as you weigh them',
+  'Odhaczaj składniki w miarę wsypywania': 'Check off ingredients as you add them',
   'Mąka razem': 'Total flour',
   'Aktywny zakwas': 'Active starter',
   'W szczycie aktywności': 'At peak activity',
@@ -173,7 +173,7 @@ export const EN_3: Record<string, string> = {
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
   // Etapy chleba żytniego Stolnicy (src/core/rye-stages.ts) — dosłownie z docs/tresci/en/chleb-zytni-etapy.md
   // [M1-audytor-generalny-030; ZYT-ETA-001, ZYT-ETA-003..006, ZYT-STU-001]
-  'Zakwas żytni': 'Rye sourdough',
+  'Zakwas żytni': 'Rye starter',
   'Mieszanie ciasta': 'Mixing the dough',
   // + BEZ-SUR-001, BEZ-SUR-002 dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.':

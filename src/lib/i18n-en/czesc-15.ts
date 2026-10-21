@@ -7,7 +7,7 @@
  */
 export const EN_15: Record<string, string> = {
   'Wymieszanie z solą i zakwasem':
-    'Mixing in salt and starter (Bassinage)',
+    'Mixing in salt and starter',
   'Wykonaj 4 serie składań co 30–45 minut.':
     'Perform 4 sets of folds (Stretch & Fold / Coil Fold) every 30–45 minutes.',
   'Formowanie wstępne':
@@ -21,7 +21,7 @@ export const EN_15: Record<string, string> = {
   'Gumowaty, lepki miękisz':
     'Gummy, sticky crumb (Gummy Crumb)',
   'Niedofermentowanie':
-    'Under-proofing (Under-proofed / Flying Crust)',
+    'Under-fermentation (under-proofed)',
   'Upewnij się, że zakwas został użyty w szczycie objętości.':
     'Make sure the starter was used at peak volume (Peak).',
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.':
@@ -43,7 +43,7 @@ export const EN_15: Record<string, string> = {
   'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.':
     'Skip the proofing basket. Use a loaf tin (Tin Loaf).',
   'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.':
-    'Do one extra gentle fold (Coil Fold) to distribute the heat.',
+    'Do one extra gentle fold to distribute the heat.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.':
     'Dry salt draws water out locally by osmosis and forms lumps. Adding it as a solution (bassinage) lets the Na+ and Cl- ions immediately tighten the gluten bonds throughout the dough.',
   'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.':
@@ -106,7 +106,7 @@ export const EN_15: Record<string, string> = {
   // Plan wypieku: stan „za późno” (design-spec §11c „107”, teksty.js pl.zaPozno*, pl.ustawTe, pl.zacznijPowod)
   // [M1-audytor-generalny-107; 04-studio-projektowe-024]
   'wczoraj': 'yesterday',
-  'Nie zdążysz na tę godzinę': 'Not enough time for this',
+  'Nie zdążysz na tę godzinę': 'You won\'t make it by this time',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.':
     'The plan would have to start {dzienStartu} at {godzinaStartu}. The earliest the bread can be ready is {dzienGotowe} at {godzinaGotowe}.',
   'Ustaw tę godzinę': 'Use This Time',
