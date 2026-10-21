@@ -10,7 +10,7 @@ import { StrefaKroku } from '../components/stolnica/StrefaKroku';
 import type { SessionStep } from '../core/bake-steps';
 
 const krok = (id: string, name: string): SessionStep => ({
-  id, name, category: 'bulk', durationMin: 30, isPassive: true, instructions: '', plannedStart: null, plannedEnd: null,
+  id, name, category: 'autolyse', durationMin: 30, isPassive: true, instructions: '', plannedStart: null, plannedEnd: null,
 });
 
 function strefa(step: SessionStep) {
