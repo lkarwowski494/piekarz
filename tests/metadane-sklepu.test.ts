@@ -110,7 +110,8 @@ describe('metadane 34 lokalizacji strony produktu (095)', () => {
   it.each(KODY)('%s: opis zawiera link do Terms of Use (standardowa EULA Apple) w osobnej linii z etykietą (A-1)', (kod) => {
     const linie = meta(kod).opis.split('\n');
     const linia = linie.find((l) => l.includes(EULA));
-    expect({ kod, linia: linia !== undefined, zEtykieta: /\S.*:\s*https:/.test(linia ?? '') }).toEqual({ kod, linia: true, zEtykieta: true });
+    // dwukropek etykiety także pełnej szerokości: ja „利用規約（EULA）：”, zh-Hant „使用條款（EULA）：” (przekład noc3)
+    expect({ kod, linia: linia !== undefined, zEtykieta: /\S.*[:：]\s*https:/.test(linia ?? '') }).toEqual({ kod, linia: true, zEtykieta: true });
     expect(linie.indexOf(linia!)).toBeLessThan(linie.length - 1);
   });
 

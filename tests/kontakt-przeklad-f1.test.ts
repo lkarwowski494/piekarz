@@ -12,6 +12,8 @@ import { getAllSupportedLocaleCodes } from '../src/lib/i18n-locales';
 const root = path.join(__dirname, '..');
 const json = (p: string) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 const KARTA = ['Kontakt', 'Polityka prywatności', 'Oceń w App Store', 'Ocena wymaga połączenia z App Store.', 'Napisz do nas'];
+/** Przekład noc3 równy tekstowi EN, bo to słowo języka docelowego (fr, ro, nl „Contact”), nie brak przekładu. */
+const TAKIE_JAK_EN: Record<string, string[]> = { fr: ['Kontakt'], ro: ['Kontakt'], nl: ['Kontakt'] };
 
 function slownik(kod: string): Map<string, string> {
   const dir = path.join(root, 'src/lib/i18n-slowniki', kod);
@@ -41,7 +43,7 @@ describe('karta „Kontakt” w językach przekładu (F-1)', () => {
     const czeka = json('docs/lokalizacja/czeka-na-przeklad.json').klucze as Array<{ klucz: string; jezyki?: string[] }>;
     const brak = KARTA.filter((k) => {
       const v = s.get(k);
-      if (v && v !== EN[k]) return false;
+      if (v && (v !== EN[k] || TAKIE_JAK_EN[kod]?.includes(k))) return false;
       const w = czeka.find((x) => x.klucz === k);
       return !(w && (!w.jezyki || w.jezyki.includes(kod)));
     });
