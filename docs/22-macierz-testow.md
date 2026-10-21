@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 564 | 564 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 409 | 409 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 169 | 169 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1195** | Pokrytych: **1195** | Brakujących: **0**
+Łącznie elementów: **1196** | Pokrytych: **1196** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -310,14 +310,14 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Masa mąki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/br-kryteria-067.test.tsx |
-| `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
+| `TEKST` | `Drożdże świeże (prasowane)` | `src/components/receptury/DoMiski.tsx` | ✅ | src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx |
 | `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx, src/doctor/__tests__/diagnostics-exhaustive.test.ts |
 | `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 895 kolejnych elementów w pełnym wykazie)*
+*(... i 896 kolejnych elementów w pełnym wykazie)*
