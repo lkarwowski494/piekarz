@@ -2732,12 +2732,6 @@
       "src/lib/feeding-formatter.ts (kod)"
     ]
   },
-  "Mąka Manitoba / Forte (W > 350)": {
-    "gdzie": [
-      "src/core/flour-atlas.ts (dane: namePl)",
-      "src/data/sqlite-schema.ts (dane: name)"
-    ]
-  },
   "Mąka cukiernicza / tortowa (bielona)": {
     "gdzie": [
       "src/core/flour-equivalents.ts (dane: namePl)"
@@ -2820,7 +2814,8 @@
   },
   "Mąka pszenna Manitoba": {
     "gdzie": [
-      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)"
+      "src/core/flour-atlas-ogolne.ts (dane: nazwaPl)",
+      "src/core/flour-atlas.ts (dane: namePl)"
     ],
     "opis": "Nazwa ogólna mąki w atlasie dla języków bez sprawdzonej mapy polskich typów: tylko zboże (i nazwa stylu Manitoba), bez numeru typu i bez lokalnego odpowiednika (T65, Type 550, 00, bread flour) [M1-audytor-generalny-094]."
   },

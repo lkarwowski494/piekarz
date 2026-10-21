@@ -95,8 +95,6 @@ export const EN_11: Record<string, string> = {
     'Whole rye flour type 2000',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.':
     'An ideal base for maintaining a mother starter. Rich in wild yeasts and lactic acid bacteria.',
-  'Mąka Manitoba / Forte (W > 350)':
-    'Manitoba / Forte flour (W > 350)',
   'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.':
     'Super-strong flour from high-protein wheat. Holds huge hydration (80%+) and many hours of cold.',
   'Mąka orkiszowa jasna typ 630':

@@ -1241,7 +1241,7 @@
     "twierdzenie": "Zakres zawartości białka (% s.m.) dla każdego profilu atlasu mąk (polskie typy pszenne, żytnie i orkiszowe oraz Manitoba), do opisu ogólnego bez numeru typu.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): białko mają twierdzenia MAK-OGL-002, MAK-OGL-003, MAK-OGL-006 dla 13 profili. Bez przeczytanego źródła zostają: wheat_1850 (typ 1850), wheat_manitoba, rye_500, spelt_630 — dla nich opisPl pusty i nazwa bez białka. Szukane: czasopisma ZNTJ, PTPS, Acta Agrophysica, PMC; tabela białka typów w normach (płatnych) też nie występuje. Pola proteinPercent w src/core/flour-atlas.ts nadal bez źródła (06-tresci-fix-p4-002), poza zakresem 094.",
+    "uwagi": "[DO USTALENIA] M1-audytor-generalny-094, stan po badaniu 2026-10-20 (rola 06, fix p7b): białko mają twierdzenia MAK-OGL-002, MAK-OGL-003, MAK-OGL-006 dla 13 profili. Bez przeczytanego źródła zostają: wheat_1850 (typ 1850), wheat_manitoba, rye_500, spelt_630 — dla nich opisPl pusty i nazwa bez białka. Szukane: czasopisma ZNTJ, PTPS, Acta Agrophysica, PMC; tabela białka typów w normach (płatnych) też nie występuje. Pola proteinPercent w src/core/flour-atlas.ts nadal bez źródła (06-tresci-fix-p4-002), poza zakresem 094. 2026-10-21 (M1-audytor-generalny-209, 06-tresci-605): siły mąki W żadne przeczytane źródło nie podaje, więc nazwa PL profilu wheat_manitoba bez „(W > 350)” i bez „Forte” — „Mąka pszenna Manitoba”, jak nazwa ogólna. Ta sama liczba zostaje w nazwie mąki receptury bazowej i w danych spiżarni (dane, nie atlas): znalezisko M2 w raporcie toru p12b2.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null

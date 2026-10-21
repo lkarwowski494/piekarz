@@ -136,7 +136,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
   },
   {
     id: 'wheat_manitoba',
-    namePl: 'Mąka Manitoba / Forte (W > 350)',
+    namePl: 'Mąka pszenna Manitoba', // bez „W > 350”: brak twierdzenia o sile W (MAK-OGL-900) [M1-audytor-generalny-209]
     grain: 'wheat',
     ashTyp: 550,
     proteinPercent: 14.5,
