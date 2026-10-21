@@ -18,6 +18,7 @@ import type { SessionStep } from '../core/bake-steps';
 import { isDutchOvenStep } from '../core/bake-steps';
 import { DUTCH_OVEN_PHASES, type DutchOvenBakePhase } from '../core/baking-phases';
 import { stepDurationSec, stepHasTimer } from '../core/bake-session';
+import { gotoweMs } from './gotowe';
 import { lang, t, tPlural } from './i18n';
 import { appLocale, formatTime } from './format';
 import { dzienSlownie } from './spirala-etykieta';
@@ -84,20 +85,15 @@ export interface TekstyProwadzenia {
 
 export function tekstyProwadzenia(w: WejscieProwadzenia): TekstyProwadzenia {
   const krok = w.steps[w.stepIdx];
-  const koniecPlanu = w.steps[w.steps.length - 1]?.plannedEnd ?? null;
   const zegar = krok && stepHasTimer(krok) ? w.koniecKrokuMs : null;
   const biegnie = zegar !== null && zegar > w.teraz;
   const poCzasie = zegar !== null && !biegnie;
-  // Krok po czasie: następny rusza od „Zrobione” (BR-HARMO-005), więc gotowe = teraz + pozostała długość planu
-  // (od planowanego końca kroku do końca planu) [M1-audytor-generalny-151; 08-programista-504]
-  const gotoweMs =
-    koniecPlanu !== null && poCzasie && krok?.plannedEnd != null
-      ? Math.max(koniecPlanu, w.teraz + (koniecPlanu - krok.plannedEnd))
-      : koniecPlanu;
+  // Krok po czasie przesuwa „gotowe”; ta sama funkcja liczy Spiralę i kartę na Starcie [M1-audytor-generalny-151; reaudit-noc N-4]
+  const koniec = gotoweMs(w);
   const gotowe =
-    gotoweMs === null
+    koniec === null
       ? null
-      : t('Gotowe {dzien} o {godzina}', { dzien: dzienSlownie(new Date(gotoweMs), new Date(w.teraz)), godzina: formatTime(gotoweMs) });
+      : t('Gotowe {dzien} o {godzina}', { dzien: dzienSlownie(new Date(koniec), new Date(w.teraz)), godzina: formatTime(koniec) });
   if (!krok) return { gotowe, czas: null, potem: null, ekran: null };
   const dalej = nastepny(w.steps, w.stepIdx, w.dutchOvenPhase);
 

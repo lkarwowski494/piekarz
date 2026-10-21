@@ -22,13 +22,15 @@ export interface StrefaPlanuProps {
   pelnySec: number;
   /** „Gotowe {dzień} o {godzina}”; null = plan bez godziny końca (linia znika). */
   gotowe?: string | null;
+  /** Koniec zegara kroku (ms), ten sam co dla tekstów prowadzenia: Spirala mówi tę samą godzinę „gotowe” (N-4). */
+  koniecKrokuMs?: number | null;
 }
 
-export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null }: StrefaPlanuProps) {
+export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null, koniecKrokuMs = null }: StrefaPlanuProps) {
   return (
     <>
       <Text style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
-      <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} />
+      <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} koniecKrokuMs={koniecKrokuMs} />
       <View style={styles.planOpis}>
         <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>
         {gotowe !== null && <Text testID="plan-ready" style={styles.gotowe}>{gotowe}</Text>}

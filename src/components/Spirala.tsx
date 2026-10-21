@@ -23,6 +23,7 @@ import {
   type WariantSpirali,
 } from '../lib/spirala-geometria';
 import { etykietaPlanuWypieku } from '../lib/spirala-etykieta';
+import { gotoweMs } from '../lib/gotowe';
 import { useMotyw } from '../ui/motyw';
 import { odstepy, typografia } from '../ui/tokeny';
 
@@ -163,24 +164,26 @@ export function LegendaSpirali({ kroki }: { kroki: readonly KrokSpirali[] }) {
 }
 
 /** Spirala trwającego wypieku z kroków sesji (prowadzenie): etykieta z danych planu tego wypieku. */
-export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec }: {
+export function SpiralaWypieku({ steps, stepIdx, pozostaloSec, pelnySec, koniecKrokuMs = null }: {
   steps: readonly SessionStep[];
   stepIdx: number;
   /** Pozostały czas kroku (s); null = krok bez minutnika. */
   pozostaloSec: number | null;
   /** Pełny czas kroku (s). */
   pelnySec: number;
+  /** Koniec zegara kroku (ms), także po czasie; „gotowe” jak w prowadzeniu (reaudit-noc N-4). */
+  koniecKrokuMs?: number | null;
 }) {
   const kroki = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
   const postep = pozostaloSec !== null && pelnySec > 0 ? 1 - pozostaloSec / pelnySec : 0;
-  const koniec = steps[steps.length - 1]?.plannedEnd ?? null;
+  const koniec = gotoweMs({ steps, stepIdx, koniecKrokuMs, teraz: Date.now() });
   const etykieta = etykietaPlanuWypieku({
     krok: stepIdx + 1,
     liczbaKrokow: steps.length,
     nazwa: t(steps[stepIdx]?.name ?? ''),
     pozostaloMin: pozostaloSec === null ? null : Math.ceil(pozostaloSec / 60),
     gotowe: koniec === null ? null : new Date(koniec),
-    teraz: new Date(),
+    teraz: new Date(Date.now()),
   });
   return (
     <View style={styles.wypiek}>

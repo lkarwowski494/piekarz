@@ -12,6 +12,7 @@ import { stepHasTimer } from '../../core/bake-session';
 import { t } from '../../lib/i18n';
 import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { formatTime } from '../../lib/format';
+import { gotoweMs } from '../../lib/gotowe';
 import { czasSlownie, dzienSlownie, etykietaPlanuWypieku } from '../../lib/spirala-etykieta';
 import { krokiSpiraliZSesji } from '../../lib/spirala-geometria';
 import { theme } from '../../ui/theme';
@@ -33,8 +34,9 @@ export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc }: {
   const postep = pozostaloMin !== null && pelnyMin ? Math.min(1, Math.max(0, 1 - pozostaloMin / pelnyMin)) : 0;
   // Koniec kroku: zegar biegnie → teraz + pozostało; zatrzymany → godzina z planu; brak obu → bez godziny
   const koniecKroku = zMinutnikiem && zegar.isRunning ? teraz + zegar.timeLeftSec * 1000 : krok?.plannedEnd ?? null;
-  const gotoweMs = sesja.steps[sesja.steps.length - 1]?.plannedEnd ?? null;
-  const gotowe = gotoweMs === null ? null : new Date(gotoweMs);
+  // „Gotowe” jak w prowadzeniu: krok po czasie przesuwa koniec planu (timerEndsAt zostaje po upływie zegara) [reaudit-noc N-4]
+  const koniec = gotoweMs({ steps: sesja.steps, stepIdx: sesja.stepIdx, koniecKrokuMs: sesja.timerEndsAt, teraz });
+  const gotowe = koniec === null ? null : new Date(koniec);
   const etykieta = etykietaPlanuWypieku({
     krok: sesja.stepIdx + 1,
     liczbaKrokow: sesja.steps.length,
