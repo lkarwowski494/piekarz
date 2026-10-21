@@ -21,7 +21,7 @@ import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-step
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
-import { formatTime as formatGodziny } from '../../../src/lib/format';
+import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
@@ -41,11 +41,6 @@ import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
 
-const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
-const POLISH_MONTHS = [
-  'sty', 'lut', 'mar', 'kwi', 'maj', 'cze',
-  'lip', 'sie', 'wrz', 'paź', 'lis', 'gru',
-];
 
 export default function HarmonogramScreen() {
   const router = useRouter();
@@ -212,7 +207,8 @@ export default function HarmonogramScreen() {
     if (diffDays === 1) return t('Jutro');
     if (diffDays === 2) return t('Pojutrze');
     if (diffDays === -1) return t('Wczoraj');
-    return t('{dzien}, {d} {miesiac}', { dzien: t(POLISH_DAYS[d.getDay()]), d: d.getDate(), miesiac: t(POLISH_MONTHS[d.getMonth()]) });
+    // dzień tygodnia z datą przez Intl w języku aplikacji [audyt-niezalezny F-5]
+    return formatDzienData(d);
   };
 
   // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];

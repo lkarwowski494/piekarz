@@ -849,9 +849,7 @@
     ]
   },
   "Czw.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "DDT": {
     "gdzie": []
@@ -3493,9 +3491,7 @@
     ]
   },
   "Niedz.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Niedzielny obiad": {
     "gdzie": []
@@ -4346,9 +4342,7 @@
     ]
   },
   "Pon.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Poolish (Rzadki zaczyn 100%)": {
     "gdzie": [
@@ -4794,9 +4788,7 @@
     ]
   },
   "Pt.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Pusty lub nieprawidłowy link": {
     "gdzie": [
@@ -5306,9 +5298,7 @@
     ]
   },
   "Sob.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Sobotnie śniadanie": {
     "gdzie": []
@@ -6806,9 +6796,7 @@
     ]
   },
   "Wt.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
     "gdzie": [
@@ -8052,9 +8040,7 @@
     "gdzie": []
   },
   "cze": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "do {godzina}": {
     "gdzie": [
@@ -8098,9 +8084,7 @@
     ]
   },
   "gru": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "hydratacji": {
     "gdzie": [
@@ -8114,9 +8098,7 @@
     ]
   },
   "kwi": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lekcji": {
     "gdzie": []
@@ -8127,14 +8109,10 @@
     ]
   },
   "lip": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lis": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lodu": {
     "gdzie": []
@@ -8143,19 +8121,13 @@
     "gdzie": []
   },
   "lut": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "maj": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "mar": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "masy mąki": {
     "gdzie": [
@@ -8219,9 +8191,7 @@
     ]
   },
   "paź": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "pieczenie bez pokrywy": {
     "gdzie": [
@@ -8262,9 +8232,7 @@
     ]
   },
   "sie": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "soli": {
     "gdzie": [
@@ -8282,9 +8250,7 @@
     ]
   },
   "sty": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "szklanek": {
     "gdzie": [
@@ -8363,9 +8329,7 @@
     ]
   },
   "wrz": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "wymaga Piekarz Pro": {
     "gdzie": [
@@ -8453,9 +8417,7 @@
     ]
   },
   "{dzien}, {d} {miesiac}": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "{godziny} {minuty}": {
     "gdzie": [
@@ -8801,9 +8763,7 @@
     ]
   },
   "Śr.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Śr. miękisz": {
     "gdzie": [
