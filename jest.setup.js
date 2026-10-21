@@ -14,8 +14,14 @@ const mockFileSystem = {
     }
     return '';
   }),
-  getInfoAsync: jest.fn(async (uri) => {
+  getInfoAsync: jest.fn(async (uri, options) => {
     const exists = mockFiles.has(uri) || Array.from(mockFiles.keys()).some((k) => k.startsWith(uri));
+    // Jak expo-file-system: { md5: true } daje sumę MD5 treści pliku, plik ma rozmiar [M1-audytor-generalny-141]
+    if (mockFiles.has(uri)) {
+      const tresc = String(mockFiles.get(uri));
+      const md5 = options && options.md5 ? require('node:crypto').createHash('md5').update(tresc).digest('hex') : undefined;
+      return { exists, isDirectory: false, size: Buffer.byteLength(tresc), ...(md5 ? { md5 } : {}) };
+    }
     return { exists, isDirectory: uri.endsWith('/') };
   }),
   readDirectoryAsync: jest.fn(async (dirUri) => {
