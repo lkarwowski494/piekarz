@@ -162,7 +162,7 @@ export const CZESC: Record<string, string> = {
   'Czas w lodówce:': 'Vrijeme u hladnjaku:',
   'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Vrijeme je da skineš poklopac s lonca i nastaviš peći bez pare.',
   'cze': 'lip',
-  'Czw.': 'Čet.',
+  'Czw.': 'Čet',
   'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Vježbaj intuiciju za pekarske omjere napamet (Mental Baker Drill)',
   'Dane są zapisywane tylko w tym telefonie.': 'Podaci se spremaju samo na ovom telefonu.',
   'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Podaci iz kopije su u aplikaciji. Preskočeni oštećeni unosi: {n}. Prethodne podatke spremio sam u kopiju prije uvoza.',

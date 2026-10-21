@@ -95,6 +95,8 @@
     { "jezyk": "vi", "rodzaj": "liczba-mnoga", "klucz": "{n} cz.#one", "na": "{n} phần", "powod": "CLDR vi ma tylko kategorię other; klucz „{n} cz.#one” jest w słowniku EN (1 part), więc słownik języka ma tę samą formę co other [M1-audytor-generalny-074]" },
     { "jezyk": "zh-Hant", "rodzaj": "liczba-mnoga", "klucz": "{n} cz.#one", "na": "{n} 份", "powod": "CLDR zh-Hant ma tylko kategorię other; klucz „{n} cz.#one” jest w słowniku EN (1 part), więc słownik języka ma tę samą formę co other [M1-audytor-generalny-074]" },
     { "jezyk": "nl", "rodzaj": "mt", "klucz": "{n} min w {temp}", "z": "{n}m bij {temp}", "na": "{n} min bij {temp}", "powod": "„22m” doklejone do liczby; jednostka jak w kluczu „{n} min” tego słownika (nl „{n} min”) [audyt-niezalezny F-4]" },
-    { "jezyk": "el", "rodzaj": "mt", "klucz": "{n} min w {temp}", "z": "{n}λ στους {temp}", "na": "{n} λεπ. στους {temp}", "powod": "„22λ” doklejone do liczby; jednostka jak w kluczu „{n} min” tego słownika (el „{n} λεπ.”) [audyt-niezalezny F-4]" }
+    { "jezyk": "el", "rodzaj": "mt", "klucz": "{n} min w {temp}", "z": "{n}λ στους {temp}", "na": "{n} λεπ. στους {temp}", "powod": "„22λ” doklejone do liczby; jednostka jak w kluczu „{n} min” tego słownika (el „{n} λεπ.”) [audyt-niezalezny F-4]" },
+    { "jezyk": "hr", "rodzaj": "mt", "klucz": "Czw.", "z": "Čet.", "na": "Čet", "powod": "skróty dni hr bez kropki jak „Pon”, „Pet”, „Sub”, „Ned”, „Sri” w tym słowniku (Intl hr: „čet”) [audyt-niezalezny F-5]" },
+    { "jezyk": "hr", "rodzaj": "mt", "klucz": "Wt.", "z": "Ut.", "na": "Uto", "powod": "skrót trzyliterowy bez kropki jak pozostałe dni w tym słowniku (Intl hr: „uto”) [audyt-niezalezny F-5]" }
   ]
 }

@@ -72,6 +72,16 @@ export function formatDate(
   return dateFormatter(locale, options).format(typeof value === 'number' ? new Date(value) : value);
 }
 
+const DZIEN_DATA: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'short' };
+
+/**
+ * Dzień tygodnia z datą (PL „pon., 26 paź”, EN „Mon, Oct 26”) przez Intl w języku aplikacji: skróty dni
+ * i miesięcy spójne w każdym języku, bez par kluczy „Pon.”/„sty” [audyt-niezalezny F-5].
+ */
+export function formatDzienData(value: number | Date, locale: string = appLocale()): string {
+  return dateFormatter(locale, DZIEN_DATA).format(typeof value === 'number' ? new Date(value) : value);
+}
+
 /** Godzina i minuta według języka (PL 24 h, EN-US 12 h). */
 export function formatTime(value: number | Date, locale: string = appLocale()): string {
   return dateFormatter(locale, TIME_DEFAULT).format(typeof value === 'number' ? new Date(value) : value);
