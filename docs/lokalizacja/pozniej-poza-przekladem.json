@@ -39,9 +39,7 @@
       "src/lib/pdf-sheet-generator.ts",
       "src/lib/print-menu.ts"
     ],
-    "F-48 strata piecowa": [
-      "src/components/calculator/accordion/AccordionBakeLossSection.tsx"
-    ],
+    "F-48 strata piecowa": [],
     "F-52 rodzina": [
       "src/components/settings/StudioEcosystemSection.tsx"
     ]

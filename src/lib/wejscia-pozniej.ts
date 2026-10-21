@@ -8,7 +8,7 @@
 export type WejsciePozniej =
   | 'slownik-mak' // F-46
   | 'odrzut-zakwasu' // F-47
-  | 'strata-piecowa' // F-48
+  | 'strata-piecowa' // F-48: bez miejsca w UI po zadaniu 149; powrót przez nowe wejście na ekranie receptury i ZM (DEC-24 a, ZM-21) [M1-audytor-generalny-184]
   | 'konwerter-zakwasu' // F-49
   | 'druk' // F-50: karta PDF i etykieta słoika poza 1.0 (D-043) [M1-audytor-generalny-072]
   | 'qr' // F-08: skan i udostępnianie kodu QR poza 1.0, bez zgody na aparat (D-043) [M1-audytor-generalny-049]
