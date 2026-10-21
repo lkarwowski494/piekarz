@@ -137,8 +137,9 @@ export function parseRecipeRow(v: unknown): StoredRecipe | null {
   if (!isObj(v) || !isStr(v.id) || !isStr(v.name) || !isRecipeInput(v.formula) || !isNum(v.targetDDT) || !isNum(v.createdAt)) return null;
   // Suma mąk jak przy imporcie JSON: 95–105% normalizowane do 100%, inaczej wiersz pominięty (licznik
   // pominiętych na ekranie importu) [M1-audytor-generalny-150; 08-programista-502]
-  const flours = normalizujMaki(v.formula.flours);
-  if (!flours) return null;
+  // Suma poza 95–105% (dane z dawnych importów): receptura zostaje z proporcjami bez zmian — ekran liczy ją
+  // proporcjonalnie z komunikatem o sumie mąk (`obliczRecepture`), import jej nie gubi [reaudit-noc N-8]
+  const flours = normalizujMaki(v.formula.flours) ?? v.formula.flours.map((f) => ({ ...f }));
   return {
     id: v.id,
     name: v.name,

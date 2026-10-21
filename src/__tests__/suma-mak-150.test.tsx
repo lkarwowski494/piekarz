@@ -1,7 +1,7 @@
 /**
  * Receptura z sumą mąk ≠ 100% (np. 33,3 + 33,3 + 33,3 = 99,9% z kopii) nie wywraca ekranu receptury
  * [M1-audytor-generalny-150; 08-programista-502]: rachunek z walidacją zwraca błąd zamiast wyjątku, import kopii
- * normalizuje sumę jak import JSON (95–105%) albo pomija wiersz, a ekran pokazuje komunikat.
+ * normalizuje sumę jak import JSON (95–105%) albo zostawia proporcje bez zmian (N-8), a ekran pokazuje komunikat.
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
@@ -52,12 +52,15 @@ describe('150: suma mąk różna od 100%', () => {
     expect(normalizujMaki([{ name: 'A', percentage: 105.1 }])).toBeNull();
   });
 
-  it('import kopii: receptura z sumą 99,9% ma po wczytaniu sumę 100%; z sumą 80% wiersz pominięty', () => {
+  // Do N-8 wiersz z sumą 80% był pomijany (utrata receptury przy imporcie kopii); teraz zostaje bez zmian
+  // proporcji, a ekran pokazuje komunikat o sumie mąk [reaudit-noc N-8]
+  it('import kopii: receptura z sumą 99,9% ma po wczytaniu sumę 100%; z sumą 80% zostaje z proporcjami bez zmian', () => {
     const wiersz = (flours: typeof TRZY) => ({ id: 'r1', name: 'Trzy mąki', formula: formula(flours), targetDDT: 25, createdAt: 1 });
     const r = parseRecipeRow(wiersz(TRZY));
     expect(r).not.toBeNull();
     expect(Math.abs(suma(r?.formula.flours ?? []) - 100)).toBeLessThan(0.01);
-    expect(parseRecipeRow(wiersz([{ name: 'A', percentage: 50 }, { name: 'B', percentage: 30 }]))).toBeNull();
+    const zla = parseRecipeRow(wiersz([{ name: 'A', percentage: 50 }, { name: 'B', percentage: 30 }]));
+    expect(zla?.formula.flours).toEqual([{ name: 'A', percentage: 50 }, { name: 'B', percentage: 30 }]);
   });
 
   describe('ekran receptury', () => {
