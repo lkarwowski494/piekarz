@@ -53,7 +53,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Scoate capacul tuciului. Eliberează aburul.',
   'Zdejmij pokrywkę!': 'Scoate capacul!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Cronometrul funcționează în aplicație, dar cu telefonul blocat nu îți va aminti de sfârșitul unui pas sau de hrănire.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Zero reclame, zero urmărire telemetrică',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Prăjește semințele într-o tigaie uscată și acoperă-le cu apă caldă timp de 2 h, înainte să le adaugi în aluat la laminare. Frământă speltul delicat, evită întinderea excesivă.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Standardul de aur pentru bagheta pariziană. Echilibru ideal între elasticitate și extensibilitate.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Împăturește aluatul ca pe un plic (ca pe o scrisoare) și apasă-l ușor cu vârfurile degetelor.',

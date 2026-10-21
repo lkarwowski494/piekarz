@@ -79,7 +79,6 @@ export const CZESC: Record<string, string> = {
   'Wszystkie': 'Све',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Све ручне фазе (мешење, пресавијање, печење) обављају се ван периода сна (23:00 – 06:30).',
   'Wszystkie etapy wypieku': 'Све фазе печења',
-  'Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów': 'Сви напредни алати и асистент радног стола без ограничења',
   'Wt.': 'Ут.',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Изабери подразумевану посуду за печење за поступак Радног стола:',
   'Wybierz objawy bochenka': 'Изабери симптоме векне',

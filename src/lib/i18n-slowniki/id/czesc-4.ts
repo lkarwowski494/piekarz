@@ -10,7 +10,6 @@ export const CZESC: Record<string, string> = {
   'Piekarz nie uruchomił się poprawnie': 'Tukang Roti tidak berjalan dengan benar',
   'Piekę na drożdżach albo pizzę': 'Memanggang dengan ragi atau pizza',
   'Piekę na zakwasie': 'Memanggang dengan ragi alami',
-  'Pierwsze {dni} dni bezpłatnie, potem {cena}': '{dni} hari pertama gratis, lalu {cena}',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza & manis',
   'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 jam)',
@@ -83,7 +82,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'baru saja',
   'przed nami': 'berikutnya',
   'Przed szacowanym szczytem': 'Sebelum perkiraan puncak',
-  'Przeglądaj historię (Read-Only)': 'Lihat riwayat (Read-Only)',
   'Przejdź do Stolnicy': 'Buka Meja Kerja',
   'Przekwaszenie / Przerośnięcie': 'Terlalu asam / Terlalu mengembang',
   'Przelicznik objętości': 'Konverter volume',
@@ -210,7 +208,6 @@ export const CZESC: Record<string, string> = {
   'Studzenie na kratce': 'Pendinginan di rak kawat',
   'Studzenie na kratce (nie krój gorącego!)': 'Pendinginan di rak kawat (jangan potong saat masih panas!)',
   'sty': 'Jan',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Langganan diperpanjang otomatis dengan harga yang tertera pada paket hingga Anda membatalkannya. Pembayaran ditagih oleh App Store ke Akun Apple Anda. Batalkan langganan kapan saja di pengaturan Akun Apple atau dengan tombol “Kelola Langganan”.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Garam kering menarik air secara setempat melalui osmosis dan membentuk gumpalan. Memasukkannya dalam bentuk larutan memungkinkan ion Na+ dan Cl- segera mengencangkan ikatan gluten di seluruh adonan.',
   'Suchy / chrupki (Crisp Dry)': 'Kering / renyah (Crisp Dry)',
 };

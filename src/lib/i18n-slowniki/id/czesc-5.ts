@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Sedang memanggang',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Saya menyimpan 10 salinan terakhir di ponsel ini.',
   'Tu zapiszą się twoje wypieki': 'Hasil panggangan Anda akan tersimpan di sini',
-  'Twoja historia jest bezpieczna': 'Riwayat Anda aman',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Data Anda tidak diubah, tetapi aplikasi tidak dapat membaca atau menyimpannya saat ini. Mulai ulang aplikasi. Jika masalah muncul lagi, kosongkan ruang penyimpanan ponsel.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Data Anda tersimpan di ponsel. Sebelum mencoba lagi, Anda dapat mengekspor salinannya.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Resep, starter, dan jurnal Anda tetap bisa dilihat, diekspor, dan dihapus. Pengingat pemberian makan dinonaktifkan. Perhitungan, rencana, dan panduan memerlukan Tukang Roti Pro.',

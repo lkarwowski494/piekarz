@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Zložte poklop hrnca. Vypustite paru.',
   'Zdejmij pokrywkę!': 'Zložte poklop!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Časovač funguje v aplikácii, ale pri zamknutom telefóne vám nepripomenie koniec kroku ani kŕmenie.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Žiadne reklamy, žiadne sledovanie telemetrie',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Semienka opražte na suchej panvici a zalejte teplou vodou na 2 h, potom ich pridajte do cesta pri laminovaní. Špaldové cesto mieste jemne, vyhnite sa nadmernému naťahovaniu.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Zlatý štandard parížskej bagety. Ideálna rovnováha medzi pružnosťou a ťažnosťou.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Cesto preložte do obálky (ako list) a končekmi prstov ho jemne poklepte.',

@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Vedd le a lábas fedőjét. Engedd ki a gőzt.',
   'Zdejmij pokrywkę!': 'Vedd le a fedőt!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Az időzítő az alkalmazásban működik, de lezárt telefonnál nem emlékeztet a lépés végére és az etetésre.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Nincs reklám, nincs telemetriás követés',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'A magvakat pirítsd meg száraz serpenyőben, és áztasd be meleg vízbe 2 órára, mielőtt a laminálásnál a tésztához adod. A tönkölyt óvatosan dagaszd, kerüld a túlzott nyújtást.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'A párizsi bagett aranystandardja. Ideális egyensúly a rugalmasság és a nyújthatóság között.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Hajtsd össze a tésztát borítékszerűen (mint egy levelet), és ujjbegyeiddel paskold le.',

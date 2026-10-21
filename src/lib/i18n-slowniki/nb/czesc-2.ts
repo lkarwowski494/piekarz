@@ -2,10 +2,8 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Følger telefonens region som standard. Jeg lagrer oppskrifter i gram; prosentene endres ikke.',
-  'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Livstidstilgang er et engangskjøp uten fornyelse.',
   'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Juster andelen av hver melsort. Summen må være nøyaktig 100 %.',
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Den nåværende matesyklusen blir nullstilt.',
-  'Dożywotni (Lifetime)': 'Livstid (Lifetime)',
   'Drobna niedoskonałość': 'Liten ufullkommenhet',
   'Drobne pory, bochenek ciężki w dłoni': 'Små porer, brødet føles tungt i hånden',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, jevne bobler som i svamp/skum',
@@ -121,8 +119,6 @@ export const CZESC: Record<string, string> = {
   'Jak wyszedł bochenek?': 'Hvordan ble brødet?',
   'Jakość skórki': 'Skorpekvalitet',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Jevnt tett og tung krumme (ingen lufting)',
-  'jednorazowo': 'engangsbetaling',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'Engangskjøp for alltid • Alle oppdateringer',
   'Jednostki': 'Enheter',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Hvis du jobber med rått mel, deig eller starter i dette steget, må du ikke smake på dem, og vask deretter hendene med såpe under rennende vann.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Hvis du ser belegg, flekker eller misfarging, eller kjenner en råtten lukt, åpne starterkontrollen.',

@@ -9,7 +9,6 @@ export const CZESC: Record<string, string> = {
   'Piekarz nie uruchomił się poprawnie': 'Fırıncı düzgün başlatılamadı',
   'Piekę na drożdżach albo pizzę': 'Mayayla ekmek veya pizza yapıyorum',
   'Piekę na zakwasie': 'Ekşi mayalı ekmek yapıyorum',
-  'Pierwsze {dni} dni bezpłatnie, potem {cena}': 'İlk {dni} gün ücretsiz, sonra {cena}',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza ve Tatlı',
   'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 saat)',
@@ -82,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'az önce',
   'przed nami': 'sırada',
   'Przed szacowanym szczytem': 'Tahmini zirveden önce',
-  'Przeglądaj historię (Read-Only)': 'Geçmişe göz at (Salt Okunur)',
   'Przejdź do Stolnicy': 'Tezgâh\'a Git',
   'Przekwaszenie / Przerośnięcie': 'Aşırı ekşime / Aşırı mayalanma',
   'Przelicznik objętości': 'Hacim dönüştürücü',
@@ -209,7 +207,6 @@ export const CZESC: Record<string, string> = {
   'Studzenie na kratce': 'Tel ızgarada soğutma',
   'Studzenie na kratce (nie krój gorącego!)': 'Tel ızgarada soğutma (sıcakken kesmeyin!)',
   'sty': 'Oca',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Abonelik, siz iptal edene kadar planda belirtilen fiyattan otomatik olarak yenilenir. Ödeme, App Store tarafından Apple Hesabınızdan tahsil edilir. Aboneliği istediğiniz zaman Apple Hesabı ayarlarınızdan veya “Aboneliği Yönet” düğmesiyle iptal edebilirsiniz.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Kuru tuz ozmoz yoluyla suyu noktasal olarak çeker ve topaklar oluşturur. Çözelti hâlinde eklemek, Na+ ve Cl- iyonlarının gluten bağlarını hamurun tamamında anında sıkılaştırmasını sağlar.',
   'Suchy / chrupki (Crisp Dry)': 'Kuru / çıtır (Crisp Dry)',
 };

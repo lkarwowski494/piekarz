@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Nuimkite puodo dangtį. Išleiskite garus.',
   'Zdejmij pokrywkę!': 'Nuimkite dangtį!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Laikmatis veikia programėlėje, bet užrakinus telefoną jis nepriminis apie žingsnio pabaigą ar maitinimą.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Jokių reklamų, jokio telemetrinio sekimo',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Sėklas paskrudinkite sausoje keptuvėje ir likus 2 h iki jų įdėjimo į tešlą laminuojant užpilkite šiltu vandeniu. Speltos tešlą minkykite švelniai, venkite per stipraus tempimo.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Paryžietiškos bagetės aukso standartas. Ideali pusiausvyra tarp elastingumo ir tįsumo.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Sulenkite tešlą vokeliu (kaip laišką) ir paspaudykite pirštų galiukais.',

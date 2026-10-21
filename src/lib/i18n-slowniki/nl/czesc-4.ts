@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Piekę na drożdżach albo pizzę': 'Ik bak met gist of maak pizza',
   'Piekę na zakwasie': 'Ik bak met zuurdesem',
-  'Pierwsze {dni} dni bezpłatnie, potem {cena}': 'Eerste {dni} dagen gratis, daarna {cena}',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza & zoet',
   'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 uur)',
@@ -76,7 +75,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'zojuist',
   'przed nami': 'nog te gaan',
   'Przed szacowanym szczytem': 'Vóór de geschatte piek',
-  'Przeglądaj historię (Read-Only)': 'Bekijk geschiedenis (alleen-lezen)',
   'Przejdź do Stolnicy': 'Naar Werkbank',
   'Przekwaszenie / Przerośnięcie': 'Overzuur / overgerezen',
   'Przelicznik objętości': 'Volumeconverter',
@@ -203,7 +201,6 @@ export const CZESC: Record<string, string> = {
   'Studzenie na kratce': 'Afkoelen op rooster',
   'Studzenie na kratce (nie krój gorącego!)': 'Afkoelen op rooster (niet heet aansnijden!)',
   'sty': 'jan',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Het abonnement wordt automatisch verlengd tegen de prijs die bij het abonnement staat, totdat je het opzegt. De App Store schrijft de betaling af van je Apple-account. Je kunt het abonnement op elk moment opzeggen in de instellingen van je Apple-account of met de knop ‘Beheer abonnement’.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Droog zout onttrekt plaatselijk water via osmose en vormt klontjes. Als je het als oplossing toevoegt, kunnen de Na+- en Cl–-ionen de glutenbindingen meteen in het hele deeg versterken.',
   'Suchy / chrupki (Crisp Dry)': 'Droog / knapperig (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Voorgestelde aanpassing: verleng de koude rijs in de koelkast met 2–4 uur of verschuif het voedingstijdstip van de zuurdesemstarter om nachtelijke stappen op de werkbank te vermijden.',

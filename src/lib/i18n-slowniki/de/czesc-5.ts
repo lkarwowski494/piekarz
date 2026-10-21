@@ -1,7 +1,6 @@
 // Słownik de, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Das Abo verlängert sich automatisch zum beim Plan angegebenen Preis, bis du es kündigst. Die Zahlung wird vom App Store über deinen Apple Account abgerechnet. Du kannst das Abo jederzeit in den Einstellungen deines Apple Accounts oder über „Abo verwalten“ kündigen.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Trockenes Salz zieht durch Osmose punktuell Wasser und bildet Klümpchen. Als Lösung eingearbeitet, können die Na+- und Cl--Ionen die Glutenbindungen sofort im gesamten Teig festigen.',
   'Suchy / chrupki (Crisp Dry)': 'Trocken / knusprig (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Vorgeschlagene Korrektur: Verlängere die Kaltgare (Kühlschrank) um 2–4 Stunden oder verschiebe die Uhrzeit des Auffrischens, um nächtliche Arbeitsschritte am Backbrett zu vermeiden.',
@@ -61,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Backen läuft',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Ich bewahre die letzten 10 Kopien auf diesem Telefon auf.',
   'Tu zapiszą się twoje wypieki': 'Hier erscheinen deine Backergebnisse',
-  'Twoja historia jest bezpieczna': 'Dein Verlauf ist sicher',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Deine Daten wurden nicht verändert, aber die App kann sie gerade weder lesen noch speichern. Starte die App neu. Wenn das Problem wieder auftritt, gib Speicherplatz auf deinem Telefon frei.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Deine Daten sind auf deinem Telefon gespeichert. Bevor du es erneut versuchst, kannst du eine Kopie davon exportieren.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Du kannst deine Rezepturen, Sauerteige und dein Tagebuch ansehen, exportieren und löschen. Erinnerungen ans Auffrischen sind deaktiviert. Berechnungen, Plan und Anleitung erfordern Bäcker Pro.',

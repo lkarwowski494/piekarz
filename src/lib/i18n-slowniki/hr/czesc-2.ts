@@ -2,10 +2,8 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Zadano prema regiji telefona. Recepture spremam u gramima; postoci se ne mijenjaju.',
-  'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Doživotni pristup jednokratna je kupnja bez obnavljanja.',
   'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Prilagodi udjele brašna. Zbroj mora biti točno 100 %.',
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Dosadašnji ciklus hranjenja bit će poništen.',
-  'Dożywotni (Lifetime)': 'Doživotno (Lifetime)',
   'Drobna niedoskonałość': 'Manja nesavršenost',
   'Drobne pory, bochenek ciężki w dłoni': 'Sitne pore, štruca je teška u ruci',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Sitni, jednolični mjehurići poput spužve/pjene',
@@ -121,8 +119,6 @@ export const CZESC: Record<string, string> = {
   'Jak wyszedł bochenek?': 'Kako je ispala štruca?',
   'Jakość skórki': 'Kvaliteta kore',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Jednolično gusta i teška sredina (bez prozračnosti)',
-  'jednorazowo': 'jednokratno',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'Jednokratna kupnja zauvijek • Sva ažuriranja',
   'Jednostki': 'Jedinice',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Ako u ovom koraku radiš sa sirovim brašnom, tijestom ili kvasom, nemoj ih kušati, a zatim operi ruke sapunom pod tekućom vodom.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ako vidiš naslagu, mrlje ili promjenu boje ili osjetiš truo miris, otvori provjeru kvasa.',

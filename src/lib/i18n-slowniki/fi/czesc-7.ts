@@ -18,7 +18,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Poista padan kansi. Päästä höyry ulos.',
   'Zdejmij pokrywkę!': 'Poista kansi!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Ajastin toimii sovelluksessa, mutta puhelimen ollessa lukittuna se ei muistuta vaiheen päättymisestä eikä ruokinnasta.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Ei mainoksia, ei telemetriaseurantaa',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Paahda siemenet kuivalla pannulla ja liota niitä lämpimässä vedessä 2 h ennen kuin lisäät ne taikinaan laminoinnin yhteydessä. Vaivaa spelttiä varovasti ja vältä liiallista venyttämistä.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Pariisilaisen patongin kultainen standardi. Ihanteellinen tasapaino kimmoisuuden ja venyvyyden välillä.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Taita taikina kirjekuoreksi (kuin kirje) ja painele sitä sormenpäillä.',

@@ -150,7 +150,6 @@ export const CZESC: Record<string, string> = {
   'Mąki (razem 100%)': 'Брашна (укупно 100%)',
   'Metoda bezpośrednia (Brak zaczynu)': 'Директна метода (без предтеста)',
   'Miejsce przechowywania': 'Место чувања',
-  'miesiąc': 'месец',
   'Miesięczny': 'Месечни',
   'Mieszanie ciasta': 'Мешање теста',
   'Mieszanka mąk': 'Мешавина брашна',

@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Tanggalkan penutup periuk. Lepaskan wap.',
   'Zdejmij pokrywkę!': 'Tanggalkan penutup!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Pemasa berfungsi dalam aplikasi, tetapi apabila telefon dikunci, ia tidak akan mengingatkan anda tentang tamatnya langkah atau pemberian makan.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Tiada iklan, tiada penjejakan telemetri',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Panggang biji-bijian dalam kuali kering dan rendam dalam air suam selama 2 jam sebelum dimasukkan ke dalam doh semasa laminasi. Uli spelt dengan lembut, elakkan regangan berlebihan.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Standard emas baguette Paris. Keseimbangan ideal antara keanjalan dan kebolehregangan.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Lipat doh menjadi sampul (seperti surat) dan tepuk perlahan dengan hujung jari.',

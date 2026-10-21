@@ -3,8 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Jakość skórki': 'Качество корки',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плотный и тяжёлый мякиш (нет пористости)',
-  'jednorazowo': 'разово',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'Разовая покупка навсегда • Все обновления',
   'Jednostki': 'Единицы',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Если на этом шаге вы работаете с сырой мукой, тестом или закваской, не пробуйте их на вкус, а после этого вымойте руки с мылом под проточной водой.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Если вы видите налёт, пятна или изменение цвета либо чувствуете гнилостный запах, откройте проверку закваски.',
@@ -157,7 +155,6 @@ export const CZESC: Record<string, string> = {
   'Mąki (razem 100%)': 'Мука (всего 100%)',
   'Metoda bezpośrednia (Brak zaczynu)': 'Прямой способ (без опары)',
   'Miejsce przechowywania': 'Место хранения',
-  'miesiąc': 'месяц',
   'Miesięczny': 'Месячный',
   'Mieszanie ciasta': 'Смешивание теста',
   'Mieszanka mąk': 'Смесь муки',

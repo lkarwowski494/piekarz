@@ -81,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Αφαιρέστε το καπάκι της γάστρας. Απελευθερώστε τον ατμό.',
   'Zdejmij pokrywkę!': 'Αφαιρέστε το καπάκι!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Το χρονόμετρο λειτουργεί στην εφαρμογή, αλλά με κλειδωμένο τηλέφωνο δεν θα σας υπενθυμίσει το τέλος ενός βήματος ούτε το τάισμα.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Μηδέν διαφημίσεις, μηδέν παρακολούθηση τηλεμετρίας',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Καβουρδίστε τους σπόρους σε στεγνό τηγάνι και μουλιάστε τους σε ζεστό νερό για 2 ώρες, πριν τους προσθέσετε στη ζύμη κατά το λαμινάρισμα. Ζυμώστε τη ζέα απαλά και αποφύγετε το υπερβολικό τέντωμα.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Το χρυσό πρότυπο της παριζιάνικης μπαγκέτας. Ιδανική ισορροπία ανάμεσα στην ελαστικότητα και την εκτατότητα.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Διπλώστε τη ζύμη σαν φάκελο (σαν γράμμα) και πιέστε την με τις άκρες των δαχτύλων.',

@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': '目前的餵養週期將會重設。',
-  'Dożywotni (Lifetime)': '終身方案（Lifetime）',
   'Drobna niedoskonałość': '小瑕疵',
   'Drobne pory, bochenek ciężki w dłoni': '氣孔細小，麵包拿在手上很沉',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': '細小均勻的氣孔，像海綿／泡沫',
@@ -118,8 +117,6 @@ export const CZESC: Record<string, string> = {
   'Jak wyszedł bochenek?': '這個麵包烤得如何？',
   'Jakość skórki': '外皮品質',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': '內部組織整體緊密沉重（缺乏氣孔）',
-  'jednorazowo': '一次性',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': '一次購買，永久使用 • 所有更新',
   'Jednostki': '單位',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': '如果這個步驟會接觸生麵粉、麵團或天然酵母起種，不要試吃，之後用肥皂在流動的水下洗手。',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': '如果看到表層覆膜、斑點或變色，或聞到腐臭味，請開啟天然酵母起種檢查。',

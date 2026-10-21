@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Studzenie na kratce (nie krój gorącego!)': 'Хлађење на решетки (не сеци док је врућ!)',
   'sty': 'јан',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Претплата се аутоматски обнавља по цени наведеној уз план док је не откажеш. Плаћање наплаћује App Store са твог Apple налога. Претплату можеш да откажеш у сваком тренутку у подешавањима Apple налога или дугметом „Управљај претплатом“.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Сува со осмозом локално извлачи воду и ствара грудвице. Када се унесе као раствор, јони Na+ и Cl- одмах учвршћују глутенске везе у целој запремини теста.',
   'Suchy / chrupki (Crisp Dry)': 'Сува / хрскава (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Предлог исправке: продужи хладну ферментацију у фрижидеру за 2–4 сата или помери време храњења стартера да избегнеш ноћне фазе за радним столом.',
@@ -63,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Печење у току',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Чувам последњих 10 копија на овом телефону.',
   'Tu zapiszą się twoje wypieki': 'Овде ће се чувати твоја печења',
-  'Twoja historia jest bezpieczna': 'Твоја историја је безбедна',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Твоји подаци нису промењени, али апликација тренутно не може да их прочита ни сачува. Поново покрени апликацију. Ако се проблем врати, ослободи простор у меморији телефона.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Твоји подаци су сачувани у телефону. Пре него што покушаш поново, можеш да извезеш њихову копију.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Своје рецептуре, стартере и дневник можеш да прегледаш, извезеш и обришеш. Подсетници за храњење су искључени. Рачунање, план и вођење захтевају Пекар Pro.',

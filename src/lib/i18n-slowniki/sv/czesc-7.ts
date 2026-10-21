@@ -1,7 +1,6 @@
 // Słownik sv, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zero reklam, zero śledzenia telemetrycznego': 'Ingen reklam, ingen spårning via telemetri',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rosta fröna i en torr stekpanna och häll över varmt vatten 2 h innan de arbetas in i degen vid lamineringen. Knåda dinkeln varsamt och undvik att sträcka den för mycket.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Guldstandarden för parisisk baguette. Perfekt balans mellan elasticitet och töjbarhet.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Vik degen som ett kuvert (som ett brev) och tryck in den med fingertopparna.',

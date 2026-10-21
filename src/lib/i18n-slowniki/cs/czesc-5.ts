@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Probíhá pečení',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Uchovávám 10 posledních záloh v tomto telefonu.',
   'Tu zapiszą się twoje wypieki': 'Sem se budou ukládat vaše pečení',
-  'Twoja historia jest bezpieczna': 'Vaše historie je v bezpečí',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Vaše data se nezměnila, ale aplikace je teď nemůže načíst ani uložit. Spusťte aplikaci znovu. Pokud se problém vrátí, uvolněte místo v úložišti telefonu.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Vaše data jsou uložena v telefonu. Než to zkusíte znovu, můžete exportovat jejich kopii.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Své recepty, kvásky a deník si můžete prohlížet, exportovat a smazat. Připomínky krmení jsou vypnuté. Výpočty, plán a vedení vyžadují Pekař Pro.',

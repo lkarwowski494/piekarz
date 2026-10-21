@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': 'Nimm den Deckel vom Gusstopf ab. Lass den Dampf entweichen.',
   'Zdejmij pokrywkę!': 'Nimm den Deckel ab!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Der Timer läuft in der App, aber bei gesperrtem Telefon erinnert er dich nicht an das Ende eines Schritts oder ans Auffrischen.',
-  'Zero reklam, zero śledzenia telemetrycznego': 'Keine Werbung, kein Telemetrie-Tracking',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Röste die Saaten in einer trockenen Pfanne und weiche sie 2 h in warmem Wasser ein, bevor du sie beim Laminieren in den Teig gibst. Knete Dinkel sanft und vermeide zu starkes Dehnen.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Der Goldstandard für das Pariser Baguette. Ideale Balance zwischen Elastizität und Dehnbarkeit.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Falte den Teig wie einen Briefumschlag und drück ihn mit den Fingerkuppen an.',

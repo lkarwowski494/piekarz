@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Pişirme sürüyor',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Son 10 yedeği bu telefonda saklıyorum.',
   'Tu zapiszą się twoje wypieki': 'Pişirmeleriniz burada görünecek',
-  'Twoja historia jest bezpieczna': 'Geçmişiniz güvende',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Verileriniz değiştirilmedi, ancak uygulama şu anda onları okuyamıyor veya kaydedemiyor. Uygulamayı yeniden başlatın. Sorun tekrar ederse telefonunuzda depolama alanı açın.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Verileriniz telefonunuzda kayıtlı. Tekrar denemeden önce bir kopyasını dışa aktarabilirsiniz.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Tariflerinizi, ekşi mayalarınızı ve günlüğünüzü görüntüleyebilir, dışa aktarabilir ve silebilirsiniz. Besleme hatırlatıcıları kapalıdır. Hesaplama, plan ve rehberlik için Fırıncı Pro gerekir.',

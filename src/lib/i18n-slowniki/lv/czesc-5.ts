@@ -1,7 +1,6 @@
 // Słownik lv, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Abonements automātiski atjaunojas par plānam norādīto cenu, līdz to atceļat. Maksājumu iekasē App Store no jūsu Apple konta. Abonementu varat atcelt jebkurā laikā Apple konta iestatījumos vai ar pogu „Pārvaldīt abonementu”.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Sausa sāls osmozes ceļā lokāli izvelk ūdeni un veido kunkuļus. Iestrādājot to šķīduma veidā, Na+ un Cl- joni uzreiz nostiprina glutēna saites visā mīklas apjomā.',
   'Suchy / chrupki (Crisp Dry)': 'Sauss / kraukšķīgs (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Ieteicamā korekcija: pagariniet raudzēšanu ledusskapī par 2–4 stundām vai pārceliet ierauga barošanas laiku, lai izvairītos no darba galda posmiem naktī.',
@@ -61,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Notiek cepiens',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Šajā tālrunī glabāju pēdējās 10 kopijas.',
   'Tu zapiszą się twoje wypieki': 'Šeit tiks saglabāti jūsu cepieni',
-  'Twoja historia jest bezpieczna': 'Jūsu vēsture ir drošībā',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Jūsu dati nav mainīti, bet lietotne tos pašlaik nevar nolasīt vai saglabāt. Restartējiet lietotni. Ja problēma atkārtojas, atbrīvojiet vietu tālruņa krātuvē.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Jūsu dati ir saglabāti tālrunī. Pirms mēģināt vēlreiz, varat eksportēt to kopiju.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Receptūras, ieraugus un žurnālu joprojām var skatīt, eksportēt un dzēst. Atgādinājumi par barošanu ir izslēgti. Aprēķiniem, plāniem un vadībai nepieciešams Maiznieks Pro.',

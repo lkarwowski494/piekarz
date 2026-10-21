@@ -75,7 +75,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę garnka. Wypuść parę.': '냄비 뚜껑을 여세요. 증기를 빼내세요.',
   'Zdejmij pokrywkę!': '뚜껑을 여세요!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': '앱 안에서는 타이머가 작동하지만, 휴대폰이 잠겨 있으면 단계 종료나 먹이 주기를 알려 드리지 못해요.',
-  'Zero reklam, zero śledzenia telemetrycznego': '광고 없음, 원격 추적 없음',
   'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '씨앗은 마른 팬에 볶은 뒤 따뜻한 물에 2시간 불렸다가 라미네이션할 때 반죽에 넣으세요. 스펠트 반죽은 부드럽게 치대고 과도하게 늘리지 마세요.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': '파리 바게트의 황금 기준이에요. 탄력과 신장성의 균형이 이상적이에요.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': '반죽을 봉투 모양(편지처럼)으로 접고 손가락 끝으로 눌러 주세요.',

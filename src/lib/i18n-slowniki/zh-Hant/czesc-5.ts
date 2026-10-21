@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': '烘焙進行中',
   'Trzymam 10 ostatnich kopii na tym telefonie.': '我會在這支手機上保留最近 10 份備份。',
   'Tu zapiszą się twoje wypieki': '你的烘焙紀錄會顯示在這裡',
-  'Twoja historia jest bezpieczna': '你的紀錄很安全',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': '你的資料沒有變更，但 App 目前無法讀取或儲存資料。請重新啟動 App。若問題再次發生，請釋放手機儲存空間。',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': '你的資料已儲存在手機中。再試一次之前，你可以先匯出一份副本。',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': '你仍可查看、匯出和刪除你的配方、天然酵母起種和日誌。餵養提醒已關閉。計算、計畫和引導功能需要 麵包師傅 Pro。',

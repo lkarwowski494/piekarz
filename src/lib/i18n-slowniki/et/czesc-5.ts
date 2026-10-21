@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Küpsetamine käib',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Hoian selles telefonis 10 viimast koopiat.',
   'Tu zapiszą się twoje wypieki': 'Siia salvestuvad sinu küpsetised',
-  'Twoja historia jest bezpieczna': 'Sinu ajalugu on turvaline',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Sinu andmeid ei muudetud, kuid rakendus ei saa neid praegu lugeda ega salvestada. Käivita rakendus uuesti. Kui probleem kordub, vabasta telefonis salvestusruumi.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Sinu andmed on telefoni salvestatud. Enne uuesti proovimist saad neist koopia eksportida.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Saad oma retsepte, juuretisi ja päevikut vaadata, eksportida ja kustutada. Toitmise meeldetuletused on välja lülitatud. Arvutamiseks, plaanimiseks ja juhendamiseks on vaja tellimust Pagar Pro.',

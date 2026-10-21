@@ -73,7 +73,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'щойно',
   'przed nami': 'попереду',
   'Przed szacowanym szczytem': 'До орієнтовного піку',
-  'Przeglądaj historię (Read-Only)': 'Переглянути історію (Read-Only)',
   'Przejdź do Stolnicy': 'Перейти до Стільниці',
   'Przekwaszenie / Przerośnięcie': 'Перекисання / перестоювання',
   'Przelicznik objętości': 'Конвертер об\'єму',

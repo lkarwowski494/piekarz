@@ -55,7 +55,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Leivonta käynnissä',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Säilytän 10 viimeisintä kopiota tässä puhelimessa.',
   'Tu zapiszą się twoje wypieki': 'Leivontasi tallentuvat tähän',
-  'Twoja historia jest bezpieczna': 'Historiasi on turvassa',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Tietojasi ei ole muutettu, mutta sovellus ei voi juuri nyt lukea tai tallentaa niitä. Käynnistä sovellus uudelleen. Jos ongelma toistuu, vapauta tallennustilaa puhelimesta.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Tietosi on tallennettu puhelimeen. Ennen kuin yrität uudelleen, voit viedä niistä kopion.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Voit edelleen selata, viedä ja poistaa reseptejäsi, hapanjuuriasi ja päiväkirjaasi. Ruokintamuistutukset ovat pois päältä. Laskenta, suunnitelmat ja ohjaus vaativat Leipuri Pron.',

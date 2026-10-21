@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Trwa wypiek': 'Bezig met bakken',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Ik bewaar de laatste 10 back-ups op deze telefoon.',
   'Tu zapiszą się twoje wypieki': 'Hier verschijnen je baksels',
-  'Twoja historia jest bezpieczna': 'Je geschiedenis is veilig',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Je gegevens zijn niet gewijzigd, maar de app kan ze nu niet lezen of bewaren. Start de app opnieuw. Als het probleem terugkomt, maak dan opslagruimte vrij op je telefoon.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Je gegevens staan op je telefoon. Voordat je het opnieuw probeert, kun je er een kopie van exporteren.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Je kunt je recepten, zuurdesemstarters en dagboek nog bekijken, exporteren en verwijderen. Herinneringen om te voeden staan uit. Berekenen, plannen en begeleiding vereisen Bakker Pro.',

@@ -34,9 +34,6 @@
       "src/recipes/discard-recipes.ts (dane: yieldPl)"
     ]
   },
-  "1 miesiąc": {
-    "gdzie": []
-  },
   "100% (Płynny Levain)": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (label)"
@@ -81,9 +78,6 @@
     "gdzie": [
       "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
     ]
-  },
-  "12 miesięcy": {
-    "gdzie": []
   },
   "12h fermentacja zaczynu Poolish + krótka fermentacja właściwa 2h": {
     "gdzie": [
@@ -210,12 +204,6 @@
   "Aktywny zakwas": {
     "gdzie": []
   },
-  "Aktywuj plan miesięczny": {
-    "gdzie": []
-  },
-  "Aktywuj plan roczny": {
-    "gdzie": []
-  },
   "Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -332,9 +320,6 @@
     "gdzie": [
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
     ]
-  },
-  "Bez chmury: dane zostają w telefonie": {
-    "gdzie": []
   },
   "Bez godzin snu": {
     "gdzie": [
@@ -1176,9 +1161,6 @@
       "src/components/QrScannerModal.tsx (tekst w JSX)"
     ]
   },
-  "Dostęp dożywotni to jednorazowy zakup bez odnawiania.": {
-    "gdzie": []
-  },
   "Dotychczasowy cykl dokarmiania zostanie wyzerowany.": {
     "gdzie": [
       "src/lib/confirm.ts (message)"
@@ -1193,9 +1175,6 @@
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
-  },
-  "Dożywotni (Lifetime)": {
-    "gdzie": []
   },
   "Drobna niedoskonałość": {
     "gdzie": [
@@ -1975,9 +1954,6 @@
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: passingCriteriaPl)"
     ]
-  },
-  "Jednorazowy zakup na zawsze • Wszystkie aktualizacje": {
-    "gdzie": []
   },
   "Jednostki": {
     "gdzie": [
@@ -3264,9 +3240,6 @@
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
-  "Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).": {
-    "gdzie": []
-  },
   "Nazwa": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)"
@@ -3350,9 +3323,6 @@
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
     ]
-  },
-  "Nie udało się dokończyć zakupu. Spróbuj ponownie.": {
-    "gdzie": []
   },
   "Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.": {
     "gdzie": [
@@ -3671,9 +3641,6 @@
       "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
     ]
   },
-  "Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.": {
-    "gdzie": []
-  },
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
@@ -3691,12 +3658,6 @@
     ]
   },
   "Odliczanie trwa": {
-    "gdzie": []
-  },
-  "Odnawia się automatycznie co miesiąc": {
-    "gdzie": []
-  },
-  "Odnawia się automatycznie co rok": {
     "gdzie": []
   },
   "Odparowana woda": {
@@ -4054,9 +4015,6 @@
     "gdzie": [
       "src/components/start/WyborCzynnosci.tsx (kod)"
     ]
-  },
-  "Pierwsze {dni} dni bezpłatnie, potem {cena}": {
-    "gdzie": []
   },
   "Pizza": {
     "gdzie": [
@@ -4514,9 +4472,6 @@
     "gdzie": [
       "src/core/sourdough-physics.ts (dane: labelPl)"
     ]
-  },
-  "Przeglądaj historię (Read-Only)": {
-    "gdzie": []
   },
   "Przejdź do Stolnicy": {
     "gdzie": [
@@ -5391,9 +5346,6 @@
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
     ]
   },
-  "Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.": {
-    "gdzie": []
-  },
   "Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (kod)"
@@ -5776,9 +5728,6 @@
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
-  },
-  "Twoja historia jest bezpieczna": {
-    "gdzie": []
   },
   "Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.": {
     "gdzie": [
@@ -6692,9 +6641,6 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
-  "Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów": {
-    "gdzie": []
-  },
   "Wt.": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
@@ -6977,9 +6923,6 @@
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
-  },
-  "Wypróbuj {dni} dni": {
-    "gdzie": []
   },
   "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.": {
     "gdzie": [
@@ -7706,9 +7649,6 @@
       "src/components/NotificationsOffBanner.tsx (tekst w JSX)"
     ]
   },
-  "Zero reklam, zero śledzenia telemetrycznego": {
-    "gdzie": []
-  },
   "Zeskanuj kod drugim telefonem w aplikacji Piekarz (przycisk Skanuj QR) albo udostępnij recepturę jako tekst i wklej go po dotknięciu Importuj JSON.": {
     "gdzie": [
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
@@ -8024,9 +7964,6 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
-  "jednorazowo": {
-    "gdzie": []
-  },
   "jutro": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
@@ -8081,9 +8018,6 @@
     "gdzie": [
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
-  },
-  "miesiąc": {
-    "gdzie": []
   },
   "mistrzowski": {
     "gdzie": [

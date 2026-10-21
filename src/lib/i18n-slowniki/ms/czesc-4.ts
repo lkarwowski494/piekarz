@@ -12,7 +12,6 @@ export const CZESC: Record<string, string> = {
   'Piekarz nie uruchomił się poprawnie': 'Tukang Roti tidak dimulakan dengan betul',
   'Piekę na drożdżach albo pizzę': 'Membakar dengan yis atau piza',
   'Piekę na zakwasie': 'Membakar roti sourdough',
-  'Pierwsze {dni} dni bezpłatnie, potem {cena}': '{dni} hari pertama percuma, kemudian {cena}',
   'Pizza': 'Piza',
   'Pizza i słodkie': 'Piza & Manisan',
   'Pizza Napoletana Verace (48h)': 'Pizza Napoletana Verace (48 jam)',
@@ -85,7 +84,6 @@ export const CZESC: Record<string, string> = {
   'przed chwilą': 'sebentar tadi',
   'przed nami': 'akan datang',
   'Przed szacowanym szczytem': 'Sebelum anggaran kemuncak',
-  'Przeglądaj historię (Read-Only)': 'Lihat sejarah (Read-Only)',
   'Przejdź do Stolnicy': 'Pergi ke Meja Kerja',
   'Przekwaszenie / Przerośnięcie': 'Terlalu masam / Terlebih naik',
   'Przelicznik objętości': 'Penukar isipadu',
@@ -212,6 +210,5 @@ export const CZESC: Record<string, string> = {
   'Studzenie na kratce': 'Penyejukan di atas rak dawai',
   'Studzenie na kratce (nie krój gorącego!)': 'Penyejukan di atas rak dawai (jangan potong ketika panas!)',
   'sty': 'Jan',
-  'Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.': 'Langganan diperbaharui secara automatik pada harga yang dinyatakan untuk pelan sehingga anda membatalkannya. Bayaran dikenakan oleh App Store pada akaun Apple anda. Anda boleh membatalkan langganan pada bila-bila masa dalam tetapan akaun Apple atau dengan butang “Urus Langganan”.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Garam kering menarik air secara setempat melalui osmosis dan membentuk ketulan. Memasukkannya dalam bentuk larutan membolehkan ion Na+ dan Cl- serta-merta mengetatkan ikatan gluten di seluruh doh.',
 };

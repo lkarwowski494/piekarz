@@ -1,10 +1,8 @@
 // Słownik et, część 2 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dostęp dożywotni to jednorazowy zakup bez odnawiania.': 'Eluaegne juurdepääs on ühekordne ost, mis ei uuene.',
   'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Kohanda jahude osakaalu. Summa peab olema täpselt 100%.',
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Senine toitmistsükkel nullitakse.',
-  'Dożywotni (Lifetime)': 'Eluaegne (Lifetime)',
   'Drobna niedoskonałość': 'Väike puudus',
   'Drobne pory, bochenek ciężki w dłoni': 'Väikesed poorid, päts on käes raske',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Peened ühtlased poorid nagu käsnal/vahul',
@@ -120,8 +118,6 @@ export const CZESC: Record<string, string> = {
   'Jak wyszedł bochenek?': 'Kuidas päts välja tuli?',
   'Jakość skórki': 'Kooriku kvaliteet',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ühtlaselt tihe ja raske sisu (õhulisus puudub)',
-  'jednorazowo': 'ühekordselt',
-  'Jednorazowy zakup na zawsze • Wszystkie aktualizacje': 'Ühekordne ost igaveseks • Kõik uuendused',
   'Jednostki': 'Ühikud',
   'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Kui töötad selles sammus toore jahu, taigna või juuretisega, ära neid maitse ning pese seejärel käsi seebiga voolava vee all.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Kui näed kirmet, laike või värvimuutust või tunned mädanenud lõhna, ava juuretise kontroll.',
