@@ -1,9 +1,9 @@
-// M1-audytor-generalny-067: BR-KALK-011 (RD-27) ma test z ID dla części, którą kod spełnia — ilość soli
-// na granicy typowego zakresu i liczenie bez blokady powyżej niej. Informacja „więcej niż typowe 1,8–2,0%”
-// (RD-27-W3) i jej brak na granicy (RD-27-W2) czekają na kod: wpis „czesciowe” w scripts/br-wyjatki.json.
+// M1-audytor-generalny-067: BR-KALK-011 (RD-27), część liczeniowa — gramy soli z procentu wokół granicy
+// typowego zakresu i liczenie bez blokady powyżej niej. Samą informację „więcej niż typowe 1,8–2,0%” (RD-27-W3)
+// i jej brak na granicy (RD-27-W2) sprawdza src/__tests__/br-kalk-130-reszta.test.tsx [reaudit-noc N-13].
 import { calculateDoughRecipeFromFlour } from '../domain-rules';
 
-describe('BR-KALK-011 Informacja o nietypowej ilości soli: liczenie soli wokół granicy RD-27', () => {
+describe('BR-KALK-011 Gramy soli z procentu wokół granicy RD-27 (informację sprawdza br-kalk-130-reszta)', () => {
   const receptura = {
     flours: [{ name: 'Pszenna', percentage: 100 }],
     waterPercentage: 70,
