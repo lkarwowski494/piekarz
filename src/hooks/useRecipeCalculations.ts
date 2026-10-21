@@ -6,7 +6,7 @@
 
 import { useMemo } from 'react';
 import {
-  calculateDoughRecipe,
+  obliczRecepture,
   calculateDDTWaterTemp,
   calculateBakeLossMetrics,
   getHydrationDifficulty,
@@ -15,6 +15,8 @@ import {
 import { analyzeFlourBlendAbsorption } from '../core/flour-atlas';
 import { PrefermentType } from '../core/preferments';
 import { procentyFormulyZZaczynem, zaczynWFormule } from '../core/zaczyn-w-formule';
+import { t } from '../lib/i18n';
+import { formatFixed } from '../lib/format';
 
 export interface UseRecipeCalculationsParams {
   calcMode: 'loaves' | 'flour';
@@ -87,8 +89,9 @@ export function useRecipeCalculations({
   }, [calcMode, loavesCount, loafWeightGrams, flourGrams, formula, starterPct]);
 
   // Calculations
-  const calculations = useMemo(() => {
-    return calculateDoughRecipe({
+  // Suma mąk ≠ 100%: komunikat zamiast wyjątku w renderze [M1-audytor-generalny-150; 08-programista-502]
+  const rachunek = useMemo(() => {
+    return obliczRecepture({
       flours: flourBlend,
       waterPercentage: formula.waterPercentage,
       starterPercentage: starterPct,
@@ -98,6 +101,8 @@ export function useRecipeCalculations({
       targetDoughWeightGrams,
     });
   }, [flourBlend, formula, starterPct, starterHydration, targetDoughWeightGrams]);
+  const calculations = rachunek.wynik;
+  const bladMak = rachunek.blad ? t('Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)', { sum: formatFixed(rachunek.blad.sumaMak, 1) }) : null;
 
   const currentRecipeForShare = useMemo(() => {
     return {
@@ -171,6 +176,7 @@ export function useRecipeCalculations({
   return {
     targetDoughWeightGrams,
     calculations,
+    bladMak,
     currentRecipeForShare,
     ddtResult,
     bakeLossMetrics,

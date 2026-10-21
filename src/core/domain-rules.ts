@@ -83,6 +83,36 @@ export interface FermentationAdaptationResult {
   messagePl: string;
 }
 
+/** Tolerancja sumy udziałów mąk przy wczytaniu receptury: jak import JSON (recipe-sharing.ts, 95–105%). */
+export const TOLERANCJA_SUMY_MAK: readonly [number, number] = [95, 105];
+
+/**
+ * Udziały mąk przeskalowane do sumy 100% (ostatnia mąka domyka sumę); null, gdy suma jest poza 95–105%
+ * albo listy nie ma [M1-audytor-generalny-150; 08-programista-502].
+ */
+export function normalizujMaki<T extends { percentage: number }>(flours: readonly T[]): T[] | null {
+  const suma = flours.reduce((s, f) => s + f.percentage, 0);
+  if (flours.length === 0 || suma < TOLERANCJA_SUMY_MAK[0] || suma > TOLERANCJA_SUMY_MAK[1]) return null;
+  if (Math.abs(suma - 100) <= 0.01) return flours.map((f) => ({ ...f }));
+  const skalowane = flours.map((f) => ({ ...f, percentage: (f.percentage * 100) / suma }));
+  const reszta = skalowane.slice(0, -1).reduce((s, f) => s + f.percentage, 0);
+  skalowane[skalowane.length - 1].percentage = 100 - reszta;
+  return skalowane;
+}
+
+/**
+ * Rachunek receptury z walidacją sumy mąk: błąd walidacji zamiast wyjątku (ekran nie wywraca się).
+ * Suma 95–105% liczy się po normalizacji bez błędu; inna suma (> 0) liczy się proporcjonalnie, z błędem
+ * `sumaMak` do pokazania [M1-audytor-generalny-150; 08-programista-502].
+ */
+export function obliczRecepture(input: DoughRecipeInput): { wynik: DoughRecipeResult; blad: { sumaMak: number } | null } {
+  const suma = input.flours.reduce((s, f) => s + f.percentage, 0);
+  const wTolerancji = normalizujMaki(input.flours);
+  if (wTolerancji) return { wynik: calculateDoughRecipe({ ...input, flours: wTolerancji }), blad: null };
+  const proporcjonalnie = suma > 0 ? input.flours.map((f) => ({ ...f, percentage: (f.percentage * 100) / suma })) : [{ name: '—', percentage: 100 }];
+  return { wynik: calculateDoughRecipe({ ...input, flours: proporcjonalnie }), blad: { sumaMak: Math.round(suma * 10) / 10 } };
+}
+
 /**
  * RD-00 & RD-02: True Baker's Percentage & Mass Balance Scaling
  * Scales dough recipe strictly to the desired total dough weight without intermediate rounding drift.
