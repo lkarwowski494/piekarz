@@ -13,6 +13,7 @@ import { calculateReverseSchedule } from '../scheduler/reverse-scheduler';
 import { stepsFromSchedule } from '../core/bake-steps';
 import { setLang } from '../lib/i18n';
 import { ustawZakwasPlanu } from '../lib/zakwas-planu';
+import { krokCzynnyWNocy } from '../lib/plan-bez-nocy';
 import {
   ZAOKRAGLENIE_NAJWCZESNIEJ_MIN,
   celGotowosci,
@@ -140,7 +141,7 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
     jest.useRealTimers();
   });
 
-  it('(3) otwarcie planu: domyślna godzina dałaby „za późno”, więc pole pokazuje najwcześniejszą; stanu nie ma', async () => {
+  it('(3) otwarcie planu: domyślna godzina dałaby „za późno”, więc pole pokazuje najbliższą godzinę bez kroków czynnych w nocy; stanu nie ma', async () => {
     const tree = await renderPlan();
     expect(teksty(tree)).not.toContain('Nie zdążysz na tę godzinę');
     expect(poId(tree, 'plan-use-earliest-btn')).toHaveLength(0);
@@ -148,9 +149,9 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
     expect(start.props.accessibilityState?.disabled).not.toBe(true);
     await nacisnij(start);
     const steps = getActiveBake()!.steps!;
-    // najwcześniej = teraz + długość planu w górę do 5 min, więc start planu w [teraz, teraz + 5 min)
+    // 129 (DEC-18 a): godzina ≥ najwcześniejszej (start planu nie przed „teraz”), bez kroku czynnego w oknie snu
     expect(steps[0].plannedStart!).toBeGreaterThanOrEqual(TERAZ);
-    expect(steps[0].plannedStart!).toBeLessThan(TERAZ + 5 * MIN);
+    expect(krokCzynnyWNocy(steps, { startH: 23, koniecH: 6.5 })).toBe(false);
     act(() => tree.unmount());
   });
 
@@ -202,9 +203,12 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
 
   it('co minutę: ekran zostawiony otwarty przechodzi w stan „za późno”, gdy start planu minie', async () => {
     const tree = await renderPlan();
+    // 129: otwarcie daje godzinę bez nocy (start planu później niż za 10 min), więc godzina ręcznie: pojutrze 02:00
+    // (plan 29 h 39 min, najwcześniej 01:55, start planu 20:21), jak użytkownik
+    await ustawGodzinePlanu(tree.root, 'Pojutrze', 2);
     expect(teksty(tree)).not.toContain('Nie zdążysz na tę godzinę');
     await act(async () => {
-      jest.advanceTimersByTime(10 * MIN);
+      jest.advanceTimersByTime(15 * MIN);
     });
     expect(teksty(tree)).toContain('Nie zdążysz na tę godzinę');
     expect(poId(tree, 'plan-start-bake-btn')[0].props.accessibilityState?.disabled).toBe(true);

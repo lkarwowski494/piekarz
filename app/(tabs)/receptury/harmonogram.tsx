@@ -33,6 +33,7 @@ import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
 import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
 import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-za-pozno';
+import { godzinaBezNocy, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 
 const MINUTA_MS = 60_000;
@@ -126,11 +127,23 @@ export default function HarmonogramScreen() {
     godzinaDomyslna.current = false;
     f(...a);
   };
+  // Godzina domyślna zostaje, gdy nie daje „za późno” ani kroku czynnego w oknie snu; inaczej pole dostaje najbliższą
+  // godzinę ≥ najwcześniejszej, przy której żaden krok czynny nie zachodzi na sen (brak takiej: najwcześniejsza, baner nocy)
+  // [M1-audytor-generalny-129; DEC-18 a]
   useEffect(() => {
     if (!godzinaDomyslna.current) return;
-    if (stanCzasu.zaPozno && stanCzasu.najwczesniejMs !== null) ustawGotowe(stanCzasu.najwczesniejMs);
+    const okno = { startH: sleepStartHour, koniecH: sleepEndHour };
+    if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
+      const kroki = (celMs: number) => {
+        const zPlanu = stepsFromSchedule(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }));
+        return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
+      };
+      const bezNocy = godzinaBezNocy(stanCzasu.najwczesniejMs, kroki, okno);
+      if (bezNocy !== null) ustawGotowe(bezNocy);
+      else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
+    }
     if (zakwasWczytany) godzinaDomyslna.current = false;
-  }, [stanCzasu, zakwasWczytany]);
+  }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
   // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
   const krokiSpirali = useMemo(() => krokiSpiraliZSesji(steps), [steps]);

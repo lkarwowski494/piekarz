@@ -55,6 +55,9 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
   let tree: renderer.ReactTestRenderer | null = null;
 
   beforeEach(async () => {
+    // Zegar stały (14:00): test nie zależy od pory uruchomienia; wszystkie godziny sprawdza plan-bez-nocy-129.test.tsx
+    // [M1-audytor-generalny-129; 07-jakosc-502]
+    jest.useFakeTimers({ now: new Date(2026, 9, 21, 14, 0, 0, 0), doNotFake: ['nextTick', 'setImmediate', 'queueMicrotask'] });
     zUprawnieniem(); // dostęp z App Store (009): dawniej lokalny okres próbny
     jest.clearAllMocks();
     setActiveBake(null);
@@ -63,6 +66,7 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
 
   afterEach(() => {
     jest.restoreAllMocks(); // zegar stały tylko w teście, który go ustawia (017)
+    jest.useRealTimers();
     if (tree) {
       act(() => {
         tree?.unmount();
