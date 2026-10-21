@@ -257,7 +257,7 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 ## Rozbieżności z kodem i rejestrem (do erraty E3 i ról 06, 07, 08)
 
 - RD-17: silnik liczy czas także poza 20–26 °C bez komunikatu (`src/scheduler/reverse-scheduler.ts`), ale plan przyjmuje temperaturę tylko z wyboru 20–26 °C (`src/components/harmonogram/TargetReadyCard.tsx`), więc użytkownik nie dostaje liczby spoza modelu; według D-066 (2a) to nie rozbieżność kryterium (ER-55). Nowe wejście temperatury poza wyborem wymaga strażnika zakresu.
-- RD-19: kod używa przelicznika 3:1 (0,33) dla drożdży (soczewka eksperta: `src/core/domain-rules.ts`, `convertYeast`); BRD przyjmuje 0,4 ze szczebla 1.
+- RD-19: zgodne z kodem od 2026-10-22 (`src/core/domain-rules.ts`, `convertYeast` × 0,4; było 3:1, M1-audytor-generalny-130, D-069). Wybór rodzaju drożdży w interfejsie (BR-KALK-009 „Świeże na suche”) nadal brak.
 - RD-25 i RD-23: zgodne z kodem od 2026-10-20 (ER-50): przypomnienie po 12 h na blacie (`src/core/notification-config.ts`, `FEED_ROOM_TEMP_AFTER_MS`; D-043 pkt 4) i ostrzeżenie o rękawicach i parze przy zdejmowaniu pokrywki (`src/core/baking-phases.ts`, `safetyWarningPl`, RD-23-W1).
 - Studzenie chleba żytniego: kod Doktora 2 h i 8 h, rejestr roli 06 24 h (ZYT-STU-001, szczebel 4).
 - Próg ostrzeżenia 45 °C dla wody i progi faz zakwasu w godzinach (`src/core/sourdough-physics.ts`) bez źródła: OP-34, OP-39.

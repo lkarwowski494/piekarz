@@ -2773,5 +2773,25 @@
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null
+  },
+  {
+    "id": "SOL-TYP-001",
+    "twierdzenie": "Typowa ilość soli w cieście chlebowym to 1,8–2,0% masy mąki; ilość poza tym zakresem to informacja dla użytkownika, nie błąd (BR-KALK-011, RD-27).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/reference/salt",
+        "miejsce": "King Arthur Baking, Pro Reference „Salt”, akapit 2 (S-37 w docs/brd/zrodla.md)",
+        "cytat": "Generally, the correct amount of salt in bread dough is 1.8 to 2% of salt based on flour weight",
+        "odczyt": "2026-10-21",
+        "szczebel": 3
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło mówi „generally”; aplikacja pokazuje informację z atrybucją („według King Arthur Baking”) poza 1,8–2,0% w obie strony, bez blokady zapisu.",
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "M1-audytor-generalny-130 (M2 tor p13b): cytat sprawdzony dosłownie w surowym pliku pobranym curl 2026-10-21 (wcześniej odczyt roli 01 2026-10-19, S-37). Tekst w aplikacji: src/components/receptury/SkladnikiSheet.tsx (salt-info).",
+    "wazne_do": "2027-10-21"
   }
 ]
