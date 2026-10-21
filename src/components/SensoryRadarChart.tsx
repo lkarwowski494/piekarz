@@ -104,7 +104,10 @@ export const SensoryRadarChart: React.FC<SensoryRadarChartProps> = ({
 
   return (
     <View style={styles.wrapper} testID={testID}>
-      <View style={[styles.chartContainer, { width: size, height: size }]}>
+      {/* Wykres jako jeden obraz z wartościami osi dla VoiceOver [audyt-niezalezny G-3] */}
+      <View style={[styles.chartContainer, { width: size, height: size }]} accessible accessibilityRole="image"
+        accessibilityLabel={BREAD_SENSORY_AXES.map((axis) =>
+          t('{nazwa}: {n} z 5', { nazwa: t(axis.labelPl), n: Math.min(5, Math.max(1, profile[axis.key] ?? 3)) })).join(', ')}>
         <Svg width={size} height={size} testID="bread-sensory-radar-svg">
           {/* Concentric grid polygons */}
           {levels.map((level) => (

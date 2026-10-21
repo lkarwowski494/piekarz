@@ -40,6 +40,18 @@ describe('SensoryRadarChart', () => {
     expect(root.findByProps({ testID: 'bread-sensory-radar-svg' })).toBeDefined();
   });
 
+  it('wykres ma etykietę VoiceOver z wartościami 5 osi (obraz, nie same linie SVG) [audyt-niezalezny G-3]', async () => {
+    await act(async () => {
+      tree = renderer.create(<SensoryRadarChart profile={DEFAULT_BREAD_SENSORY_PROFILE} size={200} testID="bread-radar" />);
+    });
+    const obraz = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.accessibilityRole === 'image');
+    expect(obraz).toHaveLength(1);
+    expect(obraz[0].props.accessible).toBe(true);
+    expect(obraz[0].props.accessibilityLabel).toBe(
+      'Chrupkość: 4 z 5, Sprężystość: 4 z 5, Kwasowość: 3 z 5, Otwartość: 3 z 5, Karmelizacja: 4 z 5',
+    );
+  });
+
   it('renders interactive controls and adjusts profile when requested', async () => {
     const handleChangeProfile = jest.fn();
     const customProfile: BreadSensoryProfile = {

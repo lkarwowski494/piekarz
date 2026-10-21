@@ -30,6 +30,11 @@
       "klucz": "Teraz: {nazwa}",
       "powod": "ogłoszenie VoiceOver nowego kroku w prowadzeniu po „Zrobione” i „Cofnij” [audyt-niezalezny G-1]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "{nazwa}: {n} z 5",
+      "powod": "etykieta VoiceOver wykresu profilu bochenka (oś i ocena 1–5) w Dzienniku i przy zapisie oceny [audyt-niezalezny G-3]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

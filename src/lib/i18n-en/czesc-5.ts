@@ -5,6 +5,8 @@ export const EN_5: Record<string, string> = {
   'Krok {n} z {m}': 'Step {n} of {m}',
   // Ogłoszenie VoiceOver po zmianie kroku w prowadzeniu [audyt-niezalezny G-1]
   'Teraz: {nazwa}': 'Now: {nazwa}',
+  // Etykieta VoiceOver wykresu profilu bochenka: oś i ocena 1–5 [audyt-niezalezny G-3]
+  '{nazwa}: {n} z 5': '{nazwa}: {n} of 5',
   'Brak aktywnego wypieku': 'No active bake',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.':
     'Choose a recipe on the Recipes tab and tap “{przycisk}”, or start the standard bake plan below.',
