@@ -13,7 +13,7 @@ import {
 } from '../core/notification-plan';
 import { loadBakeSession } from '../data/bake-session-store';
 import { collectBackupData } from '../data/sqlite-store';
-import { t } from './i18n';
+import { t, lang } from './i18n';
 import { formatTime } from './format';
 
 export type NotificationPermission = 'granted' | 'denied' | 'undetermined';
@@ -95,7 +95,8 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
         status === 'granted'
           ? planNotifications({ session: await loadBakeSession(), starters: (await collectBackupData()).starters }, Date.now())
           : [];
-      const { cancel, schedule } = diffNotifications(pending, desired);
+      const jezyk = lang();
+      const { cancel, schedule } = diffNotifications(pending, desired, jezyk);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);
       for (const p of schedule) {
         await Notifications.scheduleNotificationAsync({
@@ -104,7 +105,7 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
             ...notificationText(p),
             sound: 'default',
             interruptionLevel: p.level,
-            data: { fp: notificationFingerprint(p), kind: p.kind, route: p.route },
+            data: { fp: notificationFingerprint(p, jezyk), kind: p.kind, route: p.route },
           },
           trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: p.triggerAt },
         });

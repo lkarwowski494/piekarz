@@ -77,4 +77,16 @@ describe('notification plan (006, ADR-006)', () => {
     expect(diffNotifications(pending, [a])).toEqual({ cancel: [], schedule: [] });
     expect(diffNotifications(pending, [])).toEqual({ cancel: [NOTIF_ID_BAKE], schedule: [] });
   });
+
+  // Treść powiadomienia powstaje przy planowaniu, więc odcisk niesie język: po zmianie języka
+  // całe oczekujące zaplanowane na nowo, w nowym języku [M1-audytor-generalny-136; 09-lokalizacja-503]
+  it('diff: the same plan after a language change reschedules everything; same language skips', () => {
+    const a = planBakeNotification({ steps, stepIdx: 2, dutchOvenPhase: 'lid_on', timerEndsAt: now + 60_000 }, now)!;
+    const starters = [{ id: 's1', name: 'Ania', storageState: 'FRIDGE' as const, lastFedAt: now - DAY }];
+    const plan = [a, ...planFeedingNotifications(starters, now)];
+    expect(plan.length).toBeGreaterThan(1);
+    const pending = plan.map((p) => ({ id: p.id, fingerprint: notificationFingerprint(p, 'pl') }));
+    expect(diffNotifications(pending, plan, 'pl')).toEqual({ cancel: [], schedule: [] });
+    expect(diffNotifications(pending, plan, 'de')).toEqual({ cancel: [], schedule: plan });
+  });
 });
