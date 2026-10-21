@@ -32,8 +32,8 @@ export function ORecepturze({ receptura }: { receptura: RecipePreset }) {
       <View style={[s.grupa, styles.tresc]}>
         <Text style={s.etykieta}>{t(r.descriptionPl)}</Text>
         <Text style={styles.wiersz}>
-          <Text style={styles.mocny}>{t('Pieczenie')}:</Text> {formatTemperature(r.bakeTempSteamC, unitSystem)} ({r.bakeTimeSteamMinutes}m {t('para')} +{' '}
-          {t('{n}m w {temp}', { n: r.bakeTimeBrowningMinutes, temp: formatTemperature(r.bakeTempBrowningC, unitSystem) })})
+          <Text style={styles.mocny}>{t('Pieczenie')}:</Text> {formatTemperature(r.bakeTempSteamC, unitSystem)} ({t('{n} min', { n: r.bakeTimeSteamMinutes })} {t('para')} +{' '}
+          {t('{n} min w {temp}',{ n: r.bakeTimeBrowningMinutes, temp: formatTemperature(r.bakeTempBrowningC, unitSystem) })})
         </Text>
         <Text style={styles.wiersz}>
           <Text style={styles.mocny}>{t('Naczynie')}:</Text> {naczynie(r.recommendedVessel)}

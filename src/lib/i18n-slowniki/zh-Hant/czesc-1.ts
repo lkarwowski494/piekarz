@@ -47,7 +47,7 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} 個天然酵母起種',
   '{n} zakwasu': '{n} 個天然酵母起種',
   '{n} zakwasy': '{n} 個天然酵母起種',
-  '{n}m w {temp}': '{temp}，{n} 分鐘',
+  '{n} min w {temp}': '{temp}，{n} 分鐘',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}：{dzien} {godzina} 完成',
   '{rodzaj} (cały)': '{rodzaj}（全部）',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}，難度：{trudnosc}',
