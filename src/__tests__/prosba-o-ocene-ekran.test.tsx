@@ -1,6 +1,6 @@
 /**
- * BR-OPIN-001, BR-OPIN-002 (DEC-13 a, D-042): Stolnica prosi o ocenę dopiero po zapisanym wypieku i podaje
- * ocenę tylko wtedy, gdy użytkownik dotknął gwiazdki; Ustawienia nie pokazują „Oceń w App Store”, dopóki
+ * BR-OPIN-001, BR-OPIN-002 (DEC-13 a; DEC-20 a, D-067): Stolnica prosi o ocenę dopiero po zapisanym wypieku,
+ * bez oceny bochenka w warunku [M1-audytor-generalny-138]; Ustawienia nie pokazują „Oceń w App Store”, dopóki
  * Apple ID aplikacji jest znacznikiem; aplikacja nie ma własnego okna oceny
  * [M1-audytor-generalny-082; 11-wzrost-004]. Wektory M03, M06: docs/wzrost/wektory-prosba-o-ocene.json.
  */
@@ -100,18 +100,19 @@ describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
     jest.restoreAllMocks();
   });
 
-  it('M03: gwiazdka 4★ dotknięta — po zapisie jedno wywołanie z oceną 4', async () => {
+  // DEC-20 a (D-067): warunek nie czyta oceny bochenka, więc wywołanie nie niesie oceny [M1-audytor-generalny-138]
+  it('M03: gwiazdka 4★ dotknięta — po zapisie jedno wywołanie, bez oceny w argumentach', async () => {
     const before = (await store.getBakeLogs()).length;
     await finishBake(4);
     expect((await store.getBakeLogs()).length).toBe(before + 1);
     expect(prosba).toHaveBeenCalledTimes(1);
-    expect(prosba).toHaveBeenCalledWith(4);
+    expect(prosba).toHaveBeenCalledWith();
   });
 
-  it('W06: gwiazdki nietknięte (domyślne 5★) — wywołanie z null, nie z 5', async () => {
+  it('gwiazdki nietknięte — to samo jedno wywołanie co przy 4★ (ocena 1–5★ przez ekran: prosba-o-ocene-138)', async () => {
     await finishBake(null);
     expect(prosba).toHaveBeenCalledTimes(1);
-    expect(prosba).toHaveBeenCalledWith(null);
+    expect(prosba.mock.calls).toEqual([[]]);
   });
 
   it('M06: zapis wypieku nie powiódł się — brak wywołania', async () => {

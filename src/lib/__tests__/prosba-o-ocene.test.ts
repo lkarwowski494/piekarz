@@ -1,7 +1,8 @@
 /**
- * BR-OPIN-001 (DEC-13 a, D-042): systemowa prośba o ocenę tylko po wypieku ocenionym na co najmniej 4★,
- * najwyżej 3 razy w 365 dniach. Wektory W01–W15 i M01–M06: docs/wzrost/wektory-prosba-o-ocene.json
- * [M1-audytor-generalny-082; 11-wzrost-004].
+ * BR-OPIN-001 (DEC-13 a; DEC-20 a, D-067 uchyla próg 4★ z D-042): systemowa prośba o ocenę od 3. ukończonego
+ * wypieku, bez warunku oceny bochenka, z odstępem 14 dni, najwyżej 3 razy w 365 dniach. Wektory W01–W19
+ * i M01–M06: docs/wzrost/wektory-prosba-o-ocene.json [M1-audytor-generalny-082; 11-wzrost-004;
+ * M1-audytor-generalny-138; 11-wzrost-501, 11-wzrost-502].
  */
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -14,6 +15,10 @@ jest.mock('../../data/settings-store', () => ({
     assertWritable();
     mockSettings.set(key, value);
   }),
+}));
+let mockWypieki = 3;
+jest.mock('../../data/sqlite-store', () => ({
+  getBakeLogs: jest.fn(async () => Array.from({ length: mockWypieki }, (_, i) => ({ id: `b${i}`, finishedAt: 1 }))),
 }));
 jest.mock('expo-store-review', () => ({
   isAvailableAsync: jest.fn(async () => true),
@@ -28,7 +33,7 @@ import { markStorageNewer, resetStorageState } from '../../data/storage-status';
 
 interface Wektor {
   id: string;
-  we: { ocenaWypieku: number | null; datyPoprzednichProsb: string[]; teraz: string };
+  we: { zakonczoneWypieki: number; ocenaWypieku?: number; datyPoprzednichProsb: string[]; teraz: string };
   oczekiwane: boolean;
 }
 const plik = JSON.parse(
@@ -42,30 +47,43 @@ const zapisaneDaty = (): unknown => {
 };
 const TERAZ = Date.parse('2027-03-01T12:00:00Z');
 
-describe('czyProsicOOcene: wektory W01–W15', () => {
-  it('stałe zgodne ze specyfikacją (D-042, S-63)', () => {
+describe('czyProsicOOcene: wektory W01–W19', () => {
+  it('stałe zgodne ze specyfikacją (DEC-20 a, D-067, S-63)', () => {
     expect(PROSBA_O_OCENE).toEqual(plik.stale);
   });
 
-  it('plik ma 15 wektorów funkcji', () => {
+  it('plik ma 19 wektorów funkcji', () => {
     expect(plik.wektory.map((w) => w.id)).toEqual(
-      Array.from({ length: 15 }, (_, i) => `W${String(i + 1).padStart(2, '0')}`)
+      Array.from({ length: 19 }, (_, i) => `W${String(i + 1).padStart(2, '0')}`)
     );
   });
 
+  // Pole ocenaWypieku przechodzi do funkcji razem z resztą wektora; warunek go nie czyta (11-wzrost-501)
+  const wejscie = (w: Wektor) => {
+    const we = { ...w.we, datyPoprzednichProsb: w.we.datyPoprzednichProsb.map((d) => Date.parse(d)), teraz: Date.parse(w.we.teraz) };
+    return we;
+  };
+
   it.each(plik.wektory.map((w) => [w.id, w] as const))('%s', (_id, w) => {
-    const wynik = czyProsicOOcene({
-      ocenaWypieku: w.we.ocenaWypieku,
-      datyPoprzednichProsb: w.we.datyPoprzednichProsb.map((d) => Date.parse(d)),
-      teraz: Date.parse(w.we.teraz),
-    });
-    expect(wynik).toBe(w.oczekiwane);
+    expect(czyProsicOOcene(wejscie(w))).toBe(w.oczekiwane);
+  });
+
+  it('wektor z oceną 1★ i progami spełnionymi daje ten sam wynik co z 5★ (138)', () => {
+    const w = (id: string) => plik.wektory.find((x) => x.id === id)!;
+    expect(w('W04').we.ocenaWypieku).toBe(1);
+    expect(w('W05').we.ocenaWypieku).toBe(5);
+    expect(czyProsicOOcene(wejscie(w('W04')))).toBe(czyProsicOOcene(wejscie(w('W05'))));
+    for (const ocena of [1, 2, 3, 4, 5]) {
+      const we = { ...wejscie(w('W03')), ocenaWypieku: ocena };
+      expect(czyProsicOOcene(we)).toBe(true);
+    }
   });
 });
 
 describe('poprosOOceneJesliWarto: miejsce wywołania M01–M05', () => {
   beforeEach(() => {
     mockSettings.clear();
+    mockWypieki = 3;
     resetStorageState();
     jest.clearAllMocks();
     review.isAvailableAsync.mockResolvedValue(true);
@@ -83,21 +101,21 @@ describe('poprosOOceneJesliWarto: miejsce wywołania M01–M05', () => {
 
   it('M01: isAvailableAsync false (TestFlight) — bez requestReview i bez zapisu daty', async () => {
     review.isAvailableAsync.mockResolvedValue(false);
-    await poprosOOceneJesliWarto(5);
+    await poprosOOceneJesliWarto();
     expect(review.requestReview).not.toHaveBeenCalled();
     expect(zapisaneDaty()).toBeUndefined();
   });
 
   it('M02: hasAction false — bez requestReview i bez zapisu daty', async () => {
     review.hasAction.mockResolvedValue(false);
-    await poprosOOceneJesliWarto(5);
+    await poprosOOceneJesliWarto();
     expect(review.requestReview).not.toHaveBeenCalled();
     expect(zapisaneDaty()).toBeUndefined();
   });
 
   it('M03: warunek spełniony — jedno requestReview i zapis bieżącej daty do listy', async () => {
     mockSettings.set(KLUCZ_DAT_PROSBY, JSON.stringify([Date.parse('2026-11-15T12:00:00Z')]));
-    await poprosOOceneJesliWarto(4);
+    await poprosOOceneJesliWarto();
     expect(review.requestReview).toHaveBeenCalledTimes(1);
     expect(zapisaneDaty()).toEqual([Date.parse('2026-11-15T12:00:00Z'), TERAZ]);
   });
@@ -105,7 +123,7 @@ describe('poprosOOceneJesliWarto: miejsce wywołania M01–M05', () => {
   it('M03: requestReview dopiero po zamknięciu okna zapisu, nie od razu w obsłudze dotknięcia', async () => {
     jest.useFakeTimers();
     try {
-      const wywolanie = poprosOOceneJesliWarto(5);
+      const wywolanie = poprosOOceneJesliWarto();
       for (let i = 0; i < 20; i++) await Promise.resolve();
       expect(review.requestReview).not.toHaveBeenCalled();
       await jest.advanceTimersByTimeAsync(1000);
@@ -116,39 +134,44 @@ describe('poprosOOceneJesliWarto: miejsce wywołania M01–M05', () => {
     }
   });
 
-  it('M03: trzy prośby w roku — czwarta się nie pokazuje (limit z zapisanych dat)', async () => {
-    await poprosOOceneJesliWarto(5);
-    await poprosOOceneJesliWarto(5);
-    await poprosOOceneJesliWarto(5);
-    await poprosOOceneJesliWarto(5);
-    expect(review.requestReview).toHaveBeenCalledTimes(3);
-    expect(zapisaneDaty()).toEqual([TERAZ, TERAZ, TERAZ]);
+  it('M03: kolejne wypieki dzień po dniu — jedna prośba, następna dopiero po 14 dniach (odstęp, 502)', async () => {
+    await poprosOOceneJesliWarto();
+    (Date.now as jest.Mock).mockReturnValue(TERAZ + 86_400_000);
+    await poprosOOceneJesliWarto();
+    (Date.now as jest.Mock).mockReturnValue(TERAZ + 2 * 86_400_000);
+    await poprosOOceneJesliWarto();
+    expect(review.requestReview).toHaveBeenCalledTimes(1);
+    (Date.now as jest.Mock).mockReturnValue(TERAZ + 14 * 86_400_000);
+    await poprosOOceneJesliWarto();
+    expect(review.requestReview).toHaveBeenCalledTimes(2);
+    expect(zapisaneDaty()).toEqual([TERAZ, TERAZ + 14 * 86_400_000]);
   });
 
-  it('ocena poniżej 4★ albo nietknięte gwiazdki (null) — bez requestReview', async () => {
-    await poprosOOceneJesliWarto(3);
-    await poprosOOceneJesliWarto(null);
+  it('mniej niż 3 ukończone wypieki w dzienniku — bez requestReview', async () => {
+    mockWypieki = 2;
+    await poprosOOceneJesliWarto();
     expect(review.requestReview).not.toHaveBeenCalled();
   });
 
   it('uszkodzony zapis dat liczy się do limitu, nie jak pusta lista', async () => {
     mockSettings.set(KLUCZ_DAT_PROSBY, '{zepsute');
-    await poprosOOceneJesliWarto(5);
-    await poprosOOceneJesliWarto(5);
-    await poprosOOceneJesliWarto(5);
+    for (let i = 0; i < 4; i++) {
+      (Date.now as jest.Mock).mockReturnValue(TERAZ + i * 15 * 86_400_000);
+      await poprosOOceneJesliWarto();
+    }
     expect(review.requestReview).toHaveBeenCalledTimes(2);
   });
 
   it('M05: requestReview rzuca — błąd połknięty, daty nie zapisuje się', async () => {
     review.requestReview.mockRejectedValue(Object.assign(new Error('fail'), { code: 'ERR_STORE_REVIEW_FAILED' }));
-    await expect(poprosOOceneJesliWarto(5)).resolves.toBeUndefined();
+    await expect(poprosOOceneJesliWarto()).resolves.toBeUndefined();
     expect(review.requestReview).toHaveBeenCalledTimes(1);
     expect(zapisaneDaty()).toBeUndefined();
   });
 
   it('baza tylko do odczytu (061): prośba się nie pokazuje, bez nieobsłużonego odrzucenia', async () => {
     markStorageNewer(99, 4);
-    await expect(poprosOOceneJesliWarto(5)).resolves.toBeUndefined();
+    await expect(poprosOOceneJesliWarto()).resolves.toBeUndefined();
     expect(review.requestReview).not.toHaveBeenCalled();
   });
 });

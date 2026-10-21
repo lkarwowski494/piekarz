@@ -6,6 +6,7 @@
  */
 import * as StoreReview from 'expo-store-review';
 import { getAppSetting, setAppSetting } from '../data/settings-store';
+import { getBakeLogs } from '../data/sqlite-store';
 import { getStorageState } from '../data/storage-status';
 import { czyProsicOOcene } from './prosba-o-ocene';
 
@@ -29,13 +30,15 @@ function odczytajDaty(raw: string | undefined): number[] {
   return dane.map((d: unknown) => (typeof d === 'number' ? d : NaN));
 }
 
-export async function poprosOOceneJesliWarto(ocena: number | null): Promise<void> {
+/** Po zapisanym wypieku; liczba ukończonych wypieków z dziennika, bez oceny bochenka (DEC-20 a) [M1-audytor-generalny-138]. */
+export async function poprosOOceneJesliWarto(): Promise<void> {
   try {
     // Baza tylko do odczytu (061) albo niedostępna: daty nie da się zapisać, więc nie prosimy.
     if (getStorageState() !== 'ok') return;
     if (!(await StoreReview.isAvailableAsync()) || !(await StoreReview.hasAction())) return;
     const daty = odczytajDaty(await getAppSetting(KLUCZ_DAT_PROSBY));
-    if (!czyProsicOOcene({ ocenaWypieku: ocena, datyPoprzednichProsb: daty, teraz: Date.now() })) return;
+    const zakonczoneWypieki = (await getBakeLogs()).filter((w) => w.finishedAt != null).length;
+    if (!czyProsicOOcene({ zakonczoneWypieki, datyPoprzednichProsb: daty, teraz: Date.now() })) return;
     // Po zamknięciu okna zapisu: prośba jest skutkiem ukończonego wypieku, nie dotknięcia „Zapisz”.
     await new Promise<void>((done) => setTimeout(done, ZWLOKA_PO_ZAMKNIECIU_MS));
     await StoreReview.requestReview();
