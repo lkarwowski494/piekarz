@@ -1,0 +1,6 @@
+{
+  "opis": "Zgoda właściciela na zapis w App Store Connect przez scripts/asc-ustawienia.mjs [M1-audytor-generalny-181]. Domyślnie zapis: false (przebieg na sucho). Zapis wymaga: \"zapis\": true, \"skrot\" = skrót planu z przebiegu na sucho pokazanego właścicielowi, \"zgoda\" = „RRRR-MM-DD: słowa właściciela”. Inny stan ASC albo danych niż przy pokazaniu listy = inny skrót = odmowa zapisu. Ostatni zapis: docs/wydanie/dziennik.md, sekcja „Ustawienia App Store Connect przez API”.",
+  "zapis": false,
+  "skrot": null,
+  "zgoda": null
+}

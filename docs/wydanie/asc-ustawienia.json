@@ -1,0 +1,80 @@
+{
+  "opis": "Ustawienia App Store Connect, które zapisuje scripts/asc-ustawienia.mjs przez App Store Connect API [M1-audytor-generalny-181]. Wartości spisane z docs/wydanie/instrukcja-ustawien.md i docs/decyzje.md; ceny, oferta wprowadzająca i Family Sharing z docs/wydanie/ceny.json, storefronty z docs/wydanie/storefronty.json, ID produktów z src/lib/platnosci/konfiguracja.ts, Bundle ID z app.json. Każda wartość ma źródło; wartości bez źródła nie ma (STOP start p8b, wybory 1a, 2a, 3a, 2026-10-21).",
+  "grupa": {
+    "referenceName": "Piekarz Pro",
+    "zrodlo": "docs/wydanie/instrukcja-ustawien.md §3.1",
+    "lokalizacje": {
+      "en-US": { "name": "Baker Pro" },
+      "pl": { "name": "Piekarz Pro" }
+    },
+    "zrodloLokalizacji": "wybór właściciela 2a (STOP start p8b, 2026-10-21): prefiks nazw produktów z docs/wydanie/instrukcja-ustawien.md §3.7"
+  },
+  "produkty": {
+    "monthly": {
+      "referenceName": "Piekarz Pro miesięcznie",
+      "okres": "ONE_MONTH",
+      "lokalizacje": {
+        "en-US": { "name": "Baker Pro Monthly" },
+        "pl": { "name": "Piekarz Pro miesięcznie" }
+      },
+      "zrodlo": "docs/wydanie/instrukcja-ustawien.md §3.2 (nazwa, okres), §3.7 (lokalizacje en-US i pl, wybór 1a)"
+    },
+    "yearly": {
+      "referenceName": "Piekarz Pro rocznie",
+      "okres": "ONE_YEAR",
+      "lokalizacje": {
+        "en-US": { "name": "Baker Pro Yearly" },
+        "pl": { "name": "Piekarz Pro rocznie" }
+      },
+      "zrodlo": "docs/wydanie/instrukcja-ustawien.md §3.3, §3.7"
+    },
+    "lifetime": {
+      "referenceName": "Piekarz Pro dożywotnio",
+      "typ": "NON_CONSUMABLE",
+      "lokalizacje": {
+        "en-US": { "name": "Baker Pro Lifetime" },
+        "pl": { "name": "Piekarz Pro dożywotnio" }
+      },
+      "zrodlo": "docs/wydanie/instrukcja-ustawien.md §3.5, §3.7"
+    }
+  },
+  "poziomWGrupie": 1,
+  "zrodloPoziomu": "docs/wydanie/instrukcja-ustawien.md §3.4 (obie subskrypcje na tym samym poziomie)",
+  "notatkaDlaRecenzji": "Unlocks all features; offered on the purchase screen.",
+  "zrodloNotatki": "docs/wydanie/instrukcja-ustawien.md §3.8 (zrzut ekranu zakupu poza tym przebiegiem, wybór 3a)",
+  "dostepnosc": {
+    "bez": ["CHN"],
+    "liczba": 174,
+    "noweKraje": true,
+    "zrodlo": "docs/decyzje.md D-057; docs/wydanie/instrukcja-ustawien.md §6.1, §6.3"
+  },
+  "ankietaWieku": {
+    "zrodlo": "docs/decyzje.md D-058; docs/wydanie/instrukcja-ustawien.md §8",
+    "odpowiedzi": {
+      "parentalControls": false,
+      "ageAssurance": false,
+      "unrestrictedWebAccess": false,
+      "userGeneratedContent": false,
+      "socialMedia": false,
+      "messagingAndChat": false,
+      "advertising": false,
+      "profanityOrCrudeHumor": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "healthOrWellnessTopics": false,
+      "sexualContentOrNudity": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "gunsOrOtherWeapons": "INFREQUENT",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "gamblingSimulated": "NONE",
+      "contests": "NONE",
+      "lootBox": false,
+      "ageRatingOverrideV2": "NONE"
+    }
+  }
+}

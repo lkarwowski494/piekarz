@@ -1,0 +1,50 @@
+name: App Store Connect — ustawienia przez API
+
+# Produkty, ceny, oferta wprowadzająca, dostępność i ankieta wieku [M1-audytor-generalny-181].
+# Uruchamia push na gałąź toru p8b (workflow_dispatch działa tylko z gałęzi domyślnej).
+# Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy docs/wydanie/asc-zgoda.json ma
+# "zapis": true i skrót planu pokazanego właścicielowi. Po scaleniu z master wyzwalacz zamienić
+# na workflow_dispatch (docs/wydanie/instrukcja-ustawien.md).
+
+on:
+  push:
+    branches:
+      - naprawy/M2-koordynator-napraw-2026-10-19-p8b
+    paths:
+      - scripts/asc-ustawienia.mjs
+      - docs/wydanie/asc-ustawienia.json
+      - docs/wydanie/asc-zgoda.json
+      - docs/wydanie/ceny.json
+      - docs/wydanie/storefronty.json
+      - .github/workflows/asc-ustawienia.yml
+
+concurrency:
+  group: asc-ustawienia
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  asc:
+    name: Ustawienia ASC (na sucho; zapis tylko ze zgodą)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Ustawienia App Store Connect (skrypt bez zależności)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+        run: node scripts/asc-ustawienia.mjs --zgoda docs/wydanie/asc-zgoda.json
