@@ -41,12 +41,10 @@ describe('Apps4Brew Architectural Interaction Guards (docs/32-wzorce-interakcji)
       expect(MIN_TOUCH_TARGET_PT).toBeGreaterThanOrEqual(44);
     });
 
-    it('HeaderButton and AddButton component source code explicitly enforces 44pt minimum touch target', () => {
-      const addButtonSrc = fs.readFileSync(path.resolve(__dirname, '../../components/AddButton.tsx'), 'utf-8');
+    // AddButton (bez użycia w app/) usunięty z martwym kodem [M1-audytor-generalny-211]
+    it('HeaderButton component source code explicitly enforces 44pt minimum touch target', () => {
       const headerButtonSrc = fs.readFileSync(path.resolve(__dirname, '../../components/DraftHeader.tsx'), 'utf-8');
 
-      expect(addButtonSrc).toMatch(/minHeight:\s*44/);
-      expect(addButtonSrc).toMatch(/minWidth:\s*44/);
       expect(headerButtonSrc).toMatch(/minHeight:\s*44/);
       expect(headerButtonSrc).toMatch(/minWidth:\s*44/);
     });

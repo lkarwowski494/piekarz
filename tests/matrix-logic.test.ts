@@ -13,8 +13,6 @@ import {
   prepareBakeAgainRecipe,
 } from '../src/lib/recipe-navigation';
 import { escapeCsvCell } from '../src/lib/csv-exporter';
-import { formatDate, formatDateTime, formatDuration } from '../src/lib/date';
-import { matchesSearch } from '../src/lib/norm-search';
 import { utf8ToBase64, base64ToUtf8 } from '../src/lib/recipe-sharing';
 import {
   initUnitSystem,
@@ -60,20 +58,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
     expect(escapeCsvCell('Normal text')).toBe('Normal text');
   });
 
-  it('date helpers format dates and durations predictably', () => {
-    const ts = new Date(2026, 9, 17, 10, 30, 0).getTime();
-    expect(formatDate(ts)).toBeTruthy();
-    expect(formatDateTime(ts)).toBeTruthy();
-    expect(formatDuration(45)).toBe('0:45');
-    expect(formatDuration(125)).toBe('2:05');
-    expect(formatDuration(3660)).toBe('1h 1m');
-  });
-
-  it('matchesSearch performs diacritic-insensitive fuzzy matching', () => {
-    expect(matchesSearch('Chleb pszenny żytni', 'zyt')).toBe(true);
-    expect(matchesSearch('Mąka orkiszowa', 'maka')).toBe(true);
-    expect(matchesSearch('Bagietka', 'bułka')).toBe(false);
-  });
+  // src/lib/date.ts i src/lib/norm-search.ts usunięte z martwym kodem (bez użycia w app/) [M1-audytor-generalny-211]
 
   it('recipe sharing utf8 and base64 round-trip', () => {
     const text = 'Pain de Campagne: 80% mąka, 20% żyto, 70% hydratacja';

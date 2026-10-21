@@ -169,6 +169,7 @@ describe('088: emoji i teksty techniczne', () => {
     expect(EMOJI.test('🇵🇱 PL:')).toBe(true);
     expect(EMOJI.test('⚙️')).toBe(true);
     expect(EMOJI.test('Bochenki 2 × 900 g, 25 °C – 1/5')).toBe(false);
-    expect(teksty(path.join(rootDir, 'src/components/ui.tsx')).length).toBeGreaterThan(0);
+    // Plik z tekstami ekranu (ui.tsx był martwy, usunięty) [M1-audytor-generalny-211]
+    expect(teksty(path.join(rootDir, 'src/components/harmonogram/TargetReadyCard.tsx')).length).toBeGreaterThan(0);
   });
 });

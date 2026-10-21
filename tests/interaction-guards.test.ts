@@ -7,7 +7,6 @@ import fs from 'fs';
 import path from 'path';
 import { CLOSE_TEST_ID } from '../src/components/CloseButton';
 import { cancelButton, backToEditButton, okButton } from '../src/lib/confirm';
-import { normSearch } from '../src/lib/norm-search';
 
 const rootDir = path.resolve(__dirname, '..');
 const appDir = path.resolve(rootDir, 'app');
@@ -51,20 +50,15 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
 
   // S3 & NFR-INT-003
   describe('S3: Dedicated NumInput for Numeric Fields', () => {
-    it('NumInput exists and is exported from src/components/ui.tsx and src/components/NumInput.tsx', () => {
-      const uiSrc = fs.readFileSync(path.join(srcDir, 'components', 'ui.tsx'), 'utf-8');
-      expect(uiSrc).toContain('export { NumInput');
+    // Wcześniej sprawdzane w src/components/ui.tsx (martwy kod, usunięty) [M1-audytor-generalny-211]
+    it('NumInput exists and is exported from src/components/NumInput.tsx', () => {
+      const src = fs.readFileSync(path.join(srcDir, 'components', 'NumInput.tsx'), 'utf-8');
+      expect(src).toMatch(/export (function|const) NumInput\b/);
     });
   });
 
-  // S4 & NFR-INT-004
-  describe('S4: Two-Way Deletion Support', () => {
-    it('SwipeRow component exports accessible delete action and visible button', () => {
-      const uiSrc = fs.readFileSync(path.join(srcDir, 'components', 'ui.tsx'), 'utf-8');
-      expect(uiSrc).toContain('accessibilityActions={[{ name: \'delete\'');
-      expect(uiSrc).toContain('testID="swipe-row-delete-btn"');
-    });
-  });
+  // S4 & NFR-INT-004: SwipeRow z src/components/ui.tsx nie był używany przez żaden ekran; usunięty z martwym
+  // kodem (usuwanie w aplikacji: „Cofnij”, D-051) [M1-audytor-generalny-211]
 
   // S5 & NFR-INT-005
   describe('S5: Centralized Confirmation Helper & Strict Button Naming', () => {
@@ -87,11 +81,14 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
   // S6 & NFR-INT-006
   describe('S6: Selection Component Cardinality Rules', () => {
     it('all binary toggles and modal switches provide accessibilityRole="switch"', () => {
-      const switchFiles = walk(srcDir, (f) => f.endsWith('.tsx')).filter((f) => {
-        const content = fs.readFileSync(f, 'utf-8');
-        return content.includes('<Switch') || content.includes('SwitchRow');
-      });
-      expect(switchFiles.length).toBeGreaterThan(0);
+      // Jedyny przełącznik (SwitchRow w martwym src/components/ui.tsx) usunięty [M1-audytor-generalny-211]; reguła
+      // dotyczy każdego przyszłego <Switch> w app/ i src/
+      const switchFiles = walk(appDir, (f) => f.endsWith('.tsx'))
+        .concat(walk(srcDir, (f) => f.endsWith('.tsx')))
+        .filter((f) => !f.includes('__tests__') && fs.readFileSync(f, 'utf-8').includes('<Switch'));
+      for (const f of switchFiles) {
+        expect({ f, rola: fs.readFileSync(f, 'utf-8').includes('accessibilityRole="switch"') }).toEqual({ f, rola: true });
+      }
     });
   });
 
@@ -143,45 +140,14 @@ describe('16 Interaction Guards Contract Suite (S1..S16, NFR-INT-001..016)', () 
     });
   });
 
-  // S11 & NFR-INT-011
-  describe('S11: Mandatory Empty State Component', () => {
-    it('Empty component defines standard testID="empty-state"', () => {
-      const uiSrc = fs.readFileSync(path.join(srcDir, 'components', 'ui.tsx'), 'utf-8');
-      expect(uiSrc).toContain('testID = \'empty-state\'');
-    });
-  });
+  // S11, S12, S13 (Empty, Missing, Btn) i S15 (SearchField, normSearch): komponenty z src/components/ui.tsx
+  // i src/lib/norm-search.ts nie były używane przez żaden ekran app/; usunięte z martwym kodem [M1-audytor-generalny-211]
 
-  // S12 & NFR-INT-012
-  describe('S12: Mandatory Missing State Component', () => {
-    it('Missing component defines testID="missing-record-state" and back navigation', () => {
-      const uiSrc = fs.readFileSync(path.join(srcDir, 'components', 'ui.tsx'), 'utf-8');
-      expect(uiSrc).toContain('testID="missing-record-state"');
-      expect(uiSrc).toContain('testID="missing-back-button"');
-    });
-  });
-
-  // S13 & NFR-INT-013
-  describe('S13: Button Visual Hierarchy', () => {
-    it('Btn component defines primary, secondary, ghost, and danger variants', () => {
-      const uiSrc = fs.readFileSync(path.join(srcDir, 'components', 'ui.tsx'), 'utf-8');
-      expect(uiSrc).toContain('\'primary\' | \'secondary\' | \'ghost\' | \'danger\'');
-    });
-  });
-
-  // S14 & NFR-INT-014
+  // S14 & NFR-INT-014: formatowanie jednostek i dat w jednym miejscu (fasady units.ts i date.ts były martwe)
   describe('S14: Centralized Unit & Date Formatting', () => {
-    it('units and date helpers exist in src/lib/', () => {
-      expect(fs.existsSync(path.join(srcDir, 'lib', 'units.ts'))).toBe(true);
-      expect(fs.existsSync(path.join(srcDir, 'lib', 'date.ts'))).toBe(true);
-    });
-  });
-
-  // S15 & NFR-INT-015
-  describe('S15: SearchField with Diacritic Normalization', () => {
-    it('normSearch removes diacritics including hard polish L (ł -> l)', () => {
-      expect(normSearch('Żółty chleb')).toBe('zolty chleb');
-      expect(normSearch('Mąka orkiszowa')).toBe('maka orkiszowa');
-      expect(normSearch('Łatwy zaczyn')).toBe('latwy zaczyn');
+    it('unit and date formatters exist in src/lib/unit-converter.ts and src/lib/format.ts', () => {
+      expect(fs.readFileSync(path.join(srcDir, 'lib', 'unit-converter.ts'), 'utf-8')).toMatch(/export function formatWeight\b/);
+      expect(fs.readFileSync(path.join(srcDir, 'lib', 'format.ts'), 'utf-8')).toMatch(/export function formatDate\b/);
     });
   });
 
