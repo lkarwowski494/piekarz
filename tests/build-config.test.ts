@@ -89,3 +89,20 @@ describe('minimalny iOS z decyzji w rejestrze (M1-audytor-generalny-077)', () =>
     });
   });
 });
+
+// Typy TypeScript (@types/*) są potrzebne tylko do typecheck i testów, nie w aplikacji: devDependencies,
+// także w package-lock.json (wpis pakietu z "dev": true) [audyt-niezalezny H-6].
+describe('@types/* tylko w devDependencies (H-6)', () => {
+  const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+  const lock = JSON.parse(readFileSync(join(root, 'package-lock.json'), 'utf8'));
+
+  it('package.json i korzeń package-lock.json: żadnego @types/* w dependencies', () => {
+    expect(Object.keys(pkg.dependencies).filter((k) => k.startsWith('@types/'))).toEqual([]);
+    expect(Object.keys(lock.packages[''].dependencies).filter((k) => k.startsWith('@types/'))).toEqual([]);
+    expect(pkg.devDependencies['@types/qrcode']).toBe(lock.packages[''].devDependencies['@types/qrcode']);
+  });
+
+  it('package-lock.json: @types/qrcode oznaczony jako zależność deweloperska', () => {
+    expect(lock.packages['node_modules/@types/qrcode'].dev).toBe(true);
+  });
+});
