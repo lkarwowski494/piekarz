@@ -1,0 +1,2589 @@
+{
+  "opis": "Sumy MD5 zrzutów App Store wszystkich lokalizacji z docs/wydanie/metadane [M1-audytor-generalny-186]: pl, en-US i nl-NL leżą w repo, pozostałe poza gitem (docs/wydanie/zrzuty/README.md). scripts/asc-zgloszenie.mjs porównuje po nich zrzuty w App Store Connect (sourceFileChecksum), także bez plików. Generuje: node scripts/asc-zgloszenie.mjs --generuj-sumy <katalog zrzutów spoza repo>.",
+  "lokalizacje": {
+    "cs": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 117121,
+          "md5": "015391e48d1dae1573b27d1bc0aca8f8"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 102620,
+          "md5": "226ff47259fe6ad5cfd98ea3784e16c9"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101433,
+          "md5": "db96b95a41b7c4d93ddfdec38a3d5964"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 130406,
+          "md5": "4143e851c0b2a08a77ef93acc24fe3e9"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 120627,
+          "md5": "2ddd64c87ca6773a1baa58e1897aa9f3"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104568,
+          "md5": "7fb33d11b0fda61d4e5a11ad6a5b8c61"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 64384,
+          "md5": "4a66da6ec925288f8f4657cd58b60f24"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 97270,
+          "md5": "ef4788b04faf906a67e58cf823061124"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83609,
+          "md5": "0290c2762901cd10b7d67ae10393cba5"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 97079,
+          "md5": "cc6debfa1c13dd3db934bde44a8e8691"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 108548,
+          "md5": "020792400228afa968c3b1e1e31cfa5e"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 85118,
+          "md5": "4c705affe117b2c2e4fd08fd9ed58db1"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 101200,
+          "md5": "77bbf308682ab8a685f6a4d415116201"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 61878,
+          "md5": "87adafce82da28c6b052c192392ca031"
+        }
+      ]
+    },
+    "da": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 119514,
+          "md5": "ea034bd7a4aa6957acc128c2c5acda3f"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 87693,
+          "md5": "04ec7fdc33767ec56a8e660b545271d0"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 96299,
+          "md5": "9fc0d266e8673911d52f6b61a8d0e159"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 133165,
+          "md5": "b262fcec7d24d4f1e7f20868629fd995"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 124148,
+          "md5": "a7a6afa34c351ebcb5e5133f203d4d20"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 105493,
+          "md5": "6ab86a573286f57171b516982f2fb9d6"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 64577,
+          "md5": "827cf726c55ecedd2fccc443e36113aa"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 104794,
+          "md5": "bc91e9c53f241e81c4476bddf3408197"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 77422,
+          "md5": "136e9bfabb5df9b9f3b35ce6592eb65f"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 93840,
+          "md5": "fbc6351dc85b744939a806cdb4196827"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 108476,
+          "md5": "f8e25ee4dc91325704710ee3fbdd965d"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 94762,
+          "md5": "70e2adfe0d57bcd6ae6cd2d215980667"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 103939,
+          "md5": "7a8446a3b8ff190e92ca1b9394a3adeb"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 62975,
+          "md5": "bc74dd922a08ef204be56c488db3ccca"
+        }
+      ]
+    },
+    "de-DE": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 120179,
+          "md5": "a860c1ad008f74d6253303de7076aad3"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 105564,
+          "md5": "e67fd36636353cb9d1461a0ab2adf061"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104379,
+          "md5": "3d20472503ac40bdc72a1119fc66c35f"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131518,
+          "md5": "7c7d1805c7be5313d30c3bf3ee4a4ecd"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 119041,
+          "md5": "fd964f64e480fbb2883b455be36ff636"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 109465,
+          "md5": "23e6e2400625df10ccc24d76302b9e79"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 64156,
+          "md5": "b91bd0807cc311fccb720a4a48428f0e"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 97263,
+          "md5": "d923ce941da44e61298e890ccd5fd70d"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 82669,
+          "md5": "f7fbe7fbd44f5b17454ebd64bdbd9289"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 98136,
+          "md5": "da17c080fab089c042b062471e6df9c1"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 109545,
+          "md5": "19394f89dcf351ee2ed201d0302eb5a0"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 94171,
+          "md5": "173b2cd053607e14fb1f2e66f2e79f1b"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 99011,
+          "md5": "5018d5dd24035abcb914923c03ae1e27"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 62326,
+          "md5": "a6e01173e926eacec23de59fc7592512"
+        }
+      ]
+    },
+    "el": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 140191,
+          "md5": "ad49bfc1527f9e8e7161e8b2d4a975f3"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 109678,
+          "md5": "e8b44a0d54744d04e7f26780c168c267"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 120353,
+          "md5": "25b59f30e307f205dd3a31ef8f4ec73a"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 151642,
+          "md5": "463c2c36671faa901fef0c738c766677"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 109215,
+          "md5": "792066e40acf0a179a31d626b1e0be89"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 113292,
+          "md5": "d7b8a81be216f9aef4b2942dd80cb2e5"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 76304,
+          "md5": "eacd61da0c818bd692eeb8d553cdfb5f"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 113619,
+          "md5": "6fd109d3acddfc8a30394936a2ceff7c"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 91893,
+          "md5": "32fc7fb5c82c6e9fcb56ff62fbaa3c50"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 107769,
+          "md5": "5c62f0c478218db49ecf309f319ea94a"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 125969,
+          "md5": "b8f3917f9db58a09a896a16bf05d7651"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 103864,
+          "md5": "f28b6b5c16f4be440b7aa89be6203936"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 106724,
+          "md5": "8259a8c63097540923330461c3576509"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 74193,
+          "md5": "fa7cc8cfe2be121aadc118cead27f667"
+        }
+      ]
+    },
+    "en-AU": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 111589,
+          "md5": "01a36abe4adfd9be4cbb0bd60444f075"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95961,
+          "md5": "c72cb0df433758cc26bf60139550fcaf"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101706,
+          "md5": "a600de1b76b880087b3cf4ec769eb3cd"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131880,
+          "md5": "fc3bf28713075538e6f1fe662258cb6c"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 114318,
+          "md5": "01e82992d8fa3713bc2f481e1ada594c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 97785,
+          "md5": "fd76e03e09a4b14192a04420761d802d"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70466,
+          "md5": "ed741f860673d9fe9c400183841d0e04"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 95954,
+          "md5": "1a482df661f1fdf914e1ec80b4cf1252"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 80442,
+          "md5": "fd4a2116f889b311a0dc6a95c6fecc67"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95874,
+          "md5": "347cafa09f276cf245dd66062b4a450a"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 101464,
+          "md5": "f4199fdaba65a6b923cbd38dabb009c3"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 90489,
+          "md5": "4a0507b95cb8c5e03d6f3d23ea5c4dcb"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 95947,
+          "md5": "98959bc4a2d44f72fa388e2c0afde05d"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66331,
+          "md5": "519bc9eec325389a98b952a182996782"
+        }
+      ]
+    },
+    "en-CA": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 111074,
+          "md5": "323aee09a619c84dc08c299426148177"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95961,
+          "md5": "c72cb0df433758cc26bf60139550fcaf"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 99139,
+          "md5": "39ecdc90b7844f5f4e58245a26b006c2"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131880,
+          "md5": "fc3bf28713075538e6f1fe662258cb6c"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 115209,
+          "md5": "609a6262b08936d7b21414a8c6ca5424"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 99347,
+          "md5": "d4372acf203e14f342200ffd49b12855"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70466,
+          "md5": "ed741f860673d9fe9c400183841d0e04"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 95624,
+          "md5": "4e3169f6d136cea2fe3577323fb47826"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 80442,
+          "md5": "fd4a2116f889b311a0dc6a95c6fecc67"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 97843,
+          "md5": "a5af9092b5fa0b361a69daa86267f02b"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 101464,
+          "md5": "f4199fdaba65a6b923cbd38dabb009c3"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 93917,
+          "md5": "aaee2ddae8513573f965941ba4186706"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 95854,
+          "md5": "274d9236a5944f4d89221c617e2c6ce2"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66331,
+          "md5": "519bc9eec325389a98b952a182996782"
+        }
+      ]
+    },
+    "en-GB": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 109440,
+          "md5": "9738dcfa10d18a44d36fd8b6d46ed6ae"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95961,
+          "md5": "c72cb0df433758cc26bf60139550fcaf"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 100827,
+          "md5": "cf4c3ed309a0dbe551dd877b55d8ab8d"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131880,
+          "md5": "fc3bf28713075538e6f1fe662258cb6c"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 112642,
+          "md5": "ef8bc8a34c44cfc237d5e1110d698b95"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 97785,
+          "md5": "fd76e03e09a4b14192a04420761d802d"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70466,
+          "md5": "ed741f860673d9fe9c400183841d0e04"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 93498,
+          "md5": "ac1f5d22bc749821f1189f40adcb8f05"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 80442,
+          "md5": "fd4a2116f889b311a0dc6a95c6fecc67"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95373,
+          "md5": "8e2fa5894577932686da6cce83c98798"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 101464,
+          "md5": "f4199fdaba65a6b923cbd38dabb009c3"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 91375,
+          "md5": "948497596340dd148c8734463f4071f5"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 95947,
+          "md5": "98959bc4a2d44f72fa388e2c0afde05d"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66331,
+          "md5": "519bc9eec325389a98b952a182996782"
+        }
+      ]
+    },
+    "en-US": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 114260,
+          "md5": "34b438c1552f2cf4259361653e659d20"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95984,
+          "md5": "7c08e669c07523927a1377ada2335521"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 98858,
+          "md5": "e4c56498ae26cf33a9482f56bc2caa82"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 130814,
+          "md5": "3c0cc9a1a6dc75d7ce1e2969a39c6dfd"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 116385,
+          "md5": "29f84ff85ef0e5ee61c23ee84b68a4ec"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 99347,
+          "md5": "d4372acf203e14f342200ffd49b12855"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70466,
+          "md5": "ed741f860673d9fe9c400183841d0e04"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 95729,
+          "md5": "26e71b9cd0b7bf37f409d98570e505b9"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 80599,
+          "md5": "eaf9641f2a8af1e99769f4fd1b6513db"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 98015,
+          "md5": "cd64df1e23fe31a924e604eacbe23115"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 101776,
+          "md5": "ffa64f4569810c0f9fe40f858f5a2033"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 93733,
+          "md5": "4e074fe42e914ce48ebdfb57c160e344"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 95854,
+          "md5": "274d9236a5944f4d89221c617e2c6ce2"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66331,
+          "md5": "519bc9eec325389a98b952a182996782"
+        }
+      ]
+    },
+    "es-ES": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 116082,
+          "md5": "b28a966433498a72f963be8f1c70e6ee"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 96801,
+          "md5": "ff7edb1072b9b724e4403d11729da012"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 106789,
+          "md5": "1a079c3dcc04c08fe3c3c31c6600bf25"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 133666,
+          "md5": "8ba5755e3ec9ae847abe88b2e9c8feda"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 123258,
+          "md5": "706d4fa3a7a2851c08e53ca5ec3f12ae"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 107393,
+          "md5": "ecacc2020ffe740b95d118a8432ca32b"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65618,
+          "md5": "11c1c6c6cc09f36ff3d4fa3089ba44db"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 99689,
+          "md5": "3b0d71324e3d6ba9ca5be7ac9232e2b8"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83067,
+          "md5": "f1412af9ce2c1b57de700d9d476c43d4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104107,
+          "md5": "c1c905ed2fa6b74350ebc4b52a1fa7da"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 113224,
+          "md5": "49ff1043a9176fff3b9fac4323c86e1d"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 89847,
+          "md5": "8a08708fe3009df1ce1d6d0dcb253f16"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 96979,
+          "md5": "ce88727a92071700db7d303bb3979e06"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65063,
+          "md5": "eb69bf4778a1206f938fc30d2e38b6e9"
+        }
+      ]
+    },
+    "es-MX": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 117473,
+          "md5": "648f9157c70e24c860c697255b50c9a2"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 97156,
+          "md5": "812d667ded2304d366865634438de8d4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 108148,
+          "md5": "bc6632cb1abba1a0e991d87b7b084e81"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 135399,
+          "md5": "fb162c3a99d3e97261cabad83524bfe3"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 121979,
+          "md5": "bf8e579bc2115b426ebaf4239b1414bc"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 111634,
+          "md5": "6e79f437eea87c2de94051019ee0e1e2"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66874,
+          "md5": "370fbd2ff81ca5c66ea06f1997336a80"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 102980,
+          "md5": "ca4e10275c34e269fb6ec641ba7e0970"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 84527,
+          "md5": "312af40240ae92af3e2afd81eff3eb75"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 103757,
+          "md5": "ae3075b2b9aca59833e69703b4f92284"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 107999,
+          "md5": "dac42b5aece41a435458e09a5da42e00"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 95523,
+          "md5": "f1d411561c03fe7cc342c83b6f26c55c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 100014,
+          "md5": "3f4ccda9c8ca6b56d082e6ba854313aa"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65266,
+          "md5": "493be7e39518a87f06d21d3cd22e3557"
+        }
+      ]
+    },
+    "fi": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 119464,
+          "md5": "de8224d6fbcf41445649b633c9a9749b"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 88796,
+          "md5": "3dba5b929527905fbae05b32a0d562b4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 102920,
+          "md5": "0e2dac51fcd7f4146986cae4b23d385b"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 125681,
+          "md5": "abcfa562a6c73771d0f439566a14b135"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 117917,
+          "md5": "4baa1aff0b0a106c0ca9e90b5771ec5d"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 106478,
+          "md5": "98e8916a225f51cdda6d6b7e04f6e9f9"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66402,
+          "md5": "34fdc3c8509507cb8ea1a737cd39fead"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 98339,
+          "md5": "6c4fd1dc2d9cf9055d167055fe8fec61"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 76054,
+          "md5": "02e6b4e66cacc7e1411320cd6e6d5eef"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101271,
+          "md5": "527695f1cf4ec23725dfe5af08dd636f"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 101461,
+          "md5": "d1e9643c4a4a2b67c59f35e42dd0c965"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 92157,
+          "md5": "29b537b49c9f56cbfe4ec96215be3066"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 95808,
+          "md5": "432abef64c638e57e4bd0f786aaa90ae"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 63869,
+          "md5": "16a80013da94044b0a17047f0cee6cdb"
+        }
+      ]
+    },
+    "fr-CA": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 124862,
+          "md5": "c3821d766123039362b04fba15958f5e"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 97238,
+          "md5": "f69dd72656fbd69691cd82a21503be19"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 107089,
+          "md5": "b0bf7eea63cbc174b5af423c878740b2"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 127064,
+          "md5": "f060ff67a82dc16cf756d0ff7e357c05"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 101634,
+          "md5": "ff49f800bb341c1ba0f613cff2e13a1b"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 100229,
+          "md5": "48ee6307d5612ae70ddda6f1d8abd0b3"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69465,
+          "md5": "87c715166bd5a3f7117d035beb3f2478"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 99113,
+          "md5": "4deb856b833c40b4236f028a718c6835"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 84055,
+          "md5": "171701bc2e0d471051874db01ee02c59"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 102973,
+          "md5": "193a936c2e7390e521c3d0076796470a"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 111769,
+          "md5": "f26ae9ed11fdb54a5067e6d08d16563d"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 88495,
+          "md5": "297934af360ac3bf45a282fb0cf4131c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 96390,
+          "md5": "01f44f0e2a56d87ed280d7431d4c5391"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68248,
+          "md5": "89a78c36c799bf6f3b66501962f96892"
+        }
+      ]
+    },
+    "fr-FR": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 120214,
+          "md5": "a7fd7fa8d46c83a39afdc328ae1fcc15"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 97238,
+          "md5": "f69dd72656fbd69691cd82a21503be19"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104899,
+          "md5": "65dbe53ef019889630521aac90931a48"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 127064,
+          "md5": "f060ff67a82dc16cf756d0ff7e357c05"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 104848,
+          "md5": "3a06526f73a6c56c7a71c471cca69f7c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 100229,
+          "md5": "48ee6307d5612ae70ddda6f1d8abd0b3"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69465,
+          "md5": "87c715166bd5a3f7117d035beb3f2478"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 99550,
+          "md5": "71826fba2ca645ea845766a0e595f345"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 84055,
+          "md5": "171701bc2e0d471051874db01ee02c59"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 102184,
+          "md5": "5e206dec29b23afea7efab2351c3a354"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 111769,
+          "md5": "f26ae9ed11fdb54a5067e6d08d16563d"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 89877,
+          "md5": "9069d96d817edf013622e93217ea9786"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 96390,
+          "md5": "01f44f0e2a56d87ed280d7431d4c5391"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68248,
+          "md5": "89a78c36c799bf6f3b66501962f96892"
+        }
+      ]
+    },
+    "hr": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 119159,
+          "md5": "fc64e31628df2698968905b24fae80b5"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95633,
+          "md5": "84b6f4e1606a2db78a56de73c96723d3"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101852,
+          "md5": "c54a7525260fdde6920411c74706a880"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131278,
+          "md5": "8f7c7dc1cfb9859c7e975a3af06079bb"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 112483,
+          "md5": "12d8dde5a3827844fdc458de26fdb458"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 107804,
+          "md5": "fa4f014c80b53e574d84b2249c080cc5"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 60938,
+          "md5": "b02217ded6ad318b72af96d63ec08502"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 98689,
+          "md5": "dfd9f5c247872dd83d5d8ebf06d30a0f"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 79697,
+          "md5": "9e8f1421accb185af13d28d675df8581"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 96349,
+          "md5": "0346941a140f8ed3985991800d34620d"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 108736,
+          "md5": "01f594530ed08fb64c7ba0b0346cde2a"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 99263,
+          "md5": "280f85964a40fe121f3bdd9504138085"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 103202,
+          "md5": "7a18bd1513a85ddad83ed5639feb99f8"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 57856,
+          "md5": "8766662f87057e85dc445bb201ec0e56"
+        }
+      ]
+    },
+    "hu": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 130826,
+          "md5": "f5205c6da07ba63b0d7d33b5503437f5"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 94780,
+          "md5": "80ada5a667efb2099c350435069e68a4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 110877,
+          "md5": "bd67d290219b7ee03bc64ed9ee7bb9ff"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 141721,
+          "md5": "9fc6bc4312d4965bbede219e3a8deeb7"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 104195,
+          "md5": "7a84f265a811ec1ddb6b6d2de359819b"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 112006,
+          "md5": "ce092129e6f99a48acfb9a22bebf2832"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69760,
+          "md5": "558e8ef512809f40a9e265cda672ea3c"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 109528,
+          "md5": "4c19d8f8e00516bf28eda0bed9103379"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 81418,
+          "md5": "611241c683f9c5034e13145b9cb44fe4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 100615,
+          "md5": "ea391f626641059e21311efbfc4d0e66"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 106375,
+          "md5": "7e7779ed56b33ce03b251f19420fa4cc"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 88028,
+          "md5": "3eaf5bc8d944c33f9063da60fb358c68"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 101725,
+          "md5": "2ee5028b806f30473d8afca0a278b10f"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68932,
+          "md5": "3d9557758d06e14b4bfd58067b749f85"
+        }
+      ]
+    },
+    "id": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 125023,
+          "md5": "9bec73e131feaf35a393256c0fb7b829"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 98934,
+          "md5": "f72959bca00208e7decde9ae12906f6d"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 117561,
+          "md5": "cffe3f186607033d08112cb25f52b615"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 130062,
+          "md5": "2701eea6e0aab83359bdff7bf6943d6f"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 123558,
+          "md5": "f9b64d3cf8270a1b9b107ed8ad1e412a"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 101480,
+          "md5": "4e5455fbcab643d506b169c5642ac21c"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67153,
+          "md5": "27a985b1b11ea41f8edb99b41fb50a99"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 97837,
+          "md5": "84f6576745225ad9840c58a85c48fb40"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 79850,
+          "md5": "28bade6bf20a4d26b845500db9be041f"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101231,
+          "md5": "5616b446d1b6295d87ee55b8627f07be"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 108745,
+          "md5": "31fddbea82d8a03bf99c3752735552f1"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 108702,
+          "md5": "458fba97b1f19c80a7a51ad5f105dd96"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 98195,
+          "md5": "cb2884d5076b7c67516813beb46ef225"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 64856,
+          "md5": "e5b68565bb31562584c915f18188df96"
+        }
+      ]
+    },
+    "it": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 118995,
+          "md5": "5ecbdd7273eaa5513415bd8d4399a1b1"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 97343,
+          "md5": "7b4127c7cd9ba09d561fca96e0372252"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 106365,
+          "md5": "d7c45f34411e7ea0362fd873ae6b960d"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 127405,
+          "md5": "3c8f03381cc8098fbf56384a4cff7033"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 122159,
+          "md5": "7dff58b9d6aabbd086115c4ebb479653"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 102312,
+          "md5": "707cb756029eb858a2dcf5973c363314"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68338,
+          "md5": "4cfc674714ac881f6401ec964c812aff"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 96032,
+          "md5": "312277d71ce78af8085ed01672e43477"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83027,
+          "md5": "e8ba3143b8c6054649c6aba71bc5d7c2"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95828,
+          "md5": "ffd7a6003a2c7c692e585182026f1fee"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 107263,
+          "md5": "b873aebdc29eb8d3a4d4a8409bbb8cf6"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 107181,
+          "md5": "81bfc52ccd73fe7a17e8ff7641440886"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 96921,
+          "md5": "969de98d09dd20c502862571d562d89c"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66660,
+          "md5": "1c5852217de29326440b75d598059f1d"
+        }
+      ]
+    },
+    "ja": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 130410,
+          "md5": "c4132993c28409a7aea302f109e4295d"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 93599,
+          "md5": "19d0b0d19e9a7a027bef65a7fcfad198"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104208,
+          "md5": "a77a2f68f9335f8cefb212193a13a9ec"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 138125,
+          "md5": "9498f6b6dc59b5f4ab2b68c834af56fc"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 119978,
+          "md5": "692e0709fdfd6f826fb6296c406eac4c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 105606,
+          "md5": "611e055eaaf73cfc175c4b6a2a836c16"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68342,
+          "md5": "0dc05a0a84c003d47b1ed078563be327"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 107219,
+          "md5": "37049ebb59304949f8a50f5aa5591249"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83380,
+          "md5": "c29f4d321bea38de16a00a9f416881b9"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 93232,
+          "md5": "1bef0ef764104d2842e74856950dc0e4"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 117515,
+          "md5": "0667b5dc6dacc0fcd139d4558bcfc570"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 101481,
+          "md5": "cb16e647a35260516ea8a406d4ee48c3"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104004,
+          "md5": "5e64796ce7186a8f34d63b9e22136f47"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65112,
+          "md5": "9fb84760d0aa51153ff679126d057255"
+        }
+      ]
+    },
+    "ko": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 94980,
+          "md5": "c7ee2d5c0ef315e04a5e065c72db32fa"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 66304,
+          "md5": "24b6147b6753ca19b17573dc10c1e238"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 72204,
+          "md5": "b46efca32ee6d6ab17a24a6ce312d947"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 92323,
+          "md5": "46fb1d32cea07b06324dafc728267657"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 87275,
+          "md5": "974de1157cad4e7f9b309bbffa4a08d2"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 82876,
+          "md5": "e6cba9886542c8ca7db9e95af89d1863"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 49534,
+          "md5": "68d6ba7dbabb29a6448bf876f05c16c6"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 82172,
+          "md5": "7288e9babe1c68ac3eca5847a00b3697"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 56766,
+          "md5": "be63a4d5fec295a8f9d74998ca8101ec"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 69563,
+          "md5": "715dac8f2dc487f3c1ecf485e0111443"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 76261,
+          "md5": "b48b391bc7be042774e7525c2e3c27fe"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 71597,
+          "md5": "94f88274af1e0c443b9c382303845308"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 80490,
+          "md5": "5c6181f1d6c9bab4a9b5596bc6a4ddf4"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 48767,
+          "md5": "dd1d018109f172d61f39d6489ba55ed7"
+        }
+      ]
+    },
+    "ms": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 136140,
+          "md5": "56fb0b01b1e5982426e9e965e315202f"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 94496,
+          "md5": "0e7c715168d7d795551eb29fefbbbb5d"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 112924,
+          "md5": "bd0e497690780ebb660d6c836a127257"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 136340,
+          "md5": "6e34920a9aa77f604ca240cd48043114"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 124379,
+          "md5": "c0e7587fe96f6dba2ec4b4d74a2edac4"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 102669,
+          "md5": "e03131b1a5c8c939e97b381e4cd25dac"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66261,
+          "md5": "15a5b5089dcf08ceebe628101a08336a"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 113037,
+          "md5": "66e472fd1964b546d2e1cb2a28b1469f"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 79126,
+          "md5": "4d271e6420bc5cc446b3a67fd62fd0df"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 102626,
+          "md5": "4cb67a991e85b7735915d3f710f4d3af"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 109205,
+          "md5": "33b513baf7caeea248b01a69532dcf69"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 105066,
+          "md5": "0dca1901c19e77bf87443d4c988cd089"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 92572,
+          "md5": "b99ee5060cc2cd0496827eb83179f0d3"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65303,
+          "md5": "0552a1f32c43e462853045aed1ac86cc"
+        }
+      ]
+    },
+    "nl-NL": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 126996,
+          "md5": "0e087d46ee2a88b040a833a772535d87"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 98516,
+          "md5": "946ba7c9ca75b0eea78244c68779d829"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101370,
+          "md5": "7766109fe8e85740e2a937bffa24f490"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 135491,
+          "md5": "e286fb5c5b04db8b49ebd5de73dfe08f"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 119676,
+          "md5": "0d08dcd3bde557dbcd81fba32bf9c830"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 108026,
+          "md5": "dd391eaf15216bf105f5940e2ec03d80"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69329,
+          "md5": "2127f4c96ac6d7e7c789c3d830ac532a"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 96549,
+          "md5": "abba25fc65c41ee4832677830cd6a76c"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 82196,
+          "md5": "3cacf3553c7c9b91b595326a0e569136"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 97637,
+          "md5": "b7eab23192a81a331b7432aba23e65cf"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 111750,
+          "md5": "eb6b4e1a082b1e642c5a7bc64fb5f927"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 91476,
+          "md5": "0befc2f545312049b97e550d8dd4b648"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104319,
+          "md5": "eaaf113bd7f683169a9c58ef6f8df2ac"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67062,
+          "md5": "3e4717d24c45af89c7495f54ac3f5594"
+        }
+      ]
+    },
+    "no": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 116821,
+          "md5": "02d68b92632b710474db1822f948dcbb"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 91937,
+          "md5": "cf347d6bc3a3f92330bede0df84454e8"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 98714,
+          "md5": "3f95f7635e0e7628767c9977a6056a0d"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 121598,
+          "md5": "59ac4fd30419b4855d431dd65ad1cea4"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 126346,
+          "md5": "721d94eb1ee936b9e326bc3d8b138452"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104512,
+          "md5": "c9a44e81c4b31880e459615ae6fd9818"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70198,
+          "md5": "6465acbaa82266fa868670924d355f2b"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 95918,
+          "md5": "98e5b826f7ac5d0ae16fd2c5b8d19e68"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 76929,
+          "md5": "f5ac7b86bead6cf2399199f0210048a3"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 100166,
+          "md5": "b2bd0ab67c679dbb831e5c873a03a025"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 110185,
+          "md5": "0e7431f51792c3bc72d4d512c4df14e4"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 87675,
+          "md5": "b74892ff7eca42f6003fdb949fc2d086"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104882,
+          "md5": "f7fdfc40fdfe5281d50267c56bce4a30"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67513,
+          "md5": "ff2ba0794c4d598b2abf25749b7860f9"
+        }
+      ]
+    },
+    "pl": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 122557,
+          "md5": "0490161fe35e68090f2a12d37b8df18a"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 95185,
+          "md5": "9b8aca052408b2af075fde8a50533b2c"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95662,
+          "md5": "52b1a6a21a4af1e11e8e76017771ac09"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 137916,
+          "md5": "9ba0a0f3b4950bb06c822e6231dec299"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 120227,
+          "md5": "07cb7358b7d46cc1afb0bf463bf62f97"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 113523,
+          "md5": "93a651f05f3149129457a1ac9f6a9bf5"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 68610,
+          "md5": "615a87c0fef6eac13d1381baefd2acdd"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 106024,
+          "md5": "f0834faddcd73bb79e53cd0759561eb2"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 85392,
+          "md5": "1c44d6eb630d6085ae1162e3b0b76cc4"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 94904,
+          "md5": "35749525592b47446fd5f05c4514ed94"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 113792,
+          "md5": "dc7c44531824926d117a4b9354423909"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 107376,
+          "md5": "d68129a9a78dbe094d2c69c0951d27ea"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 107109,
+          "md5": "1b2f9131097cdc38f59c97cac154a05e"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66902,
+          "md5": "5afe6dca35e11e82fff759e0026a22fc"
+        }
+      ]
+    },
+    "pt-BR": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 122312,
+          "md5": "12fb4ca1ca98c2f016e96205e9137201"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 98970,
+          "md5": "7167e58e4a769bcef61a652fcf0b0cd2"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 102830,
+          "md5": "4663386c155266eb5575647744279daf"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 135391,
+          "md5": "a798f4931cecf0af25fa6bf90e821b2a"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 123232,
+          "md5": "d4fbc905d2b82075844a7a24b2be3a30"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 111866,
+          "md5": "c8c1d68cd60af79657e28c3efcef4a1c"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 75344,
+          "md5": "0391cd21308d185a2272709ba0030bdf"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 108986,
+          "md5": "0c8520c1bc4be58a86aba9db4f8e8d70"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83524,
+          "md5": "522a44ac847a7af73d486aaea6673576"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104014,
+          "md5": "c26b7710aad8793181a35d6e2c57bd05"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 107717,
+          "md5": "e2ffd33e78eda3729f09ad151fc25e2e"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 103707,
+          "md5": "bc2fdd785735e877b62af1b734d8a9b6"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 106994,
+          "md5": "07283f4189708bae2ef0ded1dc518e63"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69508,
+          "md5": "e25dfe3f5b436247f0417882d92da0d2"
+        }
+      ]
+    },
+    "pt-PT": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 117537,
+          "md5": "34e749b1fdcec3508132cff45c14f7af"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 99371,
+          "md5": "6e8f8f30646d033d28048301720edd96"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 105503,
+          "md5": "c3b105cd73cd465cb0c60473be37a51d"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 136214,
+          "md5": "833078395fe008e50a3beaca0c701de5"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 127258,
+          "md5": "ee2c390d63d94fce7a8a65148bb37637"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 108680,
+          "md5": "8518b4f699e955a6a4c74f85f5aa5562"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70301,
+          "md5": "af8279c3fcbe9b67acf3d35a0697d6c0"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 101320,
+          "md5": "87a28af72267f854663b7cc1533765da"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 82673,
+          "md5": "5cb8d78b6e4ef1688a87f351c228e4a9"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 98103,
+          "md5": "57989aca51a33a8f27f81b0272ed5232"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 110434,
+          "md5": "04fa5da4df7dbb4dddb8c3d3ce1ead28"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 91452,
+          "md5": "4d5988181cec483e26de1ba9b9dd5537"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104680,
+          "md5": "63d7b28d43a6dc48c2ec2a1e51bd56b2"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 66620,
+          "md5": "4d2328d8fa8b6c6b4cdffa83e779f2d9"
+        }
+      ]
+    },
+    "ro": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 119020,
+          "md5": "b5a35232eeadf1e4aed49c5c59303952"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 94169,
+          "md5": "9c442b588fa35995e44fafc652531541"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 94254,
+          "md5": "dcb359a811b309ccf5fc2dfe5bf2f0b9"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 126886,
+          "md5": "73a79dc91643bd5c45c0555fc90c2aee"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 116303,
+          "md5": "2c06867ed6361d39ac03c2a8b08973b6"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 98146,
+          "md5": "e198f580d0dc74352483c860d66c2c59"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 58206,
+          "md5": "207d5de1f6d47299f78e86e0f0f91d58"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 100652,
+          "md5": "e06ee700d3d308ce52fc15f4aa8d732c"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 81635,
+          "md5": "335ec299cf8ab4f1cdb966b89d4a48b8"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 93525,
+          "md5": "a5ff2fc108e975591efa90d20992e2d4"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 109046,
+          "md5": "b0202e7f84e11cba16c7cfb822b96dc5"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 80405,
+          "md5": "2185b3cb4fe93130ac81b2c38335b120"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 91094,
+          "md5": "3f5cee7f908c2be31b7d88037f461c45"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 58147,
+          "md5": "130e1a58c5a2d015d57387fbde136329"
+        }
+      ]
+    },
+    "ru": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 125373,
+          "md5": "776da31fa0c004ddd521364e65b27468"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 98375,
+          "md5": "126ab9f593a4cd487db85e664225b248"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 103534,
+          "md5": "198f283c73e5c4488896cd1230ae7526"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 132923,
+          "md5": "49727c5ca3a2cababc3c3f68c37fb3a0"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 118777,
+          "md5": "d486d729f4ab7625199c133f0653ad1d"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 111981,
+          "md5": "fcb76520e5f278acf77cbc360543afcf"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67183,
+          "md5": "9c82657ae68b8177f41741c6a4c28554"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 105381,
+          "md5": "d034a7806b927fd3f402ff1453ed7486"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 84180,
+          "md5": "1b684a4cf15b8e7667a903bf1cd9644f"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 100077,
+          "md5": "f81a8148071c5463520c304197f6d27b"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 109376,
+          "md5": "0dbac53ce469ac3235df491306424243"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 87230,
+          "md5": "ecb80dcd4ceffa15d628e75b56ec933a"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 100792,
+          "md5": "9f822fec84bf31e586b294b598917d24"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65758,
+          "md5": "0d3080641aedf4e237ab5bfc5b5d1d81"
+        }
+      ]
+    },
+    "sk": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 122362,
+          "md5": "1b372c62900da13d346ab2e982cd644a"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 97982,
+          "md5": "79b0b820230f36d5b405ef6622a4a7c0"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 101692,
+          "md5": "a66eb29f0ac713bb4821665f9af077a5"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 127773,
+          "md5": "dae3d3e82027c2ff981b1c46352b0e36"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 120097,
+          "md5": "d99d58058bf3d1092647113eb6cf662c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 102999,
+          "md5": "5c358dea6a6248827093e178ee552a2b"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65120,
+          "md5": "ba09228651704d913f917a8f153a0190"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 109273,
+          "md5": "3997b75e589627077b451c6a5eef85cf"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 82711,
+          "md5": "f23567b58243ec66a603de45db696630"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 97575,
+          "md5": "fb5cb76ba68521f01b08855a15f80f3f"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 105353,
+          "md5": "4559da7788a56780c269e565c66e0247"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 87929,
+          "md5": "2e5e3bac7c17124f0ed00d4850a48bdd"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 98751,
+          "md5": "db1d51c7c0cfbd4c0472a3779a2e4201"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 63558,
+          "md5": "dadda769b532cfd0d5bd5158b4b6608c"
+        }
+      ]
+    },
+    "sl": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 116295,
+          "md5": "7662ec1895b06370a9482d9d1b63ce50"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 93805,
+          "md5": "80177a792c52dca2760398cd1fae4a02"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 99505,
+          "md5": "6a2b87ddd256f0401c47057383e24a59"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 127937,
+          "md5": "3abd82b1b7aad7da31d714790b7f46b0"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 113991,
+          "md5": "4df5a64cf497221a2205d297c02004b2"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 102075,
+          "md5": "eedeb7d7e7658d6f7303f6e4cbdd24cb"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 62333,
+          "md5": "8d4d7b0b1c0ec13ef4be6bd2ca75b87b"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 100447,
+          "md5": "1c1a12c45854960755f31e16edb441b6"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 78496,
+          "md5": "ddf8c08fec999ed7e3dd42b3df6609a7"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95915,
+          "md5": "21c628023c5f2921c4a8f45bf46b8c2a"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 107001,
+          "md5": "26457c55819d96d140fa457119cd4053"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 97960,
+          "md5": "dd6ab0cb7b1ed08138fd9e905b21429c"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 99894,
+          "md5": "95c0f986684ace2585b1d61fdc74f430"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 60478,
+          "md5": "831b3b7c384acef739f208645f34471c"
+        }
+      ]
+    },
+    "sv": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 121358,
+          "md5": "d595ba66f624e965bfa14eb9cf3e112b"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 96532,
+          "md5": "5e2578abf8069f01e365e682629d5588"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 100558,
+          "md5": "56aacdbba11f2ef9ff0b90f754a1bf22"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131763,
+          "md5": "9c636935003e2898b3ef98032f38f835"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 112774,
+          "md5": "86a233ecd9952cc379a84f8442c65890"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 104219,
+          "md5": "4a24d7f1cb434a891f2873a43a66b54b"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67232,
+          "md5": "c46b54276b08461d8f8dfc7f44e5afbe"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 100963,
+          "md5": "5395c2765f987e51cc21cbeaf47088f4"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 79890,
+          "md5": "7206cba2d00651b26e6562942ae36569"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 96656,
+          "md5": "7f1c7a99349dd93469fc0ec5c81df54f"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 115706,
+          "md5": "cbd6449e1b7d4ebbb1565dfb2ee00dbb"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 97625,
+          "md5": "8d4d6cdc6d67def64d90332e0d6afa05"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 102734,
+          "md5": "9d4d1b44533ed2fe37c2fbafb6c366b8"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 63346,
+          "md5": "b407ba9bb8d40bb7ca9a3772a748959f"
+        }
+      ]
+    },
+    "tr": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 118209,
+          "md5": "e83c0f9ed036aa98e85ce4a7e810c36d"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 88706,
+          "md5": "6a4227f7b68c6f7df4f877cb4996d9ea"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 95555,
+          "md5": "84465a0bb7b2c4dc490755231d23aa0b"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 131408,
+          "md5": "b6cbe8828d0312b80a63be2d886b2cde"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 118154,
+          "md5": "8a00d9827f2dffa125d289e9734abd87"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 97935,
+          "md5": "3a779c9ccd36182a3fad8b116e641c03"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 67755,
+          "md5": "50699be2d2f88edf0f452a130c264634"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 106889,
+          "md5": "58048a5ed9b36f85a496cffbaa406557"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 76271,
+          "md5": "c055aaff3f09b18b33c3e9063da8f61c"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 92311,
+          "md5": "6b7b2f85070da00fe76b26f49d66372f"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 109006,
+          "md5": "f691bc3db5f9d336dad023f57ff4018d"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 101283,
+          "md5": "c1b8b2663e3fb4c41e591b1f972d848b"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 96223,
+          "md5": "f09852d0805bfca457d7f1ea2a37537c"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 65920,
+          "md5": "00fc8b36ef27612670672234ba646d92"
+        }
+      ]
+    },
+    "uk": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 120409,
+          "md5": "c870bb7ca1536a24535f88d1f685e069"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 93688,
+          "md5": "b8564ac0a5cf779222baa25f64b788a0"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104655,
+          "md5": "08a558dd9d6d639bdafacc0459d851f7"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 126742,
+          "md5": "c83e5bf7011bd04cbec3cedc95be5a6b"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 101358,
+          "md5": "9cbee2f85c992a81024b375987df6a89"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 113590,
+          "md5": "beb2ed107a88438d60ac1956734cff40"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 64879,
+          "md5": "cb1ebe68b685158858b48a651fc605f1"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 98715,
+          "md5": "4141e0c0803945071cd0d3948ffcbf2a"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 82420,
+          "md5": "c0a2f568bc25b469717a1c97d0cfe223"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 94914,
+          "md5": "165a13a8eb19195d43ae3c31974b1300"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 105593,
+          "md5": "7980ff0843792867d69972875f35fcb1"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 86809,
+          "md5": "577e4289843b54f7fd2ae51bf6ddcf09"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 98095,
+          "md5": "4405d0146290f98a1c949d4cdfdd78ac"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 63027,
+          "md5": "3354cae870ae20243a984b66c53d9d96"
+        }
+      ]
+    },
+    "vi": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 122987,
+          "md5": "cb80f5495834f10d10839ef5919f64ee"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 94709,
+          "md5": "4870550ca384e732b247690789d102bb"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 103331,
+          "md5": "a8d6e50a6bf65bfbccc8854f606f06a2"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 135641,
+          "md5": "483c2a3a60d37444052a2b3064394ea4"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 122187,
+          "md5": "951a11c8a116caa8c7a8ffe9d803580f"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 99116,
+          "md5": "37c2dc123652b7dbcd714f274093ef33"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 70693,
+          "md5": "cd8ff64c0514fa88fab52b2119372bd3"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 106363,
+          "md5": "fd530c15c7169ef8a86891ea80524a13"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83639,
+          "md5": "767799218ed7b7f611123d85703f3a90"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 97377,
+          "md5": "2da21d96eec26996033122289a648a69"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 113981,
+          "md5": "55b49bd73b23f80c161673833b7ff330"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 102075,
+          "md5": "08866bf13e12426af6d3a147a8fc18e4"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 93823,
+          "md5": "a343a780749d2ae9ee07bd65324bb0a0"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 69750,
+          "md5": "ae53dd132a614aa7e0d998d14ec45165"
+        }
+      ]
+    },
+    "zh-Hant": {
+      "iphone-6.9": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 129256,
+          "md5": "84c3eda9a220c8666cac9dc242e2b343"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 103880,
+          "md5": "b0b2944ff3eb936d03e2a205db14abfb"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 106437,
+          "md5": "d13c3cf5105b75c1ad56f0fb55f9daa2"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 142888,
+          "md5": "bbd8d3ad4744b3643b380936174d30cc"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 134354,
+          "md5": "e7044aeb36cb6d4ce29b63a551e472a6"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 107754,
+          "md5": "fbf4a536ee2c77d3024a31072830f366"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 72663,
+          "md5": "0ddc32fb079bd29a5d22be5f7598a036"
+        }
+      ],
+      "iphone-6.3": [
+        {
+          "plik": "01-plan.png",
+          "bajty": 101639,
+          "md5": "5a5327097a55cb2ae22bb081f82cdadc"
+        },
+        {
+          "plik": "02-receptura.png",
+          "bajty": 83248,
+          "md5": "6de1160d5bafaea198c4faa6a31cc269"
+        },
+        {
+          "plik": "03-prowadzenie-ciemny.png",
+          "bajty": 104213,
+          "md5": "5fe00998f55afc17bab0dbfcfbac3467"
+        },
+        {
+          "plik": "04-doktor.png",
+          "bajty": 113653,
+          "md5": "a76deb8d840fb080c10406b1fbb4c32f"
+        },
+        {
+          "plik": "05-zakwasy.png",
+          "bajty": 109585,
+          "md5": "cb66094a366b79e120749fe3beefeb7b"
+        },
+        {
+          "plik": "06-dziennik.png",
+          "bajty": 106249,
+          "md5": "ebd9dba4a07e9a385e9c343b16b72735"
+        },
+        {
+          "plik": "07-offline.png",
+          "bajty": 72794,
+          "md5": "469222da895d7000f0f40795a85317b6"
+        }
+      ]
+    }
+  }
+}

@@ -25,14 +25,15 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const API_DOMYSLNE = 'https://api.appstoreconnect.apple.com';
 
-class BladDanych extends Error {}
-class BladApi extends Error {
+// Eksporty klienta i błędów używa też scripts/asc-zgloszenie.mjs [M1-audytor-generalny-186].
+export class BladDanych extends Error {}
+export class BladApi extends Error {
   constructor(metoda, sciezka, status, kod, tytul) {
     super(`${metoda} ${sciezka}: ${status} ${kod} ${tytul}`);
     this.status = status;
   }
 }
-class BladZgody extends Error {}
+export class BladZgody extends Error {}
 
 // ---------------------------------------------------------------------------
 // Stan docelowy z plików repo
@@ -94,7 +95,7 @@ export function stanDocelowy() {
 // ---------------------------------------------------------------------------
 // Klient API: JWT ES256, stronicowanie, 429
 
-function sekrety() {
+export function sekrety() {
   const brak = ['ASC_KEY_ID', 'ASC_ISSUER_ID', 'ASC_KEY_P8'].filter((k) => !process.env[k]);
   if (brak.length) throw new BladDanych(`brak zmiennych środowiska: ${brak.join(', ')} (sekrety GitHuba)`);
   const surowy = process.env.ASC_KEY_P8;
@@ -105,7 +106,7 @@ function sekrety() {
 
 const b64u = (x) => Buffer.from(typeof x === 'string' ? x : JSON.stringify(x)).toString('base64url');
 
-function klient(api, { kluczId, wystawca, klucz }, tylkoOdczyt) {
+export function klient(api, { kluczId, wystawca, klucz }, tylkoOdczyt) {
   let token = '';
   let wydany = 0;
   const jwt = () => {
@@ -159,6 +160,7 @@ function klient(api, { kluczId, wystawca, klucz }, tylkoOdczyt) {
     wszystkie,
     post: (s, c) => zadanie('POST', s, c),
     patch: (s, c) => zadanie('PATCH', s, c),
+    usun: (s) => zadanie('DELETE', s),
   };
 }
 
@@ -537,7 +539,7 @@ async function main(argv) {
 }
 
 /** Bez sekretów i identyfikatorów w komunikacie błędu. */
-function zaciemnij(tekst) {
+export function zaciemnij(tekst) {
   let t = String(tekst);
   for (const k of ['ASC_KEY_ID', 'ASC_ISSUER_ID']) if (process.env[k]) t = t.split(process.env[k]).join('<ukryte>');
   return t.replace(/eyJ[\w-]+\.[\w-]+\.[\w-]+/g, '<token>').replace(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, '<id>');

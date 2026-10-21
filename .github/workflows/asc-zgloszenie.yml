@@ -1,0 +1,67 @@
+name: App Store Connect — zgłoszenie przez API
+
+# Metadane 34 lokalizacji, zrzuty, opisy produktów i zrzut zakupu dla App Review [M1-audytor-generalny-186].
+# Uruchamia push na gałąź toru p8c (workflow_dispatch działa tylko z gałęzi domyślnej).
+# Zawsze przebieg na sucho (tylko GET); zapis wyłącznie, gdy docs/wydanie/asc-zgoda-zgloszenie.json ma
+# "zapis": true i skrót planu pokazanego właścicielowi. Zrzuty 31 lokalizacji spoza repo porównuje po sumach
+# z docs/wydanie/zrzuty/sumy.json; do ich wysłania potrzebne są pliki (krok właściciela, raport toru p8c).
+# Ta sama grupa concurrency co asc-ustawienia.yml: dwa przebiegi ASC nigdy naraz.
+# Po scaleniu z master wyzwalacz zamienić na workflow_dispatch (docs/wydanie/instrukcja-ustawien.md).
+
+on:
+  push:
+    branches:
+      - naprawy/M2-koordynator-napraw-2026-10-19-p8c
+    paths:
+      - scripts/asc-zgloszenie.mjs
+      - scripts/asc-ustawienia.mjs
+      - docs/wydanie/asc-zgloszenie.json
+      - docs/wydanie/asc-zgoda-zgloszenie.json
+      - docs/wydanie/metadane/**
+      - docs/wydanie/zrzuty/**
+      - .github/workflows/asc-zgloszenie.yml
+
+concurrency:
+  group: asc-ustawienia
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  asc:
+    name: Zgłoszenie ASC (na sucho; zapis tylko ze zgodą)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Zrzuty lokalizacji spoza repo: paczka ZIP w wydaniu wstępnym (tag w docs/wydanie/asc-zgloszenie.json, "paczkaZrzutow").
+      # Brak wydania = pusty katalog: skrypt porówna po sumach, a zestawów bez plików nie wyśle. Sumy sprawdza skrypt.
+      - name: Zrzuty spoza repo (wydanie wstępne)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/zrzuty-sklepu"
+          TAG="$(node -p "require('./docs/wydanie/asc-zgloszenie.json').paczkaZrzutow.tag")"
+          if gh release download "$TAG" --pattern zrzuty-sklepu.zip --dir "$RUNNER_TEMP"; then
+            unzip -q "$RUNNER_TEMP/zrzuty-sklepu.zip" -d "$RUNNER_TEMP/zrzuty-sklepu"
+          else
+            echo "Brak wydania $TAG: zrzuty spoza repo tylko po sumach"
+          fi
+
+      - name: Zgłoszenie App Store Connect (skrypt bez zależności)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_P8: ${{ secrets.ASC_KEY_P8_BASE64 || secrets.ASC_KEY_P8 }}
+        run: node scripts/asc-zgloszenie.mjs --zgoda docs/wydanie/asc-zgoda-zgloszenie.json --zrzuty "$RUNNER_TEMP/zrzuty-sklepu"

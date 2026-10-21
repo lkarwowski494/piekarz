@@ -1,0 +1,26 @@
+{
+  "opis": "Zgłoszenie do App Store przez App Store Connect API: metadane 34 lokalizacji, zrzuty, opisy produktów, zrzut ekranu zakupu dla App Review [M1-audytor-generalny-186]. Zapisuje scripts/asc-zgloszenie.mjs. Teksty i zrzuty bierze z docs/wydanie/metadane/*.json i docs/wydanie/zrzuty/ (sumy MD5 wszystkich 34 lokalizacji w docs/wydanie/zrzuty/sumy.json), adresy z src/lib/links.ts (to samo źródło co karty docs/wydanie/ustawienia/), wersję z app.json. Ten plik ma tylko to, czego nie ma w tamtych: liczbę lokalizacji, klasy zrzutów, opisy produktów i ścieżkę zrzutu zakupu.",
+  "lokalizacji": 34,
+  "zrodloLokalizacji": "docs/decyzje.md D-054; docs/wydanie/instrukcja-ustawien.md §10",
+  "klasyZrzutow": {
+    "iphone-6.9": "APP_IPHONE_67",
+    "iphone-6.3": "APP_IPHONE_61"
+  },
+  "zrodloKlas": "docs/wydanie/zrzuty/README.md (klasy i piksele). Wartości screenshotDisplayType: enum API (odczyt 2026-10-21) nie ma APP_IPHONE_69 ani APP_IPHONE_63, a dokumentacja nie mówi, który typ przyjmuje 1320 × 2868 i 1206 × 2622; APP_IPHONE_67 i APP_IPHONE_61 to wniosek [DO USTALENIA], do potwierdzenia na koncie przed zapisem zrzutów (raport toru p8c). Zasoby appScreenshotSets i appScreenshots są od API 4.5.1 oznaczone jako deprecated (następca: App Asset Library).",
+  "ramekNaKlase": 7,
+  "paczkaZrzutow": {
+    "tag": "zrzuty-sklepu-2026-10-21",
+    "plik": "zrzuty-sklepu.zip",
+    "zrodlo": "zrzuty 31 lokalizacji spoza repo (docs/wydanie/zrzuty/README.md) jako zasób wydania wstępnego GitHub; workflow asc-zgloszenie.yml pobiera paczkę, skrypt sprawdza każdy plik sumą z docs/wydanie/zrzuty/sumy.json. Opcja (a) pytania 2 toru p8c; wydanie publikuje się dopiero za potwierdzoną zgodą właściciela."
+  },
+  "opisyProduktow": {
+    "monthly": { "en-US": "Full access, billed monthly", "pl": "Pełny dostęp, płatność co miesiąc" },
+    "yearly": { "en-US": "Full access, billed yearly", "pl": "Pełny dostęp, płatność co rok" },
+    "lifetime": { "en-US": "Full access, one-time purchase", "pl": "Pełny dostęp, jednorazowy zakup" }
+  },
+  "zrodloOpisow": "docs/decyzje.md D-065 (opcja (a) pytania 1 toru p8c, 2026-10-21); lokalizacje produktów tylko en-US i pl (wybór 1a na STOP start p8b); każdy opis ≤ 45 znaków (limit opisu In-App Purchase w App Store Connect Help).",
+  "zrzutZakupu": "docs/wydanie/zrzuty/review/zakup.png",
+  "zrodloZrzutuZakupu": "docs/wydanie/instrukcja-ustawien.md §3.8; plik powstanie w torze p9c (zadanie M1-audytor-generalny-127, ekran zakupu); jeden zrzut dla trzech produktów",
+  "prywatnosc": "Data Not Collected",
+  "zrodloPrywatnosci": "docs/wydanie/instrukcja-ustawien.md §7.1"
+}

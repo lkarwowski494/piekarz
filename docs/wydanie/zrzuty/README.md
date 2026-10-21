@@ -24,6 +24,7 @@ Ramki to eksport web aplikacji (Expo web) z podkładkami modułów natywnych, zr
 2. Zrób dwa eksporty z HEAD: `MOTYW_ZRZUT=jasny npx expo export -p web --output-dir <tmp>/web --clear` i to samo z `MOTYW_ZRZUT=ciemny` do `<tmp>/web-ciemny`. Potem przywróć `metro.config.js` z kopii.
 3. Skopiuj `generuj.mjs` i `serwer.mjs` do katalogu roboczego z Playwrightem (`npm install playwright@1.64.1`) i uruchom dla każdej lokalizacji: `node generuj.mjs --jezyk <kod ASC> --repo <repo> --web <tmp>/web --web-ciemny <tmp>/web-ciemny`. Wynik trafia do `docs/wydanie/zrzuty/<kod>/` dla pl, en-US i nl-NL, a dla pozostałych do katalogu K (inny katalog: `--wyjscie <katalog>`). Jedna lokalizacja trwa ok. 5 min; kilka można uruchomić naraz.
 4. Uruchom `npx jest tests/zrzuty-sklepu.test.ts` i `node sprawdz-k.mjs`.
+5. Odśwież sumy MD5 wszystkich lokalizacji: `node scripts/asc-zgloszenie.mjs --generuj-sumy <katalog zrzutów spoza repo>` → `sumy.json` (z nich `scripts/asc-zgloszenie.mjs` porównuje zrzuty w App Store Connect bez plików z K; pilnuje `tests/asc-zgloszenie.test.ts`) [M1-audytor-generalny-186].
 
 Podpisy biorą się z metadanych lokalizacji. Etykiety przycisków, które klika skrypt, i tekst oznaczenia płatnego pochodzą ze słowników aplikacji (`src/lib/i18n-slowniki/`, `src/lib/i18n-en/`), a godzina z `Intl` przeglądarki. Nowa lokalizacja wymaga więc tylko pliku metadanych, wpisu w tabelach `LOK` i `DANE` w `generuj.mjs` (locale przeglądarki, przykładowa nazwa zakwasu i notatka) oraz w `JEZYKI` w teście.
 
