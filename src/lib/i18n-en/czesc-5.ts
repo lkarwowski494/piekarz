@@ -3,6 +3,8 @@
 export const EN_5: Record<string, string> = {
   // Stolnica
   'Krok {n} z {m}': 'Step {n} of {m}',
+  // Ogłoszenie VoiceOver po zmianie kroku w prowadzeniu [audyt-niezalezny G-1]
+  'Teraz: {nazwa}': 'Now: {nazwa}',
   'Brak aktywnego wypieku': 'No active bake',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.':
     'Choose a recipe on the Recipes tab and tap “{przycisk}”, or start the standard bake plan below.',

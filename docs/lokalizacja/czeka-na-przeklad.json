@@ -25,6 +25,11 @@
       "klucz": "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.",
       "powod": "treść okna potwierdzenia „Usunąć wszystkie dane?”: kopie zapasowe zostają w aplikacji Pliki [audyt-niezalezny B-4]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Teraz: {nazwa}",
+      "powod": "ogłoszenie VoiceOver nowego kroku w prowadzeniu po „Zrobione” i „Cofnij” [audyt-niezalezny G-1]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {
