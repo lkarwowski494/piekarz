@@ -5,6 +5,7 @@ import { StoredRecipe, StoredStarter, StoredBakeLog, StoredStarterEntry, StoredF
 import { isObj, parseRows, parseBakeRow, parseStarterRow, parseRecipeRow, parseStarterEntryRow, parseFlourInventoryRow } from '../data/row-parsers';
 import { legacyFeedingEntry } from '../core/starter-log';
 import { assertWritable } from '../data/storage-status';
+import { parseLekcje, parseUstawienia, type LekcjaKopii } from '../data/ustawienia-kopii';
 
 /** Wersja 2: dziennik zakwasu (ADR-008); stara aplikacja odrzuca ją czytelnym komunikatem [M1-audytor-generalny-104]. */
 export const SCHEMA_VERSION = 2;
@@ -29,7 +30,10 @@ export interface PiekarzBackupData {
   starterEntries?: StoredStarterEntry[];
   /** Spiżarnia mąk (wersja 2, F-30/F-33); brak = kopia bez spiżarni, import zostawia zapasy w telefonie. */
   flourInventory?: StoredFlourInventoryItem[];
+  /** Dozwolone ustawienia (KLUCZE_USTAWIEN_KOPII); brak = kopia bez ustawień, import zostawia ustawienia w telefonie [M1-audytor-generalny-139]. */
   settings?: Record<string, unknown>;
+  /** Zaliczone lekcje Szkoły chleba; brak = import zostawia lekcje w telefonie [M1-audytor-generalny-139]. */
+  lessonProgress?: LekcjaKopii[];
   /** Surowa treść wierszy pominiętych przy odczycie; import ją pomija [M1-audytor-generalny-121]. */
   uszkodzoneWiersze?: Array<{ tabela: string; id: string; surowe: string }>;
 }
@@ -253,6 +257,9 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
     : { rows: starters.rows.flatMap((s) => legacyFeedingEntry(s) ?? []), skipped: 0 };
   // Spiżarnia mąk (F-30 PÓŹNIEJ: dane zostają w eksporcie F-33) [M1-audytor-generalny-097]
   const flours = Array.isArray(state.flourInventory) ? parseRows(state.flourInventory, parseFlourInventoryRow) : null;
+  // Ustawienia (lista dozwolonych kluczy) i lekcje: pola opcjonalne v2 [M1-audytor-generalny-139]
+  const settings = parseUstawienia(state.settings);
+  const lessonProgress = parseLekcje(state.lessonProgress);
   return {
     format: 'piekarz-backup',
     schemaVersion: envelope.schemaVersion,
@@ -263,6 +270,8 @@ export function parseAndValidateBackup(rawJson: string): ValidatedBackup {
       customRecipes: recipes.rows.map((r) => ({ ...r, isBuiltIn: false })),
       starterEntries: entries.rows,
       ...(flours ? { flourInventory: flours.rows } : {}),
+      ...(settings ? { settings } : {}),
+      ...(lessonProgress ? { lessonProgress } : {}),
     },
     skippedRows: bakes.skipped + starters.skipped + recipes.skipped + entries.skipped + (flours?.skipped ?? 0),
   };
