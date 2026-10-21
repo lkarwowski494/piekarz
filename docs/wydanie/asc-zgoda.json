@@ -1,6 +1,6 @@
 {
   "opis": "Zgoda właściciela na zapis w App Store Connect przez scripts/asc-ustawienia.mjs [M1-audytor-generalny-181]. Domyślnie zapis: false (przebieg na sucho). Zapis wymaga: \"zapis\": true, \"skrot\" = skrót planu z przebiegu na sucho pokazanego właścicielowi, \"zgoda\" = „RRRR-MM-DD: słowa właściciela”. Inny stan ASC albo danych niż przy pokazaniu listy = inny skrót = odmowa zapisu.",
-  "zapis": false,
-  "skrot": null,
-  "zgoda": null
+  "zapis": true,
+  "skrot": "ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea41356",
+  "zgoda": "2026-10-21: Zgadzam się na zapis w App Store Connect listy ze skrótem ff854f80a9ab7ef057fda34490ed581bd9238dc5cb0af3176429c0581ea41356 (714 operacji), łącznie z nieodwracalnym Family Sharing."
 }

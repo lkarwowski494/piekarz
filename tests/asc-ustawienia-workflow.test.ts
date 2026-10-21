@@ -20,10 +20,15 @@ describe('workflow asc-ustawienia (M1-audytor-generalny-181)', () => {
     expect(on).not.toMatch(/pull_request|workflow_dispatch|schedule|tags/);
   });
 
-  it('skrypt uruchamiany z plikiem zgody; plik zgody w repo domyślnie bez zapisu', () => {
+  it('skrypt uruchamiany z plikiem zgody; zgoda albo wyłączona, albo pełna (skrót planu i słowa właściciela z datą)', () => {
     const krok = steps.find((s) => s.includes('scripts/asc-ustawienia.mjs')) ?? '';
     expect(krok).toMatch(/run: node scripts\/asc-ustawienia\.mjs --zgoda docs\/wydanie\/asc-zgoda\.json$/m);
-    expect(zgoda).toMatchObject({ zapis: false, skrot: null });
+    if (zgoda.zapis === true) {
+      expect(zgoda.skrot).toMatch(/^[0-9a-f]{64}$/);
+      expect(zgoda.zgoda).toMatch(/^\d{4}-\d{2}-\d{2}: \S/);
+    } else {
+      expect(zgoda).toMatchObject({ zapis: false, skrot: null });
+    }
   });
 
   it('sekrety ASC tylko w env kroku skryptu, bez set -x i bez wypisywania zmiennych', () => {
