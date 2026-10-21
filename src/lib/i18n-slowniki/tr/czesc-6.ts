@@ -153,7 +153,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Hamuru zarf gibi (mektup gibi) katlayın ve parmak uçlarınızla bastırın.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Değişiklik telefon belleğine kaydedilmedi. Boş alanı kontrol edip tekrar deneyin.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Tarifteki değişiklikler kaydedilmeyecek.',
-  'Zmień język na {nazwa}': 'Dili {nazwa} olarak değiştir',
   'Zmień parametry swojego zakwasu': 'Ekşi mayanızın parametrelerini değiştirin',
   'Zmień składniki': 'Malzemeleri Değiştir',
   'Zmniejsz': 'Azalt',

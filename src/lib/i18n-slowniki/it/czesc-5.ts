@@ -62,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'once, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Farina di frumento versatile. Adatta a panini, challah e lievitati con lievito di birra.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Assicurati di aver usato il lievito madre al picco del volume.',
-  'Upieczony bochenek': 'Pagnotta cotta',
   'Urósł od kreski': 'È cresciuto oltre il segno',
   'Ustaw tę godzinę': 'Usa questo orario',
   'Ustawienia': 'Impostazioni',

@@ -24,7 +24,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'unce, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Univerzalno pšenično brašno. Dobro za peciva, pletenice i dizana tijesta s kvascem.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Provjeri je li kvas upotrijebljen na vrhuncu volumena.',
-  'Upieczony bochenek': 'Pečena štruca',
   'Urósł od kreski': 'Narastao iznad oznake',
   'Ustaw tę godzinę': 'Postavi ovo vrijeme',
   'Ustawienia': 'Postavke',

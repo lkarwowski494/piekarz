@@ -81,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'onces, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Farine de blé polyvalente. Convient aux petits pains, challahs et pâtes levées.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Assurez-vous d\'avoir utilisé le levain naturel à son pic de volume.',
-  'Upieczony bochenek': 'Miche cuite',
   'Urósł od kreski': 'A dépassé le repère',
   'Ustaw tę godzinę': 'Choisir cette heure',
   'Ustawienia': 'Réglages',

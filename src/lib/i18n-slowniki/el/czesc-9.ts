@@ -24,7 +24,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Διπλώστε τη ζύμη σαν φάκελο (σαν γράμμα) και πιέστε την με τις άκρες των δαχτύλων.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Η αλλαγή δεν αποθηκεύτηκε στη μνήμη του τηλεφώνου. Ελέγξτε τον ελεύθερο χώρο και δοκιμάστε ξανά.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Οι αλλαγές στη συνταγή δεν θα αποθηκευτούν.',
-  'Zmień język na {nazwa}': 'Αλλαγή γλώσσας σε {nazwa}',
   'Zmień parametry swojego zakwasu': 'Αλλάξτε τις παραμέτρους του προζυμιού σας',
   'Zmień składniki': 'Αλλαγή υλικών',
   'Zmniejsz': 'Μείωση',

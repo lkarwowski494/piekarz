@@ -60,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'uncia, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Univerzális búzaliszt. Jó zsemléhez, fonott kalácshoz és élesztős péksüteményekhez.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Győződj meg róla, hogy a kovászt a csúcspontján használtad fel.',
-  'Upieczony bochenek': 'Megsült cipó',
   'Urósł od kreski': 'A jelölés fölé nőtt',
   'Ustaw tę godzinę': 'Legyen ez az időpont',
   'Ustawienia': 'Beállítások',

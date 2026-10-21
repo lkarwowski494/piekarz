@@ -111,7 +111,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': '像摺信封一樣摺疊麵團，再用指腹輕輕拍壓。',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': '變更未能儲存至手機。請檢查可用空間後再試一次。',
   'Zmiany w recepturze nie zostaną zapisane.': '配方變更將不會儲存。',
-  'Zmień język na {nazwa}': '將語言切換為 {nazwa}',
   'Zmień parametry swojego zakwasu': '變更你的天然酵母起種參數',
   'Zmień składniki': '更改食材',
   'Zmniejsz': '減少',

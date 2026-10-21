@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'ons, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Çok yönlü buğday unu. Çörekler, challah ve mayalı hamur işleri için uygundur.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Ekşi mayanın zirve noktasında kullanıldığından emin olun.',
-  'Upieczony bochenek': 'Pişmiş somun',
   'Urósł od kreski': 'Çizginin üzerine kabardı',
   'Ustaw tę godzinę': 'Bu Saati Ayarla',
   'Ustawienia': 'Ayarlar',

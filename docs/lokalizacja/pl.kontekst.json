@@ -5985,9 +5985,6 @@
       "src/core/bread-school-lessons.ts (dane: passingCriteriaPl)"
     ]
   },
-  "Upieczony bochenek": {
-    "gdzie": []
-  },
   "Uporządkowanie struktury ciasta w symetryczną kulę i krótki relaks glutenu przed ostatecznym naciągiem.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: physicalPrinciplePl)"
@@ -7767,9 +7764,6 @@
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
-  },
-  "Zmień język na {nazwa}": {
-    "gdzie": []
   },
   "Zmień parametry swojego zakwasu": {
     "gdzie": [

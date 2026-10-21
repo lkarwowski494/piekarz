@@ -71,7 +71,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': '온스, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': '두루 쓰기 좋은 밀가루예요. 롤빵, 할라, 효모 반죽 베이킹에 좋아요.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': '사워도우 스타터를 부피가 정점일 때 사용했는지 확인하세요.',
-  'Upieczony bochenek': '구운 빵 덩어리',
   'Urósł od kreski': '표시선 위로 부풂',
   'Ustaw tę godzinę': '이 시간으로 설정',
   'Ustawienia': '설정',

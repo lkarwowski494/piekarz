@@ -160,7 +160,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Lipat doh menjadi sampul (seperti surat) dan tepuk perlahan dengan hujung jari.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Perubahan tidak disimpan dalam memori telefon. Semak ruang kosong dan cuba lagi.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Perubahan pada resipi tidak akan disimpan.',
-  'Zmień język na {nazwa}': 'Tukar bahasa kepada {nazwa}',
   'Zmień parametry swojego zakwasu': 'Ubah parameter pemula sourdough anda',
   'Zmień składniki': 'Tukar Bahan',
   'Zmniejsz': 'Kurangkan',

@@ -22,7 +22,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'untsid, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Universaalne nisujahu. Sobib kuklitele, punutud saiadele ja pärmitainast küpsetistele.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Veendu, et kasutasid looduslikku juuretist selle mahu tipus.',
-  'Upieczony bochenek': 'Küpsetatud päts',
   'Urósł od kreski': 'Tõusis üle märgi',
   'Ustaw tę godzinę': 'Määra see kellaaeg',
   'Ustawienia': 'Seaded',

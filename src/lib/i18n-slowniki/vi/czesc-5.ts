@@ -96,7 +96,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'ounce, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Bột mì dùng được cho nhiều loại bánh. Hợp với bánh mì nhỏ, bánh challah và bánh dùng men nở.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Đảm bảo men tự nhiên được dùng ở đỉnh hoạt động của men (khi thể tích cao nhất).',
-  'Upieczony bochenek': 'Ổ bánh đã nướng',
   'Urósł od kreski': 'Đã nở vượt vạch',
   'Ustaw tę godzinę': 'Dùng giờ này',
   'Ustawienia': 'Cài đặt',

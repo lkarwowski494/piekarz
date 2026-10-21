@@ -12,7 +12,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Piega l\'impasto a busta (come una lettera) e premilo con i polpastrelli.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'La modifica non è stata salvata nella memoria del telefono. Controlla lo spazio libero e riprova.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Le modifiche alla ricetta non verranno salvate.',
-  'Zmień język na {nazwa}': 'Cambia lingua in {nazwa}',
   'Zmień parametry swojego zakwasu': 'Modifica i parametri del tuo lievito madre',
   'Zmień składniki': 'Modifica ingredienti',
   'Zmniejsz': 'Diminuisci',

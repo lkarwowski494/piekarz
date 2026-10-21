@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Izmaiņas netika saglabātas tālruņa atmiņā. Pārbaudiet brīvo vietu un mēģiniet vēlreiz.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Receptūras izmaiņas netiks saglabātas.',
-  'Zmień język na {nazwa}': 'Mainīt valodu uz: {nazwa}',
   'Zmień parametry swojego zakwasu': 'Mainiet sava ierauga parametrus',
   'Zmień składniki': 'Mainīt sastāvdaļas',
   'Zmniejsz': 'Samazināt',

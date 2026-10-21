@@ -119,7 +119,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'オンス、°F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': '汎用の小麦粉。ロールパン、ハラー、イースト生地の焼成に向きます。',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'サワー種 (ルヴァン) を、体積が最大になる発酵ピークで使ったか確認してください。',
-  'Upieczony bochenek': '焼き上がったローフ',
   'Urósł od kreski': '印より上に膨らんだ',
   'Ustaw tę godzinę': 'この時刻にする',
   'Ustawienia': '設定',

@@ -8,7 +8,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': '盎司、°F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': '通用小麥麵粉。適合小餐包、哈拉麵包與酵母類烘焙成品。',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': '確認天然酵母起種是在體積最高點時使用。',
-  'Upieczony bochenek': '烤好的麵包',
   'Urósł od kreski': '已高於標記線',
   'Ustaw tę godzinę': '使用此時間',
   'Ustawienia': '設定',

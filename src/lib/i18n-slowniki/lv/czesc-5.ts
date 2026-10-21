@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'unces, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Daudzpusīgi kviešu milti. Piemēroti maizītēm, pītām maizēm un rauga mīklas izstrādājumiem.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Pārliecinieties, ka dabīgais ieraugs izmantots tā maksimālā apjoma brīdī.',
-  'Upieczony bochenek': 'Izcepts kukulis',
   'Urósł od kreski': 'Pacēlies virs atzīmes',
   'Ustaw tę godzinę': 'Iestatīt šo laiku',
   'Ustawienia': 'Iestatījumi',

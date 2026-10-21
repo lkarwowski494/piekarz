@@ -20,7 +20,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'unser, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Alsidigt hvedemel. Godt til boller, challah og gærbagværk.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Sørg for, at surdejen blev brugt ved surdejens toppunkt.',
-  'Upieczony bochenek': 'Bagt brød',
   'Urósł od kreski': 'Hævet over stregen',
   'Ustaw tę godzinę': 'Brug dette tidspunkt',
   'Ustawienia': 'Indstillinger',

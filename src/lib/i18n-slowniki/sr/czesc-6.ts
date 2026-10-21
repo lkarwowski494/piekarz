@@ -60,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'унце, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Универзално пшенично брашно. Добро за пецива, плетенице и квасна теста.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Увери се да је стартер употребљен на врхунцу запремине.',
-  'Upieczony bochenek': 'Печена векна',
   'Urósł od kreski': 'Нарастао изнад црте',
   'Ustaw tę godzinę': 'Постави ово време',
   'Ustawienia': 'Подешавања',

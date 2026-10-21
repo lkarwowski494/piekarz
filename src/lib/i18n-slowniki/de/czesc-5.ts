@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'Unzen, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Vielseitiges Weizenmehl. Gut für Brötchen, Challa und Hefegebäck.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Achte darauf, dass der Sauerteig auf seinem Volumenhöhepunkt verwendet wurde.',
-  'Upieczony bochenek': 'Gebackener Laib',
   'Urósł od kreski': 'Über die Markierung gestiegen',
   'Ustaw tę godzinę': 'Diese Uhrzeit verwenden',
   'Ustawienia': 'Einstellungen',

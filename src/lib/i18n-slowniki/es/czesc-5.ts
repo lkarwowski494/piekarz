@@ -60,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'onzas, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Harina de trigo versátil. Buena para panecillos, jalás y bollería de levadura.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Asegúrate de usar la masa madre en su pico de volumen.',
-  'Upieczony bochenek': 'Hogaza horneada',
   'Urósł od kreski': 'Ha subido sobre la marca',
   'Ustaw tę godzinę': 'Usar esta hora',
   'Ustawienia': 'Ajustes',

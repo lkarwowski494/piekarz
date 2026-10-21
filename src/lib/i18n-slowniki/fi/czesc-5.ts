@@ -38,7 +38,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'unssit, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Monikäyttöinen vehnäjauho. Sopii sämpylöihin, pitkoihin ja hiivaleivonnaisiin.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Varmista, että hapanjuuri käytettiin tilavuutensa huipulla.',
-  'Upieczony bochenek': 'Paistettu leipä',
   'Urósł od kreski': 'Noussut merkin yli',
   'Ustaw tę godzinę': 'Käytä tätä aikaa',
   'Ustawienia': 'Asetukset',

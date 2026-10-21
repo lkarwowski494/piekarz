@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'ons, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Tepung terigu serbaguna. Cocok untuk roti kecil, challah, dan kue beragi.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Pastikan starter ragi alami digunakan saat volumenya di puncak.',
-  'Upieczony bochenek': 'Bongkah roti matang',
   'Urósł od kreski': 'Naik melewati garis',
   'Ustaw tę godzinę': 'Gunakan jam ini',
   'Ustawienia': 'Pengaturan',

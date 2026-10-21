@@ -180,7 +180,6 @@ export const EN_12: Record<string, string> = {
   'Usuń mąkę: {nazwa}': 'Delete flour: {nazwa}',
   'Odejmij {g} g mąki {nazwa}': 'Subtract {g} g of {nazwa}',
   'Dodaj {g} g mąki {nazwa}': 'Add {g} g of {nazwa}',
-  'Zmień język na {nazwa}': 'Change language to {nazwa}',
   'Oceń na {n} z 5': 'Rate {n} out of 5',
   'Zmniejsz ilość o pół': 'Decrease amount by half',
   'Zwiększ ilość o pół': 'Increase amount by half',

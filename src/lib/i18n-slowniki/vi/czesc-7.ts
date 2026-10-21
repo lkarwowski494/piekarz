@@ -64,7 +64,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Gấp bột kiểu phong bì (như gấp thư) và ấn nhẹ bằng đầu ngón tay.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Thay đổi chưa được lưu vào bộ nhớ điện thoại. Kiểm tra dung lượng trống và thử lại.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Các thay đổi trong công thức sẽ không được lưu.',
-  'Zmień język na {nazwa}': 'Đổi ngôn ngữ sang {nazwa}',
   'Zmień parametry swojego zakwasu': 'Thay đổi thông số men tự nhiên của bạn',
   'Zmień składniki': 'Đổi nguyên liệu',
   'Zmniejsz': 'Giảm',

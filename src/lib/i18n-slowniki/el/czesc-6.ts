@@ -120,7 +120,6 @@ export const CZESC: Record<string, string> = {
   'uncje, °F': 'ουγγιές, °F',
   'Uniwersalna mąka pszenna. Dobra do bułek, chałek i wypieków drożdżowych.': 'Πολυχρηστικό αλεύρι σίτου. Καλό για ψωμάκια, τσουρέκια και αρτοσκευάσματα με μαγιά.',
   'Upewnij się, że zakwas został użyty w szczycie objętości.': 'Βεβαιωθείτε ότι χρησιμοποιήσατε το προζύμι στην κορύφωσή του (μέγιστος όγκος).',
-  'Upieczony bochenek': 'Ψημένο καρβέλι',
   'Urósł od kreski': 'Φούσκωσε πάνω από τη γραμμή',
   'Ustaw tę godzinę': 'Ορισμός αυτής της ώρας',
   'Ustawienia': 'Ρυθμίσεις',

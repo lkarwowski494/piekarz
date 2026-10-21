@@ -194,7 +194,6 @@ export const EN_1: Record<string, string> = {
   'Strata wypiekowa i wilgotność miękiszu': 'Bake loss & crumb moisture',
   'Typ wypieku i odparowanie': 'Bake type & evaporation',
   'Strata piecowa': 'Bake loss',
-  'Upieczony bochenek': 'Baked loaf',
   'Odparowana woda': 'Evaporated water',
   'Szacowana wilgotność miękiszu': 'Estimated crumb moisture',
   'Zalecenie studzenia na kratce': 'Rack cooling advice',

@@ -5,7 +5,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Sulenkite tešlą vokeliu (kaip laišką) ir paspaudykite pirštų galiukais.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Pakeitimas neišsaugotas telefono atmintyje. Patikrinkite laisvą vietą ir bandykite dar kartą.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Receptūros pakeitimai nebus išsaugoti.',
-  'Zmień język na {nazwa}': 'Pakeisti kalbą į {nazwa}',
   'Zmień parametry swojego zakwasu': 'Keiskite savo raugo parametrus',
   'Zmień składniki': 'Keisti ingredientus',
   'Zmniejsz': 'Sumažinti',

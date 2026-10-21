@@ -120,7 +120,6 @@ export const CZESC: Record<string, string> = {
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Сгънете тестото като плик (като писмо) и го притиснете с върховете на пръстите.',
   'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Промяната не беше запазена в паметта на телефона. Проверете свободното място и опитайте отново.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Промените в рецептата няма да бъдат запазени.',
-  'Zmień język na {nazwa}': 'Сменете езика на {nazwa}',
   'Zmień parametry swojego zakwasu': 'Променете параметрите на Вашия стартер',
   'Zmień składniki': 'Променете съставките',
   'Zmniejsz': 'Намаляване',
