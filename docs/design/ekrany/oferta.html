@@ -3,13 +3,15 @@
 <head>
 <meta charset="utf-8">
 <title>Piekarz — oferta i zakup (E3)</title>
-<!-- PR-09, PR-16; F-35, F-37, F-67; BR-ZAK-001, -003, -004, -005; kontrakt płatności i ujawnienia U1–U8 z docs/monetyzacja.md; D-038, D-039, D-047.
-     Ceny: displayPrice ze sklepu (tu wartości z D-038 do makiety). Zakazane: odliczanie, „za darmo” bez odnowienia, „najpopularniejszy”, zawstydzanie, ukryte zamknięcie. -->
+<!-- PR-09, PR-16; F-35, F-37, F-67; BR-ZAK-001, -003, -004, -005, BR-PRYW-001; kontrakt płatności i ujawnienia U1–U8 z docs/monetyzacja.md; D-038, D-039, D-047, D-063.
+     Ceny: displayPrice ze sklepu (tu wartości z D-038 do makiety); liczba dni próby: probaDni ze sklepu przez tPlural (tu 14). Teksty i klucze: design-spec §11e 127.
+     Zakazane: odliczanie, „za darmo” bez odnowienia, „najpopularniejszy”, zawstydzanie, ukryte zamknięcie, plakietki i wersaliki, wstawki angielskie w nawiasach. -->
 <link rel="stylesheet" href="wspolne.css">
 <style>
 .zamknij { margin-left: auto; }
 .uj { display: flex; flex-direction: column; gap: 8px; }
 .uj p { display: flex; gap: 8px; } .uj p::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--tusz2); margin-top: 0.6em; }
+.blad > span:not([data-ikona]) { flex: 1; min-width: 0; } /* przy AX5 i 320 pt tekst błędu się zawija, nie wychodzi poza ekran */
 .linki { display: flex; gap: 4px 16px; flex-wrap: wrap; } .linki a { color: var(--akcentTekst); min-height: 44px; display: inline-flex; align-items: center; }
 </style>
 </head>
@@ -19,22 +21,25 @@
   <div class="status"><span>19:42</span><span>LTE 90%</span></div>
   <div class="nav"><span></span><button class="zamknij t-tresc" data-t="of.zamknij">Zamknij</button></div>
   <div class="tresc">
-    <h1 class="t-duzy" data-t="of.tytul">Wypróbuj Piekarz Pro przez 14 dni</h1>
+    <h1 class="t-duzy" data-t="of.tytul">Piekarz Pro</h1>
+    <p class="t-nagl" data-t="of.okresProbny">Okres próbny: 14 dni</p>
     <p class="t-tresc" data-t="of.co">Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.</p>
-    <div class="plan-opcja wyb" role="radio" aria-checked="true"><b class="t-nagl" data-t="of.rok">Rocznie, 14 dni próby</b><span class="cena" data-t="of.cenaRok">29,99 zł rocznie po próbie</span><span class="male" data-t="of.rokMies">to około 2,50 zł miesięcznie</span></div>
-    <div class="plan-opcja" role="radio" aria-checked="false"><b class="t-nagl" data-t="of.mies">Miesięcznie, 14 dni próby</b><span class="cena" data-t="of.cenaMies">4,99 zł miesięcznie po próbie</span></div>
-    <div class="plan-opcja" role="radio" aria-checked="false"><b class="t-nagl" data-t="of.dozyw">Na zawsze, bez próby</b><span class="cena" data-t="of.cenaDozyw">79,99 zł jednorazowo</span><span class="male" data-t="of.dozywOpis">Jedna opłata. Kto wybiera ten plan, nie potrzebuje próby; zaczętą próbę subskrypcji anuluj, żeby za nią nie płacić.</span></div>
+    <div role="radiogroup">
+      <div class="plan-opcja wyb" role="radio" aria-checked="true"><b class="t-nagl" data-t="of.rok">Roczny</b><span class="cena" data-t="of.cenaRok">29,99 zł rocznie po próbie</span></div>
+      <div class="plan-opcja" role="radio" aria-checked="false" style="margin-top:10px"><b class="t-nagl" data-t="of.mies">Miesięczny</b><span class="cena" data-t="of.cenaMies">4,99 zł miesięcznie po próbie</span></div>
+      <div class="plan-opcja" role="radio" aria-checked="false" style="margin-top:10px"><b class="t-nagl" data-t="of.dozyw">Dożywotni</b><span class="cena" data-t="of.cenaDozyw">79,99 zł jednorazowo</span><span class="male" data-t="of.dozywOpis">Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.</span></div>
+    </div>
     <div class="uj t-obj">
-      <p data-t="of.u2">Subskrypcja odnawia się sama. Anulujesz ją w Ustawieniach telefonu, w Apple ID → Subskrypcje, najpóźniej dzień przed końcem próby.</p>
-      <p data-t="of.u3">Bez zakupu po próbie zostają tylko historia i Twoje dane: przeglądanie, eksport, import i usunięcie.</p>
+      <p data-t="of.u2">Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.</p>
+      <p data-t="of.u3">Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.</p>
       <p data-t="of.u5">Próba jest jedna na oba plany subskrypcji.</p>
-      <p data-t="of.u7">Założenie zakwasu trwa zwykle 7–10 dni, więc zmieści się w próbie.</p>
+      <p data-t="of.u7">Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.</p>
       <p data-t="of.u8">Zakup wymaga połączenia z App Store.</p>
     </div>
   </div>
   <div class="kciuk">
-    <button class="glowny t-nagl" data-t="of.zacznij">Zacznij 14 dni próby</button>
-    <div class="linki t-obj"><a href="#" data-t="of.przywroc">Przywróć zakupy</a><a href="#" data-t="of.warunki">Warunki (EULA)</a><a href="#" data-t="of.prywatnosc">Polityka prywatności</a></div>
+    <button class="glowny t-nagl" data-t="of.zacznij">Zacznij okres próbny</button>
+    <div class="linki t-obj"><a href="#" data-t="of.przywroc">Przywróć zakupy</a><a href="#" data-t="of.warunki">Warunki użytkowania</a><a href="#" data-t="of.prywatnosc">Polityka prywatności</a></div>
   </div>
 </main>
 
@@ -42,19 +47,21 @@
   <div class="status"><span>8:04</span><span>LTE 70%</span></div>
   <div class="nav"><span></span><button class="zamknij t-tresc" data-t="of.zamknij">Zamknij</button></div>
   <div class="tresc">
-    <h1 class="t-duzy" data-t="of.tytulPo">Piekarz Pro</h1>
-    <p class="t-tresc" data-t="of.poProbie">Okres próbny już wykorzystany. Twoje receptury, zakwasy i dziennik zostają do przeglądania bez zakupu.</p>
-    <div class="plan-opcja wyb" role="radio" aria-checked="true"><b class="t-nagl" data-t="of.rokBez">Rocznie</b><span class="cena" data-t="of.cenaRokBez">29,99 zł rocznie</span><span class="male" data-t="of.rokMies">to około 2,50 zł miesięcznie</span></div>
-    <div class="plan-opcja" role="radio" aria-checked="false"><b class="t-nagl" data-t="of.miesBez">Miesięcznie</b><span class="cena" data-t="of.cenaMiesBez">4,99 zł miesięcznie</span></div>
-    <div class="plan-opcja" role="radio" aria-checked="false"><b class="t-nagl" data-t="of.dozywBez">Na zawsze</b><span class="cena" data-t="of.cenaDozyw">79,99 zł jednorazowo</span></div>
+    <h1 class="t-duzy" data-t="of.tytul">Piekarz Pro</h1>
+    <p class="t-tresc" data-t="of.co">Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.</p>
+    <div role="radiogroup">
+      <div class="plan-opcja wyb" role="radio" aria-checked="true"><b class="t-nagl" data-t="of.rok">Roczny</b><span class="cena" data-t="of.cenaRokBez">29,99 zł rocznie</span></div>
+      <div class="plan-opcja" role="radio" aria-checked="false" style="margin-top:10px"><b class="t-nagl" data-t="of.mies">Miesięczny</b><span class="cena" data-t="of.cenaMiesBez">4,99 zł miesięcznie</span></div>
+      <div class="plan-opcja" role="radio" aria-checked="false" style="margin-top:10px"><b class="t-nagl" data-t="of.dozyw">Dożywotni</b><span class="cena" data-t="of.cenaDozyw">79,99 zł jednorazowo</span></div>
+    </div>
     <div class="uj t-obj">
-      <p data-t="of.u2krotko">Subskrypcja odnawia się sama; anulujesz ją w Ustawieniach telefonu, w Apple ID → Subskrypcje.</p>
+      <p data-t="of.u2krotko">Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.</p>
       <p data-t="of.u8">Zakup wymaga połączenia z App Store.</p>
     </div>
   </div>
   <div class="kciuk">
     <button class="glowny t-nagl" data-t="of.kup">Kup plan roczny</button>
-    <div class="linki t-obj"><a href="#" data-t="of.przywroc">Przywróć zakupy</a><a href="#" data-t="of.warunki">Warunki (EULA)</a><a href="#" data-t="of.prywatnosc">Polityka prywatności</a></div>
+    <div class="linki t-obj"><a href="#" data-t="of.przywroc">Przywróć zakupy</a><a href="#" data-t="of.warunki">Warunki użytkowania</a><a href="#" data-t="of.prywatnosc">Polityka prywatności</a></div>
   </div>
 </main>
 
@@ -65,9 +72,8 @@
   <div class="status"><span>8:06</span><span>Brak sieci</span></div>
   <div class="nav"><span></span><button class="zamknij t-tresc" data-t="of.zamknij">Zamknij</button></div>
   <div class="tresc">
-    <h1 class="t-duzy" data-t="of.tytulPo">Piekarz Pro</h1>
-    <div class="blad t-tresc" role="alert"><span data-ikona="chmura"></span><span data-t="of.bezSieci">Nie ma połączenia z App Store, więc zakup i przywrócenie teraz się nie uda. Wszystko inne działa jak dotąd. Spróbuj, gdy wróci internet.</span></div>
-    <div class="plan-opcja" role="radio" aria-checked="false" aria-disabled="true" style="color:var(--tusz3)"><b class="t-nagl" data-t="of.rokBez">Rocznie</b><span class="cena" data-t="of.cenaNieznana">cena pojawi się po połączeniu</span></div>
+    <h1 class="t-duzy" data-t="of.tytul">Piekarz Pro</h1>
+    <div class="blad t-tresc" role="alert"><span data-ikona="chmura"></span><span data-t="of.bezSieci">Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.</span></div>
   </div>
   <div class="kciuk"><button class="glowny t-nagl" data-t="of.sprobujPonownie">Spróbuj ponownie</button></div>
 </main>
