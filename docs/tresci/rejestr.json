@@ -111,6 +111,16 @@
     "wycofane": "2026-10-19, DEC-10 (a), M1-audytor-generalny-013"
   },
   {
+    "id": "ZAK-HOO-901",
+    "twierdzenie": "Warstwa płynu o zapachu alkoholu na zakwasie oznacza, że zakwas trzeba dokarmić (zalecenie „zlej albo wmieszaj i dokarm”, RD-21-W3).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uwagi": "[DO USTALENIA] Decyzja merytoryczna 2026-10-21 (rola 06 fix p10a, kryterium ZAKW-004 zadania M1-audytor-generalny-145, DEC-19 a; znalezisko 01-odkrywanie-503): „dokarm” nie wchodzi do zalecenia przy płynie. Sprawdzone: (1) CSU Extension (S-43, szczebel 3), otwarte 2026-10-21, surowy tekst: płyn „can either be poured off or stirred in”; o dokarmieniu w związku z płynem źródło milczy (karmienie opisuje osobno jako regularną praktykę: „need to be fed fresh flour and water regularly to survive and grow”) — złożenie tych dwóch zdań w „płyn, więc dokarm” to wniosek z pary zdań (TRE-08), nie twierdzenie źródła. (2) UT Extension Jefferson County, „Beginner Sourdough Starter” (jefferson.tennessee.edu, .docx, otwarte 2026-10-21): „This liquid is called “hooch” and is an indication that your starter needs to be fed.” — ale dokument jest oznaczony „Recipe adapted from The Clever Carrot.com” (blog), więc szczebel nadaje oryginał: 5, nie potwierdza; ten sam dokument każe też usunąć płyn razem z przebarwionym zakwasem, co przeczy RD-21 (przebarwienie → wyrzuć). Odrzucone: (a) zostawić „i dokarm” w RD-21-W3 — brak źródła szczebla 1–4; (b) „i dokarm” z atrybucją do UT Extension — źródło pochodne bloga. Skutek: ZAK-HOO-001 bez zmian; kod (src/core/sourdough-physics.ts) już bez „dokarm”; BRD (docs/brd/reguly.md RD-21-W3, docs/brd/wymagania-zakwas.md) i wektor RD-21-W3 (tests/wektory/brd.json) do zmiany przez role 01 i 07 (ER).",
+    "uproszczenie": null,
+    "krytyczne": true,
+    "przeglad": null
+  },
+  {
     "id": "ZAK-ZDR-900",
     "twierdzenie": "Zakwas, przy którym nie zaznaczono objawów, jest zdrowy i aktywny oraz ma prawidłowy zapach owocowo-kwasowy.",
     "zrodla": [],
