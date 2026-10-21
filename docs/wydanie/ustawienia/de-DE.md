@@ -44,7 +44,7 @@ anstellgut,roggen,pizzateig,hefeteig,hydration,teigtemperatur,rezepte,brot,gare,
 Stell ein, wann dein Brot fertig sein soll: Bäcker berechnet die Mengen, plant rückwärts und meldet sich am Ende jedes Schritts. Ohne Konto, ohne Internet, ohne Werbung.
 ```
 
-### Opis (Description) · 3582 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3676 / 4000 znaków · wersja 1.0
 
 ```text
 Bäcker begleitet dich beim Backen von Sauerteigbrot von der Rezeptur bis zum Laib: Die App berechnet die Mengen, erstellt den Plan und behält die Zeit im Blick, während dein Telefon schläft. Sie funktioniert ohne Konto und ohne Internet, ohne Werbung und ohne Tracking. Deine Rezepturen, Sauerteige und dein Tagebuch bleiben nur auf deinem Telefon.
@@ -75,6 +75,7 @@ Bäcker läuft auf dem iPhone und synchronisiert keine Daten zwischen Geräten; 
 
 ZUGANG UND KAUF
 Vollen Zugang erhältst du mit einem Monats- oder Jahresabo oder einem einmaligen Kauf auf Lebenszeit im App Store. Ein Abo kann mit einem kostenlosen Probezeitraum beginnen (Einführungsangebot des App Store für berechtigte Nutzer). Ohne Kauf kannst du deinen Backverlauf ansehen, eine Datei importieren sowie deine Daten exportieren und löschen.
+Nutzungsbedingungen (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Sprachen: 35.
 ```

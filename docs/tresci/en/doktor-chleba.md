@@ -10,7 +10,7 @@ Before slicing, wait until the loaf has cooled completely. [T:KRO-POC-015]
 According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality. [T:ZYT-STU-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[1]
-Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C. [T:DIA-TEM-001]
+Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C, and rye bread should reach 96–99 °C in the centre. [T:DIA-TEM-001]
 
 ## diagnostics.GUMMY_CRUMB.actionChecklistPl[2]
 If the centre is cooler, bake longer and measure again. [T:DIA-TEM-001]

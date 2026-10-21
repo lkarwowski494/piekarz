@@ -19,9 +19,9 @@ import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
-import { formatTime as formatGodziny } from '../../../src/lib/format';
+import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
@@ -41,11 +41,6 @@ import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
 
-const POLISH_DAYS = ['Niedz.', 'Pon.', 'Wt.', 'Śr.', 'Czw.', 'Pt.', 'Sob.'];
-const POLISH_MONTHS = [
-  'sty', 'lut', 'mar', 'kwi', 'maj', 'cze',
-  'lip', 'sie', 'wrz', 'paź', 'lis', 'gru',
-];
 
 export default function HarmonogramScreen() {
   const router = useRouter();
@@ -58,10 +53,11 @@ export default function HarmonogramScreen() {
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
   // Baking environment
-  const [ambientTemp, setAmbientTemp] = useState<number>(23.0);
   // 23 °C to założenie modelu planu, nie pomiar: do wypieku i dziennika trafia tylko temperatura wybrana
-  // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]
-  const [tempWybrana, setTempWybrana] = useState(false);
+  // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]. Z „Ułóż plan”: temperatura kuchni z receptury,
+  // ta sama liczba co w arkuszu „Temperatura wody” [audyt-niezalezny D-4]
+  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? 23.0);
+  const [tempWybrana, setTempWybrana] = useState(() => recepturaPlanu()?.temperaturaKuchni?.wybrana ?? false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
   // Godziny snu z Ustawień (D-066 1a, BR-HARMO-002); „Bez godzin snu” = okno puste (0–0), plan nie sprawdza nocy
@@ -111,6 +107,11 @@ export default function HarmonogramScreen() {
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
   // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
   const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
+  // Receptura bez zakwasu (np. z „Piecz ponownie”): plan zakwasowy jej nie prowadzi, start nieaktywny z powodem (D-3)
+  const [bezZakwasu] = useState(() => {
+    const r = recepturaPlanu();
+    return r ? powodBezZakwasu(r.recipeFormula) : null;
+  });
   const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
     const zPlanu = stepsFromSchedule(plan);
     const bazowe = zytni ? ryeStepsEndingAt(zPlanu, celMs) : zPlanu;
@@ -154,9 +155,11 @@ export default function HarmonogramScreen() {
     }
     if (zakwasWczytany) godzinaDomyslna.current = false;
   }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
-  const kolizjeZytnie = useMemo(
-    () => (zytni ? kolizjeKrokow(steps, { startH: sleepStartHour, koniecH: sleepEndHour }, formatGodziny) : []),
-    [zytni, steps, sleepStartHour, sleepEndHour],
+  // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
+  // baner mówi o krokach, które są na ekranie, nie o etapach harmonogramu zastąpionych w planie [audyt-niezalezny D-6]
+  const kolizjePlanu = useMemo(
+    () => kolizjeKrokow(steps, { startH: sleepStartHour, koniecH: sleepEndHour }, formatGodziny),
+    [steps, sleepStartHour, sleepEndHour],
   );
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
   // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
@@ -204,13 +207,14 @@ export default function HarmonogramScreen() {
     if (diffDays === 1) return t('Jutro');
     if (diffDays === 2) return t('Pojutrze');
     if (diffDays === -1) return t('Wczoraj');
-    return t('{dzien}, {d} {miesiac}', { dzien: t(POLISH_DAYS[d.getDay()]), d: d.getDate(), miesiac: t(POLISH_MONTHS[d.getMonth()]) });
+    // dzień tygodnia z datą przez Intl w języku aplikacji [audyt-niezalezny F-5]
+    return formatDzienData(d);
   };
 
   // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];
   // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
-    if (zaPozno) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
+    if (zaPozno || bezZakwasu) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
     requireActionAccess(() => {
       const receptura = recepturaPlanu();
       setActiveBake({
@@ -232,7 +236,7 @@ export default function HarmonogramScreen() {
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
-    await copyScheduleToClipboard(planDoKopii(schedule, stages, zytni ? kolizjeZytnie : schedule.sleepCollisions), {
+    await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
       ambientTempC: ambientTemp,
       // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
       ...(zytni ? {} : { coldRetardHours }),
@@ -281,8 +285,8 @@ export default function HarmonogramScreen() {
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
           // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
           <SleepGuardBanner
-            hasSleepCollision={zytni ? kolizjeZytnie.length > 0 : schedule.hasSleepCollision}
-            sleepCollisions={zytni ? kolizjeZytnie : schedule.sleepCollisions}
+            hasSleepCollision={kolizjePlanu.length > 0}
+            sleepCollisions={kolizjePlanu}
             suggestedActionPl={zytni ? undefined : schedule.suggestedActionPl}
             autoResolved={zytni ? null : autoResolved}
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
@@ -319,12 +323,13 @@ export default function HarmonogramScreen() {
           coldRetardHours={coldRetardHours}
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
+          bezLodowki={zytni}
         />
         </BlokadaFunkcji>
       </ScrollView>
       <PasekStartu
         onStart={handleStartBakeOnWorkbench}
-        powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}
+        powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
       />
     </SafeAreaView>
   );

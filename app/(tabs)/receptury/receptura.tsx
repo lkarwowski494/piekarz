@@ -28,7 +28,7 @@ import {
 } from '../../../src/lib/calculator-actions';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
-import { ustawRecepturePlanu } from '../../../src/lib/plan-receptury';
+import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
@@ -71,6 +71,7 @@ export default function EkranReceptury() {
   // Temperatury do wzoru wody: pola w arkuszu „Temperatura wody”, null = puste pole (BR-KALK-004, RD-16)
   // [M1-audytor-generalny-146]
   const [temperatury, setTemperatury] = useState<TemperaturyDdt>({ maka: 21.0, kuchnia: 22.0, zaczyn: 21.0, tarcie: 2.0 });
+  const [kuchniaWpisana, setKuchniaWpisana] = useState(false); // temperatura kuchni wpisana, nie domyślna (D-4)
   const [tapWaterTemp] = useState<number>(16.0);
 
   // Strata piecowa: F-48 PÓŹNIEJ bez wejścia (§11c 106); kopia receptury pomija ją, dopóki wejście jest ukryte (DEC-25 a, 199)
@@ -122,7 +123,7 @@ export default function EkranReceptury() {
 
   // Derived Calculations Hook
   const {
-    targetDoughWeightGrams,
+    recipeFormula,
     calculations,
     bladMak,
     currentRecipeForShare,
@@ -184,16 +185,8 @@ export default function EkranReceptury() {
 
   const handleSaveCustomRecipe = async () => {
     requireActionAccess(guardSave(async () => {
-      const saved = await executeSaveCustomRecipe(
-        saveRecipeNameInput,
-        flourBlend,
-        waterPct,
-        saltPct,
-        starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-        targetDdt
-      );
+      // Cała formuła jak dla planu, z drożdżami [audyt-niezalezny D-2]
+      const saved = await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt);
       if (saved) {
         powiadomOZmianieReceptur();
         setSelectedPresetId(saved.id);
@@ -210,15 +203,9 @@ export default function EkranReceptury() {
       ustawRecepturePlanu({
         recipeName,
         calculatedRecipe: calculations,
-        recipeFormula: {
-          flours: flourBlend,
-          waterPercentage: waterPct,
-          saltPercentage: saltPct,
-          starterPercentage: starterPct,
-          extraYeastPercentage: yeastPct,
-          starterHydration,
-          targetDoughWeightGrams,
-        },
+        recipeFormula,
+        // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
+        ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
       });
       router.push('/receptury/harmonogram');
     });
@@ -248,6 +235,7 @@ export default function EkranReceptury() {
   const akcje = (
     <CalculatorActionButtons
       onMakePlan={handleMakePlan}
+      powodBezPlanu={powodBezZakwasu(recipeFormula)}
       onSaveCustomRecipe={chron('receptury', () => {
         setSaveRecipeNameInput(recipeName);
         setIsSaveModalOpen(true);
@@ -331,7 +319,14 @@ export default function EkranReceptury() {
         onTargetDdtChange={setTargetDdt}
         waterTempTarget={ddtResult.waterTempTarget}
         waterTempWarning={ddtResult.status === 'too_hot_danger' ? ddtResult.warningMessagePl : undefined}
-        temperatury={{ wartosci: temperatury, zZaczynem, onChange: (z) => setTemperatury((p) => ({ ...p, ...z })) }}
+        temperatury={{
+          wartosci: temperatury,
+          zZaczynem,
+          onChange: (z) => {
+            if ('kuchnia' in z) setKuchniaWpisana(true);
+            setTemperatury((p) => ({ ...p, ...z }));
+          },
+        }}
         brakPola={brakTemperatury ? ETYKIETY_TEMPERATUR[brakTemperatury] : null}
       />
 

@@ -1,9 +1,6 @@
 // Słownik ms, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Pokaż wszystkie': 'Tunjukkan Semua',
-  'Pokrojony za wcześnie może być gumowaty.': 'Jika dipotong terlalu awal, ia boleh menjadi bergetah.',
-  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Penutup DITUTUP. Wap maksimum dan kembangan dalam ketuhar.',
   'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.': 'Penutup DIBUKA. Penyejatan lembapan dan pemerangan kerak yang mendalam.',
   'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.': 'Siramkan minyak zaitun di atasnya, tekan jari ke dalam doh untuk membentuk lekukan yang khas.',
   'Polityka prywatności': 'Dasar Privasi',
@@ -214,4 +211,6 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody: {temp}°C': 'Suhu air: {temp}°C',
   'Test palca': 'Ujian jari',
   'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Ciabatta tradisional Itali dengan biang keras Biga (50%). Kembangan ketuhar yang luar biasa dan lubang besar yang berkilat.',
+  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Buku roti tradisional dari desa Perancis. Rasa asid laktik yang seimbang dengan kesudahan rasa kekacang dan dedak.',
+  'Tradycyjny chleb 100% żytni razowy': 'Roti tradisional 100% rai mil penuh',
 };

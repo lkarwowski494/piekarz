@@ -116,18 +116,22 @@ describe('Exhaustive Reverse Scheduler & Sleep Guard Invariants (BR-SCHED-EXHAUS
       expect(retard.isPassive).toBe(true);
       // Final proof is passive, so even if it runs from 17:00 to 07:00 across night, it is NOT an active collision
       expect(retard.isSleepCollision).toBe(false);
-      expect(schedule.hasSleepCollision).toBe(false);
+      // Jedyna kolizja tego planu: dokarmienie zakwasu zaczyna się o 04:45 — krok bierny z rękami na starcie
+      // (audyt niezależny D-6); garowanie i studzenie nie są kolizją
+      expect(schedule.stages.filter((s) => s.isSleepCollision).map((s) => s.id)).toEqual(['starter_feed']);
+      expect(schedule.stages.find((s) => s.id === 'cool')!.isSleepCollision).toBe(false);
     });
 
     it('custom sleep windows (e.g. early riser 21:00 to 05:00) correctly adapt collision detector', () => {
       const target = new Date(2026, 9, 18, 10, 0, 0);
 
-      // Normal schedule (23:00 to 06:30) is safe for 10:00 AM target
+      // Normal schedule (23:00 to 06:30): no active step at night for 10:00 AM target; only the starter feeding
+      // starts at 04:45 (hands-on at the start, audyt niezależny D-6)
       const normal = calculateReverseSchedule(target, {
         sleepStartHour: 23.0,
         sleepEndHour: 6.5,
       });
-      expect(normal.hasSleepCollision).toBe(false);
+      expect(normal.stages.filter((s) => s.isSleepCollision).map((s) => s.id)).toEqual(['starter_feed']);
 
       // Early riser waking up at 05:00 AM: target 07:00 AM ready time causes baking to start at 04:15 AM (colliding with sleep!)
       const targetEarly = new Date(2026, 9, 18, 7, 0, 0);

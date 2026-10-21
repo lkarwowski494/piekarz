@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': '빵 덩어리를 오븐에 넣기 전에 손가락 테스트를 하세요.',
   'Wykryto uszkodzony stan bazy danych': '데이터베이스 상태 손상 감지',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': '반죽을 조리대에 꺼내 둥글리기 (가성형)로 공 모양을 잡고 표면을 팽팽하게 당기세요.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': '단백질 함량이 최소 13.0g인 가루가 필요해요. 소금 없이 60분 오토리즈. 아주 부드러운 늘려접기 (코일 폴드).',
   'Wymaga obecności': '직접 작업',
   'wymaga Piekarz Pro': '제빵사 Pro 필요',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': '붉은 호밀 맥아를 간 고수와 함께 끓는 물로 우려야 해요. 굽기 전에 윗면에 통고수 씨를 뿌리세요.',
@@ -167,4 +166,5 @@ export const CZESC: Record<string, string> = {
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': '앱 안에서는 타이머가 작동하지만, 휴대폰이 잠겨 있으면 단계 종료나 먹이 주기를 알려 드리지 못해요.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': '파리 바게트의 황금 기준이에요. 탄력과 신장성의 균형이 이상적이에요.',
   'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': '반죽을 봉투 모양(편지처럼)으로 접고 손가락 끝으로 눌러 주세요.',
+  'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': '변경 사항이 휴대폰에 저장되지 않았어요. 저장 공간을 확인하고 다시 시도하세요.',
 };

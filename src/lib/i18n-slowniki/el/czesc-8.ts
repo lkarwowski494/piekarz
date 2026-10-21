@@ -14,7 +14,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Κάντε το τεστ του δαχτύλου πριν βάλετε το καρβέλι στον φούρνο.',
   'Wykryto uszkodzony stan bazy danych': 'Εντοπίστηκε κατεστραμμένη κατάσταση βάσης δεδομένων',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Βγάλτε τη ζύμη στον πάγκο, δώστε της αρχικό σχήμα μπάλας και τεντώστε την επιφάνεια.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Απαιτεί αλεύρι με περιεκτικότητα σε πρωτεΐνη τουλάχιστον 13,0 g. Αυτόλυση 60 λεπτών χωρίς αλάτι. Πολύ απαλά σπιράλ διπλώματα (coil fold).',
   'Wymaga obecności': 'Απαιτεί παρουσία',
   'wymaga Piekarz Pro': 'απαιτεί Αρτοποιός Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Απαιτεί ζεμάτισμα της κόκκινης βύνης σίκαλης με βραστό νερό μαζί με αλεσμένο κόλιανδρο. Πριν από το ψήσιμο πασπαλίστε την επιφάνεια με ολόκληρους σπόρους κόλιανδρου.',
@@ -122,4 +121,6 @@ export const CZESC: Record<string, string> = {
   'Zdejmij pokrywkę!': 'Αφαιρέστε το καπάκι!',
   'Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.': 'Το χρονόμετρο λειτουργεί στην εφαρμογή, αλλά με κλειδωμένο τηλέφωνο δεν θα σας υπενθυμίσει το τέλος ενός βήματος ούτε το τάισμα.',
   'Złoty standard bagietki paryskiej. Idealna równowaga między elastycznością a rozciągliwością.': 'Το χρυσό πρότυπο της παριζιάνικης μπαγκέτας. Ιδανική ισορροπία ανάμεσα στην ελαστικότητα και την εκτατότητα.',
+  'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Διπλώστε τη ζύμη σαν φάκελο (σαν γράμμα) και πιέστε την με τις άκρες των δαχτύλων.',
+  'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Η αλλαγή δεν αποθηκεύτηκε στη μνήμη του τηλεφώνου. Ελέγξτε τον ελεύθερο χώρο και δοκιμάστε ξανά.',
 };

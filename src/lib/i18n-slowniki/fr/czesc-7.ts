@@ -1,10 +1,6 @@
 // Słownik fr, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Cochez lorsque le levain naturel a doublé de volume par rapport au repère sur le bocal. Il est alors prêt pour la pâte (selon King Arthur Baking).',
-  'Zbalansowany': 'Équilibré',
-  'Zbity, gęsty miękisz': 'Mie serrée et dense',
-  'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Mie serrée et dense — envisagez une fermentation en masse plus longue',
   'Zbity, gęsty miękisz.': 'Mie serrée et dense.',
   'Zbyt ciepłe miejsce: fermentacja może przebiegać za szybko, a nawet ustać.': 'Endroit trop chaud : la fermentation peut aller trop vite, voire s\'arrêter.',
   'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.': 'Temps de fermentation trop court. Les composés aromatiques complexes se forment grâce à une lente activité enzymatique et au métabolisme des bactéries lactiques pendant la fermentation à froid.',
@@ -134,4 +130,7 @@ export const CZESC: Record<string, string> = {
   'Próba jest jedna na oba plany subskrypcji.': 'Il n’y a qu’un seul essai pour les deux formules d’abonnement.',
   'Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.': 'L’abonnement se renouvelle automatiquement jusqu’à ce que vous l’annuliez : dans Réglages, touchez votre nom, puis Abonnements.',
   'Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.': 'L’abonnement se renouvelle automatiquement. Pour ne pas être facturé, annulez-le au moins 24 heures avant la fin de l’essai : dans Réglages, touchez votre nom, puis Abonnements.',
+  'Warunki użytkowania': 'Conditions d’utilisation',
+  'Wpisz, ile zakwasu zostawiasz w słoiku.': 'Indiquez la quantité de levain naturel que vous gardez dans le bocal.',
+  'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).': 'Toutes les étapes manuelles (mélange, rabats, cuisson) ont lieu en dehors de la plage de sommeil ({od} – {do}).',
 };

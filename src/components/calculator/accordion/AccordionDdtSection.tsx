@@ -112,11 +112,11 @@ export function AccordionDdtSection({
         </View>
       )}
 
-      {/* Chłonność mąk */}
+      {/* Chłonność mąk; bez szacunku białka — pola proteinPercent atlasu bez źródła (MAK-OGL-900) [audyt-niezalezny E-7] */}
       {blendAbsorption && (
         <View style={styles.absorptionBadge} testID="flour-absorption-badge">
           <Text style={styles.absorptionLabel}>
-            {t('Chłonność mąk:')} {formatNumber(blendAbsorption.weightedAbsorptionPercent)}% ({t('zalecana')}: {formatNumber(blendAbsorption.recommendedHydrationRange[0])}–{formatNumber(blendAbsorption.recommendedHydrationRange[1])}%) • {t('Białko')}: ~{formatNumber(blendAbsorption.estimatedProteinPercent)}%
+            {t('Chłonność mąk:')} {formatNumber(blendAbsorption.weightedAbsorptionPercent)}% ({t('zalecana')}: {formatNumber(blendAbsorption.recommendedHydrationRange[0])}–{formatNumber(blendAbsorption.recommendedHydrationRange[1])}%)
           </Text>
           <Text style={styles.absorptionAdviceText}>
             {t(blendAbsorption.doughFeelAdvicePl)}

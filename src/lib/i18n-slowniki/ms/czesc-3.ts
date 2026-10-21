@@ -1,8 +1,6 @@
 // Słownik ms, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Tepung kadar pengekstrakan tinggi. Protein dalam sampel yang diuji: 11.9%.',
-  'Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.': 'Tepung kadar pengekstrakan tinggi. Protein dalam sampel yang diuji: 13.1%.',
   'Mąka wysokowyciągowa. Białko w badanych próbkach: 12,4–15,5%.': 'Tepung kadar pengekstrakan tinggi. Protein dalam sampel yang diuji: 12.4–15.5%.',
   'Mąka żytnia': 'Tepung rai',
   'Mąka żytnia chlebowa typ 720': 'Tepung rai untuk roti (cerah sederhana)',
@@ -50,7 +48,7 @@ export const CZESC: Record<string, string> = {
   'na blacie': 'di atas kaunter',
   'na blacie, {proporcja}': 'di atas kaunter, {proporcja}',
   'Na początku wypieku zapewnij parę w piekarniku.': 'Sediakan wap dalam ketuhar pada awal pembakaran.',
-  'Na zakwasie': 'Sourdough',
+  'Na zakwasie': 'Roti sourdough',
   'Nacięcie rozeszło się gładko bez chrupiącego grzebienia': 'Kelaran terbuka rata tanpa rabung yang rangup',
   'Naczynie': 'Bekas membakar',
   'Naczynie wypiekowe': 'Bekas pembakar',
@@ -207,4 +205,7 @@ export const CZESC: Record<string, string> = {
   'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Bahagikan doh, bentukkan dengan tangan dan masukkan ke dalam acuan.',
   'pojutrze': 'lusa',
   'Pojutrze': 'Lusa',
+  'Pokaż wszystkie': 'Tunjukkan Semua',
+  'Pokrojony za wcześnie może być gumowaty.': 'Jika dipotong terlalu awal, ia boleh menjadi bergetah.',
+  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Penutup DITUTUP. Wap maksimum dan kembangan dalam ketuhar.',
 };

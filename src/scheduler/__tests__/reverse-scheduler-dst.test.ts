@@ -40,7 +40,9 @@ const wallMs = (d: Date) => {
   const w = wallOf(d);
   return Date.parse(`${w.day}T00:00:00Z`) + Math.round(w.hours * 60) * MIN;
 };
-const asleep = (d: Date, start = 23, end = 6.5) => {
+// Okno snu domyślne harmonogramu = profil domyślny Ustawień 23:00–07:00 (D-066 1a); dawna wyrocznia 06:30 nie była oknem
+// harmonogramu wywoływanego bez opcji (audyt niezależny D-12) [audyt-niezalezny D-6]
+const asleep = (d: Date, start = 23, end = 7) => {
   const h = wallOf(d).hours;
   return h >= start || h < end;
 };
@@ -61,6 +63,11 @@ function transition(from: Date, to: Date): Date {
   return new Date(hi);
 }
 
+/** Wyrocznia Sleep Guard niezależna od kodu: krok czynny z początkiem albo końcem w oknie snu albo krok bierny z rękami na starcie z początkiem w oknie. */
+const REKI_NA_STARCIE = ['starter_feed', 'autolyse', 'preheat_oven'];
+const kolizja = (st: { id: string; isPassive: boolean; startTime: Date; endTime: Date }) =>
+  (!st.isPassive && (asleep(st.startTime) || asleep(st.endTime))) || (REKI_NA_STARCIE.includes(st.id) && asleep(st.startTime));
+
 function expectRealMinutesAndWallClock(s: ReverseScheduleResult, target: Date): void {
   const total = s.stages.reduce((sum, st) => sum + st.durationMinutes, 0);
   expect(s.stages[s.stages.length - 1].endTime.getTime()).toBe(target.getTime());
@@ -70,8 +77,9 @@ function expectRealMinutesAndWallClock(s: ReverseScheduleResult, target: Date): 
     if (i > 0) expect(st.startTime.getTime()).toBe(s.stages[i - 1].endTime.getTime());
     // Godzina pokazywana w aplikacji (getHours) = godzina ścienna w Warszawie
     expect({ id: st.id, h: st.startTime.getHours() + st.startTime.getMinutes() / 60 }).toEqual({ id: st.id, h: wallOf(st.startTime).hours });
-    // Sleep Guard: aktywny etap z początkiem albo końcem w oknie snu (godzina ścienna)
-    const expected = !st.isPassive && (asleep(st.startTime) || asleep(st.endTime));
+    // Sleep Guard: aktywny etap z początkiem albo końcem w oknie snu (godzina ścienna); etap bierny z rękami na starcie
+    // (dokarmienie, autoliza, rozgrzewanie piekarnika) — gdy jego początek jest w oknie snu [audyt-niezalezny D-6]
+    const expected = kolizja(st);
     expect({ id: st.id, collision: st.isSleepCollision }).toEqual({ id: st.id, collision: expected });
   });
   expect(s.hasSleepCollision).toBe(s.stages.some((st) => st.isSleepCollision));
@@ -149,7 +157,7 @@ describe('Harmonogram w Europe/Warsaw przez zmianę czasu (065)', () => {
     const free: number[] = [];
     for (let h = 8; h <= 24; h += 0.5) {
       const s = calculateReverseSchedule(target, { coldRetardHours: h });
-      if (!s.stages.some((st) => !st.isPassive && (asleep(st.startTime) || asleep(st.endTime)))) free.push(h);
+      if (!s.stages.some(kolizja)) free.push(h);
     }
     if (!initial.hasSleepCollision || free.length === 0) {
       expect(r).toBeNull();
@@ -161,7 +169,7 @@ describe('Harmonogram w Europe/Warsaw przez zmianę czasu (065)', () => {
     expect(res.adjustedColdRetardHours).toBeGreaterThanOrEqual(8);
     expect(res.adjustedColdRetardHours).toBeLessThanOrEqual(24);
     expectRealMinutesAndWallClock(res.resolvedSchedule, target);
-    expect(res.resolvedSchedule.stages.filter((st) => !st.isPassive && (asleep(st.startTime) || asleep(st.endTime)))).toEqual([]);
+    expect(res.resolvedSchedule.stages.filter(kolizja)).toEqual([]);
   });
 
   it('północ lokalna: plan na 2026-11-10 07:00 zaczyna się poprzedniego dnia według kalendarza Warszawy', () => {

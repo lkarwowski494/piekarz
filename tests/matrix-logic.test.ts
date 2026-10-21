@@ -97,7 +97,7 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
       createdAt: Date.now(),
     } as any;
 
-    const prep = prepareBakeAgainRecipe(dummyLog, []);
+    const prep = prepareBakeAgainRecipe(dummyLog, [])!; // receptura bazowa o tej nazwie istnieje (D-10: bez dopasowania null)
     expect(prep.name).toContain('Wiejski');
     expect(prep.formula.flours.length).toBeGreaterThan(0);
 
@@ -149,28 +149,11 @@ describe('Matrix Logic Exhaustive Verification (LOGIKA Category)', () => {
   });
 
   it('calculator-actions execute methods run cleanly or handle errors', async () => {
-    const saved = await executeSaveCustomRecipe(
-      'Test Boule Custom',
-      [{ name: 'Mąka pszenna', percentage: 100 }],
-      70,
-      2.0,
-      20,
-      100,
-      900,
-      24
-    );
+    const formulaTestowa = { flours: [{ name: 'Mąka pszenna', percentage: 100 }], waterPercentage: 70, saltPercentage: 2.0, starterPercentage: 20, starterHydration: 100, targetDoughWeightGrams: 900 };
+    const saved = await executeSaveCustomRecipe('Test Boule Custom', formulaTestowa, 24);
     expect(saved?.name).toBe('Test Boule Custom');
 
-    const cloned = await executeCloneRecipe(
-      'Test Boule Cloned',
-      [{ name: 'Mąka pszenna', percentage: 100 }],
-      70,
-      2.0,
-      20,
-      100,
-      900,
-      24
-    );
+    const cloned = await executeCloneRecipe('Test Boule Cloned', formulaTestowa, 24);
     expect(cloned.name).toContain('Test Boule Cloned');
 
     await executeCopyRecipe({

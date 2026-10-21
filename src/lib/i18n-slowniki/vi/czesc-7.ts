@@ -1,11 +1,6 @@
 // Słownik vi, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zarejestrowano dokarmienie!': 'Đã ghi nhận lần cho men ăn!',
-  'Zarządzaj subskrypcją': 'Quản lý gói đăng ký',
-  'Zastąp część wody lodem:': 'Thay một phần nước bằng đá:',
-  'Zastąp dane': 'Thay dữ liệu',
-  'Zastosowanie:': 'Phù hợp cho:',
   'Zastosuj mieszankę': 'Áp dụng hỗn hợp',
   'Zatwierdź import': 'Xác nhận nhập',
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Có cám mịn. Tăng độ ẩm bột thêm 3-5% và kéo dài thủy phân bột lên 45-60 phút.',

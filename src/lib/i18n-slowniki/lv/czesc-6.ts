@@ -29,7 +29,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Pirms kukuļa likšanas cepeškrāsnī veiciet pirksta testu.',
   'Wykryto uszkodzony stan bazy danych': 'Konstatēts bojāts datubāzes stāvoklis',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Izlieciet mīklu uz galda, piešķiriet tai sākotnēju bumbas formu un nostiepiet virsmu.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Nepieciešami milti ar olbaltumvielu saturu vismaz 13,0 g. Autolīze 60 minūtes bez sāls. Ļoti saudzīga mīklas locīšana (Coil Fold).',
   'Wymaga obecności': 'Nepieciešama klātbūtne',
   'wymaga Piekarz Pro': 'nepieciešams Maiznieks Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Sarkanais rudzu iesals kopā ar maltu koriandru jāaplej ar verdošu ūdeni. Pirms cepšanas pārkaisiet virsu ar veselām koriandra sēklām.',
@@ -182,4 +181,5 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Plakans disks (Pārraudzēts)',
   'Płaski smak (Jałowy)': 'Blāva garša (Pliekana)',
   'Zbyt kwaśny (Octowy)': 'Pārāk skābs (Etiķains)',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez pirkuma saglabāsies vēsture un jūsu dati. Aprēķiniem, plānam un vadībai būs nepieciešams Maiznieks Pro.',
 };

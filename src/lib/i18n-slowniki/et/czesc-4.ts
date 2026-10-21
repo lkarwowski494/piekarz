@@ -171,7 +171,7 @@ export const CZESC: Record<string, string> = {
   'Świeży po pracy': 'Värske pärast tööd',
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Värske, lihtne nisumaitse ilma väljakujunenud happesuseta.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (kuumutatud jahu 1:5, 65 °C juures)',
-  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Ma ei tunne seda faili ära. Pagar impordib Crustis loodud retseptifaile ja varukoopiafaile.',
+  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Ma ei tunne seda faili ära. Pagar impordib Pagaris loodud retseptifaile ja varukoopiafaile.',
   'Temp': 'Temp',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT temperatuur peab olema vahemikus 10–40 °C',
   'Temperatura docelowa:': 'Sihttemperatuur:',

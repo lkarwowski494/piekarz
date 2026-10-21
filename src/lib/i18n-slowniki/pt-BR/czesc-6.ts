@@ -37,7 +37,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Faça o teste do dedo antes de colocar o pão no forno.',
   'Wykryto uszkodzony stan bazy danych': 'Estado corrompido do banco de dados detectado',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Coloque a massa na bancada, dê a ela uma forma inicial de bola e tensione a superfície.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Exige farinha com teor de proteína de no mínimo 13,0 g. Autólise de 60 minutos sem sal. Dobras em espiral muito delicadas.',
   'Wymaga obecności': 'Requer presença',
   'wymaga Piekarz Pro': 'requer o Padeiro Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Exige escaldar o malte vermelho de centeio com água fervente junto com o coentro moído. Antes de assar, polvilhe a superfície com sementes inteiras de coentro.',
@@ -181,4 +180,8 @@ export const CZESC: Record<string, string> = {
   '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h a 18–20 °C (ou 4 h a 24 °C)',
   '12–24h w chłodzie (4–8°C)': '12–24 h no frio (4–8 °C)',
   '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h a 16–18 °C (ou 24–48 h na geladeira)',
+  '4–8h w 24–26°C do szczytu objętości': '4–8 h a 24–26 °C até o pico de volume',
+  'Do ostygnięcia do temp. pokojowej': 'Até esfriar à temperatura ambiente',
+  'Gumowaty (Gorący nóż)': 'Gomoso (Cortado ainda quente)',
+  'Jaskinie (Niedofermentowany)': 'Cavernas (Subfermentado)',
 };

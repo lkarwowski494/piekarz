@@ -1,10 +1,6 @@
 // Słownik ro, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Cu mâinile umezite, împăturește aluatul prin tehnica Coil Fold direct în formă.',
-  'Zwiń protokół': 'Restrânge protocolul',
-  'Zwiń wyjaśnienie': 'Restrânge explicația',
-  'Żytni': 'De secară',
   'Żytnie': 'De secară',
   '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h la 18–20 °C (sau 4 h la 24 °C)',
   '12–24h w chłodzie (4–8°C)': '12–24 h la rece (4–8 °C)',
@@ -128,4 +124,6 @@ export const CZESC: Record<string, string> = {
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Dă-i forma finală (batard sau pâine rotundă), pune-l în coșul de dospire presărat cu făină și dă-l la frigider (4°C) pentru 12–16 h.',
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Temperatura calculată a apei depășește 45°C. Există riscul de a opări drojdiile și bacteriile lactice. Răcește făina sau scade temperatura camerei.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Aluat original de pizza napoletană, cu margine crocantă și interior delicat.',
+  'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Ultima împăturire, care creează tensiune la suprafață. Aluatul ar trebui să fie aerat și să-și păstreze forma de bilă.',
+  'Piekarz Pro nie jest aktywny': 'Brutar Pro nu este activ',
 };

@@ -14,7 +14,7 @@ import { wejscieWidoczne } from './wejscia-pozniej';
 import { saveRecipe } from '../data/sqlite-store';
 import { StoredRecipe } from '../data/db';
 import { MASTER_RECIPES } from '../recipes/presets';
-import { DoughRecipeResult, BakeLossMetricsResult, FlourItemInput } from '../core/domain-rules';
+import { DoughRecipeResult, DoughRecipeInput, BakeLossMetricsResult } from '../core/domain-rules';
 
 export interface PrintRecipePdfParams {
   recipeName: string;
@@ -98,28 +98,17 @@ export async function executeCopyRecipe(params: {
   }
 }
 
+// Zapis i kopia biorą całą formułę receptury (z drożdżami), nie listę wybranych pól [audyt-niezalezny D-2]
 export async function executeCloneRecipe(
   recipeName: string,
-  flourBlend: FlourItemInput[],
-  waterPct: number,
-  saltPct: number,
-  starterPct: number,
-  starterHydration: number,
-  targetDoughWeightGrams: number,
+  formula: DoughRecipeInput,
   targetDdt: number
 ): Promise<StoredRecipe> {
   const cloneName = `${recipeName} (${t('Kopia')})`;
   const cloned: StoredRecipe = {
     id: `recipe_${Date.now()}`,
     name: cloneName,
-    formula: {
-      flours: [...flourBlend],
-      waterPercentage: waterPct,
-      saltPercentage: saltPct,
-      starterPercentage: starterPct,
-      starterHydration,
-      targetDoughWeightGrams,
-    },
+    formula: { ...formula, flours: [...formula.flours] },
     targetDDT: targetDdt,
     isBuiltIn: false,
     createdAt: Date.now(),
@@ -132,12 +121,7 @@ export async function executeCloneRecipe(
 
 export async function executeSaveCustomRecipe(
   name: string,
-  flourBlend: FlourItemInput[],
-  waterPct: number,
-  saltPct: number,
-  starterPct: number,
-  starterHydration: number,
-  targetDoughWeightGrams: number,
+  formula: DoughRecipeInput,
   targetDdt: number
 ): Promise<StoredRecipe | null> {
   const trimmed = name.trim();
@@ -146,14 +130,7 @@ export async function executeSaveCustomRecipe(
   const newCustom: StoredRecipe = {
     id: `recipe_${Date.now()}`,
     name: trimmed,
-    formula: {
-      flours: flourBlend,
-      waterPercentage: waterPct,
-      saltPercentage: saltPct,
-      starterPercentage: starterPct,
-      starterHydration,
-      targetDoughWeightGrams,
-    },
+    formula: { ...formula, flours: [...formula.flours] },
     targetDDT: targetDdt,
     isBuiltIn: false,
     createdAt: Date.now(),

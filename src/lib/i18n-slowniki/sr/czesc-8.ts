@@ -1,8 +1,6 @@
 // Słownik sr, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.': 'После врхунца стартер постаје киселији и ствара мање мехурића гаса.',
-  'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.': 'Стартер најбоље расте на топлој собној температури, око 21 °C.',
   'Zakwas w lodówce': 'Стартер у фрижидеру',
   'Zakwas żytni': 'Ражани стартер',
   'Zakwas: {amount} g': 'Стартер: {amount} г',
@@ -127,4 +125,5 @@ export const CZESC: Record<string, string> = {
   'Usuń wszystko': 'Обришите све',
   'Użyj mąki chlebowej o wyższej zawartości białka.': 'Користите брашно за хлеб са вишим садржајем протеина.',
   'według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C': 'према Bread Bakers Guild of America, 18 сати на температури од око 15,6 °C',
+  'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'према Bread Bakers Guild of America, најмање 3 сата на собној температури или 1 сат, а затим највише 3 дана у фрижидеру',
 };

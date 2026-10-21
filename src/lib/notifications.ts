@@ -53,6 +53,14 @@ export async function getNotificationPermission(): Promise<NotificationPermissio
 export function notificationText(p: PlannedNotification): { title: string; body: string } {
   const name = p.params.starterName ?? '';
   switch (p.textKey) {
+    case 'krok.start': {
+      // Start kroku 1 planu, gdy wypiek zaczęto wcześniej (D-5): te same zdania co powiadomienie o następnym kroku
+      const doMs = Number(p.params.stepEnd);
+      return {
+        title: t('{krok}: czas zacząć', { krok: t(p.params.stepName ?? '') }),
+        body: p.params.stepEnd && Number.isFinite(doMs) ? t('Do {godzina}.', { godzina: formatTime(new Date(doMs)) }) : '',
+      };
+    }
     case 'krok.zdejmijPokrywke':
       return { title: t('Zdejmij pokrywkę'), body: t('Czas zdjąć pokrywkę z garnka i piec dalej bez pary.') };
     case 'krok.wypiekGotowy':

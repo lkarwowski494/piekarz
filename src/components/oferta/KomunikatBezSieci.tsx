@@ -11,8 +11,14 @@ import { t } from '../../lib/i18n';
 import { theme } from '../../ui/theme';
 import { odstepy, typografia } from '../../ui/tokeny';
 
-export function KomunikatBezSieci() {
-  const tekst = t('Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.');
+/**
+ * `niedostepna`: sklep odpowiedział, ale bez produktów — oferta chwilowo niedostępna, bez prośby o sprawdzenie
+ * internetu [audyt-niezalezny A-3].
+ */
+export function KomunikatBezSieci({ niedostepna = false }: { niedostepna?: boolean }) {
+  const tekst = niedostepna
+    ? t('Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.')
+    : t('Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.');
   const rozmiar = Math.round(20 * Math.max(1, PixelRatio.getFontScale()));
   return (
     <View style={styles.blad} accessible accessibilityRole="alert" accessibilityLabel={tekst}>
@@ -26,7 +32,7 @@ export function KomunikatBezSieci() {
           strokeLinejoin="round"
         />
       </Svg>
-      <Text testID="offer-no-connection" style={styles.tekst}>
+      <Text testID={niedostepna ? 'offer-unavailable' : 'offer-no-connection'} style={styles.tekst}>
         {tekst}
       </Text>
     </View>

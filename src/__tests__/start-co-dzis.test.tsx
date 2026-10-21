@@ -256,7 +256,7 @@ describe('101: Start „Co dziś robisz?”', () => {
     await pustaBaza();
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     // Była próba: sklep dał kiedyś dostęp na tym telefonie (nagłówek o końcu próby) [M1-audytor-generalny-143]
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '1');
+    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, 'proba'); // tylko okres próbny (C-7: 'platny' i dawne '1' = nagłówek neutralny)
     const tree = await renderStart();
     expect(paywallShown(tree.root)).toBe(false);
     const txt = teksty(tree.root);

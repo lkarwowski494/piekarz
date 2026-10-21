@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} kvasa',
   '{n} zakwasu': '{n} kvasa',
   '{n} zakwasy': '{n} kvasa',
-  '{n}m w {temp}': '{n} min pri {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: gotovo {dzien} u {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (cijela količina)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, razina: {trudnosc}',
@@ -162,7 +161,7 @@ export const CZESC: Record<string, string> = {
   'Czas w lodówce:': 'Vrijeme u hladnjaku:',
   'Czas zdjąć pokrywkę z garnka i piec dalej bez pary.': 'Vrijeme je da skineš poklopac s lonca i nastaviš peći bez pare.',
   'cze': 'lip',
-  'Czw.': 'Čet.',
+  'Czw.': 'Čet',
   'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Vježbaj intuiciju za pekarske omjere napamet (Mental Baker Drill)',
   'Dane są zapisywane tylko w tym telefonie.': 'Podaci se spremaju samo na ovom telefonu.',
   'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Podaci iz kopije su u aplikaciji. Preskočeni oštećeni unosi: {n}. Prethodne podatke spremio sam u kopiju prije uvoza.',
@@ -223,4 +222,5 @@ export const CZESC: Record<string, string> = {
   'Drożdżowy': 'S kvascem',
   'Drukuj': 'Ispiši',
   'Drukuj kartę A4 (PDF)': 'Ispiši list A4 (PDF)',
+  'Drukuj PDF': 'Ispiši PDF',
 };

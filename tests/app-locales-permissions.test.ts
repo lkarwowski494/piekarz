@@ -53,6 +53,34 @@ describe('zgody systemowe tylko dla funkcji 1.0 (M1-audytor-generalny-029, -049)
     expect(android.filter((p) => /CAMERA|RECORD_AUDIO/.test(p))).toEqual([]);
   });
 
+  /**
+   * expo-audio tylko odtwarza dźwięk końca kroku (src/lib/timer-audio.ts, createAudioPlayer); aplikacja nie nagrywa.
+   * Wtyczka z jawną konfiguracją: bez opisu mikrofonu (microphonePermission: false), bez RECORD_AUDIO i bez trybu
+   * tła „audio” (domyślne enableBackgroundPlayback: true dodałoby UIBackgroundModes audio, Guideline 2.5.4)
+   * [audyt-niezalezny H-mikrofon].
+   */
+  it('expo-audio: wtyczka bez uprawnienia mikrofonu i bez odtwarzania w tle; kod nie nagrywa', () => {
+    const wpis = (expo.plugins as unknown[]).find((p) => Array.isArray(p) && p[0] === 'expo-audio') as [string, Record<string, unknown>] | undefined;
+    expect(wpis?.[1]).toEqual({ microphonePermission: false, recordAudioAndroid: false, enableBackgroundPlayback: false, enableBackgroundRecording: false });
+    const r = spawnSync('git', ['grep', '-l', '-E', 'useAudioRecorder|AudioRecorder|requestRecordingPermissions|RecordingPresets', '--', 'src', 'app', ':!*__tests__*'], { cwd: root, encoding: 'utf8' });
+    expect(r.stdout.trim()).toBe('');
+  });
+
+  it('verify-native odrzuca wtyczkę expo-audio z domyślną konfiguracją (mikrofon i tryb tła)', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'audio-h-'));
+    try {
+      const zly = JSON.parse(JSON.stringify(appJson));
+      zly.expo.plugins = (zly.expo.plugins as unknown[]).map((p) => (Array.isArray(p) && p[0] === 'expo-audio' ? 'expo-audio' : p));
+      const plik = join(dir, 'app.json');
+      writeFileSync(plik, JSON.stringify(zly));
+      const r = spawnSync(process.execPath, [join(root, 'scripts/verify-native.mjs'), '--app', plik], { cwd: root, encoding: 'utf8' });
+      expect(r.status).toBe(1);
+      expect(r.stderr).toContain('expo-audio');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('F-08 PÓŹNIEJ: wejścia skanu i udostępniania QR ukryte w jednym miejscu', () => {
     expect(wejscieWidoczne('qr')).toBe(false);
   });

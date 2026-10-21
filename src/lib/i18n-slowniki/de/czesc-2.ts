@@ -1,7 +1,6 @@
 // Słownik de, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobna niedoskonałość': 'Kleine Unvollkommenheit',
   'Drobne pory, bochenek ciężki w dłoni': 'Feine Poren, der Laib liegt schwer in der Hand',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Feine, gleichmäßige Poren wie Schwamm/Schaum',
   'Drożdże': 'Hefe',
@@ -242,4 +241,5 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna, białko 13,8%': 'Weizenmehl, Eiweiß 13,8 %',
   'Mąka razem': 'Mehl gesamt',
   'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Vollkornmehl. Eiweiß in den untersuchten Proben: 8,7–9,6 %. Asche nach polnischen Normen: höchstens 2 %.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Mehl bildet die 100-%-Basis der Bäckerprozente',
 };

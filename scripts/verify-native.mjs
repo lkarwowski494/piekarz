@@ -95,6 +95,18 @@ check(
   'app.json nie może zawierać UIBackgroundModes: ["remote-notification"] (powiadomienia tylko lokalne, ADR-006)'
 );
 
+// 4c. expo-audio tylko odtwarza (timer-audio.ts); wtyczka jawnie bez mikrofonu i bez trybu tła „audio”
+// (domyślnie enableBackgroundPlayback: true dodaje UIBackgroundModes audio, Guideline 2.5.4) [audyt-niezalezny H-mikrofon]
+const audio = plugins.find((p) => p === 'expo-audio' || (Array.isArray(p) && p[0] === 'expo-audio'));
+check(
+  Array.isArray(audio) &&
+    audio[1]?.microphonePermission === false &&
+    audio[1]?.recordAudioAndroid === false &&
+    audio[1]?.enableBackgroundPlayback === false &&
+    audio[1]?.enableBackgroundRecording !== true,
+  'app.json: wtyczka expo-audio musi mieć microphonePermission: false, recordAudioAndroid: false i enableBackgroundPlayback: false (aplikacja nie nagrywa i nie gra w tle)'
+);
+
 // 5. Ciemny ekran powitalny (Splash Screen)
 const splashBg = appJson.splash?.backgroundColor;
 check(

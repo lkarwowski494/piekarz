@@ -1,10 +1,6 @@
 // Słownik pt-BR, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  '4–8h w 24–26°C do szczytu objętości': '4–8 h a 24–26 °C até o pico de volume',
-  'Do ostygnięcia do temp. pokojowej': 'Até esfriar à temperatura ambiente',
-  'Gumowaty (Gorący nóż)': 'Gomoso (Cortado ainda quente)',
-  'Jaskinie (Niedofermentowany)': 'Cavernas (Subfermentado)',
   'Min. 4h lub przez noc w lodówce': 'Mín. 4 h ou durante a noite na geladeira',
   'Pęknięty bok': 'Lateral rompida',
   'Płaski dysk (Przerośnięty)': 'Disco achatado (Superfermentado)',
@@ -125,4 +121,8 @@ export const CZESC: Record<string, string> = {
   'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calcule a temperatura da água na receita: segundo a King Arthur Baking, a massa de trigo deve ficar em cerca de 24–25,5 °C após a mistura.',
   'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Misture a farinha com a água; não adicione ainda o fermento natural nem o sal. Deixe o glúten e as enzimas desenvolverem sozinhos a estrutura da massa.',
   'Potrzebny zakwas': 'Fermento natural necessário',
+  'Przerośnięte ciasto: zrób focaccię': 'Massa passou do ponto: faça focaccia',
+  'Przypomnienia o karmieniu': 'Lembretes de alimentação',
+  'Składanie 1 (Stretch & Fold)': 'Dobra 1 (Stretch & Fold)',
+  'Składanie 2 (Coil Fold)': 'Dobra 2 (Coil Fold)',
 };

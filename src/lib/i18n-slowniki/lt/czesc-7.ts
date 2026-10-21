@@ -1,10 +1,6 @@
 // Słownik lt, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Jaskinie (Niedofermentowany)': 'Urvai (Nepakankamai fermentuotas)',
-  'Min. 4h lub przez noc w lodówce': 'Bent 4 val. arba per naktį šaldytuve',
-  'Pęknięty bok': 'Įtrūkęs šonas',
-  'Płaski dysk (Przerośnięty)': 'Plokščias diskas (Perfermentuotas)',
   'Płaski smak (Jałowy)': 'Blankus skonis (Lėkštas)',
   'Zbyt kwaśny (Octowy)': 'Per rūgštus (Actiškas)',
   'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Be pirkimo išliks istorija ir jūsų duomenys. Skaičiavimams, planams ir nurodymams reikės Kepėjas Pro.',
@@ -127,4 +123,5 @@ export const CZESC: Record<string, string> = {
   'Składanie 1 (Stretch & Fold)': 'Lankstymas 1 (Stretch & Fold)',
   'Składanie 2 (Coil Fold)': 'Lankstymas 2 (Coil Fold)',
   'Składanie 3 (Coil Fold)': 'Lankstymas 3 (Coil Fold)',
+  'Skopiowano plan wypieku do schowka': 'Kepimo planas nukopijuotas į iškarpinę',
 };

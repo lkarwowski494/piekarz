@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} surdeigsstartere',
   '{n} zakwasu': '{n} surdeigsstartere',
   '{n} zakwasy': '{n} surdeigsstartere',
-  '{n}m w {temp}': '{n} min ved {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: klar {dzien} kl. {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (hele)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, nivå {trudnosc}',
@@ -223,4 +222,5 @@ export const CZESC: Record<string, string> = {
   'Drożdżowy': 'Med gjær',
   'Drukuj': 'Skriv ut',
   'Drukuj kartę A4 (PDF)': 'Skriv ut A4-ark (PDF)',
+  'Drukuj PDF': 'Skriv ut PDF',
 };

@@ -69,7 +69,7 @@ const PARY: [string, string][] = [
   ['Liczba bochenków i gramatura', 'Number of loaves and weight'],
   ['{masa} / szt.', '{masa} / loaf'],
   ['{n} szt.', '{n} pcs'],
-  ['{n}m w {temp}', '{n}m at {temp}'],
+  ['{n} min w {temp}', '{n} min at {temp}'],
   ['garnek żeliwny', 'cast-iron pot'],
   ['foremka keksówka', 'loaf pan'],
   ['stal piekarska', 'baking steel'],

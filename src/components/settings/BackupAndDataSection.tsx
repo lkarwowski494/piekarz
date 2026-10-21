@@ -44,8 +44,9 @@ export function BackupAndDataSection() {
     await usunWszystkieDane();
     await resyncNotifications();
   });
+  // Kopie w aplikacji Pliki zostają (ostatnia droga odzyskania danych); okno mówi o tym wprost [audyt-niezalezny B-4]
   const handleDeleteAll = () => {
-    Alert.alert(t('Usunąć wszystkie dane?'), undefined, [
+    Alert.alert(t('Usunąć wszystkie dane?'), t('Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.'), [
       { text: t('Anuluj'), style: 'cancel' },
       { text: t('Usuń wszystko'), style: 'destructive', onPress: () => void usunWszystko() },
     ]);

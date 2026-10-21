@@ -29,6 +29,8 @@ export interface StageTemplate {
   category: StageCategory;
   durationMinutes: number;
   isPassive: boolean; // True if step does not require user presence (e.g. cold retard, cooling)
+  /** Krok bierny, który na starcie wymaga rąk (dokarmienie, autoliza, rozgrzanie piekarnika): ochrona snu sprawdza jego początek [audyt-niezalezny D-6] */
+  rekaNaStarcie?: boolean;
   canStretch: boolean;
   minDurationMinutes?: number;
   maxDurationMinutes?: number;
@@ -43,6 +45,7 @@ export interface ScheduledStage {
   endTime: Date;
   durationMinutes: number;
   isPassive: boolean;
+  rekaNaStarcie?: boolean;
   isSleepCollision: boolean;
   instructionsPl: string;
 }
@@ -91,6 +94,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     category: 'starter_feed',
     durationMinutes: 360, // 6h
     isPassive: true,
+    rekaNaStarcie: true,
     canStretch: false,
     instructionsPl: 'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.',
   },
@@ -100,6 +104,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     category: 'autolyse',
     durationMinutes: 45,
     isPassive: true,
+    rekaNaStarcie: true,
     canStretch: true,
     instructionsPl: 'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.',
   },
@@ -167,6 +172,7 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     category: 'preheat_oven',
     durationMinutes: 45,
     isPassive: true,
+    rekaNaStarcie: true,
     canStretch: true,
     instructionsPl: 'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.',
   },
@@ -188,7 +194,10 @@ export const DEFAULT_STAGE_TEMPLATES: StageTemplate[] = [
     durationMinutes: 120, // 2h
     isPassive: true,
     canStretch: false,
-    instructionsPl: 'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.',
+    // zdanie z KRO-POC-015 zamiast wycofanego „minimum 2 godziny … żelowania”; stary klucz zostaje w słowniku EN
+    // dla wypieków zapisanych przed zmianą. durationMinutes bez źródła (KRO-POC-011) — rola 06 [audyt-niezalezny E-3]
+    instructionsPl:
+      'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.',
   },
 ];
 
@@ -259,7 +268,8 @@ export function calculateReverseSchedule(
     // Sleep collision check for active steps (steps that require user hands)
     const startInSleep = isDuringSleep(startTime, sleepStart, sleepEnd);
     const endInSleep = isDuringSleep(endTime, sleepStart, sleepEnd);
-    const isCollision = !t.isPassive && (startInSleep || endInSleep);
+    // Krok bierny z rękami na starcie (dokarmienie, autoliza, piekarnik): w nocy nie może wypaść jego początek [audyt-niezalezny D-6]
+    const isCollision = (!t.isPassive && (startInSleep || endInSleep)) || (!!t.rekaNaStarcie && startInSleep);
 
     if (isCollision) {
       hasCollision = true;
@@ -275,6 +285,7 @@ export function calculateReverseSchedule(
       endTime,
       durationMinutes: t.durationMinutes,
       isPassive: t.isPassive,
+      ...(t.rekaNaStarcie ? { rekaNaStarcie: true } : {}),
       isSleepCollision: isCollision,
       instructionsPl: t.instructionsPl,
     });

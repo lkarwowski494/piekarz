@@ -9,7 +9,7 @@ import { ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
-import { czyBylDostep } from '../../../src/lib/platnosci/stan';
+import { rodzajDostepu } from '../../../src/lib/platnosci/stan';
 import { CZYNNOSCI_STARTU, celCzynnosci, stanStartu, ustawRodzajReceptur, type CzynnoscStartu } from '../../../src/lib/start-stan';
 import { useStanStartu } from '../../../src/hooks/useStanStartu';
 import { WyborCzynnosci } from '../../../src/components/start/WyborCzynnosci';
@@ -32,10 +32,11 @@ export default function StartScreen() {
   // Uprzedzenie przed końcem próby: raz, w treści „Dziś” (§11d 126) [M1-audytor-generalny-126]
   const uprzedzenie = useUprzedzenieProby();
   // Nagłówek „tylko historia” mówi o końcu próby tylko po dostępie z App Store (nie po samym imporcie) [M1-audytor-generalny-143]
-  const [bylDostep, setBylDostep] = useState<boolean | null>(null);
+  // Nagłówek o końcu próby tylko po samej próbie; po płatnym dostępie albo gdy nie wiadomo — neutralny [audyt-niezalezny C-7]
+  const [bylaProba, setBylaProba] = useState<boolean | null>(null);
   useEffect(() => {
     let zywy = true;
-    if (stan === 'tylko-historia') void czyBylDostep().then((b) => zywy && setBylDostep(b));
+    if (stan === 'tylko-historia') void rodzajDostepu().then((r) => zywy && setBylaProba(r === 'proba'));
     return () => {
       zywy = false;
     };
@@ -98,8 +99,8 @@ export default function StartScreen() {
         {dane.gotowe && stan === 'tylko-historia' && (
           <>
             <View style={styles.baner} testID="start-tylko-historia">
-              {bylDostep !== null && (
-                <Text style={styles.banerHeading}>{bylDostep ? t('Okres próbny się skończył') : t('Piekarz Pro nie jest aktywny')}</Text>
+              {bylaProba !== null && (
+                <Text style={styles.banerHeading}>{bylaProba ? t('Okres próbny się skończył') : t('Piekarz Pro nie jest aktywny')}</Text>
               )}
               <Text style={styles.banerTekst}>
                 {t('Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.')}

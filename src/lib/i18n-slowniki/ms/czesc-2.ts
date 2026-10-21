@@ -1,7 +1,6 @@
 // Słownik ms, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Yis dan bakteria dalam pemula perlu diberi makan secara berkala dengan tepung dan air segar supaya dapat terus hidup dan membiak.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Yis tidak sempat menghasilkan dan menyebarkan gas ke seluruh doh sebelum dimasukkan ke dalam ketuhar. Di dalam ketuhar, pengembangan berlaku secara mendadak hanya di bahagian atas, lalu mengoyakkan kerak.',
   'Drożdżowe': 'Yis',
   'Drożdżowy': 'Yis',
@@ -241,4 +240,6 @@ export const CZESC: Record<string, string> = {
   'Mąka stanowi 100% bazy w procentach piekarskich': 'Tepung ialah asas 100% dalam peratusan pembuat roti',
   'Mąka uniwersalna / pszenna jasna': 'Tepung gandum cerah (pelbagai kegunaan)',
   'Mąka w zaczynie': 'Tepung dalam biang',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Tepung kadar pengekstrakan tinggi. Protein dalam sampel yang diuji: 11.9%.',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.': 'Tepung kadar pengekstrakan tinggi. Protein dalam sampel yang diuji: 13.1%.',
 };

@@ -1,8 +1,6 @@
 // Słownik el, część 9 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.': 'Διπλώστε τη ζύμη σαν φάκελο (σαν γράμμα) και πιέστε την με τις άκρες των δαχτύλων.',
-  'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': 'Η αλλαγή δεν αποθηκεύτηκε στη μνήμη του τηλεφώνου. Ελέγξτε τον ελεύθερο χώρο και δοκιμάστε ξανά.',
   'Zmiany w recepturze nie zostaną zapisane.': 'Οι αλλαγές στη συνταγή δεν θα αποθηκευτούν.',
   'Zmień parametry swojego zakwasu': 'Αλλάξτε τις παραμέτρους του προζυμιού σας',
   'Zmień składniki': 'Αλλαγή υλικών',
@@ -103,4 +101,6 @@ export const CZESC: Record<string, string> = {
   'Dożywotni': 'Εφ\' όρου ζωής',
   'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.': 'Όταν το τηλέφωνο είναι κλειδωμένο, μια ειδοποίηση θα σας πει τι να κάνετε και πότε. Σε λίγο το τηλέφωνο θα σας ζητήσει άδεια.',
   'Godziny snu': 'Ώρες ύπνου',
+  'Hydratacja zakwasu {n}%': 'Ενυδάτωση προζυμιού {n}%',
+  'Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.': 'Μία πληρωμή. Αυτό το πλάνο δεν χρειάζεται δοκιμαστική περίοδο· αν έχετε ξεκινήσει δοκιμαστική περίοδο συνδρομής, ακυρώστε την για να μη χρεωθείτε.',
 };

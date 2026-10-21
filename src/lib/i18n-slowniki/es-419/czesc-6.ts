@@ -42,7 +42,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Haz la prueba del dedo antes de meter la hogaza al horno.',
   'Wykryto uszkodzony stan bazy danych': 'Se detectó un estado dañado de la base de datos',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Vuelca la masa sobre la mesa, dale una forma preliminar de bola y tensa la superficie.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Requiere harina con un contenido de proteína mínimo de 13.0 g. Autólisis de 60 minutos sin sal. Pliegues en espiral (coil fold) muy suaves.',
   'Wymaga obecności': 'Requiere tu presencia',
   'wymaga Piekarz Pro': 'requiere Panadero Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Requiere escaldar la malta roja de centeno con agua hirviendo junto con el cilantro molido. Antes de hornear, espolvorea la superficie con semillas enteras de cilantro.',
@@ -172,4 +171,9 @@ export const CZESC: Record<string, string> = {
   'zrobione': 'hecho',
   'Zrobione': 'Hecho',
   'Zrobione: {krok}': 'Hecho: {krok}',
+  'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.': 'Elasticidad y humedad equilibradas. Requiere 3–4 series de pliegues estándar.',
+  'Zwiększ': 'Aumentar',
+  'Zwiększ hydratację': 'Aumentar hidratación',
+  'Zwiększ hydratację o {n}%': 'Aumentar la hidratación en {n}%',
+  'Zwiększ masę mąki o {g} g': 'Aumentar el peso de la harina en {g} g',
 };

@@ -26,9 +26,15 @@ const parse = (f: string) =>
 
 const LIMITY = ['numberOfLines', 'adjustsFontSizeToFit', 'minimumFontScale', 'maxFontSizeMultiplier'];
 /** Nazwane wyjątki: plik → powód. */
-const WYJATKI_SKALI: Record<string, string> = {
-  'src/components/TabIcon.tsx':
-    'etykieta paska zakładek: na iOS pasek systemowy nie powiększa etykiet z Dynamic Type, przy dużym tekście pokazuje je przytrzymanie (Large Content Viewer); allowFontScaling={false}',
+const WYJATKI_SKALI: Record<string, string> = {};
+/**
+ * Nazwany wyjątek (audyt niezależny G-9): podpis zakładki był bez skalowania (allowFontScaling={false}) z założeniem,
+ * że pokaże go Large Content Viewer — własny TabLabel go nie ma, więc podpis został 10 pt. Teraz rośnie z Dynamic
+ * Type do 1,5× (pasek zakładek ma stałą wysokość), bez limitu linii i bez zmniejszania kroju (reguła 054,
+ * tests/pasek-zakladek.test.tsx) — tylko ta wartość.
+ */
+const WYJATKI_ZAKLADKI: Record<string, Record<string, string>> = {
+  'src/components/TabIcon.tsx': { maxFontSizeMultiplier: '{1.5}' },
 };
 /**
  * Nazwany wyjątek (reaudit-noc N-2, 201): godzina „gotowe” i czas kroku w tokenie `czas` (99 pt przy AX5) w jednym
@@ -60,7 +66,8 @@ describe('055: duży tekst i krój tytułów', () => {
             const zTokenow = nazwa === 'maxFontSizeMultiplier' &&
               /^\{\s*typografia\.style\.(\w+)\.ax5\s*\/\s*typografia\.style\.\1\.pt\s*\}$/.test(a.initializer?.getText(sf) ?? '');
             const jedenWiersz = !!WYJATKI_JEDEN_WIERSZ[rel(f)] && JEDEN_WIERSZ[nazwa] === (a.initializer?.getText(sf) ?? '');
-            if (LIMITY.includes(nazwa) && !zTokenow && !jedenWiersz) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
+            const zakladka = WYJATKI_ZAKLADKI[rel(f)]?.[nazwa] === (a.initializer?.getText(sf) ?? '');
+            if (LIMITY.includes(nazwa) && !zTokenow && !jedenWiersz && !zakladka) znalezione.push(`${rel(f)}:${linia} ${nazwa}`);
             if (nazwa === 'allowFontScaling' && /false/.test(a.initializer?.getText(sf) ?? '') && !WYJATKI_SKALI[rel(f)]) {
               znalezione.push(`${rel(f)}:${linia} allowFontScaling={false}`);
             }

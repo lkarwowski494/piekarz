@@ -1,11 +1,6 @@
 // Słownik nb, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Den røde rugmalten må skåldes med kokende vann sammen med malt koriander. Dryss hele korianderfrø over toppen før steking.',
-  'wymagający': 'krevende',
-  'Wymagający': 'Krevende',
-  'Wymagana temperatura wody': 'Nødvendig vanntemperatur',
-  'Wymagany lód do schłodzenia wody': 'Nødvendig is for å kjøle ned vannet',
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Bland ingrediensene til en jevn masse. Ikke smak på rå deig eller mel. Vask hendene med såpe under rennende vann etter at du har jobbet med deigen.',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': 'Bland ingrediensene i en bolle med en skje. Dekk til med plastfolie og la stå i 12–16 timer i romtemperatur. Ingen bretting.',
   'Wymieszanie z solą i zakwasem': 'Blanding med salt og surdeigsstarter',
@@ -173,4 +168,5 @@ export const CZESC: Record<string, string> = {
   'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'Stek med lokk i gryte: ifølge King Arthur Baking holder dampen under lokket skorpen myk lenger, slik at brødet kan fortsette å heve i starten av stekingen.',
   'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.': 'Stek videre etter at lokket er tatt av: ifølge King Arthur Baking stekes brødet uten lokk til det er helt brunet.',
   'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.': 'Hold det buede bladet i en vinkel på ca. 30° mot deigoverflaten: ifølge King Arthur Baking bidrar dette til at det dannes en deigflik som bretter seg ut til et brødøre.',
+  'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.': 'Før det buede bladet i en vinkel på ca. 30° mot deigoverflaten, ca. 6–13 mm dypt: ifølge King Arthur Baking kan et grunnere snitt gro sammen under stekingen.',
 };

@@ -1,7 +1,6 @@
 // Słownik nl, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dokarmiaj zakwas częściej przed wypiekiem.': 'Voed de zuurdesemstarter vaker voor het bakken.',
   'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Laat het deeg in de koelkast rijzen: volgens King Arthur Baking vertraagt kou de fermentatie, en een tragere fermentatie maakt de smaak dieper.',
   'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'De hydratatie ligt dicht bij het bereik dat voor deze meelmix is opgegeven.',
   'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'De hydratatie valt binnen het bereik dat voor deze meelmix is opgegeven.',
@@ -120,6 +119,8 @@ export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Stort het deeg op het werkblad en maak er met een schraper voorzichtig een bol van, zonder overtollige bloem. Laat het 20 min rusten.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Toe aan verversing ({dni} in de kou)',
   'Wypiek w garnku z parą': 'Bakken in gietijzeren pan',
+  '{n} cz.#one': '{n} deel',
+  '{n} cz.#other': '{n} delen',
   'Mąka orkiszowa typ 2000': 'Speltmeel',
   'Mąka żytnia typ 2000': 'Roggemeel',
   'Notatka z poprzedniego wypieku: {notatka}': 'Notitie van je vorige baksel: {notatka}',
@@ -130,6 +131,10 @@ export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': 'Aandeel rogge {n}%: tarwevariant.',
   'Udział żyta {n}%: wariant żytni, plan bez składań.': 'Aandeel rogge {n}%: roggevariant, planning zonder vouwen.',
   'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.': 'Vul het veld „{pole}” in om de watertemperatuur te berekenen.',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (stevig voordeeg, 50% hydratatie) rijpt 16 uur op 18 °C. Voeg aan het hoofddeeg 3% olijfolie toe. Druk het gas niet uit het deeg vóór het bakken.',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Fermentatie: 2 uur op het aanrecht, verdelen in bollen van 250 g, 46 uur in de koelkast (4 °C). Haal ze 2 uur voor het bakken eruit.',
+  '{nazwa}: {n} z 5': '{nazwa}: {n} van 5',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Brood van grof gemalen grahammeel (tarwe) met natuurlijke honing en lijnzaad.',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Zodra de aankoop is goedgekeurd, wordt Bakker Pro vanzelf ingeschakeld. Je hoeft niet opnieuw te kopen.',
+  'Kontakt': 'Contact',
+  'Ocena wymaga połączenia z App Store.': 'Beoordelen vereist een verbinding met de App Store.',
+  'Oceń w App Store': 'Beoordeel in de App Store',
 };

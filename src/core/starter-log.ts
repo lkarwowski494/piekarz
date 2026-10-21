@@ -42,10 +42,14 @@ export function setupDay(setupStartedAt: number, now: number): number {
   return Math.max(1, Math.floor((now - setupStartedAt) / (24 * HOUR_MS)) + 1);
 }
 
-/** Gotowy: obserwacja „podwoił” najwyżej maxH godzin po ostatnim dokarmieniu (granica włączna). */
+/**
+ * Gotowy: obserwacja „podwoił” najwyżej maxH godzin po ostatnim dokarmieniu (granica włączna) i żadnej obserwacji
+ * plam od tego dokarmienia — plamy to polecenie wyrzucenia (RD-21-W1), nie gotowość [audyt-niezalezny E-5].
+ */
 export function isReadyAfterFeeding(entries: readonly StarterEntryLike[], maxH: number = STARTER_DOUBLING_MAX_H): boolean {
   const feed = lastFeeding(entries);
   if (!feed) return false;
+  if (entries.some((e) => e.kind === 'observation' && e.signs.includes('mold_signs') && e.occurredAt >= feed.occurredAt)) return false;
   const until = feed.occurredAt + maxH * HOUR_MS;
   return entries.some(
     (e) => e.kind === 'observation' && e.signs.includes('doubled') && e.occurredAt >= feed.occurredAt && e.occurredAt <= until

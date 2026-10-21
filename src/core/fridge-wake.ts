@@ -40,6 +40,7 @@ export function fridgeWakeStep(mixAt: number, starter: { storageState: 'ROOM_TEM
     category: 'starter_feed',
     durationMin: Math.max(1, Math.round((endAt - start) / 60_000)),
     isPassive: true,
+    rekaNaStarcie: true, // dokarmienie na starcie kroku [audyt-niezalezny D-6]
     instructions: FRIDGE_WAKE_INSTRUCTIONS.join(' '),
     plannedStart: start,
     plannedEnd: endAt,

@@ -166,6 +166,11 @@ describe('notatki dla App Review (078)', () => {
     }
   });
 
+  it('wyjaśniają ciągłą wartość subskrypcji (App Review 3.1.2(a)) i wariant jednorazowy [audyt-niezalezny A-8]', () => {
+    expect(notatki).toMatch(/Ongoing value of the subscription:[^\n]*every bake[^\n]*updates/);
+    expect(notatki).toMatch(/lifetime purchase\./);
+  });
+
   it('nie wspominają QR, skanowania ani funkcji PÓŹNIEJ i ukrytych', () => {
     expect(notatki).not.toMatch(/\bQR\b|scan/i);
     expect(notatki).not.toMatch(/print|pantry|flour equivalent|discard|bake loss|converter|Apps4Craft/i);

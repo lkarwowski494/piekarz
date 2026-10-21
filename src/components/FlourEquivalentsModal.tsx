@@ -56,6 +56,7 @@ export function FlourEquivalentsModal({ visible, onClose }: FlourEquivalentsModa
             {t('Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK')}
           </Text>
           <TextInput
+            accessibilityLabel={t('Szukaj np. T65, Tipo 00, 550, Bread Flour...')}
             testID="flour-equiv-search-input"
             style={styles.searchInput}
             placeholder={t('Szukaj np. T65, Tipo 00, 550, Bread Flour...')}

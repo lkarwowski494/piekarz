@@ -14,7 +14,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Před vložením bochníku do trouby udělejte test prstem.',
   'Wykryto uszkodzony stan bazy danych': 'Zjištěn poškozený stav databáze',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Vyklopte těsto na pracovní desku, předtvarujte ho do koule a napněte povrch.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vyžaduje mouku s obsahem bílkovin minimálně 13,0 g. Autolýza 60 minut bez soli. Velmi jemné překládání (coil fold).',
   'Wymaga obecności': 'Vyžaduje přítomnost',
   'wymaga Piekarz Pro': 'vyžaduje Pekař Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Vyžaduje spaření červeného žitného sladu vroucí vodou spolu s mletým koriandrem. Povrch před pečením posypte celými semínky koriandru.',
@@ -178,4 +177,5 @@ export const CZESC: Record<string, string> = {
   'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.': 'Těsto bude pevné a tuhé. Můžete přilít více vody.',
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Přidejte do receptu trochu celozrnné mouky (žitné nebo pšeničné).',
   'Dokarmiaj zakwas częściej przed wypiekiem.': 'Před pečením krmte kvásek častěji.',
+  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Nechte těsto kynout v lednici: podle King Arthur Baking chlad zpomaluje fermentaci a pomalejší fermentace prohlubuje chuť.',
 };

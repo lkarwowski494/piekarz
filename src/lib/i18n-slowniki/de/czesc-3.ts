@@ -1,7 +1,6 @@
 // Słownik de, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka stanowi 100% bazy w procentach piekarskich': 'Mehl bildet die 100-%-Basis der Bäckerprozente',
   'Mąka uniwersalna / pszenna jasna': 'Vielseitiges helles Weizenmehl',
   'Mąka w zaczynie': 'Mehl im Vorteig',
   'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Mehl mit hohem Ausmahlgrad. Eiweiß in der untersuchten Probe: 11,9 %.',
@@ -206,4 +205,5 @@ export const CZESC: Record<string, string> = {
   'Podnieś docelową temperaturę ciasta': 'Gewünschte Teigtemperatur erhöhen',
   'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Erhöhe die Gärtemperatur auf optimale 26–28 °C.',
   'Podwoił objętość': 'Volumen verdoppelt',
+  'Podział i formowanie': 'Teilen und Formen',
 };

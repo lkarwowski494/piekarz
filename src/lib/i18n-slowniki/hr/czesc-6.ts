@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Istresi tijesto na radnu površinu, oblikuj ga u kuglu i napni površinu.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13,0 g. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
   'Wymaga obecności': 'Zahtijeva prisutnost',
   'wymaga Piekarz Pro': 'zahtijeva Pekar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Potrebno je preliti crveni raženi slad kipućom vodom zajedno s mljevenim korijanderom. Prije pečenja pospi vrh cijelim zrnima korijandera.',
@@ -155,7 +154,7 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Ravan disk (Predugo fermentiran)',
   'Płaski smak (Jałowy)': 'Prazan okus (Bljutav)',
   'Zbyt kwaśny (Octowy)': 'Previše kiseo (Na ocat)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će vam povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će ti povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
   'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ako pretplata nije otkazana, App Store će tada naplatiti odabrani plan.',
   'Okres próbny kończy się {data}': 'Probno razdoblje završava {data}',
   'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Pretplata se neće obnoviti pa nećete ništa platiti.',
@@ -176,4 +175,5 @@ export const CZESC: Record<string, string> = {
   'Pâte Fermentée (Stare ciasto)': 'Pâte Fermentée (staro tijesto)',
   'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'Pecite pod poklopcem u loncu: prema King Arthur Bakingu para pod poklopcem dulje održava koru mekom, pa štruca može nastaviti rasti na početku pečenja.',
   'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.': 'Nakon skidanja poklopca nastavite peći: prema King Arthur Bakingu kruh bez poklopca peče se dok potpuno ne porumeni.',
+  'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.': 'Nagnite zakrivljenu oštricu pod kutom od oko 30° prema površini tijesta: prema King Arthur Bakingu to pogoduje nastanku režnja tijesta koji se odvija u uho kruha.',
 };

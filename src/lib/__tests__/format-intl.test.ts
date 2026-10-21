@@ -175,7 +175,8 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     expect(en).toContain('2.0%');
   });
 
-  it('chłonność i białko mieszanki: PL 68,4% i ~11,5%, EN 68.4% i ~11.5%', () => {
+  // Szacunek białka bez źródła nie jest wyświetlany (MAK-OGL-900) [audyt-niezalezny E-7]
+  it('chłonność mieszanki: PL 68,4%, EN 68.4%; bez szacunku białka', () => {
     const el = React.createElement(AccordionDdtSection, {
       targetDdt: 25,
       onTargetDdtChange: () => {},
@@ -193,12 +194,12 @@ describe('resztki: procenty na ekranie, parametry t() i komunikat Q10', () => {
     const pl = render(el);
     expect(pl).toContain('68,4%');
     expect(pl).toContain('66,5–72,5%');
-    expect(pl).toContain('~11,5%');
+    expect(pl).not.toContain('11,5');
     setLang('en');
     const en = render(el);
     expect(en).toContain('68.4%');
     expect(en).toContain('66.5–72.5%');
-    expect(en).toContain('~11.5%');
+    expect(en).not.toContain('11.5');
   });
 
   // Sekcja straty piecowej na ekranie (F-48 PÓŹNIEJ) nie ma wejścia w 1.0; wartość zostaje w tekście receptury

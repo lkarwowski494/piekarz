@@ -32,7 +32,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Mach die Fingerprobe, bevor du den Laib in den Ofen schiebst.',
   'Wykryto uszkodzony stan bazy danych': 'Beschädigter Datenbankzustand erkannt',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Gib den Teig auf die Arbeitsfläche, forme ihn grob zu einer Kugel und spanne die Oberfläche.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Erfordert Mehl mit einem Eiweißgehalt von mindestens 13,0 g. Autolyse 60 Minuten ohne Salz. Sehr sanftes Dehnen und Falten (Coil Fold).',
   'Wymaga obecności': 'Anwesenheit nötig',
   'wymaga Piekarz Pro': 'erfordert Bäcker Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Das rote Roggenmalz wird zusammen mit gemahlenem Koriander mit kochendem Wasser gebrüht. Bestreue die Oberfläche vor dem Backen mit ganzen Koriandersamen.',
@@ -176,4 +175,8 @@ export const CZESC: Record<string, string> = {
   '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h bei 18–20 °C (oder 4 h bei 24 °C)',
   '12–24h w chłodzie (4–8°C)': '12–24 h kühl (4–8 °C)',
   '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h bei 16–18 °C (oder 24–48 h im Kühlschrank)',
+  '4–8h w 24–26°C do szczytu objętości': '4–8 h bei 24–26 °C bis zum maximalen Volumen',
+  'Do ostygnięcia do temp. pokojowej': 'Bis zum Abkühlen auf Raumtemperatur',
+  'Gumowaty (Gorący nóż)': 'Gummiartig (Heiß angeschnitten)',
+  'Jaskinie (Niedofermentowany)': 'Hohlräume (Untergare)',
 };

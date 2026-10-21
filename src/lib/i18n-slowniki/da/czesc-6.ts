@@ -1,7 +1,6 @@
 // Słownik da, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymagany lód do schłodzenia wody': 'Nødvendig is til afkøling af vandet',
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Bland ingredienserne til en ensartet masse. Smag ikke på rå dej eller mel. Vask hænderne med sæbe under rindende vand, når du har arbejdet med dejen.',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': 'Rør ingredienserne sammen i en skål med en ske. Dæk med film, og lad stå i 12–16 timer ved rumtemperatur. Ingen foldninger.',
   'Wymieszanie z solą i zakwasem': 'Blanding med salt og surdej',

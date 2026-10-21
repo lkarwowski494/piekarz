@@ -18,8 +18,8 @@ export const EN_18: Record<string, string> = {
   // {dni} = liczba dni z odmianą formami CLDR („{n} dzień”) [M1-audytor-generalny-071]
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Needs a refresh ({dni} in the cold)',
   'Uśpiony w lodówce ({dni})': 'Dormant in the fridge ({dni})',
-  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.':
-    'Nourishing bread from coarsely ground Graham wheat flour with natural honey and flaxseed.',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.':
+    'Bread from coarsely ground Graham wheat flour with natural honey and flaxseed.',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Light wheat bread flour (Polish type 650)',
   'Mąka pszenna typ 650': 'Light wheat flour (Polish type 650)',
   'Mąka pszenna luksusowa typ 550': 'Fine light wheat flour (Polish type 550)',
@@ -78,8 +78,8 @@ export const EN_18: Record<string, string> = {
     'Bread taken out of the oven is not done yet: according to King Arthur Baking, it releases moisture as it cools and the crumb needs that time to set, so if sliced too early it may be gummy. Another cause may be underbaking: according to King Arthur Baking, most loaves are done when the centre reaches about 88 °C.',
   'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
     'Before slicing, wait until the loaf has cooled completely. According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
-  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.':
-    'Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C.',
+  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.':
+    'Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C, and rye bread should reach 96–99 °C in the centre.',
   'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.':
     'If the centre is cooler, bake longer and measure again.',
   'Wydłuż fermentację burzliwą.':

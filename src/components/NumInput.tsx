@@ -68,7 +68,10 @@ export const NumInput: React.FC<NumInputProps> = ({
     setIsEditing(false);
     const trimmed = rawText.trim();
     if (trimmed === '') {
-      if (onChangeNumber) onChangeNumber(0);
+      // Pole z dolną granicą > 0 (masa bochenka, masa mąki): puste wraca do poprzedniej wartości,
+      // bo 0 jest poza zakresem i wywracało rachunek receptury [audyt-niezalezny D-1]
+      if (min !== undefined && min > 0) setRawText(formatInitial(value));
+      else if (onChangeNumber) onChangeNumber(0);
       if (onBlur) onBlur(e);
       return;
     }

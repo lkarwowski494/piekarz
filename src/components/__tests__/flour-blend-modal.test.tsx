@@ -181,4 +181,30 @@ describe('FlourBlendModal Component (src/components/FlourBlendModal.tsx)', () =>
     expect(mockOnClose).toHaveBeenCalledTimes(1);
     expect(mockOnApply).not.toHaveBeenCalled();
   });
+
+  it('przy dużym tekście przyciski udziału mąki przechodzą do następnego wiersza zamiast wychodzić poza ekran 320 pt [audyt-niezalezny G-11]', async () => {
+    await act(async () => {
+      tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
+    });
+    const { StyleSheet } = jest.requireActual('react-native');
+    const grupa = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'flour-stepper-0');
+    expect(grupa).toHaveLength(1);
+    const s = StyleSheet.flatten(grupa[0].props.style);
+    expect({ flexDirection: s.flexDirection, flexWrap: s.flexWrap }).toEqual({ flexDirection: 'row', flexWrap: 'wrap' });
+  });
+
+  it('„✕” usuwania mąki ma pole dotyku co najmniej 44 × 44 pt (RD-ENG-03) [audyt-niezalezny G-6]', async () => {
+    await act(async () => {
+      tree = renderer.create(<FlourBlendModal visible={true} initialBlend={initialBlend} onApply={mockOnApply} onClose={mockOnClose} />);
+    });
+    const { StyleSheet } = jest.requireActual('react-native');
+    // G-10: przyciski -10/-5/+5/+10 miały minWidth 38 pt [audyt-niezalezny G-10]
+    const przyciski = tree!.root.findAll((n) => typeof n.props.testID === 'string' && /^flour-(remove|minus-\d+|plus-\d+)-\d+$/.test(n.props.testID) && n.props.style);
+    expect(przyciski.length).toBeGreaterThan(2);
+    expect(przyciski.length).toBeGreaterThan(0);
+    for (const p of przyciski) {
+      const s = StyleSheet.flatten(p.props.style);
+      expect({ minWidth: s.minWidth >= 44, minHeight: s.minHeight >= 44 }).toEqual({ minWidth: true, minHeight: true });
+    }
+  });
 });

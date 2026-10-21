@@ -83,7 +83,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'ローフをオーブンに入れる前にフィンガーテストを行ってください。',
   'Wykryto uszkodzony stan bazy danych': 'データベースの破損を検出しました',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': '生地を台に出し、丸く予備成形して表面を張らせてください。',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'タンパク質含有量が最低13.0 gの粉が必要です。塩を入れずにオートリーズを60分。パンチ / 折りたたみ（コイルフォールド）はごくやさしく行ってください。',
   'Wymaga obecności': '立ち会いが必要',
   'wymaga Piekarz Pro': 'パン職人 Proが必要',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': '赤いライ麦モルトを挽いたコリアンダーと一緒に熱湯で蒸らす必要があります。焼く前に、表面にホールのコリアンダーをまぶしてください。',
@@ -140,4 +139,5 @@ export const CZESC: Record<string, string> = {
   'Zakwas (Levain)': 'サワー種 (ルヴァン)',
   'Zakwas jest gotowy, gdy bąbelkuje, rośnie i ma przyjemnie kwaśny zapach.': 'サワー種は、泡立ち、膨らみ、心地よい酸味の香りがすれば準備完了です。',
   'Zakwas matka': '元種',
+  'Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.': 'サワー種がまだ2倍に膨らんでいません：King Arthur Bakingによると、もう一度種継ぎし、次の種継ぎ後6–8時間以内に2倍になるか確認してください。',
 };

@@ -21,6 +21,8 @@ export interface SessionStep {
   /** Minuty z planu; null = etap żytni bez odpowiednika w planie, bez minutnika (ZYT-ETA-900). */
   durationMin: number | null;
   isPassive: boolean;
+  /** Krok bierny, który na starcie wymaga rąk (dokarmienie, autoliza, piekarnik); brak = nie [audyt-niezalezny D-6] */
+  rekaNaStarcie?: boolean;
   instructions: string;
   /** Planowany początek i koniec (ms od epoki); null = krok bez planu (stary zapis). */
   plannedStart: number | null;
@@ -59,6 +61,7 @@ export function stepsFromSchedule(schedule: ReverseScheduleResult): SessionStep[
     category: st.category,
     durationMin: st.durationMinutes,
     isPassive: st.isPassive,
+    ...(st.rekaNaStarcie ? { rekaNaStarcie: true } : {}),
     instructions: st.instructionsPl,
     plannedStart: st.startTime.getTime(),
     plannedEnd: st.endTime.getTime(),
@@ -77,6 +80,7 @@ export function stepsFromTemplates(templates: readonly StageTemplate[], startAt:
       category: tp.category,
       durationMin: tp.durationMinutes,
       isPassive: tp.isPassive,
+      ...(tp.rekaNaStarcie ? { rekaNaStarcie: true } : {}),
       instructions: tp.instructionsPl,
       plannedStart: start,
       plannedEnd: at,
@@ -101,6 +105,7 @@ export function ryeStepsFromPlan(plan: readonly Pick<SessionStep, 'category' | '
       category: tp.category,
       durationMin,
       isPassive: tp.isPassive,
+      ...(tp.rekaNaStarcie ? { rekaNaStarcie: true } : {}),
       instructions: tp.instructionsPl,
       plannedStart: start,
       plannedEnd: at,

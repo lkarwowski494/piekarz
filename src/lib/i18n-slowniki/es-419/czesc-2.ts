@@ -1,7 +1,6 @@
 // Słownik es-419, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobne pory, bochenek ciężki w dłoni': 'Alvéolos pequeños, hogaza pesada en la mano',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Alvéolos diminutos y uniformes, como esponja/espuma',
   'Drożdże': 'Levadura',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Las levaduras y bacterias de la masa madre necesitan alimentarse con regularidad con harina fresca y agua para sobrevivir y multiplicarse.',

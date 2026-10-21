@@ -106,12 +106,26 @@ export function normalizujMaki<T extends { percentage: number }>(flours: readonl
  * Suma 95–105% liczy się po normalizacji bez błędu; inna suma (> 0) liczy się proporcjonalnie, z błędem
  * `sumaMak` do pokazania [M1-audytor-generalny-150; 08-programista-502].
  */
-export function obliczRecepture(input: DoughRecipeInput): { wynik: DoughRecipeResult; blad: { sumaMak: number } | null } {
+export function obliczRecepture(input: DoughRecipeInput): { wynik: DoughRecipeResult; blad: { sumaMak: number } | null; bladMasy: boolean } {
   const suma = input.flours.reduce((s, f) => s + f.percentage, 0);
+  const sumaBlad = (n: number) => ({ sumaMak: Math.round(n * 10) / 10 });
+  // Masa ciasta ≤ 0 albo nie-liczba: błąd walidacji i wynik zerowy zamiast wyjątku w renderze [audyt-niezalezny D-1]
+  if (!(input.targetDoughWeightGrams > 0)) {
+    return { wynik: wynikZerowy(input), blad: normalizujMaki(input.flours) ? null : sumaBlad(suma), bladMasy: true };
+  }
   const wTolerancji = normalizujMaki(input.flours);
-  if (wTolerancji) return { wynik: calculateDoughRecipe({ ...input, flours: wTolerancji }), blad: null };
+  if (wTolerancji) return { wynik: calculateDoughRecipe({ ...input, flours: wTolerancji }), blad: null, bladMasy: false };
   const proporcjonalnie = suma > 0 ? input.flours.map((f) => ({ ...f, percentage: (f.percentage * 100) / suma })) : [{ name: '—', percentage: 100 }];
-  return { wynik: calculateDoughRecipe({ ...input, flours: proporcjonalnie }), blad: { sumaMak: Math.round(suma * 10) / 10 } };
+  return { wynik: calculateDoughRecipe({ ...input, flours: proporcjonalnie }), blad: sumaBlad(suma), bladMasy: false };
+}
+
+function wynikZerowy(input: DoughRecipeInput): DoughRecipeResult {
+  return {
+    targetDoughWeightGrams: 0, baseFlourWeightGrams: 0,
+    flours: input.flours.map((f) => ({ name: f.name, percentage: f.percentage, weightGrams: 0 })),
+    waterGrams: 0, saltGrams: 0, starterGrams: 0, starterFlourGrams: 0, starterWaterGrams: 0, yeastGrams: 0,
+    totalFlourGrams: 0, totalWaterGrams: 0, overallHydrationPercent: 0, sumCheckGrams: 0, isHighRye: false, ryePercentage: 0,
+  };
 }
 
 /**

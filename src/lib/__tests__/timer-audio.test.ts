@@ -55,4 +55,13 @@ describe('Timer Audio & Tactile Completion Notification (Apps4Brew Hands-in-Flou
     expect(announceSpy).toHaveBeenCalledWith(expect.stringContaining('pokrywkę'));
     expect(Haptics.notificationAsync).toHaveBeenCalled();
   });
+
+  it('alarm pary: jedno ogłoszenie VoiceOver, bez drugiego „Koniec kroku: …” [audyt-niezalezny G-2]', async () => {
+    const announceSpy = jest.spyOn(announceModule, 'announce').mockImplementation(() => {});
+
+    await notifySteamReleaseAlert();
+
+    expect(announceSpy.mock.calls).toEqual([['Zdejmij pokrywkę garnka. Wypuść parę.']]);
+    expect(mockPlay).toHaveBeenCalled();
+  });
 });

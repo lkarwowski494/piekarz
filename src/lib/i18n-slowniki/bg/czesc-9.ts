@@ -1,9 +1,6 @@
 // Słownik bg, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ако абонаментът не бъде прекратен, тогава App Store ще събере плащане за избрания план.',
-  'Okres próbny kończy się {data}': 'Пробният период изтича на {data}',
-  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Абонаментът няма да се поднови, така че няма да платите нищо.',
   'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тогава App Store ще събере {cena} за един месец абонамент. Ако не искате да плащате, прекратете абонамента преди края на пробния период.',
   'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тогава App Store ще събере {cena} за една година абонамент. Ако не искате да плащате, прекратете абонамента преди края на пробния период.',
   'Zamknij informację o końcu próby': 'Затваряне на известието за края на пробния период',
@@ -93,4 +90,6 @@ export const CZESC: Record<string, string> = {
   'Brak katalogu dokumentów aplikacji': 'Липсва папката с документи на приложението',
   'Chleb w stylu San Francisco o wyrazistej kwasowości': 'Хляб с квас в стил Сан Франциско с изразена киселинност',
   'Chleby na zakwasie o wysokiej hydratacji (75–85%), Tartine, pizza napoletana 48 h, brioszki.': 'Хлябове с квас с висока хидратация (75–85%), Tartine, неаполитанска пица 48 ч, бриош.',
+  'Ciasto może być zwarte, nawet sztywne. Możesz dolać więcej wody.': 'Тестото може да е плътно, дори твърдо. Можеш да добавиш още вода.',
+  'Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.': 'Внимателно пъхни двете си ръце под средата на тестото, повдигни го и остави краищата да се подвият отдолу.',
 };

@@ -1,7 +1,6 @@
 // Słownik ja, część 7 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.': 'サワー種がまだ2倍に膨らんでいません：King Arthur Bakingによると、もう一度種継ぎし、次の種継ぎ後6–8時間以内に2倍になるか確認してください。',
   'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.': 'ピークを過ぎたサワー種は酸味が強くなり、ガスの気泡が少なくなります。',
   'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.': 'サワー種は暖かい室温、約21 °Cで最もよく育ちます。',
   'Zakwas w lodówce': '冷蔵庫のサワー種',
@@ -132,4 +131,7 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.': 'King Arthur Bakingによると、真上から90°で入れたクープは左右に開きます。一方、エッジ（クープの開き）は、十分な張りを持たせて成形した生地の張った表層に、浅い角度でクープを入れることでできます。',
   'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)': 'King Arthur Bakingによると、8時間（イーストが多い場合）から14–16時間（イーストが少ない場合）',
   'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'King Arthur Bakingによると、約6–8時間、体積が2倍になり気泡でいっぱいになるまで',
+  'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.': 'King Arthur Bakingによると、焼成前に冷蔵庫から出したサワードウスターターに種継ぎをして、室温に置いてください。活動の兆しが見えるまで、12時間ほどかかることもあります。',
+  'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': 'オートリーズを長くし、コイルフォールドを1セット追加してください。',
+  'Wydłuż fermentację burzliwą.': '一次発酵（バルク発酵）を長くしてください。',
 };

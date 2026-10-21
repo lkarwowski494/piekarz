@@ -1,8 +1,6 @@
 // Słownik ms, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wstaw gotową mieszankę': 'Guna campuran sedia ada',
-  'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Masukkan bakul dalam beg kedap udara ke dalam peti sejuk (4–6°C). Penapaian yang panjang memberikan aroma yang mendalam kepada roti.',
   'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Letakkan bekas berisi doh di dalam ketuhar yang dimatikan dan hidupkan lampunya sahaja: menurut King Arthur Baking, suhu di dalamnya meningkat secara beransur-ansur, tetapi setiap ketuhar dan setiap dapur memberikan hasil yang berbeza.',
   'Wstrzymaj': 'Jeda',
   'Wstrzymano': 'Dijeda',
@@ -28,7 +26,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Lakukan ujian cucuk jari sebelum memasukkan buku roti ke dalam ketuhar.',
   'Wykryto uszkodzony stan bazy danych': 'Keadaan pangkalan data rosak dikesan',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Letakkan doh di atas meja, bentukkan awal menjadi bebola dan tegangkan permukaannya.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Memerlukan tepung dengan kandungan protein sekurang-kurangnya 13.0 g. Autolisis 60 minit tanpa garam. Lipatan doh gulung (coil) yang sangat lembut.',
   'Wymaga obecności': 'Perlu kehadiran',
   'wymaga Piekarz Pro': 'memerlukan Tukang Roti Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Malt rai merah perlu direndam dengan air mendidih bersama ketumbar kisar. Taburkan biji ketumbar utuh di atasnya sebelum dibakar.',
@@ -182,4 +179,7 @@ export const CZESC: Record<string, string> = {
   'Płaski smak (Jałowy)': 'Rasa mendatar (Hambar)',
   'Zbyt kwaśny (Octowy)': 'Terlalu masam (Rasa cuka)',
   'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Tanpa pembelian, sejarah dan data anda akan kekal. Pengiraan, rancangan dan bimbingan akan memerlukan Tukang Roti Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Jika langganan tidak dibatalkan, App Store akan mengenakan bayaran untuk pelan yang dipilih pada masa itu.',
+  'Okres próbny kończy się {data}': 'Tempoh percubaan tamat pada {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Langganan tidak akan diperbaharui, jadi anda tidak akan dikenakan bayaran.',
 };

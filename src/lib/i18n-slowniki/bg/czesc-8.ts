@@ -1,10 +1,6 @@
 // Słownik bg, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymieszanie z solą i zakwasem': 'Смесване със сол и квасен стартер',
-  'Wymieszanie z solą i zakwasem (Bassinage)': 'Смесване със солта и квасния стартер (Басинаж)',
-  'Wypiek bez receptury': 'Изпичане без рецепта',
-  'Wypiek gotowy na: {time}': 'Изпичането е готово в: {time}',
   'Wypiek jednodniowy (Direct)': 'Изпичане за един ден (Direct)',
   'Wypiek w formie': 'Печене във форма',
   'Wypiek w garnku zakończony. Wyjmij chleb na kratkę.': 'Печенето в чугунения съд приключи. Извадете хляба върху решетката.',
@@ -145,4 +141,7 @@ export const CZESC: Record<string, string> = {
   'Płaski smak (Jałowy)': 'Плосък вкус (Безличен)',
   'Zbyt kwaśny (Octowy)': 'Прекалено кисел (Оцетен)',
   'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Без покупка историята и данните ви ще останат. Изчисленията, планирането и напътствията ще изискват Пекар Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ако абонаментът не бъде прекратен, тогава App Store ще събере плащане за избрания план.',
+  'Okres próbny kończy się {data}': 'Пробният период изтича на {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Абонаментът няма да се поднови, така че няма да платите нищо.',
 };

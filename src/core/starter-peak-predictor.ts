@@ -30,6 +30,8 @@ export interface PeakPredictionResult {
   /** Szablon komunikatu (klucz t()) i parametry {czas}, {okno}, żeby tłumaczenie nie sklejało tekstu [044]. */
   statusTemplatePl: string;
   statusParams: Record<string, string>;
+  /** Minuty z parametru {czas} (do okna albo od jego końca): ekran formatuje je w języku aplikacji (czasTrwania) [audyt-niezalezny F-2]. */
+  statusMinuty?: number;
 }
 
 export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionResult {
@@ -114,17 +116,20 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
   const fmtDuration = (minutes: number): string => {
     const h = Math.floor(minutes / 60);
     const m = minutes % 60;
-    return h > 0 ? `${h}h ${m} min` : `${m} min`;
+    return h > 0 ? `${h} h ${m} min` : `${m} min`;
   };
   let statusTemplatePl: string;
   let statusParams: Record<string, string> = {};
+  let statusMinuty: number | undefined;
   if (isCurrentlyInPeak) {
     statusTemplatePl = 'Według szacunku zakwas jest teraz w oknie szczytu.';
   } else if (hasPassedPeak) {
     statusTemplatePl = 'Szacowane okno szczytu minęło ok. {czas} temu.';
-    statusParams = { czas: fmtDuration(Math.round((now - peakWindowEndTimestamp) / (1000 * 60))) };
+    statusMinuty = Math.round((now - peakWindowEndTimestamp) / (1000 * 60));
+    statusParams = { czas: fmtDuration(statusMinuty) };
   } else {
     statusTemplatePl = 'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).';
+    statusMinuty = remainingMinutesToPeakWindow;
     statusParams = { czas: fmtDuration(remainingMinutesToPeakWindow), okno: formattedWindowPl };
   }
   const statusMessagePl = Object.entries(statusParams).reduce((s, [k, v]) => s.split(`{${k}}`).join(v), statusTemplatePl);
@@ -142,5 +147,6 @@ export function predictStarterPeak(input: PeakPredictionInput): PeakPredictionRe
     statusMessagePl,
     statusTemplatePl,
     statusParams,
+    statusMinuty,
   };
 }

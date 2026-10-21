@@ -107,6 +107,7 @@ Cena bazowa w USD; storefronty z ceną ręczną według D-038 (`docs/decyzje.md:
 | 7.3 Privacy Policy URL | App Information, w każdym języku: `https://apps4brew.com/piekarz/privacy.html` (kod 200 przy odczycie 2026-10-21) | `src/lib/links.ts:6` |
 | 7.4 Support URL | wersja 1.0, w każdym języku: `https://apps4brew.com/piekarz/support.html` (kod 200, 2026-10-21); strona podaje e-mail support@apps4brew.com; Apple: adres ma prowadzić do danych kontaktowych „(legal address, email address, telephone number), as may be required by local law” — adres i telefon `[DO USTALENIA]` (status tradera DSA, decyzja właściciela) | `src/lib/links.ts:7`; `site/support.html:15` (odesłanie do strony z repo apps4brew-www); developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information (odczyt 2026-10-21) |
 | 7.5 Licencja | „License Agreement”: standardowa Apple EULA (bez własnej) | `src/lib/links.ts:12` |
+| 7.6 Terms of Use w opisie | opis każdej lokalizacji ma przed zdaniem o 35 językach linię z etykietą i adresem `https://www.apple.com/legal/internet-services/itunes/dev/stdeula/` (PL „Warunki użytkowania (EULA):”, en-* „Terms of Use (EULA):”; w 29 pozostałych lokalizacjach etykieta angielska do czasu przekładu, `npm run check:metadane` pilnuje adresu); Apple wymaga linku do Terms of Use w metadanych aplikacji z subskrypcją [audyt-niezalezny A-1] | developer.apple.com/app-store/review/guidelines/ 3.1.2 (odczyt 2026-10-21 w audycie niezależnym); `docs/wydanie/metadane/pl.json:9` |
 
 ## 8. Kategoria wiekowa
 

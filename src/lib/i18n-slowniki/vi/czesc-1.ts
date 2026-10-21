@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} men tự nhiên',
   '{n} zakwasu': '{n} men tự nhiên',
   '{n} zakwasy': '{n} men tự nhiên',
-  '{n}m w {temp}': '{n} phút ở {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: xong {dzien} lúc {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (toàn bộ)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, mức {trudnosc}',

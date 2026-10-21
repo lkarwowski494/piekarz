@@ -136,7 +136,7 @@ export const CZESC: Record<string, string> = {
   'Wszystkie': 'Sve',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Sve ručne faze (miješanje, preklapanje, pečenje) odvijaju se izvan razdoblja spavanja (23:00 – 06:30).',
   'Wszystkie etapy wypieku': 'Sve faze pečenja',
-  'Wt.': 'Ut.',
+  'Wt.': 'Uto',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Odaberi zadanu posudu za pečenje za postupak na Radnom stolu:',
   'Wybierz objawy bochenka': 'Odaberi simptome štruce',
   'Wybierz recepturę': 'Odaberi recepturu',

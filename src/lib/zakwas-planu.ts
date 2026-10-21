@@ -38,6 +38,7 @@ export function etapyPlanu(steps: readonly SessionStep[], stages: readonly Sched
         endTime: new Date(s.plannedEnd),
         durationMinutes: s.durationMin ?? Math.round((s.plannedEnd - s.plannedStart) / 60_000),
         isPassive: s.isPassive,
+        ...(s.rekaNaStarcie ? { rekaNaStarcie: true } : {}),
         isSleepCollision: false,
         instructionsPl: s.instructions,
       });

@@ -1,7 +1,6 @@
 // Słownik lv, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez pirkuma saglabāsies vēsture un jūsu dati. Aprēķiniem, plānam un vadībai būs nepieciešams Maiznieks Pro.',
   'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ja abonements netiks atcelts, App Store tad iekasēs maksu par izvēlēto plānu.',
   'Okres próbny kończy się {data}': 'Izmēģinājuma perioda beigas: {data}',
   'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Abonements netiks atjaunots, tāpēc jums nekas nebūs jāmaksā.',
@@ -122,4 +121,8 @@ export const CZESC: Record<string, string> = {
   'Składanie 2 (Coil Fold)': 'Locīšana 2 (Coil Fold)',
   'Składanie 3 (Coil Fold)': 'Locīšana 3 (Coil Fold)',
   'Skopiowano plan wypieku do schowka': 'Cepšanas plāns nokopēts starpliktuvē',
+  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Saīsiniet pamatfermentāciju un sekojiet mīklas temperatūrai: saskaņā ar King Arthur Baking kviešu mīklai pēc samaisīšanas jābūt aptuveni 24–25,5 °C.',
+  'temp. {temp}': 'temp. {temp}',
+  'Test okna glutenowego': 'Lipekļa loga tests',
+  'Usunięto recepturę': 'Recepte izdzēsta',
 };

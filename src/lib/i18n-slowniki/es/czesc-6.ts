@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Haz la prueba del dedo antes de meter la hogaza en el horno.',
   'Wykryto uszkodzony stan bazy danych': 'Se ha detectado un estado dañado de la base de datos',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Vuelca la masa sobre la encimera, dale una forma de bola inicial y tensa la superficie.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Requiere harina con un contenido de proteína mínimo de 13,0 g. Autólisis de 60 minutos sin sal. Pliegues en espiral (coil fold) muy suaves.',
   'Wymaga obecności': 'Requiere tu presencia',
   'wymaga Piekarz Pro': 'requiere Panadero Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Requiere escaldar la malta roja de centeno con agua hirviendo junto con el cilantro molido. Antes de hornear, espolvorea la superficie con semillas enteras de cilantro.',
@@ -175,4 +174,10 @@ export const CZESC: Record<string, string> = {
   'Zwiększ hydratację o {n}%': 'Aumentar hidratación un {n} %',
   'Zwiększ masę mąki o {g} g': 'Aumentar el peso de la harina en {g} g',
   'Zwiększ udział mąki {nazwa} o {n}%': 'Aumentar la proporción de {nazwa} un {n} %',
+  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Con las manos húmedas, pliega la masa con la técnica coil fold directamente en el molde.',
+  'Zwiń protokół': 'Contraer protocolo',
+  'Zwiń wyjaśnienie': 'Contraer explicación',
+  'Żytni': 'De centeno',
+  'Żytnie': 'De centeno',
+  '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h a 18–20 °C (o 4 h a 24 °C)',
 };

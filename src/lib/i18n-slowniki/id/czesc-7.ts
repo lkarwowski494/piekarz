@@ -1,7 +1,6 @@
 // Słownik id, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Setelah itu, App Store akan menagih {cena} untuk satu bulan langganan. Jika tidak ingin membayar, batalkan langganan sebelum masa uji coba berakhir.',
   'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Setelah itu, App Store akan menagih {cena} untuk satu tahun langganan. Jika tidak ingin membayar, batalkan langganan sebelum masa uji coba berakhir.',
   'Zamknij informację o końcu próby': 'Tutup info akhir masa uji coba',
   'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.': 'Roti yang baru dikeluarkan dari oven belum benar-benar siap: menurut King Arthur Baking, roti melepaskan uap air selama pendinginan, dan remah roti membutuhkan waktu itu untuk mengeset, sehingga jika diiris terlalu cepat, remahnya bisa lengket seperti karet. Penyebab lain bisa jadi roti kurang matang: menurut King Arthur Baking, sebagian besar roti sudah matang jika bagian tengahnya mencapai sekitar 88 °C.',
@@ -123,4 +122,7 @@ export const CZESC: Record<string, string> = {
   'Uśpiony w lodówce ({dni})': 'Dorman di kulkas ({dni})',
   'W pliku receptury brakuje proporcji ciasta.': 'File resep tidak memuat proporsi adonan.',
   'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Pilih rasio dan jumlah starter ragi alami yang Anda butuhkan untuk adonan. Saya akan menghitung tepung dan airnya.',
+  'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Keluarkan adonan ke meja, bulatkan perlahan dengan skrap tanpa tepung berlebih. Biarkan adonan beristirahat selama 20 min.',
+  'Wymaga odświeżenia ({dni} w chłodzie)': 'Perlu disegarkan ({dni} di tempat dingin)',
+  'Wypiek w garnku z parą': 'Pemanggangan panci besi dengan uap',
 };

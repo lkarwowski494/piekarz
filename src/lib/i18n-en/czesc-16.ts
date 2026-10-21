@@ -73,4 +73,15 @@ export const EN_16: Record<string, string> = {
   'Przypomnienia o karmieniu': 'Feeding reminders',
   'Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.':
     'When a starter is due for feeding. Bake step notifications work regardless.',
+  // Tor p15a (audyt niezależny 2026-10-21) — do przekładu: K/przeklad-noc3/p15a-klucze.json
+  'Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.':
+    'The bake plan is for sourdough bread only, and this recipe has no starter.',
+  'Ręce tylko na starcie': 'Hands-on at the start',
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': 'The offer is temporarily unavailable. Try again in a moment.',
+  'Zakup czeka na zatwierdzenie': 'Purchase awaiting approval',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.':
+    'Once the purchase is approved, Baker Pro will turn on by itself. No need to buy again.',
+  // Krok „Studzenie na kratce” ze źródłem KRO-POC-015 [audyt-niezalezny E-3]
+  'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.':
+    'Move the loaf to a wire rack. According to King Arthur Baking, bread keeps releasing moisture as it cools and the crumb needs that time to set; sliced too early it can be gummy.',
 };

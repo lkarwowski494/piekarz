@@ -5,36 +5,41 @@
 // (jak okno importu receptury), kopia z kopią przed importem z collectBackupData (jak import kopii w Ustawieniach).
 // ============================================================================
 
-import { parseAndValidateBackup, safetyBackup, ValidatedBackup } from './backup';
+import { parseAndValidateBackup, safetyBackup, SCHEMA_VERSION, ValidatedBackup } from './backup';
 import { decodeRecipeFromShareUrl } from './recipe-sharing';
 import { collectBackupData, restoreFromBackupData, saveRecipe } from '../data/sqlite-store';
 import { resyncNotifications } from './notifications';
 import { initLanguage, t, tPlural } from './i18n';
 import { initUnitSystem } from './unit-converter';
+import { wczytajPonowniePrzypomnieniaKarmienia } from './przypomnienia-karmienia';
 import { appLocale, formatDate } from './format';
 import type { StoredRecipe } from '../data/db';
 
 export type RozpoznanyPlik =
   | { rodzaj: 'kopia'; kopia: ValidatedBackup }
   | { rodzaj: 'receptura'; receptura: StoredRecipe }
+  | { rodzaj: 'nowsza' }
   | { rodzaj: 'nierozpoznany' };
 
-/** Czy tekst to obiekt JSON z `format: "piekarz-backup"` (dane z zewnątrz: od `unknown`). */
-function maFormatKopii(tekst: string): boolean {
+/** Wersja schematu, gdy tekst to obiekt JSON z `format: "piekarz-backup"` (dane z zewnątrz: od `unknown`); inaczej null. */
+function wersjaKopii(tekst: string): unknown {
   let v: unknown;
   try {
     v = JSON.parse(tekst);
   } catch {
-    return false;
+    return null;
   }
-  return typeof v === 'object' && v !== null && Reflect.get(v, 'format') === 'piekarz-backup';
+  return typeof v === 'object' && v !== null && Reflect.get(v, 'format') === 'piekarz-backup' ? Reflect.get(v, 'schemaVersion') ?? 0 : null;
 }
 
 /** Rodzaj pliku po zawartości; pusty tekst = null (nic jeszcze nie wklejono). */
 export function rozpoznajPlik(tresc: string): RozpoznanyPlik | null {
   const tekst = tresc.trim();
   if (!tekst) return null;
-  if (maFormatKopii(tekst)) {
+  const wersja = wersjaKopii(tekst);
+  if (wersja !== null) {
+    // Kopia z nowszej wersji Piekarza: prośba o aktualizację zamiast „nie rozpoznaję” [audyt-niezalezny B-7]
+    if (typeof wersja === 'number' && wersja > SCHEMA_VERSION) return { rodzaj: 'nowsza' };
     try {
       return { rodzaj: 'kopia', kopia: parseAndValidateBackup(tekst) };
     } catch {
@@ -76,6 +81,8 @@ export async function importujKopie(kopia: ValidatedBackup): Promise<void> {
   // teksty były w nowym języku. Kopia bez tych pól nic nie zmienia [M2-koordynator-napraw-502 (p11)].
   await initLanguage();
   await initUnitSystem();
+  // Przełącznik przypomnień o karmieniu z kopii przed planem powiadomień [audyt-niezalezny B-6]
+  await wczytajPonowniePrzypomnieniaKarmienia();
   void resyncNotifications();
 }
 

@@ -357,9 +357,7 @@
     ]
   },
   "Białko": {
-    "gdzie": [
-      "src/components/calculator/accordion/AccordionDdtSection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Białko w badanej próbce: 12,6%. Popiół według polskich norm: najwyżej 2%.": {
     "gdzie": [
@@ -588,6 +586,11 @@
   "Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
+    ]
+  },
+  "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Chleb żytni / foremkowy": {
@@ -846,9 +849,7 @@
     ]
   },
   "Czw.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "DDT": {
     "gdzie": []
@@ -1674,6 +1675,11 @@
       "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
     ]
   },
+  "Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (Alert.alert)"
+    ]
+  },
   "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.": {
     "gdzie": [
       "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (tekst w JSX)"
@@ -1904,6 +1910,7 @@
   },
   "Ilość objętościowa:": {
     "gdzie": [
+      "src/components/VolumeConverterModal.tsx (accessibilityLabel)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
@@ -1914,7 +1921,9 @@
   },
   "Imię zakwasu": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -2142,6 +2151,7 @@
   },
   "Kod QR Receptury": {
     "gdzie": [
+      "src/components/ShareRecipeQrModal.tsx (accessibilityLabel)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)"
     ]
   },
@@ -2867,7 +2877,6 @@
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
-      "src/lib/recipe-navigation.ts (dane: name)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
@@ -3305,6 +3314,7 @@
   },
   "Nazwa mąki (np. Pszenna typ 750)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (placeholder)"
     ]
   },
@@ -3481,9 +3491,7 @@
     ]
   },
   "Niedz.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Niedzielny obiad": {
     "gdzie": []
@@ -3565,6 +3573,7 @@
   },
   "Notatki z wypieku": {
     "gdzie": [
+      "src/components/stolnica/FinishBakeModal.tsx (accessibilityLabel)",
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
     ]
   },
@@ -3800,9 +3809,9 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
-  "Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.": {
+  "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.": {
     "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
+      "src/components/oferta/KomunikatBezSieci.tsx (kod)"
     ]
   },
   "Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.": {
@@ -4120,6 +4129,11 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
+  "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.": {
+    "gdzie": [
+      "src/lib/plan-receptury.ts (kod)"
+    ]
+  },
   "Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
@@ -4223,6 +4237,7 @@
   },
   "Początkowy stan zapasów (g)": {
     "gdzie": [
+      "src/components/FlourInventoryModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
@@ -4327,9 +4342,7 @@
     ]
   },
   "Pon.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Poolish (Rzadki zaczyn 100%)": {
     "gdzie": [
@@ -4556,6 +4569,11 @@
       "src/core/sourdough-physics.ts (dane: labelPl)"
     ]
   },
+  "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.": {
+    "gdzie": [
+      "src/components/settings/BackupAndDataSection.tsx (Alert.alert)"
+    ]
+  },
   "Przekwaszenie / Przerośnięcie": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: titlePl)"
@@ -4770,9 +4788,7 @@
     ]
   },
   "Pt.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Pusty lub nieprawidłowy link": {
     "gdzie": [
@@ -5108,6 +5124,11 @@
       "src/components/zakwas/StarterSafetyCard.tsx (label)"
     ]
   },
+  "Ręce tylko na starcie": {
+    "gdzie": [
+      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
+    ]
+  },
   "Ręcznie zdefiniowany procent utraty masy po pieczeniu i pełnym wystudzeniu.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"
@@ -5277,9 +5298,7 @@
     ]
   },
   "Sob.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Sobotnie śniadanie": {
     "gdzie": []
@@ -5314,7 +5333,7 @@
       "src/components/stolnica/PokeTestEntry.tsx (tekst w JSX)"
     ]
   },
-  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C.": {
+  "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
@@ -5379,7 +5398,8 @@
   },
   "Start {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
+      "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
   "Stary zakwas": {
@@ -5581,6 +5601,7 @@
   },
   "Szukaj np. T65, Tipo 00, 550, Bread Flour...": {
     "gdzie": [
+      "src/components/FlourEquivalentsModal.tsx (accessibilityLabel)",
       "src/components/FlourEquivalentsModal.tsx (placeholder)"
     ]
   },
@@ -5697,6 +5718,11 @@
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
+  "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.": {
+    "gdzie": [
+      "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
+    ]
+  },
   "Tangzhong (Zaparzana mąka 1:5 w 65°C)": {
     "gdzie": [
       "src/core/preferments.ts (dane: namePl)"
@@ -5776,6 +5802,11 @@
   "Temperatura zakwasu albo zaczynu": {
     "gdzie": [
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
+    ]
+  },
+  "Teraz: {nazwa}": {
+    "gdzie": [
+      "src/components/stolnica/StrefaKroku.tsx (kod)"
     ]
   },
   "Test okna glutenowego": {
@@ -5883,7 +5914,9 @@
   },
   "Typ mąki": {
     "gdzie": [
+      "src/components/zakwas/AddStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/EditStarterModal.tsx (accessibilityLabel)",
       "src/components/zakwas/EditStarterModal.tsx (placeholder)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
     ]
@@ -6550,6 +6583,7 @@
   },
   "Wklej kod JSON receptury tutaj...": {
     "gdzie": [
+      "src/components/ImportRecipeModal.tsx (accessibilityLabel)",
       "src/components/ImportRecipeModal.tsx (placeholder)"
     ]
   },
@@ -6623,6 +6657,7 @@
   },
   "Wpisz nazwę przepisu": {
     "gdzie": [
+      "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
       "src/components/calculator/SaveRecipeModal.tsx (placeholder)"
     ]
   },
@@ -6761,9 +6796,7 @@
     ]
   },
   "Wt.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
     "gdzie": [
@@ -6851,6 +6884,9 @@
     ]
   },
   "Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.": {
+    "gdzie": []
+  },
+  "Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
     ]
@@ -6901,7 +6937,7 @@
   "Wykryto uszkodzony stan bazy danych": {
     "gdzie": []
   },
-  "Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
+  "Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -7293,6 +7329,11 @@
     "gdzie": []
   },
   "Zakup": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (Alert.alert)"
+    ]
+  },
+  "Zakup czeka na zatwierdzenie": {
     "gdzie": [
       "src/components/PaywallModal.tsx (Alert.alert)"
     ]
@@ -7999,9 +8040,7 @@
     "gdzie": []
   },
   "cze": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "do {godzina}": {
     "gdzie": [
@@ -8045,9 +8084,7 @@
     ]
   },
   "gru": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "hydratacji": {
     "gdzie": [
@@ -8061,9 +8098,7 @@
     ]
   },
   "kwi": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lekcji": {
     "gdzie": []
@@ -8074,14 +8109,10 @@
     ]
   },
   "lip": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lis": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "lodu": {
     "gdzie": []
@@ -8090,19 +8121,13 @@
     "gdzie": []
   },
   "lut": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "maj": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "mar": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "masy mąki": {
     "gdzie": [
@@ -8166,9 +8191,7 @@
     ]
   },
   "paź": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "pieczenie bez pokrywy": {
     "gdzie": [
@@ -8209,9 +8232,7 @@
     ]
   },
   "sie": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "soli": {
     "gdzie": [
@@ -8229,9 +8250,7 @@
     ]
   },
   "sty": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "szklanek": {
     "gdzie": [
@@ -8310,9 +8329,7 @@
     ]
   },
   "wrz": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "wymaga Piekarz Pro": {
     "gdzie": [
@@ -8400,9 +8417,7 @@
     ]
   },
   "{dzien}, {d} {miesiac}": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "{godziny} {minuty}": {
     "gdzie": [
@@ -8456,6 +8471,11 @@
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
       "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+    ]
+  },
+  "{nazwa}: {n} z 5": {
+    "gdzie": [
+      "src/components/SensoryRadarChart.tsx (kod)"
     ]
   },
   "{n} cz.": {
@@ -8554,8 +8574,14 @@
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+    ]
+  },
+  "{n} min w {temp}": {
+    "gdzie": [
+      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
     ]
   },
   "{n} minut": {
@@ -8592,11 +8618,6 @@
   },
   "{n} szt.": {
     "gdzie": []
-  },
-  "{n}m w {temp}": {
-    "gdzie": [
-      "src/components/receptury/ORecepturze.tsx (tekst w JSX)"
-    ]
   },
   "{n}x ~{masa} upieczony bochenek": {
     "gdzie": [
@@ -8742,9 +8763,7 @@
     ]
   },
   "Śr.": {
-    "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (dane: kod)"
-    ]
+    "gdzie": []
   },
   "Śr. miękisz": {
     "gdzie": [

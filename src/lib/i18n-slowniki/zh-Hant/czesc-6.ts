@@ -1,8 +1,6 @@
-// Słownik zh-Hant, część 6 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wysoka retencja wilgoci. Odczekaj min. 4–6 godzin na kratce przed krojeniem, by uniknąć kleistości noża i zakalca.': '保濕性高。切片前請在散熱架上至少靜置 4–6 小時，以免沾刀和出現濕黏未熟層。',
-  'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).': '高濕度可延緩外皮變硬，讓割紋（耳朵）最大程度地展開。',
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.': '穀粒外殼含量高，吸水量大，外皮呈現濃郁的鄉村風味。',
   'Wysokie rozcieńczenie: mniej zakwasu względem świeżej mąki i wody, więc dłuższy czas do szczytu.': '高稀釋比例：天然酵母起種相對於新鮮麵粉和水的比例較少，因此需要更長時間才達到高峰。',
   'Wyznacz kroki wstecz, aby nie zarywać nocy': '倒推各步驟，不必熬夜',
@@ -166,4 +164,5 @@ export const CZESC: Record<string, string> = {
   'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': '根據 Bread Bakers Guild of America，室溫下至少 3 小時，或室溫 1 小時後冷藏最多 3 天',
   'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.': '根據 King Arthur Baking，以 90° 垂直下刀的割紋會向兩側裂開；以淺角度下刀時，整形張力足夠的麵糰，其繃緊的外層會形成烤裂耳（耳朵）。',
   'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)': '根據 King Arthur Baking，從 8 小時（酵母較多）到 14–16 小時（酵母較少）',
+  'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': '根據 King Arthur Baking，約 6–8 小時，直到體積膨脹一倍且充滿氣泡',
 };

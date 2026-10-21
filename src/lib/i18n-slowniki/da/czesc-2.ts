@@ -1,7 +1,6 @@
 // Słownik da, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drukuj PDF': 'Udskriv PDF',
   'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).': 'Den store mængde klid skærer mekanisk glutennetværket over. Kræver højere hydrering (78-85 %).',
   'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': 'Hold børn væk fra komfuret og det sted, hvor du arbejder.',
   'Dzieci w kuchni': 'Børn i køkkenet',
@@ -266,4 +265,5 @@ export const CZESC: Record<string, string> = {
   'mistrzowski': 'mester',
   'Mistrzowski': 'Mester',
   'Mniej': 'Mindre',
+  'Mniej bochenków': 'Færre brød',
 };

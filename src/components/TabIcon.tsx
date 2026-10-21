@@ -67,7 +67,9 @@ export function TabLabel({
   return (
     <Text
       accessibilityLanguage={lang()}
-      allowFontScaling={false}
+      // Rośnie z Dynamic Type do 1,5× (pasek ma stałą wysokość); bez limitu linii i bez zmniejszania kroju (054)
+      // [audyt-niezalezny G-9]
+      maxFontSizeMultiplier={1.5}
       style={[
         {
           color,

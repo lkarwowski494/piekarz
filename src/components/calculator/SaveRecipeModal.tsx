@@ -37,6 +37,7 @@ export function SaveRecipeModal({
           </Text>
 
           <TextInput
+            accessibilityLabel={t('Wpisz nazwę przepisu')}
             style={styles.modalInput}
             placeholder={t('Wpisz nazwę przepisu')}
             placeholderTextColor={theme.colors.tusz3}

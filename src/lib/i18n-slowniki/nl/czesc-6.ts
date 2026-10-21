@@ -14,7 +14,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Doe de vingertest voordat je het brood in de oven zet.',
   'Wykryto uszkodzony stan bazy danych': 'Beschadigde databasestatus gevonden',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Leg het deeg op het werkblad, vorm het voor tot een bol en span het oppervlak aan.',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vereist meel met een eiwitgehalte van minimaal 13,0 g. Autolyse van 60 minuten zonder zout. Heel voorzichtig vouwen (coil folds).',
   'Wymaga obecności': 'Aanwezigheid nodig',
   'wymaga Piekarz Pro': 'vereist Bakker Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Hiervoor broei je rode roggemout samen met gemalen koriander met kokend water. Bestrooi de bovenkant vóór het bakken met hele korianderzaadjes.',
@@ -177,4 +176,5 @@ export const CZESC: Record<string, string> = {
   'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.': 'Brood dat net uit de oven komt, is nog niet klaar: volgens King Arthur Baking geeft het tijdens het afkoelen vocht af en heeft het kruim die tijd nodig om te zetten. Snijd je het te vroeg aan, dan kan het klef zijn. Een andere oorzaak kan zijn dat het brood niet gaar genoeg is: volgens King Arthur Baking zijn de meeste broden gaar als de kern ongeveer 88 °C is.',
   'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.': 'Het deeg wordt stevig en stug. Je kunt meer water toevoegen.',
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Voeg wat volkorenmeel (van rogge of tarwe) toe aan het recept.',
+  'Dokarmiaj zakwas częściej przed wypiekiem.': 'Voed de zuurdesemstarter vaker voor het bakken.',
 };

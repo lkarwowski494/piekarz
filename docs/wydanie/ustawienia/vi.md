@@ -44,7 +44,7 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Đặt giờ bạn muốn bánh xong: Thợ Bánh Mì sẽ tính lượng nguyên liệu, lập lịch trình ngược và báo khi mỗi bước kết thúc. Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3337 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3430 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
@@ -75,6 +75,7 @@ Thợ Bánh Mì chạy trên iPhone và không đồng bộ dữ liệu giữa c
 
 QUYỀN TRUY CẬP VÀ MUA
 Quyền truy cập đầy đủ có được qua gói đăng ký theo tháng hoặc theo năm, hoặc mua một lần trọn đời trên App Store. Gói đăng ký có thể bắt đầu bằng thời gian dùng thử miễn phí (ưu đãi giới thiệu của App Store dành cho người dùng đủ điều kiện). Khi chưa mua, bạn vẫn có thể xem lịch sử nướng bánh, nhập tệp, cũng như xuất và xóa dữ liệu của mình.
+Điều khoản sử dụng (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Ngôn ngữ: 35.
 ```

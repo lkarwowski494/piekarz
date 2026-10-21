@@ -270,3 +270,89 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (RECP-003 b) errata BRD według design-spec (ekran receptury) — BRD wiąże „piecz ponownie” z kolejnym wypiekiem i notatką, a cel aplikacji to poprawianie następnego wypieku; (NAUK-001) usunięcie zdania LEK-PRO-900 z lekcji 6 — zmiana treści roli 06 bez źródła dla lekcji, która w 1.0 nie jest widoczna.
 - **Dlaczego:** notatka z poprzedniego wypieku ma być widoczna w chwili planowania następnego; temperatura wody ma liczyć się z warunków użytkownika, a nie ze stałych.
 - **Zależy od:** BR-DIAG-001 (Doktor z pytaniami i jedną zmianą) — nie wdrożone: kierunki zaleceń Doktora (DIA-KIE-900) są „otwarte” bez przeczytanego źródła, a pytania i wybór jednej zmiany to nowy przepływ roli 04 (blokada zadania 146).
+
+### [D-071] 2026-10-22 — Wypiek zaczęty przed godziną startu planu czeka do niej (audyt niezależny D-5, wariant b) (M2 tor p15a)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Naprawiaj wszystko.”, „W nocy doprowadź aplikację tip top do zera problemów” oraz zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21); rekomendacja audytu ★(b).
+- **Decyzja:** „Zacznij wypiek” przy planie, którego krok 1 zaczyna się później (np. plan na jutro), nie uruchamia zegara kroku 1 od teraz. Prowadzenie pokazuje czas do startu i „Start {dzień} o {godzina}” (istniejący tekst planu), ekran może zgasnąć, o starcie przychodzi powiadomienie „{krok}: czas zacząć / Do {godzina}.” (istniejące zdania), a zegar kroku 1 kończy się o planowanym końcu kroku 1, więc kolejne kroki i powiadomienia trzymają godziny planu. „Zrobione” przed startem działa jak dotąd (BR-HARMO-005: dalsze kroki przesuwają się wcześniej).
+- **Odrzucone:** (a) przesunięcie całego planu na teraz — plan otwiera się na godzinie bez kroków czynnych w nocy (129, DEC-18 a), a przesunięcie wpychało kroki czynne w sen (sprawdzone: przy wariancie a czerwone przypadki `src/__tests__/plan-bez-nocy-129.test.tsx`, `plan-za-pozno-107`, `kopia-planu-zyto-197`, `stolnica-plan-steps`; dowody/M2/p15a/D-5-szersze.txt); bez zmian — krok 1 od teraz i reszta na godzinach planu (rozjazd do kilku godzin).
+- **Dlaczego:** godzina „gotowe” i ochrona snu to wybór użytkownika z planu; start nie może ich po cichu zmieniać.
+- **Zależy od:** brak nowych tekstów do przekładu (teksty planu i powiadomień już przetłumaczone).
+
+### [D-072] 2026-10-22 — Plan wypieku tylko dla receptur na zakwasie (audyt niezależny D-3, minimum b) (M2 tor p15a)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja).
+- **Decyzja:** receptura z zakwasem 0% (np. pizza na drożdżach, bagietka na poolishu) ma „Ułóż plan” nieaktywny z powodem pod przyciskiem: „Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.”; plan otwarty z taką recepturą (np. „Piecz ponownie”) ma „Zacznij wypiek” nieaktywny z tym samym powodem.
+- **Odrzucone:** plan z napisem „plan dla chleba na zakwasie” — kroki (dokarmienie zakwasu, 14 h w lodówce) dalej wprowadzałyby w błąd przy recepturze drożdżowej; ★(a) szablon etapów z receptury — nowe etapy i czasy dla drożdży i zaczynów wymagają treści roli 06 ze źródłami (rejestr ma czasy dojrzewania zaczynów, np. ZAC-CZA-001, ZAC-BIG-001, ale nie etapy i czasy fermentacji i garowania ciasta drożdżowego), poza nocą.
+- **Dlaczego:** lepiej nie dać planu niż dać plan z krokami, których receptura nie ma.
+- **Zależy od:** (a) — treści roli 06 (etapy i czasy dla receptur drożdżowych i z zaczynem) i projektu roli 04; nowy tekst w `K/przeklad-noc3/p15a-klucze.json`.
+
+### [D-073] 2026-10-22 — Kroki bierne z rękami na starcie w ochronie snu (audyt niezależny D-6, ★a) (M2 tor p15a)
+- **Rodzaj:** produktowa (reguła planu). **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja audytu ★a).
+- **Decyzja:** etapy bierne, które zaczyna ręka piekarza, mają flagę `rekaNaStarcie`: dokarmienie zakwasu (także dokarmienie z lodówki i „Zakwas żytni”), autoliza (wymieszanie mąki z wodą), rozgrzewanie piekarnika z garnkiem i „Wypiek w formie” chleba żytniego (włożenie do pieca). Ochrona snu (Sleep Guard harmonogramu, wybór godziny bez nocy przy otwarciu planu, baner prowadzenia) traktuje początek takiego etapu w oknie snu jak kolizję; koniec i środek etapu nie. Na osi czasu plakietka „Ręce tylko na starcie” zamiast „Pasywne”. Baner nocy planu pszennego liczy kolizje z kroków planu na ekranie (jak żytni), więc mówi też o dokarmieniu z lodówki.
+- **Odrzucone:** zmiana tych etapów na czynne — ekran nie gasłby przez 6–12 h dokarmienia (BR-REKA-001) i cały etap blokowałby noc; autoliza i żytni wypiek poza flagą — audyt wymienia dokarmienie i piekarnik, ale te dwa etapy też zaczynają się pracą rąk, a pominięcie zostawiłoby tę samą lukę.
+- **Dlaczego:** nocą nie da się dokarmić zakwasu ani włączyć piekarnika bez wstawania; ochrona snu ma to pokazać przed startem.
+- **Zależy od:** testy z dawną wyrocznią (tylko kroki czynne) poprawione z komentarzem: `reverse-scheduler-exhaustive` (2 przypadki: jedyna kolizja to dokarmienie o 04:45), `reverse-scheduler-dst` (wyrocznia z flagą i oknem domyślnym 23:00–07:00 zamiast 06:30, część D-12), `plan-bez-nocy` (wektor 09:15 → 10:00: piekarnik o 05:45), `harmonogram-screen` (po „Przesuń do lodówki” baner może zostać dla dokarmienia z lodówki). Nowy tekst „Ręce tylko na starcie” w `K/przeklad-noc3/p15a-klucze.json`.
+
+### [D-074] 2026-10-22 — Plan żytni bez przełącznika lodówki; czasy żyta z receptury czekają na źródło (audyt niezależny D-7, wariant b) (M2 tor p15a)
+- **Rodzaj:** produktowa (wygląd planu) z blokadą merytoryczną. **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja).
+- **Decyzja:** plan z recepturą żytnią (> 50% żyta) nie pokazuje „Czas w lodówce” (rozrost w formie odbywa się w cieple i kończy go stan ciasta, nie czas: ZYT-ETA-005). Rozrost w formie zostaje z minutnikiem orientacyjnym z planu (DEC-04 a / D-030), jak dotąd.
+- **Odrzucone:** ★(a) czasy żyta z presetu („Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h)” w notatce receptury `rye_100_pan`) — liczba bez źródła w `docs/tresci/rejestr.json`; ZYT-ETA-900 (czasy domowego chleba żytniego) ma status „otwarte”, a D-035 dopuszcza czasy tylko ze źródeł rejestru; rozrost bez minutnika (durationMin null) — plan nie policzyłby godzin po rozroście, więc godzina „gotowe” traciłaby sens.
+- **Dlaczego:** przełącznik lodówki zmieniał rozrost w formie, którego nie robi się w lodówce; to najmniejsza zmiana bez nowej liczby.
+- **Zależy od:** źródła ZYT-ETA-900 (rola 06): dopiero z nim (a) — czas rozrostu żytniego zamiast czasu garowania chłodniczego planu; do tego czasu minutnik rozrostu bierze czas garowania planu (domyślnie 14 h), co zostaje znaną niezgodnością (zgłoszenie dla roli 06 w raporcie p15a).
+
+### [D-075] 2026-10-22 — Plan z „Ułóż plan” bierze temperaturę kuchni z receptury (audyt niezależny D-4, reszta po p13b) (M2 tor p15a)
+- **Rodzaj:** produktowa. **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja).
+- **Decyzja:** pola temperatur i wzór n = 3 bez zakwasu wprowadził p13b (D-070 pkt 2, KALK-004) — ta część D-4 jest zamknięta. Reszta: plan otwarty przyciskiem „Ułóż plan” pokazuje temperaturę kuchni z arkusza „Temperatura wody” (domyślnie 22 °C, jak w recepturze) zamiast stałych 23 °C; do wypieku i dziennika trafia tylko wtedy, gdy użytkownik wpisał ją w recepturze albo wybrał w planie (zasada M1-audytor-generalny-017 bez zmian). Plan otwarty bez receptury (np. „Piecz ponownie”) zostaje przy 23 °C modelu.
+- **Odrzucone:** zmiana domyślnej temperatury receptury na 23 °C — wartość pola wody to osobne założenie (D-070: domyślne 21/22/21/2 °C bez zmian); dwie różne liczby na dwóch ekranach tej samej receptury.
+- **Dlaczego:** jedna kuchnia, jedna temperatura: plan i temperatura wody liczą się z tej samej liczby.
+- **Zależy od:** nic nowego (żadna liczba dziedzinowa nie zmieniona).
+
+### [D-076] 2026-10-22 — Ekran zakupu i start płatności według audytu niezależnego (A-3 b, C-3, C-4, C-5, C-6, C-7) (M2 tor p15a)
+- **Rodzaj:** produktowa (zachowanie płatności). **Słowa właściciela:** jak D-071 (zgoda trwała, rekomendacja audytu).
+- **Decyzja:** (A-3) sklep bez produktów = „Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.”, błąd odczytu = dotychczasowy komunikat o połączeniu; (C-4) zakup oczekujący (Ask to Buy, deferred/pending) = „Zakup czeka na zatwierdzenie” zamiast prośby o sprawdzenie internetu; (C-5) drugie stuknięcie „Kup”/„Przywróć zakupy” przed renderem nie woła sklepu; (C-6) nasłuch transakcji zakładany przed każdym połączeniem ze sklepem; (C-3) pierwszy odczyt w procesie najpierw bierze pamięć ostatniego udanego odczytu (dostęp od razu dla płacącego), a odczyt sklepu ma limit 15 s (potem „błąd odczytu”, decyzja z pamięci); (C-7) znacznik historii dostępu ma rodzaj: 'proba' (tylko okres próbny) albo 'platny' (raz płatny zostaje); nagłówek „Okres próbny się skończył” tylko po samej próbie, w pozostałych przypadkach (także dawny znacznik '1' i brak informacji o próbie ze sklepu) neutralny „Piekarz Pro nie jest aktywny”.
+- **Odrzucone:** (C-3) nadawanie dostępu z pamięci bez odczytu sklepu na stałe — sklep zostaje źródłem prawdy (zwrot zabiera dostęp przy pierwszym udanym odczycie); (C-7) zgadywanie próby z czasu trwania subskrypcji — bez danych ze sklepu nagłówek nie twierdzi, że była próba.
+- **Dlaczego:** komunikat ma mówić prawdę o przyczynie (brak sieci, brak produktów, czekanie na zgodę), a płacący nie może widzieć kłódek przez wolny StoreKit.
+- **Zależy od:** OP-M03 (czy StoreKit wypełnia offerIOS — sandbox): bez tego wszyscy po subskrypcji dostaną nagłówek neutralny; limit 15 s to parametr techniczny, nie liczba dziedzinowa. Zrzut ekranu zakupu dla App Review (A-3 a) — krok właściciela.
+
+### [D-081] 2026-10-22 — Link „Oceń w App Store” zostaje widoczny przed wydaniem (audyt niezależny A-7) (M2 tor p15b)
+- **Rodzaj:** produktowa. **Słowa właściciela:** „Naprawiaj wszystko.”, „W nocy doprowadź aplikację tip top do zera problemów” oraz zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** wiersz „Oceń w App Store” w karcie „Kontakt” zostaje widoczny, gdy `APP_STORE_ID` jest liczbą (`src/lib/links.ts`, 082). Przed publikacją w App Store strona aplikacji (`apps.apple.com/app/apple-store/id…?action=write-review`) nie istnieje i tester TestFlight zobaczy stronę błędu sklepu; od dnia wydania link działa bez nowej wersji.
+- **Odrzucone:** (b) ukrycie wiersza do wydania (flaga albo warunek daty) — wymaga nowej wersji po wydaniu albo przełącznika, o którym łatwo zapomnieć; wtedy link zostałby ukryty w wersji publicznej, gdzie ma wartość (BR-OPIN-002).
+- **Dlaczego:** link ma wartość od pierwszego dnia w sklepie; wada dotyczy tylko testerów TestFlight przed wydaniem, a błąd otwarcia adresu i tak pokazuje komunikat „Ocena wymaga połączenia z App Store.”.
+- **Zależy od:** daty wydania 1.0 (DEC-16 a, wydanie ręczne). Jeśli wydanie się opóźni, a testerów TestFlight będzie wielu, wrócić do opcji (b).
+
+### [D-082] 2026-10-22 — „Usuń wszystkie dane” nie kasuje kopii zapasowych w Plikach; okno potwierdzenia mówi, gdzie są (audyt niezależny B-4) (M2 tor p15b)
+- **Rodzaj:** produktowa. **Słowa właściciela:** zgoda trwała „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Decyzja:** kopie `piekarz-kopia-*`, `piekarz-przed-importem-*` i `piekarz-przed-czyszczeniem-*` zostają po „Usuń wszystkie dane”; okno „Usunąć wszystkie dane?” mówi, że kopie zostają w aplikacji Pliki, w folderze aplikacji, i że tam można je usunąć.
+- **Odrzucone:** automatyczne kasowanie kopii razem z danymi — usuwa ostatnią drogę odzyskania, łącznie z kopią przed czyszczeniem zrobioną chwilę wcześniej.
+- **Dlaczego:** zasada zero utraty danych; użytkownik dostaje pełną informację w chwili decyzji.
+
+### [D-083] 2026-10-22 — Pasek „Cofnij” bez limitu czasu przy włączonym czytniku ekranu (audyt niezależny B-9, WCAG 2.2.1) (M2 tor p15b)
+- **Rodzaj:** dostępność (projektowa). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** przy włączonym VoiceOver pasek „Cofnij” nie znika sam po 6 s; chowa się przy następnym działaniu albo po wyjściu z ekranu. Bez czytnika czas 6 s bez zmian. Usunięcie jest zapisane przed pokazaniem paska.
+- **Odrzucone:** dłuższy stały czas (np. 60 s) — dalej limit czasu dla osoby z czytnikiem (WCAG 2.2.1 „Timing Adjustable”).
+
+### [D-084] 2026-10-22 — Kontrola bezpieczeństwa zakwasu dostępna bez zakupu (audyt niezależny E-1) (M2 tor p15b)
+- **Rodzaj:** produktowa i bezpieczeństwo żywności. **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** w zakładce Zakwasy karta bezpieczeństwa (`StarterSafetyCard`: nalot, kożuch, przebarwienie, zgniły zapach → „Wyrzuć zakwas”, RD-21-W1) i zdanie o granicach oceny są poza blokadą zakupu; dokarmianie, kalkulator, szczyt zakwasu i diagnoza przyczyn w Doktorze zakwasu zostają płatne.
+- **Odrzucone:** karta za blokadą — ostrzeżenie o bezpieczeństwie żywności nie może być płatne (docs/monetyzacja.md BR-DIAG-002: „ostrzeżenie RD-21 zawsze”).
+
+### [D-085] 2026-10-22 — Szacunek białka mieszanki mąk ukryty do czasu źródła (audyt niezależny E-7) (M2 tor p15b)
+- **Rodzaj:** merytoryczna. **Decyzja:** arkusz „Temperatura wody” nie pokazuje „Białko: ~x%”; pola `proteinPercent` atlasu nie mają źródła (MAK-OGL-900) i przeczą rejestrowi (np. pszenna typ 2000: 13,8% w atlasie, 9,6% według MAK-OGL-003). Wartość zostaje w modelu (`analyzeFlourBlendAbsorption`), bez wyświetlania.
+- **Odrzucone:** wpisanie liczb z MAK-OGL — źródła dają pojedyncze próbki i przedziały, część profili nie ma źródła, a model liczy średnią z jednej liczby.
+- **Zależy od:** źródła szczebla 1–3 dla białka każdego profilu mąki (rola 06).
+
+### [D-086] 2026-10-22 — Serbski w łacince (sr-Latn) z cyrylicznego słownika sr przez transliterację; folder „kopie-ratunkowe” bez zmiany nazwy; hr w formie „ti” przez ponowny przekład (audyt niezależny F-11, F-10, F-7) (M2 tor p15b)
+- **Rodzaj:** produktowa (języki). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** (1) na urządzeniu z serbskim w łacince tekst t() języka sr przechodzi przez `cyrylicaNaLacinke` (`src/lib/sr-latinica.ts`, odpowiedniość liter 1:1); nazwa pod ikoną zostaje cyrylicą. (2) Nazwa folderu kopii ratunkowych zostaje (stała techniczna podana w komunikatach). (3) 39 tekstów hr w formie „Vi” czeka na ponowny przekład w formie „ti” (`czeka-na-przeklad.json`, `jezyki: ["hr"]`).
+- **Odrzucone:** (1) osobny słownik sr-Latn (drugi przekład i drugie źródło prawdy) albo hr/EN dla sr-Latn; (2) zmiana nazwy folderu bez migracji — gubi istniejące kopie ratunkowe; (3) ręczna przeróbka 39 zdań hr bez przekładu.
+
+### [D-087] 2026-10-22 — Podpisy zakładek skalują się z Dynamic Type do 1,5×, bez limitu linii i bez zmniejszania kroju (audyt niezależny G-9; zmiana reguły 055 roli 04 do przeglądu) (M2 tor p15b)
+- **Rodzaj:** projektowa (dostępność). **Słowa właściciela:** zgoda trwała jak w D-082.
+- **Decyzja:** `TabLabel` bez `allowFontScaling={false}`, z `maxFontSizeMultiplier={1.5}`; reguła 054 (bez limitu linii i bez zmniejszania kroju) bez zmian. W `tests/duzy-tekst-kroj.test.ts` dawny wyjątek „Large Content Viewer” zastąpiony nazwanym wyjątkiem z tą jedną wartością.
+- **Odrzucone:** pełne skalowanie do AX5 (pasek zakładek ma stałą wysokość 49 pt); jeden wiersz z dopasowaniem kroju — łamie regułę 054.
+- **Zależy od:** przeglądu roli 04 (reguła 055 miała wyjątek z uzasadnieniem, którego własny `TabLabel` nie spełniał).
+
+### [D-088] 2026-10-22 — expo-audio bez uprawnienia mikrofonu i bez odtwarzania w tle (audyt niezależny, ryzyko ITMS-90683) (M2 tor p15b)
+- **Rodzaj:** techniczna (wydanie). **Decyzja:** wtyczka `expo-audio` w `app.json` z `microphonePermission: false`, `recordAudioAndroid: false`, `enableBackgroundPlayback: false`, `enableBackgroundRecording: false`; `verify:native` pilnuje tej konfiguracji. Aplikacja nie nagrywa (tylko `createAudioPlayer`).
+- **Odrzucone:** opis `NSMicrophoneUsageDescription` dla aplikacji, która nie nagrywa (zakaz w `verify:native`, pytanie o zgodę, której nie ma); wykluczenie expo-audio z autolinkingu (dźwięk końca kroku jest potrzebny).
+- **Zależy od:** odpowiedzi App Store Connect na pierwszy build: jeśli Apple zgłosi ITMS-90683 dla mikrofonu (kod nagrywania w bibliotece), decyzja właściciela: krótki opis mikrofonu („Piekarz nie nagrywa dźwięku…”) albo moduł dźwięku bez kodu nagrywania.

@@ -16,6 +16,8 @@ export interface CalculatorActionButtonsProps {
   onSaveCustomRecipe: () => void;
   onWaterTemp: () => void;
   onEditIngredients: () => void;
+  /** Powód, dla którego „Ułóż plan” jest nieaktywny (receptura bez zakwasu, D-3); brak = aktywny. */
+  powodBezPlanu?: string | null;
 }
 
 export function CalculatorActionButtons({
@@ -23,12 +25,25 @@ export function CalculatorActionButtons({
   onSaveCustomRecipe,
   onWaterTemp,
   onEditIngredients,
+  powodBezPlanu = null,
 }: CalculatorActionButtonsProps) {
+  const bezPlanu = !!powodBezPlanu;
   return (
     <View style={styles.obszar} testID="recipe-actions">
-      <Pressable accessibilityRole="button" testID="start-bake-btn" style={styles.glowny} onPress={onMakePlan}>
-        <Text style={styles.glownyTekst}>{t('Ułóż plan')}</Text>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityState={{ disabled: bezPlanu }}
+        accessibilityHint={powodBezPlanu ?? undefined}
+        disabled={bezPlanu}
+        testID="start-bake-btn"
+        style={[styles.glowny, bezPlanu && styles.glownyZablokowany]}
+        onPress={() => {
+          if (!bezPlanu) onMakePlan();
+        }}
+      >
+        <Text style={[styles.glownyTekst, bezPlanu && styles.tekstZablokowany]}>{t('Ułóż plan')}</Text>
       </Pressable>
+      {powodBezPlanu ? <Text style={styles.powod}>{powodBezPlanu}</Text> : null}
       <View style={styles.rzad}>
         <Pressable accessibilityRole="button" testID="save-custom-recipe-btn" style={[styles.drugi, styles.wRzedzie]} onPress={onSaveCustomRecipe}>
           <Text style={styles.drugiTekst}>{t('Zapisz jako moją')}</Text>
@@ -74,6 +89,9 @@ const styles = StyleSheet.create({
     color: theme.colors.naAkcencie,
     textAlign: 'center',
   },
+  glownyZablokowany: { backgroundColor: theme.colors.powierzchnia, borderWidth: 1.5, borderColor: theme.colors.obwodka },
+  tekstZablokowany: { color: theme.colors.zablokowane },
+  powod: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, textAlign: 'center' },
   drugi: {
     minHeight: theme.cele.glownyPrzeplyw,
     justifyContent: 'center',

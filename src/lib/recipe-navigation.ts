@@ -61,8 +61,13 @@ const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
   'pizza napoletana verace (48h)': 'pizza_napoletana_48h',
 };
 
-export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad {
-  const allPresets = [...customRecipes, ...MASTER_RECIPES];
+/**
+ * Receptura do „Piecz ponownie” po nazwie z wpisu: najpierw własne receptury użytkownika, potem bazowe (także dawne
+ * nazwy). Bez dopasowania null — ekran otwiera listę receptur zamiast zmyślonej formuły [audyt-niezalezny D-10].
+ */
+export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad | null {
+  const wlasne = customRecipes.filter((r) => !r.isBuiltIn);
+  const allPresets = [...wlasne, ...customRecipes.filter((r) => r.isBuiltIn), ...MASTER_RECIPES];
   const nazwa = log.recipeName.toLowerCase();
   const match =
     allPresets.find((r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === nazwa) ??
@@ -77,16 +82,6 @@ export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: Stored
     };
   }
 
-  return {
-    name: log.recipeName,
-    targetDDT: log.actualDDT ?? 25.0,
-    formula: {
-      flours: [{ name: 'Mąka pszenna chlebowa typ 750', percentage: 100.0, type: 'pszenna_750' }],
-      waterPercentage: 70.0,
-      saltPercentage: 2.0,
-      starterPercentage: 20.0,
-      targetDoughWeightGrams: 900,
-    },
-  };
+  return null;
 }
 

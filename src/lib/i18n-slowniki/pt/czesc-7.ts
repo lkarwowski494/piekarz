@@ -1,11 +1,6 @@
 // Słownik pt, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Com as mãos molhadas, faça dobras em espiral (coil fold) diretamente para dentro da forma.',
-  'Zwiń protokół': 'Recolher protocolo',
-  'Zwiń wyjaśnienie': 'Recolher explicação',
-  'Żytni': 'De centeio',
-  'Żytnie': 'De centeio',
   '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h a 18–20 °C (ou 4 h a 24 °C)',
   '12–24h w chłodzie (4–8°C)': '12–24 h no frio (4–8 °C)',
   '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h a 16–18 °C (ou 24–48 h no frigorífico)',
@@ -128,4 +123,6 @@ export const CZESC: Record<string, string> = {
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Dê a forma final (bâtard ou pão redondo), coloque num cesto enfarinhado e leve ao frigorífico (4 °C) durante 12–16 h.',
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'A temperatura calculada da água excede 45 °C. Há o risco de cozer as leveduras e as bactérias láticas. Arrefeça a farinha ou baixe a temperatura ambiente.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Massa de pizza napolitana autêntica, com rebordo estaladiço e interior delicado.',
+  'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Última dobra, que cria tensão superficial. A massa deve estar arejada e manter a forma de bola.',
+  'Piekarz Pro nie jest aktywny': 'O Padeiro Pro não está ativo',
 };

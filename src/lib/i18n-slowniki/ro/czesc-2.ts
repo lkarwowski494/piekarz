@@ -1,7 +1,6 @@
 // Słownik ro, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drożdże': 'Drojdie',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Drojdiile și bacteriile din maiaua naturală trebuie hrănite regulat cu făină proaspătă și apă, ca să supraviețuiască și să se înmulțească.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Drojdiile n-au apucat să producă și să distribuie gazul în tot volumul aluatului înainte de coacere. În cuptor, expansiunea s-a produs brusc doar în partea de sus, rupând coaja.',
   'Drożdżowe': 'Cu drojdie',

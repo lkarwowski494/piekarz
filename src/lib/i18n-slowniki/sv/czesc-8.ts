@@ -1,6 +1,17 @@
 // Słownik sv, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Jäsning: 2 h på bänken, dela i bollar på 250 g, 46 h i kylen (4 °C). Ta ut 2 h före gräddning.',
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Surdegsgrundens vätskegrad måste ligga inom intervallet 20–200 %',
+  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Mata Lievito Madre 3 gånger var 4:e timme innan du blandar degen. Tillsätt smöret (25 %) gradvis i omgångar mot slutet av knådningen, när glutennätverket är fullt utvecklat.',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Förlängd kall jäsning (18–24 h i 4 °C). Lägre jästemperatur förknippas med ättiksyra. Grädda med kraftig ånga.',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Blanda och lägg direkt i en smord brödform beströdd med kli. En enda jäsning i värme tills degen fördubblats (ca 3–4 h). Enligt King Arthur Baking bör ett gräddat surdegsbröd av råg vila 24 timmar innan det skärs, för bästa kvalitet.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Grädda i gjutjärnsgryta. 4 omgångar vikningar (Coil Fold) med 30 minuters mellanrum. Kalljäsning i kylen 12–16 timmar.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Rosta fröna i en torr stekpanna och häll över varmt vatten 2 h innan de arbetas in i degen vid lamineringen. Knåda dinkeln varsamt och undvik att sträcka den för mycket.',
+  'Uczeń Piekarski': 'Baklärling',
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Mognadstid {fermentationTimeHours}. {flavorProfilePl}',
+  'Mąka pszenna typ 650 (chlebowa jasna)': 'Ljust vetemjöl (för bröd)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Vetemjöl Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Ljust rågmjöl',
   'Mąka z pszenicy durum (Semolina)': 'Durumvetemjöl (semolina)',
@@ -16,8 +27,6 @@ export const CZESC: Record<string, string> = {
   '{n} krok wypada w nocy#other': '{n} steg infaller på natten',
   '{n} dzień#one': '{n} dag',
   '{n} dzień#other': '{n} dagar',
-  '{n} cz.#one': '{n} del',
-  '{n} cz.#other': '{n} delar',
   '{n} dzień temu#one': 'för {n} dag sedan',
   '{n} dzień temu#other': 'för {n} dagar sedan',
   '{n} receptura#one': '{n} recept',

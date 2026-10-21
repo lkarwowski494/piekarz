@@ -10,6 +10,7 @@ import { getAppSetting, setAppSetting } from '../data/sqlite-store';
 import { formatFixed, formatNumber } from './format';
 import { ustawPrzeliczanieTekstu } from './i18n';
 import { guardSave } from './save-guard';
+import { tekstSerbski } from './sr-latinica';
 
 export type UnitSystem = 'metric' | 'imperial';
 
@@ -276,7 +277,8 @@ export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUn
 
 // Każdy tekst przez t() (ekrany, komunikaty, powiadomienia, eksport tekstowy) w trybie imperialnym ma °F i oz
 // (design-spec §7, D-044) [M1-audytor-generalny-096]; tekst źródłowy klucza rozpoznaje różnice i masy (09-lokalizacja-501)
-ustawPrzeliczanieTekstu((s, zrodlo) => (currentUnitSystem === 'imperial' ? formatTextUnits(s, 'imperial', zrodlo) : s));
+// Serbski w łacince z cyrylicznego słownika sr, gdy urządzenie ma sr-Latn [audyt-niezalezny F-11]
+ustawPrzeliczanieTekstu((s, zrodlo) => tekstSerbski(currentUnitSystem === 'imperial' ? formatTextUnits(s, 'imperial', zrodlo) : s));
 
 /** Wartość z pola temperatury w jednostce z ustawienia → °C do zapisu (baza metryczna, D-044). */
 export function temperaturaZPola(wartosc: number, unitSystem: UnitSystem = currentUnitSystem): number {

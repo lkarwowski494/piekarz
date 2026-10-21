@@ -1,6 +1,21 @@
 // Słownik ja, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': '低温での長時間発酵（4°Cで18–24時間）。低い発酵温度は酢酸と関連づけられています。強めの蒸気で焼成します。',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': '混ぜたら、油を塗ってふすまをまぶしたパウンド型に直接入れてください。暖かい場所で2倍になるまで1回だけ発酵させます（約3–4時間）。King Arthur Bakingによると、焼き上がったライ麦のサワードウは、最高の品質のため24時間休ませてから切るのがよいとされています。',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': '鋳鉄鍋で焼成します。パンチ / 折りたたみ（コイルフォールド）を30分おきに4回。冷蔵庫で12–16時間の低温長時間発酵。',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': '種子は乾いたフライパンで煎り、温かい湯に2時間浸してから、ラミネーションの際に生地に加えてください。スペルト小麦の生地は伸ばしすぎないよう、やさしく捏ねてください。',
+  'Uczeń Piekarski': 'パン見習い',
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}：熟成時間 {fermentationTimeHours}。{flavorProfilePl}',
+  'Mąka pszenna typ 650 (chlebowa jasna)': '小麦粉（パン用の白い粉）',
+  'Mąka pszenna Manitoba / Forte (W > 300)': 'マニトバ / フォルテ小麦粉（W > 300）',
+  'Mąka żytnia typ 720': 'ライ麦粉（中程度の精製度）',
+  'Mąka z pszenicy durum (Semolina)': 'デュラム小麦粉（セモリナ）',
+  'Mąka pszenna typ 650': '小麦粉（白い粉）',
+  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '粗挽きのグラハム粉（小麦の全粒粉）に天然のはちみつと亜麻仁を加えた、栄養豊富なパン。',
+  'Mąka pszenna graham typ 1850': 'グラハム粉（小麦の全粒粉）',
+  'Mąka pszenna Manitoba / Forte (W > 350)': 'マニトバ / フォルテ小麦粉（W > 350）',
+  'Mąka pszenna włoska Tipo 00': 'イタリア産小麦粉 Tipo 00',
   'Mąka pszenna luksusowa typ 550': '小麦粉（精製度の高い白い粉）',
   'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': '高タンパク小麦粉（W>280 / マニトバ）',
   'Mąka pszenna pełnoziarnista typ 2000': '小麦全粒粉',

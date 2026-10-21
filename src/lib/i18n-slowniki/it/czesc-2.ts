@@ -1,7 +1,6 @@
 // Słownik it, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobna niedoskonałość': 'Piccola imperfezione',
   'Drobne pory, bochenek ciężki w dłoni': 'Alveoli piccoli, pagnotta pesante in mano',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Alveoli minuti e uniformi come spugna/schiuma',
   'Drożdże': 'Lievito di birra',
@@ -239,4 +238,5 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Farina di frumento ad alta estrazione, proteine 11,9%',
   'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Farina di frumento ad alta estrazione, proteine 12,4–15,5%',
   'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Farina di frumento ad alta estrazione, proteine 13,1%',
+  'Mąka pszenna, białko 13,8%': 'Farina di frumento, proteine 13,8%',
 };

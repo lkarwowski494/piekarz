@@ -13,9 +13,22 @@ import { Linking } from 'react-native';
 import { APPLE_SUBSCRIPTIONS_URL } from '../links';
 
 let polaczenie: Promise<unknown> | null = null;
+let przedPolaczeniem: (() => void) | null = null;
+
+/**
+ * Funkcja wołana przed każdym połączeniem ze sklepem (stan.ts: nasłuch transakcji): StoreKit podaje transakcje z kolejki
+ * po połączeniu, więc nasłuch musi już być [audyt-niezalezny C-6].
+ */
+export function ustawPrzedPolaczeniem(fn: (() => void) | null): void {
+  przedPolaczeniem = fn;
+}
+
+/** Limit odczytu uprawnień: zawieszony StoreKit to błąd odczytu, nie wieczne ładowanie [audyt-niezalezny C-3]. */
+export const LIMIT_ODCZYTU_SKLEPU_MS = 15_000;
 
 /** initConnection raz na proces; nieudane połączenie można ponowić. */
 export function polacz(): Promise<unknown> {
+  przedPolaczeniem?.();
   if (!polaczenie) {
     polaczenie = Iap.initConnection().catch((e: unknown) => {
       polaczenie = null;
@@ -75,8 +88,20 @@ async function karencja(): Promise<Uprawnienie[]> {
   }
 }
 
-/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu to „blad”. */
+/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu i brak odpowiedzi w limicie czasu to „blad”. */
 export async function odczytajSklep(): Promise<Odczyt> {
+  let zegar: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<Odczyt>((r) => {
+    zegar = setTimeout(() => r({ zrodlo: 'blad' }), LIMIT_ODCZYTU_SKLEPU_MS);
+  });
+  try {
+    return await Promise.race([odczytBezLimitu(), limit]);
+  } finally {
+    clearTimeout(zegar);
+  }
+}
+
+async function odczytBezLimitu(): Promise<Odczyt> {
   try {
     await polacz();
     const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
@@ -140,18 +165,32 @@ export async function pobierzOferte(): Promise<Oferta[]> {
   return wynik;
 }
 
-/** Arkusz zakupu App Store. Wynik przychodzi przez nasłuch transakcji (stan.ts), nie z tej funkcji. */
-export async function kup(plan: Plan): Promise<void> {
+/** Zakup czeka na zatwierdzenie (Ask to Buy w Chmurze rodzinnej albo potwierdzenie płatności): błąd sklepu albo transakcja „pending”. */
+function oczekuje(x: unknown): boolean {
+  const lista = Array.isArray(x) ? x : [x];
+  return lista.some((p) => {
+    if (typeof p !== 'object' || p === null) return false;
+    const kod = Reflect.get(p, 'code');
+    return kod === 'deferred-payment' || kod === 'pending' || Reflect.get(p, 'purchaseState') === 'pending';
+  });
+}
+
+/**
+ * Arkusz zakupu App Store. Wynik przychodzi przez nasłuch transakcji (stan.ts), nie z tej funkcji; 'oczekuje' =
+ * zakup czeka na zatwierdzenie (Ask to Buy), to nie błąd sieci [audyt-niezalezny C-4].
+ */
+export async function kup(plan: Plan): Promise<'oczekuje' | void> {
   await polacz();
   const sku = PRODUKTY[plan];
   try {
-    if (plan === 'lifetime') {
-      await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } });
-    } else {
-      await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
-    }
+    const wynik: unknown =
+      plan === 'lifetime'
+        ? await Iap.requestPurchase({ type: 'in-app', request: { apple: { sku } } })
+        : await Iap.requestPurchase({ type: 'subs', request: { apple: { sku } } });
+    if (oczekuje(wynik)) return 'oczekuje';
   } catch (e: unknown) {
     if (Iap.isUserCancelledError(e)) return; // anulowanie to nie błąd i nie sukces
+    if (oczekuje(e)) return 'oczekuje';
     throw e;
   }
 }
@@ -181,4 +220,9 @@ export function nasluchujZakupow(fn: (p: Purchase) => void): { remove: () => voi
 
 export async function zakonczTransakcje(p: Purchase): Promise<void> {
   await Iap.finishTransaction({ purchase: p, isConsumable: false });
+}
+
+/** Tylko testy: nowy proces bez połączenia ze sklepem. */
+export function _resetSklepu(): void {
+  polaczenie = null;
 }

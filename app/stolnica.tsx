@@ -28,7 +28,7 @@ import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-a
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
 import { SessionStep, isDutchOvenStep } from '../src/core/bake-steps';
 import { BakeProgress, restoreTimerState, stepDurationSec, stepHasTimer } from '../src/core/bake-session';
-import { StepUndo, canUndoConfirm, confirmStep, undoConfirm } from '../src/core/step-confirm';
+import { StepUndo, canUndoConfirm, confirmStep, skokDoKroku, undoConfirm } from '../src/core/step-confirm';
 import { poCoTenKrok } from '../src/core/po-co-ten-krok';
 import { ostrzezeniaKroku } from '../src/core/ostrzezenia-kroku';
 import { useAppAccess } from '../src/lib/app-access';
@@ -43,6 +43,7 @@ import { PoCoTenKrokArkusz } from '../src/components/stolnica/PoCoTenKrokArkusz'
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 import { StrefaPlanu } from '../src/components/stolnica/StrefaPlanu';
 import { useTekstyProwadzenia } from '../src/hooks/useTekstyProwadzenia';
+import { czekaNaStart } from '../src/lib/prowadzenie-teksty';
 import { styles } from '../src/components/stolnica/stolnica-screen.styles';
 
 export default function StolnicaScreen() {
@@ -145,7 +146,8 @@ export default function StolnicaScreen() {
       setActiveBakeData(s.bake);
       // Zegar stojący (nowy wypiek albo zapis sprzed 056) rusza sam; zgoda na powiadomienia przy pierwszym zegarze (ADR-006),
       // najpierw zdanie „po co” (BR-CZAS-003) [M1-audytor-generalny-130]
-      if (zastosuj(s)) void zapytajOZgode();
+      // Wypiek przed godziną startu planu (D-5): zgoda także wtedy, bo powiadomienie przyjdzie o starcie
+      if (zastosuj(s) || czekaNaStart(s.steps, s.stepIdx, Date.now()) !== null) void zapytajOZgode();
     }
   );
 
@@ -205,9 +207,12 @@ export default function StolnicaScreen() {
   // Jump to or advance step
   const goToStep = (idx: number) => {
     if (idx < 0 || idx >= steps.length) return;
+    // Wybrany krok od teraz, dalsze kroki i powiadomienia razem z nim [audyt-niezalezny D-8]
+    const skok = skokDoKroku(postep(), idx, Date.now());
+    setSteps(skok.steps);
     setCurrentStepIdx(idx);
     setDutchOvenPhase('lid_on');
-    runFor(stepDurationSec(steps[idx], 'lid_on'));
+    runFor(stepDurationSec(skok.steps[idx], 'lid_on'));
     setUndo(null);
     setCofniete(null);
     tapHaptic(Haptics.ImpactFeedbackStyle.Light);
@@ -295,7 +300,7 @@ export default function StolnicaScreen() {
         }}
       />
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
-      <StolnicaKeepAwake active={aktywny && !currentStep.isPassive} />
+      <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />
       <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
         {/* Bez trwającego wypieku nic: ekran przekierowuje na Dziś [M1-audytor-generalny-117] */}
         {!aktywny ? null : (

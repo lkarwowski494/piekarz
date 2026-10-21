@@ -1,12 +1,6 @@
 // Słownik it, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.': 'Elasticità e umidità equilibrate. Richiede 3–4 serie standard di pieghe di rinforzo.',
-  'Zwiększ': 'Aumenta',
-  'Zwiększ hydratację': 'Aumenta idratazione',
-  'Zwiększ hydratację o {n}%': 'Aumenta l\'idratazione di {n}%',
-  'Zwiększ masę mąki o {g} g': 'Aumenta il peso della farina di {g} g',
-  'Zwiększ udział mąki {nazwa} o {n}%': 'Aumenta la quota della farina {nazwa} di {n}%',
   'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Con le mani bagnate, trasferisci l\'impasto direttamente nello stampo con pieghe di rinforzo (coil fold).',
   'Zwiń protokół': 'Comprimi protocollo',
   'Zwiń wyjaśnienie': 'Comprimi spiegazione',
@@ -132,4 +126,6 @@ export const CZESC: Record<string, string> = {
   'Mistrzowski wiejski w stylu Tartine, 80%': 'Pagnotta rustica da maestro stile Tartine, 80%',
   'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.': 'Con le mani bagnate solleva i 4 lembi dell\'impasto verso l\'alto e ripiegali verso il centro della ciotola.',
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Dai la forma finale (filone o pagnotta rotonda), metti l\'impasto nel cestino infarinato e riponilo in frigo (4 °C) per 12–16 h.',
+  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calcolata dell\'acqua supera i 45 °C. Questo rischia di cuocere i lieviti e i batteri lattici. Raffredda la farina o abbassa la temperatura ambiente.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Autentico impasto per pizza napoletana dal cornicione croccante e dall\'interno delicato.',
 };

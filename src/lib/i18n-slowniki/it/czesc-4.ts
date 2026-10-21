@@ -1,7 +1,6 @@
 // Słownik it, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'po upieczeniu: ~{masa}': 'dopo la cottura: ~{masa}',
   'Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}': 'La posta non è configurata su questo telefono. Scrivi a: {adres}',
   'Podnieś docelową temperaturę ciasta': 'Alza la temperatura desiderata dell\'impasto',
   'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Porta la temperatura di fermentazione al valore ottimale di 26–28 °C.',
@@ -208,4 +207,6 @@ export const CZESC: Record<string, string> = {
   'Świeży po pracy': 'Fresco dopo il lavoro',
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Sapore di frumento fresco e semplice, senza acidità sviluppata.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (farina scottata 1:5 a 65 °C)',
+  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Non riconosco questo file. Fornaio importa file di ricette e file di backup creati con Fornaio.',
+  'Temp': 'Temp',
 };

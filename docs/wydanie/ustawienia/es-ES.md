@@ -44,7 +44,7 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Elige a qué hora quieres el pan listo: Panadero calcula cantidades, planifica hacia atrás y te avisa al acabar cada paso. Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3457 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3550 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, desde la receta hasta la hogaza: calcula las cantidades, organiza el plan y vigila los tiempos aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus recetas, masas madre y diario se quedan solo en tu teléfono.
@@ -75,6 +75,7 @@ Panadero funciona en iPhone y no sincroniza los datos entre dispositivos; los da
 
 ACCESO Y COMPRA
 El acceso completo se obtiene con una suscripción mensual o anual, o con una compra única de por vida en el App Store. La suscripción puede empezar con un periodo de prueba gratuito (oferta introductoria del App Store para quienes cumplan los requisitos). Sin compra, puedes consultar el historial de horneados, importar un archivo y exportar y eliminar tus datos.
+Condiciones de uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.
 ```

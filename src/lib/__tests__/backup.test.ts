@@ -150,5 +150,25 @@ describe('Apps4Brew Backup & Safety Snapshot Specification (lib/backup)', () => 
       expect(mockFiles.has(safety)).toBe(true);
       expect(poolFiles()).toHaveLength(AUTO_KEEP);
     });
+
+    // [audyt-niezalezny B-5] Nazwy z lokalną godziną: po cofnięciu zegara (zmiana czasu, ręczna zmiana daty) świeża kopia
+    // ma „starszą” nazwę niż kopie w puli. Rotacja nie może jej usunąć — to kopia bezpieczeństwa tego importu.
+    it('kopia zapisana teraz zostaje, gdy pula ma 10 kopii z późniejszą datą w nazwie (B-5)', async () => {
+      for (let i = 0; i < AUTO_KEEP; i++) {
+        mockFiles.set(`${dir}piekarz-przed-importem-2099-01-01-0000${String(i).padStart(2, '0')}.json`, '{}');
+      }
+      const swieza = await safetyBackup('import', sampleState);
+      expect(mockFiles.has(swieza)).toBe(true);
+      const pula = [...mockFiles.keys()].filter((k) => k.startsWith(dir) && SAFETY_RE.test(k.slice(dir.length)));
+      expect(pula).toHaveLength(AUTO_KEEP);
+    });
+
+    it('automatyczna kopia zapisana teraz też zostaje przy puli z późniejszą datą (B-5)', async () => {
+      for (let i = 0; i < AUTO_KEEP; i++) mockFiles.set(`${dir}piekarz-kopia-2099-01-01-0000${String(i).padStart(2, '0')}.json`, '{}');
+      const swieza = await autoBackup(sampleState);
+      expect(swieza).not.toBeNull();
+      expect(mockFiles.has(String(swieza))).toBe(true);
+      expect(poolFiles()).toHaveLength(AUTO_KEEP);
+    });
   });
 });

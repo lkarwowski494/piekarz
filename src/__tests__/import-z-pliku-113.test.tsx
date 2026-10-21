@@ -269,6 +269,29 @@ describe('113: logika importu z pliku (src/lib/import-z-pliku.ts)', () => {
   });
 });
 
+// [audyt-niezalezny B-7] Kopia z nowszej wersji Piekarza (schemaVersion > SCHEMA_VERSION) to nie „nierozpoznany plik”:
+// arkusz mówi, że trzeba zaktualizować aplikację, bez przycisku zapisu i bez zmiany danych.
+describe('B-7: kopia z nowszej wersji aplikacji', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('rozpoznajPlik zwraca rodzaj „nowsza” i arkusz prosi o aktualizację aplikacji, bez „Zastąp dane”', async () => {
+    const b = await baza();
+    const { rozpoznajPlik } = require('../lib/import-z-pliku');
+    const nowsza = JSON.stringify({ ...JSON.parse(kopiaJson(b)), schemaVersion: b.app.backup.SCHEMA_VERSION + 1 });
+    expect(rozpoznajPlik(nowsza).rodzaj).toBe('nowsza');
+    const przed = counts();
+    const a = await arkuszZTrescia(b, nowsza);
+    expect(a.ma('import-newer-version')).toBe(true);
+    expect(a.ma('import-unrecognized')).toBe(false);
+    expect(a.ma('confirm-import-btn')).toBe(false);
+    expect(a.tekst()).toContain('Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.');
+    expect(counts()).toEqual(przed);
+    await a.done();
+  });
+});
+
 describe('113: karta dokarmienia', () => {
   it('tytuł „Ilości do dokarmienia” / “Feeding Amounts”; w tekstach t() nie ma „Kalkulator dokarmiania”', () => {
     const fs = require('fs');

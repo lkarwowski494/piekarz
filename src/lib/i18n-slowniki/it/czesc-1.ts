@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} lieviti madre',
   '{n} zakwasu': '{n} lieviti madre',
   '{n} zakwasy': '{n} lieviti madre',
-  '{n}m w {temp}': '{n} min a {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: pronto {dzien} alle {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (tutto)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, livello {trudnosc}',
@@ -213,4 +212,5 @@ export const CZESC: Record<string, string> = {
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Per impostazione predefinita secondo la regione del telefono. Salvo le ricette in grammi; le percentuali non cambiano.',
   'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Regola le quote delle farine. La somma deve essere esattamente 100%.',
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Il ciclo di rinfresco attuale verrà azzerato.',
+  'Drobna niedoskonałość': 'Piccola imperfezione',
 };

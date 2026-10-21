@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 5 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Usuń recepturę': '刪除配方',
@@ -126,7 +126,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': '將麵包放入烤箱前，先做手指按壓測試。',
   'Wykryto uszkodzony stan bazy danych': '偵測到資料庫狀態損毀',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': '將麵團倒在檯面上，初步整成圓球狀並繃緊表面。',
-  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': '需使用蛋白質含量至少 13.0 g 的麵粉。水解法 60 分鐘，不加鹽。非常輕柔地進行翻面拉摺（Coil Fold）。',
   'Wymaga obecności': '需在場',
   'wymaga Piekarz Pro': '需要 麵包師傅 Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': '需以滾水沖泡紅色裸麥麥芽與磨碎的芫荽籽。烘烤前在表面撒上整粒芫荽籽。',
@@ -148,4 +147,6 @@ export const CZESC: Record<string, string> = {
   'Wyrównaj do 100%': '調整至 100%',
   'Wyrzuć zakwas': '丟棄天然酵母起種',
   'Wysoka hydratacja (Otwarty miękisz)': '麵團含水量高（開放式氣孔組織）',
+  'Wysoka retencja wilgoci. Odczekaj min. 4–6 godzin na kratce przed krojeniem, by uniknąć kleistości noża i zakalca.': '保濕性高。切片前請在散熱架上至少靜置 4–6 小時，以免沾刀和出現濕黏未熟層。',
+  'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).': '高濕度可延緩外皮變硬，讓割紋（耳朵）最大程度地展開。',
 };
