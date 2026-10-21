@@ -2872,7 +2872,6 @@
       "src/core/domain-rules.ts (dane: name)",
       "src/core/flour-atlas.ts (dane: namePl)",
       "src/data/sqlite-schema.ts (dane: name)",
-      "src/lib/recipe-navigation.ts (dane: name)",
       "src/recipes/presets.ts (dane: name)"
     ]
   },
