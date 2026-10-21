@@ -122,7 +122,7 @@ export default function EkranReceptury() {
 
   // Derived Calculations Hook
   const {
-    targetDoughWeightGrams,
+    recipeFormula,
     calculations,
     bladMak,
     currentRecipeForShare,
@@ -184,16 +184,8 @@ export default function EkranReceptury() {
 
   const handleSaveCustomRecipe = async () => {
     requireActionAccess(guardSave(async () => {
-      const saved = await executeSaveCustomRecipe(
-        saveRecipeNameInput,
-        flourBlend,
-        waterPct,
-        saltPct,
-        starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-        targetDdt
-      );
+      // Cała formuła jak dla planu, z drożdżami [audyt-niezalezny D-2]
+      const saved = await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt);
       if (saved) {
         powiadomOZmianieReceptur();
         setSelectedPresetId(saved.id);
@@ -210,15 +202,8 @@ export default function EkranReceptury() {
       ustawRecepturePlanu({
         recipeName,
         calculatedRecipe: calculations,
-        recipeFormula: {
-          flours: flourBlend,
-          waterPercentage: waterPct,
-          saltPercentage: saltPct,
-          starterPercentage: starterPct,
-          extraYeastPercentage: yeastPct,
-          starterHydration,
-          targetDoughWeightGrams,
-        },
+        recipeFormula,
+
       });
       router.push('/receptury/harmonogram');
     });

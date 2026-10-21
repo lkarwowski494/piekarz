@@ -138,14 +138,10 @@ describe('BR-RECP-002: własne receptury', () => {
     const baza = MASTER_RECIPES[0];
     const przed = JSON.stringify(baza);
     const f = baza.formula;
+    // Zapis bierze całą formułę receptury [audyt-niezalezny D-2]
     const zapisana = await executeSaveCustomRecipe(
       'Mój chleb',
-      f.flours,
-      f.waterPercentage + 5,
-      f.saltPercentage,
-      f.starterPercentage,
-      f.starterHydration ?? 100,
-      f.targetDoughWeightGrams,
+      { ...f, waterPercentage: f.waterPercentage + 5 },
       baza.targetDDT ?? 25
     );
     expect(zapisana?.id).not.toBe(baza.id);

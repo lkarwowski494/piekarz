@@ -11,6 +11,7 @@ import {
   calculateBakeLossMetrics,
   getHydrationDifficulty,
   FlourItemInput,
+  DoughRecipeInput,
 } from '../core/domain-rules';
 import { analyzeFlourBlendAbsorption } from '../core/flour-atlas';
 import { PrefermentType } from '../core/preferments';
@@ -105,33 +106,32 @@ export function useRecipeCalculations({
   const calculations = rachunek.wynik;
   const bladMak = rachunek.blad ? t('Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)', { sum: formatFixed(rachunek.blad.sumaMak, 1) }) : null;
 
-  const currentRecipeForShare = useMemo(() => {
-    return {
+  // Cała formuła receptury, wspólna dla planu, zapisu „Zapisz jako moją” i udostępniania (JSON, QR):
+  // osobne listy pól gubiły drożdże [audyt-niezalezny D-2]
+  const recipeFormula: DoughRecipeInput = useMemo(
+    () => ({
+      flours: flourBlend,
+      waterPercentage: waterPct,
+      saltPercentage: saltPct,
+      starterPercentage: starterPct,
+      extraYeastPercentage: extraYeastPct,
+      starterHydration,
+      targetDoughWeightGrams,
+    }),
+    [flourBlend, waterPct, saltPct, starterPct, extraYeastPct, starterHydration, targetDoughWeightGrams],
+  );
+
+  const currentRecipeForShare = useMemo(
+    () => ({
       id: selectedPresetId,
       name: recipeName,
       targetDDT: targetDdt,
-      formula: {
-        flours: flourBlend,
-        waterPercentage: waterPct,
-        saltPercentage: saltPct,
-        starterPercentage: starterPct,
-        starterHydration,
-        targetDoughWeightGrams,
-      },
+      formula: recipeFormula,
       isBuiltIn: false,
       createdAt: Date.now(),
-    };
-  }, [
-    selectedPresetId,
-    recipeName,
-    targetDdt,
-    flourBlend,
-    waterPct,
-    saltPct,
-    starterPct,
-    starterHydration,
-    targetDoughWeightGrams,
-  ]);
+    }),
+    [selectedPresetId, recipeName, targetDdt, recipeFormula],
+  );
 
   const ddtResult = useMemo(() => {
     return calculateDDTWaterTemp({
@@ -176,6 +176,7 @@ export function useRecipeCalculations({
 
   return {
     targetDoughWeightGrams,
+    recipeFormula,
     calculations,
     bladMak,
     currentRecipeForShare,
