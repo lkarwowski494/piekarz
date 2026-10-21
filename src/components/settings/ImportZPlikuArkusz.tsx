@@ -72,7 +72,7 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
         Alert.alert(t('Nie zapisano'), saveErrorText(err));
         return;
       }
-      Alert.alert(t('Kopia zapasowa'), err instanceof Error ? err.message : t('Nie udało się zaimportować kopii'));
+      Alert.alert(t('Kopia zapasowa'), err instanceof Error ? t(err.message) : t('Nie udało się zaimportować kopii')); // komunikat z kluczem w języku [M1-audytor-generalny-147]
     } finally {
       setZapis(false);
     }

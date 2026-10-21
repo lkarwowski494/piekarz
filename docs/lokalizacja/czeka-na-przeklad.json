@@ -20,6 +20,81 @@
       "klucz": "temp. {temp}",
       "powod": "skrót temperatury wody w tekście receptury był na sztywno (09-lokalizacja-509) (M1-audytor-generalny-172); przekład w batchu partii 12 (M1)",
       "od": "2026-10-21"
+    },
+    {
+      "klucz": "Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mieszanie i zaszczepienie",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Składanie 1 (Stretch & Fold)",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Składanie 2 (Coil Fold)",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Składanie 3 (Coil Fold)",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Formowanie do koszyka i chłód",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Wypiek w garnku z parą",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Brak katalogu dokumentów aplikacji",
+      "powod": "tekst widoczny bez klucza słownika (09-lokalizacja-505): krok starego zapisu sesji w Stolnicy albo błąd kopii w Alercie importu (M1-audytor-generalny-147); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
     }
   ],
   "zamkniete": {

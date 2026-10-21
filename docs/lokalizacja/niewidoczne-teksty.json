@@ -1,0 +1,32 @@
+{
+  "_opis": "Teksty PL z listy 229 (przekład 093) bez klucza słownika, których użytkownik nie widzi; nie idą do przekładu, dopóki nie trafią na ekran. Każdy wpis ma plik i powód; tekst, który zacznie docierać do ekranu, dostaje klucz EN i przekład (wtedy wpis usuwamy). Pilnuje: src/lib/__tests__/teksty-bez-klucza-147.test.ts [M1-audytor-generalny-147; 09-lokalizacja-505].",
+  "teksty": [
+    { "tekst": "Masa ciasta musi być większa od zera", "plik": "src/core/bake-loss.ts", "powod": "walidacja wejścia obliczeń: wyjątek przy wartościach, których formularze nie przepuszczają; komunikat nie jest wyświetlany" },
+    { "tekst": "Strata piecowa musi mieścić się w przedziale 1% - 49%", "plik": "src/core/bake-loss.ts", "powod": "walidacja wejścia obliczeń (dwa miejsca w pliku); komunikat nie jest wyświetlany" },
+    { "tekst": "Docelowa waga upieczonego chleba musi być większa od zera", "plik": "src/core/bake-loss.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Docelowa waga ciasta musi być większa od zera", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Suma procentów mąk musi wynosić 100% (aktualnie: ", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń (szablon z liczbą); komunikat nie jest wyświetlany" },
+    { "tekst": "Czas bazowy i temperatura muszą być większe od zera", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Masa drożdży nie może być ujemna", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Waga mąki musi być większa od zera", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Liczba bochenków i gramatura muszą być większe od zera", "plik": "src/core/domain-rules.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Całkowita masa mąki musi być większa od 0", "plik": "src/core/preferments.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Udział mąki w zaczynie musi mieścić się w przedziale 0–100%", "plik": "src/core/preferments.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "Parametry dokarmiania muszą być większe od zera", "plik": "src/core/sourdough-physics.ts", "powod": "walidacja wejścia obliczeń; komunikat nie jest wyświetlany" },
+    { "tekst": "niskowyciągowa", "plik": "src/core/flour-atlas-ogolne.ts", "powod": "wartość typu PrzemialMaki (dane, nie tekst ekranu); opis ogólny mąki ma własne klucze (094)" },
+    { "tekst": "wysokowyciągowa", "plik": "src/core/flour-atlas-ogolne.ts", "powod": "wartość typu PrzemialMaki (dane, nie tekst ekranu); opis ogólny mąki ma własne klucze (094)" },
+    { "tekst": "Typ 500 / 550 (Poznańska / Luksusowa)", "plik": "src/core/flour-equivalents.ts", "powod": "polski typ mąki w tabeli odpowiedników (F-46, funkcja PÓŹNIEJ); poza PL nazwy ogólne bez numeru typu (094)" },
+    { "tekst": "Typ 650 (Bułkowa)", "plik": "src/core/flour-equivalents.ts", "powod": "jak wyżej (F-46, PÓŹNIEJ)" },
+    { "tekst": "Typ 2000 (Razowa pełnoziarnista)", "plik": "src/core/flour-equivalents.ts", "powod": "jak wyżej (F-46, PÓŹNIEJ)" },
+    { "tekst": "Zakwas żytni (Bolesław)", "plik": "src/data/sqlite-schema.ts", "powod": "dane startowe magazynu w pamięci (memStore) poza iOS; w aplikacji iOS nie trafiają do bazy użytkownika" },
+    { "tekst": "Żytnia razowa typ 2000", "plik": "src/data/sqlite-schema.ts", "powod": "jak wyżej (memStore poza iOS)" },
+    { "tekst": "Plik kopii musi być obiektem JSON", "plik": "src/lib/backup.ts", "powod": "walidacja kopii przechwytywana w rozpoznajPlik (src/lib/import-z-pliku.ts): plik nierozpoznany, ekran pokazuje własny komunikat z kluczem" },
+    { "tekst": "Nieprawidłowa wersja schematu kopii", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik)" },
+    { "tekst": "Kopia pochodzi z nowszej wersji aplikacji (v", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik; szablon z numerem wersji)" },
+    { "tekst": "Nieprawidłowa struktura wypieków (\"bakes\" musi być tablicą)", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik)" },
+    { "tekst": "Nieprawidłowa struktura zakwasów (\"starters\" musi być tablicą)", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik)" },
+    { "tekst": "Nieprawidłowa struktura przepisów (\"customRecipes\" musi być tablicą)", "plik": "src/lib/backup.ts", "powod": "jak wyżej (rozpoznajPlik)" },
+    { "tekst": "{n} zakwasów", "plik": "src/lib/import-z-pliku.ts", "powod": "tekstu nie ma już w kodzie (liczba w imporcie przez formy liczby mnogiej z kluczami)" },
+    { "tekst": "{n} wpisów w Dzienniku", "plik": "src/lib/import-z-pliku.ts", "powod": "jak wyżej (tekstu nie ma już w kodzie)" }
+  ]
+}

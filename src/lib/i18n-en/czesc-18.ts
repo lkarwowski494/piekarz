@@ -133,4 +133,30 @@ export const EN_18: Record<string, string> = {
   // jako klucze, bez sklejania i toLowerCase [M1-audytor-generalny-172; 09-lokalizacja-509]
   '{n}x ~{masa} upieczony bochenek': '{n}x ~{masa} baked loaf',
   'temp. {temp}': 'temp. {temp}',
+
+  // Kroki starego zapisu sesji (src/core/legacy-steps-v1.ts, Stolnica przez t()) i błąd kopii przed importem
+  // (src/lib/backup.ts, Alert importu) — widoczne teksty bez klucza [M1-audytor-generalny-147; 09-lokalizacja-505]
+  'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.':
+    'Combine the flour and water; do not add the starter or salt yet. Let the gluten and enzymes develop the dough structure on their own.',
+  'Dodaj aktywny zakwas i sól. Wyrabiaj techniką Rubaud lub delikatnym podwijaniem aż ciasto stanie się gładkie i elastyczne.':
+    'Add the active starter and salt. Mix using the Rubaud method or gentle folding until the dough becomes smooth and elastic.',
+  'Mieszanie i zaszczepienie': 'Mixing and adding the starter',
+  'Składanie 1 (Stretch & Fold)': 'Fold 1 (Stretch & Fold)',
+  'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.':
+    'With wet hands, lift the 4 edges of the dough upward and fold them into the centre of the bowl.',
+  'Składanie 2 (Coil Fold)': 'Fold 2 (Coil Fold)',
+  'Delikatnie podłóż obie dłonie pod środek ciasta, unieś i pozwól końcom zawinąć się pod spód.':
+    'Gently slide both hands under the middle of the dough, lift it and let the ends tuck underneath.',
+  'Składanie 3 (Coil Fold)': 'Fold 3 (Coil Fold)',
+  'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.':
+    'The last fold, building surface tension. The dough should be airy and hold a round shape.',
+  'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.':
+    'Turn the dough out onto the counter and gently round it into a ball with a scraper, without excess flour. Let it rest for 20 min.',
+  'Formowanie do koszyka i chłód': 'Shaping into the basket and chilling',
+  'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.':
+    'Give the final shape (batard or round loaf), place it in a floured basket and refrigerate (4°C) for 12–16 h.',
+  'Wypiek w garnku z parą': 'Baking in a pot with steam',
+  '20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.':
+    '20 min in a preheated cast-iron pot (240°C) with the lid on + 22–25 min without the lid (210°C) until deeply browned.',
+  'Brak katalogu dokumentów aplikacji': "The app's documents folder is not available",
 };
