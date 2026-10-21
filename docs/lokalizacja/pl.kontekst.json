@@ -6769,7 +6769,8 @@
   "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
-    ]
+    ],
+    "opis": "Porada Doktora Chleba. „Coil fold” to konkretna technika składania (ciasto unoszone od środka i zawijane pod siebie), NIE „stretch and fold” (rozciąganie i składanie). Użyj nazwy coil fold tak jak w innych kluczach słownika (np. ja „コイルフォールド”) [M1-audytor-generalny-185]."
   },
   "Wydłuż fermentację burzliwą.": {
     "gdzie": [
@@ -7388,7 +7389,8 @@
   "Zamknij informację o końcu próby": {
     "gdzie": [
       "src/components/start/UprzedzenieProby.tsx (accessibilityLabel)"
-    ]
+    ],
+    "opis": "Etykieta VoiceOver przycisku, który zamyka (chowa) baner na ekranie „Dziś” z informacją, kiedy kończy się okres próbny. NIE wyłącza powiadomień ani przypomnień; użyj słowa „informacja/komunikat/baner”, nie „powiadomienie” (np. zh-Hant 提示, nie 通知) [M1-audytor-generalny-185]."
   },
   "Zamknij protokół ratunkowy": {
     "gdzie": [
