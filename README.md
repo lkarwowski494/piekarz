@@ -21,7 +21,7 @@ Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: 
 - **Bez konta i logowania:** aplikacja nie ma ekranów rejestracji ani logowania. Pierwszy ekran „Co dziś robisz?” ma trzy czynności: „Zakładam zakwas”, „Piekę na zakwasie”, „Piekę na drożdżach albo pizzę”.
 - **Prywatność „Data Not Collected”:** brak trackerów i bibliotek telemetrycznych (brak Firebase, Meta, Google Analytics); `NSPrivacyTracking = false` w `app.json`. Receptury, zakwasy i dziennik zostają na urządzeniu.
 - **Cztery zakładki (D-051 2a):** Dziś, Receptury, Zakwasy, Dziennik; ustawienia z „Dziś”. Prowadzenie wypieku (`app/stolnica.tsx`) i Doktor Chleba (`app/doktor.tsx`) to osobne ekrany.
-- **Ręce w mące:** haptyka przy odhaczaniu składnika, dźwięk na koniec kroku i ekran prowadzenia, który nie gaśnie w trakcie wypieku (`expo-keep-awake`).
+- **Ręce w mące:** haptyka przy odhaczaniu składnika, dźwięk na koniec kroku i ekran prowadzenia, który nie gaśnie w kroku wymagającym rąk (`expo-keep-awake`).
 - **Model płatności (DEC-01 d, decyzja właściciela z 2026-10-19; zastępuje „Cheaper than Espresso” i darmowy rdzeń DEC-09):**
   - Zakupy wyłącznie przez App Store (StoreKit, `expo-iap`, ADR-007): subskrypcja miesięczna i roczna w jednej grupie oraz zakup dożywotni. Ceny i waluty pokazuje aplikacja z App Store (`displayPrice`); ustawia je właściciel w App Store Connect.
   - **Okres próbny 14 dni** na planie miesięcznym i rocznym, wyłącznie jako oferta wprowadzająca App Store (jedna na grupę subskrypcji, dla uprawnionych). Aplikacja nie liczy dni. Zakup dożywotni nie ma okresu próbnego.
@@ -67,7 +67,7 @@ Status według kontraktu zakresu `docs/scope-contract.md` (tabela „Zakres”, 
    - Ekran receptury: ilości „Do miski”, arkusz „Składniki” („Ilości liczę od”: bochenków albo masy mąki; „Mąki (razem 100%)”; zaczyn), arkusz „Temperatura wody”, „Ułóż plan”.
 3. **⏱️ Plan wypieku (F-13, F-14):**
    - Planowanie wstecz od dnia i godziny gotowości chleba; czas fermentacji dopasowany do temperatury w kuchni ($Q_{10} = 3{,}0$).
-   - Kroki wymagające rąk, które wypadają w nocy (domyślnie 23:00–06:30), z propozycją „Przesuń do lodówki”.
+   - Kroki wymagające rąk, które wypadają w nocy (domyślnie 23:00–07:00, do zmiany w Ustawieniach), z propozycją „Przesuń do lodówki”.
    - „Nie zdążysz na tę godzinę”: najwcześniejsza możliwa godzina i nieaktywny „Zacznij wypiek” z powodem.
 4. **🥣 Prowadzenie (F-07, F-57, F-58):** bieżący krok z czasem i tym, co potem; powiadomienie o końcu kroku; ostrzeżenia (gorące naczynie, surowe ciasto i mąka, surowy zakwas); wypiek w garnku pod pokrywką i bez; „Cofnij poprzedni”; zapis trwającego wypieku i powrót po ponownym otwarciu; ocena bochenka po zakończeniu.
 5. **🫙 Zakwasy (F-22…F-25, F-60, F-61, F-64):** karta zakwasu, ilości do dokarmienia, „Podwoił objętość”, przypomnienie po 12 h na blacie, zakładanie zakwasu dzień po dniu, karta bezpieczeństwa z zasadą ostrożności (DEC-10 a), Doktor zakwasu.
