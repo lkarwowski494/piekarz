@@ -349,7 +349,7 @@ export function calculateFermentationAdaptation(
 export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
 
 /**
- * RD-19: drożdże świeże ↔ suche (aktywne i instant) × 0,4 (S-40, S-39: producent, szczebel 1; było 3:1)
+ * RD-19: drożdże świeże na suche i odwrotnie (aktywne i instant) × 0,4 (S-40, S-39: producent, szczebel 1; było 3:1)
  * [M1-audytor-generalny-130]
  */
 export function convertYeast(
