@@ -67,6 +67,9 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   it('workflow instaluje applesimutils przed scenariuszami Maestro', () => {
     const instalacja = workflow.search(/brew install[^\n]*applesimutils/);
     expect(workflow).toMatch(/brew tap wix\/brew/);
+    // Homebrew: formuła z tapu spoza homebrew/core wymaga zaufania przed instalacją (przebieg 39599674842)
+    expect(workflow.search(/brew trust --formula wix\/brew\/applesimutils/)).toBeGreaterThan(-1);
+    expect(workflow.search(/brew trust --formula wix\/brew\/applesimutils/)).toBeLessThan(workflow.search(/brew install[^\n]*applesimutils/));
     expect(instalacja).toBeGreaterThan(-1);
     expect(instalacja).toBeLessThan(workflow.search(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e/));
   });
