@@ -123,20 +123,17 @@ describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
 });
 
 describe('Ustawienia: link „Oceń w App Store” (BR-OPIN-002)', () => {
-  it('Apple ID to znacznik [DO USTALENIA] — wiersz się nie renderuje, adres nie trafia do openURL', () => {
-    expect(/^\d+$/.test(APP_STORE_ID)).toBe(false);
-    expect(APP_STORE_REVIEW_URL).toContain('action=write-review');
-    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+  it('Apple ID aplikacji z App Store Connect (właściciel 2026-10-21) — wiersz „Oceń w App Store” jest, bez prośby systemowej', () => {
+    expect(APP_STORE_ID).toBe('6823726745');
+    expect(APP_STORE_REVIEW_URL).toBe('https://apps.apple.com/app/apple-store/id6823726745?action=write-review');
     let tree: renderer.ReactTestRenderer | null = null;
     act(() => {
       tree = renderer.create(<StudioEcosystemSection />);
     });
-    expect(tree!.root.findAllByProps({ testID: 'settings-rate-link' })).toHaveLength(0);
+    expect(tree!.root.findAllByProps({ testID: 'settings-rate-link' }).length).toBeGreaterThan(0);
     expect(tree!.root.findAllByProps({ testID: 'settings-privacy-link' }).length).toBeGreaterThan(0);
-    expect(openURL).not.toHaveBeenCalledWith(APP_STORE_REVIEW_URL);
     expect(StoreReview.requestReview).not.toHaveBeenCalled();
     act(() => tree!.unmount());
-    openURL.mockRestore();
   });
 });
 

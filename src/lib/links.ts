@@ -21,7 +21,7 @@ export const APPLE_SUBSCRIPTIONS_URL = 'https://apps.apple.com/account/subscript
  * Dopóki ID nie jest liczbą, wiersz „Oceń w App Store” się nie renderuje (BR-OPIN-002)
  * [M1-audytor-generalny-082; 11-wzrost-004].
  */
-export const APP_STORE_ID = '[DO USTALENIA: Apple ID aplikacji z App Store Connect]';
+export const APP_STORE_ID = '6823726745'; // właściciel 2026-10-21 (App Store Connect → App Information → Apple ID)
 export const APP_STORE_REVIEW_URL = `https://apps.apple.com/app/apple-store/id${APP_STORE_ID}?action=write-review`;
 /**
  * Adres wsparcia dla „Napisz do nas” (BR-OPIN-003); ten sam trafia na stronę wsparcia (012).
