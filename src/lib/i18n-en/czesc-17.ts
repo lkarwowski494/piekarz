@@ -35,4 +35,6 @@ export const EN_17: Record<string, string> = {
   'Mąka żytnia': 'Rye flour',
   'Mąka żytnia, białko 8,1%': 'Rye flour, protein 8.1%',
   'Białko w badanej próbce: 8,1%. Popiół według polskich norm: 1,31–1,60%.': 'Protein in the tested sample: 8.1%. Ash under Polish standards: 1.31–1.60%.',
+  // Dziennik: temperatura ciasta zapisana przy wypieku (BR-RECP-003) [M1-audytor-generalny-146]
+  'Temperatura ciasta:': 'Dough temperature:',
 };

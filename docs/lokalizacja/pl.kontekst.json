@@ -5673,6 +5673,11 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Temperatura ciasta:": {
+    "gdzie": [
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
+    ]
+  },
   "Temperatura docelowa:": {
     "gdzie": []
   },
@@ -5699,7 +5704,8 @@
   },
   "Temperatura w kuchni:": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Temperatura wody": {
