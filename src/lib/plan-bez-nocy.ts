@@ -48,6 +48,22 @@ export function krokCzynnyWNocy(kroki: readonly KrokNocy[], okno: OknoSnu): bool
 }
 
 /**
+ * Kolizje ze snem z kroków planu (krok czynny z początkiem albo końcem w oknie snu, jak Sleep Guard w reverse-scheduler)
+ * dla banera nocy, gdy kroki nie pochodzą 1:1 z harmonogramu (plan żytni) [M1-audytor-generalny-030; 03-zakres-501].
+ */
+export function kolizjeKrokow(
+  kroki: readonly (KrokNocy & { name: string })[],
+  okno: OknoSnu,
+  godzina: (d: Date) => string,
+): { stageNamePl: string; time: string }[] {
+  return kroki.flatMap((k) =>
+    !k.isPassive && k.plannedStart !== null && k.plannedEnd !== null && (wOknieSnu(k.plannedStart, okno) || wOknieSnu(k.plannedEnd, okno))
+      ? [{ stageNamePl: k.name, time: godzina(new Date(k.plannedStart)) }]
+      : [],
+  );
+}
+
+/**
  * Najbliższa godzina gotowości (ms) ≥ `odMs`, dla której plan z `kroki(celMs)` nie ma kroku czynnego w oknie snu;
  * null, gdy w ciągu 48 h nie ma takiej godziny.
  */

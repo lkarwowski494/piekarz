@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 553 | 553 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 397 | 397 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 400 | 397 | **99.3%** | ❌ BRAKI |
 | **WYMIAR** | 165 | 165 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1169** | Pokrytych: **1169** | Brakujących: **0**
+Łącznie elementów: **1172** | Pokrytych: **1169** | Brakujących: **3**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Moje receptury` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dane-przykladowe-087.test.tsx |
 | `TEKST` | `moja, woda {n}%` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 869 kolejnych elementów w pełnym wykazie)*
+*(... i 872 kolejnych elementów w pełnym wykazie)*

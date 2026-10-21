@@ -16,7 +16,7 @@ import { setActiveBake, getStarters } from '../../../src/data/sqlite-store';
 import type { StoredStarter } from '../../../src/data/db';
 import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
-import { stepsFromSchedule } from '../../../src/core/bake-steps';
+import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard } from '../../../src/lib/schedule-formatter';
 import { recepturaPlanu } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
@@ -33,7 +33,7 @@ import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
 import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
 import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-za-pozno';
-import { godzinaBezNocy, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
+import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 
 const MINUTA_MS = 60_000;
@@ -101,10 +101,15 @@ export default function HarmonogramScreen() {
       .finally(() => { if (zywy) setZakwasWczytany(true); });
     return () => { zywy = false; };
   }, []);
-  const steps = useMemo(() => {
-    const zPlanu = stepsFromSchedule(schedule);
-    return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
-  }, [schedule, zakwas]);
+  // Receptura żytnia z „Ułóż plan”: etapy żytnie z czasami planu, studzenie kończy się o godzinie „gotowe”;
+  // te same kroki dostaje Stolnica (DEC-04 a) [M1-audytor-generalny-030; 03-zakres-501]
+  const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
+  const krokiDla = (plan: ReturnType<typeof calculateReverseSchedule>, celMs: number) => {
+    const zPlanu = stepsFromSchedule(plan);
+    const bazowe = zytni ? ryeStepsEndingAt(zPlanu, celMs) : zPlanu;
+    return zakwas ? withFridgeWake(bazowe, zakwas) : bazowe;
+  };
+  const steps = useMemo(() => krokiDla(schedule, targetDate.getTime()), [schedule, zakwas]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Stan „za późno”: start pierwszego kroku przed teraz; liczony przy zmianach i co minutę (§11c 107) [M1-audytor-generalny-107]
   const [teraz, setTeraz] = useState(() => Date.now());
@@ -134,16 +139,18 @@ export default function HarmonogramScreen() {
     if (!godzinaDomyslna.current) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour };
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
-      const kroki = (celMs: number) => {
-        const zPlanu = stepsFromSchedule(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }));
-        return zakwas ? withFridgeWake(zPlanu, zakwas) : zPlanu;
-      };
+      const kroki = (celMs: number) =>
+        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
       const bezNocy = godzinaBezNocy(stanCzasu.najwczesniejMs, kroki, okno);
       if (bezNocy !== null) ustawGotowe(bezNocy);
       else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
     }
     if (zakwasWczytany) godzinaDomyslna.current = false;
   }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
+  const kolizjeZytnie = useMemo(
+    () => (zytni ? kolizjeKrokow(steps, { startH: sleepStartHour, koniecH: sleepEndHour }, formatGodziny) : []),
+    [zytni, steps, sleepStartHour, sleepEndHour],
+  );
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
   // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
   const krokiSpirali = useMemo(() => krokiSpiraliZSesji(steps), [steps]);
@@ -263,11 +270,12 @@ export default function HarmonogramScreen() {
           />
         ) : (
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
+          // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
           <SleepGuardBanner
-            hasSleepCollision={schedule.hasSleepCollision}
-            sleepCollisions={schedule.sleepCollisions}
-            suggestedActionPl={schedule.suggestedActionPl}
-            autoResolved={autoResolved}
+            hasSleepCollision={zytni ? kolizjeZytnie.length > 0 : schedule.hasSleepCollision}
+            sleepCollisions={zytni ? kolizjeZytnie : schedule.sleepCollisions}
+            suggestedActionPl={zytni ? undefined : schedule.suggestedActionPl}
+            autoResolved={zytni ? null : autoResolved}
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
           />
         )}
