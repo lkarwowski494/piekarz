@@ -130,7 +130,7 @@ export const CZESC: Record<string, string> = {
   'Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.': 'Enne kustutamist salvestan praeguste andmete koopia. Varukoopiad jäävad rakendusse Failid, selle rakenduse kausta; seal saad need kustutada.',
   'Ręce tylko na starcie': 'Käsitsi vaid alguses',
   'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': 'Kontrolli pätsi sisetemperatuuri torketermomeetriga: King Arthur Baking märgib, et enamik pätse on küps umbes 88 °C juures, rukkileib peaks aga seest olema 96–99 °C.',
-  'Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.': 'See varukoopia on pärit Crusti uuemast versioonist. Uuenda rakendust ja impordi fail uuesti.',
+  'Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.': 'See varukoopia on pärit Pagari uuemast versioonist. Uuenda rakendust ja impordi fail uuesti.',
   'Teraz: {nazwa}': 'Nüüd: {nazwa}',
   'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.': 'Tõsta metallrestile. King Arthur Baking märgib, et leib eraldab jahtudes niiskust ja leivasisu vajab seda aega, et tahkuda; liiga vara lõigatuna võib see olla kummine.',
   'Zakup czeka na zatwierdzenie': 'Ost ootab kinnitamist',
