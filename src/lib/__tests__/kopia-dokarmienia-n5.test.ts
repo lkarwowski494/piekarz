@@ -26,8 +26,10 @@ describe('N-5: kopia dokarmienia jak karta', () => {
     const tekst = formatFeedingToText(zakwas, karmienie, [1, 2, 2]);
     expect(tekst).toContain(`${t(`Potrzebny zakwas`)}: `);
     expect(tekst).toContain(`1. ${t(`Stary zakwas`)}: `);
-    expect(tekst).toContain(t(karmienie.tipPl));
-    if (lang !== 'pl') expect(tekst).not.toContain(karmienie.tipPl);
+    const porada = karmienie.tipPl ?? '';
+    expect(porada.length).toBeGreaterThan(0);
+    expect(tekst).toContain(t(porada));
+    if (lang !== 'pl') expect(tekst).not.toContain(porada);
     expect(tekst.toLowerCase()).not.toMatch(/zaczyn|levain/);
   });
 });
