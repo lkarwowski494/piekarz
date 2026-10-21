@@ -91,6 +91,21 @@ describe('dokumenty nie ogłaszają gotowości bez dowodu', () => {
   });
 });
 
+// M1-audytor-generalny-038 (reaudit pętli 1): interpreter Maestro zapisuje kontekst `now`, ale go nie czyta,
+// więc deklaracja „dla poniedziałku, niedzieli i 23:55 UTC” nie ma dowodu w kodzie.
+describe('interpreter Maestro w pamięci: deklaracja w CLAUDE.md zgodna z kodem (038)', () => {
+  it('CLAUDE.md nie przypisuje interpreterowi dni ani godzin, których kod nie używa', () => {
+    const runner = read('tests/maestro-runner.ts');
+    const czytaCzas = /context\.now\b/.test(runner);
+    const linia = read('CLAUDE.md')
+      .split('\n')
+      .find((l) => l.includes('tests/maestro-runner.ts'));
+    expect(linia).toBeDefined();
+    if (!czytaCzas) expect(linia).not.toMatch(/poniedział|niedziel|23:55|\bUTC\b/i);
+    expect(linia).toMatch(/nie jest E2E/);
+  });
+});
+
 describe('nazwy testów mówią, co naprawdę sprawdzają (07-jakosc-007)', () => {
   it.each(['tests/matrix-dimensions.test.tsx', 'tests/matrix-a11y.test.tsx'])('%s nie obiecuje pomiaru 320 pt, AX5 ani 44 pt', (f) => {
     const titles = [...read(f).matchAll(/(?:it|describe)\(\s*'([^']+)'/g)].map((m) => m[1]);
