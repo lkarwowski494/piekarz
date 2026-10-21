@@ -66,7 +66,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Nakupi',
   'Zakupy zostały pomyślnie przywrócone': 'Nakupi so bili uspešno obnovljeni',
   'Zakwas': 'Kvas',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Kvas »{name}« že 6 dni čaka na hranjenje.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Kvas »{name}« že 7 dni čaka na hranjenje.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Kvas »{name}« že 12 ur stoji na pultu brez hranjenja.',
   'Zakwas ({n}% wody)': 'Kvas ({n} % vode)',

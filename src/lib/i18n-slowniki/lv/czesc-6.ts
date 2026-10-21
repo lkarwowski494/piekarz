@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Pirkumi',
   'Zakupy zostały pomyślnie przywrócone': 'Pirkumi ir veiksmīgi atjaunoti',
   'Zakwas': 'Dabīgais ieraugs',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Ieraugs „{name}” gaida barošanu jau 6 dienas.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Ieraugs „{name}” gaida barošanu jau 7 dienas.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Ieraugs „{name}” stāv uz galda jau 12 stundas bez barošanas.',
   'Zakwas ({n}% wody)': 'Dabīgais ieraugs ({n}% ūdens)',

@@ -109,7 +109,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Vásárlások',
   'Zakupy zostały pomyślnie przywrócone': 'A vásárlások sikeresen visszaállítva',
   'Zakwas': 'Kovász',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'A kovászod („{name}”) 6 napja vár etetésre.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'A kovászod („{name}”) 7 napja vár etetésre.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'A kovászod („{name}”) 12 órája áll a pulton etetés nélkül.',
   'Zakwas ({n}% wody)': 'Kovász ({n}% víz)',

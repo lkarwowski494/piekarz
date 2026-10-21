@@ -130,7 +130,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Achats',
   'Zakupy zostały pomyślnie przywrócone': 'Achats restaurés avec succès',
   'Zakwas': 'Levain naturel',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Le levain naturel « {name} » attend un rafraîchi depuis 6 jours.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Le levain naturel « {name} » attend un rafraîchi depuis 7 jours.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Le levain naturel « {name} » est sur le plan de travail depuis 12 heures sans rafraîchi.',
   'Zakwas ({n}% wody)': 'Levain naturel ({n} % d\'eau)',

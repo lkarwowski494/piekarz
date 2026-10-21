@@ -104,7 +104,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Compras',
   'Zakupy zostały pomyślnie przywrócone': 'Compras restauradas com sucesso',
   'Zakwas': 'Fermentação natural',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'O fermento natural “{name}” está esperando alimentação há 6 dias.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'O fermento natural “{name}” está esperando alimentação há 7 dias.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'O fermento natural “{name}” está no balcão há 12 horas sem alimentação.',
   'Zakwas ({n}% wody)': 'Fermento natural ({n}% de água)',

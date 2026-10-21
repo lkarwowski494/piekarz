@@ -7322,9 +7322,6 @@
       "src/core/rye-stages.ts (dane: namePl)"
     ]
   },
-  "Zakwas „{name}” czeka na karmienie od 6 dni.": {
-    "gdzie": []
-  },
   "Zakwas „{name}” czeka na karmienie od 7 dni.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"

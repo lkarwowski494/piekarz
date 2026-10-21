@@ -146,7 +146,6 @@ export const EN_3: Record<string, string> = {
   // Przypomnienie po 12 h (D-043 OP-38) [M1-audytor-generalny-090]
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Starter “{name}” has been on the counter for 12 hours without feeding.',
   'Zakwas w lodówce': 'Starter in the fridge',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Starter “{name}” has been waiting for a feeding for 6 days.',
   'Nakarm zakwas dziś': 'Feed your starter today',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Starter “{name}” has been waiting for a feeding for 7 days.',
   'Powiadomienia wyłączone': 'Notifications are off',

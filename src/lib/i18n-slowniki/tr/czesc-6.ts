@@ -86,7 +86,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Satın Alımlar',
   'Zakupy zostały pomyślnie przywrócone': 'Satın alımlar başarıyla geri yüklendi',
   'Zakwas': 'Ekşi mayalı',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': '“{name}” ekşi mayası 6 gündür beslenmeyi bekliyor.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': '“{name}” ekşi mayası 7 gündür beslenmeyi bekliyor.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': '“{name}” ekşi mayası 12 saattir beslenmeden tezgâhta duruyor.',
   'Zakwas ({n}% wody)': 'Ekşi maya (%{n} su)',

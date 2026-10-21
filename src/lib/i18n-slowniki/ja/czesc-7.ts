@@ -23,7 +23,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': '購入',
   'Zakupy zostały pomyślnie przywrócone': '購入を復元しました',
   'Zakwas': 'サワー種',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'サワー種「{name}」は6日間種継ぎされていません。',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'サワー種「{name}」は7日間種継ぎされていません。',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'サワー種「{name}」は常温に置かれたまま12時間種継ぎされていません。',
   'Zakwas ({n}% wody)': 'サワー種（加水率 {n}%）',

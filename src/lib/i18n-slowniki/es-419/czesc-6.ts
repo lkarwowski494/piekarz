@@ -109,7 +109,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Compras',
   'Zakupy zostały pomyślnie przywrócone': 'Las compras se restauraron correctamente',
   'Zakwas': 'Masa madre',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'La masa madre “{name}” lleva 6 días esperando que la alimentes.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'La masa madre “{name}” lleva 7 días esperando que la alimentes.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'La masa madre “{name}” lleva 12 horas a temperatura ambiente sin alimentar.',
   'Zakwas ({n}% wody)': 'Masa madre ({n} % de agua)',

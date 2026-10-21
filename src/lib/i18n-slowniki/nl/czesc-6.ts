@@ -80,7 +80,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Aankopen',
   'Zakupy zostały pomyślnie przywrócone': 'Aankopen zijn hersteld',
   'Zakwas': 'Zuurdesem',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Zuurdesemstarter “{name}” wacht al 6 dagen op voeding.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Zuurdesemstarter “{name}” wacht al 7 dagen op voeding.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Zuurdesemstarter “{name}” staat al 12 uur op het aanrecht zonder voeding.',
   'Zakwas ({n}% wody)': 'Zuurdesemstarter ({n}% water)',

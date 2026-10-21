@@ -46,7 +46,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': '購買項目',
   'Zakupy zostały pomyślnie przywrócone': '已成功回復購買項目',
   'Zakwas': '天然酵母',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': '天然酵母起種「{name}」已等待餵養 6 天。',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': '天然酵母起種「{name}」已等待餵養 7 天。',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': '天然酵母起種「{name}」已置於檯面 12 小時未餵養。',
   'Zakwas ({n}% wody)': '天然酵母起種（含水量 {n}%）',

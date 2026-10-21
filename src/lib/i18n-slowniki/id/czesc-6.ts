@@ -93,7 +93,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Pembelian',
   'Zakupy zostały pomyślnie przywrócone': 'Pembelian berhasil dipulihkan',
   'Zakwas': 'Ragi alami',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Starter ragi alami “{name}” sudah 6 hari menunggu diberi makan.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Starter ragi alami “{name}” sudah 7 hari menunggu diberi makan.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Starter ragi alami “{name}” sudah 12 jam di meja dapur tanpa diberi makan.',
   'Zakwas ({n}% wody)': 'Starter ragi alami ({n}% air)',

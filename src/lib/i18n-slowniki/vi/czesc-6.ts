@@ -136,6 +136,5 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Giao dịch mua',
   'Zakupy zostały pomyślnie przywrócone': 'Đã khôi phục giao dịch mua thành công',
   'Zakwas': 'Men tự nhiên',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Men tự nhiên “{name}” đã chờ được cho ăn 6 ngày.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Men tự nhiên “{name}” đã chờ được cho ăn 7 ngày.',
 };

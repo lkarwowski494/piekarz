@@ -126,7 +126,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': '구매',
   'Zakupy zostały pomyślnie przywrócone': '구매 내역을 복원했어요',
   'Zakwas': '사워도우 스타터',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': '‘{name}’ 사워도우 스타터가 6일째 먹이를 기다리고 있어요.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': '‘{name}’ 사워도우 스타터가 7일째 먹이를 기다리고 있어요.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': '‘{name}’ 사워도우 스타터가 먹이 없이 12시간째 조리대 위에 있어요.',
   'Zakwas ({n}% wody)': '사워도우 스타터 (수분 {n}%)',

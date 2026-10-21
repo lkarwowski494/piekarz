@@ -45,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Покупки',
   'Zakupy zostały pomyślnie przywrócone': 'Покупки успешно восстановлены',
   'Zakwas': 'Закваска',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Закваска «{name}» ждёт подкормки уже 6 дней.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Закваска «{name}» ждёт подкормки уже 7 дней.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Закваска «{name}» стоит на столе 12 часов без подкормки.',
   'Zakwas ({n}% wody)': 'Закваска ({n}% воды)',

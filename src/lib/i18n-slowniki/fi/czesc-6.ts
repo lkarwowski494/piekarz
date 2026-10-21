@@ -86,7 +86,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Ostot',
   'Zakupy zostały pomyślnie przywrócone': 'Ostot palautettiin onnistuneesti',
   'Zakwas': 'Hapanjuuri',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Hapanjuuri ”{name}” on odottanut ruokintaa 6 päivää.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Hapanjuuri ”{name}” on odottanut ruokintaa 7 päivää.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Hapanjuuri ”{name}” on ollut työtasolla 12 tuntia ilman ruokintaa.',
   'Zakwas ({n}% wody)': 'Hapanjuuri ({n} % vettä)',

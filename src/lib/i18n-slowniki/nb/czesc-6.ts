@@ -62,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Kjøp',
   'Zakupy zostały pomyślnie przywrócone': 'Kjøpene er gjenopprettet',
   'Zakwas': 'Surdeig',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Surdeigsstarteren «{name}» har ventet på mating i 6 dager.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Surdeigsstarteren «{name}» har ventet på mating i 7 dager.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Surdeigsstarteren «{name}» har stått på benken i 12 timer uten mating.',
   'Zakwas ({n}% wody)': 'Surdeigsstarter ({n} % vann)',

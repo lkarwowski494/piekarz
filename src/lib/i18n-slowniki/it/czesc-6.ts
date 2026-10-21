@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Acquisti',
   'Zakupy zostały pomyślnie przywrócone': 'Acquisti ripristinati correttamente',
   'Zakwas': 'Lievito madre',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Il lievito madre «{name}» attende il rinfresco da 6 giorni.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Il lievito madre «{name}» attende il rinfresco da 7 giorni.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Il lievito madre «{name}» è sul piano di lavoro da 12 ore senza rinfresco.',
   'Zakwas ({n}% wody)': 'Lievito madre ({n}% di acqua)',

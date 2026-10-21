@@ -64,7 +64,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Ostud',
   'Zakupy zostały pomyślnie przywrócone': 'Ostud on edukalt taastatud',
   'Zakwas': 'Looduslik juuretis',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Juuretis „{name}“ on oodanud toitmist 6 päeva.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Juuretis „{name}“ on oodanud toitmist 7 päeva.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Juuretis „{name}“ on olnud letil 12 tundi ilma toitmiseta.',
   'Zakwas ({n}% wody)': 'Looduslik juuretis ({n}% vett)',

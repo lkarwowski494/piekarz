@@ -52,6 +52,8 @@ const SIEROTY: Array<[string, string]> = [
   ['Wybrany element nie istnieje lub został wcześniej usunięty.', '633 (p12c)'],
   ['Wróć', '633 (p12c)'],
   ['Wyczyść wyszukiwanie', '633 (p12c)'],
+  // [M2-koordynator-napraw-402 (p12d)]: po 179 zakwas w lodówce ma jedno przypomnienie (D-068)
+  ['Zakwas „{name}” czeka na karmienie od 6 dni.', '402 (p12d)'],
 ];
 
 describe('słowniki bez osieroconych kluczy (p13a)', () => {

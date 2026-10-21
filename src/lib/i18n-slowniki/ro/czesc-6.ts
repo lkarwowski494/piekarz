@@ -105,7 +105,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Achiziții',
   'Zakupy zostały pomyślnie przywrócone': 'Achizițiile au fost restaurate cu succes',
   'Zakwas': 'Maia naturală',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Maia „{name}” așteaptă să fie hrănită de 6 zile.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Maia „{name}” așteaptă să fie hrănită de 7 zile.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Maia „{name}” stă pe blat de 12 ore fără hrănire.',
   'Zakwas ({n}% wody)': 'Maia naturală ({n}% apă)',

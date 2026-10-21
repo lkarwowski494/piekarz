@@ -81,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'Zakupy': 'Αγορές',
   'Zakupy zostały pomyślnie przywrócone': 'Οι αγορές επαναφέρθηκαν με επιτυχία',
   'Zakwas': 'Προζύμι',
-  'Zakwas „{name}” czeka na karmienie od 6 dni.': 'Το προζύμι «{name}» περιμένει τάισμα εδώ και 6 ημέρες.',
   'Zakwas „{name}” czeka na karmienie od 7 dni.': 'Το προζύμι «{name}» περιμένει τάισμα εδώ και 7 ημέρες.',
   'Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.': 'Το προζύμι «{name}» βρίσκεται στον πάγκο εδώ και 12 ώρες χωρίς τάισμα.',
   'Zakwas ({n}% wody)': 'Προζύμι ({n}% νερό)',
