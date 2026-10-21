@@ -11,7 +11,7 @@ import {
 import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import type { SessionStep } from '../core/bake-steps';
-import { markStorageUnavailable, markStorageNewer } from './storage-status';
+import { markStorageUnavailable, markStorageNewer, markStorageReady } from './storage-status';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -362,7 +362,8 @@ export async function initDatabase(): Promise<void> {
     }));
   }
 
-  if (memStore.starters.length === 0) {
+  // Zakwas i mąki pokazowe tylko bez bazy (testy w pamięci); z bazą pusta tabela to pusta lista [M1-audytor-generalny-003]
+  if (!db && memStore.starters.length === 0) {
     memStore.starters = [
       {
         id: 'starter_default',
@@ -376,7 +377,7 @@ export async function initDatabase(): Promise<void> {
     ];
   }
 
-  if (memStore.flourInventory.length === 0) {
+  if (!db && memStore.flourInventory.length === 0) {
     memStore.flourInventory = [
       {
         id: 'flour_inv_wheat_750',
@@ -440,4 +441,5 @@ export async function initDatabase(): Promise<void> {
   } catch {
     // Memory fallback handles errors in non-native contexts
   }
+  markStorageReady();
 }

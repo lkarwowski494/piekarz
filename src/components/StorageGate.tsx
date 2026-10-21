@@ -5,7 +5,7 @@
 // ============================================================================
 
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView, ActivityIndicator } from 'react-native';
 import * as Sharing from 'expo-sharing';
 import { getStorageState, getRescueFile, subscribeStorageState, StorageState } from '../data/storage-status';
 import { theme } from '../ui/theme';
@@ -34,6 +34,14 @@ export const StorageGate: React.FC<StorageGateProps> = ({ children, onRetry }) =
   }, []);
 
   if (state === 'ok') return <>{children}</>;
+  // Start: kopia i migracje trwają, ekrany danych czekają (bez danych pokazowych) [M1-audytor-generalny-003; 05-architekt-502]
+  if (state === 'initializing') {
+    return (
+      <View style={[styles.screen, styles.content]} testID="storage-initializing">
+        <ActivityIndicator color={theme.colors.akcent} />
+      </View>
+    );
+  }
   // Baza nowsza niż aplikacja: dane do przeglądania, komunikat nad aplikacją [M1-audytor-generalny-061]
   if (state === 'newer') {
     return (

@@ -2,6 +2,7 @@ import { StoredRecipe } from './db';
 import { getDb, memStore } from './sqlite-schema';
 import { writeOrThrow } from './storage-status';
 import { isRecipeInput } from './row-parsers';
+import { odczytNieudany } from './odczyt';
 
 // ==========================================
 // Recipes (Kalkulator)
@@ -45,8 +46,8 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
       });
     }
     return out;
-  } catch {
-    return [...memStore.recipes];
+  } catch (e) {
+    return odczytNieudany(e);
   }
 }
 

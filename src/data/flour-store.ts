@@ -1,6 +1,7 @@
 import { StoredFlourInventoryItem } from './db';
 import { getDb, memStore } from './sqlite-schema';
 import { writeOrThrow } from './storage-status';
+import { odczytNieudany } from './odczyt';
 
 // ==========================================
 // Flour Inventory (Magazyn Mąk)
@@ -17,8 +18,8 @@ export async function getFlourInventory(): Promise<StoredFlourInventoryItem[]> {
       'SELECT id, name, stock_grams as stockGrams, brand, protein_pct as proteinPct, updated_at as updatedAt FROM flour_inventory ORDER BY name ASC;'
     );
     return rows;
-  } catch {
-    return [...memStore.flourInventory];
+  } catch (e) {
+    return odczytNieudany(e);
   }
 }
 

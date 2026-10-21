@@ -27,7 +27,8 @@ export * from './recipes-store';
 export * from './flour-store';
 import { getRecipes } from './recipes-store';
 import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } from './flour-store';
-import { writeOrThrow } from './storage-status';
+import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
+import { odczytNieudany } from './odczyt';
 
 // ==========================================
 // Bakes & Stolnica
@@ -78,8 +79,8 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
         sensoryProfile,
       };
     });
-  } catch {
-    return [...memStore.logs];
+  } catch (e) {
+    return odczytNieudany(e);
   }
 }
 
@@ -146,6 +147,8 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
     getAllStarterEntries(),
     getFlourInventory(),
   ]);
+  // Nieudany odczyt dał pustą listę: kopia z niepełnych danych wyparłaby dobre kopie z puli [M1-audytor-generalny-003]
+  if (getStorageState() === 'unavailable') throw new StorageReadError(getStorageError() ?? 'read failed');
   return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory };
 }
 
@@ -201,10 +204,10 @@ export async function getStarters(): Promise<StoredStarter[]> {
   if (!db) return [...memStore.starters];
 
   try {
-    const rows = await readStarters(db);
-    return rows.length > 0 ? rows : [...memStore.starters];
-  } catch {
-    return [...memStore.starters];
+    // Pusta tabela to pusta lista, nie zakwas pokazowy [M1-audytor-generalny-003]
+    return await readStarters(db);
+  } catch (e) {
+    return odczytNieudany(e);
   }
 }
 
