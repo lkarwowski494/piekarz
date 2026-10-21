@@ -161,7 +161,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Proporcje (procent mąki)')}</Text>
             <View style={s.grupa}>
               <PoleProcentu id="water-pct-input" etykieta={t('Woda')} wartosc={p.waterPct} min={0} max={150} onChange={p.onWaterPctChange} />
-              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
+              <PoleProcentu id="starter-pct-input" etykieta={t('Zakwas|składnik')} wartosc={p.starterPct} min={0} max={100} onChange={p.onStarterPctChange} />
               {p.starterPct > 0 && (
                 <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={20} max={200} onChange={p.onStarterHydrationChange} />
               )}

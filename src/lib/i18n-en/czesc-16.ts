@@ -34,7 +34,7 @@ export const EN_16: Record<string, string> = {
   'masy mąki': 'flour weight',
   'Mąki (razem 100%)': 'Flours (100% total)',
   'Dodaj mąkę': 'Add Flour',
-  'Wstaw gotową mieszankę': 'Use a Flour Blend',
+  'Wstaw gotową mieszankę': 'Insert a preset blend',
   'Proporcje (procent mąki)': 'Proportions (% of flour)',
   'Hydratacja zakwasu': 'Starter hydration',
   'Zaczyn': 'Preferment',

@@ -11,7 +11,7 @@ export const EN_13: Record<string, string> = {
   'Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.':
     'According to King Arthur Baking, mix whole grain flour, whole wheat or whole rye, with water in equal weights, for example 113 g of flour and 113 g of water.',
   'Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.':
-    'Cover the container loosely, which discourages mould, and leave it for 24 hours in a warm spot, at about 21 °C.',
+    'Cover the container loosely, which makes mold less likely, and leave it for 24 hours in a warm spot, at about 21 °C.',
   'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności; dokarm zakwas tak samo.':
     'According to King Arthur Baking, you may see no activity at all in the first day; feed the starter all the same.',
   'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.':

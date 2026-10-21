@@ -155,7 +155,7 @@ export const EN_11: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.':
     'Contains fine bran. Increase hydration by 3-5% and extend the autolyse to 45-60 minutes.',
   'Mąka pełnoziarnista / razowa (100%)':
-    'Whole-grain / whole wheat flour (100%)',
+    'Whole-grain / wholemeal flour (100%)',
   'Ciemne chleby razowe, zakwas żytni i pszenny razowy, chleb 100% z keksówki.':
     'Dark whole-grain breads, rye and whole wheat sourdough starters, 100% bread in a loaf pan.',
   'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).':

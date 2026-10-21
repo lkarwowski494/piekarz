@@ -27,7 +27,7 @@ export const EN_3: Record<string, string> = {
   'Co dzisiaj pieczemy?': 'What are we baking today?',
   'Mniej': 'Less',
   'Wsyp do miski na wagę': 'Add to bowl on scale',
-  'Odhaczaj składniki w miarę wsypywania': 'Check off ingredients as you weigh them',
+  'Odhaczaj składniki w miarę wsypywania': 'Check off ingredients as you add them',
   'Mąka razem': 'Total flour',
   'Aktywny zakwas': 'Active starter',
   'W szczycie aktywności': 'At peak activity',
@@ -165,7 +165,7 @@ export const EN_3: Record<string, string> = {
   'Nieprzyjemny, zgniły zapach': 'Foul, rotten smell',
   'Wyrzuć zakwas': 'Discard the starter',
   'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.':
-    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
+    'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch of growth shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
   'Płyn na powierzchni (hooch)': 'Liquid on the surface (hooch)',
   'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
     'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
@@ -174,7 +174,7 @@ export const EN_3: Record<string, string> = {
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
   // Etapy chleba żytniego Stolnicy (src/core/rye-stages.ts) — dosłownie z docs/tresci/en/chleb-zytni-etapy.md
   // [M1-audytor-generalny-030; ZYT-ETA-001, ZYT-ETA-003..006, ZYT-STU-001]
-  'Zakwas żytni': 'Rye sourdough',
+  'Zakwas żytni': 'Rye starter',
   'Mieszanie ciasta': 'Mixing the dough',
   // + BEZ-SUR-001, BEZ-SUR-002 dosłownie z docs/tresci/en/wypiek-bezpieczenstwo.md [M1-audytor-generalny-086]
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.':

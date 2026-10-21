@@ -9,7 +9,7 @@ export const EN_2: Record<string, string> = {
   // Artisan Preferments (Kalkulator)
   'Zaczyny': 'Preferments',
   'Typ zaczynu': 'Preferment type',
-  'Udział mąki w zaczynie': 'Flour in preferment',
+  'Udział mąki w zaczynie': 'Preferment flour share',
   'Mąka w zaczynie': 'Preferment flour',
   'Woda w zaczynie': 'Preferment water',
 
@@ -38,7 +38,7 @@ export const EN_2: Record<string, string> = {
   'Energia pieca': 'Oven energy',
   'Koszt na 100g': 'Cost per 100g',
   'Cena mąki': 'Flour price',
-  'Cena energii': 'Electricity price',
+  'Cena energii': 'Energy price',
   'Dodatki (orzechy, ziarna)': 'Add-ins (nuts, seeds)',
   'Kalkulator kosztów': 'Cost calculator',
   'Zamknij': 'Close',
@@ -117,7 +117,7 @@ export const EN_2: Record<string, string> = {
   'Łagodny': 'Mild',
   'Zbalansowany': 'Balanced',
   'Kwaśny': 'Sour',
-  'Bardzo kwaśny': 'Tangy',
+  'Bardzo kwaśny': 'Very sour',
   'Miękisz:': 'Crumb:',
   'Skórka:': 'Crust:',
 
@@ -174,7 +174,7 @@ export const EN_2: Record<string, string> = {
   'Łatwy': 'Easy',
   'Średni': 'Medium',
   'Wymagający': 'Challenging',
-  'Mistrzowski': 'Artisan',
+  'Mistrzowski': 'Expert',
   'Fermentacja': 'Fermentation',
   'chłodnicza': 'cold retard',
   'Autoliza': 'Autolyse',
@@ -244,7 +244,7 @@ export const EN_2: Record<string, string> = {
   'Kryterium zaliczenia:': 'Passing criteria:',
   'Lekcja ukończona (stuknij, aby cofnąć)': 'Lesson completed (tap to revert)',
   'Oznacz lekcję jako zaliczoną': 'Mark lesson as completed',
-  '12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.': '12 illustrated technique cards with physicochemical principles, step cues, and common mistakes.',
+  '12 autorskich kart rzemieślniczych z fizykochemicznymi regułami, krokami wykonania i typowymi błędami.': '12 original technique cards with physicochemical principles, step-by-step cues and common mistakes.',
   'Wyrabianie': 'Kneading',
   'Formowanie': 'Shaping',
   'Wypiek i studzenie': 'Bake & Cool',
@@ -268,7 +268,7 @@ export const EN_2: Record<string, string> = {
   // QR Code Sharing & Offline Camera Scanner (P1, P2)
   'Skanuj Kod QR': 'Scan QR Code',
   'Dostęp do Aparatu': 'Camera Access',
-  'Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.': 'Camera is required to instantly scan artisan recipe QR codes offline from peer bakers.',
+  'Aparat jest potrzebny, aby natychmiast zeskanować kod QR receptury od innego piekarza w 100% offline.': 'The camera is needed to instantly scan a recipe QR code from another baker, 100% offline.',
   'Zezwól na dostęp do aparatu': 'Allow camera access',
   'Skieruj obiektyw na kod QR receptury': 'Point camera at the recipe QR code',
   'Receptura piekarska z aplikacji Piekarz': 'Baking recipe from Baker',
