@@ -5,7 +5,9 @@ Ten dokument pozwala kontynuować pracę z innego konta Claude albo na innym kom
 ## 1. Gdzie jesteśmy
 
 - Audyt M1 z 2026-10-19 (baza `ebd8471`) i plan 118 napraw w 7 partiach są **wykonane**. Każda partia zaczyna się od końca poprzedniej.
-- **Reaudyt M1 (pętla 1) jest GOTOWY** (2026-10-21, na `e544eec`). Raport: `K/M1-audytor-generalny-reaudit-2026-10-21.md`. Plan ma teraz 179 zadań (`sprawdz-plan` kod 0): 88 zweryfikowanych, 23 otwarte, 7 regresji. Werdykt: **do korekty, ZABLOKOWANE**. Reaudyt stoi na **STOP 2**: właściciel decyduje o nowych zadaniach i kolejnej partii, przeczytaj sekcję decyzji w raporcie.
+- **Reaudyt M1 (pętla 1) jest GOTOWY** (2026-10-21, na `e544eec`). Raport: `K/M1-audytor-generalny-reaudit-2026-10-21.md`. Plan ma teraz 179 zadań (`sprawdz-plan` kod 0): 88 zweryfikowanych, 23 otwarte, 7 regresji. Werdykt: **do korekty, ZABLOKOWANE**. STOP 2 reaudytu jest **rozstrzygnięty**: wszystkie 22 decyzje w planie mają wybór, a D-056, D-057, D-058 i ceny ręczne właściciel potwierdził bez weta.
+- **Stan planu na koniec 2026-10-21:** 179 zadań, 93 zweryfikowane, 86 otwartych. Otwarte rozłożone na partie: p1–p6 to 25 zadań wróconych do pracy (3 P0, 5 P1, 17 P2), p8 to 7 × P1, p9 to 8 × P1, p10 to 46 × P2.
+- **Następny krok:** M2 partia 8. Na jej STOP start właściciel ponownie zatwierdza 25 wróconych zadań (raport reaudytu, sekcja „C. Ponowne zatwierdzenie”). 006 i 010 czekają tylko na próbę na urządzeniu, 064 na wynik nightly, 066 na eksport z TestFlight.
 - Wstępne wyniki reaudytu:
   - rola 09: regresja P1 w 093, czyli przeliczanie imperialne po przekładzie (różnica 10 °C pokazuje się jako 50 °F; w ru, uk, bg gramy nie są przeliczane). Zadania 071, 074 i 096 są nadal otwarte;
   - rola 11: 082 otwarte, 1 nowe P1 i 3 P2.
@@ -64,8 +66,8 @@ Na innym komputerze trzeba te katalogi skopiować ręcznie (np. zip przez dysk p
 
 ## 6. Kolejne kroki
 
-1. **STOP 2 reaudytu:** pokaż właścicielowi werdykt, regresje i decyzje z raportu reaudytu, a potem zapisz jego wybory w `plan-napraw.json`.
-2. **Partia 8** (M2, od `master` = e544eec; przy okazji uporządkować kolizje numerów decyzji D-035+ wobec `docs/DECISIONS.md`) na zadania otwarte i regresje, które wybierze właściciel. Polecenie: `node <prompts>/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`. Potem reaudyt w pętli 2.
+1. **STOP 2 reaudytu:** zrobione 2026-10-21, wybory są w planie.
+2. **Partia 8** (M2, od `master` = e544eec; przy okazji uporządkować kolizje numerów decyzji D-035+ wobec `docs/DECISIONS.md`) na zadania otwarte i regresje, które wybierze właściciel. Polecenie: `node <prompts>/tools/assemble.mjs M2-koordynator-napraw --tryb fix --wyjscie K --zadania partia:8 --galaz naprawy/M2-koordynator-napraw-2026-10-19-p8 --plik K/prompty/M2-koordynator-napraw-p8.md`. Uwaga: 25 wróconych zadań ma w planie stare numery partii (p1–p6). Zakres partii 8 ustal więc z właścicielem: albo `--zadania partia:8` i osobno lista 25 ID w `--zadania ID,ID`, albo najpierw przestaw w planie pole `partia` tych zadań na 8 (z jego zgodą) i dopiero potem kontrola `sprawdz-plan`. Potem p9, p10 i reaudyt w pętli 2.
 3. **Scalenie zrobione 2026-10-21** (punkt 1 wyżej). Po partii 8 i reaudycie pętli 2 bez blokad: ochrona `master` (064) i dopiero wtedy build do wydania.
 4. **Na koniec:** nazwa D-053 na apps4brew.com.
 5. **Kroki właściciela:** testy na iPhonie, App Store Connect według `docs/wydanie/instrukcja-ustawien.md`, eksport TestFlight (066), ochrona `master` (064).
@@ -77,8 +79,8 @@ Kontynuujesz pracę M1 (Audytor Generalny) nad aplikacją Piekarz. Przeczytaj CA
 (git fetch origin && git show origin/przekazanie/m1-2026-10-21:docs/PRZEKAZANIE-M1.md) i stosuj zasady z sekcji 5.
 Katalog audytu K: C:\Users\lukas\Projekty\piekarz\audit\M1-2026-10-19\M1-2026-10-19 (jeśli go nie ma — zatrzymaj się i poproś mnie o skopiowanie).
 Najpierw sprawdź stan: git checkout master (e544eec lub nowszy; to cały łańcuch p1–p7), node K/narzedzia/sprawdz-plan.mjs K/plan-napraw.json,
-Reaudyt pętli 1 jest gotowy: K/M1-audytor-generalny-reaudit-2026-10-21.md (werdykt: do korekty, ZABLOKOWANE; 179 zadań w planie).
-Przeczytaj go całego i pokaż mi STOP 2: regresje, blokery wydania, decyzje do podjęcia z opcjami i rekomendacją, oraz propozycję partii 8.
-Po moich decyzjach zapisz je w plan-napraw.json (sprawdz-plan kod 0) i złóż polecenie partii 8 (sekcja 6).
+Reaudyt pętli 1 jest gotowy i jego STOP 2 jest rozstrzygnięty: K/M1-audytor-generalny-reaudit-2026-10-21.md (werdykt: do korekty, ZABLOKOWANE; 179 zadań, 86 otwartych).
+master = e544eec (cały łańcuch p1–p7). Złóż polecenie partii 8 (sekcja 6, gałąź naprawy/M2-koordynator-napraw-2026-10-19-p8 od master)
+i uruchom ją w NOWEJ sesji M2. Na jej STOP start mam ponownie zatwierdzić 25 wróconych zadań (sekcja „C” raportu reaudytu), więc pokaż mi je z rekomendacją.
 Niczego nie scalaj, nie pushuj i nie wysyłaj bez mojej zgody.
 ```
