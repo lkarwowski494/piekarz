@@ -7,7 +7,7 @@
     { "id": "BR-RECP-004", "powod": "funkcja PÓŹNIEJ w kontrakcie zakresu (porównanie wypieków, bez kodu)", "zrodlo": "F-63, D-043" },
     { "id": "BR-WSP-003", "powod": "funkcja PÓŹNIEJ w kontrakcie zakresu (QR, wejście ukryte)", "zrodlo": "F-08, D-043" },
     { "id": "BR-ETAP-003", "powod": "funkcja TEST w kontrakcie zakresu (ocena gotowości, treść bez źródła OP-46)", "zrodlo": "F-15, D-043" },
-    { "id": "BR-KALK-011", "powod": "znalezisko: kod nie spełnia kryterium; brak informacji o nietypowej ilości soli (RD-27-W3) i brak pola soli w gramach", "zrodlo": "F-56" },
+    { "id": "BR-KALK-011", "czesciowe": true, "powod": "znalezisko w scenariuszach Sól na granicy i Sól powyżej typowej: brak informacji o nietypowej ilości soli (RD-27-W2, RD-27-W3) i brak pola soli w gramach; ilość soli i liczenie bez blokady: test BR-KALK-011 w src/core/__tests__/sol-br-kalk-011.test.ts (M1-audytor-generalny-067)", "zrodlo": "F-56" },
     { "id": "BR-KALK-002", "czesciowe": true, "powod": "znalezisko w scenariuszu Ujemna hydratacja zakwasu: calculateDoughRecipe liczy wynik dla −1% bez komunikatu (RD-14-W4); hydratacja 0% odrzucana przy imporcie (< 40%)", "zrodlo": "F-09" },
     { "id": "BR-KALK-004", "czesciowe": true, "powod": "znalezisko w scenariuszu Brak temperatury mąki: brak pola i prośby o uzupełnienie (wynik NaN, RD-16-W4); temperatury mąki, kuchni i tarcie są w kalkulatorze stałe", "zrodlo": "F-10" },
     { "id": "BR-KALK-005", "czesciowe": true, "powod": "znalezisko: ekran nie pokazuje udziału żyta ani oznaczenia wariantu żytniego (flaga isHighRye tylko w logice planu)", "zrodlo": "F-11" },

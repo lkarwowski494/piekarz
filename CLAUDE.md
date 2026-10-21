@@ -63,5 +63,5 @@ npm test                # Uruchomienie zestawu testów Jest
   - `TEKST` (klucze językowe i komunikaty domenowe)
   - `LOGIKA` (eksportowane funkcje obliczeniowe)
   - `WYMIAR` (typy wyliczeniowe i stałe tablicowe)
-- Scenariusze `.maestro/*.yaml` interpretuje w pamięci w Jest `tests/maestro-runner.ts` dla poniedziałku, niedzieli oraz godziny 23:55 UTC — to nie jest E2E.
+- Scenariusze `.maestro/*.yaml` interpretuje w pamięci w Jest `tests/maestro-runner.ts` na stałym słowniku tekstów ekranów, bez renderowania aplikacji i bez wpływu daty — to nie jest E2E (Sprawdza: `tests/maestro-flows.test.tsx`; deklarację pilnuje `tests/quality-declarations.test.ts`).
 - Prawdziwe E2E: `.maestro/e2e/*.yaml` na symulatorze iOS w workflow `.github/workflows/e2e-ios.yml` (build Release, Maestro CLI, kontrola negatywna `.maestro/kontrola-negatywna/`); lokalnie `tests/e2e-ios-workflow.test.ts` pilnuje kroków workflow.
