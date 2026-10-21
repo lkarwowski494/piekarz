@@ -1,6 +1,19 @@
 // Słownik fr, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h à 18–20 °C (ou 4 h à 24 °C)',
+  '12–24h w chłodzie (4–8°C)': '12–24 h au frais (4–8 °C)',
+  '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h à 16–18 °C (ou 24–48 h au réfrigérateur)',
+  '4–8h w 24–26°C do szczytu objętości': '4–8 h à 24–26 °C jusqu’au pic de volume',
+  'Do ostygnięcia do temp. pokojowej': 'Jusqu’à refroidissement à température ambiante',
+  'Gumowaty (Gorący nóż)': 'Gommeux (Tranché chaud)',
+  'Jaskinie (Niedofermentowany)': 'Cavernes (Sous-fermenté)',
+  'Min. 4h lub przez noc w lodówce': 'Min. 4 h ou une nuit au réfrigérateur',
+  'Pęknięty bok': 'Flanc éclaté',
+  'Płaski dysk (Przerośnięty)': 'Disque plat (Surfermenté)',
+  'Płaski smak (Jałowy)': 'Goût plat (Fade)',
+  'Zbyt kwaśny (Octowy)': 'Trop acide (Vinaigré)',
+  'Uczeń Piekarski': 'Apprenti boulanger',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl} : temps de maturation {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Bouquet complexe d\'acides lactique et acétique, fraîcheur prolongée et faible index glycémique.',
   'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'À rafraîchir ({elapsedDays} jours au froid)',

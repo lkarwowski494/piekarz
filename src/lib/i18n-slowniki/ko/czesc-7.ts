@@ -1,4 +1,4 @@
-// Słownik ko, część 7 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ko, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': '재료를 균일하게 섞으세요. 생반죽이나 가루를 맛보지 마세요. 반죽을 만진 후에는 흐르는 물에 비누로 손을 씻으세요.',
@@ -151,6 +151,18 @@ export const CZESC: Record<string, string> = {
   'Zwiń wyjaśnienie': '설명 접기',
   'Żytni': '호밀',
   'Żytnie': '호밀 빵',
+  '12–16h w 18–20°C (lub 4h w 24°C)': '18–20°C에서 12–16시간 (또는 24°C에서 4시간)',
+  '12–24h w chłodzie (4–8°C)': '저온(4–8°C)에서 12–24시간',
+  '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–18°C에서 16–24시간 (또는 냉장고에서 24–48시간)',
+  '4–8h w 24–26°C do szczytu objętości': '24–26°C에서 4–8시간, 부피가 최대가 될 때까지',
+  'Do ostygnięcia do temp. pokojowej': '실온으로 식을 때까지',
+  'Gumowaty (Gorący nóż)': '끈적한 식감 (뜨거울 때 자름)',
+  'Jaskinie (Niedofermentowany)': '동굴 같은 구멍 (발효 부족)',
+  'Min. 4h lub przez noc w lodówce': '최소 4시간 또는 냉장고에서 하룻밤',
+  'Pęknięty bok': '옆면 터짐',
+  'Płaski dysk (Przerośnięty)': '납작한 원반 (과발효)',
+  'Płaski smak (Jałowy)': '밍밍한 맛 (풍미 부족)',
+  'Zbyt kwaśny (Octowy)': '지나치게 신맛 (식초 맛)',
   'Uczeń Piekarski': '베이킹 견습생',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: 숙성 시간 {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': '젖산과 초산의 복합적인 풍미, 오래가는 신선함, 낮은 혈당 지수.',
@@ -166,15 +178,4 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna Manitoba / Forte (W > 350)': '마니토바 / 포르테 밀가루 (W > 350)',
   'Mąka pszenna włoska Tipo 00': '이탈리아 밀가루 Tipo 00',
   'Mąka pszenna luksusowa typ 550': '밀가루 (고운 백색)',
-  'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': '고단백 밀가루 (W>280 / 마니토바)',
-  'Mąka pszenna pełnoziarnista typ 2000': '밀 전립분',
-  '{n} krok wypada w nocy#other': '{n}개 단계가 밤에 걸려요',
-  '{n} dzień#other': '{n}일',
-  '{n} receptura#other': '배합표 {n}개',
-  '{n} zakwas#other': '스타터 {n}개',
-  '{n} wpis w Dzienniku#other': '일지 항목 {n}개',
-  '{n} sekunda#other': '{n}초',
-  '{n} godzina#other': '{n}시간',
-  '{n} minuta#other': '{n}분',
-  'Plan wypieku: {n} krok.#other': '베이킹 계획: {n}단계.',
 };

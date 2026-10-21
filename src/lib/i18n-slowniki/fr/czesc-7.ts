@@ -166,5 +166,4 @@ export const CZESC: Record<string, string> = {
   'Zwiń wyjaśnienie': 'Masquer l\'explication',
   'Żytni': 'Seigle',
   'Żytnie': 'Seigle',
-  'Uczeń Piekarski': 'Apprenti boulanger',
 };

@@ -1,4 +1,4 @@
-// Słownik bg, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik bg, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.': 'Опънете тестото по-силно при окончателното оформяне.',
@@ -117,6 +117,18 @@ export const CZESC: Record<string, string> = {
   'Zwiń wyjaśnienie': 'Свийте обяснението',
   'Żytni': 'Ръжен',
   'Żytnie': 'Ръжени',
+  '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 ч при 18–20 °C (или 4 ч при 24 °C)',
+  '12–24h w chłodzie (4–8°C)': '12–24 ч на хладно (4–8 °C)',
+  '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 ч при 16–18 °C (или 24–48 ч в хладилника)',
+  '4–8h w 24–26°C do szczytu objętości': '4–8 ч при 24–26 °C до пиков обем',
+  'Do ostygnięcia do temp. pokojowej': 'До изстиване до стайна температура',
+  'Gumowaty (Gorący nóż)': 'Гумен (Рязан горещ)',
+  'Jaskinie (Niedofermentowany)': 'Кухини (Недоферментирал)',
+  'Min. 4h lub przez noc w lodówce': 'Мин. 4 ч или през нощта в хладилника',
+  'Pęknięty bok': 'Спукана страна',
+  'Płaski dysk (Przerośnięty)': 'Плосък диск (Превтасал)',
+  'Płaski smak (Jałowy)': 'Плосък вкус (Безличен)',
+  'Zbyt kwaśny (Octowy)': 'Прекалено кисел (Оцетен)',
   'Uczeń Piekarski': 'Ученик хлебар',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Време на зреене {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Сложен букет от млечна и оцетна киселина, удължена свежест и нисък гликемичен индекс.',
@@ -140,16 +152,4 @@ export const CZESC: Record<string, string> = {
   '{n} dzień#other': '{n} дни',
   '{n} receptura#one': '{n} рецепта',
   '{n} receptura#other': '{n} рецепти',
-  '{n} zakwas#one': '{n} квасен стартер',
-  '{n} zakwas#other': '{n} квасни стартера',
-  '{n} wpis w Dzienniku#one': '{n} запис в Дневника',
-  '{n} wpis w Dzienniku#other': '{n} записа в Дневника',
-  '{n} sekunda#one': '{n} секунда',
-  '{n} sekunda#other': '{n} секунди',
-  '{n} godzina#one': '{n} час',
-  '{n} godzina#other': '{n} часа',
-  '{n} minuta#one': '{n} минута',
-  '{n} minuta#other': '{n} минути',
-  'Plan wypieku: {n} krok.#one': 'План за печене: {n} стъпка.',
-  'Plan wypieku: {n} krok.#other': 'План за печене: {n} стъпки.',
 };
