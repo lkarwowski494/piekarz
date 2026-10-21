@@ -1,10 +1,6 @@
 // Słownik sr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'У фрижидер га стављај тек када се устали, односно после 7–10 дана.',
-  'Do miski': 'У чинију',
-  'Do miski (Ciasto właściwe)': 'У чинију (главно тесто)',
-  'Do miski (odhaczaj przy ważeniu)': 'У чинију (штиклирај док мериш)',
   'Do miski na wagę': 'У чинију на ваги',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До процењеног прозора врхунца остало је око {czas} (прозор: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Добра кора са благим сјајем',
@@ -87,7 +83,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Фаза 2: Без поклопца (карамелизација)',
   'Fermentacja': 'Ферментација',
   'Fermentacja burzliwa ze składaniami': 'Прва ферментација са пресавијањем',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ферментација: 2 h на радној површини, подела на лоптице од 250 g, 46 h у фрижидеру (4 °C). Извади 2 h пре печења.',
   'Filtruj profil smakowy:': 'Филтрирај профил укуса:',
   'Fizjologia ciasta:': 'Физиологија теста:',
   'Focaccia / Pizza na blasze': 'Фокача / пица у плеху',
@@ -136,7 +131,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Хидратација је премашила снагу брашна — тесто се лепи за руке и разлива у бару.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Хидратација воде мора бити у опсегу 35–120%',
   'Hydratacja zakwasu': 'Хидратација стартера',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Хидратација стартера мора бити у опсегу 20–200%',
   'hydratacji': 'хидратације',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеална основа за одржавање матичног стартера. Богато дивљим квасцима и бактеријама млечне киселине.',
   'Ilości do dokarmienia': 'Количине за храњење',
@@ -169,4 +163,8 @@ export const CZESC: Record<string, string> = {
   'Każda mąka musi posiadać nazwę': 'Свако брашно мора имати назив',
   'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Класични француски багет са предтестом Poolish од 12 сати. Хрскава, танка кора и лагана, ваздушаста средина.',
   'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Класично пољско брашно за хлеб. Одличан баланс између растегљивости и снаге теста.',
+  'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.': 'Класична комбинација три брашна: светло пшенично, грахам и ражано. 3 серије нежног пресавијања (stretch & fold), завршно нарастање у овалној корпи.',
+  'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.': 'Класична векна од 750–900 g. Стандардни губитак влаге при печењу са паром.',
+  'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.': 'Класична пшенично-ражана векна са хрскавом кором и отвореним увом векне. Идеална за почетак авантуре са стартером.',
+  'Klasyczny chleb rzemieślniczy': 'Класичан занатски хлеб',
 };

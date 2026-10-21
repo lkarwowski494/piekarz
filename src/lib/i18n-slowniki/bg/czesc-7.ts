@@ -1,11 +1,6 @@
 // Słownik bg, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej.': 'Според King Arthur Baking дивите дрожди се срещат по-често в пълнозърнестото брашно.',
-  'Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt bochenka, jeszcze bez dopracowania.': 'Според King Arthur Baking предварителното оформяне придава на тестото основната форма на самуна, все още без доизпипване.',
-  'Według King Arthur Baking garnek nagrzewa się pusty, żeby po włożeniu ciasta powstała w nim para.': 'Според King Arthur Baking съдът се загрява празен, за да се образува в него пара, когато се постави тестото.',
-  'Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.': 'Според King Arthur Baking всяко докосване на тестото стяга глутена, а почивката го отпуска, затова окончателното оформяне става по-лесно.',
-  'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'Според King Arthur Baking кошницата поддържа и оформя втасващия самун.',
   'Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.': 'Според King Arthur Baking мярката за готовност е удвояване на обема в рамките на 6–8 часа след хранене, а не броят дни.',
   'Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.': 'Според King Arthur Baking надрезът определя мястото, където самунът се разширява, така хлябът запазва формата си и не се пука отстрани.',
   'Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.': 'Според King Arthur Baking почивката на брашното с водата преди добавяне на солта позволява на брашното да поеме водата, започва образуването на глутен и улеснява месенето.',
@@ -86,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'Wyczyść': 'Изчистете',
   'Wyczyść wklejony tekst': 'Изчистете поставения текст',
   'Wyczyść zaznaczone objawy': 'Изчистете отбелязаните симптоми',
-  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Удължена ферментация на студено (18–24 ч при 4 °C). По-ниската температура на ферментация се свързва с оцетната киселина. Печене с обилна пара.',
   'Wyjmij chleb z garnka na kratkę.': 'Извадете хляба от съда върху решетка.',
   'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Извадете върху метална решетка. Изчакайте минимум 2 часа, за да завърши желирането на средата.',
   'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Извадете съда, преди да включите загряването на фурната: King Arthur Baking предупреждава, че това лесно се забравя.',
@@ -95,4 +89,15 @@ export const CZESC: Record<string, string> = {
   'Wykonaj 4 serie składań co 30–45 minut.': 'Направете 4 серии сгъване на всеки 30–45 минути.',
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Направете теста с пръст, преди да сложите самуна във фурната.',
   'Wykryto uszkodzony stan bazy danych': 'Открито е повредено състояние на базата данни',
+  'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Изсипете тестото на плота, оформете го предварително на топка и опънете повърхността.',
+  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Изисква брашно със съдържание на протеин минимум 13,0 г. Автолиза 60 минути без сол. Много внимателно спираловидно сгъване.',
+  'Wymaga obecności': 'Изисква присъствие',
+  'wymaga Piekarz Pro': 'изисква Пекар Pro',
+  'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Изисква запарване на червения ръжен малц с вряла вода заедно със смления кориандър. Преди печене поръсете отгоре с цели зърна кориандър.',
+  'wymagający': 'взискателно',
+  'Wymagający': 'Сложно',
+  'Wymagana temperatura wody': 'Необходима температура на водата',
+  'Wymagany lód do schłodzenia wody': 'Необходим лед за охлаждане на водата',
+  'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Смесете съставките до еднородна маса. Не опитвайте сурово тесто или брашно. След работа с тестото измийте ръцете си със сапун под течаща вода.',
+  'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': 'Разбъркайте съставките в купа с лъжица. Покрийте с фолио и оставете за 12–16 часа на стайна температура. Без сгъване.',
 };

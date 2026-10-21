@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Lớp phủ màu trắng hoặc lớp váng trên bề mặt',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (bột men đặc, độ ẩm bột 50%) ủ 16 h ở 18°C. Thêm 3% dầu ô liu vào bột chính. Không làm xẹp khí bột trước khi nướng.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Bột men Ý dạng đặc 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Bánh bông lan, bánh bột giòn, bánh quy, bánh kếp và các loại bánh ngọt tinh tế.',
   'blacha piekarnika': 'khay nướng',
@@ -200,4 +199,9 @@ export const CZESC: Record<string, string> = {
   'Dodatki (orzechy, ziarna)': 'Phụ liệu (hạt dinh dưỡng, hạt ngũ cốc)',
   'Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.': 'Cho men ăn bằng bột và nước ấm. Để nơi ấm đến khi gấp đôi thể tích.',
   'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.': 'Tiếp tục cho ăn mỗi 12 giờ cho đến khi men tự nhiên nở gấp đôi thể tích trong vòng 6–8 giờ sau khi cho ăn.',
+  'Dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość; wtedy jest gotowy do pieczenia.': 'Cho men ăn mỗi 12 giờ cho đến khi men nở gấp đôi hoặc gấp ba thể tích trong vòng 6–8 giờ sau khi cho ăn; lúc đó men đã sẵn sàng để nướng bánh.',
+  'Dokarmienie': 'Cho men ăn',
+  'Dokarmienie {proporcja}': 'Cho men ăn {proporcja}',
+  'Dokarmienie zakwasu': 'Cho men tự nhiên ăn',
+  'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Cho men ăn (đạt đỉnh hoạt động của men)',
 };

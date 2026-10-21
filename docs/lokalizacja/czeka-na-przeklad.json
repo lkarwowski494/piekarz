@@ -1,84 +1,27 @@
 {
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
-  "klucze": [
-    {
-      "klucz": "Mąka żytnia typ 2000",
-      "powod": "nazwa atlasu bez „razowa” (MAK-OGL-901 otwarte) toru p13a (M2-koordynator-napraw-453 (p12b2)); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Mąka orkiszowa typ 2000",
-      "powod": "nazwa atlasu bez „razowa” (MAK-OGL-901 otwarte) toru p13a (M2-koordynator-napraw-453 (p12b2)); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "{n} cz.",
-      "powod": "forma liczby mnogiej proporcji karmienia (tPlural, EN 1 part / 2 parts) z kontroli EN 2026-10-22, tor p13b (M1-audytor-generalny-074); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "{n} cz.#one",
-      "powod": "forma liczby mnogiej proporcji karmienia (tPlural, EN 1 part / 2 parts) z kontroli EN 2026-10-22, tor p13b (M1-audytor-generalny-074); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Udział żyta {n}%: wariant żytni, plan bez składań.",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Udział żyta {n}%: wariant pszenny.",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Notatka z poprzedniego wypieku: {notatka}",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-RECP-003 notatka w planie); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Temperatura w kuchni",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Temperatura zakwasu albo zaczynu",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.",
-      "powod": "nowy tekst toru p13b (M1-audytor-generalny-146: BR-KALK-004 pola temperatur); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
-    }
-  ],
+  "klucze": [],
   "zamkniete": {
-    "data": "2026-10-21",
-    "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",
-    "klucze": [
-      "Jaskinie (Niedofermentowany)",
-      "Płaski dysk (Przerośnięty)",
-      "Gumowaty (Gorący nóż)",
-      "Pęknięty bok",
-      "Zbyt kwaśny (Octowy)",
-      "Płaski smak (Jałowy)",
-      "12–16h w 18–20°C (lub 4h w 24°C)",
-      "16–24h w 16–18°C (lub 24–48h w lodówce)",
-      "12–24h w chłodzie (4–8°C)",
-      "4–8h w 24–26°C do szczytu objętości",
-      "Do ostygnięcia do temp. pokojowej",
-      "Min. 4h lub przez noc w lodówce"
-    ]
+    "data": "2026-10-22",
+    "sposob": "przebieg M1 „noc2” (Claude API Message Batches, claude-opus-5-5): 11 kluczy torów p13a i p13b × 33 języki + formy liczby mnogiej „{n} cz.#<kategoria>” w 27 językach (do docs/lokalizacja/poprawki-przekladu.json, 40 poprawek liczba-mnoga) + 58 akapitów opisu App Store; 0 błędów walidacji; wpięty przez scripts/wepnij-przeklad.mjs (33/33, 0 błędów); tłumaczenie zwrotne: 4 rozbieżności (id, ms: zdania o soli „Garam {procent} lebih …” czytelne jako różnica) rozstrzygnięte poprawkami krok0 „Garam sebanyak {procent} …”. Raport: narzedzia-api/przeklad/raporty/noc2-2026-10-22.md",
+    "poprzednie": {
+      "data": "2026-10-21",
+      "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",
+      "klucze": [
+        "Jaskinie (Niedofermentowany)",
+        "Płaski dysk (Przerośnięty)",
+        "Gumowaty (Gorący nóż)",
+        "Pęknięty bok",
+        "Zbyt kwaśny (Octowy)",
+        "Płaski smak (Jałowy)",
+        "12–16h w 18–20°C (lub 4h w 24°C)",
+        "16–24h w 16–18°C (lub 24–48h w lodówce)",
+        "12–24h w chłodzie (4–8°C)",
+        "4–8h w 24–26°C do szczytu objętości",
+        "Do ostygnięcia do temp. pokojowej",
+        "Min. 4h lub przez noc w lodówce"
+      ]
+    }
   },
   "zamkniete-p12-noc": {
     "data": "2026-10-22",

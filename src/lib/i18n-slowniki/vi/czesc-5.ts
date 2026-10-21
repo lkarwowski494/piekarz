@@ -1,22 +1,6 @@
 // Słownik vi, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Standardowa mąka chlebowa.': 'Bột mì tiêu chuẩn để làm bánh mì.',
-  'Standardowe dokarmienie przed pieczeniem.': 'Cho men ăn tiêu chuẩn trước khi nướng.',
-  'stare ciasto': 'bột cũ',
-  'Start': 'Bắt đầu',
-  'Start {dzien} o {godzina}': 'Bắt đầu {dzien} lúc {godzina}',
-  'Stary zakwas': 'Men tự nhiên cũ',
-  'Statystyki piekarni domowej': 'Thống kê lò bánh tại nhà',
-  'Stolnica': 'Bàn làm bánh',
-  'Strata piecowa': 'Hao hụt khi nướng',
-  'Struktura miękiszu': 'Ruột bánh thoáng khí',
-  'Studzenie': 'Làm nguội',
-  'Studzenie na kratce': 'Làm nguội trên giá',
-  'Studzenie na kratce (nie krój gorącego!)': 'Làm nguội trên giá (không cắt khi còn nóng!)',
-  'sty': 'Thg 1',
-  'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Muối khô hút nước cục bộ qua thẩm thấu và tạo vón cục. Đưa muối vào dưới dạng dung dịch giúp các ion Na+ và Cl- lập tức siết chặt liên kết gluten trong toàn bộ khối bột.',
-  'Suchy / chrupki (Crisp Dry)': 'Khô / giòn (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Đề xuất điều chỉnh: kéo dài thời gian ủ trong tủ lạnh thêm 2–4 giờ hoặc dời giờ cho men ăn để tránh các bước thao tác trên bàn làm bánh vào ban đêm.',
   'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'Tổng tỷ lệ là {suma}% — còn thiếu {reszta}%.',
   'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'Tổng tỷ lệ là {suma}% — vượt quá 100% là {reszta}%.',
@@ -149,4 +133,9 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.': 'Theo King Arthur Baking, men cũng nên nở gấp đôi rõ rệt trong vòng 6–8 giờ sau mỗi lần cho men ăn.',
   'Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.': 'Theo King Arthur Baking, đây là lần ủ nở cuối cùng của bột trước khi nướng.',
   'Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Theo King Arthur Baking, bánh mì lúa mạch đen men tự nhiên sau khi nướng nên được để nghỉ 24 giờ trước khi cắt để đạt chất lượng tốt nhất.',
+  'Według King Arthur Baking w czasie fermentacji powstają kwasy, które nadają ciastu smak i siłę, oraz dwutlenek węgla, który daje mu objętość i lekkość.': 'Theo King Arthur Baking, quá trình lên men tạo ra các axit mang lại hương vị và độ chắc cho bột, cùng khí carbon dioxide giúp bột nở và nhẹ xốp.',
+  'Według King Arthur Baking w dniu 3 zwykle widać pęcherzyki, świeży owocowy zapach i wzrost objętości.': 'Theo King Arthur Baking, vào ngày 3 thường thấy bọt khí, mùi trái cây tươi và men nở thêm.',
+  'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności; dokarm zakwas tak samo.': 'Theo King Arthur Baking, trong ngày đầu tiên có thể chưa thấy hoạt động nào; vẫn cho men ăn như bình thường.',
+  'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.': 'Theo King Arthur Baking, trong ngày đầu tiên có thể chưa thấy hoạt động nào.',
+  'Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.': 'Theo King Arthur Baking, trộn bột nguyên cám (bột mì nguyên cám hoặc bột lúa mạch đen nguyên cám xay thô) với nước theo khối lượng bằng nhau, ví dụ 113 g bột và 113 g nước.',
 };

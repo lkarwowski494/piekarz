@@ -1,11 +1,6 @@
 // Słownik ru, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Diagnostyka błędów wypieku i ratowanie bochenka': 'Диагностика ошибок выпечки и спасение каравая',
-  'długi krok (skrócony)': 'долгий шаг (сокращён)',
-  'Długo stał w lodówce bez dokarmiania': 'Долго стояла в холодильнике без подкормки',
-  'do {godzina}': 'до {godzina}',
-  'do {godzina}, potem {krok}': 'до {godzina}, затем {krok}',
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Ставьте её в холодильник только тогда, когда она стабилизируется, то есть через 7–10 дней.',
   'Do miski': 'В миску',
   'Do miski (Ciasto właściwe)': 'В миску (основное тесто)',
@@ -92,7 +87,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Фаза 2: без крышки (карамелизация)',
   'Fermentacja': 'Брожение',
   'Fermentacja burzliwa ze składaniami': 'Основное брожение со складываниями',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Брожение: 2 ч на столе, деление на шарики по 250 г, 46 ч в холодильнике (4 °C). Достаньте за 2 ч до выпечки.',
   'Filtruj profil smakowy:': 'Фильтр по вкусовому профилю:',
   'Fizjologia ciasta:': 'Физиология теста:',
   'Focaccia / Pizza na blasze': 'Фокачча / пицца на противне',
@@ -141,7 +135,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Гидратация превысила силу муки — тесто липнет к рукам и растекается лужей.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Гидратация по воде должна быть в диапазоне 35–120 %',
   'Hydratacja zakwasu': 'Гидратация закваски',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Гидратация закваски должна быть в диапазоне 20–200 %',
   'hydratacji': 'гидратации',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеальная основа для ведения материнской закваски. Богата дикими дрожжами и молочнокислыми бактериями.',
   'Ilości do dokarmienia': 'Количество для подкормки',
@@ -169,4 +162,9 @@ export const CZESC: Record<string, string> = {
   'Kalkulator kosztów': 'Калькулятор стоимости',
   'Kalkulator kosztów wypieku': 'Калькулятор стоимости выпечки',
   'Karmelizacja': 'Карамелизация',
+  'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.': 'Карамелизация и сладость крахмала, мягкий эластичный мякиш японского хлеба.',
+  'Karta receptury': 'Карточка рецептуры',
+  'Każda mąka musi posiadać nazwę': 'У каждой муки должно быть название',
+  'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Классический французский багет на 12-часовой опаре Poolish. Хрустящая тонкая корка и лёгкий, воздушный мякиш.',
+  'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Классическая польская мука для хлеба. Отличный баланс между растяжимостью и силой теста.',
 };

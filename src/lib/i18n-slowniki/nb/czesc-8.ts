@@ -1,11 +1,14 @@
 // Słownik nb, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'Proteinrikt hvetemel (W > 280 / Manitoba)',
   'Mąka pszenna pełnoziarnista typ 2000': 'Fullkornsmel av hvete',
   '{n} krok wypada w nocy#one': '{n} steg havner om natten',
   '{n} krok wypada w nocy#other': '{n} steg havner om natten',
   '{n} dzień#one': '{n} dag',
   '{n} dzień#other': '{n} dager',
+  '{n} cz.#one': '{n} del',
+  '{n} cz.#other': '{n} deler',
   '{n} dzień temu#one': 'for {n} dag siden',
   '{n} dzień temu#other': 'for {n} dager siden',
   '{n} receptura#one': '{n} oppskrift',

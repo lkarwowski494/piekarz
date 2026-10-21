@@ -1,16 +1,6 @@
 // Słownik fi, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Temperatura wody': 'Veden lämpötila',
-  'Temperatura wody i zaczyny': 'Veden lämpötila ja esitaikinat',
-  'Temperatura wody, zaczyny, strata piecowa': 'Veden lämpötila, esitaikinat, paistohävikki',
-  'Temperatura wody: {temp}°C': 'Veden lämpötila: {temp} °C',
-  'Test palca': 'Sormitesti',
-  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Perinteinen italialainen ciabatta jäykällä Biga-juurella (50 %). Näyttävä uuninousu ja suuret, helmiäiset kolot.',
-  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Perinteinen leipä Ranskan maaseudulta. Tasapainoinen maitohappoinen maku ja pähkinäinen, leseinen jälkimaku.',
-  'Tradycyjny chleb 100% żytni razowy': 'Perinteinen 100 % täysjyväruisleipä',
-  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Perinteinen ranskalaisen maalaisleivän profiili, mieto happamuus ja tiivis sisus.',
-  'Trener i Fiszki': 'Harjoitus ja kortit',
   'Trener Szybkiego Rachunku': 'Päässälaskun harjoitus',
   'Trwa wypiek': 'Leivonta käynnissä',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Säilytän 10 viimeisintä kopiota tässä puhelimessa.',
@@ -142,4 +132,13 @@ export const CZESC: Record<string, string> = {
   'Wróć do wypieku': 'Palaa leivontaan',
   'wrz': 'syys',
   'Wskazówka rzemieślnicza:': 'Leipurin vinkki:',
+  'Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.': 'Vinkki: Ota valmiista juuresta ({masa}) taikinaan tarvittava määrä ja laita loput (~{od}–{do}) jääkaappiin emojuureksi seuraavaa leivontaa varten.',
+  'Wskazówki': 'Vinkit',
+  'Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.': 'Laita vuoka jääkaappiin (4 °C) 2–3 tunniksi, jotta jäähtynyt voi ja gluteeni jähmettyvät.',
+  'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.': 'Laita valurautapata uuniin ja lämmitä 240 °C:seen.',
+  'Wstaw gotową mieszankę': 'Lisää valmis seos',
+  'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Laita kori tiiviissä pussissa jääkaappiin (4–6 °C). Pitkä käyminen antaa leivälle syvän aromin.',
+  'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Laita taikina-astia sammutettuun uuniin ja sytytä pelkkä uunin valo: King Arthur Bakingin mukaan lämpötila uunissa nousee vähitellen, mutta jokainen uuni ja jokainen keittiö antaa eri tuloksen.',
+  'Wstrzymaj': 'Keskeytä',
+  'Wstrzymano': 'Keskeytetty',
 };

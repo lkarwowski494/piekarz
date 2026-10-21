@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Vit beläggning eller hinna på ytan',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fast fördeg, 50 % vätskegrad) som mognar 16 h i 18 °C. Tillsätt 3 % olivolja i huvuddegen. Tryck inte ut gasen ur degen före gräddning.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Fast italiensk fördeg 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Sockerkakor, mördegar, kakor, pannkakor och ömtåliga konditoribakverk.',
   'blacha piekarnika': 'ugnsplåt',
@@ -219,4 +218,5 @@ export const CZESC: Record<string, string> = {
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, jämna porer som en svamp/ett skum',
   'Drożdże': 'Jäst',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Jästen och bakterierna i surdegsgrunden behöver matas regelbundet med färskt mjöl och vatten för att överleva och föröka sig.',
+  'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Jästen hann inte bilda och fördela gas i hela degen innan den sattes in i ugnen. I ugnen expanderade degen häftigt bara upptill och slet sönder skorpan.',
 };

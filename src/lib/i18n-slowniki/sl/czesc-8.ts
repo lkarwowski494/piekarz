@@ -1,6 +1,8 @@
 // Słownik sl, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Hranljiv kruh iz grobo mlete pšenične moke graham z dodatkom naravnega medu in lanenega semena.',
+  'Mąka pszenna graham typ 1850': 'Pšenična moka graham (polnozrnata moka)',
   'Mąka pszenna Manitoba / Forte (W > 350)': 'Pšenična moka Manitoba / Forte (W > 350)',
   'Mąka pszenna włoska Tipo 00': 'Italijanska pšenična moka Tipo 00',
   'Mąka pszenna luksusowa typ 550': 'Svetla pšenična moka',
@@ -14,6 +16,10 @@ export const CZESC: Record<string, string> = {
   '{n} dzień#two': '{n} dneva',
   '{n} dzień#few': '{n} dnevi',
   '{n} dzień#other': '{n} dni',
+  '{n} cz.#one': '{n} del',
+  '{n} cz.#two': '{n} dela',
+  '{n} cz.#few': '{n} deli',
+  '{n} cz.#other': '{n} delov',
   '{n} dzień temu#one': 'pred {n} dnem',
   '{n} receptura#one': '{n} recept',
   '{n} receptura#two': '{n} recepta',

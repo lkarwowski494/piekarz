@@ -1,11 +1,6 @@
 // Słownik uk, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.': 'Карамелізація та солодкість крохмалю, м\'який еластичний м\'якуш японської випічки.',
-  'Karta receptury': 'Картка рецептури',
-  'Każda mąka musi posiadać nazwę': 'Кожне борошно повинно мати назву',
-  'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Класичний французький багет на 12-годинній опарі Poolish. Хрустка тонка скоринка й легкий, повітряний м\'якуш.',
-  'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Класичне польське борошно для хліба. Чудовий баланс між розтяжністю та силою тіста.',
   'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.': 'Класичне поєднання трьох видів борошна: світле пшеничне, Грехем і житнє середнього помелу. 3 серії делікатних складань stretch & fold, вистоювання в овальному кошику для вистоювання.',
   'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.': 'Класична хлібина вагою 750–900 г. Стандартна втрата вологи під час випікання з парою.',
   'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.': 'Класична пшенично-житня хлібина з хрусткою скоринкою й розкритим вушком. Ідеальна для початку знайомства із закваскою.',
@@ -53,7 +48,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'левен',
   'Liczba bochenków': 'Кількість хлібин',
   'Liczba bochenków i gramatura': 'Кількість хлібин і вага',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Підживіть Lievito Madre 3 рази кожні 4 год перед замішуванням тіста. Вершкове масло (25 %) додавайте поступово, порціями, наприкінці замішування, коли глютенова сітка вже повністю розвинена.',
   'lip': 'лип',
   'lis': 'лист',
   'lodówka': 'холодильник',
@@ -185,4 +179,16 @@ export const CZESC: Record<string, string> = {
   'Następne pytanie': 'Наступне запитання',
   'Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu': 'Наукові знання про будову зерна, ферменти та мікробіологію закваски',
   'Nazwa': 'Назва',
+  'Nazwa przepisu': 'Назва рецепта',
+  'Nic się nie dzieje': 'Нічого не відбувається',
+  'Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.': 'Записів про підживлення ще немає. Натисніть «Записати підживлення», коли підживите закваску.',
+  'Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.': 'У вас ще немає закваски. Додайте закваску, яка у вас є, або виведіть нову.',
+  'Nie można otworzyć bazy danych': 'Не вдається відкрити базу даних',
+  'Nie można usunąć': 'Не вдається видалити',
+  'Nie podwaja objętości': 'Не подвоює об\'єм',
+  'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.': 'Не намагайтеся формувати хлібину! Негайно перекладіть тісто на змащене деко.',
+  'Nie próbuj surowego ciasta ani mąki.': 'Не куштуйте сире тісто чи борошно.',
+  'Nie próbuj surowego zakwasu ani mąki.': 'Не куштуйте сиру закваску чи борошно.',
+  'Nie próbuj surowego zakwasu przed upieczeniem.': 'Не куштуйте сиру закваску до випікання.',
+  'Nie teraz': 'Не зараз',
 };

@@ -1,14 +1,6 @@
 // Słownik fr, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Suchy / chrupki (Crisp Dry)': 'Sec / croustillant (Crisp Dry)',
-  'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Correction suggérée : prolongez la pousse lente au froid au réfrigérateur de 2–4 heures ou décalez l\'heure du rafraîchi du levain naturel pour éviter les étapes au plan de travail pendant la nuit.',
-  'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'La somme des pourcentages est de {suma} % — il manque encore {reszta} %.',
-  'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'La somme des pourcentages est de {suma} % — elle dépasse 100 % de {reszta} %.',
-  'Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)': 'La somme des parts de farines doit être d\'environ 100 % (actuellement : {sum} %)',
-  'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.': 'Farine très forte issue de blé riche en protéines. Supporte une hydratation énorme (80 %+) et plusieurs heures au froid.',
-  'Surowe ciasto i mąka': 'Pâte crue et farine',
-  'Surowy zakwas': 'Levain naturel cru',
   'Szacowana wilgotność miękiszu': 'Humidité estimée de la mie',
   'Szacowane okno szczytu minęło ok. {czas} temu.': 'La fenêtre de pic estimée s\'est terminée il y a environ {czas}.',
   'Szacowane okno szczytu:': 'Fenêtre de pic estimée :',
@@ -140,4 +132,7 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.': 'Selon King Arthur Baking, il est possible de ne voir aucune activité le premier jour.',
   'Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.': 'Selon King Arthur Baking, mélangez de la farine intégrale (farine de blé ou farine de seigle complète) avec de l\'eau en poids égaux, par exemple 113 g de farine et 113 g d\'eau.',
   'Według King Arthur Baking wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.': 'Selon King Arthur Baking, le pétrissage développe le gluten, ce qui permet à la pâte de retenir le gaz produit par les levures et de lever.',
+  'Według King Arthur Baking zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.': 'Selon King Arthur Baking, un levain naturel conservé longtemps au réfrigérateur sans rafraîchi présente une épaisse couche de liquide et manque de vigueur.',
+  'Według King Arthur Baking zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.': 'Selon King Arthur Baking, le levain naturel est prêt pour la cuisson lorsqu\'il double de volume dans les 6–8 heures suivant le rafraîchi et qu\'il est plein de bulles.',
+  'Według King Arthur Baking zakwas z lodówki przed pieczeniem dokarm w równych częściach wagowych i zostaw w temperaturze pokojowej.': 'Selon King Arthur Baking, avant la cuisson, rafraîchissez le levain naturel sorti du réfrigérateur à parts égales en poids et laissez-le à température ambiante.',
 };

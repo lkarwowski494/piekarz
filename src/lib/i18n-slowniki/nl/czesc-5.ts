@@ -1,15 +1,6 @@
 // Słownik nl, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Tradycyjny chleb 100% żytni razowy': 'Traditioneel 100% grof volkorenroggebrood',
-  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Traditioneel profiel van Frans boerenbrood, milde zuurheid en een compact kruim.',
-  'Trener i Fiszki': 'Trainer en flashcards',
-  'Trener Szybkiego Rachunku': 'Hoofdrekentrainer',
-  'Trwa wypiek': 'Bezig met bakken',
-  'Trzymam 10 ostatnich kopii na tym telefonie.': 'Ik bewaar de laatste 10 back-ups op deze telefoon.',
-  'Tu zapiszą się twoje wypieki': 'Hier verschijnen je baksels',
-  'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Je gegevens zijn niet gewijzigd, maar de app kan ze nu niet lezen of bewaren. Start de app opnieuw. Als het probleem terugkomt, maak dan opslagruimte vrij op je telefoon.',
-  'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Je gegevens staan op je telefoon. Voordat je het opnieuw probeert, kun je er een kopie van exporteren.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Je kunt je recepten, zuurdesemstarters en dagboek nog bekijken, exporteren en verwijderen. Herinneringen om te voeden staan uit. Berekenen, plannen en begeleiding vereisen Bakker Pro.',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Alleen wit meel: volgens King Arthur Baking kan de zuurdesemstarter dan iets trager op gang komen.',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Dit meel staat niet in de Poolse norm PN-A-74022:2003: molens maken het volgens eigen technische specificaties. Donkerder meel voor brood met hogere enzymactiviteit en een nootachtig aroma.',
@@ -141,4 +132,16 @@ export const CZESC: Record<string, string> = {
   'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.': 'Zet de gietijzeren pan in de oven en verwarm voor op 240 °C.',
   'Wstaw gotową mieszankę': 'Kies een meelmengsel',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Zet het rijsmandje in een goed afgesloten zak in de koelkast (4–6 °C). Een lange fermentatie geeft het brood een diep aroma.',
+  'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Zet de kom met deeg in de uitgeschakelde oven en doe alleen het lampje aan: volgens King Arthur Baking loopt de temperatuur binnenin geleidelijk op, maar elke oven en elke keuken geeft een ander resultaat.',
+  'Wstrzymaj': 'Pauzeer',
+  'Wstrzymano': 'Gepauzeerd',
+  'Wsyp do miski na wagę': 'Op de weegschaal in de kom doen',
+  'Wszechstronna mąka. Przy chlebach wiejskich warto połączyć z 10-15% mąki razowej lub żytniej.': 'Veelzijdig meel. Voor boerenbrood kun je het combineren met 10-15% grof volkoren- of roggemeel.',
+  'Wszystkie': 'Alle',
+  'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Alle handmatige stappen (mengen, vouwen, bakken) vallen buiten het slaapvenster (23:00 – 06:30).',
+  'Wszystkie etapy wypieku': 'Alle bakfasen',
+  'Wt.': 'di',
+  'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Kies het standaard bakgerei voor de procedure in Werkbank:',
+  'Wybierz objawy bochenka': 'Kies de symptomen van je brood',
+  'Wybierz recepturę': 'Kies een recept',
 };

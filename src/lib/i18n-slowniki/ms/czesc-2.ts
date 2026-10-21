@@ -1,9 +1,6 @@
 // Słownik ms, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobne pory, bochenek ciężki w dłoni': 'Liang halus, buku roti terasa berat di tangan',
-  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Gelembung halus dan seragam seperti span/buih',
-  'Drożdże': 'Yis',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Yis dan bakteria dalam pemula perlu diberi makan secara berkala dengan tepung dan air segar supaya dapat terus hidup dan membiak.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Yis tidak sempat menghasilkan dan menyebarkan gas ke seluruh doh sebelum dimasukkan ke dalam ketuhar. Di dalam ketuhar, pengembangan berlaku secara mendadak hanya di bahagian atas, lalu mengoyakkan kerak.',
   'Drożdżowe': 'Yis',
@@ -48,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Fasa 2: Tanpa penutup (Karamelisasi)',
   'Fermentacja': 'Penapaian',
   'Fermentacja burzliwa ze składaniami': 'Penapaian pukal dengan lipatan doh',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Penapaian: 2 jam di atas meja, bahagikan kepada bebola 250 g, 46 jam dalam peti sejuk (4°C). Keluarkan 2 jam sebelum dibakar.',
   'Filtruj profil smakowy:': 'Tapis profil rasa:',
   'Fizjologia ciasta:': 'Fisiologi doh:',
   'Focaccia / Pizza na blasze': 'Focaccia / Piza dulang',
@@ -97,7 +93,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Penghidratan melebihi kekuatan tepung — doh melekat pada tangan dan merebak menjadi lopak.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Penghidratan air mesti dalam julat 35–120%',
   'Hydratacja zakwasu': 'Penghidratan pemula sourdough',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Penghidratan pemula sourdough mesti dalam julat 20–200%',
   'hydratacji': 'penghidratan',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Asas ideal untuk menjaga pemula sourdough induk. Kaya dengan yis liar dan bakteria asid laktik.',
   'Ilości do dokarmienia': 'Kuantiti Pemberian Makan',
@@ -177,7 +172,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Bilangan buku roti',
   'Liczba bochenków i gramatura': 'Bilangan buku roti dan berat',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Segarkan Lievito Madre 3 kali setiap 4 jam sebelum menguli doh. Masukkan mentega (25%) secara beransur-ansur sedikit demi sedikit di akhir uli, apabila rangkaian gluten sudah berkembang sepenuhnya.',
   'lip': 'Jul',
   'lis': 'Nov',
   'lodówka': 'peti sejuk',
@@ -238,4 +232,13 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 550 (Luksusowa)': 'Tepung gandum cerah (Premium)',
   'Mąka pszenna typ 650 (Bułkowa)': 'Tepung gandum cerah sederhana (Roti bun)',
   'Mąka pszenna typ 850': 'Tepung gandum untuk roti, lebih gelap',
+  'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Tepung gandum kadar pengekstrakan tinggi, protein 11.9%',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Tepung gandum kadar pengekstrakan tinggi, protein 12.4–15.5%',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Tepung gandum kadar pengekstrakan tinggi, protein 13.1%',
+  'Mąka pszenna, białko 13,8%': 'Tepung gandum, protein 13.8%',
+  'Mąka razem': 'Jumlah tepung',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Tepung mil penuh. Protein dalam sampel yang diuji: 8.7–9.6%. Abu mengikut piawaian Poland: maksimum 2%.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Tepung ialah asas 100% dalam peratusan pembuat roti',
+  'Mąka uniwersalna / pszenna jasna': 'Tepung gandum cerah (pelbagai kegunaan)',
+  'Mąka w zaczynie': 'Tepung dalam biang',
 };

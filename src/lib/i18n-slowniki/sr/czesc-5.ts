@@ -1,15 +1,6 @@
 // Słownik sr, część 5 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.': 'Остави тесто покривено да се глутен опусти пре коначног обликовања.',
-  'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2.': 'Храна је потрошена. Нахрани стартер у односу 1:2:2.',
-  'Pradawny chleb orkiszowy z prażonymi ziarnami': 'Древни хлеб од спелте са прженим семенкама',
-  'Preferment (Zaczyn)': 'Предфермент (предтесто)',
-  'Procedura Bassinage ratunkowego': 'Поступак спасилачког басинажа',
-  'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Проценат брашна „{name}“ мора бити број у опсегу 0,1–100%',
-  'Profil smakowy': 'Профил укуса',
-  'Profil zakwasu': 'Профил стартера',
-  'Profil, cykl dokarmiania i szczyt aktywności': 'Профил, циклус храњења и врхунац активности',
   'Proponowane mieszanie ciasta: {dzien} o {godzina}.': 'Предложено мешење теста: {dzien} у {godzina}.',
   'Proporcja': 'Однос',
   'Proporcje (procent mąki)': 'Пропорције (проценат брашна)',
@@ -162,4 +153,16 @@ export const CZESC: Record<string, string> = {
   'Szybkie odświeżenie: więcej zakwasu względem świeżej mąki i wody, więc krótszy czas do szczytu.': 'Брзо освежавање: више стартера у односу на свеже брашно и воду, па краће време до врхунца.',
   'Szybkie szablony typowych problemów': 'Брзи шаблони честих проблема',
   'Szybko odskakuje:': 'Брзо се враћа:',
+  'Ściany foremki keksowej zapewniają mechaniczne podparcie, eliminując potrzebę silnego napięcia powierzchniowego i pozwalając na uzyskanie soczystego, kremowego miękiszu.': 'Зидови правоугаоног калупа пружају механичку потпору, па нема потребе за јаком површинском напетошћу, а средина може да буде сочна и кремаста.',
+  'Śr.': 'Сре.',
+  'Śr. miękisz': 'Прос. средина',
+  'Śr. skórka': 'Прос. кора',
+  'średni': 'средњи',
+  'Średni': 'Средњи',
+  'Średnia ocena': 'Просечна оцена',
+  'Średnia zawartość minerałów, elastyczny gluten. Bardzo dobra do chlebów pszennych i bagietek.': 'Средњи садржај минерала, еластичан глутен. Веома добро за пшенични хлеб и багете.',
+  'Świetnie! Prawidłowa odpowiedź!': 'Одлично! Тачан одговор!',
+  'Świeży po pracy': 'Свеж после посла',
+  'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Свеж, једноставан пшенични укус без развијене киселости.',
+  'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Тангжонг (запарено брашно 1:5 на 65 °C)',
 };

@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   '{krok} wypada o {godzina} w nocy': '{krok}: στις {godzina} μέσα στη νύχτα',
   '{maka} mąki + {woda} wody': '{maka} αλεύρι + {woda} νερό',
   '{masa} / szt.': '{masa} / τεμ.',
-  '{n} cz.': '{n} μέρ.',
+  '{n} cz.': '{n} μέρη',
   '{n} dni': '{n} ημέρες',
   '{n} dnia': '{n} ημέρες',
   '{n} dzień': '{n} ημέρα',
@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Πρωτεΐνη:',
   'Biały nalot lub kożuch na powierzchni': 'Λευκή επίστρωση ή πέτσα στην επιφάνεια',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (σφιχτή προζύμωση, ενυδάτωση 50%) που ωριμάζει 16 ώρες στους 18 °C. Στην κύρια ζύμη προσθέστε 3% ελαιόλαδο. Μη βγάλετε τα αέρια από τη ζύμη πριν από το ψήσιμο.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (Σφιχτή ιταλική μαγιά προζυμιού 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Παντεσπάνια, ζύμες κουρού, μπισκότα, κρέπες και λεπτά γλυκά ζαχαροπλαστικής.',
   'blacha piekarnika': 'ταψί φούρνου',
@@ -167,4 +166,5 @@ export const CZESC: Record<string, string> = {
   'Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)': 'Εξασκήστε νοερά τη διαίσθησή σας στις αρτοποιητικές αναλογίες (Mental Baker Drill)',
   'Dane są zapisywane tylko w tym telefonie.': 'Τα δεδομένα αποθηκεύονται μόνο σε αυτό το τηλέφωνο.',
   'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Κατεστραμμένες εγγραφές που παραλείφθηκαν: {n}. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
+  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
 };

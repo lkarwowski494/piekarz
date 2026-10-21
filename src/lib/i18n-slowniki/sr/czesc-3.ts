@@ -1,10 +1,6 @@
 // Słownik sr, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.': 'Класична комбинација три брашна: светло пшенично, грахам и ражано. 3 серије нежног пресавијања (stretch & fold), завршно нарастање у овалној корпи.',
-  'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.': 'Класична векна од 750–900 g. Стандардни губитак влаге при печењу са паром.',
-  'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.': 'Класична пшенично-ражана векна са хрскавом кором и отвореним увом векне. Идеална за почетак авантуре са стартером.',
-  'Klasyczny chleb rzemieślniczy': 'Класичан занатски хлеб',
   'Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.': 'Класичан хлеб из Сан Франциска са дубоком сирћетном киселошћу, сјајном кором са мехурићима и еластичном, отвореном средином.',
   'Klasyk rzemieślniczy': 'Занатски класик',
   'Klosz': 'Клош',
@@ -48,7 +44,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Број векни',
   'Liczba bochenków i gramatura': 'Број векни и маса',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Освежи Lievito Madre 3 пута на свака 4 h пре замеса теста. Путер (25%) додавај постепено, у деловима, пред крај мешења, када је глутенска мрежа већ потпуно развијена.',
   'lip': 'јул',
   'lis': 'нов',
   'lodówka': 'фрижидер',
@@ -192,4 +187,12 @@ export const CZESC: Record<string, string> = {
   'Nie próbuj surowego zakwasu ani mąki.': 'Не пробај сирови стартер ни брашно.',
   'Nie próbuj surowego zakwasu przed upieczeniem.': 'Не пробај сирови стартер пре печења.',
   'Nie teraz': 'Не сада',
+  'Nie udało się odczytać receptury z linku lub kodu QR': 'Није успело читање рецептуре из линка или QR кода',
+  'Nie udało się odczytać zawartości schowka.': 'Није успело читање садржаја клипборда.',
+  'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Повезивање са App Store-ом није успело. Покушај поново.',
+  'Nie udało się wyeksportować kopii': 'Извоз копије није успео',
+  'Nie udało się wyeksportować pliku CSV': 'Извоз CSV фајла није успео',
+  'Nie udało się wygenerować pliku PDF': 'Није успело прављење PDF фајла',
+  'Nie udało się zaimportować kopii': 'Увоз копије није успео',
+  'Nie udało się zapisać wypieku': 'Чување печења није успело',
 };

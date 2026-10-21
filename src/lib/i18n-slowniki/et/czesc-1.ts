@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Valk:',
   'Biały nalot lub kożuch na powierzchni': 'Valge kirme või kile pinnal',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tugev eeltaigen, 50% veesisaldus) valmib 16 h 18 °C juures. Lisa põhitaignale 3% oliiviõli. Ära suru tainast enne küpsetamist gaasist tühjaks.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (tihke Itaalia eeltaigen 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Biskviidid, murutaigen, küpsised, pannkoogid ja õrnad kondiitritooted.',
   'blacha piekarnika': 'ahjuplaat',
@@ -219,4 +218,10 @@ export const CZESC: Record<string, string> = {
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Peened ühtlased poorid nagu käsnal/vahul',
   'Drożdże': 'Pärm',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Juuretises olevaid pärmseeni ja baktereid tuleb regulaarselt toita värske jahu ja veega, et need ellu jääksid ja paljuneksid.',
+  'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Pärm ei jõudnud enne ahju panemist gaasi tekitada ega seda kogu taignas jaotada. Ahjus paisus tainas järsult ainult ülaosas ja rebestas kooriku.',
+  'Drożdżowe': 'Pärmiga',
+  'Drożdżowy': 'Pärmiga',
+  'Drukuj': 'Prindi',
+  'Drukuj kartę A4 (PDF)': 'Prindi A4-leht (PDF)',
+  'Drukuj PDF': 'Prindi PDF',
 };

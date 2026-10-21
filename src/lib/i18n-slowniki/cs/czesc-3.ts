@@ -1,14 +1,6 @@
 // Słownik cs, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Pšeničná mouka s vysokým stupněm vymletí, bílkoviny 13,1 %',
-  'Mąka pszenna, białko 13,8%': 'Pšeničná mouka, bílkoviny 13,8 %',
-  'Mąka razem': 'Mouka celkem',
-  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Celozrnná mouka. Bílkoviny ve zkoumaných vzorcích: 8,7–9,6 %. Popel podle polských norem: nejvýše 2 %.',
-  'Mąka stanowi 100% bazy w procentach piekarskich': 'Mouka tvoří v pekařských procentech základ 100 %',
-  'Mąka uniwersalna / pszenna jasna': 'Univerzální / světlá pšeničná mouka',
-  'Mąka w zaczynie': 'Mouka v zákvasu',
-  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Mouka s vysokým stupněm vymletí. Bílkoviny ve zkoumaném vzorku: 11,9 %.',
   'Mąka wysokowyciągowa. Białko w badanej próbce: 13,1%.': 'Mouka s vysokým stupněm vymletí. Bílkoviny ve zkoumaném vzorku: 13,1 %.',
   'Mąka wysokowyciągowa. Białko w badanych próbkach: 12,4–15,5%.': 'Mouka s vysokým stupněm vymletí. Bílkoviny ve zkoumaných vzorcích: 12,4–15,5 %.',
   'Mąka żytnia': 'Žitná mouka',
@@ -187,7 +179,6 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Peču kváskový chléb',
   'Pizza': 'Pizza',
   'Pizza i słodkie': 'Pizza a sladké',
-  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Plán by musel začít {dzienStartu} v {godzinaStartu}. Chléb bude hotový nejdříve {dzienGotowe} v {godzinaGotowe}.',
   'Plan wypieku': 'Plán pečení',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Plán pečení, krok {n} z {N}: {nazwa}, zbývá {czas}.',
@@ -209,4 +200,15 @@ export const CZESC: Record<string, string> = {
   'po upieczeniu: ~{masa}': 'po upečení: ~{masa}',
   'Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}': 'Pošta není v tomto telefonu nastavená. Napište na adresu: {adres}',
   'Podnieś docelową temperaturę ciasta': 'Zvýšit cílovou teplotu těsta',
+  'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Zvyšte teplotu kynutí na optimálních 26–28 °C.',
+  'Podwoił objętość': 'Zdvojnásobil objem',
+  'Podział i formowanie': 'Dělení a tvarování',
+  'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Těsto rozdělte, ručně vytvarujte a vložte do formy.',
+  'pojutrze': 'pozítří',
+  'Pojutrze': 'Pozítří',
+  'Pokaż wszystkie': 'Zobrazit vše',
+  'Pokrojony za wcześnie może być gumowaty.': 'Příliš brzy nakrojený může být gumovitý.',
+  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Poklice ZAVŘENÁ. Maximum páry a nárůst v troubě.',
+  'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.': 'Poklice SUNDANÁ. Odpaření vlhkosti a hluboké zhnědnutí kůrky.',
+  'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.': 'Polijte povrch olejem a zatlačte prsty do těsta, aby vznikly typické důlky.',
 };

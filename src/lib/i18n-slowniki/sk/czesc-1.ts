@@ -16,7 +16,7 @@ export const CZESC: Record<string, string> = {
   '{krok} wypada o {godzina} w nocy': '{krok} pripadá v noci na {godzina}',
   '{maka} mąki + {woda} wody': '{maka} múky + {woda} vody',
   '{masa} / szt.': '{masa} / ks',
-  '{n} cz.': '{n} diel.',
+  '{n} cz.': '{n} diely',
   '{n} dni': '{n} dní',
   '{n} dnia': '{n} dňa',
   '{n} dzień': '{n} deň',
@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Bielkoviny:',
   'Biały nalot lub kożuch na powierzchni': 'Biely povlak alebo kožka na povrchu',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tuhý predkvas s 50 % hydratáciou) zreje 16 h pri 18 °C. Do hlavného cesta pridajte 3 % olivového oleja. Cesto pred pečením neodplyňujte.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (tuhý taliansky predkvas 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Piškóty, krehké cestá, keksy, palacinky a jemné cukrárske výrobky.',
   'blacha piekarnika': 'plech do rúry',
@@ -218,4 +217,5 @@ export const CZESC: Record<string, string> = {
   'Drobne pory, bochenek ciężki w dłoni': 'Drobné póry, bochník je ťažký v ruke',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Drobné, rovnomerné bublinky ako špongia/pena',
   'Drożdże': 'Droždie',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Kvasinky a baktérie v kvásku treba pravidelne kŕmiť čerstvou múkou a vodou, aby prežili a množili sa.',
 };

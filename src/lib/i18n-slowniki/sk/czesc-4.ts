@@ -1,18 +1,6 @@
 // Słownik sk, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Podnieś docelową temperaturę ciasta': 'Zvýšiť cieľovú teplotu cesta',
-  'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Zvýšte teplotu kvasenia na optimálnych 26–28 °C.',
-  'Podwoił objętość': 'Zdvojnásobil objem',
-  'Podział i formowanie': 'Delenie a tvarovanie',
-  'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Rozdeľte cesto, ručne ho vytvarujte a vložte do formy.',
-  'pojutrze': 'pozajtra',
-  'Pojutrze': 'Pozajtra',
-  'Pokaż wszystkie': 'Zobraziť všetky',
-  'Pokrojony za wcześnie może być gumowaty.': 'Príliš skoro nakrojený môže byť gumovitý.',
-  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Poklop ZATVORENÝ. Maximum pary a nárast v rúre.',
-  'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.': 'Poklop ODSTRÁNENÝ. Odparovanie vlhkosti a hlboké zhnednutie kôrky.',
-  'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.': 'Vrch polejte olivovým olejom a prstami vtlačte do cesta charakteristické jamky.',
   'Polityka prywatności': 'Zásady ochrany súkromia',
   'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.': 'Zmiešajte múku a vodu, kým sa múka nezvlhčí. Prikryte a nechajte odstáť, aby sa lepok samovoľne rozvinul.',
   'Pon.': 'Po',
@@ -218,4 +206,14 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody': 'Teplota vody',
   'Temperatura wody i zaczyny': 'Teplota vody a predkvasy',
   'Temperatura wody, zaczyny, strata piecowa': 'Teplota vody, predkvasy, strata pri pečení',
+  'Temperatura wody: {temp}°C': 'Teplota vody: {temp} °C',
+  'Test palca': 'Test prstom',
+  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Tradičná talianska ciabatta na tuhom predkvase Biga (50 %). Úchvatný nárast v rúre a veľké perleťové diery.',
+  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Tradičný bochník z francúzskeho vidieka. Vyvážená chuť kyseliny mliečnej a orieškovo-otrubový dozvuk.',
+  'Tradycyjny chleb 100% żytni razowy': 'Tradičný 100 % ražný celozrnný chlieb',
+  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Tradičný profil francúzskeho sedliackeho chleba, jemná kyslosť a hutná striedka.',
+  'Trener i Fiszki': 'Tréner a kartičky',
+  'Trener Szybkiego Rachunku': 'Tréner rýchlych výpočtov',
+  'Trwa wypiek': 'Prebieha pečenie',
+  'Trzymam 10 ostatnich kopii na tym telefonie.': 'V tomto telefóne uchovávam posledných 10 záloh.',
 };

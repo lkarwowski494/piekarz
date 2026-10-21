@@ -1,19 +1,6 @@
 // Słownik uk, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Пропонована корекція: подовжте холодну ферментацію в холодильнику на 2–4 години або перенесіть час підживлення закваски, щоб уникнути нічних етапів роботи на стільниці.',
-  'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'Сума відсотків становить {suma}% — бракує ще {reszta}%.',
-  'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'Сума відсотків становить {suma}% — перевищує 100% на {reszta}%.',
-  'Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)': 'Сума часток борошна має становити ~100 % (зараз: {sum} %)',
-  'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.': 'Надсильне борошно з високобілкової пшениці. Витримує величезну гідратацію тіста (80%+) і багатогодинне охолодження.',
-  'Surowe ciasto i mąka': 'Сире тісто й борошно',
-  'Surowy zakwas': 'Сира закваска',
-  'Szacowana wilgotność miękiszu': 'Орієнтовна вологість м\'якуша',
-  'Szacowane okno szczytu minęło ok. {czas} temu.': 'Орієнтовне вікно піку минуло приблизно {czas} тому.',
-  'Szacowane okno szczytu:': 'Орієнтовне вікно піку:',
-  'Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła': 'Оцінка: параметри взято з профілю {nazwa}, без джерела',
-  'Szacunek: parametry przyjęte z typu {typ}, bez źródła': 'Оцінка: параметри взято з типу {typ}, без джерела',
-  'Szacunkowy koszt składników i energii pieca': 'Орієнтовна вартість інгредієнтів та енергії духовки',
   'Szczyt aktywności': 'Пік активності',
   'Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu': 'Школа хліба, 12 ремісничих технік і тренажер пекарського відсотка',
   'Szukaj np. T65, Tipo 00, 550, Bread Flour...': 'Шукайте, напр., T65, Tipo 00, 550, Bread Flour…',
@@ -126,4 +113,10 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.': 'За даними King Arthur Baking, кожен дотик до тіста напружує глютен, а відпочинок його розслаблює, тож фінальне формування йде легше.',
   'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'За даними King Arthur Baking, кошик підтримує й формує хлібину, що підіймається.',
   'Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.': 'За даними King Arthur Baking, мірилом готовності є подвоєння об\'єму протягом 6–8 годин після підживлення, а не кількість днів.',
+  'Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.': 'За даними King Arthur Baking, надріз визначає місце, де хлібина розширюється, тож хліб зберігає форму й не розривається збоку.',
+  'Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.': 'За даними King Arthur Baking, відпочинок борошна з водою перед додаванням солі дає борошну ввібрати воду, запускає утворення глютену й полегшує вимішування.',
+  'Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'За даними King Arthur Baking, пара під кришкою довше зберігає скоринку м\'якою, тож хлібина може й далі рости на початку випікання.',
+  'Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.': 'За даними King Arthur Baking, наприкінці 5-го дня закваска має щонайменше подвоїти об\'єм, мати багато бульбашок і приємний кислуватий запах.',
+  'Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.': 'За даними King Arthur Baking, при цьому вона має чітко подвоювати об\'єм протягом 6–8 годин після кожного підживлення.',
+  'Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.': 'За даними King Arthur Baking, це останнє підіймання тіста перед випіканням.',
 };

@@ -1,7 +1,6 @@
 // Słownik el, część 2 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Τα δεδομένα του αντιγράφου βρίσκονται στην εφαρμογή. Αποθήκευσα τα προηγούμενα δεδομένα σε αντίγραφο πριν από την εισαγωγή.',
   'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Τα δεδομένα αποθηκεύτηκαν από νεότερη έκδοση του Αρτοποιός. Ενημερώστε την εφαρμογή για να συνεχίσετε την αποθήκευση. Μέχρι τότε μπορείτε μόνο να τα προβάλλετε.',
   'DDT': 'DDT',
   'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Γλιστρήστε απαλά τη ζύμη στο ταψί, χωρίς να της βγάλετε υπερβολικά τα αέρια.',
@@ -96,7 +95,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Φάση 2: Χωρίς καπάκι (Καραμελοποίηση)',
   'Fermentacja': 'Ζύμωση',
   'Fermentacja burzliwa ze składaniami': 'Κύρια ζύμωση με διπλώματα',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ζύμωση: 2 ώρες στον πάγκο, χωρισμός σε μπάλες των 250 g, 46 ώρες στο ψυγείο (4 °C). Βγάλτε τις μπάλες 2 ώρες πριν από το ψήσιμο.',
   'Filtruj profil smakowy:': 'Φιλτράρισμα γευστικού προφίλ:',
   'Fizjologia ciasta:': 'Φυσιολογία ζύμης:',
   'Focaccia / Pizza na blasze': 'Focaccia / Πίτσα ταψιού',
@@ -145,7 +143,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Η ενυδάτωση ζύμης ξεπέρασε τη δύναμη του αλευριού — η ζύμη κολλάει στα χέρια και απλώνει σαν λιμνούλα.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Η ενυδάτωση νερού πρέπει να είναι στο εύρος 35–120%',
   'Hydratacja zakwasu': 'Ενυδάτωση προζυμιού',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Η ενυδάτωση του προζυμιού πρέπει να είναι στο εύρος 20–200%',
   'hydratacji': 'ενυδάτωσης ζύμης',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ιδανική βάση για τη συντήρηση του μητρικού προζυμιού. Πλούσιο σε άγριους ζυμομύκητες και γαλακτικά βακτήρια.',
   'Ilości do dokarmienia': 'Ποσότητες ταΐσματος',
@@ -158,4 +155,10 @@ export const CZESC: Record<string, string> = {
   'Importuj JSON': 'Εισαγωγή JSON',
   'Importuj recepturę': 'Εισαγωγή συνταγής',
   'Importuj z pliku': 'Εισαγωγή από αρχείο',
+  'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Πώς να καταλάβετε αν το καρβέλι στο καλάθι ωρίμανσης είναι έτοιμο για ψήσιμο',
+  'Jak wyszedł bochenek?': 'Πώς βγήκε το καρβέλι;',
+  'Jakość skórki': 'Ποιότητα κόρας',
+  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ομοιόμορφα πυκνή και βαριά ψίχα (χωρίς αέρα)',
+  'Jednostki': 'Μονάδες',
+  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Αν σε αυτό το βήμα δουλεύετε με ωμό αλεύρι, ζύμη ή προζύμι, μην τα δοκιμάζετε και μετά πλύνετε τα χέρια σας με σαπούνι κάτω από τρεχούμενο νερό.',
 };

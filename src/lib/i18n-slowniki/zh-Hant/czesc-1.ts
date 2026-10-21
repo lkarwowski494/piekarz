@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': '蛋白質：',
   'Biały nalot lub kożuch na powierzchni': '表面出現白色覆層或皮膜',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga（麵團含水量 50% 的硬式酵頭）在 18°C 下熟成 16 小時。主麵團加入 3% 橄欖油。烘烤前不要讓麵團排氣。',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga（義式硬酵頭 50%）',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': '海綿蛋糕、塔皮、餅乾、可麗餅與精緻甜點。',
   'blacha piekarnika': '烤盤',
@@ -225,4 +224,7 @@ export const CZESC: Record<string, string> = {
   'Drukuj': '列印',
   'Drukuj kartę A4 (PDF)': '列印 A4 卡片（PDF）',
   'Drukuj PDF': '列印 PDF',
+  'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).': '大量麩皮會物理性地切斷麩質網絡。需要較高的麵團含水量（78-85%）。',
+  'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': '讓孩童遠離爐具和你工作的區域。',
+  'Dzieci w kuchni': '廚房裡的孩童',
 };

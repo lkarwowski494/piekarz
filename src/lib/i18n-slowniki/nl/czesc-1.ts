@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Eiwit:',
   'Biały nalot lub kożuch na powierzchni': 'Witte aanslag of vlies op het oppervlak',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (stevig voordeeg, 50% hydratatie) rijpt 16 uur op 18 °C. Voeg aan het hoofddeeg 3% olijfolie toe. Druk het gas niet uit het deeg vóór het bakken.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (stevige Italiaanse levain, 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Biscuit, kruimeldeeg, koekjes, pannenkoeken en delicaat banketgebak.',
   'blacha piekarnika': 'bakplaat',
@@ -217,4 +216,6 @@ export const CZESC: Record<string, string> = {
   'Drobna niedoskonałość': 'Kleine onvolkomenheid',
   'Drobne pory, bochenek ciężki w dłoni': 'Kleine gaatjes, brood voelt zwaar in de hand',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Kleine, gelijkmatige gaatjes als een spons/schuim',
+  'Drożdże': 'Gist',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'De gisten en bacteriën in de zuurdesemstarter moeten regelmatig gevoed worden met vers meel en water om te overleven en zich te vermenigvuldigen.',
 };

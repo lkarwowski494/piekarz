@@ -1,9 +1,6 @@
 // Słownik fi, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobne pory, bochenek ciężki w dłoni': 'Pienet huokoset, leipä tuntuu raskaalta kädessä',
-  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Pienet, tasaiset kuplat kuin sienessä tai vaahdossa',
-  'Drożdże': 'Hiiva',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Hapanjuuren hiivoja ja bakteereja täytyy ruokkia säännöllisesti tuoreilla jauhoilla ja vedellä, jotta ne säilyvät hengissä ja lisääntyvät.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Hiiva ei ehtinyt tuottaa ja levittää kaasua koko taikinaan ennen uuniin laittamista. Uunissa taikina laajeni rajusti vain yläosasta ja repi kuoren.',
   'Drożdżowe': 'Hiivaleivät',
@@ -48,7 +45,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Vaihe 2: Ilman kantta (Karamellisoituminen)',
   'Fermentacja': 'Käyminen',
   'Fermentacja burzliwa ze składaniami': 'Ensimmäinen kohotus ja taittelut',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Käyminen: 2 h pöydällä, jako 250 g:n palloiksi, 46 h jääkaapissa (4 °C). Ota pois 2 h ennen paistoa.',
   'Filtruj profil smakowy:': 'Suodata makuprofiili:',
   'Fizjologia ciasta:': 'Taikinan fysiologia:',
   'Focaccia / Pizza na blasze': 'Focaccia / Pizza pellillä',
@@ -97,7 +93,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hydraatio ylitti jauhojen vahvuuden — taikina tarttuu käsiin ja leviää lätäköksi.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Veden hydraation on oltava välillä 35–120 %',
   'Hydratacja zakwasu': 'Hapanjuuren hydraatio',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hapanjuuren hydraation on oltava välillä 20–200 %',
   'hydratacji': 'hydraatio',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ihanteellinen pohja emohapanjuuren ylläpitoon. Runsaasti villihiivoja ja maitohappobakteereja.',
   'Ilości do dokarmienia': 'Ruokintamäärät',
@@ -177,7 +172,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Leipien määrä',
   'Liczba bochenków i gramatura': 'Leipien määrä ja paino',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Virkistä Lievito Madre 3 kertaa 4 h välein ennen taikinan valmistusta. Lisää voi (25 %) vähitellen erissä vaivaamisen lopussa, kun gluteeniverkko on jo täysin kehittynyt.',
   'lip': 'heinä',
   'lis': 'marras',
   'lodówka': 'jääkaappi',
@@ -239,4 +233,13 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 650 (Bułkowa)': 'Keskivaalea vehnäjauho (sämpylöihin)',
   'Mąka pszenna typ 850': 'Tummahko vehnäjauho',
   'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Vehnäjauho, korkea jauhatusaste, proteiini 11,9 %',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Vehnäjauho, korkea jauhatusaste, proteiini 12,4–15,5 %',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Vehnäjauho, korkea jauhatusaste, proteiini 13,1 %',
+  'Mąka pszenna, białko 13,8%': 'Vehnäjauho, proteiini 13,8 %',
+  'Mąka razem': 'Jauhot yhteensä',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Karkea täysjyväjauho. Proteiini tutkituissa näytteissä: 8,7–9,6 %. Tuhka Puolan standardien mukaan: enintään 2 %.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Jauhot ovat leipurin prosenttien 100 %:n perusta',
+  'Mąka uniwersalna / pszenna jasna': 'Vaalea vehnäjauho (monikäyttöinen)',
+  'Mąka w zaczynie': 'Juuren jauhot',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Korkean jauhatusasteen jauho. Proteiini tutkitussa näytteessä: 11,9 %.',
 };

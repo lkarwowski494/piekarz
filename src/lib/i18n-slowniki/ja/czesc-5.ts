@@ -1,21 +1,6 @@
 // Słownik ja, część 5 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Skróć czas garowania w lodówce lub fermentacji w temperaturze pokojowej.': '冷蔵庫での低温長時間発酵、または室温での発酵の時間を短くしてください。',
-  'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.': '低温での発酵を短くしてください。低い発酵温度は酢酸と、長い発酵は有機酸の過剰と関連しています。',
-  'Słaby gluten. Wykonaj dodatkową serię składań coil fold.': 'グルテンが弱いです。コイルフォールドの折りたたみをもう1セット行ってください。',
-  'Słodkawy, orzechowy aromat, lekki maślany miękisz i cienka, chrupiąca skórka.': 'ほのかな甘みとナッツの香り、軽くバターのようなクラム、薄くパリッとしたクラスト。',
-  'Słodkie': 'スイーツ',
-  'Słownik mąk': '粉の辞典',
-  'Słownik Odpowiedników Mąk': '粉の対応表',
-  'Smak i Aromat': '味と香り',
-  'Sob.': '土',
-  'Sobotnie śniadanie': '土曜の朝食',
-  'Sól': '塩',
-  'Sól kłodawska / morska': '岩塩 / 海塩',
-  'Spiżarnia mąk & Stan zapasów': '粉のパントリー＆在庫状況',
-  'Sprawdzić przyczynę w Doktorze?': 'パンドクターで原因を確認しますか？',
-  'Sprawdź gotowość: test palca': '発酵具合を確認：フィンガーテスト',
   'Sprawdź, czy podwoi objętość do {godzina}.': '{godzina}までに2倍に膨らむか確認してください。',
   'Sprężystość': '弾力',
   'Spróbuj ponownie': '再試行',
@@ -166,4 +151,9 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'King Arthur Bakingによると、発酵カゴは膨らんでいくローフを支え、形を整えます。',
   'Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.': 'King Arthur Bakingによると、準備ができたかの目安は日数ではなく、種継ぎ後6–8時間以内に2倍に膨らむことです。',
   'Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.': 'King Arthur Bakingによると、クープはローフが広がる場所をつくるため、パンは形を保ち、側面から裂けません。',
+  'Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.': 'King Arthur Bakingによると、塩を加える前に粉と水を休ませると、粉が水を吸収し、グルテンの形成が始まり、捏ねやすくなります。',
+  'Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'King Arthur Bakingによると、蓋の下の蒸気がクラストを長く柔らかく保つため、焼成の初めにローフはさらに膨らむことができます。',
+  'Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.': 'King Arthur Bakingによると、5日目の終わりまでに、サワー種は少なくとも2倍に膨らみ、気泡が多く、心地よい酸味のある香りがするはずです。',
+  'Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.': 'King Arthur Bakingによると、さらに種継ぎのたびに6–8時間以内にはっきりと2倍に膨らむはずです。',
+  'Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.': 'King Arthur Bakingによると、これは焼成前の生地の最後の発酵です。',
 };

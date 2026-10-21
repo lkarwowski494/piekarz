@@ -1,13 +1,6 @@
 // Słownik sv, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Dina data är sparade i telefonen. Innan du försöker igen kan du exportera en kopia av dem.',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Du kan fortfarande visa, exportera och radera dina recept, surdegsgrunder och din dagbok. Påminnelser om matning är avstängda. Beräkningar, planer och vägledning kräver Bagaren Pro.',
-  'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Endast ljust mjöl: enligt King Arthur Baking kan surdegsgrunden då komma igång lite långsammare.',
-  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Den här mjölsorten finns inte med i standarden PN-A-74022:2003: kvarnarna tillverkar den enligt egna tekniska specifikationer. Ett mörkare mjöl för bröd med högre enzymaktivitet och nötig arom.',
-  'Typ mąki': 'Mjölsort',
-  'Typ wypieku i odparowanie': 'Baktyp och avdunstning',
-  'Typ zaczynu': 'Typ av fördeg',
   'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.': 'Polska typer av vete- och rågmjöl fastställs i de polska standarderna PN-A-74022:2003 och PN-A-74032:2002 efter askhalt.',
   'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.': 'Toppa med rosmarin, småtomater och grovt salt.',
   'Udostępnij kod QR': 'Dela QR-kod',
@@ -145,4 +138,15 @@ export const CZESC: Record<string, string> = {
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Välj standardkärl för gräddning i Bakbord:',
   'Wybierz objawy bochenka': 'Välj limpans symtom',
   'Wybierz recepturę': 'Välj recept',
+  'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Välj ett recept på fliken Recept och tryck på ”{przycisk}”, eller starta standardplanen för bak nedan.',
+  'Wyczyść': 'Rensa',
+  'Wyczyść wklejony tekst': 'Rensa inklistrad text',
+  'Wyczyść zaznaczone objawy': 'Rensa markerade symtom',
+  'Wyjmij chleb z garnka na kratkę.': 'Ta ut brödet ur grytan och lägg det på gallret.',
+  'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Lägg limpan på ett metallgaller. Vänta minst 2 timmar så att inkråmet hinner avsluta gelatineringen.',
+  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Ta ut kärlet innan du sätter på ugnsvärmen: King Arthur Baking varnar för att det är lätt att glömma.',
+  'Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.': 'Ta ut limpan ur formen de sista 5 minuterna så att sidorna gräddas klart.',
+  'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.': 'Gör 4 omgångar vikningar (Stretch & Fold / Coil Fold) var 30–45:e minut.',
+  'Wykonaj 4 serie składań co 30–45 minut.': 'Gör 4 omgångar vikningar var 30–45:e minut.',
+  'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Gör fingertestet innan du sätter in limpan i ugnen.',
 };

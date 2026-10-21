@@ -1,19 +1,6 @@
 // Słownik tr, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Temperatura w kuchni:': 'Mutfak sıcaklığı:',
-  'Temperatura wody': 'Su sıcaklığı',
-  'Temperatura wody i zaczyny': 'Su sıcaklığı ve ön mayalar',
-  'Temperatura wody, zaczyny, strata piecowa': 'Su sıcaklığı, ön mayalar, fırın kaybı',
-  'Temperatura wody: {temp}°C': 'Su sıcaklığı: {temp}°C',
-  'Test palca': 'Parmak testi',
-  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Sert Biga maya hamuruyla (%50) yapılan geleneksel İtalyan ciabatta\'sı. Muhteşem fırın kabarması ve büyük, inci gibi parlak delikler.',
-  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Fransız köylerinden geleneksel bir somun. Dengeli laktik asit tadı ve fındıksı-kepeksi bir bitiş.',
-  'Tradycyjny chleb 100% żytni razowy': 'Geleneksel %100 kepekli çavdar ekmeği',
-  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Geleneksel Fransız köy ekmeği profili, hafif asitlik ve sıkı ekmek içi.',
-  'Trener i Fiszki': 'Alıştırma ve Kartlar',
-  'Trener Szybkiego Rachunku': 'Hızlı Hesap Alıştırması',
-  'Trwa wypiek': 'Pişirme sürüyor',
   'Trzymam 10 ostatnich kopii na tym telefonie.': 'Son 10 yedeği bu telefonda saklıyorum.',
   'Tu zapiszą się twoje wypieki': 'Pişirmeleriniz burada görünecek',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Verileriniz değiştirilmedi, ancak uygulama şu anda onları okuyamıyor veya kaydedemiyor. Uygulamayı yeniden başlatın. Sorun tekrar ederse telefonunuzda depolama alanı açın.',
@@ -143,4 +130,10 @@ export const CZESC: Record<string, string> = {
   'Wróć do wypieku': 'Pişirmeye Dön',
   'wrz': 'Eyl',
   'Wskazówka rzemieślnicza:': 'Zanaat ipucu:',
+  'Wskazówka: Z powstałych {masa} pobierz wymaganą ilość do ciasta, a resztkę (~{od}–{do}) schowaj do lodówki jako matkę na kolejny wypiek.': 'İpucu: Elde edilen {masa} içinden hamur için gereken miktarı alın, kalanını (~{od}–{do}) bir sonraki pişirme için ana maya olarak buzdolabında saklayın.',
+  'Wskazówki': 'İpuçları',
+  'Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.': 'Kalıbı 2–3 saatliğine buzdolabına (4°C) koyun; böylece soğuyan tereyağı ve gluten sıkılaşır.',
+  'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.': 'Döküm tencereyi fırına koyun ve 240°C\'ye ısıtın.',
+  'Wstaw gotową mieszankę': 'Hazır Karışım Kullan',
+  'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Sepeti hava almayan bir poşet içinde buzdolabına (4–6°C) koyun. Uzun fermantasyon ekmeğe derin bir aroma kazandırır.',
 };

@@ -1,15 +1,6 @@
 // Słownik cs, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Tradiční italská ciabatta na tuhém zákvasu Biga (50 %). Úchvatný nárůst v troubě a velké perleťové díry.',
-  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Tradiční bochník z francouzského venkova. Vyvážená chuť kyseliny mléčné a oříškově-otrubový dozvuk.',
-  'Tradycyjny chleb 100% żytni razowy': 'Tradiční 100% celozrnný žitný chléb',
-  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Tradiční profil francouzského venkovského chleba, jemná kyselost a hutná střídka.',
-  'Trener i Fiszki': 'Trenér a kartičky',
-  'Trener Szybkiego Rachunku': 'Trenér rychlých výpočtů',
-  'Trwa wypiek': 'Probíhá pečení',
-  'Trzymam 10 ostatnich kopii na tym telefonie.': 'Uchovávám 10 posledních záloh v tomto telefonu.',
-  'Tu zapiszą się twoje wypieki': 'Sem se budou ukládat vaše pečení',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Vaše data se nezměnila, ale aplikace je teď nemůže načíst ani uložit. Spusťte aplikaci znovu. Pokud se problém vrátí, uvolněte místo v úložišti telefonu.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Vaše data jsou uložena v telefonu. Než to zkusíte znovu, můžete exportovat jejich kopii.',
   'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Své recepty, kvásky a deník si můžete prohlížet, exportovat a smazat. Připomínky krmení jsou vypnuté. Výpočty, plán a vedení vyžadují Pekař Pro.',
@@ -143,4 +134,16 @@ export const CZESC: Record<string, string> = {
   'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.': 'Vložte litinový hrnec do trouby a rozehřejte na 240 °C.',
   'Wstaw gotową mieszankę': 'Vložit hotovou směs',
   'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Vložte ošatku v těsném sáčku do lednice (4–6 °C). Dlouhé kynutí dodá chlebu hluboké aroma.',
+  'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.': 'Vložte nádobu s těstem do vypnuté trouby a zapněte jen žárovku: podle King Arthur Baking teplota uvnitř postupně stoupá, ale každá trouba a každá kuchyně dává jiný výsledek.',
+  'Wstrzymaj': 'Pozastavit',
+  'Wstrzymano': 'Pozastaveno',
+  'Wsyp do miski na wagę': 'Nasypte do mísy na váze',
+  'Wszechstronna mąka. Przy chlebach wiejskich warto połączyć z 10-15% mąki razowej lub żytniej.': 'Všestranná mouka. U venkovských chlebů se vyplatí přimíchat 10–15 % celozrnné nebo žitné mouky.',
+  'Wszystkie': 'Vše',
+  'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).': 'Všechny ruční kroky (míchání, překládání, pečení) probíhají mimo okno spánku (23:00 – 06:30).',
+  'Wszystkie etapy wypieku': 'Všechny fáze pečení',
+  'Wt.': 'Út',
+  'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Vyberte výchozí nádobu na pečení pro postup na Válu:',
+  'Wybierz objawy bochenka': 'Vyberte příznaky bochníku',
+  'Wybierz recepturę': 'Vybrat recept',
 };

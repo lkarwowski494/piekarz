@@ -1,14 +1,6 @@
 // Słownik sr, część 4 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Nie udało się odczytać receptury z linku lub kodu QR': 'Није успело читање рецептуре из линка или QR кода',
-  'Nie udało się odczytać zawartości schowka.': 'Није успело читање садржаја клипборда.',
-  'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Повезивање са App Store-ом није успело. Покушај поново.',
-  'Nie udało się wyeksportować kopii': 'Извоз копије није успео',
-  'Nie udało się wyeksportować pliku CSV': 'Извоз CSV фајла није успео',
-  'Nie udało się wygenerować pliku PDF': 'Није успело прављење PDF фајла',
-  'Nie udało się zaimportować kopii': 'Увоз копије није успео',
-  'Nie udało się zapisać wypieku': 'Чување печења није успело',
   'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.': 'Не користи овај стартер и не покушавај да га спасеш. Буђ може да продре дубоко у стартер, чак и кад се на површини види само мала превлака. Не мириши стартер са превлаком, јер то може изазвати проблеме са дисањем. Пре него што заснујеш нови стартер, темељно опери и исплакни теглу.',
   'Nie zapisałem receptury. Spróbuj jeszcze raz.': 'Нисам сачувао рецептуру. Покушај поново.',
   'Nie zapisano': 'Није сачувано',
@@ -106,7 +98,6 @@ export const CZESC: Record<string, string> = {
   'Piekę na zakwasie': 'Печем са стартером',
   'Pizza': 'Пица',
   'Pizza i słodkie': 'Пица и слатко',
-  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'План би морао да почне {dzienStartu} у {godzinaStartu}. Хлеб ће најраније бити готов {dzienGotowe} у {godzinaGotowe}.',
   'Plan wypieku': 'План печења',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'План печења, корак {n} од {N}: {nazwa}, преостало {czas}.',
@@ -159,4 +150,13 @@ export const CZESC: Record<string, string> = {
   'Pozostała mąka: {g} g': 'Преостало брашно: {g} г',
   'Pozostała woda: {g} g': 'Преостала вода: {g} г',
   'Pozostało': 'Преостало',
+  'Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.': 'Остави тесто покривено да се глутен опусти пре коначног обликовања.',
+  'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2.': 'Храна је потрошена. Нахрани стартер у односу 1:2:2.',
+  'Pradawny chleb orkiszowy z prażonymi ziarnami': 'Древни хлеб од спелте са прженим семенкама',
+  'Preferment (Zaczyn)': 'Предфермент (предтесто)',
+  'Procedura Bassinage ratunkowego': 'Поступак спасилачког басинажа',
+  'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Проценат брашна „{name}“ мора бити број у опсегу 0,1–100%',
+  'Profil smakowy': 'Профил укуса',
+  'Profil zakwasu': 'Профил стартера',
+  'Profil, cykl dokarmiania i szczyt aktywności': 'Профил, циклус храњења и врхунац активности',
 };

@@ -1,18 +1,6 @@
 // Słownik fi, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Poczta nie jest skonfigurowana na tym telefonie. Napisz na adres: {adres}': 'Sähköpostia ei ole määritetty tässä puhelimessa. Kirjoita osoitteeseen: {adres}',
-  'Podnieś docelową temperaturę ciasta': 'Nosta taikinan tavoitelämpöä',
-  'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Nosta käymislämpötila optimaaliseen 26–28 °C:seen.',
-  'Podwoił objętość': 'Kaksinkertaistunut',
-  'Podział i formowanie': 'Jakaminen ja muotoilu',
-  'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Jaa taikina, muotoile se käsin ja nosta vuokaan.',
-  'pojutrze': 'ylihuomenna',
-  'Pojutrze': 'Ylihuomenna',
-  'Pokaż wszystkie': 'Näytä kaikki',
-  'Pokrojony za wcześnie może być gumowaty.': 'Liian aikaisin leikattu leipä voi olla kumimainen.',
-  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Kansi PÄÄLLÄ. Maksimaalinen höyry ja uunikohoaminen.',
-  'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.': 'Kansi POISTETTU. Kosteus haihtuu ja kuori ruskistuu syvästi.',
   'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.': 'Valuta pinnalle oliiviöljyä ja paina sormet taikinaan, niin että syntyy tyypillisiä kuoppia.',
   'Polityka prywatności': 'Tietosuojakäytäntö',
   'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.': 'Sekoita jauhot ja vesi, kunnes jauhot ovat kostuneet. Peitä ja anna gluteenin kehittyä itsestään.',
@@ -216,4 +204,14 @@ export const CZESC: Record<string, string> = {
   'Temperatura otoczenia': 'Ympäristön lämpötila',
   'Temperatura pokojowa': 'Huoneenlämpö',
   'Temperatura w kuchni:': 'Keittiön lämpötila:',
+  'Temperatura wody': 'Veden lämpötila',
+  'Temperatura wody i zaczyny': 'Veden lämpötila ja esitaikinat',
+  'Temperatura wody, zaczyny, strata piecowa': 'Veden lämpötila, esitaikinat, paistohävikki',
+  'Temperatura wody: {temp}°C': 'Veden lämpötila: {temp} °C',
+  'Test palca': 'Sormitesti',
+  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Perinteinen italialainen ciabatta jäykällä Biga-juurella (50 %). Näyttävä uuninousu ja suuret, helmiäiset kolot.',
+  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Perinteinen leipä Ranskan maaseudulta. Tasapainoinen maitohappoinen maku ja pähkinäinen, leseinen jälkimaku.',
+  'Tradycyjny chleb 100% żytni razowy': 'Perinteinen 100 % täysjyväruisleipä',
+  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Perinteinen ranskalaisen maalaisleivän profiili, mieto happamuus ja tiivis sisus.',
+  'Trener i Fiszki': 'Harjoitus ja kortit',
 };

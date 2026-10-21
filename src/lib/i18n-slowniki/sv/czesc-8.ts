@@ -1,6 +1,7 @@
 // Słownik sv, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Mąka pszenna Manitoba / Forte (W > 300)': 'Vetemjöl Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Ljust rågmjöl',
   'Mąka z pszenicy durum (Semolina)': 'Durumvetemjöl (semolina)',
   'Mąka pszenna typ 650': 'Ljust vetemjöl',
@@ -15,6 +16,8 @@ export const CZESC: Record<string, string> = {
   '{n} krok wypada w nocy#other': '{n} steg infaller på natten',
   '{n} dzień#one': '{n} dag',
   '{n} dzień#other': '{n} dagar',
+  '{n} cz.#one': '{n} del',
+  '{n} cz.#other': '{n} delar',
   '{n} dzień temu#one': 'för {n} dag sedan',
   '{n} dzień temu#other': 'för {n} dagar sedan',
   '{n} receptura#one': '{n} recept',

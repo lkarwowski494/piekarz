@@ -1,20 +1,6 @@
 // Słownik fr, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Piecz bochenek wcześniej, gdy ciasto przy próbie palca powoli i sprężyście wraca.': 'Enfournez la miche plus tôt, lorsque la pâte revient lentement et avec élasticité au test du doigt.',
-  'Piecz ponownie': 'Refaire',
-  'Piecz w 220°C przez 25–30 minut do złocistego koloru.': 'Faites cuire à 220 °C pendant 25–30 minutes, jusqu\'à obtenir une couleur dorée.',
-  'Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.': 'Faites cuire dans le moule à 230 °C pendant 20 min avec vapeur, puis 20 min à 200 °C.',
-  'Pieczenie': 'Cuisson',
-  'pieczenie bez pokrywy': 'cuisson découverte',
-  'Piekarz': 'Mitron',
-  'Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.': 'Mitron fonctionne sans Internet et sans compte. Vos recettes et vos notes restent sur ce téléphone.',
-  'Piekarz nie uruchomił się poprawnie': 'Mitron ne s\'est pas lancé correctement',
-  'Piekę na drożdżach albo pizzę': 'Je fais du pain à la levure ou une pizza',
-  'Piekę na zakwasie': 'Je fais du pain au levain',
-  'Pizza': 'Pizza',
-  'Pizza i słodkie': 'Pizza et sucré',
-  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
   'Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.': 'Le plan devrait commencer {dzienStartu} à {godzinaStartu}. Le pain sera prêt au plus tôt {dzienGotowe} à {godzinaGotowe}.',
   'Plan wypieku': 'Plan de fournée',
   'Plan wypieku, krok {n} z {N}: {nazwa}, zostało {czas}.': 'Plan de fournée, étape {n} sur {N} : {nazwa}, reste {czas}.',
@@ -207,4 +193,12 @@ export const CZESC: Record<string, string> = {
   'Studzenie na kratce (nie krój gorącego!)': 'Refroidissement sur grille (ne le tranchez pas chaud !)',
   'sty': 'janv.',
   'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Le sel sec attire l\'eau localement par osmose et forme des grumeaux. Incorporé sous forme de solution, il permet aux ions Na+ et Cl- de resserrer immédiatement les liaisons du gluten dans tout le volume de la pâte.',
+  'Suchy / chrupki (Crisp Dry)': 'Sec / croustillant (Crisp Dry)',
+  'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Correction suggérée : prolongez la pousse lente au froid au réfrigérateur de 2–4 heures ou décalez l\'heure du rafraîchi du levain naturel pour éviter les étapes au plan de travail pendant la nuit.',
+  'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'La somme des pourcentages est de {suma} % — il manque encore {reszta} %.',
+  'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'La somme des pourcentages est de {suma} % — elle dépasse 100 % de {reszta} %.',
+  'Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)': 'La somme des parts de farines doit être d\'environ 100 % (actuellement : {sum} %)',
+  'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.': 'Farine très forte issue de blé riche en protéines. Supporte une hydratation énorme (80 %+) et plusieurs heures au froid.',
+  'Surowe ciasto i mąka': 'Pâte crue et farine',
+  'Surowy zakwas': 'Levain naturel cru',
 };

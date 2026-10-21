@@ -1,9 +1,6 @@
 // Słownik bg, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Данните са записани от по-нова версия на Пекар. Актуализирайте приложението, за да продължите да записвате. Дотогава можете само да ги преглеждате.',
-  'DDT': 'Целева темп. на тестото',
-  'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Внимателно плъзнете тестото в тавата, без да изпускате прекалено много газ от него.',
   'Diagnostyka błędów wypieku i ratowanie bochenka': 'Диагностика на грешки при печене и спасяване на самуна',
   'długi krok (skrócony)': 'дълга стъпка (съкратена)',
   'Długo stał w lodówce bez dokarmiania': 'Дълго е стоял в хладилника без хранене',
@@ -95,7 +92,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Фаза 2: Без капак (карамелизация)',
   'Fermentacja': 'Ферментация',
   'Fermentacja burzliwa ze składaniami': 'Основна ферментация със сгъване',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ферментация: 2 ч на плота, разделяне на топки по 250 г, 46 ч в хладилника (4 °C). Извадете 2 ч преди печене.',
   'Filtruj profil smakowy:': 'Филтър по вкусов профил:',
   'Fizjologia ciasta:': 'Физиология на тестото:',
   'Focaccia / Pizza na blasze': 'Фокача / Пица в тава',
@@ -144,7 +140,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Хидратацията е надхвърлила силата на брашното — тестото лепне по ръцете и се разлива като локва.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Хидратацията на водата трябва да е в диапазона 35–120%',
   'Hydratacja zakwasu': 'Хидратация на квасния стартер',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Хидратацията на стартера трябва да е в диапазона 20–200%',
   'hydratacji': 'хидратация',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Идеална основа за поддържане на основния квасен стартер. Богато на диви дрожди и млечнокисели бактерии.',
   'Ilości do dokarmienia': 'Количества за хранене',
@@ -162,4 +157,14 @@ export const CZESC: Record<string, string> = {
   'Jakość skórki': 'Качество на кората',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Равномерно плътна и тежка среда (без въздух)',
   'Jednostki': 'Единици',
+  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Ако в тази стъпка работите със сурово брашно, тесто или квасен стартер, не ги опитвайте, а след това измийте ръцете си със сапун под течаща вода.',
+  'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Ако виждате налеп, петна или промяна в цвета, или усещате гнилостна миризма, отворете проверката на квасния стартер.',
+  'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Ако квасният стартер е нараснал малко и има малко мехурчета, продължете да го храните на всеки 12 часа.',
+  'Język': 'Език',
+  'jutro': 'утре',
+  'Jutro': 'Утре',
+  'Kalkulator': 'Калкулатор',
+  'Kalkulator kosztów': 'Калкулатор на разходите',
+  'Kalkulator kosztów wypieku': 'Калкулатор на разходите за изпичане',
+  'Karmelizacja': 'Карамелизация',
 };

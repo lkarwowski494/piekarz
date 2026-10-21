@@ -1,12 +1,6 @@
 // Słownik hr, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Tvoji podaci nisu promijenjeni, ali aplikacija ih trenutačno ne može pročitati ni spremiti. Ponovno pokreni aplikaciju. Ako se problem vrati, oslobodi prostor u memoriji telefona.',
-  'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Tvoji su podaci spremljeni u telefonu. Prije nego što pokušaš ponovno, možeš izvesti njihovu kopiju.',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Svoje recepture, kvasove i dnevnik i dalje možeš pregledavati, izvoziti i brisati. Podsjetnici za hranjenje su isključeni. Izračuni, plan i vođenje zahtijevaju Pekar Pro.',
-  'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Samo bijelo brašno: prema King Arthur Baking, kvas tada može nešto sporije krenuti.',
-  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Ovo brašno nije navedeno u poljskoj normi PN-A-74022:2003: mlinovi ga proizvode prema vlastitoj tehničkoj specifikaciji. Tamnije brašno za kruh s višom enzimskom aktivnošću i orašastom aromom.',
-  'Typ mąki': 'Vrsta brašna',
   'Typ wypieku i odparowanie': 'Vrsta pečenja i isparavanje',
   'Typ zaczynu': 'Vrsta nastavka',
   'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.': 'Tipove pšeničnog i raženog brašna u Poljskoj određuju poljske norme PN-A-74022:2003 i PN-A-74032:2002 prema udjelu pepela.',
@@ -145,4 +139,17 @@ export const CZESC: Record<string, string> = {
   'Wt.': 'Ut.',
   'Wybierz domyślne naczynie piecowe dla procedury Stolnicy:': 'Odaberi zadanu posudu za pečenje za postupak na Radnom stolu:',
   'Wybierz objawy bochenka': 'Odaberi simptome štruce',
+  'Wybierz recepturę': 'Odaberi recepturu',
+  'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Odaberi recepturu na kartici Recepture i dodirni „{przycisk}” ili započni standardni plan pečenja u nastavku.',
+  'Wyczyść': 'Očisti',
+  'Wyczyść wklejony tekst': 'Očisti zalijepljeni tekst',
+  'Wyczyść zaznaczone objawy': 'Očisti označene simptome',
+  'Wyjmij chleb z garnka na kratkę.': 'Izvadi kruh iz lonca na rešetku.',
+  'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Izvadi na metalnu rešetku. Pričekaj najmanje 2 sata da sredina završi proces želiranja.',
+  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Izvadi posudu prije nego što uključiš zagrijavanje pećnice: King Arthur Baking upozorava da se to lako zaboravi.',
+  'Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.': 'Izvadi kruh iz kalupa za posljednjih 5 minuta da se bokovi štruce dopeku.',
+  'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.': 'Napravi 4 serije preklapanja tijesta (Stretch & Fold / Coil Fold) svakih 30–45 minuta.',
+  'Wykonaj 4 serie składań co 30–45 minut.': 'Napravi 4 serije preklapanja svakih 30–45 minuta.',
+  'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Napravi test prstom prije nego što staviš štrucu u pećnicu.',
+  'Wykryto uszkodzony stan bazy danych': 'Otkriveno je oštećeno stanje baze podataka',
 };

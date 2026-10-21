@@ -1,11 +1,6 @@
 // Słownik ru, część 3 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.': 'Карамелизация и сладость крахмала, мягкий эластичный мякиш японского хлеба.',
-  'Karta receptury': 'Карточка рецептуры',
-  'Każda mąka musi posiadać nazwę': 'У каждой муки должно быть название',
-  'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Классический французский багет на 12-часовой опаре Poolish. Хрустящая тонкая корка и лёгкий, воздушный мякиш.',
-  'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Классическая польская мука для хлеба. Отличный баланс между растяжимостью и силой теста.',
   'Klasyczna trójkombinacja mąk: pszenna jasna, graham i żytnia chlebowa. 3 serie delikatnego stretch & fold, garowanie w owalnym koszyku.': 'Классическое сочетание трёх видов муки: светлая пшеничная, грэм и светлая ржаная. 3 серии деликатного складывания (stretch & fold), расстойка в овальной корзине.',
   'Klasyczny bochenek o wadze 750–900g. Standardowa utrata wilgoci w wypieku z zaparowaniem.': 'Классический каравай весом 750–900 г. Стандартная потеря влаги при выпечке с паром.',
   'Klasyczny bochenek pszenno-żytni z chrupiącą skórką i otwartym uchem. Idealny na początek przygody z zakwasem.': 'Классический пшенично-ржаной каравай с хрустящей коркой и раскрытым ушком. Идеален для начала знакомства с закваской.',
@@ -53,7 +48,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'левен',
   'Liczba bochenków': 'Количество караваев',
   'Liczba bochenków i gramatura': 'Количество караваев и вес',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Подкормите Lievito Madre 3 раза каждые 4 ч перед замесом теста. Сливочное масло (25%) добавляйте понемногу в конце замеса, когда клейковинная сетка уже полностью развита.',
   'lip': 'июл',
   'lis': 'ноя',
   'lodówka': 'холодильник',
@@ -187,4 +181,15 @@ export const CZESC: Record<string, string> = {
   'Nazwa': 'Название',
   'Nazwa przepisu': 'Название рецепта',
   'Nic się nie dzieje': 'Ничего не происходит',
+  'Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.': 'Подкормок пока нет. Нажмите «Записать подкормку», когда подкормите закваску.',
+  'Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.': 'У вас ещё нет закваски. Добавьте ту, что у вас есть, или выведите новую.',
+  'Nie można otworzyć bazy danych': 'Не удаётся открыть базу данных',
+  'Nie można usunąć': 'Нельзя удалить',
+  'Nie podwaja objętości': 'Не увеличивается вдвое',
+  'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.': 'Не пытайтесь формовать каравай! Сразу переложите тесто на смазанный маслом противень.',
+  'Nie próbuj surowego ciasta ani mąki.': 'Не пробуйте ни сырое тесто, ни муку.',
+  'Nie próbuj surowego zakwasu ani mąki.': 'Не пробуйте ни сырую закваску, ни муку.',
+  'Nie próbuj surowego zakwasu przed upieczeniem.': 'Не пробуйте сырую закваску до выпечки.',
+  'Nie teraz': 'Не сейчас',
+  'Nie udało się odczytać receptury z linku lub kodu QR': 'Не удалось прочитать рецептуру из ссылки или QR-кода',
 };

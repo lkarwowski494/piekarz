@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Fehérje:',
   'Biały nalot lub kożuch na powierzchni': 'Fehér bevonat vagy hártya a felületen',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (sűrű kovászos előtészta, 50% hidratáció), 16 órán át érik 18 °C-on. A főtésztához adj 3% olívaolajat. Sütés előtt ne gáztalanítsd a tésztát.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (sűrű olasz előtészta, 50%)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Piskóták, omlós tészták, aprósütemények, palacsinta és finom cukrászsütemények.',
   'blacha piekarnika': 'sütőtepsi',
@@ -212,4 +211,8 @@ export const CZESC: Record<string, string> = {
   'Doktor Chleba': 'Kenyérdoktor',
   'Doktor zakwasu': 'Kovászdoktor',
   'Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.': 'Alapértelmezés szerint a telefon régiója alapján. A recepteket grammban mentem; a százalékok nem változnak.',
+  'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Állítsd be a lisztek arányát. Az összegnek pontosan 100%-nak kell lennie.',
+  'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Az eddigi etetési ciklus nullázódik.',
+  'Drobna niedoskonałość': 'Apró szépséghiba',
+  'Drobne pory, bochenek ciężki w dłoni': 'Apró pórusok, a cipó nehéz a kézben',
 };

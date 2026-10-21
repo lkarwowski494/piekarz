@@ -1,19 +1,6 @@
 // Słownik ru, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'Сумма процентов: {suma} % — не хватает ещё {reszta} %.',
-  'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'Сумма процентов: {suma} % — это на {reszta} % больше 100 %.',
-  'Suma udziałów mąk musi wynosić ~100% (obecnie: {sum}%)': 'Сумма долей муки должна составлять ~100 % (сейчас: {sum} %)',
-  'Super-silna mąka z pszenicy wysokobiałkowej. Utrzymuje gigantyczną hydratację (80%+) i wielogodzinny chłód.': 'Сверхсильная мука из высокобелковой пшеницы. Выдерживает огромную гидратацию (80%+) и многочасовой холод.',
-  'Surowe ciasto i mąka': 'Сырое тесто и мука',
-  'Surowy zakwas': 'Сырая закваска',
-  'Szacowana wilgotność miękiszu': 'Расчётная влажность мякиша',
-  'Szacowane okno szczytu minęło ok. {czas} temu.': 'Расчётное окно пика закончилось примерно {czas} назад.',
-  'Szacowane okno szczytu:': 'Ожидаемое окно пика:',
-  'Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła': 'Оценка: параметры взяты из профиля {nazwa}, без источника',
-  'Szacunek: parametry przyjęte z typu {typ}, bez źródła': 'Оценка: параметры взяты по типу {typ}, без источника',
-  'Szacunkowy koszt składników i energii pieca': 'Примерная стоимость ингредиентов и энергии духовки',
-  'Szczyt aktywności': 'Пик активности',
   'Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu': 'Школа хлеба, 12 ремесленных техник и тренажёр процентов',
   'Szukaj np. T65, Tipo 00, 550, Bread Flour...': 'Поиск, например T65, Tipo 00, 550, Bread Flour...',
   'Szybkie interwencje w trakcie fermentacji': 'Быстрые меры во время брожения',
@@ -126,4 +113,9 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'По данным King Arthur Baking, корзина поддерживает растущий каравай и придаёт ему форму.',
   'Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.': 'По данным King Arthur Baking, мерилом готовности служит увеличение объёма вдвое за 6–8 часов после подкормки, а не количество дней.',
   'Według King Arthur Baking nacięcie wyznacza miejsce, w którym bochenek się rozszerza, więc chleb zachowuje kształt i nie pęka z boku.': 'По данным King Arthur Baking, надрез задаёт место, где каравай расширяется, поэтому хлеб сохраняет форму и не лопается сбоку.',
+  'Według King Arthur Baking odpoczynek mąki z wodą przed dodaniem soli pozwala mące wchłonąć wodę, rozpoczyna tworzenie glutenu i ułatwia wyrabianie.': 'По данным King Arthur Baking, отдых муки с водой до добавления соли позволяет муке впитать воду, запускает образование клейковины и облегчает замес.',
+  'Według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'По данным King Arthur Baking, пар под крышкой дольше сохраняет корку мягкой, поэтому каравай может продолжать подниматься в начале выпечки.',
+  'Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.': 'По данным King Arthur Baking, к концу 5-го дня закваска должна как минимум удвоиться в объёме, иметь много пузырьков и приятный кислый запах.',
+  'Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.': 'По данным King Arthur Baking, при этом она должна заметно увеличиваться вдвое за 6–8 часов после каждой подкормки.',
+  'Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.': 'По данным King Arthur Baking, это последний подъём теста перед выпечкой.',
 };

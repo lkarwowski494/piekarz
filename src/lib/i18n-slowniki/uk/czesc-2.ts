@@ -1,10 +1,6 @@
 // Słownik uk, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'długi krok (skrócony)': 'довгий крок (скорочений)',
-  'Długo stał w lodówce bez dokarmiania': 'Довго стояла в холодильнику без підживлення',
-  'do {godzina}': 'до {godzina}',
-  'do {godzina}, potem {krok}': 'до {godzina}, потім {krok}',
   'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.': 'Ставте її в холодильник лише тоді, коли вона стабілізується, тобто через 7–10 днів.',
   'Do miski': 'У миску',
   'Do miski (Ciasto właściwe)': 'У миску (основне тісто)',
@@ -91,7 +87,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Етап 2: без кришки (карамелізація)',
   'Fermentacja': 'Ферментація',
   'Fermentacja burzliwa ze składaniami': 'Бродіння в масі зі складаннями',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ферментація: 2 год на столі, поділ на кульки по 250 г, 46 год у холодильнику (4 °C). Вийміть за 2 год до випікання.',
   'Filtruj profil smakowy:': 'Фільтр смакового профілю:',
   'Fizjologia ciasta:': 'Фізіологія тіста:',
   'Focaccia / Pizza na blasze': 'Фокача / піца на деку',
@@ -140,7 +135,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Гідратація тіста перевищила силу борошна — тісто липне до рук і розпливається калюжею.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Гідратація води має бути в межах 35–120 %',
   'Hydratacja zakwasu': 'Гідратація закваски',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Гідратація закваски має бути в межах 20–200 %',
   'hydratacji': 'гідратації',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ідеальна основа для ведення материнської закваски. Багате на дикі дріжджі та молочнокислі бактерії.',
   'Ilości do dokarmienia': 'Кількості для підживлення',
@@ -168,4 +162,9 @@ export const CZESC: Record<string, string> = {
   'Kalkulator kosztów': 'Калькулятор вартості',
   'Kalkulator kosztów wypieku': 'Калькулятор вартості випічки',
   'Karmelizacja': 'Карамелізація',
+  'Karmelizacja i słodycz skrobi, miękki, elastyczny miękisz pieczywa japońskiego.': 'Карамелізація та солодкість крохмалю, м\'який еластичний м\'якуш японської випічки.',
+  'Karta receptury': 'Картка рецептури',
+  'Każda mąka musi posiadać nazwę': 'Кожне борошно повинно мати назву',
+  'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.': 'Класичний французький багет на 12-годинній опарі Poolish. Хрустка тонка скоринка й легкий, повітряний м\'якуш.',
+  'Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.': 'Класичне польське борошно для хліба. Чудовий баланс між розтяжністю та силою тіста.',
 };

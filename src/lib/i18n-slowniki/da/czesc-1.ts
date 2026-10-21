@@ -91,7 +91,6 @@ export const CZESC: Record<string, string> = {
   'Białko:': 'Protein:',
   'Biały nalot lub kożuch na powierzchni': 'Hvid belægning eller hinde på overfladen',
   'biga': 'biga',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (fast fordej med 50 % hydrering) modnet 16 t ved 18 °C. Tilsæt 3 % olivenolie til hoveddejen. Pres ikke luften ud af dejen før bagning.',
   'Biga (Sztywny zaczyn włoski 50%)': 'Biga (stiv italiensk fordej 50 %)',
   'Biszkopty, kruche ciasta, ciastka, naleśniki i delikatne wypieki cukiernicze.': 'Lagkagebunde, mørdej, småkager, pandekager og fint konditorbagværk.',
   'blacha piekarnika': 'bageplade',
@@ -219,4 +218,9 @@ export const CZESC: Record<string, string> = {
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Små, ensartede porer som svamp/skum',
   'Drożdże': 'Gær',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Gæren og bakterierne i surdejen skal fodres regelmæssigt med frisk mel og vand for at overleve og formere sig.',
+  'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Gæren nåede ikke at danne og fordele gas i hele dejen, før den kom i ovnen. I ovnen udvidede dejen sig voldsomt kun foroven og flåede skorpen op.',
+  'Drożdżowe': 'Med gær',
+  'Drożdżowy': 'Med gær',
+  'Drukuj': 'Udskriv',
+  'Drukuj kartę A4 (PDF)': 'Udskriv A4-ark (PDF)',
 };

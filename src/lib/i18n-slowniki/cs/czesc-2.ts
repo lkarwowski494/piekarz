@@ -1,7 +1,6 @@
 // Słownik cs, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Kvasinky a bakterie v kvásku je třeba pravidelně krmit čerstvou moukou a vodou, aby přežily a množily se.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Kvasinky nestihly před vložením do trouby vytvořit a rozvést plyn v celém objemu těsta. V troubě došlo k prudkému rozepnutí jen nahoře, které roztrhlo kůrku.',
   'Drożdżowe': 'Na droždí',
   'Drożdżowy': 'Na droždí',
@@ -45,7 +44,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Fáze 2: Bez poklice (karamelizace)',
   'Fermentacja': 'Kvašení',
   'Fermentacja burzliwa ze składaniami': 'První kynutí (bulk) s překládáním',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Kynutí: 2 h na lince, rozdělení na koule po 250 g, 46 h v lednici (4 °C). Vyndejte 2 h před pečením.',
   'Filtruj profil smakowy:': 'Filtrovat chuťový profil:',
   'Fizjologia ciasta:': 'Fyziologie těsta:',
   'Focaccia / Pizza na blasze': 'Focaccia / pizza na plechu',
@@ -94,7 +92,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hydratace těsta překonala sílu mouky — těsto se lepí na ruce a roztéká se do kaluže.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Hydratace vody musí být v rozmezí 35–120 %',
   'Hydratacja zakwasu': 'Hydratace kvásku',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hydratace kvásku musí být v rozmezí 20–200 %',
   'hydratacji': 'hydratace',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideální základ pro vedení mateřského kvásku. Bohatá na divoké kvasinky a bakterie mléčného kvašení.',
   'Ilości do dokarmienia': 'Množství na krmení',
@@ -174,7 +171,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Počet bochníků',
   'Liczba bochenków i gramatura': 'Počet bochníků a hmotnost',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Lievito Madre před zaděláním těsta 3× osvěžte každé 4 h. Máslo (25 %) přidávejte postupně po částech ke konci hnětení, až bude lepková síť plně vyvinutá.',
   'lip': 'čvc',
   'lis': 'lis',
   'lodówka': 'lednice',
@@ -237,4 +233,12 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 850': 'Tmavší pšeničná chlebová mouka',
   'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Pšeničná mouka s vysokým stupněm vymletí, bílkoviny 11,9 %',
   'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Pšeničná mouka s vysokým stupněm vymletí, bílkoviny 12,4–15,5 %',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Pšeničná mouka s vysokým stupněm vymletí, bílkoviny 13,1 %',
+  'Mąka pszenna, białko 13,8%': 'Pšeničná mouka, bílkoviny 13,8 %',
+  'Mąka razem': 'Mouka celkem',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Celozrnná mouka. Bílkoviny ve zkoumaných vzorcích: 8,7–9,6 %. Popel podle polských norem: nejvýše 2 %.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Mouka tvoří v pekařských procentech základ 100 %',
+  'Mąka uniwersalna / pszenna jasna': 'Univerzální / světlá pšeničná mouka',
+  'Mąka w zaczynie': 'Mouka v zákvasu',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Mouka s vysokým stupněm vymletí. Bílkoviny ve zkoumaném vzorku: 11,9 %.',
 };

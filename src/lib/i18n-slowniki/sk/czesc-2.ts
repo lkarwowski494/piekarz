@@ -1,7 +1,6 @@
 // Słownik sk, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Kvasinky a baktérie v kvásku treba pravidelne kŕmiť čerstvou múkou a vodou, aby prežili a množili sa.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Kvasinky pred vložením do rúry nestihli vytvoriť plyn a rozptýliť ho v celom objeme cesta. V rúre sa cesto prudko rozopnulo len hore a roztrhlo kôrku.',
   'Drożdżowe': 'Droždiové',
   'Drożdżowy': 'Droždiový',
@@ -45,7 +44,6 @@ export const CZESC: Record<string, string> = {
   'Faza 2: Bez pokrywki (Karmelizacja)': 'Fáza 2: Bez poklopu (Karamelizácia)',
   'Fermentacja': 'Kvasenie',
   'Fermentacja burzliwa ze składaniami': 'Prvé kvasenie s prekladaním',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Kvasenie: 2 h na doske, rozdelenie na guľky po 250 g, 46 h v chladničke (4 °C). Vyberte 2 h pred pečením.',
   'Filtruj profil smakowy:': 'Filtrovať chuťový profil:',
   'Fizjologia ciasta:': 'Fyziológia cesta:',
   'Focaccia / Pizza na blasze': 'Focaccia / Pizza na plechu',
@@ -94,7 +92,6 @@ export const CZESC: Record<string, string> = {
   'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.': 'Hydratácia prevýšila silu múky — cesto sa lepí na ruky a roztečie sa do mláky.',
   'Hydratacja wody musi mieścić się w zakresie 35–120%': 'Hydratácia vody musí byť v rozsahu 35–120 %',
   'Hydratacja zakwasu': 'Hydratácia kvásku',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hydratácia kvásku musí byť v rozsahu 20–200 %',
   'hydratacji': 'hydratácie',
   'Idealna baza do prowadzenia zakwasu matki. Bogata w dzikie drożdże i bakterie kwasu mlekowego.': 'Ideálny základ na udržiavanie materského kvásku. Bohatá na divoké kvasinky a baktérie mliečneho kvasenia.',
   'Ilości do dokarmienia': 'Množstvá na kŕmenie',
@@ -174,7 +171,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Počet bochníkov',
   'Liczba bochenków i gramatura': 'Počet bochníkov a hmotnosť',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Lievito Madre pred zamiesením cesta nakŕmte 3-krát každé 4 h. Maslo (25 %) pridávajte postupne po častiach ku koncu miesenia, keď je lepková sieť už úplne vyvinutá.',
   'lip': 'júl',
   'lis': 'nov',
   'lodówka': 'chladnička',
@@ -236,4 +232,13 @@ export const CZESC: Record<string, string> = {
   'Mąka pszenna typ 650 (Bułkowa)': 'Svetlá pšeničná múka (na pečivo)',
   'Mąka pszenna typ 850': 'Stredne tmavá pšeničná múka',
   'Mąka pszenna wysokowyciągowa, białko 11,9%': 'Pšeničná múka s vysokým stupňom vymletia, bielkoviny 11,9 %',
+  'Mąka pszenna wysokowyciągowa, białko 12,4–15,5%': 'Pšeničná múka s vysokým stupňom vymletia, bielkoviny 12,4–15,5 %',
+  'Mąka pszenna wysokowyciągowa, białko 13,1%': 'Pšeničná múka s vysokým stupňom vymletia, bielkoviny 13,1 %',
+  'Mąka pszenna, białko 13,8%': 'Pšeničná múka, bielkoviny 13,8 %',
+  'Mąka razem': 'Múka spolu',
+  'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Celozrnná múka. Bielkoviny v testovaných vzorkách: 8,7–9,6 %. Popol podľa poľských noriem: najviac 2 %.',
+  'Mąka stanowi 100% bazy w procentach piekarskich': 'Múka tvorí 100 % základ v pekárskych percentách',
+  'Mąka uniwersalna / pszenna jasna': 'Univerzálna / svetlá pšeničná múka',
+  'Mąka w zaczynie': 'Múka v predkvase',
+  'Mąka wysokowyciągowa. Białko w badanej próbce: 11,9%.': 'Múka s vysokým stupňom vymletia. Bielkoviny v testovanej vzorke: 11,9 %.',
 };

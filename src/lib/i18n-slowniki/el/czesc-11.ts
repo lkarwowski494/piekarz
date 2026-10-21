@@ -13,6 +13,8 @@ export const CZESC: Record<string, string> = {
   '{n} krok wypada w nocy#other': '{n} βήματα πέφτουν μέσα στη νύχτα',
   '{n} dzień#one': '{n} ημέρα',
   '{n} dzień#other': '{n} ημέρες',
+  '{n} cz.#one': '{n} μέρος',
+  '{n} cz.#other': '{n} μέρη',
   '{n} dzień temu#one': 'πριν από {n} ημέρα',
   '{n} dzień temu#other': 'πριν από {n} ημέρες',
   '{n} receptura#one': '{n} συνταγή',

@@ -1,21 +1,6 @@
 // Słownik bg, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Standardowe dokarmienie przed pieczeniem.': 'Стандартно хранене преди печене.',
-  'stare ciasto': 'старо тесто',
-  'Start': 'Старт',
-  'Start {dzien} o {godzina}': 'Начало {dzien} в {godzina}',
-  'Stary zakwas': 'Стар стартер',
-  'Statystyki piekarni domowej': 'Статистика на домашната пекарна',
-  'Stolnica': 'Работен плот',
-  'Strata piecowa': 'Загуба при печене',
-  'Struktura miękiszu': 'Структура на средата',
-  'Studzenie': 'Охлаждане',
-  'Studzenie na kratce': 'Охлаждане на решетка',
-  'Studzenie na kratce (nie krój gorącego!)': 'Охлаждане на решетка (не режете хляба горещ!)',
-  'sty': 'яну',
-  'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.': 'Сухата сол извлича вода локално чрез осмоза и образува бучки. Добавянето ѝ под формата на разтвор позволява на йоните Na+ и Cl- веднага да стегнат глутеновите връзки в целия обем на тестото.',
-  'Suchy / chrupki (Crisp Dry)': 'Суха / хрупкава (Crisp Dry)',
   'Sugerowana korekta: wydłuż czas garowania w lodówce o 2–4 godziny lub przesuń godzinę dokarmienia zakwasu, aby ominąć nocne etapy stolnicowe.': 'Предложена корекция: удължете студеното втасване в хладилника с 2–4 часа или преместете часа за хранене на стартера, за да избегнете нощни етапи на работния плот.',
   'Suma procentów wynosi {suma}% — brakuje jeszcze {reszta}%.': 'Сборът на процентите е {suma}% — липсват още {reszta}%.',
   'Suma procentów wynosi {suma}% — przekracza 100% o {reszta}%.': 'Сборът на процентите е {suma}% — надвишава 100% с {reszta}%.',
@@ -135,4 +120,9 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking bez pokrywki chleb piecze się dalej, aż w pełni się zrumieni.': 'Според King Arthur Baking без капак хлябът продължава да се пече, докато покафенее напълно.',
   'Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić.': 'Според King Arthur Baking по време на охлаждането хлябът отделя влага, а средата се нуждае от това време, за да се стегне.',
   'Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.': 'Според King Arthur Baking дивите дрожди се срещат по-често в пълнозърнестото брашно, а стартер само с бяло брашно може да тръгне малко по-бавно.',
+  'Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej.': 'Според King Arthur Baking дивите дрожди се срещат по-често в пълнозърнестото брашно.',
+  'Według King Arthur Baking formowanie wstępne nadaje ciastu podstawowy kształt bochenka, jeszcze bez dopracowania.': 'Според King Arthur Baking предварителното оформяне придава на тестото основната форма на самуна, все още без доизпипване.',
+  'Według King Arthur Baking garnek nagrzewa się pusty, żeby po włożeniu ciasta powstała w nim para.': 'Според King Arthur Baking съдът се загрява празен, за да се образува в него пара, когато се постави тестото.',
+  'Według King Arthur Baking każde dotykanie ciasta napina gluten, a odpoczynek go rozluźnia, więc ostateczne formowanie idzie łatwiej.': 'Според King Arthur Baking всяко докосване на тестото стяга глутена, а почивката го отпуска, затова окончателното оформяне става по-лесно.',
+  'Według King Arthur Baking koszyk podtrzymuje i kształtuje rosnący bochenek.': 'Според King Arthur Baking кошницата поддържа и оформя втасващия самун.',
 };

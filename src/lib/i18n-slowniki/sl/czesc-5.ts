@@ -1,14 +1,6 @@
 // Słownik sl, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Vaši podatki so shranjeni v telefonu. Preden poskusite znova, lahko izvozite njihovo kopijo.',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Recepte, kvase in dnevnik lahko pregledujete, izvozite in izbrišete. Opomniki za hranjenje so izklopljeni. Izračuni, načrt in vodenje zahtevajo Pek Pro.',
-  'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Samo svetla moka: po navedbah King Arthur Baking se lahko kvas takrat razvije nekoliko počasneje.',
-  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Ta moka ni navedena v poljskem standardu PN-A-74022:2003: mlini jo proizvajajo po lastni tehnični specifikaciji. Temnejša moka za kruh z večjo encimsko aktivnostjo in oreškasto aromo.',
-  'Typ mąki': 'Vrsta moke',
-  'Typ wypieku i odparowanie': 'Vrsta peke in izhlapevanje',
-  'Typ zaczynu': 'Vrsta nastavka',
-  'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.': 'Tipe pšenične in ržene moke na Poljskem določata poljska standarda PN-A-74022:2003 in PN-A-74032:2002 glede na vsebnost pepela.',
   'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.': 'Okrasite z rožmarinom, češnjevimi paradižniki in grobo soljo.',
   'Udostępnij kod QR': 'Deli kodo QR',
   'Udostępnij kopię bazy': 'Deli kopijo baze',
@@ -147,4 +139,16 @@ export const CZESC: Record<string, string> = {
   'Wybierz recepturę': 'Izberi recept',
   'Wybierz recepturę na zakładce Receptury i dotknij „{przycisk}” albo zacznij standardowy plan wypieku poniżej.': 'Na zavihku Recepti izberite recept in tapnite „{przycisk}“ ali spodaj začnite standardni načrt peke.',
   'Wyczyść': 'Počisti',
+  'Wyczyść wklejony tekst': 'Počisti prilepljeno besedilo',
+  'Wyczyść zaznaczone objawy': 'Počisti označene simptome',
+  'Wyjmij chleb z garnka na kratkę.': 'Prestavite kruh iz lonca na rešetko.',
+  'Wyjmij na metalową kratkę. Odczekaj minimum 2 godziny, aby miękisz zakończył proces żelowania.': 'Prestavite na kovinsko rešetko. Počakajte najmanj 2 uri, da sredica dokonča proces želiranja.',
+  'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.': 'Posodo vzemite ven, preden vklopite segrevanje pečice: King Arthur Baking opozarja, da je na to lahko pozabiti.',
+  'Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.': 'Za zadnjih 5 minut kruh vzemite iz modela, da se zapečejo še stranice hlebca.',
+  'Wykonaj 4 serie składań (Stretch & Fold / Coil Fold) co 30–45 minut.': 'Opravite 4 serije raztezanja in prepogibanja (Stretch & Fold / Coil Fold) vsakih 30–45 minut.',
+  'Wykonaj 4 serie składań co 30–45 minut.': 'Naredite 4 serije prepogibanja vsakih 30–45 minut.',
+  'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Preden hlebec postavite v pečico, naredite test s prstom.',
+  'Wykryto uszkodzony stan bazy danych': 'Zaznano je poškodovano stanje zbirke podatkov',
+  'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Testo zvrnite na pult, mu dajte približno obliko krogle in napnite površino.',
+  'Wymaga mąki o zawartości białka minimum 13,0g. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Potrebna je moka z vsebnostjo beljakovin najmanj 13,0 g. Avtoliza 60 minut brez soli. Zelo nežno prepogibanje (coil fold).',
 };

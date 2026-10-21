@@ -1,20 +1,6 @@
 // Słownik ja, część 3 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Masa ciasta': '生地重量',
-  'Masa ciasta: {masa}, hydratacja całkowita: {hydratacja}%': '生地重量：{masa}、総加水率：{hydratacja}%',
-  'Masa mąki': '粉の重量',
-  'Masa mąki bazowej': 'ベース粉の重量',
-  'Masa surowego ciasta do misy': 'ボウルへ入れる生地の重量',
-  'masy mąki': '粉の重量',
-  'Maślana chałka drożdżowa': 'バターたっぷりのイースト・ハウカ',
-  'Mąka': '粉',
-  'Mąka cukiernicza / tortowa (bielona)': '製菓用 / ケーキ用小麦粉 (漂白)',
-  'Mąka dodana': '追加した粉',
-  'Mąka Manitoba / Forte (W > 350)': 'マニトバ / フォルテ小麦粉 (W > 350)',
-  'Mąka niskowyciągowa. Białko w badanej próbce: 9,8%.': '精製度の高い粉です。調査サンプルのタンパク質：9.8%。',
-  'Mąka niskowyciągowa. Białko w badanych próbkach: 10,2–13,8%.': '精製度の高い粉です。調査サンプルのタンパク質：10.2–13.8%。',
-  'Mąka niskowyciągowa. Białko w badanych próbkach: 10,6–14,3%.': '精製度の高い粉です。調査サンプルのタンパク質：10.6–14.3%。',
   'Mąka niskowyciągowa. Białko w badanych próbkach: 7,8–14,8%. Popiół według polskich norm: 0,51–0,58%.': '精製度の高い粉です。調査サンプルのタンパク質：7.8–14.8%。ポーランド規格による灰分：0.51–0.58%。',
   'Mąka orkiszowa': 'スペルト小麦粉',
   'Mąka orkiszowa jasna typ 630': 'スペルト小麦粉 (白)',
@@ -196,4 +182,12 @@ export const CZESC: Record<string, string> = {
   'Okres próbny się skończył': '試用期間が終了しました',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '表面のオリーブオイルが蒸発を抑え、しっとりと気泡を含んだクラムを保ちます。',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'クープを入れた直後にしぼんだ',
+  'Opisz, co się stało albo co chcesz nam przekazać:': '起きたことや伝えたいことを記入してください：',
+  'Optymalna wilgotność. Chrupiąca skórka i soczysty miękisz o długiej świeżości. Studź min. 2 godziny.': '最適な水分量。パリッとしたクラストとしっとりしたクラムで、長く日持ちします。最低2時間は冷ましてください。',
+  'Optymalny moment. Rozgrzewaj piec i szykuj żyletkę.': 'ベストタイミングです。オーブンを予熱し、クープナイフを用意してください。',
+  'Orkisz pradawny. Gluten bardzo rozciągliwy, ale podatny na osłabienie przy intensywnym wyrabianiu mechanicznym.': '古代小麦のスペルト。グルテンはよく伸びますが、機械での強いミキシングで弱りやすい性質があります。',
+  'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.': '煎った亜麻仁、ひまわりの種、ごまを加えた、古代小麦スペルトのナッツのような風味のローフ。',
+  'Ospała fermentacja (Zimna kuchnia)': '発酵が鈍い（寒いキッチン）',
+  'Ostatnie dokarmienie': '前回の種継ぎ',
+  'Ostatnie wpisy': '最近の記録',
 };

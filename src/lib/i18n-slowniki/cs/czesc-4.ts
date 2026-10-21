@@ -1,17 +1,6 @@
 // Słownik cs, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Podnieś temperaturę fermentacji do optymalnych 26–28°C.': 'Zvyšte teplotu kynutí na optimálních 26–28 °C.',
-  'Podwoił objętość': 'Zdvojnásobil objem',
-  'Podział i formowanie': 'Dělení a tvarování',
-  'Podziel ciasto, uformuj je ręcznie i włóż do formy.': 'Těsto rozdělte, ručně vytvarujte a vložte do formy.',
-  'pojutrze': 'pozítří',
-  'Pojutrze': 'Pozítří',
-  'Pokaż wszystkie': 'Zobrazit vše',
-  'Pokrojony za wcześnie może być gumowaty.': 'Příliš brzy nakrojený může být gumovitý.',
-  'Pokrywka ZAMKNIĘTA. Maksymalna para i rozprężenie w piecu.': 'Poklice ZAVŘENÁ. Maximum páry a nárůst v troubě.',
-  'Pokrywka ZDJĘTA. Odparowanie wilgoci i głębokie zbrązowienie skórki.': 'Poklice SUNDANÁ. Odpaření vlhkosti a hluboké zhnědnutí kůrky.',
-  'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.': 'Polijte povrch olejem a zatlačte prsty do těsta, aby vznikly typické důlky.',
   'Polityka prywatności': 'Zásady ochrany osobních údajů',
   'Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.': 'Smíchejte mouku a vodu, aby se mouka navlhčila. Zakryjte a nechte, aby se lepek samovolně rozvinul.',
   'Pon.': 'Po',
@@ -219,4 +208,13 @@ export const CZESC: Record<string, string> = {
   'Temperatura wody, zaczyny, strata piecowa': 'Teplota vody, zákvasy, ztráta při pečení',
   'Temperatura wody: {temp}°C': 'Teplota vody: {temp} °C',
   'Test palca': 'Test prstem',
+  'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.': 'Tradiční italská ciabatta na tuhém zákvasu Biga (50 %). Úchvatný nárůst v troubě a velké perleťové díry.',
+  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Tradiční bochník z francouzského venkova. Vyvážená chuť kyseliny mléčné a oříškově-otrubový dozvuk.',
+  'Tradycyjny chleb 100% żytni razowy': 'Tradiční 100% celozrnný žitný chléb',
+  'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Tradiční profil francouzského venkovského chleba, jemná kyselost a hutná střídka.',
+  'Trener i Fiszki': 'Trenér a kartičky',
+  'Trener Szybkiego Rachunku': 'Trenér rychlých výpočtů',
+  'Trwa wypiek': 'Probíhá pečení',
+  'Trzymam 10 ostatnich kopii na tym telefonie.': 'Uchovávám 10 posledních záloh v tomto telefonu.',
+  'Tu zapiszą się twoje wypieki': 'Sem se budou ukládat vaše pečení',
 };

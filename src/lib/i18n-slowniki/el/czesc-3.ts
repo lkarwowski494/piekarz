@@ -1,12 +1,6 @@
 // Słownik el, część 3 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Πώς να καταλάβετε αν το καρβέλι στο καλάθι ωρίμανσης είναι έτοιμο για ψήσιμο',
-  'Jak wyszedł bochenek?': 'Πώς βγήκε το καρβέλι;',
-  'Jakość skórki': 'Ποιότητα κόρας',
-  'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': 'Ομοιόμορφα πυκνή και βαριά ψίχα (χωρίς αέρα)',
-  'Jednostki': 'Μονάδες',
-  'Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.': 'Αν σε αυτό το βήμα δουλεύετε με ωμό αλεύρι, ζύμη ή προζύμι, μην τα δοκιμάζετε και μετά πλύνετε τα χέρια σας με σαπούνι κάτω από τρεχούμενο νερό.',
   'Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.': 'Αν δείτε επίστρωση, κηλίδες ή αλλοίωση χρώματος ή αισθανθείτε σάπια μυρωδιά, ανοίξτε τον έλεγχο προζυμιού.',
   'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.': 'Αν το προζύμι φούσκωσε λίγο και έχει λίγες φυσαλίδες, συνεχίστε να το ταΐζετε κάθε 12 ώρες.',
   'Język': 'Γλώσσα',
@@ -68,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'levain': 'levain',
   'Liczba bochenków': 'Αριθμός καρβελιών',
   'Liczba bochenków i gramatura': 'Αριθμός καρβελιών και βάρος',
-  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Ταΐστε το Lievito Madre 3 φορές ανά 4 ώρες πριν από το ζύμωμα. Προσθέτετε το βούτυρο (25%) σταδιακά, σε δόσεις, προς το τέλος του ζυμώματος, όταν το δίκτυο γλουτένης έχει αναπτυχθεί πλήρως.',
   'lip': 'Ιουλ',
   'lis': 'Νοε',
   'lodówka': 'ψυγείο',
@@ -177,4 +170,15 @@ export const CZESC: Record<string, string> = {
   'Moje receptury': 'Οι συνταγές μου',
   'Mokry, lepki miękisz, brudzi nóż': 'Υγρή, κολλώδης ψίχα, λερώνει το μαχαίρι',
   'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.': 'Παρακολουθείτε τον όγκο — στους 27 °C οι ζυμομύκητες και τα βακτήρια θα ανακτήσουν τη ζωντάνια τους μέσα σε 60–90 λεπτά.',
+  'Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.': 'Μπορεί να αρχίσει να βγάζει φυσαλίδες γρήγορα ή να χρειαστεί έως και 12 ώρες, ανάλογα με το πότε ταΐστηκε τελευταία φορά.',
+  'Możesz przesunąć plan wypieku.': 'Μπορείτε να μετακινήσετε το πλάνο ψησίματος.',
+  'Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.': 'Μπορείτε να εισαγάγετε αρχείο JSON που δημιουργήθηκε στο Αρτοποιός ή ένα πρότυπο που ετοιμάσατε μόνοι σας.',
+  'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.': 'Πιθανή αιτία: οι ζυμομύκητες και τα βακτήρια μένουν χωρίς τροφή και ο πληθυσμός τους μειώνεται σταδιακά.',
+  'Możliwe przyczyny:': 'Πιθανές αιτίες:',
+  'Mój zakwas': 'Το προζύμι μου',
+  'Musisz posiadać co najmniej jeden profil zakwasu.': 'Πρέπει να διατηρείτε τουλάχιστον ένα προφίλ προζυμιού.',
+  'na blacie': 'στον πάγκο',
+  'na blacie, {proporcja}': 'στον πάγκο, {proporcja}',
+  'Na początku wypieku zapewnij parę w piekarniku.': 'Στην αρχή του ψησίματος εξασφαλίστε ατμό στον φούρνο.',
+  'Na zakwasie': 'Με προζύμι',
 };

@@ -1,18 +1,6 @@
 // Słownik sr, część 6 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Ściany foremki keksowej zapewniają mechaniczne podparcie, eliminując potrzebę silnego napięcia powierzchniowego i pozwalając na uzyskanie soczystego, kremowego miękiszu.': 'Зидови правоугаоног калупа пружају механичку потпору, па нема потребе за јаком површинском напетошћу, а средина може да буде сочна и кремаста.',
-  'Śr.': 'Сре.',
-  'Śr. miękisz': 'Прос. средина',
-  'Śr. skórka': 'Прос. кора',
-  'średni': 'средњи',
-  'Średni': 'Средњи',
-  'Średnia ocena': 'Просечна оцена',
-  'Średnia zawartość minerałów, elastyczny gluten. Bardzo dobra do chlebów pszennych i bagietek.': 'Средњи садржај минерала, еластичан глутен. Веома добро за пшенични хлеб и багете.',
-  'Świetnie! Prawidłowa odpowiedź!': 'Одлично! Тачан одговор!',
-  'Świeży po pracy': 'Свеж после посла',
-  'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Свеж, једноставан пшенични укус без развијене киселости.',
-  'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Тангжонг (запарено брашно 1:5 на 65 °C)',
   'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Не препознајем овај фајл. Пекар увози фајлове рецептура и резервне копије направљене у апликацији Пекар.',
   'Temp': 'Темп.',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'DDT температура мора бити у опсегу 10–40 °C',
@@ -117,4 +105,8 @@ export const CZESC: Record<string, string> = {
   'Według King Arthur Baking w dniu 3 zwykle widać pęcherzyki, świeży owocowy zapach i wzrost objętości.': 'Према King Arthur Baking, 3. дана обично се виде мехурићи, свеж воћни мирис и повећање запремине.',
   'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności; dokarm zakwas tak samo.': 'Према King Arthur Baking, првог дана можда нећеш видети никакву активност; нахрани стартер исто као и иначе.',
   'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.': 'Према King Arthur Baking, првог дана можда нећеш видети никакву активност.',
+  'Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.': 'Према King Arthur Baking, помешај брашно од целог зрна, пшенично или ражано интегрално, са водом у једнаким количинама по тежини, нпр. 113 g брашна и 113 g воде.',
+  'Według King Arthur Baking wyrabianie rozwija gluten, dzięki czemu ciasto zatrzymuje gaz wytwarzany przez drożdże i rośnie.': 'Према King Arthur Baking, месење развија глутен, па тесто задржава гас који стварају квасци и расте.',
+  'Według King Arthur Baking zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.': 'Према King Arthur Baking, стартер који дуго стоји у фрижидеру без храњења има дебео слој течности и тром је.',
+  'Według King Arthur Baking zakwas jest gotowy do pieczenia, gdy po dokarmieniu podwaja objętość w ciągu 6–8 godzin i jest pełen pęcherzyków.': 'Према King Arthur Baking, стартер је спреман за печење када после храњења удвостручи запремину у року од 6–8 сати и пун је мехурића.',
 };
