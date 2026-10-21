@@ -1183,5 +1183,124 @@
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: M = 0",
     "miejsce": "docs\\brd\\reguly.md:237"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W1",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "p [%]": 30,
+      "w / s / y [%]": "70 / 2 / 0",
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "70 / 2 / 0,03; zaczyn 349, mąka 407, woda 233, sól 11,6 (suma 1000,6)"
+    },
+    "tolerancja": "1 g w sumie",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: F = 1000 / 1,7203 = 581,29; Fz = Wz = 174,39; Yz = 0,17; zaczyn 348,95 → 349; mąka 406,91 → 407; woda 406,91 − 174,39 = 232,52 → 233; sól 11,63 → 11,6; drożdże 0,17 − 0,17 = 0 (bez wiersza); D-061",
+    "miejsce": "docs\\brd\\reguly.md:249"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W2",
+    "wejscie": {
+      "Zaczyn [-]": "biga",
+      "p [%]": 50,
+      "w / s / y [%]": "60 / 2 / 0,2",
+      "M [g]": null
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "60 / 2 / 0,5"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: y_f = max(0,2; 1 · 0,5) = 0,5 (drożdże zaczynu w masie docelowej); D-061 reguła 2",
+    "miejsce": "docs\\brd\\reguly.md:250"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W3",
+    "wejscie": {
+      "Zaczyn [-]": "pâte fermentée",
+      "p [%]": 40,
+      "w / s / y [%]": "25 / 0,5 / 0",
+      "M [g]": null
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "30 / 0,8 / 0,4"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: w_f = max(25; 75 · 0,4) = 30; s_f = max(0,5; 2 · 0,4) = 0,8; y_f = max(0; 1 · 0,4) = 0,4; D-061, D-060",
+    "miejsce": "docs\\brd\\reguly.md:251"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W4",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "p [%]": 100,
+      "w / s / y [%]": "70 / 2 / 0",
+      "M [g]": null
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "100 / 2 / 0,1"
+    },
+    "tolerancja": 0.01,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: cała mąka w zaczynie, w_f = max(70; 100) = 100; D-061",
+    "miejsce": "docs\\brd\\reguly.md:252"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W5",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "p [%]": 0,
+      "w / s / y [%]": "70 / 2 / 0",
+      "M [g]": null
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "70 / 2 / 0; karta bez grup zaczynu"
+    },
+    "tolerancja": 0,
+    "rodzaj": "poniżej",
+    "pochodzenie": "D-061 reguła 6",
+    "miejsce": "docs\\brd\\reguly.md:253"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W6",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "p [%]": 101,
+      "w / s / y [%]": "70 / 2 / 0",
+      "M [g]": 1000
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: udział mąki w zaczynie poza 0–100% (D-061)",
+    "miejsce": "docs\\brd\\reguly.md:254"
+  },
+  {
+    "regula": "RD-28",
+    "id": "RD-28-W7",
+    "wejscie": {
+      "Zaczyn [-]": "poolish",
+      "p [%]": 30,
+      "w / s / y [%]": "70 / 2 / 0",
+      "M [g]": 0
+    },
+    "oczekiwane": {
+      "w_f / s_f / y_f [%]; wiersze „Do miski” [g]": "błąd danych"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: M = 0 (RD-15)",
+    "miejsce": "docs\\brd\\reguly.md:255"
   }
 ]

@@ -72,7 +72,7 @@ export default function EkranReceptury() {
   const [frictionFactor] = useState<number>(2.0);
   const [tapWaterTemp] = useState<number>(16.0);
 
-  // Strata piecowa: F-48 PÓŹNIEJ bez wejścia (§11c 106); wartość domyślna zostaje w tekście receptury
+  // Strata piecowa: F-48 PÓŹNIEJ bez wejścia (§11c 106); kopia receptury pomija ją, dopóki wejście jest ukryte (DEC-25 a, 199)
   const [customBakeLossPercent] = useState<number>(14.0);
 
   const [isSaveModalOpen, setIsSaveModalOpen] = useState<boolean>(false);

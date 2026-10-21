@@ -13,8 +13,6 @@ import { escapeCsvValue } from '../src/lib/csv-exporter';
 import { wInKeep } from '../src/lib/unit-converter';
 import { saveCorruptState, checkCorruptState, dismissCorruptState, AUTO_KEEP, AUTO_RE, SAFETY_RE } from '../src/lib/backup';
 import { NumInput } from '../src/components/NumInput';
-import { SearchField } from '../src/components/ui';
-import { normSearch } from '../src/lib/norm-search';
 import { CloseButton, CLOSE_TEST_ID } from '../src/components/CloseButton';
 import { calculateDoughRecipe } from '../src/core/domain-rules';
 import { theme } from '../src/ui/theme';
@@ -185,29 +183,7 @@ describe('Audit Fixes Regression Suite (BR-REL-016)', () => {
     expect(onPress).toHaveBeenCalledTimes(1);
   });
 
-  // --------------------------------------------------------------------------
-  // UI-04: SearchField z normalizacją polskich znaków i szybkim czyszczeniem (RD-ENG-07)
-  // --------------------------------------------------------------------------
-  test('UI-04: SearchField normalizes Polish diacritics and provides clear button', () => {
-    // Normalizacja ł -> l, ż -> z, ą -> a
-    expect(normSearch('Mąka Żytnia Łamana')).toBe('maka zytnia lamana');
-
-    const onSearch = jest.fn();
-    let tree!: renderer.ReactTestRenderer;
-    act(() => {
-      tree = renderer.create(<SearchField value="żytni" onChangeText={onSearch} />);
-    });
-
-    const input = tree.root.findByProps({ testID: 'search-field' });
-    expect(input.props.value).toBe('żytni');
-
-    const clearBtn = tree.root.findByProps({ testID: 'search-field-clear' });
-    expect(clearBtn).toBeTruthy();
-    act(() => {
-      clearBtn.props.onPress();
-    });
-    expect(onSearch).toHaveBeenCalledWith('');
-  });
+  // UI-04 (SearchField, normSearch) usunięte z martwym kodem: żaden ekran app/ ich nie używał [M1-audytor-generalny-211]
 
   // --------------------------------------------------------------------------
   // MER-01 & MER-02: Piekarska wyrocznia hydracji i kontrast WCAG AA

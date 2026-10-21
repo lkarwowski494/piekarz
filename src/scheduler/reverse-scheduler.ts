@@ -1,5 +1,9 @@
 import { Q10_FERMENTATION } from '../core/fermentation-q10';
 import { formatTime } from '../lib/format';
+import { DOMYSLNY_PROFIL_SNU, oknoSnu } from '../lib/profile-snu';
+
+/** Okno snu bez podanych opcji: profil domyślny z Ustawień (profile-snu.ts). */
+const DOMYSLNE_OKNO_SNU = oknoSnu(DOMYSLNY_PROFIL_SNU) ?? { startH: 23, koniecH: 7 };
 // ============================================================================
 // Piekarz (Crust) — Reverse Scheduler & Sleep Guard (BR-HARMO-001…004)
 // Calculates backward timeline from target bread serving hour with sleep guard.
@@ -67,8 +71,8 @@ export function sleepCollisionParams(c: SleepCollision): Record<string, string> 
 }
 
 export interface ScheduleOptions {
-  sleepStartHour?: number;   // default 23 (23:00)
-  sleepEndHour?: number;     // default 6.5 (06:30)
+  sleepStartHour?: number;   // domyślnie okno profilu domyślnego Ustawień (23:00)
+  sleepEndHour?: number;     // domyślnie okno profilu domyślnego Ustawień (07:00)
   customStageDurations?: Record<string, number>;
   ambientTemperatureC?: number; // default 24.0°C
   coldRetardHours?: number;     // default 14.0 (14h in fridge)
@@ -207,8 +211,9 @@ export function calculateReverseSchedule(
   targetReadyTime: Date,
   options: ScheduleOptions = {}
 ): ReverseScheduleResult {
-  const sleepStart = options.sleepStartHour ?? 23.0;
-  const sleepEnd = options.sleepEndHour ?? 6.5;
+  // Domyślne okno = profil domyślny Ustawień (D-066 1a, 23:00–07:00), jedno źródło [M1-audytor-generalny-212]
+  const sleepStart = options.sleepStartHour ?? DOMYSLNE_OKNO_SNU.startH;
+  const sleepEnd = options.sleepEndHour ?? DOMYSLNE_OKNO_SNU.koniecH;
 
   const templates = DEFAULT_STAGE_TEMPLATES.map((t) => ({ ...t }));
 

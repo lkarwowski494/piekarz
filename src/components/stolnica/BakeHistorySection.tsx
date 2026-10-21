@@ -11,6 +11,7 @@ import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { nazwaReceptury } from '../../lib/nazwa-receptury';
 import { appLocale, formatDate } from '../../lib/format';
+import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { StoredBakeLog } from '../../data/db';
 import { SensoryRadarChart } from '../SensoryRadarChart';
 
@@ -34,6 +35,7 @@ export function BakeHistorySection({
   onBakeAgain,
   onChooseRecipe,
 }: BakeHistorySectionProps) {
+  const unitSystem = useUnitSystem();
   return (
     <View style={styles.historyContainer}>
       <Text style={styles.sectionHeading}>{t('Historia wypieków')}</Text>
@@ -90,7 +92,8 @@ export function BakeHistorySection({
           </Pressable>
         </View>
       ) : (
-        filteredHistory.slice(0, 15).map((log) => {
+        // Wszystkie wpisy (BR-RECP-003 „Przegląd historii”; dawniej najwyżej 15) [M1-audytor-generalny-146]
+        filteredHistory.map((log) => {
           const dateStr = formatDate(log.startedAt, appLocale(), {
             day: 'numeric',
             month: 'short',
@@ -117,8 +120,16 @@ export function BakeHistorySection({
               </View>
               <Text style={styles.historyDate}>{dateStr}</Text>
 
-              {/* Crumb, crust & taste pills */}
+              {/* Crumb, crust & taste pills; temperatura w kuchni tylko zapisana przy wypieku (BR-RECP-003, bez zgadywania 017).
+                  Temperatury ciasta wypiek dziś nie zapisuje (actualDdtC bez zapisu), więc jej nie pokazujemy [M1-audytor-generalny-146] */}
               <View style={styles.historyPillsRow}>
+                {log.ambientTemp != null && (
+                  <View style={styles.historyPill}>
+                    <Text style={styles.historyPillText}>
+                      {t('Temperatura w kuchni:')} {formatTemperature(log.ambientTemp, unitSystem)}
+                    </Text>
+                  </View>
+                )}
                 {log.crumbScore !== undefined && (
                   <View style={styles.historyPill}>
                     <Text style={styles.historyPillText}>

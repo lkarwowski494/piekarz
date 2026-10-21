@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 566 | 566 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 424 | 424 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 562 | 562 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 420 | 420 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 171 | 171 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1215** | Pokrytych: **1215** | Brakujących: **0**
+Łącznie elementów: **1207** | Pokrytych: **1207** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -21,7 +21,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :--- | :--- | :---: | :--- |
 | `EKRAN` | `/(tabs)/(dzis)/index` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
+| `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/interaction-guards.test.ts |
 | `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/doktor-zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/core/__tests__/starter-doctor.test.ts, src/core/__tests__/starter-setup.test.ts |
@@ -31,7 +31,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/helpers/plan-godzina.ts |
 | `TEKST` | `Ustawienia` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/br-scenariusze-193-start-zakwas.test.tsx, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Piekarz Pro nie jest aktywny` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx |
 | `TEKST` | `Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
@@ -109,7 +109,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zmień składniki` | `src/components/calculator/CalculatorActionButtons.tsx` | ✅ | tests/maestro-runner.ts, tests/slownik-akcji.test.ts |
 | `UI` | `Skaner QR` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | tests/metadane-sklepu.test.ts, src/__tests__/skaner-qr-brak-modulu.test.tsx |
 | `UI` | `Skaner QR jest niedostępny w tej wersji aplikacji.` | `src/components/calculator/CalculatorModalsProvider.tsx` | ✅ | src/__tests__/skaner-qr-brak-modulu.test.tsx |
-| `TEKST` | `Zapisz przepis` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ui-components.test.tsx |
+| `TEKST` | `Zapisz przepis` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Anuluj` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/close-button-guard.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
@@ -213,7 +213,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Twoje zapasy mąk` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Odejmij {g} g mąki {nazwa}` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dodaj {g} g mąki {nazwa}` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Usuń` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-a11y.test.tsx, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Usuń` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Dodaj mąkę do spiżarni` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wybierz z Atlasu lub wpisz własną` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nazwa mąki (np. Pszenna typ 750)` | `src/components/FlourInventoryModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -230,14 +230,14 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Kiedy chleb ma być gotowy?` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | src/__tests__/harmonogram-screen.test.tsx, src/__tests__/plan-uklad-128.test.tsx |
 | `UI` | `{n} min` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/lib/__tests__/i18n.test.ts |
-| `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dziennik-recp003-146.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Oś czasu przygotowania` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Pasywne` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wymaga obecności` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `W nocy` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
 | `TEKST` | `Godziny snu:` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
-| `TEKST` | `Bez godzin snu` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
+| `TEKST` | `Bez godzin snu` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx, src/__tests__/plan-bez-nocy-129.test.tsx |
 | `TEKST` | `Czas w lodówce:` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `Elastyczny bufor regulujący porę formowania i pieczenia` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kopiuj harmonogram` | `src/components/harmonogram/UstawieniaPlanu.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -251,7 +251,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wklej kod JSON udostępniony przez innego piekarza` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wklej ze schowka` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wyczyść wklejony tekst` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wyczyść` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-a11y.test.tsx |
+| `TEKST` | `Wyczyść` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Wklej kod JSON receptury tutaj...` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Możesz zaimportować plik JSON wygenerowany z Piekarza lub ręcznie przygotowany szablon.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Nieprawidłowy format` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/settings-modal.test.tsx |
@@ -274,7 +274,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `{cena} miesięcznie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `{cena} jednorazowo` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Kup dostęp dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Zacznij okres próbny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
+| `TEKST` | `Zacznij okres próbny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/instrukcja-przycisk-proby-214.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
 | `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
@@ -310,7 +310,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Masa bochenka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
 | `TEKST` | `Masa mąki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/audit-fixes.test.tsx, tests/br-kryteria-067.test.tsx |
+| `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/i18n-en-main-flow.test.tsx |
 | `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/doctor/__tests__/diagnostics-exhaustive.test.ts, src/lib/__tests__/diagnosis-formatter.test.ts |
 | `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
 | `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 915 kolejnych elementów w pełnym wykazie)*
+*(... i 907 kolejnych elementów w pełnym wykazie)*

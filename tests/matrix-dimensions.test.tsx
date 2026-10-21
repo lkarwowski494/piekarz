@@ -7,7 +7,6 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { View } from 'react-native';
 import { NumInput } from '../src/components/NumInput';
-import { Field, Btn, Empty, Missing } from '../src/components/ui';
 
 import { BakeTypePresetId, CrumbMoistureCategory } from '../src/core/bake-loss';
 import { DutchOvenBakePhase, DUTCH_OVEN_PHASES } from '../src/core/baking-phases';
@@ -50,67 +49,11 @@ describe('Dimension Resiliency Matrix (320pt & Dynamic Type AX5 — NFR-A11Y-004
       expect(input).toBeTruthy();
     });
 
-    it('Btn renders within 320pt container', () => {
-      let tree!: renderer.ReactTestRenderer;
-      act(() => {
-        tree = renderer.create(
-          <View style={{ width: 320, padding: 16 }}>
-            <Btn title="Rozpocznij wypiek na stolnicy" variant="primary" />
-          </View>
-        );
-      });
-      const btn = tree.root.findByProps({ testID: 'btn' });
-      expect(btn).toBeTruthy();
-    });
-
-    it('Empty state renders within 320pt container', () => {
-      let tree!: renderer.ReactTestRenderer;
-      act(() => {
-        tree = renderer.create(
-          <View style={{ width: 320 }}>
-            <Empty
-              title="Brak zapisanych przepisów w bazie"
-              description="Dodaj swój pierwszy bochenek lub zaimportuj z pliku JSON."
-              actionLabel="Nowy przepis"
-              onAction={() => {}}
-            />
-          </View>
-        );
-      });
-      const empty = tree.root.findByProps({ testID: 'empty-state' });
-      expect(empty).toBeTruthy();
-    });
+    // Btn i Empty z src/components/ui.tsx usunięte z martwym kodem (bez użycia w app/) [M1-audytor-generalny-211]
   });
 
-  describe('Dynamic Type AX5 Simulation (Large Font Scaling)', () => {
-    it('Field renders its label with custom text styles (presence only; AX5 clipping not measured)', () => {
-      let tree!: renderer.ReactTestRenderer;
-      act(() => {
-        tree = renderer.create(
-          <Field
-            label="Etykieta powiększona AX5"
-            style={{ fontSize: 28, lineHeight: 36 }}
-            value="Mąka żytnia typ 720"
-          />
-        );
-      });
-      expect(tree.root.findByProps({ children: 'Etykieta powiększona AX5' })).toBeTruthy();
-    });
-
-    it('Missing state renders its text (presence only; AX5 wrapping not measured)', () => {
-      let tree!: renderer.ReactTestRenderer;
-      act(() => {
-        tree = renderer.create(
-          <Missing
-            title="Nie znaleziono wybranego zakwasu"
-            message="Kultura drożdżowo-bakteryjna mogła zostać zarchiwizowana lub usunięta z pamięci urządzenia."
-          />
-        );
-      });
-      const missing = tree.root.findByProps({ testID: 'missing-record-state' });
-      expect(missing).toBeTruthy();
-    });
-  });
+  // „Dynamic Type AX5 Simulation” (Field, Missing z src/components/ui.tsx) usunięte z martwym kodem; sprawdzały
+  // tylko obecność elementów komponentów, których żaden ekran nie pokazywał [M1-audytor-generalny-211; 08-programista-601]
 
   describe('Exhaustive Dimension Invariant Coverage (BR-TEST-030)', () => {
     it('verifies all enum dimensions and constant arrays across studio specifications', () => {

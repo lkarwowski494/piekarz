@@ -27,14 +27,16 @@ export function czasSlownie(min: number): string {
   return h > 0 ? tPlural(h, GODZINY) : tPlural(m, MINUTY);
 }
 
-/** Dzień godziny „gotowe” względem teraz: dziś, jutro, pojutrze, dalej data dnia i miesiąca według języka. */
+/** Dzień godziny „gotowe” względem teraz: wczoraj, dziś, jutro, pojutrze, dalej dzień tygodnia, dzień i miesiąc według języka. */
 export function dzienSlownie(gotowe: Date, teraz: Date): string {
   const dzien = (d: Date) => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
   const roznica = Math.round((dzien(gotowe) - dzien(teraz)) / DOBA_MS);
+  if (roznica === -1) return t('wczoraj');
   if (roznica === 0) return t('dziś');
   if (roznica === 1) return t('jutro');
   if (roznica === 2) return t('pojutrze');
-  return formatDate(gotowe, appLocale(), { day: 'numeric', month: 'numeric' });
+  // Dalej (i wcześniej niż wczoraj): „{dzień tygodnia}, {d} {miesiąc}” według języka (design-spec §11c) [M1-audytor-generalny-151]
+  return formatDate(gotowe, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
 function zdanieGotowe(gotowe: Date | null, teraz: Date): string | null {

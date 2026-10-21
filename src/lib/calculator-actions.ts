@@ -10,6 +10,7 @@ import { t } from './i18n';
 import { exportRecipeSheetAsPdf } from './pdf-sheet-generator';
 import { exportRecipeToJson } from './recipe-sharing';
 import { formatRecipeText, copyRecipeToClipboard } from './recipe-formatter';
+import { wejscieWidoczne } from './wejscia-pozniej';
 import { saveRecipe } from '../data/sqlite-store';
 import { StoredRecipe } from '../data/db';
 import { MASTER_RECIPES } from '../recipes/presets';
@@ -83,7 +84,8 @@ export async function executeCopyRecipe(params: {
   const text = formatRecipeText({
     recipeName: params.recipeName,
     calc: params.calculations,
-    bakeLoss: params.bakeLossMetrics,
+    // Strata piecowa, wilgotność i masa po upieczeniu tylko z widocznym F-48 (DEC-25 a) [M1-audytor-generalny-199]
+    bakeLoss: wejscieWidoczne('strata-piecowa') ? params.bakeLossMetrics : undefined,
     targetDdt: params.targetDdt,
     waterTempTarget: params.waterTempTarget,
     iceGrams: params.iceGrams,

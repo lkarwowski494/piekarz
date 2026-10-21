@@ -52,9 +52,10 @@ describe('Hidden entries of LATER features F-46…F-49', () => {
     // F-45 przelicznik objętości PÓŹNIEJ [M1-audytor-generalny-098]
     // F-44 Akademia bez wejścia w 1.0 [M1-audytor-generalny-100]
     // F-71 protokoły ratunkowe Doktora PÓŹNIEJ do czasu źródeł (ZM-19) [M1-audytor-generalny-032]
-    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'qr', 'rodzina-apps4craft', 'spizarnia', 'przelicznik-objetosci', 'akademia', 'protokoly-ratunkowe'];
+    const all: WejsciePozniej[] = ['slownik-mak', 'odrzut-zakwasu', 'strata-piecowa', 'konwerter-zakwasu', 'druk', 'qr', 'rodzina-apps4craft', 'spizarnia', 'przelicznik-objetosci', 'akademia', 'protokoly-ratunkowe', 'test-palca'];
+    // F-15 TEST: test palca w Stolnicy ukryty do wyniku testu (DEC-21 a) [M1-audytor-generalny-155]
     expect(Object.keys(WEJSCIA_WIDOCZNE).sort()).toEqual([...all].sort());
-    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false, false, false, false, false, false]);
+    expect(all.map(wejscieWidoczne)).toEqual([false, false, false, false, false, false, false, false, false, false, false, false]);
   });
 
   it('Calculator has no volume converter entry; cups are not an input in 1.0 (F-45)', async () => {

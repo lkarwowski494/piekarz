@@ -123,7 +123,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
     - Wtedy widzi komunikat o błędnych danych (RD-19-W4)
 
 ### BR-KALK-010: Zaczyny poolish, biga i levain
-- Przepływ: PR-17, PR-01 · Reguła: RD-26, RD-14
+- Przepływ: PR-17, PR-01 · Reguła: RD-26, RD-14, RD-28 (zaczyn w formule: D-061, D-060)
 - Dowód potrzeby: J-11; kalkulator poolish i biga używany (S-24, rec. 7357117590) i błąd bazy zaczynu u konkurencji (S-19, rec. 8748510891)
 - Kryteria akceptacji:
   - Scenariusz: Domyślna hydratacja poolish
@@ -134,6 +134,14 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
     - Zakładając, że użytkownik ustawia hydratację levainu 126%
     - Gdy zatwierdza pole
     - Wtedy widzi informację „nietypowa hydratacja”, a obliczenie działa dalej (RD-26-W5)
+  - Scenariusz: Zaczyn w formule
+    - Zakładając, że formuła ma mąkę 100%, wodę 70% i sól 2%, a użytkownik wybiera poolish z 30% mąki
+    - Gdy ustawia masę ciasta 1000 g
+    - Wtedy karta „Do miski” pokazuje zaczyn 349 g, mąkę 407 g, wodę 233 g i sól 11,6 g, a suma wierszy różni się od masy ciasta najwyżej o 1 g; drożdże poolish mieszczą się w masie (RD-28-W1; D-061)
+  - Scenariusz: Drożdże zaczynu większe niż w recepturze
+    - Zakładając, że formuła ma drożdże 0,2%, a użytkownik wybiera bigę z 50% mąki
+    - Gdy karta liczy ilości
+    - Wtedy drożdże całej formuły to 0,5% (drożdże bigi), a nie 0,2% + 0,5% (RD-28-W2; D-061)
 
 ### BR-KALK-011: Informacja o nietypowej ilości soli
 - Przepływ: PR-01 · Reguła: RD-27

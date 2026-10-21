@@ -3453,9 +3453,7 @@
     ]
   },
   "Nie znaleziono rekordu": {
-    "gdzie": [
-      "src/components/ui.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "Niedofermentowanie": {
     "gdzie": [
@@ -3542,7 +3540,7 @@
   },
   "Nocny marek": {
     "gdzie": [
-      "src/lib/godziny-snu.ts (dane: namePl)"
+      "src/lib/profile-snu.ts (dane: namePl)"
     ]
   },
   "Notatki z wypieku": {
@@ -4846,7 +4844,7 @@
   },
   "Ranny ptaszek": {
     "gdzie": [
-      "src/lib/godziny-snu.ts (dane: namePl)"
+      "src/lib/profile-snu.ts (dane: namePl)"
     ]
   },
   "Razem {masa}": {
@@ -5325,7 +5323,7 @@
   },
   "Standard": {
     "gdzie": [
-      "src/lib/godziny-snu.ts (dane: namePl)"
+      "src/lib/profile-snu.ts (dane: namePl)"
     ]
   },
   "Standard szklanki:": {
@@ -5717,7 +5715,8 @@
   },
   "Temperatura w kuchni:": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
+      "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
   "Temperatura wody": {
@@ -6031,8 +6030,7 @@
   },
   "Usuń": {
     "gdzie": [
-      "src/components/FlourInventoryModal.tsx (tekst w JSX)",
-      "src/components/ui.tsx (kod)"
+      "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
   "Usuń mąkę: {nazwa}": {
@@ -6610,9 +6608,7 @@
     ]
   },
   "Wróć": {
-    "gdzie": [
-      "src/components/ui.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "Wróć do edycji": {
     "gdzie": [
@@ -6759,9 +6755,7 @@
     ]
   },
   "Wybrany element nie istnieje lub został wcześniej usunięty.": {
-    "gdzie": [
-      "src/components/ui.tsx (kod)"
-    ]
+    "gdzie": []
   },
   "Wyczyść": {
     "gdzie": [
@@ -6774,9 +6768,7 @@
     ]
   },
   "Wyczyść wyszukiwanie": {
-    "gdzie": [
-      "src/components/ui.tsx (accessibilityLabel)"
-    ]
+    "gdzie": []
   },
   "Wyczyść zaznaczone objawy": {
     "gdzie": [
@@ -8250,7 +8242,8 @@
   },
   "wczoraj": {
     "gdzie": [
-      "src/lib/plan-za-pozno.ts (kod)"
+      "src/lib/plan-za-pozno.ts (kod)",
+      "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
   "według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C": {

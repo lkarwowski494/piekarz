@@ -47,6 +47,13 @@ function importyWartosci(src: string): string[] {
   return out;
 }
 
+/** Czy plik eksportuje wartość (funkcję, stałą, klasę, enum, domyślny albo `export { … }` bez `type`). */
+function maEksportWartosci(src: string): boolean {
+  if (/^\s*export\s+(default|const|let|var|function|async\s+function|class|enum|abstract\s+class)\b/m.test(src)) return true;
+  if (/^\s*export\s+\*\s+from/m.test(src)) return true;
+  return /^\s*export\s+\{(?!\s*type\b)/m.test(src);
+}
+
 function osiagalneZApp(): Set<string> {
   const start = pliki('app', (p) => EXT.includes(path.extname(p)));
   const seen = new Set<string>();
@@ -77,6 +84,18 @@ describe('osiągalność kalkulatora i motywów z app/ (149)', () => {
       ...pliki('src/ui', (p) => /^src\/ui\/[^/]+\.ts$/.test(p)),
     ];
     expect(badane.length).toBeGreaterThan(0);
+    const martwe = badane.filter((p) => !osiagalne.has(p)).sort();
+    expect(martwe).toEqual([]);
+  });
+
+  // M1-audytor-generalny-211 (08-programista-601): cały src/, nie tylko katalogi zadania 149.
+  // Plik z samymi typami (bez eksportu wartości) nie jest martwym kodem, więc go pomijamy.
+  it('każdy plik src/** (poza testami i plikami z samymi typami) jest osiągalny z app/ importem wartości (211)', () => {
+    const osiagalne = osiagalneZApp();
+    const badane = pliki('src', (p) => /\.(ts|tsx)$/.test(p) && !p.endsWith('.d.ts') && !/\.test\.tsx?$/.test(p))
+      .filter((p) => !/\/(__tests__|__mocks__)\//.test(p))
+      .filter((p) => maEksportWartosci(fs.readFileSync(path.join(ROOT, p), 'utf8')));
+    expect(badane.length).toBeGreaterThan(100);
     const martwe = badane.filter((p) => !osiagalne.has(p)).sort();
     expect(martwe).toEqual([]);
   });

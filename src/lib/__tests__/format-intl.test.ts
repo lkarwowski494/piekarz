@@ -7,7 +7,6 @@ import { join } from 'path';
 import { setLang } from '../i18n';
 import { appLocale, formatDate, formatFixed, formatNumber, formatTime } from '../format';
 import { formatDoseWeight, formatTemperature, formatWeight } from '../unit-converter';
-import { formatDate as formatDateApp } from '../date';
 import { buildBackup } from '../backup';
 import { exportFlourInventoryCsv } from '../csv-exporter';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
@@ -75,11 +74,12 @@ describe('miejsca wyświetlania według języka aplikacji', () => {
     expect(formatDoseWeight(10, 'imperial')).toBe('0.35 oz');
   });
 
-  it('src/lib/date.ts formatuje według języka aplikacji', () => {
+  // Fasada src/lib/date.ts (martwa, usunięta) dawała to samo co formatDate z językiem aplikacji [M1-audytor-generalny-211]
+  it('formatDate z appLocale() formatuje według języka aplikacji', () => {
     setLang('pl');
-    expect(formatDateApp(D, { day: '2-digit', month: '2-digit', year: 'numeric' })).toBe('25.10.2026');
+    expect(formatDate(D, appLocale(), { day: '2-digit', month: '2-digit', year: 'numeric' })).toBe('25.10.2026');
     setLang('en');
-    expect(formatDateApp(D, { day: '2-digit', month: '2-digit', year: 'numeric' })).toBe('10/25/2026');
+    expect(formatDate(D, appLocale(), { day: '2-digit', month: '2-digit', year: 'numeric' })).toBe('10/25/2026');
   });
 
   it('harmonogram: godzina kolizji ze snem według języka aplikacji', () => {
