@@ -271,7 +271,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Roczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `12 miesięcy` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Odnawia się automatycznie co rok` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/emoji-teksty-techniczne.test.ts |
+| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia-workflow.test.ts, tests/check-i18n-gate.test.ts |
 | `TEKST` | `Miesięczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `1 miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Odnawia się automatycznie co miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
