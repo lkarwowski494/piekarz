@@ -56,10 +56,10 @@ describe('207: rodzaj drożdży w wierszu drożdży zaczynu', () => {
   });
 
   it.each([
-    ['pl', 'poolish', /Drożdże świeże \(prasowane\)/],
-    ['pl', 'biga', /Drożdże świeże \(prasowane\)/],
-    ['pl', 'pate_fermentee', /Drożdże świeże \(prasowane\)/],
-    ['en', 'biga', /Fresh yeast \(compressed\)/],
+    ['pl', 'poolish', 'Drożdże świeże (prasowane)'],
+    ['pl', 'biga', 'Drożdże świeże (prasowane)'],
+    ['pl', 'pate_fermentee', 'Drożdże świeże (prasowane)'],
+    ['en', 'biga', 'Fresh yeast (compressed)'],
   ] as const)('%s, %s: wiersz drożdży zaczynu nazywa drożdże świeże', async (kod, zaczyn, wzor) => {
     setLang(kod);
     await act(async () => {
@@ -67,6 +67,6 @@ describe('207: rodzaj drożdży w wierszu drożdży zaczynu', () => {
     });
     const wiersz = tree!.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'scale-item-preferment-yeast')[0];
     expect(wiersz).toBeDefined();
-    expect(tekst(wiersz)).toMatch(wzor);
+    expect(tekst(wiersz)).toContain(wzor);
   });
 });
