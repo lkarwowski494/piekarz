@@ -118,7 +118,11 @@ describe('113: jedno wejście „Importuj z pliku”', () => {
     const tekst = a.tekst();
     expect(tekst).toContain('Wklej zawartość pliku receptury albo kopii zapasowej.');
     expect(tekst).toContain('Kopia zapasowa z pliku');
-    expect(tekst).toContain(`Kopia z 18 października 2026: 3${NBSP}receptury, 1${NBSP}zakwas, 12${NBSP}wpisów w Dzienniku.`);
+    // Ekran pokazuje datę kopii w strefie telefonu: wyrocznia z tego samego exportedAt przez Intl w strefie procesu,
+    // nie stała „18 października” (w Auckland to już 19) [M1-audytor-generalny-190; 07-jakosc-601]
+    const dataKopii = new Intl.DateTimeFormat('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date('2026-10-18T12:00:00.000Z'));
+    expect(['18 października 2026', '19 października 2026']).toContain(dataKopii);
+    expect(tekst).toContain(`Kopia z ${dataKopii}: 3${NBSP}receptury, 1${NBSP}zakwas, 12${NBSP}wpisów w Dzienniku.`);
     expect(tekst).toContain('Import zastąpi wszystkie dane w aplikacji danymi z kopii. Przed importem zapiszę kopię obecnych danych.');
     expect(tekst).toContain('Zastąp dane');
     a.done();
