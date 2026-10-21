@@ -23,6 +23,7 @@ function kopia(zrodlo: string = root): string {
   for (const f of readdirSync(join(zrodlo, 'docs', 'brd')).filter((n) => n.endsWith('.md'))) {
     cpSync(join(zrodlo, 'docs', 'brd', f), join(dir, 'docs', 'brd', f));
   }
+  cpSync(join(zrodlo, 'docs', 'scope-contract.md'), join(dir, 'docs', 'scope-contract.md'));
   mkdirSync(join(dir, 'scripts'), { recursive: true });
   cpSync(join(zrodlo, 'scripts', 'br-wyjatki.json'), join(dir, 'scripts', 'br-wyjatki.json'));
   // Ścieżka względem źródła: segment `.claude` nad repo (worktree sesji) nie wyklucza całej kopii (192).
@@ -99,6 +100,44 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
     } finally {
       rmSync(baza, { recursive: true, force: true });
       if (dir) rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  // M1-audytor-generalny-067 (reaudit pętli 1): BR z MVP nie może być zwolnione z testu pełnym wyjątkiem
+  // „kod nie spełnia kryterium”; znalezisko idzie jako „czesciowe” przy teście z ID dla pozostałych scenariuszy.
+  const zakresBr = (dir: string) => {
+    const wynik = new Map<string, string>();
+    for (const l of readFileSync(join(dir, 'docs', 'scope-contract.md'), 'utf8').split(/\r?\n/)) {
+      const k = l.split('|').map((s) => s.trim());
+      if (!/^F-\d+$/.test(k[1] ?? '')) continue;
+      for (const id of k[3].match(/BR-[A-Z]+-\d{3}/g) ?? []) wynik.set(id, k[4]);
+    }
+    return wynik;
+  };
+
+  it('pełny wyjątek tylko dla BR spoza MVP w kontrakcie zakresu (067)', () => {
+    const zakres = zakresBr(root);
+    expect(zakres.size).toBeGreaterThan(0);
+    const dane = JSON.parse(readFileSync(join(root, 'scripts', 'br-wyjatki.json'), 'utf8')) as { wyjatki: { id: string; czesciowe?: boolean }[] };
+    const pelneMvp = dane.wyjatki.filter((w) => w.czesciowe !== true && zakres.get(w.id) === 'MVP').map((w) => w.id);
+    expect(pelneMvp).toEqual([]);
+  });
+
+  it('mutant: pełny wyjątek dla BR z MVP daje kod 1 (067)', () => {
+    const dir = kopia();
+    try {
+      const mvp = [...zakresBr(dir).entries()].find(([, d]) => d === 'MVP')?.[0];
+      expect(mvp).toBeDefined();
+      const p = join(dir, 'scripts', 'br-wyjatki.json');
+      const dane = JSON.parse(readFileSync(p, 'utf8')) as { wyjatki: { id: string; powod: string; zrodlo: string; czesciowe?: boolean }[] };
+      dane.wyjatki = dane.wyjatki.filter((w) => w.id !== mvp);
+      dane.wyjatki.push({ id: mvp as string, powod: 'znalezisko: kod nie spełnia kryterium', zrodlo: 'F-09' });
+      writeFileSync(p, JSON.stringify(dane));
+      const r = spawnSync(process.execPath, [script, '--root', dir], { encoding: 'utf8' });
+      expect(r.status).toBe(1);
+      expect(r.stderr).toContain(`wyjątek pełny ${mvp}`);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
     }
   });
 

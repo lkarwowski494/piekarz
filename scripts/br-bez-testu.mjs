@@ -3,7 +3,8 @@
 // Zbiera ID BR, które mają kryteria akceptacji w docs/brd/*.md (bez docs/brd/archiwum/), oraz ID BR
 // z nazw testów (describe / it / test) w tests/** i src/**/__tests__/**. Wypisuje BR bez testu.
 // Kod 1: jest BR bez testu spoza listy pełnych wyjątków (scripts/br-wyjatki.json) albo lista wyjątków jest
-// błędna (ID spoza BRD, brak powodu lub źródła). Kod 0: każde BR z kryterium ma test albo pełny wyjątek.
+// błędna (ID spoza BRD, brak powodu lub źródła, pełny wyjątek dla BR z MVP w docs/scope-contract.md).
+// Kod 0: każde BR z kryterium ma test albo pełny wyjątek (tylko PÓŹNIEJ / NIE / TEST).
 // Użycie: node scripts/br-bez-testu.mjs [--root <katalog>] [--json]
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
@@ -86,10 +87,28 @@ function wyjatki() {
   return { lista, bledy };
 }
 
+// Decyzja zakresu BR z tabeli docs/scope-contract.md (kolumny: ID F | Funkcja | Wymagania | Decyzja).
+function zakresBr() {
+  const p = join(root, 'docs', 'scope-contract.md');
+  const wynik = new Map();
+  if (!existsSync(p)) return wynik;
+  for (const l of readFileSync(p, 'utf8').split(/\r?\n/)) {
+    const k = l.split('|').map((s) => s.trim());
+    if (!/^F-\d+$/.test(k[1] ?? '')) continue;
+    for (const id of k[3].match(ID) ?? []) wynik.set(id, k[4]);
+  }
+  return wynik;
+}
+
 const brd = brZBrd();
 const testy = brZTestow(plikiTestow());
 const { lista: listaWyjatkow, bledy } = wyjatki();
+const zakres = zakresBr();
 for (const w of listaWyjatkow) if (!brd.has(w.id)) bledy.push(`wyjątek ${w.id} nie jest BR z kryterium w docs/brd/`);
+// BR z MVP ma test z ID; scenariusz, którego kod nie spełnia, to wpis „czesciowe” (M1-audytor-generalny-067).
+for (const w of listaWyjatkow)
+  if (w.czesciowe !== true && zakres.get(w.id) === 'MVP')
+    bledy.push(`wyjątek pełny ${w.id} dla BR z MVP (docs/scope-contract.md): dozwolony tylko wpis „czesciowe” przy teście z ID`);
 // Wyjątek pełny zwalnia BR z testu. Wpis „czesciowe”: true opisuje tylko scenariusze bez testu
 // (znaleziska) i NIE zwalnia BR z testu z ID w nazwie.
 const idWyjatkow = new Set(listaWyjatkow.filter((w) => w.czesciowe !== true).map((w) => w.id));
