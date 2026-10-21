@@ -5,9 +5,10 @@
 // ============================================================================
 
 import type { Purchase } from 'expo-iap';
+import { AppState } from 'react-native';
 import { getAppSetting, setAppSetting } from '../../data/settings-store';
 import { StorageWriteError } from '../../data/storage-status';
-import { ODBLOKOWUJA, KLUCZ_PAMIECI } from './konfiguracja';
+import { ODBLOKOWUJA, KLUCZ_PAMIECI, KLUCZ_HISTORII_DOSTEPU } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec, Uprawnienie } from './dostep';
 import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz } from './sklep';
 import { _resetEkranu } from './ekran';
@@ -51,6 +52,7 @@ export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): P
   if (odczyt.zrodlo === 'sklep') {
     try {
       await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
+      if (d.dostep) await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '1');
     } catch (e) {
       // Baza nowsza niż aplikacja (061) albo nieudany zapis (120): decyzja działa w tej sesji bez zapisu pamięci,
       // kupujący nie traci dostępu przez pełną pamięć telefonu [M1-audytor-generalny-061; M1-audytor-generalny-120]
@@ -59,6 +61,18 @@ export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): P
   }
   ustaw({ decyzja: d, gotowe: true, uprawnienia: odczyt.zrodlo === 'sklep' ? odczyt.uprawnienia : stan.uprawnienia ?? null });
   return d;
+}
+
+/**
+ * Czy sklep dał kiedyś dostęp na tym telefonie (koniec próby albo subskrypcji, a nie sam import danych)
+ * [M1-audytor-generalny-143; 02-monetyzacja-504]. Błąd odczytu = nie wiadomo, więc false (neutralny nagłówek).
+ */
+export async function czyBylDostep(): Promise<boolean> {
+  try {
+    return (await getAppSetting(KLUCZ_HISTORII_DOSTEPU)) === '1';
+  } catch {
+    return false;
+  }
 }
 
 /** Odczyt sklepu i decyzja; równoległe wywołania dzielą jeden odczyt. */
@@ -90,7 +104,11 @@ export async function obsluzTransakcje(p: Purchase): Promise<void> {
   await zakonczTransakcje(p);
 }
 
-/** Start aplikacji (app/_layout.tsx): nasłuch transakcji i pierwszy odczyt uprawnień. */
+/**
+ * Start aplikacji (app/_layout.tsx): nasłuch transakcji, pierwszy odczyt uprawnień i ponowny odczyt przy każdym
+ * powrocie na pierwszy plan: wygaśnięcie w tle działa bez restartu, a uprzedzenie o końcu próby sprawdza się
+ * na świeżym stanie (MON-05) [M1-audytor-generalny-144; 02-monetyzacja-505, 02-monetyzacja-601].
+ */
 export function uruchomPlatnosci(): () => void {
   const sub = nasluchujZakupow((p) => {
     void obsluzTransakcje(p).catch(() => undefined);
@@ -98,7 +116,13 @@ export function uruchomPlatnosci(): () => void {
   void polacz()
     .catch(() => undefined)
     .then(() => odswiezDostep());
-  return () => sub.remove();
+  const powrot = AppState.addEventListener('change', (s) => {
+    if (s === 'active') void odswiezDostep().catch(() => undefined);
+  });
+  return () => {
+    sub.remove();
+    powrot.remove();
+  };
 }
 
 /** Tylko testy: nowy proces bez stanu (także zamknięty ekran zakupu). */

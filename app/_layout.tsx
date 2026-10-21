@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Stack, router, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar, AppState, View, StyleSheet } from 'react-native';
 import * as Notifications from 'expo-notifications';
-import { configureNotificationHandler, resyncNotifications } from '../src/lib/notifications';
+import { configureNotificationHandler, resyncNotifications, uzgadniajZDostepem } from '../src/lib/notifications';
 import { initDatabase } from '../src/data/sqlite-store';
 import { resetStorageState } from '../src/data/storage-status';
 import { StorageGate } from '../src/components/StorageGate';
@@ -85,6 +85,8 @@ export default function RootLayout() {
     const appState = AppState.addEventListener('change', (s) => {
       if (s === 'active') void resyncNotifications();
     });
+    // Koniec próby, zwrot albo zakup zmieniają przypomnienia o zakwasie bez restartu [M1-audytor-generalny-143]
+    const offDostep = uzgadniajZDostepem();
     const tap = Notifications.addNotificationResponseReceivedListener((r) => {
       // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
       // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
@@ -93,6 +95,7 @@ export default function RootLayout() {
     });
     return () => {
       appState.remove();
+      offDostep();
       tap.remove();
     };
   }, [rescue]);

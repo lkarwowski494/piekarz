@@ -67,4 +67,10 @@ export const EN_16: Record<string, string> = {
   'Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.': 'The plan doesn’t check your sleep hours. You can set them in Settings.',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).':
     'All manual stages (mixing, folding, baking) occur outside the sleep window ({od} – {do}).',
+  // Nagłówek „tylko historia” bez wcześniejszego dostępu z App Store (np. sam import) [M1-audytor-generalny-143]
+  'Piekarz Pro nie jest aktywny': "Baker Pro isn't active", // nazwa planu po angielsku (D-053, D-063)
+  // Ustawienia: przełącznik przypomnień o karmieniu (DEC-22 a) [M1-audytor-generalny-179]
+  'Przypomnienia o karmieniu': 'Feeding reminders',
+  'Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.':
+    'When a starter is due for feeding. Bake step notifications work regardless.',
 };

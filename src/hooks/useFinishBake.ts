@@ -1,10 +1,10 @@
 // ============================================================================
 // Piekarz — ocena i zapis zakończonego wypieku (arkusz po „Zrobione” na ostatnim kroku), wydzielone z prowadzenia
 // bez zmiany zachowania: wpis, licznik wypieków i odliczenie mąki w jednej transakcji [M1-audytor-generalny-021],
-// propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032], prośba o ocenę przy >= 4★ (D-042).
+// propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032], prośba o ocenę aplikacji od 3. wypieku (D-067).
 // ============================================================================
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { guardSave } from '../lib/save-guard';
 import { finishBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
 import { resyncNotifications } from '../lib/notifications';
@@ -27,7 +27,6 @@ export function useFinishBake(opts: {
 }): { open: () => void; modalProps: FinishBakeModalProps } {
   const [visible, setVisible] = useState<boolean>(false);
   const [rating, setRating] = useState<number>(5);
-  const ratingTouched = useRef(false); // domyślne 5★ to nie ocena (D-042, 082)
   const [notes, setNotes] = useState<string>('');
   const [crumbScore, setCrumbScore] = useState<number>(3);
   const [crustScore, setCrustScore] = useState<number>(3);
@@ -63,8 +62,8 @@ export function useFinishBake(opts: {
     setNotes('');
     await opts.loadHistory();
     suggestDoctorAfterRating(rating, opts.openDoctor);
-    void poprosOOceneJesliWarto(ratingTouched.current ? rating : null);
-    ratingTouched.current = false;
+    // Prośba o ocenę aplikacji po ukończonym wypieku, bez względu na ocenę bochenka (DEC-20 a) [M1-audytor-generalny-138]
+    void poprosOOceneJesliWarto();
   });
 
   return {
@@ -74,10 +73,7 @@ export function useFinishBake(opts: {
       onClose: () => setVisible(false),
       onSave,
       rating,
-      onRatingChange: (r) => {
-        ratingTouched.current = true;
-        setRating(r);
-      },
+      onRatingChange: setRating,
       notes,
       onNotesChange: setNotes,
       crumbScore,

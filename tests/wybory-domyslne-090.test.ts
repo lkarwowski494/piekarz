@@ -89,11 +89,14 @@ describe('090: wartości domyślne z decyzją (design-spec §12)', () => {
     expect(zrodlo('src/core/notification-config.ts')).toMatch(/OP-38[^\n]*\n[^\n]*FEED_ROOM_TEMP_AFTER_MS|FEED_ROOM_TEMP_AFTER_MS[^\n]*OP-38/);
   });
 
-  it('D-042 (OP-49): prośba o ocenę tylko przy ocenie ≥ 4★; komentarz z ID decyzji', () => {
-    expect(PROSBA_O_OCENE.minOcenaGwiazdki).toBe(4);
-    const we = (ocena: number) => czyProsicOOcene({ ocenaWypieku: ocena, datyPoprzednichProsb: [], teraz: 1_800_000_000_000 });
-    expect([1, 2, 3, 4, 5].map(we)).toEqual([false, false, false, true, true]);
-    expect(zrodlo('src/lib/prosba-o-ocene.ts')).toMatch(/minOcenaGwiazdki: 4, \/\/ D-042/);
+  // D-067 (DEC-20 a) uchyla próg 4★ z D-042 (OP-49): warunek liczy wypieki, nie ocenę [M1-audytor-generalny-138]
+  it('D-067 (DEC-20 a): prośba o ocenę od 3. ukończonego wypieku, z odstępem 14 dni; komentarz z ID decyzji', () => {
+    expect(PROSBA_O_OCENE.minWypiekow).toBe(3);
+    expect(PROSBA_O_OCENE.minOdstepDni).toBe(14);
+    const we = (n: number) => czyProsicOOcene({ zakonczoneWypieki: n, datyPoprzednichProsb: [], teraz: 1_800_000_000_000 });
+    expect([1, 2, 3, 4, 5].map(we)).toEqual([false, false, true, true, true]);
+    expect(zrodlo('src/lib/prosba-o-ocene.ts')).toMatch(/minWypiekow: 3, \/\/ D-067/);
+    expect(zrodlo('src/lib/prosba-o-ocene.ts')).toMatch(/minOdstepDni: 14, \/\/ D-067/);
   });
 
   it('D-044: region US → imperialne, inne → metryczne; komentarz z ID decyzji', () => {

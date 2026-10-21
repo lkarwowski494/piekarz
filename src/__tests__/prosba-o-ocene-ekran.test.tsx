@@ -1,6 +1,6 @@
 /**
- * BR-OPIN-001, BR-OPIN-002 (DEC-13 a, D-042): Stolnica prosi o ocenę dopiero po zapisanym wypieku i podaje
- * ocenę tylko wtedy, gdy użytkownik dotknął gwiazdki; Ustawienia nie pokazują „Oceń w App Store”, dopóki
+ * BR-OPIN-001, BR-OPIN-002 (DEC-13 a; DEC-20 a, D-067): Stolnica prosi o ocenę dopiero po zapisanym wypieku,
+ * bez oceny bochenka w warunku [M1-audytor-generalny-138]; Ustawienia nie pokazują „Oceń w App Store”, dopóki
  * Apple ID aplikacji jest znacznikiem; aplikacja nie ma własnego okna oceny
  * [M1-audytor-generalny-082; 11-wzrost-004]. Wektory M03, M06: docs/wzrost/wektory-prosba-o-ocene.json.
  */
@@ -100,18 +100,19 @@ describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
     jest.restoreAllMocks();
   });
 
-  it('M03: gwiazdka 4★ dotknięta — po zapisie jedno wywołanie z oceną 4', async () => {
+  // DEC-20 a (D-067): warunek nie czyta oceny bochenka, więc wywołanie nie niesie oceny [M1-audytor-generalny-138]
+  it('M03: gwiazdka 4★ dotknięta — po zapisie jedno wywołanie, bez oceny w argumentach', async () => {
     const before = (await store.getBakeLogs()).length;
     await finishBake(4);
     expect((await store.getBakeLogs()).length).toBe(before + 1);
     expect(prosba).toHaveBeenCalledTimes(1);
-    expect(prosba).toHaveBeenCalledWith(4);
+    expect(prosba).toHaveBeenCalledWith();
   });
 
-  it('W06: gwiazdki nietknięte (domyślne 5★) — wywołanie z null, nie z 5', async () => {
+  it('gwiazdki nietknięte — to samo jedno wywołanie co przy 4★ (ocena 1–5★ przez ekran: prosba-o-ocene-138)', async () => {
     await finishBake(null);
     expect(prosba).toHaveBeenCalledTimes(1);
-    expect(prosba).toHaveBeenCalledWith(null);
+    expect(prosba.mock.calls).toEqual([[]]);
   });
 
   it('M06: zapis wypieku nie powiódł się — brak wywołania', async () => {
@@ -122,20 +123,17 @@ describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
 });
 
 describe('Ustawienia: link „Oceń w App Store” (BR-OPIN-002)', () => {
-  it('Apple ID to znacznik [DO USTALENIA] — wiersz się nie renderuje, adres nie trafia do openURL', () => {
-    expect(/^\d+$/.test(APP_STORE_ID)).toBe(false);
-    expect(APP_STORE_REVIEW_URL).toContain('action=write-review');
-    const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+  it('Apple ID aplikacji z App Store Connect (właściciel 2026-10-21) — wiersz „Oceń w App Store” jest, bez prośby systemowej', () => {
+    expect(APP_STORE_ID).toBe('6823726745');
+    expect(APP_STORE_REVIEW_URL).toBe('https://apps.apple.com/app/apple-store/id6823726745?action=write-review');
     let tree: renderer.ReactTestRenderer | null = null;
     act(() => {
       tree = renderer.create(<StudioEcosystemSection />);
     });
-    expect(tree!.root.findAllByProps({ testID: 'settings-rate-link' })).toHaveLength(0);
+    expect(tree!.root.findAllByProps({ testID: 'settings-rate-link' }).length).toBeGreaterThan(0);
     expect(tree!.root.findAllByProps({ testID: 'settings-privacy-link' }).length).toBeGreaterThan(0);
-    expect(openURL).not.toHaveBeenCalledWith(APP_STORE_REVIEW_URL);
     expect(StoreReview.requestReview).not.toHaveBeenCalled();
     act(() => tree!.unmount());
-    openURL.mockRestore();
   });
 });
 

@@ -15,6 +15,9 @@ import { loadBakeSession } from '../data/bake-session-store';
 import { collectBackupData } from '../data/sqlite-store';
 import { t } from './i18n';
 import { formatTime } from './format';
+import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
+import { evaluateAppAccess } from './app-access';
+import { czyPrzypomnieniaKarmienia } from './przypomnienia-karmienia';
 
 export type NotificationPermission = 'granted' | 'denied' | 'undetermined';
 
@@ -56,8 +59,6 @@ export function notificationText(p: PlannedNotification): { title: string; body:
       return { title: t('Chleb upieczony'), body: t('Wyjmij chleb z garnka na kratkę.') };
     case 'karmienie.blat':
       return { title: t('Pora dokarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.', { name }) };
-    case 'karmienie.lodowkaPrzypomnienie':
-      return { title: t('Zakwas w lodówce'), body: t('Zakwas „{name}” czeka na karmienie od 6 dni.', { name }) };
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
     default: {
@@ -91,10 +92,12 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       status = await getNotificationPermission();
       const pendingAll = await Notifications.getAllScheduledNotificationsAsync();
       const pending: PendingNotification[] = pendingAll.map((r) => ({ id: r.identifier, fingerprint: fingerprintOf(r.content.data) }));
-      const desired =
-        status === 'granted'
-          ? planNotifications({ session: await loadBakeSession(), starters: (await collectBackupData()).starters }, Date.now())
-          : [];
+      // Przypomnienia o zakwasie tylko z uprawnieniem: po końcu próby dokarmianie otwiera ekran zakupu, a kontrakt
+      // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
+      // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
+      const starters = async () =>
+        przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()) ? (await collectBackupData()).starters : [];
+      const desired = status === 'granted' ? planNotifications({ session: await loadBakeSession(), starters: await starters() }, Date.now()) : [];
       const { cancel, schedule } = diffNotifications(pending, desired);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);
       for (const p of schedule) {
@@ -115,6 +118,28 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       permissionListeners.forEach((fn) => fn(status));
       return { status, ok: false };
     }
+  });
+}
+
+/**
+ * Czy planować przypomnienia o zakwasie: z uprawnieniem App Store; do pierwszego odczytu sklepu bez zmian
+ * (brak odpowiedzi App Store to nie koniec próby, więc oczekujące przypomnienia nie znikają przy starcie).
+ */
+function przypomnieniaZDostepem(s: StanDostepu): boolean {
+  return !s.gotowe || evaluateAppAccess(s.decyzja).canCreateNewBake;
+}
+
+/**
+ * Uzgadnianie przy zmianie dostępu (koniec próby, zwrot, zakup): app/_layout.tsx od startu
+ * [M1-audytor-generalny-143; 02-monetyzacja-504]. Zwraca wypisanie.
+ */
+export function uzgadniajZDostepem(): () => void {
+  let ostatni: boolean | null = null;
+  return subskrybujStan((s) => {
+    const teraz = przypomnieniaZDostepem(s);
+    if (teraz === ostatni) return;
+    ostatni = teraz;
+    void resyncNotifications();
   });
 }
 

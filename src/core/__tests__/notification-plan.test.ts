@@ -9,7 +9,6 @@ import {
   NOTIF_ID_BAKE,
   NOTIF_PREFIX,
   FEED_ROOM_TEMP_AFTER_MS,
-  FEED_FRIDGE_REMIND_AFTER_MS,
   FEED_FRIDGE_DUE_AFTER_MS,
   MAX_PENDING_NOTIFICATIONS,
   TIME_SENSITIVE_STEPS,
@@ -43,7 +42,8 @@ describe('notification plan (006, ADR-006)', () => {
     expect(off).toEqual(expect.objectContaining({ level: 'timeSensitive', textKey: 'krok.wypiekGotowy' }));
   });
 
-  it('feeding: room temperature +24 h; fridge +6 d and +7 d; past dates and missing lastFedAt skipped (BR-ZAKW-004 Zakwas na blacie, Zakwas w lodówce)', () => {
+  // DEC-22 a: lodówka ma jedno powiadomienie na cykl, w terminie +7 d (bez przypomnienia +6 d) [M1-audytor-generalny-179]
+  it('feeding: room temperature +12 h; fridge one reminder at +7 d; past dates and missing lastFedAt skipped (BR-ZAKW-004 Zakwas na blacie, Zakwas w lodówce)', () => {
     const plan = planFeedingNotifications(
       [
         { id: 'a', name: 'A', storageState: 'ROOM_TEMP', lastFedAt: now },
@@ -55,9 +55,10 @@ describe('notification plan (006, ADR-006)', () => {
     );
     expect(plan.map((p) => [p.id, p.triggerAt - now])).toEqual([
       [`${NOTIF_PREFIX}karmienie.a.1`, FEED_ROOM_TEMP_AFTER_MS],
-      [`${NOTIF_PREFIX}karmienie.b.1`, FEED_FRIDGE_REMIND_AFTER_MS],
-      [`${NOTIF_PREFIX}karmienie.b.2`, FEED_FRIDGE_DUE_AFTER_MS],
+      [`${NOTIF_PREFIX}karmienie.b.1`, FEED_FRIDGE_DUE_AFTER_MS],
     ]);
+    expect(plan.find((p) => p.id === `${NOTIF_PREFIX}karmienie.b.1`)?.textKey).toBe('karmienie.lodowkaTermin');
+    expect(FEED_FRIDGE_DUE_AFTER_MS).toBe(7 * DAY);
     // D-043 OP-38: 12 h zamiast doby z BRD Z-041 [M1-audytor-generalny-090]
     expect(FEED_ROOM_TEMP_AFTER_MS).toBe(DAY / 2);
   });

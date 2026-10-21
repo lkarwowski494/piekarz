@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 417 | 417 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 170 | 170 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 566 | 566 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 424 | 424 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 171 | 171 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1204** | Pokrytych: **1204** | Brakujących: **0**
+Łącznie elementów: **1215** | Pokrytych: **1215** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -32,7 +32,8 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/helpers/plan-godzina.ts |
 | `TEKST` | `Ustawienia` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
-| `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx, src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Piekarz Pro nie jest aktywny` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx |
 | `TEKST` | `Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 904 kolejnych elementów w pełnym wykazie)*
+*(... i 915 kolejnych elementów w pełnym wykazie)*

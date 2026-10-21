@@ -1665,6 +1665,11 @@
       "src/components/stolnica/ZgodaPowiadomien.tsx (tekst w JSX)"
     ]
   },
+  "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.": {
+    "gdzie": [
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (description)"
+    ]
+  },
   "Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -4040,6 +4045,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Piekarz Pro nie jest aktywny": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
@@ -4714,6 +4724,11 @@
   "Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day1)"
+    ]
+  },
+  "Przypomnienia o karmieniu": {
+    "gdzie": [
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (label)"
     ]
   },
   "Przyspieszona fermentacja termiczna": {
@@ -7298,9 +7313,7 @@
     ]
   },
   "Zakwas w lodówce": {
-    "gdzie": [
-      "src/lib/notifications.ts (title)"
-    ]
+    "gdzie": []
   },
   "Zakwas żytni": {
     "gdzie": [
@@ -7308,9 +7321,7 @@
     ]
   },
   "Zakwas „{name}” czeka na karmienie od 6 dni.": {
-    "gdzie": [
-      "src/lib/notifications.ts (body)"
-    ]
+    "gdzie": []
   },
   "Zakwas „{name}” czeka na karmienie od 7 dni.": {
     "gdzie": [
