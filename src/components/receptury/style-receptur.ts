@@ -5,7 +5,7 @@
 
 import { StyleSheet } from 'react-native';
 import { theme } from '../../ui/theme';
-import { promienie } from '../../ui/tokeny';
+import { promienie, typografia } from '../../ui/tokeny';
 
 export const s = StyleSheet.create({
   ekran: {
@@ -18,7 +18,7 @@ export const s = StyleSheet.create({
     gap: theme.spacing.sm,
   },
   naglowekGrupy: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     fontWeight: '600',
     color: theme.colors.tusz2,
     marginTop: theme.spacing.md,
@@ -50,34 +50,34 @@ export const s = StyleSheet.create({
     flexBasis: 140,
   },
   etykieta: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz,
   },
   przypis: {
-    fontSize: 13,
+    fontSize: typografia.style.przypis.pt,
     color: theme.colors.tusz2,
     marginTop: 2,
   },
   wartosc: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.tusz2,
   },
   liczba: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     fontWeight: '600',
     color: theme.colors.tusz,
     fontVariant: ['tabular-nums'],
   },
   szewron: {
-    fontSize: 22,
+    fontSize: typografia.style.tytul2.pt,
     color: theme.colors.tusz3,
   },
   akcja: {
-    fontSize: 17,
+    fontSize: typografia.style.tresc.pt,
     color: theme.colors.akcentTekst,
   },
   info: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz2,
     marginHorizontal: theme.spacing.md,
     marginTop: theme.spacing.xs,
@@ -104,7 +104,7 @@ export const s = StyleSheet.create({
     borderColor: theme.colors.akcent,
   },
   chipTekst: {
-    fontSize: 15,
+    fontSize: typografia.style.objasnienie.pt,
     color: theme.colors.tusz,
   },
   chipTekstWybrany: {

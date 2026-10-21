@@ -1,5 +1,6 @@
 /**
- * Rozmiary tekstu z tokenów typografii (design-spec §3): w `.tsx` i `*.styles.ts` liczbowe `fontSize` tylko jako
+ * Rozmiary tekstu z tokenów typografii (design-spec §3): w `.tsx`, `*.styles.ts` i każdym `.ts` ze `StyleSheet.create`
+ * (np. `style-receptur.ts`, reaudit-noc 159) liczbowe `fontSize` tylko jako
  * nazwane wyjątki (tests/fontsize-wyjatki-159.json, do zamiany przy przebudowie ekranu); nowych nie wolno dodać,
  * a sekcja „Godziny snu” (611) ma same tokeny [M1-audytor-generalny-159; 04-studio-projektowe-504, 04-studio-projektowe-611].
  */
@@ -13,7 +14,7 @@ function pliki(dir: string, out: string[] = []): string[] {
     const p = path.join(dir, f);
     if (['node_modules', '__tests__', 'i18n-en', 'i18n-slowniki'].includes(f)) continue;
     if (fs.statSync(p).isDirectory()) pliki(p, out);
-    else if (/\.tsx$|\.styles\.ts$/.test(f)) out.push(p);
+    else if (/\.tsx$|\.styles\.ts$/.test(f) || (/\.ts$/.test(f) && /StyleSheet\.create\(/.test(fs.readFileSync(p, 'utf8')))) out.push(p);
   }
   return out;
 }
