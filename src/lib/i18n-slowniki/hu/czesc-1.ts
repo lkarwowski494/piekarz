@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'A tálba (mérés közben pipáld ki)',
   'Do miski na wagę': 'A tálba, mérlegre',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Kb. {czas} van hátra a csúcspont becsült időablakáig (ablak: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Válaszd ki az arányt és a sütéshez szükséges kovászos előtészta mennyiségét',
   'Dobra skórka z lekkim połyskiem': 'Jó héj enyhe fénnyel',
   'Docelowa masa zaczynu': 'Kovászos előtészta célmennyisége',
   'Docelowa temp. wody:': 'Cél vízhőmérséklet:',

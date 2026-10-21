@@ -56,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Eteneminen huippuun:',
   'Potem: {krok}': 'Seuraavaksi: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Seuraavaksi: {krok}, {czas}, klo {godzina} asti',
-  'Potrzebny zaczyn': 'Tarvittava juuri',
   'Powiadomienia o kolejnych krokach znikną.': 'Seuraavien vaiheiden ilmoitukset poistuvat.',
   'Powiadomienia wyłączone': 'Ilmoitukset pois päältä',
   'Poziom': 'Taso',

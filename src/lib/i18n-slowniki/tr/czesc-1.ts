@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Kaseye (tartarken işaretleyin)',
   'Do miski na wagę': 'Terazideki kaseye',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Tahmini zirve aralığına yaklaşık {czas} kaldı (aralık: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Oranı ve pişirme için gereken maya hamuru miktarını seçin',
   'Dobra skórka z lekkim połyskiem': 'Hafif parlak, iyi bir kabuk',
   'Docelowa masa zaczynu': 'Hedef maya hamuru miktarı',
   'Docelowa temp. wody:': 'Hedef su sıcaklığı:',

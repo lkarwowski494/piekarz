@@ -83,7 +83,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': '정점까지 진행률:',
   'Potem: {krok}': '다음: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': '다음: {krok}, {czas}, {godzina}까지',
-  'Potrzebny zaczyn': '필요한 발효종',
   'Powiadomienia o kolejnych krokach znikną.': '다음 단계 알림이 사라져요.',
   'Powiadomienia wyłączone': '알림이 꺼져 있어요',
   'Poziom': '레벨',

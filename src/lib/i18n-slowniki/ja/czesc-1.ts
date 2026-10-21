@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'ボウルへ（計量しながらチェック）',
   'Do miski na wagę': 'ボウルへ（スケール上）',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': '推定発酵ピークの時間帯まで残り約{czas}（時間帯：{okno}）。',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': '焼成に必要な比率と発酵種の量を選んでください',
   'Dobra skórka z lekkim połyskiem': 'ほどよいツヤのある良いクラスト',
   'Docelowa masa zaczynu': '発酵種の目標量',
   'Docelowa temp. wody:': '目標水温：',

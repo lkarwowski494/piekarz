@@ -81,7 +81,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Πρόοδος προς την κορύφωση:',
   'Potem: {krok}': 'Μετά: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Μετά: {krok}, {czas}, έως τις {godzina}',
-  'Potrzebny zaczyn': 'Απαιτούμενη μαγιά προζυμιού',
   'Powiadomienia o kolejnych krokach znikną.': 'Οι ειδοποιήσεις για τα επόμενα βήματα θα αφαιρεθούν.',
   'Powiadomienia wyłączone': 'Οι ειδοποιήσεις είναι απενεργοποιημένες',
   'Poziom': 'Επίπεδο',

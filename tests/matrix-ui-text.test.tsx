@@ -297,7 +297,7 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Poprawna formuła",
     "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK",
     "Postęp do szczytu:",
-    "Potrzebny zaczyn",
+    "Potrzebny zakwas",
     "Pozostało",
     "Prawidłowe wykonanie:",
     "Profil smakowy",

@@ -19,7 +19,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'В купата (отмятайте при претегляне)',
   'Do miski na wagę': 'В купата на кантара',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До очаквания прозорец на пика остават около {czas} (прозорец: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Изберете съотношението и нужната маса закваска за изпичането',
   'Dobra skórka z lekkim połyskiem': 'Добра кора с лек блясък',
   'Docelowa masa zaczynu': 'Целева маса на закваската',
   'Docelowa temp. wody:': 'Целева темп. на водата:',

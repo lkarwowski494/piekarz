@@ -65,7 +65,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Progress līdz maksimumam:',
   'Potem: {krok}': 'Pēc tam: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Pēc tam: {krok}, {czas}, līdz {godzina}',
-  'Potrzebny zaczyn': 'Nepieciešamā ierauga iejava',
   'Powiadomienia o kolejnych krokach znikną.': 'Paziņojumi par nākamajiem soļiem tiks noņemti.',
   'Powiadomienia wyłączone': 'Paziņojumi izslēgti',
   'Poziom': 'Līmenis',

@@ -36,7 +36,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Edenemine tipuni:',
   'Potem: {krok}': 'Seejärel: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Seejärel: {krok}, {czas}, kuni {godzina}',
-  'Potrzebny zaczyn': 'Vajalik eeltaigen',
   'Powiadomienia o kolejnych krokach znikną.': 'Järgmiste sammude teavitused eemaldatakse.',
   'Powiadomienia wyłączone': 'Märguanded on välja lülitatud',
   'Poziom': 'Tase',

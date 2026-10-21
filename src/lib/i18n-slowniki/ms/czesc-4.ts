@@ -62,7 +62,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Kemajuan ke kemuncak:',
   'Potem: {krok}': 'Kemudian: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Kemudian: {krok}, {czas}, hingga {godzina}',
-  'Potrzebny zaczyn': 'Biang diperlukan',
   'Powiadomienia o kolejnych krokach znikną.': 'Pemberitahuan untuk langkah seterusnya akan hilang.',
   'Powiadomienia wyłączone': 'Pemberitahuan dimatikan',
   'Poziom': 'Tahap',

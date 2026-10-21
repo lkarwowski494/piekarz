@@ -946,11 +946,6 @@
       "src/lib/notifications.ts (body)"
     ]
   },
-  "Dobierz proporcje i potrzebną masę zaczynu do wypieku": {
-    "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
-  },
   "Dobra skórka z lekkim połyskiem": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -4366,10 +4361,11 @@
       "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
-  "Potrzebny zaczyn": {
+  "Potrzebny zakwas": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
-    ]
+    ],
+    "opis": "Etykieta wyniku w karcie dokarmienia: masa zakwasu (sourdough starter) potrzebna do ciasta, po niej dwukropek i masa. Nie zaczyn/preferment. [M1-audytor-generalny-160]"
   },
   "Powiadomienia o kolejnych krokach znikną.": {
     "gdzie": [
@@ -6723,6 +6719,12 @@
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
+  },
+  "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.": {
+    "gdzie": [
+      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ],
+    "opis": "Podtytuł karty „Ilości do dokarmienia” na ekranie zakwasu. „Zakwas” = sourdough starter (kultura w słoiku), NIE zaczyn/preferment (poolish, biga, levain jako składnik ciasta). Aplikacja mówi w 1. osobie („Policzę”). [M1-audytor-generalny-160]"
   },
   "Wybierz recepturę": {
     "gdzie": [

@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Para a tigela (marque ao pesar)',
   'Do miski na wagę': 'Para a tigela na balança',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Faltam cerca de {czas} para a janela estimada do pico (janela: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Escolha a proporção e a quantidade de levain necessária para a fornada',
   'Dobra skórka z lekkim połyskiem': 'Casca boa, com leve brilho',
   'Docelowa masa zaczynu': 'Massa-alvo do levain',
   'Docelowa temp. wody:': 'Temp. desejada da água:',

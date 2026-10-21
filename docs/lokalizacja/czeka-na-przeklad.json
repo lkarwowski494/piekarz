@@ -1,6 +1,17 @@
 {
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
-  "klucze": [],
+  "klucze": [
+    {
+      "klucz": "Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.",
+      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    },
+    {
+      "klucz": "Potrzebny zakwas",
+      "powod": "karta dokarmienia mówi o zakwasie, nie o zaczynie (04-studio-projektowe-505) (M1-audytor-generalny-160); przekład w batchu partii 12 (M1)",
+      "od": "2026-10-21"
+    }
+  ],
   "zamkniete": {
     "data": "2026-10-21",
     "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",

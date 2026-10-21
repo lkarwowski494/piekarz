@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'I skålen (sæt flueben, mens du vejer)',
   'Do miski na wagę': 'I skålen på vægten',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Der er ca. {czas} til det anslåede vindue for toppunktet (vindue: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Vælg forhold og den mængde fordej, du skal bruge til bagningen',
   'Dobra skórka z lekkim połyskiem': 'God skorpe med let glans',
   'Docelowa masa zaczynu': 'Ønsket mængde fordej',
   'Docelowa temp. wody:': 'Ønsket vandtemp.:',

@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'U zdjelu (označi pri vaganju)',
   'Do miski na wagę': 'U zdjelu na vagi',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Do procijenjenog prozora vrhunca ostalo je oko {czas} (prozor: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Odaberi omjer i potrebnu masu nastavka za pečenje',
   'Dobra skórka z lekkim połyskiem': 'Dobra kora s blagim sjajem',
   'Docelowa masa zaczynu': 'Ciljana masa nastavka',
   'Docelowa temp. wody:': 'Ciljna temp. vode:',

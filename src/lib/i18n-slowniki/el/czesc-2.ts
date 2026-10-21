@@ -22,7 +22,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Στο μπολ (σημειώστε καθώς ζυγίζετε)',
   'Do miski na wagę': 'Στο μπολ, στη ζυγαριά',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Απομένουν περίπου {czas} μέχρι το εκτιμώμενο παράθυρο κορύφωσης του προζυμιού (παράθυρο: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Επιλέξτε την αναλογία και την ποσότητα μαγιάς προζυμιού που χρειάζεται το ψήσιμο',
   'Dobra skórka z lekkim połyskiem': 'Καλή κόρα με ελαφριά γυαλάδα',
   'Docelowa masa zaczynu': 'Επιθυμητή ποσότητα μαγιάς προζυμιού',
   'Docelowa temp. wody:': 'Στόχος θερμ. νερού:',

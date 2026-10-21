@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Nella ciotola (spunta mentre pesi)',
   'Do miski na wagę': 'Nella ciotola sulla bilancia',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Mancano circa {czas} alla finestra stimata del picco (finestra: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Scegli le proporzioni e la quantità di lievitino necessaria per la sfornata',
   'Dobra skórka z lekkim połyskiem': 'Buona crosta, leggermente lucida',
   'Docelowa masa zaczynu': 'Quantità finale di lievitino',
   'Docelowa temp. wody:': 'Temp. acqua desiderata:',

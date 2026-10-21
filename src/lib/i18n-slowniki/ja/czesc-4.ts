@@ -112,7 +112,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'ピークまでの進み具合：',
   'Potem: {krok}': '次：{krok}',
   'Potem: {krok}, {czas}, do {godzina}': '次：{krok}、{czas}、{godzina}まで',
-  'Potrzebny zaczyn': '必要な発酵種',
   'Powiadomienia o kolejnych krokach znikną.': '次のステップの通知は削除されます。',
   'Powiadomienia wyłączone': '通知がオフです',
   'Poziom': 'レベル',

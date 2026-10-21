@@ -96,7 +96,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Tiến độ đến đỉnh:',
   'Potem: {krok}': 'Tiếp theo: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Tiếp theo: {krok}, {czas}, đến {godzina}',
-  'Potrzebny zaczyn': 'Bột men cần dùng',
   'Powiadomienia o kolejnych krokach znikną.': 'Thông báo cho các bước tiếp theo sẽ bị xóa.',
   'Powiadomienia wyłączone': 'Thông báo đã tắt',
   'Poziom': 'Mức',

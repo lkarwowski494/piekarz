@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Al bol (márcalos al pesar)',
   'Do miski na wagę': 'Al bol en la báscula',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Quedan aprox. {czas} para la ventana estimada del pico (ventana: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Elige la proporción y la cantidad de levain que necesitas para el horneado',
   'Dobra skórka z lekkim połyskiem': 'Buena corteza con un ligero brillo',
   'Docelowa masa zaczynu': 'Masa objetivo del levain',
   'Docelowa temp. wody:': 'Temp. objetivo del agua:',

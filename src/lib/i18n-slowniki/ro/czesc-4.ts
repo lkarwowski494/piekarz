@@ -72,7 +72,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Progres până la vârf:',
   'Potem: {krok}': 'Apoi: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Apoi: {krok}, {czas}, până la {godzina}',
-  'Potrzebny zaczyn': 'Levain necesar',
   'Powiadomienia o kolejnych krokach znikną.': 'Notificările pentru pașii următori vor dispărea.',
   'Powiadomienia wyłączone': 'Notificările sunt dezactivate',
   'Poziom': 'Nivel',

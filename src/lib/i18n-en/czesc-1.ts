@@ -101,7 +101,8 @@ export const EN_1: Record<string, string> = {
   'Wiek zakwasu': 'Starter age',
   'Ostatnie dokarmienie': 'Last feeding',
   'Cykl dokarmiania': 'Feeding cycle',
-  'Potrzebny zaczyn': 'Required starter',
+  'Potrzebny zakwas':
+    'Starter needed',
   'Edytuj profil': 'Edit profile',
   'Edytuj zakwas': 'Edit sourdough',
   'Imię zakwasu': 'Starter name',

@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'In die Schüssel (beim Abwiegen abhaken)',
   'Do miski na wagę': 'In die Schüssel auf der Waage',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Bis zum geschätzten Zeitfenster des Reifehöhepunkts bleiben noch ca. {czas} (Zeitfenster: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Wähle das Verhältnis und die benötigte Menge Vorteig für das Backen',
   'Dobra skórka z lekkim połyskiem': 'Gute Kruste mit leichtem Glanz',
   'Docelowa masa zaczynu': 'Zielmenge Vorteig',
   'Docelowa temp. wody:': 'Ziel-Wassertemp.:',

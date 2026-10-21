@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Kulhoon (ruksi punnitessasi)',
   'Do miski na wagę': 'Kulhoon vaa\'alla',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Arvioituun huippuikkunaan on aikaa noin {czas} (ikkuna: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Valitse suhde ja leivontaan tarvittava juuren määrä',
   'Dobra skórka z lekkim połyskiem': 'Hyvä kuori, jossa kevyt kiilto',
   'Docelowa masa zaczynu': 'Juuren tavoitemäärä',
   'Docelowa temp. wody:': 'Veden tavoitelämpö:',

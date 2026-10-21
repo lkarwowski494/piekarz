@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'In de kom (vink af tijdens het wegen)',
   'Do miski na wagę': 'In de kom op de weegschaal',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Nog ongeveer {czas} tot het geschatte venster voor de piek van de starter (venster: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Kies de verhouding en de benodigde hoeveelheid levain voor je baksel',
   'Dobra skórka z lekkim połyskiem': 'Goede korst met een lichte glans',
   'Docelowa masa zaczynu': 'Beoogde hoeveelheid levain',
   'Docelowa temp. wody:': 'Gewenste watertemp.:',

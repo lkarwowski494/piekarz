@@ -44,7 +44,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Napredak do vrhunca:',
   'Potem: {krok}': 'Zatim: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Zatim: {krok}, {czas}, do {godzina}',
-  'Potrzebny zaczyn': 'Potreban nastavak',
   'Powiadomienia o kolejnych krokach znikną.': 'Obavijesti o sljedećim koracima bit će uklonjene.',
   'Powiadomienia wyłączone': 'Obavijesti su isključene',
   'Poziom': 'Razina',

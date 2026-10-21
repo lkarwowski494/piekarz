@@ -59,7 +59,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Zirveye ilerleme:',
   'Potem: {krok}': 'Sonra: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Sonra: {krok}, {czas}, {godzina} saatine kadar',
-  'Potrzebny zaczyn': 'Gereken maya hamuru',
   'Powiadomienia o kolejnych krokach znikną.': 'Sonraki adımların bildirimleri kaldırılacak.',
   'Powiadomienia wyłączone': 'Bildirimler kapalı',
   'Poziom': 'Seviye',

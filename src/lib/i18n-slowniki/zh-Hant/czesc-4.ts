@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': '高峰進度：',
   'Potem: {krok}': '接著：{krok}',
   'Potem: {krok}, {czas}, do {godzina}': '接著：{krok}，{czas}，至 {godzina}',
-  'Potrzebny zaczyn': '所需酵頭',
   'Powiadomienia o kolejnych krokach znikną.': '後續步驟的通知將會移除。',
   'Powiadomienia wyłączone': '通知已關閉',
   'Poziom': '等級',

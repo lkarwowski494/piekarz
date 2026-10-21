@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': '放入盆中（秤重時逐項勾選）',
   'Do miski na wagę': '放入秤上的盆中',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': '距離預估的起種活力高峰時段約剩 {czas}（時段：{okno}）。',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': '選擇比例及烘焙所需的酵頭重量',
   'Dobra skórka z lekkim połyskiem': '外皮良好，帶淡淡光澤',
   'Docelowa masa zaczynu': '目標酵頭重量',
   'Docelowa temp. wody:': '目標水溫：',

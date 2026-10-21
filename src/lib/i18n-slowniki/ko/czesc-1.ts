@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': '볼에 담기 (계량하면서 체크)',
   'Do miski na wagę': '저울 위 볼에 담기',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': '예상 정점 구간까지 약 {czas} 남았어요 (구간: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': '베이킹에 필요한 비율과 발효종 양을 정하세요',
   'Dobra skórka z lekkim połyskiem': '살짝 윤기 나는 좋은 껍질',
   'Docelowa masa zaczynu': '목표 발효종 양',
   'Docelowa temp. wody:': '목표 물 온도:',

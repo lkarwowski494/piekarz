@@ -76,7 +76,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Haladás a csúcspontig:',
   'Potem: {krok}': 'Utána: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Utána: {krok}, {czas}, {godzina}-ig',
-  'Potrzebny zaczyn': 'Szükséges kovászos előtészta',
   'Powiadomienia o kolejnych krokach znikną.': 'A következő lépésekről szóló értesítések törlődnek.',
   'Powiadomienia wyłączone': 'Az értesítések ki vannak kapcsolva',
   'Poziom': 'Szint',

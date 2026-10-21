@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Bļodā (atzīmējiet, sverot)',
   'Do miski na wagę': 'Bļodā uz svariem',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Līdz paredzamajam maksimuma logam atlicis apm. {czas} (logs: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Izvēlieties proporciju un cepienam nepieciešamo ierauga iejavas daudzumu',
   'Dobra skórka z lekkim połyskiem': 'Laba garoza ar vieglu spīdumu',
   'Docelowa masa zaczynu': 'Vēlamā ierauga iejavas masa',
   'Docelowa temp. wody:': 'Mērķa ūdens temp.:',

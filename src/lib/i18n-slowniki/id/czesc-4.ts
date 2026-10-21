@@ -60,7 +60,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Progres menuju puncak:',
   'Potem: {krok}': 'Berikutnya: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Berikutnya: {krok}, {czas}, sampai pukul {godzina}',
-  'Potrzebny zaczyn': 'Biang yang dibutuhkan',
   'Powiadomienia o kolejnych krokach znikną.': 'Notifikasi untuk langkah berikutnya akan dihapus.',
   'Powiadomienia wyłączone': 'Notifikasi nonaktif',
   'Poziom': 'Level',

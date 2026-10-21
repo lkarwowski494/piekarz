@@ -75,7 +75,6 @@ export const CZESC: Record<string, string> = {
   'Postęp do szczytu:': 'Progreso hasta el pico:',
   'Potem: {krok}': 'Después: {krok}',
   'Potem: {krok}, {czas}, do {godzina}': 'Después: {krok}, {czas}, hasta las {godzina}',
-  'Potrzebny zaczyn': 'Levain necesario',
   'Powiadomienia o kolejnych krokach znikną.': 'Las notificaciones de los siguientes pasos desaparecerán.',
   'Powiadomienia wyłączone': 'Notificaciones desactivadas',
   'Poziom': 'Nivel',

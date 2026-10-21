@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'Ke mangkuk (centang saat menimbang)',
   'Do miski na wagę': 'Ke mangkuk di timbangan',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Sekitar {czas} lagi menuju perkiraan jendela puncak (jendela: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Pilih rasio dan massa biang yang dibutuhkan untuk hasil panggangan',
   'Dobra skórka z lekkim połyskiem': 'Kulit roti bagus dengan sedikit kilap',
   'Docelowa masa zaczynu': 'Target massa biang',
   'Docelowa temp. wody:': 'Target suhu air:',

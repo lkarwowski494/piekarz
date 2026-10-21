@@ -195,7 +195,6 @@ export const CZESC: Record<string, string> = {
   'Do miski (odhaczaj przy ważeniu)': 'În bol (bifează pe măsură ce cântărești)',
   'Do miski na wagę': 'În bol, pe cântar',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'Până la fereastra estimată a vârfului au mai rămas aprox. {czas} (fereastra: {okno}).',
-  'Dobierz proporcje i potrzebną masę zaczynu do wypieku': 'Alege proporția și cantitatea de levain necesară pentru coacere',
   'Dobra skórka z lekkim połyskiem': 'Coajă bună, ușor lucioasă',
   'Docelowa masa zaczynu': 'Masa țintă de levain',
   'Docelowa temp. wody:': 'Temp. țintă a apei:',
