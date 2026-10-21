@@ -73,7 +73,7 @@ window.TEKSTY['en-US'] = {
  "st.piekeZakwasOpis": "I have a starter. I'll choose a recipe and the time I want the bread ready.",
  "st.piekeDrozdze": "Baking with yeast or making pizza",
  "st.piekeDrozdzeOpis": "Yeast bread, poolish or biga preferment, pizza dough.",
- "st.offline": "Piekarz works without internet and without an account. Your recipes and notes stay on this phone.",
+ "st.offline": "Baker works without internet and without an account. Your recipes and notes stay on this phone.",
  "kl.recepturaWstecz": "Recipe",
  "pl.kiedy": "When should the bread be ready?",
  "pl.jutro": "tomorrow",
