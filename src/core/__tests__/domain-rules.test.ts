@@ -224,15 +224,16 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
     });
   });
 
-  describe('RD-04: Yeast Conversion (3:1)', () => {
-    it('TV-04: Converts 42g fresh yeast to 14g instant yeast', () => {
+  // RD-19 (S-40, S-39: × 0,4) zamiast 3:1 [M1-audytor-generalny-130]
+  describe('RD-19: Yeast Conversion (× 0,4)', () => {
+    it('TV-04: Converts 42g fresh yeast to 16.8g dry yeast', () => {
       const result = convertYeast(42, 'fresh');
-      expect(result.instantGrams).toBe(14.0);
+      expect(result.instantGrams).toBe(16.8);
     });
 
-    it('Converts 7g instant yeast to 21g fresh yeast', () => {
+    it('Converts 7g dry yeast to 17.5g fresh yeast', () => {
       const result = convertYeast(7, 'instant');
-      expect(result.freshGrams).toBe(21.0);
+      expect(result.freshGrams).toBe(17.5);
     });
   });
 

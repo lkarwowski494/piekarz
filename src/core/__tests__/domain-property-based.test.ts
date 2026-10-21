@@ -262,7 +262,7 @@ describe('Property-Based Invariant Verification (fast-check)', () => {
             const instant = convertYeast(freshGrams, 'fresh').instantGrams;
             const roundTrip = convertYeast(instant, 'instant').freshGrams;
 
-            // 3:1 ratio round trip with 0.15g rounding delta
+            // RD-19 (× 0,4) round trip with 0.15g rounding delta
             expect(Math.abs(roundTrip - freshGrams)).toBeLessThanOrEqual(0.15);
           }
         ),

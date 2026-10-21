@@ -250,17 +250,17 @@
     "RD_04_yeast_conversion": [
       {
         "id": "VEC-YEAST-01-fresh-to-instant",
-        "description": "15g fresh compressed yeast to instant dry (3:1 ratio)",
+        "description": "15g fresh compressed yeast to dry yeast (RD-19: × 0.4)",
         "input": {
           "amountGrams": 15,
           "from": "fresh"
         },
         "expected": {
           "freshGrams": 15,
-          "instantGrams": 5
+          "instantGrams": 6
         },
-        "tier": "Tier 3",
-        "sourceCitation": "DiMuzio (2009) Bread Baking: An Artisan's Perspective, s. 35"
+        "tier": "Tier 1",
+        "sourceCitation": "Red Star Yeast (producent, szczebel 1): S-40 tabela przeliczeń i S-39 FAQ, docs/brd/zrodla.md; RD-19 (× 0,4) [M1-audytor-generalny-130]"
       },
       {
         "id": "VEC-YEAST-02-instant-to-fresh",
@@ -270,11 +270,11 @@
           "from": "instant"
         },
         "expected": {
-          "freshGrams": 10.5,
+          "freshGrams": 8.8,
           "instantGrams": 3.5
         },
-        "tier": "Tier 3",
-        "sourceCitation": "DiMuzio (2009) Bread Baking: An Artisan's Perspective, s. 35"
+        "tier": "Tier 1",
+        "sourceCitation": "Red Star Yeast (producent, szczebel 1): S-40 tabela przeliczeń i S-39 FAQ, docs/brd/zrodla.md; RD-19 (× 0,4) [M1-audytor-generalny-130]"
       }
     ],
     "RD_PREF_01_preferments_breakdown": [

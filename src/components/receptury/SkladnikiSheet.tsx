@@ -24,6 +24,8 @@ import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 import { nazwaZaczynu, ZACZYNY_W_MENU, PROCENTY_MAKI_W_ZACZYNIE } from './nazwy-receptur';
 import { pokazMenuWyboru } from './stos-receptur';
 import { s } from './style-receptur';
+import { ocenaSoli } from '../../core/sol';
+import { formatNumber } from '../../lib/format';
 
 import { typografia } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
@@ -65,6 +67,17 @@ function PoleProcentu({ id, etykieta, wartosc, min, max, onChange, ostatnie }: {
       </View>
     </View>
   );
+}
+
+// BR-KALK-011 (RD-27): sól poza typowym 1,8–2,0% masy mąki to informacja, bez blokady zapisu; zakres z S-37
+// (King Arthur Baking, rejestr SOL-TYP-001) [M1-audytor-generalny-130]
+function infoSoli(saltPct: number): string | null {
+  const ocena = ocenaSoli(saltPct);
+  if (ocena === 'typowa') return null;
+  const procent = `${formatNumber(saltPct, undefined, { maximumFractionDigits: 2 })}%`;
+  return ocena === 'powyzej'
+    ? t('Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', { procent })
+    : t('Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).', { procent });
 }
 
 function WierszMenu({ id, etykieta, wartosc, onPress, akcja }: { id: string; etykieta: string; wartosc?: string; onPress: () => void; akcja?: boolean }) {
@@ -171,6 +184,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
             {p.hydrationDifficulty && (
               <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>
             )}
+            {infoSoli(p.saltPct) !== null && <Text style={s.info} testID="salt-info">{infoSoli(p.saltPct)}</Text>}
 
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Zaczyn')}</Text>
             <View style={s.grupa}>

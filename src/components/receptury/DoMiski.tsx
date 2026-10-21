@@ -182,6 +182,13 @@ export function DoMiski(p: DoMiskiProps) {
             ? t('Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.', { n: hydratacja })
             : t('Hydratacja całkowita {n}%.', { n: hydratacja })}
       </Text>
+      {(c.ryePercentage ?? 0) > 0 && (
+        <Text style={s.info} testID="recipe-rye-share">
+          {c.isHighRye
+            ? t('Udział żyta {n}%: wariant żytni, plan bez składań.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })
+            : t('Udział żyta {n}%: wariant pszenny.', { n: formatNumber(c.ryePercentage ?? 0, undefined, { maximumFractionDigits: 1 }) })}
+        </Text>
+      )}
       <Text style={[s.info, styles.razem]} testID="recipe-total">
         {t('Razem {masa}', { masa: w(c.targetDoughWeightGrams) })}
       </Text>

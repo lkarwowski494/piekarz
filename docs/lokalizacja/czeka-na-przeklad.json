@@ -10,6 +10,26 @@
       "klucz": "{n} cz.#one",
       "powod": "forma liczby mnogiej proporcji karmienia (tPlural, EN 1 part / 2 parts) z kontroli EN 2026-10-22, tor p13b (M1-audytor-generalny-074); przekład 33 języków batchem M1",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Udział żyta {n}%: wariant żytni, plan bez składań.",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Udział żyta {n}%: wariant pszenny.",
+      "powod": "nowy tekst toru p13b (M1-audytor-generalny-130: BR-KALK-011 sól, BR-KALK-005 udział żyta); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

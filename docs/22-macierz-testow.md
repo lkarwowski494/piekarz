@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 45 | 45 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 556 | 556 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 422 | 422 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 171 | 171 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 560 | 560 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 423 | 423 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 174 | 174 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1203** | Pokrytych: **1203** | Brakujących: **0**
+Łącznie elementów: **1211** | Pokrytych: **1211** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -317,7 +317,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
+| `TEKST` | `Udział żyta {n}%: wariant pszenny.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 
-*(... i 903 kolejnych elementów w pełnym wykazie)*
+*(... i 911 kolejnych elementów w pełnym wykazie)*

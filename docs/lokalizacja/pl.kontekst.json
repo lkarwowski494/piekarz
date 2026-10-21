@@ -5645,6 +5645,16 @@
       "src/recipes/discard-recipes.ts (dane: namePl)"
     ]
   },
+  "Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (kod)"
+    ]
+  },
+  "Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (kod)"
+    ]
+  },
   "Słaby gluten. Wykonaj dodatkową serię składań coil fold.": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
@@ -5932,6 +5942,16 @@
   "Udział zakwasu musi mieścić się w zakresie 0–150%": {
     "gdzie": [
       "src/lib/recipe-sharing.ts (error)"
+    ]
+  },
+  "Udział żyta {n}%: wariant pszenny.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+    ]
+  },
+  "Udział żyta {n}%: wariant żytni, plan bez składań.": {
+    "gdzie": [
+      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
     ]
   },
   "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.": {

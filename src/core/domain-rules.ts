@@ -51,6 +51,7 @@ export interface DoughRecipeResult {
   overallHydrationPercent: number; // True Baker's % (total water / total flour * 100)
   sumCheckGrams: number;
   isHighRye: boolean;          // True if rye flours > 50% (ZYT-GRA-001)
+  ryePercentage?: number;      // Udział mąki żytniej w mąkach [%] (RD-20, BR-KALK-005)
 }
 
 export interface DDTSettings {
@@ -217,6 +218,7 @@ export function calculateDoughRecipe(input: DoughRecipeInput): DoughRecipeResult
     overallHydrationPercent: Number(overallHydration.toFixed(2)),
     sumCheckGrams: sumCheck,
     isHighRye,
+    ryePercentage,
   };
 }
 
@@ -347,7 +349,8 @@ export function calculateFermentationAdaptation(
 export const adaptFermentationTimeForTemp = calculateFermentationAdaptation;
 
 /**
- * RD-04: Yeast Conversion (Fresh Compressed vs Instant Dry Yeast 3:1)
+ * RD-19: drożdże świeże ↔ suche (aktywne i instant) × 0,4 (S-40, S-39: producent, szczebel 1; było 3:1)
+ * [M1-audytor-generalny-130]
  */
 export function convertYeast(
   amountGrams: number,
@@ -358,10 +361,10 @@ export function convertYeast(
   }
 
   if (from === 'fresh') {
-    const instant = Number((amountGrams / 3.0).toFixed(2));
+    const instant = Number((amountGrams * 0.4).toFixed(2));
     return { freshGrams: amountGrams, instantGrams: instant };
   } else {
-    const fresh = Number((amountGrams * 3.0).toFixed(1));
+    const fresh = Number((amountGrams / 0.4).toFixed(1));
     return { freshGrams: fresh, instantGrams: amountGrams };
   }
 }

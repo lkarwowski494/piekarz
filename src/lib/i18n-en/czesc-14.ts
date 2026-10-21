@@ -91,4 +91,13 @@ export const EN_14: Record<string, string> = {
   'Nie podwaja objętości': 'Does not double in volume',
   'Długo stał w lodówce bez dokarmiania': 'Sat in the fridge unfed for a long time',
   'Mój zakwas': 'My starter',
+  // Tor p13b: informacja o soli (BR-KALK-011, RD-27, S-37) i udział żyta (BR-KALK-005, RD-20) [M1-audytor-generalny-130]
+  'Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).':
+    'Salt at {procent} is more than the typical 1.8–2.0% of flour weight (according to King Arthur Baking).',
+  'Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).':
+    'Salt at {procent} is less than the typical 1.8–2.0% of flour weight (according to King Arthur Baking).',
+  'Udział żyta {n}%: wariant żytni, plan bez składań.':
+    'Rye share {n}%: rye variant, no folds in the plan.',
+  'Udział żyta {n}%: wariant pszenny.':
+    'Rye share {n}%: wheat variant.',
 };
