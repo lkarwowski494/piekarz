@@ -1,8 +1,10 @@
 /**
  * Zrzuty sklepu App Store [M1-audytor-generalny-080; 10-wydanie-010]: dla każdego języka z `docs/wydanie/zrzuty/<kod ASC>/`
  * i każdej wymaganej klasy iPhone 7 plików PNG w kolejności D-055 (§5.2), wymiary klasy, bez kanału alfa, dokładnie jedna
- * ramka ciemna, podpisy równe §3 `docs/app-store-metadata-v2.md`, oznaczenie funkcji płatnej zgodne ze strażnikiem dostępu
- * w kodzie i brak funkcji spoza kontraktu (OG-05) w podpisach.
+ * ramka ciemna, podpisy równe polom `ramki` z `docs/wydanie/metadane/<kod ASC>.json` (jedno źródło roli 10, 095),
+ * oznaczenie funkcji płatnej zgodne ze strażnikiem dostępu w kodzie i równe `t('wymaga Piekarz Pro')` w języku
+ * lokalizacji, brak funkcji spoza kontraktu (OG-05) i brak „Crust” (D-053) w podpisach.
+ * W repo: pl, en-US i nl-NL (najdłuższe podpisy, pomiar roli 10 w 095); pozostałe 31 lokalizacji poza gitem (decyzja M2, p7).
  *
  * Klasy: App Store Connect Help, „Screenshot specifications” (odczyt 2026-10-20): „iPhone: At least one screenshot for
  * iPhone with Dynamic Island (medium display)” (1206 × 2622 px); klasa Face ID (large display) jest wymagana, gdy nie ma
@@ -16,7 +18,7 @@ import type { Funkcja } from '../src/lib/platnosci/konfiguracja';
 
 const root = path.join(__dirname, '..');
 const KATALOG = path.join(root, 'docs/wydanie/zrzuty');
-const META = fs.readFileSync(path.join(root, 'docs/app-store-metadata-v2.md'), 'utf8').replace(/\r\n/g, '\n');
+const METADANE = path.join(root, 'docs/wydanie/metadane');
 
 const KLASY: Record<string, [number, number]> = { 'iphone-6.9': [1320, 2868], 'iphone-6.3': [1206, 2622] };
 
@@ -31,21 +33,30 @@ const RAMKI: Array<{ plik: string; funkcje: Funkcja[] }> = [
   { plik: '07-offline.png', funkcje: [] },
 ];
 
-/** Kod lokalizacji App Store Connect → język aplikacji i sekcja podpisów §3. */
-const JEZYKI: Record<string, { lang: Lang; sekcja: 'PL' | 'EN' }> = { pl: { lang: 'pl', sekcja: 'PL' }, 'en-US': { lang: 'en', sekcja: 'EN' } };
+/** Kod lokalizacji App Store Connect → język aplikacji (jak `LOKALIZACJE` w scripts/sprawdz-metadane.mjs). */
+const JEZYKI: Record<string, Lang> = {
+  'en-US': 'en', 'en-GB': 'en', 'en-AU': 'en', 'en-CA': 'en',
+  'de-DE': 'de', 'nl-NL': 'nl', 'fr-FR': 'fr', 'fr-CA': 'fr', it: 'it', 'es-ES': 'es', 'es-MX': 'es-419',
+  'pt-BR': 'pt-BR', 'pt-PT': 'pt', pl: 'pl', cs: 'cs', sk: 'sk', hu: 'hu', hr: 'hr', sl: 'sl', ro: 'ro',
+  sv: 'sv', no: 'nb', da: 'da', fi: 'fi', ru: 'ru', uk: 'uk', el: 'el', tr: 'tr', ja: 'ja', ko: 'ko',
+  'zh-Hant': 'zh-Hant', id: 'id', ms: 'ms', vi: 'vi',
+};
+
+/** Ramki w repo (decyzja M2, p7): pl, en-US i nl-NL jako kontrola najdłuższych podpisów. */
+const W_REPO = ['en-US', 'nl-NL', 'pl'];
 
 /** Funkcje spoza kontraktu (OG-05): QR, druk PDF, spiżarnia, przelicznik objętości, masa lodu. */
 const OG05 = /\bQR\b|druk|\bprint|spiżarn|pantry|objętoś|volume|\blód\b|\blodu\b|\bice\b/i;
 
-function podpisyS3(sekcja: 'PL' | 'EN') {
-  const s3 = META.split('\n## 3. ')[1].split('\n## 4. ')[0];
-  return [1, 2, 3, 4, 5, 6, 7].map((nr) => {
-    const blok = s3.split(`### Ramka ${nr}:`)[1].split('\n### ')[0];
-    const pole = (re: RegExp) => blok.match(re)?.[1];
-    return sekcja === 'PL'
-      ? { naglowek: pole(/\*\*Główny nagłówek \(PL\):\*\* \*(.+?)\*$/m), podtytul: pole(/\*\*Podtytuł \(PL\):\*\* \*(.+?)\*$/m) }
-      : { naglowek: pole(/\*\*Main Headline \(EN\):\*\* \*(.+?)\*$/m), podtytul: pole(/\*\*Sub-headline \(EN\):\*\* \*(.+?)\*$/m) };
-  });
+/** Podpisy 7 ramek z metadanych lokalizacji (`docs/wydanie/metadane/<kod>.json`, pole `ramki`). */
+function podpisyMetadanych(kod: string): Array<{ naglowek: unknown; podtytul: unknown }> {
+  const dane: unknown = JSON.parse(fs.readFileSync(path.join(METADANE, `${kod}.json`), 'utf8'));
+  const ramki: unknown = typeof dane === 'object' && dane !== null ? Reflect.get(dane, 'ramki') : null;
+  const lista: unknown[] = Array.isArray(ramki) ? ramki : [];
+  return lista.map((r) => ({
+    naglowek: typeof r === 'object' && r !== null ? Reflect.get(r, 'naglowek') : undefined,
+    podtytul: typeof r === 'object' && r !== null ? Reflect.get(r, 'podtytul') : undefined,
+  }));
 }
 
 /** Nagłówek IHDR: szerokość, wysokość, typ koloru (4 i 6 = z kanałem alfa). */
@@ -63,12 +74,15 @@ const jezyki = fs.existsSync(KATALOG)
 afterAll(() => setLang('pl'));
 
 describe('zrzuty sklepu App Store (080)', () => {
-  it('są katalogi języków wydania pl i en-US', () => {
-    expect(jezyki).toEqual(expect.arrayContaining(['en-US', 'pl']));
-    for (const j of jezyki) expect(Object.keys(JEZYKI)).toContain(j);
+  it('są katalogi lokalizacji w repo: pl, en-US i nl-NL (najdłuższe podpisy); każdy katalog to lokalizacja z metadanych', () => {
+    expect(jezyki).toEqual(expect.arrayContaining(W_REPO));
+    for (const j of jezyki) {
+      expect(Object.keys(JEZYKI)).toContain(j);
+      expect(fs.existsSync(path.join(METADANE, `${j}.json`))).toBe(true);
+    }
   });
 
-  describe.each(jezyki.length ? jezyki : ['pl', 'en-US'])('%s', (jezyk) => {
+  describe.each([...new Set([...jezyki, ...W_REPO])].sort())('%s', (jezyk) => {
     const dir = path.join(KATALOG, jezyk);
 
     it.each(Object.keys(KLASY))('klasa %s: 7 PNG w kolejności §5.2, wymiary klasy, bez alfy, jedna ramka ciemna', (klasa) => {
@@ -82,17 +96,18 @@ describe('zrzuty sklepu App Store (080)', () => {
       }
     });
 
-    it('podpisy.json: podpis każdej ramki równy §3, oznaczenie funkcji płatnej według strażnika dostępu, bez OG-05', () => {
+    it('podpisy.json: podpis każdej ramki równy metadanym lokalizacji, oznaczenie płatne według strażnika w języku lokalizacji, bez OG-05 i „Crust”', () => {
       const plik = path.join(dir, 'podpisy.json');
       expect(fs.existsSync(plik)).toBe(true);
-      const dane: unknown = JSON.parse(fs.readFileSync(plik, 'utf8'));
+      const dane: unknown = fs.existsSync(plik) ? JSON.parse(fs.readFileSync(plik, 'utf8')) : null;
       const ramki: unknown = typeof dane === 'object' && dane !== null ? Reflect.get(dane, 'ramki') : null;
       expect(Array.isArray(ramki)).toBe(true);
       const lista = Array.isArray(ramki) ? ramki : [];
-      const { lang, sekcja } = JEZYKI[jezyk];
-      const s3 = podpisyS3(sekcja);
-      setLang(lang);
+      const s3 = podpisyMetadanych(jezyk);
+      expect(s3).toHaveLength(7);
+      setLang(JEZYKI[jezyk]);
       const pro = t('wymaga Piekarz Pro');
+      if (JEZYKI[jezyk] !== 'pl') expect(pro).not.toBe('wymaga Piekarz Pro');
       expect(lista).toHaveLength(7);
       RAMKI.forEach((r, i) => {
         const x: unknown = lista[i];
@@ -105,6 +120,7 @@ describe('zrzuty sklepu App Store (080)', () => {
           oznaczenie: platna ? pro : null,
         });
         expect(`${s3[i].naglowek} ${s3[i].podtytul}`).not.toMatch(OG05);
+        expect(`${s3[i].naglowek} ${s3[i].podtytul} ${platna ? pro : ''}`).not.toMatch(/\bCrust\b/);
       });
     });
   });

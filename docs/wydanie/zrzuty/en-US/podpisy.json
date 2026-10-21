@@ -1,6 +1,8 @@
 {
   "jezyk": "en-US",
-  "zrodlo": "docs/app-store-metadata-v2.md §3 (podpisy), §5.2 (kolejność)",
+  "jezykAplikacji": "en",
+  "locale": "en-US",
+  "zrodlo": "docs/wydanie/metadane/en-US.json (pole ramki), kolejność docs/app-store-metadata-v2.md §5.2",
   "klasy": {
     "iphone-6.9": {
       "px": [

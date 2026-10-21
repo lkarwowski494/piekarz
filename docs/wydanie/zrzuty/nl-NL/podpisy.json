@@ -1,0 +1,102 @@
+{
+  "jezyk": "nl-NL",
+  "jezykAplikacji": "nl",
+  "locale": "nl-NL",
+  "zrodlo": "docs/wydanie/metadane/nl-NL.json (pole ramki), kolejność docs/app-store-metadata-v2.md §5.2",
+  "klasy": {
+    "iphone-6.9": {
+      "px": [
+        1320,
+        2868
+      ],
+      "pt": [
+        440,
+        956
+      ],
+      "skala": 3
+    },
+    "iphone-6.3": {
+      "px": [
+        1206,
+        2622
+      ],
+      "pt": [
+        402,
+        874
+      ],
+      "skala": 3
+    }
+  },
+  "ramki": [
+    {
+      "plik": "01-plan.png",
+      "naglowek": "Brood klaar wanneer jij wilt",
+      "podtytul": "Teruggerekend schema zonder stappen midden in de nacht",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "harmonogram"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "02-receptura.png",
+      "naglowek": "Direct de grammen van elk ingrediënt",
+      "podtytul": "Meel en water uit de zuurdesemstarter tellen mee in het bakkerspercentage",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "03-prowadzenie-ciemny.png",
+      "naglowek": "Eén stap tegelijk",
+      "podtytul": "Wat te doen, hoe lang het duurt en een melding als de stap klaar is",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "stolnica"
+      ],
+      "motyw": "ciemny"
+    },
+    {
+      "plik": "04-doktor.png",
+      "naglowek": "Wat beter kan bij je volgende brood",
+      "podtytul": "Symptomen, oorzaak en één aanpassing voor je volgende baksel",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "doktor"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "05-zakwasy.png",
+      "naglowek": "Zuurdesemstarter altijd op tijd klaar",
+      "podtytul": "Hoeveelheden voor het voeden en een herinnering na 12 uur",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "zakwas"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "06-dziennik.png",
+      "naglowek": "Elk baksel vastgelegd",
+      "podtytul": "Beoordeel het brood en „Opnieuw bakken” met één tik",
+      "oznaczenie": "vereist Bakker Pro",
+      "funkcje": [
+        "historia",
+        "stolnica",
+        "kalkulator"
+      ],
+      "motyw": "jasny"
+    },
+    {
+      "plik": "07-offline.png",
+      "naglowek": "Geen account, geen internet",
+      "podtytul": "Geen reclame of tracking; je gegevens alleen op je telefoon",
+      "oznaczenie": null,
+      "funkcje": [],
+      "motyw": "jasny"
+    }
+  ]
+}
