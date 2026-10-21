@@ -416,7 +416,7 @@ export async function initDatabase(): Promise<void> {
       },
       {
         id: 'flour_inv_manitoba',
-        name: 'Mąka Manitoba / Forte (W > 350)',
+        name: 'Mąka pszenna Manitoba',
         stockGrams: 1000,
         proteinPct: 14.5,
         updatedAt: Date.now(),

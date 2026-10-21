@@ -29,6 +29,16 @@ const PROFIL_TYPU: Readonly<Record<string, string>> = {
 /** Nazwa mąki receptury bazowej → jej typ (wiersze wyniku obliczeń nie niosą typu). */
 const TYP_NAZWY = new Map<string, string>();
 for (const r of MASTER_RECIPES) for (const f of r.formula.flours) if (f.type) TYP_NAZWY.set(f.name, f.type);
+// Dawne nazwy mąk receptur bazowych zostają w recepturach zapisanych przez użytkownika; poza PL dalej prowadzą
+// do profilu atlasu [M2-koordynator-napraw-451 (p12b2), M2-koordynator-napraw-453 (p12b2)].
+const DAWNE_NAZWY: ReadonlyArray<readonly [string, string]> = [
+  ['Mąka pszenna wysokobiałkowa (W>280 / Manitoba)', 'pszenna_manitoba'],
+  ['Mąka pszenna Manitoba / Forte (W > 300)', 'pszenna_manitoba'],
+  ['Mąka pszenna Manitoba / Forte (W > 350)', 'pszenna_manitoba'],
+  ['Mąka żytnia chlebowa typ 720', 'zytnia_720'],
+  ['Mąka orkiszowa jasna typ 630', 'orkisz_630'],
+];
+for (const [n, typ] of DAWNE_NAZWY) if (!TYP_NAZWY.has(n)) TYP_NAZWY.set(n, typ);
 const NAZWY_DANYCH = new Set(TYP_NAZWY.keys());
 
 export function nazwaMakiMieszanki(f: { name: string; type?: string }, kod: string = lang()): string {

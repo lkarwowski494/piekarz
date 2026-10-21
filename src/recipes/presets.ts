@@ -56,7 +56,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)', percentage: 90.0, type: 'pszenna_manitoba' },
+        { name: 'Mąka pszenna Manitoba', percentage: 90.0, type: 'pszenna_manitoba' },
         { name: 'Mąka pszenna pełnoziarnista typ 2000', percentage: 10.0, type: 'pszenna_razowa' },
       ],
       waterPercentage: 76.0,
@@ -152,7 +152,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.',
     formula: {
       flours: [
-        { name: 'Mąka pszenna Manitoba / Forte (W > 300)', percentage: 100.0, type: 'pszenna_manitoba' },
+        { name: 'Mąka pszenna Manitoba', percentage: 100.0, type: 'pszenna_manitoba' },
       ],
       waterPercentage: 82.0,
       saltPercentage: 2.2,
@@ -223,7 +223,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     formula: {
       flours: [
         { name: 'Mąka żytnia razowa typ 2000', percentage: 85.0, type: 'zytnia_2000' },
-        { name: 'Mąka żytnia chlebowa typ 720', percentage: 15.0, type: 'zytnia_720' },
+        { name: 'Mąka żytnia typ 720', percentage: 15.0, type: 'zytnia_720' },
       ],
       waterPercentage: 82.0,
       saltPercentage: 1.8,
@@ -246,7 +246,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.',
     formula: {
       flours: [
-        { name: 'Mąka orkiszowa jasna typ 630', percentage: 70.0, type: 'orkisz_630' },
+        { name: 'Mąka orkiszowa', percentage: 70.0, type: 'orkisz_630' },
         { name: 'Mąka orkiszowa razowa typ 2000', percentage: 30.0, type: 'orkisz_2000' },
       ],
       waterPercentage: 68.0,
@@ -270,7 +270,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     descriptionPl: 'Niezwykle delikatna, maślana brioszka prowadzona na sztywnym włoskim zakwasie Lievito Madre (50%).',
     formula: {
       flours: [
-        { name: 'Mąka pszenna Manitoba / Forte (W > 350)', percentage: 100.0, type: 'pszenna_manitoba' },
+        { name: 'Mąka pszenna Manitoba', percentage: 100.0, type: 'pszenna_manitoba' },
       ],
       waterPercentage: 46.0,
       saltPercentage: 1.2,
