@@ -11,7 +11,7 @@ according to King Arthur Baking, from 8 hours (more yeast) to 14–16 hours (les
 Biga (Stiff Italian preferment 50%) [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.biga.fermentationTimeHours
-according to the Bread Bakers Guild of America, 18 hours at 60 °F (about 16 °C) [T:ZAC-BIG-001]
+according to the Bread Bakers Guild of America, 18 hours at about 15.6 °C [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.pate_fermentee.namePl
 Pâte Fermentée (Old dough) [T:-]

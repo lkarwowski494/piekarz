@@ -12,7 +12,7 @@ według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mn
 Biga (Sztywny zaczyn włoski 50%) [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.biga.fermentationTimeHours
-według Bread Bakers Guild of America 18 godzin w 60 °F (ok. 16 °C) [T:ZAC-BIG-001]
+według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.pate_fermentee.namePl
 Pâte Fermentée (Stare ciasto) [T:-]

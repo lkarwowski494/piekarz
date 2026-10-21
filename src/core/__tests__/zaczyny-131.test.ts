@@ -9,6 +9,7 @@ import { join } from 'path';
 import { PREFERMENT_DEFINITIONS, calculatePrefermentBreakdown, type PrefermentType } from '../preferments';
 import { ZACZYNY_W_MENU } from '../../components/receptury/nazwy-receptur';
 import { setLang, t } from '../../lib/i18n';
+import { formatTextUnits } from '../../lib/unit-converter';
 import { linie } from './helpers/tresci';
 
 const ROOT = join(__dirname, '..', '..', '..');
@@ -112,6 +113,12 @@ describe('131: liczby zaczynów pokazane użytkownikowi mają twierdzenie (docs/
       .filter((p) => !p.endsWith(join('core', 'preferments.ts')))
       .filter((p) => readFileSync(p, 'utf8').includes('defaultPrefermentFlourPct'));
     expect(uzycia).toEqual([]);
+  });
+
+  it('biga: tekst tylko w °C, w trybie imperialnym przeliczony na 60 °F jak w źródle (ZAC-BIG-001)', () => {
+    const v = PREFERMENT_DEFINITIONS.biga.fermentationTimeHours;
+    expect(v).not.toMatch(/°F/);
+    expect(formatTextUnits(v, 'imperial')).toMatch(/60\s?°F/);
   });
 
   it('PL: brak twierdzeń zdrowotnych w PREFERMENT_DEFINITIONS', () => {

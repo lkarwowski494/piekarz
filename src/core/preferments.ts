@@ -46,7 +46,7 @@ export const PREFERMENT_DEFINITIONS: Record<PrefermentType, PrefermentDefinition
     namePl: 'Biga (Sztywny zaczyn włoski 50%)',
     defaultHydration: 50.0,
     defaultPrefermentFlourPct: 30.0,
-    fermentationTimeHours: 'według Bread Bakers Guild of America 18 godzin w 60 °F (ok. 16 °C)',
+    fermentationTimeHours: 'według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C',
     yeastPctOfPrefermentFlour: 1.0,
     saltPctOfPrefermentFlour: 0,
     flavorProfilePl: 'Głęboki, winny aromat, wysoka wytrzymałość ciasta i spektakularny piecowy skok.',

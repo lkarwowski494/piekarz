@@ -47,8 +47,8 @@ export const EN_18: Record<string, string> = {
   'Levain (Rzemieślniczy zaczyn na zakwasie)': 'Levain (Artisan sourdough preferment)',
   'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)':
     'according to King Arthur Baking, from 8 hours (more yeast) to 14–16 hours (less yeast)',
-  'według Bread Bakers Guild of America 18 godzin w 60 °F (ok. 16 °C)':
-    'according to the Bread Bakers Guild of America, 18 hours at 60 °F (about 16 °C)',
+  'według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C':
+    'according to the Bread Bakers Guild of America, 18 hours at about 15.6 °C',
   'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce':
     'according to the Bread Bakers Guild of America, at least 3 hours at room temperature, or 1 hour and then at most 3 days in the fridge',
   'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków':
