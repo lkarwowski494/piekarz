@@ -33,7 +33,7 @@ import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore, setActiveBake, saveBakeLog, saveStarter, getStarters, deleteStarter } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { planBakeSteps } from '../core/bake-steps';
-import { _resetStanu, odswiezDostep, czyBylDostep } from '../lib/platnosci/stan';
+import { _resetStanu, odswiezDostep, rodzajDostepu } from '../lib/platnosci/stan';
 import { PRODUKTY } from '../lib/platnosci/konfiguracja';
 import { resyncNotifications, uzgadniajZDostepem } from '../lib/notifications';
 import { EN } from '../lib/i18n.en';
@@ -135,18 +135,33 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     act(() => tree.unmount());
   });
 
-  it('po dostępie z App Store, który się skończył: nagłówek „Okres próbny się skończył”', async () => {
+  it('po okresie próbnym z App Store, który się skończył: nagłówek „Okres próbny się skończył”', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
-    expect(await czyBylDostep()).toBe(false);
-    mockIap.entitlements = [zakup()];
+    expect(await rodzajDostepu()).toBeNull();
+    // Próba = oferta wprowadzająca (offerIOS.paymentMode FreeTrial); bez tej informacji dostęp liczy się jako płatny (C-7)
+    mockIap.entitlements = [{ ...zakup(), offerIOS: { paymentMode: 'FreeTrial' } }];
     await odswiezDostep();
-    expect(await czyBylDostep()).toBe(true);
+    expect(await rodzajDostepu()).toBe('proba');
     mockIap.entitlements = [];
     _resetStanu(); // następne uruchomienie po końcu próby
     const tree = await renderStart();
     const t = teksty(tree.root);
     expect(t).toContain('Okres próbny się skończył');
     expect(t).not.toContain('Piekarz Pro nie jest aktywny');
+    act(() => tree.unmount());
+  });
+
+  it('po płatnej subskrypcji, która się skończyła: nagłówek neutralny, nie „Okres próbny się skończył” [audyt-niezalezny C-7]', async () => {
+    await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
+    mockIap.entitlements = [zakup()];
+    await odswiezDostep();
+    expect(await rodzajDostepu()).toBe('platny');
+    mockIap.entitlements = [];
+    _resetStanu();
+    const tree = await renderStart();
+    const t = teksty(tree.root);
+    expect(t).not.toContain('Okres próbny się skończył');
+    expect(t).toContain('Piekarz Pro nie jest aktywny');
     act(() => tree.unmount());
   });
 });

@@ -13,9 +13,22 @@ import { Linking } from 'react-native';
 import { APPLE_SUBSCRIPTIONS_URL } from '../links';
 
 let polaczenie: Promise<unknown> | null = null;
+let przedPolaczeniem: (() => void) | null = null;
+
+/**
+ * Funkcja wołana przed każdym połączeniem ze sklepem (stan.ts: nasłuch transakcji): StoreKit podaje transakcje z kolejki
+ * po połączeniu, więc nasłuch musi już być [audyt-niezalezny C-6].
+ */
+export function ustawPrzedPolaczeniem(fn: (() => void) | null): void {
+  przedPolaczeniem = fn;
+}
+
+/** Limit odczytu uprawnień: zawieszony StoreKit to błąd odczytu, nie wieczne ładowanie [audyt-niezalezny C-3]. */
+export const LIMIT_ODCZYTU_SKLEPU_MS = 15_000;
 
 /** initConnection raz na proces; nieudane połączenie można ponowić. */
 export function polacz(): Promise<unknown> {
+  przedPolaczeniem?.();
   if (!polaczenie) {
     polaczenie = Iap.initConnection().catch((e: unknown) => {
       polaczenie = null;
@@ -75,8 +88,20 @@ async function karencja(): Promise<Uprawnienie[]> {
   }
 }
 
-/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu to „blad”. */
+/** Bieżące uprawnienia ze sklepu; każdy błąd odczytu i brak odpowiedzi w limicie czasu to „blad”. */
 export async function odczytajSklep(): Promise<Odczyt> {
+  let zegar: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<Odczyt>((r) => {
+    zegar = setTimeout(() => r({ zrodlo: 'blad' }), LIMIT_ODCZYTU_SKLEPU_MS);
+  });
+  try {
+    return await Promise.race([odczytBezLimitu(), limit]);
+  } finally {
+    clearTimeout(zegar);
+  }
+}
+
+async function odczytBezLimitu(): Promise<Odczyt> {
   try {
     await polacz();
     const zakupy = await Iap.getAvailablePurchases({ onlyIncludeActiveItemsIOS: true });
@@ -195,4 +220,9 @@ export function nasluchujZakupow(fn: (p: Purchase) => void): { remove: () => voi
 
 export async function zakonczTransakcje(p: Purchase): Promise<void> {
   await Iap.finishTransaction({ purchase: p, isConsumable: false });
+}
+
+/** Tylko testy: nowy proces bez połączenia ze sklepem. */
+export function _resetSklepu(): void {
+  polaczenie = null;
 }

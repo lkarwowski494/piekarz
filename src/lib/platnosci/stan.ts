@@ -10,7 +10,7 @@ import { getAppSetting, setAppSetting } from '../../data/settings-store';
 import { StorageWriteError } from '../../data/storage-status';
 import { ODBLOKOWUJA, KLUCZ_PAMIECI, KLUCZ_HISTORII_DOSTEPU } from './konfiguracja';
 import { decyzja, odczytajPamiec, zapisPamieci, Decyzja, Odczyt, Pamiec, Uprawnienie } from './dostep';
-import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz } from './sklep';
+import { odczytajSklep, nasluchujZakupow, zakonczTransakcje, uprawnienieZTransakcji, polacz, ustawPrzedPolaczeniem, _resetSklepu } from './sklep';
 import { _resetEkranu } from './ekran';
 
 export interface StanDostepu {
@@ -46,13 +46,24 @@ async function wczytajPamiec(): Promise<Pamiec> {
   return odczytajPamiec(await getAppSetting(KLUCZ_PAMIECI));
 }
 
+/**
+ * Rodzaj dostępu do historii (nagłówek po końcu dostępu): 'proba', gdy wszystkie dające dostęp uprawnienia są
+ * w okresie próbnym; inaczej 'platny' (także gdy sklep nie podał, czy to próba). Raz 'platny' zostaje [audyt-niezalezny C-7].
+ */
+async function zapiszRodzajDostepu(uprawnienia: Uprawnienie[], teraz: number): Promise<void> {
+  const dajace = uprawnienia.filter((u) => !u.odebrane && ODBLOKOWUJA.includes(u.produkt) && (u.wygasa === null || u.wygasa > teraz));
+  const rodzaj = dajace.length > 0 && dajace.every((u) => u.proba === true) ? 'proba' : 'platny';
+  if (rodzaj === 'proba' && (await getAppSetting(KLUCZ_HISTORII_DOSTEPU)) === 'platny') return;
+  await setAppSetting(KLUCZ_HISTORII_DOSTEPU, rodzaj);
+}
+
 /** Decyzja z odczytu; udany odczyt sklepu nadpisuje pamięć (także pustą po zwrocie). */
 export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): Promise<Decyzja> {
   const d = decyzja(odczyt, await wczytajPamiec(), teraz, ODBLOKOWUJA);
   if (odczyt.zrodlo === 'sklep') {
     try {
       await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
-      if (d.dostep) await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '1');
+      if (d.dostep) await zapiszRodzajDostepu(odczyt.uprawnienia, teraz);
     } catch (e) {
       // Baza nowsza niż aplikacja (061) albo nieudany zapis (120): decyzja działa w tej sesji bez zapisu pamięci,
       // kupujący nie traci dostępu przez pełną pamięć telefonu [M1-audytor-generalny-061; M1-audytor-generalny-120]
@@ -64,21 +75,46 @@ export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): P
 }
 
 /**
- * Czy sklep dał kiedyś dostęp na tym telefonie (koniec próby albo subskrypcji, a nie sam import danych)
- * [M1-audytor-generalny-143; 02-monetyzacja-504]. Błąd odczytu = nie wiadomo, więc false (neutralny nagłówek).
+ * Jaki dostęp sklep dał kiedyś na tym telefonie (a nie sam import danych) [M1-audytor-generalny-143; 02-monetyzacja-504]:
+ * 'proba' (tylko okres próbny), 'platny', 'nieznany' (znacznik z wersji sprzed C-7) albo null (nigdy / błąd odczytu).
+ * Nagłówek „Okres próbny się skończył” tylko przy 'proba' [audyt-niezalezny C-7].
  */
-export async function czyBylDostep(): Promise<boolean> {
+export async function rodzajDostepu(): Promise<'proba' | 'platny' | 'nieznany' | null> {
   try {
-    return (await getAppSetting(KLUCZ_HISTORII_DOSTEPU)) === '1';
+    const v = await getAppSetting(KLUCZ_HISTORII_DOSTEPU);
+    if (v === 'proba' || v === 'platny') return v;
+    return v === '1' ? 'nieznany' : null;
   } catch {
-    return false;
+    return null;
   }
+}
+
+let nasluch: { remove: () => void } | null = null;
+
+/** Jeden nasłuch transakcji na proces, założony przed pierwszym połączeniem ze sklepem [audyt-niezalezny C-6]. */
+function zapewnijNasluch(): void {
+  if (nasluch) return;
+  nasluch = nasluchujZakupow((p) => {
+    void obsluzTransakcje(p).catch(() => undefined);
+  });
+}
+ustawPrzedPolaczeniem(zapewnijNasluch);
+
+/**
+ * Pierwszy odczyt w procesie: zanim sklep odpowie, decyzja z pamięci ostatniego udanego odczytu, jeśli daje dostęp —
+ * płacący nie widzi kłódek ani ekranu zakupu przez wolny StoreKit [audyt-niezalezny C-3].
+ */
+async function najpierwPamiec(): Promise<void> {
+  if (stan.gotowe) return;
+  const d = decyzja({ zrodlo: 'blad' }, await wczytajPamiec().catch(() => null), Date.now(), ODBLOKOWUJA);
+  if (d.dostep && !stan.gotowe) ustaw({ decyzja: d, gotowe: true, uprawnienia: stan.uprawnienia ?? null });
 }
 
 /** Odczyt sklepu i decyzja; równoległe wywołania dzielą jeden odczyt. */
 export function odswiezDostep(): Promise<Decyzja> {
   if (!biezacy) {
-    biezacy = odczytajSklep()
+    biezacy = najpierwPamiec()
+      .then(() => odczytajSklep())
       .then((o) => ustalDostep(o))
       .finally(() => {
         biezacy = null;
@@ -110,9 +146,7 @@ export async function obsluzTransakcje(p: Purchase): Promise<void> {
  * na świeżym stanie (MON-05) [M1-audytor-generalny-144; 02-monetyzacja-505, 02-monetyzacja-601].
  */
 export function uruchomPlatnosci(): () => void {
-  const sub = nasluchujZakupow((p) => {
-    void obsluzTransakcje(p).catch(() => undefined);
-  });
+  zapewnijNasluch();
   void polacz()
     .catch(() => undefined)
     .then(() => odswiezDostep());
@@ -120,14 +154,18 @@ export function uruchomPlatnosci(): () => void {
     if (s === 'active') void odswiezDostep().catch(() => undefined);
   });
   return () => {
-    sub.remove();
+    nasluch?.remove();
+    nasluch = null;
     powrot.remove();
   };
 }
 
-/** Tylko testy: nowy proces bez stanu (także zamknięty ekran zakupu). */
+/** Tylko testy: nowy proces bez stanu (także zamknięty ekran zakupu i połączenie ze sklepem). */
 export function _resetStanu(): void {
   _resetEkranu();
+  _resetSklepu();
+  nasluch?.remove();
+  nasluch = null;
   stan = POCZATEK;
   sluchacze.clear();
   biezacy = null;
