@@ -38,6 +38,7 @@ export function ScheduleSummaryCard({ start, czasMin, teraz }: ScheduleSummaryCa
 }
 
 const styles = StyleSheet.create({
-  opis: { alignItems: 'center', gap: 2, marginBottom: 16 },
-  linia: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, textAlign: 'center' },
+  // Obok Spirali w rzędzie z zawijaniem (`.kosz .opis`: flex 1 1 120px, min-width 0) [M1-audytor-generalny-128]
+  opis: { flexGrow: 1, flexShrink: 1, flexBasis: 120, minWidth: 0, gap: 6 },
+  linia: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
 });

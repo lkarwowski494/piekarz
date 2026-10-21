@@ -406,6 +406,11 @@ Słownik akcji (§5) po zmianie: „Zacznij okres próbny / Kup plan roczny / Ku
 
 Test akceptacyjny 127: (1) render trzech stanów (oferta z `probaDni: 14` dla obu subskrypcji, oferta bez `probaDni`, `pobierzOferte` odrzucone) — każdy `Text` pochodzi z `t()` (brak „APPS4CRAFT”, brak tekstu, który po usunięciu cyfr i znaków jest w całości wersalikami, brak nawiasu z łacińskim słowem, brak „•” i „·”); (2) `oferta-proba`: tekst „Okres próbny: 14 dni”, ceny „{displayPrice} rocznie po próbie” i „… miesięcznie po próbie”, „{displayPrice} jednorazowo”, opis U4, U2, U3, U5, U7, U8, przycisk „Zacznij okres próbny”, po wyborze dożywotniego „Kup dostęp dożywotni”; (3) `zakup-bez-proby`: „Kup plan roczny”, po wyborze miesięcznego „Kup plan miesięczny”, ceny bez „po próbie”, U2 krótkie i U8; (4) `bez-sieci`: komunikat `offer-no-connection`, brak opcji planu i kwot, brak „—”, `offer-retry-btn` wywołuje ponownie `pobierzOferte`; przed odpowiedzią przycisk główny nieaktywny i brak „—”; (5) błąd `onSubscribe`: okno „Zakup” z tekstem „Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.”; (6) EN: „Baker Pro”, „Free trial: 14 days”, „Start Free Trial”, „Terms of Use”; (7) brak `manage-subscriptions-btn` i `read-only-continue-btn`; opcje planu z `accessibilityRole="radio"` i `checked`; (8) zrzut aplikacji przy 320 i 390 pt zgodny z `ekrany/oferta.html` (kolejność sekcji, cena największa w opcji, „Zamknij” w prawym górnym rogu).
 
+### 128 · Plan wypieku po reaudycie pętli 2 (rola 04, tryb fix, 2026-10-21; 04-studio-projektowe-501, -607)
+- Kolejność jak `plan-sen`: pytanie → pole → (stan `plan-za-pozno`: informacja pod polem) → temperatura z zakresem → godziny snu → Spirala z opisem → kroki. Karta „Ochrona snu aktywna” zostaje także bez kolizji (mówi, że plan sprawdza noc; para do zdania „Plan nie sprawdza godzin snu…”, BR-HARMO-002), ale stoi po temperaturze, nie przed nią.
+- Spirala i opis („Start … o …”, „Całość trwa …”) w jednym rzędzie z zawijaniem, jak `.kosz` w makiecie: przy 390 pt opis obok Spirali, przy dużym tekście pod nią.
+- Szerokość < 360 pt (iPhone SE): oba „−30 min” i „+30 min” w rzędzie dni pod polem; od 360 pt po bokach pola.
+
 ## 12. Wybory z kalibracji i domyślne (090) — każdy z decyzją
 | Wybór | Decyzja |
 |---|---|
