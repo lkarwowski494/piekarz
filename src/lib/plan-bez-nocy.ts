@@ -14,7 +14,7 @@ export const KROK_SZUKANIA_MIN = 5;
 /** Ograniczenie szukania od najwcześniejszej godziny (h). */
 export const LIMIT_SZUKANIA_H = 48;
 
-export type KrokNocy = { isPassive: boolean; plannedStart: number | null; plannedEnd: number | null };
+export type KrokNocy = { isPassive: boolean; rekaNaStarcie?: boolean; plannedStart: number | null; plannedEnd: number | null };
 export interface OknoSnu {
   /** Godzina rozpoczęcia snu, np. 23 (23:00). */
   startH: number;
@@ -39,9 +39,18 @@ function snZaczynaSieWKroku(start: number, koniec: number, okno: OknoSnu): boole
   return false;
 }
 
-/** Czy któryś krok czynny planu zachodzi na okno snu; kroki bez godzin są pomijane. */
+/**
+ * Czy krok bierny wymaga rąk na starcie, a jego początek wypada w oknie snu (dokarmienie, autoliza, rozgrzanie
+ * piekarnika, włożenie chleba żytniego do pieca) [audyt-niezalezny D-6].
+ */
+export function startZRekamiWNocy(k: KrokNocy, okno: OknoSnu): boolean {
+  return k.isPassive && !!k.rekaNaStarcie && k.plannedStart !== null && wOknieSnu(k.plannedStart, okno);
+}
+
+/** Czy któryś krok czynny planu (albo początek kroku z rękami na starcie) zachodzi na okno snu; kroki bez godzin są pomijane. */
 export function krokCzynnyWNocy(kroki: readonly KrokNocy[], okno: OknoSnu): boolean {
   return kroki.some((k) => {
+    if (startZRekamiWNocy(k, okno)) return true;
     if (k.isPassive || k.plannedStart === null || k.plannedEnd === null) return false;
     return wOknieSnu(k.plannedStart, okno) || wOknieSnu(k.plannedEnd, okno) || snZaczynaSieWKroku(k.plannedStart, k.plannedEnd, okno);
   });
@@ -57,7 +66,9 @@ export function kolizjeKrokow(
   godzina: (d: Date) => string,
 ): { stageNamePl: string; time: string }[] {
   return kroki.flatMap((k) =>
-    !k.isPassive && k.plannedStart !== null && k.plannedEnd !== null && (wOknieSnu(k.plannedStart, okno) || wOknieSnu(k.plannedEnd, okno))
+    k.plannedStart !== null &&
+    (startZRekamiWNocy(k, okno) ||
+      (!k.isPassive && k.plannedEnd !== null && (wOknieSnu(k.plannedStart, okno) || wOknieSnu(k.plannedEnd, okno))))
       ? [{ stageNamePl: k.name, time: godzina(new Date(k.plannedStart)) }]
       : [],
   );

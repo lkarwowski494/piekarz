@@ -5,6 +5,11 @@
       "klucz": "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.",
       "powod": "nowy tekst toru p15a (audyt niezależny D-3: plan tylko dla receptur na zakwasie); przekład 33 języków batchem M1",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ręce tylko na starcie",
+      "powod": "nowy tekst toru p15a (audyt niezależny D-6: kroki z rękami na starcie w ochronie snu); przekład 33 języków batchem M1",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

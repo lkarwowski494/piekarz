@@ -76,4 +76,5 @@ export const EN_16: Record<string, string> = {
   // Tor p15a (audyt niezależny 2026-10-21) — do przekładu: K/przeklad-noc3/p15a-klucze.json
   'Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.':
     'The bake plan is for sourdough bread only, and this recipe has no starter.',
+  'Ręce tylko na starcie': 'Hands-on at the start',
 };

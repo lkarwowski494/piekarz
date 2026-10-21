@@ -25,6 +25,7 @@ export interface BakeSession extends BakeProgress {
 export function isSessionStep(v: unknown): v is SessionStep {
   return isObj(v) && isStr(v.id) && v.id.length > 0 && isStr(v.name) && isStageCategory(v.category) &&
     (v.durationMin === null || (isNum(v.durationMin) && v.durationMin > 0)) && typeof v.isPassive === 'boolean' && isStr(v.instructions) &&
+    (v.rekaNaStarcie === undefined || typeof v.rekaNaStarcie === 'boolean') &&
     numOrNull(v.plannedStart) && numOrNull(v.plannedEnd);
 }
 

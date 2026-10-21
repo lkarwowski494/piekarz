@@ -159,9 +159,11 @@ export default function HarmonogramScreen() {
     }
     if (zakwasWczytany) godzinaDomyslna.current = false;
   }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
-  const kolizjeZytnie = useMemo(
-    () => (zytni ? kolizjeKrokow(steps, { startH: sleepStartHour, koniecH: sleepEndHour }, formatGodziny) : []),
-    [zytni, steps, sleepStartHour, sleepEndHour],
+  // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
+  // baner mówi o krokach, które są na ekranie, nie o etapach harmonogramu zastąpionych w planie [audyt-niezalezny D-6]
+  const kolizjePlanu = useMemo(
+    () => kolizjeKrokow(steps, { startH: sleepStartHour, koniecH: sleepEndHour }, formatGodziny),
+    [steps, sleepStartHour, sleepEndHour],
   );
   const stages = useMemo(() => etapyPlanu(steps, schedule.stages), [steps, schedule.stages]);
   // Spirala planu przed startem: kroki tego planu, wszystkie zwoje cienkie (design-spec §11b 058) [M1-audytor-generalny-058]
@@ -237,7 +239,7 @@ export default function HarmonogramScreen() {
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
-    await copyScheduleToClipboard(planDoKopii(schedule, stages, zytni ? kolizjeZytnie : schedule.sleepCollisions), {
+    await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
       ambientTempC: ambientTemp,
       // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
       ...(zytni ? {} : { coldRetardHours }),
@@ -286,8 +288,8 @@ export default function HarmonogramScreen() {
           // Sleep Guard Banner: ukryty, dopóki trwa stan „za późno” (najpierw godzina, potem noc; §11c 107)
           // Żyto: kolizje z kroków żytnich, bez propozycji z planu pszennego (lodówka zmienia tam rozrost w formie) (030)
           <SleepGuardBanner
-            hasSleepCollision={zytni ? kolizjeZytnie.length > 0 : schedule.hasSleepCollision}
-            sleepCollisions={zytni ? kolizjeZytnie : schedule.sleepCollisions}
+            hasSleepCollision={kolizjePlanu.length > 0}
+            sleepCollisions={kolizjePlanu}
             suggestedActionPl={zytni ? undefined : schedule.suggestedActionPl}
             autoResolved={zytni ? null : autoResolved}
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}

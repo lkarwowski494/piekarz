@@ -5113,6 +5113,11 @@
       "src/components/zakwas/StarterSafetyCard.tsx (label)"
     ]
   },
+  "Ręce tylko na starcie": {
+    "gdzie": [
+      "src/components/harmonogram/TimelineStagesList.tsx (tekst w JSX)"
+    ]
+  },
   "Ręcznie zdefiniowany procent utraty masy po pieczeniu i pełnym wystudzeniu.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"

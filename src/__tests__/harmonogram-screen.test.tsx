@@ -209,9 +209,11 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     });
 
     allText = extractCleanText(root);
-    // Collision should now be resolved!
-    expect(allText).toContain('Ochrona snu aktywna');
-    expect(allText).not.toMatch(/wypada(ją)?( o \d\d:\d\d)? w nocy/);
+    // Kolizja formowania rozwiązana. Dokarmienie zakwasu z lodówki (12 h przed mieszaniem, zakwas z danych startowych)
+    // to krok z rękami na starcie: lodówka go nie przesuwa, więc baner może zostać tylko dla niego [audyt-niezalezny D-6]
+    const bezDokarmienia = allText.replace(/Dokarmienie zakwasu z lodówki wypada o \d\d:\d\d w nocy/, '');
+    if (bezDokarmienia === allText) expect(allText).toContain('Ochrona snu aktywna');
+    expect(bezDokarmienia).not.toMatch(/wypada(ją)?( o \d\d:\d\d)? w nocy/);
   });
 
   it('transfers calculated schedule to Stolnica and navigates to workbench', async () => {

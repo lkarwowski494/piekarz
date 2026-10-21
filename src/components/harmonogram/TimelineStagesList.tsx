@@ -77,7 +77,8 @@ export function TimelineStagesList({
                         stage.isPassive ? styles.typeBadgeTextPassive : styles.typeBadgeTextActive,
                       ]}
                     >
-                      {stage.isPassive ? t('Pasywne') : t('Wymaga obecności')}
+                      {/* Krok bierny z rękami na starcie (dokarmienie, piekarnik) nie jest „Pasywne” [audyt-niezalezny D-6] */}
+                      {stage.isPassive ? (stage.rekaNaStarcie ? t('Ręce tylko na starcie') : t('Pasywne')) : t('Wymaga obecności')}
                     </Text>
                   </View>
                   {isColliding && (

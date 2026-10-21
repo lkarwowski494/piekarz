@@ -14,6 +14,8 @@ export interface RyeStageTemplate {
   namePl: string;
   category: StageCategory;
   isPassive: boolean;
+  /** Krok bierny z rękami na starcie (dokarmienie, włożenie do pieca) [audyt-niezalezny D-6] */
+  rekaNaStarcie?: boolean;
   instructionsPl: string;
   /** Czas ze źródła treści (zalecenie, nie blokada); null = czas z planu użytkownika (ZYT-ETA-900). */
   fixedDurationMin: number | null;
@@ -27,7 +29,7 @@ export const RYE_PROOF_STAGE_ID = 'rye_proof';
 
 export const RYE_STAGE_TEMPLATES: readonly RyeStageTemplate[] = [
   // ZYT-ETA-001 (nazwa)
-  { id: 'rye_starter', namePl: 'Zakwas żytni', category: 'starter_feed', isPassive: true, instructionsPl: '', fixedDurationMin: null },
+  { id: 'rye_starter', namePl: 'Zakwas żytni', category: 'starter_feed', isPassive: true, rekaNaStarcie: true, instructionsPl: '', fixedDurationMin: null },
   // ZYT-ETA-001 (nazwa), ZYT-ETA-003 (instrukcja), BEZ-SUR-001, BEZ-SUR-002 (dwa ostatnie zdania, RD-22-W1,
   // docs/tresci/pl/wypiek-bezpieczenstwo.md) [M1-audytor-generalny-086]
   {
@@ -49,7 +51,7 @@ export const RYE_STAGE_TEMPLATES: readonly RyeStageTemplate[] = [
   },
   // ZYT-ETA-001 (nazwa), ZYT-ETA-006 (para)
   {
-    id: 'rye_bake', namePl: 'Wypiek w formie', category: 'bake', isPassive: true,
+    id: 'rye_bake', namePl: 'Wypiek w formie', category: 'bake', isPassive: true, rekaNaStarcie: true,
     instructionsPl: 'Na początku wypieku zapewnij parę w piekarniku.', fixedDurationMin: null,
   },
   // ZYT-ETA-001 (nazwa), ZYT-STU-001 (24 h wg King Arthur Baking, szczebel 4: zalecenie z atrybucją, nie blokada)

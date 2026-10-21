@@ -71,7 +71,9 @@ describe('godzinaBezNocy (plan z lodówki, okno 23:00–06:30)', () => {
   it('wektor: od 16.07 08:00 (36 h po 14.07 20:00)', () => {
     const odMs = lokalnie(14, 20, 0) + 36 * 3600_000;
     const wynik = godzinaBezNocy(odMs, kroki, OKNO)!;
-    expect(`${new Date(wynik).getDate()} ${new Date(wynik).getHours()}:${new Date(wynik).getMinutes()}`).toBe('16 9:15'); // 08:00 ma jeszcze krok czynny w nocy, najbliższa dobra godzina to 09:15
+    // 08:00 ma jeszcze krok czynny w nocy; 09:15 zaczynałoby rozgrzewanie piekarnika o 05:45 (krok z rękami na starcie,
+    // audyt niezależny D-6), więc najbliższa dobra godzina to 10:00 (piekarnik o 06:30, koniec okna snu)
+    expect(`${new Date(wynik).getDate()} ${new Date(wynik).getHours()}:${new Date(wynik).getMinutes()}`).toBe('16 10:0');
     expect(krokCzynnyWNocy(kroki(wynik), OKNO)).toBe(false);
   });
 
