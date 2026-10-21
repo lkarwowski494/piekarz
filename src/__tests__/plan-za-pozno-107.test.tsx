@@ -13,6 +13,7 @@ import { calculateReverseSchedule } from '../scheduler/reverse-scheduler';
 import { stepsFromSchedule } from '../core/bake-steps';
 import { setLang } from '../lib/i18n';
 import { ustawZakwasPlanu } from '../lib/zakwas-planu';
+import { krokCzynnyWNocy } from '../lib/plan-bez-nocy';
 import {
   ZAOKRAGLENIE_NAJWCZESNIEJ_MIN,
   celGotowosci,
@@ -21,6 +22,7 @@ import {
   tekstZaPozno,
 } from '../lib/plan-za-pozno';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
 
 jest.setTimeout(20000);
 jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));
@@ -53,8 +55,6 @@ const teksty = (tree: renderer.ReactTestRenderer) =>
   tree.root.findAll((n) => (n.type as unknown) === 'Text').map((n) => textOf(n.props.children));
 const poId = (tree: renderer.ReactTestRenderer, id: string) =>
   tree.root.findAll((n) => n.props?.testID === id && typeof n.props.onPress === 'function');
-const przyciskDnia = (tree: renderer.ReactTestRenderer, etykieta: string) =>
-  tree.root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children) === etykieta)[0];
 
 async function renderPlan(): Promise<renderer.ReactTestRenderer> {
   let tree: renderer.ReactTestRenderer | null = null;
@@ -141,7 +141,7 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
     jest.useRealTimers();
   });
 
-  it('(3) otwarcie planu: domyślna godzina dałaby „za późno”, więc pole pokazuje najwcześniejszą; stanu nie ma', async () => {
+  it('(3) otwarcie planu: domyślna godzina dałaby „za późno”, więc pole pokazuje najbliższą godzinę bez kroków czynnych w nocy; stanu nie ma', async () => {
     const tree = await renderPlan();
     expect(teksty(tree)).not.toContain('Nie zdążysz na tę godzinę');
     expect(poId(tree, 'plan-use-earliest-btn')).toHaveLength(0);
@@ -149,16 +149,16 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
     expect(start.props.accessibilityState?.disabled).not.toBe(true);
     await nacisnij(start);
     const steps = getActiveBake()!.steps!;
-    // najwcześniej = teraz + długość planu w górę do 5 min, więc start planu w [teraz, teraz + 5 min)
+    // 129 (DEC-18 a): godzina ≥ najwcześniejszej (start planu nie przed „teraz”), bez kroku czynnego w oknie snu
     expect(steps[0].plannedStart!).toBeGreaterThanOrEqual(TERAZ);
-    expect(steps[0].plannedStart!).toBeLessThan(TERAZ + 5 * MIN);
+    expect(krokCzynnyWNocy(steps, { startH: 23, koniecH: 6.5 })).toBe(false);
     act(() => tree.unmount());
   });
 
-  it('(1, 4) ręczny wybór „jutro 18:00”: tytuł i treść z godzinami planu, start nieaktywny z powodem, baner snu ukryty', async () => {
+  it('(1, 4) ręczny wybór „jutro 18:00”: tytuł i treść z godzinami planu, start nieaktywny z powodem, baner snu ukryty (BR-HARMO-001 Godzina w przeszłości)', async () => {
     const tree = await renderPlan();
-    await nacisnij(przyciskDnia(tree, 'Jutro'));
-    await nacisnij(przyciskDnia(tree, '18:00'));
+    // 128: chipów godziny już nie ma; godzina przyciskami ±30 min obok pola, jak użytkownik
+    await ustawGodzinePlanu(tree.root, 'Jutro', 18);
 
     const cel = new Date(2026, 9, 22, 18, 0);
     const schedule = calculateReverseSchedule(cel, OPCJE);
@@ -182,8 +182,7 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
 
   it('(2) „Ustaw tę godzinę” wpisuje najwcześniejszą godzinę: stan znika, „Zacznij wypiek” aktywny', async () => {
     const tree = await renderPlan();
-    await nacisnij(przyciskDnia(tree, 'Jutro'));
-    await nacisnij(przyciskDnia(tree, '08:00'));
+    await ustawGodzinePlanu(tree.root, 'Jutro', 8);
     expect(teksty(tree)).toContain('Nie zdążysz na tę godzinę');
     const ustaw = poId(tree, 'plan-use-earliest-btn');
     expect(ustaw).toHaveLength(1);
@@ -204,9 +203,12 @@ describe('107: ekran planu w stanie „za późno” (zegar na sztywno: 21.10.20
 
   it('co minutę: ekran zostawiony otwarty przechodzi w stan „za późno”, gdy start planu minie', async () => {
     const tree = await renderPlan();
+    // 129: otwarcie daje godzinę bez nocy (start planu później niż za 10 min), więc godzina ręcznie: pojutrze 02:00
+    // (plan 29 h 39 min, najwcześniej 01:55, start planu 20:21), jak użytkownik
+    await ustawGodzinePlanu(tree.root, 'Pojutrze', 2);
     expect(teksty(tree)).not.toContain('Nie zdążysz na tę godzinę');
     await act(async () => {
-      jest.advanceTimersByTime(10 * MIN);
+      jest.advanceTimersByTime(15 * MIN);
     });
     expect(teksty(tree)).toContain('Nie zdążysz na tę godzinę');
     expect(poId(tree, 'plan-start-bake-btn')[0].props.accessibilityState?.disabled).toBe(true);

@@ -5,7 +5,7 @@
 // ============================================================================
 
 import { BakeProgress, validStepIdx } from '../core/bake-session';
-import { SessionStep, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
+import { SessionStep, areRyeSteps, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
 import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
 import { ActiveBakeState } from './sqlite-schema';
 import { getAppSetting, setAppSetting } from './settings-store';
@@ -100,7 +100,8 @@ export function isHighRyeBake(bake: ActiveBakeState): boolean {
  */
 export function stepsForBake(bake: ActiveBakeState): SessionStep[] {
   if (bake.steps && bake.steps.length > 0) {
-    return isHighRyeBake(bake) ? ryeStepsFromPlan(bake.steps, bake.startedAt) : bake.steps;
+    // Plan żytni z planu wypieku ma już etapy żytnie z godzinami planu (030): bez przeliczania od startu
+    return isHighRyeBake(bake) && !areRyeSteps(bake.steps) ? ryeStepsFromPlan(bake.steps, bake.startedAt) : bake.steps;
   }
   return planBakeSteps({ startAt: bake.startedAt, isHighRye: isHighRyeBake(bake), ambientTempC: bake.ambientTempC });
 }

@@ -1,4 +1,4 @@
-// Słownik el, część 7 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 7 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Αυτό το αλεύρι δεν περιλαμβάνεται στο πρότυπο PN-A-74022:2003: οι μύλοι το παράγουν σύμφωνα με δικές τους τεχνικές προδιαγραφές. Πιο σκούρο αλεύρι για ψωμί με υψηλότερη ενζυματική δραστηριότητα και άρωμα ξηρών καρπών.',

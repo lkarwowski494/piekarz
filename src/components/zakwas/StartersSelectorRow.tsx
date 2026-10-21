@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { StoredStarter } from '../../data/db';
+import { czasSlownie } from '../../lib/spirala-etykieta';
 
 export interface StartersSelectorRowProps {
   startersList: StoredStarter[];
@@ -50,6 +51,16 @@ export function StartersSelectorRow({
               >
                 {s.name}
               </Text>
+              {/* Miejsce i czas od ostatniego dokarmienia przy każdym zakwasie (BR-ZAKW-001) [M1-audytor-generalny-130];
+                  bez wpisu dokarmienia samo miejsce */}
+              <Text style={[styles.starterPillMeta, isSelected && styles.starterPillTextActive]}>
+                {s.storageState === 'FRIDGE' ? t('w lodówce') : t('na blacie')}
+              </Text>
+              {s.lastFedAt !== undefined ? (
+                <Text style={[styles.starterPillMeta, isSelected && styles.starterPillTextActive]}>
+                  {t('{czas} od dokarmienia', { czas: czasSlownie(Math.max(0, Math.round((Date.now() - s.lastFedAt) / 60_000))) })}
+                </Text>
+              ) : null}
             </Pressable>
           );
         })}
@@ -90,6 +101,10 @@ const styles = StyleSheet.create({
   starterPillText: {
     fontSize: 13,
     fontWeight: '600',
+    color: theme.colors.tusz2,
+  },
+  starterPillMeta: {
+    fontSize: 12,
     color: theme.colors.tusz2,
   },
   starterPillTextActive: {

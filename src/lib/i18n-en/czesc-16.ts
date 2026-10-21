@@ -46,4 +46,25 @@ export const EN_16: Record<string, string> = {
   'levain': 'levain',
   'Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.':
     'With a preferment (poolish, biga, old dough, levain), you choose how much flour goes into it; “Into the bowl” shows the preferment and the dough separately.',
+  // Plan wypieku, stan plan-sen (`pl.kiedy` w docs/design/ekrany/teksty.js) [M1-audytor-generalny-128]
+  'Kiedy chleb ma być gotowy?': 'When should the bread be ready?',
+  // Powiadomienie o końcu kroku: następny krok i jego godzina (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130]
+  '{krok}: czas zacząć': '{krok}: time to start',
+  'Do {godzina}.': 'Until {godzina}.',
+  // Zdanie przed prośbą o zgodę na powiadomienia (makieta prowadzenie, stan `zgoda`; `pw.zgoda*` w teksty.js; BR-CZAS-003)
+  'Dam znać o każdym kroku': "I'll let you know about every step",
+  'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.':
+    'While your phone is asleep, a notification will tell you what to do and when. Your phone will ask for permission in a moment.',
+  'Dalej': 'Continue',
+  // Dokarmianie z masy zostawionej w słoiku (BR-ZAKW-002) [M1-audytor-generalny-130]
+  'Zostawiam w słoiku': 'I keep in the jar',
+  'Wpisz, ile zakwasu zostawiasz w słoiku.': 'Enter how much starter you keep in the jar.',
+  'Hydratacja zakwasu {n}%': 'Starter hydration {n}%',
+  // Godziny snu w Ustawieniach i na planie (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130]
+  'Godziny snu': 'Sleep hours',
+  'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'I plan hands-on steps outside these hours.',
+  'Bez godzin snu': 'No sleep hours',
+  'Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.': 'The plan doesn’t check your sleep hours. You can set them in Settings.',
+  'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).':
+    'All manual stages (mixing, folding, baking) occur outside the sleep window ({od} – {do}).',
 };

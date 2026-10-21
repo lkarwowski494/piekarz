@@ -108,6 +108,22 @@ export function ryeStepsFromPlan(plan: readonly Pick<SessionStep, 'category' | '
   });
 }
 
+/**
+ * Wariant żytni planu wstecz: etapy żytnie z czasami planu ułożone tak, że ostatni (studzenie) kończy się o `endAt`,
+ * czyli o godzinie „gotowe” z planu [M1-audytor-generalny-030; 03-zakres-501]. Etap bez czasu w planie: kroki od
+ * początku planu (`plan[0].plannedStart`), jak ryeStepsFromPlan.
+ */
+export function ryeStepsEndingAt(plan: readonly Pick<SessionStep, 'category' | 'durationMin' | 'plannedStart'>[], endAt: number): SessionStep[] {
+  const bezStartu = ryeStepsFromPlan(plan, 0);
+  const koniec = bezStartu[bezStartu.length - 1]?.plannedEnd ?? null;
+  return ryeStepsFromPlan(plan, koniec === null ? (plan[0]?.plannedStart ?? endAt) : endAt - koniec);
+}
+
+/** Czy kroki to już etapy żytnie (migawka planu żytniego), a nie plan pszenny do przerobienia. */
+export function areRyeSteps(steps: readonly Pick<SessionStep, 'id'>[]): boolean {
+  return steps.length > 0 && steps.every((s) => RYE_STAGE_TEMPLATES.some((tp) => tp.id === s.id) || s.id === 'fridge_wake_feed');
+}
+
 /** Plan liczony od chwili `startAt`: harmonogram wsteczny przesunięty tak, by pierwszy etap zaczynał się teraz. */
 export function scheduleFromStart(startAt: number, options: ScheduleOptions = {}): ReverseScheduleResult {
   const probe = calculateReverseSchedule(new Date(startAt), options);

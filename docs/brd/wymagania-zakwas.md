@@ -68,7 +68,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Zasada właściciela: „W robieniu chleba
   - Scenariusz: Tylko płyn o zapachu alkoholu
     - Zakładając, że użytkownik zaznacza tylko płyn o zapachu alkoholu
     - Gdy zatwierdza objawy
-    - Wtedy widzi, że to nie powód do wyrzucenia, i radę: zlej albo wmieszaj (RD-21-W3)
+    - Wtedy widzi, że według CSU Extension płyn o zapachu alkoholu jest w porządku (produkt uboczny fermentacji drożdży), i radę: można go zlać albo wmieszać (RD-21-W3; brzmienie ZAK-HOO-001: D-066, ER-55)
   - Scenariusz: Brak zaznaczeń
     - Zakładając, że użytkownik nic nie zaznacza
     - Gdy zatwierdza formularz

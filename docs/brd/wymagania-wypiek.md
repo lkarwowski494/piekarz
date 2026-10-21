@@ -17,16 +17,16 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
 
 ### BR-HARMO-002: Plan omija godziny snu
 - Przepływ: PR-02
-- Dowód potrzeby: J-02; soczewka początkującego (dopasowanie planu do snu i chłodnia jako rozwiązanie); kod wykrywa kolizje (`app/(tabs)/receptury/harmonogram.tsx`)
+- Dowód potrzeby: J-02; soczewka początkującego (dopasowanie planu do snu i chłodnia jako rozwiązanie); kod wykrywa kolizje (`app/(tabs)/receptury/harmonogram.tsx`); D-066 (1a): godziny snu wybierane w Ustawieniach, domyślnie 23:00–07:00, z opcją „Bez godzin snu” (ER-55)
 - Kryteria akceptacji:
   - Scenariusz: Krok czynny w nocy
-    - Zakładając, że użytkownik ustawił godziny snu 23:00–07:00 [DO WYJAŚNIENIA] (OP-45) domyślne
+    - Zakładając, że użytkownik nie zmieniał godzin snu w Ustawieniach, więc obowiązują domyślne 23:00–07:00 (D-066)
     - Gdy plan wypada ze składaniem o 02:00
-    - Wtedy aplikacja oznacza kolizję i proponuje przesunięcie albo chłodnię
+    - Wtedy aplikacja oznacza kolizję z godzinami snu 23:00–07:00 i proponuje przesunięcie albo chłodnię
   - Scenariusz: Brak godzin snu
-    - Zakładając, że użytkownik nie ustawił godzin snu
+    - Zakładając, że użytkownik wybrał w Ustawieniach „Bez godzin snu” (D-066)
     - Gdy tworzy plan
-    - Wtedy plan powstaje bez sprawdzania kolizji, a aplikacja informuje, że godziny snu można ustawić
+    - Wtedy plan powstaje bez sprawdzania kolizji ze snem, a aplikacja informuje, że godziny snu można ustawić w Ustawieniach
 
 ### BR-HARMO-003: Czas fermentacji z temperatury
 - Przepływ: PR-02, PR-03 · Reguła: RD-17
@@ -37,10 +37,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Gdy temperatura wynosi <T> °C
     - Wtedy plan pokazuje <czas> min
     - Przykłady: T = 21 → 333,69 (RD-17-W1); T = 20 → 372,44 (RD-17-W2); T = 26 → 192,66 (RD-17-W3)
-  - Scenariusz: Poza zakresem modelu
+  - Scenariusz: Temperatura tylko z zakresu modelu
     - Zakładając, że czas w recepturze to 240 min
-    - Gdy temperatura wynosi 19,9 °C
-    - Wtedy plan nie pokazuje przeliczonego czasu, tylko komunikat, że temperatura jest poza zakresem 20–26 °C (RD-17-W5; treść komunikatu: OP-35)
+    - Gdy użytkownik ustawia temperaturę w kuchni w planie
+    - Wtedy temperatura w planie jest zawsze w zakresie 20–26 °C (wartość startowa 23 °C albo wybór 20, 22, 24, 26 °C), a temperatury spoza zakresu, np. 19,9 °C, nie da się wybrać ani wpisać (RD-17-W5, RD-17-W6; D-066, ER-55)
 
 ### BR-HARMO-004: Przesunięcie kroku po spóźnieniu
 - Przepływ: PR-04, PR-15
@@ -101,6 +101,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Zakładając, że receptura ma 50% mąki żytniej
     - Gdy użytkownik zaczyna wypiek
     - Wtedy lista kroków ma składania z receptury (RD-20-W2)
+  - Scenariusz: Plan i prowadzenie żytnie
+    - Zakładając, że receptura ma 60% mąki żytniej (RD-20-W1)
+    - Gdy użytkownik układa plan wypieku z godziną „gotowe” i zaczyna z niego wypiek
+    - Wtedy plan nie ma składań, prowadzenie pokazuje te same kroki z tymi samymi godzinami co plan, a ostatni krok kończy się o godzinie „gotowe” (DEC-04 a planu napraw M1, D-030; ER-56)
 
 ### BR-ETAP-003: Ocena gotowości ciasta przed pieczeniem
 - Przepływ: PR-04, PR-13

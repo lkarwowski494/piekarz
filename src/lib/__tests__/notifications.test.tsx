@@ -14,7 +14,7 @@ import {
 } from '../notifications';
 import { NotificationsOffBanner } from '../../components/NotificationsOffBanner';
 import { setLang } from '../i18n';
-import type { NotificationKind, NotificationLevel, NotificationTextKey, PlannedNotification } from '../../core/notification-plan';
+import { planBakeNotification, type NotificationKind, type NotificationLevel, type NotificationTextKey, type PlannedNotification } from '../../core/notification-plan';
 
 type Mock = { pending: Map<string, unknown>; iosStatus: number; grantOnRequest: boolean };
 const mock = (Notifications as unknown as { __mock: Mock }).__mock;
@@ -64,6 +64,21 @@ describe('notifications adapter (006)', () => {
     expect(notificationText(planned('karmienie.blat', { starterName: 'Ania' })).body).toBe('Zakwas „Ania” stoi na blacie od 12 godzin bez dokarmienia.'); // D-043 OP-38 [M1-audytor-generalny-090]
     setLang('en');
     expect(notificationText(planned('krok.zdejmijPokrywke', {})).title).toBe('Take the lid off');
+    setLang('pl');
+  });
+
+  // Powiadomienie o końcu kroku mówi, co teraz: nazwa następnego kroku i jego godzina (design-spec §10)
+  // [M1-audytor-generalny-130; 01-odkrywanie-501]
+  it('koniec kroku: tytuł z nazwą następnego kroku i jego godziną; ostatni krok bez następnego (BR-CZAS-002 Koniec kroku przy zablokowanym ekranie)', () => {
+    const krok = (id: string, name: string, plannedEnd: number | null) => ({ id, name, category: 'bulk_ferment' as const, plannedEnd });
+    const do1430 = new Date(2026, 9, 21, 14, 30).getTime();
+    const steps = [krok('bulk_ferment', 'Fermentacja burzliwa ze składaniami', null), krok('pre_shape', 'Formowanie wstępne', do1430)];
+    const p = planBakeNotification({ stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
+    expect(p ? notificationText(p) : null).toEqual({ title: 'Formowanie wstępne: czas zacząć', body: 'Do 14:30.' });
+    const ostatni = planBakeNotification({ stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
+    expect(ostatni ? notificationText(ostatni) : null).toEqual({ title: 'Koniec kroku', body: 'Krok „Formowanie wstępne” dobiegł końca.' });
+    setLang('en');
+    expect(p ? notificationText(p).title : '').toBe('Pre-shaping (Pre-shape): time to start');
     setLang('pl');
   });
 

@@ -183,4 +183,4 @@ Stan: E3 · Aktualizacja: 2026-10-19. Model płatności rozstrzygnęły DEC-01 (
   - Scenariusz: Powrót z trwającym wypiekiem
     - Zakładając, że użytkownik ma trwający wypiek
     - Gdy otwiera aplikację
-    - Wtedy na górze widzi trwający wypiek z bieżącym krokiem i powrotem do niego jednym dotknięciem, a wybór czynności („Co jeszcze dziś robisz?”) jest niżej (BR-ETAP-005; makieta roli 04, stan `trwa-wypiek`: ER-53)
+    - Wtedy na górze widzi trwający wypiek z bieżącym krokiem i powrotem do niego jednym dotknięciem, a wybór czynności („Co jeszcze dziś robisz?”) jest niżej (BR-ETAP-005; makieta roli 04, stan `trwa-wypiek`: ER-53, D-066 6a)

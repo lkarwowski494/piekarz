@@ -14,8 +14,8 @@ export interface RecepturaPlanu {
 
 let biezaca: RecepturaPlanu | null = null;
 
-/** Zapamiętuje recepturę, z którą użytkownik otwiera plan wypieku. */
-export function ustawRecepturePlanu(r: RecepturaPlanu): void {
+/** Zapamiętuje recepturę, z którą użytkownik otwiera plan wypieku (null = plan bez receptury). */
+export function ustawRecepturePlanu(r: RecepturaPlanu | null): void {
   biezaca = r;
 }
 

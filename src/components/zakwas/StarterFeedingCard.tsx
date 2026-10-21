@@ -4,8 +4,10 @@
 // 100% Offline-First.
 // ============================================================================
 
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { NumInput } from '../NumInput';
+import { dokarmienieZeZostawionego } from '../../core/dokarmianie';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
@@ -21,6 +23,8 @@ export interface StarterFeedingCardProps {
     flourGrams: number;
     waterGrams: number;
   };
+  /** Hydratacja zakwasu (%) do wyniku z masy zostawionej w słoiku (BR-ZAKW-002). */
+  hydratacjaZakwasu: number;
   unitSystem: UnitSystem;
   onCopyFeeding: () => void;
   onOpenConverter: () => void;
@@ -33,17 +37,44 @@ export function StarterFeedingCard({
   targetYield,
   onTargetYieldChange,
   feeding,
+  hydratacjaZakwasu,
   unitSystem,
   onCopyFeeding,
   onOpenConverter,
   onOpenDiscardRecipes,
 }: StarterFeedingCardProps) {
+  // Masa zakwasu zostawionego w słoiku (g): z niej mąka, woda i hydratacja po dokarmieniu (RD-14, BR-ZAKW-002)
+  // [M1-audytor-generalny-130]; puste pole = prośba o uzupełnienie, wynik z chipów masy zaczynu zostaje
+  const [zostawiam, setZostawiam] = useState<number | null>(null);
+  const zZostawionego = zostawiam === null ? null : dokarmienieZeZostawionego(zostawiam, selectedRatio, hydratacjaZakwasu);
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{t('Ilości do dokarmienia')}</Text>
       <Text style={styles.cardSubtitle}>
         {t('Dobierz proporcje i potrzebną masę zaczynu do wypieku')}
       </Text>
+
+      <Text style={styles.subHeading}>{t('Zostawiam w słoiku')}</Text>
+      <NumInput
+        testID="zostawiam-input"
+        accessibilityLabel={t('Zostawiam w słoiku')}
+        unit="g"
+        min={0}
+        value={zostawiam ?? ''}
+        onChangeText={(tekst) => {
+          const n = Number(tekst.replace(',', '.'));
+          setZostawiam(tekst.trim() === '' || !Number.isFinite(n) ? null : n);
+        }}
+      />
+      {zZostawionego ? (
+        <View testID="zostawiam-wynik" style={styles.zostawiamWynik}>
+          <Text style={styles.feedingItemLabel}>{t('Mąka')}: {formatWeight(zZostawionego.makaG, unitSystem)}</Text>
+          <Text style={styles.feedingItemLabel}>{t('Woda')}: {formatWeight(zZostawionego.wodaG, unitSystem)}</Text>
+          <Text style={styles.feedingItemLabel}>{t('Hydratacja zakwasu {n}%', { n: zZostawionego.hydratacjaPct })}</Text>
+        </View>
+      ) : (
+        <Text style={styles.feedingReserveTip}>{t('Wpisz, ile zakwasu zostawiasz w słoiku.')}</Text>
+      )}
 
       {/* Ratio Selector */}
       <Text style={styles.subHeading}>{t('Cykl dokarmiania')} ({t('Proporcja')})</Text>
@@ -285,6 +316,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz3,
+  },
+  zostawiamWynik: {
+    gap: 2,
+    marginTop: 6,
+    marginBottom: 12,
   },
   feedingReserveTip: {
     fontSize: 11,

@@ -143,7 +143,7 @@
     },
     "tolerancja": 0,
     "rodzaj": "typowy",
-    "pochodzenie": "rachunek: 580,81; 406,57; 11,62; suma pokazanych 999,6 (różnica 0,6 g, bez korekty)",
+    "pochodzenie": "rachunek: 999 / 1,72 = 580,81 → 581 (1 g); × 0,70 = 406,57 → 407 (1 g); × 0,02 = 11,62 → 11,6 (0,1 g); suma pokazanych 999,6 (różnica 0,6 g ≤ 1 g, bez korekty); decyzja D-066 (3a)",
     "miejsce": "docs\\brd\\reguly.md:35"
   },
   {
@@ -361,11 +361,11 @@
       "T [°C]": 19.9
     },
     "oczekiwane": {
-      "t [min]": "poza zakresem"
+      "t [min]": "poza zakresem: wartości nie da się wybrać"
     },
     "tolerancja": null,
     "rodzaj": "poniżej",
-    "pochodzenie": "rachunek: T < 20",
+    "pochodzenie": "rachunek: T < 20; decyzja D-066 (wybór tylko 20–26 °C)",
     "miejsce": "docs\\brd\\reguly.md:74"
   },
   {
@@ -376,11 +376,11 @@
       "T [°C]": 26.1
     },
     "oczekiwane": {
-      "t [min]": "poza zakresem"
+      "t [min]": "poza zakresem: wartości nie da się wybrać"
     },
     "tolerancja": null,
     "rodzaj": "powyżej",
-    "pochodzenie": "rachunek: T > 26",
+    "pochodzenie": "rachunek: T > 26; decyzja D-066 (wybór tylko 20–26 °C)",
     "miejsce": "docs\\brd\\reguly.md:75"
   },
   {
@@ -688,11 +688,11 @@
       "Objawy [-]": "płyn o zapachu alkoholu"
     },
     "oczekiwane": {
-      "komunikat [-]": "nie wyrzucaj z tego powodu; zlej albo wmieszaj"
+      "komunikat [-]": "płyn jest w porządku (produkt uboczny fermentacji drożdży), atrybucja CSU Extension; można go zlać albo wmieszać"
     },
     "tolerancja": null,
     "rodzaj": "typowy",
-    "pochodzenie": "S-43; rejestr 06: ZAK-HOO-001, ZAK-HOO-901 (bez „dokarm”)",
+    "pochodzenie": "S-43; rejestr 06: ZAK-HOO-001 (brzmienie), ZAK-HOO-901 (bez „dokarm”); decyzja D-066 (4a)",
     "miejsce": "docs\\brd\\reguly.md:140"
   },
   {

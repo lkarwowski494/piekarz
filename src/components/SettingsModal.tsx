@@ -19,6 +19,7 @@ import {
 import { useUnitSystem, setUnitSystem, UnitSystem } from '../lib/unit-converter';
 import { BakerRitualSection } from './settings/BakerRitualSection';
 import { PreferencesSection } from './settings/PreferencesSection';
+import { GodzinySnuSection } from './settings/GodzinySnuSection';
 import { BackupAndDataSection } from './settings/BackupAndDataSection';
 import { ImportRecepturySection } from './settings/ImportRecepturySection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
@@ -80,6 +81,9 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
             unitSystem={unitSystem}
             onUnitSystemChange={handleUnitSystemChange}
           />
+
+          {/* Godziny snu dla planu wypieku i prowadzenia (D-066 1a, BR-HARMO-002) [M1-audytor-generalny-130] */}
+          <GodzinySnuSection />
 
           {/* Zakupy: przywracanie bez ekranu zakupu [M1-audytor-generalny-010] */}
           <ZakupySection />

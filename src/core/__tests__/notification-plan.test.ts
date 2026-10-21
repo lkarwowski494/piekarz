@@ -27,7 +27,8 @@ describe('notification plan (006, ADR-006)', () => {
   it('a running step gives one piekarz.krok at timerEndsAt; paused or past gives none', () => {
     const p = planBakeNotification({ steps, stepIdx: 2, dutchOvenPhase: 'lid_on', timerEndsAt: now + 60_000 }, now);
     expect(p).toEqual(expect.objectContaining({ id: NOTIF_ID_BAKE, triggerAt: now + 60_000, level: 'active', textKey: 'krok.koniec' }));
-    expect(p?.params).toEqual({ stepId: 'step_3', stepName: steps[2].name });
+    // 130 (BR-CZAS-002): także nazwa następnego kroku; kroki bez planu godzin nie mają nextEnd
+    expect(p?.params).toEqual({ stepId: 'step_3', stepName: steps[2].name, nextName: steps[3].name });
     expect(planBakeNotification({ steps, stepIdx: 2, dutchOvenPhase: 'lid_on', timerEndsAt: null }, now)).toBeNull();
     expect(planBakeNotification({ steps, stepIdx: 2, dutchOvenPhase: 'lid_on', timerEndsAt: now }, now)).toBeNull();
     expect(planBakeNotification({ steps, stepIdx: steps.length, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1 }, now)).toBeNull();

@@ -34,7 +34,7 @@ Stan: E3 · Aktualizacja: 2026-10-19. Liczby w kryteriach pochodzą z wektorów 
 
 ### BR-KALK-003: Skalowanie do masy ciasta albo liczby sztuk z dokładnością 1 g
 - Przepływ: PR-01, PR-17 · Reguła: RD-15
-- Dowód potrzeby: J-01, J-11; skalowanie na liczbę gości (S-19, rec. 12569511193); decyzja DEC-11 (a) planu napraw M1 (dokładność 1 g; sól i drożdże z 0,1 g, suma ±1 g: ER-51)
+- Dowód potrzeby: J-01, J-11; skalowanie na liczbę gości (S-19, rec. 12569511193); decyzja DEC-11 (a) planu napraw M1 (dokładność 1 g; sól i drożdże z 0,1 g, suma ±1 g: ER-51, D-066 3a)
 - Kryteria akceptacji:
   - Scenariusz: Suma równa masie ciasta
     - Zakładając, że formuła ma mąkę 100%, wodę 70% i sól 2%

@@ -69,6 +69,34 @@ describe('blokada wygaszania ekranu na Stolnicy', () => {
     act(() => tree!.unmount());
   });
 
+  // Ekran gaśnie jak zwykle w kroku biernym (chłodnia), nie gaśnie w kroku czynnym [M1-audytor-generalny-130; 01-odkrywanie-501]
+  it('krok bierny nie blokuje wygaszania, krok czynny po „Zrobione” blokuje (BR-REKA-001 Krok bierny)', async () => {
+    const teraz = Date.now();
+    const krok = (id: string, name: string, isPassive: boolean, od: number) => ({
+      id, name, category: (isPassive ? 'final_proof' : 'final_shape') as 'final_proof' | 'final_shape', durationMin: 60, isPassive,
+      instructions: '', plannedStart: teraz + od * 3_600_000, plannedEnd: teraz + (od + 1) * 3_600_000,
+    });
+    setActiveBake({
+      id: 'bake_reka', recipeName: 'Chleb', startedAt: teraz, currentStageId: 'final_proof',
+      steps: [krok('final_proof', 'Garowanie chłodnicze w lodówce', true, 0), krok('final_shape', 'Formowanie ostateczne i koszyk', false, 1)],
+    });
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => {
+      tree = renderer.create(<StolnicaScreen />);
+    });
+    await act(async () => {
+      for (let i = 0; i < 20; i++) await Promise.resolve();
+    });
+    expect(mockActivate).not.toHaveBeenCalled();
+    const zrobione = tree!.root.findByProps({ testID: 'next-or-finish-step-btn' });
+    await act(async () => {
+      zrobione.props.onPress();
+      for (let i = 0; i < 20; i++) await Promise.resolve();
+    });
+    expect(mockActivate).toHaveBeenCalledTimes(1);
+    act(() => tree!.unmount());
+  });
+
   it('aktywny wypiek na widocznej Stolnicy blokuje; wyjście z zakładki i koniec wypieku zwalniają (BR-REKA-001 Krok czynny)', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {

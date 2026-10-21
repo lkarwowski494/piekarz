@@ -336,29 +336,36 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(tree!.root.findAll((n) => n.props?.testID === 'peak-prediction-box')).toHaveLength(0);
   });
 
-  it('calculates and updates metabolic peak prediction when adjusting ambient temperature chips', async () => {
+  // Zakwas na blacie: czas od dokarmienia bez godziny szczytu, dopóki progi nie mają źródła (OP-39, F-24)
+  // [M1-audytor-generalny-130; 01-odkrywanie-501] — wcześniej ten test utrwalał okno szczytu dla blatu
+  it('hides the peak window for a starter on the counter too (BR-ZAKW-003 Przewidywanie z godzin)', async () => {
     const [first] = await getStarters();
-    await saveStarter({ ...first, storageState: 'ROOM_TEMP' });
+    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 2 * 3_600_000 });
     await renderScreen();
 
-    // Verify peak prediction box is rendered
-    const predBox = tree!.root.findByProps({ testID: 'peak-prediction-box' });
-    expect(predBox).toBeDefined();
-
-    let fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Szacowane okno szczytu:');
-    expect(fullText).toContain('Temperatura otoczenia: 22°C');
-
-    // Switch temperature to 28°C
-    const chip28 = tree!.root.findByProps({ testID: 'temp-chip-28' });
-    expect(chip28).toBeDefined();
-
+    expect(tree!.root.findAll((n) => n.props?.testID === 'peak-prediction-box')).toHaveLength(0);
+    const fullText = extractCleanText(tree?.toJSON());
+    expect(fullText).not.toContain('Szacowane okno szczytu:');
+    expect(fullText).toMatch(/od dokarmienia/);
+    // wybór temperatury zostaje (faza na odznace) i nadal działa
     await act(async () => {
-      chip28.props.onPress();
+      tree!.root.findByProps({ testID: 'temp-chip-28' }).props.onPress();
     });
+    expect(extractCleanText(tree?.toJSON())).toContain('Temperatura otoczenia: 28°C');
+  });
 
-    fullText = extractCleanText(tree?.toJSON());
-    expect(fullText).toContain('Temperatura otoczenia: 28°C');
+  // Dojrzały zakwas bez podwojenia po 8 h od dokarmienia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007)
+  // [M1-audytor-generalny-130; 01-odkrywanie-501]
+  it('after 8.5 h without doubling the card advises feeding every 12 h (BR-ZAKW-003 Brak podwojenia w 8 h)', async () => {
+    const [first] = await getStarters();
+    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 8.5 * 3_600_000 });
+    await renderScreen();
+    expect(extractCleanText(tree?.toJSON())).toContain('Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.');
+
+    act(() => tree?.unmount());
+    await saveStarter({ ...first, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 6 * 3_600_000 });
+    await renderScreen();
+    expect(extractCleanText(tree?.toJSON())).not.toContain('Dokarmiaj dalej co 12 godzin');
   });
 
   it('opens and closes Starter & Lievito Madre Converter modal', async () => {

@@ -14,6 +14,7 @@ import {
 import { loadBakeSession } from '../data/bake-session-store';
 import { collectBackupData } from '../data/sqlite-store';
 import { t } from './i18n';
+import { formatTime } from './format';
 
 export type NotificationPermission = 'granted' | 'denied' | 'undetermined';
 
@@ -60,7 +61,16 @@ export function notificationText(p: PlannedNotification): { title: string; body:
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
     default: {
-      // Nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
+      // Następny krok i jego godzina: „{krok}: czas zacząć” (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130];
+      // ostatni krok — nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
+      const nast = p.params.nextName;
+      const doMs = Number(p.params.nextEnd);
+      if (nast) {
+        return {
+          title: t('{krok}: czas zacząć', { krok: t(nast) }),
+          body: Number.isFinite(doMs) && p.params.nextEnd ? t('Do {godzina}.', { godzina: formatTime(new Date(doMs)) }) : t('Krok „{step}” dobiegł końca.', { step: t(p.params.stepName ?? '') }),
+        };
+      }
       const step = p.params.stepName;
       return { title: t('Koniec kroku'), body: t('Krok „{step}” dobiegł końca.', { step: step ? t(step) : '' }) };
     }

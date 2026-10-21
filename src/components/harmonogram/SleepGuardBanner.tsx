@@ -9,6 +9,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
 import { SLEEP_COLLISION_TEMPLATE_PL, SleepCollision, sleepCollisionParams } from '../../scheduler/reverse-scheduler';
+import { formatTime } from '../../lib/format';
 
 export interface SleepGuardBannerProps {
   hasSleepCollision: boolean;
@@ -16,7 +17,11 @@ export interface SleepGuardBannerProps {
   suggestedActionPl?: string;
   autoResolved: { adjustedColdRetardHours: number } | null;
   onApplyAutoResolution: (hours: number) => void;
+  /** Okno snu z Ustawień do potwierdzenia „poza oknem snu ({od} – {do})” (D-066 1a) [M1-audytor-generalny-130]. */
+  okno?: { startH: number; koniecH: number };
 }
+
+const godzinaOkna = (h: number) => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, Math.round((h % 1) * 60)));
 
 const KROKI_W_NOCY = {
   one: '{n} krok wypada w nocy',
@@ -37,6 +42,7 @@ export function SleepGuardBanner({
   suggestedActionPl,
   autoResolved,
   onApplyAutoResolution,
+  okno = { startH: 23, koniecH: 7 },
 }: SleepGuardBannerProps) {
   if (hasSleepCollision) {
     return (
@@ -72,9 +78,10 @@ export function SleepGuardBanner({
         {t('Ochrona snu aktywna')}
       </Text>
       <Text style={styles.sleepGuardSafeBody}>
-        {t(
-          'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).'
-        )}
+        {t('Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).', {
+          od: godzinaOkna(okno.startH),
+          do: godzinaOkna(okno.koniecH),
+        })}
       </Text>
     </View>
   );

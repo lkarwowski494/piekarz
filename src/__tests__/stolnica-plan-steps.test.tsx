@@ -42,6 +42,9 @@ import legacyFixture from '../../tests/fixtures/bake-session-v1-1c38b28.json';
 import ryeFixture from '../../tests/fixtures/bake-session-v2-rye.json';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
+import { ustawRecepturePlanu } from '../lib/plan-receptury';
+import { calculateDoughRecipe } from '../core/domain-rules';
 /** Komunikat blokady z 6e120aa: po wariancie żytnim (a) roli 06 nie może się pokazać. */
 const RYE_MSG =
   'Stolnica nie prowadzi jeszcze chleba żytniego. Kroki dla ciasta żytniego są w przygotowaniu, więc ten wypiek nie został rozpoczęty.';
@@ -127,6 +130,8 @@ describe('Stolnica z receptury i planu (030)', () => {
   });
   afterEach(() => {
     jest.restoreAllMocks();
+    jest.useRealTimers();
+    ustawRecepturePlanu(null);
     setLang('pl');
   });
 
@@ -271,6 +276,45 @@ describe('Stolnica z receptury i planu (030)', () => {
       'Rise in the tin', 'Baking in the tin', 'Cooling',
     ]);
     expect(t(RYE_PROOF_TEXT)).toBe('Leave the dough in the tin until its surface reaches the rim of the tin.');
+  });
+
+  // Droga z aplikacji: receptura żytnia → „Ułóż plan” → plan wypieku → „Zacznij wypiek” (jedyny start, 057)
+  // [M1-audytor-generalny-030; 03-zakres-501]
+  it('receptura żytnia przez plan wypieku: plan bez składań, kroki i godziny Stolnicy = kroki planu, koniec = „gotowe” (BR-ETAP-002 Wariant żytni)', async () => {
+    for (const s of await getStarters()) await deleteStarter(s.id);
+    // Zegar stały 21.10.2026 06:00 (SYS-06): plan żytni ze studzeniem 24 h trwa ok. 2 dni, więc „pojutrze 23:30”
+    // nie daje stanu „za późno” o żadnej porze uruchomienia testu
+    jest.useFakeTimers({ now: new Date(2026, 9, 21, 6, 0).getTime(), doNotFake: ['nextTick', 'setImmediate', 'queueMicrotask'] });
+    const formula = {
+      flours: [{ name: 'Mąka żytnia 2000', percentage: 100, type: 'zytnia_2000' }],
+      waterPercentage: 75, saltPercentage: 2, starterPercentage: 20, targetDoughWeightGrams: 1000,
+    };
+    ustawRecepturePlanu({ recipeName: 'Żytni', calculatedRecipe: calculateDoughRecipe(formula), recipeFormula: formula });
+    const harm = await render(<HarmonogramScreen />);
+    await ustawGodzinePlanu(harm.root, 'Pojutrze', 23, 30);
+    const planTekst = textOf(harm.toJSON());
+    expect(planTekst).toContain('Rozrost w formie');
+    expect(planTekst).not.toMatch(/Składanie|składaniami|Stretch|Coil|Formowanie wstępne/);
+    await act(async () => {
+      button(harm.root, 'Zacznij wypiek').props.onPress();
+    });
+    act(() => harm.unmount());
+
+    const bake = getActiveBake()!;
+    expect(bake.isHighRye).toBe(true);
+    expect(bake.steps!.map((s) => [s.id, s.name])).toEqual(RYE_STAGES);
+    const gotowe = new Date();
+    gotowe.setDate(gotowe.getDate() + 2);
+    gotowe.setHours(23, 30, 0, 0);
+    expect(bake.steps![bake.steps!.length - 1].plannedEnd).toBe(gotowe.getTime());
+    for (let i = 1; i < bake.steps!.length; i++) expect(bake.steps![i].plannedStart).toBe(bake.steps![i - 1].plannedEnd);
+
+    const stol = await render(<StolnicaScreen />);
+    act(() => stol.unmount());
+    const saved = await loadBakeSession();
+    expect(saved?.steps.map((s) => [s.id, s.plannedStart, s.plannedEnd])).toEqual(
+      bake.steps!.map((s) => [s.id, s.plannedStart, s.plannedEnd])
+    );
   });
 
   it('żyto: rozrost w formie kończy stan ciasta, nie zegar — po minutniku z planu krok trwa dalej', async () => {

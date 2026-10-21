@@ -31,6 +31,8 @@ export interface StarterPeakActivityCardProps {
   >;
   /** W lodówce okna szczytu nie liczymy (model temperatury 20–26 °C, FER-Q10-902) [M1-audytor-generalny-044]. */
   showPeakWindow?: boolean;
+  /** Wybór temperatury otoczenia (faza na odznace); w lodówce ukryty. */
+  pokazTemperature?: boolean;
   ambientTempC: number;
   onAmbientTempChange: (temp: number) => void;
   unitSystem: UnitSystem;
@@ -40,6 +42,7 @@ export function StarterPeakActivityCard({
   phaseResult,
   peakPrediction,
   showPeakWindow = true,
+  pokazTemperature = true,
   ambientTempC,
   onAmbientTempChange,
   unitSystem,
@@ -89,8 +92,13 @@ export function StarterPeakActivityCard({
         <Text style={styles.predictionStatusText}>
           {t(peakPrediction.statusTemplatePl, peakPrediction.statusParams)}
         </Text>
+      </View>
+      )}
 
-        {/* Ambient Temperature Selector */}
+      {/* Temperatura otoczenia także bez okna szczytu: z niej liczy się faza na odznace (bez wyboru byłoby
+          ciche założenie 22 °C); w lodówce bez niej, jak dotąd [M1-audytor-generalny-130] */}
+      {pokazTemperature && (
+      <View style={styles.predictionBox}>
         <Text style={styles.tempSelectorHeading}>
           {t('Temperatura otoczenia')}: {formatTemperature(ambientTempC, unitSystem)}
         </Text>
