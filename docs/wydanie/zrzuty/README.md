@@ -29,3 +29,7 @@ Ramki to eksport web aplikacji (Expo web) z podkładkami modułów natywnych, zr
 Podpisy biorą się z metadanych lokalizacji. Etykiety przycisków, które klika skrypt, i tekst oznaczenia płatnego pochodzą ze słowników aplikacji (`src/lib/i18n-slowniki/`, `src/lib/i18n-en/`), a godzina z `Intl` przeglądarki. Nowa lokalizacja wymaga więc tylko pliku metadanych, wpisu w tabelach `LOK` i `DANE` w `generuj.mjs` (locale przeglądarki, przykładowa nazwa zakwasu i notatka) oraz w `JEZYKI` w teście.
 
 Render web różni się od iOS: nie ma paska stanu, tekst treści ma krój systemowy Windows zamiast SF Pro, a cienie i przewijanie wyglądają inaczej. Dla japońskiego, koreańskiego i chińskiego (tradycyjnego) ramka używa kroju zastępczego Windows (Yu Gothic, Malgun Gothic, Microsoft JhengHei), bo Sofia Sans nie ma tych pism. Przed wysyłką do App Store Connect właściciel ogląda ramki na telefonie.
+
+## Zrzut zakupu dla App Review (`review/zakup.png`)
+
+Jeden plik PNG ekranu zakupu Piekarz Pro dla trzech produktów (instrukcja §3.8), z finalnej aplikacji, razem ze zrzutami sklepu z finalnej aplikacji (właściciel, 2026-10-21: „Rzeczy jak zrzuty powinny być z finalnej aplikacji.”). Ścieżkę podaje `docs/wydanie/asc-zgloszenie.json` (`zrzutZakupu`). Dopóki pliku nie ma, `scripts/asc-zgloszenie.mjs` wypisuje trzy pozycje „czeka” i niczego dla nich nie wysyła; gdy plik jest, porównuje jego MD5 ze zrzutem w App Store Connect i wysyła go tylko przy zapisie za zgodą [M1-audytor-generalny-186].

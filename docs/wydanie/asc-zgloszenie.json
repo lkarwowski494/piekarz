@@ -20,7 +20,7 @@
   },
   "zrodloOpisow": "docs/decyzje.md D-065 (opcja (a) pytania 1 toru p8c, 2026-10-21); lokalizacje produktów tylko en-US i pl (wybór 1a na STOP start p8b); każdy opis ≤ 45 znaków (limit opisu In-App Purchase w App Store Connect Help).",
   "zrzutZakupu": "docs/wydanie/zrzuty/review/zakup.png",
-  "zrodloZrzutuZakupu": "docs/wydanie/instrukcja-ustawien.md §3.8; plik powstanie w torze p9c (zadanie M1-audytor-generalny-127, ekran zakupu); jeden zrzut dla trzech produktów",
+  "zrodloZrzutuZakupu": "docs/wydanie/instrukcja-ustawien.md §3.8; ekran zakupu (zadanie M1-audytor-generalny-127) w finalnej aplikacji, razem ze zrzutami sklepu z finalnej aplikacji (właściciel 2026-10-21; docs/wydanie/zrzuty/README.md); jeden zrzut dla trzech produktów",
   "prywatnosc": "Data Not Collected",
   "zrodloPrywatnosci": "docs/wydanie/instrukcja-ustawien.md §7.1"
 }

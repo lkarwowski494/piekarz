@@ -147,7 +147,7 @@ describe('scripts/asc-zgloszenie.mjs na atrapie App Store Connect API (M1-audyto
       const brakZakupu = fs.existsSync(path.join(root, dane.zrzutZakupu)) ? 0 : 3;
       expect(czeka(w)).toBe(nullOpisow + brakZakupu);
       if (nullOpisow) expect(w.wyjscie).toMatch(/czeka · opis produktu .*decyzja właściciela/);
-      if (brakZakupu) expect(w.wyjscie).toMatch(/czeka · zrzut ekranu zakupu dla App Review .*tor p9c/);
+      if (brakZakupu) expect(w.wyjscie).toMatch(/czeka · zrzut ekranu zakupu dla App Review .*z finalnej aplikacji/);
     });
   });
 
