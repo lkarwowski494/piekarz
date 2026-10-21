@@ -23,6 +23,8 @@ export type OpcjeAtrapy = {
   produkty: { monthly: string; yearly: string; lifetime: string };
   /** Bez wersji iOS w stanie edycji. */
   bezWersji?: boolean;
+  /** Numer wersji iOS w edycji (domyślnie 1.0.0, jak app.json). */
+  numerWersji?: string;
   /** Każde zapytanie inne niż GET dostaje 403 FORBIDDEN_ERROR. */
   zabronZapis?: boolean;
 };
@@ -52,7 +54,7 @@ export class AtrapaZgloszenia {
     // en-US (nazwa z TestFlight), wersja 1.0 w przygotowaniu z pustą lokalizacją en-US.
     this.lokInfo.push({ type: 'appInfoLocalizations', id: 'ail-0', info: 'info-1', attributes: { locale: 'en-US', name: 'Piekarz', subtitle: null, privacyPolicyUrl: null } });
     if (!o.bezWersji) {
-      this.wersje.push({ type: 'appStoreVersions', id: 'ver-1', attributes: { platform: 'IOS', versionString: '1.0.0', appStoreState: 'PREPARE_FOR_SUBMISSION', appVersionState: 'PREPARE_FOR_SUBMISSION' } });
+      this.wersje.push({ type: 'appStoreVersions', id: 'ver-1', attributes: { platform: 'IOS', versionString: o.numerWersji ?? '1.0.0', appStoreState: 'PREPARE_FOR_SUBMISSION', appVersionState: 'PREPARE_FOR_SUBMISSION' } });
       this.lokWersji.push({ type: 'appStoreVersionLocalizations', id: 'avl-0', wersja: 'ver-1', attributes: { locale: 'en-US', description: null, keywords: null, promotionalText: null, supportUrl: null } });
     }
     const p = o.produkty;
@@ -221,6 +223,12 @@ export class AtrapaZgloszenia {
       if ('locale' in a) return this.wyslij(res, 409, { errors: [{ status: '409', title: 'locale nie do zmiany' }] });
       Object.assign(z.attributes, a);
       return this.wyslij(res, 200, { data: z });
+    }
+    if (metoda === 'PATCH' && (m = /^\/v1\/appStoreVersions\/([^/]+)$/.exec(p))) {
+      const w = this.wersje.find((x) => x.id === m![1]);
+      if (!w || Object.keys(a).some((kl) => kl !== 'versionString')) return this.wyslij(res, w ? 409 : 404, {});
+      Object.assign(w.attributes, a);
+      return this.wyslij(res, 200, { data: w });
     }
     if (metoda === 'POST' && p === '/v1/appScreenshotSets') {
       const lok = rel('appStoreVersionLocalization')?.id;

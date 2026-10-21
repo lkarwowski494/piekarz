@@ -245,6 +245,22 @@ describe('scripts/asc-zgloszenie.mjs na atrapie App Store Connect API (M1-audyto
     });
   });
 
+  it('numer wersji w ASC inny niż app.json (1.0 wobec 1.0.0): zmieni numer, potem metadane i zrzuty tej wersji; 0 różnic', async () => {
+    await zAtrapa({ numerWersji: '1.0' }, async (a) => {
+      const arg = ['--dane', daneTestowe, '--sumy', sumyTestowe, '--zrzuty', zrzutyTestowe];
+      const sucho = await uruchom(a.adres, arg);
+      expect(sucho.kod).toBe(0);
+      expect(sucho.wyjscie).toMatch(/zmieni · numer wersji iOS w edycji: 1\.0\.0 \(teraz 1\.0/);
+      expect(a.zapisy()).toEqual([]);
+      const w = await uruchom(a.adres, [...arg, '--zgoda', plik('wersja.json', { zapis: true, skrot: skrot(sucho), zgoda: '2026-10-21: test' })]);
+      expect(w.wyjscie).toMatch(/Po zapisie: różnice 0/);
+      expect(w.kod).toBe(0);
+      expect(a.wersje[0].attributes.versionString).toBe('1.0.0');
+      expect(a.lokWersji).toHaveLength(LOKALIZACJE.length);
+      expect(a.zestawy).toHaveLength(LOKALIZACJE.length * 2);
+    });
+  });
+
   it('sumy niezgodne z plikiem w repo: kod 1, bez zapytań zapisu', async () => {
     await zAtrapa({}, async (a) => {
       const zle = JSON.parse(JSON.stringify(sumy));

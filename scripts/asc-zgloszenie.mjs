@@ -235,7 +235,11 @@ export function planuj(cel, stan) {
   const op = (rodzaj, obiekt, opis, wykonaj = null, tresc = '') => ops.push({ rodzaj, obiekt, opis, wykonaj, tresc });
 
   if (!stan.wersja) op('ręcznie', 'wersja', `wersja iOS ${cel.wersja} w stanie edycji (Prepare for Submission): brak w App Store Connect — utwórz ją w ASC, potem uruchom ponownie (instrukcja §10.2)`);
-  else if (stan.wersja.versionString !== cel.wersja) op('ręcznie', 'wersja', `wersja iOS w edycji ma numer ${stan.wersja.versionString}, a app.json ${cel.wersja} — zmień numer w ASC albo w app.json (rola 10)`);
+  // Numer wersji z jednego źródła, app.json (docs/wydanie/sklep.md §1); metadane wersji dopiero po zmianie numeru (następna runda).
+  else if (stan.wersja.versionString !== cel.wersja) {
+    const id = stan.wersja.id;
+    op('zmieni', 'wersja', `numer wersji iOS w edycji: ${cel.wersja} (teraz ${stan.wersja.versionString}; jedno źródło: app.json, docs/wydanie/sklep.md §1)`, (k) => k.patch(`/v1/appStoreVersions/${e(id)}`, { data: { type: 'appStoreVersions', id, attributes: { versionString: cel.wersja } } }));
+  }
   else op(BEZ, 'wersja', `wersja iOS ${cel.wersja} w stanie edycji`);
   if (!stan.info) op('ręcznie', 'info', 'App Information w stanie edycji: brak w App Store Connect');
 
@@ -262,7 +266,7 @@ export function planuj(cel, stan) {
       }
       const brakPlikow = docel.filter((r) => !r.sciezka).length;
       const dopisek = brakPlikow ? ` (pliki poza repo: ${brakPlikow} — do wysłania potrzebne --zrzuty)` : '';
-      const wykonaj = lw && !brakPlikow ? async (k) => {
+      const wykonaj = lw && stan.wersja.versionString === cel.wersja && !brakPlikow ? async (k) => {
         const idZestawu = zestaw?.id ?? (await k.post('/v1/appScreenshotSets', { data: { type: 'appScreenshotSets', attributes: { screenshotDisplayType: typ }, relationships: { appStoreVersionLocalization: rel('appStoreVersionLocalizations', lw.id) } } })).data.id;
         for (const x of obecne) await k.usun(`/v1/appScreenshots/${e(x.id)}`);
         const nowe = [];
