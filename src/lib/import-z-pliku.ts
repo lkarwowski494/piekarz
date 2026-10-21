@@ -9,7 +9,8 @@ import { parseAndValidateBackup, safetyBackup, ValidatedBackup } from './backup'
 import { decodeRecipeFromShareUrl } from './recipe-sharing';
 import { collectBackupData, restoreFromBackupData, saveRecipe } from '../data/sqlite-store';
 import { resyncNotifications } from './notifications';
-import { t, tPlural } from './i18n';
+import { initLanguage, t, tPlural } from './i18n';
+import { initUnitSystem } from './unit-converter';
 import { appLocale, formatDate } from './format';
 import type { StoredRecipe } from '../data/db';
 
@@ -71,6 +72,10 @@ export function zdanieKopii(kopia: ValidatedBackup): string {
 export async function importujKopie(kopia: ValidatedBackup): Promise<void> {
   await safetyBackup('import', await collectBackupData());
   await restoreFromBackupData(kopia.state);
+  // Język i jednostki z kopii działają od razu, bez ponownego uruchomienia; przed przypomnieniami, żeby ich
+  // teksty były w nowym języku. Kopia bez tych pól nic nie zmienia [M2-koordynator-napraw-502 (p11)].
+  await initLanguage();
+  await initUnitSystem();
   void resyncNotifications();
 }
 
