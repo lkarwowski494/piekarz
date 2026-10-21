@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   sectionHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     marginTop: odstepy.xxl,
   },
   emptyHistoryTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,

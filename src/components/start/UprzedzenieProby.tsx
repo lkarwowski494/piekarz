@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     padding: odstepy.l,
     gap: odstepy.s,
   },
-  tytul: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, fontFamily: theme.typography.krojTytulow },
+  tytul: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz, get fontFamily() { return theme.typography.krojTytulow; } },
   tekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   drugi: {
     minHeight: theme.cele.glownyPrzeplyw,

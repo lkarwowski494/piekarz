@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   modalTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 20,
     fontWeight: '800',
     color: theme.colors.tusz,

@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   opis: { flexGrow: 1, flexShrink: 1, flexBasis: 160, minWidth: 0, gap: odstepy.xs },
   krokTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tytul2.pt,
     fontWeight: '700',
     color: theme.colors.tusz,

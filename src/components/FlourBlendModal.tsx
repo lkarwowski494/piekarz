@@ -293,7 +293,7 @@ const styles = StyleSheet.create({
     maxHeight: '90%',
   },
   modalTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 18,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -423,7 +423,7 @@ const styles = StyleSheet.create({
     borderTopColor: theme.colors.linia,
   },
   addSectionTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.tusz2,

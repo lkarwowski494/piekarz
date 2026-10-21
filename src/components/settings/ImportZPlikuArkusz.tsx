@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   navTekst: { fontSize: T.tresc.pt, color: theme.colors.akcentTekst },
   navWazny: { fontWeight: '600' },
   tresc: { padding: theme.spacing.md, gap: theme.spacing.md },
-  tytul: { fontFamily: theme.typography.krojTytulow, fontSize: T.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
+  tytul: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: T.tytulKroku.pt, fontWeight: '700', color: theme.colors.tusz },
   opis: { fontSize: T.objasnienie.pt, color: theme.colors.tusz2 },
   pole: {
     minHeight: 96,

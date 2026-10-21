@@ -6,7 +6,8 @@
 // ============================================================================
 
 import { koloryMotywu } from './motyw';
-import { cele, odstepy, promienie, typografia } from './tokeny';
+import { cele, odstepy, promienie } from './tokeny';
+import { krojTytulowDlaJezyka } from './kroj-tytulow';
 
 export const theme = {
   colors: koloryMotywu,
@@ -25,8 +26,12 @@ export const theme = {
   },
   // Cele dotykowe (DEC-15 a): 48 prowadzenie i akcje główne, 44 pozostałe, 64 przycisk kciuka [M1-audytor-generalny-052]
   // Krój tytułów, czasów i cen (D-050); treść krojem systemowym (fontFamily nieustawione) [M1-audytor-generalny-055]
+  // W językach bez liter w kroju (vi, ja, ko, zh-Hant) krój systemowy; getter, więc style czytają go przy renderze,
+  // także po zmianie języka (`get fontFamily()` w stylach) [M1-audytor-generalny-171; 09-lokalizacja-508]
   typography: {
-    krojTytulow: typografia.krojTytulow,
+    get krojTytulow(): string | undefined {
+      return krojTytulowDlaJezyka();
+    },
   },
   cele: {
     glownyPrzeplyw: cele.glownyPrzeplyw,

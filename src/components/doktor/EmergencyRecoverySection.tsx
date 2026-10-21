@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     marginBottom: theme.spacing.md,
   },
   sectionHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   recoveryCardTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   recoveryStepsHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 13,
     fontWeight: '700',
     color: theme.colors.tusz,

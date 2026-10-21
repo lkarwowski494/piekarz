@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   lessonTitleBlock: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     flex: 1,
     marginRight: 8,
   },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     color: theme.colors.akcentTekst,
   },
   lessonTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.spacing.sm,
   },
   subSectionTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 12,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.obwodka,
   },
   scienceCalloutTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 11,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     borderLeftColor: theme.colors.obwodka,
   },
   passingTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 11,
     fontWeight: '700',
     color: theme.colors.tusz,

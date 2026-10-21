@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     borderRadius: promienie.przyciskGlowny,
   },
   glownyTekst: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 20,
     fontWeight: '700',
     color: theme.colors.naAkcencie,

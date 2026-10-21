@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,
   },
-  title: { fontFamily: theme.typography.krojTytulow,
+  title: { get fontFamily() { return theme.typography.krojTytulow; },
            color: theme.colors.tusz, fontSize: 15, fontWeight: '700', marginBottom: 4 },
   body: { color: theme.colors.tusz2, fontSize: 13, lineHeight: 18, marginBottom: theme.spacing.sm },
   button: { minHeight: 44, justifyContent: 'center', alignSelf: 'flex-start' },

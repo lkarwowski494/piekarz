@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   modalTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 18,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -495,7 +495,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   resultCardTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 14,
     fontWeight: '800',
     color: theme.colors.tusz,

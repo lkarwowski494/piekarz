@@ -79,8 +79,12 @@ describe('055: duży tekst i krój tytułów', () => {
           for (const p of n.arguments[0].properties) {
             if (!ts.isPropertyAssignment(p) || !ts.isObjectLiteralExpression(p.initializer)) continue;
             const klucz = p.name.getText(sf);
-            const ff = p.initializer.properties.find((q) => ts.isPropertyAssignment(q) && q.name.getText(sf) === 'fontFamily');
-            const wartosc = ff && ts.isPropertyAssignment(ff) ? ff.initializer.getText(sf) : '';
+            // Krój czytany przy renderze: `get fontFamily() { return theme.typography.krojTytulow; }` to ta sama wartość
+            // co przypisanie, liczona po zmianie języka (vi, CJK: krój systemowy) [M1-audytor-generalny-171]
+            const ff = p.initializer.properties.find((q) => (ts.isPropertyAssignment(q) || ts.isGetAccessorDeclaration(q)) && q.name.getText(sf) === 'fontFamily');
+            const zwrot = ff && ts.isGetAccessorDeclaration(ff) && ff.body?.statements.length === 1 ? ff.body.statements[0] : undefined;
+            const wartosc =
+              ff && ts.isPropertyAssignment(ff) ? ff.initializer.getText(sf) : zwrot && ts.isReturnStatement(zwrot) ? zwrot.expression?.getText(sf) ?? '' : '';
             if (/'System'/.test(wartosc)) bez.push(`${rel(f)}: ${klucz} ma fontFamily 'System'`);
             if (!STYL_TYTULU.test(klucz)) continue;
             liczba++;

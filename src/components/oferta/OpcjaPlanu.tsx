@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   wybrana: { borderWidth: 3, borderColor: theme.colors.akcent },
   tresc: { flex: 1, minWidth: 0, gap: 2 },
   nazwa: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
-  cena: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', fontFamily: theme.typography.krojTytulow, color: theme.colors.tusz },
+  cena: { fontSize: typografia.style.tytul2.pt, fontWeight: '700', get fontFamily() { return theme.typography.krojTytulow; }, color: theme.colors.tusz },
   opis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
   znacznik: {
     width: 24,

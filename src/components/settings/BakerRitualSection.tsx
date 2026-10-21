@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   sectionTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -132,13 +132,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   optionTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
   optionTitleActive: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     color: theme.colors.akcentTekst,
   },
   optionSubtitle: {

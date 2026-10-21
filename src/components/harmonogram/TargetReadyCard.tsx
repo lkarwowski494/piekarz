@@ -107,7 +107,7 @@ export function TargetReadyCard({
 const styles = StyleSheet.create({
   sekcja: { marginBottom: odstepy.l },
   pytanie: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.tytulKroku.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   dzien: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   godzina: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: typografia.style.czas.pt,
     fontWeight: '700',
     color: theme.colors.tusz,

@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   modalTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 18,
     fontWeight: '800',
     color: theme.colors.tusz,
@@ -370,16 +370,16 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.obwodka,
   },
   stockBannerTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 13,
     fontWeight: '700',
   },
   stockBannerTitleSuccess: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     color: theme.colors.tusz,
   },
   stockBannerTitleWarning: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     color: theme.colors.tusz,
   },
   substituteText: {
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
     maxHeight: 380,
   },
   sectionHeading: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 13,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -492,7 +492,7 @@ const styles = StyleSheet.create({
     borderColor: theme.colors.linia,
   },
   formTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 13,
     fontWeight: '700',
     color: theme.colors.tusz,

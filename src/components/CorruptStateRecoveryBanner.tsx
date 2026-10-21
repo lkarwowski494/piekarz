@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   title: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     color: theme.colors.blad,
     fontWeight: '700',
     fontSize: 14,

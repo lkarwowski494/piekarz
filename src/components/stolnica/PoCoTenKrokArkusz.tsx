@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
   },
   tytul: { flex: 1, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   tresc: { padding: odstepy.l, gap: odstepy.m },
-  krok: { fontFamily: theme.typography.krojTytulow, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
+  krok: { get fontFamily() { return theme.typography.krojTytulow; }, fontSize: typografia.style.tytul2.pt, fontWeight: '700', color: theme.colors.tusz },
   zdanie: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
 });

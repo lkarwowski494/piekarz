@@ -272,14 +272,14 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.powierzchnia,
   },
   headerTitleRow: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 4,
   },
   title: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 20,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -346,12 +346,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cardTitleBlock: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     flex: 1,
     marginRight: 8,
   },
   cardTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 16,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   proTipTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 11,
     fontWeight: '700',
     color: theme.colors.akcentTekst,

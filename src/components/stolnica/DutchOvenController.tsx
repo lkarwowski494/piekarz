@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   phaseTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 14,
     fontWeight: '700',
     color: theme.colors.tusz,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   steamAlertTitle: {
-    fontFamily: theme.typography.krojTytulow,
+    get fontFamily() { return theme.typography.krojTytulow; },
     fontSize: 15,
     fontWeight: '800',
     color: theme.colors.ostrzTusz,
