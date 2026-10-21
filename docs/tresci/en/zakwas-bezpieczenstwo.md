@@ -33,7 +33,7 @@ Discard the starter [T:ZAK-NAL-001]
 
 ## wynik.discard.actionPl
 Do not use this starter and do not try to rescue it. [T:ZAK-NAL-001,ZAK-PLE-002,ZAK-KOL-001]
-Mold can reach deep into the starter, even when only a small patch shows on the surface. [T:ZAK-PLE-003]
+Mold can reach deep into the starter, even when only a small patch of growth shows on the surface. [T:ZAK-PLE-003]
 Do not sniff a starter with growth on it, as this can cause breathing problems. [T:ZAK-WAC-001]
 Wash and rinse the jar thoroughly before starting a new starter. [T:ZAK-NAC-001]
 

@@ -7280,9 +7280,7 @@
     ]
   },
   "Zakwas": {
-    "gdzie": [
-      "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
-    ],
+    "gdzie": [],
     "opis": "Nazwa zakładki i tytuł ekranu prowadzenia zakwasu (karmienie, profil, przypomnienia); jedno krótkie słowo pod ikoną zakładki. Nie składnik receptury: ten ma klucz „Zakwas|składnik”."
   },
   "Zakwas (Levain)": {
@@ -7363,6 +7361,7 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (tekst w JSX)",
       "src/components/ShareRecipeQrModal.tsx (tekst w JSX)",
+      "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
       "src/components/settings/ImportZPlikuArkusz.tsx (etykieta)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/SkladnikiKroku.tsx (zakwas)",
@@ -8448,8 +8447,14 @@
   },
   "{n} cz.": {
     "gdzie": [
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: few)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: many)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: one)",
+      "src/components/zakwas/StarterFeedingCard.tsx (dane: other)"
     ]
+  },
+  "{n} cz.#one": {
+    "gdzie": []
   },
   "{n} dni": {
     "gdzie": [
