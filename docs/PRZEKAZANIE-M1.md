@@ -79,7 +79,8 @@ Wszystkie pliki (repo, katalog audytu, biblioteka `prompts`, `narzedzia-api` z k
 1. **Zamknij stare sesje.** W aplikacji Claude zarchiwizuj sesje tego projektu, prawy przycisk → Archiwizuj. Są czyste i ich praca jest w `master`.
 2. **Zmień konto.** W aplikacji Claude kliknij swój profil w lewym dolnym rogu, wybierz „Wyloguj”, a potem zaloguj się na nowe konto.
 3. **Otwórz projekt.** Zakładka **Code** → nowa sesja → wybierz folder `C:\Users\lukas\Projekty\piekarz`.
-   - Gdy aplikacja zapyta o zaufanie do folderu, potwierdź.
+   - Dodaj do tej sesji drugi folder `C:\Users\lukas\Projekty\prompts` (biblioteka ról; jak w poprzedniej sesji). Sesja składa z niego polecenia ról (`tools/assemble.mjs`). Folderu nie zmieniaj ani nie commituj: leżą w nim niezatwierdzone zmiany agenta biblioteki.
+   - Gdy aplikacja zapyta o zaufanie do folderu, potwierdź dla obu folderów.
    - Model: **Opus**, wysiłek: **High**.
    - Tryb uprawnień: taki sam jak dotąd (Auto).
 4. **Daj prompt startowy.** Dołącz plik `C:\Users\lukas\Projekty\piekarz\audit\PROMPT-START-NOWE-KONTO.md` jako załącznik i napisz „Wykonaj ten prompt”. Możesz też wkleić jego treść; jest też niżej w sekcji 8.
