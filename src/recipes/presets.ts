@@ -290,7 +290,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     id: 'graham_bread_honey',
     namePl: 'Chleb Graham z miodem i siemieniem',
     category: 'sourdough',
-    descriptionPl: 'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
+    descriptionPl: 'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 1850 (Graham)', percentage: 60.0, type: 'pszenna_graham' },

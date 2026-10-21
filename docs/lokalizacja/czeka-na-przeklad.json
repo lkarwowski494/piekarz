@@ -35,6 +35,11 @@
       "klucz": "{nazwa}: {n} z 5",
       "powod": "etykieta VoiceOver wykresu profilu bochenka (oś i ocena 1–5) w Dzienniku i przy zapisie oceny [audyt-niezalezny G-3]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.",
+      "powod": "opis receptury bazowej bez słowa „Odżywczy” (twierdzenie zdrowotne bez źródła); nowy klucz zastępuje stary opis [audyt-niezalezny E-8]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

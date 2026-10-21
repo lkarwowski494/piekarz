@@ -18,8 +18,8 @@ export const EN_18: Record<string, string> = {
   // {dni} = liczba dni z odmianą formami CLDR („{n} dzień”) [M1-audytor-generalny-071]
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Needs a refresh ({dni} in the cold)',
   'Uśpiony w lodówce ({dni})': 'Dormant in the fridge ({dni})',
-  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.':
-    'Nourishing bread from coarsely ground Graham wheat flour with natural honey and flaxseed.',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.':
+    'Bread from coarsely ground Graham wheat flour with natural honey and flaxseed.',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Light wheat bread flour (Polish type 650)',
   'Mąka pszenna typ 650': 'Light wheat flour (Polish type 650)',
   'Mąka pszenna luksusowa typ 550': 'Fine light wheat flour (Polish type 550)',
