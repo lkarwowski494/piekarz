@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 44 | 44 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 598 | 598 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 393 | 393 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 161 | 161 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 605 | 605 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 394 | 394 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 163 | 163 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1205** | Pokrytych: **1205** | Brakujących: **0**
+Łącznie elementów: **1215** | Pokrytych: **1215** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Nie zapisałem receptury. Spróbuj jeszcze raz.` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Importuj recepturę` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/import-z-pliku-113.test.tsx |
 
-*(... i 905 kolejnych elementów w pełnym wykazie)*
+*(... i 915 kolejnych elementów w pełnym wykazie)*

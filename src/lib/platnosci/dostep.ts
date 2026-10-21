@@ -8,7 +8,15 @@
 import { BEZ_UPRAWNIENIA, Funkcja } from './konfiguracja';
 
 /** wygasa: ms; null = bez końca (zakup dożywotni). odebrane: zwrot albo odebranie z Family Sharing. */
-export type Uprawnienie = { produkt: string; wygasa: number | null; odebrane: boolean };
+export type Uprawnienie = {
+  produkt: string;
+  wygasa: number | null;
+  odebrane: boolean;
+  /** Bieżący okres to bezpłatna oferta wprowadzająca; brak = sklep nie podał (uprzedzenie 126 się nie pokazuje). */
+  proba?: boolean;
+  /** Stan automatycznego odnawiania; brak = nieznany (wariant neutralny uprzedzenia, §11d 126). */
+  odnawia?: boolean;
+};
 /** blad: brak sieci albo sklep niedostępny — to nie jest brak zakupu. */
 export type Odczyt = { zrodlo: 'sklep'; uprawnienia: Uprawnienie[] } | { zrodlo: 'blad' };
 /** Ostatni udany odczyt sklepu. */

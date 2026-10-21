@@ -1,6 +1,18 @@
 // Słownik ko, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: 숙성 시간 {fermentationTimeHours}. {flavorProfilePl}',
+  'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': '젖산과 초산의 복합적인 풍미, 오래가는 신선함, 낮은 혈당 지수.',
+  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': '리프레시 필요 (냉장 {elapsedDays}일)',
+  'Uśpiony w lodówce ({elapsedDays} dni)': '냉장고에서 휴면 중 ({elapsedDays}일)',
+  'Mąka pszenna typ 650 (chlebowa jasna)': '밀가루 (빵용 백색 밀가루)',
+  'Mąka pszenna Manitoba / Forte (W > 300)': '마니토바 / 포르테 밀가루 (W > 300)',
+  'Mąka żytnia typ 720': '호밀가루 (중간 제분도)',
+  'Mąka z pszenicy durum (Semolina)': '듀럼밀 가루 (세몰리나)',
+  'Mąka pszenna typ 650': '밀가루 (백색)',
+  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '굵게 간 그레이엄 밀가루(전립분)에 천연 꿀과 아마씨를 더한 영양 많은 빵.',
+  'Mąka pszenna graham typ 1850': '그레이엄 밀가루 (전립분)',
+  'Mąka pszenna Manitoba / Forte (W > 350)': '마니토바 / 포르테 밀가루 (W > 350)',
   'Mąka pszenna włoska Tipo 00': '이탈리아 밀가루 Tipo 00',
   'Mąka pszenna luksusowa typ 550': '밀가루 (고운 백색)',
   'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': '고단백 밀가루 (W>280 / 마니토바)',

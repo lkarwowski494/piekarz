@@ -45,4 +45,17 @@ export const EN_18: Record<string, string> = {
   'Usuń wszystkie dane': 'Delete All Data',
   'Usunąć wszystkie dane?': 'Delete all data?',
   'Usuń wszystko': 'Delete All',
+  // Uprzedzenie przed końcem próby na „Dziś” (design-spec §11d 126, rola 04) [M1-audytor-generalny-126]
+  'Okres próbny kończy się {data}': 'Your free trial ends on {data}',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.':
+    "Then the App Store will charge {cena} for one year of your subscription. If you don't want to pay, cancel your subscription before the trial ends.",
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.':
+    "Then the App Store will charge {cena} for one month of your subscription. If you don't want to pay, cancel your subscription before the trial ends.",
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': "Your subscription won't renew, so you won't be charged.",
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.':
+    "If your subscription isn't canceled, the App Store will then charge for the plan you chose.",
+  // Nazwa planu jak w istniejącym EN („…require Baker Pro.”), nie „Piekarz Pro” z teksty.js roli 04 (znalezisko do raportu)
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.':
+    'Without a purchase, your history and data stay. Calculations, plans, and guidance will require Baker Pro.',
+  'Zamknij informację o końcu próby': 'Close trial end notice',
 };

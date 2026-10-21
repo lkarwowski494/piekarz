@@ -1,4 +1,4 @@
-// Słownik uk, część 9 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik uk, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.': 'Після піку закваска стає кислішою та утворює менше бульбашок газу.',
@@ -113,6 +113,13 @@ export const CZESC: Record<string, string> = {
   'Usunąć wszystkie dane?': 'Видалити всі дані?',
   'Usuń wszystkie dane': 'Видалити всі дані',
   'Usuń wszystko': 'Видалити все',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Без покупки ваша історія та дані залишаться. Для розрахунків, планування та супроводу знадобиться Пекар Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Якщо підписку не буде скасовано, App Store тоді стягне оплату за вибраний план.',
+  'Okres próbny kończy się {data}': 'Пробний період закінчується {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Підписка не поновиться, тож ви нічого не заплатите.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тоді App Store стягне {cena} за місяць підписки. Якщо не хочете платити, скасуйте підписку до завершення пробного періоду.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Тоді App Store стягне {cena} за рік підписки. Якщо не хочете платити, скасуйте підписку до завершення пробного періоду.',
+  'Zamknij informację o końcu próby': 'Закрити повідомлення про завершення пробного періоду',
   'Uczeń Piekarski': 'Учень пекаря',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: час дозрівання {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Складний букет молочної та оцтової кислот, тривала свіжість і низький глікемічний індекс.',
@@ -148,22 +155,4 @@ export const CZESC: Record<string, string> = {
   '{n} zakwas#other': '{n} закваски',
   '{n} wpis w Dzienniku#one': '{n} запис у Журналі',
   '{n} wpis w Dzienniku#few': '{n} записи в Журналі',
-  '{n} wpis w Dzienniku#many': '{n} записів у Журналі',
-  '{n} wpis w Dzienniku#other': '{n} запису в Журналі',
-  '{n} sekunda#one': '{n} секунда',
-  '{n} sekunda#few': '{n} секунди',
-  '{n} sekunda#many': '{n} секунд',
-  '{n} sekunda#other': '{n} секунди',
-  '{n} godzina#one': '{n} година',
-  '{n} godzina#few': '{n} години',
-  '{n} godzina#many': '{n} годин',
-  '{n} godzina#other': '{n} години',
-  '{n} minuta#one': '{n} хвилина',
-  '{n} minuta#few': '{n} хвилини',
-  '{n} minuta#many': '{n} хвилин',
-  '{n} minuta#other': '{n} хвилини',
-  'Plan wypieku: {n} krok.#one': 'План випічки: {n} крок.',
-  'Plan wypieku: {n} krok.#few': 'План випічки: {n} кроки.',
-  'Plan wypieku: {n} krok.#many': 'План випічки: {n} кроків.',
-  'Plan wypieku: {n} krok.#other': 'План випічки: {n} кроку.',
 };

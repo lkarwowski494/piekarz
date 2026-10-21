@@ -36,7 +36,22 @@ export function uprawnienieZTransakcji(p: Purchase): Uprawnienie | null {
   // Subskrypcja bez daty końca to dane, których nie rozumiemy: nie dajemy z niej dostępu „na zawsze”.
   if (wygasa === null && SUBSKRYPCJE.includes(p.productId)) return null;
   const odebrane = liczba(Reflect.get(p, 'revocationDateIOS')) !== null;
-  return { produkt: p.productId, wygasa, odebrane };
+  return { produkt: p.productId, wygasa, odebrane, ...ofertaIOdnawianie(p) };
+}
+
+/**
+ * Okres próbny i odnawianie z transakcji (offerIOS, renewalInfoIOS w expo-iap; OP-M03: czy StoreKit je wypełnia,
+ * potwierdzi sandbox). Pole bez danych zostaje pominięte, nie zgadnięte [M1-audytor-generalny-126].
+ */
+function ofertaIOdnawianie(p: Purchase): Pick<Uprawnienie, 'proba' | 'odnawia'> {
+  const wynik: Pick<Uprawnienie, 'proba' | 'odnawia'> = {};
+  const oferta: unknown = Reflect.get(p, 'offerIOS');
+  const tryb = typeof oferta === 'object' && oferta !== null ? Reflect.get(oferta, 'paymentMode') : undefined;
+  if (typeof tryb === 'string' && tryb) wynik.proba = /free.?trial/i.test(tryb);
+  const odn: unknown = Reflect.get(p, 'renewalInfoIOS');
+  const will = typeof odn === 'object' && odn !== null ? Reflect.get(odn, 'willAutoRenew') : undefined;
+  if (typeof will === 'boolean') wynik.odnawia = will;
+  return wynik;
 }
 
 /** Subskrypcja w okresie karencji (billing grace period) jest uprawnieniem do końca karencji. */

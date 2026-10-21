@@ -1,6 +1,21 @@
 // Słownik bg, część 10 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Wymaga odświeżenia ({elapsedDays} dni w chłodzie)': 'Нуждае се от освежаване (дни в хладилника: {elapsedDays})',
+  'Uśpiony w lodówce ({elapsedDays} dni)': 'Спи в хладилника (дни: {elapsedDays})',
+  'Mąka pszenna typ 650 (chlebowa jasna)': 'Светло пшенично брашно за хляб',
+  'Mąka pszenna Manitoba / Forte (W > 300)': 'Пшенично брашно Manitoba / Forte (W > 300)',
+  'Mąka żytnia typ 720': 'Светло ръжено брашно',
+  'Mąka z pszenicy durum (Semolina)': 'Брашно от твърда пшеница дурум (семолина)',
+  'Mąka pszenna typ 650': 'Светло пшенично брашно',
+  'Odżywczy chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Питателен хляб от едро смляно пшенично брашно грахам с натурален мед и ленено семе.',
+  'Mąka pszenna graham typ 1850': 'Пшенично брашно грахам (пълнозърнесто)',
+  'Mąka pszenna Manitoba / Forte (W > 350)': 'Пшенично брашно Manitoba / Forte (W > 350)',
+  'Mąka pszenna włoska Tipo 00': 'Италианско пшенично брашно Tipo 00',
+  'Mąka pszenna luksusowa typ 550': 'Бяло пшенично брашно',
+  'Mąka pszenna wysokobiałkowa (W>280 / Manitoba)': 'Пшенично брашно с високо съдържание на протеин (W>280 / Manitoba)',
+  'Mąka pszenna pełnoziarnista typ 2000': 'Пълнозърнесто пшенично брашно',
+  '{n} krok wypada w nocy#one': '{n} стъпка се пада през нощта',
   '{n} krok wypada w nocy#other': '{n} стъпки се падат през нощта',
   '{n} dzień#one': '{n} ден',
   '{n} dzień#other': '{n} дни',

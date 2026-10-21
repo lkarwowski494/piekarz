@@ -1,4 +1,4 @@
-// Słownik ro, część 7 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik ro, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wysoka retencja wilgoci. Odczekaj min. 4–6 godzin na kratce przed krojeniem, by uniknąć kleistości noża i zakalca.': 'Retenție mare a umidității. Așteaptă min. 4–6 ore pe grătar înainte de feliere, ca să eviți cuțitul lipicios și stratul necopt.',
@@ -150,6 +150,13 @@ export const CZESC: Record<string, string> = {
   'Usunąć wszystkie dane?': 'Ștergi toate datele?',
   'Usuń wszystkie dane': 'Șterge toate datele',
   'Usuń wszystko': 'Șterge tot',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Fără achiziție, istoricul și datele tale rămân. Calculele, planificarea și ghidarea vor necesita Brutar Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Dacă abonamentul nu este anulat, App Store îți va încasa atunci prețul planului ales.',
+  'Okres próbny kończy się {data}': 'Perioada de probă se încheie pe {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Abonamentul nu se va reînnoi, deci nu vei plăti nimic.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Atunci App Store va încasa {cena} pentru o lună de abonament. Dacă nu vrei să plătești, anulează abonamentul înainte de sfârșitul perioadei de probă.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Atunci App Store va încasa {cena} pentru un an de abonament. Dacă nu vrei să plătești, anulează abonamentul înainte de sfârșitul perioadei de probă.',
+  'Zamknij informację o końcu próby': 'Închide notificarea despre sfârșitul perioadei de probă',
   'Uczeń Piekarski': 'Ucenic brutar',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Timp de maturare {fermentationTimeHours}. {flavorProfilePl}',
   'Złożony bukiet kwasów mlekowego i octowego, wydłużona świeżość i niski indeks glikemiczny.': 'Buchet complex de acizi lactic și acetic, prospețime prelungită și indice glicemic scăzut.',
@@ -185,13 +192,4 @@ export const CZESC: Record<string, string> = {
   '{n} sekunda#one': '{n} secundă',
   '{n} sekunda#few': '{n} secunde',
   '{n} sekunda#other': '{n} de secunde',
-  '{n} godzina#one': '{n} oră',
-  '{n} godzina#few': '{n} ore',
-  '{n} godzina#other': '{n} de ore',
-  '{n} minuta#one': '{n} minut',
-  '{n} minuta#few': '{n} minute',
-  '{n} minuta#other': '{n} de minute',
-  'Plan wypieku: {n} krok.#one': 'Plan de coacere: {n} pas.',
-  'Plan wypieku: {n} krok.#few': 'Plan de coacere: {n} pași.',
-  'Plan wypieku: {n} krok.#other': 'Plan de coacere: {n} de pași.',
 };
