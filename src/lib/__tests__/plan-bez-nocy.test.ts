@@ -2,7 +2,7 @@
  * M1-audytor-generalny-129 (DEC-18 a): czysta funkcja szukania godziny gotowości bez kroków czynnych w oknie snu
  * 23:00–06:30, na prawdziwym planie z zakwasem z lodówki (ok. 36 h).
  */
-import { KROK_SZUKANIA_MIN, LIMIT_SZUKANIA_H, godzinaBezNocy, krokCzynnyWNocy, wOknieSnu } from '../plan-bez-nocy';
+import { KROK_SZUKANIA_MIN, LIMIT_SZUKANIA_H, godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy, wOknieSnu } from '../plan-bez-nocy';
 import { calculateReverseSchedule } from '../../scheduler/reverse-scheduler';
 import { stepsFromSchedule } from '../../core/bake-steps';
 import { withFridgeWake } from '../../core/fridge-wake';
@@ -30,6 +30,29 @@ describe('okno snu', () => {
     expect(krokCzynnyWNocy([k(true, lokalnie(14, 23, 30), lokalnie(14, 23, 50))], OKNO)).toBe(false);
     expect(krokCzynnyWNocy([k(false, lokalnie(14, 21, 0), lokalnie(15, 8, 0))], OKNO)).toBe(true);
     expect(krokCzynnyWNocy([k(false, null, null)], OKNO)).toBe(false);
+  });
+});
+
+describe('kolizjeKrokow (baner nocy planu żytniego, 030)', () => {
+  it('krok czynny z początkiem albo końcem w oknie snu: nazwa i godzina startu; bierne i bez godzin pominięte', () => {
+    const k = (name: string, isPassive: boolean, s: number | null, e: number | null) => ({ name, isPassive, plannedStart: s, plannedEnd: e });
+    const godz = (d: Date) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
+    expect(
+      kolizjeKrokow(
+        [
+          k('Mieszanie ciasta', false, lokalnie(14, 23, 30), lokalnie(14, 23, 45)),
+          k('Podział i formowanie', false, lokalnie(14, 6, 0), lokalnie(14, 6, 40)),
+          k('Krótka fermentacja ciasta', true, lokalnie(14, 0, 0), lokalnie(14, 4, 0)),
+          k('Wypiek w formie', false, lokalnie(14, 12, 0), lokalnie(14, 13, 0)),
+          k('Rozrost w formie', false, null, null),
+        ],
+        OKNO,
+        godz,
+      ),
+    ).toEqual([
+      { stageNamePl: 'Mieszanie ciasta', time: '23:30' },
+      { stageNamePl: 'Podział i formowanie', time: '6:00' },
+    ]);
   });
 });
 
