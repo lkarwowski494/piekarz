@@ -208,7 +208,7 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(Clipboard.setStringAsync).toHaveBeenCalled();
     const copiedText = (Clipboard.setStringAsync as jest.Mock).mock.calls[0][0];
     expect(copiedText).toContain('Bolesław');
-    expect(copiedText).toContain('1. Zakwas matka: 30 g');
+    expect(copiedText).toContain('1. Stary zakwas: 30 g'); // nazwa jak na karcie (reaudit-noc N-5)
     expect(copiedText).toContain('2. Mąka (Żytnia typ 2000): 60 g');
     expect(copiedText).toContain('3. Woda: 60 g');
   });
