@@ -8,6 +8,6 @@ appId: com.apps4craft.piekarz
 - tapOn: "Zacznij wypiek"
 - assertVisible: "Zrobione"
 - tapOn: "Doktor Chleba"
-- assertVisible: "Protokoły ratunkowe (Pogotowie ciasta)"
+- assertVisible: "Doktor Chleba"
 - tapOn: "Akademia"
 - assertVisible: "Akademia Piekarza"

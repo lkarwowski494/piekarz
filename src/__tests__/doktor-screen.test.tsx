@@ -256,7 +256,17 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     );
   });
 
+  // Protokoły są PÓŹNIEJ (032 b, wejście ukryte); test modułu włącza wejście jak przy powrocie funkcji
+  // [M1-audytor-generalny-032]. Domyślne ukrycie: tests/protokoly-pozniej-032.test.tsx.
+  const zProtokolami = () => {
+    const wejscia = require('../lib/wejscia-pozniej');
+    const prawdziwe = wejscia.wejscieWidoczne;
+    jest.spyOn(wejscia, 'wejscieWidoczne').mockImplementation((w: unknown) => w === 'protokoly-ratunkowe' || prawdziwe(w));
+  };
+  afterEach(() => jest.restoreAllMocks());
+
   it('interactively expands and collapses Emergency Dough Recovery Protocols', async () => {
+    zProtokolami();
     await act(async () => {
       tree = renderer.create(<DoctorScreen />);
       await Promise.resolve();
@@ -298,6 +308,7 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
   it('renders imperial units when unitSystem is set to imperial', async () => {
     const { setUnitSystem, _resetUnitSystemForTests } = require('../lib/unit-converter');
     setUnitSystem('imperial');
+    zProtokolami();
 
     await act(async () => {
       tree = renderer.create(<DoctorScreen />);
