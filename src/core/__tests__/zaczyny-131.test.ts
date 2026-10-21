@@ -7,6 +7,7 @@
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
 import { PREFERMENT_DEFINITIONS, calculatePrefermentBreakdown, type PrefermentType } from '../preferments';
+import { zaczynWFormule } from '../zaczyn-w-formule';
 import { ZACZYNY_W_MENU } from '../../components/receptury/nazwy-receptur';
 import { setLang, t } from '../../lib/i18n';
 import { formatTextUnits } from '../../lib/unit-converter';
@@ -110,8 +111,14 @@ describe('131: liczby zaczynów pokazane użytkownikowi mają twierdzenie (docs/
   it('levain: hydratacja zaczynu z ustawienia zakwasu, nie stałe 100% (defaultHydration nie jest pokazywane)', () => {
     const b = calculatePrefermentBreakdown({ prefermentType: 'levain', prefermentFlourPercentage: 20, totalFlourGrams: 500, totalTargetHydration: 70, saltPercentage: 2, customPrefermentHydration: 80 });
     expect(b.prefermentHydration).toBe(80);
+    // Ekran liczy zaczyn przez zaczynWFormule (D-061) [M1-audytor-generalny-182]: levain bierze hydratację zakwasu
+    const wejscie = { prefermentType: 'levain' as const, prefermentFlourPercentage: 20, waterPercentage: 70, saltPercentage: 2, yeastPercentage: 0, starterPercentage: 20, starterHydration: 80 };
+    const z = zaczynWFormule({ ...wejscie, targetDoughWeightGrams: 1000 })!;
+    expect(z.prefermentHydration).toBe(80);
+    expect(z.prefermentWaterGrams / z.prefermentFlourGrams).toBeCloseTo(0.8, 1);
     const hook = readFileSync(join(ROOT, 'src/hooks/useRecipeCalculations.ts'), 'utf8');
-    expect(hook).toMatch(/customPrefermentHydration: prefermentType === 'levain' \? starterHydration : undefined/);
+    expect(hook).toMatch(/zaczynWFormule\(\{ \.\.\.wejscieZaczynu/);
+    expect(hook).toMatch(/starterHydration,\n/);
   });
 
   it('defaultPrefermentFlourPct nie jest używane poza src/core/preferments.ts', () => {
