@@ -49,7 +49,8 @@ export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
 }
 
 export default function RootLayout() {
-  const [rescue, setRescue] = useState(false);
+  // null = wynik beginStartup jeszcze nieznany (nie wiadomo, czy start jest awaryjny) [reaudit-noc N-16; M1-audytor-generalny-215]
+  const [rescue, setRescue] = useState<boolean | null>(null);
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
   useLang();
 
@@ -63,6 +64,7 @@ export default function RootLayout() {
         setRescue(true);
         return;
       }
+      setRescue(false);
       stopPlatnosci.current = await startAplikacji();
     })();
     return () => stopPlatnosci.current?.();
@@ -78,26 +80,32 @@ export default function RootLayout() {
 
   // Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: pokazywanie na pierwszym planie,
   // uzgodnienie po powrocie z tła i otwarcie ekranu z dotkniętego powiadomienia.
-  // Tryb awaryjny nie dotyka bazy: bez uzgadniania powiadomień (czyta bazę) [M1-audytor-generalny-215; 12-niezawodnosc-604]
+  // Tryb awaryjny nie dotyka bazy: bez uzgadniania powiadomień (czyta bazę) [M1-audytor-generalny-215; 12-niezawodnosc-604];
+  // do wyniku beginStartup też nie (rescue === null), bo baza może być przed migracją albo w stanie awarii [reaudit-noc N-16]
   useEffect(() => {
-    if (rescue) return undefined;
-    configureNotificationHandler();
+    if (rescue !== false) return undefined;
     const appState = AppState.addEventListener('change', (s) => {
       if (s === 'active') void resyncNotifications();
     });
     // Koniec próby, zwrot albo zakup zmieniają przypomnienia o zakwasie bez restartu [M1-audytor-generalny-143]
     const offDostep = uzgadniajZDostepem();
+    return () => {
+      appState.remove();
+      offDostep();
+    };
+  }, [rescue]);
+
+  // Pokazywanie i dotknięcie powiadomienia bez bazy: od pierwszego renderu (także przed wynikiem startu), poza trybem awaryjnym
+  useEffect(() => {
+    if (rescue) return undefined;
+    configureNotificationHandler();
     const tap = Notifications.addNotificationResponseReceivedListener((r) => {
       // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
       // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
       const trasa = trasaZPowiadomienia(Reflect.get(r.notification.request.content.data ?? {}, 'route'));
       if (trasa) router.push(trasa);
     });
-    return () => {
-      appState.remove();
-      offDostep();
-      tap.remove();
-    };
+    return () => tap.remove();
   }, [rescue]);
 
   if (rescue) {

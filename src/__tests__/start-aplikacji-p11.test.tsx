@@ -16,10 +16,10 @@ const flush = async () => {
 };
 
 /** RootLayout z kontrolowanym startem bazy; reszta startu (język, jednostki, płatności, powiadomienia) jako szpiedzy. */
-function uruchom(opcje: { rescue?: boolean; init?: () => Promise<void> } = {}) {
+function uruchom(opcje: { rescue?: boolean; init?: () => Promise<void>; start?: () => Promise<{ rescue: boolean }> } = {}) {
   jest.resetModules();
   const init = jest.fn(opcje.init ?? (async () => require('../data/storage-status').markStorageReady()));
-  const guard = { beginStartup: jest.fn(async () => ({ rescue: !!opcje.rescue })), markStartupSucceeded: jest.fn(async () => undefined) };
+  const guard = { beginStartup: jest.fn(opcje.start ?? (async () => ({ rescue: !!opcje.rescue }))), markStartupSucceeded: jest.fn(async () => undefined) };
   jest.doMock('../lib/startup-guard', () => ({ ...jest.requireActual('../lib/startup-guard'), ...guard }));
   jest.doMock('../data/sqlite-store', () => ({ ...jest.requireActual('../data/sqlite-store'), initDatabase: init }));
   const lang = jest.fn(async () => undefined);
@@ -180,6 +180,40 @@ describe('215: tryb awaryjny bez uzgadniania powiadomień przy powrocie na pierw
     });
     expect(m.resync.mock.calls.length).toBe(przed + 1);
     m.TR.act(() => tree.unmount());
+  });
+});
+
+// [reaudit-noc N-16; M1-audytor-generalny-215] Do wyniku beginStartup nie wiadomo, czy start jest awaryjny: powrót
+// na pierwszy plan w tym oknie nie uzgadnia powiadomień (uzgodnienie otwiera i czyta bazę przed migracją)
+describe('N-16: brak uzgadniania powiadomień przed wynikiem beginStartup', () => {
+  it('„active” przed wynikiem startu → bez resyncNotifications i initDatabase; po wyniku „normalny” → uzgadnia', async () => {
+    let wynikStartu!: (w: { rescue: boolean }) => void;
+    const start = new Promise<{ rescue: boolean }>((r) => (wynikStartu = r));
+    const m = uruchom({ start: () => start });
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    await m.TR.act(async () => {
+      for (const fn of [...m.appState]) fn('active');
+      await flush();
+    });
+    const przedWynikiem = { resync: m.resync.mock.calls.length, init: m.init.mock.calls.length };
+    await m.TR.act(async () => {
+      wynikStartu({ rescue: false });
+      await flush();
+    });
+    const poStarcie = m.resync.mock.calls.length;
+    await m.TR.act(async () => {
+      for (const fn of [...m.appState]) fn('active');
+      await flush();
+    });
+    const poPowrocie = m.resync.mock.calls.length;
+    m.TR.act(() => tree.unmount());
+    expect(przedWynikiem).toEqual({ resync: 0, init: 0 });
+    expect(m.init).toHaveBeenCalledTimes(1);
+    expect(poPowrocie).toBe(poStarcie + 1);
   });
 });
 
