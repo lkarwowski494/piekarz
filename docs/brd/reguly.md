@@ -236,6 +236,24 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-27-W4 | 17,9 | 1000 | 1,79 / poza typowym | 0,01 | poniżej | rachunek |
 | RD-27-W5 | 20 | 0 | błąd danych | — | błąd | rachunek: M = 0 |
 
+### RD-28: Zaczyn w formule (karta „Do miski”)
+- Wzór: zaczyn liczony od mąki bazowej `F` (bez mąki zakwasu): `Fz = p/100 · F`, woda zaczynu `Wz = h/100 · Fz`, drożdże `Yz = y_z/100 · Fz`, sól `Sz = s_z/100 · Fz`; procenty formuły przed rachunkiem masy: `w_f = max(w, h · p/100)`, `s_f = max(s, s_z · p/100)`, `y_f = max(y, y_z · p/100)`; `F = M / (1 + (w_f + s_f + y_f + z)/100)`; wiersze „Do miski”: zaczyn cały (`Fz + Wz + Yz + Sz`, przy levainie także zakwas `Z`), mąka `F − Fz`, woda `W_f − Wz`, zakwas `Z` (poza levainem), sól `S_f − Sz`, drożdże `Y_f − Yz` (wiersz tylko > 0); wiersze gramowe w pełnych gramach, sól i drożdże co 0,1 g, suma wierszy = `M` ±1 g (korekta ±1 g jak w RD-15)
+- Jednostki: M, F, Fz, Wz, Yz, Sz [g]; p, w, s, y, z, h, y_z, s_z, w_f, s_f, y_f [%] (p, h, y_z, s_z w % mąki zaczynu albo mąki bazowej, reszta w % mąki bazowej)
+- Granica: 0 < p ≤ 100; p = 0 albo zaczyn „bezpośrednio” → karta bez grup zaczynu (procenty receptury bez zmian); p > 100 → błąd danych
+- Podstawa: D-061 (model rachunku, DEC-23 a, wzór i zaokrąglenia), D-060 (parametry pâte fermentée: h = 75, y_z = 1, s_z = 2), DEC-11 a (zaokrąglenia ±1 g); parametry zaczynów z `PREFERMENT_DEFINITIONS` (poolish h = 100, y_z = 0,1; biga h = 50, y_z = 1); rachunek wektorów 2026-10-21
+- Krytyczna: nie
+- Uproszczenie: parametry poolish i bigi to wartości domyślne aplikacji, pâte fermentée to przykład BBGA (D-060), nie reguła.
+
+| ID | Zaczyn [-] | p [%] | w / s / y [%] | M [g] | Oczekiwane: w_f / s_f / y_f [%]; wiersze „Do miski” [g] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|---|---|
+| RD-28-W1 | poolish | 30 | 70 / 2 / 0 | 1000 | 70 / 2 / 0,03; zaczyn 349, mąka 407, woda 233, sól 11,6 (suma 1000,6) | 1 g w sumie | typowy | rachunek: F = 1000 / 1,7203 = 581,29; Fz = Wz = 174,39; Yz = 0,17; zaczyn 348,95 → 349; mąka 406,91 → 407; woda 406,91 − 174,39 = 232,52 → 233; sól 11,63 → 11,6; drożdże 0,17 − 0,17 = 0 (bez wiersza); D-061 |
+| RD-28-W2 | biga | 50 | 60 / 2 / 0,2 | — | 60 / 2 / 0,5 | 0,01 | typowy | rachunek: y_f = max(0,2; 1 · 0,5) = 0,5 (drożdże zaczynu w masie docelowej); D-061 reguła 2 |
+| RD-28-W3 | pâte fermentée | 40 | 25 / 0,5 / 0 | — | 30 / 0,8 / 0,4 | 0,01 | typowy | rachunek: w_f = max(25; 75 · 0,4) = 30; s_f = max(0,5; 2 · 0,4) = 0,8; y_f = max(0; 1 · 0,4) = 0,4; D-061, D-060 |
+| RD-28-W4 | poolish | 100 | 70 / 2 / 0 | — | 100 / 2 / 0,1 | 0,01 | granica | rachunek: cała mąka w zaczynie, w_f = max(70; 100) = 100; D-061 |
+| RD-28-W5 | poolish | 0 | 70 / 2 / 0 | — | 70 / 2 / 0; karta bez grup zaczynu | 0 | poniżej | D-061 reguła 6 |
+| RD-28-W6 | poolish | 101 | 70 / 2 / 0 | 1000 | błąd danych | — | powyżej | rachunek: udział mąki w zaczynie poza 0–100% (D-061) |
+| RD-28-W7 | poolish | 30 | 70 / 2 / 0 | 0 | błąd danych | — | błąd | rachunek: M = 0 (RD-15) |
+
 ## Rozbieżności z kodem i rejestrem (do erraty E3 i ról 06, 07, 08)
 
 - RD-17: silnik liczy czas także poza 20–26 °C bez komunikatu (`src/scheduler/reverse-scheduler.ts`), ale plan przyjmuje temperaturę tylko z wyboru 20–26 °C (`src/components/harmonogram/TargetReadyCard.tsx`), więc użytkownik nie dostaje liczby spoza modelu; według D-066 (2a) to nie rozbieżność kryterium (ER-55). Nowe wejście temperatury poza wyborem wymaga strażnika zakresu.
