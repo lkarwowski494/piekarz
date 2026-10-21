@@ -7,6 +7,8 @@ appId: com.apps4brew.baker
 ---
 - launchApp:
     clearState: true
+    permissions:
+      notifications: allow
 - extendedWaitUntil:
     visible:
       id: "start-czynnosci"
@@ -40,7 +42,9 @@ appId: com.apps4brew.baker
     id: "next-or-finish-step-btn"
 - assertVisible:
     id: "next-or-finish-step-btn"
-- launchApp
+- launchApp:
+    permissions:
+      notifications: allow
 - extendedWaitUntil:
     visible:
       id: "resume-bake-btn"

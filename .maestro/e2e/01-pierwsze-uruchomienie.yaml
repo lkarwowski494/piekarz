@@ -6,6 +6,8 @@ appId: com.apps4brew.baker
 ---
 - launchApp:
     clearState: true
+    permissions:
+      notifications: allow
 - extendedWaitUntil:
     visible:
       id: "start-czynnosci"

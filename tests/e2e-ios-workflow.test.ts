@@ -51,6 +51,17 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     expect(tekstowe).toEqual([]);
   });
 
+  // Systemowe okno zgody na powiadomienia zasłaniało ekran w przebiegu 39581379222 [M1-audytor-generalny-037]
+  it('każde uruchomienie aplikacji w scenariuszach E2E ma z góry zgodę na powiadomienia', () => {
+    for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {
+      const text = readFileSync(join(e2eDir, f), 'utf8').replace(/\r\n/g, '\n');
+      const starty = text.match(/^- launchApp\b/gm) ?? [];
+      const zgody = text.match(/^- launchApp:\n(?: {4}clearState: true\n)? {4}permissions:\n {6}notifications: allow$/gm) ?? [];
+      expect(starty.length).toBeGreaterThan(0);
+      expect(`${f}: ${zgody.length}`).toBe(`${f}: ${starty.length}`);
+    }
+  });
+
   it('zakładki mają testID przycisków, a scenariusze przechodzą po nich', () => {
     const tabs = readFileSync(join(root, 'app', '(tabs)', '_layout.tsx'), 'utf8');
     for (const id of ['tab-dzis', 'tab-receptury', 'tab-zakwasy', 'tab-dziennik']) expect(tabs).toContain(`tabBarButtonTestID: '${id}'`);
