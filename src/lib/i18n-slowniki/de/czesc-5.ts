@@ -1,7 +1,6 @@
 // Słownik de, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Temperatura wody': 'Wassertemperatur',
   'Temperatura wody i zaczyny': 'Wassertemperatur und Vorteige',
   'Temperatura wody, zaczyny, strata piecowa': 'Wassertemperatur, Vorteige, Backverlust',
   'Temperatura wody: {temp}°C': 'Wassertemperatur: {temp} °C',

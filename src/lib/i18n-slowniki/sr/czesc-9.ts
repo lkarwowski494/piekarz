@@ -1,7 +1,6 @@
 // Słownik sr, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce': 'према Bread Bakers Guild of America, најмање 3 сата на собној температури или 1 сат, а затим највише 3 дана у фрижидеру',
   'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.': 'Према King Arthur Baking, засек право, под углом од 90°, раздваја се у стране, а ухо настаје при засецању под плитким углом, од затегнутог спољног слоја теста обликованог уз довољну затегнутост.',
   'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)': 'према King Arthur Baking, од 8 сати (више квасца) до 14–16 сати (мање квасца)',
   'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': 'према King Arthur Baking, око 6–8 сати, док не удвостручи запремину и не буде пун мехурића',
@@ -101,6 +100,9 @@ export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Истресите тесто на радну површину и стругачем га нежно заоблите у лопту, без вишка брашна. Оставите га да одмара 20 min.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Потребно освежавање ({dni} на хладном)',
   'Wypiek w garnku z parą': 'Печење у лонцу са паром',
+  '{n} cz.#few': '{n} дела',
+  '{n} cz.#one': '{n} део',
+  '{n} cz.#other': '{n} делова',
   'Mąka orkiszowa typ 2000': 'Брашно од спелте',
   'Mąka żytnia typ 2000': 'Ражано брашно',
   'Notatka z poprzedniego wypieku: {notatka}': 'Белешка са претходног печења: {notatka}',
@@ -111,7 +113,11 @@ export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': 'Удео ражи {n}%: пшенична варијанта.',
   'Udział żyta {n}%: wariant żytni, plan bez składań.': 'Удео ражи {n}%: ражана варијанта, план без пресавијања.',
   'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.': 'Попуните поље „{pole}“ да бисте израчунали температуру воде.',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (чврсто предтесто, 50% хидратације) зри 16 h на 18 °C. У главно тесто додај 3% маслиновог уља. Не избацуј гас из теста пре печења.',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Ферментација: 2 h на радној површини, подела на лоптице од 250 g, 46 h у фрижидеру (4 °C). Извади 2 h пре печења.',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Хидратација стартера мора бити у опсегу 20–200%',
+  '{nazwa}: {n} z 5': '{nazwa}: {n} од 5',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Хлеб од крупно млевеног пшеничног грахам брашна уз додатак природног меда и ланеног семена.',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Када куповина буде одобрена, Пекар Pro ће се сам укључити. Не морате поново да купујете.',
+  'Kontakt': 'Контакт',
+  'Ocena wymaga połączenia z App Store.': 'За оцењивање је потребна веза са App Store-ом.',
+  'Oceń w App Store': 'Оцените у App Store-у',
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': 'Понуда тренутно није доступна. Покушајте поново за који тренутак.',
 };

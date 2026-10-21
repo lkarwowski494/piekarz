@@ -1,7 +1,6 @@
 // Słownik da, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mniej bochenków': 'Færre brød',
   'Mocna siatka glutenowa. Wytrzymuje wielogodzinną fermentację i długi cold retard bez utraty formy.': 'Stærkt glutennetværk. Tåler mange timers fermentering og lang koldhævning uden at miste formen.',
   'Mocno wilgotny / kremowy (Custardy Crumb)': 'Meget fugtig / cremet (Custardy Crumb)',
   'moja, woda {n}%': 'min, vand {n} %',
@@ -208,4 +207,5 @@ export const CZESC: Record<string, string> = {
   'Procedura Bassinage ratunkowego': 'Bassinage (eftervanding) som redning',
   'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Procentdelen for melet »{name}« skal være et tal i intervallet 0,1–100 %',
   'Profil smakowy': 'Smagsprofil',
+  'Profil zakwasu': 'Surdejsprofil',
 };

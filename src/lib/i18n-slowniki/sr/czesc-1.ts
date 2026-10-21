@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} стартера',
   '{n} zakwasu': '{n} стартера',
   '{n} zakwasy': '{n} стартера',
-  '{n} min w {temp}': '{n} мин на {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: готово {dzien} у {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (цела количина)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, ниво {trudnosc}',
@@ -179,4 +178,5 @@ export const CZESC: Record<string, string> = {
   'Do miski': 'У чинију',
   'Do miski (Ciasto właściwe)': 'У чинију (главно тесто)',
   'Do miski (odhaczaj przy ważeniu)': 'У чинију (штиклирај док мериш)',
+  'Do miski na wagę': 'У чинију на ваги',
 };

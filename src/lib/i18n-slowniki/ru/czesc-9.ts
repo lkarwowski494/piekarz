@@ -1,8 +1,6 @@
 // Słownik ru, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Гидратация близка к диапазону, указанному для этой смеси муки.',
-  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Гидратация находится в диапазоне, указанном для этой смеси муки.',
   'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.': 'Если в центре температура ниже, выпекайте дольше и измерьте снова.',
   'Levain (Rzemieślniczy zaczyn na zakwasie)': 'Levain (ремесленный левен на закваске)',
   'Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.': 'Разогрейте пустую кастрюлю, прежде чем класть в неё тесто: по данным King Arthur Baking, около 30 минут, чтобы в ней образовался пар.',
@@ -98,4 +96,5 @@ export const CZESC: Record<string, string> = {
   'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.': 'Мокрыми руками поднимите 4 края теста вверх и сложите их к центру миски.',
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Придайте тесту окончательную форму (батар или круглая буханка), положите в присыпанную мукой корзину и уберите в холодильник (4 °C) на 12–16 ч.',
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Расчётная температура воды превышает 45 °C. Это грозит гибелью дрожжей и молочнокислых бактерий. Охладите муку или понизьте температуру в помещении.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Настоящее тесто для неаполитанской пиццы с хрустящим бортиком и нежной серединой.',
 };

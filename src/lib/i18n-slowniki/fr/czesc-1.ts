@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} levains',
   '{n} zakwasu': '{n} levains',
   '{n} zakwasy': '{n} levains',
-  '{n} min w {temp}': '{n} min à {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa} : prêt {dzien} à {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (en entier)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, niveau {trudnosc}',

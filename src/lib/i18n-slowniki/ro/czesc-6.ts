@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Fă testul degetului înainte să pui pâinea în cuptor.',
   'Wykryto uszkodzony stan bazy danych': 'S-a detectat o stare deteriorată a bazei de date',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Răstoarnă aluatul pe blat, dă-i o formă inițială de bilă și întinde-i suprafața.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Necesită făină cu un conținut de proteine de minimum 13%. Autoliză 60 de minute, fără sare. Împăturiri Coil Fold foarte delicate.',
   'Wymaga obecności': 'Necesită prezența ta',
   'wymaga Piekarz Pro': 'necesită Brutar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Necesită opărirea malțului roșu de secară cu apă clocotită, împreună cu coriandrul măcinat. Înainte de coacere, presară deasupra semințe întregi de coriandru.',
@@ -175,4 +174,8 @@ export const CZESC: Record<string, string> = {
   'Zwiększ hydratację o {n}%': 'Crește gradul de hidratare cu {n}%',
   'Zwiększ masę mąki o {g} g': 'Crește greutatea făinii cu {g} g',
   'Zwiększ udział mąki {nazwa} o {n}%': 'Crește proporția făinii {nazwa} cu {n}%',
+  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Cu mâinile umezite, împăturește aluatul prin tehnica Coil Fold direct în formă.',
+  'Zwiń protokół': 'Restrânge protocolul',
+  'Zwiń wyjaśnienie': 'Restrânge explicația',
+  'Żytni': 'De secară',
 };

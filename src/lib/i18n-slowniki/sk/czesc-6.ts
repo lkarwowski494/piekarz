@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Pred vložením bochníka do rúry urobte test prstom.',
   'Wykryto uszkodzony stan bazy danych': 'Zistil sa poškodený stav databázy',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Cesto vyklopte na dosku, dajte mu predbežný tvar gule a napnite povrch.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vyžaduje múku s obsahom bielkovín minimálne 13%. Autolýza 60 minút bez soli. Veľmi jemné prekladanie (coil fold).',
   'Wymaga obecności': 'Vyžaduje prítomnosť',
   'wymaga Piekarz Pro': 'vyžaduje Pekár Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Vyžaduje zapariť červený ražný slad vriacou vodou spolu s mletým koriandrom. Vrch pred pečením posypte celými zrnkami koriandra.',
@@ -180,4 +179,5 @@ export const CZESC: Record<string, string> = {
   'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.': 'Chlieb vytiahnutý z rúry ešte nie je hotový: podľa King Arthur Baking počas chladnutia odovzdáva vlhkosť a striedka potrebuje tento čas, aby sa ustálila, preto môže byť pri predčasnom krájaní gumovitá. Inou príčinou môže byť nedopečenie: podľa King Arthur Baking je väčšina bochníkov upečená, keď majú vo vnútri približne 88 °C.',
   'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.': 'Cesto bude pevné a tuhé. Môžete priliať viac vody.',
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Pridajte do receptúry trochu múky z celého zrna (ražnej alebo pšeničnej).',
+  'Dokarmiaj zakwas częściej przed wypiekiem.': 'Kŕmte kvások pred pečením častejšie.',
 };

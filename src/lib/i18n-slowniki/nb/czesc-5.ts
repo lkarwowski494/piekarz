@@ -1,8 +1,6 @@
 // Słownik nb, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Udział soli musi mieścić się w zakresie 0–6%': 'Saltandelen må ligge i området 0–6 %',
-  'Udział zakwasu musi mieścić się w zakresie 0–150%': 'Andelen surdeigsstarter må ligge i området 0–150 %',
   'Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.': 'Form en bâtard eller boule, stram overflaten godt og legg den i en hevekurv drysset med rismel.',
   'Ukryj': 'Skjul',
   'Ułóż plan': 'Lag en plan',
@@ -145,7 +143,11 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Gjør fingertesten før du setter brødet i ovnen.',
   'Wykryto uszkodzony stan bazy danych': 'Skadet databasetilstand oppdaget',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Legg deigen på benken, form den lett til en kule og stram overflaten.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Krever mel med et proteininnhold på minimum 13%. Autolyse i 60 minutter uten salt. Svært forsiktig bretting (coil fold).',
   'Wymaga obecności': 'Krever tilstedeværelse',
   'wymaga Piekarz Pro': 'krever Bakeren Pro',
+  'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Den røde rugmalten må skåldes med kokende vann sammen med malt koriander. Dryss hele korianderfrø over toppen før steking.',
+  'wymagający': 'krevende',
+  'Wymagający': 'Krevende',
+  'Wymagana temperatura wody': 'Nødvendig vanntemperatur',
+  'Wymagany lód do schłodzenia wody': 'Nødvendig is for å kjøle ned vannet',
 };

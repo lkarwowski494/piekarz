@@ -1,8 +1,6 @@
 // Słownik sl, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymaga obecności': 'Zahteva prisotnost',
-  'wymaga Piekarz Pro': 'zahteva Pek Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Rdeči ržen slad je treba skupaj z mletim koriandrom popariti z vrelo vodo. Vrh pred peko potresite s celimi semeni koriandra.',
   'wymagający': 'zahtevna',
   'Wymagający': 'Zahteven',
@@ -175,4 +173,5 @@ export const CZESC: Record<string, string> = {
   'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'Pecite pokrito v loncu: po navedbah King Arthur Baking para pod pokrovom dlje ohranja skorjo mehko, zato lahko hlebec na začetku peke še naprej raste.',
   'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.': 'Ko odstranite pokrov, pecite naprej: po navedbah King Arthur Baking se kruh brez pokrova peče, dokler v celoti ne porjavi.',
   'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.': 'Ukrivljeno rezilo nagnite pod kotom pribl. 30° glede na površino testa: po navedbah King Arthur Baking to spodbuja nastanek jezička testa, ki se zavihne v uho.',
+  'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.': 'Ukrivljeno rezilo vodite pod kotom pribl. 30° glede na površino testa, do globine pribl. 6–13 mm: po navedbah King Arthur Baking se plitvejša zareza med peko lahko ponovno zaraste.',
 };

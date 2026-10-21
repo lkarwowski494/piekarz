@@ -1,7 +1,6 @@
-// Słownik zh-Hant, część 7 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków': '根據 King Arthur Baking，約 6–8 小時，直到體積膨脹一倍且充滿氣泡',
   'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.': '根據 King Arthur Baking，烘焙前先餵養冷藏的天然酵母起種，並放在室溫下；它可能需要長達 12 小時才會出現活動跡象。',
   'Wydłuż autolizę i dodaj dodatkową serię składań coil fold.': '延長水解法時間，並多加一輪翻面拉摺（coil fold）。',
   'Wydłuż fermentację burzliwą.': '延長基礎發酵時間。',
@@ -106,6 +105,23 @@ export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': '裸麥比例 {n}%：小麥版本。',
   'Udział żyta {n}%: wariant żytni, plan bez składań.': '裸麥比例 {n}%：裸麥版本，流程不含翻面拉摺。',
   'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.': '請填寫「{pole}」，以計算水溫。',
+  '{nazwa}: {n} z 5': '{nazwa}：{n} 分（滿分 5 分）',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': '以粗磨 Graham 小麥全穀粉製作，加入天然蜂蜜與亞麻籽的麵包。',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': '購買獲得核准後，麵包師傅 Pro 會自動啟用。不需要再購買一次。',
+  'Kontakt': '聯絡',
+  'Ocena wymaga połączenia z App Store.': '評分需要連線至 App Store。',
+  'Oceń w App Store': '在 App Store 評分',
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': '購買選項暫時無法使用。請稍後再試。',
+  'Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.': '烘焙計畫僅適用於天然酵母麵包，而這份配方沒有天然酵母起種。',
+  'Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.': '刪除前，我會先備份你目前的資料。備份會保留在「檔案」App 中本 App 的資料夾裡；你可以在那裡刪除它們。',
+  'Ręce tylko na starcie': '只需開始時動手',
+  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': '用探針溫度計測量整顆麵包中心的溫度：根據 King Arthur Baking，大多數麵包在約 88 °C 時即已烤熟，而裸麥麵包中心應達到 96–99 °C。',
+  'Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.': '這份備份來自較新版本的 麵包師傅。請更新 App，然後再匯入一次檔案。',
+  'Teraz: {nazwa}': '現在：{nazwa}',
+  'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.': '取出放到金屬涼架上。根據 King Arthur Baking，麵包在冷卻時會釋出水分，內部組織需要這段時間才能定型；太早切開，內部可能會黏糊。',
+  'Zakup czeka na zatwierdzenie': '購買等待核准中',
+  '{n} min w {temp}': '{temp}，{n} 分鐘',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': '需使用蛋白質含量至少 13% 的麵粉。水解法 60 分鐘，不加鹽。非常輕柔地進行翻面拉摺（Coil Fold）。',
   'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga（麵團含水量 50% 的硬式酵頭）在 18°C 下熟成 16 小時。主麵團加入 3% 橄欖油。烘烤前不要讓麵團排氣。',
   'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': '發酵：檯面上 2 小時，分割成 250 g 麵球，冷藏 46 小時（4°C）。烘烤前 2 小時取出。',
   'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': '天然酵母起種含水量必須介於 20–200%',
@@ -139,6 +155,4 @@ export const CZESC: Record<string, string> = {
   '{n} sekunda#other': '{n} 秒',
   '{n} godzina#other': '{n} 小時',
   '{n} minuta#other': '{n} 分鐘',
-  'Plan wypieku: {n} krok.#other': '烘焙計畫：{n} 個步驟。',
-  '{n} cz.#one': '{n} 份',
 };

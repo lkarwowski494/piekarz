@@ -123,11 +123,12 @@ export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Kumoa taikina pöydälle ja pyöristä se varovasti palloksi taikinakaapimella ilman ylimääräisiä jauhoja. Anna levätä 20 min.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Tarvitsee virkistyksen ({dni} kylmässä)',
   'Wypiek w garnku z parą': 'Paisto padassa',
+  '{n} cz.#one': '{n} osa',
+  '{n} cz.#other': '{n} osaa',
   'Mąka orkiszowa typ 2000': 'Spelttijauho',
   'Mąka żytnia typ 2000': 'Ruisjauho',
   'Notatka z poprzedniego wypieku: {notatka}': 'Muistiinpano edellisestä leivonnasta: {notatka}',
   'Sól {procent} to mniej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).': 'Suolan määrä {procent} on pienempi kuin tyypillinen 1,8–2,0 % jauhojen painosta (King Arthur Bakingin mukaan).',
   'Sól {procent} to więcej niż typowe 1,8–2,0% masy mąki (według King Arthur Baking).': 'Suolan määrä {procent} on suurempi kuin tyypillinen 1,8–2,0 % jauhojen painosta (King Arthur Bakingin mukaan).',
   'Temperatura w kuchni': 'Keittiön lämpötila',
-  'Temperatura zakwasu albo zaczynu': 'Hapanjuuren tai juuren lämpötila',
 };

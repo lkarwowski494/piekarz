@@ -1,7 +1,6 @@
 // Słownik ko, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zmiana nie została zapisana w pamięci telefonu. Sprawdź wolne miejsce i spróbuj ponownie.': '변경 사항이 휴대폰에 저장되지 않았어요. 저장 공간을 확인하고 다시 시도하세요.',
   'Zmiany w recepturze nie zostaną zapisane.': '배합표 변경 사항은 저장되지 않아요.',
   'Zmień parametry swojego zakwasu': '사워도우 스타터 설정 변경',
   'Zmień składniki': '재료 변경',

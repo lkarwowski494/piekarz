@@ -73,7 +73,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Faites le test du doigt avant d\'enfourner la miche.',
   'Wykryto uszkodzony stan bazy danych': 'Base de données endommagée détectée',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Déposez la pâte sur le plan de travail, donnez-lui une première forme de boule et tendez la surface.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Nécessite une farine d\'une teneur en protéines d\'au moins 13%. Autolyse de 60 minutes sans sel. Rabats en spirale très délicats.',
   'Wymaga obecności': 'Présence requise',
   'wymaga Piekarz Pro': 'nécessite Mitron Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Nécessite d\'infuser le malt de seigle rouge et la coriandre moulue dans de l\'eau bouillante. Avant la cuisson, parsemez le dessus de graines de coriandre entières.',
@@ -165,4 +164,8 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Contient de fines particules de son. Augmentez l\'hydratation de 3-5 % et prolongez l\'autolyse à 45-60 minutes.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Cochez ci-dessous les caractéristiques de la mie, de la croûte ou du goût qui vous inquiètent : Docteur Pain identifiera l\'erreur technique et proposera une solution.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Cochez ce que vous voyez ou sentez dans le bocal.',
+  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Cochez lorsque le levain naturel a doublé de volume par rapport au repère sur le bocal. Il est alors prêt pour la pâte (selon King Arthur Baking).',
+  'Zbalansowany': 'Équilibré',
+  'Zbity, gęsty miękisz': 'Mie serrée et dense',
+  'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Mie serrée et dense — envisagez une fermentation en masse plus longue',
 };

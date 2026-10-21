@@ -1,7 +1,6 @@
 // Słownik it, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mąka pszenna, białko 13,8%': 'Farina di frumento, proteine 13,8%',
   'Mąka razem': 'Farina totale',
   'Mąka razowa. Białko w badanych próbkach: 8,7–9,6%. Popiół według polskich norm: najwyżej 2%.': 'Farina integrale. Proteine nei campioni analizzati: 8,7–9,6%. Ceneri secondo le norme polacche: al massimo 2%.',
   'Mąka stanowi 100% bazy w procentach piekarskich': 'La farina è la base del 100% nella percentuale del fornaio',
@@ -204,4 +203,5 @@ export const CZESC: Record<string, string> = {
   'Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Dopo aver lavorato l\'impasto, lavati le mani con il sapone sotto l\'acqua corrente.',
   'Po pracy z mąką i zakwasem umyj ręce mydłem pod bieżącą wodą.': 'Dopo aver lavorato farina e lievito madre, lavati le mani con il sapone sotto l\'acqua corrente.',
   'Po szacowanym szczycie': 'Dopo il picco stimato',
+  'po upieczeniu: ~{masa}': 'dopo la cottura: ~{masa}',
 };

@@ -1,9 +1,6 @@
 // Słownik ms, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Jika langganan tidak dibatalkan, App Store akan mengenakan bayaran untuk pelan yang dipilih pada masa itu.',
-  'Okres próbny kończy się {data}': 'Tempoh percubaan tamat pada {data}',
-  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Langganan tidak akan diperbaharui, jadi anda tidak akan dikenakan bayaran.',
   'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Kemudian, App Store akan mengenakan {cena} untuk sebulan langganan. Jika anda tidak mahu membayar, batalkan langganan sebelum tempoh percubaan tamat.',
   'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Kemudian, App Store akan mengenakan {cena} untuk setahun langganan. Jika anda tidak mahu membayar, batalkan langganan sebelum tempoh percubaan tamat.',
   'Zamknij informację o końcu próby': 'Tutup makluman tamat tempoh percubaan',
@@ -125,4 +122,6 @@ export const CZESC: Record<string, string> = {
   'Usunięto recepturę': 'Resipi dipadam',
   'Uśpiony w lodówce ({dni})': 'Dorman dalam peti sejuk ({dni})',
   'W pliku receptury brakuje proporcji ciasta.': 'Fail resipi tidak mengandungi nisbah doh.',
+  'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Pilih nisbah dan jumlah pemula sourdough yang anda perlukan untuk doh. Saya akan mengira tepung dan air.',
+  'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Keluarkan doh ke atas meja dan bulatkan perlahan-lahan menjadi bola dengan pengikis tanpa tepung berlebihan. Biarkan berehat selama 20 min.',
 };

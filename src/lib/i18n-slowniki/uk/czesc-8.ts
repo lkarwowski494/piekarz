@@ -1,9 +1,6 @@
 // Słownik uk, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wyznacz kroki wstecz, aby nie zarywać nocy': 'Розплануйте кроки у зворотному порядку, щоб не недосипати',
-  'Wznów': 'Продовжити',
-  'Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)': 'Юдане (заварене борошно 1:1 окропом 100 °C)',
   'Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.': 'З опарою (пуліш, біга, старе тісто, левен) ви оберете, скільки борошна йде в опару; «У миску» покаже опару й тісто окремо.',
   'Za mało czasu: według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.': 'Замало часу: за даними King Arthur Baking, 7 днів може не вистачити, а виведення закваски може тривати навіть кілька тижнів.',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.': 'Складна хлібина з високою гідратацією, дикою перламутровою текстурою м\'якуша й величезним вушком.',
@@ -140,4 +137,6 @@ export const CZESC: Record<string, string> = {
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Додайте до рецептури трохи цільнозернового борошна (житнього або пшеничного).',
   'Dokarmiaj zakwas częściej przed wypiekiem.': 'Підживлюйте закваску частіше перед випіканням.',
   'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Вистоюйте тісто в холодильнику: за даними King Arthur Baking, холод сповільнює бродіння, а повільніше бродіння поглиблює смак.',
+  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Гідратація тіста близька до діапазону, вказаного для цієї суміші борошна.',
+  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Гідратація тіста в межах діапазону, вказаного для цієї суміші борошна.',
 };

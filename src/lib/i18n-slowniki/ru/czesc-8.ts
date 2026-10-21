@@ -1,9 +1,6 @@
 // Słownik ru, część 8 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wyznacz kroki wstecz, aby nie zarywać nocy': 'Планируйте шаги в обратном порядке, чтобы не жертвовать сном',
-  'Wznów': 'Возобновить',
-  'Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)': 'Юдане (мука, заваренная 1:1 кипятком 100 °C)',
   'Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.': 'С опарой (пулиш, бига, старое тесто, левен) вы выберете, сколько муки идёт в опару; «В миску» покажет опару и тесто отдельно.',
   'Za mało czasu: według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.': 'Мало времени: по данным King Arthur Baking, 7 дней может не хватить, а выведение закваски может занять даже несколько недель.',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.': 'Каравай высокой гидратации для опытных пекарей: дикий перламутровый мякиш и мощное ушко.',
@@ -140,4 +137,6 @@ export const CZESC: Record<string, string> = {
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Добавьте в рецептуру немного цельнозерновой муки (ржаной или пшеничной).',
   'Dokarmiaj zakwas częściej przed wypiekiem.': 'Подкармливайте закваску чаще перед выпечкой.',
   'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Расстаивайте тесто в холодильнике: по данным King Arthur Baking, холод замедляет ферментацию, а более медленная ферментация делает вкус глубже.',
+  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Гидратация близка к диапазону, указанному для этой смеси муки.',
+  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Гидратация находится в диапазоне, указанном для этой смеси муки.',
 };

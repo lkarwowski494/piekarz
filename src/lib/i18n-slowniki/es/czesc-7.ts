@@ -1,12 +1,6 @@
 // Słownik es, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Con las manos húmedas, pliega la masa con la técnica coil fold directamente en el molde.',
-  'Zwiń protokół': 'Contraer protocolo',
-  'Zwiń wyjaśnienie': 'Contraer explicación',
-  'Żytni': 'De centeno',
-  'Żytnie': 'De centeno',
-  '12–16h w 18–20°C (lub 4h w 24°C)': '12–16 h a 18–20 °C (o 4 h a 24 °C)',
   '12–24h w chłodzie (4–8°C)': '12–24 h en frío (4–8 °C)',
   '16–24h w 16–18°C (lub 24–48h w lodówce)': '16–24 h a 16–18 °C (o 24–48 h en la nevera)',
   '4–8h w 24–26°C do szczytu objętości': '4–8 h a 24–26 °C hasta el pico de volumen',
@@ -130,4 +124,6 @@ export const CZESC: Record<string, string> = {
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Masa auténtica de pizza napolitana con borde crujiente e interior delicado.',
   'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Último pliegue para crear tensión superficial. La masa debe estar aireada y mantener la forma de bola.',
   'Piekarz Pro nie jest aktywny': 'Panadero Pro no está activo',
+  'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.': 'Calcula la temperatura del agua en la fórmula: según King Arthur Baking, la masa de trigo debería estar a unos 24–25,5 °C tras el amasado.',
+  'Połącz mąkę z wodą, nie dodawaj jeszcze zakwasu ani soli. Pozwól glutenowi i enzymom samoczynnie rozwinąć strukturę ciasta.': 'Mezcla la harina con el agua; aún no añadas la masa madre ni la sal. Deja que el gluten y las enzimas desarrollen por sí solos la estructura de la masa.',
 };

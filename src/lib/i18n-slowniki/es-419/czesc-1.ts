@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} masas madre',
   '{n} zakwasu': '{n} masas madre',
   '{n} zakwasy': '{n} masas madre',
-  '{n} min w {temp}': '{n} min a {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: listo {dzien} a las {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (todo)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, nivel {trudnosc}',
@@ -214,4 +213,5 @@ export const CZESC: Record<string, string> = {
   'Dostosuj udział mąk. Suma musi wynosić dokładnie 100%.': 'Ajusta la proporción de harinas. La suma debe ser exactamente 100%.',
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'El ciclo de alimentación actual se restablecerá.',
   'Drobna niedoskonałość': 'Imperfección menor',
+  'Drobne pory, bochenek ciężki w dłoni': 'Alvéolos pequeños, hogaza pesada en la mano',
 };

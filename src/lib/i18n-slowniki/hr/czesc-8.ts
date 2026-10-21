@@ -1,6 +1,7 @@
 // Słownik hr, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšenično brašno Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Svijetlo raženo brašno',
   'Mąka z pszenicy durum (Semolina)': 'Brašno od durum pšenice (semolina)',
   'Mąka pszenna typ 650': 'Svijetlo pšenično brašno',
@@ -17,9 +18,6 @@ export const CZESC: Record<string, string> = {
   '{n} dzień#one': '{n} dan',
   '{n} dzień#few': '{n} dana',
   '{n} dzień#other': '{n} dana',
-  '{n} cz.#one': '{n} dio',
-  '{n} cz.#few': '{n} dijela',
-  '{n} cz.#other': '{n} dijelova',
   '{n} dzień temu#one': 'prije {n} dan',
   '{n} receptura#one': '{n} receptura',
   '{n} receptura#few': '{n} recepture',

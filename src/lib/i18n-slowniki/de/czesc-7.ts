@@ -1,10 +1,6 @@
 // Słownik de, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  '4–8h w 24–26°C do szczytu objętości': '4–8 h bei 24–26 °C bis zum maximalen Volumen',
-  'Do ostygnięcia do temp. pokojowej': 'Bis zum Abkühlen auf Raumtemperatur',
-  'Gumowaty (Gorący nóż)': 'Gummiartig (Heiß angeschnitten)',
-  'Jaskinie (Niedofermentowany)': 'Hohlräume (Untergare)',
   'Min. 4h lub przez noc w lodówce': 'Mind. 4 h oder über Nacht im Kühlschrank',
   'Pęknięty bok': 'Aufgerissene Seite',
   'Płaski dysk (Przerośnięty)': 'Flacher Fladen (Übergare)',
@@ -126,4 +122,7 @@ export const CZESC: Record<string, string> = {
   'Przerośnięte ciasto: zrób focaccię': 'Übergarer Teig: Mach Focaccia daraus',
   'Przypomnienia o karmieniu': 'Erinnerungen zum Auffrischen',
   'Składanie 1 (Stretch & Fold)': 'Dehnen und Falten 1 (Stretch & Fold)',
+  'Składanie 2 (Coil Fold)': 'Dehnen und Falten 2 (Coil Fold)',
+  'Składanie 3 (Coil Fold)': 'Dehnen und Falten 3 (Coil Fold)',
+  'Skopiowano plan wypieku do schowka': 'Backplan in die Zwischenablage kopiert',
 };

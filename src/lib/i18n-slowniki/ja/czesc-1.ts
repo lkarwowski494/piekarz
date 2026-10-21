@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': 'サワー種：{n}件',
   '{n} zakwasu': 'サワー種：{n}件',
   '{n} zakwasy': 'サワー種：{n}件',
-  '{n} min w {temp}': '{temp}で{n}分',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}：{dzien} {godzina}に完成',
   '{rodzaj} (cały)': '{rodzaj}（全量）',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}・難易度：{trudnosc}',

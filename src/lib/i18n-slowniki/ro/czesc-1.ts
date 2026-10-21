@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} maiale',
   '{n} zakwasu': '{n} maiale',
   '{n} zakwasy': '{n} maiale',
-  '{n} min w {temp}': '{n} min la {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: gata {dzien} la {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (în întregime)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, nivel {trudnosc}',
@@ -216,4 +215,5 @@ export const CZESC: Record<string, string> = {
   'Drobna niedoskonałość': 'Imperfecțiune minoră',
   'Drobne pory, bochenek ciężki w dłoni': 'Pori mărunți, pâine grea în mână',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Bule mici și uniforme, ca un burete/spumă',
+  'Drożdże': 'Drojdie',
 };

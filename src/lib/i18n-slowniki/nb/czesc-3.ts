@@ -1,7 +1,6 @@
 // Słownik nb, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Minutnik kuchenny': 'Kjøkkentimer',
   'mistrzowski': 'mester',
   'Mistrzowski': 'Mester',
   'Mniej': 'Mindre',
@@ -210,4 +209,5 @@ export const CZESC: Record<string, string> = {
   'Pradawny chleb orkiszowy z prażonymi ziarnami': 'Urgammelt speltbrød med ristede frø',
   'Preferment (Zaczyn)': 'Preferment (fordeig)',
   'Procedura Bassinage ratunkowego': 'Bassinage (ettervanning) som redning',
+  'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Prosentandelen for melet «{name}» må være et tall i området 0,1–100 %',
 };

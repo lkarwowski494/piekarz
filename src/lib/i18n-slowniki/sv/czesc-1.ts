@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} surdegsgrunder',
   '{n} zakwasu': '{n} surdegsgrunder',
   '{n} zakwasy': '{n} surdegsgrunder',
-  '{n} min w {temp}': '{n} min vid {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: klart {dzien} kl. {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (hela mängden)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, nivå {trudnosc}',
@@ -219,4 +218,6 @@ export const CZESC: Record<string, string> = {
   'Drożdże': 'Jäst',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Jästen och bakterierna i surdegsgrunden behöver matas regelbundet med färskt mjöl och vatten för att överleva och föröka sig.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Jästen hann inte bilda och fördela gas i hela degen innan den sattes in i ugnen. I ugnen expanderade degen häftigt bara upptill och slet sönder skorpan.',
+  'Drożdżowe': 'Jästbröd',
+  'Drożdżowy': 'Med jäst',
 };

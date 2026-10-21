@@ -146,9 +146,11 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Tee enne pätsi ahju panemist sõrmetest.',
   'Wykryto uszkodzony stan bazy danych': 'Tuvastati andmebaasi vigane olek',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Tõsta tainas tööpinnale, vormi esialgu kerakujuliseks ja pinguta pinda.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vajab jahu, mille valgusisaldus on vähemalt 13%. Autolüüs 60 minutit ilma soolata. Väga õrnad keerdvoltimised.',
   'Wymaga obecności': 'Nõuab kohalolekut',
   'wymaga Piekarz Pro': 'nõuab tellimust Pagar Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Punane rukkilinnas tuleb koos jahvatatud koriandriga keeva veega leotada. Puista pätsi pealt enne küpsetamist terveid koriandriseemneid.',
   'wymagający': 'nõudlik',
+  'Wymagający': 'Nõudlik',
+  'Wymagana temperatura wody': 'Vajalik vee temperatuur',
+  'Wymagany lód do schłodzenia wody': 'Vee jahutamiseks vajalik jää',
 };

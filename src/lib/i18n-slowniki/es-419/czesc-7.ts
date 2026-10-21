@@ -1,11 +1,6 @@
 // Słownik es-419, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.': 'Elasticidad y humedad equilibradas. Requiere 3–4 series de pliegues estándar.',
-  'Zwiększ': 'Aumentar',
-  'Zwiększ hydratację': 'Aumentar hidratación',
-  'Zwiększ hydratację o {n}%': 'Aumentar la hidratación en {n}%',
-  'Zwiększ masę mąki o {g} g': 'Aumentar el peso de la harina en {g} g',
   'Zwiększ udział mąki {nazwa} o {n}%': 'Aumentar la proporción de {nazwa} en {n}%',
   'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Con las manos húmedas, dobla la masa con la técnica coil fold directamente en el molde.',
   'Zwiń protokół': 'Contraer protocolo',
@@ -132,4 +127,6 @@ export const CZESC: Record<string, string> = {
   'Mistrzowski wiejski w stylu Tartine, 80%': 'Hogaza rústica maestra estilo Tartine, 80 %',
   'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.': 'Con las manos mojadas, levanta los 4 bordes de la masa hacia arriba y pliégalos hacia el centro del bol.',
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Da la forma definitiva (batard u hogaza redonda), colócala en una cesta enharinada y guárdala en el refrigerador (4 °C) durante 12–16 h.',
+  'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'La temperatura calculada del agua supera los 45 °C. Esto pone en riesgo de cocer las levaduras y las bacterias del ácido láctico. Enfría la harina o baja la temperatura ambiente.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Auténtica masa de pizza napolitana de borde crujiente e interior delicado.',
 };

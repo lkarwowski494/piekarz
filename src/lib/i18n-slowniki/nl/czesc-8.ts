@@ -1,6 +1,19 @@
 // Słownik nl, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': 'Het aanbod is tijdelijk niet beschikbaar. Probeer het zo opnieuw.',
+  'Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.': 'Het bakplan is alleen voor zuurdesembrood en dit recept bevat geen zuurdesemstarter.',
+  'Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.': 'Voordat ik verwijder, sla ik een kopie van de huidige gegevens op. Reservekopieën blijven in de Bestanden-app, in de map van deze app; daar kun je ze verwijderen.',
+  'Ręce tylko na starcie': 'Handwerk bij de start',
+  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.': 'Controleer de temperatuur in het midden van het brood met een insteekthermometer: volgens King Arthur Baking zijn de meeste broden gaar bij ca. 88 °C, en roggebrood moet in het midden 96–99 °C bereiken.',
+  'Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.': 'Deze reservekopie komt uit een nieuwere versie van Bakker. Werk de app bij en importeer het bestand opnieuw.',
+  'Teraz: {nazwa}': 'Nu: {nazwa}',
+  'Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.': 'Haal het brood eruit en leg het op een metalen rooster. Volgens King Arthur Baking geeft brood tijdens het afkoelen vocht af en heeft de kruim die tijd nodig om zich te zetten; te vroeg aangesneden kan het klef zijn.',
+  'Zakup czeka na zatwierdzenie': 'Aankoop wacht op goedkeuring',
+  '{n} min w {temp}': '{n} min bij {temp}',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Vereist meel met een eiwitgehalte van minimaal 13%. Autolyse van 60 minuten zonder zout. Heel voorzichtig vouwen (coil folds).',
+  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (stevig voordeeg, 50% hydratatie) rijpt 16 uur op 18 °C. Voeg aan het hoofddeeg 3% olijfolie toe. Druk het gas niet uit het deeg vóór het bakken.',
+  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Fermentatie: 2 uur op het aanrecht, verdelen in bollen van 250 g, 46 uur in de koelkast (4 °C). Haal ze 2 uur voor het bakken eruit.',
   'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hydratatie van de zuurdesemstarter moet tussen 20–200% liggen',
   'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Voed de Lievito Madre 3 keer om de 4 uur voordat je het deeg maakt. Voeg de boter (25%) aan het eind van het kneden geleidelijk in porties toe, als het glutennetwerk al volledig ontwikkeld is.',
   'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 uur)',
@@ -26,8 +39,6 @@ export const CZESC: Record<string, string> = {
   '{n} krok wypada w nocy#other': '{n} stappen vallen in de nacht',
   '{n} dzień#one': '{n} dag',
   '{n} dzień#other': '{n} dagen',
-  '{n} cz.#one': '{n} deel',
-  '{n} cz.#other': '{n} delen',
   '{n} dzień temu#one': '{n} dag geleden',
   '{n} dzień temu#other': '{n} dagen geleden',
   '{n} receptura#one': '{n} recept',

@@ -1,7 +1,6 @@
 // Słownik hr, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drukuj PDF': 'Ispiši PDF',
   'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).': 'Velika količina mekinja mehanički reže glutensku mrežu. Potrebna je viša hidratacija (78-85 %).',
   'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': 'Drži djecu podalje od štednjaka i mjesta na kojem radiš.',
   'Dzieci w kuchni': 'Djeca u kuhinji',

@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} kovász',
   '{n} zakwasu': '{n} kovász',
   '{n} zakwasy': '{n} kovász',
-  '{n} min w {temp}': '{n} perc, {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: elkészül {dzien}, {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (teljes mennyiség)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, nehézség: {trudnosc}',
@@ -215,4 +214,5 @@ export const CZESC: Record<string, string> = {
   'Dotychczasowy cykl dokarmiania zostanie wyzerowany.': 'Az eddigi etetési ciklus nullázódik.',
   'Drobna niedoskonałość': 'Apró szépséghiba',
   'Drobne pory, bochenek ciężki w dłoni': 'Apró pórusok, a cipó nehéz a kézben',
+  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Apró, egyenletes, szivacs- vagy habszerű lyukak',
 };

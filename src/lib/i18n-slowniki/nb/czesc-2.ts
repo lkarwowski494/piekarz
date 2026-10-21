@@ -1,7 +1,6 @@
 // Słownik nb, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drukuj PDF': 'Skriv ut PDF',
   'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).': 'Mye kli kutter glutennettverket mekanisk. Krever høyere deighydrering (78-85 %).',
   'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': 'Hold barn unna komfyren og stedet der du jobber.',
   'Dzieci w kuchni': 'Barn på kjøkkenet',
@@ -262,4 +261,5 @@ export const CZESC: Record<string, string> = {
   'Miękisz maże się na nożu i wygląda na niedopieczony': 'Krummen smøres ut på kniven og virker understekt',
   'Miękisz:': 'Krumme:',
   'Minuta': 'Minutt',
+  'Minutnik kuchenny': 'Kjøkkentimer',
 };

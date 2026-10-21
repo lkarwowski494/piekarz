@@ -1,7 +1,6 @@
 // Słownik hu, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Apró, egyenletes, szivacs- vagy habszerű lyukak',
   'Drożdże': 'Élesztő',
   'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'A kovászban lévő élesztőket és baktériumokat rendszeresen etetni kell friss liszttel és vízzel, hogy életben maradjanak és szaporodjanak.',
   'Drożdże nie zdążyły wyprodukować i rozprowadzić gazu w całej objętości ciasta przed włożeniem do pieca. W piekarniku rozprężenie nastąpiło gwałtownie tylko u góry, rozrywając skórkę.': 'Az élesztő nem tudott elég gázt termelni és eloszlatni a tészta teljes térfogatában, mielőtt a sütőbe került. A sütőben a tágulás hirtelen, csak felül következett be, és feltépte a héjat.',

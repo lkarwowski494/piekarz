@@ -1,9 +1,6 @@
 // Słownik et, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wymagający': 'Nõudlik',
-  'Wymagana temperatura wody': 'Vajalik vee temperatuur',
-  'Wymagany lód do schłodzenia wody': 'Vee jahutamiseks vajalik jää',
   'Wymieszaj składniki do uzyskania jednolitej masy. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.': 'Sega koostisained ühtlaseks massiks. Ära maitse toorest taignat ega jahu. Pärast taignaga töötamist pese käsi seebiga voolava vee all.',
   'Wymieszaj składniki w misce łyżką. Przykryj folią i zostaw na 12–16 godzin w temperaturze pokojowej. Bez składania.': 'Sega koostisained kausis lusikaga. Kata kilega ja jäta 12–16 tunniks toatemperatuurile. Voltimist pole vaja.',
   'Wymieszanie z solą i zakwasem': 'Segamine soola ja juuretisega',

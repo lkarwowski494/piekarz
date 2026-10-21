@@ -26,7 +26,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Lakukan uji tekan jari sebelum memasukkan bongkah roti ke oven.',
   'Wykryto uszkodzony stan bazy danych': 'Terdeteksi status basis data yang rusak',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Letakkan adonan di meja, bentuk awal menjadi bola, dan kencangkan permukaannya.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Memerlukan tepung dengan kadar protein minimal 13%. Autolisis 60 menit tanpa garam. Regang dan lipat (coil fold) yang sangat lembut.',
   'Wymaga obecności': 'Perlu kehadiran',
   'wymaga Piekarz Pro': 'memerlukan Tukang Roti Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Malt gandum hitam merah perlu diseduh dengan air mendidih bersama ketumbar giling. Sebelum dipanggang, taburi bagian atas dengan biji ketumbar utuh.',
@@ -183,4 +182,5 @@ export const CZESC: Record<string, string> = {
   'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Jika langganan tidak dibatalkan, App Store akan menagih biaya paket yang dipilih pada saat itu.',
   'Okres próbny kończy się {data}': 'Masa uji coba berakhir pada {data}',
   'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Langganan tidak akan diperpanjang, jadi Anda tidak akan dikenai biaya.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Setelah itu, App Store akan menagih {cena} untuk satu bulan langganan. Jika tidak ingin membayar, batalkan langganan sebelum masa uji coba berakhir.',
 };

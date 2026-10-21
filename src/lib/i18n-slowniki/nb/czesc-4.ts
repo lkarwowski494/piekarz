@@ -1,7 +1,6 @@
 // Słownik nb, część 4 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%': 'Prosentandelen for melet «{name}» må være et tall i området 0,1–100 %',
   'Profil smakowy': 'Smaksprofil',
   'Profil zakwasu': 'Profil for surdeigsstarter',
   'Profil, cykl dokarmiania i szczyt aktywności': 'Profil, matingssyklus og starterens toppunkt',
@@ -206,4 +205,6 @@ export const CZESC: Record<string, string> = {
   'Udostępnij kopię bazy': 'Del en kopi av databasen',
   'Udostępnij plik receptury': 'Del oppskriftsfil',
   'Udział mąki w zaczynie': 'Andel mel i fordeigen',
+  'Udział soli musi mieścić się w zakresie 0–6%': 'Saltandelen må ligge i området 0–6 %',
+  'Udział zakwasu musi mieścić się w zakresie 0–150%': 'Andelen surdeigsstarter må ligge i området 0–150 %',
 };

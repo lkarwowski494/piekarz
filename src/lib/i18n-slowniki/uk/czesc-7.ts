@@ -83,7 +83,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Перед тим як поставити хлібину в духовку, зробіть тест пальцем.',
   'Wykryto uszkodzony stan bazy danych': 'Виявлено пошкоджений стан бази даних',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Викладіть тісто на робочу поверхню, надайте йому попередньої форми кулі й натягніть поверхню.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Потрібне борошно з вмістом білка щонайменше 13%. Аутоліз 60 хвилин без солі. Дуже делікатні спіральні складання.',
   'Wymaga obecności': 'Потрібна присутність',
   'wymaga Piekarz Pro': 'потребує Пекар Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Потрібно заварити червоний житній солод окропом разом із меленим коріандром. Перед випіканням посипте верх цілим насінням коріандру.',
@@ -109,4 +108,7 @@ export const CZESC: Record<string, string> = {
   'Wysoka wilgotność opóźnia twardnienie skórki, pozwalając na maksymalne otwarcie nacięcia (ucha).': 'Висока вологість затримує твердіння скоринки, даючи надрізу максимально розкритися (вушко).',
   'Wysoka zawartość łuski ziarna, znaczna absorpcja wody, głęboki rustykalny profil skórki.': 'Високий вміст оболонок зерна, значне поглинання води, глибокий рустикальний профіль скоринки.',
   'Wysokie rozcieńczenie: mniej zakwasu względem świeżej mąki i wody, więc dłuższy czas do szczytu.': 'Високе розведення: менше закваски відносно свіжого борошна й води, тому довше до піку активності.',
+  'Wyznacz kroki wstecz, aby nie zarywać nocy': 'Розплануйте кроки у зворотному порядку, щоб не недосипати',
+  'Wznów': 'Продовжити',
+  'Yudane (Zaparzana mąka 1:1 we wrzątku 100°C)': 'Юдане (заварене борошно 1:1 окропом 100 °C)',
 };

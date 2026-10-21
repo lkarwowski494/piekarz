@@ -3,73 +3,115 @@
   "klucze": [
     {
       "klucz": "Plan wypieku jest tylko dla chleba na zakwasie, a ta receptura nie ma zakwasu.",
-      "powod": "nowy tekst toru p15a (audyt niezależny D-3: plan tylko dla receptur na zakwasie); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst toru p15a (audyt niezależny D-3: plan tylko dla receptur na zakwasie); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Ręce tylko na starcie",
-      "powod": "nowy tekst toru p15a (audyt niezależny D-6: kroki z rękami na starcie w ochronie snu); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst toru p15a (audyt niezależny D-6: kroki z rękami na starcie w ochronie snu); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.",
-      "powod": "nowy tekst toru p15a (audyt niezależny A-3: pusta lista produktów to nie brak sieci); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst toru p15a (audyt niezależny A-3: pusta lista produktów to nie brak sieci); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Zakup czeka na zatwierdzenie",
-      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.",
-      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst toru p15a (audyt niezależny C-4: Ask to Buy to nie błąd sieci); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Kontakt",
-      "powod": "karta „Kontakt” w Ustawieniach jest widoczna w 1.0, a klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
-      "od": "2026-10-22"
+      "powod": "karta „Kontakt” w Ustawieniach jest widoczna w 1.0, a klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Oceń w App Store",
-      "powod": "wiersz karty „Kontakt” widoczny w 1.0 (Apple ID wpisany, 082), klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
-      "od": "2026-10-22"
+      "powod": "wiersz karty „Kontakt” widoczny w 1.0 (Apple ID wpisany, 082), klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Ocena wymaga połączenia z App Store.",
-      "powod": "komunikat wiersza „Oceń w App Store” w karcie „Kontakt”, klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]",
-      "od": "2026-10-22"
+      "powod": "komunikat wiersza „Oceń w App Store” w karcie „Kontakt”, klucz był błędnie na liście PÓŹNIEJ (F-52 rodzina) [audyt-niezalezny F-1]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Ta kopia pochodzi z nowszej wersji Piekarza. Zaktualizuj aplikację i zaimportuj plik ponownie.",
-      "powod": "arkusz „Importuj z pliku”: kopia z nowszej wersji aplikacji (schemaVersion wyższy niż obsługiwany) zamiast „nie rozpoznaję” [audyt-niezalezny B-7]",
-      "od": "2026-10-22"
+      "powod": "arkusz „Importuj z pliku”: kopia z nowszej wersji aplikacji (schemaVersion wyższy niż obsługiwany) zamiast „nie rozpoznaję” [audyt-niezalezny B-7]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Przed usunięciem zapiszę kopię obecnych danych. Kopie zapasowe zostają w aplikacji Pliki, w folderze tej aplikacji; tam możesz je usunąć.",
-      "powod": "treść okna potwierdzenia „Usunąć wszystkie dane?”: kopie zapasowe zostają w aplikacji Pliki [audyt-niezalezny B-4]",
-      "od": "2026-10-22"
+      "powod": "treść okna potwierdzenia „Usunąć wszystkie dane?”: kopie zapasowe zostają w aplikacji Pliki [audyt-niezalezny B-4]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Teraz: {nazwa}",
-      "powod": "ogłoszenie VoiceOver nowego kroku w prowadzeniu po „Zrobione” i „Cofnij” [audyt-niezalezny G-1]",
-      "od": "2026-10-22"
+      "powod": "ogłoszenie VoiceOver nowego kroku w prowadzeniu po „Zrobione” i „Cofnij” [audyt-niezalezny G-1]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "{nazwa}: {n} z 5",
-      "powod": "etykieta VoiceOver wykresu profilu bochenka (oś i ocena 1–5) w Dzienniku i przy zapisie oceny [audyt-niezalezny G-3]",
-      "od": "2026-10-22"
+      "powod": "etykieta VoiceOver wykresu profilu bochenka (oś i ocena 1–5) w Dzienniku i przy zapisie oceny [audyt-niezalezny G-3]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.",
-      "powod": "opis receptury bazowej bez słowa „Odżywczy” (twierdzenie zdrowotne bez źródła); nowy klucz zastępuje stary opis [audyt-niezalezny E-8]",
-      "od": "2026-10-22"
+      "powod": "opis receptury bazowej bez słowa „Odżywczy” (twierdzenie zdrowotne bez źródła); nowy klucz zastępuje stary opis [audyt-niezalezny E-8]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.",
-      "powod": "Doktor Chleba (gumowaty miękisz): zdanie o pomiarze z temperaturą dla chleba żytniego według DIA-TEM-001; nowy klucz zastępuje zdanie bez żyta [audyt-niezalezny E-4]",
-      "od": "2026-10-22"
+      "powod": "Doktor Chleba (gumowaty miękisz): zdanie o pomiarze z temperaturą dla chleba żytniego według DIA-TEM-001; nowy klucz zastępuje zdanie bez żyta [audyt-niezalezny E-4]. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     },
     {
       "klucz": "Subskrypcja się nie odnowi, więc nic nie zapłacisz.",
@@ -361,30 +403,37 @@
     },
     {
       "klucz": "Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.",
-      "powod": "nowy tekst integracji p15 (audyt niezależny E-3: krok studzenia ze źródłem KRO-POC-015 zamiast wycofanego zdania o 2 h żelowania); przekład 33 języków batchem M1",
-      "od": "2026-10-22"
+      "powod": "nowy tekst integracji p15 (audyt niezależny E-3: krok studzenia ze źródłem KRO-POC-015 zamiast wycofanego zdania o 2 h żelowania); przekład 33 języków batchem M1. Przekład noc3 (2026-10-22) wpięty w 32 językach; hr czeka: przebieg noc3 oddał hr w formie „Vi” (baza terminów hr: obraćanje s „vi”), a słownik hr jest w formie „ti” (F-7, D-086) — ponowny przebieg hr z formą „ti” (koszt ok. 0,19 USD) poza limitem nocy",
+      "od": "2026-10-22",
+      "jezyki": [
+        "hr"
+      ]
     }
   ],
   "zamkniete": {
     "data": "2026-10-22",
-    "sposob": "przebieg M1 „noc2” (Claude API Message Batches, claude-opus-5-5): 11 kluczy torów p13a i p13b × 33 języki + formy liczby mnogiej „{n} cz.#<kategoria>” w 27 językach (do docs/lokalizacja/poprawki-przekladu.json, 40 poprawek liczba-mnoga) + 58 akapitów opisu App Store; 0 błędów walidacji; wpięty przez scripts/wepnij-przeklad.mjs (33/33, 0 błędów); tłumaczenie zwrotne: 4 rozbieżności (id, ms: zdania o soli „Garam {procent} lebih …” czytelne jako różnica) rozstrzygnięte poprawkami krok0 „Garam sebanyak {procent} …”. Raport: narzedzia-api/przeklad/raporty/noc2-2026-10-22.md",
+    "sposob": "przebieg M1 „noc3” (Claude API Message Batches, claude-opus-5-5, effort medium) na gałęzi integracja/p15-2026-10-22: 15 kluczy torów p15a (5), p15b (9) i integracji (E-3) × 32 języki (bez hr) + etykieta „Terms of Use (EULA):” w 29 lokalizacjach App Store (A-1); 0 błędów walidacji, tłumaczenie zwrotne bez rozbieżności; wpięty przez scripts/wepnij-przeklad.mjs (33/33, 0 błędów; porównanie map klucz → tekst: +15 kluczy × 32, 0 innych zmian, hr bez zmian). hr (15 nowych + 36 ponownych „ti”) zostaje na liście: przekład wrócił w formie „Vi”. Raport: narzedzia-api/przeklad/raporty/noc3-2026-10-22.md",
     "poprzednie": {
-      "data": "2026-10-21",
-      "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",
-      "klucze": [
-        "Jaskinie (Niedofermentowany)",
-        "Płaski dysk (Przerośnięty)",
-        "Gumowaty (Gorący nóż)",
-        "Pęknięty bok",
-        "Zbyt kwaśny (Octowy)",
-        "Płaski smak (Jałowy)",
-        "12–16h w 18–20°C (lub 4h w 24°C)",
-        "16–24h w 16–18°C (lub 24–48h w lodówce)",
-        "12–24h w chłodzie (4–8°C)",
-        "4–8h w 24–26°C do szczytu objętości",
-        "Do ostygnięcia do temp. pokojowej",
-        "Min. 4h lub przez noc w lodówce"
-      ]
+      "data": "2026-10-22",
+      "sposob": "przebieg M1 „noc2” (Claude API Message Batches, claude-opus-5-5): 11 kluczy torów p13a i p13b × 33 języki + formy liczby mnogiej „{n} cz.#<kategoria>” w 27 językach (do docs/lokalizacja/poprawki-przekladu.json, 40 poprawek liczba-mnoga) + 58 akapitów opisu App Store; 0 błędów walidacji; wpięty przez scripts/wepnij-przeklad.mjs (33/33, 0 błędów); tłumaczenie zwrotne: 4 rozbieżności (id, ms: zdania o soli „Garam {procent} lebih …” czytelne jako różnica) rozstrzygnięte poprawkami krok0 „Garam sebanyak {procent} …”. Raport: narzedzia-api/przeklad/raporty/noc2-2026-10-22.md",
+      "poprzednie": {
+        "data": "2026-10-21",
+        "sposob": "mały przebieg M1 „doktor” (Claude API Message Batches, 12 kluczy × 33 języki, 0 błędów walidacji), wpięty przez scripts/wepnij-przeklad.mjs; tłumaczenie zwrotne: 10 rozbieżności, wszystkie „Gumowaty (Gorący nóż)” — fałszywy alarm (przekład oddaje przyczynę „krojony na gorąco”, jak EN „Gummy (Cut while hot)”; niejednoznaczne jest brzmienie PL, znalezisko dla roli 06 na reaudyt)",
+        "klucze": [
+          "Jaskinie (Niedofermentowany)",
+          "Płaski dysk (Przerośnięty)",
+          "Gumowaty (Gorący nóż)",
+          "Pęknięty bok",
+          "Zbyt kwaśny (Octowy)",
+          "Płaski smak (Jałowy)",
+          "12–16h w 18–20°C (lub 4h w 24°C)",
+          "16–24h w 16–18°C (lub 24–48h w lodówce)",
+          "12–24h w chłodzie (4–8°C)",
+          "4–8h w 24–26°C do szczytu objętości",
+          "Do ostygnięcia do temp. pokojowej",
+          "Min. 4h lub przez noc w lodówce"
+        ]
+      }
     }
   },
   "zamkniete-p12-noc": {

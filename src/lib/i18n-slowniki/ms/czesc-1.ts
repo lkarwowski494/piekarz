@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} pemula',
   '{n} zakwasu': '{n} pemula',
   '{n} zakwasy': '{n} pemula',
-  '{n} min w {temp}': '{n} min pada {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: siap {dzien} pada {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (semua)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, tahap {trudnosc}',
@@ -217,4 +216,5 @@ export const CZESC: Record<string, string> = {
   'Drobne pory, bochenek ciężki w dłoni': 'Liang halus, buku roti terasa berat di tangan',
   'Drobne, jednolite pęcherzyki jak gąbka/pianka': 'Gelembung halus dan seragam seperti span/buih',
   'Drożdże': 'Yis',
+  'Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.': 'Yis dan bakteria dalam pemula perlu diberi makan secara berkala dengan tepung dan air segar supaya dapat terus hidup dan membiak.',
 };

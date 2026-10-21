@@ -1,8 +1,6 @@
 // Słownik it, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Non riconosco questo file. Fornaio importa file di ricette e file di backup creati con Fornaio.',
-  'Temp': 'Temp',
   'Temperatura DDT musi mieścić się w zakresie 10–40°C': 'La temperatura DDT deve essere nell\'intervallo 10–40 °C',
   'Temperatura docelowa:': 'Temperatura obiettivo:',
   'Temperatura mąki': 'Temperatura della farina',
@@ -141,4 +139,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Acqua: {amount} g',
   'wody': 'acqua',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'La voce è nella cronologia. Dottor Pane ti suggerirà cosa cambiare alla prossima sfornata.',
+  'Wpis z historii wypieku zostanie trwale usunięty.': 'La voce della cronologia delle sfornate verrà eliminata definitivamente.',
+  'Wpisz nazwę przepisu': 'Inserisci il nome della ricetta',
 };

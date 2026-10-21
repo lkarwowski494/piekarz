@@ -150,5 +150,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Preden hlebec postavite v pečico, naredite test s prstom.',
   'Wykryto uszkodzony stan bazy danych': 'Zaznano je poškodovano stanje zbirke podatkov',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Testo zvrnite na pult, mu dajte približno obliko krogle in napnite površino.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Potrebna je moka z vsebnostjo beljakovin najmanj 13%. Avtoliza 60 minut brez soli. Zelo nežno prepogibanje (coil fold).',
+  'Wymaga obecności': 'Zahteva prisotnost',
+  'wymaga Piekarz Pro': 'zahteva Pek Pro',
 };

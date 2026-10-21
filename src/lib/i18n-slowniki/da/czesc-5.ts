@@ -143,11 +143,11 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Lav fingertesten, før du sætter brødet i ovnen.',
   'Wykryto uszkodzony stan bazy danych': 'Beskadiget databasetilstand registreret',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Vend dejen ud på bordet, giv den en foreløbig kugleform, og stram overfladen.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Kræver mel med et proteinindhold på mindst 13%. Autolyse i 60 minutter uden salt. Meget skånsomme foldninger (coil fold).',
   'Wymaga obecności': 'Kræver tilstedeværelse',
   'wymaga Piekarz Pro': 'kræver Bageren Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Den røde rugmalt skal skoldes med kogende vand sammen med den malede koriander. Drys toppen med hele korianderfrø før bagning.',
   'wymagający': 'krævende',
   'Wymagający': 'Krævende',
   'Wymagana temperatura wody': 'Nødvendig vandtemperatur',
+  'Wymagany lód do schłodzenia wody': 'Nødvendig is til afkøling af vandet',
 };

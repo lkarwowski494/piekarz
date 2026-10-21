@@ -1,7 +1,6 @@
 // Słownik sk, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Dokarmiaj zakwas częściej przed wypiekiem.': 'Kŕmte kvások pred pečením častejšie.',
   'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Nechajte cesto kysnúť v chladničke: podľa King Arthur Baking chlad spomaľuje kvasenie a pomalšie kvasenie prehlbuje chuť.',
   'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Hydratácia je blízko rozsahu uvedeného pre túto zmes múk.',
   'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Hydratácia je v rozsahu uvedenom pre túto zmes múk.',
@@ -122,6 +121,10 @@ export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Vyklopte cesto na pracovnú dosku a stierkou ho jemne zaguľaťte bez prebytočnej múky. Nechajte 20 min odpočívať.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Potrebuje osvieženie ({dni} v chlade)',
   'Wypiek w garnku z parą': 'Pečenie v liatine s parou',
+  '{n} cz.#few': '{n} diely',
+  '{n} cz.#many': '{n} dielu',
+  '{n} cz.#one': '{n} diel',
+  '{n} cz.#other': '{n} dielov',
   'Mąka orkiszowa typ 2000': 'Špaldová múka',
   'Mąka żytnia typ 2000': 'Ražná múka',
   'Notatka z poprzedniego wypieku: {notatka}': 'Poznámka z predchádzajúceho pečenia: {notatka}',
@@ -132,7 +135,11 @@ export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': 'Podiel raže {n} %: pšeničný variant.',
   'Udział żyta {n}%: wariant żytni, plan bez składań.': 'Podiel raže {n} %: ražný variant, plán bez prekladania.',
   'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.': 'Vyplň pole „{pole}“, aby sa dala vypočítať teplota vody.',
-  'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (tuhý predkvas s 50 % hydratáciou) zreje 16 h pri 18 °C. Do hlavného cesta pridajte 3 % olivového oleja. Cesto pred pečením neodplyňujte.',
-  'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Kvasenie: 2 h na doske, rozdelenie na guľky po 250 g, 46 h v chladničke (4 °C). Vyberte 2 h pred pečením.',
-  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hydratácia kvásku musí byť v rozsahu 20–200 %',
+  '{nazwa}: {n} z 5': '{nazwa}: {n} z 5',
+  'Chleb z grubo mielonej mąki pszennej Graham z dodatkiem naturalnego miodu i siemienia lnianego.': 'Chlieb z hrubo mletej pšeničnej grahamovej múky s prídavkom prírodného medu a ľanového semienka.',
+  'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Keď bude nákup schválený, Pekár Pro sa zapne sám. Nemusíte ho kupovať znova.',
+  'Kontakt': 'Kontakt',
+  'Ocena wymaga połączenia z App Store.': 'Hodnotenie vyžaduje pripojenie k App Store.',
+  'Oceń w App Store': 'Ohodnotiť v App Store',
+  'Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.': 'Ponuka je dočasne nedostupná. Skúste to znova o chvíľu.',
 };

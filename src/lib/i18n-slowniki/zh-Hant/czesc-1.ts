@@ -1,4 +1,4 @@
-// Słownik zh-Hant, część 1 z 7. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik zh-Hant, część 1 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   '-{masa} pary': '-{masa} 水蒸氣',
@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} 個天然酵母起種',
   '{n} zakwasu': '{n} 個天然酵母起種',
   '{n} zakwasy': '{n} 個天然酵母起種',
-  '{n} min w {temp}': '{temp}，{n} 分鐘',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}：{dzien} {godzina} 完成',
   '{rodzaj} (cały)': '{rodzaj}（全部）',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}，難度：{trudnosc}',
@@ -227,4 +226,5 @@ export const CZESC: Record<string, string> = {
   'Duża ilość otrębów mechanicznie przecina siatkę glutenu. Wymaga wyższej hydratacji (78-85%).': '大量麩皮會物理性地切斷麩質網絡。需要較高的麵團含水量（78-85%）。',
   'Dzieci trzymaj z dala od kuchenki i miejsca, w którym pracujesz.': '讓孩童遠離爐具和你工作的區域。',
   'Dzieci w kuchni': '廚房裡的孩童',
+  'Dziennik': '日誌',
 };

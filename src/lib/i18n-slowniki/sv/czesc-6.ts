@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Wykryto uszkodzony stan bazy danych': 'Skadad databas upptäcktes',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Stjälp upp degen på bänken, ge den en preliminär bollform och spänn ytan.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Kräver mjöl med en proteinhalt på minst 13%. Autolys 60 minuter utan salt. Mycket varsamma vikningar (Coil Fold).',
   'Wymaga obecności': 'Kräver närvaro',
   'wymaga Piekarz Pro': 'kräver Bagaren Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Den röda rågmalten ska skållas med kokande vatten tillsammans med malen koriander. Strö hela korianderfrön över ytan före gräddning.',
@@ -176,4 +175,5 @@ export const CZESC: Record<string, string> = {
   'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.': 'Sänk temperaturen i kylskåpet: enligt King Arthur Baking bromsar en lägre temperatur jäsningen.',
   'Pâte Fermentée (Stare ciasto)': 'Pâte Fermentée (gammal deg)',
   'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.': 'Grädda med lock i en gryta: enligt King Arthur Baking håller ångan under locket skorpan mjuk längre, så att limpan kan fortsätta resa sig i början av gräddningen.',
+  'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.': 'Fortsätt grädda när du har tagit av locket: enligt King Arthur Baking gräddas brödet utan lock tills det har fått full färg.',
 };

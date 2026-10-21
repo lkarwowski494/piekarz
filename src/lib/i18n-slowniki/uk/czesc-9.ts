@@ -1,8 +1,6 @@
 // Słownik uk, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Гідратація тіста близька до діапазону, вказаного для цієї суміші борошна.',
-  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Гідратація тіста в межах діапазону, вказаного для цієї суміші борошна.',
   'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.': 'Якщо всередині температура нижча, випікайте довше й виміряйте знову.',
   'Levain (Rzemieślniczy zaczyn na zakwasie)': 'Levain (ремісна опара на заквасці)',
   'Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.': 'Розігрійте порожню каструлю, перш ніж покласти тісто: за даними King Arthur Baking, приблизно 30 хвилин, щоб у ній утворилася пара.',
@@ -98,4 +96,5 @@ export const CZESC: Record<string, string> = {
   'Mokrymi dłońmi podciągnij 4 brzegi ciasta ku górze i złóż do środka miski.': 'Мокрими руками підтягніть 4 краї тіста догори й складіть до центру миски.',
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Надайте фінальну форму (батон або кругла хлібина), покладіть у присипаний борошном кошик і поставте в холодильник (4°C) на 12–16 год.',
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'Розрахована температура води перевищує 45°C. Це загрожує загибеллю дріжджів і молочнокислих бактерій. Охолодіть борошно або знизьте температуру в приміщенні.',
+  'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Оригінальне тісто для неаполітанської піци з хрустким бортиком і ніжною серединкою.',
 };

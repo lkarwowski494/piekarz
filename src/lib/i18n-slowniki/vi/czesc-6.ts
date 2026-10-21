@@ -77,7 +77,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Thử ấn ngón tay trước khi cho ổ bánh vào lò nướng.',
   'Wykryto uszkodzony stan bazy danych': 'Phát hiện cơ sở dữ liệu bị hỏng',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Đặt bột lên bàn, vê sơ bộ thành hình tròn và căng bề mặt.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Cần bột có hàm lượng protein tối thiểu 13%. Thủy phân bột 60 phút không muối. Gấp bột kiểu cuộn thật nhẹ nhàng.',
   'Wymaga obecności': 'Cần có mặt',
   'wymaga Piekarz Pro': 'cần Thợ Bánh Mì Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Cần chần mạch nha lúa mạch đen đỏ cùng hạt mùi xay bằng nước sôi. Rắc hạt mùi nguyên lên mặt bánh trước khi nướng.',
@@ -159,4 +158,9 @@ export const CZESC: Record<string, string> = {
   'Zapisz jako moją': 'Lưu làm của tôi',
   'Zapomniana sól (Laminacja ratunkowa)': 'Quên muối (Cán mỏng cứu bột)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Đã ghi nhận lần cho men “{name}” ăn.',
+  'Zarejestrowano dokarmienie!': 'Đã ghi nhận lần cho men ăn!',
+  'Zarządzaj subskrypcją': 'Quản lý gói đăng ký',
+  'Zastąp część wody lodem:': 'Thay một phần nước bằng đá:',
+  'Zastąp dane': 'Thay dữ liệu',
+  'Zastosowanie:': 'Phù hợp cho:',
 };

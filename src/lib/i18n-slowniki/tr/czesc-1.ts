@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   '{n} zakwasów': '{n} ekşi maya',
   '{n} zakwasu': '{n} ekşi maya',
   '{n} zakwasy': '{n} ekşi maya',
-  '{n} min w {temp}': '{n} dk, {temp}',
   '{nazwa}: gotowe {dzien} o {godzina}': '{nazwa}: hazır — {dzien}, {godzina}',
   '{rodzaj} (cały)': '{rodzaj} (tamamı)',
   '{rodzaj}, poziom {trudnosc}': '{rodzaj}, seviye: {trudnosc}',

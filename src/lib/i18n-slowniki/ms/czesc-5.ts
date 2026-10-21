@@ -1,8 +1,6 @@
 // Słownik ms, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Tradycyjny bochenek z francuskich wsi. Zrównoważony smak kwasu mlekowego i orzechowo-otrębowy finisz.': 'Buku roti tradisional dari desa Perancis. Rasa asid laktik yang seimbang dengan kesudahan rasa kekacang dan dedak.',
-  'Tradycyjny chleb 100% żytni razowy': 'Roti tradisional 100% rai mil penuh',
   'Tradycyjny profil wiejskiego chleba francuskiego, łagodna kwasowość i zwarty miękisz.': 'Profil tradisional roti desa Perancis, keasidan lembut dan remah yang padat.',
   'Trener i Fiszki': 'Latihan & Kad Imbas',
   'Trener Szybkiego Rachunku': 'Latihan Kira Pantas',
@@ -140,4 +138,6 @@ export const CZESC: Record<string, string> = {
   'Wskazówki': 'Petua',
   'Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.': 'Masukkan loyang ke dalam peti sejuk (4°C) selama 2–3 jam supaya mentega yang sejuk dan gluten menjadi pejal.',
   'Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.': 'Masukkan periuk besi tuang ke dalam ketuhar dan panaskan hingga 240°C.',
+  'Wstaw gotową mieszankę': 'Guna campuran sedia ada',
+  'Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.': 'Masukkan bakul dalam beg kedap udara ke dalam peti sejuk (4–6°C). Penapaian yang panjang memberikan aroma yang mendalam kepada roti.',
 };

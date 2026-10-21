@@ -1,7 +1,6 @@
 // Słownik sv, część 3 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Mieszanka mąk, zaczyny, strata piecowa': 'Mjölblandning, fördegar, bakförlust',
   'Mieszanka musi zawierać co najmniej jedną mąkę.': 'Blandningen måste innehålla minst ett mjöl.',
   'Miękisz (Wnętrze bochenka)': 'Inkråm (limpans insida)',
   'Miękisz maże się na nożu i wygląda na niedopieczony': 'Inkråmet kladdar på kniven och ser ogräddat ut',

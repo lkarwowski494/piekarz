@@ -1,7 +1,6 @@
 // Słownik hr, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.': 'Nagnite zakrivljenu oštricu pod kutom od oko 30° prema površini tijesta: prema King Arthur Bakingu to pogoduje nastanku režnja tijesta koji se odvija u uho kruha.',
   'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.': 'Vodite zakrivljenu oštricu pod kutom od oko 30° prema površini tijesta, do dubine od oko 6–13 mm: prema King Arthur Bakingu plići zarez može se tijekom pečenja ponovno spojiti.',
   'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Prije rezanja pričekajte da se štruca potpuno ohladi. Prema King Arthur Bakingu pečeni raženi kruh na kvasu trebao bi odmarati 24 sata prije rezanja, za najbolju kvalitetu.',
   'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–26 °C.': 'Skratite prvu fermentaciju i pazite na temperaturu tijesta: prema King Arthur Bakingu pšenično tijesto nakon miješanja treba imati oko 24–26 °C.',
@@ -111,6 +110,9 @@ export const CZESC: Record<string, string> = {
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Istresite tijesto na radnu površinu i strugalicom ga nježno zaokružite u kuglu, bez viška brašna. Ostavite ga da odmara 20 min.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Treba osvježiti ({dni} na hladnom)',
   'Wypiek w garnku z parą': 'Pečenje u posudi od lijevanog željeza s parom',
+  '{n} cz.#few': '{n} dijela',
+  '{n} cz.#one': '{n} dio',
+  '{n} cz.#other': '{n} dijelova',
   'Mąka orkiszowa typ 2000': 'Pirovo brašno',
   'Mąka żytnia typ 2000': 'Raženo brašno',
   'Notatka z poprzedniego wypieku: {notatka}': 'Bilješka s prethodnog pečenja: {notatka}',
@@ -121,6 +123,8 @@ export const CZESC: Record<string, string> = {
   'Udział żyta {n}%: wariant pszenny.': 'Udio raži {n} %: pšenična varijanta.',
   'Udział żyta {n}%: wariant żytni, plan bez składań.': 'Udio raži {n} %: ražena varijanta, plan bez preklapanja.',
   'Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.': 'Ispuni polje „{pole}“ da izračunaš temperaturu vode.',
+  '{n} min w {temp}': '{n} min pri {temp}',
+  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Zahtijeva brašno s udjelom proteina od najmanje 13%. Autoliza 60 minuta bez soli. Vrlo nježna preklapanja (coil fold).',
   'Biga (sztywny zaczyn 50% hydratacji) dojrzewający 16 h w 18°C. Do ciasta właściwego dodaj 3% oliwy z oliwek. Nie odgazowuj ciasta przed pieczeniem.': 'Biga (čvrsti nastavak, 50 % hidratacije) zrije 16 h na 18 °C. U glavno tijesto dodaj 3 % maslinova ulja. Ne istiskuj plin iz tijesta prije pečenja.',
   'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.': 'Fermentacija: 2 h na radnoj površini, podjela na kuglice od 250 g, 46 h u hladnjaku (4 °C). Izvadi 2 h prije pečenja.',
   'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hidratacija kvasa mora biti u rasponu 20–200 %',
@@ -133,5 +137,4 @@ export const CZESC: Record<string, string> = {
   'Uczeń Piekarski': 'Pekarski učenik',
   '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Vrijeme zrenja {fermentationTimeHours}. {flavorProfilePl}',
   'Mąka pszenna typ 650 (chlebowa jasna)': 'Svijetlo pšenično brašno (za kruh)',
-  'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšenično brašno Manitoba / Forte (W > 300)',
 };

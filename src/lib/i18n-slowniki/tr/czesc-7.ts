@@ -1,7 +1,6 @@
 // Słownik tr, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Ardından App Store, bir aylık abonelik için {cena} tahsil eder. Ödeme yapmak istemiyorsanız deneme süresi bitmeden aboneliğinizi iptal edin.',
   'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Ardından App Store, bir yıllık abonelik için {cena} tahsil eder. Ödeme yapmak istemiyorsanız deneme süresi bitmeden aboneliğinizi iptal edin.',
   'Zamknij informację o końcu próby': 'Deneme bitiş bildirimini kapat',
   'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.': 'Fırından çıkan ekmek henüz hazır değildir: King Arthur Baking\'e göre ekmek soğurken nem bırakır ve ekmek içinin oturması için bu süre gerekir; bu yüzden erken kesilirse lastiğimsi olabilir. Başka bir neden de az pişme olabilir: King Arthur Baking\'e göre çoğu somun, ortası yaklaşık 88 °C\'ye ulaştığında pişmiş olur.',
@@ -124,4 +123,9 @@ export const CZESC: Record<string, string> = {
   'W pliku receptury brakuje proporcji ciasta.': 'Tarif dosyasında hamur oranları eksik.',
   'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Oranı ve hamur için ne kadar ekşi maya gerektiğini seçin. Un ve su miktarını ben hesaplayacağım.',
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Hamuru tezgâha alın, fazla un kullanmadan kazıyıcıyla nazikçe top şekline getirin. 20 dk dinlenmeye bırakın.',
+  'Wymaga odświeżenia ({dni} w chłodzie)': 'Tazelenmesi gerekiyor ({dni} soğukta)',
+  'Wypiek w garnku z parą': 'Döküm tencerede buharlı pişirme',
+  '{n} cz.#one': '{n} kısım',
+  '{n} cz.#other': '{n} kısım',
+  'Mąka orkiszowa typ 2000': 'Kavılca unu',
 };

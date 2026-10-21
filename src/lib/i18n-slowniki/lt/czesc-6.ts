@@ -32,7 +32,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Prieš dėdami kepalą į orkaitę, atlikite piršto testą.',
   'Wykryto uszkodzony stan bazy danych': 'Aptikta sugadinta duomenų bazės būsena',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Išverskite tešlą ant stalo, suteikite jai pradinę rutulio formą ir įtempkite paviršių.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Reikia miltų, kurių baltymų kiekis – mažiausiai 13%. Autolizė 60 minučių be druskos. Labai švelnus spiralinis lankstymas.',
   'Wymaga obecności': 'Reikia dalyvauti',
   'wymaga Piekarz Pro': 'reikia Kepėjas Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Raudonąjį ruginį salyklą reikia užplikyti verdančiu vandeniu kartu su maltomis kalendromis. Prieš kepdami viršų pabarstykite sveikomis kalendrų sėklomis.',
@@ -179,4 +178,8 @@ export const CZESC: Record<string, string> = {
   '4–8h w 24–26°C do szczytu objętości': '4–8 val. esant 24–26 °C, kol pasieks didžiausią tūrį',
   'Do ostygnięcia do temp. pokojowej': 'Kol atvės iki kambario temperatūros',
   'Gumowaty (Gorący nóż)': 'Gumiškas (Pjaustytas karštas)',
+  'Jaskinie (Niedofermentowany)': 'Urvai (Nepakankamai fermentuotas)',
+  'Min. 4h lub przez noc w lodówce': 'Bent 4 val. arba per naktį šaldytuve',
+  'Pęknięty bok': 'Įtrūkęs šonas',
+  'Płaski dysk (Przerośnięty)': 'Plokščias diskas (Perfermentuotas)',
 };

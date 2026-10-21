@@ -1,9 +1,6 @@
 // Słownik hu, część 7 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Zwiększ udział mąki {nazwa} o {n}%': '{nazwa} arányának növelése {n}%-kal',
-  'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.': 'Nedves kézzel hajtogasd (coil fold) a tésztát egyenesen a formába.',
-  'Zwiń protokół': 'Protokoll összecsukása',
   'Zwiń wyjaśnienie': 'Magyarázat összecsukása',
   'Żytni': 'Rozsos',
   'Żytnie': 'Rozsos',
@@ -127,4 +124,6 @@ export const CZESC: Record<string, string> = {
   'Nadaj ostateczny kształt (baton lub bochenek okrągły), umieść w oprószonym koszyku i schowaj do lodówki (4°C) na 12–16h.': 'Add meg a végső formát (ovális vagy kerek cipó), tedd lisztezett kelesztőkosárba, és tedd hűtőbe (4 °C) 12–16 h-ra.',
   'Obliczona temperatura wody przekracza 45°C. Grozi to ugotowaniem drożdży i bakterii kwasu mlekowego. Schłodź mąkę lub obniż temperaturę otoczenia.': 'A kiszámított vízhőmérséklet meghaladja a 45 °C-ot. Ez azzal fenyeget, hogy az élesztő és a tejsavbaktériumok elpusztulnak. Hűtsd le a lisztet, vagy csökkentsd a környezeti hőmérsékletet.',
   'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.': 'Eredeti nápolyi pizzatészta ropogós peremmel és finom, puha belsővel.',
+  'Ostatnie składanie budujące napięcie powierzchniowe. Ciasto powinno być puszyste i trzymać kształt kuli.': 'Az utolsó hajtogatás, amely felületi feszességet ad. A tésztának levegősnek kell lennie, és meg kell tartania a gömb alakját.',
+  'Piekarz Pro nie jest aktywny': 'A Pék Pro nem aktív',
 };

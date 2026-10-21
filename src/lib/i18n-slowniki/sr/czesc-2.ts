@@ -1,7 +1,6 @@
 // Słownik sr, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Do miski na wagę': 'У чинију на ваги',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).': 'До процењеног прозора врхунца остало је око {czas} (прозор: {okno}).',
   'Dobra skórka z lekkim połyskiem': 'Добра кора са благим сјајем',
   'Docelowa temp. wody:': 'Циљна темп. воде:',

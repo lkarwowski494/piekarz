@@ -1,8 +1,6 @@
 // Słownik it, część 6 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'La voce della cronologia delle sfornate verrà eliminata definitivamente.',
-  'Wpisz nazwę przepisu': 'Inserisci il nome della ricetta',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Scrivi le tue note (mollica, crosta, tempo in forno)...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Influisce sulla velocità della puntata (prima lievitazione): 10 °C in meno significano una fermentazione circa 3 volte più lunga (approssimazione da un modello di ricerca, valida a 20–26 °C).',
   'Wprowadź unikalną nazwę dla tej proporcji składników': 'Inserisci un nome univoco per queste proporzioni di ingredienti',
@@ -42,7 +40,6 @@ export const CZESC: Record<string, string> = {
   'Wykonaj test palca przed włożeniem bochenka do piekarnika.': 'Fai la prova del dito prima di infornare la pagnotta.',
   'Wykryto uszkodzony stan bazy danych': 'Rilevato stato del database danneggiato',
   'Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.': 'Rovescia l\'impasto sul piano, dagli una prima forma a palla e tendi la superficie.',
-  'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.': 'Richiede una farina con contenuto proteico di almeno 13%. Autolisi di 60 minuti senza sale. Pieghe di rinforzo (coil fold) molto delicate.',
   'Wymaga obecności': 'Richiede presenza',
   'wymaga Piekarz Pro': 'richiede Fornaio Pro',
   'Wymaga zaparzenia czerwonego słodu żytniego wrzątkiem wraz ze zmieloną kolendrą. Wierzch przed pieczeniem posyp całymi ziarnami kolendry.': 'Richiede di mettere in infusione il malto rosso di segale in acqua bollente insieme al coriandolo macinato. Prima della cottura cospargi la superficie di semi interi di coriandolo.',
@@ -172,4 +169,10 @@ export const CZESC: Record<string, string> = {
   'zrobione': 'fatto',
   'Zrobione': 'Fatto',
   'Zrobione: {krok}': 'Fatto: {krok}',
+  'Zrównoważona elastyczność i wilgotność. Wymaga 3–4 standardowych składań.': 'Elasticità e umidità equilibrate. Richiede 3–4 serie standard di pieghe di rinforzo.',
+  'Zwiększ': 'Aumenta',
+  'Zwiększ hydratację': 'Aumenta idratazione',
+  'Zwiększ hydratację o {n}%': 'Aumenta l\'idratazione di {n}%',
+  'Zwiększ masę mąki o {g} g': 'Aumenta il peso della farina di {g} g',
+  'Zwiększ udział mąki {nazwa} o {n}%': 'Aumenta la quota della farina {nazwa} di {n}%',
 };
