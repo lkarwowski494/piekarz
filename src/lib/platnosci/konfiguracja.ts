@@ -46,6 +46,11 @@ export const BEZ_UPRAWNIENIA: readonly Funkcja[] = ['historia', 'dane', 'import'
 
 /** Klucz w app_settings: pamięć ostatniego udanego odczytu sklepu (nie jest w kopii zapasowej). */
 export const KLUCZ_PAMIECI = 'platnosci_pamiec';
+/**
+ * Klucz w app_settings: „1”, gdy sklep choć raz dał dostęp (próba, subskrypcja, zakup) na tym telefonie. Baner
+ * „tylko historia” mówi o końcu próby tylko wtedy [M1-audytor-generalny-143; 02-monetyzacja-504].
+ */
+export const KLUCZ_HISTORII_DOSTEPU = 'platnosci_byl_dostep';
 
 export function planProduktu(id: string): Plan | null {
   const plan = (Object.keys(PRODUKTY) as Plan[]).find((p) => PRODUKTY[p] === id);

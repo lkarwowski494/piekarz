@@ -4,11 +4,12 @@
 // stylu (OnboardingModal): bez intro, powrót do trwającego wypieku od razu. [M1-audytor-generalny-101]
 // ============================================================================
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, Pressable } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
+import { czyBylDostep } from '../../../src/lib/platnosci/stan';
 import { CZYNNOSCI_STARTU, celCzynnosci, stanStartu, ustawRodzajReceptur, type CzynnoscStartu } from '../../../src/lib/start-stan';
 import { useStanStartu } from '../../../src/hooks/useStanStartu';
 import { WyborCzynnosci } from '../../../src/components/start/WyborCzynnosci';
@@ -30,6 +31,15 @@ export default function StartScreen() {
   const stan = stanStartu({ trwaWypiek: dane.sesja !== null, dostep: access.canCreateNewBake || loading, maDane: dane.maDane });
   // Uprzedzenie przed końcem próby: raz, w treści „Dziś” (§11d 126) [M1-audytor-generalny-126]
   const uprzedzenie = useUprzedzenieProby();
+  // Nagłówek „tylko historia” mówi o końcu próby tylko po dostępie z App Store (nie po samym imporcie) [M1-audytor-generalny-143]
+  const [bylDostep, setBylDostep] = useState<boolean | null>(null);
+  useEffect(() => {
+    let zywy = true;
+    if (stan === 'tylko-historia') void czyBylDostep().then((b) => zywy && setBylDostep(b));
+    return () => {
+      zywy = false;
+    };
+  }, [stan]);
   const banerProby = uprzedzenie.wariant ? <UprzedzenieProby wariant={uprzedzenie.wariant} onZamknij={uprzedzenie.zamknij} /> : null;
 
   // Wybór otwiera pierwszy ekran przepływu bez oferty (D-047); oferta przy pierwszej akcji liczącej lub zapisującej
@@ -88,7 +98,9 @@ export default function StartScreen() {
         {dane.gotowe && stan === 'tylko-historia' && (
           <>
             <View style={styles.baner} testID="start-tylko-historia">
-              <Text style={styles.banerHeading}>{t('Okres próbny się skończył')}</Text>
+              {bylDostep !== null && (
+                <Text style={styles.banerHeading}>{bylDostep ? t('Okres próbny się skończył') : t('Piekarz Pro nie jest aktywny')}</Text>
+              )}
               <Text style={styles.banerTekst}>
                 {t('Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.')}
               </Text>

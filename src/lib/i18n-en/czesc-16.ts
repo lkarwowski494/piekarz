@@ -67,4 +67,6 @@ export const EN_16: Record<string, string> = {
   'Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.': 'The plan doesn’t check your sleep hours. You can set them in Settings.',
   'Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).':
     'All manual stages (mixing, folding, baking) occur outside the sleep window ({od} – {do}).',
+  // Nagłówek „tylko historia” bez wcześniejszego dostępu z App Store (np. sam import) [M1-audytor-generalny-143]
+  'Piekarz Pro nie jest aktywny': "Piekarz Pro isn't active",
 };

@@ -44,7 +44,8 @@ import { ustawRodzajReceptur } from '../lib/start-stan';
 import { EN } from '../lib/i18n.en';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { PaywallModal } from '../components/PaywallModal';
-import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveBakeLog } from '../data/sqlite-store';
+import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveBakeLog, setAppSetting } from '../data/sqlite-store';
+import { KLUCZ_HISTORII_DOSTEPU } from '../lib/platnosci/konfiguracja';
 import { saveBakeSession } from '../data/bake-session-store';
 import { planBakeSteps } from '../core/bake-steps';
 import { _resetStanu } from '../lib/platnosci/stan';
@@ -254,6 +255,8 @@ describe('101: Start „Co dziś robisz?”', () => {
   it('po próbie bez zakupu: stan „tylko historia” z kłódką, bez ściany płatności', async () => {
     await pustaBaza();
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
+    // Była próba: sklep dał kiedyś dostęp na tym telefonie (nagłówek o końcu próby) [M1-audytor-generalny-143]
+    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '1');
     const tree = await renderStart();
     expect(paywallShown(tree.root)).toBe(false);
     const txt = teksty(tree.root);

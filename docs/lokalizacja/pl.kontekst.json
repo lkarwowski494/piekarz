@@ -4040,6 +4040,11 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Piekarz Pro nie jest aktywny": {
+    "gdzie": [
+      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
