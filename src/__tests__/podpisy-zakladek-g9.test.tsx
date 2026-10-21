@@ -1,7 +1,7 @@
 /**
  * Podpisy zakładek miały allowFontScaling={false}: przy większym tekście w Ustawieniach iOS zostawały 10 pt.
  * Podpis rośnie z Dynamic Type do 1,5× (pasek zakładek ma stałą wysokość, więc bez wzrostu do AX5),
- * w jednym wierszu z dopasowaniem zamiast obcinania [audyt-niezalezny G-9].
+ * bez limitu linii i bez zmniejszania kroju (reguła 054) [audyt-niezalezny G-9].
  */
 import React from 'react';
 import { Text } from 'react-native';
@@ -15,7 +15,8 @@ describe('G-9: podpis zakładki skaluje się z Dynamic Type', () => {
       tree = renderer.create(<TabLabel color="#000" position={position}>Receptury</TabLabel>);
     });
     const p = tree.root.findByType(Text).props;
-    expect({ allowFontScaling: p.allowFontScaling !== false, max: p.maxFontSizeMultiplier, linie: p.numberOfLines, dopasuj: p.adjustsFontSizeToFit })
-      .toEqual({ allowFontScaling: true, max: 1.5, linie: 1, dopasuj: true });
+    // Bez limitu linii i bez zmniejszania kroju: reguła 054 (tests/pasek-zakladek.test.tsx), podpis się nie ucina.
+    expect({ allowFontScaling: p.allowFontScaling !== false, max: p.maxFontSizeMultiplier, linie: p.numberOfLines, dopasuj: !!p.adjustsFontSizeToFit })
+      .toEqual({ allowFontScaling: true, max: 1.5, linie: undefined, dopasuj: false });
   });
 });

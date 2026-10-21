@@ -30,10 +30,11 @@ const WYJATKI_SKALI: Record<string, string> = {};
 /**
  * Nazwany wyjątek (audyt niezależny G-9): podpis zakładki był bez skalowania (allowFontScaling={false}) z założeniem,
  * że pokaże go Large Content Viewer — własny TabLabel go nie ma, więc podpis został 10 pt. Teraz rośnie z Dynamic
- * Type do 1,5× (pasek zakładek ma stałą wysokość) w jednym wierszu z dopasowaniem do 0,7 — tylko te wartości.
+ * Type do 1,5× (pasek zakładek ma stałą wysokość), bez limitu linii i bez zmniejszania kroju (reguła 054,
+ * tests/pasek-zakladek.test.tsx) — tylko ta wartość.
  */
 const WYJATKI_ZAKLADKI: Record<string, Record<string, string>> = {
-  'src/components/TabIcon.tsx': { maxFontSizeMultiplier: '{1.5}', numberOfLines: '{1}', adjustsFontSizeToFit: '', minimumFontScale: '{0.7}' },
+  'src/components/TabIcon.tsx': { maxFontSizeMultiplier: '{1.5}' },
 };
 /**
  * Nazwany wyjątek (reaudit-noc N-2, 201): godzina „gotowe” i czas kroku w tokenie `czas` (99 pt przy AX5) w jednym
