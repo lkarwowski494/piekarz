@@ -14,7 +14,7 @@ export type StanStartu = 'wybor' | 'trwa-wypiek' | 'tylko-historia';
 export type CzynnoscStartu = 'zakladam-zakwas' | 'pieke-na-zakwasie' | 'pieke-na-drozdzach';
 export const CZYNNOSCI_STARTU: readonly CzynnoscStartu[] = ['zakladam-zakwas', 'pieke-na-zakwasie', 'pieke-na-drozdzach'];
 
-/** Filtr listy receptur bazowych (FormulaPresetSelector) ustawiany wyborem czynności. */
+/** Filtr listy receptur bazowych (ListaReceptur) ustawiany wyborem czynności. */
 export type RodzajReceptur = 'sourdough' | 'yeast';
 
 export interface WejscieStartu {

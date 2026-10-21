@@ -18,9 +18,8 @@ import {
   subscribePendingRecipe,
   PendingRecipeToLoad,
 } from '../../../src/lib/recipe-navigation';
-import type { CategoryFilterType } from '../../../src/components/calculator/FormulaPresetSelector';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
-import { ListaReceptur } from '../../../src/components/receptury/ListaReceptur';
+import { ListaReceptur, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
 import { ekranRecepturyOtwarty, subskrybujZmianyReceptur } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';

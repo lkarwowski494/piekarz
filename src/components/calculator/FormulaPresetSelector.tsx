@@ -12,8 +12,7 @@ import { StoredRecipe } from '../../data/db';
 import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import type { RecipePreset } from '../../recipes/presets';
 import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
-
-export type CategoryFilterType = 'all' | 'sourdough' | 'rye' | 'yeast' | 'pizza_sweet';
+import type { CategoryFilterType } from '../receptury/ListaReceptur';
 
 export interface FormulaPresetSelectorProps {
   filteredMasterRecipes: RecipePreset[];
