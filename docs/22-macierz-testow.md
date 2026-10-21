@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 44 | 44 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 557 | 557 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 556 | 556 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 394 | 394 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 163 | 163 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1167** | Pokrytych: **1167** | Brakujących: **0**
+Łącznie elementów: **1166** | Pokrytych: **1166** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -92,7 +92,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Prawidłowe wykonanie:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Czego unikać (typowe błędy):` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Złota rada rzemieślnika:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Odblokuj pełny dostęp` | `src/components/BlokadaFunkcji.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx, src/__tests__/bramki-ekranow.test.tsx |
+| `TEKST` | `Odblokuj pełny dostęp` | `src/components/BlokadaFunkcji.tsx` | ✅ | src/__tests__/bramki-ekranow.test.tsx |
 | `TEKST` | `wymaga Piekarz Pro` | `src/components/BlokadaFunkcji.tsx` | ✅ | tests/nazwa-d053.test.ts, tests/zrzuty-sklepu.test.ts |
 | `TEKST` | `Temperatura wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Docelowa temp. wody:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptura-akcje-057.test.tsx |
@@ -263,36 +263,35 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
 | `TEKST` | `Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
+| `TEKST` | `Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.` | `src/components/oferta/KomunikatBezSieci.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `{cena} rocznie po próbie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `{cena} rocznie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `{cena} miesięcznie po próbie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `{cena} miesięcznie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `{cena} jednorazowo` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Kup dostęp dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
+| `TEKST` | `Zacznij okres próbny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
+| `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Pierwsze {dni} dni bezpłatnie, potem {cena}` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
-| `UI` | `Nie udało się dokończyć zakupu. Spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Twoja historia jest bezpieczna` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Roczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `12 miesięcy` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Odnawia się automatycznie co rok` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `rok` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia-workflow.test.ts, tests/check-i18n-gate.test.ts |
-| `TEKST` | `Miesięczny` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `1 miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Odnawia się automatycznie co miesiąc` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `miesiąc` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Dożywotni (Lifetime)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Jednorazowy zakup na zawsze • Wszystkie aktualizacje` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `jednorazowo` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Bez chmury: dane zostają w telefonie` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Zero reklam, zero śledzenia telemetrycznego` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Przetwarzanie...` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wypróbuj {dni} dni` | `src/components/PaywallModal.tsx` | ✅ | tests/store-metadata.test.ts, src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Aktywuj plan roczny` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Aktywuj plan miesięczny` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Kup dostęp dożywotni` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Dostęp dożywotni to jednorazowy zakup bez odnawiania.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Zarządzaj subskrypcją` | `src/components/PaywallModal.tsx` | ✅ | tests/slownik-akcji.test.ts, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `UI` | `Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/__tests__/uprzedzenie-proby-ekran-126.test.tsx |
+| `TEKST` | `Próba jest jedna na oba plany subskrypcji.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Zakup wymaga połączenia z App Store.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
+| `TEKST` | `Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Piekarz Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Okres próbny: {dni}` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/slownik-akcji.test.ts, src/__tests__/przywracanie-zakupow.test.tsx |
 | `TEKST` | `Przywróć zakupy` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
-| `TEKST` | `Przeglądaj historię (Read-Only)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Warunki użytkowania (EULA)` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Warunki użytkowania` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Polityka prywatności` | `src/components/PaywallModal.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
 | `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Zakupy zostały pomyślnie przywrócone` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/przywracanie-zakupow.test.tsx |
@@ -319,5 +318,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 867 kolejnych elementów w pełnym wykazie)*
+*(... i 866 kolejnych elementów w pełnym wykazie)*

@@ -64,19 +64,15 @@ describe('Purchase screen disclosures (011)', () => {
     produkty(false);
     const tree = await mount();
     const all = text(tree.toJSON());
-    for (const cena of ['4,99 zł', '29,99 zł', '79,99 zł']) expect(all).toContain(cena);
-    expect(all).toContain(t('12 miesięcy'));
-    expect(all).toContain(t('1 miesiąc'));
-    expect(all).toContain(t('Odnawia się automatycznie co rok'));
-    expect(all).toContain(t('Odnawia się automatycznie co miesiąc'));
-    expect(all).toContain(
-      t('Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.')
-    );
-    expect(all).toContain(t('Dostęp dożywotni to jednorazowy zakup bez odnawiania.'));
+    // Okres w zdaniu ceny, odnawianie i anulowanie w ujawnieniu U2 (design-spec §11e 127) [M1-audytor-generalny-127]
+    expect(all).toContain(t('{cena} rocznie', { cena: '29,99 zł' }));
+    expect(all).toContain(t('{cena} miesięcznie', { cena: '4,99 zł' }));
+    expect(all).toContain(t('{cena} jednorazowo', { cena: '79,99 zł' }));
+    expect(all).toContain(t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'));
     await act(async () => {
       tree.root.findByProps({ testID: 'plan-monthly-btn' }).props.onPress();
     });
-    expect(text(tree.toJSON())).toContain(t('Aktywuj plan miesięczny'));
+    expect(text(tree.toJSON())).toContain(t('Kup plan miesięczny'));
     act(() => tree.unmount());
   });
 
@@ -87,7 +83,7 @@ describe('Purchase screen disclosures (011)', () => {
     const teksty = roczny.findAll((n) => String(n.type) === 'Text');
     const rozmiar = (n: renderer.ReactTestInstance) => Number(StyleSheet.flatten(n.props.style)?.fontSize ?? 0);
     const najwiekszy = teksty.reduce((a, b) => (rozmiar(b) > rozmiar(a) ? b : a));
-    expect(text(najwiekszy)).toBe('29,99 zł');
+    expect(text(najwiekszy)).toBe(t('{cena} rocznie', { cena: '29,99 zł' }));
     expect(text(roczny)).not.toMatch(/\/\s*(mies|month)/);
     act(() => tree.unmount());
   });
@@ -95,12 +91,13 @@ describe('Purchase screen disclosures (011)', () => {
   it('the 14-day introductory offer is shown only to eligible users, with the price after it (BR-ZAK-003 Przed startem próby)', async () => {
     produkty(true);
     let tree = await mount();
-    expect(text(tree.toJSON())).toContain(t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni: 14, cena: '29,99 zł' }));
+    expect(text(tree.toJSON())).toContain('Okres próbny: 14 dni');
+    expect(text(tree.toJSON())).toContain(t('{cena} rocznie po próbie', { cena: '29,99 zł' }));
     act(() => tree.unmount());
     produkty(true);
     mockIap.eligible = false;
     tree = await mount();
-    expect(text(tree.toJSON())).not.toMatch(/bezpłatnie|Wypróbuj/);
+    expect(text(tree.toJSON())).not.toMatch(/Okres próbny|po próbie|Zacznij okres próbny/);
     act(() => tree.unmount());
   });
 
@@ -115,13 +112,10 @@ describe('Purchase screen disclosures (011)', () => {
     expect(slownik).not.toMatch(/najpopularniejsz|most popular|espresso|Anuluj kiedy chcesz|Cancel anytime/i);
   });
 
-  it('opens the system subscription management, the Apple standard EULA and the privacy policy', async () => {
+  // „Zarządzaj subskrypcją” jest w Ustawieniach i w banerze końca próby, nie na ekranie zakupu (§11e 127; test Settings niżej)
+  it('opens the Apple standard EULA and the privacy policy; restore is on the purchase screen', async () => {
     produkty(false);
     const tree = await mount();
-    await act(async () => {
-      await tree.root.findByProps({ testID: 'manage-subscriptions-btn' }).props.onPress();
-    });
-    expect(Iap.deepLinkToSubscriptions).toHaveBeenCalledTimes(1);
     await act(async () => {
       tree.root.findByProps({ testID: 'terms-of-use-btn' }).props.onPress();
       tree.root.findByProps({ testID: 'privacy-policy-btn' }).props.onPress();

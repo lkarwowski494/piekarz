@@ -37,7 +37,6 @@
     { "id": "BR-ZAK-001", "czesciowe": true, "powod": "potwierdzenie transakcji, przywrócenie i waluta sklepu tylko w piaskownicy App Store na urządzeniu", "zrodlo": "F-35, D-033" },
     { "id": "BR-ZAK-004", "czesciowe": true, "powod": "znalezisko: brak uprzedzenia 3 dni przed końcem próby i zatrzymania przypomnień o zakwasie (trwający wypiek po końcu próby: naprawione w M1-audytor-generalny-125)", "zrodlo": "F-67, D-039" },
     { "id": "BR-UST-003", "czesciowe": true, "powod": "znalezisko w scenariuszu Brak sieci: brak streszczenia polityki i adresu w aplikacji; treść strony pod adresem tylko z siecią", "zrodlo": "F-40" },
-    { "id": "BR-PRYW-001", "czesciowe": true, "powod": "znalezisko w scenariuszu Zakup bez sieci: brak komunikatu, że zakup wymaga połączenia z App Store; przejście w trybie samolotowym tylko na urządzeniu", "zrodlo": "F-40, NFR-OFF-001" },
     { "id": "BR-START-001", "czesciowe": true, "powod": "znalezisko: przykłady bez oznaczenia „przykład”; przy trwającym wypieku Start pokazuje też trzy czynności", "zrodlo": "F-68" }
   ]
 }

@@ -1,4 +1,4 @@
-// Słownik el, część 9 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
+// Słownik el, część 9 z 11. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.': 'Προχωρημένο καρβέλι υψηλής ενυδάτωσης με άγρια, γυαλιστερή ψίχα και εντυπωσιακό αυτί.',
@@ -130,11 +130,11 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Επίπεδος δίσκος (Υπερβολική ζύμωση)',
   'Płaski smak (Jałowy)': 'Αδιάφορη γεύση (Άνοστο)',
   'Zbyt kwaśny (Octowy)': 'Πολύ ξινό (Σαν ξίδι)',
-  'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.': 'Το ψωμί που βγαίνει από τον φούρνο δεν είναι ακόμη έτοιμο: σύμφωνα με την King Arthur Baking, κατά το κρύωμα αποβάλλει υγρασία και η ψίχα χρειάζεται αυτόν τον χρόνο για να σταθεροποιηθεί, οπότε αν κοπεί πολύ νωρίς μπορεί να είναι λαστιχωτή. Μια άλλη αιτία μπορεί να είναι το ελλιπές ψήσιμο: σύμφωνα με την King Arthur Baking, τα περισσότερα καρβέλια είναι ψημένα όταν το εσωτερικό τους φτάνει περίπου τους 88 °C.',
-  'Ciasto będzie zwarte i sztywne. Możesz dolać więcej wody.': 'Η ζύμη θα είναι σφιχτή και σκληρή. Μπορείτε να προσθέσετε περισσότερο νερό.',
-  'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).': 'Προσθέστε στη συνταγή λίγο αλεύρι από ολόκληρο κόκκο (σίκαλης ή σιταρένιο).',
-  'Dokarmiaj zakwas częściej przed wypiekiem.': 'Ταΐζετε το προζύμι πιο συχνά πριν από το ψήσιμο.',
-  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Αφήστε τη ζύμη να ωριμάσει στο ψυγείο: σύμφωνα με την King Arthur Baking, το κρύο επιβραδύνει τη ζύμωση και η πιο αργή ζύμωση βαθαίνει τη γεύση.',
-  'Hydratacja jest blisko zakresu podanego dla tej mieszanki mąk.': 'Η ενυδάτωση της ζύμης είναι κοντά στο εύρος που δίνεται για αυτό το μείγμα αλευριών.',
-  'Hydratacja mieści się w zakresie podanym dla tej mieszanki mąk.': 'Η ενυδάτωση της ζύμης είναι εντός του εύρους που δίνεται για αυτό το μείγμα αλευριών.',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Χωρίς αγορά, το ιστορικό και τα δεδομένα σας παραμένουν. Οι υπολογισμοί, ο προγραμματισμός και η καθοδήγηση θα απαιτούν το Αρτοποιός Pro.',
+  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Αν η συνδρομή δεν ακυρωθεί, το App Store θα χρεώσει τότε το πλάνο συνδρομής που επιλέξατε.',
+  'Okres próbny kończy się {data}': 'Η δοκιμαστική περίοδος λήγει στις {data}',
+  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Η συνδρομή δεν θα ανανεωθεί, οπότε δεν θα χρεωθείτε.',
+  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Στη συνέχεια, το App Store θα χρεώσει {cena} για έναν μήνα συνδρομής. Αν δεν θέλετε να πληρώσετε, ακυρώστε τη συνδρομή πριν από τη λήξη της δοκιμαστικής περιόδου.',
+  'Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Στη συνέχεια, το App Store θα χρεώσει {cena} για έναν χρόνο συνδρομής. Αν δεν θέλετε να πληρώσετε, ακυρώστε τη συνδρομή πριν από τη λήξη της δοκιμαστικής περιόδου.',
+  'Zamknij informację o końcu próby': 'Κλείσιμο ειδοποίησης λήξης δοκιμής',
 };

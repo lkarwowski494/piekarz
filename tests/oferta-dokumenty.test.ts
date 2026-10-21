@@ -55,8 +55,8 @@ describe('Offer terms are the same in code, README, metadata and App Review note
 
   it('App Review notes tell the reviewer to start the trial (no history for a new user)', () => {
     const text = read('docs/app-store-metadata-v2.md');
-    // Notatki po angielsku, przycisk jak w interfejsie EN [M1-audytor-generalny-078]
-    expect(text).toMatch(/Try 14 days/);
+    // Notatki po angielsku, przycisk jak w interfejsie EN [M1-audytor-generalny-078]; nazwa z §11e 127 [M1-audytor-generalny-127]
+    expect(text).toMatch(/Start Free Trial/);
     expect(text).toMatch(/sandbox/i);
   });
 

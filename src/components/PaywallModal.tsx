@@ -1,27 +1,24 @@
 // ============================================================================
-// Apps4Brew Studio — Paywall Modal: ceny wyłącznie z App Store (displayPrice) [M1-audytor-generalny-008]
-// Kitchen-Proof, 100% Offline-First, Zero Telemetry
+// Piekarz — ekran zakupu „Piekarz Pro” (design-spec §11e 127, makieta docs/design/ekrany/oferta.html; D-063, DEC-17 a)
+// [M1-audytor-generalny-127; 04-studio-projektowe-502; 02-monetyzacja-506]. Ceny wyłącznie z App Store (displayPrice)
+// [M1-audytor-generalny-008]; próba tylko jako oferta wprowadzająca dla uprawnionych [M1-audytor-generalny-009];
+// ujawnienia U2–U8 z kontraktu płatności (docs/monetyzacja.md); bez sieci komunikat i ponowny odczyt (BR-PRYW-001).
 // ============================================================================
 
-import React, { useEffect, useState } from 'react';
-import {
-  Modal,
-  View,
-  Text,
-  StyleSheet,
-  Pressable,
-  ScrollView,
-  Alert,
-  Linking,
-} from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
-import { t } from '../lib/i18n';
+import { odstepy, promienie, typografia } from '../ui/tokeny';
+import { t, tPlural } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 import { przywrocZKomunikatem } from './przywroc-zakupy';
 import type { Plan } from '../lib/platnosci/konfiguracja';
-import { pobierzOferte, zarzadzajSubskrypcja, Oferta } from '../lib/platnosci/sklep';
+import { pobierzOferte, Oferta } from '../lib/platnosci/sklep';
+import { OpcjaPlanu } from './oferta/OpcjaPlanu';
+import { KomunikatBezSieci } from './oferta/KomunikatBezSieci';
+import { cenaPlanu, nazwaPlanu, napisPrzycisku, PLANY_OFERTY, stanOferty } from './oferta/stan-oferty';
 
 export type PlanOption = Plan;
 
@@ -32,48 +29,59 @@ export interface PaywallModalProps {
   onRestore?: () => Promise<boolean | void> | boolean | void;
 }
 
-export function PaywallModal({
-  visible,
-  onClose,
-  onSubscribe,
-  onRestore,
-}: PaywallModalProps) {
-  const [selectedPlan, setSelectedPlan] = useState<PlanOption>('yearly');
+const ID_OPCJI: Record<Plan, string> = { yearly: 'plan-yearly-btn', monthly: 'plan-monthly-btn', lifetime: 'plan-lifetime-btn' };
+
+function Ujawnienia({ teksty }: { teksty: string[] }) {
+  return (
+    <View style={styles.ujawnienia} testID="subscription-terms">
+      {teksty.map((u) => (
+        <View key={u} style={styles.ujawnienie}>
+          <View style={styles.kropka} />
+          <Text style={styles.ujawnienieTekst}>{u}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: PaywallModalProps) {
+  const [wybrany, setWybrany] = useState<PlanOption>('yearly');
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
-  const [oferta, setOferta] = useState<Partial<Record<PlanOption, Oferta>>>({});
+  const [oferta, setOferta] = useState<Oferta[] | null>(null);
+  const [blad, setBlad] = useState(false);
+  const [odczyt, setOdczyt] = useState(0);
 
   // Ceny z produktów App Store Connect; bez odczytu sklepu ekran nie pokazuje żadnej kwoty.
   useEffect(() => {
     if (!visible) return;
     let aktywny = true;
+    setOferta(null);
+    setBlad(false);
     pobierzOferte()
-      .then((oferta) => {
-        if (aktywny) setOferta(Object.fromEntries(oferta.map((o) => [o.plan, o])));
+      .then((o) => {
+        if (aktywny) setOferta(o);
       })
-      .catch(() => undefined);
+      .catch(() => {
+        if (aktywny) setBlad(true);
+      });
     return () => {
       aktywny = false;
     };
-  }, [visible]);
-  const cena = (plan: PlanOption) => oferta[plan]?.cena ?? '—';
-  // Oferta wprowadzająca tylko dla uprawnionych; długość z App Store Connect [M1-audytor-generalny-009]
-  const proba = (plan: PlanOption) => oferta[plan]?.probaDni ?? null;
-  const probaTekst = (plan: PlanOption) => {
-    const dni = proba(plan);
-    return dni ? ` • ${t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni, cena: cena(plan) })}` : '';
-  };
-  const wybranaProba = proba(selectedPlan);
+  }, [visible, odczyt]);
 
-  const handleSelectPlan = (plan: PlanOption) => {
-    setSelectedPlan(plan);
-  };
+  const stan = stanOferty(oferta, blad);
+  const doPlanu = (plan: Plan) => oferta?.find((o) => o.plan === plan);
+  // Opcja, której sklep nie zwrócił, nie jest rysowana; przy ładowaniu trzy opcje bez kwot (§11e 127).
+  const plany = stan === 'ladowanie' ? PLANY_OFERTY : PLANY_OFERTY.filter((p) => doPlanu(p));
+  const plan = plany.includes(wybrany) ? wybrany : (plany[0] ?? wybrany);
+  const dniProby = Math.max(0, ...(oferta ?? []).map((o) => o.probaDni ?? 0));
 
   const handlePurchase = async () => {
     setIsProcessing(true);
     try {
-      await onSubscribe(selectedPlan);
+      await onSubscribe(plan);
     } catch {
-      Alert.alert(t('Zakup'), t('Nie udało się dokończyć zakupu. Spróbuj ponownie.'));
+      Alert.alert(t('Zakup'), t('Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.'));
     } finally {
       setIsProcessing(false);
     }
@@ -89,425 +97,153 @@ export function PaywallModal({
     }
   };
 
+  const ponow = useCallback(() => setOdczyt((n) => n + 1), []);
+
+  const ujawnienia =
+    stan === 'oferta-proba'
+      ? [
+          t('Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
+          t('Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.'),
+          t('Próba jest jedna na oba plany subskrypcji.'),
+          t('Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.'),
+          t('Zakup wymaga połączenia z App Store.'),
+        ]
+      : [
+          t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
+          t('Zakup wymaga połączenia z App Store.'),
+        ];
+  const opisDozywotniego =
+    stan === 'oferta-proba'
+      ? t('Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.')
+      : undefined;
+
   return (
     <Modal visible={visible} animationType="slide" transparent={false}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.header}>
-          <View style={styles.badgeRow}>
-            <Text style={styles.passBadge}>APPS4CRAFT PASS</Text>
-          </View>
           <CloseButton onPress={onClose} akcja="zamknij" />
         </View>
 
-        <ScrollView contentContainerStyle={styles.scrollContent}>
-          <Text style={styles.title}>{t('Odblokuj pełny dostęp')}</Text>
-          <Text style={styles.subtitle}>
-            {t(
-              'Odblokuj wszystkie funkcje aplikacji. Bez zakupu dostępne zostają historia wypieków oraz podgląd, eksport i usuwanie Twoich danych.'
-            )}
+        <ScrollView contentContainerStyle={styles.tresc} keyboardShouldPersistTaps="handled">
+          <Text style={styles.tytul} accessibilityRole="header">
+            {t('Piekarz Pro')}
           </Text>
 
-          {/* Guarantee banner: History Read-Only */}
-          <View style={styles.guaranteeCard}>
-            <View style={styles.guaranteeTextCol}>
-              <Text style={styles.guaranteeTitle}>
-                {t('Twoja historia jest bezpieczna')}
+          {stan === 'bez-sieci' ? (
+            <KomunikatBezSieci />
+          ) : (
+            <>
+              {stan === 'oferta-proba' && (
+                <Text style={styles.proba} testID="offer-trial-length">
+                  {t('Okres próbny: {dni}', {
+                    dni: tPlural(dniProby, { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' }),
+                  })}
+                </Text>
+              )}
+              <Text style={styles.opis}>
+                {t('Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.')}
               </Text>
-              <Text style={styles.guaranteeDesc}>
-                {t(
-                  'Nawet bez zakupu Twoje notatki, archiwalne bochenki i receptury są zawsze bezpłatne do wglądu (tryb Read-Only).'
-                )}
-              </Text>
-            </View>
-          </View>
 
-          {/* Pricing Options */}
-          <View style={styles.plansContainer}>
-            {/* Yearly: kwota rozliczenia jako najważniejszy element ceny; bez etykiet bez danych [M1-audytor-generalny-011] */}
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: selectedPlan === 'yearly' }}
-              testID="plan-yearly-btn"
-              style={[
-                styles.planCard,
-                selectedPlan === 'yearly' && styles.planCardSelected,
-              ]}
-              onPress={() => handleSelectPlan('yearly')}
-            >
-              <View style={styles.planRow}>
-                <View style={styles.planInfo}>
-                  <Text style={styles.planName}>{t('Roczny')}</Text>
-                  <Text style={styles.planSubtext}>
-                    {t('12 miesięcy')} • {t('Odnawia się automatycznie co rok')}{probaTekst('yearly')}
-                  </Text>
-                </View>
-                <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>{cena('yearly')}</Text>
-                  <Text style={styles.planPricePeriod}>/ {t('rok')}</Text>
-                </View>
+              <View style={styles.opcje} accessibilityRole="radiogroup">
+                {plany.map((p) => {
+                  const o = doPlanu(p);
+                  return (
+                    <OpcjaPlanu
+                      key={p}
+                      testID={ID_OPCJI[p]}
+                      nazwa={nazwaPlanu(p)}
+                      cena={o ? cenaPlanu(o) : null}
+                      opis={p === 'lifetime' ? opisDozywotniego : undefined}
+                      wybrana={p === plan}
+                      onPress={() => setWybrany(p)}
+                    />
+                  );
+                })}
               </View>
-            </Pressable>
 
-            {/* Monthly */}
+              {stan !== 'ladowanie' && <Ujawnienia teksty={ujawnienia} />}
+            </>
+          )}
+        </ScrollView>
+
+        <View style={styles.kciuk}>
+          {stan === 'bez-sieci' ? (
+            <Pressable accessibilityRole="button" testID="offer-retry-btn" style={styles.glowny} onPress={ponow}>
+              <Text style={styles.glownyTekst}>{t('Spróbuj ponownie')}</Text>
+            </Pressable>
+          ) : (
             <Pressable
               accessibilityRole="button"
-              accessibilityState={{ selected: selectedPlan === 'monthly' }}
-              testID="plan-monthly-btn"
-              style={[
-                styles.planCard,
-                selectedPlan === 'monthly' && styles.planCardSelected,
-              ]}
-              onPress={() => handleSelectPlan('monthly')}
+              accessibilityState={{ disabled: stan === 'ladowanie' || isProcessing, busy: isProcessing }}
+              testID="subscribe-submit-btn"
+              style={[styles.glowny, (stan === 'ladowanie' || isProcessing) && styles.nieaktywny]}
+              disabled={stan === 'ladowanie' || isProcessing}
+              onPress={handlePurchase}
             >
-              <View style={styles.planRow}>
-                <View style={styles.planInfo}>
-                  <Text style={styles.planName}>{t('Miesięczny')}</Text>
-                  <Text style={styles.planSubtext}>
-                    {t('1 miesiąc')} • {t('Odnawia się automatycznie co miesiąc')}{probaTekst('monthly')}
-                  </Text>
-                </View>
-                <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>{cena('monthly')}</Text>
-                  <Text style={styles.planPricePeriod}>/ {t('miesiąc')}</Text>
-                </View>
-              </View>
+              <Text style={styles.glownyTekst}>{napisPrzycisku(doPlanu(plan), plan)}</Text>
             </Pressable>
+          )}
 
-            {/* Lifetime */}
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ selected: selectedPlan === 'lifetime' }}
-              testID="plan-lifetime-btn"
-              style={[
-                styles.planCard,
-                selectedPlan === 'lifetime' && styles.planCardSelected,
-              ]}
-              onPress={() => handleSelectPlan('lifetime')}
-            >
-              <View style={styles.planRow}>
-                <View style={styles.planInfo}>
-                  <Text style={styles.planName}>{t('Dożywotni (Lifetime)')}</Text>
-                  <Text style={styles.planSubtext}>
-                    {t('Jednorazowy zakup na zawsze • Wszystkie aktualizacje')}
-                  </Text>
-                </View>
-                <View style={styles.priceCol}>
-                  <Text style={styles.planPrice}>{cena('lifetime')}</Text>
-                  <Text style={styles.planPricePeriod}>{t('jednorazowo')}</Text>
-                </View>
-              </View>
-            </Pressable>
-          </View>
-
-          {/* Pillars List */}
-          <View style={styles.pillarsCard}>
-            <View style={styles.pillarItem}>
-              <Text style={styles.pillarText}>
-                {t('Bez chmury: dane zostają w telefonie')}
-              </Text>
-            </View>
-            <View style={styles.pillarItem}>
-              <Text style={styles.pillarText}>
-                {t('Zero reklam, zero śledzenia telemetrycznego')}
-              </Text>
-            </View>
-            <View style={styles.pillarItem}>
-              <Text style={styles.pillarText}>
-                {t('Wszystkie zaawansowane narzędzia i asystent stolnicy bez limitów')}
-              </Text>
-            </View>
-          </View>
-
-          {/* CTA Action */}
-          <Pressable
-            accessibilityRole="button"
-            testID="subscribe-submit-btn"
-            style={[styles.primaryCtaBtn, isProcessing && styles.btnDisabled]}
-            disabled={isProcessing}
-            onPress={handlePurchase}
-          >
-            <Text style={styles.primaryCtaBtnText}>
-              {isProcessing
-                ? t('Przetwarzanie...')
-                : wybranaProba
-                ? t('Wypróbuj {dni} dni', { dni: wybranaProba })
-                : selectedPlan === 'yearly'
-                ? t('Aktywuj plan roczny')
-                : selectedPlan === 'monthly'
-                ? t('Aktywuj plan miesięczny')
-                : t('Kup dostęp dożywotni')}
-            </Text>
-          </Pressable>
-
-          {/* Warunki odnawiania i anulowania (3.1.2; developer.apple.com/app-store/subscriptions, odczyt 2026-10-19) */}
-          <Text style={styles.termsText} testID="subscription-terms">
-            {t('Subskrypcja odnawia się automatycznie za cenę podaną przy planie, dopóki jej nie anulujesz. Płatność pobiera App Store z Twojego konta Apple. Subskrypcję anulujesz w każdej chwili w ustawieniach konta Apple albo przyciskiem „Zarządzaj subskrypcją”.')}{' '}
-            {t('Dostęp dożywotni to jednorazowy zakup bez odnawiania.')}
-          </Text>
-
-          {/* Footer Actions */}
-          <View style={styles.footerRow}>
-            <Pressable
-              testID="manage-subscriptions-btn"
-              onPress={() => zarzadzajSubskrypcja()}
-              style={styles.textBtn}
-              accessibilityRole="button"
-              accessibilityLabel={t('Zarządzaj subskrypcją')}
-            >
-              <Text style={styles.textBtnLabel}>{t('Zarządzaj subskrypcją')}</Text>
-            </Pressable>
+          {/* Przywracanie i linki (Apple 3.1.2: Terms of Use i Privacy Policy w aplikacji) */}
+          <View style={styles.linki}>
             {onRestore && (
-              <Pressable
-                accessibilityRole="button"
-                testID="restore-purchases-btn"
-                onPress={handleRestore}
-                style={styles.textBtn}
-              >
-                <Text style={styles.textBtnLabel}>{t('Przywróć zakupy')}</Text>
+              <Pressable accessibilityRole="button" testID="restore-purchases-btn" onPress={handleRestore} style={styles.link}>
+                <Text style={styles.linkTekst}>{t('Przywróć zakupy')}</Text>
               </Pressable>
             )}
             <Pressable
-              accessibilityRole="button"
-              testID="read-only-continue-btn"
-              onPress={onClose}
-              style={styles.textBtn}
-            >
-              <Text style={styles.textBtnLabel}>
-                {t('Przeglądaj historię (Read-Only)')}
-              </Text>
-            </Pressable>
-          </View>
-
-          {/* Legal Links (Apple Review Guideline 3.1.2 & DEC-49) */}
-          <View style={styles.legalLinksRow}>
-            <Pressable
               testID="terms-of-use-btn"
               onPress={() => Linking.openURL(APPLE_EULA_URL)}
-              style={styles.legalBtn}
+              style={styles.link}
               accessibilityRole="link"
-              accessibilityLabel={t('Warunki użytkowania (EULA)')}
             >
-              <Text style={styles.legalLinkText}>{t('Warunki użytkowania (EULA)')}</Text>
+              <Text style={styles.linkTekst}>{t('Warunki użytkowania')}</Text>
             </Pressable>
-            <Text style={styles.legalDividerText}>•</Text>
             <Pressable
               testID="privacy-policy-btn"
               onPress={() => Linking.openURL(PRIVACY_URL)}
-              style={styles.legalBtn}
+              style={styles.link}
               accessibilityRole="link"
-              accessibilityLabel={t('Polityka prywatności')}
             >
-              <Text style={styles.legalLinkText}>{t('Polityka prywatności')}</Text>
+              <Text style={styles.linkTekst}>{t('Polityka prywatności')}</Text>
             </Pressable>
           </View>
-        </ScrollView>
+        </View>
       </SafeAreaView>
     </Modal>
   );
 }
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: theme.colors.tlo,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: theme.spacing.md,
-    paddingVertical: theme.spacing.sm,
-  },
-  badgeRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  passBadge: {
-    backgroundColor: theme.colors.akcent,
-    color: theme.colors.naAkcencie,
-    fontWeight: '800',
-    fontSize: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: theme.radius.sm,
-    overflow: 'hidden',
-  },
-  scrollContent: {
-    paddingHorizontal: theme.spacing.lg,
-    paddingBottom: theme.spacing.xl,
-    alignItems: 'center',
-  },
-  title: {
+  safeArea: { flex: 1, backgroundColor: theme.colors.tlo },
+  header: { flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: odstepy.l, paddingVertical: odstepy.s },
+  tresc: { paddingHorizontal: odstepy.xl, paddingBottom: odstepy.l, gap: odstepy.m },
+  tytul: {
     fontFamily: theme.typography.krojTytulow,
-    fontSize: 24,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-    textAlign: 'center',
-    marginBottom: theme.spacing.xs,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: theme.colors.tusz2,
-    textAlign: 'center',
-    lineHeight: 20,
-    marginBottom: theme.spacing.md,
-  },
-  guaranteeCard: {
-    flexDirection: 'row',
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.lg,
-    alignItems: 'center',
-  },
-  guaranteeTextCol: {
-    flex: 1,
-  },
-  guaranteeTitle: {
-    fontFamily: theme.typography.krojTytulow,
-    fontSize: 14,
+    fontSize: typografia.style.tytulDuzy.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
   },
-  guaranteeDesc: {
-    fontSize: 12,
-    color: theme.colors.tusz2,
-    marginTop: 2,
-    lineHeight: 16,
-  },
-  plansContainer: {
-    width: '100%',
-    gap: theme.spacing.sm,
-    marginBottom: theme.spacing.md,
-  },
-  planCard: {
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 2,
-    borderColor: theme.colors.linia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    minHeight: 64,
-    justifyContent: 'center',
-  },
-  planCardSelected: {
-    borderColor: theme.colors.akcent,
-    borderWidth: 3,
-    backgroundColor: theme.colors.powierzchnia,
-  },
-  termsText: {
-    fontSize: 12,
-    lineHeight: 17,
-    color: theme.colors.tusz2,
-    textAlign: 'center',
-    marginBottom: theme.spacing.sm,
-  },
-  planRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  planInfo: {
-    flex: 1,
-  },
-  planName: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: theme.colors.tusz,
-  },
-  planSubtext: {
-    fontSize: 12,
-    color: theme.colors.tusz2,
-    marginTop: 2,
-  },
-  priceCol: {
-    alignItems: 'flex-end',
-    marginLeft: theme.spacing.sm,
-  },
-  planPrice: {
-    fontFamily: theme.typography.krojTytulow,
-    fontSize: 20,
-    fontWeight: '800',
-    color: theme.colors.tusz,
-  },
-  planPricePeriod: {
-    fontFamily: theme.typography.krojTytulow,
-    fontSize: 11,
-    color: theme.colors.tusz3,
-  },
-  pillarsCard: {
-    width: '100%',
-    backgroundColor: theme.colors.powierzchnia,
-    borderRadius: theme.radius.md,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.lg,
-    gap: theme.spacing.sm,
-  },
-  pillarItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  pillarText: {
-    fontSize: 13,
-    color: theme.colors.tusz2,
-    flex: 1,
-  },
-  primaryCtaBtn: {
-    width: '100%',
+  proba: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
+  opis: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  opcje: { gap: odstepy.s },
+  ujawnienia: { gap: odstepy.s },
+  ujawnienie: { flexDirection: 'row', gap: odstepy.s, alignItems: 'flex-start' },
+  kropka: { width: 6, height: 6, borderRadius: theme.radius.full, backgroundColor: theme.colors.tusz2, marginTop: 8 },
+  ujawnienieTekst: { flex: 1, minWidth: 0, fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
+  kciuk: { paddingHorizontal: odstepy.xl - 6, paddingTop: odstepy.m, paddingBottom: odstepy.s, gap: odstepy.s },
+  glowny: {
+    minHeight: theme.cele.przyciskKciuka,
+    borderRadius: promienie.przyciskGlowny,
     backgroundColor: theme.colors.akcent,
-    paddingVertical: 16,
-    borderRadius: theme.radius.md,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 52, // Zasada Brudnego Kciuka
-    marginBottom: theme.spacing.md,
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.s,
   },
-  primaryCtaBtnText: {
-    color: theme.colors.naAkcencie,
-    fontSize: 16,
-    fontWeight: '800',
-  },
-  btnDisabled: {
-    opacity: 0.6,
-  },
-  footerRow: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: theme.spacing.xs,
-  },
-  textBtn: {
-    paddingVertical: theme.spacing.xs,
-    paddingHorizontal: theme.spacing.sm,
-    minHeight: 44,
-    justifyContent: 'center',
-  },
-  textBtnLabel: {
-    fontSize: 13,
-    color: theme.colors.tusz2,
-    textDecorationLine: 'underline',
-  },
-  legalLinksRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 16,
-    marginBottom: 8,
-    gap: 8,
-  },
-  legalBtn: {
-    paddingVertical: 6,
-    paddingHorizontal: 8,
-    minHeight: 48,
-    justifyContent: 'center',
-  },
-  legalLinkText: {
-    fontSize: 12,
-    color: theme.colors.tusz3,
-    textDecorationLine: 'underline',
-  },
-  legalDividerText: {
-    fontSize: 12,
-    color: theme.colors.tusz3,
-  },
+  nieaktywny: { opacity: 0.6 },
+  glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naAkcencie, textAlign: 'center' },
+  linki: { flexDirection: 'row', flexWrap: 'wrap', columnGap: odstepy.l },
+  link: { minHeight: theme.cele.pozostale, justifyContent: 'center' },
+  linkTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.akcentTekst },
 });

@@ -58,12 +58,13 @@ describe('PaywallModal Component', () => {
 
     const fullText = extractCleanText(tree?.toJSON());
     // Tytuł bez porównania z espresso (MON-11) [M1-audytor-generalny-011]
-    expect(fullText).toContain('Odblokuj pełny dostęp');
+    // Nazwa produktu jak w App Store Connect, bez plakietki (design-spec §11e 127) [M1-audytor-generalny-127]
+    expect(fullText).toContain(t('Piekarz Pro'));
+    expect(fullText).not.toContain('APPS4CRAFT');
     expect(fullText).toContain('$0.99');
     expect(fullText).toContain('$6.99');
     expect(fullText).toContain('$14.99');
-    expect(fullText).toContain('Twoja historia jest bezpieczna');
-    expect(fullText).toContain('Bez chmury: dane zostają w telefonie');
+    expect(fullText).toContain(t('Zakup wymaga połączenia z App Store.'));
   });
 
   it('shows no price when the store returned no products', async () => {
@@ -77,6 +78,11 @@ describe('PaywallModal Component', () => {
   });
 
   it('selects yearly by default and calls onSubscribe with yearly', async () => {
+    mockIap.products = [
+      { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '$0.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.yearly', displayPrice: '$6.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.lifetime', displayPrice: '$14.99', type: 'in-app' },
+    ];
     await act(async () => {
       tree = renderer.create(
         <PaywallModal
@@ -97,6 +103,11 @@ describe('PaywallModal Component', () => {
   });
 
   it('switches to monthly and lifetime plans upon tap and submits', async () => {
+    mockIap.products = [
+      { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '$0.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.yearly', displayPrice: '$6.99', type: 'subs' },
+      { id: 'com.apps4brew.baker.pro.lifetime', displayPrice: '$14.99', type: 'in-app' },
+    ];
     await act(async () => {
       tree = renderer.create(
         <PaywallModal
@@ -134,7 +145,7 @@ describe('PaywallModal Component', () => {
     expect(mockOnSubscribe).toHaveBeenCalledWith('lifetime');
   });
 
-  it('triggers restore purchases and closes on read-only continue', async () => {
+  it('triggers restore purchases and closes with "Zamknij" (no separate read-only button, §11e 127)', async () => {
     await act(async () => {
       tree = renderer.create(
         <PaywallModal
@@ -152,9 +163,10 @@ describe('PaywallModal Component', () => {
     });
     expect(mockOnRestore).toHaveBeenCalled();
 
-    const readOnlyBtn = tree!.root.findByProps({ testID: 'read-only-continue-btn' });
+    expect(tree!.root.findAllByProps({ testID: 'read-only-continue-btn' })).toHaveLength(0);
+    const closeBtn = tree!.root.findAll((n) => n.props.testID === 'close-modal' && typeof n.props.onPress === 'function')[0];
     await act(async () => {
-      readOnlyBtn.props.onPress();
+      closeBtn.props.onPress();
     });
     expect(mockOnClose).toHaveBeenCalled();
   });
@@ -196,9 +208,10 @@ describe('PaywallModal Component', () => {
       tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
     });
     const text = extractCleanText(tree?.toJSON());
-    expect(text).toContain(t('Pierwsze {dni} dni bezpłatnie, potem {cena}', { dni: 14, cena: '29,99 zł' }));
-    expect(text).toContain('Pierwsze 14 dni bezpłatnie, potem 4,99 zł');
-    expect(text).toContain(t('Wypróbuj {dni} dni', { dni: 14 }));
+    expect(text).toContain('Okres próbny: 14 dni');
+    expect(text).toContain(t('{cena} rocznie po próbie', { cena: '29,99 zł' }));
+    expect(text).toContain('4,99 zł miesięcznie po próbie');
+    expect(text).toContain(t('Zacznij okres próbny'));
     await act(async () => {
       tree!.root.findByProps({ testID: 'plan-lifetime-btn' }).props.onPress();
     });
@@ -212,6 +225,6 @@ describe('PaywallModal Component', () => {
       tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
     });
     const text = extractCleanText(tree?.toJSON());
-    expect(text).not.toMatch(/bezpłatnie|Wypróbuj/);
-    expect(text).toContain('Aktywuj plan roczny');
+    expect(text).not.toMatch(/Okres próbny|po próbie|Zacznij okres próbny/);
+    expect(text).toContain('Kup plan roczny');
   });});
