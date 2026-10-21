@@ -8,11 +8,16 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { MASTER_RECIPES } from '../../recipes/presets';
 import { FLOUR_PROFILES } from '../flour-atlas';
+import { POPULAR_FLOUR_BLENDS } from '../domain-rules';
 import { nazwaMakiMieszanki } from '../../lib/nazwa-maki-mieszanki';
 import { setLang } from '../../lib/i18n';
 
 const ZAKAZANE = [/W\s*>\s*\d/, /chlebowa typ 720/, /typ 630/, /jasna typ 630/];
-const nazwyPresetow = MASTER_RECIPES.flatMap((r) => r.formula.flours.map((f) => f.name));
+const nazwyPresetow = [
+  ...MASTER_RECIPES.flatMap((r) => r.formula.flours.map((f) => f.name)),
+  // gotowe mieszanki („Wstaw gotową mieszankę”) to te same dane aplikacji
+  ...POPULAR_FLOUR_BLENDS.flatMap((b) => b.flours.map((f) => f.name)),
+];
 const schemat = readFileSync(join(__dirname, '../../data/sqlite-schema.ts'), 'utf8');
 const nazwySpizarni = [...schemat.matchAll(/id: 'flour_inv_[^']+',\s*name: '([^']+)'/g)].map((m) => m[1]);
 

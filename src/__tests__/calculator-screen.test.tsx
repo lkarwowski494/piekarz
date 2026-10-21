@@ -232,7 +232,9 @@ describe('CalculatorScreen UI (app/(tabs)/receptury/index.tsx)', () => {
     await chooseFromMenu('flour-blend-menu-btn', '70% Pszenna + 20% Orkisz + 10% Żytnia');
 
     const updatedText = extractCleanText(tree?.toJSON());
-    expect(updatedText).toContain('Mąka orkiszowa jasna typ 630');
+    // nazwa jak w atlasie, bez typu 630 (MAK-TYP-902 otwarte) [M2-koordynator-napraw-451 (p12b2)]
+    expect(updatedText).toContain('Mąka orkiszowa');
+    expect(updatedText).not.toContain('typ 630');
     expect(updatedText).toContain('Mąka żytnia razowa typ 2000');
   });
 
