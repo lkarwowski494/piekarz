@@ -57,7 +57,44 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe('205: „Spróbuj ponownie” na ekranie błędu bazy czeka na koniec initDatabase', () => {
+// [M1-audytor-generalny-215; 12-niezawodnosc-604] Tryb awaryjny nie dotyka bazy: powrót na pierwszy plan
+// nie uzgadnia powiadomień (to uzgodnienie czyta sesję wypieku i zakwasy z bazy)
+describe('215: tryb awaryjny bez uzgadniania powiadomień przy powrocie na pierwszy plan', () => {
+  it('RootLayout w trybie awaryjnym: zdarzenie „active” nie wywołuje resyncNotifications ani initDatabase', async () => {
+    const m = uruchom({ rescue: true });
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    expect(tree.root.findAllByProps({ testID: 'rescue-screen' }).length).toBeGreaterThan(0);
+    await m.TR.act(async () => {
+      for (const fn of [...m.appState]) fn('active');
+      await flush();
+    });
+    expect(m.resync).not.toHaveBeenCalled();
+    expect(m.init).not.toHaveBeenCalled();
+    m.TR.act(() => tree.unmount());
+  });
+
+  it('zwykły start: zdarzenie „active” nadal uzgadnia powiadomienia', async () => {
+    const m = uruchom();
+    let tree!: renderer.ReactTestRenderer;
+    await m.TR.act(async () => {
+      tree = m.TR.create(m.React.createElement(m.Layout));
+      await flush();
+    });
+    const przed = m.resync.mock.calls.length;
+    await m.TR.act(async () => {
+      for (const fn of [...m.appState]) fn('active');
+      await flush();
+    });
+    expect(m.resync.mock.calls.length).toBe(przed + 1);
+    m.TR.act(() => tree.unmount());
+  });
+});
+
+describe('205:„Spróbuj ponownie” na ekranie błędu bazy czeka na koniec initDatabase', () => {
   it('po markStorageUnavailable i ponowieniu stan „initializing” do końca initDatabase; ekrany za bramką nie renderują się w trakcie', async () => {
     const m = uruchom();
     let tree!: renderer.ReactTestRenderer;

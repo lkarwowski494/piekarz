@@ -64,7 +64,9 @@ export default function RootLayout() {
 
   // Powiadomienia lokalne (ADR-006) [M1-audytor-generalny-006]: pokazywanie na pierwszym planie,
   // uzgodnienie po powrocie z tła i otwarcie ekranu z dotkniętego powiadomienia.
+  // Tryb awaryjny nie dotyka bazy: bez uzgadniania powiadomień (czyta bazę) [M1-audytor-generalny-215; 12-niezawodnosc-604]
   useEffect(() => {
+    if (rescue) return undefined;
     configureNotificationHandler();
     const appState = AppState.addEventListener('change', (s) => {
       if (s === 'active') void resyncNotifications();
@@ -79,7 +81,7 @@ export default function RootLayout() {
       appState.remove();
       tap.remove();
     };
-  }, []);
+  }, [rescue]);
 
   if (rescue) {
     return (
