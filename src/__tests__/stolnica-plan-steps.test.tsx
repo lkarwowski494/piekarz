@@ -36,6 +36,8 @@ import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { calculateReverseSchedule, StageCategory } from '../scheduler/reverse-scheduler';
 import { planBakeNotification } from '../core/notification-plan';
 import { showsPokeTestEntry } from '../core/bake-steps';
+import * as wejscia from '../lib/wejscia-pozniej';
+import { wejscieWidoczne, WejsciePozniej, WEJSCIA_WIDOCZNE } from '../lib/wejscia-pozniej';
 import { notificationText } from '../lib/notifications';
 import { setLang, t } from '../lib/i18n';
 import legacyFixture from '../../tests/fixtures/bake-session-v1-1c38b28.json';
@@ -193,8 +195,12 @@ describe('Stolnica z receptury i planu (030)', () => {
   });
 
   // F-15, BR-ETAP-003: przewodnik testu palca w Stolnicy przy garowaniu końcowym, przed pieczeniem
-  // [M1-audytor-generalny-032; D-032]
-  it('garowanie końcowe (krok przed pieczeniem) pokazuje wejście do testu palca, inne kroki nie', async () => {
+  // [M1-audytor-generalny-032; D-032]. Od DEC-21 a (155) wejście jest ukryte do wyniku testu F-15; kod zostaje,
+  // więc ten scenariusz sprawdza zachowanie po odsłonięciu (`test-palca` = true).
+  it('garowanie końcowe (krok przed pieczeniem) pokazuje wejście do testu palca, inne kroki nie (wejście F-15 odsłonięte)', async () => {
+    const odsloniete = jest
+      .spyOn(wejscia, 'wejscieWidoczne')
+      .mockImplementation((w: WejsciePozniej) => (w === 'test-palca' ? true : WEJSCIA_WIDOCZNE[w]));
     setActiveBake({
       id: 'bake_poke',
       recipeName: 'Pszenny 75%',
@@ -231,6 +237,35 @@ describe('Stolnica z receptury i planu (030)', () => {
       button(stol.root, 'Zrobione').props.onPress();
     });
     expect(entries()).toHaveLength(0);
+    act(() => stol.unmount());
+    odsloniete.mockRestore();
+  });
+
+  // F-15 TEST (D-043): wejście ukryte do wyniku testu z testerami, DEC-21 a [M1-audytor-generalny-155; 03-zakres-504]
+  it('F-15 TEST: Stolnica nie ma stolnica-poke-test-btn w żadnym kroku, także w garowaniu końcowym', async () => {
+    expect(wejscieWidoczne('test-palca' as WejsciePozniej) ?? false).toBe(false);
+    setActiveBake({
+      id: 'bake_poke_ukryty',
+      recipeName: 'Pszenny 75%',
+      startedAt: now,
+      currentStageId: 'step_1',
+      ambientTempC: 22,
+      calculatedRecipe: recipe(false),
+    });
+    const stol = await render(<StolnicaScreen />);
+    const steps = (await loadBakeSession())?.steps ?? [];
+    const proofIdx = steps.findIndex((s) => s.category === 'final_proof');
+    expect(proofIdx).toBeGreaterThan(0);
+    const entries = () => stol.root.findAll((n) => n.props.testID === 'stolnica-poke-test-btn');
+    for (let i = 0; i <= proofIdx; i++) {
+      expect({ step: steps[i].category, entries: entries().length }).toEqual({ step: steps[i].category, entries: 0 });
+      if (i === proofIdx) break;
+      await act(async () => {
+        button(stol.root, 'Zrobione').props.onPress();
+      });
+    }
+    expect(textOf(stol.toJSON())).toContain(`Krok ${proofIdx + 1} z ${steps.length}`);
+    expect(textOf(stol.toJSON())).not.toContain('Sprawdź gotowość: test palca');
     act(() => stol.unmount());
   });
 

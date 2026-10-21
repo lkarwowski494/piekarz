@@ -11,11 +11,13 @@ import { t } from '../../lib/i18n';
 import { useAppAccess } from '../../lib/app-access';
 import { SessionStep, showsPokeTestEntry } from '../../core/bake-steps';
 import { KitchenTestsGuideSection } from '../doktor/KitchenTestsGuideSection';
+import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 export function PokeTestEntry({ step }: { step: Pick<SessionStep, 'id' | 'category'> }) {
   const [open, setOpen] = useState<boolean>(false);
   const { chron } = useAppAccess();
-  if (!showsPokeTestEntry(step)) return null;
+  // F-15 TEST: wejście ukryte do wyniku testu z testerami (DEC-21 a) [M1-audytor-generalny-155]
+  if (!wejscieWidoczne('test-palca') || !showsPokeTestEntry(step)) return null;
   return (
     <View style={styles.container}>
       <Pressable
