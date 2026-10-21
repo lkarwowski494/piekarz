@@ -62,6 +62,18 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
     }
   });
 
+  // Maestro ustawia zgody iOS przez applesimutils; bez niego (przebiegi 39581379222, 39591487157) okno zgody
+  // zasłaniało ekran. Decyzja właściciela 2026-10-21: wariant (a) [M1-audytor-generalny-037]
+  it('workflow instaluje applesimutils przed scenariuszami Maestro', () => {
+    const instalacja = workflow.search(/brew install[^\n]*applesimutils/);
+    expect(workflow).toMatch(/brew tap wix\/brew/);
+    // Homebrew: formuła z tapu spoza homebrew/core wymaga zaufania przed instalacją (przebieg 39599674842)
+    expect(workflow.search(/brew trust --formula wix\/brew\/applesimutils/)).toBeGreaterThan(-1);
+    expect(workflow.search(/brew trust --formula wix\/brew\/applesimutils/)).toBeLessThan(workflow.search(/brew install[^\n]*applesimutils/));
+    expect(instalacja).toBeGreaterThan(-1);
+    expect(instalacja).toBeLessThan(workflow.search(/maestro\s+--device\s+"\$UDID"\s+test\s+\.maestro\/e2e/));
+  });
+
   it('zakładki mają testID przycisków, a scenariusze przechodzą po nich', () => {
     const tabs = readFileSync(join(root, 'app', '(tabs)', '_layout.tsx'), 'utf8');
     for (const id of ['tab-dzis', 'tab-receptury', 'tab-zakwasy', 'tab-dziennik']) expect(tabs).toContain(`tabBarButtonTestID: '${id}'`);
