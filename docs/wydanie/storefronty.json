@@ -1,0 +1,1794 @@
+{
+ "opis": "Mapa storefrontów App Store dla 34 lokalizacji strony (D-054): w których storefrontach lokalizacja jest językiem domyślnym, a w których dodatkowym. Wydzielone z docs/wydanie/widocznosc.md §1 (zadanie M1-audytor-generalny-119); źródło karty docs/wydanie/ustawienia/<kod ASC>.md (scripts/karty-ustawien.mjs).",
+ "zrodlo": "https://developer.apple.com/help/app-store-connect/reference/app-store-localizations",
+ "odczyt": "2026-10-21",
+ "liczbaStorefrontow": 175,
+ "bezLokalizacjiWJezykuDomyslnym": [
+  "CHN (Simplified Chinese)"
+ ],
+ "storefronty": [
+  {
+   "iso": "AFG",
+   "kraj": "Afghanistan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ALB",
+   "kraj": "Albania",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "DZA",
+   "kraj": "Algeria",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "AGO",
+   "kraj": "Angola",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "AIA",
+   "kraj": "Anguilla",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ATG",
+   "kraj": "Antigua and Barbuda",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ARG",
+   "kraj": "Argentina",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "ARM",
+   "kraj": "Armenia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "AUS",
+   "kraj": "Australia",
+   "domyslny": "English (Australia)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "AUT",
+   "kraj": "Austria",
+   "domyslny": "German",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "AZE",
+   "kraj": "Azerbaijan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BHS",
+   "kraj": "Bahamas",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BHR",
+   "kraj": "Bahrain",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "BRB",
+   "kraj": "Barbados",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BLR",
+   "kraj": "Belarus",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BEL",
+   "kraj": "Belgium",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Dutch",
+    "French"
+   ]
+  },
+  {
+   "iso": "BLZ",
+   "kraj": "Belize",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Spanish (Mexico)"
+   ]
+  },
+  {
+   "iso": "BEN",
+   "kraj": "Benin",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "BMU",
+   "kraj": "Bermuda",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BTN",
+   "kraj": "Bhutan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BOL",
+   "kraj": "Bolivia",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "BIH",
+   "kraj": "Bosnia and Herzegovina",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Croatian"
+   ]
+  },
+  {
+   "iso": "BWA",
+   "kraj": "Botswana",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BRA",
+   "kraj": "Brazil",
+   "domyslny": "Portuguese (Brazil)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "VGB",
+   "kraj": "British Virgin Islands",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BRN",
+   "kraj": "Brunei",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BGR",
+   "kraj": "Bulgaria",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "BFA",
+   "kraj": "Burkina Faso",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "KHM",
+   "kraj": "Cambodia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "CMR",
+   "kraj": "Cameroon",
+   "domyslny": "French",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "CAN",
+   "kraj": "Canada",
+   "domyslny": "English (Canada)",
+   "dodatkowe": [
+    "French (Canada)"
+   ]
+  },
+  {
+   "iso": "CPV",
+   "kraj": "Cape Verde",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "CYM",
+   "kraj": "Cayman Islands",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "TCD",
+   "kraj": "Chad",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "CHL",
+   "kraj": "Chile",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "CHN",
+   "kraj": "China mainland",
+   "domyslny": "Simplified Chinese",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "COL",
+   "kraj": "Colombia",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "COD",
+   "kraj": "Congo, Democratic Republic of the",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "COG",
+   "kraj": "Congo, Republic of the",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "CRI",
+   "kraj": "Costa Rica",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "CIV",
+   "kraj": "Cote d’Ivoire",
+   "domyslny": "French",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "HRV",
+   "kraj": "Croatia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Croatian"
+   ]
+  },
+  {
+   "iso": "CYP",
+   "kraj": "Cyprus",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Greek",
+    "Turkish"
+   ]
+  },
+  {
+   "iso": "CZE",
+   "kraj": "Czechia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Czech"
+   ]
+  },
+  {
+   "iso": "DNK",
+   "kraj": "Denmark",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Danish"
+   ]
+  },
+  {
+   "iso": "DMA",
+   "kraj": "Dominica",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "DOM",
+   "kraj": "Dominican Republic",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "ECU",
+   "kraj": "Ecuador",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "EGY",
+   "kraj": "Egypt",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "SLV",
+   "kraj": "El Salvador",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "EST",
+   "kraj": "Estonia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "SWZ",
+   "kraj": "Eswatini",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "FJI",
+   "kraj": "Fiji",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "FIN",
+   "kraj": "Finland",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Finnish"
+   ]
+  },
+  {
+   "iso": "FRA",
+   "kraj": "France",
+   "domyslny": "French",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "GAB",
+   "kraj": "Gabon",
+   "domyslny": "French",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "GMB",
+   "kraj": "Gambia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "GEO",
+   "kraj": "Georgia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "DEU",
+   "kraj": "Germany",
+   "domyslny": "German",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "GHA",
+   "kraj": "Ghana",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "GRC",
+   "kraj": "Greece",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Greek"
+   ]
+  },
+  {
+   "iso": "GRD",
+   "kraj": "Grenada",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "GTM",
+   "kraj": "Guatemala",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "GNB",
+   "kraj": "Guinea-Bissau",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "GUY",
+   "kraj": "Guyana",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "HND",
+   "kraj": "Honduras",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "HKG",
+   "kraj": "Hong Kong",
+   "domyslny": "Chinese (Traditional)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "HUN",
+   "kraj": "Hungary",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Hungarian"
+   ]
+  },
+  {
+   "iso": "ISL",
+   "kraj": "Iceland",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "IND",
+   "kraj": "India",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Bangla",
+    "Gujarati",
+    "Hindi",
+    "Kannada",
+    "Malayalam",
+    "Marathi",
+    "Odia",
+    "Punjabi",
+    "Tamil",
+    "Telugu",
+    "Urdu"
+   ]
+  },
+  {
+   "iso": "IDN",
+   "kraj": "Indonesia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Indonesian"
+   ]
+  },
+  {
+   "iso": "IRQ",
+   "kraj": "Iraq",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "IRL",
+   "kraj": "Ireland",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ISR",
+   "kraj": "Israel",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Hebrew"
+   ]
+  },
+  {
+   "iso": "ITA",
+   "kraj": "Italy",
+   "domyslny": "Italian",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "JAM",
+   "kraj": "Jamaica",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "JPN",
+   "kraj": "Japan",
+   "domyslny": "Japanese",
+   "dodatkowe": [
+    "English (US)"
+   ]
+  },
+  {
+   "iso": "JOR",
+   "kraj": "Jordan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "KAZ",
+   "kraj": "Kazakhstan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "KEN",
+   "kraj": "Kenya",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "XKS",
+   "kraj": "Kosovo",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "KWT",
+   "kraj": "Kuwait",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "KGZ",
+   "kraj": "Kyrgyzstan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "LAO",
+   "kraj": "Laos",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "LVA",
+   "kraj": "Latvia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "LBN",
+   "kraj": "Lebanon",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "LBR",
+   "kraj": "Liberia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "LBY",
+   "kraj": "Libya",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "LTU",
+   "kraj": "Lithuania",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "LUX",
+   "kraj": "Luxembourg",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French",
+    "German"
+   ]
+  },
+  {
+   "iso": "MAC",
+   "kraj": "Macau",
+   "domyslny": "Chinese (Traditional)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "MDG",
+   "kraj": "Madagascar",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "MWI",
+   "kraj": "Malawi",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MYS",
+   "kraj": "Malaysia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Malay"
+   ]
+  },
+  {
+   "iso": "MDV",
+   "kraj": "Maldives",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MLI",
+   "kraj": "Mali",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "MLT",
+   "kraj": "Malta",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MRT",
+   "kraj": "Mauritania",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "MUS",
+   "kraj": "Mauritius",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "MEX",
+   "kraj": "Mexico",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "FSM",
+   "kraj": "Micronesia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MDA",
+   "kraj": "Moldova",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MNG",
+   "kraj": "Mongolia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MNE",
+   "kraj": "Montenegro",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Croatian"
+   ]
+  },
+  {
+   "iso": "MSR",
+   "kraj": "Montserrat",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MAR",
+   "kraj": "Morocco",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "MOZ",
+   "kraj": "Mozambique",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MMR",
+   "kraj": "Myanmar",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "NAM",
+   "kraj": "Namibia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "NRU",
+   "kraj": "Nauru",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "NPL",
+   "kraj": "Nepal",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "NLD",
+   "kraj": "Netherlands",
+   "domyslny": "Dutch",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "NZL",
+   "kraj": "New Zealand",
+   "domyslny": "English (Australia)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "NIC",
+   "kraj": "Nicaragua",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "NER",
+   "kraj": "Niger",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "NGA",
+   "kraj": "Nigeria",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "MKD",
+   "kraj": "North Macedonia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "NOR",
+   "kraj": "Norway",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Norwegian"
+   ]
+  },
+  {
+   "iso": "OMN",
+   "kraj": "Oman",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "PAK",
+   "kraj": "Pakistan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Urdu"
+   ]
+  },
+  {
+   "iso": "PLW",
+   "kraj": "Palau",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "PAN",
+   "kraj": "Panama",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "PNG",
+   "kraj": "Papua New Guinea",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "PRY",
+   "kraj": "Paraguay",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "PER",
+   "kraj": "Peru",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "PHL",
+   "kraj": "Philippines",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "POL",
+   "kraj": "Poland",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Polish"
+   ]
+  },
+  {
+   "iso": "PRT",
+   "kraj": "Portugal",
+   "domyslny": "Portuguese (Portugal)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "QAT",
+   "kraj": "Qatar",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "KOR",
+   "kraj": "Republic of Korea",
+   "domyslny": "Korean",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "ROU",
+   "kraj": "Romania",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Romanian"
+   ]
+  },
+  {
+   "iso": "RUS",
+   "kraj": "Russia",
+   "domyslny": "Russian",
+   "dodatkowe": [
+    "English (U.K.)",
+    "Ukrainian"
+   ]
+  },
+  {
+   "iso": "RWA",
+   "kraj": "Rwanda",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "STP",
+   "kraj": "Sao Tome and Principe",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "SAU",
+   "kraj": "Saudi Arabia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "SEN",
+   "kraj": "Senegal",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "SRB",
+   "kraj": "Serbia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Croatian"
+   ]
+  },
+  {
+   "iso": "SYC",
+   "kraj": "Seychelles",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "SLE",
+   "kraj": "Sierra Leone",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "SGP",
+   "kraj": "Singapore",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Chinese (Simplified)"
+   ]
+  },
+  {
+   "iso": "SVK",
+   "kraj": "Slovakia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Slovak"
+   ]
+  },
+  {
+   "iso": "SVN",
+   "kraj": "Slovenia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Slovenian"
+   ]
+  },
+  {
+   "iso": "SLB",
+   "kraj": "Solomon Islands",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ZAF",
+   "kraj": "South Africa",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ESP",
+   "kraj": "Spain",
+   "domyslny": "Spanish (Spain)",
+   "dodatkowe": [
+    "Catalan",
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "LKA",
+   "kraj": "Sri Lanka",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "KNA",
+   "kraj": "St. Kitts and Nevis",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "LCA",
+   "kraj": "St. Lucia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "VCT",
+   "kraj": "St. Vincent and the Grenadines",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "SUR",
+   "kraj": "Suriname",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Dutch"
+   ]
+  },
+  {
+   "iso": "SWE",
+   "kraj": "Sweden",
+   "domyslny": "Swedish",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "CHE",
+   "kraj": "Switzerland",
+   "domyslny": "German",
+   "dodatkowe": [
+    "English (U.K.)",
+    "French",
+    "Italian"
+   ]
+  },
+  {
+   "iso": "TWN",
+   "kraj": "Taiwan",
+   "domyslny": "Chinese (Traditional)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "TJK",
+   "kraj": "Tajikistan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "TZA",
+   "kraj": "Tanzania",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "THA",
+   "kraj": "Thailand",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Thai"
+   ]
+  },
+  {
+   "iso": "TON",
+   "kraj": "Tonga",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "TTO",
+   "kraj": "Trinidad and Tobago",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "TUN",
+   "kraj": "Tunisia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "iso": "TUR",
+   "kraj": "Türkiye",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Turkish"
+   ]
+  },
+  {
+   "iso": "TKM",
+   "kraj": "Turkmenistan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "TCA",
+   "kraj": "Turks and Caicos Islands",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "UGA",
+   "kraj": "Uganda",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "UKR",
+   "kraj": "Ukraine",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Russian",
+    "Ukrainian"
+   ]
+  },
+  {
+   "iso": "ARE",
+   "kraj": "United Arab Emirates",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "GBR",
+   "kraj": "United Kingdom",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "USA",
+   "kraj": "United States",
+   "domyslny": "English (US)",
+   "dodatkowe": [
+    "Arabic",
+    "Chinese (Simplified)",
+    "Chinese (Traditional)",
+    "French",
+    "Korean",
+    "Portuguese (Brazil)",
+    "Russian",
+    "Spanish (Mexico)",
+    "Vietnamese"
+   ]
+  },
+  {
+   "iso": "URY",
+   "kraj": "Uruguay",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Spanish (Mexico)"
+   ]
+  },
+  {
+   "iso": "UZB",
+   "kraj": "Uzbekistan",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "VUT",
+   "kraj": "Vanuatu",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "French"
+   ]
+  },
+  {
+   "iso": "VEN",
+   "kraj": "Venezuela",
+   "domyslny": "Spanish (Mexico)",
+   "dodatkowe": [
+    "English (U.K.)"
+   ]
+  },
+  {
+   "iso": "VNM",
+   "kraj": "Vietnam",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Vietnamese"
+   ]
+  },
+  {
+   "iso": "YEM",
+   "kraj": "Yemen",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": [
+    "Arabic"
+   ]
+  },
+  {
+   "iso": "ZMB",
+   "kraj": "Zambia",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  },
+  {
+   "iso": "ZWE",
+   "kraj": "Zimbabwe",
+   "domyslny": "English (U.K.)",
+   "dodatkowe": []
+  }
+ ],
+ "lokalizacje": {
+  "en-US": {
+   "jezykAsc": "English (U.S.)",
+   "domyslny": [
+    "USA"
+   ],
+   "dodatkowy": [
+    "JPN"
+   ]
+  },
+  "en-GB": {
+   "jezykAsc": "English (U.K.)",
+   "domyslny": [
+    "AFG",
+    "ALB",
+    "DZA",
+    "AGO",
+    "AIA",
+    "ATG",
+    "ARM",
+    "AZE",
+    "BHS",
+    "BHR",
+    "BRB",
+    "BLR",
+    "BEL",
+    "BLZ",
+    "BEN",
+    "BMU",
+    "BTN",
+    "BIH",
+    "BWA",
+    "VGB",
+    "BRN",
+    "BGR",
+    "BFA",
+    "KHM",
+    "CPV",
+    "CYM",
+    "TCD",
+    "COD",
+    "COG",
+    "HRV",
+    "CYP",
+    "CZE",
+    "DNK",
+    "DMA",
+    "EGY",
+    "EST",
+    "SWZ",
+    "FJI",
+    "FIN",
+    "GMB",
+    "GEO",
+    "GHA",
+    "GRC",
+    "GRD",
+    "GNB",
+    "GUY",
+    "HUN",
+    "ISL",
+    "IND",
+    "IDN",
+    "IRQ",
+    "IRL",
+    "ISR",
+    "JAM",
+    "JOR",
+    "KAZ",
+    "KEN",
+    "XKS",
+    "KWT",
+    "KGZ",
+    "LAO",
+    "LVA",
+    "LBN",
+    "LBR",
+    "LBY",
+    "LTU",
+    "LUX",
+    "MDG",
+    "MWI",
+    "MYS",
+    "MDV",
+    "MLI",
+    "MLT",
+    "MRT",
+    "MUS",
+    "FSM",
+    "MDA",
+    "MNG",
+    "MNE",
+    "MSR",
+    "MAR",
+    "MOZ",
+    "MMR",
+    "NAM",
+    "NRU",
+    "NPL",
+    "NER",
+    "NGA",
+    "MKD",
+    "NOR",
+    "OMN",
+    "PAK",
+    "PLW",
+    "PNG",
+    "PHL",
+    "POL",
+    "QAT",
+    "ROU",
+    "RWA",
+    "STP",
+    "SAU",
+    "SEN",
+    "SRB",
+    "SYC",
+    "SLE",
+    "SGP",
+    "SVK",
+    "SVN",
+    "SLB",
+    "ZAF",
+    "LKA",
+    "KNA",
+    "LCA",
+    "VCT",
+    "SUR",
+    "TJK",
+    "TZA",
+    "THA",
+    "TON",
+    "TTO",
+    "TUN",
+    "TUR",
+    "TKM",
+    "TCA",
+    "UGA",
+    "UKR",
+    "ARE",
+    "GBR",
+    "URY",
+    "UZB",
+    "VUT",
+    "VNM",
+    "YEM",
+    "ZMB",
+    "ZWE"
+   ],
+   "dodatkowy": [
+    "ARG",
+    "AUS",
+    "AUT",
+    "BOL",
+    "BRA",
+    "CMR",
+    "CHL",
+    "CHN",
+    "COL",
+    "CRI",
+    "CIV",
+    "DOM",
+    "ECU",
+    "SLV",
+    "FRA",
+    "GAB",
+    "DEU",
+    "GTM",
+    "HND",
+    "HKG",
+    "ITA",
+    "MAC",
+    "MEX",
+    "NLD",
+    "NZL",
+    "NIC",
+    "PAN",
+    "PRY",
+    "PER",
+    "PRT",
+    "KOR",
+    "RUS",
+    "ESP",
+    "SWE",
+    "CHE",
+    "TWN",
+    "VEN"
+   ]
+  },
+  "en-AU": {
+   "jezykAsc": "English (Australia)",
+   "domyslny": [
+    "AUS",
+    "NZL"
+   ],
+   "dodatkowy": []
+  },
+  "en-CA": {
+   "jezykAsc": "English (Canada)",
+   "domyslny": [
+    "CAN"
+   ],
+   "dodatkowy": []
+  },
+  "de-DE": {
+   "jezykAsc": "German",
+   "domyslny": [
+    "AUT",
+    "DEU",
+    "CHE"
+   ],
+   "dodatkowy": [
+    "LUX"
+   ]
+  },
+  "nl-NL": {
+   "jezykAsc": "Dutch",
+   "domyslny": [
+    "NLD"
+   ],
+   "dodatkowy": [
+    "BEL",
+    "SUR"
+   ]
+  },
+  "fr-FR": {
+   "jezykAsc": "French",
+   "domyslny": [
+    "CMR",
+    "CIV",
+    "FRA",
+    "GAB"
+   ],
+   "dodatkowy": [
+    "DZA",
+    "BEL",
+    "BEN",
+    "BFA",
+    "KHM",
+    "TCD",
+    "COD",
+    "COG",
+    "EGY",
+    "GNB",
+    "GUY",
+    "LAO",
+    "LBN",
+    "LUX",
+    "MDG",
+    "MLI",
+    "MRT",
+    "MUS",
+    "MAR",
+    "NER",
+    "RWA",
+    "SEN",
+    "SYC",
+    "CHE",
+    "TTO",
+    "TUN",
+    "USA",
+    "VUT"
+   ]
+  },
+  "fr-CA": {
+   "jezykAsc": "French (Canada)",
+   "domyslny": [],
+   "dodatkowy": [
+    "CAN"
+   ]
+  },
+  "it": {
+   "jezykAsc": "Italian",
+   "domyslny": [
+    "ITA"
+   ],
+   "dodatkowy": [
+    "CHE"
+   ]
+  },
+  "es-ES": {
+   "jezykAsc": "Spanish (Spain)",
+   "domyslny": [
+    "ESP"
+   ],
+   "dodatkowy": []
+  },
+  "es-MX": {
+   "jezykAsc": "Spanish (Mexico)",
+   "domyslny": [
+    "ARG",
+    "BOL",
+    "CHL",
+    "COL",
+    "CRI",
+    "DOM",
+    "ECU",
+    "SLV",
+    "GTM",
+    "HND",
+    "MEX",
+    "NIC",
+    "PAN",
+    "PRY",
+    "PER",
+    "VEN"
+   ],
+   "dodatkowy": [
+    "BLZ",
+    "USA",
+    "URY"
+   ]
+  },
+  "pt-BR": {
+   "jezykAsc": "Portuguese (Brazil)",
+   "domyslny": [
+    "BRA"
+   ],
+   "dodatkowy": [
+    "USA"
+   ]
+  },
+  "pt-PT": {
+   "jezykAsc": "Portuguese (Portugal)",
+   "domyslny": [
+    "PRT"
+   ],
+   "dodatkowy": []
+  },
+  "pl": {
+   "jezykAsc": "Polish",
+   "domyslny": [],
+   "dodatkowy": [
+    "POL"
+   ]
+  },
+  "cs": {
+   "jezykAsc": "Czech",
+   "domyslny": [],
+   "dodatkowy": [
+    "CZE"
+   ]
+  },
+  "sk": {
+   "jezykAsc": "Slovak",
+   "domyslny": [],
+   "dodatkowy": [
+    "SVK"
+   ]
+  },
+  "hu": {
+   "jezykAsc": "Hungarian",
+   "domyslny": [],
+   "dodatkowy": [
+    "HUN"
+   ]
+  },
+  "hr": {
+   "jezykAsc": "Croatian",
+   "domyslny": [],
+   "dodatkowy": [
+    "BIH",
+    "HRV",
+    "MNE",
+    "SRB"
+   ]
+  },
+  "sl": {
+   "jezykAsc": "Slovenian",
+   "domyslny": [],
+   "dodatkowy": [
+    "SVN"
+   ]
+  },
+  "ro": {
+   "jezykAsc": "Romanian",
+   "domyslny": [],
+   "dodatkowy": [
+    "ROU"
+   ]
+  },
+  "sv": {
+   "jezykAsc": "Swedish",
+   "domyslny": [
+    "SWE"
+   ],
+   "dodatkowy": []
+  },
+  "no": {
+   "jezykAsc": "Norwegian",
+   "domyslny": [],
+   "dodatkowy": [
+    "NOR"
+   ]
+  },
+  "da": {
+   "jezykAsc": "Danish",
+   "domyslny": [],
+   "dodatkowy": [
+    "DNK"
+   ]
+  },
+  "fi": {
+   "jezykAsc": "Finnish",
+   "domyslny": [],
+   "dodatkowy": [
+    "FIN"
+   ]
+  },
+  "ru": {
+   "jezykAsc": "Russian",
+   "domyslny": [
+    "RUS"
+   ],
+   "dodatkowy": [
+    "UKR",
+    "USA"
+   ]
+  },
+  "uk": {
+   "jezykAsc": "Ukrainian",
+   "domyslny": [],
+   "dodatkowy": [
+    "RUS",
+    "UKR"
+   ]
+  },
+  "el": {
+   "jezykAsc": "Greek",
+   "domyslny": [],
+   "dodatkowy": [
+    "CYP",
+    "GRC"
+   ]
+  },
+  "tr": {
+   "jezykAsc": "Turkish",
+   "domyslny": [],
+   "dodatkowy": [
+    "CYP",
+    "TUR"
+   ]
+  },
+  "ja": {
+   "jezykAsc": "Japanese",
+   "domyslny": [
+    "JPN"
+   ],
+   "dodatkowy": []
+  },
+  "ko": {
+   "jezykAsc": "Korean",
+   "domyslny": [
+    "KOR"
+   ],
+   "dodatkowy": [
+    "USA"
+   ]
+  },
+  "zh-Hant": {
+   "jezykAsc": "Chinese (Traditional)",
+   "domyslny": [
+    "HKG",
+    "MAC",
+    "TWN"
+   ],
+   "dodatkowy": [
+    "USA"
+   ]
+  },
+  "id": {
+   "jezykAsc": "Indonesian",
+   "domyslny": [],
+   "dodatkowy": [
+    "IDN"
+   ]
+  },
+  "ms": {
+   "jezykAsc": "Malay",
+   "domyslny": [],
+   "dodatkowy": [
+    "MYS"
+   ]
+  },
+  "vi": {
+   "jezykAsc": "Vietnamese",
+   "domyslny": [],
+   "dodatkowy": [
+    "USA",
+    "VNM"
+   ]
+  }
+ }
+}

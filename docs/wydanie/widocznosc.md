@@ -55,6 +55,8 @@ Jedyny storefront bez lokalizacji w języku domyślnym: Chiny kontynentalne (Sim
 | Malay | `ms` | 0:  | 1: MYS | hipoteza |
 | Vietnamese | `vi` | 0:  | 2: USA VNM | hipoteza |
 
+Pełne listy storefrontów (tabela wyżej skraca dwie najdłuższe) są w `docs/wydanie/storefronty.json`: tabela Apple z odczytu 2026-10-21 (175 storefrontów, ISO, kraj, język domyślny i dodatkowe) i mapa 34 lokalizacji; z niej `scripts/karty-ustawien.mjs` robi karty `docs/wydanie/ustawienia/<kod ASC>.md` [M1-audytor-generalny-119]. Odczyt 2026-10-21 dał tę samą tabelę co 2026-10-20.
+
 Status pomiaru: „zmierzone” = frazy z wyników wyszukiwarki i podpowiedzi tego kraju; „częściowo” = podpowiedzi sklepu tego kraju bez pełnych liczb ocen konkurencji (wyszukiwarka iTunes zwracała 403 od ok. 20:20); „hipoteza” = brak lokalnego sygnału — sprawdzenie po wydaniu w App Analytics (odsłony i pobrania ze źródła App Store Search na storefront).
 
 ## 2. Frazy na język
