@@ -30,6 +30,7 @@ import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } fro
 import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
 import { odczytNieudany } from './odczyt';
 import { BAKE_SESSION_KEY } from './bake-session-store';
+import { zachowajUszkodzony, uszkodzoneWiersze } from './uszkodzone-wiersze';
 
 // ==========================================
 // Bakes & Stolnica
@@ -62,7 +63,9 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
         try {
           sensoryProfile = JSON.parse(r.sensoryProfileRaw);
         } catch {
-          // Uszkodzony JSON profilu: brak zostaje brakiem (undefined), bez zgadywania wartości
+          // Uszkodzony JSON profilu: brak zostaje brakiem (undefined), bez zgadywania wartości;
+          // surowa treść do pliku ratunkowego i kopii [M1-audytor-generalny-121]
+          zachowajUszkodzony({ tabela: 'bakes', id: r.id, surowe: r.sensoryProfileRaw });
         }
       }
       return {
@@ -150,6 +153,11 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
   ]);
   // Nieudany odczyt dał pustą listę: kopia z niepełnych danych wyparłaby dobre kopie z puli [M1-audytor-generalny-003]
   if (getStorageState() === 'unavailable') throw new StorageReadError(getStorageError() ?? 'read failed');
+  // Surowa treść wierszy pominiętych przy odczycie: kopia przed importem i czyszczeniem jej nie gubi [M1-audytor-generalny-121]
+  const uszkodzone = uszkodzoneWiersze();
+  if (uszkodzone.length > 0) {
+    return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory, uszkodzoneWiersze: uszkodzone };
+  }
   return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory };
 }
 

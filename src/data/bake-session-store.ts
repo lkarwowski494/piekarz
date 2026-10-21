@@ -9,6 +9,7 @@ import { SessionStep, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '.
 import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
 import { ActiveBakeState } from './sqlite-schema';
 import { getAppSetting, setAppSetting } from './settings-store';
+import { zachowajUszkodzony } from './uszkodzone-wiersze';
 import { isObj, isNum, isStr, numOrNull, optNum, isRecipeInput, isRecipeResult } from './row-parsers';
 
 export const BAKE_SESSION_KEY = 'active_bake_session';
@@ -118,7 +119,11 @@ export function pickBakeSession(inMemory: ActiveBakeState | null, saved: BakeSes
 }
 
 export async function loadBakeSession(): Promise<BakeSession | null> {
-  return parseBakeSession(await getAppSetting(BAKE_SESSION_KEY));
+  const raw = await getAppSetting(BAKE_SESSION_KEY);
+  const session = parseBakeSession(raw);
+  // Zapis, którego nie da się odczytać: surowa treść do pliku ratunkowego, zanim nowy wypiek go nadpisze [M1-audytor-generalny-121]
+  if (raw && !session) zachowajUszkodzony({ tabela: 'app_settings', id: BAKE_SESSION_KEY, surowe: raw });
+  return session;
 }
 
 /** Zapisuje postęp; null kasuje sesję (koniec albo odrzucenie wypieku). */

@@ -3,6 +3,7 @@ import { getDb, memStore } from './sqlite-schema';
 import { writeOrThrow } from './storage-status';
 import { isRecipeInput } from './row-parsers';
 import { odczytNieudany } from './odczyt';
+import { zachowajUszkodzony } from './uszkodzone-wiersze';
 
 // ==========================================
 // Recipes (Kalkulator)
@@ -25,16 +26,21 @@ export async function getRecipes(): Promise<StoredRecipe[]> {
 
     if (rows.length === 0) return [...memStore.recipes];
 
-    // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022]
+    // Wiersz z uszkodzonym formula_json jest pomijany, nie ukrywa pozostałych [M1-audytor-generalny-022],
+    // a jego surowa treść trafia do pliku ratunkowego i kopii [M1-audytor-generalny-121]
     const out: StoredRecipe[] = [];
     for (const r of rows) {
       let formula: unknown;
       try {
         formula = JSON.parse(r.formula_json);
       } catch {
+        zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
         continue;
       }
-      if (!isRecipeInput(formula)) continue;
+      if (!isRecipeInput(formula)) {
+        zachowajUszkodzony({ tabela: 'recipes', id: r.id, surowe: r.formula_json });
+        continue;
+      }
       out.push({
         id: r.id,
         name: r.name,

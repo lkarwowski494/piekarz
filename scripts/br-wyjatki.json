@@ -32,7 +32,6 @@
     { "id": "BR-NAUK-001", "czesciowe": true, "powod": "znalezisko w scenariuszu Treść bez źródła: lekcja 6 Akademii ma zdanie LEK-PRO-900 o statusie „otwarte” (Akademia bez wejścia w 1.0)", "zrodlo": "F-44" },
     { "id": "BR-DIAG-001", "czesciowe": true, "powod": "znalezisko w scenariuszu Diagnoza: bez pytań, kilka zmian zamiast jednej, tekst bez ID twierdzeń z rejestru roli 06", "zrodlo": "F-43" },
     { "id": "BR-OPIN-003", "czesciowe": true, "powod": "znalezisko w scenariuszu Wiadomość do autora: model telefonu zawsze null w treści (brak expo-device)", "zrodlo": "F-69" },
-    { "id": "BR-DANE-001", "czesciowe": true, "powod": "znalezisko w scenariuszu Uszkodzony plik stanu: uszkodzone wiersze i sesja wypieku są pomijane bez kopii; kopia state_corrupt_* tylko przy błędzie otwarcia bazy", "zrodlo": "F-31" },
     { "id": "BR-DANE-002", "czesciowe": true, "powod": "scenariusz Utrata telefonu wymaga urządzenia i decyzji OP-41 (kopia urządzenia iCloud)", "zrodlo": "F-32" },
     { "id": "BR-DANE-003", "czesciowe": true, "powod": "znalezisko w scenariuszu Pełny eksport: eksport bez ustawień (collectBackupData bez app_settings)", "zrodlo": "F-33" },
     { "id": "BR-DANE-004", "czesciowe": true, "powod": "znalezisko w scenariuszu Usunięcie z potwierdzeniem: brak funkcji usunięcia wszystkich danych (kopia piekarz-przed-czyszczeniem-* nieużywana)", "zrodlo": "F-65" },
