@@ -49,10 +49,23 @@ const allStrings = (v: unknown): string[] =>
 describe('131: liczby zaczynów pokazane użytkownikowi mają twierdzenie (docs/tresci/zaczyny.md)', () => {
   afterEach(() => setLang('pl'));
 
-  it('menu zaczynów w akordeonie kalkulatora = ZACZYNY_W_MENU (tangzhong i yudane nie są pokazywane)', () => {
-    const src = readFileSync(join(ROOT, 'src/components/calculator/accordion/AccordionPrefermentSection.tsx'), 'utf8');
-    const lista = src.match(/\(\[([^\]]+)\] as PrefermentType\[\]\)/)?.[1].match(/'(\w+)'/g)?.map((x) => x.slice(1, -1));
-    expect([...(lista ?? [])].sort()).toEqual([...ZACZYNY_W_MENU].sort());
+  // Akordeon kalkulatora usunięty jako nieosiągalny z app/ (M1-audytor-generalny-149, 7d9a9e8): jedyne menu zaczynów
+  // to arkusz Składniki; żaden inny plik produkcyjny nie buduje własnej listy typów zaczynu.
+  it('menu zaczynów w arkuszu Składniki = ZACZYNY_W_MENU (tangzhong i yudane nie są pokazywane)', () => {
+    const src = readFileSync(join(ROOT, 'src/components/receptury/SkladnikiSheet.tsx'), 'utf8');
+    expect(src).toContain('ZACZYNY_W_MENU.map(nazwaZaczynu)');
+    expect(src).toContain('onPrefermentTypeChange(ZACZYNY_W_MENU[i])');
+    const inneListy: string[] = [];
+    const walk = (d: string) => {
+      for (const f of readdirSync(d)) {
+        const p = join(d, f);
+        if (statSync(p).isDirectory()) { if (f !== '__tests__') walk(p); continue; }
+        if (/\.tsx?$/.test(f) && /\] as PrefermentType\[\]/.test(readFileSync(p, 'utf8'))) inneListy.push(p);
+      }
+    };
+    walk(join(ROOT, 'src'));
+    walk(join(ROOT, 'app'));
+    expect(inneListy).toEqual([]);
     expect(ZACZYNY_W_MENU).not.toContain('tangzhong');
     expect(ZACZYNY_W_MENU).not.toContain('yudane');
   });

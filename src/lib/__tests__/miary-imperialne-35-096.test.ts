@@ -20,7 +20,8 @@ describe('Tryb imperialny w 35 językach (096)', () => {
   });
 
   it('każdy z kluczy z °C/g: liczby °F jak w EN, bez °C i bez gramów, w każdym języku', () => {
-    expect(KLUCZE.length).toBeGreaterThanOrEqual(70);
+    // 74 klucze w sondzie 096; tor p9a wycofał 14 z nich (131–133), dodał nowe — 65 po scaleniu pętli 2
+    expect(KLUCZE.length).toBeGreaterThanOrEqual(65);
     setUnitSystem('imperial');
     const bledy: string[] = [];
     for (const k of KLUCZE) {
