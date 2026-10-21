@@ -238,3 +238,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) tylko teksty bez układu makiety — zostałby układ 2.0 z kartami i „filarami”, którego system nie ma (§12a); zachowanie plakietki „APPS4CRAFT PASS” — literał poza `t()`, wersaliki i marka „Apps4Craft” przy studiu Apps4Brew (`CLAUDE.md`), bez pokrycia w nazwach App Store Connect.
 - **Dlaczego:** nazwa na ekranie ma być tą samą, którą pokaże arkusz zakupu Apple, a ujawnienia — tymi, które wymaga Apple i kontrakt płatności; jeden system wyglądu zamiast dwóch.
 - **Zależy od:** D-038, D-039 (stałe); nazw grupy i produktów w App Store Connect; przekładu 20 nowych kluczy na 33 języki (zadanie 093, wydatek za zgodą właściciela).
+
+### Uzupełnienie D-060 (2026-10-21, M2 tor p12b2, zadanie M1-audytor-generalny-206) — zakres przykładu BBGA
+- **Rodzaj:** merytoryczna (zapis zakresu źródła; decyzja produktowa D-060 bez zmian). Rekomendacja reaudytu roli 06 (06-tresci-602, opcja a) według zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
+- **Zapis:** przykład BBGA, z którego D-060 bierze 75% wody, to pâte fermentée z mąki pełnoziarnistej 60% i żytniej 40% (diagram 4, kolumna „WW & Rye Pâte Fermentée”); aplikacja stosuje go do pâte fermentée z każdej mąki. Dla mąki jasnej ta sama hydratacja da zwykle ciasto luźniejsze niż w przykładzie (kierunek z MAK-HYD-001, bez liczby). Pole `uproszczenie` ZAC-PAT-002 w `docs/tresci/rejestr.json`.
+- **Odrzucone:** (b) powrót do parametrów z ciasta użytkownika — zmiana decyzji D-060, która wymaga właściciela.
+- **Zależy od:** D-060.

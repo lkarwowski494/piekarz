@@ -2532,7 +2532,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Wartości z przykładowej formuły, nie reguła: według BBGA pâte fermentée może być dowolnym ciastem (ZAC-PAT-001). Wybór właściciela 2026-10-21 (M2 p9a): parametry obliczeń z przykładu BBGA zamiast wartości bez źródła.",
+    "uproszczenie": "Wartości z przykładowej formuły, nie reguła: według BBGA pâte fermentée może być dowolnym ciastem (ZAC-PAT-001). Wybór właściciela 2026-10-21 (M2 p9a): parametry obliczeń z przykładu BBGA zamiast wartości bez źródła. Zakres przykładu (odczyt 2026-10-21, diagram 4, kolumna „WW & Rye Pâte Fermentée”: Whole Wheat Flour 60.00%, Rye Flour 40.00%, Water 75.00%): pâte fermentée z mąki pełnoziarnistej 60% i żytniej 40%, a aplikacja stosuje 75% wody do pâte fermentée z każdej mąki receptury. Kierunek różnicy dla mąki jasnej (wniosek z pary twierdzeń, bez liczby): według MAK-HYD-001 mąki pełnoziarniste chłoną więcej wody, a ciasto o wysokiej hydratacji jest luźne, więc z mąki jasnej ta sama hydratacja 75% da zwykle ciasto luźniejsze niż w przykładzie BBGA. Decyzja D-060 bez zmian (M1-audytor-generalny-206, 06-tresci-602).",
     "uwagi": "M1-audytor-generalny-131: defaultHydration 75, yeastPctOfPrefermentFlour 1, saltPctOfPrefermentFlour 2 w src/core/preferments.ts (gramy w „Do miski”). Zastępuje ZAC-PAT-900.",
     "krytyczne": false,
     "przeglad": null,
