@@ -75,8 +75,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': '記錄一次餵養，即可開始追蹤起種活力高峰。',
   'Zapisz dzień {n}': '儲存第 {n} 天',
   'Zapisz jako moją': '存為我的配方',
-  'Zapisz profil': '儲存資料',
-  'Zapisz przepis': '儲存食譜',
   'Zapomniana sól (Laminacja ratunkowa)': '忘了加鹽（延展摺疊急救）',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': '已記錄天然酵母起種「{name}」的餵養。',
   'Zarejestrowano dokarmienie!': '已記錄餵養！',

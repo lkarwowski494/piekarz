@@ -110,8 +110,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Καταγράψτε ένα τάισμα για να ξεκινήσει η παρακολούθηση της κορύφωσης προζυμιού.',
   'Zapisz dzień {n}': 'Αποθήκευση ημέρας {n}',
   'Zapisz jako moją': 'Αποθήκευση ως δική μου',
-  'Zapisz profil': 'Αποθήκευση προφίλ',
-  'Zapisz przepis': 'Αποθήκευση συνταγής',
   'Zapomniana sól (Laminacja ratunkowa)': 'Ξεχασμένο αλάτι (Λαμινάρισμα διάσωσης)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Καταγράφηκε τάισμα για το προζύμι «{name}».',
   'Zarejestrowano dokarmienie!': 'Το τάισμα καταγράφηκε!',

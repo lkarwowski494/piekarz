@@ -7527,16 +7527,6 @@
       "src/components/calculator/CalculatorActionButtons.tsx (tekst w JSX)"
     ]
   },
-  "Zapisz profil": {
-    "gdzie": [
-      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)"
-    ]
-  },
-  "Zapisz przepis": {
-    "gdzie": [
-      "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)"
-    ]
-  },
   "Zapisz w spiżarni": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"

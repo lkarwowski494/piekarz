@@ -135,8 +135,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Registra un refresco para empezar a seguir el pico de actividad.',
   'Zapisz dzień {n}': 'Guardar día {n}',
   'Zapisz jako moją': 'Guardar como mía',
-  'Zapisz profil': 'Guardar perfil',
-  'Zapisz przepis': 'Guardar receta',
   'Zapomniana sól (Laminacja ratunkowa)': 'Sal olvidada (laminado de rescate)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Refresco de la masa madre «{name}» registrado.',
   'Zarejestrowano dokarmienie!': '¡Refresco registrado!',

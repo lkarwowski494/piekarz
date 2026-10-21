@@ -126,8 +126,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Užregistruokite maitinimą, kad pradėtumėte stebėti raugo aktyvumo piką.',
   'Zapisz dzień {n}': 'Įrašyti dieną {n}',
   'Zapisz jako moją': 'Išsaugoti kaip savo',
-  'Zapisz profil': 'Išsaugoti profilį',
-  'Zapisz przepis': 'Išsaugoti receptą',
   'Zapomniana sól (Laminacja ratunkowa)': 'Pamiršta druska (gelbėjimo laminavimas)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Užregistruotas raugo „{name}“ maitinimas.',
   'Zarejestrowano dokarmienie!': 'Maitinimas užregistruotas!',

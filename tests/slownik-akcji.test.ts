@@ -106,6 +106,9 @@ const ZNIKAJA = [
   'Kopiuj diagnozę',
   'Kopiuj dokarmienie',
   'Przejdź do Stolnicy',
+  // [M1-audytor-generalny-089] reaudit nocny: synonimy „Zapisz jako moją” i „Zapisz” w arkuszach
+  'Zapisz przepis',
+  'Zapisz profil',
 ];
 
 /** Miejsca, których po D-051 2a nie ma („Kalkulator” → Receptury, „Harmonogram” → Plan wypieku), w odmianach nazwy miejsca. */
@@ -157,7 +160,8 @@ describe('089: słownik akcji', () => {
   it('M1-audytor-generalny-089: każda akcja z kodu (czasownik na początku klucza t()) jest w słowniku §5', () => {
     const spec = fs.readFileSync(path.join(rootDir, 'docs/design/design-spec.md'), 'utf8');
     const s5 = spec.slice(spec.indexOf('## 5. Słownik interakcji'), spec.indexOf('## 6. Macierz stanów'));
-    const CZASOWNIK = /^(Kopiuj|Przejdź|Aktywuj|Zastosuj|Załaduj|Rozpocznij|Uruchom|Eksportuj|Importuj|Udostępnij|Przywróć|Otwórz)\b/;
+    // Zapisz, Dodaj, Edytuj, Zobacz, Dalej: reaudit nocny 2026-10-22 (089 otwarte) [M1-audytor-generalny-089]
+    const CZASOWNIK = /^(Kopiuj|Przejdź|Aktywuj|Zastosuj|Załaduj|Rozpocznij|Uruchom|Eksportuj|Importuj|Udostępnij|Przywróć|Otwórz|Zapisz|Dodaj|Edytuj|Zobacz|Dalej)\b/;
     // Etykiety akcji, nie zdania (zdanie kończy się kropką, np. opis sekcji eksportu)
     const poza = kluczeWKodzie.filter((k) => CZASOWNIK.test(k) && !/\.$/.test(k) && !s5.includes(k));
     expect(poza).toEqual([]);

@@ -116,7 +116,7 @@ export function EditStarterModal({
                 onPress={onSave}
                 hitSlop={sharedCraftTokens.hitSlopStandard}
               >
-                <Text style={styles.modalConfirmBtnText}>{t('Zapisz profil')}</Text>
+                <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
               </Pressable>
             </View>
           </View>

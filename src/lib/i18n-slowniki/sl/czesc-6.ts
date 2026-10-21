@@ -95,8 +95,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Zabeležite hranjenje, da začnete spremljati vrh aktivnosti kvasa.',
   'Zapisz dzień {n}': 'Shrani dan {n}',
   'Zapisz jako moją': 'Shrani kot moj',
-  'Zapisz profil': 'Shrani profil',
-  'Zapisz przepis': 'Shrani recept',
   'Zapomniana sól (Laminacja ratunkowa)': 'Pozabljena sol (Reševalna laminacija)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Hranjenje kvasa „{name}“ zabeleženo.',
   'Zarejestrowano dokarmienie!': 'Hranjenje zabeleženo!',

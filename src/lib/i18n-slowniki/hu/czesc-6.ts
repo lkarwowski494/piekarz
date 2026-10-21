@@ -138,8 +138,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Rögzítsd az etetést, hogy elindítsd a kovász csúcspontjának követését.',
   'Zapisz dzień {n}': '{n}. nap mentése',
   'Zapisz jako moją': 'Mentés sajátként',
-  'Zapisz profil': 'Profil mentése',
-  'Zapisz przepis': 'Recept mentése',
   'Zapomniana sól (Laminacja ratunkowa)': 'Elfelejtett só (Mentő laminálás)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Rögzítetted a(z) „{name}” kovász etetését.',
   'Zarejestrowano dokarmienie!': 'Etetés rögzítve!',

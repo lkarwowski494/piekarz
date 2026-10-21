@@ -91,8 +91,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Registrer en mating for å starte sporingen av starterens toppunkt.',
   'Zapisz dzień {n}': 'Lagre dag {n}',
   'Zapisz jako moją': 'Lagre som min',
-  'Zapisz profil': 'Lagre profil',
-  'Zapisz przepis': 'Lagre oppskrift',
   'Zapomniana sól (Laminacja ratunkowa)': 'Glemt salt (Nødlaminering)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Mating av surdeigsstarteren «{name}» er registrert.',
   'Zarejestrowano dokarmienie!': 'Mating registrert!',

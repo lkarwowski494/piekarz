@@ -115,8 +115,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Tallenna ruokinta, niin hapanjuuren huipun seuranta käynnistyy.',
   'Zapisz dzień {n}': 'Tallenna päivä {n}',
   'Zapisz jako moją': 'Tallenna omaksi',
-  'Zapisz profil': 'Tallenna profiili',
-  'Zapisz przepis': 'Tallenna resepti',
   'Zapomniana sól (Laminacja ratunkowa)': 'Unohtunut suola (pelastuslaminointi)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Hapanjuuren ”{name}” ruokinta kirjattu.',
   'Zarejestrowano dokarmienie!': 'Ruokinta kirjattu!',

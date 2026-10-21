@@ -46,8 +46,12 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Ustaw tę godzinę / Use This Time | Plan wypieku, stan `plan-za-pozno` | godzina gotowości = najwcześniejsza możliwa (teraz + długość planu, w górę do 5 min); stan znika, „Zacznij wypiek” aktywny |
 | Zapisz jako moją, Temperatura wody, Zmień składniki | receptura | razem z „Ułóż plan” najwyżej 4 akcje (057) |
 | Więcej → Kopiuj jako tekst, Udostępnij plik receptury | receptura, menu systemowe z przycisku w pasku nawigacji | tekst receptury w schowku („Skopiowano recepturę”); arkusz udostępniania systemu z plikiem receptury (F-33); stan `receptura-wiecej` |
-| Zapisz dokarmienie, Podwoił objętość, Coś mnie niepokoi, Edytuj | zakwas | wpis; „gotowy” z atrybucją; objawy; poprawa wpisu (F-62) |
-| Zapisz / Anuluj / Zamknij | arkusze, oferta | jak w słowniku studia; oferta ma zawsze widoczne „Zamknij” |
+| Zapisz dokarmienie, Podwoił objętość, Coś mnie niepokoi, Edytuj wpis / Edit Entry (VoiceOver: „Edytuj wpis: {opis}”) | zakwas | wpis; „gotowy” z atrybucją; objawy; poprawa wpisu (F-62) |
+| Dodaj nowy zakwas / Add new starter, Edytuj zakwas / Edit starter | zakwas: wybór zakwasu, menu zakwasu; tytuły arkuszy | arkusz nowego zakwasu / arkusz profilu zakwasu z „Zapisz” (089) |
+| Zapisz dzień {n} / Save Day {n} | zakwas: karta zakładania (dzień N) | wpis dokarmienia dnia N (F-64) |
+| Zobacz plany / See Plans | Dziś, baner bez dostępu (§11d) | ekran oferty (F-35) |
+| Dalej / Continue | prowadzenie, stan `zgoda` (zdanie przed prośbą) | systemowa prośba o zgodę na powiadomienia (BR-CZAS-003) |
+| Zapisz / Anuluj / Zamknij | arkusze, oferta | jak w słowniku studia; oferta ma zawsze widoczne „Zamknij”; arkusz „Zapisz jako moją” ma ten tytuł, arkusz zakwasu zapisuje przyciskiem „Zapisz” (bez „Zapisz przepis”, „Zapisz profil”, 089) |
 | Zacznij okres próbny / Kup plan roczny / Kup plan miesięczny / Kup dostęp dożywotni / Przywróć zakupy / Zarządzaj subskrypcją | oferta (bez „Zarządzaj subskrypcją”, §11e 127), ustawienia; „Zarządzaj subskrypcją” w ustawieniach i w banerze uprzedzenia na „Dziś” (§11d 126) | StoreKit; bez sieci komunikat i „Spróbuj ponownie” |
 | Usuń wszystkie dane | ustawienia | potwierdzenie: „Usunąć wszystkie dane?” [Anuluj] [Usuń wszystko] (kolor błędu tylko na przycisku destrukcyjnym) |
 | Oceń w App Store, Napisz do nas | ustawienia | strona aplikacji z formularzem recenzji; Poczta z podglądem treści (BR-OPIN-002, -003) |
@@ -68,7 +72,7 @@ Emoji nie są ikonami (088); ikony to symbole SF na iOS (w makiecie rysowane zas
 | Rozpocznij Fazę 2 / Start Phase 2 | prowadzenie, pieczenie w garnku żeliwnym | druga faza pieczenia bez pokrywki z czasem i temperaturą |
 | Eksportuj kopię danych / Export a copy of your data, Udostępnij kopię bazy / Share database copy | ekran ratunkowy przy błędzie bazy (`RescueScreen`, `StorageGate`) | arkusz udostępniania z kopią danych |
 | Kopiuj adres / Copy address | okno „Napisz do nas”, gdy Poczta nie jest skonfigurowana | adres w schowku |
-| Wejścia PÓŹNIEJ, ukryte w 1.0 (nazwa do potwierdzenia przy włączeniu): Zastosuj mieszankę, Importuj recepturę, Udostępnij recepturę, Udostępnij kod QR, Eksportuj historię wypieków (CSV), Eksportuj spiżarnię mąk (CSV) | mieszanka mąk (F-46), QR (F-08), eksport CSV | bez zmian do decyzji o wejściu |
+| Wejścia PÓŹNIEJ, ukryte w 1.0 (nazwa do potwierdzenia przy włączeniu): Zastosuj mieszankę, Importuj recepturę, Udostępnij recepturę, Udostępnij kod QR, Eksportuj historię wypieków (CSV), Eksportuj spiżarnię mąk (CSV), Dodaj mąkę z Atlasu, Dodaj mąkę do spiżarni, Dodaj nową mąkę, Zapisz w spiżarni, Dodaj {g} g mąki {nazwa} | mieszanka mąk (F-46), QR (F-08), eksport CSV, spiżarnia mąk (F-30) | bez zmian do decyzji o wejściu |
 
 Słownik jest jedynym źródłem nazw akcji w 1.0 (089): akcja spoza tabeli wymaga wpisu tutaj przed wdrożeniem. Nazwy z kodu, które znikają: „Klonuj recepturę” (= Zapisz jako moją), „Rozpocznij wypiek na Stolnicy” (= Ułóż plan, potem Zacznij wypiek), „Następny krok” (= Zrobione), „Odrzuć wypiek” (= Przerwij wypiek), „Resetuj” (czas etapu: brak w systemie; profil zakwasu: „Zacznij od nowa” / Start Over), „Eksportuj JSON” (= Udostępnij plik receptury).
 

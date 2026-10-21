@@ -450,8 +450,6 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Zamknij słownik mąk",
     "Zapisz",
     "Zapisz jako moją",
-    "Zapisz profil",
-    "Zapisz przepis",
     "Zapisz",
     "Zapisz w spiżarni",
     "Zapisz dokarmienie",

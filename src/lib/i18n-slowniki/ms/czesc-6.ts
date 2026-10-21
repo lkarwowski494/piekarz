@@ -121,8 +121,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Rekod pemberian makan untuk memulakan penjejakan kemuncak aktiviti pemula.',
   'Zapisz dzień {n}': 'Simpan Hari {n}',
   'Zapisz jako moją': 'Simpan sebagai Milik Saya',
-  'Zapisz profil': 'Simpan profil',
-  'Zapisz przepis': 'Simpan resipi',
   'Zapomniana sól (Laminacja ratunkowa)': 'Garam terlupa (Laminasi kecemasan)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Pemberian makan untuk pemula sourdough “{name}” direkodkan.',
   'Zarejestrowano dokarmienie!': 'Pemberian makan direkodkan!',

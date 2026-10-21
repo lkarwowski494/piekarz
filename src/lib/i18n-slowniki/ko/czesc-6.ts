@@ -155,8 +155,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': '먹이 주기를 기록하면 스타터 활성 정점 추적이 시작돼요.',
   'Zapisz dzień {n}': '{n}일 차 저장',
   'Zapisz jako moją': '내 배합표로 저장',
-  'Zapisz profil': '프로필 저장',
-  'Zapisz przepis': '레시피 저장',
   'Zapomniana sól (Laminacja ratunkowa)': '잊어버린 소금 (응급 라미네이션)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': '“{name}” 스타터의 먹이 주기를 기록했어요.',
   'Zarejestrowano dokarmienie!': '먹이 주기를 기록했어요!',

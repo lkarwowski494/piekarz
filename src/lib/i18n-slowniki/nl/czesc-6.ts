@@ -109,8 +109,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Leg een voeding vast om de piek van de starter te volgen.',
   'Zapisz dzień {n}': 'Bewaar dag {n}',
   'Zapisz jako moją': 'Bewaar als eigen',
-  'Zapisz profil': 'Profiel bewaren',
-  'Zapisz przepis': 'Bewaar recept',
   'Zapomniana sól (Laminacja ratunkowa)': 'Vergeten zout (Nood-lamineren)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Voeding van zuurdesemstarter “{name}” vastgelegd.',
   'Zarejestrowano dokarmienie!': 'Voeding vastgelegd!',

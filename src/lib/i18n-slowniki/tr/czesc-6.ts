@@ -115,8 +115,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': 'Ekşi mayanın zirve noktasını izlemeyi başlatmak için beslemeyi kaydedin.',
   'Zapisz dzień {n}': '{n}. günü kaydet',
   'Zapisz jako moją': 'Tarifim Olarak Kaydet',
-  'Zapisz profil': 'Profili kaydet',
-  'Zapisz przepis': 'Tarifi kaydet',
   'Zapomniana sól (Laminacja ratunkowa)': 'Unutulan tuz (Acil laminasyon)',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': '“{name}” ekşi mayasının beslemesi kaydedildi.',
   'Zarejestrowano dokarmienie!': 'Besleme kaydedildi!',

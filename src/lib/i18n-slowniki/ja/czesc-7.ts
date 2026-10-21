@@ -52,8 +52,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dokarmienie, aby uruchomić śledzenie szczytu aktywności.': '種継ぎを記録すると、サワー種の発酵ピークの追跡が始まります。',
   'Zapisz dzień {n}': '{n}日目を保存',
   'Zapisz jako moją': 'マイ配合として保存',
-  'Zapisz profil': 'プロフィールを保存',
-  'Zapisz przepis': 'レシピを保存',
   'Zapomniana sól (Laminacja ratunkowa)': '塩の入れ忘れ（緊急ラミネーション）',
   'Zarejestrowano dokarmienie zakwasu „{name}”.': 'サワー種「{name}」の種継ぎを記録しました。',
   'Zarejestrowano dokarmienie!': '種継ぎを記録しました！',

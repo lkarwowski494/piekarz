@@ -31,7 +31,7 @@ export function SaveRecipeModal({
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard}>
-          <Text style={styles.modalTitle}>{t('Zapisz przepis')}</Text>
+          <Text style={styles.modalTitle}>{t('Zapisz jako moją')}</Text>
           <Text style={styles.modalSubtitle}>
             {t('Wprowadź unikalną nazwę dla tej proporcji składników')}
           </Text>
