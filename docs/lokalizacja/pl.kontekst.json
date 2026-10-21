@@ -811,7 +811,7 @@
   },
   "Czas w lodówce:": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
     ]
   },
   "Czas zdjąć pokrywkę z garnka i piec dalej bez pary.": {
@@ -1281,9 +1281,7 @@
     ]
   },
   "Dzień gotowości:": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Dzień wcześniej przygotuj Poolish: 30% mąki z przepisu + równa ilość wody (100% hydratacji) + szczypta drożdży (12h w 20°C).": {
     "gdzie": [
@@ -1413,7 +1411,7 @@
   },
   "Elastyczny bufor regulujący porę formowania i pieczenia": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
     ]
   },
   "Energia pieca": {
@@ -1662,7 +1660,6 @@
   },
   "Godzina gotowości chleba do krojenia": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -1672,13 +1669,11 @@
     ]
   },
   "Godzina podania na stół:": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Godziny snu:": {
     "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
     ]
   },
   "Gofry": {
@@ -2044,6 +2039,11 @@
       "src/lib/recipe-sharing.ts (error)"
     ]
   },
+  "Kiedy chleb ma być gotowy?": {
+    "gdzie": [
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+    ]
+  },
   "Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: descriptionPl)"
@@ -2220,7 +2220,7 @@
   },
   "Kopiuj harmonogram": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/UstawieniaPlanu.tsx (tekst w JSX)"
     ]
   },
   "Kopiuj jako tekst": {
@@ -3410,9 +3410,7 @@
     ]
   },
   "Niedzielny obiad": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Nieprawidłowa hydratacja zakwasu": {
     "gdzie": [
@@ -5026,9 +5024,7 @@
     ]
   },
   "Scenariusze wypieku": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Skaner QR": {
     "gdzie": [
@@ -5179,9 +5175,7 @@
     ]
   },
   "Sobotnie śniadanie": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Soda oczyszczona (neutralizuje kwas)": {
     "gdzie": [
@@ -6862,9 +6856,7 @@
     ]
   },
   "Wypiek jednodniowy (Direct)": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Wypiek kończy się dopiero po ostygnięciu bochenka; woda odparowuje przez pory, a skrobia przechodzi proces retrogradacji, stabilizując miękisz.": {
     "gdzie": [
@@ -6982,9 +6974,7 @@
     ]
   },
   "Wyznacz kroki wstecz, aby nie zarywać nocy": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.": {
     "gdzie": [
@@ -7083,7 +7073,7 @@
   },
   "Zacznij wypiek": {
     "gdzie": [
-      "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)"
+      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
     ]
   },
   "Zaczyn": {
@@ -8371,7 +8361,7 @@
   "{n} min": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
-      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)",
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
       "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
     ]
@@ -8585,9 +8575,7 @@
     "gdzie": []
   },
   "Świeży po pracy": {
-    "gdzie": [
-      "src/components/harmonogram/TargetReadyCard.tsx (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Świeży, prosty smak pszenny bez rozwiniętej kwasowości.": {
     "gdzie": [

@@ -4,6 +4,7 @@ import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import { getActiveBake, setActiveBake, initDatabase } from '../data/sqlite-store';
 
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { godzinaPola, ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
 jest.setTimeout(20000);
 
 const mockPush = jest.fn();
@@ -85,8 +86,9 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     // Tytuł     expect(allText).toContain('Godzina gotowości chleba do krojenia');
     expect(allText).toContain('Ochrona snu aktywna');
 
-    // Default chips
-    expect(allText).toContain('10:00');
+    // Pole „Kiedy chleb ma być gotowy?” z godziną (chipy godziny usunięte w 128) i domyślne ustawienia
+    expect(allText).toContain('Kiedy chleb ma być gotowy?');
+    expect(godzinaPola(root)).toBeGreaterThanOrEqual(0);
     expect(allText).toContain('23°C');
     expect(allText).toContain('14h');
 
@@ -125,11 +127,9 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
 
     const root = tree!.root;
 
-    // 107: przy otwarciu pole może pokazać najwcześniejszą godzinę zamiast domyślnej, więc 10:00 z chipa godziny
-    await act(async () => {
-      findButtonByText(root, '10:00')!.props.onPress();
-      await Promise.resolve();
-    });
+    // 107: przy otwarciu pole może pokazać najwcześniejszą godzinę zamiast domyślnej, więc najpierw pojutrze 10:00
+    // przyciskami obok pola (chipy godziny usunięte w 128)
+    await ustawGodzinePlanu(root, 'Pojutrze', 10);
     expect(extractCleanText(root)).toContain('10:00');
 
     // Press +30 min
@@ -184,20 +184,10 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
 
     const root = tree!.root;
 
-    // 107: „pojutrze”, żeby cel nie dał stanu „za późno” (w nim baner snu jest ukryty) niezależnie od godziny testu
-    await act(async () => {
-      findButtonByText(root, 'Pojutrze')!.props.onPress();
-      await Promise.resolve();
-    });
-
-    // Target 18:00 (with standard 14h retard) causes shaping to fall around 00:15 midnight
-    const hour18Btn = findButtonByText(root, '18:00');
-    expect(hour18Btn).toBeDefined();
-
-    await act(async () => {
-      hour18Btn!.props.onPress();
-      await Promise.resolve();
-    });
+    // 107: „pojutrze”, żeby cel nie dał stanu „za późno” (w nim baner snu jest ukryty) niezależnie od godziny testu.
+    // Target 18:00 (with standard 14h retard) causes shaping to fall around 00:15 midnight; godzina przyciskami ±30 min (128)
+    await ustawGodzinePlanu(root, 'Pojutrze', 18);
+    expect(godzinaPola(root)).toBe(18 * 60);
 
     // 116: tytuł kolizji „… wypada(ją) w nocy” zamiast „Uwaga: Kolizja ze snem!”, przycisk „Przesuń do lodówki”
     let allText = extractCleanText(root);
@@ -271,39 +261,22 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     );
   });
 
-  it('allows selecting baking scenarios to preconfigure target time and cold retard', async () => {
+  // Scenariusze wypieku usunięte z planu według wzorca `plan-sen` [M1-audytor-generalny-128; 04-studio-projektowe-501];
+  // czas w lodówce wybiera się chipami pod listą kroków
+  it('cold retard chips under the steps change the plan (scenarios removed in 128)', async () => {
     await act(async () => {
       tree = renderer.create(<HarmonogramScreen />);
       await Promise.resolve();
     });
 
     const root = tree!.root;
-
-    // Click Saturday breakfast scenario
-    const satScen = root.findByProps({ testID: 'scenario-saturday_breakfast' });
-    expect(satScen).toBeDefined();
+    expect(root.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('scenario-'))).toHaveLength(0);
 
     await act(async () => {
-      satScen.props.onPress();
+      findButtonByText(root, '18h')!.props.onPress();
       await Promise.resolve();
     });
-
-    let allText = extractCleanText(root);
-    expect(allText).toContain('08:30');
-    expect(allText).toContain('14h');
-
-    // Click Same-day direct scenario (Direct)
-    const directScen = root.findByProps({ testID: 'scenario-same_day_direct' });
-    expect(directScen).toBeDefined();
-
-    await act(async () => {
-      directScen.props.onPress();
-      await Promise.resolve();
-    });
-
-    allText = extractCleanText(root);
-    expect(allText).toContain('19:00');
-    expect(allText).toContain('0h');
+    expect(extractCleanText(root)).toContain('Czas w lodówce: 18h');
   });
 
   it('allows customizing Sleep Guard hours via sleep profiles', async () => {

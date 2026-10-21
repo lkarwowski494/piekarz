@@ -27,6 +27,8 @@ import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReady
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
+import { UstawieniaPlanu } from '../../../src/components/harmonogram/UstawieniaPlanu';
+import { PasekStartu } from '../../../src/components/harmonogram/PasekStartu';
 import { Spirala } from '../../../src/components/Spirala';
 import { krokiSpiraliZSesji } from '../../../src/lib/spirala-geometria';
 import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
@@ -150,9 +152,12 @@ export default function HarmonogramScreen() {
     });
   }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
 
-  // Adjust time by minutes
+  // ±30 min do najbliższej pełnej lub połówkowej godziny w tym kierunku (np. 23:50 → 00:00 albo 23:30), bo pole
+  // „Kiedy chleb ma być gotowy?” nie ma już chipów godziny (128) [M1-audytor-generalny-128]
   const adjustTargetTime = (deltaMinutes: number) => {
-    let total = targetHour * 60 + targetMinute + deltaMinutes;
+    const teraz = targetHour * 60 + targetMinute;
+    const krok = Math.abs(deltaMinutes);
+    let total = deltaMinutes > 0 ? Math.floor(teraz / krok) * krok + krok : Math.ceil(teraz / krok) * krok - krok;
     if (total < 0) total += 24 * 60;
     total = total % (24 * 60);
     setTargetHour(Math.floor(total / 60));
@@ -212,19 +217,20 @@ export default function HarmonogramScreen() {
   }, [stages]);
   const startPlanu = stages.length > 0 && !zaPozno ? stages[0].startTime : null;
 
+  // Układ `plan-sen` (design-spec §6): pytanie i pole godziny, informacja pod polem, temperatura, Spirala z opisem,
+  // kroki, ustawienia nocy; „Zacznij wypiek” w pasku kciuka poza przewijaną treścią [M1-audytor-generalny-128]
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027] */}
+      <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027]; start w pasku kciuka
+            przechodzi przez tego samego strażnika (requireActionAccess) */}
         <BlokadaFunkcji {...blokada('harmonogram')}>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}
           targetHour={targetHour}
-          onTargetHourChange={zmianaGodziny(setTargetHour)}
           targetMinute={targetMinute}
-          onTargetMinuteChange={zmianaGodziny(setTargetMinute)}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
           ambientTemp={ambientTemp}
@@ -232,17 +238,8 @@ export default function HarmonogramScreen() {
             setAmbientTemp(c);
             setTempWybrana(true);
           }}
-          coldRetardHours={coldRetardHours}
-          onColdRetardHoursChange={setColdRetardHours}
-          sleepStartHour={sleepStartHour}
-          sleepEndHour={sleepEndHour}
-          onSleepHoursChange={(start, end) => {
-            setSleepStartHour(start);
-            setSleepEndHour(end);
-          }}
           unitSystem={unitSystem}
-        />
-
+        >
         {zaPozno ? (
           <PlanZaPozno
             tytul={zaPozno.tytul}
@@ -261,30 +258,36 @@ export default function HarmonogramScreen() {
             onApplyAutoResolution={(hours) => setColdRetardHours(hours)}
           />
         )}
+        </TargetReadyCard>
 
         <View style={styles.spirala}>
           <Spirala kroki={krokiSpirali} wariant="plan" etykieta={etykietaSpirali} />
         </View>
+        <ScheduleSummaryCard start={startPlanu} czasMin={czasPlanuMin} teraz={teraz} />
 
-        {/* Summary Card */}
-        <ScheduleSummaryCard
-          start={startPlanu}
-          czasMin={czasPlanuMin}
-          teraz={teraz}
-          onStartBakeOnWorkbench={handleStartBakeOnWorkbench}
-          onCopySchedule={handleCopySchedule}
-          powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}
-        />
-
-        {/* Timeline Stages List */}
         <TimelineStagesList
           stages={stages}
           formatTime={formatTime}
           formatDayBadge={formatDayBadge}
         />
-        </BlokadaFunkcji>
 
+        <UstawieniaPlanu
+          sleepStartHour={sleepStartHour}
+          sleepEndHour={sleepEndHour}
+          onSleepHoursChange={(start, end) => {
+            setSleepStartHour(start);
+            setSleepEndHour(end);
+          }}
+          coldRetardHours={coldRetardHours}
+          onColdRetardHoursChange={setColdRetardHours}
+          onCopySchedule={handleCopySchedule}
+        />
+        </BlokadaFunkcji>
       </ScrollView>
+      <PasekStartu
+        onStart={handleStartBakeOnWorkbench}
+        powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : null}
+      />
     </SafeAreaView>
   );
 }
@@ -293,6 +296,9 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
+  },
+  przewijane: {
+    flex: 1,
   },
   container: {
     padding: theme.spacing.md,

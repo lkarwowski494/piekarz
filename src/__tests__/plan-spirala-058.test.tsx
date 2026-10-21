@@ -6,6 +6,7 @@ import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import { initDatabase, setActiveBake } from '../data/sqlite-store';
 import { setLang } from '../lib/i18n';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
+import { ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
 
 jest.setTimeout(20000);
 
@@ -76,14 +77,9 @@ describe('Plan wypieku: Spirala planu przed startem (058)', () => {
     const root = await renderPlan();
     const tekst = (n: renderer.ReactTestInstance): string =>
       n.children.map((c) => (typeof c === 'string' ? c : tekst(c))).join('');
-    const przycisk = (napis: string) => root.findAll((n) => typeof n.props.onPress === 'function' && tekst(n) === napis)[0];
-    // 107: godzina z pola zamiast domyślnej (przy otwarciu może być najwcześniejsza)
-    for (const napis of ['Jutro', '10:00']) {
-      await act(async () => {
-        przycisk(napis).props.onPress();
-        await Promise.resolve();
-      });
-    }
+    // 107: godzina z pola zamiast domyślnej (przy otwarciu może być najwcześniejsza); chipy godziny usunięte w 128,
+    // więc jutro 10:00 przyciskami ±30 min obok pola
+    await ustawGodzinePlanu(root, 'Jutro', 10);
     const plus = root.findAll((n) => typeof n.props.onPress === 'function' && tekst(n).includes('+30 min'))[0];
     await act(async () => {
       plus.props.onPress();

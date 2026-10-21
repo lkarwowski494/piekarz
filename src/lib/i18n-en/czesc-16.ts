@@ -46,4 +46,6 @@ export const EN_16: Record<string, string> = {
   'levain': 'levain',
   'Z zaczynem (poolish, biga, stare ciasto, levain) wybierzesz, ile mąki idzie do zaczynu; „Do miski” pokaże zaczyn i ciasto osobno.':
     'With a preferment (poolish, biga, old dough, levain), you choose how much flour goes into it; “Into the bowl” shows the preferment and the dough separately.',
+  // Plan wypieku, stan plan-sen (`pl.kiedy` w docs/design/ekrany/teksty.js) [M1-audytor-generalny-128]
+  'Kiedy chleb ma być gotowy?': 'When should the bread be ready?',
 };
