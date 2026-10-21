@@ -36,6 +36,7 @@ import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet
 import { powiadomOZmianieReceptur, zglosEkranReceptury } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { theme } from '../../../src/ui/theme';
+import { typografia } from '../../../src/ui/tokeny';
 
 type CalculationMode = 'loaves' | 'flour';
 const bezAkcji = () => undefined;
@@ -365,7 +366,7 @@ export default function EkranReceptury() {
 }
 
 const styles = StyleSheet.create({
-  bladMak: { color: theme.colors.tusz, fontSize: 16, lineHeight: 22, marginBottom: theme.spacing.md },
+  bladMak: { color: theme.colors.tusz, fontSize: typografia.style.tresc.pt, lineHeight: 22, marginBottom: theme.spacing.md },
   strefaAkcji: {
     paddingHorizontal: theme.spacing.md,
     paddingBottom: theme.spacing.md,

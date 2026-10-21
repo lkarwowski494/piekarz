@@ -255,4 +255,4 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Rodzaj:** merytoryczna (zapis zakresu źródła; decyzja produktowa D-060 bez zmian). Rekomendacja reaudytu roli 06 (06-tresci-602, opcja a) według zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (czat M1, 2026-10-21).
 - **Zapis:** przykład BBGA, z którego D-060 bierze 75% wody, to pâte fermentée z mąki pełnoziarnistej 60% i żytniej 40% (diagram 4, kolumna „WW & Rye Pâte Fermentée”); aplikacja stosuje go do pâte fermentée z każdej mąki. Dla mąki jasnej ta sama hydratacja da zwykle ciasto luźniejsze niż w przykładzie (kierunek z MAK-HYD-001, bez liczby). Pole `uproszczenie` ZAC-PAT-002 w `docs/tresci/rejestr.json`.
 - **Odrzucone:** (b) powrót do parametrów z ciasta użytkownika — zmiana decyzji D-060, która wymaga właściciela.
-- **Zależy od:** D-060.
+- **Uzupełnia:** D-060 (bez nowego numeru D; poprzedni wpis rejestru, D-068, nie zależy od D-060).

@@ -1679,7 +1679,7 @@
   },
   "Gdy zakwas czeka na karmienie. Powiadomienia o krokach wypieku działają niezależnie.": {
     "gdzie": [
-      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (description)"
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (tekst w JSX)"
     ]
   },
   "Gluten perfekcyjnie rozwinięty. Gotowe do formowania wstępnego.": {
@@ -4731,7 +4731,7 @@
   },
   "Przypomnienia o karmieniu": {
     "gdzie": [
-      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (label)"
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (kod)"
     ]
   },
   "Przyspieszona fermentacja termiczna": {
