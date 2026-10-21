@@ -10,7 +10,7 @@
 import * as Iap from 'expo-iap';
 import { _resetMemStore, getAppSetting, setAppSetting } from '../../data/sqlite-store';
 import { _resetStanu, odswiezDostep, pobierzStan, rodzajDostepu, uruchomPlatnosci } from '../platnosci/stan';
-import { LIMIT_ODCZYTU_SKLEPU_MS } from '../platnosci/sklep';
+import { LIMIT_ODCZYTU_SKLEPU_MS, ustawPrzedPolaczeniem, _resetSklepu, polacz } from '../platnosci/sklep';
 import { KLUCZ_PAMIECI, KLUCZ_HISTORII_DOSTEPU, PRODUKTY } from '../platnosci/konfiguracja';
 
 const mockIap = (Iap as unknown as { __mock: any }).__mock;
@@ -91,5 +91,21 @@ describe('C-3, C-6, C-7: start płatności', () => {
     expect(await rodzajDostepu()).toBe('nieznany');
     await setAppSetting(KLUCZ_HISTORII_DOSTEPU, '');
     expect(await rodzajDostepu()).toBeNull();
+  });
+
+  // Ostatni w pliku: podmienia funkcję wołaną przed połączeniem (stan.ts ustawia ją przy załadowaniu modułu)
+  it('C-6: ustawPrzedPolaczeniem runs before every connection attempt; _resetSklepu forgets the connection', async () => {
+    const przed = jest.fn();
+    ustawPrzedPolaczeniem(przed);
+    _resetSklepu();
+    (Iap.initConnection as jest.Mock).mockClear();
+    await polacz();
+    await polacz();
+    expect(przed).toHaveBeenCalledTimes(2);
+    expect(Iap.initConnection).toHaveBeenCalledTimes(1);
+    _resetSklepu();
+    await polacz();
+    expect(Iap.initConnection).toHaveBeenCalledTimes(2);
+    ustawPrzedPolaczeniem(null);
   });
 });
