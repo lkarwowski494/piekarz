@@ -167,7 +167,7 @@ export const CZESC: Record<string, string> = {
   'Dane są zapisywane tylko w tym telefonie.': 'Tiedot tallennetaan vain tähän puhelimeen.',
   'Dane z kopii są w aplikacji. Pominięte uszkodzone wpisy: {n}. Poprzednie dane zapisałem w kopii przed importem.': 'Varmuuskopion tiedot ovat nyt sovelluksessa. Ohitetut vioittuneet merkinnät: {n}. Tallensin aiemmat tietosi kopioon ennen tuontia.',
   'Dane z kopii są w aplikacji. Poprzednie dane zapisałem w kopii przed importem.': 'Varmuuskopion tiedot ovat nyt sovelluksessa. Tallensin aiemmat tietosi kopioon ennen tuontia.',
-  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Tiedot tallensi Crustin uudempi versio. Päivitä sovellus, jotta voit jatkaa tallentamista. Siihen asti voit vain selata.',
+  'Dane zapisała nowsza wersja Piekarza. Zaktualizuj aplikację, żeby dalej zapisywać. Do tego czasu możesz tylko przeglądać.': 'Tiedot tallensi Leipurin uudempi versio. Päivitä sovellus, jotta voit jatkaa tallentamista. Siihen asti voit vain selata.',
   'DDT': 'Taikinan tavoitelämpö',
   'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.': 'Liu\'uta taikina varovasti pellille poistamatta siitä liikaa kaasua.',
   'Diagnostyka błędów wypieku i ratowanie bochenka': 'Leivontavirheiden diagnosointi ja leivän pelastaminen',

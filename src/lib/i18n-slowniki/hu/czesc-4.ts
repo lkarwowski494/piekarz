@@ -207,6 +207,6 @@ export const CZESC: Record<string, string> = {
   'Świeży po pracy': 'Frissen munka után',
   'Świeży, prosty smak pszenny bez rozwiniętej kwasowości.': 'Friss, egyszerű búzaíz, kifejlett savasság nélkül.',
   'Tangzhong (Zaparzana mąka 1:5 w 65°C)': 'Tangzhong (forrázott liszt 1:5, 65 °C-on)',
-  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Ezt a fájlt nem ismerem fel. A Pék receptfájlokat és a Crustban készült biztonsági mentéseket tud importálni.',
+  'Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.': 'Ezt a fájlt nem ismerem fel. A Pék receptfájlokat és a Pékben készült biztonsági mentéseket tud importálni.',
   'Temp': 'Hőm.',
 };
