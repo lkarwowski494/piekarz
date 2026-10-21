@@ -32,10 +32,16 @@ import {
   deductFlourStocks,
   InventoryCheckResult,
 } from '../core/inventory';
-import { FLOUR_PROFILES } from '../core/flour-atlas';
+import { FLOUR_PROFILES, FlourProfile } from '../core/flour-atlas';
 import { useAppAccess } from '../lib/app-access';
 
 import { typografia } from '../ui/tokeny';
+/** Zapas zapisany pod nazwą danych atlasu pokazuje się nazwą w języku interfejsu; nazwa własna dosłownie (452). */
+const nazwaZapasu = (n: string): string => {
+  const p = FLOUR_PROFILES.find((x) => x.namePl === n);
+  return p ? nazwaMaki(p) : n;
+};
+
 export interface FlourInventoryModalProps {
   visible: boolean;
   onClose: () => void;
@@ -54,6 +60,9 @@ export function FlourInventoryModal({
   } = useAppAccess();
   const [inventory, setInventory] = useState<StoredFlourInventoryItem[]>([]);
   const [newFlourName, setNewFlourName] = useState<string>('');
+  // Chip atlasu: pole pokazuje nazwę w języku interfejsu, zapis idzie pod nazwą danych atlasu (namePl), jak mąki
+  // receptur, więc zapas dopasowuje się do receptury także poza PL [M2-koordynator-napraw-452 (p12b2)]
+  const [chipMaki, setChipMaki] = useState<FlourProfile | null>(null);
   const [newFlourStock, setNewFlourStock] = useState<string>('1000');
   const [isAddingNew, setIsAddingNew] = useState<boolean>(false);
 
@@ -105,12 +114,13 @@ export function FlourInventoryModal({
       const stock = parseFloat(newFlourStock) || 1000;
       const item: StoredFlourInventoryItem = {
         id: `flour_inv_${Date.now()}`,
-        name: trimmed,
+        name: chipMaki && trimmed === nazwaMaki(chipMaki) ? chipMaki.namePl : trimmed,
         stockGrams: Math.max(0, stock),
         updatedAt: Date.now(),
       };
       await saveFlourInventoryItem(item);
       setNewFlourName('');
+      setChipMaki(null);
       setNewFlourStock('1000');
       setIsAddingNew(false);
       await loadData();
@@ -193,7 +203,7 @@ export function FlourInventoryModal({
             {inventory.map((item) => (
               <View key={item.id} style={styles.inventoryRow} testID={`inv-item-${item.id}`}>
                 <View style={styles.itemInfo}>
-                  <Text style={styles.itemName}>{item.name}</Text>
+                  <Text style={styles.itemName}>{nazwaZapasu(item.name)}</Text>
                   <Text style={styles.itemStock}>
                     {item.stockGrams >= 1000
                       ? `${formatFixed((item.stockGrams / 1000), 2)} kg (${Math.round(item.stockGrams)} g)`
@@ -205,7 +215,7 @@ export function FlourInventoryModal({
                 <View style={styles.adjustRow}>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Odejmij {g} g mąki {nazwa}', { g: 250, nazwa: item.name })}
+                    accessibilityLabel={t('Odejmij {g} g mąki {nazwa}', { g: 250, nazwa: nazwaZapasu(item.name) })}
                     testID={`adjust-minus-250-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, -250)}
@@ -214,7 +224,7 @@ export function FlourInventoryModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 500, nazwa: item.name })}
+                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 500, nazwa: nazwaZapasu(item.name) })}
                     testID={`adjust-plus-500-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, 500)}
@@ -223,7 +233,7 @@ export function FlourInventoryModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 1000, nazwa: item.name })}
+                    accessibilityLabel={t('Dodaj {g} g mąki {nazwa}', { g: 1000, nazwa: nazwaZapasu(item.name) })}
                     testID={`adjust-plus-1000-${item.id}`}
                     style={styles.adjustBtn}
                     onPress={() => handleAdjustStock(item, 1000)}
@@ -232,7 +242,7 @@ export function FlourInventoryModal({
                   </Pressable>
                   <Pressable
                     accessibilityRole="button"
-                    accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: item.name })}
+                    accessibilityLabel={t('Usuń mąkę: {nazwa}', { nazwa: nazwaZapasu(item.name) })}
                     testID={`delete-inv-${item.id}`}
                     style={styles.deleteBtn}
                     onPress={() => handleDeleteItem(item.id)}
@@ -255,7 +265,10 @@ export function FlourInventoryModal({
                       accessibilityRole="button"
                       key={p.id}
                       style={styles.presetChip}
-                      onPress={() => setNewFlourName(p.namePl)}
+                      onPress={() => {
+                        setChipMaki(p);
+                        setNewFlourName(nazwaMaki(p));
+                      }}
                     >
                       <Text style={styles.presetChipText}>{nazwaMaki(p).split(' (')[0]}</Text>
                     </Pressable>
