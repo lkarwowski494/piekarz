@@ -155,7 +155,7 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Ravan disk (Predugo fermentiran)',
   'Płaski smak (Jałowy)': 'Prazan okus (Bljutav)',
   'Zbyt kwaśny (Octowy)': 'Previše kiseo (Na ocat)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će vam povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
+  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez kupnje ostat će ti povijest i podaci. Za izračune, plan i vođenje bit će potreban Pekar Pro.',
   'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ako pretplata nije otkazana, App Store će tada naplatiti odabrani plan.',
   'Okres próbny kończy się {data}': 'Probno razdoblje završava {data}',
   'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Pretplata se neće obnoviti pa nećete ništa platiti.',

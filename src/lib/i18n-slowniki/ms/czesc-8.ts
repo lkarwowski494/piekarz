@@ -1,7 +1,7 @@
 // Słownik ms, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Pilih nisbah dan jumlah biang sourdough yang anda perlukan untuk doh. Saya akan mengira tepung dan air.',
+  'Wybierz proporcję i ile zakwasu potrzebujesz do ciasta. Policzę mąkę i wodę.': 'Pilih nisbah dan jumlah pemula sourdough yang anda perlukan untuk doh. Saya akan mengira tepung dan air.',
   'Wyłóż ciasto na blat, podtocz delikatnie w kulę skrobakiem bez nadmiaru mąki. Zostaw na 20 min odpoczynku.': 'Keluarkan doh ke atas meja dan bulatkan perlahan-lahan menjadi bola dengan pengikis tanpa tepung berlebihan. Biarkan berehat selama 20 min.',
   'Wymaga odświeżenia ({dni} w chłodzie)': 'Perlu disegarkan ({dni} dalam sejuk)',
   'Wypiek w garnku z parą': 'Pembakaran berwap dalam periuk besi tuang',

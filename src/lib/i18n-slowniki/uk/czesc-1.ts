@@ -17,7 +17,7 @@ export const CZESC: Record<string, string> = {
   '{maka} mąki + {woda} wody': '{maka} борошна + {woda} води',
   '{masa} / szt.': '{masa} / шт.',
   '{n} cz.': '{n} частини',
-  '{n} dni': '{n} дн.',
+  '{n} dni': '{n} днів',
   '{n} dnia': '{n} дня',
   '{n} dzień': '{n} день',
   '{n} godzin': '{n} годин',

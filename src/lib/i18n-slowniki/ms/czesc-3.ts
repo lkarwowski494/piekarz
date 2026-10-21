@@ -50,7 +50,7 @@ export const CZESC: Record<string, string> = {
   'na blacie': 'di atas kaunter',
   'na blacie, {proporcja}': 'di atas kaunter, {proporcja}',
   'Na początku wypieku zapewnij parę w piekarniku.': 'Sediakan wap dalam ketuhar pada awal pembakaran.',
-  'Na zakwasie': 'Sourdough',
+  'Na zakwasie': 'Roti sourdough',
   'Nacięcie rozeszło się gładko bez chrupiącego grzebienia': 'Kelaran terbuka rata tanpa rabung yang rangup',
   'Naczynie': 'Bekas membakar',
   'Naczynie wypiekowe': 'Bekas pembakar',
