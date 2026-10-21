@@ -575,6 +575,7 @@
     "wartosc": 3,
     "jednostka": null,
     "zakres_waznosci": "20–26 °C (włącznie)",
+    "uwagi": "M1-audytor-generalny-041 (06-tresci-009), rola 06 fix p10a 2026-10-21: źródło otwarte ponownie (PMC106434, surowy tekst): cytat Tmax, model 1a (Tab. 1, x = Tmax − T) i parametry Tab. 2 bez zmian; rachunek powtórzony: Q10 = 3,0007, zaokrąglone 3,0 (audit/…/fix-2026-10-21-p10a/dowody/rachunek-q10-wektory.txt). Wektory RD_08 w docs/brd/fixtures/test-vectors.json i tests/fixtures/test-vectors.json (Q10 = 2,15, 19 °C i 28 °C, źródło wycofane FER-Q10-901) przekazane do zmiany M2 jako krok D: Q10 = 3,0 i temperatury w zakresie ważności (20 °C, 26 °C), bo 19 °C i 28 °C leżą poza tym twierdzeniem (FER-Q10-902 otwarte).",
     "wazne_do": "2027-10-19"
   },
   {
