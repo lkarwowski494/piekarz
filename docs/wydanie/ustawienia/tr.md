@@ -44,7 +44,7 @@ hidrasyon,tarif,çavdar,levain,pizza,zamanlayıcı,fırın,yüzde,somun,maya,may
 Ekmeğin hazır olacağı saati ayarlayın: Fırıncı miktarları hesaplar, planı geriye doğru oluşturur ve her adımın sonunu haber verir. Hesap yok, internet yok, reklam yok.
 ```
 
-### Opis (Description) · 3376 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3288 / 4000 znaków · wersja 1.0
 
 ```text
 Fırıncı, ekşi mayalı ekmek pişirirken tariften somuna kadar size rehberlik eder: miktarları hesaplar, planı oluşturur ve telefonunuz uykudayken bile zamanı takip eder. Hesap ve internet gerektirmeden, reklamsız ve takipsiz çalışır. Tarifleriniz, ekşi mayalarınız ve günlüğünüz yalnızca telefonunuzda kalır.
@@ -62,7 +62,7 @@ EKŞİ MAYALAR
 Birden fazla ekşi mayayı takip edersiniz. Fırıncı besleme miktarlarını 1:1:1, 1:2:2, 1:3:3 veya 1:5:5 oranında verir. Ekşi maya hacmini ikiye katladığında Fırıncı onu hamura hazır olarak işaretler. Mutfak tezgâhında 12 saat beslenmeden kalırsa bir bildirimle hatırlatır. Yeni bir ekşi mayayı gün gün başlatabilirsiniz. Fırıncı ihtiyat ilkesini uygular: tabaka, renk değişimi veya çürük koku varsa ekşi mayayı atmanızı önerir.
 
 EKMEK DOKTORU
-Ekmek içi sıkı, kabuk soluk mu? Belirtileri işaretlersiniz; Ekmek Doktoru 9 kusurdan birini belirler, nedenini açıklar ve bir dahaki sefere neyi değiştirmeniz gerektiğini söyler. Dört kurtarma protokolü, fermantasyon sırasında hamurda sorun çıktığında yardımcı olur. Ekşi maya doktoru, ekşi mayanızda sizi endişelendiren bir şey olduğunda yardımcı olur.
+Ekmek içi sıkı, kabuk soluk mu? Belirtileri işaretlersiniz; Ekmek Doktoru 9 kusurdan birini belirler, nedenini açıklar ve bir dahaki sefere neyi değiştirmeniz gerektiğini söyler. Ekşi maya doktoru, ekşi mayanızda sizi endişelendiren bir şey olduğunda yardımcı olur.
 
 GÜNLÜK
 Her somunu değerlendirirsiniz: yıldızlar, ekmek içi, kabuk ve lezzet profili. Günlük istatistikleri gösterir; “Tekrar Pişir” aynı tarifi açar.

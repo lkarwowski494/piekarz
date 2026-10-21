@@ -44,7 +44,7 @@ resep,ragi,baking,hidrasi,starter,rye,levain,pizza,fermentasi,timer,pemula,bread
 Tentukan jam roti harus siap: Tukang Roti menghitung takaran, menyusun jadwal mundur, dan memberi tahu saat tiap langkah selesai. Tanpa akun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3461 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3382 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti memandu Anda membuat roti sourdough dari resep hingga bongkah roti: menghitung takaran, menyusun rencana, dan menjaga waktu saat ponsel tidur. Berfungsi tanpa akun dan tanpa internet, tanpa iklan dan tanpa pelacakan. Resep, starter, dan jurnal Anda hanya tersimpan di ponsel Anda.
@@ -62,7 +62,7 @@ STARTER
 Kelola beberapa starter. Tukang Roti memberikan takaran pemberian makan dengan rasio 1:1:1, 1:2:2, 1:3:3, atau 1:5:5. Saat volume starter berlipat dua, Tukang Roti menandainya siap untuk adonan. Setelah 12 jam di meja tanpa diberi makan, Tukang Roti mengingatkan lewat notifikasi. Starter baru dapat dibuat hari demi hari. Tukang Roti menerapkan prinsip kehati-hatian: jika ada lapisan, perubahan warna, atau bau busuk, Tukang Roti menyarankan untuk membuang starter.
 
 DOKTER ROTI
-Serat roti padat dan kulit roti pucat? Tandai gejalanya, dan Dokter Roti menunjukkan salah satu dari 9 cacat, menjelaskan penyebabnya, dan memberi tahu apa yang perlu diubah lain kali. Empat protokol penyelamatan membantu saat adonan bermasalah selama fermentasi. Dokter Starter membantu saat ada sesuatu pada starter yang membuat Anda khawatir.
+Serat roti padat dan kulit roti pucat? Tandai gejalanya, dan Dokter Roti menunjukkan salah satu dari 9 cacat, menjelaskan penyebabnya, dan memberi tahu apa yang perlu diubah lain kali. Dokter Starter membantu saat ada sesuatu pada starter yang membuat Anda khawatir.
 
 JURNAL
 Nilai setiap bongkah roti: bintang, serat roti, kulit roti, dan profil rasa. Jurnal menampilkan statistik, dan "Panggang lagi" membuka resep yang sama.

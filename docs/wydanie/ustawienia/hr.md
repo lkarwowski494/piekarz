@@ -44,7 +44,7 @@ Plan pečenja i kalkulator
 Postavi vrijeme kad kruh treba biti gotov: Pekar će izračunati količine, složiti plan unatrag i javiti ti kraj svakog koraka. Bez računa, bez interneta, bez reklama.
 ```
 
-### Opis (Description) · 3078 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2997 / 4000 znaków · wersja 1.0
 
 ```text
 Pekar te vodi kroz pečenje kruha od kiselog tijesta od recepture do štruce: računa količine, slaže plan i pazi na vrijeme dok telefon spava. Radi bez računa i bez interneta, bez reklama i bez praćenja. Tvoje recepture, kvasi i dnevnik ostaju samo na tvom telefonu.
@@ -62,7 +62,7 @@ KVASI
 Vodiš nekoliko kvasa. Pekar daje količine za hranjenje u omjeru 1:1:1, 1:2:2, 1:3:3 ili 1:5:5. Kad kvas udvostruči volumen, Pekar će ga označiti kao spremnog za tijesto. Nakon 12 sati na radnoj površini bez hranjenja podsjetit će te na njega obaviješću. Novi kvas pokrećeš dan po dan. Pekar primjenjuje načelo opreza: kod naslage, promjene boje ili trulog mirisa savjetuje da baciš kvas.
 
 DOKTOR ZA KRUH
-Sredina je zbijena, a kora blijeda? Označiš simptome, a Doktor za kruh pokazuje jednu od 9 pogrešaka, objašnjava uzrok i kaže što promijeniti sljedeći put. Četiri protokola spašavanja pomažu kad tijesto ima problem tijekom fermentacije. Doktor za kvas pomaže kad te nešto u kvasu brine.
+Sredina je zbijena, a kora blijeda? Označiš simptome, a Doktor za kruh pokazuje jednu od 9 pogrešaka, objašnjava uzrok i kaže što promijeniti sljedeći put. Doktor za kvas pomaže kad te nešto u kvasu brine.
 
 DNEVNIK
 Ocjenjuješ svaku štrucu: zvjezdice, sredina, kora i profil okusa. Dnevnik pokazuje statistiku, a „Ispeci ponovno” otvara istu recepturu.

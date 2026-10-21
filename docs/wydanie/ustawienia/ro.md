@@ -44,7 +44,7 @@ pizza,hidratare,aluat,secară,levain,poolish,temporizator,rețetă,fermentare,dr
 Setează ora la care vrei pâinea gata: Brutar calculează cantitățile, face planul invers și te anunță la finalul fiecărui pas. Fără cont, fără internet, fără reclame.
 ```
 
-### Opis (Description) · 3263 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3177 / 4000 znaków · wersja 1.0
 
 ```text
 Brutar te ghidează prin coacerea pâinii cu maia naturală, de la rețetă la pâine: calculează cantitățile, face planul și ține evidența timpului când telefonul doarme. Funcționează fără cont și fără internet, fără reclame și fără urmărire. Rețetele, maialele și jurnalul tău rămân doar pe telefonul tău.
@@ -62,7 +62,7 @@ MAIA NATURALĂ
 Poți ține mai multe maiale. Brutar îți dă cantitățile pentru hrănire în proporție de 1:1:1, 1:2:2, 1:3:3 sau 1:5:5. Când maiaua își dublează volumul, Brutar o marchează ca gata pentru aluat. După 12 ore pe blat fără hrănire, îți amintește de ea printr-o notificare. O maia nouă o pornești zi de zi. Brutar aplică principiul precauției: la depunere, decolorare sau miros de putred te sfătuiește să arunci maiaua.
 
 DOCTORUL PÂINII
-Miezul e compact, iar coaja palidă? Bifezi simptomele, iar Doctorul Pâinii indică unul dintre cele 9 defecte, explică cauza și îți spune ce să schimbi data viitoare. Patru protocoale de salvare te ajută când aluatul are probleme în timpul fermentării. Doctorul maiei te ajută când ceva la maia te neliniștește.
+Miezul e compact, iar coaja palidă? Bifezi simptomele, iar Doctorul Pâinii indică unul dintre cele 9 defecte, explică cauza și îți spune ce să schimbi data viitoare. Doctorul maiei te ajută când ceva la maia te neliniștește.
 
 JURNAL
 Evaluezi fiecare pâine: stele, miez, coajă și profil de gust. Jurnalul arată statistici, iar „Coace din nou” deschide aceeași rețetă.

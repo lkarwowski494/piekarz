@@ -44,7 +44,7 @@ hævning,dej,mel,rugbrød,levain,poolish,bagerprocent,pizza,påmindelse,brødbag
 Vælg, hvornår brødet skal være klar: Bageren beregner mængderne, planlægger baglæns og giver besked, når hvert trin slutter. Ingen konto, intet internet, ingen reklamer.
 ```
 
-### Opis (Description) · 3271 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3191 / 4000 znaków · wersja 1.0
 
 ```text
 Bageren guider dig gennem bagningen af surdejsbrød fra opskrift til færdigt brød: appen beregner mængderne, lægger planen og holder øje med tiden, mens telefonen sover. Den virker uden konto og uden internet, uden reklamer og uden sporing. Dine opskrifter, surdeje og din bagedagbog bliver kun på din telefon.
@@ -62,7 +62,7 @@ SURDEJE
 Hold styr på flere surdeje. Bageren angiver fodringsmængder i forholdet 1:1:1, 1:2:2, 1:3:3 eller 1:5:5. Når surdejen har fordoblet sit volumen, markerer Bageren den som klar til dejen. Efter 12 timer på køkkenbordet uden fodring minder Bageren dig om den med en notifikation. En ny surdej kan du starte dag for dag. Bageren følger et forsigtighedsprincip: ved belægning, misfarvning eller rådden lugt råder appen dig til at smide surdejen ud.
 
 BRØDDOKTOR
-Er krummen kompakt og skorpen bleg? Markér symptomerne, og Brøddoktor peger på en af 9 fejl, forklarer årsagen og fortæller, hvad du skal ændre næste gang. Fire redningsprotokoller hjælper, når dejen har problemer under fermenteringen. Surdejsdoktoren hjælper, når noget ved din surdej bekymrer dig.
+Er krummen kompakt og skorpen bleg? Markér symptomerne, og Brøddoktor peger på en af 9 fejl, forklarer årsagen og fortæller, hvad du skal ændre næste gang. Surdejsdoktoren hjælper, når noget ved din surdej bekymrer dig.
 
 BAGEDAGBOG
 Bedøm hvert brød: stjerner, krumme, skorpe og smagsprofil. Bagedagbogen viser statistik, og »Bag igen« åbner den samme opskrift.

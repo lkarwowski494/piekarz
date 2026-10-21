@@ -24,7 +24,7 @@
 | **Tekst promocyjny (Promotional Text)** | `Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.` | **157** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 224 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 143 / 4 000 znaków)
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -42,7 +42,7 @@ ZAKWASY
 Prowadzisz kilka zakwasów. Piekarz podaje ilości do dokarmienia w proporcji 1:1:1, 1:2:2, 1:3:3 albo 1:5:5. Gdy zakwas podwoi objętość, Piekarz oznaczy go jako gotowy do ciasta. Po 12 godzinach na blacie bez dokarmienia przypomni o nim powiadomieniem. Nowy zakwas założysz dzień po dniu. Piekarz stosuje zasadę ostrożności: przy nalocie, przebarwieniu albo zgniłym zapachu radzi wyrzucić zakwas.
 
 DOKTOR CHLEBA
-Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Cztery protokoły ratunkowe pomagają, gdy ciasto ma kłopot w trakcie fermentacji. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
+Miękisz jest zbity, a skórka blada? Zaznaczasz objawy, a Doktor Chleba wskazuje jedną z 9 wad, wyjaśnia przyczynę i podaje, co zmienić następnym razem. Doktor zakwasu pomaga, gdy coś w zakwasie cię niepokoi.
 
 DZIENNIK
 Oceniasz każdy bochenek: gwiazdki, miękisz, skórka i profil smaku. Dziennik pokazuje statystyki, a „Piecz ponownie” otwiera tę samą recepturę.
@@ -72,7 +72,7 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 | **Promotional Text** | `Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.` | **161** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 219 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 141 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -90,7 +90,7 @@ STARTERS
 Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discoloration or rotten smell, it advises you to throw the starter away.
 
 BREAD DOCTOR
-Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
+Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. The Starter Doctor helps when something about your starter worries you.
 
 JOURNAL
 Rate each loaf: stars, crumb, crust and flavor profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
@@ -274,7 +274,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 221 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 143 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -292,7 +292,7 @@ STARTERS
 Keep several starters. Baker gives feeding amounts for a 1:1:1, 1:2:2, 1:3:3 or 1:5:5 ratio. When the starter has doubled in volume, Baker marks it ready for the dough. After 12 hours on the counter without a feeding, a notification reminds you. You can start a new starter day by day. Baker follows a precautionary rule: with any film, discolouration or rotten smell, it advises you to throw the starter away.
 
 BREAD DOCTOR
-Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. Four rescue protocols help with dough that is in trouble during fermentation. The Starter Doctor helps when something about your starter worries you.
+Dense crumb and a pale crust? Mark the symptoms, and the Bread Doctor names one of 9 defects, explains the cause and says what to change next time. The Starter Doctor helps when something about your starter worries you.
 
 JOURNAL
 Rate each loaf: stars, crumb, crust and flavour profile. The Journal shows statistics, and "Bake Again" opens the same recipe.
