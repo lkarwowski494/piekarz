@@ -117,8 +117,51 @@ describe('104: ekrany zakwasu', () => {
     s.done();
   });
 
-  it('BR-ZAKW-005 Brak aktywności pierwszego dnia: obserwacja → to normalne w pierwszej dobie i termin następnego dokarmienia', async () => {
-    const fedAt = Date.now() - H;
+  // Zegar ustawiony (tylko Date; timery i mikrozadania prawdziwe), żeby wynik nie zależał od godziny przebiegu
+  // [M1-audytor-generalny-191; 07-jakosc-602]
+  const ustawZegar = (godz: number, min: number) => {
+    const now = new Date(2026, 9, 21, godz, min, 0, 0).getTime();
+    jest.useFakeTimers({
+      now,
+      doNotFake: ['nextTick', 'setImmediate', 'clearImmediate', 'queueMicrotask', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'hrtime', 'performance'],
+    });
+    return now;
+  };
+
+  it.each([[0, 30], [12, 0], [23, 30]])('BR-ZAKW-005 Brak aktywności pierwszego dnia (zegar %i:%i): obserwacja → to normalne w pierwszej dobie i termin następnego dokarmienia', async (godz, min) => {
+    const now = ustawZegar(godz, min);
+    // Dzień 1 to dzień kalendarzowy założenia (setupDay): pierwsze dokarmienie godzinę temu, ale nie wcześniej niż o północy
+    const fedAt = Math.max(now - H, new Date(2026, 9, 21, 0, 0, 0, 0).getTime());
+    try {
+      await brakAktywnosciDnia1(fedAt);
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 jest dzień 2 (dni kalendarzowe) — plan dnia 2, bez porady pierwszej doby', async () => {
+    const now = ustawZegar(0, 46);
+    const fedAt = new Date(2026, 9, 20, 23, 46, 0, 0).getTime();
+    try {
+      const s = await start(async (e) => {
+        await e.createStarterWithEntry(starter('z', { setupStartedAt: fedAt }), feed('f1', 'z', fedAt));
+      });
+      expect(s.tekst()).toContain('Dzień 2');
+      await s.press('zakladanie-objaw-no_activity');
+      await s.press('zakladanie-zapisz-btn');
+      const t = s.tekst();
+      for (const z of FIRST_DAY_NO_ACTIVITY) expect(t).not.toContain(z);
+      for (const z of SETUP_GUIDE.day2) expect(t).toContain(z);
+      const { formatTime } = require('../lib/format');
+      expect(t).toContain(formatTime(fedAt + DAY));
+      expect(now - fedAt).toBe(H);
+      s.done();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  async function brakAktywnosciDnia1(fedAt: number) {
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z', { setupStartedAt: fedAt }), feed('f1', 'z', fedAt));
     });
@@ -130,7 +173,7 @@ describe('104: ekrany zakwasu', () => {
     expect(t).toContain(`Następne dokarmienie: jutro o ${formatTime(fedAt + DAY)}.`);
     expect((await s.entries.getStarterEntries('z')).map((x) => [x.kind, x.signs])).toEqual([['observation', ['no_activity']], ['feeding', []]]);
     s.done();
-  });
+  }
 
   it('BR-ZAKW-005 Pleśń w trakcie zakładania: dzień 4, kolorowe plamy → Ostrzeżenie „wyrzuć” i „Zacznij od nowa” od dnia 1', async () => {
     const s = await start(async (e) => {
