@@ -135,6 +135,10 @@ export function stanDocelowy({ dane = 'docs/wydanie/asc-zgloszenie.json', sumy =
     grupa: json('docs/wydanie/asc-ustawienia.json').grupa.referenceName,
     produkty: ['monthly', 'yearly', 'lifetime'].map((plan) => {
       if (!id[plan]) throw new BladDanych(`konfiguracja.ts: brak ID produktu ${plan}`);
+      // Limit opisu In-App Purchase: 45 znaków (App Store Connect Help); dla subskrypcji limitu nie podano, więc ten sam.
+      for (const [loc, opis] of Object.entries(z.opisyProduktow?.[plan] ?? {})) {
+        if (opis != null && (typeof opis !== 'string' || !opis.trim() || znaki(opis) > 45)) throw new BladDanych(`${dane}: opis produktu ${plan} ${loc} pusty albo ponad 45 znaków`);
+      }
       return { plan, productId: id[plan], opisy: z.opisyProduktow?.[plan] ?? {} };
     }),
     klasy: z.klasyZrzutow,

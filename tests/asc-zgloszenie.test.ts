@@ -261,6 +261,16 @@ describe('scripts/asc-zgloszenie.mjs na atrapie App Store Connect API (M1-audyto
     });
   });
 
+  it('opis produktu ponad 45 znaków (limit opisu In-App Purchase): kod 1 przed zapytaniami do API', async () => {
+    await zAtrapa({}, async (a) => {
+      const dlugi = plik('dane-dlugi.json', { ...dane, opisyProduktow: { ...OPISY, lifetime: { 'en-US': 'x'.repeat(46), pl: 'Test' } } });
+      const w = await uruchom(a.adres, ['--dane', dlugi]);
+      expect(w.kod).toBe(1);
+      expect(w.wyjscie).toMatch(/opis produktu lifetime en-US .*45 znaków/);
+      expect(a.zapytania).toEqual([]);
+    });
+  });
+
   it('sumy niezgodne z plikiem w repo: kod 1, bez zapytań zapisu', async () => {
     await zAtrapa({}, async (a) => {
       const zle = JSON.parse(JSON.stringify(sumy));

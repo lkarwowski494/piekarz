@@ -184,3 +184,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** „None” wszędzie i 4+ (`docs/15-app-store.md` §3) — narzędzie kuchenne to nie broń w zwykłym znaczeniu, ale brzmienie Apple tego nie wyłącza `[DO USTALENIA]`.
 - **Dlaczego:** zaniżony wiek to fałszywa odpowiedź (WYD-10, P1); zawyżony nie szkodzi użytkownikowi.
 - **Zależy od:** wyniku ankiety w App Store Connect (wiek wylicza Apple) i ewentualnej odpowiedzi App Review; `docs/15-app-store.md` §3 aktualizuje rola 10 po odczycie wyniku.
+
+### [D-065] 2026-10-21 — Opisy produktów zakupu różnicujące plany (en-US, pl) i numer wersji 1.0.0 w App Store Connect (M2 tor p8c, zadanie 186)
+- **Rodzaj:** produktowa (tekst sklepu, wydanie). **Słowa właściciela:** „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.” (2026-10-21, czat M1); rozstrzygnięcie M1 według tej zgody: pytanie 1 toru p8c = (a), pytanie 4 = (a).
+- **Decyzja 1:** opis lokalizacji produktów (Description), tylko en-US i pl jak nazwy (wybór 1a toru p8b): miesięczny „Full access, billed monthly” / „Pełny dostęp, płatność co miesiąc”; roczny „Full access, billed yearly” / „Pełny dostęp, płatność co rok”; dożywotni „Full access, one-time purchase” / „Pełny dostęp, jednorazowy zakup” (`docs/wydanie/asc-zgloszenie.json`, `opisyProduktow`).
+- **Decyzja 2:** numer wersji iOS w edycji w App Store Connect zmieniony z 1.0 na 1.0.0 (wartość `expo.version` z `app.json`) w tym samym zapisie co zgłoszenie (`scripts/asc-zgloszenie.mjs`).
+- **Odrzucone:** 1 (b) jedno zdanie „Unlocks all features” / „Odblokowuje wszystkie funkcje” dla trzech produktów — użytkownik nie widzi w arkuszu zakupu różnicy między planami; 2 (b) zmiana `app.json` na 1.0 — zmienia build i testy wersji, a numer ma jedno źródło (`docs/wydanie/sklep.md` §1).
+- **Dlaczego:** opisy krótkie (≤ 45 znaków, limit opisu In-App Purchase w App Store Connect Help) i bez obietnic funkcji, które mogłyby rozjechać się z kontraktem zakresu; numer wersji w sklepie równy numerowi buildu.
+- **Zależy od:** zgody właściciela na zapis listy zgłoszenia w App Store Connect (osobno); nazwy i opisy w pozostałych 33 językach — zadanie przekładu (`docs/wydanie/instrukcja-ustawien.md` §3.7).
