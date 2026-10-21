@@ -2,6 +2,8 @@
 
 Stan bieżący projektu na dzień 17.10.2026. Dokument prowadzony zgodnie z Zasadą 6 Uniwersalnych Zasad i rolą Sekretarza Dokumentacji.
 
+> **Archiwum do D-034 (nota 2026-10-21).** Nowe wpisy od D-035 są w `docs/decyzje.md`; numeracja D-nnn jest wspólna dla obu plików, bez duplikatów. DEC-001…DEC-004 niżej to osobna lista z 17.10.2026 — nie mylić z DEC-01…DEC-22 planu napraw audytu M1 ani z DEC-nn zarchiwizowanego BRD (`docs/brd/archiwum/`). Opis przestrzeni nazw: `docs/decyzje.md`, wstęp.
+
 ---
 
 ### [DEC-001] 17.10.2026 — Wybór Standardu Zasad i Ról (Opcja A)
