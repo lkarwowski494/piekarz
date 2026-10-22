@@ -13,10 +13,12 @@ import {
   resolveFirstWeekday,
   startOfLocalDay,
   weekStart,
+  type FirstWeekday,
 } from '../dzien-lokalny';
 import { wStrefie } from './helpers/strefa';
 
 const H = 3_600_000;
+const PONIEDZIALEK: FirstWeekday = 1;
 /** Chwila z lokalnych składników w bieżącej strefie procesu. */
 const lok = (y: number, m: number, d: number, h = 0, min = 0) => new Date(y, m - 1, d, h, min).getTime();
 /** Składniki ścienne chwili w bieżącej strefie: [rok, miesiąc, dzień, godzina, minuta]. */
@@ -162,7 +164,7 @@ describe.each([
 
   it('daysOfWeek: siedem północy lokalnych, następny tydzień od 00:00 (7 × 24 h dałoby 23:00 / 01:00)', () => {
     const pon = lok(tydzienDni.poniedzialek[0], tydzienDni.poniedzialek[1], tydzienDni.poniedzialek[2]);
-    const dni = daysOfWeek(lok(tydzienDni.poniedzialek[0], tydzienDni.poniedzialek[1], tydzienDni.poniedzialek[2], 18), 1);
+    const dni = daysOfWeek(lok(tydzienDni.poniedzialek[0], tydzienDni.poniedzialek[1], tydzienDni.poniedzialek[2], 18), PONIEDZIALEK);
     expect(dni).toHaveLength(7);
     expect(dni.map((d) => sciana(d))).toEqual(tydzienDni.dni.map((d) => [tydzienDni.poniedzialek[0], tydzienDni.poniedzialek[1], d, 0, 0]));
     expect(dni[0]).toBe(pon);

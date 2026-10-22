@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 444 | 444 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 175 | 175 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 564 | 564 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 453 | 453 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 176 | 176 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1239** | Pokrytych: **1239** | Brakujących: **0**
+Łącznie elementów: **1250** | Pokrytych: **1250** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -228,6 +228,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu ({od} – {do}).` | `src/components/harmonogram/SleepGuardBanner.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `UI` | `{n} min` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/lib/__tests__/i18n.test.ts |
 | `TEKST` | `Kiedy chleb ma być gotowy?` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | src/__tests__/harmonogram-screen.test.tsx, src/__tests__/plan-uklad-128.test.tsx |
+| `TEKST` | `W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts |
 | `TEKST` | `Temperatura w kuchni:` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dziennik-recp003-146.test.tsx |
 | `TEKST` | `Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).` | `src/components/harmonogram/TargetReadyCard.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Oś czasu przygotowania` | `src/components/harmonogram/TimelineStagesList.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Drożdże` | `src/components/receptury/DoMiski.tsx` | ✅ | src/components/receptury/__tests__/drozdze-zaczynu-207.test.tsx, src/doctor/__tests__/diagnostics-exhaustive.test.ts |
 | `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 939 kolejnych elementów w pełnym wykazie)*
+*(... i 950 kolejnych elementów w pełnym wykazie)*

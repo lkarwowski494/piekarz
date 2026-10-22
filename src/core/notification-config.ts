@@ -8,11 +8,9 @@ const HOUR_MS = 60 * 60 * 1000;
 
 export const NOTIF_PREFIX = 'piekarz.';
 export const NOTIF_ID_BAKE = 'piekarz.krok';
-/**
- * Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090].
- * To odstęp CZASU (godziny rzeczywiste), nie dzień kalendarza: zakwas rośnie tyle godzin, ile minęło, także przez
- * zmianę czasu; dlatego zostaje w ms, w odróżnieniu od terminu lodówki niżej.
- */
+// Blat zostaje w ms (D-093): to odstęp CZASU w godzinach rzeczywistych, nie dzień kalendarza; zakwas rośnie tyle godzin,
+// ile minęło, także przez zmianę czasu. Termin lodówki niżej to dni kalendarza.
+/** Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090]. */
 export const FEED_ROOM_TEMP_AFTER_MS = 12 * HOUR_MS;
 /**
  * Zakwas w lodówce: jedno powiadomienie na cykl, w terminie po 7 dniach (BRD B2 BR-ZAKW-004 kryt. 1; DEC-22 a

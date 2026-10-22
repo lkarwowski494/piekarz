@@ -102,7 +102,9 @@ describe.each(PORY)('Przypomnienia o karmieniu, zegar %s (179; BR-ZAKW-004 Zakwa
     await settle();
     expect(karmienie()).toHaveLength(1);
     const [id] = karmienie();
-    expect(notif.pending.get(id)!.trigger.date).toBe(teraz + 7 * D);
+    // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+    const f = new Date(teraz);
+    expect(notif.pending.get(id)!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
     act(() => tree.unmount());
   });
 
