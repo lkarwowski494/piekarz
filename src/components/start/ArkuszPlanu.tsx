@@ -26,7 +26,7 @@ export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose, onPro, on
   onUsun: (p: PlannedBake) => void;
   onClose: () => void;
   /** Funkcja Pro bez Pro z arkusza („Dodaj do kalendarza”): zamknięcie arkusza, ekran Pro po nim (D-117) [04-studio-projektowe-005]. */
-  onPro?: () => void;
+  onPro?: (wznow?: () => void | Promise<void>) => void;
   /** Arkusz zniknął z ekranu (iOS). */
   onDismiss?: () => void;
 }) {

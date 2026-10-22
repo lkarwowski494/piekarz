@@ -31,7 +31,7 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
   const zamknij = useCallback(() => ustawOtwarty(null), []);
   const { otworzPro, poZamknieciu } = useProPoArkuszu();
   /** Funkcja Pro bez Pro z arkusza planu („Dodaj do kalendarza”): arkusz zamknięty, ekran Pro po nim (D-117). */
-  const pro = useCallback(() => otworzPro(zamknij), [otworzPro, zamknij]);
+  const pro = useCallback((wznow?: () => void | Promise<void>) => otworzPro(zamknij, wznow), [otworzPro, zamknij]);
   const wroc = useCallback((id: string) => {
     ustawOtwarty(null);
     otworzWypiek(id);
@@ -54,9 +54,11 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
         if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
         // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104); drugi trwający to Pro: bez Pro
         // najpierw zamknięcie arkusza planu, ekran Pro po nim (D-117) [04-studio-projektowe-005]
+        // Po zakupie Pro oba wypieki ruszają same (018, W-fix2)
+        const prowadzOba = () => void utrwalWypiekZPamieci().then((ok) => ok && start());
         const oba = () => (moze?.('dwa-wypieki') === false
-          ? otworzPro(zamknij)
-          : requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => ok && start())));
+          ? otworzPro(zamknij, prowadzOba)
+          : requireActionAccess('dwa-wypieki', prowadzOba));
         confirmStartPrzyTrwajacym(trwa, oba, wroc, etykietaPro(t('Prowadź oba'), moze?.('dwa-wypieki') ?? true));
       });
     });

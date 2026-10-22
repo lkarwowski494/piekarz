@@ -14,6 +14,7 @@ import { pobierzStan, subskrybujStan, odswiezDostep, ustalDostep, StanDostepu } 
 import { kup, przywroc } from './platnosci/sklep';
 import { czyEkranZakupu, subskrybujEkranZakupu, ustawEkranZakupu } from './platnosci/ekran';
 import { liczbaZapisanych } from './limity-basic';
+import { porzucAkcje, wstrzymajAkcje } from './platnosci/wstrzymana';
 
 export type AccessStatus = 'dostep' | 'bez_uprawnienia';
 
@@ -87,6 +88,9 @@ export function useAppAccess() {
         if (action) void action();
         return true;
       }
+      // Po zakupie akcja wykona się sama (018, W-fix2); bez akcji nic nie czeka
+      if (action) wstrzymajAkcje(action);
+      else porzucAkcje();
       ustawEkranZakupu(true);
       return false;
     },
@@ -120,7 +124,10 @@ export function useAppAccess() {
       }
       const n = await liczbaZapisanych(rodzaj);
       if (n === null || mozeDodac(rodzaj, n, false)) await action();
-      else ustawEkranZakupu(true);
+      else {
+        wstrzymajAkcje(action);
+        ustawEkranZakupu(true);
+      }
     },
     [pro]
   );

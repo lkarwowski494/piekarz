@@ -79,13 +79,15 @@ export default function StartScreen() {
   // bez Pro najpierw zamknięcie arkusza dnia, ekran Pro po nim (D-117) [04-studio-projektowe-005]
   const proDnia = useProPoArkuszu();
   const zaplanujNaDzien = (dzienMs: number) => {
-    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null));
-    chron('plany-przyszle', () => {
+    const zaplanuj = () => {
       setArkusz(null);
       ustawDzienGotowe(dzienMs);
       ustawRodzajReceptur('sourdough');
       router.navigate('/receptury');
-    })();
+    };
+    // Po zakupie Pro plan na ten dzień rusza sam (018, W-fix2)
+    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null), zaplanuj);
+    chron('plany-przyszle', zaplanuj)();
   };
 
   // Wybór otwiera pierwszy ekran przepływu bez ekranu Pro (D-047, D-112); trzy czynności są w Basic

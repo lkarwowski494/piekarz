@@ -7,11 +7,14 @@
 import { useCallback, useRef } from 'react';
 import { Platform } from 'react-native';
 import { ustawEkranZakupu } from '../lib/platnosci/ekran';
+import { porzucAkcje, wstrzymajAkcje } from '../lib/platnosci/wstrzymana';
 
 export function useProPoArkuszu() {
   const czeka = useRef(false);
-  /** Zamyka arkusz i odkłada ekran Pro do zniknięcia arkusza (iOS). */
-  const otworzPro = useCallback((zamknijArkusz: () => void) => {
+  /** Zamyka arkusz i odkłada ekran Pro do zniknięcia arkusza (iOS); `wznow` wykona się po zakupie (018, W-fix2). */
+  const otworzPro = useCallback((zamknijArkusz: () => void, wznow?: () => void | Promise<void>) => {
+    if (wznow) wstrzymajAkcje(wznow);
+    else porzucAkcje();
     zamknijArkusz();
     if (Platform.OS === 'ios') czeka.current = true;
     else ustawEkranZakupu(true);

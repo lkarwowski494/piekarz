@@ -6,13 +6,24 @@
 // otwiera ten sam ekran zakupu. Z Pro ekran (z Ustawień) pokazuje stan i zarządzanie subskrypcją [M3 P-b].
 // ============================================================================
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useAppAccess } from '../lib/app-access';
+import { porzucAkcje, wznowAkcje } from '../lib/platnosci/wstrzymana';
 import { SUBSKRYPCJE } from '../lib/platnosci/konfiguracja';
 import { PaywallModal } from './PaywallModal';
 
 export function AppAccessProvider({ children }: { children: React.ReactNode }) {
   const { access, isPaywallVisible, setPaywallVisible, subscribe, restorePurchases } = useAppAccess();
+  // Akcja wstrzymana przez ekran Pro (018, W-fix2): po nadaniu dostępu wykonuje się raz; ekran zamknięty bez Pro ją porzuca
+  const pro = access.canCreateNewBake;
+  const poprzednioPro = useRef(pro);
+  useEffect(() => {
+    if (pro && !poprzednioPro.current) wznowAkcje();
+    poprzednioPro.current = pro;
+  }, [pro]);
+  useEffect(() => {
+    if (!isPaywallVisible && !pro) porzucAkcje();
+  }, [isPaywallVisible, pro]);
   const aktywny = access.status === 'dostep' ? { subskrypcja: access.zakup.pamiec?.produkty.some((p) => SUBSKRYPCJE.includes(p)) ?? false } : null;
   return (
     <>

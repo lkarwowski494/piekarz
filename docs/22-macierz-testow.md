@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 59 | 59 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 604 | 604 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 595 | 595 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 598 | 598 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 218 | 218 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1485** | Pokrytych: **1485** | Brakujących: **0**
+Łącznie elementów: **1488** | Pokrytych: **1488** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Mniej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Więcej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 
-*(... i 1185 kolejnych elementów w pełnym wykazie)*
+*(... i 1188 kolejnych elementów w pełnym wykazie)*
