@@ -62,6 +62,11 @@ appId: com.apps4brew.baker
     visible:
       id: "resume-bake-btn"
     timeout: 60000
+# "Wroc do wypieku" lezy na Dzis pod spirala (D4b, 220 pt), poza ekranem na symulatorze (bounds y 815-879 przy tabbarze od 791):
+# bez przewiniecia dotkniecie trafialo w pasek zakladek i flow zostawal na Dzis (przebieg 39863216388, krok 23).
+- scrollUntilVisible:
+    element:
+      id: "resume-bake-btn"
 - tapOn:
     id: "resume-bake-btn"
 - extendedWaitUntil:
