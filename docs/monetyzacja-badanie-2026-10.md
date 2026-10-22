@@ -1,5 +1,5 @@
 # Badanie zmiany modelu płatności: V1, V2 wobec D-038 (Piekarz)
-Stan: E2 (STOP) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
+Stan: E2b (STOP, V3 z notatki właściciela) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
 
 Do wyboru właściciela na STOP E2 obowiązuje D-038 i kontrakt w `docs/monetyzacja.md`; ten plik niczego w nim nie zmienia. Surowe odczyty źródeł: `audit/02-badanie-modelu-2026-10-22/zrodla/` (poza gitem).
 
@@ -239,6 +239,114 @@ Wnioski z rachunku:
 - V1/V2: „free” jest prawdziwe (2005/29/WE zał. I pkt 20); uprzedzenie przed końcem bez odliczania i bez „ostatnia szansa” (zał. I pkt 7); po wygaśnięciu dane zawsze dostępne offline (D-039 bez zmian); trwający wypiek do końca (D-039); żywy zakwas wyżej.
 - Tekst ofert właściciela bez procentów (E1): bez ryzyka ogłoszenia obniżki; kwota najwyraźniejsza (MS-B08) do sprawdzenia na makiecie roli 04.
 
+## E2b: V3, cała aplikacja darmowa z limitem dni pieczenia (wzorzec Treningu, zlecenie właściciela 2026-10-22)
+
+Zlecenie: notatka właściciela przekazana przez M1 2026-10-22 („Notatka od właściciela: wzorzec monetyzacji do wypracowania w tej aplikacji (z Treningu, decyzja 22.10.2026)”, zasady 1–9). Idea, dosłownie: „użytkownik dostaje całą aplikację za darmo, bez żadnej zgody na subskrypcję czy próbę. Ograniczona jest tylko liczba użyć głównej czynności w miesiącu. Kto chce więcej, świadomie kupuje Pro.” Rozdziałów 10–11 pliku Treningu, na które notatka się powołuje, nie ma dziś na żadnej gałęzi `lkarwowski494/trening` (sprawdzone 2026-10-22: `monetyzacja-badanie-2026-10-22`, `main`, `koordynacja-2026-10-22`, `asc-kontrola-404-sha` mają rozdziały 1–9); pracuję na zasadach z notatki, porównanie z Treningiem po publikacji rozdziałów.
+
+### Reguły sklepu z dziś dla V3
+| Sprawa | Źródło (odczyt 2026-10-22) | Wniosek |
+|---|---|---|
+| Limit użyć a okres próbny | 3.1.1 mówi tylko o próbie „time-based” przez „Non-Consumable IAP item at Price Tier 0” (MS-B01); o limicie użyć wytyczne nie mówią nic | limit użyć nie jest próbą „time-based”, więc produkt „XX-day Trial” nie jest potrzebny. To wykładnia tekstu (brak zakazu), nie zdanie Apple wprost; Case 103004967270 o próbie 3.1.1 przestaje być potrzebny dla V3 |
+| Ujawnienia subskrypcji | 3.1.2(a) (MS-05: „ongoing value”, „at least seven days”); 3.1.2(c): „Before asking a customer to subscribe, you should clearly describe what the user will get for the price.” (MS-09, dziś ten sam tekst); strona subskrypcji: kwota „most prominent pricing element” (MS-B08) | ekran Pro: cena za okres największa, długość, odnawianie i anulowanie, linki do warunków i prywatności (MS-16) |
+| Opis w sklepie | 2.3.2: „make sure your app description, screenshots, and previews clearly indicate whether any featured items, levels, subscriptions, etc. require additional purchases” | opis: „darmowe do N dni pieczenia w miesiącu; Pro bez limitu” (zasada 9 notatki) |
+| Family Sharing | MS-B05: tylko odnawiane i Non-Consumable; „you can't turn it off” | już włączony na `.pro.monthly`, `.pro.yearly`, `.pro.lifetime` (zapis ASC 2026-10-21): decyzji nie ma do podjęcia, jest fakt |
+| Usunięcie oferty wprowadzającej | pomoc ASC „Set up introductory offers”: „Navigate to the Introductory Offers tab … Find the introductory offer you wish to delete, and move your pointer over the right side of the price change row until the remove button (—) appears. Click the remove button. Click Delete in the dialog.” (MS-B21) | krok M1 na obu subskrypcjach, wszystkie storefronty (Free Trial 2 Weeks zapisany 2026-10-21) |
+| Dotychczasowi płacący | 3.1.2(a): „should not take away the primary functionality existing users have already paid for” (MS-07) | płacących nie ma: aplikacja tylko w TestFlight, zakupy w piaskownicy (OP-B01 dalej u M1); V3 nic nie odbiera, bo wszystko staje się darmowe do limitu |
+| Prowizja, VAT, kurs | Small Business Program aktywny (właściciel przez M1), 15% (MS-20); VAT PL 23% (europa.eu/youreurope, tabela „Standard rate”: „PL Poland 23”, „Last checked: 13/07/2026”, odczyt 2026-10-22); USD 3,8886 (MS-B10) | bez zmian w rachunku |
+
+Produkty V3 to obecne produkty: subskrypcja miesięczna i roczna (odnawiane) i dożywotni. Nowych ID nie trzeba, nic nie jest „spalone”.
+
+### Jednostka limitu i N
+**Jednostka: dzień pieczenia,** czyli dzień kalendarza (czas telefonu), w którym zaczął się co najmniej jeden wypiek ukończony albo porzucony. Dwa wypieki zaczęte tego samego dnia (D-092, D-104 „Prowadź oba”) to jeden dzień. Wypiek trwający przez noc liczy się do dnia startu. *Dlaczego dla użytkownika:* piekarz myśli „w sobotę piekę”, a nie „zrobię dwa bochenki”; dwa bochenki naraz nie zjadają mu dwóch darmowych dni.
+
+| Wariant | Uzasadnienie dla użytkownika | Mnożnik konwersji wobec freemium bramki [OCENA] |
+|---|---|---|
+| N = 3 | „3 dni pieczenia w miesiącu za darmo”: upiec, poprawić, upiec znowu; piekący raz w tygodniu dochodzi do limitu w 4. tygodniu | 0,7 / 1,0 / 1,3 |
+| N = 5 | „Pieczesz raz w tygodniu? Zawsze za darmo.” Miesiąc ma najwyżej 5 tych samych dni tygodnia (jak w Treningu) | 0,35 / 0,55 / 0,8 |
+| N = 8 | „Dwa razy w tygodniu za darmo” | 0,15 / 0,3 / 0,45 |
+
+Metoda mnożnika: płaci tylko ten, kto przekracza N; częstotliwość domowego wypieku „roughly once a week” (S-24, rec. 8870010975, szczebel 5; BRD PR-11, J-11). Rozkładu częstotliwości wśród użytkowników nie ma w żadnym przeczytanym źródle, więc przedziały są szerokie.
+
+### Rachunek (2026-10-22, kod wyjścia 0)
+`gen-v3.mjs` + `oplacalnosc.mjs` na danych bramki (`audit/02-badanie-modelu-2026-10-22/dowody/porownanie-v3.txt`). Bramka 2026-10-19 liczyła konwersję jak freemium z darmowym rdzeniem (RevenueCat 2026 freemium 2,1% × elastyczność ceny), czyli w kształcie bliskim V3. D-038 i V2 to twarda ściana po próbie, której bramka nie liczyła (U-1, ZAL-050), więc podaję dwa odczyty:
+- **odczyt A:** wszystkie modele na konwersji freemium z bramki (jak 345 USD/rok);
+- **odczyt B:** D-038 i V2 × 1,5 / 2,5 / 5 za twardą ścianę (RevenueCat 2026: „Hard paywall median: 10.7% … Freemium median: 2.1%”, „Hard paywall’s floor (4.2%) is 2× the freemium median”, MS-27) [OCENA].
+
+| Model (USD netto/rok, iOS + Google Play) | pes. / **norm.** / opt. | sam iOS norm. | wobec 500 |
+|---|---|---|---|
+| D-038, odczyt B | 5 / **862** / 131 904 | 545 | wydać |
+| V3 N=3, mediany 4,49 / 24,99 / 39,99 | 7 / **681** / 69 445 | — | wydać |
+| V3 N=3, jak Rise 3,99 / 14,99 / 19,99 | 6 / **532** / 57 790 | 336 | wydać |
+| V2, odczyt B | 2 / **500** / 120 145 | 315 | przerobić (na progu) |
+| V3 N=5, mediany | 4 / **374** / 42 735 | — | przerobić |
+| D-038, odczyt A | 3 / **345** / 26 381 | 218 | przerobić |
+| **V3 N=3, ceny właściciela 0,99 / 6,99 / 14,99** | 2 / **344** / 34 231 | 218 | przerobić |
+| V3 N=5, jak Rise | 3 / **293** / 35 563 | 185 | przerobić |
+| V3 N=8, mediany | 2 / **204** / 24 039 | — | przerobić |
+| V2, odczyt A | 1 / **200** / 24 029 | 126 | przerobić |
+| **V3 N=5, ceny właściciela** | 1 / **189** / 21 065 | 120 | przerobić |
+| V3 N=8, jak Rise | 1 / **160** / 20 004 | — | przerobić |
+| V3 N=8, ceny właściciela | 1 / **103** / 11 849 | — | przerobić |
+
+Wrażliwość (z bramki, V3 N=5 ceny właściciela, pes. → opt. jednego założenia): `udzial_nowej` 47 → 946, `instalacje_na_ocene` 57 → 568, konwersja 54 → 443. Dla N=3: 86 → 1 720, 103 → 1 032, 98 → 805.
+
+Wnioski:
+- **Przy cenach właściciela V3 z N=5 zarabia tyle co V2 (189 wobec 200), a z N=3 tyle co D-038 w odczycie A (344 wobec 345).** N jest dźwignią porównywalną z ceną: z N=5 na N=3 to ok. 1,8×.
+- **Odczyt B pokazuje koszt odejścia od twardej ściany:** jeśli twarda ściana z próbą konwertuje choćby 2,5 raza lepiej niż freemium, D-038 daje ok. 862 USD/rok, czyli 2,5–4,6 raza więcej niż V3 przy cenach właściciela (N=3 / N=5). To najważniejsza niewiadoma tego wyboru i nie da się jej rozstrzygnąć przed premierą; po 8 tygodniach pokaże ją App Store Connect.
+- **Ceny:** przy V3 podniesienie cen do dolnego krańca rynku (jak Rise) daje +55% (N=5: 189 → 293), do median +98% (374). Próg 500 przechodzą tylko V3 N=3 z cenami rynkowymi i D-038 w odczycie B.
+- **Nie modelowane:** wpływ hojnego darmowego poziomu na oceny i widoczność. To założenie o największym wpływie we wszystkich wariantach (`udzial_nowej`) i działa na korzyść V3, ale bez źródła, które by to mierzyło.
+
+### Reguła liczenia (wektory do testów; N = 5, czas telefonu, bez Pro, o ile nie napisano inaczej)
+Reguła: `uzyte(miesiąc)` = liczba różnych dni startu w tym miesiącu z wypiekiem **ukończonym** albo **porzuconym**, plus dni startu **trwających** wypieków (żeby niekończenie nie obchodziło limitu). Start wypieku w nowym dniu jest dozwolony, gdy `uzyte < N` albo dzień startu już jest policzony. Wypiek jest **anulowany** (nie liczy się, dzień się zwalnia), gdy „Przerwij” pada przed ukończeniem pierwszego kroku i w ciągu 30 minut od startu (próg do decyzji, D-V3-4); później „Przerwij” to **porzucenie** (liczy się, zapis licznika).
+
+| # | Sytuacja | Oczekiwane |
+|---|---|---|
+| W1 | 4 dni policzone w październiku, start 20.10 | dozwolony; licznik „Został 1 z 5” → po starcie „0 z 5” |
+| W2 | 5 dni policzonych, start w nowym dniu | blokada na przycisku startu, ekran Pro; reszta aplikacji działa |
+| W3 | 5 dni policzonych, w tym dziś; drugi wypiek dziś | dozwolony (ten sam dzień) |
+| W4 | 5 dni w październiku, start 31.10 o 23:59 | blokada |
+| W5 | jw., start 1.11 o 00:00 | dozwolony; listopad od zera |
+| W6 | start 31.10 o 23:30, koniec 1.11 o 9:00 | liczy się do października (dzień startu) |
+| W7 | start, „Przerwij” po 10 min, żaden krok nieukończony | anulowany: nie liczy się, dzień wolny |
+| W8 | start, „Przerwij” po ukończeniu pierwszego kroku albo po 30 min | porzucony: liczy się |
+| W9 | wpis dziennika dopisany wstecz, import kopii, edycja historii | nie liczy się |
+| W10 | 3 dni policzone + 2 trwające wypieki z dwóch innych dni | `uzyte` = 5: start w nowym dniu zablokowany; ukończenie albo porzucenie trwających nie zmienia liczby, anulowanie jednego zwalnia dzień |
+| W11 | plan na 3.11 zapisany 28.10 (kalendarz, D-106) | planowanie wolne; liczy się dopiero start (dzień faktycznego startu) |
+| W12 | Pro aktywne | bez limitu; dni pieczenia z Pro nie liczą się do limitu (opcja rekomendowana D-V3-3) |
+| W13 | Pro wygasa 15.10; przed zakupem 2 darmowe dni w październiku | od 15.10 zostały 3 z 5 |
+| W14 | wypiek zaczęty z Pro, Pro wygasa w trakcie | wypiek prowadzi się do końca (D-039), nie liczy się do limitu |
+| W15 | limit wyczerpany: karmienie zakwasu, przypomnienia o dokarmianiu, kalkulator, plan wstecz, Doktor, dziennik, eksport, kopia | wszystko działa (zasada 5 notatki; decyzja 3 z E2) |
+| W16 | zmiana strefy czasowej po starcie | dzień zapisany przy starcie (RRRR-MM-DD czasu telefonu) się nie zmienia |
+| W17 | „Piecz ponownie” i start zaplanowanego wypieku z kalendarza | to samo sprawdzenie co przycisk startu (jedna funkcja) |
+
+### Lista zmian (do wykonania dopiero po wyborze)
+| Obszar | Zmiana | Czas agenta [OCENA] | Właściciel / czekanie |
+|---|---|---|---|
+| Kod: dostęp | `konfiguracja.ts`: wszystkie funkcje bez uprawnienia poza startem wypieku ponad limit; nowy czysty moduł limitu z wektorami W1–W17; zapis dni pieczenia (tabela albo klucz `app_settings`, poza kopią: D-V3-5) z migracją w transakcji (zasada wspólna 10) | 1 dzień | — |
+| Kod: bramka startu | jedna funkcja sprawdzenia przy starcie w Stolnicy, „Piecz ponownie”, starcie planu z kalendarza; licznik na ekranie startu; klasyfikacja „Przerwij” (anulowany / porzucony) | 0,5–1 dnia; pliki przebudowy M3 (Stolnica, Dziś, kalendarz): po scaleniu `redesign/piekarz-2026-10-22` albo na niej, za zgodą M1 | koordynacja z M3 |
+| Kod: płatności | `sklep.ts`: bez oferty wprowadzającej i `isEligibleForIntroOffer`; `uprzedzenie.ts` (3 dni przed końcem próby) i baner „tylko historia” do usunięcia; ekran Pro tylko przy limicie i w Ustawieniach; „Zrealizuj kod” | 0,5 dnia | — |
+| Testy | zmiana testów kontraktu (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby): nowe asercje z nowego kontraktu, nie wyłączanie | w cenie wyżej | — |
+| Teksty | licznik („Zostały {n} z {N} darmowych dni pieczenia w tym miesiącu”), ekran Pro (nazwy planów, cena, opis bez liczb, ujawnienia 3.1.2), komunikat blokady; 35 języków | 0,5 dnia + przekład (Message Batches) | zgoda na wydatek API przez M1 |
+| Opis sklepu i zrzuty | 35 lokalizacji: „darmowe do N dni pieczenia w miesiącu; Pro bez limitu”, bez „free trial”; zrzut ekranu Pro, jeśli pokazuje próbę | 0,5 dnia (rola 10) | przegląd ok. 15 min |
+| App Store Connect | usunięcie oferty wprowadzającej na `.pro.monthly` i `.pro.yearly` (MS-B21); notatka dla recenzji o limicie | M1 skryptem albo w UI, ok. 30 min | zgoda właściciela na zapis |
+| Dokumenty | `docs/monetyzacja.md` (kontrakt), wpis decyzji zastępujący D-038/D-039, ER do roli 01 (BR-ZAK-004 „stan po próbie”, BR-ZAK-005 „oferta przy pierwszym użyciu”), rola 03 (podział: wszystko darmowe), rola 04 (ekran Pro i licznik) | 0,5 dnia | — |
+| Sandbox / TestFlight | zakup każdego planu, przywracanie, limit, północ, wygaśnięcie Pro | — | ok. 30 min na telefonie; runner macOS tylko 0:00–15:00 |
+
+Razem [OCENA]: ok. 3–4 dni pracy agenta, ok. 1 h czasu właściciela, czekanie: przekład, recenzja 1.0. Mieści się przed końcem listopada, jeśli wybór padnie w tym tygodniu i M3 skończy pliki Stolnicy.
+
+### Decyzje dla właściciela (V3)
+| # | Decyzja | Opcje | Rekomendacja |
+|---|---|---|---|
+| D-V3-1 | Model | (a) V3; (b) V2 (przepustki bez odnawiania); (c) D-038 bez zmian | **(a) V3:** spełnia ten sam warunek co V2 („nic się samo nie odnawia bez wyboru”: subskrypcję Pro kupuje się świadomie, bez próby, która sama zamienia się w opłatę), a przy tych samych cenach zarabia tyle co V2 albo więcej, bez nowych ID, bez niepewności App Review co do próby 3.1.1, z Family Sharing już włączonym i jak w Treningu. Koszt wobec D-038 przy cenach właściciela: w odczycie A zero przy N=3 i ok. 45% przy N=5 (344 / 189 wobec 345), w odczycie B 2,5–4,6× mniej (862 wobec 344 / 189) |
+| D-V3-2 | N | (a) N=5; (b) N=3; (c) N=8 | **(a) N=5:** jedno proste zdanie dla użytkownika i ten sam wzorzec co Trening; typowy domowy piekarz (raz w tygodniu) nigdy nie widzi ściany, a płacą częściej piekący. Koszt: ok. 1,8× mniej niż N=3. Wybierz (b), jeśli przychód ma pierwszeństwo przed hojnością |
+| D-V3-3 | Dni z Pro a limit | (a) liczą się tylko dni bez Pro; (b) liczą się wszystkie dni miesiąca | (a): kto zapłacił, nie traci darmowych dni po wygaśnięciu (W12–W14) |
+| D-V3-4 | Kiedy „Przerwij” to anulowanie | (a) przed ukończeniem pierwszego kroku i w ciągu 30 min; (b) tylko przed pierwszym krokiem; (c) w ciągu 10 min | (a): pomyłka przy starcie nie kosztuje dnia, a porzucenie w połowie wypieku się liczy |
+| D-V3-5 | Zapis licznika | (a) osobna tabela dni pieczenia poza kopią zapasową; (b) w kopii zapasowej | (a): import kopii nie zeruje ani nie przenosi licznika; ponowna instalacja zeruje licznik (brzegowe: kasuje też dane bez kopii) |
+| D-V3-6 | Ceny Pro | (a) 0,99 / 6,99 / 14,99 USD (jak dziś i w Treningu); (b) 3,99 / 14,99 / 19,99 USD (dolny kraniec rynku); (c) 4,49 / 24,99 / 39,99 USD (mediany) | **(b):** przy N=5 +55% (189 → 293 USD/rok) i nadal najtańsza w niszy obok Rise; (a) zostawia hasło „dojeżdżamy konkurencję ceną” (ZP-18), ale przy darmowym limicie niska cena nie jest już potrzebna do wypróbowania. Ceny lokalne z gotowych wariantów bramki |
+| D-V3-7 | Oferta kilkumiesięczna | (a) bez, wracamy po 8 tygodniach; (b) od startu | (a): jak w notatce i Treningu; V1 w E2 nie pokazał zysku |
+
+Wobec STOP E2: rekomendacja z E2 (V2) zostaje zastąpiona rekomendacją V3, jeśli właściciel przyjmie tę notatkę jako kierunek; V2 zostaje wariantem odniesienia.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -262,6 +370,8 @@ Wnioski z rachunku:
 | MS-B18 | eur-lex.europa.eu, CELEX 52021XC1229(05) (PL), wytyczne do dyrektywy 2005/29/WE | pkt 1.2.5, 2.8.2 | cytaty w tabeli prawa | 1 (wytyczne Komisji) |
 | MS-B19 | api.sejm.gov.pl/eli/acts/DU/2023/168/text.html | art. 4 ust. 2 | cytat w tabeli prawa; nowszego tekstu jednolitego w ELI brak (wyszukanie tytułu, 2026-10-22) | 1 |
 | MS-B20 | itunes.apple.com/lookup (US, PL), apps.apple.com/<kraj>/app/id<id>, itunes.apple.com/<kraj>/rss/customerreviews/…/json | pola `formattedPrice`, sekcja In-App Purchases, recenzje | ceny i zliczenia w sekcji „Rynek”; cytaty z id recenzji w `audit/02-badanie-modelu-2026-10-22/rynek/raport-rynek.md` | ceny: 1 (dane platformy, D-035); recenzje: 5 (tylko motywy) |
+| MS-B21 | developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions | „Delete an introductory offer” | kroki cytowane w E2b | 1 |
+| MS-B22 | europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm | tabela stawek | „PL Poland 23”; „Last checked: 13/07/2026” | 3 |
 
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
