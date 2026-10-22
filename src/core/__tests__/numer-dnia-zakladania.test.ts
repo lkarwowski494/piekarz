@@ -11,15 +11,17 @@ const lok = (y: number, m: number, d: number, h: number, min = 0) => new Date(y,
 describe('RD-31: numer dnia zakładania w Europe/Warsaw (wektory roli 01)', () => {
   wStrefie('Europe/Warsaw');
 
+  // Chwile liczone dopiero w teście (funkcje), po beforeAll ze strefą: tabela it.each liczy się przy zbieraniu testów,
+  // czyli w strefie, jaką ma worker po poprzednim pliku, co dawało przypadkowe porażki w pełnym przebiegu [D0b]
   it.each([
-    ['W1: start 20.10 21:00, teraz 20.10 23:59', lok(2026, 10, 20, 21), lok(2026, 10, 20, 23, 59), 1],
-    ['W2: start 20.10 21:00, teraz 21.10 00:00', lok(2026, 10, 20, 21), lok(2026, 10, 21, 0), 2],
-    ['W3: start 20.10 21:00, teraz 21.10 20:59', lok(2026, 10, 20, 21), lok(2026, 10, 21, 20, 59), 2],
-    ['W4: start 24.10 22:00, teraz 25.10 23:30 (zmiana czasu)', lok(2026, 10, 24, 22), lok(2026, 10, 25, 23, 30), 2],
-    ['W5: start 20.10 08:00, teraz 26.10 07:00', lok(2026, 10, 20, 8), lok(2026, 10, 26, 7), 7],
-    ['W6: teraz przed startem', lok(2026, 10, 20, 8), lok(2026, 10, 19, 8), 1],
+    ['W1: start 20.10 21:00, teraz 20.10 23:59', () => lok(2026, 10, 20, 21), () => lok(2026, 10, 20, 23, 59), 1],
+    ['W2: start 20.10 21:00, teraz 21.10 00:00', () => lok(2026, 10, 20, 21), () => lok(2026, 10, 21, 0), 2],
+    ['W3: start 20.10 21:00, teraz 21.10 20:59', () => lok(2026, 10, 20, 21), () => lok(2026, 10, 21, 20, 59), 2],
+    ['W4: start 24.10 22:00, teraz 25.10 23:30 (zmiana czasu)', () => lok(2026, 10, 24, 22), () => lok(2026, 10, 25, 23, 30), 2],
+    ['W5: start 20.10 08:00, teraz 26.10 07:00', () => lok(2026, 10, 20, 8), () => lok(2026, 10, 26, 7), 7],
+    ['W6: teraz przed startem', () => lok(2026, 10, 20, 8), () => lok(2026, 10, 19, 8), 1],
   ])('%s → %i', (_nazwa, start, teraz, oczekiwany) => {
-    expect(setupDay(start, teraz)).toBe(oczekiwany);
+    expect(setupDay(start(), teraz())).toBe(oczekiwany);
   });
 
   it('start wtorek 21:00: wtorek = dzień 1, środa 08:00 = dzień 2 (21.10.2026 to środa)', () => {

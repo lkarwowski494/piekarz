@@ -13,15 +13,18 @@ import { t } from '../../lib/i18n';
 import { formatTime } from '../../lib/format';
 import { dzienSlownie } from '../../lib/spirala-etykieta';
 import { NAZWY_OBJAWOW } from '../../lib/zakwas-widok';
-import { SETUP_GUIDE, STARTER_SIGNS, setupStageForDay, type SetupOutcome, type StarterSign } from '../../core/starter-log';
+import { SETUP_GUIDE, STARTER_SIGNS, type SetupOutcome, type SetupStage, type StarterSign } from '../../core/starter-log';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
 /** Dni na pasku: średnio 7–10 (ZAK-ZAL-001); dalsze dni rozszerzają pasek. */
 const DNI_PASKA = 10;
 
-export function StarterSetupCard({ dzien, wynik, now, onZapiszDzien, onZacznijOdNowa, onZostaw, onUlozPlan }: {
+export function StarterSetupCard({ dzien, etap, wynik, now, onZapiszDzien, onZacznijOdNowa, onZostaw, onUlozPlan }: {
+  /** Numer „Dzień N” kalendarzowy (setupDay). */
   dzien: number;
+  /** Etap treści „Co dziś zrobić” wg czasu i dokarmień (setupGuideStage, D0b). */
+  etap: SetupStage;
   /** Wynik ostatniego „Zapisz dzień N”; null = jeszcze nie zapisano. */
   wynik: SetupOutcome | null;
   now: number;
@@ -60,7 +63,7 @@ export function StarterSetupCard({ dzien, wynik, now, onZapiszDzien, onZacznijOd
         ))}
       </View>
       <Text style={styles.naglowek}>{t('Co dziś zrobić')}</Text>
-      {SETUP_GUIDE[setupStageForDay(dzien)].map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}
+      {SETUP_GUIDE[etap].map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}
       {wynik && (
         <View testID={`zakladanie-wynik-${wynik.kind}`} style={styles.wynik}>
           {wynik.texts.map((z) => <Text key={z} style={styles.tresc}>{t(z)}</Text>)}

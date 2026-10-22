@@ -10,7 +10,7 @@ import { StyleSheet, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import type { StoredStarter } from '../../data/db';
 import { loadBakeSession } from '../../data/bake-session-store';
-import { STARTER_DOUBLING_MAX_H, isReadyAfterFeeding, setupDay, setupObservationOutcome, type SetupOutcome, type StarterSign } from '../../core/starter-log';
+import { STARTER_DOUBLING_MAX_H, isReadyAfterFeeding, setupDay, setupGuideStage, setupObservationOutcome, type SetupOutcome, type StarterSign } from '../../core/starter-log';
 import { NO_DOUBLING_ACTIONS } from '../../core/starter-doctor';
 import { fridgeWakeOutcome } from '../../core/fridge-wake';
 import { t } from '../../lib/i18n';
@@ -58,11 +58,13 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   const stan = stanKartyZakwasu(starter, log.entries, now);
   const zakladanie = starter.setupStartedAt !== undefined && (wZakladaniu(starter) || wynik?.kind === 'ready');
   const dzien = starter.setupStartedAt !== undefined ? setupDay(starter.setupStartedAt, now) : 1;
+  // Treść planu wg czasu i dokarmień, nie wg numeru kalendarzowego (D-093, D0b)
+  const etap = starter.setupStartedAt !== undefined ? setupGuideStage({ setupStartedAt: starter.setupStartedAt, now, entries: log.entries }) : 'day1';
 
   const zapiszDzien = (signs: StarterSign[]) =>
     zDostepem(guardSave(async () => {
       const at = Date.now();
-      const out = setupObservationOutcome({ day: dzien, signs, entries: log.entries, observedAt: at });
+      const out = setupObservationOutcome({ day: dzien, stage: etap, signs, entries: log.entries, observedAt: at });
       if (signs.length > 0) await log.zapiszObserwacje(signs, at, out.kind === 'ready' ? { setupCompletedAt: at } : undefined);
       setWynik(out);
       if (out.kind === 'ready') await onZmianaZakwasu();
@@ -75,7 +77,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       const koniec = wZakladaniu(starter) && gotowy;
       await log.zapiszObserwacje(['doubled'], at, koniec ? { setupCompletedAt: at } : undefined);
       if (koniec) {
-        setWynik(setupObservationOutcome({ day: dzien, signs: ['doubled'], entries: log.entries, observedAt: at }));
+        setWynik(setupObservationOutcome({ day: dzien, stage: etap, signs: ['doubled'], entries: log.entries, observedAt: at }));
         await onZmianaZakwasu();
       }
     }));
@@ -92,6 +94,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       {zakladanie && starter.setupStartedAt !== undefined && (
         <StarterSetupCard
           dzien={dzien}
+          etap={etap}
           wynik={wynik}
           now={now}
           onZapiszDzien={zapiszDzien}

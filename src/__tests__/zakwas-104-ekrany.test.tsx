@@ -155,7 +155,10 @@ describe('104: ekrany zakwasu', () => {
 
   // ZMIANA reguły (decyzja właściciela 2026-10-22, D-093): dzień liczony dniami kalendarza, nie okresami 24 h od
   // startu (M2 p11). Założony wczoraj o 23:46, o 00:46 jest dzień 2; dawna asercja „nadal dzień 1” kodowała 24 h.
-  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 to dzień 2 (dni kalendarza, D-093) — plan dnia 2', async () => {
+  // POPRAWKA D0b (D-093): numer zostaje kalendarzowy, ale treść „Co dziś zrobić” idzie wg czasu i liczby dokarmień
+  // (reguła ostrożna roli 06): 1 h po założeniu, bez dokarmienia → plan dnia 1 („zostaw na 24 godziny”), nie dnia 2
+  // („odrzuć połowę… dokarm”, wbrew ZAK-ZAL-002). Dawna asercja treści dnia 2 zmieniona na treść dnia 1 z powodem.
+  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 to dzień 2 (dni kalendarza, D-093), ale plan dnia 1 (D0b)', async () => {
     ustawZegar(0, 46);
     const fedAt = new Date(2026, 9, 20, 23, 46, 0, 0).getTime();
     try {
@@ -164,7 +167,52 @@ describe('104: ekrany zakwasu', () => {
       });
       expect(s.tekst()).toContain('Dzień 2');
       expect(s.tekst()).not.toContain('Dzień 1');
+      for (const z of SETUP_GUIDE.day1) expect(s.tekst()).toContain(z);
+      for (const z of SETUP_GUIDE.day2) expect(s.tekst()).not.toContain(z);
+      await s.press('zakladanie-objaw-bubbles');
+      await s.press('zakladanie-zapisz-btn');
+      const { formatTime } = require('../lib/format');
+      expect(s.tekst()).toContain(`Następne dokarmienie: dziś o ${formatTime(fedAt + DAY)}.`);
+      s.done();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('BR-ZAKW-005 Spóźnione dokarmienie (D0b): 49 h od założenia i jedno dokarmienie po nim → „Dzień 3”, ale plan dnia 2, nie dnia 3', async () => {
+    const now = ustawZegar(12, 0);
+    try {
+      const s = await start(async (e) => {
+        await e.createStarterWithEntry(starter('z', { setupStartedAt: now - 49 * H }), feed('f1', 'z', now - 49 * H));
+        await e.addStarterEntry(feed('f2', 'z', now - 9 * H));
+      });
+      expect(s.tekst()).toContain('Dzień 3');
       for (const z of SETUP_GUIDE.day2) expect(s.tekst()).toContain(z);
+      for (const z of SETUP_GUIDE.day3) expect(s.tekst()).not.toContain(z);
+      await s.press('zakladanie-objaw-bubbles');
+      await s.press('zakladanie-zapisz-btn');
+      const { formatTime } = require('../lib/format');
+      expect(s.tekst()).toContain(`Następne dokarmienie: jutro o ${formatTime(now - 9 * H + DAY)}.`);
+      s.done();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('BR-ZAKW-005 Dokarmianie na czas (D0b): 50 h od założenia, dokarmienia po 24 h i 36 h → plan dnia 3, rytm 12 h', async () => {
+    const now = ustawZegar(12, 0);
+    try {
+      const s = await start(async (e) => {
+        await e.createStarterWithEntry(starter('z', { setupStartedAt: now - 50 * H }), feed('f1', 'z', now - 50 * H));
+        await e.addStarterEntry(feed('f2', 'z', now - 26 * H));
+        await e.addStarterEntry(feed('f3', 'z', now - 14 * H));
+      });
+      expect(s.tekst()).toContain('Dzień 3');
+      for (const z of SETUP_GUIDE.day3) expect(s.tekst()).toContain(z);
+      await s.press('zakladanie-objaw-bubbles');
+      await s.press('zakladanie-zapisz-btn');
+      const { formatTime } = require('../lib/format');
+      expect(s.tekst()).toContain(`Następne dokarmienie: dziś o ${formatTime(now - 2 * H)}.`);
       s.done();
     } finally {
       jest.useRealTimers();

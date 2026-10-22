@@ -135,6 +135,26 @@ export function setupStageForDay(day: number): SetupStage {
   return day <= 5 ? 'day4_5' : 'day6_plus';
 }
 
+const SETUP_DAY_STAGES = ['day1', 'day2', 'day3', 'day4_5', 'day6_plus'] as const;
+
+/**
+ * Etap treści „Co dziś zrobić” (D-093, poprawka D0b; reguła ostrożna roli 06): mniejszy z dwóch etapów, więc plan
+ * nie wyprzedza czynności, których użytkownik nie zrobił. (1) Okres pełnych 24 h od startu (zegar ciągły, zmiana
+ * czasu nie skraca ani nie wydłuża doby), progi jak w setupStageForDay. (2) Liczba dokarmień od założenia: 0 → dzień 1,
+ * 1 → dzień 2, ≥ 2 → bez ograniczenia. Wpis założenia (ZakladanieStart zapisuje go z zakwasem jako `feeding` w
+ * createStarterWithEntry) to dokarmienie „zerowe”, więc od liczby wpisów `feeding` odejmujemy jeden. Numer „Dzień N”
+ * w nagłówku zostaje kalendarzowy (setupDay): osobna rzecz od treści.
+ */
+export function setupGuideStage(input: { setupStartedAt: number; now: number; entries: readonly StarterEntryLike[] }): SetupStage {
+  const periods = Math.max(0, Math.floor((input.now - input.setupStartedAt) / (24 * HOUR_MS)));
+  const byTime = setupStageForDay(periods + 1);
+  const feedings = Math.max(0, input.entries.filter((e) => e.kind === 'feeding').length - 1);
+  if (feedings >= 2) return byTime;
+  const byFeedings: SetupStage = feedings === 0 ? 'day1' : 'day2';
+  const rank = (s: SetupStage) => SETUP_DAY_STAGES.findIndex((x) => x === s);
+  return rank(byFeedings) < rank(byTime) ? byFeedings : byTime;
+}
+
 /** Pierwsza doba bez aktywności (doktor-zakwasu.md, objaw.brak-aktywnosci-w-pierwszej-dobie; ZAK-ZAL-003, RD-24-W5). */
 export const FIRST_DAY_NO_ACTIVITY: readonly string[] = [
   'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.',
@@ -147,11 +167,16 @@ export type SetupOutcome =
   | { kind: 'first_day_normal'; texts: readonly string[]; nextFeedingAt: number | null }
   | { kind: 'continue'; texts: readonly string[]; nextFeedingAt: number | null };
 
-/** Termin następnego dokarmienia przy zakładaniu: 24 h w dniach 1–2, potem 12 h od ostatniego dokarmienia. */
-export function nextSetupFeedingAt(day: number, entries: readonly StarterEntryLike[]): number | null {
+/** Termin następnego dokarmienia wg etapu treści: 24 h w etapach dnia 1–2, potem 12 h od ostatniego dokarmienia (D0b). */
+export function nextSetupFeedingAtForStage(stage: SetupStage, entries: readonly StarterEntryLike[]): number | null {
   const feed = lastFeeding(entries);
   if (!feed) return null;
-  return feed.occurredAt + (day < 3 ? SETUP_FEED_INTERVAL_EARLY_H : SETUP_FEED_INTERVAL_H) * HOUR_MS;
+  return feed.occurredAt + (stage === 'day1' || stage === 'day2' ? SETUP_FEED_INTERVAL_EARLY_H : SETUP_FEED_INTERVAL_H) * HOUR_MS;
+}
+
+/** To samo dla numeru dnia (etap = setupStageForDay). */
+export function nextSetupFeedingAt(day: number, entries: readonly StarterEntryLike[]): number | null {
+  return nextSetupFeedingAtForStage(setupStageForDay(day), entries);
 }
 
 /**
@@ -161,6 +186,8 @@ export function nextSetupFeedingAt(day: number, entries: readonly StarterEntryLi
  */
 export function setupObservationOutcome(input: {
   day: number;
+  /** Etap treści z setupGuideStage; bez niego etap z numeru dnia (setupStageForDay). */
+  stage?: SetupStage;
   signs: readonly StarterSign[];
   entries: readonly StarterEntryLike[];
   observedAt: number;
@@ -171,9 +198,11 @@ export function setupObservationOutcome(input: {
   }
   const all = [...input.entries, { kind: 'observation' as const, occurredAt: input.observedAt, signs: [...input.signs] }];
   if (isReadyAfterFeeding(all)) return { kind: 'ready', texts: SETUP_GUIDE.ready };
-  const nextFeedingAt = nextSetupFeedingAt(input.day, input.entries);
-  if (input.day <= 1 && !input.signs.includes('doubled')) {
+  // Etap treści (czas i dokarmienia, D0b); bez `stage` etap wynika z numeru dnia
+  const stage = input.stage ?? setupStageForDay(input.day);
+  const nextFeedingAt = nextSetupFeedingAtForStage(stage, input.entries);
+  if (stage === 'day1' && !input.signs.includes('doubled')) {
     return { kind: 'first_day_normal', texts: FIRST_DAY_NO_ACTIVITY, nextFeedingAt };
   }
-  return { kind: 'continue', texts: SETUP_GUIDE[setupStageForDay(input.day)], nextFeedingAt };
+  return { kind: 'continue', texts: SETUP_GUIDE[stage], nextFeedingAt };
 }
