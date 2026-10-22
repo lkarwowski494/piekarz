@@ -122,6 +122,23 @@ Ocena propozycji tekstu właściciela (do roli 04/06, tekstów nie piszę):
 - Z (dożywotni): jednej uczciwej liczby nie ma, bo zależy od horyzontu; „zwraca się po 15 miesiącach” (14,99 / 0,99 = 15,1) jest sprawdzalne i nie udaje rabatu.
 - Metafora „just friends / husband/wife material / marry us”: płciowa para „husband/wife”, w 35 językach przekład dosłowny może brzmieć dwuznacznie albo wykluczająco; rozstrzyga rola 04 z 06 (ton) i przekład. Zgłaszam jako ryzyko, nie oceniam stylu.
 
+### Tekst ekranu ofert wybrany przez właściciela (2026-10-22, przez M1; zastępuje „test us … marry us”)
+Dosłownie: „Uzupełnienie zlecenia od właściciela (2026-10-22): wybrany tekst ekranu ofert, zastępuje wcześniejszy „test us … marry us”. Rabat dożywotniego bez procentu.
+Nagłówek: „No subscriptions. Nothing renews by itself. You’ll never be charged for something you forgot to cancel. Choose the time that fits you:”
+30 dni · 0,99 USD: „Still finding my rhythm” / „One more month to get to know [nazwa aplikacji].”
+3 mies. · 2,49 USD: „One season of baking” / „Save 16%.”
+1 rok · 6,99 USD: „Baking is part of my week” / „A whole year of bakes. Save 41%.”
+Na zawsze · 14,99 USD: „Baking is my life” / „Pay once, keep it forever. Pays for itself after 15 months.”
+Do oceny u źródła w E2/E3: jak wyżej; dodatkowo jedno zdanie o żywym zakwasie, jeśli dostęp wygaśnie w trakcie jego prowadzenia. W V2 wiersz 3-miesięczny odpada.”
+
+Pierwsza ocena (pełna w E2, wymagania dla roli 04 w E3):
+- „Save 16%” / „Save 41%” bez wskazania, wobec czego: porównanie musi być nazwane wprost przy cenie (MS-B18, pkt 2.8.2), a w Polsce „oszczędzasz” na planie bez wcześniejszej wyższej ceny może być czytane jak ogłoszenie obniżki (MS-B19). Bezpieczniej: „Save 16% vs. three 30-day passes”, „Save 41% vs. 12 × 30 days”. Rachunek: 2,49 / 2,97 = −16,2%; 6,99 / 11,88 = −41,2%. Uwaga: 12 × 30 dni = 360 dni, a rok 365; dla 3 mies. wobec 3 × 30 dni długość planu 3-miesięcznego musi wynosić co najmniej 90 dni, inaczej porównanie zawyża. Ustalić długości planów w dniach razem z tekstem (E2).
+- W innych walutach procent liczy się z cen lokalnych, nie z USD (PL: 4,99 zł za 30 dni → 3 mies. i rok wg cen z E2); stały „16%” w 35 językach byłby fałszywy tam, gdzie Apple przeliczy ceny inaczej. Tekst musi brać procent z `displayPrice` produktów (wymóg dla 04/08).
+- „No subscriptions”: Apple nazywa ten typ „Non-Renewing Subscription” (MS-B03); czy systemowy arkusz zakupu pokazuje słowo „subscription”: [DO USTALENIA] w sandboksie (OP-B05). Zdania „Nothing renews by itself” i „never be charged for something you forgot to cancel” są prawdziwe w V1/V2 (brak produktu odnawianego).
+- „Pays for itself after 15 months”: 14,99 / 0,99 = 15,1 planu 30-dniowego, czyli ok. 15 miesięcy; w PL 79,99 / 4,99 = 16,0. Liczbę też trzeba liczyć z cen lokalnych.
+- „[nazwa aplikacji]”: w sklepie Piekarz / Crust zależnie od lokalizacji: z `CFBundleDisplayName` albo słownika, nie na sztywno.
+- Zdanie o żywym zakwasie: E2 (opcje przypomnień po wygaśnięciu), tekst rola 04/06.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -152,4 +169,5 @@ Ocena propozycji tekstu właściciela (do roli 04/06, tekstów nie piszę):
 | OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial”; wysłane przez właściciela 2026-10-22 formularzem App Review „Other App Review questions”, jedno pytanie dla Piekarza, Oczka i Treningu (Related Apps, tekst rozszerzony o trzy aplikacje), Case ID 103004967270; potwierdzenie Apple: „We’ll review your message and get back to you as soon as possible.”; czeka na odpowiedź (treść bazowa wyżej); pośrednio rozstrzygnie też pierwsza recenzja Oczka albo Treningu z tym modelem | App Review | V1, V2 |
 | OP-B03 | [DO USTALENIA] czy istnieje próg 2,49 USD i próg 0 dla Non-Renewing Subscription / Non-Consumable, wpływ (`proceeds`) progów; czeka na M1 | M1 (App Store Connect API, odczyt) | rachunek E2 |
 | OP-B04 | [DO USTALENIA] czy StoreKit wypełnia `expirationDate` dla subskrypcji nieodnawialnej i czy jej transakcja dociera na drugie urządzenie przez `currentEntitlements`/`updates` | właściciel: sandbox lub TestFlight po E3 | adapter, wektory |
+| OP-B05 | [DO USTALENIA] czy systemowy arkusz zakupu Non-Renewing Subscription pokazuje słowo „subscription” (zgodność z nagłówkiem „No subscriptions”) | właściciel: sandbox po E3 | tekst ofert |
 | OP-M01 | rozstrzygnięte 2026-10-22: Small Business Program aktywny, 15% (słowa właściciela wyżej) | właściciel | rachunek |
