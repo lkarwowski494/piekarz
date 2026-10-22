@@ -372,6 +372,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** tydzień zawsze od poniedziałku jak w Treningu (dla regionu US sprzeczne z S-66); `Intl.Locale.getWeekInfo` (brak na liście API Hermes, OP-53); dodawanie 7 × 24 h (zły dzień przy zmianie czasu, RD-30-W4).
 - **Dlaczego:** rynek globalny w 35 językach; pasek, karta zakwasu i powiadomienie muszą pokazywać ten sam dzień (RYZ-22, RYZ-23).
 - **Zależy od:** OP-53 (zachowanie `firstWeekday` na urządzeniu); zakres funkcji: H-15 (rola 03).
+- **Zmieniona przez D-093 (2026-10-22):** numer dnia zakładania liczony dniami kalendarza (dzień 1 = dzień założenia), nie okresami 24 h; RD-31 zaktualizowane (ER-67).
 
 ### [D-091] 2026-10-22 — Pytanie przy starcie drugiego wypieku: nazwa trwającego i „Przerwij” bez wpisu w dzienniku (rola 01, ER-65; M3 a1b)
 - **Rodzaj:** produktowa. **Słowa M1 (właściciel zatwierdza według rekomendacji):** „ER-65 rozstrzygnięte według rekomendacji, zgodnie z Twoją opcją (a): „Przerwij” jak w M3, bez wpisu w Dzienniku, i nazwa trwającego wypieku w pytaniu” (2026-10-22).
@@ -395,3 +396,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dlaczego:** pasek kalendarza, karta zakwasu i powiadomienie muszą wskazywać ten sam dzień i tę samą godzinę (RYZ-22, RYZ-23); użytkownik liczy dni zakładania według kalendarza, a godzina karmienia „o 10:00” nie wędruje po zmianie czasu.
 - **Skutki:** zmienione testy: `starter-setup.test.ts` (setupDay), `zakwas-104-ekrany.test.tsx` (dzień po północy), `notification-plan.test.ts`, `notifications-pending.test.tsx`, `zakwas-widok.test.tsx`, `karta-lodowki-503.test.tsx` (termin lodówki). Bez zmiany schematu, formatu danych i kopii (partia D1). BRD (RD-31, BR-ZAKW-005) i ADR-006 (stała `FEED_FRIDGE_DUE_AFTER_MS`, teraz `FEED_FRIDGE_DUE_AFTER_DAYS`) do uzgodnienia przez role 01 i 05.
 - **Zależy od:** D-090 (dzień lokalny, RD-29, RD-30), D-092 (kalendarz w 1.0); klucz komunikatu D-13 w 33 językach czeka na przebieg a5 (`docs/lokalizacja/czeka-na-przeklad.json`).
+
+### [D-094] 2026-10-22 — Linia „Następne”: 3 pozycje przyszłe, „Pomiń” od chwili pominięcia, poza kopią; dwa wypieki jako jedna spirala z dwoma torami (rola 01, OP-59, OP-60)
+- **Rodzaj:** produktowa. **Słowa właściciela (przez M1, 2026-10-22):** „Limit „Następne”: ile przyszłych zdarzeń w zdaniu; zaległe zawsze ponad limit, reszta pod „+N - zgodnie z rekomendacja. „Pomiń” przy karmieniu: następny termin liczony od chwili pominięcia (a) czy od ostatniego dokarmienia - zgodnie z reko.” oraz wybór „dwa wypieki naraz jako jedna spirala z dwoma torami” (relacja M1).
+- **Decyzja:** (1) linia „Następne” pokazuje najwyżej 3 pozycje przyszłe, pozycje „Zaległe” zawsze ponad limit, reszta pod „+N” (RD-32); (2) po „Pomiń” przy karmieniu następny termin liczy się od chwili pominięcia według RD-25; (3) pominięcia nie wchodzą do kopii zapasowej, więc po imporcie przeterminowane karmienie wraca jako „Zaległe”; (4) dwa wypieki naraz na prowadzeniu i na „Dziś” jako jedna spirala z dwoma torami (BR-KAL-016).
+- **Odrzucone:** inny limit (2 albo bez limitu); następny termin od ostatniego dokarmienia (zaległość wracałaby od razu); pominięcia w kopii; dwie osobne spirale.
+- **Dlaczego:** nic nie znika po cichu (ER-66), a linia zostaje jednym zdaniem; pominięcie jest decyzją chwili, nie danymi do przeniesienia.
+- **Zależy od:** D-092 (zakres 1.0), ER-66, ER-68.

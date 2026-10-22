@@ -108,7 +108,7 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 
 ### J-13: Zgrać wypiek i zakwas z tygodniem
 - Kiedy piekę w wybrany dzień (weekend, goście) albo co tydzień, a zakwas trzymam w lodówce, chcę w jednym spojrzeniu widzieć, co i kiedy zrobić w najbliższych dniach (obudzić i karmić zakwas, zamieszać ciasto, schłodzić, upiec) i co zrobiłem ostatnio, żeby zmieścić pieczenie w pracy i nie zacząć za późno.
-- Siły zmiany: pcha to, że pieczenie na zakwasie trudno zmieścić w dniu pracy („difficult to work out how to fit baking sourdough around a working day”, S-68) i wielodniowy łańcuch karmień przed wypiekiem z lodówki (S-65: dwa dni po dwa karmienia przed mieszaniem); przyciąga gotowy szablon tygodnia (S-65) i kilka wypieków naraz (S-14, rec. 6384160131); obawa: zakwas niegotowy w dniu ciasta (BR-ZAKW-006), za długie zaniedbanie w lodówce (S-65: „just very hungry”); nawyk: kartka, kalendarz telefonu, pamięć.
+- Siły zmiany: pcha to, że pieczenie na zakwasie trudno zmieścić w dniu pracy („difficult to work out how to fit baking sourdough around a working day”, S-68) i wielodniowy łańcuch karmień przed wypiekiem z lodówki (S-65: dwa dni po dwa karmienia przed mieszaniem) — to dowód potrzeby, a plan w aplikacji ma jedno karmienie budzące 12 h przed mieszaniem (D-052, RD-33, ER-69); przyciąga gotowy szablon tygodnia (S-65) i kilka wypieków naraz (S-14, rec. 6384160131); obawa: zakwas niegotowy w dniu ciasta (BR-ZAKW-006), za długie zaniedbanie w lodówce (S-65: „just very hungry”); nawyk: kartka, kalendarz telefonu, pamięć.
 - Dziś: harmonogram w głowie albo na kartce według blogów (S-65, S-68), fora (S-69), kalendarz telefonu; w aplikacjach plan jednego wypieku od godziny „gotowe” (Rise, BreadMe) — porównanie z konkurencją w `wymagania-kalendarz.md` i raporcie badania.
 - Częstotliwość: przy każdym wypieku planowanym na dzień (około raz w tygodniu: S-24, rec. 8870010975) i przy karmieniu w lodówce raz w tygodniu (RD-25, S-44); orientacja „co dziś” przy każdym wejściu [OCENA].
 - Dowód: S-65 (szczebel 4, pełny tydzień wstecz od niedzielnego wypieku), S-68 (szczebel 4), S-69 (6 wątków Fresh Loaf 2013–2018 o dopasowaniu do pracy, szczebel 5, próba nielosowa), S-90 (rano formowanie, wieczorem ciasto); zapomniane karmienie (S-83, S-84); żytni plan 4-dniowy z karmieniem w stałe dni (S-85); zlecenie właściciela 2026-10-22 (kalendarz na „Dziś” jak w Treningu). Osoby: P-6, P-7, P-8, P-9, P-10, P-11, P-12. Zależy od: ZAL-051, ZAL-052.
@@ -391,6 +391,7 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
   - (d) pasek z planowaniem na przyszłe dni już w 1.0 (BR-KAL-009) — kilka dni / kilka godzin plus test migracji; największa wartość; ryzyko wysokie: zmiana schematu przed wydaniem, przesunięcie 1.0.
 - Rekomendacja (po przeglądzie osób 2026-10-22): (b+), jeśli rola 03 potwierdzi, że mieści się w oknie wydania bez jego przesunięcia (przekład, build, E2E 0:00–15:00); w przeciwnym razie (c) w 1.0, a pasek i skrót w 1.0.1. (d) odradzam przed wydaniem. Macierz osób, problemów i funkcji: raport badania.
 - Jak sprawdzić najtaniej: przejście poznawcze roli 04 na makietach M3 (pasek z danymi, pusty, 320 pt, AX5); po wydaniu recenzje o „Dziś” i o planowaniu.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
 
 ### H-16: Bez danych kalendarz się nie pokazuje
 - Rodzaj: zakres, projekt · Rejestr: ZAL-053 · Rozstrzyga: właściciel z rolą 04 (OP-51)
@@ -401,16 +402,19 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
 - Rodzaj: zakres, wartość · Rejestr: ZAL-052 · Rozstrzyga: rola 03 (wersja 1.1)
 - Za: szablon tygodnia z karmieniami w dniach przed mieszaniem (S-65, S-68); 6 wątków o dopasowaniu wypieku do pracy (S-69); skarga na brak godziny końca (S-80); prośba o kilka wypieków naraz (S-14, rec. 6384160131); stały rytm karmienia jako prośba spoza kategorii (raport badania, WaterMe „XX times a week”). Przeciw: nowy zapis i migracja (zasada wspólna 10), limit powiadomień (OG-10), więcej stanów do przetestowania.
 - Opcje: (a) 1.1: kilka planów na przyszłe dni z kalendarza i stały dzień karmienia w lodówce (BR-KAL-009, BR-KAL-010); (b) tylko kilka planów, rytm karmienia jak dziś (od ostatniego dokarmienia); (c) bez planowania z kalendarza. Rekomendacja: (a), z przeglądaniem tygodni (BR-KAL-008) w 1.0.1.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
 
 ### H-18: Plan wypieku w kalendarzu telefonu przez edytor systemowy
 - Rodzaj: zakres · Rejestr: ZAL-054 · Rozstrzyga: rola 03 z rolą 05
 - Za: „schedule I can put in my phone” (S-16, rec. 14207280110); bez prośby o dostęp (OG-08); żadna aplikacja z kategorii tego nie ma (raport badania); KL-09 czeka na BR. Przeciw: nowa zależność natywna (`expo-calendar` nie ma w `package.json`); wydarzenie w kalendarzu nie zmienia się po przesunięciu kroku.
 - Opcje: (a) edytor systemowy (EventKitUI) z planu wypieku; (b) plik .ics przez arkusz udostępniania (`expo-sharing` już jest), jeśli iOS otwiera go w Kalendarzu (OP-50); (c) bez eksportu. Rekomendacja: (a) razem z H-17 (a) w 1.1, wcześniej niż „1.2+” w pomyśle M1.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
 
 ### H-19: Widżet, miesiąc i podpowiedzi z historii po potwierdzeniu wartości
 - Rodzaj: zakres · Rejestr: ZAL-051 · Rozstrzyga: rola 03
 - Za: widżety w opisie Levain i 2 z 338 recenzji (S-25, S-26); oficjalne `expo-widgets` (S-73). Przeciw: słaby dowód; widżet to drugi cel budowania z App Group (OG-09); widok miesiąca i podpowiedzi bez dowodu z recenzji; Live Activity wycięta i ograniczona do 8 h (OG-11, D-031).
 - Opcje: (a) 1.2+ po sygnale z recenzji po wydaniu 1.1; (b) widżet razem z 1.1. Rekomendacja: (a).
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
 
 ### H-20: Dwa wypieki naraz po wydaniu, ale bez cichego zastąpienia już w 1.0
 - Rodzaj: zakres · Rejestr: ZAL-059 · Rozstrzyga: rola 03 i właściciel (pytanie właściciela 2026-10-22: „A co jezeli ktos bedzie mial dwa wypieki na raz w tym samym czasie?”)
@@ -421,6 +425,7 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
   - (b) jak (a), ale prowadzenie dwóch naraz dopiero w 1.2+ po sygnale z recenzji; w 1.1 plany tylko następują po sobie;
   - (c) bez zmian w 1.0 — trwający wypiek nadal może zniknąć bez pytania.
 - Rekomendacja: (a): jedna migracja na wiele wypieków zamiast dwóch, a BR-ETAP-006 w 1.0 chroni trwający wypiek. (c) odradzam (zasada wspólna 5: utrata danych ma priorytet).
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006); dwa wypieki jako jedna spirala z dwoma torami (D-094).
 
 ## Ryzyka produktu (RYZ)
 
@@ -460,7 +465,7 @@ Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
 - Realny. Rejestr roli 06 wycofał twierdzenia o lekkostrawności i o pH zabijającym bakterie (LEK-TRA-900, ZAK-PH-900, FIS-PAT-900); każde twierdzenie zdrowotne tylko ze szczebla 1–3 (D-035).
 
 ### RYZ-22: Kalendarz pokazuje inny termin niż karta zakwasu albo powiadomienie
-- Realny, jeśli kalendarz liczy terminy osobno. Dziś termin karmienia liczy `planFeedingNotifications` (`src/core/notification-plan.ts:140`), a dzień zakładania `setupDay` (`src/core/starter-log.ts:41`, okresy 24 h, nie dni kalendarza). Ochrona: jedna funkcja źródłowa dla karty, powiadomienia i paska (BR-KAL-002, RD-31).
+- Realny, jeśli kalendarz liczy terminy osobno. Dziś termin karmienia liczy `planFeedingNotifications` (`src/core/notification-plan.ts:140`), a dzień zakładania `setupDay` (`src/core/starter-log.ts:41`, okresy 24 h, nie dni kalendarza; zmiana na dni kalendarza: D-093, partia D0 toru D). Ochrona: jedna funkcja źródłowa dla karty, powiadomienia i paska (BR-KAL-002, RD-31).
 
 ### RYZ-23: Zdarzenie w złym dniu przy zmianie czasu, północy albo podróży
 - Brzegowy. Dodanie 7 × 24 h do poniedziałku 2026-10-19 w Warszawie daje niedzielę 2026-10-25 23:00 [RACHUNEK]; termin karmienia w lodówce 7 × 24 h przesuwa godzinę ścienną o 1 h (10:00 → 09:00 przy zmianie 2026-10-25, S-67). Ochrona: RD-29, RD-30, NFR-KAL-003.

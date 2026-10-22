@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-65) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-69) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -20,8 +20,8 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
-| `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-31 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
-| `errata.md` | errata ER-34…ER-65 | E3 + 2026-10-22 |
+| `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
+| `errata.md` | errata ER-34…ER-69 | E3 + 2026-10-22 |
 
 ## Otwarte pytania
 
@@ -52,11 +52,13 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-51 | [DO WYJAŚNIENIA] czy kalendarz pokazuje się bez danych (H-16) | właściciel z rolą 04 | BR-KAL-005 |
 | OP-52 | [DO WYJAŚNIENIA] od jakiego rozmiaru tekstu pasek przechodzi w listę dni | rola 04 | NFR-KAL-002 |
 | OP-53 | [DO USTALENIA] czy `getCalendars().firstWeekday` oddaje wybór „pierwszy dzień tygodnia” w ustawieniach iOS i co przy pustej wartości; `Intl.Locale` nie jest na liście API Hermes | test na urządzeniu, rola 05 | RD-30 |
-| OP-54 | [DO WYJAŚNIENIA] numer dnia zakładania zakwasu: okresy 24 h od startu (dziś) czy dni kalendarza | właściciel z rolą 06 | RD-31, BR-ZAKW-005 |
+| OP-54 | Rozstrzygnięte 2026-10-22 (D-093, właściciel przez M1): numer dnia zakładania liczony dniami kalendarza, dzień 1 = dzień założenia | właściciel | RD-31, BR-ZAKW-005 |
 | OP-55 | [DO WYJAŚNIENIA] potwierdzenie roli 02, że brak następnego karmienia na pasku w trybie „tylko historia” to wykładnia D-038, a nie zmiana podziału | rola 02 | BR-KAL-006 |
 | OP-56 | [DO USTALENIA] limit oczekujących powiadomień lokalnych `UNUserNotificationCenter` (64 w dokumentacji wycofanego API, S-74) | dokumentacja Apple, rola 05 | OG-10, BR-KAL-009 |
 | OP-57 | [DO WYJAŚNIENIA] czy godziny snu mogą być różne w różne dni tygodnia (dziś jedne, D-066) | właściciel z rolą 03 | P-9, BR-HARMO-002 |
 | OP-58 | [DO USTALENIA] rytm dokarmiania zakwasu bezglutenowego ze źródła szczebla 1–3 (poradnik: 24 h na blacie) i czy aplikacja ma go obsłużyć | źródła, rola 06; zakres: rola 03 | RD-25, RYZ-21 |
+| OP-59 | Rozstrzygnięte 2026-10-22 (D-094): 3 pozycje przyszłe w linii „Następne”, „Zaległe” zawsze ponad limit, reszta pod „+N” | właściciel | RD-32, BR-KAL-003 |
+| OP-60 | Rozstrzygnięte 2026-10-22 (D-094): po „Pomiń” karmienia następny termin od chwili pominięcia; pominięcia poza kopią zapasową | właściciel | RD-32, BR-KAL-003, BR-KAL-007 |
 
 ## Blokery wydania
 
@@ -73,4 +75,4 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 - BR-UST-003: polityka sklepu (OG-04).
 - BR-OPIN-001, BR-OPIN-002: polityka sklepu (OG-07: tylko systemowa prośba o ocenę).
 - BR-PRYW-001, NFR-OFF-001, NFR-PRYW-001: obietnica prywatności.
-- Kalendarz (BR-KAL) nie jest blokerem, dopóki rola 03 nie włączy go do wydania (H-15). Po włączeniu blokerem jest BR-KAL-007 (kalendarz nie zmienia danych), a przy wersji z planami BR-KAL-009 w scenariuszu aktualizacji (utrata trwającego wypieku).
+- Kalendarz w 1.0 (D-092): blokerami są BR-KAL-007 (decyzje bez zmiany danych wypieków i zakwasów) i BR-KAL-009 w scenariuszu aktualizacji z wersji z jednym planem (utrata trwającego wypieku przy migracji).
