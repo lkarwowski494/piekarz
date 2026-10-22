@@ -70,6 +70,10 @@ PRAGMA cache_size = -64000; -- 64MB cache w RAM
 | `pending_ops` | `id TEXT` | Kolejka Outbox zdarzeń Apple Watch | `status IN ('PENDING', 'PROCESSING', 'SYNCED')` |
 | `starter_entries` (v5, projekt ADR-008, jeszcze nie w kodzie) | `id TEXT` | Dziennik zakwasu: dokarmienia i obserwacje, poprawa wpisu w miejscu (F-60…F-62, F-64); `starter_id` → `starters(id) ON DELETE CASCADE` — pierwszy klucz obcy w schemacie | wykonywane: `kind IN ('feeding','observation')`, `occurred_at > 0`, gramy > 0, `signs` jako tablica JSON, ilości tylko przy `feeding` |
 
+| `bake_sessions` (v6, D-102) | `id TEXT` | Trwające i zaplanowane wypieki, wiersz na wypiek (`session_json`: sesja v2 albo plan v1); zapis UPSERT, limity 2 i 5 z `src/core/limity-wypiekow.ts`; bez kluczy obcych | `status IN ('active','planned')` |
+
+Od v6 `bakes.recipe_id` (receptura wpisu, NULL dla wpisów sprzed v6) i stały dzień karmienia w `starters` (`fridge_feed_weekday` 1–7 ISO, `fridge_feed_minute` 0–1439, CHECK); trwająca sesja nie leży już w `app_settings.active_bake_session` (D-102).
+
 Od v5 `starters` dostaje `setup_started_at` i `setup_completed_at` (zakładanie zakwasu, dzień N), a „ostatnie dokarmienie” (`lastFedAt`, `feedingRatio`) aplikacja wylicza z najnowszego wpisu `feeding`; kolumn `last_fed_at` i `last_feed_ratio` od v5 nie zapisuje ani nie czyta (ADR-008).
 
 ### 2.3 Indeksy B-Tree pod Zapytania o Złożoności $O(\log N)$ i Czasie < 5ms
@@ -136,6 +140,7 @@ Zgodnie z decyzjami `DEC-03`, `DEC-45` oraz `ADR-005`:
 - Test na bazach każdej wydanej wersji: `src/data/__tests__/starter-feeding-ratio.sqlite.test.ts` i `testflight-migration.sqlite.test.ts` (fikstury `fixtures/schema-<commit>.sql`).
 - Wydane wersje schematu (tagi TestFlight, `git show <tag>:src/data/`): `v1.0.0-b1006`, `b1007`, `b1012` — `user_version = 0` (fikstury `schema-adfe1fa.sql`, `schema-b21c194.sql`; wcześniejszy build `schema-70fd81a.sql`), `v1.0.0-b1013` — `user_version = 3` (`schema-ebd8471.sql`). Migracja 4 nie weszła jeszcze do żadnego otagowanego buildu.
 - **Migracja 5 (projekt 2026-10-20, ADR-008; kod: rola 08):** tabela `starter_entries` z kluczem obcym do `starters`, indeks, kolumny `starters.setup_started_at` i `setup_completed_at`, wypełnienie jednym wpisem `feeding` na zakwas z `last_fed_at > 0`. Bez przebudowy tabel. Warunek wstępny: wszystkie zapisy na jednym połączeniu z `PRAGMA foreign_keys = ON` (dziś pragma jest ustawiana w `applySchemaMigrations`, a `getDb` może przy starcie otworzyć bazę dwa razy). Format kopii zapasowej rośnie do `schemaVersion` 2 (dziennik zakwasu w `starterEntries`).
+- **Migracja 6 (M3 D1, D-102):** tabela `bake_sessions` z indeksem, `bakes.recipe_id`, `starters.fridge_feed_weekday` i `fridge_feed_minute`; sesja z `app_settings.active_bake_session` (v1 albo v2) przechodzi jako wiersz `active`, a klucz jest kasowany w tej samej transakcji. Krok `przed` (po kopii `VACUUM INTO`, przed `BEGIN`) zapisuje surową starą sesję w `Backup/kopie-ratunkowe/sesja-przed-migracja-*.json`; bez tego pliku migracja nie rusza (D1-6). Wydany build 1014 (f42c0d8) ma `user_version = 5`; test na jego kopii: `src/data/__tests__/migracja-d1-1014.sqlite.test.ts` (fikstura `tests/fixtures/baza-1014-f42c0d8.sql`). Kopia zostaje w formacie 2 z polami opcjonalnymi `recipeId` i `fridgeFeedDay`.
 
 ---
 

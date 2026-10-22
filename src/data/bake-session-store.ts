@@ -1,18 +1,23 @@
 // ============================================================================
-// Piekarz — zapis trwającego wypieku w bazie (app_settings) [M1-audytor-generalny-019]
+// Piekarz — format trwającego wypieku i jego parsowanie [M1-audytor-generalny-019]
 // Odczyt z bazy parsowany z `unknown`: uszkodzony zapis daje brak sesji, nie zgadnięte dane.
 // Wersja 2 niesie kroki sesji; zapis bez `steps` (HEAD 1c38b28) czyta się z LEGACY_STEPS_V1 [M1-audytor-generalny-030].
+// Od v6 sesje leżą w tabeli bake_sessions (bake-sessions-store.ts, D-102); stąd re-eksport API jednej sesji [M3 D1].
 // ============================================================================
 
 import { BakeProgress, stepHasTimer, validStepIdx } from '../core/bake-session';
 import { SessionStep, areRyeSteps, isStageCategory, planBakeSteps, ryeStepsFromPlan } from '../core/bake-steps';
 import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
-import { ActiveBakeState } from './sqlite-schema';
-import { getAppSetting, setAppSetting } from './settings-store';
-import { zachowajUszkodzony } from './uszkodzone-wiersze';
+import type { ActiveBakeState } from './sqlite-schema';
 import { isObj, isNum, isStr, numOrNull, optNum, isRecipeInput, isRecipeResult } from './row-parsers';
 
+export { loadBakeSession, saveBakeSession } from './bake-sessions-store';
+
+/** Klucz app_settings trwającej sesji do v5; migracja v6 przenosi go do bake_sessions i kasuje [M3 D1]. */
 export const BAKE_SESSION_KEY = 'active_bake_session';
+
+/** Id wiersza sesji bez danych wypieku (zapis sprzed v2 bez `bake`); nowe sesje mają id wypieku [M3 D1]. */
+export const ID_SESJI_BEZ_WYPIEKU = 'sesja-1014';
 
 export interface BakeSession extends BakeProgress {
   version: 2;
@@ -48,6 +53,7 @@ export function isActiveBakeState(v: unknown): v is ActiveBakeState {
     (v.isHighRye === undefined || typeof v.isHighRye === 'boolean') &&
     (v.starterId === undefined || isStr(v.starterId)) &&
     (v.zaczetyZDostepem === undefined || typeof v.zaczetyZDostepem === 'boolean') &&
+    (v.recipeId === undefined || isStr(v.recipeId)) &&
     (v.steps === undefined || parseSteps(v.steps) !== null);
 }
 
@@ -141,15 +147,7 @@ export function pickBakeSession(inMemory: ActiveBakeState | null, saved: BakeSes
   return saved;
 }
 
-export async function loadBakeSession(): Promise<BakeSession | null> {
-  const raw = await getAppSetting(BAKE_SESSION_KEY);
-  const session = parseBakeSession(raw);
-  // Zapis, którego nie da się odczytać: surowa treść do pliku ratunkowego, zanim nowy wypiek go nadpisze [M1-audytor-generalny-121]
-  if (raw && !session) zachowajUszkodzony({ tabela: 'app_settings', id: BAKE_SESSION_KEY, surowe: raw });
-  return session;
-}
-
-/** Zapisuje postęp; null kasuje sesję (koniec albo odrzucenie wypieku). */
-export async function saveBakeSession(session: BakeSession | null): Promise<void> {
-  await setAppSetting(BAKE_SESSION_KEY, session ? JSON.stringify(session) : '');
+/** Id wiersza bake_sessions dla sesji: id wypieku. */
+export function idSesji(s: BakeSession): string {
+  return s.bake?.id ?? ID_SESJI_BEZ_WYPIEKU;
 }

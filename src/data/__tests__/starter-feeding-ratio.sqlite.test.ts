@@ -33,7 +33,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194', 'ebd8471'])('baza z wydanego bui
     useTempDbDir();
   });
 
-  it('migruje do bieżącej wersji (v5) bez strat; istniejące zakwasy bez zapisanej proporcji', async () => {
+  it('migruje do bieżącej wersji (v6) bez strat; istniejące zakwasy bez zapisanej proporcji', async () => {
     const before = seed(sha);
     const app = restartApp();
     await app.schema.initDatabase();
@@ -44,7 +44,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194', 'ebd8471'])('baza z wydanego bui
     for (const t of ['starters', 'bakes', 'recipes', 'flour_inventory', 'app_access', 'app_settings', 'lesson_progress']) {
       if (before[t] !== undefined && t !== 'recipes') expect({ table: t, count: after[t] }).toEqual({ table: t, count: before[t] });
     }
-    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 5 });
+    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 6 }); // bieżąca wersja: v6 (D-102) [M3 D1]
     expect(raw.prepare('PRAGMA integrity_check').get()).toEqual({ integrity_check: 'ok' });
     expect(raw.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
     expect(columns(raw, 'starters')).toContain('last_feed_ratio');
@@ -76,7 +76,7 @@ describe.each(['70fd81a', 'adfe1fa', 'b21c194', 'ebd8471'])('baza z wydanego bui
 
     // Ponowne uruchomienie niczego nie zmienia
     const raw = openRaw(APP_DB());
-    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 5 });
+    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 6 }); // bieżąca wersja: v6 (D-102) [M3 D1]
     expect(raw.prepare('SELECT count(*) AS c FROM starters').get()).toEqual({ c: 2 });
     raw.close();
   });

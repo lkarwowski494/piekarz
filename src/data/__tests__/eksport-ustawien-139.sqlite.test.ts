@@ -37,7 +37,8 @@ const ustawienia = (file: string) => {
 describe('139: format ustawień i lekcji w kopii', () => {
   it('KLUCZE_USTAWIEN_KOPII, dozwolony, parseUstawienia i parseLekcje: tylko dozwolone klucze z tekstem, lekcje z liczbami', () => {
     const k = require('../ustawienia-kopii') as typeof import('../ustawienia-kopii');
-    expect(k.KLUCZE_USTAWIEN_KOPII).toEqual(['language', 'unit_system', 'godziny_snu', 'selected_baking_vessel', 'baker_ritual_profile', 'has_completed_onboarding', 'przypomnienia_karmienia']);
+    // rodzaj_drozdzy dopisany decyzją D-101 (zmienia D-100, D1-3) [M3 D1]
+    expect(k.KLUCZE_USTAWIEN_KOPII).toEqual(['language', 'unit_system', 'godziny_snu', 'selected_baking_vessel', 'baker_ritual_profile', 'has_completed_onboarding', 'przypomnienia_karmienia', 'rodzaj_drozdzy']);
     expect(k.dozwolony('language')).toBe(true);
     expect(k.dozwolony('active_bake_session')).toBe(false);
     expect(k.dozwolony('platnosci_pamiec')).toBe(false);

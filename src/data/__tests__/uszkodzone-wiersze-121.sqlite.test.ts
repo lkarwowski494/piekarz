@@ -37,7 +37,8 @@ async function bazaZUszkodzeniami() {
   raw.prepare('INSERT INTO bakes (id, recipe_name, started_at, sensory_profile) VALUES (?, ?, ?, ?)').run('bake_1', 'Chleb', 1, BAD_PROFILE);
   raw.prepare('INSERT INTO starters (id, name, flour_type, hydration, birth_date, storage_state) VALUES (?, ?, ?, ?, ?, ?)').run('s1', 'Zakwas', 'Żytnia', 100, 1, 'FRIDGE');
   raw.prepare('INSERT INTO starter_entries (id, starter_id, kind, occurred_at, signs, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)').run('e_bad', 's1', 'feeding', 5, BAD_SIGNS, 5, 5);
-  raw.prepare("INSERT OR REPLACE INTO app_settings (key, value) VALUES ('active_bake_session', ?)").run(BAD_SESSION);
+  // Sesja od v6 w bake_sessions (D-102); do v5 ten sam tekst leżał w app_settings.active_bake_session [M3 D1]
+  raw.prepare("INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('bake_x', 'active', ?, 1, 1)").run(BAD_SESSION);
   raw.close();
   return restartApp();
 }
@@ -65,7 +66,7 @@ describe('Uszkodzone wiersze: plik ratunkowy i kopia przed importem (121; BR-DAN
     zachowajUszkodzony({ tabela: 'recipes', id: 'r_bad', surowe: 'inna treść' }); // ten sam wiersz: bez zmian
     await zapisUszkodzonych();
     expect(uszkodzoneWiersze().map((w) => `${w.tabela}/${w.id}`).sort()).toEqual([
-      'app_settings/active_bake_session',
+      'bake_sessions/bake_x',
       'bakes/bake_1',
       'recipes/r_bad',
       'starter_entries/e_bad',

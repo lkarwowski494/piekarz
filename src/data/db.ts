@@ -31,6 +31,16 @@ export interface StoredStarter {
   setupStartedAt?: number;
   /** Chwila „gotowy”; brak przy trwającym zakładaniu. */
   setupCompletedAt?: number;
+  /**
+   * Stały dzień karmienia w lodówce (BR-KAL-010, D1-5): dzień ISO 1–7 i minuta dnia lokalnego 0–1439; null = brak
+   * stałego dnia. Brak pola (kopia sprzed D1, odczyt bez wartości) = nie dotyczy: import zostawia wartość z telefonu [M3 D1].
+   */
+  fridgeFeedDay?: StalyDzienKarmienia | null;
+}
+
+export interface StalyDzienKarmienia {
+  weekday: number;
+  minuteOfDay: number;
 }
 
 /** Wpis dziennika zakwasu: dokarmienie albo obserwacja (tabela starter_entries, migracja v5, ADR-008). */
@@ -50,6 +60,11 @@ export interface StoredStarterEntry {
 export interface StoredBakeLog {
   id: string;
   recipeName: string;
+  /**
+   * Receptura wypieku (bakes.recipe_id, D1-7): null = brak (wpis sprzed D1 albo wypiek bez receptury). Brak pola =
+   * zapis nie dotyczy receptury: UPSERT zostawia wartość w bazie (ocena po wypieku jej nie zeruje) [M3 D1].
+   */
+  recipeId?: string | null;
   startedAt: number;
   finishedAt?: number;
   ambientTemp?: number;

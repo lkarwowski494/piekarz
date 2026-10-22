@@ -30,8 +30,9 @@ import { getFlourInventory, writeFlourRow, rememberFlour, deductFlourStock } fro
 import { writeOrThrow, getStorageState, getStorageError, StorageReadError } from './storage-status';
 import { odczytNieudany } from './odczyt';
 import { czytajUstawieniaILekcje, dozwolony, zapiszUstawieniaILekcje } from './ustawienia-kopii';
-import { BAKE_SESSION_KEY } from './bake-session-store';
+import { zakonczSesjeWTransakcji, zakonczSesjeWPamieci, type KoniecSesji } from './bake-sessions-store';
 import { zachowajUszkodzony, uszkodzoneWiersze } from './uszkodzone-wiersze';
+import { czytajNowePola, dzienPoImporcie, dzienZKolumn, wpisPoImporcie, zapiszStalyDzien } from './nowe-pola-kopii';
 
 // ==========================================
 // Bakes & Stolnica
@@ -55,8 +56,9 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
       crustScore: number | null;
       tasteProfile: string | null;
       sensoryProfileRaw: string | null;
+      recipeId: string | null;
     }>(
-      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes, crumb_score as crumbScore, crust_score as crustScore, taste_profile as tasteProfile, sensory_profile as sensoryProfileRaw FROM bakes ORDER BY started_at DESC;'
+      'SELECT id, recipe_name as recipeName, started_at as startedAt, finished_at as finishedAt, ambient_temp as ambientTemp, actual_ddt as actualDDT, rating_stars as ratingStars, notes, crumb_score as crumbScore, crust_score as crustScore, taste_profile as tasteProfile, sensory_profile as sensoryProfileRaw, recipe_id as recipeId FROM bakes ORDER BY started_at DESC;'
     );
     return rows.map((r) => {
       let sensoryProfile: StoredBakeLog['sensoryProfile'] = undefined;
@@ -82,6 +84,7 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
         crustScore: r.crustScore ?? undefined,
         tasteProfile: (r.tasteProfile as StoredBakeLog['tasteProfile']) ?? undefined,
         sensoryProfile,
+        ...(r.recipeId === null ? {} : { recipeId: r.recipeId }),
       };
     });
   } catch (e) {
@@ -91,11 +94,19 @@ export async function getBakeLogs(): Promise<StoredBakeLog[]> {
 
 type Db = NonNullable<Awaited<ReturnType<typeof getDb>>>;
 
-/** Jeden zapis wiersza wypieku dla zapisu i przywracania kopii — wszystkie kolumny [M1-audytor-generalny-002]. */
+/**
+ * Jeden zapis wiersza wypieku dla zapisu i przywracania kopii — wszystkie kolumny [M1-audytor-generalny-002].
+ * UPSERT, nie INSERT OR REPLACE (zasada wspólna 10): REPLACE usuwał wiersz, więc ocena po wypieku zerowała
+ * recipe_id. Wpis bez recipeId zostawia recipe_id w bazie [M3 D1].
+ */
 async function writeBakeRow(db: Db, log: StoredBakeLog): Promise<void> {
   await db.runAsync(
-    `INSERT OR REPLACE INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile, sensory_profile)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+    `INSERT INTO bakes (id, recipe_name, started_at, finished_at, ambient_temp, actual_ddt, rating_stars, notes, crumb_score, crust_score, taste_profile, sensory_profile, recipe_id)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(id) DO UPDATE SET recipe_name = excluded.recipe_name, started_at = excluded.started_at, finished_at = excluded.finished_at,
+       ambient_temp = excluded.ambient_temp, actual_ddt = excluded.actual_ddt, rating_stars = excluded.rating_stars, notes = excluded.notes,
+       crumb_score = excluded.crumb_score, crust_score = excluded.crust_score, taste_profile = excluded.taste_profile,
+       sensory_profile = excluded.sensory_profile, recipe_id = COALESCE(excluded.recipe_id, bakes.recipe_id);`,
     log.id,
     log.recipeName,
     log.startedAt,
@@ -107,7 +118,8 @@ async function writeBakeRow(db: Db, log: StoredBakeLog): Promise<void> {
     log.crumbScore ?? null,
     log.crustScore ?? null,
     log.tasteProfile ?? null,
-    log.sensoryProfile ? JSON.stringify(log.sensoryProfile) : null
+    log.sensoryProfile ? JSON.stringify(log.sensoryProfile) : null,
+    log.recipeId ?? null
   );
 }
 
@@ -192,23 +204,28 @@ const LAST_FEED = (col: string) =>
   `(SELECT e.${col} FROM starter_entries e WHERE e.starter_id = s.id AND e.kind = 'feeding' ORDER BY e.occurred_at DESC LIMIT 1)`;
 const STARTERS_SELECT = `SELECT s.id, s.name, s.flour_type as flourType, s.hydration, s.birth_date as birthDate, s.storage_state as storageState,
   s.setup_started_at as setupStartedAt, s.setup_completed_at as setupCompletedAt,
+  s.fridge_feed_weekday as fridgeFeedWeekday, s.fridge_feed_minute as fridgeFeedMinute,
   ${LAST_FEED('occurred_at')} as lastFedAt, ${LAST_FEED('feed_ratio')} as feedingRatio FROM starters s;`;
 
-type StarterRow = Omit<StoredStarter, 'lastFedAt' | 'feedingRatio' | 'setupStartedAt' | 'setupCompletedAt'> & {
+type StarterRow = Omit<StoredStarter, 'lastFedAt' | 'feedingRatio' | 'setupStartedAt' | 'setupCompletedAt' | 'fridgeFeedDay'> & {
   lastFedAt: number | null;
   feedingRatio: string | null;
   setupStartedAt: number | null;
   setupCompletedAt: number | null;
+  fridgeFeedWeekday: number | null;
+  fridgeFeedMinute: number | null;
 };
 
 /** Brak w bazie (NULL) zostaje brakiem (pole pominięte), bez zgadywania wartości. */
-function starterFromRow({ lastFedAt, feedingRatio, setupStartedAt, setupCompletedAt, ...s }: StarterRow): StoredStarter {
+function starterFromRow({ lastFedAt, feedingRatio, setupStartedAt, setupCompletedAt, fridgeFeedWeekday, fridgeFeedMinute, ...s }: StarterRow): StoredStarter {
+  const fridgeFeedDay = dzienZKolumn(fridgeFeedWeekday, fridgeFeedMinute);
   return {
     ...s,
     ...(lastFedAt === null ? {} : { lastFedAt }),
     ...(feedingRatio === null ? {} : { feedingRatio }),
     ...(setupStartedAt === null ? {} : { setupStartedAt }),
     ...(setupCompletedAt === null ? {} : { setupCompletedAt }),
+    ...(fridgeFeedDay === null ? {} : { fridgeFeedDay }),
   };
 }
 
@@ -318,6 +335,8 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
   }
 
   await writeOrThrow(() => db.withTransactionAsync(async () => {
+    // Pola v6 z telefonu przed DELETE: kopia bez nich (sprzed D1) ich nie zmienia; sesje i plany poza kopią [M3 D1]
+    const tel = await czytajNowePola(db);
     await db.execAsync('DELETE FROM bakes;');
     await db.execAsync('DELETE FROM starter_entries;');
     await db.execAsync('DELETE FROM starters;');
@@ -325,6 +344,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 
     for (const s of data.starters) {
       await db.runAsync(STARTER_UPSERT, ...starterParams(s));
+      await zapiszStalyDzien(db, s.id, dzienPoImporcie(s, tel));
     }
     for (const e of entries) {
       await insertStarterEntryRow(db, e, true);
@@ -344,7 +364,7 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
     }
 
     for (const b of data.bakes) {
-      await writeBakeRow(db, b);
+      await writeBakeRow(db, wpisPoImporcie(b, tel));
     }
 
     // Spiżarnia tylko z kopii, która ją niesie; kopia bez spiżarni (v1) zostawia zapasy [M1-audytor-generalny-097]
@@ -361,17 +381,20 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 /**
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
+ * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego), `clearSession`
+ * wszystkie trwające (ekrany jednej sesji do D3). Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1].
  */
 export async function finishBake(
   log: StoredBakeLog,
   flours: Array<{ name: string; weightGrams: number }>,
-  opts: { clearSession?: boolean } = {}
+  opts: KoniecSesji = {}
 ): Promise<void> {
   const db = await getDb();
   if (!db) {
-    await saveBakeLog(log);
+    const recipeId = await zakonczSesjeWTransakcji(null, opts);
+    await saveBakeLog(log.recipeId === undefined && recipeId !== undefined ? { ...log, recipeId } : log);
     for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
-    if (opts.clearSession) memStore.settings[BAKE_SESSION_KEY] = '';
+    zakonczSesjeWPamieci(opts);
     return;
   }
 
@@ -386,20 +409,20 @@ export async function finishBake(
     }
   }
 
+  let wpis = log;
   await writeOrThrow(() =>
     db.withTransactionAsync(async () => {
-      await writeBakeRow(db, log);
+      // Skasowanie sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
+      const recipeId = await zakonczSesjeWTransakcji(db, opts);
+      wpis = log.recipeId === undefined && recipeId !== undefined ? { ...log, recipeId } : log;
+      await writeBakeRow(db, wpis);
       for (const item of changed.values()) await writeFlourRow(db, item);
-      // Skasowanie trwającej sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
-      if (opts.clearSession) {
-        await db.runAsync("INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, '');", BAKE_SESSION_KEY);
-      }
     })
   );
 
   // Pamięć dopiero po zatwierdzeniu transakcji
-  if (opts.clearSession) memStore.settings[BAKE_SESSION_KEY] = '';
-  memStore.logs = [log, ...memStore.logs.filter((l) => l.id !== log.id)];
+  zakonczSesjeWPamieci(opts);
+  memStore.logs = [wpis, ...memStore.logs.filter((l) => l.id !== log.id)];
   changed.forEach(rememberFlour);
   if (log.finishedAt) {
     void collectBackupData()

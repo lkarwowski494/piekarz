@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { DoughRecipeInput, DoughRecipeResult, normalizujMaki } from '../core/domain-rules';
-import type { StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
+import type { StalyDzienKarmienia, StoredBakeLog, StoredFlourInventoryItem, StoredRecipe, StoredStarter, StoredStarterEntry } from './db';
 import { isStarterSign, type StarterSign } from '../core/starter-log';
 
 export type Obj = Record<string, unknown>;
@@ -53,11 +53,23 @@ function sensory(v: unknown): StoredBakeLog['sensoryProfile'] {
   };
 }
 
+/** Pole opcjonalne kopii v2 (D1-2): nieobecne albo złe → undefined (import zostawia telefon), null → null. */
+const optSN = (v: unknown): string | null | undefined => (v === null || isStr(v) ? v : undefined);
+
+export function parseStalyDzien(v: unknown): StalyDzienKarmienia | null | undefined {
+  if (v === null) return null;
+  if (!isObj(v) || !Number.isInteger(v.weekday) || !Number.isInteger(v.minuteOfDay)) return undefined;
+  const { weekday, minuteOfDay } = v;
+  if (!isNum(weekday) || !isNum(minuteOfDay) || weekday < 1 || weekday > 7 || minuteOfDay < 0 || minuteOfDay > 1439) return undefined;
+  return { weekday, minuteOfDay };
+}
+
 export function parseBakeRow(v: unknown): StoredBakeLog | null {
   if (!isObj(v) || !isStr(v.id) || !isStr(v.recipeName) || !isNum(v.startedAt)) return null;
   return {
     id: v.id,
     recipeName: v.recipeName,
+    recipeId: optSN(v.recipeId),
     startedAt: v.startedAt,
     finishedAt: optN(v.finishedAt),
     ambientTemp: optN(v.ambientTemp),
@@ -85,6 +97,7 @@ export function parseStarterRow(v: unknown): StoredStarter | null {
     feedingRatio: optS(v.feedingRatio),
     setupStartedAt: optN(v.setupStartedAt),
     setupCompletedAt: optN(v.setupCompletedAt),
+    fridgeFeedDay: parseStalyDzien(v.fridgeFeedDay),
   };
 }
 

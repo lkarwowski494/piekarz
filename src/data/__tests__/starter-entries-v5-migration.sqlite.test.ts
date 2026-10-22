@@ -88,7 +88,7 @@ describe.each(CASES)('baza z wydanego buildu %s migruje do v5 bez strat (104, AD
       { id: 'v5-starter_2', s: 'starter_2', kind: 'feeding', at: 1_700_000_500_000, r: fromVersion === 4 ? '1:5:5' : null, signs: '[]' },
     ]);
     expect(columns(raw, 'starters')).toEqual(expect.arrayContaining(['setup_started_at', 'setup_completed_at']));
-    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 5 });
+    expect(raw.prepare('PRAGMA user_version').get()).toEqual({ user_version: 6 }); // bieżąca wersja: v6 (D-102) [M3 D1]
     expect(raw.prepare('SELECT version FROM schema_migrations WHERE version = 5').get()).toEqual({ version: 5 });
     expect(raw.prepare('PRAGMA integrity_check').get()).toEqual({ integrity_check: 'ok' });
     expect(raw.prepare('PRAGMA foreign_key_check').all()).toEqual([]);
@@ -114,7 +114,7 @@ describe.each(CASES)('baza z wydanego buildu %s migruje do v5 bez strat (104, AD
     await again.schema.initDatabase();
     const raw2 = openRaw(APP_DB());
     expect(tableCounts(raw2)).toEqual(after);
-    expect(raw2.prepare('PRAGMA user_version').get()).toEqual({ user_version: 5 });
+    expect(raw2.prepare('PRAGMA user_version').get()).toEqual({ user_version: 6 }); // bieżąca wersja: v6 (D-102) [M3 D1]
     raw2.close();
   });
 });

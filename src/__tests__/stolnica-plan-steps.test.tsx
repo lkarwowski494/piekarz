@@ -30,9 +30,9 @@ import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import { initDatabase, getActiveBake, setActiveBake, _resetMemStore, getStarters, deleteStarter } from '../data/sqlite-store';
-import { setAppSetting } from '../data/settings-store';
-import { BAKE_SESSION_KEY, loadBakeSession, parseBakeSession, saveBakeSession } from '../data/bake-session-store';
-import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
+import { getDb } from '../data/sqlite-schema';
+import { loadBakeSession, parseBakeSession, saveBakeSession } from '../data/bake-session-store';
+import { useTempDbDir, openRaw } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { calculateReverseSchedule, StageCategory } from '../scheduler/reverse-scheduler';
 import { planBakeNotification } from '../core/notification-plan';
 import { showsPokeTestEntry } from '../core/bake-steps';
@@ -61,6 +61,20 @@ const RYE_STAGES = [
   ['rye_cool', 'Studzenie'],
 ];
 const RYE_PROOF_TEXT = 'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.';
+
+/**
+ * Surowy zapis sesji w bazie, jak zostawił go starszy build. Od v6 sesja jest wierszem bake_sessions (D-102); do v5
+ * test pisał ten sam tekst do app_settings.active_bake_session [M3 D1].
+ */
+async function zapiszSurowaSesje(raw: string): Promise<void> {
+  const file = (await getDb())?.databasePath;
+  if (!file) throw new Error('brak bazy');
+  const db = openRaw(file);
+  db.prepare(
+    "INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('surowa', 'active', ?, 0, 0) ON CONFLICT(id) DO UPDATE SET session_json = excluded.session_json"
+  ).run(raw);
+  db.close();
+}
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -390,7 +404,7 @@ describe('Stolnica z receptury i planu (030)', () => {
       ['rye_starter', 360], ['rye_mix', 15], ['rye_rest', null], ['rye_shape', 15],
       ['rye_proof', 840], ['rye_bake', 45], ['rye_cool', 1440],
     ]);
-    await setAppSetting(BAKE_SESSION_KEY, raw);
+    await zapiszSurowaSesje(raw);
     const stol = await render(<StolnicaScreen />);
     let text = textOf(stol.toJSON());
     expect(text).toContain('Razowiec po restarcie');
@@ -400,7 +414,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect((await loadBakeSession())?.timerEndsAt).toBe(ryeFixture.timerEndsAt);
     act(() => stol.unmount());
 
-    await setAppSetting(BAKE_SESSION_KEY, JSON.stringify({ ...ryeFixture, stepIdx: 2, timerEndsAt: null }));
+    await zapiszSurowaSesje(JSON.stringify({ ...ryeFixture, stepIdx: 2, timerEndsAt: null }));
     const again = await render(<StolnicaScreen />);
     text = textOf(again.toJSON());
     expect(text).toContain('Krok 3 z 7');
@@ -428,7 +442,7 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(parseBakeSession(JSON.stringify({ ...legacyFixture, version: 2, steps: steps.slice(0, 2) }))).toBeNull();
 
     jest.spyOn(Date, 'now').mockImplementation(() => now + 60_000);
-    await setAppSetting(BAKE_SESSION_KEY, raw);
+    await zapiszSurowaSesje(raw);
     const stol = await render(<StolnicaScreen />);
     const text = textOf(stol.toJSON());
     expect(text).toContain('Chleb sprzed aktualizacji');

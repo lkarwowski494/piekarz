@@ -13,6 +13,8 @@ import { MASTER_RECIPES } from '../recipes/presets';
 import { DoughRecipeResult, DoughRecipeInput } from '../core/domain-rules';
 import type { SessionStep } from '../core/bake-steps';
 import { markStorageUnavailable, markStorageNewer, markStorageReady } from './storage-status';
+import type { WierszSesji } from './bake-sessions-store';
+import { zapiszSesjePrzedMigracja, przeniesSesjeV6 } from './migracja-v6';
 
 export const DB_NAME = 'piekarz.db';
 
@@ -38,6 +40,8 @@ export interface ActiveBakeState {
    * Brak = zapis sprzed tej wersji, traktowany jak zaczęty z dostępem (wybór P-125 a) [M1-audytor-generalny-125].
    */
   zaczetyZDostepem?: boolean;
+  /** Receptura: przy końcu do bakes.recipe_id; brak = bez receptury [M3 D1]. */
+  recipeId?: string;
 }
 
 let dbInstance: SQLite.SQLiteDatabase | null = null;
@@ -52,6 +56,7 @@ export const memStore = {
   flourInventory: [] as StoredFlourInventoryItem[],
   completedLessons: [] as number[],
   activeBake: null as ActiveBakeState | null,
+  bakeSessions: [] as WierszSesji[],
   pendingOps: [] as Array<{
     id: string;
     opType: 'DOUBLE_TAP_FOLD' | 'BAKE_LOG_UPDATE' | 'FEEDING_LOGGED' | 'INVENTORY_DEDUCTED';
@@ -70,6 +75,7 @@ export function _resetMemStore(): void {
   memStore.flourInventory = [];
   memStore.completedLessons = [];
   memStore.activeBake = null;
+  memStore.bakeSessions = [];
   memStore.pendingOps = [];
   memStore.settings = {};
 }
@@ -131,6 +137,8 @@ export async function ratunekPoBledzie(msg: string): Promise<void> {
 export interface SchemaMigration {
   version: number;
   description: string;
+  /** Po kopii, przed BEGIN; błąd = migracja nie rusza (D1-6). */
+  przed?: (db: SQLite.SQLiteDatabase) => Promise<void>;
   run: (db: SQLite.SQLiteDatabase) => Promise<void>;
 }
 
@@ -297,6 +305,35 @@ export const SCHEMA_MIGRATIONS: SchemaMigration[] = [
         ON CONFLICT (id) DO NOTHING;`);
     },
   },
+  {
+    // D-102: wiersz na wypiek, recipe_id (NULL dla starych), stały dzień karmienia (ISO 1–7, minuta dnia); dane: migracja-v6.ts
+    version: 6,
+    description: 'Bake sessions list, bake recipe id, fixed fridge feeding day',
+    przed: zapiszSesjePrzedMigracja,
+    run: async (db) => {
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS bake_sessions (
+          id TEXT PRIMARY KEY NOT NULL,
+          status TEXT NOT NULL CHECK (status IN ('active', 'planned')),
+          session_json TEXT NOT NULL,
+          created_at INTEGER NOT NULL,
+          updated_at INTEGER NOT NULL
+        );
+        CREATE INDEX IF NOT EXISTS idx_bake_sessions_status ON bake_sessions(status, created_at);
+      `);
+      const bakesCols = await db.getAllAsync<{ name: string }>('PRAGMA table_info(bakes);');
+      if (!bakesCols.some((c) => c.name === 'recipe_id')) await db.execAsync('ALTER TABLE bakes ADD COLUMN recipe_id TEXT;');
+      const st = await db.getAllAsync<{ name: string }>('PRAGMA table_info(starters);');
+      if (!st.some((c) => c.name === 'fridge_feed_weekday')) {
+        await db.execAsync('ALTER TABLE starters ADD COLUMN fridge_feed_weekday INTEGER CHECK (fridge_feed_weekday IS NULL OR fridge_feed_weekday BETWEEN 1 AND 7);');
+      }
+      if (!st.some((c) => c.name === 'fridge_feed_minute')) {
+        await db.execAsync(`ALTER TABLE starters ADD COLUMN fridge_feed_minute INTEGER
+          CHECK (fridge_feed_minute IS NULL OR (fridge_feed_minute BETWEEN 0 AND 1439 AND fridge_feed_weekday IS NOT NULL));`);
+      }
+      await przeniesSesjeV6(db);
+    },
+  },
 ];
 
 export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<void> {
@@ -329,6 +366,7 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
 
   for (const m of pendingMigrations) {
     try {
+      if (m.przed) await m.przed(db);
       await db.execAsync('BEGIN TRANSACTION;');
       await m.run(db);
       await db.runAsync(

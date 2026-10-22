@@ -1,7 +1,7 @@
 /**
  * Nieudany zapis trwającego wypieku nie jest cichy, a zakończony wypiek nie wraca jako trwający
- * [M1-audytor-generalny-120; 05-architekt-501]. Prawdziwy SQLite (node:sqlite) z błędem zapisu tylko w app_settings,
- * ekran Stolnicy przy zegarze ustawionym na kilka godzin doby (SYS-06).
+ * [M1-audytor-generalny-120; 05-architekt-501]. Prawdziwy SQLite (node:sqlite) z błędem zapisu tylko w tabeli sesji
+ * (do v5 app_settings, od v6 bake_sessions: D-102 [M3 D1]), ekran Stolnicy przy zegarze ustawionym na kilka godzin doby (SYS-06).
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
@@ -95,7 +95,7 @@ describe.each(PORY)('Zapis sesji wypieku przy błędzie zapisu, zegar %s (120)',
 
   it('saveBakeSession odrzuca StorageWriteError, a po restarcie zostaje poprzedni zapis', async () => {
     await saveBakeSession(sesja(now, 1));
-    control().failWritesMatching = /app_settings/;
+    control().failWritesMatching = /bake_sessions/;
     await expect(saveBakeSession(sesja(now, 4))).rejects.toBeInstanceOf(StorageWriteError);
     control().failWritesMatching = null;
     _resetMemStore();
@@ -109,7 +109,7 @@ describe.each(PORY)('Zapis sesji wypieku przy błędzie zapisu, zegar %s (120)',
       tree = renderer.create(<StolnicaScreen />);
     });
     await flush();
-    control().failWritesMatching = /app_settings/;
+    control().failWritesMatching = /bake_sessions/;
     for (let i = 0; i < 2; i++) {
       await act(async () => {
         button(tree.root, 'Zrobione').props.onPress();
@@ -127,7 +127,7 @@ describe.each(PORY)('Zapis sesji wypieku przy błędzie zapisu, zegar %s (120)',
     const log = { id: `bake_done_${start}`, recipeName: 'Chleb B', startedAt: now, finishedAt: now + 1000 };
 
     // Błąd w środku zakończenia (kasowanie sesji): ani wpis bez skasowanej sesji, ani odwrotnie
-    control().failWritesMatching = /app_settings/;
+    control().failWritesMatching = /bake_sessions/;
     await expect(finishBake(log, [], { clearSession: true })).rejects.toBeInstanceOf(StorageWriteError);
     control().failWritesMatching = null;
     expect(await bakesInDb(log.id)).toBe(0);
