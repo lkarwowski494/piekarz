@@ -131,7 +131,15 @@ Nagłówek: „No subscriptions. Nothing renews by itself. You’ll never be cha
 Na zawsze · 14,99 USD: „Baking is my life” / „Pay once, keep it forever. Pays for itself after 15 months.”
 Do oceny u źródła w E2/E3: jak wyżej; dodatkowo jedno zdanie o żywym zakwasie, jeśli dostęp wygaśnie w trakcie jego prowadzenia. W V2 wiersz 3-miesięczny odpada.”
 
-Pierwsza ocena (pełna w E2, wymagania dla roli 04 w E3):
+**Zmiana właściciela (2026-10-22, przez M1), dosłownie:** „Mozemy zrezygnowac z podawania procentow i odniesien. po prostu same anzwy ofert. Ludzie sami zobacza ze kazda kolejna jest bardziej atrakcyjna.” Skutek (wykładnia M1): z tekstu odpadają „Save 16%”, „Save 41%” i „Pays for itself after 15 months”. Zostają nagłówek, nazwy ofert, okres i cena, ewentualnie opis bez liczb porównawczych („One more month to get to know …”, „A whole year of bakes.”, „Pay once, keep it forever.”).
+
+Ocena wersji bez porównań:
+- Ryzyko z wytycznych Komisji (MS-B18, pkt 2.8.2) i z polskiego art. 4 ust. 2 (MS-B19) **odpada**: tekst nie ogłasza obniżki ani nie podaje ceny referencyjnej. Zostaje ogólny zakaz wprowadzania w błąd co do ceny (2005/29/WE art. 6 ust. 1 lit. d, MS-B18 pkt 2.8.2), który spełniają same ceny ze sklepu.
+- Ceny lokalne przestają być problemem tekstu: nie ma procentu ani liczby miesięcy do przeliczania; cenę pokazuje `displayPrice` produktu.
+- **Najwyraźniejszy element cenowy (MS-B08):** bez porównań na wierszu są nazwa oferty, okres i jedna kwota, więc kwota do zapłaty może być największym elementem cenowym bez konkurencji z procentem. Warunek dla roli 04: cena większa niż nazwa oferty albo co najmniej wyraźniejsza od niej, i bez ceny „za miesiąc” przy planie rocznym i dożywotnim (gdyby się pojawiła, musi być mniejsza i niżej). Ocena w E3 na makiecie, nie tu.
+- Zostaje: „No subscriptions” wobec nazwy typu Apple (OP-B05); długości planów w dniach podane przy zakupie (3.1.1, MS-B01: ujawnienie długości przed próbą; dla planów: wymóg uczciwości); „[nazwa aplikacji]” z lokalizacji; zdanie o żywym zakwasie (E2).
+
+Pierwsza ocena wersji z procentami (zapis historyczny, zastąpiona zmianą wyżej):
 - „Save 16%” / „Save 41%” bez wskazania, wobec czego: porównanie musi być nazwane wprost przy cenie (MS-B18, pkt 2.8.2), a w Polsce „oszczędzasz” na planie bez wcześniejszej wyższej ceny może być czytane jak ogłoszenie obniżki (MS-B19). Bezpieczniej: „Save 16% vs. three 30-day passes”, „Save 41% vs. 12 × 30 days”. Rachunek: 2,49 / 2,97 = −16,2%; 6,99 / 11,88 = −41,2%. Uwaga: 12 × 30 dni = 360 dni, a rok 365; dla 3 mies. wobec 3 × 30 dni długość planu 3-miesięcznego musi wynosić co najmniej 90 dni, inaczej porównanie zawyża. Ustalić długości planów w dniach razem z tekstem (E2).
 - W innych walutach procent liczy się z cen lokalnych, nie z USD (PL: 4,99 zł za 30 dni → 3 mies. i rok wg cen z E2); stały „16%” w 35 językach byłby fałszywy tam, gdzie Apple przeliczy ceny inaczej. Tekst musi brać procent z `displayPrice` produktów (wymóg dla 04/08).
 - „No subscriptions”: Apple nazywa ten typ „Non-Renewing Subscription” (MS-B03); czy systemowy arkusz zakupu pokazuje słowo „subscription”: [DO USTALENIA] w sandboksie (OP-B05). Zdania „Nothing renews by itself” i „never be charged for something you forgot to cancel” są prawdziwe w V1/V2 (brak produktu odnawianego).
