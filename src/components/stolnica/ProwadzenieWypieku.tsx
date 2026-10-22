@@ -252,6 +252,7 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
   };
 
   const handleSwitchDutchOvenPhase = (phase: DutchOvenBakePhase) => {
+    if (phase === dutchOvenPhase) return; // aktywna faza: bez zerowania zegara [04-studio-projektowe-019]
     setDutchOvenPhase(phase);
     runFor(DUTCH_OVEN_PHASES[phase].durationMin * 60);
     tapHaptic(Haptics.ImpactFeedbackStyle.Medium);

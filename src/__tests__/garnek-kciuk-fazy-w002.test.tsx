@@ -38,6 +38,7 @@ import { planBakeNotification } from '../core/notification-plan';
 import { PlanWypiekuArkusz } from '../components/stolnica/PlanWypiekuArkusz';
 import { PasekKciuka } from '../components/stolnica/PasekKciuka';
 import { FinishBakeModal } from '../components/stolnica/FinishBakeModal';
+import { StrefaKroku } from '../components/stolnica/StrefaKroku';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { setLang } from '../lib/i18n';
 
@@ -91,5 +92,34 @@ describe('04-studio-projektowe-002: kciuk „Zrobione” prowadzi przez fazy gar
     const po = (await loadBakeSession())!;
     act(() => tree!.unmount());
     expect(po.stepIdx).toBe(garnek + 1);
+  });
+
+  it('04-studio-projektowe-019: ponowne stuknięcie aktywnej fazy nie zeruje zegara; zmiana fazy działa jak dotąd', async () => {
+    const start = Date.now() - 60_000;
+    const steps = planBakeSteps({ startAt: start, isHighRye: false });
+    const garnek = steps.findIndex(isDutchOvenStep);
+    setActiveBake({ id: 'bake_w019', recipeName: 'Chleb', startedAt: start, currentStageId: steps[0].id, steps });
+    let tree: renderer.ReactTestRenderer | null = null;
+    await act(async () => { tree = renderer.create(<StolnicaScreen />); });
+    await settle();
+    await act(async () => { tree!.root.findByType(PlanWypiekuArkusz).props.onGoToStep(garnek); });
+    await settle();
+    const przed = (await loadBakeSession())!;
+    expect(przed.dutchOvenPhase).toBe('lid_on');
+    const teraz = Date.now();
+    const zegar = jest.spyOn(Date, 'now').mockReturnValue(teraz + 5 * 60_000);
+    await act(async () => { tree!.root.findByType(StrefaKroku).props.onSwitchPhase('lid_on'); });
+    // Mijają 3 s i sekunda zegara (tick): ekran przelicza czas od końca kroku, odświeża się i zapisuje postęp
+    zegar.mockReturnValue(teraz + 5 * 60_000 + 3_000);
+    await act(async () => { await new Promise((r) => setTimeout(r, 1100)); });
+    await settle();
+    expect((await loadBakeSession())!.timerEndsAt).toBe(przed.timerEndsAt);
+    await act(async () => { tree!.root.findByType(StrefaKroku).props.onSwitchPhase('lid_off'); });
+    await settle();
+    const po = (await loadBakeSession())!;
+    zegar.mockRestore();
+    act(() => tree!.unmount());
+    expect(po.dutchOvenPhase).toBe('lid_off');
+    expect(po.timerEndsAt).toBe(teraz + 5 * 60_000 + 3_000 + DUTCH_OVEN_PHASES.lid_off.durationMin * 60_000);
   });
 });

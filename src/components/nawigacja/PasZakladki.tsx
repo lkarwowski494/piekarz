@@ -14,6 +14,7 @@ import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { PrzyciskNaglowka } from './PrzyciskNaglowka';
 import { IkonaStartu } from '../start/IkonaStartu';
+import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 
 export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, testID = 'pas-zakladki' }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
@@ -29,6 +30,8 @@ export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, te
   children?: React.ReactNode;
   testID?: string;
 }) {
+  // Krój Sofia reaguje na „Pogrubiony tekst” jak tytuł kroku (158) [04-studio-projektowe-014]
+  const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
   return (
     <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID}>
       {(wstecz || akcje) && (
@@ -42,7 +45,7 @@ export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, te
       )}
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
-      <Text style={styles.tytul} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
+      <Text style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
     </View>

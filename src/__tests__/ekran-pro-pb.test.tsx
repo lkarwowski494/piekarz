@@ -359,6 +359,17 @@ describe('Ustawienia: wejście do ekranu Pro, przywracanie, zarządzanie, „Zre
     expect(ekranPro(root)).toBe(true);
   });
 
+  it('04-studio-projektowe-006: zsunięcie arkusza Ustawień (onRequestClose) zamyka je jak „Zamknij”, bez ekranu Pro', async () => {
+    const zamknij = jest.fn();
+    const root = await zamontuj(<SettingsModal visible={true} onClose={zamknij} />);
+    const ustawienia = root.findAllByType(Modal).find((m) => m.props.presentationStyle === 'pageSheet');
+    await act(async () => ustawienia?.props.onRequestClose?.());
+    expect(zamknij).toHaveBeenCalledTimes(1);
+    await act(async () => ustawienia?.props.onDismiss?.());
+    await flush();
+    expect(ekranPro(root)).toBe(false);
+  });
+
   it('„Zrealizuj kod” otwiera systemowy arkusz realizacji kodu; błąd: komunikat o połączeniu z App Store', async () => {
     const root = await zamontuj(<SettingsModal visible={true} onClose={() => undefined} />);
     await nacisnij(root, 'settings-redeem-btn');

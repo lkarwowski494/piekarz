@@ -79,7 +79,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   };
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onDismiss={poZamknieciu}>
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={poZamknieciu}>
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
