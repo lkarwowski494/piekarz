@@ -19,7 +19,7 @@ export function PrzyciskNaglowka({ testID, etykieta, tekst, ikona, onPress }: {
 }) {
   return (
     <Pressable testID={testID} accessibilityRole="button" accessibilityLabel={etykieta} style={styles.przycisk} onPress={onPress}>
-      {tekst !== undefined ? <Text style={styles.tekst}>{tekst}</Text> : ikona}
+      {tekst !== undefined ? <Text style={styles.tekst} maxFontSizeMultiplier={1.5}>{tekst}</Text> : ikona}
     </Pressable>
   );
 }
