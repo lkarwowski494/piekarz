@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lad dejen hvile i 20 minutter før næste almindelige foldning.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Toppunktsvinduet er et skøn: i en undersøgelse af 40 surdeje lå dejens hævehastighed mellem 0,1 og 1,5 mm/t.',
-  'Okres próbny się skończył': 'Din prøveperiode er slut',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olivenolie på overfladen begrænser fordampningen og bevarer en saftig og luftig krumme.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Faldt sammen straks efter snitning med barberblad',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Beskriv, hvad der skete, eller hvad du vil fortælle os:',

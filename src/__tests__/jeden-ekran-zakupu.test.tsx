@@ -75,10 +75,12 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
     _resetMemStore();
     bezUprawnienia();
     // Prowadzenie z trwającym wypiekiem: bez wypieku Stolnica przekierowuje na Dziś [M1-audytor-generalny-117];
-    // wypiek jawnie zaczęty bez dostępu, bo zaczęty z dostępem prowadzi się bez kłódki (D-039) [M1-audytor-generalny-125]
+    // wypiek zaczęty bez dostępu, a mimo to bez kłódki: prowadzenie jest w Basic (D-112) [M3 P-a]
     await zacznijWypiekBezReceptury(Date.now(), { zaczetyZDostepem: false });
   });
 
+  // Przepisane z kontraktu D-038 (kłódki na całym Zakwasie i Stolnicy) na Basic/Pro [M3 P-a]: kłódka funkcji Pro na
+  // zakładce Zakwasy (proporcje dokarmiania, BR-ZAKW-002), Stolnica bez kłódki (Basic)
   it('the app has exactly one purchase screen, wherever the lock is tapped', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
@@ -86,10 +88,11 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
     });
     await flush();
     const root = tree!.root;
-    expect(locks(root)).toEqual(expect.arrayContaining(['blokada-zakwas', 'blokada-stolnica']));
+    expect(locks(root)).toContain('blokada-proporcje-zakwasu');
+    expect(locks(root)).not.toContain('blokada-stolnica');
     expect(paywalls(root).length).toBe(1);
     await act(async () => {
-      root.findAll((n) => n.props?.testID === 'blokada-stolnica' && typeof n.props.onPress === 'function')[0].props.onPress();
+      root.findAll((n) => n.props?.testID === 'blokada-proporcje-zakwasu' && typeof n.props.onPress === 'function')[0].props.onPress();
     });
     expect(paywalls(root).map((p) => p.props.visible)).toEqual([true]);
     expect(czyEkranZakupu()).toBe(true);
@@ -121,7 +124,7 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
     await flush();
     const root = tree!.root;
     await act(async () => {
-      root.findAll((n) => n.props?.testID === 'blokada-zakwas' && typeof n.props.onPress === 'function')[0].props.onPress();
+      root.findAll((n) => n.props?.testID === 'blokada-proporcje-zakwasu' && typeof n.props.onPress === 'function')[0].props.onPress();
     });
     expect(paywalls(root).some((p) => p.props.visible)).toBe(true);
 
@@ -141,7 +144,7 @@ describe('One access state and one purchase screen for all mounted tabs (025)', 
       await odswiezDostep();
     });
     await flush();
-    expect(locks(root)).toEqual(expect.arrayContaining(['blokada-zakwas', 'blokada-stolnica']));
+    expect(locks(root)).toContain('blokada-proporcje-zakwasu');
     act(() => tree!.unmount());
   });
 });

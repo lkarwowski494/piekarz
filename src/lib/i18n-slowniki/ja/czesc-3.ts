@@ -179,7 +179,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '次の通常のパンチ / 折りたたみの前に20分休ませてください。',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'ピークの時間帯は推定値です。40種類のサワー種を調べた研究では、生地の膨らむ速さは0.1から1.5 mm/hでした。',
-  'Okres próbny się skończył': '試用期間が終了しました',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '表面のオリーブオイルが蒸発を抑え、しっとりと気泡を含んだクラムを保ちます。',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'クープを入れた直後にしぼんだ',
   'Opisz, co się stało albo co chcesz nam przekazać:': '起きたことや伝えたいことを記入してください：',

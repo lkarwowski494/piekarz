@@ -140,7 +140,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Biarkan berehat selama 20 minit sebelum lipatan doh standard yang seterusnya.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Julat masa kemuncak ialah anggaran: dalam kajian terhadap 40 pemula sourdough, kadar naik doh adalah antara 0.1 hingga 1.5 mm/jam.',
-  'Okres próbny się skończył': 'Tempoh percubaan anda telah tamat',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Minyak zaitun di permukaan mengurangkan penyejatan, mengekalkan remah yang lembap dan berongga udara.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Kempis / runtuh sebaik dikelar dengan pisau cukur',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Terangkan apa yang berlaku atau apa yang ingin anda sampaikan kepada kami:',

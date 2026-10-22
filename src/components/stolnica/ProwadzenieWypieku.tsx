@@ -17,7 +17,7 @@ import { przerwijWypiek } from '../../lib/przerwij-wypiek';
 import { tapHaptic } from '../../lib/haptics';
 import { useZapisWypieku, type OdrzuconyZapis } from '../../hooks/useBakeSession';
 import { useFinishBake } from '../../hooks/useFinishBake';
-import { idSesji, zaczetyZDostepem, type BakeSession } from '../../data/bake-session-store';
+import { idSesji, type BakeSession } from '../../data/bake-session-store';
 import { ensureNotificationPermission, getNotificationPermission } from '../../lib/notifications';
 import { ZgodaPowiadomien } from './ZgodaPowiadomien';
 import { SkladnikiKroku } from './SkladnikiKroku';
@@ -230,9 +230,10 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
   const currentStep: SessionStep | undefined = steps[currentStepIdx];
   const aktywny = isActive && !!currentStep;
-  // Wypiek zaczęty z dostępem prowadzi się do końca po wygaśnięciu: kroki, „Zrobione”, „Cofnij” i zapis wyniku
-  // bez ekranu zakupu; nowy wypiek i „Piecz ponownie” zostają za strażnikiem (D-039) [M1-audytor-generalny-125]
-  const blokadaWypieku = zaczetyZDostepem(activeBakeData) ? { ...blokada('stolnica'), odblokowane: true } : blokada('stolnica');
+  // Prowadzenie wypieku jest w Basic (BR-ETAP-001…006, D-112): kroki, „Zrobione”, „Cofnij” i zapis wyniku nigdy
+  // nie otwierają ekranu Pro (zakazane wzorce: ekran Pro w trakcie kroku); wypiek zaczęty z Pro prowadzi się do końca
+  // (D-039 pkt 3) [M1-audytor-generalny-125; M3 P-a]
+  const blokadaWypieku = blokada('stolnica');
   // „Po co ten krok” z treści roli 06; krok bez źródła (KRO-POC-900) ma przycisk nieaktywny (100)
   const poCo = currentStep ? poCoTenKrok(currentStep, isDutchOvenStep(currentStep) ? dutchOvenPhase : undefined) : null;
 

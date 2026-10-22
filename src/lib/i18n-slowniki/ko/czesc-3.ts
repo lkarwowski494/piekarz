@@ -152,7 +152,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '다음 일반 늘려접기 전에 20분간 휴지하세요.',
   'OK': '확인',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': '정점 구간은 추정치예요. 사워도우 스타터 40종을 조사한 연구에서 반죽이 부푸는 속도는 0.1–1.5 mm/h였어요.',
-  'Okres próbny się skończył': '체험 기간이 끝났어요',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '표면의 올리브유가 증발을 줄여 촉촉하고 공기를 머금은 속살 (크럼)을 유지해요.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': '면도날로 쿠프를 넣자마자 꺼짐 / 주저앉음',
   'Opisz, co się stało albo co chcesz nam przekazać:': '어떤 일이 있었는지, 또는 전하고 싶은 내용을 적어 주세요:',

@@ -146,7 +146,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Deja reposar 20 minutos antes del siguiente pliegue estándar.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'La ventana del punto máximo es una estimación: en un estudio de 40 masas madre, la velocidad de crecimiento de la masa iba de 0.1 a 1.5 mm/h.',
-  'Okres próbny się skończył': 'Tu período de prueba terminó',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'El aceite de oliva en la superficie limita la evaporación y mantiene una miga jugosa y aireada.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Se desinfló / se hundió justo después del greñado con cuchilla',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Describe qué pasó o qué quieres decirnos:',

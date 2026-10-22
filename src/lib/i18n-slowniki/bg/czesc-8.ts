@@ -105,7 +105,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Намалете хидратацията с {n}%',
   'Zmniejsz masę mąki o {g} g': 'Намалете теглото на брашното с {g} г',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Намалете дела на брашно {nazwa} с {n}%',
-  'Zobacz plany': 'Вижте плановете',
   'Zostaje wgłębienie i ciasto siada:': 'Остава вдлъбнатина и тестото спада:',
   'zostało {czas}': 'още {czas}',
   'zostało {czas}, do {godzina}': 'още {czas}, до {godzina}',
@@ -140,8 +139,4 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Плосък диск (Превтасал)',
   'Płaski smak (Jałowy)': 'Плосък вкус (Безличен)',
   'Zbyt kwaśny (Octowy)': 'Прекалено кисел (Оцетен)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Без покупка историята и данните ви ще останат. Изчисленията, планирането и напътствията ще изискват Пекар Pro.',
-  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Ако абонаментът не бъде прекратен, тогава App Store ще събере плащане за избрания план.',
-  'Okres próbny kończy się {data}': 'Пробният период изтича на {data}',
-  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Абонаментът няма да се поднови, така че няма да платите нищо.',
 };

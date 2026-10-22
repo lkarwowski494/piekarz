@@ -1,0 +1,7 @@
+{
+  "opis": "Lista funkcji Basic i limity Basic wydania 1.0 (kontrakt docs/monetyzacja.md, D-112, D-113, D-116). Zasada „Basic tylko rośnie”: funkcja raz wydana w Basic nie przechodzi do Pro, limity mogą tylko rosnąć. Test: src/lib/__tests__/basic-tylko-rosnie-pa.test.ts porównuje src/lib/platnosci/konfiguracja.ts (BASIC, LIMITY_BASIC) z tym plikiem. Przy kolejnym wydaniu dodaj plik basic-<wersja>.json, nie zmieniaj tego.",
+  "wydanie": "1.0",
+  "decyzje": ["D-112", "D-113", "D-116"],
+  "basic": ["historia", "dane", "import", "kalkulator", "harmonogram", "stolnica", "zakwas", "doktor", "receptury", "akademia"],
+  "limity": { "wlasneReceptury": 5, "zakwasy": 1, "poziomyAkademii": 1 }
+}

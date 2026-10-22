@@ -1,8 +1,8 @@
 /**
- * Blokada funkcji bez okresu próbnego i zakupu: dane użytkownika czytelne (także dla VoiceOver) i niezasłonięte,
- * zablokowane tylko akcje — dotknięcie akcji w treści otwiera ekran zakupu, a wiersz z kłódką i „wymaga Piekarz Pro”
- * stoi nad treścią, nie na niej (D-039, DEC-01 d; design-spec §6 `tylko-historia`)
- * [M1-audytor-generalny-108; 04-studio-projektowe-026]. Test dla każdego ekranu z blokadą.
+ * Blokada funkcji Pro bez zakupu: dane użytkownika czytelne (także dla VoiceOver) i niezasłonięte, zablokowane tylko
+ * akcje — dotknięcie akcji w treści otwiera ekran Pro, a wiersz z kłódką i „wymaga Piekarz Pro” stoi nad treścią, nie na
+ * niej [M1-audytor-generalny-108; 04-studio-projektowe-026]. Test dla każdej blokady funkcji Pro (kontrakt Basic/Pro,
+ * D-112, D-113, D-116; wcześniej blokady całych ekranów z D-038).
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -82,16 +82,34 @@ async function dotknijTresci(b: Wezel) {
   });
 }
 
+// Przepisane z kontraktu D-038 (blokady całych ekranów) na Basic/Pro [M3 P-a]: blokady funkcji Pro w Basic (plan
+// wstecz, gotowość zakwasu, stały dzień, proporcje dokarmiania); Receptury, Doktor i Doktor zakwasu są w Basic bez blokady
 const EKRANY: [string, () => React.ReactElement, string][] = [
-  ['Plan wypieku', () => <HarmonogramScreen />, 'harmonogram'],
-  ['Receptury', () => <RecepturyScreen />, 'kalkulator'],
-  ['Zakwasy', () => <ZakwasyScreen />, 'zakwas'],
-  ['Doktor', () => <DoktorScreen />, 'doktor'],
-  // Diagnoza zakwasu za blokadą, ostrzeżenie o plamach poza nią [M1-audytor-generalny-027; 02-monetyzacja-503]
-  ['Doktor zakwasu', () => <DoktorZakwasuScreen />, 'doktor'],
+  ['Plan wypieku: „gotowe o…”', () => <HarmonogramScreen />, 'plan-wstecz'],
+  ['Zakwasy: gotowość i szczyt', () => <ZakwasyScreen />, 'gotowosc-zakwasu'],
+  ['Zakwasy: stały dzień karmienia', () => <ZakwasyScreen />, 'staly-dzien'],
+  ['Zakwasy: proporcje dokarmiania', () => <ZakwasyScreen />, 'proporcje-zakwasu'],
 ];
 
-describe('108: blokada bez uprawnienia — treść czytelna, zablokowane tylko akcje', () => {
+describe('108: Basic — ekrany Receptury, Doktor i Doktor zakwasu bez zablokowanej treści (D-112, D-113)', () => {
+  beforeEach(async () => {
+    _resetMemStore();
+    bezUprawnienia();
+    await initDatabase();
+  });
+
+  it.each([
+    ['Receptury', () => <RecepturyScreen />],
+    ['Doktor', () => <DoktorScreen />],
+    ['Doktor zakwasu', () => <DoktorZakwasuScreen />],
+  ])('%s: każda BlokadaFunkcji odblokowana', async (_n, el) => {
+    const tree = await render(el());
+    expect(tree.root.findAllByType(BlokadaFunkcji).filter((b) => b.props.odblokowane === false).map((b) => b.props.funkcja)).toEqual([]);
+    act(() => tree.unmount());
+  });
+});
+
+describe('108: blokada funkcji Pro bez uprawnienia — treść czytelna, zablokowane tylko akcje', () => {
   beforeEach(async () => {
     _resetMemStore();
     bezUprawnienia();
@@ -127,16 +145,19 @@ describe('108: blokada bez uprawnienia — treść czytelna, zablokowane tylko a
     act(() => tree.unmount());
   });
 
-  it('Dziennik: historia działa bez uprawnienia (BEZ_UPRAWNIENIA) — wpisy czytelne, bez kłódki i bez przechwytywania dotyku', async () => {
+  // Dziennik w Basic; tylko karta statystyk (porównanie, BR-RECP-004) za blokadą Pro [M3 P-a]
+  it('Dziennik: historia działa bez uprawnienia (Basic) — wpisy czytelne, kłódka tylko na statystykach', async () => {
     await saveBakeLog({ id: 'bake_108', recipeName: 'Chleb z historii', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const tree = await render(<DziennikScreen />);
-    const [b] = tree.root.findAllByType(BlokadaFunkcji);
+    const [b] = tree.root.findAllByType(BlokadaFunkcji).filter((x) => x.props.funkcja === 'historia');
     expect(b.props.odblokowane).toBe(true);
     const wynik = sprawdzBlokade(b);
     expect({ ukryte: wynik.ukryte, warstwy: wynik.warstwy, martwe: wynik.martwe }).toEqual({ ukryte: [], warstwy: 0, martwe: 0 });
     expect(b.findAllByType(Text).map(tekst).join(' | ')).toContain('Chleb z historii');
-    expect(b.findAll((n) => typeof n.props.testID === 'string' && n.props.testID.startsWith('blokada-'))).toEqual([]);
-    expect(b.findAll((n) => typeof n.type === 'string' && typeof n.props.onResponderRelease === 'function' && n.props.pointerEvents === 'box-only')).toEqual([]);
+    const zamki = b.findAll((n) => typeof n.type === 'string' && typeof n.props.testID === 'string' && /^blokada-(?!.*-tresc$)/.test(n.props.testID));
+    expect(zamki.map((n) => n.props.testID)).toEqual(['blokada-porownanie']);
+    const [staty] = tree.root.findAllByType(BlokadaFunkcji).filter((x) => x.props.funkcja === 'porownanie');
+    expect(staty.props.odblokowane).toBe(false);
     act(() => tree.unmount());
   });
 });

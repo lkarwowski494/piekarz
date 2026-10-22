@@ -5,16 +5,14 @@
 // a pamięć ostatniego udanego odczytu jest JSON-em w app_settings.
 // ============================================================================
 
-import { BEZ_UPRAWNIENIA, Funkcja } from './konfiguracja';
+import { BASIC, LIMITY_BASIC, Funkcja, Pojemnosc } from './konfiguracja';
 
 /** wygasa: ms; null = bez końca (zakup dożywotni). odebrane: zwrot albo odebranie z Family Sharing. */
 export type Uprawnienie = {
   produkt: string;
   wygasa: number | null;
   odebrane: boolean;
-  /** Bieżący okres to bezpłatna oferta wprowadzająca; brak = sklep nie podał (uprzedzenie 126 się nie pokazuje). */
-  proba?: boolean;
-  /** Stan automatycznego odnawiania; brak = nieznany (wariant neutralny uprzedzenia, §11d 126). */
+  /** Stan automatycznego odnawiania; brak = nieznany (uprzedzenie końca Pro tylko przy false, OP-M03). */
   odnawia?: boolean;
 };
 /** blad: brak sieci albo sklep niedostępny — to nie jest brak zakupu. */
@@ -46,9 +44,22 @@ export function decyzja(odczyt: Odczyt, pamiec: Pamiec, teraz: number, odblokowu
   return { dostep: ok, powod: ok ? 'pamiec' : 'brak', pamiec };
 }
 
-/** Czy funkcja działa: z uprawnieniem zawsze, bez niego tylko z listy BEZ_UPRAWNIENIA [M1-audytor-generalny-027]. */
-export function dozwolona(funkcja: Funkcja, dostep: boolean, bez: readonly Funkcja[] = BEZ_UPRAWNIENIA): boolean {
-  return dostep || bez.includes(funkcja);
+/** Czy funkcja działa: z Piekarz Pro zawsze, bez niego tylko z listy BASIC [M1-audytor-generalny-027; D-116]. */
+export function dozwolona(funkcja: Funkcja, dostep: boolean, basic: readonly Funkcja[] = BASIC): boolean {
+  return dostep || basic.includes(funkcja);
+}
+
+/**
+ * Czy wolno dodać nową rzecz (własna receptura, zakwas): z Pro zawsze, w Basic poniżej limitu pojemności. `zapisane` to
+ * liczba z bazy w chwili dodawania; zapisane ponad limitem (np. z importu) działają, blokowane jest tylko dodanie (kontrakt).
+ */
+export function mozeDodac(rodzaj: Pojemnosc, zapisane: number, pro: boolean, limity: Readonly<Record<Pojemnosc, number>> = LIMITY_BASIC): boolean {
+  return pro || zapisane < limity[rodzaj];
+}
+
+/** Funkcja lekcji Akademii: poziomy do LIMITY_BASIC.poziomyAkademii w Basic, dalsze w Pro (BR-NAUK-001). */
+export function funkcjaLekcji(poziom: number, limity: { poziomyAkademii: number } = LIMITY_BASIC): Funkcja {
+  return poziom <= limity.poziomyAkademii ? 'akademia' : 'akademia-dalej';
 }
 
 export function odczytajPamiec(tekst: unknown): Pamiec {

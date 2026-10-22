@@ -7,7 +7,7 @@
 
 import type { SessionStep } from './bake-steps';
 import type { PlanStarter } from './notification-plan';
-import { nextFixedFeeding, punktOdniesieniaKarmienia, stalyDzienKarmienia, terminKarmienia, type TekstKarmienia } from './notification-feeding';
+import { nextFixedFeeding, punktOdniesieniaKarmienia, stalyDzienKarmienia, terminKarmienia, zakwasyDoPrzypomnien, type TekstKarmienia } from './notification-feeding';
 import { pominietoKarmienieAt, type Pominiecie } from './pominiecia';
 import { addCalendarDays, localDateKey, startOfLocalDay } from './dzien-lokalny';
 import { setupDay } from './starter-log';
@@ -102,6 +102,11 @@ export interface KalendarzWpisDziennika {
 export interface DostepKalendarza {
   terminyKarmienia: boolean;
   przyszleWypieki: boolean;
+  /**
+   * Przypomnienia o dokarmianiu poza zakładaniem (Pro, D-113): false = terminy karmienia tylko zakwasów w trakcie
+   * zakładania i bez karmień budzących (Basic), jak plan powiadomień (zakwasyDoPrzypomnien); brak = wszystkie.
+   */
+  karmieniePro?: boolean;
 }
 
 export interface DaneKalendarza {
@@ -251,13 +256,15 @@ export function zdarzeniaKalendarza(dane: DaneKalendarza, now: number, zakres?: 
     ...(dostep.przyszleWypieki ? dane.zaplanowane.flatMap((p) => zdarzeniaPlanu(p, now)) : []),
   ];
   const zakwasy = new Map(dane.zakwasy.map((s) => [s.id, s]));
+  const karmieniePro = dostep.karmieniePro !== false;
+  const zTerminem = new Set(zakwasyDoPrzypomnien(dane.zakwasy, karmieniePro).map((s) => s.id));
   for (const s of dane.zakwasy) {
     out.push(...dniZakladania(s, now, zakres));
-    // Bez terminów karmienia, gdy przypomnienia są wyłączone albo nie ma dostępu (BR-KAL-006, jak plan powiadomień)
-    if (dostep.terminyKarmienia) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
+    // Bez terminów karmienia, gdy przypomnienia są wyłączone, a w Basic poza zakładaniem (BR-KAL-006, D-113, jak plan powiadomień)
+    if (dostep.terminyKarmienia && zTerminem.has(s.id)) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
   }
-  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5]
-  if (dostep.terminyKarmienia) {
+  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5]; Pro
+  if (dostep.terminyKarmienia && karmieniePro) {
     const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
     for (const k of kolejneKarmieniaBudzace(wypieki, dane.zakwasy, dane.wpisyZakwasow, now)) {
       out.push(zd({

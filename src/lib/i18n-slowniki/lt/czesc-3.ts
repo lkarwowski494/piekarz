@@ -146,7 +146,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Prieš kitą įprastą lankstymą palikite pailsėti 20 minučių.',
   'OK': 'Gerai',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Piko langas yra tik įvertis: tiriant 40 raugų, tešlos kilimo greitis svyravo nuo 0,1 iki 1,5 mm/h.',
-  'Okres próbny się skończył': 'Bandomasis laikotarpis baigėsi',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Alyvuogių aliejus paviršiuje mažina garavimą, todėl minkštimas lieka sultingas ir purus.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Subliūško iškart po įpjovimo peiliuku',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Aprašykite, kas nutiko arba ką norite mums pranešti:',

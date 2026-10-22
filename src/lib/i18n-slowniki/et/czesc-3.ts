@@ -120,7 +120,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lase 20 minutit puhata enne järgmist tavalist voltimist.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Tipuaken on hinnang: 40 juuretise uuringus oli taigna kerkimise kiirus 0,1 kuni 1,5 mm/h.',
-  'Okres próbny się skończył': 'Prooviperiood on lõppenud',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Pinnal olev oliiviõli piirab aurustumist ning hoiab sisu mahlase ja õhulisena.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Vajus kokku kohe pärast lõiketeraga sisselõikamist',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Kirjelda, mis juhtus või mida soovid meile öelda:',

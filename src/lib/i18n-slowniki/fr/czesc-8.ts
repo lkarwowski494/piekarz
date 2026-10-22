@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Wysoki udział żyta — ciasto będzie kleiste, unikaj agresywnego wyrabiania.': 'Forte proportion de seigle : la pâte sera collante, évitez un pétrissage vigoureux.',
-  'Zacznij okres próbny': 'Commencer l’essai',
   'Zakup wymaga połączenia z App Store.': 'L’achat nécessite une connexion à l’App Store.',
   'Zostawiam w słoiku': 'Je garde dans le bocal',
   '{n} dni temu': 'il y a {n} jours',

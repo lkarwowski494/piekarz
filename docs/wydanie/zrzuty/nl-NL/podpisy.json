@@ -34,7 +34,7 @@
       "podtytul": "Teruggerekend schema zonder stappen midden in de nacht",
       "oznaczenie": "vereist Bakker Pro",
       "funkcje": [
-        "harmonogram"
+        "plan-wstecz"
       ],
       "motyw": "jasny"
     },
@@ -42,7 +42,7 @@
       "plik": "02-receptura.png",
       "naglowek": "Direct de grammen van elk ingrediënt",
       "podtytul": "Meel en water uit de zuurdesemstarter tellen mee in het bakkerspercentage",
-      "oznaczenie": "vereist Bakker Pro",
+      "oznaczenie": null,
       "funkcje": [
         "kalkulator"
       ],
@@ -52,7 +52,7 @@
       "plik": "03-prowadzenie-ciemny.png",
       "naglowek": "Eén stap tegelijk",
       "podtytul": "Wat te doen, hoe lang het duurt en een melding als de stap klaar is",
-      "oznaczenie": "vereist Bakker Pro",
+      "oznaczenie": null,
       "funkcje": [
         "stolnica"
       ],
@@ -62,7 +62,7 @@
       "plik": "04-doktor.png",
       "naglowek": "Wat beter kan bij je volgende brood",
       "podtytul": "Symptomen, oorzaak en één aanpassing voor je volgende baksel",
-      "oznaczenie": "vereist Bakker Pro",
+      "oznaczenie": null,
       "funkcje": [
         "doktor"
       ],
@@ -74,7 +74,8 @@
       "podtytul": "Hoeveelheden voor het voeden en een herinnering na 12 uur",
       "oznaczenie": "vereist Bakker Pro",
       "funkcje": [
-        "zakwas"
+        "proporcje-zakwasu",
+        "przypomnienia-zakwasu"
       ],
       "motyw": "jasny"
     },
@@ -82,7 +83,7 @@
       "plik": "06-dziennik.png",
       "naglowek": "Elk baksel vastgelegd",
       "podtytul": "Beoordeel het brood en „Opnieuw bakken” met één tik",
-      "oznaczenie": "vereist Bakker Pro",
+      "oznaczenie": null,
       "funkcje": [
         "historia",
         "stolnica",

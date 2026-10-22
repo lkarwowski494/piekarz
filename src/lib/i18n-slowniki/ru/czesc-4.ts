@@ -67,7 +67,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Оставьте отдохнуть на 20 минут перед следующим обычным складыванием.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Окно пика — это оценка: в исследовании 40 заквасок скорость подъёма теста составляла от 0,1 до 1,5 мм/ч.',
-  'Okres próbny się skończył': 'Пробный период закончился',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Оливковое масло на поверхности ограничивает испарение, сохраняя мякиш сочным и воздушным.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Опал сразу после надреза лезвием',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Опишите, что произошло или что вы хотите нам сообщить:',

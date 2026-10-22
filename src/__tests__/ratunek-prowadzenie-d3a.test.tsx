@@ -100,10 +100,12 @@ describe('D3a: ratunek ciasta przy prowadzeniu (BR-DIAG-003, BR-DIAG-004)', () =
     act(() => stol.unmount());
   });
 
-  it('BR-DIAG-003 Bez dostępu: bez wypieku protokoły jak Doktor (za ofertą); w wypieku zaczętym z dostępem otwarte, z ostrzeżeniem BR-DIAG-004', async () => {
+  // Przepisane z wykładni D-104 („Doktor przy wypieku z dostępem”) na Basic/Pro [M3 P-a]: Doktor i protokoły są w Basic
+  // (BR-DIAG-001, -003…005; D-112, D-113, D-116), więc otwarte bez Pro — bez wypieku, z wypiekiem zaczętym z Pro i bez niego
+  it('BR-DIAG-003 Bez Pro: protokoły otwarte bez wypieku i przy każdym wypieku, z ostrzeżeniem BR-DIAG-004', async () => {
     bezUprawnienia();
     let tree = await render(<DoctorScreen />);
-    expect(zablokowany(chip(tree.root, 'FORGOTTEN_SALT'))).toBe(true);
+    expect(zablokowany(chip(tree.root, 'FORGOTTEN_SALT'))).toBe(false);
     act(() => tree.unmount());
 
     await zacznijWypiekBezReceptury(now, { zaczetyZDostepem: true });
@@ -117,11 +119,11 @@ describe('D3a: ratunek ciasta przy prowadzeniu (BR-DIAG-003, BR-DIAG-004)', () =
     expect(karta.findAllByType(Text).map((x) => [x.props.children].flat().join('')).join(' ')).toMatch(/Nie próbuj ciasta.*FDA/);
     act(() => tree.unmount());
 
-    // Wypiek bez znacznika dostępu z planu (zaczety false): jak bez wypieku
+    // Wypiek zaczęty bez Pro (zaczety false): też otwarte
     await saveBakeSession(null);
     await zacznijWypiekBezReceptury(now, { zaczetyZDostepem: false });
     tree = await render(<DoctorScreen />);
-    expect(zablokowany(chip(tree.root, 'FORGOTTEN_SALT'))).toBe(true);
+    expect(zablokowany(chip(tree.root, 'FORGOTTEN_SALT'))).toBe(false);
     act(() => tree.unmount());
   });
 

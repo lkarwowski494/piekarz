@@ -13,23 +13,19 @@ import {
 } from '../start-stan';
 import { trasaZPowiadomienia, type TrasaPowiadomienia } from '../../core/notification-plan';
 
+// Przepisane z kontraktu D-038 [M3 P-a]: stan „tylko historia” (F-67, po próbie bez zakupu) odpadł — Basic działa
+// zawsze (D-112), więc stan Startu zależy tylko od trwającego wypieku
 describe('stanStartu', () => {
-  it('trwający wypiek ma pierwszeństwo przed wszystkim', () => {
-    expect(stanStartu({ trwaWypiek: true, dostep: false, maDane: true })).toBe('trwa-wypiek');
-    expect(stanStartu({ trwaWypiek: true, dostep: true, maDane: false })).toBe('trwa-wypiek');
+  it('trwający wypiek ma pierwszeństwo', () => {
+    expect(stanStartu({ trwaWypiek: true })).toBe('trwa-wypiek');
   });
-  it('bez uprawnienia z własnymi danymi: tylko historia (F-67)', () => {
-    expect(stanStartu({ trwaWypiek: false, dostep: false, maDane: true })).toBe('tylko-historia');
+  it('bez trwającego wypieku: wybór czynności, także bez Pro i z własnymi danymi (dawniej „tylko historia”, F-67)', () => {
+    expect(stanStartu({ trwaWypiek: false })).toBe('wybor');
   });
-  it('wymiar StanStartu: trzy stany makiety Startu', () => {
-    const stany: StanStartu[] = ['wybor', 'trwa-wypiek', 'tylko-historia'];
-    const wyniki = new Set<StanStartu>();
-    for (const trwaWypiek of [true, false]) for (const dostep of [true, false]) for (const maDane of [true, false]) wyniki.add(stanStartu({ trwaWypiek, dostep, maDane }));
+  it('wymiar StanStartu: dwa stany makiety Startu', () => {
+    const stany: StanStartu[] = ['wybor', 'trwa-wypiek'];
+    const wyniki = new Set<StanStartu>([true, false].map((trwaWypiek) => stanStartu({ trwaWypiek })));
     expect([...wyniki].sort()).toEqual([...stany].sort());
-  });
-  it('pierwsze uruchomienie (bez danych, bez zakupu) i powrót z dostępem: wybór czynności bez kłódek', () => {
-    expect(stanStartu({ trwaWypiek: false, dostep: false, maDane: false })).toBe('wybor');
-    expect(stanStartu({ trwaWypiek: false, dostep: true, maDane: true })).toBe('wybor');
   });
 });
 

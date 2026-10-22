@@ -187,7 +187,6 @@ export const CZESC: Record<string, string> = {
   'Tu zapiszą się twoje wypieki': '你的烘焙紀錄會顯示在這裡',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': '你的資料沒有變更，但 App 目前無法讀取或儲存資料。請重新啟動 App。若問題再次發生，請釋放手機儲存空間。',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': '你的資料已儲存在手機中。再試一次之前，你可以先匯出一份副本。',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': '你仍可查看、匯出和刪除你的配方、天然酵母起種和日誌。餵養提醒已關閉。計算、計畫和引導功能需要 麵包師傅 Pro。',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': '只用白麵粉：根據 King Arthur Baking，天然酵母起種的啟動可能會稍慢。',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': '這種麵粉未列於波蘭標準 PN-A-74022:2003：各磨坊依自家技術規格生產。顏色較深的麵包用麵粉，酵素活性較高，帶有堅果香氣。',
   'Typ mąki': '麵粉種類',

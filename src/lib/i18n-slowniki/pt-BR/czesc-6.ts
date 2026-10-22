@@ -154,7 +154,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Diminuir hidratação em {n}%',
   'Zmniejsz masę mąki o {g} g': 'Diminuir o peso da farinha em {g} g',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Diminuir a proporção da farinha {nazwa} em {n}%',
-  'Zobacz plany': 'Ver planos',
   'Zostaje wgłębienie i ciasto siada:': 'A marca permanece e a massa murcha:',
   'zostało {czas}': 'tempo restante: {czas}',
   'zostało {czas}, do {godzina}': 'tempo restante: {czas}, até {godzina}',

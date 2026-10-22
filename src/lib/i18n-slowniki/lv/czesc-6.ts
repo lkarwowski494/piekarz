@@ -146,7 +146,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Samazināt mīklas hidrāciju par {n}%',
   'Zmniejsz masę mąki o {g} g': 'Samazināt miltu masu par {g} g',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Samazināt miltu {nazwa} daļu par {n}%',
-  'Zobacz plany': 'Skatīt plānus',
   'Zostaje wgłębienie i ciasto siada:': 'Iedobums paliek, un mīkla saplok:',
   'zostało {czas}': 'vēl {czas}',
   'zostało {czas}, do {godzina}': 'vēl {czas}, līdz plkst. {godzina}',
@@ -181,5 +180,4 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Plakans disks (Pārraudzēts)',
   'Płaski smak (Jałowy)': 'Blāva garša (Pliekana)',
   'Zbyt kwaśny (Octowy)': 'Pārāk skābs (Etiķains)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Bez pirkuma saglabāsies vēsture un jūsu dati. Aprēķiniem, plānam un vadībai būs nepieciešams Maiznieks Pro.',
 };

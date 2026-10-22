@@ -38,8 +38,7 @@ import renderer, { act } from 'react-test-renderer';
 import * as Iap from 'expo-iap';
 import StartScreen from '../../app/(tabs)/(dzis)/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
-import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveStarter, getAppSetting, setAppSetting, saveBakeLog } from '../data/sqlite-store';
-import { KLUCZ_HISTORII_DOSTEPU } from '../lib/platnosci/konfiguracja';
+import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveStarter, getAppSetting, saveBakeLog } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { loadActiveBakeSessionsZWersja } from '../data/bake-sessions-store';
 import { KLUCZ_POMINIEC } from '../data/pominiecia-store';
@@ -304,9 +303,10 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/dziennik', params: { wpis: 'wpis-1' } });
   });
 
-  it('BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: po próbie wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia', async () => {
+  // Przepisane z kontraktu D-038 („po próbie”, kłódki na kaflach) na Basic/Pro [M3 P-a]: bez Pro przeszłość zawsze,
+  // bez terminów dokarmiania gotowego zakwasu (D-113), bez kłódek na kaflach (Basic, D-112)
+  it('BR-KAL-006 Przeszłość zawsze i bez terminów karmienia: bez Pro wpis Dziennika na pasku bez kłódek, bez „Następne” karmienia', async () => {
     await pustaBaza();
-    await setAppSetting(KLUCZ_HISTORII_DOSTEPU, 'proba');
     await saveBakeLog({ id: 'wpis-1', recipeName: 'Wiejski', startedAt: Date.now() - 3 * H, finishedAt: Date.now() - 2 * H, ratingStars: 4 });
     await saveStarter({ id: 'zyt', name: 'Żytni', flourType: 'x', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: Date.now() - 20 * H });
     const root = await renderStart();
@@ -317,8 +317,8 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(naPasie).not.toContain('wymaga Piekarz Pro');
     expect(naPasie).not.toContain('Zaległe:');
     expect(naPasie).not.toContain('Następne:');
-    // Kłódki zostają tylko na kaflach (stan „tylko historia”)
-    expect(teksty(root)).toContain('wymaga Piekarz Pro');
+    // Kafle bez kłódek: trzy czynności w Basic
+    expect(teksty(root)).not.toContain('wymaga Piekarz Pro');
   });
 
   it('BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {

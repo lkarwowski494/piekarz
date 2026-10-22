@@ -49,18 +49,15 @@ export function uprawnienieZTransakcji(p: Purchase): Uprawnienie | null {
   // Subskrypcja bez daty końca to dane, których nie rozumiemy: nie dajemy z niej dostępu „na zawsze”.
   if (wygasa === null && SUBSKRYPCJE.includes(p.productId)) return null;
   const odebrane = liczba(Reflect.get(p, 'revocationDateIOS')) !== null;
-  return { produkt: p.productId, wygasa, odebrane, ...ofertaIOdnawianie(p) };
+  return { produkt: p.productId, wygasa, odebrane, ...odnawianie(p) };
 }
 
 /**
- * Okres próbny i odnawianie z transakcji (offerIOS, renewalInfoIOS w expo-iap; OP-M03: czy StoreKit je wypełnia,
- * potwierdzi sandbox). Pole bez danych zostaje pominięte, nie zgadnięte [M1-audytor-generalny-126].
+ * Odnawianie z transakcji (renewalInfoIOS w expo-iap; OP-M03: czy StoreKit je wypełnia, potwierdzi sandbox) do
+ * uprzedzenia o końcu Pro (D-113). Pole bez danych zostaje pominięte, nie zgadnięte. Bez oferty wprowadzającej (D-112).
  */
-function ofertaIOdnawianie(p: Purchase): Pick<Uprawnienie, 'proba' | 'odnawia'> {
-  const wynik: Pick<Uprawnienie, 'proba' | 'odnawia'> = {};
-  const oferta: unknown = Reflect.get(p, 'offerIOS');
-  const tryb = typeof oferta === 'object' && oferta !== null ? Reflect.get(oferta, 'paymentMode') : undefined;
-  if (typeof tryb === 'string' && tryb) wynik.proba = /free.?trial/i.test(tryb);
+function odnawianie(p: Purchase): Pick<Uprawnienie, 'odnawia'> {
+  const wynik: Pick<Uprawnienie, 'odnawia'> = {};
   const odn: unknown = Reflect.get(p, 'renewalInfoIOS');
   const will = typeof odn === 'object' && odn !== null ? Reflect.get(odn, 'willAutoRenew') : undefined;
   if (typeof will === 'boolean') wynik.odnawia = will;
@@ -117,50 +114,19 @@ export interface Oferta {
   plan: Plan;
   /** Cena sformatowana przez App Store (waluta i region użytkownika). */
   cena: string;
-  /** Dni bezpłatnej oferty wprowadzającej z App Store Connect; null = brak albo użytkownik nieuprawniony. */
-  probaDni: number | null;
 }
 
 /**
- * Długość bezpłatnej oferty wprowadzającej produktu w dniach (StoreKit SubscriptionOffer).
- * Okresy liczone w miesiącach i latach nie mają stałej liczby dni: zwraca null [M1-audytor-generalny-009].
+ * Produkty z App Store Connect; ceny wyłącznie z displayPrice. Bez oferty wprowadzającej i okresu próbnego (D-112):
+ * rolę próby pełni Basic, więc aplikacja nie pyta sklepu o uprawnienie do oferty.
  */
-export function dniOkresuProbnego(produkt: unknown): number | null {
-  const oferty: unknown = typeof produkt === 'object' && produkt !== null ? Reflect.get(produkt, 'subscriptionOffers') : null;
-  if (!Array.isArray(oferty)) return null;
-  for (const o of oferty) {
-    if (!o || o.type !== 'introductory' || o.paymentMode !== 'free-trial') continue;
-    const wartosc = liczba(o.period?.value);
-    const ile = liczba(o.periodCount) ?? 1;
-    if (wartosc === null) return null;
-    if (o.period.unit === 'day') return wartosc * ile;
-    if (o.period.unit === 'week') return 7 * wartosc * ile;
-    return null;
-  }
-  return null;
-}
-
-/** Uprawnienie do oferty wprowadzającej dotyczy całej grupy subskrypcji; błąd = nie pokazujemy oferty. */
-async function uprawnionyDoProby(grupa: unknown): Promise<boolean> {
-  if (typeof grupa !== 'string' || !grupa) return false;
-  try {
-    return await Iap.isEligibleForIntroOfferIOS(grupa);
-  } catch {
-    return false;
-  }
-}
-
-/** Produkty z App Store Connect; ceny wyłącznie z displayPrice, okres próbny tylko dla uprawnionych. */
 export async function pobierzOferte(): Promise<Oferta[]> {
   await polacz();
   const produkty = (await Iap.fetchProducts({ skus: [...ODBLOKOWUJA], type: 'all' })) ?? [];
-  const sub = produkty.find((p) => SUBSKRYPCJE.includes(p.id));
-  const uprawniony = sub ? await uprawnionyDoProby(Reflect.get(sub, 'subscriptionGroupIdIOS')) : false;
   const wynik: Oferta[] = [];
   for (const p of produkty) {
     const plan = planProduktu(p.id);
-    const probaDni = uprawniony && SUBSKRYPCJE.includes(p.id) ? dniOkresuProbnego(p) : null;
-    if (plan) wynik.push({ plan, cena: p.displayPrice, probaDni });
+    if (plan) wynik.push({ plan, cena: p.displayPrice });
   }
   return wynik;
 }

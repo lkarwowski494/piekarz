@@ -1,7 +1,9 @@
 /**
- * Bez uprawnienia przypomnienia o zakwasie nie czekają, a baner „Dziś” nie mówi o końcu próby osobie, która nigdy
- * nie miała dostępu (MON-11; kontrakt: przypomnienia ustają po wygaśnięciu) [M1-audytor-generalny-143; 02-monetyzacja-504].
- * Zegar ustawiony w kilku porach doby; atrapy StoreKit i powiadomień z jest.setup.js.
+ * Bez Piekarz Pro przypomnienia o dokarmianiu zakwasu nie czekają (poza zakładaniem zakwasu, które jest w Basic),
+ * a „Dziś” nie mówi o końcu Pro osobie, która nigdy go nie miała (MON-11; kontrakt Basic/Pro docs/monetyzacja.md,
+ * D-113: przypomnienia o dokarmianiu w Pro, zakładanie w Basic, po wygaśnięciu przypomnienia ustają)
+ * [M1-audytor-generalny-143; 02-monetyzacja-504]. Przepisane z kontraktu D-038 („tylko historia”, nagłówek końca próby)
+ * [M3 P-a]. Zegar ustawiony w kilku porach doby; atrapy StoreKit i powiadomień z jest.setup.js.
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -33,7 +35,7 @@ import { AppAccessProvider } from '../components/AppAccessProvider';
 import { initDatabase, _resetMemStore, setActiveBake, saveBakeLog, saveStarter, getStarters, deleteStarter } from '../data/sqlite-store';
 import { saveBakeSession } from '../data/bake-session-store';
 import { planBakeSteps } from '../core/bake-steps';
-import { _resetStanu, odswiezDostep, rodzajDostepu } from '../lib/platnosci/stan';
+import { _resetStanu, odswiezDostep } from '../lib/platnosci/stan';
 import { PRODUKTY } from '../lib/platnosci/konfiguracja';
 import { resyncNotifications, uzgadniajZDostepem } from '../lib/notifications';
 import { EN } from '../lib/i18n.en';
@@ -124,44 +126,41 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     return tree;
   }
 
-  it('baner „tylko historia” bez transakcji w historii (np. sam import) nie mówi o końcu próby', async () => {
+  it('W-10 zakładanie zakwasu w Basic: przypomnienie zakładania czeka bez Pro; po „gotowy” przypomnienie o dokarmianiu tylko z Pro', async () => {
+    await saveStarter({ id: 'z2', name: 'Nowy', flourType: 'Żytnia', hydration: 100, birthDate: teraz - 3 * D, storageState: 'ROOM_TEMP', lastFedAt: teraz - H, setupStartedAt: teraz - 3 * D });
+    await odswiezDostep(); // sklep: brak Pro
+    await resyncNotifications();
+    expect(ids().filter((i) => i.includes('karmienie'))).toEqual(['piekarz.karmienie.z2.1']);
+    const [z] = (await getStarters()).filter((s) => s.id === 'z2');
+    await saveStarter({ ...z, setupCompletedAt: teraz - 1 });
+    await resyncNotifications();
+    expect(ids().filter((i) => i.includes('karmienie'))).toEqual([]);
+  });
+
+  it('Basic bez wcześniejszego Pro (np. sam import danych): bez komunikatu o końcu Pro i bez stanu „tylko historia”', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const tree = await renderStart();
-    expect(tree.root.findAllByProps({ testID: 'start-tylko-historia' }).length).toBeGreaterThan(0);
-    const t = teksty(tree.root);
-    expect(t).not.toContain('Okres próbny się skończył');
-    expect(t).toContain('Piekarz Pro nie jest aktywny');
-    expect(EN['Piekarz Pro nie jest aktywny']).toBe("Baker Pro isn't active"); // D-053, D-063
+    expect(tree.root.findAllByProps({ testID: 'start-tylko-historia' })).toHaveLength(0);
+    expect(tree.root.findAllByProps({ testID: 'start-koniec-pro' })).toHaveLength(0);
+    expect(teksty(tree.root)).not.toContain('Piekarz Pro nie jest aktywny');
     act(() => tree.unmount());
   });
 
-  it('po okresie próbnym z App Store, który się skończył: nagłówek „Okres próbny się skończył”', async () => {
-    await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
-    expect(await rodzajDostepu()).toBeNull();
-    // Próba = oferta wprowadzająca (offerIOS.paymentMode FreeTrial); bez tej informacji dostęp liczy się jako płatny (C-7)
-    mockIap.entitlements = [{ ...zakup(), offerIOS: { paymentMode: 'FreeTrial' } }];
-    await odswiezDostep();
-    expect(await rodzajDostepu()).toBe('proba');
-    mockIap.entitlements = [];
-    _resetStanu(); // następne uruchomienie po końcu próby
-    const tree = await renderStart();
-    const t = teksty(tree.root);
-    expect(t).toContain('Okres próbny się skończył');
-    expect(t).not.toContain('Piekarz Pro nie jest aktywny');
-    act(() => tree.unmount());
-  });
-
-  it('po płatnej subskrypcji, która się skończyła: nagłówek neutralny, nie „Okres próbny się skończył” [audyt-niezalezny C-7]', async () => {
-    await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
+  it('po subskrypcji, która się skończyła: „Piekarz Pro nie jest aktywny” i zdanie o przypomnieniach, raz', async () => {
     mockIap.entitlements = [zakup()];
     await odswiezDostep();
-    expect(await rodzajDostepu()).toBe('platny');
     mockIap.entitlements = [];
-    _resetStanu();
+    _resetStanu(); // następne uruchomienie po końcu Pro
     const tree = await renderStart();
     const t = teksty(tree.root);
-    expect(t).not.toContain('Okres próbny się skończył');
     expect(t).toContain('Piekarz Pro nie jest aktywny');
+    expect(t).toContain('Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.');
+    expect(t).not.toContain('Okres próbny');
+    expect(EN['Piekarz Pro nie jest aktywny']).toBe("Baker Pro isn't active"); // D-053, D-063
     act(() => tree.unmount());
+    _resetStanu();
+    const drugi = await renderStart();
+    expect(teksty(drugi.root)).not.toContain('Piekarz Pro nie jest aktywny');
+    act(() => drugi.unmount());
   });
 });

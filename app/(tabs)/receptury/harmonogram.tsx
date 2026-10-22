@@ -76,11 +76,10 @@ export default function HarmonogramScreen() {
   const celLokalny = useMemo(() => atLocalTime(Date.now(), targetDayOffset, targetHour, targetMinute), [targetDayOffset, targetHour, targetMinute]);
   const targetDate = useMemo(() => new Date(celLokalny.ms), [celLokalny]);
 
-  // Apps4Craft Monetization & Access (Cheaper than espresso)
-  const {
-    blokada,
-    requireActionAccess,
-  } = useAppAccess();
+  // Basic: plan od teraz („start wypieku bez planu”, PR-02), przesunięcie kroku i „za późno” (BR-HARMO-004); Pro: „gotowe
+  // o…” z ochroną snu i czasem z temperatury (BR-HARMO-001…003), rytm (BR-KAL-014), „Zaplanuj” (BR-KAL-009) [D-113, D-116]
+  const { blokada, requireActionAccess, moze, loading } = useAppAccess();
+  const planWstecz = moze('plan-wstecz');
 
   // Reverse schedule calculation
   const schedule = useMemo(() => {
@@ -149,11 +148,17 @@ export default function HarmonogramScreen() {
   // [M1-audytor-generalny-129; DEC-18 a]
   // Dzień z rytmu przychodzi po odczycie Dziennika; tylko póki użytkownik nie zmienił dnia ani godziny [M3 D7]
   useEffect(() => {
-    if (rytm && godzinaDomyslna.current) setTargetDayOffset(rytm.offset);
-  }, [rytm]);
+    if (rytm && godzinaDomyslna.current && moze('rytm')) setTargetDayOffset(rytm.offset);
+  }, [rytm, moze]);
   const dzienZalozony = zeSkrotu ?? rytm?.offset ?? null;
+  // Basic: „gotowe” = najwcześniejsza godzina (plan zaczyna się teraz), co minutę od nowa; do pierwszego odczytu sklepu
+  // bez zmian, żeby płacący nie tracił ustawionej godziny [D-116]
   useEffect(() => {
-    if (!godzinaDomyslna.current) return;
+    if (planWstecz || loading || stanCzasu.najwczesniejMs === null) return;
+    if (celLokalny.ms !== stanCzasu.najwczesniejMs) ustawGotowe(stanCzasu.najwczesniejMs);
+  }, [planWstecz, loading, stanCzasu.najwczesniejMs]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!godzinaDomyslna.current || !planWstecz) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
@@ -165,7 +170,7 @@ export default function HarmonogramScreen() {
       else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
     }
     if (zakwasWczytany && rytmWczytany) godzinaDomyslna.current = false;
-  }, [stanCzasu, zakwasWczytany, rytmWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [stanCzasu, zakwasWczytany, rytmWczytany, planWstecz]); // eslint-disable-line react-hooks/exhaustive-deps
   // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
   // baner mówi o krokach, które są na ekranie, nie o etapach harmonogramu zastąpionych w planie [audyt-niezalezny D-6]
   const kolizjePlanu = useMemo(
@@ -247,9 +252,6 @@ export default function HarmonogramScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Plan wypieku” w stosie zakładki Receptury: app/(tabs)/receptury/_layout.tsx */}
       <ScrollView style={styles.przewijane} contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
-        {/* Bez uprawnienia cały planer otwiera ekran zakupu [M1-audytor-generalny-027]; start w pasku kciuka
-            przechodzi przez tego samego strażnika (requireActionAccess) */}
-        <BlokadaFunkcji {...blokada('harmonogram')}>
         {notatkaPoprzednia ? (
           <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
             {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
@@ -260,6 +262,9 @@ export default function HarmonogramScreen() {
             {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
           </Text>
         ) : null}
+        {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
+            a dotknięcie otwiera ekran Pro (BlokadaFunkcji, [M1-audytor-generalny-027]) */}
+        <BlokadaFunkcji {...blokada('plan-wstecz')}>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}
@@ -267,7 +272,7 @@ export default function HarmonogramScreen() {
           targetMinute={targetMinute}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
-          podpowiedz={rytm?.tekst}
+          podpowiedz={moze('rytm') ? rytm?.tekst : undefined}
           faktycznaGodzina={targetDate}
           zmianaCzasu={celLokalny.shifted}
           ambientTemp={ambientTemp}
@@ -303,6 +308,7 @@ export default function HarmonogramScreen() {
           />
         ) : null}
         </TargetReadyCard>
+        </BlokadaFunkcji>
 
         {/* Spirala i opis w jednym rzędzie z zawijaniem (`.kosz` w makiecie): „Start … o …” obok Spirali, nie pod paskiem
             kciuka; przy dużym tekście opis schodzi pod Spiralę [M1-audytor-generalny-128] */}
@@ -328,13 +334,13 @@ export default function HarmonogramScreen() {
         <DodajDoKalendarza
           plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
         />
-        </BlokadaFunkcji>
       </ScrollView>
       <PasekStartu
         onStart={zacznij}
         powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
-        // Start w przyszłości: plan można zapisać na później (BR-KAL-009) [M3 D5]
-        onZaplanuj={startPlanu !== null && startPlanu.getTime() > teraz ? zaplanuj : undefined}
+        // Start w przyszłości: plan można zapisać na później (BR-KAL-009) [M3 D5]; w Basic plan zaczyna się teraz,
+        // więc „Zaplanuj” pojawia się tylko z planem wstecz (Pro)
+        onZaplanuj={planWstecz && startPlanu !== null && startPlanu.getTime() > teraz ? zaplanuj : undefined}
       />
     </SafeAreaView>
   );

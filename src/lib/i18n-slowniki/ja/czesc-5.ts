@@ -82,7 +82,6 @@ export const CZESC: Record<string, string> = {
   'Tu zapiszą się twoje wypieki': 'ここに焼成の記録が表示されます',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'データは変更されていませんが、アプリは現在データを読み書きできません。アプリを再起動してください。問題が続く場合は、iPhoneのストレージの空き容量を増やしてください。',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'データはiPhoneに保存されています。再試行する前に、データのコピーを書き出すことができます。',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': '配合、サワー種、日誌は閲覧・書き出し・削除ができます。種継ぎのリマインダーはオフになっています。計算、プラン、ガイドにはパン職人 Proが必要です。',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': '白い粉のみの場合：King Arthur Bakingによると、サワー種の立ち上がりが少し遅くなることがあります。',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'この粉はポーランド規格PN-A-74022:2003に記載がなく、製粉所が独自の技術仕様で製造しています。酵素活性が高く、ナッツのような香りを持つ、やや色の濃いパン用粉です。',
   'Typ mąki': '粉の種類',

@@ -167,7 +167,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Để nghỉ 20 phút trước lần gấp bột tiêu chuẩn tiếp theo.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Khung đỉnh chỉ là ước tính: trong một nghiên cứu trên 40 mẫu men tự nhiên, tốc độ nở của bột dao động từ 0,1 đến 1,5 mm/h.',
-  'Okres próbny się skończył': 'Thời gian dùng thử đã kết thúc',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Dầu ô liu trên bề mặt hạn chế bay hơi, giữ ruột bánh mọng ẩm và xốp.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Xẹp / sụp ngay sau khi rạch bằng dao lam',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Mô tả điều đã xảy ra hoặc điều bạn muốn gửi đến chúng tôi:',

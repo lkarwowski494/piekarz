@@ -143,7 +143,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Hidrasyonu %{n} azalt',
   'Zmniejsz masę mąki o {g} g': 'Un ağırlığını {g} g azalt',
   'Zmniejsz udział mąki {nazwa} o {n}%': '{nazwa} oranını %{n} azalt',
-  'Zobacz plany': 'Planları Gör',
   'Zostaje wgłębienie i ciasto siada:': 'Çukur kalıyor ve hamur sönüyor:',
   'zostało {czas}': '{czas} kaldı',
   'zostało {czas}, do {godzina}': '{czas} kaldı (bitiş: {godzina})',
@@ -178,9 +177,4 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Yassı disk (Aşırı mayalanmış)',
   'Płaski smak (Jałowy)': 'Sönük tat (Yavan)',
   'Zbyt kwaśny (Octowy)': 'Fazla ekşi (Sirkemsi)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Satın alma yapmazsanız geçmişiniz ve verileriniz korunur. Hesaplama, plan ve rehberlik için Fırıncı Pro gerekir.',
-  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Aboneliğiniz iptal edilmezse App Store o zaman seçtiğiniz planın ücretini tahsil eder.',
-  'Okres próbny kończy się {data}': 'Deneme süresi {data} tarihinde bitiyor',
-  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Aboneliğiniz yenilenmeyecek, bu nedenle herhangi bir ücret ödemeyeceksiniz.',
-  'Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.': 'Ardından App Store, bir aylık abonelik için {cena} tahsil eder. Ödeme yapmak istemiyorsanız deneme süresi bitmeden aboneliğinizi iptal edin.',
 };

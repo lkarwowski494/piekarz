@@ -1,7 +1,9 @@
 /**
- * Dostęp i uprzedzenie o końcu próby po powrocie aplikacji z tła, bez restartu (MON-05)
+ * Dostęp i uprzedzenie o końcu Piekarz Pro po powrocie aplikacji z tła, bez restartu (MON-05)
  * [M1-audytor-generalny-144; 02-monetyzacja-505, 02-monetyzacja-601]. Ekran „Dziś” z uruchomionymi płatnościami
- * (jak app/_layout.tsx), zegar ustawiony w kilku porach doby; AppState sterowany w teście.
+ * (jak app/_layout.tsx), zegar ustawiony w kilku porach doby; AppState sterowany w teście. Przepisane z kontraktu
+ * D-038 (koniec próby → „tylko historia”) na Basic/Pro [M3 P-a]: po wygaśnięciu komunikat końca Pro (D-113), Basic
+ * działa dalej; uprzedzenie dotyczy subskrypcji, która się nie odnowi.
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -65,7 +67,7 @@ describe.each(PORY)('Powrót z tła bez restartu, zegar %s (144; MON-05)', (_por
   };
   const proba = (koniec: number) => ({
     id: 'tx_p', transactionId: 'tx_p', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: start - 10 * D,
-    expirationDateIOS: koniec, offerIOS: { id: 'intro', type: 'introductory', paymentMode: 'free-trial' }, renewalInfoIOS: { willAutoRenew: true },
+    expirationDateIOS: koniec, renewalInfoIOS: { willAutoRenew: false },
   });
 
   beforeEach(async () => {
@@ -103,17 +105,18 @@ describe.each(PORY)('Powrót z tła bez restartu, zegar %s (144; MON-05)', (_por
     return { tree, stop };
   }
 
-  it('uprawnienie z „wygasa” w przeszłości po zdarzeniu „active”: brak dostępu i stan „tylko historia” bez restartu', async () => {
+  it('uprawnienie z „wygasa” w przeszłości po zdarzeniu „active”: brak Pro i komunikat końca Pro bez restartu', async () => {
     const koniec = start + 5 * D;
     mockIap.entitlements = [proba(koniec)];
     const { tree, stop } = await renderStart();
     expect(pobierzStan().decyzja.dostep).toBe(true);
-    expect(ile(tree.root, 'start-tylko-historia')).toBe(0);
+    expect(ile(tree.root, 'start-koniec-pro')).toBe(0);
 
-    // Aplikacja w tle przez koniec oferty; sklep dalej podaje tę samą transakcję z datą końca w przeszłości
+    // Aplikacja w tle przez koniec subskrypcji; sklep dalej podaje tę samą transakcję z datą końca w przeszłości
     await powrot(koniec + H);
     expect(pobierzStan().decyzja.dostep).toBe(false);
-    expect(ile(tree.root, 'start-tylko-historia')).toBe(1);
+    expect(ile(tree.root, 'start-koniec-pro')).toBe(1);
+    expect(ile(tree.root, 'start-tylko-historia')).toBe(0);
     act(() => tree.unmount());
     stop();
   });
@@ -134,13 +137,13 @@ describe.each(PORY)('Powrót z tła bez restartu, zegar %s (144; MON-05)', (_por
     const koniec = start + 4 * D;
     mockIap.entitlements = [proba(koniec)];
     const { tree, stop } = await renderStart();
-    expect(ile(tree.root, 'start-uprzedzenie-proby')).toBe(0);
+    expect(ile(tree.root, 'start-uprzedzenie-konca-pro')).toBe(0);
 
     await powrot(koniec - 2 * D);
-    expect(ile(tree.root, 'start-uprzedzenie-proby')).toBe(1);
+    expect(ile(tree.root, 'start-uprzedzenie-konca-pro')).toBe(1);
 
     await powrot(koniec - 2 * D + H);
-    expect(ile(tree.root, 'start-uprzedzenie-proby')).toBe(0);
+    expect(ile(tree.root, 'start-uprzedzenie-konca-pro')).toBe(0);
     act(() => tree.unmount());
     stop();
   });

@@ -53,11 +53,15 @@ describe('Offer terms are the same in code, README, metadata and App Review note
     expect(text.match(/com\.apps4brew\.baker\.[\w.]+/g)?.filter((x) => !Object.values(PRODUKTY).includes(x) && x !== 'com.apps4brew.baker')).toEqual([]);
   });
 
-  it('App Review notes tell the reviewer to start the trial (no history for a new user)', () => {
+  // Przepisane z kontraktu D-038 („Start Free Trial”) [M3 P-a]: bez próby (D-112) notatki prowadzą recenzenta do ekranu Pro
+  // przez funkcję Pro i przycisk zakupu planu w piaskownicy
+  it('App Review notes tell the reviewer how to reach Pro in the sandbox, without a free trial (D-112)', () => {
     const text = read('docs/app-store-metadata-v2.md');
+    const notatki = text.split(/^### /m).find((s) => /^4\.3\. .*Review Notes/.test(s)) ?? '';
     // Notatki po angielsku, przycisk jak w interfejsie EN [M1-audytor-generalny-078]; nazwa z §11e 127 [M1-audytor-generalny-127]
-    expect(text).toMatch(/Start Free Trial/);
-    expect(text).toMatch(/sandbox/i);
+    expect(notatki).toMatch(/Buy Yearly Plan/);
+    expect(notatki).toMatch(/sandbox/i);
+    expect(notatki).not.toMatch(/Start Free Trial/);
   });
 
   it('scope contract no longer promises the 7-day / 3-loaf local trial', () => {

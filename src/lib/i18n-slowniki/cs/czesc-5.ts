@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Vaše data se nezměnila, ale aplikace je teď nemůže načíst ani uložit. Spusťte aplikaci znovu. Pokud se problém vrátí, uvolněte místo v úložišti telefonu.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Vaše data jsou uložena v telefonu. Než to zkusíte znovu, můžete exportovat jejich kopii.',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Své recepty, kvásky a deník si můžete prohlížet, exportovat a smazat. Připomínky krmení jsou vypnuté. Výpočty, plán a vedení vyžadují Pekař Pro.',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Jen světlá mouka: podle King Arthur Baking se pak kvásek může rozjíždět o něco pomaleji.',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Tato mouka není uvedena v polské normě PN-A-74022:2003: mlýny ji vyrábějí podle vlastní technické specifikace. Tmavší chlebová mouka s vyšší enzymatickou aktivitou a ořechovým aroma.',
   'Typ mąki': 'Druh mouky',

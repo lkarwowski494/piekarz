@@ -358,12 +358,6 @@
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
     ]
   },
-  "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (kod)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
-    ]
-  },
   "Bezpośrednie": {
     "gdzie": []
   },
@@ -2058,11 +2052,6 @@
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
     ]
   },
-  "Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
-    ]
-  },
   "Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: fermentationTypePl)"
@@ -2101,11 +2090,6 @@
   "Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
-  },
-  "Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
     ]
   },
   "Jeśli w tym kroku pracujesz z surową mąką, ciastem albo zakwasem, nie próbuj ich, a potem umyj ręce mydłem pod bieżącą wodą.": {
@@ -3997,21 +3981,6 @@
       "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
-  "Okres próbny kończy się {data}": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
-    ]
-  },
-  "Okres próbny się skończył": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
-  },
-  "Okres próbny: {dni}": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
-    ]
-  },
   "Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.": {
     "gdzie": [
       "src/core/bake-loss.ts (dane: descriptionPl)"
@@ -4252,9 +4221,14 @@
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
+  "Piekarz Pro kończy się {data}": {
+    "gdzie": [
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
+    ]
+  },
   "Piekarz Pro nie jest aktywny": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.": {
@@ -5033,6 +5007,11 @@
       "src/core/starter-log.ts (dane: day1)"
     ]
   },
+  "Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.": {
+    "gdzie": [
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
+    ]
+  },
   "Przypomnienia o karmieniu": {
     "gdzie": [
       "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (kod)"
@@ -5052,11 +5031,6 @@
       "src/components/przywroc-zakupy.ts (Alert.alert)",
       "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
-    ]
-  },
-  "Próba jest jedna na oba plany subskrypcji.": {
-    "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
     ]
   },
   "Pt.": {
@@ -5759,14 +5733,9 @@
       "src/components/PaywallModal.tsx (kod)"
     ]
   },
-  "Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.": {
+  "Subskrypcja się nie odnowi. Potem przypomnienia o dokarmianiu wyłączą się, a Twoje receptury, zakwasy i dziennik zostaną.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
-    ]
-  },
-  "Subskrypcja się nie odnowi, więc nic nie zapłacisz.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
@@ -6224,11 +6193,6 @@
     "gdzie": [
       "src/components/RescueScreen.tsx (tekst w JSX)",
       "src/components/StorageGate.tsx (tekst w JSX)"
-    ]
-  },
-  "Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
   "Twoje zapasy mąk": {
@@ -7201,16 +7165,6 @@
   "Wt.": {
     "gdzie": []
   },
-  "Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
-    ]
-  },
-  "Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (kod)"
-    ]
-  },
   "Wybierz domyślne naczynie piecowe dla procedury Stolnicy:": {
     "gdzie": [
       "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
@@ -7688,11 +7642,6 @@
       "src/lib/confirm.ts (action)"
     ]
   },
-  "Zacznij okres próbny": {
-    "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
-    ]
-  },
   "Zacznij wypiek": {
     "gdzie": [
       "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)",
@@ -7924,7 +7873,7 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
       "src/components/VolumeConverterModal.tsx (tekst w JSX)",
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)",
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)",
       "src/lib/zgloszenie-wyslanie.ts (text)"
     ]
   },
@@ -7933,11 +7882,10 @@
       "src/components/academy/AcademyHeader.tsx (accessibilityLabel)"
     ]
   },
-  "Zamknij informację o końcu próby": {
+  "Zamknij informację o Piekarz Pro": {
     "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (accessibilityLabel)"
-    ],
-    "opis": "Etykieta VoiceOver przycisku, który zamyka (chowa) baner na ekranie „Dziś” z informacją, kiedy kończy się okres próbny. NIE wyłącza powiadomień ani przypomnień; użyj słowa „informacja/komunikat/baner”, nie „powiadomienie” (np. zh-Hant 提示, nie 通知) [M1-audytor-generalny-185]."
+      "src/components/start/UprzedzenieKoncaPro.tsx (accessibilityLabel)"
+    ]
   },
   "Zamknij protokół ratunkowy": {
     "gdzie": [
@@ -8077,7 +8025,7 @@
     "gdzie": [
       "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)",
-      "src/components/start/UprzedzenieProby.tsx (tekst w JSX)"
+      "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
   },
   "Zasoby mąki w spiżarni zostały zaktualizowane.": {
@@ -8143,7 +8091,7 @@
   },
   "Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (kod)"
+      "src/core/starter-log.ts (dane: start)"
     ]
   },
   "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
@@ -8358,12 +8306,6 @@
     "gdzie": [
       "src/components/start/PlanyWypiekow.tsx (accessibilityLabel)",
       "src/components/start/PlanyWypiekow.tsx (tekst w JSX)"
-    ]
-  },
-  "Zobacz plany": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
     ]
   },
   "Zostaje wgłębienie i ciasto siada:": {
@@ -8735,11 +8677,7 @@
     ]
   },
   "rok": {
-    "gdzie": [
-      "src/components/start/UprzedzenieProby.tsx (dane: kod)",
-      "src/lib/platnosci/uprzedzenie.ts (dane: kod)",
-      "src/lib/platnosci/uprzedzenie.ts (dane: zdanie)"
-    ]
+    "gdzie": []
   },
   "sie": {
     "gdzie": []
@@ -8850,9 +8788,7 @@
   "wymaga Piekarz Pro": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
-      "src/components/start/WyborCzynnosci.tsx (accessibilityHint)",
-      "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
+      "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
     ]
   },
   "wymagający": {
@@ -8900,17 +8836,7 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
-  "{cena} miesięcznie po próbie": {
-    "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
-    ]
-  },
   "{cena} rocznie": {
-    "gdzie": [
-      "src/components/oferta/stan-oferty.ts (kod)"
-    ]
-  },
-  "{cena} rocznie po próbie": {
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
@@ -9045,8 +8971,6 @@
   },
   "{n} dni": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: few)",
-      "src/components/PaywallModal.tsx (dane: many)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: few)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: many)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: few)",
@@ -9062,7 +8986,6 @@
   },
   "{n} dnia": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: other)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: other)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: other)"
     ]
@@ -9075,7 +8998,6 @@
   },
   "{n} dzień": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (dane: one)",
       "src/components/zakwas/StarterPeakActivityCard.tsx (dane: one)",
       "src/components/zakwas/StarterProfileCard.tsx (dane: one)"
     ]

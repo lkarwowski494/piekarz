@@ -191,7 +191,8 @@ describe('PaywallModal Component', () => {
     expect(privacyBtn.props.accessibilityRole).toBe('link');
   });
 
-  // Okres próbny tylko jako oferta wprowadzająca App Store, pokazywana uprawnionym [M1-audytor-generalny-009]
+  // Przepisane z kontraktu D-038 (okres próbny jako oferta wprowadzająca dla uprawnionych) [M1-audytor-generalny-009;
+  // M3 P-a]: bez próby (D-112) — ekran nie pokazuje oferty wprowadzającej, nawet gdy sklep ją jeszcze ma
   const withIntroOffer = (unit: string, value: number) => {
     mockIap.products = [
       { id: 'com.apps4brew.baker.pro.monthly', displayPrice: '4,99 zł', type: 'subs', subscriptionGroupIdIOS: 'g1',
@@ -202,29 +203,29 @@ describe('PaywallModal Component', () => {
     ];
   };
 
-  it('eligible user sees the store trial length and the price after it; lifetime has no trial (BR-ZAK-005 Pierwsze użycie kalkulatora)', async () => {
+  it('eligible user sees no trial: prices without "po próbie", "Kup plan roczny"; lifetime "Kup dostęp dożywotni" (D-112)', async () => {
     withIntroOffer('week', 2);
     await act(async () => {
       tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
     });
     const text = extractCleanText(tree?.toJSON());
-    expect(text).toContain('Okres próbny: 14 dni');
-    expect(text).toContain(t('{cena} rocznie po próbie', { cena: '29,99 zł' }));
-    expect(text).toContain('4,99 zł miesięcznie po próbie');
-    expect(text).toContain(t('Zacznij okres próbny'));
+    expect(text).not.toMatch(/Okres próbny|po próbie|Zacznij okres próbny/);
+    expect(text).toContain(t('{cena} rocznie', { cena: '29,99 zł' }));
+    expect(text).toContain('4,99 zł miesięcznie');
+    expect(text).toContain('Kup plan roczny');
     await act(async () => {
       tree!.root.findByProps({ testID: 'plan-lifetime-btn' }).props.onPress();
     });
     expect(extractCleanText(tree?.toJSON())).toContain('Kup dostęp dożywotni');
   });
 
-  it('user not eligible for the introductory offer sees no free trial', async () => {
+  it('the app does not ask the store about introductory offer eligibility (D-112)', async () => {
     withIntroOffer('day', 14);
-    mockIap.eligible = false;
+    const Iap = jest.requireMock('expo-iap') as { isEligibleForIntroOfferIOS: jest.Mock };
+    Iap.isEligibleForIntroOfferIOS.mockClear();
     await act(async () => {
       tree = renderer.create(<PaywallModal visible={true} onClose={mockOnClose} onSubscribe={mockOnSubscribe} onRestore={mockOnRestore} />);
     });
-    const text = extractCleanText(tree?.toJSON());
-    expect(text).not.toMatch(/Okres próbny|po próbie|Zacznij okres próbny/);
-    expect(text).toContain('Kup plan roczny');
+    expect(extractCleanText(tree?.toJSON())).toContain('Kup plan roczny');
+    expect(Iap.isEligibleForIntroOfferIOS).not.toHaveBeenCalled();
   });});

@@ -143,7 +143,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Kurangkan penghidratan sebanyak {n}%',
   'Zmniejsz masę mąki o {g} g': 'Kurangkan berat tepung sebanyak {g} g',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Kurangkan bahagian tepung {nazwa} sebanyak {n}%',
-  'Zobacz plany': 'Lihat Pelan',
   'Zostaje wgłębienie i ciasto siada:': 'Lekuk kekal dan doh kempis:',
   'zostało {czas}': 'tinggal {czas}',
   'zostało {czas}, do {godzina}': 'tinggal {czas}, hingga {godzina}',
@@ -178,8 +177,4 @@ export const CZESC: Record<string, string> = {
   'Płaski dysk (Przerośnięty)': 'Cakera leper (Terlebih penapaian)',
   'Płaski smak (Jałowy)': 'Rasa mendatar (Hambar)',
   'Zbyt kwaśny (Octowy)': 'Terlalu masam (Rasa cuka)',
-  'Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.': 'Tanpa pembelian, sejarah dan data anda akan kekal. Pengiraan, rancangan dan bimbingan akan memerlukan Tukang Roti Pro.',
-  'Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.': 'Jika langganan tidak dibatalkan, App Store akan mengenakan bayaran untuk pelan yang dipilih pada masa itu.',
-  'Okres próbny kończy się {data}': 'Tempoh percubaan tamat pada {data}',
-  'Subskrypcja się nie odnowi, więc nic nie zapłacisz.': 'Langganan tidak akan diperbaharui, jadi anda tidak akan dikenakan bayaran.',
 };

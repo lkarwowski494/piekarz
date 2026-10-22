@@ -92,7 +92,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Αφήστε τη να ξεκουραστεί 20 λεπτά πριν από το επόμενο κανονικό δίπλωμα.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Το παράθυρο κορύφωσης είναι εκτίμηση: σε μελέτη 40 προζυμιών ο ρυθμός φουσκώματος της ζύμης κυμαινόταν από 0,1 έως 1,5 mm/h.',
-  'Okres próbny się skończył': 'Η δοκιμαστική περίοδος έληξε',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Το ελαιόλαδο στην επιφάνεια περιορίζει την εξάτμιση και διατηρεί τη ψίχα ζουμερή και αφράτη.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Έπεσε / ξεφούσκωσε αμέσως μετά τη χάραξη με ξυράφι',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Περιγράψτε τι συνέβη ή τι θέλετε να μας πείτε:',

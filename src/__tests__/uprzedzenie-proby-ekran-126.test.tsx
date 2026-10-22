@@ -1,7 +1,10 @@
 /**
- * Uprzedzenie przed końcem próby na „Dziś” (design-spec §11d 126, wybór P-126 a) [M1-audytor-generalny-126; 02-monetyzacja-502]:
+ * Uprzedzenie o końcu Piekarz Pro na „Dziś” (D-113 pkt 3, kontrakt docs/monetyzacja.md „Wygaśnięcie Pro”, D-116;
+ * dawniej uprzedzenie przed końcem próby, design-spec §11d 126, wybór P-126 a) [M1-audytor-generalny-126; M3 P-a]:
  * baner w treści, raz dla daty końca, bez okna i bez powiadomienia; przy trwającym wypieku pod „Wróć do wypieku”.
- * Atrapa StoreKit (jest.setup.js): transakcja roczna w okresie próbnym kończąca się za 30 h; zegar w kilku porach doby.
+ * Przepisane z kontraktu D-038: próby nie ma (D-112), więc baner dotyczy subskrypcji, która się nie odnowi, i mówi
+ * jednym zdaniem, że przypomnienia o dokarmianiu wyłączą się; bez ceny, bez odliczania, bez „ostatniej szansy”.
+ * Atrapa StoreKit (jest.setup.js): subskrypcja roczna kończąca się za 30 h; zegar w kilku porach doby.
  */
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
@@ -39,7 +42,7 @@ import { KLUCZ_UPRZEDZENIA } from '../lib/platnosci/uprzedzenie';
 import { formatDate, appLocale } from '../lib/format';
 import { t as tr } from '../lib/i18n';
 
-const mockIap = (Iap as unknown as { __mock: { reset: () => void; entitlements: unknown[]; products: unknown[] } }).__mock;
+const mockIap = (Iap as unknown as { __mock: { reset: () => void; entitlements: unknown[]; products: unknown[]; restoreCalls: number } }).__mock;
 const notif = (Notifications as unknown as { __mock: { pending: Map<string, unknown> } }).__mock;
 const H = 3600_000;
 const flush = async () => {
@@ -48,7 +51,7 @@ const flush = async () => {
   });
 };
 const teksty = (root: renderer.ReactTestInstance) => root.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
-const baner = (root: renderer.ReactTestInstance) => root.findAll((n) => n.props?.testID === 'start-uprzedzenie-proby' && typeof n.type === 'string');
+const baner = (root: renderer.ReactTestInstance) => root.findAll((n) => n.props?.testID === 'start-uprzedzenie-konca-pro' && typeof n.type === 'string');
 
 async function renderStart(): Promise<renderer.ReactTestRenderer> {
   let tree!: renderer.ReactTestRenderer;
@@ -69,11 +72,11 @@ const PORY = [
   ['23:55', new Date(2026, 9, 21, 23, 55).getTime()],
 ] as const;
 
-describe.each(PORY)('Baner uprzedzenia na „Dziś”, zegar %s (126; BR-ZAK-004 Uprzedzenie przed końcem próby)', (_pora, teraz) => {
+describe.each(PORY)('Baner uprzedzenia o końcu Pro na „Dziś”, zegar %s (D-113; BR-ZAK-004)', (_pora, teraz) => {
   const koniec = teraz + 30 * H;
-  const proba = (o: Record<string, unknown> = {}) => ({
-    id: 'tx_p', transactionId: 'tx_p', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: teraz - 13 * 24 * H,
-    expirationDateIOS: koniec, offerIOS: { id: 'intro', type: 'introductory', paymentMode: 'free-trial' }, renewalInfoIOS: { willAutoRenew: true }, ...o,
+  const sub = (o: Record<string, unknown> = {}) => ({
+    id: 'tx_p', transactionId: 'tx_p', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: teraz - 300 * 24 * H,
+    expirationDateIOS: koniec, renewalInfoIOS: { willAutoRenew: false }, ...o,
   });
 
   beforeEach(async () => {
@@ -83,7 +86,7 @@ describe.each(PORY)('Baner uprzedzenia na „Dziś”, zegar %s (126; BR-ZAK-004
     await initDatabase();
     await saveBakeSession(null);
     mockIap.reset();
-    mockIap.entitlements = [proba()];
+    mockIap.entitlements = [sub()];
     mockIap.products = [{ id: PRODUKTY.yearly, displayPrice: '29,99 zł' }, { id: PRODUKTY.monthly, displayPrice: '4,99 zł' }];
     _resetStanu();
     notif.pending.clear();
@@ -92,26 +95,20 @@ describe.each(PORY)('Baner uprzedzenia na „Dziś”, zegar %s (126; BR-ZAK-004
     jest.restoreAllMocks();
   });
 
-  it('raz: tytuł z datą końca, zdanie roczne z ceną sklepu i co zostaje bez zakupu; bez „Za 3 dni”, przypomnień, okna i powiadomienia', async () => {
+  it('raz: tytuł z datą końca i zdanie o przypomnieniach; bez ceny, odliczania, okna i powiadomienia', async () => {
     const tree = await renderStart();
     expect(baner(tree.root)).toHaveLength(1);
     const t = teksty(tree.root);
     const data = formatDate(koniec, appLocale(), { day: 'numeric', month: 'long' });
-    expect(t).toContain(`Okres próbny kończy się ${data}`);
-    expect(t).toContain(tr('Okres próbny kończy się {data}', { data }));
-    expect(t).toContain('Wtedy App Store pobierze 29,99 zł za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.');
-    // Klucz miesięczny: ten sam szablon z innym okresem (tabela wariantów §11d 126)
-    expect(tr('Wtedy App Store pobierze {cena} za miesiąc subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.', { cena: '4,99 zł' })).toContain('4,99 zł za miesiąc');
-    expect(t).toContain(tr('Wtedy App Store pobierze {cena} za rok subskrypcji. Jeśli nie chcesz płacić, anuluj subskrypcję przed końcem próby.', { cena: '29,99 zł' }));
-    expect(t).toContain('Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.');
-    expect(t).not.toContain('Za 3 dni');
-    expect(t).not.toContain('Przypomnienia o dokarmianiu zakwasu ustaną.');
+    expect(t).toContain(tr('Piekarz Pro kończy się {data}', { data }));
+    expect(t).toContain(tr('Subskrypcja się nie odnowi. Potem przypomnienia o dokarmianiu wyłączą się, a Twoje receptury, zakwasy i dziennik zostaną.'));
+    expect(t).not.toMatch(/29,99 zł|Za 3 dni|prób/);
     expect(tree.root.findAllByType(Modal).filter((m) => m.props.visible)).toHaveLength(0);
     expect(notif.pending.size).toBe(0);
     expect(await getAppSetting(KLUCZ_UPRZEDZENIA)).toBe(String(koniec));
-    const zamknij = tree.root.findByProps({ testID: 'trial-notice-close-btn' });
-    expect(zamknij.props.accessibilityLabel).toBe('Zamknij informację o końcu próby');
-    expect(tree.root.findByProps({ testID: 'trial-notice-manage-btn' })).toBeDefined();
+    const zamknij = tree.root.findByProps({ testID: 'koniec-pro-close-btn' });
+    expect(zamknij.props.accessibilityLabel).toBe('Zamknij informację o Piekarz Pro');
+    expect(tree.root.findByProps({ testID: 'koniec-pro-manage-btn' })).toBeDefined();
     await act(async () => {
       zamknij.props.onPress();
     });
@@ -125,31 +122,26 @@ describe.each(PORY)('Baner uprzedzenia na „Dziś”, zegar %s (126; BR-ZAK-004
     act(() => drugi.unmount());
   });
 
-  it('odnawianie wyłączone: „nic nie zapłacisz”; stan nieznany: zdanie warunkowe bez kwoty', async () => {
-    mockIap.entitlements = [proba({ renewalInfoIOS: { willAutoRenew: false } })];
-    _resetStanu();
-    const a = await renderStart();
-    expect(teksty(a.root)).toContain('Subskrypcja się nie odnowi, więc nic nie zapłacisz.');
-    act(() => a.unmount());
-
-    _resetMemStore();
-    await initDatabase();
-    mockIap.entitlements = [proba({ renewalInfoIOS: undefined, transactionId: 'tx_q', id: 'tx_q', expirationDateIOS: koniec + 60_000 })];
-    _resetStanu();
-    const b = await renderStart();
-    const t = teksty(b.root);
-    expect(t).toContain('Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.');
-    expect(t).not.toContain('29,99 zł');
-    act(() => b.unmount());
-  });
-
-  it('73 h do końca albo brak informacji o próbie: brak banera', async () => {
-    mockIap.entitlements = [proba({ expirationDateIOS: teraz + 73 * H })];
+  it('subskrypcja odnawia się albo stan odnawiania nieznany (OP-M03): brak banera', async () => {
+    mockIap.entitlements = [sub({ renewalInfoIOS: { willAutoRenew: true } })];
     _resetStanu();
     const a = await renderStart();
     expect(baner(a.root)).toHaveLength(0);
     act(() => a.unmount());
-    mockIap.entitlements = [proba({ offerIOS: undefined })];
+    mockIap.entitlements = [sub({ renewalInfoIOS: undefined })];
+    _resetStanu();
+    const b = await renderStart();
+    expect(baner(b.root)).toHaveLength(0);
+    act(() => b.unmount());
+  });
+
+  it('73 h do końca albo dożywotni obok: brak banera', async () => {
+    mockIap.entitlements = [sub({ expirationDateIOS: teraz + 73 * H })];
+    _resetStanu();
+    const a = await renderStart();
+    expect(baner(a.root)).toHaveLength(0);
+    act(() => a.unmount());
+    mockIap.entitlements = [sub(), { id: 'tx_l', transactionId: 'tx_l', productId: PRODUKTY.lifetime, purchaseState: 'purchased', transactionDate: 1 }];
     _resetStanu();
     const b = await renderStart();
     expect(baner(b.root)).toHaveLength(0);
@@ -167,7 +159,7 @@ describe.each(PORY)('Baner uprzedzenia na „Dziś”, zegar %s (126; BR-ZAK-004
     const tree = await renderStart();
     const ids = tree.root.findAll((n) => typeof n.type === 'string' && typeof n.props?.testID === 'string').map((n) => n.props.testID as string);
     const wroc = ids.indexOf('resume-bake-btn');
-    const ban = ids.indexOf('start-uprzedzenie-proby');
+    const ban = ids.indexOf('start-uprzedzenie-konca-pro');
     expect(wroc).toBeGreaterThanOrEqual(0);
     expect(ban).toBeGreaterThan(wroc);
     await act(async () => {

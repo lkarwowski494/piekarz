@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
-| **UI** | 59 | 59 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 599 | 599 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 581 | 581 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 213 | 213 | **100.0%** | ✅ POKRYTE |
+| **UI** | 58 | 58 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 585 | 585 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 585 | 585 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 215 | 215 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1461** | Pokrytych: **1461** | Brakujących: **0**
+Łącznie elementów: **1452** | Pokrytych: **1452** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -30,11 +30,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/interaction-guards.test.ts |
 | `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/czeka-na-przeklad-093.test.ts |
-| `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx, src/__tests__/start-co-dzis.test.tsx |
-| `TEKST` | `Piekarz Pro nie jest aktywny` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx |
-| `TEKST` | `Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
-| `UI` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
-| `TEKST` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Doktor Chleba` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Jutro` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/helpers/plan-godzina.ts, tests/matrix-ui-text.test.tsx |
@@ -89,7 +84,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Czego unikać (typowe błędy):` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Złota rada rzemieślnika:` | `src/components/academy/TechniquesLibrarySection.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Odblokuj pełny dostęp` | `src/components/BlokadaFunkcji.tsx` | ✅ | src/__tests__/bramki-ekranow.test.tsx |
-| `TEKST` | `wymaga Piekarz Pro` | `src/components/BlokadaFunkcji.tsx` | ✅ | tests/nazwa-d053.test.ts, tests/zrzuty-sklepu.test.ts |
+| `TEKST` | `wymaga Piekarz Pro` | `src/components/BlokadaFunkcji.tsx` | ✅ | tests/nazwa-d053.test.ts, tests/store-metadata.test.ts |
 | `TEKST` | `Temperatura wody` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Uzupełnij pole „{pole}”, żeby policzyć temperaturę wody.` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | src/__tests__/temperatura-wody-kalk004-146.test.tsx |
 | `TEKST` | `Docelowa temp. wody:` | `src/components/calculator/accordion/AccordionDdtSection.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/receptura-akcje-057.test.tsx |
@@ -107,7 +102,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Anuluj` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/close-button-guard.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
 | `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Zamknij` | `src/components/CloseButton.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zamknij` | `src/components/CloseButton.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/interaction-guards.test.ts |
 | `TEKST` | `Baza danych nie otworzyła się przy poprzednim uruchomieniu` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
@@ -281,32 +276,23 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/martwe-klucze-oferty-203.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `{cena} rocznie po próbie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `{cena} rocznie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `{cena} miesięcznie po próbie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
 | `TEKST` | `{cena} miesięcznie` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `{cena} jednorazowo` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Kup dostęp dożywotni` | `src/components/oferta/stan-oferty.ts` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/components/__tests__/paywall-modal.test.tsx |
-| `TEKST` | `Zacznij okres próbny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/instrukcja-przycisk-proby-214.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Kup plan roczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/store-metadata.test.ts |
 | `TEKST` | `Kup plan miesięczny` | `src/components/oferta/stan-oferty.ts` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Zakup czeka na zatwierdzenie` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
 | `UI` | `Zakup` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-zgloszenie.test.ts, tests/matrix-ui-text.test.tsx |
 | `UI` | `Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
-| `TEKST` | `Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
-| `TEKST` | `Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx, src/__tests__/uprzedzenie-proby-ekran-126.test.tsx |
-| `TEKST` | `Próba jest jedna na oba plany subskrypcji.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
-| `TEKST` | `Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
-| `TEKST` | `Zakup wymaga połączenia z App Store.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
 | `TEKST` | `Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/ekran-zakupu-ujawnienia.test.tsx |
-| `TEKST` | `Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
+| `TEKST` | `Zakup wymaga połączenia z App Store.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/components/__tests__/oferta-piekarz-pro-127.test.tsx |
 | `TEKST` | `Przywróć zakupy` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Warunki użytkowania` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Polityka prywatności` | `src/components/PaywallModal.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/kontakt-przeklad-f1.test.ts |
 | `TEKST` | `Piekarz Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/asc-ustawienia.test.ts, tests/atrapa-asc-zgloszenie.ts |
-| `TEKST` | `Okres próbny: {dni}` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.` | `src/components/PaywallModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Spróbuj ponownie` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/martwe-klucze-oferty-203.test.ts |
 | `UI` | `Przywróć zakupy` | `src/components/przywroc-zakupy.ts` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
@@ -319,5 +305,19 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zezwól na dostęp do aparatu` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Skieruj obiektyw na kod QR receptury` | `src/components/QrScannerModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Zakwas ({n}% wody)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Bochenki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/matrix-ui-text.test.tsx |
+| `UI` | `Mniej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `UI` | `Więcej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
+| `TEKST` | `Masa bochenka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
+| `TEKST` | `Masa mąki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/i18n-en-main-flow.test.tsx |
+| `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
+| `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 
-*(... i 1161 kolejnych elementów w pełnym wykazie)*
+*(... i 1152 kolejnych elementów w pełnym wykazie)*

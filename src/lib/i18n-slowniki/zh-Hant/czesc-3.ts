@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': '靜置 20 分鐘，再進行下一次標準翻面拉摺。',
   'OK': '好',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': '高峰時段僅為估計：一項針對 40 種天然酵母起種的研究中，麵團膨脹速度介於 0.1 到 1.5 mm/h。',
-  'Okres próbny się skończył': '試用期已結束',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': '表面的橄欖油能減少水分蒸發，讓內部組織保持濕潤蓬鬆。',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': '用刀片割紋後立刻塌陷／扁掉',
   'Opisz, co się stało albo co chcesz nam przekazać:': '請描述發生了什麼事，或你想告訴我們的內容：',

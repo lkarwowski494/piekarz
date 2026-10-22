@@ -145,7 +145,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Lasă-l să se odihnească 20 de minute înainte de următoarea împăturire obișnuită.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Fereastra de vârf este o estimare: într-un studiu pe 40 de maiele, ritmul de creștere a aluatului a variat între 0,1 și 1,5 mm/h.',
-  'Okres próbny się skończył': 'Perioada de probă s-a încheiat',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Uleiul de măsline de pe suprafață limitează evaporarea, păstrând miezul suculent și aerat.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'S-a lăsat / s-a prăbușit imediat după crestarea cu lama',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Descrie ce s-a întâmplat sau ce vrei să ne transmiți:',

@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — ekran zakupu „Piekarz Pro” (design-spec §11e 127, makieta docs/design/ekrany/oferta.html; D-063, DEC-17 a)
 // [M1-audytor-generalny-127; 04-studio-projektowe-502; 02-monetyzacja-506]. Ceny wyłącznie z App Store (displayPrice)
-// [M1-audytor-generalny-008]; próba tylko jako oferta wprowadzająca dla uprawnionych [M1-audytor-generalny-009];
+// [M1-audytor-generalny-008]; bez okresu próbnego i oferty wprowadzającej (D-112, D-116; ekran Pro P-b, D-117);
 // ujawnienia U2–U8 z kontraktu płatności (docs/monetyzacja.md); bez sieci komunikat i ponowny odczyt (BR-PRYW-001).
 // ============================================================================
 
@@ -10,7 +10,7 @@ import { Alert, Linking, Modal, Pressable, ScrollView, StyleSheet, Text, View, u
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { odstepy, promienie, typografia } from '../ui/tokeny';
-import { t, tPlural } from '../lib/i18n';
+import { t } from '../lib/i18n';
 import { APPLE_EULA_URL, PRIVACY_URL } from '../lib/links';
 import { CloseButton } from './CloseButton';
 import { przywrocZKomunikatem } from './przywroc-zakupy';
@@ -77,7 +77,6 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
   // Opcja, której sklep nie zwrócił, nie jest rysowana; przy ładowaniu trzy opcje bez kwot (§11e 127).
   const plany = stan === 'ladowanie' ? PLANY_OFERTY : PLANY_OFERTY.filter((p) => doPlanu(p));
   const plan = plany.includes(wybrany) ? wybrany : (plany[0] ?? wybrany);
-  const dniProby = Math.max(0, ...(oferta ?? []).map((o) => o.probaDni ?? 0));
 
   // Blokada przed drugim stuknięciem, zanim stan isProcessing zdąży się wyrenderować [audyt-niezalezny C-5]
   const trwa = useRef(false);
@@ -113,23 +112,11 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
 
   const ponow = useCallback(() => setOdczyt((n) => n + 1), []);
 
-  const ujawnienia =
-    stan === 'oferta-proba'
-      ? [
-          t('Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
-          t('Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.'),
-          t('Próba jest jedna na oba plany subskrypcji.'),
-          t('Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.'),
-          t('Zakup wymaga połączenia z App Store.'),
-        ]
-      : [
-          t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
-          t('Zakup wymaga połączenia z App Store.'),
-        ];
-  const opisDozywotniego =
-    stan === 'oferta-proba'
-      ? t('Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.')
-      : undefined;
+  // Bez okresu próbnego (D-112): ujawnienia odnawiania i połączenia; pełna lista ujawnień 1–5 kontraktu w P-b (D-117)
+  const ujawnienia = [
+    t('Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.'),
+    t('Zakup wymaga połączenia z App Store.'),
+  ];
 
   // Przy dużym tekście (fontScale ≥ 2, okolice AX1–AX5) przypięty zostaje tylko przycisk główny, a przywracanie
   // i linki idą na koniec przewijanej treści, żeby pasek nie zajmował połowy ekranu [M1-audytor-generalny-200]
@@ -167,13 +154,6 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
             <KomunikatBezSieci niedostepna={stan === 'niedostepna'} />
           ) : (
             <>
-              {stan === 'oferta-proba' && (
-                <Text style={styles.proba} testID="offer-trial-length">
-                  {t('Okres próbny: {dni}', {
-                    dni: tPlural(dniProby, { one: '{n} dzień', few: '{n} dni', many: '{n} dni', other: '{n} dnia' }),
-                  })}
-                </Text>
-              )}
               <Text style={styles.opis}>
                 {t('Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.')}
               </Text>
@@ -187,7 +167,6 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
                       testID={ID_OPCJI[p]}
                       nazwa={nazwaPlanu(p)}
                       cena={o ? cenaPlanu(o) : null}
-                      opis={p === 'lifetime' ? opisDozywotniego : undefined}
                       wybrana={p === plan}
                       onPress={() => setWybrany(p)}
                     />
@@ -215,7 +194,7 @@ export function PaywallModal({ visible, onClose, onSubscribe, onRestore }: Paywa
               disabled={stan === 'ladowanie' || isProcessing}
               onPress={handlePurchase}
             >
-              <Text style={styles.glownyTekst}>{napisPrzycisku(doPlanu(plan), plan)}</Text>
+              <Text style={styles.glownyTekst}>{napisPrzycisku(plan)}</Text>
             </Pressable>
           )}
 
@@ -236,7 +215,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
   },
-  proba: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   opis: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   opcje: { gap: odstepy.s },
   ujawnienia: { gap: odstepy.s },

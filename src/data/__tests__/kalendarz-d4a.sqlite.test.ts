@@ -71,7 +71,8 @@ describe('BR-KAL-007: kalendarz bez zmiany schematu (M3 D4a)', () => {
     const dane = await kalendarz.wczytajDaneKalendarza(NOW);
     const zd = zdarzeniaKalendarza(dane, NOW);
     expect(dane.wypieki.map((w) => [w.id, w.zaczetyZDostepem])).toEqual([['wyp', true]]);
-    expect(dane.dostep).toEqual({ terminyKarmienia: true, przyszleWypieki: true });
+    // Pole karmieniePro (Basic/Pro, D-113) dopisane w M3 P-a; ten test ma Pro, więc wszystkie terminy jak dotąd
+    expect(dane.dostep).toEqual({ terminyKarmienia: true, przyszleWypieki: true, karmieniePro: true });
     expect(zd.filter((z) => z.rodzaj === 'wpis-dziennika').map((z) => z.ocena)).toEqual([4]);
     const l = liniaNastepne(zd, NOW);
     expect(l.zalegle.map((z) => z.nazwa)).toEqual(['Żytni']);

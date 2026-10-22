@@ -23,9 +23,11 @@ import { TechniquesLibrarySection } from './academy/TechniquesLibrarySection';
 interface BreadAcademyModalProps {
   visible: boolean;
   onClose: () => void;
+  /** Strażnik otwarcia lekcji: pierwszy poziom w Basic, dalsze w Pro (BR-NAUK-001, D-116); brak = bez strażnika. */
+  otworzLekcje?: (level: number, otworz: () => void) => void;
 }
 
-export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) {
+export function BreadAcademyModal({ visible, onClose, otworzLekcje }: BreadAcademyModalProps) {
   const [activeTab, setActiveTab] = useState<AcademyTab>('school');
 
   // School state
@@ -76,6 +78,7 @@ export function BreadAcademyModal({ visible, onClose }: BreadAcademyModalProps) 
               lessons={lessons}
               completedLevels={completedLevels}
               onToggleLesson={handleToggleLesson}
+              otworzLekcje={otworzLekcje}
             />
           )}
 

@@ -1,6 +1,7 @@
 // ============================================================================
 // Piekarz — zaplanowane wypieki na „Dziś”: arkusz planu, start i usunięcie (BR-KAL-009, D-104, D-108) [M3 D5]
-// Start tylko z dostępem i z pytaniem z D-104: przy jednym trwającym „Prowadź oba” / „Wróć do: …” / „Anuluj”, przy
+// Start zapisanego planu jest w Basic (kontrakt docs/monetyzacja.md: „zaplanowany wcześniej wypiek da się zacząć”), z pytaniem
+// z D-104: przy jednym trwającym „Prowadź oba” (Pro: dwa wypieki naraz, BR-KAL-016) / „Wróć do: …” / „Anuluj”, przy
 // dwóch „Prowadzisz już 2 wypieki”. Usunięcie rutynowe według słownika interakcji (design-spec §5, D-051 1a): bez
 // pytania, pasek „Usunięto plan wypieku” z „Przywróć”. Nieudany zapis: „Nie zapisano” (guardSave), nic nie znika po cichu.
 // ============================================================================
@@ -8,6 +9,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Alert } from 'react-native';
 import type { PlannedBake } from '../data/bake-sessions-store';
+import type { Funkcja } from '../lib/platnosci/konfiguracja';
 import { MAX_TRWAJACYCH_WYPIEKOW } from '../core/limity-wypiekow';
 import { confirmLimitPlanow, confirmLimitWypiekow, confirmStartPrzyTrwajacym } from '../lib/confirm';
 import { trwajaceWypieki, utrwalWypiekZPamieci } from '../lib/przerwij-wypiek';
@@ -18,7 +20,7 @@ import { t } from '../lib/i18n';
 export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess }: {
   onZmiana: () => void;
   otworzWypiek: (id: string) => void;
-  requireActionAccess: (fn: () => void) => void;
+  requireActionAccess: (funkcja: Funkcja, fn: () => void) => void;
 }) {
   const [otwarty, ustawOtwarty] = useState<string | null>(null);
   const [usuniety, ustawUsuniety] = useState<PlannedBake | null>(null);
@@ -38,13 +40,14 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess }: {
         ustawOtwarty(null);
         Alert.alert(t('Tego planu już nie ma.'));
       })();
-    requireActionAccess(() => {
+    requireActionAccess('harmonogram', () => {
       void trwajaceWypieki().then((trwajace) => {
         const [trwa] = trwajace;
         if (!trwa) return start();
         if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
-        // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104)
-        confirmStartPrzyTrwajacym(trwa, () => void utrwalWypiekZPamieci().then((ok) => ok && start()), wroc);
+        // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104); drugi trwający to Pro
+        const oba = () => requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => ok && start()));
+        confirmStartPrzyTrwajacym(trwa, oba, wroc);
       });
     });
   }, [onZmiana, requireActionAccess, wroc]);

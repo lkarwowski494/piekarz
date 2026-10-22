@@ -146,7 +146,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Hagyd pihenni 20 percig a következő szokásos hajtogatás előtt.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'A csúcsidőszak csak becslés: egy 40 kovászt vizsgáló kutatásban a tészta kelési sebessége 0,1 és 1,5 mm/óra között volt.',
-  'Okres próbny się skończył': 'Lejárt a próbaidőszak',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'A felületen lévő olívaolaj csökkenti a párolgást, így a bélzet szaftos és levegős marad.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Összeesett közvetlenül a pengés bevágás után',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Írd le, mi történt, vagy mit szeretnél üzenni nekünk:',

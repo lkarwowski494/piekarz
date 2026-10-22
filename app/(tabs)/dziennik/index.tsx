@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — zakładka „Dziennik” (D-051 2a): historia wypieków ze statystykami, „Piecz ponownie”, usuwanie
-// i wejście do Doktora Chleba. Przegląd historii działa także bez uprawnienia (BEZ_UPRAWNIENIA: historia,
-// F-67 „tylko historia”); Doktor jest płatny i blokuje się na swoim ekranie. [M1-audytor-generalny-101]
+// i wejście do Doktora Chleba. Dziennik, „Piecz ponownie” i Doktor w Basic; statystyki i porównanie w Pro
+// (BR-RECP-004, D-113, D-116). [M1-audytor-generalny-101]
 // Wejście z kalendarza z parametrem `wpis` wyróżnia ten wpis i przewija do niego (BR-KAL-013) [M3 D7].
 // ============================================================================
 
@@ -41,7 +41,11 @@ export default function DziennikScreen() {
       keyboardShouldPersistTaps="handled"
     >
       <BlokadaFunkcji {...blokada('historia')}>
-        {historia.bakeHistory.length > 0 && <BakeStatsCard stats={historia.bakeStats} />}
+        {historia.bakeHistory.length > 0 && (
+          <BlokadaFunkcji {...blokada('porownanie')}>
+            <BakeStatsCard stats={historia.bakeStats} />
+          </BlokadaFunkcji>
+        )}
         <BakeHistorySection
           bakeHistory={historia.bakeHistory}
           selectedTasteFilter={historia.selectedTasteFilter}

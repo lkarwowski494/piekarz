@@ -10,24 +10,15 @@ export const EN_4: Record<string, string> = {
   'Zarządzaj subskrypcją': 'Manage Subscription',
   // Ekran zakupu „Piekarz Pro” w nowej szacie (design-spec §11e 127; nazwy jak w App Store Connect) [M1-audytor-generalny-127]
   'Piekarz Pro': 'Baker Pro',
-  'Okres próbny: {dni}': 'Free trial: {dni}',
   'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.':
     'Recipe calculations, bake plans, step-by-step guidance with notifications, starters, and a journal. No ads, no account.',
   'Dożywotni': 'Lifetime',
-  '{cena} rocznie po próbie': '{cena} per year after the trial',
-  '{cena} miesięcznie po próbie': '{cena} per month after the trial',
   '{cena} rocznie': '{cena} per year',
   '{cena} miesięcznie': '{cena} per month',
   '{cena} jednorazowo': '{cena} one-time',
-  'Jedna opłata. Ten plan nie potrzebuje próby; jeśli masz zaczętą próbę subskrypcji, anuluj ją, żeby za nią nie płacić.':
-    "One payment. This plan doesn't need a trial; if you've started a subscription trial, cancel it so you aren't charged.",
-  'Subskrypcja odnawia się sama. Żeby nie płacić, anuluj ją najpóźniej 24 godziny przed końcem próby: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.':
-    'The subscription renews automatically. To avoid being charged, cancel it at least 24 hours before the trial ends: in Settings, tap your name, then Subscriptions.',
   'Subskrypcja odnawia się sama, dopóki jej nie anulujesz: w Ustawieniach stuknij swoje imię i nazwisko, potem Subskrypcje.':
     'The subscription renews automatically until you cancel it: in Settings, tap your name, then Subscriptions.',
-  'Próba jest jedna na oba plany subskrypcji.': 'There is one trial for both subscription plans.',
   'Zakup wymaga połączenia z App Store.': 'Purchasing requires a connection to the App Store.',
-  'Zacznij okres próbny': 'Start Free Trial',
   'Kup plan roczny': 'Buy Yearly Plan',
   'Kup plan miesięczny': 'Buy Monthly Plan',
   'Warunki użytkowania': 'Terms of Use',

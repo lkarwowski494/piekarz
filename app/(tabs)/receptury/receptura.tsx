@@ -45,8 +45,8 @@ const bezAkcji = () => undefined;
 export default function EkranReceptury() {
   const router = useRouter();
 
-  // Jeden strażnik dostępu; bez uprawnienia tylko odczyt, eksport i usunięcie (027)
-  const { chron, blokada, requireActionAccess } = useAppAccess();
+  // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
+  const { chron, blokada, dodaj } = useAppAccess();
 
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
   const [loavesCount, setLoavesCount] = useState<number>(2);
@@ -183,8 +183,9 @@ export default function EkranReceptury() {
 
   const currentMasterPreset = useMemo(() => MASTER_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
 
+  // Nowa własna receptura: limit Basic (5) liczony z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity pojemności Basic”)
   const handleSaveCustomRecipe = async () => {
-    requireActionAccess(guardSave(async () => {
+    dodaj('wlasneReceptury', guardSave(async () => {
       // Cała formuła jak dla planu, z drożdżami [audyt-niezalezny D-2]
       const saved = await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt);
       if (saved) {
@@ -197,19 +198,18 @@ export default function EkranReceptury() {
     }));
   };
 
-  // „Ułóż plan” (słownik §5): plan wstecz z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057]
+  // „Ułóż plan” (słownik §5): plan z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057].
+  // Plan od teraz w Basic, „gotowe o…” w Pro (strażnik na ekranie planu, D-116)
   const handleMakePlan = () => {
-    requireActionAccess(() => {
-      ustawRecepturePlanu({
-        recipeName,
-        recipeId: selectedPresetId, // id receptury do wypieku i wpisu (D-10, D1-7) [M3 D3a]
-        calculatedRecipe: calculations,
-        recipeFormula,
-        // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
-        ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
-      });
-      router.push('/receptury/harmonogram');
+    ustawRecepturePlanu({
+      recipeName,
+      recipeId: selectedPresetId, // id receptury do wypieku i wpisu (D-10, D1-7) [M3 D3a]
+      calculatedRecipe: calculations,
+      recipeFormula,
+      // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]
+      ...(temperatury.kuchnia !== null ? { temperaturaKuchni: { c: temperatury.kuchnia, wybrana: kuchniaWpisana } } : {}),
     });
+    router.push('/receptury/harmonogram');
   };
 
   // Menu „Więcej” w pasku nawigacji (057): pozycje z bieżącą recepturą przy każdym otwarciu
@@ -227,8 +227,8 @@ export default function EkranReceptury() {
           loavesCount: calcMode === 'loaves' ? loavesCount : 1,
         }),
       udostepnijPlik: () => void executeExportRecipeJson(currentRecipeForShare),
-      udostepnijQr: chron('udostepnianie', () => setIsShareQrOpen(true)),
-      drukuj: chron('kalkulator', () => openPrintMenu(handlePrintRecipePdf)),
+      udostepnijQr: chron('qr-wysylanie', () => setIsShareQrOpen(true)),
+      drukuj: chron('druk', () => openPrintMenu(handlePrintRecipePdf)),
     });
   useEffect(() => zarejestrujMenuReceptury(() => menuWiecej.current()), []);
 
@@ -237,10 +237,12 @@ export default function EkranReceptury() {
     <CalculatorActionButtons
       onMakePlan={handleMakePlan}
       powodBezPlanu={powodBezZakwasu(recipeFormula)}
-      onSaveCustomRecipe={chron('receptury', () => {
-        setSaveRecipeNameInput(recipeName);
-        setIsSaveModalOpen(true);
-      })}
+      onSaveCustomRecipe={() =>
+        dodaj('wlasneReceptury', () => {
+          setSaveRecipeNameInput(recipeName);
+          setIsSaveModalOpen(true);
+        })
+      }
       onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
       onEditIngredients={chron('kalkulator', () => setIsIngredientsOpen(true))}
     />
@@ -303,7 +305,8 @@ export default function EkranReceptury() {
         yeastPct={yeastPct}
         onYeastPctChange={setYeastPct}
         prefermentType={prefermentType}
-        onPrefermentTypeChange={setPrefermentType}
+        // Poolish, biga, levain w Pro (BR-KALK-010); ciasto bezpośrednie w Basic
+        onPrefermentTypeChange={(typ) => (typ === 'direct' ? setPrefermentType(typ) : chron('zaczyn', () => setPrefermentType(typ))())}
         prefermentFlourPct={prefermentFlourPct}
         onPrefermentFlourPctChange={setPrefermentFlourPct}
         prefermentBreakdown={prefermentBreakdown}

@@ -149,7 +149,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Sumažinti tešlos hidrataciją {n} %',
   'Zmniejsz masę mąki o {g} g': 'Sumažinti miltų masę {g} g',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Sumažinti miltų {nazwa} dalį {n} %',
-  'Zobacz plany': 'Peržiūrėti planus',
   'Zostaje wgłębienie i ciasto siada:': 'Lieka įduba ir tešla krenta:',
   'zostało {czas}': 'liko {czas}',
   'zostało {czas}, do {godzina}': 'liko {czas}, iki {godzina}',

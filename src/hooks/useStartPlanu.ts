@@ -14,6 +14,7 @@ import { kolizjePlanu } from '../core/plany-wypiekow';
 import { oknoPiekarnika, przesunKroki, sprawdzPiekarnik, type InnyWypiek } from '../core/piekarnik';
 import { MAX_TRWAJACYCH_WYPIEKOW, MAX_ZAPLANOWANYCH_WYPIEKOW } from '../core/limity-wypiekow';
 import type { StoredStarter } from '../data/db';
+import type { Funkcja } from '../lib/platnosci/konfiguracja';
 import type { ActiveBakeState } from '../data/sqlite-schema';
 import { setActiveBake } from '../data/sqlite-store';
 import { loadActiveBakeSessions, loadPlannedBakes, savePlannedBake, type PlannedBake } from '../data/bake-sessions-store';
@@ -37,7 +38,8 @@ export interface WejscieStartuPlanu {
   tempWybrana: boolean;
   /** Start nieaktywny („za późno” albo receptura bez zakwasu). */
   zablokowany: boolean;
-  requireActionAccess: (fn: () => void) => void;
+  /** Strażnik dostępu (useAppAccess): start w Basic, drugi trwający i plan na później w Pro (D-113, D-116). */
+  requireActionAccess: (funkcja: Funkcja, fn: () => void) => void;
 }
 
 export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany, requireActionAccess }: WejscieStartuPlanu) {
@@ -66,25 +68,25 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
     if (zablokowany) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
     const start = () => {
       const id = `bake_${Date.now()}`;
-      // Start tylko z dostępem: wypiek prowadzi się do końca także po wygaśnięciu (D-039) [M1-audytor-generalny-125]
+      // Znacznik D-039 zostaje w danych; prowadzenie wypieku jest w Basic (D-112), więc nic od niego nie zależy
       setActiveBake({ ...daneWypieku(id, Date.now()), zaczetyZDostepem: true });
       router.push({ pathname: '/stolnica', params: { wypiek: id } });
     };
     const wroc = (wypiek: string) => router.push({ pathname: '/stolnica', params: { wypiek } });
-    // Kilka wypieków naraz (D-092): przy jednym trwającym „Prowadź oba” / „Wróć do: …” / „Anuluj”, przy limicie tylko
-    // powrót albo „Anuluj” (D-104); bez trwającego start jak dotąd [M3 D3a]
-    requireActionAccess(() => {
+    // Kilka wypieków naraz (D-092): przy jednym trwającym „Prowadź oba” (Pro, BR-KAL-016) / „Wróć do: …” / „Anuluj”,
+    // przy limicie tylko powrót albo „Anuluj” (D-104); bez trwającego start jak dotąd (Basic) [M3 D3a, P-a]
+    requireActionAccess('harmonogram', () => {
       void Promise.all([trwajaceWypieki(), wczytajInne()]).then(([trwajace, inne]) => {
         const [trwa] = trwajace;
-        // Piekarnik zajęty: „Przesuń start” zapisuje przesunięty plan, druga akcja to start bez zmiany (D6)
-        const przesun = (po: readonly SessionStep[]) => zapiszPlan(po, inne);
+        // Piekarnik zajęty: „Przesuń start” zapisuje przesunięty plan (wypiek na później: Pro), druga akcja to start (D6)
+        const przesun = (po: readonly SessionStep[]) => requireActionAccess('plany-przyszle', () => zapiszPlan(po, inne));
         if (!trwa) return pytajOPiekarnik(steps, inne, { tekst: t('Zacznij wypiek'), onPress: start }, przesun);
         if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
         const oba = () =>
           // Wypiek z pamięci bez zapisu najpierw do zapisu: pamięć dostaje nowy wypiek
-          void utrwalWypiekZPamieci().then((ok) => {
+          requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => {
             if (ok) start();
-          });
+          }));
         const r = sprawdzPiekarnik(steps, inne.piekarnik);
         if (r.stan === 'zajety') return pytajOPiekarnik(steps, inne, { tekst: t('Prowadź oba'), onPress: oba }, przesun);
         const pytanie = () => confirmStartPrzyTrwajacym(trwa, oba, wroc);
@@ -124,10 +126,10 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
     confirmKolizjaPlanow(linie, zapisz);
   };
 
-  // „Zaplanuj” (BR-KAL-009, BR-KAL-016): limit, piekarnik (D6), kolizja kroków (D5), zapis
+  // „Zaplanuj” (BR-KAL-009, BR-KAL-016; Pro): limit, piekarnik (D6), kolizja kroków (D5), zapis
   const zaplanuj = () => {
     if (zablokowany || typeof steps[0]?.plannedStart !== 'number') return;
-    requireActionAccess(() => {
+    requireActionAccess('plany-przyszle', () => {
       void wczytajInne().then((inne) => {
         if (inne.plany >= MAX_ZAPLANOWANYCH_WYPIEKOW) return confirmLimitPlanow(pokazPlany);
         const dalej = () => zapiszPlan(steps, inne);

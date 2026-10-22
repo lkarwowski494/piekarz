@@ -1,7 +1,6 @@
 // Słownik nl, część 5 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': 'Je kunt je recepten, zuurdesemstarters en dagboek nog bekijken, exporteren en verwijderen. Herinneringen om te voeden staan uit. Berekenen, plannen en begeleiding vereisen Bakker Pro.',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Alleen wit meel: volgens King Arthur Baking kan de zuurdesemstarter dan iets trager op gang komen.',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Dit meel staat niet in de Poolse norm PN-A-74022:2003: molens maken het volgens eigen technische specificaties. Donkerder meel voor brood met hogere enzymactiviteit en een nootachtig aroma.',
   'Typ mąki': 'Meelsoort',

@@ -156,7 +156,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Scade gradul de hidratare cu {n}%',
   'Zmniejsz masę mąki o {g} g': 'Scade greutatea făinii cu {g} g',
   'Zmniejsz udział mąki {nazwa} o {n}%': 'Scade proporția făinii {nazwa} cu {n}%',
-  'Zobacz plany': 'Vezi planurile',
   'Zostaje wgłębienie i ciasto siada:': 'Adâncitura rămâne și aluatul se lasă:',
   'zostało {czas}': 'rămas: {czas}',
   'zostało {czas}, do {godzina}': 'rămas: {czas}, până la {godzina}',

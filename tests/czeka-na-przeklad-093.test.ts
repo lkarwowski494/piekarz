@@ -154,6 +154,12 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.',
     'Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.',
     // KONIEC D8
+    // M3 P-a: uprzedzenie o końcu Piekarz Pro i komunikat po wygaśnięciu (D-113, D-116), na przebieg a5 jak D5–D8
+    'Piekarz Pro kończy się {data}',
+    'Subskrypcja się nie odnowi. Potem przypomnienia o dokarmianiu wyłączą się, a Twoje receptury, zakwasy i dziennik zostaną.',
+    'Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.',
+    'Zamknij informację o Piekarz Pro',
+    // KONIEC P-a
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

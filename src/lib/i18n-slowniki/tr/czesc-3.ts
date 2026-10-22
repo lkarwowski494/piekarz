@@ -138,7 +138,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Bir sonraki standart katlamadan önce 20 dakika dinlendirin.',
   'OK': 'Tamam',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Zirve aralığı bir tahmindir: 40 ekşi maya üzerinde yapılan bir çalışmada hamurun kabarma hızı 0,1 ile 1,5 mm/sa arasında değişti.',
-  'Okres próbny się skończył': 'Deneme süreniz sona erdi',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Yüzeydeki zeytinyağı buharlaşmayı sınırlar; ekmek içi sulu ve havadar kalır.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Jiletle kesildikten hemen sonra söndü / çöktü',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Ne olduğunu veya bize ne iletmek istediğinizi anlatın:',

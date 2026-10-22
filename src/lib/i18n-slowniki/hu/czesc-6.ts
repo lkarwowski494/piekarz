@@ -156,7 +156,6 @@ export const CZESC: Record<string, string> = {
   'Zmniejsz hydratację o {n}%': 'Hidratáció csökkentése {n}%-kal',
   'Zmniejsz masę mąki o {g} g': 'Liszttömeg csökkentése {g} g-mal',
   'Zmniejsz udział mąki {nazwa} o {n}%': '{nazwa} arányának csökkentése {n}%-kal',
-  'Zobacz plany': 'Csomagok',
   'Zostaje wgłębienie i ciasto siada:': 'A mélyedés megmarad, és a tészta összeesik:',
   'zostało {czas}': 'még {czas}',
   'zostało {czas}, do {godzina}': 'még {czas} (vége: {godzina})',

@@ -15,6 +15,7 @@ import { bazowaZmienionaOdWypieku, prepareBakeAgainRecipe } from '../lib/recipe-
 import { ustawRecepturePlanu } from '../lib/plan-receptury';
 import { calculateDoughRecipe } from '../core/domain-rules';
 import { calculateBakeStatistics, filterBakeLogs } from '../core/bake-statistics';
+import type { Funkcja } from '../lib/platnosci/konfiguracja';
 
 /** Masa ciasta, gdy receptura jej nie ma: jak domyślnie na ekranie receptury (2 bochenki po 850 g). */
 const MASA_DOMYSLNA_G = 2 * 850;
@@ -22,7 +23,7 @@ const MASA_DOMYSLNA_G = 2 * 850;
 export type FiltrSmaku = 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
 
 /** Dziennik wypieków z bazy; `requireActionAccess` to jedyny strażnik dostępu ekranu (useAppAccess). */
-export function useBakeHistory(requireActionAccess: (action?: () => void | Promise<void>) => boolean) {
+export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: () => void | Promise<void>) => boolean) {
   const router = useRouter();
   const [bakeHistory, setBakeHistory] = useState<StoredBakeLog[]>([]);
   const [selectedTasteFilter, setSelectedTasteFilter] = useState<FiltrSmaku>('all');
@@ -41,8 +42,9 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
     loadHistory();
   }, [loadHistory]);
 
+  // „Piecz ponownie” w Basic (BR-RECP-003, D-113)
   const handleBakeAgain = async (log: StoredBakeLog) => {
-    requireActionAccess(async () => {
+    requireActionAccess('historia', async () => {
       tapHaptic(Haptics.ImpactFeedbackStyle.Medium);
 
       // BR-RECP-003 „Następny wypiek z wpisu”: plan wypieku (PR-02) z tą samą recepturą i notatką z wpisu

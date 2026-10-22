@@ -144,7 +144,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Ļaujiet atpūsties 20 minūtes pirms nākamās standarta mīklas locīšanas.',
   'OK': 'Labi',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Maksimuma logs ir aplēse: pētījumā ar 40 dabīgajiem ieraugiem mīklas kāpšanas ātrums bija no 0,1 līdz 1,5 mm/h.',
-  'Okres próbny się skończył': 'Izmēģinājuma periods ir beidzies',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olīveļļa uz virsmas ierobežo iztvaikošanu, saglabājot sulīgu un gaisīgu mīkstumu.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Saplaka / iekrita tūlīt pēc iegriešanas ar asmeni',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Aprakstiet, kas notika vai ko vēlaties mums pastāstīt:',

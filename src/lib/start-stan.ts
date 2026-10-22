@@ -1,14 +1,15 @@
 // ============================================================================
 // Piekarz — Start „Co dziś robisz?” (BR-START-001, F-68, H-08; design-spec §6) [M1-audytor-generalny-101]
 // Czysta logika: który stan Startu pokazać i dokąd prowadzi wybór czynności. Wybór otwiera pierwszy
-// ekran przepływu bez oferty (D-047); oferta pojawia się dopiero przy akcji, która liczy, planuje albo zapisuje.
+// ekran przepływu bez ekranu Pro (D-047); ekran Pro pojawia się tylko przy stuknięciu funkcji Pro (D-112, D-113).
 // ============================================================================
 
 /**
  * Stany makiety docs/design/ekrany/start.html: „wybor” = `pierwsze-uruchomienie` (także powrót bez trwającego
- * wypieku), `trwa-wypiek` (powrót jednym dotknięciem, F-58), `tylko-historia` (po próbie bez zakupu, F-67).
+ * wypieku), `trwa-wypiek` (powrót jednym dotknięciem, F-58). Stan `tylko-historia` (po próbie bez zakupu, F-67)
+ * odpadł z kontraktem D-038: Basic działa zawsze (D-112, D-116).
  */
-export type StanStartu = 'wybor' | 'trwa-wypiek' | 'tylko-historia';
+export type StanStartu = 'wybor' | 'trwa-wypiek';
 
 /** Trzy czynności BR-START-001 w kolejności z makiety. */
 export type CzynnoscStartu = 'zakladam-zakwas' | 'pieke-na-zakwasie' | 'pieke-na-drozdzach';
@@ -20,21 +21,11 @@ export type RodzajReceptur = 'sourdough' | 'yeast';
 export interface WejscieStartu {
   /** Zapisany trwający wypiek (active_bake_session) albo wypiek przekazany z receptury. */
   trwaWypiek: boolean;
-  /** Uprawnienie App Store (subskrypcja, oferta wprowadzająca, zakup dożywotni). */
-  dostep: boolean;
-  /** Użytkownik ma własne dane: wpis dziennika, zakwas albo recepturę własną. */
-  maDane: boolean;
 }
 
-/**
- * Trwający wypiek ma pierwszeństwo (powrót bez szukania); bez uprawnienia i z własnymi danymi — „tylko historia”
- * (aplikacja nie liczy dni próby, więc brak dostępu przy istniejących danych oznacza koniec próby albo
- * subskrypcji); w pozostałych przypadkach wybór czynności. Pierwsze uruchomienie nie ma danych i nie ma kłódek.
- */
-export function stanStartu({ trwaWypiek, dostep, maDane }: WejscieStartu): StanStartu {
-  if (trwaWypiek) return 'trwa-wypiek';
-  if (!dostep && maDane) return 'tylko-historia';
-  return 'wybor';
+/** Trwający wypiek ma pierwszeństwo (powrót bez szukania); inaczej wybór czynności, bez kłódek także bez Pro (D-112). */
+export function stanStartu({ trwaWypiek }: WejscieStartu): StanStartu {
+  return trwaWypiek ? 'trwa-wypiek' : 'wybor';
 }
 
 /** Cel czynności: „zakładam zakwas” → Zakwasy (PR-11); pieczenie → Receptury z filtrem rodzaju (PR-01, PR-17). */

@@ -1,10 +1,10 @@
 // ============================================================================
-// Piekarz — blokada obszaru funkcji bez uprawnienia [M1-audytor-generalny-027, -108]
-// Dane użytkownika zostają do odczytu, także dla VoiceOver, i nic ich nie zasłania (D-039, DEC-01 d).
+// Piekarz — blokada obszaru funkcji Pro bez Piekarz Pro [M1-audytor-generalny-027, -108; D-116]
+// Dane użytkownika zostają do odczytu, także dla VoiceOver, i nic ich nie zasłania (D-039, D-112).
 // Zablokowane są akcje: dotknięcie w treści (palcem albo aktywacją VoiceOver) trafia w obszar treści
-// (pointerEvents „box-only”) i otwiera ekran zakupu przez jedynego strażnika (useAppAccess().requireActionAccess).
-// Nad treścią, we własnym wierszu, kłódka z „wymaga Piekarz Pro” i „Odblokuj pełny dostęp” — jak w stanie
-// `tylko-historia` Startu (design-spec §6, start/WyborCzynnosci.tsx).
+// (pointerEvents „box-only”) i otwiera ekran Pro przez jedynego strażnika (useAppAccess().requireActionAccess).
+// Nad treścią, we własnym wierszu, kłódka z „wymaga Piekarz Pro” i „Odblokuj pełny dostęp” (design-spec §6);
+// oznaczenie „Pro” według roli 04: partia P-b (D-117).
 // ============================================================================
 
 import React from 'react';

@@ -132,7 +132,6 @@ export const CZESC: Record<string, string> = {
   'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.': 'Laat het 20 minuten rusten vóór de volgende gewone vouwronde.',
   'OK': 'OK',
   'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.': 'Het piekvenster is een schatting: in een onderzoek met 40 zuurdesemstarters rees het deeg met 0,1 tot 1,5 mm/h.',
-  'Okres próbny się skończył': 'Je proefperiode is afgelopen',
   'Oliwa na powierzchni ogranicza parowanie, utrzymując soczysty i napowietrzony miękisz.': 'Olijfolie op het oppervlak beperkt de verdamping en houdt het kruim sappig en luchtig.',
   'Opadł / zapadł się natychmiast po nacięciu żyletką': 'Ingezakt direct na het insnijden met het scheermesje',
   'Opisz, co się stało albo co chcesz nam przekazać:': 'Beschrijf wat er is gebeurd of wat je ons wilt laten weten:',

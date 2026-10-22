@@ -38,7 +38,6 @@ export const CZESC: Record<string, string> = {
   'Tu zapiszą się twoje wypieki': '베이킹 기록이 여기에 표시돼요',
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': '데이터는 변경되지 않았지만, 지금은 앱이 데이터를 읽거나 저장할 수 없어요. 앱을 다시 시작하세요. 문제가 계속되면 휴대폰 저장 공간을 확보하세요.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': '데이터는 휴대폰에 저장되어 있어요. 다시 시도하기 전에 사본을 내보낼 수 있어요.',
-  'Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.': '배합표, 스타터, 일지는 계속 보고, 내보내고, 삭제할 수 있어요. 먹이 주기 알림은 꺼져 있어요. 계산, 계획, 진행 안내에는 제빵사 Pro가 필요해요.',
   'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': '흰 가루만 사용: King Arthur Baking에 따르면 이 경우 사워도우 스타터가 조금 더 늦게 활성화될 수 있어요.',
   'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': '이 가루는 폴란드 규격 PN-A-74022:2003에 포함되어 있지 않아 제분소가 자체 기술 사양에 따라 생산해요. 효소 활성이 더 높고 견과류 향이 나는, 비교적 어두운 제빵용 가루예요.',
   'Typ mąki': '가루 종류',

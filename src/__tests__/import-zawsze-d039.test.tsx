@@ -98,9 +98,12 @@ describe.each<Stan>(['po próbie bez zakupu', 'przed próbą'])('import działa 
     useTempDbDir();
   });
 
-  it('kontrola: stan bez uprawnienia, płatny kalkulator otwiera ekran zakupu (BR-ZAK-004 Po końcu próby)', async () => {
+  // Przepisane z kontraktu D-038 (płatny kalkulator) na Basic/Pro [M3 P-a]: liczenie jest w Basic (bez kłódki), a stan
+  // bez Pro sprawdza funkcja Pro na „Dziś” — widok miesiąca (BR-KAL-013, D-113)
+  it('kontrola: stan bez Pro — liczenie bez kłódki, funkcja Pro (widok miesiąca) otwiera ekran Pro (BR-ZAK-004 Po końcu Pro)', async () => {
     const s = await start(stan);
-    await s.press('blokada-kalkulator');
+    expect(s.tree.root.findAll((n) => n.props?.testID === 'blokada-kalkulator')).toEqual([]);
+    await s.press('kalendarz-tryb-miesiac');
     expect(s.paywall()).toBe(true);
     s.TR.act(() => s.tree.unmount());
     s.alert.mockRestore();

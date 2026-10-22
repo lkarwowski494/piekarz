@@ -38,7 +38,9 @@ describe('błędy MT (F-7)', () => {
     const vi = Object.entries(hr).filter(([k, v]) => !k.includes('#') && k in EN && /(^|[^\p{L}])(Dodajte|Smanjite|Povećajte|Produljite|Možete|Skratite|Vi|Vas|Vaš[\p{L}]*|vaš[\p{L}]*|nećete|želite)([^\p{L}]|$)/u.test(v));
     expect(vi.map(([k]) => k)).toEqual([]);
     // forma „ti” w tekstach z ponownego przekładu
-    expect(hr['Subskrypcja się nie odnowi, więc nic nie zapłacisz.']).toMatch(/nećeš/);
+    // Klucz „Subskrypcja się nie odnowi, więc nic nie zapłacisz.” usunięty z próbą (D-112, M3 P-a): ta sama forma „ti”
+    // w innym kluczu z ponownego przekładu
+    expect(hr['Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.']).toMatch(/nećeš/);
     expect(hr['Zwiększ udział zakwasu w recepturze.']).toMatch(/^Povećaj /);
   });
 });

@@ -31,15 +31,23 @@ describe('Hipotezy wzrostu (docs/wzrost/hipotezy.json)', () => {
     expect(r.status).toBe(1);
   });
 
-  test('H-01 to kryterium eksperymentu DEC-01 d z docs/monetyzacja.md roli 02 (D-038)', () => {
+  // Przepisane z D-038 (płatność po ofercie wprowadzającej) na „Kryterium po 90 dniach od wydania” kontraktu Basic/Pro
+  // (docs/monetyzacja.md, D-112, D-113): pierwsze zakupy subskrypcji i dożywotniego, poniżej połowy przegląd, nie
+  // zamrożenie [M3 P-a]
+  test('H-01 to „Kryterium po 90 dniach od wydania” z docs/monetyzacja.md (Basic/Pro, D-112, D-113)', () => {
     const x = JSON.parse(readFileSync(dane, 'utf8'));
     const h = x.hipotezy.find((e: { id: string }) => e.id === 'H-01');
     expect(h).toBeDefined();
     expect(h.zrodlo).toMatch(/App Store Connect/);
-    expect(h.prog.decyzja).toMatch(/D-038/);
+    expect(h.zrodlo).not.toMatch(/Introductory/);
+    expect(h.prog.decyzja).toMatch(/D-112/);
+    expect(h.prog.decyzja).not.toMatch(/D-038/);
+    expect(h.kryterium.zrodlo).toMatch(/Kryterium po 90 dniach od wydania/);
     expect(h.kryterium.okno_dni).toEqual([30, 90]);
     expect(h.kryterium.prog).toEqual({ nowi_placacy_mies: 7, wplyw_usd_mies: 42 });
-    expect(h.kryterium.zamrozenie).toEqual({ nowi_placacy_mies: 3.5, wplyw_usd_mies: 21 });
+    expect(h.kryterium.przeglad).toEqual({ nowi_placacy_mies: 3.5, wplyw_usd_mies: 21 });
+    expect(h.kryterium.zamrozenie).toBeUndefined();
+    expect(h.miara_pomocnicza).toMatch(/zakupy Pro/);
     // Ocena nie wcześniej niż 90 dni po najwcześniejszym możliwym wydaniu (2026-10-21)
     expect(h.data_oceny >= '2027-01-19').toBe(true);
   });

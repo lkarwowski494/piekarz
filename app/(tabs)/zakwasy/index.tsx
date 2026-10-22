@@ -45,12 +45,9 @@ import { zapytajOStalyDzien } from '../../../src/lib/staly-dzien-pytanie';
 
 export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
-  // Apps4Craft Monetization & Access (Cheaper than espresso)
-  const {
-    chron,
-    blokada,
-    requireActionAccess,
-  } = useAppAccess();
+  // Basic: pierwszy zakwas (założenie, karta, zapis karmień, RD-21, Doktor); Pro: gotowość i szczyt, stały dzień,
+  // proporcje dokarmiania, kolejne zakwasy (D-113, D-116)
+  const { blokada, dodaj } = useAppAccess();
 
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
   // Bez zakwasu w bazie nie ma profilu ani liczb: wartość startowa nie jest pokazywana (087, bez danych zmyślonych)
@@ -171,8 +168,9 @@ export default function ZakwasScreen() {
     return dniTemu(diffDays);
   }, [starter.lastFedAt]);
 
+  // Zapis karmienia w Basic (karta i zapis karmień, D-113)
   const handleLogFeeding = async () => {
-    requireActionAccess(guardSave(async () => {
+    void guardSave(async () => {
       const now = Date.now();
       const updated: StoredStarter = {
         ...starter,
@@ -190,7 +188,7 @@ export default function ZakwasScreen() {
         return;
       }
       Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
-    }));
+    })();
   };
 
   const handleOpenEditModal = () => {
@@ -200,8 +198,9 @@ export default function ZakwasScreen() {
     setIsEditModalOpen(true);
   };
 
+  // Edycja zapisanego zakwasu w Basic (zapisane działają w całości, kontrakt)
   const handleSaveProfile = async () => {
-    requireActionAccess(guardSave(async () => {
+    void guardSave(async () => {
       const trimmed = editName.trim();
       if (!trimmed) return;
       const updated: StoredStarter = {
@@ -216,11 +215,12 @@ export default function ZakwasScreen() {
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       setIsEditModalOpen(false);
       Alert.alert(t('Profil zakwasu'), t('Zapisano zaktualizowany profil'));
-    }));
+    })();
   };
 
+  // Nowy zakwas: limit Basic (1) liczony z bazy przy dodaniu; kolejne zakwasy w Pro (BR-ZAKW-001)
   const handleAddStarter = async () => {
-    requireActionAccess(guardSave(async () => {
+    dodaj('zakwasy', guardSave(async () => {
       const trimmedName = newStarterName.trim();
       if (!trimmedName) return;
       const newStarter: StoredStarter = {
@@ -290,7 +290,7 @@ export default function ZakwasScreen() {
         )}
         {/* Zakładanie od zera: pierwsze dokarmienie tworzy zakwas w dniu 1 (BR-ZAKW-005) [M1-audytor-generalny-104] */}
         {!maZakwas && (
-          <ZakladanieStart onZapisz={(nowy) => requireActionAccess(guardSave(async () => {
+          <ZakladanieStart onZapisz={(nowy) => dodaj('zakwasy', guardSave(async () => {
             await nowy();
             void resyncNotifications();
             await loadStarterData();
@@ -305,7 +305,7 @@ export default function ZakwasScreen() {
             setStarter(s);
             setSelectedStarterId(s.id);
           }}
-          onOpenAddModal={chron('zakwas', () => setIsAddModalOpen(true))}
+          onOpenAddModal={() => dodaj('zakwasy', () => setIsAddModalOpen(true))}
         />
 
         {/* Profile Card */}
@@ -324,14 +324,14 @@ export default function ZakwasScreen() {
             starter={starter}
             wersja={wersjaDziennika}
             onDokarm={handleLogFeeding}
-            zDostepem={(akcja) => requireActionAccess(akcja)}
+            zDostepem={(akcja) => void akcja()}
             onZmianaZakwasu={() => loadStarterData(starter.id)}
           />
         )}
 
-        {/* Bez uprawnienia: profil do odczytu, etykieta i usunięcie wolne; reszta otwiera ekran zakupu (027) */}
-        <BlokadaFunkcji {...blokada('zakwas')}>
+        {/* Gotowość i szczyt (BR-ZAKW-003): Pro; w Basic karta widoczna, dotknięcie otwiera ekran Pro (027, D-113) */}
         {maZakwas && (
+          <BlokadaFunkcji {...blokada('gotowosc-zakwasu')}>
           <StarterPeakActivityCard
             phaseResult={phaseResult}
             peakPrediction={peakPrediction}
@@ -342,10 +342,12 @@ export default function ZakwasScreen() {
             onAmbientTempChange={setAmbientTempC}
             unitSystem={unitSystem}
           />
+          </BlokadaFunkcji>
         )}
 
-        {/* Stały dzień karmienia zakwasu w lodówce (BR-KAL-010, PR-22) [M3 D7] */}
-        {maZakwas && (
+        {/* Stały dzień karmienia zakwasu w lodówce (BR-KAL-010, PR-22) [M3 D7]; Pro (D-113) */}
+        {maZakwas && starter.storageState === 'FRIDGE' && (
+          <BlokadaFunkcji {...blokada('staly-dzien')}>
           <StalyDzienKarmienia starter={starter} teraz={Date.now()} onZapisz={(d) => guardSave(async () => {
             const updated: StoredStarter = { ...starter, fridgeFeedDay: d };
             await saveStarter(updated);
@@ -353,9 +355,11 @@ export default function ZakwasScreen() {
             setStarter(updated);
             setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
           })()} />
+          </BlokadaFunkcji>
         )}
 
-        {/* Feeding Calculator */}
+        {/* Dokarmianie z proporcją (BR-ZAKW-002): Pro (D-113) */}
+        <BlokadaFunkcji {...blokada('proporcje-zakwasu')}>
         <StarterFeedingCard
           selectedRatio={selectedRatio}
           onSelectRatio={setSelectedRatio}

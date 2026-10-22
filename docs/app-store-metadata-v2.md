@@ -200,11 +200,11 @@ Baker (Polish name: Piekarz) is a 100% offline bread-baking assistant. There is 
 
 The app has four tabs: Today, Recipes, Starters and Journal. Settings open from the gear button at the top right of the Today tab (VoiceOver label "Settings").
 
-1. PURCHASES AND FREE TRIAL
-Access to the features requires a monthly or yearly subscription (one subscription group; introductory offer: free trial) or a lifetime purchase. Without a purchase, only bake history browsing, importing a file, and reading, exporting and deleting your own data work.
-To see the features with a sandbox account: on the Today tab choose "Baking with sourdough", tap any recipe under "Base Recipes", then tap "Make a Plan". The purchase screen opens; choose the monthly or yearly plan and tap "Start Free Trial". The trial is the App Store introductory offer, shown only to eligible accounts; the app does not count days itself.
+1. PURCHASES: BASIC AND PRO
+Baker Basic is free forever, with no trial: recipe calculation, a bake plan started now, guided baking step by step with timers, starting a first sourdough starter with its reminders, the Bread Doctor, the bake journal, and reading, importing, exporting and deleting your own data. Baker Pro (a monthly or yearly subscription in one group, or a lifetime purchase) adds planning backwards from a ready time with Sleep Guard, starter care (feeding reminders, feeding ratios, readiness, a fixed fridge feeding day), more than one starter and more than 5 own recipes, two bakes at once and bakes planned for future days. Pro features stay visible and are marked "requires Baker Pro".
+To see Pro with a sandbox account: on the Today tab choose "Baking with sourdough", tap any recipe under "Base Recipes", then tap "Make a Plan". Tap the ready time card marked "requires Baker Pro"; the purchase screen opens; choose a plan and tap "Buy Yearly Plan".
 Restore purchases: "Restore Purchases" at the bottom of the purchase screen, and in Settings > Purchases.
-Ongoing value of the subscription: the app is used again on every bake (a new plan from the ready time, step timers with notifications, starter feeding reminders and the bake journal), and the subscription funds continued updates for new iOS versions, maintenance of the translations into 35 languages, and corrections of recipes and the Bread Doctor. Users who prefer to pay once can choose the lifetime purchase.
+Ongoing value of the subscription: Pro is used again on every bake (a new plan from the ready time, starter feeding reminders between bakes, planned bakes), and the subscription funds continued updates for new iOS versions, maintenance of the translations into 35 languages, and corrections of recipes and the Bread Doctor. Users who prefer to pay once can choose the lifetime purchase.
 
 2. DATA EXPORT AND IMPORT (works without a purchase)
 a) On the Today tab tap the gear button "Settings" at the top right.
@@ -215,7 +215,7 @@ d) Paste the contents of an exported file (or copy it and tap "Paste from clipbo
 e) The sheet says what the backup contains. Tap "Replace Data". Import replaces the current data; the app first saves a safety copy on the device. The imported starter appears in the Starters tab.
 
 3. OTHER FEATURES THAT ARE EASY TO MISS
-- Bake plan with Sleep Guard: after "Make a Plan", set the ready time; the app plans the steps backwards. When a hands-on step falls in your sleep hours, Sleep Guard offers "Move to fridge".
+- Bake plan with Sleep Guard (Pro): after "Make a Plan", set the ready time; the app plans the steps backwards. When a hands-on step falls in your sleep hours, Sleep Guard offers "Move to fridge".
 - Workbench: tap "Start Bake" on the bake plan to open guided baking step by step with timers.
 - Bread Doctor: tap "Doctor" at the top of the Workbench, or "Bread Doctor" on the Journal tab, to diagnose a loaf. On the Starters tab, "Doctor" at the top opens the Starter Doctor.
 
