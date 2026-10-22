@@ -44,7 +44,7 @@ cipó,pizza,hidratáció,tészta,rozs,levain,poolish,időzítő,recept,erjeszté
 Állítsd be, mikorra legyen kész a kenyér: a Pék kiszámolja a mennyiségeket, visszafelé tervez, és szól minden lépés végén. Fiók, internet és reklám nélkül.
 ```
 
-### Opis (Description) · 3376 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3443 / 4000 znaków · wersja 1.0
 
 ```text
 A Pék végigvezet a kovászos kenyér sütésén a recepttől a cipóig: kiszámolja a mennyiségeket, elkészíti a tervet, és figyeli az időt, amíg a telefon alszik. Fiók és internet nélkül működik, reklám és követés nélkül. A receptjeid, kovászaid és a naplód csak a telefonodon maradnak.
@@ -62,7 +62,7 @@ KOVÁSZOK
 Több kovászt is vezethetsz. A Pék megadja az etetési mennyiségeket 1:1:1, 1:2:2, 1:3:3 vagy 1:5:5 arányban. Amikor a kovász megduplázza a térfogatát, a Pék tésztához késznek jelöli. Ha 12 órája áll a pulton etetés nélkül, értesítéssel emlékeztet. Új kovászt napról napra indíthatsz el. A Pék az elővigyázatosság elvét követi: bevonat, elszíneződés vagy rothadt szag esetén azt tanácsolja, hogy dobd ki a kovászt.
 
 KENYÉRDOKTOR
-Tömör a bélzet és sápadt a héj? Jelöld be a tüneteket, a Kenyérdoktor pedig megnevezi a 9 hiba egyikét, elmagyarázza az okát, és megmondja, mit változtass legközelebb. A Kovászdoktor akkor segít, ha valami aggaszt a kovászoddal kapcsolatban.
+Tömör a bélzet és sápadt a héj? Jelöld be a tüneteket, a Kenyérdoktor pedig megnevezi a 9 hiba egyikét, elmagyarázza az okát, és megmondja, mit változtass legközelebb. Négy mentőprotokoll segít, ha a tésztával gond van erjedés közben. A Kovászdoktor akkor segít, ha valami aggaszt a kovászoddal kapcsolatban.
 
 NAPLÓ
 Értékelj minden cipót: csillagok, bélzet, héj és ízprofil. A Napló statisztikákat mutat, a „Süsd újra” pedig megnyitja ugyanazt a receptet.

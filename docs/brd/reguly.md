@@ -254,6 +254,35 @@ Każda reguła ma wzór, jednostki, granicę, podstawę i wektory. Wektory polic
 | RD-28-W6 | poolish | 101 | 70 / 2 / 0 | 1000 | błąd danych | — | powyżej | rachunek: udział mąki w zaczynie poza 0–100% (D-061) |
 | RD-28-W7 | poolish | 30 | 70 / 2 / 0 | 0 | błąd danych | — | błąd | rachunek: M = 0 (RD-15) |
 
+### RD-35: Zapomniana sól według etapu wypieku
+- Wzór: etap przed pierwszym rośnięciem (mieszanie, autoliza) → dodać sól z kilkoma łyżeczkami wody i wyrobić; przy zakwasie przerwę można potraktować jak autolizę 20–60 min; etap od końca pierwszego rośnięcia (formowanie, garowanie) → soli nie dodawać, upiec bez soli albo zrobić spód do pizzy
+- Jednostki: etap [-]
+- Granica: koniec pierwszego rośnięcia (od tej chwili soli nie dodaje się); etap w trakcie pierwszego rośnięcia: źródło nie rozstrzyga [DO USTALENIA] (OP-61)
+- Podstawa: D-095 (rejestr roli 06: RAT-SOL-002, RAT-SOL-003, RAT-SOL-004, RAT-SOL-005; King Arthur Baking, szczebel 4, atrybucja w treści)
+- Krytyczna: nie
+
+| ID | Etap [-] | Rodzaj ciasta [-] | Oczekiwane: rada [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-35-W1 | mieszanie | drożdżowe | dodać sól z kilkoma łyżeczkami wody, rozsmarować, zwinąć, wyrobić | — | poniżej | D-095 (RAT-SOL-002, RAT-SOL-003) |
+| RD-35-W2 | koniec pierwszego rośnięcia | drożdżowe | nie dodawać; upiec bez soli albo spód do pizzy | — | granica | D-095 (RAT-SOL-005) |
+| RD-35-W3 | formowanie | na zakwasie | nie dodawać; upiec bez soli albo spód do pizzy | — | powyżej | D-095 (RAT-SOL-005) |
+| RD-35-W4 | mieszanie | na zakwasie | przerwa jak autoliza 20–60 min, potem wmieszać sól | — | typowy | D-095 (RAT-SOL-004) |
+| RD-35-W5 | nieznany (Doktor bez trwającego wypieku) | brak | obie rady jako zdania z warunkiem etapu | — | błąd | D-095; BR-DIAG-005 |
+
+### RD-36: Przerośnięte ciasto według rodzaju i garowania
+- Wzór: ciasto drożdżowe → odgazować, uformować ponownie, garować (upieczone od razu opadnie, ale da się zjeść); ciasto na zakwasie → zwykle się nie udaje; próbować tylko, gdy ciasto zrobiono i garowano w ciągu kilku godzin; garowane przez noc w chłodzie → po odgazowaniu twarde, chleb słaby, nieforemny i bardzo kwaśny; objaw: wgłębienie po naciśnięciu palcem zostaje na stałe
+- Jednostki: rodzaj ciasta [-], garowanie [-]
+- Granica: brak (reguła jakościowa; „kilka godzin” bez liczby w źródle)
+- Podstawa: D-095 (rejestr roli 06: RAT-PRZ-001…RAT-PRZ-006; Modernist Cuisine i King Arthur Baking, szczebel 4, atrybucja w treści)
+- Krytyczna: nie
+
+| ID | Rodzaj ciasta [-] | Garowanie [-] | Oczekiwane: rada [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-36-W1 | drożdżowe | dowolne | odgazować, uformować ponownie, garować | — | typowy | D-095 (RAT-PRZ-002, RAT-PRZ-003) |
+| RD-36-W2 | na zakwasie | przez noc w chłodzie | zwykle się nie udaje; chleb słaby, nieforemny, bardzo kwaśny | — | typowy | D-095 (RAT-PRZ-004) |
+| RD-36-W3 | na zakwasie | w ciągu kilku godzin od zrobienia | można spróbować odgazować i uformować ponownie | — | typowy | D-095 (RAT-PRZ-004, RAT-PRZ-005) |
+| RD-36-W4 | brak | brak | objaw do sprawdzenia: wgłębienie po naciśnięciu palcem zostaje na stałe | — | błąd | D-095 (RAT-PRZ-001) |
+
 ## Rozbieżności z kodem i rejestrem (do erraty E3 i ról 06, 07, 08)
 
 - RD-17: silnik liczy czas także poza 20–26 °C bez komunikatu (`src/scheduler/reverse-scheduler.ts`), ale plan przyjmuje temperaturę tylko z wyboru 20–26 °C (`src/components/harmonogram/TargetReadyCard.tsx`), więc użytkownik nie dostaje liczby spoza modelu; według D-066 (2a) to nie rozbieżność kryterium (ER-55). Nowe wejście temperatury poza wyborem wymaga strażnika zakresu.

@@ -126,7 +126,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     id: 'baguette_tradition_poolish',
     namePl: 'Bagietka paryska na poolishu',
     category: 'yeast',
-    descriptionPl: 'Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
+    descriptionPl: 'Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.',
     formula: {
       flours: [
         { name: 'Mąka pszenna typ 650 (Bułkowa)', percentage: 100.0, type: 'pszenna_650' },
@@ -134,7 +134,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
       waterPercentage: 72.0,
       saltPercentage: 2.0,
       starterPercentage: 0.0,
-      extraYeastPercentage: 0.2,
+      extraYeastPercentage: 2.2, // drożdże świeże, DRO-BAG-001 (217, D-100)
       targetDoughWeightGrams: 750,
     },
     targetDDT: 22.5,
@@ -143,7 +143,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 240,
     bakeTempBrowningC: 220,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.',
+    notesPl: 'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.',
   },
   {
     id: 'ciabatta_con_biga',
@@ -181,7 +181,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
       waterPercentage: 80.0,
       saltPercentage: 2.2,
       starterPercentage: 0.0,
-      extraYeastPercentage: 0.5,
+      extraYeastPercentage: 3.2, // drożdże świeże, DRO-FOC-001 (217, D-100)
       targetDoughWeightGrams: 900,
     },
     targetDDT: 24.0,
@@ -190,7 +190,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 230,
     bakeTempBrowningC: 230,
     recommendedVessel: 'baking_sheet',
-    notesPl: 'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia.',
+    notesPl: 'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.',
   },
   {
     id: 'rye_100_pan',
@@ -335,9 +335,9 @@ export const MASTER_RECIPES: RecipePreset[] = [
   },
   {
     id: 'pizza_napoletana_48h',
-    namePl: 'Pizza Napoletana Verace (48 h)',
+    namePl: 'Pizza w stylu neapolitańskim',
     category: 'pizza',
-    descriptionPl: 'Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.',
+    descriptionPl: 'Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.',
     formula: {
       flours: [
         { name: 'Mąka pszenna włoska Tipo 00', percentage: 100.0, type: 'tipo_00' },
@@ -345,7 +345,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
       waterPercentage: 65.0,
       saltPercentage: 2.8,
       starterPercentage: 0.0,
-      extraYeastPercentage: 0.08,
+      extraYeastPercentage: 0.4, // drożdże świeże, DRO-PIZ-002 (217, D-100)
       targetDoughWeightGrams: 1000,
     },
     targetDDT: 23.0,
@@ -354,7 +354,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 450,
     bakeTempBrowningC: 450,
     recommendedVessel: 'baking_steel',
-    notesPl: 'Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.',
+    notesPl: 'Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.',
   },
   {
     id: 'sweet_chalka',
@@ -368,7 +368,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
       waterPercentage: 45.0,
       saltPercentage: 1.0,
       starterPercentage: 0.0,
-      extraYeastPercentage: 1.2,
+      extraYeastPercentage: 6.3, // drożdże świeże, DRO-CHA-001 (217, D-100)
       targetDoughWeightGrams: 750,
     },
     targetDDT: 26.0,
@@ -377,7 +377,7 @@ export const MASTER_RECIPES: RecipePreset[] = [
     bakeTempSteamC: 180,
     bakeTempBrowningC: 180,
     recommendedVessel: 'baking_sheet',
-    notesPl: 'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.',
+    notesPl: 'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.',
   },
 ];
 

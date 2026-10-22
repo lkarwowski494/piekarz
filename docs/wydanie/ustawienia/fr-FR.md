@@ -44,7 +44,7 @@ boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcen
 Choisissez l'heure où le pain doit être prêt : Mitron calcule les quantités, planifie à rebours et signale la fin de chaque étape. Sans compte, sans internet, sans pub.
 ```
 
-### Opis (Description) · 3768 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3864 / 4000 znaków · wersja 1.0
 
 ```text
 Mitron vous guide dans la fournée de pain au levain, de la recette à la miche : il calcule les quantités, établit le planning et surveille le temps quand le téléphone est en veille. Il fonctionne sans compte et sans internet, sans publicité et sans pistage. Vos recettes, vos levains et votre journal restent uniquement sur votre téléphone.
@@ -62,7 +62,7 @@ LEVAINS
 Gérez plusieurs levains. Mitron indique les quantités pour le rafraîchi selon un rapport 1:1:1, 1:2:2, 1:3:3 ou 1:5:5. Quand le levain a doublé de volume, Mitron le marque comme prêt pour la pâte. Après 12 heures à température ambiante sans rafraîchi, une notification vous le rappelle. Vous pouvez créer un nouveau levain jour après jour. Mitron applique le principe de précaution : en cas de pellicule, de décoloration ou d'odeur de pourri, il conseille de jeter le levain.
 
 DOCTEUR PAIN
-Mie serrée et croûte pâle ? Cochez les symptômes, et le Docteur Pain identifie l'un des 9 défauts, explique la cause et indique quoi changer la prochaine fois. Le Docteur Levain vous aide quand quelque chose vous inquiète dans votre levain.
+Mie serrée et croûte pâle ? Cochez les symptômes, et le Docteur Pain identifie l'un des 9 défauts, explique la cause et indique quoi changer la prochaine fois. Quatre protocoles de sauvetage vous aident quand la pâte a un problème pendant la fermentation. Le Docteur Levain vous aide quand quelque chose vous inquiète dans votre levain.
 
 JOURNAL
 Notez chaque miche : étoiles, mie, croûte et profil gustatif. Le Journal affiche des statistiques, et « Cuire à nouveau » ouvre la même recette.

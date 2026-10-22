@@ -44,7 +44,7 @@ desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,time
 Kies hoe laat je brood klaar moet zijn: Bakker berekent de hoeveelheden, plant terug en meldt het einde van elke stap. Geen account, geen internet, geen reclame.
 ```
 
-### Opis (Description) · 3610 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3700 / 4000 znaków · wersja 1.0
 
 ```text
 Bakker begeleidt je bij het bakken van zuurdesembrood, van recept tot brood: de app berekent de hoeveelheden, maakt een schema en houdt de tijd in de gaten terwijl je telefoon slaapt. Werkt zonder account en zonder internet, zonder advertenties en zonder tracking. Je recepten, zuurdesemstarters en dagboek blijven alleen op je telefoon.
@@ -62,7 +62,7 @@ ZUURDESEMSTARTERS
 Beheer meerdere zuurdesemstarters. Bakker geeft de hoeveelheden om te voeden in de verhouding 1:1:1, 1:2:2, 1:3:3 of 1:5:5. Is de zuurdesemstarter in volume verdubbeld, dan markeert Bakker hem als klaar voor het deeg. Staat hij 12 uur op het aanrecht zonder te zijn gevoed, dan krijg je een herinnering via een melding. Een nieuwe zuurdesemstarter zet je dag voor dag op. Bakker hanteert het voorzorgsprincipe: bij aanslag, verkleuring of een rotte geur adviseert de app de zuurdesemstarter weg te gooien.
 
 BRODDOKTER
-Compact kruim en een bleke korst? Vink de symptomen aan, en de Broddokter wijst een van 9 bakfouten aan, legt de oorzaak uit en zegt wat je de volgende keer anders doet. De Starterdokter helpt als iets aan je zuurdesemstarter je zorgen baart.
+Compact kruim en een bleke korst? Vink de symptomen aan, en de Broddokter wijst een van 9 bakfouten aan, legt de oorzaak uit en zegt wat je de volgende keer anders doet. Vier reddingsprotocollen helpen als het deeg tijdens de fermentatie in de problemen komt. De Starterdokter helpt als iets aan je zuurdesemstarter je zorgen baart.
 
 BAKDAGBOEK
 Beoordeel elk brood: sterren, kruim, korst en smaakprofiel. Het Bakdagboek toont statistieken, en „Opnieuw bakken” opent hetzelfde recept.

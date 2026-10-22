@@ -44,7 +44,7 @@ idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poo
 Imposta l'ora in cui vuoi il pane pronto: Fornaio calcola le dosi, pianifica a ritroso e ti avvisa alla fine di ogni passaggio. Senza account, internet e pubblicità.
 ```
 
-### Opis (Description) · 3682 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3779 / 4000 znaków · wersja 1.0
 
 ```text
 Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.
@@ -62,7 +62,7 @@ LIEVITI MADRE
 Gestisci più lieviti madre. Fornaio ti indica le dosi per il rinfresco in proporzione 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Quando il lievito madre raddoppia di volume, Fornaio lo segna come pronto per l'impasto. Dopo 12 ore sul piano di lavoro senza rinfresco, te lo ricorda con una notifica. Puoi avviare un nuovo lievito madre giorno per giorno. Fornaio applica il principio di precauzione: in caso di patina, alterazione di colore o odore di marcio, consiglia di buttare il lievito madre.
 
 DOTTOR PANE
-Mollica compatta e crosta pallida? Seleziona i sintomi e il Dottor Pane individua uno dei 9 difetti, ne spiega la causa e ti dice cosa cambiare la prossima volta. Il Dottor Lievito madre ti aiuta quando qualcosa nel tuo lievito madre ti preoccupa.
+Mollica compatta e crosta pallida? Seleziona i sintomi e il Dottor Pane individua uno dei 9 difetti, ne spiega la causa e ti dice cosa cambiare la prossima volta. Quattro protocolli di soccorso ti aiutano quando l'impasto ha problemi durante la fermentazione. Il Dottor Lievito madre ti aiuta quando qualcosa nel tuo lievito madre ti preoccupa.
 
 DIARIO
 Valuta ogni pagnotta: stelle, mollica, crosta e profilo di gusto. Il Diario mostra le statistiche e «Inforna di nuovo» apre la stessa ricetta.

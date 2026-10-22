@@ -32,6 +32,166 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "Przerośnięte ciasto",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, titlePl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według Modernist Cuisine wgłębienie po delikatnym naciśnięciu ciasta palcem zostaje na stałe, gdy ciasto przerosło.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, triggerSummaryPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto drożdżowe uformuj ponownie: według King Arthur Baking mocno przerośnięty drożdżowy bochenek upieczony od razu opada w piecu, choć nadal dobrze smakuje.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, immediateActionPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasta na zakwasie zwykle nie da się tak uratować: według King Arthur Baking ten sposób zwykle nie działa, a według Modernist Cuisine warto spróbować tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, stepByStepPl[0]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, stepByStepPl[1]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, stepByStepPl[2]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Odgazuj je, mocno dociskając, tak jak przy formowaniu.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, stepByStepPl[3]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Uformuj je ponownie i odstaw do garowania.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, stepByStepPl[4]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu.",
+      "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, scientificReasoningPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zbyt luźne ciasto",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, titlePl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto jest lepkie i luźne i nie trzyma kształtu.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, triggerSummaryPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, immediateActionPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, stepByStepPl[0]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Rozciągaj i składaj ciasto w czasie fermentacji: według King Arthur Baking to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, stepByStepPl[1]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według King Arthur Baking przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, stepByStepPl[2]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według King Arthur Baking składanie w czasie fermentacji pomaga rozwinąć siatkę glutenową i wzmacnia ciasto, a sól napina gluten.",
+      "powod": "protokół ratunkowy Doktora (SLACK_HIGH_HYDRATION, scientificReasoningPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, triggerSummaryPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przenieś ciasto w cieplejsze miejsce: według King Arthur Baking drożdże najlepiej rosną w ok. 24–25,5 °C.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, immediateActionPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, stepByStepPl[2]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przykryj miskę pokrywką albo folią: według King Arthur Baking wilgoć utrzymuje skórkę ciasta miękką i pomaga mu rosnąć.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, stepByStepPl[3]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Oceniaj ciasto po wyglądzie, nie po zegarze: według King Arthur Baking w zimnym powietrzu ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, stepByStepPl[4]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "W zakresie 20–26 °C Piekarz przyjmuje przybliżenie z modelu badawczego: 6 °C niżej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.",
+      "powod": "protokół ratunkowy Doktora (COLD_SLUGGISH, scientificReasoningPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zapomniana sól",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, titlePl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto jest już wymieszane, a odważona sól została na blacie.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, triggerSummaryPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, immediateActionPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nie próbuj ciasta, żeby sprawdzić sól: według FDA surowego ciasta nie należy jeść ani próbować.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[0]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wymieszaj sól z kilkoma łyżeczkami wody.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[1]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Rozpłaszcz ciasto, rozsmaruj na nim tę mieszankę, zwiń je, znów rozpłaszcz, obróć o 90° i zwiń ponownie.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[2]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wyrabiaj, aż ciasto znów będzie w miarę gładkie.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[3]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przy cieście na zakwasie według King Arthur Baking możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[4]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, stepByStepPl[5]), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.",
+      "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, scientificReasoningPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Drożdże suche",
       "powod": "nazwa wiersza drożdży w „Do miski” i w kopii tekstowej, gdy wybrano drożdże suche [M1-audytor-generalny-216]",
       "od": "2026-10-22"
@@ -54,6 +214,41 @@
     {
       "klucz": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.",
       "powod": "objaśnienie pod wyborem rodzaju drożdży (RD-19, × 0,4) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pizza w stylu neapolitańskim",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, namePl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, descriptionPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.",
+      "powod": "preset drożdżowy (baguette_tradition_poolish, descriptionPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.",
+      "powod": "preset drożdżowy (sweet_chalka, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.",
+      "powod": "preset drożdżowy (focaccia_genovese, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.",
+      "powod": "preset drożdżowy (baguette_tradition_poolish, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
       "od": "2026-10-22"
     }
   ],

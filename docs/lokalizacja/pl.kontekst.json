@@ -205,17 +205,13 @@
     ]
   },
   "Aktywność metaboliczna drożdży Saccharomyces cerevisiae i bakterii Lactobacillus podwaja się między 18°C a 26°C wg kinetyki reakcji biochemicznych Arrheniusa.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
-    ]
+    "gdzie": []
   },
   "Aktywny zakwas": {
     "gdzie": []
   },
   "Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Amylazy w życie są neutralizowane jedynie przez odpowiednie zakwaszenie ciasta (pH < 4.5); bez kwasu chleb zamienia się w papkę.": {
     "gdzie": [
@@ -543,9 +539,7 @@
     ]
   },
   "Chleb foremkowy o wysokiej wilgotności": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
-    ]
+    "gdzie": []
   },
   "Chleb nocny bez wyrabiania (drożdżowy)": {
     "gdzie": [
@@ -659,15 +653,33 @@
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
     ]
   },
+  "Ciasta na zakwasie zwykle nie da się tak uratować: według King Arthur Baking ten sposób zwykle nie działa, a według Modernist Cuisine warto spróbować tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Ciasteczka": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)"
     ]
   },
-  "Ciasto już fermentuje, a odważona sól została na blacie.": {
+  "Ciasto drożdżowe uformuj ponownie: według King Arthur Baking mocno przerośnięty drożdżowy bochenek upieczony od razu opada w piecu, choć nadal dobrze smakuje.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+    ]
+  },
+  "Ciasto jest już wymieszane, a odważona sól została na blacie.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
     ]
+  },
+  "Ciasto jest lepkie i luźne i nie trzyma kształtu.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
+    ]
+  },
+  "Ciasto już fermentuje, a odważona sól została na blacie.": {
+    "gdzie": []
   },
   "Ciasto miękkie i napowietrzone. Zalecana technika Coil Fold mokrymi dłońmi i mąka o wysokim W.": {
     "gdzie": [
@@ -679,7 +691,20 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
+    ]
+  },
+  "Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.": {
+    "gdzie": []
+  },
+  "Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
     ]
@@ -896,9 +921,7 @@
     ]
   },
   "Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Diagnostyka błędów wypieku i ratowanie bochenka": {
     "gdzie": []
@@ -1020,9 +1043,7 @@
     ]
   },
   "Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Dodaj mąkę": {
     "gdzie": [
@@ -1054,6 +1075,11 @@
   "Dodaj suche składniki do mokrych. Po dodaniu sody ciasto natychmiast zacznie intensywnie pienić się pod wpływem reakcji z kwasem zakwasu.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
     ]
   },
   "Dodaj zimny odrzut zakwasu i posiekaną czekoladę. Szybko zagnieć ciasto w zwarty dysk.": {
@@ -1527,9 +1553,7 @@
     ]
   },
   "Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Fermentoliza: polega na dodaniu zakwasu od razu do mąki i wody (z pominięciem soli), skracając późniejszy czas mieszania.": {
     "gdzie": [
@@ -1630,6 +1654,11 @@
   "Formuj kulki wielkości orzecha włoskiego, układaj na blasze z papierem i spłaszczaj dłonią.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Francuski Pain de Campagne (Chleb Wiejski)": {
@@ -1859,9 +1888,7 @@
     ]
   },
   "Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
-    ]
+    "gdzie": []
   },
   "Hydratacja w przepisie": {
     "gdzie": [
@@ -1958,6 +1985,11 @@
       "src/components/settings/ImportZPlikuArkusz.tsx (kod)"
     ]
   },
+  "Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Jajka (żółtka i białka osobno)": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: namePl)"
@@ -2013,9 +2045,24 @@
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
     ]
   },
+  "Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Jeśli po 20 minutach ciasto rozlało się jak kałuża, jego gluten jest słaby — formuj ciaśniej. Jeśli stoi w pionie, jest gotowe do formowania batarda.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: proTipsPl)"
+    ]
+  },
+  "Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
+  "Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
   "Jeśli subskrypcja nie jest anulowana, App Store pobierze wtedy opłatę za wybrany plan.": {
@@ -2100,9 +2147,7 @@
     ]
   },
   "Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.": {
     "gdzie": [
@@ -2708,9 +2753,7 @@
     ]
   },
   "Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Może zacząć bąbelkować szybko albo potrzebować nawet 12 godzin, zależnie od tego, kiedy był ostatnio dokarmiony.": {
     "gdzie": [
@@ -3375,10 +3418,13 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
-  "Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.": {
+  "Nie próbuj ciasta, żeby sprawdzić sól: według FDA surowego ciasta nie należy jeść ani próbować.": {
     "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
+  },
+  "Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.": {
+    "gdzie": []
   },
   "Nie próbuj surowego ciasta ani mąki.": {
     "gdzie": [
@@ -3684,6 +3730,11 @@
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)"
     ]
   },
+  "Oceniaj ciasto po wyglądzie, nie po zegarze: według King Arthur Baking w zimnym powietrzu ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Oceń bochenek i zapisz notatki do historii piekarskiej": {
     "gdzie": [
       "src/components/stolnica/FinishBakeModal.tsx (tekst w JSX)"
@@ -3735,6 +3786,11 @@
   "Odejmij {g} g mąki {nazwa}": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Odgazuj je, mocno dociskając, tak jak przy formowaniu.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
   "Odhaczaj składniki w miarę wsypywania": {
@@ -3813,9 +3869,7 @@
     ]
   },
   "Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Odstaw pod przykryciem na 15 minut, aby gluten się zrelaksował.": {
     "gdzie": [
@@ -3913,9 +3967,7 @@
     ]
   },
   "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
-    ],
+    "gdzie": [],
     "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
@@ -3973,9 +4025,7 @@
   },
   "Otwórz recepturę": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
-      "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)",
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
   "Oznacz lekcję jako zaliczoną": {
@@ -4053,9 +4103,7 @@
     ]
   },
   "Piecz w 220°C przez 25–30 minut do złocistego koloru.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Piecz w najwyższej możliwej temperaturze (piec do pizzy 450°C przez 90s lub piekarnik domowy z grillem i rozgrzaną stalą w 275°C przez 4–5 min).": {
     "gdzie": [
@@ -4063,9 +4111,7 @@
     ]
   },
   "Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Pieczenie": {
     "gdzie": [
@@ -4119,13 +4165,16 @@
     ]
   },
   "Pizza Napoletana Verace (48 h)": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Pizza i słodkie": {
     "gdzie": [
       "src/components/receptury/ListaReceptur.tsx (dane: etykieta)"
+    ]
+  },
+  "Pizza w stylu neapolitańskim": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: namePl)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -4183,9 +4232,7 @@
     ]
   },
   "Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
-    ]
+    "gdzie": []
   },
   "Po co ten krok": {
     "gdzie": [
@@ -4270,9 +4317,7 @@
     ]
   },
   "Podnieś temperaturę fermentacji do optymalnych 26–28°C.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
-    ]
+    "gdzie": []
   },
   "Podpłomyki": {
     "gdzie": [
@@ -4332,9 +4377,7 @@
     ]
   },
   "Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.": {
     "gdzie": [
@@ -4393,9 +4436,7 @@
     ]
   },
   "Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Postaw zakwas w miejscu o temperaturze około 21 °C.": {
     "gdzie": [
@@ -4518,9 +4559,7 @@
     "gdzie": []
   },
   "Procedura Bassinage ratunkowego": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
-    ]
+    "gdzie": []
   },
   "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.": {
     "gdzie": [
@@ -4618,6 +4657,11 @@
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "Przenieś ciasto w cieplejsze miejsce: według King Arthur Baking drożdże najlepiej rosną w ok. 24–25,5 °C.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+    ]
+  },
   "Przenieś do lodówki (4°C) na 44 godziny powolnego dojrzewania enzymatycznego.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -4653,10 +4697,13 @@
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
-  "Przerośnięte ciasto: zrób focaccię": {
+  "Przerośnięte ciasto": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
-    ],
+    ]
+  },
+  "Przerośnięte ciasto: zrób focaccię": {
+    "gdzie": [],
     "opis": "Tytuł protokołu ratunkowego w Doktorze Chleba: przerośnięte ciasto przerabiasz na focaccię. Focaccia = włoski płaski chleb (nazwa potrawy). [M1-audytor-generalny-112]"
   },
   "Przerośnięty. Piecz bezzwłocznie, nacinaj bardzo płytko.": {
@@ -4710,6 +4757,9 @@
     ]
   },
   "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia.": {
+    "gdzie": []
+  },
+  "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -4736,6 +4786,11 @@
   },
   "Przełącz zakwas": {
     "gdzie": []
+  },
+  "Przy cieście na zakwasie według King Arthur Baking możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
   },
   "Przy każdym dokarmieniu zostaw część zakwasu, dodaj mąkę i wodę w proporcji 1:1:1 wagowo, a resztę odrzuć.": {
     "gdzie": [
@@ -4782,6 +4837,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Przykryj miskę pokrywką albo folią: według King Arthur Baking wilgoć utrzymuje skórkę ciasta miękką i pomaga mu rosnąć.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day1)"
@@ -4793,9 +4853,7 @@
     ]
   },
   "Przyspieszona fermentacja termiczna": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
-    ]
+    "gdzie": []
   },
   "Przywróć": {
     "gdzie": [
@@ -4924,9 +4982,7 @@
     ]
   },
   "Receptura awaryjna:": {
-    "gdzie": [
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [
@@ -4993,10 +5049,13 @@
       "src/components/settings/StudioEcosystemSection.tsx (tekst w JSX)"
     ]
   },
-  "Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).": {
+  "Rozciągaj i składaj ciasto w czasie fermentacji: według King Arthur Baking to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
+  },
+  "Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).": {
+    "gdzie": []
   },
   "Rozerwanie boku przy spodzie": {
     "gdzie": [
@@ -5050,9 +5109,7 @@
     ]
   },
   "Rozpuść odmierzoną dawkę soli w 15–20 ml letniej wody (nie wsypuj suchej soli!).": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Rozpuść sól w chłodnej wodzie, dodaj mikrodawkę drożdży i stopniowo wprowadzaj mąkę Tipo 00.": {
     "gdzie": [
@@ -5060,8 +5117,11 @@
     ]
   },
   "Rozpuść sól w minimalnej ilości wody i wprowadź przez laminację.": {
+    "gdzie": []
+  },
+  "Rozpłaszcz ciasto, rozsmaruj na nim tę mieszankę, zwiń je, znów rozpłaszcz, obróć o 90° i zwiń ponownie.": {
     "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
   "Rozrost w formie": {
@@ -5108,9 +5168,7 @@
     ]
   },
   "Rzemieślnicza Focaccia na zakwasie": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
-    ]
+    "gdzie": []
   },
   "Rzemieślnicza maślana brioszka na Lievito Madre": {
     "gdzie": [
@@ -5133,9 +5191,7 @@
     ]
   },
   "Równomiernie skrop ciasto roztworem soli.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Równomierny / rzemieślniczy (Balanced)": {
     "gdzie": [
@@ -5371,6 +5427,11 @@
       "src/components/zakwas/FridgeWakeStatus.tsx (tekst w JSX)"
     ]
   },
+  "Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
+    ]
+  },
   "Sprzęt i naczynie do wypieku": {
     "gdzie": [
       "src/components/settings/BakerRitualSection.tsx (tekst w JSX)"
@@ -5501,9 +5562,7 @@
     ]
   },
   "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
-    ]
+    "gdzie": []
   },
   "Suchy / chrupki (Crisp Dry)": {
     "gdzie": [
@@ -5991,9 +6050,7 @@
     ]
   },
   "Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Udostępnij kod QR": {
     "gdzie": [
@@ -6043,6 +6100,11 @@
   "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: instructionsPl)"
+    ]
+  },
+  "Uformuj je ponownie i odstaw do garowania.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
   "Ukryj": {
@@ -6328,9 +6390,7 @@
     "opis": "Błąd przy imporcie pliku receptury: w pliku nie ma sekcji z proporcjami (mąki, woda, sól, zakwas). Bez nazwy pola technicznego. [M1-audytor-generalny-112]"
   },
   "W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
-    ]
+    "gdzie": []
   },
   "W razie wątpliwości wyrzuć zakwas.": {
     "gdzie": [
@@ -6368,6 +6428,11 @@
   "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.": {
     "gdzie": [
       "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+    ]
+  },
+  "W zakresie 20–26 °C Piekarz przyjmuje przybliżenie z modelu badawczego: 6 °C niżej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
     ]
   },
   "Waga bochenka": {
@@ -6409,6 +6474,11 @@
   "Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: kod)"
+    ]
+  },
+  "Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: notesPl)"
     ]
   },
   "Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.": {
@@ -6491,6 +6561,21 @@
       "src/core/sourdough-physics.ts (dane: advicePl)"
     ]
   },
+  "Według King Arthur Baking przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
+  "Według King Arthur Baking składanie w czasie fermentacji pomaga rozwinąć siatkę glutenową i wzmacnia ciasto, a sól napina gluten.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
+    ]
+  },
+  "Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
+    ]
+  },
   "Według King Arthur Baking to ostatnie rośnięcie ciasta przed pieczeniem.": {
     "gdzie": [
       "src/core/po-co-ten-krok.ts (dane: final_proof)"
@@ -6553,6 +6638,16 @@
   "Według King Arthur Baking, gdy w domu jest zwykle poniżej 20 °C, warto znaleźć dla zakwasu cieplejsze miejsce.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: temperature)"
+    ]
+  },
+  "Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
+    ]
+  },
+  "Według Modernist Cuisine wgłębienie po delikatnym naciśnięciu ciasta palcem zostaje na stałe, gdy ciasto przerosło.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: triggerSummaryPl)"
     ]
   },
   "Według szacunku zakwas jest teraz w oknie szczytu.": {
@@ -6647,9 +6742,7 @@
     ]
   },
   "Wlej 3–4 łyżki oliwy z oliwek na głęboką blachę do pieczenia lub żeliwną patelnię.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Wniosek do wypieku:": {
     "gdzie": []
@@ -6769,9 +6862,7 @@
     ]
   },
   "Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.": {
     "gdzie": [
@@ -6940,9 +7031,7 @@
     ]
   },
   "Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Wykonaj 3 serie składań rozciąganych (stretch & fold) co 45 minut, wyciągając ciasto w górę z 4 stron.": {
     "gdzie": [
@@ -7045,6 +7134,11 @@
       "src/recipes/presets.ts (dane: notesPl)"
     ]
   },
+  "Wymieszaj sól z kilkoma łyżeczkami wody.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
+    ]
+  },
   "Wymieszaj {matka}g zakwasu matki ({hydratacja}%) z {maka}g mąki i {woda}g wody.": {
     "gdzie": [
       "src/core/starter-converter.ts (dane: kod)"
@@ -7125,8 +7219,16 @@
     ]
   },
   "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.": {
+    "gdzie": []
+  },
+  "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
+    ]
+  },
+  "Wyrabiaj, aż ciasto znów będzie w miarę gładkie.": {
+    "gdzie": [
+      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
     ]
   },
   "Wyrabianie": {
@@ -7322,6 +7424,9 @@
     "gdzie": []
   },
   "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.": {
+    "gdzie": []
+  },
+  "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -7618,10 +7723,13 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
-  "Zapomniana sól (Laminacja ratunkowa)": {
+  "Zapomniana sól": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
     ]
+  },
+  "Zapomniana sól (Laminacja ratunkowa)": {
+    "gdzie": []
   },
   "Zarejestrowano dokarmienie zakwasu „{name}”.": {
     "gdzie": [
@@ -7769,10 +7877,13 @@
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
     ]
   },
-  "Zbyt luźne ciasto (Ratunek w Foremce)": {
+  "Zbyt luźne ciasto": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
     ]
+  },
+  "Zbyt luźne ciasto (Ratunek w Foremce)": {
+    "gdzie": []
   },
   "Zbyt luźne zwinięcie bochenka (chleb rozleje się na boki po wyjęciu z koszyka).": {
     "gdzie": [
@@ -7937,9 +8048,7 @@
     ]
   },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: immediateActionPl)"
-    ]
+    "gdzie": []
   },
   "Zrobione": {
     "gdzie": [
@@ -7982,9 +8091,7 @@
     ]
   },
   "Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Zwiększ": {
     "gdzie": [
@@ -8050,9 +8157,7 @@
     ]
   },
   "Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
-    ]
+    "gdzie": []
   },
   "Złóż dolną 1/3 do góry, a boki zawiń do środka jak kopertę.": {
     "gdzie": [
@@ -8807,9 +8912,7 @@
     ]
   },
   "Ściany foremki keksowej zapewniają mechaniczne podparcie, eliminując potrzebę silnego napięcia powierzchniowego i pozwalając na uzyskanie soczystego, kremowego miękiszu.": {
-    "gdzie": [
-      "src/doctor/dough-recovery.ts (dane: scientificReasoningPl)"
-    ]
+    "gdzie": []
   },
   "Śr.": {
     "gdzie": []

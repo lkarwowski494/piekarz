@@ -114,6 +114,79 @@ Stan: E3 · Aktualizacja: 2026-10-19. Nauka i Doktor Chleba w granicach aplikacj
     - Gdy zatwierdza objawy
     - Wtedy widzi polecenie wyrzucenia zakwasu (RD-21-W1), a nie listę przyczyn
 
+### BR-DIAG-003: Ratunek ciasta w trakcie fermentacji (F-71)
+- Przepływ: PR-24, PR-04 · Reguła: RD-35, RD-36, RD-17
+- Dowód potrzeby: J-15; treść tylko z rejestru roli 06 (D-095: twierdzenia RAT-*, KRO-POC-006, FER-Q10-002, DOK-PIE-001/002, BEZ-SUR-001; weryfikacja niezależna 18 POPARTE, 4 CZĘŚCIOWO, 0 sprzecznych, raport toru T 2026-10-22); zakres: D-092 i D-096
+- Kryteria akceptacji:
+  - Scenariusz: Cztery objawy
+    - Zakładając, że trwa wypiek, a użytkownik otwiera Doktora z prowadzenia
+    - Gdy patrzy na sekcję ratunku ciasta
+    - Wtedy widzi cztery objawy: „Przerośnięte ciasto”, „Zbyt luźne ciasto”, „Ospała fermentacja (Zimna kuchnia)”, „Zapomniana sól”
+  - Scenariusz: Treść tylko ze źródłem
+    - Zakładając, że użytkownik otwiera dowolny protokół
+    - Gdy czyta „co zrobić teraz”, kroki i „dlaczego”
+    - Wtedy każde zdanie z wiedzą dziedzinową ma atrybucję źródła („Według King Arthur Baking …”, „Według Modernist Cuisine …”) i jest dosłownie tekstem z pliku treści roli 06 doktor-ratunek.md (D-095, gałąź toru T `tresci/piekarz-1.0-2026-10-22`)
+  - Scenariusz: Bez receptury awaryjnej
+    - Zakładając, że użytkownik otwiera protokół „Przerośnięte ciasto” albo „Zbyt luźne ciasto”
+    - Gdy przegląda kroki
+    - Wtedy nie widzi propozycji innej receptury (focaccia, chleb foremkowy) ani przycisku „Otwórz recepturę” (D-095)
+  - Scenariusz: Zbyt luźne ciasto zaczyna od soli
+    - Zakładając, że użytkownik wybiera „Zbyt luźne ciasto”
+    - Gdy czyta pierwszy krok
+    - Wtedy pierwszym działaniem jest sprawdzenie soli, a przy braku soli przejście do protokołu „Zapomniana sól”
+  - Scenariusz: Ciasto żytnie
+    - Zakładając, że receptura ma 100% mąki żytniej
+    - Gdy użytkownik czyta protokół „Zbyt luźne ciasto”
+    - Wtedy widzi, że według King Arthur Baking składanie można zwykle pominąć
+  - Scenariusz: Zimna kuchnia
+    - Zakładając, że użytkownik wybiera „Ospała fermentacja (Zimna kuchnia)”
+    - Gdy czyta „dlaczego”
+    - Wtedy widzi przybliżenie z modelu FER-Q10-002 (6 °C niżej to około 2 razy dłużej, w zakresie 20–26 °C) zgodne z RD-17, a nie „aktywność podwaja się między 18 a 26 °C”
+  - Scenariusz: Powrót do prowadzenia
+    - Zakładając, że trwa wypiek z zegarem kroku
+    - Gdy użytkownik wraca z protokołu do prowadzenia
+    - Wtedy jest na tym samym kroku, zegar liczył dalej, a powiadomienia się nie zmieniły
+  - Scenariusz: Bez dostępu
+    - Zakładając, że okres próbny minął bez zakupu
+    - Gdy użytkownik otwiera Doktora
+    - Wtedy dostęp do protokołów jest taki sam jak do Doktora dla bochenka (F-43, D-038), a ostrzeżenia bezpieczeństwa z BR-DIAG-004 nie są ukryte za ofertą w trakcie wypieku rozpoczętego z dostępem (D-039 pkt 3)
+
+### BR-DIAG-004: Bezpieczeństwo w protokołach ratunkowych
+- Przepływ: PR-24 · Reguła: RD-22, RD-23
+- Dowód potrzeby: J-15; reguły krytyczne RD-22 (surowe ciasto) i RD-23 (gorący piekarnik); twierdzenia BEZ-SUR-001 (FDA, szczebel 1, nowe użycie przyjęte przez właściciela 2026-10-22 przez M1) oraz DOK-PIE-001, DOK-PIE-002 (przegląd właściciela 2026-10-20) w rejestrze roli 06
+- Kryteria akceptacji:
+  - Scenariusz: Nie próbuj surowego ciasta
+    - Zakładając, że użytkownik otwiera „Zapomniana sól”
+    - Gdy czyta kroki
+    - Wtedy pierwszy krok mówi, żeby nie próbować ciasta w celu sprawdzenia soli, z atrybucją FDA (BEZ-SUR-001, RD-22)
+  - Scenariusz: Ciasto w piekarniku z żarówką
+    - Zakładając, że użytkownik w protokole „Ospała fermentacja” korzysta z rady o piekarniku z włączoną żarówką
+    - Gdy czyta kroki
+    - Wtedy widzi, że ciasto trzeba wyjąć, zanim piekarnik zacznie się nagrzewać (DOK-PIE-002, RD-23)
+  - Scenariusz: Ostrzeżenie nie tylko kolorem
+    - Zakładając, że protokół ma zdanie bezpieczeństwa
+    - Gdy użytkownik patrzy na nie w skali szarości albo słucha VoiceOver
+    - Wtedy rozpoznaje je po tekście albo ikonie z etykietą (NFR-DOST-005)
+
+### BR-DIAG-005: Decyzje protokołu zależne od etapu i rodzaju ciasta
+- Przepływ: PR-24 · Reguła: RD-35, RD-36
+- Dowód potrzeby: J-15; RAT-SOL-002, RAT-SOL-004, RAT-SOL-005, RAT-PRZ-002…RAT-PRZ-005 w rejestrze roli 06 (King Arthur Baking, Modernist Cuisine; szczebel 4, atrybucja)
+- Kryteria akceptacji:
+  - Szablon scenariusza: Zapomniana sól według etapu
+    - Zakładając, że w cieście brakuje soli, a wypiek jest na etapie <etap>
+    - Gdy użytkownik czyta protokół „Zapomniana sól”
+    - Wtedy znajduje osobne zdanie z warunkiem etapu, które daje właściwą radę, a aplikacja nie wybiera etapu za niego
+    - Przykłady: etap = mieszanie → dodać sól z kilkoma łyżeczkami wody i wyrobić (RD-35-W1); etap = koniec pierwszego rośnięcia → nie dodawać, upiec bez soli albo zrobić spód do pizzy (RD-35-W2); etap = formowanie → jak po pierwszym rośnięciu (RD-35-W3)
+  - Szablon scenariusza: Przerośnięte ciasto według rodzaju
+    - Zakładając, że ciasto przerosło i jest ciastem <rodzaj>
+    - Gdy użytkownik czyta protokół „Przerośnięte ciasto”
+    - Wtedy znajduje osobne zdanie dla tego rodzaju ciasta
+    - Przykłady: drożdżowe → uformować ponownie i garować (RD-36-W1); na zakwasie garowane przez noc w chłodzie → zwykle się nie udaje, chleb wyjdzie słaby i kwaśny (RD-36-W2); na zakwasie zrobione i garowane w ciągu kilku godzin → można spróbować (RD-36-W3)
+  - Scenariusz: Kolejność zdań
+    - Zakładając, że protokół ma zdanie z ograniczeniem („przy zakwasie zwykle się nie udaje”, „po pierwszym rośnięciu nie dodawaj”)
+    - Gdy użytkownik czyta kroki
+    - Wtedy zdanie z ograniczeniem stoi przed krokami, których dotyczy, albo przy nich, nie na końcu po wykonaniu (para zdań nie daje fałszywego wniosku, rola 06)
+
 ### BR-WSP-003: Receptura w kodzie QR bez sieci
 - Przepływ: PR-08 · zależy od: ZAL-029
 - Dowód potrzeby: decyzja D-029 (QR offline, wyjątek właściciela z dowodem tylko H); słaby dowód J-06 (3 z 338 recenzji)

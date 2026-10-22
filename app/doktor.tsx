@@ -18,8 +18,6 @@ import { EmergencyCode } from '../src/doctor/dough-recovery';
 import { copyDiagnosisToClipboard } from '../src/lib/diagnosis-formatter';
 import { BreadAcademyModal } from '../src/components/BreadAcademyModal';
 import { useUnitSystem } from '../src/lib/unit-converter';
-import { setPendingRecipeToLoad } from '../src/lib/recipe-navigation';
-import { MASTER_RECIPES } from '../src/recipes/presets';
 import { DiagnosisResultCard } from '../src/components/doktor/DiagnosisResultCard';
 import { EmergencyRecoverySection } from '../src/components/doktor/EmergencyRecoverySection';
 import {
@@ -76,27 +74,6 @@ export default function DoctorScreen() {
     }
   };
 
-  const handlePivotToRecipe = (protocolId: EmergencyCode) => {
-    let presetId = 'focaccia_genovese';
-    if (protocolId === 'SLACK_HIGH_HYDRATION') {
-      presetId = 'rye_100_pan';
-    } else if (protocolId === 'OVERPROOFED_COLLAPSE') {
-      presetId = 'focaccia_genovese';
-    } else {
-      presetId = 'country_loaf_72';
-    }
-
-    const preset = MASTER_RECIPES.find((p) => p.id === presetId);
-    if (preset) {
-      setPendingRecipeToLoad({
-        id: preset.id,
-        name: preset.namePl,
-        targetDDT: preset.targetDDT,
-        formula: preset.formula,
-      });
-      router.push('/receptury');
-    }
-  };
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
@@ -142,13 +119,12 @@ export default function DoctorScreen() {
           onCopyDiagnosis={handleCopyDiagnosis}
         />
 
-        {/* Protokoły ratunkowe PÓŹNIEJ do czasu źródeł (032 b) [M1-audytor-generalny-032]; kod i testy modułu zostają */}
+        {/* Protokoły ratunkowe ze źródłami (F-71, D-095, D-096); bez receptury awaryjnej (RAT-PRZ-900, RAT-LUZ-900) */}
         {wejscieWidoczne('protokoly-ratunkowe') && (
         <EmergencyRecoverySection
           selectedRecoveryId={selectedRecoveryId}
           onSelectRecoveryId={setSelectedRecoveryId}
           unitSystem={unitSystem}
-          onPivotToRecipe={handlePivotToRecipe}
         />
         )}
 

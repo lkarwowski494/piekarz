@@ -44,7 +44,7 @@ bochník,pizza,hydratácia,cesto,žitný,levain,poolish,časovač,recept,droždi
 Nastavte čas, kedy má byť chlieb hotový: Pekár vypočíta množstvá, zostaví spätný plán a upozorní vás na koniec každého kroku. Bez účtu, bez internetu, bez reklám.
 ```
 
-### Opis (Description) · 3042 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3113 / 4000 znaków · wersja 1.0
 
 ```text
 Pekár vás prevedie pečením kváskového chleba od receptúry až po bochník: vypočíta množstvá, zostaví plán a stráži čas, aj keď telefón spí. Funguje bez účtu a bez internetu, bez reklám a bez sledovania. Vaše receptúry, kvásky a denník zostávajú len vo vašom telefóne.
@@ -62,7 +62,7 @@ KVÁSKY
 Môžete viesť niekoľko kváskov. Pekár uvedie množstvá na kŕmenie v pomere 1:1:1, 1:2:2, 1:3:3 alebo 1:5:5. Keď kvások zdvojnásobí objem, Pekár ho označí ako pripravený do cesta. Po 12 hodinách na linke bez kŕmenia vám ho pripomenie hlásením. Nový kvások založíte deň po dni. Pekár uplatňuje zásadu opatrnosti: pri povlaku, zafarbení alebo hnilobnom zápachu odporúča kvások vyhodiť.
 
 DOKTOR CHLEBA
-Striedka je zbitá a kôrka bledá? Označte príznaky a Doktor chleba určí jednu z 9 chýb, vysvetlí príčinu a povie, čo zmeniť nabudúce. Doktor kvásku pomôže, keď vás na kvásku niečo znepokojuje.
+Striedka je zbitá a kôrka bledá? Označte príznaky a Doktor chleba určí jednu z 9 chýb, vysvetlí príčinu a povie, čo zmeniť nabudúce. Štyri záchranné protokoly pomôžu, keď má cesto počas kvasenia problém. Doktor kvásku pomôže, keď vás na kvásku niečo znepokojuje.
 
 DENNÍK
 Ohodnoťte každý bochník: hviezdičky, striedka, kôrka a chuťový profil. Denník ukazuje štatistiky a „Piecť znova“ otvorí tú istú receptúru.

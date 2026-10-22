@@ -17,7 +17,7 @@ export type WejsciePozniej =
   | 'przelicznik-objetosci' // F-45: szklanki tylko jako przelicznik na gramy przy wpisywaniu, gdy F-45 wróci [M1-audytor-generalny-098]
   | 'akademia' // F-44: w 1.0 wiedza tylko jako „Po co ten krok” w prowadzeniu; Akademia bez wejścia (BR-NAUK-001) [M1-audytor-generalny-100]
   | 'test-palca' // F-15 TEST (D-043): test palca w Stolnicy ukryty do wyniku testu z testerami (DEC-21 a) [M1-audytor-generalny-155; 03-zakres-504]
-  | 'protokoly-ratunkowe'; // F-71 (ZM-19): protokoły ratunkowe Doktora PÓŹNIEJ do czasu źródeł (032 b) [M1-audytor-generalny-032; 03-zakres-505]
+  | 'protokoly-ratunkowe'; // F-71: PÓŹNIEJ (ZM-19, 032 b), od 2026-10-22 w MVP 1.0 po źródłach (D-095) i BR-DIAG-003…005 (D-096, ZM-23)
 
 /** Jedno miejsce decyzji: czy wejście do funkcji jest widoczne. */
 export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
@@ -31,7 +31,7 @@ export const WEJSCIA_WIDOCZNE: Readonly<Record<WejsciePozniej, boolean>> = {
   spizarnia: false,
   'przelicznik-objetosci': false,
   akademia: false,
-  'protokoly-ratunkowe': false,
+  'protokoly-ratunkowe': true,
   'test-palca': false,
 };
 

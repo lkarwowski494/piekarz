@@ -2,29 +2,29 @@ import {
   DOUGH_RECOVERY_PROTOCOLS,
   getDoughRecoveryProtocol,
   searchDoughRecoveryProtocols,
-  EmergencyCode,
 } from '../dough-recovery';
 
+// F-71 (rola 06, 2026-10-22): focaccia, foremka keksowa i proteazy wycofane bez źródła (RAT-PRZ-900/901, RAT-LUZ-900);
+// teksty pilnuje tests/tresci-f71.test.ts, tu tylko logika wyszukiwania i kompletność.
 describe('Emergency Dough Recovery Protocols (doctor/dough-recovery)', () => {
-  it('retrieves Focaccia Pivot protocol for overproofed collapse', () => {
+  it('retrieves the over-proofed protocol: re-shape and proof again (RAT-PRZ-003)', () => {
     const proto = getDoughRecoveryProtocol('OVERPROOFED_COLLAPSE');
     expect(proto.id).toBe('OVERPROOFED_COLLAPSE');
-    expect(proto.pivotRecipeNamePl).toContain('Focaccia');
     expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(4);
-    expect(proto.scientificReasoningPl).toContain('proteazy');
+    expect(proto.stepByStepPl.join(' ')).toContain('Uformuj je ponownie');
   });
 
-  it('retrieves Tin Loaf protocol for slack / high-hydration dough', () => {
+  it('retrieves the slack dough protocol: check salt, fold (RAT-SOL-001, KRO-POC-006)', () => {
     const proto = getDoughRecoveryProtocol('SLACK_HIGH_HYDRATION');
     expect(proto.id).toBe('SLACK_HIGH_HYDRATION');
-    expect(proto.pivotRecipeNamePl).toContain('foremkowy');
-    expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(4);
+    expect(proto.immediateActionPl).toContain('sól');
+    expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(3);
   });
 
   it('searches protocols accurately by keyword', () => {
-    const focacciaResults = searchDoughRecoveryProtocols('focaccia');
-    expect(focacciaResults.length).toBe(1);
-    expect(focacciaResults[0].id).toBe('OVERPROOFED_COLLAPSE');
+    const przerosniete = searchDoughRecoveryProtocols('przerośnięte');
+    expect(przerosniete.length).toBe(1);
+    expect(przerosniete[0].id).toBe('OVERPROOFED_COLLAPSE');
 
     const saltResults = searchDoughRecoveryProtocols('sól');
     expect(saltResults.length).toBeGreaterThanOrEqual(1);
@@ -39,7 +39,6 @@ describe('Emergency Dough Recovery Protocols (doctor/dough-recovery)', () => {
       expect(proto.titlePl.length).toBeGreaterThan(5);
       expect(proto.triggerSummaryPl.length).toBeGreaterThan(10);
       expect(proto.immediateActionPl.length).toBeGreaterThan(10);
-      expect(proto.pivotRecipeNamePl.length).toBeGreaterThan(3);
       expect(proto.scientificReasoningPl.length).toBeGreaterThan(15);
       expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(3);
       for (const step of proto.stepByStepPl) {

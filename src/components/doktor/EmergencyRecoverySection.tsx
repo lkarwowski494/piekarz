@@ -20,14 +20,12 @@ export interface EmergencyRecoverySectionProps {
   selectedRecoveryId: EmergencyCode | null;
   onSelectRecoveryId: (id: EmergencyCode | null) => void;
   unitSystem: UnitSystem;
-  onPivotToRecipe?: (protocolId: EmergencyCode) => void;
 }
 
 export function EmergencyRecoverySection({
   selectedRecoveryId,
   onSelectRecoveryId,
   unitSystem,
-  onPivotToRecipe,
 }: EmergencyRecoverySectionProps) {
   const selectedProto = selectedRecoveryId
     ? getDoughRecoveryProtocol(selectedRecoveryId)
@@ -94,24 +92,6 @@ export function EmergencyRecoverySection({
             </Text>
           </View>
 
-          {/* Target Pivot Recipe */}
-          <View style={styles.pivotRecipeBox}>
-            <View style={styles.pivotTextCol}>
-              <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
-              <Text style={styles.pivotRecipeName}>{t(selectedProto.pivotRecipeNamePl)}</Text>
-            </View>
-            {onPivotToRecipe && (
-              <Pressable
-                testID="pivot-recipe-btn"
-                accessibilityRole="button"
-                accessibilityLabel={`${t('Otwórz recepturę')}: ${t(selectedProto.pivotRecipeNamePl)}`}
-                style={styles.pivotActionBtn}
-                onPress={() => onPivotToRecipe(selectedProto.id)}
-              >
-                <Text style={styles.pivotActionBtnText}>{t('Otwórz recepturę')}</Text>
-              </Pressable>
-            )}
-          </View>
 
           {/* Steps */}
           <Text style={styles.recoveryStepsHeading}>{t('Kroki ratunkowe:')}</Text>
@@ -246,46 +226,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: theme.colors.tusz,
     lineHeight: 17,
-  },
-  pivotRecipeBox: {
-    backgroundColor: theme.colors.powierzchnia,
-    padding: 10,
-    borderRadius: theme.radius.sm,
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: theme.colors.linia,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 8,
-  },
-  pivotTextCol: {
-    flex: 1,
-  },
-  pivotRecipeLabel: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: theme.colors.tusz3,
-  },
-  pivotRecipeName: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: theme.colors.akcentTekst,
-    marginTop: 2,
-  },
-  pivotActionBtn: {
-    minHeight: theme.cele.pozostale,
-    backgroundColor: theme.colors.akcent,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: theme.radius.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  pivotActionBtnText: {
-    color: theme.colors.naAkcencie,
-    fontSize: typografia.style.podpis.pt,
-    fontWeight: '700',
   },
   recoveryStepsHeading: {
     get fontFamily() { return theme.typography.krojTytulow; },

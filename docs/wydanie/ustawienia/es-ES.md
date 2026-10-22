@@ -44,7 +44,7 @@ hidratación,fermentación,levadura,pizza,centeno,recetas,harina,temporizador,po
 Elige a qué hora quieres el pan listo: Panadero calcula cantidades, planifica hacia atrás y te avisa al acabar cada paso. Sin cuenta, sin internet, sin anuncios.
 ```
 
-### Opis (Description) · 3550 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3645 / 4000 znaków · wersja 1.0
 
 ```text
 Panadero te guía en el horneado de pan de masa madre, desde la receta hasta la hogaza: calcula las cantidades, organiza el plan y vigila los tiempos aunque el teléfono esté en reposo. Funciona sin cuenta y sin internet, sin anuncios y sin rastreo. Tus recetas, masas madre y diario se quedan solo en tu teléfono.
@@ -62,7 +62,7 @@ MASAS MADRE
 Gestiona varias masas madre. Panadero te da las cantidades de refresco en proporción 1:1:1, 1:2:2, 1:3:3 o 1:5:5. Cuando la masa madre duplica su volumen, Panadero la marca como lista para la masa. Tras 12 horas en la encimera sin refresco, te la recuerda con una notificación. Puedes crear una masa madre nueva día a día. Panadero aplica el principio de precaución: si hay película, cambio de color u olor a podrido, te aconseja tirar la masa madre.
 
 DOCTOR DEL PAN
-¿Miga compacta y corteza pálida? Marca los síntomas y el Doctor del Pan señala uno de 9 defectos, explica la causa y te dice qué cambiar la próxima vez. El Doctor de la masa madre te ayuda cuando algo de tu masa madre te preocupa.
+¿Miga compacta y corteza pálida? Marca los síntomas y el Doctor del Pan señala uno de 9 defectos, explica la causa y te dice qué cambiar la próxima vez. Cuatro protocolos de rescate te ayudan cuando la masa tiene problemas durante la fermentación. El Doctor de la masa madre te ayuda cuando algo de tu masa madre te preocupa.
 
 DIARIO
 Valora cada hogaza: estrellas, miga, corteza y perfil de sabor. El Diario muestra estadísticas y «Hornear de nuevo» abre la misma receta.

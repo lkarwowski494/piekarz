@@ -44,7 +44,7 @@ taikina,jauho,hydraatio,ruisleipä,levain,poolish,pizza,muistutus,kohotus,resept
 Aseta aika, jolloin leipä on valmis: Leipuri laskee määrät, laatii aikataulun taaksepäin ja kertoo vaiheiden päättymisestä. Ei tiliä, nettiä eikä mainoksia.
 ```
 
-### Opis (Description) · 3364 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3438 / 4000 znaków · wersja 1.0
 
 ```text
 Leipuri opastaa sinut hapanjuurileivän leivonnassa reseptistä valmiiseen leipään: se laskee määrät, laatii aikataulun ja pitää huolta ajasta, kun puhelin on lepotilassa. Sovellus toimii ilman tiliä ja ilman internetyhteyttä, ilman mainoksia ja ilman seurantaa. Reseptisi, hapanjuuresi ja päiväkirjasi pysyvät vain puhelimessasi.
@@ -62,7 +62,7 @@ HAPANJUURET
 Voit ylläpitää useita hapanjuuria. Leipuri kertoo ruokintamäärät suhteessa 1:1:1, 1:2:2, 1:3:3 tai 1:5:5. Kun hapanjuuri on kaksinkertaistanut tilavuutensa, Leipuri merkitsee sen valmiiksi taikinaan. Kun hapanjuuri on ollut 12 tuntia pöydällä ilman ruokintaa, Leipuri muistuttaa siitä ilmoituksella. Uuden hapanjuuren aloitat päivä päivältä. Leipuri noudattaa varovaisuusperiaatetta: jos hapanjuuressa on kalvo, värimuutos tai mätä haju, se neuvoo heittämään hapanjuuren pois.
 
 LEIPÄLÄÄKÄRI
-Sisus on tiivis ja kuori vaalea? Merkitse oireet, niin Leipälääkäri nimeää yhden 9 virheestä, selittää syyn ja kertoo, mitä muuttaa ensi kerralla. Hapanjuurilääkäri auttaa, kun jokin hapanjuuressa huolestuttaa sinua.
+Sisus on tiivis ja kuori vaalea? Merkitse oireet, niin Leipälääkäri nimeää yhden 9 virheestä, selittää syyn ja kertoo, mitä muuttaa ensi kerralla. Neljä pelastusohjetta auttaa, kun taikinassa on ongelmia käymisen aikana. Hapanjuurilääkäri auttaa, kun jokin hapanjuuressa huolestuttaa sinua.
 
 PÄIVÄKIRJA
 Arvioi jokainen leipä: tähdet, sisus, kuori ja makuprofiili. Päiväkirja näyttää tilastot, ja ”Leivo uudelleen” avaa saman reseptin.

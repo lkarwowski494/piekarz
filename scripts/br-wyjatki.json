@@ -32,6 +32,8 @@
     { "id": "BR-KAL-014", "powod": "funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć", "zrodlo": "ER-62, D-090" },
     { "id": "BR-KAL-015", "powod": "funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć", "zrodlo": "ER-62, D-090" },
     { "id": "BR-KAL-016", "powod": "funkcja w zakresie 1.0 według D-092 (redesign), jeszcze bez kodu na tej gałęzi; test z ID powstaje razem z kodem w redesignie, a wpis trzeba wtedy usunąć", "zrodlo": "ER-62, D-090" },
-    { "id": "BR-ETAP-006", "powod": "znalezisko: kod nie spełnia kryterium — start z Harmonogramu zastępuje trwający wypiek bez pytania (RYZ-26, odczyt kodu); test z ID powstaje razem z poprawką", "zrodlo": "F-07, ER-64" }
+    { "id": "BR-ETAP-006", "powod": "znalezisko: kod nie spełnia kryterium — start z Harmonogramu zastępuje trwający wypiek bez pytania (RYZ-26, odczyt kodu); test z ID powstaje razem z poprawką", "zrodlo": "F-07, ER-64" },
+    { "id": "BR-DIAG-003", "czesciowe": true, "powod": "scenariusze Cztery objawy (na ekranie), Treść tylko ze źródłem (pilnuje tests/tresci-f71.test.ts toru T), Powrót do prowadzenia i Bez dostępu: wymagają włączonego wejścia protokoly-ratunkowe (tor T, rola 08); dane protokołów: test BR-DIAG-003 w tests/f71-br-diag.test.ts", "zrodlo": "F-71, D-096" },
+    { "id": "BR-DIAG-004", "czesciowe": true, "powod": "scenariusz Ostrzeżenie nie tylko kolorem: zrzuty w skali szarości i VoiceOver po włączeniu wejścia (rola 04); treść: test BR-DIAG-004 w tests/f71-br-diag.test.ts", "zrodlo": "F-71, NFR-DOST-005" }
   ]
 }

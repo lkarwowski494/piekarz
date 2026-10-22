@@ -45,7 +45,7 @@ resepi,ragi,baking,hidrasi,starter,rye,levain,pizza,penapaian,pemula,suhu,bread
 Tetapkan masa roti siap: Tukang Roti mengira kuantiti, menyusun pelan secara songsang dan memberitahu bila setiap langkah tamat. Tanpa akaun, tanpa internet, tanpa iklan.
 ```
 
-### Opis (Description) · 3499 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3575 / 4000 znaków · wersja 1.0
 
 ```text
 Tukang Roti membimbing anda melalui bakaran roti sourdough dari resipi hingga buku roti: mengira kuantiti, menyusun pelan dan menjaga masa ketika telefon tidur. Berfungsi tanpa akaun dan tanpa internet, tanpa iklan dan tanpa penjejakan. Resipi, pemula dan jurnal anda kekal hanya dalam telefon anda.
@@ -63,7 +63,7 @@ PEMULA
 Urus beberapa pemula. Tukang Roti memberikan kuantiti pemberian makan dalam nisbah 1:1:1, 1:2:2, 1:3:3 atau 1:5:5. Apabila pemula mengembang dua kali ganda isi padu, Tukang Roti menandakannya sedia untuk doh. Selepas 12 jam di atas kaunter tanpa diberi makan, Tukang Roti mengingatkan anda melalui pemberitahuan. Pemula baharu boleh dimulakan hari demi hari. Tukang Roti mengamalkan prinsip berjaga-jaga: jika ada selaput, perubahan warna atau bau busuk, Tukang Roti menasihatkan anda membuang pemula.
 
 DOKTOR ROTI
-Remah padat dan kerak pucat? Tandakan gejala, dan Doktor Roti menunjukkan satu daripada 9 kecacatan, menerangkan puncanya dan memberitahu apa perlu diubah pada kali seterusnya. Doktor Pemula membantu apabila sesuatu tentang pemula membimbangkan anda.
+Remah padat dan kerak pucat? Tandakan gejala, dan Doktor Roti menunjukkan satu daripada 9 kecacatan, menerangkan puncanya dan memberitahu apa perlu diubah pada kali seterusnya. Empat protokol penyelamat membantu apabila doh bermasalah semasa penapaian. Doktor Pemula membantu apabila sesuatu tentang pemula membimbangkan anda.
 
 JURNAL
 Nilai setiap buku roti: bintang, remah, kerak dan profil rasa. Jurnal menunjukkan statistik, dan “Bakar Semula” membuka resipi yang sama.

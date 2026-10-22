@@ -1304,6 +1304,141 @@
     "miejsce": "docs\\brd\\reguly.md:255"
   },
   {
+    "regula": "RD-35",
+    "id": "RD-35-W1",
+    "wejscie": {
+      "Etap [-]": "mieszanie",
+      "Rodzaj ciasta [-]": "drożdżowe"
+    },
+    "oczekiwane": {
+      "rada [-]": "dodać sól z kilkoma łyżeczkami wody, rozsmarować, zwinąć, wyrobić"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "D-095 (RAT-SOL-002, RAT-SOL-003)",
+    "miejsce": "docs\\brd\\reguly.md:266"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W2",
+    "wejscie": {
+      "Etap [-]": "koniec pierwszego rośnięcia",
+      "Rodzaj ciasta [-]": "drożdżowe"
+    },
+    "oczekiwane": {
+      "rada [-]": "nie dodawać; upiec bez soli albo spód do pizzy"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "D-095 (RAT-SOL-005)",
+    "miejsce": "docs\\brd\\reguly.md:267"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W3",
+    "wejscie": {
+      "Etap [-]": "formowanie",
+      "Rodzaj ciasta [-]": "na zakwasie"
+    },
+    "oczekiwane": {
+      "rada [-]": "nie dodawać; upiec bez soli albo spód do pizzy"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "D-095 (RAT-SOL-005)",
+    "miejsce": "docs\\brd\\reguly.md:268"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W4",
+    "wejscie": {
+      "Etap [-]": "mieszanie",
+      "Rodzaj ciasta [-]": "na zakwasie"
+    },
+    "oczekiwane": {
+      "rada [-]": "przerwa jak autoliza 20–60 min, potem wmieszać sól"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-SOL-004)",
+    "miejsce": "docs\\brd\\reguly.md:269"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W5",
+    "wejscie": {
+      "Etap [-]": "nieznany (Doktor bez trwającego wypieku)",
+      "Rodzaj ciasta [-]": "brak"
+    },
+    "oczekiwane": {
+      "rada [-]": "obie rady jako zdania z warunkiem etapu"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "D-095; BR-DIAG-005",
+    "miejsce": "docs\\brd\\reguly.md:270"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W1",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "drożdżowe",
+      "Garowanie [-]": "dowolne"
+    },
+    "oczekiwane": {
+      "rada [-]": "odgazować, uformować ponownie, garować"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-002, RAT-PRZ-003)",
+    "miejsce": "docs\\brd\\reguly.md:281"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W2",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "na zakwasie",
+      "Garowanie [-]": "przez noc w chłodzie"
+    },
+    "oczekiwane": {
+      "rada [-]": "zwykle się nie udaje; chleb słaby, nieforemny, bardzo kwaśny"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-004)",
+    "miejsce": "docs\\brd\\reguly.md:282"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W3",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "na zakwasie",
+      "Garowanie [-]": "w ciągu kilku godzin od zrobienia"
+    },
+    "oczekiwane": {
+      "rada [-]": "można spróbować odgazować i uformować ponownie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-004, RAT-PRZ-005)",
+    "miejsce": "docs\\brd\\reguly.md:283"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W4",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "brak",
+      "Garowanie [-]": "brak"
+    },
+    "oczekiwane": {
+      "rada [-]": "objaw do sprawdzenia: wgłębienie po naciśnięciu palcem zostaje na stałe"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "D-095 (RAT-PRZ-001)",
+    "miejsce": "docs\\brd\\reguly.md:284"
+  },
+  {
     "regula": "RD-29",
     "id": "RD-29-W1",
     "wejscie": {
