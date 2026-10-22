@@ -40,10 +40,11 @@ describe('Kryteria BRD w nazwach testów (M1-audytor-generalny-067, 07-jakosc-01
     expect(r.status).toBe(0);
   });
 
-  it('skrypt widzi 55 BR z kryteriami z docs/brd (bez archiwum)', () => {
+  // 55 + 16 BR-KAL i BR-ETAP-006 z badania kalendarza (ER-62…ER-64) + BR-DIAG-003…005 dla F-71 (ER-70); liczbę potwierdza też kontrola-brd.mjs roli 01
+  it('skrypt widzi 75 BR z kryteriami z docs/brd (bez archiwum)', () => {
     const r = uruchom(['--json']);
     const raport = JSON.parse(r.stdout) as Raport;
-    expect(raport.brd).toBe(55);
+    expect(raport.brd).toBe(75);
   });
 
   it('mutant: usunięcie ID z nazw testów jedynego pliku z tym BR daje kod 1 i to BR na liście', () => {

@@ -106,6 +106,28 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Częstotliwość: rzadko.
 - Dowód: 3 recenzje wyżej; decyzja DEC-13 (a) planu napraw M1 (prośba o ocenę po udanym bochenku, kontakt w Ustawieniach); zadania M1-audytor-generalny-082, -083.
 
+### J-13: Zgrać wypiek i zakwas z tygodniem
+- Kiedy piekę w wybrany dzień (weekend, goście) albo co tydzień, a zakwas trzymam w lodówce, chcę w jednym spojrzeniu widzieć, co i kiedy zrobić w najbliższych dniach (obudzić i karmić zakwas, zamieszać ciasto, schłodzić, upiec) i co zrobiłem ostatnio, żeby zmieścić pieczenie w pracy i nie zacząć za późno.
+- Siły zmiany: pcha to, że pieczenie na zakwasie trudno zmieścić w dniu pracy („difficult to work out how to fit baking sourdough around a working day”, S-68) i wielodniowy łańcuch karmień przed wypiekiem z lodówki (S-65: dwa dni po dwa karmienia przed mieszaniem) — to dowód potrzeby, a plan w aplikacji ma jedno karmienie budzące 12 h przed mieszaniem (D-052, RD-33, ER-69); przyciąga gotowy szablon tygodnia (S-65) i kilka wypieków naraz (S-14, rec. 6384160131); obawa: zakwas niegotowy w dniu ciasta (BR-ZAKW-006), za długie zaniedbanie w lodówce (S-65: „just very hungry”); nawyk: kartka, kalendarz telefonu, pamięć.
+- Dziś: harmonogram w głowie albo na kartce według blogów (S-65, S-68), fora (S-69), kalendarz telefonu; w aplikacjach plan jednego wypieku od godziny „gotowe” (Rise, BreadMe) — porównanie z konkurencją w `wymagania-kalendarz.md` i raporcie badania.
+- Częstotliwość: przy każdym wypieku planowanym na dzień (około raz w tygodniu: S-24, rec. 8870010975) i przy karmieniu w lodówce raz w tygodniu (RD-25, S-44); orientacja „co dziś” przy każdym wejściu [OCENA].
+- Dowód: S-65 (szczebel 4, pełny tydzień wstecz od niedzielnego wypieku), S-68 (szczebel 4), S-69 (6 wątków Fresh Loaf 2013–2018 o dopasowaniu do pracy, szczebel 5, próba nielosowa), S-90 (rano formowanie, wieczorem ciasto); zapomniane karmienie (S-83, S-84); żytni plan 4-dniowy z karmieniem w stałe dni (S-85); zlecenie właściciela 2026-10-22 (kalendarz na „Dziś” jak w Treningu). Osoby: P-6, P-7, P-8, P-9, P-10, P-11, P-12. Zależy od: ZAL-051, ZAL-052.
+- Ograniczenie dziś: Harmonogram pozwala wybrać „gotowe” tylko na dziś, jutro albo pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`), więc plan na niedzielę nie powstanie w środę.
+
+### J-14: Poprowadzić dwa wypieki, które zachodzą na siebie
+- Kiedy piekę dwa bochenki z różnych receptur, chleb i pizzę tego samego dnia albo kilka rzeczy na wydarzenie, a mam jeden piekarnik, chcę wiedzieć, który wypiek jest na którym kroku i kiedy zacząć drugi, żeby nic nie przefermentowało w kolejce do piekarnika.
+- Siły zmiany: pcha jeden minutnik na kilka bochenków („it was a lot to keep track of”, S-91) i przefermentowanie bochenka czekającego na piekarnik (S-92); przyciąga przesunięcie startu drugiego ciasta (S-92) i wspólna oś czasu (S-91: wycinane papierowe osie); obawa: pomylenie receptur (S-94); nawyk: minutnik wielokanałowy, kartka na bochenek, karteczki (S-91, S-94).
+- Dziś: minutniki, kartki, arkusz; w aplikacjach z kategorii nikt nie deklaruje kilku wypieków naraz (badanie 2026-10-22), Rise prowadzi jeden przepis naraz (S-14, rec. 6384160131).
+- Częstotliwość: rzadko u większości, przy każdym dniu pieczenia u zaawansowanych (S-93: „at least three different bread types per baking day”) [OCENA: fora nadreprezentują zaawansowanych].
+- Dowód: 13 wątków Fresh Loaf 2008–2026 (raport badania), szczebel 5; 1 z 63 recenzji aplikacji do planu wypieku (S-14, rec. 6384160131); przepisy King Arthur zakładają, że drugi bochenek czeka, aż pierwszy się upiecze (S-95). Osoby: P-7, P-8, P-10. Zależy od: ZAL-059.
+
+### J-15: Uratować ciasto, które w trakcie wypieku zachowuje się nie tak
+- Kiedy w trakcie fermentacji widzę, że ciasto przerosło, jest zbyt luźne, rośnie za wolno w zimnej kuchni albo zapomniałem soli, chcę od razu wiedzieć, co mogę jeszcze zrobić, a czego już nie, żeby uratować wypiek albo świadomie go dokończyć.
+- Siły zmiany: pcha brak odpowiedzi w chwili problemu (S-96: „Is there anything I can do with it?” w połowie fermentacji; S-97, S-98, S-99); przyciąga rada wykonalna w trakcie (w wątku S-96 odpowiedź: odgazować i wyrobić sól); obawa: rada zła dla zakwasu (KA i Modernist Cuisine: przy zakwasie ponowne formowanie zwykle się nie udaje, D-095), próbowanie surowego ciasta (RD-22); nawyk: pytanie na forum i czekanie na odpowiedź.
+- Dziś: fora (The Fresh Loaf), blogi King Arthur; w aplikacjach z kategorii nikt nie obiecuje ratunku w trakcie (Loaflo: czat AI „troubleshooting tips”, BakeWay: analiza zdjęcia po fakcie; badanie 2026-10-22).
+- Częstotliwość: rzadko, przy problemie [OCENA].
+- Dowód: słaby. 4 z 9 przeczytanych wątków Fresh Loaf 2008–2022 pytają w trakcie, „co teraz” (S-96…S-99, szczebel 5, próba nielosowa); w próbce 438 recenzji konkurencji 0 próśb o ratunek ciasta w trakcie i 1 pochwała „troubleshooting” (S-14, rec. 13535920699); wybór właściciela: F-71 w 1.0 (D-092, ZP-20: narzędzie i nauka). Treść ze źródłami: D-095. Osoby: P-6, P-7, P-8. Zależy od: ZAL-060.
+
 ## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
 
@@ -118,17 +140,47 @@ Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód ni
 
 ### P-7: Regularny piekarz z działającym zakwasem
 - Sytuacja: piecze co tydzień lub częściej, zmienia własne receptury, porównuje wyniki; wcześniej używał arkusza albo kartek.
-- Prace: J-01, J-03, J-02, J-05, J-10, J-06, J-04.
+- Prace: J-01, J-03, J-02, J-05, J-10, J-06, J-04, J-13.
 - Pierwszy dzień: wpisać własną recepturę i dostać liczby zgodne ze standardem. Po roku: historia wypieków, eksport, brak utraty danych, receptury na nowym telefonie.
 - Potrzeby: dokładna matematyka z zakwasem i zaczynami, plan wsteczny, dziennik, kopia.
 - Dowód: ZP-22; S-17 (rec. 13153863098), S-14 (rec. 8937437575, 6912317758), S-22 (rec. 6738038346); 22 z 338 recenzji o liczeniu; 10 z 338 o utracie danych.
 
 ### P-8: Domowy pizzaiolo i piekarz drożdżowy
 - Sytuacja: piecze pizzę albo pieczywo drożdżowe na określoną godzinę i liczbę osób, często z zaczynem i chłodnią; czasem używa zakwasu.
-- Prace: J-11, J-01, J-03, J-02, J-05.
+- Prace: J-11, J-01, J-03, J-02, J-05, J-13.
 - Pierwszy dzień: policzyć ciasto na dzisiejszych gości i godzinę. Po roku: zapisane własne receptury, harmonogram.
 - Potrzeby: rodzaje drożdży, zaczyny poolish i biga, czas i temperatura, bez reklam i śledzenia.
 - Dowód: ZP-23; S-19 (rec. 12569511193, 12638174093, 7681506247), S-24 (rec. 8870010975, 5769683066); 10 z 338 recenzji. Zależy od: ZAL-040.
+
+### P-9: Pracuje na zmiany albo ma małe dzieci
+- Sytuacja: dzień nieregularny, sen o różnych porach, wyjścia przesuwają karmienie; piecze na zakwasie jak P-7 albo P-6.
+- Prace: J-04, J-02, J-13.
+- Pierwszy dzień: wiedzieć, co wypada jutro, zanim dzień się zacznie. Po roku: plany, które omijają różne godziny snu w różne dni.
+- Potrzeby: zapowiedź karmień i kroków na najbliższe dni, przesunięcie planu, przypomnienie; godziny snu różne w różne dni (dziś jedne dla wszystkich, D-066) [DO WYJAŚNIENIA] (OP-57).
+- Dowód: pośredni, szczebel 5: zapomniane karmienie przy wyjściu i wypiek przesunięty o dobę (S-84), zapominanie nocnego karmienia (S-83); wpisu wprost od pracownika zmianowego ani rodzica niemowlęcia nie znaleziono (badanie 2026-10-22). Zależy od: ZAL-055.
+
+### P-10: Piecze na wydarzenie
+- Sytuacja: chleb albo pizza na święta, gości, przyjęcie, na konkretną godzinę kilka dni naprzód; zwykle P-7 albo P-8.
+- Prace: J-13, J-02, J-11.
+- Pierwszy dzień: wiedzieć, kiedy zacząć (z karmieniem zakwasu), żeby zdążyć na godzinę podania. Po roku: powtórzenie udanego planu przed kolejnym wydarzeniem.
+- Potrzeby: plan na wybrany dzień i godzinę, wpis do kalendarza telefonu obok wydarzenia.
+- Dowód: skarga na brak wyboru posiłku jako celu (S-80); przepis świąteczny z oknem karmienia zakwasu 12 h (S-89, szczebel 5); liczba gości i godzina (S-19, rec. 12569511193); relacji o nieudanym planie świątecznym nie znaleziono. Zależy od: ZAL-056.
+
+### P-11: Korzysta z VoiceOver albo dużego tekstu
+- Sytuacja: jak P-6 lub P-7, ale obsługa czytnikiem ekranu albo przy rozmiarach dostępności tekstu; część użytkowników ma 60+ (ZAL-039).
+- Prace: J-13, J-04, J-02.
+- Pierwszy dzień: usłyszeć „co dziś i jutro” bez rozszyfrowywania ikon. Po roku: przypomnienia, które da się obsłużyć czytnikiem.
+- Potrzeby: zdania zamiast samych ikon, etykiety dni, układ listy przy dużym tekście.
+- Dowód: alarmy systemowe iOS 26 niewyłączalne z VoiceOver, użytkownik je wyłączył (S-86, szczebel 5); recenzji o dużym tekście w aplikacjach do pieczenia nie znaleziono. Zależy od: ZAL-057.
+
+### P-12: Podróżuje między strefami czasowymi
+- Sytuacja: piecze w domu, w podróży zakwas czeka w lodówce albo karmi go ktoś inny; zmienia strefę czasową telefonu.
+- Prace: J-04, J-13.
+- Pierwszy dzień: po przylocie widzieć dobre dni i godziny. Po roku: —.
+- Potrzeby: dni i godziny w bieżącej strefie, terminy liczone jako chwile.
+- Dowód: tylko z aplikacji przypomnień ogólnie (S-87, S-88, szczebel 4–5); dla aplikacji do pieczenia nie znaleziono. Zależy od: ZAL-058.
+
+Warianty bez osobnej persony: piekarz żytni to P-7 z planem wielodniowym i karmieniem w stałe dni (S-85, RD-20); piekarz bezglutenowy nie ma w aplikacji modelu ani twierdzeń „bez glutenu” (RYZ-21), a jego rytm 24 h na blacie (poradnik, szczebel 5) nie pasuje do RD-25 [DO USTALENIA] (OP-58). Przegląd osób z typowym tygodniem, problemami i macierzą: raport badania `audit/01-kalendarz-2026-10-22/raport.md` (poza repo).
 
 ## Kontekst użycia
 
@@ -145,6 +197,7 @@ Kontekst opisany z recenzji i ze zdania celu; rozmów z użytkownikami nie było
 | J-08 | dowolne, także poza kuchnią | wolne | czytanie dłuższego tekstu | — | minuty | ZAL-041 |
 | J-09 | po wypieku, przy bochenku | wolne | porównanie z opisem przyczyn | — | minuty | ⚠ pleśń w zakwasie (jw.) |
 | J-10 | dowolne; aktualizacja, nowy telefon | — | — | przy przenosinach plik lub kopia urządzenia [DO USTALENIA] (OP-32) | rzadko | ZAL-035; ZAL-036 (iPad obok telefonu: 4 z 338) |
+| J-13 | dowolne; rano przed pracą, wieczorem, przy planowaniu tygodnia | zwykle wolne, czasem w cieście | spojrzenie na kilka sekund | bez wymagań | sekundy; kilka razy dziennie | ZAL-051; S-68 (plan wokół dnia pracy) |
 | J-11 | blat; piec do pizzy | jw. J-01 i J-02 | jw. | — | jw. | ⚠ oparzenie (piec, kamień) źródło E2 |
 
 Dostępność: wzrok (kolory ostrzeżeń nieodróżnialne dla daltonisty, S-24, rec. 5681544617; czytelność dla 60+, ZAL-039), słuch (sygnał nie tylko dźwiękiem: haptyka i powiadomienie [OCENA]), motoryka (ręce w cieście, ZAL-033). Progi ustala rola 04 (DEC-15: pole dotyku ≥ 48 pt w głównym przepływie, ≥ 44 pt w pozostałych).
@@ -212,6 +265,23 @@ Bez nowego skanu konkurencji (D-037): ceny zakupów w aplikacji z odczytu roli 0
 
 Wnioski [OCENA]: (1) nikt nie łączy matematyki z zakwasem, prowadzenia w czasie z powiadomieniami i dziennika z kopią bez reklam i bez sieci; Rise jest najbliżej. (2) Najostrzejsze skargi dotyczą sposobu pobierania opłat (ujawnienie, anulowanie, odblokowanie), reklam i utraty danych, rzadziej samej kwoty. (3) Zakwas od zera do pierwszego bochenka jest obiecywany (Loaflo), ale skargi mówią, że nie jest dowożony (rec. 13931423989). (4) Ocena pleśni przez AI jest zawodna (S-16).
 
+### Rynek: kalendarz i plan na dni (badanie 2026-10-22)
+
+Skan na dzień badania (Lookup i RSS recenzji, US; pełna tabela 13 aplikacji z kategorii i 3 spoza niej oraz surowe pliki: `audit/01-kalendarz-2026-10-22/` poza repo). Próbka ok. 120 recenzji z treścią z 6 aplikacji, głównie z lat 2020–2022; zliczenia orientacyjne [RACHUNEK, klasyfikacja ręczna].
+
+| Aplikacja (adres) | Cena i model (odczyt 2026-10-22) | Oceny: liczba, średnia | Ostatnia wersja | Kalendarz, plan, karmienie (opis; recenzje) | Praca J |
+|---|---|---|---|---|---|
+| Rise (https://apps.apple.com/us/app/id1515369685) | darmowa + miesięcznie 3,99–4,99, 3 mies. 8,99, rok 14,99–19,99, jednorazowo 19,99 USD | 336, 4,87 | 2026-10-20 | plan z przeglądem harmonogramu i powiadomieniami; skarga na brak wyboru godziny końca (S-80) | J-02, J-13 |
+| BreadMe (https://apps.apple.com/us/app/id1522824861) | 2,99 USD; IAP nie odczytano | 40, 4,70 | 2026-07-29 | harmonogram chleba, przypomnienia o karmieniu | J-02, J-04 |
+| Sourdough Starter Tracker (https://apps.apple.com/us/app/id6755709217) | Premium 12,99 USD, usunięcie reklam 1,99 | 32, 4,81 | 2026-10-11 | miesięczny kalendarz karmień (S-81); brak recenzji | J-04 |
+| Sourdough Schedule: Bake Timer (https://apps.apple.com/us/app/id6771680688) | darmowa | 0 | 2026-05-28 | plan wstecz od godziny wyjęcia z piekarnika, bez konta (S-82) | J-02 |
+| Levain (https://apps.apple.com/us/app/id1572641630) | darmowa; IAP nie odczytano | 4, 4,75 | 2025-12-05 | widżety ekranu początkowego i blokady, powiadomienia o karmieniu | J-04 |
+| Breadkin (https://apps.apple.com/us/app/id6812354747) | darmowa + 5 pozycji po 4,99 USD | 5, 5,00 | 2026-10-21 | przypomnienia według własnego rytmu karmienia | J-04 |
+| Loaflo (https://apps.apple.com/us/app/id6736766728) | tydzień 6,99, miesiąc 19,99, rok 39,99 USD | 549, 4,69 | 2026-09-07 | prośba o plan „co i kiedy” do telefonu (S-16, rec. 14207280110) | J-04, J-13 |
+| Planta, spoza kategorii (https://apps.apple.com/us/app/id1410126781) | darmowa + Premium 7,99–47,99 USD | 114 285, 4,75 | 2026-10-19 | harmonogram podlewania jako rdzeń; skargi na płatność i utratę danych przy nowym telefonie | — |
+
+Wnioski [OCENA]: (1) widok tygodnia i eksport do kalendarza telefonu nie występują w opisach żadnej aplikacji z kategorii, a widok kalendarza w próbce recenzji: 0 wzmianek; (2) to, o co proszą i za co chwalą, to plan „co i kiedy” na kolejne godziny i dni oraz godzina końca (planowanie: 6, karmienie i przypomnienia: 4, historia: 7 z ok. 120); (3) dziedzina daje gotowy szablon tygodnia wstecz od dnia wypieku (S-65, S-68), a fora pokazują powtarzalny problem dopasowania do pracy (S-69); (4) wyróżnik Piekarza w tej funkcji to połączenie rytmu zakwasu z planem wypieku na jednym widoku, offline i bez konta.
+
 ## Ograniczenia (OG)
 
 Cytaty wytycznych z odczytu 2026-10-19 innych ról (D-037); brzmienie przed wysłaniem do sklepu sprawdza rola 10.
@@ -236,6 +306,21 @@ Cytaty wytycznych z odczytu 2026-10-19 innych ról (D-037); brzmienie przed wys�
 
 ### OG-07: Prośba o ocenę tylko systemowym mechanizmem
 - O ocenę wolno prosić tylko przez systemowy mechanizm, a własne okna z prośbą o ocenę są zabronione [FAKT S-62]; system pokazuje prośbę najwyżej trzy razy w ciągu 365 dni [FAKT S-63]. Dotyczy: BR-OPIN-001, BR-OPIN-002.
+
+### OG-08: Kalendarz telefonu bez prośby o dostęp
+- Od iOS 17 systemowy edytor wydarzenia działa w osobnym procesie i nie wymaga dostępu do kalendarza [FAKT S-71]; odczyt wydarzeń użytkownika wymaga pełnego dostępu, a dostępu tylko do odczytu nie ma [FAKT S-70]. Skutek: dodanie planu przez edytor systemowy bez uprawnień; pokazywanie zajętości z kalendarza użytkownika na pasku wymagałoby pełnego dostępu i uzasadnienia funkcją rdzeniową. Dotyczy: BR-KAL-011, H-18.
+
+### OG-09: Widżet tylko z treścią aplikacji, przez App Group
+- Widżety i powiadomienia muszą dotyczyć treści i funkcji aplikacji [FAKT S-72]; widżet Expo działa w odizolowanym środowisku bez stanu aplikacji i wymaga App Group do wymiany danych [FAKT S-73]. Dotyczy: BR-KAL-012, H-19.
+
+### OG-10: Limit oczekujących powiadomień lokalnych
+- System zachowuje 64 najbliższe powiadomienia lokalne i odrzuca resztę [FAKT S-74] (zdanie z dokumentacji wycofanego API; czy obowiązuje bez zmian dla `UNUserNotificationCenter`: [DO USTALENIA] (OP-56)). Dotyczy: BR-KAL-009, BR-KAL-010 (kilka planów i stały rytm).
+
+### OG-11: Live Activity nie obejmie wypieku wielodniowego
+- Live Activity jest aktywna najwyżej 8 godzin [FAKT S-75]; wypiek z karmieniami i chłodnią trwa dłużej (S-65). Live Activity pozostaje wycięta (D-031); dotyczy H-19.
+
+### OG-12: Pole dotyku 44 × 44 pt
+- Wytyczne Apple podają dla iOS domyślny rozmiar kontrolki 44 × 44 pt i minimum 28 × 28 pt [FAKT S-76]; projekt przyjął ≥ 44 pt (DEC-15, NFR-INT-001). Siedem kolumn przy 320 pt daje 40 pt [RACHUNEK]. Dotyczy: NFR-KAL-001.
 
 ## Hipotezy dla ról 02 i 03 (H)
 Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-014). Każda hipoteza ma wpis w `docs/zalozenia.md`. Bez cen i bez etykiety MVP.
@@ -302,6 +387,59 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
 - Rodzaj: wartość · Rejestr: ZAL-038 · Rozstrzyga: role 02 i 11 (progi)
 - ZP-21 wybiera przejście z próby do płatnego i odnowienia; jakie dane daje App Store Connect bez telemetrii: [DO USTALENIA] (OP-33).
 
+### H-15: Kalendarz w 1.0 tylko do odczytu, planowanie później
+- Rodzaj: zakres · Rejestr: ZAL-051 · Rozstrzyga: rola 03 i właściciel (przez M1)
+- Za: właściciel chce mocniejszego wydania i zobaczenia funkcji w 1.0 (2026-10-22); prośba o plan „co i kiedy” (S-16, rec. 14207280110); szablon tygodnia (S-65); dane do paska już są w bazie (trwający wypiek z godzinami kroków, karmienia, zakładanie, dziennik); wersja tylko do odczytu nie zmienia schematu, więc nie dotyka zasady zero utraty danych; pasek pokazuje wartość planu wstecz, którą Piekarz już ma, a której konkurencja nie pokazuje w skali tygodnia. Przeciw: bezpośredniego popytu na widok kalendarza w próbce recenzji brak (0 z ok. 120); największa wartość (plan na wybrany dzień, kilka planów) wymaga nowego zapisu i migracji (H-17); nowa funkcja na ok. 10 dni przed wydaniem (RYZ-24); pusty tydzień u nowego użytkownika (H-16); siedem kolumn nie mieści celu 44 pt przy 320 pt (OG-12).
+- Opcje (koszt [OCENA]: czas agenta / czas właściciela; wartość; ryzyko):
+  - (a) bez kalendarza w 1.0, pasek w 1.0.1 — 0 / 0; wartość dla wydania żadna; ryzyko żadne.
+  - (b) pasek tygodnia tylko do odczytu, linia „Następne”, arkusz dnia, pusty stan (BR-KAL-001…007, NFR-KAL-001…003) — ok. 1 dzień / ok. 2 h (przegląd tekstów PL i EN, test na telefonie przy 320 pt i AX5, zgoda na przekład ok. 10–14 kluczy w 33 językach); wartość średnia: orientacja „co i kiedy”, widoczny plan wielodniowy, wyrazisty „Dziś” i zrzut do sklepu; ryzyko: przesunięcie wydania, jeśli przekład, build i E2E nie zmieszczą się w oknie.
+  - (c) tylko linia „Następne” z arkuszem najbliższych zdarzeń, bez paska (BR-KAL-003, BR-KAL-004, BR-KAL-006, BR-KAL-007) — ok. pół dnia / ok. 1 h; wartość: najmocniej udokumentowana część („what to do AND WHEN”), bez problemu 320 pt i AX5; mniej widoczna zmiana na „Dziś”.
+  - (b+) jak (b) oraz skrót „Zaplanuj wypiek na ten dzień” z arkusza dnia do Harmonogramu w jego dzisiejszym zasięgu: dziś, jutro, pojutrze (BR-KAL-015) — dodatkowo ok. pół dnia / bez dodatkowego czasu właściciela poza 1–2 tekstami; wartość: skraca drogę do planu na konkretny dzień, główny problem P-7 i P-10 w przeglądzie osób; ryzyko jak (b), bez nowego zapisu.
+  - (d) pasek z planowaniem na przyszłe dni już w 1.0 (BR-KAL-009) — kilka dni / kilka godzin plus test migracji; największa wartość; ryzyko wysokie: zmiana schematu przed wydaniem, przesunięcie 1.0.
+- Rekomendacja (po przeglądzie osób 2026-10-22): (b+), jeśli rola 03 potwierdzi, że mieści się w oknie wydania bez jego przesunięcia (przekład, build, E2E 0:00–15:00); w przeciwnym razie (c) w 1.0, a pasek i skrót w 1.0.1. (d) odradzam przed wydaniem. Macierz osób, problemów i funkcji: raport badania.
+- Jak sprawdzić najtaniej: przejście poznawcze roli 04 na makietach M3 (pasek z danymi, pusty, 320 pt, AX5); po wydaniu recenzje o „Dziś” i o planowaniu.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
+
+### H-16: Bez danych kalendarz się nie pokazuje
+- Rodzaj: zakres, projekt · Rejestr: ZAL-053 · Rozstrzyga: właściciel z rolą 04 (OP-51)
+- Za: trzy ścieżki „co dziś robisz” przeszły przejście poznawcze (F-68); pusty tydzień nic nie mówi początkującemu (RYZ-25). Przeciw: stały element buduje rozpoznawalność ekranu jak w Treningu.
+- Opcje: (a) pasek pojawia się przy pierwszym zdarzeniu (dokarmienie, plan, wpis); (b) pasek zawsze, pusty stan jednym zdaniem; (c) pasek zawsze bez objaśnienia. Rekomendacja: (a).
+
+### H-17: Największą wartość daje planowanie wypieku na wybrany dzień
+- Rodzaj: zakres, wartość · Rejestr: ZAL-052 · Rozstrzyga: rola 03 (wersja 1.1)
+- Za: szablon tygodnia z karmieniami w dniach przed mieszaniem (S-65, S-68); 6 wątków o dopasowaniu wypieku do pracy (S-69); skarga na brak godziny końca (S-80); prośba o kilka wypieków naraz (S-14, rec. 6384160131); stały rytm karmienia jako prośba spoza kategorii (raport badania, WaterMe „XX times a week”). Przeciw: nowy zapis i migracja (zasada wspólna 10), limit powiadomień (OG-10), więcej stanów do przetestowania.
+- Opcje: (a) 1.1: kilka planów na przyszłe dni z kalendarza i stały dzień karmienia w lodówce (BR-KAL-009, BR-KAL-010); (b) tylko kilka planów, rytm karmienia jak dziś (od ostatniego dokarmienia); (c) bez planowania z kalendarza. Rekomendacja: (a), z przeglądaniem tygodni (BR-KAL-008) w 1.0.1.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
+
+### H-18: Plan wypieku w kalendarzu telefonu przez edytor systemowy
+- Rodzaj: zakres · Rejestr: ZAL-054 · Rozstrzyga: rola 03 z rolą 05
+- Za: „schedule I can put in my phone” (S-16, rec. 14207280110); bez prośby o dostęp (OG-08); żadna aplikacja z kategorii tego nie ma (raport badania); KL-09 czeka na BR. Przeciw: nowa zależność natywna (`expo-calendar` nie ma w `package.json`); wydarzenie w kalendarzu nie zmienia się po przesunięciu kroku.
+- Opcje: (a) edytor systemowy (EventKitUI) z planu wypieku; (b) plik .ics przez arkusz udostępniania (`expo-sharing` już jest), jeśli iOS otwiera go w Kalendarzu (OP-50); (c) bez eksportu. Rekomendacja: (a) razem z H-17 (a) w 1.1, wcześniej niż „1.2+” w pomyśle M1.
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
+
+### H-19: Widżet, miesiąc i podpowiedzi z historii po potwierdzeniu wartości
+- Rodzaj: zakres · Rejestr: ZAL-051 · Rozstrzyga: rola 03
+- Za: widżety w opisie Levain i 2 z 338 recenzji (S-25, S-26); oficjalne `expo-widgets` (S-73). Przeciw: słaby dowód; widżet to drugi cel budowania z App Group (OG-09); widok miesiąca i podpowiedzi bez dowodu z recenzji; Live Activity wycięta i ograniczona do 8 h (OG-11, D-031).
+- Opcje: (a) 1.2+ po sygnale z recenzji po wydaniu 1.1; (b) widżet razem z 1.1. Rekomendacja: (a).
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006).
+
+### H-20: Dwa wypieki naraz po wydaniu, ale bez cichego zastąpienia już w 1.0
+- Rodzaj: zakres · Rejestr: ZAL-059 · Rozstrzyga: rola 03 i właściciel (pytanie właściciela 2026-10-22: „A co jezeli ktos bedzie mial dwa wypieki na raz w tym samym czasie?”)
+- Za równoległymi wypiekami: J-14 (S-91…S-94); żaden konkurent tego nie deklaruje. Przeciw: dowód tylko ze szczebla 5 i głównie od zaawansowanych; 1 z 63 recenzji; zmiana zapisu (jeden trwający wypiek), prowadzenia, powiadomień i kalendarza naraz.
+- Fakt z kodu (odczyt, bez uruchomienia): rozpoczęcie wypieku z Harmonogramu, gdy inny trwa, zastępuje trwający wypiek bez pytania (RYZ-26). To dotyczy 1.0 niezależnie od kalendarza.
+- Opcje:
+  - (a) 1.0: BR-ETAP-006 (pytanie przed zastąpieniem trwającego wypieku); 1.1: kilka zapisanych planów (BR-KAL-009) z kolizją kroków i piekarnika oraz prowadzenie dwóch wypieków naraz (BR-KAL-016) w tej samej zmianie zapisu;
+  - (b) jak (a), ale prowadzenie dwóch naraz dopiero w 1.2+ po sygnale z recenzji; w 1.1 plany tylko następują po sobie;
+  - (c) bez zmian w 1.0 — trwający wypiek nadal może zniknąć bez pytania.
+- Rekomendacja: (a): jedna migracja na wiele wypieków zamiast dwóch, a BR-ETAP-006 w 1.0 chroni trwający wypiek. (c) odradzam (zasada wspólna 5: utrata danych ma priorytet).
+- Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006); dwa wypieki jako jedna spirala z dwoma torami (D-094).
+
+### H-21: Ratunek ciasta (F-71) w 1.0 jako treść Doktora, bez nowych funkcji
+- Rodzaj: zakres, wartość · Rejestr: ZAL-060 · Rozstrzyga: właściciel (rozstrzygnięte: D-092, D-096)
+- Za: J-15 (S-96…S-99); kod i treść gotowe ze źródłami (D-095); wejście z prowadzenia już jest („Doktor”); żaden konkurent nie daje ratunku w trakcie. Przeciw: słaby dowód popytu (0 z 438 recenzji); ryzyko rady złej dla zakwasu, ograniczone zdaniami z warunkiem (RD-36); zdanie w opisie sklepu w 34 lokalizacjach (OG-05).
+- Opcje: (a) F-71 w 1.0 jako cztery protokoły z treścią D-095 (BR-DIAG-003…005); (b) PÓŹNIEJ jak w ZM-19. Rozstrzygnięcie: (a) — właściciel, D-092 („Dodajemy do 1.0 F71 plus full kalendarz i poprawki.”), zapis BR i ZM-23: D-096.
+- Jak sprawdzić najtaniej: po wydaniu recenzje i kontakt (F-69) o Doktorze; przejście poznawcze roli 04 na sekcji ratunku.
+
 ## Ryzyka produktu (RYZ)
 
 Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
@@ -338,3 +476,18 @@ Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
 
 ### RYZ-21: Twierdzenia zdrowotne wracają do treści
 - Realny. Rejestr roli 06 wycofał twierdzenia o lekkostrawności i o pH zabijającym bakterie (LEK-TRA-900, ZAK-PH-900, FIS-PAT-900); każde twierdzenie zdrowotne tylko ze szczebla 1–3 (D-035).
+
+### RYZ-22: Kalendarz pokazuje inny termin niż karta zakwasu albo powiadomienie
+- Realny, jeśli kalendarz liczy terminy osobno. Dziś termin karmienia liczy `planFeedingNotifications` (`src/core/notification-plan.ts:140`), a dzień zakładania `setupDay` (`src/core/starter-log.ts:41`, okresy 24 h, nie dni kalendarza; zmiana na dni kalendarza: D-093, partia D0 toru D). Ochrona: jedna funkcja źródłowa dla karty, powiadomienia i paska (BR-KAL-002, RD-31).
+
+### RYZ-23: Zdarzenie w złym dniu przy zmianie czasu, północy albo podróży
+- Brzegowy. Dodanie 7 × 24 h do poniedziałku 2026-10-19 w Warszawie daje niedzielę 2026-10-25 23:00 [RACHUNEK]; termin karmienia w lodówce 7 × 24 h przesuwa godzinę ścienną o 1 h (10:00 → 09:00 przy zmianie 2026-10-25, S-67). Ochrona: RD-29, RD-30, NFR-KAL-003.
+
+### RYZ-24: Nowa funkcja opóźnia wydanie 1.0
+- Realny. Wydanie planowane na początek listopada 2026; nowa funkcja to nowe teksty w 35 językach (przekład za zgodą na wydatek), testy, macierz, nowy build TestFlight, E2E tylko w oknie runnerów 0:00–15:00 i test na urządzeniu właściciela. H-15.
+
+### RYZ-26: Nowy wypiek po cichu zastępuje trwający
+- Realny (odczyt kodu, bez uruchomienia na urządzeniu). „Dziś” w stanie „trwa wypiek” pokazuje „Co jeszcze dziś robisz?” z wejściem do receptur i planu; „Zacznij wypiek” w Harmonogramie zapisuje nowy wypiek bez sprawdzenia trwającego (`app/(tabs)/receptury/harmonogram.tsx:216-233`), a `pickBakeSession` bierze wypiek z pamięci, gdy jego id różni się od zapisanego (`src/data/bake-session-store.ts`). Skutek: postęp, zegar i powiadomienia pierwszego wypieku przepadają, a wpisu w dzienniku nie ma. Ochrona: BR-ETAP-006. Potwierdzone testem przez M3 (2026-10-22): na 2b0db0f test `start-przy-trwajacym-a1b` czerwony w 5 z 7 przypadków; poprawka c927a6d na gałęzi `redesign/piekarz-2026-10-22` (różnice względem BR-ETAP-006: ER-65).
+
+### RYZ-25: „Dziś” traci prostotę trzech ścieżek
+- Realny. Ekran „Dziś” przeszedł przejście poznawcze z trzema ścieżkami (F-68, `docs/design/03-przejscie-poznawcze.md`); pusty albo gęsty tydzień nad nimi odsuwa główną akcję. ZP-24, RYZ-20; BR-KAL-005, H-16.

@@ -1302,5 +1302,747 @@
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: M = 0 (RD-15)",
     "miejsce": "docs\\brd\\reguly.md:255"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W1",
+    "wejscie": {
+      "Etap [-]": "mieszanie",
+      "Rodzaj ciasta [-]": "drożdżowe"
+    },
+    "oczekiwane": {
+      "rada [-]": "dodać sól z kilkoma łyżeczkami wody, rozsmarować, zwinąć, wyrobić"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "D-095 (RAT-SOL-002, RAT-SOL-003)",
+    "miejsce": "docs\\brd\\reguly.md:266"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W2",
+    "wejscie": {
+      "Etap [-]": "koniec pierwszego rośnięcia",
+      "Rodzaj ciasta [-]": "drożdżowe"
+    },
+    "oczekiwane": {
+      "rada [-]": "nie dodawać; upiec bez soli albo spód do pizzy"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "D-095 (RAT-SOL-005)",
+    "miejsce": "docs\\brd\\reguly.md:267"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W3",
+    "wejscie": {
+      "Etap [-]": "formowanie",
+      "Rodzaj ciasta [-]": "na zakwasie"
+    },
+    "oczekiwane": {
+      "rada [-]": "nie dodawać; upiec bez soli albo spód do pizzy"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "D-095 (RAT-SOL-005)",
+    "miejsce": "docs\\brd\\reguly.md:268"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W4",
+    "wejscie": {
+      "Etap [-]": "mieszanie",
+      "Rodzaj ciasta [-]": "na zakwasie"
+    },
+    "oczekiwane": {
+      "rada [-]": "przerwa jak autoliza 20–60 min, potem wmieszać sól"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-SOL-004)",
+    "miejsce": "docs\\brd\\reguly.md:269"
+  },
+  {
+    "regula": "RD-35",
+    "id": "RD-35-W5",
+    "wejscie": {
+      "Etap [-]": "nieznany (Doktor bez trwającego wypieku)",
+      "Rodzaj ciasta [-]": "brak"
+    },
+    "oczekiwane": {
+      "rada [-]": "obie rady jako zdania z warunkiem etapu"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "D-095; BR-DIAG-005",
+    "miejsce": "docs\\brd\\reguly.md:270"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W1",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "drożdżowe",
+      "Garowanie [-]": "dowolne"
+    },
+    "oczekiwane": {
+      "rada [-]": "odgazować, uformować ponownie, garować"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-002, RAT-PRZ-003)",
+    "miejsce": "docs\\brd\\reguly.md:281"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W2",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "na zakwasie",
+      "Garowanie [-]": "przez noc w chłodzie"
+    },
+    "oczekiwane": {
+      "rada [-]": "zwykle się nie udaje; chleb słaby, nieforemny, bardzo kwaśny"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-004)",
+    "miejsce": "docs\\brd\\reguly.md:282"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W3",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "na zakwasie",
+      "Garowanie [-]": "w ciągu kilku godzin od zrobienia"
+    },
+    "oczekiwane": {
+      "rada [-]": "można spróbować odgazować i uformować ponownie"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "D-095 (RAT-PRZ-004, RAT-PRZ-005)",
+    "miejsce": "docs\\brd\\reguly.md:283"
+  },
+  {
+    "regula": "RD-36",
+    "id": "RD-36-W4",
+    "wejscie": {
+      "Rodzaj ciasta [-]": "brak",
+      "Garowanie [-]": "brak"
+    },
+    "oczekiwane": {
+      "rada [-]": "objaw do sprawdzenia: wgłębienie po naciśnięciu palcem zostaje na stałe"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "D-095 (RAT-PRZ-001)",
+    "miejsce": "docs\\brd\\reguly.md:284"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W1",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 21:59",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-21 (23:59 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:389"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W2",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 22:00",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (00:00 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:390"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W3",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 22:01",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (00:01 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:391"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W4",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-25 06:00",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-25 (07:00 CET)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:392"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W5",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-22 22:30",
+      "Strefa [IANA]": "America/New_York"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (18:30 EDT)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:393"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W6",
+    "wejscie": {
+      "Chwila [UTC]": "brak",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "zdarzenie pominięte, pozostałe bez zmian"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: nieczytelna data wpisu (BR-KAL-002)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:394"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W1",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-66 (PL: poniedziałek)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:406"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W2",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "US"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-18…2026-10-24"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-66 (US: niedziela)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:407"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W3",
+    "wejscie": {
+      "Dziś [data]": "2026-10-19",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: dziś = pierwszy dzień",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:408"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W4",
+    "wejscie": {
+      "Dziś [data]": "2026-10-26",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-26…2026-11-01"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:409"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W5",
+    "wejscie": {
+      "Dziś [data]": "2026-10-25",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: ostatni dzień tygodnia, dzień 25-godzinny",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:410"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W6",
+    "wejscie": {
+      "Dziś [data]": "2026-11-01",
+      "Region [-]": "US"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-11-01…2026-11-07"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: niedziela ze zmianą czasu w USA (S-78)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:411"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W7",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "brak"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "jak region językowy aplikacji, a bez niego poniedziałek"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak regionu [DO USTALENIA] (OP-53)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:412"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W1",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-20 23:59"
+    },
+    "oczekiwane": {
+      "N [-]": 1
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: ten sam dzień kalendarza (D-093)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:424"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W2",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-21 00:00"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: północ po dniu założenia",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:425"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W3",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-21 20:59"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: przy okresach 24 h byłoby 1",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:426"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W4",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-24 22:00",
+      "Teraz [czas]": "2026-10-25 23:30"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: Europe/Warsaw, doba 25 h przy zmianie czasu (S-67), nadal 2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:427"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W5",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 08:00",
+      "Teraz [czas]": "2026-10-26 07:00"
+    },
+    "oczekiwane": {
+      "N [-]": 7
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 6 dni kalendarza + 1",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:428"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W6",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-20 20:00"
+    },
+    "oczekiwane": {
+      "N [-]": 1
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:429"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W1",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "wypiek: pieczenie 10:00; zakwas Żytni: karmienie 10:30",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "pieczenie 10:00 · karmienie Żytni 10:30",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek; przykład właściciela (ER-66)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:441"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W2",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "zakwas Żytni: karmienie 08:00, bez zapisu",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "Zaległe: karmienie Żytni 08:00",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: termin = teraz",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:442"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W3",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "zakwas Żytni: karmienie 08:01",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "karmienie Żytni 08:01",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: termin > teraz, jeszcze nie zaległe",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:443"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W4",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "wypiek: krok 09:00; zakwasy A 10:00, B 11:00, C 12:00",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "krok 09:00 · karmienie A 10:00 · karmienie B 11:00",
+      "N [-]": 1
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 4 źródła > L",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:444"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W5",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-23 09:00",
+      "Zdarzenia [źródło, termin, stan]": "zakwas A: karmienie 2026-10-22 08:00, bez zapisu; zakwas B: 2026-10-23 07:00, bez zapisu; wypiek: krok 10:00; zakwas C: 11:00; zakwas D: 12:00",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "Zaległe A 22.10 08:00 · Zaległe B 07:00 · krok 10:00",
+      "N [-]": 2
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: 2 zaległe, miejsce na 1 przyszłe",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:445"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W6",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "wypiek: kroki 10:00, 11:00, 12:00; zakwas: karmienie 13:00",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "krok 10:00 · karmienie 13:00",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: po jednym ze źródła",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:446"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W7",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 07:30",
+      "Zdarzenia [źródło, termin, stan]": "zakwas na blacie: karmienie 07:00 pominięte o 07:30",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "karmienie 19:30",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (D-094)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:447"
+  },
+  {
+    "regula": "RD-32",
+    "id": "RD-32-W8",
+    "wejscie": {
+      "Teraz [czas]": "2026-10-22 08:00",
+      "Zdarzenia [źródło, termin, stan]": "zakwas A: termin nieczytelny; zakwas B: karmienie 09:00",
+      "L [-]": 3
+    },
+    "oczekiwane": {
+      "linia [pozycje]": "karmienie B 09:00",
+      "N [-]": 0
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:448"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W1",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "D-052: 08:00 − 12 h",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:460"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W2",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": 8
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak (gotowy)"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "D-052, ZAK-LOD-002: ≤ 8 h",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:461"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W3",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": 7.98
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak (gotowy)"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: 7 h 59 min",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:462"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W4",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": "brak do 8,02"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "2026-10-24 08:00 i propozycja przesunięcia"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "D-052: 20:00 + 12 h; BR-ZAKW-006",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:463"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W5",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-25 08:00",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-24 21:00",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: Europe/Warsaw, 08:00 CET = 07:00 UTC − 12 h = 2026-10-24 19:00 UTC = 21:00 CEST (S-67)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:464"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W6",
+    "wejscie": {
+      "Mieszanie [czas]": "brak",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "brak karmienia w planie",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: plan bez godziny mieszania nie ma karmienia budzącego",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:465"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W1",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "11:00"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:477"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W2",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:45"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:478"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W3",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:30"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "tak; propozycja: start B 09:45"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:479"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W4",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:44"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "tak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:480"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W5",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "07:00 (pieczenie B do 08:15)"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: okno B kończy się, gdy zaczyna się okno A",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:481"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W6",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "brak kroku nagrzewania"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "kolizji nie liczy się; plan B prosi o krok nagrzewania"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:482"
   }
 ]

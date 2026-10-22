@@ -388,3 +388,32 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dlaczego:** żadna wartość sprzed zmiany nie miała źródła (DRO-PRE-900), a „Verace” z 46 h w lodówce przeczyło GTS (DRO-PIZ-001).
 - **Skutek dla danych:** zapisane receptury użytkownika mają własne liczby i się nie zmieniają; lista i „Piecz ponownie” biorą receptury bazowe z kodu (wiersze bazowe w bazie są pomijane), więc nowe wartości widzi każdy po aktualizacji; wpis Dziennika ze starą nazwą pizzy otwiera tę samą recepturę bazową z nowymi liczbami.
 - **Zależy od:** D-100, RD-19, DEC-26 a; wraca do sprawdzenia, gdy wyższe źródło poda inne ilości.
+
+### [D-090] 2026-10-22 — Dzień i tydzień kalendarza liczone lokalnie, pierwszy dzień tygodnia z ustawień i regionu (rola 01 build, badanie kalendarza)
+- **Rodzaj:** merytoryczna. **Źródła:** S-66 (CLDR 48 `weekData.firstDay`: PL poniedziałek, US niedziela; szczebel 1), S-79 (`expo-localization` `firstWeekday`, 1 = niedziela, może być puste; szczebel 1), S-67 i S-78 (tz database: zmiany czasu; szczebel 1).
+- **Decyzja:** zdarzenie należy do daty lokalnej w bieżącej strefie urządzenia (RD-29); tydzień paska zaczyna się w pierwszy dzień tygodnia z ustawień telefonu, a bez niego z regionu według CLDR (RD-30); tygodnie i dni przesuwa się o dni kalendarza, nie o wielokrotność 24 h; numer dnia zakładania zakwasu na pasku z tej samej funkcji co karta (RD-31).
+- **Odrzucone:** tydzień zawsze od poniedziałku jak w Treningu (dla regionu US sprzeczne z S-66); `Intl.Locale.getWeekInfo` (brak na liście API Hermes, OP-53); dodawanie 7 × 24 h (zły dzień przy zmianie czasu, RD-30-W4).
+- **Dlaczego:** rynek globalny w 35 językach; pasek, karta zakwasu i powiadomienie muszą pokazywać ten sam dzień (RYZ-22, RYZ-23).
+- **Zależy od:** OP-53 (zachowanie `firstWeekday` na urządzeniu); zakres funkcji: H-15 (rola 03).
+- **Zmieniona przez D-093 (2026-10-22):** numer dnia zakładania liczony dniami kalendarza (dzień 1 = dzień założenia), nie okresami 24 h; RD-31 zaktualizowane (ER-67).
+
+### [D-091] 2026-10-22 — Pytanie przy starcie drugiego wypieku: nazwa trwającego i „Przerwij” bez wpisu w dzienniku (rola 01, ER-65; M3 a1b)
+- **Rodzaj:** produktowa. **Słowa M1 (właściciel zatwierdza według rekomendacji):** „ER-65 rozstrzygnięte według rekomendacji, zgodnie z Twoją opcją (a): „Przerwij” jak w M3, bez wpisu w Dzienniku, i nazwa trwającego wypieku w pytaniu” (2026-10-22).
+- **Decyzja:** start nowego wypieku, gdy inny trwa, pokazuje pytanie z nazwą trwającego wypieku i wyborami „Wróć do trwającego”, „Przerwij tamten i zacznij nowy”, „Anuluj”; przerwanie idzie tą samą ścieżką co „Przerwij” na Stolnicy, bez wpisu w dzienniku (BR-ETAP-006). Wdrożenie: c927a6d na `redesign/piekarz-2026-10-22` (M3), nazwa w pytaniu dorabiana przez M3.
+- **Odrzucone:** (b) wdrożenie bez nazwy wypieku w pytaniu; (c) zapis przerwanego wypieku w dzienniku (drugie znaczenie „Przerwij” w aplikacji).
+- **Dlaczego:** jedno znaczenie „Przerwij” w całej aplikacji; nazwa rozróżnia receptury przy dwóch wypiekach (J-14, S-94).
+- **Zależy od:** RYZ-26, BR-ETAP-006; zakres wydania c927a6d: M1.
+
+### [D-094] 2026-10-22 — Linia „Następne”: 3 pozycje przyszłe, „Pomiń” od chwili pominięcia, poza kopią; dwa wypieki jako jedna spirala z dwoma torami (rola 01, OP-59, OP-60)
+- **Rodzaj:** produktowa. **Słowa właściciela (przez M1, 2026-10-22):** „Limit „Następne”: ile przyszłych zdarzeń w zdaniu; zaległe zawsze ponad limit, reszta pod „+N - zgodnie z rekomendacja. „Pomiń” przy karmieniu: następny termin liczony od chwili pominięcia (a) czy od ostatniego dokarmienia - zgodnie z reko.” oraz wybór „dwa wypieki naraz jako jedna spirala z dwoma torami” (relacja M1).
+- **Decyzja:** (1) linia „Następne” pokazuje najwyżej 3 pozycje przyszłe, pozycje „Zaległe” zawsze ponad limit, reszta pod „+N” (RD-32); (2) po „Pomiń” przy karmieniu następny termin liczy się od chwili pominięcia według RD-25; (3) pominięcia nie wchodzą do kopii zapasowej, więc po imporcie przeterminowane karmienie wraca jako „Zaległe”; (4) dwa wypieki naraz na prowadzeniu i na „Dziś” jako jedna spirala z dwoma torami (BR-KAL-016).
+- **Odrzucone:** inny limit (2 albo bez limitu); następny termin od ostatniego dokarmienia (zaległość wracałaby od razu); pominięcia w kopii; dwie osobne spirale.
+- **Dlaczego:** nic nie znika po cichu (ER-66), a linia zostaje jednym zdaniem; pominięcie jest decyzją chwili, nie danymi do przeniesienia.
+- **Zależy od:** D-092 (zakres 1.0), ER-66, ER-68.
+
+### [D-096] 2026-10-22 — F-71 (ratunek ciasta) w MVP 1.0: BR-DIAG-003…005, ZM-23, powrót z ZM-19 spełniony (rola 01)
+- **Rodzaj:** produktowa (zakres, wykonanie D-092). **Słowa właściciela (przez M1, 2026-10-22):** „Dodajemy do 1.0 F71 plus full kalendarz i poprawki.”; BEZ-SUR-001 zaakceptowane przez właściciela (relacja M1).
+- **Decyzja:** F-71 wraca z PÓŹNIEJ do MVP (ZM-23 w `docs/scope-contract.md`); wymagania BR-DIAG-003 (cztery protokoły, treść tylko ze źródłem, bez receptury awaryjnej, powrót do prowadzenia), BR-DIAG-004 (bezpieczeństwo: RD-22, RD-23), BR-DIAG-005 (rady zależne od etapu i rodzaju ciasta, RD-35, RD-36); dostęp jak F-43 (D-038). Włączenie wejścia `protokoly-ratunkowe`, zdanie w opisie sklepu i usunięcie martwego `handlePivotToRecipe`: tor T i rola 08.
+- **Odrzucone:** zostawić F-71 PÓŹNIEJ (ZM-19) — warunek powrotu (źródła roli 06 i BR roli 01) spełniony, a właściciel włączył F-71 do 1.0.
+- **Dlaczego:** treść ma źródła (D-095), wejście z prowadzenia już jest; dowód popytu słaby (ZAL-060), więc sprawdzenie po wydaniu (H-21).
+- **Zależy od:** D-092, D-095, ZM-19, ZAL-060.
