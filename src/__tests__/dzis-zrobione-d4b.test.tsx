@@ -38,6 +38,16 @@ import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { setLang } from '../lib/i18n';
 
 const H = 3_600_000;
+// Zegar ustawiony na 12:00 (tylko Date; timery i mikrozadania prawdziwe), żeby wynik nie zależał od godziny przebiegu:
+// zaległe karmienie sprzed 13 h między 0:00 a 1:00 wypada „z wczoraj” i etykieta ma wtedy datę [M3; wzorzec jak w zakwas-104-ekrany.test.tsx]
+const ustawZegar = (godz: number, min: number) => {
+  const now = new Date(2026, 9, 21, godz, min, 0, 0).getTime();
+  jest.useFakeTimers({
+    now,
+    doNotFake: ['nextTick', 'setImmediate', 'clearImmediate', 'queueMicrotask', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'hrtime', 'performance'],
+  });
+  return now;
+};
 const flush = async () => {
   await act(async () => {
     for (let i = 0; i < 60; i++) await Promise.resolve();
@@ -58,10 +68,15 @@ describe('D4b: „Zrobione” przy zaległym karmieniu (SQLite)', () => {
     useTempDbDir();
   });
   beforeEach(async () => {
+    ustawZegar(12, 0);
     zUprawnieniem();
     setLang('pl');
     await initDatabase();
     for (const s of await getStarters()) await deleteStarter(s.id);
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it('BR-KAL-003 Zrobione: zapis dokarmienia z godziną teraz, „Zaległe” znika, „Przywróć” cofa wpis; BR-KAL-007 bez zmiany user_version', async () => {
