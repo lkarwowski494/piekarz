@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — nawigacja kalendarza na pasie „Dziś” (BR-KAL-008, BR-KAL-013; makiety roli 04 a2 `101-przewijanie`
-// i `12-miesiac`; D-114) [M3 D7]. Przełącznik „Tydzień”/„Miesiąc”, wiersz „‹ okres Dziś ›” (strzałki 44 × 44 pt,
-// „Dziś” tylko poza bieżącym okresem), a pod nimi obszar gestu: przesunięcie palcem w bok zmienia okres
+// i `12-miesiac`; D-114) [M3 D7]. Wiersz „‹ okres Dziś › [Miesiąc]” (strzałki 44 × 44 pt, „Dziś” tylko poza
+// bieżącym okresem; przycisk „Miesiąc”/„Tydzień” w wierszu zamiast segmentu, PRZ-18 b), a pod nim obszar gestu: przesunięcie palcem w bok zmienia okres
 // (kierunekGestu). Gest nie przejmuje dotyku (onTouchStart/End), więc dni paska zostają przyciskami.
 // Kolory tylko z tokenów pasa (naPasie, naPasie2, pas).
 // ============================================================================
@@ -25,23 +25,11 @@ const TRYBY: readonly { tryb: TrybWidoku; tekst: () => string }[] = [
 export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidoku; children: React.ReactNode }) {
   const start = useRef<{ x: number; y: number } | null>(null);
   const tydzien = widok.tryb === 'tydzien';
+  // PRZ-18 (b, D-118): jeden przycisk w wierszu okresu przełącza na drugi widok; „Pro” tylko przy wejściu w Miesiąc bez Pro
+  const inny = TRYBY[tydzien ? 1 : 0]!;
+  const pro = tydzien && widok.miesiacPro === true;
   return (
     <View style={styles.calosc}>
-      <View style={styles.segment} accessibilityRole="tablist">
-        {TRYBY.map((x) => {
-          const wybrany = widok.tryb === x.tryb;
-          // Miesiąc bez Pro: słowo „Pro” obok nazwy i w etykiecie VoiceOver (P2-4) [M3 P-b]
-          const pro = x.tryb === 'miesiac' && widok.miesiacPro === true;
-          return (
-            <Pressable key={x.tryb} testID={`kalendarz-tryb-${x.tryb}`} accessibilityRole="button" accessibilityState={{ selected: wybrany }}
-              accessibilityLabel={etykietaPro(x.tekst(), !pro)}
-              style={[styles.segmentPole, wybrany && styles.segmentWybrany]} onPress={() => widok.ustawTryb(x.tryb)}>
-              <Text style={[styles.segmentTekst, wybrany && styles.segmentTekstWybrany]}>{x.tekst()}</Text>
-              {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
-            </Pressable>
-          );
-        })}
-      </View>
       <View style={styles.wiersz}>
         <Pressable testID="kalendarz-poprzedni" accessibilityRole="button" accessibilityLabel={tydzien ? t('Poprzedni tydzień') : t('Poprzedni miesiąc')}
           style={styles.strzalka} onPress={() => widok.przesun(-1)}>
@@ -56,6 +44,11 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
         <Pressable testID="kalendarz-nastepny" accessibilityRole="button" accessibilityLabel={tydzien ? t('Następny tydzień') : t('Następny miesiąc')}
           style={styles.strzalka} onPress={() => widok.przesun(1)}>
           <IkonaStartu nazwa="dalej" kolor={theme.colors.naPasie} rozmiar={22} />
+        </Pressable>
+        <Pressable testID={`kalendarz-tryb-${inny.tryb}`} accessibilityRole="button" accessibilityLabel={etykietaPro(inny.tekst(), !pro)}
+          style={styles.dzis} onPress={() => widok.ustawTryb(inny.tryb)}>
+          <Text style={styles.dzisTekst}>{inny.tekst()}</Text>
+          {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
         </Pressable>
       </View>
       <View
@@ -77,14 +70,9 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
 
 const styles = StyleSheet.create({
   calosc: { gap: odstepy.xs },
-  segment: { flexDirection: 'row', borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2, overflow: 'hidden' },
-  segmentPole: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.s },
-  segmentWybrany: { backgroundColor: theme.colors.naPasie },
-  segmentTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie, textAlign: 'center' },
-  segmentTekstWybrany: { color: theme.colors.pas, fontWeight: '600' },
   wiersz: { flexDirection: 'row', alignItems: 'center', gap: odstepy.xs },
   strzalka: { minWidth: theme.cele.pozostale, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center' },
   tytul: { flex: 1, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naPasie, textAlign: 'center' },
-  dzis: { minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2 },
+  dzis: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2 },
   dzisTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie },
 });

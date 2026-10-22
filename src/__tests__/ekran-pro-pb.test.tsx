@@ -298,7 +298,7 @@ describe('oznaczenie „Pro” zamiast kłódki (P2-4; BR-ZAK-005 Funkcja Pro, B
     const miesiac = jeden(root, 'kalendarz-tryb-miesiac');
     expect(maOznaczenie(miesiac)).toBe(true);
     expect(miesiac.props.accessibilityLabel).toBe(t('{funkcja}, Pro', { funkcja: t('Miesiąc') }));
-    expect(maOznaczenie(jeden(root, 'kalendarz-tryb-tydzien'))).toBe(false);
+    expect(root.findAll((n) => n.props.testID === 'kalendarz-tryb-tydzien')).toHaveLength(0);
     await nacisnij(root, `pasek-dzien-${localDateKey(Date.now() + 24 * H)}`);
     const skrot = jeden(root, 'arkusz-zaplanuj-btn');
     expect(maOznaczenie(skrot)).toBe(true);

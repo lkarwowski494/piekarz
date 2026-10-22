@@ -169,13 +169,15 @@ describe('D7: widok miesiąca na „Dziś”', () => {
     const wpisy = await piecWpisow();
     const root = await renderStart();
     const [miesiac] = przycisk(root, 'kalendarz-tryb-miesiac');
-    expect(miesiac?.props.accessibilityState?.selected).toBe(false);
+    // PRZ-18 (b): jeden przycisk w wierszu okresu zamiast segmentu Tydzień/Miesiąc; w tygodniu „Miesiąc”, w miesiącu „Tydzień”
+    expect(przycisk(root, 'kalendarz-tryb-tydzien')).toHaveLength(0);
+    expect(root.findAll((n) => n.props.accessibilityRole === 'tablist')).toHaveLength(0);
+    expect(miesiac?.findAllByType(Text).map((x) => x.props.children).join('')).toBe('Miesiąc');
     await nacisnij(miesiac);
-    expect(przycisk(root, 'kalendarz-tryb-miesiac')[0].props.accessibilityState?.selected).toBe(true);
+    expect(przycisk(root, 'kalendarz-tryb-miesiac')).toHaveLength(0);
+    expect(przycisk(root, 'kalendarz-tryb-tydzien')[0].findAllByType(Text).map((x) => x.props.children).join('')).toBe('Tydzień');
     expect(przycisk(root, 'kalendarz-poprzedni')[0].props.accessibilityLabel).toBe('Poprzedni miesiąc');
     expect(przycisk(root, 'kalendarz-nastepny')[0].props.accessibilityLabel).toBe('Następny miesiąc');
-    // Przełącznik słowami z listy roli 04 (1.2+): „Tydzień” / „Miesiąc”
-    expect(['kalendarz-tryb-tydzien', 'kalendarz-tryb-miesiac'].map((id) => przycisk(root, id)[0].findAllByType(Text).map((x) => x.props.children).join(''))).toEqual(['Tydzień', 'Miesiąc']);
     await nacisnij(przycisk(root, 'kalendarz-poprzedni')[0]);
     const zWpisem = zPrefiksem(root, 'miesiac-dzien-').filter((d) => /Chleb \d/.test(String(d.props.accessibilityLabel)));
     expect(zWpisem.map((d) => d.props.testID)).toEqual(wpisy.map((w) => `miesiac-dzien-${w.klucz}`));
