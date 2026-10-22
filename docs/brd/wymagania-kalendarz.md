@@ -2,7 +2,7 @@
 
 Stan: E3, przyrost jednej funkcji (rola 01 build, badanie 2026-10-22) · Gałąź: `badanie/piekarz-kalendarz-2026-10-22`. Zlecenie właściciela (2026-10-22, dosłownie): „Mozemy zlecic jakies paralle badanie jak ta funkcja powinna wygladac zeby przyniesc jak najwiecej wartosci dodanej dla uzytkownika tak jak robimy przy nowych aoplikacjach? Ale tylko badanie tej funkcji. To tez pozwoli zaktualizowac BRD.”
 
-Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md` (J-13, OG-08…OG-12, H-15…H-19, RYZ-22…RYZ-25), źródła w `zrodla.md` (S-65…S-82); raport badania poza repo: `audit/01-kalendarz-2026-10-22/`. Wersja wydania przy wymaganiach to hipoteza H-15, nie zakres: zakres rozstrzyga rola 03 z właścicielem. Ekrany projektuje rola 04 (makiety M3 Redesigner).
+Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md` (J-13, OG-08…OG-12, H-15…H-19, RYZ-22…RYZ-25), źródła w `zrodla.md` (S-65…S-82); raport badania poza repo: `audit/01-kalendarz-2026-10-22/`. Wersje przy wymaganiach były hipotezami H-15…H-20; zakres rozstrzygnęła decyzja D-092 (właściciel przez M1, 2026-10-22, zapis na `redesign/piekarz-2026-10-22`): BR-KAL-001…016 i BR-ETAP-006 w 1.0. Ekrany projektuje rola 04 (makiety M3 Redesigner).
 
 ## Przepływy
 
@@ -92,7 +92,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Gdy użytkownik otwiera „Dziś”
     - Wtedy linia pokazuje krok o 10:00 i karmienie o 13:00, a dalsze kroki wypieku są w arkuszu dnia (RD-32-W6)
   - Scenariusz: Więcej źródeł niż miejsc
-    - Zakładając, że przyszłe zdarzenia ma trwający wypiek i trzy zakwasy, a limit linii to 3 pozycje [DO WYJAŚNIENIA] (OP-59)
+    - Zakładając, że przyszłe zdarzenia ma trwający wypiek i trzy zakwasy, a limit linii to 3 pozycje przyszłe (D-094)
     - Gdy użytkownik otwiera „Dziś”
     - Wtedy linia pokazuje trzy najbliższe i dopisek „+1”, który otwiera arkusz najbliższych zdarzeń ze wszystkimi (RD-32-W4)
   - Scenariusz: Termin minął bez potwierdzenia
@@ -110,7 +110,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
   - Scenariusz: Pomiń karmienie
     - Zakładając, że widać zaległe karmienie z 07:00 zakwasu na blacie
     - Gdy użytkownik o 07:30 wybiera „Pomiń”
-    - Wtedy pozycja „Zaległe” znika, a linia pokazuje następne karmienie o 19:30 (RD-32-W7; liczenie od chwili pominięcia [DO WYJAŚNIENIA] (OP-60))
+    - Wtedy pozycja „Zaległe” znika, a linia pokazuje następne karmienie o 19:30 (RD-32-W7; liczenie od chwili pominięcia, D-094)
   - Scenariusz: Pomiń krok wypieku
     - Zakładając, że widać zaległy krok wypieku
     - Gdy użytkownik wybiera „Pomiń”
@@ -199,7 +199,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
   - Scenariusz: Decyzja w kopii zapasowej
     - Zakładając, że użytkownik pominął zaległe karmienie
     - Gdy eksportuje dane i importuje je na nowym telefonie
-    - Wtedy pominięcie nie wraca jako „Zaległe” [DO WYJAŚNIENIA] (OP-60)
+    - Wtedy pominięcie nie przechodzi do kopii (D-094), więc karmienie, którego termin nadal minął, wraca na nowym telefonie jako „Zaległe” z „Zrobione” i „Pomiń”
 
 ### BR-KAL-015: Zaplanuj wypiek na ten dzień
 - Przepływ: PR-19, PR-02
@@ -278,6 +278,10 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Zakładając, że trwają dwa wypieki
     - Gdy użytkownik kończy pierwszy i zapisuje ocenę
     - Wtedy drugi trwa dalej na tym samym kroku z tym samym zegarem
+  - Scenariusz: Jedna spirala z dwoma torami
+    - Zakładając, że trwają dwa wypieki
+    - Gdy użytkownik otwiera prowadzenie albo „Dziś”
+    - Wtedy widzi jedną spiralę z dwoma torami, każdy tor z nazwą swojego wypieku i bieżącym krokiem, a czytnik ekranu czyta oba tory osobno (D-094)
 
 ### BR-KAL-010: Stały dzień karmienia zakwasu w lodówce
 - Przepływ: PR-22 · Reguła: RD-25
@@ -404,7 +408,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 - Wzór: źródło = trwający wypiek albo zakwas; Z = zdarzenia z terminem ≤ teraz, bez potwierdzenia i bez pominięcia (wszystkie, od najstarszego; źródło z zaległym nie dokłada przyszłego); P = po jednym najbliższym zdarzeniu z terminem > teraz z każdego pozostałego źródła, według czasu; linia = Z, potem pierwsze max(0, L − liczba(Z)) pozycji z P; „+N”, gdy N = liczba(P) − liczba pokazanych z P > 0
 - Jednostki: czas [RRRR-MM-DD gg:mm], L [-], N [-]
 - Granica: termin = teraz (włączna: zdarzenie jest już „Zaległe”)
-- Podstawa: rachunek; wymóg właściciela 2026-10-22 (ER-66); L = 3 to propozycja roli 01 [DO WYJAŚNIENIA] (OP-59); termin karmienia z RD-25
+- Podstawa: rachunek; wymóg właściciela 2026-10-22 (ER-66); L = 3 i liczenie od chwili pominięcia: D-094; termin karmienia z RD-25
 - Krytyczna: nie
 - Uproszczenie: pozycje „Zaległe” nie podlegają limitowi L, żeby nic nie znikało po cichu; przy wielu zaległych linia się wydłuża (BR-KAL-003, wąski ekran).
 
@@ -416,5 +420,5 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 | RD-32-W4 | 2026-10-22 08:00 | wypiek: krok 09:00; zakwasy A 10:00, B 11:00, C 12:00 | 3 | krok 09:00 · karmienie A 10:00 · karmienie B 11:00 | 1 | — | powyżej | rachunek: 4 źródła > L |
 | RD-32-W5 | 2026-10-23 09:00 | zakwas A: karmienie 2026-10-22 08:00, bez zapisu; zakwas B: 2026-10-23 07:00, bez zapisu; wypiek: krok 10:00; zakwas C: 11:00; zakwas D: 12:00 | 3 | Zaległe A 22.10 08:00 · Zaległe B 07:00 · krok 10:00 | 2 | — | powyżej | rachunek: 2 zaległe, miejsce na 1 przyszłe |
 | RD-32-W6 | 2026-10-22 08:00 | wypiek: kroki 10:00, 11:00, 12:00; zakwas: karmienie 13:00 | 3 | krok 10:00 · karmienie 13:00 | 0 | — | typowy | rachunek: po jednym ze źródła |
-| RD-32-W7 | 2026-10-22 07:30 | zakwas na blacie: karmienie 07:00 pominięte o 07:30 | 3 | karmienie 19:30 | 0 | — | typowy | rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (OP-60) |
+| RD-32-W7 | 2026-10-22 07:30 | zakwas na blacie: karmienie 07:00 pominięte o 07:30 | 3 | karmienie 19:30 | 0 | — | typowy | rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (D-094) |
 | RD-32-W8 | 2026-10-22 08:00 | zakwas A: termin nieczytelny; zakwas B: karmienie 09:00 | 3 | karmienie B 09:00 | 0 | — | błąd | rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6) |

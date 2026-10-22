@@ -380,3 +380,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) wdrożenie bez nazwy wypieku w pytaniu; (c) zapis przerwanego wypieku w dzienniku (drugie znaczenie „Przerwij” w aplikacji).
 - **Dlaczego:** jedno znaczenie „Przerwij” w całej aplikacji; nazwa rozróżnia receptury przy dwóch wypiekach (J-14, S-94).
 - **Zależy od:** RYZ-26, BR-ETAP-006; zakres wydania c927a6d: M1.
+
+### [D-094] 2026-10-22 — Linia „Następne”: 3 pozycje przyszłe, „Pomiń” od chwili pominięcia, poza kopią; dwa wypieki jako jedna spirala z dwoma torami (rola 01, OP-59, OP-60)
+- **Rodzaj:** produktowa. **Słowa właściciela (przez M1, 2026-10-22):** „Limit „Następne”: ile przyszłych zdarzeń w zdaniu; zaległe zawsze ponad limit, reszta pod „+N - zgodnie z rekomendacja. „Pomiń” przy karmieniu: następny termin liczony od chwili pominięcia (a) czy od ostatniego dokarmienia - zgodnie z reko.” oraz wybór „dwa wypieki naraz jako jedna spirala z dwoma torami” (relacja M1).
+- **Decyzja:** (1) linia „Następne” pokazuje najwyżej 3 pozycje przyszłe, pozycje „Zaległe” zawsze ponad limit, reszta pod „+N” (RD-32); (2) po „Pomiń” przy karmieniu następny termin liczy się od chwili pominięcia według RD-25; (3) pominięcia nie wchodzą do kopii zapasowej, więc po imporcie przeterminowane karmienie wraca jako „Zaległe”; (4) dwa wypieki naraz na prowadzeniu i na „Dziś” jako jedna spirala z dwoma torami (BR-KAL-016).
+- **Odrzucone:** inny limit (2 albo bez limitu); następny termin od ostatniego dokarmienia (zaległość wracałaby od razu); pominięcia w kopii; dwie osobne spirale.
+- **Dlaczego:** nic nie znika po cichu (ER-66), a linia zostaje jednym zdaniem; pominięcie jest decyzją chwili, nie danymi do przeniesienia.
+- **Zależy od:** D-092 (zakres 1.0), ER-66, ER-68.
