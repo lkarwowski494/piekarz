@@ -8,6 +8,7 @@
 import { SessionStep, isDutchOvenStep } from './bake-steps';
 import { DUTCH_OVEN_PHASES } from './baking-phases';
 import { planFeedingNotifications } from './notification-feeding';
+import type { KolejneKarmienieBudzace } from './karmienia-budzace';
 import {
   MAX_PENDING_NOTIFICATIONS,
   NOTIF_PREFIX,
@@ -26,7 +27,8 @@ export type NotificationTextKey =
   | 'krok.wypiekGotowy'
   | 'karmienie.blat'
   | 'karmienie.lodowkaTermin'
-  | 'karmienie.lodowkaDzien';
+  | 'karmienie.lodowkaDzien'
+  | 'karmienie.budzace';
 
 /** Ekran otwierany z powiadomienia: prowadzenie wypieku (bieżący krok, F-58) albo zakładka Zakwasy (D-051 2a). */
 export type TrasaPowiadomienia = '/stolnica' | '/zakwasy';
@@ -211,20 +213,33 @@ export function planPlannedStartNotifications(planned: readonly PlanPlannedBake[
 }
 
 /**
+ * Kolejne karmienie budzące zakwas z lodówki (RD-33, D-052): z tej samej reguły co kalendarz (kolejneKarmieniaBudzace),
+ * jedno na wypiek, z nazwą zakwasu i wypieku; termin, który minął, pomijamy [M3 D5].
+ */
+export function planWakeFeedingNotifications(lista: readonly KolejneKarmienieBudzace[], now: number): PlannedNotification[] {
+  return lista
+    .filter((k) => k.at > now)
+    .map((k) => ({
+      id: `${notifBakePrefix(k.wypiekId)}budzenie`, kind: 'karmienie' as const, triggerAt: k.at, level: 'active' as const, textKey: 'karmienie.budzace' as const,
+      params: { starterId: k.starterId, starterName: k.starterName, recipeName: k.recipeName }, route: '/zakwasy' as const,
+    }));
+}
+
+/**
  * Pełna lista powiadomień, które powinny czekać, najwyżej MAX_PENDING_NOTIFICATIONS [M1-audytor-generalny-102; M3 D2].
  * Przy nadmiarze zostają: najbliższe kroki trwających wypieków (obu), potem starty zaplanowanych, potem karmienia; w każdej
  * grupie wcześniejszy termin przed późniejszym. Reszta wraca przy uzgadnianiu po otwarciu aplikacji. Nazwa wypieku
  * w treści, gdy trwa więcej niż jeden (BR-KAL-016).
  */
 export function planNotifications(
-  input: { sessions: readonly PlanBakeSessionWithPlan[]; planned?: readonly PlanPlannedBake[]; starters: readonly PlanStarter[] },
+  input: { sessions: readonly PlanBakeSessionWithPlan[]; planned?: readonly PlanPlannedBake[]; starters: readonly PlanStarter[]; budzace?: readonly KolejneKarmienieBudzace[] },
   now: number
 ): PlannedNotification[] {
   const nameBake = input.sessions.length > 1;
   const grupy: PlannedNotification[][] = [
     input.sessions.flatMap((s) => planBakeStepNotifications(s, now, nameBake)),
     planPlannedStartNotifications(input.planned ?? [], now),
-    planFeedingNotifications(input.starters, now),
+    [...planWakeFeedingNotifications(input.budzace ?? [], now), ...planFeedingNotifications(input.starters, now)],
   ];
   return grupy
     .flatMap((lista, grupa) => lista.map((p) => ({ p, grupa })))

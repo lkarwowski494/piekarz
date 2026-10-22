@@ -18,8 +18,11 @@ export interface AkcjeZaleglego {
   onPomin: (z: ZdarzenieKalendarza) => void;
 }
 
-/** „Pomiń” ma sens, gdy jest następny krok albo termin karmienia; „gotowe” po ostatnim kroku kończy się na Stolnicy. */
-const moznaPominac = (z: ZdarzenieKalendarza) => z.rodzaj !== 'wypiek-gotowe';
+/**
+ * „Pomiń” ma sens, gdy jest następny krok albo termin karmienia; „gotowe” po ostatnim kroku kończy się na Stolnicy.
+ * Zaległy start planu: „Zrobione” otwiera plan (start albo usunięcie), bez „Pomiń” — plan nie ma kroku do pominięcia [M3 D5].
+ */
+const moznaPominac = (z: ZdarzenieKalendarza) => z.rodzaj !== 'wypiek-gotowe' && !z.zaplanowany;
 
 export function WierszZaleglego({ z, tekst, o, naPasie, akcje }: { z: ZdarzenieKalendarza; tekst: string; o: OpcjeTekstu; naPasie: boolean; akcje: AkcjeZaleglego }) {
   const napisy = napisyZaleglego();

@@ -13,11 +13,12 @@ import { getDb, memStore } from './sqlite-schema';
 import { assertWritable, writeOrThrow } from './storage-status';
 import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
 import { isObj, isNum, isStr } from './row-parsers';
-import { idSesji, isSessionStep, parseBakeSession, type BakeSession } from './bake-session-store';
+import { idSesji, isActiveBakeState, isSessionStep, parseBakeSession, type BakeSession } from './bake-session-store';
+import type { ActiveBakeState } from './sqlite-schema';
 
 export type StatusSesji = 'active' | 'planned';
 
-/** Wypiek zaplanowany na później (kroki planu z godzinami); szczegóły planu: D5. */
+/** Wypiek zaplanowany na później (kroki planu z godzinami). */
 export interface PlannedBake {
   version: 1;
   id: string;
@@ -25,6 +26,11 @@ export interface PlannedBake {
   recipeId?: string;
   plannedStartAt: number;
   steps: readonly SessionStep[];
+  /**
+   * Dane wypieku z planu (receptura z ilościami, zakwas, temperatura): start planu prowadzi je na Stolnicę jak
+   * „Zacznij wypiek” w planie. Pole opcjonalne w JSON-ie wiersza (bez zmiany schematu); id = id planu [M3 D5].
+   */
+  bake?: ActiveBakeState;
 }
 
 export type BladLimitu = { kind: 'limit'; status: StatusSesji; max: number };
@@ -66,8 +72,11 @@ export function parsePlannedBake(raw: string): PlannedBake | null {
     if (!isSessionStep(s)) return null;
     steps.push(s);
   }
+  // Dane wypieku planu: zepsute albo z innym id → cały plan nieczytelny (do pliku ratunkowego), nie zgadnięte [M3 D5]
+  if (v.bake !== undefined && !(isActiveBakeState(v.bake) && v.bake.id === v.id)) return null;
   const recipeId = isStr(v.recipeId) ? { recipeId: v.recipeId } : {};
-  return { version: 1, id: v.id, recipeName: v.recipeName, ...recipeId, plannedStartAt: v.plannedStartAt, steps };
+  const bake = v.bake !== undefined ? { bake: v.bake } : {};
+  return { version: 1, id: v.id, recipeName: v.recipeName, ...recipeId, plannedStartAt: v.plannedStartAt, steps, ...bake };
 }
 
 /** Wiersze jednego id albo jednego statusu. */
@@ -268,6 +277,39 @@ export async function zapiszPostepWypieku(s: BakeSession, wersja: number): Promi
 /** Zapis planu; szósty zaplanowany → błąd limitu (BR-KAL-009). */
 export function savePlannedBake(p: PlannedBake): Promise<ZapisSesji> {
   return zapisz(p.id, 'planned', JSON.stringify(p));
+}
+
+/**
+ * Start zaplanowanego wypieku (BR-KAL-009, D-108): wiersz planu (id = id wypieku) przechodzi w trwający jedną
+ * instrukcją UPDATE z limitem trwających — bez kasowania i ponownego wstawiania, więc nic nie ginie w połowie, a inne
+ * plany zostają. Limit: nic się nie zmienia; wiersza planu już nie ma (usunięty, zaczęty gdzie indziej): `brak` [M3 D5].
+ */
+export async function zacznijZaplanowany(s: BakeSession): Promise<ZapisWersji> {
+  assertWritable();
+  const id = idSesji(s);
+  const json = JSON.stringify(s);
+  const teraz = Date.now();
+  const db = await getDb();
+  let zmieniono: boolean;
+  if (!db) {
+    const plan = memStore.bakeSessions.find((w) => w.id === id && w.status === 'planned');
+    const wolne = memStore.bakeSessions.filter((w) => w.status === 'active' && w.id !== id).length < MAX.active;
+    zmieniono = plan !== undefined && wolne;
+    if (zmieniono) memStore.bakeSessions = memStore.bakeSessions.map((w) => (w === plan ? { ...w, status: 'active', session_json: json, updated_at: teraz } : w));
+  } else {
+    const r = await writeOrThrow(() =>
+      db.runAsync(
+        `UPDATE bake_sessions SET status = 'active', session_json = ?, updated_at = ? WHERE id = ? AND status = 'planned' AND ${POZA_LIMITEM};`,
+        json, teraz, id, 'active', id, MAX.active
+      )
+    );
+    zmieniono = r.changes > 0;
+  }
+  if (zmieniono) return { ok: true, wersja: teraz };
+  const jestPlan = db
+    ? (await db.getAllAsync<unknown>("SELECT id FROM bake_sessions WHERE id = ? AND status = 'planned';", id)).length > 0
+    : memStore.bakeSessions.some((w) => w.id === id && w.status === 'planned');
+  return { ok: false, error: jestPlan ? { kind: 'limit', status: 'active', max: MAX.active } : { kind: 'brak', id } };
 }
 
 /**

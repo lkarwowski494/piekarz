@@ -35,8 +35,10 @@ export async function wczytajDaneKalendarza(now: number): Promise<DaneKalendarza
       timerEndsAt: s.timerEndsAt,
       pausedLeftSec: s.pausedLeftSec,
       zaczetyZDostepem: zaczetyZDostepem(s.bake),
+      ...(s.bake?.starterId ? { starterId: s.bake.starterId } : {}),
     })),
-    zaplanowane: zaplanowane.map((p) => ({ id: p.id, recipeName: p.recipeName, steps: p.steps })),
+    // Zakwas planu: kolejne karmienie budzące z lodówki (RD-33) [M3 D5]
+    zaplanowane: zaplanowane.map((p) => ({ id: p.id, recipeName: p.recipeName, steps: p.steps, ...(p.bake?.starterId ? { starterId: p.bake.starterId } : {}) })),
     zakwasy: kopia.starters,
     wpisyZakwasow: kopia.starterEntries ?? [],
     dziennik: kopia.bakes,

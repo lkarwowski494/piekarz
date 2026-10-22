@@ -9,13 +9,14 @@ import React from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { arkuszDnia, najblizszeZdarzenia } from '../../core/kalendarz-nastepne';
+import { skrotZaplanuj } from '../../core/plany-wypiekow';
 import type { ZdarzenieKalendarza } from '../../core/kalendarz-zdarzenia';
 import { t } from '../../lib/i18n';
 import { formatTime } from '../../lib/format';
 import { dataSlownie } from '../../lib/kalendarz-pasek';
 import { opisZdarzenia, tekstyNastepne, type OpcjeTekstu } from '../../lib/kalendarz-teksty';
 import { theme } from '../../ui/theme';
-import { odstepy, typografia } from '../../ui/tokeny';
+import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { CloseButton } from '../CloseButton';
 import { WierszZaleglego, type AkcjeZaleglego } from './LiniaNastepne';
 
@@ -30,6 +31,10 @@ export interface ArkuszDniaProps {
   /** Przejście do źródła zdarzenia (Stolnica, karta zakwasu, Dziennik); arkusz zamyka ekran. */
   onPrzejdz: (z: ZdarzenieKalendarza) => void;
   onClose: () => void;
+  /** Liczba zaplanowanych wypieków: przy limicie (5) arkusz nie ma skrótu „Zaplanuj wypiek na ten dzień” [M3 D5]. */
+  liczbaPlanow?: number;
+  /** Skrót do planu na ten dzień (BR-KAL-015, D-108): północ dnia z arkusza. */
+  onZaplanuj?: (dzienMs: number) => void;
 }
 
 function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; onPrzejdz: (z: ZdarzenieKalendarza) => void }) {
@@ -42,7 +47,7 @@ function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; o
   );
 }
 
-export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose }: ArkuszDniaProps) {
+export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj }: ArkuszDniaProps) {
   const zalegleTeksty = (z: readonly ZdarzenieKalendarza[]) =>
     tekstyNastepne({ zalegle: [...z], przyszle: [], wiecej: 0, wszystkiePrzyszle: [] }, o).zalegle;
   const zalegle = (lista: readonly ZdarzenieKalendarza[]) => {
@@ -54,16 +59,28 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose }: Ar
   let tresc: React.ReactNode = null;
   if (tryb && 'dzien' in tryb) {
     const a = arkuszDnia(zdarzenia, tryb.dzien, o.now);
-    tytul = dataSlownie(tryb.ms);
-    tresc =
-      a.zalegle.length === 0 && a.zdarzenia.length === 0 ? (
-        <Text style={styles.pusto}>{t('Tego dnia nic nie zaplanowano.')}</Text>
-      ) : (
-        <>
-          {zalegle(a.zalegle)}
-          {a.zdarzenia.map((z) => <Wiersz key={z.id} z={z} o={o} onPrzejdz={onPrzejdz} />)}
-        </>
-      );
+    const { ms } = tryb;
+    tytul = dataSlownie(ms);
+    // Skrót „Zaplanuj wypiek na ten dzień” (BR-KAL-015): dzień w zasięgu planu, bez minionego i bez limitu planów;
+    // trwający wypiek go nie blokuje (D-092, D-108). Element spoza makiety a2 (na liście tekstów roli 04) [M3 D5]
+    const skrot = onZaplanuj && skrotZaplanuj(ms, o.now, liczbaPlanow) === 'pokaz' ? (
+      <Pressable testID="arkusz-zaplanuj-btn" accessibilityRole="button" accessibilityLabel={t('Zaplanuj wypiek na ten dzień')} style={styles.skrot} onPress={() => onZaplanuj(ms)}>
+        <Text style={styles.skrotTekst}>{t('Zaplanuj wypiek na ten dzień')}</Text>
+      </Pressable>
+    ) : null;
+    tresc = (
+      <>
+        {a.zalegle.length === 0 && a.zdarzenia.length === 0 ? (
+          <Text style={styles.pusto}>{t('Tego dnia nic nie zaplanowano.')}</Text>
+        ) : (
+          <>
+            {zalegle(a.zalegle)}
+            {a.zdarzenia.map((z) => <Wiersz key={z.id} z={z} o={o} onPrzejdz={onPrzejdz} />)}
+          </>
+        )}
+        {skrot}
+      </>
+    );
   } else if (tryb) {
     const n = najblizszeZdarzenia(zdarzenia, o.now);
     tytul = t('Najbliższe dni');
@@ -106,4 +123,6 @@ const styles = StyleSheet.create({
   wiersz: { flexDirection: 'row', flexWrap: 'wrap', columnGap: odstepy.m, minHeight: theme.cele.pozostale, alignItems: 'center', paddingVertical: odstepy.s, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.colors.linia },
   godzina: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz2, fontVariant: ['tabular-nums'] },
   opis: { flexShrink: 1, flexBasis: 160, flexGrow: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
+  skrot: { minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
+  skrotTekst: { fontSize: typografia.style.naglowek.pt, color: theme.colors.tusz, textAlign: 'center' },
 });

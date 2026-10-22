@@ -104,12 +104,15 @@ describe('128: plan wypieku po reaudycie pętli 2', () => {
     return { tree, rzadPola: rodzic(pole)!, minus: chip('-30 min'), plus: chip('+30 min'), jutro: chip('Jutro') };
   }
 
-  it('320 pt: ±30 min razem w rzędzie dni, rząd pola tylko z polem', () => {
+  // Zmiana M3 D5 (D-108): rząd dni ma 15 dni i przewija się w poziomie, więc ±30 min przy 320 pt stoją w osobnym rzędzie
+  // pod nim (w przewijanym rzędzie mogłyby zniknąć za krawędzią); nadal razem i poza rzędem pola
+  it('320 pt: ±30 min razem pod rzędem dni (poza przewijanym rzędem), rząd pola tylko z polem', () => {
     mockSzerokosc = 320;
     const { tree, rzadPola, minus, plus, jutro } = karta();
     expect(minus).toBeDefined();
     expect(rodzic(minus) === rodzic(plus)).toBe(true);
-    expect(rodzic(minus) === rodzic(jutro)).toBe(true);
+    expect(jutro).toBeDefined();
+    expect(rodzic(minus) === rodzic(jutro)).toBe(false);
     expect(rzadPola.findAll((n) => n === minus || n === plus)).toHaveLength(0);
     act(() => tree.unmount());
   });

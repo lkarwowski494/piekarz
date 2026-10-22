@@ -11,6 +11,7 @@ import { nextFixedFeeding, punktOdniesieniaKarmienia, stalyDzienKarmienia, termi
 import { pominietoKarmienieAt, type Pominiecie } from './pominiecia';
 import { addCalendarDays, localDateKey, startOfLocalDay } from './dzien-lokalny';
 import { setupDay } from './starter-log';
+import { kolejneKarmieniaBudzace } from './karmienia-budzace';
 
 export type RodzajZdarzenia = 'wypiek-krok' | 'wypiek-gotowe' | 'karmienie-zrobione' | 'karmienie-nastepne' | 'zakladanie' | 'wpis-dziennika';
 /** Stan zdarzenia: zrobione (przeszłość), trwa (bieżący krok, dzień zakładania dziś), zaplanowane (przyszłe albo zaległe). */
@@ -43,6 +44,8 @@ export interface ZdarzenieKalendarza {
   dzienZakladania?: number;
   /** Rodzaj terminu karmienia (blat, lodówka co 7 dni, stały dzień). */
   karmienie?: TekstKarmienia;
+  /** Kolejne karmienie budzące z dopiskiem „jeśli zakwas nie podwoił objętości” (RD-33, D-052) [M3 D5]. */
+  warunkowe?: boolean;
 }
 
 type KrokPlanu = Pick<SessionStep, 'id' | 'name' | 'plannedStart' | 'plannedEnd'>;
@@ -57,6 +60,8 @@ export interface KalendarzWypiek {
   pausedLeftSec: number | null;
   /** Wypiek zaczęty z dostępem prowadzi się do końca (D-039 pkt 3, zaczetyZDostepem). */
   zaczetyZDostepem: boolean;
+  /** Zakwas planu (karmienie budzące z lodówki, RD-33) [M3 D5]. */
+  starterId?: string;
 }
 
 /** Wypiek zaplanowany (wiersz `planned`). */
@@ -64,6 +69,8 @@ export interface KalendarzPlan {
   id: string;
   recipeName: string;
   steps: readonly KrokPlanu[];
+  /** Zakwas planu (karmienie budzące z lodówki, RD-33) [M3 D5]. */
+  starterId?: string;
 }
 
 export interface KalendarzWpisZakwasu {
@@ -71,6 +78,8 @@ export interface KalendarzWpisZakwasu {
   starterId: string;
   kind: 'feeding' | 'observation';
   occurredAt: number;
+  /** Znaki obserwacji („doubled” = podwojenie po karmieniu budzącym, RD-33) [M3 D5]. */
+  signs?: readonly string[];
 }
 
 export interface KalendarzWpisDziennika {
@@ -156,14 +165,18 @@ function zdarzeniaWypieku(w: KalendarzWypiek, now: number, przyszleWypieki: bool
   return przyszleWypieki || w.zaczetyZDostepem ? out : out.filter((z) => z.stan !== 'zaplanowane');
 }
 
-/** Wypiek zaplanowany: kroki planu i „gotowe”; to przyszłość, więc bez dostępu go nie ma (BR-KAL-006). */
-function zdarzeniaPlanu(p: KalendarzPlan): ZdarzenieKalendarza[] {
+/**
+ * Wypiek zaplanowany: kroki planu i „gotowe”; to przyszłość, więc bez dostępu go nie ma (BR-KAL-006). Start po
+ * terminie (krok 1 ≤ teraz) jest zaległy, aż użytkownik zacznie albo usunie plan; dalsze kroki przesunie start [M3 D5].
+ */
+function zdarzeniaPlanu(p: KalendarzPlan, now: number): ZdarzenieKalendarza[] {
   const zrodlo: ZrodloZdarzenia = { typ: 'wypiek', id: p.id };
   const n = p.steps.length;
   const out: ZdarzenieKalendarza[] = [];
   p.steps.forEach((k, j) => {
     if (czytelna(k.plannedStart)) {
-      out.push(zd({ id: `wypiek:${p.id}:krok:${j}`, rodzaj: 'wypiek-krok', at: k.plannedStart, zrodlo, nazwa: p.recipeName, stan: 'zaplanowane', krok: { idx: j, nazwa: k.name, z: n }, zaplanowany: true }));
+      const zalegle = j === 0 && k.plannedStart <= now;
+      out.push(zd({ id: `wypiek:${p.id}:krok:${j}`, rodzaj: 'wypiek-krok', at: k.plannedStart, zrodlo, nazwa: p.recipeName, stan: 'zaplanowane', zalegle, krok: { idx: j, nazwa: k.name, z: n }, zaplanowany: true }));
     }
   });
   const koniec = p.steps[n - 1]?.plannedEnd;
@@ -220,13 +233,23 @@ export function zdarzeniaKalendarza(dane: DaneKalendarza, now: number, zakres?: 
   const { dostep } = dane;
   const out: ZdarzenieKalendarza[] = [
     ...dane.wypieki.flatMap((w) => zdarzeniaWypieku(w, now, dostep.przyszleWypieki)),
-    ...(dostep.przyszleWypieki ? dane.zaplanowane.flatMap(zdarzeniaPlanu) : []),
+    ...(dostep.przyszleWypieki ? dane.zaplanowane.flatMap((p) => zdarzeniaPlanu(p, now)) : []),
   ];
   const zakwasy = new Map(dane.zakwasy.map((s) => [s.id, s]));
   for (const s of dane.zakwasy) {
     out.push(...dniZakladania(s, now, zakres));
     // Bez terminów karmienia, gdy przypomnienia są wyłączone albo nie ma dostępu (BR-KAL-006, jak plan powiadomień)
     if (dostep.terminyKarmienia) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
+  }
+  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5]
+  if (dostep.terminyKarmienia) {
+    const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
+    for (const k of kolejneKarmieniaBudzace(wypieki, dane.zakwasy, dane.wpisyZakwasow, now)) {
+      out.push(zd({
+        id: `zakwas:${k.starterId}:budzenie:${k.wypiekId}`, rodzaj: 'karmienie-nastepne', at: k.at, zrodlo: { typ: 'zakwas', id: k.starterId },
+        nazwa: k.starterName, stan: 'zaplanowane', zalegle: k.at <= now, warunkowe: true,
+      }));
+    }
   }
   for (const e of dane.wpisyZakwasow) {
     const s = zakwasy.get(e.starterId);

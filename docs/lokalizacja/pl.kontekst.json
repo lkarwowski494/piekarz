@@ -1372,7 +1372,7 @@
       "app/(tabs)/(dzis)/index.tsx (title)",
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -2106,6 +2106,11 @@
       "src/core/starter-log.ts (dane: day6_plus)"
     ]
   },
+  "Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.": {
+    "gdzie": [
+      "src/lib/notifications.ts (body)"
+    ]
+  },
   "Jogurt w połączeniu z kwasem zakwasu zapewnia wyjątkową miękkość i elastyczność ciasta.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: proTipPl)"
@@ -2114,7 +2119,7 @@
   "Jutro": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -2192,7 +2197,7 @@
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (recipeName)"
+      "src/hooks/useStartPlanu.ts (recipeName)"
     ]
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
@@ -2384,6 +2389,11 @@
   "Krok „{step}” dobiegł końca.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
+    ]
+  },
+  "Kroki nachodzą na siebie": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Kroki naprawcze na kolejny wypiek": {
@@ -2600,6 +2610,11 @@
   "Masa zakwasu w przepisie": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Masz już 5 planów": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Masło (roztopione)": {
@@ -4383,7 +4398,7 @@
   "Pojutrze": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -4395,6 +4410,11 @@
   "Pokaż jeszcze {n} w arkuszu dnia": {
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (etykietaPlus)"
+    ]
+  },
+  "Pokaż plany": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
     ]
   },
   "Pokaż wszystkie": {
@@ -5550,6 +5570,7 @@
   "Start {dzien} o {godzina}": {
     "gdzie": [
       "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
+      "src/components/start/PlanyWypiekow.tsx (kod)",
       "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
@@ -5885,6 +5906,11 @@
   "Tego dnia nic nie zaplanowano.": {
     "gdzie": [
       "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
+    ]
+  },
+  "Tego planu już nie ma.": {
+    "gdzie": [
+      "src/hooks/usePlanyDzis.ts (Alert.alert)"
     ]
   },
   "Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.": {
@@ -6265,6 +6291,11 @@
       "src/components/start/PasDzis.tsx (etykieta)"
     ]
   },
+  "Usunięto plan wypieku": {
+    "gdzie": [
+      "src/hooks/usePlanyDzis.ts (tekst)"
+    ]
+  },
   "Usunięto recepturę": {
     "gdzie": [
       "app/(tabs)/receptury/index.tsx (tekst)"
@@ -6308,6 +6339,12 @@
     "gdzie": [
       "src/components/FlourBlendModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Usuń plan": {
+    "gdzie": [
+      "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
     ]
   },
   "Usuń recepturę": {
@@ -7494,6 +7531,11 @@
       "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
+  "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Zacznij od nowa": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
@@ -7508,7 +7550,9 @@
   },
   "Zacznij wypiek": {
     "gdzie": [
-      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
+      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)",
+      "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
     ]
   },
   "Zaczyn": {
@@ -7840,6 +7884,27 @@
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
     ]
   },
+  "Zaplanowane wypieki": {
+    "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zaplanuj": {
+    "gdzie": [
+      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
+    ]
+  },
+  "Zaplanuj mimo to": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Zaplanuj wypiek na ten dzień": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (accessibilityLabel)",
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
+    ]
+  },
   "Zapomniana sól": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: titlePl)"
@@ -8137,6 +8202,12 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Zobacz plan": {
+    "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (accessibilityLabel)",
+      "src/components/start/PlanyWypiekow.tsx (tekst w JSX)"
+    ]
+  },
   "Zobacz plany": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
@@ -8370,6 +8441,11 @@
     ]
   },
   "karmienie zakwasu {zakwas}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości": {
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
@@ -8751,7 +8827,13 @@
   },
   "{kiedy} {h} {co}": {
     "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (kod)",
       "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}": {
+    "gdzie": [
+      "src/hooks/useStartPlanu.ts (kod)"
     ]
   },
   "{krok} wypada o {godzina} w nocy": {
@@ -8779,6 +8861,7 @@
   },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (kod)",
       "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },

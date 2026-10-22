@@ -100,6 +100,23 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     '{wypiek}: {krok}, trwa',
     '{wypiek}, krok: {krok}, do {godzina}',
     // KONIEC D4b
+    // M3 D5: plany na przyszłe dni (BR-KAL-009, BR-KAL-015, RD-33, D-108)
+    'karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości',
+    'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.',
+    'Zaplanuj',
+    'Masz już 5 planów',
+    'Zacznij albo usuń jeden z nich, żeby dodać kolejny.',
+    'Pokaż plany',
+    'Kroki nachodzą na siebie',
+    'Zaplanuj mimo to',
+    '{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}',
+    'Usunięto plan wypieku',
+    'Usuń plan',
+    'Tego planu już nie ma.',
+    'Zobacz plan',
+    'Zaplanowane wypieki',
+    'Zaplanuj wypiek na ten dzień',
+    // KONIEC D5
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

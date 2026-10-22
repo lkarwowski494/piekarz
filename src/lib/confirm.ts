@@ -100,6 +100,22 @@ export function confirmLimitWypiekow(trwajace: readonly WypiekWPytaniu[], onWroc
 }
 
 /**
+ * „Zaplanuj” przy limicie zaplanowanych (5, D-092, src/core/limity-wypiekow.ts): przejście do listy planów na „Dziś”
+ * albo [Anuluj]; nic nie zapisane (BR-KAL-009) [M3 D5].
+ */
+export function confirmLimitPlanow(onPokaz: () => void) {
+  Alert.alert(t('Masz już 5 planów'), t('Zacznij albo usuń jeden z nich, żeby dodać kolejny.'), [{ text: t('Pokaż plany'), onPress: onPokaz }, cancelButton()]);
+}
+
+/**
+ * Kolizja kroków czynnych nowego planu z innym planem albo trwającym wypiekiem (BR-KAL-009 „Kolizja planów”): każda
+ * kolizja z nazwą kroku i godziną; plan zapisuje się dopiero po „Zaplanuj mimo to” [M3 D5].
+ */
+export function confirmKolizjaPlanow(linie: readonly string[], onZapisz: () => void) {
+  Alert.alert(t('Kroki nachodzą na siebie'), linie.join('\n'), [cancelButton(), { text: t('Zaplanuj mimo to'), onPress: onZapisz }]);
+}
+
+/**
  * Potwierdzenie zresetowania profilu zakwasu.
  */
 export function confirmResetStarter(onConfirm: () => void) {

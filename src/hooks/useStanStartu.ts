@@ -8,7 +8,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useFocusEffect } from 'expo-router';
 import { restoreTimerState, type TimerState } from '../core/bake-session';
 import { idSesji, sesjeDoPokazania, type BakeSession } from '../data/bake-session-store';
-import { loadActiveBakeSessionsZWersja } from '../data/bake-sessions-store';
+import { loadActiveBakeSessionsZWersja, loadPlannedBakes, type PlannedBake } from '../data/bake-sessions-store';
+import { startPlanuAt } from '../core/plany-wypiekow';
 import { getActiveBake, getBakeLogs, getRecipes, getStarters } from '../data/sqlite-store';
 import { wykonajOdlozonaProsbeOOcene } from '../lib/prosba-o-ocene-odlozona';
 
@@ -24,11 +25,13 @@ export interface DaneStartu {
   wypieki: TrwajacyNaStarcie[];
   teraz: number;
   maDane: boolean;
+  /** Zaplanowane (niezaczęte) wypieki od najbliższego startu (BR-KAL-009) [M3 D5]. */
+  plany: PlannedBake[];
 }
 
 /** `odczyt`: licznik ponownego odczytu po zmianie z „Dziś” (np. „Pomiń” kroku z paska) [M3 D4b]. */
 export function useStanStartu(odczyt = 0): DaneStartu {
-  const [dane, ustaw] = useState<DaneStartu>({ gotowe: false, wypieki: [], teraz: Date.now(), maDane: false });
+  const [dane, ustaw] = useState<DaneStartu>({ gotowe: false, wypieki: [], teraz: Date.now(), maDane: false, plany: [] });
 
   // Wejście na „Dziś” (licznik wejść) i ponowny odczyt po zmianie z tego ekranu [M3 D4b]
   const [wejscie, ustawWejscie] = useState(0);
@@ -47,10 +50,11 @@ export function useStanStartu(odczyt = 0): DaneStartu {
       // Nieudany odczyt zapisu to brak sesji, nie zgadnięty krok (bake-session-store parsuje z unknown)
       const zapis = await loadActiveBakeSessionsZWersja().catch(() => []);
       const sesje = sesjeDoPokazania(getActiveBake(), zapis);
-      const [wpisy, zakwasy, receptury] = await Promise.all([
+      const [wpisy, zakwasy, receptury, plany] = await Promise.all([
         getBakeLogs().catch(() => []),
         getStarters().catch(() => []),
         getRecipes().catch(() => []),
+        loadPlannedBakes().catch(() => []),
       ]);
       const teraz = Date.now();
       if (!aktywny) return;
@@ -59,6 +63,7 @@ export function useStanStartu(odczyt = 0): DaneStartu {
         wypieki: sesje.map(({ sesja }) => ({ id: idSesji(sesja), sesja, zegar: restoreTimerState(sesja, teraz) })),
         teraz,
         maDane: wpisy.length > 0 || zakwasy.length > 0 || receptury.some((r) => !r.isBuiltIn),
+        plany: [...plany].sort((a, b) => startPlanuAt(a) - startPlanuAt(b)),
       });
     })();
     return () => {

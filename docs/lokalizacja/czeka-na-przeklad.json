@@ -430,6 +430,81 @@
       "klucz": "{wypiek}, krok: {krok}, do {godzina}",
       "powod": "etykieta VoiceOver segmentu przełącznika wypieków na Stolnicy z końcem bieżącego kroku (parametry {wypiek}, {krok}, {godzina}) [M3 D4b, BR-KAL-016]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości",
+      "powod": "kolejne karmienie budzące zakwas z lodówki w kalendarzu, z dopiskiem warunku (parametr {zakwas}) [M3 D5, BR-KAL-009, RD-33, D-052]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.",
+      "powod": "treść powiadomienia o kolejnym karmieniu budzącym (parametr {name}) [M3 D5, BR-KAL-009, RD-33]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj",
+      "powod": "przycisk w pasku planu wypieku obok „Zacznij wypiek”: zapis wypieku na później [M3 D5, BR-KAL-009, D-108]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Masz już 5 planów",
+      "powod": "tytuł pytania przy „Zaplanuj”, gdy jest już 5 zaplanowanych wypieków (limit D-092) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zacznij albo usuń jeden z nich, żeby dodać kolejny.",
+      "powod": "treść pytania przy limicie 5 planów [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż plany",
+      "powod": "przycisk w pytaniu o limit planów: lista zaplanowanych wypieków na „Dziś” [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Kroki nachodzą na siebie",
+      "powod": "tytuł pytania o kolizję kroków czynnych nowego planu z innym wypiekiem [M3 D5, BR-KAL-009 Kolizja planów]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj mimo to",
+      "powod": "przycisk zapisu planu mimo kolizji kroków [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}",
+      "powod": "wiersz kolizji: krok nowego planu, godzina, drugi wypiek i jego krok (parametry {krok}, {godzina}, {wypiek}, {krokInny}) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Usuń plan",
+      "powod": "przycisk w arkuszu planu: usunięcie bez pytania z paskiem „Przywróć” (D-051 1a) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Usunięto plan wypieku",
+      "powod": "pasek „Przywróć” po usunięciu planu na „Dziś” (D-051 1a) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tego planu już nie ma.",
+      "powod": "komunikat przy starcie planu, którego wiersz już usunięto [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zobacz plan",
+      "powod": "przycisk pod spiralą zaplanowanego wypieku na „Dziś” (makieta roli 04 a2-03 „sobota-zaplanowany”) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanowane wypieki",
+      "powod": "etykieta VoiceOver listy planów pod spiralą na „Dziś” [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj wypiek na ten dzień",
+      "powod": "skrót w arkuszu dnia do wyboru receptury i planu z tym dniem „gotowe” (lista roli 04 a2) [M3 D5, BR-KAL-015, D-108]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

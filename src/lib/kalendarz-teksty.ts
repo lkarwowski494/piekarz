@@ -32,7 +32,10 @@ function opisBezDopisku(z: ZdarzenieKalendarza, o: OpcjeTekstu): string {
     case 'wypiek-gotowe':
       return t('{wypiek}: gotowe', { wypiek: z.nazwa });
     case 'karmienie-nastepne':
-      return t('karmienie zakwasu {zakwas}', { zakwas: z.nazwa });
+      // Kolejne karmienie budzące z lodówki: z dopiskiem, bez „N z M” (RD-33, D-052) [M3 D5]
+      return z.warunkowe
+        ? t('karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości', { zakwas: z.nazwa })
+        : t('karmienie zakwasu {zakwas}', { zakwas: z.nazwa });
     case 'karmienie-zrobione':
       return t('Dokarmiony {zakwas}', { zakwas: z.nazwa });
     case 'zakladanie':

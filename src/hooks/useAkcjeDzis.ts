@@ -18,14 +18,16 @@ export interface CofnijDzis {
   ukryj: () => void;
 }
 
-export function useAkcjeDzis({ onZmiana, otworzWypiek }: { onZmiana: () => void; otworzWypiek: (id: string) => void }) {
+export function useAkcjeDzis({ onZmiana, otworzWypiek, otworzPlan }: { onZmiana: () => void; otworzWypiek: (id: string) => void; otworzPlan?: (id: string) => void }) {
   const [cofnij, ustawCofnij] = useState<{ tekst: string; wpisId: string } | null>(null);
   const ukryj = useCallback(() => ustawCofnij(null), []);
 
   const onZrobione = useCallback(
     (z: ZdarzenieKalendarza) => {
       if (z.zrodlo.typ === 'wypiek') {
-        otworzWypiek(z.zrodlo.id);
+        // Zaległy start planu: arkusz planu ze startem (D-104) albo usunięciem [M3 D5]
+        if (z.zaplanowany && otworzPlan) otworzPlan(z.zrodlo.id);
+        else otworzWypiek(z.zrodlo.id);
         return;
       }
       if (z.zrodlo.typ !== 'zakwas') return;
@@ -36,7 +38,7 @@ export function useAkcjeDzis({ onZmiana, otworzWypiek }: { onZmiana: () => void;
         onZmiana();
       })();
     },
-    [onZmiana, otworzWypiek]
+    [onZmiana, otworzWypiek, otworzPlan]
   );
 
   const onPomin = useCallback(

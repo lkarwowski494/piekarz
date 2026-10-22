@@ -19,6 +19,10 @@ import { useKalendarz } from '../../../src/hooks/useKalendarz';
 import { useAkcjeDzis } from '../../../src/hooks/useAkcjeDzis';
 import { WyborCzynnosci } from '../../../src/components/start/WyborCzynnosci';
 import { WypiekiNaSpirali } from '../../../src/components/start/WypiekiNaSpirali';
+import { PlanyWypiekow } from '../../../src/components/start/PlanyWypiekow';
+import { ArkuszPlanu } from '../../../src/components/start/ArkuszPlanu';
+import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
+import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
 import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/ArkuszDnia';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
@@ -40,7 +44,7 @@ export default function StartScreen() {
   const { width, fontScale } = useWindowDimensions();
   const gora = useSafeAreaInsets().top;
   const duzyTekst = fontScale >= DUZY_TEKST;
-  const { access, loading, setPaywallVisible } = useAppAccess();
+  const { access, loading, setPaywallVisible, requireActionAccess } = useAppAccess();
   const [odczyt, setOdczyt] = useState(0);
   const dane = useStanStartu(odczyt);
   // Ponowny odczyt po ustaleniu dostępu (koniec próby chowa terminy karmienia, BR-KAL-006)
@@ -73,7 +77,17 @@ export default function StartScreen() {
     setOdczyt((n) => n + 1);
   }, [kal]);
   const otworzWypiek = useCallback((id: string) => router.push({ pathname: '/stolnica', params: { wypiek: id } }), [router]);
-  const akcje = useAkcjeDzis({ onZmiana: odswiez, otworzWypiek });
+  // Zaplanowane wypieki: arkusz planu, start (D-104) i usunięcie (BR-KAL-009, D-108) [M3 D5]
+  const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess });
+  const akcje = useAkcjeDzis({ onZmiana: odswiez, otworzWypiek, otworzPlan: plany.otworz });
+  const planOtwarty = dane.plany.find((p) => p.id === plany.otwarty) ?? null;
+  // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]
+  const zaplanujNaDzien = (dzienMs: number) => {
+    setArkusz(null);
+    ustawDzienGotowe(dzienMs);
+    ustawRodzajReceptur('sourdough');
+    router.navigate('/receptury');
+  };
 
   // Wybór otwiera pierwszy ekran przepływu bez oferty (D-047); oferta przy pierwszej akcji liczącej lub zapisującej
   const wybierz = (c: CzynnoscStartu) => {
@@ -84,7 +98,8 @@ export default function StartScreen() {
   // Przejście z arkusza dnia do źródła: trwający wypiek → jego Stolnica, zakwas → karta zakwasu, wpis → Dziennik
   const przejdz = (z: ZdarzenieKalendarza) => {
     setArkusz(null);
-    if (z.zrodlo.typ === 'wypiek' && !z.zaplanowany) otworzWypiek(z.zrodlo.id);
+    if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) plany.otworz(z.zrodlo.id);
+    else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
     else if (z.zrodlo.typ === 'zakwas') router.navigate('/zakwasy');
     else if (z.zrodlo.typ === 'dziennik') router.navigate('/dziennik');
   };
@@ -112,6 +127,9 @@ export default function StartScreen() {
           onUstawienia={() => setUstawienia(true)}
         />
         {akcje.cofnij && <PasekCofnij tekst={akcje.cofnij.tekst} onPrzywroc={akcje.cofnij.przywroc} onUkryj={akcje.cofnij.ukryj} />}
+        {plany.cofnij && (
+          <PasekCofnij tekst={plany.cofnij.tekst} onPrzywroc={plany.cofnij.przywroc} onUkryj={plany.cofnij.ukryj} testID="plan-undo-bar" przywrocTestID="plan-undo-restore-btn" />
+        )}
         <View style={styles.dol}>
           <CorruptStateRecoveryBanner />
           {/* Uprzedzenie przed końcem próby nie spycha powrotu do wypieku: przy trwającym pod spiralą (126) */}
@@ -134,14 +152,22 @@ export default function StartScreen() {
               <WyborCzynnosci key={c} czynnosc={c} zablokowane={stan === 'tylko-historia'} duzyTekst={duzyTekst} onPress={() => wybierz(c)} />
             ))}
           </View>
-          {dane.gotowe && stan !== 'tylko-historia' && <WypiekiNaSpirali wypieki={dane.wypieki} teraz={dane.teraz} duzyTekst={duzyTekst} onWroc={otworzWypiek} />}
+          {dane.gotowe && stan !== 'tylko-historia' && (dane.wypieki.length > 0 || dane.plany.length === 0) && (
+            <WypiekiNaSpirali wypieki={dane.wypieki} teraz={dane.teraz} duzyTekst={duzyTekst} onWroc={otworzWypiek} />
+          )}
+          {/* Plany: bez trwającego najbliższy na spirali, inaczej lista pod spiralą (makieta a2-03 w31) [M3 D5] */}
+          {dane.gotowe && stan !== 'tylko-historia' && (
+            <PlanyWypiekow plany={dane.plany} teraz={dane.teraz} naSpirali={dane.wypieki.length === 0} duzyTekst={duzyTekst} onZobacz={plany.otworz} />
+          )}
           {stan === 'trwa-wypiek' && banerProby}
           {dane.gotowe && stan === 'wybor' && !dane.maDane && (
             <Text style={styles.objasnienie}>{t('Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.')}</Text>
           )}
         </View>
       </ScrollView>
-      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)} />
+      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)}
+        liczbaPlanow={dane.plany.length} onZaplanuj={stan === 'tylko-historia' ? undefined : zaplanujNaDzien} />
+      <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij} />
       <SettingsModal visible={ustawienia} onClose={() => setUstawienia(false)} />
     </>
   );

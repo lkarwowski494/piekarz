@@ -16,6 +16,7 @@ import { loadActiveBakeSessions, loadPlannedBakes } from '../data/bake-sessions-
 import { collectBackupData } from '../data/sqlite-store';
 import { wczytajPominiecia } from '../data/pominiecia-store';
 import { pominietoKarmienieAt } from '../core/pominiecia';
+import { kolejneKarmieniaBudzace, type WypiekZBudzeniem } from '../core/karmienia-budzace';
 import { t, lang } from './i18n';
 import { formatTime } from './format';
 import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
@@ -85,6 +86,9 @@ function tekstPowiadomienia(p: PlannedNotification): { title: string; body: stri
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
     case 'karmienie.lodowkaDzien':
       return { title: t('Nakarm zakwas dziś'), body: t('Dziś ustalony dzień karmienia zakwasu „{name}”.', { name }) };
+    case 'karmienie.budzace':
+      // Kolejne karmienie budzące z lodówki: warunek w treści, bez liczby karmień (RD-33, D-052) [M3 D5]
+      return { title: t('Pora dokarmić zakwas'), body: t('Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.', { name }) };
     default: {
       // Następny krok i jego godzina: „{krok}: czas zacząć” (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130];
       // ostatni krok — nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
@@ -123,16 +127,22 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
       // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
       // Po „Pomiń” zaległego karmienia termin liczy się od chwili pominięcia, jak w kalendarzu (D-094) [M3 D4a]
-      const starters = async () => {
-        if (!(przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()))) return [];
+      // Kolejne karmienia budzące (RD-33) z tymi samymi warunkami co przypomnienia o zakwasie, z wpisów zakwasów [M3 D5]
+      const zakwasy = async (w: { sessions: readonly WypiekZBudzeniem[]; planned: readonly WypiekZBudzeniem[] }) => {
+        if (!(przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()))) return { starters: [], budzace: [] };
         const pominiecia = await wczytajPominiecia(Date.now()).catch(() => []);
-        return (await collectBackupData()).starters.map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) }));
+        const kopia = await collectBackupData();
+        return {
+          starters: kopia.starters.map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) })),
+          budzace: kolejneKarmieniaBudzace([...w.sessions, ...w.planned], kopia.starters, kopia.starterEntries ?? [], Date.now()),
+        };
       };
       const wypieki = async () => ({
-        sessions: (await loadActiveBakeSessions()).map((s) => ({ ...s, id: idSesji(s) })),
-        planned: await loadPlannedBakes(),
+        sessions: (await loadActiveBakeSessions()).map((s) => ({ ...s, id: idSesji(s), ...(s.bake?.starterId ? { starterId: s.bake.starterId } : {}) })),
+        planned: (await loadPlannedBakes()).map((p) => ({ ...p, ...(p.bake?.starterId ? { starterId: p.bake.starterId } : {}) })),
       });
-      const desired = status === 'granted' ? planNotifications({ ...(await wypieki()), starters: await starters() }, Date.now()) : [];
+      const w = status === 'granted' ? await wypieki() : null;
+      const desired = w ? planNotifications({ ...w, ...(await zakwasy(w)) }, Date.now()) : [];
       const jezyk = lang();
       const { cancel, schedule } = diffNotifications(pending, desired, jezyk);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);
