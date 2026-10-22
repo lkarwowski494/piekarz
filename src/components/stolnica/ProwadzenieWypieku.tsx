@@ -266,6 +266,12 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
   // „Zrobione” przed terminem przesuwa dalsze kroki i powiadomienia wcześniej, po terminie — później (BR-HARMO-005)
   const handleNextStep = () => {
+    // Krok w garnku: kciuk prowadzi przez fazy (DUTCH_OVEN_PHASES); z pokrywką „Zrobione” zdejmuje pokrywkę, a krok
+    // kończy dopiero w fazie bez pokrywki, z jej zegarem i powiadomieniem [04-studio-projektowe-002]
+    if (currentStep && isDutchOvenStep(currentStep) && dutchOvenPhase === 'lid_on') {
+      handleStartPhase2AfterSteamAlert();
+      return;
+    }
     if (currentStepIdx >= steps.length - 1) {
       finish.open();
       return;
