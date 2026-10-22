@@ -7,7 +7,7 @@
 // ============================================================================
 
 import React, { useRef } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import type { NawigacjaWidoku } from '../../hooks/useKalendarz';
 import { t } from '../../lib/i18n';
 import { kierunekGestu, type TrybWidoku } from '../../lib/kalendarz-widok';
@@ -16,6 +16,9 @@ import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { IkonaStartu } from '../start/IkonaStartu';
 import { OznaczeniePro } from '../OznaczeniePro';
 import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
+
+/** Próg dużego tekstu jak na „Dziś” (`app/(tabs)/(dzis)/index.tsx`, DUZY_TEKST). */
+const DUZY_TEKST = 2;
 
 const TRYBY: readonly { tryb: TrybWidoku; tekst: () => string }[] = [
   { tryb: 'tydzien', tekst: () => t('Tydzień') },
@@ -28,6 +31,28 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
   // PRZ-18 (b, D-118): jeden przycisk w wierszu okresu przełącza na drugi widok; „Pro” tylko przy wejściu w Miesiąc bez Pro
   const inny = TRYBY[tydzien ? 1 : 0]!;
   const pro = tydzien && widok.miesiacPro === true;
+  // Duży tekst (próg 2 jak kafle „Dziś”): „Dziś” i „Miesiąc” w osobnym, zawijanym rzędzie pod „‹ okres ›”, żeby
+  // przy AX5 i 320 pt „›” i „Miesiąc” zostały na ekranie [04-studio-projektowe-004]
+  const duzy = useWindowDimensions().fontScale >= DUZY_TEKST;
+  const styl = duzy ? [styles.dzis, styles.dzisZwezany] : styles.dzis;
+  const dzis = !widok.biezacy && (
+    <Pressable testID="kalendarz-dzis" accessibilityRole="button" style={styl} onPress={widok.dzis}>
+      <Text style={styles.dzisTekst}>{t('Dziś')}</Text>
+    </Pressable>
+  );
+  const nastepny = (
+    <Pressable testID="kalendarz-nastepny" accessibilityRole="button" accessibilityLabel={tydzien ? t('Następny tydzień') : t('Następny miesiąc')}
+      style={styles.strzalka} onPress={() => widok.przesun(1)}>
+      <IkonaStartu nazwa="dalej" kolor={theme.colors.naPasie} rozmiar={22} />
+    </Pressable>
+  );
+  const tryb = (
+    <Pressable testID={`kalendarz-tryb-${inny.tryb}`} accessibilityRole="button" accessibilityLabel={etykietaPro(inny.tekst(), !pro)}
+      style={styl} onPress={() => widok.ustawTryb(inny.tryb)}>
+      <Text style={styles.dzisTekst}>{inny.tekst()}</Text>
+      {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
+    </Pressable>
+  );
   return (
     <View style={styles.calosc}>
       <View style={styles.wiersz}>
@@ -36,21 +61,11 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
           <IkonaStartu nazwa="wstecz" kolor={theme.colors.naPasie} rozmiar={22} />
         </Pressable>
         <Text style={styles.tytul} testID="kalendarz-tytul" accessibilityRole="header">{widok.tytul}</Text>
-        {!widok.biezacy && (
-          <Pressable testID="kalendarz-dzis" accessibilityRole="button" style={styles.dzis} onPress={widok.dzis}>
-            <Text style={styles.dzisTekst}>{t('Dziś')}</Text>
-          </Pressable>
-        )}
-        <Pressable testID="kalendarz-nastepny" accessibilityRole="button" accessibilityLabel={tydzien ? t('Następny tydzień') : t('Następny miesiąc')}
-          style={styles.strzalka} onPress={() => widok.przesun(1)}>
-          <IkonaStartu nazwa="dalej" kolor={theme.colors.naPasie} rozmiar={22} />
-        </Pressable>
-        <Pressable testID={`kalendarz-tryb-${inny.tryb}`} accessibilityRole="button" accessibilityLabel={etykietaPro(inny.tekst(), !pro)}
-          style={styles.dzis} onPress={() => widok.ustawTryb(inny.tryb)}>
-          <Text style={styles.dzisTekst}>{inny.tekst()}</Text>
-          {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
-        </Pressable>
+        {!duzy && dzis}
+        {nastepny}
+        {!duzy && tryb}
       </View>
+      {duzy && <View style={styles.wierszDuzy}>{dzis}{tryb}</View>}
       <View
         testID="kalendarz-gest"
         onTouchStart={(e) => { start.current = { x: e.nativeEvent.pageX, y: e.nativeEvent.pageY }; }}
@@ -71,6 +86,8 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
 const styles = StyleSheet.create({
   calosc: { gap: odstepy.xs },
   wiersz: { flexDirection: 'row', alignItems: 'center', gap: odstepy.xs },
+  wierszDuzy: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.xs },
+  dzisZwezany: { flexShrink: 1, maxWidth: '100%' },
   strzalka: { minWidth: theme.cele.pozostale, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center' },
   tytul: { flex: 1, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naPasie, textAlign: 'center' },
   dzis: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2 },
