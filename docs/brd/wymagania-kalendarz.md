@@ -203,7 +203,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-015: Zaplanuj wypiek na ten dzień
 - Przepływ: PR-19, PR-02
-- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); dziś Harmonogram ma wybór dnia „gotowe”: dziś, jutro, pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`); H-15 (b+)
+- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); H-15 (b+); zasięg dnia „gotowe” dziś + 14 dni i kilka wypieków naraz: D-092, D-108 (ER-73)
 - Kryteria akceptacji:
   - Scenariusz: Pojutrze bez trwającego wypieku
     - Zakładając, że nie ma trwającego wypieku, a dziś jest czwartek
@@ -211,12 +211,16 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Wtedy otwiera się wybór receptury, a potem Harmonogram z dniem „gotowe” ustawionym na sobotę
   - Scenariusz: Dzień poza zasięgiem planu
     - Zakładając, że dziś jest czwartek
-    - Gdy użytkownik dotyka niedzieli
-    - Wtedy arkusz dnia nie ma skrótu do planu (dzień poza zasięgiem Harmonogramu; plan na dowolny dzień: BR-KAL-009)
+    - Gdy użytkownik dotyka dnia dalej niż 14 dni od dziś
+    - Wtedy arkusz dnia nie ma skrótu do planu (zasięg dnia „gotowe” w Harmonogramie: dziś + 14 dni, D-108)
   - Scenariusz: Trwa wypiek
-    - Zakładając, że trwa wypiek
+    - Zakładając, że trwa wypiek, a zaplanowanych wypieków jest mniej niż 5
     - Gdy użytkownik dotyka jutra
-    - Wtedy arkusz dnia nie ma skrótu do planu, bo aplikacja prowadzi jeden wypiek naraz
+    - Wtedy arkusz dnia ma skrót do planu, bo aplikacja prowadzi kilka wypieków naraz (D-092, D-108); start planu przy dwóch trwających idzie przez pytanie z D-104
+  - Scenariusz: Limit planów
+    - Zakładając, że jest już 5 zaplanowanych wypieków
+    - Gdy użytkownik dotyka przyszłego dnia
+    - Wtedy arkusz dnia nie ma skrótu do planu albo skrót prowadzi do komunikatu „Masz już 5 planów” z przejściem do listy planów (D-092, D-108)
   - Scenariusz: Dzień miniony
     - Zakładając, że dziś jest czwartek
     - Gdy użytkownik dotyka wtorku
