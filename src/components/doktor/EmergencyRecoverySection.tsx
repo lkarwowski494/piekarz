@@ -94,7 +94,8 @@ export function EmergencyRecoverySection({
             </Text>
           </View>
 
-          {/* Target Pivot Recipe */}
+          {/* Target Pivot Recipe: tylko gdy protokół ją ma (F-71: dziś żaden, RAT-PRZ-900) */}
+          {selectedProto.pivotRecipeNamePl && (
           <View style={styles.pivotRecipeBox}>
             <View style={styles.pivotTextCol}>
               <Text style={styles.pivotRecipeLabel}>{t('Receptura awaryjna:')}</Text>
@@ -112,6 +113,7 @@ export function EmergencyRecoverySection({
               </Pressable>
             )}
           </View>
+          )}
 
           {/* Steps */}
           <Text style={styles.recoveryStepsHeading}>{t('Kroki ratunkowe:')}</Text>

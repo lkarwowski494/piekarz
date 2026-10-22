@@ -313,10 +313,12 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     expect(card).toBeDefined();
 
     const fullText = extractCleanText(root);
-    expect(fullText).toContain('zrób focaccię');
+    // F-71 (rola 06, 2026-10-22): focaccia jako receptura awaryjna wycofana bez źródła (RAT-PRZ-900); ratunek = ponowne formowanie
+    expect(fullText).toContain('Przerośnięte ciasto');
     expect(fullText).toContain('Akcja natychmiastowa:');
-    expect(fullText).toContain('Receptura awaryjna:');
-    expect(fullText).toContain('Focaccia');
+    expect(fullText).toContain('Uformuj je ponownie');
+    expect(fullText).not.toContain('Receptura awaryjna:');
+    expect(fullText).not.toContain('Focaccia');
     expect(fullText).toContain('Fizjologia ciasta:');
 
     // Close protocol card
@@ -339,8 +341,8 @@ describe('DoctorScreen UI (app/doktor.tsx)', () => {
     });
 
     const root = tree!.root;
-    // Tap Overproofed Collapse recovery protocol (has 220°C -> 428°F)
-    const chip = root.findByProps({ testID: 'recovery-chip-OVERPROOFED_COLLAPSE' });
+    // Tap Cold Sluggish recovery protocol (has 24–25,5 °C -> °F; RAT-ZIM-002)
+    const chip = root.findByProps({ testID: 'recovery-chip-COLD_SLUGGISH' });
     await act(async () => {
       chip.props.onPress();
     });

@@ -4,6 +4,9 @@
 // or suffers temperature/salt accidents during bulk fermentation.
 // Apps4Brew Studio — 100% Offline-First.
 // ============================================================================
+// Teksty dosłownie z docs/tresci/pl/doktor-ratunek.md (rola 06, F-71, 2026-10-22; pilnuje tests/tresci-f71.test.ts).
+// Kroki 0–1 zimnej kuchni: docs/tresci/pl/doktor-zimna-kuchnia.md (DOK-PIE-001/002). Wycofane twierdzenia starej
+// wersji (focaccia, foremka keksowa, 26–28°C, laminacja soli): RAT-*-9xx w docs/tresci/rejestr.json.
 
 export type EmergencyCode =
   | 'OVERPROOFED_COLLAPSE'
@@ -16,7 +19,8 @@ export interface DoughRecoveryProtocol {
   titlePl: string;
   triggerSummaryPl: string;
   immediateActionPl: string;
-  pivotRecipeNamePl: string;
+  /** Receptura awaryjna; żaden protokół jej dziś nie ma, bo źródła nie wiążą tych stanów ciasta z inną recepturą (RAT-PRZ-900, RAT-LUZ-900). */
+  pivotRecipeNamePl?: string;
   stepByStepPl: string[];
   scientificReasoningPl: string;
 }
@@ -24,69 +28,70 @@ export interface DoughRecoveryProtocol {
 export const DOUGH_RECOVERY_PROTOCOLS: DoughRecoveryProtocol[] = [
   {
     id: 'OVERPROOFED_COLLAPSE',
-    titlePl: 'Przerośnięte ciasto: zrób focaccię',
-    triggerSummaryPl: 'Ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu.',
-    immediateActionPl: 'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.',
-    pivotRecipeNamePl: 'Rzemieślnicza Focaccia na zakwasie',
+    titlePl: 'Przerośnięte ciasto',
+    triggerSummaryPl:
+      'Według Modernist Cuisine wgłębienie po delikatnym naciśnięciu ciasta palcem zostaje na stałe, gdy ciasto przerosło.',
+    immediateActionPl:
+      'Ciasto drożdżowe uformuj ponownie: według King Arthur Baking mocno przerośnięty drożdżowy bochenek upieczony od razu opada w piecu, choć nadal dobrze smakuje.',
     stepByStepPl: [
-      'Wlej 3–4 łyżki oliwy z oliwek na głęboką blachę do pieczenia lub żeliwną patelnię.',
-      'Delikatnie zsuń ciasto na blachę, nie odgazowując go nadmiernie.',
-      'Polej wierzch oliwą, wbij palce w ciasto tworząc charakterystyczne wgłębienia.',
-      'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.',
-      'Piecz w 220°C przez 25–30 minut do złocistego koloru.',
+      'Ciasta na zakwasie zwykle nie da się tak uratować: według King Arthur Baking ten sposób zwykle nie działa, a według Modernist Cuisine warto spróbować tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.',
+      'Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.',
+      'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.',
+      'Odgazuj je, mocno dociskając, tak jak przy formowaniu.',
+      'Uformuj je ponownie i odstaw do garowania.',
     ],
     scientificReasoningPl:
-      'W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową, uniemożliwiając utrzymanie pionowego kształtu. Pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz tworzy puszyste, wilgotne wnętrze focacci.',
+      'Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu.',
   },
   {
     id: 'SLACK_HIGH_HYDRATION',
-    titlePl: 'Zbyt luźne ciasto (Ratunek w Foremce)',
-    triggerSummaryPl: 'Hydratacja przerosła siłę mąki — ciasto klei się do rąk i rozlewa w kałużę.',
-    immediateActionPl: 'Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.',
-    pivotRecipeNamePl: 'Chleb foremkowy o wysokiej wilgotności',
+    titlePl: 'Zbyt luźne ciasto',
+    triggerSummaryPl: 'Ciasto jest lepkie i luźne i nie trzyma kształtu.',
+    immediateActionPl:
+      'Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.',
     stepByStepPl: [
-      'Posmaruj foremkę keksową (np. 30 cm) masłem lub olejem i wysyp otrębami/mąką.',
-      'Zwilżonymi dłońmi złóż ciasto techniką Coil Fold prosto do foremki.',
-      'Wstaw foremkę do lodówki (4°C) na 2–3 godziny, aby schłodzone masło i gluten stężały.',
-      'Piecz z foremką w 230°C przez 20 min z parą, następnie 20 min w 200°C.',
-      'Wyjmij z foremki na ostatnie 5 minut, aby dopiec boki bochenka.',
+      'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.',
+      'Rozciągaj i składaj ciasto w czasie fermentacji: według King Arthur Baking to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.',
+      'Według King Arthur Baking przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć.',
     ],
     scientificReasoningPl:
-      'Ściany foremki keksowej zapewniają mechaniczne podparcie, eliminując potrzebę silnego napięcia powierzchniowego i pozwalając na uzyskanie soczystego, kremowego miękiszu.',
+      'Według King Arthur Baking składanie w czasie fermentacji pomaga rozwinąć siatkę glutenową i wzmacnia ciasto, a sól napina gluten.',
   },
   {
     id: 'COLD_SLUGGISH',
     titlePl: 'Ospała fermentacja (Zimna kuchnia)',
-    triggerSummaryPl: 'Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).',
-    immediateActionPl: 'Podnieś temperaturę fermentacji do optymalnych 26–28°C.',
-    pivotRecipeNamePl: 'Przyspieszona fermentacja termiczna',
+    triggerSummaryPl:
+      'Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi.',
+    immediateActionPl:
+      'Przenieś ciasto w cieplejsze miejsce: według King Arthur Baking drożdże najlepiej rosną w ok. 24–25,5 °C.',
     stepByStepPl: [
       'Wstaw naczynie z ciastem do wyłączonego piekarnika i włącz samą żarówkę: według King Arthur Baking temperatura w środku stopniowo rośnie, ale każdy piekarnik i każda kuchnia dają inny wynik.',
       // DOK-PIE-002 (krytyczne, przegląd człowieka): dosłownie z docs/tresci/pl/doktor-zimna-kuchnia.md
       // [M1-audytor-generalny-069; 06-tresci-012]
       'Wyjmij naczynie, zanim włączysz nagrzewanie piekarnika: King Arthur Baking przestrzega, że łatwo o tym zapomnieć.',
-      'Alternatywnie: postaw miskę na garnku z letnią wodą (łaźnia wodna ~30°C).',
-      'Dodaj jedno dodatkowe delikatne złożenie, aby rozprowadzić ciepło.',
-      'Monitoruj objętość — przy 27°C drożdże i bakterie odzyskają wigor w ciągu 60–90 minut.',
+      'Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.',
+      'Przykryj miskę pokrywką albo folią: według King Arthur Baking wilgoć utrzymuje skórkę ciasta miękką i pomaga mu rosnąć.',
+      'Oceniaj ciasto po wyglądzie, nie po zegarze: według King Arthur Baking w zimnym powietrzu ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.',
     ],
     scientificReasoningPl:
-      'Aktywność metaboliczna drożdży Saccharomyces cerevisiae i bakterii Lactobacillus podwaja się między 18°C a 26°C wg kinetyki reakcji biochemicznych Arrheniusa.',
+      'W zakresie 20–26 °C Piekarz przyjmuje przybliżenie z modelu badawczego: 6 °C niżej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.',
   },
   {
     id: 'FORGOTTEN_SALT',
-    titlePl: 'Zapomniana sól (Laminacja ratunkowa)',
-    triggerSummaryPl: 'Ciasto już fermentuje, a odważona sól została na blacie.',
-    immediateActionPl: 'Rozpuść sól w minimalnej ilości wody i wprowadź przez laminację.',
-    pivotRecipeNamePl: 'Procedura Bassinage ratunkowego',
+    titlePl: 'Zapomniana sól',
+    triggerSummaryPl: 'Ciasto jest już wymieszane, a odważona sól została na blacie.',
+    immediateActionPl:
+      'Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.',
     stepByStepPl: [
-      'Rozpuść odmierzoną dawkę soli w 15–20 ml letniej wody (nie wsypuj suchej soli!).',
-      'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).',
-      'Równomiernie skrop ciasto roztworem soli.',
-      'Złóż ciasto w kopertę (jak list) i wklep je opuszkami palców.',
-      'Odstaw na 20 minut odpoczynku przed kolejnym standardowym składaniem.',
+      // BEZ-SUR-001 (krytyczne): nowe użycie, przegląd człowieka do zrobienia (docs/tresci/przeglad/doktor-ratunek.md)
+      'Nie próbuj ciasta, żeby sprawdzić sól: według FDA surowego ciasta nie należy jeść ani próbować.',
+      'Wymieszaj sól z kilkoma łyżeczkami wody.',
+      'Rozpłaszcz ciasto, rozsmaruj na nim tę mieszankę, zwiń je, znów rozpłaszcz, obróć o 90° i zwiń ponownie.',
+      'Wyrabiaj, aż ciasto znów będzie w miarę gładkie.',
+      'Przy cieście na zakwasie według King Arthur Baking możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu.',
+      'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.',
     ],
-    scientificReasoningPl:
-      'Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki. Wprowadzenie w formie roztworu pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całej objętości ciasta.',
+    scientificReasoningPl: 'Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.',
   },
 ];
 
@@ -103,6 +108,6 @@ export function searchDoughRecoveryProtocols(query: string): DoughRecoveryProtoc
       p.titlePl.toLowerCase().includes(q) ||
       p.triggerSummaryPl.toLowerCase().includes(q) ||
       p.immediateActionPl.toLowerCase().includes(q) ||
-      p.pivotRecipeNamePl.toLowerCase().includes(q)
+      (p.pivotRecipeNamePl ?? '').toLowerCase().includes(q)
   );
 }

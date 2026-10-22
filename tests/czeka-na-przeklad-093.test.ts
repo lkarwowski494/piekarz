@@ -48,9 +48,13 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Wróć do trwającego',
     'Przerwij tamten i zacznij nowy',
   ];
-  it('lista czekających jest pusta (poza 5 kluczami a1b do przebiegu a5)', () => {
+  // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
+  // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.
+  const ZNACZNIK_F71 = '[rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]';
+  it('lista czekających jest pusta (poza 5 kluczami a1b do przebiegu a5 i kluczami F-71 do batcha toru T)', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8'));
-    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz).filter((k) => !CZEKAJA_A1B.includes(k))).toEqual([]);
+    const f71 = (x: { klucz: string; powod: string }) => x.powod.includes(ZNACZNIK_F71) && typeof EN[x.klucz] === 'string';
+    expect((j.klucze as { klucz: string; powod: string }[]).filter((x) => !f71(x)).map((x) => x.klucz).filter((k) => !CZEKAJA_A1B.includes(k))).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {
