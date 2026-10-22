@@ -40,7 +40,9 @@ export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, te
           <View style={styles.akcje}>{akcje}</View>
         </View>
       )}
-      <Text style={styles.tytul} accessibilityRole="header">{tytul}</Text>
+      {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
+          pasa na cały ekran [04-studio-projektowe-003] */}
+      <Text style={styles.tytul} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
       {podtytul ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
     </View>

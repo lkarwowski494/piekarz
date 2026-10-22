@@ -39,6 +39,11 @@ const WYJATKI_ZAKLADKI: Record<string, Record<string, string>> = {
   // „Plan wypieku”) skaluje się najwyżej 1,5× jak podpisy zakładek; przy 1,5× oba przyciski mają ok. 264 pt, a bez
   // limitu wypychały tytuł i środek paska. Bez limitu linii i bez zmniejszania kroju.
   'src/components/nawigacja/PrzyciskNaglowka.tsx': { maxFontSizeMultiplier: '{1.5}' },
+  // Nazwany wyjątek (04-studio-projektowe-003, W-fix M3): tytuł pasa nocy (tytulDuzy 34 pt) najwyżej 1,5× (51 pt) jak
+  // przyciski tego samego pasa. Bez limitu przy AX5 i 320 pt łamał słowa („Rece/ptury”) i zajmował cały pierwszy ekran;
+  // limit z tokenu (60 pt) łamałby fi „Hapanjuuret” (309 pt przy 288 pt miejsca, pomiar Chromium). Bez limitu linii
+  // i bez zmniejszania kroju.
+  'src/components/nawigacja/PasZakladki.tsx': { maxFontSizeMultiplier: '{1.5}' },
 };
 /**
  * Nazwany wyjątek (reaudit-noc N-2, 201): godzina „gotowe” i czas kroku w tokenie `czas` (99 pt przy AX5) w jednym
