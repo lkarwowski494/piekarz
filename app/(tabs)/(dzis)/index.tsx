@@ -7,8 +7,8 @@
 // ============================================================================
 
 import React, { useCallback, useState } from 'react';
-import { ScrollView, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import { Stack, useFocusEffect, useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Stack, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
@@ -23,6 +23,7 @@ import { ArkuszPlanu } from '../../../src/components/start/ArkuszPlanu';
 import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
 import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
+import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/ArkuszDnia';
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { SettingsModal } from '../../../src/components/SettingsModal';
@@ -60,13 +61,8 @@ export default function StartScreen() {
     miesiacPro: !moze('miesiac'),
   };
 
-  // Pasek stanu jasny na ciemnym pasie tylko na „Dziś”; inne zakładki wracają do domyślnego (app/_layout.tsx)
-  useFocusEffect(
-    useCallback(() => {
-      StatusBar.setBarStyle('light-content', true);
-      return () => StatusBar.setBarStyle('default', true);
-    }, [])
-  );
+  // Pasek stanu jasny na ciemnym pasie (wspólny z zakładkami D10); po wyjściu domyślny (app/_layout.tsx)
+  usePasekStanuJasny();
 
   const odswiez = useCallback(() => {
     kal.odswiez();
@@ -111,7 +107,7 @@ export default function StartScreen() {
       <Stack.Screen options={{ headerShown: false, title: stan === 'wybor' ? t('Co dziś robisz?') : t('Dziś') }} />
       <ScrollView style={styles.ekran} contentContainerStyle={styles.tresc} contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
         {/* Przy przeciągnięciu w dół nad pasem dalej kolor pasa, nie tło ekranu */}
-        <View style={styles.nadPasem} />
+        <NadPasem />
         <PasDzis
           gora={gora}
           data={dataSlownie(kal.now)}
@@ -164,7 +160,6 @@ export default function StartScreen() {
 const styles = StyleSheet.create({
   ekran: { flex: 1, backgroundColor: theme.colors.tlo },
   tresc: { paddingBottom: odstepy.xxl, gap: odstepy.m },
-  nadPasem: { position: 'absolute', top: -1000, left: 0, right: 0, height: 1000, backgroundColor: theme.colors.pas },
   dol: { paddingHorizontal: odstepy.l, gap: odstepy.m },
   kafle: { flexDirection: 'row', gap: odstepy.s },
   kafleDuze: { flexDirection: 'column' },
