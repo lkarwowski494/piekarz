@@ -3595,5 +3595,15 @@
     "krytyczne": false,
     "przeglad": null,
     "uwagi": "[DO USTALENIA] zadanie 217, opcja a (M1 2026-10-22). Pizza, chałka, focaccia i bagietka mają wartości ze źródeł (DRO-PIZ-002, DRO-CHA-001, DRO-FOC-001, DRO-BAG-001). Ciabatta: jedyna przeczytana formuła (DRO-CIA-001, KA Pro 1,2%) nie podaje rodzaju drożdży. Chleb bez wyrabiania: przeczytany przepis KA (DRO-NOK-001) ma inny proces (lodówka); brak źródła dla 12–16 h na blacie (np. Lahey, oryginał nieprzeczytany). Wartości w kodzie bez zmian do czasu źródła."
+  },
+  {
+    "id": "RAT-SOL-902",
+    "twierdzenie": "Zapomnianą sól można jeszcze dodać w trakcie pierwszego rośnięcia (ciasto częściowo wyrośnięte).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "[DO USTALENIA] OP-61 (rola 01, RD-35). Przeczytane 2026-10-22: King Arthur Baking („What if I forgot to add salt…”) mówi tylko „sooner than later in yeast doughs” (RAT-SOL-002), „realize shortly after kneading” (RAT-SOL-003, -004) i „AFTER the dough has its first rise … not much you can do” (RAT-SOL-005); Modernist Cuisine i FAQ KA nie rozstrzygają. Wyszukiwanie 2026-10-22 dało tylko fora (The Fresh Loaf, szczebel 5), które nie potwierdzają. Zachowanie aplikacji bez zmian i po stronie ostrożnej: tekst mówi „Dodaj sól przed pierwszym rośnięciem” i „po pierwszym rośnięciu dodawanie nie pomoże”; dla stanu pośredniego aplikacja niczego nie obiecuje. Kierunek ze źródła: im wcześniej, tym lepiej (KA). Wraca do sprawdzenia, gdy znajdzie się źródło szczebla 1–4 (np. Hamelman „Bread”, Suas „Advanced Bread and Pastry” — nieprzeczytane)."
   }
 ]

@@ -10,7 +10,6 @@ describe('Emergency Dough Recovery Protocols (doctor/dough-recovery)', () => {
   it('retrieves the over-proofed protocol: re-shape and proof again (RAT-PRZ-003)', () => {
     const proto = getDoughRecoveryProtocol('OVERPROOFED_COLLAPSE');
     expect(proto.id).toBe('OVERPROOFED_COLLAPSE');
-    expect(proto.pivotRecipeNamePl).toBeUndefined();
     expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(4);
     expect(proto.stepByStepPl.join(' ')).toContain('Uformuj je ponownie');
   });
@@ -18,7 +17,6 @@ describe('Emergency Dough Recovery Protocols (doctor/dough-recovery)', () => {
   it('retrieves the slack dough protocol: check salt, fold (RAT-SOL-001, KRO-POC-006)', () => {
     const proto = getDoughRecoveryProtocol('SLACK_HIGH_HYDRATION');
     expect(proto.id).toBe('SLACK_HIGH_HYDRATION');
-    expect(proto.pivotRecipeNamePl).toBeUndefined();
     expect(proto.immediateActionPl).toContain('sól');
     expect(proto.stepByStepPl.length).toBeGreaterThanOrEqual(3);
   });

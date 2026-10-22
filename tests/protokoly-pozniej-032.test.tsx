@@ -1,6 +1,6 @@
 /**
- * Protokoły ratunkowe Doktora są PÓŹNIEJ do czasu źródeł (wybór właściciela 032 b, 2026-10-21): ekran Doktora nie
- * pokazuje sekcji, a opis sklepu w żadnej z 34 lokalizacji nie ma zdania o protokołach [M1-audytor-generalny-032; 03-zakres-505].
+ * Protokoły ratunkowe Doktora: 2026-10-21 PÓŹNIEJ (032 b, ZM-19), od 2026-10-22 w 1.0 po źródłach (D-095) i BR-DIAG-003…005
+ * (D-096, ZM-23): ekran Doktora pokazuje sekcję, a opis sklepu w 34 lokalizacjach ma zdanie o protokołach [M1-audytor-generalny-032].
  */
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
@@ -59,16 +59,17 @@ const ZDANIA: Record<string, string> = {
   'zh-Hant.json': '發酵過程中麵團出狀況時，四套救援流程可以幫上忙。',
 };
 
-describe('032 b: protokoły ratunkowe Doktora PÓŹNIEJ (ekran i opis sklepu)', () => {
-  it('wejście protokołów jest ukryte, a ekran Doktora nie ma sekcji ani kafelków protokołów', async () => {
-    expect(wejscieWidoczne('protokoly-ratunkowe')).toBe(false);
+describe('F-71 w 1.0 (D-096, ZM-23; wcześniej 032 b PÓŹNIEJ): protokoły na ekranie Doktora i w opisie sklepu', () => {
+  it('wejście protokołów jest widoczne, a ekran Doktora ma cztery kafelki protokołów', async () => {
+    expect(wejscieWidoczne('protokoly-ratunkowe')).toBe(true);
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(<DoctorScreen />);
       await Promise.resolve();
     });
     const ids = tree!.root.findAll((n) => typeof n.props?.testID === 'string').map((n) => String(n.props.testID));
-    expect(ids.filter((id) => id.startsWith('recovery-'))).toEqual([]);
+    expect(new Set(ids.filter((id) => id.startsWith('recovery-chip-'))).size).toBe(4);
+    expect(ids).not.toContain('pivot-recipe-btn'); // bez receptury awaryjnej (RAT-PRZ-900, RAT-LUZ-900)
     act(() => tree?.unmount());
   });
 
@@ -76,9 +77,10 @@ describe('032 b: protokoły ratunkowe Doktora PÓŹNIEJ (ekran i opis sklepu)', 
     expect(readdirSync(METADANE).filter((f) => f.endsWith('.json')).sort()).toEqual(Object.keys(ZDANIA).sort());
   });
 
-  it.each(Object.entries(ZDANIA))('%s: opis bez zdania o protokołach, akapit Doktora bez pustych miejsc', (plik, zdanie) => {
+  // Zdanie przywrócone z przekładu sprzed ukrycia (stan e544eec), w akapicie Doktora Chleba [rola 06, tor T]
+  it.each(Object.entries(ZDANIA))('%s: opis ma zdanie o protokołach raz, akapit Doktora bez pustych miejsc', (plik, zdanie) => {
     const opis: string = JSON.parse(readFileSync(join(METADANE, plik), 'utf8')).opis;
-    expect(opis).not.toContain(zdanie);
+    expect(opis.split(zdanie).length - 1).toBe(1);
     expect(opis).not.toMatch(/ {2}| \n|\n /);
   });
 });

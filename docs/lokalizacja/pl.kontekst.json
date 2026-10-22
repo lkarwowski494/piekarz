@@ -4025,9 +4025,7 @@
   },
   "Otwórz recepturę": {
     "gdzie": [
-      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
-      "src/components/doktor/EmergencyRecoverySection.tsx (accessibilityLabel)",
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
+      "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)"
     ]
   },
   "Oznacz lekcję jako zaliczoną": {
@@ -4984,9 +4982,7 @@
     ]
   },
   "Receptura awaryjna:": {
-    "gdzie": [
-      "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [

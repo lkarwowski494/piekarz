@@ -63,7 +63,7 @@ describe('F-71: protokoły ratunkowe z docs/tresci (rola 06)', () => {
   }
 
   it('żaden protokół nie ma receptury awaryjnej bez źródła (RAT-PRZ-900, RAT-LUZ-900)', () => {
-    expect(DOUGH_RECOVERY_PROTOCOLS.filter((p) => p.pivotRecipeNamePl)).toEqual([]);
+    expect(DOUGH_RECOVERY_PROTOCOLS.filter((p) => 'pivotRecipeNamePl' in p)).toEqual([]);
     expect(searchDoughRecoveryProtocols('focaccia')).toEqual([]);
     expect(searchDoughRecoveryProtocols('sól').map((p) => p.id)).toContain('FORGOTTEN_SALT');
   });

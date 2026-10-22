@@ -19,8 +19,8 @@ export interface DoughRecoveryProtocol {
   titlePl: string;
   triggerSummaryPl: string;
   immediateActionPl: string;
-  /** Receptura awaryjna; żaden protokół jej dziś nie ma, bo źródła nie wiążą tych stanów ciasta z inną recepturą (RAT-PRZ-900, RAT-LUZ-900). */
-  pivotRecipeNamePl?: string;
+  /** Receptura awaryjna: żaden protokół jej nie ma i ekran jej nie pokazuje (RAT-PRZ-900, RAT-LUZ-900; BR-DIAG-003). */
+  pivotRecipeNamePl?: never;
   stepByStepPl: string[];
   scientificReasoningPl: string;
 }
@@ -107,7 +107,6 @@ export function searchDoughRecoveryProtocols(query: string): DoughRecoveryProtoc
     (p) =>
       p.titlePl.toLowerCase().includes(q) ||
       p.triggerSummaryPl.toLowerCase().includes(q) ||
-      p.immediateActionPl.toLowerCase().includes(q) ||
-      (p.pivotRecipeNamePl ?? '').toLowerCase().includes(q)
+      p.immediateActionPl.toLowerCase().includes(q)
   );
 }

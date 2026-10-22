@@ -44,7 +44,7 @@ men tự nhiên,nướng,lên men,lúa mạch đen,lịch,pizza,levain,bột
 Đặt giờ bạn muốn bánh xong: Thợ Bánh Mì sẽ tính lượng nguyên liệu, lập lịch trình ngược và báo khi mỗi bước kết thúc. Không tài khoản, không internet, không quảng cáo.
 ```
 
-### Opis (Description) · 3430 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3500 / 4000 znaków · wersja 1.0
 
 ```text
 Thợ Bánh Mì đồng hành cùng bạn khi nướng bánh mì men tự nhiên, từ công thức đến ổ bánh: tính lượng nguyên liệu, lập kế hoạch và canh giờ cả khi điện thoại đang ngủ. Ứng dụng hoạt động không cần tài khoản, không cần internet, không quảng cáo và không theo dõi. Công thức, men tự nhiên và nhật ký của bạn chỉ được lưu trên điện thoại của bạn.
@@ -62,7 +62,7 @@ MEN TỰ NHIÊN
 Quản lý nhiều men tự nhiên cùng lúc. Thợ Bánh Mì cho biết lượng cho men ăn theo tỷ lệ 1:1:1, 1:2:2, 1:3:3 hoặc 1:5:5. Khi men tự nhiên nở gấp đôi thể tích, Thợ Bánh Mì sẽ đánh dấu men đã sẵn sàng để làm bột. Sau 12 giờ để trên bàn bếp mà chưa cho ăn, Thợ Bánh Mì sẽ gửi thông báo nhắc bạn. Bạn có thể tạo men tự nhiên mới theo từng ngày. Thợ Bánh Mì áp dụng nguyên tắc thận trọng: khi có lớp phủ, đổi màu hoặc mùi thối, Thợ Bánh Mì khuyên bạn bỏ men tự nhiên đi.
 
 BÁC SĨ BÁNH MÌ
-Ruột bánh đặc, vỏ bánh nhợt màu? Đánh dấu các triệu chứng, Bác sĩ Bánh mì sẽ chỉ ra một trong 9 lỗi, giải thích nguyên nhân và cho biết cần thay đổi gì vào lần sau. Bác sĩ Men tự nhiên giúp bạn khi có điều gì ở men tự nhiên khiến bạn lo lắng.
+Ruột bánh đặc, vỏ bánh nhợt màu? Đánh dấu các triệu chứng, Bác sĩ Bánh mì sẽ chỉ ra một trong 9 lỗi, giải thích nguyên nhân và cho biết cần thay đổi gì vào lần sau. Bốn quy trình cứu nguy giúp bạn khi bột gặp vấn đề trong lúc lên men. Bác sĩ Men tự nhiên giúp bạn khi có điều gì ở men tự nhiên khiến bạn lo lắng.
 
 NHẬT KÝ
 Đánh giá từng ổ bánh: số sao, ruột bánh, vỏ bánh và hương vị. Nhật ký hiển thị thống kê, còn “Nướng lại” mở lại đúng công thức đó.
