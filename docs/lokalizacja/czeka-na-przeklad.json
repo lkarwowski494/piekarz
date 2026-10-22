@@ -25,6 +25,31 @@
       "klucz": "Przerwij tamten i zacznij nowy",
       "powod": "niszczący wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Drożdże suche",
+      "powod": "nazwa wiersza drożdży w „Do miski” i w kopii tekstowej, gdy wybrano drożdże suche [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Drożdże do odważenia",
+      "powod": "nagłówek grupy wyboru rodzaju drożdży w arkuszu „Składniki” [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "świeże|drożdże",
+      "powod": "segment wyboru: drożdże świeże (forma żeńska l. mn., zgodna z „drożdże”) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "suche|drożdże",
+      "powod": "segment wyboru: drożdże suche (forma żeńska l. mn., zgodna z „drożdże”) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.",
+      "powod": "objaśnienie pod wyborem rodzaju drożdży (RD-19, × 0,4) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

@@ -24,6 +24,16 @@ const KLUCZE = [
   'Min. 4h lub przez noc w lodówce',
 ];
 
+// Zmiana 216 (M2 p20, tor P): 5 kluczy wyboru rodzaju drożdży czeka na wspólny przebieg przekładu M1; po przebiegu
+// usuń wpisy i tę stałą [M1-audytor-generalny-216].
+const CZEKAJA_216 = [
+  'Drożdże suche',
+  'Drożdże do odważenia',
+  'świeże|drożdże',
+  'suche|drożdże',
+  'Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.',
+];
+
 /** Słownik języka z wygenerowanych plików (src/lib/i18n-slowniki/<kod>/czesc-N.ts): literały 'klucz': 'wartość'. */
 function slownik(kod: string): Map<string, string> {
   const dir = path.join(root, 'src/lib/i18n-slowniki', kod);
@@ -50,7 +60,7 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   ];
   it('lista czekających jest pusta (poza 5 kluczami a1b do przebiegu a5)', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8'));
-    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz).filter((k) => !CZEKAJA_A1B.includes(k))).toEqual([]);
+    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz).filter((k) => !CZEKAJA_A1B.includes(k) && !CZEKAJA_216.includes(k))).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {
