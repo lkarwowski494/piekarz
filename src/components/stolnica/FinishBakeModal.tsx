@@ -12,6 +12,7 @@ import {
   Pressable,
   TextInput,
   Modal,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../../ui/theme';
@@ -61,6 +62,14 @@ export function FinishBakeModal({
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
       <SafeAreaView style={styles.modalOverlay} edges={['top', 'bottom', 'left', 'right']}>
+        {/* Treść przewijana, przyciski pod nią: przy 320 pt i AX5 „Zapisz” zostaje na ekranie [04-studio-projektowe-001] */}
+        <ScrollView
+          style={styles.przewijane}
+          contentContainerStyle={styles.przewijaneTresc}
+          keyboardShouldPersistTaps="handled"
+          keyboardDismissMode="interactive"
+          automaticallyAdjustKeyboardInsets
+        >
         <View style={styles.modalCard}>
           <Text style={styles.modalTitle}>{t('Jak wyszedł bochenek?')}</Text>
           <Text style={styles.modalSubtitle}>
@@ -180,6 +189,8 @@ export function FinishBakeModal({
               testID="finish-sensory-radar"
             />
           </View>
+        </View>
+        </ScrollView>
 
           <View style={styles.modalButtonsRow}>
             <Pressable
@@ -199,7 +210,6 @@ export function FinishBakeModal({
               <Text style={styles.modalConfirmBtnText}>{t('Zapisz')}</Text>
             </Pressable>
           </View>
-        </View>
       </SafeAreaView>
     </Modal>
   );
@@ -209,8 +219,16 @@ const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
     backgroundColor: theme.colors.tlo,
-    justifyContent: 'center',
     padding: theme.spacing.md,
+  },
+  przewijane: {
+    flex: 1,
+  },
+  przewijaneTresc: {
+    // Krótka treść zostaje wycentrowana jak wcześniej; dłuższa przewija się nad przyciskami
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingBottom: theme.spacing.md,
   },
   modalCard: {
     backgroundColor: theme.colors.powierzchnia,
