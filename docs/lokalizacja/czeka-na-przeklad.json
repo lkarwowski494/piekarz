@@ -412,6 +412,11 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "{wypiek}: {krok}. Otwórz prowadzenie wypieku",
+      "powod": "etykieta VoiceOver spirali (jeden wypiek) i karty legendy (dwa wypieki): otwiera Stolnicę wypieku [M3, decyzja M1 2026-10-23, wariant a]",
+      "od": "2026-10-23"
+    },
+    {
       "klucz": "Tor {n}, {receptura}: {krok}, {czas}",
       "powod": "etykieta VoiceOver spirali z dwoma torami: numer toru, receptura, krok, czas do końca kroku [M3 D4b, D-105, lista roli 04]",
       "od": "2026-10-22"

@@ -53,7 +53,10 @@ function Jeden({ w, teraz, duzyTekst, onWroc }: { w: TrwajacyNaStarcie; teraz: n
   const kroki = useMemo(() => krokiSpiraliZSesji(w.sesja.steps), [w.sesja.steps]);
   return (
     <View style={styles.jeden} testID="start-trwa-wypiek">
-      <Spirala kroki={kroki} wariant="pelna" biezacy={w.sesja.stepIdx} postepKroku={o.postep} etykieta={o.etykieta} rozmiar={duzyTekst ? 150 : 220} />
+      {/* Stuknięcie w spiralę otwiera Stolnicę tego wypieku (decyzja M1 2026-10-23, wariant a) */}
+      <Pressable testID="spirala-otworz" accessibilityRole="button" accessibilityLabel={t('{wypiek}: {krok}. Otwórz prowadzenie wypieku', { wypiek: o.nazwa, krok: o.nazwaKroku })} style={styles.dotyk} onPress={() => onWroc(w.id)}>
+        <Spirala kroki={kroki} wariant="pelna" biezacy={w.sesja.stepIdx} postepKroku={o.postep} etykieta={o.etykieta} rozmiar={duzyTekst ? 150 : 220} />
+      </Pressable>
       <Text style={styles.krok}>{o.nazwaKroku}</Text>
       {o.czas !== null && <Text style={styles.tresc}>{o.czas}</Text>}
       <Text style={styles.objasnienie}>
@@ -100,11 +103,11 @@ function Dwa({ wypieki, teraz, duzyTekst, onWroc }: { wypieki: readonly Trwajacy
         const wroc = t('Wróć do: {nazwa}', { nazwa: o.nazwa });
         return (
           <View key={w.id} style={styles.karta} testID="start-trwa-wypiek">
-            <View style={styles.kartaGora}>
+            <Pressable testID="karta-otworz" accessibilityRole="button" accessibilityLabel={t('{wypiek}: {krok}. Otwórz prowadzenie wypieku', { wypiek: o.nazwa, krok: o.nazwaKroku })} style={styles.kartaGora} onPress={() => onWroc(w.id)}>
               <View style={styles.numer}><Text style={styles.numerTekst}>{String(i + 1)}</Text></View>
               <WzorToru tor={i === 0 ? 1 : 2} />
               <Text style={styles.kartaTytul}>{t('{wypiek}: {krok}', { wypiek: o.nazwa, krok: o.nazwaKroku })}</Text>
-            </View>
+            </Pressable>
             {o.czas !== null && <Text style={[styles.tresc, styles.lewo]}>{o.czas}</Text>}
             {o.gotoweTekst !== null && <Text style={[styles.objasnienie, styles.lewo]}>{o.gotoweTekst}</Text>}
             <Pressable testID="resume-bake-btn" accessibilityRole="button" accessibilityLabel={wroc} style={styles.drugi} onPress={() => onWroc(w.id)}>
@@ -139,7 +142,8 @@ const styles = StyleSheet.create({
   glowny: { alignSelf: 'stretch', minHeight: theme.cele.przyciskKciuka, borderRadius: promienie.przyciskGlowny, backgroundColor: theme.colors.akcent, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.s, marginTop: odstepy.m },
   glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naAkcencie, textAlign: 'center' },
   karta: { gap: odstepy.xs, padding: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
-  kartaGora: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s },
+  dotyk: { alignItems: 'center', minHeight: theme.cele.pozostale },
+  kartaGora: { minHeight: theme.cele.pozostale, flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s },
   numer: { minWidth: 24, minHeight: 24, paddingHorizontal: odstepy.xs, borderRadius: promienie.przycisk, borderWidth: 2, borderColor: theme.colors.tusz, alignItems: 'center', justifyContent: 'center' },
   numerTekst: { fontSize: typografia.style.przypis.pt, fontWeight: '700', color: theme.colors.tusz },
   kartaTytul: { flexShrink: 1, flexGrow: 1, flexBasis: 140, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },

@@ -9311,6 +9311,11 @@
       "src/lib/confirm.ts (kod)"
     ]
   },
+  "{wypiek}: {krok}. Otwórz prowadzenie wypieku": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (accessibilityLabel)"
+    ]
+  },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {
     "gdzie": []
   },

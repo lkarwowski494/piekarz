@@ -97,6 +97,7 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     '{wypiek}: {krok}',
     'Tor {n}, {receptura}: {krok}, {czas}',
     'Tor {n}, {receptura}: {krok}',
+    '{wypiek}: {krok}. Otwórz prowadzenie wypieku', // decyzja M1 2026-10-23 (zgoda trwała), wariant (a)
     '{wypiek}: {krok}, trwa',
     '{wypiek}, krok: {krok}, do {godzina}',
     // KONIEC D4b
