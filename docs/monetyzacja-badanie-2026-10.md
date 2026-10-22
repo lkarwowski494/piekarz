@@ -86,6 +86,41 @@ Formularz: App Store Connect → Help / Contact Us → App Review. Treść:
 >
 > Thank you.
 
+## E1: dowody
+
+### StoreKit 2 i adapter Piekarza dla zakupów nieodnawialnych
+| Sprawa | Fakt (źródło) | Skutek dla V1/V2 |
+|---|---|---|
+| Co widzi aplikacja | `currentEntitlements`: „The latest transaction for each non-renewing subscription, including finished ones” (MS-B07); „Products that the App Store has refunded or revoked don’t appear” (tamże) | dostęp = zakup nieodnawialny z `purchaseDate` + długość planu; zakończone trzeba odfiltrować w aplikacji |
+| Data końca | `expirationDate`: „The date the subscription expires or renews” (MS-B11); dokumentacja nie mówi, czy pole jest wypełniane dla nieodnawialnej: [DO USTALENIA] w sandboksie (OP-B04). Długości nieodnawialnej nie ustawia się w App Store Connect (MS-B04: tylko nazwa, ID, cena, lokalizacje) | długość planu definiuje aplikacja (stała w `konfiguracja.ts`, np. 30 / 91 / 365 dni) i musi ją podać przed zakupem; adapter liczy `transactionDate + długość`, a `expirationDate` traktuje tylko jako kontrolę |
+| Przedłużenie przed końcem | tylko **ostatnia** transakcja danego produktu jest w `currentEntitlements` (MS-B07); `Transaction.all` wymienia konsumpcyjne, niekonsumpcyjne, odnawiane i Family Sharing, a nieodnawialnych nie wymienia (MS-B12) | drugi zakup tego samego planu przed końcem „zjada” resztę pierwszego: koniec liczony od nowego zakupu, a pozostałe dni nie dają się odtworzyć ze sklepu na nowym telefonie. **Ryzyko realne** (płacący traci dni). Opcje na E2: (a) zakup czasowy niedostępny, gdy trwa inny plan czasowy, z datą końca na ekranie; (b) dozwolony od N dni przed końcem z jawnym „nowy okres liczy się od dziś”; (c) liczyć sumę z lokalnego zapisu (źródłem prawdy nie jest sklep: odrzucam, zasada roli 7) |
+| Inne urządzenia, ponowna instalacja | `AppStore.sync()`: „When users reinstall your app or download it on a new device, the app automatically has all transactions available to it upon initial launch” (MS-B13); `Transaction.updates` emituje też zakupy „on another device” (MS-B14) | jak dziś: bez osobnego mechanizmu; to, czy nieodnawialna dociera na drugie urządzenie tym kanałem, sprawdzić w sandboksie (OP-B04) |
+| Przywracanie | `AppStore.sync()` „only in response to an explicit user action” (MS-B13) | bez zmian (przycisk już jest) |
+| Zwrot | zwrócone znikają z `currentEntitlements` (MS-B07); `revocationDate` (MS-B15) | bez zmian w logice; dane zostają |
+| Próba 3.1.1 | Non-Consumable 0 zł: transakcja na zawsze w `currentEntitlements` (MS-B07) | koniec = `purchaseDate` + 14 dni; ponowna instalacja nie odnawia próby (dobrze); Family Sharing dla próby wyłączyć (inaczej rodzina dostaje próbę z cudzą datą) |
+| Biblioteka | `expo-iap` 6.1.1 → `openiap` 4.0.3 (`OpenIapStoreKitModule.swift:648–668`): `onlyIncludeActiveItemsIOS=true` czyta `currentEntitlements` i pomija transakcję tylko, gdy `expirationDate <= now`; `transactionDate` = `purchaseDate`, typ `non-renewing-subscription` w `ProductTypeIOS` (`StoreKitTypesBridge.swift:248`, `types.ts:1197`) (MS-B16) | wywołanie zostaje; zmienia się mapowanie w `sklep.ts` (dziś odrzuca subskrypcję bez daty końca, `sklep.ts:50`) |
+
+Co z obecnego kodu zostaje: `dostep.ts` (decyzja z pamięcią i błędem odczytu: bez zmian, bo `wygasa` liczy adapter), pamięć `platnosci_pamiec`, przywracanie, nasłuch `Transaction.updates`, `ekran.ts`, Non-Consumable dożywotni. Zmienia się: `konfiguracja.ts` (nowe ID, długości planów, próba), `sklep.ts` (mapowanie nieodnawialnych i próby, zakup `type: 'in-app'` zamiast `'subs'`, koniec oferty wprowadzającej i karencji), `uprzedzenie.ts` (koniec próby i każdego planu, bez gałęzi „pobierzemy”), `showManageSubscriptionsIOS` przestaje być potrzebne. Szacunek wielkości: [OCENA] 1–2 dni pracy agenta z testami wektorów, plus test w sandboksie (krok właściciela).
+
+Zakwas wobec długości (RD-24, S-44: założenie zwykle 7–10 dni): próba 14 dni i plan 30 dni mieszczą założenie; plan miesięczny wygasa w trakcie życia zakwasu, który trwa miesiącami. Po wygaśnięciu przypomnienia o dokarmianiu ustają (D-039, BR-ZAK-004). W D-038 subskrypcja odnawia się sama, więc ten moment zdarza się rzadko; w V1/V2 zdarza się po każdym zakupie czasowym. **Ryzyko realne dla żywego zakwasu:** opcje na E2 (przypomnienia o dokarmianiu istniejących zakwasów zawsze darmowe; ostatnie przypomnienie z informacją; bez zmian).
+
+### Prawo o ogłaszaniu obniżek i „za darmo” (tekst ekranu ofert właściciela)
+| Sprawa | Źródło (odczyt 2026-10-22) | Wniosek |
+|---|---|---|
+| Dyrektywa o podawaniu cen (obniżki) | 98/6/WE art. 6a ust. 1: „W każdym ogłoszeniu o obniżce ceny podaje się wcześniejszą cenę stosowaną przez podmiot gospodarczy przez określony okres przed zastosowaniem obniżki ceny.” (MS-B17) | dotyczy obniżki ceny tego samego produktu |
+| Zakres 98/6/WE | wytyczne Komisji 2021/C 526/01, pkt 1.2.5: „dyrektywa w sprawie podawania cen ma zastosowanie wyłącznie do dóbr materialnych, a nie do usług i treści cyfrowych” (MS-B18) | plan w aplikacji nie podlega art. 6a |
+| Porównanie z inną ceną | tamże, pkt 2.8.2: przedsiębiorcy muszą „wyraźnie poinformować konsumenta, że wskazana cena referencyjna jest ceną porównawczą, a nie obniżką ceny stosowanej uprzednio” (MS-B18) | „X% taniej niż 3 × miesięczny” wolno, jako porównanie nazwane wprost; bez przekreślonej ceny i bez słowa „rabat/discount” |
+| Polska | ustawa o informowaniu o cenach towarów i usług (t.j. Dz.U. 2023 poz. 168) art. 4 ust. 2: „W każdym przypadku informowania o obniżeniu ceny towaru lub usługi … uwidacznia się również informację o najniższej cenie tego towaru lub tej usługi, która obowiązywała w okresie 30 dni przed wprowadzeniem obniżki” (MS-B19) | w Polsce obejmuje także usługi; „rabat” na planie, którego cena nigdy nie była wyższa, to ogłoszenie obniżki bez wcześniejszej ceny: **ryzyko realne**, gdy tekst mówi „discount” |
+| „Za darmo” | 2005/29/WE zał. I pkt 20 (wzorce roli, odczyt 18.10.2026) | V1/V2: próba bez przyszłej opłaty jest naprawdę darmowa; D-038: „free” wymaga dopowiedzenia o odnowieniu |
+| Najwyraźniejsza kwota | MS-B08 („most prominent pricing element”) | kwota do zapłaty (0,99 / 2,49 / 6,99 / 14,99) większa niż procent porównania |
+
+Ocena propozycji tekstu właściciela (do roli 04/06, tekstów nie piszę):
+- „We will never charge you with a subscription that you forgot to cancel” — prawdziwe w V1/V2, bo nie ma produktu odnawianego; obietnica trwała tylko, dopóki aplikacja nie doda subskrypcji odnawianej. Jeśli zostanie, należy ją zapisać jako regułę modelu (decyzja na E2). W D-038 to zdanie byłoby nieprawdziwe.
+- „pay 0.99 now and keep all features for another 30 days” — zgodne z V1, jeśli plan ma 30 dni (długość ustala aplikacja, nie Apple: wyżej).
+- X = 16% (2,49 wobec 3 × 0,99 = 2,97), Y = 41% (6,99 wobec 12 × 0,99 = 11,88): rachunek zgodny; podać jako porównanie („16% less than 3 monthly passes”), nie jako rabat (MS-B18, MS-B19).
+- Z (dożywotni): jednej uczciwej liczby nie ma, bo zależy od horyzontu; „zwraca się po 15 miesiącach” (14,99 / 0,99 = 15,1) jest sprawdzalne i nie udaje rabatu.
+- Metafora „just friends / husband/wife material / marry us”: płciowa para „husband/wife”, w 35 językach przekład dosłowny może brzmieć dwuznacznie albo wykluczająco; rozstrzyga rola 04 z 06 (ton) i przekład. Zgłaszam jako ryzyko, nie oceniam stylu.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -99,6 +134,15 @@ Formularz: App Store Connect → Help / Contact Us → App Review. Treść:
 | MS-B08 | developer.apple.com/app-store/subscriptions/ | „Billing amount”, „Free trials” | „the amount that will be billed must be the most prominent pricing element in the layout”; „clearly indicate how long the free trial lasts and the price billed once the free trial is over” | 1 |
 | MS-B09 | developer.apple.com/help/app-store-connect/manage-in-app-purchases/set-a-price-for-an-in-app-purchase | akapit 1 | „If the most recent version of this agreement hasn’t been accepted, you can only offer your app for free.”; „Choose from up to 800 price points by default” | 1 |
 | MS-B10 | api.nbp.pl/api/exchangerates/rates/a/usd/ | tabela A | 206/A/NBP/2026, 2026-10-22, mid 3,8886 | 1 |
+| MS-B11 | developer.apple.com/documentation/storekit/transaction/expirationdate (JSON) | opis | „The date the subscription expires or renews.” | 1 |
+| MS-B12 | developer.apple.com/documentation/storekit/transaction/all (JSON) | lista | „Unfinished consumables Finished consumables that are refunded or revoked Non-consumables Auto-renewable subscriptions, including all renewals Auto-renewable subscriptions and non-consumables that the customer gets through Family Sharing” | 1 |
+| MS-B13 | developer.apple.com/documentation/storekit/appstore/sync() (JSON) | Discussion | „Call this function only in response to an explicit user action”; „the app automatically has all transactions available to it upon initial launch” | 1 |
+| MS-B14 | developer.apple.com/documentation/storekit/transaction/updates (JSON) | Discussion | „It also emits transactions that customers complete in your app on another device.” | 1 |
+| MS-B15 | developer.apple.com/documentation/storekit/transaction/revocationdate (JSON) | opis | „The date that the App Store refunded the transaction or revoked it from Family Sharing.” | 1 |
+| MS-B16 | github.com/hyodotdev/openiap, tag 4.0.3, `packages/apple/Sources/OpenIapStoreKitModule.swift:648–668`, `StoreKitTypesBridge.swift:248`; `node_modules/expo-iap/src/types.ts:1197` | kod | `for await verification in (onlyActive ? Transaction.currentEntitlements : Transaction.all)`; `if onlyActive, let expirationDate = transaction.expirationDate, expirationDate <= Date() { continue }` | 1 (kod biblioteki) |
+| MS-B17 | eur-lex.europa.eu, CELEX 01998L0006-20220528 (PL) | art. 6a ust. 1–2 | cytat w tabeli prawa | 1 |
+| MS-B18 | eur-lex.europa.eu, CELEX 52021XC1229(05) (PL), wytyczne do dyrektywy 2005/29/WE | pkt 1.2.5, 2.8.2 | cytaty w tabeli prawa | 1 (wytyczne Komisji) |
+| MS-B19 | api.sejm.gov.pl/eli/acts/DU/2023/168/text.html | art. 4 ust. 2 | cytat w tabeli prawa; nowszego tekstu jednolitego w ELI brak (wyszukanie tytułu, 2026-10-22) | 1 |
 
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
@@ -106,4 +150,5 @@ Formularz: App Store Connect → Help / Contact Us → App Review. Treść:
 | OP-B01 | [DO USTALENIA] status przeglądu `.pro.monthly`, `.pro.yearly`, `.pro.lifetime` w App Store Connect (wysłane do App Review czy nie); czeka na M1 | M1 (odczyt na sucho) | E0-4, koszt zmiany |
 | OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial”; treść pytania gotowa (wyżej) | właściciel: pytanie do App Review | V1, V2 |
 | OP-B03 | [DO USTALENIA] czy istnieje próg 2,49 USD i próg 0 dla Non-Renewing Subscription / Non-Consumable, wpływ (`proceeds`) progów; czeka na M1 | M1 (App Store Connect API, odczyt) | rachunek E2 |
+| OP-B04 | [DO USTALENIA] czy StoreKit wypełnia `expirationDate` dla subskrypcji nieodnawialnej i czy jej transakcja dociera na drugie urządzenie przez `currentEntitlements`/`updates` | właściciel: sandbox lub TestFlight po E3 | adapter, wektory |
 | OP-M01 | rozstrzygnięte 2026-10-22: Small Business Program aktywny, 15% (słowa właściciela wyżej) | właściciel | rachunek |
