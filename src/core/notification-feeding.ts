@@ -1,6 +1,7 @@
 // ============================================================================
 // Piekarz — przypomnienia o karmieniu zakwasu: blat, lodówka co 7 dni i stały dzień karmienia (ADR-006) [M3 D2]
 // Czyste funkcje: czas jako argument (ms UTC), dzień i godzina w strefie urządzenia (src/core/dzien-lokalny.ts, DST).
+// terminKarmienia to jedna reguła terminu dla powiadomień i kalendarza (BR-KAL-002 „Ten sam termin”) [M3 D4a].
 // ============================================================================
 
 import { addCalendarDays, atLocalTime, calendarDayDiff } from './dzien-lokalny';
@@ -33,28 +34,69 @@ export function nextFixedFeeding(
   return at;
 }
 
+export type TekstKarmienia = Extract<NotificationTextKey, `karmienie.${string}`>;
+/** Termin karmienia zakwasu i rodzaj (blat, lodówka co 7 dni, stały dzień) — wspólny dla powiadomień i kalendarza. */
+export interface TerminKarmienia {
+  at: number;
+  textKey: TekstKarmienia;
+}
+
+/** Stały dzień karmienia, gdy obowiązuje: lodówka, nie w trakcie zakładania (BR-KAL-010, RD-31). */
+export function stalyDzienKarmienia(s: PlanStarter): { weekday: number; minuteOfDay: number } | null {
+  const wZakladaniu = s.setupStartedAt !== undefined && s.setupCompletedAt === undefined;
+  return s.storageState === 'FRIDGE' && !wZakladaniu && s.fridgeFeedDay ? s.fridgeFeedDay : null;
+}
+
+const czytelna = (v: number | undefined): v is number => typeof v === 'number' && Number.isFinite(v);
+
+/** Punkt, od którego liczy się następny termin: późniejsze z dokarmienia i pominięcia (D-094); brak = undefined. */
+export function punktOdniesieniaKarmienia(s: Pick<PlanStarter, 'lastFedAt' | 'pominietoAt'>): number | undefined {
+  const fed = czytelna(s.lastFedAt) ? s.lastFedAt : undefined;
+  const pom = czytelna(s.pominietoAt) ? s.pominietoAt : undefined;
+  if (fed === undefined) return pom;
+  return pom !== undefined && pom > fed ? pom : fed;
+}
+
+/**
+ * Termin karmienia liczony od chwili `od` (RD-25, D-093, D-094): blat `od` + 12 h, lodówka `od` + 7 dni kalendarza,
+ * stały dzień: najbliższy ustawiony dzień po `od` (bez `od` — po `now`). Bez punktu odniesienia i stałego dnia → null.
+ */
+export function terminKarmienia(s: PlanStarter, od: number | undefined, now: number): TerminKarmienia | null {
+  const staly = stalyDzienKarmienia(s);
+  const lastFedAt = czytelna(s.lastFedAt) ? s.lastFedAt : undefined;
+  const wDzien = staly ? nextFixedFeeding(staly, lastFedAt, od ?? now) : null;
+  // Niepoprawny stały dzień (null) — jak bez stałego dnia, co 7 dni od dokarmienia
+  if (wDzien !== null) return { at: wDzien, textKey: 'karmienie.lodowkaDzien' };
+  if (od === undefined) return null;
+  return s.storageState === 'ROOM_TEMP'
+    ? { at: od + FEED_ROOM_TEMP_AFTER_MS, textKey: 'karmienie.blat' }
+    : { at: addCalendarDays(od, FEED_FRIDGE_DUE_AFTER_DAYS), textKey: 'karmienie.lodowkaTermin' };
+}
+
+/**
+ * Dane do pytania z BR-KAL-010 „Karmienie w inny dzień” (UI w D7): dokarmienie zakwasu ze stałym dniem w inny dzień
+ * tygodnia → dzień stały i dzień dokarmienia (ISO 1 = poniedziałek … 7 = niedziela); inaczej null.
+ */
+export function pytanieOStalyDzien(s: PlanStarter, fedAt: number): { stalyDzien: number; dzienKarmienia: number } | null {
+  const staly = stalyDzienKarmienia(s);
+  if (!staly || !Number.isInteger(staly.weekday) || staly.weekday < 1 || staly.weekday > 7 || !Number.isFinite(fedAt)) return null;
+  const dzien = new Date(fedAt).getDay() || 7;
+  return dzien === staly.weekday ? null : { stalyDzien: staly.weekday, dzienKarmienia: dzien };
+}
+
 /**
  * Przypomnienia o karmieniu: jedno na cykl karmienia (DEC-22 a) [M1-audytor-generalny-179; 11-wzrost-503] —
  * blat +12 h, lodówka termin +7 d albo stały dzień karmienia (BR-KAL-010; nie w trakcie zakładania, RD-31);
- * minione terminy pominięte.
+ * minione terminy pominięte. Termin z terminKarmienia (ten sam co w kalendarzu); po „Pomiń” liczony od chwili
+ * pominięcia (D-094) [M3 D4a]. Stały dzień: najbliższy po teraz, więc po minionym dniu przypomnienie za tydzień.
  */
 export function planFeedingNotifications(starters: readonly PlanStarter[], now: number): PlannedNotification[] {
   const out: PlannedNotification[] = [];
   for (const s of starters) {
-    const wZakladaniu = s.setupStartedAt !== undefined && s.setupCompletedAt === undefined;
-    const staly = s.storageState === 'FRIDGE' && !wZakladaniu && s.fridgeFeedDay ? nextFixedFeeding(s.fridgeFeedDay, s.lastFedAt, now) : null;
-    let triggerAt: number;
-    let textKey: NotificationTextKey;
-    if (staly !== null) {
-      [textKey, triggerAt] = ['karmienie.lodowkaDzien', staly];
-    } else {
-      if (s.lastFedAt === undefined) continue;
-      [textKey, triggerAt] =
-        s.storageState === 'ROOM_TEMP'
-          ? ['karmienie.blat', s.lastFedAt + FEED_ROOM_TEMP_AFTER_MS]
-          : ['karmienie.lodowkaTermin', addCalendarDays(s.lastFedAt, FEED_FRIDGE_DUE_AFTER_DAYS)];
-    }
-    if (triggerAt <= now) continue;
+    const odDokarmienia = terminKarmienia(s, punktOdniesieniaKarmienia(s), now);
+    const termin = odDokarmienia?.textKey === 'karmienie.lodowkaDzien' && odDokarmienia.at <= now ? terminKarmienia(s, now, now) : odDokarmienia;
+    if (!termin || termin.at <= now) continue;
+    const { at: triggerAt, textKey } = termin;
     out.push({
       id: `${NOTIF_PREFIX}karmienie.${s.id}.1`,
       kind: 'karmienie',

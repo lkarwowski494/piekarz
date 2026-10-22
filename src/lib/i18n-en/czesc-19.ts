@@ -82,4 +82,20 @@ export const EN_19: Record<string, string> = {
     'Transfer to a generously oiled baking tray. Before putting it in the oven, pour over a brine emulsion (water, olive oil, salt) and vigorously press with your fingers to create dimples. According to King Arthur Baking, the dough rises for 1.5–2 hours, and once stretched in the pan for another 30 minutes.',
   'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.':
     'Poolish preferment (20% of the flour and 100% hydration). Baked on a preheated baking steel or baking stone with intense steam. According to King Arthur Baking, the poolish ripens for about 14 hours, and the dough rises for 45 and then another 45 minutes.',
+  // Kalendarz 1.0: linia „Następne”, zaległe, typy zdarzeń (teksty roli 04, a2) [M3 D4a, BR-KAL-003, D-094]
+  'Następne: {lista}': 'Next: {lista}',
+  'Zaległe: {co} ({h})': 'Overdue: {co} ({h})',
+  '{kiedy} {h} {co}': '{kiedy} {h} {co}',
+  '{co}, opcjonalne': '{co}, optional',
+  '+{n}': '+{n}',
+  'Pokaż jeszcze {n} w arkuszu dnia': 'Show {n} more in the day sheet',
+  '{co} z {h}: zrobione': '{co} at {h}: done',
+  'Pomiń {co} z {h}': 'Skip {co} at {h}',
+  'Pomiń': 'Skip',
+  '{wypiek}: gotowe': '{wypiek}: ready',
+  'karmienie zakwasu {zakwas}': 'feeding the starter {zakwas}',
+  'Dokarmiony {zakwas}': 'Fed {zakwas}',
+  'Zakładanie zakwasu: dzień {n}, do zrobienia': 'Making the starter: day {n}, to do',
+  'Zakładanie zakwasu: dzień {n} zapisany': 'Making the starter: day {n} logged',
+  '{wypiek}: ocena {ocena} z 5': '{wypiek}: rated {ocena} out of 5',
 };

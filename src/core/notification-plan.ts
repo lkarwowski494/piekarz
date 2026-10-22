@@ -88,6 +88,8 @@ export interface PlanStarter {
   /** Zakwas w trakcie zakładania ma początek, ale nie ma końca (RD-31): stałego dnia nie stosujemy. */
   setupStartedAt?: number;
   setupCompletedAt?: number;
+  /** Ostatnie „Pomiń” zaległego karmienia (D-094): następny termin liczy się od tej chwili, gdy jest po dokarmieniu [M3 D4a]. */
+  pominietoAt?: number;
 }
 export interface PlanBakeSession {
   /** Id wypieku (wiersz bake_sessions): z niego identyfikatory powiadomień; dwa wypieki nie nadpisują się. */

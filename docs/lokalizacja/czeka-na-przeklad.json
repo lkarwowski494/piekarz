@@ -22,6 +22,81 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "Następne: {lista}",
+      "powod": "zdanie linii „Następne” na „Dziś”: pozycje przyszłe z separatorem „·”, też etykieta VoiceOver (parametr {lista}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaległe: {co} ({h})",
+      "powod": "pozycja zaległa na początku linii „Następne” i w arkuszu dnia (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{kiedy} {h} {co}",
+      "powod": "pozycja przyszła w linii „Następne”: dzień słownie, godzina, zdarzenie (parametry {kiedy}, {h}, {co}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{co}, opcjonalne",
+      "powod": "dopisek zadania opcjonalnego w linii „Następne” (parametr {co}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "+{n}",
+      "powod": "przycisk „+N” linii „Następne” (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż jeszcze {n} w arkuszu dnia",
+      "powod": "etykieta VoiceOver przycisku „+N” (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{co} z {h}: zrobione",
+      "powod": "etykieta VoiceOver przycisku „Zrobione” przy zaległym (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pomiń {co} z {h}",
+      "powod": "etykieta VoiceOver przycisku „Pomiń” przy zaległym (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pomiń",
+      "powod": "przycisk przy pozycji „Zaległe” [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: gotowe",
+      "powod": "zdarzenie „gotowe” wypieku w linii i arkuszu dnia (parametr {wypiek}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "karmienie zakwasu {zakwas}",
+      "powod": "zdarzenie terminu karmienia w linii i arkuszu dnia (parametr {zakwas}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Dokarmiony {zakwas}",
+      "powod": "zapisane dokarmienie w arkuszu dnia (parametr {zakwas}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakładanie zakwasu: dzień {n}, do zrobienia",
+      "powod": "dzień zakładania zakwasu dziś w arkuszu dnia (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakładanie zakwasu: dzień {n} zapisany",
+      "powod": "miniony dzień zakładania zakwasu w arkuszu dnia (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: ocena {ocena} z 5",
+      "powod": "wpis Dziennika z oceną w arkuszu dnia (parametry {wypiek}, {ocena}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Prowadź oba",
       "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie, gdy trwa jeden wypiek [M3 D3a, D-104]",
       "od": "2026-10-22"

@@ -65,6 +65,22 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     // M3 D2: powiadomienia wielu wypieków i stałego dnia karmienia (2 klucze)
     'Wypiek: {wypiek}.',
     'Dziś ustalony dzień karmienia zakwasu „{name}”.',
+    // M3 D4a: kalendarz 1.0 — linia „Następne”, zaległe, typy zdarzeń (15 kluczy)
+    'Następne: {lista}',
+    'Zaległe: {co} ({h})',
+    '{kiedy} {h} {co}',
+    '{co}, opcjonalne',
+    '+{n}',
+    'Pokaż jeszcze {n} w arkuszu dnia',
+    '{co} z {h}: zrobione',
+    'Pomiń {co} z {h}',
+    'Pomiń',
+    '{wypiek}: gotowe',
+    'karmienie zakwasu {zakwas}',
+    'Dokarmiony {zakwas}',
+    'Zakładanie zakwasu: dzień {n}, do zrobienia',
+    'Zakładanie zakwasu: dzień {n} zapisany',
+    '{wypiek}: ocena {ocena} z 5',
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

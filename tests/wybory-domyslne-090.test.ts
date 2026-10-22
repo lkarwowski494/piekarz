@@ -82,12 +82,16 @@ describe('090: wybory z kalibracji bez decyzji (design-spec §12a) = 0', () => {
     expect(z).toEqual([]);
   });
 
-  it('02-kierunki: bez „A · B” w tekstach (literały, JSX)', () => {
+  // Wyjątek z decyzją (nie wybór z kalibracji): linia „Następne” na „Dziś” jednym zdaniem z „·” — D-105 (wybór
+  // właściciela 3+1) i D-094; tylko separator zdania w src/lib/kalendarz-teksty.ts [M3 D4a]. Inny plik z „ · ” nadal pada.
+  const Z_DECYZJA_D105 = 'src/lib/kalendarz-teksty.ts';
+  it('02-kierunki: bez „A · B” w tekstach (literały, JSX) poza separatorem linii „Następne” z decyzją D-105', () => {
     const z = skanuj((n) => {
       const s = tekstLiteralu(n);
       return s !== null && s.includes(' · ') ? s.trim().slice(0, 60) : null;
     });
-    expect(z).toEqual([]);
+    expect(z.filter((x) => x.gdzie.replace(/\\/g, '/').split(':')[0] !== Z_DECYZJA_D105)).toEqual([]);
+    expect(fs.existsSync(path.join(ROOT, Z_DECYZJA_D105))).toBe(true);
   });
 
   // Wiersz §12a „WERSALIKI …, „A · B”, „→” na przyciskach, mono na etykietach” mówi „brak”: grep stylów nie widzi

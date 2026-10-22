@@ -14,6 +14,8 @@ import {
 import { idSesji } from '../data/bake-session-store';
 import { loadActiveBakeSessions, loadPlannedBakes } from '../data/bake-sessions-store';
 import { collectBackupData } from '../data/sqlite-store';
+import { wczytajPominiecia } from '../data/pominiecia-store';
+import { pominietoKarmienieAt } from '../core/pominiecia';
 import { t, lang } from './i18n';
 import { formatTime } from './format';
 import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
@@ -120,8 +122,12 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       // Przypomnienia o zakwasie tylko z uprawnieniem: po końcu próby dokarmianie otwiera ekran zakupu, a kontrakt
       // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
       // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
-      const starters = async () =>
-        przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()) ? (await collectBackupData()).starters : [];
+      // Po „Pomiń” zaległego karmienia termin liczy się od chwili pominięcia, jak w kalendarzu (D-094) [M3 D4a]
+      const starters = async () => {
+        if (!(przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()))) return [];
+        const pominiecia = await wczytajPominiecia(Date.now()).catch(() => []);
+        return (await collectBackupData()).starters.map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) }));
+      };
       const wypieki = async () => ({
         sessions: (await loadActiveBakeSessions()).map((s) => ({ ...s, id: idSesji(s) })),
         planned: await loadPlannedBakes(),
@@ -156,7 +162,7 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
  * Czy planować przypomnienia o zakwasie: z uprawnieniem App Store; do pierwszego odczytu sklepu bez zmian
  * (brak odpowiedzi App Store to nie koniec próby, więc oczekujące przypomnienia nie znikają przy starcie).
  */
-function przypomnieniaZDostepem(s: StanDostepu): boolean {
+export function przypomnieniaZDostepem(s: StanDostepu): boolean {
   return !s.gotowe || evaluateAppAccess(s.decyzja).canCreateNewBake;
 }
 

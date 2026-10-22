@@ -88,6 +88,11 @@ describe('osiągalność kalkulatora i motywów z app/ (149)', () => {
     expect(martwe).toEqual([]);
   });
 
+  // Wyjątek nazwany M3 D4a: logika kalendarza 1.0 bez ekranu (polecenie partii: „bez ekranów; ekrany to D4b”); ekran
+  // „Dziś” (pasek, „Następne”, arkusz dnia) wpina ją w partii D4b, która usuwa tę listę. Test niżej pada, gdy plik
+  // z listy stanie się osiągalny albo zniknie, więc wyjątek nie zostaje po cichu.
+  const CZEKA_NA_EKRAN_D4B = ['src/core/kalendarz-nastepne.ts', 'src/core/kalendarz-zdarzenia.ts', 'src/lib/kalendarz-dane.ts', 'src/lib/kalendarz-teksty.ts'];
+
   // M1-audytor-generalny-211 (08-programista-601): cały src/, nie tylko katalogi zadania 149.
   // Plik z samymi typami (bez eksportu wartości) nie jest martwym kodem, więc go pomijamy.
   it('każdy plik src/** (poza testami i plikami z samymi typami) jest osiągalny z app/ importem wartości (211)', () => {
@@ -96,8 +101,13 @@ describe('osiągalność kalkulatora i motywów z app/ (149)', () => {
       .filter((p) => !/\/(__tests__|__mocks__)\//.test(p))
       .filter((p) => maEksportWartosci(fs.readFileSync(path.join(ROOT, p), 'utf8')));
     expect(badane.length).toBeGreaterThan(100);
-    const martwe = badane.filter((p) => !osiagalne.has(p)).sort();
+    const martwe = badane.filter((p) => !osiagalne.has(p) && !CZEKA_NA_EKRAN_D4B.includes(p)).sort();
     expect(martwe).toEqual([]);
+  });
+
+  it('wyjątek M3 D4a: pliki logiki kalendarza istnieją i nadal czekają na ekran D4b (po wpięciu usuń wpis)', () => {
+    const osiagalne = osiagalneZApp();
+    expect(CZEKA_NA_EKRAN_D4B.filter((p) => !fs.existsSync(path.join(ROOT, p)) || osiagalne.has(p))).toEqual([]);
   });
 
   it('w src/ nie ma motywów amber-theme ani craft-suite-theme', () => {

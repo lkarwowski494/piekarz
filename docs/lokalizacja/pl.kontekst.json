@@ -10,6 +10,11 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "+{n}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (plus)"
+    ]
+  },
   "-10 sek": {
     "gdzie": []
   },
@@ -1176,6 +1181,11 @@
   "Dokarmiono zakwas": {
     "gdzie": [
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
+    ]
+  },
+  "Dokarmiony {zakwas}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "Doktor": {
@@ -3360,6 +3370,11 @@
   "Następne pytanie": {
     "gdzie": []
   },
+  "Następne: {lista}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
@@ -4351,6 +4366,11 @@
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
+  "Pokaż jeszcze {n} w arkuszu dnia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (etykietaPlus)"
+    ]
+  },
   "Pokaż wszystkie": {
     "gdzie": [
       "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
@@ -4390,6 +4410,16 @@
   "Pominięcie bench restu — gluten jest zbyt napięty i rwie się przy ostatecznym formowaniu.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
+    ]
+  },
+  "Pomiń": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (pomin)"
+    ]
+  },
+  "Pomiń {co} z {h}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (pomin)"
     ]
   },
   "Pomyślnie odliczono": {
@@ -7609,6 +7639,16 @@
       "src/components/zakwas/ZakladanieStart.tsx (tekst w JSX)"
     ]
   },
+  "Zakładanie zakwasu: dzień {n} zapisany": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "Zakładanie zakwasu: dzień {n}, do zrobienia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.": {
     "gdzie": [
       "src/core/volume-converter.ts (dane: warningPl)"
@@ -7617,6 +7657,11 @@
   "Zalecenie studzenia na kratce": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "Zaległe: {co} ({h})": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "Zaliczona": {
@@ -8068,7 +8113,8 @@
   },
   "Zrobione": {
     "gdzie": [
-      "src/components/stolnica/PasekKciuka.tsx (tekst w JSX)"
+      "src/components/stolnica/PasekKciuka.tsx (tekst w JSX)",
+      "src/lib/kalendarz-teksty.ts (zrobione)"
     ]
   },
   "Zrobione: {krok}": {
@@ -8259,6 +8305,11 @@
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "karmienie zakwasu {zakwas}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "kwi": {
@@ -8569,6 +8620,16 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
+  "{co} z {h}: zrobione": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (zrobione)"
+    ]
+  },
+  "{co}, opcjonalne": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "{czas} od dokarmienia": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
@@ -8613,6 +8674,11 @@
   "{h} h {m} min": {
     "gdzie": [
       "src/lib/czas-trwania.ts (kod)"
+    ]
+  },
+  "{kiedy} {h} {co}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "{krok} wypada o {godzina} w nocy": {
@@ -8873,7 +8939,18 @@
   },
   "{wypiek}, krok: {krok}": {
     "gdzie": [
-      "src/components/stolnica/PrzelacznikWypiekow.tsx (accessibilityLabel)"
+      "src/components/stolnica/PrzelacznikWypiekow.tsx (accessibilityLabel)",
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}: gotowe": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}: ocena {ocena} z 5": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {
