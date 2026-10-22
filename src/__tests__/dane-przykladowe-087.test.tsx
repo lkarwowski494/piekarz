@@ -78,7 +78,10 @@ describe('087: pusta baza — bez danych zmyślonych jako dane użytkownika', ()
     // M3 D4b: pas „Dziś” (D-105) ma dzisiejszą datę i numery dni tygodnia — to kalendarz, nie dane przykładowe; liczby
     // sprawdzamy w treści pod pasem, a na pasie tylko to, że nie ma zdarzeń ani linii „Następne”
     const pas = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'pas-dzis')[0];
-    const naPasie = new Set(pas.findAllByType(Text));
+    // D-121 (W-fix2): przy dużym tekście (atrapa okna w Jest ma fontScale 2) data pasa stoi pod pasem (`pas-pod`) — to
+    // nadal data pasa, nie dane przykładowe
+    const podPasem = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'pas-pod');
+    const naPasie = new Set([...pas.findAllByType(Text), ...podPasem.flatMap((p) => p.findAllByType(Text))]);
     const txt = teksty(tree.root);
     const baner = new Set(tree.root.findAllByType(CorruptStateRecoveryBanner).flatMap((b) => b.findAllByType(Text)));
     const pod = tree.root.findAllByType(Text).filter((n) => !naPasie.has(n) && !baner.has(n)).map((n) => [n.props.children].flat().join('')).join(' | ');
