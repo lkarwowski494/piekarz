@@ -64,6 +64,18 @@ export function confirmDiscardBake(onConfirm: () => void) {
 }
 
 /**
+ * „Zacznij wypiek” przy trwającym wypieku: [Wróć do trwającego] (domyślne) [Przerwij tamten i zacznij nowy]
+ * (niszczące) [Anuluj]. Wypiek zastępowany po cichu tracił stan i powiadomienia pierwszego [M3 p1b a1b].
+ */
+export function confirmStartPrzyTrwajacym(onReturn: () => void, onReplace: () => void) {
+  Alert.alert(t('Trwa już inny wypiek'), t('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.'), [
+    { text: t('Wróć do trwającego'), isPreferred: true, onPress: onReturn },
+    { text: t('Przerwij tamten i zacznij nowy'), style: 'destructive', onPress: onReplace },
+    cancelButton(),
+  ]);
+}
+
+/**
  * Potwierdzenie zresetowania profilu zakwasu.
  */
 export function confirmResetStarter(onConfirm: () => void) {

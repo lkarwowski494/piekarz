@@ -159,4 +159,9 @@ export const EN_18: Record<string, string> = {
   '20 min w nagrzanym garnku żeliwnym (240°C) pod pokrywką + 22–25 min bez pokrywki (210°C) do głębokiego zbrązowienia.':
     '20 min in a preheated cast-iron pot (240°C) with the lid on + 22–25 min without the lid (210°C) until deeply browned.',
   'Brak katalogu dokumentów aplikacji': "The app's documents folder is not available",
+  'Trwa już inny wypiek': 'Another bake is already in progress',
+  'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.':
+    'A new bake will replace the one in progress. Its progress and notifications will be gone.',
+  'Wróć do trwającego': 'Back to the bake in progress',
+  'Przerwij tamten i zacznij nowy': 'Stop that one and start a new one',
 };

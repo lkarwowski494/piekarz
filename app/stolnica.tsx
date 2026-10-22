@@ -8,12 +8,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Stack, useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { t } from '../src/lib/i18n';
-import { guardSave } from '../src/lib/save-guard';
+import { przerwijSesjeWypieku } from '../src/lib/przerwij-wypiek';
 import { tapHaptic } from '../src/lib/haptics';
 import { useBakeSession } from '../src/hooks/useBakeSession';
 import { useFinishBake } from '../src/hooks/useFinishBake';
-import { saveBakeSession, zaczetyZDostepem } from '../src/data/bake-session-store';
-import { resyncNotifications, ensureNotificationPermission, getNotificationPermission } from '../src/lib/notifications';
+import { zaczetyZDostepem } from '../src/data/bake-session-store';
+import { ensureNotificationPermission, getNotificationPermission } from '../src/lib/notifications';
 import { ZgodaPowiadomien } from '../src/components/stolnica/ZgodaPowiadomien';
 import { SkladnikiKroku } from '../src/components/stolnica/SkladnikiKroku';
 import { SleepGuardBanner } from '../src/components/harmonogram/SleepGuardBanner';
@@ -22,7 +22,7 @@ import { kolizjeKrokow } from '../src/lib/plan-bez-nocy';
 import { formatTime } from '../src/lib/format';
 import { NotificationsOffBanner } from '../src/components/NotificationsOffBanner';
 import { confirmDiscardBake } from '../src/lib/confirm';
-import { setActiveBake, ActiveBakeState } from '../src/data/sqlite-store';
+import type { ActiveBakeState } from '../src/data/sqlite-store';
 import { useUnitSystem } from '../src/lib/unit-converter';
 import { notifyTimerFinished, notifySteamReleaseAlert } from '../src/lib/timer-audio';
 import { DUTCH_OVEN_PHASES, DutchOvenBakePhase } from '../src/core/baking-phases';
@@ -266,12 +266,8 @@ export default function StolnicaScreen() {
   const handleDiscard = () => {
     confirmDiscardBake(() => {
       setPlanOpen(false);
-      setActiveBake(null);
-      // Nieudane skasowanie sesji: „Nie zapisano”, nie cisza [M1-audytor-generalny-120]
-      void guardSave(async () => {
-        await saveBakeSession(null);
-        await resyncNotifications();
-      })();
+      // Pamięć, zapis sesji i powiadomienia: ta sama ścieżka co przerwanie przy starcie nowego wypieku w planie (a1b)
+      void przerwijSesjeWypieku();
       setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);

@@ -1,6 +1,27 @@
 {
   "_opis": "Klucze 1.0 bez przekładu w językach 093 (nie było ich w wejściu przekładu M1, bo kod wyświetlał je bez t() albo w gotowym zdaniu PL). Do czasu poprawki w językach z listy (brak listy = wszystkie 33) aplikacja pokazuje tekst EN. npm run check:i18n liczy je jako dozwolony brak (UWAGA). Zamknięcie: mały przebieg przekładu M1 (Claude API), poprawki w docs/lokalizacja/poprawki-przekladu.json albo nowe wejście generatora, potem usunięcie wpisu [M1-audytor-generalny-093].",
-  "klucze": [],
+  "klucze": [
+    {
+      "klucz": "Trwa już inny wypiek",
+      "powod": "tytuł pytania przy „Zacznij wypiek” w planie, gdy trwa inny wypiek [M3 p1b a1b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.",
+      "powod": "treść pytania przy „Zacznij wypiek” w planie, gdy trwa inny wypiek [M3 p1b a1b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wróć do trwającego",
+      "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przerwij tamten i zacznij nowy",
+      "powod": "niszczący wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "od": "2026-10-22"
+    }
+  ],
   "zamkniete": {
     "data": "2026-10-22",
     "sposob": "przebieg M1 „hr-ti” (Claude API Message Batches, claude-opus-5-5, effort medium) na gałęzi naprawy/M2-koordynator-napraw-2026-10-19-p18: 51 tekstów hr (15 nowych kluczy noc3 + 36 ponownych przekładów) w formie „ti” (D-086, audyt niezależny F-7); etap terminów pominięty — baza terminów z pełnego przekładu hr, forma „ti” wymuszona; 0 błędów walidacji, tłumaczenie zwrotne bez rozbieżności, 0 tekstów w formie „Vi”; wpięty przez scripts/wepnij-przeklad.mjs --jezyki hr (porównanie map klucz → tekst: hr +15 kluczy i 36 zmienionych, 0 innych zmian; pozostałe 32 języki bez zmian). Kosztorys countTokens 0,19 USD, koszt rzeczywisty 0,1341 USD. Raport: narzedzia-api/przeklad/raporty/hr-ti-2026-10-22.md",

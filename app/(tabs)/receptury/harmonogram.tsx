@@ -23,6 +23,8 @@ import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
+import { confirmStartPrzyTrwajacym } from '../../../src/lib/confirm';
+import { czyTrwaWypiek, przerwijSesjeWypieku } from '../../../src/lib/przerwij-wypiek';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
@@ -215,7 +217,7 @@ export default function HarmonogramScreen() {
   // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
   const handleStartBakeOnWorkbench = () => {
     if (zaPozno || bezZakwasu) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
-    requireActionAccess(() => {
+    const zacznij = () => {
       const receptura = recepturaPlanu();
       setActiveBake({
         id: `bake_${Date.now()}`,
@@ -231,6 +233,16 @@ export default function HarmonogramScreen() {
         ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
       });
       router.push('/stolnica');
+    };
+    // Trwający wypiek nie przepada po cichu: pytanie z trzema wyborami (a1b); bez trwającego start jak dotąd
+    requireActionAccess(() => {
+      void czyTrwaWypiek().then((trwa) => {
+        if (!trwa) return zacznij();
+        confirmStartPrzyTrwajacym(
+          () => router.push('/stolnica'),
+          () => { void przerwijSesjeWypieku().then(zacznij); },
+        );
+      });
     });
   };
 

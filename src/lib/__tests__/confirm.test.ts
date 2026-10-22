@@ -5,6 +5,7 @@ import {
   okButton,
   confirm,
   confirmDiscardBake,
+  confirmStartPrzyTrwajacym,
   confirmResetStarter,
   confirmDeleteBakeLog,
   confirmDeleteStarter,
@@ -74,6 +75,28 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
     expect(buttons[0].style).toBe('cancel');
     expect(buttons[1].text).toBe('Przerwij');
     expect(buttons[1].style).toBe('destructive');
+  });
+
+  it('confirmStartPrzyTrwajacym: powrót domyślny, przerwanie niszczące, Anuluj bez skutku (a1b)', () => {
+    const wroc = jest.fn();
+    const zastap = jest.fn();
+    confirmStartPrzyTrwajacym(wroc, zastap);
+
+    expect(Alert.alert).toHaveBeenCalledTimes(1);
+    const [title, message, buttons] = (Alert.alert as jest.Mock).mock.calls[0];
+    expect(title).toBe('Trwa już inny wypiek');
+    expect(message).toBe('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.');
+    expect(buttons.map((b: { text: string }) => b.text)).toEqual(['Wróć do trwającego', 'Przerwij tamten i zacznij nowy', 'Anuluj']);
+    expect(buttons[0].isPreferred).toBe(true);
+    expect(buttons[1].style).toBe('destructive');
+    expect(buttons[2].style).toBe('cancel');
+    buttons[2].onPress?.();
+    expect(wroc).not.toHaveBeenCalled();
+    expect(zastap).not.toHaveBeenCalled();
+    buttons[0].onPress();
+    expect(wroc).toHaveBeenCalledTimes(1);
+    buttons[1].onPress();
+    expect(zastap).toHaveBeenCalledTimes(1);
   });
 
   it('confirmResetStarter uses destructive action to protect user data', () => {
