@@ -193,6 +193,10 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     // M3 D10: pas nocy na każdej zakładce, zdanie na pasie Dziennika (opcja A), na przebieg a5 jak PRZ
     'Ostatni wypiek: {data}',
     // KONIEC D10
+    // M3 W-fix2 (decyzje M1 wg rekomendacji z weryfikacji W): nowe klucze na przebieg a5c
+    'Otwórz',
+    '{co} z {h}: otwórz',
+    // KONIEC W-fix2
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

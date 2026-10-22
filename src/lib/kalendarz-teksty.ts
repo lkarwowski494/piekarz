@@ -96,10 +96,16 @@ export function tekstyNastepne(linia: LiniaNastepne, o: OpcjeTekstu): TekstyNast
   };
 }
 
-/** Etykiety VoiceOver przycisków przy zaległym: „{co} z {h}: zrobione” i „Pomiń {co} z {h}”. */
+/**
+ * Zaległy krok wypieku: przycisk otwiera Stolnicę albo arkusz planu, kroku nie odhacza, więc mówi „Otwórz”
+ * (04-studio-projektowe-007 opcja b, W-fix2); karmienie zakwasu „Zrobione” zapisuje dokarmienie.
+ */
+const otwiera = (z?: ZdarzenieKalendarza) => z?.zrodlo.typ === 'wypiek';
+
+/** Etykiety VoiceOver przycisków przy zaległym: „{co} z {h}: zrobione” (wypiek: „{co} z {h}: otwórz”) i „Pomiń {co} z {h}”. */
 export function etykietyZaleglego(z: ZdarzenieKalendarza, o: OpcjeTekstu): { zrobione: string; pomin: string } {
   const p = { co: opisZdarzenia(z, o), h: godzinaZaleglego(z.at, o.now) };
-  return { zrobione: t('{co} z {h}: zrobione', p), pomin: t('Pomiń {co} z {h}', p) };
+  return { zrobione: otwiera(z) ? t('{co} z {h}: otwórz', p) : t('{co} z {h}: zrobione', p), pomin: t('Pomiń {co} z {h}', p) };
 }
 
 /** Ile zdarzeń czyta etykieta dnia przed „i jeszcze N” (makieta roli 04 a2, tabela (g)). */
@@ -148,7 +154,7 @@ export function etykietaDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: {
   return [c.data, ...c.pozycje.map((p) => p.tekst), ...(c.reszta ? [c.reszta] : [])].join('. ');
 }
 
-/** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” i „Pomiń”. */
-export function napisyZaleglego(): { zrobione: string; pomin: string } {
-  return { zrobione: t('Zrobione'), pomin: t('Pomiń') };
+/** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” (krok wypieku: „Otwórz”, 007 b) i „Pomiń”. */
+export function napisyZaleglego(z?: ZdarzenieKalendarza): { zrobione: string; pomin: string } {
+  return { zrobione: otwiera(z) ? t('Otwórz') : t('Zrobione'), pomin: t('Pomiń') };
 }

@@ -805,6 +805,16 @@
       "klucz": "Ostatni wypiek: {data}",
       "powod": "zdanie na pasie Dziennika z datą ostatniego wypieku (parametr {data}) [M3 D10, D10 opcja A]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Otwórz",
+      "powod": "przycisk przy zaległym kroku wypieku na „Dziś” i w arkuszu dnia: otwiera Stolnicę albo plan, zamiast „Zrobione” (04-studio-projektowe-007 opcja b, decyzja M1) [M3 W-fix2]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{co} z {h}: otwórz",
+      "powod": "etykieta VoiceOver przycisku „Otwórz” przy zaległym kroku wypieku (parametry {co}, {h}; 04-studio-projektowe-007 b) [M3 W-fix2]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

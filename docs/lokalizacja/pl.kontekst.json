@@ -4113,6 +4113,11 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Otwórz": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (zrobione)"
+    ]
+  },
   "Otwórz Doktora Chleba": {
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
@@ -8941,6 +8946,11 @@
   "{cena} rocznie": {
     "gdzie": [
       "src/components/oferta/stan-oferty.ts (kod)"
+    ]
+  },
+  "{co} z {h}: otwórz": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (zrobione)"
     ]
   },
   "{co} z {h}: zrobione": {

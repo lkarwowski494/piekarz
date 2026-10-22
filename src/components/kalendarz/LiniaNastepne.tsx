@@ -25,7 +25,7 @@ export interface AkcjeZaleglego {
 const moznaPominac = (z: ZdarzenieKalendarza) => z.rodzaj !== 'wypiek-gotowe' && !z.zaplanowany;
 
 export function WierszZaleglego({ z, tekst, o, naPasie, akcje }: { z: ZdarzenieKalendarza; tekst: string; o: OpcjeTekstu; naPasie: boolean; akcje: AkcjeZaleglego }) {
-  const napisy = napisyZaleglego();
+  const napisy = napisyZaleglego(z);
   const etykiety = etykietyZaleglego(z, o);
   const kolor = naPasie ? styles.tekstNaPasie : styles.tekstZwykly;
   return (
