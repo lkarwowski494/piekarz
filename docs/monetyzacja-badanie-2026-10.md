@@ -1,5 +1,5 @@
 # Badanie zmiany modelu płatności: V1, V2 wobec D-038 (Piekarz)
-Stan: E1 (STOP) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
+Stan: E2 (STOP) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
 
 Do wyboru właściciela na STOP E2 obowiązuje D-038 i kontrakt w `docs/monetyzacja.md`; ten plik niczego w nim nie zmienia. Surowe odczyty źródeł: `audit/02-badanie-modelu-2026-10-22/zrodla/` (poza gitem).
 
@@ -163,6 +163,81 @@ Pierwsza ocena wersji z procentami (zapis historyczny, zastąpiona zmianą wyże
 - „Pays for itself after 15 months”: 14,99 / 0,99 = 15,1 planu 30-dniowego, czyli ok. 15 miesięcy; w PL 79,99 / 4,99 = 16,0. Liczbę też trzeba liczyć z cen lokalnych.
 - „[nazwa aplikacji]”: w sklepie Piekarz / Crust zależnie od lokalizacji: z `CFBundleDisplayName` albo słownika, nie na sztywno.
 - Zdanie o żywym zakwasie: E2 (opcje przypomnień po wygaśnięciu), tekst rola 04/06.
+
+## E2: modele i rachunek
+
+### Metoda
+Bramka tym samym narzędziem i na tych samych danych co 345 USD/rok (`audit/02-warianty-2026-10-19/narzedzia/oplacalnosc.mjs`, `wariant-a-wlasciciel.json`: 9 storefrontów iOS i 9 Google Play, strumień ocen konkurencji, `udzial_nowej`, `instalacje_na_ocene`, konwersja jak w bramce). Generator `audit/02-badanie-modelu-2026-10-22/narzedzia/gen-v.mjs` zmienia tylko to, czym modele się różnią; każda zmiana to [OCENA] z metodą:
+
+| Wielkość | D-038 (bramka) | V1 / V2 [OCENA] | Metoda |
+|---|---|---|---|
+| Płacący na tym samym strumieniu pobrań | 1 | × 0,45 / 0,69 / 1,04 (pes. / norm. / opt.) | start próby × 1,0 / 1,15 / 1,3 (próba bez przyszłej opłaty), konwersja próba → zakup × 0,45 / 0,6 / 0,8 wobec trial-to-paid 35,4% (10–16 dni, RevenueCat 2026), bo D-038 liczy też tych, którzy zapomnieli anulować |
+| Płatności na płacącego (36 mies.) | mies. 5,19; rok 1,45 | 30 dni 1,6 (1,4–2,0); 3 mies. 1,8 (1,5–2,2); rok 1,21 (1,11–1,36) | odnowa mies. 53–75% (RevenueCat 2026) × współczynnik decyzji 0,45 / 0,6 / 0,75 → suma geometryczna; rok p 0,18 wobec retencji 28% |
+| Udziały planów (norm.) | 0,486 / 0,346 / 0,168 | V1: 30 dni 0,38, 3 mies. 0,17, rok 0,20, dożywotni 0,25; V2: 0,45 / 0,28 / 0,27 | bez odnawiania długo korzystający przechodzą do dożywotniego (MS-B20: 11 aplikacji niszy z zakupem jednorazowym) |
+| Ceny 3 mies. poza US | — | GB 2,49 £, CA 2,99, AU 4,99, EUR 2,99, MX 49, PL 12,99 zł | cena 30 dni × ok. 2,5 do lokalnego progu (OP-B03) |
+
+Nie modelowane (kierunek opisany niżej): wpływ na oceny i widoczność, Family Sharing, zwroty.
+
+### Wynik (2026-10-22, kod wyjścia 0)
+`node oplacalnosc.mjs w-d038.json w-v1.json w-v2.json` (`audit/02-badanie-modelu-2026-10-22/dowody/`):
+
+| Model | Razem pes. / norm. / opt. (USD netto/rok, iOS + Google Play) | Sam iOS, norm. | Werdykt wobec 500 |
+|---|---|---|---|
+| D-038 (dziś) | 3,45 / **344,77** / 26 380,88 | 218 | przerobić |
+| V2 (bez 3 mies.) | 1,18 / **199,81** / 24 028,94 | 126 | przerobić |
+| V1 (z 3 mies.) | 1,10 / **190,89** / 23 461,56 | 121 | przerobić |
+
+`node docs/monetyzacja/rachunek.mjs docs/monetyzacja/rachunek-badanie-us.json` (kod 0), wpływ w US na 100 płacących w horyzoncie bramki: **D-038 725 USD, V2 606, V1 578**. Próg 500 USD netto: 40 płacących dożywotniego albo 70 płacących planu rocznego V (58 przy D-038), albo 372 płacących 30 dni (115 przy D-038).
+
+Wrażliwość (`wrazliwosc-v.mjs`, wynik normalny):
+
+| Zmiana | V1 | V2 |
+|---|---|---|
+| mnożnik płacących 0,45 / 0,69 / 0,8 / 1,0 / 1,2 | 124 / 191 / 221 / 277 / 332 | 130 / 200 / 232 / 290 / 347 |
+| płatności przepustek ×0,75 / ×1 / ×1,5 / ×2 | 170 / 191 / 234 / 276 | 178 / 200 / 243 / 286 |
+| udział dożywotniego 0,17 / 0,25 / 0,35 / 0,45 | 166 / 191 / 222 / 253 | 169 / 194 / 224 / 255 |
+| mnożnik 1,0 + płatności ×1,5 + dożywotni 0,35 | 375 | 380 |
+| mnożnik, przy którym = D-038 / = 500 USD | 1,25 / 1,81 | 1,19 / 1,73 |
+
+Wnioski z rachunku:
+- **Żaden model nie przechodzi progu 500 w scenariuszu normalnym.** O werdykcie decyduje widoczność (`udzial_nowej` 48 → 954 USD, `instalacje_na_ocene` 57 → 573 USD w V1), nie model płatności. Rozrzut modelu jest mniejszy niż rozrzut widoczności.
+- **D-038 zarabia w modelu ok. 1,7 raza więcej niż V2** (345 wobec 200), bo odnowienie automatyczne daje 5,19 płatności miesięcznego zamiast 1,6 i liczy zapominających. V2 dogania D-038 dopiero przy 1,19 raza więcej płacących niż D-038; mój scenariusz optymistyczny to 1,04. Uczciwie: w moich założeniach V1/V2 nie wygrywają przychodem w żadnym scenariuszu, wygrywają tylko, jeśli zaufanie podnosi oceny i konwersję bardziej, niż zakładam.
+- **V1 < V2**: przy moich udziałach 3 mies. zabiera więcej rocznym niż miesięcznym (578 wobec 606 na 100 płacących). Wynik zależy od tego jednego założenia; gdyby 3 mies. brał tylko od 30 dni, V1 byłby nieco wyżej niż V2. Dowodu na żadną stronę nie ma (2 z ok. 20 aplikacji mają plan kwartalny, MS-B20).
+- **Dożywotni niesie V1/V2** (64–69% progu na 100 płacących): cena 14,99 USD jest dźwignią silniejszą niż ceny przepustek.
+
+### Opcje modelu (reguła sklepu, kompromis, ryzyko etyczne, koszt utrzymania)
+| | D-038 (dziś) | V1 | V2 |
+|---|---|---|---|
+| Reguła sklepu | 3.1.2(a) „ongoing value”, próba z App Store Connect (MS-05, MS-06); próba jako oferta wprowadzająca, jedna na grupę | 3.1.1 próba 0 zł „XX-day Trial” (MS-B01), zgodność z nieodnawialnymi **niepewna** (OP-B02, Case 103004967270); Non-Renewing Subscription (MS-B03), pierwsza z nową wersją (MS-B04) | jak V1 |
+| Przychód (norm., rachunek) | 345 USD/rok | 191 | 200 |
+| Ryzyko etyczne | próba sama zamienia się w opłatę; kupujący dożywotni po próbie płaci też za subskrypcję, jeśli nie anuluje (`docs/monetyzacja.md`, ryzyko nazwane) | brak automatycznej opłaty; ryzyko: wygaśnięcie w trakcie życia zakwasu, utrata dni przy przedłużeniu przed końcem (E1) | jak V1 |
+| Obietnica „never charged for something you forgot to cancel” | nieprawdziwa | prawdziwa | prawdziwa |
+| Family Sharing | wszystkie (włączone) | tylko dożywotni (właściciel: „ok, to na nasza korzysc”) | jak V1 |
+| Koszt utrzymania | 3.1.2(a): stała wartość i aktualizacje | brak wymogu „ongoing value” dla nieodnawialnej (MS-B02 dotyczy tylko odnawianych) | jak V1 |
+| Liczba planów na ekranie | 3 | 4 | 3 |
+| Zmiana przed 1.0 | brak | konfiguracja, adapter, uprzedzenie, nowe produkty w ASC, test w sandboksie (E1: [OCENA] 1–2 dni + sandbox) | jak V1, jeden produkt mniej |
+
+### Rekomendacja: V2 (warunkowo do odpowiedzi App Review)
+- **Za:** usuwa jedyne ryzyko, które właściciel nazwał „największym red flag”, i robi z niego obietnicę prawdziwą dosłownie; zgodna z wzorcem roli („model wynika z rodzaju wartości”, „uczciwie albo wcale”) i z H-B1 (skargi niszy dotyczą ukrytej opłaty). V2 zamiast V1, bo przychód jest w modelu ten sam albo wyższy, ekran ma 3 plany zamiast 4 („Więcej opcji cenowych to nie lepsza monetyzacja”, wzorzec roli), mniej produktów do ustawienia i tłumaczenia, a kotwica 3 mies. nie ma dowodu z rynku.
+- **Koszt wyboru:** w rachunku ok. 145 USD/rok mniej niż D-038 w scenariuszu normalnym (sam iOS ok. 92), czyli ok. 42%. Obie wartości są poniżej progu 500; o przejściu progu zdecyduje widoczność, a ta może zyskać na uczciwym modelu (nie zmierzone).
+- **Warunek:** odpowiedź App Review w sprawie próby 3.1.1 (OP-B02). Jeśli „nie”: (a) V2 z darmowym limitem użycia zamiast próby czasowej (limit użyć nie jest próbą w rozumieniu 3.1.1, wzorzec roli „Kalibracja”), z podziałem do decyzji roli 03; (b) powrót do D-038 z ujawnieniami; (c) V2 bez próby (twarda ściana bez wypróbowania: odradzam, wzorzec skarg Loaflo „brak próby”). Rekomendacja na ten wypadek: (a).
+- **Kryterium po 90 dniach** (zamiast kryterium D-038 w `docs/monetyzacja.md`): ≥ 42 USD wpływu miesięcznie na iOS albo ≥ ok. 3,3 zakupu dożywotniego miesięcznie (40/rok = próg z samego dożywotniego, rachunek wyżej); poniżej połowy: przegląd widoczności i zakresu. Dane tylko z App Store Connect.
+
+### Decyzje wykonawcze dla V2 (do wyboru razem z modelem; rekomendacja pierwsza)
+| Sprawa | Opcje | Rekomendacja |
+|---|---|---|
+| Przedłużenie przed końcem (E1: druga transakcja tego samego produktu zjada resztę pierwszej) | (a) gdy trwa przepustka, przepustek nie da się kupić; dożywotni zawsze; oferta wraca 3 dni przed końcem i po nim; (b) zakup od 7 dni przed końcem z „nowy okres liczy się od dziś”; (c) łańcuch okresów liczony w aplikacji | (a): nikt nie traci opłaconych dni, a obliczenie zostaje po stronie sklepu |
+| Żywy zakwas po wygaśnięciu | (a) przypomnienia o dokarmianiu i zapis karmienia zakwasów założonych w czasie dostępu działają dalej bez zakupu, płatne zostają nowe zakwasy, plan założenia, diagnoza i reszta; (b) jedno ostatnie przypomnienie z informacją i zdanie na ekranie ofert; (c) bez zmian (D-039: ustają) | (a): zakwas to żywa kultura, a jej obumarcie przez wygaśnięcie dostępu czyta się jak zakładnik (zasada roli 6); koszt: BR-ZAKW-004 (WTP-1) staje się częściowo darmowy dla istniejących zakwasów. Podział rozstrzyga rola 03 z właścicielem |
+| Długości planów | 30 dni i 365 dni (V1: + 91 dni) | jak w tekście właściciela; długość w `konfiguracja.ts` i na ekranie przed zakupem |
+| Uprzedzenie (D-039) | 3 dni przed końcem próby i każdej przepustki, bez gałęzi „pobierzemy” | tak |
+| Family Sharing | dożywotni (już włączony); próba: wyłączony | próba bez Family Sharing (inaczej rodzina dostaje próbę z cudzą datą) |
+| Nowe ID (nieodwracalne, MS-B06) | np. `com.apps4brew.baker.trial.14d`, `com.apps4brew.baker.pass.30d`, `com.apps4brew.baker.pass.1y` (V1: `.pass.3m`); `com.apps4brew.baker.pro.lifetime` bez zmian | do potwierdzenia na E3 |
+| Stare `.pro.monthly`, `.pro.yearly` | zostają niewysłane / wycofane ze sprzedaży; ID spalone | M1 w ASC za osobną zgodą (właściciel: „ok, zadna strata”) |
+
+### Etyka (wzorce roli)
+- D-038: próba, która sama zamienia się w opłatę, jest dozwolona przy pełnych ujawnieniach (MS-14), ale to dokładnie wzorzec, który właściciel odrzuca; pułapka „dożywotni po próbie subskrypcji” zostaje mimo ujawnień.
+- V1/V2: „free” jest prawdziwe (2005/29/WE zał. I pkt 20); uprzedzenie przed końcem bez odliczania i bez „ostatnia szansa” (zał. I pkt 7); po wygaśnięciu dane zawsze dostępne offline (D-039 bez zmian); trwający wypiek do końca (D-039); żywy zakwas wyżej.
+- Tekst ofert właściciela bez procentów (E1): bez ryzyka ogłoszenia obniżki; kwota najwyraźniejsza (MS-B08) do sprawdzenia na makiecie roli 04.
 
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |

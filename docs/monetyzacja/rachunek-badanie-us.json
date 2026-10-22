@@ -1,0 +1,31 @@
+{
+  "data": "2026-10-22",
+  "waluta": "USD",
+  "opis": "Badanie modelu (D-110), storefront US: wpływ z każdego produktu D-038, V1, V2 i przychód na 100 płacących w horyzoncie bramki (36 mies.) przy udziałach norm.; próg 500 USD netto (D-024)",
+  "vat": { "stawka": 0, "zrodlo": "[OCENA] ceny w US bez podatku od sprzedaży; prowizja od ceny bez podatków (DPLA Schedule 2 pkt 3.4(a)), jak w bramce 2026-10-19" },
+  "prowizja": { "stawka": 0.15, "zrodlo": "Small Business Program aktywny: słowa właściciela przez M1 2026-10-22 („to juz jest wszystko completed lacznie z aprobatami apple.”); stawka developer.apple.com/app-store/small-business-program, odczyt 2026-10-19 (MS-20)" },
+  "koszty_roczne": [
+    { "nazwa": "próg opłacalności właściciela (500 USD netto/rok, D-024) zamiast kosztów", "kwota": 500, "waluta": "USD", "zrodlo": "CLAUDE.md, Stan projektu, 2026-10-19" }
+  ],
+  "produkty": [
+    { "id": "D038-mies", "cena_brutto": 0.99, "platnosci_w_roku": 5.194, "platnosci_zrodlo": "RevenueCat 2026 przez bramkę 2026-10-19 (5,19 płatności w 36 mies., norm.)" },
+    { "id": "D038-rok", "cena_brutto": 6.99, "platnosci_w_roku": 1.451, "platnosci_zrodlo": "RevenueCat 2026 przez bramkę 2026-10-19 (1,45 w 36 mies., norm.)" },
+    { "id": "D038-dozywotni", "cena_brutto": 14.99 },
+    { "id": "V-30dni", "cena_brutto": 0.99, "platnosci_w_roku": 1.6, "platnosci_zrodlo": "[OCENA] przedłużenia z wyboru: odnowa mies. 53–75% (RevenueCat 2026) × 0,6 → 1,6 zakupu w 36 mies. (gen-v.mjs, 2026-10-22)" },
+    { "id": "V1-3mies", "cena_brutto": 2.49, "platnosci_w_roku": 1.8, "platnosci_zrodlo": "[OCENA] jw. dla 3 mies. → 1,8 (gen-v.mjs, 2026-10-22)" },
+    { "id": "V-rok", "cena_brutto": 6.99, "platnosci_w_roku": 1.21, "platnosci_zrodlo": "[OCENA] jw. dla roku (p 0,18 wobec 0,28) → 1,21 (gen-v.mjs, 2026-10-22)" },
+    { "id": "V-dozywotni", "cena_brutto": 14.99 }
+  ],
+  "lejek": [
+    { "nazwa": "D-038 na 100 płacących: mies.", "produkt": "D038-mies", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.486, "zrodlo": "udział norm. 0,486 (bramka 2026-10-19)" },
+    { "nazwa": "D-038 na 100 płacących: rok", "produkt": "D038-rok", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.346, "zrodlo": "udział norm. 0,346" },
+    { "nazwa": "D-038 na 100 płacących: dożywotni", "produkt": "D038-dozywotni", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.168, "zrodlo": "udział norm. 0,168" },
+    { "nazwa": "V1 na 100 płacących: 30 dni", "produkt": "V-30dni", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.38, "zrodlo": "[OCENA] udział norm. V1 (gen-v.mjs, 2026-10-22)" },
+    { "nazwa": "V1 na 100 płacących: 3 mies.", "produkt": "V1-3mies", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.17, "zrodlo": "[OCENA] jw." },
+    { "nazwa": "V1 na 100 płacących: rok", "produkt": "V-rok", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.2, "zrodlo": "[OCENA] jw." },
+    { "nazwa": "V1 na 100 płacących: dożywotni", "produkt": "V-dozywotni", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.25, "zrodlo": "[OCENA] jw." },
+    { "nazwa": "V2 na 100 płacących: 30 dni", "produkt": "V-30dni", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.45, "zrodlo": "[OCENA] udział norm. V2 (gen-v.mjs, 2026-10-22)" },
+    { "nazwa": "V2 na 100 płacących: rok", "produkt": "V-rok", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.28, "zrodlo": "[OCENA] jw." },
+    { "nazwa": "V2 na 100 płacących: dożywotni", "produkt": "V-dozywotni", "odslony_strony": 200, "konwersja": 0.5, "zakup": 0.27, "zrodlo": "[OCENA] jw." }
+  ]
+}
