@@ -372,6 +372,7 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** tydzień zawsze od poniedziałku jak w Treningu (dla regionu US sprzeczne z S-66); `Intl.Locale.getWeekInfo` (brak na liście API Hermes, OP-53); dodawanie 7 × 24 h (zły dzień przy zmianie czasu, RD-30-W4).
 - **Dlaczego:** rynek globalny w 35 językach; pasek, karta zakwasu i powiadomienie muszą pokazywać ten sam dzień (RYZ-22, RYZ-23).
 - **Zależy od:** OP-53 (zachowanie `firstWeekday` na urządzeniu); zakres funkcji: H-15 (rola 03).
+- **Zmieniona przez D-093 (2026-10-22):** numer dnia zakładania liczony dniami kalendarza (dzień 1 = dzień założenia), nie okresami 24 h; RD-31 zaktualizowane (ER-67).
 
 ### [D-091] 2026-10-22 — Pytanie przy starcie drugiego wypieku: nazwa trwającego i „Przerwij” bez wpisu w dzienniku (rola 01, ER-65; M3 a1b)
 - **Rodzaj:** produktowa. **Słowa M1 (właściciel zatwierdza według rekomendacji):** „ER-65 rozstrzygnięte według rekomendacji, zgodnie z Twoją opcją (a): „Przerwij” jak w M3, bez wpisu w Dzienniku, i nazwa trwającego wypieku w pytaniu” (2026-10-22).

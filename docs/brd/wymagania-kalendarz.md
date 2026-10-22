@@ -384,19 +384,21 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 | RD-30-W7 | 2026-10-22 | brak | jak region językowy aplikacji, a bez niego poniedziałek | — | błąd | rachunek: brak regionu [DO USTALENIA] (OP-53) |
 
 ### RD-31: Numer dnia zakładania zakwasu na pasku
-- Wzór: `N = floor((teraz − start zakładania) / 24 h) + 1` — ta sama funkcja co karta zakwasu (`setupDay`, `src/core/starter-log.ts:41`); znacznik zakładania stoi na dniu kalendarza `dzień(teraz)` (RD-29)
+- Wzór: `N = (dzień(teraz) − dzień(start zakładania)) w dniach kalendarza + 1`, dzień według RD-29; dzień 1 to dzień założenia (D-093); ta sama funkcja liczy numer na karcie zakwasu i na pasku; znacznik zakładania stoi na dniu kalendarza `dzień(teraz)`
 - Jednostki: N [-], czas [RRRR-MM-DD gg:mm]
-- Granica: teraz − start = 24 h (włączna: od tej chwili N = 2)
-- Podstawa: rachunek; zgodność z kartą (BR-ZAKW-005)
+- Granica: północ po dniu założenia (włączna: od 00:00 N = 2)
+- Podstawa: decyzja D-093 (właściciel przez M1, 2026-10-22; zapis na `redesign/piekarz-2026-10-22`); rachunek dni kalendarza jak RD-30 (nie wielokrotność 24 h); zgodność z kartą (BR-ZAKW-005)
 - Krytyczna: nie
-- Uproszczenie: numer dnia nie jest numerem dnia kalendarza: zakładanie zaczęte o 21:00 ma „Dzień 1” także następnego dnia do 21:00. Czy liczyć dni kalendarza: [DO WYJAŚNIENIA] (OP-54).
+- Uproszczenie: zakładanie zaczęte późnym wieczorem ma „Dzień 2” już po północy, choć minęło kilka godzin; rozstrzygnięte decyzją (OP-54). Dotychczasowe `setupDay` (`src/core/starter-log.ts:41`) liczy okresy 24 h i zmienia się w partii D0 toru D (M3).
 
 | ID | Start zakładania [czas] | Teraz [czas] | Oczekiwane: N [-] | Tolerancja | Rodzaj | Pochodzenie |
 |---|---|---|---|---|---|---|
-| RD-31-W1 | 2026-10-20 21:00 | 2026-10-21 20:59 | 1 | 1 min | poniżej | rachunek |
-| RD-31-W2 | 2026-10-20 21:00 | 2026-10-21 21:00 | 2 | 1 min | granica | rachunek |
-| RD-31-W3 | 2026-10-20 21:00 | 2026-10-21 21:01 | 2 | 1 min | powyżej | rachunek |
-| RD-31-W4 | 2026-10-20 21:00 | 2026-10-20 20:00 | 1 | — | błąd | rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 (`Math.max(1, …)`) |
+| RD-31-W1 | 2026-10-20 21:00 | 2026-10-20 23:59 | 1 | 1 min | poniżej | rachunek: ten sam dzień kalendarza (D-093) |
+| RD-31-W2 | 2026-10-20 21:00 | 2026-10-21 00:00 | 2 | 1 min | granica | rachunek: północ po dniu założenia |
+| RD-31-W3 | 2026-10-20 21:00 | 2026-10-21 20:59 | 2 | 1 min | powyżej | rachunek: przy okresach 24 h byłoby 1 |
+| RD-31-W4 | 2026-10-24 22:00 | 2026-10-25 23:30 | 2 | 1 min | typowy | rachunek: Europe/Warsaw, doba 25 h przy zmianie czasu (S-67), nadal 2 |
+| RD-31-W5 | 2026-10-20 08:00 | 2026-10-26 07:00 | 7 | 1 min | typowy | rachunek: 6 dni kalendarza + 1 |
+| RD-31-W6 | 2026-10-20 21:00 | 2026-10-20 20:00 | 1 | — | błąd | rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 |
 
 ### RD-32: Pozycje linii „Następne”
 - Wzór: źródło = trwający wypiek albo zakwas; Z = zdarzenia z terminem ≤ teraz, bez potwierdzenia i bez pominięcia (wszystkie, od najstarszego; źródło z zaległym nie dokłada przyszłego); P = po jednym najbliższym zdarzeniu z terminem > teraz z każdego pozostałego źródła, według czasu; linia = Z, potem pierwsze max(0, L − liczba(Z)) pozycji z P; „+N”, gdy N = liczba(P) − liczba pokazanych z P > 0

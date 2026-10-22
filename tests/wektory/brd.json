@@ -1503,14 +1503,14 @@
     "id": "RD-31-W1",
     "wejscie": {
       "Start zakładania [czas]": "2026-10-20 21:00",
-      "Teraz [czas]": "2026-10-21 20:59"
+      "Teraz [czas]": "2026-10-20 23:59"
     },
     "oczekiwane": {
       "N [-]": 1
     },
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
-    "pochodzenie": "rachunek",
+    "pochodzenie": "rachunek: ten sam dzień kalendarza (D-093)",
     "miejsce": "docs\\brd\\wymagania-kalendarz.md:396"
   },
   {
@@ -1518,14 +1518,14 @@
     "id": "RD-31-W2",
     "wejscie": {
       "Start zakładania [czas]": "2026-10-20 21:00",
-      "Teraz [czas]": "2026-10-21 21:00"
+      "Teraz [czas]": "2026-10-21 00:00"
     },
     "oczekiwane": {
       "N [-]": 2
     },
     "tolerancja": "1 min",
     "rodzaj": "granica",
-    "pochodzenie": "rachunek",
+    "pochodzenie": "rachunek: północ po dniu założenia",
     "miejsce": "docs\\brd\\wymagania-kalendarz.md:397"
   },
   {
@@ -1533,19 +1533,49 @@
     "id": "RD-31-W3",
     "wejscie": {
       "Start zakładania [czas]": "2026-10-20 21:00",
-      "Teraz [czas]": "2026-10-21 21:01"
+      "Teraz [czas]": "2026-10-21 20:59"
     },
     "oczekiwane": {
       "N [-]": 2
     },
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
-    "pochodzenie": "rachunek",
+    "pochodzenie": "rachunek: przy okresach 24 h byłoby 1",
     "miejsce": "docs\\brd\\wymagania-kalendarz.md:398"
   },
   {
     "regula": "RD-31",
     "id": "RD-31-W4",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-24 22:00",
+      "Teraz [czas]": "2026-10-25 23:30"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: Europe/Warsaw, doba 25 h przy zmianie czasu (S-67), nadal 2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:399"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W5",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 08:00",
+      "Teraz [czas]": "2026-10-26 07:00"
+    },
+    "oczekiwane": {
+      "N [-]": 7
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: 6 dni kalendarza + 1",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:400"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W6",
     "wejscie": {
       "Start zakładania [czas]": "2026-10-20 21:00",
       "Teraz [czas]": "2026-10-20 20:00"
@@ -1555,8 +1585,8 @@
     },
     "tolerancja": null,
     "rodzaj": "błąd",
-    "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 (`Math.max(1, …)`)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:399"
+    "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:401"
   },
   {
     "regula": "RD-32",
@@ -1573,7 +1603,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek; przykład właściciela (ER-66)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:411"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:413"
   },
   {
     "regula": "RD-32",
@@ -1590,7 +1620,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: termin = teraz",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:412"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:414"
   },
   {
     "regula": "RD-32",
@@ -1607,7 +1637,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: termin > teraz, jeszcze nie zaległe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:413"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:415"
   },
   {
     "regula": "RD-32",
@@ -1624,7 +1654,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 4 źródła > L",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:414"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:416"
   },
   {
     "regula": "RD-32",
@@ -1641,7 +1671,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 2 zaległe, miejsce na 1 przyszłe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:415"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:417"
   },
   {
     "regula": "RD-32",
@@ -1658,7 +1688,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: po jednym ze źródła",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:416"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:418"
   },
   {
     "regula": "RD-32",
@@ -1675,7 +1705,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (OP-60)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:417"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:419"
   },
   {
     "regula": "RD-32",
@@ -1692,6 +1722,6 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:418"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:420"
   }
 ]

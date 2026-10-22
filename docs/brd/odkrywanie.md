@@ -460,7 +460,7 @@ Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
 - Realny. Rejestr roli 06 wycofał twierdzenia o lekkostrawności i o pH zabijającym bakterie (LEK-TRA-900, ZAK-PH-900, FIS-PAT-900); każde twierdzenie zdrowotne tylko ze szczebla 1–3 (D-035).
 
 ### RYZ-22: Kalendarz pokazuje inny termin niż karta zakwasu albo powiadomienie
-- Realny, jeśli kalendarz liczy terminy osobno. Dziś termin karmienia liczy `planFeedingNotifications` (`src/core/notification-plan.ts:140`), a dzień zakładania `setupDay` (`src/core/starter-log.ts:41`, okresy 24 h, nie dni kalendarza). Ochrona: jedna funkcja źródłowa dla karty, powiadomienia i paska (BR-KAL-002, RD-31).
+- Realny, jeśli kalendarz liczy terminy osobno. Dziś termin karmienia liczy `planFeedingNotifications` (`src/core/notification-plan.ts:140`), a dzień zakładania `setupDay` (`src/core/starter-log.ts:41`, okresy 24 h, nie dni kalendarza; zmiana na dni kalendarza: D-093, partia D0 toru D). Ochrona: jedna funkcja źródłowa dla karty, powiadomienia i paska (BR-KAL-002, RD-31).
 
 ### RYZ-23: Zdarzenie w złym dniu przy zmianie czasu, północy albo podróży
 - Brzegowy. Dodanie 7 × 24 h do poniedziałku 2026-10-19 w Warszawie daje niedzielę 2026-10-25 23:00 [RACHUNEK]; termin karmienia w lodówce 7 × 24 h przesuwa godzinę ścienną o 1 h (10:00 → 09:00 przy zmianie 2026-10-25, S-67). Ochrona: RD-29, RD-30, NFR-KAL-003.
