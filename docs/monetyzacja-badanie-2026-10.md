@@ -60,6 +60,32 @@ Progi cenowe: „Choose from up to 800 price points by default” (MS-B09). Czy 
 
 Bez wydatków na API (odczyty `curl`). Runner macOS niepotrzebny do E2.
 
+### Odpowiedzi na STOP E0 (przez M1, 2026-10-22)
+- P1 (E1 według planu): tak. M1 na podstawie zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.”
+- P4 / OP-M01: Small Business Program aktywny, prowizja 15%. Właściciel 2026-10-21 o umowie Paid Apps, danych podatkowych i bankowych oraz programie: „to juz jest wszystko completed lacznie z aprobatami apple.”
+- P2 / OP-B02: M1 pyta właściciela; treść pytania do App Review niżej, gotowa do wysłania.
+- P3 / OP-B01, OP-B03: czekają na M1 (odczyt na sucho skryptem `scripts/asc-ustawienia.mjs` albo workflow).
+
+### Pytanie do App Review (OP-B02, do wysłania przez właściciela)
+Formularz: App Store Connect → Help / Contact Us → App Review. Treść:
+
+> Subject: Guideline 3.1.1 free trial in an app with Non-Renewing Subscriptions only
+>
+> Hello,
+>
+> Our app Piekarz (bundle ID com.apps4brew.baker) is an offline sourdough baking assistant. It is in TestFlight and has not been released yet. We plan to sell access without any automatic renewal:
+> - a Non-Consumable In-App Purchase at Price Tier 0 named "14-day Trial", which unlocks all features for 14 days,
+> - Non-Renewing Subscriptions for 1 month and 1 year (possibly also 3 months),
+> - a Non-Consumable lifetime unlock.
+>
+> The app would offer no auto-renewable subscriptions.
+>
+> Question: Does an app that sells only Non-Renewing Subscriptions and Non-Consumable items count as a "non-subscription app" under guideline 3.1.1, so that it may offer this free 14-day trial?
+>
+> Before the trial starts, the app would state its length, what stops working when it ends (the user keeps read access to their history and all their data, including export), and the prices of the paid options.
+>
+> Thank you.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -77,7 +103,7 @@ Bez wydatków na API (odczyty `curl`). Runner macOS niepotrzebny do E2.
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
-| OP-B01 | [DO USTALENIA] status przeglądu `.pro.monthly`, `.pro.yearly`, `.pro.lifetime` w App Store Connect (wysłane do App Review czy nie) | M1 (odczyt na sucho) | E0-4, koszt zmiany |
-| OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial” | właściciel: pytanie do App Review | V1, V2 |
-| OP-B03 | [DO USTALENIA] czy istnieje próg 2,49 USD i próg 0 dla Non-Renewing Subscription / Non-Consumable, wpływ (`proceeds`) progów | M1 (App Store Connect API, odczyt) | rachunek E2 |
-| OP-M01 | [DO WYJAŚNIENIA] zapis do Small Business Program (15% zamiast 30%/26%) | właściciel | rachunek |
+| OP-B01 | [DO USTALENIA] status przeglądu `.pro.monthly`, `.pro.yearly`, `.pro.lifetime` w App Store Connect (wysłane do App Review czy nie); czeka na M1 | M1 (odczyt na sucho) | E0-4, koszt zmiany |
+| OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial”; treść pytania gotowa (wyżej) | właściciel: pytanie do App Review | V1, V2 |
+| OP-B03 | [DO USTALENIA] czy istnieje próg 2,49 USD i próg 0 dla Non-Renewing Subscription / Non-Consumable, wpływ (`proceeds`) progów; czeka na M1 | M1 (App Store Connect API, odczyt) | rachunek E2 |
+| OP-M01 | rozstrzygnięte 2026-10-22: Small Business Program aktywny, 15% (słowa właściciela wyżej) | właściciel | rachunek |
