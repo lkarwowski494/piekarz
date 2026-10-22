@@ -142,6 +142,10 @@ describe('104: ekrany zakwasu', () => {
     return now;
   };
 
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it.each([[0, 30], [12, 0], [23, 30]])('BR-ZAKW-005 Brak aktywności pierwszego dnia (zegar %i:%i): obserwacja → to normalne w pierwszej dobie i termin następnego dokarmienia', async (godz, min) => {
     const now = ustawZegar(godz, min);
     // Dzień 1 to pierwsza doba od założenia (setupDay, 501): pierwsze dokarmienie godzinę temu (o 0:30 o północy)
@@ -258,6 +262,9 @@ describe('104: ekrany zakwasu', () => {
   }
 
   it('BR-ZAKW-005 Pleśń w trakcie zakładania: dzień 4, kolorowe plamy → Ostrzeżenie „wyrzuć” i „Zacznij od nowa” od dnia 1', async () => {
+    // Stała godzina 12:00: przy prawdziwym zegarze tuż po północy (np. TZ=Pacific/Auckland o 13:00 w Warszawie) „dobTemu”
+    // trafia na poprzedni dzień kalendarza i numer dnia (D-093) wychodzi o 1 większy [M3 D0c]
+    ustawZegar(12, 0);
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(3) }), feed('f1', 'z', dzienTemu(3)));
       await e.addStarterEntry(feed('f2', 'z', dzienTemu(1)));
@@ -280,6 +287,9 @@ describe('104: ekrany zakwasu', () => {
   });
 
   it('BR-ZAKW-005 Gotowy: dzień 7, podwojenie w 8 h → „gotowy” i „Ułóż plan” do pierwszego wypieku', async () => {
+    // Stała godzina 12:00: przy prawdziwym zegarze tuż po północy (np. TZ=Pacific/Auckland o 13:00 w Warszawie) „dobTemu”
+    // trafia na poprzedni dzień kalendarza i numer dnia (D-093) wychodzi o 1 większy [M3 D0c]
+    ustawZegar(12, 0);
     const fedAt = Date.now() - 7 * H;
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(6) }), feed('f1', 'z', fedAt));
@@ -380,6 +390,9 @@ describe('104: ekrany zakwasu', () => {
   });
 
   it('BR-DIAG-002 Zakwas bez aktywności w dniu 5: „Coś mnie niepokoi” → Doktor zakwasu z przyczynami i radą co 12 h; plamy → wyrzuć bez listy', async () => {
+    // Stała godzina 12:00: przy prawdziwym zegarze tuż po północy (np. TZ=Pacific/Auckland o 13:00 w Warszawie) „dobTemu”
+    // trafia na poprzedni dzień kalendarza i numer dnia (D-093) wychodzi o 1 większy [M3 D0c]
+    ustawZegar(12, 0);
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z', { setupStartedAt: dobTemu(4) }), feed('f1', 'z', Date.now() - 3 * H));
     });
