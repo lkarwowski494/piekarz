@@ -98,6 +98,15 @@ export function TargetReadyCard({
   const rzadDni = useRef<ScrollView>(null);
   const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
   const plus = <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />;
+  // ±2 h obok ±30 min: 10:00 → 18:00 w 4 stuknięciach zamiast 16 (04-studio-projektowe-008 b, W-fix2); klucz istniejący
+  const dwieGodziny = (
+    <View style={styles.rzad}>
+      <Chip tekst={t('{n} godziny', { n: '-2' })} onPress={() => onAdjustTargetTime(-120)} />
+      {waski && minus}
+      {waski && plus}
+      <Chip tekst={t('{n} godziny', { n: '+2' })} onPress={() => onAdjustTargetTime(120)} />
+    </View>
+  );
   return (
     <View style={styles.sekcja}>
       <Text style={styles.pytanie} accessibilityRole="header">{t('Kiedy chleb ma być gotowy?')}</Text>
@@ -133,7 +142,7 @@ export function TargetReadyCard({
       })()}
       {/* Propozycja z rytmu Dziennika (BR-KAL-014): zdanie spoza makiety, do przeglądu roli 04 [M3 D7] */}
       {podpowiedz ? <Text style={styles.zmianaCzasu} testID="plan-podpowiedz-rytmu">{podpowiedz}</Text> : null}
-      {waski && <View style={styles.rzad}>{minus}{plus}</View>}
+      {dwieGodziny}
 
       {zmianaCzasu && faktycznaGodzina ? (
         <Text style={styles.zmianaCzasu} testID="plan-zmiana-czasu">
