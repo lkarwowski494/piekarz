@@ -219,7 +219,11 @@ describe('D5 w Europe/Warsaw', () => {
   });
 
   describe('D-108: zasięg dnia „gotowe” i skrót z arkusza dnia (BR-KAL-015)', () => {
-    const czwartek = lok(2026, 10, 22, 10);
+    // Chwila liczona w beforeAll, już w strefie Warsaw: na poziomie describe wykonałaby się przy zbieraniu testów, w strefie procesu [M3 D0c]
+    let czwartek = 0;
+    beforeAll(() => {
+      czwartek = lok(2026, 10, 22, 10);
+    });
     it('zasięg: dziś i 14 kolejnych dni (D-108), liczba z modułu konfiguracji', () => {
       expect(ZASIEG_DNI_PLANU).toBe(14);
       expect(dniPlanu()).toEqual(Array.from({ length: 15 }, (_, i) => i));
