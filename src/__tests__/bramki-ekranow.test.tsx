@@ -54,7 +54,6 @@ import DziennikScreen from '../../app/(tabs)/dziennik/index';
 import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import DoctorScreen from '../../app/doktor';
-import ZakwasyLayout from '../../app/(tabs)/zakwasy/_layout';
 import DoktorZakwasuScreen from '../../app/(tabs)/zakwasy/doktor-zakwasu';
 import { evaluateSourdoughSafety } from '../core/sourdough-physics';
 import { PaywallModal } from '../components/PaywallModal';
@@ -219,7 +218,8 @@ describe('Without Pro the Basic part works and Pro functions open the Pro screen
   it('Doktor zakwasu: the Zakwasy header and "Coś mnie niepokoi" open it; every symptom gives advice without the Pro screen, the spots and mould warning (RD-21) too (BR-DIAG-002)', async () => {
     const trasa = () => [mockNawigacja.push.mock.calls[mockNawigacja.push.mock.calls.length - 1]?.[0]].map((a: unknown) => (typeof a === 'string' ? a : (a as { pathname?: string } | undefined)?.pathname));
     mockNawigacja.push.mockClear();
-    const naglowek = await render(<ZakwasyLayout />);
+    // M3 D10: skrót „Doktor” na pasie karty zakwasu (dawniej w natywnym nagłówku stosu)
+    const naglowek = await render(<ZakwasScreen />);
     await press(naglowek, 'zakwas-doctor-shortcut-btn');
     expect({ trasa: trasa(), paywall: paywallShown(naglowek.root) }).toEqual({ trasa: ['/zakwasy/doktor-zakwasu'], paywall: false });
     act(() => naglowek.unmount());

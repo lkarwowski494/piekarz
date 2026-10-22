@@ -23,7 +23,7 @@ jest.mock('../lib/wejscia-pozniej', () => {
 });
 
 jest.mock('expo-router', () => ({
-  useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
+  /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
   useLocalSearchParams: () => ({}),
 }));
 jest.mock('react-native-safe-area-context', () => {

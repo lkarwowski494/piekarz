@@ -52,12 +52,19 @@ export function NadPasem() {
   return <View style={styles.nadPasem} />;
 }
 
-/** Pasek stanu jasny na ciemnym pasie, gdy ekran jest na wierzchu; po wyjściu domyślny (app/_layout.tsx). */
+/** Ekrany z pasem na wierzchu: przy przejściu między dwoma (push, zmiana zakładki) kolejność focus/blur nie gra roli. */
+let ekranyZPasem = 0;
+
+/** Pasek stanu jasny na ciemnym pasie, gdy ekran jest na wierzchu; gdy żaden ekran z pasem, domyślny (app/_layout.tsx). */
 export function usePasekStanuJasny() {
   useFocusEffect(
     useCallback(() => {
+      ekranyZPasem += 1;
       StatusBar.setBarStyle('light-content', true);
-      return () => StatusBar.setBarStyle('default', true);
+      return () => {
+        ekranyZPasem = Math.max(0, ekranyZPasem - 1);
+        if (ekranyZPasem === 0) StatusBar.setBarStyle('default', true);
+      };
     }, [])
   );
 }

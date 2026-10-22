@@ -6,7 +6,7 @@
 // Rachunek (useRecipeCalculations), zapis, plan i wczytanie receptury bez zmian. [M1-audytor-generalny-106]
 import React, { useState, useMemo, useEffect, useCallback, useRef } from 'react';
 import { ScrollView, View, StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
 import { FlourItemInput } from '../../../src/core/domain-rules';
@@ -29,7 +29,11 @@ import {
 } from '../../../src/lib/calculator-actions';
 import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
-import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { pozycjeMenuReceptury, zarejestrujMenuReceptury, pokazMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PrzyciskNaglowka } from '../../../src/components/nawigacja/PrzyciskNaglowka';
+import { nazwaReceptury } from '../../../src/lib/nazwa-receptury';
+import { t } from '../../../src/lib/i18n';
 import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
 import { TemperaturaWodySheet } from '../../../src/components/calculator/TemperaturaWodySheet';
 import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../../../src/components/calculator/accordion/PolaTemperaturDdt';
@@ -46,6 +50,9 @@ const bezAkcji = () => undefined;
 
 export default function EkranReceptury() {
   const router = useRouter();
+  // Pas nocy zamiast natywnego nagłówka (D10 opcja A): nazwa, powrót „Receptury” i „Więcej” na pasie [M3 D10]
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
   // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
   const { chron, blokada, dodaj, moze } = useAppAccess();
@@ -268,7 +275,11 @@ export default function EkranReceptury() {
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right', 'bottom']}>
       <View style={s.ekran} onLayout={(e) => setWysokoscEkranu(e.nativeEvent.layout.height)}>
-        <ScrollView contentContainerStyle={s.tresc} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+        <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+          <NadPasem />
+          <PasZakladki gora={gora} tytul={nazwaReceptury(recipeName)} wstecz={{ tekst: t('Receptury'), onPress: () => router.back() }}
+            akcje={<PrzyciskNaglowka testID="recipe-more-btn" etykieta={t('Więcej działań: receptura')} tekst={t('Więcej')} naPasie onPress={pokazMenuReceptury} />} />
+          <View style={s.tresc}>
           <BlokadaFunkcji {...blokada('kalkulator')}>
             {/* Suma mąk ≠ 100% (np. receptura z kopii): komunikat zamiast wywrotki ekranu [M1-audytor-generalny-150] */}
             {bladMak ? (
@@ -296,6 +307,7 @@ export default function EkranReceptury() {
           </BlokadaFunkcji>
           {currentMasterPreset && <ORecepturze receptura={currentMasterPreset} />}
           {akcjeWTresci && akcje}
+          </View>
         </ScrollView>
         {!akcjeWTresci && (
           <View style={styles.strefaAkcji} onLayout={(e) => setWysokoscAkcji(e.nativeEvent.layout.height)}>

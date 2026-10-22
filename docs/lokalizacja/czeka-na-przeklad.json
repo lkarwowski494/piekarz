@@ -800,6 +800,11 @@
       "klucz": "Odznacz objawy",
       "powod": "przycisk czyszczący zaznaczone objawy na karcie bezpieczeństwa zakwasu, zamiast „Zacznij od nowa” (PRZ-39, przegląd roli 04; nowy klucz, batch 2 a5) [M3 PRZ]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ostatni wypiek: {data}",
+      "powod": "zdanie na pasie Dziennika z datą ostatniego wypieku (parametr {data}) [M3 D10, D10 opcja A]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

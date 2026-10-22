@@ -18,7 +18,8 @@ async function render(logi: StoredBakeLog[]) {
   let tree!: renderer.ReactTestRenderer;
   await act(async () => {
     tree = renderer.create(
-      <BakeHistorySection bakeHistory={logi} selectedTasteFilter="all" onSelectTasteFilter={() => undefined} filteredHistory={logi}
+      // M3 D10: filtry smaku przeniesione na pas Dziennika, sekcja nie przyjmuje już filtra (asercje bez zmian)
+      <BakeHistorySection bakeHistory={logi} filteredHistory={logi}
         onDeleteBakeLog={() => undefined} onBakeAgain={() => undefined} onChooseRecipe={() => undefined} />,
     );
   });

@@ -17,7 +17,7 @@ import type { PrefermentType } from '../core/preferments';
 
 jest.setTimeout(60000);
 jest.mock('../lib/wejscia-pozniej', () => ({ wejscieWidoczne: () => true }));
-jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn(), setParams: jest.fn() }), useLocalSearchParams: () => ({}) }));
+jest.mock('expo-router', () => ({ /* M3 D10: ekran z pasem ustawia pasek stanu przy focusie */ useFocusEffect: (cb: () => void) => jest.requireActual('react').useEffect(cb, []), useRouter: () => ({ push: jest.fn(), setParams: jest.fn() }), useLocalSearchParams: () => ({}) }));
 jest.mock('react-native-safe-area-context', () => {
   const ReactMod = require('react');
   return {

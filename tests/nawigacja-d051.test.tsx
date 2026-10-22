@@ -87,31 +87,29 @@ describe('101 / D-051 2a: 4 zakładki i nawigacja systemowa z dużym tytułem', 
     expect(ekrany.find((e) => e.name === 'index')?.options.title).toBe(tytul);
   });
 
-  // Plan otwiera akcja receptury „Ułóż plan” (057); w pasku nawigacji receptury jest „Więcej” z menu działań.
-  // Ekran receptury jest w stosie nad listą receptur, tytuł = nazwa receptury (§11c 106) [M1-audytor-generalny-106]
-  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”; w pasku nawigacji receptury „Więcej”', () => {
+  // Plan otwiera akcja receptury „Ułóż plan” (057). Ekran receptury jest w stosie nad listą receptur, tytuł = nazwa
+  // receptury (§11c 106) [M1-audytor-generalny-106]. M3 D10 (opcja A): lista i ekran receptury z pasem nocy zamiast
+  // natywnego nagłówka; „Więcej” z menu działań jest na pasie ekranu (etykieta i menu: src/__tests__/pas-zakladek-d10).
+  it('Receptury: plan wypieku w tym samym stosie, zwykły tytuł „Plan wypieku”; lista i receptura z pasem (nagłówek ukryty)', () => {
     const { ekrany } = uklad('../app/(tabs)/receptury/_layout');
     expect(ekrany.map((e) => e.name)).toEqual(['index', 'receptura', 'harmonogram']);
     const plan = ekrany.find((e) => e.name === 'harmonogram');
     expect(plan?.options).toMatchObject({ title: 'Plan wypieku', headerLargeTitleEnabled: false });
+    expect(plan?.options.headerShown).not.toBe(false);
+    expect(ekrany.find((e) => e.name === 'index')!.options).toMatchObject({ title: 'Receptury', headerShown: false });
     expect(ekrany.find((e) => e.name === 'index')!.options.headerRight).toBeUndefined();
     const opcjeReceptury = ekrany.find((e) => e.name === 'receptura')!.options as unknown as (a: { route: { params?: { nazwa?: string } } }) => Opcje;
     const opcje = opcjeReceptury({ route: { params: { nazwa: 'Chleb żytni' } } });
     expect(opcje.title).toBe('Chleb żytni');
-    expect(testIdPrzycisku(opcje)).toBe('recipe-more-btn');
-    let tree!: renderer.ReactTestRenderer;
-    act(() => {
-      tree = renderer.create(opcje.headerRight!());
-    });
-    const przycisk = tree.root.findAll((n) => n.props.testID === 'recipe-more-btn' && typeof n.props.accessibilityLabel === 'string')[0];
-    expect(przycisk.props.accessibilityLabel).toBe('Więcej działań: receptura');
-    expect(przycisk.props.onPress).toBe(require('../src/lib/menu-receptury').pokazMenuReceptury);
-    act(() => tree.unmount());
+    expect(opcje.headerShown).toBe(false);
+    expect(opcje.headerRight).toBeUndefined();
   });
 
-  it('Zakwasy: skrót do Doktora Chleba w pasku nawigacji', () => {
+  it('Zakwasy: karta zakwasu z pasem (nagłówek ukryty, „Doktor” na pasie, M3 D10); Doktor zakwasu z nagłówkiem', () => {
     const { ekrany } = uklad('../app/(tabs)/zakwasy/_layout');
-    expect(testIdPrzycisku(ekrany.find((e) => e.name === 'index')!.options)).toBe('zakwas-doctor-shortcut-btn');
+    expect(ekrany.find((e) => e.name === 'index')!.options).toMatchObject({ title: 'Zakwasy', headerShown: false });
+    expect(ekrany.find((e) => e.name === 'index')!.options.headerRight).toBeUndefined();
+    expect(ekrany.find((e) => e.name === 'doktor-zakwasu')!.options).toMatchObject({ title: 'Doktor zakwasu' });
   });
 
   it('prowadzenie (Stolnica) i Doktor Chleba otwierają się nad zakładkami, z nagłówkiem systemowym', () => {

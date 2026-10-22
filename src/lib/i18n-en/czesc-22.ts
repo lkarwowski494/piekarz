@@ -16,4 +16,6 @@ export const EN_22: Record<string, string> = {
   'Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.':
     "This starter's entries will be deleted, and making it will start again from day 1 with a feeding now.",
   'Zapisano zmiany w recepturze „{name}”.': 'Saved the changes to the recipe "{name}".',
+  // M3 D10: zdanie na pasie Dziennika (opcja A); data w języku aplikacji (parametr {data})
+  'Ostatni wypiek: {data}': 'Last bake: {data}',
 };

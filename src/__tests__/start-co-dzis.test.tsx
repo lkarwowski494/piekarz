@@ -245,8 +245,9 @@ describe('101: Start „Co dziś robisz?”', () => {
       ustawRodzajReceptur('yeast');
     });
     // Filtr listy receptur (§11c 106): wybrany chip „Drożdżowe” [M1-audytor-generalny-106]
-    const lista = tree.root.find((n) => n.props?.onFiltr !== undefined && n.props?.filtr !== undefined);
-    expect(lista.props.filtr).toBe('yeast');
+    // M3 D10: filtr rodzaju jest na pasie (FiltryNaPasie: wybrany/onWybierz zamiast filtr/onFiltr listy)
+    const lista = tree.root.find((n) => n.props?.onWybierz !== undefined && n.props?.wybrany !== undefined);
+    expect(lista.props.wybrany).toBe('yeast');
     act(() => tree.unmount());
   });
 

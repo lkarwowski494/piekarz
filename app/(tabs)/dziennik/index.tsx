@@ -6,8 +6,12 @@
 // ============================================================================
 
 import React from 'react';
-import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FiltryNaPasie, NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { FILTRY_SMAKU } from '../../../src/components/stolnica/BakeHistorySection';
+import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../../../src/lib/ostatni-wypiek';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { useBakeHistory } from '../../../src/hooks/useBakeHistory';
@@ -24,6 +28,8 @@ export default function DziennikScreen() {
   const { loadHistory } = historia;
   const { wpis } = useLocalSearchParams<{ wpis?: string }>();
   const przewijane = React.useRef<ScrollView>(null);
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
 
   // Wpis z zakończonego wypieku pojawia się po powrocie na zakładkę
   useFocusEffect(
@@ -32,14 +38,26 @@ export default function DziennikScreen() {
     }, [loadHistory])
   );
 
+  const ostatni = tekstOstatniegoWypieku(ostatniWypiekMs(historia.bakeHistory));
   return (
     <ScrollView
       ref={przewijane}
       style={styles.ekran}
       contentContainerStyle={styles.tresc}
-      contentInsetAdjustmentBehavior="automatic"
+      contentInsetAdjustmentBehavior="never"
       keyboardShouldPersistTaps="handled"
     >
+      <NadPasem />
+      {/* Pas nocy (D10 opcja A): tytuł, „Ostatni wypiek: …” i filtry smaku (jak dawniej tylko przy wpisach) [M3 D10].
+          Pas od krawędzi mimo marginesu treści: położenie wpisu z kalendarza liczone dalej od początku treści (D7) */}
+      <View style={styles.pas}>
+        <PasZakladki gora={gora} tytul={t('Dziennik')} podtytul={ostatni ?? undefined}>
+          {historia.bakeHistory.length > 0 && (
+            <FiltryNaPasie filtry={FILTRY_SMAKU.map((f) => ({ ...f, etykieta: t(f.etykieta) }))} wybrany={historia.selectedTasteFilter}
+              onWybierz={historia.setSelectedTasteFilter} />
+          )}
+        </PasZakladki>
+      </View>
       <BlokadaFunkcji {...blokada('historia')}>
         {historia.bakeHistory.length > 0 && (
           <BlokadaFunkcji {...blokada('porownanie')}>
@@ -48,8 +66,6 @@ export default function DziennikScreen() {
         )}
         <BakeHistorySection
           bakeHistory={historia.bakeHistory}
-          selectedTasteFilter={historia.selectedTasteFilter}
-          onSelectTasteFilter={historia.setSelectedTasteFilter}
           filteredHistory={historia.filteredHistory}
           onDeleteBakeLog={historia.handleDeleteBakeLog}
           onBakeAgain={historia.handleBakeAgain}
@@ -74,6 +90,7 @@ export default function DziennikScreen() {
 const styles = StyleSheet.create({
   ekran: { flex: 1, backgroundColor: theme.colors.tlo },
   tresc: { padding: theme.spacing.md, paddingBottom: 40, gap: odstepy.m },
+  pas: { marginHorizontal: -theme.spacing.md, marginTop: -theme.spacing.md },
   wiersz: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',

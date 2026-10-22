@@ -19,7 +19,7 @@ import { pierwszeGratulacje } from '../../lib/gratulacje-zakwasu';
 import { stanKartyZakwasu, wZakladaniu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { typografia } from '../../ui/tokeny';
-import { useStarterLog, nowyWpis } from './useStarterLog';
+import { nowyWpis, type useStarterLog } from './useStarterLog';
 import { StarterCycleCard } from './StarterCycleCard';
 import { StarterEntriesList } from './StarterEntriesList';
 import { StarterSetupCard } from './StarterSetupCard';
@@ -27,12 +27,14 @@ import { FridgeWakeStatus } from './FridgeWakeStatus';
 import { BlokadaFunkcji, type BlokadaFunkcjiProps } from '../BlokadaFunkcji';
 
 /** „na blacie, 1:2:2” / „w lodówce” z danych zakwasu; brak proporcji zostaje brakiem. */
-function opisMiejsca(s: StoredStarter): string {
+export function opisMiejsca(s: StoredStarter): string {
   if (s.storageState === 'FRIDGE') return s.feedingRatio ? t('w lodówce, {proporcja}', { proporcja: s.feedingRatio }) : t('w lodówce');
   return s.feedingRatio ? t('na blacie, {proporcja}', { proporcja: s.feedingRatio }) : t('na blacie');
 }
 
-export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci, zPro = true }: {
+export function ZakwasDziennik({ starter, log, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci, zPro = true }: {
+  /** Wpisy zakwasu z ekranu (useStarterLog): ten sam stan karmi pas ze spiralą cyklu (D10) i kartę [M3 D10]. */
+  log: ReturnType<typeof useStarterLog>;
   /** Strażnik gotowości poza zakładaniem (blokada('gotowosc-zakwasu') ekranu; BR-ZAKW-003 w Pro). */
   blokadaGotowosci: Omit<BlokadaFunkcjiProps, 'children'>;
   /** Przypomnienia o dokarmianiu działają (Pro): gratulacje bez zdania o Pro (BR-ZAKW-004, W-10) [M3 P-b]. */
@@ -47,7 +49,6 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   onZmianaZakwasu: () => Promise<void>;
 }) {
   const router = useRouter();
-  const log = useStarterLog(starter.id);
   const { reload } = log;
   const [wynik, setWynik] = useState<SetupOutcome | null>(null);
   // Gratulacje po pierwszym zakończonym zakładaniu, raz (BR-ZAKW-005, W-10, D-113) [M3 P-b]
@@ -128,6 +129,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
         onPodwoil={podwoil}
         onDokarm={onDokarm}
         onNiepokoi={() => router.push({ pathname: '/zakwasy/doktor-zakwasu', params: { starterId: starter.id } })}
+        cyklNaPasie
       >
         {/* Gotowość poza zakładaniem to Pro (BR-ZAKW-003, D-113): w Basic w miejscu stanu blokada, bez treści stanu;
             w zakładaniu gotowość kończy zakładanie (Basic, karta zakładania) [M3 P-a-fix P1-3] */}

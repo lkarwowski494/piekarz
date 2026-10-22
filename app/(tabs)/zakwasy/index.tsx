@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Alert,
-  Text,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, StyleSheet, Alert, Text, View } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { PasZakwasu } from '../../../src/components/zakwas/PasZakwasu';
 import { theme } from '../../../src/ui/theme';
 import { typografia } from '../../../src/ui/tokeny';
 import { t } from '../../../src/lib/i18n';
@@ -19,7 +16,7 @@ import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '..
 import { confirmDeleteStarter, confirmZalozOdNowa } from '../../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
 import { restartStarterSetup } from '../../../src/data/starter-entries-store';
-import { nowyWpis } from '../../../src/components/zakwas/useStarterLog';
+import { nowyWpis, useStarterLog } from '../../../src/components/zakwas/useStarterLog';
 import { ustawZakwasPlanu } from '../../../src/lib/zakwas-planu';
 import { StoredStarter } from '../../../src/data/db';
 import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
@@ -62,6 +59,10 @@ export default function ZakwasScreen() {
     storageState: 'ROOM_TEMP',
   });
   const maZakwas = startersList.length > 0;
+  // Pas nocy (D10 opcja A): nazwa, spirala cyklu i czas od dokarmienia z tych samych wpisów co karta [M3 D10]
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
+  const log = useStarterLog(starter.id);
 
   const [targetYield, setTargetYield] = useState<number>(150);
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
@@ -260,8 +261,10 @@ export default function ZakwasScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nagłówek systemowy „Zakwasy” i skrót do Doktora: app/(tabs)/zakwasy/_layout.tsx (D-051 2a) */}
-      <ScrollView contentContainerStyle={styles.container} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+        <NadPasem />
+        <PasZakwasu gora={gora} starter={starter} wpisy={log.entries} maZakwas={maZakwas} />
+        <View style={styles.container}>
         <NotificationsOffBanner />
         {/* Bez bloku statystyk (§12a): wiek i hydratacja w karcie profilu, proporcja w karcie cyklu i ilościach
             do dokarmienia, temperatura w aktywności zakwasu [M1-audytor-generalny-111] */}
@@ -306,6 +309,7 @@ export default function ZakwasScreen() {
         {maZakwas && (
           <ZakwasDziennik
             starter={starter}
+            log={log}
             wersja={wersjaDziennika}
             onDokarm={handleLogFeeding}
             zDostepem={(akcja) => void akcja()}
@@ -407,7 +411,7 @@ export default function ZakwasScreen() {
           visible={isDiscardModalOpen}
           onClose={() => setIsDiscardModalOpen(false)}
         />
-
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

@@ -20,12 +20,13 @@ import {
   SPIRALA_ZWOJE,
   ukladSpirali,
   ukladyTorow,
+  type KolorSpirali,
   type KrokSpirali,
   type WariantSpirali,
 } from '../lib/spirala-geometria';
 import { etykietaPlanuWypieku } from '../lib/spirala-etykieta';
 import { gotoweMs } from '../lib/gotowe';
-import { useMotyw } from '../ui/motyw';
+import { useMotyw, type PaletaHex } from '../ui/motyw';
 import { odstepy, typografia } from '../ui/tokeny';
 
 const AnimowaneKolo = Animated.createAnimatedComponent(Circle);
@@ -71,6 +72,17 @@ export interface SpiralaProps {
   rozmiar?: number;
   /** Drugi trwający wypiek jako drugi tor tej samej spirali (D-105, BR-KAL-016); bez niego jeden plan. */
   drugi?: TorSpirali;
+  /** Na pasie nocy (karta zakwasu, D10): kolory pasa zamiast tła ekranu. */
+  naPasie?: boolean;
+}
+
+/**
+ * Kolory Spirali: zwykłe z palety albo na pasie nocy (D10 opcja A; tokeny z D-105: zrobione ratanNaPasie 4,80:1,
+ * przed nami i noc naPasie2, postęp i znacznik naPasie, środek znacznika pas) [M3 D10].
+ */
+export function kolorySpirali(paleta: PaletaHex, naPasie: boolean): Record<KolorSpirali, string> {
+  if (!naPasie) return { ratan: paleta.ratan, ratanSzary: paleta.ratanSzary, nocDane: paleta.nocDane, tusz: paleta.tusz, tlo: paleta.tlo };
+  return { ratan: paleta.ratanNaPasie, ratanSzary: paleta.naPasie2, nocDane: paleta.naPasie2, tusz: paleta.naPasie, tlo: paleta.pas };
 }
 
 /** Plan jednego toru: kroki, bieżący krok i postęp kroku. */
@@ -125,8 +137,8 @@ function SpiralaDwochTorow({ kroki, drugi, biezacy = null, postepKroku = 0, etyk
   );
 }
 
-function SpiralaJednegoPlanu({ kroki, wariant, biezacy = null, postepKroku = 0, etykieta, rozmiar }: SpiralaProps) {
-  const { kolory } = useMotyw();
+function SpiralaJednegoPlanu({ kroki, wariant, biezacy = null, postepKroku = 0, etykieta, rozmiar, naPasie = false }: SpiralaProps) {
+  const kolory = kolorySpirali(useMotyw().kolory, naPasie);
   const ograniczRuch = useOgraniczRuch();
   const bok = useRozmiar(wariant, rozmiar);
   const dane = wariant === 'pusta' ? SPIRALA_PUSTA : kroki;

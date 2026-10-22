@@ -5,7 +5,7 @@
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
@@ -15,10 +15,19 @@ import { formatTemperature, useUnitSystem } from '../../lib/unit-converter';
 import { StoredBakeLog } from '../../data/db';
 import { SensoryRadarChart } from '../SensoryRadarChart';
 
+export type FiltrSmaku = 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
+
+/** Filtry smaku (etykieta = klucz PL do t()); na pasie Dziennika (D10) [M3 D10]. */
+export const FILTRY_SMAKU: readonly { id: FiltrSmaku; testID: string; etykieta: string }[] = [
+  { id: 'all', testID: 'filter-taste-all', etykieta: 'Wszystkie' },
+  { id: 'mild', testID: 'filter-taste-mild', etykieta: 'Łagodny' },
+  { id: 'balanced', testID: 'filter-taste-balanced', etykieta: 'Zbalansowany' },
+  { id: 'sour', testID: 'filter-taste-sour', etykieta: 'Kwaśny' },
+  { id: 'tangy', testID: 'filter-taste-tangy', etykieta: 'Bardzo kwaśny' },
+];
+
 export interface BakeHistorySectionProps {
   bakeHistory: StoredBakeLog[];
-  selectedTasteFilter: 'all' | 'mild' | 'balanced' | 'sour' | 'tangy';
-  onSelectTasteFilter: (filter: 'all' | 'mild' | 'balanced' | 'sour' | 'tangy') => void;
   filteredHistory: StoredBakeLog[];
   onDeleteBakeLog: (id: string) => void;
   onBakeAgain: (log: StoredBakeLog) => void;
@@ -31,8 +40,6 @@ export interface BakeHistorySectionProps {
 
 export function BakeHistorySection({
   bakeHistory,
-  selectedTasteFilter,
-  onSelectTasteFilter,
   filteredHistory,
   onDeleteBakeLog,
   onBakeAgain,
@@ -47,41 +54,7 @@ export function BakeHistorySection({
     <View style={styles.historyContainer} onLayout={(e) => { gora.current = e.nativeEvent.layout.y; }}>
       <Text style={styles.sectionHeading}>{t('Historia wypieków')}</Text>
 
-      {/* Taste Filter Chips */}
-      {bakeHistory.length > 0 && (
-        <View style={styles.filterScrollContainer}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tasteFilterRow}>
-            {[
-              { id: 'all' as const, label: t('Wszystkie') },
-              { id: 'mild' as const, label: t('Łagodny') },
-              { id: 'balanced' as const, label: t('Zbalansowany') },
-              { id: 'sour' as const, label: t('Kwaśny') },
-              { id: 'tangy' as const, label: t('Bardzo kwaśny') },
-            ].map((p) => (
-              <Pressable
-                accessibilityRole="button"
-                accessibilityState={{ selected: selectedTasteFilter === p.id }}
-                key={p.id}
-                testID={`filter-taste-${p.id}`}
-                style={[
-                  styles.tasteFilterChip,
-                  selectedTasteFilter === p.id && styles.tasteFilterChipActive,
-                ]}
-                onPress={() => onSelectTasteFilter(p.id)}
-              >
-                <Text
-                  style={[
-                    styles.tasteFilterText,
-                    selectedTasteFilter === p.id && styles.tasteFilterTextActive,
-                  ]}
-                >
-                  {p.label}
-                </Text>
-              </Pressable>
-            ))}
-          </ScrollView>
-        </View>
-      )}
+      {/* Filtry smaku na pasie Dziennika (D10 opcja A): FILTRY_SMAKU w app/(tabs)/dziennik/index.tsx [M3 D10] */}
 
       {bakeHistory.length === 0 ? (
         // Pusty Dziennik: zaproszenie i jedna akcja do listy receptur (design-spec §11c 116, `dziennik-pusty`)
@@ -205,36 +178,6 @@ const styles = StyleSheet.create({
     color: theme.colors.tusz,
     marginBottom: 10,
     marginTop: 6,
-  },
-  filterScrollContainer: {
-    marginBottom: 12,
-  },
-  tasteFilterRow: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  tasteFilterChip: {
-    minHeight: theme.cele.glownyPrzeplyw,
-    justifyContent: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: theme.radius.full,
-    backgroundColor: theme.colors.powierzchnia,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-  },
-  tasteFilterChipActive: {
-    backgroundColor: theme.colors.akcent,
-    borderColor: theme.colors.akcent,
-  },
-  tasteFilterText: {
-    fontSize: typografia.style.podpis.pt,
-    color: theme.colors.tusz2,
-    fontWeight: '600',
-  },
-  tasteFilterTextActive: {
-    color: theme.colors.naAkcencie,
-    fontWeight: '700',
   },
   emptyHistoryBox: {
     gap: odstepy.m,

@@ -308,7 +308,6 @@
   },
   "Bardzo kwaśny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (tangy)"
     ]
@@ -790,7 +789,7 @@
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
       "app/(tabs)/(dzis)/index.tsx (title)",
-      "src/components/start/PasDzis.tsx (tekst w JSX)"
+      "src/components/start/PasDzis.tsx (tytul)"
     ]
   },
   "Co dziś zrobić": {
@@ -1212,9 +1211,9 @@
   },
   "Doktor": {
     "gdzie": [
-      "app/(tabs)/zakwasy/_layout.tsx (tekst)",
       "app/_layout.tsx (tekst)",
-      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)"
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/components/zakwas/PasZakwasu.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
@@ -1229,8 +1228,8 @@
   },
   "Doktor zakwasu": {
     "gdzie": [
-      "app/(tabs)/zakwasy/_layout.tsx (etykieta)",
-      "app/(tabs)/zakwasy/_layout.tsx (title)"
+      "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "src/components/zakwas/PasZakwasu.tsx (etykieta)"
     ]
   },
   "Domyślnie według regionu telefonu. Receptury zapisuję w gramach; procenty się nie zmieniają.": {
@@ -1361,7 +1360,8 @@
   "Dziennik": {
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/dziennik/_layout.tsx (title)"
+      "app/(tabs)/dziennik/_layout.tsx (title)",
+      "app/(tabs)/dziennik/index.tsx (tytul)"
     ]
   },
   "Dzień gotowości:": {
@@ -2514,7 +2514,6 @@
   },
   "Kwaśny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (sour)"
     ]
@@ -4076,6 +4075,11 @@
       "src/doctor/dough-recovery.ts (dane: titlePl)"
     ]
   },
+  "Ostatni wypiek: {data}": {
+    "gdzie": [
+      "src/lib/ostatni-wypiek.ts (kod)"
+    ]
+  },
   "Ostatnie dokarmienie": {
     "gdzie": [
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
@@ -5241,7 +5245,9 @@
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/_layout.tsx (headerBackTitle)",
-      "app/(tabs)/receptury/_layout.tsx (title)"
+      "app/(tabs)/receptury/_layout.tsx (title)",
+      "app/(tabs)/receptury/index.tsx (tytul)",
+      "app/(tabs)/receptury/receptura.tsx (tekst)"
     ]
   },
   "Receptury bazowe": {
@@ -5269,7 +5275,7 @@
   },
   "Rodzaj receptur": {
     "gdzie": [
-      "src/components/receptury/ListaReceptur.tsx (accessibilityLabel)"
+      "app/(tabs)/receptury/index.tsx (etykieta)"
     ]
   },
   "Rodzina Apps4Craft Studio": {
@@ -7001,7 +7007,7 @@
   },
   "Więcej": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (tekst)"
+      "app/(tabs)/receptury/receptura.tsx (tekst)"
     ]
   },
   "Więcej bochenków": {
@@ -7011,7 +7017,7 @@
   },
   "Więcej działań: receptura": {
     "gdzie": [
-      "app/(tabs)/receptury/_layout.tsx (etykieta)",
+      "app/(tabs)/receptury/receptura.tsx (etykieta)",
       "src/lib/menu-receptury.ts (Alert.alert)"
     ]
   },
@@ -7214,8 +7220,7 @@
   "Wszystkie": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
-      "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)",
-      "src/components/stolnica/BakeHistorySection.tsx (label)"
+      "src/components/academy/TechniquesLibrarySection.tsx (tekst w JSX)"
     ]
   },
   "Wszystkie etapy manualne (mieszanie, składanie, pieczenie) odbywają się poza oknem snu (23:00 – 06:30).": {
@@ -7886,7 +7891,8 @@
   "Zakwasy": {
     "gdzie": [
       "app/(tabs)/_layout.tsx (title)",
-      "app/(tabs)/zakwasy/_layout.tsx (title)"
+      "app/(tabs)/zakwasy/_layout.tsx (title)",
+      "src/components/zakwas/PasZakwasu.tsx (tytul)"
     ]
   },
   "Zakwas|składnik": {
@@ -8200,7 +8206,6 @@
   },
   "Zbalansowany": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (balanced)"
     ]
@@ -9324,7 +9329,6 @@
   },
   "Łagodny": {
     "gdzie": [
-      "src/components/stolnica/BakeHistorySection.tsx (label)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
       "src/components/stolnica/FinishBakeModal.tsx (mild)"
     ]

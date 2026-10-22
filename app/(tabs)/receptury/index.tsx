@@ -4,7 +4,7 @@
 // (D-047); filtr rodzaju z „Co dziś robisz?” (BR-START-001). [M1-audytor-generalny-106; 04-studio-projektowe-022]
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ScrollView, View, Text, Pressable, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { guardSave } from '../../../src/lib/save-guard';
 import { filterMasterRecipes, RecipePreset } from '../../../src/recipes/presets';
@@ -19,7 +19,8 @@ import {
   PendingRecipeToLoad,
 } from '../../../src/lib/recipe-navigation';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
-import { ListaReceptur, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
+import { ListaReceptur, FILTRY_RECEPTUR, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
+import { FiltryNaPasie, NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { ekranRecepturyOtwarty, subskrybujZmianyReceptur } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
@@ -35,6 +36,9 @@ export default function RecepturyLista() {
   const routerRef = useRef(router);
   routerRef.current = router;
   const [filtr, setFiltr] = useState<CategoryFilterType>('all');
+  // Pas nocy zamiast natywnego nagłówka (D10 opcja A): tytuł i filtr rodzaju na pasie, pasek stanu jasny [M3 D10]
+  const gora = useSafeAreaInsets().top;
+  usePasekStanuJasny();
   const [moje, setMoje] = useState<StoredRecipe[]>([]);
   const { chron, moze } = useAppAccess();
   // Wejścia PÓŹNIEJ z dawnego nagłówka receptur: skan QR (F-08) i przelicznik objętości (F-45), dziś ukryte
@@ -114,7 +118,13 @@ export default function RecepturyLista() {
 
   return (
     <SafeAreaView style={s.ekran} edges={['left', 'right']}>
-      <ScrollView contentContainerStyle={s.tresc} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled">
+      <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
+        <NadPasem />
+        <PasZakladki gora={gora} tytul={t('Receptury')}>
+          <FiltryNaPasie filtry={FILTRY_RECEPTUR.map((f) => ({ ...f, etykieta: t(f.etykieta) }))} wybrany={filtr} onWybierz={setFiltr}
+            etykieta={t('Rodzaj receptur')} />
+        </PasZakladki>
+        <View style={s.tresc}>
         <CorruptStateRecoveryBanner />
         {(wejscieWidoczne('qr') || wejscieWidoczne('przelicznik-objetosci')) && (
           <View style={s.chipy}>
@@ -123,7 +133,6 @@ export default function RecepturyLista() {
           </View>
         )}
         <ListaReceptur
-          filtr={filtr}
           onFiltr={setFiltr}
           bazowe={bazowe}
           moje={moje}
@@ -131,6 +140,7 @@ export default function RecepturyLista() {
           onOtworzMoja={otworzMoja}
           onUsunMoja={usunMoja}
         />
+        </View>
       </ScrollView>
       {usunieta && <PasekCofnij key={usunieta.id} tekst={t('Usunięto recepturę')} onPrzywroc={() => void przywrocMoja()} onUkryj={schowajPasek} />}
       <CalculatorModalsProvider
