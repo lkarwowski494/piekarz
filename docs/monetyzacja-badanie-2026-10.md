@@ -1,5 +1,5 @@
 # Badanie zmiany modelu płatności: V1, V2 wobec D-038 (Piekarz)
-Stan: E2b (STOP, V3 z notatki właściciela) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
+Stan: E2c (STOP, V3 wg wzorca portfela) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
 
 Do wyboru właściciela na STOP E2 obowiązuje D-038 i kontrakt w `docs/monetyzacja.md`; ten plik niczego w nim nie zmienia. Surowe odczyty źródeł: `audit/02-badanie-modelu-2026-10-22/zrodla/` (poza gitem).
 
@@ -347,6 +347,121 @@ Razem [OCENA]: ok. 3–4 dni pracy agenta, ok. 1 h czasu właściciela, czekanie
 
 Wobec STOP E2: rekomendacja z E2 (V2) zostaje zastąpiona rekomendacją V3, jeśli właściciel przyjmie tę notatkę jako kierunek; V2 zostaje wariantem odniesienia.
 
+## E2c: V3 według wzorca portfela „limit miesięczny, Pro bez próby” (zastępuje E2b)
+
+Zlecenie: właściciel (2026-10-22, przez M1), dosłownie: „Zaktualizowany model. Potrzebuje odpowiednika dla piekarza. Czekam na szczegóły i wyliczenie monetyzacji.”, z plikiem „Wzorzec monetyzacji portfela: limit miesięczny, Pro bez próby” (źródła: Trening i Oczko P-057). Wzorzec zastępuje notatkę z E2b. Zmiany wobec E2b: porzucenie nie zwraca dnia (dzień zapisuje się przy starcie), praca przez północ z przerwą < 60 min, wejście zastępujące wypiek woła strażnika, ceny domyślne portfela, bez „No subscriptions”, limit tylko się luzuje, dni wypieku w danych użytkownika, próg zrównania i test po wydaniu. Rachunek i reguły sklepu z E2b obowiązują dalej.
+
+Reguły sklepu, uzupełnienie (odczyt 2026-10-22): strona subskrypcji Apple opisuje ten model wprost: „Offer a metered paywall. A metered paywall allows access to a finite amount of content for a specified duration before needing to make a purchase — for example, viewing 10 full articles per month for free in a news app.” (MS-B08, sekcja freemium). Wytyczne 3.1.1 mówią o próbie tylko „time-based” (MS-B01), więc limit nie wymaga produktu „XX-day Trial”. Produkty nieodnawialne w App Store Connect: brak (V1/V2 niczego nie zapisały). Oferty wprowadzające: są na `.pro.monthly` i `.pro.yearly` (Free Trial 2 Weeks, zapis 2026-10-21): krok usunięcia MS-B21. Family Sharing: włączony na trzech produktach 2026-10-21 i nieodwracalny (MS-B05), zgodnie z kierunkiem portfela.
+
+### 1. Jednostka i N
+**Jednostka: dzień wypieku,** czyli data lokalna (czas telefonu w chwili startu), w której zaczął się wypiek prowadzony w Stolnicy. Kilka wypieków tego samego dnia to jeden dzień. Uzasadnienia są tego samego rodzaju co w portfelu („rytm X zawsze darmowy”, bo miesiąc ma najwyżej tyle wystąpień):
+
+| N | Zdanie dla użytkownika | Ile osób przekracza limit |
+|---|---|---|
+| **5 (domyślne)** | „Pieczesz raz w tygodniu? Zawsze za darmo.” (najwyżej 5 tych samych dni tygodnia w miesiącu) | danych o rozkładzie częstotliwości nie ma; BRD: „roughly once a week” (S-24, rec. 8870010975, szczebel 5). [OCENA] limit przekraczają piekący częściej niż raz w tygodniu; mnożnik konwersji 0,35 / 0,55 / 0,8 wobec freemium bramki |
+| 3 | „Pieczesz co dwa tygodnie? Zawsze za darmo.” (31 dni mieści 3 dni co 14: 1., 15., 29.) | [OCENA] limit przekracza każdy piekący raz w tygodniu: mnożnik 0,7 / 1,0 / 1,3 |
+| 10 | „Pieczesz dwa razy w tygodniu? Zawsze za darmo.” (2 dni tygodnia × najwyżej 5) | [OCENA] tylko piekący częściej niż 2× w tygodniu: mnożnik 0,05 / 0,12 / 0,2 |
+
+### 2. Rachunek wobec D-038
+Narzędzie i dane bramki z 2026-10-19 (`oplacalnosc.mjs`, `wariant-a-wlasciciel.json`: 9 storefrontów iOS i 9 Google Play), kod wyjścia 0 dla wszystkich plików (`audit/02-badanie-modelu-2026-10-22/dowody/`). Odnowienia subskrypcji są w rachunku: płatności na płacącego w 36 mies. 5,19 (miesięczna) i 1,45 (roczna), RevenueCat 2026 przez bramkę; ceny, plany i odnowienia V3 są te same co w D-038, więc przychód na płacącego jest ten sam, a różni się tylko liczba płacących. Prowizja 15%, VAT PL 23%, USD 3,8886 (E2b). Odczyty A i B jak w E2b (B: twarda ściana D-038 konwertuje 1,5 / 2,5 / 5 raza lepiej niż freemium [OCENA z RevenueCat 2026, MS-27]).
+
+| USD netto/rok, iOS + Google Play | pes. / **norm.** / opt. | sam iOS norm. |
+|---|---|---|
+| D-038, odczyt A | 3 / **345** / 26 381 | 218 |
+| D-038, odczyt B | 5 / **862** / 131 904 | 545 |
+| V3 N=3, ceny portfela | 2 / **344** / 34 231 | 218 |
+| **V3 N=5, ceny portfela** | 1 / **189** / 21 065 | 120 |
+| V3 N=10, ceny portfela | 0 / **41** / 5 266 | 26 |
+| V3 N=5, 3,99 / 14,99 / 19,99 | 3 / **293** / 35 563 | 185 |
+| V3 N=5, 4,49 / 24,99 / 39,99 | 4 / **374** / 42 735 | — |
+| V2 (odniesienie), odczyt A | 1 / **200** / 24 029 | 126 |
+
+Wrażliwość (V3 N=5, ceny portfela, pes. → opt. jednego założenia): `udzial_nowej` 47 → 946, `instalacje_na_ocene` 57 → 568, konwersja 54 → 443 USD/rok.
+
+**Próg zrównania** (`e2c.mjs`, US, norm.; stopa = zakupy Pro / pierwsze pobrania = konwersja bramki × `darmowa_alternatywa` × mnożnik):
+
+| Model | Zakup Pro na pobranie, pes. / norm. / opt. |
+|---|---|
+| D-038, odczyt A | 0,66% / 3,26% / 9,81% |
+| D-038, odczyt B | 0,99% / 8,15% / 49,05% |
+| V3 N=3 | 0,46% / 3,26% / 12,75% |
+| V3 N=5 | 0,23% / **1,79%** / 7,85% |
+| V3 N=10 | 0,03% / 0,39% / 1,96% |
+
+V3 N=5 dorównuje D-038, gdy limit konwertuje **1,82 raza lepiej** niż zakładam (≥ 3,26% zakupów na pobranie) w odczycie A albo **4,55 raza lepiej** (≥ 8,15%) w odczycie B.
+
+### 3. Reguła liczenia i wektory
+Czysta funkcja `docs/monetyzacja/limit.mjs` (wzorzec Oczka, P-057), wektory `docs/monetyzacja/wektory-limitu.json`: `node docs/monetyzacja/limit.mjs docs/monetyzacja/wektory-limitu.json` → „16 z 16 zgodnych”, kod 0 (2026-10-22). To propozycja w dokumentach, nie kod aplikacji.
+
+Reguła: przy starcie wypieku strażnik zapisuje dzień (data lokalna, flaga Pro). Start w nowym dniu jest dozwolony, gdy darmowych dni bez Pro w tym miesiącu jest < 5, gdy Pro jest aktywne albo gdy od ostatniej czynności przy dowolnym wypieku (start albo ukończony krok) minęło < 60 min. Dzień raz zapisany zostaje, także po „Przerwij”.
+
+| Przypadek z pkt 4.3 | Wektor |
+|---|---|
+| pierwsze użycie w miesiącu | L-01 |
+| ten sam dzień | L-02 (drugi bochenek, „Prowadź oba”), L-06 |
+| limit wyczerpany | L-03 |
+| praca przez północ, krótka / długa przerwa | L-04 / L-04b |
+| nowy miesiąc | L-05 |
+| cofnięcie albo porzucenie | L-06, L-06b (dzień nie wraca) |
+| dopisanie wstecz | L-07: poza funkcją, strażnik nie jest wołany (dziennik, edycja, import) |
+| wejście zastępujące czynność | L-08 |
+| Pro aktywne | L-10 |
+| Pro wygasłe w trakcie miesiąca | L-09 |
+| drugie urządzenie | L-11 (dni z kopii łączone z lokalnymi) |
+| cofnięty zegar | L-12, L-15 |
+| ponowna instalacja | L-14 |
+| (Piekarz) plan na przyszły dzień | L-16 |
+| (Piekarz) kroki trwającego wypieku, wypiek przez noc | L-17: poza funkcją, strażnik nie jest wołany; wypiek trwa do końca |
+| (Piekarz) karmienie zakwasu, przypomnienia | L-18: poza funkcją, zawsze dostępne |
+
+**Dni wypieku w danych użytkownika (zasada 13 wzorca) a moja rekomendacja z E2b „licznik poza kopią”:** zmieniam ją. Piekarz nie ma synchronizacji (offline, bez konta); odpowiednikiem „danych synchronizowanych” jest kopia zapasowa (BR-DANE-002, pule `piekarz-kopia-*`). Propozycja: tabela `dni_wypieku (data, pro)` w bazie, w kopii zapasowej jako pole opcjonalne (jak D-102, kopia bez pola nie zmienia dni w telefonie), a import **łączy** dni (suma, bez usuwania). Za: nowy telefon z kopii dostaje swoje dni (L-11), a ponowna instalacja z odtworzeniem kopii nie zeruje limitu. Mój argument z E2b (import zeruje albo przenosi licznik) znika przy łączeniu: import starszej kopii niczego nie odejmuje. Ryzyko brzegowe: ponowna instalacja bez kopii zeruje licznik (L-14), ale kasuje też dane użytkownika, więc nie jest tanim obejściem.
+
+**Limit tylko się luzuje (zasada 12):** test przed wydaniem porównuje `LIMIT_DNI` i listę „zawsze dostępne” z plikiem poprzedniego wydania (np. `docs/monetyzacja/limit-wydania.json`, aktualizowany przy wydaniu): błąd, gdy limit maleje albo funkcja znika z listy. Do napisania w E3 razem z kodem.
+
+### Odstępstwa Piekarza od wzorca (nazwane)
+| # | Odstępstwo | Dlaczego |
+|---|---|---|
+| O-1 | **Dwa wypieki naraz** (D-092, D-104): dwa wypieki zaczęte tego samego dnia albo w przerwie < 60 min to jeden dzień; trwające dwa wypieki z różnych dni to dwa dni | jednostka „dzień” wzorca bez zmian; dopisuję tylko, że drugi wypiek to nie nowa jednostka (L-02, L-04) |
+| O-2 | **Plany na przyszłe dni** (D-106, kalendarz): zapis planu nie woła strażnika; liczy się dzień faktycznego startu | planowanie to funkcja pomocnicza (zasada 6 wzorca), a start planu to start wypieku (L-16) |
+| O-3 | **Zakwas zawsze darmowy:** karmienie, zapis karmienia, przypomnienia o dokarmianiu, zakładanie i budzenie zakwasu | zakwas to funkcja pomocnicza, nie główna czynność; przypomnienie o żywej kulturze za zaporą robiłoby z niej zakładnika (zasada 6 wzorca „dane nigdy nie są zakładnikiem” i zasada roli 6); decyzja 3 z E2 |
+| O-4 | **Wypiek rozpoczęty trwa do końca** także po wygaśnięciu Pro (D-039) | zgodne z zasadą 4 wzorca, zapisuję tylko odwołanie do D-039 |
+| O-5 | **Dni wypieku w kopii zapasowej, nie w synchronizacji** | Piekarz nie ma synchronizacji (zasada 1 CLAUDE.md: offline); kopia pełni tę rolę (wyżej) |
+
+### 4. Test modelu po wydaniu
+- **Miara:** zakupy Pro (pierwsze zakupy subskrypcji i dożywotniego) / pierwsze pobrania, z App Store Connect (Sales and Trends, MS-24), bez telemetrii.
+- **Próg zrównania:** 3,26% (odczyt A); 8,15%, jeśli przyjąć odczyt B.
+- **Przedziały 95% (Wilson) przy 3000 pobraniach:** V3 N=5 przy założeniu normalnym 1,79% → 54 zakupy, 1,38–2,33%; gdyby V3 było na progu A, 3,26% → 98 zakupów, 2,68–3,96%; na progu B, 8,15% → 245 zakupów, 7,23–9,19%. Przy 3000 pobraniach te trzy stany dają się od siebie odróżnić.
+- **Termin:** w bramce normalnej to ok. 993 pobrania iOS rocznie (ok. 2 200 razem z Google Play), więc 3000 pobrań to ok. 3 lata samego iOS. **Odświeżenie co 6 miesięcy** (ok. 500 pobrań iOS): przedział V3 przy 1,79% to 0,95–3,38%, więc po pół roku da się odróżnić tylko odczyt B (próg 8,15%, przedział 6,06–10,88%), a odczytu A jeszcze nie. Wniosek: przy 6 miesiącach decyzja „wrócić do twardej ściany” ma podstawę tylko wtedy, gdy stopa V3 jest wyraźnie poniżej 3%.
+
+### 5. Lista zmian (po wyborze; czas agenta [OCENA] osobno od czasu właściciela)
+| Obszar | Zmiana | Agent | Właściciel / czekanie |
+|---|---|---|---|
+| Kod: limit | `src/core/limit-wypiekow.ts` z `limit.mjs` + wektory L-01…L-16 w Jest; tabela `dni_wypieku` z migracją w transakcji i kopią przed migracją (zasada wspólna 10); pole kopii opcjonalne, import łączy | 1 dzień | — |
+| Kod: strażnik | jedna funkcja w starcie Stolnicy, „Piecz ponownie”, starcie planu z kalendarza; ostatnia czynność (start, krok); licznik na ekranie startu; pliki przebudowy M3 | 0,5–1 dnia | po scaleniu `redesign/piekarz-2026-10-22` albo na niej, zgoda M1 |
+| Kod: dostęp | `konfiguracja.ts`: wszystkie funkcje darmowe, płatny tylko start ponad limit; usunięcie oferty przy pierwszym użyciu, banera „tylko historia”, uprzedzenia próby (`uprzedzenie.ts`), uprawnienia do oferty wprowadzającej w `sklep.ts`; ekran Pro tylko przy limicie i w Ustawieniach; „Zrealizuj kod” | 0,5 dnia | — |
+| Testy | test „limit tylko się luzuje”; nowe asercje w testach kontraktu (bramki ekranów, oferta, uprzedzenie) z nowego kontraktu | w cenie wyżej | — |
+| Teksty | licznik, komunikat limitu, ekran Pro (nazwa planu, okres, cena ze sklepu, opis bez liczb, ujawnienia 3.1.2, bez „No subscriptions”), 35 języków | 0,5 dnia + przekład (Message Batches) | zgoda na wydatek API przez M1 |
+| Opis sklepu | „Free for 5 baking days every month. Pro removes the limit.” w 35 lokalizacjach, bez „free trial” | 0,5 dnia (rola 10) | przegląd ok. 15 min |
+| App Store Connect | usunięcie Free Trial 2 Weeks z obu subskrypcji, wszystkie storefronty (MS-B21); notatka dla recenzji o limicie | M1, ok. 30 min | zgoda właściciela na zapis |
+| Dokumenty | kontrakt w `docs/monetyzacja.md`, wpis decyzji zastępujący D-038/D-039, ER do roli 01 (BR-ZAK-004, BR-ZAK-005), rola 03 (podział), rola 04 (ekran Pro, licznik) | 0,5 dnia | — |
+| Sandbox | zakup planów, przywracanie, limit, północ, wygaśnięcie Pro | — | ok. 30 min na telefonie; runner macOS 0:00–15:00 |
+
+Razem [OCENA]: ok. 3–4 dni agenta, ok. 1 h właściciela; czekanie: przekład, scalenie przebudowy M3, recenzja 1.0.
+
+### 6. Decyzje dla właściciela (rekomendacja pierwsza)
+| # | Decyzja | Opcje | Rekomendacja |
+|---|---|---|---|
+| E2c-1 | N | (a) 5; (b) 3 („co dwa tygodnie”); (c) 10 („dwa razy w tygodniu”) | **(a) 5:** domyślne portfela i jedno zdanie dla typowego piekarza. (b) daje ok. 1,8 raza więcej (344 wobec 189), jeśli przychód ma pierwszeństwo; (c) prawie nic (41) |
+| E2c-2 | Praca przez północ | (a) przerwa < 60 min od ostatniej czynności przy dowolnym wypieku (start albo ukończony krok); (b) liczona tylko od ostatniego startu; (c) bez wyjątku | (a): jak w Oczku; nocny krok i drugi bochenek po północy nie zjadają dnia |
+| E2c-3 | Wejście zastępujące wypiek | (a) każda droga, która zapisuje wypiek z datą dziś bez prowadzenia, woła strażnika (dziś takiej nie ma: dziennik zapisuje tylko koniec prowadzonego wypieku i import); start planu i „Piecz ponownie” wołają go zawsze; (b) traktować jak dopisanie wstecz | (a): inaczej limit dałoby się obejść, gdy taka droga powstanie |
+| E2c-4 | Pro wygasłe w miesiącu | (a) liczą się tylko dni bez Pro; (b) liczą się wszystkie dni | (a): zasada 5 wzorca |
+| E2c-5 | Family Sharing | (a) zostaje włączony (stan od 2026-10-21); (b) wyłączyć | (a), bo (b) jest niemożliwe: „you can't turn it off” (MS-B05); to fakt, nie wybór, i zgadza się z kierunkiem portfela |
+| E2c-6 | Ceny | (a) domyślne portfela 0,99 / 6,99 / 14,99 USD; (b) 3,99 / 14,99 / 19,99 USD; (c) 4,49 / 24,99 / 39,99 USD | **(a) na 1.0, przegląd przy odświeżeniu po 6 miesiącach:** spójność portfela i najtańsza oferta w niszy. Koszt wobec (b): 189 zamiast 293 USD/rok (−35%) w modelu, którego elastyczność ceny to [OCENA] z jednego raportu (RevenueCat). Podwyżka później jest możliwa: „You have the option to preserve the current price for existing subscribers if you increase the price.” (MS-B23). Wybierz (b), jeśli próg 500 ma pierwszeństwo przed spójnością portfela |
+| E2c-7 | Dni wypieku w kopii | (a) w danych i w kopii, import łączy; (b) poza kopią | (a): zasada 13 wzorca, odstępstwo O-5 |
+| E2c-8 | Model | (a) V3 wg wzorca; (b) V2 (odniesienie); (c) D-038 bez zmian | **(a):** usuwa próbę, która sama zamienia się w opłatę, nie wymaga nowych ID ani odpowiedzi App Review, jest spójne z portfelem. Koszt: w odczycie A 45% mniej niż D-038 (189 wobec 345); w odczycie B 4,6 raza mniej. Test po wydaniu (pkt 4) pokaże, który odczyt jest prawdziwy |
+
+Wobec E2c zmieniam rekomendację z E2b w dwóch punktach: ceny (z 3,99 / 14,99 / 19,99 na domyślne portfela, z przeglądem po 6 miesiącach) i licznik (z „poza kopią” na „w kopii, import łączy”). Decyzja E2b-4 („Przerwij” w 30 min jako anulowanie) odpada: porzucenie nie zwraca dnia.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -371,6 +486,7 @@ Wobec STOP E2: rekomendacja z E2 (V2) zostaje zastąpiona rekomendacją V3, jeś
 | MS-B19 | api.sejm.gov.pl/eli/acts/DU/2023/168/text.html | art. 4 ust. 2 | cytat w tabeli prawa; nowszego tekstu jednolitego w ELI brak (wyszukanie tytułu, 2026-10-22) | 1 |
 | MS-B20 | itunes.apple.com/lookup (US, PL), apps.apple.com/<kraj>/app/id<id>, itunes.apple.com/<kraj>/rss/customerreviews/…/json | pola `formattedPrice`, sekcja In-App Purchases, recenzje | ceny i zliczenia w sekcji „Rynek”; cytaty z id recenzji w `audit/02-badanie-modelu-2026-10-22/rynek/raport-rynek.md` | ceny: 1 (dane platformy, D-035); recenzje: 5 (tylko motywy) |
 | MS-B21 | developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions | „Delete an introductory offer” | kroki cytowane w E2b | 1 |
+| MS-B23 | developer.apple.com/help/app-store-connect/reference/pricing-and-availability/in-app-purchase-and-subscriptions-pricing-and-availability | „Subscription Prices” | „You have the option to preserve the current price for existing subscribers if you increase the price.” | 1 |
 | MS-B22 | europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm | tabela stawek | „PL Poland 23”; „Last checked: 13/07/2026” | 3 |
 
 ## Otwarte pytania
