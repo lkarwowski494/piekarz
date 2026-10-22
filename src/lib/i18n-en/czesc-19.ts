@@ -114,6 +114,7 @@ export const EN_19: Record<string, string> = {
   '{wypiek}: {krok}': '{wypiek}: {krok}',
   'Tor {n}, {receptura}: {krok}, {czas}': 'Track {n}, {receptura}: {krok}, {czas}',
   'Tor {n}, {receptura}: {krok}': 'Track {n}, {receptura}: {krok}',
+  '{wypiek}: {krok}. Otwórz prowadzenie wypieku': '{wypiek}: {krok}. Open the bake guide',
   '{wypiek}: {krok}, trwa': '{wypiek}: {krok}, in progress',
   '{wypiek}, krok: {krok}, do {godzina}': '{wypiek}, step: {krok}, until {godzina}',
   // M3 D5: plany na przyszłe dni (BR-KAL-009, BR-KAL-015, RD-33, D-108)

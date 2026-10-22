@@ -192,6 +192,38 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_pizza' } });
   });
 
+  it('Stuknięcie w spiralę jednego wypieku otwiera jego Stolnicę; przycisk, etykieta VoiceOver z recepturą i krokiem, cel ≥ 44 pt (decyzja M1 2026-10-23, wariant a)', async () => {
+    zDostepem();
+    await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
+    const root = await renderStart();
+    const spirala = przycisk(root, 'spirala-otworz');
+    expect(spirala).toHaveLength(1);
+    expect(spirala[0].props.accessibilityRole).toBe('button');
+    expect(spirala[0].props.accessibilityLabel).toMatch(/^Chleb: .+\. Otwórz prowadzenie wypieku$/);
+    expect(Number(styl(spirala[0]).minHeight)).toBeGreaterThanOrEqual(44);
+    expect(przycisk(root, 'resume-bake-btn')).toHaveLength(1);
+    await act(async () => spirala[0].props.onPress());
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_chleb' } });
+  });
+
+  it('Dwa wypieki: stuknięcie w kartę legendy otwiera Stolnicę tego wypieku; spirala dwóch torów nie zgaduje toru (nie jest przyciskiem)', async () => {
+    zDostepem();
+    await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
+    await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1));
+    const root = await renderStart();
+    expect(przycisk(root, 'spirala-otworz')).toHaveLength(0);
+    const karty = przycisk(root, 'karta-otworz');
+    expect(karty.map((k) => k.props.accessibilityRole)).toEqual(['button', 'button']);
+    expect(karty[0].props.accessibilityLabel).toMatch(/^Chleb: .+\. Otwórz prowadzenie wypieku$/);
+    expect(karty[1].props.accessibilityLabel).toMatch(/^Pizza: .+\. Otwórz prowadzenie wypieku$/);
+    for (const k of karty) expect(Number(styl(k).minHeight)).toBeGreaterThanOrEqual(44);
+    expect(przycisk(root, 'resume-bake-btn')).toHaveLength(2);
+    await act(async () => karty[1].props.onPress());
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_pizza' } });
+    await act(async () => karty[0].props.onPress());
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_chleb' } });
+  });
+
   it('BR-KAL-007 Decyzja o zaległym bez zmiany schematu: „Pomiń” zapisuje decyzję w app_settings, zaległe znika', async () => {
     zDostepem();
     await pustaBaza();
