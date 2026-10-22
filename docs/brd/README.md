@@ -53,7 +53,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-52 | [DO WYJAŚNIENIA] od jakiego rozmiaru tekstu pasek przechodzi w listę dni | rola 04 | NFR-KAL-002 |
 | OP-53 | [DO USTALENIA] czy `getCalendars().firstWeekday` oddaje wybór „pierwszy dzień tygodnia” w ustawieniach iOS i co przy pustej wartości; `Intl.Locale` nie jest na liście API Hermes | test na urządzeniu, rola 05 | RD-30 |
 | OP-54 | Rozstrzygnięte 2026-10-22 (D-093, właściciel przez M1): numer dnia zakładania liczony dniami kalendarza, dzień 1 = dzień założenia | właściciel | RD-31, BR-ZAKW-005 |
-| OP-55 | [DO WYJAŚNIENIA] potwierdzenie roli 02, że brak następnego karmienia na pasku w trybie „tylko historia” to wykładnia D-038, a nie zmiana podziału | rola 02 | BR-KAL-006 |
+| OP-55 | Rozstrzygnięte 2026-10-22 (D-113, kontrakt roli 02, wdrożenie D-116): przypomnienia o dokarmianiu w Pro poza zakładaniem, więc bez Pro pasek nie pokazuje następnego karmienia (ER-74) | rola 02 | BR-KAL-006 |
 | OP-56 | [DO USTALENIA] limit oczekujących powiadomień lokalnych `UNUserNotificationCenter` (64 w dokumentacji wycofanego API, S-74) | dokumentacja Apple, rola 05 | OG-10, BR-KAL-009 |
 | OP-57 | [DO WYJAŚNIENIA] czy godziny snu mogą być różne w różne dni tygodnia (dziś jedne, D-066) | właściciel z rolą 03 | P-9, BR-HARMO-002 |
 | OP-58 | [DO USTALENIA] rytm dokarmiania zakwasu bezglutenowego ze źródła szczebla 1–3 (poradnik: 24 h na blacie) i czy aplikacja ma go obsłużyć | źródła, rola 06; zakres: rola 03 | RD-25, RYZ-21 |

@@ -169,20 +169,20 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-006: Kalendarz bez Piekarz Pro
 - Przepływ: PR-19, PR-16
-- Dowód potrzeby: D-038, D-039 pkt 3 (wypiek rozpoczęty w czasie dostępu prowadzi się do końca); tekst trybu „tylko historia”: „Przypomnienia o dokarmianiu są wyłączone.”
+- Dowód potrzeby: D-112, D-113, D-116 (Basic: widok tygodnia, „Następne”, arkusz dnia, przeszłość; Pro: przypomnienia o dokarmianiu poza zakładaniem, plany na przyszłe dni, dwa wypieki); D-039 pkt 3 (wypiek rozpoczęty z Pro prowadzi się do końca); ER-74
 - Kryteria akceptacji:
   - Scenariusz: Przeszłość zawsze
-    - Zakładając, że okres próbny minął bez zakupu
+    - Zakładając, że użytkownik nie ma Pro (nigdy nie kupił albo Pro wygasło)
     - Gdy użytkownik otwiera „Dziś”
     - Wtedy widzi na pasku wypieki z dziennika i zapisane karmienia z przeszłości, bez kłódek na dniach
   - Scenariusz: Bez terminów karmienia
-    - Zakładając, że okres próbny minął bez zakupu, a zakwas na blacie dokarmiono wczoraj
+    - Zakładając, że użytkownik nie ma Pro, a zakwas na blacie (po zakładaniu) dokarmiono wczoraj
     - Gdy użytkownik patrzy na pasek i linię „Następne”
-    - Wtedy nie widzi następnego karmienia, bo przypomnienia o dokarmianiu są wyłączone (wykładnia D-038 do potwierdzenia przez rolę 02 [DO WYJAŚNIENIA] (OP-55))
+    - Wtedy nie widzi następnego karmienia, bo przypomnienia o dokarmianiu są w Pro (D-113; OP-55 rozstrzygnięte); w czasie zakładania pierwszego zakwasu terminy karmień są widoczne także bez Pro
   - Scenariusz: Wypiek rozpoczęty z dostępem
-    - Zakładając, że wypiek rozpoczęto w czasie próby, a próba minęła w jego trakcie
+    - Zakładając, że wypiek rozpoczęto z planem Pro, a Pro wygasło w jego trakcie
     - Gdy użytkownik patrzy na pasek
-    - Wtedy widzi przyszłe kroki tego wypieku jak przed końcem próby (D-039 pkt 3)
+    - Wtedy widzi przyszłe kroki tego wypieku jak przed końcem Pro (D-039 pkt 3)
 
 ### BR-KAL-007: Kalendarz nie zmienia schematu bazy w pierwszej wersji
 - Przepływ: PR-19
