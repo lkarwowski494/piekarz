@@ -52,6 +52,16 @@ import { theme } from '../ui/theme';
 
 const mockIap = (Iap as unknown as { __mock: { reset: () => void; entitlements: Array<Record<string, unknown>> } }).__mock;
 const H = 3_600_000;
+// Zegar ustawiony na 12:00 (tylko Date; timery i mikrozadania prawdziwe), żeby wynik nie zależał od godziny przebiegu:
+// zaległe karmienie sprzed 13 h między 0:00 a 1:00 wypada „z wczoraj” i etykieta ma wtedy datę [M3; wzorzec jak w zakwas-104-ekrany.test.tsx]
+const ustawZegar = (godz: number, min: number) => {
+  const now = new Date(2026, 9, 21, godz, min, 0, 0).getTime();
+  jest.useFakeTimers({
+    now,
+    doNotFake: ['nextTick', 'setImmediate', 'clearImmediate', 'queueMicrotask', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'hrtime', 'performance'],
+  });
+  return now;
+};
 
 const flush = async () => {
   await act(async () => {
@@ -94,6 +104,7 @@ async function renderStart() {
 
 describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
   beforeEach(async () => {
+    ustawZegar(12, 0);
     jest.clearAllMocks();
     _resetMemStore();
     mockIap.reset();
@@ -106,6 +117,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     if (tree) act(() => tree?.unmount());
     tree = null;
     setLang('pl');
+    jest.useRealTimers();
   });
 
   it('BR-KAL-005 Pierwsze uruchomienie: pas z adnotacją (D-105), bez „Następne”, trzy kafle obok siebie, pusta spirala', async () => {
@@ -321,6 +333,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
   });
 
   it('BR-KAL-001 Północ: aplikacja otwarta przez północ — po minucie wyróżniony jest nowy dzień', async () => {
+    jest.useRealTimers(); // ten przypadek ma własny zegar (spy na Date.now)
     await pustaBaza();
     const polnoc = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1).getTime();
     let teraz = polnoc - 30_000;
