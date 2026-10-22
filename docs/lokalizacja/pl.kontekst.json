@@ -774,7 +774,9 @@
   },
   "Co dziś robisz?": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (title)"
+      "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
+      "app/(tabs)/(dzis)/index.tsx (title)",
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
     ]
   },
   "Co dziś zrobić": {
@@ -783,9 +785,7 @@
     ]
   },
   "Co jeszcze dziś robisz?": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Co widzisz?": {
     "gdzie": [
@@ -1808,6 +1808,7 @@
   },
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -2120,6 +2121,11 @@
   "Język": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.": {
+    "gdzie": [
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
     ]
   },
   "Kalkulator": {
@@ -3319,6 +3325,11 @@
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
   },
+  "Najbliższe dni": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (kod)"
+    ]
+  },
   "Najpierw dodaj zakwas w zakładce Zakwas.": {
     "gdzie": [
       "src/lib/print-menu.ts (Alert.alert)"
@@ -3395,6 +3406,11 @@
   "Netnij wierzch żyletką pod kątem i piecz w garnku: 20 min pod pokrywką (230°C) + 20 min bez (200°C).": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
+    ]
+  },
+  "Nic nie mamy w planach": {
+    "gdzie": [
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
     ]
   },
   "Nic się nie dzieje": {
@@ -4369,6 +4385,11 @@
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (label)",
       "src/lib/schedule-formatter.ts (kod)"
+    ]
+  },
+  "Pokaż cały tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/PasekTygodnia.tsx (tekst w JSX)"
     ]
   },
   "Pokaż jeszcze {n} w arkuszu dnia": {
@@ -5861,6 +5882,11 @@
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
+  "Tego dnia nic nie zaplanowano.": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
+    ]
+  },
   "Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
@@ -5932,8 +5958,14 @@
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
     ]
   },
+  "Ten tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/PasekTygodnia.tsx (accessibilityLabel)"
+    ]
+  },
   "Ten wypiek jest już zakończony albo przerwany.": {
     "gdzie": [
+      "src/hooks/useAkcjeDzis.ts (Alert.alert)",
       "src/hooks/useFinishBake.ts (Alert.alert)"
     ]
   },
@@ -5951,6 +5983,16 @@
   "Test palca": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Tor {n}, {receptura}: {krok}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
+    ]
+  },
+  "Tor {n}, {receptura}: {krok}, {czas}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
@@ -5990,9 +6032,7 @@
     ]
   },
   "Trwa wypiek": {
-    "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Trzymaj żyletkę pod kątem ostrym ok. 30° względem powierzchni chleba (nie pionowo pod kątem 90°!).": {
     "gdzie": [
@@ -6002,6 +6042,11 @@
   "Trzymam 10 ostatnich kopii na tym telefonie.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },
   "Tu zapiszą się twoje wypieki": {
@@ -6216,8 +6261,8 @@
   },
   "Ustawienia": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (etykieta)",
-      "src/components/SettingsModal.tsx (tekst w JSX)"
+      "src/components/SettingsModal.tsx (tekst w JSX)",
+      "src/components/start/PasDzis.tsx (etykieta)"
     ]
   },
   "Usunięto recepturę": {
@@ -6881,13 +6926,14 @@
   "Wróć do wypieku": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
-      "src/components/start/TrwajacyWypiek.tsx (kod)",
+      "src/components/start/WypiekiNaSpirali.tsx (accessibilityLabel)",
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)",
       "src/lib/confirm.ts (text)"
     ]
   },
   "Wróć do: {nazwa}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (kod)",
+      "src/components/start/WypiekiNaSpirali.tsx (kod)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -7738,6 +7784,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Zapisano dokarmienie zakwasu {zakwas}.": {
+    "gdzie": [
+      "src/hooks/useAkcjeDzis.ts (tekst)"
+    ]
+  },
   "Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.": {
     "gdzie": [
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
@@ -8566,7 +8617,7 @@
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
       "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
-      "src/components/start/WyborCzynnosci.tsx (kod)",
+      "src/components/start/WyborCzynnosci.tsx (accessibilityHint)",
       "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
     ]
   },
@@ -8592,12 +8643,12 @@
   },
   "zostało {czas}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "zostało {czas}, do {godzina}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "zrobione": {
@@ -8677,6 +8728,7 @@
   },
   "{h} {co}": {
     "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (kod)",
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
@@ -8726,7 +8778,7 @@
   },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },
   "{nazwa}: {n} z 5": {
@@ -8971,6 +9023,11 @@
   "{wypiek}: ocena {ocena} z 5": {
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}: {krok}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {

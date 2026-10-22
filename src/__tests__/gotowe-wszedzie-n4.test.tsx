@@ -23,7 +23,8 @@ jest.mock('react-native-safe-area-context', () => {
 import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import StolnicaScreen from '../../app/stolnica';
-import { TrwajacyWypiek } from '../components/start/TrwajacyWypiek';
+// M3 D4b: karta „Trwa wypiek” zastąpiona spiralą „Dziś” 3+1 (D-105); te same asercje na jednym wypieku
+import { WypiekiNaSpirali } from '../components/start/WypiekiNaSpirali';
 import { initDatabase } from '../data/sqlite-store';
 import { saveBakeSession, type BakeSession } from '../data/bake-session-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
@@ -107,7 +108,7 @@ describe('N-4: „gotowe” po czasie jednakowo w prowadzeniu, Spirali i na Star
     let tree!: renderer.ReactTestRenderer;
     act(() => {
       tree = renderer.create(
-        <TrwajacyWypiek sesja={d.sesja} zegar={restoreTimerState(d.sesja, d.teraz)} teraz={d.teraz} onWroc={() => undefined} />,
+        <WypiekiNaSpirali wypieki={[{ id: 'w', sesja: d.sesja, zegar: restoreTimerState(d.sesja, d.teraz) }]} teraz={d.teraz} duzyTekst={false} onWroc={() => undefined} />,
       );
     });
     const karta = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'start-trwa-wypiek')[0];

@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
-| **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 569 | 569 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 519 | 519 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 191 | 191 | **100.0%** | ✅ POKRYTE |
+| **UI** | 50 | 50 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 579 | 579 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 530 | 530 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 196 | 196 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1336** | Pokrytych: **1336** | Brakujących: **0**
+Łącznie elementów: **1364** | Pokrytych: **1364** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -23,18 +23,17 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/(tabs)/dziennik/index` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/(tabs)/receptury/harmonogram` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/emoji-teksty-techniczne.test.ts |
 | `EKRAN` | `/(tabs)/receptury/index` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
-| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/instrukcja-ustawien.test.ts, tests/interaction-guards.test.ts |
+| `EKRAN` | `/(tabs)/receptury/receptura` | `app/(tabs)/receptury/receptura.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/instrukcja-ustawien.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/doktor-zakwasu` | `app/(tabs)/zakwasy/doktor-zakwasu.tsx` | ✅ | src/core/__tests__/starter-doctor.test.ts, src/core/__tests__/starter-setup.test.ts |
 | `EKRAN` | `/(tabs)/zakwasy/index` | `app/(tabs)/zakwasy/index.tsx` | ✅ | tests/app-locales-permissions.test.ts, tests/audit-fixes.test.tsx |
 | `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/instrukcja-ustawien.test.ts |
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/interaction-guards.test.ts |
-| `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/start-co-dzis.test.tsx |
+| `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/czeka-na-przeklad-093.test.ts |
-| `TEKST` | `Ustawienia` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/br-scenariusze-193-start-zakwas.test.tsx, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Piekarz Pro nie jest aktywny` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx |
 | `TEKST` | `Twoje receptury, zakwasy i dziennik są do przeglądania, eksportu i usunięcia. Przypomnienia o dokarmianiu są wyłączone. Liczenie, plan i prowadzenie wymagają Piekarz Pro.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
+| `UI` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Zobacz plany` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Piekarz działa bez internetu i bez konta. Twoje receptury i zapiski zostają na tym telefonie.` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Doktor Chleba` | `app/(tabs)/dziennik/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
@@ -255,6 +254,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Sól` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
 | `TEKST` | `Zakwas\|składnik` | `src/components/ImportRecipeModal.tsx` | ✅ | src/lib/__tests__/en-kontrola-074.test.ts, src/lib/__tests__/i18n-kontekst.test.ts |
 | `TEKST` | `Zaimportuj przepis` | `src/components/ImportRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `{h} {co}` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/lib/__tests__/kalendarz-teksty-d4a.test.ts |
+| `TEKST` | `Tego dnia nic nie zaplanowano.` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
+| `TEKST` | `Najbliższe dni` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
+| `TEKST` | `Ten tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
+| `TEKST` | `Pokaż cały tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
 | `TEKST` | `Zegar działa w aplikacji, ale przy zablokowanym telefonie nie przypomni o końcu kroku ani o karmieniu.` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
 | `TEKST` | `Otwórz Ustawienia` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx |
@@ -315,9 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
-| `TEKST` | `Udział żyta {n}%: wariant pszenny.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
-| `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Moje receptury` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dane-przykladowe-087.test.tsx |
 
-*(... i 1036 kolejnych elementów w pełnym wykazie)*
+*(... i 1064 kolejnych elementów w pełnym wykazie)*

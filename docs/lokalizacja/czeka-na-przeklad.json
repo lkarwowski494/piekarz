@@ -365,6 +365,61 @@
       "klucz": "i jeszcze {n}, szczegóły w arkuszu dnia",
       "powod": "koniec etykiety VoiceOver dnia, gdy zdarzeń jest więcej niż 3 (parametr {n}) [M3 D4b, BR-KAL-001]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ten tydzień",
+      "powod": "etykieta VoiceOver paska tygodnia na pasie „Dziś” [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż cały tydzień",
+      "powod": "przycisk na pasie „Dziś” przy dużym tekście (AX5): lista wszystkich dni zamiast samego dziś [M3 D4b, BR-KAL-001, makieta roli 04 a2]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nic nie mamy w planach",
+      "powod": "adnotacja pustego kalendarza na pasie „Dziś” (tytuł) [M3 D4b, BR-KAL-005, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.",
+      "powod": "adnotacja pustego kalendarza na pasie „Dziś” (zdanie) [M3 D4b, BR-KAL-005, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.",
+      "powod": "podpis pustej spirali pod kaflami na „Dziś” (pierwsze uruchomienie) [M3 D4b, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tego dnia nic nie zaplanowano.",
+      "powod": "arkusz dnia bez zdarzeń [M3 D4b, BR-KAL-004]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Najbliższe dni",
+      "powod": "tytuł arkusza najbliższych zdarzeń otwieranego z „+N” linii „Następne” [M3 D4b, BR-KAL-004]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zapisano dokarmienie zakwasu {zakwas}.",
+      "powod": "pasek „Przywróć” po „Zrobione” przy zaległym karmieniu na „Dziś” (parametr {zakwas}) [M3 D4b, BR-KAL-003]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: {krok}",
+      "powod": "karta legendy spirali z dwoma torami na „Dziś”: receptura i bieżący krok (parametry {wypiek}, {krok}) [M3 D4b, D-105, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tor {n}, {receptura}: {krok}, {czas}",
+      "powod": "etykieta VoiceOver spirali z dwoma torami: numer toru, receptura, krok, czas do końca kroku [M3 D4b, D-105, lista roli 04]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tor {n}, {receptura}: {krok}",
+      "powod": "etykieta VoiceOver spirali z dwoma torami bez minutnika kroku [M3 D4b, D-105]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

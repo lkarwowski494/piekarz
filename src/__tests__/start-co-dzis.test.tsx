@@ -55,9 +55,10 @@ const mockIap = (Iap as unknown as {
   __mock: { reset: () => void; entitlements: Array<Record<string, unknown>> };
 }).__mock;
 
+// M3 D4b: „Dziś” czyta też dane kalendarza, więc więcej kolejek mikrozadań do ustalenia stanu (bez zmian asercji)
 const flush = async () => {
   await act(async () => {
-    for (let i = 0; i < 30; i++) await Promise.resolve();
+    for (let i = 0; i < 60; i++) await Promise.resolve();
   });
 };
 const teksty = (root: renderer.ReactTestInstance) =>
@@ -112,8 +113,9 @@ describe('101: Start „Co dziś robisz?”', () => {
       'Piekę na zakwasie',
       'Piekę na drożdżach albo pizzę',
     ]);
-    const txt = teksty(tree.root);
-    expect(txt).toContain('Od mąki i wody do pierwszego bochenka, dzień po dniu.');
+    // M3 D4b: kafle bez zdania (makieta roli 04 a2, D-105) — zdanie w podpowiedzi VoiceOver; tytuł na pasie
+    expect(p[0].props.accessibilityHint).toBe('Od mąki i wody do pierwszego bochenka, dzień po dniu.');
+    expect(teksty(tree.root)).toContain('Co dziś robisz?');
     expect(mockNaglowek.title).toBe('Co dziś robisz?');
     // Ustawienia z „Dziś” (D-051 2a)
     expect(tree.root.findAllByProps({ testID: 'open-settings-btn' }).length).toBeGreaterThan(0);
@@ -151,7 +153,8 @@ describe('101: Start „Co dziś robisz?”', () => {
     act(() => tree.unmount());
   });
 
-  it('trwa wypiek: karta z małą Spiralą i „Wróć do wypieku” jednym dotknięciem otwiera prowadzenie', async () => {
+  // Zmiana M3 D4b: w wariancie 3+1 (D-105) trwający wypiek to duża Spirala pod kaflami (150–220 pt), nie karta 92 pt
+  it('trwa wypiek: duża Spirala i „Wróć do wypieku” jednym dotknięciem otwiera prowadzenie', async () => {
     zDostepem();
     const start = Date.now() - 60_000;
     const steps = planBakeSteps({ startAt: start, isHighRye: false });
@@ -170,7 +173,7 @@ describe('101: Start „Co dziś robisz?”', () => {
     const spirala = tree.root.findByProps({ testID: 'brand-spiral' });
     expect(spirala.props.accessibilityRole).toBe('image');
     expect(spirala.props.accessibilityLabel).toContain(`krok 4 z ${steps.length}`);
-    expect(spirala.props.style).toMatchObject({ width: 92, height: 92 });
+    expect(spirala.props.style.width).toBeGreaterThanOrEqual(150);
     expect(teksty(tree.root)).toContain('Chleb pszenny na zakwasie');
     const wroc = tree.root.findByProps({ testID: 'resume-bake-btn' });
     expect(wroc.props.accessibilityRole).toBe('button');

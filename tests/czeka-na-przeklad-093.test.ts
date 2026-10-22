@@ -86,6 +86,17 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Nic w planach',
     '{h} {co}',
     'i jeszcze {n}, szczegóły w arkuszu dnia',
+    'Ten tydzień',
+    'Pokaż cały tydzień',
+    'Nic nie mamy w planach',
+    'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.',
+    'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.',
+    'Tego dnia nic nie zaplanowano.',
+    'Najbliższe dni',
+    'Zapisano dokarmienie zakwasu {zakwas}.',
+    '{wypiek}: {krok}',
+    'Tor {n}, {receptura}: {krok}, {czas}',
+    'Tor {n}, {receptura}: {krok}',
     // KONIEC D4b
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
