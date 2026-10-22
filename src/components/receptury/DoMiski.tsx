@@ -18,6 +18,7 @@ import type { PrefermentType } from '../../core/preferments';
 import type { ZaczynWFormuleResult } from '../../core/zaczyn-w-formule';
 import { NumInput } from '../NumInput';
 import { useUnitSystem, formatWeight, formatDoseWeight, gramsToOunces, roundTo } from '../../lib/unit-converter';
+import { useRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy } from '../../lib/rodzaj-drozdzy';
 import { nazwaZaczynu } from './nazwy-receptur';
 import { s } from './style-receptur';
 
@@ -94,6 +95,10 @@ export function DoMiski(p: DoMiskiProps) {
   const b = p.prefermentBreakdown;
   const w = (g: number) => formatWeight(g, unitSystem);
   const d = (g: number) => formatDoseWeight(g, unitSystem);
+  // Drożdże z receptury są świeże; wybór „suche” w „Składnikach” przelicza każdy wiersz × 0,4 (RD-19) [M1-audytor-generalny-216]
+  const rodzaj = useRodzajDrozdzy();
+  const drozdze = nazwaDrozdzy(rodzaj);
+  const dd = (g: number) => d(gramyDrozdzy(g, rodzaj));
   const wiersz = (id: string, nazwa: string, masa: string, procent?: string) => (
     <WierszWagi
       key={id}
@@ -149,7 +154,7 @@ export function DoMiski(p: DoMiskiProps) {
             {wiersz('scale-item-preferment-flour', t('Mąka'), w(b.prefermentFlourGrams))}
             {wiersz('scale-item-preferment-water', t('Woda'), w(b.prefermentWaterGrams))}
             {b.prefermentStarterGrams > 0 && wiersz('scale-item-preferment-starter', nazwaZakwasu, w(b.prefermentStarterGrams), proc(p.starterPct))}
-            {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', t('Drożdże świeże (prasowane)'), d(b.prefermentYeastGrams))}
+            {b.prefermentYeastGrams > 0 && wiersz('scale-item-preferment-yeast', drozdze, dd(b.prefermentYeastGrams))}
             {b.prefermentSaltGrams > 0 && wiersz('scale-item-preferment-salt', t('Sól'), d(b.prefermentSaltGrams))}
           </View>
           <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Do miski')}</Text>
@@ -159,7 +164,7 @@ export function DoMiski(p: DoMiskiProps) {
             {wiersz('scale-item-water', t('Woda'), w(b.doughAddedWaterGrams))}
             {b.doughStarterGrams > 0 && wiersz('scale-item-starter', nazwaZakwasu, w(b.doughStarterGrams), proc(p.starterPct))}
             {wiersz('scale-item-salt', t('Sól'), d(b.doughAddedSaltGrams), `${formatFixed(p.saltPct, 1)}%`)}
-            {b.doughYeastGrams > 0 && wiersz('scale-item-yeast', t('Drożdże'), d(b.doughYeastGrams))}
+            {b.doughYeastGrams > 0 && wiersz('scale-item-yeast', drozdze, dd(b.doughYeastGrams))}
           </View>
         </>
       ) : (
@@ -171,7 +176,7 @@ export function DoMiski(p: DoMiskiProps) {
             {zakwas}
             {wiersz('scale-item-salt', t('Sól'), d(c.saltGrams), `${formatFixed(p.saltPct, 1)}%`)}
             {/* Drożdże z dwoma miejscami: 0,08% to nie „0,1%” [audyt-niezalezny D-14] */}
-            {c.yeastGrams > 0 && wiersz('scale-item-yeast', t('Drożdże'), d(c.yeastGrams), proc(p.yeastPct, 2))}
+            {c.yeastGrams > 0 && wiersz('scale-item-yeast', drozdze, dd(c.yeastGrams), proc(gramyDrozdzy(p.yeastPct, rodzaj), 2))}
           </View>
         </>
       )}

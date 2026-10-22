@@ -1224,9 +1224,12 @@
   },
   "Drożdże": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tekst w JSX)",
-      "src/components/receptury/SkladnikiSheet.tsx (etykieta)",
-      "src/lib/recipe-formatter.ts (kod)"
+      "src/components/receptury/SkladnikiSheet.tsx (etykieta)"
+    ]
+  },
+  "Drożdże do odważenia": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
   "Drożdże i bakterie w zakwasie trzeba regularnie dokarmiać świeżą mąką i wodą, żeby przetrwały i się namnażały.": {
@@ -1244,9 +1247,14 @@
       "src/doctor/diagnostics.ts (dane: biologicalCausePl)"
     ]
   },
+  "Drożdże suche": {
+    "gdzie": [
+      "src/lib/rodzaj-drozdzy.ts (kod)"
+    ]
+  },
   "Drożdże świeże (prasowane)": {
     "gdzie": [
-      "src/components/receptury/DoMiski.tsx (tekst w JSX)"
+      "src/lib/rodzaj-drozdzy.ts (kod)"
     ],
     "opis": "Drożdże świeże prasowane (kostka; compressed/cake yeast), nie suche ani instant. Etykieta wiersza drożdży zaczynu w karcie „Do miski” (ilość z formuł BBGA dla drożdży świeżych, ZAC-POO-002, ZAC-BIG-001, ZAC-PAT-002) i nazwa składnika w przeliczniku objętości [M1-audytor-generalny-207]."
   },
@@ -4512,6 +4520,11 @@
   "Procedura Bassinage ratunkowego": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: pivotRecipeNamePl)"
+    ]
+  },
+  "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
   "Procent mąki „{name}” musi być liczbą z zakresu 0.1–100%": {
@@ -8282,6 +8295,12 @@
   "sty": {
     "gdzie": []
   },
+  "suche|drożdże": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ],
+    "opis": "Segment wyboru rodzaju drożdży w arkuszu „Składniki” (przymiotnik do „drożdże”, l. mn.: drożdże suche, instant albo aktywne); nie o mące ani o innym składniku [M1-audytor-generalny-216]."
+  },
   "szklanek": {
     "gdzie": [
       "src/components/VolumeConverterModal.tsx (tekst w JSX)"
@@ -8833,6 +8852,12 @@
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
     ]
+  },
+  "świeże|drożdże": {
+    "gdzie": [
+      "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
+    ],
+    "opis": "Segment wyboru rodzaju drożdży w arkuszu „Składniki” (przymiotnik do „drożdże”, l. mn.: drożdże świeże prasowane); nie o mące ani o innym składniku [M1-audytor-generalny-216]."
   },
   "Żytni": {
     "gdzie": [
