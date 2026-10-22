@@ -127,6 +127,22 @@ ADR-007 (`expo-iap` 6.1.1, StoreKit 2) zostaje. Dopisać:
 - **08:** zmiany kodu (aneks ADR-007), test „Basic tylko rośnie”, przepisanie testów kontraktu D-038 na nowy kontrakt (`src/__tests__/bramki-ekranow.test.tsx`, `src/lib/__tests__/uprzedzenie-proby-126.test.ts`, `src/components/__tests__/oferta-piekarz-pro-127.test.tsx`, `src/__tests__/karta-bezpieczenstwa-bez-zakupu-e1.test.tsx`) przez nowe asercje, nie wyłączanie; hipoteza H-01 w `docs/wzrost/hipotezy.json` (`tests/wzrost-hipotezy.test.ts`) na kryterium z tego dokumentu; pliki przebudowy M3 (kalendarz, Stolnica) po scaleniu `redesign/piekarz-2026-10-22` albo na niej. [OCENA] 2–3 dni agenta.
 - **Właściciel:** zgoda na krok 1 w ASC; przekład tekstów ekranu Pro (Message Batches, zgoda na wydatek przez M1).
 
+## Otwarte zadania po roli 02 (stan 2026-10-22)
+Wdrożenie według rekomendacji (właściciel przez M1: „Według rekomendacji”, D-112).
+| # | Zadanie | Kto | Kiedy / warunek |
+|---|---|---|---|
+| Z-1 | usunąć Free Trial 2 Weeks z `.pro.monthly` i `.pro.yearly` (wszystkie storefronty) | M1, App Store Connect | razem z buildem zawierającym kod Basic/Pro, nie wcześniej |
+| Z-2 | kod Basic/Pro według aneksu ADR-007 i sekcji „Przekazanie” (konfiguracja funkcji, limity 5 receptur i 1 zakwas, przypomnienia zależne od Pro, usunięcie oferty wprowadzającej i uprzedzenia próby, ekran Pro, oznaczenia „Pro”, test „Basic tylko rośnie”) | rola 08 z M3 | na `redesign/piekarz-2026-10-22`, po porannym buildzie |
+| Z-3 | przepisać testy kontraktu D-038 na nowy kontrakt (bramki ekranów, oferta przy pierwszym użyciu, uprzedzenie próby, karta bezpieczeństwa bez zakupu) i hipotezę H-01 w `docs/wzrost/hipotezy.json` | rola 08 | z Z-2 |
+| Z-4 | przekład tekstów ekranu Pro, licznika limitów i komunikatów (gratulacje po założeniu zakwasu, uprzedzenie końca Pro) na 35 języków | M1 | wspólny batch a5 |
+| Z-5 | ekran Pro, oznaczenie „Pro”, komunikaty (ujawnienia 1–5, zakazane wzorce) | rola 04 | przed Z-2 albo razem |
+| Z-6 | ER do roli 01: BR-ZAK-004, BR-ZAK-005, BR-KAL-006, BR-ZAKW-004; zamknięcie H-04, H-07 | rola 01 | przy najbliższej sesji roli 01 |
+| Z-7 | zakres Basic/Pro i rytm nowych treści Pro („ongoing value”, 3.1.2(a)); WTP-X BR-KALK-008, BR-ETAP-003 | rola 03 | przed wydaniem 1.0 |
+| Z-8 | opis sklepu i zrzuty w 35 lokalizacjach: „Free Basic forever. Pro adds planning, starter care, more starters and recipes.”; poprawić §4 `docs/wydanie/instrukcja-ustawien.md` (opisuje próbę D-038) | rola 10 / M1 | z Z-1 |
+| Z-9 | testy na telefonie (wektory dostępu, „tylko na telefonie”) z datą i buildem | właściciel / rola 07 | po Z-2; runner macOS 0:00–15:00 |
+| Z-10 | przegląd cen po 6 miesiącach od premiery i kryterium po 90 dniach | rola 02 | po wydaniu |
+| Z-11 | odpowiedź App Review, Case 103004967270 (dla Oczka i Treningu; Piekarza nie dotyczy po D-112) | M1 | gdy przyjdzie |
+
 ## Definicja ukończenia (build), z dowodem
 | Punkt | Dowód |
 |---|---|
