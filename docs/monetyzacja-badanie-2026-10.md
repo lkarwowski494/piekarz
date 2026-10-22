@@ -462,6 +462,72 @@ Razem [OCENA]: ok. 3–4 dni agenta, ok. 1 h właściciela; czekanie: przekład,
 
 Wobec E2c zmieniam rekomendację z E2b w dwóch punktach: ceny (z 3,99 / 14,99 / 19,99 na domyślne portfela, z przeglądem po 6 miesiącach) i licznik (z „poza kopią” na „w kopii, import łączy”). Decyzja E2b-4 („Przerwij” w 30 min jako anulowanie) odpada: porzucenie nie zwraca dnia.
 
+## E2d: wysokość limitów (rodzaje: D-111)
+
+Właściciel przyjął trzy rodzaje limitów (D-111): dni wypieku w miesiącu, własne receptury, zakwasy. Ta sekcja ustala liczby.
+
+### Dowody o częstotliwości pieczenia
+- The Fresh Loaf, wątek „How often do you bake bread?” (thefreshloaf.com/node/2563, kwiecień 2007, odczyt 2026-10-22, szczebel 5; forum pasjonatów, więc próbka przesunięta w stronę częstego pieczenia): 12 odpowiedzi z częstotliwością, w tym **7 raz w tygodniu albo w weekendy** („I usually bake once a week, on weekends”, breadnerd) i **5 co najmniej dwa razy w tygodniu** („I bake every other day .. about four times the week”, BROTKUNST). Sporadycznych brak (forum).
+- BRD: „roughly once a week” (S-24, rec. 8870010975, szczebel 5).
+- Ile dni ma miesiąc z danym dniem tygodnia (rachunek): ten sam dzień tygodnia wypada 5 razy w miesiącu 31-dniowym z prawdopodobieństwem 3/7, w 30-dniowym 2/7, w lutym (bez przestępnego) 0; średnio w roku **ok. 34%** miesięcy (7 × 3/7 + 4 × 2/7 + 0) / 12.
+
+Rozkład aktywnych użytkowników w miesiącu [OCENA, metoda: próbka forum (7/12 tygodniowo, 5/12 częściej) przesunięta w dół, bo aplikację pobiera też sporadyczny piekarz z drożdżami]:
+
+| Grupa | Dni wypieku w miesiącu | Udział aktywnych [OCENA] |
+|---|---|---|
+| sporadyczni | 1–2 | 40% (przedział 25–55%) |
+| raz w tygodniu | 4–5 | 40% (30–50%) |
+| dwa razy w tygodniu | 8–10 | 15% (10–25%) |
+| częściej | > 10 | 5% (2–10%) |
+
+### Dni wypieku: kto trafia na limit
+| N | Zdanie dla użytkownika | Kto trafia na limit w typowym miesiącu | Udział aktywnych, którzy trafiają [OCENA] | Przychód iOS/rok [OCENA] |
+|---|---|---|---|---|
+| 3 | „Pieczesz co dwa tygodnie? Zawsze za darmo.” | każdy piekący raz w tygodniu, co miesiąc w 4. tygodniu | ok. 60% | ok. 218 USD (bramka, E2c) |
+| 4 | „4 dni wypieku w miesiącu” (bez reguły typu „raz w tygodniu”) | piekący raz w tygodniu tylko w miesiącach z 5. sobotą (ok. 34%), plus częściej piekący | ok. 30–35% | ok. 120–150 USD |
+| **5** | „Pieczesz raz w tygodniu? Zawsze za darmo.” | tylko piekący częściej niż raz w tygodniu | ok. 20% | ok. 75–120 USD |
+| 8 | „8 dni” (bez reguły) | piekący 2× w tygodniu w części miesięcy, częstsi | ok. 8–12% | ok. 40–65 USD |
+| 10 | „Dwa razy w tygodniu? Zawsze za darmo.” | tylko piekący częściej niż 2× w tygodniu | ok. 5% | ok. 40 USD |
+
+Metoda przychodu: N=3 z bramki (218 USD, sam iOS, scen. norm.); pozostałe przez udział trafiających: dolna wartość proporcjonalnie do udziału, górna z wagą zaangażowania (częściej piekący płacą chętniej, jak w E2c). Rozrzut widoczności w sklepie (E2c) jest większy niż różnice między N.
+
+Wnioski:
+- **N=4 jest najgorszy w odbiorze:** piekący raz w tygodniu trafia na limit losowo, w co trzecim miesiącu na piątą sobotę, i nie da się tego wytłumaczyć jednym zdaniem.
+- **N=3 zarabia najwięcej, ale ma koszt, który wskazał właściciel:** limit na wypiekach uczy omijania aplikacji. Piekący raz w tygodniu ze stałą recepturą po prostu przestanie odpalać wypiek w 4. tygodniu, a wtedy nie ma dziennika ani poprawiania wypieku (cel aplikacji).
+- **N=5 zostawia typowego piekarza w spokoju**, a płacić mają ci, których złapią dwa pozostałe limity.
+
+### Limity pojemności łapią inne grupy niż limit dni
+Limity pojemności nie wracają do zera co miesiąc; rosną z czasem używania. Dlatego uzupełniają limit dni:
+
+| Kto | Limit dni (N=5) | Receptury | Zakwasy |
+|---|---|---|---|
+| sporadyczny z drożdżami, próbuje nowych przepisów | nie trafia | **trafia** po kilku własnych przepisach | nie trafia |
+| raz w tygodniu, stały przepis na zakwasie | nie trafia | nie trafia | **trafia**, gdy chce drugi zakwas (np. żytni i pszenny) |
+| pasjonat, często i różnie | **trafia** | trafia | trafia |
+
+To odpowiada wymaganiu właściciela „limit, który uderzy zarówno w tych co pieką sporadycznie i w tych co regularnie” bez karania za samo pieczenie.
+
+### Własne receptury
+| Limit | Za | Przeciw |
+|---|---|---|
+| 3 | szybko łapie eksperymentujących | chleb, pizza i bułki to już 3; łapie też zwykłego użytkownika |
+| **5** | kilka stałych przepisów mieści się za darmo; zbieracz i eksperymentator trafia | — |
+| 10 | prawie nikt nie trafia | limit bez skutku |
+Rynek: Yeasta Pro „Unlimited favorite and custom recipes”; Gluten Morgen ma skargi przy limicie 25 (MS-26, 2026-10-19). Receptury bazowe z biblioteki i presety się nie liczą. Ponad limitem: zapisane receptury działają w całości (odczyt, edycja, „Piecz ponownie”, eksport, QR); import kopii wnosi wszystkie; zablokowane jest tylko zapisanie nowej. Czy edycja z „Zapisz jako nową” to nowa receptura: tak (to dodanie).
+
+### Zakwasy
+| Limit | Za | Przeciw |
+|---|---|---|
+| **1** | większość ma jeden zakwas; drugi (żytni obok pszennego) to typowy powód pasjonata; Yeasta Pro „Unlimited starters”, SST sprzedaje wiele zakwasów (MS-25) | piekący żytni i pszenny trafia od razu |
+| 2 | żytni i pszenny za darmo | limit prawie bez skutku |
+Pierwszy zakwas ma pełną opiekę zawsze: karmienie, proporcje, gotowość, lodówka, przypomnienia, Doktor zakwasu. Zakwas z importu kopii ponad limit działa w całości, z przypomnieniami (żywa kultura nie traci opieki). Zablokowane jest tylko dodanie nowego.
+
+### Przychód z trzech limitów razem
+Ponad sam limit dni (N=5: ok. 75–120 USD/rok iOS) dochodzą płacący złapani przez receptury i zakwasy. [OCENA] +20–50% płacących (danych o tym, ile osób ma > 5 receptur albo > 1 zakwas, nie ma) → **ok. 90–180 USD/rok z iOS** przy cenach portfela. To nadal poniżej progu 500 i poniżej D-038 (218 USD sam iOS, odczyt A).
+
+### Rekomendacja liczb
+**5 dni wypieku w miesiącu, 5 własnych receptur, 1 zakwas.** Dlaczego 5 dni, a nie 3: limit dni ma nie karać pieczenia, bo pieczenie da się zrobić bez aplikacji (argument właściciela); płacić mają przede wszystkim ci, których łapią receptury i zakwasy. N=3 wybierz tylko, jeśli przychód ma pierwszeństwo przed tym, by typowy piekarz nie omijał aplikacji. Każda liczba może później tylko rosnąć (zasada 12 wzorca: „limit raz wydany tylko się luzuje”), więc lepiej zacząć od niższych receptur i zakwasów niż od zbyt hojnych.
+
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
 |---|---|---|---|---|
@@ -486,6 +552,7 @@ Wobec E2c zmieniam rekomendację z E2b w dwóch punktach: ceny (z 3,99 / 14,99 /
 | MS-B19 | api.sejm.gov.pl/eli/acts/DU/2023/168/text.html | art. 4 ust. 2 | cytat w tabeli prawa; nowszego tekstu jednolitego w ELI brak (wyszukanie tytułu, 2026-10-22) | 1 |
 | MS-B20 | itunes.apple.com/lookup (US, PL), apps.apple.com/<kraj>/app/id<id>, itunes.apple.com/<kraj>/rss/customerreviews/…/json | pola `formattedPrice`, sekcja In-App Purchases, recenzje | ceny i zliczenia w sekcji „Rynek”; cytaty z id recenzji w `audit/02-badanie-modelu-2026-10-22/rynek/raport-rynek.md` | ceny: 1 (dane platformy, D-035); recenzje: 5 (tylko motywy) |
 | MS-B21 | developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions | „Delete an introductory offer” | kroki cytowane w E2b | 1 |
+| MS-B24 | thefreshloaf.com/node/2563/how-often-do-you-bake-bread | wątek, kwiecień 2007 | 12 odpowiedzi z częstotliwością (zliczenie w E2d) | 5 (forum, tylko wskazówka) |
 | MS-B23 | developer.apple.com/help/app-store-connect/reference/pricing-and-availability/in-app-purchase-and-subscriptions-pricing-and-availability | „Subscription Prices” | „You have the option to preserve the current price for existing subscribers if you increase the price.” | 1 |
 | MS-B22 | europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm | tabela stawek | „PL Poland 23”; „Last checked: 13/07/2026” | 3 |
 
