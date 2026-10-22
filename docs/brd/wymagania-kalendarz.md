@@ -159,13 +159,13 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-005: Kalendarz bez danych
 - Przepływ: PR-19
-- Dowód potrzeby: soczewka początkującego (pierwsze uruchomienie: pusty tydzień nic nie mówi); H-16
+- Dowód potrzeby: soczewka początkującego (pierwsze uruchomienie: pusty tydzień nic nie mówi); H-16; rozstrzygnięcie OP-51 (właściciel 2026-10-22: „Pasek z adnotacja”) i układ „Dziś” D-105 (ER-72)
 - zależy od: ZAL-053
 - Kryteria akceptacji:
   - Scenariusz: Pierwsze uruchomienie
     - Zakładając, że użytkownik nie ma wypieków, zakwasów ani wpisów
     - Gdy otwiera „Dziś”
-    - Wtedy pierwszym elementem ekranu są trzy ścieżki „co dziś robisz”, a kalendarz nie pokazuje pustego tygodnia [DO WYJAŚNIENIA] (OP-51)
+    - Wtedy u góry, w pasie z tytułem „Co dziś robisz?”, widzi pasek tygodnia z dzisiejszym dniem i adnotacją, że w planach nic nie ma, bez linii „Następne”, a pod pasem trzy ścieżki „co dziś robisz” obok siebie (D-105)
 
 ### BR-KAL-006: Kalendarz bez Piekarz Pro
 - Przepływ: PR-19, PR-16
