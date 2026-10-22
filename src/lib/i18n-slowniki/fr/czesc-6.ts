@@ -32,7 +32,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Eau : {amount} g',
   'wody': 'd\'eau',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'L\'entrée est dans l\'historique. Docteur Pain vous suggérera quoi changer lors de la prochaine fournée.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'L\'entrée de l\'historique des fournées sera définitivement supprimée.',
   'Wpisz nazwę przepisu': 'Saisissez le nom de la recette',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Saisissez vos remarques (mie, croûte, temps de cuisson)...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Influe sur la vitesse de la fermentation en masse (pointage) : 10 °C de moins, c\'est une fermentation environ 3 fois plus longue (approximation issue d\'un modèle de recherche, valable à 20–26 °C).',

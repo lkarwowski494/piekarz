@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Törlöd a kovászprofilt?',
   'Usunąć przepis?': 'Törlöd a receptet?',
   'Usunąć recepturę?': 'Törlöd a receptet?',
-  'Usunąć wpis z historii?': 'Törlöd a bejegyzést az előzményekből?',
   'Usunięto wpis': 'Bejegyzés törölve',
   'Usuń': 'Törlés',
   'Usuń mąkę: {nazwa}': 'Liszt törlése: {nazwa}',
@@ -138,7 +137,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Víz: {amount} g',
   'wody': 'víz',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'A bejegyzés az előzmények között van. A Kenyérdoktor megmondja, mit változtass a következő sütésnél.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'A sütési előzmények bejegyzése véglegesen törlődik.',
   'Wpisz nazwę przepisu': 'Add meg a recept nevét',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Írd ide a megjegyzéseidet (bélzet, héj, sütési idő)...',
 };

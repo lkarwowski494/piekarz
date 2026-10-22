@@ -18,6 +18,7 @@ import { useBakeHistory } from '../../../src/hooks/useBakeHistory';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { BakeStatsCard } from '../../../src/components/stolnica/BakeStatsCard';
 import { BakeHistorySection } from '../../../src/components/stolnica/BakeHistorySection';
+import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { theme } from '../../../src/ui/theme';
 import { odstepy, promienie, typografia } from '../../../src/ui/tokeny';
 
@@ -40,9 +41,10 @@ export default function DziennikScreen() {
 
   const ostatni = tekstOstatniegoWypieku(ostatniWypiekMs(historia.bakeHistory));
   return (
+    <View style={styles.ekran}>
     <ScrollView
       ref={przewijane}
-      style={styles.ekran}
+      style={styles.przewijane}
       contentContainerStyle={styles.tresc}
       contentInsetAdjustmentBehavior="never"
       keyboardShouldPersistTaps="handled"
@@ -82,11 +84,17 @@ export default function DziennikScreen() {
         <Text style={styles.wierszTekst}>{t('Doktor Chleba')}</Text>
       </Pressable>
     </ScrollView>
+      {/* Pasek nad dolną krawędzią, widoczny bez przewijania do usuniętego wpisu (D-051 1a, 011) */}
+      {historia.cofnijUsuniecie && (
+        <PasekCofnij {...historia.cofnijUsuniecie} testID="dziennik-usun-cofnij" przywrocTestID="dziennik-usun-cofnij-przywroc" />
+      )}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   ekran: { flex: 1, backgroundColor: theme.colors.tlo },
+  przewijane: { flex: 1 },
   tresc: { padding: theme.spacing.md, paddingBottom: 40, gap: odstepy.m },
   pas: { marginHorizontal: -theme.spacing.md, marginTop: -theme.spacing.md },
   wiersz: {

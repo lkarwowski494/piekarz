@@ -192,18 +192,7 @@ export function confirmZalozOdNowa(onConfirm: () => void) {
   });
 }
 
-/**
- * Potwierdzenie usunięcia wpisu z historii wypieków.
- */
-export function confirmDeleteBakeLog(onConfirm: () => void) {
-  confirm({
-    title: t('Usunąć wpis z historii?'),
-    message: t('Wpis z historii wypieku zostanie trwale usunięty.'),
-    action: t('Usuń wpis'),
-    destructive: true,
-    onConfirm,
-  });
-}
+// Wpis Dziennika usuwa się bez pytania, z paskiem „Przywróć” (D-051 1a; 04-studio-projektowe-011, W-fix2)
 
 /**
  * Potwierdzenie usunięcia profilu zakwasu.

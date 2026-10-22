@@ -17,7 +17,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': '물: {amount}g',
   'wody': '물',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': '기록에 저장됐어요. 빵 닥터가 다음 베이킹에서 바꿀 점을 알려 드려요.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': '베이킹 기록 항목이 영구 삭제돼요.',
   'Wpisz nazwę przepisu': '레시피 이름 입력',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': '메모를 입력하세요 (속살, 껍질, 굽는 시간)...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': '1차 발효 속도에 영향을 줘요: 온도가 10 °C 낮으면 발효 시간이 약 3배 길어져요(연구 모델에 따른 근사치, 20–26 °C에서 유효).',

@@ -36,7 +36,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Nước: {amount} g',
   'wody': 'nước',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'Mục đã có trong lịch sử. Bác sĩ Bánh mì sẽ gợi ý những gì cần thay đổi ở mẻ bánh tiếp theo.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'Mục trong lịch sử nướng bánh sẽ bị xóa vĩnh viễn.',
   'Wpisz nazwę przepisu': 'Nhập tên công thức',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Nhập ghi chú (ruột bánh, vỏ bánh, thời gian nướng)...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Ảnh hưởng đến tốc độ lên men khối: thấp hơn 10 °C thì thời gian lên men dài hơn khoảng 3 lần (ước tính từ mô hình nghiên cứu, áp dụng trong khoảng 20–26 °C).',

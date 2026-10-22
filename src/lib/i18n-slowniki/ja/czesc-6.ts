@@ -42,7 +42,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': '水：{amount} g',
   'wody': '水',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': '記録は履歴に保存されています。次回の焼成で何を変えればよいか、パンドクターがアドバイスします。',
-  'Wpis z historii wypieku zostanie trwale usunięty.': '焼成履歴の記録は完全に削除されます。',
   'Wpisz nazwę przepisu': 'レシピ名を入力',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'メモを入力（クラム、クラスト、焼成時間）...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': '一次発酵 (バルク発酵) の速さに影響します：10 °C 低いと発酵時間は約3倍になります（研究モデルによる近似値、20–26 °C の範囲で有効）。',

@@ -110,7 +110,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Διαγραφή προφίλ προζυμιού;',
   'Usunąć przepis?': 'Διαγραφή συνταγής;',
   'Usunąć recepturę?': 'Διαγραφή συνταγής;',
-  'Usunąć wpis z historii?': 'Διαγραφή καταχώρισης από το ιστορικό;',
   'Usunięto wpis': 'Η καταχώριση διαγράφηκε',
   'Usuń': 'Διαγραφή',
   'Usuń mąkę: {nazwa}': 'Διαγραφή αλευριού: {nazwa}',

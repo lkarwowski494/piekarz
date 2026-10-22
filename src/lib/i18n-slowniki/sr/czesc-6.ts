@@ -52,7 +52,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Обрисати профил стартера?',
   'Usunąć przepis?': 'Обрисати рецепт?',
   'Usunąć recepturę?': 'Обрисати рецептуру?',
-  'Usunąć wpis z historii?': 'Обрисати унос из историје?',
   'Usunięto wpis': 'Унос је обрисан',
   'Usuń': 'Обриши',
   'Usuń mąkę: {nazwa}': 'Обриши брашно: {nazwa}',

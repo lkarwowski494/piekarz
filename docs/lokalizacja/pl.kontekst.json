@@ -6483,7 +6483,8 @@
   },
   "Usunięto wpis": {
     "gdzie": [
-      "src/components/zakwas/StarterEntriesList.tsx (tekst)"
+      "src/components/zakwas/StarterEntriesList.tsx (tekst)",
+      "src/hooks/useBakeHistory.ts (tekst)"
     ]
   },
   "Usunąć profil zakwasu?": {
@@ -6495,11 +6496,6 @@
     "gdzie": []
   },
   "Usunąć recepturę?": {
-    "gdzie": [
-      "src/lib/confirm.ts (title)"
-    ]
-  },
-  "Usunąć wpis z historii?": {
     "gdzie": [
       "src/lib/confirm.ts (title)"
     ]
@@ -6540,8 +6536,7 @@
     "gdzie": [
       "src/components/stolnica/BakeHistorySection.tsx (accessibilityLabel)",
       "src/components/stolnica/BakeHistorySection.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)",
-      "src/lib/confirm.ts (action)"
+      "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
   "Usuń wpis: {opis}": {
@@ -7086,11 +7081,6 @@
   "Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.": {
     "gdzie": [
       "src/lib/doctor-suggestion.ts (Alert.alert)"
-    ]
-  },
-  "Wpis z historii wypieku zostanie trwale usunięty.": {
-    "gdzie": [
-      "src/lib/confirm.ts (message)"
     ]
   },
   "Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.": {

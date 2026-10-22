@@ -84,7 +84,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Xóa hồ sơ men tự nhiên?',
   'Usunąć przepis?': 'Xóa công thức?',
   'Usunąć recepturę?': 'Xóa công thức?',
-  'Usunąć wpis z historii?': 'Xóa mục khỏi lịch sử?',
   'Usunięto wpis': 'Đã xóa mục',
   'Usuń': 'Xóa',
   'Usuń mąkę: {nazwa}': 'Xóa bột: {nazwa}',

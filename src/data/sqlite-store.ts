@@ -181,6 +181,13 @@ export async function collectBackupData(): Promise<PiekarzBackupData> {
   return { bakes, starters, customRecipes: recipes.filter((r) => !r.isBuiltIn), starterEntries, flourInventory, ...zTelefonu };
 }
 
+/** „Przywróć” po usunięciu wpisu Dziennika (D-051 1a): ten sam wiersz, wszystkie kolumny, bez kopii po wypieku [W-fix2, 011]. */
+export async function restoreBakeLog(log: StoredBakeLog): Promise<void> {
+  const db = await getDb();
+  if (db) await writeOrThrow(() => writeBakeRow(db, log));
+  if (!memStore.logs.some((l) => l.id === log.id)) memStore.logs.unshift(log);
+}
+
 export async function deleteBakeLog(id: string): Promise<void> {
   const db = await getDb();
   if (db) await writeOrThrow(() => db.runAsync('DELETE FROM bakes WHERE id = ?;', id));

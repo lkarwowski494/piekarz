@@ -108,7 +108,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'サワー種のプロフィールを削除しますか？',
   'Usunąć przepis?': 'レシピを削除しますか？',
   'Usunąć recepturę?': '配合を削除しますか？',
-  'Usunąć wpis z historii?': '履歴から記録を削除しますか？',
   'Usunięto wpis': '記録を削除しました',
   'Usuń': '削除',
   'Usuń mąkę: {nazwa}': '粉を削除：{nazwa}',

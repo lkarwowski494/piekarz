@@ -8,8 +8,8 @@ import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 import { guardSave } from '../lib/save-guard';
 import { tapHaptic } from '../lib/haptics';
-import { confirmDeleteBakeLog } from '../lib/confirm';
-import { getBakeLogs, deleteBakeLog, getRecipes } from '../data/sqlite-store';
+import { t } from '../lib/i18n';
+import { getBakeLogs, deleteBakeLog, getRecipes, restoreBakeLog } from '../data/sqlite-store';
 import { StoredBakeLog } from '../data/db';
 import { bazowaZmienionaOdWypieku, prepareBakeAgainRecipe } from '../lib/recipe-navigation';
 import { ustawRecepturePlanu } from '../lib/plan-receptury';
@@ -74,12 +74,27 @@ export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: 
     });
   };
 
+  // Usunięcie rutynowe bez pytania, pasek „Usunięto wpis” z „Przywróć” (D-051 1a; 04-studio-projektowe-011, W-fix2)
+  const [usuniety, setUsuniety] = useState<StoredBakeLog | null>(null);
   const handleDeleteBakeLog = (id: string) => {
-    confirmDeleteBakeLog(guardSave(async () => {
+    const log = bakeHistory.find((l) => l.id === id);
+    void guardSave(async () => {
       await deleteBakeLog(id);
+      setUsuniety(log ?? null);
       await loadHistory();
-    }));
+    })();
   };
+  const ukryjCofnij = useCallback(() => setUsuniety(null), []);
+  const przywrocWpis = useCallback(() => {
+    if (!usuniety) return;
+    const log = usuniety;
+    setUsuniety(null);
+    void guardSave(async () => {
+      await restoreBakeLog(log);
+      await loadHistory();
+    })();
+  }, [usuniety, loadHistory]);
+  const cofnijUsuniecie = usuniety ? { tekst: t('Usunięto wpis'), onPrzywroc: przywrocWpis, onUkryj: ukryjCofnij } : null;
 
   return {
     bakeHistory,
@@ -90,5 +105,6 @@ export function useBakeHistory(requireActionAccess: (funkcja: Funkcja, action?: 
     loadHistory,
     handleBakeAgain,
     handleDeleteBakeLog,
+    cofnijUsuniecie,
   };
 }

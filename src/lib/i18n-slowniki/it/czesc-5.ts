@@ -50,7 +50,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Eliminare il profilo del lievito madre?',
   'Usunąć przepis?': 'Eliminare la ricetta?',
   'Usunąć recepturę?': 'Eliminare la ricetta?',
-  'Usunąć wpis z historii?': 'Eliminare la voce dalla cronologia?',
   'Usunięto wpis': 'Voce eliminata',
   'Usuń': 'Elimina',
   'Usuń mąkę: {nazwa}': 'Elimina farina: {nazwa}',
@@ -138,6 +137,5 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Acqua: {amount} g',
   'wody': 'acqua',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'La voce è nella cronologia. Dottor Pane ti suggerirà cosa cambiare alla prossima sfornata.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'La voce della cronologia delle sfornate verrà eliminata definitivamente.',
   'Wpisz nazwę przepisu': 'Inserisci il nome della ricetta',
 };

@@ -85,7 +85,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': '水：{amount} g',
   'wody': '水',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': '此紀錄已存入歷史。麵包醫生會建議下次烘焙時該調整什麼。',
-  'Wpis z historii wypieku zostanie trwale usunięty.': '此烘焙紀錄將永久刪除。',
   'Wpisz nazwę przepisu': '輸入食譜名稱',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': '輸入你的筆記（內部組織、外皮、烘烤時間）…',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': '會影響基礎發酵速度：溫度低 10 °C，發酵時間約延長為 3 倍（研究模型的近似值，適用於 20–26 °C）。',

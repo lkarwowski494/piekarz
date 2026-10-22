@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Νερό: {amount} g',
   'wody': 'νερού',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'Η καταχώριση βρίσκεται στο ιστορικό. Ο Γιατρός Ψωμιού θα σας προτείνει τι να αλλάξετε στο επόμενο ψήσιμο.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'Η καταχώριση από το ιστορικό ψησίματος θα διαγραφεί οριστικά.',
   'Wpisz nazwę przepisu': 'Εισαγάγετε όνομα συνταγής',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Γράψτε τις παρατηρήσεις σας (ψίχα, κόρα, χρόνος φούρνου)...',
   'Wpływa na tempo fermentacji burzliwej: 10 °C niżej to około 3 razy dłuższa fermentacja (przybliżenie z modelu badawczego, ważne w 20–26 °C).': 'Επηρεάζει τον ρυθμό της κύριας ζύμωσης: 10 °C χαμηλότερα σημαίνει περίπου 3 φορές μεγαλύτερη ζύμωση (προσέγγιση από ερευνητικό μοντέλο, ισχύει στους 20–26 °C).',

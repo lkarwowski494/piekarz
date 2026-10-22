@@ -52,7 +52,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': '¿Eliminar el perfil de masa madre?',
   'Usunąć przepis?': '¿Eliminar receta?',
   'Usunąć recepturę?': '¿Eliminar la fórmula?',
-  'Usunąć wpis z historii?': '¿Eliminar el registro del historial?',
   'Usunięto wpis': 'Registro eliminado',
   'Usuń': 'Eliminar',
   'Usuń mąkę: {nazwa}': 'Eliminar harina: {nazwa}',

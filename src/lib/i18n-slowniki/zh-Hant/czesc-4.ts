@@ -212,7 +212,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': '要刪除天然酵母起種檔案嗎？',
   'Usunąć przepis?': '要刪除食譜嗎？',
   'Usunąć recepturę?': '要刪除配方嗎？',
-  'Usunąć wpis z historii?': '要刪除歷史紀錄嗎？',
   'Usunięto wpis': '已刪除紀錄',
   'Usuń': '刪除',
   'Usuń mąkę: {nazwa}': '刪除麵粉：{nazwa}',

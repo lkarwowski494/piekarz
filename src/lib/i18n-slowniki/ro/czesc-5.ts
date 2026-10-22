@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   'Usunąć profil zakwasu?': 'Ștergi profilul maiei?',
   'Usunąć przepis?': 'Ștergi rețeta?',
   'Usunąć recepturę?': 'Ștergi rețeta?',
-  'Usunąć wpis z historii?': 'Ștergi înregistrarea din istoric?',
   'Usunięto wpis': 'Înregistrare ștearsă',
   'Usuń': 'Șterge',
   'Usuń mąkę: {nazwa}': 'Șterge făina: {nazwa}',
@@ -135,7 +134,6 @@ export const CZESC: Record<string, string> = {
   'Woda: {amount} g': 'Apă: {amount} g',
   'wody': 'apă',
   'Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.': 'Înregistrarea e în istoric. Doctorul Pâinii îți va sugera ce să schimbi la următoarea coacere.',
-  'Wpis z historii wypieku zostanie trwale usunięty.': 'Înregistrarea din istoricul de coacere va fi ștearsă definitiv.',
   'Wpisz nazwę przepisu': 'Introdu numele rețetei',
   'Wpisz swoje uwagi (miękisz, skórka, czas pieca)...': 'Scrie observațiile tale (miez, coajă, timp în cuptor)...',
 };
