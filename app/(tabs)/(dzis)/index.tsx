@@ -29,6 +29,7 @@ import { ArkuszDnia, type TrybArkusza } from '../../../src/components/kalendarz/
 import { PasekCofnij } from '../../../src/components/PasekCofnij';
 import { SettingsModal } from '../../../src/components/SettingsModal';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
+import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
 import { UprzedzenieKoncaPro, useUprzedzenieKoncaPro } from '../../../src/components/start/UprzedzenieKoncaPro';
 import { dataSlownie } from '../../../src/lib/kalendarz-pasek';
 import { tekstyNastepne } from '../../../src/lib/kalendarz-teksty';
@@ -133,6 +134,8 @@ export default function StartScreen() {
         )}
         <View style={styles.dol}>
           <CorruptStateRecoveryBanner />
+          {/* Powiadomienia wyłączone, a coś na nich polega (wypiek, plan, karmienie w kalendarzu) (012, W-fix2) */}
+          {(dane.wypieki.length > 0 || dane.plany.length > 0 || (kal.gotowe && !kal.pusty)) && <NotificationsOffBanner />}
           {/* Uprzedzenie o końcu Pro nie spycha powrotu do wypieku: przy trwającym pod spiralą (126, D-113) */}
           {stan !== 'trwa-wypiek' && banerPro}
           <View style={[styles.kafle, duzyTekst && styles.kafleDuze]} testID="start-czynnosci" accessibilityLabel={t('Co dziś robisz?')}>
