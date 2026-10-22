@@ -589,7 +589,7 @@
   },
   {
     "id": "FER-Q10-002",
-    "twierdzenie": "Przybliżenie Piekarza z modelu 1a (FER-Q10-001): w zakresie 20–26 °C czas fermentacji w temperaturze T równa się czasowi w 24 °C pomnożonemu przez 3,0^((24 − T)/10), czyli Q10 = 3,0: 10 °C niżej to około 3 razy dłuższa fermentacja.",
+    "twierdzenie": "Przybliżenie Piekarza z modelu 1a (FER-Q10-001): w zakresie 20–26 °C czas fermentacji w temperaturze T równa się czasowi w 24 °C pomnożonemu przez 3,0^((24 − T)/10), czyli Q10 = 3,0: 10 °C niżej to około 3 razy dłuższa fermentacja. Rachunek w zakresie: 6 °C niżej (np. 20 zamiast 26 °C) to 3,0^0,6 ≈ 1,9, czyli około 2 razy dłuższa fermentacja.",
     "zrodla": [
       {
         "adres": "https://doi.org/10.1128/aem.64.7.2616-2623.1998",
@@ -607,7 +607,7 @@
     "wartosc": 3,
     "jednostka": null,
     "zakres_waznosci": "20–26 °C (włącznie)",
-    "uwagi": "M1-audytor-generalny-041 (06-tresci-009), rola 06 fix p10a 2026-10-21: źródło otwarte ponownie (PMC106434, surowy tekst): cytat Tmax, model 1a (Tab. 1, x = Tmax − T) i parametry Tab. 2 bez zmian; rachunek powtórzony: Q10 = 3,0007, zaokrąglone 3,0 (audit/…/fix-2026-10-21-p10a/dowody/rachunek-q10-wektory.txt). Wektory RD_08 w docs/brd/fixtures/test-vectors.json i tests/fixtures/test-vectors.json (Q10 = 2,15, 19 °C i 28 °C, źródło wycofane FER-Q10-901) przekazane do zmiany M2 jako krok D: Q10 = 3,0 i temperatury w zakresie ważności (20 °C, 26 °C), bo 19 °C i 28 °C leżą poza tym twierdzeniem (FER-Q10-902 otwarte).",
+    "uwagi": "M1-audytor-generalny-041 (06-tresci-009), rola 06 fix p10a 2026-10-21: źródło otwarte ponownie (PMC106434, surowy tekst): cytat Tmax, model 1a (Tab. 1, x = Tmax − T) i parametry Tab. 2 bez zmian; rachunek powtórzony: Q10 = 3,0007, zaokrąglone 3,0 (audit/…/fix-2026-10-21-p10a/dowody/rachunek-q10-wektory.txt). Wektory RD_08 w docs/brd/fixtures/test-vectors.json i tests/fixtures/test-vectors.json (Q10 = 2,15, 19 °C i 28 °C, źródło wycofane FER-Q10-901) przekazane do zmiany M2 jako krok D: Q10 = 3,0 i temperatury w zakresie ważności (20 °C, 26 °C), bo 19 °C i 28 °C leżą poza tym twierdzeniem (FER-Q10-902 otwarte). Rola 06, 2026-10-22 (F-71, weryfikacja niezależna): dopisany rachunek dla różnicy 6 °C mieszczącej się w zakresie 20–26 °C; „10 °C niżej” w tekście wychodzi poza zakres.",
     "wazne_do": "2027-10-19"
   },
   {
@@ -1827,7 +1827,7 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Czas 30 minut nie trafia do treści (czas etapu z planu).",
+    "uproszczenie": "Czas 30 minut nie trafia do kroku planu (czas etapu z planu); w kalendarz-m0.md (M0, rola 06 2026-10-22) jako „około 30 minut” z atrybucją, do wyjaśnienia, że nagrzewanie zajmuje piekarnik.",
     "uwagi": "M1-audytor-generalny-100: preheat_oven. M1-audytor-generalny-133: ponowny odczyt 2026-10-21 (ka-dutch-oven.htm, fix-2026-10-21-p9a); Doktor LACK_OF_EAR w miejsce „minimum 45 minut w 240°C”.",
     "krytyczne": false,
     "przeglad": null,
@@ -2822,5 +2822,766 @@
     "przeglad": null,
     "uwagi": "M1-audytor-generalny-130 (M2 tor p13b): cytat sprawdzony dosłownie w surowym pliku pobranym curl 2026-10-21 (wcześniej odczyt roli 01 2026-10-19, S-37). Tekst w aplikacji: src/components/receptury/SkladnikiSheet.tsx (salt-info).",
     "wazne_do": "2027-10-21"
+  },
+  {
+    "id": "PIE-ZAJ-001",
+    "twierdzenie": "Według King Arthur Baking kamień do pieczenia nagrzewa się zwykle około 60 minut; w przepisie na chleb na zakwasie piekarnik z kamieniem nagrzewa się około 60 minut przed pieczeniem.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2026/01/21/fix-oven-hot-spots",
+        "miejsce": "King Arthur Baking, „Baking trials: Will a baking stone fix my oven’s hot spots?” (2026-01-21), lista wariantów testu; kopia audit/06-tresci-2026-10-22/zrodla/ka-hot-spots.htm",
+        "cytat": "Baking stone heated for 60 minutes (the usual recommended time for heating a stone)",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/bake",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Bake”, Naturally Leavened Sourdough Bread; kopia audit/06-tresci-2026-10-22/zrodla/ka-sd-bake.htm",
+        "cytat": "About 60 minutes before the bread is ready to bake, preheat the oven with a baking stone in it (if you have a stone) to 450°F.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "wielkosc": "nagrzewanie_kamienia_min",
+    "wartosc": 60,
+    "jednostka": "min",
+    "uwagi": "M0 dla M3 (BR-KAL-016): czas zajęcia piekarnika przed wypiekiem na kamieniu. Garnek: KRO-POC-011 (około 30 minut). Oba fragmenty to jeden wydawca (jedno źródło)."
+  },
+  {
+    "id": "PIE-ZAJ-002",
+    "twierdzenie": "Według King Arthur Baking piekarnik z kamieniem nagrzewa się dłużej (u autorki o około 50%), dlatego warto grupować wypieki: piec przez pół dnia albo cały dzień zamiast kilku krótkich wypieków w tygodniu.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2026/01/21/fix-oven-hot-spots",
+        "miejsce": "King Arthur Baking, „Baking trials: Will a baking stone fix my oven’s hot spots?” (2026-01-21), „Tips for optimizing your baking stone”; kopia audit/06-tresci-2026-10-22/zrodla/ka-hot-spots.htm",
+        "cytat": "If possible, group your bakes: To take advantage of the longer preheat, go for a half day or even a full day of baking, rather than shorter bakes three or four times a week.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "M0 dla M3 (BR-KAL-016): kilka wypieków jednego dnia jeden po drugim. Zdanie wcześniej w źródle: „Your oven will take longer to preheat when you use a stone; in my oven, about 50% longer.”"
+  },
+  {
+    "id": "PIE-ZAJ-003",
+    "twierdzenie": "Według King Arthur Baking chleb można też piec w zimnym garnku: garnek z prawie wyrośniętym ciastem wstawia się do zimnego piekarnika, a czas pieczenia (zwykle około 25–35 minut) liczy się od chwili, gdy piekarnik i garnek się nagrzeją; w porównaniu KA żadna z metod (zimny albo nagrzany garnek) nie okazała się lepsza.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2017/07/05/baking-in-a-cold-dutch-oven",
+        "miejsce": "King Arthur Baking, „Baking in a cold Dutch oven” (2017-07-05), „Baking in a cold Dutch oven: how it works”; kopia audit/06-tresci-2026-10-22/zrodla/ka-cold-dutch.htm",
+        "cytat": "Once everything is fully preheated, start the baking time (usually about 25 to 35 minutes).",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "M0: przy zimnym starcie garnek i ciasto są w piekarniku już w czasie nagrzewania, więc nagrzewanie też zajmuje piekarnik. Zdania obok: „Place the pot with the almost-fully-risen dough into a cold oven.”; „The dough made in the preheated pot has more oven spring”; w powtórce w tym samym garnku oba bochenki „almost exactly the same height”. Weryfikacja niezależna 2026-10-22 (subagent): CZĘŚCIOWO → usunięte „urósł wyżej”; w powtórce w tym samym garnku bochenki „almost exactly the same height”, KA: „nor is one decidedly “better” than the other”."
+  },
+  {
+    "id": "PIE-ZAJ-900",
+    "twierdzenie": "Przerwa potrzebna między dwoma wypiekami w jednym piekarniku (ponowne nagrzanie garnka albo kamienia po pierwszym wypieku): ile minut.",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "[DO USTALENIA] M0 (BR-KAL-016). Przeczytane 2026-10-22: King Arthur Baking (hot-spots, sourdough bake, cold Dutch oven) nie podaje czasu ponownego nagrzania; wyszukiwanie dało tylko fora (The Fresh Loaf, szczebel 5), które nie potwierdzają. Propozycja dla aplikacji (decyzja produktowa): drugi wypiek dostaje pełny krok nagrzewania ze swojego planu (garnek ok. 30 min KRO-POC-011, kamień ok. 60 min PIE-ZAJ-001) — uproszczenie po stronie ostrożnej, bez nowej liczby."
+  },
+  {
+    "id": "ZAK-LOD-005",
+    "twierdzenie": "Według King Arthur Baking zakwas trzymany w lodówce dokarmia się mniej więcej raz w tygodniu: po dokarmieniu w równych częściach wagowych zostawia się go w temperaturze pokojowej na 1–2 godziny (w chłodniejszej kuchni bliżej 2 godzin) i wstawia z powrotem do lodówki.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To maintain your starter in the refrigerator”; kopia audit/06-tresci-2026-10-22/zrodla/ka-feeding.htm",
+        "cytat": "Mix well, cover, and let the mixture rest at room temperature for 1 to 2 hours. (If your kitchen is on the cooler side, let it rest for the longer amount of time.)",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/maintain",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Maintain”, „Refrigerator storage: Feed once a week”; kopia audit/06-tresci-2026-10-22/zrodla/ka-sd-maintain.htm",
+        "cytat": "Cover it and let it rest on the counter until it starts bubbling (1 to 2 hours) before returning it to the refrigerator.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "uproszczenie": "Wartość = górna granica 1–2 h (dla planu karmienia stałego dnia).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "wielkosc": "zakwas_lodowka_odpoczynek_po_dokarmieniu_h",
+    "wartosc": 2,
+    "jednostka": "h",
+    "uwagi": "M0 dla M3 (BR-KAL-010, stały dzień karmienia). Rytm raz w tygodniu: ZAK-ZAL-012. Oba fragmenty to jeden wydawca (jedno źródło). Weryfikacja niezależna 2026-10-22 (subagent): CZĘŚCIOWO → „w chłodniejszej kuchni bliżej 2 godzin” zamiast „dłużej” (źródło: „the longer amount of time” z 1–2 h)."
+  },
+  {
+    "id": "ZAK-LOD-006",
+    "twierdzenie": "Według King Arthur Baking rytm dokarmiania nie musi być dokładny co do godziny: przy dokarmianiu co 12 godzin po karmieniu o 16:00 następne o 7:00 zamiast o 4:00 też wystarczy.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/maintain",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Maintain”, akapit „Want to be a successful sourdough baker? Relax!”; kopia audit/06-tresci-2026-10-22/zrodla/ka-sd-maintain.htm",
+        "cytat": "feeding every 12 hours doesn't mean, if you feed it at 4 p.m., you have to get up at 4 a.m. and feed it again; 7 a.m. will be fine.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Źródło podaje przykład dla rytmu 12 h; na rytm tygodniowy (stały dzień) przenosi się tylko kierunek: przesunięcie o kilka godzin nie szkodzi. Bez liczby dla rytmu tygodniowego.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "M0 dla M3 (BR-KAL-010): zastrzeżenie przy stałym dniu karmienia."
+  },
+  {
+    "id": "ZAK-LOD-007",
+    "twierdzenie": "Według King Arthur Baking zakwas, którego nie dokarmiono przez dzień lub dwa (albo tydzień, dwa tygodnie), prawie na pewno da się ożywić, dokarmiając go co 12 godzin i trzymając w temperaturze pokojowej, aż będzie zdrowy, a potem wrócić do zwykłego rytmu.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/maintain",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „Maintain”, akapit „Want to be a successful sourdough baker? Relax!”; kopia audit/06-tresci-2026-10-22/zrodla/ka-sd-maintain.htm",
+        "cytat": "Your starter can almost certainly be revived by feeding it every 12 hours until it's healthy, then putting it back on its regular feeding schedule.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking” (kroki 9–11: dokarmienie, temperatura pokojowa, co 12 h); kopia audit/06-tresci-2026-10-22/zrodla/ka-feeding.htm",
+        "cytat": "Cover the starter and let it rest at room temperature.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "M0 dla M3 (BR-KAL-010): co, gdy stały dzień karmienia minie. Zdanie przed cytatem: „And if you miss a day or two of feeding (or a week, or two weeks, or...), don't worry.” Weryfikacja niezależna 2026-10-22 (subagent): dopisane „w temperaturze pokojowej”, żeby laik nie dokarmiał co 12 h zakwasu w lodówce (ten sam wydawca, jedno źródło)."
+  },
+  {
+    "id": "RAT-PRZ-001",
+    "twierdzenie": "Według Modernist Cuisine w teście palcem (delikatne naciśnięcie ciasta przez 2 sekundy) wgłębienie zostaje na stałe, gdy ciasto przerosło.",
+    "zrodla": [
+      {
+        "adres": "https://modernistcuisine.com/mc/dough-cpr/",
+        "miejsce": "Modernist Cuisine (autorzy „Modernist Bread”), „How to Rescue Overproofed Dough”, Step 1; kopia audit/06-tresci-2026-10-22/zrodla/mc-dough-cpr.htm",
+        "cytat": "The dent you make will be permanent if the dough is overproofed.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22"
+  },
+  {
+    "id": "RAT-PRZ-002",
+    "twierdzenie": "Według King Arthur Baking mocno przerośnięty drożdżowy bochenek w formie, upieczony bez ratowania, nie ma już zapasu na rośnięcie w piecu: rośnie, opada i się zapada, choć nadal dobrze smakuje.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2018/02/21/over-proofed-bread",
+        "miejsce": "King Arthur Baking, „Over-proofed bread dough: How to save your loaf” (2018-02-21), koniec wpisu; kopia audit/06-tresci-2026-10-22/zrodla/ka-over-proofed.htm",
+        "cytat": "It rose; it fell; it collapsed.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zdanie wcześniej: „there was no more capacity for additional expansion in the oven.”; dalej: „Still tastes good, but not a pretty picture.” Przykład KA: Classic Sandwich Bread, 4\" ponad brzeg formy. Weryfikacja niezależna 2026-10-22 (subagent): CZĘŚCIOWO → zawężone do bochenka drożdżowego w formie, dopisane „nadal dobrze smakuje”."
+  },
+  {
+    "id": "RAT-PRZ-003",
+    "twierdzenie": "Według Modernist Cuisine przerośnięte ciasto ratuje się tak: wyjmuje się je z koszyka albo naczynia, odgazowuje, mocno dociskając jak przy formowaniu, formuje ponownie i odstawia do garowania.",
+    "zrodla": [
+      {
+        "adres": "https://modernistcuisine.com/mc/dough-cpr/",
+        "miejsce": "Modernist Cuisine (autorzy „Modernist Bread”), „How to Rescue Overproofed Dough”, Steps 2–4; kopia audit/06-tresci-2026-10-22/zrodla/mc-dough-cpr.htm",
+        "cytat": "Degas the dough by pressing down firmly on it. The pressure applied is the same as when you shape the dough.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Kroki 2 i 4 obok: „Remove the dough from the basket or other vessel in which you’re proofing it.”; „Shape the dough, and return it to the basket or other vessel for proofing.” King Arthur (ka-over-proofed) podaje ten sam sposób dla ciasta drożdżowego."
+  },
+  {
+    "id": "RAT-PRZ-004",
+    "twierdzenie": "Według Modernist Cuisine ciasto na zakwasie warto tak ratować tylko wtedy, gdy zostało zrobione i garowało w ciągu kilku godzin; ciasto na zakwasie garowane w chłodzie przez noc lub dłużej jest po odgazowaniu twarde, a chleb wychodzi słabo wyrośnięty, nieforemny i bardzo kwaśny.",
+    "zrodla": [
+      {
+        "adres": "https://modernistcuisine.com/mc/dough-cpr/",
+        "miejsce": "Modernist Cuisine (autorzy „Modernist Bread”), „How to Rescue Overproofed Dough”, akapit „Sourdoughs are more problematic”; kopia audit/06-tresci-2026-10-22/zrodla/mc-dough-cpr.htm",
+        "cytat": "you should attempt to revive a sourdough only if it was made and proofed within a few hours.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Dalej w akapicie: cold-proofed overnight → acidify → „very tough” → loaf „that doesn’t expand or bake well, and that is also misshapen and very sour”."
+  },
+  {
+    "id": "RAT-PRZ-005",
+    "twierdzenie": "Według King Arthur Baking ratowanie przerośniętego ciasta przez ponowne formowanie i rośnięcie zwykle nie działa przy chlebie na zakwasie, bo przed ostatnim rośnięciem fermentował on już długo.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2018/02/21/over-proofed-bread",
+        "miejsce": "King Arthur Baking, „Over-proofed bread dough: How to save your loaf” (2018-02-21), uwaga przed przykładem; kopia audit/06-tresci-2026-10-22/zrodla/ka-over-proofed.htm",
+        "cytat": "Note: This technique generally doesn't work with sourdough bread, which has usually already undergone quite a long fermentation process before its final rise.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Rozbieżność z RAT-PRZ-004 na tym samym szczeblu: część wspólna — przy zakwasie ratowanie zwykle się nie udaje; próbować najwyżej przy krótkim garowaniu (MC). Treść pokazuje oba zdania z atrybucją."
+  },
+  {
+    "id": "RAT-PRZ-006",
+    "twierdzenie": "Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu.",
+    "zrodla": [
+      {
+        "adres": "https://modernistcuisine.com/mc/dough-cpr/",
+        "miejsce": "Modernist Cuisine (autorzy „Modernist Bread”), „How to Rescue Overproofed Dough”, akapit o rośnięciu; kopia audit/06-tresci-2026-10-22/zrodla/mc-dough-cpr.htm",
+        "cytat": "Overproofed doughs collapse due to a weakened gluten structure and excessive gas production",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22"
+  },
+  {
+    "id": "RAT-SOL-001",
+    "twierdzenie": "Według King Arthur Baking ciasto bez soli jest przy wyrabianiu lepkie i luźne, bo sól wiąże wilgoć i napina pasma glutenu.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast-in-bread-dough",
+        "miejsce": "King Arthur Baking, „What if I forgot to add salt to my bread dough?” (Ask the Baker’s Hotline, 2021-08-31), „If you forget to add the salt and realize shortly after kneading”; kopia audit/06-tresci-2026-10-22/zrodla/ka-forgot-salt.htm",
+        "cytat": "Salt-less dough will be sticky and loose as you knead, as salt naturally absorbs moisture and tightens gluten strands.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Dalej w akapicie: „unbaked dough should never be consumed” — zgodne z BEZ-SUR-001 (FDA)."
+  },
+  {
+    "id": "RAT-SOL-002",
+    "twierdzenie": "Według King Arthur Baking sól spowalnia fermentację (drożdże wolniej zużywają cukier); przy cieście drożdżowym brak soli lepiej wychwycić wcześnie, bo ciasto bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast-in-bread-dough",
+        "miejsce": "King Arthur Baking, „What if I forgot to add salt to my bread dough?” (Ask the Baker’s Hotline, 2021-08-31), „If you forget to add the salt and realize shortly after kneading”; kopia audit/06-tresci-2026-10-22/zrodla/ka-forgot-salt.htm",
+        "cytat": "Without salt, your dough will rise faster than it normally would, leading to less flavor development and a weaker structure.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      },
+      {
+        "adres": "https://www.kingarthurbaking.com/learn/guides/sourdough/faq",
+        "miejsce": "King Arthur Baking, Sourdough Baking Guide, „FAQ”, hasło o soli; kopia audit/06-tresci-2026-10-22/zrodla/ka-sd-faq.htm",
+        "cytat": "Not only does salt add flavor to bread, it controls the rate of fermentation by slowing down how quickly yeast consumes sugar.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zdanie przed: „Because salt helps to control fermentation, it’s better to catch this one sooner than later in yeast doughs”. FAQ KA (ka-sd-faq): salt „controls the rate of fermentation by slowing down how quickly yeast consumes sugar”. Weryfikacja niezależna 2026-10-22 (subagent): CZĘŚCIOWO → „wcześnie” zawężone do ciasta drożdżowego (przy zakwasie KA: „don’t worry”, autoliza, RAT-SOL-004); dopisane źródło FAQ KA dla „spowalnia” (ten sam wydawca, jedno źródło)."
+  },
+  {
+    "id": "RAT-SOL-003",
+    "twierdzenie": "Według King Arthur Baking zapomnianą sól miesza się z kilkoma łyżeczkami wody; ręcznie: ciasto rozpłaszcza się, rozsmarowuje na nim tę mieszankę, zwija, znowu rozpłaszcza, obraca o 90° i zwija ponownie, a potem wyrabia, aż znów będzie w miarę gładkie.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast-in-bread-dough",
+        "miejsce": "King Arthur Baking, „What if I forgot to add salt to my bread dough?” (Ask the Baker’s Hotline, 2021-08-31), „If you forget to add the yeast…” (sposób ręczny dla drożdży albo soli); kopia audit/06-tresci-2026-10-22/zrodla/ka-forgot-salt.htm",
+        "cytat": "press the dough out flat as you can and spread the yeast [or salt] slurry over the surface",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Dalej w źródle: „Roll it up one way, then press it out, rotate it 90°, and roll again. […] Re-knead it until it’s relatively smooth again.” Mieszanka z wodą: „To incorporate the salt, mix it with a few teaspoons of water.”"
+  },
+  {
+    "id": "RAT-SOL-004",
+    "twierdzenie": "Według King Arthur Baking przy chlebie na zakwasie przerwę w wyrabianiu bez soli można potraktować jak autolizę: po 20–60 minutach odpoczynku wmieszać sól i dalej postępować według przepisu.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast-in-bread-dough",
+        "miejsce": "King Arthur Baking, „What if I forgot to add salt to my bread dough?” (Ask the Baker’s Hotline, 2021-08-31), „If you forget to add the salt and realize shortly after kneading”; kopia audit/06-tresci-2026-10-22/zrodla/ka-forgot-salt.htm",
+        "cytat": "After letting the dough rest anywhere from 20 to 60 minutes, mix in the salt and proceed with the recipe.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22"
+  },
+  {
+    "id": "RAT-SOL-005",
+    "twierdzenie": "Według King Arthur Baking gdy brak soli wyjdzie dopiero po pierwszym rośnięciu, niewiele da się zrobić: dodawanie soli nie pomoże, a ponowne wyrabianie grozi trwałym zniszczeniem struktury ciasta; chleb bez soli da się zjeść, choć jest mdły i blady, a z ciasta można też zrobić spód do pizzy.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2021/08/31/what-if-i-forgot-salt-or-yeast-in-bread-dough",
+        "miejsce": "King Arthur Baking, „What if I forgot to add salt to my bread dough?” (Ask the Baker’s Hotline, 2021-08-31), „…but don’t remember until AFTER the dough has its first rise”; kopia audit/06-tresci-2026-10-22/zrodla/ka-forgot-salt.htm",
+        "cytat": "If you re-knead the dough to add the salt, you risk doing irrevocable damage to the dough structure.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zdania obok: „There’s not much you can do.”; „Bread without salt is still edible, it’s just rather bland and pale.”; „Better yet, use the dough for pizza crust!”"
+  },
+  {
+    "id": "RAT-ZIM-001",
+    "twierdzenie": "Według King Arthur Baking gdy ciasto nie chce rosnąć, przyczyną często nie jest samo ciasto, tylko miejsce, w którym stoi, np. chłodna kuchnia.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "King Arthur Baking, „Where to put dough to rise” (2019-03-12); kopia audit/06-tresci-2026-10-22/zrodla/ka-where-rise.htm",
+        "cytat": "But often it's simply the environment in which you've placed your bowl of dough.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Dalej we wpisie: zimowa kuchnia autorki „more like 62°F to 65°F”. Weryfikacja niezależna 2026-10-22 (subagent): cytat z treści wpisu zamiast liczby 62–65 °F."
+  },
+  {
+    "id": "RAT-ZIM-002",
+    "twierdzenie": "Według King Arthur Baking drożdże najlepiej rosną, a smak najlepiej się rozwija w 75–78 °F (rachunek: 23,9–25,6 °C; w tekście ok. 24–25,5 °C).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "King Arthur Baking, „Where to put dough to rise” (2019-03-12); kopia audit/06-tresci-2026-10-22/zrodla/ka-where-rise.htm",
+        "cytat": "Studies have shown that the optimum temperature for yeast to grow and flavor to develop is 75°F to 78°F.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek °F→°C: (75−32)·5/9 = 23,9; (78−32)·5/9 = 25,6; w tekście „ok. 24–25,5 °C” jak DIA-DDT-001 (górna granica zaokrąglona w dół).",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "wielkosc": "optimum_temperatury_rosniecia_c",
+    "wartosc": 25.5,
+    "jednostka": "°C",
+    "uwagi": "Zastępuje wycofane „optymalne 26–28°C” (RAT-ZIM-900). Zgodne z FER-Q10-001 (20–28 °C) i ZAK-ZAL-015 (21–26 °C dla zakwasu)."
+  },
+  {
+    "id": "RAT-ZIM-003",
+    "twierdzenie": "Według King Arthur Baking ciepłym miejscem do rośnięcia ciasta bywa wierzch lodówki albo podgrzewacza wody lub wysoka półka, bo ciepło unosi się do góry.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "King Arthur Baking, „Where to put dough to rise” (2019-03-12); kopia audit/06-tresci-2026-10-22/zrodla/ka-where-rise.htm",
+        "cytat": "Atop your water heater or refrigerator; or on a high shelf. Heat rises, and the top of a major appliance that runs constantly is usually a bit warmer than the surrounding atmosphere.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22"
+  },
+  {
+    "id": "RAT-ZIM-004",
+    "twierdzenie": "Według King Arthur Baking rosnące ciasto przykrywa się szczelnie (folia, pokrywka), bo wilgoć utrzymuje jego skórkę miękką i sprzyja rośnięciu; bawełniana ściereczka przepuszcza wilgoć.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2019/03/12/where-to-put-dough-to-rise",
+        "miejsce": "King Arthur Baking, „Where to put dough to rise” (2019-03-12); kopia audit/06-tresci-2026-10-22/zrodla/ka-where-rise.htm",
+        "cytat": "Moisture keeps the skin of the dough supple and soft, promoting a better rise.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zdanie obok: „A cotton towel allows moisture to escape; plastic (or even better, a snap-on lid) keeps moisture trapped.”"
+  },
+  {
+    "id": "RAT-ZIM-005",
+    "twierdzenie": "Według King Arthur Baking czasy rośnięcia w przepisie to tylko wskazówka, bo na tempo wpływa m.in. temperatura wody i powietrza; gdy powietrze jest zimne i suche, ciasto rośnie dłużej.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/blog/2022/08/22/how-to-tell-if-bread-dough-has-risen-enough",
+        "miejsce": "King Arthur Baking, „How to tell if bread dough has risen enough” (2022-08-22); kopia audit/06-tresci-2026-10-22/zrodla/ka-risen-enough.htm",
+        "cytat": "expect longer rise times when the air is cold and dry.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zdanie wcześniej: „think of the times provided in a recipe as a guideline rather than a hard and fast rule.”"
+  },
+  {
+    "id": "RAT-PRZ-900",
+    "twierdzenie": "Przerośnięte ciasto na zakwasie najlepiej przełożyć od razu na natłuszczoną blachę i upiec focaccię (3–4 łyżki oliwy, 220 °C przez 25–30 minut); nie należy go formować.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-PRZ-003",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (OVERPROOFED_COLLAPSE: immediateActionPl, stepByStepPl, pivot „Rzemieślnicza Focaccia na zakwasie”). Żadne przeczytane źródło nie łączy przerośniętego ciasta z focaccią; KA łączy blachę z oliwą tylko z ciastem bez drożdży (ka-forgot-salt), a przepis KA na focaccię na zakwasie podaje 425°F przez 20–25 minut (ka-sd-focaccia). Zakaz formowania przeczy MC i KA (ratunek = ponowne formowanie)."
+  },
+  {
+    "id": "RAT-PRZ-901",
+    "twierdzenie": "W przerośniętym cieście enzymy proteazy osłabiły siatkę glutenową; pozioma forma blachy podtrzymuje strukturę, a nagromadzony gaz daje puszyste wnętrze focacci.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-PRZ-006",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (scientificReasoningPl). Przyczyna według MC: osłabiony gluten i nadmiar gazu, bez wskazania proteaz."
+  },
+  {
+    "id": "RAT-PRZ-902",
+    "twierdzenie": "Przerośnięte ciasto opadło, rozlewa się płasko, bulgocze i nie trzyma formy po nacięciu (objaw).",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-PRZ-001",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (triggerSummaryPl). Rozpoznanie ze źródła: test palcem (MC)."
+  },
+  {
+    "id": "RAT-LUZ-900",
+    "twierdzenie": "Zbyt luźne ciasto (hydratacja ponad siłę mąki) ratuje się w foremce keksowej: wysmarować i wysypać otrębami, złożyć ciasto w foremce, schłodzić 2–3 h w 4 °C, piec 20 min w 230 °C z parą i 20 min w 200 °C, ostatnie 5 min bez foremki.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "KRO-POC-006",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (SLACK_HIGH_HYDRATION, pivot „Chleb foremkowy o wysokiej wilgotności”). Bez przeczytanego źródła szczebla 1–4 (2026-10-22: KA, MC, wyszukiwanie — tylko fora). „Schłodzone masło” w cieście chlebowym bez masła."
+  },
+  {
+    "id": "RAT-LUZ-901",
+    "twierdzenie": "Ściany foremki keksowej zapewniają mechaniczne podparcie, eliminując potrzebę silnego napięcia powierzchniowego i dając kremowy miękisz.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "KRO-POC-006",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (scientificReasoningPl SLACK). Bez źródła."
+  },
+  {
+    "id": "RAT-ZIM-900",
+    "twierdzenie": "Optymalna temperatura fermentacji to 26–28 °C; po 4–5 godzinach zimne ciasto (<20 °C) nie urosło.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-ZIM-002",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (COLD_SLUGGISH: triggerSummaryPl, immediateActionPl). Optimum według KA 75–78 °F (ok. 24–25,5 °C); 4–5 h i <20 °C bez źródła."
+  },
+  {
+    "id": "RAT-ZIM-901",
+    "twierdzenie": "Łaźnia wodna około 30 °C, dodatkowe złożenie rozprowadza ciepło, a w 27 °C drożdże i bakterie odzyskują wigor w 60–90 minut.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-ZIM-003",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (COLD_SLUGGISH stepByStepPl[2..4], pivot „Przyspieszona fermentacja termiczna”). Bez źródła."
+  },
+  {
+    "id": "RAT-ZIM-902",
+    "twierdzenie": "Aktywność metaboliczna drożdży i bakterii Lactobacillus podwaja się między 18 °C a 26 °C (kinetyka Arrheniusa).",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "FER-Q10-002",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (COLD_SLUGGISH scientificReasoningPl). SPRZECZNE z FER-Q10-002 (Q10 = 3,0 w 20–26 °C, szczebel 2): przy Q10 = 3,0 różnica 8 °C to ok. 2,4 raza, nie 2; 18 °C poza zakresem modelu (FER-Q10-902)."
+  },
+  {
+    "id": "RAT-SOL-900",
+    "twierdzenie": "Zapomnianą sól rozpuszcza się w 15–20 ml letniej wody (nie sucha), wprowadza przez laminację na wilgotnym blacie i kopertę, potem 20 minut odpoczynku; można tak zrobić, gdy ciasto już fermentuje.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-SOL-003",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (FORGOTTEN_SALT). KA: „a few teaspoons of water”, sposób ręczny bez laminacji; po pierwszym rośnięciu dodawanie soli nie pomaga (RAT-SOL-005) — „ciasto już fermentuje” przesunięte w stronę niekorzystną."
+  },
+  {
+    "id": "RAT-SOL-901",
+    "twierdzenie": "Sucha sól wyciąga punktowo wodę przez osmozę i tworzy grudki; roztwór pozwala jonom Na+ i Cl- natychmiast zacieśnić wiązania glutenowe w całym cieście.",
+    "zrodla": [],
+    "status": "wycofane",
+    "nastepca": "RAT-SOL-001",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "F-71 (ZM-19, 06-tresci-p10a-003), rola 06 2026-10-22: wycofane z src/doctor/dough-recovery.ts (FORGOTTEN_SALT scientificReasoningPl). Bez źródła; KA: sól wiąże wilgoć i napina gluten."
+  },
+  {
+    "id": "ZAK-LOD-008",
+    "twierdzenie": "Według King Arthur Baking przy ostatnim dokarmieniu przed pieczeniem odkłada się około 50 g zakwasu i dokarmia go jak zakwas przechowywany w lodówce, żeby był na następny wypiek; resztę dokarmia się do ilości potrzebnej w przepisie.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/feeding-and-maintaining-your-sourdough-starter-recipe",
+        "miejsce": "King Arthur Baking, „Feeding and Maintaining Your Sourdough Starter”, „To ready your refrigerated starter for baking”, krok po „every 12 hours”; kopia audit/06-tresci-2026-10-22/zrodla/ka-feeding.htm",
+        "cytat": "For what you judge will be the final feeding prior to baking, set aside about 50g (scant 1/4 cup) starter; feed it to maintain it for the next time you bake (repeat step 6 and 7).",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "M0 dla M3 (BR-KAL-009 + BR-KAL-010): po budzeniu zakwasu do wypieku odłożona część dostaje karmienie utrzymaniowe i wraca do lodówki, więc rytm „raz w tygodniu” (ZAK-ZAL-012) liczy się od tego karmienia (rachunek z dwóch twierdzeń, nie osobny fakt). Kroki 6–7 źródła: 50 g zakwasu + 50 g wody + 50 g mąki, 1–2 h w temperaturze pokojowej, lodówka (ZAK-LOD-005)."
+  },
+  {
+    "id": "DRO-PIZ-001",
+    "twierdzenie": "Według specyfikacji „Pizza Napoletana” GTS (rozporządzenie Komisji (UE) nr 97/2010, załącznik II) ciasto robi się z 1 litra wody, 50–55 g soli, 3 g drożdży piwnych i 1,8 kg mąki; po wyrobieniu ciasto rośnie 2 godziny, a po podziale na kulki drugi raz 4–6 godzin w temperaturze pokojowej (fermentacja w 25 °C); wszystko w jednym cyklu w tym samym lokalu (rachunek: 3 g na ok. 1,8–2,0 kg mąki to ok. 0,15–0,17% drożdży świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.legislation.gov.uk/eur/2010/97/annex/II",
+        "miejsce": "Commission Regulation (EU) No 97/2010, Annex II, pkt 3.6 „Preparation of the dough” i „Dough rising process” (kopia legislation.gov.uk tekstu z EUR-Lex); kopia audit/06-tresci-2026-10-22/zrodla/eu-97-2010-uk.htm",
+        "cytat": "Pour a litre of water into the dough kneader, dissolve in a quantity of between 50 and 55 g of sea salt, add 10 % of the prescribed total quantity of flour, then add 3 g of brewer's yeast.",
+        "odczyt": "2026-10-22",
+        "szczebel": 1
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Drożdże piwne (brewer’s yeast) = drożdże świeże prasowane (założenie zgodne z konwencją BBGA, ZAC-POO-002). Zakres 0,15–0,17%: tekst mówi „add 10 % of the prescribed total quantity of flour” i potem „gradually add 1,8 kg”, więc całość mąki to 1,8 kg albo ok. 2,0 kg.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset pizza_napoletana_48h). Zdania obok: „gradually add 1,8 kg of W 220-380 flour”; „it must be left for two hours”; „a second rising phase lasting four to six hours”; „Fermentation temperature : 25 °C”; „carried out in a continuous cycle on the same commercial premises”. Wersja UK to tekst UE przyjęty 2010; sprawdzić wersję skonsolidowaną EUR-Lex przy przeglądzie (EUR-Lex odpowiadał 202 bez treści)."
+  },
+  {
+    "id": "DRO-PIZ-002",
+    "twierdzenie": "Według King Arthur Baking ciasto na pizzę w stylu neapolitańskim ma 1/8 łyżeczki drożdży instant albo suchych aktywnych na 232 g mąki 00 i rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny (rachunek: ok. 0,16% drożdży suchych, czyli ok. 0,4% świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
+        "miejsce": "King Arthur Baking, „Neapolitan-Style Pizza Crust”; kopia audit/06-tresci-2026-10-22/zrodla/ka-pizza-napoletana.htm",
+        "cytat": "allow the dough to rise at room temperature overnight, for at least 12 hours and up to 24 hours.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217. Składniki ze strony: „2 cups (232g) King Arthur ‘00’ Pizza Flour 1/8 teaspoon instant yeast or active dry yeast”."
+  },
+  {
+    "id": "DRO-CHA-001",
+    "twierdzenie": "Według King Arthur Baking chałka ma 12 g drożdży instant (4 łyżeczki) na 480–510 g mąki; ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut (rachunek: ok. 2,5% drożdży suchych, czyli ok. 6% świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/classic-challah-recipe",
+        "miejsce": "King Arthur Baking, „Classic Challah”; kopia audit/06-tresci-2026-10-22/zrodla/ka-challah.htm",
+        "cytat": "4 teaspoons (12g) instant yeast",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 12 g / 480 g = 2,5%; / 0,4 = 6,25%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset sweet_chalka). Obok: „4 to 4 1/4 cups (480g to 510g) King Arthur Unbleached All-Purpose Flour”; „rise … for about 2 hours”; „60 to 90 minutes”."
+  },
+  {
+    "id": "DRO-FOC-001",
+    "twierdzenie": "Według King Arthur Baking focaccia ma 1 1/2 łyżeczki drożdży suchych aktywnych albo instant na około 357 g mąki (300 g pszennej uniwersalnej i 57 g pełnoziarnistej); ciasto rośnie 1,5–2 godzin, a rozciągnięte jeszcze 30 minut (rachunek: ok. 1,3% drożdży suchych, czyli ok. 3% świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/focaccia-recipe",
+        "miejsce": "King Arthur Baking, „Focaccia” (Robin Rice, aktualizacja 2024-04-09); kopia audit/06-tresci-2026-10-22/zrodla/ka-focaccia.htm",
+        "cytat": "Let the dough rise in a draft-free place for 1 1/2 to 2 hours.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 4,5 g / 357 g = 1,26%; / 0,4 = 3,15%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset focaccia_genovese). Składniki: „1 1/2 teaspoons active dry yeast or instant yeast”, „2 1/2 cups (300g) King Arthur Unbleached All-Purpose Flour”, „1/2 cup (57g) King Arthur Whole Wheat Flour”; „Let it rise for 30 minutes.”"
+  },
+  {
+    "id": "DRO-BAG-001",
+    "twierdzenie": "Według King Arthur Baking bagietki na poolishu mają szczyptę (1/16 łyżeczki) drożdży w poolishu ze 120 g mąki, dojrzewającym około 14 godzin, i 1 1/2 łyżeczki drożdży suchych aktywnych albo instant w cieście z 420 g mąki, które rośnie 45 + 45 minut (rachunek: ok. 0,9% drożdży suchych na całą mąkę, czyli ok. 2,2% świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/classic-baguettes-recipe",
+        "miejsce": "King Arthur Baking, „Classic Baguettes”; kopia audit/06-tresci-2026-10-22/zrodla/ka-baguettes.htm",
+        "cytat": "Cover and let rest at room temperature for about 14 hours; overnight works well.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. (4,5 g + ok. 0,19 g) / 540 g = 0,87%; / 0,4 = 2,2%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset baguette_tradition_poolish). Składniki: „1/16 teaspoon (a pinch) active dry yeast or instant yeast”, „1 cup (120g)”, „1 1/2 teaspoons active dry yeast or instant yeast”, „3 1/2 cups (420g)”. Wariant KA: 1 łyżeczka drożdży i 3 h w ok. 68 °F."
+  },
+  {
+    "id": "DRO-NOK-001",
+    "twierdzenie": "Według King Arthur Baking chleb bez wyrabiania ma 14 g drożdży instant albo suchych aktywnych na 900 g mąki; ciasto rośnie 2 godziny w temperaturze pokojowej, a potem stoi w lodówce od 2 godzin do około 7 dni (rachunek: ok. 1,6% drożdży suchych, czyli ok. 3,9% świeżych).",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/recipes/no-knead-crusty-white-bread-recipe",
+        "miejsce": "King Arthur Baking, „No-Knead Crusty White Bread”; kopia audit/06-tresci-2026-10-22/zrodla/ka-no-knead.htm",
+        "cytat": "let the dough rise at room temperature for 2 hours. Then refrigerate it for at least 2 hours, or for up to about 7 days.",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 14 g / 900 g = 1,56%; / 0,4 = 3,9%.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset no_knead_night). Składniki: „7 1/2 cups (900g)”, „1 1/2 tablespoons (14g) instant yeast or active dry yeast”. Inny proces niż preset (12–16 h na blacie), więc nie potwierdza wartości presetu."
+  },
+  {
+    "id": "DRO-CIA-001",
+    "twierdzenie": "Według formuły zawodowej King Arthur Baking ciabatta ma 1,2% drożdży względem całej mąki (biga z 30% mąki z 0,1% drożdży, dojrzewa ok. 16 godzin; ciasto rośnie 2 godziny); formuła nie podaje rodzaju drożdży.",
+    "zrodla": [
+      {
+        "adres": "https://www.kingarthurbaking.com/pro/formulas/ciabatta",
+        "miejsce": "King Arthur Baking, Pro Formulas „Ciabatta”, tabela formuły i tabela BIGA; kopia audit/06-tresci-2026-10-22/zrodla/kapro-ciabatta.htm",
+        "cytat": "Yeast 0.12kg 1.2%",
+        "odczyt": "2026-10-22",
+        "szczebel": 4
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "wazne_do": "2027-10-22",
+    "uwagi": "Zadanie 217 (preset ciabatta_con_biga). Biga w tej samej formule: „Water 1.8kg 60% Yeast 0.003kg 0.1%”. Rodzaj drożdży niepodany; KA Pro „Yeast” (kapro-yeast) podaje tylko przeliczniki: świeże → suche aktywne × 0,4, świeże → instant × 0,33. BBGA (ZAC-BIG-001): biga z 1% drożdży świeżych."
+  },
+  {
+    "id": "DRO-PRE-900",
+    "twierdzenie": "Procent drożdży w presetach drożdżowych jako drożdże świeże: bagietka na poolishu 0,2%, ciabatta z bigą 0,3%, focaccia 0,5%, chleb nocny bez wyrabiania 0,25% (12–16 h na blacie), pizza neapolitańska 0,08% (2 h na blacie + 46 h w lodówce), chałka 1,2% (src/recipes/presets.ts).",
+    "zrodla": [],
+    "status": "otwarte",
+    "uproszczenie": null,
+    "krytyczne": false,
+    "przeglad": null,
+    "uwagi": "[DO USTALENIA] zadanie 217 (DEC-26 a, RD-19). Żadne przeczytane źródło nie potwierdza tych wartości jako drożdży świeżych; wszystkie są niższe od przeczytanych formuł (DRO-*-001), a ilość drożdży zależy od czasu i temperatury dojrzewania (ZAC-CZA-001), więc wartości z innym harmonogramem nie potwierdzają ani nie obalają presetu. Propozycje poprawek w raporcie roli 06 (audit/06-tresci-2026-10-22/raport.md, sekcja 217)."
   }
 ]
