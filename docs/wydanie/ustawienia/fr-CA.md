@@ -44,7 +44,7 @@ boulangerie,hydratation,farine,seigle,pizza,fermentation,recette,cocotte,pourcen
 Choisissez l'heure où le pain doit être prêt : Mitron calcule les quantités, planifie à rebours et signale la fin de chaque étape. Sans compte, sans internet, sans pub.
 ```
 
-### Opis (Description) · 3864 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3731 / 4000 znaków · wersja 1.0
 
 ```text
 Mitron vous guide dans la fournée de pain au levain, de la recette à la miche : il calcule les quantités, établit le planning et surveille le temps quand le téléphone est en veille. Il fonctionne sans compte et sans internet, sans publicité et sans pistage. Vos recettes, vos levains et votre journal restent uniquement sur votre téléphone.
@@ -74,7 +74,7 @@ BON À SAVOIR
 Mitron fonctionne sur iPhone et ne synchronise pas les données entre appareils ; vous les transférez avec un fichier de sauvegarde. Sans autorisation des notifications, Mitron n'affiche la fin d'une étape que sur l'écran ouvert.
 
 ACCÈS ET ACHAT
-L'accès complet s'obtient par un abonnement mensuel ou annuel, ou par un achat unique à vie sur l'App Store. L'abonnement peut commencer par une période d'essai gratuite (offre de lancement de l'App Store pour les utilisateurs éligibles). Sans achat, vous pouvez consulter l'historique de vos fournées, importer un fichier, ainsi qu'exporter et supprimer vos données.
+Basic est gratuit pour toujours, sans période d'essai. Pro ajoute la planification, l'entretien du levain naturel, davantage de levains et de recettes. Pro est un abonnement mensuel ou annuel, ou un achat unique à vie sur l'App Store.
 Conditions d’utilisation (EULA) : https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Langues : 35.

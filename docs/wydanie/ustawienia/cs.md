@@ -44,7 +44,7 @@ bochník,pizza,hydratace,těsto,žitný,levain,poolish,časovač,recept,kvasnice
 Nastavte čas, kdy má být chléb hotový: Pekař spočítá množství, sestaví plán zpětně a dá vědět o konci každého kroku. Bez účtu, bez internetu, bez reklam.
 ```
 
-### Opis (Description) · 3010 / 4000 znaków · wersja 1.0
+### Opis (Description) · 2902 / 4000 znaków · wersja 1.0
 
 ```text
 Pekař vás provede pečením chleba z kvásku od receptu po bochník: spočítá množství, sestaví plán a hlídá čas, i když telefon spí. Funguje bez účtu a bez internetu, bez reklam a bez sledování. Vaše recepty, kvásky a deník zůstávají jen ve vašem telefonu.
@@ -74,7 +74,7 @@ DOBRÉ VĚDĚT
 Pekař funguje na iPhonu a nesynchronizuje data mezi zařízeními; data přenesete souborem zálohy. Bez povolení oznámení ukáže Pekař konec kroku jen na otevřené obrazovce.
 
 PŘÍSTUP A NÁKUP
-Plný přístup poskytuje měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu. Předplatné může začínat bezplatnou zkušební dobou (úvodní nabídka App Storu pro oprávněné uživatele). Bez nákupu můžete procházet historii pečení, importovat soubor a exportovat a mazat svá data.
+Basic je navždy zdarma, bez zkušební doby. Pro přidává plánování, péči o kvásek, více kvásků a receptů. Pro je měsíční nebo roční předplatné nebo jednorázový doživotní nákup v App Storu.
 Podmínky použití (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jazyky: 35.

@@ -44,7 +44,7 @@ hidratação,levain,receitas,caseiro,artesanal,pizza,centeio,farinha,fermento,ma
 Defina a hora em que o pão deve ficar pronto: o Padeiro calcula as quantidades, monta o plano reverso e avisa o fim de cada etapa. Sem conta, sem internet, sem anúncios.
 ```
 
-### Opis (Description) · 3611 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3518 / 4000 znaków · wersja 1.0
 
 ```text
 O Padeiro guia você na fornada de pão de fermentação natural, da receita ao pão pronto: calcula as quantidades, monta o plano e controla o tempo mesmo com o celular em repouso. Funciona sem conta e sem internet, sem anúncios e sem rastreamento. Suas receitas, seus fermentos naturais e seu diário ficam só no seu celular.
@@ -74,7 +74,7 @@ BOM SABER
 O Padeiro funciona no iPhone e não sincroniza dados entre dispositivos; você transfere os dados com o arquivo de backup. Sem permissão para notificações, o Padeiro mostra o fim da etapa só com a tela aberta.
 
 ACESSO E COMPRA
-O acesso completo vem com uma assinatura mensal ou anual ou com uma compra vitalícia única na App Store. A assinatura pode começar com um período de teste gratuito (oferta introdutória da App Store para usuários elegíveis). Sem compra, você pode ver o histórico de fornadas, importar um arquivo e exportar e excluir seus dados.
+O Basic é gratuito para sempre, sem período de teste. O Pro adiciona planejamento, cuidados com o fermento natural, mais fermentos naturais e receitas. O Pro é uma assinatura mensal ou anual ou uma compra vitalícia única na App Store.
 Termos de Uso (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Idiomas: 35.

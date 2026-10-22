@@ -44,7 +44,7 @@ heving,deig,mel,rugbrød,levain,poolish,bakerprosent,pizza,påminnelse,brødbaki
 Velg når brødet skal være ferdig: Bakeren regner ut mengdene, lager en plan bakover og varsler deg når hvert steg er ferdig. Uten konto, uten internett, uten reklame.
 ```
 
-### Opis (Description) · 3380 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3300 / 4000 znaków · wersja 1.0
 
 ```text
 Bakeren guider deg gjennom bakingen av surdeigsbrød fra oppskrift til ferdig brød: appen regner ut mengdene, lager planen og holder styr på tiden mens telefonen sover. Den fungerer uten konto og uten internett, uten reklame og uten sporing. Oppskriftene, surdeigsstarterne og dagboken din blir bare på telefonen din.
@@ -74,7 +74,7 @@ GODT Å VITE
 Bakeren fungerer på iPhone og synkroniserer ikke data mellom enheter; du flytter data med en sikkerhetskopifil. Uten tillatelse til varsler viser Bakeren slutten av et steg bare når appen er åpen på skjermen.
 
 TILGANG OG KJØP
-Full tilgang får du med et månedlig eller årlig abonnement eller et engangskjøp for livstid i App Store. Et abonnement kan starte med en gratis prøveperiode (introduksjonstilbud i App Store for kvalifiserte brukere). Uten kjøp kan du se bakehistorikken, importere en fil og eksportere og slette dataene dine.
+Basic er gratis for alltid, uten prøveperiode. Pro gir deg planlegging, stell av surdeigsstarteren og flere surdeigsstartere og oppskrifter. Pro er et månedlig eller årlig abonnement eller et engangskjøp for livstid i App Store.
 Bruksvilkår (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Språk: 35.

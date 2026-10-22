@@ -44,7 +44,7 @@ desem,starter,deeg,pizzadeeg,roggebrood,hydratatie,bakkerspercentage,recept,time
 Kies hoe laat je brood klaar moet zijn: Bakker berekent de hoeveelheden, plant terug en meldt het einde van elke stap. Geen account, geen internet, geen reclame.
 ```
 
-### Opis (Description) · 3700 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3579 / 4000 znaków · wersja 1.0
 
 ```text
 Bakker begeleidt je bij het bakken van zuurdesembrood, van recept tot brood: de app berekent de hoeveelheden, maakt een schema en houdt de tijd in de gaten terwijl je telefoon slaapt. Werkt zonder account en zonder internet, zonder advertenties en zonder tracking. Je recepten, zuurdesemstarters en dagboek blijven alleen op je telefoon.
@@ -74,7 +74,7 @@ GOED OM TE WETEN
 Bakker werkt op iPhone en synchroniseert geen gegevens tussen apparaten; je zet gegevens over met een back-upbestand. Zonder toestemming voor meldingen toont Bakker het einde van een stap alleen op het geopende scherm.
 
 TOEGANG EN AANKOOP
-Volledige toegang krijg je met een maand- of jaarabonnement of een eenmalige levenslange aankoop in de App Store. Een abonnement kan beginnen met een gratis proefperiode (introductieaanbod van de App Store voor wie in aanmerking komt). Zonder aankoop kun je je bakgeschiedenis bekijken, een bestand importeren en je gegevens exporteren en verwijderen.
+Basic is voor altijd gratis, zonder proefperiode. Pro voegt planning, zorg voor je zuurdesemstarter, meer zuurdesemstarters en recepten toe. Pro is een maand- of jaarabonnement of een eenmalige levenslange aankoop in de App Store.
 Gebruiksvoorwaarden (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Talen: 35.

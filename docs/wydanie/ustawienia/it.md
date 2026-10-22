@@ -44,7 +44,7 @@ idratazione,farina,lievitazione,pizza,percentuale,panificazione,ricetta,biga,poo
 Imposta l'ora in cui vuoi il pane pronto: Fornaio calcola le dosi, pianifica a ritroso e ti avvisa alla fine di ogni passaggio. Senza account, internet e pubblicità.
 ```
 
-### Opis (Description) · 3779 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3653 / 4000 znaków · wersja 1.0
 
 ```text
 Fornaio ti guida nella preparazione del pane a lievito madre, dalla ricetta alla pagnotta: calcola le dosi, organizza il programma e tiene il tempo anche quando il telefono è in standby. Funziona senza account e senza internet, senza pubblicità e senza tracciamento. Le tue ricette, i tuoi lieviti madre e il diario restano solo sul tuo telefono.
@@ -74,7 +74,7 @@ BUONO A SAPERSI
 Fornaio funziona su iPhone e non sincronizza i dati tra dispositivi; i dati si trasferiscono con il file di backup. Senza il permesso per le notifiche, Fornaio mostra la fine di un passaggio solo a schermo aperto.
 
 ACCESSO E ACQUISTO
-L'accesso completo si ottiene con un abbonamento mensile o annuale oppure con un acquisto a vita una tantum sull'App Store. L'abbonamento può iniziare con un periodo di prova gratuito (offerta introduttiva dell'App Store per gli utenti idonei). Senza acquisto puoi consultare la cronologia delle sfornate, importare un file ed esportare ed eliminare i tuoi dati.
+Basic è gratuito per sempre, senza periodo di prova. Pro aggiunge la pianificazione, la cura del lievito madre, più lieviti madre e più ricette. Pro è un abbonamento mensile o annuale oppure un acquisto a vita una tantum sull'App Store.
 Termini di utilizzo (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Lingue: 35.

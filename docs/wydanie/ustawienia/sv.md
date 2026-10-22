@@ -44,7 +44,7 @@ jäsning,deg,mjöl,rågbröd,levain,poolish,bakprocent,limpa,degtemperatur,påmi
 Ställ in när brödet ska vara klart: Bagaren räknar ut mängderna, planerar bakåt och säger till när varje steg är slut. Inget konto, inget internet, ingen reklam.
 ```
 
-### Opis (Description) · 3294 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3201 / 4000 znaków · wersja 1.0
 
 ```text
 Bagaren guidar dig genom surdegsbaket från recept till limpa: räknar ut mängderna, gör upp en plan och håller koll på tiden när telefonen sover. Fungerar utan konto och utan internet, utan reklam och utan spårning. Dina recept, surdegsgrunder och din dagbok stannar bara i din telefon.
@@ -74,7 +74,7 @@ BRA ATT VETA
 Bagaren fungerar på iPhone och synkar inte data mellan enheter; du flyttar data med en säkerhetskopia. Utan tillstånd för notiser visar Bagaren slutet på ett steg bara när skärmen är öppen.
 
 ÅTKOMST OCH KÖP
-Full åtkomst får du med ett månads- eller årsabonnemang eller ett engångsköp för livstid i App Store. Ett abonnemang kan börja med en kostnadsfri provperiod (introduktionserbjudande i App Store för behöriga användare). Utan köp kan du bläddra i bakhistoriken, importera en fil samt exportera och radera dina data.
+Basic är gratis för alltid, utan provperiod. Pro lägger till planering, skötsel av surdegsgrunden, fler surdegsgrunder och fler recept. Pro är ett månads- eller årsabonnemang eller ett engångsköp för livstid i App Store.
 Användarvillkor (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Språk: 35.

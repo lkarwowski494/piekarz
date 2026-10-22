@@ -45,7 +45,7 @@ hlebec,pizza,hidracija,testo,rženi,levain,poolish,časovnik,recept,fermentacija
 Nastavite uro, ko naj bo kruh pripravljen: Pek izračuna količine, sestavi obratni urnik in vas obvesti o koncu vsakega koraka. Brez računa, interneta in oglasov.
 ```
 
-### Opis (Description) · 3159 / 4000 znaków · wersja 1.0
+### Opis (Description) · 3045 / 4000 znaków · wersja 1.0
 
 ```text
 Pek vas vodi skozi peko kruha z naravnim kvasom od recepta do hlebca: izračuna količine, sestavi načrt in pazi na čas, ko telefon spi. Deluje brez računa in brez interneta, brez oglasov in brez sledenja. Vaši recepti, kvasi in dnevnik ostanejo samo v vašem telefonu.
@@ -75,7 +75,7 @@ DOBRO JE VEDETI
 Pek deluje na iPhonu in ne sinhronizira podatkov med napravami; podatke prenesete z datoteko varnostne kopije. Brez dovoljenja za obvestila Pek prikaže konec koraka le na odprtem zaslonu.
 
 DOSTOP IN NAKUP
-Polni dostop omogoča mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu. Naročnina se lahko začne z brezplačnim preizkusnim obdobjem (uvodna ponudba App Store za upravičene uporabnike). Brez nakupa lahko pregledujete zgodovino peke, uvozite datoteko ter izvozite in izbrišete svoje podatke.
+Basic je za vedno brezplačen, brez preizkusnega obdobja. Pro doda načrtovanje, nego kvasa ter več kvasov in receptov. Pro je mesečna ali letna naročnina ali enkratni doživljenjski nakup v App Storu.
 Pogoji uporabe (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Jeziki: 35.
