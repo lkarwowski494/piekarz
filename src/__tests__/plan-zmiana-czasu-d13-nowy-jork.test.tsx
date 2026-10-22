@@ -14,4 +14,4 @@ jest.mock('react-native-safe-area-context', () => {
   };
 });
 
-opiszPlanWDniuZmianyCzasu('America/New_York', new Date(2027, 2, 12, 14, 0, 0, 0), new Date(2027, 2, 5, 14, 0, 0, 0));
+opiszPlanWDniuZmianyCzasu('America/New_York', [2027, 3, 12, 14], [2027, 3, 5, 14]);

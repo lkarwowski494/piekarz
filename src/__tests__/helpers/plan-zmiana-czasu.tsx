@@ -25,13 +25,27 @@ function tekst(n: any): string {
 
 const KOMUNIKAT = 'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.';
 
+/** Data ścienna [rok, miesiąc 1–12, dzień, godzina] w strefie testu. */
+export type DataScienna = readonly [number, number, number, number];
+
 /**
- * @param dzisiaj chwila „teraz” dwa dni przed dniem zmiany czasu (14:00); dzień docelowy to „Pojutrze”
- * @param zwykly chwila „teraz” dwa dni przed zwykłym dniem
+ * Chwile „teraz” podaje się jako datę ścienną, nie jako Date: Date liczony przy ładowaniu pliku (zbieranie testów)
+ * powstaje w strefie procesu sprzed beforeAll z wStrefie, więc np. przy TZ=Pacific/Auckland „12.03 14:00” to
+ * w Nowym Jorku 11.03 i dzień docelowy nie jest dniem zmiany czasu (CI Tests across Timezones, 2026-10-22).
+ * Date powstaje dopiero w teście, już w strefie z wStrefie.
+ * @param dzisiaj „teraz” dwa dni przed dniem zmiany czasu (14:00); dzień docelowy to „Pojutrze”
+ * @param zwykly „teraz” dwa dni przed zwykłym dniem
  */
-export function opiszPlanWDniuZmianyCzasu(strefa: string, dzisiaj: Date, zwykly: Date): void {
+export function opiszPlanWDniuZmianyCzasu(strefa: string, dzisiajSciana: DataScienna, zwyklySciana: DataScienna): void {
   describe(`plan w dniu zmiany czasu, ${strefa} (D-13)`, () => {
     wStrefie(strefa);
+    const naDate = ([r, m, d, g]: DataScienna) => new Date(r, m - 1, d, g, 0, 0, 0);
+    let dzisiaj = new Date(NaN);
+    let zwykly = new Date(NaN);
+    beforeAll(() => {
+      dzisiaj = naDate(dzisiajSciana);
+      zwykly = naDate(zwyklySciana);
+    });
     let tree: renderer.ReactTestRenderer | null = null;
     const pole = () => tekst(tree!.root.findByProps({ testID: 'plan-pole-gotowosci' }).props.children);
 
