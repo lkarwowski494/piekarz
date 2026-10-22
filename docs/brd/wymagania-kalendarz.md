@@ -236,14 +236,22 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Wtedy widzi tydzień z wyróżnionym dniem dzisiejszym
 
 ### BR-KAL-009: Zaplanowane wypieki na przyszłe dni
-- Przepływ: PR-21 · Reguła: RD-17, RD-25
-- Dowód potrzeby: J-13, J-02; szablon tygodnia z karmieniami w dniach przed mieszaniem (S-65, S-68); dopasowanie wypieku do pracy (S-69); brak wyboru godziny końca u konkurencji jako skarga (S-80); prośba o kilka wypieków naraz (S-14, rec. 6384160131); H-17; limit oczekujących powiadomień OG-10 [DO USTALENIA] (OP-56)
+- Przepływ: PR-21 · Reguła: RD-17, RD-25, RD-33
+- Dowód potrzeby: J-13, J-02; potrzeba planu wielodniowego z budzeniem zakwasu przed mieszaniem (S-65, S-68 jako dowód potrzeby, nie wzór liczby karmień); dopasowanie wypieku do pracy (S-69); brak wyboru godziny końca u konkurencji jako skarga (S-80); prośba o kilka wypieków naraz (S-14, rec. 6384160131); H-17; limit oczekujących powiadomień OG-10 [DO USTALENIA] (OP-56). Liczba i rytm karmień budzących: D-052 (rejestr roli 06: ZAK-LOD-001, ZAK-LOD-002; stałej liczby karmień źródła nie podają, ZAK-LOD-900), nie wzorzec „dwa dni po dwa karmienia” z S-65 (ER-69)
 - zależy od: ZAL-052
 - Kryteria akceptacji:
   - Scenariusz: Wypiek na sobotę z zakwasem z lodówki
     - Zakładając, że zakwas jest w lodówce, a dziś jest środa
-    - Gdy użytkownik planuje chleb gotowy w sobotę o 10:00
-    - Wtedy pasek pokazuje karmienia budzące zakwas i kroki ciasta w dniach przed sobotą, a sobota ma znacznik wypieku
+    - Gdy użytkownik planuje chleb z mieszaniem ciasta w sobotę o 08:00 i godziną „gotowe” w sobotę po południu
+    - Wtedy pasek pokazuje jedno karmienie budzące w piątek o 20:00 w proporcji 1:1:1, kroki ciasta w sobotę i znacznik wypieku w sobotę (RD-33-W1, D-052)
+  - Scenariusz: Zakwas gotowy w 8 h
+    - Zakładając, że karmienie budzące było w piątek o 20:00
+    - Gdy użytkownik zapisuje, że zakwas podwoił objętość o 04:00
+    - Wtedy plan zostaje bez zmian, a kalendarz nie dokłada kolejnego karmienia (RD-33-W2)
+  - Scenariusz: Zakwas niegotowy
+    - Zakładając, że karmienie budzące było w piątek o 20:00, a do 04:01 zakwas nie podwoił objętości
+    - Gdy użytkownik zapisuje obserwację
+    - Wtedy kalendarz pokazuje kolejne karmienie w sobotę o 08:00 z dopiskiem „jeśli zakwas nie podwoił objętości”, bez stałej liczby karmień („N z M”), i propozycję przesunięcia planu (RD-33-W4, BR-ZAKW-006)
   - Scenariusz: Dwa plany
     - Zakładając, że użytkownik ma plan na sobotę
     - Gdy dodaje plan pizzy na piątek
@@ -258,7 +266,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Wtedy widzi kolizję z nazwą kroku i godziną, a plan zapisuje się dopiero po jego decyzji
 
 ### BR-KAL-016: Dwa wypieki prowadzone naraz
-- Przepływ: PR-21, PR-04
+- Przepływ: PR-21, PR-04 · Reguła: RD-34
 - Dowód potrzeby: J-14; jeden minutnik na kilka bochenków (S-91), bochenek przefermentowany w kolejce do piekarnika (S-92), kilka rodzajów na dzień pieczenia (S-93), pomylenie receptur (S-94); „you can only run one recipe at a time” (S-14, rec. 6384160131); H-20
 - zależy od: ZAL-059
 - Kryteria akceptacji:
@@ -267,9 +275,17 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Gdy użytkownik zaczyna ciasto na pizzę z pieczeniem o 19:00
     - Wtedy oba wypieki są zapisane, każdy ma swoje kroki i powiadomienia z nazwą wypieku, a pasek pokazuje oba
   - Scenariusz: Jeden piekarnik
-    - Zakładając, że dwa wypieki mają pieczenie w tym samym czasie
-    - Gdy użytkownik zapisuje drugi
-    - Wtedy widzi, że piekarnik jest zajęty, i propozycję przesunięcia startu drugiego wypieku
+    - Zakładając, że piekarnik jest zajęty przez wypiek A od startu nagrzewania 08:15 do końca pieczenia 09:45
+    - Gdy użytkownik zapisuje wypiek B z nagrzewaniem od 09:30
+    - Wtedy widzi, że piekarnik jest zajęty, i propozycję przesunięcia, w której nagrzewanie B zaczyna się o 09:45 (RD-34-W3)
+  - Scenariusz: Drugi wypiek z pełnym nagrzewaniem
+    - Zakładając, że użytkownik przyjmuje propozycję przesunięcia
+    - Gdy patrzy na plan wypieku B
+    - Wtedy B ma pełny krok nagrzewania ze swojego planu, bez skracania, a między wypiekami nie ma dodatkowej stałej przerwy (rejestr roli 06: PIE-ZAJ-900 bez źródła liczby przerwy)
+  - Scenariusz: Wypieki jeden po drugim
+    - Zakładając, że wypiek A kończy pieczenie o 09:45
+    - Gdy wypiek B zaczyna nagrzewanie dokładnie o 09:45
+    - Wtedy aplikacja nie pokazuje kolizji (RD-34-W2)
   - Scenariusz: Który krok czyj
     - Zakładając, że trwają dwa wypieki
     - Gdy przychodzi powiadomienie o kroku
@@ -285,12 +301,20 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### BR-KAL-010: Stały dzień karmienia zakwasu w lodówce
 - Przepływ: PR-22 · Reguła: RD-25
-- Dowód potrzeby: J-04; dziennik i przypomnienia według własnego rytmu (S-21, rec. 13407309939); H-17
+- Dowód potrzeby: J-04; dziennik i przypomnienia według własnego rytmu (S-21, rec. 13407309939); H-17; rytm i warunek z rejestru roli 06: co 7 dni (ZAK-ZAL-012, odpowiada RD-25 i S-44), do lodówki dopiero po 7–10 dniach od założenia (ZAK-ZAL-012), po dokarmieniu 1–2 h w temperaturze pokojowej (ZAK-LOD-005) (ER-69)
 - Kryteria akceptacji:
   - Scenariusz: Karmienie w niedziele
     - Zakładając, że zakwas jest w lodówce, a użytkownik ustawił karmienie w niedziele o 10:00
     - Gdy jest niedziela 10:00
-    - Wtedy dostaje przypomnienie, a niedziele na pasku mają znacznik karmienia
+    - Wtedy dostaje przypomnienie, a niedziele na pasku mają znacznik karmienia co 7 dni
+  - Scenariusz: Zakwas w trakcie zakładania
+    - Zakładając, że zakwas jest w 5. dniu zakładania (RD-31)
+    - Gdy użytkownik otwiera ustawienie stałego dnia karmienia
+    - Wtedy aplikacja go nie proponuje i wyjaśnia, że zakwas trafia do lodówki dopiero po 7–10 dniach od założenia, gdy jest gotowy (ZAK-ZAL-012)
+  - Scenariusz: Po karmieniu do lodówki
+    - Zakładając, że użytkownik zapisuje niedzielne karmienie o 10:00
+    - Gdy patrzy na kartę zakwasu
+    - Wtedy widzi, że zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej (ZAK-LOD-005)
   - Scenariusz: Karmienie w inny dzień
     - Zakładając, że użytkownik dokarmił zakwas w piątek
     - Gdy zapisuje dokarmienie
@@ -422,3 +446,37 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 | RD-32-W6 | 2026-10-22 08:00 | wypiek: kroki 10:00, 11:00, 12:00; zakwas: karmienie 13:00 | 3 | krok 10:00 · karmienie 13:00 | 0 | — | typowy | rachunek: po jednym ze źródła |
 | RD-32-W7 | 2026-10-22 07:30 | zakwas na blacie: karmienie 07:00 pominięte o 07:30 | 3 | karmienie 19:30 | 0 | — | typowy | rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (D-094) |
 | RD-32-W8 | 2026-10-22 08:00 | zakwas A: termin nieczytelny; zakwas B: karmienie 09:00 | 3 | karmienie B 09:00 | 0 | — | błąd | rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6) |
+
+### RD-33: Karmienie budzące zakwas z lodówki w planie
+- Wzór: `karmienie = mieszanie − 12 h`, proporcja 1:1:1; gotowy, gdy podwoi objętość w ≤ 8 h od karmienia; gdy nie: `kolejne karmienie = poprzednie + 12 h` z dopiskiem „jeśli zakwas nie podwoił objętości” i propozycja przesunięcia planu; bez stałej liczby karmień
+- Jednostki: czas [RRRR-MM-DD gg:mm], odstęp [h]
+- Granica: podwojenie dokładnie 8 h po karmieniu (włączna: gotowy)
+- Podstawa: D-052 (jedno dokarmienie 12 h przed mieszaniem; rejestr roli 06: ZAK-LOD-001, ZAK-LOD-002, szczebel 4 z atrybucją King Arthur; ZAK-LOD-900 bez stałej liczby karmień); rachunek na chwilach (12 h czasu upływu, jak RD-25)
+- Krytyczna: nie
+- Uproszczenie: przy zmianie czasu godzina ścienna karmienia przesuwa się o 1 h względem mieszania (RD-33-W5).
+
+| ID | Mieszanie [czas] | Podwojenie po karmieniu [h] | Oczekiwane: karmienie budzące [czas] | Oczekiwane: kolejne karmienie [czas] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|---|
+| RD-33-W1 | 2026-10-24 08:00 | brak obserwacji | 2026-10-23 20:00 | brak | 1 min | typowy | D-052: 08:00 − 12 h |
+| RD-33-W2 | 2026-10-24 08:00 | 8 | 2026-10-23 20:00 | brak (gotowy) | 1 min | granica | D-052, ZAK-LOD-002: ≤ 8 h |
+| RD-33-W3 | 2026-10-24 08:00 | 7,98 | 2026-10-23 20:00 | brak (gotowy) | 1 min | poniżej | rachunek: 7 h 59 min |
+| RD-33-W4 | 2026-10-24 08:00 | brak do 8,02 | 2026-10-23 20:00 | 2026-10-24 08:00 i propozycja przesunięcia | 1 min | powyżej | D-052: 20:00 + 12 h; BR-ZAKW-006 |
+| RD-33-W5 | 2026-10-25 08:00 | brak obserwacji | 2026-10-24 21:00 | brak | 1 min | typowy | rachunek: Europe/Warsaw, 08:00 CET = 07:00 UTC − 12 h = 2026-10-24 19:00 UTC = 21:00 CEST (S-67) |
+| RD-33-W6 | brak | brak obserwacji | brak karmienia w planie | brak | — | błąd | rachunek: plan bez godziny mieszania nie ma karmienia budzącego |
+
+### RD-34: Zajętość piekarnika przy dwóch wypiekach
+- Wzór: okno(W) = [start kroku nagrzewania W, koniec kroku pieczenia W); kolizja, gdy okna dwóch wypieków się nakładają; propozycja przesunięcia: start nagrzewania drugiego = koniec pieczenia pierwszego, z pełnym nagrzewaniem drugiego i bez stałej przerwy
+- Jednostki: czas [gg:mm]
+- Granica: koniec pieczenia A = start nagrzewania B (brak kolizji)
+- Podstawa: rachunek; rejestr roli 06 (M0, 2026-10-22): nagrzewanie zajmuje piekarnik (PIE-ZAJ-001, PIE-ZAJ-003, KRO-POC-011), liczby przerwy między wypiekami brak (PIE-ZAJ-900); granica według makiety M3 (a2-piekarnik)
+- Krytyczna: nie
+- Uproszczenie: jeden piekarnik w domu; nagrzewanie jako krok planu, czas z planu (garnek ok. 30 min, kamień ok. 60 min według rejestru 06).
+
+| ID | Okno A [gg:mm–gg:mm] | Start nagrzewania B [gg:mm] | Oczekiwane: kolizja [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-34-W1 | 08:15–09:45 | 11:00 | nie | 1 min | typowy | rachunek |
+| RD-34-W2 | 08:15–09:45 | 09:45 | nie | 1 min | granica | rachunek; wektor roli 06 (M0) |
+| RD-34-W3 | 08:15–09:45 | 09:30 | tak; propozycja: start B 09:45 | 1 min | poniżej | rachunek; wektor roli 06 (M0) |
+| RD-34-W4 | 08:15–09:45 | 09:44 | tak | 1 min | poniżej | rachunek; wektor roli 06 (M0) |
+| RD-34-W5 | 08:15–09:45 | 07:00 (pieczenie B do 08:15) | nie | 1 min | powyżej | rachunek: okno B kończy się, gdy zaczyna się okno A |
+| RD-34-W6 | 08:15–09:45 | brak kroku nagrzewania | kolizji nie liczy się; plan B prosi o krok nagrzewania | — | błąd | rachunek |

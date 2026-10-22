@@ -1316,7 +1316,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:365"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:389"
   },
   {
     "regula": "RD-29",
@@ -1331,7 +1331,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:366"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:390"
   },
   {
     "regula": "RD-29",
@@ -1346,7 +1346,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:367"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:391"
   },
   {
     "regula": "RD-29",
@@ -1361,7 +1361,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:368"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:392"
   },
   {
     "regula": "RD-29",
@@ -1376,7 +1376,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:369"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:393"
   },
   {
     "regula": "RD-29",
@@ -1391,7 +1391,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: nieczytelna data wpisu (BR-KAL-002)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:370"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:394"
   },
   {
     "regula": "RD-30",
@@ -1406,7 +1406,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (PL: poniedziałek)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:382"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:406"
   },
   {
     "regula": "RD-30",
@@ -1421,7 +1421,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (US: niedziela)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:383"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:407"
   },
   {
     "regula": "RD-30",
@@ -1436,7 +1436,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: dziś = pierwszy dzień",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:384"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:408"
   },
   {
     "regula": "RD-30",
@@ -1451,7 +1451,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:385"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:409"
   },
   {
     "regula": "RD-30",
@@ -1466,7 +1466,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: ostatni dzień tygodnia, dzień 25-godzinny",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:386"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:410"
   },
   {
     "regula": "RD-30",
@@ -1481,7 +1481,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: niedziela ze zmianą czasu w USA (S-78)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:387"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:411"
   },
   {
     "regula": "RD-30",
@@ -1496,7 +1496,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak regionu [DO USTALENIA] (OP-53)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:388"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:412"
   },
   {
     "regula": "RD-31",
@@ -1511,7 +1511,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: ten sam dzień kalendarza (D-093)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:400"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:424"
   },
   {
     "regula": "RD-31",
@@ -1526,7 +1526,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "rachunek: północ po dniu założenia",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:401"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:425"
   },
   {
     "regula": "RD-31",
@@ -1541,7 +1541,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: przy okresach 24 h byłoby 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:402"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:426"
   },
   {
     "regula": "RD-31",
@@ -1556,7 +1556,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: Europe/Warsaw, doba 25 h przy zmianie czasu (S-67), nadal 2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:403"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:427"
   },
   {
     "regula": "RD-31",
@@ -1571,7 +1571,7 @@
     "tolerancja": "1 min",
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 6 dni kalendarza + 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:404"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:428"
   },
   {
     "regula": "RD-31",
@@ -1586,7 +1586,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:405"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:429"
   },
   {
     "regula": "RD-32",
@@ -1603,7 +1603,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek; przykład właściciela (ER-66)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:417"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:441"
   },
   {
     "regula": "RD-32",
@@ -1620,7 +1620,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: termin = teraz",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:418"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:442"
   },
   {
     "regula": "RD-32",
@@ -1637,7 +1637,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: termin > teraz, jeszcze nie zaległe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:419"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:443"
   },
   {
     "regula": "RD-32",
@@ -1654,7 +1654,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 4 źródła > L",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:420"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:444"
   },
   {
     "regula": "RD-32",
@@ -1671,7 +1671,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: 2 zaległe, miejsce na 1 przyszłe",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:421"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:445"
   },
   {
     "regula": "RD-32",
@@ -1688,7 +1688,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: po jednym ze źródła",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:422"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:446"
   },
   {
     "regula": "RD-32",
@@ -1705,7 +1705,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: 07:30 + 12 h (RD-25), liczenie od pominięcia (D-094)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:423"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:447"
   },
   {
     "regula": "RD-32",
@@ -1722,6 +1722,192 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: zdarzenie bez terminu pominięte, reszta bez zmian (RD-29-W6)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:424"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:448"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W1",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "D-052: 08:00 − 12 h",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:460"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W2",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": 8
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak (gotowy)"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "D-052, ZAK-LOD-002: ≤ 8 h",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:461"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W3",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": 7.98
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "brak (gotowy)"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: 7 h 59 min",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:462"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W4",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-24 08:00",
+      "Podwojenie po karmieniu [h]": "brak do 8,02"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-23 20:00",
+      "kolejne karmienie [czas]": "2026-10-24 08:00 i propozycja przesunięcia"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "D-052: 20:00 + 12 h; BR-ZAKW-006",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:463"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W5",
+    "wejscie": {
+      "Mieszanie [czas]": "2026-10-25 08:00",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "2026-10-24 21:00",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: Europe/Warsaw, 08:00 CET = 07:00 UTC − 12 h = 2026-10-24 19:00 UTC = 21:00 CEST (S-67)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:464"
+  },
+  {
+    "regula": "RD-33",
+    "id": "RD-33-W6",
+    "wejscie": {
+      "Mieszanie [czas]": "brak",
+      "Podwojenie po karmieniu [h]": "brak obserwacji"
+    },
+    "oczekiwane": {
+      "karmienie budzące [czas]": "brak karmienia w planie",
+      "kolejne karmienie [czas]": "brak"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: plan bez godziny mieszania nie ma karmienia budzącego",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:465"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W1",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "11:00"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:477"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W2",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:45"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:478"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W3",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:30"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "tak; propozycja: start B 09:45"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:479"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W4",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "09:44"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "tak"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek; wektor roli 06 (M0)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:480"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W5",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "07:00 (pieczenie B do 08:15)"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "nie"
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: okno B kończy się, gdy zaczyna się okno A",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:481"
+  },
+  {
+    "regula": "RD-34",
+    "id": "RD-34-W6",
+    "wejscie": {
+      "Okno A [gg:mm–gg:mm]": "08:15–09:45",
+      "Start nagrzewania B [gg:mm]": "brak kroku nagrzewania"
+    },
+    "oczekiwane": {
+      "kolizja [-]": "kolizji nie liczy się; plan B prosi o krok nagrzewania"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:482"
   }
 ]
