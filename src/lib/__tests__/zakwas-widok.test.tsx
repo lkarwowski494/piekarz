@@ -48,8 +48,10 @@ describe('zakwas-widok (104)', () => {
 
   // Zakwas dojrzały w lodówce: odstęp 7 dni (ZAK-ZAL-012, ten sam co termin powiadomienia), nie 12 h;
   // zakładanie i blat bez zmian [M1-audytor-generalny-188; 06-tresci-601]
+  // Data stała (2026-11-02, tydzień bez zmiany czasu): termin lodówki to 7 dni KALENDARZA (D-093), więc z dzisiejszą
+  // datą test zależał od tego, czy tydzień przecina zmianę czasu; przypadki ze zmianą czasu: karmienie-lodowka-dst.test.ts
   it('stanKartyZakwasu: zakwas w lodówce ma odstęp 7 dni i termin po 7 dniach; blat 12 h', () => {
-    const now = dzis9() + 6 * H;
+    const now = new Date(2026, 10, 2, 15, 0).getTime();
     const fed = now - 8.5 * H;
     expect(stanKartyZakwasu({ storageState: 'FRIDGE' }, [wpis('feeding', fed)], now)).toEqual(
       expect.objectContaining({ odstepMin: 7 * 24 * 60, nastepneAt: fed + 7 * 24 * H })

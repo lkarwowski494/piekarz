@@ -13,7 +13,8 @@ import {
   setupDay,
   type StarterSign,
 } from '../core/starter-log';
-import { FEED_FRIDGE_DUE_AFTER_MS } from '../core/notification-config';
+import { FEED_FRIDGE_DUE_AFTER_DAYS } from '../core/notification-config';
+import { addCalendarDays } from '../core/dzien-lokalny';
 import { t } from './i18n';
 import { appLocale, formatDate, formatTime } from './format';
 
@@ -46,16 +47,21 @@ export function stanKartyZakwasu(
 ): StanKartyZakwasu {
   const dzien = wZakladaniu(starter) && starter.setupStartedAt !== undefined ? setupDay(starter.setupStartedAt, now) : null;
   const odstepH = dzien !== null && dzien < 3 ? SETUP_FEED_INTERVAL_EARLY_H : SETUP_FEED_INTERVAL_H;
-  // Dojrzały zakwas w lodówce: raz w tygodniu (ZAK-ZAL-012), ten sam termin co powiadomienie [M1-audytor-generalny-188]
-  const odstepMin = dzien === null && starter.storageState === 'FRIDGE' ? FEED_FRIDGE_DUE_AFTER_MS / MIN_MS : odstepH * 60;
+  // Dojrzały zakwas w lodówce: raz w tygodniu (ZAK-ZAL-012), ten sam termin co powiadomienie: 7 dni KALENDARZA o tej
+  // samej godzinie, nie 7 × 24 h [M1-audytor-generalny-188; D-093]
+  const wLodowce = dzien === null && starter.storageState === 'FRIDGE';
   const feed = lastFeeding(entries);
-  if (!feed) return { dokarmionoAt: null, mineloMin: null, odstepMin, nastepneAt: null, postep: 0, gotowy: false, dzien };
+  const odstepNominalnyMin = wLodowce ? FEED_FRIDGE_DUE_AFTER_DAYS * 24 * 60 : odstepH * 60;
+  if (!feed) return { dokarmionoAt: null, mineloMin: null, odstepMin: odstepNominalnyMin, nastepneAt: null, postep: 0, gotowy: false, dzien };
+  const nastepneAt = wLodowce ? addCalendarDays(feed.occurredAt, FEED_FRIDGE_DUE_AFTER_DAYS) : feed.occurredAt + odstepH * 60 * MIN_MS;
+  // Odstęp w minutach rzeczywistych (przez zmianę czasu tydzień ma 7 × 24 h ± 1 h): postęp spirali z faktycznego czasu
+  const odstepMin = (nastepneAt - feed.occurredAt) / MIN_MS;
   const mineloMin = Math.max(0, Math.floor((now - feed.occurredAt) / MIN_MS));
   return {
     dokarmionoAt: feed.occurredAt,
     mineloMin,
     odstepMin,
-    nastepneAt: feed.occurredAt + odstepMin * MIN_MS,
+    nastepneAt,
     postep: Math.min(1, mineloMin / odstepMin),
     gotowy: isReadyAfterFeeding(entries),
     dzien,

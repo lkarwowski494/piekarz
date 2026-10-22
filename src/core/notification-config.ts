@@ -5,17 +5,22 @@
 // ============================================================================
 
 const HOUR_MS = 60 * 60 * 1000;
-const DAY_MS = 24 * HOUR_MS;
 
 export const NOTIF_PREFIX = 'piekarz.';
 export const NOTIF_ID_BAKE = 'piekarz.krok';
-/** Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090]. */
+/**
+ * Zakwas na blacie: przypomnienie 12 h po karmieniu (D-043 OP-38, zastępuje 24 h z BRD A3a Z-041) [M1-audytor-generalny-090].
+ * To odstęp CZASU (godziny rzeczywiste), nie dzień kalendarza: zakwas rośnie tyle godzin, ile minęło, także przez
+ * zmianę czasu; dlatego zostaje w ms, w odróżnieniu od terminu lodówki niżej.
+ */
 export const FEED_ROOM_TEMP_AFTER_MS = 12 * HOUR_MS;
 /**
  * Zakwas w lodówce: jedno powiadomienie na cykl, w terminie po 7 dniach (BRD B2 BR-ZAKW-004 kryt. 1; DEC-22 a
- * usuwa wcześniejsze przypomnienie po 6 dniach) [M1-audytor-generalny-179; 11-wzrost-503].
+ * usuwa wcześniejsze przypomnienie po 6 dniach) [M1-audytor-generalny-179; 11-wzrost-503]. To 7 dni KALENDARZA
+ * o tej samej godzinie lokalnej (addCalendarDays), nie 7 × 24 h: przy zmianie czasu 7 × 24 h przesuwa godzinę o 1 h
+ * (D-093, ZAK-ZAL-012).
  */
-export const FEED_FRIDGE_DUE_AFTER_MS = 7 * DAY_MS;
+export const FEED_FRIDGE_DUE_AFTER_DAYS = 7;
 /** Górna granica oczekujących powiadomień aplikacji (limit iOS: [DO USTALENIA], ADR-006). */
 export const MAX_PENDING_NOTIFICATIONS = 20;
 /**

@@ -9,7 +9,7 @@ import {
   NOTIF_ID_BAKE,
   NOTIF_PREFIX,
   FEED_ROOM_TEMP_AFTER_MS,
-  FEED_FRIDGE_DUE_AFTER_MS,
+  FEED_FRIDGE_DUE_AFTER_DAYS,
   MAX_PENDING_NOTIFICATIONS,
   TIME_SENSITIVE_STEPS,
 } from '../notification-config';
@@ -53,12 +53,16 @@ describe('notification plan (006, ADR-006)', () => {
       ],
       now
     );
-    expect(plan.map((p) => [p.id, p.triggerAt - now])).toEqual([
-      [`${NOTIF_PREFIX}karmienie.a.1`, FEED_ROOM_TEMP_AFTER_MS],
-      [`${NOTIF_PREFIX}karmienie.b.1`, FEED_FRIDGE_DUE_AFTER_MS],
+    // Lodówka: 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: oczekiwanie z konstruktora daty
+    // lokalnej, niezależne od strefy maszyny (przez zmianę czasu różnica ms to 7 × 24 h ± 1 h; testy DST: karmienie-lodowka-dst)
+    const f = new Date(now);
+    const lodowkaTermin = new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes()).getTime();
+    expect(plan.map((p) => [p.id, p.triggerAt])).toEqual([
+      [`${NOTIF_PREFIX}karmienie.a.1`, now + FEED_ROOM_TEMP_AFTER_MS],
+      [`${NOTIF_PREFIX}karmienie.b.1`, lodowkaTermin],
     ]);
     expect(plan.find((p) => p.id === `${NOTIF_PREFIX}karmienie.b.1`)?.textKey).toBe('karmienie.lodowkaTermin');
-    expect(FEED_FRIDGE_DUE_AFTER_MS).toBe(7 * DAY);
+    expect(FEED_FRIDGE_DUE_AFTER_DAYS).toBe(7);
     // D-043 OP-38: 12 h zamiast doby z BRD Z-041 [M1-audytor-generalny-090]
     expect(FEED_ROOM_TEMP_AFTER_MS).toBe(DAY / 2);
   });

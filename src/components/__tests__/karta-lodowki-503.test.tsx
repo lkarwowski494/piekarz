@@ -29,7 +29,8 @@ describe('503: karta zakwasu w lodówce — dzień i godzina następnego dokarmi
   afterEach(() => setLang('pl'));
   const fedAt = new Date(2026, 9, 21, 10, 0).getTime();
   const now = fedAt + 8 * H;
-  const nastepne = fedAt + 7 * 24 * H;
+  // 7 dni kalendarza o tej samej godzinie (D-093): 2026-10-28 10:00 lokalnie; w strefie ze zmianą czasu 25.10 to nie fedAt + 7 × 24 h
+  const nastepne = new Date(2026, 9, 28, 10, 0).getTime();
 
   it.each(['pl', 'en'] as const)('%s: lodówka → data i godzina T + 7 dni', (jezyk) => {
     setLang(jezyk);

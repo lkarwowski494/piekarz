@@ -5,11 +5,12 @@
 
 import { SessionStep, isDutchOvenStep } from './bake-steps';
 import { DUTCH_OVEN_PHASES } from './baking-phases';
+import { addCalendarDays } from './dzien-lokalny';
 import {
   NOTIF_PREFIX,
   NOTIF_ID_BAKE,
   FEED_ROOM_TEMP_AFTER_MS,
-  FEED_FRIDGE_DUE_AFTER_MS,
+  FEED_FRIDGE_DUE_AFTER_DAYS,
   MAX_PENDING_NOTIFICATIONS,
   TIME_SENSITIVE_STEPS,
 } from './notification-config';
@@ -144,7 +145,7 @@ export function planFeedingNotifications(starters: readonly PlanStarter[], now: 
     const [textKey, triggerAt]: [NotificationTextKey, number] =
       s.storageState === 'ROOM_TEMP'
         ? ['karmienie.blat', s.lastFedAt + FEED_ROOM_TEMP_AFTER_MS]
-        : ['karmienie.lodowkaTermin', s.lastFedAt + FEED_FRIDGE_DUE_AFTER_MS];
+        : ['karmienie.lodowkaTermin', addCalendarDays(s.lastFedAt, FEED_FRIDGE_DUE_AFTER_DAYS)];
     if (triggerAt <= now) continue;
     out.push({
       id: `${NOTIF_PREFIX}karmienie.${s.id}.1`,
