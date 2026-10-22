@@ -5,7 +5,7 @@
 // listą kroków (UstawieniaPlanu.tsx); scenariusze i chipy godziny usunięte.
 // ============================================================================
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { View, Text, StyleSheet, Pressable, ScrollView, useWindowDimensions } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
@@ -60,10 +60,11 @@ function etykietaDnia(offset: number): string {
   return formatDzienData(new Date(addCalendarDays(startOfLocalDay(Date.now()), offset)));
 }
 
-function Chip({ tekst, wybrany, onPress, testID }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string }) {
+function Chip({ tekst, wybrany, onPress, testID, onLayout }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string; onLayout?: (x: number) => void }) {
   return (
     <Pressable
       testID={testID}
+      onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.x) : undefined}
       accessibilityRole="button"
       accessibilityState={wybrany === undefined ? undefined : { selected: wybrany }}
       onPress={onPress}
@@ -90,7 +91,11 @@ export function TargetReadyCard({
   poTemperaturze,
   podpowiedz,
 }: TargetReadyCardProps) {
-  const waski = useWindowDimensions().width < WASKI_EKRAN_PT;
+  const { width, fontScale } = useWindowDimensions();
+  const waski = width < WASKI_EKRAN_PT;
+  // Duży tekst (okolice AX1–AX5): dni zawijane zamiast przewijania w poziomie, żeby żaden nie wychodził poza ekran (PRZ-10)
+  const zawijaj = fontScale >= 2;
+  const rzadDni = useRef<ScrollView>(null);
   const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
   const plus = <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />;
   return (
@@ -114,11 +119,18 @@ export function TargetReadyCard({
       </View>
       {/* Dzień „gotowe” od dziś do ZASIEG_DNI_PLANU (D-108): rząd chipów przewijany w poziomie (element nowy, do przeglądu
           roli 04); dalej niż pojutrze dzień tygodnia z datą przez Intl jak w polu [M3 D5] */}
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">
-        {dniPlanu().map((offset) => (
-          <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)} />
-        ))}
-      </ScrollView>
+      {/* Wybrany dzień spoza ekranu (skrót, rytm Dziennika, np. +9) przewija się do widoku po układzie chipa (PRZ-10) */}
+      {(() => {
+        const chipy = dniPlanu().map((offset) => (
+          <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)}
+            onLayout={offset === targetDayOffset && !zawijaj ? (x) => rzadDni.current?.scrollTo({ x: Math.max(0, x - odstepy.l), animated: false }) : undefined} />
+        ));
+        return zawijaj ? (
+          <View testID="plan-dni" style={[styles.dni, styles.dniZawijane]}>{chipy}</View>
+        ) : (
+          <ScrollView ref={rzadDni} horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">{chipy}</ScrollView>
+        );
+      })()}
       {/* Propozycja z rytmu Dziennika (BR-KAL-014): zdanie spoza makiety, do przeglądu roli 04 [M3 D7] */}
       {podpowiedz ? <Text style={styles.zmianaCzasu} testID="plan-podpowiedz-rytmu">{podpowiedz}</Text> : null}
       {waski && <View style={styles.rzad}>{minus}{plus}</View>}
@@ -183,12 +195,13 @@ const styles = StyleSheet.create({
   },
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, marginBottom: odstepy.m },
   dni: { flexDirection: 'row', gap: odstepy.s, marginBottom: odstepy.m },
+  dniZawijane: { flexWrap: 'wrap' },
   chip: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: odstepy.m,
-    borderRadius: 22,
+    borderRadius: promienie.chip,
     borderWidth: 1.5,
     borderColor: theme.colors.obwodka,
     backgroundColor: theme.colors.powierzchnia,

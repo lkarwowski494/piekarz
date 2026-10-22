@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: odstepy.l,
     paddingBottom: odstepy.l,
     gap: odstepy.s,
-    borderBottomLeftRadius: promienie.przyciskGlowny,
-    borderBottomRightRadius: promienie.przyciskGlowny,
+    borderBottomLeftRadius: promienie.pas,
+    borderBottomRightRadius: promienie.pas,
   },
   gora: { flexDirection: 'row', justifyContent: 'flex-end', marginRight: -odstepy.s },
   tytul: {
