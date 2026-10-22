@@ -111,7 +111,8 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Siły zmiany: pcha to, że pieczenie na zakwasie trudno zmieścić w dniu pracy („difficult to work out how to fit baking sourdough around a working day”, S-68) i wielodniowy łańcuch karmień przed wypiekiem z lodówki (S-65: dwa dni po dwa karmienia przed mieszaniem); przyciąga gotowy szablon tygodnia (S-65) i kilka wypieków naraz (S-14, rec. 6384160131); obawa: zakwas niegotowy w dniu ciasta (BR-ZAKW-006), za długie zaniedbanie w lodówce (S-65: „just very hungry”); nawyk: kartka, kalendarz telefonu, pamięć.
 - Dziś: harmonogram w głowie albo na kartce według blogów (S-65, S-68), fora (S-69), kalendarz telefonu; w aplikacjach plan jednego wypieku od godziny „gotowe” (Rise, BreadMe) — porównanie z konkurencją w `wymagania-kalendarz.md` i raporcie badania.
 - Częstotliwość: przy każdym wypieku planowanym na dzień (około raz w tygodniu: S-24, rec. 8870010975) i przy karmieniu w lodówce raz w tygodniu (RD-25, S-44); orientacja „co dziś” przy każdym wejściu [OCENA].
-- Dowód: S-65 (szczebel 4, pełny tydzień wstecz od niedzielnego wypieku), S-68 (szczebel 4), S-69 (6 wątków Fresh Loaf 2013–2018 o dopasowaniu do pracy, szczebel 5, próba nielosowa); zlecenie właściciela 2026-10-22 (kalendarz na „Dziś” jak w Treningu). Zależy od: ZAL-051, ZAL-052.
+- Dowód: S-65 (szczebel 4, pełny tydzień wstecz od niedzielnego wypieku), S-68 (szczebel 4), S-69 (6 wątków Fresh Loaf 2013–2018 o dopasowaniu do pracy, szczebel 5, próba nielosowa), S-90 (rano formowanie, wieczorem ciasto); zapomniane karmienie (S-83, S-84); żytni plan 4-dniowy z karmieniem w stałe dni (S-85); zlecenie właściciela 2026-10-22 (kalendarz na „Dziś” jak w Treningu). Osoby: P-6, P-7, P-8, P-9, P-10, P-11, P-12. Zależy od: ZAL-051, ZAL-052.
+- Ograniczenie dziś: Harmonogram pozwala wybrać „gotowe” tylko na dziś, jutro albo pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`), więc plan na niedzielę nie powstanie w środę.
 
 ## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
@@ -136,6 +137,36 @@ Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód ni
 - Pierwszy dzień: policzyć ciasto na dzisiejszych gości i godzinę. Po roku: zapisane własne receptury, harmonogram.
 - Potrzeby: rodzaje drożdży, zaczyny poolish i biga, czas i temperatura, bez reklam i śledzenia.
 - Dowód: ZP-23; S-19 (rec. 12569511193, 12638174093, 7681506247), S-24 (rec. 8870010975, 5769683066); 10 z 338 recenzji. Zależy od: ZAL-040.
+
+### P-9: Pracuje na zmiany albo ma małe dzieci
+- Sytuacja: dzień nieregularny, sen o różnych porach, wyjścia przesuwają karmienie; piecze na zakwasie jak P-7 albo P-6.
+- Prace: J-04, J-02, J-13.
+- Pierwszy dzień: wiedzieć, co wypada jutro, zanim dzień się zacznie. Po roku: plany, które omijają różne godziny snu w różne dni.
+- Potrzeby: zapowiedź karmień i kroków na najbliższe dni, przesunięcie planu, przypomnienie; godziny snu różne w różne dni (dziś jedne dla wszystkich, D-066) [DO WYJAŚNIENIA] (OP-57).
+- Dowód: pośredni, szczebel 5: zapomniane karmienie przy wyjściu i wypiek przesunięty o dobę (S-84), zapominanie nocnego karmienia (S-83); wpisu wprost od pracownika zmianowego ani rodzica niemowlęcia nie znaleziono (badanie 2026-10-22). Zależy od: ZAL-055.
+
+### P-10: Piecze na wydarzenie
+- Sytuacja: chleb albo pizza na święta, gości, przyjęcie, na konkretną godzinę kilka dni naprzód; zwykle P-7 albo P-8.
+- Prace: J-13, J-02, J-11.
+- Pierwszy dzień: wiedzieć, kiedy zacząć (z karmieniem zakwasu), żeby zdążyć na godzinę podania. Po roku: powtórzenie udanego planu przed kolejnym wydarzeniem.
+- Potrzeby: plan na wybrany dzień i godzinę, wpis do kalendarza telefonu obok wydarzenia.
+- Dowód: skarga na brak wyboru posiłku jako celu (S-80); przepis świąteczny z oknem karmienia zakwasu 12 h (S-89, szczebel 5); liczba gości i godzina (S-19, rec. 12569511193); relacji o nieudanym planie świątecznym nie znaleziono. Zależy od: ZAL-056.
+
+### P-11: Korzysta z VoiceOver albo dużego tekstu
+- Sytuacja: jak P-6 lub P-7, ale obsługa czytnikiem ekranu albo przy rozmiarach dostępności tekstu; część użytkowników ma 60+ (ZAL-039).
+- Prace: J-13, J-04, J-02.
+- Pierwszy dzień: usłyszeć „co dziś i jutro” bez rozszyfrowywania ikon. Po roku: przypomnienia, które da się obsłużyć czytnikiem.
+- Potrzeby: zdania zamiast samych ikon, etykiety dni, układ listy przy dużym tekście.
+- Dowód: alarmy systemowe iOS 26 niewyłączalne z VoiceOver, użytkownik je wyłączył (S-86, szczebel 5); recenzji o dużym tekście w aplikacjach do pieczenia nie znaleziono. Zależy od: ZAL-057.
+
+### P-12: Podróżuje między strefami czasowymi
+- Sytuacja: piecze w domu, w podróży zakwas czeka w lodówce albo karmi go ktoś inny; zmienia strefę czasową telefonu.
+- Prace: J-04, J-13.
+- Pierwszy dzień: po przylocie widzieć dobre dni i godziny. Po roku: —.
+- Potrzeby: dni i godziny w bieżącej strefie, terminy liczone jako chwile.
+- Dowód: tylko z aplikacji przypomnień ogólnie (S-87, S-88, szczebel 4–5); dla aplikacji do pieczenia nie znaleziono. Zależy od: ZAL-058.
+
+Warianty bez osobnej persony: piekarz żytni to P-7 z planem wielodniowym i karmieniem w stałe dni (S-85, RD-20); piekarz bezglutenowy nie ma w aplikacji modelu ani twierdzeń „bez glutenu” (RYZ-21), a jego rytm 24 h na blacie (poradnik, szczebel 5) nie pasuje do RD-25 [DO USTALENIA] (OP-58). Przegląd osób z typowym tygodniem, problemami i macierzą: raport badania `audit/01-kalendarz-2026-10-22/raport.md` (poza repo).
 
 ## Kontekst użycia
 
@@ -349,8 +380,9 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
   - (a) bez kalendarza w 1.0, pasek w 1.0.1 — 0 / 0; wartość dla wydania żadna; ryzyko żadne.
   - (b) pasek tygodnia tylko do odczytu, linia „Następne”, arkusz dnia, pusty stan (BR-KAL-001…007, NFR-KAL-001…003) — ok. 1 dzień / ok. 2 h (przegląd tekstów PL i EN, test na telefonie przy 320 pt i AX5, zgoda na przekład ok. 10–14 kluczy w 33 językach); wartość średnia: orientacja „co i kiedy”, widoczny plan wielodniowy, wyrazisty „Dziś” i zrzut do sklepu; ryzyko: przesunięcie wydania, jeśli przekład, build i E2E nie zmieszczą się w oknie.
   - (c) tylko linia „Następne” z arkuszem najbliższych zdarzeń, bez paska (BR-KAL-003, BR-KAL-004, BR-KAL-006, BR-KAL-007) — ok. pół dnia / ok. 1 h; wartość: najmocniej udokumentowana część („what to do AND WHEN”), bez problemu 320 pt i AX5; mniej widoczna zmiana na „Dziś”.
+  - (b+) jak (b) oraz skrót „Zaplanuj wypiek na ten dzień” z arkusza dnia do Harmonogramu w jego dzisiejszym zasięgu: dziś, jutro, pojutrze (BR-KAL-015) — dodatkowo ok. pół dnia / bez dodatkowego czasu właściciela poza 1–2 tekstami; wartość: skraca drogę do planu na konkretny dzień, główny problem P-7 i P-10 w przeglądzie osób; ryzyko jak (b), bez nowego zapisu.
   - (d) pasek z planowaniem na przyszłe dni już w 1.0 (BR-KAL-009) — kilka dni / kilka godzin plus test migracji; największa wartość; ryzyko wysokie: zmiana schematu przed wydaniem, przesunięcie 1.0.
-- Rekomendacja: (b), jeśli rola 03 potwierdzi, że mieści się w oknie wydania bez jego przesunięcia (przekład, build, E2E 0:00–15:00); w przeciwnym razie (c) w 1.0 i pasek w 1.0.1. (d) odradzam przed wydaniem.
+- Rekomendacja (po przeglądzie osób 2026-10-22): (b+), jeśli rola 03 potwierdzi, że mieści się w oknie wydania bez jego przesunięcia (przekład, build, E2E 0:00–15:00); w przeciwnym razie (c) w 1.0, a pasek i skrót w 1.0.1. (d) odradzam przed wydaniem. Macierz osób, problemów i funkcji: raport badania.
 - Jak sprawdzić najtaniej: przejście poznawcze roli 04 na makietach M3 (pasek z danymi, pusty, 320 pt, AX5); po wydaniu recenzje o „Dziś” i o planowaniu.
 
 ### H-16: Bez danych kalendarz się nie pokazuje

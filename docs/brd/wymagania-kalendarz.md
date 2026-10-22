@@ -8,7 +8,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 
 ### PR-19: Spojrzeć na tydzień piekarza na „Dziś”
 - Kto: P-7, P-6, P-8 · Praca: J-13, J-04, J-02, J-07, J-05 · Częstotliwość: każde wejście na „Dziś”, zwykle kilka razy dziennie w czasie wypieku i zakładania zakwasu · Kontekst: dowolny, sekundy; często ręce wolne, czasem w cieście.
-- Kroki: otwiera „Dziś” → widzi bieżący tydzień od pierwszego dnia tygodnia regionu, z wyróżnionym dniem dzisiejszym i znacznikami dni (wypiek, karmienie, zakładanie zakwasu, wpis w dzienniku) → pod paskiem czyta linię „Następne: …” z najbliższymi zdarzeniami → dotyka dnia i w arkuszu dnia widzi zdarzenia z godzinami → z arkusza przechodzi do źródła (trwający wypiek, karta zakwasu, wpis dziennika) → wraca do trzech ścieżek „co dziś robisz”.
+- Kroki: otwiera „Dziś” → widzi bieżący tydzień od pierwszego dnia tygodnia regionu, z wyróżnionym dniem dzisiejszym i znacznikami dni (wypiek, karmienie, zakładanie zakwasu, wpis w dzienniku) → pod paskiem czyta linię „Następne: …” z najbliższymi zdarzeniami → dotyka dnia i w arkuszu dnia widzi zdarzenia z godzinami → z arkusza przechodzi do źródła (trwający wypiek, karta zakwasu, wpis dziennika) albo, przy dniu w zasięgu planu, do Harmonogramu z tym dniem jako dniem „gotowe” (PR-02) → wraca do trzech ścieżek „co dziś robisz”.
 
 ### PR-20: Przejrzeć poprzedni i następny tydzień
 - Kto: P-7 · Praca: J-13, J-05 · Częstotliwość: kilka razy w tygodniu [OCENA] · Kontekst: jw.
@@ -141,6 +141,27 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Gdy użytkownik przegląda pasek, linię „Następne” i arkusze dni
     - Wtedy baza ma ten sam `PRAGMA user_version` i te same wiersze co przed wejściem na „Dziś”
 
+### BR-KAL-015: Zaplanuj wypiek na ten dzień
+- Przepływ: PR-19, PR-02
+- Dowód potrzeby: J-13; przegląd osób (raport badania): „kiedy zacząć na konkretny dzień” to główny problem P-7 i P-10 (S-68, S-69, S-80, S-89); dziś Harmonogram ma wybór dnia „gotowe”: dziś, jutro, pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`); H-15 (b+)
+- Kryteria akceptacji:
+  - Scenariusz: Pojutrze bez trwającego wypieku
+    - Zakładając, że nie ma trwającego wypieku, a dziś jest czwartek
+    - Gdy użytkownik dotyka soboty i wybiera „Zaplanuj wypiek na ten dzień”
+    - Wtedy otwiera się wybór receptury, a potem Harmonogram z dniem „gotowe” ustawionym na sobotę
+  - Scenariusz: Dzień poza zasięgiem planu
+    - Zakładając, że dziś jest czwartek
+    - Gdy użytkownik dotyka niedzieli
+    - Wtedy arkusz dnia nie ma skrótu do planu (dzień poza zasięgiem Harmonogramu; plan na dowolny dzień: BR-KAL-009)
+  - Scenariusz: Trwa wypiek
+    - Zakładając, że trwa wypiek
+    - Gdy użytkownik dotyka jutra
+    - Wtedy arkusz dnia nie ma skrótu do planu, bo aplikacja prowadzi jeden wypiek naraz
+  - Scenariusz: Dzień miniony
+    - Zakładając, że dziś jest czwartek
+    - Gdy użytkownik dotyka wtorku
+    - Wtedy arkusz dnia pokazuje tylko to, co się wydarzyło, bez skrótu do planu
+
 ### BR-KAL-008: Poprzedni i następny tydzień
 - Przepływ: PR-20 · Reguła: RD-30
 - Dowód potrzeby: J-05 (porównanie z wcześniejszym wypiekiem), J-13; H-15
@@ -232,7 +253,7 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
 ## Wymagania niefunkcjonalne
 
 ### NFR-KAL-001: Pasek na ekranie 320 pt
-- Miara: szerokość pola dotyku dnia i obcięcie tekstu paska przy szerokości 320 pt. Próg: pole dotyku ≥ 44 × 44 pt (NFR-INT-001, OG-12) albo dzień bez osobnego celu dotyku (cały pasek jednym celem), bez obciętych skrótów dni. Metoda: zrzut i pomiar roli 04 przy 320 pt; dziś 280/7 = 40 pt na kolumnę bez odstępów [RACHUNEK].
+- Miara: szerokość pola dotyku dnia i obcięcie tekstu paska przy szerokości 320 pt. Próg: pole dotyku ≥ 44 × 44 pt (NFR-INT-001, OG-12) albo dzień bez osobnego celu dotyku (cały pasek jednym celem), bez obciętych skrótów dni. Metoda: zrzut i pomiar roli 04 przy 320 pt. [RACHUNEK]: z marginesami ekranu „Dziś” (2 × 20 pt) 280/7 = 40 pt na kolumnę; pasek od krawędzi do krawędzi (makieta a2 M3, 2026-10-22) 320/7 = 45,7 pt, co spełnia próg.
 
 ### NFR-KAL-002: Pasek przy Dynamic Type AX5
 - Miara: obcięcie i nakładanie się tekstu paska i linii „Następne” przy AX5. Próg: brak (NFR-DOST-002; przy AX5 tekst Body ma 53 pt, S-77); przy rozmiarach dostępności osobny układ (lista dni albo dziś i jutro) zamiast siedmiu kolumn. Metoda: zrzuty roli 04 przy AX5; test układu w Jest dla `fontScale` ≥ próg [DO WYJAŚNIENIA] (OP-52).

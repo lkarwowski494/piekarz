@@ -1316,7 +1316,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:258"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:279"
   },
   {
     "regula": "RD-29",
@@ -1331,7 +1331,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:259"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:280"
   },
   {
     "regula": "RD-29",
@@ -1346,7 +1346,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: UTC+2",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:260"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:281"
   },
   {
     "regula": "RD-29",
@@ -1361,7 +1361,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:261"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:282"
   },
   {
     "regula": "RD-29",
@@ -1376,7 +1376,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:262"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:283"
   },
   {
     "regula": "RD-29",
@@ -1391,7 +1391,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: nieczytelna data wpisu (BR-KAL-002)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:263"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:284"
   },
   {
     "regula": "RD-30",
@@ -1406,7 +1406,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (PL: poniedziałek)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:275"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:296"
   },
   {
     "regula": "RD-30",
@@ -1421,7 +1421,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "S-66 (US: niedziela)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:276"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:297"
   },
   {
     "regula": "RD-30",
@@ -1436,7 +1436,7 @@
     "tolerancja": null,
     "rodzaj": "granica",
     "pochodzenie": "rachunek: dziś = pierwszy dzień",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:277"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:298"
   },
   {
     "regula": "RD-30",
@@ -1451,7 +1451,7 @@
     "tolerancja": null,
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:278"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:299"
   },
   {
     "regula": "RD-30",
@@ -1466,7 +1466,7 @@
     "tolerancja": null,
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek: ostatni dzień tygodnia, dzień 25-godzinny",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:279"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:300"
   },
   {
     "regula": "RD-30",
@@ -1481,7 +1481,7 @@
     "tolerancja": null,
     "rodzaj": "typowy",
     "pochodzenie": "rachunek: niedziela ze zmianą czasu w USA (S-78)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:280"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:301"
   },
   {
     "regula": "RD-30",
@@ -1496,7 +1496,7 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: brak regionu [DO USTALENIA] (OP-53)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:281"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:302"
   },
   {
     "regula": "RD-31",
@@ -1511,7 +1511,7 @@
     "tolerancja": "1 min",
     "rodzaj": "poniżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:293"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:314"
   },
   {
     "regula": "RD-31",
@@ -1526,7 +1526,7 @@
     "tolerancja": "1 min",
     "rodzaj": "granica",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:294"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:315"
   },
   {
     "regula": "RD-31",
@@ -1541,7 +1541,7 @@
     "tolerancja": "1 min",
     "rodzaj": "powyżej",
     "pochodzenie": "rachunek",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:295"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:316"
   },
   {
     "regula": "RD-31",
@@ -1556,6 +1556,6 @@
     "tolerancja": null,
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 (`Math.max(1, …)`)",
-    "miejsce": "docs\\brd\\wymagania-kalendarz.md:296"
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:317"
   }
 ]

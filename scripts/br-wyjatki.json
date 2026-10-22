@@ -30,6 +30,7 @@
     { "id": "BR-KAL-011", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" },
     { "id": "BR-KAL-012", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" },
     { "id": "BR-KAL-013", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" },
-    { "id": "BR-KAL-014", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" }
+    { "id": "BR-KAL-014", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" },
+    { "id": "BR-KAL-015", "powod": "funkcja z badania roli 01 (kalendarz tygodnia na Dziś) bez decyzji zakresu w docs/scope-contract.md; wersja to hipoteza H-15…H-19 dla roli 03; test z ID powstaje razem z kodem, gdy rola 03 włączy funkcję", "zrodlo": "ER-62, D-090" }
   ]
 }
