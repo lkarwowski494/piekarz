@@ -18,7 +18,7 @@ export function nazwaBlokady(funkcja: Funkcja): string {
     case 'plan-wstecz':
       return t('Plan wstecz od godziny „gotowe”');
     case 'gotowosc-zakwasu':
-      return t('Gotowość i szczyt zakwasu');
+      return t('Gotowość zakwasu do ciasta');
     case 'staly-dzien':
       return t('Stały dzień karmienia');
     case 'proporcje-zakwasu':

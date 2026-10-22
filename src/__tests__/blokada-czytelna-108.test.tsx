@@ -90,7 +90,7 @@ async function dotknijTresci(b: Wezel) {
 // (gotowość, proporcje, stały dzień); podgląd do odczytu zostaje tam, gdzie obszar pokazuje też plan Basic (plan wstecz).
 const EKRANY: [string, () => React.ReactElement, string, string, boolean][] = [
   ['Plan wypieku: „gotowe o…”', () => <HarmonogramScreen />, 'plan-wstecz', 'Plan wstecz od godziny „gotowe”', true],
-  ['Zakwasy: gotowość i szczyt', () => <ZakwasyScreen />, 'gotowosc-zakwasu', 'Gotowość i szczyt zakwasu', false],
+  ['Zakwasy: gotowość i szczyt', () => <ZakwasyScreen />, 'gotowosc-zakwasu', 'Gotowość zakwasu do ciasta', false],
   ['Zakwasy: stały dzień karmienia', () => <ZakwasyScreen />, 'staly-dzien', 'Stały dzień karmienia', false],
   ['Zakwasy: proporcje dokarmiania', () => <ZakwasyScreen />, 'proporcje-zakwasu', 'Proporcje dokarmiania', false],
 ];

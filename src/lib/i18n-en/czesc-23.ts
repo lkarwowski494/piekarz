@@ -8,7 +8,7 @@ export const EN_23: Record<string, string> = {
   'Pro': 'Pro',
   '{funkcja}, Pro': '{funkcja}, Pro',
   'Plan wstecz od godziny „gotowe”': 'Plan backwards from the "ready" time',
-  'Gotowość i szczyt zakwasu': 'Starter readiness and peak',
+  'Gotowość zakwasu do ciasta': 'Starter readiness for dough',
   'Proporcje dokarmiania': 'Feeding ratios',
   'Porównanie i statystyki': 'Comparison and statistics',
   // Ekran Pro: opis, co daje Pro (jedno zdanie na obszar), dożywotni, stan z Pro
@@ -17,8 +17,8 @@ export const EN_23: Record<string, string> = {
   'Co daje Pro': 'What Pro adds',
   'Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.':
     'Planning: a plan backwards from the "ready" time with sleep protection and fermentation time from temperature, bakes on later days, two bakes at once, the month view and the plan in your phone\'s calendar.',
-  'Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.':
-    'Starter: feeding reminders, feeding ratios, readiness for the dough, a fixed feeding day in the fridge, and more starters.',
+  'Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.':
+    'Starter: feeding reminders, feeding ratios, starter readiness for dough, a fixed feeding day in the fridge, and more starters.',
   'Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.':
     'Calculations: a poolish, biga, old dough or levain preferment in the recipe.',
   'Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.':

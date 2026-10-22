@@ -182,7 +182,9 @@ describe('ZakwasScreen UI Interactions (app/(tabs)/zakwasy/index.tsx)', () => {
     expect(text).toContain('Pleśń może sięgać w głąb zakwasu');
 
     // Tap Resetuj profil zakwasu
-    const resetBtn = findButtonByText(tree!.root, 'Zacznij od nowa');
+    // PRZ-39: przycisk czyszczący zaznaczone objawy nie nazywa się jak „Zacznij od nowa” (usuwanie wpisów)
+    expect(findButtonByText(tree!.root, 'Zacznij od nowa')).toBeUndefined();
+    const resetBtn = findButtonByText(tree!.root, 'Odznacz objawy');
     expect(resetBtn).toBeDefined();
 
     await act(async () => {

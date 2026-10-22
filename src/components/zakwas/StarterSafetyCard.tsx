@@ -104,7 +104,7 @@ export function StarterSafetyCard({
       )}
 
       <Pressable accessibilityRole="button" style={styles.resetBtn} onPress={onReset}>
-        <Text style={styles.resetBtnText}>{t('Zacznij od nowa')}</Text>
+        <Text style={styles.resetBtnText}>{t('Odznacz objawy')}</Text>
       </Pressable>
     </View>
   );

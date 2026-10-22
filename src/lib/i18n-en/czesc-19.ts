@@ -139,6 +139,6 @@ export const EN_19: Record<string, string> = {
   '{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.': '{r1} bakes from {od} to {do}. Move the start of {r2} by {m} min: baking from {pieczenie}, ready at {gotowe}.',
   'Przesuń start: {r} o {m} min': 'Move start: {r} by {m} min',
   'Zapisz bez zmiany': 'Save without changes',
-  'Plan nie ma kroku nagrzewania': 'The plan has no preheating step',
-  'Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.': 'Without a preheating step it is unclear when this bake will need the oven. Check the baking times of the other bake.',
+  'Nie sprawdzę piekarnika': 'I will not check the oven',
+  'Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.': 'This plan has no preheating step, so I do not know when it will occupy the oven. Compare the baking times of both bakes.',
 };

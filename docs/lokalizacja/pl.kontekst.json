@@ -348,11 +348,6 @@
       "src/components/settings/GodzinySnuSection.tsx (tekst)"
     ]
   },
-  "Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.": {
-    "gdzie": [
-      "src/lib/confirm.ts (Alert.alert)"
-    ]
-  },
   "Bez stałego dnia": {
     "gdzie": [
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
@@ -1840,7 +1835,7 @@
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
-  "Gotowość i szczyt zakwasu": {
+  "Gotowość zakwasu do ciasta": {
     "gdzie": [
       "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
@@ -3553,6 +3548,11 @@
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
+  "Nie sprawdzę piekarnika": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Nie teraz": {
     "gdzie": [
       "src/lib/doctor-suggestion.ts (text)"
@@ -3987,6 +3987,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Odznacz objawy": {
+    "gdzie": [
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
+    ]
+  },
   "Oferta chwilowo niedostępna. Spróbuj ponownie za chwilę.": {
     "gdzie": [
       "src/components/oferta/KomunikatBezSieci.tsx (kod)"
@@ -4295,11 +4300,6 @@
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (tresc)"
-    ]
-  },
-  "Plan nie ma kroku nagrzewania": {
-    "gdzie": [
-      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.": {
@@ -6147,6 +6147,11 @@
       "src/lib/kalendarz-telefonu.ts (kod)"
     ]
   },
+  "Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.": {
     "gdzie": [
       "src/lib/kalendarz-telefonu.ts (kod)"
@@ -7706,7 +7711,6 @@
   },
   "Zacznij od nowa": {
     "gdzie": [
-      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)",
       "src/lib/confirm.ts (action)"
     ]
@@ -7871,7 +7875,7 @@
       "src/lib/notifications.ts (body)"
     ]
   },
-  "Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.": {
+  "Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (teksty)"
     ]

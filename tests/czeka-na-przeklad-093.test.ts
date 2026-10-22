@@ -124,8 +124,8 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     '{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.',
     'Przesuń start: {r} o {m} min',
     'Zapisz bez zmiany',
-    'Plan nie ma kroku nagrzewania',
-    'Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.',
+    'Nie sprawdzę piekarnika',
+    'Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.',
     // KONIEC D6
     // M3 D7: tydzień, miesiąc, stały dzień karmienia, rytm (BR-KAL-008, -010, -013, -014; D-114)
     'Tydzień',
@@ -170,13 +170,13 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Pro',
     '{funkcja}, Pro',
     'Plan wstecz od godziny „gotowe”',
-    'Gotowość i szczyt zakwasu',
+    'Gotowość zakwasu do ciasta',
     'Proporcje dokarmiania',
     'Porównanie i statystyki',
     'Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.',
     'Co daje Pro',
     'Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.',
-    'Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
+    'Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
     'Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.',
     'Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.',
     'Jedna opłata, bez odnawiania.',
@@ -187,6 +187,9 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.',
     'Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.',
     // KONIEC P-b
+    // M3 PRZ (przegląd roli 04): przemianowanie przycisku objawów na karcie bezpieczeństwa (PRZ-39)
+    'Odznacz objawy',
+    // KONIEC PRZ
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

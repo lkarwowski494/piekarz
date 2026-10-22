@@ -40,8 +40,8 @@ describe('D6: pytania o piekarnik', () => {
     const dalej = jest.fn();
     confirmPiekarnikBezNagrzewania({ tekst: 'Zaplanuj mimo to', onPress: dalej });
     const [tytul, tresc, przyciski] = ostatni();
-    expect(tytul).toBe('Plan nie ma kroku nagrzewania');
-    expect(tresc).toBe('Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.');
+    expect(tytul).toBe('Nie sprawdzę piekarnika');
+    expect(tresc).toBe('Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.');
     expect(przyciski.map((b) => b.text)).toEqual(['Anuluj', 'Zaplanuj mimo to']);
     expect(dalej).not.toHaveBeenCalled();
     przyciski[1].onPress?.();

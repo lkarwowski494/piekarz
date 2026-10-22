@@ -160,7 +160,7 @@ export function confirmPiekarnikZajety(p: PiekarnikWPytaniu, a: { przesun: () =>
  * o krok nagrzewania; zapis albo start dopiero po decyzji [M3 D6].
  */
 export function confirmPiekarnikBezNagrzewania(dalej: AkcjaPytania) {
-  Alert.alert(t('Plan nie ma kroku nagrzewania'), t('Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.'), [
+  Alert.alert(t('Nie sprawdzę piekarnika'), t('Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.'), [
     cancelButton(),
     { text: dalej.tekst, onPress: dalej.onPress },
   ]);

@@ -537,12 +537,12 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Plan nie ma kroku nagrzewania",
+      "klucz": "Nie sprawdzę piekarnika",
       "powod": "tytuł pytania, gdy plan nie ma kroku nagrzewania, a inny wypiek używa piekarnika (RD-34-W6; tekst spoza listy roli 04, do akceptacji) [M3 D6, BR-KAL-016]",
       "od": "2026-10-22"
     },
     {
-      "klucz": "Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.",
+      "klucz": "Ten plan nie ma kroku nagrzewania, więc nie wiem, od kiedy zajmie piekarnik. Porównaj godziny pieczenia obu wypieków.",
       "powod": "treść pytania o brak kroku nagrzewania (RD-34-W6; tekst spoza listy roli 04, do akceptacji) [M3 D6, BR-KAL-016]",
       "od": "2026-10-22"
     },
@@ -717,7 +717,7 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Gotowość i szczyt zakwasu",
+      "klucz": "Gotowość zakwasu do ciasta",
       "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
       "od": "2026-10-22"
     },
@@ -747,7 +747,7 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.",
+      "klucz": "Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.",
       "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
       "od": "2026-10-22"
     },
@@ -794,6 +794,11 @@
     {
       "klucz": "Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.",
       "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Odznacz objawy",
+      "powod": "przycisk czyszczący zaznaczone objawy na karcie bezpieczeństwa zakwasu, zamiast „Zacznij od nowa” (PRZ-39, przegląd roli 04; nowy klucz, batch 2 a5) [M3 PRZ]",
       "od": "2026-10-22"
     }
   ],

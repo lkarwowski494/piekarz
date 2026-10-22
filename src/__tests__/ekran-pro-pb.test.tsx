@@ -91,7 +91,7 @@ const maOznaczenie = (n: renderer.ReactTestInstance) => n.findAll((x) => x.props
 const OPIS = 'Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.';
 const OBSZARY = [
   'Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.',
-  'Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
+  'Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
   'Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.',
   'Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.',
 ];
@@ -159,6 +159,17 @@ describe('ekran Pro: ujawnienia 1–5 kontraktu z ceną ze sklepu (BR-ZAK-003, B
     const opis = tekstWezla(root.findAll((n) => n.props?.testID === 'pro-opis' && n.type === Text)[0]);
     expect(opis).toBe(t(OPIS));
     expect(opis).not.toMatch(/\d/);
+  });
+
+  it('1 (PRZ-28, 320 pt): opcje z cenami stoją przed „Co daje Pro” i przed ujawnieniami; cena przed paskiem kciuka', async () => {
+    produkty();
+    const root = await ekranZakupu();
+    const kolejnosc = root.findAll((n) => typeof n.type === 'string' && typeof n.props?.testID === 'string').map((n) => n.props.testID as string);
+    const poz = (id: string) => kolejnosc.indexOf(id);
+    expect(poz('pro-opis')).toBeGreaterThanOrEqual(0);
+    expect(poz('plan-yearly-btn')).toBeGreaterThan(poz('pro-opis'));
+    expect(poz('pro-obszary')).toBeGreaterThan(poz('plan-lifetime-btn'));
+    expect(poz('subscription-terms')).toBeGreaterThan(poz('pro-obszary'));
   });
 
   it('2: odnawianie i jak anulować, „Przywróć zakupy”, Warunki (EULA Apple) i Polityka prywatności', async () => {
@@ -272,7 +283,7 @@ describe('oznaczenie „Pro” zamiast kłódki (P2-4; BR-ZAK-005 Funkcja Pro, B
   it('Zakwasy: gotowość i proporcje bez treści Pro, z nazwą i „Pro”; „Dodaj nowy zakwas” przy jednym zakwasie z „Pro”', async () => {
     const root = await zamontuj(<ZakwasScreen />);
     await sprawdzBlokade(root, 'proporcje-zakwasu', 'Proporcje dokarmiania', false);
-    await sprawdzBlokade(root, 'gotowosc-zakwasu', 'Gotowość i szczyt zakwasu', false);
+    await sprawdzBlokade(root, 'gotowosc-zakwasu', 'Gotowość zakwasu do ciasta', false);
     const dodaj = jeden(root, 'add-starter-btn');
     expect(maOznaczenie(dodaj)).toBe(true);
     expect(dodaj.props.accessibilityLabel).toBe(t('{funkcja}, Pro', { funkcja: t('Dodaj nowy zakwas') }));

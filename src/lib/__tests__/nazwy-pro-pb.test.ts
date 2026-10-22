@@ -22,7 +22,7 @@ describe('etykietaPro i nazwaBlokady (P2-4)', () => {
 
   it('obszary blokady mają własne nazwy; funkcja bez obszaru: nazwa produktu', () => {
     expect(nazwaBlokady('plan-wstecz')).toBe('Plan wstecz od godziny „gotowe”');
-    expect(nazwaBlokady('gotowosc-zakwasu')).toBe('Gotowość i szczyt zakwasu');
+    expect(nazwaBlokady('gotowosc-zakwasu')).toBe('Gotowość zakwasu do ciasta');
     expect(nazwaBlokady('staly-dzien')).toBe('Stały dzień karmienia');
     expect(nazwaBlokady('proporcje-zakwasu')).toBe('Proporcje dokarmiania');
     expect(nazwaBlokady('porownanie')).toBe('Porównanie i statystyki');
