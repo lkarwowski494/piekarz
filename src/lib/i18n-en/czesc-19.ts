@@ -98,4 +98,9 @@ export const EN_19: Record<string, string> = {
   'Zakładanie zakwasu: dzień {n}, do zrobienia': 'Making the starter: day {n}, to do',
   'Zakładanie zakwasu: dzień {n} zapisany': 'Making the starter: day {n} logged',
   '{wypiek}: ocena {ocena} z 5': '{wypiek}: rated {ocena} out of 5',
+  // Kalendarz 1.0 na „Dziś”: pas, pasek tygodnia, arkusz dnia, spirala z torami (teksty roli 04, a2) [M3 D4b, D-105]
+  '{data}, dziś': '{data}, today',
+  'Nic w planach': 'Nothing planned',
+  '{h} {co}': '{h} {co}',
+  'i jeszcze {n}, szczegóły w arkuszu dnia': 'and {n} more, details in the day sheet',
 };

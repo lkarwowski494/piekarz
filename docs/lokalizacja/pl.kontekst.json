@@ -3403,6 +3403,11 @@
       "src/lib/zakwas-widok.ts (dane: no_activity)"
     ]
   },
+  "Nic w planach": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
@@ -8301,6 +8306,11 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "i jeszcze {n}, szczegóły w arkuszu dnia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "jutro": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
@@ -8642,6 +8652,11 @@
       "src/lib/prowadzenie-teksty.ts (tekst)"
     ]
   },
+  "{data}, dziś": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "{dzien} {godzina}: {opis}": {
     "gdzie": [
       "src/lib/zakwas-widok.ts (kod)"
@@ -8658,6 +8673,11 @@
   "{g}g wody": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "{h} {co}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "{h}h": {

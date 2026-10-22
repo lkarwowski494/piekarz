@@ -1,0 +1,85 @@
+// ============================================================================
+// Piekarz — pasek tygodnia na „Dziś” jako czyste funkcje (BR-KAL-001, BR-KAL-002; D-105, makieta roli 04 a2) [M3 D4b]
+// Dni od pierwszego dnia tygodnia regionu (RD-30), dziś, skróty i numery przez Intl w języku aplikacji, glify zdarzeń
+// różne KSZTAŁTEM (nie tylko kolorem), ciąg wypieku wielodniowego. Czas jako argument, dzień w strefie urządzenia.
+// ============================================================================
+
+import { daysOfWeek, localDateKey, type FirstWeekday } from '../core/dzien-lokalny';
+import type { ZdarzenieKalendarza } from '../core/kalendarz-zdarzenia';
+import type { ZnacznikDnia } from '../core/kalendarz-nastepne';
+import { appLocale, formatDate } from './format';
+
+export interface DzienPaska {
+  /** Dzień lokalny „RRRR-MM-DD” (RD-29). */
+  klucz: string;
+  /** Północ lokalna dnia. */
+  ms: number;
+  dzis: boolean;
+  /** Skrót dnia tygodnia według języka (pl „czw.”, en „Thu”). */
+  skrot: string;
+  /** Numer dnia miesiąca według języka. */
+  numer: string;
+}
+
+/** Siedem dni tygodnia, w którym leży `now`, od pierwszego dnia tygodnia (RD-30). */
+export function dniPaska(now: number, first: FirstWeekday): DzienPaska[] {
+  const dzis = localDateKey(now);
+  const jezyk = appLocale();
+  return daysOfWeek(now, first).map((ms) => ({
+    klucz: localDateKey(ms),
+    ms,
+    dzis: localDateKey(ms) === dzis,
+    skrot: formatDate(ms, jezyk, { weekday: 'short' }),
+    numer: formatDate(ms, jezyk, { day: 'numeric' }),
+  }));
+}
+
+/** Data na pasie: „Czwartek, 22 października” (dzień tygodnia wielką literą według języka). */
+export function dataSlownie(ms: number): string {
+  const jezyk = appLocale();
+  const s = formatDate(ms, jezyk, { weekday: 'long', day: 'numeric', month: 'long' });
+  return s.charAt(0).toLocaleUpperCase(jezyk) + s.slice(1);
+}
+
+/**
+ * Glify zdarzeń (makieta roli 04 a2, `a2.css`): krok wypieku = spirala (drugi trwający = trójkąt), „gotowe” = bochenek
+ * konturem, wpis Dziennika = bochenek pełny, dokarmiony = kropka, następne karmienie = przerywany pierścień,
+ * zakładanie = słoik. Zaległe ma osobny glif (koło z wykrzyknikiem).
+ */
+export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karmienie' | 'karmienie-nastepne' | 'zakladanie';
+
+/** Najwyżej tyle glifów w dniu: glify się nie zawijają (pomiar roli 04 przy 320 pt); całość czyta etykieta dnia. */
+export const MAKS_GLIFOW_DNIA = 3;
+
+function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
+  switch (z.rodzaj) {
+    case 'wypiek-krok':
+      return wypieki.indexOf(z.zrodlo.id) === 1 ? 'wypiek2' : 'wypiek';
+    case 'wypiek-gotowe':
+      return 'gotowe';
+    case 'wpis-dziennika':
+      return 'dziennik';
+    case 'karmienie-zrobione':
+      return 'karmienie';
+    case 'karmienie-nastepne':
+      return 'karmienie-nastepne';
+    case 'zakladanie':
+      return 'zakladanie';
+  }
+}
+
+/** Glify dnia w kolejności czasu bez powtórzeń (najwyżej MAKS_GLIFOW_DNIA) i to, czy dzień ma zaległe. */
+export function glifyDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: string, wypieki: readonly string[]): { glify: GlifZdarzenia[]; zalegle: boolean } {
+  const dnia = zdarzenia.filter((z) => z.dzien === dzien).sort((a, b) => a.at - b.at);
+  const glify = [...new Set(dnia.filter((z) => !z.zalegle).map((z) => glif(z, wypieki)))].slice(0, MAKS_GLIFOW_DNIA);
+  return { glify, zalegle: dnia.some((z) => z.zalegle) };
+}
+
+/**
+ * Ciąg wypieku wielodniowego jako ciągła linia pod dniami (makieta `3a-wypiek-wielodniowy`): dzień w ciągu ma linię
+ * do lewej, gdy poprzedni dzień też jest w ciągu, i do prawej, gdy następny; dzień pojedynczy bez linii.
+ */
+export function ciagDnia(znaczniki: Record<string, ZnacznikDnia>, dni: readonly string[]): Record<string, { lewa: boolean; prawa: boolean }> {
+  const w = (d: string | undefined) => d !== undefined && znaczniki[d]?.wypiekWToku === true;
+  return Object.fromEntries(dni.map((d, i) => [d, { lewa: w(d) && w(dni[i - 1]), prawa: w(d) && w(dni[i + 1]) }]));
+}

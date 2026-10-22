@@ -96,6 +96,26 @@ export function etykietyZaleglego(z: ZdarzenieKalendarza, o: OpcjeTekstu): { zro
   return { zrobione: t('{co} z {h}: zrobione', p), pomin: t('Pomiń {co} z {h}', p) };
 }
 
+/** Ile zdarzeń czyta etykieta dnia przed „i jeszcze N” (makieta roli 04 a2, tabela (g)). */
+const ZDARZEN_W_ETYKIECIE_DNIA = 3;
+
+/**
+ * Etykieta VoiceOver dnia paska (BR-KAL-001 „Etykieta dla czytnika ekranu”, tabela (g) roli 04): pełna data, „dziś”
+ * przy dzisiejszym, zdarzenia słowami w kolejności godzin (zaległe ze słowem „Zaległe”), ponad 3 — „i jeszcze N,
+ * szczegóły w arkuszu dnia”; dzień pusty „Nic w planach”. Glif nie jest czytany.
+ */
+export function etykietaDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: { ms: number; dzis: boolean }, o: OpcjeTekstu): string {
+  const pelna = formatDate(dzien.ms, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
+  const data = dzien.dzis ? t('{data}, dziś', { data: pelna }) : pelna;
+  if (zdarzenia.length === 0) return `${data}. ${t('Nic w planach')}`;
+  const pozycje = [...zdarzenia]
+    .sort((a, b) => a.at - b.at)
+    .map((z) => (z.zalegle ? pozycjaZalegla(z, o) : t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) })));
+  const reszta = pozycje.length - ZDARZEN_W_ETYKIECIE_DNIA;
+  const czytane = reszta > 0 ? [...pozycje.slice(0, ZDARZEN_W_ETYKIECIE_DNIA), t('i jeszcze {n}, szczegóły w arkuszu dnia', { n: reszta })] : pozycje;
+  return [data, ...czytane].join('. ');
+}
+
 /** Napisy przycisków przy zaległym (BR-KAL-003): „Zrobione” i „Pomiń”. */
 export function napisyZaleglego(): { zrobione: string; pomin: string } {
   return { zrobione: t('Zrobione'), pomin: t('Pomiń') };

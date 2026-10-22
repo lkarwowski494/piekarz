@@ -345,6 +345,26 @@
       "klucz": "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.",
       "powod": "preset drożdżowy (baguette_tradition_poolish, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "{data}, dziś",
+      "powod": "etykieta VoiceOver dnia dzisiejszego na pasku tygodnia (parametr {data} = pełna data z Intl) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nic w planach",
+      "powod": "etykieta VoiceOver dnia bez zdarzeń na pasku tygodnia [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{h} {co}",
+      "powod": "pozycja zdarzenia w etykiecie VoiceOver dnia i w arkuszu dnia: godzina i opis (parametry {h}, {co}) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "i jeszcze {n}, szczegóły w arkuszu dnia",
+      "powod": "koniec etykiety VoiceOver dnia, gdy zdarzeń jest więcej niż 3 (parametr {n}) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

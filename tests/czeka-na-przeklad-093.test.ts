@@ -81,6 +81,12 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Zakładanie zakwasu: dzień {n}, do zrobienia',
     'Zakładanie zakwasu: dzień {n} zapisany',
     '{wypiek}: ocena {ocena} z 5',
+    // M3 D4b: ekrany „Dziś” 3+1 i kalendarza 1.0 (pas, pasek tygodnia, arkusz dnia, spirala z torami, Stolnica)
+    '{data}, dziś',
+    'Nic w planach',
+    '{h} {co}',
+    'i jeszcze {n}, szczegóły w arkuszu dnia',
+    // KONIEC D4b
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.
