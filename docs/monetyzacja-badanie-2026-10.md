@@ -1,5 +1,5 @@
 # Badanie zmiany modelu płatności: V1, V2 wobec D-038 (Piekarz)
-Stan: E0 (STOP) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
+Stan: E1 (STOP) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
 
 Do wyboru właściciela na STOP E2 obowiązuje D-038 i kontrakt w `docs/monetyzacja.md`; ten plik niczego w nim nie zmienia. Surowe odczyty źródeł: `audit/02-badanie-modelu-2026-10-22/zrodla/` (poza gitem).
 
@@ -105,6 +105,23 @@ Co z obecnego kodu zostaje: `dostep.ts` (decyzja z pamięcią i błędem odczytu
 
 Zakwas wobec długości (RD-24, S-44: założenie zwykle 7–10 dni): próba 14 dni i plan 30 dni mieszczą założenie; plan miesięczny wygasa w trakcie życia zakwasu, który trwa miesiącami. Po wygaśnięciu przypomnienia o dokarmianiu ustają (D-039, BR-ZAK-004). W D-038 subskrypcja odnawia się sama, więc ten moment zdarza się rzadko; w V1/V2 zdarza się po każdym zakupie czasowym. **Ryzyko realne dla żywego zakwasu:** opcje na E2 (przypomnienia o dokarmianiu istniejących zakwasów zawsze darmowe; ostatnie przypomnienie z informacją; bez zmian).
 
+### Rynek (odczyt 2026-10-22, MS-B20)
+Odczyt subagenta (lookup `itunes.apple.com` US/PL, karty `apps.apple.com`, RSS recenzji), sprawdzony próbką w surowym HTML: Rise „3 Month Subscription $8.99”, Loaflo „Weekly $6.99 / Monthly $19.99 / Yearly $39.99”. Raport, surowe pliki i skrypty: `audit/02-badanie-modelu-2026-10-22/rynek/` (poza gitem).
+
+- **Ceny wobec 2026-10-19:** bez zmian w 9 z 10 aplikacji tabeli (Rise, Loaflo, Flourwise, Yeasta, SST, BreadMe, Gluten Morgen, Levain, Leaven). Kneady US: nowy próg „Monthly $2.99”, jeden z dwóch „Annual $29.99” zniknął (test cen albo inny odczyt listy: [DO USTALENIA]). Modele bez zmian.
+- **Przepustki czasowe bez odnawiania („30-day pass”, „1 month access”): 0 znalezionych** w 14 frazach wyszukiwania i ok. 20 kartach z odczytanymi nazwami zakupów. To nie dowód, że ich nie ma, ale V1/V2 byłyby w tej niszy wyróżnikiem, a nie kopią rynku. Ryzyko odwrotne: brak dowodu, że użytkownicy kupują przepustki (WTP dla tej formy: H).
+- **Plany 3-miesięczne:** Rise 8,99 USD, Kneady „Quarterly” 12,99 USD (opis Kneady: „auto-renewing”; Rise: „flexible purchase options”, odnawianie [DO USTALENIA]). Kotwica 3-mies. istnieje u 2 z ok. 20 aplikacji.
+- **Dożywotnie i jednorazowe:** Flourwise 59,99, Yeasta 69,99, SST 12,99, Autolyse 6,99 („ONCE, FOREVER”), StarterLog 3,99, Pizza Logic 4,99, BreadMath 4,99 USD; obok subskrypcji: Bakerate 39,99, Crumb 39,99, Sourdough Baby 99,99, Sourflow 119 USD. Dożywotni Piekarza 14,99 USD jest w dolnej części tego zakresu.
+- **Próby:** LoafNote i Sourflow miesiąc, breadly 14 dni, Sourdough Baby 7 dni, Crumb 3 dni (mechanizm z opisów; czy oferta wprowadzająca, nie sprawdzano).
+- **Recenzje (próbka 253 wpisów z RSS, 2026-10-22):** Loaflo 16 z 28 wpisów ma motyw płatności, 15 z nich ≤ 3★ (ściana/subskrypcja/cena 8, subskrypcja nieujawniona 4, anulowanie/zwrot 4, brak próby 3, odliczanie 2); ostatnie skargi na nieujawnioną subskrypcję z odliczaniem 2026-04-07, od kwietnia do października 1 z 4 wpisów o płatności. Próba zamieniona w opłatę wprost: 0 z 28. Rise „worth it” 2 z 43; Kneady przepisy za ścianą 3 z 17 (4★); SST „worth it” przy zakupie jednorazowym 1 z 8; Yeasta zakup bez odblokowania 1 z 5; Gluten Morgen reklamy 3 z 85. Próśb o lifetime: 0 z 253. RSS PL i GB dla głównych aplikacji pusty. To zliczenie motywów (szczebel 5), nie skala.
+
+Wnioski E1 (hipotezy dla E2):
+- **H-B1:** skargi niszy dotyczą ukrycia i trudnego anulowania, nie samej subskrypcji (Loaflo). V1/V2 usuwają mechanizm skargi u źródła; D-038 broni się jawnością (ujawnienia 1–8 w `docs/monetyzacja.md`). Dowód: R, słaby (próbka 28, jedna aplikacja).
+- **H-B2:** wpływ V1/V2 na przychód zależy od powtórnych zakupów bez odnawiania; rynek nie daje żadnego punktu odniesienia (0 przepustek). W rachunku E2 jako [OCENA] z szerokim przedziałem.
+- **H-B3:** dożywotni ma rynek (11 aplikacji z zakupem jednorazowym), więc w V1/V2 jego udział prawdopodobnie rośnie (brak automatycznego przedłużenia przepycha długo korzystających do dożywotniego). [OCENA] w E2.
+- **WTP funkcji:** bez zmian wobec tabeli z 2026-10-19 (`docs/monetyzacja.md`, 50 BR); zmiana modelu nie zmienia, za co się płaci. Funkcje z przebudowy M3 (kilka wypieków, kalendarz) poza tym badaniem; ich WTP dla roli 03 osobno.
+- **Sprzeczności z wejściem roli 01:** brak (ER niepotrzebne).
+
 ### Prawo o ogłaszaniu obniżek i „za darmo” (tekst ekranu ofert właściciela)
 | Sprawa | Źródło (odczyt 2026-10-22) | Wniosek |
 |---|---|---|
@@ -169,6 +186,7 @@ Pierwsza ocena wersji z procentami (zapis historyczny, zastąpiona zmianą wyże
 | MS-B17 | eur-lex.europa.eu, CELEX 01998L0006-20220528 (PL) | art. 6a ust. 1–2 | cytat w tabeli prawa | 1 |
 | MS-B18 | eur-lex.europa.eu, CELEX 52021XC1229(05) (PL), wytyczne do dyrektywy 2005/29/WE | pkt 1.2.5, 2.8.2 | cytaty w tabeli prawa | 1 (wytyczne Komisji) |
 | MS-B19 | api.sejm.gov.pl/eli/acts/DU/2023/168/text.html | art. 4 ust. 2 | cytat w tabeli prawa; nowszego tekstu jednolitego w ELI brak (wyszukanie tytułu, 2026-10-22) | 1 |
+| MS-B20 | itunes.apple.com/lookup (US, PL), apps.apple.com/<kraj>/app/id<id>, itunes.apple.com/<kraj>/rss/customerreviews/…/json | pola `formattedPrice`, sekcja In-App Purchases, recenzje | ceny i zliczenia w sekcji „Rynek”; cytaty z id recenzji w `audit/02-badanie-modelu-2026-10-22/rynek/raport-rynek.md` | ceny: 1 (dane platformy, D-035); recenzje: 5 (tylko motywy) |
 
 ## Otwarte pytania
 | ID | Pytanie | Rozstrzyga | Dotyczy |
