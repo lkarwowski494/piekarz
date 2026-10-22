@@ -17,20 +17,24 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
 
 ### BR-ETAP-006: Nowy wypiek nie zastępuje trwającego bez pytania
 - Przepływ: PR-02, PR-04, PR-15
-- Dowód potrzeby: RYZ-26 (potwierdzone testem M3 2026-10-22: drugi start zastępował trwający wypiek); zasada wspólna 10 i J-02; pytanie właściciela 2026-10-22 o dwa wypieki naraz (H-20); kształt pytania: D-091 (ER-65)
+- Dowód potrzeby: RYZ-26 (potwierdzone testem M3 2026-10-22: drugi start zastępował trwający wypiek); zasada wspólna 10 i J-02; pytanie właściciela 2026-10-22 o dwa wypieki naraz (H-20); kształt pytania: D-091 (ER-65), zmieniony przez D-104 (kilka wypieków naraz, limit 2 trwających z D-092; ER-71)
 - Kryteria akceptacji:
   - Scenariusz: Start, gdy inny wypiek trwa
     - Zakładając, że trwa wypiek „Chleb pszenny na zakwasie” na kroku „składanie 2”
     - Gdy użytkownik w Harmonogramie wybiera „Zacznij wypiek” dla innej receptury
-    - Wtedy widzi pytanie z nazwą „Chleb pszenny na zakwasie” i wyborem: „Wróć do trwającego”, „Przerwij tamten i zacznij nowy” albo „Anuluj” (D-091)
+    - Wtedy widzi pytanie „Trwa już inny wypiek” z wyborem: „Prowadź oba”, „Wróć do: Chleb pszenny na zakwasie” albo „Anuluj” (D-104)
   - Scenariusz: Anulowanie albo powrót
     - Zakładając, że użytkownik widzi to pytanie
-    - Gdy wybiera „Anuluj” albo „Wróć do trwającego”
-    - Wtedy trwający wypiek jest na tym samym kroku z tym samym zegarem i powiadomieniami
-  - Scenariusz: Przerwanie i nowy
+    - Gdy wybiera „Anuluj” albo „Wróć do: Chleb pszenny na zakwasie”
+    - Wtedy trwający wypiek jest na tym samym kroku z tym samym zegarem i powiadomieniami, a nowy się nie zaczyna
+  - Scenariusz: Prowadź oba
     - Zakładając, że użytkownik widzi to pytanie
-    - Gdy wybiera „Przerwij tamten i zacznij nowy”
-    - Wtedy trwający wypiek zostaje przerwany tą samą ścieżką co „Przerwij” na Stolnicy, bez wpisu w dzienniku, jego powiadomienia są odwołane, a nowy zaczyna się od pierwszego kroku (D-091)
+    - Gdy wybiera „Prowadź oba”
+    - Wtedy nowy wypiek zaczyna się od pierwszego kroku, a trwający jest dalej na tym samym kroku z tym samym zegarem i powiadomieniami (D-104, BR-KAL-016)
+  - Scenariusz: Limit dwóch trwających
+    - Zakładając, że trwają już dwa wypieki
+    - Gdy użytkownik wybiera „Zacznij wypiek” dla trzeciej receptury
+    - Wtedy widzi pytanie „Prowadzisz już 2 wypieki” z wyborem „Wróć do: {pierwszy}”, „Wróć do: {drugi}” albo „Anuluj”, a przerwać wypiek może tylko na Stolnicy (D-092, D-104)
 
 ### BR-HARMO-002: Plan omija godziny snu
 - Przepływ: PR-02

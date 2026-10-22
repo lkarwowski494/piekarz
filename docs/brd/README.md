@@ -49,7 +49,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-48 | Rozstrzygnięte 2026-10-19: wypiek rozpoczęty w czasie dostępu prowadzi się do końca, bez nowego (D-039, rola 02) | właściciel | BR-ZAK-004 |
 | OP-49 | Rozstrzygnięte 2026-10-20: udany wypiek to ocena co najmniej 4★ (D-042); od 2026-10-22 warunek prośby o ocenę bez oceny bochenka: od 3. ukończonego wypieku, odstęp 14 dni (D-067 uchyla próg 4★ w warunku prośby, ER-61) | właściciel | BR-OPIN-001 |
 | OP-50 | [DO USTALENIA] czy iOS otwiera plik .ics z arkusza udostępniania w Kalendarzu | test na urządzeniu, rola 05 | BR-KAL-011, H-18 |
-| OP-51 | [DO WYJAŚNIENIA] czy kalendarz pokazuje się bez danych (H-16) | właściciel z rolą 04 | BR-KAL-005 |
+| OP-51 | Rozstrzygnięte 2026-10-22 (właściciel przez M1: „Pasek z adnotacja”; układ D-105): kalendarz widać bez danych, pasek tygodnia z adnotacją w pasie u góry, trzy ścieżki pod pasem (ER-72) | właściciel z rolą 04 | BR-KAL-005 |
 | OP-52 | [DO WYJAŚNIENIA] od jakiego rozmiaru tekstu pasek przechodzi w listę dni | rola 04 | NFR-KAL-002 |
 | OP-53 | [DO USTALENIA] czy `getCalendars().firstWeekday` oddaje wybór „pierwszy dzień tygodnia” w ustawieniach iOS i co przy pustej wartości; `Intl.Locale` nie jest na liście API Hermes | test na urządzeniu, rola 05 | RD-30 |
 | OP-54 | Rozstrzygnięte 2026-10-22 (D-093, właściciel przez M1): numer dnia zakładania liczony dniami kalendarza, dzień 1 = dzień założenia | właściciel | RD-31, BR-ZAKW-005 |

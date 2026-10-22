@@ -242,7 +242,8 @@ describe('HarmonogramScreen UI (app/(tabs)/receptury/harmonogram.tsx)', () => {
     expect(activeBake?.actualDdtC).toBeUndefined();
 
     // Check navigation
-    expect(mockPush).toHaveBeenCalledWith('/stolnica');
+    // D3a: Stolnica tego wypieku (id w trasie)
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: activeBake?.id } });
   });
 
   it('copies schedule to clipboard when copy button is pressed', async () => {

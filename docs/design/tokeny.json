@@ -8,7 +8,8 @@
       "akcent": "#1E4954", "naAkcencie": "#FFFFFF", "akcentTekst": "#1E4954",
       "ratan": "#9C6B2F", "ratanSzary": "#8A8273", "nocDane": "#1E4954",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#1C1D1B",
-      "blad": "#B3261E", "zablokowane": "#62645E"
+      "blad": "#B3261E", "zablokowane": "#62645E",
+      "pas": "#1E4954", "naPasie": "#FFFFFF", "naPasie2": "#C8D8DC", "ratanNaPasie": "#D9AE72"
     },
     "ciemny": {
       "tlo": "#141A1C", "tloGrupa": "#0E1315", "powierzchnia": "#1F2729",
@@ -17,7 +18,8 @@
       "akcent": "#8FB9C4", "naAkcencie": "#0F1517", "akcentTekst": "#8FB9C4",
       "ratan": "#D3A464", "ratanSzary": "#7D7466", "nocDane": "#8FB9C4",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#1C1D1B",
-      "blad": "#FF8A80", "zablokowane": "#9AA09A"
+      "blad": "#FF8A80", "zablokowane": "#9AA09A",
+      "pas": "#1D3B43", "naPasie": "#F1F1EC", "naPasie2": "#BFD0D4", "ratanNaPasie": "#D3A464"
     },
     "jasnyKontrast": {
       "tlo": "#FFFFFF", "tloGrupa": "#F0F0EC", "powierzchnia": "#FFFFFF",
@@ -26,7 +28,8 @@
       "akcent": "#12323A", "naAkcencie": "#FFFFFF", "akcentTekst": "#12323A",
       "ratan": "#6E4A1F", "ratanSzary": "#7C7568", "nocDane": "#12323A",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
-      "blad": "#8C1D18", "zablokowane": "#3E403B"
+      "blad": "#8C1D18", "zablokowane": "#3E403B",
+      "pas": "#12323A", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E"
     },
     "ciemnyKontrast": {
       "tlo": "#000000", "tloGrupa": "#000000", "powierzchnia": "#161C1E",
@@ -35,7 +38,8 @@
       "akcent": "#B5D6DE", "naAkcencie": "#000000", "akcentTekst": "#B5D6DE",
       "ratan": "#E8C38E", "ratanSzary": "#837C6D", "nocDane": "#B5D6DE",
       "ostrzTlo": "#F7D117", "ostrzTusz": "#000000",
-      "blad": "#FFB4AB", "zablokowane": "#C4C8C2"
+      "blad": "#FFB4AB", "zablokowane": "#C4C8C2",
+      "pas": "#0F2A31", "naPasie": "#FFFFFF", "naPasie2": "#E2ECEE", "ratanNaPasie": "#E8C38E"
     }
   },
   "pary": [
@@ -69,7 +73,12 @@
     ["tusz", "ratanSzary", 3, "zwój bieżący na tle zwoju przyszłego (spirala §2; partia 6, 031)"],
     ["ratan", "powierzchnia", 3, "zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031)"],
     ["ratanSzary", "powierzchnia", 3, "zwój przyszły na karcie (partia 6, 031)"],
-    ["nocDane", "powierzchnia", 3, "noc w lodówce na karcie (partia 6, 031)"]
+    ["nocDane", "powierzchnia", 3, "noc w lodówce na karcie (partia 6, 031)"],
+    ["naPasie", "pas", 4.5, "tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne”"],
+    ["naPasie2", "pas", 4.5, "tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza"],
+    ["ratanNaPasie", "pas", 3, "glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11)"],
+    ["naPasie", "pas", 3, "ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie"],
+    ["ostrzTlo", "pas", 3, "przycisk „Zrobione” i glif zaległego na pasie"]
   ],
   "typografia": {
     "_zrodlo": "HIG Typography, iOS Dynamic Type, Large (Default) i AX5 (odczyt 2026-10-20, developer.apple.com/tutorials/data/design/human-interface-guidelines/typography.json); punkty iOS",

@@ -73,12 +73,47 @@ describe('notifications adapter (006)', () => {
     const krok = (id: string, name: string, plannedEnd: number | null) => ({ id, name, category: 'bulk_ferment' as const, plannedEnd });
     const do1430 = new Date(2026, 9, 21, 14, 30).getTime();
     const steps = [krok('bulk_ferment', 'Fermentacja burzliwa ze składaniami', null), krok('pre_shape', 'Formowanie wstępne', do1430)];
-    const p = planBakeNotification({ stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
+    const p = planBakeNotification({ id: 'bake_a', recipeName: 'Chleb', stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
     expect(p ? notificationText(p) : null).toEqual({ title: 'Formowanie wstępne: czas zacząć', body: 'Do 14:30.' });
-    const ostatni = planBakeNotification({ stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
+    const ostatni = planBakeNotification({ id: 'bake_a', recipeName: 'Chleb', stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: 2_000, steps }, 1_000);
     expect(ostatni ? notificationText(ostatni) : null).toEqual({ title: 'Koniec kroku', body: 'Krok „Formowanie wstępne” dobiegł końca.' });
     setLang('en');
     expect(p ? notificationText(p).title : '').toBe('Pre-shaping (Pre-shape): time to start');
+    setLang('pl');
+  });
+
+  // Przy dwóch wypiekach treść nazywa wypiek, którego krok dotyczy (M3 D2)
+  it('BR-KAL-016 Który krok czyj: treść powiadomienia kroku nazywa wypiek, gdy trwają dwa; po angielsku też', () => {
+    const krok = (id: string, name: string, plannedEnd: number | null) => ({ id, name, category: 'bulk_ferment' as const, plannedEnd });
+    const do1430 = new Date(2026, 9, 21, 14, 30).getTime();
+    const steps = [krok('bulk_ferment', 'Fermentacja burzliwa ze składaniami', null), krok('pre_shape', 'Formowanie wstępne', do1430)];
+    const sesja = { id: 'bake_b', recipeName: 'Pizza neapolitańska', dutchOvenPhase: 'lid_on' as const, timerEndsAt: 2_000, steps };
+    const nastepny = planBakeNotification({ ...sesja, stepIdx: 0 }, 1_000, true);
+    expect(nastepny ? notificationText(nastepny) : null).toEqual({ title: 'Formowanie wstępne: czas zacząć', body: 'Do 14:30. Wypiek: Pizza neapolitańska.' });
+    const ostatni = planBakeNotification({ ...sesja, stepIdx: 1 }, 1_000, true);
+    expect(ostatni ? notificationText(ostatni) : null).toEqual({
+      title: 'Koniec kroku',
+      body: 'Krok „Formowanie wstępne” dobiegł końca. Wypiek: Pizza neapolitańska.',
+    });
+    const pokrywka = notificationText(planned('krok.zdejmijPokrywke', { recipeName: 'Chleb' }));
+    expect(pokrywka).toEqual({ title: 'Zdejmij pokrywkę', body: 'Czas zdjąć pokrywkę z garnka i piec dalej bez pary. Wypiek: Chleb.' });
+    // Start zaplanowanego wypieku bez godziny końca kroku: sama nazwa wypieku w treści
+    expect(notificationText(planned('krok.start', { stepName: 'Dokarmienie zakwasu', recipeName: 'Chleb na sobotę' }))).toEqual({
+      title: 'Dokarmienie zakwasu: czas zacząć',
+      body: 'Wypiek: Chleb na sobotę.',
+    });
+    setLang('en');
+    expect(ostatni ? notificationText(ostatni).body : '').toBe('The step “Pre-shaping (Pre-shape)” has finished. Bake: Pizza neapolitańska.');
+    setLang('pl');
+  });
+
+  it('BR-KAL-010: stały dzień karmienia ma własną treść, nie „czeka od 7 dni”', () => {
+    expect(notificationText(planned('karmienie.lodowkaDzien', { starterName: 'Ania' }))).toEqual({
+      title: 'Nakarm zakwas dziś',
+      body: 'Dziś ustalony dzień karmienia zakwasu „Ania”.',
+    });
+    setLang('en');
+    expect(notificationText(planned('karmienie.lodowkaDzien', { starterName: 'Ania' })).body).toBe('Today is the set feeding day for the starter “Ania”.');
     setLang('pl');
   });
 

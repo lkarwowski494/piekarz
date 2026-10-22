@@ -71,8 +71,12 @@ export function formatFixed(value: number, digits: number): string {
   return formatNumber(value, appLocale(), { minimumFractionDigits: digits, maximumFractionDigits: digits });
 }
 
+/**
+ * Formatter bez jawnej strefy zapamiętuje strefę z chwili utworzenia, więc klucz cache ma bieżącą strefę urządzenia:
+ * po jej zmianie przy działającej aplikacji godziny (także w treści powiadomień) nie zostają w starej [M3 D2].
+ */
 function dateFormatter(locale: string, options: Intl.DateTimeFormatOptions): Intl.DateTimeFormat {
-  const key = `${locale}|${JSON.stringify(options)}`;
+  const key = `${locale}|${Intl.DateTimeFormat().resolvedOptions().timeZone}|${JSON.stringify(options)}`;
   let f = dateCache.get(key);
   if (!f) {
     f = new Intl.DateTimeFormat(locale, options);

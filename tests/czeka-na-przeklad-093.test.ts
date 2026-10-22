@@ -53,11 +53,70 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // testu tylko o ten wyjątek (inny klucz na liście nadal czerwony). Po przebiegu a5 usuń wpisy i tę stałą.
   const CZEKAJA_A1B = [
     'Trwa już inny wypiek',
-    'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.',
-    'Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.',
-    'Wróć do trwającego',
-    'Przerwij tamten i zacznij nowy',
+    // M3 D3a: pytanie przy starcie przy trwających (D-104), przełącznik wypieków, zmiana receptury bazowej (5 kluczy);
+    // 4 klucze a1b z przerwaniem usunięte razem z pytaniem
+    'Prowadź oba',
+    'Wróć do: {nazwa}',
+    'Prowadzisz już 2 wypieki',
+    '{wypiek}, krok: {krok}',
+    'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.',
+    'Ten wypiek jest już zakończony albo przerwany.', // M3 D3a-fix (P1-1)
     'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.',
+    // M3 D2: powiadomienia wielu wypieków i stałego dnia karmienia (2 klucze)
+    'Wypiek: {wypiek}.',
+    'Dziś ustalony dzień karmienia zakwasu „{name}”.',
+    // M3 D4a: kalendarz 1.0 — linia „Następne”, zaległe, typy zdarzeń (15 kluczy)
+    'Następne: {lista}',
+    'Zaległe: {co} ({h})',
+    '{kiedy} {h} {co}',
+    '{co}, opcjonalne',
+    '+{n}',
+    'Pokaż jeszcze {n} w arkuszu dnia',
+    '{co} z {h}: zrobione',
+    'Pomiń {co} z {h}',
+    'Pomiń',
+    '{wypiek}: gotowe',
+    'karmienie zakwasu {zakwas}',
+    'Dokarmiony {zakwas}',
+    'Zakładanie zakwasu: dzień {n}, do zrobienia',
+    'Zakładanie zakwasu: dzień {n} zapisany',
+    '{wypiek}: ocena {ocena} z 5',
+    // M3 D4b: ekrany „Dziś” 3+1 i kalendarza 1.0 (pas, pasek tygodnia, arkusz dnia, spirala z torami, Stolnica)
+    '{data}, dziś',
+    'Nic w planach',
+    '{h} {co}',
+    'i jeszcze {n}, szczegóły w arkuszu dnia',
+    'Ten tydzień',
+    'Pokaż cały tydzień',
+    'Nic nie mamy w planach',
+    'Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.',
+    'Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.',
+    'Tego dnia nic nie zaplanowano.',
+    'Najbliższe dni',
+    'Zapisano dokarmienie zakwasu {zakwas}.',
+    '{wypiek}: {krok}',
+    'Tor {n}, {receptura}: {krok}, {czas}',
+    'Tor {n}, {receptura}: {krok}',
+    '{wypiek}: {krok}, trwa',
+    '{wypiek}, krok: {krok}, do {godzina}',
+    // KONIEC D4b
+    // M3 D5: plany na przyszłe dni (BR-KAL-009, BR-KAL-015, RD-33, D-108)
+    'karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości',
+    'Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.',
+    'Zaplanuj',
+    'Masz już 5 planów',
+    'Zacznij albo usuń jeden z nich, żeby dodać kolejny.',
+    'Pokaż plany',
+    'Kroki nachodzą na siebie',
+    'Zaplanuj mimo to',
+    '{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}',
+    'Usunięto plan wypieku',
+    'Usuń plan',
+    'Tego planu już nie ma.',
+    'Zobacz plan',
+    'Zaplanowane wypieki',
+    'Zaplanuj wypiek na ten dzień',
+    // KONIEC D5
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

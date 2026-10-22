@@ -15,6 +15,7 @@ jest.mock('expo-router', () => ({
   Stack: { Screen: ({ options }: { options?: { headerRight?: () => React.ReactElement } }) => (options?.headerRight ? options.headerRight() : null) },
   useRouter: () => ({ push: jest.fn(), navigate: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+  useLocalSearchParams: () => ({}), // Stolnica czyta id wypieku z trasy (M3 D3a)
 }));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
@@ -70,9 +71,11 @@ async function zapiszSurowaSesje(raw: string): Promise<void> {
   const file = (await getDb())?.databasePath;
   if (!file) throw new Error('brak bazy');
   const db = openRaw(file);
+  // D3a-fix: id wiersza = id wypieku z sesji (jak migracja v6 i zapis), bo zapis kroku zmienia wiersz po tym id
+  const v = JSON.parse(raw) as { bake?: { id?: string } | null };
   db.prepare(
-    "INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('surowa', 'active', ?, 0, 0) ON CONFLICT(id) DO UPDATE SET session_json = excluded.session_json"
-  ).run(raw);
+    "INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES (?, 'active', ?, 0, 0) ON CONFLICT(id) DO UPDATE SET session_json = excluded.session_json, updated_at = updated_at + 1"
+  ).run(v.bake?.id ?? 'sesja-1014', raw);
   db.close();
 }
 
@@ -459,9 +462,9 @@ describe('Stolnica z receptury i planu (030)', () => {
       id, name, category, durationMin: 45, isPassive: false, instructions: '', plannedStart: null, plannedEnd: null,
     });
     const steps = [step('bulk_ferment', 'Fermentacja burzliwa ze składaniami', 'bulk_ferment'), step('bake', 'Wypiek z parą i rumienienie', 'bake')];
-    const p = planBakeNotification({ stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
+    const p = planBakeNotification({ id: 'bake_x', recipeName: 'Chleb', stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
     expect(p ? notificationText(p).body : '').toBe('Krok „Fermentacja burzliwa ze składaniami” dobiegł końca.');
-    const bake = planBakeNotification({ stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
+    const bake = planBakeNotification({ id: 'bake_x', recipeName: 'Chleb', stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
     expect(bake).toEqual(expect.objectContaining({ level: 'timeSensitive', textKey: 'krok.zdejmijPokrywke' }));
   });
 });

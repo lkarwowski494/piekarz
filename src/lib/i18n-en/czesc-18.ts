@@ -160,12 +160,17 @@ export const EN_18: Record<string, string> = {
     '20 min in a preheated cast-iron pot (240°C) with the lid on + 22–25 min without the lid (210°C) until deeply browned.',
   'Brak katalogu dokumentów aplikacji': "The app's documents folder is not available",
   'Trwa już inny wypiek': 'Another bake is already in progress',
-  'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.':
-    'A new bake will replace the one in progress. Its progress and notifications will be gone.',
-  'Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.':
-    'A new bake will replace the one in progress: "{nazwa}". Its progress and notifications will be gone.',
-  'Wróć do trwającego': 'Back to the bake in progress',
-  'Przerwij tamten i zacznij nowy': 'Stop that one and start a new one',
+  // Kilka wypieków naraz: pytanie przy starcie, przełącznik na Stolnicy, „Piecz ponownie” po zmianie receptury (M3 D3a)
+  'Prowadź oba': 'Run both',
+  'Wróć do: {nazwa}': 'Back to: {nazwa}',
+  'Prowadzisz już 2 wypieki': 'You are already running 2 bakes',
+  '{wypiek}, krok: {krok}': '{wypiek}, step: {krok}',
+  'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.':
+    'The base recipe has changed since that bake: it now has more yeast.',
+  'Ten wypiek jest już zakończony albo przerwany.': 'This bake has already been finished or stopped.',
   'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.':
     'The clocks change that day and the time you picked does not exist. The bread will be ready at {godzina}.',
+  // Powiadomienia wielu wypieków i stałego dnia karmienia [M3 D2, BR-KAL-016, BR-KAL-010]
+  'Wypiek: {wypiek}.': 'Bake: {wypiek}.',
+  'Dziś ustalony dzień karmienia zakwasu „{name}”.': 'Today is the set feeding day for the starter “{name}”.',
 };

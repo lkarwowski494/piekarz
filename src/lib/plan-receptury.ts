@@ -6,9 +6,14 @@
 
 import type { DoughRecipeInput, DoughRecipeResult } from '../core/domain-rules';
 import { t } from './i18n';
+import { przesuniecieDnia } from '../core/plany-wypiekow';
 
 export interface RecepturaPlanu {
   recipeName: string;
+  /** Id receptury (bazowej albo użytkownika): trafia do wypieku i do bakes.recipe_id (D-10, D1-7) [M3 D3a]. */
+  recipeId?: string;
+  /** „Piecz ponownie” ze starego wpisu chałki albo bagietki: receptura bazowa zmieniła się od tamtego wypieku (217). */
+  bazowaZmieniona?: boolean;
   calculatedRecipe: DoughRecipeResult;
   recipeFormula: DoughRecipeInput;
   /** Notatka z wpisu dziennika przy „Piecz ponownie” (BR-RECP-003) [M1-audytor-generalny-146] */
@@ -30,6 +35,20 @@ export function ustawRecepturePlanu(r: RecepturaPlanu | null): void {
 /** Ostatnia receptura z „Ułóż plan” albo null (plan otwarty bez receptury). */
 export function recepturaPlanu(): RecepturaPlanu | null {
   return biezaca;
+}
+
+let dzienGotowe: number | null = null;
+
+/** Skrót „Zaplanuj wypiek na ten dzień” z arkusza dnia (BR-KAL-015): dzień „gotowe” dla następnego planu wypieku [M3 D5]. */
+export function ustawDzienGotowe(dzienMs: number | null): void {
+  dzienGotowe = dzienMs;
+}
+
+/** Dzień ze skrótu odebrany raz: przesunięcie względem dziś w zasięgu planu (D-108) albo null. */
+export function odbierzDzienGotowe(now: number): number | null {
+  const d = dzienGotowe;
+  dzienGotowe = null;
+  return d === null ? null : przesuniecieDnia(d, now);
 }
 
 /**

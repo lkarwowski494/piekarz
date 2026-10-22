@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { useRouter } from 'expo-router';
 import type { StoredStarter } from '../../data/db';
-import { loadBakeSession } from '../../data/bake-session-store';
+import { loadActiveBakeSessions } from '../../data/bake-sessions-store';
 import { STARTER_DOUBLING_MAX_H, isReadyAfterFeeding, setupDay, setupGuideStage, setupObservationOutcome, type SetupOutcome, type StarterSign } from '../../core/starter-log';
 import { NO_DOUBLING_ACTIONS } from '../../core/starter-doctor';
 import { fridgeWakeOutcome } from '../../core/fridge-wake';
@@ -52,7 +52,10 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   }, [reload, wersja]);
   useEffect(() => {
     setWynik(null);
-    void loadBakeSession().then((s) => setWypiekZakwasu(s?.bake?.starterId ?? null)).catch(() => setWypiekZakwasu(null));
+    // Któryś z trwających wypieków (najwyżej 2) prowadzi ten zakwas [M3 D3a]
+    void loadActiveBakeSessions()
+      .then((l) => setWypiekZakwasu(l.some((s) => s.bake?.starterId === starter.id) ? starter.id : null))
+      .catch(() => setWypiekZakwasu(null));
   }, [starter.id]);
 
   const stan = stanKartyZakwasu(starter, log.entries, now);

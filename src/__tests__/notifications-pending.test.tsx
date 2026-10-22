@@ -91,21 +91,23 @@ describe('Pending notifications follow the saved state (006)', () => {
   });
 
   // 056: czas kroku biegnie od planu (bez Start/Wstrzymaj/+5 min), „Przerwij wypiek” na „Plan wypieku”
-  // 102 (BR-HARMO-005): czeka powiadomienie bieżącego kroku i kolejnych kroków planu (piekarz.krok.<indeks>)
+  // 102 (BR-HARMO-005): czeka powiadomienie bieżącego kroku i kolejnych kroków planu (piekarz.wypiek.<id>.krok.<indeks>;
+  // D2: identyfikatory z id wypieku zamiast piekarz.krok.<indeks> z 1014)
   it('Stolnica: start → krok and next steps; next step → krok of the next step; discard → none (BR-CZAS-002 Koniec wypieku: przerwanie)', async () => {
     setActiveBake({ id: 'bake_n', recipeName: 'Chleb', startedAt: now, currentStageId: 'step_1' });
     const tree = await mount(<StolnicaScreen />);
     // Krok w garnku ma też zdjęcie pokrywki po fazie 1 (piekarz.krok.<indeks>.pokrywka)
-    const garnek = `piekarz.krok.${planBakeSteps({ startAt: now, isHighRye: false }).findIndex((s) => s.category === 'bake')}.pokrywka`;
-    expect(ids()).toEqual(['piekarz.krok', garnek, ...Array.from({ length: 10 }, (_, i) => `piekarz.krok.${i + 1}`)].sort());
-    const first = mock.pending.get('piekarz.krok')!.trigger.date;
+    const K = 'piekarz.wypiek.bake_n.krok';
+    const garnek = `${K}.${planBakeSteps({ startAt: now, isHighRye: false }).findIndex((s) => s.category === 'bake')}.pokrywka`;
+    expect(ids()).toEqual([K, garnek, ...Array.from({ length: 10 }, (_, i) => `${K}.${i + 1}`)].sort());
+    const first = mock.pending.get(K)!.trigger.date;
     // Pierwszy etap planu: dokarmienie zakwasu, 6 h [M1-audytor-generalny-030]
     expect(first).toBe(now + 360 * 60 * 1000);
 
     await press(tree.root, 'Zrobione');
-    expect(ids()).toEqual(['piekarz.krok', garnek, ...Array.from({ length: 9 }, (_, i) => `piekarz.krok.${i + 2}`)].sort());
+    expect(ids()).toEqual([K, garnek, ...Array.from({ length: 9 }, (_, i) => `${K}.${i + 2}`)].sort());
     // Drugi etap planu: autoliza, 45 min
-    expect(mock.pending.get('piekarz.krok')!.trigger.date).toBe(now + 45 * 60 * 1000);
+    expect(mock.pending.get(K)!.trigger.date).toBe(now + 45 * 60 * 1000);
     await press(tree.root, 'Plan wypieku');
     await press(tree.root, 'Przerwij wypiek');
     expect(ids()).toEqual([]);

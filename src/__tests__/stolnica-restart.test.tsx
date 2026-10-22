@@ -26,7 +26,7 @@ import StolnicaScreen from '../../app/stolnica';
 import { initDatabase, setActiveBake, _resetMemStore } from '../data/sqlite-store';
 import { useTempDbDir } from '../data/__tests__/helpers/node-sqlite-adapter';
 import { planBakeSteps } from '../core/bake-steps';
-import { loadBakeSession } from '../data/bake-session-store';
+import { loadBakeSession, saveBakeSession } from '../data/bake-session-store';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -55,6 +55,8 @@ describe('Active bake survives a process kill (019)', () => {
     useTempDbDir();
     jest.spyOn(Date, 'now').mockImplementation(() => now);
     await initDatabase();
+    // D3a-fix (P2-6): przy dwóch trwających Stolnica bez id wraca na „Dziś”, więc wypiek z poprzedniego testu sprzątamy jawnie
+    await saveBakeSession(null);
   });
   afterEach(() => {
     jest.restoreAllMocks();

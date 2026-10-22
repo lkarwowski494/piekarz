@@ -24,6 +24,13 @@ export interface KrokSpirali {
 
 /** §2: kroki bierne dłuższe niż 3 h rysowane jak 3 h i oznaczone w legendzie („skrócona”). */
 export const SPIRALA_MAKS_BIERNY_MIN = 180;
+/**
+ * Dwa wypieki na jednej spirali (D-105, makieta roli 04 `dwa-tory-v2`): tory obrócone o 180°, 3,2 zwoju każdy od
+ * promienia bazowego 20 — pusty środek ok. 37 jednostek i stały odstęp 19 między torami; znacznik „teraz” r 9 z numerem.
+ */
+export const SPIRALA_TORY = { zwoje: 3.2, r0: 20, obrot: [0, Math.PI] as const, znacznik: 9 } as const;
+/** Grubości przy dwóch torach: cieńsze niż przy jednym wypieku, żeby między torami została przerwa (makieta: 5–10). */
+export const SPIRALA_GRUBOSC_TORY: Readonly<Record<StanKrokuSpirali, number>> = { zrobiony: 8, biezacy: 10, przyszly: 5 };
 /** Krok bez czasu w planie (ZYT-ETA-900) dostaje krótki odcinek tylko na rysunku; czas nadal nieznany. */
 export const SPIRALA_KROK_BEZ_CZASU_MIN = 10;
 /** §2: zrobiony gruby 7, bieżący gruby 9, przyszły cienki 3. */
@@ -78,6 +85,8 @@ export interface OpcjeRysunku {
   biezacy: number | null;
   /** Postęp bieżącego kroku 0–1. */
   postepKroku: number;
+  /** Spirala z dwoma torami (D-105): numer toru; brak = jeden wypiek. */
+  tor?: 1 | 2;
 }
 
 const VIEWBOX = '-110 -110 220 220';
@@ -91,14 +100,16 @@ function dlugoscRysowana(k: KrokSpirali): number {
 }
 
 /** Punkty spirali Archimedesa i granice kroków; liczone raz na plan (długość łuku ∝ czas kroku). */
-export function ukladSpirali(kroki: readonly KrokSpirali[], zwoje: number): UkladSpirali {
+export function ukladSpirali(kroki: readonly KrokSpirali[], zwoje: number, opcje: { r0?: number; obrot?: number } = {}): UkladSpirali {
   const t1 = (0.9 + zwoje) * Math.PI;
+  const r0 = opcje.r0 ?? 10;
+  const obrot = opcje.obrot ?? 0;
   const punkty: PunktSpirali[] = [];
   let l = 0;
   const dodaj = (t: number) => {
-    const r = 10 + (88 / t1) * t;
-    const x = r * Math.cos(t - Math.PI / 2);
-    const y = r * Math.sin(t - Math.PI / 2);
+    const r = r0 + ((98 - r0) / t1) * t;
+    const x = r * Math.cos(t - Math.PI / 2 + obrot);
+    const y = r * Math.sin(t - Math.PI / 2 + obrot);
     const p = punkty[punkty.length - 1];
     if (p) l += Math.hypot(x - p.x, y - p.y);
     punkty.push({ x, y, l });
@@ -115,6 +126,12 @@ export function ukladSpirali(kroki: readonly KrokSpirali[], zwoje: number): Ukla
     return { od, do: narast / suma, skrocony: k.bierny && k.minuty !== null && k.minuty > SPIRALA_MAKS_BIERNY_MIN };
   });
   return { punkty, dlugosc: l, granice };
+}
+
+/** Układy dwóch torów jednej spirali (BR-KAL-016): tor 1 i tor 2 obrócony o 180°. */
+export function ukladyTorow(kroki1: readonly KrokSpirali[], kroki2: readonly KrokSpirali[]): [UkladSpirali, UkladSpirali] {
+  const { zwoje, r0, obrot } = SPIRALA_TORY;
+  return [ukladSpirali(kroki1, zwoje, { r0, obrot: obrot[0] }), ukladSpirali(kroki2, zwoje, { r0, obrot: obrot[1] })];
 }
 
 /** Punkt na ścieżce w odległości `l` od środka (interpolacja liniowa, poza zakresem: koniec ścieżki). */
@@ -152,6 +169,7 @@ function sciezka(u: UkladSpirali, od: number, doU: number): string {
 /** Stan kroków, grubości, kolory, wzór nocy i znacznik „teraz” dla wariantu (§2, §11b 058). */
 export function rysunekSpirali(u: UkladSpirali, kroki: readonly KrokSpirali[], o: OpcjeRysunku): RysunekSpirali {
   const sk = o.wariant === 'mala' ? SPIRALA_SKALA_MALEJ : 1;
+  const grubosci = o.tor ? SPIRALA_GRUBOSC_TORY : SPIRALA_GRUBOSC;
   const biezacy = o.wariant === 'plan' || o.wariant === 'pusta' ? null : o.biezacy;
   const postepKroku = Math.min(1, Math.max(0, o.postepKroku));
   let postep: RysunekSpirali['postep'] = null;
@@ -162,17 +180,20 @@ export function rysunekSpirali(u: UkladSpirali, kroki: readonly KrokSpirali[], o
     const stan: StanKrokuSpirali = biezacy === null || i > biezacy ? 'przyszly' : i < biezacy ? 'zrobiony' : 'biezacy';
     if (stan === 'biezacy') {
       const tu = g.od + (g.do - g.od) * postepKroku;
-      postep = { d: sciezka(u, g.od + przerwa, Math.max(g.od + przerwa, Math.min(tu, g.do - przerwa))), grubosc: SPIRALA_GRUBOSC.biezacy * sk };
-      teraz = { ...punktNaDlugosci(u, tu * u.dlugosc), r: 7 * sk, obwodka: 3 * sk };
+      postep = { d: sciezka(u, g.od + przerwa, Math.max(g.od + przerwa, Math.min(tu, g.do - przerwa))), grubosc: grubosci.biezacy * sk };
+      teraz = { ...punktNaDlugosci(u, tu * u.dlugosc), r: o.tor ? SPIRALA_TORY.znacznik : 7 * sk, obwodka: 3 * sk };
     }
     const nocPrzed = k.noc && stan !== 'zrobiony';
+    const grubosc = grubosci[stan] * sk;
+    // Tor 2 kropkami (kształt, nie tylko kolor, D-105): kreska prawie zerowa z okrągłym końcem = kropka grubości toru
+    const kropki = o.tor === 2 ? `0.1 ${liczbaKreski(grubosc * 1.6)}` : null;
     return {
       indeks: i,
       d: sciezka(u, g.od + przerwa, g.do - przerwa),
       stan,
       kolor: stan === 'zrobiony' ? 'ratan' : nocPrzed ? 'nocDane' : 'ratanSzary',
-      grubosc: SPIRALA_GRUBOSC[stan] * sk,
-      kreski: nocPrzed ? `${liczbaKreski(2 * sk)} ${liczbaKreski(5 * sk)}` : null,
+      grubosc,
+      kreski: kropki ?? (nocPrzed ? `${liczbaKreski(2 * sk)} ${liczbaKreski(5 * sk)}` : null),
       skrocony: g.skrocony,
     };
   });

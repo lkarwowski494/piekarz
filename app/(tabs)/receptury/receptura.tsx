@@ -202,6 +202,7 @@ export default function EkranReceptury() {
     requireActionAccess(() => {
       ustawRecepturePlanu({
         recipeName,
+        recipeId: selectedPresetId, // id receptury do wypieku i wpisu (D-10, D1-7) [M3 D3a]
         calculatedRecipe: calculations,
         recipeFormula,
         // Plan pokazuje tę samą temperaturę kuchni co arkusz „Temperatura wody” [audyt-niezalezny D-4]

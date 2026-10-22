@@ -6,25 +6,23 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
 import { theme } from '../../../src/ui/theme';
 import { t } from '../../../src/lib/i18n';
 import {
   calculateReverseSchedule,
   autoResolveSleepCollision,
 } from '../../../src/scheduler/reverse-scheduler';
-import { setActiveBake, getStarters } from '../../../src/data/sqlite-store';
+import { getStarters } from '../../../src/data/sqlite-store';
 import type { StoredStarter } from '../../../src/data/db';
 import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
-import { confirmStartPrzyTrwajacym } from '../../../src/lib/confirm';
-import { trwajacyWypiek, przerwijSesjeWypieku } from '../../../src/lib/przerwij-wypiek';
+import { useStartPlanu } from '../../../src/hooks/useStartPlanu';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
@@ -46,12 +44,12 @@ const MINUTA_MS = 60_000;
 
 
 export default function HarmonogramScreen() {
-  const router = useRouter();
   const unitSystem = useUnitSystem();
 
-  // Target ready settings:
-  // targetDayOffset: 0 = Today, 1 = Tomorrow, 2 = Day after tomorrow
-  const [targetDayOffset, setTargetDayOffset] = useState<number>(1);
+  // Dzień „gotowe”: 0 = dziś … ZASIEG_DNI_PLANU (D-108); ze skrótu arkusza dnia dzień z kalendarza (BR-KAL-015),
+  // inaczej jutro [M3 D5]
+  const [zeSkrotu] = useState(() => odbierzDzienGotowe(Date.now()));
+  const [targetDayOffset, setTargetDayOffset] = useState<number>(zeSkrotu ?? 1);
   const [targetHour, setTargetHour] = useState<number>(10);
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
@@ -107,6 +105,8 @@ export default function HarmonogramScreen() {
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
   // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
   const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
+  // „Piecz ponownie” ze starego wpisu chałki albo bagietki: receptura bazowa ma teraz więcej drożdży (217) [M3 D3a]
+  const [bazowaZmieniona] = useState(() => recepturaPlanu()?.bazowaZmieniona === true);
   // Receptura bez zakwasu (np. z „Piecz ponownie”): plan zakwasowy jej nie prowadzi, start nieaktywny z powodem (D-3)
   const [bezZakwasu] = useState(() => {
     const r = recepturaPlanu();
@@ -149,7 +149,9 @@ export default function HarmonogramScreen() {
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
         krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
-      const bezNocy = godzinaBezNocy(stanCzasu.najwczesniejMs, kroki, okno);
+      // Dzień ze skrótu arkusza dnia zostaje: szukamy godziny bez nocy od początku tego dnia (BR-KAL-015) [M3 D5]
+      const od = zeSkrotu === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), zeSkrotu, 0, 0).ms);
+      const bezNocy = godzinaBezNocy(od, kroki, okno);
       if (bezNocy !== null) ustawGotowe(bezNocy);
       else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
     }
@@ -211,39 +213,8 @@ export default function HarmonogramScreen() {
     return formatDzienData(d);
   };
 
-  // Transfer to Stolnica: migawka etapów pokazanego planu (F-07) [M1-audytor-generalny-030];
-  // z „Ułóż plan” wypiek dostaje nazwę i ilości tej receptury (057) [M1-audytor-generalny-057]
-  const handleStartBakeOnWorkbench = () => {
-    if (zaPozno || bezZakwasu) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
-    const zacznij = () => {
-      const receptura = recepturaPlanu();
-      setActiveBake({
-        id: `bake_${Date.now()}`,
-        recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy'),
-        startedAt: Date.now(),
-        currentStageId: steps[0]?.id ?? '',
-        ...(tempWybrana ? { ambientTempC: ambientTemp } : {}),
-        isHighRye: receptura ? receptura.calculatedRecipe.isHighRye : false,
-        steps,
-        ...(zakwas ? { starterId: zakwas.id } : {}),
-        // Start tylko z dostępem: wypiek prowadzi się do końca także po wygaśnięciu (D-039) [M1-audytor-generalny-125]
-        zaczetyZDostepem: true,
-        ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
-      });
-      router.push('/stolnica');
-    };
-    // Trwający wypiek nie przepada po cichu: pytanie z trzema wyborami (a1b); bez trwającego start jak dotąd
-    requireActionAccess(() => {
-      void trwajacyWypiek().then((trwa) => {
-        if (!trwa) return zacznij();
-        confirmStartPrzyTrwajacym(
-          () => router.push('/stolnica'),
-          () => { void przerwijSesjeWypieku().then(zacznij); },
-          trwa.nazwa,
-        );
-      });
-    });
-  };
+  // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
+  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess });
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
@@ -273,6 +244,11 @@ export default function HarmonogramScreen() {
         {notatkaPoprzednia ? (
           <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
             {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
+          </Text>
+        ) : null}
+        {bazowaZmieniona ? (
+          <Text style={styles.bezSnu} testID="plan-bazowa-zmieniona">
+            {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
           </Text>
         ) : null}
         <TargetReadyCard
@@ -341,8 +317,10 @@ export default function HarmonogramScreen() {
         </BlokadaFunkcji>
       </ScrollView>
       <PasekStartu
-        onStart={handleStartBakeOnWorkbench}
+        onStart={zacznij}
         powodBlokady={zaPozno ? t('Najpierw ustaw godzinę, na którą zdążysz.') : bezZakwasu}
+        // Start w przyszłości: plan można zapisać na później (BR-KAL-009) [M3 D5]
+        onZaplanuj={startPlanu !== null && startPlanu.getTime() > teraz ? zaplanuj : undefined}
       />
     </SafeAreaView>
   );

@@ -64,14 +64,33 @@ const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
 };
 
 /**
- * Receptura do „Piecz ponownie” po nazwie z wpisu: najpierw własne receptury użytkownika, potem bazowe (także dawne
- * nazwy). Bez dopasowania null — ekran otwiera listę receptur zamiast zmyślonej formuły [audyt-niezalezny D-10].
+ * Receptury bazowe, którym zadanie 217 (D-097, tor T) zwiększyło procent drożdży: chałka 1,2 → 6,3%, bagietka
+ * 0,2 → 2,2% (drożdże świeże). Wpis sprzed tej wersji powstał ze starą ilością.
+ */
+const BAZOWE_ZMIENIONE_217: readonly string[] = ['sweet_chalka', 'baguette_tradition_poolish'];
+
+/**
+ * Czy przed planem „Piecz ponownie” powiedzieć, że receptura bazowa się zmieniła: wpis bez recipe_id (sprzed wersji
+ * z recipe_id, D1-7, więc sprzed zmiany 217) dobrany do bazowej chałki albo bagietki [M3 D3a]. Wpis z recipe_id
+ * powstał już z nową ilością; własna receptura użytkownika o tej nazwie ma własne liczby.
+ */
+export function bazowaZmienionaOdWypieku(log: StoredBakeLog, r: PendingRecipeToLoad | null): boolean {
+  return (log.recipeId === undefined || log.recipeId === null) && r?.id !== undefined && BAZOWE_ZMIENIONE_217.includes(r.id);
+}
+
+/**
+ * Receptura do „Piecz ponownie”: najpierw po recipe_id wpisu (receptura przemianowana dalej się znajduje; D-10 pełne)
+ * [M3 D3a], a dla starych wpisów bez id albo z id receptury, której już nie ma — po nazwie: najpierw własne receptury
+ * użytkownika, potem bazowe (także dawne nazwy, D1-7). Bez dopasowania null — ekran otwiera listę receptur zamiast
+ * zmyślonej formuły [audyt-niezalezny D-10].
  */
 export function prepareBakeAgainRecipe(log: StoredBakeLog, customRecipes: StoredRecipe[]): PendingRecipeToLoad | null {
   const wlasne = customRecipes.filter((r) => !r.isBuiltIn);
   const allPresets = [...wlasne, ...customRecipes.filter((r) => r.isBuiltIn), ...MASTER_RECIPES];
   const nazwa = log.recipeName.toLowerCase();
+  const id = log.recipeId ?? undefined;
   const match =
+    (id !== undefined ? wlasne.find((r) => r.id === id) ?? MASTER_RECIPES.find((r) => r.id === id) : undefined) ??
     allPresets.find((r) => ('namePl' in r ? r.namePl : r.name).toLowerCase() === nazwa) ??
     MASTER_RECIPES.find((r) => r.id === DAWNE_NAZWY_BAZOWYCH[nazwa]);
 

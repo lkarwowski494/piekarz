@@ -77,6 +77,8 @@ async function finishWithRating(stars: number): Promise<void> {
 
 const suggestionCalls = (alert: jest.SpyInstance) => alert.mock.calls.filter((c) => c[0] === SUGGESTION_TITLE);
 
+let nrWypieku = 0;
+
 describe('Doctor suggestion after a weak rating (BR-DIAG-001)', () => {
   beforeAll(() => {
     useTempDbDir();
@@ -85,7 +87,8 @@ describe('Doctor suggestion after a weak rating (BR-DIAG-001)', () => {
     zUprawnieniem();
     mockPush.mockClear();
     await initDatabase();
-    setActiveBake({ id: 'bake_live', recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
+    // Każdy test to osobny wypiek (osobne id): id wpisu = id wypieku, a koniec tego samego wypieku nie dokłada wpisu [M3 P1-1]
+    setActiveBake({ id: `bake_live_${++nrWypieku}`, recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
   });
   afterEach(() => {
     jest.restoreAllMocks();

@@ -99,7 +99,6 @@ describe('osiągalność kalkulatora i motywów z app/ (149)', () => {
     const martwe = badane.filter((p) => !osiagalne.has(p)).sort();
     expect(martwe).toEqual([]);
   });
-
   it('w src/ nie ma motywów amber-theme ani craft-suite-theme', () => {
     const motywy = pliki('src', (p) => /(amber-theme|craft-suite-theme)\.[jt]sx?$/.test(p));
     expect(motywy).toEqual([]);

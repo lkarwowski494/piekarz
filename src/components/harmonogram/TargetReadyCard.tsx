@@ -6,12 +6,14 @@
 // ============================================================================
 
 import React from 'react';
-import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-native';
+import { View, Text, StyleSheet, Pressable, ScrollView, useWindowDimensions } from 'react-native';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { t } from '../../lib/i18n';
 import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
-import { formatTime } from '../../lib/format';
+import { formatDzienData, formatTime } from '../../lib/format';
+import { dniPlanu } from '../../core/plany-wypiekow';
+import { addCalendarDays, startOfLocalDay } from '../../core/dzien-lokalny';
 
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
@@ -48,9 +50,18 @@ export interface TargetReadyCardProps {
 /** Poniżej tej szerokości ekranu ±30 min idą do rzędu dni (iPhone SE 320 pt) [M1-audytor-generalny-128]. */
 const WASKI_EKRAN_PT = 360;
 
-function Chip({ tekst, wybrany, onPress }: { tekst: string; wybrany?: boolean; onPress: () => void }) {
+/** Etykieta dnia „gotowe”: dziś, jutro, pojutrze, dalej dzień tygodnia z datą (Intl, F-5) [M3 D5]. */
+function etykietaDnia(offset: number): string {
+  if (offset === 0) return t('Dziś');
+  if (offset === 1) return t('Jutro');
+  if (offset === 2) return t('Pojutrze');
+  return formatDzienData(new Date(addCalendarDays(startOfLocalDay(Date.now()), offset)));
+}
+
+function Chip({ tekst, wybrany, onPress, testID }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string }) {
   return (
     <Pressable
+      testID={testID}
       accessibilityRole="button"
       accessibilityState={wybrany === undefined ? undefined : { selected: wybrany }}
       onPress={onPress}
@@ -98,17 +109,14 @@ export function TargetReadyCard({
         </View>
         {!waski && plus}
       </View>
-      <View style={styles.rzad}>
-        {[
-          { label: t('Dziś'), offset: 0 },
-          { label: t('Jutro'), offset: 1 },
-          { label: t('Pojutrze'), offset: 2 },
-        ].map((d) => (
-          <Chip key={d.offset} tekst={d.label} wybrany={d.offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(d.offset)} />
+      {/* Dzień „gotowe” od dziś do ZASIEG_DNI_PLANU (D-108): rząd chipów przewijany w poziomie (element nowy, do przeglądu
+          roli 04); dalej niż pojutrze dzień tygodnia z datą przez Intl jak w polu [M3 D5] */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.dni} keyboardShouldPersistTaps="handled">
+        {dniPlanu().map((offset) => (
+          <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)} />
         ))}
-        {waski && minus}
-        {waski && plus}
-      </View>
+      </ScrollView>
+      {waski && <View style={styles.rzad}>{minus}{plus}</View>}
 
       {zmianaCzasu && faktycznaGodzina ? (
         <Text style={styles.zmianaCzasu} testID="plan-zmiana-czasu">
@@ -169,6 +177,7 @@ const styles = StyleSheet.create({
     fontVariant: ['tabular-nums'],
   },
   rzad: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, marginBottom: odstepy.m },
+  dni: { flexDirection: 'row', gap: odstepy.s, marginBottom: odstepy.m },
   chip: {
     minHeight: theme.cele.pozostale,
     justifyContent: 'center',

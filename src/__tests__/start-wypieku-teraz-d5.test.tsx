@@ -18,6 +18,7 @@ jest.mock('expo-router', () => ({
   Stack: { Screen: () => null },
   useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+  useLocalSearchParams: () => ({}), // Stolnica czyta id wypieku z trasy (M3 D3a)
 }));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');
@@ -100,7 +101,7 @@ describe('D-5: wypiek zaczęty przed godziną startu planu czeka do niej', () =>
 
     // Zegar kroku 1 kończy się o planowanym końcu (nie teraz + czas kroku), więc kroki 2… zgadzają się z planem
     expect(sesja!.timerEndsAt).toBe(kroki[0].plannedEnd);
-    const powiadomienia = planBakeStepNotifications(sesja, Date.now());
+    const powiadomienia = planBakeStepNotifications(sesja && { ...sesja, id: 'bake_d5' }, Date.now());
     const startPow = powiadomienia.find((p) => p.textKey === 'krok.start');
     expect(startPow?.triggerAt).toBe(start);
     expect(notificationText(startPow!).title).toBe(`${kroki[0].name}: czas zacząć`);

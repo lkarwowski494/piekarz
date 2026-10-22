@@ -13,7 +13,7 @@ import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
 import { initLanguage, t, useLang } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
-import { trasaZPowiadomienia } from '../src/core/notification-plan';
+import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 
@@ -104,8 +104,9 @@ export default function RootLayout() {
     const tap = Notifications.addNotificationResponseReceivedListener((r) => {
       // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
       // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
-      const trasa = trasaZPowiadomienia(Reflect.get(r.notification.request.content.data ?? {}, 'route'));
-      if (trasa) router.push(trasa);
+      // Krok z id wypieku otwiera Stolnicę tego wypieku (BR-KAL-016 „Który krok czyj”) [M3 D3a]
+      const cel = celZPowiadomienia(r.notification.request.content.data ?? {}, r.notification.request.identifier);
+      if (cel) router.push(cel);
     });
     return () => tap.remove();
   }, [rescue]);
@@ -135,8 +136,11 @@ export default function RootLayout() {
             {/* Zakładki (D-051 2a) i ekrany nad nimi bez paska zakładek: prowadzenie wypieku, Doktor Chleba [M1-audytor-generalny-101] */}
             <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(tabs)" />
+              {/* Jedna Stolnica w stosie: push z powiadomienia, Doktora albo „Dziś” wraca do otwartej zamiast kłaść drugą,
+                  której stary krok i zegar nadpisywały zapis i kończyły wypiek drugi raz [M3 P1-1] */}
               <Stack.Screen
                 name="stolnica"
+                dangerouslySingular
                 options={{
                   ...naglowekZwykly,
                   title: t('Stolnica'),

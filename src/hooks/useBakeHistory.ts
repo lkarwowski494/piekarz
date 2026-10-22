@@ -11,7 +11,7 @@ import { tapHaptic } from '../lib/haptics';
 import { confirmDeleteBakeLog } from '../lib/confirm';
 import { getBakeLogs, deleteBakeLog, getRecipes } from '../data/sqlite-store';
 import { StoredBakeLog } from '../data/db';
-import { prepareBakeAgainRecipe } from '../lib/recipe-navigation';
+import { bazowaZmienionaOdWypieku, prepareBakeAgainRecipe } from '../lib/recipe-navigation';
 import { ustawRecepturePlanu } from '../lib/plan-receptury';
 import { calculateDoughRecipe } from '../core/domain-rules';
 import { calculateBakeStatistics, filterBakeLogs } from '../core/bake-statistics';
@@ -58,6 +58,9 @@ export function useBakeHistory(requireActionAccess: (action?: () => void | Promi
         const recipeFormula = { ...pending.formula, targetDoughWeightGrams: pending.formula.targetDoughWeightGrams ?? MASA_DOMYSLNA_G };
         ustawRecepturePlanu({
           recipeName: pending.name,
+          // Id receptury do wypieku i informacja o zmianie receptury bazowej (D-10 pełne, 217) [M3 D3a]
+          ...(pending.id !== undefined ? { recipeId: pending.id } : {}),
+          ...(bazowaZmienionaOdWypieku(log, pending) ? { bazowaZmieniona: true } : {}),
           calculatedRecipe: calculateDoughRecipe(recipeFormula),
           recipeFormula,
           notatka: log.notes?.trim() || undefined,

@@ -381,21 +381,24 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 /**
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
- * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego), `clearSession`
- * wszystkie trwające (ekrany jednej sesji do D3). Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1].
+ * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego); bez niego żadna
+ * sesja nie znika [M3 D3a]. Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1]. `wymagajSesji` i brak
+ * wiersza (wypiek zakończony albo przerwany w drugiej instancji ekranu): nic nie zapisane, wynik `nie-trwa` (P1-1).
  */
 export async function finishBake(
   log: StoredBakeLog,
   flours: Array<{ name: string; weightGrams: number }>,
   opts: KoniecSesji = {}
-): Promise<void> {
+): Promise<'zapisano' | 'nie-trwa'> {
   const db = await getDb();
   if (!db) {
-    const recipeId = await zakonczSesjeWTransakcji(null, opts);
-    await saveBakeLog(log.recipeId === undefined && recipeId !== undefined ? { ...log, recipeId } : log);
-    for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
+    const sesja = await zakonczSesjeWTransakcji(null, opts);
+    if (opts.wymagajSesji && !sesja.trwal) return 'nie-trwa';
+    const byl = memStore.logs.some((l) => l.id === log.id);
+    await saveBakeLog(log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log);
+    if (!byl) for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
     zakonczSesjeWPamieci(opts);
-    return;
+    return 'zapisano';
   }
 
   const inventory = (await getFlourInventory()).map((i) => ({ ...i }));
@@ -410,23 +413,33 @@ export async function finishBake(
   }
 
   let wpis = log;
+  let trwal = true;
+  let odliczono = false;
   await writeOrThrow(() =>
     db.withTransactionAsync(async () => {
       // Skasowanie sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
-      const recipeId = await zakonczSesjeWTransakcji(db, opts);
-      wpis = log.recipeId === undefined && recipeId !== undefined ? { ...log, recipeId } : log;
+      const sesja = await zakonczSesjeWTransakcji(db, opts);
+      // Drugi koniec tego samego wypieku (druga instancja Stolnicy): bez wpisu i bez mąki [M3 D3a-fix, P1-1]
+      trwal = sesja.trwal || !opts.wymagajSesji;
+      if (!trwal) return;
+      wpis = log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log;
+      // Mąka tylko przy pierwszym końcu tego wypieku: wpis o tym id (id wpisu = id wypieku) już jest = koniec
+      // powtórzony, także gdy wypiek nie miał wiersza sesji (wymagajSesji nie działa) [M3 P1-1]
+      odliczono = (await db.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', log.id)).length === 0;
       await writeBakeRow(db, wpis);
-      for (const item of changed.values()) await writeFlourRow(db, item);
+      if (odliczono) for (const item of changed.values()) await writeFlourRow(db, item);
     })
   );
+  if (!trwal) return 'nie-trwa';
 
   // Pamięć dopiero po zatwierdzeniu transakcji
   zakonczSesjeWPamieci(opts);
   memStore.logs = [wpis, ...memStore.logs.filter((l) => l.id !== log.id)];
-  changed.forEach(rememberFlour);
+  if (odliczono) changed.forEach(rememberFlour);
   if (log.finishedAt) {
     void collectBackupData()
       .then((data) => autoBackup(data))
       .catch(() => null);
   }
+  return 'zapisano';
 }

@@ -6,6 +6,8 @@ zastępuje: ADR-005 w części „alarmy w tle” (pkt 2 opcji A); reszta ADR-00
 ---
 # ADR-006. Koniec kroku i termin karmienia jako powiadomienia lokalne na bezwzględną datę, uzgadniane z zapisanym stanem
 
+> Aktualizacja M3 D2 (2026-10-22, D-103): treść poniżej opisuje stan z jednym wypiekiem. Od D2 plan obejmuje wiele wypieków: identyfikatory `piekarz.wypiek.<id wypieku>.krok…` zamiast `piekarz.krok…`, limit `MAX_PENDING_NOTIFICATIONS = 40` z priorytetem (kroki trwających, starty zaplanowanych, karmienia) i stały dzień karmienia w lodówce. Do uzgodnienia przez rolę 05.
+
 ## Kontekst i problem
 
 Cel aplikacji: „pilnuje czasu, gdy telefon śpi”. Alarm Stolnicy jest dziś dźwiękiem w JS odpalanym z `setInterval` na ekranie (`app/(tabs)/stolnica.tsx`, efekt odliczania; `src/lib/timer-audio.ts`), więc przy zablokowanym telefonie albo innej aplikacji nie przychodzi nic. Karmienie zakwasu zapisuje tylko `lastFedAt` bez przypomnienia. Wymagania: BRD `B3.md` BR-CZAS-001 kryt. 2 i BR-CZAS-002 kryt. 1, `B2.md` BR-ZAKW-004, `A3a.md` Z-041, `A3b.md` Z-056. Znalezisko M1-audytor-generalny-006 (źródła: 03-zakres-001, 01-odkrywanie-004, 05-architekt-005, 11-wzrost-002, 04-studio-projektowe-005, 08-programista-004).

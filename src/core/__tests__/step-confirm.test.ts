@@ -29,7 +29,10 @@ const STEPS = plan(at(11), [
 const progressAt = (stepIdx: number): BakeProgress => ({
   steps: STEPS, stepIdx, dutchOvenPhase: 'lid_on', timerEndsAt: STEPS[stepIdx].plannedEnd, pausedLeftSec: null,
 });
-const triggers = (p: BakeProgress, now: number) => planBakeStepNotifications(p, now).map((n) => [n.id, n.triggerAt]);
+// D2: identyfikatory powiadomień niosą id wypieku (piekarz.wypiek.<id>.krok…), nie `piekarz.krok…` jak w 1014
+const P = 'piekarz.wypiek.bake_x.';
+const wWypieku = (p: BakeProgress) => ({ ...p, id: 'bake_x', recipeName: 'Chleb' });
+const triggers = (p: BakeProgress, now: number) => planBakeStepNotifications(wWypieku(p), now).map((n) => [n.id, n.triggerAt]);
 
 describe('BR-HARMO-005: zakończenie kroku wcześniej i cofnięcie potwierdzenia (102)', () => {
   it('BR-HARMO-005 Krok skończony wcześniej: garowanie z terminem 14:00 zakończone 13:30 → dalsze kroki 30 min wcześniej, powiadomienia z nowymi godzinami', () => {
@@ -45,14 +48,14 @@ describe('BR-HARMO-005: zakończenie kroku wcześniej i cofnięcie potwierdzenia
     expect(progress.steps.slice(0, 4)).toEqual(STEPS.slice(0, 4));
     // Powiadomienia: zdjęcie pokrywki 13:50 (było 14:20), koniec pieczenia 14:15, studzenie 15:15
     expect(triggers(progress, at(13, 30))).toEqual([
-      ['piekarz.krok', at(13, 30) + 20 * MIN],
-      ['piekarz.krok.6', at(15, 15)],
+      [`${P}krok`, at(13, 30) + 20 * MIN],
+      [`${P}krok.6`, at(15, 15)],
     ]);
     expect(triggers(before, at(13, 30))).toEqual([
-      ['piekarz.krok', at(14)],
-      ['piekarz.krok.5.pokrywka', at(14, 20)],
-      ['piekarz.krok.5', at(14, 45)],
-      ['piekarz.krok.6', at(15, 45)],
+      [`${P}krok`, at(14)],
+      [`${P}krok.5.pokrywka`, at(14, 20)],
+      [`${P}krok.5`, at(14, 45)],
+      [`${P}krok.6`, at(15, 45)],
     ]);
   });
 
@@ -66,7 +69,7 @@ describe('BR-HARMO-005: zakończenie kroku wcześniej i cofnięcie potwierdzenia
     expect(back.overdueMs).toBe(0);
     expect(back.progress.stepIdx).toBe(3);
     expect(restoreTimerState(back.progress, at(12, 5)).timeLeftSec).toBe(35 * 60);
-    expect(planBakeStepNotifications(back.progress, at(12, 5))).toEqual(planBakeStepNotifications(before, at(12, 5)));
+    expect(planBakeStepNotifications(wWypieku(back.progress), at(12, 5))).toEqual(planBakeStepNotifications(wWypieku(before), at(12, 5)));
   });
 
   it('BR-HARMO-005 Cofnięcie po terminie kroku: widać, o ile termin minął, i można przesunąć dalsze kroki (BR-HARMO-004)', () => {
@@ -98,12 +101,12 @@ describe('BR-HARMO-005: zakończenie kroku wcześniej i cofnięcie potwierdzenia
     expect(progress.timerEndsAt).toBeNull();
     const noPlan = STEPS.map((s) => ({ ...s, plannedStart: null, plannedEnd: null }));
     expect(shiftStepsFrom(noPlan, 0, 5 * MIN)).toEqual(noPlan);
-    expect(planBakeStepNotifications({ ...progressAt(0), steps: noPlan, timerEndsAt: null }, at(11))).toEqual([]);
+    expect(planBakeStepNotifications({ ...wWypieku(progressAt(0)), steps: noPlan, timerEndsAt: null }, at(11))).toEqual([]);
     expect(planBakeStepNotifications(null, at(11))).toEqual([]);
   });
 
   it('bieżący krok w powiadomieniach jak dotąd (planBakeNotification)', () => {
-    const p = progressAt(2);
+    const p = wWypieku(progressAt(2));
     expect(planBakeStepNotifications(p, at(11, 45))[0]).toEqual(planBakeNotification(p, at(11, 45)));
   });
 });

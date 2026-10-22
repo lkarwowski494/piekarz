@@ -116,6 +116,34 @@ describe('WCAG 2.1 Accessibility & Theme Contrast Contracts (system „Koszyk sp
     });
   });
 
+  // M3 D4b: pas „Dziś” w kolorze nocy (D-105; tokeny wariantu 1 z makiety roli 04 a2, 04-a2-opcje.md „Nowe tokeny”):
+  // tekst na pasie ≥ 4,5 (WCAG 1.4.3), grafika z danymi (glify paska, ramka dnia) ≥ 3 (WCAG 1.4.11), we wszystkich 4 wariantach
+  describe.each(WARIANTY)('Pas „Dziś” (D-105) — %s', (w) => {
+    it.each([
+      ['naPasie', 'pas', 4.5],
+      ['naPasie2', 'pas', 4.5],
+      ['ratanNaPasie', 'pas', 3.0],
+      ['naPasie', 'pas', 3.0],
+      ['ostrzTusz', 'ostrzTlo', 4.5],
+      ['ostrzTlo', 'pas', 3.0],
+    ])('%s on %s >= %s', (fg, bg, prog) => {
+      expect(cr(Reflect.get(theme.colors, fg), Reflect.get(theme.colors, bg), w)).toBeGreaterThanOrEqual(Number(prog));
+    });
+
+    it('wartości pasa z tabeli roli 04 (04-a2-opcje.md)', () => {
+      const tabela: Record<string, string[]> = {
+        pas: ['#1E4954', '#1D3B43', '#12323A', '#0F2A31'],
+        naPasie: ['#FFFFFF', '#F1F1EC', '#FFFFFF', '#FFFFFF'],
+        naPasie2: ['#C8D8DC', '#BFD0D4', '#E2ECEE', '#E2ECEE'],
+        ratanNaPasie: ['#D9AE72', '#D3A464', '#E8C38E', '#E8C38E'],
+      };
+      const i = WARIANTY.indexOf(w);
+      for (const [token, wartosci] of Object.entries(tabela)) {
+        expect(hex(Reflect.get(theme.colors, token), w)).toBe(wartosci[i]);
+      }
+    });
+  });
+
   describe('Apple HIG & Android Material Touch Target Size Guarantees', () => {
     it('theme spacing scale defines ergonomic tap pad minimums', () => {
       expect(theme.spacing.sm).toBe(8);

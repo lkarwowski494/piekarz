@@ -1,6 +1,6 @@
 # Tabela kontrastu (wygenerowana)
 
-Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-10-20. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
+Źródło: `tokeny.json`; skrypt: `narzedzia/tokeny.mjs`; data: 2026-10-22. Próg 4,5 dla tekstu, 3 dla grafiki z danymi i obwódek (WCAG 2.2, 1.4.3 i 1.4.11). Nie edytuj ręcznie.
 
 | Para | Użycie | Próg | jasny | ciemny | jasnyKontrast | ciemnyKontrast |
 |---|---|---|---|---|---|---|
@@ -35,5 +35,10 @@
 | ratan / powierzchnia | zwój zrobiony na karcie: zakwas, trwający wypiek (partia 6, 031) | 3 | 4,61 (#9C6B2F / #FFFFFF) | 6,71 (#D3A464 / #1F2729) | 7,89 (#6E4A1F / #FFFFFF) | 10,36 (#E8C38E / #161C1E) |
 | ratanSzary / powierzchnia | zwój przyszły na karcie (partia 6, 031) | 3 | 3,80 (#8A8273 / #FFFFFF) | 3,30 (#7D7466 / #1F2729) | 4,56 (#7C7568 / #FFFFFF) | 4,16 (#837C6D / #161C1E) |
 | nocDane / powierzchnia | noc w lodówce na karcie (partia 6, 031) | 3 | 9,83 (#1E4954 / #FFFFFF) | 7,17 (#8FB9C4 / #1F2729) | 13,61 (#12323A / #FFFFFF) | 11,19 (#B5D6DE / #161C1E) |
+| naPasie / pas | tekst na pasie „Dziś” (D-105): tytuł, dzień, „Następne” | 4,5 | 9,83 (#FFFFFF / #1E4954) | 10,54 (#F1F1EC / #1D3B43) | 13,61 (#FFFFFF / #12323A) | 15,04 (#FFFFFF / #0F2A31) |
+| naPasie2 / pas | tekst pomocniczy na pasie „Dziś”: data, skróty dni, adnotacja pustego kalendarza | 4,5 | 6,70 (#C8D8DC / #1E4954) | 7,50 (#BFD0D4 / #1D3B43) | 11,32 (#E2ECEE / #12323A) | 12,51 (#E2ECEE / #0F2A31) |
+| ratanNaPasie / pas | glify zdarzeń na pasku tygodnia (grafika z danymi, WCAG 1.4.11) | 3 | 4,80 (#D9AE72 / #1E4954) | 5,27 (#D3A464 / #1D3B43) | 8,18 (#E8C38E / #12323A) | 9,05 (#E8C38E / #0F2A31) |
+| naPasie / pas | ramka dnia dzisiejszego i obwódka przycisku „Pomiń” na pasie | 3 | 9,83 (#FFFFFF / #1E4954) | 10,54 (#F1F1EC / #1D3B43) | 13,61 (#FFFFFF / #12323A) | 15,04 (#FFFFFF / #0F2A31) |
+| ostrzTlo / pas | przycisk „Zrobione” i glif zaległego na pasie | 3 | 6,59 (#F7D117 / #1E4954) | 8,01 (#F7D117 / #1D3B43) | 9,13 (#F7D117 / #12323A) | 10,09 (#F7D117 / #0F2A31) |
 
-Wynik: wszystkie pary spełniają progi (31 par × 4 warianty).
+Wynik: wszystkie pary spełniają progi (36 par × 4 warianty).

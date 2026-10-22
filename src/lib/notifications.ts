@@ -11,8 +11,12 @@ import {
   PlannedNotification,
   PendingNotification,
 } from '../core/notification-plan';
-import { loadBakeSession } from '../data/bake-session-store';
+import { idSesji } from '../data/bake-session-store';
+import { loadActiveBakeSessions, loadPlannedBakes } from '../data/bake-sessions-store';
 import { collectBackupData } from '../data/sqlite-store';
+import { wczytajPominiecia } from '../data/pominiecia-store';
+import { pominietoKarmienieAt } from '../core/pominiecia';
+import { kolejneKarmieniaBudzace, type WypiekZBudzeniem } from '../core/karmienia-budzace';
 import { t, lang } from './i18n';
 import { formatTime } from './format';
 import { pobierzStan, subskrybujStan, type StanDostepu } from './platnosci/stan';
@@ -49,8 +53,19 @@ export async function getNotificationPermission(): Promise<NotificationPermissio
   return s.canAskAgain ? 'undetermined' : 'denied';
 }
 
-/** Tytuł i treść powiadomienia w bieżącym języku (teksty do akceptacji, zasada 15). */
+/**
+ * Tytuł i treść powiadomienia w bieżącym języku (teksty do akceptacji, zasada 15). Gdy powiadomienie niesie nazwę
+ * wypieku (trwają dwa albo to start zaplanowanego), treść kończy się zdaniem „Wypiek: …” (BR-KAL-016 Który krok czyj).
+ */
 export function notificationText(p: PlannedNotification): { title: string; body: string } {
+  const tekst = tekstPowiadomienia(p);
+  const wypiek = p.params.recipeName;
+  if (!wypiek) return tekst;
+  const zdanie = t('Wypiek: {wypiek}.', { wypiek });
+  return { title: tekst.title, body: tekst.body ? `${tekst.body} ${zdanie}` : zdanie };
+}
+
+function tekstPowiadomienia(p: PlannedNotification): { title: string; body: string } {
   const name = p.params.starterName ?? '';
   switch (p.textKey) {
     case 'krok.start': {
@@ -69,6 +84,11 @@ export function notificationText(p: PlannedNotification): { title: string; body:
       return { title: t('Pora dokarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.', { name }) };
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
+    case 'karmienie.lodowkaDzien':
+      return { title: t('Nakarm zakwas dziś'), body: t('Dziś ustalony dzień karmienia zakwasu „{name}”.', { name }) };
+    case 'karmienie.budzace':
+      // Kolejne karmienie budzące z lodówki: warunek w treści, bez liczby karmień (RD-33, D-052) [M3 D5]
+      return { title: t('Pora dokarmić zakwas'), body: t('Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.', { name }) };
     default: {
       // Następny krok i jego godzina: „{krok}: czas zacząć” (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130];
       // ostatni krok — nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
@@ -92,7 +112,10 @@ function fingerprintOf(data: unknown): string | null {
   return typeof fp === 'string' ? fp : null;
 }
 
-/** Uzgadnia oczekujące powiadomienia z bazą (sesja wypieku, zakwasy). Błąd biblioteki nie wychodzi do ekranu. */
+/**
+ * Uzgadnia oczekujące powiadomienia z bazą (trwające i zaplanowane wypieki, zakwasy). Błąd biblioteki nie wychodzi
+ * do ekranu. Powiadomienia kroków sprzed D2 (`piekarz.krok*`, bez id wypieku) nie są w planie, więc diff je kasuje.
+ */
 export function resyncNotifications(): Promise<{ status: NotificationPermission; ok: boolean }> {
   return serial(async () => {
     let status: NotificationPermission = 'undetermined';
@@ -103,9 +126,23 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       // Przypomnienia o zakwasie tylko z uprawnieniem: po końcu próby dokarmianie otwiera ekran zakupu, a kontrakt
       // mówi, że przypomnienia ustają [M1-audytor-generalny-143]; kroki wypieku zostają (trwający wypiek się kończy)
       // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
-      const starters = async () =>
-        przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()) ? (await collectBackupData()).starters : [];
-      const desired = status === 'granted' ? planNotifications({ session: await loadBakeSession(), starters: await starters() }, Date.now()) : [];
+      // Po „Pomiń” zaległego karmienia termin liczy się od chwili pominięcia, jak w kalendarzu (D-094) [M3 D4a]
+      // Kolejne karmienia budzące (RD-33) z tymi samymi warunkami co przypomnienia o zakwasie, z wpisów zakwasów [M3 D5]
+      const zakwasy = async (w: { sessions: readonly WypiekZBudzeniem[]; planned: readonly WypiekZBudzeniem[] }) => {
+        if (!(przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()))) return { starters: [], budzace: [] };
+        const pominiecia = await wczytajPominiecia(Date.now()).catch(() => []);
+        const kopia = await collectBackupData();
+        return {
+          starters: kopia.starters.map((s) => ({ ...s, pominietoAt: pominietoKarmienieAt(pominiecia, s.id) })),
+          budzace: kolejneKarmieniaBudzace([...w.sessions, ...w.planned], kopia.starters, kopia.starterEntries ?? [], Date.now()),
+        };
+      };
+      const wypieki = async () => ({
+        sessions: (await loadActiveBakeSessions()).map((s) => ({ ...s, id: idSesji(s), ...(s.bake?.starterId ? { starterId: s.bake.starterId } : {}) })),
+        planned: (await loadPlannedBakes()).map((p) => ({ ...p, ...(p.bake?.starterId ? { starterId: p.bake.starterId } : {}) })),
+      });
+      const w = status === 'granted' ? await wypieki() : null;
+      const desired = w ? planNotifications({ ...w, ...(await zakwasy(w)) }, Date.now()) : [];
       const jezyk = lang();
       const { cancel, schedule } = diffNotifications(pending, desired, jezyk);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);
@@ -116,7 +153,8 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
             ...notificationText(p),
             sound: 'default',
             interruptionLevel: p.level,
-            data: { fp: notificationFingerprint(p, jezyk), kind: p.kind, route: p.route },
+            // `wypiek`: dotknięcie otwiera Stolnicę tego wypieku (BR-KAL-016) [M3 D3a]
+            data: { fp: notificationFingerprint(p, jezyk), kind: p.kind, route: p.route, ...(p.wypiekId ? { wypiek: p.wypiekId } : {}) },
           },
           trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: p.triggerAt },
         });
@@ -134,7 +172,7 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
  * Czy planować przypomnienia o zakwasie: z uprawnieniem App Store; do pierwszego odczytu sklepu bez zmian
  * (brak odpowiedzi App Store to nie koniec próby, więc oczekujące przypomnienia nie znikają przy starcie).
  */
-function przypomnieniaZDostepem(s: StanDostepu): boolean {
+export function przypomnieniaZDostepem(s: StanDostepu): boolean {
   return !s.gotowe || evaluateAppAccess(s.decyzja).canCreateNewBake;
 }
 

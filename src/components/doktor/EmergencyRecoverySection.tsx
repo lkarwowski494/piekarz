@@ -84,8 +84,9 @@ export function EmergencyRecoverySection({
             {formatTextUnits(t(selectedProto.triggerSummaryPl), unitSystem)}
           </Text>
 
-          {/* Immediate Action Alert */}
-          <View style={styles.immediateAlertBox}>
+          {/* Immediate Action Alert: etykieta i treść jako jeden element VoiceOver, ostrzeżenie rozpoznawalne po tekście,
+              nie tylko po kolorze (BR-DIAG-004, NFR-DOST-005) [M3 D3a] */}
+          <View style={styles.immediateAlertBox} accessible testID="recovery-immediate-action">
             <Text style={styles.immediateAlertLabel}>{t('Akcja natychmiastowa:')}</Text>
             <Text style={styles.immediateAlertText}>
               {formatTextUnits(t(selectedProto.immediateActionPl), unitSystem)}
@@ -96,7 +97,8 @@ export function EmergencyRecoverySection({
           {/* Steps */}
           <Text style={styles.recoveryStepsHeading}>{t('Kroki ratunkowe:')}</Text>
           {selectedProto.stepByStepPl.map((step, idx) => (
-            <View key={idx} style={styles.recoveryStepRow}>
+            // Numer i zdanie kroku czytane razem (BR-DIAG-004 VoiceOver) [M3 D3a]
+            <View key={idx} style={styles.recoveryStepRow} accessible testID={`recovery-step-${idx + 1}`}>
               <View style={styles.recoveryStepIndexPill}>
                 <Text style={styles.recoveryStepIndexText}>{idx + 1}</Text>
               </View>

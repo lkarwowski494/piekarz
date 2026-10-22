@@ -44,7 +44,7 @@ describe('BR-ZAKW-007: poprawa pomyłki we wpisie bez kasowania historii (104)',
 
     const s = (await app.store.getStarters()).find((x) => x.id === 's1')!;
     expect(s.lastFedAt).toBe(at(8));
-    const plan = planNotifications({ session: null, starters: [s] }, at(19));
+    const plan = planNotifications({ sessions: [], starters: [s] }, at(19));
     expect(plan.map((p) => p.triggerAt)).toEqual([at(8) + FEED_ROOM_TEMP_AFTER_MS]);
 
     // Po restarcie to samo

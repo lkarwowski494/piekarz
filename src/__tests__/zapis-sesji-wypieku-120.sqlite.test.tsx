@@ -87,6 +87,8 @@ describe.each(PORY)('Zapis sesji wypieku przy błędzie zapisu, zegar %s (120)',
     _resetMemStore();
     setActiveBake(null);
     await initDatabase();
+    // D3a: zapis jednego wypieku nie zastępuje już pozostałych (P2-3), więc trwające z poprzedniego testu sprzątamy jawnie
+    await saveBakeSession(null);
   });
   afterEach(() => {
     control().failWritesMatching = null;
@@ -128,14 +130,15 @@ describe.each(PORY)('Zapis sesji wypieku przy błędzie zapisu, zegar %s (120)',
 
     // Błąd w środku zakończenia (kasowanie sesji): ani wpis bez skasowanej sesji, ani odwrotnie
     control().failWritesMatching = /bake_sessions/;
-    await expect(finishBake(log, [], { clearSession: true })).rejects.toBeInstanceOf(StorageWriteError);
+    // D3a: koniec jednego wypieku po id (dawniej clearSession: wszystkie trwające)
+    await expect(finishBake(log, [], { sessionId: 'bake_b' })).rejects.toBeInstanceOf(StorageWriteError);
     control().failWritesMatching = null;
     expect(await bakesInDb(log.id)).toBe(0);
     _resetMemStore();
     expect((await loadBakeSession())?.stepIdx).toBe(8);
 
     // Udane zakończenie: wpis jest, sesji nie ma, także po restarcie
-    await finishBake(log, [], { clearSession: true });
+    await finishBake(log, [], { sessionId: 'bake_b' });
     expect(await bakesInDb(log.id)).toBe(1);
     _resetMemStore();
     expect(await loadBakeSession()).toBeNull();

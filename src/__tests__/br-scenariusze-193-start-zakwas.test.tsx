@@ -53,7 +53,10 @@ describe('BR-START-001 i BR-ZAKW-004: scenariusze na ekranie', () => {
     await saveBakeSession(null);
   });
 
-  it('BR-START-001 Powrót z trwającym wypiekiem: na górze trwający wypiek z bieżącym krokiem i powrotem jednym dotknięciem, wybór czynności niżej', async () => {
+  // Zmiana M3 D4b: kolejność według D-105 (wybór właściciela, wariant 3+1): pas z „Następne” u góry, kafle czynności,
+  // pod nimi trwający wypiek jako spirala z powrotem jednym dotknięciem. Scenariusz BRD „na górze trwający wypiek”
+  // do uzgodnienia przez rolę 01 (zgłoszenie w raporcie D4b); asercje powrotu i kroku bez zmian.
+  it('BR-START-001 Powrót z trwającym wypiekiem: trwający wypiek z bieżącym krokiem i powrotem jednym dotknięciem pod kaflami (D-105)', async () => {
     const start = Date.now() - 60_000;
     const steps = planBakeSteps({ startAt: start, isHighRye: false });
     await saveBakeSession({ version: 2, steps, stepIdx: 3, dutchOvenPhase: 'lid_on', timerEndsAt: null, pausedLeftSec: 600, recipeName: 'Chleb pszenny na zakwasie', startedAt: start, bake: null });
@@ -68,9 +71,9 @@ describe('BR-START-001 i BR-ZAKW-004: scenariusze na ekranie', () => {
     await flush();
     const t = teksty(tree.root);
     const iWypiek = t.findIndex((s) => s.includes('Chleb pszenny na zakwasie'));
-    const iWybor = t.findIndex((s) => s.includes('Co jeszcze dziś robisz?'));
-    expect(iWypiek).toBeGreaterThanOrEqual(0);
-    expect(iWybor).toBeGreaterThan(iWypiek);
+    const iWybor = t.findIndex((s) => s.includes('Piekę na drożdżach albo pizzę'));
+    expect(iWybor).toBeGreaterThanOrEqual(0);
+    expect(iWypiek).toBeGreaterThan(iWybor);
     // Bieżący krok (4 z n) i jeden przycisk powrotu
     expect(tree.root.findByProps({ testID: 'brand-spiral' }).props.accessibilityLabel).toContain(`krok 4 z ${steps.length}`);
     const wroc = tree.root.findAll((n) => typeof n.type === 'string' && n.props.testID === 'resume-bake-btn');

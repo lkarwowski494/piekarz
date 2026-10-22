@@ -7,28 +7,123 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.",
-      "powod": "treść pytania przy „Zacznij wypiek” w planie, gdy trwa inny wypiek [M3 p1b a1b]",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.",
-      "powod": "treść pytania z nazwą trwającego wypieku (parametr {nazwa}) [M3 p1b a1b, BR-ETAP-006]",
-      "od": "2026-10-22"
-    },
-    {
       "klucz": "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.",
       "powod": "komunikat na karcie planu w dniu wiosennej zmiany czasu (parametr {godzina}) [M3 D0, D-13, D-093]",
       "od": "2026-10-22"
     },
     {
-      "klucz": "Wróć do trwającego",
-      "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "klucz": "Wypiek: {wypiek}.",
+      "powod": "zdanie z nazwą wypieku na końcu powiadomienia kroku, gdy trwają dwa wypieki, i startu zaplanowanego (parametr {wypiek}) [M3 D2, BR-KAL-016]",
       "od": "2026-10-22"
     },
     {
-      "klucz": "Przerwij tamten i zacznij nowy",
-      "powod": "niszczący wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "klucz": "Dziś ustalony dzień karmienia zakwasu „{name}”.",
+      "powod": "treść powiadomienia stałego dnia karmienia zakwasu w lodówce (parametr {name}) [M3 D2, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Następne: {lista}",
+      "powod": "zdanie linii „Następne” na „Dziś”: pozycje przyszłe z separatorem „·”, też etykieta VoiceOver (parametr {lista}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaległe: {co} ({h})",
+      "powod": "pozycja zaległa na początku linii „Następne” i w arkuszu dnia (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{kiedy} {h} {co}",
+      "powod": "pozycja przyszła w linii „Następne”: dzień słownie, godzina, zdarzenie (parametry {kiedy}, {h}, {co}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{co}, opcjonalne",
+      "powod": "dopisek zadania opcjonalnego w linii „Następne” (parametr {co}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "+{n}",
+      "powod": "przycisk „+N” linii „Następne” (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż jeszcze {n} w arkuszu dnia",
+      "powod": "etykieta VoiceOver przycisku „+N” (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{co} z {h}: zrobione",
+      "powod": "etykieta VoiceOver przycisku „Zrobione” przy zaległym (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pomiń {co} z {h}",
+      "powod": "etykieta VoiceOver przycisku „Pomiń” przy zaległym (parametry {co}, {h}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pomiń",
+      "powod": "przycisk przy pozycji „Zaległe” [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: gotowe",
+      "powod": "zdarzenie „gotowe” wypieku w linii i arkuszu dnia (parametr {wypiek}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "karmienie zakwasu {zakwas}",
+      "powod": "zdarzenie terminu karmienia w linii i arkuszu dnia (parametr {zakwas}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Dokarmiony {zakwas}",
+      "powod": "zapisane dokarmienie w arkuszu dnia (parametr {zakwas}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakładanie zakwasu: dzień {n}, do zrobienia",
+      "powod": "dzień zakładania zakwasu dziś w arkuszu dnia (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakładanie zakwasu: dzień {n} zapisany",
+      "powod": "miniony dzień zakładania zakwasu w arkuszu dnia (parametr {n}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: ocena {ocena} z 5",
+      "powod": "wpis Dziennika z oceną w arkuszu dnia (parametry {wypiek}, {ocena}) [M3 D4a, BR-KAL-003, D-094]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Prowadź oba",
+      "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie, gdy trwa jeden wypiek [M3 D3a, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wróć do: {nazwa}",
+      "powod": "powrót do trwającego wypieku w pytaniu przy starcie i na karcie „Dziś” przy dwóch wypiekach (parametr {nazwa}) [M3 D3a, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Prowadzisz już 2 wypieki",
+      "powod": "tytuł pytania przy „Zacznij wypiek”, gdy trwają 2 wypieki (limit D-092), i komunikat przy nieudanym zapisie ponad limit [M3 D3a, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}, krok: {krok}",
+      "powod": "etykieta VoiceOver segmentu przełącznika wypieków na Stolnicy (parametry {wypiek}, {krok}) [M3 D3a, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.",
+      "powod": "informacja nad planem po „Piecz ponownie” ze starego wpisu chałki albo bagietki (217, D-097) [M3 D3a]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ten wypiek jest już zakończony albo przerwany.",
+      "powod": "komunikat przy „Zapisz” oceny na drugiej instancji Stolnicy, gdy wypiek zakończono albo przerwano wcześniej (P1-1) [M3 D3a-fix]",
       "od": "2026-10-22"
     },
     {
@@ -249,6 +344,166 @@
     {
       "klucz": "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.",
       "powod": "preset drożdżowy (baguette_tradition_poolish, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{data}, dziś",
+      "powod": "etykieta VoiceOver dnia dzisiejszego na pasku tygodnia (parametr {data} = pełna data z Intl) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nic w planach",
+      "powod": "etykieta VoiceOver dnia bez zdarzeń na pasku tygodnia [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{h} {co}",
+      "powod": "pozycja zdarzenia w etykiecie VoiceOver dnia i w arkuszu dnia: godzina i opis (parametry {h}, {co}) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "i jeszcze {n}, szczegóły w arkuszu dnia",
+      "powod": "koniec etykiety VoiceOver dnia, gdy zdarzeń jest więcej niż 3 (parametr {n}) [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ten tydzień",
+      "powod": "etykieta VoiceOver paska tygodnia na pasie „Dziś” [M3 D4b, BR-KAL-001]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż cały tydzień",
+      "powod": "przycisk na pasie „Dziś” przy dużym tekście (AX5): lista wszystkich dni zamiast samego dziś [M3 D4b, BR-KAL-001, makieta roli 04 a2]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nic nie mamy w planach",
+      "powod": "adnotacja pustego kalendarza na pasie „Dziś” (tytuł) [M3 D4b, BR-KAL-005, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.",
+      "powod": "adnotacja pustego kalendarza na pasie „Dziś” (zdanie) [M3 D4b, BR-KAL-005, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.",
+      "powod": "podpis pustej spirali pod kaflami na „Dziś” (pierwsze uruchomienie) [M3 D4b, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tego dnia nic nie zaplanowano.",
+      "powod": "arkusz dnia bez zdarzeń [M3 D4b, BR-KAL-004]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Najbliższe dni",
+      "powod": "tytuł arkusza najbliższych zdarzeń otwieranego z „+N” linii „Następne” [M3 D4b, BR-KAL-004]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zapisano dokarmienie zakwasu {zakwas}.",
+      "powod": "pasek „Przywróć” po „Zrobione” przy zaległym karmieniu na „Dziś” (parametr {zakwas}) [M3 D4b, BR-KAL-003]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: {krok}",
+      "powod": "karta legendy spirali z dwoma torami na „Dziś”: receptura i bieżący krok (parametry {wypiek}, {krok}) [M3 D4b, D-105, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tor {n}, {receptura}: {krok}, {czas}",
+      "powod": "etykieta VoiceOver spirali z dwoma torami: numer toru, receptura, krok, czas do końca kroku [M3 D4b, D-105, lista roli 04]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tor {n}, {receptura}: {krok}",
+      "powod": "etykieta VoiceOver spirali z dwoma torami bez minutnika kroku [M3 D4b, D-105]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: {krok}, trwa",
+      "powod": "treść pytania „Trwa już inny wypiek” przy starcie kolejnego wypieku: nazwa i bieżący krok (parametry {wypiek}, {krok}; lista roli 04 a2) [M3 D4b, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}, krok: {krok}, do {godzina}",
+      "powod": "etykieta VoiceOver segmentu przełącznika wypieków na Stolnicy z końcem bieżącego kroku (parametry {wypiek}, {krok}, {godzina}) [M3 D4b, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości",
+      "powod": "kolejne karmienie budzące zakwas z lodówki w kalendarzu, z dopiskiem warunku (parametr {zakwas}) [M3 D5, BR-KAL-009, RD-33, D-052]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.",
+      "powod": "treść powiadomienia o kolejnym karmieniu budzącym (parametr {name}) [M3 D5, BR-KAL-009, RD-33]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj",
+      "powod": "przycisk w pasku planu wypieku obok „Zacznij wypiek”: zapis wypieku na później [M3 D5, BR-KAL-009, D-108]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Masz już 5 planów",
+      "powod": "tytuł pytania przy „Zaplanuj”, gdy jest już 5 zaplanowanych wypieków (limit D-092) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zacznij albo usuń jeden z nich, żeby dodać kolejny.",
+      "powod": "treść pytania przy limicie 5 planów [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pokaż plany",
+      "powod": "przycisk w pytaniu o limit planów: lista zaplanowanych wypieków na „Dziś” [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Kroki nachodzą na siebie",
+      "powod": "tytuł pytania o kolizję kroków czynnych nowego planu z innym wypiekiem [M3 D5, BR-KAL-009 Kolizja planów]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj mimo to",
+      "powod": "przycisk zapisu planu mimo kolizji kroków [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}",
+      "powod": "wiersz kolizji: krok nowego planu, godzina, drugi wypiek i jego krok (parametry {krok}, {godzina}, {wypiek}, {krokInny}) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Usuń plan",
+      "powod": "przycisk w arkuszu planu: usunięcie bez pytania z paskiem „Przywróć” (D-051 1a) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Usunięto plan wypieku",
+      "powod": "pasek „Przywróć” po usunięciu planu na „Dziś” (D-051 1a) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tego planu już nie ma.",
+      "powod": "komunikat przy starcie planu, którego wiersz już usunięto [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zobacz plan",
+      "powod": "przycisk pod spiralą zaplanowanego wypieku na „Dziś” (makieta roli 04 a2-03 „sobota-zaplanowany”) [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanowane wypieki",
+      "powod": "etykieta VoiceOver listy planów pod spiralą na „Dziś” [M3 D5, BR-KAL-009]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaplanuj wypiek na ten dzień",
+      "powod": "skrót w arkuszu dnia do wyboru receptury i planu z tym dniem „gotowe” (lista roli 04 a2) [M3 D5, BR-KAL-015, D-108]",
       "od": "2026-10-22"
     }
   ],

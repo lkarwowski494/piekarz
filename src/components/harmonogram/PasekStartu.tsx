@@ -15,13 +15,21 @@ export interface PasekStartuProps {
   onStart: () => void;
   /** Powód, dla którego start jest nieaktywny; brak = aktywny. */
   powodBlokady?: string | null;
+  /** Start w przyszłości: „Zaplanuj” obok „Zacznij wypiek” zapisuje niezaczęty wypiek (BR-KAL-009, D-108) [M3 D5]. */
+  onZaplanuj?: () => void;
 }
 
-export function PasekStartu({ onStart, powodBlokady = null }: PasekStartuProps) {
+export function PasekStartu({ onStart, powodBlokady = null, onZaplanuj }: PasekStartuProps) {
   const zablokowany = !!powodBlokady;
   return (
     <SafeAreaView edges={['bottom']} style={styles.tlo}>
       <View testID="plan-thumb-bar" style={styles.pasek}>
+        {/* „Zaplanuj” drugorzędny nad głównym startem (element nowy spoza makiety, do przeglądu roli 04) */}
+        {onZaplanuj && !zablokowany ? (
+          <Pressable accessibilityRole="button" testID="plan-zaplanuj-btn" style={styles.drugi} onPress={onZaplanuj}>
+            <Text style={styles.drugiTekst}>{t('Zaplanuj')}</Text>
+          </Pressable>
+        ) : null}
         <Pressable
           accessibilityRole="button"
           accessibilityState={{ disabled: zablokowany }}
@@ -57,4 +65,15 @@ const styles = StyleSheet.create({
   glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naAkcencie, textAlign: 'center' },
   tekstZablokowany: { color: theme.colors.zablokowane },
   powod: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2, textAlign: 'center' },
+  drugi: {
+    minHeight: theme.cele.pozostale,
+    borderRadius: promienie.przycisk,
+    borderWidth: 1.5,
+    borderColor: theme.colors.obwodka,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: odstepy.m,
+    paddingVertical: odstepy.xs,
+  },
+  drugiTekst: { fontSize: typografia.style.naglowek.pt, color: theme.colors.tusz, textAlign: 'center' },
 });

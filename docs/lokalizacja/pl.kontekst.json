@@ -10,6 +10,11 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "+{n}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (plus)"
+    ]
+  },
   "-10 sek": {
     "gdzie": []
   },
@@ -769,7 +774,9 @@
   },
   "Co dziś robisz?": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (title)"
+      "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
+      "app/(tabs)/(dzis)/index.tsx (title)",
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
     ]
   },
   "Co dziś zrobić": {
@@ -778,9 +785,7 @@
     ]
   },
   "Co jeszcze dziś robisz?": {
-    "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Co widzisz?": {
     "gdzie": [
@@ -815,7 +820,7 @@
   },
   "Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.": {
     "gdzie": [
-      "app/stolnica.tsx (tekst)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (tekst)"
     ]
   },
   "Coś mnie niepokoi": {
@@ -1178,11 +1183,16 @@
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
+  "Dokarmiony {zakwas}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Doktor": {
     "gdzie": [
       "app/(tabs)/zakwasy/_layout.tsx (tekst)",
       "app/_layout.tsx (tekst)",
-      "app/stolnica.tsx (tekst)"
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
@@ -1191,7 +1201,7 @@
       "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
       "app/_layout.tsx (etykieta)",
       "app/_layout.tsx (title)",
-      "app/stolnica.tsx (etykieta)",
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
@@ -1362,9 +1372,14 @@
       "app/(tabs)/(dzis)/index.tsx (title)",
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
+    ]
+  },
+  "Dziś ustalony dzień karmienia zakwasu „{name}”.": {
+    "gdzie": [
+      "src/lib/notifications.ts (body)"
     ]
   },
   "Długo stał w lodówce bez dokarmiania": {
@@ -1793,6 +1808,7 @@
   },
   "Gotowe {dzien} o {godzina}.": {
     "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
@@ -2090,6 +2106,11 @@
       "src/core/starter-log.ts (dane: day6_plus)"
     ]
   },
+  "Jeśli zakwas „{name}” nie podwoił objętości, dokarm go ponownie.": {
+    "gdzie": [
+      "src/lib/notifications.ts (body)"
+    ]
+  },
   "Jogurt w połączeniu z kwasem zakwasu zapewnia wyjątkową miękkość i elastyczność ciasta.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: proTipPl)"
@@ -2098,13 +2119,18 @@
   "Jutro": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
   "Język": {
     "gdzie": [
       "src/components/settings/PreferencesSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Kalendarz jest pusty. Zapełni się, gdy założysz zakwas albo zaplanujesz wypiek.": {
+    "gdzie": [
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
     ]
   },
   "Kalkulator": {
@@ -2171,7 +2197,7 @@
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
-      "app/(tabs)/receptury/harmonogram.tsx (recipeName)"
+      "src/hooks/useStartPlanu.ts (recipeName)"
     ]
   },
   "Klasyczny chleb z San Francisco o głębokiej kwasowości octowej, lśniącej skórce z pęcherzykami i elastycznym, otwartym miękiszu.": {
@@ -2363,6 +2389,11 @@
   "Krok „{step}” dobiegł końca.": {
     "gdzie": [
       "src/lib/notifications.ts (body)"
+    ]
+  },
+  "Kroki nachodzą na siebie": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Kroki naprawcze na kolejny wypiek": {
@@ -2579,6 +2610,11 @@
   "Masa zakwasu w przepisie": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Masz już 5 planów": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Masło (roztopione)": {
@@ -3304,6 +3340,11 @@
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
     ]
   },
+  "Najbliższe dni": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (kod)"
+    ]
+  },
   "Najpierw dodaj zakwas w zakładce Zakwas.": {
     "gdzie": [
       "src/lib/print-menu.ts (Alert.alert)"
@@ -3355,6 +3396,11 @@
   "Następne pytanie": {
     "gdzie": []
   },
+  "Następne: {lista}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
@@ -3377,10 +3423,20 @@
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
     ]
   },
+  "Nic nie mamy w planach": {
+    "gdzie": [
+      "src/components/start/PasDzis.tsx (tekst w JSX)"
+    ]
+  },
   "Nic się nie dzieje": {
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: no_activity)",
       "src/lib/zakwas-widok.ts (dane: no_activity)"
+    ]
+  },
+  "Nic w planach": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
@@ -3634,16 +3690,6 @@
   "Nowicjusz Piekarski": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: rankTitlePl)"
-    ]
-  },
-  "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.": {
-    "gdzie": [
-      "src/lib/confirm.ts (kod)"
-    ]
-  },
-  "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.": {
-    "gdzie": [
-      "src/lib/confirm.ts (kod)"
     ]
   },
   "Nowy zakwas": {
@@ -4190,9 +4236,9 @@
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
-      "app/stolnica.tsx (etykieta)",
-      "app/stolnica.tsx (tekst)",
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
+      "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -4352,8 +4398,23 @@
   "Pojutrze": {
     "gdzie": [
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
-      "src/components/harmonogram/TargetReadyCard.tsx (label)",
+      "src/components/harmonogram/TargetReadyCard.tsx (kod)",
       "src/lib/schedule-formatter.ts (kod)"
+    ]
+  },
+  "Pokaż cały tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/PasekTygodnia.tsx (tekst w JSX)"
+    ]
+  },
+  "Pokaż jeszcze {n} w arkuszu dnia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (etykietaPlus)"
+    ]
+  },
+  "Pokaż plany": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
     ]
   },
   "Pokaż wszystkie": {
@@ -4395,6 +4456,16 @@
   "Pominięcie bench restu — gluten jest zbyt napięty i rwie się przy ostatecznym formowaniu.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: commonMistakesPl)"
+    ]
+  },
+  "Pomiń": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (pomin)"
+    ]
+  },
+  "Pomiń {co} z {h}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (pomin)"
     ]
   },
   "Pomyślnie odliczono": {
@@ -4616,6 +4687,17 @@
       "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
     ]
   },
+  "Prowadzisz już 2 wypieki": {
+    "gdzie": [
+      "src/hooks/useBakeSession.ts (kod)",
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
+  "Prowadź oba": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
   "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -4717,11 +4799,6 @@
     ]
   },
   "Przerwij": {
-    "gdzie": [
-      "src/lib/confirm.ts (text)"
-    ]
-  },
-  "Przerwij tamten i zacznij nowy": {
     "gdzie": [
       "src/lib/confirm.ts (text)"
     ]
@@ -4983,6 +5060,11 @@
   },
   "Receptura awaryjna:": {
     "gdzie": []
+  },
+  "Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.": {
+    "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
+    ]
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [
@@ -5488,6 +5570,7 @@
   "Start {dzien} o {godzina}": {
     "gdzie": [
       "src/components/harmonogram/ScheduleSummaryCard.tsx (tekst w JSX)",
+      "src/components/start/PlanyWypiekow.tsx (kod)",
       "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
@@ -5820,6 +5903,16 @@
       "src/components/academy/AcademyHeader.tsx (tekst w JSX)"
     ]
   },
+  "Tego dnia nic nie zaplanowano.": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
+    ]
+  },
+  "Tego planu już nie ma.": {
+    "gdzie": [
+      "src/hooks/usePlanyDzis.ts (Alert.alert)"
+    ]
+  },
   "Tego pliku nie rozpoznaję. Piekarz importuje plik receptury i plik kopii zapasowej z Piekarza.": {
     "gdzie": [
       "src/components/settings/ImportZPlikuArkusz.tsx (tekst w JSX)"
@@ -5891,6 +5984,17 @@
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
     ]
   },
+  "Ten tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/PasekTygodnia.tsx (accessibilityLabel)"
+    ]
+  },
+  "Ten wypiek jest już zakończony albo przerwany.": {
+    "gdzie": [
+      "src/hooks/useAkcjeDzis.ts (Alert.alert)",
+      "src/hooks/useFinishBake.ts (Alert.alert)"
+    ]
+  },
   "Teraz: {nazwa}": {
     "gdzie": [
       "src/components/stolnica/StrefaKroku.tsx (kod)"
@@ -5905,6 +6009,16 @@
   "Test palca": {
     "gdzie": [
       "src/components/doktor/KitchenTestsGuideSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Tor {n}, {receptura}: {krok}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
+    ]
+  },
+  "Tor {n}, {receptura}: {krok}, {czas}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "Tradycyjna włoska ciabatta na sztywnym zaczynie Biga (50%). Spektakularny piecowy skok i wielkie perłowe dziury.": {
@@ -5944,9 +6058,7 @@
     ]
   },
   "Trwa wypiek": {
-    "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
-    ]
+    "gdzie": []
   },
   "Trzymaj żyletkę pod kątem ostrym ok. 30° względem powierzchni chleba (nie pionowo pod kątem 90°!).": {
     "gdzie": [
@@ -5956,6 +6068,11 @@
   "Trzymam 10 ostatnich kopii na tym telefonie.": {
     "gdzie": [
       "src/components/settings/BackupAndDataSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Tu pojawi się plan wypieku i tydzień z karmieniami, gdy coś zaczniesz.": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },
   "Tu zapiszą się twoje wypieki": {
@@ -6170,8 +6287,13 @@
   },
   "Ustawienia": {
     "gdzie": [
-      "app/(tabs)/(dzis)/index.tsx (etykieta)",
-      "src/components/SettingsModal.tsx (tekst w JSX)"
+      "src/components/SettingsModal.tsx (tekst w JSX)",
+      "src/components/start/PasDzis.tsx (etykieta)"
+    ]
+  },
+  "Usunięto plan wypieku": {
+    "gdzie": [
+      "src/hooks/usePlanyDzis.ts (tekst)"
     ]
   },
   "Usunięto recepturę": {
@@ -6217,6 +6339,12 @@
     "gdzie": [
       "src/components/FlourBlendModal.tsx (accessibilityLabel)",
       "src/components/FlourInventoryModal.tsx (accessibilityLabel)"
+    ]
+  },
+  "Usuń plan": {
+    "gdzie": [
+      "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
     ]
   },
   "Usuń recepturę": {
@@ -6832,16 +6960,17 @@
       "src/lib/confirm.ts (text)"
     ]
   },
-  "Wróć do trwającego": {
-    "gdzie": [
-      "src/lib/confirm.ts (text)"
-    ]
-  },
   "Wróć do wypieku": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
-      "src/components/start/TrwajacyWypiek.tsx (accessibilityLabel)",
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)",
+      "src/components/start/WypiekiNaSpirali.tsx (accessibilityLabel)",
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)",
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Wróć do: {nazwa}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (kod)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -7159,7 +7288,7 @@
   },
   "Wypiek bez receptury": {
     "gdzie": [
-      "app/stolnica.tsx (kod)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (kod)"
     ]
   },
   "Wypiek gotowy na: {time}": {
@@ -7195,7 +7324,7 @@
   },
   "Wypiek w garnku zakończony. Wyjmij chleb na kratkę.": {
     "gdzie": [
-      "app/stolnica.tsx (kod)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (kod)"
     ]
   },
   "Wypiek w garnku żeliwnym (Dutch Oven)": {
@@ -7211,6 +7340,11 @@
   "Wypiek z parą i rumienienie": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+    ]
+  },
+  "Wypiek: {wypiek}.": {
+    "gdzie": [
+      "src/lib/notifications.ts (kod)"
     ]
   },
   "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.": {
@@ -7397,6 +7531,11 @@
       "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
+  "Zacznij albo usuń jeden z nich, żeby dodać kolejny.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Zacznij od nowa": {
     "gdzie": [
       "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)",
@@ -7411,7 +7550,9 @@
   },
   "Zacznij wypiek": {
     "gdzie": [
-      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
+      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)",
+      "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
     ]
   },
   "Zaczyn": {
@@ -7593,6 +7734,16 @@
       "src/components/zakwas/ZakladanieStart.tsx (tekst w JSX)"
     ]
   },
+  "Zakładanie zakwasu: dzień {n} zapisany": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "Zakładanie zakwasu: dzień {n}, do zrobienia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Zalecana metoda odmierzania szklanką, gdy brak wagi: napowietrz mąkę widelcem i wsypuj łyżką do naczynia bez ubijania.": {
     "gdzie": [
       "src/core/volume-converter.ts (dane: warningPl)"
@@ -7601,6 +7752,11 @@
   "Zalecenie studzenia na kratce": {
     "gdzie": [
       "src/lib/recipe-formatter.ts (kod)"
+    ]
+  },
+  "Zaległe: {co} ({h})": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "Zaliczona": {
@@ -7672,6 +7828,11 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "Zapisano dokarmienie zakwasu {zakwas}.": {
+    "gdzie": [
+      "src/hooks/useAkcjeDzis.ts (tekst)"
+    ]
+  },
   "Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.": {
     "gdzie": [
       "src/components/CorruptStateRecoveryBanner.tsx (tekst w JSX)"
@@ -7721,6 +7882,27 @@
   "Zapisz w spiżarni": {
     "gdzie": [
       "src/components/FlourInventoryModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Zaplanowane wypieki": {
+    "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (accessibilityLabel)"
+    ]
+  },
+  "Zaplanuj": {
+    "gdzie": [
+      "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)"
+    ]
+  },
+  "Zaplanuj mimo to": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Zaplanuj wypiek na ten dzień": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (accessibilityLabel)",
+      "src/components/kalendarz/ArkuszDnia.tsx (tekst w JSX)"
     ]
   },
   "Zapomniana sól": {
@@ -8020,6 +8202,12 @@
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
     ]
   },
+  "Zobacz plan": {
+    "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (accessibilityLabel)",
+      "src/components/start/PlanyWypiekow.tsx (tekst w JSX)"
+    ]
+  },
   "Zobacz plany": {
     "gdzie": [
       "app/(tabs)/(dzis)/index.tsx (accessibilityLabel)",
@@ -8052,7 +8240,8 @@
   },
   "Zrobione": {
     "gdzie": [
-      "src/components/stolnica/PasekKciuka.tsx (tekst w JSX)"
+      "src/components/stolnica/PasekKciuka.tsx (tekst w JSX)",
+      "src/lib/kalendarz-teksty.ts (zrobione)"
     ]
   },
   "Zrobione: {krok}": {
@@ -8192,6 +8381,7 @@
   },
   "do {godzina}": {
     "gdzie": [
+      "src/components/stolnica/PrzelacznikWypiekow.tsx (tekst w JSX)",
       "src/lib/prowadzenie-teksty.ts (kod)"
     ]
   },
@@ -8239,10 +8429,25 @@
       "src/components/academy/BreadSchoolSection.tsx (tekst w JSX)"
     ]
   },
+  "i jeszcze {n}, szczegóły w arkuszu dnia": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "jutro": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (kod)",
       "src/lib/spirala-etykieta.ts (kod)"
+    ]
+  },
+  "karmienie zakwasu {zakwas}": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "karmienie zakwasu {zakwas}, jeśli zakwas nie podwoił objętości": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "kwi": {
@@ -8489,7 +8694,7 @@
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
       "src/components/BlokadaFunkcji.tsx (tekst w JSX)",
-      "src/components/start/WyborCzynnosci.tsx (kod)",
+      "src/components/start/WyborCzynnosci.tsx (accessibilityHint)",
       "src/components/start/WyborCzynnosci.tsx (tekst w JSX)"
     ]
   },
@@ -8515,12 +8720,12 @@
   },
   "zostało {czas}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "zostało {czas}, do {godzina}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/WypiekiNaSpirali.tsx (kod)"
     ]
   },
   "zrobione": {
@@ -8553,6 +8758,16 @@
       "src/components/oferta/stan-oferty.ts (kod)"
     ]
   },
+  "{co} z {h}: zrobione": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (zrobione)"
+    ]
+  },
+  "{co}, opcjonalne": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "{czas} od dokarmienia": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
@@ -8563,6 +8778,11 @@
     "gdzie": [
       "src/lib/prowadzenie-teksty.ts (etykieta)",
       "src/lib/prowadzenie-teksty.ts (tekst)"
+    ]
+  },
+  "{data}, dziś": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
   "{dzien} {godzina}: {opis}": {
@@ -8583,6 +8803,12 @@
       "src/components/StarterConverterModal.tsx (tekst w JSX)"
     ]
   },
+  "{h} {co}": {
+    "gdzie": [
+      "src/components/kalendarz/ArkuszDnia.tsx (kod)",
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "{h}h": {
     "gdzie": []
   },
@@ -8597,6 +8823,17 @@
   "{h} h {m} min": {
     "gdzie": [
       "src/lib/czas-trwania.ts (kod)"
+    ]
+  },
+  "{kiedy} {h} {co}": {
+    "gdzie": [
+      "src/components/start/PlanyWypiekow.tsx (kod)",
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{krok} o {godzina}: w tym czasie {wypiek}: {krokInny}": {
+    "gdzie": [
+      "src/hooks/useStartPlanu.ts (kod)"
     ]
   },
   "{krok} wypada o {godzina} w nocy": {
@@ -8624,7 +8861,8 @@
   },
   "{nazwa}: gotowe {dzien} o {godzina}": {
     "gdzie": [
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)"
+      "src/components/start/PlanyWypiekow.tsx (kod)",
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
     ]
   },
   "{nazwa}: {n} z 5": {
@@ -8853,6 +9091,37 @@
   "{rodzaj}, poziom {trudnosc}": {
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
+    ]
+  },
+  "{wypiek}, krok: {krok}": {
+    "gdzie": [
+      "src/components/stolnica/PrzelacznikWypiekow.tsx (accessibilityLabel)",
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}, krok: {krok}, do {godzina}": {
+    "gdzie": [
+      "src/components/stolnica/PrzelacznikWypiekow.tsx (accessibilityLabel)"
+    ]
+  },
+  "{wypiek}: gotowe": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}: ocena {ocena} z 5": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "{wypiek}: {krok}": {
+    "gdzie": [
+      "src/components/start/WypiekiNaSpirali.tsx (tekst w JSX)"
+    ]
+  },
+  "{wypiek}: {krok}, trwa": {
+    "gdzie": [
+      "src/lib/confirm.ts (kod)"
     ]
   },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {
