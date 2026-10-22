@@ -8,7 +8,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { AccessibilityInfo, Animated, Easing, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
-import Svg, { Circle, Line, Path } from 'react-native-svg';
+import Svg, { Circle, G, Line, Path, Text as SvgText } from 'react-native-svg';
 import type { SessionStep } from '../core/bake-steps';
 import { t } from '../lib/i18n';
 import {
@@ -19,6 +19,7 @@ import {
   SPIRALA_PUSTA,
   SPIRALA_ZWOJE,
   ukladSpirali,
+  ukladyTorow,
   type KrokSpirali,
   type WariantSpirali,
 } from '../lib/spirala-geometria';
@@ -68,9 +69,63 @@ export interface SpiralaProps {
   /** Etykieta VoiceOver z danych planu (src/lib/spirala-etykieta.ts); wariant pusty jej nie ma. */
   etykieta?: string;
   rozmiar?: number;
+  /** Drugi trwający wypiek jako drugi tor tej samej spirali (D-105, BR-KAL-016); bez niego jeden plan. */
+  drugi?: TorSpirali;
 }
 
-export function Spirala({ kroki, wariant, biezacy = null, postepKroku = 0, etykieta, rozmiar }: SpiralaProps) {
+/** Plan jednego toru: kroki, bieżący krok i postęp kroku. */
+export interface TorSpirali {
+  kroki: readonly KrokSpirali[];
+  biezacy: number | null;
+  postepKroku: number;
+}
+
+export function Spirala(props: SpiralaProps) {
+  return props.drugi ? <SpiralaDwochTorow {...props} drugi={props.drugi} /> : <SpiralaJednegoPlanu {...props} />;
+}
+
+/**
+ * Dwa wypieki na jednym obrazku (makieta roli 04 `dwa-tory-v2`): tor 1 linią, tor 2 kropkami (kształt, nie tylko
+ * kolor), noc w lodówce w kolorze nocy, znaczniki „teraz” z numerem toru; bez ruchu przejścia (zmiana natychmiastowa).
+ */
+function SpiralaDwochTorow({ kroki, drugi, biezacy = null, postepKroku = 0, etykieta, rozmiar }: SpiralaProps & { drugi: TorSpirali }) {
+  const { kolory } = useMotyw();
+  const bok = useRozmiar('pelna', rozmiar);
+  const [u1, u2] = useMemo(() => ukladyTorow(kroki, drugi.kroki), [kroki, drugi.kroki]);
+  const tory = [
+    rysunekSpirali(u1, kroki, { wariant: 'pelna', biezacy, postepKroku, tor: 1 }),
+    rysunekSpirali(u2, drugi.kroki, { wariant: 'pelna', biezacy: drugi.biezacy, postepKroku: drugi.postepKroku, tor: 2 }),
+  ];
+  const dostepnosc = etykieta
+    ? { accessible: true, accessibilityRole: 'image' as const, accessibilityLabel: etykieta }
+    : { accessible: false, importantForAccessibility: 'no-hide-descendants' as const, accessibilityElementsHidden: true };
+  return (
+    <View testID="brand-spiral" style={{ width: bok, height: bok }} {...dostepnosc}>
+      <Svg width={bok} height={bok} viewBox={tory[0].viewBox}>
+        {tory.map((r, ti) => (
+          <G key={ti}>
+            {r.odcinki.map((o) => (
+              <Path key={o.indeks} testID={`brand-spiral-tor-${ti + 1}-odcinek-${o.indeks}`} d={o.d} fill="none" stroke={kolory[o.kolor]}
+                strokeWidth={o.grubosc} strokeLinecap="round" strokeDasharray={o.kreski ?? undefined} />
+            ))}
+            {r.postep && <Path d={r.postep.d} fill="none" stroke={kolory.tusz} strokeWidth={r.postep.grubosc} strokeLinecap="round" strokeDasharray={ti === 1 ? r.odcinki[0]?.kreski ?? undefined : undefined} />}
+            <Circle cx={r.koniec.x} cy={r.koniec.y} r={r.koniec.r} fill={kolory.tusz} />
+          </G>
+        ))}
+        {tory.map((r, ti) =>
+          r.teraz ? (
+            <G key={`teraz-${ti}`}>
+              <Circle testID={`brand-spiral-teraz-${ti + 1}`} cx={r.teraz.x} cy={r.teraz.y} r={r.teraz.r} fill={kolory.tlo} stroke={kolory.tusz} strokeWidth={r.teraz.obwodka} />
+              <SvgText testID={`brand-spiral-numer-${ti + 1}`} x={r.teraz.x} y={r.teraz.y + 4} fontSize={11} fontWeight="700" fill={kolory.tusz} textAnchor="middle">{String(ti + 1)}</SvgText>
+            </G>
+          ) : null
+        )}
+      </Svg>
+    </View>
+  );
+}
+
+function SpiralaJednegoPlanu({ kroki, wariant, biezacy = null, postepKroku = 0, etykieta, rozmiar }: SpiralaProps) {
   const { kolory } = useMotyw();
   const ograniczRuch = useOgraniczRuch();
   const bok = useRozmiar(wariant, rozmiar);
