@@ -86,13 +86,13 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     await odswiezDostep(); // sklep: brak uprawnienia
     await resyncNotifications();
     expect(ids().filter((i) => i.includes('karmienie'))).toEqual([]);
-    expect(ids()).toContain('piekarz.krok');
+    expect(ids()).toContain('piekarz.wypiek.sesja-1014.krok');
 
     mockIap.entitlements = [zakup()];
     await odswiezDostep();
     await resyncNotifications();
     expect(ids()).toContain('piekarz.karmienie.z1.1');
-    expect(ids()).toContain('piekarz.krok');
+    expect(ids()).toContain('piekarz.wypiek.sesja-1014.krok');
   });
 
   it('zmiana dostępu (koniec próby, zakup) uzgadnia listę oczekujących bez innej akcji użytkownika', async () => {
@@ -107,7 +107,7 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     await odswiezDostep();
     await flush();
     expect(ids().filter((i) => i.includes('karmienie'))).toEqual([]);
-    expect(ids()).toContain('piekarz.krok');
+    expect(ids()).toContain('piekarz.wypiek.sesja-1014.krok');
     off();
   });
 

@@ -11,7 +11,8 @@ import {
   PlannedNotification,
   PendingNotification,
 } from '../core/notification-plan';
-import { loadBakeSession } from '../data/bake-session-store';
+import { idSesji } from '../data/bake-session-store';
+import { loadActiveBakeSessions, loadPlannedBakes } from '../data/bake-sessions-store';
 import { collectBackupData } from '../data/sqlite-store';
 import { t, lang } from './i18n';
 import { formatTime } from './format';
@@ -49,8 +50,19 @@ export async function getNotificationPermission(): Promise<NotificationPermissio
   return s.canAskAgain ? 'undetermined' : 'denied';
 }
 
-/** Tytuł i treść powiadomienia w bieżącym języku (teksty do akceptacji, zasada 15). */
+/**
+ * Tytuł i treść powiadomienia w bieżącym języku (teksty do akceptacji, zasada 15). Gdy powiadomienie niesie nazwę
+ * wypieku (trwają dwa albo to start zaplanowanego), treść kończy się zdaniem „Wypiek: …” (BR-KAL-016 Który krok czyj).
+ */
 export function notificationText(p: PlannedNotification): { title: string; body: string } {
+  const tekst = tekstPowiadomienia(p);
+  const wypiek = p.params.recipeName;
+  if (!wypiek) return tekst;
+  const zdanie = t('Wypiek: {wypiek}.', { wypiek });
+  return { title: tekst.title, body: tekst.body ? `${tekst.body} ${zdanie}` : zdanie };
+}
+
+function tekstPowiadomienia(p: PlannedNotification): { title: string; body: string } {
   const name = p.params.starterName ?? '';
   switch (p.textKey) {
     case 'krok.start': {
@@ -69,6 +81,8 @@ export function notificationText(p: PlannedNotification): { title: string; body:
       return { title: t('Pora dokarmić zakwas'), body: t('Zakwas „{name}” stoi na blacie od 12 godzin bez dokarmienia.', { name }) };
     case 'karmienie.lodowkaTermin':
       return { title: t('Nakarm zakwas dziś'), body: t('Zakwas „{name}” czeka na karmienie od 7 dni.', { name }) };
+    case 'karmienie.lodowkaDzien':
+      return { title: t('Nakarm zakwas dziś'), body: t('Dziś ustalony dzień karmienia zakwasu „{name}”.', { name }) };
     default: {
       // Następny krok i jego godzina: „{krok}: czas zacząć” (design-spec §10, BR-CZAS-002) [M1-audytor-generalny-130];
       // ostatni krok — nazwa kroku z sesji (plan), nie ze stałej listy [M1-audytor-generalny-030]
@@ -92,7 +106,10 @@ function fingerprintOf(data: unknown): string | null {
   return typeof fp === 'string' ? fp : null;
 }
 
-/** Uzgadnia oczekujące powiadomienia z bazą (sesja wypieku, zakwasy). Błąd biblioteki nie wychodzi do ekranu. */
+/**
+ * Uzgadnia oczekujące powiadomienia z bazą (trwające i zaplanowane wypieki, zakwasy). Błąd biblioteki nie wychodzi
+ * do ekranu. Powiadomienia kroków sprzed D2 (`piekarz.krok*`, bez id wypieku) nie są w planie, więc diff je kasuje.
+ */
 export function resyncNotifications(): Promise<{ status: NotificationPermission; ok: boolean }> {
   return serial(async () => {
     let status: NotificationPermission = 'undetermined';
@@ -105,7 +122,11 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
       // Przełącznik „Przypomnienia o karmieniu” w Ustawieniach (DEC-22 a) [M1-audytor-generalny-179]
       const starters = async () =>
         przypomnieniaZDostepem(pobierzStan()) && (await czyPrzypomnieniaKarmienia()) ? (await collectBackupData()).starters : [];
-      const desired = status === 'granted' ? planNotifications({ session: await loadBakeSession(), starters: await starters() }, Date.now()) : [];
+      const wypieki = async () => ({
+        sessions: (await loadActiveBakeSessions()).map((s) => ({ ...s, id: idSesji(s) })),
+        planned: await loadPlannedBakes(),
+      });
+      const desired = status === 'granted' ? planNotifications({ ...(await wypieki()), starters: await starters() }, Date.now()) : [];
       const jezyk = lang();
       const { cancel, schedule } = diffNotifications(pending, desired, jezyk);
       for (const id of cancel) await Notifications.cancelScheduledNotificationAsync(id);

@@ -22,6 +22,16 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "Wypiek: {wypiek}.",
+      "powod": "zdanie z nazwą wypieku na końcu powiadomienia kroku, gdy trwają dwa wypieki, i startu zaplanowanego (parametr {wypiek}) [M3 D2, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Dziś ustalony dzień karmienia zakwasu „{name}”.",
+      "powod": "treść powiadomienia stałego dnia karmienia zakwasu w lodówce (parametr {name}) [M3 D2, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Wróć do trwającego",
       "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
       "od": "2026-10-22"

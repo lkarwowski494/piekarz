@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 566 | 566 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 482 | 482 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 184 | 184 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 486 | 486 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 183 | 183 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1289** | Pokrytych: **1289** | Brakujących: **0**
+Łącznie elementów: **1292** | Pokrytych: **1292** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -29,7 +29,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `EKRAN` | `/doktor` | `app/doktor.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/instrukcja-ustawien.test.ts |
 | `EKRAN` | `/stolnica` | `app/stolnica.tsx` | ✅ | tests/duzy-tekst-kroj.test.ts, tests/interaction-guards.test.ts |
 | `TEKST` | `Co dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, src/__tests__/start-co-dzis.test.tsx |
-| `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/helpers/plan-godzina.ts |
+| `TEKST` | `Dziś` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/check-i18n-gate.test.ts, tests/czeka-na-przeklad-093.test.ts |
 | `TEKST` | `Ustawienia` | `app/(tabs)/(dzis)/index.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Co jeszcze dziś robisz?` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/br-scenariusze-193-start-zakwas.test.tsx, src/__tests__/start-co-dzis.test.tsx |
 | `TEKST` | `Okres próbny się skończył` | `app/(tabs)/(dzis)/index.tsx` | ✅ | src/__tests__/przypomnienia-bez-uprawnienia-143.test.tsx, src/__tests__/start-co-dzis.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 
-*(... i 989 kolejnych elementów w pełnym wykazie)*
+*(... i 992 kolejnych elementów w pełnym wykazie)*

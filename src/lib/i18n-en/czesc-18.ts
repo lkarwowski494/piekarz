@@ -168,4 +168,7 @@ export const EN_18: Record<string, string> = {
   'Przerwij tamten i zacznij nowy': 'Stop that one and start a new one',
   'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.':
     'The clocks change that day and the time you picked does not exist. The bread will be ready at {godzina}.',
+  // Powiadomienia wielu wypieków i stałego dnia karmienia [M3 D2, BR-KAL-016, BR-KAL-010]
+  'Wypiek: {wypiek}.': 'Bake: {wypiek}.',
+  'Dziś ustalony dzień karmienia zakwasu „{name}”.': 'Today is the set feeding day for the starter “{name}”.',
 };

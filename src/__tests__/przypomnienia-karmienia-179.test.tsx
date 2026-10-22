@@ -115,7 +115,7 @@ describe.each(PORY)('Przypomnienia o karmieniu, zegar %s (179; BR-ZAKW-004 Zakwa
     await saveBakeSession({ version: 2, steps, stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: teraz + H, pausedLeftSec: 600, recipeName: 'Chleb', startedAt: teraz, bake: null });
     await resyncNotifications();
     expect(karmienie()).toHaveLength(2);
-    expect(ids()).toContain('piekarz.krok');
+    expect(ids()).toContain('piekarz.wypiek.sesja-1014.krok');
 
     const tree = await mount(<SettingsModal visible onClose={() => undefined} />);
     // Element natywny z rolą switch (to, co czyta VoiceOver), nie komponent SwitchRow
@@ -129,7 +129,7 @@ describe.each(PORY)('Przypomnienia o karmieniu, zegar %s (179; BR-ZAKW-004 Zakwa
     await settle();
     expect(przelacznik().props.accessibilityState).toEqual(expect.objectContaining({ checked: false }));
     expect(karmienie()).toEqual([]);
-    expect(ids()).toContain('piekarz.krok');
+    expect(ids()).toContain('piekarz.wypiek.sesja-1014.krok');
     expect(await czyPrzypomnieniaKarmienia()).toBe(false);
 
     // Następne uruchomienie pamięta wybór

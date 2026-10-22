@@ -87,8 +87,8 @@ describe('102: Zrobione wcześniej, Cofnij poprzedni i Przywróć z powiadomieni
 
     // Plan od startu: krok 1 (6 h) i kolejne kroki na planowany koniec
     const przed = terminy();
-    expect(przed['piekarz.krok']).toBe(T0 + 360 * MIN);
-    expect(przed['piekarz.krok.2']).toBe(plan[2].plannedEnd);
+    expect(przed['piekarz.wypiek.bake_102.krok']).toBe(T0 + 360 * MIN);
+    expect(przed['piekarz.wypiek.bake_102.krok.2']).toBe(plan[2].plannedEnd);
     expect(przycisk(root, 'step-undo-btn').props.accessibilityState).toEqual({ disabled: true });
 
     // „Zrobione” 30 min przed terminem kroku 1
@@ -96,9 +96,9 @@ describe('102: Zrobione wcześniej, Cofnij poprzedni i Przywróć z powiadomieni
     await press(root, 'next-or-finish-step-btn');
     expect(textOf(tree.toJSON())).toContain('Krok 2 z 11');
     const wczesniej = terminy();
-    expect(wczesniej['piekarz.krok']).toBe(now + 45 * MIN);
-    expect(wczesniej['piekarz.krok.2']).toBe((plan[2].plannedEnd ?? 0) - 30 * MIN);
-    expect(wczesniej['piekarz.krok.10']).toBe((plan[10].plannedEnd ?? 0) - 30 * MIN);
+    expect(wczesniej['piekarz.wypiek.bake_102.krok']).toBe(now + 45 * MIN);
+    expect(wczesniej['piekarz.wypiek.bake_102.krok.2']).toBe((plan[2].plannedEnd ?? 0) - 30 * MIN);
+    expect(wczesniej['piekarz.wypiek.bake_102.krok.10']).toBe((plan[10].plannedEnd ?? 0) - 30 * MIN);
 
     // „Cofnij poprzedni”: wraca krok 1, plan i powiadomienia z poprzednimi godzinami; pasek „Cofnięto …” z „Przywróć”
     now += MIN;
@@ -142,7 +142,7 @@ describe('102: Zrobione wcześniej, Cofnij poprzedni i Przywróć z powiadomieni
     await settle();
     now = T0 + 380 * MIN; // 20 min po terminie kroku 1
     await press(tree.root, 'next-or-finish-step-btn');
-    expect(terminy()['piekarz.krok.2']).toBe((plan[2].plannedEnd ?? 0) + 20 * MIN);
+    expect(terminy()['piekarz.wypiek.bake_102b.krok.2']).toBe((plan[2].plannedEnd ?? 0) + 20 * MIN);
     act(() => tree.unmount());
   });
 });

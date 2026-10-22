@@ -74,7 +74,7 @@ describe('D-8: skok do kroku przelicza plan', () => {
     expect(k[3].plannedStart!).toBeLessThanOrEqual(Date.now());
     for (let i = 4; i < k.length; i++) expect(k[i].plannedStart).toBe(k[i - 1].plannedEnd);
     expect(Math.abs((sesja.timerEndsAt ?? 0) - (k[3].plannedEnd ?? 0))).toBeLessThan(5_000);
-    const pow = planBakeStepNotifications(sesja, Date.now()).find((p) => p.id.endsWith('krok.4'));
+    const pow = planBakeStepNotifications({ ...sesja, id: 'bake_d8' }, Date.now()).find((p) => p.id.endsWith('krok.4'));
     expect(pow?.triggerAt).toBe(k[4].plannedEnd);
   });
 

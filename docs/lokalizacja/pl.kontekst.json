@@ -1367,6 +1367,11 @@
       "src/lib/zakwas-widok.ts (kod)"
     ]
   },
+  "Dziś ustalony dzień karmienia zakwasu „{name}”.": {
+    "gdzie": [
+      "src/lib/notifications.ts (body)"
+    ]
+  },
   "Długo stał w lodówce bez dokarmiania": {
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: long_unfed)"
@@ -7211,6 +7216,11 @@
   "Wypiek z parą i rumienienie": {
     "gdzie": [
       "src/scheduler/reverse-scheduler.ts (dane: namePl)"
+    ]
+  },
+  "Wypiek: {wypiek}.": {
+    "gdzie": [
+      "src/lib/notifications.ts (kod)"
     ]
   },
   "Wyrabiaj ciasto przez 10–12 minut, aż będzie jedwabiście gładkie i nieklejące.": {

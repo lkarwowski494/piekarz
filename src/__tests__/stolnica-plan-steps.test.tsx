@@ -459,9 +459,9 @@ describe('Stolnica z receptury i planu (030)', () => {
       id, name, category, durationMin: 45, isPassive: false, instructions: '', plannedStart: null, plannedEnd: null,
     });
     const steps = [step('bulk_ferment', 'Fermentacja burzliwa ze składaniami', 'bulk_ferment'), step('bake', 'Wypiek z parą i rumienienie', 'bake')];
-    const p = planBakeNotification({ stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
+    const p = planBakeNotification({ id: 'bake_x', recipeName: 'Chleb', stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
     expect(p ? notificationText(p).body : '').toBe('Krok „Fermentacja burzliwa ze składaniami” dobiegł końca.');
-    const bake = planBakeNotification({ stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
+    const bake = planBakeNotification({ id: 'bake_x', recipeName: 'Chleb', stepIdx: 1, dutchOvenPhase: 'lid_on', timerEndsAt: now + 1000, steps }, now);
     expect(bake).toEqual(expect.objectContaining({ level: 'timeSensitive', textKey: 'krok.zdejmijPokrywke' }));
   });
 });
