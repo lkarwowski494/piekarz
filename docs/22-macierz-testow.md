@@ -10,10 +10,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
 | **TEKST** | 563 | 563 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 437 | 437 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 440 | 440 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 175 | 175 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1232** | Pokrytych: **1232** | Brakujących: **0**
+Łącznie elementów: **1235** | Pokrytych: **1235** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 932 kolejnych elementów w pełnym wykazie)*
+*(... i 935 kolejnych elementów w pełnym wykazie)*
