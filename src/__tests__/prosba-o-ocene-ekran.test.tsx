@@ -85,6 +85,7 @@ async function finishBake(stars: number | null): Promise<void> {
   act(() => tree!.unmount());
 }
 
+let nrWypieku = 0;
 describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
   beforeAll(() => {
     useTempDbDir();
@@ -93,7 +94,8 @@ describe('Stolnica: prośba o ocenę po zapisanym wypieku', () => {
     zUprawnieniem();
     prosba.mockClear();
     await store.initDatabase();
-    store.setActiveBake({ id: 'bake_live', recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
+    // Każdy test to osobny wypiek (osobne id): id wpisu = id wypieku [M3 P1-1, D3a-fix]
+    store.setActiveBake({ id: `bake_live_${++nrWypieku}`, recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
     jest.spyOn(Alert, 'alert').mockImplementation(() => {});
   });
   afterEach(() => {

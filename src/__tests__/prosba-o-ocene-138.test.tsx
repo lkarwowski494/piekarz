@@ -46,9 +46,12 @@ const pressables = (root: renderer.ReactTestInstance, label: string) =>
   root.findAll((n) => typeof n.props?.onPress === 'function' && textOf(n.props.children).includes(label));
 const review = StoreReview as jest.Mocked<typeof StoreReview>;
 
+let nrWypieku = 0;
 /** Kończy trwający wypiek na ekranie i zapisuje go z oceną `stars`; czeka na zamknięcie okna zapisu. */
 async function zakonczWypiek(stars: number): Promise<void> {
-  store.setActiveBake({ id: `bake_live_${stars}`, recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
+  // Każdy koniec to osobny wypiek (osobne id): id wpisu = id wypieku, a wypiek z wpisem nie wraca jako trwający
+  // [M3 P1-1, D3a-fix]
+  store.setActiveBake({ id: `bake_live_${stars}_${++nrWypieku}`, recipeName: 'Chleb', startedAt: 1, currentStageId: 'mix', ambientTempC: 22, actualDdtC: 25 });
   let tree: renderer.ReactTestRenderer | null = null;
   await act(async () => {
     tree = renderer.create(<StolnicaScreen />);
