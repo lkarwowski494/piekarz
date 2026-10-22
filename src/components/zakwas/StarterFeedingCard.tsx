@@ -11,7 +11,6 @@ import { dokarmienieZeZostawionego } from '../../core/dokarmianie';
 import { theme } from '../../ui/theme';
 import { t, tPlural } from '../../lib/i18n';
 import { formatWeight, formatTemperature, UnitSystem } from '../../lib/unit-converter';
-import { wejscieWidoczne } from '../../lib/wejscia-pozniej';
 
 import { typografia } from '../../ui/tokeny';
 
@@ -32,8 +31,6 @@ export interface StarterFeedingCardProps {
   hydratacjaZakwasu: number;
   unitSystem: UnitSystem;
   onCopyFeeding: () => void;
-  onOpenConverter: () => void;
-  onOpenDiscardRecipes: () => void;
 }
 
 export function StarterFeedingCard({
@@ -45,8 +42,6 @@ export function StarterFeedingCard({
   hydratacjaZakwasu,
   unitSystem,
   onCopyFeeding,
-  onOpenConverter,
-  onOpenDiscardRecipes,
 }: StarterFeedingCardProps) {
   // Masa zakwasu zostawionego w słoiku (g): z niej mąka, woda i hydratacja po dokarmieniu (RD-14, BR-ZAKW-002)
   // [M1-audytor-generalny-130]; puste pole = prośba o uzupełnienie, wynik z chipów masy zakwasu do ciasta zostaje
@@ -169,32 +164,7 @@ export function StarterFeedingCard({
         </Text>
       </Pressable>
 
-      {/* F-49 i F-47 PÓŹNIEJ: wejścia ukryte (ZM-08, D-034) [M1-audytor-generalny-032] */}
-      {wejscieWidoczne('konwerter-zakwasu') && (
-        <Pressable
-          accessibilityRole="button"
-          testID="open-converter-btn"
-          style={styles.openConverterBtn}
-          onPress={onOpenConverter}
-        >
-          <Text style={styles.openConverterBtnText}>
-            {t('Konwerter zakwasu & Lievito Madre')}
-          </Text>
-        </Pressable>
-      )}
-
-      {wejscieWidoczne('odrzut-zakwasu') && (
-        <Pressable
-          accessibilityRole="button"
-          testID="open-discard-recipes-btn"
-          style={styles.openConverterBtn}
-          onPress={onOpenDiscardRecipes}
-        >
-          <Text style={styles.openConverterBtnText}>
-            {t('Przepisy na Odrzut Zakwasu')}
-          </Text>
-        </Pressable>
-      )}
+      {/* Przelicznik hydratacji i wylewki: Basic, poza kartą proporcji (NarzedziaZakwasu) [M3 P-b2] */}
     </View>
   );
 }
@@ -349,21 +319,5 @@ const styles = StyleSheet.create({
     fontSize: typografia.style.przypis.pt,
     fontWeight: '700',
     color: theme.colors.akcentTekst,
-  },
-  openConverterBtn: {
-    minHeight: theme.cele.pozostale,
-    justifyContent: 'center',
-    backgroundColor: theme.colors.powierzchnia,
-    paddingVertical: 10,
-    borderRadius: theme.radius.sm,
-    borderWidth: 1,
-    borderColor: theme.colors.obwodka,
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  openConverterBtnText: {
-    fontSize: typografia.style.przypis.pt,
-    fontWeight: '600',
-    color: theme.colors.tusz2,
   },
 });

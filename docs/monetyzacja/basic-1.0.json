@@ -4,13 +4,15 @@
   "decyzje": ["D-112", "D-113", "D-116"],
   "basic": ["historia", "dane", "import", "kalkulator", "harmonogram", "stolnica", "zakwas", "doktor", "receptury", "akademia"],
   "szczegoly": {
-    "opis": "Przypisania wątpliwe rozstrzygnięte przez właściciela (przez M1, 2026-10-22: „Wg rekomendacji”), D-116.",
+    "opis": "Przypisania wątpliwe rozstrzygnięte przez właściciela (przez M1, 2026-10-22: „Wg rekomendacji”), D-116; przelicznik hydratacji i wylewki: właściciel przez M1, 2026-10-22, „2 zgodnie z rekomendacja” (D-117, M3 P-b2).",
     "pozycje": [
       "plan-pierwsze-karmienie-budzace",
       "akademia-biblioteka-technik",
       "limit-receptur-przywroc-i-kopia-poza-limitem",
       "plan-ustawienia-nocy-i-lodowki",
-      "dziennik-filtr-smaku"
+      "dziennik-filtr-smaku",
+      "zakwas-przelicznik-hydratacji",
+      "zakwas-wylewki"
     ]
   },
   "limity": { "wlasneReceptury": 5, "zakwasy": 1, "poziomyAkademii": 1 }

@@ -89,6 +89,9 @@ export const BASIC_SZCZEGOLY: readonly string[] = [
   'limit-receptur-przywroc-i-kopia-poza-limitem', // „Przywróć” i import kopii nie liczą się; import receptury się liczy
   'plan-ustawienia-nocy-i-lodowki', // godziny snu i czas w lodówce w planie od teraz
   'dziennik-filtr-smaku', // filtr profilu smaku; porównanie i statystyki w Pro (BR-RECP-004)
+  // Właściciel przez M1, 2026-10-22: „2 zgodnie z rekomendacja” (P2-5, D-117) [M3 P-b2]
+  'zakwas-przelicznik-hydratacji', // przelicznik hydratacji zakwasu (StarterConverterModal), poza proporcjami dokarmiania
+  'zakwas-wylewki', // przepisy na resztki zakwasu (DiscardRecipesModal), poza proporcjami dokarmiania
 ];
 
 /** Limity pojemności Basic, liczone z bazy przy dodawaniu; zapisane ponad limitem działają w całości (kontrakt). */

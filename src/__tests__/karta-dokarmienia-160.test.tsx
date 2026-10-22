@@ -28,8 +28,6 @@ function karta(): string {
         hydratacjaZakwasu={100}
         unitSystem="metric"
         onCopyFeeding={() => {}}
-        onOpenConverter={() => {}}
-        onOpenDiscardRecipes={() => {}}
       />,
     );
   });

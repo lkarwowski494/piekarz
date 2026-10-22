@@ -43,9 +43,10 @@ describe('Basic tylko rośnie (D-112, D-113)', () => {
   // pada tu. Nowe wydanie = nowy plik basic-<wersja>.json, ten zostaje. Miejsca użycia funkcji Basic na ekranach:
   // mapa w src/__tests__/basic-pro-pafix.test.tsx. Nie łapie: zmian Basic bez nazwy Funkcja (krok budzenia w planie,
   // biblioteka technik, filtr smaku, wylewki), przepięcia akcji, której nie ma w mapie, ani usunięcia obu plików naraz.
+  // Suma zmieniona w M3 P-b2: przed wydaniem 1.0 doszły szczegóły Basic (przelicznik hydratacji, wylewki; D-117) — lista rośnie
   it('plik wydania 1.0 jest niezmieniony (SHA-256)', () => {
     const tresc = fs.readFileSync(path.join(dir, 'basic-1.0.json'), 'utf8').replace(/\r\n/g, '\n');
-    expect(createHash('sha256').update(tresc).digest('hex')).toBe('3bf746fe444255241f7e73f20425406313bdea83950f8ec3f4e22576ce5776d1');
+    expect(createHash('sha256').update(tresc).digest('hex')).toBe('290f2e43126d77fbd8fcdc46e659b47f01311aca74ae83916bca6da5405e0fbb');
   });
 
   it('kontrola negatywna: zabranie funkcji z Basic i obniżenie limitu są wykrywane', () => {
@@ -59,8 +60,8 @@ describe('Basic tylko rośnie (D-112, D-113)', () => {
     expect(naruszenia(zSzczegolami, ['kalkulator', 'zakwas'], { zakwasy: 1, wlasneReceptury: 5 }, [])).toEqual(['x: szczegół „dziennik-filtr-smaku” zniknął z Basic']);
   });
 
-  it('wydanie 1.0 ma pięć szczegółów Basic rozstrzygniętych przez właściciela (D-116)', () => {
+  it('wydanie 1.0 ma siedem szczegółów Basic rozstrzygniętych przez właściciela (D-116; P-b2, D-117: przelicznik i wylewki)', () => {
     const w = wydania.find((x) => x.wydanie === '1.0');
-    expect(w?.szczegoly?.pozycje).toHaveLength(5);
+    expect(w?.szczegoly?.pozycje).toHaveLength(7);
   });
 });

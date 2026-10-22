@@ -2327,7 +2327,7 @@
   "Konwerter zakwasu & Lievito Madre": {
     "gdzie": [
       "src/components/StarterConverterModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
   "Kopia": {
@@ -4895,7 +4895,7 @@
   "Przepisy na Odrzut Zakwasu": {
     "gdzie": [
       "src/components/DiscardRecipesModal.tsx (tekst w JSX)",
-      "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+      "src/components/zakwas/NarzedziaZakwasu.tsx (tekst w JSX)"
     ]
   },
   "Przepisy na odrzut": {

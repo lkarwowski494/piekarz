@@ -37,6 +37,7 @@ import { StartersSelectorRow } from '../../../src/components/zakwas/StartersSele
 import { StarterProfileCard } from '../../../src/components/zakwas/StarterProfileCard';
 import { StarterPeakActivityCard } from '../../../src/components/zakwas/StarterPeakActivityCard';
 import { StarterFeedingCard } from '../../../src/components/zakwas/StarterFeedingCard';
+import { NarzedziaZakwasu } from '../../../src/components/zakwas/NarzedziaZakwasu';
 import { StarterSafetyCard } from '../../../src/components/zakwas/StarterSafetyCard';
 import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModal';
 import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
@@ -382,11 +383,10 @@ export default function ZakwasScreen() {
           hydratacjaZakwasu={starter.hydration}
           unitSystem={unitSystem}
           onCopyFeeding={handleCopyFeeding}
-          onOpenConverter={() => setIsConverterOpen(true)}
-          onOpenDiscardRecipes={() => setIsDiscardModalOpen(true)}
         />
-
         </BlokadaFunkcji>
+        {/* Przelicznik hydratacji i wylewki w Basic (właściciel 2026-10-22, D-117) [M3 P-b2] */}
+        <NarzedziaZakwasu onOpenConverter={() => setIsConverterOpen(true)} onOpenDiscardRecipes={() => setIsDiscardModalOpen(true)} />
 
         {/* Kontrola bezpieczeństwa (RD-21-W1) poza blokadą: ostrzeżenie „wyrzuć” działa bez zakupu
             (docs/monetyzacja.md BR-DIAG-002 „ostrzeżenie RD-21 zawsze”) [audyt-niezalezny E-1] */}

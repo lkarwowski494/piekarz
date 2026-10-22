@@ -28,8 +28,6 @@ function karta(): renderer.ReactTestRenderer {
         hydratacjaZakwasu={100}
         unitSystem="metric"
         onCopyFeeding={() => {}}
-        onOpenConverter={() => {}}
-        onOpenDiscardRecipes={() => {}}
       />,
     );
   });

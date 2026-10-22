@@ -339,7 +339,7 @@ const wBlokadzie = (n: renderer.ReactTestInstance | null): boolean => {
 
 describe('Szczegóły Basic rozstrzygnięte przez właściciela (D-116, „Wg rekomendacji”) — pilnowane na ekranie', () => {
   it('lista w konfiguracji = lista w pliku wydania 1.0', () => {
-    expect([...BASIC_SZCZEGOLY].sort()).toEqual(['akademia-biblioteka-technik', 'dziennik-filtr-smaku', 'limit-receptur-przywroc-i-kopia-poza-limitem', 'plan-pierwsze-karmienie-budzace', 'plan-ustawienia-nocy-i-lodowki']);
+    expect([...BASIC_SZCZEGOLY].sort()).toEqual(['akademia-biblioteka-technik', 'dziennik-filtr-smaku', 'limit-receptur-przywroc-i-kopia-poza-limitem', 'plan-pierwsze-karmienie-budzace', 'plan-ustawienia-nocy-i-lodowki', 'zakwas-przelicznik-hydratacji', 'zakwas-wylewki']); // + P-b2 (D-117), test ekranowy: zakwas-narzedzia-basic-pb2.test.tsx
   });
 
   it('plan-pierwsze-karmienie-budzace: plan Basic z zakwasem z lodówki ma krok dokarmienia budzącego', async () => {
