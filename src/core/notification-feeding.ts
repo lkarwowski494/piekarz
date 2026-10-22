@@ -7,6 +7,7 @@
 import { addCalendarDays, atLocalTime, calendarDayDiff } from './dzien-lokalny';
 import { NOTIF_PREFIX, FEED_ROOM_TEMP_AFTER_MS, FEED_FRIDGE_DUE_AFTER_DAYS } from './notification-config';
 import type { PlannedNotification, PlanStarter, NotificationTextKey } from './notification-plan';
+import { nextSetupFeedingAtForStage, setupDay, setupStageForDay } from './starter-log';
 
 /**
  * Najbliższe przypomnienie stałego dnia karmienia (BR-KAL-010, RD-25): ustawiony dzień tygodnia (ISO 1 = poniedziałek …
@@ -58,7 +59,8 @@ export function punktOdniesieniaKarmienia(s: Pick<PlanStarter, 'lastFedAt' | 'po
 }
 
 /**
- * Termin karmienia liczony od chwili `od` (RD-25, D-093, D-094): blat `od` + 12 h, lodówka `od` + 7 dni kalendarza,
+ * Termin karmienia liczony od chwili `od` (RD-25, D-093, D-094): zakładanie dni 1–2 `od` + 24 h, potem 12 h (dzień z
+ * `now`, jak karta zakwasu), blat `od` + 12 h, lodówka `od` + 7 dni kalendarza,
  * stały dzień: najbliższy ustawiony dzień po `od` (bez `od` — po `now`). Bez punktu odniesienia i stałego dnia → null.
  */
 export function terminKarmienia(s: PlanStarter, od: number | undefined, now: number): TerminKarmienia | null {
@@ -68,6 +70,12 @@ export function terminKarmienia(s: PlanStarter, od: number | undefined, now: num
   // Niepoprawny stały dzień (null) — jak bez stałego dnia, co 7 dni od dokarmienia
   if (wDzien !== null) return { at: wDzien, textKey: 'karmienie.lodowkaDzien' };
   if (od === undefined) return null;
+  // W trakcie zakładania na blacie rytm z D0b, jak karta zakwasu: dni 1–2 po 24 h, od dnia 3 co 12 h (ZAK-ZAL-002…004)
+  // [M3 D4b]. Zakładanie w lodówce zostaje przy 7 dniach (test D2); karta liczy wtedy 24/12 h — [DO USTALENIA] rola 06.
+  if (s.storageState === 'ROOM_TEMP' && czytelna(s.setupStartedAt) && s.setupCompletedAt === undefined) {
+    const at = nextSetupFeedingAtForStage(setupStageForDay(setupDay(s.setupStartedAt, now)), [{ kind: 'feeding', occurredAt: od, signs: [] }]);
+    if (at !== null) return { at, textKey: 'karmienie.blat' };
+  }
   return s.storageState === 'ROOM_TEMP'
     ? { at: od + FEED_ROOM_TEMP_AFTER_MS, textKey: 'karmienie.blat' }
     : { at: addCalendarDays(od, FEED_FRIDGE_DUE_AFTER_DAYS), textKey: 'karmienie.lodowkaTermin' };
