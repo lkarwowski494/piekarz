@@ -14,7 +14,7 @@ import { AppAccessProvider } from '../src/components/AppAccessProvider';
 import { initLanguage, t, useLang } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
 import { trasaZPowiadomienia } from '../src/core/notification-plan';
-import { naglowekZwykly } from '../src/ui/naglowek';
+import { useNaglowek } from '../src/ui/naglowek';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 
 export const unstable_settings = {
@@ -53,6 +53,8 @@ export default function RootLayout() {
   const [rescue, setRescue] = useState<boolean | null>(null);
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
   useLang();
+  // Kolory nagłówka bieżącego wariantu (jasny/ciemny/kontrast), nie DynamicColorIOS [M3 p1 a1]
+  const { zwykly: naglowekZwykly } = useNaglowek();
 
   const stopPlatnosci = useRef<(() => void) | undefined>(undefined);
   const kamien = useRef(false);

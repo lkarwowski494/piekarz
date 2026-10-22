@@ -9,8 +9,11 @@ import { StyleSheet } from 'react-native';
 import { EN } from '../../lib/i18n.en';
 import { ACTIVE_LANGS, setLang, t } from '../../lib/i18n';
 import { JEZYKI_POZA_KROJEM_TYTULOW } from '../kroj-tytulow';
-import { typografia } from '../tokeny';
-import { naglowekZwykly } from '../naglowek';
+import { kolory, typografia } from '../tokeny';
+import { opcjeNaglowka } from '../naglowek';
+
+// Opcje nagłówka liczone z palety (a1, M3 p1); krój tytułu nie zależy od wariantu, więc paleta jasna wystarcza
+const naglowekZwykly = opcjeNaglowka(kolory.jasny, false);
 
 const ROOT = join(__dirname, '..', '..', '..');
 

@@ -2,13 +2,14 @@
 import React from 'react';
 import { Stack } from 'expo-router';
 import { t, useLang } from '../../../src/lib/i18n';
-import { naglowekDuzy } from '../../../src/ui/naglowek';
+import { useNaglowek } from '../../../src/ui/naglowek';
 
 export default function DziennikLayout() {
   // Opcje nawigacji liczone w renderze: useLang() renderuje ponownie po zmianie języka (Z-3 z 080) [M1-audytor-generalny-093]
   useLang();
+  const { duzy } = useNaglowek();
   return (
-    <Stack screenOptions={naglowekDuzy}>
+    <Stack screenOptions={duzy}>
       <Stack.Screen name="index" options={{ title: t('Dziennik') }} />
     </Stack>
   );
