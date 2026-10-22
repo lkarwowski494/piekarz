@@ -104,7 +104,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Ετήσιο',
   'Rodzaj': 'Τύπος',
   'Rodzaj receptur': 'Τύπος συνταγών',
-  'rok': 'έτος',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Απλώστε τη ζύμη σε υγρό πάγκο σε λεπτό ορθογώνιο (λαμινάρισμα).',
   'Rozerwanie boku przy spodzie': 'Σκίσιμο στο πλάι κοντά στη βάση',
   'Rozpoczęcie dokarmiania': 'Έναρξη ταΐσματος',

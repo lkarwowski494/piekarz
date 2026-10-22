@@ -229,7 +229,7 @@ export default function HarmonogramScreen() {
   };
 
   // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
-  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess });
+  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess, moze });
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
@@ -265,7 +265,7 @@ export default function HarmonogramScreen() {
         ) : null}
         {/* „Kiedy chleb ma być gotowy?”, temperatura i noc: plan wstecz w Pro; w Basic karta pokazuje plan od teraz,
             a dotknięcie otwiera ekran Pro (BlokadaFunkcji, [M1-audytor-generalny-027]) */}
-        <BlokadaFunkcji {...blokada('plan-wstecz')}>
+        <BlokadaFunkcji {...blokada('plan-wstecz')} podglad>
         <TargetReadyCard
           targetDayOffset={targetDayOffset}
           onTargetDayOffsetChange={zmianaGodziny(setTargetDayOffset)}

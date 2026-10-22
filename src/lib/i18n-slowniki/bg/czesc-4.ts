@@ -3,7 +3,6 @@
 export const CZESC: Record<string, string> = {
   'Nie masz jeszcze zakwasu. Dodaj zakwas, który masz, albo załóż nowy.': 'Все още нямате квасен стартер. Добавете този, който имате, или създайте нов.',
   'Nie można otworzyć bazy danych': 'Базата данни не може да бъде отворена',
-  'Nie można usunąć': 'Не може да се изтрие',
   'Nie podwaja objętości': 'Не удвоява обема си',
   'Nie próbuj formować bochenka! Przełóż ciasto natychmiast na natłuszczoną blachę.': 'Не се опитвайте да оформяте самун! Веднага прехвърлете тестото в намаслена тава.',
   'Nie próbuj surowego ciasta ani mąki.': 'Не опитвайте сурово тесто или брашно.',
@@ -64,7 +63,6 @@ export const CZESC: Record<string, string> = {
   'Od dokarmienia minęło {czas} z {odstep}.': 'От храненето: {czas} от {odstep}.',
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'От брашно и вода до първия самун, ден след ден.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'От този ден хранете стартера два пъти дневно, приблизително на всеки 12 часа.',
-  'Odblokuj pełny dostęp': 'Отключете пълния достъп',
   'Odhaczaj składniki w miarę wsypywania': 'Отмятайте съставките, докато ги добавяте',
   'Odkryj wiedzę naukową': 'Открийте научните знания',
   'Odliczanie trwa': 'Отброяването тече',

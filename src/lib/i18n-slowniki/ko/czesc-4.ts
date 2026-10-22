@@ -108,7 +108,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': '연간',
   'Rodzaj': '종류',
   'Rodzaj receptur': '배합표 종류',
-  'rok': '년',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': '젖은 조리대 위에서 반죽을 얇은 직사각형으로 늘리세요(라미네이션).',
   'Rozerwanie boku przy spodzie': '아래쪽 옆면이 터짐',
   'Rozpoczęcie dokarmiania': '먹이 주기 시작',

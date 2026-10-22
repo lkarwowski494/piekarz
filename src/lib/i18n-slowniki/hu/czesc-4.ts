@@ -99,7 +99,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Éves',
   'Rodzaj': 'Típus',
   'Rodzaj receptur': 'Recepttípus',
-  'rok': 'év',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Nyújtsd a tésztát nedves pulton vékony téglalappá (laminálás).',
   'Rozerwanie boku przy spodzie': 'A cipó oldala alul felszakadt',
   'Rozpoczęcie dokarmiania': 'Etetés kezdete',

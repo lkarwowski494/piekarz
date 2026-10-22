@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Saya merancang langkah kerja doh di luar waktu ini.',
   'Kup plan miesięczny': 'Beli Pelan Bulanan',
   'Kup plan roczny': 'Beli Pelan Tahunan',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Pengiraan resipi, pelan bakaran, panduan dengan pemberitahuan, pemula sourdough dan jurnal. Tanpa iklan, tanpa akaun.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'Tiada sambungan ke App Store, jadi pembelian dan pemulihan pembelian tidak dapat dilakukan sekarang. Bahagian lain aplikasi berfungsi seperti biasa. Semak sambungan internet anda dan cuba lagi.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Pembelian tidak dapat diselesaikan. Pembelian memerlukan sambungan ke App Store: semak sambungan internet anda dan cuba lagi.',
   'Piekarz Pro': 'Tukang Roti Pro',

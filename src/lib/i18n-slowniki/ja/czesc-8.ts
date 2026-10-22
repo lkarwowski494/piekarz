@@ -23,7 +23,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': '生地の作業が必要なステップは、この時間帯を避けて計画します。',
   'Kup plan miesięczny': '月額プランを購入',
   'Kup plan roczny': '年額プランを購入',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': '配合の計算、焼成プラン、通知によるステップごとのガイド、サワー種の管理、記録。広告なし、アカウント不要。',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'App Storeに接続できないため、現在は購入と購入の復元を行えません。アプリのその他の機能はこれまでどおり使えます。インターネット接続を確認して、もう一度お試しください。',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': '購入を完了できませんでした。購入にはApp Storeへの接続が必要です。インターネット接続を確認して、もう一度お試しください。',
   'Piekarz Pro': 'パン職人 Pro',

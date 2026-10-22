@@ -72,7 +72,7 @@ const PORY = [
   ['23:55', new Date(2026, 9, 21, 23, 55).getTime()],
 ] as const;
 
-describe.each(PORY)('Baner uprzedzenia o końcu Pro na „Dziś”, zegar %s (D-113; BR-ZAK-004)', (_pora, teraz) => {
+describe.each(PORY)('Baner uprzedzenia o końcu Pro na „Dziś”, zegar %s (D-113; BR-ZAK-004 Uprzedzenie przed końcem Pro)', (_pora, teraz) => {
   const koniec = teraz + 30 * H;
   const sub = (o: Record<string, unknown> = {}) => ({
     id: 'tx_p', transactionId: 'tx_p', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: teraz - 300 * 24 * H,

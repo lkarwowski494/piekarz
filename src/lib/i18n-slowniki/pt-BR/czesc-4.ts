@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Anual',
   'Rodzaj': 'Tipo',
   'Rodzaj receptur': 'Tipo de receita',
-  'rok': 'ano',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Estique a massa sobre a bancada umedecida em um retângulo fino (laminação).',
   'Rozerwanie boku przy spodzie': 'Rompimento lateral junto à base',
   'Rozpoczęcie dokarmiania': 'Início da alimentação',

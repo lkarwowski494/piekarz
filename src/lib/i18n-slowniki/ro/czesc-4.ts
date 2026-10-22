@@ -97,7 +97,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Anual',
   'Rodzaj': 'Tip',
   'Rodzaj receptur': 'Tipul rețetelor',
-  'rok': 'an',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Întinde aluatul pe blatul umezit într-un dreptunghi subțire (laminare).',
   'Rozerwanie boku przy spodzie': 'Ruptură laterală la bază',
   'Rozpoczęcie dokarmiania': 'Începerea hrănirii',

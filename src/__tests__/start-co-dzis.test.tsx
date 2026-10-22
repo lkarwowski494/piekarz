@@ -250,7 +250,7 @@ describe('101: Start „Co dziś robisz?”', () => {
     act(() => tree.unmount());
   });
 
-  it('po próbie bez zakupu: Dziennik pokazuje historię bez ekranu zakupu (BR-RECP-003 Przegląd historii bez zakupu, BR-ZAK-004 Po końcu próby)', async () => {
+  it('po końcu Pro: Dziennik pokazuje historię bez ekranu Pro (BR-RECP-003 Przegląd historii bez zakupu, BR-ZAK-004 Po końcu Pro)', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {

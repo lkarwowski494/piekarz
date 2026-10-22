@@ -700,6 +700,101 @@
       "klucz": "Zapisano zmiany w recepturze „{name}”.",
       "powod": "zakładanie zakwasu od nowa przy jednym zakwasie w Basic (D-113) i zapis zmian własnej receptury bez limitu (kontrakt: zapisane działają w całości); tekst spoza listy roli 04, do akceptacji roli 04 (P-b) [M3 P-a-fix]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pro",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{funkcja}, Pro",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Plan wstecz od godziny „gotowe”",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Gotowość i szczyt zakwasu",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Proporcje dokarmiania",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Porównanie i statystyki",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Co daje Pro",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Jedna opłata, bez odnawiania.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Piekarz Pro jest aktywny.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przypomnienia o dokarmianiu są w Piekarz Pro.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zrealizuj kod",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.",
+      "powod": "ekran Pro z ujawnieniami 1–5 kontraktu, oznaczenie „Pro” na funkcjach Pro, gratulacje po pierwszym zakwasie, Ustawienia („Zrealizuj kod”, przypomnienia w Pro) (D-113, D-117; tekst spoza listy roli 04, do akceptacji roli 04) [M3 P-b]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

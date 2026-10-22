@@ -26,6 +26,8 @@ export interface NawigacjaWidoku {
   przesun: (n: -1 | 1) => void;
   dzis: () => void;
   ustawTryb: (t: TrybWidoku) => void;
+  /** Widok miesiąca wymaga Pro (bez dostępu): przełącznik z oznaczeniem „Pro” (BR-KAL-013, P2-4) [M3 P-b]. */
+  miesiacPro?: boolean;
 }
 
 export interface StanKalendarza {

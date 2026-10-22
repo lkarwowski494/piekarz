@@ -85,7 +85,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Yıllık',
   'Rodzaj': 'Tür',
   'Rodzaj receptur': 'Tarif türü',
-  'rok': 'yıl',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Hamuru nemli tezgâhta ince bir dikdörtgen olacak şekilde gerin (laminasyon).',
   'Rozerwanie boku przy spodzie': 'Alt kısımda yandan yırtılma',
   'Rozpoczęcie dokarmiania': 'Besleme başlangıcı',

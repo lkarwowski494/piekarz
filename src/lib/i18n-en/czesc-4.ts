@@ -2,7 +2,6 @@
 // Polski tekst jest kluczem. Całość składa src/lib/i18n.en.ts.
 export const EN_4: Record<string, string> = {
   'Kup dostęp dożywotni': 'Buy Lifetime Access',
-  'Odblokuj pełny dostęp': 'Unlock full access',
   // Przywracanie zakupów [M1-audytor-generalny-010]
   'Zakupy': 'Purchases',
   'Nie udało się połączyć z App Store. Spróbuj ponownie.': 'Could not connect to the App Store. Please try again.',
@@ -10,8 +9,6 @@ export const EN_4: Record<string, string> = {
   'Zarządzaj subskrypcją': 'Manage Subscription',
   // Ekran zakupu „Piekarz Pro” w nowej szacie (design-spec §11e 127; nazwy jak w App Store Connect) [M1-audytor-generalny-127]
   'Piekarz Pro': 'Baker Pro',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.':
-    'Recipe calculations, bake plans, step-by-step guidance with notifications, starters, and a journal. No ads, no account.',
   'Dożywotni': 'Lifetime',
   '{cena} rocznie': '{cena} per year',
   '{cena} miesięcznie': '{cena} per month',

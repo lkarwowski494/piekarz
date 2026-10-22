@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': '年訂',
   'Rodzaj': '類型',
   'Rodzaj receptur': '配方類型',
-  'rok': '年',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': '在濕潤的檯面上將麵團拉開成薄薄的長方形（延展摺疊）。',
   'Rozerwanie boku przy spodzie': '底部側邊爆裂',
   'Rozpoczęcie dokarmiania': '開始餵養',

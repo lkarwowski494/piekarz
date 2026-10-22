@@ -58,7 +58,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Årlig',
   'Rodzaj': 'Type',
   'Rodzaj receptur': 'Opskriftstype',
-  'rok': 'år',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Stræk dejen ud på et fugtigt bord til et tyndt rektangel (laminering).',
   'Rozerwanie boku przy spodzie': 'Siden revnet ved bunden',
   'Rozpoczęcie dokarmiania': 'Fodringsstart',

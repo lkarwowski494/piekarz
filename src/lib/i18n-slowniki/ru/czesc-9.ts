@@ -47,7 +47,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Шаги, требующие работы с тестом, я планирую вне этих часов.',
   'Kup plan miesięczny': 'Купить месячный план',
   'Kup plan roczny': 'Купить годовой план',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Расчёт рецептур, план выпечки, пошаговое ведение с уведомлениями, закваски и журнал. Без рекламы, без аккаунта.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'Нет подключения к App Store, поэтому покупка и восстановление покупок сейчас не получатся. Остальные функции приложения работают как прежде. Проверьте подключение к интернету и повторите попытку.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Не удалось завершить покупку. Для покупки нужно подключение к App Store: проверьте подключение к интернету и повторите попытку.',
   'Piekarz Pro': 'Хлебопёк Pro',

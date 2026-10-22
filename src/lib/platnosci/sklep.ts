@@ -180,6 +180,16 @@ export async function zarzadzajSubskrypcja(): Promise<void> {
   }
 }
 
+/**
+ * „Zrealizuj kod” (kontrakt docs/monetyzacja.md „Zarządzanie i anulowanie”) [M3 P-b]: systemowy arkusz realizacji kodu
+ * oferty (expo-iap 6.1.1 openRedeemOfferCode, StoreKit). Wynik przychodzi nasłuchem transakcji (stan.ts) albo przy
+ * następnym odczycie uprawnień, nie z tej funkcji; błąd (np. bez sieci) rzuca dalej, komunikat daje ekran.
+ */
+export async function zrealizujKod(): Promise<void> {
+  await polacz();
+  await Iap.openRedeemOfferCode();
+}
+
 export function nasluchujZakupow(fn: (p: Purchase) => void): { remove: () => void } {
   return Iap.purchaseUpdatedListener(fn);
 }

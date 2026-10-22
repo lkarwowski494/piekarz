@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Modal,
+  Platform,
   View,
   Text,
   StyleSheet,
   ScrollView,
 } from 'react-native';
+import { ustawEkranZakupu } from '../lib/platnosci/ekran';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
@@ -62,8 +64,22 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
     setUnitSystem(system);
   };
 
+  // Ekran Pro z Ustawień (kontrakt „Reguły dostępu”) [M3 P-b]: najpierw zamknięcie arkusza Ustawień, ekran Pro dopiero po
+  // jego zniknięciu (onDismiss, iOS), bo dwa arkusze modalne naraz iOS pokazuje zawodnie; poza iOS od razu
+  const proPoZamknieciu = useRef(false);
+  const otworzPro = () => {
+    onClose();
+    if (Platform.OS === 'ios') proPoZamknieciu.current = true;
+    else ustawEkranZakupu(true);
+  };
+  const poZamknieciu = () => {
+    if (!proPoZamknieciu.current) return;
+    proPoZamknieciu.current = false;
+    ustawEkranZakupu(true);
+  };
+
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet">
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onDismiss={poZamknieciu}>
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
@@ -93,8 +109,8 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           {/* Przypomnienia o karmieniu zakwasu: wyłączenie bez wyłączania kroków wypieku (DEC-22 a) [M1-audytor-generalny-179] */}
           <PrzypomnieniaKarmieniaSection />
 
-          {/* Zakupy: przywracanie bez ekranu zakupu [M1-audytor-generalny-010] */}
-          <ZakupySection />
+          {/* Zakupy: wejście do ekranu Pro, przywracanie bez ekranu zakupu, zarządzanie, kod [M1-audytor-generalny-010; M3 P-b] */}
+          <ZakupySection onOtworzPro={otworzPro} />
 
           {/* Backup & CSV Exports */}
           <BackupAndDataSection />

@@ -43,7 +43,7 @@ export default function StartScreen() {
   const { width, fontScale } = useWindowDimensions();
   const gora = useSafeAreaInsets().top;
   const duzyTekst = fontScale >= DUZY_TEKST;
-  const { access, loading, chron, requireActionAccess } = useAppAccess();
+  const { access, loading, chron, requireActionAccess, moze } = useAppAccess();
   const [odczyt, setOdczyt] = useState(0);
   const dane = useStanStartu(odczyt);
   // Ponowny odczyt po ustaleniu dostępu (koniec Pro chowa terminy karmienia poza zakładaniem, D-113)
@@ -53,8 +53,12 @@ export default function StartScreen() {
   // Basic działa zawsze (D-112): „Dziś” bez stanu „tylko historia” i bez ekranu Pro przy starcie
   const stan = stanStartu({ trwaWypiek: dane.wypieki.length > 0 });
   const uprzedzenie = useUprzedzenieKoncaPro();
-  // Widok miesiąca to Pro (BR-KAL-013); tydzień i powrót do niego w Basic
-  const widok = { ...kal.widok, ustawTryb: (tryb: typeof kal.widok.tryb) => (tryb === 'miesiac' ? chron('miesiac', () => kal.widok.ustawTryb(tryb))() : kal.widok.ustawTryb(tryb)) };
+  // Widok miesiąca to Pro (BR-KAL-013), bez Pro z oznaczeniem „Pro” [M3 P-b]; tydzień i powrót do niego w Basic
+  const widok = {
+    ...kal.widok,
+    ustawTryb: (tryb: typeof kal.widok.tryb) => (tryb === 'miesiac' ? chron('miesiac', () => kal.widok.ustawTryb(tryb))() : kal.widok.ustawTryb(tryb)),
+    miesiacPro: !moze('miesiac'),
+  };
 
   // Pasek stanu jasny na ciemnym pasie tylko na „Dziś”; inne zakładki wracają do domyślnego (app/_layout.tsx)
   useFocusEffect(
@@ -70,7 +74,7 @@ export default function StartScreen() {
   }, [kal]);
   const otworzWypiek = useCallback((id: string) => router.push({ pathname: '/stolnica', params: { wypiek: id } }), [router]);
   // Zaplanowane wypieki: arkusz planu, start (D-104) i usunięcie (BR-KAL-009, D-108) [M3 D5]
-  const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess });
+  const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess, moze });
   const akcje = useAkcjeDzis({ onZmiana: odswiez, otworzWypiek, otworzPlan: plany.otworz });
   const planOtwarty = dane.plany.find((p) => p.id === plany.otwarty) ?? null;
   // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]; Pro (D-113)
@@ -150,7 +154,7 @@ export default function StartScreen() {
         </View>
       </ScrollView>
       <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)}
-        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} />
+        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} />
       <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij} />
       <SettingsModal visible={ustawienia} onClose={() => setUstawienia(false)} />
     </>

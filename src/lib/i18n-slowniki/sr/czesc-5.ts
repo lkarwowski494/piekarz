@@ -57,7 +57,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Годишњи',
   'Rodzaj': 'Врста',
   'Rodzaj receptur': 'Врста рецептура',
-  'rok': 'година',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Развуци тесто на влажној радној површини у танак правоугаоник (ламинација).',
   'Rozerwanie boku przy spodzie': 'Пуцање бока при дну',
   'Rozpoczęcie dokarmiania': 'Почетак храњења',

@@ -70,7 +70,7 @@ const PORY = [
   ['23:55', new Date(2026, 9, 21, 23, 55).getTime()],
 ] as const;
 
-describe.each(PORY)('Wypiek zaczęty z dostępem po końcu próby, zegar %s (125; BR-ZAK-004 Koniec próby w trakcie wypieku)', (_pora, start) => {
+describe.each(PORY)('Wypiek zaczęty z Pro po końcu Pro, zegar %s (125; BR-ZAK-004 Trwający wypiek w chwili końca Pro)', (_pora, start) => {
   let now = start;
   beforeEach(async () => {
     now = start;

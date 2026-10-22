@@ -96,7 +96,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': '반죽을 직접 다루는 단계는 이 시간을 피해서 계획할게요.',
   'Kup plan miesięczny': '월간 플랜 구입',
   'Kup plan roczny': '연간 플랜 구입',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': '레시피 계산, 베이킹 계획, 알림을 통한 단계별 안내, 사워도우 스타터 관리와 베이킹 기록. 광고 없음, 계정 불필요.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'App Store에 연결되지 않아 지금은 구입과 구입 항목 복원을 할 수 없어요. 앱의 나머지 기능은 평소처럼 작동해요. 인터넷 연결을 확인하고 다시 시도하세요.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': '구입을 완료하지 못했어요. 구입하려면 App Store 연결이 필요해요. 인터넷 연결을 확인하고 다시 시도하세요.',
   'Piekarz Pro': '제빵사 Pro',

@@ -30,6 +30,7 @@ import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
 import { StarterConverterModal } from '../../../src/components/StarterConverterModal';
 import { DiscardRecipesModal } from '../../../src/components/DiscardRecipesModal';
 import { useAppAccess } from '../../../src/lib/app-access';
+import { LIMITY_BASIC } from '../../../src/lib/platnosci/konfiguracja';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { StartersSelectorRow } from '../../../src/components/zakwas/StartersSelectorRow';
@@ -49,7 +50,7 @@ export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
   // Basic: pierwszy zakwas (założenie, karta, zapis karmień, RD-21, Doktor); Pro: gotowość i szczyt, stały dzień,
   // proporcje dokarmiania, kolejne zakwasy (D-113, D-116)
-  const { blokada, dodaj } = useAppAccess();
+  const { blokada, dodaj, moze } = useAppAccess();
 
   const [startersList, setStartersList] = useState<StoredStarter[]>([]);
   // Bez zakwasu w bazie nie ma profilu ani liczb: wartość startowa nie jest pokazywana (087, bez danych zmyślonych)
@@ -315,6 +316,7 @@ export default function ZakwasScreen() {
             setSelectedStarterId(s.id);
           }}
           onOpenAddModal={() => dodaj('zakwasy', () => setIsAddModalOpen(true))}
+          dodajPro={startersList.length >= LIMITY_BASIC.zakwasy && !moze('kolejny-zakwas')}
         />
 
         {/* Profile Card */}
@@ -335,6 +337,7 @@ export default function ZakwasScreen() {
             onDokarm={handleLogFeeding}
             zDostepem={(akcja) => void akcja()}
             blokadaGotowosci={blokada('gotowosc-zakwasu')}
+            zPro={moze('przypomnienia-zakwasu')}
             onZmianaZakwasu={() => loadStarterData(starter.id)}
           />
         )}

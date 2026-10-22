@@ -138,6 +138,8 @@ jest.mock('expo-iap', () => ({
   }),
   isUserCancelledError: jest.fn((e) => !!e && e.code === 'user-cancelled'),
   deepLinkToSubscriptions: jest.fn(async () => undefined),
+  // „Zrealizuj kod” w Ustawieniach (expo-iap 6.1.1 openRedeemOfferCode; wynik zakupu przychodzi nasłuchem) [M3 P-b]
+  openRedeemOfferCode: jest.fn(async () => null),
   __mock: mockIap,
 }));
 

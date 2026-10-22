@@ -30,6 +30,7 @@ import { guardSave } from '../lib/save-guard';
 import { formatTime } from '../lib/format';
 import { nazwaReceptury } from '../lib/nazwa-receptury';
 import { t } from '../lib/i18n';
+import { etykietaPro } from '../lib/platnosci/nazwy-pro';
 
 export interface WejscieStartuPlanu {
   steps: readonly SessionStep[];
@@ -40,9 +41,11 @@ export interface WejscieStartuPlanu {
   zablokowany: boolean;
   /** Strażnik dostępu (useAppAccess): start w Basic, drugi trwający i plan na później w Pro (D-113, D-116). */
   requireActionAccess: (funkcja: Funkcja, fn: () => void) => void;
+  /** Czy funkcja działa teraz: bez Pro „Prowadź oba” ma w pytaniu „Pro” (P2-4) [M3 P-b]. */
+  moze?: (funkcja: Funkcja) => boolean;
 }
 
-export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany, requireActionAccess }: WejscieStartuPlanu) {
+export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany, requireActionAccess, moze }: WejscieStartuPlanu) {
   const router = useRouter();
 
   // Dane wypieku z planu: nazwa i ilości receptury z „Ułóż plan” (057), zakwas planu, temperatura tylko wybrana (017)
@@ -88,8 +91,9 @@ export function useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zabloko
             if (ok) start();
           }));
         const r = sprawdzPiekarnik(steps, inne.piekarnik);
-        if (r.stan === 'zajety') return pytajOPiekarnik(steps, inne, { tekst: t('Prowadź oba'), onPress: oba }, przesun);
-        const pytanie = () => confirmStartPrzyTrwajacym(trwa, oba, wroc);
+        const tekstOba = etykietaPro(t('Prowadź oba'), moze?.('dwa-wypieki') ?? true);
+        if (r.stan === 'zajety') return pytajOPiekarnik(steps, inne, { tekst: tekstOba, onPress: oba }, przesun);
+        const pytanie = () => confirmStartPrzyTrwajacym(trwa, oba, wroc, tekstOba);
         if (r.stan === 'brak-nagrzewania' && maPiekarnik(inne.piekarnik)) return confirmPiekarnikBezNagrzewania({ tekst: t('Zacznij wypiek'), onPress: pytanie });
         pytanie();
       });

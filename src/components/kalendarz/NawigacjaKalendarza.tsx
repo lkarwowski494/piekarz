@@ -14,6 +14,8 @@ import { kierunekGestu, type TrybWidoku } from '../../lib/kalendarz-widok';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { IkonaStartu } from '../start/IkonaStartu';
+import { OznaczeniePro } from '../OznaczeniePro';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
 
 const TRYBY: readonly { tryb: TrybWidoku; tekst: () => string }[] = [
   { tryb: 'tydzien', tekst: () => t('Tydzień') },
@@ -28,10 +30,14 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
       <View style={styles.segment} accessibilityRole="tablist">
         {TRYBY.map((x) => {
           const wybrany = widok.tryb === x.tryb;
+          // Miesiąc bez Pro: słowo „Pro” obok nazwy i w etykiecie VoiceOver (P2-4) [M3 P-b]
+          const pro = x.tryb === 'miesiac' && widok.miesiacPro === true;
           return (
             <Pressable key={x.tryb} testID={`kalendarz-tryb-${x.tryb}`} accessibilityRole="button" accessibilityState={{ selected: wybrany }}
+              accessibilityLabel={etykietaPro(x.tekst(), !pro)}
               style={[styles.segmentPole, wybrany && styles.segmentWybrany]} onPress={() => widok.ustawTryb(x.tryb)}>
               <Text style={[styles.segmentTekst, wybrany && styles.segmentTekstWybrany]}>{x.tekst()}</Text>
+              {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
             </Pressable>
           );
         })}
@@ -72,7 +78,7 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
 const styles = StyleSheet.create({
   calosc: { gap: odstepy.xs },
   segment: { flexDirection: 'row', borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2, overflow: 'hidden' },
-  segmentPole: { flex: 1, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.s },
+  segmentPole: { flex: 1, flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.s },
   segmentWybrany: { backgroundColor: theme.colors.naPasie },
   segmentTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie, textAlign: 'center' },
   segmentTekstWybrany: { color: theme.colors.pas, fontWeight: '600' },

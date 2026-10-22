@@ -81,11 +81,12 @@ const wrocDo = (w: WypiekWPytaniu, onWroc: (id: string) => void) => ({
  * „Zacznij wypiek” przy jednym trwającym wypieku: [Prowadź oba] (domyślne) [Wróć do: {nazwa}] [Anuluj]. Kilka wypieków
  * naraz od D-092; pytanie a1b z przerwaniem zastąpione (D-104). Nic nie znika: przerwanie tylko na Stolnicy [M3 D3a].
  */
-export function confirmStartPrzyTrwajacym(trwa: WypiekWPytaniu, onOba: () => void, onWroc: (id: string) => void) {
+export function confirmStartPrzyTrwajacym(trwa: WypiekWPytaniu, onOba: () => void, onWroc: (id: string) => void, tekstOba: string = t('Prowadź oba')) {
   // Treść z nazwą i krokiem, nie sam tytuł (tekst z listy roli 04 a2 „{r}: {krok}, trwa”); stary zapis bez nazwy — bez treści
   const tresc = trwa.nazwa && trwa.krok ? t('{wypiek}: {krok}, trwa', { wypiek: trwa.nazwa, krok: t(trwa.krok) }) : undefined;
   Alert.alert(t('Trwa już inny wypiek'), tresc, [
-    { text: t('Prowadź oba'), isPreferred: true, onPress: onOba },
+    // Bez Pro tekst „Prowadź oba, Pro” (dwa wypieki naraz, BR-KAL-016; P2-4) [M3 P-b]
+    { text: tekstOba, isPreferred: true, onPress: onOba },
     wrocDo(trwa, onWroc),
     cancelButton(),
   ]);

@@ -5,7 +5,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Τα βήματα που θέλουν δουλειά με τη ζύμη τα προγραμματίζω εκτός αυτών των ωρών.',
   'Kup plan miesięczny': 'Αγορά μηνιαίου πλάνου',
   'Kup plan roczny': 'Αγορά ετήσιου πλάνου',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Υπολογισμός συνταγών, πρόγραμμα ψησίματος, καθοδήγηση με ειδοποιήσεις, προζύμια και ημερολόγιο. Χωρίς διαφημίσεις, χωρίς λογαριασμό.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'Δεν υπάρχει σύνδεση με το App Store, οπότε η αγορά και η επαναφορά αγορών δεν είναι δυνατές αυτή τη στιγμή. Η υπόλοιπη εφαρμογή λειτουργεί κανονικά. Ελέγξτε τη σύνδεση στο διαδίκτυο και δοκιμάστε ξανά.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Δεν ήταν δυνατή η ολοκλήρωση της αγοράς. Η αγορά απαιτεί σύνδεση με το App Store: ελέγξτε τη σύνδεση στο διαδίκτυο και δοκιμάστε ξανά.',
   'Piekarz Pro': 'Αρτοποιός Pro',

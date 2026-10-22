@@ -16,11 +16,14 @@ import { trwajaceWypieki, utrwalWypiekZPamieci } from '../lib/przerwij-wypiek';
 import { przywrocPlan, usunPlan, zacznijPlan } from '../lib/plany-akcje';
 import { guardSave } from '../lib/save-guard';
 import { t } from '../lib/i18n';
+import { etykietaPro } from '../lib/platnosci/nazwy-pro';
 
-export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess }: {
+export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze }: {
   onZmiana: () => void;
   otworzWypiek: (id: string) => void;
   requireActionAccess: (funkcja: Funkcja, fn: () => void) => void;
+  /** Czy funkcja działa teraz: bez Pro „Prowadź oba” ma w pytaniu „Pro” (P2-4) [M3 P-b]. */
+  moze?: (funkcja: Funkcja) => boolean;
 }) {
   const [otwarty, ustawOtwarty] = useState<string | null>(null);
   const [usuniety, ustawUsuniety] = useState<PlannedBake | null>(null);
@@ -47,10 +50,10 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess }: {
         if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
         // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104); drugi trwający to Pro
         const oba = () => requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => ok && start()));
-        confirmStartPrzyTrwajacym(trwa, oba, wroc);
+        confirmStartPrzyTrwajacym(trwa, oba, wroc, etykietaPro(t('Prowadź oba'), moze?.('dwa-wypieki') ?? true));
       });
     });
-  }, [onZmiana, requireActionAccess, wroc]);
+  }, [onZmiana, requireActionAccess, moze, wroc]);
 
   const usun = useCallback((p: PlannedBake) => {
     void guardSave(async () => {

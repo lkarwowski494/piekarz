@@ -1,18 +1,19 @@
 // ============================================================================
-// Piekarz — Ustawienia: zakupy (MON-03) [M1-audytor-generalny-010; 02-monetyzacja-003].
-// „Przywróć zakupy” dostępne bez otwierania ekranu zakupu, także bez uprawnienia.
+// Piekarz — Ustawienia: zakupy (MON-03) [M1-audytor-generalny-010; 02-monetyzacja-003; M3 P-b, D-117].
+// Kontrakt (docs/monetyzacja.md „Reguły dostępu”): ekran Pro otwiera się przy funkcji Pro i stąd („Piekarz Pro”);
+// „Przywróć zakupy” bez otwierania ekranu zakupu, także bez uprawnienia; „Zarządzaj subskrypcją” i „Zrealizuj kod”.
 // Wygląd z istniejących tokenów motywu (karta i link jak w StudioEcosystemSection); do akceptacji roli 04.
 // ============================================================================
 
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
 import { theme } from '../../ui/theme';
 import { t } from '../../lib/i18n';
 import { przywrocZakupy } from '../../lib/app-access';
 import { przywrocZKomunikatem } from '../przywroc-zakupy';
-import { zarzadzajSubskrypcja } from '../../lib/platnosci/sklep';
+import { zarzadzajSubskrypcja, zrealizujKod } from '../../lib/platnosci/sklep';
 
-export function ZakupySection() {
+export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
   const [trwa, setTrwa] = useState(false);
 
   const handleRestore = async () => {
@@ -24,30 +25,37 @@ export function ZakupySection() {
     }
   };
 
+  // Arkusz realizacji kodu wymaga App Store; błąd nie jest cichy [M3 P-b]
+  const handleKod = async () => {
+    try {
+      await zrealizujKod();
+    } catch {
+      Alert.alert(t('Zrealizuj kod'), t('Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.'));
+    }
+  };
+
+  const wiersz = (testID: string, tekst: string, onPress: () => unknown, zajety = false) => (
+    <Pressable
+      style={styles.linkRow}
+      onPress={onPress}
+      disabled={zajety}
+      accessibilityRole="button"
+      accessibilityLabel={tekst}
+      accessibilityState={{ disabled: zajety, busy: zajety }}
+      testID={testID}
+    >
+      <Text style={styles.linkText}>{zajety ? t('Przetwarzanie...') : tekst}</Text>
+    </Pressable>
+  );
+
   return (
     <View style={styles.card}>
       <Text style={styles.sectionTitle}>{t('Zakupy')}</Text>
-      <Pressable
-        style={styles.linkRow}
-        onPress={handleRestore}
-        disabled={trwa}
-        accessibilityRole="button"
-        accessibilityLabel={t('Przywróć zakupy')}
-        accessibilityState={{ disabled: trwa, busy: trwa }}
-        testID="settings-restore-purchases-btn"
-      >
-        <Text style={styles.linkText}>{trwa ? t('Przetwarzanie...') : t('Przywróć zakupy')}</Text>
-      </Pressable>
+      {onOtworzPro && wiersz('settings-pro-btn', t('Piekarz Pro'), onOtworzPro)}
+      {wiersz('settings-restore-purchases-btn', t('Przywróć zakupy'), handleRestore, trwa)}
       {/* Systemowe zarządzanie i anulowanie subskrypcji [M1-audytor-generalny-011; 02-monetyzacja-008] */}
-      <Pressable
-        style={styles.linkRow}
-        onPress={() => zarzadzajSubskrypcja()}
-        accessibilityRole="button"
-        accessibilityLabel={t('Zarządzaj subskrypcją')}
-        testID="settings-manage-subscriptions-btn"
-      >
-        <Text style={styles.linkText}>{t('Zarządzaj subskrypcją')}</Text>
-      </Pressable>
+      {wiersz('settings-manage-subscriptions-btn', t('Zarządzaj subskrypcją'), zarzadzajSubskrypcja)}
+      {wiersz('settings-redeem-btn', t('Zrealizuj kod'), handleKod)}
     </View>
   );
 }

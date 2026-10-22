@@ -71,7 +71,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Pianifico i passaggi manuali sull\'impasto fuori da queste ore.',
   'Kup plan miesięczny': 'Acquista piano mensile',
   'Kup plan roczny': 'Acquista piano annuale',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Calcolo delle ricette, piano dell\'infornata, guida con notifiche, lieviti madre e diario. Senza pubblicità, senza account.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'Non c\'è connessione all\'App Store, quindi per ora l\'acquisto e il ripristino degli acquisti non funzioneranno. Il resto dell\'app funziona come sempre. Controlla la connessione a Internet e riprova.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Impossibile completare l\'acquisto. L\'acquisto richiede una connessione all\'App Store: controlla la connessione a Internet e riprova.',
   'Piekarz Pro': 'Fornaio Pro',

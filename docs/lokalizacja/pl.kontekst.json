@@ -329,6 +329,11 @@
     ],
     "opis": "Rada w arkuszu „Składniki”, gdy hydratacja jest dużo powyżej zakresu mieszanki mąk. Składanie = składanie ciasta w trakcie fermentacji (stretch and fold). Spokojny ton, bez wykrzyknika. [M1-audytor-generalny-116]"
   },
+  "Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
   "Baza Fiszek Biochemicznych": {
     "gdzie": []
   },
@@ -778,6 +783,11 @@
       "src/lib/print-menu.ts (Alert.alert)"
     ]
   },
+  "Co daje Pro": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)"
+    ]
+  },
   "Co dzisiaj pieczemy?": {
     "gdzie": []
   },
@@ -1053,6 +1063,7 @@
   },
   "Dodaj do kalendarza": {
     "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (accessibilityLabel)",
       "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)",
       "src/lib/kalendarz-telefonu.ts (dialogTitle)"
     ]
@@ -1084,6 +1095,7 @@
   "Dodaj nowy zakwas": {
     "gdzie": [
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StartersSelectorRow.tsx (accessibilityLabel)",
       "src/components/zakwas/StartersSelectorRow.tsx (tekst w JSX)"
     ]
   },
@@ -1828,6 +1840,11 @@
       "src/lib/spirala-etykieta.ts (kod)"
     ]
   },
+  "Gotowość i szczyt zakwasu": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Gotowy do ciasta (według King Arthur Baking).": {
     "gdzie": [
       "src/components/zakwas/ZakwasDziennik.tsx (tekst w JSX)"
@@ -1835,6 +1852,11 @@
   },
   "Gotowy do krojenia": {
     "gdzie": []
+  },
+  "Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
   },
   "Grubo mielona mąka ze wszystkimi częściami ziarna. Otręby przecinają gluten, wymaga delikatnego składania.": {
     "gdzie": [
@@ -2050,6 +2072,11 @@
   "Jaskinie (Niedofermentowany)": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (dane: name)"
+    ]
+  },
+  "Jedna opłata, bez odnawiania.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (opis)"
     ]
   },
   "Jednofazowa fermentacja kwasowa w cieple (26–28°C) przez 3–4h w keksówce": {
@@ -2571,9 +2598,9 @@
   "Liczba bochenków i gramatura": {
     "gdzie": []
   },
-  "Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.": {
+  "Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.": {
     "gdzie": [
-      "src/components/PaywallModal.tsx (tekst w JSX)"
+      "src/components/PaywallModal.tsx (teksty)"
     ]
   },
   "Lievito Madre / Pasta Madre (50%)": {
@@ -2838,9 +2865,6 @@
     "gdzie": [
       "src/core/starter-doctor.ts (dane: kod)"
     ]
-  },
-  "Musisz posiadać co najmniej jeden profil zakwasu.": {
-    "gdzie": []
   },
   "Mój zakwas": {
     "gdzie": [
@@ -3496,9 +3520,6 @@
       "src/components/StorageGate.tsx (tekst w JSX)"
     ]
   },
-  "Nie można usunąć": {
-    "gdzie": []
-  },
   "Nie podwaja objętości": {
     "gdzie": [
       "app/(tabs)/zakwasy/doktor-zakwasu.tsx (dane: no_doubling)"
@@ -3551,6 +3572,11 @@
     "gdzie": [
       "src/components/ImportRecipeModal.tsx (Alert.alert)",
       "src/components/settings/ImportZPlikuArkusz.tsx (Alert.alert)"
+    ]
+  },
+  "Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.": {
+    "gdzie": [
+      "src/components/settings/ZakupySection.tsx (Alert.alert)"
     ]
   },
   "Nie udało się połączyć z App Store. Spróbuj ponownie.": {
@@ -3861,12 +3887,6 @@
   "Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: day3)"
-    ]
-  },
-  "Odblokuj pełny dostęp": {
-    "gdzie": [
-      "src/components/BlokadaFunkcji.tsx (accessibilityLabel)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
     ]
   },
   "Odejmij {g} g mąki {nazwa}": {
@@ -4214,6 +4234,13 @@
   },
   "Piekarz Pro": {
     "gdzie": [
+      "src/components/PaywallModal.tsx (tekst w JSX)",
+      "src/components/settings/ZakupySection.tsx (tekst w JSX)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
+  "Piekarz Pro jest aktywny.": {
+    "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)"
     ]
   },
@@ -4285,6 +4312,11 @@
       "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)"
     ]
   },
+  "Plan wstecz od godziny „gotowe”": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
@@ -4328,6 +4360,11 @@
   "Plan wypieku: {n} kroków.": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (dane: many)"
+    ]
+  },
+  "Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
     ]
   },
   "Po 4–5 godzinach ciasto nie urosło, jest zimne w dotyku (<20°C).": {
@@ -4564,6 +4601,11 @@
       "src/lib/notifications.ts (title)"
     ]
   },
+  "Porównanie i statystyki": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Porównanie standardów przemiału: Polska, Francja, Włochy, Niemcy i USA/UK": {
     "gdzie": [
       "src/components/FlourEquivalentsModal.tsx (tekst w JSX)"
@@ -4697,6 +4739,11 @@
   "Preferment (Zaczyn)": {
     "gdzie": []
   },
+  "Pro": {
+    "gdzie": [
+      "src/components/OznaczeniePro.tsx (tekst w JSX)"
+    ]
+  },
   "Procedura Bassinage ratunkowego": {
     "gdzie": []
   },
@@ -4740,6 +4787,11 @@
       "src/components/receptury/SkladnikiSheet.tsx (tekst w JSX)"
     ]
   },
+  "Proporcje dokarmiania": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
+    ]
+  },
   "Proporcje poprawne (100%)": {
     "gdzie": [
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
@@ -4768,8 +4820,9 @@
   },
   "Prowadź oba": {
     "gdzie": [
-      "src/hooks/useStartPlanu.ts (tekst)",
-      "src/lib/confirm.ts (text)"
+      "src/hooks/usePlanyDzis.ts (kod)",
+      "src/hooks/useStartPlanu.ts (kod)",
+      "src/lib/confirm.ts (kod)"
     ]
   },
   "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.": {
@@ -5003,6 +5056,16 @@
       "src/core/starter-log.ts (dane: day1)"
     ]
   },
+  "Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.": {
+    "gdzie": [
+      "src/components/settings/PrzypomnieniaKarmieniaSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Przypomnienia o dokarmianiu są w Piekarz Pro.": {
+    "gdzie": [
+      "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
+    ]
+  },
   "Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.": {
     "gdzie": [
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
@@ -5025,7 +5088,6 @@
     "gdzie": [
       "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/przywroc-zakupy.ts (Alert.alert)",
-      "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)"
     ]
   },
@@ -5185,6 +5247,11 @@
   "Receptury bazowe": {
     "gdzie": [
       "src/components/receptury/ListaReceptur.tsx (tekst w JSX)"
+    ]
+  },
+  "Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
     ]
   },
   "Receptury mistrzowskie": {
@@ -5667,6 +5734,7 @@
   "Stały dzień karmienia": {
     "gdzie": [
       "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)",
+      "src/lib/platnosci/nazwy-pro.ts (kod)",
       "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
     ]
   },
@@ -7803,6 +7871,11 @@
       "src/lib/notifications.ts (body)"
     ]
   },
+  "Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.": {
+    "gdzie": [
+      "src/components/PaywallModal.tsx (teksty)"
+    ]
+  },
   "Zakwas: {amount} g": {
     "gdzie": []
   },
@@ -8029,7 +8102,7 @@
   },
   "Zarządzaj subskrypcją": {
     "gdzie": [
-      "src/components/settings/ZakupySection.tsx (accessibilityLabel)",
+      "src/components/PaywallModal.tsx (tekst w JSX)",
       "src/components/settings/ZakupySection.tsx (tekst w JSX)",
       "src/components/start/UprzedzenieKoncaPro.tsx (tekst w JSX)"
     ]
@@ -8349,6 +8422,12 @@
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (accessibilityLabel)",
       "src/components/zakwas/StarterFeedingCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Zrealizuj kod": {
+    "gdzie": [
+      "src/components/settings/ZakupySection.tsx (Alert.alert)",
+      "src/components/settings/ZakupySection.tsx (tekst w JSX)"
     ]
   },
   "Zrezygnuj z koszyka rozrostowego. Użyj foremki keksowej.": {
@@ -8693,9 +8772,6 @@
       "src/components/Spirala.tsx (tekst w JSX)"
     ]
   },
-  "rok": {
-    "gdzie": []
-  },
   "sie": {
     "gdzie": []
   },
@@ -8805,7 +8881,7 @@
   "wymaga Piekarz Pro": {
     "gdzie": [
       "src/components/BlokadaFunkcji.tsx (accessibilityHint)",
-      "src/components/BlokadaFunkcji.tsx (tekst w JSX)"
+      "src/components/receptury/SkladnikiSheet.tsx (accessibilityHint)"
     ]
   },
   "wymagający": {
@@ -8896,6 +8972,11 @@
   "{dzien}: piekarnik zajęty o {h}": {
     "gdzie": [
       "src/components/kalendarz/LiniaPiekarnika.tsx (kod)"
+    ]
+  },
+  "{funkcja}, Pro": {
+    "gdzie": [
+      "src/lib/platnosci/nazwy-pro.ts (kod)"
     ]
   },
   "{godziny} {minuty}": {

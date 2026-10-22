@@ -166,6 +166,27 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.',
     'Zapisano zmiany w recepturze „{name}”.',
     // KONIEC P-a-fix
+    // M3 P-b: ekran Pro, oznaczenie „Pro”, gratulacje po pierwszym zakwasie, Ustawienia (D-117), na przebieg a5 jak P-a
+    'Pro',
+    '{funkcja}, Pro',
+    'Plan wstecz od godziny „gotowe”',
+    'Gotowość i szczyt zakwasu',
+    'Proporcje dokarmiania',
+    'Porównanie i statystyki',
+    'Basic zostaje bezpłatny na zawsze. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur.',
+    'Co daje Pro',
+    'Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.',
+    'Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.',
+    'Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.',
+    'Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.',
+    'Jedna opłata, bez odnawiania.',
+    'Piekarz Pro jest aktywny.',
+    'Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.',
+    'Przypomnienia o dokarmianiu są w Piekarz Pro.',
+    'Zrealizuj kod',
+    'Nie udało się otworzyć realizacji kodu. Realizacja kodu wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.',
+    'Przypomnienia o dokarmianiu gotowego zakwasu są w Piekarz Pro. W czasie zakładania zakwasu przychodzą bez Pro.',
+    // KONIEC P-b
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

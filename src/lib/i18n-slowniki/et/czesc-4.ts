@@ -63,7 +63,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Aastane',
   'Rodzaj': 'Tüüp',
   'Rodzaj receptur': 'Retseptide tüüp',
-  'rok': 'aasta',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Venita tainas niiskel tööpinnal õhukeseks ristkülikuks (laminatsioon).',
   'Rozerwanie boku przy spodzie': 'Külje rebenemine põhja juures',
   'Rozpoczęcie dokarmiania': 'Toitmise algus',

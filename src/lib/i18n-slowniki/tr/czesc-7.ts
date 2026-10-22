@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Hamurla çalışılan adımları bu saatlerin dışına planlıyorum.',
   'Kup plan miesięczny': 'Aylık planı satın al',
   'Kup plan roczny': 'Yıllık planı satın al',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Tarif hesaplama, pişirme planı, bildirimlerle adım adım rehberlik, ekşi mayalar ve günlük. Reklam yok, hesap yok.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'App Store bağlantısı yok, bu yüzden satın alma ve satın alınanları geri yükleme şu anda yapılamaz. Uygulamanın geri kalanı her zamanki gibi çalışır. İnternet bağlantınızı kontrol edip yeniden deneyin.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Satın alma tamamlanamadı. Satın alma için App Store bağlantısı gerekir: internet bağlantınızı kontrol edip yeniden deneyin.',
   'Piekarz Pro': 'Fırıncı Pro',

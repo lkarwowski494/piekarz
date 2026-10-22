@@ -114,7 +114,7 @@ describe('Without Pro the Basic part works and Pro functions open the Pro screen
     await initDatabase();
   });
 
-  it('Kalkulator: calculating, "Ułóż plan", water temperature and ingredients work without the Pro screen; import, export and copy stay free (BR-ZAK-005 Przed próbą)', async () => {
+  it('Kalkulator: calculating, "Ułóż plan", water temperature and ingredients work without the Pro screen; import, export and copy stay free (BR-ZAK-005 Pierwsze użycie kalkulatora, Historia i eksport)', async () => {
     const tree = await render(<CalculatorScreen />);
     expect(locks(tree.root)).toEqual([]);
     // Drukuj (F-50) i QR (F-08) poza 1.0, wejścia ukryte (D-043) [M1-audytor-generalny-072, -049]
@@ -198,7 +198,8 @@ describe('Without Pro the Basic part works and Pro functions open the Pro screen
   it('Harmonogram: "ready at…" opens the Pro screen, the start works in Basic and "Zaplanuj" is not offered', async () => {
     const tree = await render(<HarmonogramScreen />);
     expect(locks(tree.root).map((n) => n.props.testID)).toEqual(['blokada-plan-wstecz']);
-    expect(locks(tree.root)[0].props.accessibilityLabel).toBe(t('Odblokuj pełny dostęp'));
+    // Zmienione w M3 P-b (D-117): kłódka „Odblokuj pełny dostęp” zastąpiona oznaczeniem „Pro” z nazwą funkcji (P2-4)
+    expect(locks(tree.root)[0].props.accessibilityLabel).toBe(t('{funkcja}, Pro', { funkcja: t('Plan wstecz od godziny „gotowe”') }));
     expect(tree.root.findAllByProps({ testID: 'plan-zaplanuj-btn' })).toHaveLength(0);
     await press(tree, 'blokada-plan-wstecz');
     expect(paywallShown(tree.root)).toBe(true);

@@ -167,7 +167,6 @@ export const CZESC: Record<string, string> = {
   'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.': 'Възможна причина: на дрождите и бактериите не им достига храна и броят им постепенно намалява.',
   'Możliwe przyczyny:': 'Възможни причини:',
   'Mój zakwas': 'Моят стартер',
-  'Musisz posiadać co najmniej jeden profil zakwasu.': 'Трябва да имате поне един профил на квасен стартер.',
   'na blacie': 'на плота',
   'na blacie, {proporcja}': 'на плота, {proporcja}',
   'Na początku wypieku zapewnij parę w piekarniku.': 'В началото на печенето осигурете пара във фурната.',

@@ -88,7 +88,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Tahunan',
   'Rodzaj': 'Jenis',
   'Rodzaj receptur': 'Jenis resipi',
-  'rok': 'tahun',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Regangkan doh di atas permukaan meja yang basah menjadi segi empat tepat yang nipis (laminasi).',
   'Rozerwanie boku przy spodzie': 'Bahagian tepi pecah berhampiran dasar',
   'Rozpoczęcie dokarmiania': 'Permulaan pemberian makan',

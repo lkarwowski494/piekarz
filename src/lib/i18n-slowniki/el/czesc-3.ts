@@ -176,7 +176,6 @@ export const CZESC: Record<string, string> = {
   'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.': 'Πιθανή αιτία: οι ζυμομύκητες και τα βακτήρια μένουν χωρίς τροφή και ο πληθυσμός τους μειώνεται σταδιακά.',
   'Możliwe przyczyny:': 'Πιθανές αιτίες:',
   'Mój zakwas': 'Το προζύμι μου',
-  'Musisz posiadać co najmniej jeden profil zakwasu.': 'Πρέπει να διατηρείτε τουλάχιστον ένα προφίλ προζυμιού.',
   'na blacie': 'στον πάγκο',
   'na blacie, {proporcja}': 'στον πάγκο, {proporcja}',
   'Na początku wypieku zapewnij parę w piekarniku.': 'Στην αρχή του ψησίματος εξασφαλίστε ατμό στον φούρνο.',

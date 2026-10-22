@@ -18,6 +18,8 @@ import { opisZdarzenia, tekstyNastepne, type OpcjeTekstu } from '../../lib/kalen
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { CloseButton } from '../CloseButton';
+import { OznaczeniePro } from '../OznaczeniePro';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
 import { WierszZaleglego, type AkcjeZaleglego } from './LiniaNastepne';
 import { GlifPiekarnika } from './GlifZdarzenia';
 
@@ -36,6 +38,8 @@ export interface ArkuszDniaProps {
   liczbaPlanow?: number;
   /** Skrót do planu na ten dzień (BR-KAL-015, D-108): północ dnia z arkusza. */
   onZaplanuj?: (dzienMs: number) => void;
+  /** Plany na przyszłe dni wymagają Pro (bez dostępu): skrót z oznaczeniem „Pro” (BR-KAL-015, P2-4) [M3 P-b]. */
+  zaplanujPro?: boolean;
 }
 
 function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; onPrzejdz: (z: ZdarzenieKalendarza) => void }) {
@@ -51,7 +55,7 @@ function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; o
   );
 }
 
-export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj }: ArkuszDniaProps) {
+export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj, zaplanujPro = false }: ArkuszDniaProps) {
   const zalegleTeksty = (z: readonly ZdarzenieKalendarza[]) =>
     tekstyNastepne({ zalegle: [...z], przyszle: [], wiecej: 0, wszystkiePrzyszle: [] }, o).zalegle;
   const zalegle = (lista: readonly ZdarzenieKalendarza[]) => {
@@ -68,8 +72,9 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, licz
     // Skrót „Zaplanuj wypiek na ten dzień” (BR-KAL-015): dzień w zasięgu planu, bez minionego i bez limitu planów;
     // trwający wypiek go nie blokuje (D-092, D-108). Element spoza makiety a2 (na liście tekstów roli 04) [M3 D5]
     const skrot = onZaplanuj && skrotZaplanuj(ms, o.now, liczbaPlanow) === 'pokaz' ? (
-      <Pressable testID="arkusz-zaplanuj-btn" accessibilityRole="button" accessibilityLabel={t('Zaplanuj wypiek na ten dzień')} style={styles.skrot} onPress={() => onZaplanuj(ms)}>
+      <Pressable testID="arkusz-zaplanuj-btn" accessibilityRole="button" accessibilityLabel={etykietaPro(t('Zaplanuj wypiek na ten dzień'), !zaplanujPro)} style={styles.skrot} onPress={() => onZaplanuj(ms)}>
         <Text style={styles.skrotTekst}>{t('Zaplanuj wypiek na ten dzień')}</Text>
+        {zaplanujPro && <OznaczeniePro />}
       </Pressable>
     ) : null;
     tresc = (
@@ -129,6 +134,6 @@ const styles = StyleSheet.create({
   tekstPiec: { color: theme.colors.ostrzTusz },
   godzina: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz2, fontVariant: ['tabular-nums'] },
   opis: { flexShrink: 1, flexBasis: 160, flexGrow: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
-  skrot: { minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
+  skrot: { minHeight: theme.cele.pozostale, flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },
   skrotTekst: { fontSize: typografia.style.naglowek.pt, color: theme.colors.tusz, textAlign: 'center' },
 });

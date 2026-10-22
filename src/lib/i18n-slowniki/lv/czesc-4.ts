@@ -90,7 +90,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Gada',
   'Rodzaj': 'Veids',
   'Rodzaj receptur': 'Receptūru veids',
-  'rok': 'gads',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Izstiepiet mīklu uz mitras darba virsmas plānā taisnstūrī (laminēšana).',
   'Rozerwanie boku przy spodzie': 'Sāns pārplīsis pie pamatnes',
   'Rozpoczęcie dokarmiania': 'Barošanas sākums',

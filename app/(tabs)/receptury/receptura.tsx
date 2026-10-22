@@ -48,7 +48,7 @@ export default function EkranReceptury() {
   const router = useRouter();
 
   // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
-  const { chron, blokada, dodaj } = useAppAccess();
+  const { chron, blokada, dodaj, moze } = useAppAccess();
 
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
   const [loavesCount, setLoavesCount] = useState<number>(2);
@@ -324,6 +324,7 @@ export default function EkranReceptury() {
         prefermentType={prefermentType}
         // Poolish, biga, levain w Pro (BR-KALK-010); ciasto bezpośrednie w Basic
         onPrefermentTypeChange={(typ) => (typ === 'direct' ? setPrefermentType(typ) : chron('zaczyn', () => setPrefermentType(typ))())}
+        zaczynPro={!moze('zaczyn')}
         prefermentFlourPct={prefermentFlourPct}
         onPrefermentFlourPctChange={setPrefermentFlourPct}
         prefermentBreakdown={prefermentBreakdown}

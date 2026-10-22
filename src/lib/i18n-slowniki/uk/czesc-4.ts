@@ -55,7 +55,6 @@ export const CZESC: Record<string, string> = {
   'Od dokarmienia minęło {czas} z {odstep}.': 'Від підживлення минуло {czas} з {odstep}.',
   'Od mąki i wody do pierwszego bochenka, dzień po dniu.': 'Від борошна й води до першої хлібини, день за днем.',
   'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.': 'Від цього дня підживлюйте закваску двічі на день, приблизно кожні 12 годин.',
-  'Odblokuj pełny dostęp': 'Розблокувати повний доступ',
   'Odhaczaj składniki w miarę wsypywania': 'Відмічайте інгредієнти, щойно їх всипаєте',
   'Odkryj wiedzę naukową': 'Відкрити наукові знання',
   'Odliczanie trwa': 'Відлік триває',

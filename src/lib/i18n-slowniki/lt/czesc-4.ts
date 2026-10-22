@@ -97,7 +97,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Metinis',
   'Rodzaj': 'Rūšis',
   'Rodzaj receptur': 'Receptūrų rūšis',
-  'rok': 'metai',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Ant drėgno stalviršio ištempkite tešlą į ploną stačiakampį (laminavimas).',
   'Rozerwanie boku przy spodzie': 'Šono plyšimas prie apačios',
   'Rozpoczęcie dokarmiania': 'Maitinimo pradžia',

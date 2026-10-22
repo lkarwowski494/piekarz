@@ -126,7 +126,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': 'Hàng năm',
   'Rodzaj': 'Loại',
   'Rodzaj receptur': 'Loại công thức',
-  'rok': 'năm',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': 'Kéo căng bột trên mặt bàn ẩm thành hình chữ nhật mỏng (cán mỏng).',
   'Rozerwanie boku przy spodzie': 'Nứt toạc cạnh bên sát đáy',
   'Rozpoczęcie dokarmiania': 'Bắt đầu cho men ăn',

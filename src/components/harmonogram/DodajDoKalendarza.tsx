@@ -11,21 +11,27 @@ import { useDodajDoKalendarza, type PlanDoKalendarza } from '../../hooks/useDoda
 import { useAppAccess } from '../../lib/app-access';
 import { announce } from '../../lib/announce';
 import { t } from '../../lib/i18n';
+import { etykietaPro } from '../../lib/platnosci/nazwy-pro';
+import { OznaczeniePro } from '../OznaczeniePro';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
 export function DodajDoKalendarza({ plan }: { plan: PlanDoKalendarza | null }) {
   const { dodaj, nieZmienil } = useDodajDoKalendarza(plan);
-  const { chron } = useAppAccess();
+  const { chron, moze } = useAppAccess();
   const info = t('Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.');
   useEffect(() => {
     if (nieZmienil) announce(info);
   }, [nieZmienil, info]);
   if (!plan) return null;
+  const dostep = moze('kalendarz-telefonu');
   return (
     <View style={styles.blok}>
-      <Pressable accessibilityRole="button" testID="plan-kalendarz-btn" style={styles.przycisk} onPress={chron('kalendarz-telefonu', dodaj)}>
+      {/* Bez Pro z oznaczeniem „Pro” (kontrakt „Reguły dostępu”, P2-4) [M3 P-b] */}
+      <Pressable accessibilityRole="button" accessibilityLabel={etykietaPro(t('Dodaj do kalendarza'), dostep)} testID="plan-kalendarz-btn"
+        style={styles.przycisk} onPress={chron('kalendarz-telefonu', dodaj)}>
         <Text style={styles.tekst}>{t('Dodaj do kalendarza')}</Text>
+        {!dostep && <OznaczeniePro />}
       </Pressable>
       <Text style={styles.opis} testID="plan-kalendarz-opis">
         {t('Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.')}
@@ -43,6 +49,9 @@ const styles = StyleSheet.create({
   blok: { marginTop: odstepy.s, gap: odstepy.xs },
   przycisk: {
     minHeight: theme.cele.pozostale,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: odstepy.s,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: promienie.przycisk,

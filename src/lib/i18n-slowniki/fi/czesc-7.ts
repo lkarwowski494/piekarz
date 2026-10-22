@@ -54,7 +54,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Ajoitan taikinatyövaiheet näiden aikojen ulkopuolelle.',
   'Kup plan miesięczny': 'Osta kuukausitilaus',
   'Kup plan roczny': 'Osta vuositilaus',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Reseptien laskenta, leivontasuunnitelma, opastus ilmoituksineen, hapanjuuret ja päiväkirja. Ei mainoksia, ei tiliä.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'App Storeen ei ole yhteyttä, joten ostaminen ja ostosten palauttaminen eivät nyt onnistu. Muu sovellus toimii kuten ennenkin. Tarkista internetyhteys ja yritä uudelleen.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Ostoa ei voitu viedä loppuun. Ostaminen vaatii yhteyden App Storeen: tarkista internetyhteys ja yritä uudelleen.',
   'Piekarz Pro': 'Leipuri Pro',

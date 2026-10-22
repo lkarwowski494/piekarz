@@ -145,7 +145,6 @@ export const CZESC: Record<string, string> = {
   'Roczny': '年額',
   'Rodzaj': '種類',
   'Rodzaj receptur': '配合の種類',
-  'rok': '年',
   'Rozciągnij ciasto na wilgotnym blacie w cienki prostokąt (laminacja).': '濡らした台の上で生地を薄い長方形に伸ばしてください（ラミネーション）。',
   'Rozerwanie boku przy spodzie': '底部側面の破裂',
   'Rozpoczęcie dokarmiania': '種継ぎ開始',

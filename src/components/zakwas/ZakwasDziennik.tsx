@@ -15,6 +15,7 @@ import { NO_DOUBLING_ACTIONS } from '../../core/starter-doctor';
 import { fridgeWakeOutcome } from '../../core/fridge-wake';
 import { t } from '../../lib/i18n';
 import { guardSave } from '../../lib/save-guard';
+import { pierwszeGratulacje } from '../../lib/gratulacje-zakwasu';
 import { stanKartyZakwasu, wZakladaniu } from '../../lib/zakwas-widok';
 import { theme } from '../../ui/theme';
 import { typografia } from '../../ui/tokeny';
@@ -31,9 +32,11 @@ function opisMiejsca(s: StoredStarter): string {
   return s.feedingRatio ? t('na blacie, {proporcja}', { proporcja: s.feedingRatio }) : t('na blacie');
 }
 
-export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci }: {
+export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci, zPro = true }: {
   /** Strażnik gotowości poza zakładaniem (blokada('gotowosc-zakwasu') ekranu; BR-ZAKW-003 w Pro). */
   blokadaGotowosci: Omit<BlokadaFunkcjiProps, 'children'>;
+  /** Przypomnienia o dokarmianiu działają (Pro): gratulacje bez zdania o Pro (BR-ZAKW-004, W-10) [M3 P-b]. */
+  zPro?: boolean;
   starter: StoredStarter;
   /** Zmienia się po zapisie dokarmienia na ekranie: dziennik czyta wpisy ponownie. */
   wersja: number;
@@ -47,6 +50,8 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   const log = useStarterLog(starter.id);
   const { reload } = log;
   const [wynik, setWynik] = useState<SetupOutcome | null>(null);
+  // Gratulacje po pierwszym zakończonym zakładaniu, raz (BR-ZAKW-005, W-10, D-113) [M3 P-b]
+  const [gratulacje, setGratulacje] = useState(false);
   const [wypiekZakwasu, setWypiekZakwasu] = useState<string | null>(null);
   const now = Date.now();
 
@@ -76,7 +81,10 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       const out = setupObservationOutcome({ day: dzien, stage: etap, signs, entries: log.entries, observedAt: at });
       if (signs.length > 0) await log.zapiszObserwacje(signs, at, out.kind === 'ready' ? { setupCompletedAt: at } : undefined);
       setWynik(out);
-      if (out.kind === 'ready') await onZmianaZakwasu();
+      if (out.kind === 'ready') {
+        setGratulacje(await pierwszeGratulacje());
+        await onZmianaZakwasu();
+      }
     }));
 
   const podwoil = () =>
@@ -87,6 +95,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
       await log.zapiszObserwacje(['doubled'], at, koniec ? { setupCompletedAt: at } : undefined);
       if (koniec) {
         setWynik(setupObservationOutcome({ day: dzien, stage: etap, signs: ['doubled'], entries: log.entries, observedAt: at }));
+        setGratulacje(await pierwszeGratulacje());
         await onZmianaZakwasu();
       }
     }));
@@ -105,6 +114,7 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
           dzien={dzien}
           etap={etap}
           wynik={wynik}
+          gratulacje={gratulacje ? { zPro } : null}
           now={now}
           onZapiszDzien={zapiszDzien}
           onZacznijOdNowa={odNowa}

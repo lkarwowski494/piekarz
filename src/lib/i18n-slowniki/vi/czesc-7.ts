@@ -119,5 +119,4 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Tôi xếp các bước cần thao tác với bột ra ngoài những giờ này.',
   'Kup plan miesięczny': 'Mua gói tháng',
   'Kup plan roczny': 'Mua gói năm',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Tính công thức, kế hoạch nướng, hướng dẫn từng bước kèm thông báo, men tự nhiên và nhật ký. Không quảng cáo, không cần tài khoản.',
 };

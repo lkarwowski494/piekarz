@@ -26,7 +26,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': '需要動手處理麵糰的步驟，我會安排在這段時間以外。',
   'Kup plan miesięczny': '購買月費方案',
   'Kup plan roczny': '購買年費方案',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': '配方計算、烘焙計畫、搭配通知的步驟引導、天然酵母起種與日誌。無廣告，無需帳號。',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': '無法連線至 App Store，因此目前無法購買或回復購買項目。App 的其他功能仍照常運作。請檢查網路連線後再試一次。',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': '無法完成購買。購買需要連線至 App Store：請檢查網路連線後再試一次。',
   'Piekarz Pro': '麵包師傅 Pro',

@@ -56,7 +56,6 @@ export const CZESC: Record<string, string> = {
   'Kroki z pracą przy cieście planuję poza tymi godzinami.': 'Žingsnius, kai reikia dirbti su tešla, planuoju už šių valandų ribų.',
   'Kup plan miesięczny': 'Pirkti mėnesio planą',
   'Kup plan roczny': 'Pirkti metų planą',
-  'Liczenie receptur, plan wypieku, prowadzenie z powiadomieniami, zakwasy i dziennik. Bez reklam, bez konta.': 'Receptūrų skaičiavimai, kepimo planas, vedimas su pranešimais, raugai ir dienoraštis. Be reklamų, be paskyros.',
   'Nie ma połączenia z App Store, więc zakup i przywrócenie zakupów teraz się nie udadzą. Reszta aplikacji działa jak dotąd. Sprawdź internet i spróbuj ponownie.': 'Nėra ryšio su App Store, todėl pirkimas ir pirkinių atkūrimas dabar nepavyks. Kitos programėlės funkcijos veikia kaip įprastai. Patikrinkite interneto ryšį ir bandykite dar kartą.',
   'Nie udało się dokończyć zakupu. Zakup wymaga połączenia z App Store: sprawdź internet i spróbuj ponownie.': 'Nepavyko užbaigti pirkimo. Pirkimui reikia ryšio su App Store: patikrinkite interneto ryšį ir bandykite dar kartą.',
   'Piekarz Pro': 'Kepėjas Pro',

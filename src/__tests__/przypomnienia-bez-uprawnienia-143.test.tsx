@@ -58,7 +58,7 @@ const PORY = [
   ['23:55', new Date(2026, 9, 21, 23, 55).getTime()],
 ] as const;
 
-describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s (143; BR-ZAK-004 Po końcu próby)', (_pora, teraz) => {
+describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s (143; BR-ZAK-004 Po końcu Pro)', (_pora, teraz) => {
   const zakup = () => ({ id: 'tx_l', transactionId: 'tx_l', productId: PRODUKTY.yearly, purchaseState: 'purchased', transactionDate: teraz - 10 * D, expirationDateIOS: teraz + 4 * D });
 
   beforeEach(async () => {
