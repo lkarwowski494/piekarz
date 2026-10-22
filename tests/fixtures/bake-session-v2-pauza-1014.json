@@ -1,0 +1,264 @@
+{
+  "version": 2,
+  "steps": [
+    {
+      "id": "starter_feed",
+      "name": "Dokarmienie zakwasu (osiągnięcie szczytu)",
+      "category": "starter_feed",
+      "durationMin": 360,
+      "isPassive": true,
+      "rekaNaStarcie": true,
+      "instructions": "Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.",
+      "plannedStart": 1800000000000,
+      "plannedEnd": 1800021600000
+    },
+    {
+      "id": "autolyse",
+      "name": "Autoliza (mąka + woda)",
+      "category": "autolyse",
+      "durationMin": 45,
+      "isPassive": true,
+      "rekaNaStarcie": true,
+      "instructions": "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.",
+      "plannedStart": 1800021600000,
+      "plannedEnd": 1800024300000
+    },
+    {
+      "id": "mix",
+      "name": "Wymieszanie z solą i zakwasem",
+      "category": "mix",
+      "durationMin": 15,
+      "isPassive": false,
+      "instructions": "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+      "plannedStart": 1800024300000,
+      "plannedEnd": 1800025200000
+    },
+    {
+      "id": "bulk_ferment",
+      "name": "Fermentacja burzliwa ze składaniami",
+      "category": "bulk_ferment",
+      "durationMin": 299,
+      "isPassive": false,
+      "instructions": "Wykonaj 4 serie składań co 30–45 minut.",
+      "plannedStart": 1800025200000,
+      "plannedEnd": 1800043140000
+    },
+    {
+      "id": "pre_shape",
+      "name": "Formowanie wstępne",
+      "category": "pre_shape",
+      "durationMin": 10,
+      "isPassive": false,
+      "instructions": "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.",
+      "plannedStart": 1800043140000,
+      "plannedEnd": 1800043740000
+    },
+    {
+      "id": "bench_rest",
+      "name": "Odpoczynek na desce",
+      "category": "bench_rest",
+      "durationMin": 20,
+      "isPassive": true,
+      "instructions": "Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.",
+      "plannedStart": 1800043740000,
+      "plannedEnd": 1800044940000
+    },
+    {
+      "id": "final_shape",
+      "name": "Formowanie ostateczne i koszyk",
+      "category": "final_shape",
+      "durationMin": 15,
+      "isPassive": false,
+      "instructions": "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.",
+      "plannedStart": 1800044940000,
+      "plannedEnd": 1800045840000
+    },
+    {
+      "id": "final_proof",
+      "name": "Garowanie chłodnicze w lodówce",
+      "category": "final_proof",
+      "durationMin": 840,
+      "isPassive": true,
+      "instructions": "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.",
+      "plannedStart": 1800045840000,
+      "plannedEnd": 1800096240000
+    },
+    {
+      "id": "preheat_oven",
+      "name": "Nagrzewanie pieca i garnka żeliwnego",
+      "category": "preheat_oven",
+      "durationMin": 45,
+      "isPassive": true,
+      "rekaNaStarcie": true,
+      "instructions": "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.",
+      "plannedStart": 1800096240000,
+      "plannedEnd": 1800098940000
+    },
+    {
+      "id": "bake",
+      "name": "Wypiek z parą i rumienienie",
+      "category": "bake",
+      "durationMin": 45,
+      "isPassive": false,
+      "instructions": "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).",
+      "plannedStart": 1800098940000,
+      "plannedEnd": 1800101640000
+    },
+    {
+      "id": "cool",
+      "name": "Studzenie na kratce",
+      "category": "cool",
+      "durationMin": 120,
+      "isPassive": true,
+      "instructions": "Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.",
+      "plannedStart": 1800101640000,
+      "plannedEnd": 1800108840000
+    }
+  ],
+  "stepIdx": 1,
+  "dutchOvenPhase": "lid_on",
+  "timerEndsAt": null,
+  "pausedLeftSec": 1234,
+  "recipeName": "Mój chleb mieszany",
+  "startedAt": 1800000000000,
+  "bake": {
+    "id": "bake_live",
+    "recipeName": "Mój chleb mieszany",
+    "startedAt": 1800000000000,
+    "currentStageId": "autolyse",
+    "ambientTempC": 22,
+    "recipeFormula": {
+      "flours": [
+        {
+          "name": "Mąka pszenna typ 750",
+          "percentage": 80
+        },
+        {
+          "name": "Mąka żytnia typ 2000",
+          "percentage": 20
+        }
+      ],
+      "waterPercentage": 72,
+      "saltPercentage": 2,
+      "starterPercentage": 20,
+      "targetDoughWeightGrams": 900
+    },
+    "starterId": "starter_blat",
+    "zaczetyZDostepem": true,
+    "steps": [
+      {
+        "id": "starter_feed",
+        "name": "Dokarmienie zakwasu (osiągnięcie szczytu)",
+        "category": "starter_feed",
+        "durationMin": 360,
+        "isPassive": true,
+        "rekaNaStarcie": true,
+        "instructions": "Dokarm zakwas mąką i letnią wodą. Odstaw w ciepłe miejsce do podwojenia objętości.",
+        "plannedStart": 1800000000000,
+        "plannedEnd": 1800021600000
+      },
+      {
+        "id": "autolyse",
+        "name": "Autoliza (mąka + woda)",
+        "category": "autolyse",
+        "durationMin": 45,
+        "isPassive": true,
+        "rekaNaStarcie": true,
+        "instructions": "Połącz mąkę i wodę do zwilżenia. Przykryj i odstaw do spontanicznego rozwinięcia glutenu.",
+        "plannedStart": 1800021600000,
+        "plannedEnd": 1800024300000
+      },
+      {
+        "id": "mix",
+        "name": "Wymieszanie z solą i zakwasem",
+        "category": "mix",
+        "durationMin": 15,
+        "isPassive": false,
+        "instructions": "Dodaj aktywny zakwas i sól. Wyrabiaj do połączenia i uzyskania gładkiej struktury. Nie próbuj surowego ciasta ani mąki. Po pracy z ciastem umyj ręce mydłem pod bieżącą wodą.",
+        "plannedStart": 1800024300000,
+        "plannedEnd": 1800025200000
+      },
+      {
+        "id": "bulk_ferment",
+        "name": "Fermentacja burzliwa ze składaniami",
+        "category": "bulk_ferment",
+        "durationMin": 299,
+        "isPassive": false,
+        "instructions": "Wykonaj 4 serie składań co 30–45 minut.",
+        "plannedStart": 1800025200000,
+        "plannedEnd": 1800043140000
+      },
+      {
+        "id": "pre_shape",
+        "name": "Formowanie wstępne",
+        "category": "pre_shape",
+        "durationMin": 10,
+        "isPassive": false,
+        "instructions": "Wyłóż ciasto na blat, nadaj wstępny kształt kuli i napnij powierzchnię.",
+        "plannedStart": 1800043140000,
+        "plannedEnd": 1800043740000
+      },
+      {
+        "id": "bench_rest",
+        "name": "Odpoczynek na desce",
+        "category": "bench_rest",
+        "durationMin": 20,
+        "isPassive": true,
+        "instructions": "Pozostaw ciasto pod przykryciem, aby gluten się rozluźnił przed ostatecznym formowaniem.",
+        "plannedStart": 1800043740000,
+        "plannedEnd": 1800044940000
+      },
+      {
+        "id": "final_shape",
+        "name": "Formowanie ostateczne i koszyk",
+        "category": "final_shape",
+        "durationMin": 15,
+        "isPassive": false,
+        "instructions": "Uformuj batard lub boule, napnij mocno skórkę i przełóż do koszyka oprószonego mąką ryżową.",
+        "plannedStart": 1800044940000,
+        "plannedEnd": 1800045840000
+      },
+      {
+        "id": "final_proof",
+        "name": "Garowanie chłodnicze w lodówce",
+        "category": "final_proof",
+        "durationMin": 840,
+        "isPassive": true,
+        "instructions": "Wstaw koszyk w szczelnej torbie do lodówki (4–6°C). Długa fermentacja nada chlebowi głęboki aromat.",
+        "plannedStart": 1800045840000,
+        "plannedEnd": 1800096240000
+      },
+      {
+        "id": "preheat_oven",
+        "name": "Nagrzewanie pieca i garnka żeliwnego",
+        "category": "preheat_oven",
+        "durationMin": 45,
+        "isPassive": true,
+        "rekaNaStarcie": true,
+        "instructions": "Wstaw garnek żeliwny do piekarnika i rozgrzej do 240°C.",
+        "plannedStart": 1800096240000,
+        "plannedEnd": 1800098940000
+      },
+      {
+        "id": "bake",
+        "name": "Wypiek z parą i rumienienie",
+        "category": "bake",
+        "durationMin": 45,
+        "isPassive": false,
+        "instructions": "Przełóż bochenek na papier, natnij żyletką pod kątem 30°. Piecz 20 min pod pokrywką (240°C) + 25 min bez (210°C).",
+        "plannedStart": 1800098940000,
+        "plannedEnd": 1800101640000
+      },
+      {
+        "id": "cool",
+        "name": "Studzenie na kratce",
+        "category": "cool",
+        "durationMin": 120,
+        "isPassive": true,
+        "instructions": "Wyjmij na metalową kratkę. Według King Arthur Baking chleb w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić; pokrojony za wcześnie może być gumowaty.",
+        "plannedStart": 1800101640000,
+        "plannedEnd": 1800108840000
+      }
+    ]
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "format": "piekarz-backup",
+  "schemaVersion": 2,
+  "exportedAt": "2027-01-15T10:00:00.000Z",
+  "state": {
+    "bakes": [
+      {
+        "id": "bake_3",
+        "recipeName": "Chleb pszenny na zakwasie",
+        "startedAt": 1799740800000,
+        "finishedAt": 1799827200000,
+        "ratingStars": 5
+      },
+      {
+        "id": "bake_2",
+        "recipeName": "Pszenny weekendowy",
+        "startedAt": 1799568000000,
+        "finishedAt": 1799654400000,
+        "ratingStars": 2,
+        "notes": "Za krótko w piekarniku",
+        "crumbScore": 2,
+        "tasteProfile": "mild"
+      },
+      {
+        "id": "bake_1",
+        "recipeName": "Mój chleb mieszany",
+        "startedAt": 1799222400000,
+        "finishedAt": 1799308800000,
+        "ambientTemp": 22,
+        "actualDDT": 25.5,
+        "ratingStars": 4,
+        "notes": "Ładne ucho",
+        "crumbScore": 4,
+        "crustScore": 5,
+        "tasteProfile": "balanced",
+        "sensoryProfile": {
+          "crustCrispness": 5,
+          "crumbElasticity": 4,
+          "acidity": 3,
+          "openCrumb": 4,
+          "caramelization": 5
+        }
+      }
+    ],
+    "starters": [
+      {
+        "id": "starter_lodowka",
+        "name": "Zakwas żytni",
+        "flourType": "Żytnia typ 2000",
+        "hydration": 100,
+        "birthDate": 1794816000000,
+        "storageState": "FRIDGE",
+        "lastFedAt": 1799481600000,
+        "feedingRatio": "1:5:5",
+        "setupStartedAt": 1794816000000,
+        "setupCompletedAt": 1795507200000
+      },
+      {
+        "id": "starter_blat",
+        "name": "Zakwas pszenny",
+        "flourType": "Pszenna typ 750",
+        "hydration": 100,
+        "birthDate": 1796544000000,
+        "storageState": "ROOM_TEMP",
+        "lastFedAt": 1799913600000,
+        "feedingRatio": "1:2:2"
+      }
+    ],
+    "customRecipes": [
+      {
+        "id": "recipe_user_1",
+        "name": "Mój chleb mieszany",
+        "formula": {
+          "flours": [
+            {
+              "name": "Mąka pszenna typ 750",
+              "percentage": 80
+            },
+            {
+              "name": "Mąka żytnia typ 2000",
+              "percentage": 20
+            }
+          ],
+          "waterPercentage": 72,
+          "saltPercentage": 2,
+          "starterPercentage": 20,
+          "targetDoughWeightGrams": 900
+        },
+        "targetDDT": 25,
+        "notes": "Dłużej garować",
+        "isBuiltIn": false,
+        "createdAt": 1798704000000
+      },
+      {
+        "id": "recipe_user_2",
+        "name": "Pszenny weekendowy",
+        "formula": {
+          "flours": [
+            {
+              "name": "Mąka pszenna typ 750",
+              "percentage": 100
+            }
+          ],
+          "waterPercentage": 68,
+          "saltPercentage": 2,
+          "starterPercentage": 20,
+          "targetDoughWeightGrams": 900
+        },
+        "targetDDT": 24,
+        "isBuiltIn": false,
+        "createdAt": 1798790400000
+      }
+    ],
+    "starterEntries": [
+      {
+        "id": "e_b_2",
+        "starterId": "starter_blat",
+        "kind": "observation",
+        "occurredAt": 1799935200000,
+        "signs": [
+          "rose"
+        ],
+        "createdAt": 1799935200000,
+        "updatedAt": 1799935200000
+      },
+      {
+        "id": "e_b_1",
+        "starterId": "starter_blat",
+        "kind": "feeding",
+        "occurredAt": 1799913600000,
+        "feedRatio": "1:2:2",
+        "flourGrams": 40,
+        "waterGrams": 40,
+        "signs": [],
+        "createdAt": 1796544000000,
+        "updatedAt": 1796544000000
+      },
+      {
+        "id": "e_l_3",
+        "starterId": "starter_lodowka",
+        "kind": "feeding",
+        "occurredAt": 1799481600000,
+        "feedRatio": "1:5:5",
+        "flourGrams": 100,
+        "waterGrams": 100,
+        "signs": [],
+        "createdAt": 1799481600000,
+        "updatedAt": 1799481600000
+      },
+      {
+        "id": "e_l_2",
+        "starterId": "starter_lodowka",
+        "kind": "observation",
+        "occurredAt": 1795507200000,
+        "signs": [
+          "bubbles",
+          "doubled"
+        ],
+        "createdAt": 1795507200000,
+        "updatedAt": 1795507200000
+      },
+      {
+        "id": "e_l_1",
+        "starterId": "starter_lodowka",
+        "kind": "feeding",
+        "occurredAt": 1794816000000,
+        "feedRatio": "1:1:1",
+        "flourGrams": 50,
+        "waterGrams": 50,
+        "signs": [],
+        "createdAt": 1794816000000,
+        "updatedAt": 1794816000000
+      }
+    ],
+    "flourInventory": [
+      {
+        "id": "flour_750",
+        "name": "Mąka pszenna typ 750",
+        "stockGrams": 2500,
+        "brand": null,
+        "proteinPct": 12,
+        "updatedAt": 1799136000000
+      },
+      {
+        "id": "flour_2000",
+        "name": "Mąka żytnia typ 2000",
+        "stockGrams": 800,
+        "brand": "Młyn",
+        "proteinPct": null,
+        "updatedAt": 1799136000000
+      }
+    ],
+    "settings": {
+      "godziny_snu": "early_bird",
+      "has_completed_onboarding": "true",
+      "language": "pl",
+      "przypomnienia_karmienia": "1",
+      "selected_baking_vessel": "dutch_oven",
+      "unit_system": "metric"
+    },
+    "lessonProgress": [
+      {
+        "levelId": 1,
+        "completedAt": 1798272000000
+      },
+      {
+        "levelId": 2,
+        "completedAt": 1798358400000
+      }
+    ]
+  }
+}
