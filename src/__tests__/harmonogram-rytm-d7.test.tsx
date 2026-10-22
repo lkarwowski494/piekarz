@@ -1,5 +1,5 @@
 /**
- * Podpowiedź rytmu z historii w planie wypieku (M3 D7; BR-KAL-014, D-110): gdy ostatnie wypieki z Dziennika kończyły
+ * Podpowiedź rytmu z historii w planie wypieku (M3 D7; BR-KAL-014, D-114): gdy ostatnie wypieki z Dziennika kończyły
  * się zwykle tego samego dnia tygodnia, plan proponuje ten dzień jako dzień „gotowe” i mówi skąd propozycja; użytkownik
  * zmienia dzień jak zwykle. Dzień ze skrótu arkusza dnia (BR-KAL-015) ma pierwszeństwo; bez rytmu — jutro, bez zdania.
  */

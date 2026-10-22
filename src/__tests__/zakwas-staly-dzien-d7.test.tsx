@@ -1,6 +1,6 @@
 /**
  * Stały dzień karmienia na karcie zakwasu w lodówce (M3 D7; BR-KAL-010, PR-22; RD-25, RD-31; ZAK-ZAL-012,
- * ZAK-LOD-005; D-110): wybór dnia tygodnia i godziny (±30 min), „Bez stałego dnia”, zapis przez saveStarter (UPSERT,
+ * ZAK-LOD-005; D-114): wybór dnia tygodnia i godziny (±30 min), „Bez stałego dnia”, zapis przez saveStarter (UPSERT,
  * kolumny z D1) i uzgodnienie przypomnień; w trakcie zakładania i przed 7 dniami od założenia — wyjaśnienie zamiast
  * ustawienia; po dokarmieniu w inny dzień pytanie systemowe „zostawić {dzień} czy liczyć od {dzień}” (karta zakwasu
  * i „Zrobione” na „Dziś”).

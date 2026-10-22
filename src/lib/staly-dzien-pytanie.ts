@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — pytanie po dokarmieniu zakwasu w inny dzień niż stały (BR-KAL-010 „Karmienie w inny dzień”; D-110) [M3 D7]
+// Piekarz — pytanie po dokarmieniu zakwasu w inny dzień niż stały (BR-KAL-010 „Karmienie w inny dzień”; D-114) [M3 D7]
 // Pytanie systemowe (Alert, jak D5/D6): „Zostaw: {stały dzień}” albo „Licz od: {dzień dokarmienia}”; decyzja „licz od”
 // zapisuje nowy dzień przez saveStarter (UPSERT, ta sama godzina) i uzgadnia przypomnienia. Wołają: karta zakwasu
 // (zapis dokarmienia) i „Zrobione” na „Dziś”. Bez stałego dnia albo w stały dzień — bez pytania (null).

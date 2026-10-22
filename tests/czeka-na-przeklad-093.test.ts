@@ -127,7 +127,7 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Plan nie ma kroku nagrzewania',
     'Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.',
     // KONIEC D6
-    // M3 D7: tydzień, miesiąc, stały dzień karmienia, rytm (BR-KAL-008, -010, -013, -014; D-110)
+    // M3 D7: tydzień, miesiąc, stały dzień karmienia, rytm (BR-KAL-008, -010, -013, -014; D-114)
     'Tydzień',
     'Miesiąc',
     'Poprzedni tydzień',

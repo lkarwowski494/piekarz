@@ -1,5 +1,5 @@
 /**
- * Przejście z kalendarza do wpisu Dziennika (M3 D7; BR-KAL-013 „przejście do każdego wpisu”, D-110): Dziennik
+ * Przejście z kalendarza do wpisu Dziennika (M3 D7; BR-KAL-013 „przejście do każdego wpisu”, D-114): Dziennik
  * otwarty z parametrem `wpis` wyróżnia ten wpis (obwódka w kolorze akcentu, tylko z tokenów) i przewija do niego
  * po pomiarze położenia; bez parametru żaden wpis nie jest wyróżniony.
  */

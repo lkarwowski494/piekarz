@@ -1,6 +1,6 @@
 // ============================================================================
 // Piekarz — nawigacja kalendarza na pasie „Dziś” (BR-KAL-008, BR-KAL-013; makiety roli 04 a2 `101-przewijanie`
-// i `12-miesiac`; D-110) [M3 D7]. Przełącznik „Tydzień”/„Miesiąc”, wiersz „‹ okres Dziś ›” (strzałki 44 × 44 pt,
+// i `12-miesiac`; D-114) [M3 D7]. Przełącznik „Tydzień”/„Miesiąc”, wiersz „‹ okres Dziś ›” (strzałki 44 × 44 pt,
 // „Dziś” tylko poza bieżącym okresem), a pod nimi obszar gestu: przesunięcie palcem w bok zmienia okres
 // (kierunekGestu). Gest nie przejmuje dotyku (onTouchStart/End), więc dni paska zostają przyciskami.
 // Kolory tylko z tokenów pasa (naPasie, naPasie2, pas).

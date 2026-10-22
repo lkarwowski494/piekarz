@@ -548,37 +548,37 @@
     },
     {
       "klucz": "Tydzień",
-      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-110]",
+      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Miesiąc",
-      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-110]",
+      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Poprzedni tydzień",
-      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-110]",
+      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Następny tydzień",
-      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-110]",
+      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Poprzedni miesiąc",
-      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-110]",
+      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Następny miesiąc",
-      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-110]",
+      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-114]",
       "od": "2026-10-22"
     },
     {
       "klucz": "Stały dzień karmienia",
-      "powod": "nagłówek karty zakwasu w lodówce i tytuł pytania po dokarmieniu w inny dzień (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-010, D-110]",
+      "powod": "nagłówek karty zakwasu w lodówce i tytuł pytania po dokarmieniu w inny dzień (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-010, D-114]",
       "od": "2026-10-22"
     },
     {
@@ -623,7 +623,7 @@
     },
     {
       "klucz": "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.",
-      "powod": "zdanie pod wyborem dnia w planie wypieku (parametr {dzien} = dzień tygodnia w mianowniku z Intl; tekst spoza listy roli 04) [M3 D7, BR-KAL-014, D-110]",
+      "powod": "zdanie pod wyborem dnia w planie wypieku (parametr {dzien} = dzień tygodnia w mianowniku z Intl; tekst spoza listy roli 04) [M3 D7, BR-KAL-014, D-114]",
       "od": "2026-10-22"
     },
     {

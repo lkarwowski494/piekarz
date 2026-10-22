@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — dane kalendarza na „Dziś” (BR-KAL-001…008, BR-KAL-013; D-105, D-106, D-110) [M3 D4b, D7]
+// Piekarz — dane kalendarza na „Dziś” (BR-KAL-001…008, BR-KAL-013; D-105, D-106, D-114) [M3 D4b, D7]
 // Odczyt przy wejściu na zakładkę i po decyzji „Zrobione”/„Pomiń”; zegar co minutę, więc po północy wyróżniony jest
 // nowy dzień najpóźniej po minucie (BR-KAL-001 „Północ”, RD-29-W2). Widok: tydzień albo miesiąc, przesuwany o dni
 // kalendarza (RD-30); zdarzenia z pokazanego okresu i zawsze z dziś + 7 dni (linia „Następne”, arkusz „+N”).

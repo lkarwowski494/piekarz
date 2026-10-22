@@ -19,13 +19,13 @@ export const POMINIECIA_TRZYMAJ_DNI = 14;
 
 /**
  * Przesunięcie palcem w bok o co najmniej tyle punktów (i bardziej w bok niż w pionie) zmienia tydzień albo miesiąc
- * (BR-KAL-008, makieta roli 04 a2 `101-przewijanie`); reguła interfejsu, nie z dziedziny (D-110) [M3 D7].
+ * (BR-KAL-008, makieta roli 04 a2 `101-przewijanie`); reguła interfejsu, nie z dziedziny (D-114) [M3 D7].
  */
 export const PROG_GESTU_PT = 40;
 
 /**
  * Podpowiedź rytmu z historii (BR-KAL-014): z ostatnich OKNO_RYTMU wypieków co najmniej PROG_RYTMU kończy się tego
- * samego dnia tygodnia. Reguła aplikacji bez liczby z dziedziny (BRD: „ostatnie cztery wypieki”; D-110) [M3 D7].
+ * samego dnia tygodnia. Reguła aplikacji bez liczby z dziedziny (BRD: „ostatnie cztery wypieki”; D-114) [M3 D7].
  */
 export const OKNO_RYTMU = 4;
 export const PROG_RYTMU = 3;

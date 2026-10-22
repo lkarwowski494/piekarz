@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — stały dzień karmienia na karcie zakwasu w lodówce (BR-KAL-010, PR-22; D-110) [M3 D7]
+// Piekarz — stały dzień karmienia na karcie zakwasu w lodówce (BR-KAL-010, PR-22; D-114) [M3 D7]
 // Dzień tygodnia (kolejność tygodnia regionu, RD-30) i godzina ±30 min jak pole „gotowe” planu; „Bez stałego dnia”
 // wraca do rytmu 7 dni od ostatniego karmienia. W trakcie zakładania i przed 7 dniami od założenia — wyjaśnienie
 // zamiast ustawienia (ZAK-ZAL-012). Pod spodem: po dokarmieniu 1–2 h w temperaturze pokojowej (ZAK-LOD-005).

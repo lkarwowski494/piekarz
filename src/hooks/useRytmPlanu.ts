@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — podpowiedź rytmu z historii dla planu wypieku (BR-KAL-014; D-110) [M3 D7]
+// Piekarz — podpowiedź rytmu z historii dla planu wypieku (BR-KAL-014; D-114) [M3 D7]
 // Cienka warstwa: Dziennik z bazy (z recipe_id, D1) → dzienRytmu → przesunięcie dnia „gotowe”. Bez skrótu z arkusza
 // dnia (ten ma pierwszeństwo) i bez historii nic nie proponuje. Nieudany odczyt = brak propozycji.
 // ============================================================================

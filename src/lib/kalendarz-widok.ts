@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — widok kalendarza na „Dziś”: poprzedni i następny tydzień, miesiąc (BR-KAL-008, BR-KAL-013; RD-30; D-110)
+// Piekarz — widok kalendarza na „Dziś”: poprzedni i następny tydzień, miesiąc (BR-KAL-008, BR-KAL-013; RD-30; D-114)
 // [M3 D7]. Czyste funkcje: przesunięcie o dni KALENDARZA (tydzień = 7 dni kalendarza, nie 7 × 24 h; RD-30-W4),
 // siatka miesiąca od pierwszego dnia tygodnia regionu, tytuł okresu przez Intl w języku aplikacji, kierunek gestu.
 // ============================================================================

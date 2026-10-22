@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — podpowiedź rytmu z historii przy planowaniu (BR-KAL-014; D-110) [M3 D7]
+// Piekarz — podpowiedź rytmu z historii przy planowaniu (BR-KAL-014; D-114) [M3 D7]
 // Czysta funkcja: dzień tygodnia, w którym zwykle kończą się ostatnie wypieki z Dziennika (tej samej receptury, gdy
 // jest ich dość — recipe_id z D1, D-10), i przesunięcie dnia „gotowe” w planie. Dzień według strefy urządzenia (RD-29).
 // To tylko propozycja: plan pokazuje ją jako wybrany dzień, który użytkownik zmienia jak każdy inny.

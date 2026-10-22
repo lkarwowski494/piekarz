@@ -300,7 +300,7 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(mockPush).toHaveBeenLastCalledWith('/zakwasy');
     await act(async () => przycisk(root, `pasek-dzien-${localDateKey(Date.now())}`)[0].props.onPress());
     await act(async () => przycisk(root, 'arkusz-zdarzenie-dziennik:wpis-1')[0].props.onPress());
-    // Od M3 D7 Dziennik otwiera się z tym wpisem (BR-KAL-013 „przejście do każdego wpisu”, D-110)
+    // Od M3 D7 Dziennik otwiera się z tym wpisem (BR-KAL-013 „przejście do każdego wpisu”, D-114)
     expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/dziennik', params: { wpis: 'wpis-1' } });
   });
 

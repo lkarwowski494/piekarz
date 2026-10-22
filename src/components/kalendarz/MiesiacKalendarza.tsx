@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — widok miesiąca na pasie „Dziś” (BR-KAL-013; makieta roli 04 a2 `12-miesiac`; D-110) [M3 D7]
+// Piekarz — widok miesiąca na pasie „Dziś” (BR-KAL-013; makieta roli 04 a2 `12-miesiac`; D-114) [M3 D7]
 // Siatka 7 kolumn od pierwszego dnia tygodnia regionu: każdy dzień to przycisk na całą komórkę (≥ 44 pt), dziś
 // w ramce, dni sąsiednich miesięcy przygaszone, glify zdarzeń kształtem jak na pasku tygodnia; dotknięcie otwiera
 // arkusz dnia (z niego przejście do wpisu Dziennika). Wąski ekran (≤ 336 pt): od krawędzi do krawędzi. AX5:

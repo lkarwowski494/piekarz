@@ -1,6 +1,6 @@
 /**
  * Kalendarz na „Dziś” po D7 (M3 D7; BR-KAL-008, BR-KAL-013; makieta roli 04 a2 `101-przewijanie` i `12-miesiac`;
- * D-110): strzałki „Poprzedni tydzień”/„Następny tydzień”, przesunięcie palcem w bok, „Dziś” wraca do bieżącego
+ * D-114): strzałki „Poprzedni tydzień”/„Następny tydzień”, przesunięcie palcem w bok, „Dziś” wraca do bieżącego
  * okresu; przełącznik „Tydzień”/„Miesiąc”; miesiąc ze znacznikami wpisów Dziennika i przejściem do każdego wpisu
  * (arkusz dnia → Dziennik z tym wpisem); AX5: lista dni z wpisami; 320 pt: dni od krawędzi do krawędzi.
  */
