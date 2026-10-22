@@ -54,8 +54,9 @@ describe('bake steps from the plan (030)', () => {
     expect(RYE_STAGE_TEMPLATES.find((tp) => tp.id === RYE_PROOF_STAGE_ID)?.instructionsPl).toBe(
       'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.'
     );
+    // rye_proof 240 min (ZYT-ETA-007) [audyt-niezalezny D-7], rye_cool 24 h (ZYT-STU-001)
     expect(RYE_STAGE_TEMPLATES.filter((tp) => tp.fixedDurationMin !== null).map((tp) => [tp.id, tp.fixedDurationMin])).toEqual([
-      ['rye_cool', 1440],
+      ['rye_proof', 240], ['rye_cool', 1440],
     ]);
   });
 
@@ -66,7 +67,7 @@ describe('bake steps from the plan (030)', () => {
     const plan = scheduleFromStart(start, { ambientTemperatureC: 22 }).stages;
     const planMin = (c: string) => plan.find((st) => st.category === c)?.durationMinutes;
     for (const s of rye) {
-      expect(s.durationMin).toBe(s.id === 'rye_cool' ? 1440 : planMin(s.category));
+      expect(s.durationMin).toBe(s.id === 'rye_cool' ? 1440 : s.id === 'rye_proof' ? 240 : planMin(s.category));
     }
     expect(rye[0].plannedStart).toBe(start);
     for (let i = 1; i < rye.length; i++) expect(rye[i].plannedStart).toBe(rye[i - 1].plannedEnd);
@@ -81,9 +82,10 @@ describe('bake steps from the plan (030)', () => {
     expect(rest).toEqual(expect.objectContaining({ durationMin: null, plannedStart: rye[1].plannedEnd, plannedEnd: null }));
     expect(rye.slice(3).every((s) => s.plannedStart === null && s.plannedEnd === null)).toBe(true);
     expect(rye.find((s) => s.id === 'rye_shape')?.durationMin).toBe(plan.find((s) => s.category === 'final_shape')?.durationMin);
-    // ten sam plan z Harmonogramu (migawka) daje te same czasy
+    // migawka Harmonogramu: czas lodówki planu pszennego nie zmienia rozrostu w formie (ZYT-ETA-007) [audyt-niezalezny D-7]
     const snap = stepsFromSchedule(calculateReverseSchedule(new Date(start), { coldRetardHours: 10 }));
-    expect(ryeStepsFromPlan(snap, start).find((s) => s.id === RYE_PROOF_STAGE_ID)?.durationMin).toBe(600);
+    expect(ryeStepsFromPlan(snap, start).find((s) => s.id === RYE_PROOF_STAGE_ID)?.durationMin).toBe(240);
+    expect(ryeStepsFromPlan(snap, start).find((s) => s.id === 'rye_shape')?.durationMin).toBe(snap.find((s) => s.category === 'final_shape')?.durationMin);
   });
 
   it('stepsFromTemplates lays templates one after another from the start (rye data module shape)', () => {

@@ -1,6 +1,6 @@
 # Rye sourdough bread: Stolnica stages — EN
 <!-- Rye variant of Stolnica (F-07, D-030, DEC-04 a), M1-audytor-generalny-030. Heading = stage id and code field; role 08 copies the text verbatim (without the [T:...] tag). -->
-<!-- Stage durations: ZYT-ETA-900 [DO USTALENIA]. Laboratory protocol values (ZYT-ETA-002..006) are not used in texts or default durations. -->
+<!-- Stage durations: ZYT-ETA-900 [DO USTALENIA]; exceptions: rise in the tin 240 min as an approximate timer (ZYT-ETA-007, independent audit D-7, no new text) and cooling 24 h (ZYT-STU-001). Laboratory protocol values (ZYT-ETA-002..006) are not used in texts or default durations. -->
 
 ## wariant.opis
 The rye variant has no dough folding stage. [T:ZYT-ETA-001]

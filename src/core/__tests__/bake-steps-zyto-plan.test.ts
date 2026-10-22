@@ -21,10 +21,12 @@ describe('ryeStepsEndingAt', () => {
   });
 
   it('etap bez czasu w planie: kroki od początku planu (godziny dalszych etapów nieznane)', () => {
-    const bezGarowania = plan.filter((k) => k.category !== 'final_proof');
-    const kroki = ryeStepsEndingAt(bezGarowania, GOTOWE);
-    expect(kroki[0].plannedStart).toBe(bezGarowania[0].plannedStart);
-    expect(kroki.find((k) => k.id === 'rye_proof')?.durationMin).toBeNull();
+    // rozrost w formie ma czas ze źródła (ZYT-ETA-007), więc etap bez czasu to krótka fermentacja ciasta
+    const bezFermentacji = plan.filter((k) => k.category !== 'bulk_ferment');
+    const kroki = ryeStepsEndingAt(bezFermentacji, GOTOWE);
+    expect(kroki[0].plannedStart).toBe(bezFermentacji[0].plannedStart);
+    expect(kroki.find((k) => k.id === 'rye_rest')?.durationMin).toBeNull();
+    expect(kroki.find((k) => k.id === 'rye_proof')?.durationMin).toBe(240);
     expect(kroki[kroki.length - 1].plannedEnd).toBeNull();
   });
 });

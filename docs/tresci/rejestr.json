@@ -504,11 +504,33 @@
     "przeglad": null
   },
   {
+    "id": "ZYT-ETA-007",
+    "twierdzenie": "W piekarniczej produkcji chleba z razowej mąki żytniej wyłącznie na zakwasie (bez dodatku drożdży) uformowane kęsy 0,6 kg fermentowały 240 min przed wypiekiem; z dodatkiem drożdży 90 min.",
+    "zrodla": [
+      {
+        "adres": "https://doi.org/10.1371/journal.pone.0261677",
+        "miejsce": "Litwinek D., Boreczek J., Gambuś H., Buksa K., Berski W., Kowalczyk M., Developing lactic acid bacteria starter cultures for wholemeal rye flour bread with improved functionality, nutritional value, taste, appearance and safety, PLoS One 2022, 17(1):e0261677 (CC BY 4.0), rozdz. Methods „Dough preparation and bread baking” oraz Results; czytany pełny tekst Europe PMC PMC8759695 fullTextXML (audit/M1-2026-10-19/M1-2026-10-19/dowody/zrodla/litwinek-2022-PMC8759695.xml)",
+        "cytat": "The resulting dough was manually divided into 0.6 kg dough pieces and formed. The fermentation time for dough pieces obtained solely on sourdough was 240 min, while those obtained with sourdough and yeast addition was 90 min.",
+        "odczyt": "2026-10-22",
+        "szczebel": 2
+      }
+    ],
+    "status": "potwierdzone",
+    "jedno_zrodlo": true,
+    "uproszczenie": "Zakres źródła: produkcja w piekarni (zakwas 100 kg w fermentorze przemysłowym, ciasto: 51 kg razowej mąki żytniej, 17 kg zakwasu, 1 kg soli, 31 kg wody), kęsy 0,6 kg, wypiek 60 min w 200 °C. Źródło nie podaje temperatury fermentacji kęsów ani tego, czy rosły w formach; zakwasy z kultur bakteryjnych XI, XII, XIIB bez drożdży (kultura handlowa LV2 zawiera drożdże). Jedna wartość, nie przedział. W produkcie: orientacyjny minutnik etapu „Rozrost w formie” planu żytniego (src/core/rye-stages.ts, rye_proof); koniec rozrostu wyznacza stan ciasta (ZYT-ETA-005), nie zegar. Zgodne z notatką presetu rye_100_pan („ok. 3–4 h”), która ma górną granicę równą tej wartości.",
+    "uwagi": "Audyt niezależny D-7 (wariant a), 2026-10-22: zastępuje w planie żytnim czas garowania z planu pszennego (840 min, czas lodówki). Domyka ZYT-ETA-900 tylko dla rozrostu w formie; pozostałe etapy dalej bez źródła.",
+    "krytyczne": false,
+    "przeglad": null,
+    "wielkosc": "czas_rozrostu_chleba_zytniego_w_formie",
+    "wartosc": 240,
+    "jednostka": "min"
+  },
+  {
     "id": "ZYT-ETA-900",
     "twierdzenie": "Czasy etapów domowego chleba żytniego wyłącznie na zakwasie (zakwas, fermentacja ciasta, rozrost w formie, wypiek bochenka domowej masy) i ich zależność od temperatury.",
     "zrodla": [],
     "status": "otwarte",
-    "uwagi": "[DO USTALENIA] Przeczytane źródła szczebla 2 podają tylko protokół laboratoryjny z drożdżami (ZYT-ETA-002…006). Podręczniki szczebla 3 z DEC-07 (Hamelman, Calvel, Suas, DiMuzio) niedostępne do przeczytania online; strony szczebla 4–5 (blogi, fora) nieużyte. Do czasu źródła czasy biorą się z receptury użytkownika albo wariant żytni jest zablokowany.",
+    "uwagi": "[DO USTALENIA] Przeczytane źródła szczebla 2 podają tylko protokół laboratoryjny z drożdżami (ZYT-ETA-002…006). Podręczniki szczebla 3 z DEC-07 (Hamelman, Calvel, Suas, DiMuzio) niedostępne do przeczytania online; strony szczebla 4–5 (blogi, fora) nieużyte. Do czasu źródła czasy biorą się z receptury użytkownika albo wariant żytni jest zablokowany. 2026-10-22 (audyt niezależny D-7): rozrost w formie ma źródło szczebla 2 — ZYT-ETA-007 (240 min, chleb razowy żytni wyłącznie na zakwasie, Litwinek i in. 2022); otwarte zostają zakwas, fermentacja ciasta, wypiek i zależność od temperatury.",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null

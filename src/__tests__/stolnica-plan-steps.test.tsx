@@ -302,7 +302,8 @@ describe('Stolnica z receptury i planu (030)', () => {
     expect(saved?.steps.map((s) => [s.id, s.name])).toEqual(RYE_STAGES);
     const plan = calculateReverseSchedule(new Date(now), { ambientTemperatureC: 22 }).stages;
     expect(saved?.steps.map((s) => s.durationMin)).toEqual(
-      saved?.steps.map((s) => (s.id === 'rye_cool' ? 1440 : plan.find((st) => st.category === s.category)?.durationMinutes))
+      // rye_proof 240 min ze źródła (ZYT-ETA-007) [audyt-niezalezny D-7]
+      saved?.steps.map((s) => (s.id === 'rye_cool' ? 1440 : s.id === 'rye_proof' ? 240 : plan.find((st) => st.category === s.category)?.durationMinutes))
     );
     expect(saved?.steps[0]?.plannedStart).toBe(now);
     setLang('en');

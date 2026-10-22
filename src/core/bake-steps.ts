@@ -91,7 +91,8 @@ export function stepsFromTemplates(templates: readonly StageTemplate[], startAt:
 /**
  * Wariant żytni (wariant a roli 06): etapy z rye-stages.ts w ich kolejności; czas etapu = czas etapu planu
  * tej samej kategorii (ZYT-ETA-900: brak czasów domowych w źródłach). Brak odpowiednika w planie = null
- * (krok bez minutnika); od takiego etapu dalsze planowane godziny są nieznane. rye_cool: zalecenie ZYT-STU-001.
+ * (krok bez minutnika); od takiego etapu dalsze planowane godziny są nieznane. rye_cool: zalecenie ZYT-STU-001;
+ * rye_proof: 240 min ze źródła (ZYT-ETA-007), nie garowanie z lodówką z planu pszennego [audyt-niezalezny D-7].
  */
 export function ryeStepsFromPlan(plan: readonly Pick<SessionStep, 'category' | 'durationMin'>[], startAt: number): SessionStep[] {
   let at: number | null = startAt;

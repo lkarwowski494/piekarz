@@ -1,6 +1,6 @@
 # Chleb żytni na zakwasie: etapy Stolnicy — PL
 <!-- Wariant żytni Stolnicy (F-07, D-030, DEC-04 a), M1-audytor-generalny-030. Nagłówek = id etapu i pole w kodzie; rola 08 wdraża tekst dosłownie (bez znacznika [T:...]). -->
-<!-- Czasy etapów: ZYT-ETA-900 [DO USTALENIA]. Wartości z protokołu laboratoryjnego (ZYT-ETA-002..006) nie trafiają do tekstów ani do domyślnych czasów. -->
+<!-- Czasy etapów: ZYT-ETA-900 [DO USTALENIA]; wyjątki: rozrost w formie 240 min jako orientacyjny minutnik (ZYT-ETA-007, audyt niezależny D-7, bez nowego tekstu) i studzenie 24 h (ZYT-STU-001). Wartości z protokołu laboratoryjnego (ZYT-ETA-002..006) nie trafiają do tekstów ani do domyślnych czasów. -->
 
 ## wariant.opis
 Wariant żytni nie ma etapu składania ciasta. [T:ZYT-ETA-001]

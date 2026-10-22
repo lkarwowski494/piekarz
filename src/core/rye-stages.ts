@@ -3,7 +3,8 @@
 // Treść: docs/tresci/pl|en/chleb-zytni-etapy.md, rejestr docs/tresci/rejestr.json (rola 06, partia 2).
 // Kolejność i brak składania, pre_shape i bench_rest: ZYT-ETA-001. Czasów domowych nie ma w źródłach
 // (ZYT-ETA-900 [DO USTALENIA]), więc czas etapu pochodzi z planu użytkownika (bake-steps.ts, ryeStepsFromPlan);
-// wartości z protokołu laboratoryjnego (ZYT-ETA-002..006) nie są czasami domyślnymi.
+// wartości z protokołu laboratoryjnego (ZYT-ETA-002..006) nie są czasami domyślnymi. Wyjątki ze źródłem:
+// rozrost w formie 240 min (ZYT-ETA-007, audyt niezależny D-7) i studzenie 24 h (ZYT-STU-001).
 // Nazwy i instrukcje to klucze PL dla t(); tłumaczenia EN w src/lib/i18n-en/czesc-3.ts.
 // ============================================================================
 
@@ -44,10 +45,11 @@ export const RYE_STAGE_TEMPLATES: readonly RyeStageTemplate[] = [
     id: 'rye_shape', namePl: 'Podział i formowanie', category: 'final_shape', isPassive: false,
     instructionsPl: 'Podziel ciasto, uformuj je ręcznie i włóż do formy.', fixedDurationMin: null,
   },
-  // ZYT-ETA-001 (nazwa), ZYT-ETA-005 (warunek końca)
+  // ZYT-ETA-001 (nazwa), ZYT-ETA-005 (warunek końca), ZYT-ETA-007 (240 min: kęsy chleba razowego żytniego wyłącznie
+  // na zakwasie, szczebel 2; minutnik orientacyjny). Nie czas garowania z planu pszennego (lodówka) [audyt-niezalezny D-7]
   {
     id: RYE_PROOF_STAGE_ID, namePl: 'Rozrost w formie', category: 'final_proof', isPassive: true,
-    instructionsPl: 'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.', fixedDurationMin: null,
+    instructionsPl: 'Zostaw ciasto w formie, aż jego powierzchnia dojdzie do brzegu formy.', fixedDurationMin: 240,
   },
   // ZYT-ETA-001 (nazwa), ZYT-ETA-006 (para)
   {

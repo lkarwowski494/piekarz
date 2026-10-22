@@ -2,7 +2,7 @@
  * Audyt niezależny D-7 (wariant b): plan żytni nie ma garowania w lodówce — rozrost w formie odbywa się w cieple
  * i kończy go stan ciasta, nie zegar (ZYT-ETA-005) — więc przełącznik „Czas w lodówce” nie może zmieniać rozrostu
  * w formie. Dla receptury żytniej plan nie pokazuje przełącznika; dla pszennej zostaje [audyt-niezalezny D-7].
- * Wariant ★(a) (czasy żyta z receptury) czeka na źródło czasów domowego chleba żytniego (ZYT-ETA-900 otwarte).
+ * Wariant ★(a): rozrost w formie ma czas ze źródła (ZYT-ETA-007, 240 min) — zyto-rozrost-zrodlo-d7.test.tsx.
  */
 jest.mock('expo-sqlite', () => require('../data/__tests__/helpers/node-sqlite-adapter').createExpoSqliteMock());
 jest.mock('expo-router', () => ({ useRouter: () => ({ push: jest.fn() }) }));

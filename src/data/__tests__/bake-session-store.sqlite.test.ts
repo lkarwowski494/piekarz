@@ -121,7 +121,9 @@ describe('bake-session-store (019)', () => {
     // migawka Harmonogramu dla żyta: etapy roli 06 z czasami etapów tej samej kategorii z migawki
     const wheatSnap = stepsForBake(bake);
     const ryeFromSnap = stepsForBake({ ...bake, isHighRye: true, steps: wheatSnap });
-    expect(ryeFromSnap.find((s) => s.id === 'rye_proof')?.durationMin).toBe(wheatSnap.find((s) => s.category === 'final_proof')?.durationMin);
+    expect(ryeFromSnap.find((s) => s.id === 'rye_shape')?.durationMin).toBe(wheatSnap.find((s) => s.category === 'final_shape')?.durationMin);
+    // rozrost w formie: 240 min ze źródła (ZYT-ETA-007), nie garowanie z lodówką z planu pszennego [audyt-niezalezny D-7]
+    expect(ryeFromSnap.find((s) => s.id === 'rye_proof')?.durationMin).toBe(240);
     expect(stepsForBake(bake)).toEqual(planBakeSteps({ startAt: bake.startedAt, isHighRye: false, ambientTempC: 22 }));
     const snap = LEGACY_STEPS_V1.slice(0, 2);
     expect(stepsForBake({ ...bake, steps: snap })).toBe(snap);
