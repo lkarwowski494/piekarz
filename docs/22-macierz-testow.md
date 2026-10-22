@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 54 | 54 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 586 | 586 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 549 | 549 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 200 | 200 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 587 | 587 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 556 | 556 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 202 | 202 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1398** | Pokrytych: **1398** | Brakujących: **0**
+Łącznie elementów: **1408** | Pokrytych: **1408** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -105,7 +105,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wprowadź unikalną nazwę dla tej proporcji składników` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts |
 | `TEKST` | `Wpisz nazwę przepisu` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Anuluj` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/close-button-guard.test.tsx, tests/i18n-no-polish-in-en.test.tsx |
-| `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/i18n-no-polish-in-en.test.tsx, tests/maestro-runner.ts |
+| `TEKST` | `Zapisz` | `src/components/calculator/SaveRecipeModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/i18n-no-polish-in-en.test.tsx |
 | `TEKST` | `Zamknij` | `src/components/CloseButton.tsx` | ✅ | tests/interaction-guards.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Baza danych nie otworzyła się przy poprzednim uruchomieniu` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
 | `TEKST` | `Kopia plików bazy z tej chwili jest w aplikacji Pliki: Piekarz › Backup › kopie-ratunkowe.` | `src/components/CorruptStateRecoveryBanner.tsx` | ✅ | src/lib/__tests__/corrupt-rescue.test.tsx |
@@ -259,6 +259,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zaplanuj wypiek na ten dzień` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-plany-d5.test.tsx |
 | `TEKST` | `Tego dnia nic nie zaplanowano.` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Najbliższe dni` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
+| `TEKST` | `{dzien}: piekarnik zajęty o {h}` | `src/components/kalendarz/LiniaPiekarnika.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts |
 | `TEKST` | `Ten tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Pokaż cały tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
@@ -318,6 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 1098 kolejnych elementów w pełnym wykazie)*
+*(... i 1108 kolejnych elementów w pełnym wykazie)*

@@ -15,7 +15,7 @@ import type { ZdarzenieKalendarza } from '../../core/kalendarz-zdarzenia';
 import type { ZnacznikDnia } from '../../core/kalendarz-nastepne';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
-import { GlifZaleglego, GlifZdarzenia } from './GlifZdarzenia';
+import { GlifPiekarnika, GlifZaleglego, GlifZdarzenia } from './GlifZdarzenia';
 
 export interface PasekTygodniaProps {
   dni: readonly DzienPaska[];
@@ -71,9 +71,13 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
             </View>
             <View style={styles.glify}>
               {g.zalegle && <GlifZaleglego tlo={theme.colors.ostrzTlo} znak={theme.colors.ostrzTusz} rozmiar={12} />}
-              {g.glify.map((x) => (
-                <GlifZdarzenia key={x} glif={x} kolor={theme.colors.ratanNaPasie} />
-              ))}
+              {g.glify.map((x) =>
+                x === 'piekarnik' ? (
+                  <GlifPiekarnika key={x} tlo={theme.colors.ostrzTlo} znak={theme.colors.ostrzTusz} rozmiar={12} />
+                ) : (
+                  <GlifZdarzenia key={x} glif={x} kolor={theme.colors.ratanNaPasie} />
+                )
+              )}
             </View>
             {c && (c.lewa || c.prawa) && (
               <View testID={`pasek-ciag-${d.klucz}`} style={[styles.ciag, { left: c.lewa ? 0 : '50%', right: c.prawa ? 0 : '50%' }]} />

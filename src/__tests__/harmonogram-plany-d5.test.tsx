@@ -172,6 +172,12 @@ describe('D5: plan wypieku na przyszłe dni', () => {
     await ustawGodzinePlanu(harm.root, 'Pojutrze', 12, 0);
     await zaplanuj(harm);
     expect(await loadPlannedBakes()).toHaveLength(1);
+    // Zmiana testu w D6 (BR-KAL-016, RD-34): dwa takie same plany zajmują też piekarnik w tym samym oknie, a kolizja
+    // piekarnika ma od D6 własne, mocniejsze pytanie (src/__tests__/harmonogram-piekarnik-d6.test.tsx). Tu pierwszy plan
+    // bez kroków piekarnika (jak stary zapis), żeby test dalej sprawdzał samą kolizję kroków czynnych z D5.
+    const [pierwszy] = await loadPlannedBakes();
+    await deleteBakeSession(pierwszy.id);
+    await savePlannedBake({ ...pierwszy, steps: pierwszy.steps.filter((s) => s.category !== 'preheat_oven' && s.category !== 'bake') });
     // drugi taki sam plan: każdy krok czynny nachodzi na krok pierwszego
     await zaplanuj(harm);
     const a = ostatniAlert();

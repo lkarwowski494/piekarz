@@ -115,6 +115,56 @@ export function confirmKolizjaPlanow(linie: readonly string[], onZapisz: () => v
   Alert.alert(t('Kroki nachodzą na siebie'), linie.join('\n'), [cancelButton(), { text: t('Zaplanuj mimo to'), onPress: onZapisz }]);
 }
 
+/** Kolizja piekarnika w pytaniu: godziny już sformatowane, nazwy wypieków, przesunięcie w minutach. */
+export interface PiekarnikWPytaniu {
+  /** Początek części wspólnej okien (tytuł). */
+  godzina: string;
+  pierwszy: string;
+  /** Okno pierwszego: start nagrzewania i koniec pieczenia. */
+  od: string;
+  do: string;
+  drugi: string;
+  minuty: number;
+  /** Po przesunięciu: start pieczenia i „gotowe” drugiego. */
+  pieczenie: string;
+  gotowe: string;
+}
+
+/** Druga akcja pytania: „Zapisz bez zmiany” przy planie, „Zacznij wypiek” albo „Prowadź oba” przy starcie. */
+export interface AkcjaPytania {
+  tekst: string;
+  onPress: () => void;
+}
+
+/**
+ * Piekarnik zajęty (BR-KAL-016 „Jeden piekarnik”, RD-34; teksty roli 04 a2 `piekarnik-1-uklad-planu`): [Przesuń start]
+ * (domyślne) [bez zmiany] [Anuluj]. Mocniejszy przypadek niż „Kroki nachodzą na siebie” (D5): jedno pytanie [M3 D6].
+ */
+export function confirmPiekarnikZajety(p: PiekarnikWPytaniu, a: { przesun: () => void; bezZmiany: AkcjaPytania }) {
+  Alert.alert(
+    t('Piekarnik zajęty o {h}', { h: p.godzina }),
+    t('{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.', {
+      r1: p.pierwszy, od: p.od, do: p.do, r2: p.drugi, m: p.minuty, pieczenie: p.pieczenie, gotowe: p.gotowe,
+    }),
+    [
+      { text: t('Przesuń start: {r} o {m} min', { r: p.drugi, m: p.minuty }), isPreferred: true, onPress: a.przesun },
+      { text: a.bezZmiany.tekst, onPress: a.bezZmiany.onPress },
+      cancelButton(),
+    ]
+  );
+}
+
+/**
+ * Plan bez kroku nagrzewania przy innym wypieku z piekarnikiem (RD-34-W6): kolizji nie liczy się, pytanie prosi
+ * o krok nagrzewania; zapis albo start dopiero po decyzji [M3 D6].
+ */
+export function confirmPiekarnikBezNagrzewania(dalej: AkcjaPytania) {
+  Alert.alert(t('Plan nie ma kroku nagrzewania'), t('Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.'), [
+    cancelButton(),
+    { text: dalej.tekst, onPress: dalej.onPress },
+  ]);
+}
+
 /**
  * Potwierdzenie zresetowania profilu zakwasu.
  */

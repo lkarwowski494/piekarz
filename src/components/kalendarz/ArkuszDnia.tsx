@@ -19,6 +19,7 @@ import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { CloseButton } from '../CloseButton';
 import { WierszZaleglego, type AkcjeZaleglego } from './LiniaNastepne';
+import { GlifPiekarnika } from './GlifZdarzenia';
 
 /** Co pokazuje arkusz: jeden dzień (klucz „RRRR-MM-DD” i jego północ) albo najbliższe dni z „+N”. */
 export type TrybArkusza = { dzien: string; ms: number } | { najblizsze: true };
@@ -39,10 +40,13 @@ export interface ArkuszDniaProps {
 
 function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; onPrzejdz: (z: ZdarzenieKalendarza) => void }) {
   const tekst = t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) });
+  // Piekarnik zajęty: glif i słowa, tło ostrzeżenia jako trzeci sygnał (makieta `piekarnik-2-arkusz-dnia`) [M3 D6]
+  const piec = z.rodzaj === 'piekarnik-zajety';
   return (
-    <Pressable testID={`arkusz-zdarzenie-${z.id}`} accessibilityRole="button" accessibilityLabel={tekst} style={styles.wiersz} onPress={() => onPrzejdz(z)}>
-      <Text style={styles.godzina}>{formatTime(z.at)}</Text>
-      <Text style={styles.opis}>{opisZdarzenia(z, o)}</Text>
+    <Pressable testID={`arkusz-zdarzenie-${z.id}`} accessibilityRole="button" accessibilityLabel={tekst} style={[styles.wiersz, piec && styles.wierszPiec]} onPress={() => onPrzejdz(z)}>
+      {piec && <GlifPiekarnika tlo={theme.colors.ostrzTlo} znak={theme.colors.ostrzTusz} rozmiar={18} />}
+      <Text style={[styles.godzina, piec && styles.tekstPiec]}>{formatTime(z.at)}</Text>
+      <Text style={[styles.opis, piec && styles.tekstPiec]}>{opisZdarzenia(z, o)}</Text>
     </Pressable>
   );
 }
@@ -121,6 +125,8 @@ const styles = StyleSheet.create({
   grupa: { gap: odstepy.xs },
   naglowekDnia: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz2, marginTop: odstepy.s },
   wiersz: { flexDirection: 'row', flexWrap: 'wrap', columnGap: odstepy.m, minHeight: theme.cele.pozostale, alignItems: 'center', paddingVertical: odstepy.s, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: theme.colors.linia },
+  wierszPiec: { backgroundColor: theme.colors.ostrzTlo, borderRadius: promienie.przycisk, paddingHorizontal: odstepy.s, borderBottomWidth: 0 },
+  tekstPiec: { color: theme.colors.ostrzTusz },
   godzina: { fontSize: typografia.style.tresc.pt, color: theme.colors.tusz2, fontVariant: ['tabular-nums'] },
   opis: { flexShrink: 1, flexBasis: 160, flexGrow: 1, fontSize: typografia.style.tresc.pt, color: theme.colors.tusz },
   skrot: { minHeight: theme.cele.pozostale, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.obwodka, alignItems: 'center', justifyContent: 'center', paddingHorizontal: odstepy.m, paddingVertical: odstepy.xs, marginTop: odstepy.s },

@@ -117,6 +117,16 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Zaplanowane wypieki',
     'Zaplanuj wypiek na ten dzień',
     // KONIEC D5
+    // M3 D6: piekarnik zajęty (BR-KAL-016, RD-34)
+    'Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie',
+    'Piekarnik zajęty o {h}',
+    '{dzien}: piekarnik zajęty o {h}',
+    '{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.',
+    'Przesuń start: {r} o {m} min',
+    'Zapisz bez zmiany',
+    'Plan nie ma kroku nagrzewania',
+    'Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.',
+    // KONIEC D6
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

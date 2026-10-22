@@ -343,6 +343,11 @@
       "src/components/settings/GodzinySnuSection.tsx (tekst)"
     ]
   },
+  "Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
   "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (kod)",
@@ -2197,6 +2202,7 @@
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
+      "src/hooks/useStartPlanu.ts (drugi)",
       "src/hooks/useStartPlanu.ts (recipeName)"
     ]
   },
@@ -4169,6 +4175,17 @@
       "src/core/techniques/shaping-baking-techniques.ts (dane: commonMistakesPl)"
     ]
   },
+  "Piekarnik zajęty o {h}": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)",
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
+  "Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie": {
+    "gdzie": [
+      "src/lib/kalendarz-teksty.ts (kod)"
+    ]
+  },
   "Piekarz": {
     "gdzie": [
       "src/lib/schedule-formatter.ts (kod)",
@@ -4226,6 +4243,11 @@
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
     "gdzie": [
       "src/lib/plan-za-pozno.ts (tresc)"
+    ]
+  },
+  "Plan nie ma kroku nagrzewania": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.": {
@@ -4695,6 +4717,7 @@
   },
   "Prowadź oba": {
     "gdzie": [
+      "src/hooks/useStartPlanu.ts (tekst)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -4811,6 +4834,11 @@
   "Przesuń do lodówki": {
     "gdzie": [
       "src/components/harmonogram/SleepGuardBanner.tsx (tekst w JSX)"
+    ]
+  },
+  "Przesuń start: {r} o {m} min": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
     ]
   },
   "Przetwarzanie...": {
@@ -7552,7 +7580,8 @@
     "gdzie": [
       "src/components/harmonogram/PasekStartu.tsx (tekst w JSX)",
       "src/components/start/ArkuszPlanu.tsx (accessibilityLabel)",
-      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)"
+      "src/components/start/ArkuszPlanu.tsx (tekst w JSX)",
+      "src/hooks/useStartPlanu.ts (tekst)"
     ]
   },
   "Zaczyn": {
@@ -7857,6 +7886,11 @@
       "src/components/zakwas/StarterEntriesList.tsx (tekst w JSX)"
     ]
   },
+  "Zapisz bez zmiany": {
+    "gdzie": [
+      "src/hooks/useStartPlanu.ts (tekst)"
+    ]
+  },
   "Zapisz dokarmienie": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)",
@@ -7896,6 +7930,7 @@
   },
   "Zaplanuj mimo to": {
     "gdzie": [
+      "src/hooks/useStartPlanu.ts (tekst)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -8793,6 +8828,11 @@
   "{dzien}, {d} {miesiac}": {
     "gdzie": []
   },
+  "{dzien}: piekarnik zajęty o {h}": {
+    "gdzie": [
+      "src/components/kalendarz/LiniaPiekarnika.tsx (kod)"
+    ]
+  },
   "{godziny} {minuty}": {
     "gdzie": [
       "src/lib/spirala-etykieta.ts (kod)"
@@ -9081,6 +9121,11 @@
   "{n} zakwasów": {
     "gdzie": [
       "src/lib/import-z-pliku.ts (dane: many)"
+    ]
+  },
+  "{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.": {
+    "gdzie": [
+      "src/lib/confirm.ts (Alert.alert)"
     ]
   },
   "{rodzaj} (cały)": {

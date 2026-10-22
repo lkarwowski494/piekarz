@@ -12,8 +12,9 @@ import { pominietoKarmienieAt, type Pominiecie } from './pominiecia';
 import { addCalendarDays, localDateKey, startOfLocalDay } from './dzien-lokalny';
 import { setupDay } from './starter-log';
 import { kolejneKarmieniaBudzace } from './karmienia-budzace';
+import { kolizjePiekarnika } from './piekarnik';
 
-export type RodzajZdarzenia = 'wypiek-krok' | 'wypiek-gotowe' | 'karmienie-zrobione' | 'karmienie-nastepne' | 'zakladanie' | 'wpis-dziennika';
+export type RodzajZdarzenia = 'wypiek-krok' | 'wypiek-gotowe' | 'karmienie-zrobione' | 'karmienie-nastepne' | 'zakladanie' | 'wpis-dziennika' | 'piekarnik-zajety';
 /** Stan zdarzenia: zrobione (przeszłość), trwa (bieżący krok, dzień zakładania dziś), zaplanowane (przyszłe albo zaległe). */
 export type StanZdarzenia = 'zrobione' | 'trwa' | 'zaplanowane';
 export type ZrodloZdarzenia = { typ: 'wypiek' | 'zakwas' | 'dziennik'; id: string };
@@ -46,9 +47,12 @@ export interface ZdarzenieKalendarza {
   karmienie?: TekstKarmienia;
   /** Kolejne karmienie budzące z dopiskiem „jeśli zakwas nie podwoił objętości” (RD-33, D-052) [M3 D5]. */
   warunkowe?: boolean;
+  /** Piekarnik zajęty (RD-34): `nazwa` = pierwszy wypiek, `drugi` = drugi, `doAt` = koniec części wspólnej okien [M3 D6]. */
+  piekarnik?: { drugi: string; doAt: number };
 }
 
-type KrokPlanu = Pick<SessionStep, 'id' | 'name' | 'plannedStart' | 'plannedEnd'>;
+/** Krok planu; kategoria (nagrzewanie, pieczenie) do okna piekarnika — brak w starym zapisie (RD-34) [M3 D6]. */
+type KrokPlanu = Pick<SessionStep, 'id' | 'name' | 'plannedStart' | 'plannedEnd'> & { category?: SessionStep['category'] };
 
 /** Trwający wypiek (wiersz `active`). */
 export interface KalendarzWypiek {
@@ -231,7 +235,18 @@ function terminyZakwasu(s: PlanStarter, pominiecia: DaneKalendarza['pominiecia']
 /** Wszystkie zdarzenia kalendarza w kolejności czasu. Wpis bez czytelnej chwili jest pomijany (RD-29-W6). */
 export function zdarzeniaKalendarza(dane: DaneKalendarza, now: number, zakres?: ZakresKalendarza): ZdarzenieKalendarza[] {
   const { dostep } = dane;
+  // Piekarnik zajęty (BR-KAL-016, RD-34): przed krokami, więc przy tej samej godzinie wiersz kolizji jest pierwszy;
+  // tylko wypieki, których przyszłość kalendarz pokazuje (BR-KAL-006) [M3 D6]
+  const widoczne = [...dane.wypieki.filter((w) => dostep.przyszleWypieki || w.zaczetyZDostepem), ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
   const out: ZdarzenieKalendarza[] = [
+    ...kolizjePiekarnika(widoczne.map((w) => ({ id: w.id, nazwa: w.recipeName, kroki: w.steps }))).map((k) =>
+      zd({
+        id: `piekarnik:${k.pierwszy.id}:${k.drugi.id}`, rodzaj: 'piekarnik-zajety', at: k.od, zrodlo: { typ: 'wypiek', id: k.drugi.id },
+        nazwa: k.pierwszy.nazwa, stan: 'zaplanowane', piekarnik: { drugi: k.drugi.nazwa, doAt: k.do },
+        // Drugi wypiek (ten do przesunięcia) to plan: wiersz otwiera plan, nie Stolnicę
+        ...(dane.zaplanowane.some((p) => p.id === k.drugi.id) ? { zaplanowany: true } : {}),
+      })
+    ),
     ...dane.wypieki.flatMap((w) => zdarzeniaWypieku(w, now, dostep.przyszleWypieki)),
     ...(dostep.przyszleWypieki ? dane.zaplanowane.flatMap((p) => zdarzeniaPlanu(p, now)) : []),
   ];

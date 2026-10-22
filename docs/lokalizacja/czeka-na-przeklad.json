@@ -505,6 +505,46 @@
       "klucz": "Zaplanuj wypiek na ten dzień",
       "powod": "skrót w arkuszu dnia do wyboru receptury i planu z tym dniem „gotowe” (lista roli 04 a2) [M3 D5, BR-KAL-015, D-108]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie",
+      "powod": "wiersz kolizji piekarnika w arkuszu dnia (parametry {r1}, {r2} = nazwy wypieków; tekst roli 04 a2 piekarnik-2-arkusz-dnia) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Piekarnik zajęty o {h}",
+      "powod": "tytuł pytania o zajęty piekarnik przy planie albo starcie drugiego wypieku i początek etykiety VoiceOver dnia (parametr {h} = godzina; tekst roli 04 a2) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{dzien}: piekarnik zajęty o {h}",
+      "powod": "zdanie pod paskiem tygodnia na „Dziś” (parametry {dzien} = dziś/jutro/pojutrze albo data, {h} = godzina; tekst roli 04 a2 piekarnik-3-kalendarz) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{r1} piecze się od {od} do {do}. Przesuń start: {r2} o {m} min, pieczenie od {pieczenie}, gotowe o {gotowe}.",
+      "powod": "treść pytania o zajęty piekarnik: okno pierwszego wypieku i propozycja przesunięcia drugiego (parametry {r1}, {r2} = nazwy, {od}, {do}, {pieczenie}, {gotowe} = godziny, {m} = minuty; tekst roli 04 a2) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przesuń start: {r} o {m} min",
+      "powod": "przycisk domyślny pytania o zajęty piekarnik (parametry {r} = nazwa wypieku, {m} = minuty; tekst roli 04 a2) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zapisz bez zmiany",
+      "powod": "przycisk pytania o zajęty piekarnik przy „Zaplanuj”: zapis planu bez przesunięcia (tekst roli 04 a2) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Plan nie ma kroku nagrzewania",
+      "powod": "tytuł pytania, gdy plan nie ma kroku nagrzewania, a inny wypiek używa piekarnika (RD-34-W6; tekst spoza listy roli 04, do akceptacji) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.",
+      "powod": "treść pytania o brak kroku nagrzewania (RD-34-W6; tekst spoza listy roli 04, do akceptacji) [M3 D6, BR-KAL-016]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

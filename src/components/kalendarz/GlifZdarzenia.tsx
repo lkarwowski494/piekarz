@@ -20,12 +20,40 @@ export function GlifZdarzenia({ glif, kolor, rozmiar = 12 }: { glif: GlifZdarzen
       {glif === 'dziennik' && <Path {...p} fill={kolor} d="M1.5 8.5c0-3 2-4.8 4.5-4.8s4.5 1.8 4.5 4.8v1h-9z" />}
       {glif === 'karmienie' && <Circle cx={6} cy={6} r={3} fill={kolor} />}
       {glif === 'karmienie-nastepne' && <Circle {...p} cx={6} cy={6} r={4} strokeDasharray="1.6 1.6" />}
+      {glif === 'piekarnik' && <SciezkaPiekarnika p={p} />}
       {glif === 'zakladanie' && (
         <>
           <Rect {...p} x={2.5} y={3.5} width={7} height={7} rx={1.5} />
           <Path {...p} d="M3.5 1.5h5" />
         </>
       )}
+    </Svg>
+  );
+}
+
+type Obrys = { fill: string; stroke: ColorValue; strokeWidth: number; strokeLinecap: 'round'; strokeLinejoin: 'round' };
+
+/** Piekarnik: prostokąt z drzwiczkami (szyba) i pokrętłami u góry — kształt inny niż spirala, trójkąt i bochenek [M3 D6]. */
+function SciezkaPiekarnika({ p }: { p: Obrys }) {
+  return (
+    <>
+      <Rect {...p} x={1.5} y={1.5} width={9} height={9} rx={1.2} />
+      <Rect {...p} x={3.2} y={5} width={5.6} height={3.8} rx={0.6} />
+      <Path {...p} d="M3.5 3.3h.01M6 3.3h.01" />
+    </>
+  );
+}
+
+/**
+ * Glif piekarnika zajętego (makieta roli 04 a2 `piekarnik-3-kalendarz`, BR-KAL-016): prostokąt z drzwiczkami na tle
+ * ostrzeżenia, pierwszy w dniu; słowo „Piekarnik zajęty” niesie tekst i etykieta, kolor jest trzecim sygnałem [M3 D6].
+ */
+export function GlifPiekarnika({ tlo, znak, rozmiar = 14 }: { tlo: ColorValue; znak: ColorValue; rozmiar?: number }) {
+  const p: Obrys = { fill: 'none', stroke: znak, strokeWidth: 1.4, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  return (
+    <Svg width={rozmiar} height={rozmiar} viewBox="0 0 12 12" accessible={false} testID="glif-piekarnik">
+      <Rect x={0} y={0} width={12} height={12} rx={2.5} fill={tlo} />
+      <SciezkaPiekarnika p={p} />
     </Svg>
   );
 }

@@ -44,6 +44,9 @@ function opisBezDopisku(z: ZdarzenieKalendarza, o: OpcjeTekstu): string {
         : t('Zakładanie zakwasu: dzień {n} zapisany', { n: z.dzienZakladania ?? 1 });
     case 'wpis-dziennika':
       return z.ocena !== undefined ? t('{wypiek}: ocena {ocena} z 5', { wypiek: z.nazwa, ocena: z.ocena }) : z.nazwa;
+    case 'piekarnik-zajety':
+      // Wiersz kolizji w arkuszu dnia (tekst roli 04 a2 `piekarnik-2-arkusz-dnia`; BR-KAL-016) [M3 D6]
+      return t('Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie', { r1: z.nazwa, r2: z.piekarnik?.drugi ?? '' });
   }
 }
 
@@ -105,15 +108,21 @@ const ZDARZEN_W_ETYKIECIE_DNIA = 3;
 /**
  * Etykieta VoiceOver dnia paska (BR-KAL-001 „Etykieta dla czytnika ekranu”, tabela (g) roli 04): pełna data, „dziś”
  * przy dzisiejszym, zdarzenia słowami w kolejności godzin (zaległe ze słowem „Zaległe”), ponad 3 — „i jeszcze N,
- * szczegóły w arkuszu dnia”; dzień pusty „Nic w planach”. Glif nie jest czytany.
+ * szczegóły w arkuszu dnia”; dzień pusty „Nic w planach”. Glif nie jest czytany. Piekarnik zajęty na początku (makieta
+ * roli 04 a2 `piekarnik-3-kalendarz`: VoiceOver dnia zaczyna się od „Piekarnik zajęty”) [M3 D6].
  */
 export function etykietaDnia(zdarzenia: readonly ZdarzenieKalendarza[], dzien: { ms: number; dzis: boolean }, o: OpcjeTekstu): string {
   const pelna = formatDate(dzien.ms, appLocale(), { weekday: 'long', day: 'numeric', month: 'long' });
   const data = dzien.dzis ? t('{data}, dziś', { data: pelna }) : pelna;
   if (zdarzenia.length === 0) return `${data}. ${t('Nic w planach')}`;
+  const piec = (z: ZdarzenieKalendarza) => (z.rodzaj === 'piekarnik-zajety' ? 0 : 1);
   const pozycje = [...zdarzenia]
-    .sort((a, b) => a.at - b.at)
-    .map((z) => (z.zalegle ? pozycjaZalegla(z, o) : t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) })));
+    .sort((a, b) => piec(a) - piec(b) || a.at - b.at)
+    .map((z) =>
+      z.rodzaj === 'piekarnik-zajety'
+        ? t('Piekarnik zajęty o {h}', { h: formatTime(z.at) })
+        : z.zalegle ? pozycjaZalegla(z, o) : t('{h} {co}', { h: formatTime(z.at), co: opisZdarzenia(z, o) })
+    );
   const reszta = pozycje.length - ZDARZEN_W_ETYKIECIE_DNIA;
   const czytane = reszta > 0 ? [...pozycje.slice(0, ZDARZEN_W_ETYKIECIE_DNIA), t('i jeszcze {n}, szczegóły w arkuszu dnia', { n: reszta })] : pozycje;
   return [data, ...czytane].join('. ');

@@ -16,6 +16,7 @@ import { PrzyciskNaglowka } from '../nawigacja/PrzyciskNaglowka';
 import { IkonaStartu } from './IkonaStartu';
 import { PasekTygodnia, type PasekTygodniaProps } from '../kalendarz/PasekTygodnia';
 import { LiniaNastepne, type AkcjeZaleglego } from '../kalendarz/LiniaNastepne';
+import { LiniaPiekarnika } from '../kalendarz/LiniaPiekarnika';
 
 export function PasDzis({ gora, data, pasek, pusty, teksty, zalegle, o, akcje, onPlus, onUstawienia }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
@@ -43,6 +44,8 @@ export function PasDzis({ gora, data, pasek, pusty, teksty, zalegle, o, akcje, o
       <Text style={styles.tytul} accessibilityRole="header">{t('Co dziś robisz?')}</Text>
       <Text style={styles.data}>{data}</Text>
       <PasekTygodnia {...pasek} />
+      {/* Najbliższy dzień z zajętym piekarnikiem (BR-KAL-016, makieta `piekarnik-3-kalendarz`) [M3 D6] */}
+      <LiniaPiekarnika zdarzenia={pasek.zdarzenia} now={pasek.now} />
       {pusty ? (
         <View style={styles.adnotacja} testID="pas-pusty">
           <Text style={styles.adnotacjaTytul}>{t('Nic nie mamy w planach')}</Text>
