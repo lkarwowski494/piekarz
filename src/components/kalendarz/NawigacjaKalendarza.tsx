@@ -34,9 +34,8 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
   // Duży tekst (próg 2 jak kafle „Dziś”): „Dziś” i „Miesiąc” w osobnym, zawijanym rzędzie pod „‹ okres ›”, żeby
   // przy AX5 i 320 pt „›” i „Miesiąc” zostały na ekranie [04-studio-projektowe-004]
   const duzy = useWindowDimensions().fontScale >= DUZY_TEKST;
-  const styl = duzy ? [styles.dzis, styles.dzisZwezany] : styles.dzis;
   const dzis = !widok.biezacy && (
-    <Pressable testID="kalendarz-dzis" accessibilityRole="button" style={styl} onPress={widok.dzis}>
+    <Pressable testID="kalendarz-dzis" accessibilityRole="button" style={[styles.dzis, duzy && styles.dzisZwezany]} onPress={widok.dzis}>
       <Text style={styles.dzisTekst}>{t('Dziś')}</Text>
     </Pressable>
   );
@@ -48,7 +47,7 @@ export function NawigacjaKalendarza({ widok, children }: { widok: NawigacjaWidok
   );
   const tryb = (
     <Pressable testID={`kalendarz-tryb-${inny.tryb}`} accessibilityRole="button" accessibilityLabel={etykietaPro(inny.tekst(), !pro)}
-      style={styl} onPress={() => widok.ustawTryb(inny.tryb)}>
+      style={[styles.dzis, duzy && styles.dzisZwezany]} onPress={() => widok.ustawTryb(inny.tryb)}>
       <Text style={styles.dzisTekst}>{inny.tekst()}</Text>
       {pro && <OznaczeniePro kolor={theme.colors.naPasie} />}
     </Pressable>
