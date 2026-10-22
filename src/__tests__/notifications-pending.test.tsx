@@ -118,7 +118,9 @@ describe('Pending notifications follow the saved state (006)', () => {
     const tree = await mount(<ZakwasScreen />);
     await press(tree.root, 'Zapisz dokarmienie');
     expect(ids()).toEqual(['piekarz.karmienie.z1.1']);
-    expect(mock.pending.get('piekarz.karmienie.z1.1')!.trigger.date).toBe(now + 7 * 24 * 3600 * 1000);
+    // 7 dni kalendarza o tej samej godzinie lokalnej (D-093), nie 7 × 24 h: przez zmianę czasu 25.10.2026 to inna chwila
+    const f = new Date(now);
+    expect(mock.pending.get('piekarz.karmienie.z1.1')!.trigger.date).toBe(new Date(f.getFullYear(), f.getMonth(), f.getDate() + 7, f.getHours(), f.getMinutes(), f.getSeconds(), f.getMilliseconds()).getTime());
     act(() => tree.unmount());
   });
 
