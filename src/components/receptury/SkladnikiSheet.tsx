@@ -190,7 +190,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
                 <PoleProcentu id="starter-hydration-input" etykieta={t('Hydratacja zakwasu')} wartosc={p.starterHydration} min={20} max={200} onChange={p.onStarterHydrationChange} />
               )}
               <PoleProcentu id="salt-pct-input" etykieta={t('Sól')} wartosc={p.saltPct} min={0} max={10} onChange={p.onSaltPctChange} />
-              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={5} onChange={p.onYeastPctChange} ostatnie />
+              <PoleProcentu id="yeast-pct-input" etykieta={t('Drożdże')} wartosc={p.yeastPct} min={0} max={10} onChange={p.onYeastPctChange} ostatnie />
             </View>
             {p.hydrationDifficulty && (
               <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>

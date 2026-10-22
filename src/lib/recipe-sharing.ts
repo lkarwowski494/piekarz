@@ -223,7 +223,8 @@ export function parseAndValidateRecipeJson(jsonString: string): RecipeValidation
   let extraYeastPercentage: number | undefined;
   if (formulaData.extraYeastPercentage !== undefined) {
     if (typeof formulaData.extraYeastPercentage === 'number' && !isNaN(formulaData.extraYeastPercentage)) {
-      if (formulaData.extraYeastPercentage >= 0 && formulaData.extraYeastPercentage <= 5) {
+      // do 10%: chałka ze źródła ma 6,3% drożdży świeżych (DRO-CHA-001, 217); wcześniej limit 5% odrzucał jej eksport
+      if (formulaData.extraYeastPercentage >= 0 && formulaData.extraYeastPercentage <= 10) {
         extraYeastPercentage = formulaData.extraYeastPercentage;
       }
     }

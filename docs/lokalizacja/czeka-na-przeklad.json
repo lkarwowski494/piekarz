@@ -210,6 +210,41 @@
       "klucz": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.",
       "powod": "objaśnienie pod wyborem rodzaju drożdży (RD-19, × 0,4) [M1-audytor-generalny-216]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Pizza w stylu neapolitańskim",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, namePl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, descriptionPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.",
+      "powod": "preset drożdżowy (pizza_napoletana_48h, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.",
+      "powod": "preset drożdżowy (baguette_tradition_poolish, descriptionPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.",
+      "powod": "preset drożdżowy (sweet_chalka, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.",
+      "powod": "preset drożdżowy (focaccia_genovese, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.",
+      "powod": "preset drożdżowy (baguette_tradition_poolish, notesPl), lista i ekran receptury; drożdże świeże i harmonogram ze źródła; EN: src/lib/i18n-en/czesc-19.ts [rola 06 217, docs/tresci/pl/presety-drozdze.md]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

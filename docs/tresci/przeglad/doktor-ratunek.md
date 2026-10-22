@@ -1,6 +1,6 @@
 # Lista do przeglądu człowieka: ostrzeżenie o surowym cieście w protokole „Zapomniana sól” (F-71)
 
-Status: **czeka na przegląd** (rola 06-tresci, 2026-10-22). Przegląd właściciela przez sesję koordynującą M1.
+Status: **przejrzane** 2026-10-22 — właściciel projektu, przez sesję koordynującą M1, dosłownie: „Akceptuje” (pokazane: zdanie PL, cytat FDA z adresem, uwaga, że zdanie mówi mniej niż twierdzenie). Wpis w `docs/tresci/rejestr.json`, BEZ-SUR-001 `przeglad` (sha 919d610fa23e). Przygotowała rola 06-tresci, 2026-10-22.
 
 Co się zmieniło: twierdzenie krytyczne BEZ-SUR-001 (FDA, przejrzane 2026-10-20, skrót 1c8ceaf515c4) ma nowe użycie w protokole „Zapomniana sól” (`docs/tresci/pl/doktor-ratunek.md`, `FORGOTTEN_SALT.stepByStepPl[0]`, i EN). Nowe zdanie zmienia skrót wersji zdań, więc dotychczasowy przegląd przestaje obowiązywać dla BEZ-SUR-001. Powód dodania: źródło protokołu (King Arthur Baking, „What if I forgot to add salt…”) samo przestrzega w tym miejscu przed próbowaniem surowego ciasta („unbaked dough should never be consumed”), a użytkownik, który podejrzewa brak soli, mógłby chcieć spróbować ciasta.
 

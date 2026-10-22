@@ -59,11 +59,12 @@ describe('karta Do miski a dane receptury', () => {
   });
 
   // [M1-audytor-generalny-092] drożdże z receptury trafiają do obliczeń i do listy ważenia
-  it('pizza: wiersz drożdży z masą z kalkulatora (0.08% → 0.5 g)', async () => {
+  // 217: pizza 0,4% drożdży świeżych ze źródła (DRO-PIZ-002), wcześniej 0,08% bez źródła
+  it('pizza: wiersz drożdży z masą z kalkulatora (0.4% → 2.4 g)', async () => {
     const tree = await renderWith('pizza_napoletana_48h');
     const yeast = row(tree, 'scale-item-yeast');
     expect(yeast).toHaveLength(1);
-    expect(text(yeast[0])).toMatch(/0[.,]5 g/);
+    expect(text(yeast[0])).toMatch(/2[.,]4 g/);
     act(() => tree.unmount());
   });
 

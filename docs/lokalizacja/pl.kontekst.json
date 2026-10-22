@@ -691,6 +691,11 @@
       "src/core/flour-atlas.ts (dane: kod)"
     ]
   },
+  "Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
+    ]
+  },
   "Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.": {
     "gdzie": [
       "src/doctor/dough-recovery.ts (dane: stepByStepPl)"
@@ -1548,9 +1553,7 @@
     ]
   },
   "Fermentacja: 2 h na blacie, porcjowanie w kulki 250g, 46 h w lodówce (4°C). Wyjmij 2 h przed pieczeniem.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: notesPl)"
-    ]
+    "gdzie": []
   },
   "Fermentoliza: polega na dodaniu zakwasu od razu do mąki i wody (z pominięciem soli), skracając późniejszy czas mieszania.": {
     "gdzie": [
@@ -1651,6 +1654,11 @@
   "Formuj kulki wielkości orzecha włoskiego, układaj na blasze z papierem i spłaszczaj dłonią.": {
     "gdzie": [
       "src/recipes/discard-recipes.ts (dane: stepsPl)"
+    ]
+  },
+  "Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: descriptionPl)"
     ]
   },
   "Francuski Pain de Campagne (Chleb Wiejski)": {
@@ -2139,9 +2147,7 @@
     ]
   },
   "Klasyczna francuska bagietka z 12-godzinnym zaczynem Poolish. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
-    ]
+    "gdzie": []
   },
   "Klasyczna polska mąka chlebowa. Znakomity balans między rozciągliwością a siłą ciasta.": {
     "gdzie": [
@@ -3961,9 +3967,7 @@
     ]
   },
   "Oryginalne ciasto na pizzę neapolitańską o chrupiącym brzegu i delikatnym wnętrzu.": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: descriptionPl)"
-    ],
+    "gdzie": [],
     "opis": "Opis receptury bazowej pizzy neapolitańskiej w „O recepturze”. [M1-audytor-generalny-112]"
   },
   "Orzechowy bochenek z pradawnego orkiszu z dodatkiem prażonego siemienia, słonecznika i sezamu.": {
@@ -4163,13 +4167,16 @@
     ]
   },
   "Pizza Napoletana Verace (48 h)": {
-    "gdzie": [
-      "src/recipes/presets.ts (dane: namePl)"
-    ]
+    "gdzie": []
   },
   "Pizza i słodkie": {
     "gdzie": [
       "src/components/receptury/ListaReceptur.tsx (dane: etykieta)"
+    ]
+  },
+  "Pizza w stylu neapolitańskim": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: namePl)"
     ]
   },
   "Plan musiałby się zacząć {dzienStartu} o {godzinaStartu}. Najwcześniej chleb będzie gotowy {dzienGotowe} o {godzinaGotowe}.": {
@@ -4752,6 +4759,9 @@
     ]
   },
   "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia.": {
+    "gdzie": []
+  },
+  "Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -6465,6 +6475,11 @@
       "src/core/po-co-ten-krok.ts (dane: kod)"
     ]
   },
+  "Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.": {
+    "gdzie": [
+      "src/recipes/presets.ts (dane: notesPl)"
+    ]
+  },
   "Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.": {
     "gdzie": [
       "src/core/starter-log.ts (dane: flour)"
@@ -7203,6 +7218,9 @@
     ]
   },
   "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką.": {
+    "gdzie": []
+  },
+  "Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]
@@ -7405,6 +7423,9 @@
     "gdzie": []
   },
   "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.": {
+    "gdzie": []
+  },
+  "Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.": {
     "gdzie": [
       "src/recipes/presets.ts (dane: notesPl)"
     ]

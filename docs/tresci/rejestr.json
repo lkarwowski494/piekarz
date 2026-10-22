@@ -1470,11 +1470,11 @@
     "uwagi": "M1-audytor-generalny-086 (01-odkrywanie-019; RD-22, S-46 roli 01, przeczytane ponownie przez 06).",
     "krytyczne": true,
     "przeglad": {
-      "kto": "właściciel projektu (lkarwowski494)",
-      "data": "2026-10-20",
-      "sha": "1c8ceaf515c4",
-      "status": "przejrzane: właściciel zatwierdził brzmienie w czacie M2 p5 2026-10-20 (lista ostrzezenia-krokow.md)",
-      "lista": "docs/tresci/przeglad/ostrzezenia-krokow.md"
+      "kto": "właściciel (przez M1)",
+      "data": "2026-10-22",
+      "sha": "919d610fa23e",
+      "status": "przejrzane: właściciel: „Akceptuje” (2026-10-22, przez sesję M1; pokazane zdanie PL, cytat FDA z adresem i uwaga, że zdanie mówi mniej niż twierdzenie)",
+      "lista": "docs/tresci/przeglad/doktor-ratunek.md"
     },
     "wazne_do": "2027-04-20"
   },
@@ -3456,7 +3456,7 @@
   },
   {
     "id": "DRO-PIZ-002",
-    "twierdzenie": "Według King Arthur Baking ciasto na pizzę w stylu neapolitańskim ma 1/8 łyżeczki drożdży instant albo suchych aktywnych na 232 g mąki 00 i rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny (rachunek: ok. 0,16% drożdży suchych, czyli ok. 0,4% świeżych).",
+    "twierdzenie": "Według King Arthur Baking ciasto na pizzę w stylu neapolitańskim ma 1/8 łyżeczki drożdży instant albo suchych aktywnych na 232 g mąki 00 i rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny; po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik (rachunek: ok. 0,16% drożdży suchych, czyli ok. 0,4% świeżych).",
     "zrodla": [
       {
         "adres": "https://www.kingarthurbaking.com/recipes/neapolitan-style-pizza-crust-recipe",
@@ -3468,11 +3468,14 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem.",
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. Wartość dla presetu (217, opcja a, M1 2026-10-22): rachunek zaokrąglony do 0,1 punktu procentowego.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-22",
-    "uwagi": "Zadanie 217. Składniki ze strony: „2 cups (232g) King Arthur ‘00’ Pizza Flour 1/8 teaspoon instant yeast or active dry yeast”."
+    "uwagi": "Zadanie 217. Składniki ze strony: „2 cups (232g) King Arthur ‘00’ Pizza Flour 1/8 teaspoon instant yeast or active dry yeast”. Kulki: „Cover the bowls and allow the dough to rise for 45 minutes to an hour, while your oven preheats.”. Ta sama strona: 170 g wody i 8 g soli na 232 g mąki (ok. 73% i 3,4%); preset ma 65% i 2,8% — poza zakresem 217, znalezisko w raporcie.",
+    "wielkosc": "drozdze_pizza_neapolitanska_swieze",
+    "wartosc": 0.4,
+    "jednostka": "% świeżych"
   },
   {
     "id": "DRO-CHA-001",
@@ -3488,11 +3491,14 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 12 g / 480 g = 2,5%; / 0,4 = 6,25%.",
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 12 g / 480 g = 2,5%; / 0,4 = 6,25%. Wartość dla presetu (217, opcja a, M1 2026-10-22): rachunek zaokrąglony do 0,1 punktu procentowego. 6,25 → 6,3.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-22",
-    "uwagi": "Zadanie 217 (preset sweet_chalka). Obok: „4 to 4 1/4 cups (480g to 510g) King Arthur Unbleached All-Purpose Flour”; „rise … for about 2 hours”; „60 to 90 minutes”."
+    "uwagi": "Zadanie 217 (preset sweet_chalka). Obok: „4 to 4 1/4 cups (480g to 510g) King Arthur Unbleached All-Purpose Flour”; „rise … for about 2 hours”; „60 to 90 minutes”.",
+    "wielkosc": "drozdze_chalka_swieze",
+    "wartosc": 6.3,
+    "jednostka": "% świeżych"
   },
   {
     "id": "DRO-FOC-001",
@@ -3508,11 +3514,14 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 4,5 g / 357 g = 1,26%; / 0,4 = 3,15%.",
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. 4,5 g / 357 g = 1,26%; / 0,4 = 3,15%. Wartość dla presetu (217, opcja a, M1 2026-10-22): rachunek zaokrąglony do 0,1 punktu procentowego. 3,15 → 3,2.",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-22",
-    "uwagi": "Zadanie 217 (preset focaccia_genovese). Składniki: „1 1/2 teaspoons active dry yeast or instant yeast”, „2 1/2 cups (300g) King Arthur Unbleached All-Purpose Flour”, „1/2 cup (57g) King Arthur Whole Wheat Flour”; „Let it rise for 30 minutes.”"
+    "uwagi": "Zadanie 217 (preset focaccia_genovese). Składniki: „1 1/2 teaspoons active dry yeast or instant yeast”, „2 1/2 cups (300g) King Arthur Unbleached All-Purpose Flour”, „1/2 cup (57g) King Arthur Whole Wheat Flour”; „Let it rise for 30 minutes.”",
+    "wielkosc": "drozdze_focaccia_swieze",
+    "wartosc": 3.2,
+    "jednostka": "% świeżych"
   },
   {
     "id": "DRO-BAG-001",
@@ -3528,11 +3537,14 @@
     ],
     "status": "potwierdzone",
     "jedno_zrodlo": true,
-    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. (4,5 g + ok. 0,19 g) / 540 g = 0,87%; / 0,4 = 2,2%.",
+    "uproszczenie": "Rachunek na drożdże świeże według RD-19 (suche = świeże × 0,4, więc świeże = suche / 0,4); łyżeczka drożdży instant ≈ 3 g według tej samej strony KA albo przepisu chałki KA (4 łyżeczki = 12 g). Wynik jest przybliżeniem. (4,5 g + ok. 0,19 g) / 540 g = 0,87%; / 0,4 = 2,2%. Wartość dla presetu (217, opcja a, M1 2026-10-22): rachunek zaokrąglony do 0,1 punktu procentowego. 2,17 → 2,2 (cała mąka, poolish i ciasto razem).",
     "krytyczne": false,
     "przeglad": null,
     "wazne_do": "2027-10-22",
-    "uwagi": "Zadanie 217 (preset baguette_tradition_poolish). Składniki: „1/16 teaspoon (a pinch) active dry yeast or instant yeast”, „1 cup (120g)”, „1 1/2 teaspoons active dry yeast or instant yeast”, „3 1/2 cups (420g)”. Wariant KA: 1 łyżeczka drożdży i 3 h w ok. 68 °F."
+    "uwagi": "Zadanie 217 (preset baguette_tradition_poolish). Składniki: „1/16 teaspoon (a pinch) active dry yeast or instant yeast”, „1 cup (120g)”, „1 1/2 teaspoons active dry yeast or instant yeast”, „3 1/2 cups (420g)”. Wariant KA: 1 łyżeczka drożdży i 3 h w ok. 68 °F.",
+    "wielkosc": "drozdze_bagietka_poolish_swieze",
+    "wartosc": 2.2,
+    "jednostka": "% świeżych"
   },
   {
     "id": "DRO-NOK-001",
@@ -3576,12 +3588,12 @@
   },
   {
     "id": "DRO-PRE-900",
-    "twierdzenie": "Procent drożdży w presetach drożdżowych jako drożdże świeże: bagietka na poolishu 0,2%, ciabatta z bigą 0,3%, focaccia 0,5%, chleb nocny bez wyrabiania 0,25% (12–16 h na blacie), pizza neapolitańska 0,08% (2 h na blacie + 46 h w lodówce), chałka 1,2% (src/recipes/presets.ts).",
+    "twierdzenie": "Procent drożdży jako drożdże świeże w presetach ciabatta z bigą (0,3%) i chleb nocny bez wyrabiania (0,25%, 12–16 h na blacie) (src/recipes/presets.ts).",
     "zrodla": [],
     "status": "otwarte",
     "uproszczenie": null,
     "krytyczne": false,
     "przeglad": null,
-    "uwagi": "[DO USTALENIA] zadanie 217 (DEC-26 a, RD-19). Żadne przeczytane źródło nie potwierdza tych wartości jako drożdży świeżych; wszystkie są niższe od przeczytanych formuł (DRO-*-001), a ilość drożdży zależy od czasu i temperatury dojrzewania (ZAC-CZA-001), więc wartości z innym harmonogramem nie potwierdzają ani nie obalają presetu. Propozycje poprawek w raporcie roli 06 (audit/06-tresci-2026-10-22/raport.md, sekcja 217)."
+    "uwagi": "[DO USTALENIA] zadanie 217, opcja a (M1 2026-10-22). Pizza, chałka, focaccia i bagietka mają wartości ze źródeł (DRO-PIZ-002, DRO-CHA-001, DRO-FOC-001, DRO-BAG-001). Ciabatta: jedyna przeczytana formuła (DRO-CIA-001, KA Pro 1,2%) nie podaje rodzaju drożdży. Chleb bez wyrabiania: przeczytany przepis KA (DRO-NOK-001) ma inny proces (lodówka); brak źródła dla 12–16 h na blacie (np. Lahey, oryginał nieprzeczytany). Wartości w kodzie bez zmian do czasu źródła."
   }
 ]

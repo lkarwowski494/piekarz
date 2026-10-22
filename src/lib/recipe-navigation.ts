@@ -59,6 +59,8 @@ const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
   'bagietka paryska z poolishem (baguette de tradition)': 'baguette_tradition_poolish',
   // „48h” → „48 h” (wspólny format czasu, 2026-10-22) [M1-audytor-generalny-162]
   'pizza napoletana verace (48h)': 'pizza_napoletana_48h',
+  // „Verace (48 h)” → „w stylu neapolitańskim”: 46 h w lodówce przeczyło GTS 97/2010 (DRO-PIZ-001) [M1-audytor-generalny-217]
+  'pizza napoletana verace (48 h)': 'pizza_napoletana_48h',
 };
 
 /**

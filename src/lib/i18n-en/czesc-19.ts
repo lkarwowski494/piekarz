@@ -67,4 +67,19 @@ export const EN_19: Record<string, string> = {
     'If you notice the missing salt only after the first rise, according to King Arthur Baking adding it won\'t help and re-kneading can permanently damage the dough: bake the bread without salt or use the dough for a pizza crust.',
   'Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.':
     'According to King Arthur Baking, salt slows fermentation, absorbs moisture and tightens gluten.',
+  // Presety drożdżowe, zadanie 217 (docs/tresci/en/presety-drozdze.md) [M1-audytor-generalny-217]
+  'Pizza w stylu neapolitańskim':
+    'Neapolitan-style pizza',
+  'Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.':
+    'Neapolitan-style pizza dough with a crisp edge and a tender inside.',
+  'Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.':
+    'According to King Arthur Baking, the dough rises at room temperature for at least 12 and at most 24 hours. After dividing it into balls, let it rise another 45–60 minutes while the oven preheats.',
+  'Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.':
+    'French baguette made with a poolish that ripens for about 14 hours. Crisp, thin crust and a light, airy crumb.',
+  'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.':
+    'Knead with butter and sugar added. After rising, braid the dough, brush with beaten egg and sprinkle with streusel. According to King Arthur Baking, the dough rises for about 2 hours, and the braided challah for 60–90 minutes.',
+  'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.':
+    'Transfer to a generously oiled baking tray. Before putting it in the oven, pour over a brine emulsion (water, olive oil, salt) and vigorously press with your fingers to create dimples. According to King Arthur Baking, the dough rises for 1.5–2 hours, and once stretched in the pan for another 30 minutes.',
+  'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.':
+    'Poolish preferment (20% of the flour and 100% hydration). Baked on a preheated baking steel or baking stone with intense steam. According to King Arthur Baking, the poolish ripens for about 14 hours, and the dough rises for 45 and then another 45 minutes.',
 };
