@@ -265,10 +265,10 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Nic w planach` | `src/components/kalendarz/MiesiacKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/lib/__tests__/kalendarz-pasek-d4b.test.ts |
 | `TEKST` | `Tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
 | `TEKST` | `Miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/lib/__tests__/nazwy-pro-pb.test.ts |
-| `UI` | `Poprzedni tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
-| `UI` | `Poprzedni miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
 | `UI` | `Następny tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
 | `UI` | `Następny miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Poprzedni tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Poprzedni miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
 | `TEKST` | `Ten tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Pokaż cały tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
