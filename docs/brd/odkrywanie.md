@@ -114,6 +114,13 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Dowód: S-65 (szczebel 4, pełny tydzień wstecz od niedzielnego wypieku), S-68 (szczebel 4), S-69 (6 wątków Fresh Loaf 2013–2018 o dopasowaniu do pracy, szczebel 5, próba nielosowa), S-90 (rano formowanie, wieczorem ciasto); zapomniane karmienie (S-83, S-84); żytni plan 4-dniowy z karmieniem w stałe dni (S-85); zlecenie właściciela 2026-10-22 (kalendarz na „Dziś” jak w Treningu). Osoby: P-6, P-7, P-8, P-9, P-10, P-11, P-12. Zależy od: ZAL-051, ZAL-052.
 - Ograniczenie dziś: Harmonogram pozwala wybrać „gotowe” tylko na dziś, jutro albo pojutrze (`src/components/harmonogram/TargetReadyCard.tsx:97-99`), więc plan na niedzielę nie powstanie w środę.
 
+### J-14: Poprowadzić dwa wypieki, które zachodzą na siebie
+- Kiedy piekę dwa bochenki z różnych receptur, chleb i pizzę tego samego dnia albo kilka rzeczy na wydarzenie, a mam jeden piekarnik, chcę wiedzieć, który wypiek jest na którym kroku i kiedy zacząć drugi, żeby nic nie przefermentowało w kolejce do piekarnika.
+- Siły zmiany: pcha jeden minutnik na kilka bochenków („it was a lot to keep track of”, S-91) i przefermentowanie bochenka czekającego na piekarnik (S-92); przyciąga przesunięcie startu drugiego ciasta (S-92) i wspólna oś czasu (S-91: wycinane papierowe osie); obawa: pomylenie receptur (S-94); nawyk: minutnik wielokanałowy, kartka na bochenek, karteczki (S-91, S-94).
+- Dziś: minutniki, kartki, arkusz; w aplikacjach z kategorii nikt nie deklaruje kilku wypieków naraz (badanie 2026-10-22), Rise prowadzi jeden przepis naraz (S-14, rec. 6384160131).
+- Częstotliwość: rzadko u większości, przy każdym dniu pieczenia u zaawansowanych (S-93: „at least three different bread types per baking day”) [OCENA: fora nadreprezentują zaawansowanych].
+- Dowód: 13 wątków Fresh Loaf 2008–2026 (raport badania), szczebel 5; 1 z 63 recenzji aplikacji do planu wypieku (S-14, rec. 6384160131); przepisy King Arthur zakładają, że drugi bochenek czeka, aż pierwszy się upiecze (S-95). Osoby: P-7, P-8, P-10. Zależy od: ZAL-059.
+
 ## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
 
@@ -405,6 +412,16 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
 - Za: widżety w opisie Levain i 2 z 338 recenzji (S-25, S-26); oficjalne `expo-widgets` (S-73). Przeciw: słaby dowód; widżet to drugi cel budowania z App Group (OG-09); widok miesiąca i podpowiedzi bez dowodu z recenzji; Live Activity wycięta i ograniczona do 8 h (OG-11, D-031).
 - Opcje: (a) 1.2+ po sygnale z recenzji po wydaniu 1.1; (b) widżet razem z 1.1. Rekomendacja: (a).
 
+### H-20: Dwa wypieki naraz po wydaniu, ale bez cichego zastąpienia już w 1.0
+- Rodzaj: zakres · Rejestr: ZAL-059 · Rozstrzyga: rola 03 i właściciel (pytanie właściciela 2026-10-22: „A co jezeli ktos bedzie mial dwa wypieki na raz w tym samym czasie?”)
+- Za równoległymi wypiekami: J-14 (S-91…S-94); żaden konkurent tego nie deklaruje. Przeciw: dowód tylko ze szczebla 5 i głównie od zaawansowanych; 1 z 63 recenzji; zmiana zapisu (jeden trwający wypiek), prowadzenia, powiadomień i kalendarza naraz.
+- Fakt z kodu (odczyt, bez uruchomienia): rozpoczęcie wypieku z Harmonogramu, gdy inny trwa, zastępuje trwający wypiek bez pytania (RYZ-26). To dotyczy 1.0 niezależnie od kalendarza.
+- Opcje:
+  - (a) 1.0: BR-ETAP-006 (pytanie przed zastąpieniem trwającego wypieku); 1.1: kilka zapisanych planów (BR-KAL-009) z kolizją kroków i piekarnika oraz prowadzenie dwóch wypieków naraz (BR-KAL-016) w tej samej zmianie zapisu;
+  - (b) jak (a), ale prowadzenie dwóch naraz dopiero w 1.2+ po sygnale z recenzji; w 1.1 plany tylko następują po sobie;
+  - (c) bez zmian w 1.0 — trwający wypiek nadal może zniknąć bez pytania.
+- Rekomendacja: (a): jedna migracja na wiele wypieków zamiast dwóch, a BR-ETAP-006 w 1.0 chroni trwający wypiek. (c) odradzam (zasada wspólna 5: utrata danych ma priorytet).
+
 ## Ryzyka produktu (RYZ)
 
 Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
@@ -450,6 +467,9 @@ Ryzyka starego BRD o numerach 01–10 są wycofane; nowe od RYZ-11.
 
 ### RYZ-24: Nowa funkcja opóźnia wydanie 1.0
 - Realny. Wydanie planowane na początek listopada 2026; nowa funkcja to nowe teksty w 35 językach (przekład za zgodą na wydatek), testy, macierz, nowy build TestFlight, E2E tylko w oknie runnerów 0:00–15:00 i test na urządzeniu właściciela. H-15.
+
+### RYZ-26: Nowy wypiek po cichu zastępuje trwający
+- Realny (odczyt kodu, bez uruchomienia na urządzeniu). „Dziś” w stanie „trwa wypiek” pokazuje „Co jeszcze dziś robisz?” z wejściem do receptur i planu; „Zacznij wypiek” w Harmonogramie zapisuje nowy wypiek bez sprawdzenia trwającego (`app/(tabs)/receptury/harmonogram.tsx:216-233`), a `pickBakeSession` bierze wypiek z pamięci, gdy jego id różni się od zapisanego (`src/data/bake-session-store.ts`). Skutek: postęp, zegar i powiadomienia pierwszego wypieku przepadają, a wpisu w dzienniku nie ma. Ochrona: BR-ETAP-006; potwierdzenie testem: rola 07 / M3.
 
 ### RYZ-25: „Dziś” traci prostotę trzech ścieżek
 - Realny. Ekran „Dziś” przeszedł przejście poznawcze z trzema ścieżkami (F-68, `docs/design/03-przejscie-poznawcze.md`); pusty albo gęsty tydzień nad nimi odsuwa główną akcję. ZP-24, RYZ-20; BR-KAL-005, H-16.

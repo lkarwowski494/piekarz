@@ -197,6 +197,28 @@ Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md`
     - Gdy użytkownik zapisuje drugi plan
     - Wtedy widzi kolizję z nazwą kroku i godziną, a plan zapisuje się dopiero po jego decyzji
 
+### BR-KAL-016: Dwa wypieki prowadzone naraz
+- Przepływ: PR-21, PR-04
+- Dowód potrzeby: J-14; jeden minutnik na kilka bochenków (S-91), bochenek przefermentowany w kolejce do piekarnika (S-92), kilka rodzajów na dzień pieczenia (S-93), pomylenie receptur (S-94); „you can only run one recipe at a time” (S-14, rec. 6384160131); H-20
+- zależy od: ZAL-059
+- Kryteria akceptacji:
+  - Scenariusz: Chleb i pizza tego samego dnia
+    - Zakładając, że trwa wypiek chleba z pieczeniem o 10:00
+    - Gdy użytkownik zaczyna ciasto na pizzę z pieczeniem o 19:00
+    - Wtedy oba wypieki są zapisane, każdy ma swoje kroki i powiadomienia z nazwą wypieku, a pasek pokazuje oba
+  - Scenariusz: Jeden piekarnik
+    - Zakładając, że dwa wypieki mają pieczenie w tym samym czasie
+    - Gdy użytkownik zapisuje drugi
+    - Wtedy widzi, że piekarnik jest zajęty, i propozycję przesunięcia startu drugiego wypieku
+  - Scenariusz: Który krok czyj
+    - Zakładając, że trwają dwa wypieki
+    - Gdy przychodzi powiadomienie o kroku
+    - Wtedy treść powiadomienia i ekran prowadzenia nazywają wypiek, którego krok dotyczy
+  - Scenariusz: Koniec jednego
+    - Zakładając, że trwają dwa wypieki
+    - Gdy użytkownik kończy pierwszy i zapisuje ocenę
+    - Wtedy drugi trwa dalej na tym samym kroku z tym samym zegarem
+
 ### BR-KAL-010: Stały dzień karmienia zakwasu w lodówce
 - Przepływ: PR-22 · Reguła: RD-25
 - Dowód potrzeby: J-04; dziennik i przypomnienia według własnego rytmu (S-21, rec. 13407309939); H-17

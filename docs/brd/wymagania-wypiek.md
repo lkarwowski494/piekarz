@@ -15,6 +15,23 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
     - Gdy użytkownik zatwierdza plan
     - Wtedy widzi, że plan nie zdąży, i najwcześniejszą możliwą godzinę „gotowe”
 
+### BR-ETAP-006: Nowy wypiek nie zastępuje trwającego bez pytania
+- Przepływ: PR-02, PR-04, PR-15
+- Dowód potrzeby: RYZ-26 (odczyt kodu 2026-10-22: drugi start zastępuje trwający wypiek); zasada wspólna 10 i J-02; pytanie właściciela 2026-10-22 o dwa wypieki naraz (H-20)
+- Kryteria akceptacji:
+  - Scenariusz: Start, gdy inny wypiek trwa
+    - Zakładając, że trwa wypiek chleba na kroku „składanie 2”
+    - Gdy użytkownik w Harmonogramie wybiera „Zacznij wypiek” dla innej receptury
+    - Wtedy widzi pytanie z nazwą trwającego wypieku i wyborem: wrócić do niego, zakończyć go z zapisem w dzienniku i zacząć nowy albo anulować
+  - Scenariusz: Anulowanie
+    - Zakładając, że użytkownik widzi to pytanie
+    - Gdy wybiera anulowanie albo powrót
+    - Wtedy trwający wypiek jest na tym samym kroku z tym samym zegarem i powiadomieniami
+  - Scenariusz: Zakończenie i nowy
+    - Zakładając, że użytkownik widzi to pytanie
+    - Gdy wybiera zakończenie trwającego i nowy start
+    - Wtedy trwający wypiek trafia do dziennika jako zakończony z datą, jego powiadomienia są odwołane, a nowy zaczyna się od pierwszego kroku
+
 ### BR-HARMO-002: Plan omija godziny snu
 - Przepływ: PR-02
 - Dowód potrzeby: J-02; soczewka początkującego (dopasowanie planu do snu i chłodnia jako rozwiązanie); kod wykrywa kolizje (`app/(tabs)/receptury/harmonogram.tsx`); D-066 (1a): godziny snu wybierane w Ustawieniach, domyślnie 23:00–07:00, z opcją „Bez godzin snu” (ER-55)

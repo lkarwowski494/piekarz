@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62, ER-63) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-64) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -16,12 +16,12 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `reguly.md` | reguły RD-14…RD-27 z wektorami | E2 |
 | `wymagania.md` | przepływy PR-01…PR-18, wymagania NFR | E3 + PR-18 |
 | `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 |
-| `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005 |
+| `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
-| `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…015, NFR-KAL, reguły RD-29…RD-31 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
-| `errata.md` | errata ER-34…ER-63 | E3 + 2026-10-22 |
+| `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-31 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
+| `errata.md` | errata ER-34…ER-64 | E3 + 2026-10-22 |
 
 ## Otwarte pytania
 
@@ -64,6 +64,7 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 
 - BR-DANE-001, BR-DANE-003, BR-DANE-004, NFR-DANE-003, NFR-DANE-004: utrata danych użytkownika.
 - BR-ETAP-005: główny przepływ (trwający wypiek ginie po zamknięciu aplikacji).
+- BR-ETAP-006: utrata trwającego wypieku przy starcie drugiego (RYZ-26; propozycja roli 01 z 2026-10-22, odczyt kodu do potwierdzenia testem).
 - BR-CZAS-002, BR-CZAS-003: główny przepływ i obietnica celu („pilnuje czasu, gdy telefon śpi”, OG-05).
 - BR-HARMO-001, BR-ETAP-001, BR-KALK-001, BR-KALK-002: główny przepływ.
 - BR-ZAKW-004, BR-ZAKW-005, BR-DIAG-002 w części RD-21: reguła krytyczna (pleśń).
