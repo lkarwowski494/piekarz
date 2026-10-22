@@ -9,8 +9,16 @@ import { resyncNotifications } from './notifications';
  * zapisała. Nieczytelny zapis liczy się jak brak, tak jak przy przywracaniu na Stolnicy (useBakeSession).
  */
 export async function czyTrwaWypiek(): Promise<boolean> {
+  return (await trwajacyWypiek()) !== null;
+}
+
+/** Trwający wypiek z nazwą (zapis sesji ma pierwszeństwo przed pamięcią); nazwa null, gdy jej brak (stary zapis). */
+export async function trwajacyWypiek(): Promise<{ nazwa: string | null } | null> {
   const zapis = await loadBakeSession().catch(() => null);
-  return zapis !== null || getActiveBake() !== null;
+  const pamiec = getActiveBake();
+  if (zapis === null && pamiec === null) return null;
+  const nazwa = (zapis?.recipeName ?? pamiec?.recipeName ?? '').trim();
+  return { nazwa: nazwa === '' ? null : nazwa };
 }
 
 /**

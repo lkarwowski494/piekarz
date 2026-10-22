@@ -67,8 +67,12 @@ export function confirmDiscardBake(onConfirm: () => void) {
  * „Zacznij wypiek” przy trwającym wypieku: [Wróć do trwającego] (domyślne) [Przerwij tamten i zacznij nowy]
  * (niszczące) [Anuluj]. Wypiek zastępowany po cichu tracił stan i powiadomienia pierwszego [M3 p1b a1b].
  */
-export function confirmStartPrzyTrwajacym(onReturn: () => void, onReplace: () => void) {
-  Alert.alert(t('Trwa już inny wypiek'), t('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.'), [
+export function confirmStartPrzyTrwajacym(onReturn: () => void, onReplace: () => void, nazwa: string | null = null) {
+  // Nazwa trwającego w treści (BR-ETAP-006); stary zapis bez nazwy: tekst bez parametru
+  const tresc = nazwa
+    ? t('Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.', { nazwa })
+    : t('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.');
+  Alert.alert(t('Trwa już inny wypiek'), tresc, [
     { text: t('Wróć do trwającego'), isPreferred: true, onPress: onReturn },
     { text: t('Przerwij tamten i zacznij nowy'), style: 'destructive', onPress: onReplace },
     cancelButton(),

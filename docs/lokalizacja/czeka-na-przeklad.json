@@ -12,6 +12,11 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.",
+      "powod": "treść pytania z nazwą trwającego wypieku (parametr {nazwa}) [M3 p1b a1b, BR-ETAP-006]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Wróć do trwającego",
       "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
       "od": "2026-10-22"

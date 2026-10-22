@@ -162,6 +162,8 @@ export const EN_18: Record<string, string> = {
   'Trwa już inny wypiek': 'Another bake is already in progress',
   'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.':
     'A new bake will replace the one in progress. Its progress and notifications will be gone.',
+  'Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.':
+    'A new bake will replace the one in progress: "{nazwa}". Its progress and notifications will be gone.',
   'Wróć do trwającego': 'Back to the bake in progress',
   'Przerwij tamten i zacznij nowy': 'Stop that one and start a new one',
 };

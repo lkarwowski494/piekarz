@@ -3584,7 +3584,12 @@
   },
   "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.": {
     "gdzie": [
-      "src/lib/confirm.ts (Alert.alert)"
+      "src/lib/confirm.ts (kod)"
+    ]
+  },
+  "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.": {
+    "gdzie": [
+      "src/lib/confirm.ts (kod)"
     ]
   },
   "Nowy zakwas": {

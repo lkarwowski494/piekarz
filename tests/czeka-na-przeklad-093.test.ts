@@ -44,10 +44,11 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   const CZEKAJA_A1B = [
     'Trwa już inny wypiek',
     'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.',
+    'Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.',
     'Wróć do trwającego',
     'Przerwij tamten i zacznij nowy',
   ];
-  it('lista czekających jest pusta (poza 4 kluczami a1b do przebiegu a5)', () => {
+  it('lista czekających jest pusta (poza 5 kluczami a1b do przebiegu a5)', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8'));
     expect((j.klucze as { klucz: string }[]).map((x) => x.klucz).filter((k) => !CZEKAJA_A1B.includes(k))).toEqual([]);
   });

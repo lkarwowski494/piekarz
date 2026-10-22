@@ -24,7 +24,7 @@ import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { confirmStartPrzyTrwajacym } from '../../../src/lib/confirm';
-import { czyTrwaWypiek, przerwijSesjeWypieku } from '../../../src/lib/przerwij-wypiek';
+import { trwajacyWypiek, przerwijSesjeWypieku } from '../../../src/lib/przerwij-wypiek';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
@@ -236,11 +236,12 @@ export default function HarmonogramScreen() {
     };
     // Trwający wypiek nie przepada po cichu: pytanie z trzema wyborami (a1b); bez trwającego start jak dotąd
     requireActionAccess(() => {
-      void czyTrwaWypiek().then((trwa) => {
+      void trwajacyWypiek().then((trwa) => {
         if (!trwa) return zacznij();
         confirmStartPrzyTrwajacym(
           () => router.push('/stolnica'),
           () => { void przerwijSesjeWypieku().then(zacznij); },
+          trwa.nazwa,
         );
       });
     });

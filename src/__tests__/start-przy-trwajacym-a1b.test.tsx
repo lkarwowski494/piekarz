@@ -34,7 +34,7 @@ import { zUprawnieniem } from '../../tests/helpers/platnosci';
 import { ustawGodzinePlanu } from '../../tests/helpers/plan-godzina';
 import { zacznijWypiekBezReceptury } from '../../tests/helpers/wypiek';
 import { setLang } from '../lib/i18n';
-import { przerwijSesjeWypieku, czyTrwaWypiek } from '../lib/przerwij-wypiek';
+import { przerwijSesjeWypieku, czyTrwaWypiek, trwajacyWypiek } from '../lib/przerwij-wypiek';
 
 const textOf = (n: unknown): string => {
   if (typeof n === 'string' || typeof n === 'number') return String(n);
@@ -131,6 +131,26 @@ describe('a1b: start drugiego wypieku przy trwającym', () => {
     expect(mockPush).not.toHaveBeenCalled();
   });
 
+  it('BR-ETAP-006: pytanie podaje nazwę trwającego wypieku (zapis sesji i pamięć); bez nazwy tekst bez parametru', async () => {
+    await zacznijWypiekBezReceptury(STARY, { zaczetyZDostepem: true });
+    let harm = await nacisnijStart();
+    act(() => harm.unmount());
+    expect(ostatniAlert().tresc).toBe('Nowy wypiek zastąpi trwający: „Wypiek bez receptury”. Jego postęp i powiadomienia znikną.');
+
+    // Zapis bez nazwy (stary zapis): tekst bez parametru; pamięć z nazwą
+    const sesja = await loadBakeSession();
+    await saveBakeSession({ ...sesja!, recipeName: '' });
+    harm = await nacisnijStart();
+    act(() => harm.unmount());
+    expect(ostatniAlert().tresc).toBe('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.');
+
+    await saveBakeSession(null);
+    setActiveBake({ id: STARY_ID, recipeName: 'Żytni 70%', startedAt: STARY, currentStageId: 'x', zaczetyZDostepem: true });
+    harm = await nacisnijStart();
+    act(() => harm.unmount());
+    expect(ostatniAlert().tresc).toBe('Nowy wypiek zastąpi trwający: „Żytni 70%”. Jego postęp i powiadomienia znikną.');
+  });
+
   it('„Wróć do trwającego”: Stolnica bez zmian zapisu', async () => {
     await zacznijWypiekBezReceptury(STARY, { zaczetyZDostepem: true });
     const zapisPrzed = JSON.stringify(await loadBakeSession());
@@ -186,8 +206,10 @@ describe('a1b: start drugiego wypieku przy trwającym', () => {
 
   it('czyTrwaWypiek i przerwijSesjeWypieku: zapis, pamięć, brak', async () => {
     expect(await czyTrwaWypiek()).toBe(false);
+    expect(await trwajacyWypiek()).toBeNull();
     await zacznijWypiekBezReceptury(STARY, { zaczetyZDostepem: true });
     expect(await czyTrwaWypiek()).toBe(true);
+    expect(await trwajacyWypiek()).toEqual({ nazwa: 'Wypiek bez receptury' });
     await przerwijSesjeWypieku();
     expect(await czyTrwaWypiek()).toBe(false);
     setActiveBake({ id: STARY_ID, recipeName: 'Stary', startedAt: STARY, currentStageId: 'x' });
