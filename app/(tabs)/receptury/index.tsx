@@ -20,7 +20,7 @@ import {
 } from '../../../src/lib/recipe-navigation';
 import { CorruptStateRecoveryBanner } from '../../../src/components/CorruptStateRecoveryBanner';
 import { ListaReceptur, FILTRY_RECEPTUR, type CategoryFilterType } from '../../../src/components/receptury/ListaReceptur';
-import { FiltryNaPasie, NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { ekranRecepturyOtwarty, subskrybujZmianyReceptur } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { CalculatorModalsProvider } from '../../../src/components/calculator/CalculatorModalsProvider';
@@ -120,10 +120,8 @@ export default function RecepturyLista() {
     <SafeAreaView style={s.ekran} edges={['left', 'right']}>
       <ScrollView contentInsetAdjustmentBehavior="never" keyboardShouldPersistTaps="handled">
         <NadPasem />
-        <PasZakladki gora={gora} tytul={t('Receptury')}>
-          <FiltryNaPasie filtry={FILTRY_RECEPTUR.map((f) => ({ ...f, etykieta: t(f.etykieta) }))} wybrany={filtr} onWybierz={setFiltr}
-            etykieta={t('Rodzaj receptur')} />
-        </PasZakladki>
+        <PasZakladki gora={gora} tytul={t('Receptury')}
+          filtry={{ filtry: FILTRY_RECEPTUR.map((f) => ({ ...f, etykieta: t(f.etykieta) })), wybrany: filtr, onWybierz: setFiltr, etykieta: t('Rodzaj receptur') }} />
         <View style={s.tresc}>
         <CorruptStateRecoveryBanner />
         {(wejscieWidoczne('qr') || wejscieWidoczne('przelicznik-objetosci')) && (

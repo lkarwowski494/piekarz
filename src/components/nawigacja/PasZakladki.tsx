@@ -8,7 +8,7 @@
 // ============================================================================
 
 import React, { useCallback } from 'react';
-import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StatusBar, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
@@ -16,7 +16,10 @@ import { PrzyciskNaglowka } from './PrzyciskNaglowka';
 import { IkonaStartu } from '../start/IkonaStartu';
 import { usePogrubionyTekst, wagaTytulu } from '../../ui/pogrubiony-tekst';
 
-export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, testID = 'pas-zakladki' }: {
+/** Duży tekst jak na „Dziś”, w wierszu okresu i na ekranie Pro (fontScale ≥ 2). */
+const DUZY_TEKST = 2;
+
+export function PasZakladki<T extends string = string>({ gora, tytul, podtytul, wstecz, akcje, filtry, children, testID = 'pas-zakladki' }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   tytul: string;
@@ -26,13 +29,25 @@ export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, te
   wstecz?: { tekst: string; onPress: () => void };
   /** Akcje nagłówka po prawej (PrzyciskNaglowka z `naPasie`). */
   akcje?: React.ReactNode;
-  /** Sterowanie ekranu na pasie (filtry, spirala zakwasu, kalendarz). */
+  /** Filtry (chipy): na pasie, a przy dużym tekście pod pasem (D-120 b). */
+  filtry?: FiltryPasa<T>;
+  /** Sterowanie ekranu na pasie (spirala zakwasu, kalendarz). */
   children?: React.ReactNode;
   testID?: string;
 }) {
   // Krój Sofia reaguje na „Pogrubiony tekst” jak tytuł kroku (158) [04-studio-projektowe-014]
   const waga = { fontWeight: wagaTytulu(usePogrubionyTekst()) };
+  // Duży tekst: zdanie i filtry pod pasem, na pasie rząd nawigacji, tytuł i sterowanie (D-120 b, W-fix2); przy AX5
+  // i 320 pt pas z filtrami i zdaniem był wyższy niż ekran (Dziennik ok. 830 pt na 568 pt)
+  const duzy = useWindowDimensions().fontScale >= DUZY_TEKST;
+  const pod = duzy && (podtytul || filtry) ? (
+    <View style={styles.pod} testID="pas-pod">
+      {podtytul ? <Text style={styles.podtytulPod}>{podtytul}</Text> : null}
+      {filtry ? <FiltryNaPasie {...filtry} naPasie={false} /> : null}
+    </View>
+  ) : null;
   return (
+    <>
     <View style={[styles.pas, { paddingTop: gora + odstepy.xs }]} testID={testID}>
       {(wstecz || akcje) && (
         <View style={styles.gora}>
@@ -46,9 +61,12 @@ export function PasZakladki({ gora, tytul, podtytul, wstecz, akcje, children, te
       {/* Tytuł najwyżej 1,5× (51 pt) jak podpisy zakładek i przyciski pasa: przy AX5 i 320 pt bez łamania słów i bez
           pasa na cały ekran [04-studio-projektowe-003] */}
       <Text style={[styles.tytul, waga]} accessibilityRole="header" maxFontSizeMultiplier={1.5}>{tytul}</Text>
-      {podtytul ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
+      {podtytul && !duzy ? <Text style={styles.podtytul}>{podtytul}</Text> : null}
       {children}
+      {filtry && !duzy ? <FiltryNaPasie {...filtry} /> : null}
     </View>
+    {pod}
+    </>
   );
 }
 
@@ -81,22 +99,30 @@ export interface FiltrNaPasie<T extends string> {
   etykieta: string;
 }
 
-/** Filtry (chipy) na pasie: zawijane, cel 44 pt; wybrany jasny na pasie (naPasie / pas, 9,83:1). */
-export function FiltryNaPasie<T extends string>({ filtry, wybrany, onWybierz, etykieta }: {
+export interface FiltryPasa<T extends string> {
   filtry: readonly FiltrNaPasie<T>[];
   wybrany: T;
   onWybierz: (id: T) => void;
   /** Etykieta grupy dla VoiceOver. */
   etykieta?: string;
-}) {
+}
+
+/**
+ * Filtry (chipy): zawijane, cel 44 pt; na pasie wybrany jasny (naPasie / pas, 9,83:1); pod pasem (duży tekst, D-120 b)
+ * jak chipy na tle ekranu (obwódka, tusz; wybrany akcent / naAkcencie).
+ */
+export function FiltryNaPasie<T extends string>({ filtry, wybrany, onWybierz, etykieta, naPasie = true }: FiltryPasa<T> & { naPasie?: boolean }) {
   return (
     <View style={styles.filtry} accessibilityRole="radiogroup" accessibilityLabel={etykieta} testID="pas-filtry">
       {filtry.map((f) => {
         const wyb = f.id === wybrany;
         return (
           <Pressable key={f.id} testID={f.testID} accessibilityRole="button" accessibilityState={{ selected: wyb }}
-            style={[styles.chip, wyb && styles.chipWybrany]} onPress={() => onWybierz(f.id)}>
-            <Text style={[styles.chipTekst, wyb && styles.chipTekstWybrany]}>{f.etykieta}</Text>
+            style={[styles.chip, wyb && styles.chipWybrany, !naPasie && styles.chipPod, !naPasie && wyb && styles.chipPodWybrany]}
+            onPress={() => onWybierz(f.id)}>
+            <Text style={[styles.chipTekst, wyb && styles.chipTekstWybrany, !naPasie && styles.chipTekstPod, !naPasie && wyb && styles.chipTekstPodWybrany]}>
+              {f.etykieta}
+            </Text>
           </Pressable>
         );
       })}
@@ -135,4 +161,10 @@ const styles = StyleSheet.create({
   chipWybrany: { backgroundColor: theme.colors.naPasie, borderColor: theme.colors.naPasie },
   chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie },
   chipTekstWybrany: { color: theme.colors.pas, fontWeight: '600' },
+  pod: { paddingHorizontal: odstepy.l, paddingTop: odstepy.m, gap: odstepy.s },
+  podtytulPod: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2 },
+  chipPod: { borderColor: theme.colors.obwodka, backgroundColor: theme.colors.powierzchnia },
+  chipPodWybrany: { backgroundColor: theme.colors.akcent, borderColor: theme.colors.akcent },
+  chipTekstPod: { color: theme.colors.tusz },
+  chipTekstPodWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
 });

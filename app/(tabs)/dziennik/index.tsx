@@ -9,7 +9,7 @@ import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { FiltryNaPasie, NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
+import { NadPasem, PasZakladki, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
 import { FILTRY_SMAKU } from '../../../src/components/stolnica/BakeHistorySection';
 import { ostatniWypiekMs, tekstOstatniegoWypieku } from '../../../src/lib/ostatni-wypiek';
 import { t } from '../../../src/lib/i18n';
@@ -51,12 +51,10 @@ export default function DziennikScreen() {
       {/* Pas nocy (D10 opcja A): tytuł, „Ostatni wypiek: …” i filtry smaku (jak dawniej tylko przy wpisach) [M3 D10].
           Pas od krawędzi mimo marginesu treści: położenie wpisu z kalendarza liczone dalej od początku treści (D7) */}
       <View style={styles.pas}>
-        <PasZakladki gora={gora} tytul={t('Dziennik')} podtytul={ostatni ?? undefined}>
-          {historia.bakeHistory.length > 0 && (
-            <FiltryNaPasie filtry={FILTRY_SMAKU.map((f) => ({ ...f, etykieta: t(f.etykieta) }))} wybrany={historia.selectedTasteFilter}
-              onWybierz={historia.setSelectedTasteFilter} />
-          )}
-        </PasZakladki>
+        <PasZakladki gora={gora} tytul={t('Dziennik')} podtytul={ostatni ?? undefined}
+          filtry={historia.bakeHistory.length > 0
+            ? { filtry: FILTRY_SMAKU.map((f) => ({ ...f, etykieta: t(f.etykieta) })), wybrany: historia.selectedTasteFilter, onWybierz: historia.setSelectedTasteFilter }
+            : undefined} />
       </View>
       <BlokadaFunkcji {...blokada('historia')}>
         {historia.bakeHistory.length > 0 && (

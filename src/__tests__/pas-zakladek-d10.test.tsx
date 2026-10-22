@@ -216,14 +216,16 @@ describe('D10 opcja A: pas nocy na każdej zakładce', () => {
     expect(host(pas, 'pas-filtry')).toHaveLength(0);
   });
 
-  it.each([320, 390])('AX5 przy %i pt: pas rośnie, filtry zawijają się, cel 44 pt, żaden tekst na pasie nie jest ucinany', async (szer) => {
+  // W-fix2 (D-120 b, zmienia D-119): przy dużym tekście filtry schodzą pod pas (`pas-pod`), na pasie ich nie ma
+  it.each([320, 390])('AX5 przy %i pt: pas rośnie, filtry pod pasem zawijają się, cel 44 pt, żaden tekst nie jest ucinany', async (szer) => {
     Object.assign(mockOkno, { width: szer, fontScale: 3.12 });
     await saveBakeLog({ id: 'b1', recipeName: 'Wiejski', startedAt: Date.UTC(2026, 9, 19, 8), finishedAt: Date.UTC(2026, 9, 19, 14) });
     for (const el of [<RecepturyLista key="r" />, <DziennikScreen key="d" />]) {
       const root = await render(el);
       const pas = host(root, 'pas-zakladki')[0];
       expect(styl(pas).height).toBeUndefined();
-      const filtry = host(pas, 'pas-filtry')[0];
+      expect(host(pas, 'pas-filtry')).toHaveLength(0);
+      const filtry = host(host(root, 'pas-pod')[0], 'pas-filtry')[0];
       expect(styl(filtry)).toEqual(expect.objectContaining({ flexDirection: 'row', flexWrap: 'wrap' }));
       const chipy = filtry.findAll((n) => typeof n.type === 'string' && n.props.accessibilityRole === 'button');
       expect(chipy.length).toBeGreaterThanOrEqual(5);
