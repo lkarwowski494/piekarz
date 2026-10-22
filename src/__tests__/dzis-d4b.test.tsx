@@ -254,8 +254,15 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
     await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1));
     const root = await renderStart();
-    const dni = () => root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function');
+    const dni = () => root.findAll((n) => typeof n.type !== 'string' && typeof n.props.testID === 'string' && n.props.testID.startsWith('pasek-dzien-') && typeof n.props.onPress === 'function' && n.props.accessibilityRole === 'button');
     expect(dni()).toHaveLength(1);
+    // PRZ-08: wiersz dnia jak agenda makiety — data jako nagłówek, każde zdarzenie w osobnej linii z glifem (nie jeden akapit)
+    const dzisiejszy = dni()[0];
+    const linie = dzisiejszy.findAllByType(Text).map((n) => [n.props.children].flat().join(''));
+    expect(linie.length).toBeGreaterThanOrEqual(3);
+    expect(linie[0]).toMatch(/dziś/);
+    expect(linie.slice(1).every((l) => !/dziś/.test(l))).toBe(true);
+    expect(dzisiejszy.findAll((n) => typeof n.props?.testID === 'string' && n.props.testID.startsWith('glif-')).length).toBeGreaterThanOrEqual(2);
     await act(async () => przycisk(root, 'pasek-caly-tydzien')[0].props.onPress());
     expect(dni()).toHaveLength(7);
     expect(przycisk(root, 'pasek-caly-tydzien')).toHaveLength(0);

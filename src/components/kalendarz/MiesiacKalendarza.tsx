@@ -10,12 +10,13 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { t } from '../../lib/i18n';
 import { glifyDnia } from '../../lib/kalendarz-pasek';
-import { etykietaDnia, type OpcjeTekstu } from '../../lib/kalendarz-teksty';
+import { czesciDnia, etykietaDnia, type OpcjeTekstu } from '../../lib/kalendarz-teksty';
 import type { DzienMiesiaca } from '../../lib/kalendarz-widok';
 import type { ZdarzenieKalendarza } from '../../core/kalendarz-zdarzenia';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { GlifPiekarnika, GlifZaleglego, GlifZdarzenia } from './GlifZdarzenia';
+import { WierszDniaAx5 } from './WierszDniaAx5';
 
 export interface MiesiacKalendarzaProps {
   tygodnie: readonly (readonly DzienMiesiaca[])[];
@@ -36,10 +37,8 @@ export function MiesiacKalendarza(p: MiesiacKalendarzaProps) {
       <View style={styles.lista} accessibilityRole="list" testID="miesiac-lista">
         {zWpisami.length === 0 && <Text style={styles.pusto}>{t('Nic w planach')}</Text>}
         {zWpisami.map((d) => (
-          <Pressable key={d.klucz} testID={`miesiac-dzien-${d.klucz}`} accessibilityRole="button" accessibilityLabel={etykieta(d)}
-            style={[styles.wiersz, d.dzis && styles.ramka]} onPress={() => p.onDzien(d)}>
-            <Text style={styles.wierszTekst}>{etykieta(d)}</Text>
-          </Pressable>
+          <WierszDniaAx5 key={d.klucz} testID={`miesiac-dzien-${d.klucz}`} etykieta={etykieta(d)} czesci={czesciDnia(p.zdarzenia.filter((z) => z.dzien === d.klucz), d, p.o)}
+            wypieki={p.wypieki} dzis={d.dzis} onPress={() => p.onDzien(d)} />
         ))}
       </View>
     );
@@ -89,6 +88,4 @@ const styles = StyleSheet.create({
   glify: { flexDirection: 'row', gap: 2, minHeight: 12, alignItems: 'center' },
   lista: { gap: odstepy.s },
   pusto: { fontSize: typografia.style.tresc.pt, color: theme.colors.naPasie2 },
-  wiersz: { minHeight: theme.cele.pozostale, paddingVertical: odstepy.s, paddingHorizontal: odstepy.m, borderRadius: promienie.przycisk, borderWidth: 2, borderColor: 'transparent' },
-  wierszTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.naPasie },
 });

@@ -59,7 +59,7 @@ export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karm
 /** Najwyżej tyle glifów w dniu: glify się nie zawijają (pomiar roli 04 przy 320 pt); całość czyta etykieta dnia. */
 export const MAKS_GLIFOW_DNIA = 3;
 
-function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
+export function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
   switch (z.rodzaj) {
     case 'wypiek-krok':
       // Plan niezaczęty: spirala kropkowana, osobny glif od trwającego wypieku (PRZ-13, makieta a2)

@@ -10,12 +10,13 @@ import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { t } from '../../lib/i18n';
 import { ciagDnia, glifyDnia, type DzienPaska } from '../../lib/kalendarz-pasek';
-import { etykietaDnia } from '../../lib/kalendarz-teksty';
+import { czesciDnia, etykietaDnia } from '../../lib/kalendarz-teksty';
 import type { ZdarzenieKalendarza } from '../../core/kalendarz-zdarzenia';
 import type { ZnacznikDnia } from '../../core/kalendarz-nastepne';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { GlifPiekarnika, GlifZaleglego, GlifZdarzenia } from './GlifZdarzenia';
+import { WierszDniaAx5 } from './WierszDniaAx5';
 
 export interface PasekTygodniaProps {
   dni: readonly DzienPaska[];
@@ -36,7 +37,9 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
   const [caly, ustawCaly] = useState(false);
   const ciag = ciagDnia(p.znaczniki, p.dni.map((d) => d.klucz));
   const o = { now: p.now, wieleWypiekow: p.wieleWypiekow };
-  const etykieta = (d: DzienPaska) => etykietaDnia(p.zdarzenia.filter((z) => z.dzien === d.klucz), d, o);
+  const dnia = (d: DzienPaska) => p.zdarzenia.filter((z) => z.dzien === d.klucz);
+  const etykieta = (d: DzienPaska) => etykietaDnia(dnia(d), d, o);
+  const czesci = (d: DzienPaska) => czesciDnia(dnia(d), d, o);
 
   if (p.duzyTekst) {
     // Inny tydzień niż bieżący (BR-KAL-008) nie ma „dziś”: cały tydzień od razu [M3 D7]
@@ -45,10 +48,8 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
     return (
       <View style={styles.lista} accessibilityRole="list" accessibilityLabel={t('Ten tydzień')} testID="pasek-tygodnia">
         {widoczne.map((d) => (
-          <Pressable key={d.klucz} testID={`pasek-dzien-${d.klucz}`} accessibilityRole="button" accessibilityLabel={etykieta(d)}
-            style={[styles.wiersz, d.dzis && styles.ramka]} onPress={() => p.onDzien(d.klucz)}>
-            <Text style={[styles.wierszTekst, d.dzis && styles.dzisTekst]}>{etykieta(d)}</Text>
-          </Pressable>
+          <WierszDniaAx5 key={d.klucz} testID={`pasek-dzien-${d.klucz}`} etykieta={etykieta(d)} czesci={czesci(d)} wypieki={p.wypieki}
+            dzis={d.dzis} onPress={() => p.onDzien(d.klucz)} />
         ))}
         {!caly && !bezDzis && (
           <Pressable testID="pasek-caly-tydzien" accessibilityRole="button" style={styles.calyTydzien} onPress={() => ustawCaly(true)}>
@@ -104,8 +105,6 @@ const styles = StyleSheet.create({
   glify: { flexDirection: 'row', gap: 2, minHeight: 14, alignItems: 'center' },
   ciag: { position: 'absolute', bottom: 0, height: 2, backgroundColor: theme.colors.ratanNaPasie },
   lista: { gap: odstepy.s },
-  wiersz: { minHeight: theme.cele.pozostale, paddingVertical: odstepy.s, paddingHorizontal: odstepy.m, borderRadius: promienie.przycisk, borderWidth: 2, borderColor: 'transparent' },
-  wierszTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.naPasie },
   calyTydzien: { minHeight: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2, paddingHorizontal: odstepy.m },
   calyTydzienTekst: { fontSize: typografia.style.tresc.pt, color: theme.colors.naPasie, textAlign: 'center' },
 });
