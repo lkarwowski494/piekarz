@@ -51,7 +51,9 @@ import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
 import { styles } from './stolnica-screen.styles';
 
-export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony }: {
+export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony, onZapisano }: {
+  /** Udany zapis kroku (ekran zeruje licznik odrzuceń z rzędu) [M3 D3a-fix]. */
+  onZapisano?: () => void;
   /** Trwający wypiek z zapisu albo nowy z planu (stan z chwili otwarcia; zegar liczony od zapisanego końca kroku). */
   start: BakeSession;
   /** Wersja wiersza z odczytu; null = wypiek z planu jeszcze bez zapisu (pierwszy zapis go tworzy). */
@@ -164,7 +166,8 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
           pausedLeftSec: isRunning || isCompleted ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
       : null,
     wersja,
-    onOdrzucony
+    onOdrzucony,
+    onZapisano
   );
 
   // Bieżący krok dla przełącznika wypieków (BR-KAL-016 „Który krok czyj”)

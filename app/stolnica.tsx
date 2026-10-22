@@ -65,13 +65,18 @@ export default function StolnicaScreen() {
   }, []);
 
   const biezacy = lista?.find((w) => idSesji(w.sesja) === wybrany);
-  // Ile razy z rzędu zapis tego wypieku został odrzucony: po drugim razie powrót na „Dziś” zamiast pętli odczytów
+  // Ile razy z rzędu zapis tego wypieku został odrzucony: po drugim razie powrót na „Dziś” zamiast pętli odczytów;
+  // udany zapis zeruje licznik (odległe odrzucenia nie wyrzucają z prowadzenia) [M3 D3a-fix]
   const odrzucenia = useRef<{ id: string; ile: number } | null>(null);
+  const zerujOdrzucenia = useCallback(() => {
+    odrzucenia.current = null;
+  }, []);
   const onOdrzucony = useCallback(
     (powod: OdrzuconyZapis) => {
       if (wybrany === null) return;
-      // Nowy wypiek z planu, którego nie da się utworzyć (limit albo wiersz już jest): pamięć go nie trzyma (P2-1, P2-2)
-      if ((powod === 'limit' || powod === 'istnieje') && getActiveBake()?.id === wybrany) setActiveBake(null);
+      // Nowy wypiek z planu, którego nie da się utworzyć (limit, wiersz już jest, wypiek już ma wpis w Dzienniku): pamięć
+      // go nie trzyma (P2-1, P2-2, P1-1)
+      if (powod !== 'nieaktualny' && getActiveBake()?.id === wybrany) setActiveBake(null);
       const ile = odrzucenia.current?.id === wybrany ? odrzucenia.current.ile + 1 : 1;
       odrzucenia.current = { id: wybrany, ile };
       if (powod === 'limit' || ile > 1) setWybrany(null);
@@ -104,6 +109,7 @@ export default function StolnicaScreen() {
       naglowek={naglowek}
       onKoniec={onKoniec}
       onOdrzucony={onOdrzucony}
+      onZapisano={zerujOdrzucenia}
       onKrok={(krok) => setKroki((k) => (k[wybrany] === krok ? k : { ...k, [wybrany]: krok }))}
     />
   );

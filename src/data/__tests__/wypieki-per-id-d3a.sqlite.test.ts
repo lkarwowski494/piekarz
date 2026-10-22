@@ -119,6 +119,13 @@ describe('D3a: wiele wypieków per id w warstwie danych', () => {
     expect(wiersze()).toEqual(przed);
   });
 
+  it('P1-1 (po przeniesieniu 1f3355c): wypiek z wpisem w Dzienniku (id wpisu = id wypieku) nie wraca przez utworzenie z pamięci', async () => {
+    const { app, sesje, pizza } = await dwaWypieki();
+    await app.store.finishBake({ id: 'bake_pizza', recipeName: 'Pizza', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_pizza' });
+    expect(await sesje.utworzWypiek({ ...pizza, stepIdx: 0 })).toEqual({ ok: false, error: { kind: 'brak', id: 'bake_pizza' } });
+    expect(idSesji()).toEqual(['bake_live']);
+  });
+
   it('P2-2: limit 2 trwających przy utworzeniu; wiersz z nieczytelnym JSON-em nie liczy się do limitu', async () => {
     const { sesje, pizza } = await dwaWypieki();
     const trzeci = (id: string): BakeSession => ({ ...pizza, bake: pizza.bake ? { ...pizza.bake, id } : null });

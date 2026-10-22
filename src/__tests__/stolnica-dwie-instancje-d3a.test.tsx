@@ -104,6 +104,29 @@ describe('D3a-fix P1-1: dwie instancje Stolnicy jednego wypieku', () => {
     act(() => dol.unmount());
   });
 
+  it('licznik odrzuceń zeruje się po udanym zapisie: dwa odległe odrzucenia (każde po zmianie z innej instancji) nie wyrzucają na Dziś', async () => {
+    const { saveActiveBakeSession } = require('../data/bake-sessions-store') as typeof import('../data/bake-sessions-store');
+    const mockReplace = jest.fn();
+    jest.spyOn(require('expo-router'), 'useRouter').mockReturnValue({ push: jest.fn(), navigate: jest.fn(), replace: mockReplace, back: jest.fn() });
+    await saveBakeSession(sesja(0));
+    const tree = await render();
+    const zInnejInstancji = async () => {
+      const teraz = await loadBakeSession();
+      if (teraz) await saveActiveBakeSession(teraz); // inna instancja zapisała ten sam wypiek (nowsza wersja wiersza)
+    };
+    await zInnejInstancji();
+    await zrobione(tree); // odrzucone (nieaktualny) → odczyt od nowa
+    await zrobione(tree); // udany zapis: krok 1
+    expect((await loadBakeSession())?.stepIdx).toBe(1);
+    await zInnejInstancji();
+    await zrobione(tree); // drugie odrzucenie, ale nie z rzędu
+    expect(mockReplace).not.toHaveBeenCalledWith('/');
+    expect(textOf(tree.toJSON())).toContain(t(kroki[1].name));
+    await zrobione(tree);
+    expect((await loadBakeSession())?.stepIdx).toBe(2);
+    act(() => tree.unmount());
+  });
+
   it('koniec na górnej, potem „Zapisz” na dolnej: jeden wpis w Dzienniku i jedno odliczenie mąki', async () => {
     await saveFlourInventoryItem({ id: 'flour_2i', name: 'Mąka pszenna 750', stockGrams: 2000, updatedAt: 1 });
     await saveBakeSession(sesja(kroki.length - 1));

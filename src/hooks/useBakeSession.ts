@@ -26,8 +26,12 @@ export type OdrzuconyZapis = 'limit' | 'istnieje' | 'nieaktualny' | 'brak';
 export function useZapisWypieku(
   snapshot: BakeSession | null,
   wersjaOdczytu: number | null,
-  onOdrzucony: (powod: OdrzuconyZapis) => void
+  onOdrzucony: (powod: OdrzuconyZapis) => void,
+  /** Udany zapis (ekran zeruje licznik odrzuceń z rzędu). */
+  onZapisano?: () => void
 ): () => boolean {
+  const zapisanoRef = useRef(onZapisano);
+  zapisanoRef.current = onZapisano;
   const snapRef = useRef(snapshot);
   snapRef.current = snapshot;
   const wersja = useRef<number | null>(wersjaOdczytu);
@@ -63,6 +67,7 @@ export function useZapisWypieku(
       if (r.ok) {
         wersja.current = r.wersja;
         alerted.current = null;
+        zapisanoRef.current?.();
         // Po zapisie uzgodnienie powiadomień z bazą (ADR-006) [M1-audytor-generalny-006]
         void resyncNotifications();
         return;

@@ -211,6 +211,11 @@ export async function utworzWypiek(s: BakeSession): Promise<ZapisWersji> {
   const teraz = Date.now();
   const db = await getDb();
   let utworzono: boolean;
+  // Wypiek z wpisem w Dzienniku (id wpisu = id wypieku, M3 P1-1) już się skończył: nie wraca z pamięci jako trwający
+  const zakonczony = db
+    ? (await db.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', id)).length > 0
+    : memStore.logs.some((l) => l.id === id);
+  if (zakonczony) return { ok: false, error: { kind: 'brak', id } };
   if (!db) {
     const zajete = memStore.bakeSessions.filter((w) => w.status === 'active' && w.id !== id).length >= MAX.active;
     utworzono = !zajete && !memStore.bakeSessions.some((w) => w.id === id);
@@ -219,8 +224,9 @@ export async function utworzWypiek(s: BakeSession): Promise<ZapisWersji> {
     const r = await writeOrThrow(() =>
       db.runAsync(
         `INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at)
-         SELECT ?, 'active', ?, ?, ? WHERE ${POZA_LIMITEM} ON CONFLICT(id) DO NOTHING;`,
-        id, json, teraz, teraz, 'active', id, MAX.active
+         SELECT ?, 'active', ?, ?, ? WHERE ${POZA_LIMITEM} AND NOT EXISTS (SELECT 1 FROM bakes WHERE id = ?)
+         ON CONFLICT(id) DO NOTHING;`,
+        id, json, teraz, teraz, 'active', id, MAX.active, id
       )
     );
     utworzono = r.changes > 0;
