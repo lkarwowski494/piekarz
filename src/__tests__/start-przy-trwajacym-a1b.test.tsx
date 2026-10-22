@@ -244,9 +244,13 @@ describe('a1b → D3a: start kolejnego wypieku przy trwającym', () => {
     expect(await trwajaceWypieki()).toEqual([]);
     expect(await utrwalWypiekZPamieci()).toBe(true);
     await zacznijWypiekBezReceptury(STARY, { zaczetyZDostepem: true });
-    expect(await trwajaceWypieki()).toEqual([{ id: STARY_ID, nazwa: 'Wypiek bez receptury' }]);
+    // Zmiana M3 D4b: wpis niesie też klucz bieżącego kroku (treść pytania przy starcie, przegląd roli 04) — id i nazwa
+    // sprawdzane dokładnie jak dotąd, krok osobno
+    const idINazwa = async () => (await trwajaceWypieki()).map(({ id, nazwa }) => ({ id, nazwa }));
+    expect(await idINazwa()).toEqual([{ id: STARY_ID, nazwa: 'Wypiek bez receptury' }]);
+    expect((await trwajaceWypieki())[0].krok).toBe('Dokarmienie zakwasu (osiągnięcie szczytu)');
     setActiveBake({ id: DRUGI_ID, recipeName: 'Pizza', startedAt: DRUGI, currentStageId: 'x' });
-    expect(await trwajaceWypieki()).toEqual([{ id: STARY_ID, nazwa: 'Wypiek bez receptury' }, { id: DRUGI_ID, nazwa: 'Pizza' }]);
+    expect(await idINazwa()).toEqual([{ id: STARY_ID, nazwa: 'Wypiek bez receptury' }, { id: DRUGI_ID, nazwa: 'Pizza' }]);
     expect(await utrwalWypiekZPamieci()).toBe(true);
     expect(await idsZapisu()).toEqual([STARY_ID, DRUGI_ID]);
     await przerwijWypiek(DRUGI_ID);
