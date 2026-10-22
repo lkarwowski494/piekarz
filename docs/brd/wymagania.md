@@ -76,6 +76,10 @@ Stan: E3 · Aktualizacja: 2026-10-19. Przepływy opisują kto, cel, kroki, częs
 - Kto: wszyscy · Praca: J-12 · Częstotliwość: rzadko · Kontekst: dowolny.
 - Kroki: w ustawieniach wybiera „napisz do nas” albo „oceń w App Store” → przy kontakcie widzi treść wiadomości (w tym wersję aplikacji) przed wysłaniem i wysyła ją własną aplikacją poczty → przy ocenie przechodzi do strony aplikacji w App Store.
 
+### PR-24: Uratować ciasto w trakcie fermentacji
+- Kto: P-6, P-7, P-8 · Praca: J-15, J-02, J-09 · Częstotliwość: przy problemie w trakcie wypieku [OCENA] · Kontekst: w trakcie wypieku, ciasto w misce albo w koszyku, ręce w cieście lub mące, minuty na decyzję.
+- Kroki: na prowadzeniu wypieku dotyka „Doktor” → w sekcji ratunku ciasta wybiera objaw: przerośnięte, zbyt luźne, ospała fermentacja w zimnej kuchni, zapomniana sól → widzi, co zrobić teraz, kroki i krótkie „dlaczego”, każde zdanie z atrybucją źródła → wykonuje kroki i wraca do prowadzenia na tym samym kroku z tym samym zegarem (F-71, D-095).
+
 ## Wymagania niefunkcjonalne (NFR)
 ### NFR-OFF-001: Działa w pełni offline
 - Miara: liczba wywołań sieciowych (`fetch`, `axios`, `WebSocket`, `XMLHttpRequest`) w kodzie produkcyjnym. Próg: 0 (ZP-17; `CLAUDE.md`, zasada 1). Metoda: `tests/public-repo.test.ts` (`npm test`).

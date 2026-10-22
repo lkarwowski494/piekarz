@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-69) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62…ER-70) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -13,15 +13,15 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `README.md` | stan, spis, streszczenie, otwarte pytania, blokery wydania | E3 |
 | `odkrywanie.md` | wywiad, prace J, persony P, kontekst użycia, zasady ZP, rynek, ograniczenia OG, hipotezy H, ryzyka RYZ | E2 + J-12, OG-07 |
 | `zrodla.md` | źródła S | E2 + S-62…S-64 |
-| `reguly.md` | reguły RD-14…RD-27 z wektorami | E2 |
+| `reguly.md` | reguły RD-14…RD-28, RD-35, RD-36 z wektorami | E2 + F-71 |
 | `wymagania.md` | przepływy PR-01…PR-18, wymagania NFR | E3 + PR-18 |
 | `wymagania-liczenie.md` | BR-KALK, BR-UST-001 | E3 |
 | `wymagania-wypiek.md` | BR-HARMO, BR-ETAP, BR-CZAS, BR-REKA | E3 + BR-HARMO-005, BR-ETAP-006 |
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
-| `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
+| `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003, BR-DIAG-003…005 (F-71) |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
 | `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL-001…016, NFR-KAL, reguły RD-29…RD-34 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
-| `errata.md` | errata ER-34…ER-69 | E3 + 2026-10-22 |
+| `errata.md` | errata ER-34…ER-70 | E3 + 2026-10-22 |
 
 ## Otwarte pytania
 
@@ -59,6 +59,7 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-58 | [DO USTALENIA] rytm dokarmiania zakwasu bezglutenowego ze źródła szczebla 1–3 (poradnik: 24 h na blacie) i czy aplikacja ma go obsłużyć | źródła, rola 06; zakres: rola 03 | RD-25, RYZ-21 |
 | OP-59 | Rozstrzygnięte 2026-10-22 (D-094): 3 pozycje przyszłe w linii „Następne”, „Zaległe” zawsze ponad limit, reszta pod „+N” | właściciel | RD-32, BR-KAL-003 |
 | OP-60 | Rozstrzygnięte 2026-10-22 (D-094): po „Pomiń” karmienia następny termin od chwili pominięcia; pominięcia poza kopią zapasową | właściciel | RD-32, BR-KAL-003, BR-KAL-007 |
+| OP-61 | [DO USTALENIA] czy sól można jeszcze dodać w trakcie pierwszego rośnięcia (źródła mówią „przed” i „po”, nie „w trakcie”; wątek forum S-96 radzi wyrobić, szczebel 5) | rola 06 | RD-35 |
 
 ## Blokery wydania
 
@@ -70,7 +71,7 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 - BR-CZAS-002, BR-CZAS-003: główny przepływ i obietnica celu („pilnuje czasu, gdy telefon śpi”, OG-05).
 - BR-HARMO-001, BR-ETAP-001, BR-KALK-001, BR-KALK-002: główny przepływ.
 - BR-ZAKW-004, BR-ZAKW-005, BR-DIAG-002 w części RD-21: reguła krytyczna (pleśń).
-- BR-ETAP-004: bezpieczeństwo w kontekście użycia (RD-22, RD-23).
+- BR-ETAP-004, BR-DIAG-004: bezpieczeństwo w kontekście użycia (RD-22, RD-23).
 - BR-ZAK-001, BR-ZAK-003, BR-ZAK-004, BR-ZAK-005: polityka sklepu (OG-01, OG-02, OG-03) i obietnica DEC-01 d.
 - BR-UST-003: polityka sklepu (OG-04).
 - BR-OPIN-001, BR-OPIN-002: polityka sklepu (OG-07: tylko systemowa prośba o ocenę).

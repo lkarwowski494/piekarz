@@ -121,6 +121,13 @@ Liczby przy dowodach to [RACHUNEK] zliczenia z próbki 338 najnowszych recenzji 
 - Częstotliwość: rzadko u większości, przy każdym dniu pieczenia u zaawansowanych (S-93: „at least three different bread types per baking day”) [OCENA: fora nadreprezentują zaawansowanych].
 - Dowód: 13 wątków Fresh Loaf 2008–2026 (raport badania), szczebel 5; 1 z 63 recenzji aplikacji do planu wypieku (S-14, rec. 6384160131); przepisy King Arthur zakładają, że drugi bochenek czeka, aż pierwszy się upiecze (S-95). Osoby: P-7, P-8, P-10. Zależy od: ZAL-059.
 
+### J-15: Uratować ciasto, które w trakcie wypieku zachowuje się nie tak
+- Kiedy w trakcie fermentacji widzę, że ciasto przerosło, jest zbyt luźne, rośnie za wolno w zimnej kuchni albo zapomniałem soli, chcę od razu wiedzieć, co mogę jeszcze zrobić, a czego już nie, żeby uratować wypiek albo świadomie go dokończyć.
+- Siły zmiany: pcha brak odpowiedzi w chwili problemu (S-96: „Is there anything I can do with it?” w połowie fermentacji; S-97, S-98, S-99); przyciąga rada wykonalna w trakcie (w wątku S-96 odpowiedź: odgazować i wyrobić sól); obawa: rada zła dla zakwasu (KA i Modernist Cuisine: przy zakwasie ponowne formowanie zwykle się nie udaje, D-095), próbowanie surowego ciasta (RD-22); nawyk: pytanie na forum i czekanie na odpowiedź.
+- Dziś: fora (The Fresh Loaf), blogi King Arthur; w aplikacjach z kategorii nikt nie obiecuje ratunku w trakcie (Loaflo: czat AI „troubleshooting tips”, BakeWay: analiza zdjęcia po fakcie; badanie 2026-10-22).
+- Częstotliwość: rzadko, przy problemie [OCENA].
+- Dowód: słaby. 4 z 9 przeczytanych wątków Fresh Loaf 2008–2022 pytają w trakcie, „co teraz” (S-96…S-99, szczebel 5, próba nielosowa); w próbce 438 recenzji konkurencji 0 próśb o ratunek ciasta w trakcie i 1 pochwała „troubleshooting” (S-14, rec. 13535920699); wybór właściciela: F-71 w 1.0 (D-092, ZP-20: narzędzie i nauka). Treść ze źródłami: D-095. Osoby: P-6, P-7, P-8. Zależy od: ZAL-060.
+
 ## Persony (P)
 Persony opisują sytuację i potrzeby, nie demografię. Wiek, płeć i zawód nie mają dowodu, z jednym wyjątkiem: 3 z 338 recenzji podają wiek 60+ (S-17, rec. 13516365191; S-23, rec. 7198951979; rec. 10630976049 w S-23).
 
@@ -426,6 +433,12 @@ Hipotezy starego BRD o numerach 01 i 02 są wycofane (audyt M1: 01-odkrywanie-01
   - (c) bez zmian w 1.0 — trwający wypiek nadal może zniknąć bez pytania.
 - Rekomendacja: (a): jedna migracja na wiele wypieków zamiast dwóch, a BR-ETAP-006 w 1.0 chroni trwający wypiek. (c) odradzam (zasada wspólna 5: utrata danych ma priorytet).
 - Rozstrzygnięcie (2026-10-22): D-092 (właściciel przez M1; zapis na `redesign/piekarz-2026-10-22`) włącza do 1.0 pełny kalendarz BR-KAL-001…016 oraz kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006); dwa wypieki jako jedna spirala z dwoma torami (D-094).
+
+### H-21: Ratunek ciasta (F-71) w 1.0 jako treść Doktora, bez nowych funkcji
+- Rodzaj: zakres, wartość · Rejestr: ZAL-060 · Rozstrzyga: właściciel (rozstrzygnięte: D-092, D-096)
+- Za: J-15 (S-96…S-99); kod i treść gotowe ze źródłami (D-095); wejście z prowadzenia już jest („Doktor”); żaden konkurent nie daje ratunku w trakcie. Przeciw: słaby dowód popytu (0 z 438 recenzji); ryzyko rady złej dla zakwasu, ograniczone zdaniami z warunkiem (RD-36); zdanie w opisie sklepu w 34 lokalizacjach (OG-05).
+- Opcje: (a) F-71 w 1.0 jako cztery protokoły z treścią D-095 (BR-DIAG-003…005); (b) PÓŹNIEJ jak w ZM-19. Rozstrzygnięcie: (a) — właściciel, D-092 („Dodajemy do 1.0 F71 plus full kalendarz i poprawki.”), zapis BR i ZM-23: D-096.
+- Jak sprawdzić najtaniej: po wydaniu recenzje i kontakt (F-69) o Doktorze; przejście poznawcze roli 04 na sekcji ratunku.
 
 ## Ryzyka produktu (RYZ)
 

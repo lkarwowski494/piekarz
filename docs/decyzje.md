@@ -387,3 +387,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** inny limit (2 albo bez limitu); następny termin od ostatniego dokarmienia (zaległość wracałaby od razu); pominięcia w kopii; dwie osobne spirale.
 - **Dlaczego:** nic nie znika po cichu (ER-66), a linia zostaje jednym zdaniem; pominięcie jest decyzją chwili, nie danymi do przeniesienia.
 - **Zależy od:** D-092 (zakres 1.0), ER-66, ER-68.
+
+### [D-096] 2026-10-22 — F-71 (ratunek ciasta) w MVP 1.0: BR-DIAG-003…005, ZM-23, powrót z ZM-19 spełniony (rola 01)
+- **Rodzaj:** produktowa (zakres, wykonanie D-092). **Słowa właściciela (przez M1, 2026-10-22):** „Dodajemy do 1.0 F71 plus full kalendarz i poprawki.”; BEZ-SUR-001 zaakceptowane przez właściciela (relacja M1).
+- **Decyzja:** F-71 wraca z PÓŹNIEJ do MVP (ZM-23 w `docs/scope-contract.md`); wymagania BR-DIAG-003 (cztery protokoły, treść tylko ze źródłem, bez receptury awaryjnej, powrót do prowadzenia), BR-DIAG-004 (bezpieczeństwo: RD-22, RD-23), BR-DIAG-005 (rady zależne od etapu i rodzaju ciasta, RD-35, RD-36); dostęp jak F-43 (D-038). Włączenie wejścia `protokoly-ratunkowe`, zdanie w opisie sklepu i usunięcie martwego `handlePivotToRecipe`: tor T i rola 08.
+- **Odrzucone:** zostawić F-71 PÓŹNIEJ (ZM-19) — warunek powrotu (źródła roli 06 i BR roli 01) spełniony, a właściciel włączył F-71 do 1.0.
+- **Dlaczego:** treść ma źródła (D-095), wejście z prowadzenia już jest; dowód popytu słaby (ZAL-060), więc sprawdzenie po wydaniu (H-21).
+- **Zależy od:** D-092, D-095, ZM-19, ZAL-060.
