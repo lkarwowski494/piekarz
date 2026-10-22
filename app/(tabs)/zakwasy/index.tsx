@@ -13,14 +13,10 @@ import { dniTemu, godzinTemu } from '../../../src/lib/czas-temu';
 import { guardSave } from '../../../src/lib/save-guard';
 import { resyncNotifications, ensureNotificationPermission } from '../../../src/lib/notifications';
 import { NotificationsOffBanner } from '../../../src/components/NotificationsOffBanner';
-import {
-  calculateStarterFeeding,
-  evaluateSourdoughSafety,
-  calculateStarterPhase,
-} from '../../../src/core/domain-rules';
+import { calculateStarterFeeding, calculateStarterPhase } from '../../../src/core/domain-rules';
 import { predictStarterPeak } from '../../../src/core/starter-peak-predictor';
 import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
-import { confirmResetStarter, confirmDeleteStarter, confirmZalozOdNowa } from '../../../src/lib/confirm';
+import { confirmDeleteStarter, confirmZalozOdNowa } from '../../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
 import { restartStarterSetup } from '../../../src/data/starter-entries-store';
 import { nowyWpis } from '../../../src/components/zakwas/useStarterLog';
@@ -39,6 +35,7 @@ import { StarterPeakActivityCard } from '../../../src/components/zakwas/StarterP
 import { StarterFeedingCard } from '../../../src/components/zakwas/StarterFeedingCard';
 import { NarzedziaZakwasu } from '../../../src/components/zakwas/NarzedziaZakwasu';
 import { StarterSafetyCard } from '../../../src/components/zakwas/StarterSafetyCard';
+import { useObjawyZakwasu } from '../../../src/components/zakwas/useObjawyZakwasu';
 import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModal';
 import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
 import { ZakwasDziennik } from '../../../src/components/zakwas/ZakwasDziennik';
@@ -70,12 +67,8 @@ export default function ZakwasScreen() {
   const [selectedRatio, setSelectedRatio] = useState<[number, number, number]>([1, 2, 2]);
   const [ambientTempC, setAmbientTempC] = useState<number>(22.0);
 
-  // Biological safety toggles
-  const [hasHooch, setHasHooch] = useState<boolean>(false);
-  const [hasKahm, setHasKahm] = useState<boolean>(false);
-  const [hasMold, setHasMold] = useState<boolean>(false);
-  const [hasColoredSpots, setHasColoredSpots] = useState<boolean>(false);
-  const [hasRottenSmell, setHasRottenSmell] = useState<boolean>(false);
+  // Objawy na karcie bezpieczeństwa (RD-21-W1) i ich ocena
+  const objawy = useObjawyZakwasu();
 
   // Edit Profile Modal
   const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
@@ -151,17 +144,6 @@ export default function ZakwasScreen() {
   const feeding = useMemo(() => {
     return calculateStarterFeeding(targetYield, selectedRatio);
   }, [targetYield, selectedRatio]);
-
-  // Biological safety assessment
-  const safetyResult = useMemo(() => {
-    return evaluateSourdoughSafety({
-      hasHoochLiquid: hasHooch,
-      hasWhiteWrinkledFilm: hasKahm,
-      hasFuzzySpots: hasMold,
-      hasColoredSpots,
-      hasRottenSmell,
-    });
-  }, [hasHooch, hasKahm, hasMold, hasColoredSpots, hasRottenSmell]);
 
   // Time since last feeding label
   const lastFedLabel = useMemo(() => {
@@ -276,16 +258,6 @@ export default function ZakwasScreen() {
     }
   };
 
-  const handleReset = () => {
-    confirmResetStarter(() => {
-      setHasHooch(false);
-      setHasKahm(false);
-      setHasMold(false);
-      setHasColoredSpots(false);
-      setHasRottenSmell(false);
-    });
-  };
-
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
       {/* Nagłówek systemowy „Zakwasy” i skrót do Doktora: app/(tabs)/zakwasy/_layout.tsx (D-051 2a) */}
@@ -391,18 +363,7 @@ export default function ZakwasScreen() {
         {/* Kontrola bezpieczeństwa (RD-21-W1) poza blokadą: ostrzeżenie „wyrzuć” działa bez zakupu
             (docs/monetyzacja.md BR-DIAG-002 „ostrzeżenie RD-21 zawsze”) [audyt-niezalezny E-1] */}
         <StarterSafetyCard
-          hasHooch={hasHooch}
-          onToggleHooch={() => setHasHooch((prev) => !prev)}
-          hasKahm={hasKahm}
-          onToggleKahm={() => setHasKahm((prev) => !prev)}
-          hasMold={hasMold}
-          onToggleMold={() => setHasMold((prev) => !prev)}
-          hasColoredSpots={hasColoredSpots}
-          onToggleColoredSpots={() => setHasColoredSpots((prev) => !prev)}
-          hasRottenSmell={hasRottenSmell}
-          onToggleRottenSmell={() => setHasRottenSmell((prev) => !prev)}
-          safetyResult={safetyResult}
-          onReset={handleReset}
+          {...objawy}
           onZalozOdNowa={maZakwas ? handleZalozOdNowa : undefined}
         />
 
