@@ -45,6 +45,8 @@ export interface TargetReadyCardProps {
   children?: React.ReactNode;
   /** Godziny snu po temperaturze (karta nocy albo zdanie „Plan nie sprawdza godzin snu”), jak w `plan-sen`. */
   poTemperaturze?: React.ReactNode;
+  /** Propozycja dnia z rytmu Dziennika pod wyborem dnia (BR-KAL-014) [M3 D7]. */
+  podpowiedz?: string;
 }
 
 /** Poniżej tej szerokości ekranu ±30 min idą do rzędu dni (iPhone SE 320 pt) [M1-audytor-generalny-128]. */
@@ -86,6 +88,7 @@ export function TargetReadyCard({
   unitSystem,
   children,
   poTemperaturze,
+  podpowiedz,
 }: TargetReadyCardProps) {
   const waski = useWindowDimensions().width < WASKI_EKRAN_PT;
   const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
@@ -116,6 +119,8 @@ export function TargetReadyCard({
           <Chip key={offset} testID={`plan-dzien-${offset}`} tekst={etykietaDnia(offset)} wybrany={offset === targetDayOffset} onPress={() => onTargetDayOffsetChange(offset)} />
         ))}
       </ScrollView>
+      {/* Propozycja z rytmu Dziennika (BR-KAL-014): zdanie spoza makiety, do przeglądu roli 04 [M3 D7] */}
+      {podpowiedz ? <Text style={styles.zmianaCzasu} testID="plan-podpowiedz-rytmu">{podpowiedz}</Text> : null}
       {waski && <View style={styles.rzad}>{minus}{plus}</View>}
 
       {zmianaCzasu && faktycznaGodzina ? (

@@ -8,12 +8,12 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | Kategoria | Łącznie | Pokryte | Pokrycie % | Status |
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
-| **UI** | 54 | 54 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 587 | 587 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 556 | 556 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 202 | 202 | **100.0%** | ✅ POKRYTE |
+| **UI** | 59 | 59 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 595 | 595 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 572 | 572 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 210 | 210 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1408** | Pokrytych: **1408** | Brakujących: **0**
+Łącznie elementów: **1445** | Pokrytych: **1445** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -260,6 +260,13 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Tego dnia nic nie zaplanowano.` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Najbliższe dni` | `src/components/kalendarz/ArkuszDnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `{dzien}: piekarnik zajęty o {h}` | `src/components/kalendarz/LiniaPiekarnika.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts |
+| `TEKST` | `Nic w planach` | `src/components/kalendarz/MiesiacKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/lib/__tests__/kalendarz-pasek-d4b.test.ts |
+| `TEKST` | `Tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `TEKST` | `Miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Poprzedni tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Poprzedni miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Następny tydzień` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
+| `UI` | `Następny miesiąc` | `src/components/kalendarz/NawigacjaKalendarza.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-kalendarz-d7.test.tsx |
 | `TEKST` | `Ten tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Pokaż cały tydzień` | `src/components/kalendarz/PasekTygodnia.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/dzis-d4b.test.tsx |
 | `TEKST` | `Powiadomienia wyłączone` | `src/components/NotificationsOffBanner.tsx` | ✅ | src/lib/__tests__/notifications.test.tsx, src/__tests__/notifications-pending.test.tsx |
@@ -312,12 +319,5 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `UI` | `Mniej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `UI` | `Więcej bochenków` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Masa bochenka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/calculator-screen.test.tsx |
-| `TEKST` | `Masa mąki` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/i18n-en-main-flow.test.tsx |
-| `TEKST` | `Do miski` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, tests/maestro-runner.ts |
-| `TEKST` | `{rodzaj} (cały)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Do miski (odhaczaj przy ważeniu)` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Hydratacja całkowita {n}%: woda z zaczynu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 
-*(... i 1108 kolejnych elementów w pełnym wykazie)*
+*(... i 1145 kolejnych elementów w pełnym wykazie)*

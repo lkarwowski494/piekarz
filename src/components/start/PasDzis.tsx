@@ -17,12 +17,18 @@ import { IkonaStartu } from './IkonaStartu';
 import { PasekTygodnia, type PasekTygodniaProps } from '../kalendarz/PasekTygodnia';
 import { LiniaNastepne, type AkcjeZaleglego } from '../kalendarz/LiniaNastepne';
 import { LiniaPiekarnika } from '../kalendarz/LiniaPiekarnika';
+import { NawigacjaKalendarza } from '../kalendarz/NawigacjaKalendarza';
+import { MiesiacKalendarza, type MiesiacKalendarzaProps } from '../kalendarz/MiesiacKalendarza';
+import type { NawigacjaWidoku } from '../../hooks/useKalendarz';
 
-export function PasDzis({ gora, data, pasek, pusty, teksty, zalegle, o, akcje, onPlus, onUstawienia }: {
+export function PasDzis({ gora, data, pasek, widok, miesiac, pusty, teksty, zalegle, o, akcje, onPlus, onUstawienia }: {
   /** Wysokość paska stanu (safe area): pas sięga do samej góry, treść pod paskiem stanu. */
   gora: number;
   data: string;
   pasek: PasekTygodniaProps;
+  widok: NawigacjaWidoku;
+  /** Widok miesiąca (tryb „miesiąc”), inaczej null i pasek tygodnia. */
+  miesiac: MiesiacKalendarzaProps | null;
   pusty: boolean;
   teksty: TekstyNastepne;
   zalegle: readonly ZdarzenieKalendarza[];
@@ -43,7 +49,10 @@ export function PasDzis({ gora, data, pasek, pusty, teksty, zalegle, o, akcje, o
       </View>
       <Text style={styles.tytul} accessibilityRole="header">{t('Co dziś robisz?')}</Text>
       <Text style={styles.data}>{data}</Text>
-      <PasekTygodnia {...pasek} />
+      {/* Tydzień albo miesiąc z nawigacją i gestem (BR-KAL-008, BR-KAL-013) [M3 D7] */}
+      <NawigacjaKalendarza widok={widok}>
+        {miesiac ? <MiesiacKalendarza {...miesiac} /> : <PasekTygodnia {...pasek} />}
+      </NawigacjaKalendarza>
       {/* Najbliższy dzień z zajętym piekarnikiem (BR-KAL-016, makieta `piekarnik-3-kalendarz`) [M3 D6] */}
       <LiniaPiekarnika zdarzenia={pasek.zdarzenia} now={pasek.now} />
       {pusty ? (

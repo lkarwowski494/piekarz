@@ -348,6 +348,16 @@
       "src/lib/confirm.ts (Alert.alert)"
     ]
   },
+  "Bez stałego dnia": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
+    ]
+  },
+  "Bez stałego dnia: następne karmienie 7 dni po ostatnim.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Bez zakupu zostaną historia i twoje dane. Liczenie, plan i prowadzenie będą wymagać Piekarz Pro.": {
     "gdzie": [
       "src/components/PaywallModal.tsx (kod)",
@@ -1378,6 +1388,7 @@
       "app/(tabs)/_layout.tsx (title)",
       "app/(tabs)/receptury/harmonogram.tsx (kod)",
       "src/components/harmonogram/TargetReadyCard.tsx (kod)",
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (tekst w JSX)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zakwas-widok.ts (kod)"
     ]
@@ -2157,6 +2168,11 @@
       "src/core/preferments.ts (dane: flavorProfilePl)"
     ]
   },
+  "Karmienie co 7 dni: {dzien}, {h}.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Karta receptury": {
     "gdzie": [
       "src/lib/calculator-actions.ts (Alert.alert)"
@@ -2553,6 +2569,11 @@
       "src/core/preferments.ts (dane: namePl)"
     ]
   },
+  "Licz od: {dzien}": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (text)"
+    ]
+  },
   "Liczba bochenków": {
     "gdzie": []
   },
@@ -2663,6 +2684,11 @@
       "src/components/zakwas/AddStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
       "src/components/zakwas/StarterProfileCard.tsx (tekst w JSX)"
+    ]
+  },
+  "Miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (kod)"
     ]
   },
   "Miesięczny": {
@@ -3407,6 +3433,16 @@
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
+  "Następny miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
+  "Następny tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
   "Naukowa wiedza o strukturze ziarna, enzymach i mikrobiologii zakwasu": {
     "gdzie": []
   },
@@ -3442,6 +3478,7 @@
   },
   "Nic w planach": {
     "gdzie": [
+      "src/components/kalendarz/MiesiacKalendarza.tsx (tekst w JSX)",
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
@@ -4308,6 +4345,11 @@
       "src/components/stolnica/PoCoTenKrokArkusz.tsx (tekst w JSX)"
     ]
   },
+  "Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Po fermentacji ciasto będzie mocno napowietrzone i pofałdowane pęcherzami.": {
     "gdzie": [
       "src/core/bread-school-lessons.ts (dane: stepsPl)"
@@ -4513,6 +4555,16 @@
       "src/components/ImportRecipeModal.tsx (tekst w JSX)"
     ]
   },
+  "Poprzedni miesiąc": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
+  "Poprzedni tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (accessibilityLabel)"
+    ]
+  },
   "Pora dokarmić zakwas": {
     "gdzie": [
       "src/lib/notifications.ts (title)"
@@ -4697,6 +4749,11 @@
   "Proporcje poprawne (100%)": {
     "gdzie": [
       "src/components/FlourBlendModal.tsx (tekst w JSX)"
+    ]
+  },
+  "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.": {
+    "gdzie": [
+      "src/hooks/useRytmPlanu.ts (tekst)"
     ]
   },
   "Proszek do pieczenia": {
@@ -5613,6 +5670,22 @@
       "src/components/stolnica/BakeStatsCard.tsx (tekst w JSX)"
     ]
   },
+  "Stały dzień karmienia": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)",
+      "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
+    ]
+  },
+  "Stały dzień karmienia to {staly}, a zakwas dokarmiono w dniu: {dzien}.": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (Alert.alert)"
+    ]
+  },
+  "Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.": {
+    "gdzie": [
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst w JSX)"
+    ]
+  },
   "Stolnica": {
     "gdzie": [
       "app/_layout.tsx (title)"
@@ -6137,6 +6210,11 @@
   "Twój zakwas ({twoj}%) jest rzadszy niż w przepisie ({przepis}%). Użyj {zakwas}g zakwasu i ODEJMIJ {woda}g wody z ciasta właściwego.": {
     "gdzie": [
       "src/core/starter-converter.ts (dane: kod)"
+    ]
+  },
+  "Tydzień": {
+    "gdzie": [
+      "src/components/kalendarz/NawigacjaKalendarza.tsx (kod)"
     ]
   },
   "Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.": {
@@ -8264,6 +8342,11 @@
       "src/components/zakwas/StarterSetupCard.tsx (tekst w JSX)"
     ]
   },
+  "Zostaw: {dzien}": {
+    "gdzie": [
+      "src/lib/staly-dzien-pytanie.ts (text)"
+    ]
+  },
   "Zostawiam w słoiku": {
     "gdzie": [
       "src/components/zakwas/StarterFeedingCard.tsx (accessibilityLabel)",
@@ -9008,7 +9091,8 @@
       "src/components/harmonogram/TargetReadyCard.tsx (tekst)",
       "src/components/receptury/ORecepturze.tsx (tekst w JSX)",
       "src/components/stolnica/BakeStepsList.tsx (tekst w JSX)",
-      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)"
+      "src/components/stolnica/DutchOvenController.tsx (tekst w JSX)",
+      "src/components/zakwas/StalyDzienKarmienia.tsx (tekst)"
     ]
   },
   "{n} min w {temp}": {

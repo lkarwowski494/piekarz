@@ -127,6 +127,24 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Plan nie ma kroku nagrzewania',
     'Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.',
     // KONIEC D6
+    // M3 D7: tydzień, miesiąc, stały dzień karmienia, rytm (BR-KAL-008, -010, -013, -014; D-110)
+    'Tydzień',
+    'Miesiąc',
+    'Poprzedni tydzień',
+    'Następny tydzień',
+    'Poprzedni miesiąc',
+    'Następny miesiąc',
+    'Stały dzień karmienia',
+    'Karmienie co 7 dni: {dzien}, {h}.',
+    'Bez stałego dnia: następne karmienie 7 dni po ostatnim.',
+    'Bez stałego dnia',
+    'Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.',
+    'Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.',
+    'Stały dzień karmienia to {staly}, a zakwas dokarmiono w dniu: {dzien}.',
+    'Zostaw: {dzien}',
+    'Licz od: {dzien}',
+    'Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.',
+    // KONIEC D7
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

@@ -101,7 +101,8 @@ export default function StartScreen() {
     if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) plany.otworz(z.zrodlo.id);
     else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
     else if (z.zrodlo.typ === 'zakwas') router.navigate('/zakwasy');
-    else if (z.zrodlo.typ === 'dziennik') router.navigate('/dziennik');
+    // Wpis Dziennika: ten wpis wyróżniony i przewinięty (BR-KAL-013) [M3 D7]
+    else if (z.zrodlo.typ === 'dziennik') router.navigate({ pathname: '/dziennik', params: { wpis: z.zrodlo.id } });
   };
 
   const o = { now: kal.now, wieleWypiekow: kal.wypieki.length > 1 };
@@ -118,6 +119,8 @@ export default function StartScreen() {
           gora={gora}
           data={dataSlownie(kal.now)}
           pasek={{ dni: kal.dni, zdarzenia: kal.zdarzenia, znaczniki: kal.znaczniki, wypieki: kal.wypieki, now: kal.now, wieleWypiekow: o.wieleWypiekow, duzyTekst, waski: width <= WASKI_PT, onDzien: (k) => setArkusz({ dzien: k, ms: kal.dni.find((d) => d.klucz === k)?.ms ?? kal.now }) }}
+          widok={kal.widok}
+          miesiac={kal.widok.tryb === 'miesiac' ? { tygodnie: kal.miesiac, zdarzenia: kal.zdarzenia, wypieki: kal.wypieki, o, duzyTekst, waski: width <= WASKI_PT, onDzien: (d) => setArkusz({ dzien: d.klucz, ms: d.ms }) } : null}
           pusty={kal.gotowe && kal.pusty}
           teksty={teksty}
           zalegle={kal.linia.zalegle}

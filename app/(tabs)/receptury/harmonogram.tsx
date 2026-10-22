@@ -25,6 +25,7 @@ import { useAppAccess } from '../../../src/lib/app-access';
 import { useStartPlanu } from '../../../src/hooks/useStartPlanu';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
+import { useRytmPlanu } from '../../../src/hooks/useRytmPlanu';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
@@ -50,6 +51,8 @@ export default function HarmonogramScreen() {
   // inaczej jutro [M3 D5]
   const [zeSkrotu] = useState(() => odbierzDzienGotowe(Date.now()));
   const [targetDayOffset, setTargetDayOffset] = useState<number>(zeSkrotu ?? 1);
+  // Bez skrótu: propozycja dnia z rytmu Dziennika (BR-KAL-014), którą użytkownik zmienia jak każdy dzień [M3 D7]
+  const { rytm, wczytany: rytmWczytany } = useRytmPlanu(zeSkrotu === null, recepturaPlanu()?.recipeId);
   const [targetHour, setTargetHour] = useState<number>(10);
   const [targetMinute, setTargetMinute] = useState<number>(0);
 
@@ -143,20 +146,25 @@ export default function HarmonogramScreen() {
   // Godzina domyślna zostaje, gdy nie daje „za późno” ani kroku czynnego w oknie snu; inaczej pole dostaje najbliższą
   // godzinę ≥ najwcześniejszej, przy której żaden krok czynny nie zachodzi na sen (brak takiej: najwcześniejsza, baner nocy)
   // [M1-audytor-generalny-129; DEC-18 a]
+  // Dzień z rytmu przychodzi po odczycie Dziennika; tylko póki użytkownik nie zmienił dnia ani godziny [M3 D7]
+  useEffect(() => {
+    if (rytm && godzinaDomyslna.current) setTargetDayOffset(rytm.offset);
+  }, [rytm]);
+  const dzienZalozony = zeSkrotu ?? rytm?.offset ?? null;
   useEffect(() => {
     if (!godzinaDomyslna.current) return;
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
         krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
-      // Dzień ze skrótu arkusza dnia zostaje: szukamy godziny bez nocy od początku tego dnia (BR-KAL-015) [M3 D5]
-      const od = zeSkrotu === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), zeSkrotu, 0, 0).ms);
+      // Dzień ze skrótu arkusza dnia (BR-KAL-015) albo z rytmu (BR-KAL-014) zostaje: godzina bez nocy od początku tego dnia [M3 D5, D7]
+      const od = dzienZalozony === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), dzienZalozony, 0, 0).ms);
       const bezNocy = godzinaBezNocy(od, kroki, okno);
       if (bezNocy !== null) ustawGotowe(bezNocy);
       else if (stanCzasu.zaPozno) ustawGotowe(stanCzasu.najwczesniejMs);
     }
-    if (zakwasWczytany) godzinaDomyslna.current = false;
-  }, [stanCzasu, zakwasWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (zakwasWczytany && rytmWczytany) godzinaDomyslna.current = false;
+  }, [stanCzasu, zakwasWczytany, rytmWczytany]); // eslint-disable-line react-hooks/exhaustive-deps
   // Kolizje ze snem z kroków tego planu (także dokarmienie z lodówki i kroki z rękami na starcie), dla każdego planu:
   // baner mówi o krokach, które są na ekranie, nie o etapach harmonogramu zastąpionych w planie [audyt-niezalezny D-6]
   const kolizjePlanu = useMemo(
@@ -258,6 +266,7 @@ export default function HarmonogramScreen() {
           targetMinute={targetMinute}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
+          podpowiedz={rytm?.tekst}
           faktycznaGodzina={targetDate}
           zmianaCzasu={celLokalny.shifted}
           ambientTemp={ambientTemp}

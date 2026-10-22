@@ -1,5 +1,5 @@
 // ============================================================================
-// Piekarz — ikony Startu: słoik, bochenek, pizza (Wybór czynności), kłódka, ustawienia; zegar (plan „za późno”, §11c 107); księżyc („W nocy”, §11c 116).
+// Piekarz — ikony Startu: słoik, bochenek, pizza (Wybór czynności), kłódka, ustawienia; zegar (plan „za późno”, §11c 107); księżyc („W nocy”, §11c 116); strzałki kalendarza (M3 D7).
 // Kształty z makiety docs/design/ekrany/wspolne.js (IKONY), rysowane zastępczo za symbole SF (design-spec §4);
 // ikona jest ozdobą obok nazwy, poza drzewem dostępności. [M1-audytor-generalny-101]
 // ============================================================================
@@ -8,7 +8,7 @@ import React from 'react';
 import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import type { ColorValue } from 'react-native';
 
-export type NazwaIkonyStartu = 'sloik' | 'bochenek' | 'pizza' | 'zamek' | 'ustawienia' | 'zegar' | 'ksiezyc';
+export type NazwaIkonyStartu = 'sloik' | 'bochenek' | 'pizza' | 'zamek' | 'ustawienia' | 'zegar' | 'ksiezyc' | 'wstecz' | 'dalej';
 
 export function IkonaStartu({ nazwa, kolor, rozmiar = 28 }: { nazwa: NazwaIkonyStartu; kolor: ColorValue; rozmiar?: number }) {
   const p = { fill: 'none', stroke: kolor, strokeWidth: 1.9, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -46,6 +46,9 @@ export function IkonaStartu({ nazwa, kolor, rozmiar = 28 }: { nazwa: NazwaIkonyS
           <Path {...p} d="M12 7v5l3 2" />
         </>
       )}
+      {/* Poprzedni i następny tydzień albo miesiąc (makieta roli 04 a2 `101-przewijanie`) [M3 D7] */}
+      {nazwa === 'wstecz' && <Path {...p} d="M15 5l-7 7 7 7" />}
+      {nazwa === 'dalej' && <Path {...p} d="M9 5l7 7-7 7" />}
       {nazwa === 'ksiezyc' && <Path {...p} d="M19 14.5A8 8 0 1 1 9.5 5a6.5 6.5 0 0 0 9.5 9.5z" />}
       {nazwa === 'ustawienia' && (
         <>

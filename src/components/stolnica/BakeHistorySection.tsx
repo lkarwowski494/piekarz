@@ -24,6 +24,9 @@ export interface BakeHistorySectionProps {
   onBakeAgain: (log: StoredBakeLog) => void;
   /** Pusty Dziennik: „Wybierz recepturę” prowadzi do zakładki Receptury. */
   onChooseRecipe: () => void;
+  /** Wpis otwarty z kalendarza (BR-KAL-013): wyróżniony, a jego położenie w treści ekranu idzie do `onWyroznionyY`. */
+  wyroznionyId?: string;
+  onWyroznionyY?: (y: number) => void;
 }
 
 export function BakeHistorySection({
@@ -34,10 +37,14 @@ export function BakeHistorySection({
   onDeleteBakeLog,
   onBakeAgain,
   onChooseRecipe,
+  wyroznionyId,
+  onWyroznionyY,
 }: BakeHistorySectionProps) {
   const unitSystem = useUnitSystem();
+  // Położenie sekcji w treści ekranu: karta mierzy się względem sekcji
+  const gora = React.useRef(0);
   return (
-    <View style={styles.historyContainer}>
+    <View style={styles.historyContainer} onLayout={(e) => { gora.current = e.nativeEvent.layout.y; }}>
       <Text style={styles.sectionHeading}>{t('Historia wypieków')}</Text>
 
       {/* Taste Filter Chips */}
@@ -100,7 +107,9 @@ export function BakeHistorySection({
             year: 'numeric',
           });
           return (
-            <View key={log.id} style={styles.historyCard} testID={`bake-log-card-${log.id}`}>
+            // Wpis z kalendarza (BR-KAL-013): obwódka akcentu i położenie do przewinięcia ekranu [M3 D7]
+            <View key={log.id} style={[styles.historyCard, log.id === wyroznionyId && styles.historyCardWyrozniony]} testID={`bake-log-card-${log.id}`}
+              onLayout={log.id === wyroznionyId && onWyroznionyY ? (e) => onWyroznionyY(gora.current + e.nativeEvent.layout.y) : undefined}>
               <View style={styles.historyCardHeader}>
                 <Text style={styles.historyRecipeName}>{nazwaReceptury(log.recipeName)}</Text>
                 <View style={styles.historyActionsRow}>
@@ -271,6 +280,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.linia,
   },
+  historyCardWyrozniony: { borderWidth: 2, borderColor: theme.colors.akcent },
   historyCardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',

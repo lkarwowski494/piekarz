@@ -10,6 +10,7 @@ import { Alert } from 'react-native';
 import type { ZdarzenieKalendarza } from '../core/kalendarz-zdarzenia';
 import { cofnijKarmienie, pominKarmienie, pominKrokWypieku, zrobioneKarmienie } from '../lib/kalendarz-akcje';
 import { guardSave } from '../lib/save-guard';
+import { zapytajOStalyDzien } from '../lib/staly-dzien-pytanie';
 import { t } from '../lib/i18n';
 
 export interface CofnijDzis {
@@ -33,9 +34,12 @@ export function useAkcjeDzis({ onZmiana, otworzWypiek, otworzPlan }: { onZmiana:
       if (z.zrodlo.typ !== 'zakwas') return;
       const { id } = z.zrodlo;
       void guardSave(async () => {
-        const wpis = await zrobioneKarmienie(id, Date.now());
+        const at = Date.now();
+        const wpis = await zrobioneKarmienie(id, at);
         ustawCofnij({ tekst: t('Zapisano dokarmienie zakwasu {zakwas}.', { zakwas: z.nazwa }), wpisId: wpis.id });
         onZmiana();
+        // Stały dzień w inny dzień tygodnia: „zostawić czy liczyć od” (BR-KAL-010) [M3 D7]
+        if ((await zapytajOStalyDzien(id, at)) === 'licz-od') onZmiana();
       })();
     },
     [onZmiana, otworzWypiek, otworzPlan]

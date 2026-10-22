@@ -545,6 +545,86 @@
       "klucz": "Bez nagrzewania nie wiadomo, od kiedy ten wypiek zajmie piekarnik. Sprawdź godziny pieczenia drugiego wypieku.",
       "powod": "treść pytania o brak kroku nagrzewania (RD-34-W6; tekst spoza listy roli 04, do akceptacji) [M3 D6, BR-KAL-016]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Tydzień",
+      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Miesiąc",
+      "powod": "przełącznik widoku kalendarza na „Dziś” (lista roli 04 a2, 1.2+) [M3 D7, BR-KAL-013, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Poprzedni tydzień",
+      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Następny tydzień",
+      "powod": "etykieta VoiceOver strzałki kalendarza (lista roli 04 a2, 1.0.1) [M3 D7, BR-KAL-008, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Poprzedni miesiąc",
+      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Następny miesiąc",
+      "powod": "etykieta VoiceOver strzałki w widoku miesiąca (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-013, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Stały dzień karmienia",
+      "powod": "nagłówek karty zakwasu w lodówce i tytuł pytania po dokarmieniu w inny dzień (tekst spoza listy roli 04, do akceptacji) [M3 D7, BR-KAL-010, D-110]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Karmienie co 7 dni: {dzien}, {h}.",
+      "powod": "ustawiony stały dzień na karcie zakwasu (parametry {dzien} = dzień tygodnia w mianowniku z Intl, {h} = godzina; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Bez stałego dnia: następne karmienie 7 dni po ostatnim.",
+      "powod": "karta zakwasu w lodówce bez stałego dnia (RD-25; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Bez stałego dnia",
+      "powod": "przycisk czyszczący stały dzień karmienia (tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Stały dzień karmienia ustawisz, gdy zakwas będzie gotowy. Zakwas trafia do lodówki dopiero po 7–10 dniach od założenia.",
+      "powod": "karta zakwasu w trakcie zakładania i przed 7 dniami od założenia (ZAK-ZAL-012; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Po dokarmieniu zakwas może wrócić do lodówki po 1–2 h w temperaturze pokojowej.",
+      "powod": "przypis karty stałego dnia (ZAK-LOD-005; BR-KAL-010 „Po karmieniu do lodówki”; tekst spoza listy roli 04) [M3 D7]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Stały dzień karmienia to {staly}, a zakwas dokarmiono w dniu: {dzien}.",
+      "powod": "treść pytania po dokarmieniu w inny dzień (parametry = dni tygodnia w mianowniku z Intl; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zostaw: {dzien}",
+      "powod": "przycisk pytania: stały dzień bez zmian (parametr {dzien} = dzień tygodnia; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Licz od: {dzien}",
+      "powod": "przycisk pytania: stałym dniem staje się dzień dokarmienia (parametr {dzien}; tekst spoza listy roli 04) [M3 D7, BR-KAL-010]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.",
+      "powod": "zdanie pod wyborem dnia w planie wypieku (parametr {dzien} = dzień tygodnia w mianowniku z Intl; tekst spoza listy roli 04) [M3 D7, BR-KAL-014, D-110]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

@@ -2,11 +2,12 @@
 // Piekarz — zakładka „Dziennik” (D-051 2a): historia wypieków ze statystykami, „Piecz ponownie”, usuwanie
 // i wejście do Doktora Chleba. Przegląd historii działa także bez uprawnienia (BEZ_UPRAWNIENIA: historia,
 // F-67 „tylko historia”); Doktor jest płatny i blokuje się na swoim ekranie. [M1-audytor-generalny-101]
+// Wejście z kalendarza z parametrem `wpis` wyróżnia ten wpis i przewija do niego (BR-KAL-013) [M3 D7].
 // ============================================================================
 
 import React from 'react';
 import { Pressable, ScrollView, StyleSheet, Text } from 'react-native';
-import { useFocusEffect, useRouter } from 'expo-router';
+import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { t } from '../../../src/lib/i18n';
 import { useAppAccess } from '../../../src/lib/app-access';
 import { useBakeHistory } from '../../../src/hooks/useBakeHistory';
@@ -21,6 +22,8 @@ export default function DziennikScreen() {
   const { blokada, requireActionAccess } = useAppAccess();
   const historia = useBakeHistory(requireActionAccess);
   const { loadHistory } = historia;
+  const { wpis } = useLocalSearchParams<{ wpis?: string }>();
+  const przewijane = React.useRef<ScrollView>(null);
 
   // Wpis z zakończonego wypieku pojawia się po powrocie na zakładkę
   useFocusEffect(
@@ -31,6 +34,7 @@ export default function DziennikScreen() {
 
   return (
     <ScrollView
+      ref={przewijane}
       style={styles.ekran}
       contentContainerStyle={styles.tresc}
       contentInsetAdjustmentBehavior="automatic"
@@ -46,6 +50,8 @@ export default function DziennikScreen() {
           onDeleteBakeLog={historia.handleDeleteBakeLog}
           onBakeAgain={historia.handleBakeAgain}
           onChooseRecipe={() => router.push('/receptury')}
+          wyroznionyId={typeof wpis === 'string' ? wpis : undefined}
+          onWyroznionyY={(y) => przewijane.current?.scrollTo({ y: Math.max(0, y - odstepy.l), animated: true })}
         />
       </BlokadaFunkcji>
       <Pressable

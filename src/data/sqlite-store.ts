@@ -249,6 +249,7 @@ export async function getStarters(): Promise<StoredStarter[]> {
  * Zapis profilu zakwasu (UPSERT, dziennik zostaje). Zgodność z ekranem, który dokarmienie zapisuje dziś przez
  * nowe `lastFedAt`: gdy jest późniejsze niż ostatni wpis feeding, w tej samej transakcji powstaje wpis
  * dokarmienia z proporcją (do czasu przejścia ekranu na addStarterEntry) [M1-audytor-generalny-104].
+ * Stały dzień karmienia zapisuje się w tej samej transakcji, gdy pole jest w obiekcie [M3 D7].
  */
 export async function saveStarter(starter: StoredStarter): Promise<void> {
   const db = await getDb();
@@ -261,6 +262,8 @@ export async function saveStarter(starter: StoredStarter): Promise<void> {
     await writeOrThrow(() =>
       db.withTransactionAsync(async () => {
         await db.runAsync(STARTER_UPSERT, ...starterParams(starter));
+        // Stały dzień karmienia (BR-KAL-010) tylko, gdy obiekt go niesie (null czyści); bez pola kolumny zostają [M3 D7]
+        if (starter.fridgeFeedDay !== undefined) await zapiszStalyDzien(db, starter.id, starter.fridgeFeedDay);
         const last = await db.getFirstAsync<{ at: number | null }>(
           "SELECT max(occurred_at) AS at FROM starter_entries WHERE starter_id = ? AND kind = 'feeding';",
           starter.id

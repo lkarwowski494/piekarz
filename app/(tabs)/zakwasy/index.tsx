@@ -39,6 +39,9 @@ import { EditStarterModal } from '../../../src/components/zakwas/EditStarterModa
 import { AddStarterModal } from '../../../src/components/zakwas/AddStarterModal';
 import { ZakwasDziennik } from '../../../src/components/zakwas/ZakwasDziennik';
 import { ZakladanieStart } from '../../../src/components/zakwas/ZakladanieStart';
+import { StalyDzienKarmienia } from '../../../src/components/zakwas/StalyDzienKarmienia';
+import { pytanieOStalyDzien } from '../../../src/core/notification-feeding';
+import { zapytajOStalyDzien } from '../../../src/lib/staly-dzien-pytanie';
 
 export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
@@ -181,6 +184,11 @@ export default function ZakwasScreen() {
       setStarter(updated);
       setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
       setWersjaDziennika((v) => v + 1);
+      // Stały dzień w inny dzień tygodnia: pytanie „zostawić czy liczyć od” zamiast potwierdzenia (BR-KAL-010) [M3 D7]
+      if (pytanieOStalyDzien(updated, now)) {
+        if ((await zapytajOStalyDzien(updated.id, now)) === 'licz-od') await loadStarterData(updated.id);
+        return;
+      }
       Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
     }));
   };
@@ -334,6 +342,17 @@ export default function ZakwasScreen() {
             onAmbientTempChange={setAmbientTempC}
             unitSystem={unitSystem}
           />
+        )}
+
+        {/* Stały dzień karmienia zakwasu w lodówce (BR-KAL-010, PR-22) [M3 D7] */}
+        {maZakwas && (
+          <StalyDzienKarmienia starter={starter} teraz={Date.now()} onZapisz={(d) => guardSave(async () => {
+            const updated: StoredStarter = { ...starter, fridgeFeedDay: d };
+            await saveStarter(updated);
+            void resyncNotifications();
+            setStarter(updated);
+            setStartersList((prev) => prev.map((s) => (s.id === updated.id ? updated : s)));
+          })()} />
         )}
 
         {/* Feeding Calculator */}

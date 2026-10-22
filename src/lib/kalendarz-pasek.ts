@@ -21,17 +21,24 @@ export interface DzienPaska {
   numer: string;
 }
 
-/** Siedem dni tygodnia, w którym leży `now`, od pierwszego dnia tygodnia (RD-30). */
-export function dniPaska(now: number, first: FirstWeekday): DzienPaska[] {
-  const dzis = localDateKey(now);
+/** Dzień paska z północy dnia (`dzis` według `now`). */
+export function dzienPaska(ms: number, now: number): DzienPaska {
   const jezyk = appLocale();
-  return daysOfWeek(now, first).map((ms) => ({
+  return {
     klucz: localDateKey(ms),
     ms,
-    dzis: localDateKey(ms) === dzis,
+    dzis: localDateKey(ms) === localDateKey(now),
     skrot: formatDate(ms, jezyk, { weekday: 'short' }),
     numer: formatDate(ms, jezyk, { day: 'numeric' }),
-  }));
+  };
+}
+
+/**
+ * Siedem dni tygodnia, w którym leży `kotwica` (domyślnie `now`), od pierwszego dnia tygodnia (RD-30); `dzis`
+ * według `now`, więc poprzedni i następny tydzień nie mają wyróżnionego dnia (BR-KAL-008) [M3 D7].
+ */
+export function dniPaska(now: number, first: FirstWeekday, kotwica: number = now): DzienPaska[] {
+  return daysOfWeek(kotwica, first).map((ms) => dzienPaska(ms, now));
 }
 
 /** Data na pasie: „Czwartek, 22 października” (dzień tygodnia wielką literą według języka). */

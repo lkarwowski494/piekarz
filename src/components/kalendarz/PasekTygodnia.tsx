@@ -39,7 +39,9 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
   const etykieta = (d: DzienPaska) => etykietaDnia(p.zdarzenia.filter((z) => z.dzien === d.klucz), d, o);
 
   if (p.duzyTekst) {
-    const widoczne = caly ? p.dni : p.dni.filter((d) => d.dzis);
+    // Inny tydzień niż bieżący (BR-KAL-008) nie ma „dziś”: cały tydzień od razu [M3 D7]
+    const bezDzis = !p.dni.some((d) => d.dzis);
+    const widoczne = caly || bezDzis ? p.dni : p.dni.filter((d) => d.dzis);
     return (
       <View style={styles.lista} accessibilityRole="list" accessibilityLabel={t('Ten tydzień')} testID="pasek-tygodnia">
         {widoczne.map((d) => (
@@ -48,7 +50,7 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
             <Text style={[styles.wierszTekst, d.dzis && styles.dzisTekst]}>{etykieta(d)}</Text>
           </Pressable>
         ))}
-        {!caly && (
+        {!caly && !bezDzis && (
           <Pressable testID="pasek-caly-tydzien" accessibilityRole="button" style={styles.calyTydzien} onPress={() => ustawCaly(true)}>
             <Text style={styles.calyTydzienTekst}>{t('Pokaż cały tydzień')}</Text>
           </Pressable>

@@ -8,6 +8,8 @@ const mockPush = jest.fn();
 jest.mock('expo-router', () => ({
   useRouter: () => ({ push: mockPush, navigate: jest.fn(), replace: jest.fn(), back: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+  // Dziennik czyta parametr `wpis` (wejście z kalendarza, BR-KAL-013) [M3 D7]
+  useLocalSearchParams: () => ({}),
 }));
 jest.mock('expo-keep-awake', () => ({ useKeepAwake: jest.fn() }));
 jest.mock('react-native-safe-area-context', () => {
