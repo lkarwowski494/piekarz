@@ -15,6 +15,7 @@ export function GlifZdarzenia({ glif, kolor, rozmiar = 12 }: { glif: GlifZdarzen
   return (
     <Svg width={rozmiar} height={rozmiar} viewBox="0 0 12 12" accessible={false} testID={`glif-${glif}`}>
       {glif === 'wypiek' && <Path {...p} d="M6 6.2a.9.9 0 1 1 1-1 2.2 2.2 0 1 1-2.6-1.9 3.6 3.6 0 1 1-3 3.3" />}
+      {glif === 'plan' && <Path {...p} strokeDasharray="0.1 2.2" strokeWidth={2.2} d="M6 6.2a.9.9 0 1 1 1-1 2.2 2.2 0 1 1-2.6-1.9 3.6 3.6 0 1 1-3 3.3" />}
       {glif === 'wypiek2' && <Path {...p} d="M6 1.5 10.5 10h-9z" />}
       {glif === 'gotowe' && <Path {...p} d="M1.5 8.5c0-3 2-4.8 4.5-4.8s4.5 1.8 4.5 4.8v1h-9z" />}
       {glif === 'dziennik' && <Path {...p} fill={kolor} d="M1.5 8.5c0-3 2-4.8 4.5-4.8s4.5 1.8 4.5 4.8v1h-9z" />}

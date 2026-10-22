@@ -74,6 +74,22 @@ describe('pasek tygodnia (Europe/Warsaw, PL)', () => {
     expect(new Set(wszystkie).size).toBe(7);
   });
 
+  it('PRZ-13: plan niezaczęty ma własny glif „plan”, inny niż trwający wypiek; „gotowe” planu zostaje bochenkiem', () => {
+    const now = lok(2026, 10, 22, 12);
+    const d: DaneKalendarza = {
+      ...BRAK,
+      wypieki: [wypiek('chleb', [krok('Mieszanie', lok(2026, 10, 24, 6)), krok('Pieczenie', lok(2026, 10, 24, 9))])],
+      zaplanowane: [{ id: 'sobota', recipeName: 'Pizza', steps: [krok('Kulki', lok(2026, 10, 24, 8)), krok('Pieczenie', lok(2026, 10, 24, 18))] }],
+    };
+    const zd = zdarzeniaKalendarza(d, now);
+    const g = glifyDnia(zd, '2026-10-24', ['chleb']);
+    expect(g.glify).toContain<GlifZdarzenia>('wypiek');
+    expect(g.glify).toContain<GlifZdarzenia>('plan');
+    const tylkoPlan = glifyDnia(zdarzeniaKalendarza({ ...BRAK, zaplanowane: d.zaplanowane }, now), '2026-10-24', []);
+    expect(tylkoPlan.glify).not.toContain<GlifZdarzenia>('wypiek');
+    expect(tylkoPlan.glify[0]).toBe('plan');
+  });
+
   it('wypiek wielodniowy jako ciągła linia: od pierwszego do ostatniego dnia, połówki na końcach', () => {
     const now = lok(2026, 10, 21, 9);
     const w = wypiek('zytni', [krok('Mieszanie', lok(2026, 10, 21, 14)), krok('Studzenie', lok(2026, 10, 22, 20), lok(2026, 10, 23, 20))]);

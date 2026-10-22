@@ -52,9 +52,9 @@ export function dataSlownie(ms: number): string {
  * Glify zdarzeń (makieta roli 04 a2, `a2.css`): krok wypieku = spirala (drugi trwający = trójkąt), „gotowe” = bochenek
  * konturem, wpis Dziennika = bochenek pełny, dokarmiony = kropka, następne karmienie = przerywany pierścień,
  * zakładanie = słoik, piekarnik zajęty = prostokąt z drzwiczkami na tle ostrzeżenia, pierwszy w dniu (makieta
- * `piekarnik-3-kalendarz`, BR-KAL-016) [M3 D6]. Zaległe ma osobny glif (koło z wykrzyknikiem).
+ * `piekarnik-3-kalendarz`, BR-KAL-016) [M3 D6]. Krok planu niezaczętego = spirala kropkowana („plan”, PRZ-13). Zaległe ma osobny glif (koło z wykrzyknikiem).
  */
-export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karmienie' | 'karmienie-nastepne' | 'zakladanie' | 'piekarnik';
+export type GlifZdarzenia = 'wypiek' | 'wypiek2' | 'gotowe' | 'dziennik' | 'karmienie' | 'karmienie-nastepne' | 'zakladanie' | 'piekarnik' | 'plan';
 
 /** Najwyżej tyle glifów w dniu: glify się nie zawijają (pomiar roli 04 przy 320 pt); całość czyta etykieta dnia. */
 export const MAKS_GLIFOW_DNIA = 3;
@@ -62,6 +62,8 @@ export const MAKS_GLIFOW_DNIA = 3;
 function glif(z: ZdarzenieKalendarza, wypieki: readonly string[]): GlifZdarzenia {
   switch (z.rodzaj) {
     case 'wypiek-krok':
+      // Plan niezaczęty: spirala kropkowana, osobny glif od trwającego wypieku (PRZ-13, makieta a2)
+      if (z.zaplanowany) return 'plan';
       return wypieki.indexOf(z.zrodlo.id) === 1 ? 'wypiek2' : 'wypiek';
     case 'wypiek-gotowe':
       return 'gotowe';

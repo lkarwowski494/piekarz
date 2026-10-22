@@ -162,23 +162,17 @@ export function BakeHistorySection({
                 )}
               </View>
 
-              {/* Sensory Radar Chart (Zadanie P4) */}
-              <View style={styles.historyRadarBox}>
-                <SensoryRadarChart
-                  profile={
-                    log.sensoryProfile ?? {
-                      crustCrispness: log.crustScore ?? 3,
-                      crumbElasticity: 4,
-                      acidity: log.tasteProfile === 'sour' ? 4 : log.tasteProfile === 'tangy' ? 5 : log.tasteProfile === 'mild' ? 2 : 3,
-                      openCrumb: log.crumbScore ?? 3,
-                      caramelization: log.ratingStars ?? 4,
-                    }
-                  }
-                  size={170}
-                  showLabels={true}
-                  testID={`history-radar-${log.id}`}
-                />
-              </View>
+              {/* Wykres smaku tylko z zapisanego profilu: brak zostaje brakiem, bez zgadywanych wartości (PRZ-42) */}
+              {log.sensoryProfile && (
+                <View style={styles.historyRadarBox}>
+                  <SensoryRadarChart
+                    profile={log.sensoryProfile}
+                    size={170}
+                    showLabels={true}
+                    testID={`history-radar-${log.id}`}
+                  />
+                </View>
+              )}
 
               {log.notes && <Text style={styles.historyNotes}>{log.notes}</Text>}
 

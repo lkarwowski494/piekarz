@@ -77,7 +77,7 @@ export function PasekTygodnia(p: PasekTygodniaProps) {
                 x === 'piekarnik' ? (
                   <GlifPiekarnika key={x} tlo={theme.colors.ostrzTlo} znak={theme.colors.ostrzTusz} rozmiar={12} />
                 ) : (
-                  <GlifZdarzenia key={x} glif={x} kolor={theme.colors.ratanNaPasie} />
+                  <GlifZdarzenia key={x} glif={x} kolor={x === 'plan' ? theme.colors.naPasie2 : theme.colors.ratanNaPasie} />
                 )
               )}
             </View>

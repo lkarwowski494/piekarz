@@ -57,7 +57,7 @@ function Wiersz({ p, teraz, onZobacz }: { p: PlannedBake; teraz: number; onZobac
   const tekst = t('{kiedy} {h} {co}', { kiedy: dzienSlownie(new Date(g), new Date(teraz)), h: formatTime(g), co: nazwaReceptury(p.recipeName) });
   return (
     <Pressable testID={`plan-wiersz-${p.id}`} accessibilityRole="button" accessibilityLabel={tekst} style={styles.wiersz} onPress={() => onZobacz(p.id)}>
-      <GlifZdarzenia glif="wypiek" kolor={theme.colors.tusz2} rozmiar={14} />
+      <GlifZdarzenia glif="plan" kolor={theme.colors.nocDane} rozmiar={14} />
       <Text style={styles.wierszTekst}>{tekst}</Text>
     </Pressable>
   );
