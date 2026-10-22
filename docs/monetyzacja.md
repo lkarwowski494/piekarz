@@ -3,6 +3,8 @@ Stan: E3 (rola 02 build, sesja 2, sztafeta 01–04) · Aktualizacja: 2026-10-19 
 
 Jedyny dokument monetyzacji. `docs/monetyzacja-audyt.md` i `docs/PROGRESSIVE_DISCLOSURE_AND_MONETIZATION.md` to historia bez źródeł (D-033). Bramka opłacalności i macierz wariantów z 2026-10-19 leżą poza repo (`audit/02-oplacalnosc-2026-10-19/`, `audit/02-warianty-2026-10-19/`); tu trafiają tylko wyniki, stawki i [OCENA]. Surowe odczyty tej sesji: scratchpad sesji (poza repo).
 
+**2026-10-22: właściciel otworzył badanie zmiany modelu (D-110):** V1 i V2 bez automatycznego odnawiania wobec D-038, wynik w `docs/monetyzacja-badanie-2026-10.md`. Do wyboru na STOP E2 obowiązuje ten dokument bez zmian.
+
 ## E0: rama
 
 ### Środowisko (2026-10-19)
