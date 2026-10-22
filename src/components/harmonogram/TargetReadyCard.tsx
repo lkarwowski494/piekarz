@@ -32,6 +32,10 @@ export interface TargetReadyCardProps {
   targetMinute: number;
   onAdjustTargetTime: (deltaMinutes: number) => void;
   formattedDayBadge: string;
+  /** Chwila gotowości z planu: pokazywana zamiast godziny z pól, gdy w tym dniu wybranej godziny nie ma (D-13). */
+  faktycznaGodzina?: Date;
+  /** Dzień zmiany czasu, a wybrana godzina wypadła w luce: pod polem krótki komunikat z faktyczną godziną (D-13, D-093). */
+  zmianaCzasu?: boolean;
   ambientTemp: number;
   onAmbientTempChange: (temp: number) => void;
   unitSystem: UnitSystem;
@@ -64,6 +68,8 @@ export function TargetReadyCard({
   targetMinute,
   onAdjustTargetTime,
   formattedDayBadge,
+  faktycznaGodzina,
+  zmianaCzasu,
   ambientTemp,
   onAmbientTempChange,
   unitSystem,
@@ -87,7 +93,7 @@ export function TargetReadyCard({
               się w jednym wierszu zamiast łamać [M1-audytor-generalny-201; reaudit-noc N-2] */}
           <Text style={styles.godzina} maxFontSizeMultiplier={typografia.style.czas.ax5 / typografia.style.czas.pt}
             numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-            {godzina(targetHour, targetMinute)}
+            {faktycznaGodzina ? formatTime(faktycznaGodzina) : godzina(targetHour, targetMinute)}
           </Text>
         </View>
         {!waski && plus}
@@ -103,6 +109,12 @@ export function TargetReadyCard({
         {waski && minus}
         {waski && plus}
       </View>
+
+      {zmianaCzasu && faktycznaGodzina ? (
+        <Text style={styles.zmianaCzasu} testID="plan-zmiana-czasu">
+          {t('W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.', { godzina: formatTime(faktycznaGodzina) })}
+        </Text>
+      ) : null}
 
       {children}
 
@@ -171,5 +183,6 @@ const styles = StyleSheet.create({
   chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   chipTekstWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
   naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz, marginTop: odstepy.s, marginBottom: odstepy.s },
+  zmianaCzasu: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, marginBottom: odstepy.m },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },
 });

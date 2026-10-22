@@ -166,4 +166,6 @@ export const EN_18: Record<string, string> = {
     'A new bake will replace the one in progress: "{nazwa}". Its progress and notifications will be gone.',
   'Wróć do trwającego': 'Back to the bake in progress',
   'Przerwij tamten i zacznij nowy': 'Stop that one and start a new one',
+  'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.':
+    'The clocks change that day and the time you picked does not exist. The bread will be ready at {godzina}.',
 };

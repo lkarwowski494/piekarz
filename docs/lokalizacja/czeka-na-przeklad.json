@@ -17,6 +17,11 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.",
+      "powod": "komunikat na karcie planu w dniu wiosennej zmiany czasu (parametr {godzina}) [M3 D0, D-13, D-093]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Wróć do trwającego",
       "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
       "od": "2026-10-22"

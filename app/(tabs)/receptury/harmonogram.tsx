@@ -39,6 +39,7 @@ import { etykietaPlanuPrzedStartem } from '../../../src/lib/spirala-etykieta';
 import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-za-pozno';
 import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
+import { atLocalTime } from '../../../src/core/dzien-lokalny';
 
 import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
@@ -68,13 +69,10 @@ export default function HarmonogramScreen() {
   const sleepStartHour = oknoPlanu?.startH ?? 0;
   const sleepEndHour = oknoPlanu?.koniecH ?? 0;
 
-  // Target Date object
-  const targetDate = useMemo(() => {
-    const d = new Date();
-    d.setDate(d.getDate() + targetDayOffset);
-    d.setHours(targetHour, targetMinute, 0, 0);
-    return d;
-  }, [targetDayOffset, targetHour, targetMinute]);
+  // Target Date object. W dniu wiosennej zmiany czasu godziny z luki (02:30) nie ma: chwila wypada po luce (03:30), plan
+  // i powiadomienia kończą się o niej, a karta mówi o tym (`shifted`; D-13, D-093)
+  const celLokalny = useMemo(() => atLocalTime(Date.now(), targetDayOffset, targetHour, targetMinute), [targetDayOffset, targetHour, targetMinute]);
+  const targetDate = useMemo(() => new Date(celLokalny.ms), [celLokalny]);
 
   // Apps4Craft Monetization & Access (Cheaper than espresso)
   const {
@@ -284,6 +282,8 @@ export default function HarmonogramScreen() {
           targetMinute={targetMinute}
           onAdjustTargetTime={zmianaGodziny(adjustTargetTime)}
           formattedDayBadge={formatDayBadge(targetDate)}
+          faktycznaGodzina={targetDate}
+          zmianaCzasu={celLokalny.shifted}
           ambientTemp={ambientTemp}
           onAmbientTempChange={(c: number) => {
             setAmbientTemp(c);

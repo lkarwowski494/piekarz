@@ -6352,6 +6352,11 @@
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
     ]
   },
+  "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.": {
+    "gdzie": [
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst w JSX)"
+    ]
+  },
   "Waga bochenka": {
     "gdzie": []
   },
