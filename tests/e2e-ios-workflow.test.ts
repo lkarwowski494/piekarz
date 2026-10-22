@@ -14,6 +14,15 @@ const appJson = JSON.parse(readFileSync(join(root, 'app.json'), 'utf8'));
 const bundleId: string = appJson.expo.ios.bundleIdentifier;
 const e2eDir = join(root, '.maestro', 'e2e');
 
+/** Pliki .ts/.tsx kodu aplikacji w katalogu (bez __tests__). */
+function plikiKodu(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) return e.name === '__tests__' ? [] : plikiKodu(p);
+    return /\.tsx?$/.test(e.name) ? [p] : [];
+  });
+}
+
 describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   it('buduje aplikację na symulator, bootuje symulator i instaluje build', () => {
     expect(workflow).toMatch(/expo prebuild --platform ios/);
@@ -58,19 +67,56 @@ describe('workflow E2E iOS (M1-audytor-generalny-037)', () => {
   // Jedyny wybór po tekście: przycisk systemowego okna zgody iOS (nie ma id, to okno systemu, nie aplikacji),
   // w obu językach przebiegu i zawsze opcjonalny. Po „Dalej” w ZgodaPowiadomien (130) okno zasłaniało prowadzenie
   // (przebieg 39688253940) [M1-audytor-generalny-037]
-  it('tekst w scenariuszach E2E tylko dla przycisku systemowego okna zgody, zawsze opcjonalnie', () => {
+  // Drugi wyjątek, nazwany [M3 E2E, flow 05]: przycisk natywnego pytania React Native (Alert.alert nie przyjmuje testID),
+  // dokładny tekst „PL|EN” z listy niżej; zawsze tapOn, tekst EN zgodny ze słownikiem aplikacji (test niżej).
+  const ALERT_NATYWNY: Record<string, string> = { 'Prowadź oba': 'Run both' };
+
+  it('tekst w scenariuszach E2E tylko dla przycisku systemowego okna zgody (opcjonalnie) i przycisków natywnego Alertu z listy', () => {
     const OKNO_ZGODY = '"Pozwalaj|Zezwalaj|Zezwól|Allow"';
+    const alerty = Object.entries(ALERT_NATYWNY).map(([pl, en]) => `"${pl}|${en}"`);
     const zle: string[] = [];
     for (const f of readdirSync(e2eDir).filter((x) => x.endsWith('.yaml'))) {
       const linie = readFileSync(join(e2eDir, f), 'utf8').split(/\r?\n/);
       linie.forEach((l, i) => {
         const m = /^\s+text:\s*(.*)$/.exec(l);
         if (!m) return;
-        const ok = m[1].trim() === OKNO_ZGODY && /^\s+optional:\s*true\s*$/.test(linie[i + 1] ?? '') && /^- tapOn:\s*$/.test(linie[i - 1] ?? '');
-        if (!ok) zle.push(`${f}:${i + 1}: ${l.trim()}`);
+        const tapOn = /^- tapOn:\s*$/.test(linie[i - 1] ?? '');
+        const zgoda = m[1].trim() === OKNO_ZGODY && /^\s+optional:\s*true\s*$/.test(linie[i + 1] ?? '');
+        const alert = alerty.includes(m[1].trim());
+        if (!tapOn || !(zgoda || alert)) zle.push(`${f}:${i + 1}: ${l.trim()}`);
       });
     }
     expect(zle).toEqual([]);
+  });
+
+  it('przyciski natywnego Alertu w scenariuszach: klucz PL użyty w kodzie przez t(), tekst EN taki jak w słowniku', () => {
+    const slownikEn = readdirSync(join(root, 'src', 'lib', 'i18n-en'))
+      .map((f) => readFileSync(join(root, 'src', 'lib', 'i18n-en', f), 'utf8'))
+      .join('\n');
+    const kod = ['useStartPlanu.ts', 'usePlanyDzis.ts'].map((f) => readFileSync(join(root, 'src', 'hooks', f), 'utf8')).join('\n');
+    for (const [pl, en] of Object.entries(ALERT_NATYWNY)) {
+      expect(kod).toContain(`t('${pl}')`);
+      expect(slownikEn).toContain(`'${pl}': '${en}',`);
+    }
+  });
+
+  // Scenariusze 1.0 (M3): plan na później i dwa trwające wypieki to funkcje Pro; build E2E ma dostęp przez EXPO_PUBLIC_E2E
+  it('ma scenariusze 1.0: plan na później (Zaplanuj -> lista pod spiralą) i dwa wypieki (karty legendy, przełącznik)', () => {
+    const plik = (f: string) => readFileSync(join(e2eDir, f), 'utf8');
+    const plan = plik('04-plan-na-pozniej.yaml');
+    for (const id of ['plan-dzien-3', 'plan-zaplanuj-btn', 'spirala-otworz', 'start-plany', 'plan-wiersz-.*']) expect(plan).toContain(`id: "${id}"`);
+    const dwa = plik('05-dwa-wypieki.yaml');
+    for (const id of ['przelacznik-wypiekow', 'przelacznik-wypiek-.*', 'karta-otworz', 'start-trwa-wypiek']) expect(dwa).toContain(`id: "${id}"`);
+    expect(dwa).toMatch(/index: 0[\s\S]*leftOf:/);
+    expect(dwa).toMatch(/index: 1[\s\S]*rightOf:/);
+    // Każdy id z tych scenariuszy (bez wzorców) jest testID w kodzie aplikacji (bez testów): dosłownie albo jako
+    // szablon z przedrostkiem (`plan-dzien-${offset}`, `recipe-row-${id}`)
+    const zrodla = ['app', 'src'].flatMap((d) => plikiKodu(join(root, d))).map((p) => readFileSync(p, 'utf8')).join('\n');
+    const wKodzie = (id: string) =>
+      zrodla.includes(`"${id}"`) || zrodla.includes(`'${id}'`) || zrodla.includes(`\`${id.replace(/-[^-]+$/, '-')}\${`);
+    for (const tekst of [plan, dwa]) {
+      for (const m of tekst.matchAll(/id: "([^"*]+)"/g)) expect(`${m[1]}: ${wKodzie(m[1])}`).toBe(`${m[1]}: true`);
+    }
   });
 
   // Systemowe okno zgody na powiadomienia zasłaniało ekran w przebiegu 39581379222 [M1-audytor-generalny-037]
