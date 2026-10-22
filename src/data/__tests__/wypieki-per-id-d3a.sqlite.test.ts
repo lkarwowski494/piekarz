@@ -20,7 +20,19 @@ const wiersze = () => {
   raw.close();
   return r.map((w) => ({ id: w.id, s: JSON.parse(w.session_json) as BakeSession }));
 };
-const idSesji = () => wiersze().map((w) => w.id);
+const idSesji = () => {
+  const raw = openRaw(APP_DB());
+  const r = (raw.prepare('SELECT id FROM bake_sessions ORDER BY id').all() as Array<{ id: string }>).map((w) => w.id);
+  raw.close();
+  return r;
+};
+/** Wersja wiersza (updated_at) prosto z bazy. */
+const wersja = (id: string): number => {
+  const raw = openRaw(APP_DB());
+  const r = raw.prepare('SELECT updated_at AS u FROM bake_sessions WHERE id = ?').get(id) as { u: number } | undefined;
+  raw.close();
+  return r?.u ?? -1;
+};
 
 async function dwaWypieki() {
   zalozBaze1014(APP_DB(), 'v2-pauza');
@@ -65,20 +77,72 @@ describe('D3a: wiele wypieków per id w warstwie danych', () => {
 
   it('wyścig: zapis kroku po końcu wypieku nie przywraca go jako trwającego (wiersz musi istnieć)', async () => {
     const { app, sesje, pizza } = await dwaWypieki();
+    // Spóźniony zapis kroku z ekranu (efekt zapisu po zmianie kroku); D3a-fix: zapis z wersją odczytu
+    const w = wersja('bake_pizza');
     await app.store.finishBake({ id: 'bake_wpis_pizzy', recipeName: 'Pizza', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_pizza' });
-    // Spóźniony zapis kroku z ekranu (efekt zapisu po zmianie kroku)
-    const wynik = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 2 });
+    const wynik = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 2 }, w);
     expect(wynik).toEqual({ ok: false, error: { kind: 'brak', id: 'bake_pizza' } });
     expect(idSesji()).toEqual(['bake_live']);
   });
 
   it('wyścig: zapis kroku po przerwaniu wypieku też go nie przywraca; zapis kroku trwającego zmienia tylko jego wiersz', async () => {
     const { sesje, chleb, pizza } = await dwaWypieki();
-    expect(await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 3 })).toEqual({ ok: true });
-    expect(wiersze().map((w) => [w.id, w.s.stepIdx])).toEqual([['bake_live', chleb.stepIdx], ['bake_pizza', 3]]);
+    const w = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 3 }, wersja('bake_pizza'));
+    expect(w).toEqual({ ok: true, wersja: wersja('bake_pizza') });
+    expect(wiersze().map((x) => [x.id, x.s.stepIdx])).toEqual([['bake_live', chleb.stepIdx], ['bake_pizza', 3]]);
     await sesje.deleteBakeSession('bake_pizza');
-    expect(await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 4 })).toEqual({ ok: false, error: { kind: 'brak', id: 'bake_pizza' } });
+    expect(await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 4 }, w.ok ? w.wersja : 0)).toEqual({ ok: false, error: { kind: 'brak', id: 'bake_pizza' } });
     expect(idSesji()).toEqual(['bake_live']);
+  });
+
+  it('P1-1 obrona danych: zapis kroku ze starszego stanu (druga instancja ekranu) nie cofa postępu', async () => {
+    const { sesje, pizza } = await dwaWypieki();
+    const odczyt = wersja('bake_pizza'); // obie instancje przeczytały ten sam stan
+    const gora: import('../bake-sessions-store').ZapisWersji = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 3 }, odczyt);
+    expect(gora.ok).toBe(true);
+    const dol = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 2 }, odczyt);
+    expect(dol).toEqual({ ok: false, error: { kind: 'nieaktualny', id: 'bake_pizza' } });
+    expect(wiersze().find((x) => x.id === 'bake_pizza')?.s.stepIdx).toBe(3);
+    // Wersja rośnie przy każdym zapisie, także w tej samej milisekundzie
+    const w2 = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 4 }, gora.ok ? gora.wersja : 0);
+    const w3 = await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 5 }, w2.ok ? w2.wersja : 0);
+    expect(w3.ok && w2.ok && w3.wersja > w2.wersja).toBe(true);
+    const lista = await sesje.loadActiveBakeSessionsZWersja();
+    expect(lista.map((x) => [x.sesja.bake?.id, x.wersja])).toEqual([['bake_live', wersja('bake_live')], ['bake_pizza', wersja('bake_pizza')]]);
+  });
+
+  it('P2-1: utworzenie wypieku, którego wiersz już jest (np. nieczytelny przy odczycie), niczego nie nadpisuje', async () => {
+    const { sesje, pizza } = await dwaWypieki();
+    await sesje.zapiszPostepWypieku({ ...pizza, stepIdx: 4 }, wersja('bake_pizza'));
+    const przed = wiersze();
+    expect(await sesje.utworzWypiek({ ...pizza, stepIdx: 0 })).toEqual({ ok: false, error: { kind: 'istnieje', id: 'bake_pizza' } });
+    expect(wiersze()).toEqual(przed);
+  });
+
+  it('P2-2: limit 2 trwających przy utworzeniu; wiersz z nieczytelnym JSON-em nie liczy się do limitu', async () => {
+    const { sesje, pizza } = await dwaWypieki();
+    const trzeci = (id: string): BakeSession => ({ ...pizza, bake: pizza.bake ? { ...pizza.bake, id } : null });
+    expect(await sesje.utworzWypiek(trzeci('bake_trzeci'))).toEqual({ ok: false, error: { kind: 'limit', status: 'active', max: 2 } });
+    const raw = openRaw(APP_DB());
+    raw.prepare("UPDATE bake_sessions SET session_json = '{ZEPSUTE' WHERE id = 'bake_live'").run();
+    raw.close();
+    const r = await sesje.utworzWypiek(trzeci('bake_trzeci'));
+    expect(r).toEqual({ ok: true, wersja: wersja('bake_trzeci') });
+    expect(idSesji()).toEqual(['bake_live', 'bake_pizza', 'bake_trzeci']);
+  });
+
+  it('P1-1 obrona danych: drugi koniec tego samego wypieku (druga instancja) nie zapisuje drugiego wpisu ani nie odlicza mąki drugi raz', async () => {
+    const { app } = await dwaWypieki();
+    await app.store.saveFlourInventoryItem({ id: 'flour_d3a', name: 'Mąka pszenna 750', stockGrams: 1000, updatedAt: 1 });
+    const maka = [{ name: 'Mąka pszenna 750', weightGrams: 300 }];
+    expect(await app.store.finishBake({ id: 'wpis_1', recipeName: 'Pizza', startedAt: 1, finishedAt: 2 }, maka, { sessionId: 'bake_pizza', wymagajSesji: true })).toBe('zapisano');
+    expect(await app.store.finishBake({ id: 'wpis_2', recipeName: 'Pizza', startedAt: 1, finishedAt: 3 }, maka, { sessionId: 'bake_pizza', wymagajSesji: true })).toBe('nie-trwa');
+    const ids = (await app.store.getBakeLogs()).map((b) => b.id);
+    expect(ids).toContain('wpis_1');
+    expect(ids).not.toContain('wpis_2');
+    expect((await app.store.getFlourInventory()).find((f) => f.id === 'flour_d3a')?.stockGrams).toBe(700);
+    // Bez wymagania sesji (wypiek, którego pierwszy zapis się nie udał) koniec zapisuje wpis jak dotąd
+    expect(await app.store.finishBake({ id: 'wpis_3', recipeName: 'X', startedAt: 1, finishedAt: 4 }, [], { sessionId: 'bake_niezapisany' })).toBe('zapisano');
   });
 
   it('P2-3: saveBakeSession (zapis jednego wypieku, testy i dane przykładowe) przy dwóch trwających nie kasuje drugiego', async () => {

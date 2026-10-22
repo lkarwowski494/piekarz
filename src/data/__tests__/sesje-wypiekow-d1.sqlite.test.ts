@@ -192,12 +192,14 @@ describe('D1: sesje wypieków i recipe_id', () => {
     await sesje.saveActiveBakeSession(zReceptura(pierwsza, 'recipe_user_3'));
     const db = await app.schema.getDb();
     if (!db) throw new Error('brak bazy');
-    const wyniki: Array<string | undefined> = [];
+    // D3a-fix: wynik mówi też, czy wiersz kończonego wypieku był (P1-1)
+    const wyniki: Array<{ trwal: boolean; recipeId?: string }> = [];
     await db.withTransactionAsync(async () => {
       wyniki.push(await sesje.zakonczSesjeWTransakcji(db, {}));
       wyniki.push(await sesje.zakonczSesjeWTransakcji(db, { sessionId: 'bake_live' }));
+      wyniki.push(await sesje.zakonczSesjeWTransakcji(db, { sessionId: 'bake_live' }));
     });
-    expect(wyniki).toEqual([undefined, 'recipe_user_3']);
+    expect(wyniki).toEqual([{ trwal: false }, { trwal: true, recipeId: 'recipe_user_3' }, { trwal: false }]);
     expect(idSesji()).toEqual([]);
 
     app.schema.memStore.bakeSessions = [

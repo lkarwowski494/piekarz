@@ -49,13 +49,19 @@ export type CelPowiadomienia = { pathname: '/stolnica'; params: { wypiek: string
  * Cel z danych dotkniętego powiadomienia (`unknown`): krok z id wypieku otwiera Stolnicę tego wypieku (BR-KAL-016
  * „Który krok czyj”); powiadomienie bez id (zaplanowane przed D3a) — Stolnicę jak dotąd [M3 D3a].
  */
-export function celZPowiadomienia(data: unknown): CelPowiadomienia | null {
+export function celZPowiadomienia(data: unknown, identyfikator?: string): CelPowiadomienia | null {
   if (typeof data !== 'object' || data === null) return null;
   const trasa = trasaZPowiadomienia(Reflect.get(data, 'route'));
-  const wypiek: unknown = Reflect.get(data, 'wypiek');
-  if (trasa === '/stolnica' && typeof wypiek === 'string' && wypiek !== '') return { pathname: '/stolnica', params: { wypiek } };
+  const zDanych: unknown = Reflect.get(data, 'wypiek');
+  // Powiadomienie zaplanowane przed D3a nie ma `wypiek` w danych, ale ma id wypieku w identyfikatorze (D2) [D3a-fix, P2-6]
+  const zIdentyfikatora = identyfikator?.startsWith(NOTIF_WYPIEK) ? identyfikator.slice(NOTIF_WYPIEK.length).split('.')[0] : undefined;
+  const wypiek = typeof zDanych === 'string' && zDanych !== '' ? zDanych : zIdentyfikatora;
+  if (trasa === '/stolnica' && wypiek) return { pathname: '/stolnica', params: { wypiek } };
   return trasa;
 }
+
+/** Początek identyfikatorów powiadomień wypieku: `piekarz.wypiek.<id>.` (notifBakePrefix). */
+const NOTIF_WYPIEK = `${NOTIF_PREFIX}wypiek.`;
 
 export interface PlannedNotification {
   id: string;
@@ -239,7 +245,8 @@ export function isLegacyBakeNotificationId(id: string): boolean {
  * oczekujące planujemy na nowo [M1-audytor-generalny-136; 09-lokalizacja-503].
  */
 export function notificationFingerprint(p: PlannedNotification, lang = ''): string {
-  return `${p.triggerAt}|${p.level}|${p.textKey}|${JSON.stringify(p.params)}|${lang}`;
+  // Id wypieku w odcisku: oczekujące sprzed D3a (bez `wypiek` w danych) planujemy na nowo z nim [M3 D3a-fix, P2-6]
+  return `${p.triggerAt}|${p.level}|${p.textKey}|${JSON.stringify(p.params)}|${lang}${p.wypiekId ? `|${p.wypiekId}` : ''}`;
 }
 
 /** Różnica między oczekującymi a planem; obcych identyfikatorów (bez prefiksu) nie dotyka. */

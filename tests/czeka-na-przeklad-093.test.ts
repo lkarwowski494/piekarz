@@ -60,6 +60,7 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Prowadzisz już 2 wypieki',
     '{wypiek}, krok: {krok}',
     'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.',
+    'Ten wypiek jest już zakończony albo przerwany.', // M3 D3a-fix (P1-1)
     'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.',
     // M3 D2: powiadomienia wielu wypieków i stałego dnia karmienia (2 klucze)
     'Wypiek: {wypiek}.',

@@ -3,7 +3,7 @@
  * id wypieku, a dotknięcie prowadzi na trasę z tym id; powiadomienia sprzed D3a (bez id) otwierają Stolnicę jak dotąd
  * [M3 D3a].
  */
-import { celZPowiadomienia, type CelPowiadomienia, planBakeStepNotifications, planPlannedStartNotifications } from '../notification-plan';
+import { celZPowiadomienia, diffNotifications, notificationFingerprint, type CelPowiadomienia, planBakeStepNotifications, planPlannedStartNotifications } from '../notification-plan';
 import { planBakeSteps } from '../bake-steps';
 
 describe('D3a: cel dotkniętego powiadomienia', () => {
@@ -29,5 +29,16 @@ describe('D3a: cel dotkniętego powiadomienia', () => {
     expect(celZPowiadomienia({ route: '/doktor' })).toBeNull();
     expect(celZPowiadomienia(null)).toBeNull();
     expect(celZPowiadomienia('x')).toBeNull();
+  });
+
+  it('P2-6: powiadomienie sprzed D3a (bez `wypiek` w danych) otwiera wypiek z identyfikatora; odcisk zawiera id wypieku, więc uzgadnianie planuje je na nowo', () => {
+    expect(celZPowiadomienia({ route: '/stolnica' }, 'piekarz.wypiek.bake_pizza.krok.3')).toEqual({ pathname: '/stolnica', params: { wypiek: 'bake_pizza' } });
+    expect(celZPowiadomienia({ route: '/stolnica', wypiek: 'bake_chleb' }, 'piekarz.wypiek.bake_pizza.krok')).toEqual({ pathname: '/stolnica', params: { wypiek: 'bake_chleb' } });
+    expect(celZPowiadomienia({ route: '/stolnica' }, 'piekarz.krok.3')).toBe('/stolnica');
+    expect(celZPowiadomienia({ route: '/zakwasy' }, 'piekarz.zakwas.s1')).toBe('/zakwasy');
+    const [p] = planBakeStepNotifications({ id: 'bake_pizza', recipeName: 'Pizza', steps, stepIdx: 0, dutchOvenPhase: 'lid_on', timerEndsAt: now + 60_000 }, now);
+    const { wypiekId: _bezId, ...sprzedD3a } = p;
+    expect(notificationFingerprint(p)).not.toBe(notificationFingerprint(sprzedD3a));
+    expect(diffNotifications([{ id: p.id, fingerprint: notificationFingerprint(sprzedD3a) }], [p]).schedule.map((x) => x.id)).toEqual([p.id]);
   });
 });

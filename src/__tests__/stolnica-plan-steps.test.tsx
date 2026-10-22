@@ -71,9 +71,11 @@ async function zapiszSurowaSesje(raw: string): Promise<void> {
   const file = (await getDb())?.databasePath;
   if (!file) throw new Error('brak bazy');
   const db = openRaw(file);
+  // D3a-fix: id wiersza = id wypieku z sesji (jak migracja v6 i zapis), bo zapis kroku zmienia wiersz po tym id
+  const v = JSON.parse(raw) as { bake?: { id?: string } | null };
   db.prepare(
-    "INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('surowa', 'active', ?, 0, 0) ON CONFLICT(id) DO UPDATE SET session_json = excluded.session_json"
-  ).run(raw);
+    "INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES (?, 'active', ?, 0, 0) ON CONFLICT(id) DO UPDATE SET session_json = excluded.session_json, updated_at = updated_at + 1"
+  ).run(v.bake?.id ?? 'sesja-1014', raw);
   db.close();
 }
 

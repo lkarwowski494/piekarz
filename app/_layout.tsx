@@ -105,7 +105,7 @@ export default function RootLayout() {
       // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
       // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
       // Krok z id wypieku otwiera Stolnicę tego wypieku (BR-KAL-016 „Który krok czyj”) [M3 D3a]
-      const cel = celZPowiadomienia(r.notification.request.content.data ?? {});
+      const cel = celZPowiadomienia(r.notification.request.content.data ?? {}, r.notification.request.identifier);
       if (cel) router.push(cel);
     });
     return () => tap.remove();

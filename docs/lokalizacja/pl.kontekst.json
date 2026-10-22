@@ -5897,6 +5897,11 @@
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
     ]
   },
+  "Ten wypiek jest już zakończony albo przerwany.": {
+    "gdzie": [
+      "src/hooks/useFinishBake.ts (Alert.alert)"
+    ]
+  },
   "Teraz: {nazwa}": {
     "gdzie": [
       "src/components/stolnica/StrefaKroku.tsx (kod)"

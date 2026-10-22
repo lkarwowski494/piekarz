@@ -85,7 +85,8 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
       }
       return run(sql, ...ps);
     }) as typeof db.runAsync;
-    await expect(app.store.finishBake({ id: 'bake_koniec', recipeName: 'Mój chleb mieszany', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_live' })).resolves.toBeUndefined();
+    // D3a-fix: finishBake zwraca wynik ('zapisano' albo 'nie-trwa', P1-1)
+    await expect(app.store.finishBake({ id: 'bake_koniec', recipeName: 'Mój chleb mieszany', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_live' })).resolves.toBe('zapisano');
     expect(await wtracony).toEqual({ ok: true });
     db.runAsync = run;
     const raw = openRaw(APP_DB());

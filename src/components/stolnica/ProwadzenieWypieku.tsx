@@ -15,7 +15,7 @@ import * as Haptics from 'expo-haptics';
 import { t } from '../../lib/i18n';
 import { przerwijWypiek } from '../../lib/przerwij-wypiek';
 import { tapHaptic } from '../../lib/haptics';
-import { useZapisWypieku } from '../../hooks/useBakeSession';
+import { useZapisWypieku, type OdrzuconyZapis } from '../../hooks/useBakeSession';
 import { useFinishBake } from '../../hooks/useFinishBake';
 import { idSesji, zaczetyZDostepem, type BakeSession } from '../../data/bake-session-store';
 import { ensureNotificationPermission, getNotificationPermission } from '../../lib/notifications';
@@ -51,11 +51,13 @@ import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
 import { styles } from './stolnica-screen.styles';
 
-export function ProwadzenieWypieku({ start, nowy, naglowek, onKoniec, onKrok }: {
+export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, onOdrzucony }: {
   /** Trwający wypiek z zapisu albo nowy z planu (stan z chwili otwarcia; zegar liczony od zapisanego końca kroku). */
   start: BakeSession;
-  /** Wypiek z planu jeszcze bez zapisu: pierwszy zapis go tworzy. */
-  nowy: boolean;
+  /** Wersja wiersza z odczytu; null = wypiek z planu jeszcze bez zapisu (pierwszy zapis go tworzy). */
+  wersja: number | null;
+  /** Zapis odrzucony (stan w bazie inny niż na ekranie): ekran czyta wypieki od nowa [M3 D3a-fix]. */
+  onOdrzucony: (powod: OdrzuconyZapis) => void;
   /** Nad treścią prowadzenia (przełącznik wypieków). */
   naglowek?: ReactNode;
   /** Koniec albo przerwanie tego wypieku. */
@@ -87,8 +89,11 @@ export function ProwadzenieWypieku({ start, nowy, naglowek, onKoniec, onKrok }: 
   const { blokada, chron } = useAppAccess();
   const unitSystem = useUnitSystem();
 
+  // Czy wypiek ma wiersz w bazie (z hooka zapisu niżej): koniec wymaga wtedy tego wiersza (P1-1)
+  const czyZapisany = useRef<() => boolean>(() => wersja !== null);
   const finish = useFinishBake({
     sessionId,
+    czyZapisany: () => czyZapisany.current(),
     recipeName,
     startedAt,
     activeBakeData,
@@ -151,14 +156,15 @@ export function ProwadzenieWypieku({ start, nowy, naglowek, onKoniec, onKrok }: 
 
   // Trwający wypiek w bazie: powrót do kroku i zegara po zabiciu procesu [M1-audytor-generalny-019]; zegar skończony
   // na pierwszym planie zostawia w zapisie termin kroku, żeby po powrocie było widać, o ile minął
-  // (BR-ETAP-005 „Termin minął”) [M1-audytor-generalny-130]. Zapis tylko tego wypieku (M3 D3a).
-  useZapisWypieku(
+  // (BR-ETAP-005 „Termin minął”) [M1-audytor-generalny-130]. Zapis tylko tego wypieku, od wersji odczytu (M3 D3a, P1-1).
+  czyZapisany.current = useZapisWypieku(
     isActive
       ? { version: 2, steps, stepIdx: currentStepIdx, dutchOvenPhase,
           timerEndsAt: isRunning ? endAtMsRef.current ?? Date.now() + timeLeftSec * 1000 : isCompleted ? ostatniKoniecRef.current : null,
           pausedLeftSec: isRunning || isCompleted ? null : timeLeftSec, recipeName, startedAt, bake: activeBakeData }
       : null,
-    nowy
+    wersja,
+    onOdrzucony
   );
 
   // Bieżący krok dla przełącznika wypieków (BR-KAL-016 „Który krok czyj”)
@@ -290,12 +296,12 @@ export function ProwadzenieWypieku({ start, nowy, naglowek, onKoniec, onKrok }: 
     confirmDiscardBake(() => {
       setPlanOpen(false);
       // Pamięć, wiersz tego wypieku i powiadomienia; drugi trwający wypiek zostaje (BR-KAL-016) [M3 D3a]
-      void przerwijWypiek(sessionId);
       setActiveBakeData(null);
       setIsActive(false);
       setCurrentStepIdx(0);
       setIsRunning(false);
-      onKoniec();
+      // Powrót na „Dziś” dopiero po skasowaniu wiersza: karta przerwanego wypieku nie wraca (P2-5) [M3 D3a-fix]
+      void przerwijWypiek(sessionId).finally(onKoniec);
     });
   };
 

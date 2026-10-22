@@ -150,19 +150,24 @@ export function nowaSesja(bake: ActiveBakeState): BakeSession {
   };
 }
 
-/** Trwający wypiek do pokazania: sesja i to, czy to nowy wypiek z pamięci, którego jeszcze nie zapisano. */
+/**
+ * Trwający wypiek do pokazania: sesja, czy to nowy wypiek z pamięci, którego jeszcze nie zapisano, i wersja wiersza
+ * (null dla nowego), od której ekran zapisuje kroki (P1-1) [M3 D3a-fix].
+ */
 export interface SesjaDoPokazania {
   sesja: BakeSession;
   nowy: boolean;
+  wersja: number | null;
 }
 
 /**
  * Trwające wypieki do pokazania (Stolnica, Dziś, pytanie przy starcie): zapisane od najstarszego, a na końcu wypiek
- * przekazany z planu w pamięci, jeśli nie ma go jeszcze w zapisie (Stolnica zapisze go przy pierwszym kroku) [M3 D3a].
+ * przekazany z planu w pamięci, jeśli nie ma go jeszcze w zapisie (Stolnica go utworzy przy pierwszym kroku; gdy
+ * wiersz jednak jest, np. nieczytelny, utworzenie niczego nie nadpisuje) [M3 D3a].
  */
-export function sesjeDoPokazania(wPamieci: ActiveBakeState | null, zapisane: readonly BakeSession[]): SesjaDoPokazania[] {
-  const lista = zapisane.map((sesja) => ({ sesja, nowy: false }));
-  return wPamieci && !zapisane.some((s) => s.bake?.id === wPamieci.id) ? [...lista, { sesja: nowaSesja(wPamieci), nowy: true }] : lista;
+export function sesjeDoPokazania(wPamieci: ActiveBakeState | null, zapisane: readonly { sesja: BakeSession; wersja: number }[]): SesjaDoPokazania[] {
+  const lista = zapisane.map(({ sesja, wersja }) => ({ sesja, nowy: false, wersja }));
+  return wPamieci && !zapisane.some((s) => s.sesja.bake?.id === wPamieci.id) ? [...lista, { sesja: nowaSesja(wPamieci), nowy: true, wersja: null }] : lista;
 }
 
 /** Id wiersza bake_sessions dla sesji: id wypieku. */

@@ -8,7 +8,7 @@ import { useCallback, useState } from 'react';
 import { useFocusEffect } from 'expo-router';
 import { restoreTimerState, type TimerState } from '../core/bake-session';
 import { idSesji, sesjeDoPokazania, type BakeSession } from '../data/bake-session-store';
-import { loadActiveBakeSessions } from '../data/bake-sessions-store';
+import { loadActiveBakeSessionsZWersja } from '../data/bake-sessions-store';
 import { getActiveBake, getBakeLogs, getRecipes, getStarters } from '../data/sqlite-store';
 import { wykonajOdlozonaProsbeOOcene } from '../lib/prosba-o-ocene-odlozona';
 
@@ -36,7 +36,7 @@ export function useStanStartu(): DaneStartu {
       wykonajOdlozonaProsbeOOcene();
       void (async () => {
         // Nieudany odczyt zapisu to brak sesji, nie zgadnięty krok (bake-session-store parsuje z unknown)
-        const zapis = await loadActiveBakeSessions().catch(() => []);
+        const zapis = await loadActiveBakeSessionsZWersja().catch(() => []);
         const sesje = sesjeDoPokazania(getActiveBake(), zapis);
         const [wpisy, zakwasy, receptury] = await Promise.all([
           getBakeLogs().catch(() => []),

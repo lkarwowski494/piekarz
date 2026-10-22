@@ -30,7 +30,7 @@ export interface PlannedBake {
 export type BladLimitu = { kind: 'limit'; status: StatusSesji; max: number };
 /** Wypiek do zapisu kroku już nie trwa (koniec albo przerwanie wcześniej) [M3 D3a]. */
 export type BladBraku = { kind: 'brak'; id: string };
-export type ZapisSesji = { ok: true } | { ok: false; error: BladLimitu | BladBraku };
+export type ZapisSesji = { ok: true } | { ok: false; error: BladLimitu };
 
 /** Wiersz tabeli bake_sessions (ten sam kształt w pamięci, gdy nie ma bazy). */
 export interface WierszSesji {
@@ -104,7 +104,24 @@ function odczytaj<T>(lista: WierszSesji[], parse: (raw: string) => T | null): T[
 
 /** Trwające wypieki od najstarszego. */
 export async function loadActiveBakeSessions(): Promise<BakeSession[]> {
-  return odczytaj(await wiersze({ status: 'active' }), (raw) => parseBakeSession(raw));
+  return (await loadActiveBakeSessionsZWersja()).map((w) => w.sesja);
+}
+
+/** Trwający wypiek z wersją wiersza (updated_at), od której ekran zapisuje kolejne kroki [M3 D3a-fix, P1-1]. */
+export interface ZapisanyWypiek {
+  sesja: BakeSession;
+  wersja: number;
+}
+
+/** Trwające wypieki z wersją wiersza, od najstarszego. */
+export async function loadActiveBakeSessionsZWersja(): Promise<ZapisanyWypiek[]> {
+  const out: ZapisanyWypiek[] = [];
+  for (const w of await wiersze({ status: 'active' })) {
+    const sesja = parseBakeSession(w.session_json);
+    if (sesja) out.push({ sesja, wersja: w.updated_at });
+    else zachowajUszkodzony({ tabela: 'bake_sessions', id: w.id, surowe: w.session_json });
+  }
+  return out;
 }
 
 /** Zaplanowane wypieki od najstarszego wpisu. */
@@ -122,6 +139,13 @@ async function usunZRatunkiem(db: Db, filtr: Filtr): Promise<void> {
   const w = gdzie(filtr);
   await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
 }
+
+/**
+ * Warunek limitu (parametry: status, id, max): wiersz z nieczytelnym JSON-em (`json_valid` = 0) nie liczy się do
+ * limitu, bo nie da się go prowadzić ani pokazać; jego surowa treść jest w pliku ratunkowym (P2-2, wybór: nie liczyć,
+ * zamiast blokować start wypiekiem, którego użytkownik nie widzi) [M3 D3a-fix].
+ */
+const POZA_LIMITEM = '(SELECT count(*) FROM bake_sessions WHERE status = ? AND id <> ? AND json_valid(session_json)) < ?';
 
 /**
  * UPSERT jednego wiersza z limitem w JEDNEJ instrukcji, bez własnej transakcji [M3 D1b, przegląd danych D1 P2-1]:
@@ -145,7 +169,7 @@ async function zapisz(id: string, status: StatusSesji, json: string): Promise<Za
   const r = await writeOrThrow(() =>
     db.runAsync(
       `INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at)
-       SELECT ?, ?, ?, ?, ? WHERE (SELECT count(*) FROM bake_sessions WHERE status = ? AND id <> ?) < ?
+       SELECT ?, ?, ?, ?, ? WHERE ${POZA_LIMITEM}
        ON CONFLICT(id) DO UPDATE SET status = excluded.status, session_json = excluded.session_json, updated_at = excluded.updated_at;`,
       id,
       status,
@@ -165,27 +189,74 @@ export function saveActiveBakeSession(s: BakeSession): Promise<ZapisSesji> {
   return zapisz(idSesji(s), 'active', JSON.stringify(s));
 }
 
+/** Wiersz już jest (utworzenie) albo ma nowszy stan niż odczytany przez ekran (zapis kroku) [M3 D3a-fix]. */
+export type BladStanu = { kind: 'istnieje' | 'nieaktualny'; id: string };
+/** Wynik zapisu z wersją wiersza: ekran zapisuje następny krok od tej wersji. */
+export type ZapisWersji = { ok: true; wersja: number } | { ok: false; error: BladLimitu | BladBraku | BladStanu };
+
+async function istniejeAktywny(db: Db | null, id: string): Promise<boolean> {
+  if (!db) return memStore.bakeSessions.some((w) => w.id === id && w.status === 'active');
+  return (await db.getAllAsync<unknown>("SELECT id FROM bake_sessions WHERE id = ? AND status = 'active';", id)).length > 0;
+}
+
 /**
- * Zapis kroku, fazy i zegara wypieku, który już trwa: tylko UPDATE istniejącego wiersza `active` [M3 D3a, wyścig
- * z przeglądu danych D1]. Zapis spóźniony po końcu albo przerwaniu wypieku (wiersz skasowany) nic nie tworzy i zwraca
- * `brak`, więc zakończony wypiek nie wraca jako trwający. Jedna instrukcja bez własnej transakcji (P2-1).
+ * Pierwszy zapis nowego wypieku z planu: tylko gdy wiersza tego id nie ma (bez UPSERT-u), z limitem trwających,
+ * jedną instrukcją. Wiersz już jest (np. nieczytelny przy odczycie, a ekran wziął wypiek z pamięci jako nowy):
+ * `istnieje`, nic nie nadpisane (P2-1) [M3 D3a-fix].
  */
-export async function zapiszPostepWypieku(s: BakeSession): Promise<ZapisSesji> {
+export async function utworzWypiek(s: BakeSession): Promise<ZapisWersji> {
   assertWritable();
   const id = idSesji(s);
   const json = JSON.stringify(s);
-  const brak: ZapisSesji = { ok: false, error: { kind: 'brak', id } };
+  const teraz = Date.now();
   const db = await getDb();
+  let utworzono: boolean;
   if (!db) {
-    const byl = memStore.bakeSessions.find((w) => w.id === id && w.status === 'active');
-    if (!byl) return brak;
-    memStore.bakeSessions = memStore.bakeSessions.map((w) => (w === byl ? { ...w, session_json: json, updated_at: Date.now() } : w));
-    return { ok: true };
+    const zajete = memStore.bakeSessions.filter((w) => w.status === 'active' && w.id !== id).length >= MAX.active;
+    utworzono = !zajete && !memStore.bakeSessions.some((w) => w.id === id);
+    if (utworzono) memStore.bakeSessions = [...memStore.bakeSessions, { id, status: 'active', session_json: json, created_at: teraz, updated_at: teraz }];
+  } else {
+    const r = await writeOrThrow(() =>
+      db.runAsync(
+        `INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at)
+         SELECT ?, 'active', ?, ?, ? WHERE ${POZA_LIMITEM} ON CONFLICT(id) DO NOTHING;`,
+        id, json, teraz, teraz, 'active', id, MAX.active
+      )
+    );
+    utworzono = r.changes > 0;
   }
-  const r = await writeOrThrow(() =>
-    db.runAsync("UPDATE bake_sessions SET session_json = ?, updated_at = ? WHERE id = ? AND status = 'active';", json, Date.now(), id)
-  );
-  return r.changes === 0 ? brak : { ok: true };
+  if (utworzono) return { ok: true, wersja: teraz };
+  if (db ? (await db.getAllAsync<unknown>('SELECT id FROM bake_sessions WHERE id = ?;', id)).length > 0 : memStore.bakeSessions.some((w) => w.id === id)) {
+    return { ok: false, error: { kind: 'istnieje', id } };
+  }
+  return { ok: false, error: { kind: 'limit', status: 'active', max: MAX.active } };
+}
+
+/**
+ * Zapis kroku, fazy i zegara wypieku, który już trwa: UPDATE istniejącego wiersza `active` tylko z wersji, którą ekran
+ * odczytał albo zapisał (P1-1: druga instancja Stolnicy ze starym stanem nie cofa postępu) [M3 D3a-fix]. Nowa wersja
+ * rośnie zawsze, także w tej samej milisekundzie. Wiersza nie ma (koniec albo przerwanie wcześniej): `brak`, nic nie
+ * tworzy (wyścig z przeglądu danych D1); nowszy stan: `nieaktualny`. Jedna instrukcja bez własnej transakcji (P2-1).
+ */
+export async function zapiszPostepWypieku(s: BakeSession, wersja: number): Promise<ZapisWersji> {
+  assertWritable();
+  const id = idSesji(s);
+  const json = JSON.stringify(s);
+  const nowa = Math.max(wersja + 1, Date.now());
+  const db = await getDb();
+  let zmieniono: boolean;
+  if (!db) {
+    const byl = memStore.bakeSessions.find((w) => w.id === id && w.status === 'active' && w.updated_at === wersja);
+    if (byl) memStore.bakeSessions = memStore.bakeSessions.map((w) => (w === byl ? { ...w, session_json: json, updated_at: nowa } : w));
+    zmieniono = byl !== undefined;
+  } else {
+    const r = await writeOrThrow(() =>
+      db.runAsync("UPDATE bake_sessions SET session_json = ?, updated_at = ? WHERE id = ? AND status = 'active' AND updated_at = ?;", json, nowa, id, wersja)
+    );
+    zmieniono = r.changes > 0;
+  }
+  if (zmieniono) return { ok: true, wersja: nowa };
+  return { ok: false, error: { kind: (await istniejeAktywny(db, id)) ? 'nieaktualny' : 'brak', id } };
 }
 
 /** Zapis planu; szósty zaplanowany → błąd limitu (BR-KAL-009). */
@@ -231,24 +302,29 @@ export async function saveBakeSession(session: BakeSession | null): Promise<void
 }
 
 type Db = SQLite.SQLiteDatabase;
-/** Koniec jednego wypieku: `sessionId` = id jego wiersza (BR-KAL-016); bez id żadna sesja nie znika [M3 D3a]. */
-export type KoniecSesji = { sessionId?: string };
+/**
+ * Koniec jednego wypieku: `sessionId` = id jego wiersza (BR-KAL-016); bez id żadna sesja nie znika [M3 D3a].
+ * `wymagajSesji`: ekran wie, że wypiek był zapisany; gdy wiersza już nie ma (koniec w drugiej instancji Stolnicy),
+ * koniec nic nie zapisuje — bez drugiego wpisu i drugiego odliczenia mąki (P1-1) [M3 D3a-fix].
+ */
+export type KoniecSesji = { sessionId?: string; wymagajSesji?: boolean };
 
 /**
- * W transakcji końca wypieku (finishBake): receptura z sesji kończonego wypieku i skasowanie tylko jej wiersza
- * (`sessionId`). Zwraca id receptury albo undefined.
+ * W transakcji końca wypieku (finishBake): czy wiersz kończonego wypieku był, receptura z jego sesji i skasowanie tylko
+ * tego wiersza (`sessionId`).
  */
-export async function zakonczSesjeWTransakcji(db: Db | null, opts: KoniecSesji): Promise<string | undefined> {
+export async function zakonczSesjeWTransakcji(db: Db | null, opts: KoniecSesji): Promise<{ trwal: boolean; recipeId?: string }> {
   const filtr: Filtr | null = opts.sessionId !== undefined ? { id: opts.sessionId } : null;
-  if (!filtr) return undefined;
+  if (!filtr) return { trwal: false };
   const lista = await wiersze(filtr);
   const recipeId = odczytaj(lista, (raw) => parseBakeSession(raw)).find((s) => s.bake?.recipeId !== undefined)?.bake?.recipeId;
-  if (!db) return recipeId;
+  const wynik = { trwal: lista.length > 0, ...(recipeId !== undefined ? { recipeId } : {}) };
+  if (!db || lista.length === 0) return wynik;
   // Nieczytelne wiersze (zgłoszone przez odczytaj) w pliku ratunkowym, zanim DELETE je skasuje (P2-4)
   await zapisUszkodzonych();
   const w = gdzie(filtr);
   await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
-  return recipeId;
+  return wynik;
 }
 
 /** Pamięć po zatwierdzeniu transakcji końca wypieku (albo bez bazy). */

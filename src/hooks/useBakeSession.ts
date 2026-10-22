@@ -9,20 +9,35 @@ import { StorageWriteError } from '../data/storage-status';
 import { saveErrorText } from '../lib/save-guard';
 import { t } from '../lib/i18n';
 import { type BakeSession } from '../data/bake-session-store';
-import { saveActiveBakeSession, zapiszPostepWypieku } from '../data/bake-sessions-store';
+import { utworzWypiek, zapiszPostepWypieku, type ZapisWersji } from '../data/bake-sessions-store';
 import { resyncNotifications } from '../lib/notifications';
 
+/** Zapis odrzucony, bo stan w bazie jest inny niż na ekranie: ekran przestaje zapisywać i czyta wypieki od nowa. */
+export type OdrzuconyZapis = 'limit' | 'istnieje' | 'nieaktualny' | 'brak';
+
 /**
- * Zapisuje każdą zmianę kroku, fazy i zegara wypieku `snapshot` (null = nic nie trwa). Nowy wypiek z planu (`nowy`)
- * pierwszy zapis tworzy (z limitem trwających); potem zapis zmienia tylko istniejący wiersz, więc spóźniony zapis po
- * końcu albo przerwaniu wypieku go nie przywraca (wyścig z przeglądu danych D1) [M3 D3a].
+ * Zapisuje każdą zmianę kroku, fazy i zegara wypieku `snapshot` (null = nic nie trwa) [M3 D3a, D3a-fix].
+ * - Nowy wypiek z planu (`wersja` null): pierwszy zapis tylko tworzy wiersz (z limitem trwających), niczego nie nadpisuje.
+ * - Potem zapis zmienia wiersz tylko z wersji, którą ten ekran odczytał albo zapisał: druga instancja Stolnicy ze
+ *   starym stanem nie cofa postępu, a spóźniony zapis po końcu albo przerwaniu wypieku go nie przywraca (P1-1).
+ * Odrzucony zapis (limit, wiersz już jest, nowszy stan, wypiek już nie trwa): ekran dalej nie zapisuje i woła
+ * `onOdrzucony`; przy limicie komunikat „Prowadzisz już 2 wypieki” (P2-2). Zwraca, czy wypiek ma wiersz w bazie.
  */
-export function useZapisWypieku(snapshot: BakeSession | null, nowy: boolean): void {
+export function useZapisWypieku(
+  snapshot: BakeSession | null,
+  wersjaOdczytu: number | null,
+  onOdrzucony: (powod: OdrzuconyZapis) => void
+): () => boolean {
   const snapRef = useRef(snapshot);
   snapRef.current = snapshot;
-  const zapisany = useRef(!nowy);
+  const wersja = useRef<number | null>(wersjaOdczytu);
+  const zatrzymany = useRef(false);
+  const odrzuconyRef = useRef(onOdrzucony);
+  odrzuconyRef.current = onOdrzucony;
   // Wypiek, przy którym już pokazano „Nie zapisano”; po udanym zapisie komunikat może wrócić [M1-audytor-generalny-120]
   const alerted = useRef<string | null>(null);
+  // Zapisy po kolei: następny zapis startuje od wersji poprzedniego
+  const kolejka = useRef<Promise<unknown>>(Promise.resolve());
   const key = snapshot ? JSON.stringify(snapshot) : null;
   useEffect(() => {
     const s = snapRef.current;
@@ -33,22 +48,30 @@ export function useZapisWypieku(snapshot: BakeSession | null, nowy: boolean): vo
       alerted.current = bakeId;
       Alert.alert(t('Nie zapisano'), tekst);
     };
-    // Nieudany zapis postępu nie przerywa wypieku (zegar w pamięci działa dalej), ale nie jest cichy:
-    // jeden komunikat „Nie zapisano” na wypiek (05-architekt-501, wybór P-120 a).
-    // Po zapisie uzgodnienie powiadomień z bazą (ADR-006) [M1-audytor-generalny-006]
-    void (zapisany.current ? zapiszPostepWypieku(s) : saveActiveBakeSession(s))
-      .then((r) => {
-        if (r.ok) {
-          zapisany.current = true;
-          alerted.current = null;
-          return resyncNotifications();
-        }
-        // Trzeci trwający: nic nie zapisane (limit, BR-ETAP-006); wypiek, który już nie trwa: zapis bez skutku
-        if (r.error.kind === 'limit') pokaz(t('Prowadzisz już 2 wypieki'));
-        return undefined;
-      })
-      .catch((e: unknown) => {
+    const zapisz = async (): Promise<void> => {
+      if (zatrzymany.current) return;
+      const w = wersja.current;
+      // Nieudany zapis postępu nie przerywa wypieku (zegar w pamięci działa dalej), ale nie jest cichy:
+      // jeden komunikat „Nie zapisano” na wypiek (05-architekt-501, wybór P-120 a).
+      let r: ZapisWersji;
+      try {
+        r = w === null ? await utworzWypiek(s) : await zapiszPostepWypieku(s, w);
+      } catch (e: unknown) {
         if (e instanceof StorageWriteError) pokaz(saveErrorText(e));
-      });
+        return;
+      }
+      if (r.ok) {
+        wersja.current = r.wersja;
+        alerted.current = null;
+        // Po zapisie uzgodnienie powiadomień z bazą (ADR-006) [M1-audytor-generalny-006]
+        void resyncNotifications();
+        return;
+      }
+      zatrzymany.current = true;
+      if (r.error.kind === 'limit') pokaz(t('Prowadzisz już 2 wypieki'));
+      odrzuconyRef.current(r.error.kind);
+    };
+    kolejka.current = kolejka.current.then(zapisz, zapisz);
   }, [key]);
+  return () => wersja.current !== null;
 }

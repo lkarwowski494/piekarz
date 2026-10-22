@@ -2,7 +2,7 @@
 // [M3 p1b a1b; M3 D3a: wiele wypieków per id, przegląd danych D1 P2-3]
 import { getActiveBake, setActiveBake } from '../data/sqlite-store';
 import { idSesji, nowaSesja, sesjeDoPokazania } from '../data/bake-session-store';
-import { deleteBakeSession, loadActiveBakeSessions, saveActiveBakeSession } from '../data/bake-sessions-store';
+import { deleteBakeSession, loadActiveBakeSessionsZWersja, utworzWypiek } from '../data/bake-sessions-store';
 import { guardSave } from './save-guard';
 import { resyncNotifications } from './notifications';
 
@@ -17,7 +17,7 @@ export interface TrwajacyWypiek {
  * jeszcze nie zapisała. Nieczytelny zapis liczy się jak brak, tak jak przy przywracaniu na Stolnicy.
  */
 export async function trwajaceWypieki(): Promise<TrwajacyWypiek[]> {
-  const zapis = await loadActiveBakeSessions().catch(() => []);
+  const zapis = await loadActiveBakeSessionsZWersja().catch(() => []);
   return sesjeDoPokazania(getActiveBake(), zapis).map(({ sesja }) => {
     const nazwa = sesja.recipeName.trim();
     return { id: idSesji(sesja), nazwa: nazwa === '' ? null : nazwa };
@@ -36,11 +36,11 @@ export async function czyTrwaWypiek(): Promise<boolean> {
 export async function utrwalWypiekZPamieci(): Promise<boolean> {
   const pamiec = getActiveBake();
   if (!pamiec) return true;
-  const zapis = await loadActiveBakeSessions().catch(() => []);
-  if (zapis.some((s) => s.bake?.id === pamiec.id)) return true;
   let ok = false;
   await guardSave(async () => {
-    ok = (await saveActiveBakeSession(nowaSesja(pamiec))).ok;
+    // Tylko utworzenie: gdy wiersz już jest (zapisany albo nieczytelny), nic nie nadpisuje (P2-1) [M3 D3a-fix]
+    const r = await utworzWypiek(nowaSesja(pamiec));
+    ok = r.ok || r.error.kind === 'istnieje';
   })();
   return ok;
 }

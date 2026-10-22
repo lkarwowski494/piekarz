@@ -5,6 +5,8 @@
 // ============================================================================
 
 import { useRef, useState } from 'react';
+import { Alert } from 'react-native';
+import { t } from '../lib/i18n';
 import { guardSave } from '../lib/save-guard';
 import { finishBake, getActiveBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
 import { resyncNotifications } from '../lib/notifications';
@@ -19,6 +21,8 @@ type Smak = FinishBakeModalProps['tasteProfile'];
 export function useFinishBake(opts: {
   /** Id wiersza kończonego wypieku (idSesji): koniec kasuje tylko jego sesję (BR-KAL-016 Koniec jednego) [M3 D3a]. */
   sessionId: string;
+  /** Czy wypiek ma wiersz w bazie: wtedy koniec wymaga tego wiersza (bez drugiego wpisu, P1-1) [M3 D3a-fix]. */
+  czyZapisany: () => boolean;
   recipeName: string;
   startedAt: number;
   activeBakeData: ActiveBakeState | null;
@@ -49,9 +53,11 @@ export function useFinishBake(opts: {
     }
   };
   const zapisz = guardSave(async () => {
-    await finishBake({
+    const wynik = await finishBake({
       id: `bake_${Date.now()}`,
       recipeName,
+      // Id receptury z wypieku także wtedy, gdy wiersza sesji nie ma (pierwszy zapis się nie udał) [M3 D3a-fix, P2-3]
+      ...(activeBakeData?.recipeId !== undefined ? { recipeId: activeBakeData.recipeId } : {}),
       startedAt,
       finishedAt: Date.now(),
       ambientTemp: activeBakeData?.ambientTempC,
@@ -62,7 +68,14 @@ export function useFinishBake(opts: {
       crustScore,
       tasteProfile,
       sensoryProfile: { ...sensoryProfile, openCrumb: crumbScore, crustCrispness: crustScore },
-    }, activeBakeData?.calculatedRecipe?.flours ?? [], { sessionId: opts.sessionId });
+    }, activeBakeData?.calculatedRecipe?.flours ?? [], { sessionId: opts.sessionId, wymagajSesji: opts.czyZapisany() });
+    // Wypiek zakończony albo przerwany wcześniej w drugiej instancji ekranu: nic nie zapisane, powrót bez oceny (P1-1)
+    if (wynik === 'nie-trwa') {
+      setVisible(false);
+      Alert.alert(t('Ten wypiek jest już zakończony albo przerwany.'));
+      opts.onFinished();
+      return;
+    }
 
     // Sesja tego wypieku skasowana w transakcji zakończenia (finishBake) [M1-audytor-generalny-120]; pamięć tylko
     // wtedy, gdy trzyma ten wypiek (drugi trwający zostaje) [M3 D3a]

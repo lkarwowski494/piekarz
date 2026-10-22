@@ -100,7 +100,7 @@ describe('D3a: Stolnica przy dwóch trwających wypiekach', () => {
     setActiveBake(null);
     setLang('pl');
     mockParams = {};
-    mockReplace.mockClear();
+    mockReplace.mockReset();
     jest.spyOn(Date, 'now').mockImplementation(() => now);
     await initDatabase();
     await saveBakeSession(null);
@@ -129,9 +129,11 @@ describe('D3a: Stolnica przy dwóch trwających wypiekach', () => {
     act(() => tree.unmount());
   });
 
-  it('bez trasy otwiera najstarszy trwający; jeden trwający bez przełącznika', async () => {
+  // Zmiana D3a-fix (P2-6): bez id przy dwóch trwających nie zgadujemy wypieku — wybór na „Dziś”
+  it('bez trasy przy dwóch trwających: przekierowanie na Dziś (wybór); jeden trwający: ten wypiek, bez przełącznika', async () => {
     let tree = await render();
-    expect(nazwaNaEkranie(tree.root)).toBe('Chleb');
+    expect(nazwaNaEkranie(tree.root)).toBe('');
+    expect(mockReplace).toHaveBeenCalledWith('/');
     act(() => tree.unmount());
     await saveBakeSession(null);
     await saveBakeSession(PIZZA);
@@ -153,6 +155,105 @@ describe('D3a: Stolnica przy dwóch trwających wypiekach', () => {
     expect(z.bake_pizza.stepIdx).toBe(2);
     expect(z.bake_chleb).toEqual(CHLEB);
     act(() => tree.unmount());
+  });
+
+  it('BR-KAL-016 przełączenie: „Zrobione” na pizzy, przełączenie na chleb i „Zrobione” na chlebie — każdy wiersz ma swój krok', async () => {
+    mockParams = { wypiek: 'bake_pizza' };
+    const tree = await render();
+    await act(async () => {
+      tree.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
+    });
+    await flush();
+    await act(async () => {
+      tree.root.findByProps({ testID: 'przelacznik-wypiek-bake_chleb' }).props.onPress();
+    });
+    await flush();
+    await act(async () => {
+      tree.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
+    });
+    await flush();
+    const z = await zapis();
+    expect({ pizza: z.bake_pizza.stepIdx, chleb: z.bake_chleb.stepIdx }).toEqual({ pizza: 2, chleb: 3 });
+    expect(z.bake_pizza.bake).toEqual(PIZZA.bake);
+    act(() => tree.unmount());
+  });
+
+  it('P2-4: przełączenie na wypiek, który w tle przestał trwać, pokazuje trwający zamiast pustego ekranu', async () => {
+    mockParams = { wypiek: 'bake_pizza' };
+    const tree = await render();
+    const { deleteBakeSession } = require('../data/bake-sessions-store') as typeof import('../data/bake-sessions-store');
+    await deleteBakeSession('bake_chleb');
+    await act(async () => {
+      tree.root.findByProps({ testID: 'przelacznik-wypiek-bake_chleb' }).props.onPress();
+    });
+    await flush();
+    expect(nazwaNaEkranie(tree.root)).toBe('Pizza');
+    act(() => tree.unmount());
+  });
+
+  it('P2-5: przerwanie wraca na Dziś dopiero po skasowaniu wiersza', async () => {
+    mockParams = { wypiek: 'bake_pizza' };
+    const kolejnosc: string[] = [];
+    const sesje = require('../data/bake-sessions-store') as typeof import('../data/bake-sessions-store');
+    const usun = sesje.deleteBakeSession;
+    jest.spyOn(sesje, 'deleteBakeSession').mockImplementation(async (id: string) => {
+      await usun(id);
+      kolejnosc.push(`skasowano ${id}`);
+    });
+    mockReplace.mockImplementation((trasa: string) => kolejnosc.push(`powrót ${trasa}`));
+    const tree = await render();
+    await act(async () => {
+      pressables(tree.root, 'Plan wypieku')[0].props.onPress();
+    });
+    await act(async () => {
+      tree.root.findByProps({ testID: 'discard-bake-btn' }).props.onPress();
+    });
+    await flush();
+    expect(kolejnosc).toEqual(['skasowano bake_pizza', 'powrót /']);
+    act(() => tree.unmount());
+  });
+
+  it('P2-2: trzeci wypiek z planu ponad limit nie jest prowadzony bez zapisu — komunikat, powrót na Dziś, pamięć pusta, zapis bez zmian', async () => {
+    const alert = jest.spyOn(require('react-native').Alert, 'alert').mockImplementation(() => undefined);
+    setActiveBake({ id: 'bake_trzeci', recipeName: 'Bagietka', startedAt: now, currentStageId: 'mix', zaczetyZDostepem: true });
+    mockParams = { wypiek: 'bake_trzeci' };
+    const tree = await render();
+    await flush();
+    expect(alert.mock.calls.map((c) => c[1])).toContain('Prowadzisz już 2 wypieki');
+    expect(mockReplace).toHaveBeenCalledWith('/');
+    const { getActiveBake } = require('../data/sqlite-store') as typeof import('../data/sqlite-store');
+    expect(getActiveBake()).toBeNull();
+    expect(Object.keys(await zapis()).sort()).toEqual(['bake_chleb', 'bake_pizza']);
+    act(() => tree.unmount());
+  });
+
+  it('P2-3: recipe_id przy końcu z ekranu — także gdy pierwszy zapis wypieku się nie udał (wiersza sesji brak)', async () => {
+    const { control } = require('../data/__tests__/helpers/node-sqlite-adapter');
+    jest.spyOn(require('react-native').Alert, 'alert').mockImplementation(() => undefined);
+    await saveBakeSession(null);
+    setActiveBake({ id: 'bake_z_receptury', recipeName: 'Chałka', recipeId: 'sweet_chalka', startedAt: now, currentStageId: 'mix', zaczetyZDostepem: true });
+    mockParams = { wypiek: 'bake_z_receptury' };
+    control().failWritesMatching = /bake_sessions/;
+    const tree = await render();
+    control().failWritesMatching = null;
+    await act(async () => {
+      pressables(tree.root, 'Plan wypieku')[0].props.onPress();
+    });
+    await act(async () => {
+      pressables(tree.root, t(kroki[kroki.length - 1].name))[0].props.onPress();
+    });
+    await act(async () => {
+      tree.root.findByProps({ testID: 'next-or-finish-step-btn' }).props.onPress();
+    });
+    await act(async () => {
+      await pressables(tree.root, 'Zapisz')[0].props.onPress();
+    });
+    await flush();
+    const wpis = (await getBakeLogs()).find((b) => b.recipeName === 'Chałka');
+    expect(wpis?.recipeId).toBe('sweet_chalka');
+    act(() => tree.unmount());
+    // Ten sam id wpisu (zegar stały w pliku) nie może zasłonić wpisów kolejnych testów
+    await (require('../data/sqlite-store') as typeof import('../data/sqlite-store')).deleteBakeLog(wpis!.id);
   });
 
   it('BR-KAL-016 Koniec jednego: koniec pizzy z oceną zapisuje jej wpis, a chleb trwa dalej na tym samym kroku z tym samym zegarem', async () => {

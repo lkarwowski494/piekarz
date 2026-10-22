@@ -47,6 +47,11 @@
       "od": "2026-10-22"
     },
     {
+      "klucz": "Ten wypiek jest już zakończony albo przerwany.",
+      "powod": "komunikat przy „Zapisz” oceny na drugiej instancji Stolnicy, gdy wypiek zakończono albo przerwano wcześniej (P1-1) [M3 D3a-fix]",
+      "od": "2026-10-22"
+    },
+    {
       "klucz": "Przerośnięte ciasto",
       "powod": "protokół ratunkowy Doktora (OVERPROOFED_COLLAPSE, titlePl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
       "od": "2026-10-22"

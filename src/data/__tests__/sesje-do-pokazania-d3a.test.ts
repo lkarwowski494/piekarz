@@ -19,11 +19,12 @@ describe('D3a: sesjeDoPokazania i nowaSesja', () => {
   });
 
   it('sesjeDoPokazania: zapisane bez zmian i nie nowe; wypiek z pamięci na końcu jako nowy, a już zapisany nie dubluje się', () => {
+    // D3a-fix: z wersją wiersza (P1-1); nowy wypiek bez wersji
     const zapisana: BakeSession = { ...nowaSesja(bake('bake_a')), stepIdx: 3 };
     expect(sesjeDoPokazania(null, [])).toEqual([]);
-    expect(sesjeDoPokazania(null, [zapisana])).toEqual([{ sesja: zapisana, nowy: false }]);
-    const lista = sesjeDoPokazania(bake('bake_b', T + 1), [zapisana]);
-    expect(lista.map((w) => [w.sesja.bake?.id, w.nowy, w.sesja.stepIdx])).toEqual([['bake_a', false, 3], ['bake_b', true, 0]]);
-    expect(sesjeDoPokazania(bake('bake_a'), [zapisana])).toEqual([{ sesja: zapisana, nowy: false }]);
+    expect(sesjeDoPokazania(null, [{ sesja: zapisana, wersja: 7 }])).toEqual([{ sesja: zapisana, nowy: false, wersja: 7 }]);
+    const lista = sesjeDoPokazania(bake('bake_b', T + 1), [{ sesja: zapisana, wersja: 7 }]);
+    expect(lista.map((w) => [w.sesja.bake?.id, w.nowy, w.sesja.stepIdx, w.wersja])).toEqual([['bake_a', false, 3, 7], ['bake_b', true, 0, null]]);
+    expect(sesjeDoPokazania(bake('bake_a'), [{ sesja: zapisana, wersja: 7 }])).toEqual([{ sesja: zapisana, nowy: false, wersja: 7 }]);
   });
 });
