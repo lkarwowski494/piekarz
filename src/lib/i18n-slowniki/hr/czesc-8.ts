@@ -1,6 +1,16 @@
 // Słownik hr, część 8 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
+  'Hydratacja zakwasu musi mieścić się w zakresie 20–200%': 'Hidratacija kvasa mora biti u rasponu 20–200 %',
+  'Lievito Madre odśwież 3 razy co 4 h przed zarobieniem ciasta. Masło (25%) dodawaj stopniowo porcjami pod koniec wyrabiania, gdy siatka glutenowa jest już w pełni rozwinięta.': 'Osvježi Lievito Madre 3 puta svaka 4 h prije zamjesa tijesta. Maslac (25 %) dodaj postupno, u dijelovima, pri kraju mijesenja, kad je glutenska mreža već potpuno razvijena.',
+  'Pizza Napoletana Verace (48 h)': 'Pizza Napoletana Verace (48 h)',
+  'Wydłużona fermentacja w chłodzie (18–24 h w 4°C). Niższą temperaturę fermentacji wiąże się z kwasem octowym. Wypiek z mocnym zaparowaniem.': 'Produljena fermentacija na hladnom (18–24 h na 4 °C). Niža temperatura fermentacije povezuje se s octenom kiselinom. Pečenje uz jako zaparivanje.',
+  'Wymieszaj i przełóż bezpośrednio do wysmarowanej i posypanej otrębami keksówki. Jednorazowy rozrost w cieple do podwojenia (ok. 3–4 h). Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.': 'Promiješaj i prebaci izravno u namazan kalup za kruh posut mekinjama. Jedno dizanje na toplom do udvostručenja (oko 3–4 h). Prema King Arthur Baking, pečeni raženi kruh od kiselog tijesta trebao bi odmoriti 24 sata prije rezanja, radi najbolje kvalitete.',
+  'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.': 'Pečenje u loncu od lijevanog željeza. 4 serije preklapanja (coil fold) u razmacima od 30 minuta. Hladna fermentacija u hladnjaku 12–16 sati.',
+  'Ziarna upraż na suchej patelni i zalej ciepłą wodą na 2 h przed dodaniem do ciasta przy laminacji. Orkisz wyrabiaj delikatnie, unikaj nadmiernego naciągania.': 'Sjemenke isprži na suhoj tavi i prelij toplom vodom 2 h prije dodavanja u tijesto tijekom laminacije. Pir mijesi nježno, izbjegavaj pretjerano rastezanje.',
+  'Uczeń Piekarski': 'Pekarski učenik',
+  '{namePl}: Czas dojrzewania {fermentationTimeHours}. {flavorProfilePl}': '{namePl}: Vrijeme zrenja {fermentationTimeHours}. {flavorProfilePl}',
+  'Mąka pszenna typ 650 (chlebowa jasna)': 'Svijetlo pšenično brašno (za kruh)',
   'Mąka pszenna Manitoba / Forte (W > 300)': 'Pšenično brašno Manitoba / Forte (W > 300)',
   'Mąka żytnia typ 720': 'Svijetlo raženo brašno',
   'Mąka z pszenicy durum (Semolina)': 'Brašno od durum pšenice (semolina)',
