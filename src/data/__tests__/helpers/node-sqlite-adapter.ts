@@ -104,7 +104,6 @@ function wrap(file: string) {
   const guardRead = (sql: string) => {
     if (c.failReadsMatching && c.failReadsMatching.test(sql)) throw new Error('SQLITE_IOERR_READ: disk I/O error');
   };
-  let inTx = false;
   const self = {
     databasePath: file,
     execAsync: async (sql: string): Promise<void> => {
@@ -124,18 +123,16 @@ function wrap(file: string) {
       guardRead(sql);
       return (db.prepare(sql).get(...params(ps)) as T | undefined) ?? null;
     },
+    // Jak expo-sqlite 57.0.4 (build/SQLiteDatabase.js, withTransactionAsync): błąd, także samego BEGIN w trakcie
+    // cudzej transakcji na tym połączeniu, kończy się ROLLBACK, który cofa tę cudzą transakcję [M3 D1b, P2-1].
     withTransactionAsync: async (fn: () => Promise<void>): Promise<void> => {
-      if (inTx) throw new Error('Zagnieżdżona transakcja');
-      inTx = true;
-      db.exec('BEGIN');
       try {
+        db.exec('BEGIN');
         await fn();
         db.exec('COMMIT');
       } catch (e) {
         db.exec('ROLLBACK');
         throw e;
-      } finally {
-        inTx = false;
       }
     },
     closeAsync: async (): Promise<void> => {

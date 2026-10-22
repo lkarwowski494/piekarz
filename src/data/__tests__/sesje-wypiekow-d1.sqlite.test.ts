@@ -100,13 +100,17 @@ describe('D1: sesje wypieków i recipe_id', () => {
     zalozBaze1014(APP_DB(), 'v2-pauza');
     const zapis = jest.mocked(FileSystem.writeAsStringAsync);
     const oryginal = zapis.getMockImplementation();
+    if (!oryginal) throw new Error('mock writeAsStringAsync bez implementacji (jest.setup.js)'); // [M3 D1b, P2-6]
     zapis.mockImplementation(async (uri: string, tresc: string) => {
       if (uri.includes('sesja-przed-migracja-')) throw new Error('ENOSPC: no space left on device');
       mockFiles.set(uri, tresc);
     });
     const app = restartApp();
-    await app.schema.initDatabase();
-    if (oryginal) zapis.mockImplementation(oryginal);
+    try {
+      await app.schema.initDatabase();
+    } finally {
+      zapis.mockImplementation(oryginal);
+    }
     expect(app.status.getStorageState()).toBe('unavailable');
     expect(app.status.getRescueFile()).toMatch(/backup_pre_migration-v5-/);
     const raw = openRaw(APP_DB());
@@ -119,6 +123,8 @@ describe('D1: sesje wypieków i recipe_id', () => {
     await again.schema.initDatabase();
     expect(again.status.getStorageState()).toBe('ok');
     expect(idSesji()).toEqual(['bake_live']);
+    // Kopie przed migracją: jedna z nieudanej próby i jedna z udanej (sprzątanie powyżej 2: d1b-przeglad-danych) [M3 D1b, P2-6]
+    expect(require('node:fs').readdirSync(require('node:path').dirname(APP_DB())).filter((f: string) => f.startsWith('backup_pre_migration-v5-'))).toHaveLength(2);
   });
 
   it('uszkodzony wiersz sesji jest pomijany i trafia do pliku ratunkowego, inne sesje czytają się dalej', async () => {

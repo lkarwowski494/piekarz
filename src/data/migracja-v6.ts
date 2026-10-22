@@ -19,7 +19,12 @@ async function surowaSesja(db: SQLite.SQLiteDatabase): Promise<string | null> {
   const tab = await db.getFirstAsync<{ c: unknown }>("SELECT count(*) AS c FROM sqlite_master WHERE type = 'table' AND name = 'app_settings';");
   if (tab?.c !== 1) return null;
   const row = await db.getFirstAsync<{ value: unknown }>('SELECT value FROM app_settings WHERE key = ?;', BAKE_SESSION_KEY);
-  return typeof row?.value === 'string' ? row.value : '';
+  const v = row?.value;
+  if (v === undefined || v === null) return '';
+  if (typeof v === 'string') return v;
+  if (typeof v === 'number' || typeof v === 'bigint') return String(v);
+  // Wartość, która nie jest tekstem (BLOB, liczba): surowo jako JSON do pliku ratunkowego, nie jak pusta [M3 D1b, P2-5]
+  return JSON.stringify(v instanceof Uint8Array ? Array.from(v) : v);
 }
 
 /** Plik ratunkowy z surową starą sesją; pusta albo brak sesji = bez pliku; ta sama treść z poprzedniej próby = bez drugiego. */

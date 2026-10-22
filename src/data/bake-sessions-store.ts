@@ -10,7 +10,7 @@ import type { SessionStep } from '../core/bake-steps';
 import { MAX_TRWAJACYCH_WYPIEKOW, MAX_ZAPLANOWANYCH_WYPIEKOW } from '../core/limity-wypiekow';
 import { getDb, memStore } from './sqlite-schema';
 import { assertWritable, writeOrThrow } from './storage-status';
-import { zachowajUszkodzony } from './uszkodzone-wiersze';
+import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
 import { isObj, isNum, isStr } from './row-parsers';
 import { idSesji, isSessionStep, parseBakeSession, type BakeSession } from './bake-session-store';
 
@@ -67,16 +67,22 @@ export function parsePlannedBake(raw: string): PlannedBake | null {
   return { version: 1, id: v.id, recipeName: v.recipeName, ...recipeId, plannedStartAt: v.plannedStartAt, steps };
 }
 
-type Filtr = { id: string } | { status: StatusSesji };
+/** Wiersze jednego id albo jednego statusu (opcjonalnie bez wiersza `poza`). */
+type Filtr = { id: string } | { status: StatusSesji; poza?: string };
+
+/** Warunek SQL z zamkniętej listy kolumn i jego parametry (wartości zawsze jako `?`). */
+function gdzie(filtr: Filtr): { sql: string; params: string[] } {
+  if ('id' in filtr) return { sql: 'id = ?', params: [filtr.id] };
+  return filtr.poza === undefined ? { sql: 'status = ?', params: [filtr.status] } : { sql: 'status = ? AND id <> ?', params: [filtr.status, filtr.poza] };
+}
 
 async function wiersze(filtr: Filtr): Promise<WierszSesji[]> {
   const db = await getDb();
-  const pasuje = (w: WierszSesji) => ('id' in filtr ? w.id === filtr.id : w.status === filtr.status);
+  const pasuje = (w: WierszSesji) => ('id' in filtr ? w.id === filtr.id : w.status === filtr.status && w.id !== filtr.poza);
   if (!db) return memStore.bakeSessions.filter(pasuje).sort(kolejnosc);
   const out: WierszSesji[] = [];
-  // Nazwa kolumny z zamkniętej listy (id albo status), wartość jako parametr
-  const sql = `${SELECT} WHERE ${'id' in filtr ? 'id' : 'status'} = ? ORDER BY created_at, id;`;
-  for (const r of await db.getAllAsync<unknown>(sql, 'id' in filtr ? filtr.id : filtr.status)) {
+  const w = gdzie(filtr);
+  for (const r of await db.getAllAsync<unknown>(`${SELECT} WHERE ${w.sql} ORDER BY created_at, id;`, ...w.params)) {
     const w = parseWiersz(r);
     if (w) out.push(w);
     else zachowajUszkodzony({ tabela: 'bake_sessions', id: isObj(r) && isStr(r.id) ? r.id : JSON.stringify(r), surowe: JSON.stringify(r) });
@@ -105,8 +111,23 @@ export async function loadPlannedBakes(): Promise<PlannedBake[]> {
 }
 
 /**
- * UPSERT jednego wiersza z limitem w tej samej transakcji; aktualizacja istniejącego id nie jest nadmiarem.
- * `zastap`: inne wiersze tego statusu kasowane w tej samej transakcji (ekrany jednej sesji, jak przed D1).
+ * Skasowanie wierszy filtra; najpierw ich odczyt, a nieczytelne idą do pliku ratunkowego i kopii, zanim znikną
+ * (także te, których nikt w tym uruchomieniu nie czytał) [M3 D1b, przegląd danych D1 P2-4].
+ */
+async function usunZRatunkiem(db: Db, filtr: Filtr): Promise<void> {
+  odczytaj(await wiersze(filtr), (raw) => parseBakeSession(raw) ?? parsePlannedBake(raw));
+  await zapisUszkodzonych();
+  const w = gdzie(filtr);
+  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
+}
+
+/**
+ * UPSERT jednego wiersza z limitem w JEDNEJ instrukcji, bez własnej transakcji [M3 D1b, przegląd danych D1 P2-1]:
+ * withTransactionAsync w expo-sqlite 57 po nieudanym BEGIN (zapis kroku w trakcie transakcji finishBake na tym samym
+ * połączeniu) robi ROLLBACK, który cofał cudzą transakcję. Jedna instrukcja jest atomowa sama, a w cudzej transakcji
+ * staje się jej częścią (jak zapis klucza sesji do v5). Aktualizacja istniejącego id nie jest nadmiarem.
+ * `zastap` (ekrany jednej sesji, jak przed D1): po zapisie kasuje inne wiersze tego statusu; gdy skasowanie się nie
+ * uda, zostają dwa wiersze, ale żaden wypiek nie ginie.
  */
 async function zapisz(id: string, status: StatusSesji, json: string, zastap = false): Promise<ZapisSesji> {
   assertWritable();
@@ -120,28 +141,25 @@ async function zapisz(id: string, status: StatusSesji, json: string, zastap = fa
     memStore.bakeSessions = [...zostaja, { id, status, session_json: json, created_at: byl?.created_at ?? teraz, updated_at: teraz }];
     return { ok: true };
   }
-  let wynik: ZapisSesji = { ok: true };
-  await writeOrThrow(() =>
-    db.withTransactionAsync(async () => {
-      if (zastap) await db.runAsync('DELETE FROM bake_sessions WHERE status = ? AND id <> ?;', status, id);
-      const n = await db.getFirstAsync<{ c: unknown }>('SELECT count(*) AS c FROM bake_sessions WHERE status = ? AND id <> ?;', status, id);
-      if (!isNum(n?.c)) throw new Error('bake_sessions: count(*) bez liczby');
-      if (n.c >= MAX[status]) {
-        wynik = limit;
-        return;
-      }
-      await db.runAsync(
-        `INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES (?, ?, ?, ?, ?)
-         ON CONFLICT(id) DO UPDATE SET status = excluded.status, session_json = excluded.session_json, updated_at = excluded.updated_at;`,
-        id,
-        status,
-        json,
-        teraz,
-        teraz
-      );
-    })
+  const r = await writeOrThrow(() =>
+    db.runAsync(
+      `INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at)
+       SELECT ?, ?, ?, ?, ? WHERE ? = 1 OR (SELECT count(*) FROM bake_sessions WHERE status = ? AND id <> ?) < ?
+       ON CONFLICT(id) DO UPDATE SET status = excluded.status, session_json = excluded.session_json, updated_at = excluded.updated_at;`,
+      id,
+      status,
+      json,
+      teraz,
+      teraz,
+      zastap ? 1 : 0,
+      status,
+      id,
+      MAX[status]
+    )
   );
-  return wynik;
+  if (r.changes === 0) return limit;
+  if (zastap) await writeOrThrow(() => usunZRatunkiem(db, { status, poza: id }));
+  return { ok: true };
 }
 
 /** Zapis postępu jednego trwającego wypieku; trzeci trwający → błąd limitu, nic nie zapisane (BR-ETAP-006). */
@@ -179,7 +197,7 @@ export async function saveBakeSession(session: BakeSession | null): Promise<void
   }
   assertWritable();
   const db = await getDb();
-  if (db) await writeOrThrow(() => db.runAsync("DELETE FROM bake_sessions WHERE status = 'active';"));
+  if (db) await writeOrThrow(() => usunZRatunkiem(db, { status: 'active' }));
   memStore.bakeSessions = memStore.bakeSessions.filter((w) => w.status !== 'active');
 }
 
@@ -195,7 +213,11 @@ export async function zakonczSesjeWTransakcji(db: Db | null, opts: KoniecSesji):
   if (!filtr) return undefined;
   const lista = await wiersze(filtr);
   const recipeId = odczytaj(lista, (raw) => parseBakeSession(raw)).find((s) => s.bake?.recipeId !== undefined)?.bake?.recipeId;
-  if (db) await db.runAsync(`DELETE FROM bake_sessions WHERE ${'id' in filtr ? 'id' : 'status'} = ?;`, 'id' in filtr ? filtr.id : filtr.status);
+  if (!db) return recipeId;
+  // Nieczytelne wiersze (zgłoszone przez odczytaj) w pliku ratunkowym, zanim DELETE je skasuje (P2-4)
+  await zapisUszkodzonych();
+  const w = gdzie(filtr);
+  await db.runAsync(`DELETE FROM bake_sessions WHERE ${w.sql};`, ...w.params);
   return recipeId;
 }
 

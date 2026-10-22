@@ -1,6 +1,6 @@
 import * as SQLite from 'expo-sqlite';
 import { dbDirectory } from '../lib/db-path';
-import { PRE_MIGRATION_BACKUP_NAME } from '../lib/backup';
+import { kopiaPrzedMigracja } from './kopie-przed-migracja';
 import { ratujPlikiBazy } from '../lib/kopia-plikow-bazy';
 import {
   StoredRecipe,
@@ -361,8 +361,7 @@ export async function applySchemaMigrations(db: SQLite.SQLiteDatabase): Promise<
 
   // Kopia przed migracją przez VACUUM INTO: spójna także z danymi z pliku -wal; bez kopii nie migrujemy
   // [M1-audytor-generalny-004]. Nieudana migracja wycofuje swoją transakcję — plik bazy nie jest podmieniany.
-  const backupPath = preMigrationBackupPath(db.databasePath, currentVersion);
-  await db.runAsync('VACUUM INTO ?;', backupPath);
+  const backupPath = await kopiaPrzedMigracja(db, currentVersion);
 
   for (const m of pendingMigrations) {
     try {
@@ -399,11 +398,7 @@ export class MigrationError extends Error {
   }
 }
 
-/** Ścieżka kopii obok pliku bazy: backup_pre_migration-v<wersja>-<czas>.db. */
-export function preMigrationBackupPath(databasePath: string, fromVersion: number, now: number = Date.now()): string {
-  const cut = Math.max(databasePath.lastIndexOf('/'), databasePath.lastIndexOf('\\'));
-  return `${databasePath.slice(0, cut + 1)}${PRE_MIGRATION_BACKUP_NAME}-v${fromVersion}-${now}.db`;
-}
+export { preMigrationBackupPath } from './kopie-przed-migracja';
 
 export async function initDatabase(): Promise<void> {
   const db = await getDb();

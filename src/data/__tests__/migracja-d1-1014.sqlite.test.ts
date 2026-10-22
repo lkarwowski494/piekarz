@@ -95,6 +95,23 @@ describe('D1: migracja v6 na kopii bazy buildu 1014', () => {
     }
   );
 
+  // Punkt odniesienia niezależny od parsera (przegląd D1, P2-6): literały z plików fixture, pozostały czas z restoreTimerState
+  it.each<[WariantSesji1014, { stepIdx: number; timerEndsAt: number | null; pausedLeftSec: number | null; recipeName: string; bakeId: string; kroki: number }]>([
+    ['v2-pauza', { stepIdx: 1, timerEndsAt: null, pausedLeftSec: 1234, recipeName: 'Mój chleb mieszany', bakeId: 'bake_live', kroki: 11 }],
+    ['v2-zytnia', { stepIdx: 4, timerEndsAt: 1_800_001_800_000, pausedLeftSec: null, recipeName: 'Razowiec po restarcie', bakeId: 'bake_rye_v2', kroki: 7 }],
+    ['v1', { stepIdx: 2, timerEndsAt: 1_800_001_800_000, pausedLeftSec: null, recipeName: 'Chleb sprzed aktualizacji', bakeId: 'bake_v1', kroki: 8 }],
+  ])('BR-KAL-009 sesja %s po migracji ma wartości z fixture i ten sam pozostały czas [M3 D1b]', async (wariant, w) => {
+    await migruj(wariant);
+    const [s] = await sesjeApi().loadActiveBakeSessions();
+    expect({ stepIdx: s.stepIdx, timerEndsAt: s.timerEndsAt, pausedLeftSec: s.pausedLeftSec, recipeName: s.recipeName, bakeId: s.bake?.id, kroki: s.steps.length, startedAt: s.startedAt, faza: s.dutchOvenPhase })
+      .toEqual({ ...w, startedAt: 1_800_000_000_000, faza: 'lid_on' });
+    const { restoreTimerState } = require('../../core/bake-session') as typeof import('../../core/bake-session');
+    const teraz = 1_800_000_600_000; // 10 min po starcie
+    const zegar = restoreTimerState(s, teraz);
+    if (w.timerEndsAt !== null) expect(zegar).toEqual({ timeLeftSec: (w.timerEndsAt - teraz) / 1000, isRunning: true, isCompleted: false });
+    else expect(zegar).toEqual({ timeLeftSec: 1234, isRunning: false, isCompleted: false });
+  });
+
   it('przed migracją: kopia bazy VACUUM INTO (backup_pre_migration-v5-*) i surowa stara sesja w pliku ratunkowym', async () => {
     await migruj('v2-pauza');
     const kopie = fs.readdirSync(path.dirname(APP_DB())).filter((f) => f.startsWith('backup_pre_migration-v5-'));
