@@ -63,7 +63,8 @@ Bez wydatków na API (odczyty `curl`). Runner macOS niepotrzebny do E2.
 ### Odpowiedzi na STOP E0 (przez M1, 2026-10-22)
 - P1 (E1 według planu): tak. M1 na podstawie zgody trwałej właściciela: „Ok, musze sie oddalic, podejmuj decyzje zgodnie z rekomendacja az nie zmienie decyzji.”
 - P4 / OP-M01: Small Business Program aktywny, prowizja 15%. Właściciel 2026-10-21 o umowie Paid Apps, danych podatkowych i bankowych oraz programie: „to juz jest wszystko completed lacznie z aprobatami apple.”
-- P2 / OP-B02: M1 pyta właściciela; treść pytania do App Review niżej, gotowa do wysłania.
+- P2 / OP-B02: właściciel, dosłownie: „Moge wyslac pytanie do help” (2026-10-22, przez M1): wysyła pytanie niżej przez App Store Connect (Contact Us). Odpowiedź M1 przekaże dosłownie.
+- Właściciel o faktach E0-3…E0-5 (2026-10-22, przez M1), dosłownie: Family Sharing tylko dla dożywotniego — „ok, to na nasza korzysc”; spalone ID — „ok, zadna strata”; próba 3.1.1 — „ok, to sprawdzi pierwsza aplikacja”; zmiana przed 1.0 — „tak to prawda, na razie oceniamy i nie zmieniamy kodu.”
 - P3 / OP-B01, OP-B03: czekają na M1 (odczyt na sucho skryptem `scripts/asc-ustawienia.mjs` albo workflow).
 
 ### Pytanie do App Review (OP-B02, do wysłania przez właściciela)
@@ -148,7 +149,7 @@ Ocena propozycji tekstu właściciela (do roli 04/06, tekstów nie piszę):
 | ID | Pytanie | Rozstrzyga | Dotyczy |
 |---|---|---|---|
 | OP-B01 | [DO USTALENIA] status przeglądu `.pro.monthly`, `.pro.yearly`, `.pro.lifetime` w App Store Connect (wysłane do App Review czy nie); czeka na M1 | M1 (odczyt na sucho) | E0-4, koszt zmiany |
-| OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial”; treść pytania gotowa (wyżej) | właściciel: pytanie do App Review | V1, V2 |
+| OP-B02 | [DO USTALENIA] czy aplikacja z Non-Renewing Subscription i Non-Consumable jest „non-subscription app” w 3.1.1, czyli czy wolno jej dać próbę 0 zł „14-day Trial”; wysłane przez właściciela 2026-10-22, czeka na odpowiedź (treść wyżej); pośrednio rozstrzygnie też pierwsza recenzja Oczka albo Treningu z tym modelem | App Review | V1, V2 |
 | OP-B03 | [DO USTALENIA] czy istnieje próg 2,49 USD i próg 0 dla Non-Renewing Subscription / Non-Consumable, wpływ (`proceeds`) progów; czeka na M1 | M1 (App Store Connect API, odczyt) | rachunek E2 |
 | OP-B04 | [DO USTALENIA] czy StoreKit wypełnia `expirationDate` dla subskrypcji nieodnawialnej i czy jej transakcja dociera na drugie urządzenie przez `currentEntitlements`/`updates` | właściciel: sandbox lub TestFlight po E3 | adapter, wektory |
 | OP-M01 | rozstrzygnięte 2026-10-22: Small Business Program aktywny, 15% (słowa właściciela wyżej) | właściciel | rachunek |
