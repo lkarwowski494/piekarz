@@ -1,5 +1,5 @@
 # Badanie zmiany modelu płatności: V1, V2 wobec D-038 (Piekarz)
-Stan: E2c (STOP, V3 wg wzorca portfela) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
+Stan: E2e (model D-112 Basic/Pro, lista funkcji do zatwierdzenia) · Aktualizacja: 2026-10-22 · Rola 02 build, moduły `cena-i-rachunek`, `storekit-expo` · Otwarcie: D-110 · Gałąź `monetyzacja/piekarz-2026-10-22` od master 49ab67a
 
 Do wyboru właściciela na STOP E2 obowiązuje D-038 i kontrakt w `docs/monetyzacja.md`; ten plik niczego w nim nie zmienia. Surowe odczyty źródeł: `audit/02-badanie-modelu-2026-10-22/zrodla/` (poza gitem).
 
@@ -527,6 +527,111 @@ Ponad sam limit dni (N=5: ok. 75–120 USD/rok iOS) dochodzą płacący złapani
 
 ### Rekomendacja liczb
 **5 dni wypieku w miesiącu, 5 własnych receptur, 1 zakwas.** Dlaczego 5 dni, a nie 3: limit dni ma nie karać pieczenia, bo pieczenie da się zrobić bez aplikacji (argument właściciela); płacić mają przede wszystkim ci, których łapią receptury i zakwasy. N=3 wybierz tylko, jeśli przychód ma pierwszeństwo przed tym, by typowy piekarz nie omijał aplikacji. Każda liczba może później tylko rosnąć (zasada 12 wzorca: „limit raz wydany tylko się luzuje”), więc lepiej zacząć od niższych receptur i zakwasów niż od zbyt hojnych.
+
+## E2e: model D-112, Basic i Pro (lista funkcji do zatwierdzenia)
+
+Decyzja właściciela D-112 (2026-10-22): „Tak. Wdrożymy ten model jako drugi bo to jednak najsensowniejsze rozwiązanie. Chce listę moich funkcji i podział basic/pro”. Zasady podziału:
+1. Basic pokazuje główną pracę: policzyć, poprowadzić wypiek z sygnałem, zaopiekować się jednym zakwasem, zapisać wynik (zasada roli: „główna praca jest dostępna przed zakupem”).
+2. Pro to ułatwienia dla planujących i piekących więcej, za które rynek płaci (tabela WTP w `docs/monetyzacja.md`, odczyt 2026-10-19, poziom dowodu R).
+3. Zawsze Basic: dane, bezpieczeństwo, pomoc w kryzysie, opieka nad istniejącym zakwasem, wszystko w trakcie trwającego wypieku.
+4. Po wygaśnięciu Pro nic nie znika: zapisane receptury, zakwasy, plany i wpisy działają; zablokowane jest tylko dodanie nowej rzeczy ponad Basic albo otwarcie funkcji Pro. Kolejne zakwasy zachowują pełną opiekę z przypomnieniami (żywa kultura).
+5. Ekran Pro pojawia się przy stuknięciu funkcji Pro (oznaczonej „Pro”, nie ukrytej) i w Ustawieniach; nigdy przy starcie, po pierwszym użyciu ani w trakcie kroku.
+
+### Lista funkcji
+Kolumna „Dowód”: klasa WTP i źródło z tabeli z 2026-10-19 (R = rynek, B = BRD); funkcje z przebudowy M3 (BR-KAL, BR-DIAG-003…005, BR-ETAP-006) z BRD na gałęzi `redesign/piekarz-2026-10-22`.
+
+**Liczenie**
+| BR | Funkcja | Basic / Pro | Dowód i powód |
+|---|---|---|---|
+| BR-KALK-001 | procent piekarski | Basic | WTP-0, darmowe w kategorii |
+| BR-KALK-002 | hydratacja z zakwasu i zaczynu | Basic | WTP-0 |
+| BR-KALK-003 | skalowanie do wagi, 1 g | Basic | WTP-2; część podstawowego liczenia |
+| BR-KALK-004 | temperatura wody (DDT) | Basic | WTP-2; potrzebna przy każdym wypieku |
+| BR-KALK-005 | kilka mąk w recepturze | Basic | WTP-2; typowy chleb ma 2 mąki |
+| BR-KALK-007 | objętość → gramy | Basic | WTP-2; pomoc dla początkujących |
+| BR-KALK-009 | rodzaj drożdży (świeże / suche) | Basic | D-100; błąd daje 2,5 raza za dużo drożdży |
+| BR-KALK-011 | nietypowa ilość soli | Basic | WTP-2, część liczenia |
+| BR-UST-001 | jednostki | Basic | WTP-2 |
+| BR-KALK-010 | poolish, biga, levain | **Pro** | WTP-1: Yeasta Pro „Levain Builder” |
+| BR-KALK-008 | masa lodu do schłodzenia | **Pro** | WTP-X (do roli 03: kandydat na odcięcie) |
+
+**Planowanie i kalendarz**
+| BR | Funkcja | Basic / Pro | Dowód i powód |
+|---|---|---|---|
+| BR-HARMO-001 | plan wstecz „gotowe o…” | **Pro** | WTP-1: Yeasta Pro „Advanced planning” |
+| BR-HARMO-002 | plan omija sen (Sleep Guard) | **Pro** | WTP-2, część planera |
+| BR-HARMO-003 | czas fermentacji z temperatury | **Pro** | WTP-2; dopasowanie do kuchni i pory roku |
+| BR-HARMO-004 | przesunięcie kroku, „za późno” | Basic | dzieje się w trakcie wypieku (zasada 3) |
+| BR-KAL-001…005, -008 | pasek tygodnia, znaczniki, „Następne”, arkusz dnia, poprzedni/następny tydzień | Basic | widok własnych danych (zasada 3); BR-KAL-006: przeszłość zawsze bez kłódek |
+| BR-KAL-009, -015 | zaplanowane wypieki na przyszłe dni | **Pro** | planowanie (WTP-1 jak HARMO-001); start zaplanowanego wypieku po wygaśnięciu działa |
+| BR-KAL-016 | dwa wypieki prowadzone naraz | **Pro** | WTP-2 (1 prośba, S-14); dla piekących więcej |
+| BR-KAL-011…014 | plan w kalendarzu telefonu, widżet, widok miesiąca, podpowiedź rytmu (jeśli w 1.0) | **Pro** | wygoda |
+
+**Prowadzenie wypieku (Stolnica)**
+| BR | Funkcja | Basic / Pro | Dowód i powód |
+|---|---|---|---|
+| BR-ETAP-001 | prowadzenie krok po kroku | Basic | WTP-1, ale to główna praca (zasada 1) |
+| BR-ETAP-002 | kroki z receptury | Basic | B |
+| BR-ETAP-003 | ocena gotowości ciasta (test palca) | Basic | część prowadzenia; WTP-X (do roli 03) |
+| BR-ETAP-004 | ostrzeżenia bezpieczeństwa | Basic | warunek (RD-22, RD-23) |
+| BR-ETAP-005 | wznowienie wypieku | Basic | warunek |
+| BR-ETAP-006 | nowy wypiek nie zastępuje trwającego | Basic | warunek |
+| BR-CZAS-002 | sygnał przy zablokowanym telefonie | Basic | WTP-1, ale to obietnica celu aplikacji („pilnuje czasu, gdy telefon śpi”) |
+| BR-CZAS-003 | brak zgody na powiadomienia | Basic | warunek |
+| BR-REKA-001 | ekran nie gaśnie | Basic | ręce w cieście |
+| — | garnek żeliwny: fazy i odparowanie | Basic | część prowadzenia |
+
+**Zakwas**
+| BR | Funkcja | Basic / Pro | Dowód i powód |
+|---|---|---|---|
+| BR-ZAKW-001 | karta zakwasu: pierwszy | Basic | zasada 1 |
+| BR-ZAKW-001 | drugi i kolejne zakwasy | **Pro** | WTP-1: Yeasta „Unlimited starters”, SST |
+| BR-ZAKW-002 | dokarmianie z proporcją | Basic | opieka (zasada 3) |
+| BR-ZAKW-004 | przypomnienie o dokarmianiu, zasada ostrożności RD-21 | Basic | opieka nad żywą kulturą |
+| BR-KAL-010 | stały dzień karmienia w lodówce | Basic | opieka |
+| BR-ZAKW-005 | założenie zakwasu od zera, dzień po dniu | Basic | bez zakwasu początkujący nie upiecze chleba na zakwasie (zasada 1); WTP-1 (Yeasta „Starter Revival”) świadomie w Basic |
+| BR-ZAKW-007 | poprawa wpisu, dziennik zakwasu | Basic | dane |
+| BR-ZAKW-003 | gotowość i przewidywanie szczytu | **Pro** | WTP-1: SST Premium „rise timing” |
+| BR-ZAKW-006 | budzenie zakwasu z lodówki (planer) | **Pro** | WTP-1: Yeasta „Fridge Starter Planner” |
+| BR-DIAG-002 | Doktor zakwasu, karta bezpieczeństwa | Basic | pomoc w kryzysie i bezpieczeństwo (zasada 3) |
+
+**Receptury, dziennik, nauka**
+| BR | Funkcja | Basic / Pro | Dowód i powód |
+|---|---|---|---|
+| BR-RECP-001 | receptury bazowe i presety | Basic | WTP-1, ale skargi na przepisy za zaporą (Kneady, MS-26) |
+| BR-RECP-002 | własne receptury: do 5 | Basic | D-111 |
+| BR-RECP-002 | własne receptury: ponad 5 | **Pro** | WTP-1: Yeasta „Unlimited … custom recipes” |
+| BR-RECP-003 | dziennik z oceną, „Piecz ponownie” | Basic | dane i pętla poprawy (cel aplikacji) |
+| BR-RECP-004 | porównanie wypieków, statystyki | **Pro** | WTP-2 |
+| BR-WSP-003 | wysłanie receptury przez QR | **Pro** | WTP-2; odczyt otrzymanego QR i import: Basic (dane) |
+| BR-DRUK-001 | wydruk karty i etykiety | **Pro** | WTP-2 (1 prośba) |
+| BR-SPIZ-001 | spiżarnia mąk | **Pro** | WTP-2 |
+| BR-NAUK-001 | Akademia: podstawy (pierwszy poziom) | Basic | nauka głównej pracy |
+| BR-NAUK-001 | Akademia: dalsze poziomy i biblioteka technik | **Pro** | WTP-2; nośnik „ongoing value” (nowe lekcje) |
+| BR-DIAG-001 | Doktor Chleba (diagnoza bochenka) | Basic | pomoc po wypieku; WTP-1 (Loaflo) świadomie w Basic |
+| BR-DIAG-003…005 | ratunek ciasta w trakcie fermentacji (F-71) | Basic | kryzys w trakcie wypieku i bezpieczeństwo (zasada 3) |
+
+**Zawsze Basic (warunki i prawa):** BR-DANE-001…004 (zapis, kopia, eksport, import, usunięcie), BR-ZAK-001 (zakup, przywracanie, zarządzanie subskrypcją, „Zrealizuj kod”), BR-ZAK-003 (oferta bez ukrytych warunków), BR-UST-003 (polityka prywatności), BR-PRYW-001 (bez konta i śledzenia), ustawienia. BR-ZAK-004 („stan po próbie”) i BR-ZAK-005 („oferta przy pierwszym użyciu”) zmienia ER do roli 01: próby nie ma, ekran Pro przy funkcji Pro i w Ustawieniach.
+
+Podsumowanie: Pro = **17 pozycji**, w tym 6 z 14 funkcji WTP-1 z tabeli z 2026-10-19 (poolish/biga/levain, plan wstecz, kolejne zakwasy, gotowość zakwasu, planer lodówki, receptury ponad 5) i zaplanowane wypieki z przebudowy; Basic = cała reszta, w tym 8 funkcji WTP-1 świadomie zostawionych w Basic (prowadzenie, sygnał, receptury bazowe, dziennik, założenie zakwasu, opieka, Doktor, ratunek).
+
+### Rachunek (2026-10-22, kod wyjścia 0)
+`gen-basic-pro.mjs` + `oplacalnosc.mjs` na danych bramki (`audit/02-badanie-modelu-2026-10-22/dowody/bramka-basic-pro.txt`): mnożnik podziału 0,65 / 0,8 / 1,0 [OCENA: 6 z 14 funkcji WTP-1 w Pro; dolna granica = słaby podział M2 2(a) z bramki, górna = DEC-09].
+
+| Model (USD netto/rok, scen. norm.) | iOS + Google Play | sam iOS |
+|---|---|---|
+| **D-112 Basic/Pro, 0,99 / 6,99 / 14,99** | **275** (pes. 2, opt. 26 331) | **174** |
+| D-038 (odczyt A) | 345 | 218 |
+| wzorzec portfela, 5 dni | 189 | 120 |
+| sam zakup jednorazowy 14,99 | 322 | — |
+
+Największy wpływ: `udzial_nowej` 69 → 1 376, `instalacje_na_ocene` 83 → 826, konwersja 78 → 644 USD/rok. Próg 500 USD przechodzi dopiero przy cenach jak Rise (3,99 / 14,99 / 19,99: 533 × 0,8 ≈ 426) albo medianach (682 × 0,8 ≈ 546); przegląd cen po 6 miesiącach (D-112).
+
+### Warunek subskrypcji i kroki po zatwierdzeniu
+- **„Ongoing value” (3.1.2(a), MS-05):** Pro musi dostawać nowe rzeczy w stałym rytmie. Kandydaci: lekcje Akademii, techniki, profile mąk z kolejnych krajów, nowe narzędzia planowania. Rytm i zakres: rola 03.
+- **App Store Connect (M1 za zgodą):** usunięcie Free Trial 2 Weeks z obu subskrypcji (MS-B21); produkty, Family Sharing i ID bez zmian.
+- **Kod (po zatwierdzeniu listy, osobne polecenie toru napraw):** `konfiguracja.ts` (lista funkcji Basic zamiast `BEZ_UPRAWNIENIA`), limity 5 receptur i 1 zakwas przy dodawaniu, usunięcie oferty wprowadzającej i uprzedzenia próby, ekran Pro przy funkcji Pro i w Ustawieniach, oznaczenia „Pro”, test „Basic tylko rośnie” przed wydaniem. [OCENA] 2–3 dni agenta; pliki przebudowy M3 (kalendarz, Stolnica) po scaleniu albo na `redesign/piekarz-2026-10-22`.
+- **Teksty i sklep:** ekran Pro (nazwa planu, okres, cena ze sklepu, opis bez liczb, ujawnienia 3.1.2), opis: „Free Basic forever. Pro adds planning, more starters and recipes.” (rola 10), 35 języków.
 
 ## Źródła (odczyt 2026-10-22)
 | ID | Adres | Miejsce | Cytat | Szczebel |
