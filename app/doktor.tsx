@@ -29,6 +29,8 @@ import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
 import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
+import { loadActiveBakeSessions } from '../src/data/bake-sessions-store';
+import { zaczetyZDostepem } from '../src/data/bake-session-store';
 
 import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
@@ -43,6 +45,19 @@ export default function DoctorScreen() {
   const [isAcademyOpen, setIsAcademyOpen] = useState<boolean>(false);
   // Zamknięcie Doktora: odłożona prośba o ocenę po wypieku ≤ 2★ (D-089) [reaudit-noc N-12]
   useEffect(() => wykonajOdlozonaProsbeOOcene, []);
+  // W trakcie wypieku zaczętego z dostępem Doktor (z protokołami ratunkowymi i ich ostrzeżeniami) nie jest za ofertą,
+  // jak prowadzenie tego wypieku (D-039 pkt 3, BR-DIAG-003 „Bez dostępu”) [M3 D3a]
+  const [wypiekZDostepem, setWypiekZDostepem] = useState(false);
+  useEffect(() => {
+    let zywy = true;
+    void loadActiveBakeSessions()
+      .then((l) => zywy && setWypiekZDostepem(l.some((s) => zaczetyZDostepem(s.bake))))
+      .catch(() => undefined);
+    return () => {
+      zywy = false;
+    };
+  }, []);
+  const blokadaDoktora = wypiekZDostepem ? { ...blokada('doktor'), odblokowane: true } : blokada('doktor');
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
@@ -91,7 +106,7 @@ export default function DoctorScreen() {
           <Text style={styles.academyHeaderPillText}>{t('Akademia')}</Text>
         </Pressable>
         )}
-        <BlokadaFunkcji {...blokada('doktor')}>
+        <BlokadaFunkcji {...blokadaDoktora}>
         {/* Bread Academy Promotion Banner */}
         {wejscieWidoczne('akademia') && (
         <Pressable
