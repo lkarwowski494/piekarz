@@ -1057,6 +1057,12 @@
       "src/core/legacy-steps-v1.ts (dane: kod)"
     ]
   },
+  "Dodaj do kalendarza": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)",
+      "src/lib/kalendarz-telefonu.ts (dialogTitle)"
+    ]
+  },
   "Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -2218,6 +2224,7 @@
   },
   "Klasyczny chleb rzemieślniczy": {
     "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (nazwa)",
       "src/hooks/useStartPlanu.ts (drugi)",
       "src/hooks/useStartPlanu.ts (recipeName)"
     ]
@@ -3482,6 +3489,11 @@
       "src/lib/kalendarz-teksty.ts (kod)"
     ]
   },
+  "Nie dodano do kalendarza": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (Alert.alert)"
+    ]
+  },
   "Nie ma jeszcze wpisu dokarmienia. Zapisz dokarmienie, gdy dokarmisz zakwas.": {
     "gdzie": [
       "src/components/zakwas/StarterCycleCard.tsx (tekst w JSX)"
@@ -3564,6 +3576,11 @@
   "Nie udało się połączyć z App Store. Spróbuj ponownie.": {
     "gdzie": [
       "src/components/przywroc-zakupy.ts (Alert.alert)"
+    ]
+  },
+  "Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
     ]
   },
   "Nie udało się wyeksportować kopii": {
@@ -4225,6 +4242,7 @@
   },
   "Piekarz": {
     "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (opis)",
       "src/lib/schedule-formatter.ts (kod)",
       "src/lib/zgloszenie.ts (kod)"
     ]
@@ -4292,12 +4310,18 @@
       "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
     ]
   },
+  "Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (tekst w JSX)"
+    ]
+  },
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (etykieta)",
       "src/components/stolnica/PrzyciskiProwadzenia.tsx (tekst)",
+      "src/lib/kalendarz-telefonu.ts (tytul)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -6085,6 +6109,16 @@
       "src/components/calculator/accordion/PolaTemperaturDdt.tsx (dane: zaczyn)"
     ]
   },
+  "Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
+    ]
+  },
+  "Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.": {
+    "gdzie": [
+      "src/lib/kalendarz-telefonu.ts (kod)"
+    ]
+  },
   "Ten tydzień": {
     "gdzie": [
       "src/components/kalendarz/PasekTygodnia.tsx (accessibilityLabel)"
@@ -7224,6 +7258,11 @@
   "Wyczyść zaznaczone objawy": {
     "gdzie": [
       "src/components/doktor/SymptomSelectorSection.tsx (tekst w JSX)"
+    ]
+  },
+  "Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.": {
+    "gdzie": [
+      "src/components/harmonogram/DodajDoKalendarza.tsx (kod)"
     ]
   },
   "Wydłuż autolizę i dodaj dodatkową serię składań coil fold.": {

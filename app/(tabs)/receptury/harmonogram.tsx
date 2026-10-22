@@ -30,6 +30,7 @@ import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuard
 import { ScheduleSummaryCard } from '../../../src/components/harmonogram/ScheduleSummaryCard';
 import { TimelineStagesList } from '../../../src/components/harmonogram/TimelineStagesList';
 import { UstawieniaPlanu } from '../../../src/components/harmonogram/UstawieniaPlanu';
+import { DodajDoKalendarza } from '../../../src/components/harmonogram/DodajDoKalendarza';
 import { oknoSnu, useProfilSnu } from '../../../src/lib/godziny-snu';
 import { PasekStartu } from '../../../src/components/harmonogram/PasekStartu';
 import { Spirala } from '../../../src/components/Spirala';
@@ -322,6 +323,10 @@ export default function HarmonogramScreen() {
           onColdRetardHoursChange={setColdRetardHours}
           onCopySchedule={handleCopySchedule}
           bezLodowki={zytni}
+        />
+        {/* Plan w kalendarzu telefonu jako plik .ics (BR-KAL-011); bez kroków do zrobienia („za późno”) nie ma czego dodać [M3 D8] */}
+        <DodajDoKalendarza
+          plan={startPlanu === null ? null : { id: `plan_${startPlanu.getTime()}`, nazwa: recepturaPlanu()?.recipeName ?? t('Klasyczny chleb rzemieślniczy'), kroki: steps }}
         />
         </BlokadaFunkcji>
       </ScrollView>

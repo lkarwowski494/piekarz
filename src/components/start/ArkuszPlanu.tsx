@@ -17,6 +17,7 @@ import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { CloseButton } from '../CloseButton';
 import { startPlanuTekst, tytulPlanu } from './PlanyWypiekow';
+import { DodajDoKalendarza } from '../harmonogram/DodajDoKalendarza';
 
 export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose }: {
   plan: PlannedBake | null;
@@ -47,6 +48,7 @@ export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose }: {
                   <Text style={styles.glownyTekst}>{t('Zacznij wypiek')}</Text>
                 </Pressable>
               )}
+              <DodajDoKalendarza plan={{ id: plan.id, nazwa: plan.recipeName, kroki: plan.steps }} />
               <Pressable testID="plan-usun-btn" accessibilityRole="button" accessibilityLabel={t('Usuń plan')} style={styles.usun} onPress={() => onUsun(plan)}>
                 <Text style={styles.usunTekst}>{t('Usuń plan')}</Text>
               </Pressable>

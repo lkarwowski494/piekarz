@@ -625,6 +625,41 @@
       "klucz": "Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.",
       "powod": "zdanie pod wyborem dnia w planie wypieku (parametr {dzien} = dzień tygodnia w mianowniku z Intl; tekst spoza listy roli 04) [M3 D7, BR-KAL-014, D-110]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Dodaj do kalendarza",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nie dodano do kalendarza",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.",
+      "powod": "plan wypieku w kalendarzu telefonu jako plik .ics: przycisk, wyjaśnienie, informacja po zmianie planu i komunikaty błędów (tekst spoza listy roli 04, do akceptacji roli 04) [M3 D8, BR-KAL-011]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

@@ -145,6 +145,15 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Licz od: {dzien}',
     'Propozycja z Dziennika: {dzien}, jak ostatnie wypieki. Możesz wybrać inny dzień.',
     // KONIEC D7
+    // M3 D8: plan w kalendarzu telefonu jako plik .ics (BR-KAL-011)
+    'Dodaj do kalendarza',
+    'Plan trafi do kalendarza telefonu jako plik z wydarzeniem. Piekarz nie dostaje dostępu do Twojego kalendarza.',
+    'Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.',
+    'Nie dodano do kalendarza',
+    'Ten telefon nie pozwala wysłać pliku do kalendarza. Plan zostaje w Piekarzu, możesz go skopiować jako tekst.',
+    'Ten plan nie ma godzin, które da się zapisać w kalendarzu. Ułóż plan jeszcze raz.',
+    'Nie udało się przygotować pliku z planem. Plan zostaje w Piekarzu. Spróbuj ponownie.',
+    // KONIEC D8
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.
