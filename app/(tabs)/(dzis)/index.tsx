@@ -21,6 +21,7 @@ import { WypiekiNaSpirali } from '../../../src/components/start/WypiekiNaSpirali
 import { PlanyWypiekow } from '../../../src/components/start/PlanyWypiekow';
 import { ArkuszPlanu } from '../../../src/components/start/ArkuszPlanu';
 import { usePlanyDzis } from '../../../src/hooks/usePlanyDzis';
+import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { ustawDzienGotowe } from '../../../src/lib/plan-receptury';
 import { PasDzis } from '../../../src/components/start/PasDzis';
 import { NadPasem, usePasekStanuJasny } from '../../../src/components/nawigacja/PasZakladki';
@@ -73,14 +74,18 @@ export default function StartScreen() {
   const plany = usePlanyDzis({ onZmiana: odswiez, otworzWypiek, requireActionAccess, moze });
   const akcje = useAkcjeDzis({ onZmiana: odswiez, otworzWypiek, otworzPlan: plany.otworz });
   const planOtwarty = dane.plany.find((p) => p.id === plany.otwarty) ?? null;
-  // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]; Pro (D-113)
-  const zaplanujNaDzien = (dzienMs: number) =>
+  // Skrót z arkusza dnia (BR-KAL-015): wybór receptury na zakwasie, potem plan z tym dniem „gotowe” [M3 D5]; Pro (D-113):
+  // bez Pro najpierw zamknięcie arkusza dnia, ekran Pro po nim (D-117) [04-studio-projektowe-005]
+  const proDnia = useProPoArkuszu();
+  const zaplanujNaDzien = (dzienMs: number) => {
+    if (!moze('plany-przyszle')) return proDnia.otworzPro(() => setArkusz(null));
     chron('plany-przyszle', () => {
       setArkusz(null);
       ustawDzienGotowe(dzienMs);
       ustawRodzajReceptur('sourdough');
       router.navigate('/receptury');
     })();
+  };
 
   // Wybór otwiera pierwszy ekran przepływu bez ekranu Pro (D-047, D-112); trzy czynności są w Basic
   const wybierz = (c: CzynnoscStartu) => {
@@ -150,8 +155,9 @@ export default function StartScreen() {
         </View>
       </ScrollView>
       <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)}
-        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} />
-      <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij} />
+        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={proDnia.poZamknieciu} />
+      <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij}
+        onPro={plany.pro} onDismiss={plany.poZamknieciu} />
       <SettingsModal visible={ustawienia} onClose={() => setUstawienia(false)} />
     </>
   );

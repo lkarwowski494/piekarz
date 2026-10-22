@@ -16,7 +16,11 @@ import { OznaczeniePro } from '../OznaczeniePro';
 import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 
-export function DodajDoKalendarza({ plan }: { plan: PlanDoKalendarza | null }) {
+export function DodajDoKalendarza({ plan, onPro }: {
+  plan: PlanDoKalendarza | null;
+  /** Bez Pro w arkuszu: zamiast ekranu Pro nad arkuszem ekran Pro po jego zamknięciu (D-117) [04-studio-projektowe-005]. */
+  onPro?: () => void;
+}) {
   const { dodaj, nieZmienil } = useDodajDoKalendarza(plan);
   const { chron, moze } = useAppAccess();
   const info = t('Wydarzenie w kalendarzu telefonu się nie zmieniło. Godziny zmienisz tam sam albo dodasz plan jeszcze raz.');
@@ -29,7 +33,7 @@ export function DodajDoKalendarza({ plan }: { plan: PlanDoKalendarza | null }) {
     <View style={styles.blok}>
       {/* Bez Pro z oznaczeniem „Pro” (kontrakt „Reguły dostępu”, P2-4) [M3 P-b] */}
       <Pressable accessibilityRole="button" accessibilityLabel={etykietaPro(t('Dodaj do kalendarza'), dostep)} testID="plan-kalendarz-btn"
-        style={styles.przycisk} onPress={chron('kalendarz-telefonu', dodaj)}>
+        style={styles.przycisk} onPress={!dostep && onPro ? onPro : chron('kalendarz-telefonu', dodaj)}>
         <Text style={styles.tekst}>{t('Dodaj do kalendarza')}</Text>
         {!dostep && <OznaczeniePro />}
       </Pressable>

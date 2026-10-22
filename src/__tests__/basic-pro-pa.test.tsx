@@ -40,7 +40,7 @@ const mockOkno = { width: 390, height: 844, scale: 3, fontScale: 1 };
 jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({ __esModule: true, default: () => mockOkno }));
 
 import React from 'react';
-import { Alert, Text } from 'react-native';
+import { Alert, Modal, Text } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import StartScreen from '../../app/(tabs)/(dzis)/index';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
@@ -49,6 +49,8 @@ import ZakwasScreen from '../../app/(tabs)/zakwasy/index';
 import { AppAccessProvider } from '../components/AppAccessProvider';
 import { PaywallModal } from '../components/PaywallModal';
 import { BreadAcademyModal } from '../components/BreadAcademyModal';
+import { ArkuszDnia } from '../components/kalendarz/ArkuszDnia';
+import { ArkuszPlanu } from '../components/start/ArkuszPlanu';
 import { initDatabase, _resetMemStore, deleteStarter, getStarters, saveRecipe, getRecipes } from '../data/sqlite-store';
 import { getAppSetting, setAppSetting } from '../data/settings-store';
 import { saveBakeSession } from '../data/bake-session-store';
@@ -74,6 +76,11 @@ const przycisk = (root: renderer.ReactTestInstance, testID: string) =>
   root.findAll((n) => typeof n.type !== 'string' && n.props.testID === testID && typeof n.props.onPress === 'function');
 const teksty = (root: renderer.ReactTestInstance) => root.findAllByType(Text).map((n) => [n.props.children].flat().join('')).join(' | ');
 const ekranPro = (root: renderer.ReactTestInstance) => root.findAllByType(PaywallModal).some((p) => p.props.visible === true);
+/** Arkusz (pageSheet) zniknął z ekranu: onDismiss jego Modal (iOS). */
+const poZniknieciu = async (root: renderer.ReactTestInstance, typ: React.ElementType) => {
+  await act(async () => root.findByType(typ).findByType(Modal).props.onDismiss?.());
+  await flush();
+};
 const nacisnij = async (root: renderer.ReactTestInstance, testID: string) => {
   const p = przycisk(root, testID);
   expect({ testID, jest: p.length > 0 }).toEqual({ testID, jest: true });
@@ -149,6 +156,8 @@ describe('Dziś w Basic (W-01, kalendarz D4–D8)', () => {
     const jutro = localDateKey(Date.now() + 24 * H);
     await nacisnij(root, `pasek-dzien-${jutro}`);
     await nacisnij(root, 'arkusz-zaplanuj-btn');
+    // Ekran Pro po zniknięciu arkusza dnia, nie nad nim (D-117) [04-studio-projektowe-005]
+    await poZniknieciu(root, ArkuszDnia);
     expect(ekranPro(root)).toBe(true);
     expect(mockNavigate).not.toHaveBeenCalledWith('/receptury');
   });
@@ -172,6 +181,8 @@ describe('Dziś w Basic (W-01, kalendarz D4–D8)', () => {
     expect(a.tytul).toBe('Trwa już inny wypiek');
     await act(async () => a.przyciski[0].onPress?.());
     await flush();
+    // Ekran Pro po zniknięciu arkusza planu, nie nad nim (D-117) [04-studio-projektowe-005]
+    await poZniknieciu(root, ArkuszPlanu);
     expect(ekranPro(root)).toBe(true);
     expect((await loadActiveBakeSessions()).map((s) => s.bake?.id)).toEqual(['bake_chleb']);
   });

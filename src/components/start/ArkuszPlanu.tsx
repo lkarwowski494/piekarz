@@ -19,15 +19,19 @@ import { CloseButton } from '../CloseButton';
 import { startPlanuTekst, tytulPlanu } from './PlanyWypiekow';
 import { DodajDoKalendarza } from '../harmonogram/DodajDoKalendarza';
 
-export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose }: {
+export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose, onPro, onDismiss }: {
   plan: PlannedBake | null;
   teraz: number;
   onZacznij: (p: PlannedBake) => void;
   onUsun: (p: PlannedBake) => void;
   onClose: () => void;
+  /** Funkcja Pro bez Pro z arkusza („Dodaj do kalendarza”): zamknięcie arkusza, ekran Pro po nim (D-117) [04-studio-projektowe-005]. */
+  onPro?: () => void;
+  /** Arkusz zniknął z ekranu (iOS). */
+  onDismiss?: () => void;
 }) {
   return (
-    <Modal visible={plan !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+    <Modal visible={plan !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
       <SafeAreaView style={styles.arkusz} edges={['top', 'bottom', 'left', 'right']}>
         {plan && (
           <>
@@ -48,7 +52,7 @@ export function ArkuszPlanu({ plan, teraz, onZacznij, onUsun, onClose }: {
                   <Text style={styles.glownyTekst}>{t('Zacznij wypiek')}</Text>
                 </Pressable>
               )}
-              <DodajDoKalendarza plan={{ id: plan.id, nazwa: plan.recipeName, kroki: plan.steps }} />
+              <DodajDoKalendarza plan={{ id: plan.id, nazwa: plan.recipeName, kroki: plan.steps }} onPro={onPro} />
               <Pressable testID="plan-usun-btn" accessibilityRole="button" accessibilityLabel={t('Usuń plan')} style={styles.usun} onPress={() => onUsun(plan)}>
                 <Text style={styles.usunTekst}>{t('Usuń plan')}</Text>
               </Pressable>

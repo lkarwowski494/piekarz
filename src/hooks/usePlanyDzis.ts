@@ -17,6 +17,7 @@ import { przywrocPlan, usunPlan, zacznijPlan } from '../lib/plany-akcje';
 import { guardSave } from '../lib/save-guard';
 import { t } from '../lib/i18n';
 import { etykietaPro } from '../lib/platnosci/nazwy-pro';
+import { useProPoArkuszu } from './useProPoArkuszu';
 
 export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze }: {
   onZmiana: () => void;
@@ -28,6 +29,9 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
   const [otwarty, ustawOtwarty] = useState<string | null>(null);
   const [usuniety, ustawUsuniety] = useState<PlannedBake | null>(null);
   const zamknij = useCallback(() => ustawOtwarty(null), []);
+  const { otworzPro, poZamknieciu } = useProPoArkuszu();
+  /** Funkcja Pro bez Pro z arkusza planu („Dodaj do kalendarza”): arkusz zamknięty, ekran Pro po nim (D-117). */
+  const pro = useCallback(() => otworzPro(zamknij), [otworzPro, zamknij]);
   const wroc = useCallback((id: string) => {
     ustawOtwarty(null);
     otworzWypiek(id);
@@ -48,12 +52,15 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
         const [trwa] = trwajace;
         if (!trwa) return start();
         if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
-        // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104); drugi trwający to Pro
-        const oba = () => requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => ok && start()));
+        // Wypiek z pamięci bez zapisu najpierw do zapisu (jak start z planu, D-104); drugi trwający to Pro: bez Pro
+        // najpierw zamknięcie arkusza planu, ekran Pro po nim (D-117) [04-studio-projektowe-005]
+        const oba = () => (moze?.('dwa-wypieki') === false
+          ? otworzPro(zamknij)
+          : requireActionAccess('dwa-wypieki', () => void utrwalWypiekZPamieci().then((ok) => ok && start())));
         confirmStartPrzyTrwajacym(trwa, oba, wroc, etykietaPro(t('Prowadź oba'), moze?.('dwa-wypieki') ?? true));
       });
     });
-  }, [onZmiana, requireActionAccess, moze, wroc]);
+  }, [onZmiana, requireActionAccess, moze, wroc, otworzPro, zamknij]);
 
   const usun = useCallback((p: PlannedBake) => {
     void guardSave(async () => {
@@ -78,5 +85,5 @@ export function usePlanyDzis({ onZmiana, otworzWypiek, requireActionAccess, moze
   }, [usuniety, onZmiana]);
 
   const cofnij = useMemo(() => (usuniety ? { tekst: t('Usunięto plan wypieku'), przywroc, ukryj } : null), [usuniety, przywroc, ukryj]);
-  return { otwarty, otworz: ustawOtwarty, zamknij, zacznij, usun, cofnij };
+  return { otwarty, otworz: ustawOtwarty, zamknij, zacznij, usun, cofnij, pro, poZamknieciu };
 }

@@ -40,6 +40,8 @@ export interface ArkuszDniaProps {
   onZaplanuj?: (dzienMs: number) => void;
   /** Plany na przyszłe dni wymagają Pro (bez dostępu): skrót z oznaczeniem „Pro” (BR-KAL-015, P2-4) [M3 P-b]. */
   zaplanujPro?: boolean;
+  /** Arkusz zniknął z ekranu (iOS): ekran Pro po zamknięciu arkusza, nie nad nim (D-117) [04-studio-projektowe-005]. */
+  onDismiss?: () => void;
 }
 
 function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; onPrzejdz: (z: ZdarzenieKalendarza) => void }) {
@@ -55,7 +57,7 @@ function Wiersz({ z, o, onPrzejdz }: { z: ZdarzenieKalendarza; o: OpcjeTekstu; o
   );
 }
 
-export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj, zaplanujPro = false }: ArkuszDniaProps) {
+export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, liczbaPlanow = 0, onZaplanuj, zaplanujPro = false, onDismiss }: ArkuszDniaProps) {
   const zalegleTeksty = (z: readonly ZdarzenieKalendarza[]) =>
     tekstyNastepne({ zalegle: [...z], przyszle: [], wiecej: 0, wszystkiePrzyszle: [] }, o).zalegle;
   const zalegle = (lista: readonly ZdarzenieKalendarza[]) => {
@@ -107,7 +109,7 @@ export function ArkuszDnia({ tryb, zdarzenia, o, akcje, onPrzejdz, onClose, licz
   }
 
   return (
-    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+    <Modal visible={tryb !== null} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={onDismiss}>
       <SafeAreaView style={styles.arkusz} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.naglowek}>
           <Text style={styles.tytul} accessibilityRole="header" testID="arkusz-dnia-tytul">{tytul}</Text>
