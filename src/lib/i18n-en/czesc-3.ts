@@ -85,8 +85,6 @@ export const EN_3: Record<string, string> = {
     '{n} days ago',
   '{n} dnia temu':
     '{n} days ago',
-  'Dokarmiono zakwas': 'Starter fed',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Logged feeding for starter "{name}".',
   'Zapisano zaktualizowany profil': 'Updated profile saved',
   'Dodano zakwas': 'Starter added',
   'Kultura „{name}” została utworzona.': 'Culture "{name}" has been created.',

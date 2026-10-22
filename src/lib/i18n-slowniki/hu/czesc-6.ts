@@ -119,7 +119,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': '{n}. nap mentése',
   'Zapisz jako moją': 'Mentés sajátként',
   'Zapomniana sól (Laminacja ratunkowa)': 'Elfelejtett só (Mentő laminálás)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Rögzítetted a(z) „{name}” kovász etetését.',
   'Zarejestrowano dokarmienie!': 'Etetés rögzítve!',
   'Zarządzaj subskrypcją': 'Előfizetés kezelése',
   'Zastąp część wody lodem:': 'Helyettesítsd a víz egy részét jéggel:',

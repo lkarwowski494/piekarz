@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'A kovász etetése',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'A kovász etetése (a kovász csúcspontjáig)',
   'Dokarmienie zakwasu z lodówki': 'A hűtőből kivett kovász etetése',
-  'Dokarmiono zakwas': 'Kovász megetetve',
   'dokarmiony o {godzina}, następne o {nastepne}': 'etetve: {godzina}, következő: {nastepne}',
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Kenyérdoktor',

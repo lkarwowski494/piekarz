@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Hrănirea maiei',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Hrănirea maiei naturale (până la vârf)',
   'Dokarmienie zakwasu z lodówki': 'Hrănirea maiei din frigider',
-  'Dokarmiono zakwas': 'Maia naturală hrănită',
   'dokarmiony o {godzina}, następne o {nastepne}': 'hrănită la {godzina}, următoarea la {nastepne}',
   'Doktor': 'Doctor',
   'Doktor Chleba': 'Doctorul Pâinii',

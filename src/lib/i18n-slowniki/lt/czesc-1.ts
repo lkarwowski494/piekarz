@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Raugo maitinimas',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Natūralaus raugo maitinimas (iki piko)',
   'Dokarmienie zakwasu z lodówki': 'Natūralaus raugo iš šaldytuvo maitinimas',
-  'Dokarmiono zakwas': 'Raugas pamaitintas',
   'dokarmiony o {godzina}, następne o {nastepne}': 'pamaitintas {godzina}, kitas maitinimas {nastepne}',
   'Doktor': 'Daktaras',
   'Doktor Chleba': 'Duonos daktaras',

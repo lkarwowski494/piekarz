@@ -106,7 +106,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Simpan hari {n}',
   'Zapisz jako moją': 'Simpan sebagai milik saya',
   'Zapomniana sól (Laminacja ratunkowa)': 'Lupa garam (Laminasi darurat)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Pemberian makan starter “{name}” dicatat.',
   'Zarejestrowano dokarmienie!': 'Pemberian makan dicatat!',
   'Zarządzaj subskrypcją': 'Kelola Langganan',
   'Zastąp część wody lodem:': 'Ganti sebagian air dengan es:',

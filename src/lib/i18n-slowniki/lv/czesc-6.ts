@@ -109,7 +109,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Saglabāt {n}. dienu',
   'Zapisz jako moją': 'Saglabāt kā savu',
   'Zapomniana sól (Laminacja ratunkowa)': 'Aizmirsta sāls (Glābšanas laminēšana)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Ierauga „{name}” barošana reģistrēta.',
   'Zarejestrowano dokarmienie!': 'Barošana reģistrēta!',
   'Zarządzaj subskrypcją': 'Pārvaldīt abonementu',
   'Zastąp część wody lodem:': 'Aizstājiet daļu ūdens ar ledu:',

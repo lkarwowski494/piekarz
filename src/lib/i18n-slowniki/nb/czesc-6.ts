@@ -74,7 +74,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Lagre dag {n}',
   'Zapisz jako moją': 'Lagre som min',
   'Zapomniana sól (Laminacja ratunkowa)': 'Glemt salt (Nødlaminering)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Mating av surdeigsstarteren «{name}» er registrert.',
   'Zarejestrowano dokarmienie!': 'Mating registrert!',
   'Zarządzaj subskrypcją': 'Administrer abonnement',
   'Zastąp część wody lodem:': 'Erstatt en del av vannet med is:',

@@ -11,7 +11,6 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Błąd schowka",
     "Błąd zapisu",
     "Dodano zakwas",
-    "Dokarmiono zakwas",
     "Eksport CSV",
     "Etykieta zakwasu",
     "Kopia zapasowa",
@@ -63,7 +62,6 @@ describe('Matrix UI and Text Token Contracts', () => {
     "Zakup",
     "Zakupy zostały pomyślnie przywrócone",
     "Zapisano zaktualizowany profil",
-    "Zarejestrowano dokarmienie zakwasu „{name}”.",
     "Zasoby mąki w spiżarni zostały zaktualizowane.",
   ];
 

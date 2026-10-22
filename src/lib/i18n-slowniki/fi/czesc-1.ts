@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Hapanjuuren ruokinta',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Hapanjuuren ruokinta (huippuun asti)',
   'Dokarmienie zakwasu z lodówki': 'Jääkaapista otetun hapanjuuren ruokinta',
-  'Dokarmiono zakwas': 'Hapanjuuri ruokittu',
   'dokarmiony o {godzina}, następne o {nastepne}': 'ruokittu klo {godzina}, seuraava klo {nastepne}',
   'Doktor': 'Lääkäri',
   'Doktor Chleba': 'Leipälääkäri',

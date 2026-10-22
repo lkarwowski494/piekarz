@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu z lodówki': 'Cho men tự nhiên từ tủ lạnh ăn',
-  'Dokarmiono zakwas': 'Đã cho men ăn',
   'dokarmiony o {godzina}, następne o {nastepne}': 'cho ăn lúc {godzina}, lần tiếp theo lúc {nastepne}',
   'Doktor': 'Bác sĩ',
   'Doktor Chleba': 'Bác sĩ Bánh mì',

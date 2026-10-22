@@ -40,6 +40,8 @@ import { ZakladanieStart } from '../../../src/components/zakwas/ZakladanieStart'
 import { StalyDzienKarmienia } from '../../../src/components/zakwas/StalyDzienKarmienia';
 import { pytanieOStalyDzien } from '../../../src/core/notification-feeding';
 import { zapytajOStalyDzien } from '../../../src/lib/staly-dzien-pytanie';
+import { useCofnijDokarmienie } from '../../../src/hooks/useCofnijDokarmienie';
+import { PasekCofnij } from '../../../src/components/PasekCofnij';
 
 export default function ZakwasScreen() {
   const unitSystem = useUnitSystem();
@@ -102,6 +104,10 @@ export default function ZakwasScreen() {
   useEffect(() => {
     loadStarterData();
   }, [loadStarterData]);
+  const cofnijDokarmienie = useCofnijDokarmienie(async (id) => {
+    await loadStarterData(id);
+    setWersjaDziennika((v) => v + 1);
+  });
 
   // Plan wypieku bierze zakwas wybrany tutaj (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
   useEffect(() => {
@@ -174,7 +180,8 @@ export default function ZakwasScreen() {
         if ((await zapytajOStalyDzien(updated.id, now)) === 'licz-od') await loadStarterData(updated.id);
         return;
       }
-      Alert.alert(t('Dokarmiono zakwas'), t('Zarejestrowano dokarmienie zakwasu „{name}”.', { name: starter.name }));
+      // Pasek z „Przywróć” zamiast okna (009, D-051 1a) [M3 W-fix2]
+      cofnijDokarmienie.zapamietaj(starter, now);
     })();
   };
 
@@ -413,6 +420,9 @@ export default function ZakwasScreen() {
         />
         </View>
       </ScrollView>
+      {cofnijDokarmienie.pasek && (
+        <PasekCofnij {...cofnijDokarmienie.pasek} testID="zakwas-dokarm-cofnij" przywrocTestID="zakwas-dokarm-cofnij-przywroc" />
+      )}
     </SafeAreaView>
   );
 }

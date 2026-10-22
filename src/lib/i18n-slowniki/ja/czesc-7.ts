@@ -24,7 +24,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': '{n}日目を保存',
   'Zapisz jako moją': 'マイ配合として保存',
   'Zapomniana sól (Laminacja ratunkowa)': '塩の入れ忘れ（緊急ラミネーション）',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'サワー種「{name}」の種継ぎを記録しました。',
   'Zarejestrowano dokarmienie!': '種継ぎを記録しました！',
   'Zarządzaj subskrypcją': 'サブスクリプションを管理',
   'Zastąp część wody lodem:': '水の一部を氷に置き換えてください：',

@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Αποθήκευση ημέρας {n}',
   'Zapisz jako moją': 'Αποθήκευση ως δική μου',
   'Zapomniana sól (Laminacja ratunkowa)': 'Ξεχασμένο αλάτι (Λαμινάρισμα διάσωσης)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Καταγράφηκε τάισμα για το προζύμι «{name}».',
   'Zarejestrowano dokarmienie!': 'Το τάισμα καταγράφηκε!',
   'Zarządzaj subskrypcją': 'Διαχείριση συνδρομής',
   'Zastąp część wody lodem:': 'Αντικαταστήστε μέρος του νερού με πάγο:',

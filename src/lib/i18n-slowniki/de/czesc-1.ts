@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Auffrischen des Sauerteigs',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Sauerteig auffrischen (bis zum Reifehöhepunkt)',
   'Dokarmienie zakwasu z lodówki': 'Sauerteig aus dem Kühlschrank auffrischen',
-  'Dokarmiono zakwas': 'Sauerteig aufgefrischt',
   'dokarmiony o {godzina}, następne o {nastepne}': 'aufgefrischt um {godzina}, nächstes Mal um {nastepne}',
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Brotdoktor',

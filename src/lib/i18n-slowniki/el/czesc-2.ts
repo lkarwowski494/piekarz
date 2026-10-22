@@ -39,7 +39,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Τάισμα προζυμιού',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Τάισμα προζυμιού (μέχρι την κορύφωση)',
   'Dokarmienie zakwasu z lodówki': 'Τάισμα προζυμιού από το ψυγείο',
-  'Dokarmiono zakwas': 'Το προζύμι ταΐστηκε',
   'dokarmiony o {godzina}, następne o {nastepne}': 'τάισμα στις {godzina}, επόμενο στις {nastepne}',
   'Doktor': 'Γιατρός',
   'Doktor Chleba': 'Γιατρός Ψωμιού',

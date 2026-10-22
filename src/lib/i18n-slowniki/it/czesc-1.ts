@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Rinfresco del lievito madre',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Rinfresco del lievito madre (fino al picco)',
   'Dokarmienie zakwasu z lodówki': 'Rinfresco del lievito madre dal frigo',
-  'Dokarmiono zakwas': 'Lievito madre rinfrescato',
   'dokarmiony o {godzina}, następne o {nastepne}': 'rinfrescato alle {godzina}, prossimo alle {nastepne}',
   'Doktor': 'Dottore',
   'Doktor Chleba': 'Dottor Pane',

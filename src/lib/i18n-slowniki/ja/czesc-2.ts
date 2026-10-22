@@ -7,7 +7,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'サワー種の種継ぎ',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'サワー種の種継ぎ（発酵ピークまで）',
   'Dokarmienie zakwasu z lodówki': '冷蔵庫のサワー種の種継ぎ',
-  'Dokarmiono zakwas': 'サワー種に種継ぎしました',
   'dokarmiony o {godzina}, następne o {nastepne}': '{godzina}に種継ぎ済み、次回は{nastepne}',
   'Doktor': 'ドクター',
   'Doktor Chleba': 'パンドクター',

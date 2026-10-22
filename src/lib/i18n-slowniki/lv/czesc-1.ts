@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Ierauga barošana',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Ierauga barošana (līdz aktivitātes maksimumam)',
   'Dokarmienie zakwasu z lodówki': 'Ledusskapī turēta ierauga barošana',
-  'Dokarmiono zakwas': 'Ieraugs pabarots',
   'dokarmiony o {godzina}, następne o {nastepne}': 'pabarots plkst. {godzina}, nākamā barošana plkst. {nastepne}',
   'Doktor': 'Ārsts',
   'Doktor Chleba': 'Maizes ārsts',

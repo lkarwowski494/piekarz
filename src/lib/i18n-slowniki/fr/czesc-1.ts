@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Rafraîchi du levain naturel',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Rafraîchi du levain naturel (pic d\'activité)',
   'Dokarmienie zakwasu z lodówki': 'Rafraîchi du levain sorti du réfrigérateur',
-  'Dokarmiono zakwas': 'Levain naturel rafraîchi',
   'dokarmiony o {godzina}, następne o {nastepne}': 'rafraîchi à {godzina}, prochain à {nastepne}',
   'Doktor': 'Docteur',
   'Doktor Chleba': 'Docteur Pain',

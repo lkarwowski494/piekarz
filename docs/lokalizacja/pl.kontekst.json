@@ -1199,11 +1199,6 @@
       "src/lib/zakwas-widok.ts (kod)"
     ]
   },
-  "Dokarmiono zakwas": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
-  },
   "Dokarmiony {zakwas}": {
     "gdzie": [
       "src/lib/kalendarz-teksty.ts (kod)"
@@ -8013,7 +8008,8 @@
   },
   "Zapisano dokarmienie zakwasu {zakwas}.": {
     "gdzie": [
-      "src/hooks/useAkcjeDzis.ts (tekst)"
+      "src/hooks/useAkcjeDzis.ts (tekst)",
+      "src/hooks/useCofnijDokarmienie.ts (tekst)"
     ]
   },
   "Zapisano opis błędu w pliku: {file}. Kopii plików bazy nie udało się wykonać.": {
@@ -8106,11 +8102,6 @@
   },
   "Zapomniana sól (Laminacja ratunkowa)": {
     "gdzie": []
-  },
-  "Zarejestrowano dokarmienie zakwasu „{name}”.": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
   },
   "Zarejestrowano dokarmienie!": {
     "gdzie": []
@@ -9137,8 +9128,7 @@
   },
   "{n} godziny": {
     "gdzie": [
-      "src/lib/spirala-etykieta.ts (dane: few)",
-      "src/lib/spirala-etykieta.ts (dane: other)"
+      "src/components/harmonogram/TargetReadyCard.tsx (tekst)"
     ]
   },
   "{n} h temu": {

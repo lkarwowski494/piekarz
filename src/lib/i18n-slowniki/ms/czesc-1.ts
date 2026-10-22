@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Pemberian makan pemula sourdough',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Pemberian makan pemula sourdough (mencapai kemuncak)',
   'Dokarmienie zakwasu z lodówki': 'Pemberian makan pemula dari peti sejuk',
-  'Dokarmiono zakwas': 'Pemula sourdough telah diberi makan',
   'dokarmiony o {godzina}, następne o {nastepne}': 'diberi makan pada {godzina}, seterusnya pada {nastepne}',
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Doktor Roti',

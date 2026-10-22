@@ -94,7 +94,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Bewaar dag {n}',
   'Zapisz jako moją': 'Bewaar als eigen',
   'Zapomniana sól (Laminacja ratunkowa)': 'Vergeten zout (Nood-lamineren)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Voeding van zuurdesemstarter “{name}” vastgelegd.',
   'Zarejestrowano dokarmienie!': 'Voeding vastgelegd!',
   'Zarządzaj subskrypcją': 'Beheer abonnement',
   'Zastąp część wody lodem:': 'Vervang een deel van het water door ijs:',

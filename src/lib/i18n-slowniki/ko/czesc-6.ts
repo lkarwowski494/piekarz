@@ -138,7 +138,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': '{n}일 차 저장',
   'Zapisz jako moją': '내 배합표로 저장',
   'Zapomniana sól (Laminacja ratunkowa)': '잊어버린 소금 (응급 라미네이션)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': '“{name}” 스타터의 먹이 주기를 기록했어요.',
   'Zarejestrowano dokarmienie!': '먹이 주기를 기록했어요!',
   'Zarządzaj subskrypcją': '구독 관리',
   'Zastąp część wody lodem:': '물 일부를 얼음으로 바꾸세요:',

@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Ekşi maya beslemesi',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Ekşi maya besleme (zirve noktası)',
   'Dokarmienie zakwasu z lodówki': 'Buzdolabındaki ekşi mayayı besleme',
-  'Dokarmiono zakwas': 'Ekşi maya beslendi',
   'dokarmiony o {godzina}, następne o {nastepne}': 'beslendi: {godzina}, sonraki: {nastepne}',
   'Doktor': 'Doktor',
   'Doktor Chleba': 'Ekmek Doktoru',

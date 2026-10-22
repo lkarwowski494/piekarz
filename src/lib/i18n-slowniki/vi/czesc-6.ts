@@ -157,7 +157,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Lưu ngày {n}',
   'Zapisz jako moją': 'Lưu làm của tôi',
   'Zapomniana sól (Laminacja ratunkowa)': 'Quên muối (Cán mỏng cứu bột)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Đã ghi nhận lần cho men “{name}” ăn.',
   'Zarejestrowano dokarmienie!': 'Đã ghi nhận lần cho men ăn!',
   'Zarządzaj subskrypcją': 'Quản lý gói đăng ký',
   'Zastąp część wody lodem:': 'Thay một phần nước bằng đá:',

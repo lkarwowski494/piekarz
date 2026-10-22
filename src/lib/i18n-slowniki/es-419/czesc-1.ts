@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Alimentación de la masa madre',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Alimentación de la masa madre (hasta el punto máximo)',
   'Dokarmienie zakwasu z lodówki': 'Alimentación de la masa madre del refrigerador',
-  'Dokarmiono zakwas': 'Masa madre alimentada',
   'dokarmiony o {godzina}, następne o {nastepne}': 'alimentada a las {godzina}, la siguiente a las {nastepne}',
   'Doktor': 'Doctor',
   'Doktor Chleba': 'Doctor del Pan',

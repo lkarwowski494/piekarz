@@ -119,7 +119,6 @@ export const CZESC: Record<string, string> = {
   'Zapisz dzień {n}': 'Salvează ziua {n}',
   'Zapisz jako moją': 'Salvează ca a mea',
   'Zapomniana sól (Laminacja ratunkowa)': 'Sare uitată (Laminare de salvare)',
-  'Zarejestrowano dokarmienie zakwasu „{name}”.': 'Hrănirea maiei naturale „{name}” a fost înregistrată.',
   'Zarejestrowano dokarmienie!': 'Hrănire înregistrată!',
   'Zarządzaj subskrypcją': 'Gestionează abonamentul',
   'Zastąp część wody lodem:': 'Înlocuiește o parte din apă cu gheață:',

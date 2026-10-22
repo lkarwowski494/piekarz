@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': '사워도우 스타터 먹이 주기',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': '사워도우 스타터 먹이 주기 (스타터 활성 정점 도달)',
   'Dokarmienie zakwasu z lodówki': '냉장 스타터 먹이 주기',
-  'Dokarmiono zakwas': '스타터에 먹이를 줬어요',
   'dokarmiony o {godzina}, następne o {nastepne}': '{godzina}에 먹이 줌, 다음은 {nastepne}',
   'Doktor': '닥터',
   'Doktor Chleba': '빵 닥터',

@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Підживлення закваски',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Підживлення закваски (досягнення піку)',
   'Dokarmienie zakwasu z lodówki': 'Підживлення закваски з холодильника',
-  'Dokarmiono zakwas': 'Закваску підживлено',
   'dokarmiony o {godzina}, następne o {nastepne}': 'підживлено о {godzina}, наступне о {nastepne}',
   'Doktor': 'Доктор',
   'Doktor Chleba': 'Хлібний доктор',

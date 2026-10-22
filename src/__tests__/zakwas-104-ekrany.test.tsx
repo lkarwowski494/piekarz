@@ -304,6 +304,26 @@ describe('104: ekrany zakwasu', () => {
     s.done();
   });
 
+  // W-fix2, 04-studio-projektowe-009 (decyzja M1 wg rekomendacji): dokarmienie z karty jak na „Dziś” (D-051 1a) —
+  // bez okna do zamknięcia, pasek „Zapisano dokarmienie zakwasu …” z „Przywróć”, który cofa wpis i czas dokarmienia
+  it('karta: „Zapisz dokarmienie” bez okna, pasek z „Przywróć” cofa wpis i poprzedni czas dokarmienia (009)', async () => {
+    const fedAt = Date.now() - 380 * 60_000;
+    const s = await start(async (e) => {
+      await e.createStarterWithEntry(starter('z', { lastFedAt: fedAt, feedingRatio: '1:2:2' }), feed('f1', 'z', fedAt, '1:2:2'));
+    });
+    const RN: typeof import('react-native') = require('react-native');
+    await s.press('zakwas-dokarm-btn');
+    expect((RN.Alert.alert as jest.Mock).mock.calls.map((c) => c[0])).not.toContain('Dokarmiono zakwas');
+    expect((await s.entries.getStarterEntries('z')).filter((x) => x.kind === 'feeding')).toHaveLength(2);
+    expect(s.tekst()).toContain('Zapisano dokarmienie zakwasu Zakwas z.');
+    await s.press('zakwas-dokarm-cofnij-przywroc');
+    expect((await s.entries.getStarterEntries('z')).map((x) => x.id)).toEqual(['f1']);
+    const store = require('../data/sqlite-store') as typeof import('../data/sqlite-store');
+    expect((await store.getStarters()).find((x) => x.id === 'z')).toEqual(expect.objectContaining({ lastFedAt: fedAt, feedingRatio: '1:2:2' }));
+    expect(s.tekst()).not.toContain('Zapisano dokarmienie zakwasu Zakwas z.');
+    s.done();
+  });
+
   it('karta: Spirala cyklu z etykietą, „Podwoił objętość” zapisuje obserwację i pokazuje „gotowy” z atrybucją (BR-ZAKW-003 Podwojenie w 6 h)', async () => {
     const fedAt = Date.now() - 380 * 60_000;
     const s = await start(async (e) => {

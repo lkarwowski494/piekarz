@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': '天然酵母起種餵養',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': '餵養天然酵母起種（達到起種活力高峰）',
   'Dokarmienie zakwasu z lodówki': '餵養冰箱取出的天然酵母起種',
-  'Dokarmiono zakwas': '已餵養天然酵母起種',
   'dokarmiony o {godzina}, następne o {nastepne}': '{godzina} 已餵養，下次 {nastepne}',
   'Doktor': '醫生',
   'Doktor Chleba': '麵包醫生',

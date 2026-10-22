@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Zuurdesemstarter voeden',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Zuurdesemstarter voeden (tot de piek)',
   'Dokarmienie zakwasu z lodówki': 'Zuurdesemstarter uit de koelkast voeden',
-  'Dokarmiono zakwas': 'Zuurdesemstarter gevoed',
   'dokarmiony o {godzina}, następne o {nastepne}': 'gevoed om {godzina}, volgende om {nastepne}',
   'Doktor': 'Dokter',
   'Doktor Chleba': 'Broddokter',

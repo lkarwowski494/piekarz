@@ -204,7 +204,6 @@ export const CZESC: Record<string, string> = {
   'Dokarmienie zakwasu': 'Matning av surdegsgrund',
   'Dokarmienie zakwasu (osiągnięcie szczytu)': 'Matning av surdegsgrunden (till toppen)',
   'Dokarmienie zakwasu z lodówki': 'Matning av surdegsgrunden från kylskåpet',
-  'Dokarmiono zakwas': 'Surdegsgrunden matad',
   'dokarmiony o {godzina}, następne o {nastepne}': 'matad kl. {godzina}, nästa kl. {nastepne}',
   'Doktor': 'Doktorn',
   'Doktor Chleba': 'Bröddoktorn',
