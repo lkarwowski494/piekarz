@@ -3487,7 +3487,7 @@
   "Nic w planach": {
     "gdzie": [
       "src/components/kalendarz/MiesiacKalendarza.tsx (tekst w JSX)",
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (pusto)"
     ]
   },
   "Nie dodano do kalendarza": {
@@ -4222,7 +4222,7 @@
   "Piekarnik zajęty o {h}": {
     "gdzie": [
       "src/lib/confirm.ts (Alert.alert)",
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (tekst)"
     ]
   },
   "Piekarnik zajęty: {r1} i {r2} pieką się w tym samym czasie": {
@@ -8630,7 +8630,7 @@
   },
   "i jeszcze {n}, szczegóły w arkuszu dnia": {
     "gdzie": [
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (reszta)"
     ]
   },
   "jutro": {
@@ -8996,7 +8996,7 @@
   "{h} {co}": {
     "gdzie": [
       "src/components/kalendarz/ArkuszDnia.tsx (kod)",
-      "src/lib/kalendarz-teksty.ts (kod)"
+      "src/lib/kalendarz-teksty.ts (tekst)"
     ]
   },
   "{h}h": {

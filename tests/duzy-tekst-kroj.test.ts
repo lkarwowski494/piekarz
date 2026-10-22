@@ -35,6 +35,10 @@ const WYJATKI_SKALI: Record<string, string> = {};
  */
 const WYJATKI_ZAKLADKI: Record<string, Record<string, string>> = {
   'src/components/TabIcon.tsx': { maxFontSizeMultiplier: '{1.5}' },
+  // Nazwany wyjątek (PRZ-07, przegląd roli 04, D-107): tekst przycisku w pasku nawigacji (prawy róg Stolnicy: „Doktor” +
+  // „Plan wypieku”) skaluje się najwyżej 1,5× jak podpisy zakładek; przy 1,5× oba przyciski mają ok. 264 pt, a bez
+  // limitu wypychały tytuł i środek paska. Bez limitu linii i bez zmniejszania kroju.
+  'src/components/nawigacja/PrzyciskNaglowka.tsx': { maxFontSizeMultiplier: '{1.5}' },
 };
 /**
  * Nazwany wyjątek (reaudit-noc N-2, 201): godzina „gotowe” i czas kroku w tokenie `czas` (99 pt przy AX5) w jednym
