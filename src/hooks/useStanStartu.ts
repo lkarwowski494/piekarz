@@ -8,6 +8,7 @@ import { useFocusEffect } from 'expo-router';
 import { restoreTimerState, type TimerState } from '../core/bake-session';
 import { loadBakeSession, pickBakeSession, type BakeSession } from '../data/bake-session-store';
 import { getActiveBake, getBakeLogs, getRecipes, getStarters } from '../data/sqlite-store';
+import { wykonajOdlozonaProsbeOOcene } from '../lib/prosba-o-ocene-odlozona';
 
 export interface DaneStartu {
   gotowe: boolean;
@@ -23,6 +24,8 @@ export function useStanStartu(): DaneStartu {
   useFocusEffect(
     useCallback(() => {
       let aktywny = true;
+      // Wejście na „Dziś”: odłożona prośba o ocenę po wypieku ≤ 2★ (D-089) [reaudit-noc N-12]
+      wykonajOdlozonaProsbeOOcene();
       void (async () => {
         // Nieudany odczyt zapisu to brak sesji, nie zgadnięty krok (bake-session-store parsuje z unknown)
         const zapis = await loadBakeSession().catch(() => null);

@@ -107,7 +107,8 @@ describe.each(PORY)('Prośba o ocenę po 3. wypieku, zegar %s (138; BR-OPIN-001)
     jest.restoreAllMocks();
   });
 
-  it.each([1, 2, 3, 5])('3. ukończony wypiek oceniony na %i★: jedna systemowa prośba (warunek nie czyta oceny)', async (gwiazdki) => {
+  // 1★ i 2★: ta sama jedna prośba, ale po propozycji Doktora, nie razem z nią (D-089) — prosba-o-ocene-po-doktorze-n12.test.tsx
+  it.each([3, 4, 5])('3. ukończony wypiek oceniony na %i★: jedna systemowa prośba (warunek nie czyta oceny)', async (gwiazdki) => {
     await wczesniejszeWypieki(2, teraz);
     await zakonczWypiek(gwiazdki);
     expect(review.requestReview).toHaveBeenCalledTimes(1);

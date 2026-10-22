@@ -17,15 +17,16 @@ export function shouldSuggestDoctor(ratingStars: number): boolean {
 /**
  * Po zapisanym wpisie: przy ocenie ≤ 2★ pyta, czy otworzyć Doktora. Wpis jest już w historii,
  * więc odpowiedź niczego nie zmienia w danych (BR-DIAG-001, kryterium 2).
- * `openDoctor` przychodzi przez strażnika dostępu (chron('doktor', …)).
+ * `openDoctor` przychodzi przez strażnika dostępu (chron('doktor', …)). `onNotNow`: „Nie teraz” zamyka propozycję
+ * (tu rusza odłożona prośba o ocenę, D-089) [reaudit-noc N-12].
  */
-export function suggestDoctorAfterRating(ratingStars: number, openDoctor: () => void): void {
+export function suggestDoctorAfterRating(ratingStars: number, openDoctor: () => void, onNotNow?: () => void): void {
   if (!shouldSuggestDoctor(ratingStars)) return;
   Alert.alert(
     t('Sprawdzić przyczynę w Doktorze?'),
     t('Wpis jest w historii. Doktor Chleba podpowie, co zmienić przy następnym wypieku.'),
     [
-      { text: t('Nie teraz'), style: 'cancel' },
+      { text: t('Nie teraz'), style: 'cancel', onPress: onNotNow },
       { text: t('Otwórz Doktora Chleba'), onPress: openDoctor },
     ]
   );

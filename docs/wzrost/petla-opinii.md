@@ -56,14 +56,14 @@ Wektory: `docs/wzrost/wektory-prosba-o-ocene.json` (W01–W19 dla funkcji, M01�
 
 ### 1.3 Miejsce wywołania
 
-- Plik: `app/(tabs)/stolnica.tsx`, w `handleSaveFinishBake`, **po** udanym `finishBake(...)`, zamknięciu okna (`setIsFinishModalOpen(false)`), `loadHistory()` i obok `suggestDoctorAfterRating(...)` (dziś linia 324). Zakresy ocen są rozłączne (Doktor ≤ 2, prośba ≥ 4), więc oba okna nie pojawią się razem.
+- Plik: `app/(tabs)/stolnica.tsx`, w `handleSaveFinishBake`, **po** udanym `finishBake(...)`, zamknięciu okna (`setIsFinishModalOpen(false)`), `loadHistory()` i obok `suggestDoctorAfterRating(...)` (dziś linia 324). Zakresy ocen są rozłączne (Doktor ≤ 2, prośba ≥ 4), więc oba okna nie pojawią się razem. **Od D-067 i D-089 (2026-10-22):** miejsce wywołania to `src/hooks/useFinishBake.ts` (Stolnica `app/stolnica.tsx`); kolejność po zapisie: przy ocenie ≥ 3★ prośba po zamknięciu okna zapisu; przy ≤ 2★ najpierw propozycja Doktora, a prośba czeka (`src/lib/prosba-o-ocene-odlozona.ts`) do „Nie teraz”, do zamknięcia Doktora (`app/doktor.tsx`) albo do następnego wejścia na „Dziś” (`src/hooks/useStanStartu.ts`), jeden raz; warunek sprawdzany w chwili prośby.
 - Opakowanie z efektami: `src/lib/prosba-o-ocene-wywolanie.ts` (`poprosOOceneJesliWarto()`, od D-067 bez oceny; liczba ukończonych wypieków z `getBakeLogs()`):
   1. `await StoreReview.isAvailableAsync()` i `await StoreReview.hasAction()`; którekolwiek `false` → koniec (M01, M02);
   2. odczyt dat z `getAppSetting('prosba_o_ocene_daty')` (`src/data/settings-store.ts`, JSON tablicy liczb; błąd parsowania → traktuj jak `[NaN]`, nie jak pustą listę);
   3. `czyProsicOOcene({ zakonczoneWypieki, datyPoprzednichProsb, teraz: Date.now() })`; `false` → koniec;
   4. wywołanie po zakończeniu animacji zamknięcia okna (`InteractionManager.runAfterInteractions` albo `onDismiss` modala), nie w obsłudze dotknięcia „Zapisz”: prośba jest skutkiem ukończonej sekwencji, nie działaniem przycisku [OCENA: odczyt zdania Apple o „button tap” jako zakazu przycisku, który sam prosi o ocenę];
   5. `await StoreReview.requestReview()`; sukces → dopisz `Date.now()` i zapisz (`setAppSetting`); błąd → połknięty, bez komunikatu i bez zapisu daty (M05).
-- **Ocena bochenka nie wchodzi do warunku** (D-067 uchyla akapit o ocenie „wybranej przez użytkownika” z D-042): prośba i propozycja Doktora (≤ 2★) mogą przyjść po tym samym wypieku tylko wtedy, gdy system pokaże okno oceny; obie są niezależne.
+- **Ocena bochenka nie wchodzi do warunku** (D-067 uchyla akapit o ocenie „wybranej przez użytkownika” z D-042): prośba i propozycja Doktora (≤ 2★) mogą przyjść po tym samym wypieku, ale nie w tej samej chwili: prośba po propozycji Doktora (D-089, reaudyt N-12 wariant c); ocena zmienia tylko moment, nie warunek.
 - Bez pytania „czy podoba ci się aplikacja” przed prośbą i bez nagrody (5.6.1, sekcja 3 wytycznych, BR-OPIN-001 „Bez własnego okna”).
 - Daty próśb nie wchodzą do eksportu ani kopii zapasowej (to nie są dane użytkownika o wypiekach); nie opuszczają urządzenia. Czy zapis mieści się w wyjątku art. 399 ust. 3 Prawa komunikacji elektronicznej, `[DO USTALENIA]` (rola 05, inwentarz prywatności).
 

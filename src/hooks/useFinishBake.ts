@@ -1,7 +1,7 @@
 // ============================================================================
 // Piekarz — ocena i zapis zakończonego wypieku (arkusz po „Zrobione” na ostatnim kroku), wydzielone z prowadzenia
 // bez zmiany zachowania: wpis, licznik wypieków i odliczenie mąki w jednej transakcji [M1-audytor-generalny-021],
-// propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032], prośba o ocenę aplikacji od 3. wypieku (D-067).
+// propozycja Doktora przy ocenie <= 2 (BR-DIAG-001) [M1-audytor-generalny-032], prośba o ocenę aplikacji od 3. wypieku (D-067, przy ≤ 2★ odłożona: D-089).
 // ============================================================================
 
 import { useRef, useState } from 'react';
@@ -10,8 +10,9 @@ import { finishBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store
 import { resyncNotifications } from '../lib/notifications';
 import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../components/SensoryRadarChart';
 import type { FinishBakeModalProps } from '../components/stolnica/FinishBakeModal';
-import { suggestDoctorAfterRating } from '../lib/doctor-suggestion';
+import { shouldSuggestDoctor, suggestDoctorAfterRating } from '../lib/doctor-suggestion';
 import { poprosOOceneJesliWarto } from '../lib/prosba-o-ocene-wywolanie';
+import { odlozProsbeOOcene, wykonajOdlozonaProsbeOOcene } from '../lib/prosba-o-ocene-odlozona';
 
 type Smak = FinishBakeModalProps['tasteProfile'];
 
@@ -72,9 +73,14 @@ export function useFinishBake(opts: {
     setSensoryProfile(DEFAULT_BREAD_SENSORY_PROFILE);
     setNotes('');
     await opts.loadHistory();
-    suggestDoctorAfterRating(rating, opts.openDoctor);
-    // Prośba o ocenę aplikacji po ukończonym wypieku, bez względu na ocenę bochenka (DEC-20 a) [M1-audytor-generalny-138]
-    void poprosOOceneJesliWarto();
+    // Prośba o ocenę aplikacji po ukończonym wypieku, bez względu na ocenę bochenka (DEC-20 a) [M1-audytor-generalny-138];
+    // przy propozycji Doktora (≤ 2★) nie w tej samej chwili: po „Nie teraz”, po Doktorze albo na „Dziś” (D-089) [reaudit-noc N-12]
+    if (shouldSuggestDoctor(rating)) {
+      odlozProsbeOOcene();
+      suggestDoctorAfterRating(rating, opts.openDoctor, wykonajOdlozonaProsbeOOcene);
+    } else {
+      void poprosOOceneJesliWarto();
+    }
   });
 
   return {

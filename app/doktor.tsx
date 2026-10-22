@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -30,6 +30,7 @@ import { KitchenTestsGuideSection } from '../src/components/doktor/KitchenTestsG
 import { useAppAccess } from '../src/lib/app-access';
 import { BlokadaFunkcji } from '../src/components/BlokadaFunkcji';
 import { wejscieWidoczne } from '../src/lib/wejscia-pozniej';
+import { wykonajOdlozonaProsbeOOcene } from '../src/lib/prosba-o-ocene-odlozona';
 
 import { typografia } from '../src/ui/tokeny';
 export default function DoctorScreen() {
@@ -42,6 +43,8 @@ export default function DoctorScreen() {
 
   const [selectedRecoveryId, setSelectedRecoveryId] = useState<EmergencyCode | null>(null);
   const [isAcademyOpen, setIsAcademyOpen] = useState<boolean>(false);
+  // Zamknięcie Doktora: odłożona prośba o ocenę po wypieku ≤ 2★ (D-089) [reaudit-noc N-12]
+  useEffect(() => wykonajOdlozonaProsbeOOcene, []);
 
   const toggleSymptom = (key: keyof BreadInspectionCriteria) => {
     setSymptoms((prev) => ({
