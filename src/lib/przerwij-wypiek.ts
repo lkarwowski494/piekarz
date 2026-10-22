@@ -10,6 +10,8 @@ export interface TrwajacyWypiek {
   id: string;
   /** Nazwa receptury; null, gdy jej brak (stary zapis). */
   nazwa: string | null;
+  /** Klucz tekstu bieżącego kroku (treść pytania przy starcie kolejnego wypieku) [M3 D4b]. */
+  krok?: string;
 }
 
 /**
@@ -20,7 +22,8 @@ export async function trwajaceWypieki(): Promise<TrwajacyWypiek[]> {
   const zapis = await loadActiveBakeSessionsZWersja().catch(() => []);
   return sesjeDoPokazania(getActiveBake(), zapis).map(({ sesja }) => {
     const nazwa = sesja.recipeName.trim();
-    return { id: idSesji(sesja), nazwa: nazwa === '' ? null : nazwa };
+    const krok = sesja.steps[sesja.stepIdx]?.name;
+    return { id: idSesji(sesja), nazwa: nazwa === '' ? null : nazwa, ...(krok ? { krok } : {}) };
   });
 }
 

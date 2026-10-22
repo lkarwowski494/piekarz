@@ -67,6 +67,8 @@ export function confirmDiscardBake(onConfirm: () => void) {
 export interface WypiekWPytaniu {
   id: string;
   nazwa: string | null;
+  /** Klucz tekstu bieżącego kroku: treść pytania „{wypiek}: {krok}, trwa” (przegląd roli 04 z D3a) [M3 D4b]. */
+  krok?: string;
 }
 
 /** „Wróć do: {nazwa}” (forma z dwukropkiem przekłada się na 34 języki, makieta 04-a2); bez nazwy „Wróć do wypieku”. */
@@ -80,7 +82,9 @@ const wrocDo = (w: WypiekWPytaniu, onWroc: (id: string) => void) => ({
  * naraz od D-092; pytanie a1b z przerwaniem zastąpione (D-104). Nic nie znika: przerwanie tylko na Stolnicy [M3 D3a].
  */
 export function confirmStartPrzyTrwajacym(trwa: WypiekWPytaniu, onOba: () => void, onWroc: (id: string) => void) {
-  Alert.alert(t('Trwa już inny wypiek'), undefined, [
+  // Treść z nazwą i krokiem, nie sam tytuł (tekst z listy roli 04 a2 „{r}: {krok}, trwa”); stary zapis bez nazwy — bez treści
+  const tresc = trwa.nazwa && trwa.krok ? t('{wypiek}: {krok}, trwa', { wypiek: trwa.nazwa, krok: t(trwa.krok) }) : undefined;
+  Alert.alert(t('Trwa już inny wypiek'), tresc, [
     { text: t('Prowadź oba'), isPreferred: true, onPress: onOba },
     wrocDo(trwa, onWroc),
     cancelButton(),

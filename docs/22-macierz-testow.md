@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 50 | 50 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 579 | 579 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 581 | 581 | **100.0%** | ✅ POKRYTE |
 | **LOGIKA** | 530 | 530 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 196 | 196 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1364** | Pokrytych: **1364** | Brakujących: **0**
+Łącznie elementów: **1366** | Pokrytych: **1366** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
 
-*(... i 1064 kolejnych elementów w pełnym wykazie)*
+*(... i 1066 kolejnych elementów w pełnym wykazie)*

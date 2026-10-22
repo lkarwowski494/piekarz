@@ -47,6 +47,7 @@ import { planBakeSteps } from '../core/bake-steps';
 import { saveBakeSession, type BakeSession } from '../data/bake-session-store';
 import { loadActiveBakeSessions } from '../data/bake-sessions-store';
 import { setLang, t } from '../lib/i18n';
+import { formatTime } from '../lib/format';
 import { zUprawnieniem } from '../../tests/helpers/platnosci';
 
 const textOf = (n: unknown): string => {
@@ -117,8 +118,9 @@ describe('D3a: Stolnica przy dwóch trwających wypiekach', () => {
     expect(tab('bake_pizza').props.accessibilityState).toEqual({ selected: true });
     expect(tab('bake_chleb').props.accessibilityState).toEqual({ selected: false });
     expect(tab('bake_chleb').props.accessibilityRole).toBe('tab');
-    expect(tab('bake_chleb').props.accessibilityLabel).toBe(`Chleb, krok: ${t(kroki[2].name)}`);
-    expect(textOf(tab('bake_pizza').props.children)).toContain(t(kroki[1].name));
+    // Zmiana M3 D4b (przegląd roli 04 z D3a): druga linia „do {godzina}” jak w makiecie, krok w etykiecie VoiceOver
+    expect(tab('bake_chleb').props.accessibilityLabel).toBe(`Chleb, krok: ${t(kroki[2].name)}, do ${formatTime(now + 20 * 60_000)}`);
+    expect(textOf(tab('bake_pizza').props.children)).toContain(`do ${formatTime(now + 45 * 60_000)}`);
 
     await act(async () => {
       tab('bake_chleb').props.onPress();

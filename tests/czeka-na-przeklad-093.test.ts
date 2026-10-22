@@ -97,6 +97,8 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     '{wypiek}: {krok}',
     'Tor {n}, {receptura}: {krok}, {czas}',
     'Tor {n}, {receptura}: {krok}',
+    '{wypiek}: {krok}, trwa',
+    '{wypiek}, krok: {krok}, do {godzina}',
     // KONIEC D4b
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;

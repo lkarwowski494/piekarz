@@ -91,7 +91,12 @@ export default function StolnicaScreen() {
       <PrzelacznikWypiekow
         wypieki={lista.map(({ sesja }) => {
           const id = idSesji(sesja);
-          return { id, nazwa: sesja.recipeName, krok: kroki[id] ?? sesja.steps[sesja.stepIdx]?.name ?? '' };
+          const zapisany = sesja.steps[sesja.stepIdx]?.name ?? '';
+          const krok = kroki[id] ?? zapisany;
+          // „do {godzina}”: koniec zegara, a bez zegara koniec kroku z planu; po zmianie kroku na tym ekranie (inny niż
+          // w odczycie) godziny jeszcze nie znamy — sam krok [M3 D4b, przegląd roli 04 z D3a]
+          const koniec = sesja.timerEndsAt ?? (sesja.pausedLeftSec === null ? sesja.steps[sesja.stepIdx]?.plannedEnd ?? null : null);
+          return { id, nazwa: sesja.recipeName, krok, doMs: krok === zapisany ? koniec : null };
         })}
         wybrany={wybrany}
         onWybierz={(id) => {

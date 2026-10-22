@@ -45,7 +45,7 @@ import { PasekKciuka } from './PasekKciuka';
 import { PlanWypiekuArkusz } from './PlanWypiekuArkusz';
 import { PasekCofnij } from '../PasekCofnij';
 import { PoCoTenKrokArkusz } from './PoCoTenKrokArkusz';
-import { PrzyciskNaglowka } from '../nawigacja/PrzyciskNaglowka';
+import { PrzyciskiProwadzenia } from './PrzyciskiProwadzenia';
 import { StrefaPlanu } from './StrefaPlanu';
 import { useTekstyProwadzenia } from '../../hooks/useTekstyProwadzenia';
 import { czekaNaStart } from '../../lib/prowadzenie-teksty';
@@ -317,16 +317,9 @@ export function ProwadzenieWypieku({ start, wersja, naglowek, onKoniec, onKrok, 
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right']}>
-      {/* Nawigacja: „Dziś” (wstecz) · „Plan wypieku” w trwającym wypieku, inaczej skrót do Doktora (D-051 2a, §11b „056”) */}
+      {/* Nawigacja: „Dziś” (wstecz) · „Doktor” i w trwającym wypieku „Plan wypieku” (D-051 2a, §11b „056”, BR-DIAG-003) */}
       <Stack.Screen
-        options={{
-          headerRight: () =>
-            aktywny ? (
-              <PrzyciskNaglowka testID="bake-plan-btn" etykieta={t('Plan wypieku')} tekst={t('Plan wypieku')} onPress={() => setPlanOpen(true)} />
-            ) : (
-              <PrzyciskNaglowka testID="stolnica-doctor-shortcut-btn" etykieta={t('Doktor Chleba')} tekst={t('Doktor')} onPress={() => router.push('/doktor')} />
-            ),
-        }}
+        options={{ headerRight: () => <PrzyciskiProwadzenia aktywny={aktywny} onPlan={() => setPlanOpen(true)} onDoktor={() => router.push('/doktor')} /> }}
       />
       {/* Ekran nie gaśnie tylko w kroku czynnym; w biernym (chłodnia) gaśnie jak zwykle (BR-REKA-001) [M1-audytor-generalny-130] */}
       <StolnicaKeepAwake active={aktywny && !currentStep.isPassive && czekaNaStart(steps, currentStepIdx, Date.now()) === null} />

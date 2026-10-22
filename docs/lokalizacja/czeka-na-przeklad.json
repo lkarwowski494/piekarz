@@ -420,6 +420,16 @@
       "klucz": "Tor {n}, {receptura}: {krok}",
       "powod": "etykieta VoiceOver spirali z dwoma torami bez minutnika kroku [M3 D4b, D-105]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}: {krok}, trwa",
+      "powod": "treść pytania „Trwa już inny wypiek” przy starcie kolejnego wypieku: nazwa i bieżący krok (parametry {wypiek}, {krok}; lista roli 04 a2) [M3 D4b, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}, krok: {krok}, do {godzina}",
+      "powod": "etykieta VoiceOver segmentu przełącznika wypieków na Stolnicy z końcem bieżącego kroku (parametry {wypiek}, {krok}, {godzina}) [M3 D4b, BR-KAL-016]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

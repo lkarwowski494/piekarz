@@ -114,4 +114,6 @@ export const EN_19: Record<string, string> = {
   '{wypiek}: {krok}': '{wypiek}: {krok}',
   'Tor {n}, {receptura}: {krok}, {czas}': 'Track {n}, {receptura}: {krok}, {czas}',
   'Tor {n}, {receptura}: {krok}': 'Track {n}, {receptura}: {krok}',
+  '{wypiek}: {krok}, trwa': '{wypiek}: {krok}, in progress',
+  '{wypiek}, krok: {krok}, do {godzina}': '{wypiek}, step: {krok}, until {godzina}',
 };
