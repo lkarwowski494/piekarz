@@ -57,7 +57,8 @@ describe('D5: plany w bake_sessions', () => {
     const pt = plan('plan_pt', 'Pizza', T0 + 24 * H);
     expect(await api.savePlannedBake(sob)).toEqual({ ok: true });
     expect(await api.savePlannedBake(pt)).toEqual({ ok: true });
-    expect(await api.loadPlannedBakes()).toEqual([sob, pt]);
+    // Kolejność: planowany start rosnąco, potem id (nie czas zapisu; ten bywa równy co do ms) [M3 TZ Matrix]
+    expect(await api.loadPlannedBakes()).toEqual([pt, sob]);
 
     const teraz = T0 + 48 * H + 60_000;
     const r = await api.zacznijZaplanowany(sesja(sob, teraz));
@@ -68,6 +69,19 @@ describe('D5: plany w bake_sessions', () => {
     expect(trwa.sesja.bake?.starterId).toBe('z');
     expect(r.ok && r.wersja).toBe(trwa.wersja);
     expect((await api.loadPlannedBakes()).map((p) => p.id)).toEqual(['plan_pt']);
+  });
+
+  it('BR-KAL-009 Kolejność planów to planowany start, potem id, także gdy zapisano je w tej samej milisekundzie', async () => {
+    const api = await swiezaBaza();
+    const spy = jest.spyOn(Date, 'now').mockReturnValue(T0);
+    try {
+      await api.savePlannedBake(plan('plan_a', 'Późny', T0 + 48 * H));
+      await api.savePlannedBake(plan('plan_b', 'Wczesny', T0 + 24 * H));
+      await api.savePlannedBake(plan('plan_c', 'Wczesny drugi', T0 + 24 * H));
+    } finally {
+      spy.mockRestore();
+    }
+    expect((await api.loadPlannedBakes()).map((p) => p.id)).toEqual(['plan_b', 'plan_c', 'plan_a']);
   });
 
   it('BR-KAL-009 start przy 2 trwających: limit, plan zostaje zaplanowany, trwające bez zmian', async () => {
