@@ -1302,5 +1302,260 @@
     "rodzaj": "błąd",
     "pochodzenie": "rachunek: M = 0 (RD-15)",
     "miejsce": "docs\\brd\\reguly.md:255"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W1",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 21:59",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-21 (23:59 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:258"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W2",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 22:00",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (00:00 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:259"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W3",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-21 22:01",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (00:01 CEST)"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: UTC+2",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:260"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W4",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-25 06:00",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-25 (07:00 CET)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:261"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W5",
+    "wejscie": {
+      "Chwila [UTC]": "2026-10-22 22:30",
+      "Strefa [IANA]": "America/New_York"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "2026-10-22 (18:30 EDT)"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:262"
+  },
+  {
+    "regula": "RD-29",
+    "id": "RD-29-W6",
+    "wejscie": {
+      "Chwila [UTC]": "brak",
+      "Strefa [IANA]": "Europe/Warsaw"
+    },
+    "oczekiwane": {
+      "dzień paska [data]": "zdarzenie pominięte, pozostałe bez zmian"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: nieczytelna data wpisu (BR-KAL-002)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:263"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W1",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-66 (PL: poniedziałek)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:275"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W2",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "US"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-18…2026-10-24"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "S-66 (US: niedziela)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:276"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W3",
+    "wejscie": {
+      "Dziś [data]": "2026-10-19",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek: dziś = pierwszy dzień",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:277"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W4",
+    "wejscie": {
+      "Dziś [data]": "2026-10-26",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-26…2026-11-01"
+    },
+    "tolerancja": null,
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:278"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W5",
+    "wejscie": {
+      "Dziś [data]": "2026-10-25",
+      "Region [-]": "PL"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-10-19…2026-10-25"
+    },
+    "tolerancja": null,
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek: ostatni dzień tygodnia, dzień 25-godzinny",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:279"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W6",
+    "wejscie": {
+      "Dziś [data]": "2026-11-01",
+      "Region [-]": "US"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "2026-11-01…2026-11-07"
+    },
+    "tolerancja": null,
+    "rodzaj": "typowy",
+    "pochodzenie": "rachunek: niedziela ze zmianą czasu w USA (S-78)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:280"
+  },
+  {
+    "regula": "RD-30",
+    "id": "RD-30-W7",
+    "wejscie": {
+      "Dziś [data]": "2026-10-22",
+      "Region [-]": "brak"
+    },
+    "oczekiwane": {
+      "dni paska [data]": "jak region językowy aplikacji, a bez niego poniedziałek"
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: brak regionu [DO USTALENIA] (OP-53)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:281"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W1",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-21 20:59"
+    },
+    "oczekiwane": {
+      "N [-]": 1
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "poniżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:293"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W2",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-21 21:00"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "granica",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:294"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W3",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-21 21:01"
+    },
+    "oczekiwane": {
+      "N [-]": 2
+    },
+    "tolerancja": "1 min",
+    "rodzaj": "powyżej",
+    "pochodzenie": "rachunek",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:295"
+  },
+  {
+    "regula": "RD-31",
+    "id": "RD-31-W4",
+    "wejscie": {
+      "Start zakładania [czas]": "2026-10-20 21:00",
+      "Teraz [czas]": "2026-10-20 20:00"
+    },
+    "oczekiwane": {
+      "N [-]": 1
+    },
+    "tolerancja": null,
+    "rodzaj": "błąd",
+    "pochodzenie": "rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 (`Math.max(1, …)`)",
+    "miejsce": "docs\\brd\\wymagania-kalendarz.md:296"
   }
 ]

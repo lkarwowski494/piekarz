@@ -1,6 +1,6 @@
 # BRD Piekarz (Crust) — stan i spis
 
-Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-20 (przyrost ER-44…ER-47) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
+Stan: E3 (rola 01 build, sztafeta 01–04) · Aktualizacja: 2026-10-22 (przyrost: kalendarz tygodnia, ER-62) · Hierarchia źródeł: D-035 · Decyzje: `docs/decyzje.md` (od D-035), `docs/DECISIONS.md` (do D-034) · Założenia: `docs/zalozenia.md`
 
 Nowe BRD, budowane od zera według polecenia roli 01 (tryb build). BRD 2.0-craft leży w `archiwum/2.0-craft/` i nie jest wejściem dla innych ról; mapa ID: `errata.md` (ER-34…ER-48). Kontrola: `node kontrola-brd.mjs docs/brd` (skrypt roli 01; wynik w `docs/sztafeta.md`); wektory: `tests/wektory/brd.json`.
 
@@ -20,7 +20,8 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | `wymagania-zakwas.md` | BR-ZAKW | E3 |
 | `wymagania-dziennik.md` | BR-RECP, BR-SPIZ, BR-NAUK, BR-DIAG, BR-WSP, BR-DRUK, BR-OPIN | E3 + BR-OPIN-001…003 |
 | `wymagania-dane.md` | BR-DANE, BR-ZAK, BR-UST-003, BR-PRYW, BR-START | E3 + BR-START-001 |
-| `errata.md` | errata ER-34…ER-56 | E3 + 2026-10-21 |
+| `wymagania-kalendarz.md` | PR-19…PR-23, BR-KAL, NFR-KAL, reguły RD-29…RD-31 (kalendarz tygodnia na „Dziś”) | E3, przyrost 2026-10-22 |
+| `errata.md` | errata ER-34…ER-62 | E3 + 2026-10-22 |
 
 ## Otwarte pytania
 
@@ -47,6 +48,13 @@ Streszczenie: Piekarz prowadzi domowego piekarza (P-6 początkujący bez zakwasu
 | OP-47 | Rozstrzygnięte 2026-10-19: 3 dni (D-039, rola 02) | właściciel | BR-ZAK-004 |
 | OP-48 | Rozstrzygnięte 2026-10-19: wypiek rozpoczęty w czasie dostępu prowadzi się do końca, bez nowego (D-039, rola 02) | właściciel | BR-ZAK-004 |
 | OP-49 | Rozstrzygnięte 2026-10-20: udany wypiek to ocena co najmniej 4★ (D-042); od 2026-10-22 warunek prośby o ocenę bez oceny bochenka: od 3. ukończonego wypieku, odstęp 14 dni (D-067 uchyla próg 4★ w warunku prośby, ER-61) | właściciel | BR-OPIN-001 |
+| OP-50 | [DO USTALENIA] czy iOS otwiera plik .ics z arkusza udostępniania w Kalendarzu | test na urządzeniu, rola 05 | BR-KAL-011, H-18 |
+| OP-51 | [DO WYJAŚNIENIA] czy kalendarz pokazuje się bez danych (H-16) | właściciel z rolą 04 | BR-KAL-005 |
+| OP-52 | [DO WYJAŚNIENIA] od jakiego rozmiaru tekstu pasek przechodzi w listę dni | rola 04 | NFR-KAL-002 |
+| OP-53 | [DO USTALENIA] czy `getCalendars().firstWeekday` oddaje wybór „pierwszy dzień tygodnia” w ustawieniach iOS i co przy pustej wartości; `Intl.Locale` nie jest na liście API Hermes | test na urządzeniu, rola 05 | RD-30 |
+| OP-54 | [DO WYJAŚNIENIA] numer dnia zakładania zakwasu: okresy 24 h od startu (dziś) czy dni kalendarza | właściciel z rolą 06 | RD-31, BR-ZAKW-005 |
+| OP-55 | [DO WYJAŚNIENIA] potwierdzenie roli 02, że brak następnego karmienia na pasku w trybie „tylko historia” to wykładnia D-038, a nie zmiana podziału | rola 02 | BR-KAL-006 |
+| OP-56 | [DO USTALENIA] limit oczekujących powiadomień lokalnych `UNUserNotificationCenter` (64 w dokumentacji wycofanego API, S-74) | dokumentacja Apple, rola 05 | OG-10, BR-KAL-009 |
 
 ## Blokery wydania
 
@@ -62,3 +70,4 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 - BR-UST-003: polityka sklepu (OG-04).
 - BR-OPIN-001, BR-OPIN-002: polityka sklepu (OG-07: tylko systemowa prośba o ocenę).
 - BR-PRYW-001, NFR-OFF-001, NFR-PRYW-001: obietnica prywatności.
+- Kalendarz (BR-KAL) nie jest blokerem, dopóki rola 03 nie włączy go do wydania (H-15). Po włączeniu blokerem jest BR-KAL-007 (kalendarz nie zmienia danych), a przy wersji z planami BR-KAL-009 w scenariuszu aktualizacji (utrata trwającego wypieku).

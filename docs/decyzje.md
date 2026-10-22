@@ -365,3 +365,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Dlaczego:** ocena zmienia tylko moment prośby, nie jej warunek, więc prośba nadal nie filtruje zadowolonych; użytkownik po nieudanym chlebie najpierw dostaje pomoc.
 - **Ograniczenie:** znacznik odłożenia żyje w pamięci aplikacji; zamknięcie aplikacji przed zamknięciem Doktora i przed wejściem na „Dziś” kasuje prośbę dla tego wypieku (przy wątpliwości nie prosimy; następny wypiek sprawdza warunek od nowa).
 - **Zależy od:** D-067 (moment prośby przy ≤ 2★ zmieniony), D-034 (próg propozycji Doktora ≤ 2★).
+
+### [D-090] 2026-10-22 — Dzień i tydzień kalendarza liczone lokalnie, pierwszy dzień tygodnia z ustawień i regionu (rola 01 build, badanie kalendarza)
+- **Rodzaj:** merytoryczna. **Źródła:** S-66 (CLDR 48 `weekData.firstDay`: PL poniedziałek, US niedziela; szczebel 1), S-79 (`expo-localization` `firstWeekday`, 1 = niedziela, może być puste; szczebel 1), S-67 i S-78 (tz database: zmiany czasu; szczebel 1).
+- **Decyzja:** zdarzenie należy do daty lokalnej w bieżącej strefie urządzenia (RD-29); tydzień paska zaczyna się w pierwszy dzień tygodnia z ustawień telefonu, a bez niego z regionu według CLDR (RD-30); tygodnie i dni przesuwa się o dni kalendarza, nie o wielokrotność 24 h; numer dnia zakładania zakwasu na pasku z tej samej funkcji co karta (RD-31).
+- **Odrzucone:** tydzień zawsze od poniedziałku jak w Treningu (dla regionu US sprzeczne z S-66); `Intl.Locale.getWeekInfo` (brak na liście API Hermes, OP-53); dodawanie 7 × 24 h (zły dzień przy zmianie czasu, RD-30-W4).
+- **Dlaczego:** rynek globalny w 35 językach; pasek, karta zakwasu i powiadomienie muszą pokazywać ten sam dzień (RYZ-22, RYZ-23).
+- **Zależy od:** OP-53 (zachowanie `firstWeekday` na urządzeniu); zakres funkcji: H-15 (rola 03).

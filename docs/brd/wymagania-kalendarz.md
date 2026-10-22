@@ -1,0 +1,296 @@
+# BRD Piekarz — wymagania: kalendarz tygodnia na „Dziś” (KAL)
+
+Stan: E3, przyrost jednej funkcji (rola 01 build, badanie 2026-10-22) · Gałąź: `badanie/piekarz-kalendarz-2026-10-22`. Zlecenie właściciela (2026-10-22, dosłownie): „Mozemy zlecic jakies paralle badanie jak ta funkcja powinna wygladac zeby przyniesc jak najwiecej wartosci dodanej dla uzytkownika tak jak robimy przy nowych aoplikacjach? Ale tylko badanie tej funkcji. To tez pozwoli zaktualizowac BRD.”
+
+Praca, persony, rynek, ograniczenia i hipotezy tej funkcji są w `odkrywanie.md` (J-13, OG-08…OG-12, H-15…H-19, RYZ-22…RYZ-25), źródła w `zrodla.md` (S-65…S-82); raport badania poza repo: `audit/01-kalendarz-2026-10-22/`. Wersja wydania przy wymaganiach to hipoteza H-15, nie zakres: zakres rozstrzyga rola 03 z właścicielem. Ekrany projektuje rola 04 (makiety M3 Redesigner).
+
+## Przepływy
+
+### PR-19: Spojrzeć na tydzień piekarza na „Dziś”
+- Kto: P-7, P-6, P-8 · Praca: J-13, J-04, J-02, J-07, J-05 · Częstotliwość: każde wejście na „Dziś”, zwykle kilka razy dziennie w czasie wypieku i zakładania zakwasu · Kontekst: dowolny, sekundy; często ręce wolne, czasem w cieście.
+- Kroki: otwiera „Dziś” → widzi bieżący tydzień od pierwszego dnia tygodnia regionu, z wyróżnionym dniem dzisiejszym i znacznikami dni (wypiek, karmienie, zakładanie zakwasu, wpis w dzienniku) → pod paskiem czyta linię „Następne: …” z najbliższymi zdarzeniami → dotyka dnia i w arkuszu dnia widzi zdarzenia z godzinami → z arkusza przechodzi do źródła (trwający wypiek, karta zakwasu, wpis dziennika) → wraca do trzech ścieżek „co dziś robisz”.
+
+### PR-20: Przejrzeć poprzedni i następny tydzień
+- Kto: P-7 · Praca: J-13, J-05 · Częstotliwość: kilka razy w tygodniu [OCENA] · Kontekst: jw.
+- Kroki: na pasku przechodzi do poprzedniego albo następnego tygodnia → widzi znaczniki tamtych dni → wraca do bieżącego tygodnia jednym ruchem.
+
+### PR-21: Zaplanować wypiek na wybrany dzień z kalendarza
+- Kto: P-7, P-8 · Praca: J-13, J-02, J-04, J-11 · Częstotliwość: około raz w tygodniu (S-24, rec. 8870010975; J-11) · Kontekst: kilka dni przed wypiekiem, kilka minut.
+- Kroki: dotyka przyszłego dnia → wybiera „zaplanuj wypiek” → wybiera recepturę i godzinę „gotowe” tego dnia (PR-02) → widzi plan z dniami wcześniej, w tym budzenie zakwasu z lodówki (BR-ZAKW-006) → zapisuje plan bez rozpoczynania → plan pojawia się na pasku i w „Następne” → w dniu startu zaczyna wypiek z planu (PR-04). Może mieć kilka planów naraz.
+
+### PR-22: Ustalić stały rytm karmienia
+- Kto: P-7 · Praca: J-04, J-13 · Częstotliwość: raz, potem przy zmianie rytmu · Kontekst: dowolny.
+- Kroki: na karcie zakwasu w lodówce wybiera dzień tygodnia i godzinę karmienia → przypomnienie i znacznik na pasku przychodzą w ten dzień → zapis dokarmienia innego dnia nie przesuwa stałego rytmu bez pytania.
+
+### PR-23: Wziąć plan wypieku do kalendarza telefonu albo na ekran początkowy
+- Kto: P-7, P-8 · Praca: J-13, J-02 · Częstotliwość: przy planie wypieku · Kontekst: planowanie tygodnia w kalendarzu telefonu razem z innymi sprawami.
+- Kroki: z planu wypieku wybiera „dodaj do kalendarza” → system pokazuje własny edytor wydarzenia albo arkusz udostępniania pliku → użytkownik zatwierdza w systemie; albo dodaje widżet z najbliższym zdarzeniem na ekran początkowy.
+
+## Wymagania
+
+### BR-KAL-001: Pasek bieżącego tygodnia na „Dziś”
+- Przepływ: PR-19 · Reguła: RD-29, RD-30
+- Dowód potrzeby: J-13; prośba o plan „co i kiedy” w telefonie (S-16, rec. 14207280110); szablon tygodnia wstecz od dnia wypieku (S-65); kalendarz karmień w jednej aplikacji konkurencji (S-81); wzorzec Trening (zrzut właściciela 2026-10-22); bezpośrednich próśb o widok kalendarza w próbce recenzji brak (H-15)
+- zależy od: ZAL-051
+- Kryteria akceptacji:
+  - Scenariusz: Tydzień w Polsce
+    - Zakładając, że region telefonu to Polska, a dziś jest czwartek 2026-10-22
+    - Gdy użytkownik otwiera „Dziś”
+    - Wtedy widzi dni od poniedziałku 19 do niedzieli 25 października, a 22 jest wyróżniony nie tylko kolorem (RD-30-W1)
+  - Scenariusz: Tydzień w USA
+    - Zakładając, że region telefonu to Stany Zjednoczone, a dziś jest czwartek 2026-10-22
+    - Gdy użytkownik otwiera „Dziś”
+    - Wtedy widzi dni od niedzieli 18 do soboty 24 października (RD-30-W2)
+  - Scenariusz: Północ
+    - Zakładając, że aplikacja jest otwarta na „Dziś” w środę o 23:59
+    - Gdy mija północ
+    - Wtedy po powrocie na ekran albo najpóźniej po minucie wyróżniony jest czwartek (RD-29-W2)
+  - Scenariusz: Etykieta dla czytnika ekranu
+    - Zakładając, że włączony jest VoiceOver
+    - Gdy użytkownik przechodzi po dniach paska
+    - Wtedy każdy dzień czyta pełną datę, słowo „dziś” przy dzisiejszym i zdarzenia dnia słowami, nie samą ikoną
+
+### BR-KAL-002: Znaczniki dnia z istniejących danych
+- Przepływ: PR-19 · Reguła: RD-29, RD-25
+- Dowód potrzeby: J-13, J-04 (zapominanie o dokarmieniu: S-15, rec. 6706510871), J-07 (dzień po dniu), J-05 (historia wypieków)
+- Kryteria akceptacji:
+  - Scenariusz: Trwający wypiek przez noc
+    - Zakładając, że trwający wypiek ma kroki od środy 21:00 do czwartku 10:00
+    - Gdy użytkownik patrzy na pasek
+    - Wtedy środa i czwartek mają znacznik wypieku, a arkusz każdego z tych dni pokazuje tylko kroki, które w nim się zaczynają
+  - Scenariusz: Karmienie zrobione i następne
+    - Zakładając, że zakwas na blacie dokarmiono w sobotę 2026-10-24 o 20:00 (strefa Europe/Warsaw)
+    - Gdy użytkownik patrzy na pasek
+    - Wtedy sobota ma znacznik karmienia zrobionego, a niedziela znacznik karmienia następnego o 07:00 (RD-25, RD-29-W4)
+  - Scenariusz: Ten sam termin co powiadomienie
+    - Zakładając, że zakwas ma zaplanowane powiadomienie o karmieniu
+    - Gdy użytkownik porównuje termin na pasku, na karcie zakwasu i w powiadomieniu
+    - Wtedy wszystkie trzy pokazują ten sam dzień i godzinę
+  - Scenariusz: Zakładanie zakwasu
+    - Zakładając, że zakładanie zakwasu trwa, a karta zakwasu pokazuje „Dzień 3”
+    - Gdy użytkownik patrzy na pasek
+    - Wtedy dziś ma znacznik zakładania z tym samym numerem dnia co karta (RD-31)
+  - Scenariusz: Wypiek w dzienniku
+    - Zakładając, że w poniedziałek zakończono wypiek z oceną 4★
+    - Gdy użytkownik dotyka poniedziałku
+    - Wtedy arkusz dnia pokazuje ten wypiek z oceną i przejściem do wpisu w dzienniku
+  - Scenariusz: Uszkodzony wpis
+    - Zakładając, że jeden wpis zakwasu ma nieczytelną datę
+    - Gdy aplikacja buduje pasek
+    - Wtedy pomija ten wpis, pokazuje pozostałe znaczniki i nie zmienia danych
+
+### BR-KAL-003: Linia „Następne”
+- Przepływ: PR-19 · Reguła: RD-29
+- Dowód potrzeby: J-13; „Make me a schedule I can put in my phone to tell me what to do AND WHEN.” (S-16, rec. 14207280110); zapominanie o dokarmieniu (S-15, rec. 6706510871); wzorzec Trening („Następne: jutro — …”, zrzut właściciela 2026-10-22)
+- Kryteria akceptacji:
+  - Scenariusz: Trzy najbliższe
+    - Zakładając, że po teraz są cztery przyszłe zdarzenia: krok wypieku dziś 18:00, karmienie jutro 07:00, krok jutro 10:00 i karmienie za tydzień
+    - Gdy użytkownik otwiera „Dziś”
+    - Wtedy linia „Następne” pokazuje trzy najbliższe w kolejności czasu, z „dziś”, „jutro” albo dniem tygodnia
+  - Scenariusz: Brak przyszłych zdarzeń
+    - Zakładając, że nie ma trwającego wypieku ani zakwasu z terminem karmienia
+    - Gdy użytkownik otwiera „Dziś”
+    - Wtedy linii „Następne” nie ma
+
+### BR-KAL-004: Arkusz dnia
+- Przepływ: PR-19
+- Dowód potrzeby: J-13; wzorzec Trening (dotknięcie dnia otwiera dzień, `trening/components/TodayPlan.tsx`)
+- Kryteria akceptacji:
+  - Scenariusz: Dzień ze zdarzeniami
+    - Zakładając, że czwartek ma karmienie o 07:00 i dwa kroki wypieku
+    - Gdy użytkownik dotyka czwartku
+    - Wtedy widzi arkusz z datą i trzema zdarzeniami w kolejności godzin, każde z przejściem do swojego ekranu
+  - Scenariusz: Dzień bez zdarzeń
+    - Zakładając, że piątek nie ma zdarzeń
+    - Gdy użytkownik dotyka piątku
+    - Wtedy widzi datę i zdanie, że tego dnia nic nie zaplanowano, bez pustej listy
+
+### BR-KAL-005: Kalendarz bez danych
+- Przepływ: PR-19
+- Dowód potrzeby: soczewka początkującego (pierwsze uruchomienie: pusty tydzień nic nie mówi); H-16
+- zależy od: ZAL-053
+- Kryteria akceptacji:
+  - Scenariusz: Pierwsze uruchomienie
+    - Zakładając, że użytkownik nie ma wypieków, zakwasów ani wpisów
+    - Gdy otwiera „Dziś”
+    - Wtedy pierwszym elementem ekranu są trzy ścieżki „co dziś robisz”, a kalendarz nie pokazuje pustego tygodnia [DO WYJAŚNIENIA] (OP-51)
+
+### BR-KAL-006: Kalendarz bez Piekarz Pro
+- Przepływ: PR-19, PR-16
+- Dowód potrzeby: D-038, D-039 pkt 3 (wypiek rozpoczęty w czasie dostępu prowadzi się do końca); tekst trybu „tylko historia”: „Przypomnienia o dokarmianiu są wyłączone.”
+- Kryteria akceptacji:
+  - Scenariusz: Przeszłość zawsze
+    - Zakładając, że okres próbny minął bez zakupu
+    - Gdy użytkownik otwiera „Dziś”
+    - Wtedy widzi na pasku wypieki z dziennika i zapisane karmienia z przeszłości, bez kłódek na dniach
+  - Scenariusz: Bez terminów karmienia
+    - Zakładając, że okres próbny minął bez zakupu, a zakwas na blacie dokarmiono wczoraj
+    - Gdy użytkownik patrzy na pasek i linię „Następne”
+    - Wtedy nie widzi następnego karmienia, bo przypomnienia o dokarmianiu są wyłączone (wykładnia D-038 do potwierdzenia przez rolę 02 [DO WYJAŚNIENIA] (OP-55))
+  - Scenariusz: Wypiek rozpoczęty z dostępem
+    - Zakładając, że wypiek rozpoczęto w czasie próby, a próba minęła w jego trakcie
+    - Gdy użytkownik patrzy na pasek
+    - Wtedy widzi przyszłe kroki tego wypieku jak przed końcem próby (D-039 pkt 3)
+
+### BR-KAL-007: Kalendarz niczego nie zapisuje w pierwszej wersji
+- Przepływ: PR-19
+- Dowód potrzeby: zasada wspólna 10 (zero utraty danych); jeden bieżący plan w bazie (pomiar M3 i `src/hooks/useStanStartu.ts:31–32`); H-15
+- Kryteria akceptacji:
+  - Scenariusz: Tylko odczyt
+    - Zakładając, że kalendarz w wersji tylko do odczytu jest włączony
+    - Gdy użytkownik przegląda pasek, linię „Następne” i arkusze dni
+    - Wtedy baza ma ten sam `PRAGMA user_version` i te same wiersze co przed wejściem na „Dziś”
+
+### BR-KAL-008: Poprzedni i następny tydzień
+- Przepływ: PR-20 · Reguła: RD-30
+- Dowód potrzeby: J-05 (porównanie z wcześniejszym wypiekiem), J-13; H-15
+- Kryteria akceptacji:
+  - Scenariusz: Następny tydzień przy zmianie czasu
+    - Zakładając, że region to Polska, a widoczny jest tydzień od 2026-10-19
+    - Gdy użytkownik przechodzi do następnego tygodnia
+    - Wtedy widzi dni od poniedziałku 26 października do niedzieli 1 listopada (RD-30-W4)
+  - Scenariusz: Powrót do dziś
+    - Zakładając, że użytkownik oglądał tydzień sprzed miesiąca
+    - Gdy wybiera powrót do bieżącego tygodnia
+    - Wtedy widzi tydzień z wyróżnionym dniem dzisiejszym
+
+### BR-KAL-009: Zaplanowane wypieki na przyszłe dni
+- Przepływ: PR-21 · Reguła: RD-17, RD-25
+- Dowód potrzeby: J-13, J-02; szablon tygodnia z karmieniami w dniach przed mieszaniem (S-65, S-68); dopasowanie wypieku do pracy (S-69); brak wyboru godziny końca u konkurencji jako skarga (S-80); prośba o kilka wypieków naraz (S-14, rec. 6384160131); H-17; limit oczekujących powiadomień OG-10 [DO USTALENIA] (OP-56)
+- zależy od: ZAL-052
+- Kryteria akceptacji:
+  - Scenariusz: Wypiek na sobotę z zakwasem z lodówki
+    - Zakładając, że zakwas jest w lodówce, a dziś jest środa
+    - Gdy użytkownik planuje chleb gotowy w sobotę o 10:00
+    - Wtedy pasek pokazuje karmienia budzące zakwas i kroki ciasta w dniach przed sobotą, a sobota ma znacznik wypieku
+  - Scenariusz: Dwa plany
+    - Zakładając, że użytkownik ma plan na sobotę
+    - Gdy dodaje plan pizzy na piątek
+    - Wtedy oba plany są zapisane i widoczne, a rozpoczęcie jednego nie usuwa drugiego
+  - Scenariusz: Aktualizacja z wersji z jednym planem
+    - Zakładając, że użytkownik ma trwający wypiek zapisany przez wersję 1.0
+    - Gdy instaluje wersję z wieloma planami
+    - Wtedy trwający wypiek jest nadal na tym samym kroku, a migracja przeszła test na kopii bazy poprzedniej wersji (NFR-DANE-003)
+  - Scenariusz: Kolizja planów
+    - Zakładając, że dwa plany mają kroki czynne w tej samej godzinie
+    - Gdy użytkownik zapisuje drugi plan
+    - Wtedy widzi kolizję z nazwą kroku i godziną, a plan zapisuje się dopiero po jego decyzji
+
+### BR-KAL-010: Stały dzień karmienia zakwasu w lodówce
+- Przepływ: PR-22 · Reguła: RD-25
+- Dowód potrzeby: J-04; dziennik i przypomnienia według własnego rytmu (S-21, rec. 13407309939); H-17
+- Kryteria akceptacji:
+  - Scenariusz: Karmienie w niedziele
+    - Zakładając, że zakwas jest w lodówce, a użytkownik ustawił karmienie w niedziele o 10:00
+    - Gdy jest niedziela 10:00
+    - Wtedy dostaje przypomnienie, a niedziele na pasku mają znacznik karmienia
+  - Scenariusz: Karmienie w inny dzień
+    - Zakładając, że użytkownik dokarmił zakwas w piątek
+    - Gdy zapisuje dokarmienie
+    - Wtedy aplikacja pyta, czy zostawić niedzielę, czy liczyć od piątku
+
+### BR-KAL-011: Plan wypieku w kalendarzu telefonu
+- Przepływ: PR-23
+- Dowód potrzeby: J-13; „schedule I can put in my phone” (S-16, rec. 14207280110); KL-09 (`docs/scope-contract.md`: powrót eksportu tylko z BR roli 01 i wejściem z Harmonogramu); u konkurencji brak eksportu do kalendarza telefonu (raport badania); H-18; czy iOS otwiera plik .ics z arkusza udostępniania [DO USTALENIA] (OP-50)
+- Kryteria akceptacji:
+  - Scenariusz: Dodanie bez dostępu do kalendarza
+    - Zakładając, że użytkownik nie dał aplikacji dostępu do kalendarza
+    - Gdy wybiera „dodaj do kalendarza” przy planie wypieku
+    - Wtedy widzi systemowy edytor albo arkusz pliku z wydarzeniem i godzinami planu, a aplikacja nie prosi o pełny dostęp do kalendarza (OG-08)
+  - Scenariusz: Zmiana planu po dodaniu
+    - Zakładając, że plan dodano do kalendarza telefonu
+    - Gdy użytkownik przesuwa krok w aplikacji
+    - Wtedy aplikacja mówi, że wydarzenie w kalendarzu telefonu się nie zmieniło
+
+### BR-KAL-012: Widżet z najbliższym zdarzeniem
+- Przepływ: PR-23
+- Dowód potrzeby: widżety i zegarek 2 z 338 recenzji (S-25, S-26; słaby dowód); widżety ekranu początkowego i blokady w opisie Levain (raport badania, 4 oceny); H-19; ograniczenia OG-09
+- Kryteria akceptacji:
+  - Scenariusz: Najbliższe karmienie na ekranie początkowym
+    - Zakładając, że widżet jest dodany, a najbliższe zdarzenie to karmienie jutro o 07:00
+    - Gdy użytkownik patrzy na ekran początkowy
+    - Wtedy widzi to samo zdarzenie co w linii „Następne”, bez otwierania aplikacji
+
+### BR-KAL-013: Widok miesiąca
+- Przepływ: PR-20
+- Dowód potrzeby: J-05; brak bezpośredniego dowodu z recenzji [OCENA]; H-19
+- Kryteria akceptacji:
+  - Scenariusz: Miesiąc wypieków
+    - Zakładając, że w październiku było pięć wypieków
+    - Gdy użytkownik otwiera widok miesiąca
+    - Wtedy widzi pięć dni ze znacznikiem wypieku i przejście do każdego wpisu
+
+### BR-KAL-014: Podpowiedź rytmu z historii
+- Przepływ: PR-21
+- Dowód potrzeby: J-13, J-05; brak bezpośredniego dowodu [OCENA]; H-19
+- Kryteria akceptacji:
+  - Scenariusz: Zwykle w sobotę
+    - Zakładając, że ostatnie cztery wypieki zakończyły się w sobotę
+    - Gdy użytkownik planuje nowy wypiek
+    - Wtedy widzi sobotę jako propozycję dnia, którą może zmienić
+
+## Wymagania niefunkcjonalne
+
+### NFR-KAL-001: Pasek na ekranie 320 pt
+- Miara: szerokość pola dotyku dnia i obcięcie tekstu paska przy szerokości 320 pt. Próg: pole dotyku ≥ 44 × 44 pt (NFR-INT-001, OG-12) albo dzień bez osobnego celu dotyku (cały pasek jednym celem), bez obciętych skrótów dni. Metoda: zrzut i pomiar roli 04 przy 320 pt; dziś 280/7 = 40 pt na kolumnę bez odstępów [RACHUNEK].
+
+### NFR-KAL-002: Pasek przy Dynamic Type AX5
+- Miara: obcięcie i nakładanie się tekstu paska i linii „Następne” przy AX5. Próg: brak (NFR-DOST-002; przy AX5 tekst Body ma 53 pt, S-77); przy rozmiarach dostępności osobny układ (lista dni albo dziś i jutro) zamiast siedmiu kolumn. Metoda: zrzuty roli 04 przy AX5; test układu w Jest dla `fontScale` ≥ próg [DO WYJAŚNIENIA] (OP-52).
+
+### NFR-KAL-003: Dni liczone lokalnie
+- Miara: zgodność dnia zdarzenia na pasku z datą w strefie urządzenia, także przy zmianie czasu. Próg: 100% wektorów RD-29 i RD-30. Metoda: testy jednostkowe z `TZ=Europe/Warsaw` i `TZ=America/New_York` (rola 07).
+
+### NFR-KAL-004: Koszt odświeżenia „Dziś”
+- Miara: czas od wejścia na „Dziś” do pokazania paska na najstarszym wspieranym iPhonie z 2 latami danych (ok. 100 wypieków, 1000 wpisów zakwasu [OCENA]). Próg: [DO WYJAŚNIENIA] (OP-43). Metoda: pomiar roli 05.
+
+## Reguły
+
+### RD-29: Dzień kalendarza zdarzenia
+- Wzór: `dzień(z) = data lokalna chwili z w bieżącej strefie czasowej urządzenia`; zdarzenie trwające przez północ ma znacznik w każdym dniu, w którym zaczyna się któryś jego krok
+- Jednostki: czas [RRRR-MM-DD gg:mm], strefa [IANA]
+- Granica: 00:00 należy do nowego dnia (włączna od początku dnia)
+- Podstawa: rachunek (konwersja chwili UTC na datę lokalną; daty zmiany czasu: S-67)
+- Krytyczna: nie
+- Uproszczenie: przy zmianie strefy (podróż) dni przelicza się według nowej strefy; zdarzenie może przejść na inny dzień.
+
+| ID | Chwila [UTC] | Strefa [IANA] | Oczekiwane: dzień paska [data] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-29-W1 | 2026-10-21 21:59 | Europe/Warsaw | 2026-10-21 (23:59 CEST) | — | poniżej | rachunek: UTC+2 |
+| RD-29-W2 | 2026-10-21 22:00 | Europe/Warsaw | 2026-10-22 (00:00 CEST) | — | granica | rachunek: UTC+2 |
+| RD-29-W3 | 2026-10-21 22:01 | Europe/Warsaw | 2026-10-22 (00:01 CEST) | — | powyżej | rachunek: UTC+2 |
+| RD-29-W4 | 2026-10-25 06:00 | Europe/Warsaw | 2026-10-25 (07:00 CET) | — | typowy | rachunek: karmienie 2026-10-24 20:00 CEST + 12 h (RD-25); zmiana czasu 2026-10-25 (S-67) |
+| RD-29-W5 | 2026-10-22 22:30 | America/New_York | 2026-10-22 (18:30 EDT) | — | typowy | rachunek: UTC−4; ta sama chwila w Europe/Warsaw to 2026-10-23 00:30 |
+| RD-29-W6 | brak | Europe/Warsaw | zdarzenie pominięte, pozostałe bez zmian | — | błąd | rachunek: nieczytelna data wpisu (BR-KAL-002) |
+
+### RD-30: Tydzień paska
+- Wzór: `start = ostatni dzień ≤ dziś, którego dzień tygodnia = pierwszy dzień tygodnia regionu`; tydzień = 7 kolejnych dat kalendarza od `start`; tydzień następny = `start + 7 dni kalendarza` (nie 7 × 24 h)
+- Jednostki: data [RRRR-MM-DD], pierwszy dzień tygodnia [-]
+- Granica: dziś = pierwszy dzień tygodnia (włączna: tydzień zaczyna się dziś)
+- Podstawa: S-66 (pierwszy dzień tygodnia według regionu, CLDR 48), S-79 (`getCalendars().firstWeekday`: 1 = niedziela, wartość może być pusta); rachunek (7 × 24 h przy zmianie czasu daje niedzielę 23:00: `robocze/kod.md` raportu)
+- Krytyczna: nie
+- Uproszczenie: pierwszy dzień tygodnia z ustawień telefonu, gdy system go podaje; inaczej z regionu [DO USTALENIA] (OP-53).
+
+| ID | Dziś [data] | Region [-] | Oczekiwane: dni paska [data] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-30-W1 | 2026-10-22 | PL | 2026-10-19…2026-10-25 | — | typowy | S-66 (PL: poniedziałek) |
+| RD-30-W2 | 2026-10-22 | US | 2026-10-18…2026-10-24 | — | typowy | S-66 (US: niedziela) |
+| RD-30-W3 | 2026-10-19 | PL | 2026-10-19…2026-10-25 | — | granica | rachunek: dziś = pierwszy dzień |
+| RD-30-W4 | 2026-10-26 | PL | 2026-10-26…2026-11-01 | — | powyżej | rachunek: dzień po niedzieli ze zmianą czasu (S-67); 7 × 24 h dałoby 2026-10-25 23:00 |
+| RD-30-W5 | 2026-10-25 | PL | 2026-10-19…2026-10-25 | — | poniżej | rachunek: ostatni dzień tygodnia, dzień 25-godzinny |
+| RD-30-W6 | 2026-11-01 | US | 2026-11-01…2026-11-07 | — | typowy | rachunek: niedziela ze zmianą czasu w USA (S-78) |
+| RD-30-W7 | 2026-10-22 | brak | jak region językowy aplikacji, a bez niego poniedziałek | — | błąd | rachunek: brak regionu [DO USTALENIA] (OP-53) |
+
+### RD-31: Numer dnia zakładania zakwasu na pasku
+- Wzór: `N = floor((teraz − start zakładania) / 24 h) + 1` — ta sama funkcja co karta zakwasu (`setupDay`, `src/core/starter-log.ts:41`); znacznik zakładania stoi na dniu kalendarza `dzień(teraz)` (RD-29)
+- Jednostki: N [-], czas [RRRR-MM-DD gg:mm]
+- Granica: teraz − start = 24 h (włączna: od tej chwili N = 2)
+- Podstawa: rachunek; zgodność z kartą (BR-ZAKW-005)
+- Krytyczna: nie
+- Uproszczenie: numer dnia nie jest numerem dnia kalendarza: zakładanie zaczęte o 21:00 ma „Dzień 1” także następnego dnia do 21:00. Czy liczyć dni kalendarza: [DO WYJAŚNIENIA] (OP-54).
+
+| ID | Start zakładania [czas] | Teraz [czas] | Oczekiwane: N [-] | Tolerancja | Rodzaj | Pochodzenie |
+|---|---|---|---|---|---|---|
+| RD-31-W1 | 2026-10-20 21:00 | 2026-10-21 20:59 | 1 | 1 min | poniżej | rachunek |
+| RD-31-W2 | 2026-10-20 21:00 | 2026-10-21 21:00 | 2 | 1 min | granica | rachunek |
+| RD-31-W3 | 2026-10-20 21:00 | 2026-10-21 21:01 | 2 | 1 min | powyżej | rachunek |
+| RD-31-W4 | 2026-10-20 21:00 | 2026-10-20 20:00 | 1 | — | błąd | rachunek: teraz przed startem (zmiana zegara), N nie mniejsze niż 1 (`Math.max(1, …)`) |
