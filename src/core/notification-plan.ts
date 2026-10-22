@@ -41,6 +41,22 @@ export function trasaZPowiadomienia(v: unknown): TrasaPowiadomienia | null {
   if (v === '/zakwasy' || v === '/(tabs)/zakwas') return '/zakwasy';
   return null;
 }
+
+/** Cel dotknięcia: Stolnica wybranego wypieku (id), Stolnica bez id (powiadomienie sprzed D3a) albo Zakwasy. */
+export type CelPowiadomienia = { pathname: '/stolnica'; params: { wypiek: string } } | TrasaPowiadomienia;
+
+/**
+ * Cel z danych dotkniętego powiadomienia (`unknown`): krok z id wypieku otwiera Stolnicę tego wypieku (BR-KAL-016
+ * „Który krok czyj”); powiadomienie bez id (zaplanowane przed D3a) — Stolnicę jak dotąd [M3 D3a].
+ */
+export function celZPowiadomienia(data: unknown): CelPowiadomienia | null {
+  if (typeof data !== 'object' || data === null) return null;
+  const trasa = trasaZPowiadomienia(Reflect.get(data, 'route'));
+  const wypiek: unknown = Reflect.get(data, 'wypiek');
+  if (trasa === '/stolnica' && typeof wypiek === 'string' && wypiek !== '') return { pathname: '/stolnica', params: { wypiek } };
+  return trasa;
+}
+
 export interface PlannedNotification {
   id: string;
   kind: NotificationKind;
@@ -49,6 +65,8 @@ export interface PlannedNotification {
   textKey: NotificationTextKey;
   params: Record<string, string>;
   route: TrasaPowiadomienia;
+  /** Id wypieku (wiersz bake_sessions) powiadomienia kroku albo startu: dotknięcie otwiera ten wypiek [M3 D3a]. */
+  wypiekId?: string;
 }
 export interface PendingNotification {
   id: string;
@@ -96,6 +114,7 @@ export function planBakeNotification(session: PlanBakeSession | null, now: numbe
     textKey,
     params: { stepId: step.id, stepName: step.name, ...parametryNastepnego(session.steps, session.stepIdx), ...nazwaWypieku(session, nameBake) },
     route: '/stolnica',
+    wypiekId: session.id,
   };
 }
 
@@ -132,6 +151,7 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
       id: `${prefix}start`, kind: 'krok', triggerAt: pierwszy.plannedStart, level: 'active', textKey: 'krok.start',
       params: { stepId: pierwszy.id, stepName: pierwszy.name, ...(pierwszy.plannedEnd !== null ? { stepEnd: String(pierwszy.plannedEnd) } : {}), ...nazwa },
       route: '/stolnica',
+      wypiekId: session.id,
     });
   }
   session.steps.forEach((step, i) => {
@@ -140,7 +160,7 @@ export function planBakeStepNotifications(session: PlanBakeSessionWithPlan | nul
     if (!oven && step.durationMin === null) return;
     const level: NotificationLevel = TIME_SENSITIVE_STEPS.includes(step.id) ? 'timeSensitive' : 'active';
     const params = { stepId: step.id, stepName: step.name, ...nazwa };
-    const base = { kind: 'krok' as const, level, params, route: '/stolnica' as const };
+    const base = { kind: 'krok' as const, level, params, route: '/stolnica' as const, wypiekId: session.id };
     const lidAt = oven && step.plannedStart !== null ? step.plannedStart + DUTCH_OVEN_PHASES.lid_on.durationMin * 60_000 : null;
     if (lidAt !== null && lidAt > now) out.push({ ...base, id: `${prefix}krok.${i}.pokrywka`, triggerAt: lidAt, textKey: 'krok.zdejmijPokrywke' });
     if (step.plannedEnd > now) {
@@ -176,6 +196,7 @@ export function planPlannedStartNotifications(planned: readonly PlanPlannedBake[
       id: `${notifBakePrefix(p.id)}start`, kind: 'krok', triggerAt: startAt, level: 'active', textKey: 'krok.start',
       params: { stepId: pierwszy.id, stepName: pierwszy.name, ...(pierwszy.plannedEnd !== null ? { stepEnd: String(pierwszy.plannedEnd) } : {}), recipeName: p.recipeName },
       route: '/stolnica',
+      wypiekId: p.id,
     });
   }
   return out;

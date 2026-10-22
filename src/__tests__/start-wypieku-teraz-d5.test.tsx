@@ -18,6 +18,7 @@ jest.mock('expo-router', () => ({
   Stack: { Screen: () => null },
   useRouter: () => ({ push: jest.fn(), navigate: jest.fn(), replace: jest.fn() }),
   useFocusEffect: (cb: () => void) => require('react').useEffect(cb, []),
+  useLocalSearchParams: () => ({}), // Stolnica czyta id wypieku z trasy (M3 D3a)
 }));
 jest.mock('react-native-safe-area-context', () => {
   const React = require('react');

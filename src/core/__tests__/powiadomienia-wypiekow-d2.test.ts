@@ -135,6 +135,7 @@ describe('D2: start zaplanowanych wypieków (BR-KAL-009)', () => {
       textKey: 'krok.start',
       params: { stepId: 'krok_0', stepName: 'Krok 0', stepEnd: String(T0 + 3 * 24 * 60 * MIN + 30 * MIN), recipeName: 'Chleb na sobotę' },
       route: '/stolnica',
+      wypiekId: 'plan_sob', // D3a: dotknięcie otwiera ten wypiek
     });
   });
 

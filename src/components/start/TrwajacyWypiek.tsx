@@ -19,12 +19,15 @@ import { theme } from '../../ui/theme';
 import { odstepy, promienie, typografia } from '../../ui/tokeny';
 import { Spirala } from '../Spirala';
 
-export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc }: {
+export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc, nazwaWPrzycisku = false }: {
   sesja: BakeSession;
   zegar: TimerState;
   teraz: number;
   onWroc: () => void;
+  /** Dwa trwające wypieki: przycisk „Wróć do: {nazwa}” zamiast „Wróć do wypieku” [M3 D3a, BR-KAL-016]. */
+  nazwaWPrzycisku?: boolean;
 }) {
+  const przycisk = nazwaWPrzycisku ? t('Wróć do: {nazwa}', { nazwa: nazwaReceptury(sesja.recipeName) }) : t('Wróć do wypieku');
   const krok = sesja.steps[sesja.stepIdx];
   const kroki = useMemo(() => krokiSpiraliZSesji(sesja.steps), [sesja.steps]);
   const nazwa = t(krok?.name ?? '');
@@ -74,11 +77,11 @@ export function TrwajacyWypiek({ sesja, zegar, teraz, onWroc }: {
       <Pressable
         testID="resume-bake-btn"
         accessibilityRole="button"
-        accessibilityLabel={t('Wróć do wypieku')}
+        accessibilityLabel={przycisk}
         style={styles.glowny}
         onPress={onWroc}
       >
-        <Text style={styles.glownyTekst}>{t('Wróć do wypieku')}</Text>
+        <Text style={styles.glownyTekst}>{przycisk}</Text>
       </Pressable>
     </View>
   );

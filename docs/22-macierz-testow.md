@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 48 | 48 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 566 | 566 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 486 | 486 | **100.0%** | ✅ POKRYTE |
-| **WYMIAR** | 183 | 183 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 569 | 569 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 493 | 493 | **100.0%** | ✅ POKRYTE |
+| **WYMIAR** | 184 | 184 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1292** | Pokrytych: **1292** | Brakujących: **0**
+Łącznie elementów: **1303** | Pokrytych: **1303** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -43,6 +43,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Wczoraj` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/lib/__tests__/schedule-formatter.test.ts, src/lib/__tests__/zakwas-widok.test.tsx |
 | `TEKST` | `Klasyczny chleb rzemieślniczy` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/i18n-en-ui-texts.test.ts, src/__tests__/harmonogram-screen.test.tsx |
 | `TEKST` | `Notatka z poprzedniego wypieku: {notatka}` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/piecz-ponownie-recp003-146.test.tsx |
+| `TEKST` | `Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/piecz-ponownie-id-d3a.test.tsx |
 | `TEKST` | `Plan nie sprawdza godzin snu. Możesz je ustawić w Ustawieniach.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/godziny-snu-130.test.tsx |
 | `TEKST` | `Najpierw ustaw godzinę, na którą zdążysz.` | `app/(tabs)/receptury/harmonogram.tsx` | ✅ | src/__tests__/plan-za-pozno-107.test.tsx |
 | `TEKST` | `Przelicznik objętości` | `app/(tabs)/receptury/index.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/metadane-sklepu.test.ts |
@@ -67,11 +68,6 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Akademia Piekarza` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Akademia` | `app/doktor.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu` | `app/doktor.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Wypiek bez receptury` | `app/stolnica.tsx` | ✅ | tests/helpers/wypiek.ts, src/__tests__/bake-journal-no-guess.test.tsx |
-| `TEKST` | `Wypiek w garnku zakończony. Wyjmij chleb na kratkę.` | `app/stolnica.tsx` | ✅ | src/__tests__/teksty-116.test.tsx |
-| `TEKST` | `Plan wypieku` | `app/stolnica.tsx` | ✅ | tests/emoji-teksty-techniczne.test.ts, tests/maestro-runner.ts |
-| `TEKST` | `Doktor` | `app/stolnica.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
-| `TEKST` | `Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.` | `app/stolnica.tsx` | ✅ | src/__tests__/prowadzenie-102.test.tsx |
 | `TEKST` | `Zamknij Akademię` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Szkoła Chleba` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/maestro-runner.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Techniki` | `src/components/academy/AcademyHeader.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
@@ -319,5 +315,9 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Hydratacja całkowita {n}%: woda z zakwasu jest wliczona.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Hydratacja całkowita {n}%.` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Udział żyta {n}%: wariant żytni, plan bez składań.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
+| `TEKST` | `Udział żyta {n}%: wariant pszenny.` | `src/components/receptury/DoMiski.tsx` | ✅ | src/__tests__/br-kalk-130-reszta.test.tsx |
+| `TEKST` | `Razem {masa}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Rodzaj receptur` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
+| `TEKST` | `Moje receptury` | `src/components/receptury/ListaReceptur.tsx` | ✅ | tests/matrix-ui-text.test.tsx, src/__tests__/dane-przykladowe-087.test.tsx |
 
-*(... i 992 kolejnych elementów w pełnym wykazie)*
+*(... i 1003 kolejnych elementów w pełnym wykazie)*

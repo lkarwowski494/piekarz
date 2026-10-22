@@ -147,7 +147,8 @@ describe('057: recipe with 4 main actions and a "More" menu', () => {
     expect(aktywny?.steps?.length).toBeGreaterThan(0);
     // [M1-audytor-generalny-017] DDT docelowe nie jest zapisywane jako zmierzone
     expect(aktywny?.actualDdtC).toBeUndefined();
-    expect(mockPush).toHaveBeenLastCalledWith('/stolnica');
+    // D3a: Stolnica tego wypieku (id w trasie)
+    expect(mockPush).toHaveBeenLastCalledWith({ pathname: '/stolnica', params: { wypiek: aktywny?.id } });
     act(() => plan!.unmount());
   });
 

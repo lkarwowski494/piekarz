@@ -29,7 +29,7 @@ export interface StrefaPlanuProps {
 export function StrefaPlanu({ recipeName, steps, stepIdx, pozostaloSec, pelnySec, gotowe = null, koniecKrokuMs = null }: StrefaPlanuProps) {
   return (
     <>
-      <Text style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
+      <Text testID="stolnica-nazwa-wypieku" style={styles.recipeTag}>{nazwaReceptury(recipeName)}</Text>
       <SpiralaWypieku steps={steps} stepIdx={stepIdx} pozostaloSec={pozostaloSec} pelnySec={pelnySec} koniecKrokuMs={koniecKrokuMs} />
       <View style={styles.planOpis}>
         <Text style={styles.krokNzN}>{t('Krok {n} z {m}', { n: stepIdx + 1, m: steps.length })}</Text>

@@ -7,16 +7,6 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.",
-      "powod": "treść pytania przy „Zacznij wypiek” w planie, gdy trwa inny wypiek [M3 p1b a1b]",
-      "od": "2026-10-22"
-    },
-    {
-      "klucz": "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.",
-      "powod": "treść pytania z nazwą trwającego wypieku (parametr {nazwa}) [M3 p1b a1b, BR-ETAP-006]",
-      "od": "2026-10-22"
-    },
-    {
       "klucz": "W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.",
       "powod": "komunikat na karcie planu w dniu wiosennej zmiany czasu (parametr {godzina}) [M3 D0, D-13, D-093]",
       "od": "2026-10-22"
@@ -32,13 +22,28 @@
       "od": "2026-10-22"
     },
     {
-      "klucz": "Wróć do trwającego",
-      "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "klucz": "Prowadź oba",
+      "powod": "domyślny wybór pytania przy „Zacznij wypiek” w planie, gdy trwa jeden wypiek [M3 D3a, D-104]",
       "od": "2026-10-22"
     },
     {
-      "klucz": "Przerwij tamten i zacznij nowy",
-      "powod": "niszczący wybór pytania przy „Zacznij wypiek” w planie [M3 p1b a1b]",
+      "klucz": "Wróć do: {nazwa}",
+      "powod": "powrót do trwającego wypieku w pytaniu przy starcie i na karcie „Dziś” przy dwóch wypiekach (parametr {nazwa}) [M3 D3a, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Prowadzisz już 2 wypieki",
+      "powod": "tytuł pytania przy „Zacznij wypiek”, gdy trwają 2 wypieki (limit D-092), i komunikat przy nieudanym zapisie ponad limit [M3 D3a, D-104]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "{wypiek}, krok: {krok}",
+      "powod": "etykieta VoiceOver segmentu przełącznika wypieków na Stolnicy (parametry {wypiek}, {krok}) [M3 D3a, BR-KAL-016]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.",
+      "powod": "informacja nad planem po „Piecz ponownie” ze starego wpisu chałki albo bagietki (217, D-097) [M3 D3a]",
       "od": "2026-10-22"
     },
     {

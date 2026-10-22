@@ -6,6 +6,7 @@ import {
   confirm,
   confirmDiscardBake,
   confirmStartPrzyTrwajacym,
+  confirmLimitWypiekow,
   confirmResetStarter,
   confirmDeleteBakeLog,
   confirmDeleteStarter,
@@ -77,26 +78,39 @@ describe('Apps4Brew Confirm Interaction Standard (docs/32 wzorzec 6)', () => {
     expect(buttons[1].style).toBe('destructive');
   });
 
-  it('confirmStartPrzyTrwajacym: powrót domyślny, przerwanie niszczące, Anuluj bez skutku (a1b)', () => {
+  // Zmiana D3a (D-104): pytanie a1b z przerwaniem zastąpione przez „Prowadź oba” / „Wróć do: …” / „Anuluj”
+  it('confirmStartPrzyTrwajacym: „Prowadź oba” domyślne, „Wróć do: {nazwa}” z id, Anuluj bez skutku, nic niszczącego (D3a)', () => {
+    const oba = jest.fn();
     const wroc = jest.fn();
-    const zastap = jest.fn();
-    confirmStartPrzyTrwajacym(wroc, zastap);
+    confirmStartPrzyTrwajacym({ id: 'bake_a', nazwa: 'Chleb' }, oba, wroc);
 
     expect(Alert.alert).toHaveBeenCalledTimes(1);
     const [title, message, buttons] = (Alert.alert as jest.Mock).mock.calls[0];
     expect(title).toBe('Trwa już inny wypiek');
-    expect(message).toBe('Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.');
-    expect(buttons.map((b: { text: string }) => b.text)).toEqual(['Wróć do trwającego', 'Przerwij tamten i zacznij nowy', 'Anuluj']);
+    expect(message).toBeUndefined();
+    expect(buttons.map((b: { text: string }) => b.text)).toEqual(['Prowadź oba', 'Wróć do: Chleb', 'Anuluj']);
     expect(buttons[0].isPreferred).toBe(true);
-    expect(buttons[1].style).toBe('destructive');
+    expect(buttons.some((b: { style?: string }) => b.style === 'destructive')).toBe(false);
     expect(buttons[2].style).toBe('cancel');
     buttons[2].onPress?.();
+    expect(oba).not.toHaveBeenCalled();
     expect(wroc).not.toHaveBeenCalled();
-    expect(zastap).not.toHaveBeenCalled();
     buttons[0].onPress();
-    expect(wroc).toHaveBeenCalledTimes(1);
+    expect(oba).toHaveBeenCalledTimes(1);
     buttons[1].onPress();
-    expect(zastap).toHaveBeenCalledTimes(1);
+    expect(wroc).toHaveBeenCalledWith('bake_a');
+  });
+
+  it('confirmLimitWypiekow: „Prowadzisz już 2 wypieki”, powrót do każdego z id, bez nazwy „Wróć do wypieku”, Anuluj (D3a)', () => {
+    const wroc = jest.fn();
+    confirmLimitWypiekow([{ id: 'bake_a', nazwa: 'Chleb' }, { id: 'bake_b', nazwa: null }], wroc);
+    const [title, message, buttons] = (Alert.alert as jest.Mock).mock.calls[0];
+    expect(title).toBe('Prowadzisz już 2 wypieki');
+    expect(message).toBeUndefined();
+    expect(buttons.map((b: { text: string }) => b.text)).toEqual(['Wróć do: Chleb', 'Wróć do wypieku', 'Anuluj']);
+    expect(buttons[2].style).toBe('cancel');
+    buttons[1].onPress();
+    expect(wroc).toHaveBeenCalledWith('bake_b');
   });
 
   it('confirmResetStarter uses destructive action to protect user data', () => {

@@ -815,7 +815,7 @@
   },
   "Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.": {
     "gdzie": [
-      "app/stolnica.tsx (tekst)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (tekst)"
     ]
   },
   "Coś mnie niepokoi": {
@@ -1182,7 +1182,7 @@
     "gdzie": [
       "app/(tabs)/zakwasy/_layout.tsx (tekst)",
       "app/_layout.tsx (tekst)",
-      "app/stolnica.tsx (tekst)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (tekst)"
     ]
   },
   "Doktor Chleba": {
@@ -1191,7 +1191,7 @@
       "app/(tabs)/dziennik/index.tsx (tekst w JSX)",
       "app/_layout.tsx (etykieta)",
       "app/_layout.tsx (title)",
-      "app/stolnica.tsx (etykieta)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)",
       "src/lib/diagnosis-formatter.ts (kod)"
     ]
   },
@@ -3641,16 +3641,6 @@
       "src/core/bread-school-lessons.ts (dane: rankTitlePl)"
     ]
   },
-  "Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.": {
-    "gdzie": [
-      "src/lib/confirm.ts (kod)"
-    ]
-  },
-  "Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.": {
-    "gdzie": [
-      "src/lib/confirm.ts (kod)"
-    ]
-  },
   "Nowy zakwas": {
     "gdzie": []
   },
@@ -4195,9 +4185,9 @@
   "Plan wypieku": {
     "gdzie": [
       "app/(tabs)/receptury/_layout.tsx (title)",
-      "app/stolnica.tsx (etykieta)",
-      "app/stolnica.tsx (tekst)",
       "src/components/stolnica/PlanWypiekuArkusz.tsx (tekst w JSX)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (etykieta)",
+      "src/components/stolnica/ProwadzenieWypieku.tsx (tekst)",
       "src/lib/schedule-formatter.ts (kod)"
     ]
   },
@@ -4621,6 +4611,17 @@
       "src/components/doktor/EmergencyRecoverySection.tsx (tekst w JSX)"
     ]
   },
+  "Prowadzisz już 2 wypieki": {
+    "gdzie": [
+      "src/hooks/useBakeSession.ts (kod)",
+      "src/lib/confirm.ts (Alert.alert)"
+    ]
+  },
+  "Prowadź oba": {
+    "gdzie": [
+      "src/lib/confirm.ts (text)"
+    ]
+  },
   "Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.": {
     "gdzie": [
       "src/doctor/diagnostics.ts (dane: actionChecklistPl)"
@@ -4722,11 +4723,6 @@
     ]
   },
   "Przerwij": {
-    "gdzie": [
-      "src/lib/confirm.ts (text)"
-    ]
-  },
-  "Przerwij tamten i zacznij nowy": {
     "gdzie": [
       "src/lib/confirm.ts (text)"
     ]
@@ -4988,6 +4984,11 @@
   },
   "Receptura awaryjna:": {
     "gdzie": []
+  },
+  "Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.": {
+    "gdzie": [
+      "app/(tabs)/receptury/harmonogram.tsx (tekst w JSX)"
+    ]
   },
   "Receptura musi posiadać nazwę (1-120 znaków)": {
     "gdzie": [
@@ -6837,16 +6838,16 @@
       "src/lib/confirm.ts (text)"
     ]
   },
-  "Wróć do trwającego": {
-    "gdzie": [
-      "src/lib/confirm.ts (text)"
-    ]
-  },
   "Wróć do wypieku": {
     "gdzie": [
       "src/components/doktor/DiagnosisResultCard.tsx (tekst w JSX)",
-      "src/components/start/TrwajacyWypiek.tsx (accessibilityLabel)",
-      "src/components/start/TrwajacyWypiek.tsx (tekst w JSX)",
+      "src/components/start/TrwajacyWypiek.tsx (kod)",
+      "src/lib/confirm.ts (text)"
+    ]
+  },
+  "Wróć do: {nazwa}": {
+    "gdzie": [
+      "src/components/start/TrwajacyWypiek.tsx (kod)",
       "src/lib/confirm.ts (text)"
     ]
   },
@@ -7164,7 +7165,7 @@
   },
   "Wypiek bez receptury": {
     "gdzie": [
-      "app/stolnica.tsx (kod)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (kod)"
     ]
   },
   "Wypiek gotowy na: {time}": {
@@ -7200,7 +7201,7 @@
   },
   "Wypiek w garnku zakończony. Wyjmij chleb na kratkę.": {
     "gdzie": [
-      "app/stolnica.tsx (kod)"
+      "src/components/stolnica/ProwadzenieWypieku.tsx (kod)"
     ]
   },
   "Wypiek w garnku żeliwnym (Dutch Oven)": {
@@ -8863,6 +8864,11 @@
   "{rodzaj}, poziom {trudnosc}": {
     "gdzie": [
       "src/components/receptury/nazwy-receptur.ts (kod)"
+    ]
+  },
+  "{wypiek}, krok: {krok}": {
+    "gdzie": [
+      "src/components/stolnica/PrzelacznikWypiekow.tsx (accessibilityLabel)"
     ]
   },
   "Ćwicz intuicję proporcji piekarskich w pamięci (Mental Baker Drill)": {

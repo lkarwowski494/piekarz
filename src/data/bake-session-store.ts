@@ -11,6 +11,7 @@ import { LEGACY_STEPS_V1 } from '../core/legacy-steps-v1';
 import type { ActiveBakeState } from './sqlite-schema';
 import { isObj, isNum, isStr, numOrNull, optNum, isRecipeInput, isRecipeResult } from './row-parsers';
 
+// Tylko testy i przygotowanie danych (ekrany: lista i id wypieku, bake-sessions-store.ts) [M3 D3a]
 export { loadBakeSession, saveBakeSession } from './bake-sessions-store';
 
 /** Klucz app_settings trwającej sesji do v5; migracja v6 przenosi go do bake_sessions i kasuje [M3 D1]. */
@@ -130,21 +131,38 @@ export function koniecPierwszegoWPlanie(steps: readonly SessionStep[], startedAt
  * z zapisem innego wypieku; po restarcie (pamięć pusta) wraca zapis.
  */
 export function pickBakeSession(inMemory: ActiveBakeState | null, saved: BakeSession | null): BakeSession | null {
-  if (inMemory && (!saved || saved.bake?.id !== inMemory.id)) {
-    const steps = stepsForBake(inMemory);
-    return {
-      version: 2,
-      steps,
-      stepIdx: 0,
-      dutchOvenPhase: 'lid_on',
-      timerEndsAt: koniecPierwszegoWPlanie(steps, inMemory.startedAt),
-      pausedLeftSec: null,
-      recipeName: inMemory.recipeName,
-      startedAt: inMemory.startedAt,
-      bake: inMemory,
-    };
-  }
-  return saved;
+  return inMemory && (!saved || saved.bake?.id !== inMemory.id) ? nowaSesja(inMemory) : saved;
+}
+
+/** Sesja nowego wypieku od kroku 1 (plan z godziną startu: zegar kroku 1 do końca kroku w planie). */
+export function nowaSesja(bake: ActiveBakeState): BakeSession {
+  const steps = stepsForBake(bake);
+  return {
+    version: 2,
+    steps,
+    stepIdx: 0,
+    dutchOvenPhase: 'lid_on',
+    timerEndsAt: koniecPierwszegoWPlanie(steps, bake.startedAt),
+    pausedLeftSec: null,
+    recipeName: bake.recipeName,
+    startedAt: bake.startedAt,
+    bake,
+  };
+}
+
+/** Trwający wypiek do pokazania: sesja i to, czy to nowy wypiek z pamięci, którego jeszcze nie zapisano. */
+export interface SesjaDoPokazania {
+  sesja: BakeSession;
+  nowy: boolean;
+}
+
+/**
+ * Trwające wypieki do pokazania (Stolnica, Dziś, pytanie przy starcie): zapisane od najstarszego, a na końcu wypiek
+ * przekazany z planu w pamięci, jeśli nie ma go jeszcze w zapisie (Stolnica zapisze go przy pierwszym kroku) [M3 D3a].
+ */
+export function sesjeDoPokazania(wPamieci: ActiveBakeState | null, zapisane: readonly BakeSession[]): SesjaDoPokazania[] {
+  const lista = zapisane.map((sesja) => ({ sesja, nowy: false }));
+  return wPamieci && !zapisane.some((s) => s.bake?.id === wPamieci.id) ? [...lista, { sesja: nowaSesja(wPamieci), nowy: true }] : lista;
 }
 
 /** Id wiersza bake_sessions dla sesji: id wypieku. */

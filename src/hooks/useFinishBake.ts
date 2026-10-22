@@ -6,7 +6,7 @@
 
 import { useRef, useState } from 'react';
 import { guardSave } from '../lib/save-guard';
-import { finishBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
+import { finishBake, getActiveBake, setActiveBake, ActiveBakeState } from '../data/sqlite-store';
 import { resyncNotifications } from '../lib/notifications';
 import { BreadSensoryProfile, DEFAULT_BREAD_SENSORY_PROFILE } from '../components/SensoryRadarChart';
 import type { FinishBakeModalProps } from '../components/stolnica/FinishBakeModal';
@@ -17,6 +17,8 @@ import { odlozProsbeOOcene, wykonajOdlozonaProsbeOOcene } from '../lib/prosba-o-
 type Smak = FinishBakeModalProps['tasteProfile'];
 
 export function useFinishBake(opts: {
+  /** Id wiersza kończonego wypieku (idSesji): koniec kasuje tylko jego sesję (BR-KAL-016 Koniec jednego) [M3 D3a]. */
+  sessionId: string;
   recipeName: string;
   startedAt: number;
   activeBakeData: ActiveBakeState | null;
@@ -60,10 +62,11 @@ export function useFinishBake(opts: {
       crustScore,
       tasteProfile,
       sensoryProfile: { ...sensoryProfile, openCrumb: crumbScore, crustCrispness: crustScore },
-    }, activeBakeData?.calculatedRecipe?.flours ?? [], { clearSession: true });
+    }, activeBakeData?.calculatedRecipe?.flours ?? [], { sessionId: opts.sessionId });
 
-    // Sesja skasowana w transakcji zakończenia (finishBake) [M1-audytor-generalny-120]
-    setActiveBake(null);
+    // Sesja tego wypieku skasowana w transakcji zakończenia (finishBake) [M1-audytor-generalny-120]; pamięć tylko
+    // wtedy, gdy trzyma ten wypiek (drugi trwający zostaje) [M3 D3a]
+    if (getActiveBake()?.id === opts.sessionId) setActiveBake(null);
     void resyncNotifications();
     opts.onFinished();
     setVisible(false);

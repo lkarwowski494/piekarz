@@ -9,6 +9,10 @@ import { t } from './i18n';
 
 export interface RecepturaPlanu {
   recipeName: string;
+  /** Id receptury (bazowej albo użytkownika): trafia do wypieku i do bakes.recipe_id (D-10, D1-7) [M3 D3a]. */
+  recipeId?: string;
+  /** „Piecz ponownie” ze starego wpisu chałki albo bagietki: receptura bazowa zmieniła się od tamtego wypieku (217). */
+  bazowaZmieniona?: boolean;
   calculatedRecipe: DoughRecipeResult;
   recipeFormula: DoughRecipeInput;
   /** Notatka z wpisu dziennika przy „Piecz ponownie” (BR-RECP-003) [M1-audytor-generalny-146] */

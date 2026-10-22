@@ -23,8 +23,9 @@ import { recepturaPlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
-import { confirmStartPrzyTrwajacym } from '../../../src/lib/confirm';
-import { trwajacyWypiek, przerwijSesjeWypieku } from '../../../src/lib/przerwij-wypiek';
+import { confirmLimitWypiekow, confirmStartPrzyTrwajacym } from '../../../src/lib/confirm';
+import { trwajaceWypieki, utrwalWypiekZPamieci } from '../../../src/lib/przerwij-wypiek';
+import { MAX_TRWAJACYCH_WYPIEKOW } from '../../../src/core/limity-wypiekow';
 import { BlokadaFunkcji } from '../../../src/components/BlokadaFunkcji';
 import { TargetReadyCard } from '../../../src/components/harmonogram/TargetReadyCard';
 import { SleepGuardBanner } from '../../../src/components/harmonogram/SleepGuardBanner';
@@ -107,6 +108,8 @@ export default function HarmonogramScreen() {
   const [zytni] = useState(() => recepturaPlanu()?.calculatedRecipe.isHighRye ?? false);
   // „Piecz ponownie” z Dziennika: notatka z poprzedniego wypieku nad planem (BR-RECP-003) [M1-audytor-generalny-146]
   const [notatkaPoprzednia] = useState(() => recepturaPlanu()?.notatka ?? null);
+  // „Piecz ponownie” ze starego wpisu chałki albo bagietki: receptura bazowa ma teraz więcej drożdży (217) [M3 D3a]
+  const [bazowaZmieniona] = useState(() => recepturaPlanu()?.bazowaZmieniona === true);
   // Receptura bez zakwasu (np. z „Piecz ponownie”): plan zakwasowy jej nie prowadzi, start nieaktywny z powodem (D-3)
   const [bezZakwasu] = useState(() => {
     const r = recepturaPlanu();
@@ -217,8 +220,9 @@ export default function HarmonogramScreen() {
     if (zaPozno || bezZakwasu) return; // start z krokami w przeszłości: nieaktywny z powodem (§11c 107) [M1-audytor-generalny-107]
     const zacznij = () => {
       const receptura = recepturaPlanu();
+      const id = `bake_${Date.now()}`;
       setActiveBake({
-        id: `bake_${Date.now()}`,
+        id,
         recipeName: receptura ? receptura.recipeName : t('Klasyczny chleb rzemieślniczy'),
         startedAt: Date.now(),
         currentStageId: steps[0]?.id ?? '',
@@ -229,18 +233,25 @@ export default function HarmonogramScreen() {
         // Start tylko z dostępem: wypiek prowadzi się do końca także po wygaśnięciu (D-039) [M1-audytor-generalny-125]
         zaczetyZDostepem: true,
         ...(receptura ? { calculatedRecipe: receptura.calculatedRecipe, recipeFormula: receptura.recipeFormula } : {}),
+        // Id receptury w sesji, przy końcu w bakes.recipe_id: „Piecz ponownie” po id (D-10, D1-7) [M3 D3a]
+        ...(receptura?.recipeId !== undefined ? { recipeId: receptura.recipeId } : {}),
       });
-      router.push('/stolnica');
+      router.push({ pathname: '/stolnica', params: { wypiek: id } });
     };
-    // Trwający wypiek nie przepada po cichu: pytanie z trzema wyborami (a1b); bez trwającego start jak dotąd
+    const wroc = (wypiek: string) => router.push({ pathname: '/stolnica', params: { wypiek } });
+    // Kilka wypieków naraz (D-092): przy jednym trwającym „Prowadź oba” / „Wróć do: …” / „Anuluj”, przy limicie tylko
+    // powrót albo „Anuluj” (D-104); bez trwającego start jak dotąd [M3 D3a]
     requireActionAccess(() => {
-      void trwajacyWypiek().then((trwa) => {
+      void trwajaceWypieki().then((trwajace) => {
+        const [trwa] = trwajace;
         if (!trwa) return zacznij();
-        confirmStartPrzyTrwajacym(
-          () => router.push('/stolnica'),
-          () => { void przerwijSesjeWypieku().then(zacznij); },
-          trwa.nazwa,
-        );
+        if (trwajace.length >= MAX_TRWAJACYCH_WYPIEKOW) return confirmLimitWypiekow(trwajace, wroc);
+        confirmStartPrzyTrwajacym(trwa, () => {
+          // Wypiek z pamięci bez zapisu najpierw do zapisu: pamięć dostaje nowy wypiek
+          void utrwalWypiekZPamieci().then((ok) => {
+            if (ok) zacznij();
+          });
+        }, wroc);
       });
     });
   };
@@ -273,6 +284,11 @@ export default function HarmonogramScreen() {
         {notatkaPoprzednia ? (
           <Text style={styles.bezSnu} testID="plan-notatka-poprzednia">
             {t('Notatka z poprzedniego wypieku: {notatka}', { notatka: notatkaPoprzednia })}
+          </Text>
+        ) : null}
+        {bazowaZmieniona ? (
+          <Text style={styles.bezSnu} testID="plan-bazowa-zmieniona">
+            {t('Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.')}
           </Text>
         ) : null}
         <TargetReadyCard

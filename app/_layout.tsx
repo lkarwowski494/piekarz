@@ -13,7 +13,7 @@ import { uruchomPlatnosci } from '../src/lib/platnosci/stan';
 import { AppAccessProvider } from '../src/components/AppAccessProvider';
 import { initLanguage, t, useLang } from '../src/lib/i18n';
 import { initUnitSystem } from '../src/lib/unit-converter';
-import { trasaZPowiadomienia } from '../src/core/notification-plan';
+import { celZPowiadomienia } from '../src/core/notification-plan';
 import { useNaglowek } from '../src/ui/naglowek';
 import { PrzyciskNaglowka } from '../src/components/nawigacja/PrzyciskNaglowka';
 
@@ -104,8 +104,9 @@ export default function RootLayout() {
     const tap = Notifications.addNotificationResponseReceivedListener((r) => {
       // Prowadzenie otwiera się na bieżącym kroku (F-58, BR-ETAP-005); trasy sprzed 4 zakładek (D-051 2a)
       // z powiadomień zaplanowanych przez poprzednią wersję prowadzą w to samo miejsce [M1-audytor-generalny-101]
-      const trasa = trasaZPowiadomienia(Reflect.get(r.notification.request.content.data ?? {}, 'route'));
-      if (trasa) router.push(trasa);
+      // Krok z id wypieku otwiera Stolnicę tego wypieku (BR-KAL-016 „Który krok czyj”) [M3 D3a]
+      const cel = celZPowiadomienia(r.notification.request.content.data ?? {});
+      if (cel) router.push(cel);
     });
     return () => tap.remove();
   }, [rescue]);

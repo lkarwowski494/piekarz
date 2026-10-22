@@ -381,8 +381,8 @@ export async function restoreFromBackupData(data: PiekarzBackupData): Promise<vo
 /**
  * Zakończenie wypieku w jednej transakcji: wpis do historii i odliczenie mąki
  * (dopasowanie po nazwie jak w deductFlourStock). Błąd w środku wycofuje całość [M1-audytor-generalny-021].
- * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego), `clearSession`
- * wszystkie trwające (ekrany jednej sesji do D3). Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1].
+ * Sesja: `sessionId` kasuje wiersz tego wypieku (BR-KAL-016: koniec jednego nie rusza drugiego); bez niego żadna
+ * sesja nie znika [M3 D3a]. Wpis bez recipeId dostaje recepturę z sesji, gdy ją ma [M3 D1].
  */
 export async function finishBake(
   log: StoredBakeLog,

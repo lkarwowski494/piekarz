@@ -28,7 +28,7 @@ export default function StartScreen() {
   const dane = useStanStartu();
   const [ustawienia, setUstawienia] = useState(false);
   // Do pierwszego odczytu sklepu bez kłódek: brak odpowiedzi App Store to nie koniec próby
-  const stan = stanStartu({ trwaWypiek: dane.sesja !== null, dostep: access.canCreateNewBake || loading, maDane: dane.maDane });
+  const stan = stanStartu({ trwaWypiek: dane.wypieki.length > 0, dostep: access.canCreateNewBake || loading, maDane: dane.maDane });
   // Uprzedzenie przed końcem próby: raz, w treści „Dziś” (§11d 126) [M1-audytor-generalny-126]
   const uprzedzenie = useUprzedzenieProby();
   // Nagłówek „tylko historia” mówi o końcu próby tylko po dostępie z App Store (nie po samym imporcie) [M1-audytor-generalny-143]
@@ -88,9 +88,20 @@ export default function StartScreen() {
       >
         <CorruptStateRecoveryBanner />
         {stan !== 'trwa-wypiek' && banerProby}
-        {dane.gotowe && stan === 'trwa-wypiek' && dane.sesja && dane.zegar && (
+        {dane.gotowe && stan === 'trwa-wypiek' && (
           <>
-            <TrwajacyWypiek sesja={dane.sesja} zegar={dane.zegar} teraz={dane.teraz} onWroc={() => router.push('/stolnica')} />
+            {/* Dwa trwające: ta sama karta dla każdego po kolei, z „Wróć do: {nazwa}”, żeby żaden nie zniknął; właściwy
+                wygląd kilku wypieków w D3b po wyborze wariantu „Dziś” [M3 D3a] */}
+            {dane.wypieki.map((w) => (
+              <TrwajacyWypiek
+                key={w.id}
+                sesja={w.sesja}
+                zegar={w.zegar}
+                teraz={dane.teraz}
+                nazwaWPrzycisku={dane.wypieki.length > 1}
+                onWroc={() => router.push({ pathname: '/stolnica', params: { wypiek: w.id } })}
+              />
+            ))}
             {banerProby}
             <Text style={styles.naglowekGrupy} accessibilityRole="header">{t('Co jeszcze dziś robisz?')}</Text>
             {lista(false)}

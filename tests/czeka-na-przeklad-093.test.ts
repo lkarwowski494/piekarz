@@ -53,10 +53,13 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // testu tylko o ten wyjątek (inny klucz na liście nadal czerwony). Po przebiegu a5 usuń wpisy i tę stałą.
   const CZEKAJA_A1B = [
     'Trwa już inny wypiek',
-    'Nowy wypiek zastąpi trwający. Jego postęp i powiadomienia znikną.',
-    'Nowy wypiek zastąpi trwający: „{nazwa}”. Jego postęp i powiadomienia znikną.',
-    'Wróć do trwającego',
-    'Przerwij tamten i zacznij nowy',
+    // M3 D3a: pytanie przy starcie przy trwających (D-104), przełącznik wypieków, zmiana receptury bazowej (5 kluczy);
+    // 4 klucze a1b z przerwaniem usunięte razem z pytaniem
+    'Prowadź oba',
+    'Wróć do: {nazwa}',
+    'Prowadzisz już 2 wypieki',
+    '{wypiek}, krok: {krok}',
+    'Receptura bazowa zmieniła się od tamtego wypieku: ma teraz więcej drożdży.',
     'W tym dniu zmienia się czas, a wybranej godziny nie ma. Chleb będzie gotowy o {godzina}.',
     // M3 D2: powiadomienia wielu wypieków i stałego dnia karmienia (2 klucze)
     'Wypiek: {wypiek}.',

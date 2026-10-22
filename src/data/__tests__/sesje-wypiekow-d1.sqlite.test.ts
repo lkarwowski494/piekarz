@@ -65,14 +65,15 @@ describe('D1: sesje wypieków i recipe_id', () => {
     expect(wpis).toEqual(expect.objectContaining({ ratingStars: 2, notes: 'za kwaśny', recipeId: 'recipe_user_1' }));
   });
 
-  it('dzisiejszy zapis „jednej sesji” (clearSession) też przenosi recipe_id i kasuje sesję; stary wypiek bez receptury ma NULL (D1-7)', async () => {
+  // Zmiana D3a: koniec po id zamiast clearSession (wszystkie trwające, usunięte, P2-3)
+  it('koniec po id też przenosi recipe_id i kasuje sesję; stary wypiek bez receptury ma NULL (D1-7)', async () => {
     const { app, legacy, pierwsza } = await start();
-    await app.store.finishBake({ id: 'bake_stary', recipeName: 'Stary', startedAt: 1, finishedAt: 2 }, [], { clearSession: true });
+    await app.store.finishBake({ id: 'bake_stary', recipeName: 'Stary', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_live' });
     expect(recipeIdWpisu('bake_stary')).toEqual({ recipe_id: null });
     expect(await legacy.loadBakeSession()).toBeNull();
 
     await legacy.saveBakeSession(zReceptura(pierwsza, 'recipe_user_2'));
-    await app.store.finishBake({ id: 'bake_nowy', recipeName: 'Nowy', startedAt: 3, finishedAt: 4 }, [], { clearSession: true });
+    await app.store.finishBake({ id: 'bake_nowy', recipeName: 'Nowy', startedAt: 3, finishedAt: 4 }, [], { sessionId: 'bake_live' });
     expect(recipeIdWpisu('bake_nowy')).toEqual({ recipe_id: 'recipe_user_2' });
     expect(idSesji()).toEqual([]);
   });
@@ -85,13 +86,15 @@ describe('D1: sesje wypieków i recipe_id', () => {
     expect(idSesji()).toEqual(['bake_drugi']);
   });
 
-  it('ekrany jednej sesji (loadBakeSession/saveBakeSession) widzą listę jako jedną sesję: zapis innego wypieku zastępuje trwający jak dotąd, null czyści', async () => {
+  // Zmiana D3a (przegląd danych D1 P2-3): zapis innego wypieku nie zastępuje trwającego; null nadal czyści (testy)
+  it('loadBakeSession/saveBakeSession (testy): najstarszy trwający; zapis innego wypieku dokłada go obok, null czyści', async () => {
     const { legacy, pierwsza } = await start();
     expect((await legacy.loadBakeSession())?.bake?.id).toBe('bake_live');
     const nowy: BakeSession = { ...pierwsza, stepIdx: 0, bake: pierwsza.bake ? { ...pierwsza.bake, id: 'bake_nowy' } : null };
     await legacy.saveBakeSession(nowy);
-    expect(idSesji()).toEqual(['bake_nowy']);
-    expect(await legacy.loadBakeSession()).toEqual(nowy);
+    expect(idSesji()).toEqual(['bake_live', 'bake_nowy']);
+    expect((await legacy.loadBakeSession())?.bake?.id).toBe('bake_live');
+    await expect(legacy.saveBakeSession({ ...nowy, bake: pierwsza.bake ? { ...pierwsza.bake, id: 'bake_trzeci' } : null })).rejects.toThrow(/limit/);
     await legacy.saveBakeSession(null);
     expect(idSesji()).toEqual([]);
   });
@@ -183,7 +186,8 @@ describe('D1: sesje wypieków i recipe_id', () => {
     expect(przed).toEqual(['bake_live']);
   });
 
-  it('zakonczSesjeWTransakcji: bez sessionId i clearSession nic nie kasuje; z sessionId zwraca recepturę i kasuje wiersz; zakonczSesjeWPamieci filtruje pamięć', async () => {
+  // Zmiana D3a: bez clearSession (usunięte); pamięć filtrowana tylko po id
+  it('zakonczSesjeWTransakcji: bez sessionId nic nie kasuje; z sessionId zwraca recepturę i kasuje wiersz; zakonczSesjeWPamieci filtruje pamięć', async () => {
     const { app, sesje, pierwsza } = await start();
     await sesje.saveActiveBakeSession(zReceptura(pierwsza, 'recipe_user_3'));
     const db = await app.schema.getDb();
@@ -200,7 +204,9 @@ describe('D1: sesje wypieków i recipe_id', () => {
       { id: 'a', status: 'active', session_json: '{}', created_at: 1, updated_at: 1 },
       { id: 'p', status: 'planned', session_json: '{}', created_at: 1, updated_at: 1 },
     ];
-    sesje.zakonczSesjeWPamieci({ clearSession: true });
+    sesje.zakonczSesjeWPamieci({});
+    expect(app.schema.memStore.bakeSessions.map((w) => w.id)).toEqual(['a', 'p']);
+    sesje.zakonczSesjeWPamieci({ sessionId: 'a' });
     expect(app.schema.memStore.bakeSessions.map((w) => w.id)).toEqual(['p']);
     sesje.zakonczSesjeWPamieci({ sessionId: 'p' });
     expect(app.schema.memStore.bakeSessions).toEqual([]);

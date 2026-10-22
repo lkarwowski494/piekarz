@@ -137,7 +137,8 @@ export function resyncNotifications(): Promise<{ status: NotificationPermission;
             ...notificationText(p),
             sound: 'default',
             interruptionLevel: p.level,
-            data: { fp: notificationFingerprint(p, jezyk), kind: p.kind, route: p.route },
+            // `wypiek`: dotknięcie otwiera Stolnicę tego wypieku (BR-KAL-016) [M3 D3a]
+            data: { fp: notificationFingerprint(p, jezyk), kind: p.kind, route: p.route, ...(p.wypiekId ? { wypiek: p.wypiekId } : {}) },
           },
           trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: p.triggerAt },
         });

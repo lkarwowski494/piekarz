@@ -157,8 +157,10 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
     }
   });
 
-  it('P2-4: nieczytelny wiersz trwający, którego nikt w tym uruchomieniu nie czytał, trafia do pliku ratunkowego przed skasowaniem (zapis innego wypieku i null)', async () => {
-    const { pierwsza } = await migruj();
+  // Zmiana D3a: zapis innego wypieku już nie kasuje cudzych wierszy (P2-3), więc kasowanie bez odczytu sprawdzamy na
+  // przerwaniu jednego (deleteBakeSession) zamiast na „zastąpieniu”; drugi trwający zostaje
+  it('P2-4: nieczytelny wiersz trwający, którego nikt w tym uruchomieniu nie czytał, trafia do pliku ratunkowego przed skasowaniem (przerwanie jednego i null)', async () => {
+    await migruj();
     const wstaw = (id: string, json: string) => {
       const raw = openRaw(APP_DB());
       raw.prepare("INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES (?, 'active', ?, 9, 9)").run(id, json);
@@ -167,9 +169,8 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
     wstaw('zly_1', '{"version": 2, ZEPSUTE_1');
     // Nowy proces: nic nie czytało listy przed zapisem z ekranu
     restartApp();
-    const legacy = require('../bake-session-store') as typeof import('../bake-session-store');
-    await legacy.saveBakeSession(inny(pierwsza, 'bake_nowy'));
-    expect(idSesji()).toEqual(['bake_nowy']);
+    await (require('../bake-sessions-store') as typeof import('../bake-sessions-store')).deleteBakeSession('zly_1');
+    expect(idSesji()).toEqual(['bake_live']);
     expect(wPlikuUszkodzonych()).toContain('{"version": 2, ZEPSUTE_1');
 
     wstaw('zly_2', '{"version": 2, ZEPSUTE_2');
@@ -179,14 +180,15 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
     expect(wPlikuUszkodzonych()).toContain('{"version": 2, ZEPSUTE_2');
   });
 
-  it('P2-4: koniec wypieku z clearSession zapisuje nieczytelny trwający wiersz do pliku ratunkowego, zanim go skasuje', async () => {
+  // D3a: koniec wypieku po id (clearSession usunięte, P2-3); nieczytelny kończony wiersz nadal trafia do pliku ratunkowego
+  it('P2-4: koniec wypieku (sessionId) zapisuje nieczytelny kończony wiersz do pliku ratunkowego, zanim go skasuje; inny trwający zostaje', async () => {
     await migruj();
     const raw = openRaw(APP_DB());
     raw.prepare("INSERT INTO bake_sessions (id, status, session_json, created_at, updated_at) VALUES ('zly_3', 'active', '{ZEPSUTE_3', 9, 9)").run();
     raw.close();
     const app = restartApp();
-    await app.store.finishBake({ id: 'bake_k', recipeName: 'K', startedAt: 1, finishedAt: 2 }, [], { clearSession: true });
-    expect(idSesji()).toEqual([]);
+    await app.store.finishBake({ id: 'bake_k', recipeName: 'K', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'zly_3' });
+    expect(idSesji()).toEqual(['bake_live']);
     expect(wPlikuUszkodzonych()).toContain('{ZEPSUTE_3');
   });
 
@@ -206,18 +208,16 @@ describe('D1b: znaleziska przeglądu danych D1', () => {
     expect(idSesji()).toEqual([]);
   });
 
-  // Do zmiany w D3: ekrany jednej sesji (saveBakeSession, finishBake z clearSession, przerwij) kasują wszystkie trwające.
-  // Dziś nieosiągalne z ekranów (w app/ nic nie tworzy drugiego wiersza active); w D3 ekrany przechodzą na sessionId
-  // i deleteBakeSession(id), a ten test ma się zmienić na „koniec i zapis jednego nie rusza drugiego” (P2-3).
-  it('P2-3 (stan jednej sesji, do zmiany w D3): przy dwóch trwających API jednej sesji zastępuje i kasuje oba', async () => {
+  // Zmienione w D3a, jak zapowiadał ten test przy D1b: ekrany przeszły na sessionId i deleteBakeSession(id), a zapis
+  // jednego wypieku nie zastępuje drugiego (P2-3). Pełny zestaw: wypieki-per-id-d3a.sqlite.test.ts.
+  it('P2-3 (od D3a): przy dwóch trwających zapis i koniec jednego nie ruszają drugiego', async () => {
     const { app, sesje, pierwsza } = await migruj();
     expect(await sesje.saveActiveBakeSession(inny(pierwsza, 'bake_drugi'))).toEqual({ ok: true });
     const legacy = require('../bake-session-store') as typeof import('../bake-session-store');
     expect((await legacy.loadBakeSession())?.bake?.id).toBe('bake_live'); // najstarszy
     await legacy.saveBakeSession(pierwsza);
-    expect(idSesji()).toEqual(['bake_live']);
-    expect(await sesje.saveActiveBakeSession(inny(pierwsza, 'bake_drugi'))).toEqual({ ok: true });
-    await app.store.finishBake({ id: 'bake_x', recipeName: 'X', startedAt: 1, finishedAt: 2 }, [], { clearSession: true });
-    expect(idSesji()).toEqual([]);
+    expect(idSesji()).toEqual(['bake_drugi', 'bake_live']);
+    await app.store.finishBake({ id: 'bake_x', recipeName: 'X', startedAt: 1, finishedAt: 2 }, [], { sessionId: 'bake_live' });
+    expect(idSesji()).toEqual(['bake_drugi']);
   });
 });

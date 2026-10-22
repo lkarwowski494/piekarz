@@ -178,7 +178,29 @@ describe('101: Start „Co dziś robisz?”', () => {
       wroc.props.onPress();
     });
     expect(mockPush).toHaveBeenCalledTimes(1);
-    expect(mockPush).toHaveBeenCalledWith('/stolnica');
+    // D3a: prowadzenie tego wypieku (id w trasie; zapis bez danych wypieku ma stały id)
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'sesja-1014' } });
+    act(() => tree.unmount());
+  });
+
+  it('D3a: dwa trwające wypieki — oba na „Dziś” po kolei, każdy z „Wróć do: {nazwa}” do swojego prowadzenia', async () => {
+    zDostepem();
+    const start = Date.now() - 60_000;
+    const steps = planBakeSteps({ startAt: start, isHighRye: false });
+    const wypiek = (id: string, nazwa: string, stepIdx: number) => ({
+      version: 2 as const, steps, stepIdx, dutchOvenPhase: 'lid_on' as const, timerEndsAt: null, pausedLeftSec: 600,
+      recipeName: nazwa, startedAt: start, bake: { id, recipeName: nazwa, startedAt: start, currentStageId: steps[stepIdx].id },
+    });
+    await saveBakeSession(wypiek('bake_chleb', 'Chleb', 3));
+    await saveBakeSession(wypiek('bake_pizza', 'Pizza', 1));
+    const tree = await renderStart();
+    expect(tree.root.findAllByProps({ testID: 'start-trwa-wypiek' }).filter((n) => typeof n.type === 'string')).toHaveLength(2);
+    const przyciski = tree.root.findAllByProps({ testID: 'resume-bake-btn' }).filter((n) => typeof n.props.onPress === 'function' && typeof n.type !== 'string');
+    expect(przyciski.map((p) => p.props.accessibilityLabel)).toEqual(['Wróć do: Chleb', 'Wróć do: Pizza']);
+    await act(async () => {
+      przyciski[1].props.onPress();
+    });
+    expect(mockPush).toHaveBeenCalledWith({ pathname: '/stolnica', params: { wypiek: 'bake_pizza' } });
     act(() => tree.unmount());
   });
 
