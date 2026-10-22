@@ -12,6 +12,7 @@ import { t } from '../../lib/i18n';
 import { przywrocZakupy } from '../../lib/app-access';
 import { przywrocZKomunikatem } from '../przywroc-zakupy';
 import { zarzadzajSubskrypcja, zrealizujKod } from '../../lib/platnosci/sklep';
+import { typografia } from '../../ui/tokeny';
 
 export function ZakupySection({ onOtworzPro }: { onOtworzPro?: () => void }) {
   const [trwa, setTrwa] = useState(false);
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     get fontFamily() { return theme.typography.krojTytulow; },
-    fontSize: 16,
+    fontSize: typografia.style.naglowek.pt,
     fontWeight: '700',
     color: theme.colors.tusz,
     marginBottom: theme.spacing.sm,
@@ -80,9 +81,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   linkText: {
-    fontSize: 14,
+    fontSize: typografia.style.objasnienie.pt,
     fontWeight: '600',
     color: theme.colors.akcentTekst,
-    textDecorationLine: 'underline',
   },
 });

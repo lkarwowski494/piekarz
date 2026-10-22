@@ -166,6 +166,13 @@ describe('D4b: „Dziś” 3+1 z kalendarzem 1.0', () => {
     expect(root.findAll((n) => typeof n.props.testID === 'string' && n.props.testID.startsWith('brand-spiral-tor-2-odcinek-')).length).toBeGreaterThan(0);
     const karty = host(root, 'start-trwa-wypiek');
     expect(karty).toHaveLength(2);
+    // PRZ-09: numer toru rośnie z tekstem (min. 24 pt), nie stałe 24 × 24, które przy AX5 wypuszcza cyfrę poza koło
+    for (const k of karty) {
+      const kola = k.findAll((n) => typeof n.type === 'string' && styl(n).borderWidth === 2 && styl(n).borderColor !== undefined && (styl(n).minWidth === 24 || styl(n).width === 24));
+      expect(kola.length).toBeGreaterThan(0);
+      for (const kolo of kola) expect(styl(kolo)).toEqual(expect.objectContaining({ minWidth: 24, minHeight: 24 }));
+      for (const kolo of kola) expect(styl(kolo).width).toBeUndefined();
+    }
     const wroc = przycisk(root, 'resume-bake-btn');
     expect(wroc.map((w) => w.props.accessibilityLabel)).toEqual(['Wróć do: Chleb', 'Wróć do: Pizza']);
     for (const w of wroc) expect(Number(styl(w).minHeight)).toBeGreaterThanOrEqual(44);

@@ -56,6 +56,11 @@ export function StalyDzienKarmienia({ starter, teraz, onZapisz }: { starter: Sto
               <Chip testID="staly-dzien-minus" tekst={t('{n} min', { n: -30 })} onPress={() => przesun(-30)} />
               <Text style={styles.godzina}>{godzina(d.minuteOfDay)}</Text>
               <Chip testID="staly-dzien-plus" tekst={t('{n} min', { n: '+30' })} onPress={() => przesun(30)} />
+            </View>
+          )}
+          {/* „Bez stałego dnia” osobno pod godziną: w jednym rzędzie z ±30 min wyglądał jak trzecia zmiana godziny (PRZ-23) */}
+          {d && (
+            <View style={styles.rzad}>
               <Chip testID="staly-dzien-brak" tekst={t('Bez stałego dnia')} onPress={() => onZapisz(null)} />
             </View>
           )}

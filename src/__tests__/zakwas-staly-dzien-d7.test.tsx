@@ -99,6 +99,15 @@ describe('D7: stały dzień karmienia na karcie zakwasu', () => {
     expect(mockResync).toHaveBeenCalled();
     await nacisnij(przycisk(root, 'staly-dzien-plus')[0]);
     expect((await zapisany())?.fridgeFeedDay).toEqual({ weekday: 7, minuteOfDay: STALY_DZIEN_DOMYSLNA_MINUTA + 30 });
+    // PRZ-23: „Bez stałego dnia” w osobnym rzędzie pod godziną, nie między ±30 min (wspólny przodek z ±30 min to karta)
+    const wspolny = (a: renderer.ReactTestInstance, b: renderer.ReactTestInstance) => {
+      const przodkowie = new Set<renderer.ReactTestInstance>();
+      for (let n = a.parent; n; n = n.parent) przodkowie.add(n);
+      for (let n = b.parent; n; n = n.parent) if (przodkowie.has(n) && typeof n.type === 'string') return n;
+      return null;
+    };
+    expect(wspolny(przycisk(root, 'staly-dzien-brak')[0], przycisk(root, 'staly-dzien-minus')[0])?.props.testID).toBe('staly-dzien-karta');
+    expect(wspolny(przycisk(root, 'staly-dzien-plus')[0], przycisk(root, 'staly-dzien-minus')[0])?.props.testID).not.toBe('staly-dzien-karta');
     await nacisnij(przycisk(root, 'staly-dzien-brak')[0]);
     expect((await zapisany())?.fridgeFeedDay ?? null).toBeNull();
     expect(teksty(root)).toContain('Bez stałego dnia: następne karmienie 7 dni po ostatnim.');

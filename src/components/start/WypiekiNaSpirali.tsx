@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   glownyTekst: { fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naAkcencie, textAlign: 'center' },
   karta: { gap: odstepy.xs, padding: odstepy.l, borderRadius: promienie.grupa, backgroundColor: theme.colors.powierzchnia },
   kartaGora: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: odstepy.s },
-  numer: { width: 24, height: 24, borderRadius: 12, borderWidth: 2, borderColor: theme.colors.tusz, alignItems: 'center', justifyContent: 'center' },
+  numer: { minWidth: 24, minHeight: 24, paddingHorizontal: odstepy.xs, borderRadius: promienie.przycisk, borderWidth: 2, borderColor: theme.colors.tusz, alignItems: 'center', justifyContent: 'center' },
   numerTekst: { fontSize: typografia.style.przypis.pt, fontWeight: '700', color: theme.colors.tusz },
   kartaTytul: { flexShrink: 1, flexGrow: 1, flexBasis: 140, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.tusz },
   lewo: { textAlign: 'left' },
