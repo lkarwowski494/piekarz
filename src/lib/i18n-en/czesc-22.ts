@@ -9,4 +9,10 @@ export const EN_22: Record<string, string> = {
   'Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.':
     'Starter feeding reminders have turned off. Your recipes, starters and journal stay.',
   'Zamknij informację o Piekarz Pro': 'Close the Baker Pro notice',
+  // M3 P-a-fix: zakładanie zakwasu od nowa (P0-1) i zapis zmian własnej receptury (P1-1)
+  'Załóż zakwas od nowa': 'Start the starter again',
+  'Założyć zakwas od nowa?': 'Start the starter again?',
+  'Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.':
+    "This starter's entries will be deleted, and making it will start again from day 1 with a feeding now.",
+  'Zapisano zmiany w recepturze „{name}”.': 'Saved the changes to the recipe "{name}".',
 };

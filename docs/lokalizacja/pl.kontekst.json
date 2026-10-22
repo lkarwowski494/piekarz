@@ -2840,9 +2840,7 @@
     ]
   },
   "Musisz posiadać co najmniej jeden profil zakwasu.": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
+    "gdzie": []
   },
   "Mój zakwas": {
     "gdzie": [
@@ -3499,9 +3497,7 @@
     ]
   },
   "Nie można usunąć": {
-    "gdzie": [
-      "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
-    ]
+    "gdzie": []
   },
   "Nie podwaja objętości": {
     "gdzie": [
@@ -7018,6 +7014,11 @@
       "src/lib/confirm.ts (message)"
     ]
   },
+  "Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.": {
+    "gdzie": [
+      "src/lib/confirm.ts (message)"
+    ]
+  },
   "Wpisz nazwę przepisu": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (accessibilityLabel)",
@@ -7942,6 +7943,11 @@
       "app/(tabs)/zakwasy/index.tsx (Alert.alert)"
     ]
   },
+  "Zapisano zmiany w recepturze „{name}”.": {
+    "gdzie": [
+      "src/lib/calculator-actions.ts (Alert.alert)"
+    ]
+  },
   "Zapisz": {
     "gdzie": [
       "src/components/calculator/SaveRecipeModal.tsx (tekst w JSX)",
@@ -8094,6 +8100,11 @@
       "src/core/starter-log.ts (dane: start)"
     ]
   },
+  "Założyć zakwas od nowa?": {
+    "gdzie": [
+      "src/lib/confirm.ts (title)"
+    ]
+  },
   "Załóż suche rękawice kuchenne i unoś pokrywkę od siebie, bo spod niej uchodzi gorąca para.": {
     "gdzie": [
       "src/core/baking-phases.ts (dane: safetyWarningPl)"
@@ -8102,6 +8113,12 @@
   "Załóż wyciągnięty płat przez wierzch na przeciwną stronę ciasta.": {
     "gdzie": [
       "src/core/techniques/prep-ferment-techniques.ts (dane: executionStepsPl)"
+    ]
+  },
+  "Załóż zakwas od nowa": {
+    "gdzie": [
+      "src/components/zakwas/EditStarterModal.tsx (tekst w JSX)",
+      "src/components/zakwas/StarterSafetyCard.tsx (tekst w JSX)"
     ]
   },
   "Zbalansowany": {

@@ -61,10 +61,11 @@ export function stanDocelowy() {
   if (ceny.bazowy !== 'USA') throw new BladDanych('ceny.json: storefront bazowy inny niż USA');
   for (const t of Object.keys(ceny.reczne)) if (!terytoria.includes(t)) throw new BladDanych(`ceny.json: storefront ${t} poza dostępnością`);
 
-  const oferta = ceny.ofertaWprowadzajaca;
-  const tryb = TRYB_OFERTY[oferta.typ];
-  const czas = CZAS_OFERTY[oferta.czas];
-  if (!tryb || !czas) throw new BladDanych(`ceny.json: nieznana oferta wprowadzająca „${oferta.typ}” / „${oferta.czas}”`);
+  // D-112: bez oferty wprowadzającej (pole usunięte z ceny.json, M3 P-a-fix); gdyby wróciła, musi być znana
+  const oferta = ceny.ofertaWprowadzajaca ?? null;
+  const tryb = oferta ? TRYB_OFERTY[oferta.typ] : null;
+  const czas = oferta ? CZAS_OFERTY[oferta.czas] : null;
+  if (oferta && (!tryb || !czas)) throw new BladDanych(`ceny.json: nieznana oferta wprowadzająca „${oferta.typ}” / „${oferta.czas}”`);
 
   const produkt = (plan) => ({
     plan,
@@ -81,7 +82,7 @@ export function stanDocelowy() {
       ...produkt(plan),
       okres: u.produkty[plan].okres,
       poziom: u.poziomWGrupie,
-      oferta: oferta.produkty.includes(plan) ? { offerMode: tryb, duration: czas, numberOfPeriods: 1 } : null,
+      oferta: oferta && oferta.produkty.includes(plan) ? { offerMode: tryb, duration: czas, numberOfPeriods: 1 } : null,
     })),
     dozywotni: { ...produkt('lifetime'), typ: u.produkty.lifetime.typ },
     notatka: u.notatkaDlaRecenzji,
@@ -343,8 +344,14 @@ export function planuj(cel, stan, pp) {
 
   // Oferty wprowadzające po cenach (oferta wymaga ceny w storefroncie)
   for (const s of cel.subskrypcje) {
-    if (!s.oferta) continue;
     const z = stan.sub[s.plan];
+    if (!s.oferta) {
+      // Bez oferty w kontrakcie (D-112): istniejąca oferta do usunięcia ręcznie w ASC (Z-1); skrypt niczego nie usuwa
+      for (const [t, o] of z?.oferty ?? []) {
+        op('ręcznie', `${s.plan}:oferta`, `oferta ${s.productId} ${t}: ${o.offerMode} ${o.duration} — kontrakt bez oferty wprowadzającej (D-112); usuń w ASC razem z buildem Basic/Pro (Z-1, instrukcja §4)`);
+      }
+      continue;
+    }
     for (const t of cel.terytoria) {
       const opis = `oferta ${s.productId} ${t}: ${s.oferta.offerMode} ${s.oferta.duration}`;
       const obecna = z?.oferty.get(t);

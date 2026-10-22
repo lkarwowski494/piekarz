@@ -17,6 +17,7 @@ import { StorageWriteError } from '../../data/storage-status';
 import { saveErrorText } from '../../lib/save-guard';
 import { importujKopie, importujRecepture, rozpoznajPlik, zdanieKopii } from '../../lib/import-z-pliku';
 import type { StoredRecipe } from '../../data/db';
+import { useAppAccess } from '../../lib/app-access';
 
 export interface ImportZPlikuArkuszProps {
   onClose: () => void;
@@ -39,19 +40,23 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
     }
   };
 
-  const dodajRecepture = async (r: StoredRecipe) => {
-    setZapis(true);
-    try {
-      await importujRecepture(r);
-      onRecipeImported(r);
-      onClose();
-      Alert.alert(t('Receptura „{nazwa}” jest w Moich recepturach.', { nazwa: r.name }));
-    } catch {
-      Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
-    } finally {
-      setZapis(false);
-    }
-  };
+  // Import pojedynczej receptury to dodanie: limit Basic 5 własnych (kontrakt zwalnia tylko import kopii; D-116, właściciel
+  // „Wg rekomendacji”). Ponad limitem ekran Pro, arkusz i treść zostają [M3 P-a-fix P1-2]
+  const { dodaj } = useAppAccess();
+  const dodajRecepture = (r: StoredRecipe) =>
+    dodaj('wlasneReceptury', async () => {
+      setZapis(true);
+      try {
+        await importujRecepture(r);
+        onRecipeImported(r);
+        onClose();
+        Alert.alert(t('Receptura „{nazwa}” jest w Moich recepturach.', { nazwa: r.name }));
+      } catch {
+        Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
+      } finally {
+        setZapis(false);
+      }
+    });
 
   const zastapDane = async () => {
     if (plik?.rodzaj !== 'kopia') return;

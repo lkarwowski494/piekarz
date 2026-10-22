@@ -160,6 +160,12 @@ describe('093: 12 kluczy po małym przebiegu przekładu', () => {
     'Przypomnienia o dokarmianiu wyłączyły się. Twoje receptury, zakwasy i dziennik zostają.',
     'Zamknij informację o Piekarz Pro',
     // KONIEC P-a
+    // M3 P-a-fix: zakładanie od nowa przy jednym zakwasie (P0-1), zapis zmian własnej receptury (P1-1)
+    'Załóż zakwas od nowa',
+    'Założyć zakwas od nowa?',
+    'Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.',
+    'Zapisano zmiany w recepturze „{name}”.',
+    // KONIEC P-a-fix
   ];
   // F-71 (rola 06, 2026-10-22): teksty protokołów ratunkowych ze źródłami czekają na wspólny batch przekładu toru T;
   // wyjątek tylko dla wpisów z tym znacznikiem w „powod”, które są kluczami słownika EN części F-71. Po batchu usuń.

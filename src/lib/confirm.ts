@@ -179,6 +179,19 @@ export function confirmResetStarter(onConfirm: () => void) {
 }
 
 /**
+ * Potwierdzenie założenia zakwasu od nowa (BR-ZAKW-005, D-113): wpisy tego zakwasu usunięte, dzień 1 od teraz [M3 P-a-fix].
+ */
+export function confirmZalozOdNowa(onConfirm: () => void) {
+  confirm({
+    title: t('Założyć zakwas od nowa?'),
+    message: t('Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.'),
+    action: t('Zacznij od nowa'),
+    destructive: true,
+    onConfirm,
+  });
+}
+
+/**
  * Potwierdzenie usunięcia wpisu z historii wypieków.
  */
 export function confirmDeleteBakeLog(onConfirm: () => void) {

@@ -162,11 +162,15 @@ describe('Store, README and site texts claim only what this version does (035)',
     }
   });
 
-  it('site home page names the platform and the paid access', () => {
+  // Przepisane z kontraktu D-038 (strona mówiła o okresie próbnym) [M3 P-a-fix, P1-5]: Basic darmowy, Pro jako
+  // subskrypcja albo dożywotni, bez obietnicy próby i bez „bez zakupu tylko historia” (D-112)
+  it('site home page names the platform, Basic and the paid Pro access, without a trial', () => {
     const html = read('site/index.html');
     expect(html).toMatch(/iOS/);
     expect(html).toMatch(/subskrypcj/);
-    expect(html).toMatch(/okres(em)? próbn/);
+    expect(html).toMatch(/Basic jest darmowy na zawsze/);
+    expect(html).not.toMatch(/bezpłatnym okresem próbnym|oferta wprowadzająca/);
+    expect(html).not.toMatch(/Bez zakupu przeglądasz historię/);
   });
 });
 

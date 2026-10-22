@@ -20,8 +20,10 @@ import {
 } from '../../../src/core/domain-rules';
 import { predictStarterPeak } from '../../../src/core/starter-peak-predictor';
 import { parseFeedingRatio, formatFeedingRatio, DEFAULT_FEEDING_RATIO } from '../../../src/core/feeding-ratio';
-import { confirmResetStarter, confirmDeleteStarter } from '../../../src/lib/confirm';
+import { confirmResetStarter, confirmDeleteStarter, confirmZalozOdNowa } from '../../../src/lib/confirm';
 import { getStarters, saveStarter, deleteStarter } from '../../../src/data/sqlite-store';
+import { restartStarterSetup } from '../../../src/data/starter-entries-store';
+import { nowyWpis } from '../../../src/components/zakwas/useStarterLog';
 import { ustawZakwasPlanu } from '../../../src/lib/zakwas-planu';
 import { StoredStarter } from '../../../src/data/db';
 import { copyFeedingToClipboard } from '../../../src/lib/feeding-formatter';
@@ -241,20 +243,27 @@ export default function ZakwasScreen() {
     }));
   };
 
-  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]
+  // Usuwanie własnych danych nie wymaga zakupu (DEC-48) [M1-audytor-generalny-007]; także jedynego zakwasu, żeby w Basic
+  // dało się założyć nowy (D-113 „ponowne zakładanie po nieudanej próbie dozwolone”) [M3 P-a-fix P0-1]
   const handleDeleteCurrentStarter = () => {
-    if (startersList.length <= 1) {
-      Alert.alert(t('Nie można usunąć'), t('Musisz posiadać co najmniej jeden profil zakwasu.'));
-      return;
-    }
     confirmDeleteStarter(starter.name, guardSave(async () => {
       await deleteStarter(starter.id);
       void resyncNotifications();
       setIsEditModalOpen(false);
       const remaining = startersList.filter((s) => s.id !== starter.id);
-      if (remaining.length > 0) {
-        await loadStarterData(remaining[0].id);
-      }
+      await loadStarterData(remaining[0]?.id);
+    }));
+  };
+
+  // „Załóż od nowa” (BR-ZAKW-005): ten sam zakwas, wpisy usunięte, dzień 1 od dokarmienia teraz; bez limitu i bez Pro, bo
+  // to nie dodanie (jedno aktywne zakładanie naraz: ten zakwas) [M3 P-a-fix P0-1]
+  const handleZalozOdNowa = () => {
+    confirmZalozOdNowa(guardSave(async () => {
+      await restartStarterSetup(starter.id, nowyWpis(starter.id, 'feeding', Date.now()));
+      void resyncNotifications();
+      setIsEditModalOpen(false);
+      setWersjaDziennika((v) => v + 1);
+      await loadStarterData(starter.id);
     }));
   };
 
@@ -325,6 +334,7 @@ export default function ZakwasScreen() {
             wersja={wersjaDziennika}
             onDokarm={handleLogFeeding}
             zDostepem={(akcja) => void akcja()}
+            blokadaGotowosci={blokada('gotowosc-zakwasu')}
             onZmianaZakwasu={() => loadStarterData(starter.id)}
           />
         )}
@@ -390,6 +400,7 @@ export default function ZakwasScreen() {
           onToggleRottenSmell={() => setHasRottenSmell((prev) => !prev)}
           safetyResult={safetyResult}
           onReset={handleReset}
+          onZalozOdNowa={maZakwas ? handleZalozOdNowa : undefined}
         />
 
         {/* Modal: Edit Starter Profile */}
@@ -401,8 +412,9 @@ export default function ZakwasScreen() {
           onFlourTypeChange={setEditFlourType}
           storageState={editStorageState}
           onStorageStateChange={setEditStorageState}
-          canDelete={startersList.length > 1}
+          canDelete={startersList.length > 0}
           onDelete={handleDeleteCurrentStarter}
+          onZalozOdNowa={handleZalozOdNowa}
           onClose={() => setIsEditModalOpen(false)}
           onSave={handleSaveProfile}
         />

@@ -17,11 +17,6 @@
   "MEX": { "waluta": "MXN", "monthly": "19", "yearly": "149", "lifetime": "299" },
   "POL": { "waluta": "PLN", "monthly": "4.99", "yearly": "29.99", "lifetime": "79.99" }
  },
- "ofertaWprowadzajaca": {
-  "produkty": ["monthly", "yearly"],
-  "typ": "Free Trial",
-  "czas": "2 Weeks",
-  "storefronty": "wszystkie, w których aplikacja jest dostępna"
- },
+ "bezOfertyWprowadzajacej": "D-112: bez okresu próbnego, rolę próby pełni Basic. Ofertę „Free Trial 2 Weeks” z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro (Z-1); scripts/asc-ustawienia.mjs jej nie tworzy, istniejącą wypisuje jako „ręcznie”.",
  "familySharing": ["monthly", "yearly", "lifetime"]
 }

@@ -1,7 +1,17 @@
 {
-  "opis": "Lista funkcji Basic i limity Basic wydania 1.0 (kontrakt docs/monetyzacja.md, D-112, D-113, D-116). Zasada „Basic tylko rośnie”: funkcja raz wydana w Basic nie przechodzi do Pro, limity mogą tylko rosnąć. Test: src/lib/__tests__/basic-tylko-rosnie-pa.test.ts porównuje src/lib/platnosci/konfiguracja.ts (BASIC, LIMITY_BASIC) z tym plikiem. Przy kolejnym wydaniu dodaj plik basic-<wersja>.json, nie zmieniaj tego.",
+  "opis": "Lista funkcji Basic i limity Basic wydania 1.0 (kontrakt docs/monetyzacja.md, D-112, D-113, D-116). Zasada „Basic tylko rośnie”: funkcja raz wydana w Basic nie przechodzi do Pro, limity mogą tylko rosnąć. Test: src/lib/__tests__/basic-tylko-rosnie-pa.test.ts porównuje src/lib/platnosci/konfiguracja.ts (BASIC, BASIC_SZCZEGOLY, LIMITY_BASIC) z tym plikiem i pilnuje jego sumy SHA-256; miejsca użycia: src/__tests__/basic-pro-pafix.test.tsx. Przy kolejnym wydaniu dodaj plik basic-<wersja>.json, nie zmieniaj tego.",
   "wydanie": "1.0",
   "decyzje": ["D-112", "D-113", "D-116"],
   "basic": ["historia", "dane", "import", "kalkulator", "harmonogram", "stolnica", "zakwas", "doktor", "receptury", "akademia"],
+  "szczegoly": {
+    "opis": "Przypisania wątpliwe rozstrzygnięte przez właściciela (przez M1, 2026-10-22: „Wg rekomendacji”), D-116.",
+    "pozycje": [
+      "plan-pierwsze-karmienie-budzace",
+      "akademia-biblioteka-technik",
+      "limit-receptur-przywroc-i-kopia-poza-limitem",
+      "plan-ustawienia-nocy-i-lodowki",
+      "dziennik-filtr-smaku"
+    ]
+  },
   "limity": { "wlasneReceptury": 5, "zakwasy": 1, "poziomyAkademii": 1 }
 }

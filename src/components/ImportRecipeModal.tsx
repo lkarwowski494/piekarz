@@ -26,6 +26,7 @@ import { getUnitSystem, formatTemperature } from '../lib/unit-converter';
 import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
+import { useAppAccess } from '../lib/app-access';
 
 import { typografia } from '../ui/tokeny';
 export interface ImportRecipeModalProps {
@@ -70,23 +71,28 @@ export function ImportRecipeModal({
     setJsonInput('');
   };
 
+  // Zapis dopiero po „Zaimportuj” [M1-audytor-generalny-026]; import receptury (plik, QR) to dodanie z limitem Basic 5
+  // własnych — ponad limitem ekran Pro, treść w oknie zostaje (D-116, kontrakt zwalnia tylko import kopii) [M3 P-a-fix P1-2]
+  const { dodaj } = useAppAccess();
   const handleConfirmImport = async () => {
     if (!validation || !validation.success) return;
-    // Import działa zawsze, bez bramki (D-039); zapis dopiero po „Zaimportuj” [M1-audytor-generalny-026]
-    try {
-      await saveRecipe(validation.recipe);
-      onImportSuccess(validation.recipe);
-      setJsonInput('');
-      onClose();
-      Alert.alert(
-        t('Zaimportowano recepturę'),
-        t('Przepis „{name}” został pomyślnie dodany do Twojej bazy.', {
-          name: validation.recipe.name,
-        })
-      );
-    } catch {
-      Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
-    }
+    const recipe = validation.recipe;
+    await dodaj('wlasneReceptury', async () => {
+      try {
+        await saveRecipe(recipe);
+        onImportSuccess(recipe);
+        setJsonInput('');
+        onClose();
+        Alert.alert(
+          t('Zaimportowano recepturę'),
+          t('Przepis „{name}” został pomyślnie dodany do Twojej bazy.', {
+            name: recipe.name,
+          })
+        );
+      } catch {
+        Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
+      }
+    });
   };
 
   return (

@@ -22,6 +22,8 @@ export interface EditStarterModalProps {
   onStorageStateChange: (state: 'ROOM_TEMP' | 'FRIDGE') => void;
   canDelete: boolean;
   onDelete: () => void;
+  /** „Załóż zakwas od nowa” (BR-ZAKW-005): brak = bez przycisku. */
+  onZalozOdNowa?: () => void;
   onClose: () => void;
   onSave: () => void;
 }
@@ -36,6 +38,7 @@ export function EditStarterModal({
   onStorageStateChange,
   canDelete,
   onDelete,
+  onZalozOdNowa,
   onClose,
   onSave,
 }: EditStarterModalProps) {
@@ -90,6 +93,19 @@ export function EditStarterModal({
               </Text>
             </Pressable>
           </View>
+
+          {/* Zakładanie od nowa (BR-ZAKW-005, D-113): w Basic, także przy jedynym zakwasie [M3 P-a-fix P0-1] */}
+          {onZalozOdNowa && (
+            <Pressable
+              accessibilityRole="button"
+              testID="restart-starter-setup-btn"
+              style={styles.zalozBtn}
+              onPress={onZalozOdNowa}
+              hitSlop={sharedCraftTokens.hitSlopStandard}
+            >
+              <Text style={styles.storageBtnText}>{t('Załóż zakwas od nowa')}</Text>
+            </Pressable>
+          )}
 
           <View style={styles.modalButtonsRow}>
             {canDelete && (
@@ -176,6 +192,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
     marginBottom: 20,
+  },
+  zalozBtn: {
+    minHeight: theme.cele.pozostale,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: theme.colors.powierzchnia,
+    paddingVertical: 10,
+    borderRadius: theme.radius.sm,
+    borderWidth: 1,
+    borderColor: theme.colors.obwodka,
+    marginBottom: theme.spacing.md,
   },
   storageBtn: {
     minHeight: theme.cele.pozostale,

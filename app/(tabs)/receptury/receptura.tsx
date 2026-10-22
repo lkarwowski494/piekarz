@@ -25,7 +25,9 @@ import {
   executeExportRecipeJson,
   executeCopyRecipe,
   executeSaveCustomRecipe,
+  executeUpdateCustomRecipe,
 } from '../../../src/lib/calculator-actions';
+import { getRecipes } from '../../../src/data/recipes-store';
 import { openPrintMenu } from '../../../src/lib/print-menu';
 import { pozycjeMenuReceptury, zarejestrujMenuReceptury, PozycjaMenuReceptury } from '../../../src/lib/menu-receptury';
 import { ustawRecepturePlanu, powodBezZakwasu } from '../../../src/lib/plan-receptury';
@@ -183,20 +185,30 @@ export default function EkranReceptury() {
 
   const currentMasterPreset = useMemo(() => MASTER_RECIPES.find((p) => p.id === selectedPresetId), [selectedPresetId]);
 
-  // Nowa własna receptura: limit Basic (5) liczony z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity pojemności Basic”)
+  // Zapis: wczytana własna receptura pod tą samą nazwą = zapis zmian (to samo id, bez limitu: zapisane działają w całości);
+  // inaczej nowa własna receptura z limitem Basic (5) liczonym z bazy przy dodaniu (BR-RECP-002, kontrakt „Limity
+  // pojemności Basic”) [M3 P-a-fix P1-1]
   const handleSaveCustomRecipe = async () => {
-    dodaj('wlasneReceptury', guardSave(async () => {
+    const wlasna = await wczytanaWlasna();
+    const po = (saved: { id: string; name: string } | null) => {
+      if (!saved) return;
+      powiadomOZmianieReceptur();
+      setSelectedPresetId(saved.id);
+      setRecipeName(saved.name);
+      setIsSaveModalOpen(false);
+      setSaveRecipeNameInput('');
+    };
+    if (wlasna && saveRecipeNameInput.trim() === wlasna.name) {
+      await guardSave(async () => po(await executeUpdateCustomRecipe(wlasna, recipeFormula, targetDdt)))();
+      return;
+    }
+    await dodaj('wlasneReceptury', guardSave(async () => {
       // Cała formuła jak dla planu, z drożdżami [audyt-niezalezny D-2]
-      const saved = await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt);
-      if (saved) {
-        powiadomOZmianieReceptur();
-        setSelectedPresetId(saved.id);
-        setRecipeName(saved.name);
-        setIsSaveModalOpen(false);
-        setSaveRecipeNameInput('');
-      }
+      po(await executeSaveCustomRecipe(saveRecipeNameInput, recipeFormula, targetDdt));
     }));
   };
+  /** Własna receptura (nie bazowa) wczytana na ekranie; null przy recepturze bazowej albo błędzie odczytu. */
+  const wczytanaWlasna = async () => (await getRecipes().catch(() => [])).find((r) => r.id === selectedPresetId && !r.isBuiltIn) ?? null;
 
   // „Ułóż plan” (słownik §5): plan z tą recepturą; wypiek zaczyna „Zacznij wypiek” na planie [M1-audytor-generalny-057].
   // Plan od teraz w Basic, „gotowe o…” w Pro (strażnik na ekranie planu, D-116)
@@ -238,10 +250,15 @@ export default function EkranReceptury() {
       onMakePlan={handleMakePlan}
       powodBezPlanu={powodBezZakwasu(recipeFormula)}
       onSaveCustomRecipe={() =>
-        dodaj('wlasneReceptury', () => {
-          setSaveRecipeNameInput(recipeName);
-          setIsSaveModalOpen(true);
-        })
+        void (async () => {
+          const otworz = () => {
+            setSaveRecipeNameInput(recipeName);
+            setIsSaveModalOpen(true);
+          };
+          // Wczytana własna receptura: okno zapisu bez limitu (zapis zmian); inaczej nowa przez limit [P1-1]
+          if (await wczytanaWlasna()) otworz();
+          else await dodaj('wlasneReceptury', otworz);
+        })()
       }
       onWaterTemp={chron('kalkulator', () => setIsWaterTempOpen(true))}
       onEditIngredients={chron('kalkulator', () => setIsIngredientsOpen(true))}

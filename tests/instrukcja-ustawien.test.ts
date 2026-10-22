@@ -87,10 +87,14 @@ describe('instrukcja ustawień przed wydaniem (119)', () => {
     }
   });
 
-  it('etykieta prywatności „Data Not Collected” i oferta 14 dni (Free Trial, 2 Weeks)', () => {
+  // Przepisane z kontraktu D-038 (oferta 14 dni) [M3 P-a-fix, P1-5]: §4 opisuje usunięcie oferty (D-112, Z-1), nie jej tworzenie
+  it('etykieta prywatności „Data Not Collected” i §4 bez oferty wprowadzającej (D-112, usunięcie w Z-1)', () => {
     expect(doc).toContain('Data Not Collected');
-    expect(doc).toMatch(/2 Weeks/);
-    expect(doc).toMatch(/14 dni/);
+    const s4 = doc.split(/^## /m).find((s) => s.startsWith('4. ')) ?? '';
+    expect(s4).toMatch(/^4\. Bez oferty wprowadzającej \(D-112/);
+    expect(s4).toMatch(/Z-1/);
+    expect(s4).not.toMatch(/Set up Introductory Offer|typ Free → 2 Weeks|14 dni/);
+    expect(doc).not.toMatch(/„Start Free Trial”/);
   });
 
   it('każdy wiersz tabeli kroków ma źródło: plik:linia w repo, strona Apple albo [DO USTALENIA]', () => {

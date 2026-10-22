@@ -79,6 +79,18 @@ export const BASIC: readonly Funkcja[] = [
   'akademia',
 ];
 
+/**
+ * Szczegóły Basic bez własnej nazwy Funkcja, rozstrzygnięte przez właściciela (przez M1, 2026-10-22: „Wg rekomendacji”,
+ * D-116); pilnowane jak BASIC (plik wydania i testy ekranowe w src/__tests__/basic-pro-pafix.test.tsx).
+ */
+export const BASIC_SZCZEGOLY: readonly string[] = [
+  'plan-pierwsze-karmienie-budzace', // krok fridge_wake_feed w planie; kolejne karmienia budzące w Pro (BR-ZAKW-006)
+  'akademia-biblioteka-technik', // zakładka technik Akademii; dalsze poziomy szkoły w Pro
+  'limit-receptur-przywroc-i-kopia-poza-limitem', // „Przywróć” i import kopii nie liczą się; import receptury się liczy
+  'plan-ustawienia-nocy-i-lodowki', // godziny snu i czas w lodówce w planie od teraz
+  'dziennik-filtr-smaku', // filtr profilu smaku; porównanie i statystyki w Pro (BR-RECP-004)
+];
+
 /** Limity pojemności Basic, liczone z bazy przy dodawaniu; zapisane ponad limitem działają w całości (kontrakt). */
 export const LIMITY_BASIC = {
   /** Własne receptury (receptury bazowe się nie liczą; BR-RECP-002 „do 5 własnych”). */

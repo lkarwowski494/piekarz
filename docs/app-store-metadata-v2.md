@@ -24,7 +24,7 @@
 | **Tekst promocyjny (Promotional Text)** | `Ustaw godzinę, o której chleb ma być gotowy: Piekarz policzy ilości, ułoży plan wstecz i da znać o końcu każdego kroku. Bez konta, bez internetu, bez reklam.` | **157** | max 170 |
 | **Słowa kluczowe (Keywords)** | `bochenek,pizza,hydratacja,ciasto,drożdże,żytni,lewain,biga,poolish,minutnik,receptura,sourdough` | **98** | max 100 B (bajty UTF-8; bez wyrazów z nazwy i podtytułu) |
 
-### 1.2. Pełny Opis Aplikacji (Description PL — 3 331 / 4 000 znaków)
+### 1.2. Pełny Opis Aplikacji (Description PL — 3 236 / 4 000 znaków)
 
 ```text
 Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: liczy ilości, układa plan i pilnuje czasu, gdy telefon śpi. Działa bez konta i bez internetu, bez reklam i bez śledzenia. Twoje receptury, zakwasy i dziennik zostają tylko w twoim telefonie.
@@ -54,7 +54,7 @@ WARTO WIEDZIEĆ
 Piekarz działa na iPhonie i nie synchronizuje danych między urządzeniami; dane przenosisz plikiem kopii. Bez zgody na powiadomienia Piekarz pokaże koniec kroku tylko na otwartym ekranie.
 
 DOSTĘP I ZAKUP
-Pełny dostęp daje subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store. Subskrypcja może zaczynać się bezpłatnym okresem próbnym (oferta wprowadzająca App Store dla uprawnionych). Bez zakupu przeglądasz historię wypieków, importujesz plik oraz eksportujesz i usuwasz swoje dane.
+Basic jest darmowy na zawsze, bez okresu próbnego. Pro dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur. Pro to subskrypcja miesięczna lub roczna albo jednorazowy zakup dożywotni w App Store.
 Warunki użytkowania (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim i japońskim.
@@ -73,7 +73,7 @@ Piekarz jest dostępny w 35 językach, w tym w polskim, angielskim, niemieckim, 
 | **Promotional Text** | `Set the time you want bread ready: Baker works out the amounts, plans every step back from it and tells you when each step ends. No account, no internet, no ads.` | **161** | max 170 |
 | **Keywords** | `starter,hydration,schedule,levain,tracker,feeding,loaf,recipe,rye,pizza,proof,flour,percentage` | **94** | max 100 B (UTF-8 bytes; no words from name or subtitle) |
 
-### 2.2. Pełny Opis Aplikacji (Description EN — 3 314 / 4 000 znaków)
+### 2.2. Pełny Opis Aplikacji (Description EN — 3 183 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -103,7 +103,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
 
 ACCESS AND PURCHASE
-Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
+Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.
@@ -180,13 +180,13 @@ Podpisy i widoki opisują wyłącznie ekrany tej wersji na nowej szacie (DEC-04 
 
 > Zastąpione 2026-10-19 (DEC-01 d, M1-audytor-generalny-009): dawny „Free Tier” z okresem próbnym liczonym przez aplikację i dawne ceny w tym miejscu nie obowiązują; historia zmian w git. Identyfikatory produktów są w `src/lib/platnosci/konfiguracja.ts` (test `tests/oferta-dokumenty.test.ts`).
 
-- **Bez zakupu:** przegląd historii wypieków oraz odczyt, eksport i usunięcie własnych danych. Każda inna funkcja otwiera ekran zakupu.
+- **Bez zakupu (Basic, D-112, D-113, D-116):** Basic stays free — liczenie, plan od teraz, prowadzenie wypieku, założenie pierwszego zakwasu, Doktor, dziennik i wszystkie dane; funkcja Pro otwiera ekran Pro. Lista: `docs/monetyzacja.md` i `src/lib/platnosci/konfiguracja.ts`.
 - **Produkty (App Store Connect, jedna grupa subskrypcji dla dwóch pierwszych):**
-  1. `com.apps4brew.baker.pro.monthly` — subskrypcja miesięczna, oferta wprowadzająca: bezpłatny okres próbny 14 dni.
-  2. `com.apps4brew.baker.pro.yearly` — subskrypcja roczna, oferta wprowadzająca: bezpłatny okres próbny 14 dni.
+  1. `com.apps4brew.baker.pro.monthly` — subskrypcja miesięczna, bez okresu próbnego (D-112; ofertę z D-038 usuwa M1 w App Store Connect razem z buildem Basic/Pro, Z-1).
+  2. `com.apps4brew.baker.pro.yearly` — subskrypcja roczna, bez okresu próbnego (jw.).
   3. `com.apps4brew.baker.pro.lifetime` — zakup dożywotni (Non-Consumable), bez okresu próbnego.
 - **Ceny:** ustawia właściciel w App Store Connect (DEC-01 d: 0,99 / 6,99 / 14,99 USD; ceny regionalne według bramki wariantów, np. PL 4,99 / 29,99 / 79,99 zł). Aplikacja pokazuje wyłącznie `displayPrice` z App Store.
-- **Okres próbny:** tylko oferta wprowadzająca App Store (jedna na grupę subskrypcji, dla uprawnionych); aplikacja nie liczy dni i pokazuje ofertę tylko uprawnionym (`isEligibleForIntroOfferIOS`).
+- **Bez okresu próbnego (D-112):** rolę próby pełni Basic; aplikacja nie pyta sklepu o ofertę wprowadzającą. Notatka dla recenzji przy produktach (kontrakt, krok ASC 2): „Pro unlocks planning, starter care reminders, more starters and recipes. Basic stays free.”
 - **Przywracanie zakupów:** przycisk *Przywróć zakupy* na ekranie zakupu (`src/components/PaywallModal.tsx`) wywołuje synchronizację App Store.
 
 ### 4.3. Instrukcja dla Apple App Review Team (Review Notes)
@@ -277,7 +277,7 @@ Wybory właściciela na STOP 2 roli M5 (D-053, D-054, D-055): lokalna nazwa „<
 
 Pełny opis en-GB, en-AU i en-CA = opis EN z §2.2 (081, 2026-10-20) z pisownią lokalną. Opis nie używa wyrazów „proof” ani „over-proofed”, więc tekst jest wspólny dla trzech lokalizacji; różni się od §2.2 tylko w wyrazach „flavour” i „discolouration”. Test: `tests/teksty-sklepu.test.ts` (opis = §2.2 po zamianie pisowni).
 
-#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 316 / 4 000 znaków)
+#### 5.1.1. Pełny opis en-GB, en-AU, en-CA (Description — 3 185 / 4 000 znaków)
 
 ```text
 Baker is a sourdough bread planner: it works out your recipe amounts, plans every step back from the time you want bread ready and times each stage. It works without an account and without the internet, with no ads and no tracking. Your recipes, starters and journal stay only on your phone.
@@ -307,7 +307,7 @@ GOOD TO KNOW
 Baker runs on iPhone and does not sync between devices; you move data with a backup file. Without permission for notifications, Baker shows the end of a step only on the open screen.
 
 ACCESS AND PURCHASE
-Full access comes with a monthly or yearly subscription or a one-time lifetime purchase on the App Store. A subscription may start with a free trial (App Store introductory offer for eligible users). Without a purchase you can browse your bake history, import a file, and export and delete your data.
+Free Basic forever. Pro adds planning, starter care, more starters and recipes. Pro is a monthly or yearly subscription or a one-time lifetime purchase on the App Store.
 Terms of Use (EULA): https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 
 Baker is available in 35 languages, including English, Polish, German, French, Spanish, Italian, Portuguese and Japanese.

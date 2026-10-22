@@ -119,6 +119,17 @@ export async function executeCloneRecipe(
   return cloned;
 }
 
+/**
+ * Zapis zmian własnej receptury: to samo id, nazwa, data utworzenia i notatki, nowa formuła i temperatura ciasta
+ * (zapisane działają w całości, kontrakt Basic/Pro; nie jest dodaniem) [M3 P-a-fix P1-1].
+ */
+export async function executeUpdateCustomRecipe(wlasna: StoredRecipe, formula: DoughRecipeInput, targetDdt: number): Promise<StoredRecipe> {
+  const zmieniona: StoredRecipe = { ...wlasna, formula: { ...formula, flours: [...formula.flours] }, targetDDT: targetDdt };
+  await saveRecipe(zmieniona);
+  Alert.alert(t('Zapisano przepis'), t('Zapisano zmiany w recepturze „{name}”.', { name: wlasna.name }));
+  return zmieniona;
+}
+
 export async function executeSaveCustomRecipe(
   name: string,
   formula: DoughRecipeInput,

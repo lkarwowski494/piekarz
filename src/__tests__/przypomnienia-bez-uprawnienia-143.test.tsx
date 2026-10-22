@@ -137,6 +137,21 @@ describe.each(PORY)('Przypomnienia o zakwasie i baner bez uprawnienia, zegar %s 
     expect(ids().filter((i) => i.includes('karmienie'))).toEqual([]);
   });
 
+  // M3 P-a-fix P2-2: przed pierwszym odczytem sklepu (stan nieustalony) nowe przypomnienia Pro nie są planowane,
+  // a czekające nie są kasowane (brak odpowiedzi App Store to nie koniec Pro)
+  it('przed pierwszym odczytem sklepu: czekające przypomnienie o dokarmianiu zostaje, nowe nie jest planowane', async () => {
+    await saveStarter({ id: 'z1', name: 'Ania', flourType: 'Żytnia', hydration: 100, birthDate: 1, storageState: 'ROOM_TEMP', lastFedAt: teraz - H });
+    await resyncNotifications(); // stan nieustalony, nic nie czeka
+    expect(ids().filter((i) => i.includes('karmienie'))).toEqual([]);
+    mockIap.entitlements = [zakup()];
+    await odswiezDostep();
+    await resyncNotifications();
+    expect(ids()).toContain('piekarz.karmienie.z1.1');
+    _resetStanu(); // następne uruchomienie, sklep jeszcze nie odpowiedział
+    await resyncNotifications();
+    expect(ids()).toContain('piekarz.karmienie.z1.1');
+  });
+
   it('Basic bez wcześniejszego Pro (np. sam import danych): bez komunikatu o końcu Pro i bez stanu „tylko historia”', async () => {
     await saveBakeLog({ id: 'bake_1', recipeName: 'Mój chleb', startedAt: 1, finishedAt: 2, ratingStars: 4 });
     const tree = await renderStart();

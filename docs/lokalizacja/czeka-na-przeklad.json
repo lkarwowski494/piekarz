@@ -680,6 +680,26 @@
       "klucz": "Zamknij informację o Piekarz Pro",
       "powod": "uprzedzenie o końcu Piekarz Pro (3 dni przed, subskrypcja bez odnowienia) i komunikat po wygaśnięciu: przypomnienia o dokarmianiu wyłączą się (D-113, D-116; tekst spoza listy roli 04, do akceptacji roli 04 w P-b, D-117) [M3 P-a]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Załóż zakwas od nowa",
+      "powod": "zakładanie zakwasu od nowa przy jednym zakwasie w Basic (D-113) i zapis zmian własnej receptury bez limitu (kontrakt: zapisane działają w całości); tekst spoza listy roli 04, do akceptacji roli 04 (P-b) [M3 P-a-fix]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Założyć zakwas od nowa?",
+      "powod": "zakładanie zakwasu od nowa przy jednym zakwasie w Basic (D-113) i zapis zmian własnej receptury bez limitu (kontrakt: zapisane działają w całości); tekst spoza listy roli 04, do akceptacji roli 04 (P-b) [M3 P-a-fix]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Wpisy tego zakwasu zostaną usunięte, a zakładanie zacznie się od dnia 1 z dokarmieniem teraz.",
+      "powod": "zakładanie zakwasu od nowa przy jednym zakwasie w Basic (D-113) i zapis zmian własnej receptury bez limitu (kontrakt: zapisane działają w całości); tekst spoza listy roli 04, do akceptacji roli 04 (P-b) [M3 P-a-fix]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Zapisano zmiany w recepturze „{name}”.",
+      "powod": "zakładanie zakwasu od nowa przy jednym zakwasie w Basic (D-113) i zapis zmian własnej receptury bez limitu (kontrakt: zapisane działają w całości); tekst spoza listy roli 04, do akceptacji roli 04 (P-b) [M3 P-a-fix]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

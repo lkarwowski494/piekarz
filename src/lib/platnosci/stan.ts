@@ -52,12 +52,15 @@ async function wczytajPamiec(): Promise<Pamiec> {
  * już nie (wygaśnięcie, zwrot, odebranie z Family Sharing), znacznik komunikatu wygaśnięcia do pokazania raz (D-113).
  */
 export async function ustalDostep(odczyt: Odczyt, teraz: number = Date.now()): Promise<Decyzja> {
-  const poprzednia = await wczytajPamiec();
+  const surowa = await getAppSetting(KLUCZ_PAMIECI);
+  const poprzednia = odczytajPamiec(surowa);
   const d = decyzja(odczyt, poprzednia, teraz, ODBLOKOWUJA);
   if (odczyt.zrodlo === 'sklep') {
     try {
       if (wygaslPro(poprzednia, d, odczyt.zrodlo)) await setAppSetting(KLUCZ_KONCA_PRO, '1');
-      await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(d.pamiec));
+      // Zapis tylko przy zmianie: ekran z samym odczytem dostępu (np. arkusz importu w Basic) nie zmienia bazy [M3 P-a-fix]
+      const nowa = zapisPamieci(d.pamiec);
+      if (nowa !== (typeof surowa === 'string' ? surowa : '')) await setAppSetting(KLUCZ_PAMIECI, nowa);
     } catch (e) {
       // Baza nowsza niż aplikacja (061) albo nieudany zapis (120): decyzja działa w tej sesji bez zapisu pamięci,
       // kupujący nie traci dostępu przez pełną pamięć telefonu [M1-audytor-generalny-061; M1-audytor-generalny-120]

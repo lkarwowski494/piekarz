@@ -263,9 +263,10 @@ export function zdarzeniaKalendarza(dane: DaneKalendarza, now: number, zakres?: 
     // Bez terminów karmienia, gdy przypomnienia są wyłączone, a w Basic poza zakładaniem (BR-KAL-006, D-113, jak plan powiadomień)
     if (dostep.terminyKarmienia && zTerminem.has(s.id)) out.push(...terminyZakwasu(s, dane.pominiecia, now, zakres));
   }
-  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5]; Pro
-  if (dostep.terminyKarmienia && karmieniePro) {
-    const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki ? dane.zaplanowane : [])];
+  // Kolejne karmienie budzące (RD-33): ta sama reguła co powiadomienie (kolejneKarmieniaBudzace), dopisek w tekście [M3 D5];
+  // trwającego wypieku zawsze (wypiek zaczęty z Pro prowadzi się do końca), planu niezaczętego tylko z Pro [M3 P-a-fix P2-3]
+  if (dostep.terminyKarmienia) {
+    const wypieki = [...dane.wypieki, ...(dostep.przyszleWypieki && karmieniePro ? dane.zaplanowane : [])];
     for (const k of kolejneKarmieniaBudzace(wypieki, dane.zakwasy, dane.wpisyZakwasow, now)) {
       out.push(zd({
         id: `zakwas:${k.starterId}:budzenie:${k.wypiekId}`, rodzaj: 'karmienie-nastepne', at: k.at, zrodlo: { typ: 'zakwas', id: k.starterId },

@@ -133,6 +133,22 @@ describe('D5 w Europe/Warsaw', () => {
       expect(zd.filter((z) => z.warunkowe)).toHaveLength(0);
     });
 
+    // M3 P-a-fix P2-3 (kontrakt: wypiek rozpoczęty z planem Pro prowadzi się do końca): bez Pro kolejne karmienie budzące
+    // zostaje dla wypieku trwającego; dla planu niezaczętego to Pro (nowy wypiek na przyszłość)
+    it('bez Pro (karmieniePro false): kolejne karmienie budzące trwającego wypieku zostaje, planu niezaczętego nie', () => {
+      const mix = lok(2026, 10, 24, 8);
+      const plan = planZLodowki('sob', mix);
+      const wpisy = [
+        { id: 'f', starterId: 'z', kind: 'feeding' as const, occurredAt: lok(2026, 10, 23, 20) },
+        { id: 'o', starterId: 'z', kind: 'observation' as const, occurredAt: lok(2026, 10, 24, 4, 1), signs: ['bubbles'] },
+      ];
+      const now = lok(2026, 10, 24, 4, 1);
+      const trwa = { ...plan, stepIdx: 0, timerEndsAt: null, pausedLeftSec: null, zaczetyZDostepem: true };
+      const bezPro = { terminyKarmienia: true, przyszleWypieki: true, karmieniePro: false };
+      expect(zdarzeniaKalendarza(dane({ wypieki: [trwa], zakwasy: [ZAKWAS], wpisyZakwasow: wpisy, dostep: bezPro }), now).filter((z) => z.warunkowe)).toHaveLength(1);
+      expect(zdarzeniaKalendarza(dane({ zaplanowane: [plan], zakwasy: [ZAKWAS], wpisyZakwasow: wpisy, dostep: bezPro }), now).filter((z) => z.warunkowe)).toHaveLength(0);
+    });
+
     it('BR-KAL-009 Zakwas niegotowy: bez podwojenia do 04:01 — kolejne karmienie w sobotę 08:00 z dopiskiem, bez „N z M”, i powiadomienie', () => {
       const mix = lok(2026, 10, 24, 8);
       const plan = planZLodowki('sob', mix);

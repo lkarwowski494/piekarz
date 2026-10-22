@@ -23,6 +23,7 @@ import { StarterCycleCard } from './StarterCycleCard';
 import { StarterEntriesList } from './StarterEntriesList';
 import { StarterSetupCard } from './StarterSetupCard';
 import { FridgeWakeStatus } from './FridgeWakeStatus';
+import { BlokadaFunkcji, type BlokadaFunkcjiProps } from '../BlokadaFunkcji';
 
 /** „na blacie, 1:2:2” / „w lodówce” z danych zakwasu; brak proporcji zostaje brakiem. */
 function opisMiejsca(s: StoredStarter): string {
@@ -30,7 +31,9 @@ function opisMiejsca(s: StoredStarter): string {
   return s.feedingRatio ? t('na blacie, {proporcja}', { proporcja: s.feedingRatio }) : t('na blacie');
 }
 
-export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu }: {
+export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZakwasu, blokadaGotowosci }: {
+  /** Strażnik gotowości poza zakładaniem (blokada('gotowosc-zakwasu') ekranu; BR-ZAKW-003 w Pro). */
+  blokadaGotowosci: Omit<BlokadaFunkcjiProps, 'children'>;
   starter: StoredStarter;
   /** Zmienia się po zapisie dokarmienia na ekranie: dziennik czyta wpisy ponownie. */
   wersja: number;
@@ -63,6 +66,9 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
   const dzien = starter.setupStartedAt !== undefined ? setupDay(starter.setupStartedAt, now) : 1;
   // Treść planu wg czasu i dokarmień, nie wg numeru kalendarzowego (D-093, D0b)
   const etap = starter.setupStartedAt !== undefined ? setupGuideStage({ setupStartedAt: starter.setupStartedAt, now, entries: log.entries }) : 'day1';
+
+  const radaKarmienia = !stan.gotowy && !zakladanie && starter.storageState !== 'FRIDGE' && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60;
+  const pokazGotowosc = (stan.gotowy && !zakladanie) || radaKarmienia;
 
   const zapiszDzien = (signs: StarterSign[]) =>
     zDostepem(guardSave(async () => {
@@ -113,10 +119,13 @@ export function ZakwasDziennik({ starter, wersja, onDokarm, zDostepem, onZmianaZ
         onDokarm={onDokarm}
         onNiepokoi={() => router.push({ pathname: '/zakwasy/doktor-zakwasu', params: { starterId: starter.id } })}
       >
-        {stan.gotowy && !zakladanie && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
+        {/* Gotowość poza zakładaniem to Pro (BR-ZAKW-003, D-113): w Basic w miejscu stanu blokada, bez treści stanu;
+            w zakładaniu gotowość kończy zakładanie (Basic, karta zakładania) [M3 P-a-fix P1-3] */}
+        {pokazGotowosc && !blokadaGotowosci.odblokowane && <BlokadaFunkcji {...blokadaGotowosci}>{null}</BlokadaFunkcji>}
+        {pokazGotowosc && blokadaGotowosci.odblokowane && stan.gotowy && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
         {/* Po 8 h od dokarmienia bez podwojenia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007; BR-ZAKW-003) [130] */}
         {/* W lodówce ta rada nie obowiązuje (ZAK-ZAL-012: raz w tygodniu; radę daje karta szczytu) [M1-audytor-generalny-188] */}
-        {!stan.gotowy && !zakladanie && starter.storageState !== 'FRIDGE' && stan.mineloMin !== null && stan.mineloMin > STARTER_DOUBLING_MAX_H * 60 && (
+        {pokazGotowosc && blokadaGotowosci.odblokowane && radaKarmienia && (
           <Text testID="zakwas-karm-dalej" style={styles.gotowy}>{t(NO_DOUBLING_ACTIONS[0])}</Text>
         )}
         {wypiekZakwasu === starter.id && <FridgeWakeStatus wynik={fridgeWakeOutcome(log.entries, now)} now={now} />}

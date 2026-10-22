@@ -22,10 +22,10 @@ Piekarz prowadzi cię przez wypiek chleba na zakwasie od receptury do bochenka: 
 - **Prywatność „Data Not Collected”:** brak trackerów i bibliotek telemetrycznych (brak Firebase, Meta, Google Analytics); `NSPrivacyTracking = false` w `app.json`. Receptury, zakwasy i dziennik zostają na urządzeniu.
 - **Cztery zakładki (D-051 2a):** Dziś, Receptury, Zakwasy, Dziennik; ustawienia z „Dziś”. Prowadzenie wypieku (`app/stolnica.tsx`) i Doktor Chleba (`app/doktor.tsx`) to osobne ekrany.
 - **Ręce w mące:** haptyka przy odhaczaniu składnika, dźwięk na koniec kroku i ekran prowadzenia, który nie gaśnie w kroku wymagającym rąk (`expo-keep-awake`).
-- **Model płatności (DEC-01 d, decyzja właściciela z 2026-10-19; zastępuje „Cheaper than Espresso” i darmowy rdzeń DEC-09):**
+- **Model płatności Basic/Pro (D-112, D-113, D-116; kontrakt `docs/monetyzacja.md`; zastępuje D-038):**
   - Zakupy wyłącznie przez App Store (StoreKit, `expo-iap`, ADR-007): subskrypcja miesięczna i roczna w jednej grupie oraz zakup dożywotni. Ceny i waluty pokazuje aplikacja z App Store (`displayPrice`); ustawia je właściciel w App Store Connect.
-  - **Okres próbny 14 dni** na planie miesięcznym i rocznym, wyłącznie jako oferta wprowadzająca App Store (jedna na grupę subskrypcji, dla uprawnionych). Aplikacja nie liczy dni. Zakup dożywotni nie ma okresu próbnego.
-  - Bez subskrypcji, oferty wprowadzającej ani zakupu dożywotniego działa tylko przegląd historii wypieków, import pliku (D-039) oraz odczyt, eksport i usunięcie własnych danych. Każda inna funkcja otwiera ekran zakupu.
+  - **Basic stays free:** Basic jest darmowy na zawsze, bez okresu próbnego (rolę próby pełni Basic): liczenie, plan od teraz, prowadzenie wypieku, założenie pierwszego zakwasu, Doktor, dziennik, import, eksport i usunięcie danych.
+  - **Pro** (subskrypcja albo dożywotni) dodaje planowanie, opiekę nad zakwasem, więcej zakwasów i receptur (lista: `src/lib/platnosci/konfiguracja.ts`). Funkcja Pro bez zakupu otwiera ekran Pro.
 - **Własność danych i bezpieczna persystencja:** baza SQLite w katalogu `/Library/SQLite` (poza katalogiem Dokumenty widocznym w aplikacji *Pliki*). Automatyczna rotacja 10 najnowszych kopii (`Documents/Backup/`) oraz eksport i import całej bazy w JSON.
 - **Deterministyczna matematyka piekarska:**
   - **Procent piekarski z zakwasem i zaczynem:** woda i mąka zawarte w zakwasie i zaczynie są wliczane w hydratację całego ciasta.
@@ -61,7 +61,7 @@ Status według kontraktu zakresu `docs/scope-contract.md` (tabela „Zakres”, 
 
 ### 🧭 Szczegółowy opis modułów
 
-1. **🏠 Dziś (F-68):** „Co dziś robisz?” z trzema czynnościami; przy trwającym wypieku bieżący krok i powrót do prowadzenia; po okresie próbnym bez zakupu informacja, co nadal działa.
+1. **🏠 Dziś (F-68):** „Co dziś robisz?” z trzema czynnościami; przy trwającym wypieku bieżący krok i powrót do prowadzenia; uprzedzenie o końcu Pro bez odnowienia i komunikat po wygaśnięciu.
 2. **🧮 Receptury i ilości (F-09, F-11, F-26, F-27, F-55):**
    - Lista receptur z filtrem rodzaju, „Moje receptury” nad „Receptury bazowe”.
    - Ekran receptury: ilości „Do miski”, arkusz „Składniki” („Ilości liczę od”: bochenków albo masy mąki; „Mąki (razem 100%)”; zaczyn), arkusz „Temperatura wody”, „Ułóż plan”.
@@ -74,7 +74,7 @@ Status według kontraktu zakresu `docs/scope-contract.md` (tabela „Zakres”, 
 6. **🩺 Doktor Chleba (F-43):** wybór objawów i diagnoza jednej z 9 wad: niedofermentowanie, przefermentowanie, zakalec, pęknięcie boku, brak ucha, blada skórka, zbyt kwaśny smak, płaski smak, zbity miękisz. Cztery protokoły ratunkowe ciasta w trakcie fermentacji (przerośnięte, zbyt luźne, zimna kuchnia, zapomniana sól), każde zdanie ze źródłem (docs/tresci/pl/doktor-ratunek.md). Wejście z Dziennika.
 7. **📓 Dziennik (F-28):** historia wypieków ze statystykami, filtr profilu smaku, „Piecz ponownie”, usuwanie wpisu.
 8. **✂️ Lista odcięć (D-031, 2026-10-19):** Apple Watch, Live Activity, skróty Siri, eksport do kalendarza, plik `.piekarz`, trener rachunku i fiszki, sonda temperatury, kalkulator kosztu, Garmin i stary korzeń `App.tsx` usunięte z kodu; powody i warunki powrotu w `docs/scope-contract.md` (sekcja „Lista odcięć z kodu”, KL-06…KL-17).
-9. **⚙️ Ustawienia, kopia zapasowa i zakupy:** eksport do pliku i „Importuj z pliku”, eksport historii wypieków do CSV, jednostki, język, zakupy przez App Store (subskrypcja miesięczna lub roczna z ofertą wprowadzającą 14 dni dla uprawnionych albo zakup dożywotni), „Przywróć zakupy”, polityka prywatności, ocena i kontakt.
+9. **⚙️ Ustawienia, kopia zapasowa i zakupy:** eksport do pliku i „Importuj z pliku”, eksport historii wypieków do CSV, jednostki, język, zakupy Pro przez App Store (subskrypcja miesięczna lub roczna albo zakup dożywotni, bez okresu próbnego), „Przywróć zakupy”, polityka prywatności, ocena i kontakt.
 
 ---
 
@@ -147,7 +147,7 @@ piekarz/
 │       └── dziennik/index.tsx  # Dziennik wypieków
 ├── src/
 │   ├── components/             # Komponenty ekranów (receptury, harmonogram, stolnica, zakwas, settings, start)
-│   │   └── PaywallModal.tsx    # Ekran zakupu: ceny z App Store (displayPrice), oferta wprowadzająca dla uprawnionych
+│   │   └── PaywallModal.tsx    # Ekran Pro: ceny z App Store (displayPrice), bez okresu próbnego
 │   ├── core/                   # Deterministyczne reguły domenowe (procent piekarski, temperatura wody, Q10, kroki)
 │   ├── data/                   # SQLite: schemat, migracje, repozytorium
 │   ├── doctor/                 # Diagnostyka Doktora Chleba (9 kodów wad) i 4 protokoły ratowania ciasta

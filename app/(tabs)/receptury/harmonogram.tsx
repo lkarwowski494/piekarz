@@ -18,7 +18,7 @@ import { withFridgeWake } from '../../../src/core/fridge-wake';
 import { zakwasPlanu, etapyPlanu } from '../../../src/lib/zakwas-planu';
 import { ryeStepsEndingAt, stepsFromSchedule } from '../../../src/core/bake-steps';
 import { copyScheduleToClipboard, planDoKopii } from '../../../src/lib/schedule-formatter';
-import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe } from '../../../src/lib/plan-receptury';
+import { recepturaPlanu, powodBezZakwasu, odbierzDzienGotowe, TEMPERATURA_MODELU_PLANU_C } from '../../../src/lib/plan-receptury';
 import { useUnitSystem } from '../../../src/lib/unit-converter';
 import { formatTime as formatGodziny, formatDzienData } from '../../../src/lib/format';
 import { useAppAccess } from '../../../src/lib/app-access';
@@ -61,7 +61,7 @@ export default function HarmonogramScreen() {
   // 23 °C to założenie modelu planu, nie pomiar: do wypieku i dziennika trafia tylko temperatura wybrana
   // przez użytkownika [M1-audytor-generalny-017; 08-programista-005]. Z „Ułóż plan”: temperatura kuchni z receptury,
   // ta sama liczba co w arkuszu „Temperatura wody” [audyt-niezalezny D-4]
-  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? 23.0);
+  const [ambientTemp, setAmbientTemp] = useState<number>(() => recepturaPlanu()?.temperaturaKuchni?.c ?? TEMPERATURA_MODELU_PLANU_C);
   const [tempWybrana, setTempWybrana] = useState(() => recepturaPlanu()?.temperaturaKuchni?.wybrana ?? false);
   const [coldRetardHours, setColdRetardHours] = useState<number>(14.0);
 
@@ -76,20 +76,22 @@ export default function HarmonogramScreen() {
   const celLokalny = useMemo(() => atLocalTime(Date.now(), targetDayOffset, targetHour, targetMinute), [targetDayOffset, targetHour, targetMinute]);
   const targetDate = useMemo(() => new Date(celLokalny.ms), [celLokalny]);
 
-  // Basic: plan od teraz („start wypieku bez planu”, PR-02), przesunięcie kroku i „za późno” (BR-HARMO-004); Pro: „gotowe
-  // o…” z ochroną snu i czasem z temperatury (BR-HARMO-001…003), rytm (BR-KAL-014), „Zaplanuj” (BR-KAL-009) [D-113, D-116]
+  // Basic: plan od teraz (PR-02), BR-HARMO-004; Pro: „gotowe o…” (BR-HARMO-001…003), rytm, „Zaplanuj” [D-116]
   const { blokada, requireActionAccess, moze, loading } = useAppAccess();
   const planWstecz = moze('plan-wstecz');
+  // Czas z temperatury kuchni (BR-HARMO-003) w Pro; w Basic temperatura modelu [M3 P-a-fix P2-1]
+  const zTemperatura = planWstecz || loading;
+  const tempPlanu = zTemperatura ? ambientTemp : TEMPERATURA_MODELU_PLANU_C;
 
   // Reverse schedule calculation
   const schedule = useMemo(() => {
     return calculateReverseSchedule(targetDate, {
-      ambientTemperatureC: ambientTemp,
+      ambientTemperatureC: tempPlanu,
       coldRetardHours,
       sleepStartHour,
       sleepEndHour,
     });
-  }, [targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
+  }, [targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
 
   // Zakwas planu (wybrany na Zakwasach albo pierwszy); z lodówki: jedno dokarmienie 12 h przed mieszaniem
   // zamiast dokarmienia z planu (BR-ZAKW-006, D-052) [M1-audytor-generalny-104]
@@ -151,8 +153,7 @@ export default function HarmonogramScreen() {
     if (rytm && godzinaDomyslna.current && moze('rytm')) setTargetDayOffset(rytm.offset);
   }, [rytm, moze]);
   const dzienZalozony = zeSkrotu ?? rytm?.offset ?? null;
-  // Basic: „gotowe” = najwcześniejsza godzina (plan zaczyna się teraz), co minutę od nowa; do pierwszego odczytu sklepu
-  // bez zmian, żeby płacący nie tracił ustawionej godziny [D-116]
+  // Basic: „gotowe” = najwcześniejsza godzina (start teraz); do odczytu sklepu bez zmian [D-116]
   useEffect(() => {
     if (planWstecz || loading || stanCzasu.najwczesniejMs === null) return;
     if (celLokalny.ms !== stanCzasu.najwczesniejMs) ustawGotowe(stanCzasu.najwczesniejMs);
@@ -162,7 +163,7 @@ export default function HarmonogramScreen() {
     const okno = { startH: sleepStartHour, koniecH: sleepEndHour }; // „Bez godzin snu”: 0–0, żaden krok nie jest w nocy
     if (stanCzasu.najwczesniejMs !== null && (stanCzasu.zaPozno || krokCzynnyWNocy(steps, okno))) {
       const kroki = (celMs: number) =>
-        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
+        krokiDla(calculateReverseSchedule(new Date(celMs), { ambientTemperatureC: tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour }), celMs);
       // Dzień ze skrótu arkusza dnia (BR-KAL-015) albo z rytmu (BR-KAL-014) zostaje: godzina bez nocy od początku tego dnia [M3 D5, D7]
       const od = dzienZalozony === null ? stanCzasu.najwczesniejMs : Math.max(stanCzasu.najwczesniejMs, atLocalTime(Date.now(), dzienZalozony, 0, 0).ms);
       const bezNocy = godzinaBezNocy(od, kroki, okno);
@@ -191,12 +192,12 @@ export default function HarmonogramScreen() {
   const autoResolved = useMemo(() => {
     if (!schedule.hasSleepCollision) return null;
     return autoResolveSleepCollision(targetDate, {
-      ambientTemperatureC: ambientTemp,
+      ambientTemperatureC: tempPlanu,
       coldRetardHours,
       sleepStartHour,
       sleepEndHour,
     });
-  }, [schedule.hasSleepCollision, targetDate, ambientTemp, coldRetardHours, sleepStartHour, sleepEndHour]);
+  }, [schedule.hasSleepCollision, targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
 
   // ±30 min do najbliższej pełnej lub połówkowej godziny w tym kierunku (np. 23:50 → 00:00 albo 23:30), bo pole
   // „Kiedy chleb ma być gotowy?” nie ma już chipów godziny (128) [M1-audytor-generalny-128]
@@ -228,12 +229,12 @@ export default function HarmonogramScreen() {
   };
 
   // „Zacznij wypiek” (migawka planu na Stolnicę, pytanie D-104) i „Zaplanuj” (BR-KAL-009, D-108): src/hooks/useStartPlanu.ts
-  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp, tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess });
+  const { zacznij, zaplanuj } = useStartPlanu({ steps, zakwas, ambientTemp: tempPlanu, tempWybrana: zTemperatura && tempWybrana, zablokowany: !!zaPozno || !!bezZakwasu, requireActionAccess });
 
   const handleCopySchedule = async () => {
     // Kopia z planu na ekranie: etapy `stages` (żytnie z kroków) i kolizje tych kroków [M1-audytor-generalny-197]
     await copyScheduleToClipboard(planDoKopii(schedule, stages, kolizjePlanu), {
-      ambientTempC: ambientTemp,
+      ambientTempC: tempPlanu,
       // Plan żytni nie ma garowania chłodniczego (rozrost w formie), więc bez tej linii
       ...(zytni ? {} : { coldRetardHours }),
     });

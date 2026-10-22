@@ -56,16 +56,16 @@ ID produktów muszą być dokładnie te z kodu, bo aplikacja szuka ich po ID: `s
 | 3.8 Review Information produktu | zrzut ekranu zakupu z finalnej aplikacji (`docs/wydanie/zrzuty/review/zakup.png`, jeden dla trzech produktów; `docs/wydanie/zrzuty/README.md`) i jedno zdanie: „Unlocks all features; offered on the purchase screen.” | `docs/app-store-metadata-v2.md:181-188` |
 | 3.9 Pierwsza wysyłka produktów | pierwszy Non-Consumable i pierwsza subskrypcja z grupą idą razem z wersją 1.0 w jednej wysyłce (krok 13) | developer.apple.com/help/app-store-connect/manage-submissions-to-app-review/submit-an-in-app-purchase (odczyt 2026-10-21) |
 
-## 4. Oferty wprowadzające (14 dni)
+## 4. Bez oferty wprowadzającej (D-112; usunięcie: Z-1)
 
-Apple: „each person is only eligible to redeem one introductory offer per subscription group”. Długości Free Trial dla 1 miesiąca i 1 roku: „3 Days. 1 or 2 Weeks. 1, 2, 3, or 6 Months. 1 Year.” — 14 dni = 2 Weeks.
+Kontrakt Basic/Pro (`docs/monetyzacja.md`, D-112): subskrypcje bez okresu próbnego, rolę próby pełni Basic. Ofertę „Free Trial 2 Weeks” z D-038 usuwa M1 w App Store Connect razem z buildem, który zawiera kod Basic/Pro (Z-1, nie wcześniej). `docs/wydanie/ceny.json` nie ma oferty, więc `scripts/asc-ustawienia.mjs` jej nie tworzy, a istniejącą wypisuje jako „ręcznie” do usunięcia.
 
 | Krok | Pole → wartość | Źródło |
 |---|---|---|
-| 4.1 Miesięczna | subskrypcja `com.apps4brew.baker.pro.monthly` → Subscription Prices → „View all Subscription pricing” → „Set up Introductory Offer” → wszystkie kraje → start: dziś, koniec: bez końca albo najdalsza data → typ Free → 2 Weeks → Confirm | `docs/archiwum/monetyzacja-d038-2026-10-19.md:189`; developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions (odczyt 2026-10-21) |
-| 4.2 Roczna | to samo dla `com.apps4brew.baker.pro.yearly`: Free, 2 Weeks, wszystkie kraje | `docs/archiwum/monetyzacja-d038-2026-10-19.md:190` |
-| 4.3 Dożywotni | bez oferty | `docs/archiwum/monetyzacja-d038-2026-10-19.md:191` |
-| 4.4 Uwaga | oferty po utworzeniu nie da się edytować („delete it and create a new one”); aplikacja nie liczy dni, pokazuje „Start Free Trial” tylko uprawnionym (`isEligibleForIntroOfferIOS`) | `docs/app-store-metadata-v2.md:187`; developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions (odczyt 2026-10-21) |
+| 4.1 Miesięczna | subskrypcja `com.apps4brew.baker.pro.monthly` → Subscription Prices → Introductory Offers → oferta Free 2 Weeks → usuń we wszystkich krajach, razem z buildem Basic/Pro | `docs/monetyzacja.md:116` (Kroki w App Store Connect, krok 1; Z-1); developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions (odczyt 2026-10-21) |
+| 4.2 Roczna | to samo dla `com.apps4brew.baker.pro.yearly` | `docs/monetyzacja.md:116` (Z-1) |
+| 4.3 Dożywotni | bez oferty | `docs/monetyzacja.md:36` (Kontrakt płatności) |
+| 4.4 Uwaga | oferty nie da się edytować („delete it and create a new one”); aplikacja nie pyta sklepu o ofertę i nie pokazuje próby; skrypt ustawień niczego nie usuwa sam | `docs/monetyzacja.md` (Aneks do ADR-007); developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions (odczyt 2026-10-21) |
 
 ## 5. Ceny
 
@@ -172,7 +172,7 @@ Dawny identyfikator zespołu w dokumencie wydania: `docs/15-app-store.md:45` ma 
 | 12.2 Test Information | TestFlight → Test Information: opis bety, e-mail na uwagi (support@apps4brew.com), co testować: lista z §4 dokumentu wydania | `docs/15-app-store.md:28-37`; developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview (odczyt 2026-10-21) |
 | 12.3 Testerzy | wewnętrzni (do 100), potem zewnętrzni (do 10 000); pierwszy build dla grupy zewnętrznej przechodzi review TestFlight; build ważny 90 dni | developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview (odczyt 2026-10-21) |
 | 12.4 Konto sandbox | Users and Access → Sandbox → (+) → imię, nowy adres e-mail (nieużywany jako Apple Account), hasło: wpisz swoje, poza repo; storefront: Poland, drugie konto: United States | developer.apple.com/help/app-store-connect/test-in-app-purchases/create-a-sandbox-apple-account (odczyt 2026-10-21) |
-| 12.5 Scenariusze | zakup każdego planu, „Start Free Trial” tylko dla uprawnionego konta, ponowna instalacja, tryb samolotowy po zakupie, przywrócenie na drugim urządzeniu, zwrot, Family Sharing, Ask to Buy, karencja, uprzedzenie 3 dni, wygaśnięcie w trakcie wypieku, „Manage Subscription”; wynik z datą i buildem do roli 07 | `docs/archiwum/monetyzacja-d038-2026-10-19.md:247-248` |
+| 12.5 Scenariusze | zakup każdego planu, ekran Pro bez okresu próbnego, funkcje Basic bez zakupu, ponowna instalacja, tryb samolotowy po zakupie, przywrócenie na drugim urządzeniu, zwrot, Family Sharing, Ask to Buy, karencja, uprzedzenie 3 dni, wygaśnięcie w trakcie wypieku, „Manage Subscription”; wynik z datą i buildem do roli 07 | `docs/archiwum/monetyzacja-d038-2026-10-19.md:247-248` |
 | 12.6 Ceny w sandboksie | zmiany produktów widać w sandboksie po czasie: „It may take up to 1 hour for changes you make to product metadata to appear in the sandbox environment”; czy zakupy w buildzie TestFlight idą przez sandbox, strony z tego odczytu nie mówią `[DO USTALENIA]` | developer.apple.com/help/app-store-connect/manage-subscriptions/set-up-introductory-offers-for-auto-renewable-subscriptions (odczyt 2026-10-21) |
 
 ## 13. Wysyłka do recenzji i wydanie

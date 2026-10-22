@@ -7,7 +7,11 @@
 import { decyzja, dozwolona, funkcjaLekcji, mozeDodac, zapisPamieci, type Uprawnienie } from '../platnosci/dostep';
 import { BASIC, KLUCZ_PAMIECI, LIMITY_BASIC, ODBLOKOWUJA, PRODUKTY, type Funkcja, type Pojemnosc } from '../platnosci/konfiguracja';
 import { liczbaZapisanych } from '../limity-basic';
-import { saveRecipe } from '../../data/sqlite-store';
+import { saveRecipe, getRecipes } from '../../data/sqlite-store';
+import { Alert } from 'react-native';
+import { executeUpdateCustomRecipe } from '../calculator-actions';
+import { confirmZalozOdNowa } from '../confirm';
+import { TEMPERATURA_MODELU_PLANU_C } from '../plan-receptury';
 import { KLUCZ_KONCA_PRO, uprzedzenieKoncaPro, wygaslPro } from '../platnosci/uprzedzenie';
 import { ustalDostep, pobierzStan, _resetStanu } from '../platnosci/stan';
 import { przywrocZakupy } from '../app-access';
@@ -41,7 +45,8 @@ describe('wektory dostępu z kontraktu D-112/D-113 (14)', () => {
     const d = decyzja(sklep([]), null, T, ODBLOKOWUJA);
     expect(d.dostep).toBe(false);
     expect([...BASIC].sort()).toEqual(['akademia', 'dane', 'doktor', 'harmonogram', 'historia', 'import', 'kalkulator', 'receptury', 'stolnica', 'zakwas']);
-    for (const f of BASIC) expect({ f, bez: dozwolona(f, false) }).toEqual({ f, bez: true });
+    // „Basic w całości” na ekranach (akcja każdej funkcji Basic bez ekranu Pro): src/__tests__/basic-pro-pafix.test.tsx
+    // (MAPA_BASIC); „żadnego ekranu Pro przy starcie”: src/__tests__/basic-pro-pa.test.tsx W-01 [M3 P-a-fix, P2-8]
     for (const f of PRO) expect({ f, bez: dozwolona(f, false), z: dozwolona(f, true) }).toEqual({ f, bez: false, z: true });
   });
 
@@ -54,13 +59,21 @@ describe('wektory dostępu z kontraktu D-112/D-113 (14)', () => {
     expect(d).toEqual({ dostep: true, powod: 'sklep', pamiec: { produkty: [PRODUKTY.lifetime], wygasa: null } });
   });
 
-  it('W-04 szósta receptura bez Pro: przy 5 własnych dodanie zamknięte, przy 4 otwarte; z Pro zawsze', () => {
+  it('W-04 szósta receptura bez Pro: przy 5 własnych dodanie zamknięte, przy 4 otwarte; z Pro zawsze', async () => {
     expect(LIMITY_BASIC.wlasneReceptury).toBe(5);
     expect(mozeDodac('wlasneReceptury', 5, false)).toBe(false);
     expect(mozeDodac('wlasneReceptury', 4, false)).toBe(true);
     expect(mozeDodac('wlasneReceptury', 5, true)).toBe(true);
-    // Zapisane działają w całości: odczyt, edycja i „Piecz ponownie” to funkcje Basic, nie dodanie
-    expect([dozwolona('receptury', false), dozwolona('historia', false), dozwolona('kalkulator', false)]).toEqual([true, true, true]);
+    // Zapisane działają w całości: zapis zmian istniejącej receptury (to samo id) nie zmienia liczby, więc nie jest
+    // dodaniem; na ekranie: src/__tests__/basic-pro-pafix.test.tsx (P1-1 / W-04) [M3 P-a-fix, P2-8]
+    for (let n = 1; n <= 5; n++) {
+      await saveRecipe({ id: `w4_${n}`, name: `R${n}`, isBuiltIn: false, createdAt: n, targetDDT: 25,
+        formula: { flours: [{ name: 'M', percentage: 100 }], waterPercentage: 70, saltPercentage: 2, starterPercentage: 20, targetDoughWeightGrams: 900 } });
+    }
+    const przed = await liczbaZapisanych('wlasneReceptury');
+    const [r3] = (await getRecipes()).filter((r) => r.id === 'w4_3');
+    await saveRecipe({ ...r3, formula: { ...r3.formula, waterPercentage: 75 } });
+    expect(await liczbaZapisanych('wlasneReceptury')).toBe(przed);
   });
 
   it('W-05 drugi zakwas bez Pro: przy 1 zakwasie dodanie zamknięte, pierwszy wolny', () => {
@@ -70,8 +83,8 @@ describe('wektory dostępu z kontraktu D-112/D-113 (14)', () => {
     expect(mozeDodac('zakwasy', 1, true)).toBe(true);
   });
 
-  it('W-06 import kopii: 8 receptur, 3 zakwasy bez Pro → import działa, kolejne dodanie zamknięte, przypomnienia o dokarmianiu nieaktywne', () => {
-    expect(dozwolona('import', false)).toBe(true);
+  // Import kopii i karmienie trzeciego zakwasu na ekranie: src/__tests__/basic-pro-pafix.test.tsx (W-06) [M3 P-a-fix, P2-8]
+  it('W-06 import kopii: 8 receptur, 3 zakwasy bez Pro → kolejne dodanie zamknięte, przypomnienia o dokarmianiu nieaktywne', () => {
     expect(mozeDodac('wlasneReceptury', 8, false)).toBe(false);
     expect(mozeDodac('zakwasy', 3, false)).toBe(false);
     expect(zakwasyDoPrzypomnien([gotowy('a'), gotowy('b'), gotowy('c')], false)).toEqual([]);
@@ -100,8 +113,14 @@ describe('wektory dostępu z kontraktu D-112/D-113 (14)', () => {
     expect(uprzedzenieKoncaPro({ uprawnienia: upr, pokazanoDla: T + 3 * D, teraz: T })).toBeNull();
   });
 
-  it('W-09 wypiek z planem Pro trwa w chwili wygaśnięcia → prowadzi się do końca razem z zapisem wyniku (Stolnica i Dziennik w Basic)', () => {
-    expect([dozwolona('stolnica', false), dozwolona('historia', false), dozwolona('doktor', false)]).toEqual([true, true, true]);
+  // W-09 jako zachowanie (start z Pro, kroki po wygaśnięciu bez ekranu Pro): src/__tests__/basic-pro-pafix.test.tsx;
+  // zapis wyniku po wygaśnięciu: src/__tests__/wypiek-po-wygasnieciu-125.test.tsx [M3 P-a-fix, P2-8]
+  it('W-09 wypiek z planem Pro trwa w chwili wygaśnięcia → ten sam wypiek w danych, pamięć Pro wyczyszczona dopiero przy odczycie sklepu', async () => {
+    const pamiec = { produkty: [PRODUKTY.yearly], wygasa: T - 1 };
+    await setAppSetting(KLUCZ_PAMIECI, zapisPamieci(pamiec));
+    const d = await ustalDostep(sklep([]), T);
+    expect(d.dostep).toBe(false);
+    expect(dozwolona('dwa-wypieki', d.dostep)).toBe(false); // nowy drugi wypiek już nie, trwający bez strażnika (Stolnica)
   });
 
   it('W-10 zakładanie zakwasu bez Pro, dzień 4 z 7–10 → przypomnienia zakładania działają; po „gotowy” tylko z Pro', () => {
@@ -138,6 +157,23 @@ describe('wektory dostępu z kontraktu D-112/D-113 (14)', () => {
     }
     expect(await liczbaZapisanych('wlasneReceptury')).toBe(5);
     expect(mozeDodac('wlasneReceptury', (await liczbaZapisanych('wlasneReceptury')) ?? 0, false)).toBe(false);
+  });
+
+  it('P-a-fix: executeUpdateCustomRecipe zachowuje id, nazwę i datę; confirmZalozOdNowa pyta z „Zacznij od nowa”; plan Basic z temperaturą modelu', async () => {
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    const r = { id: 'u1', name: 'Moja', isBuiltIn: false, createdAt: 7, targetDDT: 25,
+      formula: { flours: [{ name: 'M', percentage: 100 }], waterPercentage: 70, saltPercentage: 2, starterPercentage: 20, targetDoughWeightGrams: 900 } };
+    await saveRecipe(r);
+    const po = await executeUpdateCustomRecipe(r, { ...r.formula, waterPercentage: 78 }, 26);
+    expect(po).toMatchObject({ id: 'u1', name: 'Moja', createdAt: 7, targetDDT: 26 });
+    expect((await getRecipes()).filter((x) => x.id === 'u1').map((x) => x.formula.waterPercentage)).toEqual([78]);
+    const tak = jest.fn();
+    confirmZalozOdNowa(tak);
+    const [, , przyciski] = alert.mock.calls[alert.mock.calls.length - 1] as [string, string, { text: string; onPress?: () => void }[]];
+    przyciski.find((b) => b.text === 'Zacznij od nowa')?.onPress?.();
+    expect(tak).toHaveBeenCalledTimes(1);
+    expect(TEMPERATURA_MODELU_PLANU_C).toBe(23);
+    alert.mockRestore();
   });
 
   it('Akademia (BR-NAUK-001): pierwszy poziom w Basic, dalsze w Pro', () => {
