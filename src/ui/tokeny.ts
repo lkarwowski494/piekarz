@@ -23,7 +23,11 @@ export const kolory = {
     "ostrzTlo": "#F7D117",
     "ostrzTusz": "#1C1D1B",
     "blad": "#B3261E",
-    "zablokowane": "#62645E"
+    "zablokowane": "#62645E",
+    "pas": "#1E4954",
+    "naPasie": "#FFFFFF",
+    "naPasie2": "#C8D8DC",
+    "ratanNaPasie": "#D9AE72"
   },
   "ciemny": {
     "tlo": "#141A1C",
@@ -43,7 +47,11 @@ export const kolory = {
     "ostrzTlo": "#F7D117",
     "ostrzTusz": "#1C1D1B",
     "blad": "#FF8A80",
-    "zablokowane": "#9AA09A"
+    "zablokowane": "#9AA09A",
+    "pas": "#1D3B43",
+    "naPasie": "#F1F1EC",
+    "naPasie2": "#BFD0D4",
+    "ratanNaPasie": "#D3A464"
   },
   "jasnyKontrast": {
     "tlo": "#FFFFFF",
@@ -63,7 +71,11 @@ export const kolory = {
     "ostrzTlo": "#F7D117",
     "ostrzTusz": "#000000",
     "blad": "#8C1D18",
-    "zablokowane": "#3E403B"
+    "zablokowane": "#3E403B",
+    "pas": "#12323A",
+    "naPasie": "#FFFFFF",
+    "naPasie2": "#E2ECEE",
+    "ratanNaPasie": "#E8C38E"
   },
   "ciemnyKontrast": {
     "tlo": "#000000",
@@ -83,7 +95,11 @@ export const kolory = {
     "ostrzTlo": "#F7D117",
     "ostrzTusz": "#000000",
     "blad": "#FFB4AB",
-    "zablokowane": "#C4C8C2"
+    "zablokowane": "#C4C8C2",
+    "pas": "#0F2A31",
+    "naPasie": "#FFFFFF",
+    "naPasie2": "#E2ECEE",
+    "ratanNaPasie": "#E8C38E"
   }
 } as const;
 

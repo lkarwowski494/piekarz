@@ -48,6 +48,11 @@ function zbudujKolory(): KoloryMotywu {
     ostrzTusz: k('ostrzTusz'),
     blad: k('blad'),
     zablokowane: k('zablokowane'),
+    // Pas „Dziś” w kolorze nocy (D-105) [M3 D4b]
+    pas: k('pas'),
+    naPasie: k('naPasie'),
+    naPasie2: k('naPasie2'),
+    ratanNaPasie: k('ratanNaPasie'),
   };
 }
 
