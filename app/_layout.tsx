@@ -136,8 +136,11 @@ export default function RootLayout() {
             {/* Zakładki (D-051 2a) i ekrany nad nimi bez paska zakładek: prowadzenie wypieku, Doktor Chleba [M1-audytor-generalny-101] */}
             <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(tabs)" />
+              {/* Jedna Stolnica w stosie: push z powiadomienia, Doktora albo „Dziś” wraca do otwartej zamiast kłaść drugą,
+                  której stary krok i zegar nadpisywały zapis i kończyły wypiek drugi raz [M3 P1-1] */}
               <Stack.Screen
                 name="stolnica"
+                dangerouslySingular
                 options={{
                   ...naglowekZwykly,
                   title: t('Stolnica'),

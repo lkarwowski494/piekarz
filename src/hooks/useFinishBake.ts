@@ -54,7 +54,9 @@ export function useFinishBake(opts: {
   };
   const zapisz = guardSave(async () => {
     const wynik = await finishBake({
-      id: `bake_${Date.now()}`,
+      // Id wpisu = id wypieku: drugi koniec tego samego wypieku (np. druga instancja ekranu) nie robi drugiego wpisu
+      // ani drugiego odliczenia mąki [M3 P1-1]; sesja bez danych wypieku: znacznik startu
+      id: activeBakeData?.id ?? `bake_${startedAt}`,
       recipeName,
       // Id receptury z wypieku także wtedy, gdy wiersza sesji nie ma (pierwszy zapis się nie udał) [M3 D3a-fix, P2-3]
       ...(activeBakeData?.recipeId !== undefined ? { recipeId: activeBakeData.recipeId } : {}),

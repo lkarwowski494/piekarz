@@ -394,8 +394,9 @@ export async function finishBake(
   if (!db) {
     const sesja = await zakonczSesjeWTransakcji(null, opts);
     if (opts.wymagajSesji && !sesja.trwal) return 'nie-trwa';
+    const byl = memStore.logs.some((l) => l.id === log.id);
     await saveBakeLog(log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log);
-    for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
+    if (!byl) for (const f of flours) await deductFlourStock(f.name, f.weightGrams);
     zakonczSesjeWPamieci(opts);
     return 'zapisano';
   }
@@ -413,6 +414,7 @@ export async function finishBake(
 
   let wpis = log;
   let trwal = true;
+  let odliczono = false;
   await writeOrThrow(() =>
     db.withTransactionAsync(async () => {
       // Skasowanie sesji w tej samej transakcji: zakończony wypiek nie wraca jako trwający [M1-audytor-generalny-120]
@@ -421,8 +423,11 @@ export async function finishBake(
       trwal = sesja.trwal || !opts.wymagajSesji;
       if (!trwal) return;
       wpis = log.recipeId === undefined && sesja.recipeId !== undefined ? { ...log, recipeId: sesja.recipeId } : log;
+      // Mąka tylko przy pierwszym końcu tego wypieku: wpis o tym id (id wpisu = id wypieku) już jest = koniec
+      // powtórzony, także gdy wypiek nie miał wiersza sesji (wymagajSesji nie działa) [M3 P1-1]
+      odliczono = (await db.getAllAsync<unknown>('SELECT 1 FROM bakes WHERE id = ?;', log.id)).length === 0;
       await writeBakeRow(db, wpis);
-      for (const item of changed.values()) await writeFlourRow(db, item);
+      if (odliczono) for (const item of changed.values()) await writeFlourRow(db, item);
     })
   );
   if (!trwal) return 'nie-trwa';
@@ -430,7 +435,7 @@ export async function finishBake(
   // Pamięć dopiero po zatwierdzeniu transakcji
   zakonczSesjeWPamieci(opts);
   memStore.logs = [wpis, ...memStore.logs.filter((l) => l.id !== log.id)];
-  changed.forEach(rememberFlour);
+  if (odliczono) changed.forEach(rememberFlour);
   if (log.finishedAt) {
     void collectBackupData()
       .then((data) => autoBackup(data))
