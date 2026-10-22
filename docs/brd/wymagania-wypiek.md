@@ -17,20 +17,20 @@ Stan: E3 · Aktualizacja: 2026-10-19. Główny przepływ aplikacji (cel ZP-17: �
 
 ### BR-ETAP-006: Nowy wypiek nie zastępuje trwającego bez pytania
 - Przepływ: PR-02, PR-04, PR-15
-- Dowód potrzeby: RYZ-26 (odczyt kodu 2026-10-22: drugi start zastępuje trwający wypiek); zasada wspólna 10 i J-02; pytanie właściciela 2026-10-22 o dwa wypieki naraz (H-20)
+- Dowód potrzeby: RYZ-26 (potwierdzone testem M3 2026-10-22: drugi start zastępował trwający wypiek); zasada wspólna 10 i J-02; pytanie właściciela 2026-10-22 o dwa wypieki naraz (H-20); kształt pytania: D-091 (ER-65)
 - Kryteria akceptacji:
   - Scenariusz: Start, gdy inny wypiek trwa
-    - Zakładając, że trwa wypiek chleba na kroku „składanie 2”
+    - Zakładając, że trwa wypiek „Chleb pszenny na zakwasie” na kroku „składanie 2”
     - Gdy użytkownik w Harmonogramie wybiera „Zacznij wypiek” dla innej receptury
-    - Wtedy widzi pytanie z nazwą trwającego wypieku i wyborem: wrócić do niego, zakończyć go z zapisem w dzienniku i zacząć nowy albo anulować
-  - Scenariusz: Anulowanie
+    - Wtedy widzi pytanie z nazwą „Chleb pszenny na zakwasie” i wyborem: „Wróć do trwającego”, „Przerwij tamten i zacznij nowy” albo „Anuluj” (D-091)
+  - Scenariusz: Anulowanie albo powrót
     - Zakładając, że użytkownik widzi to pytanie
-    - Gdy wybiera anulowanie albo powrót
+    - Gdy wybiera „Anuluj” albo „Wróć do trwającego”
     - Wtedy trwający wypiek jest na tym samym kroku z tym samym zegarem i powiadomieniami
-  - Scenariusz: Zakończenie i nowy
+  - Scenariusz: Przerwanie i nowy
     - Zakładając, że użytkownik widzi to pytanie
-    - Gdy wybiera zakończenie trwającego i nowy start
-    - Wtedy trwający wypiek trafia do dziennika jako zakończony z datą, jego powiadomienia są odwołane, a nowy zaczyna się od pierwszego kroku
+    - Gdy wybiera „Przerwij tamten i zacznij nowy”
+    - Wtedy trwający wypiek zostaje przerwany tą samą ścieżką co „Przerwij” na Stolnicy, bez wpisu w dzienniku, jego powiadomienia są odwołane, a nowy zaczyna się od pierwszego kroku (D-091)
 
 ### BR-HARMO-002: Plan omija godziny snu
 - Przepływ: PR-02

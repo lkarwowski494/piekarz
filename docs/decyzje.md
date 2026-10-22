@@ -372,3 +372,10 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** tydzień zawsze od poniedziałku jak w Treningu (dla regionu US sprzeczne z S-66); `Intl.Locale.getWeekInfo` (brak na liście API Hermes, OP-53); dodawanie 7 × 24 h (zły dzień przy zmianie czasu, RD-30-W4).
 - **Dlaczego:** rynek globalny w 35 językach; pasek, karta zakwasu i powiadomienie muszą pokazywać ten sam dzień (RYZ-22, RYZ-23).
 - **Zależy od:** OP-53 (zachowanie `firstWeekday` na urządzeniu); zakres funkcji: H-15 (rola 03).
+
+### [D-091] 2026-10-22 — Pytanie przy starcie drugiego wypieku: nazwa trwającego i „Przerwij” bez wpisu w dzienniku (rola 01, ER-65; M3 a1b)
+- **Rodzaj:** produktowa. **Słowa M1 (właściciel zatwierdza według rekomendacji):** „ER-65 rozstrzygnięte według rekomendacji, zgodnie z Twoją opcją (a): „Przerwij” jak w M3, bez wpisu w Dzienniku, i nazwa trwającego wypieku w pytaniu” (2026-10-22).
+- **Decyzja:** start nowego wypieku, gdy inny trwa, pokazuje pytanie z nazwą trwającego wypieku i wyborami „Wróć do trwającego”, „Przerwij tamten i zacznij nowy”, „Anuluj”; przerwanie idzie tą samą ścieżką co „Przerwij” na Stolnicy, bez wpisu w dzienniku (BR-ETAP-006). Wdrożenie: c927a6d na `redesign/piekarz-2026-10-22` (M3), nazwa w pytaniu dorabiana przez M3.
+- **Odrzucone:** (b) wdrożenie bez nazwy wypieku w pytaniu; (c) zapis przerwanego wypieku w dzienniku (drugie znaczenie „Przerwij” w aplikacji).
+- **Dlaczego:** jedno znaczenie „Przerwij” w całej aplikacji; nazwa rozróżnia receptury przy dwóch wypiekach (J-14, S-94).
+- **Zależy od:** RYZ-26, BR-ETAP-006; zakres wydania c927a6d: M1.

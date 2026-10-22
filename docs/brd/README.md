@@ -64,7 +64,7 @@ Wejście dla roli 07 (werdykt gotowości). Niespełnienie któregokolwiek blokuj
 
 - BR-DANE-001, BR-DANE-003, BR-DANE-004, NFR-DANE-003, NFR-DANE-004: utrata danych użytkownika.
 - BR-ETAP-005: główny przepływ (trwający wypiek ginie po zamknięciu aplikacji).
-- BR-ETAP-006: utrata trwającego wypieku przy starcie drugiego (RYZ-26, potwierdzone testem M3 2026-10-22; poprawka c927a6d poza master, różnice: ER-65).
+- BR-ETAP-006: utrata trwającego wypieku przy starcie drugiego (RYZ-26, potwierdzone testem M3 2026-10-22; poprawka c927a6d poza master; kształt pytania D-091).
 - BR-CZAS-002, BR-CZAS-003: główny przepływ i obietnica celu („pilnuje czasu, gdy telefon śpi”, OG-05).
 - BR-HARMO-001, BR-ETAP-001, BR-KALK-001, BR-KALK-002: główny przepływ.
 - BR-ZAKW-004, BR-ZAKW-005, BR-DIAG-002 w części RD-21: reguła krytyczna (pleśń).
