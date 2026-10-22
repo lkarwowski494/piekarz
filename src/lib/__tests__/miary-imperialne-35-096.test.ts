@@ -45,6 +45,14 @@ describe('Tryb imperialny w 35 językach (096)', () => {
     expect(formatTextUnits('10 °C cooler', 'imperial')).toBe('18 °F cooler');
   });
 
+  it('para „20 zamiast 26 °C”: obie liczby w °F, także przy odwróconej kolejności w przekładzie', () => {
+    const pl = 'W 20–26 °C: 6 °C niżej (np. 20 zamiast 26 °C).';
+    expect(formatTextUnits('In 20–26 °C: 6 °C cooler (e.g. 20 instead of 26 °C).', 'imperial', pl)).toBe('In 68–79 °F: 11 °F cooler (e.g. 68 °F instead of 79 °F).');
+    expect(formatTextUnits('20–26 °C: 6 °C-kal hidegebb (pl. 26 helyett 20 °C).', 'imperial', pl)).toBe('68–79 °F: 11 °F-kal hidegebb (pl. 79 °F helyett 68 °F).');
+    // Bez pary w tekście źródłowym gołe liczby bez zmian
+    expect(formatTextUnits('20 minutes at 26 °C', 'imperial', 'Przez 20 minut w 26 °C')).toBe('20 minutes at 79 °F');
+  });
+
   it('masy cyrylicą tylko dla liczb, które w tekście źródłowym są masą: „100 г” → oz, „2026 г.” (rok) bez zmian', () => {
     expect(formatTextUnits('Стоимость на 100 г', 'imperial', 'Koszt na 100g')).toBe('Стоимость на 3.5 oz');
     expect(formatTextUnits('Данные 2026 г. и 100 г', 'imperial', 'Dane z 2026 r. i 100 g')).toBe('Данные 2026 г. и 3.5 oz');

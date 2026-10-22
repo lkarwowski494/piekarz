@@ -236,6 +236,20 @@ function roznice(zrodlo: string): Set<number> {
   return wynik;
 }
 
+/** Para „20 zamiast 26 °C” w tekście źródłowym (PL): obie liczby są temperaturą, choć jednostkę ma tylko druga. */
+const RE_ZAMIAST_C = new RegExp(`${LICZBA}\\s+zamiast\\s+${LICZBA}\\s*°C`, 'g');
+// Liczba bez °C, poza zakresem i ułamkiem (kolejność pary w przekładzie bywa odwrócona: „26 helyett 20 °C”)
+const RE_GOLA_LICZBA = new RegExp(`(^|[^\\d.,−–-])${LICZBA}(?![.,]?\\d|\\s*[–-]\\s*\\d|\\s*°C)`, 'g');
+
+function paryZamiast(zrodlo: string): Set<number> {
+  const wynik = new Set<number>();
+  for (const m of zrodlo.matchAll(RE_ZAMIAST_C)) {
+    wynik.add(liczba(m[1]));
+    wynik.add(liczba(m[2]));
+  }
+  return wynik;
+}
+
 /** Masy w gramach z tekstu źródłowego (PL): tylko te liczby w przekładzie są masą, nie np. rok „2026 г.”. */
 function masy(zrodlo: string): Set<number> {
   const wynik = new Set<number>();
@@ -256,10 +270,15 @@ export function formatTextUnits(text: string, unitSystem: UnitSystem = currentUn
   if (unitSystem !== 'imperial' || !text) return text;
   const roz = zrodlo ? roznice(zrodlo) : null;
   const mas = zrodlo ? masy(zrodlo) : null;
-  const poRoznicach = roz?.size
-    ? text.replace(RE_ROZNICA_TEMP, (cale: string, p: string, n: string, ws: string) =>
-        roz.has(liczba(n)) ? `${p}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F` : cale)
+  const pary = zrodlo ? paryZamiast(zrodlo) : null;
+  // „20 instead of 26 °C” → „68 °F instead of 79 °F”: gołej liczbie z pary dopisuje °C przed przeliczeniem
+  const zPara = pary?.size
+    ? text.replace(RE_GOLA_LICZBA, (cale: string, p: string, n: string) => (pary.has(liczba(n)) ? `${p}${n} °C` : cale))
     : text;
+  const poRoznicach = roz?.size
+    ? zPara.replace(RE_ROZNICA_TEMP, (cale: string, p: string, n: string, ws: string) =>
+        roz.has(liczba(n)) ? `${p}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F` : cale)
+    : zPara;
   const poLacince = poRoznicach
     .replace(RE_ROZNICA_PO, (_, n: string, ws: string, po: string) => `${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F${po}`)
     .replace(RE_ROZNICA_PRZED, (_, przed: string, n: string, ws: string) => `${przed}${formatNumber(Math.round((liczba(n) * 9) / 5))}${ws}°F`)
