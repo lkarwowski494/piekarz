@@ -39,13 +39,14 @@ describe('BR-ZAKW-005: dzień N i gotowość (104)', () => {
     expect(isStarterSign('smells_nice')).toBe(false);
   });
 
-  // Dzień liczony w pełnych dobach od założenia (pierwszego dokarmienia), jak rytm karmień co 24 h; północ nie
-  // zmienia dnia [M2-koordynator-napraw-501 (p11)]
-  it('setupDay: dzień 2 dopiero po pełnej dobie od założenia, nie po północy; zmiana czasu (25.10.2026) nie przesuwa dnia', () => {
+  // Dzień liczony dniami kalendarza: dzień 1 = dzień założenia, północ zaczyna kolejny dzień. ZMIANA reguły z okresów
+  // 24 h od startu (M2 p11, RD-31) na dni kalendarza: decyzja właściciela 2026-10-22 (D-093). Dawne asercje, które
+  // kodowały 24 h, dostały nowe wartości (trzy z nich: po północy jest dzień 2).
+  it('setupDay: dzień 2 od północy po dniu założenia; zmiana czasu (25.10.2026) nie przesuwa dnia', () => {
     expect(setupDay(local(20, 23, 50), local(20, 23, 59))).toBe(1);
-    expect(setupDay(local(20, 23, 50), local(21, 0, 5))).toBe(1);
-    expect(setupDay(local(20, 23, 46), local(21, 0, 46))).toBe(1);
-    expect(setupDay(local(20, 23, 50), local(21, 23, 49))).toBe(1);
+    expect(setupDay(local(20, 23, 50), local(21, 0, 5))).toBe(2);
+    expect(setupDay(local(20, 23, 46), local(21, 0, 46))).toBe(2);
+    expect(setupDay(local(20, 23, 50), local(21, 23, 49))).toBe(2);
     expect(setupDay(local(20, 23, 50), local(21, 23, 50))).toBe(2);
     expect(setupDay(local(24, 12), local(26, 12))).toBe(3);
     expect(setupDay(local(20, 8), local(26, 23))).toBe(7);

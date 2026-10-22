@@ -5,7 +5,8 @@
 // i wartości pól NumInput NIE używają tego modułu (zostają z kropką).
 // ============================================================================
 
-import { getLocales } from 'expo-localization';
+import { getCalendars, getLocales } from 'expo-localization';
+import { resolveFirstWeekday, type FirstWeekday } from '../core/dzien-lokalny';
 import { lang } from './i18n';
 
 export interface NumberFormatOptions {
@@ -27,7 +28,27 @@ export function appLocale(): string {
   return l;
 }
 
-const numberCache = new Map<string, Intl.NumberFormat>();
+/**
+ * Pierwszy dzień tygodnia paska (D-090, RD-30; OP-53): ustawienie telefonu (`getCalendars().firstWeekday`), a gdy puste
+ * albo niedostępne, region urządzenia według CLDR, a bez niego poniedziałek. Cienka warstwa; reguła w src/core/dzien-lokalny.ts.
+ */
+export function systemFirstWeekday(): FirstWeekday {
+  let ustawienie: number | null = null;
+  let region: string | null = null;
+  try {
+    ustawienie = getCalendars()[0]?.firstWeekday ?? null;
+  } catch {
+    // brak ustawienia telefonu: region
+  }
+  try {
+    region = getLocales()[0]?.regionCode ?? null;
+  } catch {
+    // brak regionu: poniedziałek
+  }
+  return resolveFirstWeekday(ustawienie, region);
+}
+
+const numberCache =new Map<string, Intl.NumberFormat>();
 const dateCache = new Map<string, Intl.DateTimeFormat>();
 
 export function formatNumber(value: number, locale: string = appLocale(), opts: NumberFormatOptions = {}): string {

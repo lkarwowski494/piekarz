@@ -6,6 +6,7 @@
 
 import type { StoredStarterEntry } from '../data/db';
 import { evaluateSourdoughSafety } from './sourdough-physics';
+import { calendarDayDiff } from './dzien-lokalny';
 
 /** Kody obserwacji zakwasu (jedna lista; CHECK w bazie pilnuje tylko tablicy JSON, ADR-008). */
 export const STARTER_SIGNS = ['bubbles', 'rose', 'doubled', 'no_activity', 'mold_signs'] as const;
@@ -34,12 +35,13 @@ export function lastFeeding<T extends StarterEntryLike>(entries: readonly T[]): 
 }
 
 /**
- * Dzień N zakładania: pełne doby od założenia (pierwszego dokarmienia) + 1, jak rytm karmień co 24 h; północ nie
- * zmienia dnia (założony o 23:46 o 00:46 jest w dniu 1). Czas rzeczywisty, więc zmiana czasu nie przesuwa dnia
- * [M2-koordynator-napraw-501 (p11)].
+ * Dzień N zakładania liczony dniami kalendarza (dzień lokalny, RD-29): dzień założenia = dzień 1, północ zaczyna
+ * następny; „teraz” przed startem daje 1. Zmiana czasu nie przesuwa dnia (doba ma 23 albo 25 h). Zmienia regułę
+ * „okresy 24 h od startu” z M2 p11: decyzja właściciela 2026-10-22 (D-093, RD-31). Jedna funkcja dla karty zakwasu,
+ * Doktora zakwasu i paska kalendarza.
  */
 export function setupDay(setupStartedAt: number, now: number): number {
-  return Math.max(1, Math.floor((now - setupStartedAt) / (24 * HOUR_MS)) + 1);
+  return Math.max(1, calendarDayDiff(setupStartedAt, now) + 1);
 }
 
 /**

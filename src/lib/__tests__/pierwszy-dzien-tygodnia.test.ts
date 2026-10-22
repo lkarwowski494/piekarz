@@ -3,7 +3,7 @@
  * nad resolveFirstWeekday; expo-localization podstawione.
  */
 import { getCalendars, getLocales } from 'expo-localization';
-import { systemFirstWeekday } from '../pierwszy-dzien-tygodnia';
+import { systemFirstWeekday } from '../format';
 
 jest.mock('expo-localization', () => ({ getCalendars: jest.fn(), getLocales: jest.fn() }));
 const kalendarze = jest.mocked(getCalendars);

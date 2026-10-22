@@ -153,10 +153,28 @@ describe('104: ekrany zakwasu', () => {
     }
   });
 
-  // Dzień liczony w pełnych dobach od założenia, nie od północy [M2-koordynator-napraw-501 (p11)]
-  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 to nadal dzień 1 (pełne doby) — plan dnia 1 i porada pierwszej doby', async () => {
-    const now = ustawZegar(0, 46);
+  // ZMIANA reguły (decyzja właściciela 2026-10-22, D-093): dzień liczony dniami kalendarza, nie okresami 24 h od
+  // startu (M2 p11). Założony wczoraj o 23:46, o 00:46 jest dzień 2; dawna asercja „nadal dzień 1” kodowała 24 h.
+  it('BR-ZAKW-005 Tuż po północy: założony wczoraj o 23:46, o 00:46 to dzień 2 (dni kalendarza, D-093) — plan dnia 2', async () => {
+    ustawZegar(0, 46);
     const fedAt = new Date(2026, 9, 20, 23, 46, 0, 0).getTime();
+    try {
+      const s = await start(async (e) => {
+        await e.createStarterWithEntry(starter('z', { setupStartedAt: fedAt }), feed('f1', 'z', fedAt));
+      });
+      expect(s.tekst()).toContain('Dzień 2');
+      expect(s.tekst()).not.toContain('Dzień 1');
+      for (const z of SETUP_GUIDE.day2) expect(s.tekst()).toContain(z);
+      s.done();
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  // Dawny przebieg pierwszej doby (plan dnia 1 i porada „nic się nie dzieje”) na zakładaniu tego samego dnia kalendarza
+  it('BR-ZAKW-005 Tuż po północy: założony o 00:10 tego samego dnia, o 00:46 to dzień 1 — plan dnia 1 i porada pierwszej doby', async () => {
+    const now = ustawZegar(0, 46);
+    const fedAt = new Date(2026, 9, 21, 0, 10, 0, 0).getTime();
     try {
       const s = await start(async (e) => {
         await e.createStarterWithEntry(starter('z', { setupStartedAt: fedAt }), feed('f1', 'z', fedAt));
@@ -169,8 +187,8 @@ describe('104: ekrany zakwasu', () => {
       const t = s.tekst();
       for (const z of FIRST_DAY_NO_ACTIVITY) expect(t).toContain(z);
       const { formatTime } = require('../lib/format');
-      expect(t).toContain(`Następne dokarmienie: dziś o ${formatTime(fedAt + DAY)}.`);
-      expect(now - fedAt).toBe(H);
+      expect(t).toContain(`Następne dokarmienie: jutro o ${formatTime(fedAt + DAY)}.`);
+      expect(now - fedAt).toBe(36 * 60_000);
       s.done();
     } finally {
       jest.useRealTimers();
