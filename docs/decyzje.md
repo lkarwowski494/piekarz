@@ -379,3 +379,11 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Odrzucone:** (b) wdrożenie bez nazwy wypieku w pytaniu; (c) zapis przerwanego wypieku w dzienniku (drugie znaczenie „Przerwij” w aplikacji).
 - **Dlaczego:** jedno znaczenie „Przerwij” w całej aplikacji; nazwa rozróżnia receptury przy dwóch wypiekach (J-14, S-94).
 - **Zależy od:** RYZ-26, BR-ETAP-006; zakres wydania c927a6d: M1.
+
+### [D-092] 2026-10-22 — Kilka planów i wypieków naraz, pełny kalendarz, F-71 i odłożone poprawki w 1.0 (zmienia D-034 / ZM-10) (M3 Redesigner, STOP 3)
+- **Rodzaj:** produktowa (zakres). **Słowa właściciela (przez M1, 2026-10-22):** „Tak, wdrazamy.” (pytanie: czy kilka planów i wypieków naraz — jedna migracja listy sesji, plan na dowolny przyszły dzień z karmieniami budzącymi zakwas, dwa wypieki naraz z ostrzeżeniem o zajętym piekarniku — wchodzi do 1.0 kosztem ok. tygodnia) oraz „Dodajemy do 1.0 F71 plus full kalendarz i poprawki. Zrob analize w jakiej kolejnosci bo pewnie czesc rzeczy jest od siebie zalezna. cal badanie do redesignu.”
+- **Decyzja:** 1.0 obejmuje: kilka planów i wypieków naraz (BR-KAL-009, BR-KAL-016, BR-ETAP-006), pełny kalendarz BR-KAL-001…016, F-71 (protokoły ratunkowe Doktora, po źródłach roli 06), poprawki D-10 (pełne), D-12/D-13, karmienie w lodówce przy zmianie czasu, numer dnia zakładania, wybór rodzaju drożdży w interfejsie, krój tytułów bg (137). Kolejność i partie: STOP 3 M3 (`audit/M3-2026-10-22/stop3.md`, poza repo) i analiza M1; zmiany danych w jednej migracji ze STOP przed kodem i testem na kopii bazy buildu 1014.
+- **Odrzucone:** D-034 / ZM-10 wariant (a) „PÓŹNIEJ” (F-17) dla kilku wypieków naraz; 1.0 bez kalendarza; kalendarz tylko do odczytu (makiety a2).
+- **Dlaczego:** właściciel uznał, że bez tych funkcji 1.0 nie daje wystarczającej wartości w sklepie („musimy dac wiecej funkcji do wydania w apple store”); badanie roli 01 potwierdziło potrzebę planowania „co i kiedy” i kilku wypieków (J-13, J-14, S-14, S-91–S-94).
+- **Skutki:** data zgłoszenia do recenzji przesuwa się (szacunek w STOP 3); downgrade wersji po migracji nie widzi trwającego wypieku (ryzyko dla testerów, opis w notatce wydania).
+- **Zależy od:** zgoda na STOP 3 (partie, migracja); D-090, D-091; wybór wariantu Dziś odłożony do partii M3.
