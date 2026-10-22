@@ -185,6 +185,31 @@
       "klucz": "Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.",
       "powod": "protokół ratunkowy Doktora (FORGOTTEN_SALT, scientificReasoningPl), ekran Doktora, sekcja ukryta do włączenia F-71; EN: src/lib/i18n-en/czesc-19.ts [rola 06 F-71, docs/tresci/pl/doktor-ratunek.md]",
       "od": "2026-10-22"
+    },
+    {
+      "klucz": "Drożdże suche",
+      "powod": "nazwa wiersza drożdży w „Do miski” i w kopii tekstowej, gdy wybrano drożdże suche [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Drożdże do odważenia",
+      "powod": "nagłówek grupy wyboru rodzaju drożdży w arkuszu „Składniki” [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "świeże|drożdże",
+      "powod": "segment wyboru: drożdże świeże (forma żeńska l. mn., zgodna z „drożdże”) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "suche|drożdże",
+      "powod": "segment wyboru: drożdże suche (forma żeńska l. mn., zgodna z „drożdże”) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
+    },
+    {
+      "klucz": "Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.",
+      "powod": "objaśnienie pod wyborem rodzaju drożdży (RD-19, × 0,4) [M1-audytor-generalny-216]",
+      "od": "2026-10-22"
     }
   ],
   "zamkniete": {

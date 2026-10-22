@@ -5,6 +5,7 @@ import { BakeLossMetricsResult } from '../core/domain-rules';
 import { t } from './i18n';
 import { formatFixed, formatNumber } from './format';
 import { UnitSystem, getUnitSystem, formatWeight, formatDoseWeight, formatTemperature } from './unit-converter';
+import { biezacyRodzajDrozdzy, gramyDrozdzy, nazwaDrozdzy } from './rodzaj-drozdzy';
 
 export interface RecipeFormatOptions {
   recipeName: string;
@@ -96,9 +97,10 @@ export function formatRecipeText(opts: RecipeFormatOptions): string {
   // Salt
   lines.push(`  • ${t('Sól')} (${pct(calc.saltGrams)}%): ${dose(calc.saltGrams)}`);
 
-  // Yeast if present
+  // Yeast if present: rodzaj z „Składników” (świeże albo suche × 0,4, RD-19) [M1-audytor-generalny-216]
   if (calc.yeastGrams && calc.yeastGrams > 0) {
-    lines.push(`  • ${t('Drożdże')}: ${dose(calc.yeastGrams)}`);
+    const rodzaj = biezacyRodzajDrozdzy();
+    lines.push(`  • ${nazwaDrozdzy(rodzaj)}: ${dose(gramyDrozdzy(calc.yeastGrams, rodzaj))}`);
   }
 
   // DDT section

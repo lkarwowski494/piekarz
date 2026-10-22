@@ -26,6 +26,7 @@ import { pokazMenuWyboru } from './stos-receptur';
 import { s } from './style-receptur';
 import { ocenaSoli } from '../../core/sol';
 import { formatNumber } from '../../lib/format';
+import { useRodzajDrozdzy, zapiszRodzajDrozdzy, type RodzajDrozdzy } from '../../lib/rodzaj-drozdzy';
 
 import { typografia } from '../../ui/tokeny';
 export interface SkladnikiSheetProps {
@@ -94,6 +95,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   // Szkic mąk: rachunek przyjmuje tylko mieszankę o sumie 100% (jak dawny edytor mieszanki), więc receptura
   // dostaje mąki dopiero, gdy suma się zgadza; do tego czasu informacja pod listą
   const [szkic, setSzkic] = useState<FlourItemInput[]>(p.flourBlend);
+  const rodzaj = useRodzajDrozdzy();
   const { visible, flourBlend, onFlourBlendChange } = p;
   useEffect(() => {
     if (visible) setSzkic(flourBlend);
@@ -133,6 +135,15 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
     const wyb = p.calcMode === m;
     return (
       <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, wyb && styles.segmentWybrany]} onPress={() => p.onCalcModeChange(m)}>
+        <Text style={[s.chipTekst, wyb && styles.segmentTekstWybrany]}>{etykieta}</Text>
+      </Pressable>
+    );
+  };
+
+  const segmentDrozdzy = (r: RodzajDrozdzy, id: string, etykieta: string) => {
+    const wyb = rodzaj === r;
+    return (
+      <Pressable testID={id} accessibilityRole="radio" accessibilityState={{ checked: wyb, selected: wyb }} style={[styles.segment, wyb && styles.segmentWybrany]} onPress={() => void zapiszRodzajDrozdzy(r)}>
         <Text style={[s.chipTekst, wyb && styles.segmentTekstWybrany]}>{etykieta}</Text>
       </Pressable>
     );
@@ -185,6 +196,18 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
               <Text style={s.info}>{`${t(p.hydrationDifficulty.labelPl)}. ${t(p.hydrationDifficulty.tipPl)}`}</Text>
             )}
             {infoSoli(p.saltPct) !== null && <Text style={s.info} testID="salt-info">{infoSoli(p.saltPct)}</Text>}
+
+            {/* BR-KALK-009 (DEC-26 a): procent to drożdże świeże; „suche” przelicza „Do miski” × 0,4 (RD-19) [M1-audytor-generalny-216] */}
+            {(p.yeastPct > 0 || (p.prefermentBreakdown?.prefermentYeastGrams ?? 0) > 0) && (
+              <>
+                <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Drożdże do odważenia')}</Text>
+                <View style={styles.segmenty} accessibilityRole="radiogroup">
+                  {segmentDrozdzy('swieze', 'yeast-type-fresh', t('świeże|drożdże'))}
+                  {segmentDrozdzy('suche', 'yeast-type-dry', t('suche|drożdże'))}
+                </View>
+                <Text style={s.info}>{t('Procent drożdży w recepturze to drożdże świeże. Drożdży suchych (instant albo aktywnych) odważysz 0,4 tej masy.')}</Text>
+              </>
+            )}
 
             <Text style={s.naglowekGrupy} accessibilityRole="header">{t('Zaczyn')}</Text>
             <View style={s.grupa}>
