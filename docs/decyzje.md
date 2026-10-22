@@ -554,3 +554,9 @@ Ciąg dalszy rejestru `docs/DECISIONS.md` (DEC-001…DEC-004, D-029…D-034), kt
 - **Skutki:** wyjątek BR-KAL-011 w `scripts/br-wyjatki.json` zmieniony na „częściowy” (powód OP-50). 7 kluczy PL+EN (`src/lib/i18n-en/czesc-21.ts`) na liście a5; wszystkie spoza listy roli 04 (poza „Dodaj do kalendarza” z makiety); tekst wyjaśnienia pod przyciskiem różni się od makiety („Otworzy się kalendarz telefonu…” obiecuje bezpośrednie otwarcie, a mechanizm to arkusz udostępniania; po teście OP-50 rola 04 może wrócić do tekstu makiety). Ten sam plan dodany z Harmonogramu i z arkusza ma różne UID (id planu nie istnieje przed zapisem).
 - **Nie sprawdzono:** OP-50 (czy iOS proponuje Kalendarz i otwiera edytor wydarzenia po wyborze z arkusza), czy `public.calendar-event` jest właściwym UTI (strona Apple dla `UTType.calendarEvent` odczytana 2026-10-22 bez treści identyfikatora), czy ponowne dodanie tego samego UID aktualizuje wydarzenie czy tworzy kopię.
 - **Zależy od:** D-092, BR-KAL-011, OG-08, OP-50; (1) i (3) warunkowe do przeglądu roli 04 i testu na urządzeniu.
+
+### [D-116] 2026-10-22 — (rezerwacja M3, partia P: wdrożenie Basic/Pro według D-112, D-113 i kontraktu `docs/monetyzacja.md`; treść dopisze partia P)
+- **Rodzaj:** rezerwacja numeru (polecenie M1 2026-10-22: rezerwować numery przed użyciem, bo dopisuje kilka sesji).
+
+### [D-117] 2026-10-22 — (rezerwacja M3, partia P: ekran Pro, oznaczenia „Pro”, komunikaty; treść dopisze partia P)
+- **Rodzaj:** rezerwacja numeru (jw.).
