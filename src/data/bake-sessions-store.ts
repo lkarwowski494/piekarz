@@ -9,6 +9,7 @@
 import type * as SQLite from 'expo-sqlite';
 import type { SessionStep } from '../core/bake-steps';
 import { MAX_TRWAJACYCH_WYPIEKOW, MAX_ZAPLANOWANYCH_WYPIEKOW } from '../core/limity-wypiekow';
+import { startPlanuAt } from '../core/plany-wypiekow';
 import { getDb, memStore } from './sqlite-schema';
 import { assertWritable, writeOrThrow } from './storage-status';
 import { zachowajUszkodzony, zapisUszkodzonych } from './uszkodzone-wiersze';
@@ -133,9 +134,14 @@ export async function loadActiveBakeSessionsZWersja(): Promise<ZapisanyWypiek[]>
   return out;
 }
 
-/** Zaplanowane wypieki od najstarszego wpisu. */
+/**
+ * Zaplanowane wypieki: planowany start rosnąco (pierwszy krok, inaczej `plannedStartAt`), potem id. Czas zapisu wiersza
+ * nie rozstrzyga: dwa zapisy w jednej milisekundzie dawały kolejność zależną od id i od przebiegu [M3 TZ Matrix].
+ */
 export async function loadPlannedBakes(): Promise<PlannedBake[]> {
-  return odczytaj(await wiersze({ status: 'planned' }), parsePlannedBake);
+  return odczytaj(await wiersze({ status: 'planned' }), parsePlannedBake).sort(
+    (a, b) => startPlanuAt(a) - startPlanuAt(b) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
+  );
 }
 
 /**
