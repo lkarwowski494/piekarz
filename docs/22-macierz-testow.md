@@ -9,11 +9,11 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | :--- | :---: | :---: | :---: | :---: |
 | **EKRAN** | 9 | 9 | **100.0%** | ✅ POKRYTE |
 | **UI** | 60 | 60 | **100.0%** | ✅ POKRYTE |
-| **TEKST** | 597 | 597 | **100.0%** | ✅ POKRYTE |
-| **LOGIKA** | 591 | 591 | **100.0%** | ✅ POKRYTE |
+| **TEKST** | 598 | 598 | **100.0%** | ✅ POKRYTE |
+| **LOGIKA** | 593 | 593 | **100.0%** | ✅ POKRYTE |
 | **WYMIAR** | 218 | 218 | **100.0%** | ✅ POKRYTE |
 
-Łącznie elementów: **1475** | Pokrytych: **1475** | Brakujących: **0**
+Łącznie elementów: **1478** | Pokrytych: **1478** | Brakujących: **0**
 
 ## Szczegółowa Lista Elementów
 
@@ -284,7 +284,7 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Przywróć` | `src/components/PasekCofnij.tsx` | ✅ | tests/matrix-ui-text.test.tsx, tests/slownik-akcji.test.ts |
 | `TEKST` | `Co daje Pro` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Planowanie: plan wstecz od godziny „gotowe” z ochroną snu i czasem fermentacji z temperatury, wypieki na kolejne dni, dwa wypieki naraz, widok miesiąca i plan w kalendarzu telefonu.` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
-| `TEKST` | `Zakwas: przypomnienia o dokarmianiu, proporcje karmienia, gotowość do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
+| `TEKST` | `Zakwas: przypomnienia o dokarmianiu, proporcje dokarmiania, gotowość zakwasu do ciasta, stały dzień karmienia w lodówce i kolejne zakwasy.` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Liczenie: zaczyn poolish, biga, stare ciasto albo levain w recepturze.` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `TEKST` | `Receptury i Dziennik: więcej własnych receptur, porównanie i statystyki wypieków.` | `src/components/PaywallModal.tsx` | ✅ | tests/czeka-na-przeklad-093.test.ts, src/__tests__/ekran-pro-pb.test.tsx |
 | `UI` | `Zakup czeka na zatwierdzenie` | `src/components/PaywallModal.tsx` | ✅ | src/components/__tests__/oferta-audyt-a3-c4-c5.test.tsx |
@@ -320,4 +320,4 @@ Zasada dowodu: wyłącznie wykonywalny kod testu (wycięte komentarze, importy i
 | `TEKST` | `Zaczyn: {rodzaj}` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/matrix-ui-text.test.tsx |
 | `TEKST` | `Mąka` | `src/components/receptury/DoMiski.tsx` | ✅ | tests/br-kryteria-067.test.tsx, tests/i18n-en-main-flow.test.tsx |
 
-*(... i 1175 kolejnych elementów w pełnym wykazie)*
+*(... i 1178 kolejnych elementów w pełnym wykazie)*
