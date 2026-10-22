@@ -533,8 +533,8 @@ Ponad sam limit dni (N=5: ok. 75–120 USD/rok iOS) dochodzą płacący złapani
 Decyzja właściciela D-112 (2026-10-22): „Tak. Wdrożymy ten model jako drugi bo to jednak najsensowniejsze rozwiązanie. Chce listę moich funkcji i podział basic/pro”. Zasady podziału:
 1. Basic pokazuje główną pracę: policzyć, poprowadzić wypiek z sygnałem, zaopiekować się jednym zakwasem, zapisać wynik (zasada roli: „główna praca jest dostępna przed zakupem”).
 2. Pro to ułatwienia dla planujących i piekących więcej, za które rynek płaci (tabela WTP w `docs/monetyzacja.md`, odczyt 2026-10-19, poziom dowodu R).
-3. Zawsze Basic: dane, bezpieczeństwo, pomoc w kryzysie, opieka nad istniejącym zakwasem, wszystko w trakcie trwającego wypieku.
-4. Po wygaśnięciu Pro nic nie znika: zapisane receptury, zakwasy, plany i wpisy działają; zablokowane jest tylko dodanie nowej rzeczy ponad Basic albo otwarcie funkcji Pro. Kolejne zakwasy zachowują pełną opiekę z przypomnieniami (żywa kultura).
+3. Zawsze Basic: dane, bezpieczeństwo, pomoc w kryzysie, założenie pierwszego zakwasu (D-113), wszystko w trakcie trwającego wypieku.
+4. Po wygaśnięciu Pro dane nie znikają: zapisane receptury, zakwasy, plany i wpisy działają; zablokowane jest dodanie nowej rzeczy ponad Basic i funkcje Pro. Przypomnienia o dokarmianiu ustają po uprzedzeniu 3 dni przed i w chwili wygaśnięcia (D-113).
 5. Ekran Pro pojawia się przy stuknięciu funkcji Pro (oznaczonej „Pro”, nie ukrytej) i w Ustawieniach; nigdy przy starcie, po pierwszym użyciu ani w trakcie kroku.
 
 ### Lista funkcji
@@ -584,13 +584,14 @@ Kolumna „Dowód”: klasa WTP i źródło z tabeli z 2026-10-19 (R = rynek, B 
 **Zakwas**
 | BR | Funkcja | Basic / Pro | Dowód i powód |
 |---|---|---|---|
-| BR-ZAKW-001 | karta zakwasu: pierwszy | Basic | zasada 1 |
-| BR-ZAKW-001 | drugi i kolejne zakwasy | **Pro** | WTP-1: Yeasta „Unlimited starters”, SST |
-| BR-ZAKW-002 | dokarmianie z proporcją | Basic | opieka (zasada 3) |
-| BR-ZAKW-004 | przypomnienie o dokarmianiu, zasada ostrożności RD-21 | Basic | opieka nad żywą kulturą |
-| BR-KAL-010 | stały dzień karmienia w lodówce | Basic | opieka |
-| BR-ZAKW-005 | założenie zakwasu od zera, dzień po dniu | Basic | bez zakwasu początkujący nie upiecze chleba na zakwasie (zasada 1); WTP-1 (Yeasta „Starter Revival”) świadomie w Basic |
+| BR-ZAKW-005 | założenie pierwszego zakwasu od zera, dzień po dniu, z przypomnieniami tylko w czasie zakładania; na końcu „Gratulacje, Twój pierwszy zakwas jest gotowy…” | Basic | D-113: pokazuje opiekę przed zakupem |
+| BR-ZAKW-001 | karta pierwszego zakwasu, zapis karmień | Basic | dane (D-113) |
 | BR-ZAKW-007 | poprawa wpisu, dziennik zakwasu | Basic | dane |
+| BR-ZAKW-004 | zasada ostrożności RD-21 (ostrzeżenie na karcie) | Basic | bezpieczeństwo |
+| BR-ZAKW-004 | przypomnienia o dokarmianiu | **Pro** | D-113; WTP-1: BreadMe, SST (MS-25); po wygaśnięciu ustają po uprzedzeniu |
+| BR-ZAKW-002 | dokarmianie z proporcją | **Pro** | D-113; WTP-2: kalkulator SST chwalony przez płacącego (MS-26) |
+| BR-KAL-010 | stały dzień karmienia w lodówce | **Pro** | D-113 |
+| BR-ZAKW-001 | drugi i kolejne zakwasy | **Pro** | WTP-1: Yeasta „Unlimited starters”, SST |
 | BR-ZAKW-003 | gotowość i przewidywanie szczytu | **Pro** | WTP-1: SST Premium „rise timing” |
 | BR-ZAKW-006 | budzenie zakwasu z lodówki (planer) | **Pro** | WTP-1: Yeasta „Fridge Starter Planner” |
 | BR-DIAG-002 | Doktor zakwasu, karta bezpieczeństwa | Basic | pomoc w kryzysie i bezpieczeństwo (zasada 3) |
