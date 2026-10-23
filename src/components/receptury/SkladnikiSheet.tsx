@@ -60,6 +60,8 @@ export interface SkladnikiSheetProps {
   /** Wejścia PÓŹNIEJ (F-30 spiżarnia, F-46 odpowiedniki mąk): widoczne tylko, gdy wróci ich wejście (wejscia-pozniej.ts). */
   onOpenInventory?: () => void;
   onOpenEquivalents?: () => void;
+  /** Arkusz zniknął z ekranu (iOS): ekran Pro po zamknięciu arkusza, nie nad nim (D-117, N2). */
+  onDismiss?: () => void;
 }
 
 function PoleProcentu({ id, etykieta, wartosc, min, max, onChange, ostatnie }: { id: string; etykieta: string; wartosc: number; min: number; max: number; onChange: (n: number) => void; ostatnie?: boolean }) {
@@ -159,7 +161,7 @@ export function SkladnikiSheet(p: SkladnikiSheetProps) {
   };
 
   return (
-    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose}>
+    <Modal visible={p.visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={p.onClose} onDismiss={p.onDismiss}>
       <SafeAreaView style={s.ekran} edges={['top', 'bottom', 'left', 'right']}>
         <View style={s.ekran} testID="ingredients-sheet">
           <View style={styles.pasek}>

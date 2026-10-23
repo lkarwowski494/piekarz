@@ -115,15 +115,18 @@ export function useAppAccess() {
    * Dodanie nowej rzeczy z limitem Basic (własna receptura, zakwas): liczba z bazy w chwili dodawania; ponad limitem
    * bez Pro ekran Pro, poniżej limitu albo z Pro akcja. Zapisane ponad limitem (import) działają (kontrakt).
    */
-  // Zwraca obietnicę zakończoną po akcji (albo po otwarciu ekranu Pro), żeby zapis dało się poczekać [M3 P-a-fix]
+  // Zwraca obietnicę zakończoną po akcji (albo po otwarciu ekranu Pro), żeby zapis dało się poczekać [M3 P-a-fix].
+  // `ponadLimitem`: wywołujący z otwartego arkusza sam zamyka arkusz i otwiera ekran Pro po nim (D-117), bez wznowienia
+  // zapisu po zakupie (N2, W-fix3)
   const dodaj = useCallback(
-    async (rodzaj: Pojemnosc, action: () => void | Promise<void>): Promise<void> => {
+    async (rodzaj: Pojemnosc, action: () => void | Promise<void>, ponadLimitem?: () => void): Promise<void> => {
       if (pro) {
         await action();
         return;
       }
       const n = await liczbaZapisanych(rodzaj);
       if (n === null || mozeDodac(rodzaj, n, false)) await action();
+      else if (ponadLimitem) ponadLimitem();
       else {
         wstrzymajAkcje(action);
         ustawEkranZakupu(true);

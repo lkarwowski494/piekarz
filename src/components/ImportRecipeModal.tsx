@@ -27,6 +27,7 @@ import { StoredRecipe } from '../data/db';
 import { saveRecipe } from '../data/sqlite-store';
 import { decodeRecipeFromShareUrl } from '../lib/recipe-sharing';
 import { useAppAccess } from '../lib/app-access';
+import { useProPoArkuszu } from '../hooks/useProPoArkuszu';
 
 import { typografia } from '../ui/tokeny';
 export interface ImportRecipeModalProps {
@@ -72,8 +73,10 @@ export function ImportRecipeModal({
   };
 
   // Zapis dopiero po „Zaimportuj” [M1-audytor-generalny-026]; import receptury (plik, QR) to dodanie z limitem Basic 5
-  // własnych — ponad limitem ekran Pro, treść w oknie zostaje (D-116, kontrakt zwalnia tylko import kopii) [M3 P-a-fix P1-2]
+  // własnych — ponad limitem ekran Pro (D-116, kontrakt zwalnia tylko import kopii) [M3 P-a-fix P1-2]: najpierw zamknięcie
+  // okna, ekran Pro po jego zniknięciu (D-117); po zakupie import nie zapisuje się sam (N2, W-fix3)
   const { dodaj } = useAppAccess();
+  const pro = useProPoArkuszu();
   const handleConfirmImport = async () => {
     if (!validation || !validation.success) return;
     const recipe = validation.recipe;
@@ -92,11 +95,11 @@ export function ImportRecipeModal({
       } catch {
         Alert.alert(t('Błąd zapisu'), t('Nie zapisałem receptury. Spróbuj jeszcze raz.'));
       }
-    });
+    }, () => pro.otworzPro(onClose));
   };
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose}>
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={pro.poZamknieciu}>
       <SafeAreaView style={styles.overlay} edges={['top', 'bottom', 'left', 'right']}>
         <View style={styles.modalCard} testID="import-recipe-modal">
           {/* Header */}

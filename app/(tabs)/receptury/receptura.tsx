@@ -40,6 +40,7 @@ import { TemperaturyDdt, brakujacaTemperatura, ETYKIETY_TEMPERATUR } from '../..
 import { DoMiski } from '../../../src/components/receptury/DoMiski';
 import { ORecepturze } from '../../../src/components/receptury/ORecepturze';
 import { SkladnikiSheet } from '../../../src/components/receptury/SkladnikiSheet';
+import { useProPoArkuszu } from '../../../src/hooks/useProPoArkuszu';
 import { powiadomOZmianieReceptur, zglosEkranReceptury } from '../../../src/components/receptury/stos-receptur';
 import { s } from '../../../src/components/receptury/style-receptur';
 import { theme } from '../../../src/ui/theme';
@@ -56,6 +57,7 @@ export default function EkranReceptury() {
 
   // Jeden strażnik dostępu (027): liczenie w Basic; zaczyny, druk, QR, spiżarnia i szósta własna receptura w Pro (D-116)
   const { chron, blokada, dodaj, moze } = useAppAccess();
+  const proSkladniki = useProPoArkuszu();
 
   const [calcMode, setCalcMode] = useState<CalculationMode>('loaves');
   const [loavesCount, setLoavesCount] = useState<number>(2);
@@ -334,8 +336,10 @@ export default function EkranReceptury() {
         yeastPct={yeastPct}
         onYeastPctChange={setYeastPct}
         prefermentType={prefermentType}
-        // Poolish, biga, levain w Pro (BR-KALK-010); ciasto bezpośrednie w Basic
-        onPrefermentTypeChange={(typ) => (typ === 'direct' ? setPrefermentType(typ) : chron('zaczyn', () => setPrefermentType(typ))())}
+        // Poolish, biga, levain w Pro (BR-KALK-010); ciasto bezpośrednie w Basic. Bez Pro arkusz się zamyka, ekran Pro po
+        // jego zniknięciu (D-117), a po zakupie zaczyn ustawia się sam (N2, W-fix3)
+        onPrefermentTypeChange={(typ) => (typ === 'direct' || moze('zaczyn') ? setPrefermentType(typ) : proSkladniki.otworzPro(() => setIsIngredientsOpen(false), () => setPrefermentType(typ)))}
+        onDismiss={proSkladniki.poZamknieciu}
         zaczynPro={!moze('zaczyn')}
         prefermentFlourPct={prefermentFlourPct}
         onPrefermentFlourPctChange={setPrefermentFlourPct}

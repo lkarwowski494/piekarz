@@ -36,7 +36,7 @@ jest.mock('expo-router', () => {
 });
 
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert, Modal } from 'react-native';
 import renderer, { act } from 'react-test-renderer';
 import HarmonogramScreen from '../../app/(tabs)/receptury/harmonogram';
 import RecepturaScreen from '../../app/(tabs)/receptury/receptura';
@@ -220,8 +220,14 @@ describe('P1-2: import pojedynczej receptury liczy się do limitu 5 (kontrakt zw
     await piecWlasnych();
     const payload = encodeRecipeToShareUrl({ ...wlasna(9), name: 'Od sąsiada' });
     const onSuccess = jest.fn();
-    const root = await zamontuj(<ImportRecipeModal visible={true} onClose={() => undefined} onImportSuccess={onSuccess} initialInput={payload} />);
+    const onClose = jest.fn();
+    const root = await zamontuj(<ImportRecipeModal visible={true} onClose={onClose} onImportSuccess={onSuccess} initialInput={payload} />);
     await nacisnij(root, 'confirm-import-btn');
+    // W-fix3 N2 (D-117): ekran Pro nie nad otwartym oknem — okno się zamyka, ekran Pro po jego zniknięciu (onDismiss);
+    // wcześniej ten test oczekiwał ekranu Pro od razu, czyli nad oknem (błąd N2)
+    expect(onClose).toHaveBeenCalledTimes(1);
+    await act(async () => root.findByType(ImportRecipeModal).findByType(Modal).props.onDismiss?.());
+    await flush();
     expect(ekranPro(root)).toBe(true);
     expect(onSuccess).not.toHaveBeenCalled();
     expect(await ileWlasnych()).toBe(5);

@@ -22,11 +22,16 @@ import { useAppAccess } from '../../lib/app-access';
 export interface ImportZPlikuArkuszProps {
   onClose: () => void;
   onRecipeImported: (r: StoredRecipe) => void;
+  /**
+   * Receptura ponad limitem Basic: wywołujący zamyka arkusz (i Ustawienia) i otwiera ekran Pro po zniknięciu (D-117);
+   * po zakupie import nie zapisuje się sam (N2, W-fix3). Bez niej: ekran Pro od razu, arkusz i treść zostają.
+   */
+  onPonadLimitem?: () => void;
 }
 
 const procent = (v: number) => `${formatNumber(v)}%`;
 
-export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuArkuszProps) {
+export function ImportZPlikuArkusz({ onClose, onRecipeImported, onPonadLimitem }: ImportZPlikuArkuszProps) {
   const [tresc, setTresc] = useState<string>('');
   const [zapis, setZapis] = useState<boolean>(false);
   const plik = useMemo(() => rozpoznajPlik(tresc), [tresc]);
@@ -41,7 +46,7 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
   };
 
   // Import pojedynczej receptury to dodanie: limit Basic 5 własnych (kontrakt zwalnia tylko import kopii; D-116, właściciel
-  // „Wg rekomendacji”). Ponad limitem ekran Pro, arkusz i treść zostają [M3 P-a-fix P1-2]
+  // „Wg rekomendacji”). Ponad limitem ekran Pro [M3 P-a-fix P1-2]; z Ustawień po zamknięciu arkuszy (onPonadLimitem, N2)
   const { dodaj } = useAppAccess();
   const dodajRecepture = (r: StoredRecipe) =>
     dodaj('wlasneReceptury', async () => {
@@ -56,7 +61,7 @@ export function ImportZPlikuArkusz({ onClose, onRecipeImported }: ImportZPlikuAr
       } finally {
         setZapis(false);
       }
-    });
+    }, onPonadLimitem);
 
   const zastapDane = async () => {
     if (plik?.rodzaj !== 'kopia') return;

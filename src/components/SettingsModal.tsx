@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
-  Platform,
   View,
   Text,
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import { ustawEkranZakupu } from '../lib/platnosci/ekran';
+import { useProPoArkuszu } from '../hooks/useProPoArkuszu';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { theme } from '../ui/theme';
 import { t, chooseLanguage, Lang, useLang } from '../lib/i18n';
@@ -66,17 +65,9 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
 
   // Ekran Pro z Ustawień (kontrakt „Reguły dostępu”) [M3 P-b]: najpierw zamknięcie arkusza Ustawień, ekran Pro dopiero po
   // jego zniknięciu (onDismiss, iOS), bo dwa arkusze modalne naraz iOS pokazuje zawodnie; poza iOS od razu
-  const proPoZamknieciu = useRef(false);
-  const otworzPro = () => {
-    onClose();
-    if (Platform.OS === 'ios') proPoZamknieciu.current = true;
-    else ustawEkranZakupu(true);
-  };
-  const poZamknieciu = () => {
-    if (!proPoZamknieciu.current) return;
-    proPoZamknieciu.current = false;
-    ustawEkranZakupu(true);
-  };
+  // (src/hooks/useProPoArkuszu.ts, D-117). Także import receptury ponad limitem Basic z arkusza importu (N2, W-fix3)
+  const { otworzPro: proPoArkuszu, poZamknieciu } = useProPoArkuszu();
+  const otworzPro = () => proPoArkuszu(onClose);
 
   return (
     <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={poZamknieciu}>
@@ -116,7 +107,7 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           <BackupAndDataSection />
 
           {/* „Importuj z pliku”: jedno wejście dla receptury i kopii, tylko tutaj (F-33, 057, 113) [M1-audytor-generalny-057, -113] */}
-          <ImportRecepturySection />
+          <ImportRecepturySection onPro={otworzPro} />
 
           {/* Apps4Craft Studio Family & Security */}
           <StudioEcosystemSection />
