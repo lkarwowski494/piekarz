@@ -3,8 +3,8 @@
 # EXPO_PUBLIC_E2E=1 (src/lib/app-access.ts; TestFlight odrzuca flage, P-037 a). Trwa jeden wypiek -> Harmonogram ->
 # dzien "gotowe" za 3 dni -> "Zaplanuj" -> Dzis: spirala trwajacego wypieku i plan na liscie pod nia (start-plany).
 # Dzien +3, nie +2: wypiek 1 konczy sie jutro, a plan na pojutrze nachodzilby krokami na niego (pytanie
-# "Kroki nachodza na siebie", natywny Alert bez id). Znacznik planu w pasku tygodnia nie jest sprawdzany: glif lezy
-# w przycisku dnia (jeden element dostepnosci, bez wlasnego id w drzewie iOS), a klucz dnia zalezy od daty.
+# "Kroki nachodza na siebie", natywny Alert bez id). Znacznik planu w pasku tygodnia (glif-plan; glify dnia sa w drzewie
+# iOS, przebieg 39873090932) nie jest sprawdzany: dzien +3 bywa juz w nastepnym tygodniu, a klucz dnia zalezy od daty.
 appId: com.apps4brew.baker
 ---
 - launchApp:
