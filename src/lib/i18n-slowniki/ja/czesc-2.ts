@@ -1,7 +1,6 @@
 // Słownik ja, część 2 z 10. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi.': '生地の膨らみがいつもより遅くなっています。King Arthur Bakingによると、よくある原因は生地を置いている場所が涼しいことです。',
   'Ciasto rwie się przy rozciąganiu:': '伸ばすと生地が破れる：',
   'Ciasto zwięzłe, nie klei się do rąk. Idealne do nauki formowania bochenka.': '生地はまとまりがよく、手にべたつきません。ローフの成形を練習するのに最適です。',
   'Ciemne chleby razowe, zakwas żytni i pszenny razowy, chleb 100% z keksówki.': '色の濃い全粒粉パン、ライ麦および小麦全粒粉のサワー種、パウンド型で焼く100%のパン。',
@@ -20,7 +19,6 @@ export const CZESC: Record<string, string> = {
   'Co zrobić przy następnym wypieku:': '次回の焼成でやること：',
   'Co zrobić:': 'やること：',
   'Co zrobić: dokarm zakwas według planu na następny dzień.': 'やること：翌日のプランに沿ってサワー種を種継ぎしてください。',
-  'Co zrobić: dokarmiaj zakwas regularnie; według tego samego źródła seria regularnych dokarmień powinna go przywrócić.': 'やること：サワー種を定期的に種継ぎしてください。同じ出典によると、定期的な種継ぎを続ければ元の状態に戻るはずです。',
   'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': '「{krok}」を取り消しました。通知は元の時刻に戻りました。',
   'Cofnij poprzedni': '前の工程を取り消す',
   'Coś mnie niepokoi': '気になることがある',
@@ -67,7 +65,6 @@ export const CZESC: Record<string, string> = {
   'Dodaj mąkę': '粉を追加',
   'Dodaj mąkę z Atlasu': '粉図鑑から粉を追加',
   'Dodaj nowy zakwas': '新しいサワー種を追加',
-  'Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.': '一次発酵の前に塩を加えてください。King Arthur Bakingによると、塩の入っていないイースト生地はいつもより早く膨らみ、風味が乏しく、構造も弱くなります。',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'マイ配合に追加します。その他のデータは変更されません。',
   'Dodano zakwas': 'サワー種を追加しました',
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'はちみつを大さじ1杯加えると発酵を助け、酸味を和らげます。グラハム粉の粗いふすまには45分のオートリーズが必要です。',
@@ -163,7 +160,6 @@ export const CZESC: Record<string, string> = {
   'Garowanie chłodnicze': '低温長時間発酵',
   'Garowanie chłodnicze w lodówce': '冷蔵庫での低温長時間発酵',
   'Garowanie chłodnicze w lodówce (Cold Retard)': '冷蔵庫での低温長時間発酵（Cold Retard）',
-  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': '生地を冷蔵庫で低温長時間発酵させてください。King Arthur Bakingによると、低温は発酵を遅らせ、ゆっくりした発酵は風味を深めます。',
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.': '種継ぎ後に泡立ち始めたら、2回目の種継ぎをしてください。12時間以内に膨らんで気泡でいっぱいになれば、使う前の最後の種継ぎができる状態です。',
   'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.': '端末がスリープ中でも、何をいつすればよいかを通知でお知らせします。まもなく端末から許可を求められます。',
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': '購入が承認されると、パン職人 Proは自動的に有効になります。再度購入する必要はありません。',

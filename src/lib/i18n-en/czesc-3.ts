@@ -158,8 +158,8 @@ export const EN_3: Record<string, string> = {
   'Nie używaj tego zakwasu i nie próbuj go ratować. Pleśń może sięgać w głąb zakwasu, nawet gdy na powierzchni widać tylko niewielki nalot. Nie wąchaj zakwasu z nalotem, bo może to wywołać problemy z oddychaniem. Przed założeniem nowego zakwasu dokładnie umyj i wypłucz słoik.':
     'Do not use this starter and do not try to rescue it. Mold can reach deep into the starter, even when only a small patch shows on the surface. Do not sniff a starter with growth on it, as this can cause breathing problems. Wash and rinse the jar thoroughly before starting a new starter.',
   'Płyn na powierzchni (hooch)': 'Liquid on the surface (hooch)',
-  'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
-    'According to CSU Extension, a liquid layer that smells of alcohol is fine: it is a by-product of the fermenting yeast. You can pour it off or stir it in. If you also see growth or discoloration, or notice a rotten smell, mark it above.',
+  'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.':
+    "A layer of liquid that smells of alcohol is fine: it's a by-product of the yeast at work. You can pour it off or stir it in. If you also see growth or discoloration, or it smells rotten, mark it above.",
   'Pożywka zużyta. Dokarm zakwas w proporcji 1:2:2.': 'Food used up. Feed the starter at 1:2:2.',
   'Nie zaznaczono żadnego objawu': 'No signs marked',
   'Ocena pojawi się po zaznaczeniu tego, co widzisz albo czujesz.': 'An assessment appears once you mark what you see or smell.',
@@ -178,6 +178,6 @@ export const EN_3: Record<string, string> = {
   'Wypiek w formie': 'Baking in the tin',
   'Na początku wypieku zapewnij parę w piekarniku.': 'Provide steam in the oven at the start of baking.',
   'Studzenie': 'Cooling',
-  'Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
-    'According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
+  'Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.':
+    'Sourdough rye is best left to rest for 24 hours before you slice it.',
 };

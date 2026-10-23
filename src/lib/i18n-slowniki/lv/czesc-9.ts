@@ -27,7 +27,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Satur smalkas klijas. Palieliniet mīklas hidrāciju par 3-5 % un pagariniet autolīzi līdz 45-60 minūtēm.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Atzīmējiet tālāk mīkstuma, garozas vai garšas pazīmes, kas jūs uztrauc, lai Maizes ārsts noteiktu tehnoloģisko kļūdu un piedāvātu risinājumu.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Atzīmējiet, ko redzat vai sajūtat burkā.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Atzīmējiet, kad ieraugs ir divkāršojies, salīdzinot ar atzīmi uz burkas. Tad tas ir gatavs mīklai (pēc King Arthur Baking datiem).',
   'Zbalansowany': 'Līdzsvarots',
   'Zbity, gęsty miękisz': 'Blīvs, ciets mīkstums',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Saspiests, blīvs mīkstums — apsveriet ilgāku pamatfermentāciju',

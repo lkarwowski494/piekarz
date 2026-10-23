@@ -6,7 +6,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'İnce kepek içerir. Hidrasyonu %3-5 artırın ve otolizi 45-60 dakikaya uzatın.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Ekmek Doktoru\'nun teknolojik hatayı belirleyip çözüm sunabilmesi için sizi endişelendiren ekmek içi, kabuk veya tat özelliklerini aşağıda işaretleyin.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Kavanozda ne gördüğünüzü veya hissettiğinizi işaretleyin.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Ekşi maya kavanozdaki işaretin iki katına kabardığında bunu işaretleyin. O zaman hamura hazırdır (King Arthur Baking\'e göre).',
   'Zbalansowany': 'Dengeli',
   'Zbity, gęsty miękisz': 'Sıkı, yoğun ekmek içi',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Sıkı, yoğun ekmek içi — daha uzun bir ilk fermantasyonu (Bulk) değerlendirin',

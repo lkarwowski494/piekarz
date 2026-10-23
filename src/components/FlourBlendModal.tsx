@@ -215,7 +215,7 @@ export function FlourBlendModal({
               {/* MAK-TYP-001, MAK-TYP-002 (docs/tresci/pl/maki-typy.md) [M1-audytor-generalny-091] */}
               {pokazZdanieONormach() && (
                 <Text style={styles.addSectionNote}>
-                  {t('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.')}
+                  {t('Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.')}
                 </Text>
               )}
               <ScrollView

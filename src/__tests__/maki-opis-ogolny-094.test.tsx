@@ -42,7 +42,9 @@ describe('Atlas mąk: opis ogólny poza pl (094)', () => {
     }
   });
 
-  it('FlourBlendModal po angielsku: chipy z nazwą ogólną, bez zdania o Polskich Normach', async () => {
+  // M3 T2 (D-123): zdanie o typach mąki bez numerów norm („Typ mąki … mówi, ile jest w niej popiołu.”); ten sam podział:
+  // po polsku jest, poza pl (bez mapy typów) go nie ma
+  it('FlourBlendModal po angielsku: chipy z nazwą ogólną, bez zdania o typach mąki według popiołu', async () => {
     setLang('en');
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
@@ -54,11 +56,10 @@ describe('Atlas mąk: opis ogólny poza pl (094)', () => {
     const chip = tekst(root.findByProps({ testID: 'add-flour-wheat_650' }));
     expect(chip).toContain(t(OPIS_OGOLNY_MAK.wheat_650.nazwaPl));
     expect(chip).not.toMatch(NUMER_TYPU);
-    expect(tekst(root)).not.toContain(t('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.'));
-    act(() => tree!.unmount());
+    expect(tekst(root)).not.toContain(t('Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.'));    act(() => tree!.unmount());
   });
 
-  it('FlourBlendModal po polsku bez zmian: nazwa z typem i zdanie o normach', async () => {
+  it('FlourBlendModal po polsku bez zmian: nazwa z typem i zdanie o typach mąki według popiołu', async () => {
     let tree: renderer.ReactTestRenderer | null = null;
     await act(async () => {
       tree = renderer.create(
@@ -68,7 +69,7 @@ describe('Atlas mąk: opis ogólny poza pl (094)', () => {
     const root = tree!.root;
     const p = FLOUR_PROFILES.find((f) => f.id === 'wheat_650')!;
     expect(tekst(root.findByProps({ testID: 'add-flour-wheat_650' }))).toContain(p.namePl);
-    expect(tekst(root)).toContain('Polskie Normy PN-A-74022:2003');
+    expect(tekst(root)).toContain('Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.');
     act(() => tree!.unmount());
   });
 });

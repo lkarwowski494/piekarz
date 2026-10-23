@@ -164,8 +164,8 @@ export const EN_10: Record<string, string> = {
     'A classic wheat-rye loaf with a crispy crust and an open ear. Ideal for starting your sourdough adventure.',
   'Wypiek w garnku żeliwnym. 4 serie składań zwojowych w odstępach 30 minut. Garowanie w lodówce 12–16 godzin.':
     'Baked in a cast-iron pot. 4 sets of coil folds at 30-minute intervals. Proofing in the fridge for 12–16 hours.',
-  'Mistrzowski wiejski w stylu Tartine, 80%':
-    'Master country loaf, Tartine style, 80%',
+  'Wiejski chleb na zakwasie, 80%':
+    'Country sourdough loaf, 80%',
   'Zaawansowany bochenek o wysokiej hydratacji z dzikim, perłowym miękiszem i potężnym uchem.':
     'An advanced high-hydration loaf with a wild, pearly crumb and a huge ear.',
   'Wymaga mąki o zawartości białka minimum 13%. Autoliza 60 minut bez soli. Bardzo delikatne składania zwojowe.':

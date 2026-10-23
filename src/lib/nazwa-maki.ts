@@ -27,10 +27,10 @@ export function opisMaki(p: FlourProfile, kod: string = lang()): string {
 export function notaSzacunku(p: FlourProfile, kod: string = lang()): string | null {
   if (p.estimatedFromTyp === undefined) return null;
   if (trybAtlasuMak(kod) === 'mapa-typow') {
-    return t('Szacunek: parametry przyjęte z typu {typ}, bez źródła', { typ: String(p.estimatedFromTyp) });
+    return t('Szacunek na podstawie typu {typ}.', { typ: String(p.estimatedFromTyp) });
   }
   const zrodlo = FLOUR_PROFILES.find((f) => f.grain === p.grain && f.ashTyp === p.estimatedFromTyp);
-  return t('Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła', {
+  return t('Szacunek na podstawie profilu {nazwa}.', {
     nazwa: zrodlo ? nazwaMaki(zrodlo, kod) : t(OPIS_OGOLNY_MAK[p.id]?.nazwaPl ?? p.namePl),
   });
 }

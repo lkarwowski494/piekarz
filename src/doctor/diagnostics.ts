@@ -57,10 +57,10 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       titlePl: 'Gumowaty, lepki miękisz',
       subtitlePl: 'Miękisz maże się na nożu i wygląda na niedopieczony',
       biologicalCausePl:
-        'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.',
+        'Chleb wyjęty z pieca nie jest jeszcze gotowy: gdy stygnie, oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.',
       actionChecklistPl: [
-        'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.',
-        'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.',
+        'Przed krojeniem poczekaj, aż bochenek całkiem ostygnie. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.',
+        'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.',
         'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.',
       ],
       severity: 'moderate',
@@ -78,7 +78,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Wydłuż fermentację burzliwą.',
         'Upewnij się, że zakwas został użyty w szczycie objętości.',
-        'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
+        'Policz temperaturę wody w recepturze: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
         'Wykonaj test palca przed włożeniem bochenka do piekarnika.',
       ],
       severity: 'critical',
@@ -96,7 +96,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Skróć czas garowania w lodówce lub fermentacji w temperaturze pokojowej.',
         'Zmniejsz udział zakwasu w recepturze.',
-        'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.',
+        'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.',
         'Piecz bochenek wcześniej, gdy ciasto przy próbie palca powoli i sprężyście wraca.',
       ],
       severity: 'critical',
@@ -112,8 +112,8 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       biologicalCausePl:
         'Skórka wierzchnia stwardniała i wyschła, zanim bochenek zdążył wyrosnąć w piecu (brak pary) LUB nacięcie żyletką było zbyt płytkie i pod złym kątem.',
       actionChecklistPl: [
-        'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.',
-        'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.',
+        'Piecz w garnku pod pokrywą: para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.',
+        'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: płytsze nacięcie może się zrosnąć w czasie pieczenia.',
         'Przełóż bochenek szwem do dołu, aby nie pękał od spodu.',
       ],
       severity: 'moderate',
@@ -127,11 +127,11 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       titlePl: 'Brak uniesionego ucha',
       subtitlePl: 'Nacięcie rozeszło się gładko bez chrupiącego grzebienia',
       biologicalCausePl:
-        'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.',
+        'Nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje, gdy tniesz pod płaskim kątem bochenek uformowany z dobrym napięciem, z napiętą wierzchnią warstwą.',
       actionChecklistPl: [
-        'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.',
+        'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: wtedy łatwiej powstaje płat ciasta, który odchyla się w ucho.',
         'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.',
-        'Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.',
+        'Nagrzewaj pusty garnek około 30 minut przed włożeniem ciasta, żeby zrobiła się w nim para.',
       ],
       severity: 'mild',
     };
@@ -146,7 +146,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       biologicalCausePl:
         'Przerośnięcie (drożdże zjadły wszystkie cukry proste) lub zbyt niska temperatura pieczenia w fazie bez pokrywki.',
       actionChecklistPl: [
-        'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.',
+        'Po zdjęciu pokrywy piecz dalej, aż chleb porządnie się zrumieni.',
         'Skróć czas fermentacji, aby pozostawić cukry resztkowe w cieście.',
       ],
       severity: 'mild',
@@ -164,7 +164,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       actionChecklistPl: [
         'Dokarmiaj zakwas częściej przed wypiekiem.',
         'Skróć fermentację w niskiej temperaturze: niższą temperaturę fermentacji wiąże się z kwasem octowym, a dłuższą fermentację z nadmiarem kwasów organicznych.',
-        'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
+        'Skróć fermentację burzliwą i pilnuj temperatury ciasta: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.',
       ],
       severity: 'moderate',
     };
@@ -179,7 +179,7 @@ export function diagnoseBreadDefect(symptoms: BreadInspectionCriteria): Diagnost
       biologicalCausePl:
         'Zbyt krótki czas fermentacji. Złożone związki aromatyczne powstają dzięki powolnej aktywności enzymatycznej i metabolizmowi bakterii kwasu mlekowego podczas zimnej fermentacji.',
       actionChecklistPl: [
-        'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.',
+        'Garuj ciasto w lodówce: chłód spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.',
         'Zwiększ udział zakwasu w recepturze.',
         'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).',
       ],

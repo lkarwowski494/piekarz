@@ -14,7 +14,8 @@ import { setLang, t } from '../../lib/i18n';
 import { notaSzacunku } from '../../lib/nazwa-maki';
 
 const ROOT = join(__dirname, '..', '..', '..');
-const SZACUNEK = 'Szacunek: parametry przyjęte z typu {typ}, bez źródła';
+// M3 T2 (D-123): dopisek szacunku bez „bez źródła” — nadal mówi, że to szacunek i z którego typu
+const SZACUNEK = 'Szacunek na podstawie typu {typ}.';
 
 /** Treść sekcji `## <nazwa>` z pliku docs/tresci, bez znacznika [T:ID]. */
 function sekcja(plik: string, nazwa: string): string {
@@ -111,14 +112,15 @@ describe('091: polskie typy mąki w atlasie ze źródłem', () => {
       }
       act(() => tree.unmount());
     }
-    expect(enDla(SZACUNEK, { typ: '450' })).toBe('Estimate: parameters taken from type 450, no source');
+    expect(enDla(SZACUNEK, { typ: '450' })).toBe('Estimated from type 450.');
   });
 
   it('zdanie o normach pod nagłówkiem listy mąk = docs/tresci (MAK-TYP-001, MAK-TYP-002), PL i EN', async () => {
     const pl = sekcja('pl/maki-typy.md', 'nagłówek listy mąk (nowy tekst)');
     const en = sekcja('en/maki-typy.md', 'flour list heading (new text)');
-    // Klucz t() dosłownie (macierz AST szuka kluczy w testach)
-    expect(pl).toBe('Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.');
+    // Klucz t() dosłownie (macierz AST szuka kluczy w testach); M3 T2 (D-123): bez numerów norm (normy na ekranie
+    // „Źródła wiedzy”), ten sam sens: typ mąki mówi o zawartości popiołu
+    expect(pl).toBe('Typ mąki pszennej i żytniej mówi, ile jest w niej popiołu.');
     expect(enDla(pl)).toBe(en);
     const tree = await render();
     expect(teksty(tree.root)).toContain(pl);
@@ -134,8 +136,9 @@ describe('091: polskie typy mąki w atlasie ze źródłem', () => {
     const pl = sekcja('pl/maki-typy.md', 'wheat_850.descriptionPl (dopisek na początku opisu)');
     const en = sekcja('en/maki-typy.md', 'wheat_850.descriptionPl (prefix of the description)');
     const p850 = FLOUR_PROFILES.find((p) => p.id === 'wheat_850')!;
-    const reszta = 'Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.';
+    // M3 T2 (D-123): reszta opisu w nowym brzmieniu roli 06 (pozycja 3 przepisania)
+    const reszta = 'To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.';
     expect(p850.descriptionPl).toBe(`${pl} ${reszta}`);
-    expect(enDla(p850.descriptionPl)).toBe(`${en} A darker bread flour with higher enzymatic activity and a nutty aroma.`);
+    expect(enDla(p850.descriptionPl)).toBe(`${en} It's a darker bread flour with more enzyme activity and a nutty aroma.`);
   });
 });

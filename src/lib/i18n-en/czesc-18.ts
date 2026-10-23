@@ -44,59 +44,59 @@ export const EN_18: Record<string, string> = {
   // Nazwa planu jak w istniejącym EN („…require Baker Pro.”), nie „Piekarz Pro” z teksty.js roli 04 (znalezisko do raportu)
 
   // Porady karty szczytu zakwasu w lodówce: docs/tresci/en/zakwas-z-lodowki.md [M1-audytor-generalny-132; 06-tresci-502]
-  'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.':
-    'According to King Arthur Baking, before baking, feed the starter from the fridge and leave it at room temperature; it may take up to 12 hours to show signs of life.',
-  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.':
-    'A starter kept in the fridge is fed once a week. According to King Arthur Baking, before baking, feed it every 12 hours until it doubles or triples in volume within 6–8 hours of feeding.',
+  'Przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.':
+    'Before baking, feed the starter from the fridge and leave it at room temperature; it can take up to 12 hours to show signs of life.',
+  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.':
+    'A starter kept in the fridge gets fed once a week. Before baking, feed it every 12 hours until it doubles or triples within 6–8 hours of a feed.',
 
   // Wskazówka zaczynu: docs/tresci/en/zaczyny.md [M1-audytor-generalny-131; 01-odkrywanie-502, 06-tresci-503]
   'Pâte Fermentée (Stare ciasto)': 'Pâte Fermentée (Old dough)',
   'Levain (Rzemieślniczy zaczyn na zakwasie)': 'Levain (Artisan sourdough preferment)',
-  'według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)':
-    'according to King Arthur Baking, from 8 hours (more yeast) to 14–16 hours (less yeast)',
-  'według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C':
-    'according to the Bread Bakers Guild of America, 18 hours at about 15.6 °C',
-  'według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce':
-    'according to the Bread Bakers Guild of America, at least 3 hours at room temperature, or 1 hour and then at most 3 days in the fridge',
-  'według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków':
-    'according to King Arthur Baking, about 6–8 hours, until it doubles in volume and is full of bubbles',
+  'od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży)':
+    'from 8 hours (more yeast) to 14–16 hours (less yeast)',
+  '18 godzin w temperaturze ok. 15,6 °C':
+    '18 hours at about 15.6 °C',
+  'co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce':
+    'at least 3 hours at room temperature, or 1 hour and then no more than 3 days in the fridge',
+  'ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków':
+    'about 6–8 hours, until it doubles and is full of bubbles',
   'Złożony bukiet kwasów mlekowego i octowego.': 'Complex bouquet of lactic and acetic acids.',
 
   // Doktor Chleba i porada mieszanki mąk: docs/tresci/en/doktor-chleba.md, maki-chlonnosc.md [M1-audytor-generalny-133; 06-tresci-504]
-  'Chleb wyjęty z pieca nie jest jeszcze gotowy: według King Arthur Baking w czasie studzenia oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: według King Arthur Baking większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.':
-    'Bread taken out of the oven is not done yet: according to King Arthur Baking, it releases moisture as it cools and the crumb needs that time to set, so if sliced too early it may be gummy. Another cause may be underbaking: according to King Arthur Baking, most loaves are done when the centre reaches about 88 °C.',
-  'Przed krojeniem poczekaj, aż bochenek całkowicie ostygnie. Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości.':
-    'Before slicing, wait until the loaf has cooled completely. According to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality.',
-  'Sprawdź temperaturę w środku bochenka termometrem szpilkowym: według King Arthur Baking większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.':
-    'Check the temperature in the centre of the loaf with a probe thermometer: according to King Arthur Baking, most loaves are done at about 88 °C, and rye bread should reach 96–99 °C in the centre.',
+  'Chleb wyjęty z pieca nie jest jeszcze gotowy: gdy stygnie, oddaje wilgoć, a miękisz potrzebuje tego czasu, żeby się ustalić, więc pokrojony za wcześnie może być gumowaty. Inną przyczyną może być niedopieczenie: większość bochenków jest upieczona, gdy w środku ma ok. 88 °C.':
+    "Bread fresh from the oven isn't finished yet: it gives off moisture as it cools and the crumb needs that time to set, so slicing too early can leave it gummy. It may also be underbaked: most loaves are done when the centre reaches about 88 °C.",
+  'Przed krojeniem poczekaj, aż bochenek całkiem ostygnie. Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku.':
+    'Wait until the loaf has cooled completely before slicing. Sourdough rye is best left to rest for 24 hours before you slice it.',
+  'Sprawdź termometrem szpilkowym temperaturę w środku bochenka: większość bochenków jest upieczona przy ok. 88 °C, a chleb żytni powinien mieć w środku 96–99 °C.':
+    'Check the centre of the loaf with a probe thermometer: most loaves are done at about 88 °C, and rye bread should reach 96–99 °C inside.',
   'Jeśli w środku jest chłodniej, piecz dłużej i zmierz ponownie.':
     'If the centre is cooler, bake longer and measure again.',
   'Wydłuż fermentację burzliwą.':
     'Extend the bulk fermentation.',
-  'Policz temperaturę wody w recepturze: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
-    'Work out the water temperature in the recipe: according to King Arthur Baking, wheat dough should be about 24–25.5 °C after mixing.',
+  'Policz temperaturę wody w recepturze: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
+    'Work out the water temperature for the recipe: wheat dough should be about 24–25.5 °C after mixing.',
   'Zmniejsz udział zakwasu w recepturze.':
     'Reduce the share of starter in the recipe.',
-  'Obniż temperaturę lodówki: według King Arthur Baking niższa temperatura spowalnia fermentację.':
-    'Lower the fridge temperature: according to King Arthur Baking, a lower temperature slows fermentation.',
-  'Piecz pod pokrywą w garnku: według King Arthur Baking para pod pokrywką dłużej utrzymuje skórkę miękką, więc bochenek może dalej rosnąć na początku pieczenia.':
-    'Bake covered in a pot: according to King Arthur Baking, steam under the lid keeps the crust soft longer, so the loaf can keep rising at the start of baking.',
-  'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: według King Arthur Baking płytsze nacięcie może się zrosnąć w czasie pieczenia.':
-    'Hold a curved blade at about 30° to the dough surface and cut about 6–13 mm deep: according to King Arthur Baking, a shallower cut may fuse back together during baking.',
-  'Według King Arthur Baking nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje przy nacięciu pod płaskim kątem z napiętej zewnętrznej warstwy ciasta uformowanego z wystarczającym napięciem.':
-    'According to King Arthur Baking, a straight-on cut at 90° splays open to the sides, while an ear forms with a cut at a shallow angle, from the taut outer layer of dough shaped with sufficient tension.',
-  'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: według King Arthur Baking sprzyja to powstaniu płatu ciasta, który odchyla się w ucho.':
-    'Tilt a curved blade to about 30° to the dough surface: according to King Arthur Baking, this promotes a flap of dough that peels back into an ear.',
-  'Nagrzej pusty garnek przed włożeniem ciasta: według King Arthur Baking około 30 minut, żeby powstała w nim para.':
-    'Preheat the empty pot before putting the dough in: according to King Arthur Baking, about 30 minutes, so that steam forms in it.',
-  'Po zdjęciu pokrywy piecz dalej: według King Arthur Baking chleb bez pokrywki piecze się, aż w pełni się zrumieni.':
-    'After removing the lid, keep baking: according to King Arthur Baking, the uncovered bread bakes until it is fully browned.',
+  'Obniż temperaturę lodówki: w chłodniejszej lodówce fermentacja idzie wolniej.':
+    'Turn the fridge colder: lower temperatures slow fermentation down.',
+  'Piecz w garnku pod pokrywą: para pod pokrywką dłużej trzyma skórkę miękką, więc bochenek może jeszcze rosnąć na początku pieczenia.':
+    'Bake in a covered pot: steam under the lid keeps the crust soft for longer, so the loaf can keep rising at the start of the bake.',
+  'Prowadź zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta, na głębokość ok. 6–13 mm: płytsze nacięcie może się zrosnąć w czasie pieczenia.':
+    'Hold a curved blade at about 30° to the surface and cut about 6–13 mm deep: a shallower cut can close up during baking.',
+  'Nacięcie prosto, pod kątem 90°, rozchyla się na boki, a ucho powstaje, gdy tniesz pod płaskim kątem bochenek uformowany z dobrym napięciem, z napiętą wierzchnią warstwą.':
+    'A straight-down cut at 90° opens out to the sides, while an ear forms when you cut at a shallow angle into a well-tensioned loaf with a taut outer skin.',
+  'Pochyl zakrzywione ostrze pod kątem ok. 30° do powierzchni ciasta: wtedy łatwiej powstaje płat ciasta, który odchyla się w ucho.':
+    'Tilt a curved blade to about 30° to the surface: that helps form a flap of dough that peels back into an ear.',
+  'Nagrzewaj pusty garnek około 30 minut przed włożeniem ciasta, żeby zrobiła się w nim para.':
+    'Preheat the empty pot for about 30 minutes before the dough goes in, so steam can form inside.',
+  'Po zdjęciu pokrywy piecz dalej, aż chleb porządnie się zrumieni.':
+    'Once the lid is off, keep baking until the bread is fully browned.',
   'Dokarmiaj zakwas częściej przed wypiekiem.':
     'Feed the starter more often before baking.',
-  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: według King Arthur Baking ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
-    'Shorten the bulk fermentation and watch the dough temperature: according to King Arthur Baking, wheat dough should be about 24–25.5 °C after mixing.',
-  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.':
-    'Proof the dough in the fridge: according to King Arthur Baking, cold slows fermentation, and slower fermentation deepens the flavour.',
+  'Skróć fermentację burzliwą i pilnuj temperatury ciasta: ciasto pszenne po wymieszaniu powinno mieć ok. 24–25,5 °C.':
+    'Shorten the bulk fermentation and keep an eye on dough temperature: wheat dough should be about 24–25.5 °C after mixing.',
+  'Garuj ciasto w lodówce: chłód spowalnia fermentację, a wolniejsza fermentacja daje głębszy smak.':
+    'Proof the dough in the fridge: cold slows fermentation, and slower fermentation means deeper flavour.',
   'Zwiększ udział zakwasu w recepturze.':
     'Increase the share of starter in the recipe.',
   'Dodaj do receptury trochę mąki pełnoziarnistej (żytniej lub pszennej).':

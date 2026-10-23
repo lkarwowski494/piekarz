@@ -22,7 +22,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Mengandung dedak halus. Naikkan hidrasi 3-5% dan perpanjang autolisis menjadi 45-60 menit.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Tandai di bawah ciri serat roti, kulit roti, atau rasa yang mengkhawatirkan Anda agar Dokter Roti dapat mengidentifikasi kesalahan teknis dan memberikan solusinya.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Tandai apa yang Anda lihat atau cium di stoples.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Centang ini saat starter ragi alami mengembang dua kali lipat dari tanda di stoples. Saat itulah starter ragi alami siap untuk adonan (menurut King Arthur Baking).',
   'Zbalansowany': 'Seimbang',
   'Zbity, gęsty miękisz': 'Serat roti padat dan rapat',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Serat roti rapat dan padat — pertimbangkan fermentasi massal lebih lama',

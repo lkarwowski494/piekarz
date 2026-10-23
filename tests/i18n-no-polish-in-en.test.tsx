@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { EN } from '../src/lib/i18n.en';
 import { t, setLang } from '../src/lib/i18n';
+import { ZRODLA_WIEDZY } from '../src/core/zrodla-wiedzy';
 
 const rootDir = path.resolve(__dirname, '..');
 const appDir = path.resolve(rootDir, 'app');
@@ -44,11 +45,15 @@ describe('i18n Hygiene & Zero Polish in English (NFR-I18N-003..004)', () => {
       'Pumpernikiel',
     ];
 
+    // Wyjątek nazwany (M3 T2, D-123): nazwy źródeł na ekranie „Źródła wiedzy” to opisy bibliograficzne — nazwiska
+    // autorów, tytuły polskich czasopism i norm (np. „Gambuś H.”, „Mąka pszenna”) zostają w oryginale. Tylko pole
+    // `nazwa` źródła; opisy i tematy ekranu nadal bez polskich znaków w EN.
+    const nazwyZrodel = new Set(ZRODLA_WIEDZY.flatMap((g) => g.zrodla.map((z) => z.nazwa)));
     const violations: { key: string; val: string }[] = [];
 
     for (const [key, val] of Object.entries(EN)) {
       if (polishDiacriticsRe.test(val)) {
-        const isAllowed = allowedExceptions.some((exc) => val.includes(exc));
+        const isAllowed = allowedExceptions.some((exc) => val.includes(exc)) || nazwyZrodel.has(key);
         if (!isAllowed) {
           violations.push({ key, val });
         }

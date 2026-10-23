@@ -31,7 +31,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Enthält feine Kleie. Erhöhe die Hydration um 3-5 % und verlängere die Autolyse auf 45-60 Minuten.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Markiere unten die Merkmale von Krume, Kruste oder Geschmack, die dich beunruhigen, damit der Brotdoktor den technologischen Fehler erkennt und eine Lösung vorschlägt.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Markiere, was du im Glas siehst oder riechst.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Hake dies ab, wenn der Sauerteig ab der Markierung am Glas auf das Doppelte gewachsen ist. Dann ist er bereit für den Teig (laut King Arthur Baking).',
   'Zbalansowany': 'Ausgewogen',
   'Zbity, gęsty miękisz': 'Dichte, kompakte Krume',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Feste, dichte Krume — erwäge eine längere Stockgare',

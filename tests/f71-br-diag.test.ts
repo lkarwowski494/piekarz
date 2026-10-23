@@ -38,23 +38,29 @@ describe('BR-DIAG-003 Ratunek ciasta w trakcie fermentacji (F-71)', () => {
 
   it('BR-DIAG-003 Ciasto żytnie: przy 100% mąki żytniej składanie można zwykle pominąć', () => {
     const p = getDoughRecoveryProtocol('SLACK_HIGH_HYDRATION');
-    expect(p.stepByStepPl.some((z) => /100% mąki żytniej/.test(z) && /składanie można zwykle pominąć/.test(z))).toBe(true);
+    // M3 T2 (D-123): nowe brzmienie bez przypisu („składanie zwykle można pominąć”), ta sama rada
+    expect(p.stepByStepPl.some((z) => /100% mąki żytniej/.test(z) && /składanie zwykle można pominąć/.test(z))).toBe(true);
   });
 
-  it('BR-DIAG-003 Zimna kuchnia: przybliżenie FER-Q10-002 (6 °C niżej ≈ 2 razy dłużej), bez „podwaja się między 18 a 26 °C”', () => {
+  it('BR-DIAG-003 Zimna kuchnia: przybliżenie FER-Q10-002 (6 °C chłodniej ≈ 2 razy dłużej), bez „podwaja się między 18 a 26 °C”', () => {
     const p = getDoughRecoveryProtocol('COLD_SLUGGISH');
     expect(p.scientificReasoningPl).toMatch(/20–26 °C/);
-    expect(p.scientificReasoningPl).toMatch(/6 °C niżej/);
+    // M3 T2 (D-123): „6 °C niżej” → „6 °C chłodniej” (prosta zasada zamiast „modelu badawczego”); ta sama liczba i kierunek
+    expect(p.scientificReasoningPl).toMatch(/6 °C chłodniej/);
     expect(p.scientificReasoningPl).toMatch(/2 razy dłuższa/);
     expect(wszystkieZdania(p).join(' ')).not.toMatch(/podwaja się między 18 a 26/);
   });
 });
 
 describe('BR-DIAG-004 Bezpieczeństwo w protokołach ratunkowych', () => {
-  it('BR-DIAG-004 Nie próbuj surowego ciasta: pierwszy krok „Zapomnianej soli” z atrybucją FDA (RD-22)', () => {
+  // M3 T2 (D-123): zamiast atrybucji FDA w zdaniu — powód ostrzeżenia (BEZ-SUR-001: surowa mąka może mieć bakterie);
+  // FDA jest na ekranie „Źródła wiedzy”, a w rejestrze zostaje źródłem twierdzenia
+  it('BR-DIAG-004 Nie próbuj surowego ciasta: pierwszy krok „Zapomnianej soli” z powodem (bakterie w surowej mące, RD-22)', () => {
     const krok = getDoughRecoveryProtocol('FORGOTTEN_SALT').stepByStepPl[0];
     expect(krok).toMatch(/^Nie próbuj ciasta/);
-    expect(krok).toMatch(/FDA/);
+    expect(krok).toMatch(/surowego ciasta nie je się ani nie próbuje/);
+    expect(krok).toMatch(/bo w surowej mące mogą być groźne bakterie/);
+    expect(krok).not.toMatch(/FDA/);
   });
 
   it('BR-DIAG-004 Ciasto w piekarniku z żarówką: wyjąć przed nagrzewaniem (DOK-PIE-002, RD-23)', () => {
@@ -71,7 +77,7 @@ describe('BR-DIAG-005 Decyzje protokołu zależne od etapu i rodzaju ciasta', ()
     const p = getDoughRecoveryProtocol('FORGOTTEN_SALT');
     expect(p.immediateActionPl).toMatch(/^Dodaj sól przed pierwszym rośnięciem/);
     const po = p.stepByStepPl.find((z) => /po pierwszym rośnięciu/.test(z)) ?? '';
-    expect(po).toMatch(/nie pomoże/);
+    expect(po).toMatch(/dodanie jej nic nie da/); // M3 T2 (D-123): „nie pomoże” → „nic nie da”, ta sama decyzja
     expect(po).toMatch(/upiecz chleb bez soli albo zrób z ciasta spód do pizzy/);
   });
 

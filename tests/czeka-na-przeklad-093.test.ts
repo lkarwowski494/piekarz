@@ -41,9 +41,16 @@ function slownik(kod: string): Map<string, string> {
 describe('093: 12 kluczy po małym przebiegu przekładu', () => {
   // Przebieg a5 (M1, 2026-10-23: batche a5, a5b, a5c, 164 klucze × 33 języki, walidacja 0 braków) wpięty przez M3;
   // wyjątki a1b, D-13, 216, P-a/P-b, PRZ, D10, W-fix2 i toru T (F-71, 217) usunięte razem z wpisami listy.
-  it('lista czekających na przekład jest pusta (po przebiegu a5)', () => {
+  // Wyjątek nazwany „T2 / a5d — do usunięcia po wpięciu przekładu a5d” (M3 T2, D-123, 2026-10-23): nowe brzmienia
+  // tekstów bez nazw źródeł i ekran „Źródła wiedzy” czekają na przebieg przekładu a5d (lista kluczy:
+  // audit/M3-2026-10-22/przeklad-a5/a5d-klucze.json); do tego czasu w 33 językach tekst EN. Wyjątek obejmuje tylko
+  // wpisy ze znacznikiem T2 w „powod”, które są kluczami słownika EN; każdy inny wpis nadal czerwony.
+  // Po wpięciu a5d usuń wpisy z listy i tę stałą.
+  const ZNACZNIK_T2_A5D = '[M3 T2 / a5d';
+  it('lista czekających na przekład jest pusta (po przebiegu a5; poza wyjątkiem T2 / a5d)', () => {
     const j = JSON.parse(fs.readFileSync(path.join(root, 'docs/lokalizacja/czeka-na-przeklad.json'), 'utf8').replace(/^\uFEFF/, ''));
-    expect((j.klucze as { klucz: string }[]).map((x) => x.klucz)).toEqual([]);
+    const t2 = (x: { klucz: string; powod: string }) => x.powod.includes(ZNACZNIK_T2_A5D) && typeof EN[x.klucz] === 'string';
+    expect((j.klucze as { klucz: string; powod: string }[]).filter((x) => !t2(x)).map((x) => x.klucz)).toEqual([]);
   });
 
   it.each(getAllSupportedLocaleCodes().filter((k) => k !== 'pl' && k !== 'en'))('%s: każdy z 12 kluczy ma własny tekst', (kod) => {

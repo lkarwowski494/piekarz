@@ -128,7 +128,7 @@ export function calculateStarterPhase(
         poziom: 'info',
         // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-LOD-001) [M1-audytor-generalny-132; 06-tresci-502]
         advicePl:
-          'Według King Arthur Baking przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.',
+          'Przed pieczeniem dokarm zakwas z lodówki i zostaw go w temperaturze pokojowej; może potrzebować nawet 12 godzin, żeby pokazać oznaki życia.',
       };
     }
     return {
@@ -141,7 +141,7 @@ export function calculateStarterPhase(
       poziom: 'info',
       // Dosłownie z docs/tresci/pl/zakwas-z-lodowki.md (ZAK-ZAL-012, ZAK-LOD-002) [M1-audytor-generalny-132; 06-tresci-502]
       advicePl:
-        'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.',
+        'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.',
     };
   }
 
@@ -167,7 +167,7 @@ export function calculateStarterPhase(
       elapsedHours,
       labelPl: 'W szacowanym oknie szczytu',
       poziom: 'info',
-      advicePl: 'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.',
+      advicePl: 'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.',
     };
   }
   return {
@@ -210,7 +210,7 @@ export function evaluateSourdoughSafety(observations: {
       status: 'hooch',
       titlePl: 'Płyn na powierzchni (hooch)',
       actionPl:
-        'Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny fermentacji drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.',
+        'Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży. Możesz ją zlać albo wmieszać. Jeśli widzisz też nalot lub przebarwienie albo czujesz zgniły zapach, zaznacz to powyżej.',
     };
   }
 

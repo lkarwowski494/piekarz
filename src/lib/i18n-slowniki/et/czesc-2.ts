@@ -1,7 +1,6 @@
 // Słownik et, część 2 z 9. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Co zrobić: dokarmiaj zakwas regularnie; według tego samego źródła seria regularnych dokarmień powinna go przywrócić.': 'Mida teha: toida juuretist regulaarselt; sama allika järgi peaks regulaarsete toitmiste seeria selle taastama.',
   'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': '„{krok}“ võeti tagasi. Teavitused on tagasi eelmistel kellaaegadel.',
   'Cofnij poprzedni': 'Võta eelmine tagasi',
   'Coś mnie niepokoi': 'Midagi on kahtlast',
@@ -48,7 +47,6 @@ export const CZESC: Record<string, string> = {
   'Dodaj mąkę': 'Lisa jahu',
   'Dodaj mąkę z Atlasu': 'Lisa jahu Jahuatlasest',
   'Dodaj nowy zakwas': 'Lisa uus looduslik juuretis',
-  'Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.': 'Lisa sool enne esimest kerkimist: King Arthur Bakingu järgi kerkib soolata pärmitaigen tavalisest kiiremini, on vähem maitsekas ja nõrgema struktuuriga.',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': 'Lisan selle Minu retseptide hulka. Ülejäänud andmed jäävad muutmata.',
   'Dodano zakwas': 'Juuretis lisatud',
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': 'Lusikatäis mett soodustab kääritamist ja pehmendab happelisust. Grahami jahu jämedad kliid vajavad 45-minutilist autolüüsi.',
@@ -144,7 +142,6 @@ export const CZESC: Record<string, string> = {
   'Garowanie chłodnicze': 'Külmkergitus',
   'Garowanie chłodnicze w lodówce': 'Külmkergitus külmkapis',
   'Garowanie chłodnicze w lodówce (Cold Retard)': 'Külmkergitus külmkapis (Cold Retard)',
-  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': 'Kergita taignat külmkapis: King Arthur Bakingu andmetel aeglustab külm käärimist ja aeglasem käärimine süvendab maitset.',
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.': 'Kui see pärast toitmist mullitama hakkab, toida seda teist korda; kui see 12 tunni jooksul kerkib ja on mulle täis, on see valmis viimaseks toitmiseks enne kasutamist.',
   'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.': 'Kui telefon magab, ütleb teavitus, mida ja millal teha. Kohe küsib telefon sinult luba.',
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': 'Kui ost on kinnitatud, lülitub Pagar Pro ise sisse. Uuesti osta pole vaja.',
@@ -163,7 +160,6 @@ export const CZESC: Record<string, string> = {
   'Gotowe {dzien} o {godzina}': 'Valmis {dzien} kell {godzina}',
   'Gotowe {dzien} o {godzina}.': 'Valmis {dzien} kell {godzina}.',
   'Gotowość zakwasu do ciasta': 'Juuretise valmidus taignaks',
-  'Gotowy do ciasta (według King Arthur Baking).': 'Taigna jaoks valmis (King Arthur Bakingu järgi).',
   'Gotowy do krojenia': 'Lõikamiseks valmis',
   'gramy, °C': 'grammid, °C',
   'Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.': 'Palju õnne, sinu esimene juuretis on valmis. Ära unusta selle eest reeglite järgi hoolitseda.',
@@ -200,7 +196,6 @@ export const CZESC: Record<string, string> = {
   'Importuj JSON': 'Impordi JSON',
   'Importuj recepturę': 'Impordi retsept',
   'Importuj z pliku': 'Impordi failist',
-  'Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.': 'King Arthur Bakingu järgi on teised soojad kohad külmkapi pealmine osa või kõrge riiul, sest soojus tõuseb üles.',
   'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': 'Kuidas kontrollida, kas kergituskorvis olev päts on küpsetamiseks valmis',
   'Jak wyszedł bochenek?': 'Kuidas päts välja tuli?',
   'Jakość skórki': 'Kooriku kvaliteet',

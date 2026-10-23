@@ -55,6 +55,8 @@ export function subscribePendingRecipe(listener: PendingRecipeListener): () => v
  */
 const DAWNE_NAZWY_BAZOWYCH: Record<string, string> = {
   'mistrzowski wiejski (tartine style 80%)': 'tartine_high_hydration_80',
+  // „… w stylu Tartine, 80%” → „Wiejski chleb na zakwasie, 80%”: nazwy bez piekarni (M3 T2, D-123, 2026-10-23)
+  'mistrzowski wiejski w stylu tartine, 80%': 'tartine_high_hydration_80',
   'san francisco sourdough (wyrazista kwasowość)': 'san_francisco_sourdough',
   'bagietka paryska z poolishem (baguette de tradition)': 'baguette_tradition_poolish',
   // „48h” → „48 h” (wspólny format czasu, 2026-10-22) [M1-audytor-generalny-162]

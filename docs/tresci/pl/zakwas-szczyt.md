@@ -14,7 +14,7 @@ Po szacowanym szczycie [T:-]
 W niższej temperaturze wzrost i fermentacja zakwasu zwalniają. [T:ZAK-SZC-004]
 
 ## calculateStarterPhase.advicePl, faza peak
-Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h. [T:ZAK-SZC-002]
+Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę. [T:ZAK-SZC-002]
 
 ## calculateStarterPhase.advicePl, faza after
 Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu. [T:ZAK-SZC-001]

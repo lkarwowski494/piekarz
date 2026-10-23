@@ -6,25 +6,25 @@
 Poolish (Rzadki zaczyn 100%) [T:ZAC-POO-001]
 
 ## PREFERMENT_DEFINITIONS.poolish.fermentationTimeHours
-według King Arthur Baking od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży) [T:ZAC-CZA-001]
+od 8 godzin (więcej drożdży) do 14–16 godzin (mniej drożdży) [T:ZAC-CZA-001]
 
 ## PREFERMENT_DEFINITIONS.biga.namePl
 Biga (Sztywny zaczyn włoski 50%) [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.biga.fermentationTimeHours
-według Bread Bakers Guild of America 18 godzin w temperaturze ok. 15,6 °C [T:ZAC-BIG-001]
+18 godzin w temperaturze ok. 15,6 °C [T:ZAC-BIG-001]
 
 ## PREFERMENT_DEFINITIONS.pate_fermentee.namePl
 Pâte Fermentée (Stare ciasto) [T:-]
 
 ## PREFERMENT_DEFINITIONS.pate_fermentee.fermentationTimeHours
-według Bread Bakers Guild of America co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce [T:ZAC-PAT-001]
+co najmniej 3 godziny w temperaturze pokojowej albo 1 godzina, a potem najwyżej 3 dni w lodówce [T:ZAC-PAT-001]
 
 ## PREFERMENT_DEFINITIONS.levain.namePl
 Levain (Rzemieślniczy zaczyn na zakwasie) [T:-]
 
 ## PREFERMENT_DEFINITIONS.levain.fermentationTimeHours
-według King Arthur Baking ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków [T:KRO-POC-002]
+ok. 6–8 godzin, aż podwoi objętość i będzie pełen pęcherzyków [T:KRO-POC-002]
 
 ## PREFERMENT_DEFINITIONS.levain.flavorProfilePl
 Złożony bukiet kwasów mlekowego i octowego. [T:KWA-TEM-001]

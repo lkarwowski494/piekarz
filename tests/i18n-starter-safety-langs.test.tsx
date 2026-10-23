@@ -10,6 +10,7 @@ import renderer, { act } from 'react-test-renderer';
 import { StarterSafetyCard } from '../src/components/zakwas/StarterSafetyCard';
 import { evaluateSourdoughSafety } from '../src/core/sourdough-physics';
 import { ACTIVE_LANGS, setLang, Lang } from '../src/lib/i18n';
+import { EN } from '../src/lib/i18n.en';
 
 type Status = 'discard' | 'hooch' | 'no_observation';
 const OBSERVATIONS: Record<Status, Parameters<typeof evaluateSourdoughSafety>[0]> = {
@@ -88,9 +89,26 @@ describe('Werdykt bezpieczeństwa zakwasu w każdym aktywnym języku (046)', () 
     }
   });
 
+  // Wyjątek nazwany „T2 / a5d — do usunięcia po wpięciu przekładu a5d” (M3 T2, D-123, 2026-10-23): działanie przy samym
+  // płynie (wynik.hooch.actionPl) ma nowe brzmienie PL bez „Według CSU Extension”; stary przekład usunięty ze słowników,
+  // nowy czeka na przebieg a5d (docs/lokalizacja/czeka-na-przeklad.json). Do tego czasu karta w 33 językach pokazuje
+  // to zdanie po angielsku (słownik EN), a tytuł i granica dalej w języku i równe docs/tresci/<język>. Po wpięciu a5d
+  // (wepnij-przeklad odtworzy docs/tresci/<język>/zakwas-bezpieczenstwo.md) usuń ten wyjątek.
+  const CZEKA_A5D: Status[] = ['hooch'];
   for (const lang of OTHER_LANGS) {
     const DOC = sections(lang);
-    for (const status of STATUSES) {
+    for (const status of STATUSES.filter((s) => CZEKA_A5D.includes(s))) {
+      it(`${lang}: ${status} — tytuł i granica w języku; działanie po angielsku do przekładu a5d (wyjątek T2 / a5d)`, () => {
+        setLang(lang);
+        const card = renderCard(status);
+        expect(card.title).toBe(DOC[`wynik.${status}.titlePl`]);
+        expect(card.boundary).toBe(DOC['card.granica']);
+        expect(card.title).not.toBe(PL[`wynik.${status}.titlePl`]);
+        expect(card.action).toBe(EN[PL[`wynik.${status}.actionPl`]]);
+        expect(card.action).not.toMatch(/CSU Extension/);
+      });
+    }
+    for (const status of STATUSES.filter((s) => !CZEKA_A5D.includes(s))) {
       it(`${lang}: ${status} — tytuł, działanie i granica przetłumaczone i równe docs/tresci/${lang}`, () => {
         setLang(lang);
         const card = renderCard(status);

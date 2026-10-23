@@ -28,7 +28,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Садржи ситне мекиње. Повећај хидратацију за 3-5% и продужи аутолизу на 45-60 минута.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Означи испод особине средине, коре или укуса које те брину, да би Доктор за хлеб пронашао технолошку грешку и предложио решење.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Означи шта видиш или осећаш у тегли.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Означи кад стартер нарасте двоструко од ознаке на тегли. Тада је спреман за тесто (према King Arthur Baking).',
   'Zbalansowany': 'Избалансиран',
   'Zbity, gęsty miękisz': 'Збијена, густа средина',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Збијена, густа средина — размисли о дужој првој ферментацији',

@@ -25,7 +25,7 @@ export function BreadSchoolSection({
     <View>
       <Text style={styles.tabIntroText}>
         {t(
-          '6-stopniowa rzemieślnicza ścieżka wtajemniczenia. Od prostego chleba bez wyrabiania do mistrzowskiego Tartine i pizzy neapolitańskiej.'
+          'Sześć etapów nauki: od prostego chleba bez wyrabiania po wiejski chleb na zakwasie i pizzę neapolitańską.'
         )}
       </Text>
 

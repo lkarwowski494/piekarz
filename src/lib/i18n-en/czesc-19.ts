@@ -5,83 +5,83 @@
 export const EN_19: Record<string, string> = {
   'Przerośnięte ciasto':
     'Over-proofed dough',
-  'Według Modernist Cuisine wgłębienie po delikatnym naciśnięciu ciasta palcem zostaje na stałe, gdy ciasto przerosło.':
-    'According to Modernist Cuisine, when dough is over-proofed, the dent from gently pressing it with a finger stays.',
-  'Ciasto drożdżowe uformuj ponownie: według King Arthur Baking mocno przerośnięty drożdżowy bochenek upieczony od razu opada w piecu, choć nadal dobrze smakuje.':
-    'Reshape yeast dough: according to King Arthur Baking, a badly over-proofed yeast loaf baked right away collapses in the oven, though it still tastes good.',
-  'Ciasta na zakwasie zwykle nie da się tak uratować: według King Arthur Baking ten sposób zwykle nie działa, a według Modernist Cuisine warto spróbować tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.':
-    'Sourdough usually can\'t be saved this way: according to King Arthur Baking this method generally doesn\'t work, and according to Modernist Cuisine it\'s worth trying only if the dough was made and proofed within a few hours.',
-  'Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.':
-    'Sourdough proofed overnight in the cold is tough after degassing: according to Modernist Cuisine the loaf will rise poorly, be misshapen and very sour.',
+  'Gdy ciasto przerosło, wgłębienie po delikatnym naciśnięciu palcem zostaje na stałe.':
+    'If the dough is over-proofed, a gentle fingertip dent stays put.',
+  'Ciasto drożdżowe uformuj ponownie: mocno przerośnięty bochenek drożdżowy upieczony od razu opada w piecu, choć nadal dobrze smakuje.':
+    'Reshape yeast dough: a badly over-proofed yeast loaf baked straight away collapses in the oven, though it still tastes good.',
+  'Ciasta na zakwasie zwykle nie da się tak uratować: ten sposób najczęściej zawodzi, a spróbować warto tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin.':
+    "Sourdough usually can't be saved this way: it rarely works, and it's only worth a try if the dough was made and proofed within a few hours.",
+  'Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny.':
+    'Sourdough proofed overnight in the cold turns tough once degassed: the loaf will rise poorly, come out misshapen and taste very sour.',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.':
     'If you\'re saving the dough, take it out of the basket or bowl.',
   'Odgazuj je, mocno dociskając, tak jak przy formowaniu.':
     'Degas it by pressing down firmly, as you do when shaping.',
   'Uformuj je ponownie i odstaw do garowania.':
     'Shape it again and let it proof.',
-  'Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu.':
-    'According to Modernist Cuisine, over-proofed dough collapses because its gluten structure is weakened and it has produced too much gas.',
+  'Przerośnięte ciasto opada, bo gluten jest już osłabiony, a gazu zrobiło się za dużo.':
+    "Over-proofed dough collapses because the gluten has weakened and there's too much gas.",
   'Zbyt luźne ciasto':
     'Dough too slack',
   'Ciasto jest lepkie i luźne i nie trzyma kształtu.':
     'The dough is sticky and loose and won\'t hold its shape.',
-  'Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.':
-    'Check that the salt is in the dough: according to King Arthur Baking, dough without salt is sticky and loose, because salt absorbs moisture and tightens gluten.',
+  'Sprawdź, czy sól jest w cieście: ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.':
+    'Check the salt went in: dough without salt is sticky and slack, because salt holds moisture and tightens the gluten.',
   'Jeśli soli brakuje, otwórz protokół „Zapomniana sól”.':
     'If the salt is missing, open the "Forgotten salt" protocol.',
-  'Rozciągaj i składaj ciasto w czasie fermentacji: według King Arthur Baking to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.':
-    'Stretch and fold the dough during fermentation: according to King Arthur Baking this helps develop the gluten network and strengthens the dough.',
-  'Według King Arthur Baking przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć.':
-    'According to King Arthur Baking, for bread made with 100% rye flour, folding can usually be skipped.',
-  'Według King Arthur Baking składanie w czasie fermentacji pomaga rozwinąć siatkę glutenową i wzmacnia ciasto, a sól napina gluten.':
-    'According to King Arthur Baking, folding during fermentation helps develop the gluten network and strengthens the dough, and salt tightens gluten.',
-  'Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi.':
-    'The dough is rising more slowly than usual: according to King Arthur Baking, a common cause is the cool spot where it sits.',
-  'Przenieś ciasto w cieplejsze miejsce: według King Arthur Baking drożdże najlepiej rosną w ok. 24–25,5 °C.':
-    'Move the dough somewhere warmer: according to King Arthur Baking, yeast grows best at about 24–25.5 °C.',
-  'Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.':
-    'Other warm spots, according to King Arthur Baking: the top of the refrigerator or a high shelf, because heat rises.',
-  'Przykryj miskę pokrywką albo folią: według King Arthur Baking wilgoć utrzymuje skórkę ciasta miękką i pomaga mu rosnąć.':
-    'Cover the bowl with a lid or plastic wrap: according to King Arthur Baking, moisture keeps the skin of the dough soft and helps it rise.',
-  'Oceniaj ciasto po wyglądzie, nie po zegarze: według King Arthur Baking w zimnym powietrzu ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.':
-    'Judge the dough by how it looks, not by the clock: according to King Arthur Baking, dough takes longer to rise in cold air, and recipe times are only a guideline.',
-  'W zakresie 20–26 °C Piekarz przyjmuje przybliżenie z modelu badawczego: 6 °C niżej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.':
-    'In the range 20–26 °C, Baker uses an approximation from a research model: 6 °C cooler (for example 20 instead of 26 °C) means about 2 times longer fermentation.',
+  'Rozciągaj i składaj ciasto w czasie fermentacji: to pomaga rozwinąć sieć glutenową i wzmacnia ciasto.':
+    'Stretch and fold the dough during fermentation: it helps build the gluten network and strengthens the dough.',
+  'Przy chlebie ze 100% mąki żytniej składanie zwykle można pominąć.':
+    'With 100% rye bread you can usually skip the folds.',
+  'Składanie w czasie fermentacji pomaga rozwinąć sieć glutenową i wzmacnia ciasto, a sól napina gluten.':
+    'Folding during fermentation helps build the gluten network and strengthens the dough, and salt tightens the gluten.',
+  'Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi.':
+    "The dough is rising more slowly than usual: often it's just sitting somewhere cool.",
+  'Przenieś ciasto w cieplejsze miejsce: drożdże najlepiej rosną w ok. 24–25,5 °C.':
+    'Move the dough somewhere warmer: yeast does best at about 24–25.5 °C.',
+  'Inne ciepłe miejsca to wierzch lodówki albo wysoka półka, bo ciepło idzie do góry.':
+    'Other warm spots: the top of the fridge or a high shelf, since heat rises.',
+  'Przykryj miskę pokrywką albo folią: wilgoć utrzymuje wierzch ciasta miękki i pomaga mu rosnąć.':
+    'Cover the bowl with a lid or cling film: the moisture keeps the surface of the dough soft and helps it rise.',
+  'Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką.':
+    'Go by how the dough looks, not the clock: it rises more slowly in cold air, and recipe times are only a guide.',
+  'Przy 20–26 °C działa prosta zasada: 6 °C chłodniej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja.':
+    'In the 20–26 °C range a simple rule works: 6 °C cooler (say 20 instead of 26 °C) means fermentation takes about 2 times as long.',
   'Zapomniana sól':
     'Forgotten salt',
   'Ciasto jest już wymieszane, a odważona sól została na blacie.':
     'The dough is already mixed, and the weighed salt is still on the counter.',
-  'Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.':
-    'Add the salt before the first rise: according to King Arthur Baking, yeast dough without salt rises faster than usual, has less flavor and a weaker structure.',
-  'Nie próbuj ciasta, żeby sprawdzić sól: według FDA surowego ciasta nie należy jeść ani próbować.':
-    'Don\'t taste the dough to check the salt: according to the FDA, raw dough should not be eaten or tasted.',
+  'Dodaj sól przed pierwszym rośnięciem: ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.':
+    'Add the salt before the first rise: yeast dough without salt rises faster than usual, tastes flatter and has a weaker structure.',
+  'Nie próbuj ciasta, żeby sprawdzić sól: surowego ciasta nie je się ani nie próbuje, bo w surowej mące mogą być groźne bakterie.':
+    "Don't taste the dough to check the salt: raw dough shouldn't be eaten or tasted, because raw flour can carry harmful bacteria.",
   'Wymieszaj sól z kilkoma łyżeczkami wody.':
     'Mix the salt with a few teaspoons of water.',
   'Rozpłaszcz ciasto, rozsmaruj na nim tę mieszankę, zwiń je, znów rozpłaszcz, obróć o 90° i zwiń ponownie.':
     'Press the dough out flat, spread the mixture over it, roll it up, press it out again, rotate it 90° and roll it up again.',
   'Wyrabiaj, aż ciasto znów będzie w miarę gładkie.':
     'Knead until the dough is fairly smooth again.',
-  'Przy cieście na zakwasie według King Arthur Baking możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu.':
-    'With sourdough, according to King Arthur Baking, you can treat the pause as an autolyse: after a 20–60 minute rest, mix in the salt and continue with the recipe.',
-  'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.':
-    'If you notice the missing salt only after the first rise, according to King Arthur Baking adding it won\'t help and re-kneading can permanently damage the dough: bake the bread without salt or use the dough for a pizza crust.',
-  'Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten.':
-    'According to King Arthur Baking, salt slows fermentation, absorbs moisture and tightens gluten.',
+  'Przy cieście na zakwasie możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu.':
+    'With sourdough you can treat the pause as an autolyse: after a 20–60 minute rest, mix in the salt and carry on with the recipe.',
+  'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.':
+    "If you only notice the missing salt after the first rise, adding it won't help and kneading again can ruin the dough for good: bake it without salt or use it for a pizza base.",
+  'Sól spowalnia fermentację, wiąże wilgoć i napina gluten.':
+    'Salt slows fermentation, holds moisture and tightens the gluten.',
   // Presety drożdżowe, zadanie 217 (docs/tresci/en/presety-drozdze.md) [M1-audytor-generalny-217]
   'Pizza w stylu neapolitańskim':
     'Neapolitan-style pizza',
   'Ciasto na pizzę w stylu neapolitańskim o chrupiącym brzegu i delikatnym wnętrzu.':
     'Neapolitan-style pizza dough with a crisp edge and a tender inside.',
-  'Według King Arthur Baking ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.':
-    'According to King Arthur Baking, the dough rises at room temperature for at least 12 and at most 24 hours. After dividing it into balls, let it rise another 45–60 minutes while the oven preheats.',
+  'Ciasto rośnie w temperaturze pokojowej co najmniej 12, a najwyżej 24 godziny. Po podziale na kulki rośnie jeszcze 45–60 minut, gdy nagrzewa się piekarnik.':
+    'The dough rises at room temperature for at least 12 and at most 24 hours. Once divided into balls, it rises another 45–60 minutes while the oven heats up.',
   'Francuska bagietka na zaczynie poolish dojrzewającym około 14 godzin. Chrupiąca, cienka skórka i lekki, napowietrzony miękisz.':
     'French baguette made with a poolish that ripens for about 14 hours. Crisp, thin crust and a light, airy crumb.',
-  'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Według King Arthur Baking ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.':
-    'Knead with butter and sugar added. After rising, braid the dough, brush with beaten egg and sprinkle with streusel. According to King Arthur Baking, the dough rises for about 2 hours, and the braided challah for 60–90 minutes.',
-  'Przełóż na obficie naoliwioną blachę. Przed włożeniem do pieca polej emulsją solankową (woda, oliwa, sól) i energicznie ugnieć palcami tworząc wgłębienia. Według King Arthur Baking ciasto rośnie 1,5–2 godzin, a rozciągnięte na blasze jeszcze 30 minut.':
-    'Transfer to a generously oiled baking tray. Before putting it in the oven, pour over a brine emulsion (water, olive oil, salt) and vigorously press with your fingers to create dimples. According to King Arthur Baking, the dough rises for 1.5–2 hours, and once stretched in the pan for another 30 minutes.',
-  'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.':
-    'Poolish preferment (20% of the flour and 100% hydration). Baked on a preheated baking steel or baking stone with intense steam. According to King Arthur Baking, the poolish ripens for about 14 hours, and the dough rises for 45 and then another 45 minutes.',
+  'Wyrabiaj z dodatkiem masła i cukru. Po wyrośnięciu zapleć warkocz, posmaruj roztrzepanym jajkiem i posyp kruszonką. Ciasto rośnie około 2 godzin, a zapleciona chałka 60–90 minut.':
+    'Knead in butter and sugar. Once risen, braid the dough, brush it with beaten egg and sprinkle with streusel. The dough rises for about 2 hours, and the braided challah for 60–90 minutes.',
+  'Przełóż na obficie naoliwioną blachę. Przed pieczeniem polej solanką z wody, oliwy i soli i mocno wciśnij palce w ciasto, robiąc dołki. Ciasto rośnie 1,5–2 godziny, a rozciągnięte na blasze jeszcze 30 minut.':
+    'Tip it onto a well-oiled tray. Before baking, pour over a brine of water, olive oil and salt and press your fingers firmly into the dough to make dimples. The dough rises for 1.5–2 hours, then another 30 minutes once stretched in the pan.',
+  'Zaczyn poolish (20% mąki, 100% hydratacji). Piecz na rozgrzanej płycie stalowej albo kamieniu szamotowym, z dużą ilością pary. Poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.':
+    'Poolish preferment (20% of the flour, 100% hydration). Bake on a hot baking steel or baking stone with plenty of steam. The poolish ripens for about 14 hours, and the dough rises for 45 minutes, then another 45.',
   // Kalendarz 1.0: linia „Następne”, zaległe, typy zdarzeń (teksty roli 04, a2) [M3 D4a, BR-KAL-003, D-094]
   'Następne: {lista}': 'Next: {lista}',
   'Zaległe: {co} ({h})': 'Overdue: {co} ({h})',

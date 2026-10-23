@@ -60,10 +60,10 @@ export const EN_8: Record<string, string> = {
     'Preparing the Proofing Basket (Banneton)',
   'Odprowadzenie wilgoci z powierzchni ciasta i zapobieganie przywieraniu do formy z rattanu lub pulpy drzewnej.':
     'Drawing moisture away from the dough surface and preventing it from sticking to a rattan or wood pulp basket.',
-  'Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.':
-    'According to King Arthur Baking, dust the basket with a light but thorough layer of flour: any flour will do, from all-purpose and bread flour to whole wheat.',
-  'Według tego samego źródła wielu piekarzy wybiera grubszą mąkę, np. semolinę albo mąkę ryżową, bo tworzy wyraźniejszą barierę między ciastem a koszykiem i nie wchodzi w ciasto.':
-    'According to the same source, many bakers choose a coarser flour, such as semolina or rice flour, because it forms a clearer barrier between the dough and the basket and does not work into the dough.',
+  'Oprósz koszyk cienką, ale dokładną warstwą mąki: nada się każda, od uniwersalnej i chlebowej po pełnoziarnistą.':
+    'Dust the basket with a light but thorough layer of flour: any kind works, from all-purpose and bread flour to whole wheat.',
+  'Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.':
+    "Many bakers prefer a coarser flour, such as semolina or rice flour, because it keeps dough and basket apart better and doesn't work into the dough.",
   'Rozprowadź mąkę dłonią dokładnie w rowkach wikliny koszyka.':
     'Spread the flour by hand thoroughly into the grooves of the wicker basket.',
   'Po wypieku wysusz koszyk w stygnącym piekarniku (max 50°C) i wyczyść suchą szczoteczką z twardym włosiem.':
@@ -124,8 +124,8 @@ export const EN_8: Record<string, string> = {
     'Listen to the bread: in the first minutes you will hear the characteristic “singing” (crackling of the very thin crust as it cracks).',
   'Dla chlebów pszennych: odczekaj MINIMUM 2 godziny przed pierwszym krojeniem.':
     'For wheat breads: wait a MINIMUM of 2 hours before the first slice.',
-  'Chleb żytni: według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. Gorące żyto po ukrojeniu ma postać lepkiej mazi.':
-    'Rye bread: according to King Arthur Baking, a baked sourdough rye bread should rest for 24 hours before slicing, for best quality. Hot rye turns into a sticky paste when sliced.',
+  'Chleb żytni: upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku. Gorące żyto po ukrojeniu jest jak lepka maź.':
+    'Rye bread: sourdough rye is best left to rest for 24 hours before you slice it. Sliced hot, rye turns into a sticky paste.',
   'Krojenie gorącego chleba prosto z pieca — nóż miażdży niestabilną siatkę skrobi, tworząc trwały zakalec na ostrzu.':
     'Slicing hot bread straight from the oven — the knife crushes the unstable starch network, leaving permanent gumminess on the blade.',
   'Zawijanie ciepłego chleba w folię lub ściereczkę.':

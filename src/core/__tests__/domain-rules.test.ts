@@ -271,10 +271,12 @@ describe('Piekarz Core Domain Rules (RD-00…RD-15)', () => {
       expect(safety.actionPl).not.toMatch(/nieszkodliw|bezpieczn/i);
     });
 
-    it('Hooch alone is described with attribution, without a "healthy" verdict', () => {
+    // M3 T2 (D-123): zamiast atrybucji w zdaniu — powód (produkt uboczny pracy drożdży); źródło na ekranie „Źródła wiedzy”
+    it('Hooch alone is described with the reason, without a "healthy" verdict', () => {
       const safety = evaluateSourdoughSafety({ hasHoochLiquid: true });
       expect(safety.status).toBe('hooch');
-      expect(safety.actionPl).toContain('Według CSU Extension');
+      expect(safety.actionPl).toContain('jest w porządku: to produkt uboczny pracy drożdży');
+      expect(safety.actionPl).not.toContain('CSU Extension');
       expect(`${safety.titlePl} ${safety.actionPl}`).not.toMatch(/zdrow/i);
     });
   });

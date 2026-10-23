@@ -43,7 +43,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Apró korpaszemcséket tartalmaz. Növeld a hidratációt 3–5%-kal, és hosszabbítsd meg az autolízist 45–60 percre.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Jelöld be alább a bélzet, a héj vagy az íz aggasztó jellemzőit, hogy a Kenyérdoktor azonosítsa a technológiai hibát, és megoldást javasoljon.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Jelöld be, mit látsz vagy érzel az üvegben.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Jelöld be, amikor a kovász az üvegen lévő jelhez képest a duplájára nőtt. Ekkor kész a tésztához (a King Arthur Baking szerint).',
   'Zbalansowany': 'Kiegyensúlyozott',
   'Zbity, gęsty miękisz': 'Tömör, sűrű bélzet',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Tömör, sűrű bélzet – fontold meg a hosszabb főérlelést',

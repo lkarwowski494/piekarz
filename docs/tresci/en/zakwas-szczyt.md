@@ -14,7 +14,7 @@ After the estimated peak [T:-]
 At lower temperatures starter growth and fermentation slow down. [T:ZAK-SZC-004]
 
 ## calculateStarterPhase.advicePl, phase peak
-The peak window is an estimate: in a study of 40 starters, dough rise rates ranged from 0.1 to 1.5 mm/h. [T:ZAK-SZC-002]
+The peak window is only an estimate: every starter works at its own pace, and dough can rise anywhere from 0.1 to 1.5 mm per hour. [T:ZAK-SZC-002]
 
 ## calculateStarterPhase.advicePl, phase after
 A starter past its peak becomes more sour and produces fewer gas bubbles. [T:ZAK-SZC-001]

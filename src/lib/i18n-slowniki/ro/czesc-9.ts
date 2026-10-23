@@ -38,7 +38,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Conține tărâțe fine. Crește gradul de hidratare cu 3-5% și prelungește autoliza la 45-60 de minute.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Bifează mai jos caracteristicile miezului, cojii sau gustului care te îngrijorează, ca Doctorul Pâinii să identifice greșeala tehnologică și să ofere o soluție.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Bifează ce vezi sau ce miroși în borcan.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Bifează când maia a crescut de două ori față de semnul de pe borcan. Atunci e gata pentru aluat (conform King Arthur Baking).',
   'Zbalansowany': 'Echilibrat',
   'Zbity, gęsty miękisz': 'Miez compact, dens',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Miez strâns și dens — ia în calcul o fermentare în bloc mai lungă',

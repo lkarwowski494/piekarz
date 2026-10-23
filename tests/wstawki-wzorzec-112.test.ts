@@ -8,6 +8,7 @@ import { EN } from '../src/lib/i18n.en';
 import { MASTER_RECIPES } from '../src/recipes/presets';
 import { prepareBakeAgainRecipe } from '../src/lib/recipe-navigation';
 import type { StoredBakeLog } from '../src/data/db';
+import { ZRODLA_WIEDZY } from '../src/core/zrodla-wiedzy';
 
 const rootDir = path.resolve(__dirname, '..');
 const rel = (f: string) => path.relative(rootDir, f).split(path.sep).join('/');
@@ -71,6 +72,12 @@ const SLOWA_PL = new Set(Object.keys(EN).map(bezNawiasow).flatMap(slowa));
  */
 const TERMINY_EN = new Set(['coil', 'fold']);
 
+/**
+ * Nazwy źródeł na ekranie „Źródła wiedzy” (M3 T2, D-123): opis bibliograficzny z nazwą instytucji albo tytułem w nawiasie
+ * (np. „(Colorado State University)”, „(Bread Lines 2009)”) to nazwy własne, nie wstawki; opisy ekranu nadal sprawdzane.
+ */
+const NAZWY_ZRODEL = new Set(ZRODLA_WIEDZY.flatMap((g) => g.zrodla.map((z) => z.nazwa)));
+
 /** Słowa angielskie w nawiasach tekstu PL. */
 function wstawki(tekst: string): string[] {
   const bezParametrow = TRESC_ROLI_06.reduce((s, x) => s.split(x).join(' '), tekst.replace(/\{[^}]*\}/g, ' '));
@@ -95,7 +102,7 @@ describe('M1-audytor-generalny-112: wzorzec nawiasu ze słowem angielskim w teks
     const znalezione: string[] = [];
     for (const f of pliki) {
       for (const { tekst, linia } of literaly(f)) {
-        if (!(tekst in EN)) continue;
+        if (!(tekst in EN) || NAZWY_ZRODEL.has(tekst)) continue;
         const w = wstawki(tekst);
         if (w.length) znalezione.push(`${rel(f)}:${linia}: ${w.join(', ')} w „${tekst.slice(0, 80)}”`);
       }
@@ -105,7 +112,9 @@ describe('M1-audytor-generalny-112: wzorzec nawiasu ze słowem angielskim w teks
 
   it('„Piecz ponownie” wpisu z dawną nazwą receptury bazowej wczytuje tę recepturę (dane użytkownika bez zmian)', () => {
     const DAWNE: [string, string][] = [
-      ['Mistrzowski wiejski (Tartine Style 80%)', 'Mistrzowski wiejski w stylu Tartine, 80%'],
+      ['Mistrzowski wiejski (Tartine Style 80%)', 'Wiejski chleb na zakwasie, 80%'],
+      // M3 T2 (D-123): nazwa bez piekarni; wpisy Dziennika z nazwą z lat 2026-10-21…23 dalej znajdują recepturę
+      ['Mistrzowski wiejski w stylu Tartine, 80%', 'Wiejski chleb na zakwasie, 80%'],
       ['San Francisco Sourdough (Wyrazista Kwasowość)', 'Chleb w stylu San Francisco o wyrazistej kwasowości'],
       ['Bagietka paryska z Poolishem (Baguette de Tradition)', 'Bagietka paryska na poolishu'],
     ];

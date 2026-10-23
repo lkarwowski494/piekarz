@@ -233,7 +233,7 @@ export const EN_2: Record<string, string> = {
   'Szkoła Chleba': 'Bread School',
   'Techniki': 'Techniques',
   'Trener i Fiszki': 'Drill & Cards',
-  '6-stopniowa rzemieślnicza ścieżka wtajemniczenia. Od prostego chleba bez wyrabiania do mistrzowskiego Tartine i pizzy neapolitańskiej.': '6-stage artisan curriculum. From beginner no-knead pot bread to artisan Tartine and Neapolitan pizza.',
+  'Sześć etapów nauki: od prostego chleba bez wyrabiania po wiejski chleb na zakwasie i pizzę neapolitańską.': 'Six stages: from simple no-knead pot bread to a sourdough country loaf and Neapolitan pizza.',
   'POZIOM': 'LEVEL',
   'Zaliczona': 'Completed',
   'soli': 'salt',

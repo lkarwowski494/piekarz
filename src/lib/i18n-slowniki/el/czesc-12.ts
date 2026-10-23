@@ -22,7 +22,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Περιέχει λεπτά πίτουρα. Αυξήστε την ενυδάτωση ζύμης κατά 3-5% και επεκτείνετε την αυτόλυση στα 45-60 λεπτά.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Επιλέξτε παρακάτω τα χαρακτηριστικά της ψίχας, της κόρας ή της γεύσης που σας ανησυχούν, ώστε ο Γιατρός Ψωμιού να εντοπίσει το τεχνικό σφάλμα και να προτείνει λύση.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Επιλέξτε τι βλέπετε ή μυρίζετε στο βάζο.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Επιλέξτε το όταν το προζύμι διπλασιαστεί από το σημάδι στο βάζο. Τότε είναι έτοιμο για τη ζύμη (σύμφωνα με την King Arthur Baking).',
   'Zbalansowany': 'Ισορροπημένο',
   'Zbity, gęsty miękisz': 'Σφιχτή, πυκνή ψίχα',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Σφιχτή, πυκνή ψίχα — σκεφτείτε μεγαλύτερη κύρια ζύμωση',

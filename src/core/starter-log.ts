@@ -80,49 +80,49 @@ export const SETUP_GUIDE: Record<SetupStage, readonly string[]> = {
   // ZAK-ZAL-001, ZAK-ZAL-007
   start: [
     'Założenie zakwasu wymaga kilku dni regularnego dokarmiania; średnio trwa 7–10 dni.',
-    'Według King Arthur Baking miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.',
+    'Miarą gotowości jest podwojenie objętości w ciągu 6–8 godzin po dokarmieniu, a nie liczba dni.',
   ],
   // ZAK-ZAL-002, ZAK-ZAL-014
   day1: [
-    'Według King Arthur Baking wymieszaj mąkę pełnoziarnistą, pszenną albo żytnią razową, z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.',
+    'Wymieszaj mąkę pełnoziarnistą (pszenną albo żytnią razową) z wodą w równych ilościach wagowych, np. 113 g mąki i 113 g wody.',
     'Przykryj naczynie luźno, co utrudnia rozwój pleśni, i zostaw na 24 godziny w ciepłym miejscu, w około 21 °C.',
   ],
   // ZAK-ZAL-003
   day2: [
-    'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności; dokarm zakwas tak samo.',
+    'Przez pierwszą dobę możesz nie zobaczyć żadnej aktywności; i tak dokarm zakwas.',
     'Odrzuć połowę zakwasu, dodaj mąkę i wodę w równych ilościach wagowych i zostaw na 24 godziny.',
   ],
   // ZAK-ZAL-004, ZAK-ZAL-012, ZAK-ZAL-005, ZAK-ZAL-013
   day3: [
-    'Według King Arthur Baking w dniu 3 zwykle widać pęcherzyki, świeży owocowy zapach i wzrost objętości.',
+    'W dniu 3 zwykle widać już pęcherzyki, czuć świeży, owocowy zapach, a zakwas trochę rośnie.',
     'Od tego dnia dokarmiaj zakwas dwa razy dziennie, mniej więcej co 12 godzin.',
     'Przy każdym dokarmieniu zostaw część zakwasu, dodaj mąkę i wodę w proporcji 1:1:1 wagowo, a resztę odrzuć.',
     'Odrzucanie utrzymuje małą objętość, więc drożdże dostają więcej pożywienia.',
   ],
   // ZAK-ZAL-006
   day4_5: [
-    'Według King Arthur Baking pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśny zapach.',
+    'Pod koniec dnia 5 zakwas powinien co najmniej podwoić objętość, mieć dużo pęcherzyków i przyjemnie kwaśno pachnieć.',
   ],
   // ZAK-ZAL-007 (RD-24-W3)
   day6_plus: [
     'Jeśli zakwas mało urósł i ma mało pęcherzyków, dokarmiaj go dalej co 12 godzin.',
-    'Według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.',
+    '7 dni może nie wystarczyć: założenie zakwasu potrafi potrwać nawet kilka tygodni.',
   ],
   // ZAK-ZAL-011, ZAK-ZAL-007, ZAK-ZAL-012 (RD-24-W2)
   ready: [
     'Zakwas jest gotowy, gdy bąbelkuje, rośnie i ma przyjemnie kwaśny zapach.',
-    'Według King Arthur Baking powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.',
+    'Powinien przy tym wyraźnie podwajać objętość w ciągu 6–8 godzin po każdym dokarmieniu.',
     'Do lodówki wstawiaj go dopiero wtedy, gdy się ustali, czyli po 7–10 dniach.',
   ],
   // ZAK-ZAL-008, ZAK-SZC-004, ZAK-ZAL-009
   temperature: [
     'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.',
     'W chłodzie rośnie wolniej, a w zbyt wysokiej temperaturze fermentacja może przebiegać za szybko, a nawet ustać.',
-    'Według King Arthur Baking, gdy w domu jest zwykle poniżej 20 °C, warto znaleźć dla zakwasu cieplejsze miejsce.',
+    'Jeśli w domu jest zwykle poniżej 20 °C, znajdź dla zakwasu cieplejsze miejsce.',
   ],
   // ZAK-ZAL-010
   flour: [
-    'Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej, a zakwas tylko na mące jasnej może ruszać trochę wolniej.',
+    'Dzikie drożdże częściej trafiają się w mące pełnoziarnistej, a zakwas tylko z jasnej mąki może ruszać trochę wolniej.',
   ],
   discard_link: ['Jeśli widzisz nalot, plamy albo przebarwienie albo czujesz zgniły zapach, otwórz kontrolę zakwasu.'],
 };
@@ -157,7 +157,7 @@ export function setupGuideStage(input: { setupStartedAt: number; now: number; en
 
 /** Pierwsza doba bez aktywności (doktor-zakwasu.md, objaw.brak-aktywnosci-w-pierwszej-dobie; ZAK-ZAL-003, RD-24-W5). */
 export const FIRST_DAY_NO_ACTIVITY: readonly string[] = [
-  'Według King Arthur Baking w pierwszej dobie można nie zobaczyć żadnej aktywności.',
+  'Przez pierwszą dobę możesz nie zobaczyć żadnej aktywności.',
   'Co zrobić: dokarm zakwas według planu na następny dzień.',
 ];
 

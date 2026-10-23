@@ -22,20 +22,20 @@ export const DOCTOR_ACTIONS_HEADER = 'Co zrobić:';
 export const NO_DOUBLING_CAUSES: readonly string[] = [
   'Chłodne miejsce: w niższej temperaturze wzrost i fermentacja zakwasu zwalniają.',
   'Zbyt ciepłe miejsce: fermentacja może przebiegać za szybko, a nawet ustać.',
-  'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.',
-  'Za mało czasu: według King Arthur Baking 7 dni może nie wystarczyć, a założenie może potrwać nawet kilka tygodni.',
+  'Tylko mąka jasna: zakwas może wtedy ruszać trochę wolniej.',
+  'Za mało czasu: 7 dni może nie wystarczyć, a założenie zakwasu potrafi potrwać nawet kilka tygodni.',
 ];
 /** objaw.brak-podwojenia, co zrobić: ZAK-ZAL-007 (co 12 h, RD-24-W3), ZAK-ZAL-008, ZAK-ZAL-010 */
 export const NO_DOUBLING_ACTIONS: readonly string[] = [
   'Dokarmiaj dalej co 12 godzin, aż zakwas podwoi objętość w ciągu 6–8 godzin po dokarmieniu.',
   'Postaw zakwas w miejscu o temperaturze około 21 °C.',
-  'Według King Arthur Baking dzikie drożdże częściej są w mące pełnoziarnistej.',
+  'Dzikie drożdże częściej trafiają się w mące pełnoziarnistej.',
 ];
 /** objaw.dlugo-bez-dokarmiania: ZAK-LOD-004, ZAK-DOK-001 */
 export const LONG_UNFED_TEXTS: readonly string[] = [
-  'Według King Arthur Baking zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.',
+  'Zakwas długo trzymany w lodówce bez dokarmiania ma grubą warstwę płynu i jest ospały.',
   'Możliwa przyczyna: drożdżom i bakteriom brakuje pożywienia i ich liczebność stopniowo spada.',
-  'Co zrobić: dokarmiaj zakwas regularnie; według tego samego źródła seria regularnych dokarmień powinna go przywrócić.',
+  'Co zrobić: dokarmiaj zakwas regularnie; kilka regularnych dokarmień z rzędu powinno postawić go na nogi.',
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.',
 ];
 

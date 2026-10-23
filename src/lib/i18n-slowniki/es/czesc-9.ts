@@ -34,7 +34,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Contiene salvado fino. Aumenta la hidratación un 3-5 % y alarga la autólisis a 45-60 minutos.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Marca abajo las características de la miga, la corteza o el sabor que te preocupan para que el Doctor del Pan identifique el fallo técnico y te dé una solución.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Marca lo que ves o hueles en el tarro.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Márcalo cuando la masa madre haya doblado su volumen desde la marca del tarro. Entonces está lista para la masa (según King Arthur Baking).',
   'Zbalansowany': 'Equilibrado',
   'Zbity, gęsty miękisz': 'Miga apelmazada y densa',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Miga cerrada y densa: considera una fermentación en bloque más larga',

@@ -5,16 +5,16 @@
 Przerośnięte ciasto [T:-]
 
 ## OVERPROOFED_COLLAPSE.triggerSummaryPl
-Według Modernist Cuisine wgłębienie po delikatnym naciśnięciu ciasta palcem zostaje na stałe, gdy ciasto przerosło. [T:RAT-PRZ-001]
+Gdy ciasto przerosło, wgłębienie po delikatnym naciśnięciu palcem zostaje na stałe. [T:RAT-PRZ-001]
 
 ## OVERPROOFED_COLLAPSE.immediateActionPl
-Ciasto drożdżowe uformuj ponownie: według King Arthur Baking mocno przerośnięty drożdżowy bochenek upieczony od razu opada w piecu, choć nadal dobrze smakuje. [T:RAT-PRZ-002]
+Ciasto drożdżowe uformuj ponownie: mocno przerośnięty bochenek drożdżowy upieczony od razu opada w piecu, choć nadal dobrze smakuje. [T:RAT-PRZ-002]
 
 ## OVERPROOFED_COLLAPSE.stepByStepPl[0]
-Ciasta na zakwasie zwykle nie da się tak uratować: według King Arthur Baking ten sposób zwykle nie działa, a według Modernist Cuisine warto spróbować tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin. [T:RAT-PRZ-004,RAT-PRZ-005]
+Ciasta na zakwasie zwykle nie da się tak uratować: ten sposób najczęściej zawodzi, a spróbować warto tylko wtedy, gdy ciasto zrobiono i garowano w ciągu kilku godzin. [T:RAT-PRZ-004,RAT-PRZ-005]
 
 ## OVERPROOFED_COLLAPSE.stepByStepPl[1]
-Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: według Modernist Cuisine chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny. [T:RAT-PRZ-004]
+Ciasto na zakwasie garowane przez noc w chłodzie jest po odgazowaniu twarde: chleb wyjdzie słabo wyrośnięty, nieforemny i bardzo kwaśny. [T:RAT-PRZ-004]
 
 ## OVERPROOFED_COLLAPSE.stepByStepPl[2]
 Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia. [T:RAT-PRZ-003]
@@ -26,7 +26,7 @@ Odgazuj je, mocno dociskając, tak jak przy formowaniu. [T:RAT-PRZ-003]
 Uformuj je ponownie i odstaw do garowania. [T:RAT-PRZ-003]
 
 ## OVERPROOFED_COLLAPSE.scientificReasoningPl
-Według Modernist Cuisine przerośnięte ciasto zapada się, bo ma osłabioną strukturę glutenową i wytworzyło za dużo gazu. [T:RAT-PRZ-006]
+Przerośnięte ciasto opada, bo gluten jest już osłabiony, a gazu zrobiło się za dużo. [T:RAT-PRZ-006]
 
 ## SLACK_HIGH_HYDRATION.titlePl
 Zbyt luźne ciasto [T:-]
@@ -35,42 +35,42 @@ Zbyt luźne ciasto [T:-]
 Ciasto jest lepkie i luźne i nie trzyma kształtu. [T:-]
 
 ## SLACK_HIGH_HYDRATION.immediateActionPl
-Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten. [T:RAT-SOL-001]
+Sprawdź, czy sól jest w cieście: ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten. [T:RAT-SOL-001]
 
 ## SLACK_HIGH_HYDRATION.stepByStepPl[0]
 Jeśli soli brakuje, otwórz protokół „Zapomniana sól”. [T:-]
 
 ## SLACK_HIGH_HYDRATION.stepByStepPl[1]
-Rozciągaj i składaj ciasto w czasie fermentacji: według King Arthur Baking to pomaga rozwinąć sieć glutenową i wzmacnia ciasto. [T:KRO-POC-006]
+Rozciągaj i składaj ciasto w czasie fermentacji: to pomaga rozwinąć sieć glutenową i wzmacnia ciasto. [T:KRO-POC-006]
 
 ## SLACK_HIGH_HYDRATION.stepByStepPl[2]
-Według King Arthur Baking przy chlebie ze 100% mąki żytniej składanie można zwykle pominąć. [T:KRO-POC-006]
+Przy chlebie ze 100% mąki żytniej składanie zwykle można pominąć. [T:KRO-POC-006]
 
 ## SLACK_HIGH_HYDRATION.scientificReasoningPl
-Według King Arthur Baking składanie w czasie fermentacji pomaga rozwinąć siatkę glutenową i wzmacnia ciasto, a sól napina gluten. [T:KRO-POC-006,RAT-SOL-001]
+Składanie w czasie fermentacji pomaga rozwinąć sieć glutenową i wzmacnia ciasto, a sól napina gluten. [T:KRO-POC-006,RAT-SOL-001]
 
 ## COLD_SLUGGISH.titlePl
 Ospała fermentacja (Zimna kuchnia) [T:-]
 
 ## COLD_SLUGGISH.triggerSummaryPl
-Ciasto rośnie wolniej niż zwykle: według King Arthur Baking częstą przyczyną jest chłodne miejsce, w którym stoi. [T:RAT-ZIM-001]
+Ciasto rośnie wolniej niż zwykle: często winne jest chłodne miejsce, w którym stoi. [T:RAT-ZIM-001]
 
 ## COLD_SLUGGISH.immediateActionPl
-Przenieś ciasto w cieplejsze miejsce: według King Arthur Baking drożdże najlepiej rosną w ok. 24–25,5 °C. [T:RAT-ZIM-002]
+Przenieś ciasto w cieplejsze miejsce: drożdże najlepiej rosną w ok. 24–25,5 °C. [T:RAT-ZIM-002]
 
 <!-- COLD_SLUGGISH.stepByStepPl[0] i [1] (DOK-PIE-001, DOK-PIE-002, krytyczne, przegląd właściciela): bez zmian, tekst w doktor-zimna-kuchnia.md. -->
 
 ## COLD_SLUGGISH.stepByStepPl[2]
-Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry. [T:RAT-ZIM-003]
+Inne ciepłe miejsca to wierzch lodówki albo wysoka półka, bo ciepło idzie do góry. [T:RAT-ZIM-003]
 
 ## COLD_SLUGGISH.stepByStepPl[3]
-Przykryj miskę pokrywką albo folią: według King Arthur Baking wilgoć utrzymuje skórkę ciasta miękką i pomaga mu rosnąć. [T:RAT-ZIM-004]
+Przykryj miskę pokrywką albo folią: wilgoć utrzymuje wierzch ciasta miękki i pomaga mu rosnąć. [T:RAT-ZIM-004]
 
 ## COLD_SLUGGISH.stepByStepPl[4]
-Oceniaj ciasto po wyglądzie, nie po zegarze: według King Arthur Baking w zimnym powietrzu ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką. [T:RAT-ZIM-005]
+Oceniaj ciasto po wyglądzie, nie po zegarze: w chłodzie ciasto rośnie dłużej, a czasy w przepisie są tylko wskazówką. [T:RAT-ZIM-005]
 
 ## COLD_SLUGGISH.scientificReasoningPl
-W zakresie 20–26 °C Piekarz przyjmuje przybliżenie z modelu badawczego: 6 °C niżej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja. [T:FER-Q10-002]
+Przy 20–26 °C działa prosta zasada: 6 °C chłodniej (np. 20 zamiast 26 °C) to około 2 razy dłuższa fermentacja. [T:FER-Q10-002]
 
 ## FORGOTTEN_SALT.titlePl
 Zapomniana sól [T:-]
@@ -79,10 +79,10 @@ Zapomniana sól [T:-]
 Ciasto jest już wymieszane, a odważona sól została na blacie. [T:-]
 
 ## FORGOTTEN_SALT.immediateActionPl
-Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę. [T:RAT-SOL-002,RAT-SOL-005]
+Dodaj sól przed pierwszym rośnięciem: ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę. [T:RAT-SOL-002,RAT-SOL-005]
 
 ## FORGOTTEN_SALT.stepByStepPl[0]
-Nie próbuj ciasta, żeby sprawdzić sól: według FDA surowego ciasta nie należy jeść ani próbować. [T:BEZ-SUR-001]
+Nie próbuj ciasta, żeby sprawdzić sól: surowego ciasta nie je się ani nie próbuje, bo w surowej mące mogą być groźne bakterie. [T:BEZ-SUR-001]
 
 ## FORGOTTEN_SALT.stepByStepPl[1]
 Wymieszaj sól z kilkoma łyżeczkami wody. [T:RAT-SOL-003]
@@ -94,10 +94,10 @@ Rozpłaszcz ciasto, rozsmaruj na nim tę mieszankę, zwiń je, znów rozpłaszcz
 Wyrabiaj, aż ciasto znów będzie w miarę gładkie. [T:RAT-SOL-003]
 
 ## FORGOTTEN_SALT.stepByStepPl[4]
-Przy cieście na zakwasie według King Arthur Baking możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu. [T:RAT-SOL-004]
+Przy cieście na zakwasie możesz potraktować przerwę jak autolizę: po 20–60 minutach odpoczynku wmieszaj sól i działaj dalej według przepisu. [T:RAT-SOL-004]
 
 ## FORGOTTEN_SALT.stepByStepPl[5]
-Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy. [T:RAT-SOL-005]
+Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, dodanie jej nic nie da, a ponowne wyrabianie może trwale zepsuć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy. [T:RAT-SOL-005]
 
 ## FORGOTTEN_SALT.scientificReasoningPl
-Według King Arthur Baking sól spowalnia fermentację, wiąże wilgoć i napina gluten. [T:RAT-SOL-001,RAT-SOL-002]
+Sól spowalnia fermentację, wiąże wilgoć i napina gluten. [T:RAT-SOL-001,RAT-SOL-002]

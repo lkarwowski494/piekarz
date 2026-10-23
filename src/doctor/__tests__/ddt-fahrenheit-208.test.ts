@@ -14,7 +14,8 @@ const rejestr: { id: string; uproszczenie?: string }[] = JSON.parse(readFileSync
 
 const zdaniaDDT = () =>
   [{ crumbHasHugeTopHolesWithDenseBottom: true }, { breadIsExcessivelySour: true }]
-    .map((o) => diagnoseBreadDefect(o).actionChecklistPl.find((a) => a.includes('King Arthur Baking ciasto pszenne')))
+    // M3 T2 (D-123): punkt listy wyszukiwany po treści, nie po nazwie źródła (zdanie bez przypisu)
+    .map((o) => diagnoseBreadDefect(o).actionChecklistPl.find((a) => a.includes('ciasto pszenne po wymieszaniu powinno mieć ok.')))
     .map((s) => {
       expect(s).toBeDefined();
       return s as string;

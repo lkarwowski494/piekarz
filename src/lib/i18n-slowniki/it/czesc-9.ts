@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.': 'Il lievito madre cresce meglio a una temperatura ambiente calda, circa 21 °C.',
-  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': 'Il lievito madre conservato in frigo si rinfresca una volta a settimana. Secondo King Arthur Baking, prima di infornare rinfrescalo ogni 12 ore, finché non raddoppia o triplica di volume entro 6–8 ore dal rinfresco.',
   'Zakwas w lodówce': 'Lievito madre in frigo',
   'Zakwas żytni': 'Lievito madre di segale',
   'Zakwas: {amount} g': 'Lievito madre: {amount} g',
@@ -47,7 +46,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Contiene crusca fine. Aumenta l\'idratazione del 3-5% e prolunga l\'autolisi a 45-60 minuti.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Seleziona qui sotto le caratteristiche di mollica, crosta o sapore che ti preoccupano: il Dottor Pane individuerà l\'errore tecnico e ti proporrà una soluzione.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Seleziona ciò che vedi o senti nel barattolo.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Seleziona quando il lievito madre è cresciuto il doppio rispetto al segno sul barattolo. A quel punto è pronto per l\'impasto (secondo King Arthur Baking).',
   'Zbalansowany': 'Equilibrato',
   'Zbity, gęsty miękisz': 'Mollica compatta e densa',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Mollica compatta e densa — valuta una puntata più lunga',

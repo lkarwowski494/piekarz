@@ -56,8 +56,8 @@ export const EN_6: Record<string, string> = {
     'Rye flour supplies enzymes and minerals that speed up the multiplication of wild yeast and lactic acid bacteria.',
   'Czeladnik Piekarski':
     'Journeyman Baker',
-  'Lekcja 3: Klasyczny chleb wiejski 75% hydratacji (Tartine)':
-    'Lesson 3: Classic 75% Hydration Country Bread (Tartine)',
+  'Lekcja 3: Klasyczny chleb wiejski, 75% hydratacji':
+    'Lesson 3: Classic country loaf, 75% hydration',
   'Opanowanie autolizy klasycznej, składania zwojowego (coil fold), długiego cold retardu i nacinania pod ucho (ear).':
     'Mastering classic autolyse, coil folds, a long cold retard and scoring for an ear.',
   '90% mąka pszenna Manitoba + 10% mąka pszenna razowa typ 2000':
@@ -136,8 +136,8 @@ export const EN_6: Record<string, string> = {
     'Bake on a preheated fireclay stone at 250°C with heavy steam in the oven for the first 10 minutes.',
   'Szklista, cieniutka skórka z wyraźnymi łuskami oraz miękisz o kremowej barwie i wielkich, nieregularnych porach.':
     'A glassy, very thin crust with distinct scales and a cream-colored crumb with large, irregular holes.',
-  'Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.':
-    'According to King Arthur Baking, poolish gives a nutty flavour and makes baguette dough easier to handle by boosting its extensibility.',
+  'Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.':
+    'Poolish adds a nutty flavour and makes baguette dough easier to work, because it stretches better.',
   'Mistrz Rzemiosła Piekarskiego':
     'Master of the Baking Craft',
   'Lekcja 6: Pizza Napoletana Verace (48h w chłodzie)':

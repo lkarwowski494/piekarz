@@ -81,7 +81,7 @@ export const FLOUR_PROFILES: FlourProfile[] = [
     optimalHydrationRange: [68.0, 76.0],
     wStrength: 260,
     // MAK-TYP-003 (docs/tresci/pl/maki-typy.md) [M1-audytor-generalny-091]
-    descriptionPl: 'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.',
+    descriptionPl: 'Typu 850 nie ma w polskiej normie: każdy młyn robi go po swojemu. To ciemniejsza mąka chlebowa o wyższej aktywności enzymów i orzechowym aromacie.',
   },
   {
     id: 'wheat_1050',

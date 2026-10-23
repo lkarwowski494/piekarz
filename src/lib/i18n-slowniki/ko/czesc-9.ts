@@ -2,7 +2,6 @@
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
   'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem.': '풀리시 발효종 (가루의 20%, 가수율 100%). 달군 베이킹 스틸이나 샤모트 석판 위에서 스팀을 강하게 넣어 구워요.',
-  'Zaczyn Poolish (20% mąki i 100% hydratacji). Pieczenie na rozgrzanej płycie stalowej lub szamocie z intensywnym zaparowaniem. Według King Arthur Baking poolish dojrzewa około 14 godzin, a ciasto rośnie 45 i jeszcze 45 minut.': '풀리시(Poolish) 발효종(가루의 20%, 가수율 100%). 예열한 베이킹 스틸이나 베이킹 스톤 위에서 스팀을 강하게 넣어 구워요. King Arthur Baking에 따르면 풀리시는 약 14시간 숙성하고, 반죽은 45분, 그리고 다시 45분 부풀어요.',
   'Zaczyn: {rodzaj}': '발효종: {rodzaj}',
   'Zaczyny': '발효종',
   'Zadbaj o mocniejsze naciągnięcie ciasta podczas formowania ostatecznego.': '최종 성형 때 반죽 표면을 더 팽팽하게 당기세요.',
@@ -26,10 +25,8 @@ export const CZESC: Record<string, string> = {
   'Zakwas (Levain)': '사워도우 스타터 (르뱅)',
   'Zakwas jest gotowy, gdy bąbelkuje, rośnie i ma przyjemnie kwaśny zapach.': '스타터에 기포가 생기고, 부풀고, 기분 좋은 신 냄새가 나면 준비된 거예요.',
   'Zakwas matka': '마더 스타터',
-  'Zakwas nie podwoił jeszcze objętości: według King Arthur Baking dokarm go ponownie i sprawdź po kolejnym dokarmieniu, czy podwoi objętość w ciągu 6–8 godzin.': '스타터가 아직 두 배로 부풀지 않았어요: King Arthur Baking에 따르면 다시 먹이를 주고, 다음 먹이 주기 후 6–8시간 안에 두 배로 부푸는지 확인하세요.',
   'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.': '정점이 지난 사워도우 스타터는 더 시큼해지고 가스 기포를 덜 만들어요.',
   'Zakwas rośnie najlepiej w ciepłej temperaturze pokojowej, około 21 °C.': '스타터는 따뜻한 실내 온도, 약 21 °C에서 가장 잘 자라요.',
-  'Zakwas trzymany w lodówce dokarmia się raz w tygodniu. Według King Arthur Baking przed pieczeniem dokarmiaj go co 12 godzin, aż w ciągu 6–8 godzin po dokarmieniu podwoi albo potroi objętość.': '냉장고에 보관하는 사워도우 스타터는 일주일에 한 번 먹이를 줘요. King Arthur Baking에 따르면 베이킹 전에는 먹이를 준 뒤 6–8시간 안에 부피가 두 배 또는 세 배로 늘어날 때까지 12시간마다 먹이를 주세요.',
   'Zakwas w lodówce': '냉장고 속 사워도우 스타터',
   'Zakwas żytni': '호밀 사워도우 스타터',
   'Zakwas: {amount} g': '스타터: {amount}g',
@@ -74,7 +71,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': '고운 겨가 들어 있어요. 가수율을 3-5% 높이고 오토리즈를 45-60분으로 늘리세요.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': '빵 닥터가 공정상 문제를 찾아 해결 방법을 알려 줄 수 있도록, 신경 쓰이는 속살, 껍질, 맛의 특징을 아래에서 선택하세요.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': '병에서 보이거나 냄새로 느껴지는 것을 체크하세요.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': '사워도우 스타터가 병에 표시한 선보다 두 배로 부풀면 체크하세요. 그때 반죽에 쓸 준비가 된 거예요(King Arthur Baking 기준).',
   'Zbalansowany': '균형 잡힘',
   'Zbity, gęsty miękisz': '빽빽하고 단단한 속살 (크럼)',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': '빽빽하고 조밀한 속살 — 1차 발효를 더 길게 해 보세요',

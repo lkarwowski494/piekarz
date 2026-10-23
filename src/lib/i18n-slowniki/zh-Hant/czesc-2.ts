@@ -1,7 +1,6 @@
 // Słownik zh-Hant, część 2 z 8. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Co zrobić: dokarmiaj zakwas regularnie; według tego samego źródła seria regularnych dokarmień powinna go przywrócić.': '怎麼做：定期餵養天然酵母起種；根據同一來源，連續定期餵養幾次應能讓它恢復。',
   'Cofnięto „{krok}”. Powiadomienia wróciły do poprzednich godzin.': '已復原「{krok}」。通知已恢復為原本的時間。',
   'Cofnij poprzedni': '復原上一步',
   'Coś mnie niepokoi': '我覺得有異狀',
@@ -48,7 +47,6 @@ export const CZESC: Record<string, string> = {
   'Dodaj mąkę': '新增麵粉',
   'Dodaj mąkę z Atlasu': '從麵粉圖鑑新增麵粉',
   'Dodaj nowy zakwas': '新增天然酵母起種',
-  'Dodaj sól przed pierwszym rośnięciem: według King Arthur Baking ciasto drożdżowe bez soli rośnie szybciej niż zwykle, ma mniej smaku i słabszą strukturę.': '在第一次發酵前加入鹽：根據 King Arthur Baking，沒有鹽的酵母麵團會比平常發得快，風味較淡、結構也較弱。',
   'Dodam ją do Moich receptur. Pozostałe dane zostaną bez zmian.': '我會把它加入「我的配方」。其他資料維持不變。',
   'Dodano zakwas': '已新增天然酵母起種',
   'Dodatek łyżki miodu wspomaga fermentację i łagodzi kwasowość. Grube otręby z Grahama wymagają 45-minutowej autolizy.': '加入一匙蜂蜜有助於發酵，並能緩和酸味。Graham 麵粉的粗麩皮需要 45 分鐘的水解法。',
@@ -144,7 +142,6 @@ export const CZESC: Record<string, string> = {
   'Garowanie chłodnicze': '低溫冷藏發酵',
   'Garowanie chłodnicze w lodówce': '低溫冷藏發酵',
   'Garowanie chłodnicze w lodówce (Cold Retard)': '冰箱低溫冷藏發酵（Cold Retard）',
-  'Garuj ciasto w lodówce: według King Arthur Baking chłód spowalnia fermentację, a wolniejsza fermentacja pogłębia smak.': '將麵糰放入冰箱低溫冷藏發酵：根據 King Arthur Baking，低溫會減緩發酵，而較慢的發酵能讓風味更有層次。',
   'Gdy po dokarmieniu zacznie bąbelkować, dokarm go drugi raz; jeśli w ciągu 12 godzin urośnie i będzie pełen pęcherzyków, jest gotowy na ostatnie dokarmienie przed użyciem.': '餵養後開始冒泡時，再餵養第二次；若 12 小時內膨脹且充滿氣泡，就可以在使用前做最後一次餵養。',
   'Gdy telefon śpi, powiadomienie powie, co i kiedy zrobić. Za chwilę telefon zapyta o zgodę.': '手機休眠時，通知會告訴你該做什麼、何時做。手機稍後會請你允許通知。',
   'Gdy zakup zostanie zatwierdzony, Piekarz Pro włączy się sam. Nie trzeba kupować ponownie.': '購買獲得核准後，麵包師傅 Pro 會自動啟用。不需要再購買一次。',
@@ -163,7 +160,6 @@ export const CZESC: Record<string, string> = {
   'Gotowe {dzien} o {godzina}': '{dzien} {godzina} 完成',
   'Gotowe {dzien} o {godzina}.': '{dzien} {godzina} 完成。',
   'Gotowość zakwasu do ciasta': '天然酵母起種是否可用於麵團',
-  'Gotowy do ciasta (według King Arthur Baking).': '可用於製作麵團（依據 King Arthur Baking）。',
   'Gotowy do krojenia': '可以切片了',
   'gramy, °C': '公克、°C',
   'Gratulacje, Twój pierwszy zakwas jest gotowy. Pamiętaj, aby o niego dbać zgodnie z zasadami.': '恭喜，你的第一個天然酵母起種已完成。記得依照規則照顧它。',
@@ -200,7 +196,6 @@ export const CZESC: Record<string, string> = {
   'Importuj JSON': '匯入 JSON',
   'Importuj recepturę': '匯入配方',
   'Importuj z pliku': '從檔案匯入',
-  'Inne ciepłe miejsca według King Arthur Baking to wierzch lodówki albo wysoka półka, bo ciepło unosi się do góry.': '根據 King Arthur Baking，其他溫暖的位置包括冰箱頂部或高處的層架，因為熱氣會上升。',
   'Jak sprawdzić, czy bochenek w koszyku jest gotowy do pieczenia': '如何判斷發酵藤籃中的麵包已可入爐烘烤',
   'Jak wyszedł bochenek?': '這個麵包烤得如何？',
   'Jakość skórki': '外皮品質',
@@ -208,6 +203,5 @@ export const CZESC: Record<string, string> = {
   'Jedna opłata, bez odnawiania.': '一次付費，不續訂。',
   'Jednolicie gęsty i ciężki miękisz (brak napowietrzenia)': '內部組織整體緊密沉重（缺乏氣孔）',
   'Jednostki': '單位',
-  'Jeśli brak soli wyjdzie dopiero po pierwszym rośnięciu, według King Arthur Baking dodawanie jej nie pomoże, a ponowne wyrabianie może trwale zniszczyć ciasto: upiecz chleb bez soli albo zrób z ciasta spód do pizzy.': '如果在第一次發酵後才發現忘了加鹽，根據 King Arthur Baking，此時加鹽已無幫助，重新揉麵還可能永久破壞麵團：請直接烘烤無鹽麵包，或把麵團做成披薩餅皮。',
   'Jeśli ratujesz ciasto, wyjmij je z koszyka albo naczynia.': '如果要挽救麵團，請將它從發酵藤籃或容器中取出。',
 };

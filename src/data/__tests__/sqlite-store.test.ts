@@ -21,7 +21,8 @@ describe('Apps4Brew SQLite Store & Persistence (data/sqlite-store)', () => {
   it('initializes default master recipes', async () => {
     const recipes = await getRecipes();
     expect(recipes.length).toBeGreaterThanOrEqual(6);
-    expect(recipes.some((r) => r.name.includes('Tartine'))).toBe(true);
+    // M3 T2 (D-123): receptura 80% bez nazwy piekarni w nazwie („Mistrzowski wiejski w stylu Tartine” → nowe brzmienie)
+    expect(recipes.some((r) => r.name.includes('Wiejski chleb na zakwasie, 80%'))).toBe(true);
     expect(recipes.some((r) => r.id === 'country_loaf_72' || r.name.includes('Wiejski chleb'))).toBe(true);
   });
 

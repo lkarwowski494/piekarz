@@ -134,7 +134,7 @@ export function ZakwasDziennik({ starter, log, wersja, onDokarm, zDostepem, onZm
         {/* Gotowość poza zakładaniem to Pro (BR-ZAKW-003, D-113): w Basic w miejscu stanu blokada, bez treści stanu;
             w zakładaniu gotowość kończy zakładanie (Basic, karta zakładania) [M3 P-a-fix P1-3] */}
         {pokazGotowosc && !blokadaGotowosci.odblokowane && <BlokadaFunkcji {...blokadaGotowosci}>{null}</BlokadaFunkcji>}
-        {pokazGotowosc && blokadaGotowosci.odblokowane && stan.gotowy && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta (według King Arthur Baking).')}</Text>}
+        {pokazGotowosc && blokadaGotowosci.odblokowane && stan.gotowy && <Text testID="zakwas-gotowy" style={styles.gotowy}>{t('Gotowy do ciasta.')}</Text>}
         {/* Po 8 h od dokarmienia bez podwojenia: rada karmienia co 12 h (RD-24-W3, ZAK-ZAL-007; BR-ZAKW-003) [130] */}
         {/* W lodówce ta rada nie obowiązuje (ZAK-ZAL-012: raz w tygodniu; radę daje karta szczytu) [M1-audytor-generalny-188] */}
         {pokazGotowosc && blokadaGotowosci.odblokowane && radaKarmienia && (

@@ -324,7 +324,8 @@ describe('104: ekrany zakwasu', () => {
     s.done();
   });
 
-  it('karta: Spirala cyklu z etykietą, „Podwoił objętość” zapisuje obserwację i pokazuje „gotowy” z atrybucją (BR-ZAKW-003 Podwojenie w 6 h)', async () => {
+  // M3 T2 (D-123): „gotowy” bez atrybucji w zdaniu (źródło na ekranie „Źródła wiedzy”); ten sam warunek i stan
+  it('karta: Spirala cyklu z etykietą, „Podwoił objętość” zapisuje obserwację i pokazuje „gotowy do ciasta” (BR-ZAKW-003 Podwojenie w 6 h)', async () => {
     const fedAt = Date.now() - 380 * 60_000;
     const s = await start(async (e) => {
       await e.createStarterWithEntry(starter('z'), feed('f1', 'z', fedAt, '1:2:2'));
@@ -334,12 +335,13 @@ describe('104: ekrany zakwasu', () => {
     const t = s.tekst();
     expect(t).toContain('6 godzin 20 minut od dokarmienia');
     expect(t).toContain('na blacie, 1:2:2');
-    expect(t).toContain('Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).');
+    expect(t).toContain('Zaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.');
     expect(t).toContain('Coś mnie niepokoi');
     expect(s.tree.root.findAll((n) => n.props?.testID === 'zakwas-gotowy')).toHaveLength(0);
     await s.press('zakwas-podwoil-btn');
     expect((await s.entries.getStarterEntries('z'))[0]).toEqual(expect.objectContaining({ kind: 'observation', signs: ['doubled'] }));
-    expect(s.tekst()).toContain('Gotowy do ciasta (według King Arthur Baking).');
+    expect(s.tekst()).toContain('Gotowy do ciasta.');
+    expect(s.tekst()).not.toContain('King Arthur');
     expect(s.tekst()).toContain('Obserwacja: Podwoił objętość');
     s.done();
   });

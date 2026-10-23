@@ -42,7 +42,6 @@ export const CZESC: Record<string, string> = {
   'Zawiera drobne otręby. Zwiększ hydratację o 3-5% i wydłuż autolizę do 45-60 minut.': 'Contém farelo fino. Aumente a hidratação em 3-5% e prolongue a autólise para 45-60 minutos.',
   'Zaznacz poniżej cechy miękiszu, skórki lub smaku, które Cię niepokoją, aby Doktor Chleba zidentyfikował błąd technologiczny i podał rozwiązanie.': 'Assinale abaixo as características do miolo, da côdea ou do sabor que o preocupam, para que o Doutor Pão identifique o erro técnico e indique a solução.',
   'Zaznacz, co widzisz albo czujesz w słoiku.': 'Assinale o que vê ou cheira no frasco.',
-  'Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).': 'Assinale quando o fermento natural tiver duplicado de volume em relação à marca no frasco. É então que está pronto para a massa (segundo a King Arthur Baking).',
   'Zbalansowany': 'Equilibrado',
   'Zbity, gęsty miękisz': 'Miolo compacto e denso',
   'Zbity, gęsty miękisz — rozważaj dłuższy bulk': 'Miolo fechado e denso — considere uma fermentação em bloco mais longa',

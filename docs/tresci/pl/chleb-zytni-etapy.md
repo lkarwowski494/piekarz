@@ -43,4 +43,4 @@ Na początku wypieku zapewnij parę w piekarniku. [T:ZYT-ETA-006]
 Studzenie [T:ZYT-ETA-001]
 
 ## rye_cool.instructions
-Według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. [T:ZYT-STU-001]
+Upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku. [T:ZYT-STU-001]

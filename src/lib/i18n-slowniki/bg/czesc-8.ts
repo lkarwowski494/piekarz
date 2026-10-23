@@ -1,7 +1,6 @@
 // Słownik bg, część 8 z 12. MT claude-opus-5-5 (Message Batches), 2026-10-20, źródło 1978237; przegląd natywny: brak (DEC-06) [M1-audytor-generalny-093]
 // Plik generowany: node scripts/wepnij-przeklad.mjs (poprawki: docs/lokalizacja/poprawki-przekladu.json); nie edytuj ręcznie.
 export const CZESC: Record<string, string> = {
-  'Sprawdź, czy sól jest w cieście: według King Arthur Baking ciasto bez soli jest lepkie i luźne, bo sól wiąże wilgoć i napina gluten.': 'Проверете дали солта е в тестото: според King Arthur Baking тестото без сол е лепкаво и рехаво, защото солта задържа влагата и стяга глутена.',
   'Sprężystość': 'Еластичност',
   'Spróbuj ponownie': 'Опитайте отново',
   'Sprzęt i naczynie do wypieku': 'Съдове и оборудване за печене',
@@ -41,8 +40,6 @@ export const CZESC: Record<string, string> = {
   'Szacowana wilgotność miękiszu': 'Приблизителна влажност на средата',
   'Szacowane okno szczytu minęło ok. {czas} temu.': 'Очакваният прозорец на пика е отминал преди около {czas}.',
   'Szacowane okno szczytu:': 'Очакван прозорец на пика:',
-  'Szacunek: parametry przyjęte z profilu {nazwa}, bez źródła': 'Оценка: параметрите са взети от профила {nazwa}, без източник',
-  'Szacunek: parametry przyjęte z typu {typ}, bez źródła': 'Оценка: параметрите са взети от тип {typ}, без източник',
   'Szacunkowy koszt składników i energii pieca': 'Приблизителна цена на съставките и енергията на фурната',
   'Szczyt aktywności': 'Пик на активността',
   'Szkoła Chleba, 12 technik rzemieślniczych i Trener procentu': 'Школа за хляб, 12 занаятчийски техники и Тренажор за хлебарски процент',
@@ -107,12 +104,9 @@ export const CZESC: Record<string, string> = {
   'Twoje dane nie zostały zmienione, ale aplikacja nie może ich teraz odczytać ani zapisać. Uruchom aplikację ponownie. Jeśli problem wróci, zwolnij miejsce w pamięci telefonu.': 'Вашите данни не са променени, но в момента приложението не може да ги прочете или запише. Рестартирайте приложението. Ако проблемът се повтори, освободете място в паметта на телефона.',
   'Twoje dane są zapisane w telefonie. Zanim spróbujesz ponownie, możesz wyeksportować ich kopię.': 'Вашите данни са запазени в телефона. Преди да опитате отново, можете да експортирате копие от тях.',
   'Tydzień': 'Седмица',
-  'Tylko mąka jasna: według King Arthur Baking zakwas może wtedy ruszać trochę wolniej.': 'Само бяло брашно: според King Arthur Baking стартерът тогава може да тръгне малко по-бавно.',
-  'Typ 850 nie jest wymieniony w normie PN-A-74022:2003: młyny produkują go według własnej specyfikacji technicznej. Ciemniejsza mąka chlebowa o wyższej aktywności enzymatycznej i orzechowym aromacie.': 'Това брашно не е включено в полския стандарт PN-A-74022:2003: мелниците го произвеждат по собствена техническа спецификация. По-тъмно брашно за хляб с по-висока ензимна активност и орехов аромат.',
   'Typ mąki': 'Вид брашно',
   'Typ wypieku i odparowanie': 'Вид изпичане и изпарение',
   'Typ zaczynu': 'Вид закваска',
-  'Typy mąki pszennej i żytniej określają Polskie Normy PN-A-74022:2003 i PN-A-74032:2002 według zawartości popiołu.': 'Типовете пшенично и ръжено брашно в Полша се определят от полските стандарти PN-A-74022:2003 и PN-A-74032:2002 според съдържанието на пепел.',
   'Uczeń Piekarski': 'Ученик хлебар',
   'Udekoruj rozmarynem, pomidorkami i gruboziarnistą solą.': 'Украсете с розмарин, чери домати и едра сол.',
   'Udostępnij kod QR': 'Споделете QR кода',

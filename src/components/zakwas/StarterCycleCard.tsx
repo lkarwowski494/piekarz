@@ -91,7 +91,7 @@ export function StarterCycleCard({ stan, opisMiejsca, onPodwoil, onDokarm, onNie
         <Text style={[styles.glownyTekst, nieaktywny && styles.glownyTekstNieaktywny]}>{t('Podwoił objętość')}</Text>
       </Pressable>
       <Text style={styles.przypis}>
-        {t('Zaznacz, gdy zakwas urośnie dwa razy od kreski na słoiku. Wtedy jest gotowy do ciasta (według King Arthur Baking).')}
+        {t('Zaznacz, gdy zakwas podwoi się od kreski na słoiku. Wtedy jest gotowy do ciasta.')}
       </Text>
       {children}
       <View style={styles.rzad}>

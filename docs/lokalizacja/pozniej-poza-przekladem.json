@@ -154,7 +154,7 @@
       ]
     },
     {
-      "klucz": "6-stopniowa rzemieślnicza ścieżka wtajemniczenia. Od prostego chleba bez wyrabiania do mistrzowskiego Tartine i pizzy neapolitańskiej.",
+      "klucz": "Sześć etapów nauki: od prostego chleba bez wyrabiania po wiejski chleb na zakwasie i pizzę neapolitańską.",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -226,7 +226,7 @@
       ]
     },
     {
-      "klucz": "Chleb żytni: według King Arthur Baking upieczony chleb żytni na zakwasie powinien odpocząć 24 godziny przed krojeniem, dla najlepszej jakości. Gorące żyto po ukrojeniu ma postać lepkiej mazi.",
+      "klucz": "Chleb żytni: upieczony chleb żytni na zakwasie najlepiej pokroić dopiero po 24 godzinach odpoczynku. Gorące żyto po ukrojeniu jest jak lepka maź.",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -802,7 +802,7 @@
       ]
     },
     {
-      "klucz": "Lekcja 3: Klasyczny chleb wiejski 75% hydratacji (Tartine)",
+      "klucz": "Lekcja 3: Klasyczny chleb wiejski, 75% hydratacji",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -2002,19 +2002,19 @@
       ]
     },
     {
-      "klucz": "Według King Arthur Baking oprósz koszyk lekką, ale dokładną warstwą mąki: nadaje się każda mąka, od uniwersalnej i chlebowej po pełnoziarnistą.",
+      "klucz": "Oprósz koszyk cienką, ale dokładną warstwą mąki: nada się każda, od uniwersalnej i chlebowej po pełnoziarnistą.",
       "funkcje": [
         "F-44 akademia"
       ]
     },
     {
-      "klucz": "Według King Arthur Baking poolish nadaje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo zwiększa jego rozciągliwość.",
+      "klucz": "Poolish daje orzechowy smak i ułatwia pracę z ciastem na bagietki, bo ciasto lepiej się rozciąga.",
       "funkcje": [
         "F-44 akademia"
       ]
     },
     {
-      "klucz": "Według tego samego źródła wielu piekarzy wybiera grubszą mąkę, np. semolinę albo mąkę ryżową, bo tworzy wyraźniejszą barierę między ciastem a koszykiem i nie wchodzi w ciasto.",
+      "klucz": "Wielu piekarzy woli grubszą mąkę, np. semolinę albo mąkę ryżową, bo lepiej oddziela ciasto od koszyka i nie wchodzi w ciasto.",
       "funkcje": [
         "F-44 akademia"
       ]
@@ -2170,7 +2170,7 @@
       ]
     },
     {
-      "klucz": "Wyrabianie francuskie (Slap & Fold / Bertinet)",
+      "klucz": "Wyrabianie francuskie (slap & fold)",
       "funkcje": [
         "F-44 akademia"
       ]

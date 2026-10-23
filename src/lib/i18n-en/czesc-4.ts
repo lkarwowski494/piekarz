@@ -51,8 +51,8 @@ export const EN_4: Record<string, string> = {
   'W szacowanym oknie szczytu': 'In the estimated peak window',
   'Po szacowanym szczycie': 'After the estimated peak',
   'W niższej temperaturze wzrost i fermentacja zakwasu zwalniają.': 'At lower temperatures starter growth and fermentation slow down.',
-  'Okno szczytu to szacunek: w badaniu 40 zakwasów tempo rośnięcia ciasta wynosiło od 0,1 do 1,5 mm/h.':
-    'The peak window is an estimate: in a study of 40 starters, dough rise rates ranged from 0.1 to 1.5 mm/h.',
+  'Okno szczytu to tylko szacunek: każdy zakwas pracuje w swoim tempie, a ciasto może rosnąć od 0,1 do 1,5 mm na godzinę.':
+    'The peak window is only an estimate: every starter works at its own pace, and dough can rise anywhere from 0.1 to 1.5 mm per hour.',
   'Zakwas po szczycie staje się bardziej kwaśny i wytwarza mniej pęcherzyków gazu.':
     'A starter past its peak becomes more sour and produces fewer gas bubbles.',
   'Do szacowanego okna szczytu zostało ok. {czas} (okno: {okno}).':

@@ -3,4 +3,4 @@
 <!-- Model and value: FER-Q10-002 (Q10 = 3.0, range 20–26 °C), from model 1a FER-Q10-001. Outside the range: FER-Q10-902 [DO USTALENIA], no text. -->
 
 ## TargetReadyCard.paramHint (kitchen temperature selector description)
-Affects bulk fermentation rate: 10 °C cooler means about 3 times longer fermentation (approximation from a research model, valid at 20–26 °C). [T:FER-Q10-002]
+Sets the pace of bulk fermentation: 10 °C cooler means about 3 times longer (a rule of thumb that holds at 20–26 °C). [T:FER-Q10-002]

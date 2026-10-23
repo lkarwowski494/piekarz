@@ -27,6 +27,8 @@ import { BackupAndDataSection } from './settings/BackupAndDataSection';
 import { ImportRecepturySection } from './settings/ImportRecepturySection';
 import { StudioEcosystemSection } from './settings/StudioEcosystemSection';
 import { ZakupySection } from './settings/ZakupySection';
+import { ZrodlaWiedzySection, ZrodlaWiedzyEkran } from './settings/ZrodlaWiedzy';
+import { HeaderButton } from './DraftHeader';
 
 import { typografia } from '../ui/tokeny';
 export interface SettingsModalProps {
@@ -41,8 +43,13 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   // Naczynie do wypieku; bez wyboru stylu wypieku [M1-audytor-generalny-101; BR-START-001]
   const [bakingVessel, setBakingVesselState] = useState<BakingVessel>('dutch_oven');
 
+  // Ekran „Źródła wiedzy” (D-123, M3 T2) w tym samym arkuszu, bez drugiego arkusza modalnego (D-117);
+  // każde otwarcie Ustawień zaczyna od listy ustawień
+  const [zrodla, setZrodla] = useState(false);
+
   useEffect(() => {
     if (visible) {
+      setZrodla(false);
       void getBakingVessel().then(setBakingVesselState);
     }
   }, [visible]);
@@ -70,15 +77,24 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
   const otworzPro = () => proPoArkuszu(onClose);
 
   return (
-    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={onClose} onDismiss={poZamknieciu}>
+    <Modal visible={visible} animationType="slide" presentationStyle="pageSheet" onRequestClose={zrodla ? () => setZrodla(false) : onClose} onDismiss={poZamknieciu}>
       <SafeAreaView style={styles.container} edges={['top', 'bottom', 'left', 'right']}>
         {/* Header */}
         <View style={styles.header}>
-          <CloseButton onPress={onClose} akcja="zamknij" />
-          <Text style={styles.headerTitle}>{t('Ustawienia')}</Text>
+          {zrodla ? (
+            <HeaderButton testID="zrodla-wstecz" title={t('Ustawienia')} label={t('Wróć do ustawień')} onPress={() => setZrodla(false)} />
+          ) : (
+            <CloseButton onPress={onClose} akcja="zamknij" />
+          )}
+          <Text style={styles.headerTitle}>{zrodla ? t('Źródła wiedzy') : t('Ustawienia')}</Text>
           <View style={styles.headerPlaceholder} />
         </View>
 
+        {zrodla ? (
+          <ScrollView contentContainerStyle={styles.content}>
+            <ZrodlaWiedzyEkran />
+          </ScrollView>
+        ) : (
         <ScrollView contentContainerStyle={styles.content}>
           {/* Baking Equipment */}
           <BakerRitualSection
@@ -109,9 +125,13 @@ export function SettingsModal({ visible, onClose }: SettingsModalProps) {
           {/* „Importuj z pliku”: jedno wejście dla receptury i kopii, tylko tutaj (F-33, 057, 113) [M1-audytor-generalny-057, -113] */}
           <ImportRecepturySection onPro={otworzPro} />
 
+          {/* Źródła wiedzy: jedyne miejsce z nazwami źródeł porad (D-123, M3 T2) */}
+          <ZrodlaWiedzySection onOtworz={() => setZrodla(true)} />
+
           {/* Apps4Craft Studio Family & Security */}
           <StudioEcosystemSection />
         </ScrollView>
+        )}
       </SafeAreaView>
     </Modal>
   );

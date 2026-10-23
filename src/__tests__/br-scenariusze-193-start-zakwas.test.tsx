@@ -84,7 +84,9 @@ describe('BR-START-001 i BR-ZAKW-004: scenariusze na ekranie', () => {
     act(() => tree.unmount());
   });
 
-  it('BR-ZAKW-004 Tylko płyn o zapachu alkoholu: według CSU Extension płyn jest w porządku, rada „zlej albo wmieszaj”, bez „dokarm” i bez polecenia wyrzucenia (RD-21-W3)', async () => {
+  // M3 T2 (D-123): rada bez przypisu „Według CSU Extension” (źródło na ekranie „Źródła wiedzy”); sprawdzamy sens:
+  // płyn jest w porządku, dlaczego (produkt uboczny pracy drożdży), „zlej albo wmieszaj”, bez „dokarm” i bez wyrzucenia
+  it('BR-ZAKW-004 Tylko płyn o zapachu alkoholu: płyn jest w porządku (produkt uboczny drożdży), rada „zlej albo wmieszaj”, bez „dokarm” i bez polecenia wyrzucenia (RD-21-W3)', async () => {
     let tree!: renderer.ReactTestRenderer;
     await act(async () => {
       tree = renderer.create(<ZakwasScreen />);
@@ -96,9 +98,10 @@ describe('BR-START-001 i BR-ZAKW-004: scenariusze na ekranie', () => {
       hooch[0].props.onPress();
     });
     const t = teksty(tree.root).join(' ');
-    const rada = teksty(tree.root).filter((s) => s.includes('CSU Extension'));
+    const rada = teksty(tree.root).filter((s) => s.includes('płynu o zapachu alkoholu jest w porządku'));
     expect(rada).toHaveLength(1);
-    expect(rada[0]).toContain('Według CSU Extension warstwa płynu o zapachu alkoholu jest w porządku');
+    expect(rada[0]).toContain('Warstwa płynu o zapachu alkoholu jest w porządku: to produkt uboczny pracy drożdży.');
+    expect(rada[0]).not.toContain('CSU Extension');
     expect(rada[0]).toContain('Możesz ją zlać albo wmieszać');
     expect(rada[0]).not.toMatch(/dokarm/i);
     expect(t).not.toContain('Wyrzuć zakwas');
