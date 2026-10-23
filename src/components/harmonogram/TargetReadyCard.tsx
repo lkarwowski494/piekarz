@@ -14,6 +14,7 @@ import { formatTemperature, UnitSystem } from '../../lib/unit-converter';
 import { formatDzienData, formatTime } from '../../lib/format';
 import { dniPlanu } from '../../core/plany-wypiekow';
 import { addCalendarDays, startOfLocalDay } from '../../core/dzien-lokalny';
+import { przesunGotowe } from '../../lib/godzina-gotowe';
 
 /** Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]. */
 const godzina = (h: number, m: number): string => formatTime(new Date(2000, 0, 1, Math.floor(h) % 24, m));
@@ -60,15 +61,16 @@ function etykietaDnia(offset: number): string {
   return formatDzienData(new Date(addCalendarDays(startOfLocalDay(Date.now()), offset)));
 }
 
-function Chip({ tekst, wybrany, onPress, testID, onLayout }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string; onLayout?: (x: number) => void }) {
+function Chip({ tekst, wybrany, onPress, testID, onLayout, nieaktywny }: { tekst: string; wybrany?: boolean; onPress: () => void; testID?: string; onLayout?: (x: number) => void; nieaktywny?: boolean }) {
   return (
     <Pressable
       testID={testID}
       onLayout={onLayout ? (e) => onLayout(e.nativeEvent.layout.x) : undefined}
       accessibilityRole="button"
-      accessibilityState={wybrany === undefined ? undefined : { selected: wybrany }}
+      accessibilityState={nieaktywny ? { disabled: true } : wybrany === undefined ? undefined : { selected: wybrany }}
+      disabled={nieaktywny}
       onPress={onPress}
-      style={[styles.chip, wybrany && styles.chipWybrany]}
+      style={[styles.chip, wybrany && styles.chipWybrany, nieaktywny && styles.chipNieaktywny]}
     >
       <Text style={[styles.chipTekst, wybrany && styles.chipTekstWybrany]}>{tekst}</Text>
     </Pressable>
@@ -96,15 +98,17 @@ export function TargetReadyCard({
   // Duży tekst (okolice AX1–AX5): dni zawijane zamiast przewijania w poziomie, żeby żaden nie wychodził poza ekran (PRZ-10)
   const zawijaj = fontScale >= 2;
   const rzadDni = useRef<ScrollView>(null);
-  const minus = <Chip tekst={t('{n} min', { n: -30 })} onPress={() => onAdjustTargetTime(-30)} />;
-  const plus = <Chip tekst={t('{n} min', { n: '+30' })} onPress={() => onAdjustTargetTime(30)} />;
+  // Zmiana, która wyszłaby poza dni planu (przed dziś albo za ostatni chip dnia, D-108), jest nieaktywna (N1)
+  const poza = (delta: number) => przesunGotowe({ dayOffset: targetDayOffset, hour: targetHour, minute: targetMinute }, delta) === null;
+  const minus = <Chip tekst={t('{n} min', { n: -30 })} nieaktywny={poza(-30)} onPress={() => onAdjustTargetTime(-30)} />;
+  const plus = <Chip tekst={t('{n} min', { n: '+30' })} nieaktywny={poza(30)} onPress={() => onAdjustTargetTime(30)} />;
   // ±2 h obok ±30 min: 10:00 → 18:00 w 4 stuknięciach zamiast 16 (04-studio-projektowe-008 b, W-fix2); klucz istniejący
   const dwieGodziny = (
     <View style={styles.rzad}>
-      <Chip tekst={t('{n} godziny', { n: '-2' })} onPress={() => onAdjustTargetTime(-120)} />
+      <Chip tekst={t('{n} godziny', { n: '-2' })} nieaktywny={poza(-120)} onPress={() => onAdjustTargetTime(-120)} />
       {waski && minus}
       {waski && plus}
-      <Chip tekst={t('{n} godziny', { n: '+2' })} onPress={() => onAdjustTargetTime(120)} />
+      <Chip tekst={t('{n} godziny', { n: '+2' })} nieaktywny={poza(120)} onPress={() => onAdjustTargetTime(120)} />
     </View>
   );
   return (
@@ -218,6 +222,7 @@ const styles = StyleSheet.create({
   chipWybrany: { backgroundColor: theme.colors.akcent, borderColor: theme.colors.akcent },
   chipTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz },
   chipTekstWybrany: { color: theme.colors.naAkcencie, fontWeight: '600' },
+  chipNieaktywny: { opacity: 0.6 }, // stan nieaktywny jak w PaywallModal: brak tokenu (zgłoszenie do roli 04)
   naglowek: { fontSize: typografia.style.objasnienie.pt, fontWeight: '600', color: theme.colors.tusz, marginTop: odstepy.s, marginBottom: odstepy.s },
   zmianaCzasu: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.tusz2, marginBottom: odstepy.m },
   przypis: { fontSize: typografia.style.przypis.pt, color: theme.colors.tusz2 },

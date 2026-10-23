@@ -40,6 +40,7 @@ import { celGotowosci, stanZaPozno, tekstZaPozno } from '../../../src/lib/plan-z
 import { godzinaBezNocy, kolizjeKrokow, krokCzynnyWNocy } from '../../../src/lib/plan-bez-nocy';
 import { PlanZaPozno } from '../../../src/components/harmonogram/PlanZaPozno';
 import { atLocalTime } from '../../../src/core/dzien-lokalny';
+import { przesunGotowe } from '../../../src/lib/godzina-gotowe';
 
 import { typografia } from '../../../src/ui/tokeny';
 const MINUTA_MS = 60_000;
@@ -199,16 +200,13 @@ export default function HarmonogramScreen() {
     });
   }, [schedule.hasSleepCollision, targetDate, tempPlanu, coldRetardHours, sleepStartHour, sleepEndHour]);
 
-  // ±30 min do najbliższej pełnej lub połówkowej godziny w tym kierunku (np. 23:50 → 00:00 albo 23:30), bo pole
-  // „Kiedy chleb ma być gotowy?” nie ma już chipów godziny (128) [M1-audytor-generalny-128]
+  // ±30 min do pełnej lub połówkowej godziny, ±2 h wprost; przez północ zmienia się dzień (src/lib/godzina-gotowe.ts) [128, N1]
   const adjustTargetTime = (deltaMinutes: number) => {
-    const teraz = targetHour * 60 + targetMinute;
-    const krok = Math.abs(deltaMinutes);
-    let total = deltaMinutes > 0 ? Math.floor(teraz / krok) * krok + krok : Math.ceil(teraz / krok) * krok - krok;
-    if (total < 0) total += 24 * 60;
-    total = total % (24 * 60);
-    setTargetHour(Math.floor(total / 60));
-    setTargetMinute(total % 60);
+    const nowy = przesunGotowe({ dayOffset: targetDayOffset, hour: targetHour, minute: targetMinute }, deltaMinutes);
+    if (!nowy) return;
+    setTargetDayOffset(nowy.dayOffset);
+    setTargetHour(nowy.hour);
+    setTargetMinute(nowy.minute);
   };
 
   // Godzina w formacie regionu (PL 24 h, en-US 12 h; design-spec §7) [M1-audytor-generalny-096]
