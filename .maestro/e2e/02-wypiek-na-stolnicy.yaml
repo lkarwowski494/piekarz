@@ -1,8 +1,8 @@
 # Prawdziwe E2E na symulatorze iOS; elementy tylko po id, bez tekstów języka (M1-audytor-generalny-037, 07-jakosc-501).
 # Prawdziwe E2E na symulatorze iOS (M1-audytor-generalny-037, 07-jakosc-005).
 # Glowny przeplyw (D-051 2a, M1-audytor-generalny-101): Start -> zakladki Zakwasy i Dziennik -> Receptury ->
-# start wypieku -> prowadzenie bez paska zakladek -> nastepny krok; po ponownym uruchomieniu "Wroc do wypieku"
-# na Starcie jednym dotknieciem wraca do prowadzenia (F-58).
+# start wypieku -> prowadzenie bez paska zakladek -> nastepny krok; po ponownym uruchomieniu stukniecie w spirale
+# trwajacego wypieku na Dzis jednym dotknieciem wraca do prowadzenia (F-58, D-122).
 appId: com.apps4brew.baker
 ---
 - launchApp:
@@ -58,17 +58,16 @@ appId: com.apps4brew.baker
 - launchApp:
     permissions:
       notifications: allow
+# Powrot przez spirale trwajacego wypieku (spirala-otworz, D-122): na Dzis lezy nad paskiem zakladek (bounds
+# [91,544][311,764], tabbar od 791). "Wroc do wypieku" (resume-bake-btn) jest pod spirala poza ekranem (karta
+# start-trwa-wypiek do y 947 przy ekranie 874): czekanie na jego widocznosc padlo przed przewinieciem (przebieg
+# 39873090932, krok 20), a dotkniecie bez przewiniecia trafialo w pasek zakladek (przebieg 39863216388, krok 23).
 - extendedWaitUntil:
     visible:
-      id: "resume-bake-btn"
+      id: "spirala-otworz"
     timeout: 60000
-# "Wroc do wypieku" lezy na Dzis pod spirala (D4b, 220 pt), poza ekranem na symulatorze (bounds y 815-879 przy tabbarze od 791):
-# bez przewiniecia dotkniecie trafialo w pasek zakladek i flow zostawal na Dzis (przebieg 39863216388, krok 23).
-- scrollUntilVisible:
-    element:
-      id: "resume-bake-btn"
 - tapOn:
-    id: "resume-bake-btn"
+    id: "spirala-otworz"
 - extendedWaitUntil:
     visible:
       id: "next-or-finish-step-btn"
