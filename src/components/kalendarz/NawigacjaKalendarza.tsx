@@ -89,6 +89,8 @@ const styles = StyleSheet.create({
   dzisZwezany: { flexShrink: 1, maxWidth: '100%' },
   strzalka: { minWidth: theme.cele.pozostale, minHeight: theme.cele.pozostale, alignItems: 'center', justifyContent: 'center' },
   tytul: { flex: 1, fontSize: typografia.style.naglowek.pt, fontWeight: '600', color: theme.colors.naPasie, textAlign: 'center' },
-  dzis: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', paddingHorizontal: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2 },
+  // alignContent: przy flexWrap linia treści idzie według niego (domyślnie 'flex-start'), nie alignItems — bez niego tekst
+  // przy górnej krawędzi ramki 44 pt (PRZ-18, zrzut E2E 39873090932)
+  dzis: { flexDirection: 'row', flexWrap: 'wrap', gap: odstepy.xs, minHeight: theme.cele.pozostale, minWidth: theme.cele.pozostale, justifyContent: 'center', alignItems: 'center', alignContent: 'center', paddingHorizontal: odstepy.s, borderRadius: promienie.przycisk, borderWidth: 1.5, borderColor: theme.colors.naPasie2 },
   dzisTekst: { fontSize: typografia.style.objasnienie.pt, color: theme.colors.naPasie },
 });

@@ -66,4 +66,19 @@ describe('04-studio-projektowe-004: wiersz okresu kalendarza przy dużym tekści
     for (const id of ['kalendarz-poprzedni', 'kalendarz-tytul', 'kalendarz-dzis', 'kalendarz-tryb-miesiac']) expect(zawiera(r, host(tree.root, id))).toBe(true);
     act(() => tree.unmount());
   });
+
+  // PRZ-18 (zrzut E2E 39873090932, krok 21): „Month” przyklejony do górnej krawędzi ramki wyższej niż tekst. Przycisk ma
+  // flexWrap 'wrap' (zawijanie przy AX5) i minHeight 44: linia treści idzie wtedy według alignContent, a w React Native
+  // domyślnie to 'flex-start' (Yoga), więc alignItems/justifyContent jej nie centrują. Wyśrodkowanie w pionie: alignContent.
+  it.each([1, 3.1])('fontScale %f: „Dziś” i „Miesiąc” mają treść wyśrodkowaną w pionie przy minHeight 44', (fs) => {
+    Object.assign(mockOkno, { fontScale: fs });
+    const tree = render();
+    for (const id of ['kalendarz-dzis', 'kalendarz-tryb-miesiac']) {
+      const s = StyleSheet.flatten(host(tree.root, id).props.style);
+      expect(Number(s.minHeight)).toBeGreaterThanOrEqual(44);
+      expect({ id, justifyContent: s.justifyContent, alignItems: s.alignItems }).toEqual({ id, justifyContent: 'center', alignItems: 'center' });
+      if (s.flexWrap === 'wrap') expect({ id, alignContent: s.alignContent }).toEqual({ id, alignContent: 'center' });
+    }
+    act(() => tree.unmount());
+  });
 });
