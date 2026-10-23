@@ -6,8 +6,8 @@
 // i legendą). Pas zastępuje natywny duży tytuł: nagłówek stosu ukryty, pasek stanu jasny na pasie (naglowek.ts, a1).
 // ============================================================================
 
-import React, { useCallback, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
+import { Platform, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { t } from '../../../src/lib/i18n';
@@ -96,15 +96,30 @@ export default function StartScreen() {
     if (cel.rodzaj) ustawRodzajReceptur(cel.rodzaj);
     router.navigate(cel.trasa);
   };
+  // Arkusz planu z arkusza dnia dopiero po zniknięciu arkusza dnia (onDismiss, iOS; poza iOS od razu): dwa pageSheety
+  // naraz iOS pokazuje zawodnie (D-117) [weryfikacja W N3]
+  const poArkuszuDnia = useRef<(() => void) | null>(null);
+  const poZamknieciuDnia = () => {
+    const otworz = poArkuszuDnia.current;
+    poArkuszuDnia.current = null;
+    otworz?.();
+    proDnia.poZamknieciu();
+  };
   // Przejście z arkusza dnia do źródła: trwający wypiek → jego Stolnica, zakwas → karta zakwasu, wpis → Dziennik
   const przejdz = (z: ZdarzenieKalendarza) => {
     setArkusz(null);
-    if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) plany.otworz(z.zrodlo.id);
-    else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
+    if (z.zrodlo.typ === 'wypiek' && z.zaplanowany) {
+      const id = z.zrodlo.id;
+      if (Platform.OS === 'ios') poArkuszuDnia.current = () => plany.otworz(id);
+      else plany.otworz(id);
+    } else if (z.zrodlo.typ === 'wypiek') otworzWypiek(z.zrodlo.id);
     else if (z.zrodlo.typ === 'zakwas') router.navigate('/zakwasy');
     // Wpis Dziennika: ten wpis wyróżniony i przewinięty (BR-KAL-013) [M3 D7]
     else if (z.zrodlo.typ === 'dziennik') router.navigate({ pathname: '/dziennik', params: { wpis: z.zrodlo.id } });
   };
+  // „Otwórz” przy zaległym kroku wypieku albo starcie planu w arkuszu dnia działa jak wiersz arkusza (`przejdz`): najpierw
+  // zamknięcie arkusza dnia; karmienie „Zrobione” zostaje w arkuszu [N3]
+  const akcjeArkusza = { ...akcje, onZrobione: (z: ZdarzenieKalendarza) => (z.zrodlo.typ === 'wypiek' ? przejdz(z) : akcje.onZrobione(z)) };
 
   const o = { now: kal.now, wieleWypiekow: kal.wypieki.length > 1 };
   const teksty = tekstyNastepne(kal.linia, o);
@@ -159,8 +174,8 @@ export default function StartScreen() {
           )}
         </View>
       </ScrollView>
-      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcje} onPrzejdz={przejdz} onClose={() => setArkusz(null)}
-        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={proDnia.poZamknieciu} />
+      <ArkuszDnia tryb={arkusz} zdarzenia={kal.zdarzenia} o={o} akcje={akcjeArkusza} onPrzejdz={przejdz} onClose={() => { poArkuszuDnia.current = null; setArkusz(null); }}
+        liczbaPlanow={dane.plany.length} onZaplanuj={zaplanujNaDzien} zaplanujPro={!moze('plany-przyszle')} onDismiss={poZamknieciuDnia} />
       <ArkuszPlanu plan={planOtwarty} teraz={Date.now()} onZacznij={plany.zacznij} onUsun={plany.usun} onClose={plany.zamknij}
         onPro={plany.pro} onDismiss={plany.poZamknieciu} />
       <SettingsModal visible={ustawienia} onClose={() => setUstawienia(false)} />
